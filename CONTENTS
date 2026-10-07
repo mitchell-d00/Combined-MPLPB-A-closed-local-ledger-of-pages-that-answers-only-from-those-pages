@@ -1,0 +1,54 @@
+Combined MPLPB — master repository
+MPLPB-COMBINED-017 v3 (draft for owner review) · 2026-10-07
+
+README.md                 start here
+LICENSE                   MIT for code, CC BY 4.0 for documentation
+pyproject.toml            optional install; nothing needs it
+CONTENTS                  this file
+
+mplpb_combined/           the package: standard library only, no network
+  record.py               the page format, parsing, the hash
+  ledger.py               crawl, status, lineage, depth, validation, writing, the log
+  reader.py               the answer rule, profiles, hubs
+  killtest.py             the kill test harness
+  __main__.py             command line
+
+tests/                    106 tests; python3 -m unittest discover -s tests -t .
+
+examples/
+  studio/                 25 pages; the kill-test corpus
+  spec/                   the format, described as 10 pages in the format
+  hub/                    2 pointers, one at each corpus above
+
+killtest/
+  probes.json             56 questions; the first set, now a development set
+  probes.sha256           hash recorded before the first run; unchanged
+  results.txt / .json     the fixed reader on the first set
+  probes_heldout.json     30 questions written after the fix, before running it on them
+  probes_heldout.sha256   their hash
+  results_heldout.*       the current reader on the held-out set
+  probes_adjacent.json    20 questions written for the not-for field, run once
+  probes_adjacent.sha256  their hash
+  results_adjacent.*      the current reader on the adjacent set
+  v1/                     the first reader and its results, kept
+  v2/                     the second reader and its results, kept
+
+docs/
+  Combined_MPLPB.md       the paper (source of record)
+  Combined_MPLPB.txt      the same, plain text
+  Combined_MPLPB.pdf      the same
+  FIXLOG.md               each error, its cause, its fix, and the rerun
+  superseded/             the v1 and v2 papers
+  sources/                the formula as given; MPLPB-COST-012 v2; the collected manuscript
+
+parts/                    the five earlier implementations, whole; see parts/README.md
+  local-mirror/           MPLPB-LOCAL-008 v4
+  smart-local/            MPLPB-SMART-011 v1
+  swarm/                  MPLPB-SWARM-013 v3
+  networked/              Networked MPLPB
+  image/                  MPLPB-IMAGE-016 v2
+
+tools/
+  build_examples.py       rebuild examples/ byte for byte
+  check_parts.py          run every part's tests; adopt each part's example site
+  make_paper.py           render the paper to .txt (stdlib) and .pdf (needs reportlab)
