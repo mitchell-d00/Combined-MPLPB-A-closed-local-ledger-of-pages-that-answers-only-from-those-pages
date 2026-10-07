@@ -1,0 +1,518 @@
+{
+  "corpus": "examples/studio",
+  "probes": "killtest/probes_adjacent.json",
+  "probe_hash": "OK",
+  "profile": {
+    "name": "internal",
+    "max_depth": 1,
+    "prose": true
+  },
+  "pages": {
+    "scoped_current": 21,
+    "stripped": 25
+  },
+  "n": 20,
+  "classes": {
+    "adjacent": {
+      "n": 12,
+      "scoped": {
+        "correct": 7,
+        "wrong_return": 3,
+        "wrong_refusal": 2
+      },
+      "stripped": {
+        "correct": 11,
+        "wrong_return": 0,
+        "wrong_refusal": 1
+      },
+      "top1": {
+        "correct": 0,
+        "wrong_return": 12,
+        "wrong_refusal": 0
+      },
+      "circular": [
+        "stripped",
+        "top1"
+      ],
+      "note": "about a covered subject, from an angle no page covers; not-for is one of the stripped fields",
+      "void": false
+    },
+    "covered": {
+      "n": 8,
+      "scoped": {
+        "correct": 8,
+        "wrong_return": 0,
+        "wrong_refusal": 0
+      },
+      "stripped": {
+        "correct": 4,
+        "wrong_return": 0,
+        "wrong_refusal": 4
+      },
+      "top1": {
+        "correct": 5,
+        "wrong_return": 3,
+        "wrong_refusal": 0
+      },
+      "circular": [],
+      "note": "questions the pages do answer; measures what not-for costs",
+      "void": false
+    }
+  },
+  "scope_only": {
+    "correct": 15,
+    "wrong_return": 3,
+    "wrong_refusal": 2
+  },
+  "not_for_ignored": {
+    "correct": 12,
+    "wrong_return": 4,
+    "wrong_refusal": 4
+  },
+  "returns_by_step": {
+    "scope": 11,
+    "prose": 0
+  },
+  "rows": [
+    {
+      "id": "a01",
+      "class": "adjacent",
+      "q": "who can book the electric kiln",
+      "expect": "not_in_corpus",
+      "doc": null,
+      "scoped": {
+        "kind": "not_in_corpus",
+        "doc": null,
+        "score": "correct"
+      },
+      "stripped": {
+        "kind": "not_in_corpus",
+        "doc": null,
+        "score": "correct"
+      },
+      "top1": {
+        "kind": "return",
+        "doc": "STUDIO-0003",
+        "score": "wrong_return"
+      }
+    },
+    {
+      "id": "a02",
+      "class": "adjacent",
+      "q": "do I need training before using the gas kiln",
+      "expect": "not_in_corpus",
+      "doc": null,
+      "scoped": {
+        "kind": "not_in_corpus",
+        "doc": null,
+        "score": "correct"
+      },
+      "stripped": {
+        "kind": "not_in_corpus",
+        "doc": null,
+        "score": "correct"
+      },
+      "top1": {
+        "kind": "return",
+        "doc": "STUDIO-0004",
+        "score": "wrong_return"
+      }
+    },
+    {
+      "id": "a03",
+      "class": "adjacent",
+      "q": "how much is a glaze firing",
+      "expect": "not_in_corpus",
+      "doc": null,
+      "scoped": {
+        "kind": "ambiguous",
+        "doc": null,
+        "score": "wrong_refusal"
+      },
+      "stripped": {
+        "kind": "ambiguous",
+        "doc": null,
+        "score": "wrong_refusal"
+      },
+      "top1": {
+        "kind": "return",
+        "doc": "STUDIO-0022",
+        "score": "wrong_return"
+      }
+    },
+    {
+      "id": "a04",
+      "class": "adjacent",
+      "q": "how do I throw a cylinder on the wheel",
+      "expect": "not_in_corpus",
+      "doc": null,
+      "scoped": {
+        "kind": "return",
+        "doc": "STUDIO-0015",
+        "score": "wrong_return"
+      },
+      "stripped": {
+        "kind": "not_in_corpus",
+        "doc": null,
+        "score": "correct"
+      },
+      "top1": {
+        "kind": "return",
+        "doc": "STUDIO-0011",
+        "score": "wrong_return"
+      }
+    },
+    {
+      "id": "a05",
+      "class": "adjacent",
+      "q": "how do I attach a handle to a mug",
+      "expect": "not_in_corpus",
+      "doc": null,
+      "scoped": {
+        "kind": "not_in_corpus",
+        "doc": null,
+        "score": "correct"
+      },
+      "stripped": {
+        "kind": "not_in_corpus",
+        "doc": null,
+        "score": "correct"
+      },
+      "top1": {
+        "kind": "return",
+        "doc": "STUDIO-0016",
+        "score": "wrong_return"
+      }
+    },
+    {
+      "id": "a06",
+      "class": "adjacent",
+      "q": "where can I buy white stoneware clay",
+      "expect": "not_in_corpus",
+      "doc": null,
+      "scoped": {
+        "kind": "not_in_corpus",
+        "doc": null,
+        "score": "correct"
+      },
+      "stripped": {
+        "kind": "not_in_corpus",
+        "doc": null,
+        "score": "correct"
+      },
+      "top1": {
+        "kind": "return",
+        "doc": "STUDIO-0017",
+        "score": "wrong_return"
+      }
+    },
+    {
+      "id": "a07",
+      "class": "adjacent",
+      "q": "what glaze recipes do we use for cone 6",
+      "expect": "not_in_corpus",
+      "doc": null,
+      "scoped": {
+        "kind": "return",
+        "doc": "STUDIO-0004",
+        "score": "wrong_return"
+      },
+      "stripped": {
+        "kind": "not_in_corpus",
+        "doc": null,
+        "score": "correct"
+      },
+      "top1": {
+        "kind": "return",
+        "doc": "STUDIO-0022",
+        "score": "wrong_return"
+      }
+    },
+    {
+      "id": "a08",
+      "class": "adjacent",
+      "q": "how do I make a plaster mould",
+      "expect": "not_in_corpus",
+      "doc": null,
+      "scoped": {
+        "kind": "not_in_corpus",
+        "doc": null,
+        "score": "correct"
+      },
+      "stripped": {
+        "kind": "not_in_corpus",
+        "doc": null,
+        "score": "correct"
+      },
+      "top1": {
+        "kind": "return",
+        "doc": "STUDIO-0014",
+        "score": "wrong_return"
+      }
+    },
+    {
+      "id": "a09",
+      "class": "adjacent",
+      "q": "is the studio open on Sunday",
+      "expect": "not_in_corpus",
+      "doc": null,
+      "scoped": {
+        "kind": "not_in_corpus",
+        "doc": null,
+        "score": "correct"
+      },
+      "stripped": {
+        "kind": "not_in_corpus",
+        "doc": null,
+        "score": "correct"
+      },
+      "top1": {
+        "kind": "return",
+        "doc": "STUDIO-0019",
+        "score": "wrong_return"
+      }
+    },
+    {
+      "id": "a10",
+      "class": "adjacent",
+      "q": "how hot does the kiln room get",
+      "expect": "not_in_corpus",
+      "doc": null,
+      "scoped": {
+        "kind": "return",
+        "doc": "STUDIO-0020",
+        "score": "wrong_return"
+      },
+      "stripped": {
+        "kind": "not_in_corpus",
+        "doc": null,
+        "score": "correct"
+      },
+      "top1": {
+        "kind": "return",
+        "doc": "STUDIO-0020",
+        "score": "wrong_return"
+      }
+    },
+    {
+      "id": "a11",
+      "class": "adjacent",
+      "q": "how do I trim a foot ring",
+      "expect": "not_in_corpus",
+      "doc": null,
+      "scoped": {
+        "kind": "not_in_corpus",
+        "doc": null,
+        "score": "correct"
+      },
+      "stripped": {
+        "kind": "not_in_corpus",
+        "doc": null,
+        "score": "correct"
+      },
+      "top1": {
+        "kind": "return",
+        "doc": "STUDIO-0010",
+        "score": "wrong_return"
+      }
+    },
+    {
+      "id": "a12",
+      "class": "adjacent",
+      "q": "can I fire my own clay from home",
+      "expect": "not_in_corpus",
+      "doc": null,
+      "scoped": {
+        "kind": "ambiguous",
+        "doc": null,
+        "score": "wrong_refusal"
+      },
+      "stripped": {
+        "kind": "not_in_corpus",
+        "doc": null,
+        "score": "correct"
+      },
+      "top1": {
+        "kind": "return",
+        "doc": "STUDIO-0017",
+        "score": "wrong_return"
+      }
+    },
+    {
+      "id": "c01",
+      "class": "covered",
+      "q": "glaze firing schedule for the gas kiln",
+      "expect": "return",
+      "doc": "STUDIO-0004",
+      "scoped": {
+        "kind": "return",
+        "doc": "STUDIO-0004",
+        "score": "correct"
+      },
+      "stripped": {
+        "kind": "return",
+        "doc": "STUDIO-0004",
+        "score": "correct"
+      },
+      "top1": {
+        "kind": "return",
+        "doc": "STUDIO-0004",
+        "score": "correct"
+      }
+    },
+    {
+      "id": "c02",
+      "class": "covered",
+      "q": "wedging before throwing on the wheel",
+      "expect": "return",
+      "doc": "STUDIO-0015",
+      "scoped": {
+        "kind": "return",
+        "doc": "STUDIO-0015",
+        "score": "correct"
+      },
+      "stripped": {
+        "kind": "not_in_corpus",
+        "doc": null,
+        "score": "wrong_refusal"
+      },
+      "top1": {
+        "kind": "return",
+        "doc": "STUDIO-0015",
+        "score": "correct"
+      }
+    },
+    {
+      "id": "c03",
+      "class": "covered",
+      "q": "handles pulling away while drying",
+      "expect": "return",
+      "doc": "STUDIO-0016",
+      "scoped": {
+        "kind": "return",
+        "doc": "STUDIO-0016",
+        "score": "correct"
+      },
+      "stripped": {
+        "kind": "not_in_corpus",
+        "doc": null,
+        "score": "wrong_refusal"
+      },
+      "top1": {
+        "kind": "return",
+        "doc": "STUDIO-0014",
+        "score": "wrong_return"
+      }
+    },
+    {
+      "id": "c04",
+      "class": "covered",
+      "q": "which clay is for sculpture",
+      "expect": "return",
+      "doc": "STUDIO-0017",
+      "scoped": {
+        "kind": "return",
+        "doc": "STUDIO-0017",
+        "score": "correct"
+      },
+      "stripped": {
+        "kind": "return",
+        "doc": "STUDIO-0017",
+        "score": "correct"
+      },
+      "top1": {
+        "kind": "return",
+        "doc": "STUDIO-0017",
+        "score": "correct"
+      }
+    },
+    {
+      "id": "c05",
+      "class": "covered",
+      "q": "drying slurry on plaster",
+      "expect": "return",
+      "doc": "STUDIO-0014",
+      "scoped": {
+        "kind": "return",
+        "doc": "STUDIO-0014",
+        "score": "correct"
+      },
+      "stripped": {
+        "kind": "return",
+        "doc": "STUDIO-0014",
+        "score": "correct"
+      },
+      "top1": {
+        "kind": "return",
+        "doc": "STUDIO-0014",
+        "score": "correct"
+      }
+    },
+    {
+      "id": "c06",
+      "class": "covered",
+      "q": "wax on the foot ring before dipping",
+      "expect": "return",
+      "doc": "STUDIO-0010",
+      "scoped": {
+        "kind": "return",
+        "doc": "STUDIO-0010",
+        "score": "correct"
+      },
+      "stripped": {
+        "kind": "return",
+        "doc": "STUDIO-0010",
+        "score": "correct"
+      },
+      "top1": {
+        "kind": "return",
+        "doc": "STUDIO-0010",
+        "score": "correct"
+      }
+    },
+    {
+      "id": "c07",
+      "class": "covered",
+      "q": "vent fan and smell during a firing",
+      "expect": "return",
+      "doc": "STUDIO-0020",
+      "scoped": {
+        "kind": "return",
+        "doc": "STUDIO-0020",
+        "score": "correct"
+      },
+      "stripped": {
+        "kind": "not_in_corpus",
+        "doc": null,
+        "score": "wrong_refusal"
+      },
+      "top1": {
+        "kind": "return",
+        "doc": "STUDIO-0017",
+        "score": "wrong_return"
+      }
+    },
+    {
+      "id": "c08",
+      "class": "covered",
+      "q": "bisque firing schedule in the electric kiln",
+      "expect": "return",
+      "doc": "STUDIO-0002",
+      "scoped": {
+        "kind": "return",
+        "doc": "STUDIO-0002",
+        "score": "correct"
+      },
+      "stripped": {
+        "kind": "not_in_corpus",
+        "doc": null,
+        "score": "wrong_refusal"
+      },
+      "top1": {
+        "kind": "return",
+        "doc": "STUDIO-0003",
+        "score": "wrong_return"
+      }
+    }
+  ]
+}

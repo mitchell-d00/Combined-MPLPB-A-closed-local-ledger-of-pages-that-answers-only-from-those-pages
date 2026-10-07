@@ -1,0 +1,48 @@
+{
+  "corpus": "examples/studio",
+  "profile": "internal",
+  "written": "2026-10-07, after the reader was changed and before it was run on any of these",
+  "classes": {
+    "owned-declared": {"circular": [], "note": "asked in the situation words a page declares"},
+    "owned-prose": {"circular": [], "note": "asked from the page's body"},
+    "ambiguous-true": {"circular": ["top1"], "note": "two current pages both answer"},
+    "retired-trap": {"circular": ["stripped", "top1"], "note": "the answer changed"},
+    "out-trap": {"circular": [], "note": "studio questions no page covers"}
+  },
+  "probes": [
+    {"id": "h01", "class": "owned-declared", "q": "glaze is running down the pot", "expect": "return", "doc": "STUDIO-0010"},
+    {"id": "h02", "class": "owned-declared", "q": "what should I do about lumpy clay", "expect": "return", "doc": "STUDIO-0015"},
+    {"id": "h03", "class": "owned-declared", "q": "is earthenware or stoneware better for sculpture", "expect": "return", "doc": "STUDIO-0017"},
+    {"id": "h04", "class": "owned-declared", "q": "my slurry is too wet", "expect": "return", "doc": "STUDIO-0014"},
+    {"id": "h05", "class": "owned-declared", "q": "error showing on the controller", "expect": "return", "doc": "STUDIO-0007"},
+    {"id": "h06", "class": "owned-declared", "q": "I touched a hot shelf", "expect": "return", "doc": "STUDIO-0021"},
+    {"id": "h07", "class": "owned-declared", "q": "bare patches after glazing", "expect": "return", "doc": "STUDIO-0010"},
+    {"id": "h08", "class": "owned-declared", "q": "fine cracks in the glaze after firing", "expect": "return", "doc": "STUDIO-0012"},
+
+    {"id": "h09", "class": "owned-prose", "q": "what mesh sieve should I use", "expect": "return", "doc": "STUDIO-0009"},
+    {"id": "h10", "class": "owned-prose", "q": "how many posts per shelf", "expect": "return", "doc": "STUDIO-0005"},
+    {"id": "h11", "class": "owned-prose", "q": "where does unmarked glaze go", "expect": "return", "doc": "STUDIO-0013"},
+    {"id": "h12", "class": "owned-prose", "q": "how deep should I spread slurry on the plaster batt", "expect": "return", "doc": "STUDIO-0014"},
+    {"id": "h13", "class": "owned-prose", "q": "how do I check the coat with a pin", "expect": "return", "doc": "STUDIO-0010"},
+    {"id": "h14", "class": "owned-prose", "q": "when do spy hole bungs go back in", "expect": "return", "doc": "STUDIO-0020"},
+    {"id": "h15", "class": "owned-prose", "q": "what size burn needs the minor injuries unit", "expect": "return", "doc": "STUDIO-0021"},
+    {"id": "h16", "class": "owned-prose", "q": "which bodies must be kept in separate buckets", "expect": "return", "doc": "STUDIO-0014"},
+
+    {"id": "h17", "class": "ambiguous-true", "q": "stoneware top temperature", "expect": "ambiguous"},
+    {"id": "h18", "class": "ambiguous-true", "q": "how thick to coat", "expect": "ambiguous"},
+    {"id": "h19", "class": "ambiguous-true", "q": "second firing", "expect": "ambiguous"},
+
+    {"id": "h20", "class": "retired-trap", "q": "how do I control dust", "expect": "return", "doc": "STUDIO-0019"},
+    {"id": "h21", "class": "retired-trap", "q": "what temperature for bisque", "expect": "return", "doc": "STUDIO-0002"},
+    {"id": "h22", "class": "retired-trap", "q": "weighing out a glaze recipe", "expect": "return", "doc": "STUDIO-0009"},
+
+    {"id": "h23", "class": "out-trap", "q": "how much does a bag of clay cost", "expect": "not_in_corpus"},
+    {"id": "h24", "class": "out-trap", "q": "who is allowed to use the gas kiln", "expect": "not_in_corpus"},
+    {"id": "h25", "class": "out-trap", "q": "how do I center clay on the wheel", "expect": "not_in_corpus"},
+    {"id": "h26", "class": "out-trap", "q": "what glaze colours do we have", "expect": "not_in_corpus"},
+    {"id": "h27", "class": "out-trap", "q": "how do I sign up for a throwing class", "expect": "not_in_corpus"},
+    {"id": "h28", "class": "out-trap", "q": "can children use the studio", "expect": "not_in_corpus"},
+    {"id": "h29", "class": "out-trap", "q": "how do I pull a handle", "expect": "not_in_corpus"},
+    {"id": "h30", "class": "out-trap", "q": "what is the opening time on Saturday", "expect": "not_in_corpus"}
+  ]
+}

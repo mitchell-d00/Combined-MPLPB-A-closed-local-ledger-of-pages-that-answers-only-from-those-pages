@@ -1,0 +1,1441 @@
+{
+  "corpus": "examples/studio",
+  "probes": "killtest/probes.json",
+  "probe_hash": "OK",
+  "profile": {
+    "name": "internal",
+    "max_depth": 1,
+    "prose": true
+  },
+  "pages": {
+    "scoped_current": 21,
+    "stripped": 25
+  },
+  "n": 56,
+  "classes": {
+    "owned-declared": {
+      "n": 10,
+      "scoped": {
+        "correct": 10,
+        "wrong_return": 0,
+        "wrong_refusal": 0
+      },
+      "stripped": {
+        "correct": 1,
+        "wrong_return": 0,
+        "wrong_refusal": 9
+      },
+      "top1": {
+        "correct": 1,
+        "wrong_return": 9,
+        "wrong_refusal": 0
+      },
+      "circular": [],
+      "note": "asked in the situation words a page declares",
+      "void": false
+    },
+    "owned-prose": {
+      "n": 8,
+      "scoped": {
+        "correct": 7,
+        "wrong_return": 0,
+        "wrong_refusal": 1
+      },
+      "stripped": {
+        "correct": 7,
+        "wrong_return": 0,
+        "wrong_refusal": 1
+      },
+      "top1": {
+        "correct": 8,
+        "wrong_return": 0,
+        "wrong_refusal": 0
+      },
+      "circular": [],
+      "note": "asked from the page's body by someone who half-remembers it",
+      "void": false
+    },
+    "owned-mixed": {
+      "n": 8,
+      "scoped": {
+        "correct": 5,
+        "wrong_return": 0,
+        "wrong_refusal": 3
+      },
+      "stripped": {
+        "correct": 0,
+        "wrong_return": 0,
+        "wrong_refusal": 8
+      },
+      "top1": {
+        "correct": 1,
+        "wrong_return": 7,
+        "wrong_refusal": 0
+      },
+      "circular": [],
+      "note": "a declared situation plus words no page declares",
+      "void": false
+    },
+    "ambiguous-true": {
+      "n": 6,
+      "scoped": {
+        "correct": 6,
+        "wrong_return": 0,
+        "wrong_refusal": 0
+      },
+      "stripped": {
+        "correct": 1,
+        "wrong_return": 2,
+        "wrong_refusal": 3
+      },
+      "top1": {
+        "correct": 0,
+        "wrong_return": 6,
+        "wrong_refusal": 0
+      },
+      "circular": [
+        "top1"
+      ],
+      "note": "two current pages both answer; top1 has no way to say so",
+      "void": false
+    },
+    "retired-trap": {
+      "n": 6,
+      "scoped": {
+        "correct": 6,
+        "wrong_return": 0,
+        "wrong_refusal": 0
+      },
+      "stripped": {
+        "correct": 0,
+        "wrong_return": 1,
+        "wrong_refusal": 5
+      },
+      "top1": {
+        "correct": 1,
+        "wrong_return": 5,
+        "wrong_refusal": 0
+      },
+      "circular": [
+        "stripped",
+        "top1"
+      ],
+      "note": "the answer changed; status is one of the stripped fields",
+      "void": false
+    },
+    "withheld": {
+      "n": 2,
+      "scoped": {
+        "correct": 2,
+        "wrong_return": 0,
+        "wrong_refusal": 0
+      },
+      "stripped": {
+        "correct": 1,
+        "wrong_return": 1,
+        "wrong_refusal": 0
+      },
+      "top1": {
+        "correct": 0,
+        "wrong_return": 2,
+        "wrong_refusal": 0
+      },
+      "circular": [
+        "stripped",
+        "top1"
+      ],
+      "note": "the only owner is depth 2; depth is one of the stripped fields",
+      "void": false
+    },
+    "out-clean": {
+      "n": 6,
+      "scoped": {
+        "correct": 6,
+        "wrong_return": 0,
+        "wrong_refusal": 0
+      },
+      "stripped": {
+        "correct": 6,
+        "wrong_return": 0,
+        "wrong_refusal": 0
+      },
+      "top1": {
+        "correct": 5,
+        "wrong_return": 1,
+        "wrong_refusal": 0
+      },
+      "circular": [],
+      "note": "nothing to do with the corpus",
+      "void": true
+    },
+    "out-trap": {
+      "n": 10,
+      "scoped": {
+        "correct": 8,
+        "wrong_return": 0,
+        "wrong_refusal": 2
+      },
+      "stripped": {
+        "correct": 10,
+        "wrong_return": 0,
+        "wrong_refusal": 0
+      },
+      "top1": {
+        "correct": 0,
+        "wrong_return": 10,
+        "wrong_refusal": 0
+      },
+      "circular": [],
+      "note": "studio questions no page covers, sharing ordinary words with pages that exist",
+      "void": true
+    }
+  },
+  "scope_only": {
+    "correct": 43,
+    "wrong_return": 0,
+    "wrong_refusal": 13
+  },
+  "not_for_ignored": {
+    "correct": 50,
+    "wrong_return": 0,
+    "wrong_refusal": 6
+  },
+  "returns_by_step": {
+    "scope": 21,
+    "prose": 7
+  },
+  "rows": [
+    {
+      "id": "od01",
+      "class": "owned-declared",
+      "q": "how fast should I heat raw clay on its first firing",
+      "expect": "return",
+      "doc": "STUDIO-0002",
+      "scoped": {
+        "kind": "return",
+        "doc": "STUDIO-0002",
+        "score": "correct"
+      },
+      "stripped": {
+        "kind": "not_in_corpus",
+        "doc": null,
+        "score": "wrong_refusal"
+      },
+      "top1": {
+        "kind": "return",
+        "doc": "STUDIO-0017",
+        "score": "wrong_return"
+      }
+    },
+    {
+      "id": "od02",
+      "class": "owned-declared",
+      "q": "the glaze pulled away from the pot",
+      "expect": "return",
+      "doc": "STUDIO-0012",
+      "scoped": {
+        "kind": "return",
+        "doc": "STUDIO-0012",
+        "score": "correct"
+      },
+      "stripped": {
+        "kind": "not_in_corpus",
+        "doc": null,
+        "score": "wrong_refusal"
+      },
+      "top1": {
+        "kind": "return",
+        "doc": "STUDIO-0011",
+        "score": "wrong_return"
+      }
+    },
+    {
+      "id": "od03",
+      "class": "owned-declared",
+      "q": "I found an unlabelled bucket",
+      "expect": "return",
+      "doc": "STUDIO-0013",
+      "scoped": {
+        "kind": "return",
+        "doc": "STUDIO-0013",
+        "score": "correct"
+      },
+      "stripped": {
+        "kind": "not_in_corpus",
+        "doc": null,
+        "score": "wrong_refusal"
+      },
+      "top1": {
+        "kind": "return",
+        "doc": "STUDIO-0014",
+        "score": "wrong_return"
+      }
+    },
+    {
+      "id": "od04",
+      "class": "owned-declared",
+      "q": "do I need a mask or respirator when sweeping the studio",
+      "expect": "return",
+      "doc": "STUDIO-0019",
+      "scoped": {
+        "kind": "return",
+        "doc": "STUDIO-0019",
+        "score": "correct"
+      },
+      "stripped": {
+        "kind": "not_in_corpus",
+        "doc": null,
+        "score": "wrong_refusal"
+      },
+      "top1": {
+        "kind": "return",
+        "doc": "STUDIO-0018",
+        "score": "wrong_return"
+      }
+    },
+    {
+      "id": "od05",
+      "class": "owned-declared",
+      "q": "air bubbles in my clay before throwing",
+      "expect": "return",
+      "doc": "STUDIO-0015",
+      "scoped": {
+        "kind": "return",
+        "doc": "STUDIO-0015",
+        "score": "correct"
+      },
+      "stripped": {
+        "kind": "not_in_corpus",
+        "doc": null,
+        "score": "wrong_refusal"
+      },
+      "top1": {
+        "kind": "return",
+        "doc": "STUDIO-0014",
+        "score": "wrong_return"
+      }
+    },
+    {
+      "id": "od06",
+      "class": "owned-declared",
+      "q": "there is a smell while firing",
+      "expect": "return",
+      "doc": "STUDIO-0020",
+      "scoped": {
+        "kind": "return",
+        "doc": "STUDIO-0020",
+        "score": "correct"
+      },
+      "stripped": {
+        "kind": "not_in_corpus",
+        "doc": null,
+        "score": "wrong_refusal"
+      },
+      "top1": {
+        "kind": "return",
+        "doc": "STUDIO-0017",
+        "score": "wrong_return"
+      }
+    },
+    {
+      "id": "od07",
+      "class": "owned-declared",
+      "q": "how close can pieces sit when stacking",
+      "expect": "return",
+      "doc": "STUDIO-0005",
+      "scoped": {
+        "kind": "return",
+        "doc": "STUDIO-0005",
+        "score": "correct"
+      },
+      "stripped": {
+        "kind": "not_in_corpus",
+        "doc": null,
+        "score": "wrong_refusal"
+      },
+      "top1": {
+        "kind": "return",
+        "doc": "STUDIO-0016",
+        "score": "wrong_return"
+      }
+    },
+    {
+      "id": "od08",
+      "class": "owned-declared",
+      "q": "which clay for cone 6",
+      "expect": "return",
+      "doc": "STUDIO-0017",
+      "scoped": {
+        "kind": "return",
+        "doc": "STUDIO-0017",
+        "score": "correct"
+      },
+      "stripped": {
+        "kind": "return",
+        "doc": "STUDIO-0017",
+        "score": "correct"
+      },
+      "top1": {
+        "kind": "return",
+        "doc": "STUDIO-0017",
+        "score": "correct"
+      }
+    },
+    {
+      "id": "od09",
+      "class": "owned-declared",
+      "q": "kiln slow to climb and not reaching temperature",
+      "expect": "return",
+      "doc": "STUDIO-0007",
+      "scoped": {
+        "kind": "return",
+        "doc": "STUDIO-0007",
+        "score": "correct"
+      },
+      "stripped": {
+        "kind": "not_in_corpus",
+        "doc": null,
+        "score": "wrong_refusal"
+      },
+      "top1": {
+        "kind": "return",
+        "doc": "STUDIO-0003",
+        "score": "wrong_return"
+      }
+    },
+    {
+      "id": "od10",
+      "class": "owned-declared",
+      "q": "handles pulling away and cracks while drying",
+      "expect": "return",
+      "doc": "STUDIO-0016",
+      "scoped": {
+        "kind": "return",
+        "doc": "STUDIO-0016",
+        "score": "correct"
+      },
+      "stripped": {
+        "kind": "not_in_corpus",
+        "doc": null,
+        "score": "wrong_refusal"
+      },
+      "top1": {
+        "kind": "return",
+        "doc": "STUDIO-0014",
+        "score": "wrong_return"
+      }
+    },
+    {
+      "id": "op01",
+      "class": "owned-prose",
+      "q": "how long do I candle the burners",
+      "expect": "return",
+      "doc": "STUDIO-0004",
+      "scoped": {
+        "kind": "return",
+        "doc": "STUDIO-0004",
+        "score": "correct"
+      },
+      "stripped": {
+        "kind": "return",
+        "doc": "STUDIO-0004",
+        "score": "correct"
+      },
+      "top1": {
+        "kind": "return",
+        "doc": "STUDIO-0004",
+        "score": "correct"
+      }
+    },
+    {
+      "id": "op02",
+      "class": "owned-prose",
+      "q": "what does it mean if the guard has gone over",
+      "expect": "return",
+      "doc": "STUDIO-0006",
+      "scoped": {
+        "kind": "not_in_corpus",
+        "doc": null,
+        "score": "wrong_refusal"
+      },
+      "stripped": {
+        "kind": "not_in_corpus",
+        "doc": null,
+        "score": "wrong_refusal"
+      },
+      "top1": {
+        "kind": "return",
+        "doc": "STUDIO-0006",
+        "score": "correct"
+      }
+    },
+    {
+      "id": "op03",
+      "class": "owned-prose",
+      "q": "how often should I measure resistance with a multimeter",
+      "expect": "return",
+      "doc": "STUDIO-0007",
+      "scoped": {
+        "kind": "return",
+        "doc": "STUDIO-0007",
+        "score": "correct"
+      },
+      "stripped": {
+        "kind": "return",
+        "doc": "STUDIO-0007",
+        "score": "correct"
+      },
+      "top1": {
+        "kind": "return",
+        "doc": "STUDIO-0007",
+        "score": "correct"
+      }
+    },
+    {
+      "id": "op04",
+      "class": "owned-prose",
+      "q": "how long should powders slake before stirring",
+      "expect": "return",
+      "doc": "STUDIO-0009",
+      "scoped": {
+        "kind": "return",
+        "doc": "STUDIO-0009",
+        "score": "correct"
+      },
+      "stripped": {
+        "kind": "return",
+        "doc": "STUDIO-0009",
+        "score": "correct"
+      },
+      "top1": {
+        "kind": "return",
+        "doc": "STUDIO-0009",
+        "score": "correct"
+      }
+    },
+    {
+      "id": "op05",
+      "class": "owned-prose",
+      "q": "how much Epsom salt solution",
+      "expect": "return",
+      "doc": "STUDIO-0013",
+      "scoped": {
+        "kind": "return",
+        "doc": "STUDIO-0013",
+        "score": "correct"
+      },
+      "stripped": {
+        "kind": "return",
+        "doc": "STUDIO-0013",
+        "score": "correct"
+      },
+      "top1": {
+        "kind": "return",
+        "doc": "STUDIO-0013",
+        "score": "correct"
+      }
+    },
+    {
+      "id": "op06",
+      "class": "owned-prose",
+      "q": "ram's head or spiral",
+      "expect": "return",
+      "doc": "STUDIO-0015",
+      "scoped": {
+        "kind": "return",
+        "doc": "STUDIO-0015",
+        "score": "correct"
+      },
+      "stripped": {
+        "kind": "return",
+        "doc": "STUDIO-0015",
+        "score": "correct"
+      },
+      "top1": {
+        "kind": "return",
+        "doc": "STUDIO-0015",
+        "score": "correct"
+      }
+    },
+    {
+      "id": "op07",
+      "class": "owned-prose",
+      "q": "what is bag code CR for",
+      "expect": "return",
+      "doc": "STUDIO-0017",
+      "scoped": {
+        "kind": "return",
+        "doc": "STUDIO-0017",
+        "score": "correct"
+      },
+      "stripped": {
+        "kind": "return",
+        "doc": "STUDIO-0017",
+        "score": "correct"
+      },
+      "top1": {
+        "kind": "return",
+        "doc": "STUDIO-0017",
+        "score": "correct"
+      }
+    },
+    {
+      "id": "op08",
+      "class": "owned-prose",
+      "q": "how long under cool running water",
+      "expect": "return",
+      "doc": "STUDIO-0021",
+      "scoped": {
+        "kind": "return",
+        "doc": "STUDIO-0021",
+        "score": "correct"
+      },
+      "stripped": {
+        "kind": "return",
+        "doc": "STUDIO-0021",
+        "score": "correct"
+      },
+      "top1": {
+        "kind": "return",
+        "doc": "STUDIO-0021",
+        "score": "correct"
+      }
+    },
+    {
+      "id": "om01",
+      "class": "owned-mixed",
+      "q": "my glaze has small holes in the fired surface after the last load, what went wrong",
+      "expect": "return",
+      "doc": "STUDIO-0012",
+      "scoped": {
+        "kind": "return",
+        "doc": "STUDIO-0012",
+        "score": "correct"
+      },
+      "stripped": {
+        "kind": "not_in_corpus",
+        "doc": null,
+        "score": "wrong_refusal"
+      },
+      "top1": {
+        "kind": "return",
+        "doc": "STUDIO-0022",
+        "score": "wrong_return"
+      }
+    },
+    {
+      "id": "om02",
+      "class": "owned-mixed",
+      "q": "is it safe to stay in the room with a hot kiln overnight",
+      "expect": "return",
+      "doc": "STUDIO-0020",
+      "scoped": {
+        "kind": "return",
+        "doc": "STUDIO-0020",
+        "score": "correct"
+      },
+      "stripped": {
+        "kind": "not_in_corpus",
+        "doc": null,
+        "score": "wrong_refusal"
+      },
+      "top1": {
+        "kind": "return",
+        "doc": "STUDIO-0020",
+        "score": "correct"
+      }
+    },
+    {
+      "id": "om03",
+      "class": "owned-mixed",
+      "q": "the coils are sagging badly near the bottom of the chamber",
+      "expect": "return",
+      "doc": "STUDIO-0007",
+      "scoped": {
+        "kind": "not_in_corpus",
+        "doc": null,
+        "score": "wrong_refusal"
+      },
+      "stripped": {
+        "kind": "not_in_corpus",
+        "doc": null,
+        "score": "wrong_refusal"
+      },
+      "top1": {
+        "kind": "return",
+        "doc": "STUDIO-0009",
+        "score": "wrong_return"
+      }
+    },
+    {
+      "id": "om04",
+      "class": "owned-mixed",
+      "q": "can I recycle my trimmings from yesterday's session",
+      "expect": "return",
+      "doc": "STUDIO-0014",
+      "scoped": {
+        "kind": "not_in_corpus",
+        "doc": null,
+        "score": "wrong_refusal"
+      },
+      "stripped": {
+        "kind": "not_in_corpus",
+        "doc": null,
+        "score": "wrong_refusal"
+      },
+      "top1": {
+        "kind": "return",
+        "doc": "STUDIO-0018",
+        "score": "wrong_return"
+      }
+    },
+    {
+      "id": "om05",
+      "class": "owned-mixed",
+      "q": "what gloves should I wear for unloading a warm kiln",
+      "expect": "return",
+      "doc": "STUDIO-0021",
+      "scoped": {
+        "kind": "return",
+        "doc": "STUDIO-0021",
+        "score": "correct"
+      },
+      "stripped": {
+        "kind": "not_in_corpus",
+        "doc": null,
+        "score": "wrong_refusal"
+      },
+      "top1": {
+        "kind": "return",
+        "doc": "STUDIO-0015",
+        "score": "wrong_return"
+      }
+    },
+    {
+      "id": "om06",
+      "class": "owned-mixed",
+      "q": "how much water to add when weighing out a recipe for a celadon",
+      "expect": "return",
+      "doc": "STUDIO-0009",
+      "scoped": {
+        "kind": "return",
+        "doc": "STUDIO-0009",
+        "score": "correct"
+      },
+      "stripped": {
+        "kind": "not_in_corpus",
+        "doc": null,
+        "score": "wrong_refusal"
+      },
+      "top1": {
+        "kind": "return",
+        "doc": "STUDIO-0008",
+        "score": "wrong_return"
+      }
+    },
+    {
+      "id": "om07",
+      "class": "owned-mixed",
+      "q": "my bent cone looks wrong, did the firing reach temperature",
+      "expect": "return",
+      "doc": "STUDIO-0006",
+      "scoped": {
+        "kind": "return",
+        "doc": "STUDIO-0006",
+        "score": "correct"
+      },
+      "stripped": {
+        "kind": "not_in_corpus",
+        "doc": null,
+        "score": "wrong_refusal"
+      },
+      "top1": {
+        "kind": "return",
+        "doc": "STUDIO-0017",
+        "score": "wrong_return"
+      }
+    },
+    {
+      "id": "om08",
+      "class": "owned-mixed",
+      "q": "should I be covering my teapot with plastic over the weekend",
+      "expect": "return",
+      "doc": "STUDIO-0016",
+      "scoped": {
+        "kind": "not_in_corpus",
+        "doc": null,
+        "score": "wrong_refusal"
+      },
+      "stripped": {
+        "kind": "not_in_corpus",
+        "doc": null,
+        "score": "wrong_refusal"
+      },
+      "top1": {
+        "kind": "return",
+        "doc": "STUDIO-0021",
+        "score": "wrong_return"
+      }
+    },
+    {
+      "id": "at01",
+      "class": "ambiguous-true",
+      "q": "what is the glaze firing schedule for cone 6",
+      "expect": "ambiguous",
+      "doc": null,
+      "scoped": {
+        "kind": "ambiguous",
+        "doc": null,
+        "score": "correct"
+      },
+      "stripped": {
+        "kind": "ambiguous",
+        "doc": null,
+        "score": "correct"
+      },
+      "top1": {
+        "kind": "return",
+        "doc": "STUDIO-0003",
+        "score": "wrong_return"
+      }
+    },
+    {
+      "id": "at02",
+      "class": "ambiguous-true",
+      "q": "what is the top temperature for stoneware",
+      "expect": "ambiguous",
+      "doc": null,
+      "scoped": {
+        "kind": "ambiguous",
+        "doc": null,
+        "score": "correct"
+      },
+      "stripped": {
+        "kind": "not_in_corpus",
+        "doc": null,
+        "score": "wrong_refusal"
+      },
+      "top1": {
+        "kind": "return",
+        "doc": "STUDIO-0017",
+        "score": "wrong_return"
+      }
+    },
+    {
+      "id": "at03",
+      "class": "ambiguous-true",
+      "q": "schedule for the second firing",
+      "expect": "ambiguous",
+      "doc": null,
+      "scoped": {
+        "kind": "ambiguous",
+        "doc": null,
+        "score": "correct"
+      },
+      "stripped": {
+        "kind": "not_in_corpus",
+        "doc": null,
+        "score": "wrong_refusal"
+      },
+      "top1": {
+        "kind": "return",
+        "doc": "STUDIO-0001",
+        "score": "wrong_return"
+      }
+    },
+    {
+      "id": "at04",
+      "class": "ambiguous-true",
+      "q": "how thick should I coat bisque",
+      "expect": "ambiguous",
+      "doc": null,
+      "scoped": {
+        "kind": "ambiguous",
+        "doc": null,
+        "score": "correct"
+      },
+      "stripped": {
+        "kind": "return",
+        "doc": "STUDIO-0012",
+        "score": "wrong_return"
+      },
+      "top1": {
+        "kind": "return",
+        "doc": "STUDIO-0012",
+        "score": "wrong_return"
+      }
+    },
+    {
+      "id": "at05",
+      "class": "ambiguous-true",
+      "q": "firing glazed pots",
+      "expect": "ambiguous",
+      "doc": null,
+      "scoped": {
+        "kind": "ambiguous",
+        "doc": null,
+        "score": "correct"
+      },
+      "stripped": {
+        "kind": "not_in_corpus",
+        "doc": null,
+        "score": "wrong_refusal"
+      },
+      "top1": {
+        "kind": "return",
+        "doc": "STUDIO-0022",
+        "score": "wrong_return"
+      }
+    },
+    {
+      "id": "at06",
+      "class": "ambiguous-true",
+      "q": "how thick should the glaze coat be",
+      "expect": "ambiguous",
+      "doc": null,
+      "scoped": {
+        "kind": "ambiguous",
+        "doc": null,
+        "score": "correct"
+      },
+      "stripped": {
+        "kind": "return",
+        "doc": "STUDIO-0012",
+        "score": "wrong_return"
+      },
+      "top1": {
+        "kind": "return",
+        "doc": "STUDIO-0012",
+        "score": "wrong_return"
+      }
+    },
+    {
+      "id": "rt01",
+      "class": "retired-trap",
+      "q": "bisque firing schedule for greenware",
+      "expect": "return",
+      "doc": "STUDIO-0002",
+      "scoped": {
+        "kind": "return",
+        "doc": "STUDIO-0002",
+        "score": "correct"
+      },
+      "stripped": {
+        "kind": "not_in_corpus",
+        "doc": null,
+        "score": "wrong_refusal"
+      },
+      "top1": {
+        "kind": "return",
+        "doc": "STUDIO-0001",
+        "score": "wrong_return"
+      }
+    },
+    {
+      "id": "rt02",
+      "class": "retired-trap",
+      "q": "ramp rate before glazing",
+      "expect": "return",
+      "doc": "STUDIO-0002",
+      "scoped": {
+        "kind": "return",
+        "doc": "STUDIO-0002",
+        "score": "correct"
+      },
+      "stripped": {
+        "kind": "not_in_corpus",
+        "doc": null,
+        "score": "wrong_refusal"
+      },
+      "top1": {
+        "kind": "return",
+        "doc": "STUDIO-0022",
+        "score": "wrong_return"
+      }
+    },
+    {
+      "id": "rt03",
+      "class": "retired-trap",
+      "q": "mixing a glaze batch from dry materials",
+      "expect": "return",
+      "doc": "STUDIO-0009",
+      "scoped": {
+        "kind": "return",
+        "doc": "STUDIO-0009",
+        "score": "correct"
+      },
+      "stripped": {
+        "kind": "not_in_corpus",
+        "doc": null,
+        "score": "wrong_refusal"
+      },
+      "top1": {
+        "kind": "return",
+        "doc": "STUDIO-0008",
+        "score": "wrong_return"
+      }
+    },
+    {
+      "id": "rt04",
+      "class": "retired-trap",
+      "q": "sieving and specific gravity",
+      "expect": "return",
+      "doc": "STUDIO-0009",
+      "scoped": {
+        "kind": "return",
+        "doc": "STUDIO-0009",
+        "score": "correct"
+      },
+      "stripped": {
+        "kind": "not_in_corpus",
+        "doc": null,
+        "score": "wrong_refusal"
+      },
+      "top1": {
+        "kind": "return",
+        "doc": "STUDIO-0008",
+        "score": "wrong_return"
+      }
+    },
+    {
+      "id": "rt05",
+      "class": "retired-trap",
+      "q": "controlling silica exposure",
+      "expect": "return",
+      "doc": "STUDIO-0019",
+      "scoped": {
+        "kind": "return",
+        "doc": "STUDIO-0019",
+        "score": "correct"
+      },
+      "stripped": {
+        "kind": "not_in_corpus",
+        "doc": null,
+        "score": "wrong_refusal"
+      },
+      "top1": {
+        "kind": "return",
+        "doc": "STUDIO-0019",
+        "score": "correct"
+      }
+    },
+    {
+      "id": "rt06",
+      "class": "retired-trap",
+      "q": "cleaning up dry glaze",
+      "expect": "return",
+      "doc": "STUDIO-0019",
+      "scoped": {
+        "kind": "return",
+        "doc": "STUDIO-0019",
+        "score": "correct"
+      },
+      "stripped": {
+        "kind": "return",
+        "doc": "STUDIO-0010",
+        "score": "wrong_return"
+      },
+      "top1": {
+        "kind": "return",
+        "doc": "STUDIO-0010",
+        "score": "wrong_return"
+      }
+    },
+    {
+      "id": "wh01",
+      "class": "withheld",
+      "q": "summary of this week's firings",
+      "expect": "not_in_corpus",
+      "doc": null,
+      "scoped": {
+        "kind": "not_in_corpus",
+        "doc": null,
+        "score": "correct"
+      },
+      "stripped": {
+        "kind": "not_in_corpus",
+        "doc": null,
+        "score": "correct"
+      },
+      "top1": {
+        "kind": "return",
+        "doc": "STUDIO-0016",
+        "score": "wrong_return"
+      }
+    },
+    {
+      "id": "wh02",
+      "class": "withheld",
+      "q": "weekly digest",
+      "expect": "not_in_corpus",
+      "doc": null,
+      "scoped": {
+        "kind": "not_in_corpus",
+        "doc": null,
+        "score": "correct"
+      },
+      "stripped": {
+        "kind": "return",
+        "doc": "STUDIO-0023",
+        "score": "wrong_return"
+      },
+      "top1": {
+        "kind": "return",
+        "doc": "STUDIO-0023",
+        "score": "wrong_return"
+      }
+    },
+    {
+      "id": "oc01",
+      "class": "out-clean",
+      "q": "what is the capital of France",
+      "expect": "not_in_corpus",
+      "doc": null,
+      "scoped": {
+        "kind": "not_in_corpus",
+        "doc": null,
+        "score": "correct"
+      },
+      "stripped": {
+        "kind": "not_in_corpus",
+        "doc": null,
+        "score": "correct"
+      },
+      "top1": {
+        "kind": "not_in_corpus",
+        "doc": null,
+        "score": "correct"
+      }
+    },
+    {
+      "id": "oc02",
+      "class": "out-clean",
+      "q": "how do I file quarterly taxes",
+      "expect": "not_in_corpus",
+      "doc": null,
+      "scoped": {
+        "kind": "not_in_corpus",
+        "doc": null,
+        "score": "correct"
+      },
+      "stripped": {
+        "kind": "not_in_corpus",
+        "doc": null,
+        "score": "correct"
+      },
+      "top1": {
+        "kind": "not_in_corpus",
+        "doc": null,
+        "score": "correct"
+      }
+    },
+    {
+      "id": "oc03",
+      "class": "out-clean",
+      "q": "best violin strings for beginners",
+      "expect": "not_in_corpus",
+      "doc": null,
+      "scoped": {
+        "kind": "not_in_corpus",
+        "doc": null,
+        "score": "correct"
+      },
+      "stripped": {
+        "kind": "not_in_corpus",
+        "doc": null,
+        "score": "correct"
+      },
+      "top1": {
+        "kind": "not_in_corpus",
+        "doc": null,
+        "score": "correct"
+      }
+    },
+    {
+      "id": "oc04",
+      "class": "out-clean",
+      "q": "symptoms of altitude sickness",
+      "expect": "not_in_corpus",
+      "doc": null,
+      "scoped": {
+        "kind": "not_in_corpus",
+        "doc": null,
+        "score": "correct"
+      },
+      "stripped": {
+        "kind": "not_in_corpus",
+        "doc": null,
+        "score": "correct"
+      },
+      "top1": {
+        "kind": "not_in_corpus",
+        "doc": null,
+        "score": "correct"
+      }
+    },
+    {
+      "id": "oc05",
+      "class": "out-clean",
+      "q": "train timetable to Edinburgh",
+      "expect": "not_in_corpus",
+      "doc": null,
+      "scoped": {
+        "kind": "not_in_corpus",
+        "doc": null,
+        "score": "correct"
+      },
+      "stripped": {
+        "kind": "not_in_corpus",
+        "doc": null,
+        "score": "correct"
+      },
+      "top1": {
+        "kind": "not_in_corpus",
+        "doc": null,
+        "score": "correct"
+      }
+    },
+    {
+      "id": "oc06",
+      "class": "out-clean",
+      "q": "who won the football match",
+      "expect": "not_in_corpus",
+      "doc": null,
+      "scoped": {
+        "kind": "not_in_corpus",
+        "doc": null,
+        "score": "correct"
+      },
+      "stripped": {
+        "kind": "not_in_corpus",
+        "doc": null,
+        "score": "correct"
+      },
+      "top1": {
+        "kind": "return",
+        "doc": "STUDIO-0022",
+        "score": "wrong_return"
+      }
+    },
+    {
+      "id": "ot01",
+      "class": "out-trap",
+      "q": "how do I repair the pedal on the wheel",
+      "expect": "not_in_corpus",
+      "doc": null,
+      "scoped": {
+        "kind": "not_in_corpus",
+        "doc": null,
+        "score": "correct"
+      },
+      "stripped": {
+        "kind": "not_in_corpus",
+        "doc": null,
+        "score": "correct"
+      },
+      "top1": {
+        "kind": "return",
+        "doc": "STUDIO-0011",
+        "score": "wrong_return"
+      }
+    },
+    {
+      "id": "ot02",
+      "class": "out-trap",
+      "q": "what temperature should the studio room be in winter",
+      "expect": "not_in_corpus",
+      "doc": null,
+      "scoped": {
+        "kind": "not_in_corpus",
+        "doc": null,
+        "score": "correct"
+      },
+      "stripped": {
+        "kind": "not_in_corpus",
+        "doc": null,
+        "score": "correct"
+      },
+      "top1": {
+        "kind": "return",
+        "doc": "STUDIO-0020",
+        "score": "wrong_return"
+      }
+    },
+    {
+      "id": "ot03",
+      "class": "out-trap",
+      "q": "how long does a raku firing take",
+      "expect": "not_in_corpus",
+      "doc": null,
+      "scoped": {
+        "kind": "not_in_corpus",
+        "doc": null,
+        "score": "correct"
+      },
+      "stripped": {
+        "kind": "not_in_corpus",
+        "doc": null,
+        "score": "correct"
+      },
+      "top1": {
+        "kind": "return",
+        "doc": "STUDIO-0017",
+        "score": "wrong_return"
+      }
+    },
+    {
+      "id": "ot04",
+      "class": "out-trap",
+      "q": "can I fire glass in the kiln",
+      "expect": "not_in_corpus",
+      "doc": null,
+      "scoped": {
+        "kind": "ambiguous",
+        "doc": null,
+        "score": "wrong_refusal"
+      },
+      "stripped": {
+        "kind": "not_in_corpus",
+        "doc": null,
+        "score": "correct"
+      },
+      "top1": {
+        "kind": "return",
+        "doc": "STUDIO-0003",
+        "score": "wrong_return"
+      }
+    },
+    {
+      "id": "ot05",
+      "class": "out-trap",
+      "q": "how do I mix plaster for a mould",
+      "expect": "not_in_corpus",
+      "doc": null,
+      "scoped": {
+        "kind": "not_in_corpus",
+        "doc": null,
+        "score": "correct"
+      },
+      "stripped": {
+        "kind": "not_in_corpus",
+        "doc": null,
+        "score": "correct"
+      },
+      "top1": {
+        "kind": "return",
+        "doc": "STUDIO-0014",
+        "score": "wrong_return"
+      }
+    },
+    {
+      "id": "ot06",
+      "class": "out-trap",
+      "q": "where do we store finished pots for sale",
+      "expect": "not_in_corpus",
+      "doc": null,
+      "scoped": {
+        "kind": "not_in_corpus",
+        "doc": null,
+        "score": "correct"
+      },
+      "stripped": {
+        "kind": "not_in_corpus",
+        "doc": null,
+        "score": "correct"
+      },
+      "top1": {
+        "kind": "return",
+        "doc": "STUDIO-0016",
+        "score": "wrong_return"
+      }
+    },
+    {
+      "id": "ot07",
+      "class": "out-trap",
+      "q": "what cone does porcelain fire to",
+      "expect": "not_in_corpus",
+      "doc": null,
+      "scoped": {
+        "kind": "ambiguous",
+        "doc": null,
+        "score": "wrong_refusal"
+      },
+      "stripped": {
+        "kind": "not_in_corpus",
+        "doc": null,
+        "score": "correct"
+      },
+      "top1": {
+        "kind": "return",
+        "doc": "STUDIO-0017",
+        "score": "wrong_return"
+      }
+    },
+    {
+      "id": "ot08",
+      "class": "out-trap",
+      "q": "how thick should a slab be for hand building",
+      "expect": "not_in_corpus",
+      "doc": null,
+      "scoped": {
+        "kind": "not_in_corpus",
+        "doc": null,
+        "score": "correct"
+      },
+      "stripped": {
+        "kind": "not_in_corpus",
+        "doc": null,
+        "score": "correct"
+      },
+      "top1": {
+        "kind": "return",
+        "doc": "STUDIO-0016",
+        "score": "wrong_return"
+      }
+    },
+    {
+      "id": "ot09",
+      "class": "out-trap",
+      "q": "how do I book the kiln",
+      "expect": "not_in_corpus",
+      "doc": null,
+      "scoped": {
+        "kind": "not_in_corpus",
+        "doc": null,
+        "score": "correct"
+      },
+      "stripped": {
+        "kind": "not_in_corpus",
+        "doc": null,
+        "score": "correct"
+      },
+      "top1": {
+        "kind": "return",
+        "doc": "STUDIO-0015",
+        "score": "wrong_return"
+      }
+    },
+    {
+      "id": "ot10",
+      "class": "out-trap",
+      "q": "what does it cost to fire a piece",
+      "expect": "not_in_corpus",
+      "doc": null,
+      "scoped": {
+        "kind": "not_in_corpus",
+        "doc": null,
+        "score": "correct"
+      },
+      "stripped": {
+        "kind": "not_in_corpus",
+        "doc": null,
+        "score": "correct"
+      },
+      "top1": {
+        "kind": "return",
+        "doc": "STUDIO-0016",
+        "score": "wrong_return"
+      }
+    }
+  ]
+}

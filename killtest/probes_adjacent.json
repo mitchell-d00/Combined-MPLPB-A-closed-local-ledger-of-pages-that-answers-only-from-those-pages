@@ -1,0 +1,32 @@
+{
+  "corpus": "examples/studio",
+  "profile": "internal",
+  "written": "2026-10-07, after the not-for field was added and declared, before the reader was run on any of these",
+  "classes": {
+    "adjacent": {"circular": ["stripped", "top1"], "note": "about a covered subject, from an angle no page covers; not-for is one of the stripped fields"},
+    "covered": {"circular": [], "note": "questions the pages do answer; measures what not-for costs"}
+  },
+  "probes": [
+    {"id": "a01", "class": "adjacent", "q": "who can book the electric kiln", "expect": "not_in_corpus"},
+    {"id": "a02", "class": "adjacent", "q": "do I need training before using the gas kiln", "expect": "not_in_corpus"},
+    {"id": "a03", "class": "adjacent", "q": "how much is a glaze firing", "expect": "not_in_corpus"},
+    {"id": "a04", "class": "adjacent", "q": "how do I throw a cylinder on the wheel", "expect": "not_in_corpus"},
+    {"id": "a05", "class": "adjacent", "q": "how do I attach a handle to a mug", "expect": "not_in_corpus"},
+    {"id": "a06", "class": "adjacent", "q": "where can I buy white stoneware clay", "expect": "not_in_corpus"},
+    {"id": "a07", "class": "adjacent", "q": "what glaze recipes do we use for cone 6", "expect": "not_in_corpus"},
+    {"id": "a08", "class": "adjacent", "q": "how do I make a plaster mould", "expect": "not_in_corpus"},
+    {"id": "a09", "class": "adjacent", "q": "is the studio open on Sunday", "expect": "not_in_corpus"},
+    {"id": "a10", "class": "adjacent", "q": "how hot does the kiln room get", "expect": "not_in_corpus"},
+    {"id": "a11", "class": "adjacent", "q": "how do I trim a foot ring", "expect": "not_in_corpus"},
+    {"id": "a12", "class": "adjacent", "q": "can I fire my own clay from home", "expect": "not_in_corpus"},
+
+    {"id": "c01", "class": "covered", "q": "glaze firing schedule for the gas kiln", "expect": "return", "doc": "STUDIO-0004"},
+    {"id": "c02", "class": "covered", "q": "wedging before throwing on the wheel", "expect": "return", "doc": "STUDIO-0015"},
+    {"id": "c03", "class": "covered", "q": "handles pulling away while drying", "expect": "return", "doc": "STUDIO-0016"},
+    {"id": "c04", "class": "covered", "q": "which clay is for sculpture", "expect": "return", "doc": "STUDIO-0017"},
+    {"id": "c05", "class": "covered", "q": "drying slurry on plaster", "expect": "return", "doc": "STUDIO-0014"},
+    {"id": "c06", "class": "covered", "q": "wax on the foot ring before dipping", "expect": "return", "doc": "STUDIO-0010"},
+    {"id": "c07", "class": "covered", "q": "vent fan and smell during a firing", "expect": "return", "doc": "STUDIO-0020"},
+    {"id": "c08", "class": "covered", "q": "bisque firing schedule in the electric kiln", "expect": "return", "doc": "STUDIO-0002"}
+  ]
+}
