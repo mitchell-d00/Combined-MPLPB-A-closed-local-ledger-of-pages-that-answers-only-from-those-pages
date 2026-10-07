@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>The record</title>
+<meta name="mplpb:document-id" content="SPEC-0001">
+<meta name="mplpb:scope" content="The six fields every page carries: id, scope, status, hash, parent and depth">
+<meta name="mplpb:when-to-use" content="what a page must declare; record fields; page format">
+<meta name="mplpb:status" content="current">
+<meta name="mplpb:hash" content="sha256:5344cb3c80a50c571008e2b426491eeba0fab758439a3419db211bec203c637b">
+<meta name="mplpb:origin" content="human">
+<meta name="mplpb:origin-depth" content="0">
+<meta name="mplpb:owner" content="Mitchell D. McPhetridge">
+<meta name="mplpb:updated" content="2026-10-07T00:00Z">
+</head>
+<body>
+<h1>The record</h1>
+<p>A record is one HTML page. Its head carries mplpb:document-id, mplpb:scope, mplpb:status, mplpb:hash, mplpb:derived-from and mplpb:origin-depth. Status is current or retired. The hash covers the title, the body and every field except status and the hash itself, so retiring a page changes one line and nothing the page says.</p>
+<p>Optional fields: when-to-use, supersedes, origin, ratified-by, owner, updated, kind and points-to. Underscores and hyphens in field names are read as the same.</p>
+</body>
+</html>

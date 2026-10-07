@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Revision</title>
+<meta name="mplpb:document-id" content="SPEC-0004">
+<meta name="mplpb:scope" content="Revising a page: write the new one, retire the old one">
+<meta name="mplpb:when-to-use" content="changing a page; correcting a mistake; what happened to the old version">
+<meta name="mplpb:status" content="current">
+<meta name="mplpb:hash" content="sha256:cbb4be5305c9953468f62d9e00ec7344fd4e462965c6c9fa399eff0d84ede497">
+<meta name="mplpb:origin" content="human">
+<meta name="mplpb:origin-depth" content="0">
+<meta name="mplpb:owner" content="Mitchell D. McPhetridge">
+<meta name="mplpb:updated" content="2026-10-07T00:00Z">
+</head>
+<body>
+<h1>Revision</h1>
+<p>A change writes a new page with a new id that names the old one in supersedes, pinned to the old page's hash. Then the old page's status line is set to retired. The order matters: a page named in supersedes is read as retired even if the second step never happened. Nothing is deleted and nothing is moved.</p>
+</body>
+</html>

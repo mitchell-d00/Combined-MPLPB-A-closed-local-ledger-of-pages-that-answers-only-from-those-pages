@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Hubs</title>
+<meta name="mplpb:document-id" content="SPEC-0007">
+<meta name="mplpb:scope" content="Hubs and pointers between corpora">
+<meta name="mplpb:when-to-use" content="several folders; routing a question to another corpus; owner not reachable">
+<meta name="mplpb:status" content="current">
+<meta name="mplpb:hash" content="sha256:838757f18c48cf56d8b29e13908d09c50a0a6d3ebbcde1d2d2bc04d9fd52677f">
+<meta name="mplpb:origin" content="human">
+<meta name="mplpb:origin-depth" content="0">
+<meta name="mplpb:owner" content="Mitchell D. McPhetridge">
+<meta name="mplpb:updated" content="2026-10-07T00:00Z">
+</head>
+<body>
+<h1>Hubs</h1>
+<p>A pointer is a record whose kind is pointer and whose points-to names another root. When a pointer owns a question the reader asks the question again in that root and returns what that root returns, with the route. If the root cannot be reached the answer is a refusal that names the owner. A pointer's own body is never an answer.</p>
+</body>
+</html>
