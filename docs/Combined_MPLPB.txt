@@ -1,0 +1,1024 @@
+COMBINED MPLPB
+==============
+
+A Provenance Ledger with a Refusal: One Format, One Rule, and What the Kill
+Test Measured
+
+Field        Value
+-----------  -----------------------------------------------------------------
+Document ID  MPLPB-COMBINED-017 (proposed; the next free number after MPLPB-
+             IMAGE-016 in the supplied material, not yet allocated by the
+             owner's index)
+
+Category     Specification / Reference Implementation
+Subcategory  Knowledge Infrastructure / Consolidation
+Updated      2026-10-07T18:00Z v3
+Owner        Mitchell D. McPhetridge, Independent Researcher
+Status       draft for owner review
+Scope        The single record format and the single answer rule that the
+             MPLPB papers and implementations share; a standard-library
+             reference implementation of exactly that rule; how each earlier
+             part maps onto it; and one run of the kill test with its limits
+
+When to use  Starting a new corpus and wanting one format instead of five;
+             reading a corpus written by any earlier MPLPB tool; deciding what
+             the formula does and does not guarantee; checking what the kill
+             test showed
+
+Supersedes   MPLPB-COMBINED-017 v2 (2026-10-07T12:00Z); MPLPB-COMBINED-017 v1
+             (2026-10-07T00:00Z). Both retained under docs/superseded/. No
+             earlier paper or implementation is superseded; each stays current
+             within its own scope and is carried under parts/
+
+Related. MPLPB as a Local Web (MPLPB-LOCAL-008 v4). Separate, Allowed to Chat,
+and Overridden by Scope (MPLPB-SEP-007). Smart Local MPLPB (MPLPB-SMART-011
+v1). MPLPB and the Cost of Visibility (MPLPB-COST-012 v2). MPLPB at Swarm and
+Enterprise Scale (MPLPB-SWARM-013 v3). Networked MPLPB. MPLPB Image (MPLPB-
+IMAGE-016 v2). Multi-Platform Linked Public Building (v3) and the other
+chapters of Continuity Without Memory.
+
+Implementation. This repository. Package mplpb_combined, 106 tests, standard
+library only, no network, no model, no database.
+
+What changed in v3. A not-for field: a page can now say what it does not
+cover. Sections 2 and 3 specify it, section 8.7 reports what it did on a fresh
+set of questions, and docs/FIXLOG.md entry E6 records the error, cause, fix
+and rerun. FM-C8 is updated and FM-C9 is new.
+
+What changed in v2. The first run of the kill test exposed errors in the
+reader. They were fixed, the test was rerun, and a second probe set was
+written to check the fix. docs/FIXLOG.md records each error, its cause and its
+fix. Sections 3, 6 and 8 are rewritten; the first run's results are kept under
+killtest/v1/.
+
+Back to. Main Index > Specification / Architecture Sub-Index
+
+------------------------------------------------------------------------------
+
+
+Abstract
+--------
+
+The MPLPB papers describe one idea several times at several scales: a body of
+knowledge kept as complete pages that declare what they are, read by something
+that is not allowed to answer from anywhere else. By the time the idea had a
+local form, a reader, a cost argument, a swarm form, a networked form and an
+image form, it also had five implementations, three spellings of the same
+metadata, and two different procedures for retiring a page.
+
+This paper states the part they have in common and nothing else. It is a
+closed local ledger of pages that answers only from those pages. Each page
+carries its own id, scope, status, hash, parent and depth. The reader crawls
+the folder. If one current page owns the question, it returns that page. If
+two own it, it stops. If none own it, it says not in the corpus. A change
+writes a new page and retires the old one. A derivation writes a new page and
+adds one to the depth.
+
+The reference implementation is about twelve hundred lines of standard-library
+Python for the format, the ledger and the reader, plus a command line and the
+test harness. It reads the example sites of four earlier implementations after
+adding hashes to them, and it carries all five implementations unchanged in
+behaviour under parts/.
+
+The formula proposed a proof: strip the scope fields, run the same questions,
+and show the refusal disappears. That test has now been run, the reader has
+been corrected against it, and it has been run again.
+
+The first run found a bug. The reader refused every question phrased from a
+page's prose, and one stray word declared on another page was enough to stop
+it. Both are fixed: ownership is now decided by declared scope first, as a
+majority of the question's words, and by the page's own text only when scope
+owns nothing. On the 56 questions the fix was developed against, the reader
+went from 41 right to 50, with no wrong page returned in either run.
+
+A second set of 30 questions, written after the fix and run once, is the
+honest measure. There the fixed reader is right 20 times, against 12 for the
+first reader, and it returns a wrong page 3 times, against 4. Every one of
+those wrong returns is a question about something the corpus covers, asked
+from an angle it does not. So the first run's clean record was a property of
+its questions. The declared fields make the reader far better than search over
+the same pages with the fields stripped, which is wrong 20 times in 30. They
+do not make it safe.
+
+Version 3 adds the one remedy that stays inside the formula: a not-for field,
+in which a page lists subjects beside its own that it does not cover. On 20
+fresh questions it stopped two of four wrong returns, caused one of its own,
+and cost no correct answer. It helps exactly as far as the author predicts the
+words of questions the page should not get, which is the same limit the other
+declared fields have.
+
+------------------------------------------------------------------------------
+
+
+1. The Formula
+--------------
+
+A record is
+
+    R = (id, scope, status, hash, derived_from, origin_depth)
+
+Status is current or retired. A question q is answered only from current
+records whose scope owns q:
+
+    A(q) = R               if exactly one current R owns q
+           ambiguous       if two or more own q
+           not in corpus   if none own q
+
+No fill from outside the folder. No average of two owners.
+
+Derivation does not copy the hash. It writes a new record and increments
+depth:
+
+    R[n+1].derived_from = R[n].id
+    R[n+1].origin_depth = R[n].origin_depth + 1
+
+A human source starts at depth 0. A revision retires R[n]; it does not
+overwrite it. A profile may refuse any record with depth above a set limit. A
+hub may point at the owner; it may not answer as the owner.
+
+Existing parts, one composition rule: do not blend, do not erase, count the
+generations.
+
+Everything below is what had to be decided to make those sentences executable,
+and each decision is marked as one.
+
+------------------------------------------------------------------------------
+
+
+2. The Format
+-------------
+
+A record is one HTML file. Its <head> carries <meta name="mplpb:..."> tags and
+its <body> carries the words. Opened in a browser it is a page. Nothing else
+is needed to read it.
+
+Field                     Required       Meaning
+------------------------  -------------  -------------------------------------
+document-id               yes            Allocated, never chosen, never reused
+scope                     yes            One sentence saying what the page
+                                         covers
+
+status                    yes            current or retired
+hash                      yes            SHA-256 over the title, the body, and
+                                         every field except status and hash
+
+derived-from              when derived   Parents, each as ID@sha256:...
+origin-depth              yes            Generations between this page and a
+                                         source
+
+when-to-use               no             The situations in which someone
+                                         should land here, in the asker's
+                                         words
+
+not-for                   no             A few words for subjects beside this
+                                         one that the page does not cover
+
+supersedes                when revising  The page this one replaces, as
+                                         ID@sha256:...
+
+origin                    no             human or machine; absent means human
+ratified-by               when ratified  The name of the person who stands
+                                         behind a derived page
+
+kind, points-to           hubs only      pointer, and the folder it points at
+owner, updated, category  no             Carried, hashed, not interpreted
+
+Four decisions in that table are new and deliberate.
+
+The hash excludes status. Retiring a page changes one line in its head.
+Because that line is outside the hash, a retired page still verifies, and "it
+does not overwrite it" becomes checkable: the hash of the retired page is the
+hash it had when it was current.
+
+References are pinned. A child names its parent's id and its parent's hash.
+Editing a parent, or swapping in a different page under the same id, breaks
+every descendant's pin. This is integrity without keys. It shows a page was
+not changed after it was written. It does not show who wrote it; signatures
+are the Networked part's job and stay there.
+
+A late field does not disturb old hashes. not-for was added after the first
+pages were written. It enters the hash only when a page uses it, so every page
+without it keeps the hash it had, and a page that gains it does so the only
+way a page changes: by revision.
+
+One spelling. The earlier tools wrote mplpb:document-id and mplpb:id, origin-
+depth and origin_depth, updated and version. All are read as the same field.
+New pages are written with hyphens.
+
+A file under the root with no document-id is not a record and is never read.
+An index page is recognised by name, category or kind and never owns a
+question. index.html is rebuilt from the records for people to browse and
+carries no authority.
+
+------------------------------------------------------------------------------
+
+
+3. What "Owns" Means
+--------------------
+
+The formula leaves one word undefined, and it is the word everything depends
+on. The earlier reader, Smart Local, defines ownership as a ranked full-text
+score in which one spoke leads the runner-up by 1.5 times, and calls that
+number the most arbitrary in the package. This implementation defines
+ownership without a score, in two steps. Scope always goes first.
+
+1. Scope. A page owns the question when its scope and when-to-use fields
+   declare more than half of the question's content words.
+2. Prose. Only if no page owns the question by scope: a page owns it when
+   every content word appears somewhere on the page.
+
+At either step, when two pages own the question and one's matched words
+strictly contain the other's, the more specific page stays and the other drops
+out. Then the rule is the formula as written: one owner returns, two or more
+is ambiguous, none is not in the corpus.
+
+Content words are lower-cased, stripped of a short stop list, and stripped of
+plural, -ing and -ed endings, so that firing, fired and fire are one word.
+There is no synonym table.
+
+Not-for comes before both steps. A page is set aside for any question that
+contains a word from its own not-for field. The refusal names the page and the
+word. A word the page also declares in its scope is ignored there, because a
+page cannot both cover and disclaim the same word, and the validator reports
+the overlap.
+
+Three things about this definition are worth stating.
+
+Scope overrides prose. If any page owns the question by what it declares, no
+page's prose is consulted. This is MPLPB-SEP-007 applied inside one corpus:
+declared scope decides, and prose only speaks when scope is silent. It is also
+"narrow before broad" from MPLPB-SMART-011 section 4, with the two passes in
+the opposite strictness: the declared pass needs a majority because
+declarations are short and deliberate, and the prose pass needs every word
+because prose is long and accidental.
+
+A prose match says it is one. The citation of a page returned at step two ends
+matched on prose, not on declared scope. A reader of the answer can see that
+the author did not predict the question.
+
+One constant remains: more than half. Version 1 had a second, a per-profile
+coverage share, and a rule that ignored words most pages declare. The first
+run showed the coverage dial moving two answers across its whole range, and
+both are gone.
+
+The first version of this section defined ownership as declaring every word
+that any page declared, and matched no prose at all. Both choices were wrong
+in ways the first run made plain, and docs/FIXLOG.md entries E1 and E2 record
+them.
+
+The decision function takes the question's words and two maps of sets, and is
+shared by the reader and by the kill test's control arm, so the two cannot
+drift apart.
+
+------------------------------------------------------------------------------
+
+
+4. Writing
+----------
+
+Four verbs write to a ledger. None of them changes a word of an existing page.
+
+write allocates the next id for a prefix, renders the page with its hash, and
+puts it in the folder. It refuses if the file exists.
+
+revise writes a new page that names the old one in supersedes, then sets the
+old page's status line to retired. The order is the point. The reader treats
+any page named in a supersedes field as retired whatever its own status line
+says, so a crash between the two steps leaves a ledger that still reads
+correctly, and the validator reports the unfinished step. Smart Local's
+notebook retires first and writes second; a crash there leaves no current
+page, and the reader says "not in this corpus" about something that exists.
+
+Retired pages are not moved. The earlier tools move them to _log/superseded/
+and treat a retired page elsewhere as a fault. Here location carries no
+meaning and status does, which removes a step that can fail and a class of
+broken relative links.
+
+derive writes a new page naming its parents, pinned, and sets depth to one
+more than the deepest of them.
+
+ratify is a revision that changes no words. It writes a new page with the same
+body and lineage, the name of the person standing behind it, and depth 0. The
+origin stays machine. The citation then reads origin machine d0 · ratified by
+Name, which says more than rewriting the origin to human would.
+
+Writers take a lock file for the duration of one write. A lock older than
+thirty seconds belonged to a writer that died. This is enough for a person and
+a few scripts. It is not the lease-and-fencing discipline of MPLPB-SWARM-013
+section 4, which remains the answer when writers are many.
+
+Every write and every retirement appends a line to _log/ledger.jsonl. Each
+line carries the hash of the line before it, so the log cannot be edited in
+the middle without the chain breaking.
+
+------------------------------------------------------------------------------
+
+
+5. Depth
+--------
+
+The formula says a derivation adds one. Five cases needed settling.
+
+Case                              Depth
+--------------------------------  --------------------------------------------
+Human page with no parents        0
+Machine page with no parents      1. The loop cannot award itself a human
+                                  signature (MPLPB-SWARM-013 section 5.3)
+
+Derived page, whoever derives it  1 + the deepest parent
+Revision                          At least the depth of the page it replaces
+Ratified page                     0, with the ratifier's name on the page
+
+The fourth row closes a path the earlier tools leave open. If a revision took
+its depth only from its author, a person tidying a depth-3 page would produce
+a depth-0 page without ever saying they stood behind it. Here a reset happens
+only through ratified-by, which is a name on the page and a line in the log.
+
+The reader does not trust the declared number. It recomputes depth from the
+lineage and serves the larger of the two. A page that understates its depth is
+an error to the validator and is not believed by the reader.
+
+What this does not do is unchanged from the swarm paper: it does not detect an
+invented claim. A writer that marks a machine page human, or types a name into
+ratified-by without reading, defeats it. Depth is a count of declared
+generations.
+
+------------------------------------------------------------------------------
+
+
+6. Profiles and Hubs
+--------------------
+
+A profile is two settings: the deepest record it will serve, and whether the
+prose step may run.
+
+Profile             Max depth  Prose step
+------------------  ---------  ----------
+lab                 2          on
+internal (default)  1          on
+external            0          off
+
+A page over the limit is removed before ownership is decided. When it would
+have owned the question, the refusal says so and gives the page's id and
+depth. external decides by declared scope or not at all, because a customer
+should not be handed a page on the strength of words its author never offered
+as its subject. answer_without_retrieval has no setting here because there is
+no code path that produces words other than a page's own.
+
+A hub is a ledger whose records are pointers. A pointer declares a scope like
+any page and names another folder. When a pointer owns a question, the reader
+asks the same question in that folder and returns what that folder returns,
+with the route attached. When no pointer declares the question, each folder
+the hub points at is asked in turn; exactly one may answer, and two answering
+is ambiguity between corpora, which the hub names and stops on. A folder that
+cannot be reached produces a refusal that names it. No path returns a
+pointer's own body, and no path merges two folders' answers. This is MPLPB-
+SEP-007 one level up, as the swarm paper specified, without the network that
+Networked MPLPB adds.
+
+------------------------------------------------------------------------------
+
+
+7. How the Parts Map
+--------------------
+
+Nothing is superseded. Each part keeps what only it does.
+
+Part                      What the combined core     What stays in the part
+                          takes from it
+------------------------  -------------------------  -------------------------
+Public MPLPB (v3) and     The fields: identity,      The public web as
+the complete-artifact     scope, trigger             substrate; reconstruction
+header                    conditions, status,        by a search-capable
+                          supersession               assistant; the
+                                                     recoverability, stability
+                                                     and validation questions
+
+Rabbit Hole Internet      Nothing executable. The    An indexing and retrieval
+Indexer                   core has no index          layer in front of a
+                                                     corpus, with embeddings
+                                                     as a replaceable
+                                                     component
+
+Local Web (LOCAL-008)     Pages as plain HTML under  Link-graph crawl, typed
+and the Local Mirror      one root; bounded          links, the eight
+                          reading; metadata in the   structural checks, the
+                          head                       boot block
+
+Separation and            The rule itself: scope     The argument for it
+Precedence (SEP-007)      decides, ties stop,
+                          nothing merges
+
+Mode controller           Nothing. The core has one  Modes, overrides, the
+(MODE-008)                behaviour                  hard-reality priority
+
+Smart Local (SMART-011)   Refusal as the default;    FTS5 ranking, the 1.5×
+                          provenance as part of the  margin, the console, the
+                          hit; revision as           browser view, teaching
+                          supersession; narrow
+                          before broad
+
+Cost of Visibility        The constraint: consumer   The cost model and the
+(COST-012)                hardware, no service       comparability claim
+
+Swarm (SWARM-013)         Origin depth,              Leases with fencing
+                          ratification, profiles,    tokens, the registry,
+                          allocated ids, routing     health metrics, the
+                          between corpora without    graded ablation
+                          merging
+
+Networked MPLPB           Hubs that point and do     Ed25519 signatures,
+                          not answer; unavailable    nodes, mirrors, transport
+                          is never impersonated
+
+MPLPB Image (IMAGE-016)   The principle that the     Pixel evidence,
+                          page is the control        attestation, the learner
+                          object and the file is
+                          the artifact
+
+Public Experiment         Pass criteria fixed        The replication protocol
+(TEST-001, TEST-002)      before a run               and trial ledger
+
+On search and the public web. The formula is a property of a closed reader. A
+folder read by this package obeys it. The same pages published to the open web
+are read by somebody else's search engine and somebody else's model, and
+nothing stops either from blending two pages or filling a gap. Public MPLPB
+can make the right answer findable and can make the fields travel with it. It
+cannot enforce the refusal. That limit follows from the formula's first word,
+and the public papers already separate recoverability from validation for the
+same reason.
+
+A ranker, lexical or semantic, can still sit in front of this core to propose
+candidates on a large corpus. It may narrow which pages are considered. It may
+not make the decision.
+
+------------------------------------------------------------------------------
+
+
+8. The Kill Test
+----------------
+
+8.1 What was run
+
+One corpus, examples/studio: 25 pages about running a pottery studio. 21 are
+current and 4 are retired. Three of the current pages are machine-written: one
+at depth 1, one at depth 2, and one ratified back to depth 0.
+
+Three arms read the same pages.
+
+- scoped is the reader in this package at the internal profile.
+- stripped is the same rule and the same code after every mplpb: field is
+  removed. With nothing declared, the scope step finds nothing and only the
+  prose step can decide; with no status left, retired pages cannot be told
+  from current ones.
+- top1 is what a plain search does with the stripped pages: return the page
+  sharing the most words with the question, and refuse only when nothing
+  shares any. It has no way to say ambiguous.
+
+Scoring is mechanical. An answer is correct when the outcome matches and, for
+a return, the page matches.
+
+There are two probe sets, and they are not the same kind of evidence.
+
+- The first set is 56 questions, frozen by hash before the first run. The
+  reader was then corrected against its failures. It is a development set now.
+  Its hash is unchanged, and its numbers show that the bugs are fixed and
+  nothing more.
+- The held-out set is 30 questions, written after the reader was corrected and
+  before the corrected reader was run on any of them, frozen by hash, and run
+  once. Nothing was changed afterwards.
+
+8.2 The first set: before and after the fix
+
+Reader                             Correct  Wrong page returned  Wrong refusal
+---------------------------------  -------  -------------------  -------------
+scoped, version 1                  41       0                    15
+scoped, version 2                  50       0                    6
+scoped, version 2, prose step off  43       0                    13
+stripped                           26       4                    26
+top1                               16       40                   0
+
+By class, for version 2:
+
+Class                    n   scoped  stripped  top1    Note
+-----------------------  --  ------  --------  ------  -----------------------
+Asked in a page's        10  100.0%  10.0%     10.0%
+declared words
+
+Asked from a page's      8   87.5%   87.5%     100.0%  was 0.0% in version 1
+prose
+
+Declared situation plus  8   62.5%   0.0%      12.5%
+unfamiliar words
+
+Two current pages both   6   100.0%  16.7%     0.0%    circular for top1
+answer
+
+The answer was revised   6   100.0%  0.0%      16.7%   circular for both
+                                                       stripped arms
+
+Only owner is over the   2   100.0%  50.0%     0.0%    circular for both
+depth limit                                            stripped arms
+
+Nothing to do with the   6   100.0%  100.0%    83.3%   control at ceiling
+corpus
+
+Studio question no page  10  80.0%   100.0%    0.0%    control at ceiling
+covers
+
+All 56                   56  89.3%   46.4%     28.6%
+Non-circular classes     42  85.7%   57.1%     35.7%
+only
+
+Of the 28 pages the fixed reader returned, 21 were decided by scope and 7 by
+prose. Six probes still fail, and docs/FIXLOG.md lists each with its reason.
+Each could be made to pass by moving a threshold or adding a stop word.
+Section 8.3 is why that was not done.
+
+8.3 The held-out set
+
+Reader                             Correct  Wrong page returned  Wrong refusal
+---------------------------------  -------  -------------------  -------------
+scoped, version 1                  12       4                    14
+scoped, version 2                  20       3                    7
+scoped, version 2, prose step off  16       3                    11
+stripped                           10       1                    19
+top1                               10       20                   0
+
+Class                    n   scoped  stripped  top1   Note
+-----------------------  --  ------  --------  -----  ------------------------
+Asked in a page's        8   87.5%   0.0%      25.0%
+declared words
+
+Asked from a page's      8   37.5%   25.0%     75.0%
+prose
+
+Two current pages both   3   100.0%  0.0%      0.0%   circular for top1
+answer
+
+The answer was revised   3   66.7%   0.0%      0.0%   circular for both
+                                                      stripped arms
+
+Studio question no page  8   62.5%   100.0%    25.0%  control at ceiling
+covers
+
+All 30                   30  66.7%   33.3%     33.3%
+Non-circular classes     24  62.5%   41.7%     41.7%
+only
+
+The three wrong returns:
+
+Question                            Returned
+----------------------------------  ----------------------------
+who is allowed to use the gas kiln  the gas kiln firing schedule
+how do I center clay on the wheel   the wedging page
+how do I pull a handle              the drying page
+
+8.4 Reading it
+
+The fix is real. On questions it was not developed against, the corrected
+reader is right 20 times where the first was right 12, and it makes fewer
+wrong returns, not more. The prose step accounts for 4 of the 20 and adds no
+wrong return: with it switched off the count of wrong returns is still 3.
+
+The first run's clean record was luck. Version 1 returned no wrong page on the
+first 56 questions and four on the next 30. Version 1 of this paper said the
+declared fields "bought exactly that trade". They did not buy it outright. The
+first probe set did not contain the kind of question that breaks it.
+
+The kind of question that breaks it is the adjacent one. All three wrong
+returns ask about something the corpus covers, from an angle it does not: who
+may use the gas kiln, how to center clay, how to pull a handle. The page that
+declares the subject owns the question, by scope, exactly as designed. No rule
+that matches words can tell a firing schedule for the gas kiln from a rota for
+it. This is recorded as FM-C8, and it is the main thing this version adds to
+what is known.
+
+Declared scope still does most of the work. Stripped of its fields, the same
+code is right 10 times in 30 and refuses 19 it should not. Plain search over
+the stripped pages returns a wrong page 20 times in 30. The reader with
+declared scope is wrong in that way 3 times. That gap survived a set of
+questions the reader was not tuned on.
+
+The refusal still does not "disappear" when the fields are stripped. It was
+true in the first run and it is true in both sets now. With the same rule,
+stripping the fields makes the reader refuse far more, not less. The refusal
+disappears only against a reader that never had one.
+
+Prose questions are half fixed. 7 of 8 on the first set and 3 of 8 on the
+held-out set. The prose step needs every word of the question on one page, and
+people do not ask in the page's exact words. Loosening it lets wrong pages
+through, which is the top1 arm.
+
+8.5 Why the fixing stopped
+
+The instruction was to fix, rerun, and repeat until the results match. The
+bugs are fixed and the reruns are recorded. The results do not match on every
+probe, and they were not forced to.
+
+The remaining failures on the first set could each be removed by a small
+adjustment, and the adjustments pull against each other: "at least half"
+instead of "more than half" passes two more probes and turns a correct refusal
+into a misplaced one. A reader adjusted until one probe set reads 100% is
+fitted to that set. The held-out set already shows what such a number is
+worth: version 1 scored a perfect record on wrong returns over 56 questions
+and it did not hold for 30 more.
+
+8.6 What this evidence is not
+
+- It is one author's run. The corpus, the declared words, both probe sets and
+  the reader were written by one hand, by a language model working from the
+  owner's formula. The held-out set was written blind to the fixed reader's
+  output, not blind to the corpus or the rule. This is the weakest class of
+  evidence in MPLPB-COST-012 section 4.1.
+- The vocabulary confound of MPLPB-SWARM-013 section 13.6 applies in full.
+  Declared-word questions succeed because the same author wrote the
+  declarations and the questions.
+- Three classes are circular for at least one arm. They are in the tables for
+  completeness and are excluded from the last row of each.
+- It is small. 86 questions over 25 pages.
+- It is retrieval, not reconstruction. The ablation MPLPB-LOCAL-008 section 14
+  named is still open.
+
+8.7 The not-for field
+
+Section 8.4 ended on the adjacent question, and version 2 said the remedy
+belonged on the page. It is now built. Fifteen studio pages were given a not-
+for line, a third set of 20 questions was written, frozen by hash and run
+once: 12 adjacent questions that should be refused, and 8 covered questions
+that should still be returned.
+
+Set               Field ignored  Field honoured
+----------------  -------------  --------------
+First set, 56     50 / 0 / 6     50 / 0 / 6
+Held-out set, 30  20 / 3 / 7     22 / 1 / 7
+Adjacent set, 20  12 / 4 / 4     15 / 3 / 2
+
+Each cell is correct / wrong page returned / wrong refusal.
+
+It costs nothing here. No question answered correctly without the field was
+lost with it. All 8 covered questions in the new set were returned.
+
+It works when the word was predicted. "Do I need training before using the gas
+kiln" is refused, and the refusal says the gas kiln page set itself aside for
+"training". The held-out set went from 3 wrong returns to 1, but those
+failures were known when the not-for words were written, so that row shows the
+mechanism and not the hit rate.
+
+On fresh questions it stopped two wrong returns of four, and caused one.
+Without the field the reader returned a wrong page for four of the twelve
+adjacent questions. With it, two of those are refused (training for the gas
+kiln; trimming a foot ring), two are not, and one new wrong return appears.
+Three remain. "How do I throw a cylinder on the wheel" still returns wedging,
+because the exclusion said "centering" and not "cylinder". "How hot does the
+kiln room get" still returns ventilation, because the exclusion said
+"heating". The author has to predict the asker's words a second time, now for
+the questions the page should not get.
+
+One wrong return was caused by the field. Without the field, "what glaze
+recipes do we use for cone 6" got a harmless "ambiguous" between the electric
+and gas schedules. The electric page said not-for "recipes" and the gas page
+did not, so one was set aside and the other became the sole owner. An
+exclusion carried by only one of two near-duplicate pages hands the question
+to the other. This is FM-C9.
+
+One is out of the field's reach. "How do I pull a handle" returns the drying
+page, whose scope declares "handles pulling away". Both words of the question
+are the page's own scope, and a word cannot be scope and not-for at once.
+
+The three remaining probes on this set could be passed by adding three words
+to three pages. They were left as they came out, for the reason given in
+section 8.5.
+
+------------------------------------------------------------------------------
+
+
+9. The Parts, as Run
+--------------------
+
+Every vendored part was run on Linux with Python 3.12 from this repository's
+parts/ directory. tools/check_parts.py repeats it.
+
+Part                     Its paper says  Ran here
+-----------------------  --------------  -----------------------------
+Smart Local              52 tests        52 pass
+Swarm                    144 tests       145 pass
+Networked                61 tests        61 pass
+Image v2                 not stated      93 pass
+Local Mirror             no test suite   its own validator exits clean
+Combined (this package)                  106 pass
+
+Three things were changed in the vendored copies, and nothing else.
+
+1. In Smart Local and the Local Mirror, the directories Site, Tests, Tools and
+   Docs were renamed to lower case, which is what their READMEs and imports
+   already say. As published, Smart Local's tests do not start on a case-
+   sensitive filesystem.
+2. The Swarm copy is taken from the archive bundled in its repository, not
+   from the repository tree. The tree is missing ablation/v2/arm-
+   structured/deploy/_index.html and carries a stray registry folder inside
+   site/corpus-b; three tests fail there and pass from the archive. The swarm
+   paper says 144 tests; the suite has 145.
+3. Nested archives and caches were removed.
+
+The example sites of the Local Mirror, Smart Local, Swarm (both corpora) and
+Networked were each copied, given hashes with seal, and validated in the
+combined format with no errors. That is the evidence that the format in
+section 2 is a superset of what the family already writes.
+
+------------------------------------------------------------------------------
+
+
+10. Failure Modes
+-----------------
+
+The FM-L and FM-S series stand. These are the ones this consolidation adds or
+sharpens.
+
+FM-C1 — Unpredicted vocabulary. A page exists, answers the question, and is
+not returned, because the asker used neither its declared words nor enough of
+its prose. In version 1 this was 8 of 8 prose questions. The prose step
+reduced it to 1 of 8 on the first set and 5 of 8 on the held-out set.
+Detection: log refused questions and read them.
+
+FM-C2 — Incidental claim. An ordinary word in a when-to-use phrase gives its
+page a claim on questions it has nothing to do with. In version 1 one such
+word was enough to stop the reader. Under the majority rule it takes more than
+half the question. Mitigation: write trigger phrases with as few ordinary
+words as they can carry.
+
+FM-C3 — Status drift. A page named in supersedes still says current. The
+reader is unaffected. Detection: check C9. It marks a revision that did not
+finish.
+
+FM-C4 — Derivative crowding. A derived or ratified page redeclares its
+parent's scope and the parent stops being the sole owner. Detection: ambiguity
+between a page and its own descendant. Mitigation: a derived page declares
+what it adds, not what it summarises.
+
+FM-C5 — Self-consistent forgery. Someone edits a page and recomputes its hash.
+The page verifies. Its children's pins do not, so the forgery is caught only
+if the page has descendants or the log is intact. A leaf page edited together
+with the log is not caught by anything in this package. Signatures are the
+remedy and live in Networked MPLPB.
+
+FM-C6 — Declared origin. A machine page marked human, or a name typed into
+ratified-by unread. Depth then counts nothing. Not detectable from the files,
+as the swarm paper already says of FM-S9 and FM-S12.
+
+FM-C8 — Adjacent question. The corpus covers a subject, the question asks
+about that subject from an angle no page covers, and the page that declares
+the subject is returned. Three of 30 held-out questions. It is a wrong return,
+the failure the design exists to prevent, and it is decided by scope, not
+prose. Not detectable by any rule over words. Mitigation is authoring: the
+not-for field, added in version 3. On a fresh set it stopped the adjacent
+question when the author had predicted its words and not otherwise: two of
+four wrong returns stopped, and one new one caused (FM-C9).
+
+FM-C9 — Uneven exclusion. Two pages share a scope, and one carries a not-for
+word the other lacks. A question with that word sets the first aside and the
+second becomes the sole owner, turning a harmless "ambiguous" into a wrong
+return. One case in 20. Detection: pages that co-own questions and differ in
+not-for. No check for it is built. Mitigation: near-duplicate pages carry the
+same exclusions.
+
+FM-C7 — Hub blind spot, traded for a fan-out. A hub whose pointers declare too
+little would refuse questions its corpora own. The fan-out in section 6
+removes that at the price of asking every corpus, which is linear in the
+number of pointers and makes cross-corpus ambiguity more frequent.
+
+------------------------------------------------------------------------------
+
+
+11. Falsifiers
+--------------
+
+11.1 — No blend (run; passes). No code path returns text that is not one
+page's own. Tests assert it for the three cases, the split case, hubs and fan-
+out.
+
+11.2 — No erase (run; passes). After a revision the old page is present,
+retired, and verifies against the hash it had when current. A crash between
+write and retire still reads correctly.
+
+11.3 — Count the generations (run; passes). Derivation adds one whoever
+derives; a revision cannot lower depth; an understated depth is reported and
+not believed; no question reaches a page over a profile's limit.
+
+11.4 — The kill test (run; reader corrected; rerun; mixed). Section 8. The
+claim "stripping scope removes the refusal" is contradicted in every run. The
+claim "declared scope prevents wrong returns" is weakened: 3 wrong returns in
+30 held-out questions, against 20 for plain search. It needs repeating with
+probes written by someone who has not read the corpus, which is the first item
+of MPLPB-SWARM-013 section 13.5 and still needs one other person and an
+afternoon.
+
+11.5 — Real vocabulary and adjacent questions (open). Take refused and
+returned questions from real use of a real corpus. Count how many refusals had
+an answer on a page (FM-C1) and how many returns were the subject's page for a
+question it does not answer (FM-C8). The second number decides whether this
+reader can face anyone who cannot tell.
+
+11.6 — Scale (open). The reader parses every page on every question. That is
+immediate at 25 pages and has not been measured at 25,000.
+
+11.7 — Old hardware (open). The claim that a 2010 machine can run this is an
+inference from what the code uses: Python 3.8 syntax, the standard library, no
+index held in memory. It was run only on current hardware under Python 3.12.
+
+------------------------------------------------------------------------------
+
+
+12. What This Does and Does Not Establish
+-----------------------------------------
+
+It does not establish:
+
+- that a returned page is true;
+- that declared scope beats flat storage in general. On the 24 non-circular
+  held-out probes the margin was 62.5% against 41.7%, on one corpus, by one
+  author;
+- that the reader returns no wrong page. Before not-for it returned 3 in 30
+  held-out questions; with it, 3 in 20 fresh ones;
+- that not-for closes the adjacent-question gap. It stopped two wrong returns
+  of four and caused one;
+- that people ask in the words pages declare;
+- that the format is tamper-proof. It is tamper-evident for pages with
+  descendants or an intact log, and nothing more;
+- that the formula holds on the public web, where the reader is not yours;
+- that this package replaces any of the parts.
+
+It does establish:
+
+- that the formula can be implemented exactly, with ownership defined on sets
+  and no score, in about twelve hundred lines with no dependency;
+- that one format reads what four earlier implementations write;
+- that revision can be made safe against interruption by ordering two steps
+  and by letting the reader trust supersedes over status;
+- that depth can be recomputed from lineage, so that the number in a citation
+  is derived and not merely declared, up to the honesty of origin;
+- that the errors the first run exposed were bugs and are fixed: on held-out
+  questions the corrected reader is right 20 times in 30 where the first was
+  right 12, with fewer wrong returns;
+- that on the same held-out questions, declared scope cuts wrong returns from
+  20 to 3 against plain search over the same pages.
+
+------------------------------------------------------------------------------
+
+
+13. Conclusion
+--------------
+
+The parts were written one at a time, each for the scale in front of it, and
+each is right at that scale. Underneath them is a rule short enough to say in
+one breath: one owner returns, two owners stop, no owner refuses, a change
+adds a page, a derivation adds one to a counter.
+
+Written down as code, the rule turns out to need very little. It needs a
+definition of ownership that is a set comparison and not a ranking. It needs
+the hash to leave out the one field that has to change. It needs the new page
+written before the old one is retired. It needs a revision to inherit depth
+from what it replaces. None of that is interesting, which the swarm paper
+already identified as the intended outcome.
+
+The test the formula asked for was run, found a bug, and was run again.
+Stripping the fields never removed the refusal; it removed the reader's
+ability to refuse the right things. With the bug fixed, the fields make the
+reader right twice as often as the same code without them, and wrong a small
+fraction as often as search.
+
+They do not make it never wrong. Ask about the gas kiln from an angle no page
+covers and the gas kiln page comes back. A ledger with a refusal refuses what
+it has no words for. Refusing what it has the words for and not the answer had
+to be put on the page, and version 3 puts it there: a page may now say what it
+is not for.
+
+That field does what the others do and no more. It works when the author has
+guessed how the question will be worded, and on fresh questions the guess was
+right for two wrong returns out of four. The format now has a place for every
+declaration the formula needs. What it cannot supply is the author's
+foresight, and every number in section 8 is in the end a measure of that.
+
+------------------------------------------------------------------------------
+
+
+Appendix A — Commands
+---------------------
+
+Each is run as python3 -m mplpb_combined <command>.
+
+    ask      ROOT "question" [--profile lab|internal|external] [--no-prose]
+                             [--ignore-not-for] [--why] [--json]
+    validate ROOT [--strict]
+    list     ROOT [--all]
+    show     ROOT ID
+    history  ROOT ID
+    write    ROOT --title T --scope S [--when-to-use W] [--not-for N] [--body B] [--prefix P]
+    revise   ROOT ID [--body B] [--scope S] [--not-for N] [--ratified-by NAME]
+    derive   ROOT --from ID [--from ID] --title T --scope S
+    ratify   ROOT ID --who NAME
+    withdraw ROOT ID
+    seal     ROOT
+    index    ROOT
+    killtest ROOT PROBES.json [--out results.json]
+
+ask exits 0 for a return, 2 for ambiguous, 3 for not in corpus. validate exits
+1 on any error.
+
+
+Appendix B — A Page
+-------------------
+
+    <!doctype html>
+    <html lang="en">
+    <head>
+    <meta charset="utf-8">
+    <title>Bisque firing schedule</title>
+    <meta name="mplpb:document-id" content="STUDIO-0002">
+    <meta name="mplpb:scope" content="Bisque firing schedule for greenware">
+    <meta name="mplpb:when-to-use" content="first firing; how fast to heat raw clay">
+    <meta name="mplpb:status" content="current">
+    <meta name="mplpb:hash" content="sha256:...">
+    <meta name="mplpb:origin" content="human">
+    <meta name="mplpb:origin-depth" content="0">
+    <meta name="mplpb:supersedes" content="STUDIO-0001@sha256:...">
+    </head>
+    <body>
+    <h1>Bisque firing schedule</h1>
+    <p>Load bone-dry ware only. Climb 100 C per hour to 600 C ...</p>
+    </body>
+    </html>
+
+
+Appendix C — Validation Checks
+------------------------------
+
+Check  Level             What it finds
+-----  ----------------  -----------------------------------------------------
+C1     error             A required field is missing
+C2     error             Content does not match its hash
+C3     error             Two pages hold one id
+C4     error             Status or origin has an unknown value
+C5     error             A reference names a page not in the folder
+C6     error             A pinned parent no longer has the pinned hash
+C7     warning           A reference carries no hash
+C8     error             Declared depth disagrees with lineage
+C9     warning           A superseded page still says current
+C10    error             Two current pages supersede the same predecessor
+C11    error or warning  A pointer has no target, or its target is not
+                         reachable
+
+C12    error             Lineage loops
+C13    warning           A file under the root is not a record
+C14    error or warning  The log chain is broken, or a page is not in the log
+C15    warning           not-for repeats a word the page declares; the word is
+                         ignored
+
+
+Appendix D — Revision History
+-----------------------------
+
+v3 supersedes v2 the same day. v2 is retained under docs/superseded/, its
+reader at killtest/v2/reader_v2.py, and its results at killtest/v2/. It adds
+the not-for field (sections 2, 3 and 8.7; FIXLOG E6), check C15, and FM-C9. It
+changes one conclusion: v2 said the remedy for the adjacent question "belongs
+on the page". Built and measured, it stopped two of four wrong returns on
+fresh questions and caused one of the three that remain.
+
+v2 supersedes v1 the same day. v1 is retained under docs/superseded/, its
+reader at killtest/v1/reader_v1.py, and its results at killtest/v1/.
+
+Corrections that changed conclusions:
+
+- v1 said the reader with declared scope "returned no wrong page" and built
+  its reading on that. On held-out questions the same reader returns four. The
+  statement was true of 56 questions and is withdrawn as a general one.
+- v1 defined ownership as declaring every word any page declared, and matched
+  no prose. Both are replaced (section 3). docs/FIXLOG.md entries E1 to E5
+  give error, cause, fix and rerun for each change.
+- v1's coverage dial and common-word rule are removed.
+
+Two harness changes made during v1 remain as they were: the summary row
+excludes only circular classes, and possessives are stripped before
+tokenising.
+
+------------------------------------------------------------------------------
+
+
+Source Note
+-----------
+
+Code is MIT. Documentation is CC BY 4.0. Each part under parts/ keeps its own
+licence file.
+
+This paper and the mplpb_combined package were drafted with Claude (Anthropic)
+from the owner's formula, the uploaded papers, and the four public
+repositories, on 2026-10-07. Every figure in sections 8 and 9 was produced by
+running the included code, and the shipped results for all three probe sets
+are checked against fresh runs by the test suite. No web search was available
+during drafting; nothing here draws on sources beyond the supplied material.
+
+Building the PDF needs reportlab. That is a documentation dependency. It is
+not imported by the package and is not needed to run it or its tests.
+
+Back to. Main Index > Specification / Architecture Sub-Index
