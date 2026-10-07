@@ -1,0 +1,29 @@
+corpus   examples/studio  (21 current pages served; 25 pages in the stripped arms)
+probes   56  hash: OK
+profile  internal (max depth 1, coverage 50%)
+
+class                   n    scoped  stripped    top1   notes
+------------------------------------------------------------------------------
+owned-declared         10    100.0%     10.0%   20.0%   
+owned-prose             8      0.0%    100.0%  100.0%   control at ceiling
+owned-mixed             8     62.5%      0.0%   12.5%   
+ambiguous-true          6    100.0%     50.0%    0.0%   circular for top1
+retired-trap            6    100.0%      0.0%   16.7%   circular for stripped, top1
+withheld                2    100.0%      0.0%    0.0%   circular for stripped, top1
+out-clean               6    100.0%    100.0%  100.0%   control at ceiling
+out-trap               10     60.0%     40.0%    0.0%   
+------------------------------------------------------------------------------
+all probes             56     73.2%     39.3%   32.1%
+non-circular only      42     64.3%     45.2%   40.5%
+
+what each arm got wrong, and how (all probes):
+                        wrong page or false return   false refusal
+scoped                                           0              15
+stripped                                         3              31
+top1                                            36               2
+
+coverage sweep (all probes): correct / wrong return / wrong refusal
+  coverage 0.34  scoped  41 /  0 / 15     stripped  22 /  3 / 31
+  coverage 0.5   scoped  41 /  0 / 15     stripped  22 /  3 / 31
+  coverage 0.67  scoped  40 /  0 / 16     stripped  26 /  3 / 27
+  coverage 1.0   scoped  39 /  0 / 17     stripped  22 /  3 / 31
