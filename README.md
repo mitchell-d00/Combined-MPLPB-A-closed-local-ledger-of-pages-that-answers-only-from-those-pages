@@ -1,0 +1,2 @@
+# Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages.
+Combined MPLPB: a closed local ledger of pages that answers only from those pages. One owner returns, two stop, none refuses. One format and one rule for the whole MPLPB family, standard-library Python, no model, no network. Includes the kill test, as run. No model. No network. No database. No install step. Standard library only.
