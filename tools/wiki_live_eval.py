@@ -127,6 +127,40 @@ def capture(dest=None, api=APIS['simple'], spec=None):
     if dest.exists():
         raise FileExistsError('snapshot exists; use a new directory: ' + str(dest))
     raw, metadata = request(api, titles)
+    predecessors = []
+    paths = list(dest.parent.glob('*/manifest.json'))
+    pointer_root = dest.parent.parent if dest.parent.name == 'captures' else dest.parent
+    pointer = pointer_root / 'head.json'
+    if pointer.exists():
+        head = json.loads(pointer.read_text())
+        candidate = (pointer_root / head['snapshot']).resolve()
+        if pointer_root.resolve() not in candidate.parents:
+            raise ValueError('head escapes wiki tree')
+        path = candidate / 'manifest.json'
+        if digest(path.read_bytes()) != head['manifest_sha256']:
+            raise ValueError('head manifest pin mismatch')
+        paths.append(path)
+    for path in paths:
+        try:
+            old = json.loads(path.read_text())
+            if (old.get('api') == api and old.get('labels', {}).get('fetched') == titles
+                    and not stored_errors(path.parent, old)):
+                predecessors.append((old['request']['retrieved_at'], str(path), path, old))
+        except (OSError, KeyError, ValueError, TypeError):
+            continue
+    history = None
+    if predecessors:
+        _, _, path, old = max(predecessors, key=lambda entry: entry[:2])
+        history = history_link(path.parent, old, metadata, 'fresh capture observation')
+    return capture_response(dest, api, spec, raw, metadata, history)
+
+
+def capture_response(dest, api, spec, raw, metadata, history=None):
+    """Archive the response actually observed, without fetching replacement bytes."""
+    dest = Path(dest).resolve()
+    if dest.exists():
+        raise FileExistsError('snapshot exists; use a new directory: ' + str(dest))
+    titles = spec['fetched']
     live = pages(raw)
     for title in titles:
         p = live.get(title)
@@ -146,6 +180,10 @@ def capture(dest=None, api=APIS['simple'], spec=None):
                           owner='unknown', when=when, note='captured source revision ' + str(rev['revid']))
             records.append({'id': rec.id, 'title': title, 'path': rec.path,
                             'pageid': p['pageid'], 'revid': rev['revid'],
+                            'source_revision_at': rev.get('timestamp'),
+                            'observed_at': when,
+                            'source_url': api.split('/w/api.php')[0] + '/wiki/' +
+                                urllib.parse.quote(title.replace(' ', '_')),
                             'raw_extract_sha256': digest(p['extract'].encode('utf-8')),
                             'payload_sha256': digest(json_bytes(p)),
                             'served_page_sha256': digest((stage / 'corpus' / rec.path).read_bytes())})
@@ -154,11 +192,45 @@ def capture(dest=None, api=APIS['simple'], spec=None):
                     'pages': records, 'local_profile': 'internal', 'external_expected': 'withheld',
                     'independence_verified': False,
                     'notice': 'External-source text, title-list labels; not blinded human evaluation.'}
+        if history:
+            manifest['history'] = history
+            manifest['status'] = 'retained observation; not scored by capture'
         (stage / 'manifest.json').write_text(json.dumps(manifest, indent=2) + '\n')
         if dest.exists():
             raise FileExistsError('snapshot appeared during capture')
         os.rename(stage, dest)
     return dest
+
+
+def history_link(snapshot, manifest, metadata, reason):
+    previous = str(snapshot.relative_to(ROOT)) if ROOT in snapshot.parents else str(snapshot)
+    return {'reason': reason,
+               'previous_capture': previous,
+               'previous_manifest_sha256': digest((snapshot / 'manifest.json').read_bytes()),
+               'previous_response_sha256': manifest['response_sha256'],
+               'observed_at': metadata['retrieved_at'], 'source_api': manifest['api'],
+               'scored': False}
+
+
+def archive_drift(snapshot, manifest, raw, metadata, changed):
+    """Keep old evidence untouched and retain the new observation separately."""
+    archive_root = (snapshot.parent.parent if snapshot.parent.name == 'captures'
+                    else snapshot.parent) / 'archives'
+    dest = archive_root / stamp()
+    history = history_link(snapshot, manifest, metadata,
+                           'live payload differs; source edit not inferred from extract drift')
+    history['changes'] = changed
+    try:
+        capture_response(dest, manifest['api'], manifest['labels'], raw, metadata, history)
+    except ValueError as exc:
+        # A deleted/missing title is still dated evidence, not a complete corpus.
+        dest.mkdir(parents=True, exist_ok=False)
+        (dest / 'response.json').write_bytes(raw)
+        history['incomplete'] = str(exc)
+        (dest / 'observation.json').write_text(json.dumps(history, indent=2) + '\n')
+    return {'previous_capture': history['previous_capture'],
+            'observed_archive': str(dest.relative_to(ROOT)) if ROOT in dest.parents else str(dest),
+            'observed_at': metadata['retrieved_at'], 'scored': False}
 
 
 def stored_errors(snapshot, manifest):
@@ -265,6 +337,9 @@ def check(snapshot, live=True, report=None):
                         digest(source.get('extract', '').encode()) == p['raw_extract_sha256']})
                 if not matched:
                     result['errors'].append(p['title'] + ': live payload changed; new run needed, not scored')
+            changed = [row for row in result['live'] if not row['payload_match']]
+            if changed:
+                result['archive'] = archive_drift(snapshot, manifest, live_raw, metadata, changed)
         if not result['errors']:
             result['rows'] = smoke_rows(snapshot / 'corpus', manifest)
             result['scored'] = True
@@ -272,6 +347,8 @@ def check(snapshot, live=True, report=None):
             result['paraphrases_unscored'] = [
                 {'question': p['question'], 'outcome': R.answer(snapshot / 'corpus', p['question']).kind}
                 for p in manifest['labels'].get('paraphrases', [])]
+            if live and result['failures'] == 0:
+                result['head'] = promote_head(snapshot, manifest, result['live_request'])
         result['verification'] = 'live' if live else 'offline replay only'
     except SourceUnavailable as exc:
         result['errors'].append(str(exc))
@@ -293,6 +370,49 @@ def write_report(result, report, live_raw=None):
                 out.write(live_raw)
 
 
+def promote_head(snapshot, manifest, metadata):
+    """Publish only a passing live observation; offline replay cannot move head."""
+    root = snapshot.parent.parent if snapshot.parent.name in {'captures', 'archives'} else snapshot.parent
+    pointer = root / 'head.json'
+    previous = json.loads(pointer.read_text()) if pointer.exists() else None
+    observed_at = metadata['retrieved_at']
+    if (previous and previous['source_api'] == manifest['api'] and
+            (previous['verified_at'] > observed_at or
+             previous['captured_at'] > manifest['request']['retrieved_at'])):
+        return {'promoted': False, 'reason': 'older observation', 'current': previous}
+    head = {'snapshot': os.path.relpath(snapshot, root),
+            'manifest_sha256': digest((snapshot / 'manifest.json').read_bytes()),
+            'response_sha256': manifest['response_sha256'], 'source_api': manifest['api'],
+            'captured_at': manifest['request']['retrieved_at'], 'verified_at': observed_at,
+            'scored': True, 'failures': 0}
+    with tempfile.NamedTemporaryFile(mode='w', prefix='.head-', dir=root, delete=False) as out:
+        json.dump(head, out, indent=2); out.write('\n'); temp = Path(out.name)
+    os.replace(temp, pointer)
+    return {'promoted': True, 'current': head}
+
+
+def sync(snapshot=None, report=None):
+    """Verify current head, then verify one archived successor; never loop."""
+    first_report = Path(report).with_suffix('.previous.json') if report else None
+    previous = check(snapshot or latest(), live=True, report=first_report)
+    if previous.get('archive'):
+        archive = Path(previous['archive']['observed_archive'])
+        if not archive.is_absolute():
+            archive = ROOT / archive
+        result = check(archive, live=True, report=report)
+        result['transition'] = {'previous_snapshot': previous['snapshot'],
+                                'previous_scored': False, 'archive': previous['archive'],
+                                'previous_report': str(first_report) if first_report else None}
+        # The final report includes the transition; check already wrote its evidence.
+        if report:
+            transition = Path(report).with_suffix('.transition.json')
+            with transition.open('x') as out:
+                json.dump(result['transition'], out, indent=2); out.write('\n')
+        return result
+    write_report(previous, report)
+    return previous
+
+
 def run(dest=None, api=APIS['simple'], report=None):
     """Explicit fresh capture plus strict live check; never repin an older run."""
     try:
@@ -308,6 +428,15 @@ def run(dest=None, api=APIS['simple'], report=None):
 
 
 def latest():
+    pointer = KIT / 'head.json'
+    if pointer.exists():
+        head = json.loads(pointer.read_text())
+        candidate = (KIT / head['snapshot']).resolve()
+        if KIT.resolve() not in candidate.parents:
+            raise ValueError('head escapes wiki tree')
+        if digest((candidate / 'manifest.json').read_bytes()) != head['manifest_sha256']:
+            raise ValueError('head manifest pin mismatch')
+        return candidate
     candidates = sorted((KIT / 'captures').glob('*/manifest.json'))
     if not candidates:
         raise ValueError('no complete new capture; run fetch first (historical snapshot remains incomplete)')
@@ -316,7 +445,7 @@ def latest():
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('command', choices=['fetch', 'check', 'run'])
+    parser.add_argument('command', choices=['fetch', 'check', 'run', 'sync'])
     parser.add_argument('--snapshot', type=Path)
     parser.add_argument('--wiki', choices=APIS, default='simple')
     parser.add_argument('--offline', action='store_true', help='replay only; no claim of live verification')
@@ -327,8 +456,12 @@ def main():
         if args.command == 'fetch':
             print('New immutable capture:', capture(args.snapshot, APIS[args.wiki])); return 0
         report = KIT / 'reports' / (args.command + '-' + stamp() + '.json')
-        result = (run(args.snapshot, APIS[args.wiki], report=report) if args.command == 'run'
-                  else check(args.snapshot or latest(), live=not args.offline, report=report))
+        if args.command == 'run':
+            result = run(args.snapshot, APIS[args.wiki], report=report)
+        elif args.command == 'sync':
+            result = sync(args.snapshot, report=report)
+        else:
+            result = check(args.snapshot or latest(), live=not args.offline, report=report)
         print(json.dumps(result, indent=2))
         return 2 if not result['scored'] else (1 if result['failures'] else 0)
     except (OSError, ValueError, SourceUnavailable) as exc:

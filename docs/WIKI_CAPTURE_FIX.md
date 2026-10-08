@@ -25,3 +25,15 @@ Base: `92ee0f07dd1a7bc72923e648361a81c2db638f56`. A reviewer observed a 429, fol
 `run` and the wiki menu now create a new capture and make a second strict live check, instead of treating a shipped snapshot as permanently current. Six additional tests cover fresh capture preservation, mismatch without silent refetch, capture/check rate-limit handling, HTTP-error translation, and refusal to overwrite an existing capture. Reports expose expected/observed payload hashes and revision IDs separately from extract matches. Rate limits are unscored source failures, not drift or passing evaluations.
 
 Walk back this follow-up by reverting its commit, restoring `check` as the menu action and the previous checker. Keep the new reports if needed for history. Earlier snapshots keep their original checker pins and remain runnable with their corresponding earlier release; no historical pins were changed.
+
+## Dated drift archives
+
+Base: `d01aad791b232c2f80f39d700f73040bbf640e0f`. A mismatch now archives the exact observed response and a new local corpus, links the previous immutable capture by manifest/response hashes, and records source URLs, source revision IDs/timestamps, and observation time separately. No replacement fetch occurs and the mismatch remains unscored. Incomplete source responses retain dated raw evidence without a fabricated corpus. Archives are excluded from default capture selection. Three new tests verify original-file preservation, complete source/time links, incomplete observations, repeated archives, and archive exclusion from latest selection.
+
+Rollback: revert this follow-up to remove automatic archival while preserving strict mismatch refusal. Retain any runtime `archives/` directories separately if reverting or deleting a checkout. Do not alter previous captures or promote an archived unscored observation into a passing report.
+
+## Verified newest head
+
+New captures link prior same-source observations. `sync` checks the current head, archives drift, and verifies one successor. Only a passing live successor becomes the active local head. Old captures remain immutable. Offline replay, a rate limit, repeated drift, or an older capture cannot replace a newer verified head. Eight additional tests cover parent links, source separation, successful promotion, failed successor retention, no offline promotion, no backwards movement, bounded synchronization, and linkage after an archived head. Together with the three archive tests, this release adds eleven tests to the prior 197.
+
+Rollback also restores the previous menu behavior and removes `head.json` from the shipped tree. Keep runtime head pointers and archives separately if needed as historical evidence; an older checker cannot verify this release's checker pins.

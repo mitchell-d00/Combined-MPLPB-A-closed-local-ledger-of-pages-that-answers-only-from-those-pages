@@ -227,5 +227,144 @@ class WikiCaptureTests(unittest.TestCase):
                 W.run(self.snapshot)
         network.assert_not_called()
 
+    def test_drift_archives_observed_bytes_dates_source_and_previous_link(self):
+        before = {p.relative_to(self.snapshot): p.read_bytes()
+                  for p in self.snapshot.rglob('*') if p.is_file()}
+        changed = copy.deepcopy(self.payload)
+        changed['query']['pages']['1']['extract'] = 'A newly observed feline extract.'
+        raw = json.dumps(changed).encode()
+        metadata = dict(self.metadata, retrieved_at='2026-01-02T00:00:00Z')
+        with patch.object(W, 'request', return_value=(raw, metadata)) as network, \
+                patch.object(W.R, 'answer') as reader:
+            result = W.check(self.snapshot)
+        self.assertFalse(result['scored'])
+        network.assert_called_once()
+        reader.assert_not_called()
+        archive = Path(result['archive']['observed_archive'])
+        self.assertEqual((archive / 'response.json').read_bytes(), raw)
+        manifest = json.loads((archive / 'manifest.json').read_text())
+        self.assertFalse(manifest['history']['scored'])
+        self.assertEqual(manifest['history']['previous_capture'], result['snapshot'])
+        self.assertEqual(manifest['history']['previous_manifest_sha256'],
+                         W.digest(before[Path('manifest.json')]))
+        page = manifest['pages'][0]
+        self.assertEqual(page['observed_at'], metadata['retrieved_at'])
+        self.assertEqual(page['source_revision_at'], '2026-01-01T00:00:00Z')
+        self.assertEqual(page['source_url'], 'https://simple.wikipedia.org/wiki/Cat')
+        self.assertEqual(page['revid'], 11)
+        self.assertEqual(W.stored_errors(archive, manifest), [])
+        self.assertEqual(before, {p.relative_to(self.snapshot): p.read_bytes()
+                                  for p in self.snapshot.rglob('*') if p.is_file()})
+
+    def test_missing_live_title_is_archived_as_incomplete_observation(self):
+        changed = copy.deepcopy(self.payload)
+        del changed['query']['pages']['1']
+        raw = json.dumps(changed).encode()
+        with patch.object(W, 'request', return_value=(raw, self.metadata)):
+            result = W.check(self.snapshot)
+        self.assertFalse(result['scored'])
+        archive = Path(result['archive']['observed_archive'])
+        self.assertEqual((archive / 'response.json').read_bytes(), raw)
+        observation = json.loads((archive / 'observation.json').read_text())
+        self.assertIn('Cat', observation['incomplete'])
+        self.assertFalse((archive / 'manifest.json').exists())
+
+    def test_repeated_drift_keeps_distinct_archives_out_of_latest_capture(self):
+        kit = self.root / 'wiki'
+        snap = kit / 'captures' / 'original'
+        changed = copy.deepcopy(self.payload)
+        changed['query']['pages']['1']['extract'] = 'Changed.'
+        with patch.object(W, 'request', return_value=(self.raw, self.metadata)):
+            self.capture_small(snap, W.APIS['simple'])
+        with patch.object(W, 'KIT', kit), \
+                patch.object(W, 'request', return_value=(json.dumps(changed).encode(), self.metadata)):
+            first = W.check(snap)
+            second = W.check(snap)
+            self.assertEqual(W.latest(), snap)
+        self.assertNotEqual(first['archive']['observed_archive'], second['archive']['observed_archive'])
+        self.assertEqual(len(list((kit / 'archives').glob('*/manifest.json'))), 2)
+
+    def test_fresh_capture_links_previous_same_source_with_its_pins(self):
+        next_snapshot = self.root / 'next'
+        with patch.object(W, 'request', return_value=(self.raw, self.metadata)):
+            self.capture_small(next_snapshot, W.APIS['simple'])
+        manifest = json.loads((next_snapshot / 'manifest.json').read_text())
+        old = self.manifest()
+        self.assertEqual(manifest['history']['previous_response_sha256'], old['response_sha256'])
+        self.assertEqual(manifest['history']['previous_manifest_sha256'],
+                         W.digest((self.snapshot / 'manifest.json').read_bytes()))
+        self.assertEqual(manifest['history']['reason'], 'fresh capture observation')
+
+    def test_distinct_wiki_is_separate_history_root(self):
+        next_snapshot = self.root / 'english'
+        with patch.object(W, 'request', return_value=(self.raw, self.metadata)):
+            self.capture_small(next_snapshot, W.APIS['english'])
+        manifest = json.loads((next_snapshot / 'manifest.json').read_text())
+        self.assertNotIn('history', manifest)
+
+    def changed_response(self):
+        changed = copy.deepcopy(self.payload)
+        changed['query']['pages']['1']['extract'] = 'A changed feline animal.'
+        return json.dumps(changed).encode(), dict(self.metadata, retrieved_at='2026-01-02T00:00:00Z')
+
+    def test_sync_verifies_successor_and_moves_head_without_rewriting_old(self):
+        before = (self.snapshot / 'manifest.json').read_bytes()
+        response = self.changed_response()
+        with patch.object(W, 'request', return_value=response) as network:
+            result = W.sync(self.snapshot)
+        self.assertTrue(result['scored'], result['errors'])
+        self.assertEqual(result['failures'], 0)
+        self.assertEqual(network.call_count, 2)
+        self.assertFalse(result['transition']['previous_scored'])
+        self.assertEqual(before, (self.snapshot / 'manifest.json').read_bytes())
+        with patch.object(W, 'KIT', self.root):
+            self.assertEqual(W.latest(), (self.root / result['head']['current']['snapshot']).resolve())
+        self.assertTrue(result['head']['promoted'])
+
+    def test_successor_rate_limit_keeps_previous_verified_head(self):
+        with patch.object(W, 'request', return_value=(self.raw, self.metadata)):
+            W.check(self.snapshot)
+        before = (self.root / 'head.json').read_bytes()
+        with patch.object(W, 'request', side_effect=[self.changed_response(), W.SourceUnavailable(429)]):
+            result = W.sync(self.snapshot)
+        self.assertFalse(result['scored'])
+        self.assertEqual(before, (self.root / 'head.json').read_bytes())
+
+    def test_offline_replay_cannot_promote_a_head(self):
+        result = W.check(self.snapshot, live=False)
+        self.assertTrue(result['scored'])
+        self.assertNotIn('head', result)
+        self.assertFalse((self.root / 'head.json').exists())
+
+    def test_live_recheck_of_older_capture_cannot_move_head_back(self):
+        with patch.object(W, 'request', return_value=self.changed_response()):
+            W.sync(self.snapshot)
+        before = (self.root / 'head.json').read_bytes()
+        later = dict(self.metadata, retrieved_at='2026-01-03T00:00:00Z')
+        with patch.object(W, 'request', return_value=(self.raw, later)):
+            result = W.check(self.snapshot)
+        self.assertFalse(result['head']['promoted'])
+        self.assertEqual(before, (self.root / 'head.json').read_bytes())
+
+    def test_successor_drift_does_not_loop_or_promote(self):
+        response = self.changed_response()
+        changed = json.loads(response[0])
+        changed['query']['pages']['1']['extract'] = 'Changed again.'
+        with patch.object(W, 'request', side_effect=[response,
+                 (json.dumps(changed).encode(), response[1])]) as network:
+            result = W.sync(self.snapshot)
+        self.assertFalse(result['scored'])
+        self.assertEqual(network.call_count, 2)
+        self.assertFalse((self.root / 'head.json').exists())
+
+    def test_new_capture_links_the_verified_archived_head(self):
+        response = self.changed_response()
+        with patch.object(W, 'request', return_value=response):
+            result = W.sync(self.snapshot)
+            fresh = self.root / 'fresh'
+            self.capture_small(fresh, W.APIS['simple'])
+        manifest = json.loads((fresh / 'manifest.json').read_text())
+        self.assertEqual(manifest['history']['previous_capture'], result['snapshot'])
+
 
 ORIGINAL_CAPTURE = W.capture

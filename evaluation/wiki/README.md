@@ -6,9 +6,11 @@ This tests lexical retrieval and refusal using external wiki text. It is not sem
 python3 tools/wiki_live_eval.py run
 ```
 
-`run` explicitly creates a new capture and immediately performs a second live request to verify it before scoring. The menu uses this fresh-run workflow. It never updates an old capture's pins or retries until a mismatch disappears. HTTP 429 is reported as source unavailable, with Retry-After when supplied, and produces no score or automatic retry. A live match is an observation at the recorded request time, not a promise that a later check will match.
+`run` explicitly creates a new capture and immediately performs a second live request to verify it before scoring. It never updates an old capture's pins or retries until a mismatch disappears. HTTP 429 is reported as source unavailable, with Retry-After when supplied, and produces no score or automatic retry. A live match is an observation at the recorded request time, not a promise that a later check will match.
 
 To inspect an existing capture, use `check`. Source changes still stop scoring. Mismatch reports include expected and observed payload hashes and revision IDs, and whether the raw extract matched; a matching revision ID alone does not authenticate the extract.
+
+On a live payload mismatch, the old capture stays untouched and the exact newly observed response is archived under `archives/<UTC timestamp>/`, without another fetch. Complete observations include sealed local pages, source URLs, revision IDs, source revision timestamps, and retrieval timestamps. Their manifests link the previous capture and its hashes and declare the observation unscored. Missing/deleted titles retain raw response bytes and a dated `observation.json` marked incomplete instead of fabricating a complete corpus. Unverified archives are excluded from default latest-capture selection. Extract drift at the same revision is recorded as an observation, not claimed as a verified Wikipedia edit.
 
 `fetch` creates a new directory under `captures/`. It never repairs or overwrites the historical `corpus/` and `manifest.json`, or an existing capture. It saves the exact API response, a schema-2 manifest, full sealed local HTML pages, and separate engine/checker byte pins. Each page pins the complete canonical source-page payload, raw extract, source identifiers, and complete served HTML. The manifest records the developer-written title lists before retrieval.
 
@@ -35,3 +37,13 @@ The first new capture and report also remain as development evidence. A subseque
 Each checker release requires its own new capture. Captures from earlier releases retain their earlier checker pins; run them with that release, or create a fresh capture with the current checker. The original 16:04 UTC live pass does not claim that later source requests match.
 
 Text attribution: Wikipedia contributors, CC BY-SA 4.0, with each page's wiki source URL retained. Hashes prove byte consistency against the stored pins, not authenticity of whoever supplied those pins. Five title probes cannot establish broad factual accuracy or usefulness.
+
+## Revision tree and active head
+
+```sh
+python3 tools/wiki_live_eval.py sync
+```
+
+The menu uses `sync`. It checks the current head; on source drift it archives the observed successor and makes one verification request for that successor. Only a live score with zero failures promotes it into `head.json`. The old snapshot remains in the tree, with unchanged pins. A failed successor, 429, or another change stops without moving the head or looping. Offline replay cannot promote a head. A later check of an older capture cannot move the head backwards.
+
+`head.json` names the active local snapshot, pins its manifest and response, and records source, capture time and verification time. Default `check` reads this head. An unverified archive is excluded; a verified archived successor can be the head. Regular new captures link the previous intact capture or verified head for the same wiki and title list. Source revision time is distinct from observation time; identical revision IDs can have distinct observed payload versions. A retained manifest's unscored status describes capture time; its later report and head record verification without rewriting that manifest.
