@@ -1,25 +1,32 @@
-# Wiki live match
+# Wiki capture and live check
 
-This is a clone-time check, not the pottery probes and not a human-labeled evaluation.
+This tests lexical retrieval and refusal using external wiki text. It is not semantic retrieval, independently labeled validation, or authenticated authorship.
 
-Simple English Wikipedia writes the pages. `evaluation/wiki/titles.json` names five fetched titles and three titles that must not be fetched. Those lists are the labels. They are fixed before the reader runs.
-
-```
+```sh
 python3 tools/wiki_live_eval.py fetch
 python3 tools/wiki_live_eval.py check
 ```
 
-`fetch` loads the intro of each fetched title into `evaluation/wiki/corpus` and pins the live revision id and extract hash. `check` reads the live site again. If a revision or extract hash differs, it stops and does not score. If they match, it asks the frozen reader.
+`fetch` creates a new directory under `captures/`. It never repairs or overwrites the historical `corpus/` and `manifest.json`, or an existing capture. It saves the exact API response, a schema-2 manifest, full sealed local HTML pages, and separate engine/checker byte pins. Each page pins the complete canonical source-page payload, raw extract, source identifiers, and complete served HTML. The manifest records the developer-written title lists before retrieval.
 
-A fetched title should return that page. An absent title should be refused. A question that names two fetched titles must not return one page: shared words are not a relationship. Paraphrases are printed and do not count. Passing this check does not mean the system helps another person. It means the refusal and source pin still match the wiki that was loaded.
+`check` selects the latest capture by default. Before asking the reader, it verifies the retained response, complete page inventory, code bytes, source-to-local transformation, and unknown-authorship delivery declarations. It fetches the live source again and requires every full page payload to match. Missing provenance, tampering, code changes, or source drift stop scoring with exit 2. A scored failure exits 1; all passing checks exit 0. Reports and the live response are written to new paths under `reports/`.
 
-Text is CC BY-SA 4.0, Simple English Wikipedia contributors. Code pin: `3bac10f21a5b74e8aacbf9dada9773cfee25dcb0`.
+```sh
+python3 tools/wiki_live_eval.py fetch --wiki english
+python3 tools/wiki_live_eval.py check --snapshot evaluation/wiki/captures/NEW_CAPTURE
+python3 tools/wiki_live_eval.py check --snapshot evaluation/wiki/captures/NEW_CAPTURE --offline
+```
 
+Offline replay is explicitly labeled and makes no live-match claim. Code changes require a new capture; do not replace old code pins to make an old run pass.
 
-## Snapshot and current safeguards
+The five-title smoke test has 19 checks: five local title returns, five external ask refusals, five external gate refusals, three absent-title refusals, and one two-title refusal. Local calls use the existing internal profile, including its lexical prose-containment fallback. Paraphrases are reported without scores. The reader's ownership rule is unchanged.
 
-The supplied corpus and manifest preserve the old load. Full local page text is pinned separately from raw API extracts. API payload hashes cover source revision fields and extract text; the historical load has no such pins and is not scored. Engine and checker bytes have separate pins, with the original base commit recorded separately.
+Imported records use `origin=machine` for the import operation, `source-authorship=unknown`, `owner=unknown`, and `external=no`. This does not claim Wikipedia text was written by a machine. Contributor authorship remains unverified. Unknown-source text can be read locally but both external delivery paths withhold it.
 
-Local unknown-origin imports are explicitly labeled unknown and withheld by both external ask and gate. Declared origin is not verified identity. Delivery policy fields are sealed, and the importer creates them atomically with its ledger event. See [delivery and clarification](../../docs/DELIVERY_AND_CLARIFICATION.md) and [the historical review](REVIEW.md).
+## Historical evidence
 
-A clean local unit run is regression evidence, not a passing live evaluation or independent labeling. Preserved reports under this directory are historical supplied observations, not new checks of this working version.
+The old snapshot remains incomplete and unscorable: it lacks retained API response bytes and payload pins. Those cannot honestly be manufactured after the fact. Its corpus, manifest, pins, review, and original reports are preserved. See [the historical review](REVIEW.md) and [delivery policy](../../docs/DELIVERY_AND_CLARIFICATION.md).
+
+The first new capture and report also remain as development evidence. A subsequent checker strengthening means that first capture's checker pin no longer matches the finished checker. Use the latest capture for the finished version; this is recorded rather than silently repinning it.
+
+Text attribution: Wikipedia contributors, CC BY-SA 4.0, with each page's wiki source URL retained. Hashes prove byte consistency against the stored pins, not authenticity of whoever supplied those pins. Five title probes cannot establish broad factual accuracy or usefulness.

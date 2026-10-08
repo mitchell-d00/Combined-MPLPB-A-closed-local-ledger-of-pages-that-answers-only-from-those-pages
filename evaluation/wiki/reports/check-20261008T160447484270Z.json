@@ -1,0 +1,186 @@
+{
+  "snapshot": "evaluation/wiki/captures/20261008T160352631709Z",
+  "checked_at": "2026-10-08T16:04:47.484406+00:00",
+  "scored": true,
+  "independence_verified": false,
+  "errors": [],
+  "live": [
+    {
+      "title": "Cat",
+      "payload_match": true
+    },
+    {
+      "title": "Dog",
+      "payload_match": true
+    },
+    {
+      "title": "Moon",
+      "payload_match": true
+    },
+    {
+      "title": "Paris",
+      "payload_match": true
+    },
+    {
+      "title": "Photosynthesis",
+      "payload_match": true
+    }
+  ],
+  "rows": [
+    {
+      "question": "Cat",
+      "mode": "local title",
+      "passed": true,
+      "outcome": "return",
+      "id": "WIKI-0001"
+    },
+    {
+      "question": "Cat",
+      "mode": "external ask withheld",
+      "passed": true,
+      "outcome": "not_in_corpus",
+      "id": null
+    },
+    {
+      "question": "Cat",
+      "mode": "external gate withheld",
+      "passed": true,
+      "outcome": "not_in_corpus",
+      "id": null
+    },
+    {
+      "question": "Dog",
+      "mode": "local title",
+      "passed": true,
+      "outcome": "return",
+      "id": "WIKI-0002"
+    },
+    {
+      "question": "Dog",
+      "mode": "external ask withheld",
+      "passed": true,
+      "outcome": "not_in_corpus",
+      "id": null
+    },
+    {
+      "question": "Dog",
+      "mode": "external gate withheld",
+      "passed": true,
+      "outcome": "not_in_corpus",
+      "id": null
+    },
+    {
+      "question": "Moon",
+      "mode": "local title",
+      "passed": true,
+      "outcome": "return",
+      "id": "WIKI-0003"
+    },
+    {
+      "question": "Moon",
+      "mode": "external ask withheld",
+      "passed": true,
+      "outcome": "not_in_corpus",
+      "id": null
+    },
+    {
+      "question": "Moon",
+      "mode": "external gate withheld",
+      "passed": true,
+      "outcome": "not_in_corpus",
+      "id": null
+    },
+    {
+      "question": "Paris",
+      "mode": "local title",
+      "passed": true,
+      "outcome": "return",
+      "id": "WIKI-0004"
+    },
+    {
+      "question": "Paris",
+      "mode": "external ask withheld",
+      "passed": true,
+      "outcome": "not_in_corpus",
+      "id": null
+    },
+    {
+      "question": "Paris",
+      "mode": "external gate withheld",
+      "passed": true,
+      "outcome": "not_in_corpus",
+      "id": null
+    },
+    {
+      "question": "Photosynthesis",
+      "mode": "local title",
+      "passed": true,
+      "outcome": "return",
+      "id": "WIKI-0005"
+    },
+    {
+      "question": "Photosynthesis",
+      "mode": "external ask withheld",
+      "passed": true,
+      "outcome": "not_in_corpus",
+      "id": null
+    },
+    {
+      "question": "Photosynthesis",
+      "mode": "external gate withheld",
+      "passed": true,
+      "outcome": "not_in_corpus",
+      "id": null
+    },
+    {
+      "question": "Tokyo",
+      "mode": "absent title",
+      "passed": true,
+      "outcome": "not_in_corpus",
+      "id": null
+    },
+    {
+      "question": "Violin",
+      "mode": "absent title",
+      "passed": true,
+      "outcome": "not_in_corpus",
+      "id": null
+    },
+    {
+      "question": "Glacier",
+      "mode": "absent title",
+      "passed": true,
+      "outcome": "not_in_corpus",
+      "id": null
+    },
+    {
+      "question": "Cat Dog",
+      "mode": "two titles must not choose one",
+      "passed": true,
+      "outcome": "not_in_corpus",
+      "id": null
+    }
+  ],
+  "live_request": {
+    "url": "https://simple.wikipedia.org/w/api.php?action=query&format=json&redirects=1&prop=extracts%7Crevisions&exintro=1&explaintext=1&rvprop=ids%7Ctimestamp&titles=Cat%7CDog%7CMoon%7CParis%7CPhotosynthesis",
+    "retrieved_at": "2026-10-08T16:04:53.979468+00:00",
+    "http_status": 200,
+    "content_type": "application/json; charset=utf-8"
+  },
+  "failures": 0,
+  "paraphrases_unscored": [
+    {
+      "question": "domestic feline",
+      "outcome": "not_in_corpus"
+    },
+    {
+      "question": "earth only natural satellite",
+      "outcome": "return"
+    },
+    {
+      "question": "how plants make food from light",
+      "outcome": "return"
+    }
+  ],
+  "verification": "live"
+}

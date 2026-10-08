@@ -73,7 +73,7 @@ Walk-back instructions: [docs/ROLLBACK.md](docs/ROLLBACK.md).
 
 ## Experimental wiki and loose-file tools
 
-The [wiki package](evaluation/wiki/README.md) adds a menu, loose-source formatter, and live revision/extract check. Its supplied snapshot currently fails the live hash check and is not scored; code pin and source verification gaps are recorded in [the review](evaluation/wiki/REVIEW.md). This is an external-text smoke test, not independently labeled validation. Start with `python3 tools/menu.py`.
+The [wiki package](evaluation/wiki/README.md) adds a menu, loose-source formatter, and immutable wiki captures. New captures retain API responses, complete payload and local-page pins, and unknown-authorship delivery policy. The historical snapshot remains incomplete and unscorable; it is preserved with [the review](evaluation/wiki/REVIEW.md). This is a lexical smoke test, not independently labeled validation. Start with `python3 tools/menu.py`.
 
 See [sealed delivery and human clarification](docs/DELIVERY_AND_CLARIFICATION.md) for unknown authorship, shared `ask`/`gate` restrictions, and the dog intent demo.
 
@@ -109,7 +109,7 @@ nothing else.
 | `mplpb_combined/ledger.py` | The folder as a ledger: status, lineage, depth, validation, writing, the log |
 | `mplpb_combined/reader.py` | The answer rule, profiles, hubs |
 | `mplpb_combined/killtest.py` | The kill test: three arms, mechanical scoring |
-| `tests/` | 176 tests: 165 existing and 11 delivery/clarification tests |
+| `tests/` | 191 tests: 165 original, 11 delivery/clarification, and 15 wiki capture tests |
 | `examples/studio/` | 25 pages about running a pottery studio; the kill-test corpus |
 | `examples/spec/` | The format described as ten pages in the format |
 | `examples/hub/` | Two pointers, one at each of the above |

@@ -1,287 +1,294 @@
 #!/usr/bin/env python3
-"""Load a small open wiki, match it to the live site, then test.
+"""Capture a new wiki snapshot, then verify it before lexical smoke scoring.
 
-The page text is Simple English Wikipedia, CC BY-SA 4.0. Titles in
-evaluation/wiki/titles.json decide the labels before the reader runs.
-A question is owned only if its title was fetched. A title that was not
-fetched is a refusal. A question that names two fetched titles is not a
-relationship between them. Paraphrases are reported and do not count.
-
-The code revision is pinned. Scoring starts only after each fetched page
-still has the live revision id and extract hash recorded at load time.
+Historical incomplete snapshots are never repaired by inventing missing pins.
+Raw response bytes and full local pages are retained separately. Authorship is
+unknown; local retrieval and external withholding are scored separately.
 """
 from __future__ import annotations
 
+import argparse
+from datetime import datetime, timezone
 import hashlib
 import json
+import os
+from pathlib import Path
 import subprocess
 import sys
+import tempfile
 import urllib.parse
 import urllib.request
-from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-if str(ROOT) not in sys.path:
-    sys.path.insert(0, str(ROOT))
+sys.path.insert(0, str(ROOT))
+from mplpb_combined import ledger as L, reader as R, provenance_gate as G
 
-from mplpb_combined import ledger as L  # noqa: E402
-from mplpb_combined import reader as R  # noqa: E402
-
-API = "https://simple.wikipedia.org/w/api.php"
-UA = "mplpb-wiki-eval/1.0 (local ledger test; matches live revision before scoring)"
-CODE = "3bac10f21a5b74e8aacbf9dada9773cfee25dcb0"
-WHEN = "2026-10-08T14:20:00Z"
-KIT = ROOT / "evaluation" / "wiki"
-CORPUS = KIT / "corpus"
-MANIFEST = KIT / "manifest.json"
-TITLES = KIT / "titles.json"
-MISMATCH = KIT / "live-mismatch.json"
-PINS = KIT / "pins.json"
+KIT = ROOT / 'evaluation/wiki'
+APIS = {'simple': 'https://simple.wikipedia.org/w/api.php',
+        'english': 'https://en.wikipedia.org/w/api.php'}
+UA = 'mplpb-wiki-eval/2.0 (local provenance and refusal smoke check)'
 
 
-def _get(titles: list[str]) -> dict:
-    q = urllib.parse.urlencode({
-        "action": "query", "format": "json", "redirects": 1,
-        "prop": "extracts|revisions", "exintro": 1, "explaintext": 1,
-        "rvprop": "ids|timestamp", "titles": "|".join(titles),
-    })
-    req = urllib.request.Request(API + "?" + q, headers={"User-Agent": UA})
-    with urllib.request.urlopen(req, timeout=40) as resp:
-        return json.loads(resp.read().decode("utf-8"))
+def stamp():
+    return datetime.now(timezone.utc).strftime('%Y%m%dT%H%M%S%fZ')
 
 
-def _pages(payload: dict) -> dict:
-    return {p["title"]: p for p in payload["query"]["pages"].values() if "title" in p}
+def digest(data):
+    return hashlib.sha256(data).hexdigest()
 
 
-def _extract_hash(text: str) -> str:
-    return hashlib.sha256(text.encode("utf-8")).hexdigest()
+def json_bytes(value):
+    return json.dumps(value, ensure_ascii=False, sort_keys=True, separators=(',', ':')).encode('utf-8')
 
 
-def payload_hash(page: dict) -> str:
-    """Hash the revision fields the check depends on, not the extract alone."""
-    rev = (page.get("revisions") or [{}])[0]
-    body = json.dumps({
-        "pageid": page.get("pageid"),
-        "ns": page.get("ns"),
-        "title": page.get("title"),
-        "revid": rev.get("revid"),
-        "parentid": rev.get("parentid"),
-        "timestamp": rev.get("timestamp"),
-        "extract": page.get("extract") or "",
-    }, ensure_ascii=False, sort_keys=True, separators=(",", ":"))
-    return _extract_hash(body)
+def request_url(api, titles):
+    return api + '?' + urllib.parse.urlencode({
+        'action': 'query', 'format': 'json', 'redirects': 1,
+        'prop': 'extracts|revisions', 'exintro': 1, 'explaintext': 1,
+        'rvprop': 'ids|timestamp', 'titles': '|'.join(titles)})
 
 
-def fetch() -> None:
-    spec = json.loads(TITLES.read_text(encoding="utf-8"))
-    wanted = spec["fetched"]
-    live = _pages(_get(wanted))
-    if CORPUS.exists():
-        for child in CORPUS.rglob("*"):
-            if child.is_file():
-                child.unlink()
-    CORPUS.mkdir(parents=True, exist_ok=True)
-    records = []
-    for i, title in enumerate(wanted, start=1):
-        page = live[title]
-        extract = page.get("extract") or ""
-        rev = page["revisions"][0]
-        body = (
-            extract.strip()
-            + "\n\nSource: Simple English Wikipedia, CC BY-SA 4.0. "
-            + f"https://simple.wikipedia.org/wiki/{urllib.parse.quote(title.replace(' ', '_'))}"
-        )
-        rec = L.write(
-            CORPUS, title=title, scope=title, when_to_use=title,
-            body=body, prefix="WIKI", doc_id=f"WIKI-{i:04d}",
-            origin="human", owner="Simple English Wikipedia contributors",
-            when=WHEN, note=f"revid {rev['revid']}",
-        )
-        records.append({
-            "id": rec.id, "title": title, "pageid": page["pageid"],
-            "revid": rev["revid"], "timestamp": rev["timestamp"],
-            "raw_extract_sha256": _extract_hash(extract),
-            "stripped_extract_sha256": _extract_hash(extract.strip()),
-            "served_page_sha256": _extract_hash(local_extract(rec.id)),
-            "payload_sha256": payload_hash(page),
-        })
-    manifest = {
-        "code_revision": CODE,
-        "source": "https://simple.wikipedia.org",
-        "license": "CC BY-SA 4.0",
-        "independence": (
-            "Page text is Wikipedia's. Labels are the fetched and absent title "
-            "lists, written before the reader runs. This is not blinded human labeling."
-        ),
-        "pages": records,
-        "absent": spec["absent"],
-        "paraphrases": spec["paraphrases"],
-    }
-    MANIFEST.write_text(json.dumps(manifest, indent=2) + "\n", encoding="utf-8")
-    print(f"loaded {len(records)} pages into {CORPUS}")
+def request(api, titles):
+    url = request_url(api, titles)
+    req = urllib.request.Request(url, headers={'User-Agent': UA})
+    with urllib.request.urlopen(req, timeout=30) as response:
+        raw = response.read()
+        metadata = {'url': url, 'retrieved_at': datetime.now(timezone.utc).isoformat(),
+                    'http_status': response.status, 'content_type': response.headers.get('Content-Type', '')}
+    pages(raw)  # reject malformed/error responses before creating any snapshot
+    return raw, metadata
 
 
+def pages(raw):
+    payload = json.loads(raw.decode('utf-8'))
+    if payload.get('error'):
+        raise ValueError('Wiki API error: ' + str(payload['error']))
+    return {p['title']: p for p in payload['query']['pages'].values() if 'missing' not in p}
 
-def file_hash(path: Path) -> str:
-    return hashlib.sha256(path.read_bytes()).hexdigest()
 
-
-def engine_hash() -> str:
+def engine_hash():
     h = hashlib.sha256()
-    for path in sorted((ROOT / "mplpb_combined").glob("*.py")):
-        h.update(path.name.encode())
-        h.update(b"\0")
-        h.update(path.read_bytes())
+    for p in sorted((ROOT / 'mplpb_combined').glob('*.py')):
+        h.update(p.name.encode()); h.update(b'\0'); h.update(p.read_bytes())
     return h.hexdigest()
 
 
-def code_status() -> dict:
-    """Engine bytes and checker bytes are pinned separately.
-
-    3bac10f predates this checker. Adding the checker must not make the
-    engine pin unattainable.
-    """
-    pins = json.loads(PINS.read_text(encoding="utf-8")) if PINS.is_file() else {}
-    engine = engine_hash()
-    checker = file_hash(Path(__file__))
-    return {
-        "engine_pin": pins.get("engine_sha256", ""),
-        "engine_running": engine,
-        "engine_ok": engine == pins.get("engine_sha256"),
-        "checker_pin": pins.get("checker_sha256", ""),
-        "checker_running": checker,
-        "checker_ok": checker == pins.get("checker_sha256"),
-        "code_revision": pins.get("code_revision", ""),
-    }
+def code_pins():
+    revision = subprocess.run(['git', 'rev-parse', 'HEAD'], cwd=ROOT, capture_output=True, text=True)
+    return {'engine_sha256': engine_hash(), 'checker_sha256': digest(Path(__file__).read_bytes()),
+            'base_revision': revision.stdout.strip() if revision.returncode == 0 else None,
+            'notice': 'Byte consistency only; not authenticated authorship or independent validation.'}
 
 
-def page_path(doc_id: str) -> Path:
-    return next(CORPUS.glob(doc_id.lower() + ".html"))
-
-
-def local_extract(doc_id: str) -> str:
-    return page_path(doc_id).read_text(encoding="utf-8")
-
-
-def match_live(manifest: dict) -> tuple[list[str], list[dict]]:
-    titles = [p["title"] for p in manifest["pages"]]
-    live = _pages(_get(titles))
+def code_errors(pins):
     errors = []
-    rows = []
-    for pinned in manifest["pages"]:
-        page = live.get(pinned["title"])
-        raw_pin = pinned.get("raw_extract_sha256") or pinned.get("extract_sha256")
-        row = {"title": pinned["title"], "pinned_revid": pinned["revid"], "pinned_raw_sha256": raw_pin, "pinned_served_page_sha256": pinned.get("served_page_sha256", "")}
-        if not page:
-            row["error"] = "missing live"
-            errors.append(f"{pinned['title']}: missing live")
-            rows.append(row)
-            continue
-        rev = page["revisions"][0]["revid"]
-        raw = page.get("extract") or ""
-        digest = _extract_hash(raw)
-        stripped = _extract_hash(raw.strip())
-        payload = payload_hash(page)
-        payload_pin = pinned.get("payload_sha256", "")
-        row.update({
-            "live_revid": rev, "live_raw_sha256": digest, "live_stripped_sha256": stripped,
-            "live_payload_sha256": payload, "revid_match": rev == pinned["revid"],
-            "raw_match": digest == raw_pin, "stripped_match": stripped == pinned.get("stripped_extract_sha256", stripped),
-            "payload_match": bool(payload_pin) and payload == payload_pin,
-        })
-        if not payload_pin:
-            errors.append(f"{pinned['title']}: snapshot has no payload hash; provenance incomplete")
-        elif not row["revid_match"] or not row["raw_match"] or not row["payload_match"]:
-            errors.append(
-                f"{pinned['title']}: live revid {rev} raw {digest[:12]} payload {payload[:12]} "
-                f"!= pinned {pinned['revid']} {raw_pin[:12]}"
-            )
-        rows.append(row)
-    return errors, rows
-
-
-def local_source_errors(manifest: dict) -> list[str]:
-    errors = []
-    for pinned in manifest["pages"]:
-        try:
-            got = _extract_hash(local_extract(pinned["id"]))
-        except StopIteration:
-            errors.append(f"{pinned['id']}: local page missing")
-            continue
-        served_pin = pinned.get("served_page_sha256", "")
-        if not served_pin:
-            errors.append(f"{pinned['id']}: snapshot has no full-page pin")
-        elif got != served_pin:
-            errors.append(f"{pinned['id']}: served page hash {got[:12]} != pinned page {served_pin[:12]}")
+    if engine_hash() != pins.get('engine_sha256'):
+        errors.append('engine bytes differ from capture pin')
+    if digest(Path(__file__).read_bytes()) != pins.get('checker_sha256'):
+        errors.append('checker bytes differ from capture pin')
+    for name, module in list(sys.modules.items()):
+        if name == 'mplpb_combined' or name.startswith('mplpb_combined.'):
+            path = getattr(module, '__file__', None)
+            if path and (ROOT / 'mplpb_combined').resolve() not in Path(path).resolve().parents:
+                errors.append('imported engine module outside pinned package: ' + name)
     return errors
 
 
-def score() -> int:
-    manifest = json.loads(MANIFEST.read_text(encoding="utf-8"))
-    code = code_status()
-    code_ok = code["engine_ok"] and code["checker_ok"]
-    print(f"engine {code['engine_running'][:12]} pin {code['engine_pin'][:12]} ok={code['engine_ok']}")
-    print(f"checker {code['checker_running'][:12]} pin {code['checker_pin'][:12]} ok={code['checker_ok']}")
-    if not code_ok:
-        print("engine or checker bytes differ from their own pins; not a pinned evaluation")
-    local_errors = local_source_errors(manifest)
-    if local_errors:
-        print("local page does not match pinned extract; not scored")
-        for e in local_errors:
-            print(" ", e)
+def source_body(page, api):
+    site = api.split('/w/api.php')[0]
+    return (page['extract'].strip() + '\n\nSource: ' + site + '/wiki/' +
+            urllib.parse.quote(page['title'].replace(' ', '_')) +
+            '\nLicense: CC BY-SA 4.0; Wikipedia contributors.\n'
+            'Source authorship: unknown; contributor identity is not authenticated by this capture.')
+
+
+def capture(dest=None, api=APIS['simple'], spec=None):
+    if api not in APIS.values():
+        raise ValueError('unsupported wiki API')
+    spec = spec or json.loads((KIT / 'titles.json').read_text())
+    titles = spec['fetched']
+    if len(titles) < 2 or len(set(titles)) != len(titles) or set(titles) & set(spec['absent']):
+        raise ValueError('title lists must be distinct, disjoint, and contain at least two fetched titles')
+    dest = Path(dest) if dest else KIT / 'captures' / stamp()
+    dest = dest.resolve()
+    if dest.exists():
+        raise FileExistsError('snapshot exists; use a new directory: ' + str(dest))
+    raw, metadata = request(api, titles)
+    live = pages(raw)
+    for title in titles:
+        p = live.get(title)
+        if not p or not p.get('extract') or not p.get('revisions'):
+            raise ValueError('requested title has no complete source payload: ' + title)
+    dest.parent.mkdir(parents=True, exist_ok=True)
+    with tempfile.TemporaryDirectory(prefix='.wiki-capture-', dir=dest.parent) as temp:
+        stage = Path(temp) / 'snapshot'; stage.mkdir()
+        (stage / 'response.json').write_bytes(raw)
+        records = []
+        when = metadata['retrieved_at']
+        for i, title in enumerate(titles, 1):
+            p = live[title]; rev = p['revisions'][0]
+            rec = L.write(stage / 'corpus', title=title, scope=title, when_to_use=title,
+                          body=source_body(p, api), prefix='WIKI', doc_id=f'WIKI-{i:04d}',
+                          origin='machine', source_authorship='unknown', external='no',
+                          owner='unknown', when=when, note='captured source revision ' + str(rev['revid']))
+            records.append({'id': rec.id, 'title': title, 'path': rec.path,
+                            'pageid': p['pageid'], 'revid': rev['revid'],
+                            'raw_extract_sha256': digest(p['extract'].encode('utf-8')),
+                            'payload_sha256': digest(json_bytes(p)),
+                            'served_page_sha256': digest((stage / 'corpus' / rec.path).read_bytes())})
+        manifest = {'schema': 2, 'api': api, 'request': metadata,
+                    'response_sha256': digest(raw), 'code': code_pins(), 'labels': spec,
+                    'pages': records, 'local_profile': 'internal', 'external_expected': 'withheld',
+                    'independence_verified': False,
+                    'notice': 'External-source text, title-list labels; not blinded human evaluation.'}
+        (stage / 'manifest.json').write_text(json.dumps(manifest, indent=2) + '\n')
+        if dest.exists():
+            raise FileExistsError('snapshot appeared during capture')
+        os.rename(stage, dest)
+    return dest
+
+
+def stored_errors(snapshot, manifest):
+    errors = []
+    if manifest.get('schema') != 2:
+        return ['historical snapshot lacks retained response provenance; cannot score or reconstruct missing pins']
+    if manifest.get('api') not in APIS.values():
+        return ['unsupported snapshot API']
     try:
-        errors, rows = match_live(manifest)
+        raw = (snapshot / 'response.json').read_bytes()
+        if digest(raw) != manifest['response_sha256']:
+            return ['stored raw response differs from capture pin']
+        original = pages(raw)
+        spec = manifest['labels']; pinned = manifest['pages']
+        if len(pinned) != len(spec['fetched']) or [p['title'] for p in pinned] != spec['fetched']:
+            errors.append('page list differs from captured labels')
+        if len(set(p['id'] for p in pinned)) != len(pinned):
+            errors.append('duplicate manifest page ids')
+        corpus = (snapshot / 'corpus').resolve()
+        actual = {p.relative_to(corpus).as_posix() for p in corpus.rglob('*.html')}
+        expected = {p['path'] for p in pinned}
+        if actual != expected:
+            errors.append('local HTML inventory differs from capture')
+        for p in pinned:
+            source = original[p['title']]
+            if not p.get('payload_sha256') or digest(json_bytes(source)) != p['payload_sha256']:
+                errors.append(p['title'] + ': original payload pin missing or mismatched')
+            if digest(source['extract'].encode()) != p.get('raw_extract_sha256'):
+                errors.append(p['title'] + ': original extract pin mismatched')
+            if source['pageid'] != p['pageid'] or source['revisions'][0]['revid'] != p['revid']:
+                errors.append(p['title'] + ': source identity mismatched')
+            path = (corpus / p['path']).resolve()
+            if corpus not in path.parents:
+                errors.append(p['title'] + ': local page escapes snapshot'); continue
+            if digest(path.read_bytes()) != p.get('served_page_sha256'):
+                errors.append(p['title'] + ': complete served page differs from pin')
+            # Bind local text to the saved API response, not two unrelated hashes.
+            rec = L.Ledger(corpus).by_id.get(p['id'], [])
+            if len(rec) != 1 or not rec[0].intact:
+                errors.append(p['title'] + ': local record invalid'); continue
+            rec = rec[0]
+            from mplpb_combined.record import plain_to_html, text_of
+            expected_text = text_of(plain_to_html(source_body(source, manifest['api'])))
+            body_text = text_of(rec.body_html.split('</h1>', 1)[-1]).strip()
+            if body_text != expected_text.strip():
+                errors.append(p['title'] + ': local body is not the recorded source transformation')
+            if rec.fields.get('source-authorship') != 'unknown' or rec.fields.get('external') != 'no':
+                errors.append(p['title'] + ': source declaration or delivery policy differs from contract')
+            if (rec.title != p['title'] or rec.scope != p['title'] or
+                    rec.when_to_use != p['title'] or rec.origin != 'machine' or
+                    rec.fields.get('owner') != 'unknown'):
+                errors.append(p['title'] + ': local metadata differs from source transformation')
+    except (OSError, KeyError, ValueError, TypeError) as exc:
+        errors.append('stored provenance invalid: ' + str(exc))
+    return errors
+
+
+def smoke_rows(corpus, manifest):
+    rows = []
+    def add(question, mode, ok, outcome, source=None):
+        rows.append({'question': question, 'mode': mode, 'passed': bool(ok),
+                     'outcome': outcome, 'id': source})
+    for p in manifest['pages']:
+        a = R.answer(corpus, p['title'], R.PROFILES['internal'])
+        add(p['title'], 'local title', a.kind == R.RETURN and a.record.id == p['id'], a.kind,
+            a.record.id if a.record else None)
+        a = R.answer(corpus, p['title'], R.PROFILES['external'])
+        add(p['title'], 'external ask withheld', a.kind == R.NOT_IN_CORPUS, a.kind)
+        g = G.gather(corpus, p['title'], R.PROFILES['external'])
+        add(p['title'], 'external gate withheld', not g.sources, g.kind)
+    for title in manifest['labels']['absent']:
+        a = R.answer(corpus, title, R.PROFILES['internal'])
+        add(title, 'absent title', a.kind == R.NOT_IN_CORPUS, a.kind)
+    pair = ' '.join(p['title'] for p in manifest['pages'][:2])
+    a = R.answer(corpus, pair, R.PROFILES['internal'])
+    add(pair, 'two titles must not choose one', a.kind != R.RETURN, a.kind)
+    return rows
+
+
+def check(snapshot, live=True, report=None):
+    snapshot = Path(snapshot).resolve()
+    result = {'snapshot': str(snapshot.relative_to(ROOT)) if ROOT in snapshot.parents else str(snapshot),
+              'checked_at': datetime.now(timezone.utc).isoformat(),
+              'scored': False, 'independence_verified': False, 'errors': [], 'live': [], 'rows': []}
+    live_raw = None
+    try:
+        manifest = json.loads((snapshot / 'manifest.json').read_text())
+        result['errors'] = stored_errors(snapshot, manifest)
+        if not result['errors']:
+            result['errors'] += code_errors(manifest['code'])
+        if not result['errors'] and live:
+            live_raw, metadata = request(manifest['api'], [p['title'] for p in manifest['pages']])
+            current = pages(live_raw); result['live_request'] = metadata
+            for p in manifest['pages']:
+                source = current.get(p['title'])
+                matched = bool(source) and digest(json_bytes(source)) == p['payload_sha256']
+                result['live'].append({'title': p['title'], 'payload_match': matched})
+                if not matched:
+                    result['errors'].append(p['title'] + ': live payload changed; new run needed, not scored')
+        if not result['errors']:
+            result['rows'] = smoke_rows(snapshot / 'corpus', manifest)
+            result['scored'] = True
+            result['failures'] = sum(not row['passed'] for row in result['rows'])
+            result['paraphrases_unscored'] = [
+                {'question': p['question'], 'outcome': R.answer(snapshot / 'corpus', p['question']).kind}
+                for p in manifest['labels'].get('paraphrases', [])]
+        result['verification'] = 'live' if live else 'offline replay only'
     except Exception as exc:
-        errors, rows = [f"live request failed: {exc}"], []
-    record = {"snapshot": "preserved", "code": code, "local_errors": local_errors, "live": rows, "errors": errors}
-    MISMATCH.write_text(json.dumps(record, indent=2) + "\n", encoding="utf-8")
-    print(f"wrote {MISMATCH}")
-    if errors:
-        print("live mismatch; snapshot preserved; not scored")
-        for e in errors:
-            print(" ", e)
-        return 2
-    if not code_ok or local_errors:
-        return 2
-    print("live match ok")
-    by_title = {p["title"]: p["id"] for p in manifest["pages"]}
-    failed = 0
-    for title, doc_id in by_title.items():
-        answer = R.answer(CORPUS, title, R.PROFILES["external"])
-        ok = answer.kind == "return" and answer.record and answer.record.id == doc_id
-        print(f"title {title}: {answer.kind} {answer.record.id if answer.record else '-'} {'ok' if ok else 'FAIL'}")
-        failed += not ok
-    for title in manifest["absent"]:
-        answer = R.answer(CORPUS, title, R.PROFILES["external"])
-        ok = answer.kind == R.NOT_IN_CORPUS
-        print(f"absent {title}: {answer.kind} {'ok' if ok else 'FAIL'}")
-        failed += not ok
-    joined = " ".join(manifest["pages"][0]["title"] for _ in range(1))
-    pair = f"{manifest['pages'][0]['title']} {manifest['pages'][1]['title']}"
-    answer = R.answer(CORPUS, pair, R.PROFILES["external"])
-    ok = answer.kind != "return"
-    print(f"two titles '{pair}': {answer.kind} {'ok (not a relationship)' if ok else 'FAIL returned one page'}")
-    failed += not ok
-    print("paraphrases, reported only:")
-    for item in manifest["paraphrases"]:
-        answer = R.answer(CORPUS, item["question"], R.PROFILES["external"])
-        got = answer.record.id if answer.record else answer.kind
-        print(f"  {item['question']!r} -> {got}; title page {item['title']} not required")
-    print(f"scored failures: {failed}")
-    return 1 if failed else 0
+        result['errors'].append('check failed: ' + str(exc))
+    if report:
+        report = Path(report); report.parent.mkdir(parents=True, exist_ok=True)
+        with report.open('x', encoding='utf-8') as out:
+            out.write(json.dumps(result, indent=2) + '\n')
+        if live_raw is not None:
+            with report.with_suffix('.live-response.json').open('xb') as out:
+                out.write(live_raw)
+    return result
 
 
-def main() -> int:
-    cmd = sys.argv[1] if len(sys.argv) > 1 else "check"
-    if cmd == "fetch":
-        fetch()
-        return 0
-    if cmd == "check":
-        return score()
-    print("use fetch or check")
-    return 2
+def latest():
+    candidates = sorted((KIT / 'captures').glob('*/manifest.json'))
+    if not candidates:
+        raise ValueError('no complete new capture; run fetch first (historical snapshot remains incomplete)')
+    return candidates[-1].parent
 
 
-if __name__ == "__main__":
+def main():
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('command', choices=['fetch', 'check'])
+    parser.add_argument('--snapshot', type=Path)
+    parser.add_argument('--wiki', choices=APIS, default='simple')
+    parser.add_argument('--offline', action='store_true', help='replay only; no claim of live verification')
+    args = parser.parse_args()
+    try:
+        if args.command == 'fetch':
+            print('New immutable capture:', capture(args.snapshot, APIS[args.wiki])); return 0
+        result = check(args.snapshot or latest(), live=not args.offline,
+                       report=KIT / 'reports' / ('check-' + stamp() + '.json'))
+        print(json.dumps(result, indent=2))
+        return 2 if not result['scored'] else (1 if result['failures'] else 0)
+    except (OSError, ValueError) as exc:
+        print(str(exc), file=sys.stderr); return 2
+
+
+if __name__ == '__main__':
     raise SystemExit(main())

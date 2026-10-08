@@ -1,0 +1,101 @@
+{
+  "schema": 2,
+  "api": "https://simple.wikipedia.org/w/api.php",
+  "request": {
+    "url": "https://simple.wikipedia.org/w/api.php?action=query&format=json&redirects=1&prop=extracts%7Crevisions&exintro=1&explaintext=1&rvprop=ids%7Ctimestamp&titles=Cat%7CDog%7CMoon%7CParis%7CPhotosynthesis",
+    "retrieved_at": "2026-10-08T15:59:59.860869+00:00",
+    "http_status": 200,
+    "content_type": "application/json; charset=utf-8"
+  },
+  "response_sha256": "e44ea58b2afe33128bd6922071537cb10d8bd1e017a796242c8fe4237b95e996",
+  "code": {
+    "engine_sha256": "a2890557e91e3180b334b1b8deda1fe8acc31767b70680d0ec8d656951bd78bd",
+    "checker_sha256": "61df4887456aed01d652c555ba35c612640bd1e088e2cc8e5f5999cf9fe579a8",
+    "base_revision": "23f3cb84ce470778a2d1261a93618cc69fe15915",
+    "notice": "Byte consistency only; not authenticated authorship or independent validation."
+  },
+  "labels": {
+    "fetched": [
+      "Cat",
+      "Dog",
+      "Moon",
+      "Paris",
+      "Photosynthesis"
+    ],
+    "absent": [
+      "Tokyo",
+      "Violin",
+      "Glacier"
+    ],
+    "paraphrases": [
+      {
+        "title": "Cat",
+        "question": "domestic feline"
+      },
+      {
+        "title": "Moon",
+        "question": "earth only natural satellite"
+      },
+      {
+        "title": "Photosynthesis",
+        "question": "how plants make food from light"
+      }
+    ]
+  },
+  "pages": [
+    {
+      "id": "WIKI-0001",
+      "title": "Cat",
+      "path": "wiki-0001.html",
+      "pageid": 2815,
+      "revid": 11013735,
+      "raw_extract_sha256": "0528953fb297e38cde84064b98065072a662db11813abf8a8a55575f1e309367",
+      "payload_sha256": "be8883164f4ff18ef8e330fdc8192fe16c324d5ae06c51ad337648ebf770a572",
+      "served_page_sha256": "5537ee18923162cef916233ab8da2e0dc4bcac88d75d7f2f6a383a75f233763b"
+    },
+    {
+      "id": "WIKI-0002",
+      "title": "Dog",
+      "path": "wiki-0002.html",
+      "pageid": 3632,
+      "revid": 11022361,
+      "raw_extract_sha256": "0180f9d6c80946e4bcf22f6aaeb4e0aea5a6ed425fcf4cbbf0281ee9405fa29c",
+      "payload_sha256": "1d4f3f9618c05ba673c046fa044bdce6e2fd92f03a092600d8d5cb0b6993a6cd",
+      "served_page_sha256": "01ed05162779c79a2a3d5a5070bc91d0fc2a5b13d00f82187d6ced2f593ca37b"
+    },
+    {
+      "id": "WIKI-0003",
+      "title": "Moon",
+      "path": "wiki-0003.html",
+      "pageid": 107799,
+      "revid": 10950172,
+      "raw_extract_sha256": "073f544ce9ca668857c917fcf6a6818a73305d9035fa7a7ea3aae2bbf1342fcf",
+      "payload_sha256": "53aed95ed4242dde26be8e69e88d0f22dbb2ed3055a32670b09bb4f3f839dd1c",
+      "served_page_sha256": "19ef41bcf8b916c581f2456420fb115ae97f859b6e6a183229d5ab8174adf66a"
+    },
+    {
+      "id": "WIKI-0004",
+      "title": "Paris",
+      "path": "wiki-0004.html",
+      "pageid": 4467,
+      "revid": 11020095,
+      "raw_extract_sha256": "754225b4fdb0c60e60fd528de1ed7ce688568e55a4d7c6a2bbe05936224b76a0",
+      "payload_sha256": "a4aa8e0749d80837d7ef3f18ad8a0d306a09939839e7483128baa7408d9874e0",
+      "served_page_sha256": "d890b2e33581c70870536b0337f8c310bb88666da37a05e3f4d2cbfee23933fc"
+    },
+    {
+      "id": "WIKI-0005",
+      "title": "Photosynthesis",
+      "path": "wiki-0005.html",
+      "pageid": 3518,
+      "revid": 10903963,
+      "raw_extract_sha256": "2f200c42e3c5846208ec261ba8d1574c1b9b9147592c1cf1e13dbc3e94c21694",
+      "payload_sha256": "7f398949f29ae338bf34101f5da5a5793779b7fea501fe4c6f0c68e1c2363168",
+      "served_page_sha256": "5264a2d5e366654ddd352bc5a4f42ba18695c3f246630c4585fef16c1b618cf7"
+    }
+  ],
+  "local_profile": "internal",
+  "external_expected": "withheld",
+  "independence_verified": false,
+  "notice": "External-source text, title-list labels; not blinded human evaluation."
+}
