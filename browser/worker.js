@@ -36,7 +36,7 @@ self.onmessage=e=>{queue=queue.then(async()=>{const {id,operation,bundle,url,pay
  if(!py)throw Error('Runtime not initialized');
  py.globals.set('_browser_url',url);py.globals.set('_browser_payload',payload||'');
  let result,error;
- try{result=JSON.parse(await py.runPythonAsync('await call_json(_browser_url, _browser_payload)'));}catch(exc){error=String(exc);}
+ try{result=JSON.parse(await py.runPythonAsync('await call_json(_browser_url, _browser_payload)'));if(result._browser_transport_error)error=result._browser_transport_error;}catch(exc){error=String(exc);}
  // Also retain observations archived by an import that was rejected.
  try{await sync(false);}catch(exc){failed=true;throw Error('Browser save failed: '+String(exc));}
  if(error)throw Error(error);postMessage({id,result});

@@ -50,7 +50,7 @@ class App:
     def roots(self):
         roots = dict(self.corpora)
         for key, entry in self.collections.entries().items():
-            roots[key] = (entry['name'], self.collections.root(key))
+            roots[key] = (entry['name'], self.collections.path(key) / 'combined')
         try:
             roots['wiki'] = ('Wiki · active local head', W.latest() / 'corpus')
         except (OSError, ValueError):
@@ -72,6 +72,13 @@ class App:
     def state(self):
         corpora = []
         for key, (label, root) in self.roots().items():
+            if key.startswith('mind-'):
+                try:
+                    root = self.collections.root(key)
+                except (OSError, ValueError, KeyError) as exc:
+                    corpora.append({'key': key, 'label': label + ' · blocked; reimport or restore required',
+                                    'records': len(L.Ledger(root).records), 'eligible': 0, 'reason': str(exc)})
+                    continue
             ledger = L.Ledger(root)
             if key == 'topics':
                 try:

@@ -23,7 +23,7 @@ class BrowserBridgeTests(unittest.IsolatedAsyncioTestCase):
     async def test_web_capture_keeps_raw_pin_and_strips_executable_html(self):
         key = B.app.create_collection({'name':'Web sources'})['corpus']
         raw = b'<html><head><title>Bad head</title></head><body><script>evil()</script><p>Fossils show ancient life.</p></body></html>'
-        response = types.SimpleNamespace(status=200, headers={'Content-Type':'text/html'}, bytes=AsyncMock(return_value=raw))
+        response = types.SimpleNamespace(status=200, headers={'content-type':'text/html; charset=utf-8'}, bytes=AsyncMock(return_value=raw))
         fetch = AsyncMock(return_value=response)
         with patch.dict(sys.modules, {'pyodide.http':types.SimpleNamespace(pyfetch=fetch)}):
             result = await B.dispatch('/api/source/fetch', {'corpus':key,'title':'Fossils','url':'https://example.org/fossils'})
@@ -42,6 +42,11 @@ class BrowserBridgeTests(unittest.IsolatedAsyncioTestCase):
             with self.assertRaisesRegex(ValueError, 'CORS blocked'):
                 await B.dispatch('/api/source/fetch', {'corpus':key,'title':'Fossils','url':'https://example.org/fossils'})
         self.assertEqual(B.app.inventory(key,'internal')['pages'], [])
+
+    async def test_transport_error_is_short_and_does_not_expose_traceback(self):
+        result = json.loads(await B.call_json('/api/source/import', json.dumps({'corpus':'missing'})))
+        self.assertEqual(result['_browser_transport_error'], 'Unknown MPLPB collection')
+        self.assertNotIn('Traceback', result['_browser_transport_error'])
 
     async def test_reader_and_saved_memory_same_engine(self):
         answer = await B.dispatch('/api/query', {'corpus':'canned','question':'Phrynomedusa vanzolinii Hyundai Engineering and Construction'})

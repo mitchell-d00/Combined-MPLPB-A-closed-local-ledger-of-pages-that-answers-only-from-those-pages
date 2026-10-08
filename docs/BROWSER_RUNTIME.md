@@ -61,7 +61,7 @@ summary, working notes, virtual-save relaunch, fixture source import and transcr
 has nine tests, including import pin checks, same-revision conflict retention,
 network failure, command transport and arbitrary URL/path rejection.
 
-The expanded Python suite passed 279 tests. The worker and UI transport have separate JavaScript checks. These do not substitute
+The expanded Python suite passed 280 tests. The worker and UI transport have separate JavaScript checks. These do not substitute
 for testing browser permissions, IndexedDB persistence or graphical layout in an
 actual browser. No live browser Wikipedia score is claimed. Frozen published probe
 files and stored evaluation captures were not rewritten.

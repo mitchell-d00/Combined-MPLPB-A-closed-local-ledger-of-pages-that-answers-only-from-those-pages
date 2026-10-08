@@ -43,7 +43,7 @@ async def remote(url):
     if len(raw) > 2_000_000:
         raise ValueError('Wikipedia response exceeds 2 MB')
     return raw, {'url': url, 'retrieved_at': datetime.now(timezone.utc).isoformat(),
-                 'http_status': response.status, 'content_type': response.headers.get('Content-Type', '')}
+                 'http_status': response.status, 'content_type': response.headers.get('content-type', response.headers.get('Content-Type', ''))}
 
 async def dispatch(url, data=None):
     parsed = urlsplit(url)
@@ -66,7 +66,7 @@ async def dispatch(url, data=None):
             if response.status != 200: raise ValueError('Source HTTP ' + str(response.status))
             raw = await response.bytes()
             if len(raw) > 2_000_000: raise ValueError('Source exceeds 2 MB')
-            mime = response.headers.get('Content-Type', '').split(';')[0].strip()
+            mime = response.headers.get('content-type', response.headers.get('Content-Type', '')).split(';')[0].strip().lower()
             if mime not in {'text/html', 'text/plain'}: raise ValueError('Import supports HTML or plain text')
             body = raw.decode('utf-8', errors='replace')
             if mime == 'text/html':
@@ -131,4 +131,8 @@ async def dispatch(url, data=None):
     raise ValueError('Unknown API route')
 
 async def call_json(url, payload):
-    return json.dumps(await dispatch(url, json.loads(payload) if payload else None), ensure_ascii=False)
+    try:
+        result = await dispatch(url, json.loads(payload) if payload else None)
+    except Exception as exc:
+        result = {'_browser_transport_error': str(exc)}
+    return json.dumps(result, ensure_ascii=False)

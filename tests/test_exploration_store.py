@@ -35,6 +35,9 @@ class ExplorationTests(unittest.TestCase):
         source = self.app.collections.path(key) / 'captures' / captures[0]['id'] / 'source.bin'
         source.write_bytes(b'changed')
         with self.assertRaisesRegex(ValueError, 'source bytes differ'): self.app.root(key)
+        blocked = next(c for c in self.app.state()['corpora'] if c['key'] == key)
+        self.assertEqual(blocked['eligible'], 0)
+        self.assertIn('blocked', blocked['label'])
 
     def test_reset_only_selected_collection_and_retains_archive(self):
         first, second = self.make('One'), self.make('Two'); self.add(first); self.add(second)
