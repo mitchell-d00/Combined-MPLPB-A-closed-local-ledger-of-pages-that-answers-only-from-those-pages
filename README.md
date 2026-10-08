@@ -24,6 +24,16 @@ This is the master repository. The `ask` command implements the formula. The sep
 source bundles with provenance, as described below. The five earlier implementations are carried whole under [`parts/`](parts/README.md), and
 the papers that are not in any of them are under [`docs/sources/`](docs/sources/README.md).
 
+## Local browser UI
+
+Run `python3 tools/ledger_ui.py`, then open <http://127.0.0.1:8766>.
+The UI shows reader outcomes, separate gate sources, sealed metadata, clarification
+choices, and retained wiki revision history. It reads local files and makes no live
+wiki requests. Use `--root /path/to/corpus` for your own corpus.
+
+The [patch-canned notes](docs/patch-canned/README.md) preserve the supplied experiment
+and include a corrected reader-only patch and an uneven-name demo.
+
 ## Try it
 
 ```bash
@@ -46,7 +56,9 @@ Glaze faults
 ```
 
 A page owns a question when its `scope` and `when-to-use` fields declare more than half of the
-question's words. Only when no page owns it that way does the reader look at prose, and then a
+question's words. Before that majority check, two fully named declarations that
+are not strict subsets of another fully named declaration cause ambiguity. Strict
+subsets retain the more specific match. Only when no page owns it that way does the reader look at prose, and then a
 page must contain every word. A return decided by prose says so in its citation. Add `--why`
 to see which step decided, or `--no-prose` to allow scope only.
 

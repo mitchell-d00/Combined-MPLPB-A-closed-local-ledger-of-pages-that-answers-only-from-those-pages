@@ -1,0 +1,27 @@
+--- a/mplpb_combined/reader.py
++++ b/mplpb_combined/reader.py
+@@ -186,6 +186,14 @@ def owners(content: Set[str], sets: Dict[str, Set[str]], need_all: bool) -> Lis
+ def decide(content: Set[str], declared: Dict[str, Set[str]],
+            full: Optional[Dict[str, Set[str]]] = None) -> Tuple[str, List[str], str]:
+     """The rule itself, on bare sets. Shared by the reader and the kill test.
++
++    A page whose entire declaration is in the question is fully named. Two or
++    more fully named pages are ambiguous before the half-threshold can return
++    the longer one. One fully named page still returns. A fragment still has
++    to clear the existing half-rule. No rank and no blend.
+ 
+     declared maps a key to the words that key declares; full maps it to every
+     word on the page, or is None when prose may not be consulted. Returns the
+@@ -203,6 +211,10 @@ def decide(content: Set[str], declared: Dict[str, Set[str]],
+     if not content:
+         return NOT_IN_CORPUS, [], ""
+     for step, sets, need_all in (("scope", declared, False), ("prose", full, True)):
+         if sets is None:
+             continue
++        if not need_all:
++            named = [k for k, have in sets.items() if have and have <= content]
++            if len(named) > 1:
++                return AMBIGUOUS, named, step
+         found = owners(content, sets, need_all)
+         if len(found) == 1:
+             return RETURN, found, step

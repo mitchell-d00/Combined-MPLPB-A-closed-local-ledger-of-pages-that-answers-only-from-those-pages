@@ -1,0 +1,68 @@
+diff --git a/mplpb_combined/reader.py b/mplpb_combined/reader.py
+index 3b558c7..8dcc9c1 100644
+--- a/mplpb_combined/reader.py
++++ b/mplpb_combined/reader.py
+@@ -197,6 +197,9 @@ def decide(content: Set[str], declared: Dict[str, Set[str]],
+            full: Optional[Dict[str, Set[str]]] = None) -> Tuple[str, List[str], str]:
+     """The rule itself, on bare sets. Shared by the reader and the kill test.
+ 
++    Two fully named, non-subsumed declarations stop before majority can
++    choose the longer one. Strict subsets retain the existing specificity rule.
++
+     declared maps a key to the words that key declares; full maps it to every
+     word on the page, or is None when prose may not be consulted. Returns the
+     outcome, the keys involved, and which step decided it.
+@@ -206,6 +209,12 @@ def decide(content: Set[str], declared: Dict[str, Set[str]],
+     for step, sets, need_all in (("scope", declared, False), ("prose", full, True)):
+         if sets is None:
+             continue
++        if not need_all:
++            named = {k: have for k, have in sets.items() if have and have <= content}
++            # Preserve the existing rule that strictly narrower matches lead.
++            named = [k for k in named if not any(named[k] < named[j] for j in named)]
++            if len(named) > 1:
++                return AMBIGUOUS, named, step
+         found = owners(content, sets, need_all)
+         if len(found) == 1:
+             return RETURN, found, step
+diff --git a/tests/test_canned_guard.py b/tests/test_canned_guard.py
+new file mode 100644
+index 0000000..d1e9c67
+--- /dev/null
++++ b/tests/test_canned_guard.py
+@@ -0,0 +1,35 @@
++import unittest
++from mplpb_combined import reader as R
++
++
++class CannedGuardTests(unittest.TestCase):
++    def test_uneven_complete_names_stop_before_majority(self):
++        d = {'frog': R.terms('Phrynomedusa vanzolinii'),
++             'company': R.terms('Hyundai Engineering and Construction')}
++        self.assertEqual(R.decide(set.union(*d.values()), d),
++                         (R.AMBIGUOUS, ['frog', 'company'], 'scope'))
++        for key, words in d.items():
++            self.assertEqual(R.decide(words, d), (R.RETURN, [key], 'scope'))
++
++    def test_complete_names_still_stop_with_extra_unknown_words(self):
++        d = {'short': {'frog'}, 'long': {'hyundai', 'engineering', 'construction'}}
++        self.assertEqual(R.decide(set.union(*d.values()) | {'zebra', 'unknown'}, d),
++                         (R.AMBIGUOUS, ['short', 'long'], 'scope'))
++
++    def test_nested_scopes_preserve_specificity(self):
++        d = {'broad': {'kiln'}, 'specific': {'kiln', 'firing'}}
++        self.assertEqual(R.decide({'kiln', 'firing'}, d), (R.RETURN, ['specific'], 'scope'))
++
++    def test_duplicate_declarations_remain_ambiguous(self):
++        self.assertEqual(R.decide({'cat'}, {'a': {'cat'}, 'b': {'cat'}}),
++                         (R.AMBIGUOUS, ['a', 'b'], 'scope'))
++
++    def test_partial_scope_still_uses_majority(self):
++        d = {'a': {'alpha', 'beta', 'missing'}, 'b': {'gamma', 'missing'}}
++        self.assertEqual(R.decide({'alpha', 'beta', 'gamma'}, d),
++                         (R.RETURN, ['a'], 'scope'))
++
++    def test_empty_declarations_do_not_block_prose(self):
++        self.assertEqual(R.decide({'zebra'}, {'a': set(), 'b': set()},
++                                 {'a': {'zebra'}, 'b': {'cat'}}),
++                         (R.RETURN, ['a'], 'prose'))

@@ -1,0 +1,59 @@
+{
+  "studio": {
+    "bisque": {"kind": "return", "id": "STUDIO-0002", "exit": 0},
+    "cone6": {"kind": "ambiguous", "ids": ["STUDIO-0003", "STUDIO-0004"], "exit": 2},
+    "france": {"kind": "not_in_corpus", "unknown": ["capital", "france"], "exit": 3},
+    "validate": {"records": 25, "current": 21, "retired": 4, "errors": 0},
+    "unit_tests": {"ran": 220, "result": "OK"}
+  },
+  "custom_two_topic": {
+    "official_entry": false,
+    "snapshot": "/tmp/wiki-random-two",
+    "titles": ["2026 Taça de Portugal final", "Hollies (1965 album)"],
+    "revisions": [1371250509, 1364510133],
+    "scored_pass": 7,
+    "scored_fail": 1,
+    "failure": "two titles together returned WIKI-0001"
+  },
+  "official_offline_kit": {
+    "command": "python3 tools/wiki_live_eval.py check --offline",
+    "snapshot": "evaluation/wiki/captures/20261008T165537443813Z",
+    "scored": true,
+    "rows": 19,
+    "failures": 0,
+    "two_title_probe": {"question": "Cat Dog", "outcome": "not_in_corpus", "passed": true},
+    "paraphrases_unscored": [
+      {"question": "domestic feline", "outcome": "not_in_corpus"},
+      {"question": "earth only natural satellite", "outcome": "not_in_corpus"},
+      {"question": "how plants make food from light", "outcome": "return"}
+    ]
+  },
+  "official_live_run": {
+    "command": "python3 tools/wiki_live_eval.py run",
+    "scored": false,
+    "http_status": 429,
+    "retry_after": "37",
+    "exit": 2
+  },
+  "official_functions_two_random": {
+    "entry": "wiki_live_eval.capture + check(live=True)",
+    "api": "https://simple.wikipedia.org/w/api.php",
+    "snapshot": "/tmp/wiki-official-two",
+    "verification": "live",
+    "scored": true,
+    "failures": 1,
+    "fetched": [
+      {"title": "Phrynomedusa vanzolinii", "revid": 9330670, "id": "WIKI-0001"},
+      {"title": "Hyundai Engineering and Construction", "revid": 9900817, "id": "WIKI-0002"}
+    ],
+    "absent": ["Robert Axelrod (actor)", "Ethereum"],
+    "failed_row": {
+      "mode": "two titles must not choose one",
+      "outcome": "return"
+    },
+    "paraphrases_unscored": [
+      {"question": "what should I know about Phrynomedusa vanzolinii", "outcome": "return"},
+      {"question": "explain Hyundai Engineering and Construction in plain words", "outcome": "not_in_corpus"}
+    ]
+  }
+}

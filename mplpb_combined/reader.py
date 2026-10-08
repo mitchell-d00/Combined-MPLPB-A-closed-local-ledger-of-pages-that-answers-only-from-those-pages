@@ -197,6 +197,9 @@ def decide(content: Set[str], declared: Dict[str, Set[str]],
            full: Optional[Dict[str, Set[str]]] = None) -> Tuple[str, List[str], str]:
     """The rule itself, on bare sets. Shared by the reader and the kill test.
 
+    Two fully named, non-subsumed declarations stop before majority can
+    choose the longer one. Strict subsets retain the existing specificity rule.
+
     declared maps a key to the words that key declares; full maps it to every
     word on the page, or is None when prose may not be consulted. Returns the
     outcome, the keys involved, and which step decided it.
@@ -206,6 +209,12 @@ def decide(content: Set[str], declared: Dict[str, Set[str]],
     for step, sets, need_all in (("scope", declared, False), ("prose", full, True)):
         if sets is None:
             continue
+        if not need_all:
+            named = {k: have for k, have in sets.items() if have and have <= content}
+            # Preserve the existing rule that strictly narrower matches lead.
+            named = [k for k in named if not any(named[k] < named[j] for j in named)]
+            if len(named) > 1:
+                return AMBIGUOUS, named, step
         found = owners(content, sets, need_all)
         if len(found) == 1:
             return RETURN, found, step
