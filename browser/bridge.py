@@ -140,6 +140,7 @@ async def dispatch(url, data=None):
                 body = plain_source(body)
             return app.collections.add(data.get('corpus'), data.get('title'), target, body, raw=raw, transport='browser-cors-fetch-v1')
         operations = {'/api/query': app.query, '/api/chat/resume': app.resume_chat,
+                      '/api/collections/reset-many': app.reset_collections,
                       '/api/collections/create': app.create_collection, '/api/collections/reset': app.reset_collection, '/api/source/import': app.import_source,
                       '/api/chat/reset': app.reset_chat, '/api/chat/export': app.export_chat}
         if route in operations: return operations[route](data)

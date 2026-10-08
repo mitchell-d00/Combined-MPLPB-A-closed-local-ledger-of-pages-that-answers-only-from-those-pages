@@ -53,3 +53,13 @@ Walk back: revert the collection UI/store/bridge change together. Prior desktop
 corpora and shared topics are untouched. Preserve or export browser saves first;
 old builds cannot understand the new collection selector. Source archives and saved
 slots belong to the origin where the browser build was opened.
+
+## Clear some or all collections
+
+Open Build and search your MPLPB collections, then Clear saved MPLPBs. Tick named
+collections and choose Clear selected MPLPBs, or Clear all my collections. A
+confirmation lists the affected collections. Bundled corpora and the separate
+legacy imported-topics collection are excluded. The chosen collections and their
+chats leave active state; prior source files and session snapshots stay in local
+archives. This is a workspace clear, not a browser-storage purge. No archive
+restore UI is provided yet. Failed registry writes roll moved collections back.

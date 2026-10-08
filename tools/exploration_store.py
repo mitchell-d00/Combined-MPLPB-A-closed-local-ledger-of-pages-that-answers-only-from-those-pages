@@ -67,18 +67,26 @@ class ExplorationStore:
         entries=self.entries(); entries[key]['crawl_sha256']=hashlib.sha256(path.read_bytes()).hexdigest(); self.save(entries)
 
     def reset(self, key):
-        path = self.path(key)
-        archive = self.base / 'archives' / (key + '-' + uuid.uuid4().hex)
-        archive.parent.mkdir(exist_ok=True)
+        return self.reset_many([key])
+
+    def reset_many(self, keys, sessions=None):
         entries = self.entries()
-        atomic_json(path / 'reset-metadata.json', {'content': entries[key], 'sha256': C.digest(entries[key])})
-        path.rename(archive)
-        del entries[key]
-        try: self.save(entries)
+        if not isinstance(keys,list) or not 1 <= len(keys) <= 32 or any(not isinstance(k,str) or k not in entries for k in keys) or len(set(keys)) != len(keys):
+            raise ValueError('Select 1–32 distinct saved collections; bundled corpora cannot be cleared')
+        moved=[]
+        try:
+            for key in keys:
+                path=self.base/key
+                archive=self.base/'archives'/(key+'-'+uuid.uuid4().hex)
+                archive.parent.mkdir(exist_ok=True)
+                metadata={'collection':entries[key], 'sessions':{sid:s for sid,s in (sessions or {}).items() if s['corpus']==key}, 'cleared_at':now()}
+                atomic_json(path/'reset-metadata.json', {'content':metadata,'sha256':C.digest(metadata)})
+                path.rename(archive);moved.append((path,archive))
+            self.save({k:v for k,v in entries.items() if k not in keys})
         except Exception:
-            archive.rename(path)
+            for path,archive in reversed(moved): archive.rename(path)
             raise
-        return {'reset': True, 'notice': 'Collection removed from active workspace; prior files retained in a local reset archive.'}
+        return {'reset':True,'cleared':keys,'count':len(keys),'notice':str(len(keys))+' collection(s) and their chats removed from the active workspace. Prior source files and chats retained in local reset archives; browser storage was not purged.'}
 
     def root(self, key):
         base = self.path(key)

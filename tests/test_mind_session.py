@@ -17,6 +17,34 @@ class MindSessionTests(unittest.TestCase):
     def chat(self, message, sid=None, corpus='logic', profile='internal'):
         return self.app.chat(dict(message=message, session=sid, corpus=corpus, profile=profile))
 
+    def test_basic_help_teaches_without_searching_or_losing_topic(self):
+        from unittest.mock import patch
+        first=self.chat('topic Dungeons and Dragons')
+        with patch.object(self.app,'prepare_search',side_effect=AssertionError('help must not crawl')):
+            for question in ('Hi!', 'How do I use this?', 'How do I search?', 'How do I search for fossils?', 'How do I save?', 'What does reset do?', 'Thanks', 'What can you do?'):
+                answer=self.chat(question,first['session'])['response']
+                self.assertEqual(answer['kind'],'help',question)
+                self.assertEqual(answer['sources'],[])
+                self.assertEqual(answer['context'],first['response']['context'])
+        self.assertEqual(self.app.collections.entries(),{})
+        self.assertEqual(self.chat('what is it?',first['session'])['response']['kind'],'return')
+
+    def test_help_does_not_claim_web_is_deployed_or_export_is_backup(self):
+        search=self.chat('How do I search?')['response']['message']
+        self.assertIn('deployed crawler',search)
+        self.assertIn('Wikipedia mode needs neither',search)
+        save=self.chat('How do I export?')['response']['message']
+        self.assertIn('not a full source-store backup',save)
+        reset=self.chat('How do I reset?')['response']['message']
+        self.assertIn('retaining its source pages',reset)
+
+    def test_help_keeps_unknown_world_questions_in_reader(self):
+        from tools import deterministic_mind as M
+        self.assertIsNone(M.help_reply('Who discovered fossils?',None))
+        self.assertIsNone(M.help_reply('Are dogs mammals?',None))
+        self.assertIsNone(M.help_reply('Reset my collection now',None))
+        self.assertNotEqual(self.chat('Who discovered fossils?')['response']['kind'],'help')
+
     def test_saved_notes_resume_relaunch_and_reset(self):
         first = self.chat('remember import Cats and execute nothing')
         sid = first['session']

@@ -49,6 +49,39 @@ class ExplorationTests(unittest.TestCase):
         with self.assertRaises(ValueError): self.app.resume_chat({'session':a['session']})
         self.assertTrue(list((self.base.parent/'collections/archives').glob('*')))
 
+    def test_bulk_clear_some_then_all_retains_archived_chats(self):
+        first,second,third=[self.make(n) for n in ('One','Two','Three')]
+        a=self.app.chat({'corpus':first,'message':'remember first'})
+        b=self.app.chat({'corpus':third,'message':'remember third'})
+        result=self.app.reset_collections({'corpora':[first,second]})
+        self.assertEqual(result['count'],2)
+        self.assertEqual(set(self.app.collections.entries()),{third})
+        self.assertEqual(self.app.resume_chat({'session':b['session']})['notes'],['third'])
+        archives=list((self.base.parent/'collections/archives').glob('*/reset-metadata.json'))
+        self.assertTrue(any(a['session'] in json.loads(p.read_text())['content']['sessions'] for p in archives))
+        self.app.reset_collections({'corpora':list(self.app.collections.entries())})
+        self.assertEqual(self.app.collections.entries(),{})
+        self.assertIn('studio',self.app.roots())
+
+    def test_bulk_clear_invalid_selection_changes_nothing(self):
+        key=self.make('One')
+        turn=self.app.chat({'corpus':key,'message':'remember retained'})
+        for keys in ([key,'studio'],[key,key],[],None):
+            with self.assertRaises(ValueError):self.app.reset_collections({'corpora':keys})
+        self.assertIn(key,self.app.collections.entries())
+        self.assertEqual(self.app.resume_chat({'session':turn['session']})['notes'],['retained'])
+
+    def test_bulk_clear_registry_failure_restores_every_collection_and_chat(self):
+        from unittest.mock import patch
+        first,second=self.make('One'),self.make('Two')
+        turn=self.app.chat({'corpus':first,'message':'remember retained'})
+        with patch.object(self.app.collections,'save',side_effect=OSError('write blocked')):
+            with self.assertRaises(OSError):self.app.reset_collections({'corpora':[first,second]})
+        self.assertEqual(set(self.app.collections.entries()),{first,second})
+        self.assertTrue(self.app.collections.path(first).is_dir())
+        self.assertTrue(self.app.collections.path(second).is_dir())
+        self.assertEqual(self.app.resume_chat({'session':turn['session']})['notes'],['retained'])
+
     def test_same_title_from_two_sites_keeps_both_sources(self):
         key = self.make('Dinosaurs'); self.add(key)
         self.app.import_source({'corpus':key,'title':'Dinosaurs','url':'https://other.example/dinosaurs','text':'A second separate dinosaur source.'})

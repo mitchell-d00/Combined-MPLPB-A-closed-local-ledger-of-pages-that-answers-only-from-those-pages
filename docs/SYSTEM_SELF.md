@@ -3,7 +3,7 @@
 MPLPB is a closed local ledger of sealed HTML pages. This interface is a front end
 to its Python reader and provenance gate. It is not a language model or a game simulation.
 
-Current sealed self-reference: SELF-0005. Named collections have separate source
+Current sealed self-reference: SELF-0007. Named collections have separate source
 stores and saved chats. Search TOPIC builds a new local collection. Wikipedia mode follows bounded literal
 links from a pinned seed revision. General web mode needs a configured hosted crawler
 and search provider key; no backend is deployed by the Pages workflow. Manual Bing
@@ -82,3 +82,16 @@ crawls stop at five successful pages, ten attempted page URLs and one link hop.
 Robots restrictions and HTTP failures are recorded; no bypass is implemented.
 The crawler token is tab-only; the provider key belongs in backend secret storage.
 New collections retain independent chats and sources until explicitly reset.
+
+Basic conversational help uses finite greeting, acknowledgement and interface-help
+intents. Ask how to search, ask, save, reset, inspect sources or use notes. These are
+labelled interface instructions, not corpus facts. Help preserves topic context,
+does not crawl, and never resets or deletes data on a conversational request. The
+Get started, Search help and Save help buttons fill the composer before submission.
+Unknown factual questions still go through the original reader and refusal rule.
+
+Clear saved MPLPBs provides checkboxes for one or several named collections and a
+Clear all my collections button. A confirmation names affected collections. Bundled
+corpora and the separate legacy imported-topics store are excluded. Cleared sources
+and session snapshots remain in local reset archives; this does not purge storage.
+No archive restoration UI is implemented. Failed registry writes roll moves back.

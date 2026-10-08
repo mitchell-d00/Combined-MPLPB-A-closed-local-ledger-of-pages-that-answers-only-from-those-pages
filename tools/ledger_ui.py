@@ -103,13 +103,18 @@ class App:
             return self.collections.add(data.get('corpus'), data.get('title'), data.get('url'), data.get('text'))
 
     def reset_collection(self, data):
+        return self.reset_collections({'corpora':[data.get('corpus')]})
+
+    def reset_collections(self, data):
         with self.chat_lock:
-            key = data.get('corpus')
-            self.collections.path(key)
+            keys=data.get('corpora')
+            entries=self.collections.entries()
+            if not isinstance(keys,list) or not 1 <= len(keys) <= 32 or any(not isinstance(k,str) or k not in entries for k in keys) or len(set(keys)) != len(keys):
+                raise ValueError('Select 1–32 distinct saved collections; bundled corpora cannot be cleared')
             previous = self.sessions
-            updated = {sid: s for sid, s in self.sessions.items() if s['corpus'] != key}
+            updated = {sid: s for sid, s in self.sessions.items() if s['corpus'] not in keys}
             self.session_store.save(updated); self.sessions = updated
-            try: return self.collections.reset(key)
+            try: return self.collections.reset_many(keys,previous)
             except Exception:
                 self.session_store.save(previous); self.sessions = previous
                 raise
@@ -266,6 +271,8 @@ class App:
                 result = {'kind': 'import', 'message': imported['notice'] + delivery_notice, 'imported': imported,
                           'context': context, 'sources': [context] if context else [],
                           'reasoning': ['Main revision slot SHA-1 and wikitext SHA-256 checked; raw bytes retained.']}
+            elif (guide := M.help_reply(message, session['context'])) is not None:
+                result = guide
             elif message.lower().strip(' ?.!') in {'who made you', 'who is your creator', 'what are you',
                    'what can you do', 'about yourself', 'who am i', 'mplpb creator', 'who created you',
                    'who are you', 'what is mplpb', 'what is your name', 'what is your purpose',
@@ -403,6 +410,7 @@ def handler(app):
             if origin and origin != 'http://' + self.headers.get('Host', ''):
                 return self.send(403, {'error': 'Origin rejected'})
             operations = {'/api/query': app.query, '/api/chat': app.chat,
+                          '/api/collections/reset-many': app.reset_collections,
                           '/api/collections/create': app.create_collection, '/api/collections/reset': app.reset_collection, '/api/source/import': app.import_source,
                           '/api/chat/resume': app.resume_chat, '/api/chat/export': app.export_chat, '/api/chat/reset': app.reset_chat}
             if self.path not in operations:

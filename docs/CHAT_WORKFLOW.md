@@ -3,27 +3,36 @@
 Start with `python3 launch.py` or a platform launcher. Choose **Chat**.
 No API key, model or additional Python packages are required.
 
-## Search, import, then follow up
+## Basic help chat
 
-1. Send `search dinosaurs`. Choose Simple English or English Wikipedia.
-2. Click an exact title's **Import** button. The server requests its main revision
-   slot, checks SHA-1, records wikitext SHA-256, saves the raw response and renders
-   its lead locally. The selected corpus becomes **Your imported topics**.
-3. Send `what is it?`. The selected topic replaces “it” explicitly; the expanded
-   question and page hash appear in the decision evidence.
-4. `tell me more`, `continue`, `show source` and `show page` return the selected
-   page verbatim. They do not invent additional information.
+Say “hi”, “how do I use this?”, “how do I search?”, “how do I save?” or
+“how do I reset?”. The Get started, Search help and Save help buttons fill the
+composer; Send submits the question. Help gives fixed interface instructions,
+keeps the selected source context, and makes no network request. It is not a
+source-fact answer. Unsupported world questions still go through the lexical reader.
+The help vocabulary is finite, not general natural-language understanding.
 
-Search is a remote discovery operation. Suggestions are not evidence and are not
-answers. Import is an explicit source capture. Ordinary chat remains local.
-Other sites and arbitrary URL imports are not implemented in this chat workflow.
-The selected Wikipedia may rate-limit or fail; an error produces no fabricated
-source and no evaluation score.
+## Search, build, then follow up
 
-For an existing corpus, send `topic Exact page title`. The title must match one
-eligible page exactly. Context pins are rechecked each turn. A changed, retired,
-altered or withheld topic requires selection again. Changing the UI corpus or
-profile starts a new chat.
+1. Choose Simple English or English Wikipedia beside Send. Send `search dinosaurs`.
+   The first result becomes a pinned revision seed; a bounded literal-link crawl
+   builds up to five pages in a new independent saved collection.
+2. Send `what is it?`, `summarize it` or `show source`. Exact source text and named
+   rules are shown separately from inferred relations.
+3. Open Explore to see page titles. Use `topic Exact page title` to change focus.
+4. `find dinosaurs` lists Wikipedia candidates without capturing them;
+   `import Exact title` explicitly captures a chosen revision into the collection.
+
+Wikipedia mode needs no search API account. General Web mode requires the separate
+[hosted crawler](../crawler/README.md), its URL and an access token; GitHub Pages
+does not deploy that backend. Search snippets do not become source facts. HTTP or
+pin failures stop the operation without a fabricated answer or evaluation score.
+
+Successful operations save sources and sessions locally. Refresh resumes the chat.
+Export transcript saves chat/pins, not a complete source-store backup. Restart
+clears the selected session while retaining source pages. Clear saved MPLPBs lets you select one, several or all named collections, with
+a confirmation. Sources and chats are archived locally; bundled corpora remain.
+Changing corpus/profile clears topic focus. Context source pins are rechecked.
 
 ## Relations and rules
 
