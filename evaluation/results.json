@@ -1,0 +1,2187 @@
+{
+  "domains": [
+    {
+      "arms": {
+        "bm25_current": {
+          "accuracy": 0.6666666666666666,
+          "correct": 8,
+          "correct_returns": 6,
+          "return_precision": 0.6,
+          "return_rate": 0.8333333333333334,
+          "returns": 10,
+          "wrong_refusal": 0,
+          "wrong_return": 4
+        },
+        "bm25_stripped": {
+          "accuracy": 0.6666666666666666,
+          "correct": 8,
+          "correct_returns": 6,
+          "return_precision": 0.6,
+          "return_rate": 0.8333333333333334,
+          "returns": 10,
+          "wrong_refusal": 0,
+          "wrong_return": 4
+        },
+        "ledger": {
+          "accuracy": 0.75,
+          "correct": 9,
+          "correct_returns": 6,
+          "return_precision": 0.6666666666666666,
+          "return_rate": 0.75,
+          "returns": 9,
+          "wrong_refusal": 0,
+          "wrong_return": 3
+        },
+        "overlap_current": {
+          "accuracy": 0.6666666666666666,
+          "correct": 8,
+          "correct_returns": 6,
+          "return_precision": 0.6,
+          "return_rate": 0.8333333333333334,
+          "returns": 10,
+          "wrong_refusal": 0,
+          "wrong_return": 4
+        },
+        "overlap_stripped": {
+          "accuracy": 0.6666666666666666,
+          "correct": 8,
+          "correct_returns": 6,
+          "return_precision": 0.6,
+          "return_rate": 0.8333333333333334,
+          "returns": 10,
+          "wrong_refusal": 0,
+          "wrong_return": 4
+        },
+        "tfidf_current": {
+          "accuracy": 0.6666666666666666,
+          "correct": 8,
+          "correct_returns": 6,
+          "return_precision": 0.6,
+          "return_rate": 0.8333333333333334,
+          "returns": 10,
+          "wrong_refusal": 0,
+          "wrong_return": 4
+        },
+        "tfidf_stripped": {
+          "accuracy": 0.6666666666666666,
+          "correct": 8,
+          "correct_returns": 6,
+          "return_precision": 0.6,
+          "return_rate": 0.8333333333333334,
+          "returns": 10,
+          "wrong_refusal": 0,
+          "wrong_return": 4
+        }
+      },
+      "by_outcome": {
+        "ambiguous": {
+          "arms": {
+            "bm25_current": {
+              "correct": 0,
+              "wrong_refusal": 0,
+              "wrong_return": 2
+            },
+            "bm25_stripped": {
+              "correct": 0,
+              "wrong_refusal": 0,
+              "wrong_return": 2
+            },
+            "ledger": {
+              "correct": 0,
+              "wrong_refusal": 0,
+              "wrong_return": 2
+            },
+            "overlap_current": {
+              "correct": 0,
+              "wrong_refusal": 0,
+              "wrong_return": 2
+            },
+            "overlap_stripped": {
+              "correct": 0,
+              "wrong_refusal": 0,
+              "wrong_return": 2
+            },
+            "tfidf_current": {
+              "correct": 0,
+              "wrong_refusal": 0,
+              "wrong_return": 2
+            },
+            "tfidf_stripped": {
+              "correct": 0,
+              "wrong_refusal": 0,
+              "wrong_return": 2
+            }
+          },
+          "n": 2
+        },
+        "not_in_corpus": {
+          "arms": {
+            "bm25_current": {
+              "correct": 2,
+              "wrong_refusal": 0,
+              "wrong_return": 2
+            },
+            "bm25_stripped": {
+              "correct": 2,
+              "wrong_refusal": 0,
+              "wrong_return": 2
+            },
+            "ledger": {
+              "correct": 3,
+              "wrong_refusal": 0,
+              "wrong_return": 1
+            },
+            "overlap_current": {
+              "correct": 2,
+              "wrong_refusal": 0,
+              "wrong_return": 2
+            },
+            "overlap_stripped": {
+              "correct": 2,
+              "wrong_refusal": 0,
+              "wrong_return": 2
+            },
+            "tfidf_current": {
+              "correct": 2,
+              "wrong_refusal": 0,
+              "wrong_return": 2
+            },
+            "tfidf_stripped": {
+              "correct": 2,
+              "wrong_refusal": 0,
+              "wrong_return": 2
+            }
+          },
+          "n": 4
+        },
+        "return": {
+          "arms": {
+            "bm25_current": {
+              "correct": 6,
+              "wrong_refusal": 0,
+              "wrong_return": 0
+            },
+            "bm25_stripped": {
+              "correct": 6,
+              "wrong_refusal": 0,
+              "wrong_return": 0
+            },
+            "ledger": {
+              "correct": 6,
+              "wrong_refusal": 0,
+              "wrong_return": 0
+            },
+            "overlap_current": {
+              "correct": 6,
+              "wrong_refusal": 0,
+              "wrong_return": 0
+            },
+            "overlap_stripped": {
+              "correct": 6,
+              "wrong_refusal": 0,
+              "wrong_return": 0
+            },
+            "tfidf_current": {
+              "correct": 6,
+              "wrong_refusal": 0,
+              "wrong_return": 0
+            },
+            "tfidf_stripped": {
+              "correct": 6,
+              "wrong_refusal": 0,
+              "wrong_return": 0
+            }
+          },
+          "n": 6
+        }
+      },
+      "corpus_hashes": {
+        "software-0001.html": "sha256:ed3353334e7454b4bab560f11fdffe7ef61ecafb0bb5e9357d74bb14b05f8461",
+        "software-0002.html": "sha256:6f1e4ddc40f430558aa0fbc9d6af9c490b2f493797c454a28ce438abf7422bf9",
+        "software-0003.html": "sha256:ef15b9ba233f0b06d6fc4c147c5d6b2eeb7aa4cb170a29a17e15e774b8e32f90",
+        "software-0004.html": "sha256:d4a5391516117f0dd3eaf0c1f39101db5498a49e0ff92837ee1fd385c10b6980"
+      },
+      "n": 12,
+      "name": "software",
+      "probe_sha256": "d4d5a25e8e1ae477aefea38b93ac3a3e0c3651e62b7e9dc62c803dc9057120fe",
+      "rows": [
+        {
+          "arms": {
+            "bm25_current": {
+              "doc": "SOFTWARE-0001",
+              "kind": "return",
+              "score": "correct"
+            },
+            "bm25_stripped": {
+              "doc": "SOFTWARE-0001",
+              "kind": "return",
+              "score": "correct"
+            },
+            "ledger": {
+              "doc": "SOFTWARE-0001",
+              "kind": "return",
+              "score": "correct"
+            },
+            "overlap_current": {
+              "doc": "SOFTWARE-0001",
+              "kind": "return",
+              "score": "correct"
+            },
+            "overlap_stripped": {
+              "doc": "SOFTWARE-0001",
+              "kind": "return",
+              "score": "correct"
+            },
+            "tfidf_current": {
+              "doc": "SOFTWARE-0001",
+              "kind": "return",
+              "score": "correct"
+            },
+            "tfidf_stripped": {
+              "doc": "SOFTWARE-0001",
+              "kind": "return",
+              "score": "correct"
+            }
+          },
+          "doc": "SOFTWARE-0001",
+          "expect": "return",
+          "id": "software-01",
+          "q": "service deployment release"
+        },
+        {
+          "arms": {
+            "bm25_current": {
+              "doc": "SOFTWARE-0002",
+              "kind": "return",
+              "score": "correct"
+            },
+            "bm25_stripped": {
+              "doc": "SOFTWARE-0002",
+              "kind": "return",
+              "score": "correct"
+            },
+            "ledger": {
+              "doc": "SOFTWARE-0002",
+              "kind": "return",
+              "score": "correct"
+            },
+            "overlap_current": {
+              "doc": "SOFTWARE-0002",
+              "kind": "return",
+              "score": "correct"
+            },
+            "overlap_stripped": {
+              "doc": "SOFTWARE-0002",
+              "kind": "return",
+              "score": "correct"
+            },
+            "tfidf_current": {
+              "doc": "SOFTWARE-0002",
+              "kind": "return",
+              "score": "correct"
+            },
+            "tfidf_stripped": {
+              "doc": "SOFTWARE-0002",
+              "kind": "return",
+              "score": "correct"
+            }
+          },
+          "doc": "SOFTWARE-0002",
+          "expect": "return",
+          "id": "software-02",
+          "q": "service rollback recovery"
+        },
+        {
+          "arms": {
+            "bm25_current": {
+              "doc": "SOFTWARE-0003",
+              "kind": "return",
+              "score": "correct"
+            },
+            "bm25_stripped": {
+              "doc": "SOFTWARE-0003",
+              "kind": "return",
+              "score": "correct"
+            },
+            "ledger": {
+              "doc": "SOFTWARE-0003",
+              "kind": "return",
+              "score": "correct"
+            },
+            "overlap_current": {
+              "doc": "SOFTWARE-0003",
+              "kind": "return",
+              "score": "correct"
+            },
+            "overlap_stripped": {
+              "doc": "SOFTWARE-0003",
+              "kind": "return",
+              "score": "correct"
+            },
+            "tfidf_current": {
+              "doc": "SOFTWARE-0003",
+              "kind": "return",
+              "score": "correct"
+            },
+            "tfidf_stripped": {
+              "doc": "SOFTWARE-0003",
+              "kind": "return",
+              "score": "correct"
+            }
+          },
+          "doc": "SOFTWARE-0003",
+          "expect": "return",
+          "id": "software-03",
+          "q": "database backup snapshot"
+        },
+        {
+          "arms": {
+            "bm25_current": {
+              "doc": "SOFTWARE-0004",
+              "kind": "return",
+              "score": "correct"
+            },
+            "bm25_stripped": {
+              "doc": "SOFTWARE-0004",
+              "kind": "return",
+              "score": "correct"
+            },
+            "ledger": {
+              "doc": "SOFTWARE-0004",
+              "kind": "return",
+              "score": "correct"
+            },
+            "overlap_current": {
+              "doc": "SOFTWARE-0004",
+              "kind": "return",
+              "score": "correct"
+            },
+            "overlap_stripped": {
+              "doc": "SOFTWARE-0004",
+              "kind": "return",
+              "score": "correct"
+            },
+            "tfidf_current": {
+              "doc": "SOFTWARE-0004",
+              "kind": "return",
+              "score": "correct"
+            },
+            "tfidf_stripped": {
+              "doc": "SOFTWARE-0004",
+              "kind": "return",
+              "score": "correct"
+            }
+          },
+          "doc": "SOFTWARE-0004",
+          "expect": "return",
+          "id": "software-04",
+          "q": "database restore recovery"
+        },
+        {
+          "arms": {
+            "bm25_current": {
+              "doc": "SOFTWARE-0001",
+              "kind": "return",
+              "score": "correct"
+            },
+            "bm25_stripped": {
+              "doc": "SOFTWARE-0001",
+              "kind": "return",
+              "score": "correct"
+            },
+            "ledger": {
+              "doc": "SOFTWARE-0001",
+              "kind": "return",
+              "score": "correct"
+            },
+            "overlap_current": {
+              "doc": "SOFTWARE-0001",
+              "kind": "return",
+              "score": "correct"
+            },
+            "overlap_stripped": {
+              "doc": "SOFTWARE-0001",
+              "kind": "return",
+              "score": "correct"
+            },
+            "tfidf_current": {
+              "doc": "SOFTWARE-0001",
+              "kind": "return",
+              "score": "correct"
+            },
+            "tfidf_stripped": {
+              "doc": "SOFTWARE-0001",
+              "kind": "return",
+              "score": "correct"
+            }
+          },
+          "doc": "SOFTWARE-0001",
+          "expect": "return",
+          "id": "software-05",
+          "q": "how to deploy service releases"
+        },
+        {
+          "arms": {
+            "bm25_current": {
+              "doc": "SOFTWARE-0003",
+              "kind": "return",
+              "score": "correct"
+            },
+            "bm25_stripped": {
+              "doc": "SOFTWARE-0003",
+              "kind": "return",
+              "score": "correct"
+            },
+            "ledger": {
+              "doc": "SOFTWARE-0003",
+              "kind": "return",
+              "score": "correct"
+            },
+            "overlap_current": {
+              "doc": "SOFTWARE-0003",
+              "kind": "return",
+              "score": "correct"
+            },
+            "overlap_stripped": {
+              "doc": "SOFTWARE-0003",
+              "kind": "return",
+              "score": "correct"
+            },
+            "tfidf_current": {
+              "doc": "SOFTWARE-0003",
+              "kind": "return",
+              "score": "correct"
+            },
+            "tfidf_stripped": {
+              "doc": "SOFTWARE-0003",
+              "kind": "return",
+              "score": "correct"
+            }
+          },
+          "doc": "SOFTWARE-0003",
+          "expect": "return",
+          "id": "software-06",
+          "q": "which command creates database backups"
+        },
+        {
+          "arms": {
+            "bm25_current": {
+              "doc": "SOFTWARE-0001",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "bm25_stripped": {
+              "doc": "SOFTWARE-0001",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "ledger": {
+              "doc": "SOFTWARE-0001",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "overlap_current": {
+              "doc": "SOFTWARE-0001",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "overlap_stripped": {
+              "doc": "SOFTWARE-0001",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "tfidf_current": {
+              "doc": "SOFTWARE-0001",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "tfidf_stripped": {
+              "doc": "SOFTWARE-0001",
+              "kind": "return",
+              "score": "wrong_return"
+            }
+          },
+          "doc": null,
+          "expect": "ambiguous",
+          "id": "software-07",
+          "q": "service releases"
+        },
+        {
+          "arms": {
+            "bm25_current": {
+              "doc": "SOFTWARE-0003",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "bm25_stripped": {
+              "doc": "SOFTWARE-0003",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "ledger": {
+              "doc": "SOFTWARE-0003",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "overlap_current": {
+              "doc": "SOFTWARE-0003",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "overlap_stripped": {
+              "doc": "SOFTWARE-0003",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "tfidf_current": {
+              "doc": "SOFTWARE-0003",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "tfidf_stripped": {
+              "doc": "SOFTWARE-0003",
+              "kind": "return",
+              "score": "wrong_return"
+            }
+          },
+          "doc": null,
+          "expect": "ambiguous",
+          "id": "software-08",
+          "q": "database backups"
+        },
+        {
+          "arms": {
+            "bm25_current": {
+              "doc": "SOFTWARE-0001",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "bm25_stripped": {
+              "doc": "SOFTWARE-0001",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "ledger": {
+              "doc": "SOFTWARE-0001",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "overlap_current": {
+              "doc": "SOFTWARE-0001",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "overlap_stripped": {
+              "doc": "SOFTWARE-0001",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "tfidf_current": {
+              "doc": "SOFTWARE-0001",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "tfidf_stripped": {
+              "doc": "SOFTWARE-0001",
+              "kind": "return",
+              "score": "wrong_return"
+            }
+          },
+          "doc": null,
+          "expect": "not_in_corpus",
+          "id": "software-09",
+          "q": "who approves service deployment"
+        },
+        {
+          "arms": {
+            "bm25_current": {
+              "doc": "SOFTWARE-0003",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "bm25_stripped": {
+              "doc": "SOFTWARE-0003",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "ledger": {
+              "doc": null,
+              "kind": "not_in_corpus",
+              "score": "correct"
+            },
+            "overlap_current": {
+              "doc": "SOFTWARE-0003",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "overlap_stripped": {
+              "doc": "SOFTWARE-0003",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "tfidf_current": {
+              "doc": "SOFTWARE-0003",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "tfidf_stripped": {
+              "doc": "SOFTWARE-0003",
+              "kind": "return",
+              "score": "wrong_return"
+            }
+          },
+          "doc": null,
+          "expect": "not_in_corpus",
+          "id": "software-10",
+          "q": "does database backup encrypt passwords"
+        },
+        {
+          "arms": {
+            "bm25_current": {
+              "doc": null,
+              "kind": "not_in_corpus",
+              "score": "correct"
+            },
+            "bm25_stripped": {
+              "doc": null,
+              "kind": "not_in_corpus",
+              "score": "correct"
+            },
+            "ledger": {
+              "doc": null,
+              "kind": "not_in_corpus",
+              "score": "correct"
+            },
+            "overlap_current": {
+              "doc": null,
+              "kind": "not_in_corpus",
+              "score": "correct"
+            },
+            "overlap_stripped": {
+              "doc": null,
+              "kind": "not_in_corpus",
+              "score": "correct"
+            },
+            "tfidf_current": {
+              "doc": null,
+              "kind": "not_in_corpus",
+              "score": "correct"
+            },
+            "tfidf_stripped": {
+              "doc": null,
+              "kind": "not_in_corpus",
+              "score": "correct"
+            }
+          },
+          "doc": null,
+          "expect": "not_in_corpus",
+          "id": "software-11",
+          "q": "how to undo a launch"
+        },
+        {
+          "arms": {
+            "bm25_current": {
+              "doc": null,
+              "kind": "not_in_corpus",
+              "score": "correct"
+            },
+            "bm25_stripped": {
+              "doc": null,
+              "kind": "not_in_corpus",
+              "score": "correct"
+            },
+            "ledger": {
+              "doc": null,
+              "kind": "not_in_corpus",
+              "score": "correct"
+            },
+            "overlap_current": {
+              "doc": null,
+              "kind": "not_in_corpus",
+              "score": "correct"
+            },
+            "overlap_stripped": {
+              "doc": null,
+              "kind": "not_in_corpus",
+              "score": "correct"
+            },
+            "tfidf_current": {
+              "doc": null,
+              "kind": "not_in_corpus",
+              "score": "correct"
+            },
+            "tfidf_stripped": {
+              "doc": null,
+              "kind": "not_in_corpus",
+              "score": "correct"
+            }
+          },
+          "doc": null,
+          "expect": "not_in_corpus",
+          "id": "software-12",
+          "q": "lunar weather forecast"
+        }
+      ]
+    },
+    {
+      "arms": {
+        "bm25_current": {
+          "accuracy": 0.5833333333333334,
+          "correct": 7,
+          "correct_returns": 5,
+          "return_precision": 0.5,
+          "return_rate": 0.8333333333333334,
+          "returns": 10,
+          "wrong_refusal": 0,
+          "wrong_return": 5
+        },
+        "bm25_stripped": {
+          "accuracy": 0.5833333333333334,
+          "correct": 7,
+          "correct_returns": 5,
+          "return_precision": 0.5,
+          "return_rate": 0.8333333333333334,
+          "returns": 10,
+          "wrong_refusal": 0,
+          "wrong_return": 5
+        },
+        "ledger": {
+          "accuracy": 0.9166666666666666,
+          "correct": 11,
+          "correct_returns": 6,
+          "return_precision": 0.8571428571428571,
+          "return_rate": 0.5833333333333334,
+          "returns": 7,
+          "wrong_refusal": 0,
+          "wrong_return": 1
+        },
+        "overlap_current": {
+          "accuracy": 0.6666666666666666,
+          "correct": 8,
+          "correct_returns": 6,
+          "return_precision": 0.6,
+          "return_rate": 0.8333333333333334,
+          "returns": 10,
+          "wrong_refusal": 0,
+          "wrong_return": 4
+        },
+        "overlap_stripped": {
+          "accuracy": 0.6666666666666666,
+          "correct": 8,
+          "correct_returns": 6,
+          "return_precision": 0.6,
+          "return_rate": 0.8333333333333334,
+          "returns": 10,
+          "wrong_refusal": 0,
+          "wrong_return": 4
+        },
+        "tfidf_current": {
+          "accuracy": 0.5833333333333334,
+          "correct": 7,
+          "correct_returns": 5,
+          "return_precision": 0.5,
+          "return_rate": 0.8333333333333334,
+          "returns": 10,
+          "wrong_refusal": 0,
+          "wrong_return": 5
+        },
+        "tfidf_stripped": {
+          "accuracy": 0.5833333333333334,
+          "correct": 7,
+          "correct_returns": 5,
+          "return_precision": 0.5,
+          "return_rate": 0.8333333333333334,
+          "returns": 10,
+          "wrong_refusal": 0,
+          "wrong_return": 5
+        }
+      },
+      "by_outcome": {
+        "ambiguous": {
+          "arms": {
+            "bm25_current": {
+              "correct": 0,
+              "wrong_refusal": 0,
+              "wrong_return": 2
+            },
+            "bm25_stripped": {
+              "correct": 0,
+              "wrong_refusal": 0,
+              "wrong_return": 2
+            },
+            "ledger": {
+              "correct": 2,
+              "wrong_refusal": 0,
+              "wrong_return": 0
+            },
+            "overlap_current": {
+              "correct": 0,
+              "wrong_refusal": 0,
+              "wrong_return": 2
+            },
+            "overlap_stripped": {
+              "correct": 0,
+              "wrong_refusal": 0,
+              "wrong_return": 2
+            },
+            "tfidf_current": {
+              "correct": 0,
+              "wrong_refusal": 0,
+              "wrong_return": 2
+            },
+            "tfidf_stripped": {
+              "correct": 0,
+              "wrong_refusal": 0,
+              "wrong_return": 2
+            }
+          },
+          "n": 2
+        },
+        "not_in_corpus": {
+          "arms": {
+            "bm25_current": {
+              "correct": 2,
+              "wrong_refusal": 0,
+              "wrong_return": 2
+            },
+            "bm25_stripped": {
+              "correct": 2,
+              "wrong_refusal": 0,
+              "wrong_return": 2
+            },
+            "ledger": {
+              "correct": 3,
+              "wrong_refusal": 0,
+              "wrong_return": 1
+            },
+            "overlap_current": {
+              "correct": 2,
+              "wrong_refusal": 0,
+              "wrong_return": 2
+            },
+            "overlap_stripped": {
+              "correct": 2,
+              "wrong_refusal": 0,
+              "wrong_return": 2
+            },
+            "tfidf_current": {
+              "correct": 2,
+              "wrong_refusal": 0,
+              "wrong_return": 2
+            },
+            "tfidf_stripped": {
+              "correct": 2,
+              "wrong_refusal": 0,
+              "wrong_return": 2
+            }
+          },
+          "n": 4
+        },
+        "return": {
+          "arms": {
+            "bm25_current": {
+              "correct": 5,
+              "wrong_refusal": 0,
+              "wrong_return": 1
+            },
+            "bm25_stripped": {
+              "correct": 5,
+              "wrong_refusal": 0,
+              "wrong_return": 1
+            },
+            "ledger": {
+              "correct": 6,
+              "wrong_refusal": 0,
+              "wrong_return": 0
+            },
+            "overlap_current": {
+              "correct": 6,
+              "wrong_refusal": 0,
+              "wrong_return": 0
+            },
+            "overlap_stripped": {
+              "correct": 6,
+              "wrong_refusal": 0,
+              "wrong_return": 0
+            },
+            "tfidf_current": {
+              "correct": 5,
+              "wrong_refusal": 0,
+              "wrong_return": 1
+            },
+            "tfidf_stripped": {
+              "correct": 5,
+              "wrong_refusal": 0,
+              "wrong_return": 1
+            }
+          },
+          "n": 6
+        }
+      },
+      "corpus_hashes": {
+        "library-0001.html": "sha256:11cc27db4a96f94c7407edfc64b7d964e152d8e51b172ec35547a246c6ead055",
+        "library-0002.html": "sha256:978bf186794a6ddc10aa8341f6339c4bfd0e56b5999e7481103c0cdc56c40696",
+        "library-0003.html": "sha256:2d991f15d82a731f56ba03ed56d0a3ab8d467d96287b602d67be4d9f9e3a0326",
+        "library-0004.html": "sha256:ac2a1d2e27ab73b925cfd52c5c27ef257b3c7db1d0fd5a66d23646e4f655395c"
+      },
+      "n": 12,
+      "name": "library",
+      "probe_sha256": "b1e11f3191e31417d9cbf839645a6c7274368278077a1ee78297a34fac502eed",
+      "rows": [
+        {
+          "arms": {
+            "bm25_current": {
+              "doc": "LIBRARY-0001",
+              "kind": "return",
+              "score": "correct"
+            },
+            "bm25_stripped": {
+              "doc": "LIBRARY-0001",
+              "kind": "return",
+              "score": "correct"
+            },
+            "ledger": {
+              "doc": "LIBRARY-0001",
+              "kind": "return",
+              "score": "correct"
+            },
+            "overlap_current": {
+              "doc": "LIBRARY-0001",
+              "kind": "return",
+              "score": "correct"
+            },
+            "overlap_stripped": {
+              "doc": "LIBRARY-0001",
+              "kind": "return",
+              "score": "correct"
+            },
+            "tfidf_current": {
+              "doc": "LIBRARY-0001",
+              "kind": "return",
+              "score": "correct"
+            },
+            "tfidf_stripped": {
+              "doc": "LIBRARY-0001",
+              "kind": "return",
+              "score": "correct"
+            }
+          },
+          "doc": "LIBRARY-0001",
+          "expect": "return",
+          "id": "library-01",
+          "q": "book borrowing checkout"
+        },
+        {
+          "arms": {
+            "bm25_current": {
+              "doc": "LIBRARY-0002",
+              "kind": "return",
+              "score": "correct"
+            },
+            "bm25_stripped": {
+              "doc": "LIBRARY-0002",
+              "kind": "return",
+              "score": "correct"
+            },
+            "ledger": {
+              "doc": "LIBRARY-0002",
+              "kind": "return",
+              "score": "correct"
+            },
+            "overlap_current": {
+              "doc": "LIBRARY-0002",
+              "kind": "return",
+              "score": "correct"
+            },
+            "overlap_stripped": {
+              "doc": "LIBRARY-0002",
+              "kind": "return",
+              "score": "correct"
+            },
+            "tfidf_current": {
+              "doc": "LIBRARY-0002",
+              "kind": "return",
+              "score": "correct"
+            },
+            "tfidf_stripped": {
+              "doc": "LIBRARY-0002",
+              "kind": "return",
+              "score": "correct"
+            }
+          },
+          "doc": "LIBRARY-0002",
+          "expect": "return",
+          "id": "library-02",
+          "q": "book renewal extension"
+        },
+        {
+          "arms": {
+            "bm25_current": {
+              "doc": "LIBRARY-0004",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "bm25_stripped": {
+              "doc": "LIBRARY-0004",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "ledger": {
+              "doc": "LIBRARY-0003",
+              "kind": "return",
+              "score": "correct"
+            },
+            "overlap_current": {
+              "doc": "LIBRARY-0003",
+              "kind": "return",
+              "score": "correct"
+            },
+            "overlap_stripped": {
+              "doc": "LIBRARY-0003",
+              "kind": "return",
+              "score": "correct"
+            },
+            "tfidf_current": {
+              "doc": "LIBRARY-0004",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "tfidf_stripped": {
+              "doc": "LIBRARY-0004",
+              "kind": "return",
+              "score": "wrong_return"
+            }
+          },
+          "doc": "LIBRARY-0003",
+          "expect": "return",
+          "id": "library-03",
+          "q": "room booking reservation"
+        },
+        {
+          "arms": {
+            "bm25_current": {
+              "doc": "LIBRARY-0004",
+              "kind": "return",
+              "score": "correct"
+            },
+            "bm25_stripped": {
+              "doc": "LIBRARY-0004",
+              "kind": "return",
+              "score": "correct"
+            },
+            "ledger": {
+              "doc": "LIBRARY-0004",
+              "kind": "return",
+              "score": "correct"
+            },
+            "overlap_current": {
+              "doc": "LIBRARY-0004",
+              "kind": "return",
+              "score": "correct"
+            },
+            "overlap_stripped": {
+              "doc": "LIBRARY-0004",
+              "kind": "return",
+              "score": "correct"
+            },
+            "tfidf_current": {
+              "doc": "LIBRARY-0004",
+              "kind": "return",
+              "score": "correct"
+            },
+            "tfidf_stripped": {
+              "doc": "LIBRARY-0004",
+              "kind": "return",
+              "score": "correct"
+            }
+          },
+          "doc": "LIBRARY-0004",
+          "expect": "return",
+          "id": "library-04",
+          "q": "room cancellation reservation"
+        },
+        {
+          "arms": {
+            "bm25_current": {
+              "doc": "LIBRARY-0001",
+              "kind": "return",
+              "score": "correct"
+            },
+            "bm25_stripped": {
+              "doc": "LIBRARY-0001",
+              "kind": "return",
+              "score": "correct"
+            },
+            "ledger": {
+              "doc": "LIBRARY-0001",
+              "kind": "return",
+              "score": "correct"
+            },
+            "overlap_current": {
+              "doc": "LIBRARY-0001",
+              "kind": "return",
+              "score": "correct"
+            },
+            "overlap_stripped": {
+              "doc": "LIBRARY-0001",
+              "kind": "return",
+              "score": "correct"
+            },
+            "tfidf_current": {
+              "doc": "LIBRARY-0001",
+              "kind": "return",
+              "score": "correct"
+            },
+            "tfidf_stripped": {
+              "doc": "LIBRARY-0001",
+              "kind": "return",
+              "score": "correct"
+            }
+          },
+          "doc": "LIBRARY-0001",
+          "expect": "return",
+          "id": "library-05",
+          "q": "how many days borrow books library card"
+        },
+        {
+          "arms": {
+            "bm25_current": {
+              "doc": "LIBRARY-0003",
+              "kind": "return",
+              "score": "correct"
+            },
+            "bm25_stripped": {
+              "doc": "LIBRARY-0003",
+              "kind": "return",
+              "score": "correct"
+            },
+            "ledger": {
+              "doc": "LIBRARY-0003",
+              "kind": "return",
+              "score": "correct"
+            },
+            "overlap_current": {
+              "doc": "LIBRARY-0003",
+              "kind": "return",
+              "score": "correct"
+            },
+            "overlap_stripped": {
+              "doc": "LIBRARY-0003",
+              "kind": "return",
+              "score": "correct"
+            },
+            "tfidf_current": {
+              "doc": "LIBRARY-0003",
+              "kind": "return",
+              "score": "correct"
+            },
+            "tfidf_stripped": {
+              "doc": "LIBRARY-0003",
+              "kind": "return",
+              "score": "correct"
+            }
+          },
+          "doc": "LIBRARY-0003",
+          "expect": "return",
+          "id": "library-06",
+          "q": "how long book study rooms service desk"
+        },
+        {
+          "arms": {
+            "bm25_current": {
+              "doc": "LIBRARY-0001",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "bm25_stripped": {
+              "doc": "LIBRARY-0001",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "ledger": {
+              "doc": null,
+              "kind": "ambiguous",
+              "score": "correct"
+            },
+            "overlap_current": {
+              "doc": "LIBRARY-0001",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "overlap_stripped": {
+              "doc": "LIBRARY-0001",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "tfidf_current": {
+              "doc": "LIBRARY-0001",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "tfidf_stripped": {
+              "doc": "LIBRARY-0001",
+              "kind": "return",
+              "score": "wrong_return"
+            }
+          },
+          "doc": null,
+          "expect": "ambiguous",
+          "id": "library-07",
+          "q": "book borrowing renewal"
+        },
+        {
+          "arms": {
+            "bm25_current": {
+              "doc": "LIBRARY-0004",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "bm25_stripped": {
+              "doc": "LIBRARY-0004",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "ledger": {
+              "doc": null,
+              "kind": "ambiguous",
+              "score": "correct"
+            },
+            "overlap_current": {
+              "doc": "LIBRARY-0004",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "overlap_stripped": {
+              "doc": "LIBRARY-0004",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "tfidf_current": {
+              "doc": "LIBRARY-0004",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "tfidf_stripped": {
+              "doc": "LIBRARY-0004",
+              "kind": "return",
+              "score": "wrong_return"
+            }
+          },
+          "doc": null,
+          "expect": "ambiguous",
+          "id": "library-08",
+          "q": "room reservation"
+        },
+        {
+          "arms": {
+            "bm25_current": {
+              "doc": "LIBRARY-0003",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "bm25_stripped": {
+              "doc": "LIBRARY-0003",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "ledger": {
+              "doc": "LIBRARY-0003",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "overlap_current": {
+              "doc": "LIBRARY-0003",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "overlap_stripped": {
+              "doc": "LIBRARY-0003",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "tfidf_current": {
+              "doc": "LIBRARY-0003",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "tfidf_stripped": {
+              "doc": "LIBRARY-0003",
+              "kind": "return",
+              "score": "wrong_return"
+            }
+          },
+          "doc": null,
+          "expect": "not_in_corpus",
+          "id": "library-09",
+          "q": "who approves room booking"
+        },
+        {
+          "arms": {
+            "bm25_current": {
+              "doc": "LIBRARY-0001",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "bm25_stripped": {
+              "doc": "LIBRARY-0001",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "ledger": {
+              "doc": null,
+              "kind": "not_in_corpus",
+              "score": "correct"
+            },
+            "overlap_current": {
+              "doc": "LIBRARY-0001",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "overlap_stripped": {
+              "doc": "LIBRARY-0001",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "tfidf_current": {
+              "doc": "LIBRARY-0001",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "tfidf_stripped": {
+              "doc": "LIBRARY-0001",
+              "kind": "return",
+              "score": "wrong_return"
+            }
+          },
+          "doc": null,
+          "expect": "not_in_corpus",
+          "id": "library-10",
+          "q": "book borrowing damage insurance"
+        },
+        {
+          "arms": {
+            "bm25_current": {
+              "doc": null,
+              "kind": "not_in_corpus",
+              "score": "correct"
+            },
+            "bm25_stripped": {
+              "doc": null,
+              "kind": "not_in_corpus",
+              "score": "correct"
+            },
+            "ledger": {
+              "doc": null,
+              "kind": "not_in_corpus",
+              "score": "correct"
+            },
+            "overlap_current": {
+              "doc": null,
+              "kind": "not_in_corpus",
+              "score": "correct"
+            },
+            "overlap_stripped": {
+              "doc": null,
+              "kind": "not_in_corpus",
+              "score": "correct"
+            },
+            "tfidf_current": {
+              "doc": null,
+              "kind": "not_in_corpus",
+              "score": "correct"
+            },
+            "tfidf_stripped": {
+              "doc": null,
+              "kind": "not_in_corpus",
+              "score": "correct"
+            }
+          },
+          "doc": null,
+          "expect": "not_in_corpus",
+          "id": "library-11",
+          "q": "can I extend a loan"
+        },
+        {
+          "arms": {
+            "bm25_current": {
+              "doc": null,
+              "kind": "not_in_corpus",
+              "score": "correct"
+            },
+            "bm25_stripped": {
+              "doc": null,
+              "kind": "not_in_corpus",
+              "score": "correct"
+            },
+            "ledger": {
+              "doc": null,
+              "kind": "not_in_corpus",
+              "score": "correct"
+            },
+            "overlap_current": {
+              "doc": null,
+              "kind": "not_in_corpus",
+              "score": "correct"
+            },
+            "overlap_stripped": {
+              "doc": null,
+              "kind": "not_in_corpus",
+              "score": "correct"
+            },
+            "tfidf_current": {
+              "doc": null,
+              "kind": "not_in_corpus",
+              "score": "correct"
+            },
+            "tfidf_stripped": {
+              "doc": null,
+              "kind": "not_in_corpus",
+              "score": "correct"
+            }
+          },
+          "doc": null,
+          "expect": "not_in_corpus",
+          "id": "library-12",
+          "q": "volcano eruption forecast"
+        }
+      ]
+    },
+    {
+      "arms": {
+        "bm25_current": {
+          "accuracy": 0.6666666666666666,
+          "correct": 8,
+          "correct_returns": 6,
+          "return_precision": 0.6,
+          "return_rate": 0.8333333333333334,
+          "returns": 10,
+          "wrong_refusal": 0,
+          "wrong_return": 4
+        },
+        "bm25_stripped": {
+          "accuracy": 0.6666666666666666,
+          "correct": 8,
+          "correct_returns": 6,
+          "return_precision": 0.6,
+          "return_rate": 0.8333333333333334,
+          "returns": 10,
+          "wrong_refusal": 0,
+          "wrong_return": 4
+        },
+        "ledger": {
+          "accuracy": 1.0,
+          "correct": 12,
+          "correct_returns": 6,
+          "return_precision": 1.0,
+          "return_rate": 0.5,
+          "returns": 6,
+          "wrong_refusal": 0,
+          "wrong_return": 0
+        },
+        "overlap_current": {
+          "accuracy": 0.6666666666666666,
+          "correct": 8,
+          "correct_returns": 6,
+          "return_precision": 0.6,
+          "return_rate": 0.8333333333333334,
+          "returns": 10,
+          "wrong_refusal": 0,
+          "wrong_return": 4
+        },
+        "overlap_stripped": {
+          "accuracy": 0.6666666666666666,
+          "correct": 8,
+          "correct_returns": 6,
+          "return_precision": 0.6,
+          "return_rate": 0.8333333333333334,
+          "returns": 10,
+          "wrong_refusal": 0,
+          "wrong_return": 4
+        },
+        "tfidf_current": {
+          "accuracy": 0.6666666666666666,
+          "correct": 8,
+          "correct_returns": 6,
+          "return_precision": 0.6,
+          "return_rate": 0.8333333333333334,
+          "returns": 10,
+          "wrong_refusal": 0,
+          "wrong_return": 4
+        },
+        "tfidf_stripped": {
+          "accuracy": 0.6666666666666666,
+          "correct": 8,
+          "correct_returns": 6,
+          "return_precision": 0.6,
+          "return_rate": 0.8333333333333334,
+          "returns": 10,
+          "wrong_refusal": 0,
+          "wrong_return": 4
+        }
+      },
+      "by_outcome": {
+        "ambiguous": {
+          "arms": {
+            "bm25_current": {
+              "correct": 0,
+              "wrong_refusal": 0,
+              "wrong_return": 2
+            },
+            "bm25_stripped": {
+              "correct": 0,
+              "wrong_refusal": 0,
+              "wrong_return": 2
+            },
+            "ledger": {
+              "correct": 2,
+              "wrong_refusal": 0,
+              "wrong_return": 0
+            },
+            "overlap_current": {
+              "correct": 0,
+              "wrong_refusal": 0,
+              "wrong_return": 2
+            },
+            "overlap_stripped": {
+              "correct": 0,
+              "wrong_refusal": 0,
+              "wrong_return": 2
+            },
+            "tfidf_current": {
+              "correct": 0,
+              "wrong_refusal": 0,
+              "wrong_return": 2
+            },
+            "tfidf_stripped": {
+              "correct": 0,
+              "wrong_refusal": 0,
+              "wrong_return": 2
+            }
+          },
+          "n": 2
+        },
+        "not_in_corpus": {
+          "arms": {
+            "bm25_current": {
+              "correct": 2,
+              "wrong_refusal": 0,
+              "wrong_return": 2
+            },
+            "bm25_stripped": {
+              "correct": 2,
+              "wrong_refusal": 0,
+              "wrong_return": 2
+            },
+            "ledger": {
+              "correct": 4,
+              "wrong_refusal": 0,
+              "wrong_return": 0
+            },
+            "overlap_current": {
+              "correct": 2,
+              "wrong_refusal": 0,
+              "wrong_return": 2
+            },
+            "overlap_stripped": {
+              "correct": 2,
+              "wrong_refusal": 0,
+              "wrong_return": 2
+            },
+            "tfidf_current": {
+              "correct": 2,
+              "wrong_refusal": 0,
+              "wrong_return": 2
+            },
+            "tfidf_stripped": {
+              "correct": 2,
+              "wrong_refusal": 0,
+              "wrong_return": 2
+            }
+          },
+          "n": 4
+        },
+        "return": {
+          "arms": {
+            "bm25_current": {
+              "correct": 6,
+              "wrong_refusal": 0,
+              "wrong_return": 0
+            },
+            "bm25_stripped": {
+              "correct": 6,
+              "wrong_refusal": 0,
+              "wrong_return": 0
+            },
+            "ledger": {
+              "correct": 6,
+              "wrong_refusal": 0,
+              "wrong_return": 0
+            },
+            "overlap_current": {
+              "correct": 6,
+              "wrong_refusal": 0,
+              "wrong_return": 0
+            },
+            "overlap_stripped": {
+              "correct": 6,
+              "wrong_refusal": 0,
+              "wrong_return": 0
+            },
+            "tfidf_current": {
+              "correct": 6,
+              "wrong_refusal": 0,
+              "wrong_return": 0
+            },
+            "tfidf_stripped": {
+              "correct": 6,
+              "wrong_refusal": 0,
+              "wrong_return": 0
+            }
+          },
+          "n": 6
+        }
+      },
+      "corpus_hashes": {
+        "office-0001.html": "sha256:5d5b5f973819d9731b2c1e6e424a17d74b03703591ffb0de82939e45aafdcfd3",
+        "office-0002.html": "sha256:dbddab2ef7a38578d43a36f8c04d2880f5a8347f80a1b334930036cac28df1d5",
+        "office-0003.html": "sha256:0e2a0d9622614e6178329259babd5a25785d9fdc105e6a58e3df18ac5be89cb7",
+        "office-0004.html": "sha256:34da2ceba3a55dc07a9bf8c167c2251c4b99da1462a0ba63f22f7a167b8f1cbb"
+      },
+      "n": 12,
+      "name": "office",
+      "probe_sha256": "740acf7ffb0a93483e4a297d1eb8b0380acbc213b808533ef84a16c765c4944a",
+      "rows": [
+        {
+          "arms": {
+            "bm25_current": {
+              "doc": "OFFICE-0001",
+              "kind": "return",
+              "score": "correct"
+            },
+            "bm25_stripped": {
+              "doc": "OFFICE-0001",
+              "kind": "return",
+              "score": "correct"
+            },
+            "ledger": {
+              "doc": "OFFICE-0001",
+              "kind": "return",
+              "score": "correct"
+            },
+            "overlap_current": {
+              "doc": "OFFICE-0001",
+              "kind": "return",
+              "score": "correct"
+            },
+            "overlap_stripped": {
+              "doc": "OFFICE-0001",
+              "kind": "return",
+              "score": "correct"
+            },
+            "tfidf_current": {
+              "doc": "OFFICE-0001",
+              "kind": "return",
+              "score": "correct"
+            },
+            "tfidf_stripped": {
+              "doc": "OFFICE-0001",
+              "kind": "return",
+              "score": "correct"
+            }
+          },
+          "doc": "OFFICE-0001",
+          "expect": "return",
+          "id": "office-01",
+          "q": "visitor registration arrival"
+        },
+        {
+          "arms": {
+            "bm25_current": {
+              "doc": "OFFICE-0002",
+              "kind": "return",
+              "score": "correct"
+            },
+            "bm25_stripped": {
+              "doc": "OFFICE-0002",
+              "kind": "return",
+              "score": "correct"
+            },
+            "ledger": {
+              "doc": "OFFICE-0002",
+              "kind": "return",
+              "score": "correct"
+            },
+            "overlap_current": {
+              "doc": "OFFICE-0002",
+              "kind": "return",
+              "score": "correct"
+            },
+            "overlap_stripped": {
+              "doc": "OFFICE-0002",
+              "kind": "return",
+              "score": "correct"
+            },
+            "tfidf_current": {
+              "doc": "OFFICE-0002",
+              "kind": "return",
+              "score": "correct"
+            },
+            "tfidf_stripped": {
+              "doc": "OFFICE-0002",
+              "kind": "return",
+              "score": "correct"
+            }
+          },
+          "doc": "OFFICE-0002",
+          "expect": "return",
+          "id": "office-02",
+          "q": "visitor departure badge"
+        },
+        {
+          "arms": {
+            "bm25_current": {
+              "doc": "OFFICE-0003",
+              "kind": "return",
+              "score": "correct"
+            },
+            "bm25_stripped": {
+              "doc": "OFFICE-0003",
+              "kind": "return",
+              "score": "correct"
+            },
+            "ledger": {
+              "doc": "OFFICE-0003",
+              "kind": "return",
+              "score": "correct"
+            },
+            "overlap_current": {
+              "doc": "OFFICE-0003",
+              "kind": "return",
+              "score": "correct"
+            },
+            "overlap_stripped": {
+              "doc": "OFFICE-0003",
+              "kind": "return",
+              "score": "correct"
+            },
+            "tfidf_current": {
+              "doc": "OFFICE-0003",
+              "kind": "return",
+              "score": "correct"
+            },
+            "tfidf_stripped": {
+              "doc": "OFFICE-0003",
+              "kind": "return",
+              "score": "correct"
+            }
+          },
+          "doc": "OFFICE-0003",
+          "expect": "return",
+          "id": "office-03",
+          "q": "expense submission receipt"
+        },
+        {
+          "arms": {
+            "bm25_current": {
+              "doc": "OFFICE-0004",
+              "kind": "return",
+              "score": "correct"
+            },
+            "bm25_stripped": {
+              "doc": "OFFICE-0004",
+              "kind": "return",
+              "score": "correct"
+            },
+            "ledger": {
+              "doc": "OFFICE-0004",
+              "kind": "return",
+              "score": "correct"
+            },
+            "overlap_current": {
+              "doc": "OFFICE-0004",
+              "kind": "return",
+              "score": "correct"
+            },
+            "overlap_stripped": {
+              "doc": "OFFICE-0004",
+              "kind": "return",
+              "score": "correct"
+            },
+            "tfidf_current": {
+              "doc": "OFFICE-0004",
+              "kind": "return",
+              "score": "correct"
+            },
+            "tfidf_stripped": {
+              "doc": "OFFICE-0004",
+              "kind": "return",
+              "score": "correct"
+            }
+          },
+          "doc": "OFFICE-0004",
+          "expect": "return",
+          "id": "office-04",
+          "q": "expense approval manager"
+        },
+        {
+          "arms": {
+            "bm25_current": {
+              "doc": "OFFICE-0001",
+              "kind": "return",
+              "score": "correct"
+            },
+            "bm25_stripped": {
+              "doc": "OFFICE-0001",
+              "kind": "return",
+              "score": "correct"
+            },
+            "ledger": {
+              "doc": "OFFICE-0001",
+              "kind": "return",
+              "score": "correct"
+            },
+            "overlap_current": {
+              "doc": "OFFICE-0001",
+              "kind": "return",
+              "score": "correct"
+            },
+            "overlap_stripped": {
+              "doc": "OFFICE-0001",
+              "kind": "return",
+              "score": "correct"
+            },
+            "tfidf_current": {
+              "doc": "OFFICE-0001",
+              "kind": "return",
+              "score": "correct"
+            },
+            "tfidf_stripped": {
+              "doc": "OFFICE-0001",
+              "kind": "return",
+              "score": "correct"
+            }
+          },
+          "doc": "OFFICE-0001",
+          "expect": "return",
+          "id": "office-05",
+          "q": "where register visitors before arrival"
+        },
+        {
+          "arms": {
+            "bm25_current": {
+              "doc": "OFFICE-0003",
+              "kind": "return",
+              "score": "correct"
+            },
+            "bm25_stripped": {
+              "doc": "OFFICE-0003",
+              "kind": "return",
+              "score": "correct"
+            },
+            "ledger": {
+              "doc": "OFFICE-0003",
+              "kind": "return",
+              "score": "correct"
+            },
+            "overlap_current": {
+              "doc": "OFFICE-0003",
+              "kind": "return",
+              "score": "correct"
+            },
+            "overlap_stripped": {
+              "doc": "OFFICE-0003",
+              "kind": "return",
+              "score": "correct"
+            },
+            "tfidf_current": {
+              "doc": "OFFICE-0003",
+              "kind": "return",
+              "score": "correct"
+            },
+            "tfidf_stripped": {
+              "doc": "OFFICE-0003",
+              "kind": "return",
+              "score": "correct"
+            }
+          },
+          "doc": "OFFICE-0003",
+          "expect": "return",
+          "id": "office-06",
+          "q": "when submit expense receipts form"
+        },
+        {
+          "arms": {
+            "bm25_current": {
+              "doc": "OFFICE-0001",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "bm25_stripped": {
+              "doc": "OFFICE-0001",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "ledger": {
+              "doc": null,
+              "kind": "ambiguous",
+              "score": "correct"
+            },
+            "overlap_current": {
+              "doc": "OFFICE-0001",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "overlap_stripped": {
+              "doc": "OFFICE-0001",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "tfidf_current": {
+              "doc": "OFFICE-0001",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "tfidf_stripped": {
+              "doc": "OFFICE-0001",
+              "kind": "return",
+              "score": "wrong_return"
+            }
+          },
+          "doc": null,
+          "expect": "ambiguous",
+          "id": "office-07",
+          "q": "visitor reception"
+        },
+        {
+          "arms": {
+            "bm25_current": {
+              "doc": "OFFICE-0003",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "bm25_stripped": {
+              "doc": "OFFICE-0003",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "ledger": {
+              "doc": null,
+              "kind": "ambiguous",
+              "score": "correct"
+            },
+            "overlap_current": {
+              "doc": "OFFICE-0003",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "overlap_stripped": {
+              "doc": "OFFICE-0003",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "tfidf_current": {
+              "doc": "OFFICE-0003",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "tfidf_stripped": {
+              "doc": "OFFICE-0003",
+              "kind": "return",
+              "score": "wrong_return"
+            }
+          },
+          "doc": null,
+          "expect": "ambiguous",
+          "id": "office-08",
+          "q": "expense forms"
+        },
+        {
+          "arms": {
+            "bm25_current": {
+              "doc": "OFFICE-0001",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "bm25_stripped": {
+              "doc": "OFFICE-0001",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "ledger": {
+              "doc": null,
+              "kind": "not_in_corpus",
+              "score": "correct"
+            },
+            "overlap_current": {
+              "doc": "OFFICE-0001",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "overlap_stripped": {
+              "doc": "OFFICE-0001",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "tfidf_current": {
+              "doc": "OFFICE-0001",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "tfidf_stripped": {
+              "doc": "OFFICE-0001",
+              "kind": "return",
+              "score": "wrong_return"
+            }
+          },
+          "doc": null,
+          "expect": "not_in_corpus",
+          "id": "office-09",
+          "q": "visitor registration background checks"
+        },
+        {
+          "arms": {
+            "bm25_current": {
+              "doc": "OFFICE-0004",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "bm25_stripped": {
+              "doc": "OFFICE-0004",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "ledger": {
+              "doc": null,
+              "kind": "not_in_corpus",
+              "score": "correct"
+            },
+            "overlap_current": {
+              "doc": "OFFICE-0004",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "overlap_stripped": {
+              "doc": "OFFICE-0004",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "tfidf_current": {
+              "doc": "OFFICE-0004",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "tfidf_stripped": {
+              "doc": "OFFICE-0004",
+              "kind": "return",
+              "score": "wrong_return"
+            }
+          },
+          "doc": null,
+          "expect": "not_in_corpus",
+          "id": "office-10",
+          "q": "expense approval tax deductions"
+        },
+        {
+          "arms": {
+            "bm25_current": {
+              "doc": null,
+              "kind": "not_in_corpus",
+              "score": "correct"
+            },
+            "bm25_stripped": {
+              "doc": null,
+              "kind": "not_in_corpus",
+              "score": "correct"
+            },
+            "ledger": {
+              "doc": null,
+              "kind": "not_in_corpus",
+              "score": "correct"
+            },
+            "overlap_current": {
+              "doc": null,
+              "kind": "not_in_corpus",
+              "score": "correct"
+            },
+            "overlap_stripped": {
+              "doc": null,
+              "kind": "not_in_corpus",
+              "score": "correct"
+            },
+            "tfidf_current": {
+              "doc": null,
+              "kind": "not_in_corpus",
+              "score": "correct"
+            },
+            "tfidf_stripped": {
+              "doc": null,
+              "kind": "not_in_corpus",
+              "score": "correct"
+            }
+          },
+          "doc": null,
+          "expect": "not_in_corpus",
+          "id": "office-11",
+          "q": "how to claim reimbursement"
+        },
+        {
+          "arms": {
+            "bm25_current": {
+              "doc": null,
+              "kind": "not_in_corpus",
+              "score": "correct"
+            },
+            "bm25_stripped": {
+              "doc": null,
+              "kind": "not_in_corpus",
+              "score": "correct"
+            },
+            "ledger": {
+              "doc": null,
+              "kind": "not_in_corpus",
+              "score": "correct"
+            },
+            "overlap_current": {
+              "doc": null,
+              "kind": "not_in_corpus",
+              "score": "correct"
+            },
+            "overlap_stripped": {
+              "doc": null,
+              "kind": "not_in_corpus",
+              "score": "correct"
+            },
+            "tfidf_current": {
+              "doc": null,
+              "kind": "not_in_corpus",
+              "score": "correct"
+            },
+            "tfidf_stripped": {
+              "doc": null,
+              "kind": "not_in_corpus",
+              "score": "correct"
+            }
+          },
+          "doc": null,
+          "expect": "not_in_corpus",
+          "id": "office-12",
+          "q": "ocean tide forecast"
+        }
+      ]
+    }
+  ],
+  "independence_verified": false,
+  "limitations": [
+    "Authorship declarations are not independently verified.",
+    "Top-one baselines cannot produce ambiguity; compare per outcome.",
+    "No refusal thresholds were tuned on the evaluation probes."
+  ],
+  "manifest_sha256": "329d55887ae01ca937a83549a361a7a37e5b870a55b219098256a33b1f13d78b",
+  "provenance": {
+    "corpus_author": "Codex",
+    "evaluation_type": "developer_authored_synthetic",
+    "independent_review": "pending",
+    "label_author": "Codex",
+    "question_author": "Codex"
+  }
+}

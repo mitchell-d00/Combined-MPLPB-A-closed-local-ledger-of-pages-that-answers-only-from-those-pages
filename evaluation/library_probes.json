@@ -1,0 +1,94 @@
+{
+  "probes": [
+    {
+      "id": "library-01",
+      "q": "book borrowing checkout",
+      "class": "return",
+      "expect": "return",
+      "doc": "LIBRARY-0001",
+      "evidence": "Borrow books for fourteen days using a library card."
+    },
+    {
+      "id": "library-02",
+      "q": "book renewal extension",
+      "class": "return",
+      "expect": "return",
+      "doc": "LIBRARY-0002",
+      "evidence": "Renew books once for seven days if nobody has reserved them."
+    },
+    {
+      "id": "library-03",
+      "q": "room booking reservation",
+      "class": "return",
+      "expect": "return",
+      "doc": "LIBRARY-0003",
+      "evidence": "Book study rooms for two hours at the service desk."
+    },
+    {
+      "id": "library-04",
+      "q": "room cancellation reservation",
+      "class": "return",
+      "expect": "return",
+      "doc": "LIBRARY-0004",
+      "evidence": "Cancel study room reservations at least one hour before the start."
+    },
+    {
+      "id": "library-05",
+      "q": "how many days borrow books library card",
+      "class": "return",
+      "expect": "return",
+      "doc": "LIBRARY-0001",
+      "evidence": "Borrow books for fourteen days using a library card."
+    },
+    {
+      "id": "library-06",
+      "q": "how long book study rooms service desk",
+      "class": "return",
+      "expect": "return",
+      "doc": "LIBRARY-0003",
+      "evidence": "Book study rooms for two hours at the service desk."
+    },
+    {
+      "id": "library-07",
+      "q": "book borrowing renewal",
+      "class": "ambiguous",
+      "expect": "ambiguous",
+      "rationale": "Multiple pages cover the requested terms."
+    },
+    {
+      "id": "library-08",
+      "q": "room reservation",
+      "class": "ambiguous",
+      "expect": "ambiguous",
+      "rationale": "Multiple pages cover the requested terms."
+    },
+    {
+      "id": "library-09",
+      "q": "who approves room booking",
+      "class": "not_in_corpus",
+      "expect": "not_in_corpus",
+      "rationale": "No page supplies the requested information."
+    },
+    {
+      "id": "library-10",
+      "q": "book borrowing damage insurance",
+      "class": "not_in_corpus",
+      "expect": "not_in_corpus",
+      "rationale": "No page supplies the requested information."
+    },
+    {
+      "id": "library-11",
+      "q": "can I extend a loan",
+      "class": "not_in_corpus",
+      "expect": "not_in_corpus",
+      "rationale": "No page supplies the requested information."
+    },
+    {
+      "id": "library-12",
+      "q": "volcano eruption forecast",
+      "class": "not_in_corpus",
+      "expect": "not_in_corpus",
+      "rationale": "No page supplies the requested information."
+    }
+  ]
+}

@@ -78,15 +78,46 @@ class Ledger:
         self.by_id: Dict[str, List[Record]] = {}
         for r in self.records:
             self.by_id.setdefault(r.id, []).append(r)
-        # A record named in any page's supersedes field is retired, whatever
-        # its own status line still says. This is what makes a half-finished
-        # revision safe to read.
+        # Only a valid successor may retire a predecessor. Broken, unsealed,
+        # duplicate or cyclic records have no authority over other records.
+        # Valid successors still make a half-finished revision safe to read.
         self.superseded_by: Dict[str, List[Record]] = {}
+        self._depth: Dict[str, int] = {}
         for r in self.records:
+            if not self._status_authority(r):
+                continue
             for ref in r.supersedes:
                 if ref.id != r.id:
                     self.superseded_by.setdefault(ref.id, []).append(r)
-        self._depth: Dict[str, int] = {}
+
+    def _status_authority(self, r: Record) -> bool:
+        """Validate the complete dependency graph before trusting supersession.
+
+        Status itself is intentionally not hashed. A retired valid successor
+        still proves that its predecessor was superseded; it must not revive.
+        A hash pin must resolve exactly, never through resolve's legacy fallback.
+        """
+        stack = [(r, frozenset())]
+        checked = []
+        while stack:
+            cur, seen = stack.pop()
+            if cur.path in seen or self.quarantine_reason(cur):
+                return False
+            if len(self.by_id.get(cur.id, [])) != 1:
+                return False
+            if cur.origin not in ORIGINS or cur.depth_declared is None:
+                return False
+            trail = seen | {cur.path}
+            checked.append(cur)
+            for ref in list(cur.derived_from) + list(cur.supersedes):
+                targets = self.by_id.get(ref.id, [])
+                if len(targets) != 1 or not ref.hash:
+                    return False
+                target = targets[0]
+                if target.hash_actual != ref.hash:
+                    return False
+                stack.append((target, trail))
+        return all(cur.depth_declared == self.derived_depth(cur) for cur in checked)
 
     # -- status ------------------------------------------------------------
     def effective_status(self, r: Record) -> str:

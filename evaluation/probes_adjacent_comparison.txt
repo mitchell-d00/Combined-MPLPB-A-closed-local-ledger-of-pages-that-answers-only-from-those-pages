@@ -1,0 +1,28 @@
+corpus   examples/studio  (21 current pages served; 25 pages in the stripped arms)
+probes   20  hash: OK
+profile  internal (max depth 1, prose on)
+
+class                   n    scoped  stripped    top1   notes
+------------------------------------------------------------------------------
+adjacent               12     58.3%     91.7%    0.0%   circular for stripped, top1
+covered                 8    100.0%     50.0%   62.5%   
+------------------------------------------------------------------------------
+all probes             20     75.0%     75.0%   25.0%
+non-circular only       8    100.0%     50.0%   62.5%
+
+what each arm got wrong, and how (all probes):
+                        wrong page or false return   false refusal
+scoped                                           3               2
+stripped                                         0               5
+top1                                            15               0
+
+scoped returns decided by scope: 11   by prose: 0
+scoped with the prose step off:  15 correct / 3 wrong return / 2 wrong refusal
+scoped with not-for ignored:     12 correct / 4 wrong return / 4 wrong refusal
+
+lexical baselines (fixed parameters; top one; no ambiguity):
+current = same valid current page pool; stripped = includes retired pages
+bm25_stripped          6 correct / 14 wrong return / 0 wrong refusal
+tfidf_stripped         6 correct / 14 wrong return / 0 wrong refusal
+bm25_current           6 correct / 14 wrong return / 0 wrong refusal
+tfidf_current          6 correct / 14 wrong return / 0 wrong refusal

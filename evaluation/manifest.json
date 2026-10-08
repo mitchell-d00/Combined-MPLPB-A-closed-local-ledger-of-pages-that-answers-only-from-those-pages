@@ -1,0 +1,104 @@
+{
+  "provenance": {
+    "evaluation_type": "developer_authored_synthetic",
+    "corpus_author": "Codex",
+    "question_author": "Codex",
+    "label_author": "Codex",
+    "independent_review": "pending"
+  },
+  "domains": [
+    {
+      "name": "software",
+      "pages": [
+        {
+          "doc_id": "SOFTWARE-0001",
+          "title": "Deploy service",
+          "scope": "service deployment release",
+          "body": "Deploy service releases with the deploy command."
+        },
+        {
+          "doc_id": "SOFTWARE-0002",
+          "title": "Rollback service",
+          "scope": "service rollback recovery",
+          "body": "Rollback service releases with the rollback command."
+        },
+        {
+          "doc_id": "SOFTWARE-0003",
+          "title": "Database backup",
+          "scope": "database backup snapshot",
+          "body": "Create database backups every night with the snapshot command."
+        },
+        {
+          "doc_id": "SOFTWARE-0004",
+          "title": "Database restore",
+          "scope": "database restore recovery",
+          "body": "Restore database backups with the restore command."
+        }
+      ],
+      "probes": "software_probes.json",
+      "sha256": "d4d5a25e8e1ae477aefea38b93ac3a3e0c3651e62b7e9dc62c803dc9057120fe"
+    },
+    {
+      "name": "library",
+      "pages": [
+        {
+          "doc_id": "LIBRARY-0001",
+          "title": "Book borrowing",
+          "scope": "book borrowing checkout",
+          "body": "Borrow books for fourteen days using a library card."
+        },
+        {
+          "doc_id": "LIBRARY-0002",
+          "title": "Book renewal",
+          "scope": "book renewal extension",
+          "body": "Renew books once for seven days if nobody has reserved them."
+        },
+        {
+          "doc_id": "LIBRARY-0003",
+          "title": "Room booking",
+          "scope": "room booking reservation",
+          "body": "Book study rooms for two hours at the service desk."
+        },
+        {
+          "doc_id": "LIBRARY-0004",
+          "title": "Room cancellation",
+          "scope": "room cancellation reservation",
+          "body": "Cancel study room reservations at least one hour before the start."
+        }
+      ],
+      "probes": "library_probes.json",
+      "sha256": "b1e11f3191e31417d9cbf839645a6c7274368278077a1ee78297a34fac502eed"
+    },
+    {
+      "name": "office",
+      "pages": [
+        {
+          "doc_id": "OFFICE-0001",
+          "title": "Visitor registration",
+          "scope": "visitor registration arrival",
+          "body": "Register visitors at reception before arrival and issue a visitor badge."
+        },
+        {
+          "doc_id": "OFFICE-0002",
+          "title": "Visitor departure",
+          "scope": "visitor departure badge",
+          "body": "Collect visitor badges at reception on departure."
+        },
+        {
+          "doc_id": "OFFICE-0003",
+          "title": "Expense submission",
+          "scope": "expense submission receipt",
+          "body": "Submit expense receipts within thirty days using the expense form."
+        },
+        {
+          "doc_id": "OFFICE-0004",
+          "title": "Expense approval",
+          "scope": "expense approval manager",
+          "body": "Managers approve expense forms within five working days."
+        }
+      ],
+      "probes": "office_probes.json",
+      "sha256": "740acf7ffb0a93483e4a297d1eb8b0380acbc213b808533ef84a16c765c4944a"
+    }
+  ]
+}
