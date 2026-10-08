@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Local browser UI: python3 tools/ledger_ui.py [--root /path/to/corpus]."""
 import argparse
+import copy
 import base64
 import hashlib
 import re
@@ -20,13 +21,16 @@ from mplpb_combined.record import text_of
 from tools import wiki_live_eval as W
 from tools.topic_chat_sources import TopicStore
 from tools import chat_logic as C
+from tools import deterministic_mind as M
+from tools.mind_session import SessionStore
 
 
 class App:
-    def __init__(self, custom=None, topic_base=None):
+    def __init__(self, custom=None, topic_base=None, session_path=None):
         self.topics = TopicStore(topic_base or ROOT / "local/topics")
         self.chat_lock = threading.RLock()
-        self.sessions = {}
+        self.session_store = SessionStore(session_path or (Path(topic_base).resolve() / 'session-save.json' if topic_base else ROOT / 'local/sessions/state.json'))
+        self.sessions = self.session_store.load()
         self.corpora = {
             'canned': ('Patch canned · uneven names', ROOT / 'examples/patch-canned'),
             'studio': ('Pottery studio', ROOT / 'examples/studio'),
@@ -146,16 +150,17 @@ class App:
             if sid:
                 if sid not in self.sessions:
                     raise ValueError('Chat session expired; start a new chat')
-                session = self.sessions[sid]
+                session = copy.deepcopy(self.sessions[sid])
                 if session['corpus'] != corpus or session['profile'] != profile:
-                    raise ValueError('Corpus or profile changed; start a new chat')
+                    session['context'] = None
+                    session['corpus'], session['profile'] = corpus, profile
             else:
                 if len(self.sessions) >= 32:
-                    del self.sessions[next(iter(self.sessions))]
+                    raise ValueError('Save slots full; explicitly restart an old session to free one. No session was deleted.')
                 sid = uuid.uuid4().hex
-                session = self.sessions[sid] = {'corpus': corpus, 'profile': profile, 'context': None, 'log': []}
-            if len(session['log']) >= 100:
-                raise ValueError('Chat limit reached; export and start a new chat')
+                session = {'corpus': corpus, 'profile': profile, 'context': None, 'log': [], 'mind': {'notes': []}}
+            if len(session['log']) >= 1000:
+                raise ValueError('1000-turn save limit reached. State retained; export before an explicit restart.')
             wiki = data.get('wiki', 'simple')
             if message.lower().startswith('search '):
                 found = self.topics.search(message[7:].strip(), wiki)
@@ -184,13 +189,22 @@ class App:
                           'gate': own['gate'], 'context': session['context'], 'sources': own['gate']['sources'],
                           'reasoning': ['SELF-1: return the sealed self-reference page; creator attribution is a declaration, not identity authentication.']}
             else:
-                result = C.turn(self, corpus, self.root(corpus), profile, message, session['context'])
+                result = M.handle(self.root(corpus), profile, message, session['context'], session.setdefault('mind', {'notes': []}))
+                if result is None:
+                    result = C.turn(self, corpus, self.root(corpus), profile, message, session['context'])
             session['corpus'], session['context'] = corpus, result.get('context')
+            M.record(session.setdefault('mind', {'notes': []}), result)
             payload = {'question': message, 'corpus': corpus, 'profile': profile, 'response': result}
+            payload['mind_version'] = M.VERSION
+            payload['mind_sha256'] = hashlib.sha256(Path(M.__file__).read_bytes()).hexdigest()
             entry = C.log_turn(session['log'], payload)
+            updated = dict(self.sessions, **{sid: session})
+            self.session_store.save(updated)
+            self.sessions = updated
             return {'session': sid, 'corpus': corpus, 'profile': profile, 'response': result,
                     'turn': entry['index'], 'turn_sha256': entry['sha256'],
-                    'logic_version': C.VERSION, 'notice': 'Deterministic chat; explicit context and rules. No language model.'}
+                    'mind': {'notes': list(session['mind']['notes']), 'context': session['context']},
+                    'logic_version': M.VERSION, 'notice': 'Deterministic chat; explicit context and rules. No language model.'}
 
     def export_chat(self, data):
         with self.chat_lock:
@@ -202,8 +216,21 @@ class App:
 
     def reset_chat(self, data):
         with self.chat_lock:
-            self.sessions.pop(data.get('session'), None)
+            updated = dict(self.sessions)
+            updated.pop(data.get('session'), None)
+            self.session_store.save(updated)
+            self.sessions = updated
         return {'reset': True}
+
+    def resume_chat(self, data):
+        with self.chat_lock:
+            sid = data.get('session')
+            if sid not in self.sessions:
+                raise ValueError('Saved session unavailable. Nothing was automatically restarted.')
+            session = self.sessions[sid]
+            return {'session': sid, 'corpus': session['corpus'], 'profile': session['profile'],
+                    'context': session['context'], 'notes': list(session.get('mind', {}).get('notes', [])),
+                    'turns': copy.deepcopy(session['log']), 'chain_intact': C.verify_log(session['log'])}
 
     def history(self):
         head_path = W.KIT / 'head.json'
@@ -281,7 +308,7 @@ def handler(app):
             if origin and origin != 'http://' + self.headers.get('Host', ''):
                 return self.send(403, {'error': 'Origin rejected'})
             operations = {'/api/query': app.query, '/api/chat': app.chat,
-                          '/api/chat/export': app.export_chat, '/api/chat/reset': app.reset_chat}
+                          '/api/chat/resume': app.resume_chat, '/api/chat/export': app.export_chat, '/api/chat/reset': app.reset_chat}
             if self.path not in operations:
                 return self.send(404, {'error': 'Not found'})
             if self.headers.get('Content-Type', '').split(';')[0] != 'application/json':

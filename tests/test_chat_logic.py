@@ -76,10 +76,10 @@ class ChatLogicTests(unittest.TestCase):
 
     def test_self_reference_names_declared_creator_with_source(self):
         reply = self.app.chat(dict(corpus='canned', message='who made you?'))['response']
-        self.assertEqual(reply['reader']['id'], 'SELF-0001')
+        self.assertEqual(reply['reader']['id'], 'SELF-0002')
         self.assertIn('Mitchell D. McPhetridge', reply['message'])
         self.assertIn('cannot authenticate', reply['message'])
-        rec = L.Ledger(ROOT / 'examples/system').by_id['SELF-0001'][0]
+        rec = L.Ledger(ROOT / 'examples/system').by_id['SELF-0002'][0]
         self.assertIn((ROOT / 'docs/SYSTEM_SELF.md').read_text().splitlines()[2], rec.text)
 
     def test_export_chain_detects_mutation_and_reset_expires_session(self):
@@ -94,10 +94,11 @@ class ChatLogicTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             self.app.chat(dict(corpus='canned', message='Cat', session=sid))
 
-    def test_profile_change_requires_new_session(self):
+    def test_profile_change_clears_context_but_retains_session(self):
         result = self.app.chat(dict(corpus='canned', message='who made you?'))
-        with self.assertRaises(ValueError):
-            self.app.chat(dict(corpus='canned', profile='external', message='what is it?', session=result['session']))
+        follow = self.app.chat(dict(corpus='canned', profile='external', message='what is it?', session=result['session']))
+        self.assertEqual(follow['session'], result['session'])
+        self.assertIsNone(follow['response']['context'])
 
 
 class ContextualRelationTests(unittest.TestCase):

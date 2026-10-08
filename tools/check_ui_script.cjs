@@ -2,8 +2,8 @@
 const fs=require('fs'),vm=require('vm'),assert=require('node:assert/strict');
 const html=fs.readFileSync(process.argv[2],'utf8'),script=html.match(/<script>([\s\S]*?)<\/script>/)[1];
 const fixtures=JSON.parse(fs.readFileSync(0,'utf8'));
-function runtime(protocol='http:'){
- const elements={},storage={},requests=[],documentEvents={};
+function runtime(protocol='http:',saved={}){
+ const elements={},storage={...saved},requests=[],documentEvents={};
  class Element {
   constructor(id){this.id=id;this.value='';this.hidden=['workspace','connection','ask','history','experiment','help'].includes(id);this.events={};this.dataset={};this.classList={toggle(){}};this.innerHTML='';this.textContent='';this.open=false;this.tagName='DIV';}
   addEventListener(key,fn){this.events[key]=fn;} setAttribute(){} showModal(){this.open=true;} close(){this.open=false;} focus(){this.focused=true;}
@@ -19,6 +19,7 @@ function runtime(protocol='http:'){
  else if(u.pathname==='/api/inventory')data=fixtures.inventory[u.searchParams.get('corpus')+'|'+u.searchParams.get('profile')];
  else if(u.pathname==='/api/query'){const q=JSON.parse(options.body);data=fixtures.queries[q.corpus+'|'+q.profile+'|'+q.question];if(hold){const resolve=hold;hold=null;await new Promise(resolve);}}
  else if(u.pathname==='/api/chat'){const q=JSON.parse(options.body);data=fixtures.chats[q.message];}
+ else if(u.pathname==='/api/chat/resume')data=fixtures.resume;
  else if(u.pathname==='/api/chat/reset')data={reset:true};
  else if(u.pathname==='/api/page'){data=fixtures.pages[u.searchParams.get('corpus')+'|'+u.searchParams.get('profile')+'|'+u.searchParams.get('path')];if(!data){status=400;data={error:'Page withheld'};}}
  else if(u.pathname==='/api/history')data=fixtures.history;
@@ -43,6 +44,7 @@ async function tick(){for(let i=0;i<20;i++)await Promise.resolve();}
  const injected=r.run(`sourceCard({...${JSON.stringify(fixtures.queries['canned|internal|Phrynomedusa vanzolinii'].gate.sources[0])},title:'<img src=x onerror=evil()>',text:'<script>evil()</script>'})`);
  assert.ok(!injected.includes('<img'));assert.ok(!injected.includes('<script>'));assert.ok(injected.includes('&lt;img'));
  r.elements.corpus.value='logic';r.elements.profile.value='internal';await r.run('chatSend(\"relate Dungeons and Dragons -> game\")');assert.match(r.elements['chat-messages'].innerHTML,/TYPE-2/);await r.run('chatSend(\"who made you?\")');assert.match(r.elements['chat-messages'].innerHTML,/Mitchell D. McPhetridge/);
+ const resumed=runtime('http:',r.storage);await tick();assert.match(resumed.elements['chat-messages'].innerHTML,/Mitchell D. McPhetridge/);assert.match(resumed.elements['chat-messages'].innerHTML,/TYPE-2/);assert.match(resumed.elements['chat-status'].textContent,/resumed/);
  const prefs=JSON.parse(r.storage['mplpb-ui-preferences']);assert.deepEqual(Object.keys(prefs).sort(),['corpus','profile','setting','theme']);
  r.elements.corpus.value='canned';r.run('corpusChanged()');await tick();let release;r.holdNext(resolve=>{release=resolve;});const pending=r.run('query()');await tick();r.elements.profile.value='external';r.elements.profile.events.change();release();await pending;assert.equal(r.elements.results.innerHTML,'');
  const off=runtime('file:');await tick();assert.equal(off.requests.length,0);assert.equal(off.elements.connection.hidden,false);assert.equal(off.elements.workspace.hidden,true);

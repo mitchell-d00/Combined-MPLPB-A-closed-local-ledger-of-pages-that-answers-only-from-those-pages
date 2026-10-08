@@ -37,11 +37,24 @@ and Fantasy/Sci-fi/Wasteland visual settings. Python must be running locally.
 Opening index.html alone displays launcher instructions. GitHub Pages cannot run
 the local Python reader.
 
-Chat sessions remain in server memory, with a maximum of 100 turns per session.
-They disappear when the server stops or a session is cleared/evicted. Export explicitly
-to save a transcript with turn hashes, source pins and rule identifiers.
-Imported public source captures are stored locally. Browser preferences contain
-visual setting, theme, selected corpus and profile, not saved questions or source bodies.
+Chat uses a deterministic mind layer with explicit finite intents: declared working
+notes, exact-topic extractive summaries, comparisons of separate source excerpts,
+and historical decision explanations. Structured type questions filter the required
+predicate; opposing explicit assertions produce a conflict with both proofs.
+Notes are user declarations, not source facts. General semantic understanding,
+consciousness, autonomous planning and model-generated responses are not implemented.
+
+Sessions use a known local save slot, up to 32 sessions and 1000 turns each.
+They survive refresh and app relaunch until the user explicitly restarts that session.
+Limits refuse further operations without deleting existing state. Corpus/profile
+changes clear topic focus while retaining notes and history. Source pins are rechecked
+before contextual source answers. Historical explanations are labelled historical.
+The browser stores UI preferences and a session ID, not questions or source bodies.
+A local installation or Git clone supplies the app. It reads configured ledger pages
+and its own save slot; it does not crawl or discover local folders. Search and import
+are explicit remote actions. Restart clears a session but retains imported sources.
+Export preserves the transcript, source pins and rule identifiers. Unsigned hashes
+prove consistency only; someone with filesystem write access can recompute them.
 
 This document describes implemented capabilities, not an accuracy guarantee.
 The project still has lexical misses. No new live Wikipedia evaluation score is

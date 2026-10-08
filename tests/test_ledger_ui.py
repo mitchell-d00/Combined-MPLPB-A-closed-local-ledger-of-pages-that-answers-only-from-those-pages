@@ -159,6 +159,9 @@ class LedgerUITests(unittest.TestCase):
         self.assertEqual(status, 200)
         self.assertTrue(json.loads(body)['chain_intact'])
         self.assertEqual(len(json.loads(body)['turns']), 2)
+        status, body, _ = self.request('/api/chat/resume', dict(session=imported['session']))
+        self.assertEqual(status, 200)
+        self.assertTrue(json.loads(body)['chain_intact'])
         self.assertEqual(self.request('/api/chat/reset', dict(session=imported['session']))[0], 200)
         self.assertEqual(self.request('/api/chat/export', dict(session=imported['session']))[0], 400)
 
@@ -171,4 +174,4 @@ class LedgerUITests(unittest.TestCase):
         status, body, _ = self.request('/api/chat', dict(corpus='logic', message='relate Dungeons and Dragons -> budget'))
         self.assertEqual(json.loads(body)['response']['kind'], 'unknown_relation')
         status, body, _ = self.request('/api/chat', dict(corpus='logic', message='who made you?'))
-        self.assertEqual(json.loads(body)['response']['reader']['id'], 'SELF-0001')
+        self.assertEqual(json.loads(body)['response']['reader']['id'], 'SELF-0002')

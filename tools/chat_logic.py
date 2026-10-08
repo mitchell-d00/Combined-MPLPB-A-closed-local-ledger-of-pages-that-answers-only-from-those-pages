@@ -48,7 +48,7 @@ def facts(root, profile, question=''):
         if r.path not in allowed or (R.PROFILES[profile].not_for and R.terms(question) & R.not_for_terms(r)):
             continue
         for line in text_of(r.body_html).splitlines():
-            match = re.fullmatch(r'Fact: ([^|\n]{1,160}) \| (instance_of|subclass_of|related_to) \| ([^|\n]{1,160})', line.strip())
+            match = re.fullmatch(r'Fact: ([^|\n]{1,160}) \| (instance_of|subclass_of|related_to|not_instance_of|not_subclass_of|not_related_to) \| ([^|\n]{1,160})', line.strip())
             if match:
                 subject, predicate, obj = match.groups()
                 out.append({'subject': subject.strip(), 'predicate': predicate, 'object': obj.strip(),
@@ -130,10 +130,18 @@ def turn(app, corpus, root, profile, message, context):
         reasoning.append({'rule': 'REL-1', 'expanded_question': expanded})
         subject, obj = (v.strip() for v in relation.groups())
         results = relations(root, profile, subject, obj)
+        if expanded.lower().startswith('is '):
+            predicate = 'related_to' if re.fullmatch(r'is .+? related to .+', expanded.rstrip('?.!'), re.I) else 'instance_of'
+            results = [f for f in results if f['predicate'] in {predicate, 'not_' + predicate}]
         if not results:
             bundle = G.gather(root, subject + ' ' + obj, R.PROFILES[profile]).to_dict()
             return {'kind': 'unknown_relation', 'message': 'No supported structured relationship is encoded for these subjects. Unknown, not false.',
                     'context': context, 'reasoning': reasoning + [{'rule': 'REFUSE-1'}], 'relations': [], 'gate': bundle, 'sources': bundle['sources']}
+        predicates = {f['predicate'] for f in results}
+        if any('not_' + p in predicates for p in predicates):
+            return {'kind': 'conflict', 'message': 'The eligible sources support opposing assertions. Both proofs are retained; no winner is chosen.',
+                    'context': context, 'reasoning': reasoning + [{'rule': 'CONFLICT-1'}], 'relations': results,
+                    'sources': list({(p['id'], p['hash']): p for f in results for p in f['premises']}.values())}
         return {'kind': 'relations', 'message': 'Supported by the source assertions and rules below; source truth is not authenticated.',
                 'context': context, 'reasoning': reasoning, 'relations': results,
                 'sources': list({(p['id'], p['hash']): p for f in results for p in f['premises']}.values())}

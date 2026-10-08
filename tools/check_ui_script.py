@@ -5,6 +5,7 @@ from pathlib import Path
 import shutil
 import subprocess
 import sys
+import tempfile
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
@@ -15,7 +16,8 @@ def main():
     node = shutil.which('node')
     if not node:
         raise SystemExit('Node is needed for this optional script check, not for running the UI.')
-    app = App()
+    workspace = tempfile.TemporaryDirectory()
+    app = App(topic_base=workspace.name)
     data = {'state': app.state(), 'inventory': {}, 'queries': {}, 'pages': {},
             'history': app.history(), 'experiment': app.experiment(), 'chats': {}}
     for corpus in ('canned', 'dogs'):
@@ -30,10 +32,15 @@ def main():
                 if rec['eligible']:
                     data['pages'][corpus + '|' + profile + '|' + rec['path']] = app.page(
                         corpus, rec['path'], profile)
+    sid = None
     for message in ('relate Dungeons and Dragons -> game', 'who made you?'):
-        data['chats'][message] = app.chat(dict(corpus='logic', message=message))
-    return subprocess.run([node, str(ROOT / 'tools/check_ui_script.cjs'), str(ROOT / 'index.html')],
+        data['chats'][message] = app.chat(dict(corpus='logic', message=message, session=sid))
+        sid = data['chats'][message]['session']
+    data['resume'] = app.resume_chat(dict(session=sid))
+    result = subprocess.run([node, str(ROOT / 'tools/check_ui_script.cjs'), str(ROOT / 'index.html')],
                           input=json.dumps(data), text=True, cwd=ROOT).returncode
+    workspace.cleanup()
+    return result
 
 
 if __name__ == '__main__':

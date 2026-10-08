@@ -106,10 +106,24 @@ identity or invent a biography. The assistant is an implementation collaborator.
 
 ## Save and check a conversation
 
-Sessions are held in server memory, up to 32 sessions and 100 turns each. An old
-session may be evicted when the limit is reached. Restarting the server loses
-sessions. The browser stores only UI preferences. Use **Export transcript** to
-save chat questions, responses, context/source pins and rule evidence explicitly.
+Sessions now persist in `local/sessions/state.json`, a known save slot rather than
+filesystem discovery. Up to 32 sessions and 1000 turns per session; limits stop further
+operations without evicting saved state. The browser remembers a session ID and
+resumes the matching transcript after refresh or server relaunch. **Restart MPLPB**
+explicitly deletes that session. Imported source captures remain. Changing corpus or
+profile clears topic focus while keeping declared notes and historical turns.
+Use **Export transcript** before restart when you want a separate historical copy.
+Browser-storage clearing loses the automatic resume pointer; the saved server slot
+is not implicitly deleted. Save slots are local, unsigned records, not authentication.
+
+Mind commands: `remember NOTE`, `memory`, `forget notes`, `forget topic`,
+`summarize it`, `summarize Exact title`, `compare Title A vs Title B`, and `why?`.
+Notes cannot establish facts or trigger commands. Summaries quote at most three
+source text fragments, bounded to 1600 characters. Comparisons retain sources
+separately. Why explains the historical trace; it does not re-certify old evidence.
+Exact titles are required; unknowns are not silently guessed. Explicit negative
+structured predicates can conflict with positive evidence; both proofs are returned.
+An `is X a Y?` query accepts type evidence, never merely `related_to` evidence.
 
 Each turn links to the prior turn hash and records the chat-logic version and file
 byte hash. Export reports hash-chain consistency. This detects changes relative
