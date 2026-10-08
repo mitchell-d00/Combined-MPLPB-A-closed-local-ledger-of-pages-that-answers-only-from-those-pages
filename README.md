@@ -71,6 +71,10 @@ Supersession follows [explicit policy examples](docs/SUPERSESSION_POLICY.md): re
 
 Walk-back instructions: [docs/ROLLBACK.md](docs/ROLLBACK.md).
 
+## Experimental wiki and loose-file tools
+
+The [wiki package](evaluation/wiki/README.md) adds a menu, loose-source formatter, and live revision/extract check. Its supplied snapshot currently fails the live hash check and is not scored; code pin and source verification gaps are recorded in [the review](evaluation/wiki/REVIEW.md). This is an external-text smoke test, not independently labeled validation. Start with `python3 tools/menu.py`.
+
 ## Keep your own ledger
 
 ```bash
