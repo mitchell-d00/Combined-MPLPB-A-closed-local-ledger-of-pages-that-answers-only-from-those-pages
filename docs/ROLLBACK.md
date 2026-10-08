@@ -40,3 +40,9 @@ The revert removes files introduced by this addition, including the copied paper
 Review the reversal commit, then use `git revert <reversal-commit-sha>`, run the tests, and push normally. The addition was verified with 151 tests and live local-interface checks for all five scenarios. Paper bytes are pinned by `papers/manifest.json`; pre-gate documentation by its dated manifest.
 
 See [the gate specification](PROVENANCE_GATE.md), [upload review](UPLOAD_REVIEW.md), and [past documentation](past-documentation/README.md) for scope and preserved failure results.
+
+## Walk back the supersession policy fix only
+
+The last main commit before this fix is `c665337492a4aa5c3619c57c439a0583732c68bd`. Find the subsequent commit with subject `Enforce supersession restoration and derivative serving policy`, then run `git revert <policy-fix-commit-sha>`, run the tests, and push normally. Do not revert the earlier provenance-gate addition to undo only this fix.
+
+Reverting restores the earlier serving and write behavior, including its permissive handling of invalid successor pages, stale derivatives, and the inability to write a restoration pinning a withdrawn head. Existing source files written after publication remain in their corpora; inspect them with the restored reader before relying on rollback behavior. Original probe files remain frozen. The policy fix passes 165 tests; that is regression evidence, not independent validation.

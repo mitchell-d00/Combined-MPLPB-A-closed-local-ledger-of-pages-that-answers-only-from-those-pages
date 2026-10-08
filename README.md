@@ -67,6 +67,8 @@ See [the gate specification](docs/PROVENANCE_GATE.md) and the [offline demonstra
 
 Supplied papers are indexed in [papers](papers/README.md), their implications in [the upload review](docs/UPLOAD_REVIEW.md), and earlier documentation in [PAST_DOCUMENTATION.md](PAST_DOCUMENTATION.md).
 
+Supersession follows [explicit policy examples](docs/SUPERSESSION_POLICY.md): restoration pins the terminal head, and stale or incorrectly pinned derivatives are withheld. See [the fix report](docs/SUPERSESSION_FIX.md).
+
 Walk-back instructions: [docs/ROLLBACK.md](docs/ROLLBACK.md).
 
 ## Keep your own ledger
@@ -101,7 +103,7 @@ nothing else.
 | `mplpb_combined/ledger.py` | The folder as a ledger: status, lineage, depth, validation, writing, the log |
 | `mplpb_combined/reader.py` | The answer rule, profiles, hubs |
 | `mplpb_combined/killtest.py` | The kill test: three arms, mechanical scoring |
-| `tests/` | 151 tests: 122 existing and 29 provenance gate tests |
+| `tests/` | 165 tests: 122 existing, 29 gate, and 14 supersession policy tests |
 | `examples/studio/` | 25 pages about running a pottery studio; the kill-test corpus |
 | `examples/spec/` | The format described as ten pages in the format |
 | `examples/hub/` | Two pointers, one at each of the above |

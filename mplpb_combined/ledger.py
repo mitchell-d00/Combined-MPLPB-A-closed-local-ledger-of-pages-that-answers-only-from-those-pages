@@ -139,11 +139,42 @@ class Ledger:
         return ""
 
     def servable(self) -> List[Record]:
-        """Current, intact records that are allowed to own a question."""
-        return [
-            r for r in self.records
-            if not self.quarantine_reason(r) and self.effective_status(r) == "current"
-        ]
+        """Current, intact records that are allowed to own a question.
+
+        An invalid successor does not retire its predecessor and is not served,
+        so it cannot block the question. A derivative whose basis is retired
+        is withheld until a new revision pins a current basis.
+        """
+        return [r for r in self.records if self._may_serve(r)]
+
+    def _may_serve(self, r: Record) -> bool:
+        if self.quarantine_reason(r) or self.effective_status(r) != "current":
+            return False
+        if r.origin not in ORIGINS:
+            return False
+        if len(self.by_id.get(r.id, [])) != 1:
+            return False
+        if r.supersedes and not self._status_authority(r):
+            return False
+        return not self._stale_derivative(r, frozenset())
+
+    def _stale_derivative(self, r: Record, seen: frozenset) -> bool:
+        """True when this page, or a page it derives from, rests on a retired basis."""
+        if r.path in seen:
+            return True
+        trail = seen | {r.path}
+        for ref in r.derived_from:
+            targets = self.by_id.get(ref.id, [])
+            if len(targets) != 1:
+                return True
+            parent = targets[0]
+            if not ref.hash or parent.hash_actual != ref.hash:
+                return True
+            if self.effective_status(parent) != "current":
+                return True
+            if self._stale_derivative(parent, trail):
+                return True
+        return False
 
     def quarantined(self) -> List[Record]:
         return [r for r in self.records
@@ -463,12 +494,19 @@ def write(root, *, title: str, scope: str, when_to_use: str = "", not_for: str =
         ledger = Ledger(root)
         parents = _must_resolve(ledger, derived_from, "derived-from")
         olds = _must_resolve(ledger, supersedes, "supersedes")
-        for o in olds:
-            if ledger.effective_status(o) != "current":
-                raise ValueError(f"{o.id} is already retired; revise its current successor")
         new_id = doc_id or allocate_id(ledger, prefix)
         if new_id in ledger.by_id:
             raise ValueError(f"id {new_id} is taken")
+        for o in olds:
+            # Restoration pins the terminal head of the supersession chain,
+            # including a withdrawn head. An older page is not a target while
+            # any later authoritative successor exists.
+            if o.id == new_id:
+                raise ValueError(f"{o.id} cannot supersede itself")
+            head = _terminal_head(ledger, o)
+            if head.id != o.id:
+                raise ValueError(
+                    f"{o.id} is not the terminal head; pin {head.id}")
         if ratified_by:
             depth = 0
         else:
@@ -499,6 +537,23 @@ def write(root, *, title: str, scope: str, when_to_use: str = "", not_for: str =
         return go()
     with ledger_lock(root):
         return go()
+
+
+
+def _terminal_head(ledger: "Ledger", start: Record) -> Record:
+    """Last authoritative page in this supersession chain."""
+    cur = start
+    seen = {start.path}
+    while True:
+        nxts = [s for s in ledger.superseded_by.get(cur.id, [])
+                if s.path not in seen and ledger._status_authority(s)]
+        if not nxts:
+            return cur
+        if len(nxts) != 1:
+            names = ", ".join(s.id for s in nxts)
+            raise ValueError(f"{cur.id} has more than one successor: {names}")
+        cur = nxts[0]
+        seen.add(cur.path)
 
 
 def _retire_in_place(root: Path, old: Record, when: str, note: str) -> None:
