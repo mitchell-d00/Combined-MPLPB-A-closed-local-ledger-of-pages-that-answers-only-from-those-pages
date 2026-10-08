@@ -16,7 +16,7 @@ async function workerTests(){
 }
 async function clientTests(){
  const elements={connection:{hidden:true},'connection-error':{textContent:''}},requests=[],storage={};let booted=false;
- class Worker {constructor(){}postMessage(data){requests.push(data);queueMicrotask(()=>this.onmessage({data:{id:data.id,result:{ok:true}}}));}}
+ class Worker {constructor(url,options){assert.equal(options.type,'module');}postMessage(data){requests.push(data);queueMicrotask(()=>this.onmessage({data:{id:data.id,result:{ok:true}}}));}}
  const c=vm.createContext({console,Promise,Map,Error,JSON,Blob,URL,Worker,WebAssembly,navigator:{locks:{request:async(name,opts,fn)=>fn({})}},localStorage:{setItem:(k,v)=>storage[k]=v,getItem:k=>storage[k],removeItem:k=>delete storage[k]},document:{getElementById:()=>({textContent:JSON.stringify({worker:'test'})})},$:key=>elements[key],boot:()=>booted=true});
  vm.runInContext(clientCode,c);vm.runInContext('startBrowserRuntime()',c);await vm.runInContext('runtimeReady',c);await Promise.resolve();assert.equal(booted,true);assert.equal(elements.connection.hidden,true);
  const result=await vm.runInContext('browserApi("/api/chat",{body:"{\\"message\\":\\"hi\\"}"})',c);assert.equal(result.ok,true);assert.equal(requests.at(-1).url,'/api/chat');assert.equal(requests.at(-1).payload,'{"message":"hi"}');

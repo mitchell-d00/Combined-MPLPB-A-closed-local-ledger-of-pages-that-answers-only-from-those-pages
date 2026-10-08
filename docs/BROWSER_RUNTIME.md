@@ -11,6 +11,10 @@ HTTPS hosting. Some browsers block these features for local `file:` URLs or in
 private browsing. Those environments stop with a visible error; they do not quietly
 fall back to an unsaved session. This is not an “every browser” guarantee.
 
+The worker uses module mode: Pyodide 314.0.7 rejects classic browser workers.
+The first hosted startup check caught that mismatch even though the Node engine
+tests passed. Module mode and dynamic loader import correct that startup path.
+
 Session IDs/preferences use local storage. The worker's dedicated virtual `/mplpb-browser-save-v1` mount, linked as `/app/local`, uses
 IndexedDB for session envelopes, raw source captures, revision bundles and heads.
 Browser storage is separate from the desktop server's filesystem. Clearing browser

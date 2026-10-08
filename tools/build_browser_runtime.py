@@ -37,6 +37,11 @@ def build(core_archive, output):
     bundle = {'schema': 1, 'runtime_version': VERSION, 'runtime_release_sha256': CORE_SHA256,
               'runtime': runtime, 'runtime_manifest': {k: hashlib.sha256(base64.b64decode(v)).hexdigest() for k,v in runtime.items()}, 'files': files, 'manifest': manifest, 'worker': (ROOT/'browser/worker.js').read_text()}
     html = (ROOT/'index.html').read_text()
+    html = re.sub(r'<section id="connection".*?</section>',
+                  '<section id="connection" class="panel" hidden><h2>Open your browser ledger.</h2>'
+                  '<p>The embedded Python engine checks your sealed pages inside this browser. '
+                  'No local server is needed. Allow browser storage to resume your session.</p>'
+                  '<div id="connection-error" class="small"></div></section>', html, count=1, flags=re.S)
     html = html.replace('async function api(url,options){const response=await fetch(url,options),data=await response.json();if(!response.ok)throw Error(data.error||\'Request failed\');return data;}',
                         'async function api(url,options){return browserApi(url,options);}')
     ending = "if(location.protocol==='file:')$('connection').hidden=false;else boot();"

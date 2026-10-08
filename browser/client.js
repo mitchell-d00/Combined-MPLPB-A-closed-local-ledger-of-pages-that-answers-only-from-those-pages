@@ -12,7 +12,7 @@ async function initializeBrowserRuntime(){
  if(!navigator.locks)throw Error('This browser lacks Web Locks; a single safe writer cannot be established. Use a current browser or HTTPS hosting.');
  if(navigator.locks){await new Promise((resolve,reject)=>{navigator.locks.request('mplpb-browser-save-v1',{ifAvailable:true},lock=>{if(!lock){reject(Error('MPLPB is already open in another tab. Close that tab before opening this save.'));return;}runtimeLocked=true;resolve();return new Promise(()=>{});}).catch(reject);});}
  const workerURL=URL.createObjectURL(new Blob([runtimeBundle.worker],{type:'text/javascript'}));
- runtimeWorker=new Worker(workerURL);URL.revokeObjectURL(workerURL);
+ runtimeWorker=new Worker(workerURL,{type:'module'});URL.revokeObjectURL(workerURL);
  runtimeWorker.onmessage=e=>{const item=runtimePending.get(e.data.id);if(!item)return;runtimePending.delete(e.data.id);if(e.data.error)item.reject(Error(e.data.error));else item.resolve(e.data.result);};
  runtimeWorker.onerror=e=>{for(const item of runtimePending.values())item.reject(Error(e.message||'Browser runtime failed'));runtimePending.clear();};
  await runtimeRequest('initialize',{bundle:runtimeBundle});$('connection').hidden=true;

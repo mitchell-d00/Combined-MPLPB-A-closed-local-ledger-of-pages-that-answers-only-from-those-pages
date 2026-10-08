@@ -11,7 +11,7 @@ async function initialize(bundle){
  globalThis.fetch=(url,options)=>{const target=String(url);if(target.startsWith(base)){const name=target.slice(base.length);if(!core[name])return Promise.reject(Error('Unbundled runtime asset: '+name));return Promise.resolve(new Response(decode(core[name]),{headers:{'Content-Type':name.endsWith('.wasm')?'application/wasm':'application/octet-stream'}}));}return originalFetch(url,options);};
  const moduleURL=URL.createObjectURL(new Blob([text(core['pyodide.asm.mjs'])],{type:'text/javascript'}));
  const loaderURL=URL.createObjectURL(new Blob([text(core['pyodide.js'])],{type:'text/javascript'}));
- importScripts(loaderURL);
+ await import(loaderURL);
  py=await loadPyodide({indexURL:base,createPyodideModule:(await import(moduleURL)).default,
      lockFileContents:text(core['pyodide-lock.json']),packageBaseUrl:base,packages:[],enableRunUntilComplete:false});
  URL.revokeObjectURL(moduleURL);URL.revokeObjectURL(loaderURL);
