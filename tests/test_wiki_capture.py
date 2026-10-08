@@ -75,6 +75,10 @@ class WikiCaptureTests(unittest.TestCase):
             result = W.check(self.snapshot)
         self.assertFalse(result['scored'])
         self.assertIn('live payload changed', ' '.join(result['errors']))
+        row = result['live'][0]
+        self.assertEqual(row['expected_revid'], row['observed_revid'])
+        self.assertFalse(row['extract_match'])
+        self.assertNotEqual(row['expected_payload_sha256'], row['observed_payload_sha256'])
         reader.assert_not_called()
 
     def test_unchanged_extract_changed_payload_stops(self):
@@ -157,3 +161,71 @@ class WikiCaptureTests(unittest.TestCase):
         with self.assertRaises(FileExistsError):
             W.check(self.snapshot, live=False, report=report)
         self.assertEqual(report.read_bytes(), before)
+
+    def test_fresh_run_preserves_previous_capture(self):
+        old_manifest = (self.snapshot / 'manifest.json').read_bytes()
+        fresh = self.root / 'fresh'
+        with patch.object(W, 'request', return_value=(self.raw, self.metadata)) as network, \
+                patch.object(W, 'capture', wraps=self.capture_small):
+            result = W.run(fresh)
+        self.assertTrue(result['scored'], result['errors'])
+        self.assertEqual(result['failures'], 0)
+        self.assertEqual(network.call_count, 2)
+        self.assertEqual((self.snapshot / 'manifest.json').read_bytes(), old_manifest)
+
+    def capture_small(self, dest, api):
+        return ORIGINAL_CAPTURE(dest, api, {'fetched': ['Cat', 'Dog'], 'absent': ['Violin']})
+
+    def test_fresh_run_does_not_refetch_to_hide_second_request_mismatch(self):
+        changed = copy.deepcopy(self.payload)
+        changed['query']['pages']['1']['extract'] = 'Changed source.'
+        with patch.object(W, 'request', side_effect=[(self.raw, self.metadata),
+                 (json.dumps(changed).encode(), self.metadata)]) as network, \
+                patch.object(W, 'capture', wraps=self.capture_small), \
+                patch.object(W.R, 'answer') as reader:
+            result = W.run(self.root / 'changed')
+        self.assertFalse(result['scored'])
+        self.assertEqual(network.call_count, 2)
+        reader.assert_not_called()
+
+    def test_capture_rate_limit_is_saved_without_scoring_or_retry(self):
+        report = self.root / 'limited.json'
+        dest = self.root / 'limited'
+        with patch.object(W, 'request', side_effect=W.SourceUnavailable(429, '60')) as network, \
+                patch.object(W.R, 'answer') as reader:
+            result = W.run(dest, report=report)
+        self.assertFalse(result['scored'])
+        self.assertFalse(dest.exists())
+        self.assertEqual(result['source_failure'], {'http_status': 429, 'retry_after': '60'})
+        self.assertEqual(json.loads(report.read_text()), result)
+        self.assertEqual(network.call_count, 1)
+        reader.assert_not_called()
+
+    def test_check_rate_limit_is_unavailable_not_payload_drift(self):
+        with patch.object(W, 'request', side_effect=W.SourceUnavailable(429)), \
+                patch.object(W.R, 'answer') as reader:
+            result = W.check(self.snapshot)
+        self.assertFalse(result['scored'])
+        self.assertEqual(result['verification'], 'live source unavailable')
+        self.assertEqual(result['live'], [])
+        reader.assert_not_called()
+
+    def test_request_exposes_http_rate_limit_without_retry(self):
+        from urllib.error import HTTPError
+        error = HTTPError('https://simple.wikipedia.org/w/api.php', 429, 'Limited',
+                          {'Retry-After': '60'}, None)
+        with patch.object(W.urllib.request, 'urlopen', side_effect=error) as network:
+            with self.assertRaises(W.SourceUnavailable) as caught:
+                W.request(W.APIS['simple'], ['Cat', 'Dog'])
+        self.assertEqual(caught.exception.status, 429)
+        self.assertEqual(caught.exception.retry_after, '60')
+        self.assertEqual(network.call_count, 1)
+
+    def test_run_existing_capture_refuses_before_network(self):
+        with patch.object(W, 'request') as network:
+            with self.assertRaises(FileExistsError):
+                W.run(self.snapshot)
+        network.assert_not_called()
+
+
+ORIGINAL_CAPTURE = W.capture

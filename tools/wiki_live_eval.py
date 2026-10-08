@@ -17,6 +17,7 @@ import subprocess
 import sys
 import tempfile
 import urllib.parse
+import urllib.error
 import urllib.request
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -27,6 +28,15 @@ KIT = ROOT / 'evaluation/wiki'
 APIS = {'simple': 'https://simple.wikipedia.org/w/api.php',
         'english': 'https://en.wikipedia.org/w/api.php'}
 UA = 'mplpb-wiki-eval/2.0 (local provenance and refusal smoke check)'
+
+
+class SourceUnavailable(RuntimeError):
+    """A failed fetch is not a changed source or a scored evaluation."""
+    def __init__(self, status, retry_after=None):
+        self.status = status
+        self.retry_after = retry_after
+        super().__init__('wiki HTTP ' + str(status) + '; not scored' +
+                         ('; Retry-After: ' + retry_after if retry_after else ''))
 
 
 def stamp():
@@ -51,10 +61,13 @@ def request_url(api, titles):
 def request(api, titles):
     url = request_url(api, titles)
     req = urllib.request.Request(url, headers={'User-Agent': UA})
-    with urllib.request.urlopen(req, timeout=30) as response:
-        raw = response.read()
-        metadata = {'url': url, 'retrieved_at': datetime.now(timezone.utc).isoformat(),
-                    'http_status': response.status, 'content_type': response.headers.get('Content-Type', '')}
+    try:
+        with urllib.request.urlopen(req, timeout=30) as response:
+            raw = response.read()
+            metadata = {'url': url, 'retrieved_at': datetime.now(timezone.utc).isoformat(),
+                        'http_status': response.status, 'content_type': response.headers.get('Content-Type', '')}
+    except urllib.error.HTTPError as exc:
+        raise SourceUnavailable(exc.code, exc.headers.get('Retry-After')) from exc
     pages(raw)  # reject malformed/error responses before creating any snapshot
     return raw, metadata
 
@@ -242,7 +255,14 @@ def check(snapshot, live=True, report=None):
             for p in manifest['pages']:
                 source = current.get(p['title'])
                 matched = bool(source) and digest(json_bytes(source)) == p['payload_sha256']
-                result['live'].append({'title': p['title'], 'payload_match': matched})
+                result['live'].append({
+                    'title': p['title'], 'payload_match': matched,
+                    'expected_payload_sha256': p['payload_sha256'],
+                    'observed_payload_sha256': digest(json_bytes(source)) if source else None,
+                    'expected_revid': p['revid'],
+                    'observed_revid': source.get('revisions', [{}])[0].get('revid') if source else None,
+                    'extract_match': bool(source) and
+                        digest(source.get('extract', '').encode()) == p['raw_extract_sha256']})
                 if not matched:
                     result['errors'].append(p['title'] + ': live payload changed; new run needed, not scored')
         if not result['errors']:
@@ -253,8 +273,17 @@ def check(snapshot, live=True, report=None):
                 {'question': p['question'], 'outcome': R.answer(snapshot / 'corpus', p['question']).kind}
                 for p in manifest['labels'].get('paraphrases', [])]
         result['verification'] = 'live' if live else 'offline replay only'
+    except SourceUnavailable as exc:
+        result['errors'].append(str(exc))
+        result['source_failure'] = {'http_status': exc.status, 'retry_after': exc.retry_after}
+        result['verification'] = 'live source unavailable'
     except Exception as exc:
         result['errors'].append('check failed: ' + str(exc))
+    write_report(result, report, live_raw)
+    return result
+
+
+def write_report(result, report, live_raw=None):
     if report:
         report = Path(report); report.parent.mkdir(parents=True, exist_ok=True)
         with report.open('x', encoding='utf-8') as out:
@@ -262,7 +291,20 @@ def check(snapshot, live=True, report=None):
         if live_raw is not None:
             with report.with_suffix('.live-response.json').open('xb') as out:
                 out.write(live_raw)
-    return result
+
+
+def run(dest=None, api=APIS['simple'], report=None):
+    """Explicit fresh capture plus strict live check; never repin an older run."""
+    try:
+        snapshot = capture(dest, api)
+    except SourceUnavailable as exc:
+        result = {'scored': False, 'rows': [], 'live': [], 'errors': [str(exc)],
+                  'checked_at': datetime.now(timezone.utc).isoformat(),
+                  'independence_verified': False, 'verification': 'live source unavailable',
+                  'source_failure': {'http_status': exc.status, 'retry_after': exc.retry_after}}
+        write_report(result, report)
+        return result
+    return check(snapshot, live=True, report=report)
 
 
 def latest():
@@ -274,19 +316,22 @@ def latest():
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('command', choices=['fetch', 'check'])
+    parser.add_argument('command', choices=['fetch', 'check', 'run'])
     parser.add_argument('--snapshot', type=Path)
     parser.add_argument('--wiki', choices=APIS, default='simple')
     parser.add_argument('--offline', action='store_true', help='replay only; no claim of live verification')
     args = parser.parse_args()
+    if args.offline and args.command != 'check':
+        parser.error('--offline is only valid with check')
     try:
         if args.command == 'fetch':
             print('New immutable capture:', capture(args.snapshot, APIS[args.wiki])); return 0
-        result = check(args.snapshot or latest(), live=not args.offline,
-                       report=KIT / 'reports' / ('check-' + stamp() + '.json'))
+        report = KIT / 'reports' / (args.command + '-' + stamp() + '.json')
+        result = (run(args.snapshot, APIS[args.wiki], report=report) if args.command == 'run'
+                  else check(args.snapshot or latest(), live=not args.offline, report=report))
         print(json.dumps(result, indent=2))
         return 2 if not result['scored'] else (1 if result['failures'] else 0)
-    except (OSError, ValueError) as exc:
+    except (OSError, ValueError, SourceUnavailable) as exc:
         print(str(exc), file=sys.stderr); return 2
 
 
