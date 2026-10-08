@@ -20,6 +20,8 @@ ITEMS = [
      [sys.executable, "-m", "mplpb_combined", "gate"]),
     ("Build web clone", "Format loose open-web files into an MPLPB tree.",
      [sys.executable, str(ROOT / "tools" / "open_clone.py")]),
+    ("Search then copy", "Search an open wiki and build a local MPLPB copy. Unclassified origin gets a percent.",
+     [sys.executable, str(ROOT / "tools" / "web_clone.py")]),
     ("Wiki live match", "Load Simple English Wikipedia, match the live revision, then test.",
      [sys.executable, str(ROOT / "tools" / "wiki_live_eval.py"), "check"]),
     ("Seal an existing corpus", "Add hashes and pins. Change nothing else.",

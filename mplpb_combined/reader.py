@@ -20,6 +20,7 @@ Two or more: ambiguous. There is no ranking, no score, and no fill from
 outside the folder.
 """
 from __future__ import annotations
+from .delivery import external_restriction, authorship, clarification
 
 import re
 from collections import Counter
@@ -148,7 +149,7 @@ class Answer:
         return cite(self.record, self.depth, by_prose=self.matched_on == "prose")
 
     def to_dict(self) -> dict:
-        return {
+        data = {
             "kind": self.kind, "question": self.question, "profile": self.profile.name,
             "root": self.root, "reason": self.reason,
             "id": self.record.id if self.record else None,
@@ -163,6 +164,12 @@ class Answer:
             "set_aside": [{"id": r.id, "not_for": w} for r, w in self.set_aside],
             "quarantined": self.quarantined, "route": self.route,
         }
+        hint = clarification(terms(self.question), self.record)
+        if hint:
+            data["clarification"] = hint
+        if self.record and authorship(self.record):
+            data["source_authorship"] = authorship(self.record)
+        return data
 
 
 def cite(r: Record, depth: int, by_prose: bool = False) -> str:
@@ -215,6 +222,7 @@ def answer(root, question: str, profile: Optional[Profile] = None,
     depth = {r.path: ledger.depth(r) for r in servable}
     within = [r for r in servable
               if profile.max_depth is None or depth[r.path] <= profile.max_depth]
+    within = [r for r in within if not external_restriction(r, profile)]
     kept = {r.path for r in within}
     over = [r for r in servable if r.path not in kept]
     by_path = {r.path: r for r in within}
@@ -350,7 +358,9 @@ def render(a: Answer, why: bool = False) -> str:
             lines.append(f"  set aside: {r.id} says it is not for: {', '.join(words)}")
     for r, d in a.withheld:
         limit = a.profile.max_depth
-        lines.append(f"  withheld by profile {a.profile.name}: {r.id} is depth {d}, limit {limit}")
+        restriction = external_restriction(r, a.profile)
+        lines.append(f"  withheld by profile {a.profile.name}: {r.id}: {restriction}" if restriction
+                     else f"  withheld by profile {a.profile.name}: {r.id} is depth {d}, limit {limit}")
     for hop in a.route:
         lines.append("  route: " + hop)
     if a.quarantined:
@@ -361,4 +371,9 @@ def render(a: Answer, why: bool = False) -> str:
                   f"    decided by  {a.matched_on or '-'}",
                   f"    on a page   {', '.join(a.known) or '-'}",
                   f"    on no page  {', '.join(a.unknown) or '-'}"]
+    if a.record and authorship(a.record):
+        lines.append("  " + authorship(a.record)["notice"])
+    hint = clarification(terms(a.question), a.record)
+    if hint:
+        lines += ["", hint["prompt"]] + ["  - " + c for c in hint["choices"]] + [hint["notice"]]
     return "\n".join(lines)

@@ -480,6 +480,7 @@ def write(root, *, title: str, scope: str, when_to_use: str = "", not_for: str =
           owner: str = "", derived_from: Sequence[str] = (), supersedes: Sequence[str] = (),
           ratified_by: str = "", kind: str = "page", points_to: str = "",
           when: Optional[str] = None, event: str = "write", note: str = "",
+          external: str = "", source_authorship: str = "", clarify_options: str = "",
           _locked: bool = False) -> Record:
     """Write one new page. Nothing that exists is changed except the status
     line of a page this one supersedes, and that happens last."""
@@ -488,6 +489,10 @@ def write(root, *, title: str, scope: str, when_to_use: str = "", not_for: str =
         raise ValueError("origin must be human or machine")
     if not scope.strip():
         raise ValueError("a record must declare a scope")
+    if external not in ("", "yes", "no"):
+        raise ValueError("external must be yes, no, or absent")
+    if source_authorship not in ("", "unknown", "declared-human", "declared-machine"):
+        raise ValueError("source authorship must be unknown or a declaration")
     when = when or utc_now()
 
     def go() -> Record:
@@ -522,6 +527,8 @@ def write(root, *, title: str, scope: str, when_to_use: str = "", not_for: str =
             "supersedes": format_refs([Ref(o.id, o.hash_actual) for o in olds]),
             "ratified-by": ratified_by, "points-to": points_to,
             "owner": owner, "updated": when,
+            "external": external, "source-authorship": source_authorship,
+            "clarify-options": clarify_options,
         }
         inner = body_html if body_html is not None else plain_to_html(body)
         page_body = f"<h1>{html.escape(' '.join(title.split()), quote=False)}</h1>\n{inner}".strip()
@@ -594,6 +601,9 @@ def revise(root, doc_id: str, *, title: Optional[str] = None, scope: Optional[st
             owner=owner or old.fields.get("owner", ""),
             derived_from=[r.id for r in old.derived_from], supersedes=[old.id],
             ratified_by=ratified_by, kind=old.kind, points_to=old.points_to,
+            external=old.fields.get("external", ""),
+            source_authorship=old.fields.get("source-authorship", ""),
+            clarify_options=old.fields.get("clarify-options", ""),
             when=when, event=_event, note=note, _locked=True,
         )
 

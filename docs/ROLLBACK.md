@@ -46,3 +46,7 @@ See [the gate specification](PROVENANCE_GATE.md), [upload review](UPLOAD_REVIEW.
 The last main commit before this fix is `c665337492a4aa5c3619c57c439a0583732c68bd`. Find the subsequent commit with subject `Enforce supersession restoration and derivative serving policy`, then run `git revert <policy-fix-commit-sha>`, run the tests, and push normally. Do not revert the earlier provenance-gate addition to undo only this fix.
 
 Reverting restores the earlier serving and write behavior, including its permissive handling of invalid successor pages, stale derivatives, and the inability to write a restoration pinning a withdrawn head. Existing source files written after publication remain in their corpora; inspect them with the restored reader before relying on rollback behavior. Original probe files remain frozen. The policy fix passes 165 tests; that is regression evidence, not independent validation.
+
+## Sealed delivery and clarification fix
+
+This fix is based on `d9ba968475c4f317b3582cedeb15a1cba6900660`, and is prepared on `fix/sealed-delivery-clarification`. Undo only its published commit with `git revert <delivery-fix-sha>` and rerun tests, rather than resetting main. Pages newly carrying sealed delivery/authorship fields need the updated reader and hash format; the old reader does not enforce the same restrictions. Do not rely on rollback to preserve external withholding of these pages. Imported material and any delivered text outside Git are unaffected.

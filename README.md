@@ -75,6 +75,8 @@ Walk-back instructions: [docs/ROLLBACK.md](docs/ROLLBACK.md).
 
 The [wiki package](evaluation/wiki/README.md) adds a menu, loose-source formatter, and live revision/extract check. Its supplied snapshot currently fails the live hash check and is not scored; code pin and source verification gaps are recorded in [the review](evaluation/wiki/REVIEW.md). This is an external-text smoke test, not independently labeled validation. Start with `python3 tools/menu.py`.
 
+See [sealed delivery and human clarification](docs/DELIVERY_AND_CLARIFICATION.md) for unknown authorship, shared `ask`/`gate` restrictions, and the dog intent demo.
+
 ## Keep your own ledger
 
 ```bash
@@ -107,7 +109,7 @@ nothing else.
 | `mplpb_combined/ledger.py` | The folder as a ledger: status, lineage, depth, validation, writing, the log |
 | `mplpb_combined/reader.py` | The answer rule, profiles, hubs |
 | `mplpb_combined/killtest.py` | The kill test: three arms, mechanical scoring |
-| `tests/` | 165 tests: 122 existing, 29 gate, and 14 supersession policy tests |
+| `tests/` | 176 tests: 165 existing and 11 delivery/clarification tests |
 | `examples/studio/` | 25 pages about running a pottery studio; the kill-test corpus |
 | `examples/spec/` | The format described as ten pages in the format |
 | `examples/hub/` | Two pointers, one at each of the above |

@@ -13,6 +13,7 @@ from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Optional
 
+from .delivery import external_restriction, authorship, clarification
 from .ledger import Ledger, ORIGINS
 from .reader import Profile, PROFILES, DEFAULT_PROFILE, declared_terms, page_terms, not_for_terms, terms
 
@@ -45,7 +46,7 @@ class GateResult:
         return 'partial' if self.unmatched_terms else 'complete'
 
     def to_dict(self):
-        return {
+        data = {
             'kind': self.kind, 'question': self.question, 'profile': self.profile,
             'query_terms': self.query_terms, 'sources': self.sources,
             'term_sources': self.term_sources, 'unmatched_terms': self.unmatched_terms,
@@ -61,6 +62,10 @@ class GateResult:
                        'the question or that separate facts are related. Origin and owner '
                        'are page declarations, not authenticated identities.'),
         }
+        hint = clarification(set(self.query_terms))
+        if hint:
+            data["clarification"] = hint
+        return data
 
 
 def _digest(value):
@@ -154,9 +159,9 @@ def gather(root, question: str, profile: Optional[Profile] = None) -> GateResult
     content = terms(question)
     result = GateResult(question, profile.name, sorted(content),
                         term_sources={t: [] for t in sorted(content)})
-    settings = {'gate_version': 1, 'mode': 'separate_lexical_sources',
+    settings = {'gate_version': 2, 'mode': 'separate_lexical_sources',
                 'max_depth': profile.max_depth, 'prose': profile.prose, 'not_for': profile.not_for,
-                'synthesize': False, 'follow_pointers': False, 'require_current_dependencies': True}
+                'enforce_sealed_external_policy': True, 'synthesize': False, 'follow_pointers': False, 'require_current_dependencies': True}
     result.policy = dict(settings, settings_hash=_digest(settings))
     result.corpus_snapshot = _digest([
         {'path': r.path, 'id': r.id, 'hash': r.hash_actual, 'status': ledger.effective_status(r)}
@@ -177,6 +182,8 @@ def gather(root, question: str, profile: Optional[Profile] = None) -> GateResult
             result.excluded.append({'id': rec.id, 'path': rec.path, 'reason': 'pointer, not evidence'})
             continue
         ancestry, reason = _lineage(ledger, rec, errors)
+        if not reason:
+            reason = external_restriction(rec, profile)
         if not reason and ledger.effective_status(rec) != 'current':
             reason = 'retired'
         if not reason:
@@ -211,6 +218,8 @@ def gather(root, question: str, profile: Optional[Profile] = None) -> GateResult
                                               'serving policy changes'],
                        'verification': {'hash_intact': True, 'lineage_pinned': True,
                                         'origin_explicit': True, 'authorship_authenticated': False}})
+        if authorship(rec):
+            source["source_authorship"] = authorship(rec)
         result.sources.append(source)
         for term in sorted(matched):
             result.term_sources[term].append(rec.id)
@@ -250,9 +259,13 @@ def render(result: GateResult) -> str:
                   source['text'],
                   '[{id} · {path} · {status} · declared origin {origin} d{origin_depth} · '
                   'owner {owner} · {hash} · local]'.format(**source)]
+        if source.get('source_authorship'):
+            lines.append(source['source_authorship']['notice'])
         for parent in source['ancestry']:
             lines.append('  lineage: {id} · {origin} d{origin_depth} · {status} · {hash}'.format(**parent))
     if result.excluded:
         lines += ['', 'Excluded pages:']
         lines.extend('  {id} · {path}: {reason}'.format(**e) for e in result.excluded)
+    if data.get("clarification"):
+        lines += [data["clarification"]["prompt"]] + ["  - " + c for c in data["clarification"]["choices"]] + [data["clarification"]["notice"]]
     return '\n'.join(lines)

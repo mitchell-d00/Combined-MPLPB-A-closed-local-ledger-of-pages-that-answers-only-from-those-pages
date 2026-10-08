@@ -21,12 +21,14 @@ if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
 from mplpb_combined import ledger as L  # noqa: E402
+from mplpb_combined.record import upsert_meta  # noqa: E402
 from mplpb_combined import reader as R  # noqa: E402
 
 TITLE_KEYS = ("title", "name", "heading", "label")
 BODY_KEYS = ("body", "text", "extract", "blurb", "content", "summary")
 SOURCE_KEYS = ("source", "url", "from", "origin_url")
 LICENSE_KEYS = ("license", "licence", "rights")
+ORIGIN_KEYS = ("origin", "authorship")
 WHEN = "2026-10-08T14:30:00Z"
 
 
@@ -50,6 +52,7 @@ def _from_json(text: str, name: str) -> list[dict]:
             "body": _first(row, BODY_KEYS) or json.dumps(row, ensure_ascii=False),
             "source": _first(row, SOURCE_KEYS) or name,
             "license": _first(row, LICENSE_KEYS) or "unspecified",
+            "origin": _first(row, ORIGIN_KEYS).lower(),
             "file": f"{name}#{i}",
         })
     return out
@@ -71,7 +74,7 @@ def _from_text(text: str, name: str) -> dict:
                 ln for ln in body.splitlines() if ln.strip() != line.strip()
             ).strip()
             break
-    return {"title": title, "body": body, "source": source, "license": "unspecified", "file": name}
+    return {"title": title, "body": body, "source": source, "license": "unspecified", "origin": "", "file": name}
 
 
 def read_loose(path: Path) -> list[dict]:
@@ -102,17 +105,27 @@ def clone(src: Path, dest: Path) -> list[dict]:
             f"License: {item['license']}\n"
             "Loaded beside other sources. Co-presence does not establish a relationship."
         )
+        declared = item.get("origin") or "unverified"
+        if declared not in {"human", "machine"}:
+            declared = "unverified"
+        # A declared string is not verification. The page field cannot be
+        # unverified, so an unverified import is stored as machine and withheld.
+        origin = declared if declared in {"human", "machine"} else "machine"
+        verified = False
+        footer = footer + f"\nOrigin declared: {declared}. Origin verified: no."
         rec = L.write(
             dest, title=title, scope=scope, when_to_use=scope,
             not_for="relationship; other source",
             body=(item["body"] or "(empty source)") + "\n\n" + footer,
-            prefix="ALIEN", origin="human",
+            prefix="ALIEN", origin=origin,
             owner=item["source"] or "unspecified", when=WHEN,
-            note=item["file"],
+            note=item["file"], external="no",
+            source_authorship="unknown" if declared == "unverified" else "declared-" + declared,
         )
         written.append({
             "id": rec.id, "title": title, "scope": scope, "titled": titled,
             "source": item["source"], "license": item["license"],
+            "origin_declared": declared, "origin_verified": verified, "external": False,
             "file": item["file"], "hash": rec.hash,
         })
     subprocess.run([sys.executable, "-m", "mplpb_combined", "index", str(dest), "--title", "Alien sources"], check=True, cwd=ROOT)

@@ -15,6 +15,11 @@ A fetched title should return that page. An absent title should be refused. A qu
 
 Text is CC BY-SA 4.0, Simple English Wikipedia contributors. Code pin: `3bac10f21a5b74e8aacbf9dada9773cfee25dcb0`.
 
-## Current review status
 
-The supplied snapshot failed the live extract hash check on 2026-10-08 and was not scored. Actual code and local-source verification remain incomplete. Loose imports declare human origin without authenticating it. Read [REVIEW.md](REVIEW.md) before interpreting results or using external delivery.
+## Snapshot and current safeguards
+
+The supplied corpus and manifest preserve the old load. Full local page text is pinned separately from raw API extracts. API payload hashes cover source revision fields and extract text; the historical load has no such pins and is not scored. Engine and checker bytes have separate pins, with the original base commit recorded separately.
+
+Local unknown-origin imports are explicitly labeled unknown and withheld by both external ask and gate. Declared origin is not verified identity. Delivery policy fields are sealed, and the importer creates them atomically with its ledger event. See [delivery and clarification](../../docs/DELIVERY_AND_CLARIFICATION.md) and [the historical review](REVIEW.md).
+
+A clean local unit run is regression evidence, not a passing live evaluation or independent labeling. Preserved reports under this directory are historical supplied observations, not new checks of this working version.
