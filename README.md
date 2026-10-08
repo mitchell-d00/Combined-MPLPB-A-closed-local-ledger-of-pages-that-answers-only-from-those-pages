@@ -55,6 +55,11 @@ On Windows, double-click `Launch_MPLPB.bat`. On Mac/Linux, run
 `sh Launch_MPLPB.sh`, or run `python3 launch.py` on any system with Python 3.
 The launcher opens <http://127.0.0.1:8766>. Keep the terminal running.
 
+New users can choose **Guide me** for a saved step-by-step introduction. Chat offers
+suggested questions and can present the selected MPLPB’s page titles. App-help
+questions also work in Ask, including when source verification is blocked.
+[Guided chat details](docs/GUIDED_CHAT.md).
+
 The **Chat** view supports `search TOPIC` to build a saved MPLPB from a bounded crawl, `find TOPIC` for Wikipedia suggestions, explicit Wikipedia title imports,
 follow-up context and bounded source-assertion rules. See
 [the chat workflow](docs/CHAT_WORKFLOW.md) and [system/creator reference](docs/SYSTEM_SELF.md).

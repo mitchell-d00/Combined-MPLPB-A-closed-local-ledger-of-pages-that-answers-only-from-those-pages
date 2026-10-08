@@ -76,5 +76,11 @@ const cleared=await call('/api/collections/reset-many',{corpora:[built.corpus,ex
 if(cleared.count!==2)throw Error('WASM bulk clear failed');
 const retained=await call('/api/chat/resume',{session:sid});
 if(retained.notes[0]!=='I study dinosaurs')throw Error('WASM bulk clear touched other chat');
+const guide=await call('/api/chat',{corpus:'logic',session:sid,message:'guide me'});
+if(guide.response.guide?.step!==1||!guide.response.suggestions.includes('show my MPLPB'))throw Error('WASM guide failed');
+const next=await call('/api/chat',{corpus:'logic',session:sid,message:'next step'});
+if(next.response.guide?.step!==2)throw Error('WASM guide progression failed');
+const askHelp=await call('/api/query',{corpus:'logic',question:'How do I clear mplpb some or all?'});
+if(!askHelp.help||askHelp.reader.kind!=='help'||askHelp.gate.sources.length)throw Error('WASM Ask help routing failed');
 console.log('PASS real WebAssembly: ownership, relation proof, summary, withholding, memory, saved relaunch, fixture imports and isolated collections.');
 fs.writeFileSync(path.join(path.dirname(htmlPath),'wasm-validation.json'),JSON.stringify({runtime:bundle.runtime_version,passed:true,corpora:state.corpora.map(x=>x.key),ambiguous:ambiguous.reader.kind,relation:relation.response.kind,summary:summary.response.kind,withheld:withheld.reader.kind,chain_intact:saved.chain_intact,fixture_import_passed:true,virtual_save_relaunch_passed:true,browser_layout_tested:false,indexeddb_tested:false,live_wiki_tested:false},null,2));

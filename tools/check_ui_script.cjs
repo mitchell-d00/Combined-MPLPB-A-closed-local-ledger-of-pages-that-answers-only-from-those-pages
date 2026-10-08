@@ -32,6 +32,7 @@ function runtime(protocol='http:',saved={}){
 async function tick(){for(let i=0;i<20;i++)await Promise.resolve();}
 (async()=>{
  const r=runtime();await tick();
+ assert.equal(r.elements['guide-invitation'].hidden,false);r.elements['guide-skip'].events.click();assert.equal(r.storage['mplpb-guide-choice'],'self');assert.equal(r.elements['guide-invitation'].hidden,true);
  assert.equal(r.elements.workspace.hidden,false);assert.match(r.elements['page-map'].innerHTML,/CANNED-0001/);assert.equal(r.elements['eligible-count'].textContent,2);
  await r.run('query()');assert.match(r.elements.results.innerHTML,/AMBIGUOUS/);assert.match(r.elements.results.innerHTML,/2 separate sources/);
  await r.run('page("canned-0001.html")');assert.equal(r.elements['page-dialog'].open,true);assert.match(r.elements['page-content'].innerHTML,/Synthetic reader fixture/);
@@ -46,6 +47,8 @@ async function tick(){for(let i=0;i<20;i++)await Promise.resolve();}
  r.elements.corpus.value='logic';r.elements.profile.value='internal';await r.run('chatSend(\"relate Dungeons and Dragons -> game\")');assert.match(r.elements['chat-messages'].innerHTML,/TYPE-2/);await r.run('chatSend(\"who made you?\")');assert.match(r.elements['chat-messages'].innerHTML,/Mitchell D. McPhetridge/);
  const resumed=runtime('http:',r.storage);await tick();assert.match(resumed.elements['chat-messages'].innerHTML,/Mitchell D. McPhetridge/);assert.match(resumed.elements['chat-messages'].innerHTML,/TYPE-2/);assert.match(resumed.elements['chat-status'].textContent,/resumed/);
  const prefs=JSON.parse(r.storage['mplpb-ui-preferences']);assert.deepEqual(Object.keys(prefs).sort(),['corpus','profile','setting','theme']);
+ r.elements.corpus.value='canned';r.elements.profile.value='internal';r.elements.question.value='How do I clear mplpb some or all?';await r.run('query()');assert.match(r.elements.results.innerHTML,/App help/);assert.match(r.elements.results.innerHTML,/Clear selected MPLPBs/);
+ await r.run('chatSend("guide me")');assert.match(r.elements['chat-messages'].innerHTML,/Step 1 of 4/);assert.match(r.elements['chat-messages'].innerHTML,/data-suggest/);
  r.elements.corpus.value='canned';r.run('corpusChanged()');await tick();let release;r.holdNext(resolve=>{release=resolve;});const pending=r.run('query()');await tick();r.elements.profile.value='external';r.elements.profile.events.change();release();await pending;assert.equal(r.elements.results.innerHTML,'');
  const off=runtime('file:');await tick();assert.equal(off.requests.length,0);assert.equal(off.elements.connection.hidden,false);assert.equal(off.elements.workspace.hidden,true);
  console.log('PASS: script workflow, source controls, profile changes, clarification, history, experiment, chat/rule/creator rendering, escaping, preferences, stale responses and file-mode instructions. No browser rendering performed.');

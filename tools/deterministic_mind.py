@@ -23,7 +23,7 @@ HELP_ALIASES = {
  'ask': {'how do i ask a question','what should i ask','what do i do next','how do i chat','how do i change topic','how do i select a topic','how do i summarize','how do i ask about a page'},
  'save': {'how do i save','how do i save my chat','will you remember this','does it save','is my chat saved','where is my data saved','how do i export','how do i export my chat','will this survive refresh'},
  'reset': {'how do i reset','how do i restart','how do i delete a collection','what does reset do','what does restart do','how do i clear my chat','how do i clear collections','how do i clear all','how do i delete mplpb','clear mplpb','delete mplpb'},
- 'sources': {'where are the sources','how do i see sources','how do i see revisions','what is a pin','what are pins','what is provenance','where is the revision tree'},
+ 'sources': {'where are the sources','how do i see sources','how do i see revisions','what is a pin','what are pins','what is provenance','where is the revision tree','what pages do i have','show my mplpb','show my pages'},
  'refusal': {'why did you refuse','why can you not answer','why did you stop','what does ambiguous mean','why is my page blocked','what does blocked mean'},
  'memory': {'how do i remember something','how do i add a note','how do i use memory','how do i clear notes','what are working notes'},
  'limits': {'what can you do','what are your limits','are you ai','are you a language model','can you answer anything','are you deterministic'},
@@ -33,7 +33,21 @@ def help_reply(message, context):
     key = re.sub(r'\s+', ' ', re.sub(r"[?!.,]", '', message.casefold().replace('’', "'"))).strip()
     key = re.sub(r"\bi'm\b", 'i am', key)
     key = re.sub(r"\bcan't\b", 'can not', key)
-    key = re.sub(r'^(?:please |explain |tell me )', '', key)
+    key = re.sub(r'^(?:(?:please|explain|tell me) )+', '', key)
+    words=set(re.findall(r'[a-z]+',key))
+    procedural=key.startswith(('how do i ','how can i ','how to ','where can i ','where do i ','can i ','could i ','help me ','i want to '))
+    subject=words & {'mplpb','collection','collections','chat','chats','this','it','app','workspace','all','some'}
+    category=None
+    if procedural and subject:
+        if words & {'clear','delete','remove','reset','restart','erase'}:category='reset'
+        elif words & {'save','saved','export','download'}:category='save'
+        elif words & {'use','start','begin','guide'}:category='start'
+        elif words & {'search','crawl','build','import'}:category='search'
+        elif words & {'source','sources','revision','revisions','pin','pins'}:category='sources'
+    if key in {'guide me','walk me through it','teach me how to use it','how does mplpb work','what is this app','what is this'}:category='start'
+    if category:
+        title,body=HELP[category]
+        return reply('help',title+'\n\n'+body,context,'HELP-'+category.upper(),authority='interface_instructions',suggestions=['guide me','show my MPLPB','how do I search?'])
     if key in {'hello','hi','hey','good morning','good afternoon','good evening'}:
         return reply('help', 'Hi! I can help you explore your local pages. Ask “how do I use this?” for a quick start, or “how do I search?” to build a topic collection.', context, 'HELP-GREETING')
     if key in {'thanks','thank you','thank you so much','ok','okay','got it'}:
@@ -46,7 +60,7 @@ def help_reply(message, context):
     for topic, aliases in HELP_ALIASES.items():
         if key in aliases:
             title, body = HELP[topic]
-            return reply('help', title + '\n\n' + body, context, 'HELP-' + topic.upper(), authority='interface_instructions')
+            return reply('help', title + '\n\n' + body, context, 'HELP-' + topic.upper(), authority='interface_instructions',suggestions=['guide me','show my MPLPB','how do I search?'])
     return None
 
 def reply(kind, message, context, rule, sources=None, **extra):

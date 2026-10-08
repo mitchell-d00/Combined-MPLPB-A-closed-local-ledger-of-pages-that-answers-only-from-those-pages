@@ -174,4 +174,4 @@ class LedgerUITests(unittest.TestCase):
         status, body, _ = self.request('/api/chat', dict(corpus='logic', message='relate Dungeons and Dragons -> budget'))
         self.assertEqual(json.loads(body)['response']['kind'], 'unknown_relation')
         status, body, _ = self.request('/api/chat', dict(corpus='logic', message='who made you?'))
-        self.assertEqual(json.loads(body)['response']['reader']['id'], 'SELF-0007')
+        self.assertEqual(json.loads(body)['response']['reader']['id'], 'SELF-0008')

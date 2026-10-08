@@ -26,6 +26,7 @@ from tools import deterministic_mind as M
 from tools.mind_session import SessionStore
 from tools.exploration_store import ExplorationStore
 from tools import topic_crawl as TC
+from tools import chat_tutor as T
 
 
 class App:
@@ -190,10 +191,14 @@ class App:
         question = data.get('question')
         if not isinstance(question, str) or not question.strip() or len(question) > 4000:
             raise ValueError('Enter a question of 1–4000 characters')
-        root = self.root(data.get('corpus'))
         name = data.get('profile', 'internal')
         if name not in R.PROFILES:
             raise ValueError('Unknown profile')
+        if data.get('corpus') not in self.roots():raise ValueError('Unknown corpus')
+        help_result=M.help_reply(question,None)
+        if help_result:
+            return {'help':help_result,'reader':{'kind':'help','question':question,'text':help_result['message'],'profile':name,'matched_on':'interface instruction intent'},'gate':{'sources':[]},'live_verified_by_this_query':False}
+        root = self.root(data.get('corpus'))
         profile = R.PROFILES[name]
         answer = R.answer(root, question, profile)
         reader = answer.to_dict()
@@ -243,14 +248,25 @@ class App:
             if len(session['log']) >= 1000:
                 raise ValueError('1000-turn save limit reached. State retained; export before an explicit restart.')
             wiki = data.get('wiki', 'simple')
-            if message.lower().startswith('search '):
+            memory=session.setdefault('mind',{'notes':[]})
+            tutor=T.guide(message,session['context'],memory) or T.learning_request(message,session['context'])
+            if tutor is not None:result=tutor
+            elif T.key(message) in T.LIST:
+                try:
+                    pages=[p for p in self.inventory(corpus,profile)['pages'] if p['eligible']]
+                    result=M.reply('collection','Your MPLPB has '+str(len(pages))+' eligible page(s).\n\n'+('\n'.join(p['title'] for p in pages[:40]) if pages else 'No eligible pages are loaded. Choose a Wikipedia mode and build a topic collection.')+'\n\nWhich page would you like to explore?',session['context'],'INVENTORY-1',authority='local_inventory',suggestions=['topic '+p['title'] for p in pages[:4]]+['how do I search?','guide me'])
+                except (ValueError,OSError) as exc:
+                    result=M.reply('clarify','This collection is blocked: '+str(exc)+'\n\nIts saved files remain. Use search to build a fresh collection under this runtime, or refresh the old collection by explicitly reimporting its titles. You can also use the confirmed clear controls. Help still works.',None,'INVENTORY-BLOCKED',suggestions=['how do I search?','how do I clear all?','guide me'])
+            elif message.lower().startswith('search '):
                 if len(self.sessions) >= 32: raise ValueError('Save slots full; no crawl or collection created')
                 if len(self.collections.entries()) >= 32: raise ValueError('Collection limit reached; no crawl created')
                 built, result = self.build_search(message[7:].strip(), wiki)
                 if built:
                     corpus = built
                     if data.get('session'): sid = uuid.uuid4().hex
+                    active_guide=memory.get('guide',{}).get('active')
                     session = {'corpus':corpus,'profile':profile,'context':None,'log':[], 'mind':{'notes':[]}}
+                    if active_guide:session['mind']['guide']={'active':True,'step':2}
                     if profile != 'internal':
                         result['context'], result['sources'] = None, []
                         result['message'] += ' Sources remain subject to the selected delivery profile.'
@@ -283,10 +299,13 @@ class App:
                           'gate': own['gate'], 'context': session['context'], 'sources': own['gate']['sources'],
                           'reasoning': ['SELF-1: return the sealed self-reference page; creator attribution is a declaration, not identity authentication.']}
             else:
-                result = M.handle(self.root(corpus), profile, message, session['context'], session.setdefault('mind', {'notes': []}))
+                interpreted=T.local_phrase(message)
+                result = M.handle(self.root(corpus), profile, interpreted, session['context'], session.setdefault('mind', {'notes': []}))
                 if result is None:
-                    result = C.turn(self, corpus, self.root(corpus), profile, message, session['context'])
+                    result = C.turn(self, corpus, self.root(corpus), profile, interpreted, session['context'])
+                if interpreted!=message:result.setdefault('reasoning',[]).append({'rule':'PHRASE-1','interpreted_as':interpreted})
             session['corpus'], session['context'] = corpus, result.get('context')
+            T.followups(result,session['mind'])
             M.record(session.setdefault('mind', {'notes': []}), result)
             payload = {'question': message, 'corpus': corpus, 'profile': profile, 'response': result}
             payload['mind_version'] = M.VERSION

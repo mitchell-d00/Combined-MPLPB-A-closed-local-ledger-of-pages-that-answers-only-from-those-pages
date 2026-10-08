@@ -64,7 +64,7 @@ def build(core_archive, output):
     html = html.replace('The journal lasts for this tab only.', 'The journal lasts for this tab only. Session storage belongs to this browser and origin; it is not shared with the desktop server.')
     html = html.replace('Local reader unavailable:', 'Browser runtime unavailable:')
     html = html.replace('mplpb-session-id', 'mplpb-browser-session-id').replace('mplpb-ui-preferences', 'mplpb-browser-ui-preferences')
-    html = html.replace('mplpb-collection-sessions', 'mplpb-browser-collection-sessions').replace('mplpb-crawler-url','mplpb-browser-crawler-url')
+    html = html.replace('mplpb-collection-sessions', 'mplpb-browser-collection-sessions').replace('mplpb-crawler-url','mplpb-browser-crawler-url').replace('mplpb-guide-choice','mplpb-browser-guide-choice')
     # Browser mode has its own exact self-reference transport notice, shown on every screen.
     html = html.replace('<footer class="footer">', '<footer class="footer">Standalone WebAssembly mode · no Python server · saved in this browser.<br>')
     output = Path(output); output.parent.mkdir(parents=True, exist_ok=True); output.write_text(html, encoding='utf-8')

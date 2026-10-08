@@ -5,12 +5,18 @@ No API key, model or additional Python packages are required.
 
 ## Basic help chat
 
+New visitors can accept a guided introduction. Use **Guide me** in the header at
+any time for the saved four-step tutor. “Show my MPLPB” presents available pages
+in chat. Suggested questions fill the composer; Send submits them. See
+[guided chat](GUIDED_CHAT.md).
+
 Say “hi”, “how do I use this?”, “how do I search?”, “how do I save?” or
 “how do I reset?”. The Get started, Search help and Save help buttons fill the
 composer; Send submits the question. Help gives fixed interface instructions,
 keeps the selected source context, and makes no network request. It is not a
 source-fact answer. Unsupported world questions still go through the lexical reader.
-The help vocabulary is finite, not general natural-language understanding.
+The help vocabulary and procedural patterns are finite, not general natural-language
+understanding. App-help questions work in Ask even when source pins are blocked.
 
 ## Search, build, then follow up
 

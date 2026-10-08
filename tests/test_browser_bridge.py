@@ -52,6 +52,7 @@ class BrowserBridgeTests(unittest.IsolatedAsyncioTestCase):
 
     async def test_search_crawls_wiki_builds_and_preserves_previous_session(self):
         prior= B.app.chat({'corpus':'logic','message':'remember old collection'})
+        B.app.chat({'corpus':'logic','session':prior['session'],'message':'guide me'})
         texts={'Cat':'Cat is an animal. [[Dog]] [[File:ignored.png]]', 'Dog':'Dog is an animal. [[Mouse]]', 'Mouse':'Mouse is an animal.'}
         async def remote(url):
             q=parse_qs(urlsplit(url).query)
@@ -63,6 +64,8 @@ class BrowserBridgeTests(unittest.IsolatedAsyncioTestCase):
         with patch.object(B,'remote',remote):
             result=await B.dispatch('/api/chat',{'corpus':'logic','session':prior['session'],'message':'search cat','wiki':'simple'})
         self.assertEqual(result['response']['kind'],'built')
+        self.assertTrue(B.app.sessions[result['session']]['mind']['guide']['active'])
+        self.assertEqual(B.app.sessions[result['session']]['mind']['guide']['step'],2)
         self.assertNotEqual(result['session'],prior['session'])
         self.assertEqual(len(B.app.inventory(result['corpus'],'internal')['pages']),3)
         self.assertTrue(result['response']['crawl']['edges'])

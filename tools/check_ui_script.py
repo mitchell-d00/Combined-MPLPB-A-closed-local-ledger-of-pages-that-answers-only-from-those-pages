@@ -33,10 +33,11 @@ def main():
                     data['pages'][corpus + '|' + profile + '|' + rec['path']] = app.page(
                         corpus, rec['path'], profile)
     sid = None
-    for message in ('relate Dungeons and Dragons -> game', 'who made you?'):
+    for message in ('relate Dungeons and Dragons -> game', 'who made you?', 'guide me'):
         data['chats'][message] = app.chat(dict(corpus='logic', message=message, session=sid))
         sid = data['chats'][message]['session']
     data['resume'] = app.resume_chat(dict(session=sid))
+    data['queries']['canned|internal|How do I clear mplpb some or all?']=app.query(dict(corpus='canned',question='How do I clear mplpb some or all?'))
     result = subprocess.run([node, str(ROOT / 'tools/check_ui_script.cjs'), str(ROOT / 'index.html')],
                           input=json.dumps(data), text=True, cwd=ROOT).returncode
     workspace.cleanup()
