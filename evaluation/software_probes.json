@@ -1,0 +1,94 @@
+{
+  "probes": [
+    {
+      "id": "software-01",
+      "q": "service deployment release",
+      "class": "return",
+      "expect": "return",
+      "doc": "SOFTWARE-0001",
+      "evidence": "Deploy service releases with the deploy command."
+    },
+    {
+      "id": "software-02",
+      "q": "service rollback recovery",
+      "class": "return",
+      "expect": "return",
+      "doc": "SOFTWARE-0002",
+      "evidence": "Rollback service releases with the rollback command."
+    },
+    {
+      "id": "software-03",
+      "q": "database backup snapshot",
+      "class": "return",
+      "expect": "return",
+      "doc": "SOFTWARE-0003",
+      "evidence": "Create database backups every night with the snapshot command."
+    },
+    {
+      "id": "software-04",
+      "q": "database restore recovery",
+      "class": "return",
+      "expect": "return",
+      "doc": "SOFTWARE-0004",
+      "evidence": "Restore database backups with the restore command."
+    },
+    {
+      "id": "software-05",
+      "q": "how to deploy service releases",
+      "class": "return",
+      "expect": "return",
+      "doc": "SOFTWARE-0001",
+      "evidence": "Deploy service releases with the deploy command."
+    },
+    {
+      "id": "software-06",
+      "q": "which command creates database backups",
+      "class": "return",
+      "expect": "return",
+      "doc": "SOFTWARE-0003",
+      "evidence": "Create database backups every night with the snapshot command."
+    },
+    {
+      "id": "software-07",
+      "q": "service releases",
+      "class": "ambiguous",
+      "expect": "ambiguous",
+      "rationale": "Multiple pages cover the requested terms."
+    },
+    {
+      "id": "software-08",
+      "q": "database backups",
+      "class": "ambiguous",
+      "expect": "ambiguous",
+      "rationale": "Multiple pages cover the requested terms."
+    },
+    {
+      "id": "software-09",
+      "q": "who approves service deployment",
+      "class": "not_in_corpus",
+      "expect": "not_in_corpus",
+      "rationale": "No page supplies the requested information."
+    },
+    {
+      "id": "software-10",
+      "q": "does database backup encrypt passwords",
+      "class": "not_in_corpus",
+      "expect": "not_in_corpus",
+      "rationale": "No page supplies the requested information."
+    },
+    {
+      "id": "software-11",
+      "q": "how to undo a launch",
+      "class": "not_in_corpus",
+      "expect": "not_in_corpus",
+      "rationale": "No page supplies the requested information."
+    },
+    {
+      "id": "software-12",
+      "q": "lunar weather forecast",
+      "class": "not_in_corpus",
+      "expect": "not_in_corpus",
+      "rationale": "No page supplies the requested information."
+    }
+  ]
+}

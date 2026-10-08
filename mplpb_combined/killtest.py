@@ -25,6 +25,7 @@ from pathlib import Path
 from typing import Dict, List, Optional, Tuple
 
 from .ledger import Ledger
+from .baselines import LexicalIndex
 from .reader import (
     AMBIGUOUS, NOT_IN_CORPUS, PROFILES, RETURN, Profile, answer, decide, terms,
 )
@@ -101,10 +102,27 @@ def run(root, probes_path, profile: Optional[Profile] = None) -> dict:
     raw = stripped_pages(ledger)
     prose = {p: terms(t) for p, t in raw.items()}
     path_to_id = {r.path: r.id for r in ledger.records}
+    pools = {'stripped': raw,
+             'current': {r.path: r.text for r in ledger.servable() if r.kind == 'page'
+                         and (profile.max_depth is None or ledger.depth(r) <= profile.max_depth)}}
+    indexes = {pool: LexicalIndex(pages) for pool, pages in pools.items()}
+    lexical = {method + '_' + pool: {o: 0 for o in OUTCOMES}
+               for pool in pools for method in ('bm25', 'tfidf')}
+    lexical_rows = []
 
     classes: Dict[str, dict] = {}
     rows: List[dict] = []
     for probe in spec["probes"]:
+        ranked_row = {'id': probe['id'], 'arms': {}}
+        for pool, index in indexes.items():
+            for method in ('bm25', 'tfidf'):
+                arm = method + '_' + pool
+                key = index.top(probe['q'], method)
+                result = Result(RETURN if key else NOT_IN_CORPUS, path_to_id[key] if key else None)
+                outcome = score(probe['expect'], probe.get('doc'), result)
+                lexical[arm][outcome] += 1
+                ranked_row['arms'][arm] = {'kind': result.kind, 'doc': result.doc, 'score': outcome}
+        lexical_rows.append(ranked_row)
         got = {
             "scoped": run_scoped(root, probe["q"], profile),
             "stripped": run_stripped(prose, path_to_id, probe["q"]),
@@ -153,6 +171,7 @@ def run(root, probes_path, profile: Optional[Profile] = None) -> dict:
         "pages": {"scoped_current": len(ledger.servable()), "stripped": len(raw)},
         "n": len(rows), "classes": classes, "scope_only": variant, "not_for_ignored": no_field,
         "returns_by_step": by_step, "rows": rows,
+        "lexical_baselines": lexical, "lexical_rows": lexical_rows,
     }
 
 
@@ -208,4 +227,10 @@ def render(res: dict) -> str:
     n = res["not_for_ignored"]
     L.append(f"scoped with not-for ignored:     {n['correct']} correct / "
              f"{n['wrong_return']} wrong return / {n['wrong_refusal']} wrong refusal")
+    if res.get('lexical_baselines'):
+        L += ['', 'lexical baselines (fixed parameters; top one; no ambiguity):',
+              'current = same valid current page pool; stripped = includes retired pages']
+        for arm, stats in res['lexical_baselines'].items():
+            L.append(f"{arm:22} {stats['correct']} correct / {stats['wrong_return']} wrong return / "
+                     f"{stats['wrong_refusal']} wrong refusal")
     return "\n".join(L)

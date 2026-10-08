@@ -86,7 +86,7 @@ nothing else.
 | `mplpb_combined/ledger.py` | The folder as a ledger: status, lineage, depth, validation, writing, the log |
 | `mplpb_combined/reader.py` | The answer rule, profiles, hubs |
 | `mplpb_combined/killtest.py` | The kill test: three arms, mechanical scoring |
-| `tests/` | 106 tests |
+| `tests/` | 122 tests |
 | `examples/studio/` | 25 pages about running a pottery studio; the kill-test corpus |
 | `examples/spec/` | The format described as ten pages in the format |
 | `examples/hub/` | Two pointers, one at each of the above |
@@ -107,6 +107,29 @@ sha256sum -c killtest/probes.sha256              # run inside killtest/
 ```
 
 ## What the kill test showed
+
+### Evaluation additions
+
+BM25 and TF-IDF now run alongside the original arms. Each compares stripped
+prose against the same current page pool and depth limit available to the reader.
+Fixed parameters, zero-overlap refusals, deterministic ties, and per-probe
+predictions make the comparison reproducible. Historical results are preserved;
+new runs expose `lexical_baselines` and `lexical_rows` in JSON and print totals.
+
+`python3 -m mplpb_combined.evaluate evaluation/manifest.json` runs 36 frozen
+developer-authored questions across software operations, library services, and
+office procedures. They are synthetic regression fixtures, not independent
+validation. Results retain every failure and report metrics by domain and
+expected outcome. See [`evaluation/README.md`](evaluation/README.md) for the
+independent-review protocol and how to evaluate externally authored corpora.
+
+Implicit retirement now requires a valid successor and valid, uniquely resolved,
+hash-pinned lineage. Altered, unsealed, duplicate, cyclic, incorrectly pinned,
+or depth-inconsistent records cannot control a predecessor's effective status.
+Explicit retirement remains retirement. Legacy unpinned references need `seal`
+before they can retire a predecessor implicitly.
+
+### Historical results
 
 The first run found bugs in the reader: it could not find a page by its own prose, and one
 stray word declared on another page stopped it. They are fixed, and `docs/FIXLOG.md` records
@@ -155,3 +178,4 @@ same hand wrote the pages and the questions.
 MIT for code, CC BY 4.0 for documentation. See `LICENSE`. Each part keeps its own.
 
 Mitchell D. McPhetridge · October 2026
+
