@@ -1,0 +1,5143 @@
+{
+  "domains": [
+    {
+      "arms": {
+        "bm25_current": {
+          "accuracy": 0.6,
+          "correct": 9,
+          "correct_returns": 7,
+          "return_precision": 0.5833333333333334,
+          "return_rate": 0.8,
+          "returns": 12,
+          "wrong_refusal": 1,
+          "wrong_return": 5
+        },
+        "bm25_stripped": {
+          "accuracy": 0.6,
+          "correct": 9,
+          "correct_returns": 7,
+          "return_precision": 0.5833333333333334,
+          "return_rate": 0.8,
+          "returns": 12,
+          "wrong_refusal": 1,
+          "wrong_return": 5
+        },
+        "ledger": {
+          "accuracy": 0.8,
+          "correct": 12,
+          "correct_returns": 6,
+          "return_precision": 0.75,
+          "return_rate": 0.5333333333333333,
+          "returns": 8,
+          "wrong_refusal": 1,
+          "wrong_return": 2
+        },
+        "overlap_current": {
+          "accuracy": 0.6,
+          "correct": 9,
+          "correct_returns": 7,
+          "return_precision": 0.5833333333333334,
+          "return_rate": 0.8,
+          "returns": 12,
+          "wrong_refusal": 1,
+          "wrong_return": 5
+        },
+        "overlap_stripped": {
+          "accuracy": 0.6,
+          "correct": 9,
+          "correct_returns": 7,
+          "return_precision": 0.5833333333333334,
+          "return_rate": 0.8,
+          "returns": 12,
+          "wrong_refusal": 1,
+          "wrong_return": 5
+        },
+        "tfidf_current": {
+          "accuracy": 0.5333333333333333,
+          "correct": 8,
+          "correct_returns": 6,
+          "return_precision": 0.5,
+          "return_rate": 0.8,
+          "returns": 12,
+          "wrong_refusal": 1,
+          "wrong_return": 6
+        },
+        "tfidf_stripped": {
+          "accuracy": 0.5333333333333333,
+          "correct": 8,
+          "correct_returns": 6,
+          "return_precision": 0.5,
+          "return_rate": 0.8,
+          "returns": 12,
+          "wrong_refusal": 1,
+          "wrong_return": 6
+        }
+      },
+      "by_outcome": {
+        "ambiguous": {
+          "arms": {
+            "bm25_current": {
+              "correct": 0,
+              "wrong_refusal": 1,
+              "wrong_return": 1
+            },
+            "bm25_stripped": {
+              "correct": 0,
+              "wrong_refusal": 1,
+              "wrong_return": 1
+            },
+            "ledger": {
+              "correct": 2,
+              "wrong_refusal": 0,
+              "wrong_return": 0
+            },
+            "overlap_current": {
+              "correct": 0,
+              "wrong_refusal": 1,
+              "wrong_return": 1
+            },
+            "overlap_stripped": {
+              "correct": 0,
+              "wrong_refusal": 1,
+              "wrong_return": 1
+            },
+            "tfidf_current": {
+              "correct": 0,
+              "wrong_refusal": 1,
+              "wrong_return": 1
+            },
+            "tfidf_stripped": {
+              "correct": 0,
+              "wrong_refusal": 1,
+              "wrong_return": 1
+            }
+          },
+          "n": 2
+        },
+        "not_in_corpus": {
+          "arms": {
+            "bm25_current": {
+              "correct": 2,
+              "wrong_refusal": 0,
+              "wrong_return": 4
+            },
+            "bm25_stripped": {
+              "correct": 2,
+              "wrong_refusal": 0,
+              "wrong_return": 4
+            },
+            "ledger": {
+              "correct": 4,
+              "wrong_refusal": 0,
+              "wrong_return": 2
+            },
+            "overlap_current": {
+              "correct": 2,
+              "wrong_refusal": 0,
+              "wrong_return": 4
+            },
+            "overlap_stripped": {
+              "correct": 2,
+              "wrong_refusal": 0,
+              "wrong_return": 4
+            },
+            "tfidf_current": {
+              "correct": 2,
+              "wrong_refusal": 0,
+              "wrong_return": 4
+            },
+            "tfidf_stripped": {
+              "correct": 2,
+              "wrong_refusal": 0,
+              "wrong_return": 4
+            }
+          },
+          "n": 6
+        },
+        "return": {
+          "arms": {
+            "bm25_current": {
+              "correct": 7,
+              "wrong_refusal": 0,
+              "wrong_return": 0
+            },
+            "bm25_stripped": {
+              "correct": 7,
+              "wrong_refusal": 0,
+              "wrong_return": 0
+            },
+            "ledger": {
+              "correct": 6,
+              "wrong_refusal": 1,
+              "wrong_return": 0
+            },
+            "overlap_current": {
+              "correct": 7,
+              "wrong_refusal": 0,
+              "wrong_return": 0
+            },
+            "overlap_stripped": {
+              "correct": 7,
+              "wrong_refusal": 0,
+              "wrong_return": 0
+            },
+            "tfidf_current": {
+              "correct": 6,
+              "wrong_refusal": 0,
+              "wrong_return": 1
+            },
+            "tfidf_stripped": {
+              "correct": 6,
+              "wrong_refusal": 0,
+              "wrong_return": 1
+            }
+          },
+          "n": 7
+        }
+      },
+      "corpus_hashes": {
+        "rpg-0001.html": "sha256:9f45788b2043fe28704ace25726fd79ee76176653fab09acc38b9ac300407032",
+        "rpg-0002.html": "sha256:84b479fd62eb106aea8e2327a6f00c2a7cdedfca65c99b727552814610463c37",
+        "rpg-0003.html": "sha256:c3e090d15627dcde5ae0e61ffb77c27ef20a1b27df172ac83f9f3324e4336b7f",
+        "rpg-0004.html": "sha256:87736047b6124e6497395cfc77950a6fa3b613d4ce140bcd7df9aff18f6df247",
+        "rpg-0005.html": "sha256:1ff004f347f978e7146925e8c027a0dbad3a567b6a2b281ce150967ad7a4b1b9"
+      },
+      "n": 15,
+      "name": "rpg-history",
+      "probe_sha256": "f192ed9b91e256ed5e1fec17819eb693968f6e8e591b078e2705e28b2d4528d0",
+      "rows": [
+        {
+          "arms": {
+            "bm25_current": {
+              "doc": "RPG-0001",
+              "kind": "return",
+              "score": "correct"
+            },
+            "bm25_stripped": {
+              "doc": "RPG-0001",
+              "kind": "return",
+              "score": "correct"
+            },
+            "ledger": {
+              "doc": "RPG-0001",
+              "kind": "return",
+              "score": "correct"
+            },
+            "overlap_current": {
+              "doc": "RPG-0001",
+              "kind": "return",
+              "score": "correct"
+            },
+            "overlap_stripped": {
+              "doc": "RPG-0001",
+              "kind": "return",
+              "score": "correct"
+            },
+            "tfidf_current": {
+              "doc": "RPG-0001",
+              "kind": "return",
+              "score": "correct"
+            },
+            "tfidf_stripped": {
+              "doc": "RPG-0001",
+              "kind": "return",
+              "score": "correct"
+            }
+          },
+          "doc": "RPG-0001",
+          "expect": "return",
+          "id": "rpg-history-01",
+          "q": "rpg dungeons dragons publication 1974"
+        },
+        {
+          "arms": {
+            "bm25_current": {
+              "doc": "RPG-0002",
+              "kind": "return",
+              "score": "correct"
+            },
+            "bm25_stripped": {
+              "doc": "RPG-0002",
+              "kind": "return",
+              "score": "correct"
+            },
+            "ledger": {
+              "doc": "RPG-0002",
+              "kind": "return",
+              "score": "correct"
+            },
+            "overlap_current": {
+              "doc": "RPG-0002",
+              "kind": "return",
+              "score": "correct"
+            },
+            "overlap_stripped": {
+              "doc": "RPG-0002",
+              "kind": "return",
+              "score": "correct"
+            },
+            "tfidf_current": {
+              "doc": "RPG-0002",
+              "kind": "return",
+              "score": "correct"
+            },
+            "tfidf_stripped": {
+              "doc": "RPG-0002",
+              "kind": "return",
+              "score": "correct"
+            }
+          },
+          "doc": "RPG-0002",
+          "expect": "return",
+          "id": "rpg-history-02",
+          "q": "rpg traveller publication 1977"
+        },
+        {
+          "arms": {
+            "bm25_current": {
+              "doc": "RPG-0003",
+              "kind": "return",
+              "score": "correct"
+            },
+            "bm25_stripped": {
+              "doc": "RPG-0003",
+              "kind": "return",
+              "score": "correct"
+            },
+            "ledger": {
+              "doc": "RPG-0003",
+              "kind": "return",
+              "score": "correct"
+            },
+            "overlap_current": {
+              "doc": "RPG-0003",
+              "kind": "return",
+              "score": "correct"
+            },
+            "overlap_stripped": {
+              "doc": "RPG-0003",
+              "kind": "return",
+              "score": "correct"
+            },
+            "tfidf_current": {
+              "doc": "RPG-0003",
+              "kind": "return",
+              "score": "correct"
+            },
+            "tfidf_stripped": {
+              "doc": "RPG-0003",
+              "kind": "return",
+              "score": "correct"
+            }
+          },
+          "doc": "RPG-0003",
+          "expect": "return",
+          "id": "rpg-history-03",
+          "q": "rpg runequest publication 1978"
+        },
+        {
+          "arms": {
+            "bm25_current": {
+              "doc": "RPG-0004",
+              "kind": "return",
+              "score": "correct"
+            },
+            "bm25_stripped": {
+              "doc": "RPG-0004",
+              "kind": "return",
+              "score": "correct"
+            },
+            "ledger": {
+              "doc": "RPG-0004",
+              "kind": "return",
+              "score": "correct"
+            },
+            "overlap_current": {
+              "doc": "RPG-0004",
+              "kind": "return",
+              "score": "correct"
+            },
+            "overlap_stripped": {
+              "doc": "RPG-0004",
+              "kind": "return",
+              "score": "correct"
+            },
+            "tfidf_current": {
+              "doc": "RPG-0004",
+              "kind": "return",
+              "score": "correct"
+            },
+            "tfidf_stripped": {
+              "doc": "RPG-0004",
+              "kind": "return",
+              "score": "correct"
+            }
+          },
+          "doc": "RPG-0004",
+          "expect": "return",
+          "id": "rpg-history-04",
+          "q": "rpg cthulhu publication 1981"
+        },
+        {
+          "arms": {
+            "bm25_current": {
+              "doc": "RPG-0005",
+              "kind": "return",
+              "score": "correct"
+            },
+            "bm25_stripped": {
+              "doc": "RPG-0005",
+              "kind": "return",
+              "score": "correct"
+            },
+            "ledger": {
+              "doc": "RPG-0005",
+              "kind": "return",
+              "score": "correct"
+            },
+            "overlap_current": {
+              "doc": "RPG-0005",
+              "kind": "return",
+              "score": "correct"
+            },
+            "overlap_stripped": {
+              "doc": "RPG-0005",
+              "kind": "return",
+              "score": "correct"
+            },
+            "tfidf_current": {
+              "doc": "RPG-0005",
+              "kind": "return",
+              "score": "correct"
+            },
+            "tfidf_stripped": {
+              "doc": "RPG-0005",
+              "kind": "return",
+              "score": "correct"
+            }
+          },
+          "doc": "RPG-0005",
+          "expect": "return",
+          "id": "rpg-history-05",
+          "q": "rpg digital dungeon adaptation"
+        },
+        {
+          "arms": {
+            "bm25_current": {
+              "doc": "RPG-0001",
+              "kind": "return",
+              "score": "correct"
+            },
+            "bm25_stripped": {
+              "doc": "RPG-0001",
+              "kind": "return",
+              "score": "correct"
+            },
+            "ledger": {
+              "doc": "RPG-0001",
+              "kind": "return",
+              "score": "correct"
+            },
+            "overlap_current": {
+              "doc": "RPG-0001",
+              "kind": "return",
+              "score": "correct"
+            },
+            "overlap_stripped": {
+              "doc": "RPG-0001",
+              "kind": "return",
+              "score": "correct"
+            },
+            "tfidf_current": {
+              "doc": "RPG-0001",
+              "kind": "return",
+              "score": "correct"
+            },
+            "tfidf_stripped": {
+              "doc": "RPG-0001",
+              "kind": "return",
+              "score": "correct"
+            }
+          },
+          "doc": "RPG-0001",
+          "expect": "return",
+          "id": "rpg-history-06",
+          "q": "TSR"
+        },
+        {
+          "arms": {
+            "bm25_current": {
+              "doc": null,
+              "kind": "not_in_corpus",
+              "score": "wrong_refusal"
+            },
+            "bm25_stripped": {
+              "doc": null,
+              "kind": "not_in_corpus",
+              "score": "wrong_refusal"
+            },
+            "ledger": {
+              "doc": null,
+              "kind": "ambiguous",
+              "score": "correct"
+            },
+            "overlap_current": {
+              "doc": null,
+              "kind": "not_in_corpus",
+              "score": "wrong_refusal"
+            },
+            "overlap_stripped": {
+              "doc": null,
+              "kind": "not_in_corpus",
+              "score": "wrong_refusal"
+            },
+            "tfidf_current": {
+              "doc": null,
+              "kind": "not_in_corpus",
+              "score": "wrong_refusal"
+            },
+            "tfidf_stripped": {
+              "doc": null,
+              "kind": "not_in_corpus",
+              "score": "wrong_refusal"
+            }
+          },
+          "doc": null,
+          "expect": "ambiguous",
+          "id": "rpg-history-07",
+          "q": "rpg"
+        },
+        {
+          "arms": {
+            "bm25_current": {
+              "doc": "RPG-0003",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "bm25_stripped": {
+              "doc": "RPG-0003",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "ledger": {
+              "doc": null,
+              "kind": "ambiguous",
+              "score": "correct"
+            },
+            "overlap_current": {
+              "doc": "RPG-0003",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "overlap_stripped": {
+              "doc": "RPG-0003",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "tfidf_current": {
+              "doc": "RPG-0003",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "tfidf_stripped": {
+              "doc": "RPG-0003",
+              "kind": "return",
+              "score": "wrong_return"
+            }
+          },
+          "doc": null,
+          "expect": "ambiguous",
+          "id": "rpg-history-08",
+          "q": "what is percentile"
+        },
+        {
+          "arms": {
+            "bm25_current": {
+              "doc": "RPG-0001",
+              "kind": "return",
+              "score": "correct"
+            },
+            "bm25_stripped": {
+              "doc": "RPG-0001",
+              "kind": "return",
+              "score": "correct"
+            },
+            "ledger": {
+              "doc": null,
+              "kind": "not_in_corpus",
+              "score": "wrong_refusal"
+            },
+            "overlap_current": {
+              "doc": "RPG-0001",
+              "kind": "return",
+              "score": "correct"
+            },
+            "overlap_stripped": {
+              "doc": "RPG-0001",
+              "kind": "return",
+              "score": "correct"
+            },
+            "tfidf_current": {
+              "doc": "RPG-0005",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "tfidf_stripped": {
+              "doc": "RPG-0005",
+              "kind": "return",
+              "score": "wrong_return"
+            }
+          },
+          "doc": "RPG-0001",
+          "expect": "return",
+          "id": "rpg-history-09",
+          "q": "Which year did the original fantasy tabletop adventure rules come out?"
+        },
+        {
+          "arms": {
+            "bm25_current": {
+              "doc": "RPG-0001",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "bm25_stripped": {
+              "doc": "RPG-0001",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "ledger": {
+              "doc": "RPG-0001",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "overlap_current": {
+              "doc": "RPG-0001",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "overlap_stripped": {
+              "doc": "RPG-0001",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "tfidf_current": {
+              "doc": "RPG-0001",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "tfidf_stripped": {
+              "doc": "RPG-0001",
+              "kind": "return",
+              "score": "wrong_return"
+            }
+          },
+          "doc": null,
+          "expect": "not_in_corpus",
+          "id": "rpg-history-10",
+          "q": "rpg dungeons dragons publication 1974 budget"
+        },
+        {
+          "arms": {
+            "bm25_current": {
+              "doc": "RPG-0001",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "bm25_stripped": {
+              "doc": "RPG-0001",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "ledger": {
+              "doc": null,
+              "kind": "not_in_corpus",
+              "score": "correct"
+            },
+            "overlap_current": {
+              "doc": "RPG-0001",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "overlap_stripped": {
+              "doc": "RPG-0001",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "tfidf_current": {
+              "doc": "RPG-0001",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "tfidf_stripped": {
+              "doc": "RPG-0001",
+              "kind": "return",
+              "score": "wrong_return"
+            }
+          },
+          "doc": null,
+          "expect": "not_in_corpus",
+          "id": "rpg-history-11",
+          "q": "rpg dungeons dragons publication 1974 auction"
+        },
+        {
+          "arms": {
+            "bm25_current": {
+              "doc": null,
+              "kind": "not_in_corpus",
+              "score": "correct"
+            },
+            "bm25_stripped": {
+              "doc": null,
+              "kind": "not_in_corpus",
+              "score": "correct"
+            },
+            "ledger": {
+              "doc": null,
+              "kind": "not_in_corpus",
+              "score": "correct"
+            },
+            "overlap_current": {
+              "doc": null,
+              "kind": "not_in_corpus",
+              "score": "correct"
+            },
+            "overlap_stripped": {
+              "doc": null,
+              "kind": "not_in_corpus",
+              "score": "correct"
+            },
+            "tfidf_current": {
+              "doc": null,
+              "kind": "not_in_corpus",
+              "score": "correct"
+            },
+            "tfidf_stripped": {
+              "doc": null,
+              "kind": "not_in_corpus",
+              "score": "correct"
+            }
+          },
+          "doc": null,
+          "expect": "not_in_corpus",
+          "id": "rpg-history-12",
+          "q": "lunar weather forecast"
+        },
+        {
+          "arms": {
+            "bm25_current": {
+              "doc": "RPG-0002",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "bm25_stripped": {
+              "doc": "RPG-0002",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "ledger": {
+              "doc": null,
+              "kind": "not_in_corpus",
+              "score": "correct"
+            },
+            "overlap_current": {
+              "doc": "RPG-0002",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "overlap_stripped": {
+              "doc": "RPG-0002",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "tfidf_current": {
+              "doc": "RPG-0003",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "tfidf_stripped": {
+              "doc": "RPG-0003",
+              "kind": "return",
+              "score": "wrong_return"
+            }
+          },
+          "doc": null,
+          "expect": "not_in_corpus",
+          "id": "rpg-history-13",
+          "q": "traveller runequest comparison"
+        },
+        {
+          "arms": {
+            "bm25_current": {
+              "doc": "RPG-0001",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "bm25_stripped": {
+              "doc": "RPG-0001",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "ledger": {
+              "doc": "RPG-0001",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "overlap_current": {
+              "doc": "RPG-0001",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "overlap_stripped": {
+              "doc": "RPG-0001",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "tfidf_current": {
+              "doc": "RPG-0001",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "tfidf_stripped": {
+              "doc": "RPG-0001",
+              "kind": "return",
+              "score": "wrong_return"
+            }
+          },
+          "doc": null,
+          "expect": "not_in_corpus",
+          "id": "rpg-history-14",
+          "q": "why was rpg dungeons dragons publication 1974 not real"
+        },
+        {
+          "arms": {
+            "bm25_current": {
+              "doc": null,
+              "kind": "not_in_corpus",
+              "score": "correct"
+            },
+            "bm25_stripped": {
+              "doc": null,
+              "kind": "not_in_corpus",
+              "score": "correct"
+            },
+            "ledger": {
+              "doc": null,
+              "kind": "not_in_corpus",
+              "score": "correct"
+            },
+            "overlap_current": {
+              "doc": null,
+              "kind": "not_in_corpus",
+              "score": "correct"
+            },
+            "overlap_stripped": {
+              "doc": null,
+              "kind": "not_in_corpus",
+              "score": "correct"
+            },
+            "tfidf_current": {
+              "doc": null,
+              "kind": "not_in_corpus",
+              "score": "correct"
+            },
+            "tfidf_stripped": {
+              "doc": null,
+              "kind": "not_in_corpus",
+              "score": "correct"
+            }
+          },
+          "doc": null,
+          "expect": "not_in_corpus",
+          "id": "rpg-history-15",
+          "q": "what is it"
+        }
+      ]
+    },
+    {
+      "arms": {
+        "bm25_current": {
+          "accuracy": 0.6,
+          "correct": 9,
+          "correct_returns": 7,
+          "return_precision": 0.5384615384615384,
+          "return_rate": 0.8666666666666667,
+          "returns": 13,
+          "wrong_refusal": 0,
+          "wrong_return": 6
+        },
+        "bm25_stripped": {
+          "accuracy": 0.6,
+          "correct": 9,
+          "correct_returns": 7,
+          "return_precision": 0.5384615384615384,
+          "return_rate": 0.8666666666666667,
+          "returns": 13,
+          "wrong_refusal": 0,
+          "wrong_return": 6
+        },
+        "ledger": {
+          "accuracy": 0.8,
+          "correct": 12,
+          "correct_returns": 6,
+          "return_precision": 0.75,
+          "return_rate": 0.5333333333333333,
+          "returns": 8,
+          "wrong_refusal": 1,
+          "wrong_return": 2
+        },
+        "overlap_current": {
+          "accuracy": 0.6,
+          "correct": 9,
+          "correct_returns": 7,
+          "return_precision": 0.5384615384615384,
+          "return_rate": 0.8666666666666667,
+          "returns": 13,
+          "wrong_refusal": 0,
+          "wrong_return": 6
+        },
+        "overlap_stripped": {
+          "accuracy": 0.6,
+          "correct": 9,
+          "correct_returns": 7,
+          "return_precision": 0.5384615384615384,
+          "return_rate": 0.8666666666666667,
+          "returns": 13,
+          "wrong_refusal": 0,
+          "wrong_return": 6
+        },
+        "tfidf_current": {
+          "accuracy": 0.6,
+          "correct": 9,
+          "correct_returns": 7,
+          "return_precision": 0.5384615384615384,
+          "return_rate": 0.8666666666666667,
+          "returns": 13,
+          "wrong_refusal": 0,
+          "wrong_return": 6
+        },
+        "tfidf_stripped": {
+          "accuracy": 0.6,
+          "correct": 9,
+          "correct_returns": 7,
+          "return_precision": 0.5384615384615384,
+          "return_rate": 0.8666666666666667,
+          "returns": 13,
+          "wrong_refusal": 0,
+          "wrong_return": 6
+        }
+      },
+      "by_outcome": {
+        "ambiguous": {
+          "arms": {
+            "bm25_current": {
+              "correct": 0,
+              "wrong_refusal": 0,
+              "wrong_return": 2
+            },
+            "bm25_stripped": {
+              "correct": 0,
+              "wrong_refusal": 0,
+              "wrong_return": 2
+            },
+            "ledger": {
+              "correct": 2,
+              "wrong_refusal": 0,
+              "wrong_return": 0
+            },
+            "overlap_current": {
+              "correct": 0,
+              "wrong_refusal": 0,
+              "wrong_return": 2
+            },
+            "overlap_stripped": {
+              "correct": 0,
+              "wrong_refusal": 0,
+              "wrong_return": 2
+            },
+            "tfidf_current": {
+              "correct": 0,
+              "wrong_refusal": 0,
+              "wrong_return": 2
+            },
+            "tfidf_stripped": {
+              "correct": 0,
+              "wrong_refusal": 0,
+              "wrong_return": 2
+            }
+          },
+          "n": 2
+        },
+        "not_in_corpus": {
+          "arms": {
+            "bm25_current": {
+              "correct": 2,
+              "wrong_refusal": 0,
+              "wrong_return": 4
+            },
+            "bm25_stripped": {
+              "correct": 2,
+              "wrong_refusal": 0,
+              "wrong_return": 4
+            },
+            "ledger": {
+              "correct": 4,
+              "wrong_refusal": 0,
+              "wrong_return": 2
+            },
+            "overlap_current": {
+              "correct": 2,
+              "wrong_refusal": 0,
+              "wrong_return": 4
+            },
+            "overlap_stripped": {
+              "correct": 2,
+              "wrong_refusal": 0,
+              "wrong_return": 4
+            },
+            "tfidf_current": {
+              "correct": 2,
+              "wrong_refusal": 0,
+              "wrong_return": 4
+            },
+            "tfidf_stripped": {
+              "correct": 2,
+              "wrong_refusal": 0,
+              "wrong_return": 4
+            }
+          },
+          "n": 6
+        },
+        "return": {
+          "arms": {
+            "bm25_current": {
+              "correct": 7,
+              "wrong_refusal": 0,
+              "wrong_return": 0
+            },
+            "bm25_stripped": {
+              "correct": 7,
+              "wrong_refusal": 0,
+              "wrong_return": 0
+            },
+            "ledger": {
+              "correct": 6,
+              "wrong_refusal": 1,
+              "wrong_return": 0
+            },
+            "overlap_current": {
+              "correct": 7,
+              "wrong_refusal": 0,
+              "wrong_return": 0
+            },
+            "overlap_stripped": {
+              "correct": 7,
+              "wrong_refusal": 0,
+              "wrong_return": 0
+            },
+            "tfidf_current": {
+              "correct": 7,
+              "wrong_refusal": 0,
+              "wrong_return": 0
+            },
+            "tfidf_stripped": {
+              "correct": 7,
+              "wrong_refusal": 0,
+              "wrong_return": 0
+            }
+          },
+          "n": 7
+        }
+      },
+      "corpus_hashes": {
+        "fossil-0001.html": "sha256:578c93ca3ce7999a2a5e8774a2d6e1d66239771a4cd5a022e7609e693c89f057",
+        "fossil-0002.html": "sha256:2f77f6dc1ca37d957d34e18def563cd7bcff2f7ce0ad357d07fab1bf8caa662d",
+        "fossil-0003.html": "sha256:77baa664b6fbef4865c4b1df779e6e39c3188921972d370b6d1a05e6d89f33df",
+        "fossil-0004.html": "sha256:a940161c5e92482f553d06bea1512fafb18ab356f30249e903c22a95d6f666bd",
+        "fossil-0005.html": "sha256:c79ce144922600eaca3cde3990d936bcbc4cf54bc7977a287c6690fe23c5c486"
+      },
+      "n": 15,
+      "name": "fossils",
+      "probe_sha256": "5fefb82e4ff6ef212bc0b55dab62d282fb03079d04e7b12f38e945d074e53f1a",
+      "rows": [
+        {
+          "arms": {
+            "bm25_current": {
+              "doc": "FOSSIL-0001",
+              "kind": "return",
+              "score": "correct"
+            },
+            "bm25_stripped": {
+              "doc": "FOSSIL-0001",
+              "kind": "return",
+              "score": "correct"
+            },
+            "ledger": {
+              "doc": "FOSSIL-0001",
+              "kind": "return",
+              "score": "correct"
+            },
+            "overlap_current": {
+              "doc": "FOSSIL-0001",
+              "kind": "return",
+              "score": "correct"
+            },
+            "overlap_stripped": {
+              "doc": "FOSSIL-0001",
+              "kind": "return",
+              "score": "correct"
+            },
+            "tfidf_current": {
+              "doc": "FOSSIL-0001",
+              "kind": "return",
+              "score": "correct"
+            },
+            "tfidf_stripped": {
+              "doc": "FOSSIL-0001",
+              "kind": "return",
+              "score": "correct"
+            }
+          },
+          "doc": "FOSSIL-0001",
+          "expect": "return",
+          "id": "fossils-01",
+          "q": "fossil permineralization mineral pores"
+        },
+        {
+          "arms": {
+            "bm25_current": {
+              "doc": "FOSSIL-0002",
+              "kind": "return",
+              "score": "correct"
+            },
+            "bm25_stripped": {
+              "doc": "FOSSIL-0002",
+              "kind": "return",
+              "score": "correct"
+            },
+            "ledger": {
+              "doc": "FOSSIL-0002",
+              "kind": "return",
+              "score": "correct"
+            },
+            "overlap_current": {
+              "doc": "FOSSIL-0002",
+              "kind": "return",
+              "score": "correct"
+            },
+            "overlap_stripped": {
+              "doc": "FOSSIL-0002",
+              "kind": "return",
+              "score": "correct"
+            },
+            "tfidf_current": {
+              "doc": "FOSSIL-0002",
+              "kind": "return",
+              "score": "correct"
+            },
+            "tfidf_stripped": {
+              "doc": "FOSSIL-0002",
+              "kind": "return",
+              "score": "correct"
+            }
+          },
+          "doc": "FOSSIL-0002",
+          "expect": "return",
+          "id": "fossils-02",
+          "q": "fossil trace trackway burrow"
+        },
+        {
+          "arms": {
+            "bm25_current": {
+              "doc": "FOSSIL-0003",
+              "kind": "return",
+              "score": "correct"
+            },
+            "bm25_stripped": {
+              "doc": "FOSSIL-0003",
+              "kind": "return",
+              "score": "correct"
+            },
+            "ledger": {
+              "doc": "FOSSIL-0003",
+              "kind": "return",
+              "score": "correct"
+            },
+            "overlap_current": {
+              "doc": "FOSSIL-0003",
+              "kind": "return",
+              "score": "correct"
+            },
+            "overlap_stripped": {
+              "doc": "FOSSIL-0003",
+              "kind": "return",
+              "score": "correct"
+            },
+            "tfidf_current": {
+              "doc": "FOSSIL-0003",
+              "kind": "return",
+              "score": "correct"
+            },
+            "tfidf_stripped": {
+              "doc": "FOSSIL-0003",
+              "kind": "return",
+              "score": "correct"
+            }
+          },
+          "doc": "FOSSIL-0003",
+          "expect": "return",
+          "id": "fossils-03",
+          "q": "fossil mold cast shell"
+        },
+        {
+          "arms": {
+            "bm25_current": {
+              "doc": "FOSSIL-0004",
+              "kind": "return",
+              "score": "correct"
+            },
+            "bm25_stripped": {
+              "doc": "FOSSIL-0004",
+              "kind": "return",
+              "score": "correct"
+            },
+            "ledger": {
+              "doc": "FOSSIL-0004",
+              "kind": "return",
+              "score": "correct"
+            },
+            "overlap_current": {
+              "doc": "FOSSIL-0004",
+              "kind": "return",
+              "score": "correct"
+            },
+            "overlap_stripped": {
+              "doc": "FOSSIL-0004",
+              "kind": "return",
+              "score": "correct"
+            },
+            "tfidf_current": {
+              "doc": "FOSSIL-0004",
+              "kind": "return",
+              "score": "correct"
+            },
+            "tfidf_stripped": {
+              "doc": "FOSSIL-0004",
+              "kind": "return",
+              "score": "correct"
+            }
+          },
+          "doc": "FOSSIL-0004",
+          "expect": "return",
+          "id": "fossils-04",
+          "q": "fossil body bone shell"
+        },
+        {
+          "arms": {
+            "bm25_current": {
+              "doc": "FOSSIL-0005",
+              "kind": "return",
+              "score": "correct"
+            },
+            "bm25_stripped": {
+              "doc": "FOSSIL-0005",
+              "kind": "return",
+              "score": "correct"
+            },
+            "ledger": {
+              "doc": "FOSSIL-0005",
+              "kind": "return",
+              "score": "correct"
+            },
+            "overlap_current": {
+              "doc": "FOSSIL-0005",
+              "kind": "return",
+              "score": "correct"
+            },
+            "overlap_stripped": {
+              "doc": "FOSSIL-0005",
+              "kind": "return",
+              "score": "correct"
+            },
+            "tfidf_current": {
+              "doc": "FOSSIL-0005",
+              "kind": "return",
+              "score": "correct"
+            },
+            "tfidf_stripped": {
+              "doc": "FOSSIL-0005",
+              "kind": "return",
+              "score": "correct"
+            }
+          },
+          "doc": "FOSSIL-0005",
+          "expect": "return",
+          "id": "fossils-05",
+          "q": "fossil amber resin preservation"
+        },
+        {
+          "arms": {
+            "bm25_current": {
+              "doc": "FOSSIL-0001",
+              "kind": "return",
+              "score": "correct"
+            },
+            "bm25_stripped": {
+              "doc": "FOSSIL-0001",
+              "kind": "return",
+              "score": "correct"
+            },
+            "ledger": {
+              "doc": "FOSSIL-0001",
+              "kind": "return",
+              "score": "correct"
+            },
+            "overlap_current": {
+              "doc": "FOSSIL-0001",
+              "kind": "return",
+              "score": "correct"
+            },
+            "overlap_stripped": {
+              "doc": "FOSSIL-0001",
+              "kind": "return",
+              "score": "correct"
+            },
+            "tfidf_current": {
+              "doc": "FOSSIL-0001",
+              "kind": "return",
+              "score": "correct"
+            },
+            "tfidf_stripped": {
+              "doc": "FOSSIL-0001",
+              "kind": "return",
+              "score": "correct"
+            }
+          },
+          "doc": "FOSSIL-0001",
+          "expect": "return",
+          "id": "fossils-06",
+          "q": "groundwater"
+        },
+        {
+          "arms": {
+            "bm25_current": {
+              "doc": "FOSSIL-0002",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "bm25_stripped": {
+              "doc": "FOSSIL-0002",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "ledger": {
+              "doc": null,
+              "kind": "ambiguous",
+              "score": "correct"
+            },
+            "overlap_current": {
+              "doc": "FOSSIL-0002",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "overlap_stripped": {
+              "doc": "FOSSIL-0002",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "tfidf_current": {
+              "doc": "FOSSIL-0004",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "tfidf_stripped": {
+              "doc": "FOSSIL-0004",
+              "kind": "return",
+              "score": "wrong_return"
+            }
+          },
+          "doc": null,
+          "expect": "ambiguous",
+          "id": "fossils-07",
+          "q": "fossil"
+        },
+        {
+          "arms": {
+            "bm25_current": {
+              "doc": "FOSSIL-0002",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "bm25_stripped": {
+              "doc": "FOSSIL-0002",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "ledger": {
+              "doc": null,
+              "kind": "ambiguous",
+              "score": "correct"
+            },
+            "overlap_current": {
+              "doc": "FOSSIL-0002",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "overlap_stripped": {
+              "doc": "FOSSIL-0002",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "tfidf_current": {
+              "doc": "FOSSIL-0002",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "tfidf_stripped": {
+              "doc": "FOSSIL-0002",
+              "kind": "return",
+              "score": "wrong_return"
+            }
+          },
+          "doc": null,
+          "expect": "ambiguous",
+          "id": "fossils-08",
+          "q": "what is an impression"
+        },
+        {
+          "arms": {
+            "bm25_current": {
+              "doc": "FOSSIL-0001",
+              "kind": "return",
+              "score": "correct"
+            },
+            "bm25_stripped": {
+              "doc": "FOSSIL-0001",
+              "kind": "return",
+              "score": "correct"
+            },
+            "ledger": {
+              "doc": null,
+              "kind": "not_in_corpus",
+              "score": "wrong_refusal"
+            },
+            "overlap_current": {
+              "doc": "FOSSIL-0001",
+              "kind": "return",
+              "score": "correct"
+            },
+            "overlap_stripped": {
+              "doc": "FOSSIL-0001",
+              "kind": "return",
+              "score": "correct"
+            },
+            "tfidf_current": {
+              "doc": "FOSSIL-0001",
+              "kind": "return",
+              "score": "correct"
+            },
+            "tfidf_stripped": {
+              "doc": "FOSSIL-0001",
+              "kind": "return",
+              "score": "correct"
+            }
+          },
+          "doc": "FOSSIL-0001",
+          "expect": "return",
+          "id": "fossils-09",
+          "q": "How can buried remains get their little internal spaces filled with dissolved substances?"
+        },
+        {
+          "arms": {
+            "bm25_current": {
+              "doc": "FOSSIL-0001",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "bm25_stripped": {
+              "doc": "FOSSIL-0001",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "ledger": {
+              "doc": "FOSSIL-0001",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "overlap_current": {
+              "doc": "FOSSIL-0001",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "overlap_stripped": {
+              "doc": "FOSSIL-0001",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "tfidf_current": {
+              "doc": "FOSSIL-0001",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "tfidf_stripped": {
+              "doc": "FOSSIL-0001",
+              "kind": "return",
+              "score": "wrong_return"
+            }
+          },
+          "doc": null,
+          "expect": "not_in_corpus",
+          "id": "fossils-10",
+          "q": "fossil permineralization mineral pores budget"
+        },
+        {
+          "arms": {
+            "bm25_current": {
+              "doc": "FOSSIL-0001",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "bm25_stripped": {
+              "doc": "FOSSIL-0001",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "ledger": {
+              "doc": null,
+              "kind": "not_in_corpus",
+              "score": "correct"
+            },
+            "overlap_current": {
+              "doc": "FOSSIL-0001",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "overlap_stripped": {
+              "doc": "FOSSIL-0001",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "tfidf_current": {
+              "doc": "FOSSIL-0001",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "tfidf_stripped": {
+              "doc": "FOSSIL-0001",
+              "kind": "return",
+              "score": "wrong_return"
+            }
+          },
+          "doc": null,
+          "expect": "not_in_corpus",
+          "id": "fossils-11",
+          "q": "fossil permineralization mineral pores auction"
+        },
+        {
+          "arms": {
+            "bm25_current": {
+              "doc": null,
+              "kind": "not_in_corpus",
+              "score": "correct"
+            },
+            "bm25_stripped": {
+              "doc": null,
+              "kind": "not_in_corpus",
+              "score": "correct"
+            },
+            "ledger": {
+              "doc": null,
+              "kind": "not_in_corpus",
+              "score": "correct"
+            },
+            "overlap_current": {
+              "doc": null,
+              "kind": "not_in_corpus",
+              "score": "correct"
+            },
+            "overlap_stripped": {
+              "doc": null,
+              "kind": "not_in_corpus",
+              "score": "correct"
+            },
+            "tfidf_current": {
+              "doc": null,
+              "kind": "not_in_corpus",
+              "score": "correct"
+            },
+            "tfidf_stripped": {
+              "doc": null,
+              "kind": "not_in_corpus",
+              "score": "correct"
+            }
+          },
+          "doc": null,
+          "expect": "not_in_corpus",
+          "id": "fossils-12",
+          "q": "lunar weather forecast"
+        },
+        {
+          "arms": {
+            "bm25_current": {
+              "doc": "FOSSIL-0005",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "bm25_stripped": {
+              "doc": "FOSSIL-0005",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "ledger": {
+              "doc": null,
+              "kind": "not_in_corpus",
+              "score": "correct"
+            },
+            "overlap_current": {
+              "doc": "FOSSIL-0002",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "overlap_stripped": {
+              "doc": "FOSSIL-0002",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "tfidf_current": {
+              "doc": "FOSSIL-0005",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "tfidf_stripped": {
+              "doc": "FOSSIL-0005",
+              "kind": "return",
+              "score": "wrong_return"
+            }
+          },
+          "doc": null,
+          "expect": "not_in_corpus",
+          "id": "fossils-13",
+          "q": "amber burrow comparison"
+        },
+        {
+          "arms": {
+            "bm25_current": {
+              "doc": "FOSSIL-0001",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "bm25_stripped": {
+              "doc": "FOSSIL-0001",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "ledger": {
+              "doc": "FOSSIL-0001",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "overlap_current": {
+              "doc": "FOSSIL-0001",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "overlap_stripped": {
+              "doc": "FOSSIL-0001",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "tfidf_current": {
+              "doc": "FOSSIL-0001",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "tfidf_stripped": {
+              "doc": "FOSSIL-0001",
+              "kind": "return",
+              "score": "wrong_return"
+            }
+          },
+          "doc": null,
+          "expect": "not_in_corpus",
+          "id": "fossils-14",
+          "q": "why was fossil permineralization mineral pores not real"
+        },
+        {
+          "arms": {
+            "bm25_current": {
+              "doc": null,
+              "kind": "not_in_corpus",
+              "score": "correct"
+            },
+            "bm25_stripped": {
+              "doc": null,
+              "kind": "not_in_corpus",
+              "score": "correct"
+            },
+            "ledger": {
+              "doc": null,
+              "kind": "not_in_corpus",
+              "score": "correct"
+            },
+            "overlap_current": {
+              "doc": null,
+              "kind": "not_in_corpus",
+              "score": "correct"
+            },
+            "overlap_stripped": {
+              "doc": null,
+              "kind": "not_in_corpus",
+              "score": "correct"
+            },
+            "tfidf_current": {
+              "doc": null,
+              "kind": "not_in_corpus",
+              "score": "correct"
+            },
+            "tfidf_stripped": {
+              "doc": null,
+              "kind": "not_in_corpus",
+              "score": "correct"
+            }
+          },
+          "doc": null,
+          "expect": "not_in_corpus",
+          "id": "fossils-15",
+          "q": "what is it"
+        }
+      ]
+    },
+    {
+      "arms": {
+        "bm25_current": {
+          "accuracy": 0.6,
+          "correct": 9,
+          "correct_returns": 7,
+          "return_precision": 0.5384615384615384,
+          "return_rate": 0.8666666666666667,
+          "returns": 13,
+          "wrong_refusal": 0,
+          "wrong_return": 6
+        },
+        "bm25_stripped": {
+          "accuracy": 0.6,
+          "correct": 9,
+          "correct_returns": 7,
+          "return_precision": 0.5384615384615384,
+          "return_rate": 0.8666666666666667,
+          "returns": 13,
+          "wrong_refusal": 0,
+          "wrong_return": 6
+        },
+        "ledger": {
+          "accuracy": 0.8,
+          "correct": 12,
+          "correct_returns": 6,
+          "return_precision": 0.75,
+          "return_rate": 0.5333333333333333,
+          "returns": 8,
+          "wrong_refusal": 1,
+          "wrong_return": 2
+        },
+        "overlap_current": {
+          "accuracy": 0.5333333333333333,
+          "correct": 8,
+          "correct_returns": 6,
+          "return_precision": 0.46153846153846156,
+          "return_rate": 0.8666666666666667,
+          "returns": 13,
+          "wrong_refusal": 0,
+          "wrong_return": 7
+        },
+        "overlap_stripped": {
+          "accuracy": 0.5333333333333333,
+          "correct": 8,
+          "correct_returns": 6,
+          "return_precision": 0.46153846153846156,
+          "return_rate": 0.8666666666666667,
+          "returns": 13,
+          "wrong_refusal": 0,
+          "wrong_return": 7
+        },
+        "tfidf_current": {
+          "accuracy": 0.6,
+          "correct": 9,
+          "correct_returns": 7,
+          "return_precision": 0.5384615384615384,
+          "return_rate": 0.8666666666666667,
+          "returns": 13,
+          "wrong_refusal": 0,
+          "wrong_return": 6
+        },
+        "tfidf_stripped": {
+          "accuracy": 0.6,
+          "correct": 9,
+          "correct_returns": 7,
+          "return_precision": 0.5384615384615384,
+          "return_rate": 0.8666666666666667,
+          "returns": 13,
+          "wrong_refusal": 0,
+          "wrong_return": 6
+        }
+      },
+      "by_outcome": {
+        "ambiguous": {
+          "arms": {
+            "bm25_current": {
+              "correct": 0,
+              "wrong_refusal": 0,
+              "wrong_return": 2
+            },
+            "bm25_stripped": {
+              "correct": 0,
+              "wrong_refusal": 0,
+              "wrong_return": 2
+            },
+            "ledger": {
+              "correct": 2,
+              "wrong_refusal": 0,
+              "wrong_return": 0
+            },
+            "overlap_current": {
+              "correct": 0,
+              "wrong_refusal": 0,
+              "wrong_return": 2
+            },
+            "overlap_stripped": {
+              "correct": 0,
+              "wrong_refusal": 0,
+              "wrong_return": 2
+            },
+            "tfidf_current": {
+              "correct": 0,
+              "wrong_refusal": 0,
+              "wrong_return": 2
+            },
+            "tfidf_stripped": {
+              "correct": 0,
+              "wrong_refusal": 0,
+              "wrong_return": 2
+            }
+          },
+          "n": 2
+        },
+        "not_in_corpus": {
+          "arms": {
+            "bm25_current": {
+              "correct": 2,
+              "wrong_refusal": 0,
+              "wrong_return": 4
+            },
+            "bm25_stripped": {
+              "correct": 2,
+              "wrong_refusal": 0,
+              "wrong_return": 4
+            },
+            "ledger": {
+              "correct": 4,
+              "wrong_refusal": 0,
+              "wrong_return": 2
+            },
+            "overlap_current": {
+              "correct": 2,
+              "wrong_refusal": 0,
+              "wrong_return": 4
+            },
+            "overlap_stripped": {
+              "correct": 2,
+              "wrong_refusal": 0,
+              "wrong_return": 4
+            },
+            "tfidf_current": {
+              "correct": 2,
+              "wrong_refusal": 0,
+              "wrong_return": 4
+            },
+            "tfidf_stripped": {
+              "correct": 2,
+              "wrong_refusal": 0,
+              "wrong_return": 4
+            }
+          },
+          "n": 6
+        },
+        "return": {
+          "arms": {
+            "bm25_current": {
+              "correct": 7,
+              "wrong_refusal": 0,
+              "wrong_return": 0
+            },
+            "bm25_stripped": {
+              "correct": 7,
+              "wrong_refusal": 0,
+              "wrong_return": 0
+            },
+            "ledger": {
+              "correct": 6,
+              "wrong_refusal": 1,
+              "wrong_return": 0
+            },
+            "overlap_current": {
+              "correct": 6,
+              "wrong_refusal": 0,
+              "wrong_return": 1
+            },
+            "overlap_stripped": {
+              "correct": 6,
+              "wrong_refusal": 0,
+              "wrong_return": 1
+            },
+            "tfidf_current": {
+              "correct": 7,
+              "wrong_refusal": 0,
+              "wrong_return": 0
+            },
+            "tfidf_stripped": {
+              "correct": 7,
+              "wrong_refusal": 0,
+              "wrong_return": 0
+            }
+          },
+          "n": 7
+        }
+      },
+      "corpus_hashes": {
+        "animal-0001.html": "sha256:76389ba22a92cfd559ec38011c18d8e633747cd9be6fa9b7a0ead03a14df685e",
+        "animal-0002.html": "sha256:94871fc4a222e32495b8347a2bc7958484b7b551145b508033fe1118cdbd0edb",
+        "animal-0003.html": "sha256:39d30ad64095544b9d535c2956b98e3c430eed8b8b4ea791bdc97b483372b5f7",
+        "animal-0004.html": "sha256:1aa987cfb1850b3292271833829eb708a106d59ed290607e795a5600afb8b352",
+        "animal-0005.html": "sha256:d5b762cd02cb530e46e313010af58436c9555da99b8f3a784e1ad9c41dbfb0ff"
+      },
+      "n": 15,
+      "name": "animals",
+      "probe_sha256": "57d9bb7c69c1a32da3f3ea0d621dadc886b0da52543217e71e4acf7a0573bc1f",
+      "rows": [
+        {
+          "arms": {
+            "bm25_current": {
+              "doc": "ANIMAL-0001",
+              "kind": "return",
+              "score": "correct"
+            },
+            "bm25_stripped": {
+              "doc": "ANIMAL-0001",
+              "kind": "return",
+              "score": "correct"
+            },
+            "ledger": {
+              "doc": "ANIMAL-0001",
+              "kind": "return",
+              "score": "correct"
+            },
+            "overlap_current": {
+              "doc": "ANIMAL-0001",
+              "kind": "return",
+              "score": "correct"
+            },
+            "overlap_stripped": {
+              "doc": "ANIMAL-0001",
+              "kind": "return",
+              "score": "correct"
+            },
+            "tfidf_current": {
+              "doc": "ANIMAL-0001",
+              "kind": "return",
+              "score": "correct"
+            },
+            "tfidf_stripped": {
+              "doc": "ANIMAL-0001",
+              "kind": "return",
+              "score": "correct"
+            }
+          },
+          "doc": "ANIMAL-0001",
+          "expect": "return",
+          "id": "animals-01",
+          "q": "animal mammal hair milk"
+        },
+        {
+          "arms": {
+            "bm25_current": {
+              "doc": "ANIMAL-0002",
+              "kind": "return",
+              "score": "correct"
+            },
+            "bm25_stripped": {
+              "doc": "ANIMAL-0002",
+              "kind": "return",
+              "score": "correct"
+            },
+            "ledger": {
+              "doc": "ANIMAL-0002",
+              "kind": "return",
+              "score": "correct"
+            },
+            "overlap_current": {
+              "doc": "ANIMAL-0002",
+              "kind": "return",
+              "score": "correct"
+            },
+            "overlap_stripped": {
+              "doc": "ANIMAL-0002",
+              "kind": "return",
+              "score": "correct"
+            },
+            "tfidf_current": {
+              "doc": "ANIMAL-0002",
+              "kind": "return",
+              "score": "correct"
+            },
+            "tfidf_stripped": {
+              "doc": "ANIMAL-0002",
+              "kind": "return",
+              "score": "correct"
+            }
+          },
+          "doc": "ANIMAL-0002",
+          "expect": "return",
+          "id": "animals-02",
+          "q": "animal bird feather vertebrate"
+        },
+        {
+          "arms": {
+            "bm25_current": {
+              "doc": "ANIMAL-0003",
+              "kind": "return",
+              "score": "correct"
+            },
+            "bm25_stripped": {
+              "doc": "ANIMAL-0003",
+              "kind": "return",
+              "score": "correct"
+            },
+            "ledger": {
+              "doc": "ANIMAL-0003",
+              "kind": "return",
+              "score": "correct"
+            },
+            "overlap_current": {
+              "doc": "ANIMAL-0003",
+              "kind": "return",
+              "score": "correct"
+            },
+            "overlap_stripped": {
+              "doc": "ANIMAL-0003",
+              "kind": "return",
+              "score": "correct"
+            },
+            "tfidf_current": {
+              "doc": "ANIMAL-0003",
+              "kind": "return",
+              "score": "correct"
+            },
+            "tfidf_stripped": {
+              "doc": "ANIMAL-0003",
+              "kind": "return",
+              "score": "correct"
+            }
+          },
+          "doc": "ANIMAL-0003",
+          "expect": "return",
+          "id": "animals-03",
+          "q": "animal insect six legs"
+        },
+        {
+          "arms": {
+            "bm25_current": {
+              "doc": "ANIMAL-0004",
+              "kind": "return",
+              "score": "correct"
+            },
+            "bm25_stripped": {
+              "doc": "ANIMAL-0004",
+              "kind": "return",
+              "score": "correct"
+            },
+            "ledger": {
+              "doc": "ANIMAL-0004",
+              "kind": "return",
+              "score": "correct"
+            },
+            "overlap_current": {
+              "doc": "ANIMAL-0003",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "overlap_stripped": {
+              "doc": "ANIMAL-0003",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "tfidf_current": {
+              "doc": "ANIMAL-0004",
+              "kind": "return",
+              "score": "correct"
+            },
+            "tfidf_stripped": {
+              "doc": "ANIMAL-0004",
+              "kind": "return",
+              "score": "correct"
+            }
+          },
+          "doc": "ANIMAL-0004",
+          "expect": "return",
+          "id": "animals-04",
+          "q": "animal amphibian frog development"
+        },
+        {
+          "arms": {
+            "bm25_current": {
+              "doc": "ANIMAL-0005",
+              "kind": "return",
+              "score": "correct"
+            },
+            "bm25_stripped": {
+              "doc": "ANIMAL-0005",
+              "kind": "return",
+              "score": "correct"
+            },
+            "ledger": {
+              "doc": "ANIMAL-0005",
+              "kind": "return",
+              "score": "correct"
+            },
+            "overlap_current": {
+              "doc": "ANIMAL-0005",
+              "kind": "return",
+              "score": "correct"
+            },
+            "overlap_stripped": {
+              "doc": "ANIMAL-0005",
+              "kind": "return",
+              "score": "correct"
+            },
+            "tfidf_current": {
+              "doc": "ANIMAL-0005",
+              "kind": "return",
+              "score": "correct"
+            },
+            "tfidf_stripped": {
+              "doc": "ANIMAL-0005",
+              "kind": "return",
+              "score": "correct"
+            }
+          },
+          "doc": "ANIMAL-0005",
+          "expect": "return",
+          "id": "animals-05",
+          "q": "animal vertebrate collection fish"
+        },
+        {
+          "arms": {
+            "bm25_current": {
+              "doc": "ANIMAL-0001",
+              "kind": "return",
+              "score": "correct"
+            },
+            "bm25_stripped": {
+              "doc": "ANIMAL-0001",
+              "kind": "return",
+              "score": "correct"
+            },
+            "ledger": {
+              "doc": "ANIMAL-0001",
+              "kind": "return",
+              "score": "correct"
+            },
+            "overlap_current": {
+              "doc": "ANIMAL-0001",
+              "kind": "return",
+              "score": "correct"
+            },
+            "overlap_stripped": {
+              "doc": "ANIMAL-0001",
+              "kind": "return",
+              "score": "correct"
+            },
+            "tfidf_current": {
+              "doc": "ANIMAL-0001",
+              "kind": "return",
+              "score": "correct"
+            },
+            "tfidf_stripped": {
+              "doc": "ANIMAL-0001",
+              "kind": "return",
+              "score": "correct"
+            }
+          },
+          "doc": "ANIMAL-0001",
+          "expect": "return",
+          "id": "animals-06",
+          "q": "lactation"
+        },
+        {
+          "arms": {
+            "bm25_current": {
+              "doc": "ANIMAL-0005",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "bm25_stripped": {
+              "doc": "ANIMAL-0005",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "ledger": {
+              "doc": null,
+              "kind": "ambiguous",
+              "score": "correct"
+            },
+            "overlap_current": {
+              "doc": "ANIMAL-0003",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "overlap_stripped": {
+              "doc": "ANIMAL-0003",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "tfidf_current": {
+              "doc": "ANIMAL-0005",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "tfidf_stripped": {
+              "doc": "ANIMAL-0005",
+              "kind": "return",
+              "score": "wrong_return"
+            }
+          },
+          "doc": null,
+          "expect": "ambiguous",
+          "id": "animals-07",
+          "q": "animal"
+        },
+        {
+          "arms": {
+            "bm25_current": {
+              "doc": "ANIMAL-0004",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "bm25_stripped": {
+              "doc": "ANIMAL-0004",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "ledger": {
+              "doc": null,
+              "kind": "ambiguous",
+              "score": "correct"
+            },
+            "overlap_current": {
+              "doc": "ANIMAL-0003",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "overlap_stripped": {
+              "doc": "ANIMAL-0003",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "tfidf_current": {
+              "doc": "ANIMAL-0004",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "tfidf_stripped": {
+              "doc": "ANIMAL-0004",
+              "kind": "return",
+              "score": "wrong_return"
+            }
+          },
+          "doc": null,
+          "expect": "ambiguous",
+          "id": "animals-08",
+          "q": "what is metamorphosis"
+        },
+        {
+          "arms": {
+            "bm25_current": {
+              "doc": "ANIMAL-0001",
+              "kind": "return",
+              "score": "correct"
+            },
+            "bm25_stripped": {
+              "doc": "ANIMAL-0001",
+              "kind": "return",
+              "score": "correct"
+            },
+            "ledger": {
+              "doc": null,
+              "kind": "not_in_corpus",
+              "score": "wrong_refusal"
+            },
+            "overlap_current": {
+              "doc": "ANIMAL-0001",
+              "kind": "return",
+              "score": "correct"
+            },
+            "overlap_stripped": {
+              "doc": "ANIMAL-0001",
+              "kind": "return",
+              "score": "correct"
+            },
+            "tfidf_current": {
+              "doc": "ANIMAL-0001",
+              "kind": "return",
+              "score": "correct"
+            },
+            "tfidf_stripped": {
+              "doc": "ANIMAL-0001",
+              "kind": "return",
+              "score": "correct"
+            }
+          },
+          "doc": "ANIMAL-0001",
+          "expect": "return",
+          "id": "animals-09",
+          "q": "What features identify creatures that feed their babies with secretions from breast glands?"
+        },
+        {
+          "arms": {
+            "bm25_current": {
+              "doc": "ANIMAL-0001",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "bm25_stripped": {
+              "doc": "ANIMAL-0001",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "ledger": {
+              "doc": "ANIMAL-0001",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "overlap_current": {
+              "doc": "ANIMAL-0001",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "overlap_stripped": {
+              "doc": "ANIMAL-0001",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "tfidf_current": {
+              "doc": "ANIMAL-0001",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "tfidf_stripped": {
+              "doc": "ANIMAL-0001",
+              "kind": "return",
+              "score": "wrong_return"
+            }
+          },
+          "doc": null,
+          "expect": "not_in_corpus",
+          "id": "animals-10",
+          "q": "animal mammal hair milk budget"
+        },
+        {
+          "arms": {
+            "bm25_current": {
+              "doc": "ANIMAL-0001",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "bm25_stripped": {
+              "doc": "ANIMAL-0001",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "ledger": {
+              "doc": null,
+              "kind": "not_in_corpus",
+              "score": "correct"
+            },
+            "overlap_current": {
+              "doc": "ANIMAL-0001",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "overlap_stripped": {
+              "doc": "ANIMAL-0001",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "tfidf_current": {
+              "doc": "ANIMAL-0001",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "tfidf_stripped": {
+              "doc": "ANIMAL-0001",
+              "kind": "return",
+              "score": "wrong_return"
+            }
+          },
+          "doc": null,
+          "expect": "not_in_corpus",
+          "id": "animals-11",
+          "q": "animal mammal hair milk auction"
+        },
+        {
+          "arms": {
+            "bm25_current": {
+              "doc": null,
+              "kind": "not_in_corpus",
+              "score": "correct"
+            },
+            "bm25_stripped": {
+              "doc": null,
+              "kind": "not_in_corpus",
+              "score": "correct"
+            },
+            "ledger": {
+              "doc": null,
+              "kind": "not_in_corpus",
+              "score": "correct"
+            },
+            "overlap_current": {
+              "doc": null,
+              "kind": "not_in_corpus",
+              "score": "correct"
+            },
+            "overlap_stripped": {
+              "doc": null,
+              "kind": "not_in_corpus",
+              "score": "correct"
+            },
+            "tfidf_current": {
+              "doc": null,
+              "kind": "not_in_corpus",
+              "score": "correct"
+            },
+            "tfidf_stripped": {
+              "doc": null,
+              "kind": "not_in_corpus",
+              "score": "correct"
+            }
+          },
+          "doc": null,
+          "expect": "not_in_corpus",
+          "id": "animals-12",
+          "q": "lunar weather forecast"
+        },
+        {
+          "arms": {
+            "bm25_current": {
+              "doc": "ANIMAL-0003",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "bm25_stripped": {
+              "doc": "ANIMAL-0003",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "ledger": {
+              "doc": null,
+              "kind": "not_in_corpus",
+              "score": "correct"
+            },
+            "overlap_current": {
+              "doc": "ANIMAL-0003",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "overlap_stripped": {
+              "doc": "ANIMAL-0003",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "tfidf_current": {
+              "doc": "ANIMAL-0003",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "tfidf_stripped": {
+              "doc": "ANIMAL-0003",
+              "kind": "return",
+              "score": "wrong_return"
+            }
+          },
+          "doc": null,
+          "expect": "not_in_corpus",
+          "id": "animals-13",
+          "q": "insect frog comparison"
+        },
+        {
+          "arms": {
+            "bm25_current": {
+              "doc": "ANIMAL-0001",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "bm25_stripped": {
+              "doc": "ANIMAL-0001",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "ledger": {
+              "doc": "ANIMAL-0001",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "overlap_current": {
+              "doc": "ANIMAL-0001",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "overlap_stripped": {
+              "doc": "ANIMAL-0001",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "tfidf_current": {
+              "doc": "ANIMAL-0001",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "tfidf_stripped": {
+              "doc": "ANIMAL-0001",
+              "kind": "return",
+              "score": "wrong_return"
+            }
+          },
+          "doc": null,
+          "expect": "not_in_corpus",
+          "id": "animals-14",
+          "q": "why was animal mammal hair milk not real"
+        },
+        {
+          "arms": {
+            "bm25_current": {
+              "doc": null,
+              "kind": "not_in_corpus",
+              "score": "correct"
+            },
+            "bm25_stripped": {
+              "doc": null,
+              "kind": "not_in_corpus",
+              "score": "correct"
+            },
+            "ledger": {
+              "doc": null,
+              "kind": "not_in_corpus",
+              "score": "correct"
+            },
+            "overlap_current": {
+              "doc": null,
+              "kind": "not_in_corpus",
+              "score": "correct"
+            },
+            "overlap_stripped": {
+              "doc": null,
+              "kind": "not_in_corpus",
+              "score": "correct"
+            },
+            "tfidf_current": {
+              "doc": null,
+              "kind": "not_in_corpus",
+              "score": "correct"
+            },
+            "tfidf_stripped": {
+              "doc": null,
+              "kind": "not_in_corpus",
+              "score": "correct"
+            }
+          },
+          "doc": null,
+          "expect": "not_in_corpus",
+          "id": "animals-15",
+          "q": "what is it"
+        }
+      ]
+    },
+    {
+      "arms": {
+        "bm25_current": {
+          "accuracy": 0.5333333333333333,
+          "correct": 8,
+          "correct_returns": 6,
+          "return_precision": 0.46153846153846156,
+          "return_rate": 0.8666666666666667,
+          "returns": 13,
+          "wrong_refusal": 0,
+          "wrong_return": 7
+        },
+        "bm25_stripped": {
+          "accuracy": 0.5333333333333333,
+          "correct": 8,
+          "correct_returns": 6,
+          "return_precision": 0.46153846153846156,
+          "return_rate": 0.8666666666666667,
+          "returns": 13,
+          "wrong_refusal": 0,
+          "wrong_return": 7
+        },
+        "ledger": {
+          "accuracy": 0.8,
+          "correct": 12,
+          "correct_returns": 6,
+          "return_precision": 0.75,
+          "return_rate": 0.5333333333333333,
+          "returns": 8,
+          "wrong_refusal": 1,
+          "wrong_return": 2
+        },
+        "overlap_current": {
+          "accuracy": 0.5333333333333333,
+          "correct": 8,
+          "correct_returns": 6,
+          "return_precision": 0.46153846153846156,
+          "return_rate": 0.8666666666666667,
+          "returns": 13,
+          "wrong_refusal": 0,
+          "wrong_return": 7
+        },
+        "overlap_stripped": {
+          "accuracy": 0.5333333333333333,
+          "correct": 8,
+          "correct_returns": 6,
+          "return_precision": 0.46153846153846156,
+          "return_rate": 0.8666666666666667,
+          "returns": 13,
+          "wrong_refusal": 0,
+          "wrong_return": 7
+        },
+        "tfidf_current": {
+          "accuracy": 0.5333333333333333,
+          "correct": 8,
+          "correct_returns": 6,
+          "return_precision": 0.46153846153846156,
+          "return_rate": 0.8666666666666667,
+          "returns": 13,
+          "wrong_refusal": 0,
+          "wrong_return": 7
+        },
+        "tfidf_stripped": {
+          "accuracy": 0.5333333333333333,
+          "correct": 8,
+          "correct_returns": 6,
+          "return_precision": 0.46153846153846156,
+          "return_rate": 0.8666666666666667,
+          "returns": 13,
+          "wrong_refusal": 0,
+          "wrong_return": 7
+        }
+      },
+      "by_outcome": {
+        "ambiguous": {
+          "arms": {
+            "bm25_current": {
+              "correct": 0,
+              "wrong_refusal": 0,
+              "wrong_return": 2
+            },
+            "bm25_stripped": {
+              "correct": 0,
+              "wrong_refusal": 0,
+              "wrong_return": 2
+            },
+            "ledger": {
+              "correct": 2,
+              "wrong_refusal": 0,
+              "wrong_return": 0
+            },
+            "overlap_current": {
+              "correct": 0,
+              "wrong_refusal": 0,
+              "wrong_return": 2
+            },
+            "overlap_stripped": {
+              "correct": 0,
+              "wrong_refusal": 0,
+              "wrong_return": 2
+            },
+            "tfidf_current": {
+              "correct": 0,
+              "wrong_refusal": 0,
+              "wrong_return": 2
+            },
+            "tfidf_stripped": {
+              "correct": 0,
+              "wrong_refusal": 0,
+              "wrong_return": 2
+            }
+          },
+          "n": 2
+        },
+        "not_in_corpus": {
+          "arms": {
+            "bm25_current": {
+              "correct": 2,
+              "wrong_refusal": 0,
+              "wrong_return": 4
+            },
+            "bm25_stripped": {
+              "correct": 2,
+              "wrong_refusal": 0,
+              "wrong_return": 4
+            },
+            "ledger": {
+              "correct": 4,
+              "wrong_refusal": 0,
+              "wrong_return": 2
+            },
+            "overlap_current": {
+              "correct": 2,
+              "wrong_refusal": 0,
+              "wrong_return": 4
+            },
+            "overlap_stripped": {
+              "correct": 2,
+              "wrong_refusal": 0,
+              "wrong_return": 4
+            },
+            "tfidf_current": {
+              "correct": 2,
+              "wrong_refusal": 0,
+              "wrong_return": 4
+            },
+            "tfidf_stripped": {
+              "correct": 2,
+              "wrong_refusal": 0,
+              "wrong_return": 4
+            }
+          },
+          "n": 6
+        },
+        "return": {
+          "arms": {
+            "bm25_current": {
+              "correct": 6,
+              "wrong_refusal": 0,
+              "wrong_return": 1
+            },
+            "bm25_stripped": {
+              "correct": 6,
+              "wrong_refusal": 0,
+              "wrong_return": 1
+            },
+            "ledger": {
+              "correct": 6,
+              "wrong_refusal": 1,
+              "wrong_return": 0
+            },
+            "overlap_current": {
+              "correct": 6,
+              "wrong_refusal": 0,
+              "wrong_return": 1
+            },
+            "overlap_stripped": {
+              "correct": 6,
+              "wrong_refusal": 0,
+              "wrong_return": 1
+            },
+            "tfidf_current": {
+              "correct": 6,
+              "wrong_refusal": 0,
+              "wrong_return": 1
+            },
+            "tfidf_stripped": {
+              "correct": 6,
+              "wrong_refusal": 0,
+              "wrong_return": 1
+            }
+          },
+          "n": 7
+        }
+      },
+      "corpus_hashes": {
+        "dino-0001.html": "sha256:25b66a1292b6ac44871819d105832aba00778138ade8e9e319eab1365cbdee65",
+        "dino-0002.html": "sha256:08691bd9abf1e08e9817a7ca69b6f1a365f298778bf62ddd83eb975ffb667d98",
+        "dino-0003.html": "sha256:c5f479d463602fbfdf2817ec991390620efdd0473561b64e3cf23dcc1a61bf58",
+        "dino-0004.html": "sha256:3a701bb3ccbd31dfdde6802c64cbbe3e49399ede67e6af0adbe48cb8301451c4",
+        "dino-0005.html": "sha256:52a443154389cd0ea192fd0ff928603725680cd9d4c7f69745fcc9df94e95f59"
+      },
+      "n": 15,
+      "name": "dinosaurs",
+      "probe_sha256": "dec4d3b41130dc4929bc6073822dc6c345e57cde747d5e3dfeb0331832f6d2de",
+      "rows": [
+        {
+          "arms": {
+            "bm25_current": {
+              "doc": "DINO-0001",
+              "kind": "return",
+              "score": "correct"
+            },
+            "bm25_stripped": {
+              "doc": "DINO-0001",
+              "kind": "return",
+              "score": "correct"
+            },
+            "ledger": {
+              "doc": "DINO-0001",
+              "kind": "return",
+              "score": "correct"
+            },
+            "overlap_current": {
+              "doc": "DINO-0001",
+              "kind": "return",
+              "score": "correct"
+            },
+            "overlap_stripped": {
+              "doc": "DINO-0001",
+              "kind": "return",
+              "score": "correct"
+            },
+            "tfidf_current": {
+              "doc": "DINO-0001",
+              "kind": "return",
+              "score": "correct"
+            },
+            "tfidf_stripped": {
+              "doc": "DINO-0001",
+              "kind": "return",
+              "score": "correct"
+            }
+          },
+          "doc": "DINO-0001",
+          "expect": "return",
+          "id": "dinosaurs-01",
+          "q": "dinosaur extinction boundary 66"
+        },
+        {
+          "arms": {
+            "bm25_current": {
+              "doc": "DINO-0002",
+              "kind": "return",
+              "score": "correct"
+            },
+            "bm25_stripped": {
+              "doc": "DINO-0002",
+              "kind": "return",
+              "score": "correct"
+            },
+            "ledger": {
+              "doc": "DINO-0002",
+              "kind": "return",
+              "score": "correct"
+            },
+            "overlap_current": {
+              "doc": "DINO-0002",
+              "kind": "return",
+              "score": "correct"
+            },
+            "overlap_stripped": {
+              "doc": "DINO-0002",
+              "kind": "return",
+              "score": "correct"
+            },
+            "tfidf_current": {
+              "doc": "DINO-0002",
+              "kind": "return",
+              "score": "correct"
+            },
+            "tfidf_stripped": {
+              "doc": "DINO-0002",
+              "kind": "return",
+              "score": "correct"
+            }
+          },
+          "doc": "DINO-0002",
+          "expect": "return",
+          "id": "dinosaurs-02",
+          "q": "dinosaur bird ancestry evolution"
+        },
+        {
+          "arms": {
+            "bm25_current": {
+              "doc": "DINO-0003",
+              "kind": "return",
+              "score": "correct"
+            },
+            "bm25_stripped": {
+              "doc": "DINO-0003",
+              "kind": "return",
+              "score": "correct"
+            },
+            "ledger": {
+              "doc": "DINO-0003",
+              "kind": "return",
+              "score": "correct"
+            },
+            "overlap_current": {
+              "doc": "DINO-0003",
+              "kind": "return",
+              "score": "correct"
+            },
+            "overlap_stripped": {
+              "doc": "DINO-0003",
+              "kind": "return",
+              "score": "correct"
+            },
+            "tfidf_current": {
+              "doc": "DINO-0003",
+              "kind": "return",
+              "score": "correct"
+            },
+            "tfidf_stripped": {
+              "doc": "DINO-0003",
+              "kind": "return",
+              "score": "correct"
+            }
+          },
+          "doc": "DINO-0003",
+          "expect": "return",
+          "id": "dinosaurs-03",
+          "q": "dinosaur tyrannosaurus rex anatomy"
+        },
+        {
+          "arms": {
+            "bm25_current": {
+              "doc": "DINO-0004",
+              "kind": "return",
+              "score": "correct"
+            },
+            "bm25_stripped": {
+              "doc": "DINO-0004",
+              "kind": "return",
+              "score": "correct"
+            },
+            "ledger": {
+              "doc": "DINO-0004",
+              "kind": "return",
+              "score": "correct"
+            },
+            "overlap_current": {
+              "doc": "DINO-0004",
+              "kind": "return",
+              "score": "correct"
+            },
+            "overlap_stripped": {
+              "doc": "DINO-0004",
+              "kind": "return",
+              "score": "correct"
+            },
+            "tfidf_current": {
+              "doc": "DINO-0004",
+              "kind": "return",
+              "score": "correct"
+            },
+            "tfidf_stripped": {
+              "doc": "DINO-0004",
+              "kind": "return",
+              "score": "correct"
+            }
+          },
+          "doc": "DINO-0004",
+          "expect": "return",
+          "id": "dinosaurs-04",
+          "q": "dinosaur sauropod neck herbivore"
+        },
+        {
+          "arms": {
+            "bm25_current": {
+              "doc": "DINO-0005",
+              "kind": "return",
+              "score": "correct"
+            },
+            "bm25_stripped": {
+              "doc": "DINO-0005",
+              "kind": "return",
+              "score": "correct"
+            },
+            "ledger": {
+              "doc": "DINO-0005",
+              "kind": "return",
+              "score": "correct"
+            },
+            "overlap_current": {
+              "doc": "DINO-0005",
+              "kind": "return",
+              "score": "correct"
+            },
+            "overlap_stripped": {
+              "doc": "DINO-0005",
+              "kind": "return",
+              "score": "correct"
+            },
+            "tfidf_current": {
+              "doc": "DINO-0005",
+              "kind": "return",
+              "score": "correct"
+            },
+            "tfidf_stripped": {
+              "doc": "DINO-0005",
+              "kind": "return",
+              "score": "correct"
+            }
+          },
+          "doc": "DINO-0005",
+          "expect": "return",
+          "id": "dinosaurs-05",
+          "q": "dinosaur pterosaur classification boundary"
+        },
+        {
+          "arms": {
+            "bm25_current": {
+              "doc": "DINO-0001",
+              "kind": "return",
+              "score": "correct"
+            },
+            "bm25_stripped": {
+              "doc": "DINO-0001",
+              "kind": "return",
+              "score": "correct"
+            },
+            "ledger": {
+              "doc": "DINO-0001",
+              "kind": "return",
+              "score": "correct"
+            },
+            "overlap_current": {
+              "doc": "DINO-0001",
+              "kind": "return",
+              "score": "correct"
+            },
+            "overlap_stripped": {
+              "doc": "DINO-0001",
+              "kind": "return",
+              "score": "correct"
+            },
+            "tfidf_current": {
+              "doc": "DINO-0001",
+              "kind": "return",
+              "score": "correct"
+            },
+            "tfidf_stripped": {
+              "doc": "DINO-0001",
+              "kind": "return",
+              "score": "correct"
+            }
+          },
+          "doc": "DINO-0001",
+          "expect": "return",
+          "id": "dinosaurs-06",
+          "q": "Chicxulub"
+        },
+        {
+          "arms": {
+            "bm25_current": {
+              "doc": "DINO-0005",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "bm25_stripped": {
+              "doc": "DINO-0005",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "ledger": {
+              "doc": null,
+              "kind": "ambiguous",
+              "score": "correct"
+            },
+            "overlap_current": {
+              "doc": "DINO-0001",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "overlap_stripped": {
+              "doc": "DINO-0001",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "tfidf_current": {
+              "doc": "DINO-0005",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "tfidf_stripped": {
+              "doc": "DINO-0005",
+              "kind": "return",
+              "score": "wrong_return"
+            }
+          },
+          "doc": null,
+          "expect": "ambiguous",
+          "id": "dinosaurs-07",
+          "q": "dinosaur"
+        },
+        {
+          "arms": {
+            "bm25_current": {
+              "doc": "DINO-0003",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "bm25_stripped": {
+              "doc": "DINO-0003",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "ledger": {
+              "doc": null,
+              "kind": "ambiguous",
+              "score": "correct"
+            },
+            "overlap_current": {
+              "doc": "DINO-0002",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "overlap_stripped": {
+              "doc": "DINO-0002",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "tfidf_current": {
+              "doc": "DINO-0003",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "tfidf_stripped": {
+              "doc": "DINO-0003",
+              "kind": "return",
+              "score": "wrong_return"
+            }
+          },
+          "doc": null,
+          "expect": "ambiguous",
+          "id": "dinosaurs-08",
+          "q": "what is a theropod"
+        },
+        {
+          "arms": {
+            "bm25_current": {
+              "doc": "DINO-0005",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "bm25_stripped": {
+              "doc": "DINO-0005",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "ledger": {
+              "doc": null,
+              "kind": "not_in_corpus",
+              "score": "wrong_refusal"
+            },
+            "overlap_current": {
+              "doc": "DINO-0005",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "overlap_stripped": {
+              "doc": "DINO-0005",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "tfidf_current": {
+              "doc": "DINO-0005",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "tfidf_stripped": {
+              "doc": "DINO-0005",
+              "kind": "return",
+              "score": "wrong_return"
+            }
+          },
+          "doc": "DINO-0001",
+          "expect": "return",
+          "id": "dinosaurs-09",
+          "q": "When did the giant land reptiles apart from their feathered descendants die out?"
+        },
+        {
+          "arms": {
+            "bm25_current": {
+              "doc": "DINO-0001",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "bm25_stripped": {
+              "doc": "DINO-0001",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "ledger": {
+              "doc": "DINO-0001",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "overlap_current": {
+              "doc": "DINO-0001",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "overlap_stripped": {
+              "doc": "DINO-0001",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "tfidf_current": {
+              "doc": "DINO-0001",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "tfidf_stripped": {
+              "doc": "DINO-0001",
+              "kind": "return",
+              "score": "wrong_return"
+            }
+          },
+          "doc": null,
+          "expect": "not_in_corpus",
+          "id": "dinosaurs-10",
+          "q": "dinosaur extinction boundary 66 budget"
+        },
+        {
+          "arms": {
+            "bm25_current": {
+              "doc": "DINO-0001",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "bm25_stripped": {
+              "doc": "DINO-0001",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "ledger": {
+              "doc": null,
+              "kind": "not_in_corpus",
+              "score": "correct"
+            },
+            "overlap_current": {
+              "doc": "DINO-0001",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "overlap_stripped": {
+              "doc": "DINO-0001",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "tfidf_current": {
+              "doc": "DINO-0001",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "tfidf_stripped": {
+              "doc": "DINO-0001",
+              "kind": "return",
+              "score": "wrong_return"
+            }
+          },
+          "doc": null,
+          "expect": "not_in_corpus",
+          "id": "dinosaurs-11",
+          "q": "dinosaur extinction boundary 66 auction"
+        },
+        {
+          "arms": {
+            "bm25_current": {
+              "doc": null,
+              "kind": "not_in_corpus",
+              "score": "correct"
+            },
+            "bm25_stripped": {
+              "doc": null,
+              "kind": "not_in_corpus",
+              "score": "correct"
+            },
+            "ledger": {
+              "doc": null,
+              "kind": "not_in_corpus",
+              "score": "correct"
+            },
+            "overlap_current": {
+              "doc": null,
+              "kind": "not_in_corpus",
+              "score": "correct"
+            },
+            "overlap_stripped": {
+              "doc": null,
+              "kind": "not_in_corpus",
+              "score": "correct"
+            },
+            "tfidf_current": {
+              "doc": null,
+              "kind": "not_in_corpus",
+              "score": "correct"
+            },
+            "tfidf_stripped": {
+              "doc": null,
+              "kind": "not_in_corpus",
+              "score": "correct"
+            }
+          },
+          "doc": null,
+          "expect": "not_in_corpus",
+          "id": "dinosaurs-12",
+          "q": "lunar weather forecast"
+        },
+        {
+          "arms": {
+            "bm25_current": {
+              "doc": "DINO-0003",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "bm25_stripped": {
+              "doc": "DINO-0003",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "ledger": {
+              "doc": null,
+              "kind": "not_in_corpus",
+              "score": "correct"
+            },
+            "overlap_current": {
+              "doc": "DINO-0003",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "overlap_stripped": {
+              "doc": "DINO-0003",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "tfidf_current": {
+              "doc": "DINO-0004",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "tfidf_stripped": {
+              "doc": "DINO-0004",
+              "kind": "return",
+              "score": "wrong_return"
+            }
+          },
+          "doc": null,
+          "expect": "not_in_corpus",
+          "id": "dinosaurs-13",
+          "q": "sauropod tyrannosaurus comparison"
+        },
+        {
+          "arms": {
+            "bm25_current": {
+              "doc": "DINO-0001",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "bm25_stripped": {
+              "doc": "DINO-0001",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "ledger": {
+              "doc": "DINO-0001",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "overlap_current": {
+              "doc": "DINO-0001",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "overlap_stripped": {
+              "doc": "DINO-0001",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "tfidf_current": {
+              "doc": "DINO-0001",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "tfidf_stripped": {
+              "doc": "DINO-0001",
+              "kind": "return",
+              "score": "wrong_return"
+            }
+          },
+          "doc": null,
+          "expect": "not_in_corpus",
+          "id": "dinosaurs-14",
+          "q": "why was dinosaur extinction boundary 66 not real"
+        },
+        {
+          "arms": {
+            "bm25_current": {
+              "doc": null,
+              "kind": "not_in_corpus",
+              "score": "correct"
+            },
+            "bm25_stripped": {
+              "doc": null,
+              "kind": "not_in_corpus",
+              "score": "correct"
+            },
+            "ledger": {
+              "doc": null,
+              "kind": "not_in_corpus",
+              "score": "correct"
+            },
+            "overlap_current": {
+              "doc": null,
+              "kind": "not_in_corpus",
+              "score": "correct"
+            },
+            "overlap_stripped": {
+              "doc": null,
+              "kind": "not_in_corpus",
+              "score": "correct"
+            },
+            "tfidf_current": {
+              "doc": null,
+              "kind": "not_in_corpus",
+              "score": "correct"
+            },
+            "tfidf_stripped": {
+              "doc": null,
+              "kind": "not_in_corpus",
+              "score": "correct"
+            }
+          },
+          "doc": null,
+          "expect": "not_in_corpus",
+          "id": "dinosaurs-15",
+          "q": "what is it"
+        }
+      ]
+    },
+    {
+      "arms": {
+        "bm25_current": {
+          "accuracy": 0.6,
+          "correct": 9,
+          "correct_returns": 7,
+          "return_precision": 0.5384615384615384,
+          "return_rate": 0.8666666666666667,
+          "returns": 13,
+          "wrong_refusal": 0,
+          "wrong_return": 6
+        },
+        "bm25_stripped": {
+          "accuracy": 0.6,
+          "correct": 9,
+          "correct_returns": 7,
+          "return_precision": 0.5384615384615384,
+          "return_rate": 0.8666666666666667,
+          "returns": 13,
+          "wrong_refusal": 0,
+          "wrong_return": 6
+        },
+        "ledger": {
+          "accuracy": 0.8,
+          "correct": 12,
+          "correct_returns": 6,
+          "return_precision": 0.75,
+          "return_rate": 0.5333333333333333,
+          "returns": 8,
+          "wrong_refusal": 1,
+          "wrong_return": 2
+        },
+        "overlap_current": {
+          "accuracy": 0.4666666666666667,
+          "correct": 7,
+          "correct_returns": 5,
+          "return_precision": 0.38461538461538464,
+          "return_rate": 0.8666666666666667,
+          "returns": 13,
+          "wrong_refusal": 0,
+          "wrong_return": 8
+        },
+        "overlap_stripped": {
+          "accuracy": 0.4666666666666667,
+          "correct": 7,
+          "correct_returns": 5,
+          "return_precision": 0.38461538461538464,
+          "return_rate": 0.8666666666666667,
+          "returns": 13,
+          "wrong_refusal": 0,
+          "wrong_return": 8
+        },
+        "tfidf_current": {
+          "accuracy": 0.6,
+          "correct": 9,
+          "correct_returns": 7,
+          "return_precision": 0.5384615384615384,
+          "return_rate": 0.8666666666666667,
+          "returns": 13,
+          "wrong_refusal": 0,
+          "wrong_return": 6
+        },
+        "tfidf_stripped": {
+          "accuracy": 0.6,
+          "correct": 9,
+          "correct_returns": 7,
+          "return_precision": 0.5384615384615384,
+          "return_rate": 0.8666666666666667,
+          "returns": 13,
+          "wrong_refusal": 0,
+          "wrong_return": 6
+        }
+      },
+      "by_outcome": {
+        "ambiguous": {
+          "arms": {
+            "bm25_current": {
+              "correct": 0,
+              "wrong_refusal": 0,
+              "wrong_return": 2
+            },
+            "bm25_stripped": {
+              "correct": 0,
+              "wrong_refusal": 0,
+              "wrong_return": 2
+            },
+            "ledger": {
+              "correct": 2,
+              "wrong_refusal": 0,
+              "wrong_return": 0
+            },
+            "overlap_current": {
+              "correct": 0,
+              "wrong_refusal": 0,
+              "wrong_return": 2
+            },
+            "overlap_stripped": {
+              "correct": 0,
+              "wrong_refusal": 0,
+              "wrong_return": 2
+            },
+            "tfidf_current": {
+              "correct": 0,
+              "wrong_refusal": 0,
+              "wrong_return": 2
+            },
+            "tfidf_stripped": {
+              "correct": 0,
+              "wrong_refusal": 0,
+              "wrong_return": 2
+            }
+          },
+          "n": 2
+        },
+        "not_in_corpus": {
+          "arms": {
+            "bm25_current": {
+              "correct": 2,
+              "wrong_refusal": 0,
+              "wrong_return": 4
+            },
+            "bm25_stripped": {
+              "correct": 2,
+              "wrong_refusal": 0,
+              "wrong_return": 4
+            },
+            "ledger": {
+              "correct": 4,
+              "wrong_refusal": 0,
+              "wrong_return": 2
+            },
+            "overlap_current": {
+              "correct": 2,
+              "wrong_refusal": 0,
+              "wrong_return": 4
+            },
+            "overlap_stripped": {
+              "correct": 2,
+              "wrong_refusal": 0,
+              "wrong_return": 4
+            },
+            "tfidf_current": {
+              "correct": 2,
+              "wrong_refusal": 0,
+              "wrong_return": 4
+            },
+            "tfidf_stripped": {
+              "correct": 2,
+              "wrong_refusal": 0,
+              "wrong_return": 4
+            }
+          },
+          "n": 6
+        },
+        "return": {
+          "arms": {
+            "bm25_current": {
+              "correct": 7,
+              "wrong_refusal": 0,
+              "wrong_return": 0
+            },
+            "bm25_stripped": {
+              "correct": 7,
+              "wrong_refusal": 0,
+              "wrong_return": 0
+            },
+            "ledger": {
+              "correct": 6,
+              "wrong_refusal": 1,
+              "wrong_return": 0
+            },
+            "overlap_current": {
+              "correct": 5,
+              "wrong_refusal": 0,
+              "wrong_return": 2
+            },
+            "overlap_stripped": {
+              "correct": 5,
+              "wrong_refusal": 0,
+              "wrong_return": 2
+            },
+            "tfidf_current": {
+              "correct": 7,
+              "wrong_refusal": 0,
+              "wrong_return": 0
+            },
+            "tfidf_stripped": {
+              "correct": 7,
+              "wrong_refusal": 0,
+              "wrong_return": 0
+            }
+          },
+          "n": 7
+        }
+      },
+      "corpus_hashes": {
+        "openai-0001.html": "sha256:04b72a8f56ef04cc1d0710a0d7df88a4aabebb8221402c3f314dcfb9315ca02e",
+        "openai-0002.html": "sha256:103734a76ab98706ce16da3a5c89ec950ab44f7128d1e56c2a26e0c43a92e69b",
+        "openai-0003.html": "sha256:16a8b336abfd3917c4df6ec858e7bfc63c3c5314c76f2a00db986c0dbfc5558c",
+        "openai-0004.html": "sha256:f0584adea80a025dfa6dba2da5ba576dbec8bc4712c0c707d682d1ded5a4d1a1",
+        "openai-0005.html": "sha256:97bac821ac2a3dc7a9bf35600c11debf8de8ac9da7870aa5cc543327b906f8cb"
+      },
+      "n": 15,
+      "name": "openai-history",
+      "probe_sha256": "6cbdf797c43ef9cbcd4ca10d0f4357d8b768887c9e2d7decaf80b6c3f20d9fcf",
+      "rows": [
+        {
+          "arms": {
+            "bm25_current": {
+              "doc": "OPENAI-0001",
+              "kind": "return",
+              "score": "correct"
+            },
+            "bm25_stripped": {
+              "doc": "OPENAI-0001",
+              "kind": "return",
+              "score": "correct"
+            },
+            "ledger": {
+              "doc": "OPENAI-0001",
+              "kind": "return",
+              "score": "correct"
+            },
+            "overlap_current": {
+              "doc": "OPENAI-0001",
+              "kind": "return",
+              "score": "correct"
+            },
+            "overlap_stripped": {
+              "doc": "OPENAI-0001",
+              "kind": "return",
+              "score": "correct"
+            },
+            "tfidf_current": {
+              "doc": "OPENAI-0001",
+              "kind": "return",
+              "score": "correct"
+            },
+            "tfidf_stripped": {
+              "doc": "OPENAI-0001",
+              "kind": "return",
+              "score": "correct"
+            }
+          },
+          "doc": "OPENAI-0001",
+          "expect": "return",
+          "id": "openai-history-01",
+          "q": "openai introduction founding 2015"
+        },
+        {
+          "arms": {
+            "bm25_current": {
+              "doc": "OPENAI-0002",
+              "kind": "return",
+              "score": "correct"
+            },
+            "bm25_stripped": {
+              "doc": "OPENAI-0002",
+              "kind": "return",
+              "score": "correct"
+            },
+            "ledger": {
+              "doc": "OPENAI-0002",
+              "kind": "return",
+              "score": "correct"
+            },
+            "overlap_current": {
+              "doc": "OPENAI-0001",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "overlap_stripped": {
+              "doc": "OPENAI-0001",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "tfidf_current": {
+              "doc": "OPENAI-0002",
+              "kind": "return",
+              "score": "correct"
+            },
+            "tfidf_stripped": {
+              "doc": "OPENAI-0002",
+              "kind": "return",
+              "score": "correct"
+            }
+          },
+          "doc": "OPENAI-0002",
+          "expect": "return",
+          "id": "openai-history-02",
+          "q": "openai gpt2 announcement 2019"
+        },
+        {
+          "arms": {
+            "bm25_current": {
+              "doc": "OPENAI-0003",
+              "kind": "return",
+              "score": "correct"
+            },
+            "bm25_stripped": {
+              "doc": "OPENAI-0003",
+              "kind": "return",
+              "score": "correct"
+            },
+            "ledger": {
+              "doc": "OPENAI-0003",
+              "kind": "return",
+              "score": "correct"
+            },
+            "overlap_current": {
+              "doc": "OPENAI-0001",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "overlap_stripped": {
+              "doc": "OPENAI-0001",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "tfidf_current": {
+              "doc": "OPENAI-0003",
+              "kind": "return",
+              "score": "correct"
+            },
+            "tfidf_stripped": {
+              "doc": "OPENAI-0003",
+              "kind": "return",
+              "score": "correct"
+            }
+          },
+          "doc": "OPENAI-0003",
+          "expect": "return",
+          "id": "openai-history-03",
+          "q": "openai gpt3 research 2020"
+        },
+        {
+          "arms": {
+            "bm25_current": {
+              "doc": "OPENAI-0004",
+              "kind": "return",
+              "score": "correct"
+            },
+            "bm25_stripped": {
+              "doc": "OPENAI-0004",
+              "kind": "return",
+              "score": "correct"
+            },
+            "ledger": {
+              "doc": "OPENAI-0004",
+              "kind": "return",
+              "score": "correct"
+            },
+            "overlap_current": {
+              "doc": "OPENAI-0004",
+              "kind": "return",
+              "score": "correct"
+            },
+            "overlap_stripped": {
+              "doc": "OPENAI-0004",
+              "kind": "return",
+              "score": "correct"
+            },
+            "tfidf_current": {
+              "doc": "OPENAI-0004",
+              "kind": "return",
+              "score": "correct"
+            },
+            "tfidf_stripped": {
+              "doc": "OPENAI-0004",
+              "kind": "return",
+              "score": "correct"
+            }
+          },
+          "doc": "OPENAI-0004",
+          "expect": "return",
+          "id": "openai-history-04",
+          "q": "openai dalle images announcement 2021"
+        },
+        {
+          "arms": {
+            "bm25_current": {
+              "doc": "OPENAI-0005",
+              "kind": "return",
+              "score": "correct"
+            },
+            "bm25_stripped": {
+              "doc": "OPENAI-0005",
+              "kind": "return",
+              "score": "correct"
+            },
+            "ledger": {
+              "doc": "OPENAI-0005",
+              "kind": "return",
+              "score": "correct"
+            },
+            "overlap_current": {
+              "doc": "OPENAI-0005",
+              "kind": "return",
+              "score": "correct"
+            },
+            "overlap_stripped": {
+              "doc": "OPENAI-0005",
+              "kind": "return",
+              "score": "correct"
+            },
+            "tfidf_current": {
+              "doc": "OPENAI-0005",
+              "kind": "return",
+              "score": "correct"
+            },
+            "tfidf_stripped": {
+              "doc": "OPENAI-0005",
+              "kind": "return",
+              "score": "correct"
+            }
+          },
+          "doc": "OPENAI-0005",
+          "expect": "return",
+          "id": "openai-history-05",
+          "q": "openai chatgpt launch 2022"
+        },
+        {
+          "arms": {
+            "bm25_current": {
+              "doc": "OPENAI-0001",
+              "kind": "return",
+              "score": "correct"
+            },
+            "bm25_stripped": {
+              "doc": "OPENAI-0001",
+              "kind": "return",
+              "score": "correct"
+            },
+            "ledger": {
+              "doc": "OPENAI-0001",
+              "kind": "return",
+              "score": "correct"
+            },
+            "overlap_current": {
+              "doc": "OPENAI-0001",
+              "kind": "return",
+              "score": "correct"
+            },
+            "overlap_stripped": {
+              "doc": "OPENAI-0001",
+              "kind": "return",
+              "score": "correct"
+            },
+            "tfidf_current": {
+              "doc": "OPENAI-0001",
+              "kind": "return",
+              "score": "correct"
+            },
+            "tfidf_stripped": {
+              "doc": "OPENAI-0001",
+              "kind": "return",
+              "score": "correct"
+            }
+          },
+          "doc": "OPENAI-0001",
+          "expect": "return",
+          "id": "openai-history-06",
+          "q": "nonprofit"
+        },
+        {
+          "arms": {
+            "bm25_current": {
+              "doc": "OPENAI-0001",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "bm25_stripped": {
+              "doc": "OPENAI-0001",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "ledger": {
+              "doc": null,
+              "kind": "ambiguous",
+              "score": "correct"
+            },
+            "overlap_current": {
+              "doc": "OPENAI-0001",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "overlap_stripped": {
+              "doc": "OPENAI-0001",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "tfidf_current": {
+              "doc": "OPENAI-0001",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "tfidf_stripped": {
+              "doc": "OPENAI-0001",
+              "kind": "return",
+              "score": "wrong_return"
+            }
+          },
+          "doc": null,
+          "expect": "ambiguous",
+          "id": "openai-history-07",
+          "q": "openai"
+        },
+        {
+          "arms": {
+            "bm25_current": {
+              "doc": "OPENAI-0002",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "bm25_stripped": {
+              "doc": "OPENAI-0002",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "ledger": {
+              "doc": null,
+              "kind": "ambiguous",
+              "score": "correct"
+            },
+            "overlap_current": {
+              "doc": "OPENAI-0002",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "overlap_stripped": {
+              "doc": "OPENAI-0002",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "tfidf_current": {
+              "doc": "OPENAI-0002",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "tfidf_stripped": {
+              "doc": "OPENAI-0002",
+              "kind": "return",
+              "score": "wrong_return"
+            }
+          },
+          "doc": null,
+          "expect": "ambiguous",
+          "id": "openai-history-08",
+          "q": "what is a transformer"
+        },
+        {
+          "arms": {
+            "bm25_current": {
+              "doc": "OPENAI-0001",
+              "kind": "return",
+              "score": "correct"
+            },
+            "bm25_stripped": {
+              "doc": "OPENAI-0001",
+              "kind": "return",
+              "score": "correct"
+            },
+            "ledger": {
+              "doc": null,
+              "kind": "not_in_corpus",
+              "score": "wrong_refusal"
+            },
+            "overlap_current": {
+              "doc": "OPENAI-0001",
+              "kind": "return",
+              "score": "correct"
+            },
+            "overlap_stripped": {
+              "doc": "OPENAI-0001",
+              "kind": "return",
+              "score": "correct"
+            },
+            "tfidf_current": {
+              "doc": "OPENAI-0001",
+              "kind": "return",
+              "score": "correct"
+            },
+            "tfidf_stripped": {
+              "doc": "OPENAI-0001",
+              "kind": "return",
+              "score": "correct"
+            }
+          },
+          "doc": "OPENAI-0001",
+          "expect": "return",
+          "id": "openai-history-09",
+          "q": "On what date did the organization first announce that it had been established?"
+        },
+        {
+          "arms": {
+            "bm25_current": {
+              "doc": "OPENAI-0001",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "bm25_stripped": {
+              "doc": "OPENAI-0001",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "ledger": {
+              "doc": "OPENAI-0001",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "overlap_current": {
+              "doc": "OPENAI-0001",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "overlap_stripped": {
+              "doc": "OPENAI-0001",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "tfidf_current": {
+              "doc": "OPENAI-0001",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "tfidf_stripped": {
+              "doc": "OPENAI-0001",
+              "kind": "return",
+              "score": "wrong_return"
+            }
+          },
+          "doc": null,
+          "expect": "not_in_corpus",
+          "id": "openai-history-10",
+          "q": "openai introduction founding 2015 budget"
+        },
+        {
+          "arms": {
+            "bm25_current": {
+              "doc": "OPENAI-0001",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "bm25_stripped": {
+              "doc": "OPENAI-0001",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "ledger": {
+              "doc": null,
+              "kind": "not_in_corpus",
+              "score": "correct"
+            },
+            "overlap_current": {
+              "doc": "OPENAI-0001",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "overlap_stripped": {
+              "doc": "OPENAI-0001",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "tfidf_current": {
+              "doc": "OPENAI-0001",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "tfidf_stripped": {
+              "doc": "OPENAI-0001",
+              "kind": "return",
+              "score": "wrong_return"
+            }
+          },
+          "doc": null,
+          "expect": "not_in_corpus",
+          "id": "openai-history-11",
+          "q": "openai introduction founding 2015 auction"
+        },
+        {
+          "arms": {
+            "bm25_current": {
+              "doc": null,
+              "kind": "not_in_corpus",
+              "score": "correct"
+            },
+            "bm25_stripped": {
+              "doc": null,
+              "kind": "not_in_corpus",
+              "score": "correct"
+            },
+            "ledger": {
+              "doc": null,
+              "kind": "not_in_corpus",
+              "score": "correct"
+            },
+            "overlap_current": {
+              "doc": null,
+              "kind": "not_in_corpus",
+              "score": "correct"
+            },
+            "overlap_stripped": {
+              "doc": null,
+              "kind": "not_in_corpus",
+              "score": "correct"
+            },
+            "tfidf_current": {
+              "doc": null,
+              "kind": "not_in_corpus",
+              "score": "correct"
+            },
+            "tfidf_stripped": {
+              "doc": null,
+              "kind": "not_in_corpus",
+              "score": "correct"
+            }
+          },
+          "doc": null,
+          "expect": "not_in_corpus",
+          "id": "openai-history-12",
+          "q": "lunar weather forecast"
+        },
+        {
+          "arms": {
+            "bm25_current": {
+              "doc": "OPENAI-0004",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "bm25_stripped": {
+              "doc": "OPENAI-0004",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "ledger": {
+              "doc": null,
+              "kind": "not_in_corpus",
+              "score": "correct"
+            },
+            "overlap_current": {
+              "doc": "OPENAI-0004",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "overlap_stripped": {
+              "doc": "OPENAI-0004",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "tfidf_current": {
+              "doc": "OPENAI-0004",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "tfidf_stripped": {
+              "doc": "OPENAI-0004",
+              "kind": "return",
+              "score": "wrong_return"
+            }
+          },
+          "doc": null,
+          "expect": "not_in_corpus",
+          "id": "openai-history-13",
+          "q": "gpt2 dalle comparison"
+        },
+        {
+          "arms": {
+            "bm25_current": {
+              "doc": "OPENAI-0001",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "bm25_stripped": {
+              "doc": "OPENAI-0001",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "ledger": {
+              "doc": "OPENAI-0001",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "overlap_current": {
+              "doc": "OPENAI-0001",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "overlap_stripped": {
+              "doc": "OPENAI-0001",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "tfidf_current": {
+              "doc": "OPENAI-0001",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "tfidf_stripped": {
+              "doc": "OPENAI-0001",
+              "kind": "return",
+              "score": "wrong_return"
+            }
+          },
+          "doc": null,
+          "expect": "not_in_corpus",
+          "id": "openai-history-14",
+          "q": "why was openai introduction founding 2015 not real"
+        },
+        {
+          "arms": {
+            "bm25_current": {
+              "doc": null,
+              "kind": "not_in_corpus",
+              "score": "correct"
+            },
+            "bm25_stripped": {
+              "doc": null,
+              "kind": "not_in_corpus",
+              "score": "correct"
+            },
+            "ledger": {
+              "doc": null,
+              "kind": "not_in_corpus",
+              "score": "correct"
+            },
+            "overlap_current": {
+              "doc": null,
+              "kind": "not_in_corpus",
+              "score": "correct"
+            },
+            "overlap_stripped": {
+              "doc": null,
+              "kind": "not_in_corpus",
+              "score": "correct"
+            },
+            "tfidf_current": {
+              "doc": null,
+              "kind": "not_in_corpus",
+              "score": "correct"
+            },
+            "tfidf_stripped": {
+              "doc": null,
+              "kind": "not_in_corpus",
+              "score": "correct"
+            }
+          },
+          "doc": null,
+          "expect": "not_in_corpus",
+          "id": "openai-history-15",
+          "q": "what is it"
+        }
+      ]
+    },
+    {
+      "arms": {
+        "bm25_current": {
+          "accuracy": 0.5333333333333333,
+          "correct": 8,
+          "correct_returns": 6,
+          "return_precision": 0.46153846153846156,
+          "return_rate": 0.8666666666666667,
+          "returns": 13,
+          "wrong_refusal": 0,
+          "wrong_return": 7
+        },
+        "bm25_stripped": {
+          "accuracy": 0.5333333333333333,
+          "correct": 8,
+          "correct_returns": 6,
+          "return_precision": 0.46153846153846156,
+          "return_rate": 0.8666666666666667,
+          "returns": 13,
+          "wrong_refusal": 0,
+          "wrong_return": 7
+        },
+        "ledger": {
+          "accuracy": 0.8,
+          "correct": 12,
+          "correct_returns": 6,
+          "return_precision": 0.75,
+          "return_rate": 0.5333333333333333,
+          "returns": 8,
+          "wrong_refusal": 1,
+          "wrong_return": 2
+        },
+        "overlap_current": {
+          "accuracy": 0.6,
+          "correct": 9,
+          "correct_returns": 7,
+          "return_precision": 0.5384615384615384,
+          "return_rate": 0.8666666666666667,
+          "returns": 13,
+          "wrong_refusal": 0,
+          "wrong_return": 6
+        },
+        "overlap_stripped": {
+          "accuracy": 0.6,
+          "correct": 9,
+          "correct_returns": 7,
+          "return_precision": 0.5384615384615384,
+          "return_rate": 0.8666666666666667,
+          "returns": 13,
+          "wrong_refusal": 0,
+          "wrong_return": 6
+        },
+        "tfidf_current": {
+          "accuracy": 0.5333333333333333,
+          "correct": 8,
+          "correct_returns": 6,
+          "return_precision": 0.46153846153846156,
+          "return_rate": 0.8666666666666667,
+          "returns": 13,
+          "wrong_refusal": 0,
+          "wrong_return": 7
+        },
+        "tfidf_stripped": {
+          "accuracy": 0.5333333333333333,
+          "correct": 8,
+          "correct_returns": 6,
+          "return_precision": 0.46153846153846156,
+          "return_rate": 0.8666666666666667,
+          "returns": 13,
+          "wrong_refusal": 0,
+          "wrong_return": 7
+        }
+      },
+      "by_outcome": {
+        "ambiguous": {
+          "arms": {
+            "bm25_current": {
+              "correct": 0,
+              "wrong_refusal": 0,
+              "wrong_return": 2
+            },
+            "bm25_stripped": {
+              "correct": 0,
+              "wrong_refusal": 0,
+              "wrong_return": 2
+            },
+            "ledger": {
+              "correct": 2,
+              "wrong_refusal": 0,
+              "wrong_return": 0
+            },
+            "overlap_current": {
+              "correct": 0,
+              "wrong_refusal": 0,
+              "wrong_return": 2
+            },
+            "overlap_stripped": {
+              "correct": 0,
+              "wrong_refusal": 0,
+              "wrong_return": 2
+            },
+            "tfidf_current": {
+              "correct": 0,
+              "wrong_refusal": 0,
+              "wrong_return": 2
+            },
+            "tfidf_stripped": {
+              "correct": 0,
+              "wrong_refusal": 0,
+              "wrong_return": 2
+            }
+          },
+          "n": 2
+        },
+        "not_in_corpus": {
+          "arms": {
+            "bm25_current": {
+              "correct": 2,
+              "wrong_refusal": 0,
+              "wrong_return": 4
+            },
+            "bm25_stripped": {
+              "correct": 2,
+              "wrong_refusal": 0,
+              "wrong_return": 4
+            },
+            "ledger": {
+              "correct": 4,
+              "wrong_refusal": 0,
+              "wrong_return": 2
+            },
+            "overlap_current": {
+              "correct": 2,
+              "wrong_refusal": 0,
+              "wrong_return": 4
+            },
+            "overlap_stripped": {
+              "correct": 2,
+              "wrong_refusal": 0,
+              "wrong_return": 4
+            },
+            "tfidf_current": {
+              "correct": 2,
+              "wrong_refusal": 0,
+              "wrong_return": 4
+            },
+            "tfidf_stripped": {
+              "correct": 2,
+              "wrong_refusal": 0,
+              "wrong_return": 4
+            }
+          },
+          "n": 6
+        },
+        "return": {
+          "arms": {
+            "bm25_current": {
+              "correct": 6,
+              "wrong_refusal": 0,
+              "wrong_return": 1
+            },
+            "bm25_stripped": {
+              "correct": 6,
+              "wrong_refusal": 0,
+              "wrong_return": 1
+            },
+            "ledger": {
+              "correct": 6,
+              "wrong_refusal": 1,
+              "wrong_return": 0
+            },
+            "overlap_current": {
+              "correct": 7,
+              "wrong_refusal": 0,
+              "wrong_return": 0
+            },
+            "overlap_stripped": {
+              "correct": 7,
+              "wrong_refusal": 0,
+              "wrong_return": 0
+            },
+            "tfidf_current": {
+              "correct": 6,
+              "wrong_refusal": 0,
+              "wrong_return": 1
+            },
+            "tfidf_stripped": {
+              "correct": 6,
+              "wrong_refusal": 0,
+              "wrong_return": 1
+            }
+          },
+          "n": 7
+        }
+      },
+      "corpus_hashes": {
+        "comp-0001.html": "sha256:efead17a6e2f009e7a2b22597ab6385fa2967e0ec6b86090b971fbc64f9bf4a0",
+        "comp-0002.html": "sha256:021f100916d1698852ef4e4fceed13c64429d9278323d185f475dc8239f9a115",
+        "comp-0003.html": "sha256:eaded30a0cba97649811c4ed040e22da8e430553b1465f3f467114b23232b772",
+        "comp-0004.html": "sha256:a91ddfd33d1917ba3cbe69ebf7b475567696faa09249b155cea0054142cefb8f",
+        "comp-0005.html": "sha256:4093ffd777e0623b83f354fa11ff55769dc6e126c32d90e51d5b72db88b57696"
+      },
+      "n": 15,
+      "name": "computing-history",
+      "probe_sha256": "b1d18598b729f396d225365cffd5165659b0fe047929d5025ba8dbebefe701e8",
+      "rows": [
+        {
+          "arms": {
+            "bm25_current": {
+              "doc": "COMP-0001",
+              "kind": "return",
+              "score": "correct"
+            },
+            "bm25_stripped": {
+              "doc": "COMP-0001",
+              "kind": "return",
+              "score": "correct"
+            },
+            "ledger": {
+              "doc": "COMP-0001",
+              "kind": "return",
+              "score": "correct"
+            },
+            "overlap_current": {
+              "doc": "COMP-0001",
+              "kind": "return",
+              "score": "correct"
+            },
+            "overlap_stripped": {
+              "doc": "COMP-0001",
+              "kind": "return",
+              "score": "correct"
+            },
+            "tfidf_current": {
+              "doc": "COMP-0001",
+              "kind": "return",
+              "score": "correct"
+            },
+            "tfidf_stripped": {
+              "doc": "COMP-0001",
+              "kind": "return",
+              "score": "correct"
+            }
+          },
+          "doc": "COMP-0001",
+          "expect": "return",
+          "id": "computing-history-01",
+          "q": "computer eniac unveiling 1946"
+        },
+        {
+          "arms": {
+            "bm25_current": {
+              "doc": "COMP-0002",
+              "kind": "return",
+              "score": "correct"
+            },
+            "bm25_stripped": {
+              "doc": "COMP-0002",
+              "kind": "return",
+              "score": "correct"
+            },
+            "ledger": {
+              "doc": "COMP-0002",
+              "kind": "return",
+              "score": "correct"
+            },
+            "overlap_current": {
+              "doc": "COMP-0002",
+              "kind": "return",
+              "score": "correct"
+            },
+            "overlap_stripped": {
+              "doc": "COMP-0002",
+              "kind": "return",
+              "score": "correct"
+            },
+            "tfidf_current": {
+              "doc": "COMP-0002",
+              "kind": "return",
+              "score": "correct"
+            },
+            "tfidf_stripped": {
+              "doc": "COMP-0002",
+              "kind": "return",
+              "score": "correct"
+            }
+          },
+          "doc": "COMP-0002",
+          "expect": "return",
+          "id": "computing-history-02",
+          "q": "computer transistor invention 1947"
+        },
+        {
+          "arms": {
+            "bm25_current": {
+              "doc": "COMP-0003",
+              "kind": "return",
+              "score": "correct"
+            },
+            "bm25_stripped": {
+              "doc": "COMP-0003",
+              "kind": "return",
+              "score": "correct"
+            },
+            "ledger": {
+              "doc": "COMP-0003",
+              "kind": "return",
+              "score": "correct"
+            },
+            "overlap_current": {
+              "doc": "COMP-0003",
+              "kind": "return",
+              "score": "correct"
+            },
+            "overlap_stripped": {
+              "doc": "COMP-0003",
+              "kind": "return",
+              "score": "correct"
+            },
+            "tfidf_current": {
+              "doc": "COMP-0003",
+              "kind": "return",
+              "score": "correct"
+            },
+            "tfidf_stripped": {
+              "doc": "COMP-0003",
+              "kind": "return",
+              "score": "correct"
+            }
+          },
+          "doc": "COMP-0003",
+          "expect": "return",
+          "id": "computing-history-03",
+          "q": "computer microprocessor intel 4004 1971"
+        },
+        {
+          "arms": {
+            "bm25_current": {
+              "doc": "COMP-0004",
+              "kind": "return",
+              "score": "correct"
+            },
+            "bm25_stripped": {
+              "doc": "COMP-0004",
+              "kind": "return",
+              "score": "correct"
+            },
+            "ledger": {
+              "doc": "COMP-0004",
+              "kind": "return",
+              "score": "correct"
+            },
+            "overlap_current": {
+              "doc": "COMP-0004",
+              "kind": "return",
+              "score": "correct"
+            },
+            "overlap_stripped": {
+              "doc": "COMP-0004",
+              "kind": "return",
+              "score": "correct"
+            },
+            "tfidf_current": {
+              "doc": "COMP-0004",
+              "kind": "return",
+              "score": "correct"
+            },
+            "tfidf_stripped": {
+              "doc": "COMP-0004",
+              "kind": "return",
+              "score": "correct"
+            }
+          },
+          "doc": "COMP-0004",
+          "expect": "return",
+          "id": "computing-history-04",
+          "q": "computer ibm pc introduction 1981"
+        },
+        {
+          "arms": {
+            "bm25_current": {
+              "doc": "COMP-0005",
+              "kind": "return",
+              "score": "correct"
+            },
+            "bm25_stripped": {
+              "doc": "COMP-0005",
+              "kind": "return",
+              "score": "correct"
+            },
+            "ledger": {
+              "doc": "COMP-0005",
+              "kind": "return",
+              "score": "correct"
+            },
+            "overlap_current": {
+              "doc": "COMP-0005",
+              "kind": "return",
+              "score": "correct"
+            },
+            "overlap_stripped": {
+              "doc": "COMP-0005",
+              "kind": "return",
+              "score": "correct"
+            },
+            "tfidf_current": {
+              "doc": "COMP-0005",
+              "kind": "return",
+              "score": "correct"
+            },
+            "tfidf_stripped": {
+              "doc": "COMP-0005",
+              "kind": "return",
+              "score": "correct"
+            }
+          },
+          "doc": "COMP-0005",
+          "expect": "return",
+          "id": "computing-history-05",
+          "q": "computer web berners lee cern 1989"
+        },
+        {
+          "arms": {
+            "bm25_current": {
+              "doc": "COMP-0001",
+              "kind": "return",
+              "score": "correct"
+            },
+            "bm25_stripped": {
+              "doc": "COMP-0001",
+              "kind": "return",
+              "score": "correct"
+            },
+            "ledger": {
+              "doc": "COMP-0001",
+              "kind": "return",
+              "score": "correct"
+            },
+            "overlap_current": {
+              "doc": "COMP-0001",
+              "kind": "return",
+              "score": "correct"
+            },
+            "overlap_stripped": {
+              "doc": "COMP-0001",
+              "kind": "return",
+              "score": "correct"
+            },
+            "tfidf_current": {
+              "doc": "COMP-0001",
+              "kind": "return",
+              "score": "correct"
+            },
+            "tfidf_stripped": {
+              "doc": "COMP-0001",
+              "kind": "return",
+              "score": "correct"
+            }
+          },
+          "doc": "COMP-0001",
+          "expect": "return",
+          "id": "computing-history-06",
+          "q": "Eckert"
+        },
+        {
+          "arms": {
+            "bm25_current": {
+              "doc": "COMP-0004",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "bm25_stripped": {
+              "doc": "COMP-0004",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "ledger": {
+              "doc": null,
+              "kind": "ambiguous",
+              "score": "correct"
+            },
+            "overlap_current": {
+              "doc": "COMP-0004",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "overlap_stripped": {
+              "doc": "COMP-0004",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "tfidf_current": {
+              "doc": "COMP-0004",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "tfidf_stripped": {
+              "doc": "COMP-0004",
+              "kind": "return",
+              "score": "wrong_return"
+            }
+          },
+          "doc": null,
+          "expect": "ambiguous",
+          "id": "computing-history-07",
+          "q": "computer"
+        },
+        {
+          "arms": {
+            "bm25_current": {
+              "doc": "COMP-0002",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "bm25_stripped": {
+              "doc": "COMP-0002",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "ledger": {
+              "doc": null,
+              "kind": "ambiguous",
+              "score": "correct"
+            },
+            "overlap_current": {
+              "doc": "COMP-0002",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "overlap_stripped": {
+              "doc": "COMP-0002",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "tfidf_current": {
+              "doc": "COMP-0002",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "tfidf_stripped": {
+              "doc": "COMP-0002",
+              "kind": "return",
+              "score": "wrong_return"
+            }
+          },
+          "doc": null,
+          "expect": "ambiguous",
+          "id": "computing-history-08",
+          "q": "what is a semiconductor"
+        },
+        {
+          "arms": {
+            "bm25_current": {
+              "doc": "COMP-0004",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "bm25_stripped": {
+              "doc": "COMP-0004",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "ledger": {
+              "doc": null,
+              "kind": "not_in_corpus",
+              "score": "wrong_refusal"
+            },
+            "overlap_current": {
+              "doc": "COMP-0001",
+              "kind": "return",
+              "score": "correct"
+            },
+            "overlap_stripped": {
+              "doc": "COMP-0001",
+              "kind": "return",
+              "score": "correct"
+            },
+            "tfidf_current": {
+              "doc": "COMP-0004",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "tfidf_stripped": {
+              "doc": "COMP-0004",
+              "kind": "return",
+              "score": "wrong_return"
+            }
+          },
+          "doc": "COMP-0001",
+          "expect": "return",
+          "id": "computing-history-09",
+          "q": "In what year was the huge electronic calculating machine shown to the public?"
+        },
+        {
+          "arms": {
+            "bm25_current": {
+              "doc": "COMP-0001",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "bm25_stripped": {
+              "doc": "COMP-0001",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "ledger": {
+              "doc": "COMP-0001",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "overlap_current": {
+              "doc": "COMP-0001",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "overlap_stripped": {
+              "doc": "COMP-0001",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "tfidf_current": {
+              "doc": "COMP-0001",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "tfidf_stripped": {
+              "doc": "COMP-0001",
+              "kind": "return",
+              "score": "wrong_return"
+            }
+          },
+          "doc": null,
+          "expect": "not_in_corpus",
+          "id": "computing-history-10",
+          "q": "computer eniac unveiling 1946 budget"
+        },
+        {
+          "arms": {
+            "bm25_current": {
+              "doc": "COMP-0001",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "bm25_stripped": {
+              "doc": "COMP-0001",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "ledger": {
+              "doc": null,
+              "kind": "not_in_corpus",
+              "score": "correct"
+            },
+            "overlap_current": {
+              "doc": "COMP-0001",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "overlap_stripped": {
+              "doc": "COMP-0001",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "tfidf_current": {
+              "doc": "COMP-0001",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "tfidf_stripped": {
+              "doc": "COMP-0001",
+              "kind": "return",
+              "score": "wrong_return"
+            }
+          },
+          "doc": null,
+          "expect": "not_in_corpus",
+          "id": "computing-history-11",
+          "q": "computer eniac unveiling 1946 auction"
+        },
+        {
+          "arms": {
+            "bm25_current": {
+              "doc": null,
+              "kind": "not_in_corpus",
+              "score": "correct"
+            },
+            "bm25_stripped": {
+              "doc": null,
+              "kind": "not_in_corpus",
+              "score": "correct"
+            },
+            "ledger": {
+              "doc": null,
+              "kind": "not_in_corpus",
+              "score": "correct"
+            },
+            "overlap_current": {
+              "doc": null,
+              "kind": "not_in_corpus",
+              "score": "correct"
+            },
+            "overlap_stripped": {
+              "doc": null,
+              "kind": "not_in_corpus",
+              "score": "correct"
+            },
+            "tfidf_current": {
+              "doc": null,
+              "kind": "not_in_corpus",
+              "score": "correct"
+            },
+            "tfidf_stripped": {
+              "doc": null,
+              "kind": "not_in_corpus",
+              "score": "correct"
+            }
+          },
+          "doc": null,
+          "expect": "not_in_corpus",
+          "id": "computing-history-12",
+          "q": "lunar weather forecast"
+        },
+        {
+          "arms": {
+            "bm25_current": {
+              "doc": "COMP-0005",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "bm25_stripped": {
+              "doc": "COMP-0005",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "ledger": {
+              "doc": null,
+              "kind": "not_in_corpus",
+              "score": "correct"
+            },
+            "overlap_current": {
+              "doc": "COMP-0003",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "overlap_stripped": {
+              "doc": "COMP-0003",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "tfidf_current": {
+              "doc": "COMP-0005",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "tfidf_stripped": {
+              "doc": "COMP-0005",
+              "kind": "return",
+              "score": "wrong_return"
+            }
+          },
+          "doc": null,
+          "expect": "not_in_corpus",
+          "id": "computing-history-13",
+          "q": "microprocessor web comparison"
+        },
+        {
+          "arms": {
+            "bm25_current": {
+              "doc": "COMP-0001",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "bm25_stripped": {
+              "doc": "COMP-0001",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "ledger": {
+              "doc": "COMP-0001",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "overlap_current": {
+              "doc": "COMP-0001",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "overlap_stripped": {
+              "doc": "COMP-0001",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "tfidf_current": {
+              "doc": "COMP-0001",
+              "kind": "return",
+              "score": "wrong_return"
+            },
+            "tfidf_stripped": {
+              "doc": "COMP-0001",
+              "kind": "return",
+              "score": "wrong_return"
+            }
+          },
+          "doc": null,
+          "expect": "not_in_corpus",
+          "id": "computing-history-14",
+          "q": "why was computer eniac unveiling 1946 not real"
+        },
+        {
+          "arms": {
+            "bm25_current": {
+              "doc": null,
+              "kind": "not_in_corpus",
+              "score": "correct"
+            },
+            "bm25_stripped": {
+              "doc": null,
+              "kind": "not_in_corpus",
+              "score": "correct"
+            },
+            "ledger": {
+              "doc": null,
+              "kind": "not_in_corpus",
+              "score": "correct"
+            },
+            "overlap_current": {
+              "doc": null,
+              "kind": "not_in_corpus",
+              "score": "correct"
+            },
+            "overlap_stripped": {
+              "doc": null,
+              "kind": "not_in_corpus",
+              "score": "correct"
+            },
+            "tfidf_current": {
+              "doc": null,
+              "kind": "not_in_corpus",
+              "score": "correct"
+            },
+            "tfidf_stripped": {
+              "doc": null,
+              "kind": "not_in_corpus",
+              "score": "correct"
+            }
+          },
+          "doc": null,
+          "expect": "not_in_corpus",
+          "id": "computing-history-15",
+          "q": "what is it"
+        }
+      ]
+    }
+  ],
+  "independence_verified": false,
+  "limitations": [
+    "Authorship declarations are not independently verified.",
+    "Top-one baselines cannot produce ambiguity; compare per outcome.",
+    "No refusal thresholds were tuned on the evaluation probes."
+  ],
+  "manifest_sha256": "b829965e8dcdf995abe1bf8fc9ec673e19173260ecd3c6d4cb09e9276cb41a4d",
+  "provenance": {
+    "corpus_author": "Codex",
+    "engine_commit": "6734fa4a74a2886ab335d30559d07e65d04d5aeb",
+    "evaluation_type": "developer_authored_synthetic",
+    "frozen_at": "2026-10-08T00:00Z",
+    "independence_verified": false,
+    "independent_review": "pending",
+    "label_author": "Codex",
+    "labels": "Desired page-grounded outcomes; paraphrase and unsupported-premise labels are not adjusted to reader predictions. Ambiguity labels intentionally exercise lexical collisions.",
+    "profile": "internal; machine-authored depth-1 pages; no human ratification",
+    "question_author": "Codex",
+    "source_correction": "One museum URL corrected after the first run; page bodies, fields, questions, and labels unchanged.",
+    "sources_note": "Historical and educational paraphrases; URLs recorded outside page bodies so source labels cannot change lexical ownership."
+  }
+}

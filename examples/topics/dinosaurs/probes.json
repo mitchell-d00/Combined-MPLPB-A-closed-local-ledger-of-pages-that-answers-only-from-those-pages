@@ -1,0 +1,116 @@
+{
+  "probes": [
+    {
+      "id": "dinosaurs-01",
+      "q": "dinosaur extinction boundary 66",
+      "class": "exact_scope",
+      "expect": "return",
+      "doc": "DINO-0001",
+      "evidence": "Non-avian dinosaurs disappeared around 66 million years ago. The Chicxulub asteroid impact is associated with the end-Cretaceous mass extinction. Birds survived, so dinosaurs did not vanish entirely."
+    },
+    {
+      "id": "dinosaurs-02",
+      "q": "dinosaur bird ancestry evolution",
+      "class": "exact_scope",
+      "expect": "return",
+      "doc": "DINO-0002",
+      "evidence": "Birds evolved within the theropod dinosaur lineage. Living birds are therefore dinosaurs. Shared skeletal features and fossil discoveries connect birds to extinct relatives."
+    },
+    {
+      "id": "dinosaurs-03",
+      "q": "dinosaur tyrannosaurus rex anatomy",
+      "class": "exact_scope",
+      "expect": "return",
+      "doc": "DINO-0003",
+      "evidence": "Tyrannosaurus rex was a large theropod with powerful jaws and teeth. The museum skeleton documents its anatomy. This page does not estimate auction values or ownership rights."
+    },
+    {
+      "id": "dinosaurs-04",
+      "q": "dinosaur sauropod neck herbivore",
+      "class": "exact_scope",
+      "expect": "return",
+      "doc": "DINO-0004",
+      "evidence": "Sauropods included long-necked, long-tailed herbivores such as Apatosaurus. They walked on four limbs. Their body plan differs from the two-legged forms of many meat-eating dinosaurs."
+    },
+    {
+      "id": "dinosaurs-05",
+      "q": "dinosaur pterosaur classification boundary",
+      "class": "exact_scope",
+      "expect": "return",
+      "doc": "DINO-0005",
+      "evidence": "Pterosaurs were flying reptiles related to dinosaurs but outside the dinosaur group. Their anatomy differs from the diagnostic features of dinosaurs. Sharing an ancient habitat does not make every reptile a dinosaur."
+    },
+    {
+      "id": "dinosaurs-06",
+      "q": "Chicxulub",
+      "class": "prose_only",
+      "expect": "return",
+      "doc": "DINO-0001",
+      "evidence": "Non-avian dinosaurs disappeared around 66 million years ago. The Chicxulub asteroid impact is associated with the end-Cretaceous mass extinction. Birds survived, so dinosaurs did not vanish entirely."
+    },
+    {
+      "id": "dinosaurs-07",
+      "q": "dinosaur",
+      "class": "shared_scope",
+      "expect": "ambiguous",
+      "rationale": "The shared scope word is declared by multiple pages; no single owner is specified."
+    },
+    {
+      "id": "dinosaurs-08",
+      "q": "what is a theropod",
+      "class": "prose_collision",
+      "expect": "ambiguous",
+      "rationale": "Two pages mention this prose term; the question does not specify which context to select."
+    },
+    {
+      "id": "dinosaurs-09",
+      "q": "When did the giant land reptiles apart from their feathered descendants die out?",
+      "class": "paraphrase",
+      "expect": "return",
+      "doc": "DINO-0001",
+      "evidence": "Non-avian dinosaurs disappeared around 66 million years ago. The Chicxulub asteroid impact is associated with the end-Cretaceous mass extinction. Birds survived, so dinosaurs did not vanish entirely."
+    },
+    {
+      "id": "dinosaurs-10",
+      "q": "dinosaur extinction boundary 66 budget",
+      "class": "adjacent_intent",
+      "expect": "not_in_corpus",
+      "rationale": "The first page describes the event or process but provides no budget."
+    },
+    {
+      "id": "dinosaurs-11",
+      "q": "dinosaur extinction boundary 66 auction",
+      "class": "not_for",
+      "expect": "not_in_corpus",
+      "rationale": "Auction information is absent and explicitly excluded by the first page."
+    },
+    {
+      "id": "dinosaurs-12",
+      "q": "lunar weather forecast",
+      "class": "absent",
+      "expect": "not_in_corpus",
+      "rationale": "No page supplies lunar weather forecasts."
+    },
+    {
+      "id": "dinosaurs-13",
+      "q": "sauropod tyrannosaurus comparison",
+      "class": "mixed_page",
+      "expect": "not_in_corpus",
+      "rationale": "No page supplies this comparison; assembling multiple pages would require synthesis."
+    },
+    {
+      "id": "dinosaurs-14",
+      "q": "why was dinosaur extinction boundary 66 not real",
+      "class": "negation",
+      "expect": "not_in_corpus",
+      "rationale": "The query presupposes the documented event or process was not real; no page supports that premise."
+    },
+    {
+      "id": "dinosaurs-15",
+      "q": "what is it",
+      "class": "stopwords",
+      "expect": "not_in_corpus",
+      "rationale": "The question contains no content words."
+    }
+  ]
+}

@@ -1,0 +1,1068 @@
+{
+  "provenance": {
+    "evaluation_type": "developer_authored_synthetic",
+    "corpus_author": "Codex",
+    "question_author": "Codex",
+    "label_author": "Codex",
+    "independent_review": "pending",
+    "independence_verified": false,
+    "engine_commit": "6734fa4a74a2886ab335d30559d07e65d04d5aeb",
+    "frozen_at": "2026-10-08T00:00Z",
+    "labels": "Desired page-grounded outcomes; paraphrase and unsupported-premise labels are not adjusted to reader predictions. Ambiguity labels intentionally exercise lexical collisions.",
+    "profile": "internal; machine-authored depth-1 pages; no human ratification",
+    "sources_note": "Historical and educational paraphrases; URLs recorded outside page bodies so source labels cannot change lexical ownership.",
+    "source_correction": "One museum URL corrected after the first run; page bodies, fields, questions, and labels unchanged."
+  },
+  "domains": [
+    {
+      "name": "rpg-history",
+      "title": "History of RPGs",
+      "pages": [
+        {
+          "doc_id": "RPG-0001",
+          "title": "Dungeons & Dragons, 1974",
+          "scope": "rpg dungeons dragons publication 1974",
+          "when_to_use": "",
+          "not_for": "auction; price",
+          "body": "Gary Gygax and Dave Arneson wrote the original Dungeons & Dragons. TSR published the boxed set in 1974. Its fantasy rules grew from miniature wargaming.",
+          "sources": [
+            "https://www.si.edu/media/NMAH/NMAH-AC1498_Transcript_DonaldDaglow-000001.pdf"
+          ]
+        },
+        {
+          "doc_id": "RPG-0002",
+          "title": "Traveller, 1977",
+          "scope": "rpg traveller publication 1977",
+          "when_to_use": "",
+          "not_for": "",
+          "body": "Traveller was published in 1977 by Game Designers Workshop. The science-fiction game extended tabletop adventures beyond fantasy settings.",
+          "sources": [
+            "https://www.farfuture.net/"
+          ]
+        },
+        {
+          "doc_id": "RPG-0003",
+          "title": "RuneQuest, 1978",
+          "scope": "rpg runequest publication 1978",
+          "when_to_use": "",
+          "not_for": "",
+          "body": "Chaosium introduced RuneQuest in 1978. The game used a percentile system and the fantasy setting Glorantha, with skills instead of character classes and levels.",
+          "sources": [
+            "https://www.chaosium.com/runequest-1st-edition-pdf/"
+          ]
+        },
+        {
+          "doc_id": "RPG-0004",
+          "title": "Call of Cthulhu, 1981",
+          "scope": "rpg cthulhu publication 1981",
+          "when_to_use": "",
+          "not_for": "",
+          "body": "Chaosium released Call of Cthulhu in 1981. Its horror investigations use a percentile system. This page records the release, not a scenario walkthrough.",
+          "sources": [
+            "https://www.chaosium.com/call-of-cthulhu-classic/"
+          ]
+        },
+        {
+          "doc_id": "RPG-0005",
+          "title": "Tabletop to digital adventures",
+          "scope": "rpg digital dungeon adaptation",
+          "when_to_use": "",
+          "not_for": "",
+          "body": "Early computer adventures adapted tabletop play. Donald Daglow described writing Dungeon in the Smithsonian oral-history record. Digital adventures made a computer handle parts of the referee role.",
+          "sources": [
+            "https://www.si.edu/media/NMAH/NMAH-AC1498_Transcript_DonaldDaglow-000001.pdf"
+          ]
+        }
+      ],
+      "probes": [
+        {
+          "id": "rpg-history-01",
+          "q": "rpg dungeons dragons publication 1974",
+          "class": "exact_scope",
+          "expect": "return",
+          "doc": "RPG-0001",
+          "evidence": "Gary Gygax and Dave Arneson wrote the original Dungeons & Dragons. TSR published the boxed set in 1974. Its fantasy rules grew from miniature wargaming."
+        },
+        {
+          "id": "rpg-history-02",
+          "q": "rpg traveller publication 1977",
+          "class": "exact_scope",
+          "expect": "return",
+          "doc": "RPG-0002",
+          "evidence": "Traveller was published in 1977 by Game Designers Workshop. The science-fiction game extended tabletop adventures beyond fantasy settings."
+        },
+        {
+          "id": "rpg-history-03",
+          "q": "rpg runequest publication 1978",
+          "class": "exact_scope",
+          "expect": "return",
+          "doc": "RPG-0003",
+          "evidence": "Chaosium introduced RuneQuest in 1978. The game used a percentile system and the fantasy setting Glorantha, with skills instead of character classes and levels."
+        },
+        {
+          "id": "rpg-history-04",
+          "q": "rpg cthulhu publication 1981",
+          "class": "exact_scope",
+          "expect": "return",
+          "doc": "RPG-0004",
+          "evidence": "Chaosium released Call of Cthulhu in 1981. Its horror investigations use a percentile system. This page records the release, not a scenario walkthrough."
+        },
+        {
+          "id": "rpg-history-05",
+          "q": "rpg digital dungeon adaptation",
+          "class": "exact_scope",
+          "expect": "return",
+          "doc": "RPG-0005",
+          "evidence": "Early computer adventures adapted tabletop play. Donald Daglow described writing Dungeon in the Smithsonian oral-history record. Digital adventures made a computer handle parts of the referee role."
+        },
+        {
+          "id": "rpg-history-06",
+          "q": "TSR",
+          "class": "prose_only",
+          "expect": "return",
+          "doc": "RPG-0001",
+          "evidence": "Gary Gygax and Dave Arneson wrote the original Dungeons & Dragons. TSR published the boxed set in 1974. Its fantasy rules grew from miniature wargaming."
+        },
+        {
+          "id": "rpg-history-07",
+          "q": "rpg",
+          "class": "shared_scope",
+          "expect": "ambiguous",
+          "rationale": "The shared scope word is declared by multiple pages; no single owner is specified."
+        },
+        {
+          "id": "rpg-history-08",
+          "q": "what is percentile",
+          "class": "prose_collision",
+          "expect": "ambiguous",
+          "rationale": "Two pages mention this prose term; the question does not specify which context to select."
+        },
+        {
+          "id": "rpg-history-09",
+          "q": "Which year did the original fantasy tabletop adventure rules come out?",
+          "class": "paraphrase",
+          "expect": "return",
+          "doc": "RPG-0001",
+          "evidence": "Gary Gygax and Dave Arneson wrote the original Dungeons & Dragons. TSR published the boxed set in 1974. Its fantasy rules grew from miniature wargaming."
+        },
+        {
+          "id": "rpg-history-10",
+          "q": "rpg dungeons dragons publication 1974 budget",
+          "class": "adjacent_intent",
+          "expect": "not_in_corpus",
+          "rationale": "The first page describes the event or process but provides no budget."
+        },
+        {
+          "id": "rpg-history-11",
+          "q": "rpg dungeons dragons publication 1974 auction",
+          "class": "not_for",
+          "expect": "not_in_corpus",
+          "rationale": "Auction information is absent and explicitly excluded by the first page."
+        },
+        {
+          "id": "rpg-history-12",
+          "q": "lunar weather forecast",
+          "class": "absent",
+          "expect": "not_in_corpus",
+          "rationale": "No page supplies lunar weather forecasts."
+        },
+        {
+          "id": "rpg-history-13",
+          "q": "traveller runequest comparison",
+          "class": "mixed_page",
+          "expect": "not_in_corpus",
+          "rationale": "No page supplies this comparison; assembling multiple pages would require synthesis."
+        },
+        {
+          "id": "rpg-history-14",
+          "q": "why was rpg dungeons dragons publication 1974 not real",
+          "class": "negation",
+          "expect": "not_in_corpus",
+          "rationale": "The query presupposes the documented event or process was not real; no page supports that premise."
+        },
+        {
+          "id": "rpg-history-15",
+          "q": "what is it",
+          "class": "stopwords",
+          "expect": "not_in_corpus",
+          "rationale": "The question contains no content words."
+        }
+      ]
+    },
+    {
+      "name": "fossils",
+      "title": "Fossils",
+      "pages": [
+        {
+          "doc_id": "FOSSIL-0001",
+          "title": "Permineralization",
+          "scope": "fossil permineralization mineral pores",
+          "when_to_use": "",
+          "not_for": "auction; price",
+          "body": "During permineralization, dissolved minerals in groundwater fill tiny pores in organic remains. The original material can persist while the added minerals help preserve its structure.",
+          "sources": [
+            "https://www.nps.gov/articles/000/permineralization-and-replacement.htm"
+          ]
+        },
+        {
+          "doc_id": "FOSSIL-0002",
+          "title": "Trace fossils",
+          "scope": "fossil trace trackway burrow",
+          "when_to_use": "",
+          "not_for": "",
+          "body": "Trace fossils record biological activity rather than a preserved body part. A footprint impression, a burrow, or a coprolite can preserve evidence of an organism.",
+          "sources": [
+            "https://www.nps.gov/subjects/fossils/about-fossils.htm"
+          ]
+        },
+        {
+          "doc_id": "FOSSIL-0003",
+          "title": "Molds and casts",
+          "scope": "fossil mold cast shell",
+          "when_to_use": "",
+          "not_for": "",
+          "body": "A mold preserves an impression left by an organism. A cast forms when material fills that cavity, creating a three-dimensional copy of the original shape.",
+          "sources": [
+            "https://www.nps.gov/articles/000/mold-casts-and-steinkerns.htm"
+          ]
+        },
+        {
+          "doc_id": "FOSSIL-0004",
+          "title": "Body fossils",
+          "scope": "fossil body bone shell",
+          "when_to_use": "",
+          "not_for": "",
+          "body": "Body fossils preserve actual parts of organisms, such as bones, shells, or plant material. They differ from evidence of activity left without the organism itself.",
+          "sources": [
+            "https://www.nps.gov/subjects/fossils/body-fossils.htm"
+          ]
+        },
+        {
+          "doc_id": "FOSSIL-0005",
+          "title": "Amber preservation",
+          "scope": "fossil amber resin preservation",
+          "when_to_use": "",
+          "not_for": "",
+          "body": "Entrapment in resin that becomes amber can preserve organisms. Amber preservation is different from filling a bone with minerals; fossils do not all become stone.",
+          "sources": [
+            "https://www.nps.gov/subjects/fossils/body-fossils.htm"
+          ]
+        }
+      ],
+      "probes": [
+        {
+          "id": "fossils-01",
+          "q": "fossil permineralization mineral pores",
+          "class": "exact_scope",
+          "expect": "return",
+          "doc": "FOSSIL-0001",
+          "evidence": "During permineralization, dissolved minerals in groundwater fill tiny pores in organic remains. The original material can persist while the added minerals help preserve its structure."
+        },
+        {
+          "id": "fossils-02",
+          "q": "fossil trace trackway burrow",
+          "class": "exact_scope",
+          "expect": "return",
+          "doc": "FOSSIL-0002",
+          "evidence": "Trace fossils record biological activity rather than a preserved body part. A footprint impression, a burrow, or a coprolite can preserve evidence of an organism."
+        },
+        {
+          "id": "fossils-03",
+          "q": "fossil mold cast shell",
+          "class": "exact_scope",
+          "expect": "return",
+          "doc": "FOSSIL-0003",
+          "evidence": "A mold preserves an impression left by an organism. A cast forms when material fills that cavity, creating a three-dimensional copy of the original shape."
+        },
+        {
+          "id": "fossils-04",
+          "q": "fossil body bone shell",
+          "class": "exact_scope",
+          "expect": "return",
+          "doc": "FOSSIL-0004",
+          "evidence": "Body fossils preserve actual parts of organisms, such as bones, shells, or plant material. They differ from evidence of activity left without the organism itself."
+        },
+        {
+          "id": "fossils-05",
+          "q": "fossil amber resin preservation",
+          "class": "exact_scope",
+          "expect": "return",
+          "doc": "FOSSIL-0005",
+          "evidence": "Entrapment in resin that becomes amber can preserve organisms. Amber preservation is different from filling a bone with minerals; fossils do not all become stone."
+        },
+        {
+          "id": "fossils-06",
+          "q": "groundwater",
+          "class": "prose_only",
+          "expect": "return",
+          "doc": "FOSSIL-0001",
+          "evidence": "During permineralization, dissolved minerals in groundwater fill tiny pores in organic remains. The original material can persist while the added minerals help preserve its structure."
+        },
+        {
+          "id": "fossils-07",
+          "q": "fossil",
+          "class": "shared_scope",
+          "expect": "ambiguous",
+          "rationale": "The shared scope word is declared by multiple pages; no single owner is specified."
+        },
+        {
+          "id": "fossils-08",
+          "q": "what is an impression",
+          "class": "prose_collision",
+          "expect": "ambiguous",
+          "rationale": "Two pages mention this prose term; the question does not specify which context to select."
+        },
+        {
+          "id": "fossils-09",
+          "q": "How can buried remains get their little internal spaces filled with dissolved substances?",
+          "class": "paraphrase",
+          "expect": "return",
+          "doc": "FOSSIL-0001",
+          "evidence": "During permineralization, dissolved minerals in groundwater fill tiny pores in organic remains. The original material can persist while the added minerals help preserve its structure."
+        },
+        {
+          "id": "fossils-10",
+          "q": "fossil permineralization mineral pores budget",
+          "class": "adjacent_intent",
+          "expect": "not_in_corpus",
+          "rationale": "The first page describes the event or process but provides no budget."
+        },
+        {
+          "id": "fossils-11",
+          "q": "fossil permineralization mineral pores auction",
+          "class": "not_for",
+          "expect": "not_in_corpus",
+          "rationale": "Auction information is absent and explicitly excluded by the first page."
+        },
+        {
+          "id": "fossils-12",
+          "q": "lunar weather forecast",
+          "class": "absent",
+          "expect": "not_in_corpus",
+          "rationale": "No page supplies lunar weather forecasts."
+        },
+        {
+          "id": "fossils-13",
+          "q": "amber burrow comparison",
+          "class": "mixed_page",
+          "expect": "not_in_corpus",
+          "rationale": "No page supplies this comparison; assembling multiple pages would require synthesis."
+        },
+        {
+          "id": "fossils-14",
+          "q": "why was fossil permineralization mineral pores not real",
+          "class": "negation",
+          "expect": "not_in_corpus",
+          "rationale": "The query presupposes the documented event or process was not real; no page supports that premise."
+        },
+        {
+          "id": "fossils-15",
+          "q": "what is it",
+          "class": "stopwords",
+          "expect": "not_in_corpus",
+          "rationale": "The question contains no content words."
+        }
+      ]
+    },
+    {
+      "name": "animals",
+      "title": "Animals",
+      "pages": [
+        {
+          "doc_id": "ANIMAL-0001",
+          "title": "Mammals",
+          "scope": "animal mammal hair milk",
+          "when_to_use": "",
+          "not_for": "auction; price",
+          "body": "Mammals have hair and mammary glands. Milk production is called lactation. These traits help identify mammals even when they live in water or fly.",
+          "sources": [
+            "https://www.amnh.org/exhibitions/permanent/primitive-mammals"
+          ]
+        },
+        {
+          "doc_id": "ANIMAL-0002",
+          "title": "Birds",
+          "scope": "animal bird feather vertebrate",
+          "when_to_use": "",
+          "not_for": "",
+          "body": "Birds are feathered vertebrates. Modern birds belong to the surviving dinosaur lineage. A backbone places them within vertebrates even though their bodies have many flight adaptations.",
+          "sources": [
+            "https://www.amnh.org/dinosaurs"
+          ]
+        },
+        {
+          "doc_id": "ANIMAL-0003",
+          "title": "Insects",
+          "scope": "animal insect six legs",
+          "when_to_use": "",
+          "not_for": "",
+          "body": "Adult insects have six legs and three main body regions. Many insects undergo metamorphosis, changing form during development. Insects are invertebrates rather than animals with a backbone.",
+          "sources": [
+            "https://www.amnh.org/research/invertebrate-zoology"
+          ]
+        },
+        {
+          "doc_id": "ANIMAL-0004",
+          "title": "Amphibians",
+          "scope": "animal amphibian frog development",
+          "when_to_use": "",
+          "not_for": "",
+          "body": "Frogs are amphibians. Many frogs undergo metamorphosis from an aquatic tadpole into an adult. Amphibians are vertebrates, alongside fish, reptiles, birds, and mammals.",
+          "sources": [
+            "https://www.amnh.org/exhibitions/permanent/reptiles-amphibians"
+          ]
+        },
+        {
+          "doc_id": "ANIMAL-0005",
+          "title": "Vertebrate collections",
+          "scope": "animal vertebrate collection fish",
+          "when_to_use": "",
+          "not_for": "",
+          "body": "Vertebrate zoology studies animals with backbones. Museum collections include fishes, amphibians, reptiles, birds, and mammals. Invertebrate collections cover animals outside those groups.",
+          "sources": [
+            "https://www.amnh.org/research/vertebrate-zoology"
+          ]
+        }
+      ],
+      "probes": [
+        {
+          "id": "animals-01",
+          "q": "animal mammal hair milk",
+          "class": "exact_scope",
+          "expect": "return",
+          "doc": "ANIMAL-0001",
+          "evidence": "Mammals have hair and mammary glands. Milk production is called lactation. These traits help identify mammals even when they live in water or fly."
+        },
+        {
+          "id": "animals-02",
+          "q": "animal bird feather vertebrate",
+          "class": "exact_scope",
+          "expect": "return",
+          "doc": "ANIMAL-0002",
+          "evidence": "Birds are feathered vertebrates. Modern birds belong to the surviving dinosaur lineage. A backbone places them within vertebrates even though their bodies have many flight adaptations."
+        },
+        {
+          "id": "animals-03",
+          "q": "animal insect six legs",
+          "class": "exact_scope",
+          "expect": "return",
+          "doc": "ANIMAL-0003",
+          "evidence": "Adult insects have six legs and three main body regions. Many insects undergo metamorphosis, changing form during development. Insects are invertebrates rather than animals with a backbone."
+        },
+        {
+          "id": "animals-04",
+          "q": "animal amphibian frog development",
+          "class": "exact_scope",
+          "expect": "return",
+          "doc": "ANIMAL-0004",
+          "evidence": "Frogs are amphibians. Many frogs undergo metamorphosis from an aquatic tadpole into an adult. Amphibians are vertebrates, alongside fish, reptiles, birds, and mammals."
+        },
+        {
+          "id": "animals-05",
+          "q": "animal vertebrate collection fish",
+          "class": "exact_scope",
+          "expect": "return",
+          "doc": "ANIMAL-0005",
+          "evidence": "Vertebrate zoology studies animals with backbones. Museum collections include fishes, amphibians, reptiles, birds, and mammals. Invertebrate collections cover animals outside those groups."
+        },
+        {
+          "id": "animals-06",
+          "q": "lactation",
+          "class": "prose_only",
+          "expect": "return",
+          "doc": "ANIMAL-0001",
+          "evidence": "Mammals have hair and mammary glands. Milk production is called lactation. These traits help identify mammals even when they live in water or fly."
+        },
+        {
+          "id": "animals-07",
+          "q": "animal",
+          "class": "shared_scope",
+          "expect": "ambiguous",
+          "rationale": "The shared scope word is declared by multiple pages; no single owner is specified."
+        },
+        {
+          "id": "animals-08",
+          "q": "what is metamorphosis",
+          "class": "prose_collision",
+          "expect": "ambiguous",
+          "rationale": "Two pages mention this prose term; the question does not specify which context to select."
+        },
+        {
+          "id": "animals-09",
+          "q": "What features identify creatures that feed their babies with secretions from breast glands?",
+          "class": "paraphrase",
+          "expect": "return",
+          "doc": "ANIMAL-0001",
+          "evidence": "Mammals have hair and mammary glands. Milk production is called lactation. These traits help identify mammals even when they live in water or fly."
+        },
+        {
+          "id": "animals-10",
+          "q": "animal mammal hair milk budget",
+          "class": "adjacent_intent",
+          "expect": "not_in_corpus",
+          "rationale": "The first page describes the event or process but provides no budget."
+        },
+        {
+          "id": "animals-11",
+          "q": "animal mammal hair milk auction",
+          "class": "not_for",
+          "expect": "not_in_corpus",
+          "rationale": "Auction information is absent and explicitly excluded by the first page."
+        },
+        {
+          "id": "animals-12",
+          "q": "lunar weather forecast",
+          "class": "absent",
+          "expect": "not_in_corpus",
+          "rationale": "No page supplies lunar weather forecasts."
+        },
+        {
+          "id": "animals-13",
+          "q": "insect frog comparison",
+          "class": "mixed_page",
+          "expect": "not_in_corpus",
+          "rationale": "No page supplies this comparison; assembling multiple pages would require synthesis."
+        },
+        {
+          "id": "animals-14",
+          "q": "why was animal mammal hair milk not real",
+          "class": "negation",
+          "expect": "not_in_corpus",
+          "rationale": "The query presupposes the documented event or process was not real; no page supports that premise."
+        },
+        {
+          "id": "animals-15",
+          "q": "what is it",
+          "class": "stopwords",
+          "expect": "not_in_corpus",
+          "rationale": "The question contains no content words."
+        }
+      ]
+    },
+    {
+      "name": "dinosaurs",
+      "title": "Dinosaurs",
+      "pages": [
+        {
+          "doc_id": "DINO-0001",
+          "title": "End-Cretaceous extinction",
+          "scope": "dinosaur extinction boundary 66",
+          "when_to_use": "",
+          "not_for": "auction; price",
+          "body": "Non-avian dinosaurs disappeared around 66 million years ago. The Chicxulub asteroid impact is associated with the end-Cretaceous mass extinction. Birds survived, so dinosaurs did not vanish entirely.",
+          "sources": [
+            "https://www.amnh.org/dinosaurs"
+          ]
+        },
+        {
+          "doc_id": "DINO-0002",
+          "title": "Bird ancestry",
+          "scope": "dinosaur bird ancestry evolution",
+          "when_to_use": "",
+          "not_for": "",
+          "body": "Birds evolved within the theropod dinosaur lineage. Living birds are therefore dinosaurs. Shared skeletal features and fossil discoveries connect birds to extinct relatives.",
+          "sources": [
+            "https://www.amnh.org/dinosaurs"
+          ]
+        },
+        {
+          "doc_id": "DINO-0003",
+          "title": "Tyrannosaurus rex",
+          "scope": "dinosaur tyrannosaurus rex anatomy",
+          "when_to_use": "",
+          "not_for": "",
+          "body": "Tyrannosaurus rex was a large theropod with powerful jaws and teeth. The museum skeleton documents its anatomy. This page does not estimate auction values or ownership rights.",
+          "sources": [
+            "https://www.amnh.org/exhibitions/permanent/saurischian-dinosaurs/tyrannosaurus-rex"
+          ]
+        },
+        {
+          "doc_id": "DINO-0004",
+          "title": "Sauropods",
+          "scope": "dinosaur sauropod neck herbivore",
+          "when_to_use": "",
+          "not_for": "",
+          "body": "Sauropods included long-necked, long-tailed herbivores such as Apatosaurus. They walked on four limbs. Their body plan differs from the two-legged forms of many meat-eating dinosaurs.",
+          "sources": [
+            "https://www.amnh.org/dinosaurs/types-of-dinosaurs"
+          ]
+        },
+        {
+          "doc_id": "DINO-0005",
+          "title": "Pterosaur boundary",
+          "scope": "dinosaur pterosaur classification boundary",
+          "when_to_use": "",
+          "not_for": "",
+          "body": "Pterosaurs were flying reptiles related to dinosaurs but outside the dinosaur group. Their anatomy differs from the diagnostic features of dinosaurs. Sharing an ancient habitat does not make every reptile a dinosaur.",
+          "sources": [
+            "https://www.amnh.org/explore/news-blogs/what-is-a-pterosaur"
+          ]
+        }
+      ],
+      "probes": [
+        {
+          "id": "dinosaurs-01",
+          "q": "dinosaur extinction boundary 66",
+          "class": "exact_scope",
+          "expect": "return",
+          "doc": "DINO-0001",
+          "evidence": "Non-avian dinosaurs disappeared around 66 million years ago. The Chicxulub asteroid impact is associated with the end-Cretaceous mass extinction. Birds survived, so dinosaurs did not vanish entirely."
+        },
+        {
+          "id": "dinosaurs-02",
+          "q": "dinosaur bird ancestry evolution",
+          "class": "exact_scope",
+          "expect": "return",
+          "doc": "DINO-0002",
+          "evidence": "Birds evolved within the theropod dinosaur lineage. Living birds are therefore dinosaurs. Shared skeletal features and fossil discoveries connect birds to extinct relatives."
+        },
+        {
+          "id": "dinosaurs-03",
+          "q": "dinosaur tyrannosaurus rex anatomy",
+          "class": "exact_scope",
+          "expect": "return",
+          "doc": "DINO-0003",
+          "evidence": "Tyrannosaurus rex was a large theropod with powerful jaws and teeth. The museum skeleton documents its anatomy. This page does not estimate auction values or ownership rights."
+        },
+        {
+          "id": "dinosaurs-04",
+          "q": "dinosaur sauropod neck herbivore",
+          "class": "exact_scope",
+          "expect": "return",
+          "doc": "DINO-0004",
+          "evidence": "Sauropods included long-necked, long-tailed herbivores such as Apatosaurus. They walked on four limbs. Their body plan differs from the two-legged forms of many meat-eating dinosaurs."
+        },
+        {
+          "id": "dinosaurs-05",
+          "q": "dinosaur pterosaur classification boundary",
+          "class": "exact_scope",
+          "expect": "return",
+          "doc": "DINO-0005",
+          "evidence": "Pterosaurs were flying reptiles related to dinosaurs but outside the dinosaur group. Their anatomy differs from the diagnostic features of dinosaurs. Sharing an ancient habitat does not make every reptile a dinosaur."
+        },
+        {
+          "id": "dinosaurs-06",
+          "q": "Chicxulub",
+          "class": "prose_only",
+          "expect": "return",
+          "doc": "DINO-0001",
+          "evidence": "Non-avian dinosaurs disappeared around 66 million years ago. The Chicxulub asteroid impact is associated with the end-Cretaceous mass extinction. Birds survived, so dinosaurs did not vanish entirely."
+        },
+        {
+          "id": "dinosaurs-07",
+          "q": "dinosaur",
+          "class": "shared_scope",
+          "expect": "ambiguous",
+          "rationale": "The shared scope word is declared by multiple pages; no single owner is specified."
+        },
+        {
+          "id": "dinosaurs-08",
+          "q": "what is a theropod",
+          "class": "prose_collision",
+          "expect": "ambiguous",
+          "rationale": "Two pages mention this prose term; the question does not specify which context to select."
+        },
+        {
+          "id": "dinosaurs-09",
+          "q": "When did the giant land reptiles apart from their feathered descendants die out?",
+          "class": "paraphrase",
+          "expect": "return",
+          "doc": "DINO-0001",
+          "evidence": "Non-avian dinosaurs disappeared around 66 million years ago. The Chicxulub asteroid impact is associated with the end-Cretaceous mass extinction. Birds survived, so dinosaurs did not vanish entirely."
+        },
+        {
+          "id": "dinosaurs-10",
+          "q": "dinosaur extinction boundary 66 budget",
+          "class": "adjacent_intent",
+          "expect": "not_in_corpus",
+          "rationale": "The first page describes the event or process but provides no budget."
+        },
+        {
+          "id": "dinosaurs-11",
+          "q": "dinosaur extinction boundary 66 auction",
+          "class": "not_for",
+          "expect": "not_in_corpus",
+          "rationale": "Auction information is absent and explicitly excluded by the first page."
+        },
+        {
+          "id": "dinosaurs-12",
+          "q": "lunar weather forecast",
+          "class": "absent",
+          "expect": "not_in_corpus",
+          "rationale": "No page supplies lunar weather forecasts."
+        },
+        {
+          "id": "dinosaurs-13",
+          "q": "sauropod tyrannosaurus comparison",
+          "class": "mixed_page",
+          "expect": "not_in_corpus",
+          "rationale": "No page supplies this comparison; assembling multiple pages would require synthesis."
+        },
+        {
+          "id": "dinosaurs-14",
+          "q": "why was dinosaur extinction boundary 66 not real",
+          "class": "negation",
+          "expect": "not_in_corpus",
+          "rationale": "The query presupposes the documented event or process was not real; no page supports that premise."
+        },
+        {
+          "id": "dinosaurs-15",
+          "q": "what is it",
+          "class": "stopwords",
+          "expect": "not_in_corpus",
+          "rationale": "The question contains no content words."
+        }
+      ]
+    },
+    {
+      "name": "openai-history",
+      "title": "OpenAI history",
+      "pages": [
+        {
+          "doc_id": "OPENAI-0001",
+          "title": "OpenAI introduction, 2015",
+          "scope": "openai introduction founding 2015",
+          "when_to_use": "",
+          "not_for": "auction; price",
+          "body": "OpenAI announced its formation on December 11, 2015. The announcement described a nonprofit artificial intelligence research organization and its goal of benefiting humanity. This records the historical announcement.",
+          "sources": [
+            "https://openai.com/index/introducing-openai/"
+          ]
+        },
+        {
+          "doc_id": "OPENAI-0002",
+          "title": "GPT-2, 2019",
+          "scope": "openai gpt2 announcement 2019",
+          "when_to_use": "",
+          "not_for": "",
+          "body": "OpenAI announced GPT-2 in February 2019. The transformer language model predicted subsequent words. Its initial staged release reflected concerns about misuse of generated text.",
+          "sources": [
+            "https://openai.com/index/better-language-models/"
+          ]
+        },
+        {
+          "doc_id": "OPENAI-0003",
+          "title": "GPT-3, 2020",
+          "scope": "openai gpt3 research 2020",
+          "when_to_use": "",
+          "not_for": "",
+          "body": "The 2020 GPT-3 paper studied a transformer language model with 175 billion parameters. It evaluated few-shot tasks using examples supplied in context rather than task-specific fine-tuning.",
+          "sources": [
+            "https://openai.com/index/language-models-are-few-shot-learners/"
+          ]
+        },
+        {
+          "doc_id": "OPENAI-0004",
+          "title": "DALL-E, 2021",
+          "scope": "openai dalle images announcement 2021",
+          "when_to_use": "",
+          "not_for": "",
+          "body": "OpenAI introduced DALL-E in January 2021. The model generated images from descriptions, connecting natural-language prompts with visual synthesis. This page describes that original research announcement.",
+          "sources": [
+            "https://openai.com/index/dall-e/"
+          ]
+        },
+        {
+          "doc_id": "OPENAI-0005",
+          "title": "ChatGPT, 2022",
+          "scope": "openai chatgpt launch 2022",
+          "when_to_use": "",
+          "not_for": "",
+          "body": "OpenAI introduced ChatGPT on November 30, 2022 as a conversational research preview. The announcement described dialogue, follow-up questions, and learning from user feedback.",
+          "sources": [
+            "https://openai.com/index/chatgpt/"
+          ]
+        }
+      ],
+      "probes": [
+        {
+          "id": "openai-history-01",
+          "q": "openai introduction founding 2015",
+          "class": "exact_scope",
+          "expect": "return",
+          "doc": "OPENAI-0001",
+          "evidence": "OpenAI announced its formation on December 11, 2015. The announcement described a nonprofit artificial intelligence research organization and its goal of benefiting humanity. This records the historical announcement."
+        },
+        {
+          "id": "openai-history-02",
+          "q": "openai gpt2 announcement 2019",
+          "class": "exact_scope",
+          "expect": "return",
+          "doc": "OPENAI-0002",
+          "evidence": "OpenAI announced GPT-2 in February 2019. The transformer language model predicted subsequent words. Its initial staged release reflected concerns about misuse of generated text."
+        },
+        {
+          "id": "openai-history-03",
+          "q": "openai gpt3 research 2020",
+          "class": "exact_scope",
+          "expect": "return",
+          "doc": "OPENAI-0003",
+          "evidence": "The 2020 GPT-3 paper studied a transformer language model with 175 billion parameters. It evaluated few-shot tasks using examples supplied in context rather than task-specific fine-tuning."
+        },
+        {
+          "id": "openai-history-04",
+          "q": "openai dalle images announcement 2021",
+          "class": "exact_scope",
+          "expect": "return",
+          "doc": "OPENAI-0004",
+          "evidence": "OpenAI introduced DALL-E in January 2021. The model generated images from descriptions, connecting natural-language prompts with visual synthesis. This page describes that original research announcement."
+        },
+        {
+          "id": "openai-history-05",
+          "q": "openai chatgpt launch 2022",
+          "class": "exact_scope",
+          "expect": "return",
+          "doc": "OPENAI-0005",
+          "evidence": "OpenAI introduced ChatGPT on November 30, 2022 as a conversational research preview. The announcement described dialogue, follow-up questions, and learning from user feedback."
+        },
+        {
+          "id": "openai-history-06",
+          "q": "nonprofit",
+          "class": "prose_only",
+          "expect": "return",
+          "doc": "OPENAI-0001",
+          "evidence": "OpenAI announced its formation on December 11, 2015. The announcement described a nonprofit artificial intelligence research organization and its goal of benefiting humanity. This records the historical announcement."
+        },
+        {
+          "id": "openai-history-07",
+          "q": "openai",
+          "class": "shared_scope",
+          "expect": "ambiguous",
+          "rationale": "The shared scope word is declared by multiple pages; no single owner is specified."
+        },
+        {
+          "id": "openai-history-08",
+          "q": "what is a transformer",
+          "class": "prose_collision",
+          "expect": "ambiguous",
+          "rationale": "Two pages mention this prose term; the question does not specify which context to select."
+        },
+        {
+          "id": "openai-history-09",
+          "q": "On what date did the organization first announce that it had been established?",
+          "class": "paraphrase",
+          "expect": "return",
+          "doc": "OPENAI-0001",
+          "evidence": "OpenAI announced its formation on December 11, 2015. The announcement described a nonprofit artificial intelligence research organization and its goal of benefiting humanity. This records the historical announcement."
+        },
+        {
+          "id": "openai-history-10",
+          "q": "openai introduction founding 2015 budget",
+          "class": "adjacent_intent",
+          "expect": "not_in_corpus",
+          "rationale": "The first page describes the event or process but provides no budget."
+        },
+        {
+          "id": "openai-history-11",
+          "q": "openai introduction founding 2015 auction",
+          "class": "not_for",
+          "expect": "not_in_corpus",
+          "rationale": "Auction information is absent and explicitly excluded by the first page."
+        },
+        {
+          "id": "openai-history-12",
+          "q": "lunar weather forecast",
+          "class": "absent",
+          "expect": "not_in_corpus",
+          "rationale": "No page supplies lunar weather forecasts."
+        },
+        {
+          "id": "openai-history-13",
+          "q": "gpt2 dalle comparison",
+          "class": "mixed_page",
+          "expect": "not_in_corpus",
+          "rationale": "No page supplies this comparison; assembling multiple pages would require synthesis."
+        },
+        {
+          "id": "openai-history-14",
+          "q": "why was openai introduction founding 2015 not real",
+          "class": "negation",
+          "expect": "not_in_corpus",
+          "rationale": "The query presupposes the documented event or process was not real; no page supports that premise."
+        },
+        {
+          "id": "openai-history-15",
+          "q": "what is it",
+          "class": "stopwords",
+          "expect": "not_in_corpus",
+          "rationale": "The question contains no content words."
+        }
+      ]
+    },
+    {
+      "name": "computing-history",
+      "title": "History of computing",
+      "pages": [
+        {
+          "doc_id": "COMP-0001",
+          "title": "ENIAC, 1946",
+          "scope": "computer eniac unveiling 1946",
+          "when_to_use": "",
+          "not_for": "auction; price",
+          "body": "ENIAC was publicly unveiled in 1946. John Mauchly and J. Presper Eckert built the electronic computing system at the University of Pennsylvania. It used vacuum tubes and programming through wiring and switches.",
+          "sources": [
+            "https://www.computerhistory.org/timeline/1946/"
+          ]
+        },
+        {
+          "doc_id": "COMP-0002",
+          "title": "Transistor, 1947",
+          "scope": "computer transistor invention 1947",
+          "when_to_use": "",
+          "not_for": "",
+          "body": "The point-contact transistor was invented at Bell Labs in 1947. This semiconductor device helped enable smaller electronic systems compared with vacuum-tube equipment.",
+          "sources": [
+            "https://www.computerhistory.org/siliconengine/invention-of-the-point-contact-transistor/"
+          ]
+        },
+        {
+          "doc_id": "COMP-0003",
+          "title": "Microprocessor, 1971",
+          "scope": "computer microprocessor intel 4004 1971",
+          "when_to_use": "",
+          "not_for": "",
+          "body": "Intel introduced the 4004 microprocessor in 1971. A microprocessor integrates processor functions on a semiconductor chip. This page concerns that historical introduction rather than current chip specifications.",
+          "sources": [
+            "https://www.computerhistory.org/timeline/1971/"
+          ]
+        },
+        {
+          "doc_id": "COMP-0004",
+          "title": "IBM PC, 1981",
+          "scope": "computer ibm pc introduction 1981",
+          "when_to_use": "",
+          "not_for": "",
+          "body": "IBM introduced its Personal Computer in 1981. The machine became an important part of personal computing history. This page does not describe every earlier personal computer.",
+          "sources": [
+            "https://www.computerhistory.org/timeline/1981/"
+          ]
+        },
+        {
+          "doc_id": "COMP-0005",
+          "title": "World Wide Web, 1989",
+          "scope": "computer web berners lee cern 1989",
+          "when_to_use": "",
+          "not_for": "",
+          "body": "Tim Berners-Lee invented the World Wide Web at CERN in 1989. The Web links information through hypertext. The Web is a service using the Internet, not a synonym for the Internet itself.",
+          "sources": [
+            "https://home.cern/science/computing/the-birth-of-the-web/"
+          ]
+        }
+      ],
+      "probes": [
+        {
+          "id": "computing-history-01",
+          "q": "computer eniac unveiling 1946",
+          "class": "exact_scope",
+          "expect": "return",
+          "doc": "COMP-0001",
+          "evidence": "ENIAC was publicly unveiled in 1946. John Mauchly and J. Presper Eckert built the electronic computing system at the University of Pennsylvania. It used vacuum tubes and programming through wiring and switches."
+        },
+        {
+          "id": "computing-history-02",
+          "q": "computer transistor invention 1947",
+          "class": "exact_scope",
+          "expect": "return",
+          "doc": "COMP-0002",
+          "evidence": "The point-contact transistor was invented at Bell Labs in 1947. This semiconductor device helped enable smaller electronic systems compared with vacuum-tube equipment."
+        },
+        {
+          "id": "computing-history-03",
+          "q": "computer microprocessor intel 4004 1971",
+          "class": "exact_scope",
+          "expect": "return",
+          "doc": "COMP-0003",
+          "evidence": "Intel introduced the 4004 microprocessor in 1971. A microprocessor integrates processor functions on a semiconductor chip. This page concerns that historical introduction rather than current chip specifications."
+        },
+        {
+          "id": "computing-history-04",
+          "q": "computer ibm pc introduction 1981",
+          "class": "exact_scope",
+          "expect": "return",
+          "doc": "COMP-0004",
+          "evidence": "IBM introduced its Personal Computer in 1981. The machine became an important part of personal computing history. This page does not describe every earlier personal computer."
+        },
+        {
+          "id": "computing-history-05",
+          "q": "computer web berners lee cern 1989",
+          "class": "exact_scope",
+          "expect": "return",
+          "doc": "COMP-0005",
+          "evidence": "Tim Berners-Lee invented the World Wide Web at CERN in 1989. The Web links information through hypertext. The Web is a service using the Internet, not a synonym for the Internet itself."
+        },
+        {
+          "id": "computing-history-06",
+          "q": "Eckert",
+          "class": "prose_only",
+          "expect": "return",
+          "doc": "COMP-0001",
+          "evidence": "ENIAC was publicly unveiled in 1946. John Mauchly and J. Presper Eckert built the electronic computing system at the University of Pennsylvania. It used vacuum tubes and programming through wiring and switches."
+        },
+        {
+          "id": "computing-history-07",
+          "q": "computer",
+          "class": "shared_scope",
+          "expect": "ambiguous",
+          "rationale": "The shared scope word is declared by multiple pages; no single owner is specified."
+        },
+        {
+          "id": "computing-history-08",
+          "q": "what is a semiconductor",
+          "class": "prose_collision",
+          "expect": "ambiguous",
+          "rationale": "Two pages mention this prose term; the question does not specify which context to select."
+        },
+        {
+          "id": "computing-history-09",
+          "q": "In what year was the huge electronic calculating machine shown to the public?",
+          "class": "paraphrase",
+          "expect": "return",
+          "doc": "COMP-0001",
+          "evidence": "ENIAC was publicly unveiled in 1946. John Mauchly and J. Presper Eckert built the electronic computing system at the University of Pennsylvania. It used vacuum tubes and programming through wiring and switches."
+        },
+        {
+          "id": "computing-history-10",
+          "q": "computer eniac unveiling 1946 budget",
+          "class": "adjacent_intent",
+          "expect": "not_in_corpus",
+          "rationale": "The first page describes the event or process but provides no budget."
+        },
+        {
+          "id": "computing-history-11",
+          "q": "computer eniac unveiling 1946 auction",
+          "class": "not_for",
+          "expect": "not_in_corpus",
+          "rationale": "Auction information is absent and explicitly excluded by the first page."
+        },
+        {
+          "id": "computing-history-12",
+          "q": "lunar weather forecast",
+          "class": "absent",
+          "expect": "not_in_corpus",
+          "rationale": "No page supplies lunar weather forecasts."
+        },
+        {
+          "id": "computing-history-13",
+          "q": "microprocessor web comparison",
+          "class": "mixed_page",
+          "expect": "not_in_corpus",
+          "rationale": "No page supplies this comparison; assembling multiple pages would require synthesis."
+        },
+        {
+          "id": "computing-history-14",
+          "q": "why was computer eniac unveiling 1946 not real",
+          "class": "negation",
+          "expect": "not_in_corpus",
+          "rationale": "The query presupposes the documented event or process was not real; no page supports that premise."
+        },
+        {
+          "id": "computing-history-15",
+          "q": "what is it",
+          "class": "stopwords",
+          "expect": "not_in_corpus",
+          "rationale": "The question contains no content words."
+        }
+      ]
+    }
+  ]
+}

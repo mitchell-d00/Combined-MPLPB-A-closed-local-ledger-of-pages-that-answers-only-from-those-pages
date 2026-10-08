@@ -1,0 +1,116 @@
+{
+  "probes": [
+    {
+      "id": "openai-history-01",
+      "q": "openai introduction founding 2015",
+      "class": "exact_scope",
+      "expect": "return",
+      "doc": "OPENAI-0001",
+      "evidence": "OpenAI announced its formation on December 11, 2015. The announcement described a nonprofit artificial intelligence research organization and its goal of benefiting humanity. This records the historical announcement."
+    },
+    {
+      "id": "openai-history-02",
+      "q": "openai gpt2 announcement 2019",
+      "class": "exact_scope",
+      "expect": "return",
+      "doc": "OPENAI-0002",
+      "evidence": "OpenAI announced GPT-2 in February 2019. The transformer language model predicted subsequent words. Its initial staged release reflected concerns about misuse of generated text."
+    },
+    {
+      "id": "openai-history-03",
+      "q": "openai gpt3 research 2020",
+      "class": "exact_scope",
+      "expect": "return",
+      "doc": "OPENAI-0003",
+      "evidence": "The 2020 GPT-3 paper studied a transformer language model with 175 billion parameters. It evaluated few-shot tasks using examples supplied in context rather than task-specific fine-tuning."
+    },
+    {
+      "id": "openai-history-04",
+      "q": "openai dalle images announcement 2021",
+      "class": "exact_scope",
+      "expect": "return",
+      "doc": "OPENAI-0004",
+      "evidence": "OpenAI introduced DALL-E in January 2021. The model generated images from descriptions, connecting natural-language prompts with visual synthesis. This page describes that original research announcement."
+    },
+    {
+      "id": "openai-history-05",
+      "q": "openai chatgpt launch 2022",
+      "class": "exact_scope",
+      "expect": "return",
+      "doc": "OPENAI-0005",
+      "evidence": "OpenAI introduced ChatGPT on November 30, 2022 as a conversational research preview. The announcement described dialogue, follow-up questions, and learning from user feedback."
+    },
+    {
+      "id": "openai-history-06",
+      "q": "nonprofit",
+      "class": "prose_only",
+      "expect": "return",
+      "doc": "OPENAI-0001",
+      "evidence": "OpenAI announced its formation on December 11, 2015. The announcement described a nonprofit artificial intelligence research organization and its goal of benefiting humanity. This records the historical announcement."
+    },
+    {
+      "id": "openai-history-07",
+      "q": "openai",
+      "class": "shared_scope",
+      "expect": "ambiguous",
+      "rationale": "The shared scope word is declared by multiple pages; no single owner is specified."
+    },
+    {
+      "id": "openai-history-08",
+      "q": "what is a transformer",
+      "class": "prose_collision",
+      "expect": "ambiguous",
+      "rationale": "Two pages mention this prose term; the question does not specify which context to select."
+    },
+    {
+      "id": "openai-history-09",
+      "q": "On what date did the organization first announce that it had been established?",
+      "class": "paraphrase",
+      "expect": "return",
+      "doc": "OPENAI-0001",
+      "evidence": "OpenAI announced its formation on December 11, 2015. The announcement described a nonprofit artificial intelligence research organization and its goal of benefiting humanity. This records the historical announcement."
+    },
+    {
+      "id": "openai-history-10",
+      "q": "openai introduction founding 2015 budget",
+      "class": "adjacent_intent",
+      "expect": "not_in_corpus",
+      "rationale": "The first page describes the event or process but provides no budget."
+    },
+    {
+      "id": "openai-history-11",
+      "q": "openai introduction founding 2015 auction",
+      "class": "not_for",
+      "expect": "not_in_corpus",
+      "rationale": "Auction information is absent and explicitly excluded by the first page."
+    },
+    {
+      "id": "openai-history-12",
+      "q": "lunar weather forecast",
+      "class": "absent",
+      "expect": "not_in_corpus",
+      "rationale": "No page supplies lunar weather forecasts."
+    },
+    {
+      "id": "openai-history-13",
+      "q": "gpt2 dalle comparison",
+      "class": "mixed_page",
+      "expect": "not_in_corpus",
+      "rationale": "No page supplies this comparison; assembling multiple pages would require synthesis."
+    },
+    {
+      "id": "openai-history-14",
+      "q": "why was openai introduction founding 2015 not real",
+      "class": "negation",
+      "expect": "not_in_corpus",
+      "rationale": "The query presupposes the documented event or process was not real; no page supports that premise."
+    },
+    {
+      "id": "openai-history-15",
+      "q": "what is it",
+      "class": "stopwords",
+      "expect": "not_in_corpus",
+      "rationale": "The question contains no content words."
+    }
+  ]
+}

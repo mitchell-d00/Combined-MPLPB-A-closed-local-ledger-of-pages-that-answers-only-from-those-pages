@@ -1,0 +1,800 @@
+MPLPB and the Cost of Visibility
+
+Comparable Machine-Recoverable Continuity at Consumer Cost
+
+Mitchell D. McPhetridge Independent Researcher
+
+------------------------------------------------------------------------------
+
+  -----------------------------------------------------------------------------
+  Field                                  Value
+  -------------------------------------- --------------------------------------
+  Document ID                            MPLPB-COST-012
+
+  Category                               Specification / Economic Analysis
+
+  Subcategory                            Knowledge Infrastructure
+
+  Updated                                2026-08-26T00:00Z v2
+
+  Owner                                  Mitchell D. McPhetridge, Independent
+                                         Researcher
+
+  Status                                 current
+
+  Scope                                  The cost structure of
+                                         machine-recoverable knowledge; what
+                                         MPLPB supplies relative to API-based
+                                         RAG and protocol-based context
+                                         delivery; the consumer-hardware
+                                         constraint under which the public
+                                         corpus was built; where the resulting
+                                         architecture is and is not an
+                                         appropriate deployment choice
+
+  When to use                            Deciding whether a knowledge corpus
+                                         needs a retrieval stack; scoping
+                                         AI-visible knowledge work at an
+                                         individual, independent, or small-lab
+                                         budget; evaluating what a
+                                         structure-first corpus does and does
+                                         not supply
+
+  Supersedes                             MPLPB and the Cost of Visibility: Why
+                                         Machine-Recoverable Knowledge Does Not
+                                         Require Expensive Retrieval
+                                         Infrastructure (2026, no identifier
+                                         assigned). Supersession recorded by
+                                         title; the prior draft carried no
+                                         header block.
+  -----------------------------------------------------------------------------
+
+Related. Smart Local MPLPB: A Retrieval-Bounded Front End for a Local Web
+(MPLPB-SMART-011 v1 · local · current) — the reference reader. MPLPB as a
+Local Web (MPLPB-LOCAL-008 v4) — the corpus specification. Multi-Platform
+Linked Public Building for Stateless AI Continuity (v3) — the public framework
+and the Question A/B/C separation. MPLPB as a Public Experiment —
+Multi-Apparatus Edition (MPLPB-TEST-002 v2.0) — the replication protocol and
+trial ledger.
+
+Implementations. The Local Mirror: MPLPB as a Self-Contained Offline Site —
+reference implementation of MPLPB-LOCAL-008 v4.
+github.com/mitchell-d00/-The-Local-Mirror-MPLPB-as-a-Self-Contained-Offline-Site
+Smart Local MPLPB: A Retrieval-Bounded Front End for a Local Web — reference
+implementation of MPLPB-SMART-011 v1; 52 tests, standard library only, no
+network.
+github.com/mitchell-d00/SMART-LOCAL-MPLPB-A-Retrieval-Bounded-Front-End-for-a-Local-Web
+
+Back to. Main Index > Specification / Architecture Sub-Index
+
+------------------------------------------------------------------------------
+
+Abstract
+
+Making a body of knowledge available to AI systems is commonly approached as
+an infrastructure problem: ingestion pipelines, chunking, embeddings, a vector
+store, a retrieval and reranking layer, an API surface, and the operational
+work of keeping all of it running. These components solve real problems and
+are the right answer in many deployments, particularly where privacy,
+determinism, freshness guarantees, access control, or latency are binding
+requirements.
+
+This paper describes a different allocation of the same work, and states what
+it costs.
+
+Multi-Platform Linked Public Building (MPLPB) moves a substantial portion of
+the retrieval problem upstream into the information architecture of the corpus
+itself. Documents are authored as complete artifacts carrying identity, scope,
+status, version, provenance, relationships, and navigation. The public
+implementation uses ordinary web primitives and ordinary public indexing. The
+local implementation, Smart Local MPLPB, uses plain HTML and standard-library
+Python with no network and no dependencies.
+
+The claim is a comparability claim, not a ranking claim. For a defined class
+of use — a bounded corpus that a stateless retrieval-capable system must be
+able to find, orient within, and reconstruct accurately — a structure-first
+corpus supplies the functional capabilities that an API-based retrieval stack
+supplies for the same class: correct document identity,
+current-versus-superseded status, declared scope, provenance that travels with
+retrieved material, and relationship structure a reasoner can navigate. It
+supplies them at consumer cost.
+
+The public corpus described here was built under a declared constraint:
+consumer hardware and consumer AI front ends only. No vector database, no
+embedding pipeline, no paid API, no commercial SEO tooling, no author-operated
+retrieval service. That constraint is the paper’s central evidentiary asset,
+because it is auditable — any reader can check whether the corpus depends on
+infrastructure the author is not disclosing.
+
+What the demonstration measures is drift: how often the mechanics come back
+recovered as written versus blended, inverted, or invented. Drift is
+measurable without a control arm, and it is the quantity the framework’s own
+falsifier is written against. What the demonstration does not settle is
+whether the structure outperforms flat storage of the same files; that
+ablation is specified, unrun, and named as such in §12.
+
+------------------------------------------------------------------------------
+
+1. Introduction
+
+Making information visible to machines is usually treated as a problem of
+adding machinery.
+
+A conventional path is familiar:
+
+  documents → ingestion → chunking → embeddings → vector store → retrieval /
+  reranking → model
+
+Every component in that chain addresses a legitimate engineering problem.
+Documents are messy. Relevant material is buried in long prose. Versions
+conflict. Relationships are implicit. Query wording does not match document
+wording. Retrieved fragments lose provenance. So the retrieval layer must
+infer, reconstruct, rank, and package before a model can reason over anything.
+
+There is a second place that work can be done.
+
+Rather than increasing the sophistication of the machinery surrounding poorly
+structured documents, increase the machine-legibility of the documents
+themselves.
+
+MPLPB takes this route. The corpus is not an undifferentiated pile of text
+awaiting an intelligent indexer. It is a structured environment of complete
+artifacts, each declaring what it is, what it covers, when it applies, whether
+it is current, what it supersedes, and what it relates to.
+
+The retrieval problem changes accordingly. The indexer is no longer solely
+responsible for discovering the corpus’s conceptual architecture, because much
+of that architecture has been published. The model is no longer solely
+responsible for inferring whether a fragment is current, local, superseded, or
+authoritative within scope, because those distinctions travel with the
+artifact.
+
+This paper examines the economic consequence, and states the claim in the form
+that can be checked:
+
+  For a bounded corpus that must be discoverable and reconstructible by
+  arbitrary retrieval-capable systems, a structure-first architecture delivers
+  comparable functional capability to an API-based retrieval stack, at a cost
+  reachable by an individual or a small lab, under a declared
+  no-paid-infrastructure constraint.
+
+The rest of the paper specifies what “comparable functional capability”
+covers, what it excludes, what the constraint was, and what remains untested.
+
+------------------------------------------------------------------------------
+
+2. Comparable Capability, Declared Scope
+
+The unproductive version of this argument is a ranking argument — that
+structure-first is better than RAG, or that RAG is better than
+structure-first. Both formulations are unanswerable without a workload, and
+both invite an evaluation the architecture was never built to win.
+
+The productive version borrows the framework’s own precedence rule. Authority
+is local to the question and decided by declared scope. Two systems can be
+genuinely comparable across a defined capability set while differing entirely
+outside it, and the honest move is to declare the set.
+
+2.1 What both supply
+
+For a bounded corpus that a stateless system must find, orient within, and
+reconstruct:
+
+  -------------------------------------------------------------------------------------
+  Capability                API-based retrieval stack MPLPB
+  ------------------------- ------------------------- ---------------------------------
+  Locate relevant material  Embedding similarity plus Declared scope, trigger
+  for a query               reranking                 conditions, and ordinary lexical
+                                                      indexing
+
+  Identify what a retrieved Chunk metadata assigned   Document ID and category declared
+  unit is                   at ingestion              in the artifact
+
+  Distinguish current from  Index freshness policy,   status and supersedes fields,
+  superseded                re-ingestion              enforced by validator
+
+  Attach provenance to      Source tracking through   Provenance as fields of the hit
+  retrieved text            the pipeline              object, not a render-time
+                                                      addition
+
+  Express relationships     Knowledge graph or link   Typed links and indexes authored
+  between units             table built at ingestion  in the corpus
+
+  Refuse rather than        Confidence thresholds,    answer_without_retrieval: false
+  confabulate               guardrails                in every shipped mode
+
+  Route between adjacent    Namespace or collection   Declared-scope precedence with an
+  domains                   filters                   explicit ambiguous return
+  -------------------------------------------------------------------------------------
+
+The capabilities are the same capabilities. The difference is where in the
+pipeline they are produced, and therefore who pays for them.
+
+2.2 What MPLPB does not supply
+
+The following are properties of a private retrieval stack that the public
+MPLPB implementation does not attempt to provide, and a corpus requiring any
+of them should not use the public form:
+
+-   Privacy. Public MPLPB is public. This is not a limitation to be worked
+    around; it is the substrate. Private corpora use the local implementation,
+    which supplies structure without publication.
+-   Deterministic retrieval. Public search ranking varies by vendor, day,
+    region, and index state. A stack you operate does not.
+-   Freshness guarantees. Public indexing latency is outside the author’s
+    control. Re-ingestion into a stack you own is not.
+-   Access control. The mplpb:protected flag filters retrieval; it is not
+    authentication. Smart Local MPLPB states this explicitly and declines to
+    implement an inference-based gate, on the grounds that dressing a stated
+    caveat as a mechanism is worse than the caveat.
+-   Low-latency retrieval over large specialized datasets. Not attempted, not
+    claimed.
+
+Naming these is not a concession. It is the same discipline the framework
+applies to documents, applied to itself: a system that declares its scope can
+be routed to correctly, and a system that does not will eventually answer a
+question it had no business answering.
+
+2.3 On protocol-based context delivery
+
+Model Context Protocol and similar interfaces are frequently raised as the
+alternative, and the comparison is a category error worth naming rather than
+arguing.
+
+MCP is a transport and interface layer: a standard way for a model to reach a
+data source or tool. MPLPB is a corpus layer: how the material on the other
+end is organized so that whatever reaches it can use it. They occupy different
+positions in the same stack and compose cleanly. A well-formed MPLPB corpus is
+a good thing to expose over MCP, and exposing a badly structured corpus over
+MCP does not make it better structured.
+
+The relevant observation is that a corpus authored this way is reachable by
+whatever arrives: a search-capable assistant, an enterprise search system, a
+conventional search engine followed by a model, a local application, or a
+protocol client. The corpus does not need to know which. That is the
+portability property, and it is the reason the persistence layer is
+deliberately uninteresting technology.
+
+------------------------------------------------------------------------------
+
+3. The Constraint
+
+The public MPLPB corpus was built under a rule set before the work began, and
+maintained since:
+
+1.  Consumer hardware only. No server, no rented compute, no self-hosted
+    service.
+2.  Consumer AI front ends only. The retrieval and reasoning layer is whatever
+    a member of the public can open in a browser or app. No API keys, no
+    programmatic access, no fine-tuning, no paid model tiers used as
+    infrastructure.
+3.  No retrieval infrastructure operated by the author. No vector database, no
+    embedding pipeline, no ingestion service, no hosted RAG.
+4.  No commercial visibility tooling. No SEO service, no paid placement, no
+    metadata consultancy, no backlink purchasing.
+5.  Ordinary publication surfaces only. Public platforms available to anyone,
+    using their default features.
+
+This constraint is the paper’s principal evidentiary asset, and it is worth
+being precise about why.
+
+An economic claim about a corpus is only as good as the disclosure of what
+supports it. If recoverability turned out to rest on infrastructure the author
+operates and did not mention, the claim would be hollow. The constraint makes
+that auditable in the direction that matters: a reader can check whether the
+corpus is reachable through ordinary public means, and can check whether
+anything in the observed behaviour requires an explanation the constraint
+forbids.
+
+The residual costs are the ones the constraint permits: the author’s time,
+consumer devices already owned, and free-tier accounts on ordinary platforms.
+The dominant term is authoring effort — the structural work described in §5 —
+which is the point of the whole architecture.
+
+Both reference implementations are published as public repositories under MIT
+(code) and CC BY 4.0 (documentation). This matters for the constraint
+specifically: a reader does not have to accept the disclosure on the author’s
+word. The local implementation can be cloned and run, and its dependency
+surface inspected directly — Python 3.9 or newer, standard library only, no
+package installation, no server, no database, no network call at any point in
+execution. A claim about what infrastructure a system does not require is best
+supported by a system that can be executed and found not to require it.
+
+3.1 What the constraint does not eliminate
+
+The public indexers are not free; they are simply not paid for by the author.
+Google, Bing, and the assistants built on them represent enormous
+infrastructure sitting outside the author’s system boundary. MPLPB uses it
+rather than reproducing it.
+
+Two things follow, and both should be stated rather than glossed. First, the
+economic result is a statement about the author’s cost, not about total system
+cost — the infrastructure exists and someone built it. Second, that
+infrastructure is not under the author’s control, which is precisely why §2.2
+lists determinism and freshness as properties this form does not supply.
+
+The local implementation exists in part to show that the principle does not
+reduce to borrowed search. Smart Local MPLPB runs the same architecture over a
+directory of plain HTML with an in-memory SQLite FTS5 index and a LIKE-based
+fallback for interpreters built without FTS5, with no network at any point.
+Public search is one indexer. FTS5 is another. A future engine is a third. The
+corpus survives substitution of the reader, and that is the invariant the
+constraint is testing.
+
+------------------------------------------------------------------------------
+
+4. Drift as the Measurable Property
+
+A comparability claim needs something measured, and the measurable quantity
+here is not accuracy against a baseline — that requires the control arm
+described in §12. It is drift.
+
+Drift is what the framework’s falsifier is written against:
+
+  If independent observers using different search-capable systems consistently
+  fail to reconstruct the framework — surfacing the documents but blending,
+  inverting, or inventing the mechanics — then the artifacts are not carrying
+  the continuity, and the claim is falsified or the corpus requires repair.
+
+Reconstruction outcomes fall into four categories: recovered as written,
+blended (two mechanics merged into one), inverted (a rule reproduced
+backwards), and invented (a mechanic attributed to the corpus that is not in
+it). Drift is the rate of the last three.
+
+Drift is measurable without a control arm because it is scored against the
+source documents, which are fixed and public. It requires no comparison
+system, no benchmark suite, and no infrastructure. It requires a query set, a
+scorer, and a ledger.
+
+The recorded state as of this writing, using the labels the source documents
+use for themselves:
+
+-   Five author-run trials, 2026-07-11. Weak layer (recovery, surface
+    traceability) passed. One low-severity terminology drift logged:
+    Constraint-Based for constraint-first.
+-   One non-author run, 2026-07-26, on an independent apparatus. Weak and
+    strong layers passed across four mechanics probes: the separation rule,
+    domain precedence, the header block, and the safety override. Longitudinal
+    criterion partial. No inversions, no inventions.
+-   One partial adversarial reconstruction, 2026-07-07, with two negative
+    findings retained: one internal term failed to resolve because it was not
+    cross-linked from anything indexed, and the reconstructing agent
+    introduced an unrequested observation of its own.
+-   Stranger-run trials: none reported in ledger format.
+
+That is a small n in the weakest evidence class, and it is stated that way
+deliberately. What it supports is narrow and real: across the runs logged, the
+mechanics have come back recovered, with drift confined to wording and to one
+addition, and with no recorded inversion.
+
+4.1 What raising n does and does not buy
+
+Volume is available — the same probes can be run across every consumer front
+end with web access, at no cost, which is itself a consequence of the
+constraint in §3. Two cautions govern what that produces.
+
+Author-run trials remain the weakest evidence class regardless of n. Class is
+determined by who selected the query and who scored the result, not by how
+many times it was done. Five hundred author-run trials produce a measured rate
+within the weakest class, which is a genuine improvement over five, and is not
+a change of class.
+
+A run set with no failures in it has no discriminating power. The 2026-08-16
+observation in which a common-name-plus-common-word query returned a generic
+result, with the corpus appearing only below the synthesis, is worth more than
+several successes: it locates the boundary of the recovery property, and it
+matches the retrieval rule the local implementation already encodes — that a
+shared ordinary word is not a match. Runs should be pre-registered, including
+predicted misses, and misses should be logged.
+
+------------------------------------------------------------------------------
+
+5. What Moves Into the Artifact
+
+The mechanism is easiest to see by listing what a retrieval layer normally has
+to infer from an arbitrary document: its identity, its current version,
+whether it remains operative, its scope, the questions it answers, what it
+supersedes, what supersedes it, its relationship to neighbours, whether it is
+public or local, and where a reader should go next.
+
+A sophisticated retrieval system can attempt to infer all of it. MPLPB asks
+whether most of it should simply be authored.
+
+Smart Local MPLPB illustrates the pattern in both directions. Its own header
+declares document ID, category, update timestamp, status, scope, when-to-use
+conditions, supersession state, related documents, and path back to an index.
+Its retrieval returns hits carrying document ID, path, version, status, spoke,
+and substrate as attributes of the hit object rather than decorations added at
+render time — so there is no code path that produces text without them.
+
+The substrate field deserves particular mention as an instance of the general
+principle. Every citation of a local page states that it is local:
+
+    [LOCAL-SPEC-001 · spec/link_discipline.html · v2 · local · current]
+
+This is slightly awkward to read, deliberately. A local note cited as a
+published source reads better than the truth, which is exactly what makes that
+failure quiet. The format makes the honest version the default and provides no
+shorter form.
+
+The resulting division of labour:
+
+-   Conventional tendency: weakly structured corpus + sophisticated retrieval.
+-   MPLPB tendency: strongly structured corpus + ordinary retrieval.
+
+Neither is universally correct. The second is the one that stays affordable
+when nobody is paying for the first.
+
+------------------------------------------------------------------------------
+
+6. The Complete Artifact as the Unit
+
+The architectural unit is not the chunk. It is the artifact.
+
+A paper is expected to stand as a complete epistemic object, not as raw
+material from which fragments will later be cut. This changes what links mean:
+links do not complete an incomplete document, they relate already-meaningful
+ones.
+
+    artifact   → complete bounded object
+    link       → declared relationship
+    index      → orientation
+    crawler    → discovery
+    retrieval  → selection
+    reasoner   → interpretation / critique / extension
+
+The separation matters most in the failure case. If retrieval returns a
+fragment saying a claim failed, but omits the artifact identifying which
+claim, when, under what conditions, and what replaced it, the retrieval was
+lexically successful and epistemically misleading. Complete artifacts shrink
+that surface.
+
+They also decouple the corpus from any particular chunking strategy. Different
+indexers may tokenize, rank, and summarize differently while the source
+artifact remains intact. The durable object is the publication, not the index
+entry — which is what makes the corpus survivable across changes in the
+reading layer.
+
+------------------------------------------------------------------------------
+
+7. The Janitor and the Librarian
+
+MPLPB is easily mistaken for a truth architecture, because disciplined
+information environments do improve downstream reasoning. That reading should
+be refused, and refusing it is load-bearing for everything above.
+
+The architecture performs two mundane functions with unusual seriousness.
+
+The janitorial function maintains corpus condition: current-versus-retired
+status, supersession, orderable timestamps, broken-link detection, orphan
+detection, duplicate identifier detection, scope boundaries, provenance
+distinctions. Eight of these are checked mechanically by the validator, which
+exits non-zero on failure and therefore drops into ordinary CI.
+
+The librarian function handles orientation: which artifact answers this
+question, which domain owns it, what related artifacts matter, where the
+artifact sits, what path leads back, and whether the query is ambiguous. When
+ownership cannot be resolved past the margin, the router returns ambiguous,
+names the spokes it touched, quotes each declared scope, and asks the user to
+narrow. It does not answer. Two domains that always defer to whoever spoke
+last are not separate; they are one blurred instance wearing two names.
+
+Neither function establishes truth. The librarian can hand a reasoner a false
+paper. The janitor can version a false paper perfectly. What the architecture
+offers is not truth but a visible survival history under declared break
+conditions — which claims were made, when, what killed them, and what replaced
+them.
+
+MPLPB succeeds when a machine can determine accurately which artifact exists,
+what it claims, how it is situated, and what status the corpus assigns it.
+Whether the claim corresponds to reality belongs to evidence, experiment,
+mathematics, or host-domain adjudication. Retrieval and truth are separate
+questions and the separation must survive every convenient opportunity to
+collapse it.
+
+------------------------------------------------------------------------------
+
+8. Retrieval-Bounded Reasoning
+
+Cheap retrieval is worthless if the reasoning layer ignores it.
+
+Smart Local MPLPB names this failure directly: model bypass. The corpus may be
+well-formed, crawlable, and entirely irrelevant, because the reader answered
+from its own prior knowledge instead of consulting it. No amount of structural
+validation prevents this. A corpus can pass all eight checks and be read by a
+program that ignores it.
+
+The response is a negative constraint. Every shipped mode carries
+answer_without_retrieval: false. There is no mode that improvises. When
+retrieval returns nothing, the console says so, lists the spokes that exist
+with their declared scopes, and — if the running mode permits — offers to be
+taught.
+
+The asymmetry justifying this is worth restating. A front end that
+occasionally says I don’t have that is mildly annoying. A front end that
+occasionally invents a confident answer indistinguishable from a retrieved one
+is corrosive, because after a few undetected instances the provenance on every
+other answer stops meaning anything.
+
+The architectural consequence is economic. The system does not require the
+reasoner to contain the corpus. It requires the reasoner to consult it. That
+makes the intelligence layer replaceable, which is what removes the largest
+recurring cost in a conventional stack: nothing has to be re-embedded,
+re-indexed, or re-ingested when the model changes.
+
+The boundary is stated in the source: the mode controller changes what the
+front end does, not what a model sitting on top of it does. A model can read a
+provenance-carrying citation and paraphrase it into an unsourced claim in the
+next paragraph. The package can hand a model a retrieved page and decline to
+hand it anything else; it cannot police what the model then says.
+
+------------------------------------------------------------------------------
+
+9. The Cost Model
+
+The architecture shifts cost temporally as well as technically.
+
+Let an author write an ordinary document whose important relationships are
+implicit. Every downstream consumer reconstructs some of them. With
+reconstruction cost C_r and n independent retrieval events, downstream cost is
+approximately:
+
+    n · C_r
+
+Now suppose the author pays a structural cost C_s at publication to make those
+relationships explicit, reducing downstream reconstruction to C'_r. Structure
+is not write-once, however: supersession, link discipline, validator runs, and
+pruning are ongoing. Let m be the number of maintenance events over the period
+and C_m their unit cost. Total becomes:
+
+    C_s + m · C_m + n · C'_r
+
+This is smaller than n · C_r when the structural work substantially reduces
+per-retrieval reconstruction and n >> m — that is, when the corpus is read far
+more often than it is revised. That condition is stated because it is the
+condition under which the argument holds, and it does not hold universally. A
+corpus revised as often as it is read gains little. A reference corpus
+consulted by many readers and revised occasionally gains a great deal.
+
+The earlier version of this analysis omitted the maintenance term, which made
+amortization look unconditional. It is not.
+
+Honesty requires naming where m · C_m is currently weakest. Pruning ownership
+is assigned in the corpus specification but not mechanized; the validator
+catches structural defects, not stale claims. This is an open implementation
+gap, not a solved problem, and it is the term most likely to grow with corpus
+size.
+
+What the model does capture correctly is where computation occurs. A timestamp
+does not need to be inferred repeatedly. A document ID does not need to be
+inferred repeatedly. A supersession relationship does not need to be
+rediscovered. A declared scope does not need to be guessed. A link does not
+need to be hallucinated. The author states them once; machines consume them
+many times.
+
+9.1 Where the cost of visibility lives
+
+The cost of visibility has at least three components:
+
+    C_v = C_a + C_i + C_r
+
+-   C_a — making the artifact machine-legible
+-   C_i — indexing and maintaining retrieval infrastructure
+-   C_r — reconstructing sufficient context at retrieval time
+
+Conventional approaches minimize C_a by accepting arbitrary documents, and
+compensate with larger C_i and C_r. MPLPB deliberately spends more on C_a in
+an attempt to reduce the others, and pushes C_i outside its own boundary
+entirely.
+
+The architectural question is therefore not how cheap is the search engine but
+where should the cost of visibility live. The answer offered here is that
+durable semantic work should, where practical, live in durable artifacts —
+because infrastructure computation is transient and published structure is
+reusable. The more independent indexers, models, interfaces, and readers
+consume the same corpus, the more the one-time structural work amortizes.
+
+------------------------------------------------------------------------------
+
+10. Who This Is For
+
+The architecture has a natural constituency, and it is not the enterprise
+deployment.
+
+Independent researchers. A body of work that a stranger’s assistant can find
+and reconstruct without the author present is more useful than one that
+cannot, and the structural work is authoring work — which an independent
+researcher is doing regardless.
+
+Small labs and research groups. A group of two to twenty people with a shared
+corpus, no retrieval engineer, and no budget line for one. The local
+implementation runs on a laptop with standard-library Python; the validator
+drops into CI; the whole thing is a directory of HTML files under version
+control. There is no service to keep up, no index to rebuild when a model is
+deprecated, and no vendor relationship to maintain.
+
+Anyone whose corpus will outlive the tooling they would otherwise choose.
+Plain HTML, relative links, document IDs, timestamps, and status fields are
+deliberately unremarkable technology. Their banality is the feature. APIs
+change, embedding models change, vector databases change, hosted products
+disappear, pricing changes, providers change. A corpus whose semantic
+organization is visible through ordinary files and links can be re-indexed by
+machinery that does not exist yet.
+
+Not private corpora requiring authenticated access, regulated data, guaranteed
+retrieval determinism, or low-latency service to many users. Those
+requirements are real, and they are what the expensive stack is for. The
+public form is not a cheaper way to get them; it does not get them at all.
+
+The deployment question is therefore not whether infrastructure is required.
+It is when its additional properties are worth paying for. For a small
+independent operation, the honest answer is often that they are not — the
+properties being paid for are ones nobody in the group needs.
+
+------------------------------------------------------------------------------
+
+11. A Smaller Model of AI Infrastructure
+
+The resulting architecture is short:
+
+    Complete artifacts
+            ↓
+    Explicit relationships and status
+            ↓
+    Ordinary indexing
+            ↓
+    Retrieval-capable intelligence
+            ↓
+    Reasoning
+
+The novelty, if there is one, is not in HTML, Python, SQLite, search engines,
+hyperlinks, or language models individually. It is in the observation that
+expensive intelligence in the middle is sometimes compensating for missing
+structure at the beginning.
+
+This is why the architecture should not be read as “cheap RAG.” It is a
+different allocation of responsibility. A retrieval stack makes infrastructure
+responsible for turning documents into model-usable context. MPLPB asks
+authors and corpus maintainers to publish model-usable structure in the first
+place. Where that authoring effort is already being spent — which is the
+ordinary case for a researcher or a small group — the marginal cost of making
+it machine-legible is small, and the infrastructure it displaces is not.
+
+------------------------------------------------------------------------------
+
+12. Open Tests and Falsifiers
+
+Each of these would count against the argument if it came back negative. None
+has been run to completion.
+
+12.1 — Undisclosed infrastructure. The comparability claim fails if the
+corpus’s recoverability turns out to depend on infrastructure the author
+operates and has not disclosed. The audit has two halves, and both are
+runnable by a stranger. On the local side: clone either reference
+implementation, inspect its dependency surface, and execute it with the
+network disabled — a passing test suite under those conditions is direct
+evidence that nothing outside the standard library is doing the work. On the
+public side: attempt recovery from a clean apparatus using only public means,
+and check whether any observed behaviour requires an explanation the §3
+constraint forbids. This is the test the constraint exists to make checkable,
+and it is the reason both implementations are published rather than described.
+
+12.2 — The ablation. Not run. Duplicate the corpus, strip metadata, indexes,
+and typed links, flatten and randomize it, then score both copies on the same
+probe set in randomized order with a blind scorer. If the stripped copy scores
+the same on answer accuracy and on correct refusals, the structure is
+decoration and the storage was doing the work. Until this is run, the correct
+statement remains: structure has not been shown to beat storage. This is the
+same test named in the corpus specification and in the front-end
+specification, and it has been open the longest.
+
+12.3 — Recovery without insider queries. The claim narrows sharply if the
+corpus proves practically unrecoverable except through exact-name queries
+supplied by someone already familiar with it. The 2026-08-16 common-word
+observation is a data point on the wrong side of this and should be treated as
+such. A pre-registered probe set written by someone who has not read the
+corpus is the proper test.
+
+12.4 — Drift under volume. Run a pre-registered query set, including predicted
+misses and adversarial probes designed to induce blending or inversion, across
+every available consumer front end. Report the drift rate by category. A rate
+that rises with apparatus diversity would indicate the mechanics are being
+carried by one vendor’s ranking rather than by the artifacts.
+
+12.5 — Maintenance cost growth. Run a real corpus for a defined period and
+measure m · C_m directly: revisions, supersessions, validator failures, and
+pruning decisions per unit time as the corpus grows. If maintenance grows
+superlinearly with corpus size, the amortization argument in §9 has a ceiling
+and the ceiling should be located rather than assumed away.
+
+------------------------------------------------------------------------------
+
+13. What This Does and Does Not Establish
+
+It does not establish:
+
+-   that a specialized retrieval stack never provides value;
+-   that embeddings are unnecessary for every retrieval problem;
+-   that vector databases never improve recall;
+-   that public search is suitable for private knowledge;
+-   that every corpus should be built this way;
+-   that retrieval establishes truth;
+-   that cheap systems outperform expensive ones;
+-   that structure beats flat storage of the same files — see §12.2.
+
+It does establish, at the strength of the evidence logged in §4:
+
+-   that a corpus built under the §3 constraint, with no paid infrastructure
+    and no author-operated retrieval, has been located and its mechanics
+    reconstructed by independent apparatuses, with drift confined to wording
+    and one unrequested addition, and no inversion recorded;
+-   that the same architecture runs over a local corpus with no network and no
+    dependencies, so the property is not reducible to borrowed public search;
+-   that the capability set in §2.1 can therefore be obtained at a cost
+    reachable by an individual or a small lab.
+
+The evidence class remains what the ledger says it is: predominantly
+author-run, one non-author apparatus, no stranger runs reported in ledger
+format. Nothing here is upgraded. A larger and better-distributed run set
+would strengthen the drift figure; it would not change the class, and it would
+not substitute for §12.2.
+
+Existence, comparability, superiority, and universality are four different
+claims requiring four different evidentiary standards. This paper argues the
+first two and declines the last two.
+
+------------------------------------------------------------------------------
+
+14. Conclusion
+
+Machine-recoverable knowledge does not require expensive knowledge
+infrastructure for the class of use described here.
+
+Write complete artifacts. Declare their identity, scope, and status. Declare
+their relationships. Preserve provenance. Link them. Index them with ordinary
+machinery. Then let whatever sufficiently capable system arrives retrieve them
+and reason.
+
+The resulting system is not a truth engine. It remains a janitor and a
+librarian. But janitorial and library work is what intelligence depends on:
+preserving order, distinguishing editions, maintaining provenance, exposing
+relationships, removing ambiguity, and making the correct material findable.
+
+The economic point is not that a cheaper vector database has been found. It is
+that for a bounded corpus needing public machine recoverability, the
+capability set is available under a consumer-hardware constraint, and the
+expensive stack is therefore a choice about the properties in §2.2 rather than
+a precondition for being visible at all.
+
+That is a better question to be asking. It moves the default from buy
+infrastructure until machines can understand your documents to structure the
+documents until ordinary infrastructure is enough — and once that default
+exists, additional expense has to name the property it is buying.
+
+------------------------------------------------------------------------------
+
+Source note
+
+All citations to Smart Local MPLPB refer to MPLPB-SMART-011 v1 · current, and
+all citations to the corpus specification refer to MPLPB-LOCAL-008 v4 ·
+current. Trial figures in §4 are drawn from MPLPB-TEST-001 v1.3 (2026-07-11)
+and MPLPB-TEST-002 v2.0 (2026-07-26).
+
+The “survival history under declared break conditions” formulation in §7
+originates in The Survival Environment Field Binder, which carries no document
+identifier and does not appear in the collection’s source table. It requires
+registration before it can be cited by ID; it is cited here by title and
+flagged as unregistered.
+
+Reference implementations, verified reachable 2026-08-26:
+
+-   The Local Mirror — MPLPB as a Self-Contained Offline Site
+    https://github.com/mitchell-d00/-The-Local-Mirror-MPLPB-as-a-Self-Contained-Offline-Site
+-   Smart Local MPLPB — A Retrieval-Bounded Front End for a Local Web
+    https://github.com/mitchell-d00/SMART-LOCAL-MPLPB-A-Retrieval-Bounded-Front-End-for-a-Local-Web
+
+Both are released as MIT-licensed code with CC BY 4.0 documentation. The
+52-test figure and the standard-library-only dependency claim in §3 are stated
+by the second repository’s own README and are verifiable by execution.
+
+Back to. Main Index > Specification / Architecture Sub-Index

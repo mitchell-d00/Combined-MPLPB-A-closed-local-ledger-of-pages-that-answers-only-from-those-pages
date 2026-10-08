@@ -7,7 +7,6 @@ import sys
 from pathlib import Path
 
 from . import __version__, killtest, ledger as L, reader as R
-from . import provenance_gate as G
 
 
 def _profile(a) -> R.Profile:
@@ -31,12 +30,6 @@ def cmd_ask(a) -> int:
     print(json.dumps(ans.to_dict(), indent=2, ensure_ascii=False) if a.json
           else R.render(ans, why=a.why))
     return {R.RETURN: 0, R.AMBIGUOUS: 2, R.NOT_IN_CORPUS: 3}[ans.kind]
-
-
-def cmd_gate(a) -> int:
-    result = G.gather(a.root, a.question, _profile(a))
-    print(json.dumps(result.to_dict(), indent=2, ensure_ascii=False) if a.json else G.render(result))
-    return 0 if result.sources else 3
 
 
 def cmd_validate(a) -> int:
@@ -190,11 +183,6 @@ def build_parser() -> argparse.ArgumentParser:
     s.add_argument("root"); s.add_argument("question"); prof(s)
     s.add_argument("--why", action="store_true"); s.add_argument("--json", action="store_true")
     s.set_defaults(fn=cmd_ask)
-
-    s = sub.add_parser('gate', help='gather separate source pages with provenance; never synthesize')
-    s.add_argument('root'); s.add_argument('question'); prof(s)
-    s.add_argument('--json', action='store_true')
-    s.set_defaults(fn=cmd_gate)
 
     s = sub.add_parser("validate", help="check every page against the format; exit 1 on error")
     s.add_argument("root"); s.add_argument("--strict", action="store_true")

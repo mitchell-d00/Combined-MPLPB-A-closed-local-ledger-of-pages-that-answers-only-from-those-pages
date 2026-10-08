@@ -1,0 +1,116 @@
+{
+  "probes": [
+    {
+      "id": "fossils-01",
+      "q": "fossil permineralization mineral pores",
+      "class": "exact_scope",
+      "expect": "return",
+      "doc": "FOSSIL-0001",
+      "evidence": "During permineralization, dissolved minerals in groundwater fill tiny pores in organic remains. The original material can persist while the added minerals help preserve its structure."
+    },
+    {
+      "id": "fossils-02",
+      "q": "fossil trace trackway burrow",
+      "class": "exact_scope",
+      "expect": "return",
+      "doc": "FOSSIL-0002",
+      "evidence": "Trace fossils record biological activity rather than a preserved body part. A footprint impression, a burrow, or a coprolite can preserve evidence of an organism."
+    },
+    {
+      "id": "fossils-03",
+      "q": "fossil mold cast shell",
+      "class": "exact_scope",
+      "expect": "return",
+      "doc": "FOSSIL-0003",
+      "evidence": "A mold preserves an impression left by an organism. A cast forms when material fills that cavity, creating a three-dimensional copy of the original shape."
+    },
+    {
+      "id": "fossils-04",
+      "q": "fossil body bone shell",
+      "class": "exact_scope",
+      "expect": "return",
+      "doc": "FOSSIL-0004",
+      "evidence": "Body fossils preserve actual parts of organisms, such as bones, shells, or plant material. They differ from evidence of activity left without the organism itself."
+    },
+    {
+      "id": "fossils-05",
+      "q": "fossil amber resin preservation",
+      "class": "exact_scope",
+      "expect": "return",
+      "doc": "FOSSIL-0005",
+      "evidence": "Entrapment in resin that becomes amber can preserve organisms. Amber preservation is different from filling a bone with minerals; fossils do not all become stone."
+    },
+    {
+      "id": "fossils-06",
+      "q": "groundwater",
+      "class": "prose_only",
+      "expect": "return",
+      "doc": "FOSSIL-0001",
+      "evidence": "During permineralization, dissolved minerals in groundwater fill tiny pores in organic remains. The original material can persist while the added minerals help preserve its structure."
+    },
+    {
+      "id": "fossils-07",
+      "q": "fossil",
+      "class": "shared_scope",
+      "expect": "ambiguous",
+      "rationale": "The shared scope word is declared by multiple pages; no single owner is specified."
+    },
+    {
+      "id": "fossils-08",
+      "q": "what is an impression",
+      "class": "prose_collision",
+      "expect": "ambiguous",
+      "rationale": "Two pages mention this prose term; the question does not specify which context to select."
+    },
+    {
+      "id": "fossils-09",
+      "q": "How can buried remains get their little internal spaces filled with dissolved substances?",
+      "class": "paraphrase",
+      "expect": "return",
+      "doc": "FOSSIL-0001",
+      "evidence": "During permineralization, dissolved minerals in groundwater fill tiny pores in organic remains. The original material can persist while the added minerals help preserve its structure."
+    },
+    {
+      "id": "fossils-10",
+      "q": "fossil permineralization mineral pores budget",
+      "class": "adjacent_intent",
+      "expect": "not_in_corpus",
+      "rationale": "The first page describes the event or process but provides no budget."
+    },
+    {
+      "id": "fossils-11",
+      "q": "fossil permineralization mineral pores auction",
+      "class": "not_for",
+      "expect": "not_in_corpus",
+      "rationale": "Auction information is absent and explicitly excluded by the first page."
+    },
+    {
+      "id": "fossils-12",
+      "q": "lunar weather forecast",
+      "class": "absent",
+      "expect": "not_in_corpus",
+      "rationale": "No page supplies lunar weather forecasts."
+    },
+    {
+      "id": "fossils-13",
+      "q": "amber burrow comparison",
+      "class": "mixed_page",
+      "expect": "not_in_corpus",
+      "rationale": "No page supplies this comparison; assembling multiple pages would require synthesis."
+    },
+    {
+      "id": "fossils-14",
+      "q": "why was fossil permineralization mineral pores not real",
+      "class": "negation",
+      "expect": "not_in_corpus",
+      "rationale": "The query presupposes the documented event or process was not real; no page supports that premise."
+    },
+    {
+      "id": "fossils-15",
+      "q": "what is it",
+      "class": "stopwords",
+      "expect": "not_in_corpus",
+      "rationale": "The question contains no content words."
+    }
+  ]
+}

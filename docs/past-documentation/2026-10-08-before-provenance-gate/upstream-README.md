@@ -20,8 +20,8 @@ A(q) = R               if exactly one current R owns q
 Paper: [`docs/Combined_MPLPB.md`](docs/Combined_MPLPB.md) · `.txt` · `.pdf`
 (MPLPB-COMBINED-017 v3, draft for owner review) · fixes: [`docs/FIXLOG.md`](docs/FIXLOG.md)
 
-This is the master repository. The `ask` command implements the formula. The separate `gate` command returns lexical
-source bundles with provenance, as described below. The five earlier implementations are carried whole under [`parts/`](parts/README.md), and
+This is the master repository. The package `mplpb_combined` implements the formula and nothing
+else. The five earlier implementations are carried whole under [`parts/`](parts/README.md), and
 the papers that are not in any of them are under [`docs/sources/`](docs/sources/README.md).
 
 ## Try it
@@ -53,21 +53,6 @@ to see which step decided, or `--no-prose` to allow scope only.
 A page can also say what it is **not for**. `--not-for "booking; permission"` on a kiln
 schedule sets that page aside for any question containing those words, and the refusal says
 which page stepped back and why.
-
-## Provenance gate and additional corpora
-
-`gate` returns every eligible lexical source separately. For “1974 dungeons and dragons budget”, game context and general budget material retain separate origins; both sources remain visible if both contain budget material. Their coexistence does not establish the historical D&D budget.
-
-```bash
-python3 -m mplpb_combined gate examples/provenance-gate/separate "1974 dungeons and dragons budget" --json
-python3 tools/provenance_bench.py --serve
-```
-
-See [the gate specification](docs/PROVENANCE_GATE.md) and the [offline demonstration](examples/provenance-gate/index.html). Six additional topic corpora and ninety frozen lexical probes are under [examples/topics](examples/topics) and [evaluation/topics](evaluation/topics/README.md). These are controlled fixtures, with failures retained.
-
-Supplied papers are indexed in [papers](papers/README.md), their implications in [the upload review](docs/UPLOAD_REVIEW.md), and earlier documentation in [PAST_DOCUMENTATION.md](PAST_DOCUMENTATION.md).
-
-Walk-back instructions: [docs/ROLLBACK.md](docs/ROLLBACK.md).
 
 ## Keep your own ledger
 
@@ -101,7 +86,7 @@ nothing else.
 | `mplpb_combined/ledger.py` | The folder as a ledger: status, lineage, depth, validation, writing, the log |
 | `mplpb_combined/reader.py` | The answer rule, profiles, hubs |
 | `mplpb_combined/killtest.py` | The kill test: three arms, mechanical scoring |
-| `tests/` | 151 tests: 122 existing and 29 provenance gate tests |
+| `tests/` | 122 tests |
 | `examples/studio/` | 25 pages about running a pottery studio; the kill-test corpus |
 | `examples/spec/` | The format described as ten pages in the format |
 | `examples/hub/` | Two pointers, one at each of the above |

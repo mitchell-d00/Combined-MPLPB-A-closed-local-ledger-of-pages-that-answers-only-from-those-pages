@@ -1,0 +1,116 @@
+{
+  "probes": [
+    {
+      "id": "rpg-history-01",
+      "q": "rpg dungeons dragons publication 1974",
+      "class": "exact_scope",
+      "expect": "return",
+      "doc": "RPG-0001",
+      "evidence": "Gary Gygax and Dave Arneson wrote the original Dungeons & Dragons. TSR published the boxed set in 1974. Its fantasy rules grew from miniature wargaming."
+    },
+    {
+      "id": "rpg-history-02",
+      "q": "rpg traveller publication 1977",
+      "class": "exact_scope",
+      "expect": "return",
+      "doc": "RPG-0002",
+      "evidence": "Traveller was published in 1977 by Game Designers Workshop. The science-fiction game extended tabletop adventures beyond fantasy settings."
+    },
+    {
+      "id": "rpg-history-03",
+      "q": "rpg runequest publication 1978",
+      "class": "exact_scope",
+      "expect": "return",
+      "doc": "RPG-0003",
+      "evidence": "Chaosium introduced RuneQuest in 1978. The game used a percentile system and the fantasy setting Glorantha, with skills instead of character classes and levels."
+    },
+    {
+      "id": "rpg-history-04",
+      "q": "rpg cthulhu publication 1981",
+      "class": "exact_scope",
+      "expect": "return",
+      "doc": "RPG-0004",
+      "evidence": "Chaosium released Call of Cthulhu in 1981. Its horror investigations use a percentile system. This page records the release, not a scenario walkthrough."
+    },
+    {
+      "id": "rpg-history-05",
+      "q": "rpg digital dungeon adaptation",
+      "class": "exact_scope",
+      "expect": "return",
+      "doc": "RPG-0005",
+      "evidence": "Early computer adventures adapted tabletop play. Donald Daglow described writing Dungeon in the Smithsonian oral-history record. Digital adventures made a computer handle parts of the referee role."
+    },
+    {
+      "id": "rpg-history-06",
+      "q": "TSR",
+      "class": "prose_only",
+      "expect": "return",
+      "doc": "RPG-0001",
+      "evidence": "Gary Gygax and Dave Arneson wrote the original Dungeons & Dragons. TSR published the boxed set in 1974. Its fantasy rules grew from miniature wargaming."
+    },
+    {
+      "id": "rpg-history-07",
+      "q": "rpg",
+      "class": "shared_scope",
+      "expect": "ambiguous",
+      "rationale": "The shared scope word is declared by multiple pages; no single owner is specified."
+    },
+    {
+      "id": "rpg-history-08",
+      "q": "what is percentile",
+      "class": "prose_collision",
+      "expect": "ambiguous",
+      "rationale": "Two pages mention this prose term; the question does not specify which context to select."
+    },
+    {
+      "id": "rpg-history-09",
+      "q": "Which year did the original fantasy tabletop adventure rules come out?",
+      "class": "paraphrase",
+      "expect": "return",
+      "doc": "RPG-0001",
+      "evidence": "Gary Gygax and Dave Arneson wrote the original Dungeons & Dragons. TSR published the boxed set in 1974. Its fantasy rules grew from miniature wargaming."
+    },
+    {
+      "id": "rpg-history-10",
+      "q": "rpg dungeons dragons publication 1974 budget",
+      "class": "adjacent_intent",
+      "expect": "not_in_corpus",
+      "rationale": "The first page describes the event or process but provides no budget."
+    },
+    {
+      "id": "rpg-history-11",
+      "q": "rpg dungeons dragons publication 1974 auction",
+      "class": "not_for",
+      "expect": "not_in_corpus",
+      "rationale": "Auction information is absent and explicitly excluded by the first page."
+    },
+    {
+      "id": "rpg-history-12",
+      "q": "lunar weather forecast",
+      "class": "absent",
+      "expect": "not_in_corpus",
+      "rationale": "No page supplies lunar weather forecasts."
+    },
+    {
+      "id": "rpg-history-13",
+      "q": "traveller runequest comparison",
+      "class": "mixed_page",
+      "expect": "not_in_corpus",
+      "rationale": "No page supplies this comparison; assembling multiple pages would require synthesis."
+    },
+    {
+      "id": "rpg-history-14",
+      "q": "why was rpg dungeons dragons publication 1974 not real",
+      "class": "negation",
+      "expect": "not_in_corpus",
+      "rationale": "The query presupposes the documented event or process was not real; no page supports that premise."
+    },
+    {
+      "id": "rpg-history-15",
+      "q": "what is it",
+      "class": "stopwords",
+      "expect": "not_in_corpus",
+      "rationale": "The question contains no content words."
+    }
+  ]
+}

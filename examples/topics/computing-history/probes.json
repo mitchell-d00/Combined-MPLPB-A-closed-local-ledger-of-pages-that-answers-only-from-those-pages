@@ -1,0 +1,116 @@
+{
+  "probes": [
+    {
+      "id": "computing-history-01",
+      "q": "computer eniac unveiling 1946",
+      "class": "exact_scope",
+      "expect": "return",
+      "doc": "COMP-0001",
+      "evidence": "ENIAC was publicly unveiled in 1946. John Mauchly and J. Presper Eckert built the electronic computing system at the University of Pennsylvania. It used vacuum tubes and programming through wiring and switches."
+    },
+    {
+      "id": "computing-history-02",
+      "q": "computer transistor invention 1947",
+      "class": "exact_scope",
+      "expect": "return",
+      "doc": "COMP-0002",
+      "evidence": "The point-contact transistor was invented at Bell Labs in 1947. This semiconductor device helped enable smaller electronic systems compared with vacuum-tube equipment."
+    },
+    {
+      "id": "computing-history-03",
+      "q": "computer microprocessor intel 4004 1971",
+      "class": "exact_scope",
+      "expect": "return",
+      "doc": "COMP-0003",
+      "evidence": "Intel introduced the 4004 microprocessor in 1971. A microprocessor integrates processor functions on a semiconductor chip. This page concerns that historical introduction rather than current chip specifications."
+    },
+    {
+      "id": "computing-history-04",
+      "q": "computer ibm pc introduction 1981",
+      "class": "exact_scope",
+      "expect": "return",
+      "doc": "COMP-0004",
+      "evidence": "IBM introduced its Personal Computer in 1981. The machine became an important part of personal computing history. This page does not describe every earlier personal computer."
+    },
+    {
+      "id": "computing-history-05",
+      "q": "computer web berners lee cern 1989",
+      "class": "exact_scope",
+      "expect": "return",
+      "doc": "COMP-0005",
+      "evidence": "Tim Berners-Lee invented the World Wide Web at CERN in 1989. The Web links information through hypertext. The Web is a service using the Internet, not a synonym for the Internet itself."
+    },
+    {
+      "id": "computing-history-06",
+      "q": "Eckert",
+      "class": "prose_only",
+      "expect": "return",
+      "doc": "COMP-0001",
+      "evidence": "ENIAC was publicly unveiled in 1946. John Mauchly and J. Presper Eckert built the electronic computing system at the University of Pennsylvania. It used vacuum tubes and programming through wiring and switches."
+    },
+    {
+      "id": "computing-history-07",
+      "q": "computer",
+      "class": "shared_scope",
+      "expect": "ambiguous",
+      "rationale": "The shared scope word is declared by multiple pages; no single owner is specified."
+    },
+    {
+      "id": "computing-history-08",
+      "q": "what is a semiconductor",
+      "class": "prose_collision",
+      "expect": "ambiguous",
+      "rationale": "Two pages mention this prose term; the question does not specify which context to select."
+    },
+    {
+      "id": "computing-history-09",
+      "q": "In what year was the huge electronic calculating machine shown to the public?",
+      "class": "paraphrase",
+      "expect": "return",
+      "doc": "COMP-0001",
+      "evidence": "ENIAC was publicly unveiled in 1946. John Mauchly and J. Presper Eckert built the electronic computing system at the University of Pennsylvania. It used vacuum tubes and programming through wiring and switches."
+    },
+    {
+      "id": "computing-history-10",
+      "q": "computer eniac unveiling 1946 budget",
+      "class": "adjacent_intent",
+      "expect": "not_in_corpus",
+      "rationale": "The first page describes the event or process but provides no budget."
+    },
+    {
+      "id": "computing-history-11",
+      "q": "computer eniac unveiling 1946 auction",
+      "class": "not_for",
+      "expect": "not_in_corpus",
+      "rationale": "Auction information is absent and explicitly excluded by the first page."
+    },
+    {
+      "id": "computing-history-12",
+      "q": "lunar weather forecast",
+      "class": "absent",
+      "expect": "not_in_corpus",
+      "rationale": "No page supplies lunar weather forecasts."
+    },
+    {
+      "id": "computing-history-13",
+      "q": "microprocessor web comparison",
+      "class": "mixed_page",
+      "expect": "not_in_corpus",
+      "rationale": "No page supplies this comparison; assembling multiple pages would require synthesis."
+    },
+    {
+      "id": "computing-history-14",
+      "q": "why was computer eniac unveiling 1946 not real",
+      "class": "negation",
+      "expect": "not_in_corpus",
+      "rationale": "The query presupposes the documented event or process was not real; no page supports that premise."
+    },
+    {
+      "id": "computing-history-15",
+      "q": "what is it",
+      "class": "stopwords",
+      "expect": "not_in_corpus",
+      "rationale": "The question contains no content words."
+    }
+  ]
+}

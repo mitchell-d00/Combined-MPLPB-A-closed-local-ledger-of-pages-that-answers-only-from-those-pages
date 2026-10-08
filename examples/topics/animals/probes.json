@@ -1,0 +1,116 @@
+{
+  "probes": [
+    {
+      "id": "animals-01",
+      "q": "animal mammal hair milk",
+      "class": "exact_scope",
+      "expect": "return",
+      "doc": "ANIMAL-0001",
+      "evidence": "Mammals have hair and mammary glands. Milk production is called lactation. These traits help identify mammals even when they live in water or fly."
+    },
+    {
+      "id": "animals-02",
+      "q": "animal bird feather vertebrate",
+      "class": "exact_scope",
+      "expect": "return",
+      "doc": "ANIMAL-0002",
+      "evidence": "Birds are feathered vertebrates. Modern birds belong to the surviving dinosaur lineage. A backbone places them within vertebrates even though their bodies have many flight adaptations."
+    },
+    {
+      "id": "animals-03",
+      "q": "animal insect six legs",
+      "class": "exact_scope",
+      "expect": "return",
+      "doc": "ANIMAL-0003",
+      "evidence": "Adult insects have six legs and three main body regions. Many insects undergo metamorphosis, changing form during development. Insects are invertebrates rather than animals with a backbone."
+    },
+    {
+      "id": "animals-04",
+      "q": "animal amphibian frog development",
+      "class": "exact_scope",
+      "expect": "return",
+      "doc": "ANIMAL-0004",
+      "evidence": "Frogs are amphibians. Many frogs undergo metamorphosis from an aquatic tadpole into an adult. Amphibians are vertebrates, alongside fish, reptiles, birds, and mammals."
+    },
+    {
+      "id": "animals-05",
+      "q": "animal vertebrate collection fish",
+      "class": "exact_scope",
+      "expect": "return",
+      "doc": "ANIMAL-0005",
+      "evidence": "Vertebrate zoology studies animals with backbones. Museum collections include fishes, amphibians, reptiles, birds, and mammals. Invertebrate collections cover animals outside those groups."
+    },
+    {
+      "id": "animals-06",
+      "q": "lactation",
+      "class": "prose_only",
+      "expect": "return",
+      "doc": "ANIMAL-0001",
+      "evidence": "Mammals have hair and mammary glands. Milk production is called lactation. These traits help identify mammals even when they live in water or fly."
+    },
+    {
+      "id": "animals-07",
+      "q": "animal",
+      "class": "shared_scope",
+      "expect": "ambiguous",
+      "rationale": "The shared scope word is declared by multiple pages; no single owner is specified."
+    },
+    {
+      "id": "animals-08",
+      "q": "what is metamorphosis",
+      "class": "prose_collision",
+      "expect": "ambiguous",
+      "rationale": "Two pages mention this prose term; the question does not specify which context to select."
+    },
+    {
+      "id": "animals-09",
+      "q": "What features identify creatures that feed their babies with secretions from breast glands?",
+      "class": "paraphrase",
+      "expect": "return",
+      "doc": "ANIMAL-0001",
+      "evidence": "Mammals have hair and mammary glands. Milk production is called lactation. These traits help identify mammals even when they live in water or fly."
+    },
+    {
+      "id": "animals-10",
+      "q": "animal mammal hair milk budget",
+      "class": "adjacent_intent",
+      "expect": "not_in_corpus",
+      "rationale": "The first page describes the event or process but provides no budget."
+    },
+    {
+      "id": "animals-11",
+      "q": "animal mammal hair milk auction",
+      "class": "not_for",
+      "expect": "not_in_corpus",
+      "rationale": "Auction information is absent and explicitly excluded by the first page."
+    },
+    {
+      "id": "animals-12",
+      "q": "lunar weather forecast",
+      "class": "absent",
+      "expect": "not_in_corpus",
+      "rationale": "No page supplies lunar weather forecasts."
+    },
+    {
+      "id": "animals-13",
+      "q": "insect frog comparison",
+      "class": "mixed_page",
+      "expect": "not_in_corpus",
+      "rationale": "No page supplies this comparison; assembling multiple pages would require synthesis."
+    },
+    {
+      "id": "animals-14",
+      "q": "why was animal mammal hair milk not real",
+      "class": "negation",
+      "expect": "not_in_corpus",
+      "rationale": "The query presupposes the documented event or process was not real; no page supports that premise."
+    },
+    {
+      "id": "animals-15",
+      "q": "what is it",
+      "class": "stopwords",
+      "expect": "not_in_corpus",
+      "rationale": "The question contains no content words."
+    }
+  ]
+}
