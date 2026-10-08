@@ -6,6 +6,8 @@ import json
 import re
 from urllib.parse import parse_qs, urlsplit, urlencode
 from datetime import datetime, timezone
+from html.parser import HTMLParser
+from tools.exploration_store import source_url
 from tools.ledger_ui import App
 from tools import wiki_live_eval as W
 
@@ -51,13 +53,35 @@ async def dispatch(url, data=None):
     route = parsed.path
     if data is None:
         if route == '/api/state': return app.state()
-        if route == '/api/history': return app.history()
+        if route == '/api/history': return app.history(q.get('corpus', [None])[0])
         if route == '/api/experiment': return app.experiment()
         if route == '/api/inventory': return app.inventory(q['corpus'][0], q.get('profile', ['internal'])[0])
         if route == '/api/page': return app.page(q['corpus'][0], q['path'][0], q.get('profile', ['internal'])[0])
     else:
         if not isinstance(data, dict): raise ValueError('JSON object required')
+        if route == '/api/source/fetch':
+            target = source_url(data.get('url', ''))
+            from pyodide.http import pyfetch
+            response = await pyfetch(target, method='GET', credentials='omit', mode='cors', redirect='error')
+            if response.status != 200: raise ValueError('Source HTTP ' + str(response.status))
+            raw = await response.bytes()
+            if len(raw) > 2_000_000: raise ValueError('Source exceeds 2 MB')
+            mime = response.headers.get('Content-Type', '').split(';')[0].strip()
+            if mime not in {'text/html', 'text/plain'}: raise ValueError('Import supports HTML or plain text')
+            body = raw.decode('utf-8', errors='replace')
+            if mime == 'text/html':
+                class Text(HTMLParser):
+                    def __init__(self): super().__init__(); self.parts=[]; self.skip=0
+                    def handle_starttag(self, tag, attrs):
+                        if tag in {'script','style','head','noscript'}: self.skip += 1
+                    def handle_endtag(self, tag):
+                        if tag in {'script','style','head','noscript'}: self.skip=max(0,self.skip-1)
+                    def handle_data(self, value):
+                        if not self.skip and value.strip(): self.parts.append(value.strip())
+                parser = Text(); parser.feed(body); body = '\n'.join(parser.parts)
+            return app.collections.add(data.get('corpus'), data.get('title'), target, body, raw=raw, transport='browser-cors-fetch-v1')
         operations = {'/api/query': app.query, '/api/chat/resume': app.resume_chat,
+                      '/api/collections/create': app.create_collection, '/api/collections/reset': app.reset_collection, '/api/source/import': app.import_source,
                       '/api/chat/reset': app.reset_chat, '/api/chat/export': app.export_chat}
         if route in operations: return operations[route](data)
         if route == '/api/chat':
@@ -78,11 +102,17 @@ async def dispatch(url, data=None):
                          'results': [{'title': p['title'], 'pageid': p['pageid'],
                                       'snippet': html.unescape(re.sub('<[^>]*>', '', p.get('snippet', ''))),
                                       'timestamp': p.get('timestamp')} for p in payload['query']['search']]}
-                original = app.topics.search
+                store = app.topic_store(data.get('corpus'))
+                original = store.search
                 try:
-                    app.topics.search = lambda *_: found
+                    # Collection TopicStore instances are ephemeral; replace the selector narrowly.
+                    select = app.topic_store
+                    store.search = lambda *_: found
+                    app.topic_store = lambda *_: store
                     return app.chat(data)
-                finally: app.topics.search = original
+                finally:
+                    store.search = original
+                    app.topic_store = select
             if message.casefold().startswith('import '):
                 title = message[7:].strip()
                 if not 1 <= len(title) <= 200 or any(c in title for c in '|\n\r'):

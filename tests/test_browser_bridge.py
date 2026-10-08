@@ -1,6 +1,8 @@
 import json
 import tempfile
 import unittest
+import sys
+import types
 from pathlib import Path
 from unittest.mock import AsyncMock, patch
 from tools.ledger_ui import App
@@ -17,6 +19,29 @@ class BrowserBridgeTests(unittest.IsolatedAsyncioTestCase):
     def tearDown(self):
         B.app = self.previous
         self.temp.cleanup()
+
+    async def test_web_capture_keeps_raw_pin_and_strips_executable_html(self):
+        key = B.app.create_collection({'name':'Web sources'})['corpus']
+        raw = b'<html><head><title>Bad head</title></head><body><script>evil()</script><p>Fossils show ancient life.</p></body></html>'
+        response = types.SimpleNamespace(status=200, headers={'Content-Type':'text/html'}, bytes=AsyncMock(return_value=raw))
+        fetch = AsyncMock(return_value=response)
+        with patch.dict(sys.modules, {'pyodide.http':types.SimpleNamespace(pyfetch=fetch)}):
+            result = await B.dispatch('/api/source/fetch', {'corpus':key,'title':'Fossils','url':'https://example.org/fossils'})
+            with self.assertRaises(ValueError):
+                await B.dispatch('/api/source/fetch', {'corpus':key,'title':'Private','url':'https://127.0.0.1'})
+        self.assertEqual(fetch.await_count, 1)
+        self.assertEqual(fetch.call_args.kwargs['redirect'],'error')
+        self.assertEqual(result['capture']['source_sha256'], W.digest(raw))
+        answer = B.app.query({'corpus':key,'question':'Fossils'})['reader']['text']
+        self.assertIn('ancient life', answer)
+        self.assertNotIn('evil()', answer)
+
+    async def test_blocked_web_fetch_does_not_create_a_page(self):
+        key = B.app.create_collection({'name':'Blocked'})['corpus']
+        with patch.dict(sys.modules, {'pyodide.http':types.SimpleNamespace(pyfetch=AsyncMock(side_effect=ValueError('CORS blocked')))}):
+            with self.assertRaisesRegex(ValueError, 'CORS blocked'):
+                await B.dispatch('/api/source/fetch', {'corpus':key,'title':'Fossils','url':'https://example.org/fossils'})
+        self.assertEqual(B.app.inventory(key,'internal')['pages'], [])
 
     async def test_reader_and_saved_memory_same_engine(self):
         answer = await B.dispatch('/api/query', {'corpus':'canned','question':'Phrynomedusa vanzolinii Hyundai Engineering and Construction'})

@@ -28,7 +28,9 @@ second JavaScript ownership implementation exists. `search` and `import` explici
 fetch the chosen Simple English or English Wikipedia API with `origin=*` and no
 credentials. Raw responses enter the same source-slot pin/capture pipeline. WebAssembly has no git subprocess: the transport records actual engine/checker/renderer bytes, a separate browser-adapter hash, and no invented checkout revision. Adapter hashes are rechecked when serving those captures.
 Network/CORS/HTTP failures refuse the operation without inventing an answer or
-score. Arbitrary-address imports are not enabled. No links are followed.
+score. Named collections additionally support explicit public HTTPS HTML/plain-text
+URL capture where browser CORS permits, or labelled pasted text. No links are followed.
+See [exploration collections](EXPLORATION_COLLECTIONS.md) for web search and import limits.
 
 The generated HTML is about 20 MB because it includes the runtime and pages.
 Browser startup and memory use can be significant on mobile hardware.
@@ -59,7 +61,7 @@ summary, working notes, virtual-save relaunch, fixture source import and transcr
 has nine tests, including import pin checks, same-revision conflict retention,
 network failure, command transport and arbitrary URL/path rejection.
 
-The complete Python suite passed 272 tests. The worker and UI transport have separate JavaScript checks. These do not substitute
+The expanded Python suite passed 279 tests. The worker and UI transport have separate JavaScript checks. These do not substitute
 for testing browser permissions, IndexedDB persistence or graphical layout in an
 actual browser. No live browser Wikipedia score is claimed. Frozen published probe
 files and stored evaluation captures were not rewritten.
@@ -68,5 +70,5 @@ files and stored evaluation captures were not rewritten.
 
 The root `index.html` and Python launcher retain desktop mode. Remove the generated
 standalone build to stop offering browser mode. Browser saves are not desktop saves;
-export before clearing browser storage or changing origin. SELF-0003 documents both
-modes and retains SELF-0002 and SELF-0001 in the revision tree.
+export before clearing browser storage or changing origin. SELF-0004 documents the
+collection browser mode and retains earlier self-reference pages in the revision tree.

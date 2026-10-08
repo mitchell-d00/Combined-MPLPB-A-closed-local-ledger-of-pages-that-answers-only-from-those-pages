@@ -23,6 +23,7 @@ from tools.topic_chat_sources import TopicStore
 from tools import chat_logic as C
 from tools import deterministic_mind as M
 from tools.mind_session import SessionStore
+from tools.exploration_store import ExplorationStore
 
 
 class App:
@@ -31,6 +32,7 @@ class App:
         self.chat_lock = threading.RLock()
         self.session_store = SessionStore(session_path or (Path(topic_base).resolve() / 'session-save.json' if topic_base else ROOT / 'local/sessions/state.json'))
         self.sessions = self.session_store.load()
+        self.collections = ExplorationStore(self.topics.base.parent / 'collections')
         self.corpora = {
             'canned': ('Patch canned · uneven names', ROOT / 'examples/patch-canned'),
             'studio': ('Pottery studio', ROOT / 'examples/studio'),
@@ -47,6 +49,8 @@ class App:
 
     def roots(self):
         roots = dict(self.corpora)
+        for key, entry in self.collections.entries().items():
+            roots[key] = (entry['name'], self.collections.root(key))
         try:
             roots['wiki'] = ('Wiki · active local head', W.latest() / 'corpus')
         except (OSError, ValueError):
@@ -57,6 +61,8 @@ class App:
         return roots
 
     def root(self, key):
+        if isinstance(key, str) and key.startswith('mind-'):
+            return self.collections.root(key)
         if key == 'topics':
             return self.topics.root()
         if key not in self.roots():
@@ -78,6 +84,29 @@ class App:
                             'eligible': len(ledger.servable())})
         return {'chat_rules': C.RULES, 'corpora': corpora, 'profiles': list(R.PROFILES),
                 'notice': 'Local lexical retrieval. Source declarations are not authenticated authorship.'}
+
+    def create_collection(self, data):
+        with self.chat_lock:
+            return self.collections.create(data.get('name'))
+
+    def import_source(self, data):
+        with self.chat_lock:
+            return self.collections.add(data.get('corpus'), data.get('title'), data.get('url'), data.get('text'))
+
+    def reset_collection(self, data):
+        with self.chat_lock:
+            key = data.get('corpus')
+            self.collections.path(key)
+            previous = self.sessions
+            updated = {sid: s for sid, s in self.sessions.items() if s['corpus'] != key}
+            self.session_store.save(updated); self.sessions = updated
+            try: return self.collections.reset(key)
+            except Exception:
+                self.session_store.save(previous); self.sessions = previous
+                raise
+
+    def topic_store(self, corpus):
+        return self.collections.topics(corpus) if isinstance(corpus, str) and corpus.startswith('mind-') else self.topics
 
     def inventory(self, corpus, profile):
         root = self.root(corpus)
@@ -163,13 +192,13 @@ class App:
                 raise ValueError('1000-turn save limit reached. State retained; export before an explicit restart.')
             wiki = data.get('wiki', 'simple')
             if message.lower().startswith('search '):
-                found = self.topics.search(message[7:].strip(), wiki)
+                found = self.topic_store(corpus).search(message[7:].strip(), wiki)
                 result = {'kind': 'search', 'message': 'Choose a title to import. Search snippets are not local evidence.',
                           'search': found, 'sources': [], 'reasoning': ['Explicit remote topic search; no source claims inferred.'],
                           'context': session['context']}
             elif message.lower().startswith('import '):
-                imported = self.topics.import_title(message[7:].strip(), wiki)
-                corpus = 'topics'
+                imported = self.topic_store(corpus).import_title(message[7:].strip(), wiki)
+                corpus = corpus if corpus.startswith('mind-') else 'topics'
                 context = None
                 delivery_notice = ''
                 try:
@@ -232,7 +261,7 @@ class App:
                     'context': session['context'], 'notes': list(session.get('mind', {}).get('notes', [])),
                     'turns': copy.deepcopy(session['log']), 'chain_intact': C.verify_log(session['log'])}
 
-    def history(self):
+    def history(self, corpus=None):
         head_path = W.KIT / 'head.json'
         head = json.loads(head_path.read_text()) if head_path.exists() else None
         versions = []
@@ -247,7 +276,14 @@ class App:
                     'history': manifest.get('history'), 'status': manifest.get('status', 'retained capture'),
                     'code_matches_now': not W.code_errors(manifest.get('code', {}))})
         versions.sort(key=lambda item: item.get('observed_at') or '', reverse=True)
-        return {'head': head, 'versions': versions, 'topic_history': self.topics.history(),
+        collection = None
+        topics = self.topics
+        if isinstance(corpus, str) and corpus.startswith('mind-'):
+            self.collections.root(corpus)
+            topics = self.collections.topics(corpus)
+            entry = self.collections.entries()[corpus]
+            collection = {'name': entry['name'], 'captures': [json.loads((self.collections.path(corpus) / 'captures' / c['id'] / 'manifest.json').read_text()) for c in entry.get('captures', [])]}
+        return {'head': head, 'versions': versions, 'topic_history': topics.history(), 'collection_history': collection,
                 'notice': 'Capture and verification dates are separate. Stored passes are historical; this view makes no live request.'}
 
     def experiment(self):
@@ -291,7 +327,7 @@ def handler(app):
                 if route.path == '/api/state':
                     return self.send(200, app.state())
                 if route.path == '/api/history':
-                    return self.send(200, app.history())
+                    return self.send(200, app.history(parse_qs(route.query).get('corpus', [None])[0]))
                 if route.path == '/api/experiment':
                     return self.send(200, app.experiment())
                 if route.path == '/api/page':
@@ -308,6 +344,7 @@ def handler(app):
             if origin and origin != 'http://' + self.headers.get('Host', ''):
                 return self.send(403, {'error': 'Origin rejected'})
             operations = {'/api/query': app.query, '/api/chat': app.chat,
+                          '/api/collections/create': app.create_collection, '/api/collections/reset': app.reset_collection, '/api/source/import': app.import_source,
                           '/api/chat/resume': app.resume_chat, '/api/chat/export': app.export_chat, '/api/chat/reset': app.reset_chat}
             if self.path not in operations:
                 return self.send(404, {'error': 'Not found'})

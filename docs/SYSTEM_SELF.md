@@ -3,6 +3,13 @@
 MPLPB is a closed local ledger of sealed HTML pages. This interface is a front end
 to its Python reader and provenance gate. It is not a language model or a game simulation.
 
+Current sealed self-reference: SELF-0004. Named collections have separate source
+stores and saved chats. Web search opens Bing in a separate tab; Wikipedia search
+runs in chat. Explicit URL imports require browser CORS; pasted text is marked user
+supplied. Standalone mode saves sessions and sources in IndexedDB. Restart clears
+the selected chat; collection reset removes that collection from the active workspace
+and retains source files in a local reset archive. Earlier self-reference pages remain.
+
 Creator: Mitchell D. McPhetridge. Repository account: mitchell-d00.
 The current user identifies themself as the project's creator. This is a creator
 attribution declaration; this system cannot authenticate a person's identity.
