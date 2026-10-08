@@ -1,6 +1,7 @@
 """Capture integrity failures must stop before retrieval or live scoring."""
 import copy
 import json
+import hashlib
 from pathlib import Path
 import tempfile
 import unittest
@@ -19,6 +20,11 @@ class WikiCaptureTests(unittest.TestCase):
                   'revisions': [{'revid': 11, 'timestamp': '2026-01-01T00:00:00Z'}]},
             '2': {'pageid': 2, 'title': 'Dog', 'extract': 'A canine animal.',
                   'revisions': [{'revid': 22, 'timestamp': '2026-01-01T00:00:00Z'}]}}}}
+        for page in self.payload['query']['pages'].values():
+            rev = page['revisions'][0]
+            rev['sha1'] = hashlib.sha1(page['extract'].encode()).hexdigest()
+            rev['slots'] = {'main': {'contentmodel': 'wikitext', '*': page['extract'],
+                                     'sha1': rev['sha1']}}
         self.raw = json.dumps(self.payload, indent=1).encode()
         self.metadata = {'retrieved_at': '2026-01-01T00:00:00Z', 'http_status': 200,
                          'url': W.request_url(W.APIS['simple'], ['Cat', 'Dog'])}
@@ -67,18 +73,18 @@ class WikiCaptureTests(unittest.TestCase):
         self.assertEqual(result['verification'], 'live')
         self.assertFalse(result['independence_verified'])
 
-    def test_same_revision_changed_extract_stops_before_reader(self):
+    def test_same_revision_changed_wikitext_stops_before_reader(self):
         changed = copy.deepcopy(self.payload)
-        changed['query']['pages']['1']['extract'] = 'A changed feline animal.'
+        self.change_source(changed, 'A changed feline animal.')
         with patch.object(W, 'request', return_value=(json.dumps(changed).encode(), self.metadata)), \
                 patch.object(W.R, 'answer') as reader:
             result = W.check(self.snapshot)
         self.assertFalse(result['scored'])
-        self.assertIn('live payload changed', ' '.join(result['errors']))
+        self.assertIn('revision-slot source changed', ' '.join(result['errors']))
         row = result['live'][0]
-        self.assertEqual(row['expected_revid'], row['observed_revid'])
-        self.assertFalse(row['extract_match'])
-        self.assertNotEqual(row['expected_payload_sha256'], row['observed_payload_sha256'])
+        self.assertEqual(row['expected']['revid'], row['observed']['revid'])
+        self.assertTrue(row['same_revision_conflict'])
+        self.assertNotEqual(row['expected']['wikitext_sha256'], row['observed']['wikitext_sha256'])
         reader.assert_not_called()
 
     def test_unchanged_extract_changed_payload_stops(self):
@@ -90,9 +96,9 @@ class WikiCaptureTests(unittest.TestCase):
         self.assertFalse(result['scored'])
         reader.assert_not_called()
 
-    def test_missing_payload_pin_cannot_be_fabricated(self):
+    def test_missing_slot_sha1_pin_cannot_be_fabricated(self):
         manifest = self.manifest()
-        del manifest['pages'][0]['payload_sha256']
+        del manifest['pages'][0]['slot_sha1']
         self.replace_manifest(manifest)
         self.assert_stops_locally()
 
@@ -178,7 +184,7 @@ class WikiCaptureTests(unittest.TestCase):
 
     def test_fresh_run_does_not_refetch_to_hide_second_request_mismatch(self):
         changed = copy.deepcopy(self.payload)
-        changed['query']['pages']['1']['extract'] = 'Changed source.'
+        self.change_source(changed, 'Changed source.')
         with patch.object(W, 'request', side_effect=[(self.raw, self.metadata),
                  (json.dumps(changed).encode(), self.metadata)]) as network, \
                 patch.object(W, 'capture', wraps=self.capture_small), \
@@ -231,7 +237,7 @@ class WikiCaptureTests(unittest.TestCase):
         before = {p.relative_to(self.snapshot): p.read_bytes()
                   for p in self.snapshot.rglob('*') if p.is_file()}
         changed = copy.deepcopy(self.payload)
-        changed['query']['pages']['1']['extract'] = 'A newly observed feline extract.'
+        self.change_source(changed, 'A newly observed feline extract.')
         raw = json.dumps(changed).encode()
         metadata = dict(self.metadata, retrieved_at='2026-01-02T00:00:00Z')
         with patch.object(W, 'request', return_value=(raw, metadata)) as network, \
@@ -273,7 +279,7 @@ class WikiCaptureTests(unittest.TestCase):
         kit = self.root / 'wiki'
         snap = kit / 'captures' / 'original'
         changed = copy.deepcopy(self.payload)
-        changed['query']['pages']['1']['extract'] = 'Changed.'
+        self.change_source(changed, 'Changed.')
         with patch.object(W, 'request', return_value=(self.raw, self.metadata)):
             self.capture_small(snap, W.APIS['simple'])
         with patch.object(W, 'KIT', kit), \
@@ -302,9 +308,17 @@ class WikiCaptureTests(unittest.TestCase):
         manifest = json.loads((next_snapshot / 'manifest.json').read_text())
         self.assertNotIn('history', manifest)
 
+    def change_source(self, payload, text, revid=None):
+        rev = payload['query']['pages']['1']['revisions'][0]
+        rev['slots']['main']['*'] = text
+        rev['slots']['main']['sha1'] = hashlib.sha1(text.encode()).hexdigest()
+        rev['sha1'] = rev['slots']['main']['sha1']
+        if revid is not None:
+            rev['revid'] = revid
+
     def changed_response(self):
         changed = copy.deepcopy(self.payload)
-        changed['query']['pages']['1']['extract'] = 'A changed feline animal.'
+        self.change_source(changed, 'A changed feline animal.', revid=12)
         return json.dumps(changed).encode(), dict(self.metadata, retrieved_at='2026-01-02T00:00:00Z')
 
     def test_sync_verifies_successor_and_moves_head_without_rewriting_old(self):
@@ -349,7 +363,7 @@ class WikiCaptureTests(unittest.TestCase):
     def test_successor_drift_does_not_loop_or_promote(self):
         response = self.changed_response()
         changed = json.loads(response[0])
-        changed['query']['pages']['1']['extract'] = 'Changed again.'
+        self.change_source(changed, 'Changed again.')
         with patch.object(W, 'request', side_effect=[response,
                  (json.dumps(changed).encode(), response[1])]) as network:
             result = W.sync(self.snapshot)
@@ -365,6 +379,127 @@ class WikiCaptureTests(unittest.TestCase):
             self.capture_small(fresh, W.APIS['simple'])
         manifest = json.loads((fresh / 'manifest.json').read_text())
         self.assertEqual(manifest['history']['previous_capture'], result['snapshot'])
+
+    def test_generated_extract_change_does_not_change_source_or_scored_body(self):
+        changed = copy.deepcopy(self.payload)
+        changed['query']['pages']['1']['extract'] = 'Unrelated generated intro.'
+        with patch.object(W, 'request', return_value=(json.dumps(changed).encode(), self.metadata)):
+            result = W.check(self.snapshot)
+        self.assertTrue(result['scored'], result['errors'])
+        self.assertEqual(result['failures'], 0)
+        self.assertNotIn('archive', result)
+        self.assertTrue(result['renderer_observations'][0]['source_match'])
+        rec = W.L.Ledger(self.snapshot / 'corpus').by_id['WIKI-0001'][0]
+        self.assertIn('feline', rec.body_html)
+        self.assertNotIn('Unrelated generated intro', rec.body_html)
+
+    def test_same_revision_conflict_cannot_be_promoted_by_sync(self):
+        changed = copy.deepcopy(self.payload)
+        self.change_source(changed, 'A conflicting stored revision.')
+        with patch.object(W, 'request', return_value=(json.dumps(changed).encode(), self.metadata)) as network:
+            result = W.sync(self.snapshot)
+        self.assertFalse(result['scored'])
+        self.assertIn('archive', result)
+        self.assertEqual(network.call_count, 1)
+        self.assertFalse((self.root / 'head.json').exists())
+
+    def test_wrong_advertised_slot_sha1_is_archived_incomplete_and_not_scored(self):
+        changed = copy.deepcopy(self.payload)
+        changed['query']['pages']['1']['revisions'][0]['slots']['main']['sha1'] = '0' * 40
+        with patch.object(W, 'request', return_value=(json.dumps(changed).encode(), self.metadata)):
+            result = W.check(self.snapshot)
+        self.assertFalse(result['scored'])
+        self.assertIn('SHA-1 disagrees', result['live'][0]['invalid_source'])
+        archive = Path(result['archive']['observed_archive'])
+        self.assertTrue((archive / 'observation.json').exists())
+
+    def test_missing_main_slot_cannot_be_scored(self):
+        changed = copy.deepcopy(self.payload)
+        del changed['query']['pages']['1']['revisions'][0]['slots']
+        with patch.object(W, 'request', return_value=(json.dumps(changed).encode(), self.metadata)):
+            result = W.check(self.snapshot)
+        self.assertFalse(result['scored'])
+        self.assertIn('archive', result)
+
+    def test_new_revision_id_with_unchanged_text_is_a_new_source_version(self):
+        changed = copy.deepcopy(self.payload)
+        changed['query']['pages']['1']['revisions'][0]['revid'] = 12
+        with patch.object(W, 'request', return_value=(json.dumps(changed).encode(), self.metadata)):
+            result = W.check(self.snapshot)
+        self.assertFalse(result['scored'])
+        self.assertFalse(result['live'][0]['same_revision_conflict'])
+        self.assertEqual(result['live'][0]['expected']['wikitext_sha256'],
+                         result['live'][0]['observed']['wikitext_sha256'])
+
+    def test_retained_wikitext_tamper_stops_before_network(self):
+        path = self.snapshot / self.manifest()['pages'][0]['wikitext_path']
+        path.write_bytes(path.read_bytes() + b'changed')
+        self.assert_stops_locally()
+
+    def test_main_slot_pins_and_renderer_are_retained_independently(self):
+        manifest = self.manifest()
+        self.assertEqual(manifest['schema'], 3)
+        self.assertEqual(manifest['renderer'], W.renderer_pin())
+        entry = manifest['pages'][0]
+        self.assertEqual(entry['slot_sha1'], hashlib.sha1(b'A feline animal.').hexdigest())
+        self.assertEqual(entry['wikitext_sha256'], W.digest(b'A feline animal.'))
+        self.assertNotIn('payload_sha256', entry)
+        self.assertNotIn('raw_extract_sha256', entry)
+        self.assertIn('oldid=11', entry['revision_url'])
+
+    def test_revision_request_never_requests_generated_extracts(self):
+        from urllib.parse import parse_qs, urlparse
+        query = parse_qs(urlparse(W.request_url(W.APIS['simple'], ['Cat'])).query)
+        self.assertEqual(query['prop'], ['revisions'])
+        self.assertEqual(query['rvslots'], ['main'])
+        self.assertIn('slotsha1', query['rvprop'][0].split('|'))
+        self.assertNotIn('explaintext', query)
+
+    def test_local_render_is_deterministic_and_does_not_expand_templates(self):
+        from tools.wiki_render import render
+        text = "{{Infobox|nested={{value}}}}\n'''Cat''' is a [[feline|small feline]].<ref>Reference</ref>\n==History==\nLater section."
+        self.assertEqual(render(text), 'Cat is a small feline.')
+        self.assertEqual(render(text), render(text))
+
+    def test_response_envelope_and_unpinned_metadata_do_not_move_source(self):
+        changed = copy.deepcopy(self.payload)
+        changed['batchcomplete'] = True
+        changed['query']['pages']['1']['revisions'][0]['parentid'] = 7
+        with patch.object(W, 'request', return_value=(json.dumps(changed).encode(), self.metadata)):
+            result = W.check(self.snapshot)
+        self.assertTrue(result['scored'], result['errors'])
+        self.assertNotIn('archive', result)
+
+    def test_fresh_run_cannot_repin_a_known_same_revision_conflict(self):
+        changed = copy.deepcopy(self.payload)
+        self.change_source(changed, 'Conflicting same-revision wikitext.')
+        response = json.dumps(changed).encode(), self.metadata
+        with patch.object(W, 'request', return_value=response) as network, \
+                patch.object(W, 'capture', wraps=self.capture_small), \
+                patch.object(W.R, 'answer') as reader:
+            result = W.run(self.root / 'conflict')
+        self.assertFalse(result['scored'])
+        self.assertEqual(network.call_count, 1)
+        reader.assert_not_called()
+        manifest = json.loads((self.root / 'conflict/manifest.json').read_text())
+        self.assertEqual(manifest['status'], 'archived revision conflict; not scored')
+        self.assertTrue(manifest['same_revision_conflicts'])
+
+    def test_further_archive_drift_stays_in_the_same_revision_tree_root(self):
+        kit = self.root / 'wiki'
+        snap = kit / 'captures' / 'original'
+        with patch.object(W, 'request', return_value=(self.raw, self.metadata)):
+            self.capture_small(snap, W.APIS['simple'])
+        with patch.object(W, 'request', return_value=self.changed_response()):
+            first = W.check(snap)
+        archive = Path(first['archive']['observed_archive']).resolve()
+        changed = copy.deepcopy(self.payload)
+        self.change_source(changed, 'A later source revision.', revid=13)
+        with patch.object(W, 'request', return_value=(json.dumps(changed).encode(), self.metadata)):
+            second = W.check(archive)
+        successor = Path(second['archive']['observed_archive']).resolve()
+        self.assertEqual(archive.parent, (kit / 'archives').resolve())
+        self.assertEqual(successor.parent, archive.parent)
 
 
 ORIGINAL_CAPTURE = W.capture

@@ -1,0 +1,260 @@
+{
+  "snapshot": "evaluation/wiki/captures/20261008T165537443813Z",
+  "checked_at": "2026-10-08T16:55:50.360647+00:00",
+  "score_basis": "local deterministic revision-lead rendering; not live API extract",
+  "scored": true,
+  "independence_verified": false,
+  "errors": [],
+  "live": [
+    {
+      "title": "Cat",
+      "source_match": true,
+      "expected": {
+        "revid": 11013735,
+        "slot_sha1": "041b49371ce9afef84bd9e85b8ce56c7babac5cc",
+        "wikitext_sha256": "c054a65405ee01ddbedd24c2607de2ed3bcd8d4a1487c8ec7af6f84b6f20c037"
+      },
+      "observed": {
+        "revid": 11013735,
+        "slot_sha1": "041b49371ce9afef84bd9e85b8ce56c7babac5cc",
+        "wikitext_sha256": "c054a65405ee01ddbedd24c2607de2ed3bcd8d4a1487c8ec7af6f84b6f20c037"
+      },
+      "invalid_source": null,
+      "same_revision_conflict": false
+    },
+    {
+      "title": "Dog",
+      "source_match": true,
+      "expected": {
+        "revid": 11022361,
+        "slot_sha1": "7b6527c05bf37cfc7bc7301416b1fe1f13cf3300",
+        "wikitext_sha256": "3bd65203104892defbc76adcb806e721b78110aeaca64df15e050e952120544b"
+      },
+      "observed": {
+        "revid": 11022361,
+        "slot_sha1": "7b6527c05bf37cfc7bc7301416b1fe1f13cf3300",
+        "wikitext_sha256": "3bd65203104892defbc76adcb806e721b78110aeaca64df15e050e952120544b"
+      },
+      "invalid_source": null,
+      "same_revision_conflict": false
+    },
+    {
+      "title": "Moon",
+      "source_match": true,
+      "expected": {
+        "revid": 10950172,
+        "slot_sha1": "20617d12f47628c8226c14f51b480b201be83219",
+        "wikitext_sha256": "ee036ba6a83d2bce53b5a89226a07d37039c408905d961b22246ae6bf8e064ac"
+      },
+      "observed": {
+        "revid": 10950172,
+        "slot_sha1": "20617d12f47628c8226c14f51b480b201be83219",
+        "wikitext_sha256": "ee036ba6a83d2bce53b5a89226a07d37039c408905d961b22246ae6bf8e064ac"
+      },
+      "invalid_source": null,
+      "same_revision_conflict": false
+    },
+    {
+      "title": "Paris",
+      "source_match": true,
+      "expected": {
+        "revid": 11020095,
+        "slot_sha1": "6d408a1e9602d0f439c1d46d4961b9b30245e49b",
+        "wikitext_sha256": "16da9c1db4967f5bafd11b4525dbb8dbbc43fe1726897c1843335f2c93e51fc4"
+      },
+      "observed": {
+        "revid": 11020095,
+        "slot_sha1": "6d408a1e9602d0f439c1d46d4961b9b30245e49b",
+        "wikitext_sha256": "16da9c1db4967f5bafd11b4525dbb8dbbc43fe1726897c1843335f2c93e51fc4"
+      },
+      "invalid_source": null,
+      "same_revision_conflict": false
+    },
+    {
+      "title": "Photosynthesis",
+      "source_match": true,
+      "expected": {
+        "revid": 10903963,
+        "slot_sha1": "5c0d21a5247de2eda6bbd9796e4519368b541185",
+        "wikitext_sha256": "1f1bedd0e13704ee1222644a9685e4b080f9c0aee983ca53563c3cce4058178c"
+      },
+      "observed": {
+        "revid": 10903963,
+        "slot_sha1": "5c0d21a5247de2eda6bbd9796e4519368b541185",
+        "wikitext_sha256": "1f1bedd0e13704ee1222644a9685e4b080f9c0aee983ca53563c3cce4058178c"
+      },
+      "invalid_source": null,
+      "same_revision_conflict": false
+    }
+  ],
+  "rows": [
+    {
+      "question": "Cat",
+      "mode": "local title",
+      "passed": true,
+      "outcome": "return",
+      "id": "WIKI-0001"
+    },
+    {
+      "question": "Cat",
+      "mode": "external ask withheld",
+      "passed": true,
+      "outcome": "not_in_corpus",
+      "id": null
+    },
+    {
+      "question": "Cat",
+      "mode": "external gate withheld",
+      "passed": true,
+      "outcome": "not_in_corpus",
+      "id": null
+    },
+    {
+      "question": "Dog",
+      "mode": "local title",
+      "passed": true,
+      "outcome": "return",
+      "id": "WIKI-0002"
+    },
+    {
+      "question": "Dog",
+      "mode": "external ask withheld",
+      "passed": true,
+      "outcome": "not_in_corpus",
+      "id": null
+    },
+    {
+      "question": "Dog",
+      "mode": "external gate withheld",
+      "passed": true,
+      "outcome": "not_in_corpus",
+      "id": null
+    },
+    {
+      "question": "Moon",
+      "mode": "local title",
+      "passed": true,
+      "outcome": "return",
+      "id": "WIKI-0003"
+    },
+    {
+      "question": "Moon",
+      "mode": "external ask withheld",
+      "passed": true,
+      "outcome": "not_in_corpus",
+      "id": null
+    },
+    {
+      "question": "Moon",
+      "mode": "external gate withheld",
+      "passed": true,
+      "outcome": "not_in_corpus",
+      "id": null
+    },
+    {
+      "question": "Paris",
+      "mode": "local title",
+      "passed": true,
+      "outcome": "return",
+      "id": "WIKI-0004"
+    },
+    {
+      "question": "Paris",
+      "mode": "external ask withheld",
+      "passed": true,
+      "outcome": "not_in_corpus",
+      "id": null
+    },
+    {
+      "question": "Paris",
+      "mode": "external gate withheld",
+      "passed": true,
+      "outcome": "not_in_corpus",
+      "id": null
+    },
+    {
+      "question": "Photosynthesis",
+      "mode": "local title",
+      "passed": true,
+      "outcome": "return",
+      "id": "WIKI-0005"
+    },
+    {
+      "question": "Photosynthesis",
+      "mode": "external ask withheld",
+      "passed": true,
+      "outcome": "not_in_corpus",
+      "id": null
+    },
+    {
+      "question": "Photosynthesis",
+      "mode": "external gate withheld",
+      "passed": true,
+      "outcome": "not_in_corpus",
+      "id": null
+    },
+    {
+      "question": "Tokyo",
+      "mode": "absent title",
+      "passed": true,
+      "outcome": "not_in_corpus",
+      "id": null
+    },
+    {
+      "question": "Violin",
+      "mode": "absent title",
+      "passed": true,
+      "outcome": "not_in_corpus",
+      "id": null
+    },
+    {
+      "question": "Glacier",
+      "mode": "absent title",
+      "passed": true,
+      "outcome": "not_in_corpus",
+      "id": null
+    },
+    {
+      "question": "Cat Dog",
+      "mode": "two titles must not choose one",
+      "passed": true,
+      "outcome": "not_in_corpus",
+      "id": null
+    }
+  ],
+  "live_request": {
+    "url": "https://simple.wikipedia.org/w/api.php?action=query&format=json&redirects=1&prop=revisions&rvslots=main&rvprop=ids%7Ctimestamp%7Ccontent%7Csha1%7Cslotsha1%7Ccontentmodel&titles=Cat%7CDog%7CMoon%7CParis%7CPhotosynthesis",
+    "retrieved_at": "2026-10-08T16:56:09.478665+00:00",
+    "http_status": 200,
+    "content_type": "application/json; charset=utf-8"
+  },
+  "failures": 0,
+  "paraphrases_unscored": [
+    {
+      "question": "domestic feline",
+      "outcome": "not_in_corpus"
+    },
+    {
+      "question": "earth only natural satellite",
+      "outcome": "not_in_corpus"
+    },
+    {
+      "question": "how plants make food from light",
+      "outcome": "return"
+    }
+  ],
+  "head": {
+    "promoted": true,
+    "current": {
+      "snapshot": "captures/20261008T165537443813Z",
+      "manifest_sha256": "612261ca2af3b21ae48f8a9153bf335eca47bfe5594cd0c1201a44b5ab3ce99d",
+      "response_sha256": "399eb9aa2ab39cfbf9160f9646ffa5f33fd803beed01b27c1be81002587677db",
+      "source_api": "https://simple.wikipedia.org/w/api.php",
+      "captured_at": "2026-10-08T16:55:50.254197+00:00",
+      "verified_at": "2026-10-08T16:56:09.478665+00:00",
+      "scored": true,
+      "failures": 0
+    }
+  },
+  "verification": "live"
+}

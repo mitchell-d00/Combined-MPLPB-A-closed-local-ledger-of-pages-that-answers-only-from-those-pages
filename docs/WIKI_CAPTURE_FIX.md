@@ -37,3 +37,15 @@ Rollback: revert this follow-up to remove automatic archival while preserving st
 New captures link prior same-source observations. `sync` checks the current head, archives drift, and verifies one successor. Only a passing live successor becomes the active local head. Old captures remain immutable. Offline replay, a rate limit, repeated drift, or an older capture cannot replace a newer verified head. Eight additional tests cover parent links, source separation, successful promotion, failed successor retention, no offline promotion, no backwards movement, bounded synchronization, and linkage after an archived head. Together with the three archive tests, this release adds eleven tests to the prior 197.
 
 Rollback also restores the previous menu behavior and removes `head.json` from the shipped tree. Keep runtime head pointers and archives separately if needed as historical evidence; an older checker cannot verify this release's checker pins.
+
+## Revision-source correction
+
+Base: `71c753b1d5a23c36a902cd0d4b59ca7b474c863a`. The previous stop rule was aimed at generated TextExtracts payloads, which do not establish revision content. It over-refused when generated intros differed at the same revision. Fresh snapshots and clearer archives did not correct that source identity error.
+
+Schema 3 fetches stored main-slot content and advertised main-slot SHA-1, checks that SHA-1 against received UTF-8 bytes, and pins revision ID, slot SHA-1 and wikitext SHA-256. A separate versioned local lead stripper produces the derivative. Whole API envelopes and generated extract fields are no longer the live source gate. Raw responses, exact wikitext, renderer bytes and complete local pages remain independently retained and pinned. Source revision permalinks and revision/observation times remain explicit.
+
+An unchanged source with a changed generated extract records a renderer observation and scores only the deterministic local derivative. Changed source pins stop and archive. A same-revision content conflict cannot be promoted by sync or silently repinned by a fresh run with intact lineage. New revision successors still require passing live verification before becoming head.
+
+Twelve new regression tests cover repeated archival within one tree root, generated-extract and envelope independence, same-revision conflict refusal in sync and fresh runs, advertised SHA-1 disagreement, missing slots, revision-only changes, retained wikitext tampering, independently retained source/renderer pins, source-only API requests, and bounded deterministic lead rendering. Existing source-change fixtures now carry revision slots and test the revision gate; frozen pottery probes were not rewritten.
+
+Rollback: revert this correction to restore the earlier extract checker and previous head, keeping new schema-3 evidence separately. Do not add wikitext hashes to schema-2 records: they did not retain that content. Renderer changes require fresh derived captures rather than changes to old source pins. See the current wiki README for the active contract; earlier sections above describe historical implementations.

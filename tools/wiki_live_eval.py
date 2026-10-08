@@ -23,6 +23,7 @@ import urllib.request
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 from mplpb_combined import ledger as L, reader as R, provenance_gate as G
+from tools import wiki_render as WR
 
 KIT = ROOT / 'evaluation/wiki'
 APIS = {'simple': 'https://simple.wikipedia.org/w/api.php',
@@ -54,8 +55,8 @@ def json_bytes(value):
 def request_url(api, titles):
     return api + '?' + urllib.parse.urlencode({
         'action': 'query', 'format': 'json', 'redirects': 1,
-        'prop': 'extracts|revisions', 'exintro': 1, 'explaintext': 1,
-        'rvprop': 'ids|timestamp', 'titles': '|'.join(titles)})
+        'prop': 'revisions', 'rvslots': 'main',
+        'rvprop': 'ids|timestamp|content|sha1|slotsha1|contentmodel', 'titles': '|'.join(titles)})
 
 
 def request(api, titles):
@@ -89,6 +90,7 @@ def engine_hash():
 def code_pins():
     revision = subprocess.run(['git', 'rev-parse', 'HEAD'], cwd=ROOT, capture_output=True, text=True)
     return {'engine_sha256': engine_hash(), 'checker_sha256': digest(Path(__file__).read_bytes()),
+            'renderer_sha256': renderer_pin()['sha256'],
             'base_revision': revision.stdout.strip() if revision.returncode == 0 else None,
             'notice': 'Byte consistency only; not authenticated authorship or independent validation.'}
 
@@ -99,6 +101,10 @@ def code_errors(pins):
         errors.append('engine bytes differ from capture pin')
     if digest(Path(__file__).read_bytes()) != pins.get('checker_sha256'):
         errors.append('checker bytes differ from capture pin')
+    if renderer_pin()['sha256'] != pins.get('renderer_sha256'):
+        errors.append('renderer bytes differ from capture pin')
+    if Path(WR.__file__).resolve() != ROOT / 'tools/wiki_render.py':
+        errors.append('imported renderer outside pinned local file')
     for name, module in list(sys.modules.items()):
         if name == 'mplpb_combined' or name.startswith('mplpb_combined.'):
             path = getattr(module, '__file__', None)
@@ -107,10 +113,33 @@ def code_errors(pins):
     return errors
 
 
+def source_pin(page):
+    try:
+        rev = page['revisions'][0]
+        slot = rev['slots']['main']
+        text = slot['*']
+        sha1 = slot['sha1']
+    except (KeyError, TypeError, IndexError) as exc:
+        raise ValueError('revision has no readable main slot and SHA-1') from exc
+    if slot.get('contentmodel') != 'wikitext' or not isinstance(text, str):
+        raise ValueError('main slot is not readable wikitext')
+    if hashlib.sha1(text.encode('utf-8')).hexdigest() != sha1:
+        raise ValueError('main slot SHA-1 disagrees with received wikitext')
+    return {'revid': rev['revid'], 'slot_sha1': sha1,
+            'wikitext_sha256': digest(text.encode('utf-8'))}
+
+
+def renderer_pin():
+    return {'version': WR.VERSION, 'sha256': digest(Path(WR.__file__).read_bytes())}
+
+
 def source_body(page, api):
+    source_pin(page)
     site = api.split('/w/api.php')[0]
-    return (page['extract'].strip() + '\n\nSource: ' + site + '/wiki/' +
+    rev = page['revisions'][0]
+    return (WR.render(rev['slots']['main']['*']) + '\n\nSource: ' + site + '/wiki/' +
             urllib.parse.quote(page['title'].replace(' ', '_')) +
+            '?oldid=' + str(rev['revid']) +
             '\nLicense: CC BY-SA 4.0; Wikipedia contributors.\n'
             'Source authorship: unknown; contributor identity is not authenticated by this capture.')
 
@@ -164,16 +193,22 @@ def capture_response(dest, api, spec, raw, metadata, history=None):
     live = pages(raw)
     for title in titles:
         p = live.get(title)
-        if not p or not p.get('extract') or not p.get('revisions'):
+        if not p or not p.get('revisions'):
             raise ValueError('requested title has no complete source payload: ' + title)
+        source_pin(p)
     dest.parent.mkdir(parents=True, exist_ok=True)
     with tempfile.TemporaryDirectory(prefix='.wiki-capture-', dir=dest.parent) as temp:
         stage = Path(temp) / 'snapshot'; stage.mkdir()
         (stage / 'response.json').write_bytes(raw)
         records = []
+        (stage / 'source').mkdir()
+        (stage / 'source/renderer.py').write_bytes(Path(WR.__file__).read_bytes())
         when = metadata['retrieved_at']
         for i, title in enumerate(titles, 1):
             p = live[title]; rev = p['revisions'][0]
+            pin = source_pin(p)
+            source_path = f'source/wiki-{i:04d}.wiki'
+            (stage / source_path).write_bytes(rev['slots']['main']['*'].encode('utf-8'))
             rec = L.write(stage / 'corpus', title=title, scope=title, when_to_use=title,
                           body=source_body(p, api), prefix='WIKI', doc_id=f'WIKI-{i:04d}',
                           origin='machine', source_authorship='unknown', external='no',
@@ -184,10 +219,14 @@ def capture_response(dest, api, spec, raw, metadata, history=None):
                             'observed_at': when,
                             'source_url': api.split('/w/api.php')[0] + '/wiki/' +
                                 urllib.parse.quote(title.replace(' ', '_')),
-                            'raw_extract_sha256': digest(p['extract'].encode('utf-8')),
-                            'payload_sha256': digest(json_bytes(p)),
+                            'revision_url': api.split('/w/api.php')[0] + '/wiki/' +
+                                urllib.parse.quote(title.replace(' ', '_')) + '?oldid=' + str(rev['revid']),
+                            'slot_sha1': pin['slot_sha1'],
+                            'wikitext_sha256': pin['wikitext_sha256'],
+                            'wikitext_path': source_path,
+                            'rendered_sha256': digest(source_body(p, api).encode('utf-8')),
                             'served_page_sha256': digest((stage / 'corpus' / rec.path).read_bytes())})
-        manifest = {'schema': 2, 'api': api, 'request': metadata,
+        manifest = {'schema': 3, 'renderer': renderer_pin(), 'api': api, 'request': metadata,
                     'response_sha256': digest(raw), 'code': code_pins(), 'labels': spec,
                     'pages': records, 'local_profile': 'internal', 'external_expected': 'withheld',
                     'independence_verified': False,
@@ -195,6 +234,15 @@ def capture_response(dest, api, spec, raw, metadata, history=None):
         if history:
             manifest['history'] = history
             manifest['status'] = 'retained observation; not scored by capture'
+            conflicts = []
+            for p in records:
+                old = history.get('previous_source_pins', {}).get(p['title'])
+                observed = {key: p[key] for key in ('revid', 'slot_sha1', 'wikitext_sha256')}
+                if old and old['revid'] == p['revid'] and old != observed:
+                    conflicts.append({'title': p['title'], 'expected': old, 'observed': observed})
+            if conflicts:
+                manifest['same_revision_conflicts'] = conflicts
+                manifest['status'] = 'archived revision conflict; not scored'
         (stage / 'manifest.json').write_text(json.dumps(manifest, indent=2) + '\n')
         if dest.exists():
             raise FileExistsError('snapshot appeared during capture')
@@ -209,16 +257,19 @@ def history_link(snapshot, manifest, metadata, reason):
                'previous_manifest_sha256': digest((snapshot / 'manifest.json').read_bytes()),
                'previous_response_sha256': manifest['response_sha256'],
                'observed_at': metadata['retrieved_at'], 'source_api': manifest['api'],
+               'previous_source_pins': {
+                   p['title']: {key: p[key] for key in ('revid', 'slot_sha1', 'wikitext_sha256')}
+                   for p in manifest['pages'] if 'wikitext_sha256' in p},
                'scored': False}
 
 
 def archive_drift(snapshot, manifest, raw, metadata, changed):
     """Keep old evidence untouched and retain the new observation separately."""
-    archive_root = (snapshot.parent.parent if snapshot.parent.name == 'captures'
+    archive_root = (snapshot.parent.parent if snapshot.parent.name in {'captures', 'archives'}
                     else snapshot.parent) / 'archives'
     dest = archive_root / stamp()
     history = history_link(snapshot, manifest, metadata,
-                           'live payload differs; source edit not inferred from extract drift')
+                           'revision-slot source differs; retained without scoring')
     history['changes'] = changed
     try:
         capture_response(dest, manifest['api'], manifest['labels'], raw, metadata, history)
@@ -235,8 +286,8 @@ def archive_drift(snapshot, manifest, raw, metadata, changed):
 
 def stored_errors(snapshot, manifest):
     errors = []
-    if manifest.get('schema') != 2:
-        return ['historical snapshot lacks retained response provenance; cannot score or reconstruct missing pins']
+    if manifest.get('schema') != 3:
+        return ['historical extract snapshot has no revision-slot pins; preserved, not scored by this checker']
     if manifest.get('api') not in APIS.values():
         return ['unsupported snapshot API']
     try:
@@ -244,6 +295,10 @@ def stored_errors(snapshot, manifest):
         if digest(raw) != manifest['response_sha256']:
             return ['stored raw response differs from capture pin']
         original = pages(raw)
+        if manifest.get('renderer') != renderer_pin():
+            return ['renderer version differs; source not evaluated; create a newly rendered capture']
+        if digest((snapshot / 'source/renderer.py').read_bytes()) != manifest['renderer']['sha256']:
+            return ['retained local renderer bytes differ from capture pin']
         spec = manifest['labels']; pinned = manifest['pages']
         if len(pinned) != len(spec['fetched']) or [p['title'] for p in pinned] != spec['fetched']:
             errors.append('page list differs from captured labels')
@@ -256,10 +311,16 @@ def stored_errors(snapshot, manifest):
             errors.append('local HTML inventory differs from capture')
         for p in pinned:
             source = original[p['title']]
-            if not p.get('payload_sha256') or digest(json_bytes(source)) != p['payload_sha256']:
-                errors.append(p['title'] + ': original payload pin missing or mismatched')
-            if digest(source['extract'].encode()) != p.get('raw_extract_sha256'):
-                errors.append(p['title'] + ': original extract pin mismatched')
+            pin = source_pin(source)
+            if any(p.get(key) != value for key, value in pin.items()):
+                errors.append(p['title'] + ': revision-slot pin missing or mismatched')
+            source_path = (snapshot / p['wikitext_path']).resolve()
+            if snapshot.resolve() not in source_path.parents:
+                errors.append(p['title'] + ': wikitext path escapes snapshot')
+            elif source_path.read_bytes() != source['revisions'][0]['slots']['main']['*'].encode('utf-8'):
+                errors.append(p['title'] + ': retained wikitext differs from saved revision')
+            if digest(source_body(source, manifest['api']).encode('utf-8')) != p.get('rendered_sha256'):
+                errors.append(p['title'] + ': local derived text pin mismatched')
             if source['pageid'] != p['pageid'] or source['revisions'][0]['revid'] != p['revid']:
                 errors.append(p['title'] + ': source identity mismatched')
             path = (corpus / p['path']).resolve()
@@ -314,11 +375,14 @@ def check(snapshot, live=True, report=None):
     snapshot = Path(snapshot).resolve()
     result = {'snapshot': str(snapshot.relative_to(ROOT)) if ROOT in snapshot.parents else str(snapshot),
               'checked_at': datetime.now(timezone.utc).isoformat(),
+              'score_basis': 'local deterministic revision-lead rendering; not live API extract',
               'scored': False, 'independence_verified': False, 'errors': [], 'live': [], 'rows': []}
     live_raw = None
     try:
         manifest = json.loads((snapshot / 'manifest.json').read_text())
         result['errors'] = stored_errors(snapshot, manifest)
+        if manifest.get('same_revision_conflicts'):
+            result['errors'].append('capture conflicts with an already pinned revision; retained, not scored')
         if not result['errors']:
             result['errors'] += code_errors(manifest['code'])
         if not result['errors'] and live:
@@ -326,18 +390,29 @@ def check(snapshot, live=True, report=None):
             current = pages(live_raw); result['live_request'] = metadata
             for p in manifest['pages']:
                 source = current.get(p['title'])
-                matched = bool(source) and digest(json_bytes(source)) == p['payload_sha256']
+                observed = None
+                invalid = None
+                if source:
+                    try:
+                        observed = source_pin(source)
+                    except (KeyError, ValueError, TypeError, IndexError) as exc:
+                        invalid = str(exc)
+                expected = {key: p[key] for key in ('revid', 'slot_sha1', 'wikitext_sha256')}
+                matched = bool(source) and source.get('pageid') == p['pageid'] and observed == expected
                 result['live'].append({
-                    'title': p['title'], 'payload_match': matched,
-                    'expected_payload_sha256': p['payload_sha256'],
-                    'observed_payload_sha256': digest(json_bytes(source)) if source else None,
-                    'expected_revid': p['revid'],
-                    'observed_revid': source.get('revisions', [{}])[0].get('revid') if source else None,
-                    'extract_match': bool(source) and
-                        digest(source.get('extract', '').encode()) == p['raw_extract_sha256']})
+                    'title': p['title'], 'source_match': matched,
+                    'expected': expected, 'observed': observed, 'invalid_source': invalid,
+                    'same_revision_conflict': bool(source) and
+                        source.get('revisions', [{}])[0].get('revid') == p['revid'] and not matched})
+                # Generated API fields are diagnostics only, never source pins or scored text.
+                saved = pages((snapshot / 'response.json').read_bytes())[p['title']]
+                if source and saved.get('extract') != source.get('extract'):
+                    result.setdefault('renderer_observations', []).append({
+                        'title': p['title'], 'kind': 'API extract differs',
+                        'source_match': matched, 'scored_text': 'local deterministic revision rendering'})
                 if not matched:
-                    result['errors'].append(p['title'] + ': live payload changed; new run needed, not scored')
-            changed = [row for row in result['live'] if not row['payload_match']]
+                    result['errors'].append(p['title'] + ': revision-slot source changed or invalid; not scored')
+            changed = [row for row in result['live'] if not row['source_match']]
             if changed:
                 result['archive'] = archive_drift(snapshot, manifest, live_raw, metadata, changed)
         if not result['errors']:
@@ -395,7 +470,8 @@ def sync(snapshot=None, report=None):
     """Verify current head, then verify one archived successor; never loop."""
     first_report = Path(report).with_suffix('.previous.json') if report else None
     previous = check(snapshot or latest(), live=True, report=first_report)
-    if previous.get('archive'):
+    if (previous.get('archive') and not any(
+            row.get('same_revision_conflict') for row in previous['live'])):
         archive = Path(previous['archive']['observed_archive'])
         if not archive.is_absolute():
             archive = ROOT / archive
