@@ -1,6 +1,9 @@
 #!/usr/bin/env python3
 """Local browser UI: python3 tools/ledger_ui.py [--root /path/to/corpus]."""
 import argparse
+import base64
+import hashlib
+import re
 import json
 import sys
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
@@ -50,6 +53,32 @@ class App:
                             'eligible': len(ledger.servable())})
         return {'corpora': corpora, 'profiles': list(R.PROFILES),
                 'notice': 'Local lexical retrieval. Source declarations are not authenticated authorship.'}
+
+    def inventory(self, corpus, profile):
+        root = self.root(corpus)
+        if profile not in R.PROFILES:
+            raise ValueError('Unknown profile')
+        policy = R.PROFILES[profile]
+        ledger = L.Ledger(root)
+        current = {r.path for r in ledger.servable()}
+        pages = []
+        for rec in ledger.records:
+            depth = ledger.depth(rec)
+            reason = ledger.quarantine_reason(rec)
+            eligible = rec.path in current
+            if not reason and not eligible:
+                reason = 'retired' if ledger.effective_status(rec) == 'retired' else 'not current or valid lineage'
+            if eligible and external_restriction(rec, policy):
+                eligible, reason = False, 'withheld by external profile'
+            if eligible and policy.max_depth is not None and depth > policy.max_depth:
+                eligible, reason = False, 'withheld by depth limit'
+            pages.append({'id': rec.id, 'path': rec.path, 'title': rec.title,
+                          'scope': rec.scope, 'status': ledger.effective_status(rec),
+                          'origin': rec.origin, 'depth': depth, 'intact': rec.intact,
+                          'eligible': eligible, 'reason': reason})
+        return {'pages': pages, 'profile': profile,
+                'eligible': sum(p['eligible'] for p in pages),
+                'notice': 'Inventory lists local records; eligibility does not certify their claims.'}
 
     def query(self, data):
         question = data.get('question')
@@ -109,6 +138,9 @@ class App:
 
 
 def handler(app):
+    html = (ROOT / 'index.html').read_bytes()
+    scripts = re.findall(rb'<script>(.*?)</script>', html, re.DOTALL)
+    script_pins = ' '.join("'sha256-" + base64.b64encode(hashlib.sha256(script.replace(b'\r\n', b'\n').replace(b'\r', b'\n')).digest()).decode() + "'" for script in scripts)
     class Handler(BaseHTTPRequestHandler):
         def send(self, status, body, mime='application/json; charset=utf-8'):
             if not isinstance(body, bytes):
@@ -118,7 +150,7 @@ def handler(app):
             self.send_header('Content-Length', str(len(body)))
             self.send_header('Cache-Control', 'no-store')
             self.send_header('X-Content-Type-Options', 'nosniff')
-            self.send_header('Content-Security-Policy', "default-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'self'; img-src 'self' data:; connect-src 'self'; frame-ancestors 'none'")
+            self.send_header('Content-Security-Policy', "default-src 'self'; style-src 'self' 'unsafe-inline'; script-src " + script_pins + "; img-src 'self' data:; connect-src 'self'; frame-ancestors 'none'")
             self.end_headers()
             self.wfile.write(body)
 
@@ -131,11 +163,11 @@ def handler(app):
                 return self.send(403, {'error': 'Local host required'})
             route = urlsplit(self.path)
             try:
-                assets = {'/': ('ledger_ui.html', 'text/html; charset=utf-8'),
-                          '/app.js': ('ledger_ui.js', 'text/javascript; charset=utf-8')}
-                if route.path in assets:
-                    name, mime = assets[route.path]
-                    return self.send(200, (ROOT / 'tools' / name).read_bytes(), mime)
+                if route.path in ('/', '/index.html'):
+                    return self.send(200, html, 'text/html; charset=utf-8')
+                if route.path == '/api/inventory':
+                    q = parse_qs(route.query)
+                    return self.send(200, app.inventory(q['corpus'][0], q.get('profile', ['internal'])[0]))
                 if route.path == '/api/state':
                     return self.send(200, app.state())
                 if route.path == '/api/history':
@@ -176,10 +208,18 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--root', type=Path)
     parser.add_argument('--port', type=int, default=8766)
+    parser.add_argument('--open', action='store_true', help='Open the local UI in your default browser')
     args = parser.parse_args()
     app = App(args.root)
     server = ThreadingHTTPServer(('127.0.0.1', args.port), handler(app))
     print(f'Local ledger UI: http://127.0.0.1:{server.server_port}', flush=True)
+    if args.open:
+        import threading
+        import webbrowser
+        browser_url = f'http://127.0.0.1:{server.server_port}'
+        if args.root:
+            browser_url += '?corpus=custom'
+        threading.Thread(target=webbrowser.open, args=(browser_url,), daemon=True).start()
     try:
         server.serve_forever()
     except KeyboardInterrupt:

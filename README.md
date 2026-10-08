@@ -26,13 +26,17 @@ the papers that are not in any of them are under [`docs/sources/`](docs/sources/
 
 ## Local browser UI
 
-Run `python3 tools/ledger_ui.py`, then open <http://127.0.0.1:8766>.
-The UI shows reader outcomes, separate gate sources, sealed metadata, clarification
-choices, and retained wiki revision history. It reads local files and makes no live
-wiki requests. Use `--root /path/to/corpus` for your own corpus.
+The front end follows Mitchell's **Give It Back: The RPG**: a corpus tile map,
+status panels, source dialogs, journal and three visual settings. It calls the
+real local reader and gate. The complete front end is in `index.html`.
 
-The [patch-canned notes](docs/patch-canned/README.md) preserve the supplied experiment
-and include a corrected reader-only patch and an uneven-name demo.
+On Windows, double-click `Launch_MPLPB.bat`. On Mac/Linux, run
+`sh Launch_MPLPB.sh`, or run `python3 launch.py` on any system with Python 3.
+The launcher opens <http://127.0.0.1:8766>. Keep the terminal running.
+
+See [browser UI instructions](docs/BROWSER_UI.md) for your own corpus, controls and
+validation limits. The [patch-canned notes](docs/patch-canned/README.md) preserve
+the supplied experiment and include the corrected reader patch and demo.
 
 ## Try it
 

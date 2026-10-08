@@ -90,9 +90,52 @@ class LedgerUITests(unittest.TestCase):
         self.assertIn('no live request', history['notice'])
 
     def test_assets_and_supplied_experiment_are_available(self):
-        for path in ('/', '/app.js', '/api/experiment'):
+        for path in ('/', '/index.html', '/api/experiment'):
             status, body, headers = self.request(path)
             self.assertEqual(status, 200)
             self.assertTrue(body)
             self.assertIn("frame-ancestors 'none'", headers['Content-Security-Policy'])
         self.assertEqual(self.request('/missing')[0], 404)
+        status, body, headers = self.request('/')
+        import re, hashlib, base64
+        scripts = re.findall(rb'<script>(.*?)</script>', body, re.DOTALL)
+        self.assertEqual(len(scripts), 1)
+        pin = base64.b64encode(hashlib.sha256(scripts[0].replace(b'\r\n', b'\n').replace(b'\r', b'\n')).digest()).decode()
+        script_policy = headers['Content-Security-Policy'].split('script-src ')[1].split(';')[0]
+        self.assertEqual(script_policy, "'sha256-" + pin + "'")
+        self.assertNotIn(b'<script src=', body)
+
+    def test_inventory_keeps_retired_records_without_serving_them(self):
+        status, body, _ = self.request('/api/inventory?corpus=studio&profile=internal')
+        self.assertEqual(status, 200)
+        data = json.loads(body)
+        retired = [p for p in data['pages'] if p['status'] == 'retired']
+        self.assertEqual(len(retired), 4)
+        self.assertTrue(all(not p['eligible'] for p in retired))
+        self.assertTrue(all('text' not in p for p in data['pages']))
+        self.assertEqual(data['eligible'], sum(p['eligible'] for p in data['pages']))
+        path = retired[0]['path']
+        self.assertEqual(self.request('/api/page?' + urlencode(dict(corpus='studio', path=path)))[0], 400)
+
+    def test_inventory_uses_profile_and_detects_altered_pages(self):
+        import tempfile, shutil
+        from pathlib import Path
+        from tools.ledger_ui import ROOT
+        status, body, _ = self.request('/api/inventory?corpus=canned&profile=external')
+        self.assertEqual(status, 200)
+        data = json.loads(body)
+        self.assertEqual(data['eligible'], 0)
+        self.assertTrue(all('external' in p['reason'] for p in data['pages']))
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp) / 'custom'
+            shutil.copytree(ROOT / 'examples/patch-canned', root)
+            target = root / 'canned-0001.html'
+            target.write_text(target.read_text().replace('Synthetic reader fixture', 'Altered reader fixture'))
+            app = App(root)
+            pages = app.inventory('custom', 'internal')['pages']
+            altered = next(p for p in pages if p['id'] == 'CANNED-0001')
+            self.assertFalse(altered['eligible'])
+            self.assertFalse(altered['intact'])
+            self.assertEqual(altered['reason'], 'altered')
+            with self.assertRaises(ValueError):
+                app.page('custom', altered['path'], 'internal')

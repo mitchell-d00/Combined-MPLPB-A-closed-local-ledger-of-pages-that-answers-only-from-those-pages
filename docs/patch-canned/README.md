@@ -4,6 +4,10 @@ Based on published main `b3de809de3c2b86168e99d090753c39bd86e71e3`.
 This delivery adds a local UI and corrects the uneven-name reader failure.
 It does not publish to main.
 
+The subsequent game-style front end and its launchers are described in
+[the browser UI notes](../BROWSER_UI.md). Current package total: 236 passing tests.
+The verification counts below describe the first UI delivery.
+
 ## Launch
 
 From the extracted repository folder:
