@@ -5,13 +5,22 @@ it in the corpus selector. Wikipedia searches run in chat; importing a title add
 its pinned main revision slot to that collection. The existing shared imported
 topics collection remains available, as do all bundled corpora.
 
-“Search web” opens Bing in a separate tab. It does not pretend those search results
-are local evidence or an in-app search API. Copy a public HTTPS source URL and title
-into the importer. Browser mode fetches HTML/plain text only when the site allows
-CORS; redirects, credentials, private addresses and other content types are refused.
-It does not crawl linked pages. A blocked fetch adds no page. Paste the text instead
-when needed; pasted text is explicitly user supplied, not a verified site download.
-Desktop mode supports pasted sources; direct arbitrary URL fetching is browser only.
+Send `search TOPIC` to build a new independent collection. Wikipedia mode captures
+the first search result's pinned revision and follows literal wiki links breadth-first,
+up to five pages, ten page requests and depth two. `find TOPIC` lists candidates for
+manual exact-title import. Search rank and links do not prove semantic relevance.
+
+Web mode uses the separately configured [hosted crawler](../crawler/README.md).
+It searches Tavily or Brave, fetches public HTML/plain text and follows bounded
+same-origin links. The browser verifies returned byte hashes and builds local pages.
+Without the backend URL/token it refuses, rather than silently using Wikipedia.
+The token is held only in the tab, outside saved chats; the provider key stays on the
+server. A crawl record pins limits, source captures, server times, links and failures.
+General-web deployment is not part of GitHub Pages deployment.
+
+“Search web” also opens Bing for manual research. Explicit browser URL imports still
+require CORS; pasted text remains labelled supplied. Desktop mode supports pasted
+sources and Wikipedia exploration; hosted web crawling is a browser operation.
 
 Each capture records source URL, UTC observation date, raw SHA-256, derived text
 SHA-256 and transport. HTML scripts/styles/head text are excluded from the derived

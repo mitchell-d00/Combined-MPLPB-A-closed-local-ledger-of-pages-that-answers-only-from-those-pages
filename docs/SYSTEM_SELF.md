@@ -3,9 +3,11 @@
 MPLPB is a closed local ledger of sealed HTML pages. This interface is a front end
 to its Python reader and provenance gate. It is not a language model or a game simulation.
 
-Current sealed self-reference: SELF-0004. Named collections have separate source
-stores and saved chats. Web search opens Bing in a separate tab; Wikipedia search
-runs in chat. Explicit URL imports require browser CORS; pasted text is marked user
+Current sealed self-reference: SELF-0005. Named collections have separate source
+stores and saved chats. Search TOPIC builds a new local collection. Wikipedia mode follows bounded literal
+links from a pinned seed revision. General web mode needs a configured hosted crawler
+and search provider key; no backend is deployed by the Pages workflow. Manual Bing
+search remains available in a separate tab. Explicit URL imports require browser CORS; pasted text is marked user
 supplied. Standalone mode saves sessions and sources in IndexedDB. Restart clears
 the selected chat; collection reset removes that collection from the active workspace
 and retains source files in a local reset archive. Earlier self-reference pages remain.
@@ -30,11 +32,12 @@ Source pins prove recorded bytes, not truth or authenticated authorship.
 Chat: explicit topic selection, it/its follow-ups, exact source text, and bounded
 inference over literal structured Fact lines. It labels source assertions and rule
 inferences separately. Unsupported relations are unknown, not false.
-Commands: search TOPIC; import Exact Wikipedia title; topic Exact local title;
+Commands: search TOPIC; find TOPIC; import Exact Wikipedia title; topic Exact local title;
 relate SUBJECT -> OBJECT. Natural questions still pass through the lexical reader.
-There is no language model, hidden semantic reasoning, or autonomous web browsing.
+There is no language model or hidden semantic reasoning. Crawling is explicitly
+requested and bounded. Search ranking is external, not deterministic reader logic.
 
-Topic import: explicit Wikipedia search and title selection, raw revision responses,
+Topic import: bounded Wikipedia search/crawl or explicit title selection, raw revision responses,
 main-slot SHA-1, wikitext SHA-256, deterministic local lead rendering and immutable
 captures. Older observations remain in the tree. A same-revision byte conflict is
 archived and blocks the imported-topic collection. Imports do not create an evaluation score.
@@ -70,3 +73,12 @@ prove consistency only; someone with filesystem write access can recompute them.
 This document describes implemented capabilities, not an accuracy guarantee.
 The project still has lexical misses. No new live Wikipedia evaluation score is
 claimed merely because the interface searches, imports, displays or chats about pages.
+
+General web captures keep URL, UTC observation time, raw SHA-256 and locally derived
+text. The server reports source downloads; the browser checks returned hashes but
+does not independently verify site download or authorship. Search snippets and
+generated answers are never source evidence. Link edges are navigation only. Web
+crawls stop at five successful pages, ten attempted page URLs and one link hop.
+Robots restrictions and HTTP failures are recorded; no bypass is implemented.
+The crawler token is tab-only; the provider key belongs in backend secret storage.
+New collections retain independent chats and sources until explicitly reset.

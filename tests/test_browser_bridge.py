@@ -3,6 +3,8 @@ import tempfile
 import unittest
 import sys
 import types
+import hashlib
+from urllib.parse import urlsplit, parse_qs
 from pathlib import Path
 from unittest.mock import AsyncMock, patch
 from tools.ledger_ui import App
@@ -48,6 +50,66 @@ class BrowserBridgeTests(unittest.IsolatedAsyncioTestCase):
         self.assertEqual(result['_browser_transport_error'], 'Unknown MPLPB collection')
         self.assertNotIn('Traceback', result['_browser_transport_error'])
 
+    async def test_search_crawls_wiki_builds_and_preserves_previous_session(self):
+        prior= B.app.chat({'corpus':'logic','message':'remember old collection'})
+        texts={'Cat':'Cat is an animal. [[Dog]] [[File:ignored.png]]', 'Dog':'Dog is an animal. [[Mouse]]', 'Mouse':'Mouse is an animal.'}
+        async def remote(url):
+            q=parse_qs(urlsplit(url).query)
+            if 'srsearch' in q: raw=json.dumps({'query':{'search':[{'title':'Cat','pageid':1,'snippet':'suggestion only'}]}}).encode()
+            else:
+                title=q['titles'][0]; text=texts[title]
+                raw=json.dumps({'query':{'pages':{'1':{'title':title,'pageid':1,'revisions':[{'revid':100,'timestamp':'2026-10-08T12:00:00Z','slots':{'main':{'*':text,'sha1':hashlib.sha1(text.encode()).hexdigest(),'contentmodel':'wikitext'}}}]}}}}).encode()
+            return raw,{'url':url,'retrieved_at':'2026-10-08T12:01:00Z','http_status':200}
+        with patch.object(B,'remote',remote):
+            result=await B.dispatch('/api/chat',{'corpus':'logic','session':prior['session'],'message':'search cat','wiki':'simple'})
+        self.assertEqual(result['response']['kind'],'built')
+        self.assertNotEqual(result['session'],prior['session'])
+        self.assertEqual(len(B.app.inventory(result['corpus'],'internal')['pages']),3)
+        self.assertTrue(result['response']['crawl']['edges'])
+        self.assertEqual(B.app.resume_chat({'session':prior['session']})['notes'],['old collection'])
+        answer=await B.dispatch('/api/chat',{'corpus':result['corpus'],'session':result['session'],'message':'what is it?'})
+        self.assertEqual(answer['response']['kind'],'return')
+        self.assertIn('Cat',answer['response']['message'])
+
+    async def test_general_web_build_is_automatic_and_token_not_logged(self):
+        raw=b'Dinosaurs lived in the past.'
+        plan={'schema':1,'query':'dinosaurs','sources':[{'title':'Dinosaurs','url':'https://example.org/dinosaurs','raw':raw,'text':raw.decode(),'source_sha256':W.digest(raw),'observed_at':'2026-10-08T12:00:00Z'}], 'edges':[], 'failures':[], 'limits':{'pages':5}}
+        with patch.object(B,'web_plan',AsyncMock(return_value=plan)):
+            result=await B.dispatch('/api/chat',{'corpus':'canned','message':'search dinosaurs','wiki':'web','crawl_token':'private-test-token'})
+        self.assertEqual(result['response']['kind'],'built')
+        answer=await B.dispatch('/api/chat',{'corpus':result['corpus'],'session':result['session'],'message':'what is it?','wiki':'web'})
+        self.assertEqual(answer['response']['kind'],'return')
+        exported=B.app.export_chat({'session':result['session']})
+        self.assertNotIn('private-test-token',json.dumps(exported))
+        restored=App(topic_base=Path(self.temp.name)/'topics')
+        self.assertTrue(restored.resume_chat({'session':result['session']})['chain_intact'])
+        self.assertEqual(restored.inventory(result['corpus'],'internal')['eligible'],1)
+
+    async def test_unconfigured_web_crawl_is_explicitly_unavailable(self):
+        with self.assertRaisesRegex(ValueError,'configured hosted crawler'):
+            await B.dispatch('/api/chat',{'corpus':'canned','message':'search fossils','wiki':'web'})
+        self.assertEqual(B.app.collections.entries(),{})
+
+    async def test_web_crawler_payload_pin_mismatch_cannot_build(self):
+        import base64
+        plan={'schema':1,'query':'cat','sources':[{'url':'https://example.org/cat','title':'Cat','mime':'text/plain','raw_base64':base64.b64encode(b'Cat').decode(),'source_sha256':'0'*64}]}
+        response=types.SimpleNamespace(status=200,bytes=AsyncMock(return_value=json.dumps(plan).encode()))
+        with patch.dict(sys.modules,{'pyodide.http':types.SimpleNamespace(pyfetch=AsyncMock(return_value=response))}):
+            with self.assertRaisesRegex(ValueError,'differ from returned pin'):
+                await B.dispatch('/api/chat',{'corpus':'logic','message':'search cat','wiki':'web','crawl_backend':'https://crawler.example.org/crawl','crawl_token':'test-token'})
+        self.assertEqual(B.app.collections.entries(),{})
+
+    async def test_wiki_failed_seed_does_not_promote_second_result(self):
+        search=json.dumps({'query':{'search':[{'title':'Cat','pageid':1},{'title':'Dog','pageid':2}]}}).encode()
+        async def remote(url):
+            if 'list=search' in url:return search,{'retrieved_at':'2026-10-08T12:01:00Z'}
+            self.assertIn('titles=Cat',url)
+            raise ValueError('HTTP 429')
+        with patch.object(B,'remote',remote):
+            result=await B.dispatch('/api/chat',{'corpus':'logic','message':'search animals','wiki':'simple'})
+        self.assertEqual(result['response']['kind'],'crawl_failed')
+        self.assertEqual(B.app.collections.entries(),{})
+
     async def test_reader_and_saved_memory_same_engine(self):
         answer = await B.dispatch('/api/query', {'corpus':'canned','question':'Phrynomedusa vanzolinii Hyundai Engineering and Construction'})
         self.assertEqual(answer['reader']['kind'], 'ambiguous')
@@ -67,7 +129,7 @@ class BrowserBridgeTests(unittest.IsolatedAsyncioTestCase):
         remote = AsyncMock(return_value=(payload, {'retrieved_at':'2026-10-08T00:00:00Z'}))
         original = B.app.topics.search
         with patch.object(B, 'remote', remote):
-            result = await B.dispatch('/api/chat', {'corpus':'logic','message':'search cat'})
+            result = await B.dispatch('/api/chat', {'corpus':'logic','message':'find cat'})
         self.assertEqual(result['response']['sources'], [])
         self.assertEqual(result['response']['search']['results'][0]['snippet'], 'animal')
         self.assertIn('origin=%2A', remote.call_args[0][0])

@@ -29,6 +29,7 @@ jobs:
         run: |
           python tools/check_ui_script.py
           node tools/check_browser_transport.cjs
+          node crawler/test_worker.mjs
       - name: Download pinned Python WebAssembly core
         run: >-
           curl --fail --location --retry 2

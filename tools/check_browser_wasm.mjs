@@ -53,5 +53,21 @@ if(customAsk.response.kind!=='return')throw Error('WASM collection chat failed')
 const empty=await call('/api/collections/create',{name:'Empty smoke'});
 const isolated=await call('/api/query',{corpus:empty.corpus,question:'Dinosaurs'});
 if(isolated.reader.kind==='return')throw Error('WASM collections not isolated');
+await py.runPythonAsync(`
+from urllib.parse import parse_qs, urlsplit
+async def crawl_fixture(url):
+ if 'list=search' in url:
+  return json.dumps({'query':{'search':[{'title':'Cat','pageid':1,'snippet':'not evidence'}]}}).encode(), {'retrieved_at':'2026-10-08T12:01:00Z'}
+ return raw, {'url':url,'retrieved_at':'2026-10-08T12:01:00Z','http_status':200}
+B.remote = crawl_fixture
+`);
+const built=await call('/api/chat',{corpus:'logic',session:sid,message:'search cats',wiki:'simple'});
+if(built.response?.kind!=='built'||!built.corpus.startsWith('mind-')||built.session===sid)throw Error('WASM automatic collection failed: '+JSON.stringify(built));
+const crawlAsk=await call('/api/chat',{corpus:built.corpus,session:built.session,message:'what is it?'});
+if(crawlAsk.response.kind!=='return')throw Error('WASM crawl context failed');
+const old=await call('/api/chat/resume',{session:sid});
+if(old.notes[0]!=='I study dinosaurs')throw Error('WASM new collection overwrote previous chat');
+const noBackend=await call('/api/chat',{corpus:'logic',message:'search cats',wiki:'web'});
+if(!noBackend._browser_transport_error)throw Error('Unconfigured web crawler did not stop');
 console.log('PASS real WebAssembly: ownership, relation proof, summary, withholding, memory, saved relaunch, fixture imports and isolated collections.');
 fs.writeFileSync(path.join(path.dirname(htmlPath),'wasm-validation.json'),JSON.stringify({runtime:bundle.runtime_version,passed:true,corpora:state.corpora.map(x=>x.key),ambiguous:ambiguous.reader.kind,relation:relation.response.kind,summary:summary.response.kind,withheld:withheld.reader.kind,chain_intact:saved.chain_intact,fixture_import_passed:true,virtual_save_relaunch_passed:true,browser_layout_tested:false,indexeddb_tested:false,live_wiki_tested:false},null,2));

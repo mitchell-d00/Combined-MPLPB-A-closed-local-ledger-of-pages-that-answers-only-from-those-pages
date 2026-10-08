@@ -1,0 +1,36 @@
+import assert from 'node:assert/strict';
+import worker,{crawl,publicURL,allowedByRobots} from './worker.mjs';
+for(const value of ['http://example.org','https://127.0.0.1','https://user:pass@example.org','https://[::1]','https://example.local','https://example.org:8080'])assert.throws(()=>publicURL(value));
+assert.equal(allowedByRobots('User-agent: *\nDisallow: /private\nAllow: /private/public','/private/x'),false);
+assert.equal(allowedByRobots('User-agent: *\nDisallow: /private\nAllow: /private/public','/private/public'),true);
+assert.equal(allowedByRobots('User-agent: *\nUser-agent: Other\nDisallow: /','/'),false);
+assert.equal(allowedByRobots('User-agent: *\nDisallow: /\nUser-agent: MPLPB\nAllow: /','/'),true);
+assert.equal(allowedByRobots('User-agent: *\nDisallow: /*.pdf$','/test.pdf'),false);
+assert.equal(allowedByRobots('User-agent: *\nCrawl-delay: 3','/'),false);
+const calls=[];
+async function fake(url,options){calls.push({url:String(url),options});
+ if(String(url).startsWith('https://api.search.brave.com/'))return Response.json({web:{results:[{url:'https://one.example/start',title:'Topic one'},{url:'https://two.example/start',title:'Topic two'}]}});
+ if(String(url).endsWith('/robots.txt'))return new Response('User-agent: *\nDisallow: /private');
+ if(String(url).endsWith('/start'))return new Response('<h1>Topic</h1><a href="/child">Child</a><a href="/private">Private</a>',{headers:{'content-type':'text/html'}});
+ return new Response('Child source',{headers:{'content-type':'text/plain'}});
+}
+const plan=await crawl('topic',{BRAVE_SEARCH_API_KEY:'server-test-secret'},fake);
+assert.ok(plan.sources.length<=5);assert.ok(plan.edges.length>0);assert.ok(plan.failures.some(f=>f.reason.includes('robots')));
+assert.ok(!calls.some(c=>c.url.endsWith('/private')));
+assert.ok(calls.filter(c=>!c.url.includes('api.search.brave.com')).every(c=>!c.options.headers['X-Subscription-Token']));
+assert.ok(plan.sources.every(s=>s.source_sha256.length===64));
+const forbidden=await worker.fetch(new Request('https://crawler.example/crawl',{method:'POST',headers:{Origin:'https://ui.example','Content-Type':'application/json'},body:'{"query":"topic"}'}),{ALLOWED_ORIGIN:'https://ui.example',CRAWL_TOKEN:'secret'});
+assert.equal(forbidden.status,401);
+const tavilyCalls=[];
+const tavilyPlan=await crawl('topic',{TAVILY_API_KEY:'private-search-key'},async(url,options)=>{
+ tavilyCalls.push({url:String(url),options});
+ if(String(url)==='https://api.tavily.com/search')return Response.json({results:[{url:'https://one.example/start',title:'Topic one'}],answer:'Never evidence',content:'Never evidence'});
+ return fake(url,options);
+});
+assert.equal(tavilyPlan.provider,'Tavily basic search');
+const request=JSON.parse(tavilyCalls[0].options.body);
+assert.equal(request.search_depth,'basic');assert.equal(request.include_answer,false);assert.equal(request.auto_parameters,false);
+assert.ok(tavilyCalls.slice(1).every(c=>!c.options.headers.Authorization));
+assert.ok(!JSON.stringify(tavilyPlan).includes('private-search-key'));
+assert.ok(!JSON.stringify(tavilyPlan).includes('Never evidence'));
+console.log('PASS general web crawler: bounded link following, robots, public URL guards, pins and secret isolation. Fixture network only.');

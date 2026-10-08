@@ -29,7 +29,7 @@ fetch the chosen Simple English or English Wikipedia API with `origin=*` and no
 credentials. Raw responses enter the same source-slot pin/capture pipeline. WebAssembly has no git subprocess: the transport records actual engine/checker/renderer bytes, a separate browser-adapter hash, and no invented checkout revision. Adapter hashes are rechecked when serving those captures.
 Network/CORS/HTTP failures refuse the operation without inventing an answer or
 score. Named collections additionally support explicit public HTTPS HTML/plain-text
-URL capture where browser CORS permits, or labelled pasted text. No links are followed.
+URL capture where browser CORS permits, or labelled pasted text. Explicit URL import follows no links; `search TOPIC` builds a bounded crawl collection. General-web mode needs the separately deployed Worker described in `crawler/README.md`.
 See [exploration collections](EXPLORATION_COLLECTIONS.md) for web search and import limits.
 
 The generated HTML is about 20 MB because it includes the runtime and pages.
@@ -58,10 +58,10 @@ in the generated bundle. MPLPB and RPG-layout notices remain included.
 Real WebAssembly execution was tested in Node with the same bundled Python files:
 name ambiguity, source-gated external withholding, relation proof, extractive
 summary, working notes, virtual-save relaunch, fixture source import and transcript continuity passed. The Python browser bridge
-has nine tests, including import pin checks, same-revision conflict retention,
+has dedicated tests, including import pin checks, same-revision conflict retention,
 network failure, command transport and arbitrary URL/path rejection.
 
-The expanded Python suite passed 280 tests. The worker and UI transport have separate JavaScript checks. These do not substitute
+The Python suite and real-WASM smoke checks cover the browser integration. The worker and UI transport have separate JavaScript checks. These do not substitute
 for testing browser permissions, IndexedDB persistence or graphical layout in an
 actual browser. No live browser Wikipedia score is claimed. Frozen published probe
 files and stored evaluation captures were not rewritten.
@@ -70,5 +70,5 @@ files and stored evaluation captures were not rewritten.
 
 The root `index.html` and Python launcher retain desktop mode. Remove the generated
 standalone build to stop offering browser mode. Browser saves are not desktop saves;
-export before clearing browser storage or changing origin. SELF-0004 documents the
+export before clearing browser storage or changing origin. SELF-0005 documents the
 collection browser mode and retains earlier self-reference pages in the revision tree.

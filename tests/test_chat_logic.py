@@ -76,10 +76,10 @@ class ChatLogicTests(unittest.TestCase):
 
     def test_self_reference_names_declared_creator_with_source(self):
         reply = self.app.chat(dict(corpus='canned', message='who made you?'))['response']
-        self.assertEqual(reply['reader']['id'], 'SELF-0004')
+        self.assertEqual(reply['reader']['id'], 'SELF-0005')
         self.assertIn('Mitchell D. McPhetridge', reply['message'])
         self.assertIn('cannot authenticate', reply['message'])
-        rec = L.Ledger(ROOT / 'examples/system').by_id['SELF-0004'][0]
+        rec = L.Ledger(ROOT / 'examples/system').by_id['SELF-0005'][0]
         self.assertIn((ROOT / 'docs/SYSTEM_SELF.md').read_text().splitlines()[2], rec.text)
 
     def test_export_chain_detects_mutation_and_reset_expires_session(self):

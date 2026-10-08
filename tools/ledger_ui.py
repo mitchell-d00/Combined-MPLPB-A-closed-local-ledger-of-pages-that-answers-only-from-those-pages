@@ -9,6 +9,7 @@ import json
 import sys
 import threading
 import uuid
+import asyncio
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 from urllib.parse import parse_qs, urlsplit
@@ -24,6 +25,7 @@ from tools import chat_logic as C
 from tools import deterministic_mind as M
 from tools.mind_session import SessionStore
 from tools.exploration_store import ExplorationStore
+from tools import topic_crawl as TC
 
 
 class App:
@@ -115,6 +117,44 @@ class App:
     def topic_store(self, corpus):
         return self.collections.topics(corpus) if isinstance(corpus, str) and corpus.startswith('mind-') else self.topics
 
+    def prepare_search(self, query, wiki):
+        if wiki == 'web': raise ValueError('Hosted web crawling uses the standalone browser build; choose a Wikipedia mode in desktop mode.')
+        found = self.topics.search(query, wiki)
+        async def fetch(title): return W.request(W.APIS[wiki], [title])
+        return asyncio.run(TC.collect(found, fetch))
+
+    def build_search(self, query, wiki):
+        plan = self.prepare_search(query, wiki)
+        if not plan['sources']:
+            return None, {'kind':'crawl_failed', 'message':'No pinned seed page was captured. No MPLPB was built.',
+                          'search':plan['search'], 'crawl':{k:v for k,v in plan.items() if k not in {'sources','search'}},
+                          'context':None, 'sources':[], 'reasoning':['Search snippets were not promoted to source evidence.']}
+        collection = self.collections.create(query[:80])
+        key = collection['corpus']; store = self.collections.topics(key)
+        imported, failures = [], list(plan['failures'])
+        original = W.request
+        try:
+            for source in plan['sources']:
+                def supplied(api, titles, source=source):
+                    if api != W.APIS[wiki] or titles != [source['requested']]: raise ValueError('Crawl import request differs')
+                    return source['raw'], source['metadata']
+                W.request = supplied
+                try: imported.append(store.import_title(source['requested'], wiki))
+                except Exception as exc: failures.append({'title':source['title'], 'reason':str(exc)})
+        finally: W.request = original
+        self.collections.root(key)
+        crawl = {'query':query, 'wiki':wiki, 'searched_at':plan['search'].get('searched_at'),
+                 'seed':plan['sources'][0]['title'], 'limits':plan['limits'], 'edges':plan['edges'],
+                 'imported':[{'title':s['title'], 'pin':s['source_pin'], 'capture':s['capture']} for s in imported], 'failures':failures}
+        self.collections.record_crawl(key,crawl)
+        if not imported:
+            return key, {'kind':'crawl_failed','message':'Pinned imports failed. The empty collection and failure record were retained.', 'crawl':crawl,'context':None,'sources':[],'reasoning':['No source answer or evaluation score claimed.']}
+        context = C.context_for(self.root(key), imported[0]['title'], 'internal') if imported else None
+        return key, {'kind':'built', 'message':'Built MPLPB “'+collection['name']+'” with '+str(len(imported))+' pinned pages. '+
+                    ('Some linked pages failed; see the crawl record. ' if failures else '')+'Ask “what is it?” or “summarize it”, or select another exact page title.',
+                    'crawl':crawl, 'context':context, 'sources':[context] if context else [],
+                    'reasoning':['Bounded literal-link crawl; navigation links do not prove relationships.', 'Revision main slots pinned; no evaluation score or semantic relevance claim.']}
+
     def inventory(self, corpus, profile):
         root = self.root(corpus)
         if profile not in R.PROFILES:
@@ -199,7 +239,18 @@ class App:
                 raise ValueError('1000-turn save limit reached. State retained; export before an explicit restart.')
             wiki = data.get('wiki', 'simple')
             if message.lower().startswith('search '):
-                found = self.topic_store(corpus).search(message[7:].strip(), wiki)
+                if len(self.sessions) >= 32: raise ValueError('Save slots full; no crawl or collection created')
+                if len(self.collections.entries()) >= 32: raise ValueError('Collection limit reached; no crawl created')
+                built, result = self.build_search(message[7:].strip(), wiki)
+                if built:
+                    corpus = built
+                    if data.get('session'): sid = uuid.uuid4().hex
+                    session = {'corpus':corpus,'profile':profile,'context':None,'log':[], 'mind':{'notes':[]}}
+                    if profile != 'internal':
+                        result['context'], result['sources'] = None, []
+                        result['message'] += ' Sources remain subject to the selected delivery profile.'
+            elif message.lower().startswith('find '):
+                found = self.topic_store(corpus).search(message[5:].strip(), wiki)
                 result = {'kind': 'search', 'message': 'Choose a title to import. Search snippets are not local evidence.',
                           'search': found, 'sources': [], 'reasoning': ['Explicit remote topic search; no source claims inferred.'],
                           'context': session['context']}
@@ -289,7 +340,8 @@ class App:
             self.collections.root(corpus)
             topics = self.collections.topics(corpus)
             entry = self.collections.entries()[corpus]
-            collection = {'name': entry['name'], 'captures': [json.loads((self.collections.path(corpus) / 'captures' / c['id'] / 'manifest.json').read_text()) for c in entry.get('captures', [])]}
+            collection = {'name': entry['name'], 'captures': [json.loads((self.collections.path(corpus) / 'captures' / c['id'] / 'manifest.json').read_text()) for c in entry.get('captures', [])],
+                          'crawl': json.loads((self.collections.path(corpus)/'crawl.json').read_text()) if entry.get('crawl_sha256') else None}
         return {'head': head, 'versions': versions, 'topic_history': topics.history(), 'collection_history': collection,
                 'notice': 'Capture and verification dates are separate. Stored passes are historical; this view makes no live request.'}
 

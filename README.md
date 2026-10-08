@@ -7,7 +7,7 @@ explicitly configured corpus folder. One current page owns the question: it retu
 own it: it says not in the corpus. A change writes a new page and retires the old one. A
 derivation writes a new page and adds one to the depth.
 
-No model. The core reader uses local pages and the Python standard library. Optional search/import commands contact public Wikipedia explicitly; standalone browser mode uses IndexedDB for saved state.
+No model. The core reader uses local pages and the Python standard library. Optional search/crawl/import commands contact public sources explicitly; standalone browser mode uses IndexedDB for saved state.
 
 ```
 R = (id, scope, status, hash, derived_from, origin_depth)
@@ -55,10 +55,11 @@ On Windows, double-click `Launch_MPLPB.bat`. On Mac/Linux, run
 `sh Launch_MPLPB.sh`, or run `python3 launch.py` on any system with Python 3.
 The launcher opens <http://127.0.0.1:8766>. Keep the terminal running.
 
-The **Chat** view supports `search TOPIC`, explicit Wikipedia title imports,
+The **Chat** view supports `search TOPIC` to build a saved MPLPB from a bounded crawl, `find TOPIC` for Wikipedia suggestions, explicit Wikipedia title imports,
 follow-up context and bounded source-assertion rules. See
 [the chat workflow](docs/CHAT_WORKFLOW.md) and [system/creator reference](docs/SYSTEM_SELF.md).
 It uses no language model; general semantic conversation is not implemented.
+General web mode needs a deployed [Cloudflare crawler and search key](crawler/README.md); GitHub Pages alone cannot crawl arbitrary sites. Wikipedia modes run without that backend.
 
 See [browser UI instructions](docs/BROWSER_UI.md) for your own corpus, controls and
 validation limits. The [patch-canned notes](docs/patch-canned/README.md) preserve

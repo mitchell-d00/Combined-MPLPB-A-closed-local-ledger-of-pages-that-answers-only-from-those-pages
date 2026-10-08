@@ -61,6 +61,11 @@ class ExplorationStore:
 
     def topics(self, key): return TopicStore(self.path(key) / 'topics')
 
+    def record_crawl(self, key, crawl):
+        path = self.path(key) / 'crawl.json'
+        atomic_json(path, {'content':crawl, 'sha256':C.digest(crawl)})
+        entries=self.entries(); entries[key]['crawl_sha256']=hashlib.sha256(path.read_bytes()).hexdigest(); self.save(entries)
+
     def reset(self, key):
         path = self.path(key)
         archive = self.base / 'archives' / (key + '-' + uuid.uuid4().hex)
@@ -80,6 +85,8 @@ class ExplorationStore:
         # Rebuild only from pinned source records, never from arbitrary directories.
         manual = base / 'pages'
         entry = self.entries()[key]
+        if entry.get('crawl_sha256') and hashlib.sha256((base / 'crawl.json').read_bytes()).hexdigest()!=entry['crawl_sha256']:
+            raise ValueError('Crawl plan differs from collection pin')
         for item in entry.get('captures', []):
             path = base / 'captures' / item['id'] / 'manifest.json'
             if hashlib.sha256(path.read_bytes()).hexdigest() != item['manifest_sha256']:
