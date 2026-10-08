@@ -2,10 +2,11 @@
 
 Based on published main `b3de809de3c2b86168e99d090753c39bd86e71e3`.
 This delivery adds a local UI and corrects the uneven-name reader failure.
-It does not publish to main.
+This first delivery was originally packaged locally; later publication includes it.
 
 The subsequent game-style front end and its launchers are described in
-[the browser UI notes](../BROWSER_UI.md). Current package total: 236 passing tests.
+[the browser UI notes](../BROWSER_UI.md). The RPG UI delivery had 236 passing tests; the newer chat work is documented
+in [CHAT_WORKFLOW.md](../CHAT_WORKFLOW.md).
 The verification counts below describe the first UI delivery.
 
 ## Launch
@@ -19,7 +20,7 @@ python3 tools/ledger_ui.py
 Open http://127.0.0.1:8766. No packages or account are required. Choose a corpus,
 ask a question, and inspect the reader decision, separate source cards and sealed
 metadata. Revision history displays the retained wiki captures, their timestamps,
-source revision pins, parent links and active local head. The UI makes no live
+source revision pins, parent links and active local head. That first UI made no live
 wiki requests and does not import, edit or promote captures.
 
 For your own local corpus:

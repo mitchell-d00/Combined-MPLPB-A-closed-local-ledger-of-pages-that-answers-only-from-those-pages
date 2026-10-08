@@ -6,6 +6,8 @@ import hashlib
 import re
 import json
 import sys
+import threading
+import uuid
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 from urllib.parse import parse_qs, urlsplit
@@ -16,15 +18,22 @@ from mplpb_combined import ledger as L, reader as R, provenance_gate as G
 from mplpb_combined.delivery import external_restriction
 from mplpb_combined.record import text_of
 from tools import wiki_live_eval as W
+from tools.topic_chat_sources import TopicStore
+from tools import chat_logic as C
 
 
 class App:
-    def __init__(self, custom=None):
+    def __init__(self, custom=None, topic_base=None):
+        self.topics = TopicStore(topic_base or ROOT / "local/topics")
+        self.chat_lock = threading.RLock()
+        self.sessions = {}
         self.corpora = {
             'canned': ('Patch canned · uneven names', ROOT / 'examples/patch-canned'),
             'studio': ('Pottery studio', ROOT / 'examples/studio'),
             'gate': ('D&D and budget · separate sources', ROOT / 'examples/provenance-gate/separate'),
             'dogs': ('Dog clarification', ROOT / 'examples/clarification-dogs'),
+            'system': ('MPLPB · system and creator', ROOT / 'examples/system'),
+            'logic': ('Chat logic · synthetic facts', ROOT / 'examples/chat-logic'),
         }
         if custom:
             custom = Path(custom).resolve()
@@ -38,9 +47,14 @@ class App:
             roots['wiki'] = ('Wiki · active local head', W.latest() / 'corpus')
         except (OSError, ValueError):
             pass
+        if (self.topics.base / 'head.json').exists():
+            loaded = self.topics.head()
+            roots['topics'] = ('Your imported topics', self.topics.path(loaded[0]['bundle'] + '/corpus'))
         return roots
 
     def root(self, key):
+        if key == 'topics':
+            return self.topics.root()
         if key not in self.roots():
             raise ValueError('Unknown corpus')
         return self.roots()[key][1]
@@ -49,9 +63,16 @@ class App:
         corpora = []
         for key, (label, root) in self.roots().items():
             ledger = L.Ledger(root)
+            if key == 'topics':
+                try:
+                    self.topics.root()
+                except ValueError:
+                    label += ' · blocked; refresh required'
+                    corpora.append({'key': key, 'label': label, 'records': len(ledger.records), 'eligible': 0})
+                    continue
             corpora.append({'key': key, 'label': label, 'records': len(ledger.records),
                             'eligible': len(ledger.servable())})
-        return {'corpora': corpora, 'profiles': list(R.PROFILES),
+        return {'chat_rules': C.RULES, 'corpora': corpora, 'profiles': list(R.PROFILES),
                 'notice': 'Local lexical retrieval. Source declarations are not authenticated authorship.'}
 
     def inventory(self, corpus, profile):
@@ -112,6 +133,78 @@ class App:
         return {'id': rec.id, 'title': rec.title, 'path': rec.path, 'text': text_of(rec.body_html),
                 'hash': rec.hash, 'fields': rec.fields, 'depth': ledger.depth(rec)}
 
+    def chat(self, data):
+        message = data.get('message')
+        if not isinstance(message, str) or not 1 <= len(message.strip()) <= 4000:
+            raise ValueError('Chat needs 1–4000 characters')
+        message = message.strip()
+        corpus, profile = data.get('corpus'), data.get('profile', 'internal')
+        if profile not in R.PROFILES or corpus not in self.roots():
+            raise ValueError('Unknown corpus or profile')
+        with self.chat_lock:
+            sid = data.get('session')
+            if sid:
+                if sid not in self.sessions:
+                    raise ValueError('Chat session expired; start a new chat')
+                session = self.sessions[sid]
+                if session['corpus'] != corpus or session['profile'] != profile:
+                    raise ValueError('Corpus or profile changed; start a new chat')
+            else:
+                if len(self.sessions) >= 32:
+                    del self.sessions[next(iter(self.sessions))]
+                sid = uuid.uuid4().hex
+                session = self.sessions[sid] = {'corpus': corpus, 'profile': profile, 'context': None, 'log': []}
+            if len(session['log']) >= 100:
+                raise ValueError('Chat limit reached; export and start a new chat')
+            wiki = data.get('wiki', 'simple')
+            if message.lower().startswith('search '):
+                found = self.topics.search(message[7:].strip(), wiki)
+                result = {'kind': 'search', 'message': 'Choose a title to import. Search snippets are not local evidence.',
+                          'search': found, 'sources': [], 'reasoning': ['Explicit remote topic search; no source claims inferred.'],
+                          'context': session['context']}
+            elif message.lower().startswith('import '):
+                imported = self.topics.import_title(message[7:].strip(), wiki)
+                corpus = 'topics'
+                context = None
+                delivery_notice = ''
+                try:
+                    context = C.context_for(self.root(corpus), imported['title'], profile)
+                except ValueError as exc:
+                    delivery_notice = ' Local capture retained, but this profile/collection cannot serve it: ' + str(exc)
+                result = {'kind': 'import', 'message': imported['notice'] + delivery_notice, 'imported': imported,
+                          'context': context, 'sources': [context] if context else [],
+                          'reasoning': ['Main revision slot SHA-1 and wikitext SHA-256 checked; raw bytes retained.']}
+            elif message.lower().strip(' ?.!') in {'who made you', 'who is your creator', 'what are you',
+                   'what can you do', 'about yourself', 'who am i', 'mplpb creator', 'who created you',
+                   'who are you', 'what is mplpb', 'what is your name', 'what is your purpose',
+                   'who made mplpb', 'who created mplpb', 'who built you', 'tell me about yourself',
+                   'what are your rules', 'what are your limits', 'how do you work'}:
+                own = self.query({'corpus': 'system', 'profile': profile, 'question': 'MPLPB system creator'})
+                result = {'kind': own['reader']['kind'], 'message': own['reader']['text'], 'reader': own['reader'],
+                          'gate': own['gate'], 'context': session['context'], 'sources': own['gate']['sources'],
+                          'reasoning': ['SELF-1: return the sealed self-reference page; creator attribution is a declaration, not identity authentication.']}
+            else:
+                result = C.turn(self, corpus, self.root(corpus), profile, message, session['context'])
+            session['corpus'], session['context'] = corpus, result.get('context')
+            payload = {'question': message, 'corpus': corpus, 'profile': profile, 'response': result}
+            entry = C.log_turn(session['log'], payload)
+            return {'session': sid, 'corpus': corpus, 'profile': profile, 'response': result,
+                    'turn': entry['index'], 'turn_sha256': entry['sha256'],
+                    'logic_version': C.VERSION, 'notice': 'Deterministic chat; explicit context and rules. No language model.'}
+
+    def export_chat(self, data):
+        with self.chat_lock:
+            if data.get('session') not in self.sessions:
+                raise ValueError('Unknown chat session')
+            log = self.sessions[data['session']]['log']
+            return {'schema': 1, 'turns': list(log), 'chain_intact': C.verify_log(log),
+                    'notice': 'Hash continuity only. Not authenticated authorship, source truth or an evaluation score.'}
+
+    def reset_chat(self, data):
+        with self.chat_lock:
+            self.sessions.pop(data.get('session'), None)
+        return {'reset': True}
+
     def history(self):
         head_path = W.KIT / 'head.json'
         head = json.loads(head_path.read_text()) if head_path.exists() else None
@@ -127,7 +220,7 @@ class App:
                     'history': manifest.get('history'), 'status': manifest.get('status', 'retained capture'),
                     'code_matches_now': not W.code_errors(manifest.get('code', {}))})
         versions.sort(key=lambda item: item.get('observed_at') or '', reverse=True)
-        return {'head': head, 'versions': versions,
+        return {'head': head, 'versions': versions, 'topic_history': self.topics.history(),
                 'notice': 'Capture and verification dates are separate. Stored passes are historical; this view makes no live request.'}
 
     def experiment(self):
@@ -178,7 +271,7 @@ def handler(app):
                     q = parse_qs(route.query)
                     return self.send(200, app.page(q['corpus'][0], q['path'][0], q.get('profile', ['internal'])[0]))
                 return self.send(404, {'error': 'Not found'})
-            except (OSError, ValueError, TypeError, KeyError) as exc:
+            except (OSError, ValueError, TypeError, KeyError, W.SourceUnavailable) as exc:
                 return self.send(400, {'error': str(exc)})
 
         def do_POST(self):
@@ -187,7 +280,9 @@ def handler(app):
             origin = self.headers.get('Origin')
             if origin and origin != 'http://' + self.headers.get('Host', ''):
                 return self.send(403, {'error': 'Origin rejected'})
-            if self.path != '/api/query':
+            operations = {'/api/query': app.query, '/api/chat': app.chat,
+                          '/api/chat/export': app.export_chat, '/api/chat/reset': app.reset_chat}
+            if self.path not in operations:
                 return self.send(404, {'error': 'Not found'})
             if self.headers.get('Content-Type', '').split(';')[0] != 'application/json':
                 return self.send(415, {'error': 'JSON required'})
@@ -198,8 +293,8 @@ def handler(app):
                 data = json.loads(self.rfile.read(length))
                 if not isinstance(data, dict):
                     raise ValueError('Request must be an object')
-                return self.send(200, app.query(data))
-            except (OSError, ValueError, TypeError, KeyError) as exc:
+                return self.send(200, operations[self.path](data))
+            except (OSError, ValueError, TypeError, KeyError, W.SourceUnavailable) as exc:
                 return self.send(400, {'error': str(exc)})
     return Handler
 

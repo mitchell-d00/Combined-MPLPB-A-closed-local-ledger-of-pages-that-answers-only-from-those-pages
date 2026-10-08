@@ -1,0 +1,150 @@
+# Topic search and deterministic chat
+
+Start with `python3 launch.py` or a platform launcher. Choose **Chat**.
+No API key, model or additional Python packages are required.
+
+## Search, import, then follow up
+
+1. Send `search dinosaurs`. Choose Simple English or English Wikipedia.
+2. Click an exact title's **Import** button. The server requests its main revision
+   slot, checks SHA-1, records wikitext SHA-256, saves the raw response and renders
+   its lead locally. The selected corpus becomes **Your imported topics**.
+3. Send `what is it?`. The selected topic replaces “it” explicitly; the expanded
+   question and page hash appear in the decision evidence.
+4. `tell me more`, `continue`, `show source` and `show page` return the selected
+   page verbatim. They do not invent additional information.
+
+Search is a remote discovery operation. Suggestions are not evidence and are not
+answers. Import is an explicit source capture. Ordinary chat remains local.
+Other sites and arbitrary URL imports are not implemented in this chat workflow.
+The selected Wikipedia may rate-limit or fail; an error produces no fabricated
+source and no evaluation score.
+
+For an existing corpus, send `topic Exact page title`. The title must match one
+eligible page exactly. Context pins are rechecked each turn. A changed, retired,
+altered or withheld topic requires selection again. Changing the UI corpus or
+profile starts a new chat.
+
+## Relations and rules
+
+The reader still decides ordinary questions using its existing lexical rule.
+The chat layer adds a separate bounded inference mode, not semantic retrieval.
+It recognizes explicit source assertions in standalone paragraphs:
+
+```text
+Fact: Dungeons and Dragons | instance_of | tabletop RPG
+
+Fact: tabletop RPG | subclass_of | game
+```
+
+Supported predicates are `instance_of`, `subclass_of` and `related_to`.
+These are **assertions on the source page**, not independently authenticated facts.
+Do not add them automatically just because an imported paragraph mentions terms.
+Ordinary Wikipedia prose is not automatically converted into triples.
+
+Only eligible, intact sources passing the provenance gate and the profile may
+support a rule. The literal quote, source ID and sealed hash accompany each premise.
+
+| Rule | Meaning |
+| --- | --- |
+| CTX-1 | Resolve explicit it/its/this-topic references using a checked topic pin |
+| CTX-2 | Literal more/continue/show-page requests return the selected page verbatim |
+| REL-1 | Recognize only the documented relation-question grammars |
+| FACT-1 | Read a literal structured assertion from an eligible sealed page |
+| TYPE-1 | Subclass chains can compose |
+| TYPE-2 | An instance of a class is an instance of its superclass |
+| REFUSE-1 | No supported path means unknown, not false |
+
+Choose **Chat logic · synthetic facts**, then:
+
+```text
+topic Dungeons and Dragons
+is it a game?
+relate it -> budget
+```
+
+The first relation uses both synthetic premise pages and TYPE-2. It is labelled
+`rule_inference`. The budget relation remains `unknown_relation`; its D&D and
+budget source pages are shown separately without inventing a D&D budget.
+These fixtures are marked synthetic, not historical evidence.
+
+You can also use `relate SUBJECT -> OBJECT` or `is SUBJECT related to OBJECT?`.
+A literal `is SUBJECT a OBJECT?` uses the same typed assertion graph. No inverse,
+negation, causal, numeric, temporal or arbitrary semantic rules are implemented.
+`related_to` does not compose transitively. Traversal and fact counts are bounded.
+
+## Source tree
+
+User captures live under ignored `local/topics/`, separate from the published
+`evaluation/wiki` kit. Each import creates an immutable raw source capture. A new
+bundle contains the currently selected source revision for each topic, with a
+pinned head. Earlier bundles and source captures remain.
+
+A source update must pass revision-slot and local-byte checks. Older revisions
+are archived and cannot lead. Same revision ID with different source bytes is
+archived, blocks the imported collection, and does not move its head. The retained
+conflict is checked even if the mutable blocked flag is deleted. Importing a newer
+revision can resolve that topic's block. Requests also recheck captured raw bytes,
+served pages, renderer pins and engine/checker pins. A code change may require
+fresh captures before this collection can be served.
+
+Imported source authorship is unknown. Imported pages declare machine origin and
+external=no. External profile cannot deliver their bodies; use internal for local
+inspection. Multiple imported topics share a local collection, but loading them
+beside each other does not establish a relationship.
+
+The UI revision view displays the imported topic tree separately from historical
+wiki evaluation captures. No import or chat turn is reported as an evaluation score.
+
+## System and creator
+
+`who made you?`, `what can you do?`, `what are your limits?` and other explicit
+system prompts read the sealed self-reference corpus. Its human-readable source
+is [SYSTEM_SELF.md](SYSTEM_SELF.md). It names Mitchell D. McPhetridge / mitchell-d00
+as the declared creator, as requested by the user. The page does not authenticate
+identity or invent a biography. The assistant is an implementation collaborator.
+
+## Save and check a conversation
+
+Sessions are held in server memory, up to 32 sessions and 100 turns each. An old
+session may be evicted when the limit is reached. Restarting the server loses
+sessions. The browser stores only UI preferences. Use **Export transcript** to
+save chat questions, responses, context/source pins and rule evidence explicitly.
+
+Each turn links to the prior turn hash and records the chat-logic version and file
+byte hash. Export reports hash-chain consistency. This detects changes relative
+to the saved chain; it does not authenticate an author or certify source truth.
+A forger can recompute an unsigned chain. This is an auditable local record, not a
+signature or independent evidence.
+
+## Verification and walk back
+
+A live Simple English Wikipedia search for Dinosaur returned six suggestions.
+A live import captured revision `11003304`, checked slot SHA-1
+`32503eea97df17d8041b4e265868042c3ebca402` and wikitext SHA-256
+`cb47e388db6da470d703632a077321843b4f77009731513cd24b001efe4bcab6`.
+The follow-up “what is it?” returned the captured Dinosaur page. This was one
+workflow exercise, not a blind evaluation or an accuracy score.
+
+The raw response, retained renderer, wikitext, sealed page, collection head and
+original validation report are retained in `chat-validation/live-source/`.
+`offline-chat-replay.json` is a separate later replay, clearly offline, with a
+hash-linked transcript. The original live observation/report was not rewritten.
+No user chat history or private source files are in that fixture.
+
+
+256 package tests passed, including twelve HTTP UI tests and eighteen new
+chat/source tests. The optional local front-end script checks also passed.
+
+The new unit/integration tests cover inference versus co-occurrence, scope/profile
+changes, stale context, raw-source tampering, revision conflicts, older revisions,
+canonical redirects, network failure, creator answers, transcript changes and
+actual HTTP chat/export/reset routes. Optional Node tests cover chat rendering
+alongside the earlier UI logic. Those are element-stub tests, not browser rendering.
+Browser visual verification and Windows launcher execution remain unverified.
+
+The original reader patch, frozen probes, original experiment files, published
+source captures and papers are preserved. No new blind/general accuracy claim
+is made. The earlier RPG UI commit is retained in published history;
+reverting the chat commit removes this layer and retains that front end. Imported data is separate under `local/`; retain or archive it yourself
+when changing versions. See PUBLISH_AND_ROLLBACK.md for the publication history.

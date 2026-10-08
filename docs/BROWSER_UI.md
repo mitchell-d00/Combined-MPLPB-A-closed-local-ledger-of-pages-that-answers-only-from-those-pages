@@ -40,6 +40,10 @@ If you prefer to open the browser manually:
 python3 tools/ledger_ui.py
 ```
 
+The newer [topic-search and chat workflow](CHAT_WORKFLOW.md) adds explicit
+Wikipedia imports and contextual conversation. The 236-test counts below describe
+the earlier RPG UI delivery. Current validation is in the chat notes.
+
 ## Controls
 
 - **Explore:** browse actual records as tiles. Search title, ID or scope; filter
@@ -52,8 +56,9 @@ python3 tools/ledger_ui.py
   HTML from a source is not executed.
 - **Revision tree:** inspect retained wiki captures, source dates, revision slots,
   hashes and the active local head. Stored verification dates are historical.
-  Engine pin mismatches remain visible. The UI does not fetch, score or promote
-  wiki revisions; the existing explicit CLI commands do that.
+  Engine pin mismatches remain visible. The evaluation-history view does not fetch, score or promote
+  wiki revisions; the existing explicit CLI commands do that. Chat can explicitly
+  search/import user-selected topics into its separate local source tree.
 - **Journal:** up to twelve recent actions in this tab. Clear it at any time.
 - **Appearance:** Fantasy, Sci-fi and Wasteland palettes, plus light/dark theme.
   These affect appearance only and use local fonts, not downloaded font services.
@@ -85,8 +90,7 @@ local repository contents. Windows launcher execution was not tested on Windows.
 
 The reader patch and its tests from the earlier delivery are retained unchanged.
 Frozen probe files, stored reports, source captures and papers are untouched.
-No fresh live wiki score is claimed. This delivery is committed locally and has
-not been published to main.
+No fresh live wiki score is claimed. The initial delivery was local; later publication includes this interface.
 
 ## Reference and walk back
 
@@ -96,5 +100,6 @@ Adapted appearance tokens and layout patterns retain the upstream MIT notice in
 [GIVE_IT_BACK_UI_LICENSE.txt](GIVE_IT_BACK_UI_LICENSE.txt). The RPG's world generator,
 story and rules are not part of this front end.
 
-Return to local commit `f08a1b5` for the earlier UI and corrected reader. Return to
+The earlier UI and corrected reader are retained in the commit named
+“Add local ledger UI and correct uneven-name ambiguity guard”. Return to
 published base `b3de809` to remove both UI deliveries and the name guard.

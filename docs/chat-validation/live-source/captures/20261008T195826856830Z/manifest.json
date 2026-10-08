@@ -1,0 +1,50 @@
+{
+  "schema": 3,
+  "renderer": {
+    "version": "wikitext-lead-stripper-v1",
+    "sha256": "079db4d2296041fad1ec722304493de579b2b928d48bf155a9fa85a8b5f4c516"
+  },
+  "api": "https://simple.wikipedia.org/w/api.php",
+  "request": {
+    "url": "https://simple.wikipedia.org/w/api.php?action=query&format=json&redirects=1&prop=revisions&rvslots=main&rvprop=ids%7Ctimestamp%7Ccontent%7Csha1%7Cslotsha1%7Ccontentmodel&titles=Dinosaur",
+    "retrieved_at": "2026-10-08T19:58:26.856119+00:00",
+    "http_status": 200,
+    "content_type": "application/json; charset=utf-8"
+  },
+  "response_sha256": "445e549ef61f26ed6ec300bb09243120fbbc0ee60eb11377811d2af781188fde",
+  "code": {
+    "engine_sha256": "dc29e4626b70538afe7e5d4c32e2da8627d72d56121b7ab9ab2d4caf0fbfcaa6",
+    "checker_sha256": "751ad686ba02ea914b5fc1f65ae2e8498211333d469edba58a8a3e3fb02771c5",
+    "renderer_sha256": "079db4d2296041fad1ec722304493de579b2b928d48bf155a9fa85a8b5f4c516",
+    "base_revision": "e1fb011f98a9439a20cbc1de686cfe44478169b3",
+    "notice": "Byte consistency only; not authenticated authorship or independent validation."
+  },
+  "labels": {
+    "fetched": [
+      "Dinosaur"
+    ],
+    "absent": []
+  },
+  "pages": [
+    {
+      "id": "WIKI-0001",
+      "title": "Dinosaur",
+      "path": "wiki-0001.html",
+      "pageid": 4455,
+      "revid": 11003304,
+      "source_revision_at": "2026-09-22T18:29:57Z",
+      "observed_at": "2026-10-08T19:58:26.856119+00:00",
+      "source_url": "https://simple.wikipedia.org/wiki/Dinosaur",
+      "revision_url": "https://simple.wikipedia.org/wiki/Dinosaur?oldid=11003304",
+      "slot_sha1": "32503eea97df17d8041b4e265868042c3ebca402",
+      "wikitext_sha256": "cb47e388db6da470d703632a077321843b4f77009731513cd24b001efe4bcab6",
+      "wikitext_path": "source/wiki-0001.wiki",
+      "rendered_sha256": "496780ea0879c0bd32133e4efb1a361088ffd4f4dd0d2a0891fd90d07cda7748",
+      "served_page_sha256": "551171ba032de6aa07a520825a10dd108522c17557a1e76fe0ac9d6cd4582282"
+    }
+  ],
+  "local_profile": "internal",
+  "external_expected": "withheld",
+  "independence_verified": false,
+  "notice": "External-source text, title-list labels; not blinded human evaluation."
+}

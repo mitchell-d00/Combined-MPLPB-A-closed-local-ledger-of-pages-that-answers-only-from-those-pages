@@ -11,7 +11,9 @@ from tools.ledger_ui import App, handler
 class LedgerUITests(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
-        cls.server = ThreadingHTTPServer(('127.0.0.1', 0), handler(App()))
+        import tempfile
+        cls.topic_temp = tempfile.TemporaryDirectory()
+        cls.server = ThreadingHTTPServer(('127.0.0.1', 0), handler(App(topic_base=cls.topic_temp.name)))
         cls.thread = threading.Thread(target=cls.server.serve_forever, daemon=True)
         cls.thread.start()
         cls.base = f'http://127.0.0.1:{cls.server.server_port}'
@@ -21,6 +23,7 @@ class LedgerUITests(unittest.TestCase):
         cls.server.shutdown()
         cls.server.server_close()
         cls.thread.join()
+        cls.topic_temp.cleanup()
 
     def request(self, path, data=None, headers=None):
         headers = dict(headers or {})
@@ -139,3 +142,33 @@ class LedgerUITests(unittest.TestCase):
             self.assertEqual(altered['reason'], 'altered')
             with self.assertRaises(ValueError):
                 app.page('custom', altered['path'], 'internal')
+
+
+    def test_chat_import_followup_and_export_use_real_endpoints(self):
+        from unittest.mock import patch
+        from tests.test_topic_chat_sources import response
+        from tools import wiki_live_eval as W
+        with patch.object(W, 'request', return_value=response()):
+            status, body, _ = self.request('/api/chat', dict(corpus='canned', message='import Cat'))
+        self.assertEqual(status, 200)
+        imported = json.loads(body)
+        status, body, _ = self.request('/api/chat', dict(corpus='topics', session=imported['session'], message='what is it?'))
+        self.assertEqual(status, 200)
+        self.assertEqual(json.loads(body)['response']['reader']['title'], 'Cat')
+        status, body, _ = self.request('/api/chat/export', dict(session=imported['session']))
+        self.assertEqual(status, 200)
+        self.assertTrue(json.loads(body)['chain_intact'])
+        self.assertEqual(len(json.loads(body)['turns']), 2)
+        self.assertEqual(self.request('/api/chat/reset', dict(session=imported['session']))[0], 200)
+        self.assertEqual(self.request('/api/chat/export', dict(session=imported['session']))[0], 400)
+
+    def test_chat_relation_and_creator_are_separate_from_unknown_claims(self):
+        status, body, _ = self.request('/api/chat', dict(corpus='logic', message='relate Dungeons and Dragons -> game'))
+        self.assertEqual(status, 200)
+        relation = json.loads(body)['response']['relations'][0]
+        self.assertEqual(relation['status'], 'rule_inference')
+        self.assertEqual(len(relation['premises']), 2)
+        status, body, _ = self.request('/api/chat', dict(corpus='logic', message='relate Dungeons and Dragons -> budget'))
+        self.assertEqual(json.loads(body)['response']['kind'], 'unknown_relation')
+        status, body, _ = self.request('/api/chat', dict(corpus='logic', message='who made you?'))
+        self.assertEqual(json.loads(body)['response']['reader']['id'], 'SELF-0001')

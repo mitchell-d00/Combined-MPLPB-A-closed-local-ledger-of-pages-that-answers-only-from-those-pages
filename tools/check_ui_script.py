@@ -17,7 +17,7 @@ def main():
         raise SystemExit('Node is needed for this optional script check, not for running the UI.')
     app = App()
     data = {'state': app.state(), 'inventory': {}, 'queries': {}, 'pages': {},
-            'history': app.history(), 'experiment': app.experiment()}
+            'history': app.history(), 'experiment': app.experiment(), 'chats': {}}
     for corpus in ('canned', 'dogs'):
         for profile in ('internal', 'external'):
             data['inventory'][corpus + '|' + profile] = app.inventory(corpus, profile)
@@ -30,6 +30,8 @@ def main():
                 if rec['eligible']:
                     data['pages'][corpus + '|' + profile + '|' + rec['path']] = app.page(
                         corpus, rec['path'], profile)
+    for message in ('relate Dungeons and Dragons -> game', 'who made you?'):
+        data['chats'][message] = app.chat(dict(corpus='logic', message=message))
     return subprocess.run([node, str(ROOT / 'tools/check_ui_script.cjs'), str(ROOT / 'index.html')],
                           input=json.dumps(data), text=True, cwd=ROOT).returncode
 

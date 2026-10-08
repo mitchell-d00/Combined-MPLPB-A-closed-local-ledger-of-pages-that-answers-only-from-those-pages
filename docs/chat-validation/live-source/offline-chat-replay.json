@@ -1,0 +1,261 @@
+{
+  "schema": 1,
+  "turns": [
+    {
+      "index": 1,
+      "at": "2026-10-08T20:01:43.904820+00:00",
+      "previous_sha256": null,
+      "payload": {
+        "question": "topic Dinosaur",
+        "corpus": "topics",
+        "profile": "internal",
+        "response": {
+          "kind": "topic",
+          "message": "Topic selected: Dinosaur",
+          "context": {
+            "title": "Dinosaur",
+            "id": "TOPIC-4bc349b38778d186",
+            "path": "topic-4bc349b38778d186.html",
+            "hash": "sha256:1b4f90abcb79af056d52c0ff829eb75dacfa47e507e283e96c37a0d2c9753cb6"
+          },
+          "reasoning": [
+            "Exact eligible title selected; page hash pinned."
+          ],
+          "sources": [
+            {
+              "title": "Dinosaur",
+              "id": "TOPIC-4bc349b38778d186",
+              "path": "topic-4bc349b38778d186.html",
+              "hash": "sha256:1b4f90abcb79af056d52c0ff829eb75dacfa47e507e283e96c37a0d2c9753cb6"
+            }
+          ]
+        }
+      },
+      "logic_version": "explicit-chat-rules-v1",
+      "logic_sha256": "bf6a8d8da5f8c8fbe8c6cc0beb8e7b3ebc203d22b12eb949ff09eb8d70d6c392",
+      "sha256": "5883baa8ebdebf966b1035d1fc5054e8bd6aa67932f7f01361d8a6b4727031d7"
+    },
+    {
+      "index": 2,
+      "at": "2026-10-08T20:01:43.922610+00:00",
+      "previous_sha256": "5883baa8ebdebf966b1035d1fc5054e8bd6aa67932f7f01361d8a6b4727031d7",
+      "payload": {
+        "question": "what is it?",
+        "corpus": "topics",
+        "profile": "internal",
+        "response": {
+          "kind": "return",
+          "message": "Dinosaur\nDinosaurs are a group of Archosaur reptiles of the clade Dinosauria. Dinosaurs eventually gave rise to birds. Dinosaurs were the most powerful land animals of the Mesozoic era. Over 500 different genera of dinosaurs are known. Fossils of dinosaurs have been found on every continent. Dinosaurs evolved in the Upper Triassic, about 230 million years ago (mya). The earliest date of a fossil is that of Eoraptor and Herrerasaurus from Argentina, and Saturnalia from Brazil, 237 to 228 mya. By the early Jurassic they were the top land vertebrates, and dominated most environments on land. They continued until the K/T extinction event 66 million years ago. From the fossil record, it is known that birds are living feathered dinosaurs. They evolved from earlier theropods during the later Jurassic. They were the only line of dinosaurs to survive to the present day. Dinosaurs had adaptations that helped make them successful. The first known dinosaurs were small predators that walked on two legs. All their descendants had an upright posture, with the legs underneath the body. This transformed their whole life-style. Most of the smaller dinosaurs had feathers, and were probably warm-blooded. This would make them active, with a higher metabolism than modern reptiles. Social interaction, with living in herds and co-operation, seems certain for some types. The existence of communal egg-laying sites is best understood if the adults travelled in herds, as herbivores do today. The first fossils were recognised as dinosaurs in the early 19th century. Some of their bones were found much earlier, but were not understood. William Buckland, Gideon Mantell and Richard Owen saw these bones were a special group of animals. Georges Cuvier was also important in explaining what dinosaurs were. Dinosaurs are now major attractions at museums around the world. They have become part of popular culture. There have been best-sellng books and movies about dinosaurs. New discoveries are reported in the media.\nSource: https://simple.wikipedia.org/wiki/Dinosaur?oldid=11003304 License: CC BY-SA 4.0; Wikipedia contributors. Source authorship: unknown; contributor identity is not authenticated by this capture.",
+          "context": {
+            "title": "Dinosaur",
+            "id": "TOPIC-4bc349b38778d186",
+            "path": "topic-4bc349b38778d186.html",
+            "hash": "sha256:1b4f90abcb79af056d52c0ff829eb75dacfa47e507e283e96c37a0d2c9753cb6"
+          },
+          "reasoning": [
+            {
+              "rule": "CTX-1",
+              "expanded_question": "what is Dinosaur?",
+              "context_pin": {
+                "title": "Dinosaur",
+                "id": "TOPIC-4bc349b38778d186",
+                "path": "topic-4bc349b38778d186.html",
+                "hash": "sha256:1b4f90abcb79af056d52c0ff829eb75dacfa47e507e283e96c37a0d2c9753cb6"
+              }
+            },
+            {
+              "rule": "MPLPB reader",
+              "matched_on": "scope",
+              "reason": "exactly one current page owns this question by declared scope"
+            }
+          ],
+          "reader": {
+            "kind": "return",
+            "question": "what is Dinosaur?",
+            "profile": "internal",
+            "root": "/workspace/scratch/a86956af538d/canned-patch-review/docs/chat-validation/live-source/bundles/20261008T195826872257Z/corpus",
+            "reason": "exactly one current page owns this question by declared scope",
+            "id": "TOPIC-4bc349b38778d186",
+            "path": "topic-4bc349b38778d186.html",
+            "hash": "sha256:1b4f90abcb79af056d52c0ff829eb75dacfa47e507e283e96c37a0d2c9753cb6",
+            "depth": 1,
+            "text": "Dinosaur\nDinosaurs are a group of Archosaur reptiles of the clade Dinosauria. Dinosaurs eventually gave rise to birds. Dinosaurs were the most powerful land animals of the Mesozoic era. Over 500 different genera of dinosaurs are known. Fossils of dinosaurs have been found on every continent. Dinosaurs evolved in the Upper Triassic, about 230 million years ago (mya). The earliest date of a fossil is that of Eoraptor and Herrerasaurus from Argentina, and Saturnalia from Brazil, 237 to 228 mya. By the early Jurassic they were the top land vertebrates, and dominated most environments on land. They continued until the K/T extinction event 66 million years ago. From the fossil record, it is known that birds are living feathered dinosaurs. They evolved from earlier theropods during the later Jurassic. They were the only line of dinosaurs to survive to the present day. Dinosaurs had adaptations that helped make them successful. The first known dinosaurs were small predators that walked on two legs. All their descendants had an upright posture, with the legs underneath the body. This transformed their whole life-style. Most of the smaller dinosaurs had feathers, and were probably warm-blooded. This would make them active, with a higher metabolism than modern reptiles. Social interaction, with living in herds and co-operation, seems certain for some types. The existence of communal egg-laying sites is best understood if the adults travelled in herds, as herbivores do today. The first fossils were recognised as dinosaurs in the early 19th century. Some of their bones were found much earlier, but were not understood. William Buckland, Gideon Mantell and Richard Owen saw these bones were a special group of animals. Georges Cuvier was also important in explaining what dinosaurs were. Dinosaurs are now major attractions at museums around the world. They have become part of popular culture. There have been best-sellng books and movies about dinosaurs. New discoveries are reported in the media.\nSource: https://simple.wikipedia.org/wiki/Dinosaur?oldid=11003304 License: CC BY-SA 4.0; Wikipedia contributors. Source authorship: unknown; contributor identity is not authenticated by this capture.",
+            "candidates": [
+              {
+                "id": "TOPIC-4bc349b38778d186",
+                "path": "topic-4bc349b38778d186.html",
+                "scope": "Dinosaur",
+                "matched": [
+                  "dinosaur"
+                ]
+              }
+            ],
+            "known": [
+              "dinosaur"
+            ],
+            "unknown": [],
+            "matched_on": "scope",
+            "withheld": [],
+            "set_aside": [],
+            "quarantined": 0,
+            "route": [],
+            "source_authorship": {
+              "status": "unknown",
+              "verified": false,
+              "notice": "Who made this source is unknown. A person can supply a source attribution for review."
+            },
+            "citation": "[TOPIC-4bc349b38778d186 \u00b7 topic-4bc349b38778d186.html \u00b7 current \u00b7 origin machine d1 \u00b7 sha256:1b4f90abcb79 \u00b7 local]",
+            "title": "Dinosaur"
+          },
+          "gate": {
+            "kind": "source_bundle",
+            "question": "what is Dinosaur?",
+            "profile": "internal",
+            "query_terms": [
+              "dinosaur"
+            ],
+            "sources": [
+              {
+                "id": "TOPIC-4bc349b38778d186",
+                "path": "topic-4bc349b38778d186.html",
+                "title": "Dinosaur",
+                "origin": "machine",
+                "origin_depth": 1,
+                "owner": "unknown",
+                "updated": "2026-10-08T19:58:26.856119+00:00",
+                "status": "current",
+                "declared_status": "current",
+                "hash": "sha256:1b4f90abcb79af056d52c0ff829eb75dacfa47e507e283e96c37a0d2c9753cb6",
+                "derived_from": [],
+                "supersedes": [],
+                "ratified_by": "",
+                "location": "local",
+                "scope": "Dinosaur",
+                "when_to_use": "Dinosaur",
+                "not_for": "",
+                "text": "Dinosaur\nDinosaurs are a group of Archosaur reptiles of the clade Dinosauria. Dinosaurs eventually gave rise to birds. Dinosaurs were the most powerful land animals of the Mesozoic era. Over 500 different genera of dinosaurs are known. Fossils of dinosaurs have been found on every continent. Dinosaurs evolved in the Upper Triassic, about 230 million years ago (mya). The earliest date of a fossil is that of Eoraptor and Herrerasaurus from Argentina, and Saturnalia from Brazil, 237 to 228 mya. By the early Jurassic they were the top land vertebrates, and dominated most environments on land. They continued until the K/T extinction event 66 million years ago. From the fossil record, it is known that birds are living feathered dinosaurs. They evolved from earlier theropods during the later Jurassic. They were the only line of dinosaurs to survive to the present day. Dinosaurs had adaptations that helped make them successful. The first known dinosaurs were small predators that walked on two legs. All their descendants had an upright posture, with the legs underneath the body. This transformed their whole life-style. Most of the smaller dinosaurs had feathers, and were probably warm-blooded. This would make them active, with a higher metabolism than modern reptiles. Social interaction, with living in herds and co-operation, seems certain for some types. The existence of communal egg-laying sites is best understood if the adults travelled in herds, as herbivores do today. The first fossils were recognised as dinosaurs in the early 19th century. Some of their bones were found much earlier, but were not understood. William Buckland, Gideon Mantell and Richard Owen saw these bones were a special group of animals. Georges Cuvier was also important in explaining what dinosaurs were. Dinosaurs are now major attractions at museums around the world. They have become part of popular culture. There have been best-sellng books and movies about dinosaurs. New discoveries are reported in the media.\nSource: https://simple.wikipedia.org/wiki/Dinosaur?oldid=11003304 License: CC BY-SA 4.0; Wikipedia contributors. Source authorship: unknown; contributor identity is not authenticated by this capture.",
+                "matched_terms": [
+                  "dinosaur"
+                ],
+                "scope_terms": [
+                  "dinosaur"
+                ],
+                "prose_only_terms": [],
+                "unmatched_terms": [],
+                "matches_every_query_term": true,
+                "ancestry": [],
+                "evidence_basis": {
+                  "delivery": "verbatim_page_text",
+                  "content_truth_verified": false,
+                  "original_claim_basis": "not_encoded_by_legacy_page_format"
+                },
+                "recheck_conditions": [
+                  "source changes",
+                  "dependency is superseded or retired",
+                  "serving policy changes"
+                ],
+                "verification": {
+                  "hash_intact": true,
+                  "lineage_pinned": true,
+                  "origin_explicit": true,
+                  "authorship_authenticated": false
+                },
+                "source_authorship": {
+                  "status": "unknown",
+                  "verified": false,
+                  "notice": "Who made this source is unknown. A person can supply a source attribution for review."
+                }
+              }
+            ],
+            "term_sources": {
+              "dinosaur": [
+                "TOPIC-4bc349b38778d186"
+              ]
+            },
+            "unmatched_terms": [],
+            "lexical_coverage": "complete",
+            "excluded": [],
+            "query_flags": [],
+            "policy": {
+              "gate_version": 2,
+              "mode": "separate_lexical_sources",
+              "max_depth": 1,
+              "prose": true,
+              "not_for": true,
+              "enforce_sealed_external_policy": true,
+              "synthesize": false,
+              "follow_pointers": false,
+              "require_current_dependencies": true,
+              "settings_hash": "sha256:2b95571a707e2341b9dedc11b579a05bdd494cc4f4f2f13d1cac7e67a2beb03c"
+            },
+            "corpus_snapshot": "sha256:7b40862bf455aa2c2bf3a1562ccf3ac908d188107e126deecf8a6ea3afc493d0",
+            "shared_lineage": [],
+            "evidence_status": "retrieved_pages_not_truth_certification",
+            "relationship_status": "not_established_by_retrieval",
+            "answer_synthesized": false,
+            "authorship_authenticated": false,
+            "notice": "Each source is presented separately. Complete lexical coverage means the requested words occur across sources, not that a page answers the question or that separate facts are related. Origin and owner are page declarations, not authenticated identities."
+          },
+          "sources": [
+            {
+              "id": "TOPIC-4bc349b38778d186",
+              "path": "topic-4bc349b38778d186.html",
+              "title": "Dinosaur",
+              "origin": "machine",
+              "origin_depth": 1,
+              "owner": "unknown",
+              "updated": "2026-10-08T19:58:26.856119+00:00",
+              "status": "current",
+              "declared_status": "current",
+              "hash": "sha256:1b4f90abcb79af056d52c0ff829eb75dacfa47e507e283e96c37a0d2c9753cb6",
+              "derived_from": [],
+              "supersedes": [],
+              "ratified_by": "",
+              "location": "local",
+              "scope": "Dinosaur",
+              "when_to_use": "Dinosaur",
+              "not_for": "",
+              "text": "Dinosaur\nDinosaurs are a group of Archosaur reptiles of the clade Dinosauria. Dinosaurs eventually gave rise to birds. Dinosaurs were the most powerful land animals of the Mesozoic era. Over 500 different genera of dinosaurs are known. Fossils of dinosaurs have been found on every continent. Dinosaurs evolved in the Upper Triassic, about 230 million years ago (mya). The earliest date of a fossil is that of Eoraptor and Herrerasaurus from Argentina, and Saturnalia from Brazil, 237 to 228 mya. By the early Jurassic they were the top land vertebrates, and dominated most environments on land. They continued until the K/T extinction event 66 million years ago. From the fossil record, it is known that birds are living feathered dinosaurs. They evolved from earlier theropods during the later Jurassic. They were the only line of dinosaurs to survive to the present day. Dinosaurs had adaptations that helped make them successful. The first known dinosaurs were small predators that walked on two legs. All their descendants had an upright posture, with the legs underneath the body. This transformed their whole life-style. Most of the smaller dinosaurs had feathers, and were probably warm-blooded. This would make them active, with a higher metabolism than modern reptiles. Social interaction, with living in herds and co-operation, seems certain for some types. The existence of communal egg-laying sites is best understood if the adults travelled in herds, as herbivores do today. The first fossils were recognised as dinosaurs in the early 19th century. Some of their bones were found much earlier, but were not understood. William Buckland, Gideon Mantell and Richard Owen saw these bones were a special group of animals. Georges Cuvier was also important in explaining what dinosaurs were. Dinosaurs are now major attractions at museums around the world. They have become part of popular culture. There have been best-sellng books and movies about dinosaurs. New discoveries are reported in the media.\nSource: https://simple.wikipedia.org/wiki/Dinosaur?oldid=11003304 License: CC BY-SA 4.0; Wikipedia contributors. Source authorship: unknown; contributor identity is not authenticated by this capture.",
+              "matched_terms": [
+                "dinosaur"
+              ],
+              "scope_terms": [
+                "dinosaur"
+              ],
+              "prose_only_terms": [],
+              "unmatched_terms": [],
+              "matches_every_query_term": true,
+              "ancestry": [],
+              "evidence_basis": {
+                "delivery": "verbatim_page_text",
+                "content_truth_verified": false,
+                "original_claim_basis": "not_encoded_by_legacy_page_format"
+              },
+              "recheck_conditions": [
+                "source changes",
+                "dependency is superseded or retired",
+                "serving policy changes"
+              ],
+              "verification": {
+                "hash_intact": true,
+                "lineage_pinned": true,
+                "origin_explicit": true,
+                "authorship_authenticated": false
+              },
+              "source_authorship": {
+                "status": "unknown",
+                "verified": false,
+                "notice": "Who made this source is unknown. A person can supply a source attribution for review."
+              }
+            }
+          ]
+        }
+      },
+      "logic_version": "explicit-chat-rules-v1",
+      "logic_sha256": "bf6a8d8da5f8c8fbe8c6cc0beb8e7b3ebc203d22b12eb949ff09eb8d70d6c392",
+      "sha256": "209c2b44baa8787bf161664c52ede64616875ad7ced80e1d4fe4f16103e0b51a"
+    }
+  ],
+  "chain_intact": true,
+  "notice": "Hash continuity only. Not authenticated authorship, source truth or an evaluation score."
+}

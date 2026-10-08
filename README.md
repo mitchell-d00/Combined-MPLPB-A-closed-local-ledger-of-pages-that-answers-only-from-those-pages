@@ -34,6 +34,11 @@ On Windows, double-click `Launch_MPLPB.bat`. On Mac/Linux, run
 `sh Launch_MPLPB.sh`, or run `python3 launch.py` on any system with Python 3.
 The launcher opens <http://127.0.0.1:8766>. Keep the terminal running.
 
+The **Chat** view supports `search TOPIC`, explicit Wikipedia title imports,
+follow-up context and bounded source-assertion rules. See
+[the chat workflow](docs/CHAT_WORKFLOW.md) and [system/creator reference](docs/SYSTEM_SELF.md).
+It uses no language model; general semantic conversation is not implemented.
+
 See [browser UI instructions](docs/BROWSER_UI.md) for your own corpus, controls and
 validation limits. The [patch-canned notes](docs/patch-canned/README.md) preserve
 the supplied experiment and include the corrected reader patch and demo.
