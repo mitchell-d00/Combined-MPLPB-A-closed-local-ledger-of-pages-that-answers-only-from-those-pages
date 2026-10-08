@@ -1,0 +1,92 @@
+import json
+import tempfile
+import unittest
+from pathlib import Path
+from unittest.mock import AsyncMock, patch
+from tools.ledger_ui import App
+from browser import bridge as B
+from tools import wiki_live_eval as W
+from tools.build_browser_runtime import build
+
+class BrowserBridgeTests(unittest.IsolatedAsyncioTestCase):
+    def setUp(self):
+        self.temp = tempfile.TemporaryDirectory()
+        self.previous = B.app
+        B.app = App(topic_base=Path(self.temp.name)/'topics')
+
+    def tearDown(self):
+        B.app = self.previous
+        self.temp.cleanup()
+
+    async def test_reader_and_saved_memory_same_engine(self):
+        answer = await B.dispatch('/api/query', {'corpus':'canned','question':'Phrynomedusa vanzolinii Hyundai Engineering and Construction'})
+        self.assertEqual(answer['reader']['kind'], 'ambiguous')
+        first = await B.dispatch('/api/chat', {'corpus':'logic','message':'remember dinosaurs'})
+        resumed = await B.dispatch('/api/chat/resume', {'session':first['session']})
+        self.assertEqual(resumed['notes'], ['dinosaurs'])
+        self.assertTrue(resumed['chain_intact'])
+
+    async def test_no_arbitrary_url_or_file_read(self):
+        for url in ('https://example.com/api/state', '/api/file', 'file:///etc/passwd'):
+            with self.assertRaises(ValueError): await B.dispatch(url)
+        with self.assertRaises(ValueError):
+            await B.dispatch('/api/page?corpus=canned&path=../../README.md')
+
+    async def test_search_transport_is_explicit_and_not_evidence(self):
+        payload = json.dumps({'query':{'search':[{'title':'Cat','pageid':1,'snippet':'<b>animal</b>'}]}}).encode()
+        remote = AsyncMock(return_value=(payload, {'retrieved_at':'2026-10-08T00:00:00Z'}))
+        original = B.app.topics.search
+        with patch.object(B, 'remote', remote):
+            result = await B.dispatch('/api/chat', {'corpus':'logic','message':'search cat'})
+        self.assertEqual(result['response']['sources'], [])
+        self.assertEqual(result['response']['search']['results'][0]['snippet'], 'animal')
+        self.assertIn('origin=%2A', remote.call_args[0][0])
+        self.assertEqual(B.app.topics.search, original)
+        self.assertFalse((B.app.topics.base/'head.json').exists())
+
+    async def test_network_failure_creates_no_import_or_save(self):
+        with patch.object(B,'remote',AsyncMock(side_effect=ValueError('HTTP 429'))):
+            with self.assertRaises(ValueError):
+                await B.dispatch('/api/chat',{'corpus':'logic','message':'import Cat'})
+        self.assertFalse(B.app.sessions)
+        self.assertFalse((B.app.topics.base/'head.json').exists())
+
+    async def test_ordinary_chat_has_no_network(self):
+        with patch.object(B,'remote',AsyncMock(side_effect=AssertionError('network'))) as remote:
+            result = await B.dispatch('/api/chat',{'corpus':'logic','message':'relate Dungeons and Dragons -> game'})
+        remote.assert_not_called()
+        self.assertEqual(result['response']['kind'], 'relations')
+
+    async def test_external_withholding(self):
+        result = await B.dispatch('/api/query',{'corpus':'canned','profile':'external','question':'Phrynomedusa vanzolinii'})
+        self.assertNotEqual(result['reader']['kind'], 'return')
+        self.assertEqual(result['gate']['sources'], [])
+
+    async def test_import_retains_revision_pins_and_conflict_stops(self):
+        from tests.test_topic_chat_sources import response
+        original = W.request
+        with patch.object(B, 'remote', AsyncMock(return_value=response())):
+            imported = await B.dispatch('/api/chat', {'corpus':'logic','message':'import Cat'})
+        self.assertIs(W.request, original)
+        self.assertEqual(imported['corpus'], 'topics')
+        root = B.app.topics.root()
+        result = await B.dispatch('/api/chat', {'corpus':'topics','session':imported['session'],'message':'what is it?'})
+        self.assertEqual(result['response']['kind'], 'return')
+        head = (B.app.topics.base/'head.json').read_bytes()
+        with patch.object(B, 'remote', AsyncMock(return_value=response(text="Cat is changed synthetic source bytes."))):
+            with self.assertRaises(ValueError):
+                await B.dispatch('/api/chat', {'corpus':'topics','session':imported['session'],'message':'import Cat'})
+        self.assertIs(W.request, original)
+        self.assertEqual((B.app.topics.base/'head.json').read_bytes(), head)
+        with self.assertRaises(ValueError): B.app.topics.root()
+
+    async def test_browser_adapter_is_separately_pinned(self):
+        pins = B.browser_code_pins()
+        self.assertIsNone(pins['base_revision'])
+        self.assertEqual(B.browser_code_errors(pins), [])
+        pins['browser_adapter_sha256'] = 'bad'
+        self.assertIn('browser adapter bytes differ from capture pin', B.browser_code_errors(pins))
+
+    async def test_bad_runtime_archive_is_refused(self):
+        path = Path(self.temp.name)/'bad.tar';path.write_bytes(b'bad')
+        with self.assertRaises(ValueError): build(path,Path(self.temp.name)/'index.html')

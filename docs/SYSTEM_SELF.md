@@ -33,9 +33,13 @@ captures. Older observations remain in the tree. A same-revision byte conflict i
 archived and blocks the imported-topic collection. Imports do not create an evaluation score.
 
 UI: corpus tiles, source dialogs, revision history, deterministic chat, a tab journal,
-and Fantasy/Sci-fi/Wasteland visual settings. Python must be running locally.
-Opening index.html alone displays launcher instructions. GitHub Pages cannot run
-the local Python reader.
+and Fantasy/Sci-fi/Wasteland visual settings. Desktop mode needs the local Python process and opening root index.html alone
+shows launcher instructions. Standalone MPLPB_Browser.html embeds CPython through
+Pyodide WebAssembly, so it does not need a Python installation or server process.
+That generated HTML bundles the reader, gate and pages; it can use static hosting.
+Browser mode uses IndexedDB for sessions and imported source captures. Browser
+permissions, storage eviction and clearing can erase or block those saves. Export
+important transcripts. No local drive is mounted or crawled in browser mode.
 
 Chat uses a deterministic mind layer with explicit finite intents: declared working
 notes, exact-topic extractive summaries, comparisons of separate source excerpts,

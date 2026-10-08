@@ -2,12 +2,12 @@
 
 A closed local ledger of pages that answers only from those pages.
 
-Each page carries its own id, scope, status, hash, parent and depth. The reader crawls the
-folder. One current page owns the question: it returns that page. Two own it: it stops. None
+Each page carries its own id, scope, status, hash, parent and depth. The reader reads the
+explicitly configured corpus folder. One current page owns the question: it returns that page. Two own it: it stops. None
 own it: it says not in the corpus. A change writes a new page and retires the old one. A
 derivation writes a new page and adds one to the depth.
 
-No model. No network. No database. No install step. Standard library only.
+No model. The core reader uses local pages and the Python standard library. Optional search/import commands contact public Wikipedia explicitly; standalone browser mode uses IndexedDB for saved state.
 
 ```
 R = (id, scope, status, hash, derived_from, origin_depth)
@@ -23,6 +23,19 @@ Paper: [`docs/Combined_MPLPB.md`](docs/Combined_MPLPB.md) · `.txt` · `.pdf`
 This is the master repository. The `ask` command implements the formula. The separate `gate` command returns lexical
 source bundles with provenance, as described below. The five earlier implementations are carried whole under [`parts/`](parts/README.md), and
 the papers that are not in any of them are under [`docs/sources/`](docs/sources/README.md).
+
+## Browser runtime without a Python server
+
+The generated **MPLPB_Browser.html** embeds the real Python engine through Pyodide
+WebAssembly, bundled pages and the RPG-style front end. Open the delivered file in
+a current browser, or use static HTTPS hosting. No Python installation or process
+is needed to run it. Startup is offline; explicit Wikipedia search/import uses the
+network. Browser storage permissions are required to retain state.
+
+The repository includes the reproducible builder: `python3 tools/build_browser_runtime.py`.
+This creates `dist/MPLPB_Browser.html`; generated output is excluded from Git.
+[Runtime details, requirements, verification and walk back](docs/BROWSER_RUNTIME.md).
+The desktop mode below remains available in root `index.html`.
 
 ## Local browser UI
 
