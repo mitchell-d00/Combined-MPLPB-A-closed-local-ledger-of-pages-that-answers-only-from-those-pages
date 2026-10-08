@@ -24,6 +24,14 @@ This is the master repository. The `ask` command implements the formula. The sep
 source bundles with provenance, as described below. The five earlier implementations are carried whole under [`parts/`](parts/README.md), and
 the papers that are not in any of them are under [`docs/sources/`](docs/sources/README.md).
 
+## Open in your browser
+
+The Pages workflow publishes the standalone runtime at:
+https://mitchell-d00.github.io/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/
+
+[Publishing setup and walk back](docs/GITHUB_PAGES.md). Deployment status determines
+whether that address serves the runtime; a source push alone is not a deployment.
+
 ## Browser runtime without a Python server
 
 The generated **MPLPB_Browser.html** embeds the real Python engine through Pyodide
