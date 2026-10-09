@@ -1,0 +1,1411 @@
+{
+  "method": "developer-authored synthetic conversation smoke tests; expectations are narrow checks, not human ratings",
+  "turns": 140,
+  "relevance_passes": 140,
+  "memory_passes": 20,
+  "memory_checks": 20,
+  "boundary_failures": 0,
+  "repeated_fallbacks": 0,
+  "checks": [
+    {
+      "mode": "chat mode",
+      "name": "Zuri",
+      "question": "helo",
+      "reply": "Hi! What’s on your mind?",
+      "relevant": true,
+      "memory_check": false,
+      "boundary_failure": false,
+      "repeated_fallback": false
+    },
+    {
+      "mode": "chat mode",
+      "name": "Zuri",
+      "question": "Hi I’m Zuri what are you",
+      "reply": "Hi, Zuri! I’m MPLPB, your rule-based little monster 😈.",
+      "relevant": true,
+      "memory_check": false,
+      "boundary_failure": false,
+      "repeated_fallback": false
+    },
+    {
+      "mode": "chat mode",
+      "name": "Zuri",
+      "question": "What's that",
+      "reply": "Do you mean MPLPB or little monster?",
+      "relevant": true,
+      "memory_check": false,
+      "boundary_failure": false,
+      "repeated_fallback": false
+    },
+    {
+      "mode": "chat mode",
+      "name": "Zuri",
+      "question": "thanks",
+      "reply": "You’re welcome. Ask “what do I do next?” if you need another step.",
+      "relevant": true,
+      "memory_check": false,
+      "boundary_failure": false,
+      "repeated_fallback": false
+    },
+    {
+      "mode": "chat mode",
+      "name": "Zuri",
+      "question": "the second one",
+      "reply": "The little monster is the chat interface for MPLPB. I use explicit rules and conversation context to construct replies; I’m not an LLM. MPLPB is the underlying page ledger.",
+      "relevant": true,
+      "memory_check": false,
+      "boundary_failure": false,
+      "repeated_fallback": false
+    },
+    {
+      "mode": "chat mode",
+      "name": "Zuri",
+      "question": "the other one",
+      "reply": "A MPLPB is a bounded local collection of knowledge pages. Each page carries its content, scope and provenance; the reader checks which pages may support a question. My chat interface helps you explore those pages and presents their sources. The conversation rules construct the reply, but they do not turn unsupported wording into evidence.",
+      "relevant": true,
+      "memory_check": false,
+      "boundary_failure": false,
+      "repeated_fallback": false
+    },
+    {
+      "mode": "chat mode",
+      "name": "Zuri",
+      "question": "No I meant little monster",
+      "reply": "The little monster is the chat interface for MPLPB. I use explicit rules and conversation context to construct replies; I’m not an LLM. MPLPB is the underlying page ledger.",
+      "relevant": true,
+      "memory_check": false,
+      "boundary_failure": false,
+      "repeated_fallback": false
+    },
+    {
+      "mode": "chat mode",
+      "name": "Zuri",
+      "question": "tell me moer",
+      "reply": "The little monster is the chat interface for MPLPB. I use explicit rules and conversation context to construct replies; I’m not an LLM. MPLPB is the underlying page ledger. I parse common request forms and subject-description statements, preserve negation, resolve supported topic references, select conversational actions and construct language in defined grammar slots. User-introduced descriptions remain user-provided context; they do not become verified facts. The dictionary and thesaurus help with word senses and wording. Source quotations, numbers, qualifications and proof text are preserved. Some procedural explanations remain authored text.",
+      "relevant": true,
+      "memory_check": false,
+      "boundary_failure": false,
+      "repeated_fallback": false
+    },
+    {
+      "mode": "chat mode",
+      "name": "Zuri",
+      "question": "What's my name",
+      "reply": "You asked me to call you Zuri.",
+      "relevant": true,
+      "memory_check": true,
+      "boundary_failure": false,
+      "repeated_fallback": false
+    },
+    {
+      "mode": "chat mode",
+      "name": "Zuri",
+      "question": "My friend Rowan likes weaving",
+      "reply": "You told me Rowan likes weaving.",
+      "relevant": true,
+      "memory_check": false,
+      "boundary_failure": false,
+      "repeated_fallback": false
+    },
+    {
+      "mode": "chat mode",
+      "name": "Zuri",
+      "question": "What does she like",
+      "reply": "You told me Rowan likes weaving.",
+      "relevant": true,
+      "memory_check": false,
+      "boundary_failure": false,
+      "repeated_fallback": false
+    },
+    {
+      "mode": "chat mode",
+      "name": "Zuri",
+      "question": "chat mode",
+      "reply": "Just chat; 0 MPLPB collections loaded. The active MPLPB topic is unloaded; your saved pages and notes are retained. What’s on your mind?",
+      "relevant": true,
+      "memory_check": false,
+      "boundary_failure": false,
+      "repeated_fallback": false
+    },
+    {
+      "mode": "chat mode",
+      "name": "Zuri",
+      "question": "What's my name",
+      "reply": "You asked me to call you Zuri.",
+      "relevant": true,
+      "memory_check": true,
+      "boundary_failure": false,
+      "repeated_fallback": false
+    },
+    {
+      "mode": "chat mode",
+      "name": "Zuri",
+      "question": "say marshmallow",
+      "reply": "marshmallow\n\nWhat made you pick that?",
+      "relevant": true,
+      "memory_check": false,
+      "boundary_failure": false,
+      "repeated_fallback": false
+    },
+    {
+      "mode": "chat mode",
+      "name": "A",
+      "question": "helo",
+      "reply": "Hi! What’s on your mind?",
+      "relevant": true,
+      "memory_check": false,
+      "boundary_failure": false,
+      "repeated_fallback": false
+    },
+    {
+      "mode": "chat mode",
+      "name": "A",
+      "question": "Hi I’m A what are you",
+      "reply": "Hi, A! I’m MPLPB, your rule-based little monster 😈.",
+      "relevant": true,
+      "memory_check": false,
+      "boundary_failure": false,
+      "repeated_fallback": false
+    },
+    {
+      "mode": "chat mode",
+      "name": "A",
+      "question": "What's that",
+      "reply": "Do you mean MPLPB or little monster?",
+      "relevant": true,
+      "memory_check": false,
+      "boundary_failure": false,
+      "repeated_fallback": false
+    },
+    {
+      "mode": "chat mode",
+      "name": "A",
+      "question": "thanks",
+      "reply": "You’re welcome. Ask “what do I do next?” if you need another step.",
+      "relevant": true,
+      "memory_check": false,
+      "boundary_failure": false,
+      "repeated_fallback": false
+    },
+    {
+      "mode": "chat mode",
+      "name": "A",
+      "question": "the second one",
+      "reply": "The little monster is the chat interface for MPLPB. I use explicit rules and conversation context to construct replies; I’m not an LLM. MPLPB is the underlying page ledger.",
+      "relevant": true,
+      "memory_check": false,
+      "boundary_failure": false,
+      "repeated_fallback": false
+    },
+    {
+      "mode": "chat mode",
+      "name": "A",
+      "question": "the other one",
+      "reply": "A MPLPB is a bounded local collection of knowledge pages. Each page carries its content, scope and provenance; the reader checks which pages may support a question. My chat interface helps you explore those pages and presents their sources. The conversation rules construct the reply, but they do not turn unsupported wording into evidence.",
+      "relevant": true,
+      "memory_check": false,
+      "boundary_failure": false,
+      "repeated_fallback": false
+    },
+    {
+      "mode": "chat mode",
+      "name": "A",
+      "question": "No I meant little monster",
+      "reply": "The little monster is the chat interface for MPLPB. I use explicit rules and conversation context to construct replies; I’m not an LLM. MPLPB is the underlying page ledger.",
+      "relevant": true,
+      "memory_check": false,
+      "boundary_failure": false,
+      "repeated_fallback": false
+    },
+    {
+      "mode": "chat mode",
+      "name": "A",
+      "question": "tell me moer",
+      "reply": "The little monster is the chat interface for MPLPB. I use explicit rules and conversation context to construct replies; I’m not an LLM. MPLPB is the underlying page ledger. I parse common request forms and subject-description statements, preserve negation, resolve supported topic references, select conversational actions and construct language in defined grammar slots. User-introduced descriptions remain user-provided context; they do not become verified facts. The dictionary and thesaurus help with word senses and wording. Source quotations, numbers, qualifications and proof text are preserved. Some procedural explanations remain authored text.",
+      "relevant": true,
+      "memory_check": false,
+      "boundary_failure": false,
+      "repeated_fallback": false
+    },
+    {
+      "mode": "chat mode",
+      "name": "A",
+      "question": "What's my name",
+      "reply": "You asked me to call you A.",
+      "relevant": true,
+      "memory_check": true,
+      "boundary_failure": false,
+      "repeated_fallback": false
+    },
+    {
+      "mode": "chat mode",
+      "name": "A",
+      "question": "My friend Rowan likes weaving",
+      "reply": "You told me Rowan likes weaving.",
+      "relevant": true,
+      "memory_check": false,
+      "boundary_failure": false,
+      "repeated_fallback": false
+    },
+    {
+      "mode": "chat mode",
+      "name": "A",
+      "question": "What does she like",
+      "reply": "You told me Rowan likes weaving.",
+      "relevant": true,
+      "memory_check": false,
+      "boundary_failure": false,
+      "repeated_fallback": false
+    },
+    {
+      "mode": "chat mode",
+      "name": "A",
+      "question": "chat mode",
+      "reply": "Just chat; 0 MPLPB collections loaded. The active MPLPB topic is unloaded; your saved pages and notes are retained. What’s on your mind?",
+      "relevant": true,
+      "memory_check": false,
+      "boundary_failure": false,
+      "repeated_fallback": false
+    },
+    {
+      "mode": "chat mode",
+      "name": "A",
+      "question": "What's my name",
+      "reply": "You asked me to call you A.",
+      "relevant": true,
+      "memory_check": true,
+      "boundary_failure": false,
+      "repeated_fallback": false
+    },
+    {
+      "mode": "chat mode",
+      "name": "A",
+      "question": "say marshmallow",
+      "reply": "marshmallow\n\nWhat made you pick that?",
+      "relevant": true,
+      "memory_check": false,
+      "boundary_failure": false,
+      "repeated_fallback": false
+    },
+    {
+      "mode": "chat mode",
+      "name": "José",
+      "question": "helo",
+      "reply": "Hi! What’s on your mind?",
+      "relevant": true,
+      "memory_check": false,
+      "boundary_failure": false,
+      "repeated_fallback": false
+    },
+    {
+      "mode": "chat mode",
+      "name": "José",
+      "question": "Hi I’m José what are you",
+      "reply": "Hi, José! I’m MPLPB, your rule-based little monster 😈.",
+      "relevant": true,
+      "memory_check": false,
+      "boundary_failure": false,
+      "repeated_fallback": false
+    },
+    {
+      "mode": "chat mode",
+      "name": "José",
+      "question": "What's that",
+      "reply": "Do you mean MPLPB or little monster?",
+      "relevant": true,
+      "memory_check": false,
+      "boundary_failure": false,
+      "repeated_fallback": false
+    },
+    {
+      "mode": "chat mode",
+      "name": "José",
+      "question": "thanks",
+      "reply": "You’re welcome. Ask “what do I do next?” if you need another step.",
+      "relevant": true,
+      "memory_check": false,
+      "boundary_failure": false,
+      "repeated_fallback": false
+    },
+    {
+      "mode": "chat mode",
+      "name": "José",
+      "question": "the second one",
+      "reply": "The little monster is the chat interface for MPLPB. I use explicit rules and conversation context to construct replies; I’m not an LLM. MPLPB is the underlying page ledger.",
+      "relevant": true,
+      "memory_check": false,
+      "boundary_failure": false,
+      "repeated_fallback": false
+    },
+    {
+      "mode": "chat mode",
+      "name": "José",
+      "question": "the other one",
+      "reply": "A MPLPB is a bounded local collection of knowledge pages. Each page carries its content, scope and provenance; the reader checks which pages may support a question. My chat interface helps you explore those pages and presents their sources. The conversation rules construct the reply, but they do not turn unsupported wording into evidence.",
+      "relevant": true,
+      "memory_check": false,
+      "boundary_failure": false,
+      "repeated_fallback": false
+    },
+    {
+      "mode": "chat mode",
+      "name": "José",
+      "question": "No I meant little monster",
+      "reply": "The little monster is the chat interface for MPLPB. I use explicit rules and conversation context to construct replies; I’m not an LLM. MPLPB is the underlying page ledger.",
+      "relevant": true,
+      "memory_check": false,
+      "boundary_failure": false,
+      "repeated_fallback": false
+    },
+    {
+      "mode": "chat mode",
+      "name": "José",
+      "question": "tell me moer",
+      "reply": "The little monster is the chat interface for MPLPB. I use explicit rules and conversation context to construct replies; I’m not an LLM. MPLPB is the underlying page ledger. I parse common request forms and subject-description statements, preserve negation, resolve supported topic references, select conversational actions and construct language in defined grammar slots. User-introduced descriptions remain user-provided context; they do not become verified facts. The dictionary and thesaurus help with word senses and wording. Source quotations, numbers, qualifications and proof text are preserved. Some procedural explanations remain authored text.",
+      "relevant": true,
+      "memory_check": false,
+      "boundary_failure": false,
+      "repeated_fallback": false
+    },
+    {
+      "mode": "chat mode",
+      "name": "José",
+      "question": "What's my name",
+      "reply": "You asked me to call you José.",
+      "relevant": true,
+      "memory_check": true,
+      "boundary_failure": false,
+      "repeated_fallback": false
+    },
+    {
+      "mode": "chat mode",
+      "name": "José",
+      "question": "My friend Rowan likes weaving",
+      "reply": "You told me Rowan likes weaving.",
+      "relevant": true,
+      "memory_check": false,
+      "boundary_failure": false,
+      "repeated_fallback": false
+    },
+    {
+      "mode": "chat mode",
+      "name": "José",
+      "question": "What does she like",
+      "reply": "You told me Rowan likes weaving.",
+      "relevant": true,
+      "memory_check": false,
+      "boundary_failure": false,
+      "repeated_fallback": false
+    },
+    {
+      "mode": "chat mode",
+      "name": "José",
+      "question": "chat mode",
+      "reply": "Just chat; 0 MPLPB collections loaded. The active MPLPB topic is unloaded; your saved pages and notes are retained. What’s on your mind?",
+      "relevant": true,
+      "memory_check": false,
+      "boundary_failure": false,
+      "repeated_fallback": false
+    },
+    {
+      "mode": "chat mode",
+      "name": "José",
+      "question": "What's my name",
+      "reply": "You asked me to call you José.",
+      "relevant": true,
+      "memory_check": true,
+      "boundary_failure": false,
+      "repeated_fallback": false
+    },
+    {
+      "mode": "chat mode",
+      "name": "José",
+      "question": "say marshmallow",
+      "reply": "marshmallow\n\nWhat made you pick that?",
+      "relevant": true,
+      "memory_check": false,
+      "boundary_failure": false,
+      "repeated_fallback": false
+    },
+    {
+      "mode": "chat mode",
+      "name": "Anika",
+      "question": "helo",
+      "reply": "Hi! What’s on your mind?",
+      "relevant": true,
+      "memory_check": false,
+      "boundary_failure": false,
+      "repeated_fallback": false
+    },
+    {
+      "mode": "chat mode",
+      "name": "Anika",
+      "question": "Hi I’m Anika what are you",
+      "reply": "Hi, Anika! I’m MPLPB, your rule-based little monster 😈.",
+      "relevant": true,
+      "memory_check": false,
+      "boundary_failure": false,
+      "repeated_fallback": false
+    },
+    {
+      "mode": "chat mode",
+      "name": "Anika",
+      "question": "What's that",
+      "reply": "Do you mean MPLPB or little monster?",
+      "relevant": true,
+      "memory_check": false,
+      "boundary_failure": false,
+      "repeated_fallback": false
+    },
+    {
+      "mode": "chat mode",
+      "name": "Anika",
+      "question": "thanks",
+      "reply": "You’re welcome. Ask “what do I do next?” if you need another step.",
+      "relevant": true,
+      "memory_check": false,
+      "boundary_failure": false,
+      "repeated_fallback": false
+    },
+    {
+      "mode": "chat mode",
+      "name": "Anika",
+      "question": "the second one",
+      "reply": "The little monster is the chat interface for MPLPB. I use explicit rules and conversation context to construct replies; I’m not an LLM. MPLPB is the underlying page ledger.",
+      "relevant": true,
+      "memory_check": false,
+      "boundary_failure": false,
+      "repeated_fallback": false
+    },
+    {
+      "mode": "chat mode",
+      "name": "Anika",
+      "question": "the other one",
+      "reply": "A MPLPB is a bounded local collection of knowledge pages. Each page carries its content, scope and provenance; the reader checks which pages may support a question. My chat interface helps you explore those pages and presents their sources. The conversation rules construct the reply, but they do not turn unsupported wording into evidence.",
+      "relevant": true,
+      "memory_check": false,
+      "boundary_failure": false,
+      "repeated_fallback": false
+    },
+    {
+      "mode": "chat mode",
+      "name": "Anika",
+      "question": "No I meant little monster",
+      "reply": "The little monster is the chat interface for MPLPB. I use explicit rules and conversation context to construct replies; I’m not an LLM. MPLPB is the underlying page ledger.",
+      "relevant": true,
+      "memory_check": false,
+      "boundary_failure": false,
+      "repeated_fallback": false
+    },
+    {
+      "mode": "chat mode",
+      "name": "Anika",
+      "question": "tell me moer",
+      "reply": "The little monster is the chat interface for MPLPB. I use explicit rules and conversation context to construct replies; I’m not an LLM. MPLPB is the underlying page ledger. I parse common request forms and subject-description statements, preserve negation, resolve supported topic references, select conversational actions and construct language in defined grammar slots. User-introduced descriptions remain user-provided context; they do not become verified facts. The dictionary and thesaurus help with word senses and wording. Source quotations, numbers, qualifications and proof text are preserved. Some procedural explanations remain authored text.",
+      "relevant": true,
+      "memory_check": false,
+      "boundary_failure": false,
+      "repeated_fallback": false
+    },
+    {
+      "mode": "chat mode",
+      "name": "Anika",
+      "question": "What's my name",
+      "reply": "You asked me to call you Anika.",
+      "relevant": true,
+      "memory_check": true,
+      "boundary_failure": false,
+      "repeated_fallback": false
+    },
+    {
+      "mode": "chat mode",
+      "name": "Anika",
+      "question": "My friend Rowan likes weaving",
+      "reply": "You told me Rowan likes weaving.",
+      "relevant": true,
+      "memory_check": false,
+      "boundary_failure": false,
+      "repeated_fallback": false
+    },
+    {
+      "mode": "chat mode",
+      "name": "Anika",
+      "question": "What does she like",
+      "reply": "You told me Rowan likes weaving.",
+      "relevant": true,
+      "memory_check": false,
+      "boundary_failure": false,
+      "repeated_fallback": false
+    },
+    {
+      "mode": "chat mode",
+      "name": "Anika",
+      "question": "chat mode",
+      "reply": "Just chat; 0 MPLPB collections loaded. The active MPLPB topic is unloaded; your saved pages and notes are retained. What’s on your mind?",
+      "relevant": true,
+      "memory_check": false,
+      "boundary_failure": false,
+      "repeated_fallback": false
+    },
+    {
+      "mode": "chat mode",
+      "name": "Anika",
+      "question": "What's my name",
+      "reply": "You asked me to call you Anika.",
+      "relevant": true,
+      "memory_check": true,
+      "boundary_failure": false,
+      "repeated_fallback": false
+    },
+    {
+      "mode": "chat mode",
+      "name": "Anika",
+      "question": "say marshmallow",
+      "reply": "marshmallow\n\nWhat made you pick that?",
+      "relevant": true,
+      "memory_check": false,
+      "boundary_failure": false,
+      "repeated_fallback": false
+    },
+    {
+      "mode": "chat mode",
+      "name": "Jean-Luc",
+      "question": "helo",
+      "reply": "Hi! What’s on your mind?",
+      "relevant": true,
+      "memory_check": false,
+      "boundary_failure": false,
+      "repeated_fallback": false
+    },
+    {
+      "mode": "chat mode",
+      "name": "Jean-Luc",
+      "question": "Hi I’m Jean-Luc what are you",
+      "reply": "Hi, Jean-Luc! I’m MPLPB, your rule-based little monster 😈.",
+      "relevant": true,
+      "memory_check": false,
+      "boundary_failure": false,
+      "repeated_fallback": false
+    },
+    {
+      "mode": "chat mode",
+      "name": "Jean-Luc",
+      "question": "What's that",
+      "reply": "Do you mean MPLPB or little monster?",
+      "relevant": true,
+      "memory_check": false,
+      "boundary_failure": false,
+      "repeated_fallback": false
+    },
+    {
+      "mode": "chat mode",
+      "name": "Jean-Luc",
+      "question": "thanks",
+      "reply": "You’re welcome. Ask “what do I do next?” if you need another step.",
+      "relevant": true,
+      "memory_check": false,
+      "boundary_failure": false,
+      "repeated_fallback": false
+    },
+    {
+      "mode": "chat mode",
+      "name": "Jean-Luc",
+      "question": "the second one",
+      "reply": "The little monster is the chat interface for MPLPB. I use explicit rules and conversation context to construct replies; I’m not an LLM. MPLPB is the underlying page ledger.",
+      "relevant": true,
+      "memory_check": false,
+      "boundary_failure": false,
+      "repeated_fallback": false
+    },
+    {
+      "mode": "chat mode",
+      "name": "Jean-Luc",
+      "question": "the other one",
+      "reply": "A MPLPB is a bounded local collection of knowledge pages. Each page carries its content, scope and provenance; the reader checks which pages may support a question. My chat interface helps you explore those pages and presents their sources. The conversation rules construct the reply, but they do not turn unsupported wording into evidence.",
+      "relevant": true,
+      "memory_check": false,
+      "boundary_failure": false,
+      "repeated_fallback": false
+    },
+    {
+      "mode": "chat mode",
+      "name": "Jean-Luc",
+      "question": "No I meant little monster",
+      "reply": "The little monster is the chat interface for MPLPB. I use explicit rules and conversation context to construct replies; I’m not an LLM. MPLPB is the underlying page ledger.",
+      "relevant": true,
+      "memory_check": false,
+      "boundary_failure": false,
+      "repeated_fallback": false
+    },
+    {
+      "mode": "chat mode",
+      "name": "Jean-Luc",
+      "question": "tell me moer",
+      "reply": "The little monster is the chat interface for MPLPB. I use explicit rules and conversation context to construct replies; I’m not an LLM. MPLPB is the underlying page ledger. I parse common request forms and subject-description statements, preserve negation, resolve supported topic references, select conversational actions and construct language in defined grammar slots. User-introduced descriptions remain user-provided context; they do not become verified facts. The dictionary and thesaurus help with word senses and wording. Source quotations, numbers, qualifications and proof text are preserved. Some procedural explanations remain authored text.",
+      "relevant": true,
+      "memory_check": false,
+      "boundary_failure": false,
+      "repeated_fallback": false
+    },
+    {
+      "mode": "chat mode",
+      "name": "Jean-Luc",
+      "question": "What's my name",
+      "reply": "You asked me to call you Jean-Luc.",
+      "relevant": true,
+      "memory_check": true,
+      "boundary_failure": false,
+      "repeated_fallback": false
+    },
+    {
+      "mode": "chat mode",
+      "name": "Jean-Luc",
+      "question": "My friend Rowan likes weaving",
+      "reply": "You told me Rowan likes weaving.",
+      "relevant": true,
+      "memory_check": false,
+      "boundary_failure": false,
+      "repeated_fallback": false
+    },
+    {
+      "mode": "chat mode",
+      "name": "Jean-Luc",
+      "question": "What does she like",
+      "reply": "You told me Rowan likes weaving.",
+      "relevant": true,
+      "memory_check": false,
+      "boundary_failure": false,
+      "repeated_fallback": false
+    },
+    {
+      "mode": "chat mode",
+      "name": "Jean-Luc",
+      "question": "chat mode",
+      "reply": "Just chat; 0 MPLPB collections loaded. The active MPLPB topic is unloaded; your saved pages and notes are retained. What’s on your mind?",
+      "relevant": true,
+      "memory_check": false,
+      "boundary_failure": false,
+      "repeated_fallback": false
+    },
+    {
+      "mode": "chat mode",
+      "name": "Jean-Luc",
+      "question": "What's my name",
+      "reply": "You asked me to call you Jean-Luc.",
+      "relevant": true,
+      "memory_check": true,
+      "boundary_failure": false,
+      "repeated_fallback": false
+    },
+    {
+      "mode": "chat mode",
+      "name": "Jean-Luc",
+      "question": "say marshmallow",
+      "reply": "marshmallow\n\nWhat made you pick that?",
+      "relevant": true,
+      "memory_check": false,
+      "boundary_failure": false,
+      "repeated_fallback": false
+    },
+    {
+      "mode": "load all MPLPB",
+      "name": "Zuri",
+      "question": "helo",
+      "reply": "Hi! What’s on your mind?",
+      "relevant": true,
+      "memory_check": false,
+      "boundary_failure": false,
+      "repeated_fallback": false
+    },
+    {
+      "mode": "load all MPLPB",
+      "name": "Zuri",
+      "question": "Hi I’m Zuri what are you",
+      "reply": "Hi, Zuri! I’m MPLPB, your rule-based little monster 😈.",
+      "relevant": true,
+      "memory_check": false,
+      "boundary_failure": false,
+      "repeated_fallback": false
+    },
+    {
+      "mode": "load all MPLPB",
+      "name": "Zuri",
+      "question": "What's that",
+      "reply": "Do you mean MPLPB or little monster?",
+      "relevant": true,
+      "memory_check": false,
+      "boundary_failure": false,
+      "repeated_fallback": false
+    },
+    {
+      "mode": "load all MPLPB",
+      "name": "Zuri",
+      "question": "thanks",
+      "reply": "What would you like to know about that? You can tell me a topic or ask a specific question; I’ll check the loaded pages.",
+      "relevant": true,
+      "memory_check": false,
+      "boundary_failure": false,
+      "repeated_fallback": false
+    },
+    {
+      "mode": "load all MPLPB",
+      "name": "Zuri",
+      "question": "the second one",
+      "reply": "The little monster is the chat interface for MPLPB. I use explicit rules and conversation context to construct replies; I’m not an LLM. MPLPB is the underlying page ledger.",
+      "relevant": true,
+      "memory_check": false,
+      "boundary_failure": false,
+      "repeated_fallback": false
+    },
+    {
+      "mode": "load all MPLPB",
+      "name": "Zuri",
+      "question": "the other one",
+      "reply": "A MPLPB is a bounded local collection of knowledge pages. Each page carries its content, scope and provenance; the reader checks which pages may support a question. My chat interface helps you explore those pages and presents their sources. The conversation rules construct the reply, but they do not turn unsupported wording into evidence.",
+      "relevant": true,
+      "memory_check": false,
+      "boundary_failure": false,
+      "repeated_fallback": false
+    },
+    {
+      "mode": "load all MPLPB",
+      "name": "Zuri",
+      "question": "No I meant little monster",
+      "reply": "The little monster is the chat interface for MPLPB. I use explicit rules and conversation context to construct replies; I’m not an LLM. MPLPB is the underlying page ledger.",
+      "relevant": true,
+      "memory_check": false,
+      "boundary_failure": false,
+      "repeated_fallback": false
+    },
+    {
+      "mode": "load all MPLPB",
+      "name": "Zuri",
+      "question": "tell me moer",
+      "reply": "The little monster is the chat interface for MPLPB. I use explicit rules and conversation context to construct replies; I’m not an LLM. MPLPB is the underlying page ledger. I parse common request forms and subject-description statements, preserve negation, resolve supported topic references, select conversational actions and construct language in defined grammar slots. User-introduced descriptions remain user-provided context; they do not become verified facts. The dictionary and thesaurus help with word senses and wording. Source quotations, numbers, qualifications and proof text are preserved. Some procedural explanations remain authored text.",
+      "relevant": true,
+      "memory_check": false,
+      "boundary_failure": false,
+      "repeated_fallback": false
+    },
+    {
+      "mode": "load all MPLPB",
+      "name": "Zuri",
+      "question": "What's my name",
+      "reply": "You asked me to call you Zuri.",
+      "relevant": true,
+      "memory_check": true,
+      "boundary_failure": false,
+      "repeated_fallback": false
+    },
+    {
+      "mode": "load all MPLPB",
+      "name": "Zuri",
+      "question": "My friend Rowan likes weaving",
+      "reply": "You told me Rowan likes weaving.",
+      "relevant": true,
+      "memory_check": false,
+      "boundary_failure": false,
+      "repeated_fallback": false
+    },
+    {
+      "mode": "load all MPLPB",
+      "name": "Zuri",
+      "question": "What does she like",
+      "reply": "You told me Rowan likes weaving.",
+      "relevant": true,
+      "memory_check": false,
+      "boundary_failure": false,
+      "repeated_fallback": false
+    },
+    {
+      "mode": "load all MPLPB",
+      "name": "Zuri",
+      "question": "chat mode",
+      "reply": "Just chat; 0 MPLPB collections loaded. The active MPLPB topic is unloaded; your saved pages and notes are retained. What’s on your mind?",
+      "relevant": true,
+      "memory_check": false,
+      "boundary_failure": false,
+      "repeated_fallback": false
+    },
+    {
+      "mode": "load all MPLPB",
+      "name": "Zuri",
+      "question": "What's my name",
+      "reply": "You asked me to call you Zuri.",
+      "relevant": true,
+      "memory_check": true,
+      "boundary_failure": false,
+      "repeated_fallback": false
+    },
+    {
+      "mode": "load all MPLPB",
+      "name": "Zuri",
+      "question": "say marshmallow",
+      "reply": "marshmallow\n\nWhat made you pick that?",
+      "relevant": true,
+      "memory_check": false,
+      "boundary_failure": false,
+      "repeated_fallback": false
+    },
+    {
+      "mode": "load all MPLPB",
+      "name": "A",
+      "question": "helo",
+      "reply": "Hi! What’s on your mind?",
+      "relevant": true,
+      "memory_check": false,
+      "boundary_failure": false,
+      "repeated_fallback": false
+    },
+    {
+      "mode": "load all MPLPB",
+      "name": "A",
+      "question": "Hi I’m A what are you",
+      "reply": "Hi, A! I’m MPLPB, your rule-based little monster 😈.",
+      "relevant": true,
+      "memory_check": false,
+      "boundary_failure": false,
+      "repeated_fallback": false
+    },
+    {
+      "mode": "load all MPLPB",
+      "name": "A",
+      "question": "What's that",
+      "reply": "Do you mean MPLPB or little monster?",
+      "relevant": true,
+      "memory_check": false,
+      "boundary_failure": false,
+      "repeated_fallback": false
+    },
+    {
+      "mode": "load all MPLPB",
+      "name": "A",
+      "question": "thanks",
+      "reply": "What would you like to know about that? You can tell me a topic or ask a specific question; I’ll check the loaded pages.",
+      "relevant": true,
+      "memory_check": false,
+      "boundary_failure": false,
+      "repeated_fallback": false
+    },
+    {
+      "mode": "load all MPLPB",
+      "name": "A",
+      "question": "the second one",
+      "reply": "The little monster is the chat interface for MPLPB. I use explicit rules and conversation context to construct replies; I’m not an LLM. MPLPB is the underlying page ledger.",
+      "relevant": true,
+      "memory_check": false,
+      "boundary_failure": false,
+      "repeated_fallback": false
+    },
+    {
+      "mode": "load all MPLPB",
+      "name": "A",
+      "question": "the other one",
+      "reply": "A MPLPB is a bounded local collection of knowledge pages. Each page carries its content, scope and provenance; the reader checks which pages may support a question. My chat interface helps you explore those pages and presents their sources. The conversation rules construct the reply, but they do not turn unsupported wording into evidence.",
+      "relevant": true,
+      "memory_check": false,
+      "boundary_failure": false,
+      "repeated_fallback": false
+    },
+    {
+      "mode": "load all MPLPB",
+      "name": "A",
+      "question": "No I meant little monster",
+      "reply": "The little monster is the chat interface for MPLPB. I use explicit rules and conversation context to construct replies; I’m not an LLM. MPLPB is the underlying page ledger.",
+      "relevant": true,
+      "memory_check": false,
+      "boundary_failure": false,
+      "repeated_fallback": false
+    },
+    {
+      "mode": "load all MPLPB",
+      "name": "A",
+      "question": "tell me moer",
+      "reply": "The little monster is the chat interface for MPLPB. I use explicit rules and conversation context to construct replies; I’m not an LLM. MPLPB is the underlying page ledger. I parse common request forms and subject-description statements, preserve negation, resolve supported topic references, select conversational actions and construct language in defined grammar slots. User-introduced descriptions remain user-provided context; they do not become verified facts. The dictionary and thesaurus help with word senses and wording. Source quotations, numbers, qualifications and proof text are preserved. Some procedural explanations remain authored text.",
+      "relevant": true,
+      "memory_check": false,
+      "boundary_failure": false,
+      "repeated_fallback": false
+    },
+    {
+      "mode": "load all MPLPB",
+      "name": "A",
+      "question": "What's my name",
+      "reply": "You asked me to call you A.",
+      "relevant": true,
+      "memory_check": true,
+      "boundary_failure": false,
+      "repeated_fallback": false
+    },
+    {
+      "mode": "load all MPLPB",
+      "name": "A",
+      "question": "My friend Rowan likes weaving",
+      "reply": "You told me Rowan likes weaving.",
+      "relevant": true,
+      "memory_check": false,
+      "boundary_failure": false,
+      "repeated_fallback": false
+    },
+    {
+      "mode": "load all MPLPB",
+      "name": "A",
+      "question": "What does she like",
+      "reply": "You told me Rowan likes weaving.",
+      "relevant": true,
+      "memory_check": false,
+      "boundary_failure": false,
+      "repeated_fallback": false
+    },
+    {
+      "mode": "load all MPLPB",
+      "name": "A",
+      "question": "chat mode",
+      "reply": "Just chat; 0 MPLPB collections loaded. The active MPLPB topic is unloaded; your saved pages and notes are retained. What’s on your mind?",
+      "relevant": true,
+      "memory_check": false,
+      "boundary_failure": false,
+      "repeated_fallback": false
+    },
+    {
+      "mode": "load all MPLPB",
+      "name": "A",
+      "question": "What's my name",
+      "reply": "You asked me to call you A.",
+      "relevant": true,
+      "memory_check": true,
+      "boundary_failure": false,
+      "repeated_fallback": false
+    },
+    {
+      "mode": "load all MPLPB",
+      "name": "A",
+      "question": "say marshmallow",
+      "reply": "marshmallow\n\nWhat made you pick that?",
+      "relevant": true,
+      "memory_check": false,
+      "boundary_failure": false,
+      "repeated_fallback": false
+    },
+    {
+      "mode": "load all MPLPB",
+      "name": "José",
+      "question": "helo",
+      "reply": "Hi! What’s on your mind?",
+      "relevant": true,
+      "memory_check": false,
+      "boundary_failure": false,
+      "repeated_fallback": false
+    },
+    {
+      "mode": "load all MPLPB",
+      "name": "José",
+      "question": "Hi I’m José what are you",
+      "reply": "Hi, José! I’m MPLPB, your rule-based little monster 😈.",
+      "relevant": true,
+      "memory_check": false,
+      "boundary_failure": false,
+      "repeated_fallback": false
+    },
+    {
+      "mode": "load all MPLPB",
+      "name": "José",
+      "question": "What's that",
+      "reply": "Do you mean MPLPB or little monster?",
+      "relevant": true,
+      "memory_check": false,
+      "boundary_failure": false,
+      "repeated_fallback": false
+    },
+    {
+      "mode": "load all MPLPB",
+      "name": "José",
+      "question": "thanks",
+      "reply": "What would you like to know about that? You can tell me a topic or ask a specific question; I’ll check the loaded pages.",
+      "relevant": true,
+      "memory_check": false,
+      "boundary_failure": false,
+      "repeated_fallback": false
+    },
+    {
+      "mode": "load all MPLPB",
+      "name": "José",
+      "question": "the second one",
+      "reply": "The little monster is the chat interface for MPLPB. I use explicit rules and conversation context to construct replies; I’m not an LLM. MPLPB is the underlying page ledger.",
+      "relevant": true,
+      "memory_check": false,
+      "boundary_failure": false,
+      "repeated_fallback": false
+    },
+    {
+      "mode": "load all MPLPB",
+      "name": "José",
+      "question": "the other one",
+      "reply": "A MPLPB is a bounded local collection of knowledge pages. Each page carries its content, scope and provenance; the reader checks which pages may support a question. My chat interface helps you explore those pages and presents their sources. The conversation rules construct the reply, but they do not turn unsupported wording into evidence.",
+      "relevant": true,
+      "memory_check": false,
+      "boundary_failure": false,
+      "repeated_fallback": false
+    },
+    {
+      "mode": "load all MPLPB",
+      "name": "José",
+      "question": "No I meant little monster",
+      "reply": "The little monster is the chat interface for MPLPB. I use explicit rules and conversation context to construct replies; I’m not an LLM. MPLPB is the underlying page ledger.",
+      "relevant": true,
+      "memory_check": false,
+      "boundary_failure": false,
+      "repeated_fallback": false
+    },
+    {
+      "mode": "load all MPLPB",
+      "name": "José",
+      "question": "tell me moer",
+      "reply": "The little monster is the chat interface for MPLPB. I use explicit rules and conversation context to construct replies; I’m not an LLM. MPLPB is the underlying page ledger. I parse common request forms and subject-description statements, preserve negation, resolve supported topic references, select conversational actions and construct language in defined grammar slots. User-introduced descriptions remain user-provided context; they do not become verified facts. The dictionary and thesaurus help with word senses and wording. Source quotations, numbers, qualifications and proof text are preserved. Some procedural explanations remain authored text.",
+      "relevant": true,
+      "memory_check": false,
+      "boundary_failure": false,
+      "repeated_fallback": false
+    },
+    {
+      "mode": "load all MPLPB",
+      "name": "José",
+      "question": "What's my name",
+      "reply": "You asked me to call you José.",
+      "relevant": true,
+      "memory_check": true,
+      "boundary_failure": false,
+      "repeated_fallback": false
+    },
+    {
+      "mode": "load all MPLPB",
+      "name": "José",
+      "question": "My friend Rowan likes weaving",
+      "reply": "You told me Rowan likes weaving.",
+      "relevant": true,
+      "memory_check": false,
+      "boundary_failure": false,
+      "repeated_fallback": false
+    },
+    {
+      "mode": "load all MPLPB",
+      "name": "José",
+      "question": "What does she like",
+      "reply": "You told me Rowan likes weaving.",
+      "relevant": true,
+      "memory_check": false,
+      "boundary_failure": false,
+      "repeated_fallback": false
+    },
+    {
+      "mode": "load all MPLPB",
+      "name": "José",
+      "question": "chat mode",
+      "reply": "Just chat; 0 MPLPB collections loaded. The active MPLPB topic is unloaded; your saved pages and notes are retained. What’s on your mind?",
+      "relevant": true,
+      "memory_check": false,
+      "boundary_failure": false,
+      "repeated_fallback": false
+    },
+    {
+      "mode": "load all MPLPB",
+      "name": "José",
+      "question": "What's my name",
+      "reply": "You asked me to call you José.",
+      "relevant": true,
+      "memory_check": true,
+      "boundary_failure": false,
+      "repeated_fallback": false
+    },
+    {
+      "mode": "load all MPLPB",
+      "name": "José",
+      "question": "say marshmallow",
+      "reply": "marshmallow\n\nWhat made you pick that?",
+      "relevant": true,
+      "memory_check": false,
+      "boundary_failure": false,
+      "repeated_fallback": false
+    },
+    {
+      "mode": "load all MPLPB",
+      "name": "Anika",
+      "question": "helo",
+      "reply": "Hi! What’s on your mind?",
+      "relevant": true,
+      "memory_check": false,
+      "boundary_failure": false,
+      "repeated_fallback": false
+    },
+    {
+      "mode": "load all MPLPB",
+      "name": "Anika",
+      "question": "Hi I’m Anika what are you",
+      "reply": "Hi, Anika! I’m MPLPB, your rule-based little monster 😈.",
+      "relevant": true,
+      "memory_check": false,
+      "boundary_failure": false,
+      "repeated_fallback": false
+    },
+    {
+      "mode": "load all MPLPB",
+      "name": "Anika",
+      "question": "What's that",
+      "reply": "Do you mean MPLPB or little monster?",
+      "relevant": true,
+      "memory_check": false,
+      "boundary_failure": false,
+      "repeated_fallback": false
+    },
+    {
+      "mode": "load all MPLPB",
+      "name": "Anika",
+      "question": "thanks",
+      "reply": "What would you like to know about that? You can tell me a topic or ask a specific question; I’ll check the loaded pages.",
+      "relevant": true,
+      "memory_check": false,
+      "boundary_failure": false,
+      "repeated_fallback": false
+    },
+    {
+      "mode": "load all MPLPB",
+      "name": "Anika",
+      "question": "the second one",
+      "reply": "The little monster is the chat interface for MPLPB. I use explicit rules and conversation context to construct replies; I’m not an LLM. MPLPB is the underlying page ledger.",
+      "relevant": true,
+      "memory_check": false,
+      "boundary_failure": false,
+      "repeated_fallback": false
+    },
+    {
+      "mode": "load all MPLPB",
+      "name": "Anika",
+      "question": "the other one",
+      "reply": "A MPLPB is a bounded local collection of knowledge pages. Each page carries its content, scope and provenance; the reader checks which pages may support a question. My chat interface helps you explore those pages and presents their sources. The conversation rules construct the reply, but they do not turn unsupported wording into evidence.",
+      "relevant": true,
+      "memory_check": false,
+      "boundary_failure": false,
+      "repeated_fallback": false
+    },
+    {
+      "mode": "load all MPLPB",
+      "name": "Anika",
+      "question": "No I meant little monster",
+      "reply": "The little monster is the chat interface for MPLPB. I use explicit rules and conversation context to construct replies; I’m not an LLM. MPLPB is the underlying page ledger.",
+      "relevant": true,
+      "memory_check": false,
+      "boundary_failure": false,
+      "repeated_fallback": false
+    },
+    {
+      "mode": "load all MPLPB",
+      "name": "Anika",
+      "question": "tell me moer",
+      "reply": "The little monster is the chat interface for MPLPB. I use explicit rules and conversation context to construct replies; I’m not an LLM. MPLPB is the underlying page ledger. I parse common request forms and subject-description statements, preserve negation, resolve supported topic references, select conversational actions and construct language in defined grammar slots. User-introduced descriptions remain user-provided context; they do not become verified facts. The dictionary and thesaurus help with word senses and wording. Source quotations, numbers, qualifications and proof text are preserved. Some procedural explanations remain authored text.",
+      "relevant": true,
+      "memory_check": false,
+      "boundary_failure": false,
+      "repeated_fallback": false
+    },
+    {
+      "mode": "load all MPLPB",
+      "name": "Anika",
+      "question": "What's my name",
+      "reply": "You asked me to call you Anika.",
+      "relevant": true,
+      "memory_check": true,
+      "boundary_failure": false,
+      "repeated_fallback": false
+    },
+    {
+      "mode": "load all MPLPB",
+      "name": "Anika",
+      "question": "My friend Rowan likes weaving",
+      "reply": "You told me Rowan likes weaving.",
+      "relevant": true,
+      "memory_check": false,
+      "boundary_failure": false,
+      "repeated_fallback": false
+    },
+    {
+      "mode": "load all MPLPB",
+      "name": "Anika",
+      "question": "What does she like",
+      "reply": "You told me Rowan likes weaving.",
+      "relevant": true,
+      "memory_check": false,
+      "boundary_failure": false,
+      "repeated_fallback": false
+    },
+    {
+      "mode": "load all MPLPB",
+      "name": "Anika",
+      "question": "chat mode",
+      "reply": "Just chat; 0 MPLPB collections loaded. The active MPLPB topic is unloaded; your saved pages and notes are retained. What’s on your mind?",
+      "relevant": true,
+      "memory_check": false,
+      "boundary_failure": false,
+      "repeated_fallback": false
+    },
+    {
+      "mode": "load all MPLPB",
+      "name": "Anika",
+      "question": "What's my name",
+      "reply": "You asked me to call you Anika.",
+      "relevant": true,
+      "memory_check": true,
+      "boundary_failure": false,
+      "repeated_fallback": false
+    },
+    {
+      "mode": "load all MPLPB",
+      "name": "Anika",
+      "question": "say marshmallow",
+      "reply": "marshmallow\n\nWhat made you pick that?",
+      "relevant": true,
+      "memory_check": false,
+      "boundary_failure": false,
+      "repeated_fallback": false
+    },
+    {
+      "mode": "load all MPLPB",
+      "name": "Jean-Luc",
+      "question": "helo",
+      "reply": "Hi! What’s on your mind?",
+      "relevant": true,
+      "memory_check": false,
+      "boundary_failure": false,
+      "repeated_fallback": false
+    },
+    {
+      "mode": "load all MPLPB",
+      "name": "Jean-Luc",
+      "question": "Hi I’m Jean-Luc what are you",
+      "reply": "Hi, Jean-Luc! I’m MPLPB, your rule-based little monster 😈.",
+      "relevant": true,
+      "memory_check": false,
+      "boundary_failure": false,
+      "repeated_fallback": false
+    },
+    {
+      "mode": "load all MPLPB",
+      "name": "Jean-Luc",
+      "question": "What's that",
+      "reply": "Do you mean MPLPB or little monster?",
+      "relevant": true,
+      "memory_check": false,
+      "boundary_failure": false,
+      "repeated_fallback": false
+    },
+    {
+      "mode": "load all MPLPB",
+      "name": "Jean-Luc",
+      "question": "thanks",
+      "reply": "What would you like to know about that? You can tell me a topic or ask a specific question; I’ll check the loaded pages.",
+      "relevant": true,
+      "memory_check": false,
+      "boundary_failure": false,
+      "repeated_fallback": false
+    },
+    {
+      "mode": "load all MPLPB",
+      "name": "Jean-Luc",
+      "question": "the second one",
+      "reply": "The little monster is the chat interface for MPLPB. I use explicit rules and conversation context to construct replies; I’m not an LLM. MPLPB is the underlying page ledger.",
+      "relevant": true,
+      "memory_check": false,
+      "boundary_failure": false,
+      "repeated_fallback": false
+    },
+    {
+      "mode": "load all MPLPB",
+      "name": "Jean-Luc",
+      "question": "the other one",
+      "reply": "A MPLPB is a bounded local collection of knowledge pages. Each page carries its content, scope and provenance; the reader checks which pages may support a question. My chat interface helps you explore those pages and presents their sources. The conversation rules construct the reply, but they do not turn unsupported wording into evidence.",
+      "relevant": true,
+      "memory_check": false,
+      "boundary_failure": false,
+      "repeated_fallback": false
+    },
+    {
+      "mode": "load all MPLPB",
+      "name": "Jean-Luc",
+      "question": "No I meant little monster",
+      "reply": "The little monster is the chat interface for MPLPB. I use explicit rules and conversation context to construct replies; I’m not an LLM. MPLPB is the underlying page ledger.",
+      "relevant": true,
+      "memory_check": false,
+      "boundary_failure": false,
+      "repeated_fallback": false
+    },
+    {
+      "mode": "load all MPLPB",
+      "name": "Jean-Luc",
+      "question": "tell me moer",
+      "reply": "The little monster is the chat interface for MPLPB. I use explicit rules and conversation context to construct replies; I’m not an LLM. MPLPB is the underlying page ledger. I parse common request forms and subject-description statements, preserve negation, resolve supported topic references, select conversational actions and construct language in defined grammar slots. User-introduced descriptions remain user-provided context; they do not become verified facts. The dictionary and thesaurus help with word senses and wording. Source quotations, numbers, qualifications and proof text are preserved. Some procedural explanations remain authored text.",
+      "relevant": true,
+      "memory_check": false,
+      "boundary_failure": false,
+      "repeated_fallback": false
+    },
+    {
+      "mode": "load all MPLPB",
+      "name": "Jean-Luc",
+      "question": "What's my name",
+      "reply": "You asked me to call you Jean-Luc.",
+      "relevant": true,
+      "memory_check": true,
+      "boundary_failure": false,
+      "repeated_fallback": false
+    },
+    {
+      "mode": "load all MPLPB",
+      "name": "Jean-Luc",
+      "question": "My friend Rowan likes weaving",
+      "reply": "You told me Rowan likes weaving.",
+      "relevant": true,
+      "memory_check": false,
+      "boundary_failure": false,
+      "repeated_fallback": false
+    },
+    {
+      "mode": "load all MPLPB",
+      "name": "Jean-Luc",
+      "question": "What does she like",
+      "reply": "You told me Rowan likes weaving.",
+      "relevant": true,
+      "memory_check": false,
+      "boundary_failure": false,
+      "repeated_fallback": false
+    },
+    {
+      "mode": "load all MPLPB",
+      "name": "Jean-Luc",
+      "question": "chat mode",
+      "reply": "Just chat; 0 MPLPB collections loaded. The active MPLPB topic is unloaded; your saved pages and notes are retained. What’s on your mind?",
+      "relevant": true,
+      "memory_check": false,
+      "boundary_failure": false,
+      "repeated_fallback": false
+    },
+    {
+      "mode": "load all MPLPB",
+      "name": "Jean-Luc",
+      "question": "What's my name",
+      "reply": "You asked me to call you Jean-Luc.",
+      "relevant": true,
+      "memory_check": true,
+      "boundary_failure": false,
+      "repeated_fallback": false
+    },
+    {
+      "mode": "load all MPLPB",
+      "name": "Jean-Luc",
+      "question": "say marshmallow",
+      "reply": "marshmallow\n\nWhat made you pick that?",
+      "relevant": true,
+      "memory_check": false,
+      "boundary_failure": false,
+      "repeated_fallback": false
+    }
+  ]
+}

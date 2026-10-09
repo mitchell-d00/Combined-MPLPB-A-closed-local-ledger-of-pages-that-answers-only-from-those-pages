@@ -40,3 +40,13 @@ The saved session retains pending choices, the active referent and up to 32 choi
 ### Declared names
 
 Name memory accepts uppercase single-letter initials, multiword names, hyphens, apostrophes and Unicode letters. Explicit `My name is …` and `Call me …` declarations take precedence over ordinary word meanings. Bare statements such as `I’m tired` remain states, not names. Names are user declarations, never MPLPB evidence; correction, recall and session reload use the conversation history.
+
+## Shared continuity pass
+
+`conversation_continuity.py` prepares a discourse frame before language planning and answer routing. Typed requests and buttons enter the same `App.chat` path. The frame preserves the original input while resolving a small control-typo vocabulary, explicit corrections and choice references. Names and arbitrary source terms are never fuzzy-corrected by this pass.
+
+Pending alternatives survive a social interruption such as “thanks”. “The other one” selects only a unique remaining choice; ordinal references select offered alternatives. “No, I meant …” updates an established subject. Selected branches and pending questions survive saved-session reload, and substantive topic changes expire the previous choice branch. The retained continuity trace is limited to 16 turns; it supplements the existing role-aware memory index.
+
+Replies expose a `reply_plan` containing the selected answer paragraph, remaining detail, follow-up choices, authority and sources. This is a structured presentation record of the routed reply, not a new unrestricted language generator. It does not rewrite quotations, upgrade user declarations or research notes, or change MPLPB eligibility. The module version and hash are recorded in the transcript audit payload.
+
+Run `python -m tools.smoke_conversation_continuity` for 140 developer-authored turns across five names and both modes, reloading the application after each turn. The checked-in report uses narrow expected-substring relevance checks, memory checks, consecutive fallback detection and source-boundary checks for these non-evidence scenarios. It is not an independent quality score. See [the independent trial protocol](INDEPENDENT_CONVERSATION_TRIAL.md); no human trial has been conducted for this release.

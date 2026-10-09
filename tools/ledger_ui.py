@@ -32,6 +32,7 @@ from tools import grounded_chat as Q
 from tools import social_chat as S
 from tools import response_construction as N
 from tools import conversation_branches as CB
+from tools import conversation_continuity as CC
 from tools import conversation_engine as CE
 from tools import chat_environment as E
 from tools import reduction as RD
@@ -269,6 +270,9 @@ class App:
             memory=session.setdefault('mind',{'notes':[]})
             if T.casual_key(message) not in {'yes','yes please','lets explore',"let's explore",'no','no thanks','keep chatting','stay casual'}:
                 memory.pop('topic_offer',None)
+            interpretation=CC.prepare(message,session)
+            original_message=message
+            message=interpretation['resolved']
             language_request=LP.parse(message,memory,session.get('context'))
             casual=None
             dialogue=SK.handle(message,session,self.roots()) or CB.handle(message,session,lambda q: E.handle(self,data,session,q,corpus,profile)) or CE.handle(message,session,lambda q: E.handle(self,data,session,q,corpus,profile)) or CX.handle(message,session) or DR.handle(message,session)
@@ -372,10 +376,13 @@ class App:
             session['corpus'], session['context'] = corpus, result.get('context')
             T.followups(result,session['mind'])
             result=LP.finish(result,language_request,session['mind'],len(session['log'])+1)
+            result=CC.finish(interpretation,result,session)
             M.record(session.setdefault('mind', {'notes': []}), result)
             result['question_frame']=E.IC.PF.frame(message)
-            payload = {'question': message, 'corpus': corpus, 'profile': profile, 'response': result}
+            payload = {'question': original_message, 'corpus': corpus, 'profile': profile, 'response': result}
             payload['chat_phrasing_sha256']=hashlib.sha256(Path(CX.__file__).with_name('chat_phrasing.py').read_bytes()).hexdigest()
+            payload['conversation_continuity_version']=CC.VERSION
+            payload['conversation_continuity_sha256']=hashlib.sha256(Path(CC.__file__).read_bytes()).hexdigest()
             payload['conversation_branches_version']=CB.VERSION
             payload['conversation_branches_sha256']=hashlib.sha256(Path(CB.__file__).read_bytes()).hexdigest()
             payload['conversation_engine_version']=CE.VERSION
