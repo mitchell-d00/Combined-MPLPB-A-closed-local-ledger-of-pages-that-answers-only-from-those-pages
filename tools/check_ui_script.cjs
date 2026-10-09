@@ -18,7 +18,7 @@ function runtime(protocol='http:',saved={}){
  if(u.pathname==='/api/state')data=fixtures.state;
  else if(u.pathname==='/api/inventory')data=fixtures.inventory[u.searchParams.get('corpus')+'|'+u.searchParams.get('profile')];
  else if(u.pathname==='/api/query'){const q=JSON.parse(options.body);data=fixtures.queries[q.corpus+'|'+q.profile+'|'+q.question];if(hold){const resolve=hold;hold=null;await new Promise(resolve);}}
- else if(u.pathname==='/api/chat'){const q=JSON.parse(options.body);data=fixtures.chats[q.message];}
+ else if(u.pathname==='/api/chat'){const q=JSON.parse(options.body);data=fixtures.chats[q.message];if(q.message==='load MPLPB')assert.deepEqual(q.loaded_corpora,['logic','system']);}
  else if(u.pathname==='/api/chat/resume')data=fixtures.resume;
  else if(u.pathname==='/api/chat/reset')data={reset:true};
  else if(u.pathname==='/api/page'){data=fixtures.pages[u.searchParams.get('corpus')+'|'+u.searchParams.get('profile')+'|'+u.searchParams.get('path')];if(!data){status=400;data={error:'Page withheld'};}}
@@ -60,5 +60,6 @@ async function tick(){for(let i=0;i<20;i++)await Promise.resolve();}
  assert.match(r.elements['chat-mode'].textContent,/MPLPB topic: Budget guide/);
  const beforeChat=r.requests.length;r.elements['chat-send'].disabled=true;r.elements['chat-casual'].events.click();await tick();assert.equal(r.requests.length,beforeChat);r.elements['chat-send'].disabled=false;
  r.elements['chat-casual'].events.click();await tick();assert.match(r.elements['chat-mode'].textContent,/Just chat/);assert.match(r.elements['chat-messages'].innerHTML,/active MPLPB topic is unloaded/);
+ r.elements['chat-load-all'].events.click();await tick();assert.match(r.elements['chat-mode'].textContent,/Focus mode/);r.elements['chat-scope'].selectedOptions=[{value:'logic'},{value:'system'}];r.elements['chat-load-selected'].events.click();await tick();assert.match(r.elements['chat-mode'].textContent,/2 MPLPB loaded/);
  console.log('PASS: script workflow, source controls, profile changes, clarification, history, experiment, chat/rule/creator rendering, escaping, preferences, stale responses and file-mode instructions. No browser rendering performed.');
 })().catch(e=>{console.error(e);process.exitCode=1;});

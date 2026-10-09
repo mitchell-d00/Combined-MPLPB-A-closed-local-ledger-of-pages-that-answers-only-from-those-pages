@@ -31,6 +31,7 @@ from tools import reference_resources as F
 from tools import grounded_chat as Q
 from tools import social_chat as S
 from tools import response_construction as N
+from tools import chat_environment as E
 
 
 class App:
@@ -259,20 +260,9 @@ class App:
             if T.casual_key(message) not in {'yes','yes please','lets explore',"let's explore",'no','no thanks','keep chatting','stay casual'}:
                 memory.pop('topic_offer',None)
             casual=None
-            if T.casual_key(message) == 'just chatting':
-                session['context'] = None
-                memory.pop('topic_offer', None)
-                memory.pop('guide', None)
-                memory['casual_active'] = True
-                memory['social'] = {'active': True, 'stage': 'story', 'turns': 0, 'style': 'chat'}
-                casual = M.reply('smalltalk',
-                    'Just chat is on. The active MPLPB topic is unloaded; your saved pages and notes are still there. What’s on your mind?',
-                    None, 'CHAT-UNLOAD', authority='conversation_structure',
-                    suggestions=['I had a bad day', 'something lighter', 'show my MPLPB'],
-                    response_structure={'intent': 'social_start', 'mode': 'casual',
-                                        'factual_claims': False, 'automatic_topic_switch': False})
-            open_casual=T.casual_followup(message,session['context'],memory)
-            if casual is None and (T.smalltalk_candidate(message,memory) or open_casual is not None or S.candidate(message,memory)):
+            environment_result=E.handle(self,data,session,message,corpus,profile)
+            open_casual=T.casual_followup(message,session['context'],memory) if environment_result is None else None
+            if environment_result is None and casual is None and (T.smalltalk_candidate(message,memory) or open_casual is not None or S.candidate(message,memory)):
                 try:titles=[p['title'] for p in self.inventory(corpus,profile)['pages'] if p['eligible']]
                 except (ValueError,OSError):titles=[]
                 casual=T.smalltalk(message,session['context'],memory,titles,corpus+'|'+profile)
@@ -283,7 +273,7 @@ class App:
                 elif not casual.get('response_structure',{}).get('topic_mentions'):
                     social=S.handle(message,session['context'],memory)
                     if social is not None:casual=social
-            tutor=F.handle(message,session['context']) or casual or T.conversation(message,session['context'],memory) or T.guide(message,session['context'],memory) or T.learning_request(message,session['context'])
+            tutor=environment_result or F.handle(message,session['context']) or casual or T.conversation(message,session['context'],memory) or T.guide(message,session['context'],memory) or T.learning_request(message,session['context'])
             if tutor is not None:result=tutor
             elif T.key(message) in T.LIST:
                 try:
@@ -345,6 +335,14 @@ class App:
                     result['suggestions'] = offer['suggestions']
                     result['source_offer'] = offer['source_offer']
                 if interpreted!=message:result.setdefault('reasoning',[]).append({'rule':'PHRASE-1','interpreted_as':interpreted})
+            if result['kind'] in {'import','built'}:
+                session['environment']={'mode':'focus','corpora':[corpus],'focus_corpus':corpus if result.get('context') else None}
+            if session.get('environment'):
+                result['environment']=copy.deepcopy(session['environment'])
+                if result.get('context') and session['environment'].get('focus_corpus'):
+                    result['source_corpus']=session['environment']['focus_corpus']
+                    result['sources']=[dict(s,corpus=result['source_corpus']) for s in result.get('sources',[])]
+                result.setdefault('response_structure',{}).setdefault('mode',session['environment']['mode'])
             if not result.get('response_structure',{}).get('intent','').startswith('social_'):
                 session['mind'].pop('social',None)
             session['corpus'], session['context'] = corpus, result.get('context')
@@ -355,6 +353,8 @@ class App:
             payload['mind_sha256'] = hashlib.sha256(Path(M.__file__).read_bytes()).hexdigest()
             payload['grounded_chat_version'] = Q.VERSION
             payload['grounded_chat_sha256'] = hashlib.sha256(Path(Q.__file__).read_bytes()).hexdigest()
+            payload['environment_version'] = E.VERSION
+            payload['environment_sha256'] = hashlib.sha256(Path(E.__file__).read_bytes()).hexdigest()
             payload['construction_version'] = N.VERSION
             payload['construction_sha256'] = hashlib.sha256(Path(N.__file__).read_bytes()).hexdigest()
             payload['social_chat_version'] = S.VERSION

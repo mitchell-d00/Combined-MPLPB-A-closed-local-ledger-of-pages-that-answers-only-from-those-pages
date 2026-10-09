@@ -33,8 +33,8 @@ def main():
                     data['pages'][corpus + '|' + profile + '|' + rec['path']] = app.page(
                         corpus, rec['path'], profile)
     sid = None
-    for message in ('relate Dungeons and Dragons -> game', 'who made you?', 'guide me', 'show my MPLPB', 'topic Budget guide', 'just chat'):
-        data['chats'][message] = app.chat(dict(corpus='logic', message=message, session=sid))
+    for message in ('relate Dungeons and Dragons -> game', 'who made you?', 'guide me', 'show my MPLPB', 'topic Budget guide', 'just chat', 'load all MPLPB', 'load MPLPB'):
+        data['chats'][message] = app.chat(dict(corpus='logic', message=message, session=sid, **({'loaded_corpora':['logic','system']} if message=='load MPLPB' else {})))
         sid = data['chats'][message]['session']
     data['resume'] = app.resume_chat(dict(session=sid))
     data['queries']['canned|internal|How do I clear mplpb some or all?']=app.query(dict(corpus='canned',question='How do I clear mplpb some or all?'))

@@ -119,3 +119,36 @@ ends any active guide and opens the social conversation state. Saved sources,
 notes and transcript history are retained. The mode label shows whether a topic
 is active. The unloaded state persists on reload. Select `topic Exact title` or
 accept a new topic invitation to return to a source-backed conversation.
+
+
+## Explicit chat and focus environments
+
+Just chat now loads **zero collections**, not merely a null topic in an active
+collection. The explicit environment is persisted and recorded on each response.
+It answers questions about its operation (including “How do you think?”), handles
+social conversation and can explain dictionary headwords. Other questions receive
+a conversational limitation/next step rather than a serious-mode source refusal.
+There is no hidden LLM or universal factual knowledge: arbitrary questions cannot
+always receive substantive answers without sources. Dictionary references are
+language resources, not implicitly loaded MPLPB collections.
+
+Use the multiple-selection list and **Load selected · focus mode**, or **Load all
+saved MPLPB**. Selecting none returns to chat. All means a snapshot of every
+currently available stored/bundled corpus, including labeled synthetic examples;
+newly imported collections require loading again. No filesystem discovery occurs.
+The existing Explore/Ask corpus selector remains independent of this chat scope.
+
+Focus mode lists eligible pages with their collection IDs. Duplicate page titles
+require `focus COLLECTION_ID :: Exact title`; unambiguous `topic Exact title` also
+works. Follow-ups resolve only against that focused page and recheck its source
+pin and current delivery profile. Explicit named-subject attribute questions and
+structured relation questions can be evaluated across the loaded collections.
+Each collection is evaluated separately; source IDs/paths are namespaced with its
+collection ID in the response. Different attribute values are shown as a conflict,
+not reconciled. Relations cannot chain premises across collections. Blocked or
+removed collections are reported, not silently replaced with another corpus.
+
+In zero-load chat, mentioning a saved title does not consult or load it. An explicit
+`topic Exact title` loads the collection currently chosen in the main selector.
+Explicit imports/search builds enter focus mode for the resulting collection.
+Saved notes and transcripts are separate from source evidence in either mode.

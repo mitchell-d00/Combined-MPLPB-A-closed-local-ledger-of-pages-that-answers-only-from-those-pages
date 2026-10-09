@@ -99,7 +99,8 @@ class SocialChatTests(unittest.TestCase):
         story=self.chat('My boss yelled at me',sid)['response']
         self.assertEqual(story['response_structure']['intent'],'social_followup')
         missing=self.chat('how big is it?',sid)['response']
-        self.assertEqual(missing['kind'],'unsupported')
+        self.assertEqual(missing['kind'],'conversation')
+        self.assertEqual(missing['sources'],[])
         self.assertIsNone(missing['context'])
         selected=self.chat('topic Budget guide',sid)['response']
         self.assertEqual(selected['context']['title'],'Budget guide')

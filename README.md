@@ -288,3 +288,5 @@ Mitchell D. McPhetridge · October 2026
 
 
 Story replies use deterministic sentence construction with sense-checked WordNet adjectives, attributed user details and grammatical follow-up rules. See [construction boundaries](docs/GROUNDED_CHAT.md#compositional-response-construction). Loaded-page answers keep exact evidence quotes; no model or provider is required.
+
+Chat now has an explicit zero-collection Just chat environment and a Focus environment that loads selected or all stored MPLPB collections. Federated exploration retains each collection’s boundaries and labels; it does not merge evidence or chain relations across ledgers. See [environment behavior](docs/GROUNDED_CHAT.md#explicit-chat-and-focus-environments).
