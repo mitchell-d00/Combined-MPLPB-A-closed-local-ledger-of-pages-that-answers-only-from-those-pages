@@ -135,3 +135,28 @@ class ChatEnvironmentTests(unittest.TestCase):
         self.assertEqual(len(r['scope_results']),2)
         self.assertIn('10 km',r['message']);self.assertIn('20 km',r['message'])
         self.assertEqual({s['corpus'] for s in r['sources']},{self.a,self.b})
+
+    def test_dictionary_topic_conversation_in_both_modes(self):
+        for mode in ['chat mode','load MPLPB']:
+            sid=self.chat(mode,loaded_corpora=[self.a])['session']
+            before=self.app.sessions[sid]['environment'].copy()
+            for q in ['Tell me about serendipity', 'What is serendipity?']:
+                r=self.chat(q,sid)['response']
+                self.assertEqual(r['authority'],'lexical_reference')
+                self.assertEqual(r['support_label'],'Dictionary reference')
+                self.assertTrue(r['sources'])
+                self.assertEqual(r['environment'],before)
+                self.assertNotIn('0 MPLPB loaded',r['message'])
+            self.assertTrue(self.app.resume_chat({'session':sid})['chain_intact'])
+
+    def test_saved_reference_answer_is_tagged_without_loading_it(self):
+        self.app.import_source({'corpus':self.b,'title':'Zorblax','url':'https://example.org/zorblax','text':'Zorblax is a synthetic blue crystal. Zorblax glows in this fictional fixture.'})
+        sid=self.chat('load MPLPB',loaded_corpora=[self.a])['session']
+        for q in ['What is a Zorblax?', 'Can you tell me about Zorblax?']:
+            r=self.chat(q,sid)['response']
+            self.assertIn('synthetic blue crystal',r['message'])
+            self.assertEqual(r['source_scope'],'saved_reference_outside_loaded_scope')
+            self.assertEqual(r['support_label'],'Saved reference · outside loaded scope')
+            self.assertEqual({s['corpus'] for s in r['sources']},{self.b})
+            self.assertEqual(r['environment']['corpora'],[self.a])
+        self.assertTrue(self.app.resume_chat({'session':sid})['chain_intact'])

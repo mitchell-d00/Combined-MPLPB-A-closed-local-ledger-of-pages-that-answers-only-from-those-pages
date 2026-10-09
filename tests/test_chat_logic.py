@@ -103,7 +103,9 @@ class ChatLogicTests(unittest.TestCase):
 
 class ContextualRelationTests(unittest.TestCase):
     def test_natural_bounded_type_question_and_unknown_budget_show_sources(self):
-        app = App()
+        tmp = tempfile.TemporaryDirectory()
+        self.addCleanup(tmp.cleanup)
+        app = App(topic_base=Path(tmp.name)/'topics')
         selected = app.chat(dict(corpus='logic', message='topic Dungeons and Dragons'))
         result = app.chat(dict(corpus='logic', message='is it a game?', session=selected['session']))
         self.assertEqual(result['response']['kind'], 'relations')

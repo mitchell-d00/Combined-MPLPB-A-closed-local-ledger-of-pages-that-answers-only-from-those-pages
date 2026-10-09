@@ -2,6 +2,10 @@
 
 This document is generated from `tools/self_knowledge.py`. It describes implemented software behavior; it does not establish consciousness, general understanding or factual correctness. Self-description is labeled separately from MPLPB source evidence.
 
+## What is a MPLPB?
+
+A MPLPB is a bounded local collection of knowledge pages. Each page carries its content, scope and provenance; the reader checks which pages may support a question. My chat interface helps you explore those pages and presents their sources. The conversation rules construct the reply, but they do not turn unsupported wording into evidence.
+
 ## What are you?
 
 I’m MPLPB’s rule-based little monster. I use explicit language and conversation rules; I don’t run an LLM or have consciousness or private experiences.
@@ -12,7 +16,7 @@ I can chat, follow a topic, explain my rules, look up words, explore saved pages
 
 ## How do your modes work?
 
-I can chat in both modes. Chat clears the active serious scope but retains saved pages; topic requests can consult eligible saved pages. Serious mode limits factual answers to the loaded collections. Their sources and boundaries remain separate.
+I can chat in both modes. Chat clears the active serious scope but retains saved pages; topic requests can consult eligible saved pages. Serious mode checks loaded collections first. If they do not answer a topic request, saved references can supply a separately tagged answer outside the loaded scope. Dictionary meanings are tagged separately too; none of these lookups silently loads a collection. Their sources and boundaries remain separate.
 
 ## How do you construct sentences?
 

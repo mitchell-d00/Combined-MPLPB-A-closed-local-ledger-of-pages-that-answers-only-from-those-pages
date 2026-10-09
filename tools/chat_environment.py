@@ -8,7 +8,7 @@ from tools import idea_chat as IC
 from tools import chat_logic as C, chat_tutor as T, deterministic_mind as M
 from tools import social_chat as S, grounded_chat as Q, reference_resources as F
 
-VERSION = 'chat-environment-v7'
+VERSION = 'chat-environment-v8'
 
 
 def reply(body, context=None, **extra):
@@ -52,6 +52,8 @@ def pages(app, keys, profile):
 
 def general(message, session):
     mind=session['mind'];key=T.casual_key(message)
+    lexical=lexical_topic(message,session)
+    if lexical:return lexical
     if IC.topic_request(message):return IC.handle(message,mind)
     if mind.get('idea_chat') and key in {'tell me more','go on','why','how','how so','why not','any ideas','yes','sure','explore an idea'}:
         return IC.handle(message,mind)
@@ -77,7 +79,7 @@ def general(message, session):
     if key in {'what can we talk about','what should we talk about','what do you want to talk about'}:
         return reply('Your day, an idea, something you enjoy, or a question you’re working through. Where would you like to start?',suggestions=['I had a bad day','tell me a joke'])
     if re.match(r'^(?:what|why|who|where|when|how|which|is|are|can|could|do|does|will|would|should)\b',key) or message.endswith('?'):
-        return reply('We can talk that through. I don’t have a general-knowledge model, so I can’t supply a factual answer to every question with 0 MPLPB loaded. Tell me what you already know, or load saved pages to explore it with sources.',suggestions=['can we talk','load all MPLPB','language resources'])
+        return reply('I can’t supply a factual answer from the available local material yet. Could you name the topic or rephrase the question? We can also look for a source.',suggestions=['can we talk','load all MPLPB','language resources'])
     mind.setdefault('social',{}).update(active=True,stage='story',style='chat')
     return S.handle(message,None,mind) or reply('Tell me a little more about what you have in mind.',suggestions=['can we talk','load all MPLPB'])
 
@@ -116,6 +118,8 @@ def topic_suggestions(subject, body=''):
 def explore_sources(app,data,session,message,corpus,profile):
     """Use normal page gates for factual conversation in either mode."""
     request=IC.topic_request(message)
+    defined=IC.PF.definition_subject(message)
+    if not request and defined:request=(None,defined)
     state=session['mind'].get('idea_chat',{})
     followup=T.casual_key(message) in {'tell me more','more','go on','continue','show source','show page'} and state.get('sourced')
     if not request and not followup and (D.respond(message,copy.deepcopy(session['mind'])) or T.smalltalk_candidate(message,session['mind'])):return None
@@ -124,7 +128,7 @@ def explore_sources(app,data,session,message,corpus,profile):
     if request:
         if subject_key(subject) in {'it','this','that'}:
             subject=state.get('subject') or (session.get('context') or {}).get('title') or subject
-        if not continuation:IC.handle(message,session['mind'])
+        if not continuation:IC.handle('tell me about '+subject,session['mind'])
         session['mind']['idea_chat']['subject']=subject
     if not request and not followup and not re.match(r'^(?:what|who|when|where|how|is|are|does|do|can|will|tell me about|summarize|explain)\b',message,re.I):return None
     env=session.get('environment',{})
@@ -197,6 +201,7 @@ def explore_sources(app,data,session,message,corpus,profile):
         opener=('Here’s more about '+subject+'.') if continuation else ('Let’s talk about '+subject+'.') if subject else 'Here’s what I found.'
         body=opener+'\n\n'+'\n\n'.join(excerpts)+'\n\nWhat part interests you most?'
     result=M.reply('federated_answers',body,session.get('context') if serious else None,'CHAT-SOURCES',authority='separate_source_results',scope_results=results,sources=[dict(s,corpus=x['corpus']) for x in results for s in x['response'].get('sources',[])],blocked_collections=blocked)
+    result['source_scope']='loaded_scope' if serious else 'saved_reference'
     result['source_exhausted']=exhausted
     result['has_more_source_text']=has_more
     result['support_notice']='Factual conversation; cited passages come from MPLPB pages. Conversational framing is not additional evidence.'
@@ -204,6 +209,52 @@ def explore_sources(app,data,session,message,corpus,profile):
     if not has_more:
         result['suggestions']=[q for q in result['suggestions'] if not q.casefold().startswith('tell me more')]+['Explore an idea about '+str(subject)]
     result['response_structure']={'intent':'source_exploration','mode':env.get('mode','chat'),'factual_claims':True,'mplpb_supported':True,'subject':subject}
+    return result
+
+
+
+def lexical_topic(message,session):
+    """Construct a topical reply from exact dictionary senses, preserving ambiguity."""
+    subject=IC.PF.overview_subject(message) or IC.PF.definition_subject(message)
+    if not subject or subject_key(subject) in {'it','this','that','you','yourself'}:return None
+    word=subject_key(subject)
+    headword,senses,_=F.lookup_forms(word)
+    if not senses:return None
+    result=F.handle('define '+headword,session.get('context'))
+    parts=[]
+    for sense in senses[:3]:
+        definitions=sense.get('definitions',[])
+        if not definitions:continue
+        synonyms=[w for w in sense.get('synonyms',[]) if w.casefold()!=headword.casefold()]
+        part='; '.join(definitions)
+        if len(senses)>1:part='One meaning: '+part
+        if synonyms:part+=' Related wording in this sense: '+', '.join(synonyms[:4])+'.'
+        parts.append(part)
+    if not parts:return None
+    result['message']='Let’s start with '+headword+'.\n\n'+'\n\n'.join(parts)
+    if session.get('mind',{}).get('emotional',{}).get('style')!='listen':
+        result['message']+='\n\n'+('Which meaning did you have in mind?' if len(senses)>1 else 'What would you like to explore about '+headword+'?')
+    result['suggestions']=['synonyms '+headword,'Search '+headword,'Explore an idea about '+headword]
+    result['response_structure']={'intent':'lexical_topic','subject':headword,'factual_claims':True,'mplpb_supported':False}
+    result['source_scope']='dictionary_reference'
+    return result
+
+
+def discover_saved(app,session,message,profile):
+    """Retrieve saved references separately from loaded serious evidence."""
+    active=set(session.get('environment',{}).get('corpora',[]))
+    outside=sorted(set(app.roots())-active)
+    if not outside:return None
+    shadow=copy.deepcopy(session)
+    shadow['environment']={'mode':'focus','corpora':outside,'focus_corpus':None}
+    shadow['context']=None
+    # explore_sources never invokes this helper recursively.
+    result=explore_sources(app,{},shadow,message,outside[0],profile)
+    if not result or not result.get('sources'):return None
+    if shadow['mind'].get('idea_chat'):session['mind']['idea_chat']=shadow['mind']['idea_chat']
+    result['context']=session.get('context')
+    result['source_scope']='saved_reference_outside_loaded_scope'
+    result['support_notice']='Saved reference; outside the loaded serious scope.'
     return result
 
 
@@ -225,9 +276,9 @@ def handle(app, data, session, message, corpus, profile):
     if key in {'just chatting','chat mode','switch to chat','switch to chat mode','casual mode','stay casual','keep chatting'}:return load(app,session,[])
     if not data.get('default_chat') and not session.get('environment') and re.match(r'^(?:summari[sz]e |i (?:want|would like) to learn about )',message,re.I):return None
     # Topic requests keep the mode and consult available evidence before idea prompts.
-    if IC.topic_request(message) and key not in {"let's talk about it",'lets talk about it','talk about it','talk about this'}:
+    if (IC.topic_request(message) or IC.PF.definition_subject(message)) and key not in {"let's talk about it",'lets talk about it','talk about it','talk about this'}:
         if session.get('environment',{}).get('mode') == 'focus':
-            result=explore_sources(app,data,session,message,corpus,profile) or IC.handle(message,session['mind'])
+            result=explore_sources(app,data,session,message,corpus,profile) or discover_saved(app,session,message,profile) or lexical_topic(message,session) or IC.handle(message,session['mind'])
             result['context']=session['context']
             return result
         if not session.get('environment'):load(app,session,[])
@@ -268,7 +319,7 @@ def handle(app, data, session, message, corpus, profile):
         else:
             return explore_sources(app,data,session,message,corpus,profile) or general(message,session)
     if session['mind'].get('idea_chat',{}).get('sourced') and (key in {'tell me more','more','go on','continue','show source','show page'} or (not session.get('context') and Q.question_intent(message,session['mind']['idea_chat']['subject']))):
-        sourced=explore_sources(app,data,session,message,corpus,profile)
+        sourced=explore_sources(app,data,session,message,corpus,profile) or discover_saved(app,session,message,profile)
         if sourced:return sourced
     # Social turns do not change loaded collections or the selected evidence page.
     conversational=EM.handle(message,session['mind']) or D.respond(message,session['mind'])

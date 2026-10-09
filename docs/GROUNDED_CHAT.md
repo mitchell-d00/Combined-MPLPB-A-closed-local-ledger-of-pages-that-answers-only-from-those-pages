@@ -41,3 +41,10 @@ Automatic Wikipedia acquisition reads the plan's bounded query; unresolved refer
 ## Local self-knowledge
 
 `tools/self_knowledge.py` answers recognized capability and current-session questions before topic retrieval. Its descriptions are authored software metadata; they are neither independent validation nor MPLPB world evidence. The active mode, loaded collection identifiers and topic names come from the session. Self-description preserves scope and cannot initiate automatic source lookup. Creator attribution retains the existing sealed system-page route. The [system guide](SYSTEM_GUIDE.md) is generated from the capability model; a regression test checks they remain synchronized.
+
+
+## Conversational reference fallback
+
+Topic and definition requests search eligible local pages before a generic chat fallback. In serious mode loaded sources are checked first; if no answer is available there, saved sources outside that scope may supply a separately tagged reference answer. This never changes loaded collections or turns outside material into loaded-scope evidence. Explicit selected-page questions retain their selected-page boundaries. In either mode, matching WordNet headwords can supply a conversational definition with separate senses and related wording. Dictionary references remain distinct from MPLPB evidence; synonyms are not evidence for unrelated claims. Source sentences and their references remain intact. User listening preferences suppress unnecessary follow-up questions.
+
+System definitions such as “What is a MPLPB?” and common overview phrasing resolve against authored system concepts before world lookup. This is finite rule coverage, not unrestricted language understanding. These are developer-authored regression checks, not independent validation.

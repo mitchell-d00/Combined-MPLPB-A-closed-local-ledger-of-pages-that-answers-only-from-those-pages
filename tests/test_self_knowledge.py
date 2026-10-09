@@ -33,3 +33,11 @@ class SelfKnowledgeTests(unittest.TestCase):
         for q in ['What can dogs do?','Explain Moon','How does memory work in humans?']:
             self.assertIsNone(S.handle(q,{'mind':{}}))
         self.assertIsNotNone(S.handle('Could you please explain your modes?',{'mind':{}}))
+
+    def test_definition_phrasings_and_concept_slots(self):
+        for q in ['What is a MPLPB', "What's an MPLPB?", 'Could you please tell me about the MPLPB?',
+                  'Help me understand Combined MPLPB', 'Give me an overview of your memory']:
+            r=S.handle(q,{'mind':{}})
+            self.assertIsNotNone(r,q)
+            self.assertEqual(r['authority'],'system_description')
+        self.assertIsNone(S.handle('What is a MPLPB vulnerability in another product?',{'mind':{}}))

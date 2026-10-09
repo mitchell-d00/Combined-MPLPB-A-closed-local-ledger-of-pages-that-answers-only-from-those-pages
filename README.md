@@ -46,9 +46,12 @@ This uses saved local conversation rules and needs no AI account or model.
 Conversation works in both Chat and Serious modes. Chat clears the active scope
 but retains saved pages; Serious restores the selected collections. Load all
 selects every available collection and displays the loaded scope. Topic requests
-can read eligible saved pages in Chat; Serious limits factual replies to loaded
-collections. Sources appear below factual replies, while casual wording is
-explicitly distinguished from source evidence.
+can read eligible saved pages in Chat. Serious checks loaded collections first;
+when those cannot answer a topic request, saved references may answer with an
+“outside loaded scope” tag. Dictionary meanings can support conversation in
+both modes with their own reference tag. These lookups never silently load
+collections. Sources appear below factual replies; casual wording stays distinct
+from source evidence.
 
 Common phrasing rules recognize polite questions, topic overviews, follow-ups,
 and composed requests such as `Say hi to the OpenAI forum and tell them what you are`.
@@ -227,7 +230,7 @@ nothing else.
 | `mplpb_combined/ledger.py` | The folder as a ledger: status, lineage, depth, validation, writing, the log |
 | `mplpb_combined/reader.py` | The answer rule, profiles, hubs |
 | `mplpb_combined/killtest.py` | The kill test: three arms, mechanical scoring |
-| `tests/` | 421 developer-authored regression tests covering the reader, captures, conversation, source boundaries and saved state |
+| `tests/` | 424 developer-authored regression tests covering the reader, captures, conversation, source boundaries and saved state |
 | `examples/studio/` | 25 pages about running a pottery studio; the kill-test corpus |
 | `examples/spec/` | The format described as ten pages in the format |
 | `examples/hub/` | Two pointers, one at each of the above |

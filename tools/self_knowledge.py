@@ -3,11 +3,12 @@ import re
 from tools import deterministic_mind as M
 from tools import question_frames as F
 
-VERSION='self-knowledge-v1'
+VERSION='self-knowledge-v2'
 CAPABILITIES={
+ 'definition': ('What is a MPLPB?', 'A MPLPB is a bounded local collection of knowledge pages. Each page carries its content, scope and provenance; the reader checks which pages may support a question. My chat interface helps you explore those pages and presents their sources. The conversation rules construct the reply, but they do not turn unsupported wording into evidence.'),
  'identity': ('What are you?', 'I’m MPLPB’s rule-based little monster. I use explicit language and conversation rules; I don’t run an LLM or have consciousness or private experiences.'),
  'abilities': ('What can you do?', 'I can chat, follow a topic, explain my rules, look up words, explore saved pages, show sources and construct bounded replies. I can capture public sources through the configured search tools. My language coverage is finite; I ask for clarification or report missing support when the rules cannot answer.'),
- 'modes': ('How do your modes work?', 'I can chat in both modes. Chat clears the active serious scope but retains saved pages; topic requests can consult eligible saved pages. Serious mode limits factual answers to the loaded collections. Their sources and boundaries remain separate.'),
+ 'modes': ('How do your modes work?', 'I can chat in both modes. Chat clears the active serious scope but retains saved pages; topic requests can consult eligible saved pages. Serious mode checks loaded collections first. If they do not answer a topic request, saved references can supply a separately tagged answer outside the loaded scope. Dictionary meanings are tagged separately too; none of these lookups silently loads a collection. Their sources and boundaries remain separate.'),
  'language': ('How do you construct sentences?', 'I parse common request forms, resolve supported topic references, select conversational actions and construct language in defined grammar slots. The dictionary and thesaurus help with word senses and wording. Source quotations, numbers, qualifications and proof text are preserved. Some procedural explanations remain authored text.'),
  'sources': ('Where do your answers come from?', 'Factual replies use eligible MPLPB pages and show their references. Definitions use the bundled WordNet resource. Conversation and imagined ideas are labeled separately; they are not page evidence. A matching page or a valid hash does not prove that a claim is true.'),
  'search': ('How do you search?', 'I check eligible local pages first for supported topic requests. With automatic Wikipedia lookup enabled, missing or exhausted material can trigger a bounded capture and retry. Explicit search and import also contact the selected service. General web crawling needs a configured hosted crawler; I do not browse the whole web or scan local folders independently.'),
@@ -16,6 +17,7 @@ CAPABILITIES={
  'resources': ('What data do you have?', 'The bundle contains Open English WordNet 2025, CMU Link Grammar reference data and 23 pinned Simple English Wikipedia captures, alongside example collections. The Link Grammar parser is not running. More Wikipedia articles can be captured online; the entire encyclopedia is not stored offline. Saved user collections depend on this installation.'),
 }
 ALIASES={
+ 'definition': {'what is mplpb','what is a mplpb','what is an mplpb','what does mplpb mean','explain mplpb','describe mplpb','tell me about mplpb'},
  'abilities': {'what can you do','what are your capabilities','what can you help me with','help me understand you'},
  'modes': {'how do your modes work','what is serious mode','what is chat mode','explain your modes'},
  'language': {'how do you construct sentences','how do you generate language','how does your language planner work','are your replies canned'},
@@ -38,6 +40,17 @@ def handle(message,session,collections=None):
     key=re.sub(r'\s+',' ',F.normalize(message).casefold().replace('’',"'")).strip(' ?!.')
     current=key in {'what mode are you in','what do you have loaded','what are we talking about','describe your current state'}
     topic=next((name for name,forms in ALIASES.items() if key in forms),None)
+    if not topic:
+        subject=F.overview_subject(key)
+        definition=re.fullmatch(r'(?:what is|what are) (.+)',key)
+        subject=subject or (definition[1] if definition else '')
+        subject=re.sub(r'^(?:a|an|the) ', '',subject)
+        # Concept aliases are bound slots; surrounding arbitrary prose is not a match.
+        concepts={'mplpb':'definition','combined mplpb':'definition','mplpb system':'definition',
+                  'your capabilities':'abilities','your modes':'modes','your memory':'memory',
+                  'your limitations':'limits','your data':'resources','your sources':'sources',
+                  'your language generation':'language'}
+        topic=concepts.get(subject)
     if not current and not topic:return None
     state=snapshot(session)
     if current:

@@ -14,7 +14,7 @@ PRONOUNS = {'it', 'this', 'that', 'they', 'them', 'this topic', 'that topic'}
 def parse(message, memory, context=None):
     frame = F.frame(message)
     text = frame['canonical']
-    subject = frame['subject']
+    subject = frame['subject'] or F.definition_subject(message)
     compound = re.fullmatch(r'(?:say (?:hi|hello)|give a greeting) to (.{1,100}?) and (?:tell (?:them|everyone)|talk) about (.{1,160}?)[?.!]*', text, re.I)
     if compound:subject = compound[2]
     prior = memory.get('idea_chat', {}).get('subject') or (context or {}).get('title')
@@ -38,6 +38,7 @@ def parse(message, memory, context=None):
 
 def label(result):
     if result.get('authority') == 'system_description':return 'System description'
+    if result.get('source_scope') == 'saved_reference_outside_loaded_scope':return 'Saved reference · outside loaded scope'
     kind = result.get('kind')
     structure = result.get('response_structure', {})
     if kind in {'unsupported','not_in_corpus','unknown_relation'}:return 'No supporting answer'

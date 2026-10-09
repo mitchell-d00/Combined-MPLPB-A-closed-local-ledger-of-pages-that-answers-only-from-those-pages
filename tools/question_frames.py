@@ -46,3 +46,13 @@ def frame(message):
     return {'rule':VERSION,'original':message,'canonical':canonical,
             'kind':'overview' if subject else 'question' if word or canonical.endswith('?') else 'conversation_or_command',
             'subject':subject,'normalization_is_evidence':False}
+
+
+def definition_subject(message):
+    """A definition request, excluding follow-up pronouns and attribute questions."""
+    match=re.fullmatch(r"(?:what is|what are|who is) (?:a |an |the )?([a-z][a-z0-9 -]{0,99})[?.!]*",normalize(message),re.I)
+    if not match:return None
+    subject=match[1].strip()
+    if subject.casefold() in {'it','this','that','they','you','rules','your name','your purpose'}:return None
+    if re.search(r"\b(?:of|your|my|its|their)\b",subject,re.I):return None
+    return subject
