@@ -271,7 +271,7 @@ class App:
                 memory.pop('topic_offer',None)
             language_request=LP.parse(message,memory,session.get('context'))
             casual=None
-            dialogue=CB.handle(message,session,lambda q: E.handle(self,data,session,q,corpus,profile)) or CE.handle(message,session,lambda q: E.handle(self,data,session,q,corpus,profile)) or CX.handle(message,session) or DR.handle(message,session)
+            dialogue=SK.handle(message,session,self.roots()) or CB.handle(message,session,lambda q: E.handle(self,data,session,q,corpus,profile)) or CE.handle(message,session,lambda q: E.handle(self,data,session,q,corpus,profile)) or CX.handle(message,session) or DR.handle(message,session)
             if dialogue and data.get('default_chat') and not session.get('environment') and not session.get('context'):
                 session['environment']={'mode':'chat','corpora':[],'focus_corpus':None}
             environment_result=dialogue or CM.handle(message,session) or SK.handle(message,session,self.roots()) or PC.handle(self,data,session,message,corpus,profile) or E.handle(self,data,session,message,corpus,profile)

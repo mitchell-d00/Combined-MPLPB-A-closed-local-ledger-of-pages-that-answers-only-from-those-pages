@@ -51,6 +51,9 @@ def pages(app, keys, profile):
 
 
 def general(message, session):
+    from tools import general_reference as GR
+    reference=GR.handle(message,session)
+    if reference:return reference
     mind=session['mind'];key=T.casual_key(message)
     lexical=lexical_topic(message,session)
     if lexical:return lexical
@@ -261,6 +264,11 @@ def discover_saved(app,session,message,profile):
 def handle(app, data, session, message, corpus, profile):
     message=IC.PF.normalize(message)
     key=T.casual_key(message)
+    if key in {'list topics','show topics','what topics do you have'}:
+        env=session.get('environment') or {}
+        keys=env.get('corpora',[]) if env.get('mode')=='focus' else list(app.roots())
+        entries,blocked=pages(app,keys,profile)
+        return reply('Available topics:\n'+('\n'.join(k+' :: '+p['title'] for k,p in entries) or 'No eligible saved pages.')+'\nYou can also ask for general topics.',session.get('context'),suggestions=['Tell me about '+p['title'] for k,p in entries[:8]]+['general topics'],blocked_collections=blocked)
     brainstorming=IC.brainstorm(message,session['mind'],session.get('context'))
     if brainstorming:return brainstorming
     if re.match(r'^explore an idea about ',message,re.I):

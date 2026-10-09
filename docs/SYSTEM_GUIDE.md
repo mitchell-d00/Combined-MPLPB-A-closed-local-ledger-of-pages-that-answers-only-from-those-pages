@@ -28,7 +28,7 @@ Factual replies use eligible MPLPB pages and show their references. Definitions 
 
 ## How do you search?
 
-I check eligible local pages first for supported topic requests. With automatic Wikipedia lookup enabled, missing or exhausted material can trigger a bounded capture and retry. Explicit search and import also contact the selected service. General web crawling needs a configured hosted crawler; I do not browse the whole web or scan local folders independently.
+I check eligible local pages first for supported topic requests. With automatic Wikipedia lookup enabled, missing or exhausted material can trigger a bounded capture and retry. Explicit search and import also contact the selected service. You can type “search dogs”, select a Wikipedia source, and send it. General web crawling needs a configured, deployed crawler and its access settings. Wikipedia mode needs neither that crawler nor its token; I do not browse the whole web or scan local folders independently.
 
 ## How does your memory work?
 
