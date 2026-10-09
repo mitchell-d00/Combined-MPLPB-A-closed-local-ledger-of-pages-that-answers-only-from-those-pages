@@ -1,12 +1,14 @@
 """Explicit empty/chat and federated/focus scopes; never merge ledger evidence."""
 import re
+import copy
 from tools import casual_reasoning as D
 from tools import reduction as RD
 from tools import emotional_rules as EM
+from tools import idea_chat as IC
 from tools import chat_logic as C, chat_tutor as T, deterministic_mind as M
 from tools import social_chat as S, grounded_chat as Q, reference_resources as F
 
-VERSION = 'chat-environment-v2'
+VERSION = 'chat-environment-v3'
 
 
 def reply(body, context=None, **extra):
@@ -22,10 +24,10 @@ def load(app, session, keys):
     session['environment'] = {'mode': 'focus' if keys else 'chat', 'corpora': list(keys), 'focus_corpus': None}
     session['context'] = None
     mind = session['mind']
-    mind.pop('topic_offer', None); mind.pop('guide', None); mind.pop('chat_discourse',None); mind.pop('emotional',None)
+    mind.pop('idea_chat', None); mind.pop('topic_offer', None); mind.pop('guide', None); mind.pop('chat_discourse',None); mind.pop('emotional',None)
     mind['casual_active'] = not keys
     mind['social'] = {'active': not keys, 'stage': 'story', 'turns': 0, 'style': 'chat'}
-    return reply(('Focus mode; '+str(len(keys))+' MPLPB collections loaded. Each keeps its own evidence and delivery boundaries.' if keys else
+    return reply(('Serious mode; '+str(len(keys))+' MPLPB collections loaded. Each keeps its own evidence and delivery boundaries.' if keys else
                   'Just chat; 0 MPLPB collections loaded. The active MPLPB topic is unloaded; your saved pages and notes are retained. What’s on your mind?'),
                  response_structure={'intent':'scope_load' if keys else 'social_start','mode':'focus' if keys else 'casual','factual_claims':False},
                  suggestions=['show loaded MPLPB','show my MPLPB','just chat'] if keys else ['how do you think?','I had a bad day','load all MPLPB'])
@@ -47,6 +49,9 @@ def pages(app, keys, profile):
 
 def general(message, session):
     mind=session['mind'];key=T.casual_key(message)
+    if IC.topic_request(message):return IC.handle(message,mind)
+    if mind.get('idea_chat') and key in {'tell me more','go on','why','how','how so','why not','any ideas','yes','sure','explore an idea'}:
+        return IC.handle(message,mind)
     emotional=EM.handle(message,mind)
     if emotional:return emotional
     conversational=D.respond(message,mind)
@@ -57,6 +62,8 @@ def general(message, session):
     if definition and definition[1] not in {'it','this','that','your name','your purpose'}:
         senses,_=F.lookup(definition[1])
         if senses:return F.handle('define '+definition[1],None)
+    exploration=IC.handle(message,mind)
+    if exploration:return exploration
     social=S.handle(message,None,mind)
     if social:return social
     help_reply=M.help_reply(message,None)
@@ -72,9 +79,50 @@ def general(message, session):
     return S.handle(message,None,mind) or reply('Tell me a little more about what you have in mind.',suggestions=['can we talk','load all MPLPB'])
 
 
+def explore_sources(app,data,session,message,corpus,profile):
+    """Read saved pages with their normal gates; never activate serious state."""
+    request=IC.topic_request(message)
+    if not request and (D.respond(message,copy.deepcopy(session['mind'])) or T.smalltalk_candidate(message,session['mind'])):return None
+    subject=request[1].strip() if request else session['mind'].get('idea_chat',{}).get('subject')
+    if request:
+        IC.handle(message,session['mind'])
+        query='tell me about '+subject
+    else:
+        query=message
+    if not request and not re.match(r'^(?:what|who|when|where|how|is|are|does|do|can|will|tell me about|summarize|explain)\b',message,re.I):return None
+    keys=sorted(app.roots())
+    shadow=copy.deepcopy(session)
+    shadow['environment']={'mode':'focus','corpora':keys,'focus_corpus':None}
+    shadow['context']=None
+    entries,_=pages(app,keys,profile)
+    candidates=[(k,p) for k,p in entries if subject and p['title'].casefold()==subject.casefold()]
+    # Resolve pronouns per page, preserving duplicate-title results independently.
+    if not request and candidates and Q.question_intent(message,subject):
+        responses=[]
+        for k,p in candidates:
+            answer=Q.handle(app,k,app.root(k),profile,message,p)
+            if answer and answer.get('sources'):responses.append({'corpus':k,'response':answer})
+        if responses:
+            result=M.reply('federated_answers','From saved MPLPB pages:\n\n'+'\n\n'.join(x['corpus']+' :: '+x['response']['message'] for x in responses),None,'CHAT-SOURCES',authority='separate_source_results',scope_results=responses,sources=[dict(s,corpus=x['corpus']) for x in responses for s in x['response'].get('sources',[])])
+        else:return None
+    else:
+        result=handle(app,data,shadow,query,corpus,profile)
+    if not result or not result.get('sources'):return None
+    result['context']=None
+    result['message']+='\n\nWe can explore these pages conversationally, or choose Serious mode to focus on their evidence.'
+    result['support_notice']='Chat exploration; cited passages come from saved MPLPB pages. Conversation is not additional evidence.'
+    result['suggestions']=['tell me more','serious mode','just chat']
+    result['response_structure']={'intent':'source_exploration','mode':'chat','factual_claims':True,'mplpb_supported':True}
+    return result
+
+
 def handle(app, data, session, message, corpus, profile):
     key=T.casual_key(message)
-    if key=='just chatting':return load(app,session,[])
+    if key in {'just chatting','chat mode','stay casual','keep chatting'}:return load(app,session,[])
+    # An explicit casual request can leave serious mode; topic alone cannot.
+    if IC.topic_request(message) and key not in {"let's talk about it",'lets talk about it','talk about it','talk about this'}:
+        if session.get('environment',{}).get('mode') != 'chat':load(app,session,[])
+        return explore_sources(app,data,session,message,corpus,profile) or general(message,session)
     if key in {'load all mplpb','load saved mplpb'}:return load(app,session,'all')
     if key in {'load mplpb','focus mode','serious mode'}:
         return load(app,session,data.get('loaded_corpora',[corpus]))
@@ -104,10 +152,10 @@ def handle(app, data, session, message, corpus, profile):
     if env['mode']=='chat':
         if key in T.LIST:
             return reply('No MPLPB is loaded into this chat. Your saved collections are available in the load controls.',suggestions=['load all MPLPB','focus mode'])
-        # An explicit topic command deliberately enters the currently chosen collection.
-        if key.startswith('topic '):
+        if key.startswith(('topic ','focus ')):
             load(app,session,[corpus]);env=session['environment']
-        else:return general(message,session)
+        else:
+            return explore_sources(app,data,session,message,corpus,profile) or general(message,session)
     entries,blocked=pages(app,env['corpora'],profile)
     choices=['focus '+k+' :: '+pin['title'] for k,pin in entries]
     if key in T.LIST or key=='explore loaded mplpb':
@@ -149,4 +197,4 @@ def handle(app, data, session, message, corpus, profile):
         values={Q.normalized(e['value']) for x in results for e in x['response'].get('evidence',[])}
         return M.reply('conflict' if len(values)>1 else 'federated_answers','Separate collection results; no cross-collection inference or preferred answer:\n\n'+'\n\n'.join(x['corpus']+' :: '+x['response']['message'] for x in results),None,'SCOPE-SEPARATE',
                        authority='separate_source_results',sources=[dict(s,corpus=x['corpus']) for x in results for s in x['response'].get('sources',[])],scope_results=results,blocked_collections=blocked,suggestions=choices[:40]+['just chat'])
-    return reply('Focus mode keeps every loaded collection separate. Choose a page for follow-up questions, or ask a supported attribute question naming its topic.',None,suggestions=choices[:40]+['just chat'],blocked_collections=blocked)
+    return reply('Serious mode keeps every loaded collection separate. Choose a page for follow-up questions, or ask a supported attribute question naming its topic.',None,suggestions=choices[:40]+['just chat'],blocked_collections=blocked)

@@ -229,3 +229,7 @@ trace. Mode changes clear the emotional state. All emotional responses use the
 reduction rule and carry the not-MPLPB-supported label. Focus mode never routes
 through these rules. This is finite empathetic wording, not emotion detection or
 human feelings in the program.
+
+
+### Two conversational modes
+Chat accepts `chat about moons`, `talk about MPLPB`, and `explore an idea about gardens` without activating serious mode. Explicit casual requests leave serious mode; `topic Exact title` remains an explicit source-selection command. Idea state carries the named topic through follow-ups and saves with the session. Hypotheticals are framed as imagined possibilities; unknown factual questions remain unknown. This is bounded rule-based exploration, not general-purpose language understanding. Chat can also consult saved MPLPB pages using the same profile and evidence gates, retaining separate collection results and citations. Chat exploration does not automatically catalog a claim or switch modes. Serious mode still checks each loaded collection independently. Use `load MPLPB`, `serious mode`, or the load controls to enter it.

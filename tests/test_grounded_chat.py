@@ -20,7 +20,7 @@ class GroundedChatTests(unittest.TestCase):
     def chat(self,message,sid=None,**kwargs):
         return self.app.chat({'corpus':'custom','message':message,'session':sid,**kwargs})
     def test_moon_followups_remember_topic_after_reload_and_smalltalk(self):
-        start=self.chat("Let's talk about Moon");sid=start['session']
+        start=self.chat("topic Moon");sid=start['session']
         self.chat('hello',sid)
         self.app=App(self.root,topic_base=self.base/'topics')
         for q in ('how big is it?','what is its diameter?','How large is the Moon?','what about its size?'):
