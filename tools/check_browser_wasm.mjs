@@ -130,5 +130,9 @@ for(const message of ["I'm bored",'So you arnt an ai?','What are the rules','So 
  const r=await call('/api/chat',{corpus:'logic',session:legacyCasual.session,message,default_chat:true});
  if(r.response.kind==='unsupported'||r.response.sources.length||r.response.support_notice!=='Deterministic chat; not MPLPB-supported.')throw Error('WASM screenshot regression: '+message);
 }
+const potato=await call('/api/chat',{corpus:'logic',session:legacyCasual.session,message:'say potato',default_chat:true});
+if(!potato.response.message.startsWith('potato')||!potato.response.message.includes('?')||potato.response.sources.length)throw Error('WASM playful echo failed');
+const exactEcho=await call('/api/chat',{corpus:'logic',session:legacyCasual.session,message:'say exactly PoTaTo!',default_chat:true});
+if(exactEcho.response.message!=='PoTaTo!')throw Error('WASM exact echo failed');
 console.log('PASS real WebAssembly: ownership, relation proof, summary, withholding, memory, saved relaunch, fixture imports, isolated collections, offline references, grounded follow-ups and social turn-taking.');
 fs.writeFileSync(path.join(path.dirname(htmlPath),'wasm-validation.json'),JSON.stringify({runtime:bundle.runtime_version,passed:true,corpora:state.corpora.map(x=>x.key),ambiguous:ambiguous.reader.kind,relation:relation.response.kind,summary:summary.response.kind,withheld:withheld.reader.kind,chain_intact:saved.chain_intact,fixture_import_passed:true,virtual_save_relaunch_passed:true,browser_layout_tested:false,indexeddb_tested:false,live_wiki_tested:false},null,2));

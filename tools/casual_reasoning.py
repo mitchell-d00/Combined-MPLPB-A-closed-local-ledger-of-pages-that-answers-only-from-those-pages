@@ -2,7 +2,7 @@
 import re
 from tools import deterministic_mind as M
 
-VERSION='casual-reasoning-v1'
+VERSION='casual-reasoning-v2'
 NOTICE='Deterministic chat; not MPLPB-supported.'
 
 
@@ -22,6 +22,32 @@ def respond(message,memory):
     state=memory.setdefault('chat_discourse',{'turn':0})
     state['turn']+=1
     state.pop('followup_of',None)
+    echo=re.fullmatch(r"(?:please\s+)?(?:(?:can|could|would) you\s+)?(?:say( exactly| only)?\s+|repeat after me[: ]+|repeat\s+)(.+)",message.strip(),re.I|re.S)
+    if state.get('topic')=='echo' and key in {'again','say it again','repeat it'}:
+        echo=None
+    if echo:
+        target=echo[2].strip()
+        if re.match(r'^(?:please\s+)?(?:can|could|would) you\b',message.strip(),re.I):
+            target=target.rstrip('?').rstrip()
+        exact=bool(echo[1]) or 'repeat after me' in message.casefold()
+        if len(target)>300:
+            return M.reply('conversation','Give me a word or a short phrase up to 300 characters to repeat.',None,'CASUAL-ECHO-LIMIT',authority='conversation_structure')
+        state.update(topic='echo',echo=target,echo_exact=exact)
+        body=target
+        if not exact:
+            if target.casefold().strip(' .!')=='potato':
+                body+='\n\n'+('Why potato? Have I just been promoted to a spudsperson?','Potato delivered. What’s the occasion; a tiny vegetable roll call?')[(state['turn']-1)%2]
+            else:
+                body+='\n\n'+('What made you pick that?','There you go. Is there a story behind that one?')[(state['turn']-1)%2]
+        return M.reply('conversation',body,None,'CASUAL-ECHO',authority='conversation_structure',
+                       suggestions=['again','just because','say banana'],
+                       response_structure={'intent':'casual_echo','factual_claims':False,'mplpb_supported':False,'engine':VERSION,'quoted_user_text':target,'execute_text':False})
+    if state.get('topic')=='echo' and key in {'again','say it again','repeat it','why','why not','just because','because i asked','because i said so','for fun'}:
+        body=state['echo'] if key in {'again','say it again','repeat it'} else ('Fair enough. Sometimes a word can just be a word. Want to pick another?' if key not in {'why','why not'} else 'You asked me to say it; I was just playing along. No hidden agenda.')
+        return M.reply('conversation',body,None,'CASUAL-ECHO-FOLLOWUP',authority='conversation_structure',
+                       suggestions=['say potato','say banana','can we talk'],
+                       response_structure={'intent':'casual_echo_followup','factual_claims':False,'mplpb_supported':False,'engine':VERSION})
+    state.pop('echo',None);state.pop('echo_exact',None)
     topic=None
     if re.fullmatch(r'(?:hi|hello|hey)(?: there| again)?',key):topic='greeting'
     elif re.fullmatch(r'(?:you are (?:not )?(?:an? )?(?:ai|llm|language model)|are you (?:not )?(?:an? )?(?:ai|llm|language model)|you are (?:not )?(?:an? )?(?:ai|llm|language model) (?:then|right)|why (?:are|are not) you (?:an? )?(?:ai|llm))',key):topic='identity'

@@ -65,3 +65,24 @@ class CasualReasoningTests(unittest.TestCase):
     def test_invitation_acceptance_is_not_swallowed_by_help(self):
         sid=self.chat('I had a bad day')['session']
         self.assertEqual(self.chat('okay',sid)['response']['response_structure']['intent'],'social_accept')
+
+    def test_playful_echo_and_saved_followup(self):
+        r=self.chat('say potato');sid=r['session']
+        self.assertTrue(r['response']['message'].startswith('potato'))
+        self.assertIn('?',r['response']['message'])
+        self.assertEqual(r['response']['support_notice'],D.NOTICE)
+        self.app=App(topic_base=self.base)
+        self.assertEqual(self.chat('again',sid)['response']['message'],'potato')
+        self.assertIn('Fair enough',self.chat('just because',sid)['response']['message'])
+    def test_echo_preserves_case_and_exact_requests(self):
+        for prompt,expected in [('say exactly PoTaTo!','PoTaTo!'),('repeat after me: Hello there','Hello there'),('say only banana','banana')]:
+            r=self.chat(prompt)['response']
+            self.assertEqual(r['message'],expected);self.assertEqual(r['sources'],[])
+        self.assertTrue(self.chat('Could you say potato?')['response']['message'].startswith('potato'))
+    def test_echo_is_text_not_a_command_or_evidence(self):
+        with patch.object(self.app,'build_search',side_effect=AssertionError('No network')):
+            r=self.chat('say exactly search Moon')['response']
+        self.assertEqual(r['message'],'search Moon');self.assertFalse(r['response_structure']['execute_text'])
+        self.assertEqual(r['sources'],[])
+        r=self.chat('say '+'x'*301)['response']
+        self.assertIn('300 characters',r['message'])

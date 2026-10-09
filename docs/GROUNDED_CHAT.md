@@ -174,3 +174,10 @@ Conversational replies display **Deterministic chat; not MPLPB-supported.** The
 response and audit log record that distinction and the casual-rule code hash.
 Dictionary answers retain lexical-reference provenance; focused page answers keep
 source provenance. Casual text is never promoted into source evidence.
+
+
+Casual chat accepts `say potato`, `could you say banana?` and short repeat requests.
+Ordinary requests add a playful question; `say exactly`, `say only`, and
+`repeat after me:` omit extra chatter. `again` recalls the last echo across reloads.
+Echoes are limited to 300 characters, labeled as user-requested text, never executed
+as commands, and never added to the source ledger.
