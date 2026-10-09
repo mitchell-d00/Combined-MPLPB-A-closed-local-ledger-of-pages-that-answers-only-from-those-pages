@@ -1,0 +1,660 @@
+{
+  "schema": 1,
+  "retrieved_at": "2026-10-09T01:51:46.923666+00:00",
+  "resources": [
+    {
+      "name": "Open English WordNet 2025",
+      "path": "language/english-wordnet-2025-json.zip",
+      "url": "https://en-word.net/downloads/english-wordnet-2025-json.zip",
+      "license": "CC-BY-4.0",
+      "edition": "2025",
+      "kind": "dictionary, thesaurus and lexical relations",
+      "changes": "Unmodified upstream download",
+      "sha256": "7d749f6e2c39e6970e4997839dcf6e42fd281f3c2fae0171d2192bae8cfa4b51",
+      "bytes": 9986555
+    },
+    {
+      "name": "CMU Link Grammar English data",
+      "path": "language/link-grammar-english.zip",
+      "url": "https://codeload.github.com/opencog/link-grammar/tar.gz/5cba26fe24438185b3271e79e459c2fdc2294f96",
+      "revision": "5cba26fe24438185b3271e79e459c2fdc2294f96",
+      "license": "Upstream LICENSE and per-file notices retained",
+      "kind": "grammar dictionary and English structure reference",
+      "upstream_archive_sha256": "f8612310d7e403275eb3c0fc705c387b3da2c748dbdfa2a179a297388080c4ee",
+      "changes": "Selected data/en plus LICENSE, README and AUTHORS; deterministically repackaged; no parser binary",
+      "sha256": "e0498fb96e54808506cc8485745036d22e9e08c7419df334d88eebde65ac34ff",
+      "bytes": 869951
+    },
+    {
+      "name": "MPLPB derived WordNet synset file index",
+      "path": "language/wordnet-synset-index.json.gz",
+      "sha256": "e64397d51bc827fc467a1ea6d371909abac2a3ab9ac9c294570c8db6aa033e4b",
+      "bytes": 404847,
+      "license": "CC-BY-4.0",
+      "derived_from": "7d749f6e2c39e6970e4997839dcf6e42fd281f3c2fae0171d2192bae8cfa4b51",
+      "changes": "Mapping of synset IDs to source archive members; no changed definitions"
+    },
+    {
+      "name": "Simple English Wikipedia reference selection",
+      "path": "encyclopedia/capture/manifest.json",
+      "sha256": "1d78b8bbda59f392299d625e2c6bd09da50a770a2cebd194f68e832af83056d7",
+      "bytes": 20625,
+      "license": "CC-BY-SA-4.0",
+      "pages": 23,
+      "retrieved_at": "2026-10-09T01:51:32.676116+00:00",
+      "changes": "23 selected revision slots, raw response and deterministic local rendering retained",
+      "source_authorship": "unknown",
+      "independence_verified": false
+    }
+  ],
+  "wordnet_counts": {
+    "entries": 128009,
+    "senses": 185129,
+    "synsets": 107558
+  },
+  "license_sources": {
+    "wordnet": "https://raw.githubusercontent.com/globalwordnet/english-wordnet/bff3181fe5c810dcd157cba0eed60322a6e0aaed/LICENSE.md",
+    "encyclopedia": "https://raw.githubusercontent.com/creativecommons/creativecommons.org/main/docroot/legalcode/by-sa_4.0.html"
+  },
+  "files": [
+    {
+      "path": "README.md",
+      "sha256": "26523efc01dc49eb5dd5b6ab2b6e09883612bc762d72055094d8523e09df1f57",
+      "bytes": 5556
+    },
+    {
+      "path": "encyclopedia/capture/corpus/_log/ledger.jsonl",
+      "sha256": "b693ecca99288fed169862c02c630d068140ed764da1faf70d33ffa32979c5ea",
+      "bytes": 9557
+    },
+    {
+      "path": "encyclopedia/capture/corpus/wiki-0001.html",
+      "sha256": "0e0004351da5700260cc5467e10d5e4c61aa76a89789ff294cd9a14db9a46d47",
+      "bytes": 1500
+    },
+    {
+      "path": "encyclopedia/capture/corpus/wiki-0002.html",
+      "sha256": "4bf3412bf38245046654166b9132e1e15b1e32bc7b0dad4d22fc98c992baf018",
+      "bytes": 1794
+    },
+    {
+      "path": "encyclopedia/capture/corpus/wiki-0003.html",
+      "sha256": "a45d92cee1ae2bf99ab40a8c280c1a832e589d42e385b60842bd7504b1cb6580",
+      "bytes": 1675
+    },
+    {
+      "path": "encyclopedia/capture/corpus/wiki-0004.html",
+      "sha256": "7a5868de01239afd1885a10329fe5c6af0e92a4dd48389c483f5ed2102dbd2a8",
+      "bytes": 4944
+    },
+    {
+      "path": "encyclopedia/capture/corpus/wiki-0005.html",
+      "sha256": "0e01da35bbb1489e8955bc38a9257e1393b611e49472e0fd82c0f034f056f808",
+      "bytes": 1332
+    },
+    {
+      "path": "encyclopedia/capture/corpus/wiki-0006.html",
+      "sha256": "6ba8676856ecee22dbad378bee408294a736b877c7220828770d821fe09d293b",
+      "bytes": 2083
+    },
+    {
+      "path": "encyclopedia/capture/corpus/wiki-0007.html",
+      "sha256": "724e3849aea92f20904916e599e7ce01797fe8ad81facb8bfdbb3bdc20a0ae8e",
+      "bytes": 1543
+    },
+    {
+      "path": "encyclopedia/capture/corpus/wiki-0008.html",
+      "sha256": "d3a71205385d01bf9bf9ac8360db1bd12e41e42f4a8344a5450cfb6b6cb3ab8d",
+      "bytes": 1875
+    },
+    {
+      "path": "encyclopedia/capture/corpus/wiki-0009.html",
+      "sha256": "379d42abce1c6e5f49258a2eb396e6f28bbaa230660e8dbf7a687b4ace3a55ab",
+      "bytes": 2957
+    },
+    {
+      "path": "encyclopedia/capture/corpus/wiki-0010.html",
+      "sha256": "7401c0898b224ff9bad3e79c53532f73c1e9042befd8f2dd691f871b727a09d9",
+      "bytes": 1943
+    },
+    {
+      "path": "encyclopedia/capture/corpus/wiki-0011.html",
+      "sha256": "5d9ddab64b7e566bc9f1a97b6fcd0e20270508f76b68a99b2cea510bc2bfe364",
+      "bytes": 2326
+    },
+    {
+      "path": "encyclopedia/capture/corpus/wiki-0012.html",
+      "sha256": "58bae73e697ab674107d2ecb5f4bc7a4c23775fb422f007b33edca01143c6b2a",
+      "bytes": 3072
+    },
+    {
+      "path": "encyclopedia/capture/corpus/wiki-0013.html",
+      "sha256": "14473f00617f0956b0908ea826480ed0f1ad41f76914862736643a5dcda6ea29",
+      "bytes": 1317
+    },
+    {
+      "path": "encyclopedia/capture/corpus/wiki-0014.html",
+      "sha256": "a4d2bb84776cfaafe22af73dab04a41b590a9c3be2f9f5b378e0d2fefec8216d",
+      "bytes": 1688
+    },
+    {
+      "path": "encyclopedia/capture/corpus/wiki-0015.html",
+      "sha256": "012d425c9a2f5010727601e14f2e38fb85e9f54ec08ae317f2b97b331848a846",
+      "bytes": 1706
+    },
+    {
+      "path": "encyclopedia/capture/corpus/wiki-0016.html",
+      "sha256": "4687cdeb25d3bf683aaf1898f188a27cf38e9f55c7928cdffeba25962ac9a6e7",
+      "bytes": 1725
+    },
+    {
+      "path": "encyclopedia/capture/corpus/wiki-0017.html",
+      "sha256": "edac26dcbe83742294913a82851ae4d96280951f8d32c779fdf5a5e464cb3590",
+      "bytes": 1974
+    },
+    {
+      "path": "encyclopedia/capture/corpus/wiki-0018.html",
+      "sha256": "9b4b1a4774a17537712d3e1b73de5ea872d339e4722c160b99a1a62153169711",
+      "bytes": 1984
+    },
+    {
+      "path": "encyclopedia/capture/corpus/wiki-0019.html",
+      "sha256": "260d9fa1ce556c1bde03079dd4ef4d844837448d981e7df79c29f7dd67e1768f",
+      "bytes": 1313
+    },
+    {
+      "path": "encyclopedia/capture/corpus/wiki-0020.html",
+      "sha256": "727a91982c90266c191553acbb2052d1afa9cdc2fa45090977e9037134f4ee2a",
+      "bytes": 2081
+    },
+    {
+      "path": "encyclopedia/capture/corpus/wiki-0021.html",
+      "sha256": "daa1da6e2100f802ec15e596335311a2d1dec6241cc732c7604a3a7c138308b3",
+      "bytes": 2530
+    },
+    {
+      "path": "encyclopedia/capture/corpus/wiki-0022.html",
+      "sha256": "812395cdaa50bc99006b7ab97bf3d560db36f0d8e6a11a820184e6a6cf692dd5",
+      "bytes": 1290
+    },
+    {
+      "path": "encyclopedia/capture/corpus/wiki-0023.html",
+      "sha256": "46db88c99bc6882deac231bf5a67ced6218ba3d30f2359f3a242372010e3a3c2",
+      "bytes": 1666
+    },
+    {
+      "path": "encyclopedia/capture/manifest.json",
+      "sha256": "1d78b8bbda59f392299d625e2c6bd09da50a770a2cebd194f68e832af83056d7",
+      "bytes": 20625
+    },
+    {
+      "path": "encyclopedia/capture/response.json",
+      "sha256": "81707e9ca87102ab7706d7d47482a18a1f0987daaeda81cc72b3466a2cf8269d",
+      "bytes": 391920
+    },
+    {
+      "path": "encyclopedia/capture/source/renderer.py",
+      "sha256": "079db4d2296041fad1ec722304493de579b2b928d48bf155a9fa85a8b5f4c516",
+      "bytes": 1871
+    },
+    {
+      "path": "encyclopedia/capture/source/wiki-0001.wiki",
+      "sha256": "22c296438d4c7ba2622ac23bc8273391f06ca4109a962765721da26a1958d292",
+      "bytes": 10092
+    },
+    {
+      "path": "encyclopedia/capture/source/wiki-0002.wiki",
+      "sha256": "2c1f2e2e7d393036def095457ce2364fd2d362425f912a7f8f6ea074ce72017c",
+      "bytes": 7867
+    },
+    {
+      "path": "encyclopedia/capture/source/wiki-0003.wiki",
+      "sha256": "fe3e0a8261640436b64beac12c70a25d56dd9ff70393723f880c2de3d72a55a4",
+      "bytes": 15578
+    },
+    {
+      "path": "encyclopedia/capture/source/wiki-0004.wiki",
+      "sha256": "192624ca8d7337d43235ade81d04f20b48a6a54e2ad68ec732ad42870909a266",
+      "bytes": 57836
+    },
+    {
+      "path": "encyclopedia/capture/source/wiki-0005.wiki",
+      "sha256": "c054a65405ee01ddbedd24c2607de2ed3bcd8d4a1487c8ec7af6f84b6f20c037",
+      "bytes": 27268
+    },
+    {
+      "path": "encyclopedia/capture/source/wiki-0006.wiki",
+      "sha256": "c2fce268ff76272f91182be5d46c379a342a8a3df007a8c4538ec3f989afd8dd",
+      "bytes": 27724
+    },
+    {
+      "path": "encyclopedia/capture/source/wiki-0007.wiki",
+      "sha256": "3295230339255bfb33504f6061d78d5e72deb20f71c56b443364bb8b24383925",
+      "bytes": 9208
+    },
+    {
+      "path": "encyclopedia/capture/source/wiki-0008.wiki",
+      "sha256": "647d130ee05344eb74c279db23f764cb75c439244e5717c6176d4a37bd6142c5",
+      "bytes": 5724
+    },
+    {
+      "path": "encyclopedia/capture/source/wiki-0009.wiki",
+      "sha256": "cb47e388db6da470d703632a077321843b4f77009731513cd24b001efe4bcab6",
+      "bytes": 26825
+    },
+    {
+      "path": "encyclopedia/capture/source/wiki-0010.wiki",
+      "sha256": "3bd65203104892defbc76adcb806e721b78110aeaca64df15e050e952120544b",
+      "bytes": 26253
+    },
+    {
+      "path": "encyclopedia/capture/source/wiki-0011.wiki",
+      "sha256": "44e353e2a5da73c48eae880897056a0b2adfaea3341949cb4b33f5ec998bae5b",
+      "bytes": 5375
+    },
+    {
+      "path": "encyclopedia/capture/source/wiki-0012.wiki",
+      "sha256": "8dfb3eaf313d6769a1bd11ff749f7d246a44b16fc3b0da2549bea90def746146",
+      "bytes": 90715
+    },
+    {
+      "path": "encyclopedia/capture/source/wiki-0013.wiki",
+      "sha256": "1b6fd3281eaabc15473dcffffa89c4b11cd952e264170e617457d8b5739bccb6",
+      "bytes": 7919
+    },
+    {
+      "path": "encyclopedia/capture/source/wiki-0014.wiki",
+      "sha256": "a85cd37210d4350282a0fe378911226ad76203603067d33d3eaaa3697998e027",
+      "bytes": 9309
+    },
+    {
+      "path": "encyclopedia/capture/source/wiki-0015.wiki",
+      "sha256": "dca02b7f633988d3468af645aa7d46d7b647c44d1c276f5b5c8ed12c12a9435d",
+      "bytes": 6558
+    },
+    {
+      "path": "encyclopedia/capture/source/wiki-0016.wiki",
+      "sha256": "b2c4fd75d31d5defaeee555cc324843b27eca9abe37fc745a5533c142e3e4344",
+      "bytes": 782
+    },
+    {
+      "path": "encyclopedia/capture/source/wiki-0017.wiki",
+      "sha256": "3cba880712bcc0241ae4c6c681786c05d83b0d9df121ab54a088a2b951fecfa3",
+      "bytes": 9257
+    },
+    {
+      "path": "encyclopedia/capture/source/wiki-0018.wiki",
+      "sha256": "cce2bd03c0bd3f3a61bbc5faafd0fd1db898190414929bcfa83c05e1107c4bd9",
+      "bytes": 8365
+    },
+    {
+      "path": "encyclopedia/capture/source/wiki-0019.wiki",
+      "sha256": "09d231d8ec705946a5e71a299facfb14b2a798bdc9a3bc8ba35b7e1c1c0ff169",
+      "bytes": 3014
+    },
+    {
+      "path": "encyclopedia/capture/source/wiki-0020.wiki",
+      "sha256": "cfe268015c727174e0f776b913036f3ec18f663506d9aaebb52ccfc8b3d89215",
+      "bytes": 1754
+    },
+    {
+      "path": "encyclopedia/capture/source/wiki-0021.wiki",
+      "sha256": "34c58a2d8d6379985774308cbb86d2f671202c43b3cc74fdf81143d8276b8624",
+      "bytes": 18004
+    },
+    {
+      "path": "encyclopedia/capture/source/wiki-0022.wiki",
+      "sha256": "e8e8b0b39f890d7eca6d1b5b7250993883fd139a010172ba5063530b9f58bfae",
+      "bytes": 3032
+    },
+    {
+      "path": "encyclopedia/capture/source/wiki-0023.wiki",
+      "sha256": "6149bd8a95de47bbd43c3e13ffaf2fd54c294e8d4e9898134673bbe233419b9c",
+      "bytes": 1321
+    },
+    {
+      "path": "language/archive-parts/english-wordnet-2025-json.zip.000",
+      "sha256": "4e4f295b729ef89a9e0aa03ff8d09d6594f58ca5461b2b1b3041f34a73cf9bf7",
+      "bytes": 393216
+    },
+    {
+      "path": "language/archive-parts/english-wordnet-2025-json.zip.001",
+      "sha256": "37a36b9577d1b92662149972e94b4aea22f80181509d170720c61aedc523adf1",
+      "bytes": 393216
+    },
+    {
+      "path": "language/archive-parts/english-wordnet-2025-json.zip.002",
+      "sha256": "e3c636233467d01764e9fd47d8e36dca0c74b8cfb09cd2f85dfc8f31373ce478",
+      "bytes": 393216
+    },
+    {
+      "path": "language/archive-parts/english-wordnet-2025-json.zip.003",
+      "sha256": "d31aa5274242d38d821e6beb9dd0a6ac0c959a34ec019bc79be3b3051ce49b6c",
+      "bytes": 393216
+    },
+    {
+      "path": "language/archive-parts/english-wordnet-2025-json.zip.004",
+      "sha256": "e221a099c496ece41bd8e535cf2bcabfdc59e9143f614b1b9be38eb5c960d0c6",
+      "bytes": 393216
+    },
+    {
+      "path": "language/archive-parts/english-wordnet-2025-json.zip.005",
+      "sha256": "8c7f1e35a49a95228abe11d99087c46e95d4781e036a6d342f5f41df32af75b9",
+      "bytes": 393216
+    },
+    {
+      "path": "language/archive-parts/english-wordnet-2025-json.zip.006",
+      "sha256": "0609ea482b0d96612c7a9ceb01190d95ff0f3ff90e3918e0b4f70cebd42e1762",
+      "bytes": 393216
+    },
+    {
+      "path": "language/archive-parts/english-wordnet-2025-json.zip.007",
+      "sha256": "b00953e941571ff4255e95e7afe20fb29ed24cdd247112e9249150503f7269f1",
+      "bytes": 393216
+    },
+    {
+      "path": "language/archive-parts/english-wordnet-2025-json.zip.008",
+      "sha256": "527c2e486065ad831c3916127a119650e177280e3c92f2152a69e5ec7180a7e9",
+      "bytes": 393216
+    },
+    {
+      "path": "language/archive-parts/english-wordnet-2025-json.zip.009",
+      "sha256": "2961c21d4a10e0d910c23fb02830515d23bb97b0575a92d2cb84d719fc1d5884",
+      "bytes": 393216
+    },
+    {
+      "path": "language/archive-parts/english-wordnet-2025-json.zip.010",
+      "sha256": "fa530eeb15e9e96033866560cd3039d52d097c894503fe90564c8c2a91787ac3",
+      "bytes": 393216
+    },
+    {
+      "path": "language/archive-parts/english-wordnet-2025-json.zip.011",
+      "sha256": "a6cfdbc2ff65949bfff89b8694ec32837f626188ed56039d891d5e2d193b0c8e",
+      "bytes": 393216
+    },
+    {
+      "path": "language/archive-parts/english-wordnet-2025-json.zip.012",
+      "sha256": "47c45c047b137ac100db2ecef0733567b1824d28e4120655c301d14ff4e5f3b1",
+      "bytes": 393216
+    },
+    {
+      "path": "language/archive-parts/english-wordnet-2025-json.zip.013",
+      "sha256": "13d8a0ea8ebfedb5a5b07e4d67fd1518665d34881895a4ab7a69d0bcebe959c8",
+      "bytes": 393216
+    },
+    {
+      "path": "language/archive-parts/english-wordnet-2025-json.zip.014",
+      "sha256": "dc44817b22eed2b00e310f846cb62d818ada9766c22f287f76e42ef962330d92",
+      "bytes": 393216
+    },
+    {
+      "path": "language/archive-parts/english-wordnet-2025-json.zip.015",
+      "sha256": "ff8f83004443bfcf10ae82cea4aa869846019b44921c3ceed7c96599d6881eec",
+      "bytes": 393216
+    },
+    {
+      "path": "language/archive-parts/english-wordnet-2025-json.zip.016",
+      "sha256": "33abbb543687bf5723738eb1b1e642c18aef06a376b33d7685609ac9368a417d",
+      "bytes": 393216
+    },
+    {
+      "path": "language/archive-parts/english-wordnet-2025-json.zip.017",
+      "sha256": "1ae8fa09ae4b334eb80322b754bd24171b24cd217298f7a779bee6c986ec6720",
+      "bytes": 393216
+    },
+    {
+      "path": "language/archive-parts/english-wordnet-2025-json.zip.018",
+      "sha256": "68732ff29f4c1003b5c3f1d1c175cf65e6107066988d6cd66d7f04ed4d5b0490",
+      "bytes": 393216
+    },
+    {
+      "path": "language/archive-parts/english-wordnet-2025-json.zip.019",
+      "sha256": "23a83e77b5f191782267e5fe787face8a7ea6ee2ea5cd9e9671805de83038305",
+      "bytes": 393216
+    },
+    {
+      "path": "language/archive-parts/english-wordnet-2025-json.zip.020",
+      "sha256": "262e9315589735bf0a9255ce219403062e0e9a5778e68091aeff02055bbc6299",
+      "bytes": 393216
+    },
+    {
+      "path": "language/archive-parts/english-wordnet-2025-json.zip.021",
+      "sha256": "8c3764ca3e24e7bdda082f5a5fd4e3f2ab61a7cd567e4595c757e67bc41ddf1f",
+      "bytes": 393216
+    },
+    {
+      "path": "language/archive-parts/english-wordnet-2025-json.zip.022",
+      "sha256": "cd9cedc65aa76eecde3ca7a19f1efe700c2ba8e855f7d6de44fa1a1b2099ffec",
+      "bytes": 393216
+    },
+    {
+      "path": "language/archive-parts/english-wordnet-2025-json.zip.023",
+      "sha256": "4a669f92ea28d4728ef3a373a60880b70e36fb043ca558ef24ad271559861623",
+      "bytes": 393216
+    },
+    {
+      "path": "language/archive-parts/english-wordnet-2025-json.zip.024",
+      "sha256": "7b533ec54064e3ca7d1fafd7e6486059e40a58ca919378ddf7f54e42d114db75",
+      "bytes": 393216
+    },
+    {
+      "path": "language/archive-parts/english-wordnet-2025-json.zip.025",
+      "sha256": "2c196648495a0d1c1bd2b2694838e5bd67354f9b6398b4646db134f6c6a7c1f5",
+      "bytes": 156155
+    },
+    {
+      "path": "language/archive-parts/link-grammar-english.zip.000",
+      "sha256": "1b34244bc7e90a03f3293a68abd29cc95dd4ac645a4757dbac357193c2a128a6",
+      "bytes": 393216
+    },
+    {
+      "path": "language/archive-parts/link-grammar-english.zip.001",
+      "sha256": "a6d7576c8367ec4605e77a39132e6df2b7fbc8b06a7a241534ae7f43a9b26c4d",
+      "bytes": 393216
+    },
+    {
+      "path": "language/archive-parts/link-grammar-english.zip.002",
+      "sha256": "9cdb822c73e77a791186d878f0572d43a731c2c08efc5c6d852e6ac4cdbfea94",
+      "bytes": 83519
+    },
+    {
+      "path": "language/english-wordnet-2025-json.zip",
+      "sha256": "7d749f6e2c39e6970e4997839dcf6e42fd281f3c2fae0171d2192bae8cfa4b51",
+      "bytes": 9986555
+    },
+    {
+      "path": "language/link-grammar-english.zip",
+      "sha256": "e0498fb96e54808506cc8485745036d22e9e08c7419df334d88eebde65ac34ff",
+      "bytes": 869951
+    },
+    {
+      "path": "language/wordnet-CITATION.cff",
+      "sha256": "8dfea9ec45d6030ffdb95d207b2dd496e640f4fe1035de8a0ce1f35834bf03ea",
+      "bytes": 1118
+    },
+    {
+      "path": "language/wordnet-FORMAT.md",
+      "sha256": "b4a2c296964887bfaea352a5bce2c652432c01d8d71d2167f6e2a22182ef67bd",
+      "bytes": 2648
+    },
+    {
+      "path": "language/wordnet-LICENSE.md",
+      "sha256": "672cc8b5663e8dc74c4b07a9dcf477193853575b119908fd3dc0aeeb60a9dbbb",
+      "bytes": 19863
+    },
+    {
+      "path": "language/wordnet-README.md",
+      "sha256": "2056702a2b9dad020d8c498789001bc72e6572e7986a1f418c6833fa82c33f55",
+      "bytes": 8154
+    },
+    {
+      "path": "language/wordnet-synset-index.json.gz",
+      "sha256": "e64397d51bc827fc467a1ea6d371909abac2a3ab9ac9c294570c8db6aa033e4b",
+      "bytes": 404847
+    },
+    {
+      "path": "licenses/CC-BY-SA-4.0.html",
+      "sha256": "d48546c6161cd2698445d184a859363a2436a6a3bcda655564730e3861e74a9e",
+      "bytes": 44855
+    }
+  ],
+  "transport_archives": [
+    {
+      "path": "language/english-wordnet-2025-json.zip",
+      "parts": [
+        {
+          "path": "language/archive-parts/english-wordnet-2025-json.zip.000",
+          "sha256": "4e4f295b729ef89a9e0aa03ff8d09d6594f58ca5461b2b1b3041f34a73cf9bf7",
+          "bytes": 393216
+        },
+        {
+          "path": "language/archive-parts/english-wordnet-2025-json.zip.001",
+          "sha256": "37a36b9577d1b92662149972e94b4aea22f80181509d170720c61aedc523adf1",
+          "bytes": 393216
+        },
+        {
+          "path": "language/archive-parts/english-wordnet-2025-json.zip.002",
+          "sha256": "e3c636233467d01764e9fd47d8e36dca0c74b8cfb09cd2f85dfc8f31373ce478",
+          "bytes": 393216
+        },
+        {
+          "path": "language/archive-parts/english-wordnet-2025-json.zip.003",
+          "sha256": "d31aa5274242d38d821e6beb9dd0a6ac0c959a34ec019bc79be3b3051ce49b6c",
+          "bytes": 393216
+        },
+        {
+          "path": "language/archive-parts/english-wordnet-2025-json.zip.004",
+          "sha256": "e221a099c496ece41bd8e535cf2bcabfdc59e9143f614b1b9be38eb5c960d0c6",
+          "bytes": 393216
+        },
+        {
+          "path": "language/archive-parts/english-wordnet-2025-json.zip.005",
+          "sha256": "8c7f1e35a49a95228abe11d99087c46e95d4781e036a6d342f5f41df32af75b9",
+          "bytes": 393216
+        },
+        {
+          "path": "language/archive-parts/english-wordnet-2025-json.zip.006",
+          "sha256": "0609ea482b0d96612c7a9ceb01190d95ff0f3ff90e3918e0b4f70cebd42e1762",
+          "bytes": 393216
+        },
+        {
+          "path": "language/archive-parts/english-wordnet-2025-json.zip.007",
+          "sha256": "b00953e941571ff4255e95e7afe20fb29ed24cdd247112e9249150503f7269f1",
+          "bytes": 393216
+        },
+        {
+          "path": "language/archive-parts/english-wordnet-2025-json.zip.008",
+          "sha256": "527c2e486065ad831c3916127a119650e177280e3c92f2152a69e5ec7180a7e9",
+          "bytes": 393216
+        },
+        {
+          "path": "language/archive-parts/english-wordnet-2025-json.zip.009",
+          "sha256": "2961c21d4a10e0d910c23fb02830515d23bb97b0575a92d2cb84d719fc1d5884",
+          "bytes": 393216
+        },
+        {
+          "path": "language/archive-parts/english-wordnet-2025-json.zip.010",
+          "sha256": "fa530eeb15e9e96033866560cd3039d52d097c894503fe90564c8c2a91787ac3",
+          "bytes": 393216
+        },
+        {
+          "path": "language/archive-parts/english-wordnet-2025-json.zip.011",
+          "sha256": "a6cfdbc2ff65949bfff89b8694ec32837f626188ed56039d891d5e2d193b0c8e",
+          "bytes": 393216
+        },
+        {
+          "path": "language/archive-parts/english-wordnet-2025-json.zip.012",
+          "sha256": "47c45c047b137ac100db2ecef0733567b1824d28e4120655c301d14ff4e5f3b1",
+          "bytes": 393216
+        },
+        {
+          "path": "language/archive-parts/english-wordnet-2025-json.zip.013",
+          "sha256": "13d8a0ea8ebfedb5a5b07e4d67fd1518665d34881895a4ab7a69d0bcebe959c8",
+          "bytes": 393216
+        },
+        {
+          "path": "language/archive-parts/english-wordnet-2025-json.zip.014",
+          "sha256": "dc44817b22eed2b00e310f846cb62d818ada9766c22f287f76e42ef962330d92",
+          "bytes": 393216
+        },
+        {
+          "path": "language/archive-parts/english-wordnet-2025-json.zip.015",
+          "sha256": "ff8f83004443bfcf10ae82cea4aa869846019b44921c3ceed7c96599d6881eec",
+          "bytes": 393216
+        },
+        {
+          "path": "language/archive-parts/english-wordnet-2025-json.zip.016",
+          "sha256": "33abbb543687bf5723738eb1b1e642c18aef06a376b33d7685609ac9368a417d",
+          "bytes": 393216
+        },
+        {
+          "path": "language/archive-parts/english-wordnet-2025-json.zip.017",
+          "sha256": "1ae8fa09ae4b334eb80322b754bd24171b24cd217298f7a779bee6c986ec6720",
+          "bytes": 393216
+        },
+        {
+          "path": "language/archive-parts/english-wordnet-2025-json.zip.018",
+          "sha256": "68732ff29f4c1003b5c3f1d1c175cf65e6107066988d6cd66d7f04ed4d5b0490",
+          "bytes": 393216
+        },
+        {
+          "path": "language/archive-parts/english-wordnet-2025-json.zip.019",
+          "sha256": "23a83e77b5f191782267e5fe787face8a7ea6ee2ea5cd9e9671805de83038305",
+          "bytes": 393216
+        },
+        {
+          "path": "language/archive-parts/english-wordnet-2025-json.zip.020",
+          "sha256": "262e9315589735bf0a9255ce219403062e0e9a5778e68091aeff02055bbc6299",
+          "bytes": 393216
+        },
+        {
+          "path": "language/archive-parts/english-wordnet-2025-json.zip.021",
+          "sha256": "8c3764ca3e24e7bdda082f5a5fd4e3f2ab61a7cd567e4595c757e67bc41ddf1f",
+          "bytes": 393216
+        },
+        {
+          "path": "language/archive-parts/english-wordnet-2025-json.zip.022",
+          "sha256": "cd9cedc65aa76eecde3ca7a19f1efe700c2ba8e855f7d6de44fa1a1b2099ffec",
+          "bytes": 393216
+        },
+        {
+          "path": "language/archive-parts/english-wordnet-2025-json.zip.023",
+          "sha256": "4a669f92ea28d4728ef3a373a60880b70e36fb043ca558ef24ad271559861623",
+          "bytes": 393216
+        },
+        {
+          "path": "language/archive-parts/english-wordnet-2025-json.zip.024",
+          "sha256": "7b533ec54064e3ca7d1fafd7e6486059e40a58ca919378ddf7f54e42d114db75",
+          "bytes": 393216
+        },
+        {
+          "path": "language/archive-parts/english-wordnet-2025-json.zip.025",
+          "sha256": "2c196648495a0d1c1bd2b2694838e5bd67354f9b6398b4646db134f6c6a7c1f5",
+          "bytes": 156155
+        }
+      ],
+      "sha256": "7d749f6e2c39e6970e4997839dcf6e42fd281f3c2fae0171d2192bae8cfa4b51"
+    },
+    {
+      "path": "language/link-grammar-english.zip",
+      "parts": [
+        {
+          "path": "language/archive-parts/link-grammar-english.zip.000",
+          "sha256": "1b34244bc7e90a03f3293a68abd29cc95dd4ac645a4757dbac357193c2a128a6",
+          "bytes": 393216
+        },
+        {
+          "path": "language/archive-parts/link-grammar-english.zip.001",
+          "sha256": "a6d7576c8367ec4605e77a39132e6df2b7fbc8b06a7a241534ae7f43a9b26c4d",
+          "bytes": 393216
+        },
+        {
+          "path": "language/archive-parts/link-grammar-english.zip.002",
+          "sha256": "9cdb822c73e77a791186d878f0572d43a731c2c08efc5c6d852e6ac4cdbfea94",
+          "bytes": 83519
+        }
+      ],
+      "sha256": "e0498fb96e54808506cc8485745036d22e9e08c7419df334d88eebde65ac34ff"
+    }
+  ]
+}

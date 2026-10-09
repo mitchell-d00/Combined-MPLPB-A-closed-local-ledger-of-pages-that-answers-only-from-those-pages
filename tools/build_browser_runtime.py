@@ -26,12 +26,15 @@ def build(core_archive, output):
         runtime = {name: encode(archive.extractfile('pyodide/'+name).read()) for name in CORE_FILES}
     folders = ('mplpb_combined', 'tools', 'examples/studio', 'examples/patch-canned',
                'examples/clarification-dogs', 'examples/provenance-gate/separate',
-               'examples/system', 'examples/chat-logic', 'evaluation/wiki', 'docs/patch-canned/supplied', 'browser')
+               'examples/system', 'examples/chat-logic', 'evaluation/wiki', 'docs/patch-canned/supplied', 'browser', 'resources')
     paths = set()
     for folder in folders:
         paths.update(p for p in (ROOT / folder).rglob('*') if p.is_file()
                      and '__pycache__' not in p.parts and p.suffix not in ('.pyc','.tmp') and p.name != '.lock')
     paths.add(ROOT / 'LICENSE')
+    # Store one copy of large references; the Python runtime verifies and joins parts.
+    paths.difference_update(ROOT/'resources/language'/name for name in
+                            ('english-wordnet-2025-json.zip','link-grammar-english.zip'))
     files = {p.relative_to(ROOT).as_posix(): encode(p.read_bytes()) for p in sorted(paths)}
     manifest = {name: hashlib.sha256(base64.b64decode(value)).hexdigest() for name,value in files.items()}
     bundle = {'schema': 1, 'runtime_version': VERSION, 'runtime_release_sha256': CORE_SHA256,

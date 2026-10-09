@@ -56,20 +56,45 @@ SMALL_TALK={
  'good':('Glad to hear your day is going well.','What have you been up to?'),
  'not great':('Sorry it’s been a rough day.','Would you like to talk about it or change the subject?'),
  'tell me a joke':('Why did the notebook bring a ladder? To reach its higher notes.','Want to keep chatting?'),
+ 'nothing':('We don’t need a subject or a task.','Would you prefer a silly question or a little quiet?'),
+ 'a silly question':('Here’s a silly question: if your shoes could talk, what would they complain about?','There’s no right answer.'),
+ 'a little quiet':('That’s fine. There’s no need to fill the silence.','I’ll be here when you want to type something.'),
+ 'i am tired':('Sounds like a low-energy day. We can keep this easy.','Want to chat about something light?'),
+ 'i am happy':('Sounds like something went well.','Want to tell me about it?'),
+ 'i am sad':('I’m sorry today feels sad.','Would you like to say more, or have a light distraction?'),
+ 'what do you like':('I don’t have personal tastes, but I can ask questions and help you explore yours.','What do you enjoy doing?'),
+ 'do you have feelings':('I don’t have feelings or experiences. My conversation uses explicit rules.','We can still have a friendly chat.'),
+ 'are you a person':('No. I’m software running a local page reader and conversation rules.','You can ask about me or keep things casual.'),
+ 'can you think':('I follow defined rules and check local sources; I don’t have private thoughts or consciousness.','Would you like to know how the app works?'),
+ 'nice to meet you':('Hello, and welcome.','Would you like to tell me what brought you here?'),
+ 'goodbye':('Bye for now.','You can come back to chat or explore your pages whenever you like.'),
 }
-CASUAL_PREFIXES=('i like ','i enjoy ','i was thinking about ','just chatting about ','i had a ','my day was ','today i ','i feel ')
+CASUAL_PREFIXES=('i like ','i enjoy ','i was thinking about ','just chatting about ','i had a ','my day was ','today i ','i feel ',
+                 'i love ','i prefer ','my favorite ','my favourite ','i have been ','i’ve been ',"i've been ",
+                 'i spent ','i went ','i saw ','i am relaxing','i’m relaxing',"i'm relaxing",'we were talking about ')
 SMALL_ALIASES={'hi there':'hi','hello there':'hello','good morning':'hello','good afternoon':'hello','good evening':'hello','how are you doing':'how are you','how is it going':'how are you','how are things':'how are you',"i'm bored":'i am bored','just chat':'just chatting',"let's chat":'just chatting','lets chat':'just chatting','can we just chat':'just chatting','why are you here':'why do you exist','why were you made':'why do you exist','are you ai':'what are you','fine':'good','pretty good':'good','not much':'nothing much'}
+SMALL_ALIASES.update({"what's up":'nothing much','whats up':'nothing much',"how's it going":'how are you',
+ 'can we talk about nothing':'nothing','lets talk about nothing':'nothing',"let's talk about nothing":'nothing',
+ 'ask me something silly':'a silly question','silly question':'a silly question','quiet please':'a little quiet',
+ "i'm tired":'i am tired',"i'm happy":'i am happy',"i'm sad":'i am sad','bye':'goodbye','see you later':'goodbye',
+ 'are you human':'are you a person','are you alive':'are you a person','are you conscious':'can you think',
+ 'what do you enjoy':'what do you like','what are your hobbies':'what do you like',
+ 'what are you for':'what is your purpose','why do you exist at all':'why do you exist'})
 
 def casual_key(message):
     command=key(message)
     for greeting in ('hello ','hi ','hey '):
-        if command.startswith(greeting) and command[len(greeting):] in SMALL_TALK:
-            command=command[len(greeting):]
+        tail=command[len(greeting):]
+        if command.startswith(greeting) and (tail in SMALL_TALK or tail in SMALL_ALIASES or tail.startswith(CASUAL_PREFIXES)):
+            command=tail
             break
     return SMALL_ALIASES.get(command,command)
 
 def smalltalk_candidate(message,memory):
     command=casual_key(message)
+    # A social preamble must not turn an embedded factual question into chit-chat.
+    if command not in SMALL_TALK and re.search(r'\b(?:what|why|how|when|where|who|which)\b',command):
+        return False
     return (command in SMALL_TALK or command in {'keep chatting','stay casual'}
             or (command in {'yes','yes please','lets explore',"let's explore",'no','no thanks'} and bool(memory.get('topic_offer')))
             or command.startswith(CASUAL_PREFIXES))
@@ -97,6 +122,10 @@ def smalltalk(message,context,memory,titles,scope):
         body='You mentioned '+', '.join('“'+t+'”' for t in mentions)+'. Those titles are in the current MPLPB.'
         question='Would you like to move into a source-backed conversation about '+('this topic?' if len(mentions)==1 else 'one of these topics?')
         choices=(['yes please'] if len(mentions)==1 else ['topic '+t for t in mentions[:8]])+['keep chatting']
+    elif command=='nothing':
+        choices=['a silly question','a little quiet','keep chatting']
+    elif command in {'a little quiet','goodbye'}:
+        choices=['hello','show my MPLPB']
     return M.reply('smalltalk',body+'\n\n'+question,context,'SMALL-OFFER' if mentions else 'SMALL-CHAT',authority='conversation_structure',suggestions=choices,response_structure={'intent':'topic_offer' if mentions else 'smalltalk','factual_claims':False,'topic_mentions':mentions,'automatic_topic_switch':False})
 
 def conversation(message,context,memory):

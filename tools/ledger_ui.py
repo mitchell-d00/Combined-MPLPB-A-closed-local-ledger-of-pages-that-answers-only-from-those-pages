@@ -27,6 +27,7 @@ from tools.mind_session import SessionStore
 from tools.exploration_store import ExplorationStore
 from tools import topic_crawl as TC
 from tools import chat_tutor as T
+from tools import reference_resources as F
 
 
 class App:
@@ -43,6 +44,7 @@ class App:
             'dogs': ('Dog clarification', ROOT / 'examples/clarification-dogs'),
             'system': ('MPLPB · system and creator', ROOT / 'examples/system'),
             'logic': ('Chat logic · synthetic facts', ROOT / 'examples/chat-logic'),
+            'reference': ('Reference encyclopedia · 23 archived Wiki pages', ROOT / 'resources/encyclopedia/capture/corpus'),
         }
         if custom:
             custom = Path(custom).resolve()
@@ -64,6 +66,7 @@ class App:
         return roots
 
     def root(self, key):
+        if key == 'reference':return F.encyclopedia_root()
         if isinstance(key, str) and key.startswith('mind-'):
             return self.collections.root(key)
         if key == 'topics':
@@ -258,7 +261,7 @@ class App:
                 casual=T.smalltalk(message,session['context'],memory,titles,corpus+'|'+profile)
                 if 'select_topic' in casual:
                     casual=C.turn(self,corpus,self.root(corpus),profile,'topic '+casual['select_topic'],session['context'])
-            tutor=casual or T.conversation(message,session['context'],memory) or T.guide(message,session['context'],memory) or T.learning_request(message,session['context'])
+            tutor=F.handle(message,session['context']) or casual or T.conversation(message,session['context'],memory) or T.guide(message,session['context'],memory) or T.learning_request(message,session['context'])
             if tutor is not None:result=tutor
             elif T.key(message) in T.LIST:
                 try:

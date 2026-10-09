@@ -9,6 +9,31 @@ derivation writes a new page and adds one to the depth.
 
 No model. The core reader uses local pages and the Python standard library. Optional search/crawl/import commands contact public sources explicitly; standalone browser mode uses IndexedDB for saved state.
 
+## Casual chat and offline references
+
+Say `what are you?`, `why do you exist?`, `I'm tired`, or `can we talk about nothing?`
+for casual conversation. Mentioning an exact eligible page title in a recognized
+casual phrase invites a more serious, source-backed conversation. It waits for
+your acceptance and checks the page again before selecting it.
+
+The repository includes these local resources, with original licenses and source pins:
+
+| Resource | Included | How to use |
+| --- | --- | --- |
+| Open English WordNet 2025 | 128,009 dictionary entries and 107,558 synsets | `define dog`, `synonyms dog`, `what does fossil mean?` |
+| CMU Link Grammar English data | 111 grammar, word-list and reference files | `grammar resources`; data archive in `resources/language/` |
+| Simple English Wikipedia selection | 23 archived articles on language, computing, animals, geology and games | Choose **Reference encyclopedia**, then `show my MPLPB` |
+
+These are downloaded data, not remote lookup dependencies. Ordered archive parts
+are committed under `resources/language/archive-parts/`; the app reconstructs and
+verifies the ZIPs locally. The standalone browser build embeds the same resources.
+See [licenses, attribution and exact revisions](resources/README.md).
+
+Conversation is rule-based, not a general language model. Grammar data is available
+as a reference; a syntax parser is not enabled. The encyclopedia is a selected set,
+not all of Wikipedia. Dictionary senses and synonyms never expand ledger ownership
+or bypass source checks. Source hashes establish byte consistency, not factual truth.
+
 ```
 R = (id, scope, status, hash, derived_from, origin_depth)
 

@@ -51,6 +51,10 @@ Walk back: revert the link renderer and structured topic-list field together; sa
 
 Greetings, casual day-to-day phrases, purpose questions and a canned joke have finite, deterministic replies. These replies do not claim feelings or personal experiences. Creator questions still read the sealed self-reference. The “Just chat” button fills the composer.
 
+Additional phrases include “can we talk about nothing?”, “a silly question”, “a little quiet”, “I'm tired”, “what are your hobbies?” and “are you conscious?”. Combined greetings such as “Hello, how’s it going?” work too. Natural social statements such as “Hey, I love Dungeons and Dragons!” can invite a topic transition. A social preamble containing an embedded factual question (for example “I like dinosaurs, why did they go extinct?”) is left to the ledger instead of being answered by a casual template.
+
+Use “language resources” for the bundled dictionary, thesaurus, grammar reference and encyclopedia catalog. “Define dog” and “synonyms dog” perform explicit local WordNet lookups with separate senses and source attribution. To explore encyclopedia content, choose the Reference encyclopedia collection and select one of its available titles. See `resources/README.md` for upstream sources, licenses and limits.
+
 When a recognized casual message contains an exact eligible title from the current collection, the bot offers a source-backed discussion. Title matching is literal, with word boundaries; it is not semantic topic detection. No topic selection or network request happens until acceptance. A single title can be accepted with “yes please”; several titles require choosing one. “Keep chatting” clears the offer. Offers survive reopening the chat, but expire after an unrelated turn and cannot authorize a selection after a corpus/profile change. Acceptance rechecks source eligibility. Blocked collections can still small-talk but cannot supply topic offers from invalid pages.
 
 Walk back: revert small-talk routing, templates and UI together. Preserve existing saved chats, notes, captures and evaluation probes; obsolete pending offers are inert if the feature is removed.

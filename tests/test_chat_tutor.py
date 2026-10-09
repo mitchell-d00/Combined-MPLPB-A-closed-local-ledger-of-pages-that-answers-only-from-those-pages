@@ -142,3 +142,27 @@ class TutorTests(unittest.TestCase):
         self.chat('hello',sid)
         self.assertNotIn('topic_offer',self.app.sessions[sid]['mind'])
         self.assertIsNone(self.chat('yes please',sid)['response']['context'])
+
+    def test_idle_chat_and_identity_followups_stay_offline(self):
+        first=self.chat('Can we talk about nothing?');sid=first['session']
+        self.assertIn('a silly question',first['response']['suggestions'])
+        with patch.object(self.app,'build_search',side_effect=AssertionError('No casual crawl')):
+            for message in ('a silly question','a little quiet','Hello, how’s it going?',
+                            'I’m tired','what are your hobbies?','are you conscious?','bye'):
+                response=self.chat(message,sid)['response']
+                self.assertEqual(response['kind'],'smalltalk',message)
+                self.assertEqual(response['sources'],[])
+                self.assertIsNone(response['context'])
+
+    def test_natural_social_topic_mention_requires_consent(self):
+        first=self.chat('Hey, I love Dungeons and Dragons!');sid=first['session']
+        self.assertEqual(first['response']['response_structure']['topic_mentions'],['Dungeons and Dragons'])
+        self.assertIsNone(first['response']['context'])
+        self.assertEqual(self.chat('yes please',sid)['response']['context']['title'],'Dungeons and Dragons')
+
+    def test_social_preamble_does_not_hide_factual_question(self):
+        from tools import chat_tutor as T
+        for message in ('I like dinosaurs, why did they go extinct?',
+                        'I was thinking about how fossils form',
+                        'Hey, I enjoy science. What is gravity?'):
+            self.assertFalse(T.smalltalk_candidate(message,{}),message)

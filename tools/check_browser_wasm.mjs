@@ -88,5 +88,9 @@ const accepted=await call('/api/chat',{corpus:'logic',session:sid,message:'yes p
 if(accepted.response.kind!=='topic'||accepted.response.context.title!=='Dungeons and Dragons')throw Error('WASM accepted topic failed');
 const askHelp=await call('/api/query',{corpus:'logic',question:'How do I clear mplpb some or all?'});
 if(!askHelp.help||askHelp.reader.kind!=='help'||askHelp.gate.sources.length)throw Error('WASM Ask help routing failed');
-console.log('PASS real WebAssembly: ownership, relation proof, summary, withholding, memory, saved relaunch, fixture imports and isolated collections.');
+const definition=await call('/api/chat',{corpus:'logic',session:sid,message:'define dog'});
+if(definition.response.authority!=='lexical_reference'||!definition.response.senses.some(s=>s.id==='02086723-n'))throw Error('WASM dictionary lookup failed');
+const reference=await call('/api/chat',{corpus:'reference',message:'topic Fossil'});
+if(reference.response.context?.title!=='Fossil')throw Error('WASM encyclopedia reference failed');
+console.log('PASS real WebAssembly: ownership, relation proof, summary, withholding, memory, saved relaunch, fixture imports, isolated collections and offline references.');
 fs.writeFileSync(path.join(path.dirname(htmlPath),'wasm-validation.json'),JSON.stringify({runtime:bundle.runtime_version,passed:true,corpora:state.corpora.map(x=>x.key),ambiguous:ambiguous.reader.kind,relation:relation.response.kind,summary:summary.response.kind,withheld:withheld.reader.kind,chain_intact:saved.chain_intact,fixture_import_passed:true,virtual_save_relaunch_passed:true,browser_layout_tested:false,indexeddb_tested:false,live_wiki_tested:false},null,2));
