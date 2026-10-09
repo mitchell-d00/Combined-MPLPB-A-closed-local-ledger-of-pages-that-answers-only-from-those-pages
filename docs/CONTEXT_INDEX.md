@@ -30,3 +30,9 @@ Version 2 adds anchored polite memory questions (`Can you tell me my …?`, `Ple
 `conversation_engine.py` runs before individual chat handlers. It segments bounded multi-act turns, recognizes greetings, explicit introductions, identity/capability questions, topic intentions and user-declared person preferences, then composes a reply. A greeting plus “I’m M” bypasses dictionary part-of-speech rejection of initials. Replay reads only user turns, so corrections, forgetting and supported topic/person references survive reload. Ambiguous pronouns request clarification.
 
 One unresolved factual question in a mixed turn is delegated to the existing environment reader. Its answer and source metadata are retained; the social introduction is prepended. Other unresolved clauses cause the planner to defer rather than silently discard instructions. This remains a finite parser, not arbitrary semantic understanding. People and preferences are attributed to user statements, never promoted to MPLPB facts.
+
+## Clarification branches
+
+After an introduction mentioning MPLPB and the little monster, “What’s that?” presents both meanings as selectable questions. Naming either, or choosing “the first one” / “the second one”, establishes an explicit branch. “No MPLPB what is it” corrects the branch and answers the intended question without treating the correction as a subject-description assertion. Follow-up definitions and “tell me more” use the selected branch.
+
+The saved session retains pending choices, the active referent and up to 32 choice events with parent and turn identifiers. Unrelated substantive turns expire pending/active selection. Generic candidates come from typed page and conversation-topic context, not arbitrary assistant prose. Topic choices delegate to the existing source reader; clarification alone never creates evidence or changes loaded collections.
