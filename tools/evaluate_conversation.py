@@ -7,9 +7,9 @@ def run(scenarios_path='evaluation/conversation/scenarios.json'):
     records=[]
     scenarios=json.loads(Path(scenarios_path).read_text())
     with tempfile.TemporaryDirectory() as tmp:
-        app=App(topic_base=Path(tmp)/'topics')
         for mode in ['chat mode','load MPLPB']:
             for case in scenarios:
+                app=App(topic_base=Path(tmp)/mode.replace(' ','_')/case['id']/'topics')
                 sid=app.chat({'corpus':'logic','message':mode,'default_chat':True})['session']
                 for message in case['turns']:
                     r=app.chat({'corpus':'logic','session':sid,'message':message,'default_chat':True})['response']

@@ -16,7 +16,7 @@ class ContextIndexTests(unittest.TestCase):
         self.assertNotEqual(C.introduction('My name is M what are you?'),'M what are you')
 
     def test_forward_corrections_and_forgetting(self):
-        session=self.session("My dog's name is Rex","Actually, my dog's name is Max")
+        session=self.session("My dog’s name is Rex","Actually, my dog’s name is Max")
         r=X.handle("What is my dog's name?",session)
         self.assertIn('Max',r['message']);self.assertNotIn('Rex',r['message'])
         self.assertEqual(r['response_structure']['chat_references'][0]['supersedes'],1)

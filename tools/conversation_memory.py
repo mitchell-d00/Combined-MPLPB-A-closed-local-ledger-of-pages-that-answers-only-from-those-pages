@@ -1,6 +1,7 @@
 """Recall user-declared names and earlier turns; conversation is not page evidence."""
 import re
 from tools import deterministic_mind as M
+from tools.chat_phrasing import memory_question
 
 VERSION='conversation-memory-v3'
 FORGET={'forget my name','do not remember my name',"don't remember my name",'stop using my name'}
@@ -55,7 +56,7 @@ def reply(body,session,refs=None,**extra):
 
 
 def handle(message,session):
-    command=key(message)
+    command=memory_question(message)
     # Only scan the current conversation; assistant prose cannot name the user.
     name,at=name_from_chat(session)
     found=introduction(message)

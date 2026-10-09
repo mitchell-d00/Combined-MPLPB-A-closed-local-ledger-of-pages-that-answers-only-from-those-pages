@@ -45,6 +45,20 @@ jobs:
           tar -xjf "$RUNNER_TEMP/pyodide-core.tar.bz2" -C "$RUNNER_TEMP"
           node tools/check_browser_wasm.mjs "$RUNNER_TEMP/pyodide" dist/index.html
           touch dist/.nojekyll
+      - name: Build installation packages
+        run: |
+          python tools/build_release_packages.py
+          python -m pip wheel --no-deps --wheel-dir release .
+          python -m venv "$RUNNER_TEMP/mplpb-install"
+          "$RUNNER_TEMP/mplpb-install/bin/pip" install --no-deps release/*.whl
+          "$RUNNER_TEMP/mplpb-install/bin/mplpb-combined" --help
+      - name: Run synthetic context matrix
+        run: python -m tools.evaluate_context_matrix --output release/context-matrix.json
+      - name: Upload installation packages
+        uses: actions/upload-artifact@v4
+        with:
+          name: mplpb-monster
+          path: release/
       - name: Upload static site
         uses: actions/upload-pages-artifact@v3
         with:

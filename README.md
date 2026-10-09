@@ -250,7 +250,7 @@ nothing else.
 | `mplpb_combined/ledger.py` | The folder as a ledger: status, lineage, depth, validation, writing, the log |
 | `mplpb_combined/reader.py` | The answer rule, profiles, hubs |
 | `mplpb_combined/killtest.py` | The kill test: three arms, mechanical scoring |
-| `tests/` | 455 developer-authored regression tests covering the reader, captures, conversation, source boundaries and saved state |
+| `tests/` | 461 developer-authored regression tests covering the reader, captures, conversation, source boundaries and saved state |
 | `examples/studio/` | 25 pages about running a pottery studio; the kill-test corpus |
 | `examples/spec/` | The format described as ten pages in the format |
 | `examples/hub/` | Two pointers, one at each of the above |
@@ -359,3 +359,7 @@ Mitchell D. McPhetridge · October 2026
 Story replies use deterministic sentence construction with sense-checked WordNet adjectives, attributed user details and grammatical follow-up rules. See [construction boundaries](docs/GROUNDED_CHAT.md#compositional-response-construction). Loaded-page answers keep exact evidence quotes; no model or provider is required.
 
 Chat now has an explicit zero-collection Just chat environment and a Focus environment that loads selected or all stored MPLPB collections. Federated exploration retains each collection’s boundaries and labels; it does not merge evidence or chain relations across ledgers. See [environment behavior](docs/GROUNDED_CHAT.md#explicit-chat-and-focus-environments).
+
+## Conversation validation and packages
+
+See [synthetic runs and independent evaluation protocol](docs/CHAT_EVALUATION.md), [context and adaptation rules](docs/CONTEXT_INDEX.md), and [installation packages](docs/INSTALLATION.md). Main-branch CI builds source and browser ZIPs plus an install-tested core CLI wheel. Synthetic checks do not establish unrestricted language understanding.

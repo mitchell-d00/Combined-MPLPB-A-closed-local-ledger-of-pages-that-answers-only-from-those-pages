@@ -374,4 +374,9 @@ def handle(app, data, session, message, corpus, profile):
         values={Q.normalized(e['value']) for x in results for e in x['response'].get('evidence',[])}
         return M.reply('conflict' if len(values)>1 else 'federated_answers','Separate collection results; no cross-collection inference or preferred answer:\n\n'+'\n\n'.join(x['corpus']+' :: '+x['response']['message'] for x in results),None,'SCOPE-SEPARATE',
                        authority='separate_source_results',sources=[dict(s,corpus=x['corpus']) for x in results for s in x['response'].get('sources',[])],scope_results=results,blocked_collections=blocked,suggestions=topic_suggestions(overview[1] if overview else session['mind'].get('idea_chat',{}).get('subject')))
+    if re.match(r"^(?:what|who|when|where|why|how|can|could|is|are|does|do)\b",key):
+        subject=session['mind'].get('idea_chat',{}).get('subject')
+        pronoun=bool(re.search(r'\b(?:it|they|them|their|its)\b',key))
+        body=('About '+subject+': ' if subject and pronoun else '')+'I don’t have a supported answer in the eligible pages for that question. We can look for another source or narrow the question.'
+        return reply(body,session['context'],suggestions=topic_suggestions(subject if pronoun else None),blocked_collections=blocked)
     return reply('What would you like to know about that? You can tell me a topic or ask a specific question; I’ll check the loaded pages.',session['context'],suggestions=topic_suggestions(session['mind'].get('idea_chat',{}).get('subject')),blocked_collections=blocked)

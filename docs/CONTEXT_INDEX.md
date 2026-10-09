@@ -22,3 +22,5 @@ python -m unittest tests.test_context_index -q
 ```
 
 These developer-authored checks cover the reported screenshot, correction order, forgetting, role separation, changed-history invalidation, ambiguous pronouns, reload integrity and session isolation. They are not independent human validation or proof of general language understanding.
+
+Version 2 adds anchored polite memory questions (`Can you tell me my …?`, `Please remind me of my …`, `Tell me what my … is`) and curly-apostrophe normalization. `Forget the meaning of flarn` removes that active user-defined meaning on replay; historical text remains. Definitions are explicit adaptive data, not executable instructions or verified evidence. See [expanded evaluation](CHAT_EVALUATION.md) and [packages](INSTALLATION.md).

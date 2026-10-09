@@ -373,6 +373,7 @@ class App:
             M.record(session.setdefault('mind', {'notes': []}), result)
             result['question_frame']=E.IC.PF.frame(message)
             payload = {'question': message, 'corpus': corpus, 'profile': profile, 'response': result}
+            payload['chat_phrasing_sha256']=hashlib.sha256(Path(CX.__file__).with_name('chat_phrasing.py').read_bytes()).hexdigest()
             payload['context_index_version']=CX.VERSION
             payload['context_index_sha256']=hashlib.sha256(Path(CX.__file__).read_bytes()).hexdigest()
             payload['dialogue_rules_version']=DR.VERSION

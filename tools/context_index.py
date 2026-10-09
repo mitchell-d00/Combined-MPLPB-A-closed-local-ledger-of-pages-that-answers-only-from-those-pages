@@ -8,8 +8,9 @@ import hashlib
 import json
 import re
 from tools import deterministic_mind as M
+from tools.chat_phrasing import memory_question
 
-VERSION='context-index-v1'
+VERSION='context-index-v2'
 
 def key(text):
     return re.sub(r'\s+',' ',text.replace('’',"'")).strip(' .!?').casefold()
@@ -21,7 +22,7 @@ def terms(text):
 
 def declarations(text):
     """Explicit possessive slots, not inferred personal attributes."""
-    text=re.sub(r'^(?:actually|correction|no)[,; ]+','',text.strip(),flags=re.I)
+    text=re.sub(r'^(?:actually|correction|no)[,; ]+','',text.replace('’',"'").strip(),flags=re.I)
     match=re.fullmatch(r"my ([\w][\w '-]{0,60}?) (is|are) (.{1,160})[.!]?",text,re.I)
     if not match or '?' in text:return []
     slot,copula,value=match.groups();value=value.rstrip('.!')
@@ -45,6 +46,8 @@ def prepare(session):
         command=key(entry['user'])
         definition=re.fullmatch(r'when i say (.{1,50}?) i mean (.{1,160})',command)
         if definition:vocabulary[definition[1]]={'meaning':definition[2],'turn':entry['turn']}
+        forgotten_word=re.fullmatch(r'forget the meaning of (.{1,50})',command)
+        if forgotten_word:vocabulary.pop(forgotten_word[1],None)
         forgotten=re.fullmatch(r'forget my (.{1,60})',command)
         if forgotten:slots.pop(forgotten[1],None)
         for item in declarations(entry['user']):
@@ -62,6 +65,10 @@ def result(session,body,refs,**extra):
 
 def handle(message,session):
     index=prepare(session);command=key(message)
+    forgotten_word=re.fullmatch(r'forget the meaning of (.{1,50})',command)
+    if forgotten_word:
+        return result(session,'Okay; I won’t use your definition of “'+forgotten_word[1]+'”. The transcript is unchanged.',[])
+    command=memory_question(command)
     definition=re.fullmatch(r'when i say (.{1,50}?) i mean (.{1,160})',command)
     if definition:
         return result(session,'In our conversation, I’ll use “'+definition[1]+'” to mean “'+definition[2]+'”.',[{'turn':len(session.get('log',[]))+1,'basis':'user-defined wording'}])
