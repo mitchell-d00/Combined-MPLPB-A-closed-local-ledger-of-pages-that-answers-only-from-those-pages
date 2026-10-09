@@ -165,7 +165,7 @@ fs.writeFileSync(path.join(path.dirname(htmlPath),'wasm-validation.json'),JSON.s
 for(const mode of ['chat mode','load MPLPB']){
  const start=await call('/api/chat',{corpus:'logic',message:mode});
  const chatSession=start.session;
- for(const [message,expected] of [['Hi, I’m Alex. How are you?','Alex'],['What is my name?','Alex'],['My name is M what are you?','Hi, M!'],['What’s my name?','call you M'],["My dog's name is Rex",'Rex'],["Actually, my dog's name is Max",'Max'],["What is my dog’s name?",'Max'],['What is 12 times 7?','84'],['If all glimmers are blue and Pip is a glimmer, is Pip blue?','under your premises']]){
+ for(const [message,expected] of [['Hi, I’m Alex. How are you?','Alex'],['What is my name?','Alex'],['Hi I’m M what are you','Hi, M!'],['What can you chat about','your day'],['My friend Sam likes pottery','Sam'],['What does she like?','pottery'],['What’s my name?','call you M'],["My dog's name is Rex",'Rex'],["Actually, my dog's name is Max",'Max'],["What is my dog’s name?",'Max'],['What is 12 times 7?','84'],['If all glimmers are blue and Pip is a glimmer, is Pip blue?','under your premises']]){
   const answer=await call('/api/chat',{corpus:'logic',session:chatSession,message});
   if(!answer.response.message.includes(expected)||answer.response.sources.length)throw Error('WASM dialogue regression: '+message);
  }

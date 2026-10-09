@@ -24,3 +24,9 @@ python -m unittest tests.test_context_index -q
 These developer-authored checks cover the reported screenshot, correction order, forgetting, role separation, changed-history invalidation, ambiguous pronouns, reload integrity and session isolation. They are not independent human validation or proof of general language understanding.
 
 Version 2 adds anchored polite memory questions (`Can you tell me my …?`, `Please remind me of my …`, `Tell me what my … is`) and curly-apostrophe normalization. `Forget the meaning of flarn` removes that active user-defined meaning on replay; historical text remains. Definitions are explicit adaptive data, not executable instructions or verified evidence. See [expanded evaluation](CHAT_EVALUATION.md) and [packages](INSTALLATION.md).
+
+## Dialogue-act planner
+
+`conversation_engine.py` runs before individual chat handlers. It segments bounded multi-act turns, recognizes greetings, explicit introductions, identity/capability questions, topic intentions and user-declared person preferences, then composes a reply. A greeting plus “I’m M” bypasses dictionary part-of-speech rejection of initials. Replay reads only user turns, so corrections, forgetting and supported topic/person references survive reload. Ambiguous pronouns request clarification.
+
+One unresolved factual question in a mixed turn is delegated to the existing environment reader. Its answer and source metadata are retained; the social introduction is prepended. Other unresolved clauses cause the planner to defer rather than silently discard instructions. This remains a finite parser, not arbitrary semantic understanding. People and preferences are attributed to user statements, never promoted to MPLPB facts.
