@@ -68,3 +68,30 @@ class TutorTests(unittest.TestCase):
         self.assertEqual(answer['kind'],'summary')
         self.assertEqual(answer['sources'][0],first['response']['context'])
         self.assertTrue(any(isinstance(r,dict) and r.get('rule')=='PHRASE-1' for r in answer['reasoning']))
+
+    def test_topic_conversation_has_no_facts_and_retains_selected_topic(self):
+        first=self.chat('topic Dungeons and Dragons');sid=first['session']
+        with patch.object(self.app,'build_search',side_effect=AssertionError('No conversation crawl')):
+            answer=self.chat("Let's talk about it",sid)['response']
+        self.assertEqual(answer['kind'],'conversation')
+        self.assertEqual(answer['sources'],[])
+        self.assertEqual(answer['context'],first['response']['context'])
+        self.assertFalse(answer['response_structure']['factual_claims'])
+        self.assertIn('Dungeons and Dragons',answer['message'])
+        self.assertIn('summarize it',answer['suggestions'])
+        summary=self.chat('summarize it',sid)['response']
+        self.assertTrue(summary['sources'])
+
+    def test_conversation_style_survives_reload_and_confusion_without_topic(self):
+        first=self.chat('Give me more detail');sid=first['session']
+        self.app=App(topic_base=self.base)
+        answer=self.chat("I'm confused",sid)['response']
+        self.assertEqual(answer['response_structure']['style'],'detailed')
+        self.assertIsNone(answer['response_structure']['topic'])
+        self.assertIn('guide me',answer['suggestions'])
+        self.assertEqual(self.chat('keep it short',sid)['response']['response_structure']['style'],'brief')
+
+    def test_world_questions_do_not_become_conversation(self):
+        from tools import chat_tutor as T
+        for question in ('Why did dinosaurs go extinct?','What do you think caused extinction?','How do fossils form?'):
+            self.assertIsNone(T.conversation(question,None,{}))

@@ -11,7 +11,7 @@ LESSONS=[
  ('Keep or clear your work','Successful operations save in this browser. Export transcript makes a chat copy, not a full source backup. You can keep notes, restart a chat, or clear selected collections through confirmed controls. Which would you like help with?',['how do I save?','how do I clear all?','how do I use memory?','finish guide']),
 ]
 
-def key(message):return re.sub(r'\s+',' ',re.sub(r'[?!.,]','',message.casefold())).strip()
+def key(message):return re.sub(r'\s+',' ',re.sub(r'[?!.,]','',message.casefold().replace('’',"'"))).strip()
 
 def guide(message,context,memory):
     command=key(message);saved=memory.get('guide',{})
@@ -39,6 +39,34 @@ def learning_request(message,context):
 def local_phrase(message):
     aliases={'what is this about':'what is it?','what is this page about':'what is it?','explain this':'summarize it','explain it to me':'summarize it','can you summarize this':'summarize it','give me a summary':'summarize it','tell me more about it':'show source','where did that come from':'show source','what does the page say':'show source'}
     return aliases.get(key(message),message)
+
+def conversation(message,context,memory):
+    """Conversation about handling a topic, never evidence about its contents."""
+    command=key(message)
+    topic=context.get('title') if context else None
+    focus='“'+topic+'”' if topic else 'a topic'
+    choices=['summarize it','show source','show my MPLPB'] if topic else ['show my MPLPB','guide me','how do I search?']
+    style=memory.setdefault('conversation',{}).get('style','brief')
+    if command in {'keep it short','short answers please','be brief','give me more detail','more detail please'}:
+        style='detailed' if 'detail' in command else 'brief'
+        memory['conversation']['style']=style
+        purpose='I’ll include the available next steps and explain how to check their sources.' if style=='detailed' else 'I’ll keep conversational replies short and offer a next step.'
+        rule='CHAT-STYLE'
+    elif command in {'lets talk about it',"let's talk about it",'can we talk about this','can we chat about it','talk to me about this','lets discuss it',"let's discuss it"}:
+        purpose='We can explore '+focus+'. Would you like an overview, the original source, or a different page?'
+        rule='CHAT-DISCUSS'
+    elif command in {'i am confused',"i'm confused",'i dont understand',"i don't understand",'that is confusing','help me understand','i am lost',"i'm lost"}:
+        purpose='Let’s take one step at a time. '+('We have '+focus+' selected. Start with its summary, then check the source.' if topic else 'First choose a page from your MPLPB, or use Guide me to build a collection.')
+        rule='CHAT-CLARIFY'
+    elif command in {'that is interesting','thats interesting',"that's interesting",'interesting','sounds interesting','i like this topic','what should we discuss','what should i ask next','what next'}:
+        purpose='For '+focus+', we can look at an overview or inspect where the information came from. Which would you prefer?'
+        rule='CHAT-NEXT'
+    elif command in {'what do you think','what is your opinion','do you like this topic'}:
+        purpose='I don’t form personal opinions. I can help you examine '+focus+' by checking what a page says and where it came from.'
+        rule='CHAT-OPINION'
+    else:return None
+    detail='These are choices for exploring the collection. A summary or source request will still check the selected page and its provenance. I have not searched the web or added any topic facts in this reply.'
+    return M.reply('conversation',purpose+('\n\n'+detail if style=='detailed' else ''),context,rule,authority='conversation_structure',suggestions=choices,response_structure={'intent':rule,'topic':topic,'style':style,'next_step':'choose a suggested question','factual_claims':False})
 
 def followups(result,memory):
     if result.get('suggestions'):return

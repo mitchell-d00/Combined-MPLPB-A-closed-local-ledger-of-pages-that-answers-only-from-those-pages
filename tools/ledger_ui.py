@@ -249,7 +249,7 @@ class App:
                 raise ValueError('1000-turn save limit reached. State retained; export before an explicit restart.')
             wiki = data.get('wiki', 'simple')
             memory=session.setdefault('mind',{'notes':[]})
-            tutor=T.guide(message,session['context'],memory) or T.learning_request(message,session['context'])
+            tutor=T.conversation(message,session['context'],memory) or T.guide(message,session['context'],memory) or T.learning_request(message,session['context'])
             if tutor is not None:result=tutor
             elif T.key(message) in T.LIST:
                 try:

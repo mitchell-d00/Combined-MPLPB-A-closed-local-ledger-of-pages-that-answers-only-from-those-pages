@@ -77,6 +77,8 @@ if(cleared.count!==2)throw Error('WASM bulk clear failed');
 const retained=await call('/api/chat/resume',{session:sid});
 if(retained.notes[0]!=='I study dinosaurs')throw Error('WASM bulk clear touched other chat');
 const guide=await call('/api/chat',{corpus:'logic',session:sid,message:'guide me'});
+const discussion=await call('/api/chat',{corpus:'logic',session:sid,message:'let’s talk about it'});
+if(discussion.response.kind!=='conversation'||discussion.response.sources.length||discussion.response.response_structure.factual_claims!==false)throw Error('WASM conversation boundary failed');
 if(guide.response.guide?.step!==1||!guide.response.suggestions.includes('show my MPLPB'))throw Error('WASM guide failed');
 const next=await call('/api/chat',{corpus:'logic',session:sid,message:'next step'});
 if(next.response.guide?.step!==2)throw Error('WASM guide progression failed');

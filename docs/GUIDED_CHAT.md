@@ -31,3 +31,10 @@ lessons are program-authored instructions, not facts acquired from a corpus.
 Walk back: revert tutor, UI and App routing together. Preserve saved chats and
 source captures. New guide state is chat memory; removing this feature does not
 justify rewriting frozen probes or historical source captures.
+
+# Light topic conversation
+
+Chat supports a finite conversational layer for handling topics. With a page selected, “let’s talk about it”, “I’m confused”, “that’s interesting”, and “what should I ask next” offer an overview, source inspection, or another page. Without a selected page, it asks the user to choose material. Suggestions require Send and do not fetch automatically.
+
+“Keep it short” and “give me more detail” save a conversational style in the current chat. This changes navigation replies, not source quotations. Each reply has a `response_structure` containing its intent, topic, style and next step, with `factual_claims: false`. Its authority is `conversation_structure`, with no source evidence asserted. Topic labels are saved selections, not newly verified source claims. Factual questions still use the existing reader and provenance gate. Opinions are not fabricated. Unrecognized wording is not general semantic understanding.
+
