@@ -82,9 +82,9 @@ if(discussion.response.kind!=='conversation'||discussion.response.sources.length
 if(guide.response.guide?.step!==1||!guide.response.suggestions.includes('show my MPLPB'))throw Error('WASM guide failed');
 const next=await call('/api/chat',{corpus:'logic',session:sid,message:'next step'});
 if(next.response.guide?.step!==2)throw Error('WASM guide progression failed');
-const casual=await call('/api/chat',{corpus:'logic',session:sid,message:'I like Dungeons and Dragons'});
+const casual=await call('/api/chat',{corpus:'logic',message:'I like Dungeons and Dragons'});
 if(casual.response.kind!=='smalltalk'||casual.response.sources.length||!casual.response.suggestions.includes('yes please'))throw Error('WASM topic offer failed');
-const accepted=await call('/api/chat',{corpus:'logic',session:sid,message:'yes please'});
+const accepted=await call('/api/chat',{corpus:'logic',session:casual.session,message:'yes please'});
 if(accepted.response.kind!=='topic'||accepted.response.context.title!=='Dungeons and Dragons')throw Error('WASM accepted topic failed');
 const askHelp=await call('/api/query',{corpus:'logic',question:'How do I clear mplpb some or all?'});
 if(!askHelp.help||askHelp.reader.kind!=='help'||askHelp.gate.sources.length)throw Error('WASM Ask help routing failed');
@@ -107,6 +107,7 @@ if(unloaded.response.context||unloaded.response.response_structure?.mode!=='casu
 await py.runPythonAsync('B.app = App()');
 const casualStory=await call('/api/chat',{corpus:moonCollection.corpus,session:moonSelected.session,message:'My boss yelled at me'});
 if(casualStory.response.context||casualStory.response.response_structure?.intent!=='social_followup')throw Error('WASM casual reload failed');
+await call('/api/chat',{corpus:'logic',session:sid,message:'just chat'});
 const badDay=await call('/api/chat',{corpus:'logic',session:sid,message:'Iv had a bad day'});
 if(badDay.response.response_structure?.intent!=='social_invitation')throw Error('WASM social invitation failed');
 await py.runPythonAsync('B.app = App()');
@@ -134,5 +135,10 @@ const potato=await call('/api/chat',{corpus:'logic',session:legacyCasual.session
 if(!potato.response.message.startsWith('potato')||!potato.response.message.includes('?')||potato.response.sources.length)throw Error('WASM playful echo failed');
 const exactEcho=await call('/api/chat',{corpus:'logic',session:legacyCasual.session,message:'say exactly PoTaTo!',default_chat:true});
 if(exactEcho.response.message!=='PoTaTo!')throw Error('WASM exact echo failed');
+if(potato.response.determination?.basis!=='conversation'||potato.response.determination?.elimination_creates_evidence!==false)throw Error('WASM chat determination failed');
+if(moonSize.response.determination?.basis!=='source_assertion')throw Error('WASM source determination failed');
+const strictLoad=await call('/api/chat',{corpus:'logic',session:legacyCasual.session,message:'load MPLPB'});
+const seriousEcho=await call('/api/chat',{corpus:'logic',session:legacyCasual.session,message:'say potato'});
+if(seriousEcho.response.message.startsWith('potato')||seriousEcho.response.determination?.mode!=='focus')throw Error('WASM serious mode leaked playful echo');
 console.log('PASS real WebAssembly: ownership, relation proof, summary, withholding, memory, saved relaunch, fixture imports, isolated collections, offline references, grounded follow-ups and social turn-taking.');
 fs.writeFileSync(path.join(path.dirname(htmlPath),'wasm-validation.json'),JSON.stringify({runtime:bundle.runtime_version,passed:true,corpora:state.corpora.map(x=>x.key),ambiguous:ambiguous.reader.kind,relation:relation.response.kind,summary:summary.response.kind,withheld:withheld.reader.kind,chain_intact:saved.chain_intact,fixture_import_passed:true,virtual_save_relaunch_passed:true,browser_layout_tested:false,indexeddb_tested:false,live_wiki_tested:false},null,2));

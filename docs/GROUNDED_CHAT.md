@@ -181,3 +181,31 @@ Ordinary requests add a playful question; `say exactly`, `say only`, and
 `repeat after me:` omit extra chatter. `again` recalls the last echo across reloads.
 Echoes are limited to 300 characters, labeled as user-requested text, never executed
 as commands, and never added to the source ledger.
+
+
+## Reduction-to-determination rule
+
+`tools/reduction.py` provides a pure candidate reducer and a final response guard.
+Candidates declare their basis, meaning, prerequisite failures and support contract.
+The reducer removes ineligible candidates before selecting anything:
+
+- No eligible candidate: explain missing requirements or refuse.
+- One candidate: select it.
+- Several equivalent wordings: use stable candidate-ID order and the saved turn.
+- Materially different meanings: clarify or present alternatives; do not rank one
+  into truth. Collection-qualified topic selection uses this rule.
+
+Chat permits conversational candidates. MPLPB focus excludes casual candidates;
+procedural help, source assertions, explicit deductions and uncertainty remain
+available. Legacy selected topics also receive the serious-mode guard. Dictionary
+references retain their own authority. Existing source gates establish support;
+the reducer checks their candidate contracts, not semantic entailment or source
+truth. Named deduction rules require premises and rule identifiers. Eliminating
+alternatives never supplies evidence or proves the remaining claim.
+
+Casual explanation variants and social phrase slots use deterministic wording
+selection. Every chat response records its final determination, retained/eliminated
+candidate IDs, reasons, basis and rule version in Evidence and decision rules.
+Transcripts pin the reducer's code hash. Equal input, state, source versions and
+rule versions yield equal selection; timestamps/session identifiers are not claims
+of byte-identical newly created transcripts.

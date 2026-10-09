@@ -23,7 +23,7 @@ class MindSessionTests(unittest.TestCase):
         with patch.object(self.app,'prepare_search',side_effect=AssertionError('help must not crawl')):
             for question in ('Hi!', 'How do I use this?', 'How do I search?', 'How do I search for fossils?', 'How do I save?', 'What does reset do?', 'Thanks', 'What can you do?'):
                 answer=self.chat(question,first['session'])['response']
-                self.assertEqual(answer['kind'],'smalltalk' if question=='Hi!' else 'help',question)
+                self.assertEqual(answer['kind'],'unsupported' if question=='Hi!' else 'help',question)
                 self.assertEqual(answer['sources'],[])
                 self.assertEqual(answer['context'],first['response']['context'])
         self.assertEqual(self.app.collections.entries(),{})

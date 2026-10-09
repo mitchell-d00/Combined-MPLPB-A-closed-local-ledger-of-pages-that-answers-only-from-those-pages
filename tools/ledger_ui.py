@@ -32,6 +32,7 @@ from tools import grounded_chat as Q
 from tools import social_chat as S
 from tools import response_construction as N
 from tools import chat_environment as E
+from tools import reduction as RD
 
 
 class App:
@@ -335,6 +336,10 @@ class App:
                     result['suggestions'] = offer['suggestions']
                     result['source_offer'] = offer['source_offer']
                 if interpreted!=message:result.setdefault('reasoning',[]).append({'rule':'PHRASE-1','interpreted_as':interpreted})
+            result=RD.adjudicate(result,session.get('environment',{}).get('mode','focus' if session.get('context') or result.get('context') or result['kind'] in {'return','summary','grounded_answer','relations','federated_answers'} else 'chat'))
+            if result['determination']['outcome']=='no_eligible_candidate':
+                session['mind'].pop('topic_offer',None)
+                session['mind']['casual_active']=False
             if result['kind'] in {'import','built'}:
                 session['environment']={'mode':'focus','corpora':[corpus],'focus_corpus':corpus if result.get('context') else None}
             if session.get('environment'):
@@ -356,6 +361,8 @@ class App:
             payload['mind_sha256'] = hashlib.sha256(Path(M.__file__).read_bytes()).hexdigest()
             payload['grounded_chat_version'] = Q.VERSION
             payload['grounded_chat_sha256'] = hashlib.sha256(Path(Q.__file__).read_bytes()).hexdigest()
+            payload['determination_version']=RD.VERSION
+            payload['determination_sha256']=hashlib.sha256(Path(RD.__file__).read_bytes()).hexdigest()
             payload['casual_rules_version']=E.D.VERSION
             payload['casual_rules_sha256']=hashlib.sha256(Path(E.D.__file__).read_bytes()).hexdigest()
             payload['environment_version'] = E.VERSION

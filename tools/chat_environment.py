@@ -1,6 +1,7 @@
 """Explicit empty/chat and federated/focus scopes; never merge ledger evidence."""
 import re
 from tools import casual_reasoning as D
+from tools import reduction as RD
 from tools import chat_logic as C, chat_tutor as T, deterministic_mind as M
 from tools import social_chat as S, grounded_chat as Q, reference_resources as F
 
@@ -112,10 +113,13 @@ def handle(app, data, session, message, corpus, profile):
     topic=re.fullmatch(r'topic (.+)',message,re.I)
     if focus or topic:
         candidates=[(k,p) for k,p in entries if p['title'].casefold()==(focus[2] if focus else topic[1]).casefold() and (not focus or k==focus[1])]
-        if len(candidates)!=1:
-            return reply('Choose one eligible page and its collection; duplicate titles are kept separate.',None,suggestions=['focus '+k+' :: '+p['title'] for k,p in candidates][:40],blocked_collections=blocked)
-        k,p=candidates[0];session['environment']['focus_corpus']=k
-        return C.turn(app,k,app.root(k),profile,'topic '+p['title'],None)
+        chosen,trace=RD.determine([{'id':k+' :: '+p['title'],'basis':'procedure','meaning':k+' :: '+p['path'],'page':(k,p)} for k,p in candidates],'focus')
+        if chosen is None:
+            return reply('Choose one eligible page and its collection; duplicate titles are kept separate.',None,suggestions=['focus '+k+' :: '+p['title'] for k,p in candidates][:40],blocked_collections=blocked,selection_determination=trace)
+        k,p=chosen['page'];session['environment']['focus_corpus']=k
+        result=C.turn(app,k,app.root(k),profile,'topic '+p['title'],None)
+        result['selection_determination']=trace
+        return result
     focused=env.get('focus_corpus');context=session['context']
     if focused and context:
         if focused not in env['corpora'] or (focused,context) not in entries:

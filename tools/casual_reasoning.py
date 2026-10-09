@@ -1,6 +1,7 @@
 """Bounded conversational intent rules and discourse; not ledger evidence."""
 import re
 from tools import deterministic_mind as M
+from tools import reduction as R
 
 VERSION='casual-reasoning-v2'
 NOTICE='Deterministic chat; not MPLPB-supported.'
@@ -83,12 +84,12 @@ def respond(message,memory):
     }[topic]
     # Do not answer an affirmative question with an ambiguous "Right".
     if topic=='identity' and 'not' not in key:opening=opening[:1]
-    body=opening[(state['turn']-1)%len(opening)]
+    body,determination=R.wording(opening,topic,state['turn'])
     detail={
         'ideas':'Which sounds best: a story, a question, or talking about your day?',
         'story':'',
         'identity':'I can still chat, keep track of our conversation and help with wording. Focus mode is where I use loaded MPLPB pages for supported answers.',
-        'rules':'1. Recognize the request and conversational context.\n2. Choose a reply structure.\n3. Use dictionary meanings and sense-checked wording where those rules apply.\n4. Keep casual replies separate from MPLPB evidence.\n5. In focus mode, check the loaded sources and keep their boundaries.',
+        'rules':'1. Identify your request, context and mode.\n2. Reduce the candidate replies using those constraints.\n3. Choose equivalent conversational wording by a fixed order; clarify materially different meanings.\n4. If nothing qualifies, explain what is missing.\n5. MPLPB mode stays serious and requires source support; reducing alternatives never creates evidence.',
         'construction':'Some replies use written explanations; social replies can combine phrases and WordNet-checked adjectives. The same message and saved state produce the same reply.',
         'experience':'Want me to listen, ask questions, or help you organize your thoughts?',
         'conversation':'Would you prefer a question, a joke, or a listening ear?',
@@ -106,4 +107,4 @@ def respond(message,memory):
     suggestions={'ideas':['tell me a story','a silly question','I had a bad day'], 'story':['tell me more','can we talk'], 'greeting':['I had a bad day','tell me a joke'], 'identity':['how do you think?','what are the rules?'], 'construction':['what are the rules?','can we talk'], 'rules':['how do you think?','load all MPLPB']}.get(topic,['can we talk','just listen','load all MPLPB'])
     return M.reply('conversation',body,None,'CASUAL-'+topic.upper(),authority='conversation_structure',suggestions=suggestions,
                    response_structure={'intent':'casual_'+topic,'factual_claims':False,'mplpb_supported':False,
-                                       'engine':VERSION,'discourse_topic':topic,'followup_of':state.get('followup_of')})
+                                       'engine':VERSION,'wording_determination':determination,'discourse_topic':topic,'followup_of':state.get('followup_of')})

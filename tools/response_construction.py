@@ -5,6 +5,7 @@ Rules and pragmatic word restrictions below are deliberately authored and audita
 """
 import re
 from tools import reference_resources as L
+from tools import reduction as R
 
 VERSION = 'response-construction-v1'
 # Exact sense pins avoid mixing unrelated meanings of the same headword.
@@ -17,7 +18,7 @@ LEXICAL_SLOTS = {
 
 
 def choose(items, turn, offset=0):
-    return items[(max(1, turn)-1+offset) % len(items)]
+    return R.wording(items,'equivalent phrase slot',max(1,turn)+offset)[0]
 
 
 def sentence(*parts, question=False):
