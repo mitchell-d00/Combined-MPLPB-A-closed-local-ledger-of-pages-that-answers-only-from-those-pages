@@ -74,6 +74,7 @@ CASUAL_PREFIXES=('i like ','i enjoy ','i was thinking about ','just chatting abo
                  'i spent ','i went ','i saw ','i am relaxing','i’m relaxing',"i'm relaxing",'we were talking about ')
 SMALL_ALIASES={'hi there':'hi','hello there':'hello','good morning':'hello','good afternoon':'hello','good evening':'hello','how are you doing':'how are you','how is it going':'how are you','how are things':'how are you',"i'm bored":'i am bored','just chat':'just chatting',"let's chat":'just chatting','lets chat':'just chatting','can we just chat':'just chatting','why are you here':'why do you exist','why were you made':'why do you exist','are you ai':'what are you','fine':'good','pretty good':'good','not much':'nothing much'}
 SMALL_ALIASES.update({"what's up":'nothing much','whats up':'nothing much',"how's it going":'how are you',
+ 'sure':'yes please','sure thing':'yes please','yeah':'yes please','yep':'yes please',
  'can we talk about nothing':'nothing','lets talk about nothing':'nothing',"let's talk about nothing":'nothing',
  'ask me something silly':'a silly question','silly question':'a silly question','quiet please':'a little quiet',
  "i'm tired":'i am tired',"i'm happy":'i am happy',"i'm sad":'i am sad','bye':'goodbye','see you later':'goodbye',

@@ -20,7 +20,10 @@ These are finite extraction rules; independent human validation is still pending
 ## Casual chat and offline references
 
 Say `what are you?`, `why do you exist?`, `I'm tired`, or `can we talk about nothing?`
-for casual conversation. Mentioning an exact eligible page title in a recognized
+for casual conversation. Say `I had a bad day`, then `sure` to start a
+chat about your day; `just listen`, `change the subject`, and `not now` steer it.
+This uses saved local conversation rules and needs no AI account or model.
+Mentioning an exact eligible page title in a recognized
 casual phrase invites a more serious, source-backed conversation. It waits for
 your acceptance and checks the page again before selecting it.
 

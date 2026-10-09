@@ -102,5 +102,12 @@ if(missingMoon.response.kind!=='unsupported'||missingMoon.response.sources.lengt
 await py.runPythonAsync('B.app = App()');
 const moonAge=await call('/api/chat',{corpus:moonCollection.corpus,session:moonSelected.session,message:'and how old is it?'});
 if(moonAge.response.kind!=='grounded_answer'||!moonAge.response.message.includes('4.5 billion'))throw Error('WASM persisted grounded context failed');
-console.log('PASS real WebAssembly: ownership, relation proof, summary, withholding, memory, saved relaunch, fixture imports, isolated collections, offline references and grounded follow-ups.');
+const badDay=await call('/api/chat',{corpus:'logic',session:sid,message:'Iv had a bad day'});
+if(badDay.response.response_structure?.intent!=='social_invitation')throw Error('WASM social invitation failed');
+await py.runPythonAsync('B.app = App()');
+const socialYes=await call('/api/chat',{corpus:'logic',session:sid,message:'sure'});
+if(socialYes.response.response_structure?.intent!=='social_accept')throw Error('WASM social resume failed');
+const socialStory=await call('/api/chat',{corpus:'logic',session:sid,message:'My boss yelled at me'});
+if(socialStory.response.sources.length||!socialStory.response.message.includes('frustrating'))throw Error('WASM social boundary failed');
+console.log('PASS real WebAssembly: ownership, relation proof, summary, withholding, memory, saved relaunch, fixture imports, isolated collections, offline references, grounded follow-ups and social turn-taking.');
 fs.writeFileSync(path.join(path.dirname(htmlPath),'wasm-validation.json'),JSON.stringify({runtime:bundle.runtime_version,passed:true,corpora:state.corpora.map(x=>x.key),ambiguous:ambiguous.reader.kind,relation:relation.response.kind,summary:summary.response.kind,withheld:withheld.reader.kind,chain_intact:saved.chain_intact,fixture_import_passed:true,virtual_save_relaunch_passed:true,browser_layout_tested:false,indexeddb_tested:false,live_wiki_tested:false},null,2));

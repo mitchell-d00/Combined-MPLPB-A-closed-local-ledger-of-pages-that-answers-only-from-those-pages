@@ -50,3 +50,35 @@ independent truth guarantee. Recognition is deliberately conservative and will m
 many valid paraphrases; see the recorded evaluation failures.
 
 Validation artifacts and the independent protocol: `evaluation/contextual/`.
+
+## Chatty conversation without a language model
+
+Everyday conversation now has a small saved turn-taking state. For example:
+
+```text
+You: Iv had a bad day
+MPLPB: I’m sorry it’s been rough. Want to talk about it?
+You: sure
+MPLPB: Okay, tell me about it. What happened?
+You: My boss yelled at me
+MPLPB: That sounds frustrating. Want to say a little more about that?
+```
+
+“Just listen” gives short acknowledgments without questions. “Change the subject”
+offers a light prompt. “Not now” and “stop chatting” stop the invitation. Good-day
+and tired-day openings have different replies. Common spelling/contraction variants
+are accepted. Replies come from local phrase rules, vary with the turn, and avoid
+immediate repetition. There is no provider, account, API key, model download or
+network call. This is conversational turn-taking, not unrestricted AI generation.
+
+The saved state contains the stage, reply style, turn count and last reply—not an
+emotional profile or new ledger facts. Conversation text remains in the normal
+saved transcript. Invitations resume after reload; unrelated turns or collection/
+profile changes expire them. A literal eligible topic mention takes priority and
+asks before selecting it. “Sure” can accept that offer too. Factual questions still
+use MPLPB’s source rules, and casual replies retain but do not alter a selected
+page. Social reactions are acknowledgments, not verified judgments about events.
+
+Checks include consent/decline, reloads, listening mode, negation, factual-question
+routing, topic-offer priority, transcript pins and absence of automatic fetching.
+These are developer regression tests, not a human evaluation of conversational quality.

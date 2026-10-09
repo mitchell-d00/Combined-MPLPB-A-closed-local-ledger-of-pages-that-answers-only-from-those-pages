@@ -29,6 +29,7 @@ from tools import topic_crawl as TC
 from tools import chat_tutor as T
 from tools import reference_resources as F
 from tools import grounded_chat as Q
+from tools import social_chat as S
 
 
 class App:
@@ -243,6 +244,7 @@ class App:
                 session = copy.deepcopy(self.sessions[sid])
                 if session['corpus'] != corpus or session['profile'] != profile:
                     session['context'] = None
+                    session.setdefault('mind',{}).pop('social',None)
                     session['corpus'], session['profile'] = corpus, profile
             else:
                 if len(self.sessions) >= 32:
@@ -257,14 +259,17 @@ class App:
                 memory.pop('topic_offer',None)
             casual=None
             open_casual=T.casual_followup(message,session['context'],memory)
-            if T.smalltalk_candidate(message,memory) or open_casual is not None:
+            if T.smalltalk_candidate(message,memory) or open_casual is not None or S.candidate(message,memory):
                 try:titles=[p['title'] for p in self.inventory(corpus,profile)['pages'] if p['eligible']]
                 except (ValueError,OSError):titles=[]
                 casual=T.smalltalk(message,session['context'],memory,titles,corpus+'|'+profile)
-                if open_casual is not None and not casual.get('response_structure',{}).get('topic_mentions'):
+                if open_casual is not None and casual.get('kind')=='smalltalk' and not casual.get('response_structure',{}).get('topic_mentions'):
                     casual=open_casual
                 if 'select_topic' in casual:
                     casual=C.turn(self,corpus,self.root(corpus),profile,'topic '+casual['select_topic'],session['context'])
+                elif not casual.get('response_structure',{}).get('topic_mentions'):
+                    social=S.handle(message,session['context'],memory)
+                    if social is not None:casual=social
             tutor=F.handle(message,session['context']) or casual or T.conversation(message,session['context'],memory) or T.guide(message,session['context'],memory) or T.learning_request(message,session['context'])
             if tutor is not None:result=tutor
             elif T.key(message) in T.LIST:
@@ -327,6 +332,8 @@ class App:
                     result['suggestions'] = offer['suggestions']
                     result['source_offer'] = offer['source_offer']
                 if interpreted!=message:result.setdefault('reasoning',[]).append({'rule':'PHRASE-1','interpreted_as':interpreted})
+            if not result.get('response_structure',{}).get('intent','').startswith('social_'):
+                session['mind'].pop('social',None)
             session['corpus'], session['context'] = corpus, result.get('context')
             T.followups(result,session['mind'])
             M.record(session.setdefault('mind', {'notes': []}), result)
@@ -335,6 +342,8 @@ class App:
             payload['mind_sha256'] = hashlib.sha256(Path(M.__file__).read_bytes()).hexdigest()
             payload['grounded_chat_version'] = Q.VERSION
             payload['grounded_chat_sha256'] = hashlib.sha256(Path(Q.__file__).read_bytes()).hexdigest()
+            payload['social_chat_version'] = S.VERSION
+            payload['social_chat_sha256'] = hashlib.sha256(Path(S.__file__).read_bytes()).hexdigest()
             entry = C.log_turn(session['log'], payload)
             updated = dict(self.sessions, **{sid: session})
             self.session_store.save(updated)
