@@ -147,7 +147,7 @@ await call('/api/chat',{corpus:'logic',session:legacyCasual.session,message:'jus
 await py.runPythonAsync('B.app = App()');
 const listening=await call('/api/chat',{corpus:'logic',session:legacyCasual.session,message:'I feel sad',default_chat:true});
 if(listening.response.message.includes('?')||listening.response.response_structure?.style!=='listen')throw Error('WASM saved emotional preference failed');
-const factualTopic=await call('/api/chat',{corpus:'logic',session:legacyCasual.session,message:'Can you chat about the Moon',default_chat:true});
+const factualTopic=await call('/api/chat',{corpus:'logic',session:legacyCasual.session,message:'Can you tell me about the Moon',default_chat:true});
 if(!factualTopic.response.sources.length||factualTopic.response.response_structure?.intent!=='source_exploration')throw Error('WASM polite factual topic lookup failed');
 const factualMore=await call('/api/chat',{corpus:'logic',session:legacyCasual.session,message:'tell me more',default_chat:true});
 if(!factualMore.response.sources.length)throw Error('WASM factual continuation lost sources');

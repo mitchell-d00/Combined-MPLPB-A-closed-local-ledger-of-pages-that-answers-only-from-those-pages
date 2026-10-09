@@ -2,12 +2,14 @@
 import re
 from tools import deterministic_mind as M
 from tools import reduction as R
+from tools import question_frames as PF
 
-VERSION = 'idea-chat-v2'
+VERSION = 'idea-chat-v3'
 
 def topic_request(message):
-    if message.casefold().strip(' ?.!,') in {'can we talk about nothing','talk about nothing','chat about nothing'}:return None
-    return re.fullmatch(r"(?:(?:(?:can|could|would|will) (?:you|we) (?:please )?|please |let's |lets |let us )?(?:(?:chat|talk) about|discuss)|explore(?: an idea about| an idea| the idea of)?)\s+(.+?)[?.!]*", message.strip().replace("’", "'"), re.I)
+    subject=PF.overview_subject(message)
+    return (None,subject) if subject else None
+
 
 def handle(message, memory):
     request = topic_request(message)
@@ -42,5 +44,5 @@ def handle(message, memory):
     else:
         body = f'You said: “{message[:240]}”\n\nHow does that shape your idea about {subject}; what would you like to develop next?'
     return M.reply('conversation', body, None, 'IDEA-EXPLORE', authority='conversation_structure',
-                   suggestions=['tell me more', 'what if things were different?', 'just chat'],
+                   suggestions=['Tell me more about '+subject, 'Search '+subject],
                    response_structure={'intent':'casual_idea_exploration','factual_claims':False,'mplpb_supported':False,'subject':subject,'engine':VERSION})

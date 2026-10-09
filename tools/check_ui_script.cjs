@@ -62,5 +62,9 @@ async function tick(){for(let i=0;i<20;i++)await Promise.resolve();}
  r.elements['chat-casual'].events.click();await tick();assert.match(r.elements['chat-mode'].textContent,/Just chat/);assert.match(r.elements['chat-messages'].innerHTML,/active MPLPB topic is unloaded/);
  r.elements['chat-load-all'].events.click();await tick();assert.match(r.elements['chat-mode'].textContent,/Serious mode/);r.elements['chat-scope'].selectedOptions=[{value:'logic'},{value:'system'}];r.elements['chat-load-selected'].events.click();await tick();assert.match(r.elements['chat-mode'].textContent,/2 MPLPB loaded/);
  const freshChat=runtime();await tick();freshChat.elements.corpus.value='logic';await freshChat.run('chatSend("So hi?")');assert.match(freshChat.elements['chat-messages'].innerHTML,/Deterministic chat; not MPLPB-supported/);assert.match(freshChat.elements['chat-mode'].textContent,/0 MPLPB loaded/);
+ const footer=r.run(`chatSources({sources:[{title:'<bad>',path:'moon.html',corpus:'moon-corpus',hash:'sha256:abc'}]})`);
+ assert.match(footer,/Sources/);assert.match(footer,/data-source-corpus="moon-corpus"/);assert.ok(!footer.includes('<bad>'));assert.match(footer,/&lt;bad&gt;/);
+ r.run(`chatMessages=[{role:'assistant',response:{kind:'federated_answers',message:'Visible factual answer',sources:[{title:'Moon',path:'moon.html',corpus:'moon-corpus'}],suggestions:['Tell me more about moon']}}];drawChat()`);
+ assert.ok(r.elements['chat-messages'].innerHTML.indexOf('Visible factual answer')<r.elements['chat-messages'].innerHTML.indexOf('aria-label="Sources"'));
  console.log('PASS: script workflow, source controls, profile changes, clarification, history, experiment, chat/rule/creator rendering, escaping, preferences, stale responses and file-mode instructions. No browser rendering performed.');
 })().catch(e=>{console.error(e);process.exitCode=1;});

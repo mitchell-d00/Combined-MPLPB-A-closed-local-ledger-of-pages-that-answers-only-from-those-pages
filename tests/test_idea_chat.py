@@ -85,3 +85,31 @@ class IdeaChatTests(unittest.TestCase):
         self.assertEqual(r['context']['title'],'Moon')
         self.assertTrue(r['sources'])
         self.assertEqual({s['corpus'] for s in r['sources']},{keys[1]})
+
+    def test_screenshot_tell_me_phrasing_and_relevant_buttons(self):
+        key=self.app.create_collection({'name':'Moon details'})['corpus']
+        self.app.import_source({'corpus':key,'title':'Moon','url':'https://example.org/moon','text':'The Moon is 3474 km in diameter. It orbits Earth.'})
+        for mode in ['just chat','load all MPLPB']:
+            sid=self.chat(mode)['session']
+            r=self.chat('Can you tell me about the moon',sid)['response']
+            self.assertTrue(r['sources']);self.assertIn('3474',r['message'])
+            self.assertNotIn('Source:',r['message'])
+            self.assertTrue(all('moon' in button.lower() for button in r['suggestions']))
+            self.assertNotIn('focus canned',str(r['suggestions']))
+            r=self.chat('Could you tell me how big it is?',sid)['response']
+            self.assertIn('3474',r['message'])
+    def test_attribution_only_capture_is_not_a_factual_answer(self):
+        key=self.app.create_collection({'name':'Empty capture'})['corpus']
+        self.app.import_source({'corpus':key,'title':'EmptyZorb','url':'https://example.org/zorb','text':'EmptyZorb\nSource: https://example.org/zorb License: CC BY-SA 4.0;'})
+        r=self.chat('Can you tell me about EmptyZorb')['response']
+        self.assertFalse(r['sources'])
+        self.assertFalse(r['response_structure']['factual_claims'])
+
+    def test_more_advances_through_source_sentences(self):
+        key=self.app.create_collection({'name':'Many facts'})['corpus']
+        self.app.import_source({'corpus':key,'title':'Zorb planet','url':'https://example.org/zorb','text':'Zorb is fictional. It has rings. Its rings are blue. It has two moons.'})
+        sid=self.chat('Tell me about Zorb planet')['session']
+        r=self.chat('Tell me more about Zorb planet',sid)['response']
+        self.assertIn('rings are blue',r['message']);self.assertNotIn('Zorb is fictional',r['message'])
+        r=self.chat('tell me more',sid)['response']
+        self.assertIn('all the factual text',r['message'])

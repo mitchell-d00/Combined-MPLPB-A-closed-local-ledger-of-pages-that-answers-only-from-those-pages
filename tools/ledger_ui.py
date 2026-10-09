@@ -360,6 +360,7 @@ class App:
             session['corpus'], session['context'] = corpus, result.get('context')
             T.followups(result,session['mind'])
             M.record(session.setdefault('mind', {'notes': []}), result)
+            result['question_frame']=E.IC.PF.frame(message)
             payload = {'question': message, 'corpus': corpus, 'profile': profile, 'response': result}
             payload['mind_version'] = M.VERSION
             payload['mind_sha256'] = hashlib.sha256(Path(M.__file__).read_bytes()).hexdigest()
@@ -371,6 +372,8 @@ class App:
             payload['determination_sha256']=hashlib.sha256(Path(RD.__file__).read_bytes()).hexdigest()
             payload['casual_rules_version']=E.D.VERSION
             payload['casual_rules_sha256']=hashlib.sha256(Path(E.D.__file__).read_bytes()).hexdigest()
+            payload['question_frame_version'] = E.IC.PF.VERSION
+            payload['question_frame_sha256'] = hashlib.sha256(Path(E.IC.PF.__file__).read_bytes()).hexdigest()
             payload['idea_chat_version'] = E.IC.VERSION
             payload['idea_chat_sha256'] = hashlib.sha256(Path(E.IC.__file__).read_bytes()).hexdigest()
             payload['environment_version'] = E.VERSION

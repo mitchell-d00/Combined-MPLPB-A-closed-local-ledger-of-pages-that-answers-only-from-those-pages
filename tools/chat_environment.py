@@ -8,7 +8,7 @@ from tools import idea_chat as IC
 from tools import chat_logic as C, chat_tutor as T, deterministic_mind as M
 from tools import social_chat as S, grounded_chat as Q, reference_resources as F
 
-VERSION = 'chat-environment-v5'
+VERSION = 'chat-environment-v6'
 
 
 def reply(body, context=None, **extra):
@@ -83,6 +83,30 @@ def subject_key(subject):
     return re.sub(r'^(?:the|a|an)\s+', '', subject.casefold().strip(' ?.!, '))
 
 
+def factual_body(answer):
+    """Drop attribution-only lines, not factual prose; retain exact excerpt wording."""
+    title=(answer.get('context') or {}).get('title','')
+    lines=[]
+    for line in answer.get('message','').splitlines():
+        text=line.strip()
+        check=text
+        if title:
+            check=re.sub(r'^(?:'+re.escape(title)+r'\s*)+', '',check,flags=re.I)
+        if not check or re.match(r'^(?:Source(?: capture| authorship)?:|License:)',check,re.I):continue
+        lines.append(text)
+    return '\n'.join(lines)
+
+
+def topic_suggestions(subject, body=''):
+    subject=subject_key(subject or '').strip()[:160]
+    if not subject:return []
+    choices=['Tell me more about '+subject,'Search '+subject]
+    # Offer attribute questions only when their vocabulary appears in the answer.
+    if re.search(r'\b(diameter|radius|height|length|width)\b',body,re.I):choices.insert(1,'How big is '+subject+'?')
+    elif re.search(r'\b(age|years old)\b',body,re.I):choices.insert(1,'How old is '+subject+'?')
+    return choices[:3]
+
+
 def explore_sources(app,data,session,message,corpus,profile):
     """Use normal page gates for factual conversation in either mode."""
     request=IC.topic_request(message)
@@ -90,10 +114,11 @@ def explore_sources(app,data,session,message,corpus,profile):
     followup=T.casual_key(message) in {'tell me more','more','go on','continue','show source','show page'} and state.get('sourced')
     if not request and not followup and (D.respond(message,copy.deepcopy(session['mind'])) or T.smalltalk_candidate(message,session['mind'])):return None
     subject=request[1].strip() if request else state.get('subject')
+    continuation=bool(followup or (request and re.match(r'^tell me more about ',IC.PF.normalize(message),re.I) and subject_key(subject)==subject_key(state.get('subject',''))))
     if request:
         if subject_key(subject) in {'it','this','that'}:
             subject=state.get('subject') or (session.get('context') or {}).get('title') or subject
-        IC.handle(message,session['mind'])
+        if not continuation:IC.handle(message,session['mind'])
         session['mind']['idea_chat']['subject']=subject
     if not request and not followup and not re.match(r'^(?:what|who|when|where|how|is|are|does|do|can|will|tell me about|summarize|explain)\b',message,re.I):return None
     env=session.get('environment',{})
@@ -112,7 +137,7 @@ def explore_sources(app,data,session,message,corpus,profile):
     if request or followup:
         for k,p in candidates:
             answer=C.turn(app,k,app.root(k),profile,'show source',p)
-            if answer.get('kind')=='return' and answer.get('sources'):results.append({'corpus':k,'response':answer})
+            if answer.get('kind')=='return' and answer.get('sources') and factual_body(answer):results.append({'corpus':k,'response':answer})
     elif candidates and Q.question_intent(message,subject):
         for k,p in candidates:
             answer=Q.handle(app,k,app.root(k),profile,message,p)
@@ -129,22 +154,34 @@ def explore_sources(app,data,session,message,corpus,profile):
         # Ask each eligible collection's established ownership reader independently.
         for k in dict.fromkeys(k for k,_ in entries):
             answer=C.turn(app,k,app.root(k),profile,subject,None)
-            if answer.get('kind')=='return' and answer.get('sources'):
+            if answer.get('kind')=='return' and answer.get('sources') and factual_body(answer):
                 results.append({'corpus':k,'response':answer})
     if not results:return None
     if request:
         session['mind']['idea_chat'].update(subject=subject,sourced=True,source_pages=[{'corpus':x['corpus'],'path':x['response']['context']['path']} for x in results if x['response'].get('context')])
-    result=M.reply('federated_answers','Here is what the MPLPB pages say'+(' about '+subject if subject else '')+':\n\n'+'\n\n'.join(x['corpus']+' :: '+x['response']['message'] for x in results),session.get('context') if serious else None,'CHAT-SOURCES',authority='separate_source_results',scope_results=results,sources=[dict(s,corpus=x['corpus']) for x in results for s in x['response'].get('sources',[])],blocked_collections=blocked)
-    result['message']+='\n\nWhat would you like to explore about that? We can discuss these facts or ask a follow-up.'
+    excerpts=[]
+    cursor=session['mind'].get('idea_chat',{}).get('excerpt_cursor',0) if continuation else 0
+    for i,item in enumerate(results,1):
+        body=factual_body(item['response'])
+        # Extract complete opening sentences; no invented connective facts.
+        sentences=re.split(r'(?<=[.!?])\s+(?=[A-Z])',body)
+        part=sentences[cursor:cursor+2]
+        if part:excerpts.append(' '.join(part)+' ['+str(i)+']')
+    if session['mind'].get('idea_chat'):session['mind']['idea_chat']['excerpt_cursor']=cursor+2
+    if not excerpts:excerpts=['That’s all the factual text I have in these matching pages. You can search for more sources or ask about a detail.']
+    result=M.reply('federated_answers',('Sure; here’s a starting point about '+subject+'.' if subject else 'Here’s what I found.')+'\n\n'+'\n\n'.join(excerpts),session.get('context') if serious else None,'CHAT-SOURCES',authority='separate_source_results',scope_results=results,sources=[dict(s,corpus=x['corpus']) for x in results for s in x['response'].get('sources',[])],blocked_collections=blocked)
+    result['message']+='\n\nWhat would you like to know next?'
     result['support_notice']='Factual conversation; cited passages come from MPLPB pages. Conversational framing is not additional evidence.'
-    result['suggestions']=['tell me more','how big is it?','just chat']
+    result['suggestions']=topic_suggestions(subject,' '.join(excerpts))
     result['response_structure']={'intent':'source_exploration','mode':env.get('mode','chat'),'factual_claims':True,'mplpb_supported':True,'subject':subject}
     return result
 
 
 def handle(app, data, session, message, corpus, profile):
+    message=IC.PF.normalize(message)
     key=T.casual_key(message)
     if key in {'just chatting','chat mode','stay casual','keep chatting'}:return load(app,session,[])
+    if not data.get('default_chat') and not session.get('environment') and re.match(r'^(?:summari[sz]e |i (?:want|would like) to learn about )',message,re.I):return None
     # Topic requests keep the mode and consult available evidence before idea prompts.
     if IC.topic_request(message) and key not in {"let's talk about it",'lets talk about it','talk about it','talk about this'}:
         if session.get('environment',{}).get('mode') == 'focus':
@@ -228,9 +265,9 @@ def handle(app, data, session, message, corpus, profile):
         for k in dict.fromkeys(k for k,_ in entries):
             answer=C.turn(app,k,app.root(k),profile,message,None)
             results.append({'corpus':k,'response':answer})
-    overview=re.fullmatch(r'(?:what is|tell me about|summarize|explain) (.+?)[?.!]*',message,re.I)
+    overview=re.fullmatch(r'(?:what is|what are|who is|tell me about|summarize|explain) (.+?)[?.!]*',message,re.I)
     for k,p in entries:
-        if overview and overview[1].casefold()==p['title'].casefold():
+        if overview and subject_key(overview[1])==subject_key(p['title']):
             answer=C.turn(app,k,app.root(k),profile,'show source',p)
             results.append({'corpus':k,'response':answer})
         elif Q.question_intent(message,p['title']) and re.search(r'(?<!\w)'+re.escape(p['title'])+r'(?!\w)',message,re.I):
@@ -239,5 +276,5 @@ def handle(app, data, session, message, corpus, profile):
     if results:
         values={Q.normalized(e['value']) for x in results for e in x['response'].get('evidence',[])}
         return M.reply('conflict' if len(values)>1 else 'federated_answers','Separate collection results; no cross-collection inference or preferred answer:\n\n'+'\n\n'.join(x['corpus']+' :: '+x['response']['message'] for x in results),None,'SCOPE-SEPARATE',
-                       authority='separate_source_results',sources=[dict(s,corpus=x['corpus']) for x in results for s in x['response'].get('sources',[])],scope_results=results,blocked_collections=blocked,suggestions=choices[:40]+['just chat'])
-    return reply('Serious mode keeps every loaded collection separate. Choose a page for follow-up questions, or ask a supported attribute question naming its topic.',None,suggestions=choices[:40]+['just chat'],blocked_collections=blocked)
+                       authority='separate_source_results',sources=[dict(s,corpus=x['corpus']) for x in results for s in x['response'].get('sources',[])],scope_results=results,blocked_collections=blocked,suggestions=topic_suggestions(overview[1] if overview else session['mind'].get('idea_chat',{}).get('subject')))
+    return reply('What would you like to know about that? You can tell me a topic or ask a specific question; I’ll check the loaded pages.',session['context'],suggestions=topic_suggestions(session['mind'].get('idea_chat',{}).get('subject')),blocked_collections=blocked)
