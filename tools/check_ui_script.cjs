@@ -76,5 +76,7 @@ async function tick(){for(let i=0;i<20;i++)await Promise.resolve();}
  r.run(`drawTopicActions({suggestions:['<script>bad</script>']})`);assert.ok(!r.elements['chat-topic-actions'].innerHTML.includes('<script>'));
  const beforeChoice=r.requests.length;r.elements['chat-send'].disabled=true;r.elements['chat-topic-actions'].events.click({target:{closest:()=>({dataset:{chatRequest:'So hi?'}})}});await tick();assert.equal(r.requests.length,beforeChoice);
  r.elements['chat-send'].disabled=false;r.elements['chat-topic-actions'].events.click({target:{closest:()=>({dataset:{chatRequest:'So hi?'}})}});await tick();assert.equal(r.requests.length,beforeChoice+1);
+ r.run(`chatMessages=[{role:'assistant',response:{kind:'conversation',message:'Hello',support_label:'Conversation · not source-backed',support_notice:'Long detailed boundary notice',environment:{mode:'chat',corpora:[]}}}];drawChat()`);
+ const visible=r.elements['chat-messages'].innerHTML.split('<details>')[0];assert.match(visible,/Conversation · not source-backed/);assert.ok(!visible.includes('Long detailed boundary notice'));assert.match(r.elements['chat-messages'].innerHTML,/Long detailed boundary notice/);
  console.log('PASS: script workflow, source controls, profile changes, clarification, history, experiment, chat/rule/creator rendering, escaping, preferences, stale responses and file-mode instructions. No browser rendering performed.');
 })().catch(e=>{console.error(e);process.exitCode=1;});

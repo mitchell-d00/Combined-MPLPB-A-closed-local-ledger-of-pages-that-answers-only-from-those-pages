@@ -33,6 +33,7 @@ from tools import social_chat as S
 from tools import response_construction as N
 from tools import chat_environment as E
 from tools import reduction as RD
+from tools import language_planner as LP
 
 
 class App:
@@ -261,6 +262,7 @@ class App:
             memory=session.setdefault('mind',{'notes':[]})
             if T.casual_key(message) not in {'yes','yes please','lets explore',"let's explore",'no','no thanks','keep chatting','stay casual'}:
                 memory.pop('topic_offer',None)
+            language_request=LP.parse(message,memory,session.get('context'))
             casual=None
             environment_result=E.handle(self,data,session,message,corpus,profile)
             open_casual=T.casual_followup(message,session['context'],memory) if environment_result is None else None
@@ -359,9 +361,12 @@ class App:
                 session['mind'].pop('social',None)
             session['corpus'], session['context'] = corpus, result.get('context')
             T.followups(result,session['mind'])
+            result=LP.finish(result,language_request,session['mind'],len(session['log'])+1)
             M.record(session.setdefault('mind', {'notes': []}), result)
             result['question_frame']=E.IC.PF.frame(message)
             payload = {'question': message, 'corpus': corpus, 'profile': profile, 'response': result}
+            payload['language_planner_version']=LP.VERSION
+            payload['language_planner_sha256']=hashlib.sha256(Path(LP.__file__).read_bytes()).hexdigest()
             payload['mind_version'] = M.VERSION
             payload['mind_sha256'] = hashlib.sha256(Path(M.__file__).read_bytes()).hexdigest()
             payload['grounded_chat_version'] = Q.VERSION

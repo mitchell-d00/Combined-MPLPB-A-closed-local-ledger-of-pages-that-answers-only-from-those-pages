@@ -101,6 +101,9 @@ class BrowserBridgeTests(unittest.IsolatedAsyncioTestCase):
         with patch.object(B,'remote',AsyncMock(side_effect=ValueError('offline'))) as fetch:
             result=await B.dispatch('/api/chat',{**data,'auto_wiki':False})
             self.assertEqual(fetch.await_count,0)
+            for message in ['Explore an idea about zorb','Tell me about zorb without searching','Tell me about it']:
+                await B.dispatch('/api/chat',{**data,'message':message,'auto_wiki':True})
+            self.assertEqual(fetch.await_count,0)
             failed=await B.dispatch('/api/chat',{**data,'session':result['session'],'auto_wiki':True})
             self.assertEqual(failed['automatic_lookup']['status'],'failed')
             self.assertTrue(B.app.resume_chat({'session':result['session']})['chain_intact'])

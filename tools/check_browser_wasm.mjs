@@ -152,6 +152,7 @@ if(!factualTopic.response.sources.length||factualTopic.response.response_structu
 const factualMore=await call('/api/chat',{corpus:'logic',session:legacyCasual.session,message:'tell me more',default_chat:true});
 if(!factualMore.response.sources.length)throw Error('WASM factual continuation lost sources');
 const forumIntro=await call('/api/chat',{corpus:'logic',session:legacyCasual.session,message:'Say hi to the OpenAI forum and tell them what you are'});
+if(!forumIntro.response.language_plan||forumIntro.response.support_label!=='Conversation · not source-backed')throw Error('WASM shared language planner missing');
 if(!forumIntro.response.message.startsWith('Hello to the OpenAI forum!')||forumIntro.response.sources.length||forumIntro.response.response_structure?.acts?.length!==2)throw Error('WASM compound introduction failed');
 await call('/api/chat',{corpus:'logic',session:legacyCasual.session,message:'load MPLPB',loaded_corpora:['logic','system']});
 await call('/api/chat',{corpus:'logic',session:legacyCasual.session,message:'chat mode'});

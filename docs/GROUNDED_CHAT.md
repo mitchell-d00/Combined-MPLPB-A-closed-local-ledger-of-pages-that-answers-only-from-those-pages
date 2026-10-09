@@ -31,3 +31,9 @@ Regression tests exercise mode restoration, both-mode conversation, multi-collec
 ## Conversation controls
 
 The composer has a fixed Everyday controls row and a Conversation choices row derived from the latest response, subject and source-aware suggestions. Topic choices are replaced when the conversation changes; historical suggestions remain in the transcript. Composer buttons send the same natural-language requests through the normal engine, with busy-state guards. A short topic question such as “Dogs?” enters topic exploration. Button labels are authored actions; the buttons do not contain stored answers. Deterministic response construction still uses authored rules and phrase components.
+
+## Shared discourse planner
+
+`tools/language_planner.py` parses common frames, compound greeting/overview acts, subject references, negation and hypothetical intent. Every App.chat path calls it after the evidence gate and before transcript hashing; transcript payloads pin the planner version and source hash. Existing echo, emotional, dictionary, help and proof realizers retain their contracts. The common planner composes supported overview framing from subject, number agreement and a deterministic turn-selected clause grammar, and constructs hypothetical invitations from bound subject slots. It does not paraphrase source sentences or turn eliminated alternatives into evidence.
+
+Automatic Wikipedia acquisition reads the plan's bounded query; unresolved references, negated requests and explicit imagined ideas cannot trigger it. Explicit search/import commands keep their existing transport rules. Replies have small support labels; detailed plans, distinctions and source decisions remain in the expandable evidence panel. This is finite rule-based composition, not an unrestricted language generator.

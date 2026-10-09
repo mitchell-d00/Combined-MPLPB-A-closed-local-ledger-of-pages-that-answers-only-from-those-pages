@@ -208,12 +208,11 @@ async def dispatch(url, data=None):
                     return app.chat(data)
                 finally: W.request = original
             result=app.chat(data)
-            from tools import idea_chat as IC
-            request=IC.topic_request(message)
-            if IC.PF.normalize(message).casefold().startswith('explore an idea about '):request=None
+            planned_query=result['response'].get('language_plan',{}).get('acquisition',{}).get('query')
+            request=(None,planned_query) if planned_query else None
             # One bounded fallback per user turn. Ordinary social text is never searched.
             exhausted=result['response'].get('source_exhausted',False)
-            if data.get('auto_wiki') is True and (request or exhausted) and (exhausted or not result['response'].get('sources')) and data.get('wiki','simple') in W.APIS:
+            if data.get('auto_wiki') is True and request and (exhausted or not result['response'].get('sources')) and data.get('wiki','simple') in W.APIS:
                 query=(result['response'].get('response_structure',{}).get('subject') if exhausted else request[1]).strip()
                 if not 1 <= len(query) <= 160:return result
                 sid=result['session']

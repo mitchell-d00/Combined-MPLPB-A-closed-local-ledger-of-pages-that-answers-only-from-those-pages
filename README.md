@@ -17,6 +17,16 @@ explicit source expansion. See [grounded chat](docs/GROUNDED_CHAT.md) and the
 [experiments and independent evaluation protocol](evaluation/contextual/README.md).
 These are finite extraction rules; independent human validation is still pending.
 
+## Shared language planner
+
+Every chat reply passes through a deterministic discourse planner before it is
+saved. It resolves supported topic references, records conversational actions,
+and builds bounded framing with grammatical agreement. Source passages and
+proofs remain unchanged; source-free conversation and ideas carry small labels.
+Automatic acquisition uses the plan, checks local pages first, and respects the
+network setting. Negated requests and imagined ideas do not trigger automatic
+search. This is a finite language grammar, not general semantic understanding.
+
 ## Casual chat and offline references
 
 Say `what are you?`, `why do you exist?`, `I'm tired`, or `can we talk about nothing?`
@@ -207,7 +217,7 @@ nothing else.
 | `mplpb_combined/ledger.py` | The folder as a ledger: status, lineage, depth, validation, writing, the log |
 | `mplpb_combined/reader.py` | The answer rule, profiles, hubs |
 | `mplpb_combined/killtest.py` | The kill test: three arms, mechanical scoring |
-| `tests/` | 412 developer-authored regression tests covering the reader, captures, conversation, source boundaries and saved state |
+| `tests/` | 417 developer-authored regression tests covering the reader, captures, conversation, source boundaries and saved state |
 | `examples/studio/` | 25 pages about running a pottery studio; the kill-test corpus |
 | `examples/spec/` | The format described as ten pages in the format |
 | `examples/hub/` | Two pointers, one at each of the above |
