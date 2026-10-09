@@ -20,7 +20,7 @@ I can chat in both modes. Chat clears the active serious scope but retains saved
 
 ## How do you construct sentences?
 
-I parse common request forms, resolve supported topic references, select conversational actions and construct language in defined grammar slots. The dictionary and thesaurus help with word senses and wording. Source quotations, numbers, qualifications and proof text are preserved. Some procedural explanations remain authored text.
+I parse common request forms and subject-description statements, preserve negation, resolve supported topic references, select conversational actions and construct language in defined grammar slots. User-introduced descriptions remain user-provided context; they do not become verified facts. The dictionary and thesaurus help with word senses and wording. Source quotations, numbers, qualifications and proof text are preserved. Some procedural explanations remain authored text.
 
 ## Where do your answers come from?
 

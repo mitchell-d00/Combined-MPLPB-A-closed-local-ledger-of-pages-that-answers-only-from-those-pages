@@ -39,6 +39,8 @@ def parse(message, memory, context=None):
 def label(result):
     if result.get('authority') == 'system_description':return 'System description'
     if result.get('source_scope') == 'saved_reference_outside_loaded_scope':return 'Saved reference · outside loaded scope'
+    if result.get('response_structure',{}).get('intent')=='topic_opinion':return 'Conversation + dictionary context' if result.get('authority')=='lexical_reference' else 'Conversation + source context'
+    if result.get('response_structure',{}).get('intent')=='user_topic_context':return 'User-provided context'
     kind = result.get('kind')
     structure = result.get('response_structure', {})
     if kind in {'unsupported','not_in_corpus','unknown_relation'}:return 'No supporting answer'
@@ -91,7 +93,7 @@ def finish(result, parsed, memory, turn):
     rules.extend(construction.get('rules', []))
     candidate = parsed.get('subject')
     query = None
-    if result.get('authority') != 'system_description' and candidate and not parsed['imagined'] and not parsed['negation_present'] and ('overview' in parsed['actions'] or result.get('source_exhausted')):
+    if result.get('authority') not in {'system_description','user_declaration'} and candidate and not parsed['imagined'] and not parsed['negation_present'] and ('overview' in parsed['actions'] or result.get('source_exhausted')):
         if candidate.casefold() not in PRONOUNS and 1 <= len(candidate) <= 160:query = candidate
     result['language_plan'] = {**parsed, 'subject': subject, 'realization_rules': rules,
         'response_act': structure.get('intent') or result.get('kind'),

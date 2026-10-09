@@ -27,7 +27,7 @@ def load(app, session, keys):
     session['environment'] = {'mode': 'focus' if keys else 'chat', 'corpora': list(keys), 'focus_corpus': None}
     session['context'] = None
     mind = session['mind']
-    mind.pop('idea_chat', None); mind.pop('topic_offer', None); mind.pop('guide', None); mind.pop('chat_discourse',None); mind.pop('emotional',None)
+    mind.pop('idea_chat', None); mind.pop('proposition',None); mind.pop('topic_offer', None); mind.pop('guide', None); mind.pop('chat_discourse',None); mind.pop('emotional',None)
     mind['casual_active'] = not keys
     mind['social'] = {'active': not keys, 'stage': 'story', 'turns': 0, 'style': 'chat'}
     return reply(('Serious mode; '+str(len(keys))+' MPLPB collections loaded. Each keeps its own evidence and delivery boundaries.' if keys else
