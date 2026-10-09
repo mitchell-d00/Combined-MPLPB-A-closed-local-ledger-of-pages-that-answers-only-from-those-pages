@@ -298,6 +298,9 @@ def handle(app, data, session, message, corpus, profile):
         keys=[k for k in session.get('saved_focus_corpora',[]) if k in app.roots()]
         return load(app,session,keys or [corpus])
     if key=='load mplpb':return load(app,session,data.get('loaded_corpora',[corpus]))
+    if key=='show loaded mplpb':
+        env=session.get('environment') or {'corpora':[]}
+        return reply('Loaded MPLPB collections: '+(', '.join(env['corpora']) or 'none')+'.',session['context'],suggestions=['list topics','load all MPLPB','just chat'])
     env=session.get('environment')
     if not env:
         if not data.get('default_chat',False) and key not in {'how do you think','how does your mind work'}:
@@ -314,8 +317,6 @@ def handle(app, data, session, message, corpus, profile):
         session['mind'].pop('topic_offer',None)
         session['mind']['casual_active']=True
         env=session['environment']
-    if key=='show loaded mplpb':
-        return reply('Loaded MPLPB collections: '+(', '.join(env['corpora']) or 'none')+'.',session['context'],suggestions=['show my MPLPB','load all MPLPB','just chat'])
     if session['mind'].get('guide',{}).get('active') and key in {'next','next step','continue guide','back','previous step','stop guide','finish guide','skip guide'}:
         return None
     # Explicit source management and note/help commands retain their existing paths.

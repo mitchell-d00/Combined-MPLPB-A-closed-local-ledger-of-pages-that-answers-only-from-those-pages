@@ -1,7 +1,7 @@
 """Shared discourse interpretation before routing; never grants evidence authority."""
 import copy
 import re
-from tools import conversation_engine as CE, conversation_branches as B
+from tools import conversation_engine as CE, conversation_branches as B, chat_language_graph as LG
 VERSION='conversation-continuity-v1'
 
 def prepare(message,session):
@@ -39,6 +39,11 @@ def prepare(message,session):
             session['mind'].setdefault('conversation_branches',{})['pending']=copy.deepcopy(choices)
         elif state.get('branch'):
             session['mind'].setdefault('conversation_branches',{})['active']=copy.deepcopy(state['branch'])
+    graph=LG.interpret(text)
+    branch_state=session['mind'].get('conversation_branches',{})
+    if graph and not (graph['subject']=='identity' and (branch_state.get('active') or branch_state.get('pending'))):
+        frame['language_graph']=graph
+        text=graph['command']
     frame['resolved']=text
     return frame
 

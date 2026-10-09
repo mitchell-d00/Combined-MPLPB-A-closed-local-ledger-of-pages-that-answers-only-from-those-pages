@@ -1,0 +1,21 @@
+{
+  "version": "chat-language-graph-v1",
+  "description": "Authored language relations; routing hints, never factual evidence.",
+  "subjects": {
+    "loaded_collections": ["loaded mplpb", "loaded collections", "my loaded collections", "the loaded collections", "currently loaded mplpb", "loaded pages"],
+    "topics": ["topics", "available topics", "your topics", "saved topics"],
+    "identity": ["mplpb", "the mplpb"],
+    "search_help": ["searching", "search help", "how to search", "how to search mplpb"],
+    "memory_help": ["your memory", "how your memory works"],
+    "language_help": ["your language rules", "your language graph", "how you construct sentences"]
+  },
+  "forms": ["{subject}", "tell me about {subject}", "tell me more about {subject}", "show me {subject}", "list {subject}", "describe {subject}", "explain {subject}", "what are {subject}", "what is {subject}", "which {subject} do you have"],
+  "edges": [
+    {"subject":"loaded_collections","intent":"inspect_loaded","command":"show loaded MPLPB"},
+    {"subject":"topics","intent":"inspect_topics","command":"list topics"},
+    {"subject":"identity","intent":"describe_system","command":"what is MPLPB"},
+    {"subject":"search_help","intent":"explain_search","command":"how do I search?"},
+    {"subject":"memory_help","intent":"explain_memory","command":"how does your memory work?"},
+    {"subject":"language_help","intent":"explain_language","command":"how do you construct sentences?"}
+  ]
+}

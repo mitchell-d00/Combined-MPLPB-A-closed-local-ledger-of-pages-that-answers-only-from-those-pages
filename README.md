@@ -250,7 +250,7 @@ nothing else.
 | `mplpb_combined/ledger.py` | The folder as a ledger: status, lineage, depth, validation, writing, the log |
 | `mplpb_combined/reader.py` | The answer rule, profiles, hubs |
 | `mplpb_combined/killtest.py` | The kill test: three arms, mechanical scoring |
-| `tests/` | 479 developer-authored regression tests covering the reader, captures, conversation, source boundaries and saved state |
+| `tests/` | 483 developer-authored regression tests covering the reader, captures, conversation, source boundaries and saved state |
 | `examples/studio/` | 25 pages about running a pottery studio; the kill-test corpus |
 | `examples/spec/` | The format described as ten pages in the format |
 | `examples/hub/` | Two pointers, one at each of the above |
@@ -365,3 +365,5 @@ Chat now has an explicit zero-collection Just chat environment and a Focus envir
 See [synthetic runs and independent evaluation protocol](docs/CHAT_EVALUATION.md), [context and adaptation rules](docs/CONTEXT_INDEX.md), and [installation packages](docs/INSTALLATION.md). Main-branch CI builds source and browser ZIPs plus an install-tested core CLI wheel. Synthetic checks do not establish unrestricted language understanding.
 
 General chat also includes eight short, attributed NASA/NOAA research notes. Ask “general topics”; these notes are outside MPLPB evidence and do not replace the loaded reader.
+
+The base [chat language graph](docs/CHAT_LANGUAGE_GRAPH.md) relates supported phrase forms, subjects, intents and read-only handlers. It is bundled offline in both modes and never grants MPLPB evidence authority.
