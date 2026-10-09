@@ -109,5 +109,7 @@ const socialYes=await call('/api/chat',{corpus:'logic',session:sid,message:'sure
 if(socialYes.response.response_structure?.intent!=='social_accept')throw Error('WASM social resume failed');
 const socialStory=await call('/api/chat',{corpus:'logic',session:sid,message:'My boss yelled at me'});
 if(socialStory.response.sources.length||!socialStory.response.message.includes('frustrating'))throw Error('WASM social boundary failed');
+if(socialStory.response.response_structure?.construction?.lexical_choice?.sense!=='00871066-s')throw Error('WASM lexical construction failed');
+if(!socialStory.response.message.includes('«My boss yelled at me»'))throw Error('WASM user attribution failed');
 console.log('PASS real WebAssembly: ownership, relation proof, summary, withholding, memory, saved relaunch, fixture imports, isolated collections, offline references, grounded follow-ups and social turn-taking.');
 fs.writeFileSync(path.join(path.dirname(htmlPath),'wasm-validation.json'),JSON.stringify({runtime:bundle.runtime_version,passed:true,corpora:state.corpora.map(x=>x.key),ambiguous:ambiguous.reader.kind,relation:relation.response.kind,summary:summary.response.kind,withheld:withheld.reader.kind,chain_intact:saved.chain_intact,fixture_import_passed:true,virtual_save_relaunch_passed:true,browser_layout_tested:false,indexeddb_tested:false,live_wiki_tested:false},null,2));

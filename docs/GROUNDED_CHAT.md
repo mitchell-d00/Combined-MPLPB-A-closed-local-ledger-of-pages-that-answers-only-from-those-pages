@@ -61,7 +61,7 @@ MPLPB: I’m sorry it’s been rough. Want to talk about it?
 You: sure
 MPLPB: Okay, tell me about it. What happened?
 You: My boss yelled at me
-MPLPB: That sounds frustrating. Want to say a little more about that?
+MPLPB: You said: «My boss yelled at me» That sounds frustrating. Would you like to say a little more about how it felt?
 ```
 
 “Just listen” gives short acknowledgments without questions. “Change the subject”
@@ -82,3 +82,30 @@ page. Social reactions are acknowledgments, not verified judgments about events.
 Checks include consent/decline, reloads, listening mode, negation, factual-question
 routing, topic-offer priority, transcript pins and absence of automatic fetching.
 These are developer regression tests, not a human evaluation of conversational quality.
+
+
+## Compositional response construction
+
+Story replies now use `tools/response_construction.py`: a finite surface grammar
+assembles a user-attributed quotation, subject, linking verb, adjective and follow-up
+question. Whole story replies are not selected from a stored sentence list. Identical
+input and saved state produce identical output; the turn counter and previous reply
+provide reproducible variation. Invitations and control acknowledgments still use
+fixed wording.
+
+Open English WordNet supplies definitions, parts of speech and synonyms. Each
+adjective slot pins a specific sense and restricts its synonyms to words reviewed
+for that grammatical and conversational position. Dictionary data does not itself
+supply response rules. Missing or invalid references fall back to neutral language.
+The archived Link Grammar data is still reference material, not an active parser.
+
+Short user statements are explicitly quoted as user testimony, never as verified
+facts. Long statements are not truncated into misleading fragments. Listening mode
+omits quotations and questions. Construction rules, selected WordNet sense,
+definition, resource hash and constructor code hash are available in the response
+and transcript audit data. These add no inferred emotional profile or ledger entry.
+
+For supported MPLPB questions, the constructor builds an attribute/topic introduction;
+the validated evidence sentence remains verbatim. Synonyms do not expand page
+ownership, relax exclusions, change numbers or fill missing answers. This is bounded
+deterministic composition, not unrestricted free-form reasoning or an LLM.

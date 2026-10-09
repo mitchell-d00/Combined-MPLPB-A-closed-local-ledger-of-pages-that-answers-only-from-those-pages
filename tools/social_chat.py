@@ -1,8 +1,9 @@
 """Local conversational turn-taking. No model, inferred world facts or network."""
 import re
 from tools import deterministic_mind as M
+from tools import response_construction as N
 
-VERSION='social-turns-v1'
+VERSION='social-turns-v2'
 YES={'yes','yes please','sure','sure thing','yeah','yep','ok','okay','please','go on',"let's talk",'lets talk','i do'}
 NO={'no','no thanks','not now','not really',"i'd rather not",'id rather not','maybe later'}
 STOP={'stop chatting','stop asking','leave it','never mind','nevermind','goodbye','bye','a little quiet','quiet please'}
@@ -56,6 +57,7 @@ def handle(message,context,memory):
     if not candidate(message,memory):return None
     command=key(message);state=memory.setdefault('social',{'active':False,'stage':'idle','turns':0,'style':'chat'})
     state['turns']=state.get('turns',0)+1
+    construction=None
     intent='followup';suggestions=['just listen','change the subject']
     opener=opening(command)
     if command in STOP:
@@ -91,22 +93,11 @@ def handle(message,context,memory):
     else:
         previous=state.get('last_reply','')
         state.update(active=True,stage='listen' if state.get('style')=='listen' else 'followup')
-        if state.get('style')=='listen':
-            options=('I’m following. Take your time.','Go on, if you want to.','I’m listening. There’s no rush.','You don’t have to tidy it up—say it however it comes.')
-        else:
-            reactions={
-                'frustrated':('That sounds frustrating.','Oof, that sounds unpleasant.'),
-                'tired':('That sounds exhausting.','Sounds like you’ve had a lot going on.'),
-                'sad':('That sounds disappointing.','I’m sorry—that sounds upsetting.'),
-                'good':('That sounds like a bright spot.','Sounds like that meant a lot to you.'),
-                'neutral':('I’m following.','Okay, tell me more.','Thanks for telling me.')}
-            category=tone(command);reactions=reactions[category]
-            questions=('What happened next?','What part is sticking with you?','Want to say a little more about that?')
-            options=tuple(a+' '+q for a in reactions for q in questions)
-        available=[s for s in options if s!=previous]
-        body=available[(state['turns']-1)%len(available)]
+        body,construction=N.social(message,tone(command),state['turns'],
+                                   listening=state.get('style')=='listen',previous=previous)
     state['last_reply']=body
     memory['casual_active']=True
     return M.reply('smalltalk',body,context,'SOCIAL-'+intent.upper(),authority='conversation_structure',
                    suggestions=suggestions,response_structure={'intent':'social_'+intent,'stage':state['stage'],
-                   'factual_claims':False,'automatic_topic_switch':False,'engine':VERSION})
+                   'factual_claims':False,'automatic_topic_switch':False,'engine':VERSION,
+                   'construction':construction})

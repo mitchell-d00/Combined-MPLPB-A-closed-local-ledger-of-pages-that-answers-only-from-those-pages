@@ -30,6 +30,7 @@ from tools import chat_tutor as T
 from tools import reference_resources as F
 from tools import grounded_chat as Q
 from tools import social_chat as S
+from tools import response_construction as N
 
 
 class App:
@@ -342,6 +343,8 @@ class App:
             payload['mind_sha256'] = hashlib.sha256(Path(M.__file__).read_bytes()).hexdigest()
             payload['grounded_chat_version'] = Q.VERSION
             payload['grounded_chat_sha256'] = hashlib.sha256(Path(Q.__file__).read_bytes()).hexdigest()
+            payload['construction_version'] = N.VERSION
+            payload['construction_sha256'] = hashlib.sha256(Path(N.__file__).read_bytes()).hexdigest()
             payload['social_chat_version'] = S.VERSION
             payload['social_chat_sha256'] = hashlib.sha256(Path(S.__file__).read_bytes()).hexdigest()
             entry = C.log_turn(session['log'], payload)

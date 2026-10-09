@@ -8,6 +8,7 @@ from mplpb_combined import reader as R, provenance_gate as G
 from mplpb_combined.record import text_of
 from tools import chat_logic as C
 from tools import deterministic_mind as M
+from tools import response_construction as N
 
 VERSION = 'grounded-chat-v1'
 NUMBER = r'\d[\d,]*(?:\.\d+)?'
@@ -153,10 +154,11 @@ def handle(app, corpus, root, profile, message, context):
                        '\n'.join(m['quote'] for m in matches),context,'GROUND-CONFLICT',[context],evidence=matches,
                        suggestions=['show source','search '+context['title']+' '+attr])
     match=matches[0]
-    result=M.reply('grounded_answer','On “'+context['title']+'”, the loaded page says:\n\n'+match['quote']+
+    result=M.reply('grounded_answer',N.source_intro(context['title'],attr)+'\n\n'+match['quote']+
                    '\n\nThis is a source statement, not independently verified truth.',context,'GROUND-QUOTE',[context],
                    evidence=[match],extractive=True,authority='source_assertion',
-                   response_structure={'intent':attr,'topic':context['title'],'factual_claims':True,'generated_factual_text':False},
+                   response_structure={'intent':attr,'topic':context['title'],'factual_claims':True,'generated_factual_text':False,
+                   'construction':{'engine':N.VERSION,'rule':'attribute + pinned_page_title + verbatim_evidence'}},
                    suggestions=['how big is it?','how old is it?','show source'])
     result['reasoning'].insert(0,{'rule':'GROUND-CONTEXT','original_question':message,'expanded_question':expanded,'context_pin':context})
     return result

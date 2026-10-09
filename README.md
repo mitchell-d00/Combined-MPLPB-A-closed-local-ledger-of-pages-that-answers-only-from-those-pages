@@ -286,3 +286,5 @@ MIT for code, CC BY 4.0 for documentation. See `LICENSE`. Each part keeps its ow
 
 Mitchell D. McPhetridge · October 2026
 
+
+Story replies use deterministic sentence construction with sense-checked WordNet adjectives, attributed user details and grammatical follow-up rules. See [construction boundaries](docs/GROUNDED_CHAT.md#compositional-response-construction). Loaded-page answers keep exact evidence quotes; no model or provider is required.
