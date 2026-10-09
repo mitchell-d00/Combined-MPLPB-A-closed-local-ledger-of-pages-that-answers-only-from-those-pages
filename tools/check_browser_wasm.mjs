@@ -147,5 +147,9 @@ await call('/api/chat',{corpus:'logic',session:legacyCasual.session,message:'jus
 await py.runPythonAsync('B.app = App()');
 const listening=await call('/api/chat',{corpus:'logic',session:legacyCasual.session,message:'I feel sad',default_chat:true});
 if(listening.response.message.includes('?')||listening.response.response_structure?.style!=='listen')throw Error('WASM saved emotional preference failed');
+const factualTopic=await call('/api/chat',{corpus:'logic',session:legacyCasual.session,message:'Can you chat about the Moon',default_chat:true});
+if(!factualTopic.response.sources.length||factualTopic.response.response_structure?.intent!=='source_exploration')throw Error('WASM polite factual topic lookup failed');
+const factualMore=await call('/api/chat',{corpus:'logic',session:legacyCasual.session,message:'tell me more',default_chat:true});
+if(!factualMore.response.sources.length)throw Error('WASM factual continuation lost sources');
 console.log('PASS real WebAssembly: ownership, relation proof, summary, withholding, memory, saved relaunch, fixture imports, isolated collections, offline references, grounded follow-ups and social turn-taking.');
 fs.writeFileSync(path.join(path.dirname(htmlPath),'wasm-validation.json'),JSON.stringify({runtime:bundle.runtime_version,passed:true,corpora:state.corpora.map(x=>x.key),ambiguous:ambiguous.reader.kind,relation:relation.response.kind,summary:summary.response.kind,withheld:withheld.reader.kind,chain_intact:saved.chain_intact,fixture_import_passed:true,virtual_save_relaunch_passed:true,browser_layout_tested:false,indexeddb_tested:false,live_wiki_tested:false},null,2));

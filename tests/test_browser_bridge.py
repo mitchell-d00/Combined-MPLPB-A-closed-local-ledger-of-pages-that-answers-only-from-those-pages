@@ -74,6 +74,37 @@ class BrowserBridgeTests(unittest.IsolatedAsyncioTestCase):
         self.assertEqual(answer['response']['kind'],'return')
         self.assertIn('Cat',answer['response']['message'])
 
+    async def test_automatic_topic_lookup_captures_wiki_and_preserves_mode(self):
+        async def remote(url):
+            q=parse_qs(urlsplit(url).query)
+            if 'srsearch' in q:
+                raw=json.dumps({'query':{'search':[{'title':'Zorb','pageid':1,'snippet':'not evidence'}]}}).encode()
+            else:
+                text='Zorb is a fictional test topic.'
+                raw=json.dumps({'query':{'pages':{'1':{'title':'Zorb','pageid':1,'revisions':[{'revid':100,'timestamp':'2026-10-08T12:00:00Z','slots':{'main':{'*':text,'sha1':hashlib.sha1(text.encode()).hexdigest(),'contentmodel':'wikitext'}}}]}}}}).encode()
+            return raw,{'url':url,'retrieved_at':'2026-10-08T12:01:00Z','http_status':200}
+        initial=B.app.chat({'corpus':'logic','message':'load MPLPB'})
+        with patch.object(B,'remote',remote):
+            r=await B.dispatch('/api/chat',{'corpus':'logic','session':initial['session'],'message':'Can you chat about Zorb','wiki':'simple','auto_wiki':True})
+        self.assertEqual(r['session'],initial['session'])
+        self.assertEqual(r['response']['environment']['mode'],'focus')
+        self.assertIn('logic',r['response']['environment']['corpora'])
+        self.assertTrue(r['response']['sources']);self.assertIn('fictional test topic',r['response']['message'])
+        self.assertTrue(B.app.resume_chat({'session':r['session']})['chain_intact'])
+        with patch.object(B,'remote',AsyncMock(side_effect=AssertionError('Local first; no remote'))):
+            local=await B.dispatch('/api/chat',{'corpus':'logic','session':r['session'],'message':'Can you chat about Zorb','wiki':'simple','auto_wiki':True})
+            self.assertTrue(local['response']['sources'])
+            await B.dispatch('/api/chat',{'corpus':'logic','session':r['session'],'message':'I feel sad','wiki':'simple','auto_wiki':True})
+
+    async def test_automatic_lookup_can_be_disabled_and_failure_preserves_chain(self):
+        data={'corpus':'logic','message':'Can you chat about unlisted zorb topic','wiki':'simple','default_chat':True}
+        with patch.object(B,'remote',AsyncMock(side_effect=ValueError('offline'))) as fetch:
+            result=await B.dispatch('/api/chat',{**data,'auto_wiki':False})
+            self.assertEqual(fetch.await_count,0)
+            failed=await B.dispatch('/api/chat',{**data,'session':result['session'],'auto_wiki':True})
+            self.assertEqual(failed['automatic_lookup']['status'],'failed')
+            self.assertTrue(B.app.resume_chat({'session':result['session']})['chain_intact'])
+
     async def test_general_web_build_is_automatic_and_token_not_logged(self):
         raw=b'Dinosaurs lived in the past.'
         plan={'schema':1,'query':'dinosaurs','sources':[{'title':'Dinosaurs','url':'https://example.org/dinosaurs','raw':raw,'text':raw.decode(),'source_sha256':W.digest(raw),'observed_at':'2026-10-08T12:00:00Z'}], 'edges':[], 'failures':[], 'limits':{'pages':5}}

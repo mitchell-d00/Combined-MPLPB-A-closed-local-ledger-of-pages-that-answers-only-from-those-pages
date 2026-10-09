@@ -207,7 +207,30 @@ async def dispatch(url, data=None):
                     W.request = supplied
                     return app.chat(data)
                 finally: W.request = original
-            return app.chat(data)
+            result=app.chat(data)
+            from tools import idea_chat as IC
+            request=IC.topic_request(message)
+            # One bounded fallback per user turn. Ordinary social text is never searched.
+            if data.get('auto_wiki') is True and request and not result['response'].get('sources') and data.get('wiki','simple') in W.APIS:
+                query=request[1].strip()
+                if not 1 <= len(query) <= 160:return result
+                sid=result['session']
+                try:
+                    built=await dispatch('/api/chat',{**data,'session':sid,'message':'search '+query,'auto_wiki':False})
+                    key=built.get('corpus')
+                    if built['response']['kind']!='built':return result
+                    prior=app.sessions[sid]
+                    env=prior.get('environment',{})
+                    if env.get('mode')=='focus' and key not in env.get('corpora',[]):
+                        env['corpora'].append(key)
+                    # Retry using the original session, mode, notes, and newly captured pages.
+                    retried=app.chat({**data,'session':sid,'auto_wiki':False})
+                    retried['automatic_lookup']={'status':'captured','query':query,'wiki':data.get('wiki','simple'),'corpus':key}
+                    return retried
+                except Exception as exc:
+                    # Retain local reply and existing state if remote acquisition fails.
+                    result['automatic_lookup']={'status':'failed','query':query,'wiki':data.get('wiki','simple'),'reason':str(exc)}
+            return result
     raise ValueError('Unknown API route')
 
 async def call_json(url, payload):

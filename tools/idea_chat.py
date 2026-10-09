@@ -3,11 +3,11 @@ import re
 from tools import deterministic_mind as M
 from tools import reduction as R
 
-VERSION = 'idea-chat-v1'
+VERSION = 'idea-chat-v2'
 
 def topic_request(message):
     if message.casefold().strip(' ?.!,') in {'can we talk about nothing','talk about nothing','chat about nothing'}:return None
-    return re.fullmatch(r"(?:(?:can we |let's |lets )?(?:(?:chat|talk) about|discuss)|explore(?: an idea about| an idea| the idea of)?)\s+(.+?)[?.!]*", message.strip(), re.I)
+    return re.fullmatch(r"(?:(?:(?:can|could|would|will) (?:you|we) (?:please )?|please |let's |lets |let us )?(?:(?:chat|talk) about|discuss)|explore(?: an idea about| an idea| the idea of)?)\s+(.+?)[?.!]*", message.strip().replace("’", "'"), re.I)
 
 def handle(message, memory):
     request = topic_request(message)

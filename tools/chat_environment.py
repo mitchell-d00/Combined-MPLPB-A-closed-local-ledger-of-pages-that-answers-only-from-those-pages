@@ -8,7 +8,7 @@ from tools import idea_chat as IC
 from tools import chat_logic as C, chat_tutor as T, deterministic_mind as M
 from tools import social_chat as S, grounded_chat as Q, reference_resources as F
 
-VERSION = 'chat-environment-v4'
+VERSION = 'chat-environment-v5'
 
 
 def reply(body, context=None, **extra):
@@ -79,50 +79,76 @@ def general(message, session):
     return S.handle(message,None,mind) or reply('Tell me a little more about what you have in mind.',suggestions=['can we talk','load all MPLPB'])
 
 
+def subject_key(subject):
+    return re.sub(r'^(?:the|a|an)\s+', '', subject.casefold().strip(' ?.!, '))
+
+
 def explore_sources(app,data,session,message,corpus,profile):
-    """Read saved pages with their normal gates; never activate serious state."""
+    """Use normal page gates for factual conversation in either mode."""
     request=IC.topic_request(message)
-    if not request and (D.respond(message,copy.deepcopy(session['mind'])) or T.smalltalk_candidate(message,session['mind'])):return None
-    subject=request[1].strip() if request else session['mind'].get('idea_chat',{}).get('subject')
+    state=session['mind'].get('idea_chat',{})
+    followup=T.casual_key(message) in {'tell me more','more','go on','continue','show source','show page'} and state.get('sourced')
+    if not request and not followup and (D.respond(message,copy.deepcopy(session['mind'])) or T.smalltalk_candidate(message,session['mind'])):return None
+    subject=request[1].strip() if request else state.get('subject')
     if request:
+        if subject_key(subject) in {'it','this','that'}:
+            subject=state.get('subject') or (session.get('context') or {}).get('title') or subject
         IC.handle(message,session['mind'])
-        query='tell me about '+subject
-    else:
-        query=message
-    if not request and not re.match(r'^(?:what|who|when|where|how|is|are|does|do|can|will|tell me about|summarize|explain)\b',message,re.I):return None
-    keys=sorted(app.roots())
-    shadow=copy.deepcopy(session)
-    shadow['environment']={'mode':'focus','corpora':keys,'focus_corpus':None}
-    shadow['context']=None
-    entries,_=pages(app,keys,profile)
-    candidates=[(k,p) for k,p in entries if subject and p['title'].casefold()==subject.casefold()]
-    # Resolve pronouns per page, preserving duplicate-title results independently.
-    if not request and candidates and Q.question_intent(message,subject):
-        responses=[]
+        session['mind']['idea_chat']['subject']=subject
+    if not request and not followup and not re.match(r'^(?:what|who|when|where|how|is|are|does|do|can|will|tell me about|summarize|explain)\b',message,re.I):return None
+    env=session.get('environment',{})
+    serious=env.get('mode')=='focus'
+    keys=env.get('corpora',[]) if serious else sorted(app.roots())
+    entries,blocked=pages(app,keys,profile)
+    candidates=[(k,p) for k,p in entries if subject and subject_key(p['title'])==subject_key(subject)]
+    # Broader local navigation may return several related pages; never choose a truth winner.
+    if not candidates and request and subject:
+        words=set(re.findall(r'[a-z0-9]+',subject_key(subject)))
+        candidates=[(k,p) for k,p in entries if words and words <= set(re.findall(r'[a-z0-9]+',subject_key(p['title'])))]
+    if not request and state.get('source_pages'):
+        selected={(x['corpus'],x['path']) for x in state['source_pages']}
+        candidates=[(k,p) for k,p in entries if (k,p['path']) in selected]
+    results=[]
+    if request or followup:
+        for k,p in candidates:
+            answer=C.turn(app,k,app.root(k),profile,'show source',p)
+            if answer.get('kind')=='return' and answer.get('sources'):results.append({'corpus':k,'response':answer})
+    elif candidates and Q.question_intent(message,subject):
         for k,p in candidates:
             answer=Q.handle(app,k,app.root(k),profile,message,p)
-            if answer and answer.get('sources'):responses.append({'corpus':k,'response':answer})
-        if responses:
-            result=M.reply('federated_answers','From saved MPLPB pages:\n\n'+'\n\n'.join(x['corpus']+' :: '+x['response']['message'] for x in responses),None,'CHAT-SOURCES',authority='separate_source_results',scope_results=responses,sources=[dict(s,corpus=x['corpus']) for x in responses for s in x['response'].get('sources',[])])
-        else:return None
+            if answer and answer.get('sources'):results.append({'corpus':k,'response':answer})
     else:
-        result=handle(app,data,shadow,query,corpus,profile)
-    if not result or not result.get('sources'):return None
-    result['context']=None
-    result['message']+='\n\nWe can explore these pages conversationally, or choose Serious mode to focus on their evidence.'
-    result['support_notice']='Chat exploration; cited passages come from saved MPLPB pages. Conversation is not additional evidence.'
-    result['suggestions']=['tell me more','serious mode','just chat']
-    result['response_structure']={'intent':'source_exploration','mode':'chat','factual_claims':True,'mplpb_supported':True}
+        # Named factual queries retain the existing independent-collection reader.
+        shadow=copy.deepcopy(session)
+        shadow['environment']={'mode':'focus','corpora':keys,'focus_corpus':None}
+        shadow['context']=None
+        shadow['mind'].pop('idea_chat',None)
+        result=handle(app,data,shadow,message,corpus,profile)
+        if result and result.get('sources'):results=result.get('scope_results',[])
+    if not results and request:
+        # Ask each eligible collection's established ownership reader independently.
+        for k in dict.fromkeys(k for k,_ in entries):
+            answer=C.turn(app,k,app.root(k),profile,subject,None)
+            if answer.get('kind')=='return' and answer.get('sources'):
+                results.append({'corpus':k,'response':answer})
+    if not results:return None
+    if request:
+        session['mind']['idea_chat'].update(subject=subject,sourced=True,source_pages=[{'corpus':x['corpus'],'path':x['response']['context']['path']} for x in results if x['response'].get('context')])
+    result=M.reply('federated_answers','Here is what the MPLPB pages say'+(' about '+subject if subject else '')+':\n\n'+'\n\n'.join(x['corpus']+' :: '+x['response']['message'] for x in results),session.get('context') if serious else None,'CHAT-SOURCES',authority='separate_source_results',scope_results=results,sources=[dict(s,corpus=x['corpus']) for x in results for s in x['response'].get('sources',[])],blocked_collections=blocked)
+    result['message']+='\n\nWhat would you like to explore about that? We can discuss these facts or ask a follow-up.'
+    result['support_notice']='Factual conversation; cited passages come from MPLPB pages. Conversational framing is not additional evidence.'
+    result['suggestions']=['tell me more','how big is it?','just chat']
+    result['response_structure']={'intent':'source_exploration','mode':env.get('mode','chat'),'factual_claims':True,'mplpb_supported':True,'subject':subject}
     return result
 
 
 def handle(app, data, session, message, corpus, profile):
     key=T.casual_key(message)
     if key in {'just chatting','chat mode','stay casual','keep chatting'}:return load(app,session,[])
-    # An explicit casual request can leave serious mode; topic alone cannot.
+    # Topic requests keep the mode and consult available evidence before idea prompts.
     if IC.topic_request(message) and key not in {"let's talk about it",'lets talk about it','talk about it','talk about this'}:
         if session.get('environment',{}).get('mode') == 'focus':
-            result=IC.handle(message,session['mind'])
+            result=explore_sources(app,data,session,message,corpus,profile) or IC.handle(message,session['mind'])
             result['context']=session['context']
             return result
         if not session.get('environment'):load(app,session,[])
@@ -160,6 +186,9 @@ def handle(app, data, session, message, corpus, profile):
             load(app,session,[corpus]);env=session['environment']
         else:
             return explore_sources(app,data,session,message,corpus,profile) or general(message,session)
+    if session['mind'].get('idea_chat',{}).get('sourced') and (key in {'tell me more','more','go on','continue','show source','show page'} or (not session.get('context') and Q.question_intent(message,session['mind']['idea_chat']['subject']))):
+        sourced=explore_sources(app,data,session,message,corpus,profile)
+        if sourced:return sourced
     # Social turns do not change loaded collections or the selected evidence page.
     conversational=EM.handle(message,session['mind']) or D.respond(message,session['mind'])
     if conversational is None and T.smalltalk_candidate(message,session['mind']):

@@ -345,7 +345,7 @@ class App:
                 session['environment']={'mode':'focus','corpora':[corpus],'focus_corpus':corpus if result.get('context') else None}
             if session.get('environment'):
                 result['environment']=copy.deepcopy(session['environment'])
-                if result.get('context') and session['environment'].get('focus_corpus'):
+                if result.get('context') and session['environment'].get('focus_corpus') and not result.get('scope_results'):
                     result['source_corpus']=session['environment']['focus_corpus']
                     result['sources']=[dict(s,corpus=result['source_corpus']) for s in result.get('sources',[])]
                 result.setdefault('response_structure',{}).setdefault('mode',session['environment']['mode'])
