@@ -38,6 +38,7 @@ from tools import self_knowledge as SK
 from tools import proposition_chat as PC
 from tools import conversation_memory as CM
 from tools import dialogue_rules as DR
+from tools import context_index as CX
 
 
 class App:
@@ -268,7 +269,7 @@ class App:
                 memory.pop('topic_offer',None)
             language_request=LP.parse(message,memory,session.get('context'))
             casual=None
-            dialogue=DR.handle(message,session)
+            dialogue=CX.handle(message,session) or DR.handle(message,session)
             if dialogue and data.get('default_chat') and not session.get('environment') and not session.get('context'):
                 session['environment']={'mode':'chat','corpora':[],'focus_corpus':None}
             environment_result=dialogue or CM.handle(message,session) or SK.handle(message,session,self.roots()) or PC.handle(self,data,session,message,corpus,profile) or E.handle(self,data,session,message,corpus,profile)
@@ -372,6 +373,8 @@ class App:
             M.record(session.setdefault('mind', {'notes': []}), result)
             result['question_frame']=E.IC.PF.frame(message)
             payload = {'question': message, 'corpus': corpus, 'profile': profile, 'response': result}
+            payload['context_index_version']=CX.VERSION
+            payload['context_index_sha256']=hashlib.sha256(Path(CX.__file__).read_bytes()).hexdigest()
             payload['dialogue_rules_version']=DR.VERSION
             payload['dialogue_rules_sha256']=hashlib.sha256(Path(DR.__file__).read_bytes()).hexdigest()
             payload['conversation_memory_version']=CM.VERSION

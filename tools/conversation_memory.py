@@ -2,7 +2,7 @@
 import re
 from tools import deterministic_mind as M
 
-VERSION='conversation-memory-v2'
+VERSION='conversation-memory-v3'
 FORGET={'forget my name','do not remember my name',"don't remember my name",'stop using my name'}
 NAME_QUESTIONS={'what is my name',"what's my name",'do you remember my name','who am i','what do you call me'}
 STATES={'sad','happy','tired','bored','angry','worried','anxious','upset','lonely','hungry','sorry','fine','okay','ok','good','great','excited','scared','stressed','depressed','sick','confused','here','back','ready','done','listening','not','a','an'}
@@ -16,7 +16,7 @@ def introduction(text):
     text=re.split(r'[.!?;]+\s*|,?\s+and\s+(?=(?:how|who|what)\b)',text, maxsplit=1,flags=re.I)[0]
     text=re.sub(r'^(?:hi|hello|hey)[,! ]+', '',text,flags=re.I)
     text=re.sub(r'^(?:actually|no)[, ]+', '',text,flags=re.I)
-    match=re.fullmatch(r"(?:my name is|call me|please call me|remember my name is|i(?: am|'m)) ([^,;!?]{1,64}?)(?:[,;]? (?:and )?(?:who are you|what(?: is|'s) your name))?",text,re.I)
+    match=re.fullmatch(r"(?:my name is|call me|please call me|remember my name is|i(?: am|'m)) ([^,;!?]{1,64}?)(?:[,;]? (?:and )?(?:who are you|what are you|what(?: is|'s) your name))?",text,re.I)
     if not match:return None
     name=match[1].strip()
     words=name.split()

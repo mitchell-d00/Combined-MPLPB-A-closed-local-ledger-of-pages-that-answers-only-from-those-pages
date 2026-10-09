@@ -53,6 +53,11 @@ both modes with their own reference tag. These lookups never silently load
 collections. Sources appear below factual replies; casual wording stays distinct
 from source evidence.
 
+A session-local [context index](docs/CONTEXT_INDEX.md) replays user declarations
+forward to apply corrections and searches relevant exchanges backward. Explicit
+user-defined word meanings and personal details remain tagged as conversation
+context, never promoted to MPLPB evidence.
+
 Introductions such as `Hi, I’m Alex` receive a personal greeting. Names are
 recalled from user turns in the current conversation, including older saved
 turns. `What did I say about orchids?` recalls matching user messages with turn
@@ -245,7 +250,7 @@ nothing else.
 | `mplpb_combined/ledger.py` | The folder as a ledger: status, lineage, depth, validation, writing, the log |
 | `mplpb_combined/reader.py` | The answer rule, profiles, hubs |
 | `mplpb_combined/killtest.py` | The kill test: three arms, mechanical scoring |
-| `tests/` | 446 developer-authored regression tests covering the reader, captures, conversation, source boundaries and saved state |
+| `tests/` | 455 developer-authored regression tests covering the reader, captures, conversation, source boundaries and saved state |
 | `examples/studio/` | 25 pages about running a pottery studio; the kill-test corpus |
 | `examples/spec/` | The format described as ten pages in the format |
 | `examples/hub/` | Two pointers, one at each of the above |

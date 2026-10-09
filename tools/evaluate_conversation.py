@@ -3,9 +3,9 @@ import argparse,json,tempfile
 from pathlib import Path
 from tools.ledger_ui import App
 
-def run():
+def run(scenarios_path='evaluation/conversation/scenarios.json'):
     records=[]
-    scenarios=json.loads(Path('evaluation/conversation/scenarios.json').read_text())
+    scenarios=json.loads(Path(scenarios_path).read_text())
     with tempfile.TemporaryDirectory() as tmp:
         app=App(topic_base=Path(tmp)/'topics')
         for mode in ['chat mode','load MPLPB']:
@@ -16,5 +16,5 @@ def run():
                     records.append({'scenario':case['id'],'mode':mode,'question':message,'answer':r['message'],'kind':r['kind'],'authority':r.get('authority'),'source_count':len(r.get('sources',[]))})
     return records
 if __name__=='__main__':
-    p=argparse.ArgumentParser();p.add_argument('--output',required=True);args=p.parse_args()
-    Path(args.output).write_text(json.dumps(run(),indent=2,ensure_ascii=False)+'\n')
+    p=argparse.ArgumentParser();p.add_argument('--output',required=True);p.add_argument('--scenarios',default='evaluation/conversation/scenarios.json');args=p.parse_args()
+    Path(args.output).write_text(json.dumps(run(args.scenarios),indent=2,ensure_ascii=False)+'\n')
