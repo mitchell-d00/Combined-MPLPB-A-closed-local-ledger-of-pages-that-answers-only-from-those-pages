@@ -36,6 +36,8 @@ def help_reply(message, context):
     key = re.sub(r'^(?:(?:please|explain|tell me) )+', '', key)
     words=set(re.findall(r'[a-z]+',key))
     procedural=key.startswith(('how do i ','how can i ','how to ','where can i ','where do i ','can i ','could i ','help me ','i want to '))
+    if context and procedural and words & {'it','its'} and not words & {'app','mplpb','collection','collections','chat','chats','notes','memory','sources','source'}:
+        return None  # A selected object's use is not automatically app-help intent.
     subject=words & {'mplpb','collection','collections','chat','chats','this','it','app','workspace','all','some'}
     category=None
     if procedural and subject:

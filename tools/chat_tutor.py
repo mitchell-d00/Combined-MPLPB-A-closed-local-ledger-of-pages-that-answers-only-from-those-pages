@@ -99,9 +99,27 @@ def smalltalk_candidate(message,memory):
             or (command in {'yes','yes please','lets explore',"let's explore",'no','no thanks'} and bool(memory.get('topic_offer')))
             or command.startswith(CASUAL_PREFIXES))
 
+def casual_followup(message,context,memory):
+    """Open-ended social acknowledgments, never a source of world facts."""
+    if context or not memory.get('casual_active'):return None
+    command=key(message)
+    if command in LIST or command in START:return None
+    if M.help_reply(message,context) is not None:return None
+    if conversation(message,context,memory) is not None:return None
+    if re.match(r'^(?:what|why|who|where|when|how|which|is|are|can|could|do|does|did|will|would|should|topic|search|find|import|define|dictionary|synonyms|thesaurus|grammar|language|reference|remember|memory|forget|clear|summarize|explain|compare|relate|show|guide|next|back|stop|finish|teach|tell)\b',command) or '?' in message:
+        return None
+    if command in {'more','continue','yes','yes please','no','no thanks'}:return None
+    memory['casual_turns']=memory.get('casual_turns',0)+1
+    prompts=('What part would you like to talk about?', 'Would you like to say more, or change the subject?',
+             'What has been on your mind about that?')
+    return M.reply('smalltalk','We can keep talking. '+prompts[(memory['casual_turns']-1)%len(prompts)],None,
+                   'SMALL-OPEN',authority='conversation_structure',suggestions=['a silly question','show my MPLPB','what are you?'],
+                   response_structure={'intent':'casual_followup','factual_claims':False,'automatic_topic_switch':False})
+
 def smalltalk(message,context,memory,titles,scope):
     """Literal topic mentions invite a transition; no source facts or auto-fetch."""
     command=casual_key(message);offer=memory.get('topic_offer')
+    memory['casual_active']=True
     if offer and offer.get('scope')!=scope:
         memory.pop('topic_offer',None);offer=None
     if command in {'yes','yes please','lets explore',"let's explore"} and offer:

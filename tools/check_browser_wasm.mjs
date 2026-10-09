@@ -92,5 +92,15 @@ const definition=await call('/api/chat',{corpus:'logic',session:sid,message:'def
 if(definition.response.authority!=='lexical_reference'||!definition.response.senses.some(s=>s.id==='02086723-n'))throw Error('WASM dictionary lookup failed');
 const reference=await call('/api/chat',{corpus:'reference',message:'topic Fossil'});
 if(reference.response.context?.title!=='Fossil')throw Error('WASM encyclopedia reference failed');
-console.log('PASS real WebAssembly: ownership, relation proof, summary, withholding, memory, saved relaunch, fixture imports, isolated collections and offline references.');
+const moonCollection=await call('/api/collections/create',{name:'Grounded Moon fixture'});
+await call('/api/source/import',{corpus:moonCollection.corpus,title:'Moon',url:'https://example.org/moon',text:'The Moon is about 3,474 km in diameter. The Moon is about 4.5 billion years old.'});
+const moonSelected=await call('/api/chat',{corpus:moonCollection.corpus,message:'topic Moon'});
+const moonSize=await call('/api/chat',{corpus:moonCollection.corpus,session:moonSelected.session,message:'how big is it?'});
+if(moonSize.response.kind!=='grounded_answer'||!moonSize.response.message.includes('3,474 km')||moonSize.response.context.title!=='Moon')throw Error('WASM grounded size failed: '+JSON.stringify(moonSize));
+const missingMoon=await call('/api/chat',{corpus:moonCollection.corpus,session:moonSelected.session,message:'Who may land on it?'});
+if(missingMoon.response.kind!=='unsupported'||missingMoon.response.sources.length||missingMoon.response.source_offer.automatic_fetch!==false)throw Error('WASM unsupported offer failed');
+await py.runPythonAsync('B.app = App()');
+const moonAge=await call('/api/chat',{corpus:moonCollection.corpus,session:moonSelected.session,message:'and how old is it?'});
+if(moonAge.response.kind!=='grounded_answer'||!moonAge.response.message.includes('4.5 billion'))throw Error('WASM persisted grounded context failed');
+console.log('PASS real WebAssembly: ownership, relation proof, summary, withholding, memory, saved relaunch, fixture imports, isolated collections, offline references and grounded follow-ups.');
 fs.writeFileSync(path.join(path.dirname(htmlPath),'wasm-validation.json'),JSON.stringify({runtime:bundle.runtime_version,passed:true,corpora:state.corpora.map(x=>x.key),ambiguous:ambiguous.reader.kind,relation:relation.response.kind,summary:summary.response.kind,withheld:withheld.reader.kind,chain_intact:saved.chain_intact,fixture_import_passed:true,virtual_save_relaunch_passed:true,browser_layout_tested:false,indexeddb_tested:false,live_wiki_tested:false},null,2));

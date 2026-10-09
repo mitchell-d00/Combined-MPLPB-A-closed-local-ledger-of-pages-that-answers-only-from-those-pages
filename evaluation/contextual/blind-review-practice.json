@@ -1,0 +1,1328 @@
+{
+  "schema": 1,
+  "source_sha256": "eda1dfc4974a1d378f1b41e42a9673551aeeaf9d2f87c040f1673206c5b573eb",
+  "order_seed": 20261009,
+  "blind_to": [
+    "gold labels",
+    "system outputs",
+    "scopes",
+    "exclusions"
+  ],
+  "instructions": "Label supported, unsupported, ambiguous, or invalid. Cite exact body text. Judge only the selected topic; do not use outside knowledge. Complete independently before adjudication.",
+  "cases": [
+    {
+      "id": "astronomy-supported",
+      "domain": "astronomy",
+      "selected_topic": "Moon",
+      "prior_user_turns": [],
+      "question": "how big is it?",
+      "pages": [
+        {
+          "title": "Moon",
+          "body": "The Moon is about 3,474 km in diameter.\nThe Moon is about 4.5 billion years old."
+        },
+        {
+          "title": "Moon sample",
+          "body": "The Moon sample measures 23 cm across."
+        }
+      ],
+      "review": {
+        "reviewer_id": null,
+        "label": null,
+        "evidence": [],
+        "rationale": null,
+        "confidence": null
+      }
+    },
+    {
+      "id": "workshop-supported",
+      "domain": "workshop",
+      "selected_topic": "Kiln",
+      "prior_user_turns": [],
+      "question": "how tall is it?",
+      "pages": [
+        {
+          "title": "Kiln",
+          "body": "The Kiln is 2 m in height.\nFiring instructions: heat the kiln slowly."
+        },
+        {
+          "title": "Kiln sample",
+          "body": "The Kiln sample measures 23 cm across."
+        }
+      ],
+      "review": {
+        "reviewer_id": null,
+        "label": null,
+        "evidence": [],
+        "rationale": null,
+        "confidence": null
+      }
+    },
+    {
+      "id": "software-supported",
+      "domain": "software",
+      "selected_topic": "Server",
+      "prior_user_turns": [],
+      "question": "how heavy is it?",
+      "pages": [
+        {
+          "title": "Server",
+          "body": "The Server weighs 12 kg.\nThe server runs software and stores files."
+        },
+        {
+          "title": "Server sample",
+          "body": "The Server sample measures 23 cm across."
+        }
+      ],
+      "review": {
+        "reviewer_id": null,
+        "label": null,
+        "evidence": [],
+        "rationale": null,
+        "confidence": null
+      }
+    },
+    {
+      "id": "workshop-paraphrase",
+      "domain": "workshop",
+      "selected_topic": "Kiln sample",
+      "prior_user_turns": [],
+      "question": "how wide is it?",
+      "pages": [
+        {
+          "title": "Kiln",
+          "body": "The Kiln is 2 m in height.\nFiring instructions: heat the kiln slowly."
+        },
+        {
+          "title": "Kiln sample",
+          "body": "The Kiln sample measures 23 cm across."
+        }
+      ],
+      "review": {
+        "reviewer_id": null,
+        "label": null,
+        "evidence": [],
+        "rationale": null,
+        "confidence": null
+      }
+    },
+    {
+      "id": "astronomy-unsupported-0",
+      "domain": "astronomy",
+      "selected_topic": "Moon",
+      "prior_user_turns": [],
+      "question": "Who may land on the Moon?",
+      "pages": [
+        {
+          "title": "Moon",
+          "body": "The Moon is about 3,474 km in diameter.\nThe Moon is about 4.5 billion years old."
+        },
+        {
+          "title": "Moon sample",
+          "body": "The Moon sample measures 23 cm across."
+        }
+      ],
+      "review": {
+        "reviewer_id": null,
+        "label": null,
+        "evidence": [],
+        "rationale": null,
+        "confidence": null
+      }
+    },
+    {
+      "id": "office-paraphrase",
+      "domain": "office",
+      "selected_topic": "Desk sample",
+      "prior_user_turns": [],
+      "question": "how wide is it?",
+      "pages": [
+        {
+          "title": "Desk",
+          "body": "The Desk has a length of 160 cm.\nStaff use desks for office work."
+        },
+        {
+          "title": "Desk sample",
+          "body": "The Desk sample measures 23 cm across."
+        }
+      ],
+      "review": {
+        "reviewer_id": null,
+        "label": null,
+        "evidence": [],
+        "rationale": null,
+        "confidence": null
+      }
+    },
+    {
+      "id": "astronomy-unsupported-2",
+      "domain": "astronomy",
+      "selected_topic": "Moon",
+      "prior_user_turns": [],
+      "question": "Why is it that size?",
+      "pages": [
+        {
+          "title": "Moon",
+          "body": "The Moon is about 3,474 km in diameter.\nThe Moon is about 4.5 billion years old."
+        },
+        {
+          "title": "Moon sample",
+          "body": "The Moon sample measures 23 cm across."
+        }
+      ],
+      "review": {
+        "reviewer_id": null,
+        "label": null,
+        "evidence": [],
+        "rationale": null,
+        "confidence": null
+      }
+    },
+    {
+      "id": "workshop-unsupported-0",
+      "domain": "workshop",
+      "selected_topic": "Kiln",
+      "prior_user_turns": [],
+      "question": "Who may operate a kiln?",
+      "pages": [
+        {
+          "title": "Kiln",
+          "body": "The Kiln is 2 m in height.\nFiring instructions: heat the kiln slowly."
+        },
+        {
+          "title": "Kiln sample",
+          "body": "The Kiln sample measures 23 cm across."
+        }
+      ],
+      "review": {
+        "reviewer_id": null,
+        "label": null,
+        "evidence": [],
+        "rationale": null,
+        "confidence": null
+      }
+    },
+    {
+      "id": "office-unsupported-3",
+      "domain": "office",
+      "selected_topic": "Desk",
+      "prior_user_turns": [],
+      "question": "Where can I buy it?",
+      "pages": [
+        {
+          "title": "Desk",
+          "body": "The Desk has a length of 160 cm.\nStaff use desks for office work."
+        },
+        {
+          "title": "Desk sample",
+          "body": "The Desk sample measures 23 cm across."
+        }
+      ],
+      "review": {
+        "reviewer_id": null,
+        "label": null,
+        "evidence": [],
+        "rationale": null,
+        "confidence": null
+      }
+    },
+    {
+      "id": "office-supported",
+      "domain": "office",
+      "selected_topic": "Desk",
+      "prior_user_turns": [],
+      "question": "how long is it?",
+      "pages": [
+        {
+          "title": "Desk",
+          "body": "The Desk has a length of 160 cm.\nStaff use desks for office work."
+        },
+        {
+          "title": "Desk sample",
+          "body": "The Desk sample measures 23 cm across."
+        }
+      ],
+      "review": {
+        "reviewer_id": null,
+        "label": null,
+        "evidence": [],
+        "rationale": null,
+        "confidence": null
+      }
+    },
+    {
+      "id": "software-unsupported-1",
+      "domain": "software",
+      "selected_topic": "Server",
+      "prior_user_turns": [],
+      "question": "How do I reset it?",
+      "pages": [
+        {
+          "title": "Server",
+          "body": "The Server weighs 12 kg.\nThe server runs software and stores files."
+        },
+        {
+          "title": "Server sample",
+          "body": "The Server sample measures 23 cm across."
+        }
+      ],
+      "review": {
+        "reviewer_id": null,
+        "label": null,
+        "evidence": [],
+        "rationale": null,
+        "confidence": null
+      }
+    },
+    {
+      "id": "astronomy-unsupported-5",
+      "domain": "astronomy",
+      "selected_topic": "Moon",
+      "prior_user_turns": [],
+      "question": "How big is it in 100 years?",
+      "pages": [
+        {
+          "title": "Moon",
+          "body": "The Moon is about 3,474 km in diameter.\nThe Moon is about 4.5 billion years old."
+        },
+        {
+          "title": "Moon sample",
+          "body": "The Moon sample measures 23 cm across."
+        }
+      ],
+      "review": {
+        "reviewer_id": null,
+        "label": null,
+        "evidence": [],
+        "rationale": null,
+        "confidence": null
+      }
+    },
+    {
+      "id": "astronomy-unsupported-1",
+      "domain": "astronomy",
+      "selected_topic": "Moon",
+      "prior_user_turns": [],
+      "question": "How heavy is it?",
+      "pages": [
+        {
+          "title": "Moon",
+          "body": "The Moon is about 3,474 km in diameter.\nThe Moon is about 4.5 billion years old."
+        },
+        {
+          "title": "Moon sample",
+          "body": "The Moon sample measures 23 cm across."
+        }
+      ],
+      "review": {
+        "reviewer_id": null,
+        "label": null,
+        "evidence": [],
+        "rationale": null,
+        "confidence": null
+      }
+    },
+    {
+      "id": "workshop-unsupported-4",
+      "domain": "workshop",
+      "selected_topic": "Kiln",
+      "prior_user_turns": [],
+      "question": "Why is it so tall?",
+      "pages": [
+        {
+          "title": "Kiln",
+          "body": "The Kiln is 2 m in height.\nFiring instructions: heat the kiln slowly."
+        },
+        {
+          "title": "Kiln sample",
+          "body": "The Kiln sample measures 23 cm across."
+        }
+      ],
+      "review": {
+        "reviewer_id": null,
+        "label": null,
+        "evidence": [],
+        "rationale": null,
+        "confidence": null
+      }
+    },
+    {
+      "id": "transport-unsupported-0",
+      "domain": "transport",
+      "selected_topic": "Bridge",
+      "prior_user_turns": [],
+      "question": "Who may drive over it?",
+      "pages": [
+        {
+          "title": "Bridge",
+          "body": "The Bridge is 80 m in length.\nThe bridge carries road traffic."
+        },
+        {
+          "title": "Bridge sample",
+          "body": "The Bridge sample measures 23 cm across."
+        }
+      ],
+      "review": {
+        "reviewer_id": null,
+        "label": null,
+        "evidence": [],
+        "rationale": null,
+        "confidence": null
+      }
+    },
+    {
+      "id": "library-unsupported-2",
+      "domain": "library",
+      "selected_topic": "Bookcase",
+      "prior_user_turns": [],
+      "question": "How wide is it when folded?",
+      "pages": [
+        {
+          "title": "Bookcase",
+          "body": "The Bookcase has a width of 120 cm.\nThe library keeps books on these shelves."
+        },
+        {
+          "title": "Bookcase sample",
+          "body": "The Bookcase sample measures 23 cm across."
+        }
+      ],
+      "review": {
+        "reviewer_id": null,
+        "label": null,
+        "evidence": [],
+        "rationale": null,
+        "confidence": null
+      }
+    },
+    {
+      "id": "workshop-memory",
+      "domain": "workshop",
+      "selected_topic": "Kiln",
+      "prior_user_turns": [
+        "hello",
+        "remember User note: the size is 999999 km."
+      ],
+      "question": "how tall is it?",
+      "pages": [
+        {
+          "title": "Kiln",
+          "body": "The Kiln is 2 m in height.\nFiring instructions: heat the kiln slowly."
+        },
+        {
+          "title": "Kiln sample",
+          "body": "The Kiln sample measures 23 cm across."
+        }
+      ],
+      "review": {
+        "reviewer_id": null,
+        "label": null,
+        "evidence": [],
+        "rationale": null,
+        "confidence": null
+      }
+    },
+    {
+      "id": "transport-unsupported-2",
+      "domain": "transport",
+      "selected_topic": "Bridge",
+      "prior_user_turns": [],
+      "question": "How long is it after expansion?",
+      "pages": [
+        {
+          "title": "Bridge",
+          "body": "The Bridge is 80 m in length.\nThe bridge carries road traffic."
+        },
+        {
+          "title": "Bridge sample",
+          "body": "The Bridge sample measures 23 cm across."
+        }
+      ],
+      "review": {
+        "reviewer_id": null,
+        "label": null,
+        "evidence": [],
+        "rationale": null,
+        "confidence": null
+      }
+    },
+    {
+      "id": "office-unsupported-2",
+      "domain": "office",
+      "selected_topic": "Desk",
+      "prior_user_turns": [],
+      "question": "How long is it if extended?",
+      "pages": [
+        {
+          "title": "Desk",
+          "body": "The Desk has a length of 160 cm.\nStaff use desks for office work."
+        },
+        {
+          "title": "Desk sample",
+          "body": "The Desk sample measures 23 cm across."
+        }
+      ],
+      "review": {
+        "reviewer_id": null,
+        "label": null,
+        "evidence": [],
+        "rationale": null,
+        "confidence": null
+      }
+    },
+    {
+      "id": "library-supported",
+      "domain": "library",
+      "selected_topic": "Bookcase",
+      "prior_user_turns": [],
+      "question": "what is its width?",
+      "pages": [
+        {
+          "title": "Bookcase",
+          "body": "The Bookcase has a width of 120 cm.\nThe library keeps books on these shelves."
+        },
+        {
+          "title": "Bookcase sample",
+          "body": "The Bookcase sample measures 23 cm across."
+        }
+      ],
+      "review": {
+        "reviewer_id": null,
+        "label": null,
+        "evidence": [],
+        "rationale": null,
+        "confidence": null
+      }
+    },
+    {
+      "id": "library-unsupported-3",
+      "domain": "library",
+      "selected_topic": "Bookcase",
+      "prior_user_turns": [],
+      "question": "How heavy is it?",
+      "pages": [
+        {
+          "title": "Bookcase",
+          "body": "The Bookcase has a width of 120 cm.\nThe library keeps books on these shelves."
+        },
+        {
+          "title": "Bookcase sample",
+          "body": "The Bookcase sample measures 23 cm across."
+        }
+      ],
+      "review": {
+        "reviewer_id": null,
+        "label": null,
+        "evidence": [],
+        "rationale": null,
+        "confidence": null
+      }
+    },
+    {
+      "id": "workshop-unsupported-2",
+      "domain": "workshop",
+      "selected_topic": "Kiln",
+      "prior_user_turns": [],
+      "question": "What temperature should I use?",
+      "pages": [
+        {
+          "title": "Kiln",
+          "body": "The Kiln is 2 m in height.\nFiring instructions: heat the kiln slowly."
+        },
+        {
+          "title": "Kiln sample",
+          "body": "The Kiln sample measures 23 cm across."
+        }
+      ],
+      "review": {
+        "reviewer_id": null,
+        "label": null,
+        "evidence": [],
+        "rationale": null,
+        "confidence": null
+      }
+    },
+    {
+      "id": "library-unsupported-5",
+      "domain": "library",
+      "selected_topic": "Bookcase",
+      "prior_user_turns": [],
+      "question": "Is it a book?",
+      "pages": [
+        {
+          "title": "Bookcase",
+          "body": "The Bookcase has a width of 120 cm.\nThe library keeps books on these shelves."
+        },
+        {
+          "title": "Bookcase sample",
+          "body": "The Bookcase sample measures 23 cm across."
+        }
+      ],
+      "review": {
+        "reviewer_id": null,
+        "label": null,
+        "evidence": [],
+        "rationale": null,
+        "confidence": null
+      }
+    },
+    {
+      "id": "software-unsupported-2",
+      "domain": "software",
+      "selected_topic": "Server",
+      "prior_user_turns": [],
+      "question": "How heavy is it with the rack?",
+      "pages": [
+        {
+          "title": "Server",
+          "body": "The Server weighs 12 kg.\nThe server runs software and stores files."
+        },
+        {
+          "title": "Server sample",
+          "body": "The Server sample measures 23 cm across."
+        }
+      ],
+      "review": {
+        "reviewer_id": null,
+        "label": null,
+        "evidence": [],
+        "rationale": null,
+        "confidence": null
+      }
+    },
+    {
+      "id": "transport-memory",
+      "domain": "transport",
+      "selected_topic": "Bridge",
+      "prior_user_turns": [
+        "hello",
+        "remember User note: the size is 999999 km."
+      ],
+      "question": "what is its length?",
+      "pages": [
+        {
+          "title": "Bridge",
+          "body": "The Bridge is 80 m in length.\nThe bridge carries road traffic."
+        },
+        {
+          "title": "Bridge sample",
+          "body": "The Bridge sample measures 23 cm across."
+        }
+      ],
+      "review": {
+        "reviewer_id": null,
+        "label": null,
+        "evidence": [],
+        "rationale": null,
+        "confidence": null
+      }
+    },
+    {
+      "id": "software-paraphrase",
+      "domain": "software",
+      "selected_topic": "Server sample",
+      "prior_user_turns": [],
+      "question": "how wide is it?",
+      "pages": [
+        {
+          "title": "Server",
+          "body": "The Server weighs 12 kg.\nThe server runs software and stores files."
+        },
+        {
+          "title": "Server sample",
+          "body": "The Server sample measures 23 cm across."
+        }
+      ],
+      "review": {
+        "reviewer_id": null,
+        "label": null,
+        "evidence": [],
+        "rationale": null,
+        "confidence": null
+      }
+    },
+    {
+      "id": "software-memory",
+      "domain": "software",
+      "selected_topic": "Server",
+      "prior_user_turns": [
+        "hello",
+        "remember User note: the size is 999999 km."
+      ],
+      "question": "how heavy is it?",
+      "pages": [
+        {
+          "title": "Server",
+          "body": "The Server weighs 12 kg.\nThe server runs software and stores files."
+        },
+        {
+          "title": "Server sample",
+          "body": "The Server sample measures 23 cm across."
+        }
+      ],
+      "review": {
+        "reviewer_id": null,
+        "label": null,
+        "evidence": [],
+        "rationale": null,
+        "confidence": null
+      }
+    },
+    {
+      "id": "astronomy-memory",
+      "domain": "astronomy",
+      "selected_topic": "Moon",
+      "prior_user_turns": [
+        "hello",
+        "remember User note: the size is 999999 km."
+      ],
+      "question": "how big is it?",
+      "pages": [
+        {
+          "title": "Moon",
+          "body": "The Moon is about 3,474 km in diameter.\nThe Moon is about 4.5 billion years old."
+        },
+        {
+          "title": "Moon sample",
+          "body": "The Moon sample measures 23 cm across."
+        }
+      ],
+      "review": {
+        "reviewer_id": null,
+        "label": null,
+        "evidence": [],
+        "rationale": null,
+        "confidence": null
+      }
+    },
+    {
+      "id": "office-memory",
+      "domain": "office",
+      "selected_topic": "Desk",
+      "prior_user_turns": [
+        "hello",
+        "remember User note: the size is 999999 km."
+      ],
+      "question": "how long is it?",
+      "pages": [
+        {
+          "title": "Desk",
+          "body": "The Desk has a length of 160 cm.\nStaff use desks for office work."
+        },
+        {
+          "title": "Desk sample",
+          "body": "The Desk sample measures 23 cm across."
+        }
+      ],
+      "review": {
+        "reviewer_id": null,
+        "label": null,
+        "evidence": [],
+        "rationale": null,
+        "confidence": null
+      }
+    },
+    {
+      "id": "library-unsupported-0",
+      "domain": "library",
+      "selected_topic": "Bookcase",
+      "prior_user_turns": [],
+      "question": "Who may borrow from it?",
+      "pages": [
+        {
+          "title": "Bookcase",
+          "body": "The Bookcase has a width of 120 cm.\nThe library keeps books on these shelves."
+        },
+        {
+          "title": "Bookcase sample",
+          "body": "The Bookcase sample measures 23 cm across."
+        }
+      ],
+      "review": {
+        "reviewer_id": null,
+        "label": null,
+        "evidence": [],
+        "rationale": null,
+        "confidence": null
+      }
+    },
+    {
+      "id": "library-paraphrase",
+      "domain": "library",
+      "selected_topic": "Bookcase sample",
+      "prior_user_turns": [],
+      "question": "how wide is it?",
+      "pages": [
+        {
+          "title": "Bookcase",
+          "body": "The Bookcase has a width of 120 cm.\nThe library keeps books on these shelves."
+        },
+        {
+          "title": "Bookcase sample",
+          "body": "The Bookcase sample measures 23 cm across."
+        }
+      ],
+      "review": {
+        "reviewer_id": null,
+        "label": null,
+        "evidence": [],
+        "rationale": null,
+        "confidence": null
+      }
+    },
+    {
+      "id": "office-unsupported-1",
+      "domain": "office",
+      "selected_topic": "Desk",
+      "prior_user_turns": [],
+      "question": "How much does it cost?",
+      "pages": [
+        {
+          "title": "Desk",
+          "body": "The Desk has a length of 160 cm.\nStaff use desks for office work."
+        },
+        {
+          "title": "Desk sample",
+          "body": "The Desk sample measures 23 cm across."
+        }
+      ],
+      "review": {
+        "reviewer_id": null,
+        "label": null,
+        "evidence": [],
+        "rationale": null,
+        "confidence": null
+      }
+    },
+    {
+      "id": "office-unsupported-4",
+      "domain": "office",
+      "selected_topic": "Desk",
+      "prior_user_turns": [],
+      "question": "How old is it?",
+      "pages": [
+        {
+          "title": "Desk",
+          "body": "The Desk has a length of 160 cm.\nStaff use desks for office work."
+        },
+        {
+          "title": "Desk sample",
+          "body": "The Desk sample measures 23 cm across."
+        }
+      ],
+      "review": {
+        "reviewer_id": null,
+        "label": null,
+        "evidence": [],
+        "rationale": null,
+        "confidence": null
+      }
+    },
+    {
+      "id": "library-unsupported-4",
+      "domain": "library",
+      "selected_topic": "Bookcase",
+      "prior_user_turns": [],
+      "question": "How old is it?",
+      "pages": [
+        {
+          "title": "Bookcase",
+          "body": "The Bookcase has a width of 120 cm.\nThe library keeps books on these shelves."
+        },
+        {
+          "title": "Bookcase sample",
+          "body": "The Bookcase sample measures 23 cm across."
+        }
+      ],
+      "review": {
+        "reviewer_id": null,
+        "label": null,
+        "evidence": [],
+        "rationale": null,
+        "confidence": null
+      }
+    },
+    {
+      "id": "software-unsupported-5",
+      "domain": "software",
+      "selected_topic": "Server",
+      "prior_user_turns": [],
+      "question": "How much memory does it have?",
+      "pages": [
+        {
+          "title": "Server",
+          "body": "The Server weighs 12 kg.\nThe server runs software and stores files."
+        },
+        {
+          "title": "Server sample",
+          "body": "The Server sample measures 23 cm across."
+        }
+      ],
+      "review": {
+        "reviewer_id": null,
+        "label": null,
+        "evidence": [],
+        "rationale": null,
+        "confidence": null
+      }
+    },
+    {
+      "id": "library-memory",
+      "domain": "library",
+      "selected_topic": "Bookcase",
+      "prior_user_turns": [
+        "hello",
+        "remember User note: the size is 999999 km."
+      ],
+      "question": "what is its width?",
+      "pages": [
+        {
+          "title": "Bookcase",
+          "body": "The Bookcase has a width of 120 cm.\nThe library keeps books on these shelves."
+        },
+        {
+          "title": "Bookcase sample",
+          "body": "The Bookcase sample measures 23 cm across."
+        }
+      ],
+      "review": {
+        "reviewer_id": null,
+        "label": null,
+        "evidence": [],
+        "rationale": null,
+        "confidence": null
+      }
+    },
+    {
+      "id": "transport-unsupported-1",
+      "domain": "transport",
+      "selected_topic": "Bridge",
+      "prior_user_turns": [],
+      "question": "How much weight can it carry?",
+      "pages": [
+        {
+          "title": "Bridge",
+          "body": "The Bridge is 80 m in length.\nThe bridge carries road traffic."
+        },
+        {
+          "title": "Bridge sample",
+          "body": "The Bridge sample measures 23 cm across."
+        }
+      ],
+      "review": {
+        "reviewer_id": null,
+        "label": null,
+        "evidence": [],
+        "rationale": null,
+        "confidence": null
+      }
+    },
+    {
+      "id": "software-unsupported-0",
+      "domain": "software",
+      "selected_topic": "Server",
+      "prior_user_turns": [],
+      "question": "Who may log into it?",
+      "pages": [
+        {
+          "title": "Server",
+          "body": "The Server weighs 12 kg.\nThe server runs software and stores files."
+        },
+        {
+          "title": "Server sample",
+          "body": "The Server sample measures 23 cm across."
+        }
+      ],
+      "review": {
+        "reviewer_id": null,
+        "label": null,
+        "evidence": [],
+        "rationale": null,
+        "confidence": null
+      }
+    },
+    {
+      "id": "workshop-unsupported-5",
+      "domain": "workshop",
+      "selected_topic": "Kiln",
+      "prior_user_turns": [],
+      "question": "How heavy is it?",
+      "pages": [
+        {
+          "title": "Kiln",
+          "body": "The Kiln is 2 m in height.\nFiring instructions: heat the kiln slowly."
+        },
+        {
+          "title": "Kiln sample",
+          "body": "The Kiln sample measures 23 cm across."
+        }
+      ],
+      "review": {
+        "reviewer_id": null,
+        "label": null,
+        "evidence": [],
+        "rationale": null,
+        "confidence": null
+      }
+    },
+    {
+      "id": "transport-supported",
+      "domain": "transport",
+      "selected_topic": "Bridge",
+      "prior_user_turns": [],
+      "question": "what is its length?",
+      "pages": [
+        {
+          "title": "Bridge",
+          "body": "The Bridge is 80 m in length.\nThe bridge carries road traffic."
+        },
+        {
+          "title": "Bridge sample",
+          "body": "The Bridge sample measures 23 cm across."
+        }
+      ],
+      "review": {
+        "reviewer_id": null,
+        "label": null,
+        "evidence": [],
+        "rationale": null,
+        "confidence": null
+      }
+    },
+    {
+      "id": "astronomy-unsupported-4",
+      "domain": "astronomy",
+      "selected_topic": "Moon",
+      "prior_user_turns": [],
+      "question": "Is it safe to live there?",
+      "pages": [
+        {
+          "title": "Moon",
+          "body": "The Moon is about 3,474 km in diameter.\nThe Moon is about 4.5 billion years old."
+        },
+        {
+          "title": "Moon sample",
+          "body": "The Moon sample measures 23 cm across."
+        }
+      ],
+      "review": {
+        "reviewer_id": null,
+        "label": null,
+        "evidence": [],
+        "rationale": null,
+        "confidence": null
+      }
+    },
+    {
+      "id": "workshop-unsupported-3",
+      "domain": "workshop",
+      "selected_topic": "Kiln",
+      "prior_user_turns": [],
+      "question": "How tall is it after disassembly?",
+      "pages": [
+        {
+          "title": "Kiln",
+          "body": "The Kiln is 2 m in height.\nFiring instructions: heat the kiln slowly."
+        },
+        {
+          "title": "Kiln sample",
+          "body": "The Kiln sample measures 23 cm across."
+        }
+      ],
+      "review": {
+        "reviewer_id": null,
+        "label": null,
+        "evidence": [],
+        "rationale": null,
+        "confidence": null
+      }
+    },
+    {
+      "id": "transport-unsupported-5",
+      "domain": "transport",
+      "selected_topic": "Bridge",
+      "prior_user_turns": [],
+      "question": "Is it safe?",
+      "pages": [
+        {
+          "title": "Bridge",
+          "body": "The Bridge is 80 m in length.\nThe bridge carries road traffic."
+        },
+        {
+          "title": "Bridge sample",
+          "body": "The Bridge sample measures 23 cm across."
+        }
+      ],
+      "review": {
+        "reviewer_id": null,
+        "label": null,
+        "evidence": [],
+        "rationale": null,
+        "confidence": null
+      }
+    },
+    {
+      "id": "office-unsupported-5",
+      "domain": "office",
+      "selected_topic": "Desk",
+      "prior_user_turns": [],
+      "question": "Is it fire resistant?",
+      "pages": [
+        {
+          "title": "Desk",
+          "body": "The Desk has a length of 160 cm.\nStaff use desks for office work."
+        },
+        {
+          "title": "Desk sample",
+          "body": "The Desk sample measures 23 cm across."
+        }
+      ],
+      "review": {
+        "reviewer_id": null,
+        "label": null,
+        "evidence": [],
+        "rationale": null,
+        "confidence": null
+      }
+    },
+    {
+      "id": "software-unsupported-3",
+      "domain": "software",
+      "selected_topic": "Server",
+      "prior_user_turns": [],
+      "question": "How old is it?",
+      "pages": [
+        {
+          "title": "Server",
+          "body": "The Server weighs 12 kg.\nThe server runs software and stores files."
+        },
+        {
+          "title": "Server sample",
+          "body": "The Server sample measures 23 cm across."
+        }
+      ],
+      "review": {
+        "reviewer_id": null,
+        "label": null,
+        "evidence": [],
+        "rationale": null,
+        "confidence": null
+      }
+    },
+    {
+      "id": "transport-paraphrase",
+      "domain": "transport",
+      "selected_topic": "Bridge sample",
+      "prior_user_turns": [],
+      "question": "how wide is it?",
+      "pages": [
+        {
+          "title": "Bridge",
+          "body": "The Bridge is 80 m in length.\nThe bridge carries road traffic."
+        },
+        {
+          "title": "Bridge sample",
+          "body": "The Bridge sample measures 23 cm across."
+        }
+      ],
+      "review": {
+        "reviewer_id": null,
+        "label": null,
+        "evidence": [],
+        "rationale": null,
+        "confidence": null
+      }
+    },
+    {
+      "id": "transport-unsupported-4",
+      "domain": "transport",
+      "selected_topic": "Bridge",
+      "prior_user_turns": [],
+      "question": "How old is it?",
+      "pages": [
+        {
+          "title": "Bridge",
+          "body": "The Bridge is 80 m in length.\nThe bridge carries road traffic."
+        },
+        {
+          "title": "Bridge sample",
+          "body": "The Bridge sample measures 23 cm across."
+        }
+      ],
+      "review": {
+        "reviewer_id": null,
+        "label": null,
+        "evidence": [],
+        "rationale": null,
+        "confidence": null
+      }
+    },
+    {
+      "id": "astronomy-unsupported-3",
+      "domain": "astronomy",
+      "selected_topic": "Moon",
+      "prior_user_turns": [],
+      "question": "How big is it compared with Earth?",
+      "pages": [
+        {
+          "title": "Moon",
+          "body": "The Moon is about 3,474 km in diameter.\nThe Moon is about 4.5 billion years old."
+        },
+        {
+          "title": "Moon sample",
+          "body": "The Moon sample measures 23 cm across."
+        }
+      ],
+      "review": {
+        "reviewer_id": null,
+        "label": null,
+        "evidence": [],
+        "rationale": null,
+        "confidence": null
+      }
+    },
+    {
+      "id": "library-unsupported-1",
+      "domain": "library",
+      "selected_topic": "Bookcase",
+      "prior_user_turns": [],
+      "question": "How long can I borrow a book?",
+      "pages": [
+        {
+          "title": "Bookcase",
+          "body": "The Bookcase has a width of 120 cm.\nThe library keeps books on these shelves."
+        },
+        {
+          "title": "Bookcase sample",
+          "body": "The Bookcase sample measures 23 cm across."
+        }
+      ],
+      "review": {
+        "reviewer_id": null,
+        "label": null,
+        "evidence": [],
+        "rationale": null,
+        "confidence": null
+      }
+    },
+    {
+      "id": "astronomy-paraphrase",
+      "domain": "astronomy",
+      "selected_topic": "Moon sample",
+      "prior_user_turns": [],
+      "question": "how wide is it?",
+      "pages": [
+        {
+          "title": "Moon",
+          "body": "The Moon is about 3,474 km in diameter.\nThe Moon is about 4.5 billion years old."
+        },
+        {
+          "title": "Moon sample",
+          "body": "The Moon sample measures 23 cm across."
+        }
+      ],
+      "review": {
+        "reviewer_id": null,
+        "label": null,
+        "evidence": [],
+        "rationale": null,
+        "confidence": null
+      }
+    },
+    {
+      "id": "office-unsupported-0",
+      "domain": "office",
+      "selected_topic": "Desk",
+      "prior_user_turns": [],
+      "question": "Who may use it?",
+      "pages": [
+        {
+          "title": "Desk",
+          "body": "The Desk has a length of 160 cm.\nStaff use desks for office work."
+        },
+        {
+          "title": "Desk sample",
+          "body": "The Desk sample measures 23 cm across."
+        }
+      ],
+      "review": {
+        "reviewer_id": null,
+        "label": null,
+        "evidence": [],
+        "rationale": null,
+        "confidence": null
+      }
+    },
+    {
+      "id": "workshop-unsupported-1",
+      "domain": "workshop",
+      "selected_topic": "Kiln",
+      "prior_user_turns": [],
+      "question": "Can children operate it?",
+      "pages": [
+        {
+          "title": "Kiln",
+          "body": "The Kiln is 2 m in height.\nFiring instructions: heat the kiln slowly."
+        },
+        {
+          "title": "Kiln sample",
+          "body": "The Kiln sample measures 23 cm across."
+        }
+      ],
+      "review": {
+        "reviewer_id": null,
+        "label": null,
+        "evidence": [],
+        "rationale": null,
+        "confidence": null
+      }
+    },
+    {
+      "id": "transport-unsupported-3",
+      "domain": "transport",
+      "selected_topic": "Bridge",
+      "prior_user_turns": [],
+      "question": "Why was it built?",
+      "pages": [
+        {
+          "title": "Bridge",
+          "body": "The Bridge is 80 m in length.\nThe bridge carries road traffic."
+        },
+        {
+          "title": "Bridge sample",
+          "body": "The Bridge sample measures 23 cm across."
+        }
+      ],
+      "review": {
+        "reviewer_id": null,
+        "label": null,
+        "evidence": [],
+        "rationale": null,
+        "confidence": null
+      }
+    },
+    {
+      "id": "software-unsupported-4",
+      "domain": "software",
+      "selected_topic": "Server",
+      "prior_user_turns": [],
+      "question": "Is it vulnerable?",
+      "pages": [
+        {
+          "title": "Server",
+          "body": "The Server weighs 12 kg.\nThe server runs software and stores files."
+        },
+        {
+          "title": "Server sample",
+          "body": "The Server sample measures 23 cm across."
+        }
+      ],
+      "review": {
+        "reviewer_id": null,
+        "label": null,
+        "evidence": [],
+        "rationale": null,
+        "confidence": null
+      }
+    }
+  ]
+}

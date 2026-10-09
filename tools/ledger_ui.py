@@ -28,6 +28,7 @@ from tools.exploration_store import ExplorationStore
 from tools import topic_crawl as TC
 from tools import chat_tutor as T
 from tools import reference_resources as F
+from tools import grounded_chat as Q
 
 
 class App:
@@ -255,10 +256,13 @@ class App:
             if T.casual_key(message) not in {'yes','yes please','lets explore',"let's explore",'no','no thanks','keep chatting','stay casual'}:
                 memory.pop('topic_offer',None)
             casual=None
-            if T.smalltalk_candidate(message,memory):
+            open_casual=T.casual_followup(message,session['context'],memory)
+            if T.smalltalk_candidate(message,memory) or open_casual is not None:
                 try:titles=[p['title'] for p in self.inventory(corpus,profile)['pages'] if p['eligible']]
                 except (ValueError,OSError):titles=[]
                 casual=T.smalltalk(message,session['context'],memory,titles,corpus+'|'+profile)
+                if open_casual is not None and not casual.get('response_structure',{}).get('topic_mentions'):
+                    casual=open_casual
                 if 'select_topic' in casual:
                     casual=C.turn(self,corpus,self.root(corpus),profile,'topic '+casual['select_topic'],session['context'])
             tutor=F.handle(message,session['context']) or casual or T.conversation(message,session['context'],memory) or T.guide(message,session['context'],memory) or T.learning_request(message,session['context'])
@@ -314,7 +318,14 @@ class App:
                 interpreted=T.local_phrase(message)
                 result = M.handle(self.root(corpus), profile, interpreted, session['context'], session.setdefault('mind', {'notes': []}))
                 if result is None:
+                    result = Q.handle(self, corpus, self.root(corpus), profile, interpreted, session['context'])
+                if result is None:
                     result = C.turn(self, corpus, self.root(corpus), profile, interpreted, session['context'])
+                if result['kind'] in {'not_in_corpus','unknown_relation'}:
+                    offer = Q.missing(message,result.get('context'))
+                    result['message'] += '\n\n' + offer['message']
+                    result['suggestions'] = offer['suggestions']
+                    result['source_offer'] = offer['source_offer']
                 if interpreted!=message:result.setdefault('reasoning',[]).append({'rule':'PHRASE-1','interpreted_as':interpreted})
             session['corpus'], session['context'] = corpus, result.get('context')
             T.followups(result,session['mind'])
@@ -322,6 +333,8 @@ class App:
             payload = {'question': message, 'corpus': corpus, 'profile': profile, 'response': result}
             payload['mind_version'] = M.VERSION
             payload['mind_sha256'] = hashlib.sha256(Path(M.__file__).read_bytes()).hexdigest()
+            payload['grounded_chat_version'] = Q.VERSION
+            payload['grounded_chat_sha256'] = hashlib.sha256(Path(Q.__file__).read_bytes()).hexdigest()
             entry = C.log_turn(session['log'], payload)
             updated = dict(self.sessions, **{sid: session})
             self.session_store.save(updated)

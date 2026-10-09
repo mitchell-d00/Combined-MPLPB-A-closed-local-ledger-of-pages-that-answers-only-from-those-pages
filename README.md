@@ -9,6 +9,14 @@ derivation writes a new page and adds one to the depth.
 
 No model. The core reader uses local pages and the Python standard library. Optional search/crawl/import commands contact public sources explicitly; standalone browser mode uses IndexedDB for saved state.
 
+## Topic-bound follow-ups
+
+Selected topics persist across chat turns and reloads. Ask `how big is it?` or
+`how old is it?` to request a supported source quotation. Missing facts offer
+explicit source expansion. See [grounded chat](docs/GROUNDED_CHAT.md) and the
+[experiments and independent evaluation protocol](evaluation/contextual/README.md).
+These are finite extraction rules; independent human validation is still pending.
+
 ## Casual chat and offline references
 
 Say `what are you?`, `why do you exist?`, `I'm tired`, or `can we talk about nothing?`

@@ -1,0 +1,3926 @@
+{
+  "schema": 1,
+  "manifest_sha256": "eda1dfc4974a1d378f1b41e42a9673551aeeaf9d2f87c040f1673206c5b573eb",
+  "engine_sha256": {
+    "tools/benchmark_grounded_chat.py": "a188082c3fcb1c742ef17e651c77f73e236a264d7d6cec3db6f476a5802455d4",
+    "tools/build_browser_runtime.py": "266c78d3aa90bda971aefa5267947d63ec5f1a74f084713726493a712d8f0e01",
+    "tools/build_examples.py": "fc57d51c87441db8f6949eb84589f993be7fd651ccf72e63a7101df8d743d790",
+    "tools/build_provenance_demo.py": "060fb8ea7552b5edecc4f222ffcda5d51363cb2c029f76fdafbe44416697c49c",
+    "tools/build_topic_examples.py": "b3093b8ec1c7854ecdaa6d340de294feed74482c940efe9daefbef6191446581",
+    "tools/chat_logic.py": "72b692f55ffb9653cd860e1c77609230a07cbeddda19ae4122c1ba67631bcb8d",
+    "tools/chat_tutor.py": "1229bbbbbc4e6d3eaea3b2090f5bb61ca723383b2d98a33bb3879c53f803aa8a",
+    "tools/check_parts.py": "11587ee84c1246cf826f44c2e616a2340ff4d8b7dbb2d574a612336fa833a66d",
+    "tools/check_ui_script.py": "3899a4c98b2fc0e19566bbc74efd9fd229ef1aed35a6148de6c477f16d6c9f8b",
+    "tools/deterministic_mind.py": "a659aff8949fec5d90eca0677f1f2bdfe5e889df9b2a886abc71b79c792b30b9",
+    "tools/evaluate_grounded_chat.py": "92e5eff083824f937d5c2a6be544a978f1d27217b2e68c678de70a313ee5d754",
+    "tools/exploration_store.py": "6461f5c40a4aa4e115cff1fface2fa3299d5f625c0ecaa79ed82bb2b8116ebfb",
+    "tools/grounded_chat.py": "bb466c4e51ecd1b7cbfaa375c44b92d1a7dd33dfa6e106c2059e88b576f85b44",
+    "tools/ledger_ui.py": "6df673921f83f9d893e5c330f10b8ff6e47b486c671cef5b67086b4294275dcb",
+    "tools/make_paper.py": "da2dd3db4d6f870a9f4be653da926ac1dcbef3c470dcbd983c3eea6e5ce6b01b",
+    "tools/menu.py": "a492cdccce88a46428ddbf35d0b22748992878350d1546a0aae0633b4ce5fc5d",
+    "tools/mind_session.py": "6e33cf5aeec9484a83d76a8dcb0518869f5c5b9597abbe08864b4503eab33c67",
+    "tools/open_clone.py": "41c1b229294c328f846906625b44db5b479ed0185709122579f5688a62c0f89d",
+    "tools/prepare_chat_review.py": "056bb6b5219ec108903295935d8274943043f5d0fb288bf6a09b4772a4644f0a",
+    "tools/provenance_bench.py": "ea51acb65ec8df85b282408c44e6e5141f474473d5c421834b1d35d15426d43b",
+    "tools/reference_resources.py": "2740fb4d5a3c36ffe3f70b0226b41439ce8ac9a0861df709ec9341e8075653ff",
+    "tools/test_topic_examples.py": "7d4860af5e414bd63bda206c88690eb95fc10da81db9225245c8cce914d24742",
+    "tools/topic_chat_sources.py": "4490671961c07bcb53cc54d25bf63532a4396cc1beb251a99b24259db3e7137e",
+    "tools/topic_crawl.py": "36a8908a4a4d27f0a2b534075672deb52bbde07d0b871d08d965120c8e104553",
+    "tools/web_clone.py": "7e1f4722c99c4e12c03dd9f2e41dca3b97f1a44d9d2023bfecc8a147f1a9a816",
+    "tools/wiki_live_eval.py": "751ad686ba02ea914b5fc1f65ae2e8498211333d469edba58a8a3e3fb02771c5",
+    "tools/wiki_render.py": "079db4d2296041fad1ec722304493de579b2b928d48bf155a9fa85a8b5f4c516",
+    "mplpb_combined/__init__.py": "8ce7a60dc73b0229eb89f7cf3c4a3a47df70f410d0d957dc95b6e41281bb9672",
+    "mplpb_combined/__main__.py": "353ea5ef6cba220377dce05ac3c4eb0b2ecabe5a68188c591b69d9698862e356",
+    "mplpb_combined/baselines.py": "1b2426ccc12397c0525dcff875e1b922bc776c20174ed08aa89cd1f47891e4d3",
+    "mplpb_combined/delivery.py": "27400863c4007413ccd009efe19821a7963a014b47a01905455adb12b7b454ca",
+    "mplpb_combined/evaluate.py": "a537600f26c021040e54cc7badada45443c18af9dd2aa8e52b9f4e43081d79ff",
+    "mplpb_combined/killtest.py": "ff39cfdb8fd6554eec5dc9999cbbd0e1db3449bc78147952921b296067735ef8",
+    "mplpb_combined/ledger.py": "dc542989fee6b6fd7945217eea84a334b1ea70e478c03df47455a2e44b495bd1",
+    "mplpb_combined/provenance_gate.py": "52a07e7f166a9580d5ae1741b4558176cc4e737c985c1ca43d475c050f0e7839",
+    "mplpb_combined/reader.py": "6cfd4bf3916afe58b0c5f40b32044120d77e61a6fcc0a25c4add5fa6cee5f09a",
+    "mplpb_combined/record.py": "b3323d03a3d988c63ea9f7b72a54b9a24667cca9bcd7950ffdbf0eb39542d247"
+  },
+  "provenance": {
+    "type": "synthetic_developer_regression",
+    "corpus_author": "OpenAI assistant",
+    "question_author": "OpenAI assistant",
+    "label_author": "OpenAI assistant",
+    "independent_review": "pending",
+    "split": "development; not sealed human holdout"
+  },
+  "independence_verified": false,
+  "environment": {
+    "python": "3.12.14",
+    "platform": "Linux-6.18.44-x86_64-with-glibc2.39"
+  },
+  "metrics": {
+    "chat": {
+      "n": 54,
+      "supported": 18,
+      "unsupported": 36,
+      "answers": 12,
+      "correct_answers": 12,
+      "false_acceptances": 0,
+      "unnecessary_refusals": 6,
+      "unsupported_false_acceptance_rate": 0.0,
+      "unsupported_false_acceptance_wilson95": [
+        0,
+        0.09641862859446367
+      ],
+      "supported_answer_precision": 1.0,
+      "supported_answer_precision_wilson95": [
+        0.7575059933447592,
+        1
+      ],
+      "answerable_coverage": 0.6666666666666666,
+      "unnecessary_refusal_rate": 0.3333333333333333
+    },
+    "lexical_page_return": {
+      "n": 54,
+      "supported": 18,
+      "unsupported": 36,
+      "answers": 11,
+      "correct_answers": 10,
+      "false_acceptances": 1,
+      "unnecessary_refusals": 8,
+      "unsupported_false_acceptance_rate": 0.027777777777777776,
+      "unsupported_false_acceptance_wilson95": [
+        0.004920407139810443,
+        0.14169718653273855
+      ],
+      "supported_answer_precision": 0.9090909090909091,
+      "supported_answer_precision_wilson95": [
+        0.6226415635484043,
+        0.9837678271141151
+      ],
+      "answerable_coverage": 0.5555555555555556,
+      "unnecessary_refusal_rate": 0.4444444444444444
+    }
+  },
+  "per_domain": {
+    "astronomy": {
+      "chat": {
+        "n": 9,
+        "supported": 3,
+        "unsupported": 6,
+        "answers": 2,
+        "correct_answers": 2,
+        "false_acceptances": 0,
+        "unnecessary_refusals": 1,
+        "unsupported_false_acceptance_rate": 0.0,
+        "unsupported_false_acceptance_wilson95": [
+          2.7755575615628914e-17,
+          0.3903342879021653
+        ],
+        "supported_answer_precision": 1.0,
+        "supported_answer_precision_wilson95": [
+          0.34238022750665303,
+          1
+        ],
+        "answerable_coverage": 0.6666666666666666,
+        "unnecessary_refusal_rate": 0.3333333333333333
+      },
+      "lexical_page_return": {
+        "n": 9,
+        "supported": 3,
+        "unsupported": 6,
+        "answers": 1,
+        "correct_answers": 1,
+        "false_acceptances": 0,
+        "unnecessary_refusals": 2,
+        "unsupported_false_acceptance_rate": 0.0,
+        "unsupported_false_acceptance_wilson95": [
+          2.7755575615628914e-17,
+          0.3903342879021653
+        ],
+        "supported_answer_precision": 1.0,
+        "supported_answer_precision_wilson95": [
+          0.20654931437723745,
+          1
+        ],
+        "answerable_coverage": 0.3333333333333333,
+        "unnecessary_refusal_rate": 0.6666666666666666
+      }
+    },
+    "workshop": {
+      "chat": {
+        "n": 9,
+        "supported": 3,
+        "unsupported": 6,
+        "answers": 2,
+        "correct_answers": 2,
+        "false_acceptances": 0,
+        "unnecessary_refusals": 1,
+        "unsupported_false_acceptance_rate": 0.0,
+        "unsupported_false_acceptance_wilson95": [
+          2.7755575615628914e-17,
+          0.3903342879021653
+        ],
+        "supported_answer_precision": 1.0,
+        "supported_answer_precision_wilson95": [
+          0.34238022750665303,
+          1
+        ],
+        "answerable_coverage": 0.6666666666666666,
+        "unnecessary_refusal_rate": 0.3333333333333333
+      },
+      "lexical_page_return": {
+        "n": 9,
+        "supported": 3,
+        "unsupported": 6,
+        "answers": 1,
+        "correct_answers": 1,
+        "false_acceptances": 0,
+        "unnecessary_refusals": 2,
+        "unsupported_false_acceptance_rate": 0.0,
+        "unsupported_false_acceptance_wilson95": [
+          2.7755575615628914e-17,
+          0.3903342879021653
+        ],
+        "supported_answer_precision": 1.0,
+        "supported_answer_precision_wilson95": [
+          0.20654931437723745,
+          1
+        ],
+        "answerable_coverage": 0.3333333333333333,
+        "unnecessary_refusal_rate": 0.6666666666666666
+      }
+    },
+    "library": {
+      "chat": {
+        "n": 9,
+        "supported": 3,
+        "unsupported": 6,
+        "answers": 2,
+        "correct_answers": 2,
+        "false_acceptances": 0,
+        "unnecessary_refusals": 1,
+        "unsupported_false_acceptance_rate": 0.0,
+        "unsupported_false_acceptance_wilson95": [
+          2.7755575615628914e-17,
+          0.3903342879021653
+        ],
+        "supported_answer_precision": 1.0,
+        "supported_answer_precision_wilson95": [
+          0.34238022750665303,
+          1
+        ],
+        "answerable_coverage": 0.6666666666666666,
+        "unnecessary_refusal_rate": 0.3333333333333333
+      },
+      "lexical_page_return": {
+        "n": 9,
+        "supported": 3,
+        "unsupported": 6,
+        "answers": 4,
+        "correct_answers": 3,
+        "false_acceptances": 1,
+        "unnecessary_refusals": 0,
+        "unsupported_false_acceptance_rate": 0.16666666666666666,
+        "unsupported_false_acceptance_wilson95": [
+          0.030053369748306635,
+          0.5635028221864702
+        ],
+        "supported_answer_precision": 0.75,
+        "supported_answer_precision_wilson95": [
+          0.30064184258240184,
+          0.9544127391902995
+        ],
+        "answerable_coverage": 1.0,
+        "unnecessary_refusal_rate": 0.0
+      }
+    },
+    "office": {
+      "chat": {
+        "n": 9,
+        "supported": 3,
+        "unsupported": 6,
+        "answers": 2,
+        "correct_answers": 2,
+        "false_acceptances": 0,
+        "unnecessary_refusals": 1,
+        "unsupported_false_acceptance_rate": 0.0,
+        "unsupported_false_acceptance_wilson95": [
+          2.7755575615628914e-17,
+          0.3903342879021653
+        ],
+        "supported_answer_precision": 1.0,
+        "supported_answer_precision_wilson95": [
+          0.34238022750665303,
+          1
+        ],
+        "answerable_coverage": 0.6666666666666666,
+        "unnecessary_refusal_rate": 0.3333333333333333
+      },
+      "lexical_page_return": {
+        "n": 9,
+        "supported": 3,
+        "unsupported": 6,
+        "answers": 1,
+        "correct_answers": 1,
+        "false_acceptances": 0,
+        "unnecessary_refusals": 2,
+        "unsupported_false_acceptance_rate": 0.0,
+        "unsupported_false_acceptance_wilson95": [
+          2.7755575615628914e-17,
+          0.3903342879021653
+        ],
+        "supported_answer_precision": 1.0,
+        "supported_answer_precision_wilson95": [
+          0.20654931437723745,
+          1
+        ],
+        "answerable_coverage": 0.3333333333333333,
+        "unnecessary_refusal_rate": 0.6666666666666666
+      }
+    },
+    "software": {
+      "chat": {
+        "n": 9,
+        "supported": 3,
+        "unsupported": 6,
+        "answers": 2,
+        "correct_answers": 2,
+        "false_acceptances": 0,
+        "unnecessary_refusals": 1,
+        "unsupported_false_acceptance_rate": 0.0,
+        "unsupported_false_acceptance_wilson95": [
+          2.7755575615628914e-17,
+          0.3903342879021653
+        ],
+        "supported_answer_precision": 1.0,
+        "supported_answer_precision_wilson95": [
+          0.34238022750665303,
+          1
+        ],
+        "answerable_coverage": 0.6666666666666666,
+        "unnecessary_refusal_rate": 0.3333333333333333
+      },
+      "lexical_page_return": {
+        "n": 9,
+        "supported": 3,
+        "unsupported": 6,
+        "answers": 1,
+        "correct_answers": 1,
+        "false_acceptances": 0,
+        "unnecessary_refusals": 2,
+        "unsupported_false_acceptance_rate": 0.0,
+        "unsupported_false_acceptance_wilson95": [
+          2.7755575615628914e-17,
+          0.3903342879021653
+        ],
+        "supported_answer_precision": 1.0,
+        "supported_answer_precision_wilson95": [
+          0.20654931437723745,
+          1
+        ],
+        "answerable_coverage": 0.3333333333333333,
+        "unnecessary_refusal_rate": 0.6666666666666666
+      }
+    },
+    "transport": {
+      "chat": {
+        "n": 9,
+        "supported": 3,
+        "unsupported": 6,
+        "answers": 2,
+        "correct_answers": 2,
+        "false_acceptances": 0,
+        "unnecessary_refusals": 1,
+        "unsupported_false_acceptance_rate": 0.0,
+        "unsupported_false_acceptance_wilson95": [
+          2.7755575615628914e-17,
+          0.3903342879021653
+        ],
+        "supported_answer_precision": 1.0,
+        "supported_answer_precision_wilson95": [
+          0.34238022750665303,
+          1
+        ],
+        "answerable_coverage": 0.6666666666666666,
+        "unnecessary_refusal_rate": 0.3333333333333333
+      },
+      "lexical_page_return": {
+        "n": 9,
+        "supported": 3,
+        "unsupported": 6,
+        "answers": 3,
+        "correct_answers": 3,
+        "false_acceptances": 0,
+        "unnecessary_refusals": 0,
+        "unsupported_false_acceptance_rate": 0.0,
+        "unsupported_false_acceptance_wilson95": [
+          2.7755575615628914e-17,
+          0.3903342879021653
+        ],
+        "supported_answer_precision": 1.0,
+        "supported_answer_precision_wilson95": [
+          0.4385029682449546,
+          1
+        ],
+        "answerable_coverage": 1.0,
+        "unnecessary_refusal_rate": 0.0
+      }
+    }
+  },
+  "latency_ms": {
+    "median": 6.9715900000346664,
+    "p95": 21.439308000026358
+  },
+  "rows": [
+    {
+      "id": "astronomy-supported",
+      "domain": "astronomy",
+      "question": "how big is it?",
+      "topic": "Moon",
+      "supported": true,
+      "gold_evidence": [
+        "The Moon is about 3,474 km in diameter."
+      ],
+      "rationale": null,
+      "category": "supported_attribute",
+      "latency_ms": 10.130375000017011,
+      "response": {
+        "kind": "grounded_answer",
+        "message": "On \u201cMoon\u201d, the loaded page says:\n\nThe Moon is about 3,474 km in diameter.\n\nThis is a source statement, not independently verified truth.",
+        "context": {
+          "title": "Moon",
+          "id": "DOC-0001",
+          "path": "doc-0001.html",
+          "hash": "sha256:b5db61a1516423bd7ec11e612bc89c25ec8fc1cc64a6d424c156df8b94070ab5"
+        },
+        "reasoning": [
+          {
+            "rule": "GROUND-CONTEXT",
+            "original_question": "how big is it?",
+            "expanded_question": "how big is Moon?",
+            "context_pin": {
+              "title": "Moon",
+              "id": "DOC-0001",
+              "path": "doc-0001.html",
+              "hash": "sha256:b5db61a1516423bd7ec11e612bc89c25ec8fc1cc64a6d424c156df8b94070ab5"
+            }
+          },
+          {
+            "rule": "GROUND-QUOTE"
+          }
+        ],
+        "sources": [
+          {
+            "title": "Moon",
+            "id": "DOC-0001",
+            "path": "doc-0001.html",
+            "hash": "sha256:b5db61a1516423bd7ec11e612bc89c25ec8fc1cc64a6d424c156df8b94070ab5"
+          }
+        ],
+        "evidence": [
+          {
+            "quote": "The Moon is about 3,474 km in diameter.",
+            "start": 5,
+            "end": 44,
+            "value": "3,474 km",
+            "reference": null
+          }
+        ],
+        "extractive": true,
+        "authority": "source_assertion",
+        "response_structure": {
+          "intent": "diameter",
+          "topic": "Moon",
+          "factual_claims": true,
+          "generated_factual_text": false
+        },
+        "suggestions": [
+          "how big is it?",
+          "how old is it?",
+          "show source"
+        ]
+      },
+      "chat": {
+        "kind": "grounded_answer",
+        "answered": true,
+        "correct_answer": true
+      },
+      "lexical_page_return": {
+        "kind": "not_in_corpus",
+        "answered": false,
+        "correct_answer": false,
+        "notice": "Page-return baseline; returning a page is not proof of answer suitability."
+      }
+    },
+    {
+      "id": "astronomy-memory",
+      "domain": "astronomy",
+      "question": "how big is it?",
+      "topic": "Moon",
+      "supported": true,
+      "gold_evidence": [
+        "The Moon is about 3,474 km in diameter."
+      ],
+      "rationale": null,
+      "category": "distractor_memory",
+      "latency_ms": 5.373500999894532,
+      "response": {
+        "kind": "grounded_answer",
+        "message": "On \u201cMoon\u201d, the loaded page says:\n\nThe Moon is about 3,474 km in diameter.\n\nThis is a source statement, not independently verified truth.",
+        "context": {
+          "title": "Moon",
+          "id": "DOC-0001",
+          "path": "doc-0001.html",
+          "hash": "sha256:b5db61a1516423bd7ec11e612bc89c25ec8fc1cc64a6d424c156df8b94070ab5"
+        },
+        "reasoning": [
+          {
+            "rule": "GROUND-CONTEXT",
+            "original_question": "how big is it?",
+            "expanded_question": "how big is Moon?",
+            "context_pin": {
+              "title": "Moon",
+              "id": "DOC-0001",
+              "path": "doc-0001.html",
+              "hash": "sha256:b5db61a1516423bd7ec11e612bc89c25ec8fc1cc64a6d424c156df8b94070ab5"
+            }
+          },
+          {
+            "rule": "GROUND-QUOTE"
+          }
+        ],
+        "sources": [
+          {
+            "title": "Moon",
+            "id": "DOC-0001",
+            "path": "doc-0001.html",
+            "hash": "sha256:b5db61a1516423bd7ec11e612bc89c25ec8fc1cc64a6d424c156df8b94070ab5"
+          }
+        ],
+        "evidence": [
+          {
+            "quote": "The Moon is about 3,474 km in diameter.",
+            "start": 5,
+            "end": 44,
+            "value": "3,474 km",
+            "reference": null
+          }
+        ],
+        "extractive": true,
+        "authority": "source_assertion",
+        "response_structure": {
+          "intent": "diameter",
+          "topic": "Moon",
+          "factual_claims": true,
+          "generated_factual_text": false
+        },
+        "suggestions": [
+          "how big is it?",
+          "how old is it?",
+          "show source"
+        ]
+      },
+      "chat": {
+        "kind": "grounded_answer",
+        "answered": true,
+        "correct_answer": true
+      },
+      "lexical_page_return": {
+        "kind": "not_in_corpus",
+        "answered": false,
+        "correct_answer": false,
+        "notice": "Page-return baseline; returning a page is not proof of answer suitability."
+      }
+    },
+    {
+      "id": "astronomy-unsupported-0",
+      "domain": "astronomy",
+      "question": "Who may land on the Moon?",
+      "topic": "Moon",
+      "supported": false,
+      "gold_evidence": [],
+      "rationale": "The page does not state the requested fact, permission, comparison or condition.",
+      "category": "unsupported_overlap",
+      "latency_ms": 4.943744999991395,
+      "response": {
+        "kind": "unsupported",
+        "message": "I\u2019m still on \u201cMoon\u201d, but I can\u2019t answer that from its loaded page.\n\nWould you like to add sources? Choose a Wikipedia mode and send the search suggestion to build a new collection, or use the source-import controls to add a URL/text to your collection. Web search needs a configured crawler. Nothing has been fetched.",
+        "context": {
+          "title": "Moon",
+          "id": "DOC-0001",
+          "path": "doc-0001.html",
+          "hash": "sha256:b5db61a1516423bd7ec11e612bc89c25ec8fc1cc64a6d424c156df8b94070ab5"
+        },
+        "reasoning": [
+          {
+            "rule": "GROUND-REFUSE"
+          }
+        ],
+        "sources": [],
+        "authority": "unsupported",
+        "suggestions": [
+          "search Moon",
+          "show my MPLPB",
+          "keep chatting"
+        ],
+        "source_offer": {
+          "query": "Moon",
+          "automatic_fetch": false,
+          "search_creates_new_collection": true
+        },
+        "response_structure": {
+          "intent": "unsupported_question",
+          "topic": "Moon",
+          "factual_claims": false
+        },
+        "unsupported_reason": "Question is outside the supported attribute grammar."
+      },
+      "chat": {
+        "kind": "unsupported",
+        "answered": false,
+        "correct_answer": false
+      },
+      "lexical_page_return": {
+        "kind": "not_in_corpus",
+        "answered": false,
+        "correct_answer": false,
+        "notice": "Page-return baseline; returning a page is not proof of answer suitability."
+      }
+    },
+    {
+      "id": "astronomy-unsupported-1",
+      "domain": "astronomy",
+      "question": "How heavy is it?",
+      "topic": "Moon",
+      "supported": false,
+      "gold_evidence": [],
+      "rationale": "The page does not state the requested fact, permission, comparison or condition.",
+      "category": "unsupported_overlap",
+      "latency_ms": 7.78753500003404,
+      "response": {
+        "kind": "unsupported",
+        "message": "I\u2019m still on \u201cMoon\u201d, but I can\u2019t answer that from its loaded page.\n\nWould you like to add sources? Choose a Wikipedia mode and send the search suggestion to build a new collection, or use the source-import controls to add a URL/text to your collection. Web search needs a configured crawler. Nothing has been fetched.",
+        "context": {
+          "title": "Moon",
+          "id": "DOC-0001",
+          "path": "doc-0001.html",
+          "hash": "sha256:b5db61a1516423bd7ec11e612bc89c25ec8fc1cc64a6d424c156df8b94070ab5"
+        },
+        "reasoning": [
+          {
+            "rule": "GROUND-REFUSE"
+          }
+        ],
+        "sources": [],
+        "authority": "unsupported",
+        "suggestions": [
+          "search Moon mass",
+          "show my MPLPB",
+          "keep chatting"
+        ],
+        "source_offer": {
+          "query": "Moon mass",
+          "automatic_fetch": false,
+          "search_creates_new_collection": true
+        },
+        "response_structure": {
+          "intent": "mass",
+          "topic": "Moon",
+          "factual_claims": false
+        },
+        "unsupported_reason": "No supported answer statement matched."
+      },
+      "chat": {
+        "kind": "unsupported",
+        "answered": false,
+        "correct_answer": false
+      },
+      "lexical_page_return": {
+        "kind": "not_in_corpus",
+        "answered": false,
+        "correct_answer": false,
+        "notice": "Page-return baseline; returning a page is not proof of answer suitability."
+      }
+    },
+    {
+      "id": "astronomy-unsupported-2",
+      "domain": "astronomy",
+      "question": "Why is it that size?",
+      "topic": "Moon",
+      "supported": false,
+      "gold_evidence": [],
+      "rationale": "The page does not state the requested fact, permission, comparison or condition.",
+      "category": "unsupported_overlap",
+      "latency_ms": 3.7307929999315093,
+      "response": {
+        "kind": "unsupported",
+        "message": "I\u2019m still on \u201cMoon\u201d, but I can\u2019t answer that from its loaded page.\n\nWould you like to add sources? Choose a Wikipedia mode and send the search suggestion to build a new collection, or use the source-import controls to add a URL/text to your collection. Web search needs a configured crawler. Nothing has been fetched.",
+        "context": {
+          "title": "Moon",
+          "id": "DOC-0001",
+          "path": "doc-0001.html",
+          "hash": "sha256:b5db61a1516423bd7ec11e612bc89c25ec8fc1cc64a6d424c156df8b94070ab5"
+        },
+        "reasoning": [
+          {
+            "rule": "GROUND-REFUSE"
+          }
+        ],
+        "sources": [],
+        "authority": "unsupported",
+        "suggestions": [
+          "search Moon",
+          "show my MPLPB",
+          "keep chatting"
+        ],
+        "source_offer": {
+          "query": "Moon",
+          "automatic_fetch": false,
+          "search_creates_new_collection": true
+        },
+        "response_structure": {
+          "intent": "unsupported_question",
+          "topic": "Moon",
+          "factual_claims": false
+        },
+        "unsupported_reason": "Question is outside the supported attribute grammar."
+      },
+      "chat": {
+        "kind": "unsupported",
+        "answered": false,
+        "correct_answer": false
+      },
+      "lexical_page_return": {
+        "kind": "not_in_corpus",
+        "answered": false,
+        "correct_answer": false,
+        "notice": "Page-return baseline; returning a page is not proof of answer suitability."
+      }
+    },
+    {
+      "id": "astronomy-unsupported-3",
+      "domain": "astronomy",
+      "question": "How big is it compared with Earth?",
+      "topic": "Moon",
+      "supported": false,
+      "gold_evidence": [],
+      "rationale": "The page does not state the requested fact, permission, comparison or condition.",
+      "category": "unsupported_overlap",
+      "latency_ms": 3.457111999978224,
+      "response": {
+        "kind": "unsupported",
+        "message": "I\u2019m still on \u201cMoon\u201d, but I can\u2019t answer that from its loaded page.\n\nWould you like to add sources? Choose a Wikipedia mode and send the search suggestion to build a new collection, or use the source-import controls to add a URL/text to your collection. Web search needs a configured crawler. Nothing has been fetched.",
+        "context": {
+          "title": "Moon",
+          "id": "DOC-0001",
+          "path": "doc-0001.html",
+          "hash": "sha256:b5db61a1516423bd7ec11e612bc89c25ec8fc1cc64a6d424c156df8b94070ab5"
+        },
+        "reasoning": [
+          {
+            "rule": "GROUND-REFUSE"
+          }
+        ],
+        "sources": [],
+        "authority": "unsupported",
+        "suggestions": [
+          "search Moon",
+          "show my MPLPB",
+          "keep chatting"
+        ],
+        "source_offer": {
+          "query": "Moon",
+          "automatic_fetch": false,
+          "search_creates_new_collection": true
+        },
+        "response_structure": {
+          "intent": "unsupported_question",
+          "topic": "Moon",
+          "factual_claims": false
+        },
+        "unsupported_reason": "Question is outside the supported attribute grammar."
+      },
+      "chat": {
+        "kind": "unsupported",
+        "answered": false,
+        "correct_answer": false
+      },
+      "lexical_page_return": {
+        "kind": "not_in_corpus",
+        "answered": false,
+        "correct_answer": false,
+        "notice": "Page-return baseline; returning a page is not proof of answer suitability."
+      }
+    },
+    {
+      "id": "astronomy-unsupported-4",
+      "domain": "astronomy",
+      "question": "Is it safe to live there?",
+      "topic": "Moon",
+      "supported": false,
+      "gold_evidence": [],
+      "rationale": "The page does not state the requested fact, permission, comparison or condition.",
+      "category": "unsupported_overlap",
+      "latency_ms": 6.920282999999472,
+      "response": {
+        "kind": "unsupported",
+        "message": "I\u2019m still on \u201cMoon\u201d, but I can\u2019t answer that from its loaded page.\n\nWould you like to add sources? Choose a Wikipedia mode and send the search suggestion to build a new collection, or use the source-import controls to add a URL/text to your collection. Web search needs a configured crawler. Nothing has been fetched.",
+        "context": {
+          "title": "Moon",
+          "id": "DOC-0001",
+          "path": "doc-0001.html",
+          "hash": "sha256:b5db61a1516423bd7ec11e612bc89c25ec8fc1cc64a6d424c156df8b94070ab5"
+        },
+        "reasoning": [
+          {
+            "rule": "GROUND-REFUSE"
+          }
+        ],
+        "sources": [],
+        "authority": "unsupported",
+        "suggestions": [
+          "search Moon",
+          "show my MPLPB",
+          "keep chatting"
+        ],
+        "source_offer": {
+          "query": "Moon",
+          "automatic_fetch": false,
+          "search_creates_new_collection": true
+        },
+        "response_structure": {
+          "intent": "unsupported_question",
+          "topic": "Moon",
+          "factual_claims": false
+        },
+        "unsupported_reason": "Question is outside the supported attribute grammar."
+      },
+      "chat": {
+        "kind": "unsupported",
+        "answered": false,
+        "correct_answer": false
+      },
+      "lexical_page_return": {
+        "kind": "not_in_corpus",
+        "answered": false,
+        "correct_answer": false,
+        "notice": "Page-return baseline; returning a page is not proof of answer suitability."
+      }
+    },
+    {
+      "id": "astronomy-unsupported-5",
+      "domain": "astronomy",
+      "question": "How big is it in 100 years?",
+      "topic": "Moon",
+      "supported": false,
+      "gold_evidence": [],
+      "rationale": "The page does not state the requested fact, permission, comparison or condition.",
+      "category": "unsupported_overlap",
+      "latency_ms": 89.18911800014939,
+      "response": {
+        "kind": "unsupported",
+        "message": "I\u2019m still on \u201cMoon\u201d, but I can\u2019t answer that from its loaded page.\n\nWould you like to add sources? Choose a Wikipedia mode and send the search suggestion to build a new collection, or use the source-import controls to add a URL/text to your collection. Web search needs a configured crawler. Nothing has been fetched.",
+        "context": {
+          "title": "Moon",
+          "id": "DOC-0001",
+          "path": "doc-0001.html",
+          "hash": "sha256:b5db61a1516423bd7ec11e612bc89c25ec8fc1cc64a6d424c156df8b94070ab5"
+        },
+        "reasoning": [
+          {
+            "rule": "GROUND-REFUSE"
+          }
+        ],
+        "sources": [],
+        "authority": "unsupported",
+        "suggestions": [
+          "search Moon",
+          "show my MPLPB",
+          "keep chatting"
+        ],
+        "source_offer": {
+          "query": "Moon",
+          "automatic_fetch": false,
+          "search_creates_new_collection": true
+        },
+        "response_structure": {
+          "intent": "unsupported_question",
+          "topic": "Moon",
+          "factual_claims": false
+        },
+        "unsupported_reason": "Question is outside the supported attribute grammar."
+      },
+      "chat": {
+        "kind": "unsupported",
+        "answered": false,
+        "correct_answer": false
+      },
+      "lexical_page_return": {
+        "kind": "not_in_corpus",
+        "answered": false,
+        "correct_answer": false,
+        "notice": "Page-return baseline; returning a page is not proof of answer suitability."
+      }
+    },
+    {
+      "id": "astronomy-paraphrase",
+      "domain": "astronomy",
+      "question": "how wide is it?",
+      "topic": "Moon sample",
+      "supported": true,
+      "gold_evidence": [
+        "The Moon sample measures 23 cm across."
+      ],
+      "rationale": null,
+      "category": "unsupported_grammar_positive_control",
+      "latency_ms": 29.594889999998486,
+      "response": {
+        "kind": "unsupported",
+        "message": "I\u2019m still on \u201cMoon sample\u201d, but I can\u2019t answer that from its loaded page.\n\nWould you like to add sources? Choose a Wikipedia mode and send the search suggestion to build a new collection, or use the source-import controls to add a URL/text to your collection. Web search needs a configured crawler. Nothing has been fetched.",
+        "context": {
+          "title": "Moon sample",
+          "id": "DOC-0002",
+          "path": "doc-0002.html",
+          "hash": "sha256:db861d9d84f331800333ca04d18f70d4d33cfa780160def3c5ae54bb4ea8a45d"
+        },
+        "reasoning": [
+          {
+            "rule": "GROUND-REFUSE"
+          }
+        ],
+        "sources": [],
+        "authority": "unsupported",
+        "suggestions": [
+          "search Moon sample width",
+          "show my MPLPB",
+          "keep chatting"
+        ],
+        "source_offer": {
+          "query": "Moon sample width",
+          "automatic_fetch": false,
+          "search_creates_new_collection": true
+        },
+        "response_structure": {
+          "intent": "width",
+          "topic": "Moon sample",
+          "factual_claims": false
+        },
+        "unsupported_reason": "No supported answer statement matched."
+      },
+      "chat": {
+        "kind": "unsupported",
+        "answered": false,
+        "correct_answer": false
+      },
+      "lexical_page_return": {
+        "kind": "return",
+        "answered": true,
+        "correct_answer": true,
+        "notice": "Page-return baseline; returning a page is not proof of answer suitability."
+      }
+    },
+    {
+      "id": "workshop-supported",
+      "domain": "workshop",
+      "question": "how tall is it?",
+      "topic": "Kiln",
+      "supported": true,
+      "gold_evidence": [
+        "The Kiln is 2 m in height."
+      ],
+      "rationale": null,
+      "category": "supported_attribute",
+      "latency_ms": 21.439308000026358,
+      "response": {
+        "kind": "grounded_answer",
+        "message": "On \u201cKiln\u201d, the loaded page says:\n\nThe Kiln is 2 m in height.\n\nThis is a source statement, not independently verified truth.",
+        "context": {
+          "title": "Kiln",
+          "id": "DOC-0001",
+          "path": "doc-0001.html",
+          "hash": "sha256:3dc276b7bf2795de9ffcd82f5c549002ed769c5f68beda7b72c2d17d3aad28d8"
+        },
+        "reasoning": [
+          {
+            "rule": "GROUND-CONTEXT",
+            "original_question": "how tall is it?",
+            "expanded_question": "how tall is Kiln?",
+            "context_pin": {
+              "title": "Kiln",
+              "id": "DOC-0001",
+              "path": "doc-0001.html",
+              "hash": "sha256:3dc276b7bf2795de9ffcd82f5c549002ed769c5f68beda7b72c2d17d3aad28d8"
+            }
+          },
+          {
+            "rule": "GROUND-QUOTE"
+          }
+        ],
+        "sources": [
+          {
+            "title": "Kiln",
+            "id": "DOC-0001",
+            "path": "doc-0001.html",
+            "hash": "sha256:3dc276b7bf2795de9ffcd82f5c549002ed769c5f68beda7b72c2d17d3aad28d8"
+          }
+        ],
+        "evidence": [
+          {
+            "quote": "The Kiln is 2 m in height.",
+            "start": 5,
+            "end": 31,
+            "value": "2 m",
+            "reference": null
+          }
+        ],
+        "extractive": true,
+        "authority": "source_assertion",
+        "response_structure": {
+          "intent": "height",
+          "topic": "Kiln",
+          "factual_claims": true,
+          "generated_factual_text": false
+        },
+        "suggestions": [
+          "how big is it?",
+          "how old is it?",
+          "show source"
+        ]
+      },
+      "chat": {
+        "kind": "grounded_answer",
+        "answered": true,
+        "correct_answer": true
+      },
+      "lexical_page_return": {
+        "kind": "not_in_corpus",
+        "answered": false,
+        "correct_answer": false,
+        "notice": "Page-return baseline; returning a page is not proof of answer suitability."
+      }
+    },
+    {
+      "id": "workshop-memory",
+      "domain": "workshop",
+      "question": "how tall is it?",
+      "topic": "Kiln",
+      "supported": true,
+      "gold_evidence": [
+        "The Kiln is 2 m in height."
+      ],
+      "rationale": null,
+      "category": "distractor_memory",
+      "latency_ms": 10.42019800001981,
+      "response": {
+        "kind": "grounded_answer",
+        "message": "On \u201cKiln\u201d, the loaded page says:\n\nThe Kiln is 2 m in height.\n\nThis is a source statement, not independently verified truth.",
+        "context": {
+          "title": "Kiln",
+          "id": "DOC-0001",
+          "path": "doc-0001.html",
+          "hash": "sha256:3dc276b7bf2795de9ffcd82f5c549002ed769c5f68beda7b72c2d17d3aad28d8"
+        },
+        "reasoning": [
+          {
+            "rule": "GROUND-CONTEXT",
+            "original_question": "how tall is it?",
+            "expanded_question": "how tall is Kiln?",
+            "context_pin": {
+              "title": "Kiln",
+              "id": "DOC-0001",
+              "path": "doc-0001.html",
+              "hash": "sha256:3dc276b7bf2795de9ffcd82f5c549002ed769c5f68beda7b72c2d17d3aad28d8"
+            }
+          },
+          {
+            "rule": "GROUND-QUOTE"
+          }
+        ],
+        "sources": [
+          {
+            "title": "Kiln",
+            "id": "DOC-0001",
+            "path": "doc-0001.html",
+            "hash": "sha256:3dc276b7bf2795de9ffcd82f5c549002ed769c5f68beda7b72c2d17d3aad28d8"
+          }
+        ],
+        "evidence": [
+          {
+            "quote": "The Kiln is 2 m in height.",
+            "start": 5,
+            "end": 31,
+            "value": "2 m",
+            "reference": null
+          }
+        ],
+        "extractive": true,
+        "authority": "source_assertion",
+        "response_structure": {
+          "intent": "height",
+          "topic": "Kiln",
+          "factual_claims": true,
+          "generated_factual_text": false
+        },
+        "suggestions": [
+          "how big is it?",
+          "how old is it?",
+          "show source"
+        ]
+      },
+      "chat": {
+        "kind": "grounded_answer",
+        "answered": true,
+        "correct_answer": true
+      },
+      "lexical_page_return": {
+        "kind": "not_in_corpus",
+        "answered": false,
+        "correct_answer": false,
+        "notice": "Page-return baseline; returning a page is not proof of answer suitability."
+      }
+    },
+    {
+      "id": "workshop-unsupported-0",
+      "domain": "workshop",
+      "question": "Who may operate a kiln?",
+      "topic": "Kiln",
+      "supported": false,
+      "gold_evidence": [],
+      "rationale": "The page does not state the requested fact, permission, comparison or condition.",
+      "category": "unsupported_overlap",
+      "latency_ms": 8.802165000133755,
+      "response": {
+        "kind": "unsupported",
+        "message": "I\u2019m still on \u201cKiln\u201d, but I can\u2019t answer that from its loaded page.\n\nWould you like to add sources? Choose a Wikipedia mode and send the search suggestion to build a new collection, or use the source-import controls to add a URL/text to your collection. Web search needs a configured crawler. Nothing has been fetched.",
+        "context": {
+          "title": "Kiln",
+          "id": "DOC-0001",
+          "path": "doc-0001.html",
+          "hash": "sha256:3dc276b7bf2795de9ffcd82f5c549002ed769c5f68beda7b72c2d17d3aad28d8"
+        },
+        "reasoning": [
+          {
+            "rule": "GROUND-REFUSE"
+          }
+        ],
+        "sources": [],
+        "authority": "unsupported",
+        "suggestions": [
+          "search Kiln",
+          "show my MPLPB",
+          "keep chatting"
+        ],
+        "source_offer": {
+          "query": "Kiln",
+          "automatic_fetch": false,
+          "search_creates_new_collection": true
+        },
+        "response_structure": {
+          "intent": "unsupported_question",
+          "topic": "Kiln",
+          "factual_claims": false
+        },
+        "unsupported_reason": "Question is outside the supported attribute grammar."
+      },
+      "chat": {
+        "kind": "unsupported",
+        "answered": false,
+        "correct_answer": false
+      },
+      "lexical_page_return": {
+        "kind": "not_in_corpus",
+        "answered": false,
+        "correct_answer": false,
+        "notice": "Page-return baseline; returning a page is not proof of answer suitability."
+      }
+    },
+    {
+      "id": "workshop-unsupported-1",
+      "domain": "workshop",
+      "question": "Can children operate it?",
+      "topic": "Kiln",
+      "supported": false,
+      "gold_evidence": [],
+      "rationale": "The page does not state the requested fact, permission, comparison or condition.",
+      "category": "unsupported_overlap",
+      "latency_ms": 6.621624999979758,
+      "response": {
+        "kind": "unsupported",
+        "message": "I\u2019m still on \u201cKiln\u201d, but I can\u2019t answer that from its loaded page.\n\nWould you like to add sources? Choose a Wikipedia mode and send the search suggestion to build a new collection, or use the source-import controls to add a URL/text to your collection. Web search needs a configured crawler. Nothing has been fetched.",
+        "context": {
+          "title": "Kiln",
+          "id": "DOC-0001",
+          "path": "doc-0001.html",
+          "hash": "sha256:3dc276b7bf2795de9ffcd82f5c549002ed769c5f68beda7b72c2d17d3aad28d8"
+        },
+        "reasoning": [
+          {
+            "rule": "GROUND-REFUSE"
+          }
+        ],
+        "sources": [],
+        "authority": "unsupported",
+        "suggestions": [
+          "search Kiln",
+          "show my MPLPB",
+          "keep chatting"
+        ],
+        "source_offer": {
+          "query": "Kiln",
+          "automatic_fetch": false,
+          "search_creates_new_collection": true
+        },
+        "response_structure": {
+          "intent": "unsupported_question",
+          "topic": "Kiln",
+          "factual_claims": false
+        },
+        "unsupported_reason": "Question is outside the supported attribute grammar."
+      },
+      "chat": {
+        "kind": "unsupported",
+        "answered": false,
+        "correct_answer": false
+      },
+      "lexical_page_return": {
+        "kind": "not_in_corpus",
+        "answered": false,
+        "correct_answer": false,
+        "notice": "Page-return baseline; returning a page is not proof of answer suitability."
+      }
+    },
+    {
+      "id": "workshop-unsupported-2",
+      "domain": "workshop",
+      "question": "What temperature should I use?",
+      "topic": "Kiln",
+      "supported": false,
+      "gold_evidence": [],
+      "rationale": "The page does not state the requested fact, permission, comparison or condition.",
+      "category": "unsupported_overlap",
+      "latency_ms": 8.248321999872132,
+      "response": {
+        "kind": "unsupported",
+        "message": "I\u2019m still on \u201cKiln\u201d, but I can\u2019t answer that from its loaded page.\n\nWould you like to add sources? Choose a Wikipedia mode and send the search suggestion to build a new collection, or use the source-import controls to add a URL/text to your collection. Web search needs a configured crawler. Nothing has been fetched.",
+        "context": {
+          "title": "Kiln",
+          "id": "DOC-0001",
+          "path": "doc-0001.html",
+          "hash": "sha256:3dc276b7bf2795de9ffcd82f5c549002ed769c5f68beda7b72c2d17d3aad28d8"
+        },
+        "reasoning": [
+          {
+            "rule": "GROUND-REFUSE"
+          }
+        ],
+        "sources": [],
+        "authority": "unsupported",
+        "suggestions": [
+          "search Kiln",
+          "show my MPLPB",
+          "keep chatting"
+        ],
+        "source_offer": {
+          "query": "Kiln",
+          "automatic_fetch": false,
+          "search_creates_new_collection": true
+        },
+        "response_structure": {
+          "intent": "unsupported_question",
+          "topic": "Kiln",
+          "factual_claims": false
+        },
+        "unsupported_reason": "Question is outside the supported attribute grammar."
+      },
+      "chat": {
+        "kind": "unsupported",
+        "answered": false,
+        "correct_answer": false
+      },
+      "lexical_page_return": {
+        "kind": "not_in_corpus",
+        "answered": false,
+        "correct_answer": false,
+        "notice": "Page-return baseline; returning a page is not proof of answer suitability."
+      }
+    },
+    {
+      "id": "workshop-unsupported-3",
+      "domain": "workshop",
+      "question": "How tall is it after disassembly?",
+      "topic": "Kiln",
+      "supported": false,
+      "gold_evidence": [],
+      "rationale": "The page does not state the requested fact, permission, comparison or condition.",
+      "category": "unsupported_overlap",
+      "latency_ms": 4.999028000156613,
+      "response": {
+        "kind": "unsupported",
+        "message": "I\u2019m still on \u201cKiln\u201d, but I can\u2019t answer that from its loaded page.\n\nWould you like to add sources? Choose a Wikipedia mode and send the search suggestion to build a new collection, or use the source-import controls to add a URL/text to your collection. Web search needs a configured crawler. Nothing has been fetched.",
+        "context": {
+          "title": "Kiln",
+          "id": "DOC-0001",
+          "path": "doc-0001.html",
+          "hash": "sha256:3dc276b7bf2795de9ffcd82f5c549002ed769c5f68beda7b72c2d17d3aad28d8"
+        },
+        "reasoning": [
+          {
+            "rule": "GROUND-REFUSE"
+          }
+        ],
+        "sources": [],
+        "authority": "unsupported",
+        "suggestions": [
+          "search Kiln",
+          "show my MPLPB",
+          "keep chatting"
+        ],
+        "source_offer": {
+          "query": "Kiln",
+          "automatic_fetch": false,
+          "search_creates_new_collection": true
+        },
+        "response_structure": {
+          "intent": "unsupported_question",
+          "topic": "Kiln",
+          "factual_claims": false
+        },
+        "unsupported_reason": "Question is outside the supported attribute grammar."
+      },
+      "chat": {
+        "kind": "unsupported",
+        "answered": false,
+        "correct_answer": false
+      },
+      "lexical_page_return": {
+        "kind": "not_in_corpus",
+        "answered": false,
+        "correct_answer": false,
+        "notice": "Page-return baseline; returning a page is not proof of answer suitability."
+      }
+    },
+    {
+      "id": "workshop-unsupported-4",
+      "domain": "workshop",
+      "question": "Why is it so tall?",
+      "topic": "Kiln",
+      "supported": false,
+      "gold_evidence": [],
+      "rationale": "The page does not state the requested fact, permission, comparison or condition.",
+      "category": "unsupported_overlap",
+      "latency_ms": 5.24536300008549,
+      "response": {
+        "kind": "unsupported",
+        "message": "I\u2019m still on \u201cKiln\u201d, but I can\u2019t answer that from its loaded page.\n\nWould you like to add sources? Choose a Wikipedia mode and send the search suggestion to build a new collection, or use the source-import controls to add a URL/text to your collection. Web search needs a configured crawler. Nothing has been fetched.",
+        "context": {
+          "title": "Kiln",
+          "id": "DOC-0001",
+          "path": "doc-0001.html",
+          "hash": "sha256:3dc276b7bf2795de9ffcd82f5c549002ed769c5f68beda7b72c2d17d3aad28d8"
+        },
+        "reasoning": [
+          {
+            "rule": "GROUND-REFUSE"
+          }
+        ],
+        "sources": [],
+        "authority": "unsupported",
+        "suggestions": [
+          "search Kiln",
+          "show my MPLPB",
+          "keep chatting"
+        ],
+        "source_offer": {
+          "query": "Kiln",
+          "automatic_fetch": false,
+          "search_creates_new_collection": true
+        },
+        "response_structure": {
+          "intent": "unsupported_question",
+          "topic": "Kiln",
+          "factual_claims": false
+        },
+        "unsupported_reason": "Question is outside the supported attribute grammar."
+      },
+      "chat": {
+        "kind": "unsupported",
+        "answered": false,
+        "correct_answer": false
+      },
+      "lexical_page_return": {
+        "kind": "not_in_corpus",
+        "answered": false,
+        "correct_answer": false,
+        "notice": "Page-return baseline; returning a page is not proof of answer suitability."
+      }
+    },
+    {
+      "id": "workshop-unsupported-5",
+      "domain": "workshop",
+      "question": "How heavy is it?",
+      "topic": "Kiln",
+      "supported": false,
+      "gold_evidence": [],
+      "rationale": "The page does not state the requested fact, permission, comparison or condition.",
+      "category": "unsupported_overlap",
+      "latency_ms": 8.240997000029893,
+      "response": {
+        "kind": "unsupported",
+        "message": "I\u2019m still on \u201cKiln\u201d, but I can\u2019t answer that from its loaded page.\n\nWould you like to add sources? Choose a Wikipedia mode and send the search suggestion to build a new collection, or use the source-import controls to add a URL/text to your collection. Web search needs a configured crawler. Nothing has been fetched.",
+        "context": {
+          "title": "Kiln",
+          "id": "DOC-0001",
+          "path": "doc-0001.html",
+          "hash": "sha256:3dc276b7bf2795de9ffcd82f5c549002ed769c5f68beda7b72c2d17d3aad28d8"
+        },
+        "reasoning": [
+          {
+            "rule": "GROUND-REFUSE"
+          }
+        ],
+        "sources": [],
+        "authority": "unsupported",
+        "suggestions": [
+          "search Kiln mass",
+          "show my MPLPB",
+          "keep chatting"
+        ],
+        "source_offer": {
+          "query": "Kiln mass",
+          "automatic_fetch": false,
+          "search_creates_new_collection": true
+        },
+        "response_structure": {
+          "intent": "mass",
+          "topic": "Kiln",
+          "factual_claims": false
+        },
+        "unsupported_reason": "No supported answer statement matched."
+      },
+      "chat": {
+        "kind": "unsupported",
+        "answered": false,
+        "correct_answer": false
+      },
+      "lexical_page_return": {
+        "kind": "not_in_corpus",
+        "answered": false,
+        "correct_answer": false,
+        "notice": "Page-return baseline; returning a page is not proof of answer suitability."
+      }
+    },
+    {
+      "id": "workshop-paraphrase",
+      "domain": "workshop",
+      "question": "how wide is it?",
+      "topic": "Kiln sample",
+      "supported": true,
+      "gold_evidence": [
+        "The Kiln sample measures 23 cm across."
+      ],
+      "rationale": null,
+      "category": "unsupported_grammar_positive_control",
+      "latency_ms": 14.15138799984561,
+      "response": {
+        "kind": "unsupported",
+        "message": "I\u2019m still on \u201cKiln sample\u201d, but I can\u2019t answer that from its loaded page.\n\nWould you like to add sources? Choose a Wikipedia mode and send the search suggestion to build a new collection, or use the source-import controls to add a URL/text to your collection. Web search needs a configured crawler. Nothing has been fetched.",
+        "context": {
+          "title": "Kiln sample",
+          "id": "DOC-0002",
+          "path": "doc-0002.html",
+          "hash": "sha256:dccdce99bdffb67d3fbac3a98acc9713823c0be1441d039894af7981de4b2983"
+        },
+        "reasoning": [
+          {
+            "rule": "GROUND-REFUSE"
+          }
+        ],
+        "sources": [],
+        "authority": "unsupported",
+        "suggestions": [
+          "search Kiln sample width",
+          "show my MPLPB",
+          "keep chatting"
+        ],
+        "source_offer": {
+          "query": "Kiln sample width",
+          "automatic_fetch": false,
+          "search_creates_new_collection": true
+        },
+        "response_structure": {
+          "intent": "width",
+          "topic": "Kiln sample",
+          "factual_claims": false
+        },
+        "unsupported_reason": "No supported answer statement matched."
+      },
+      "chat": {
+        "kind": "unsupported",
+        "answered": false,
+        "correct_answer": false
+      },
+      "lexical_page_return": {
+        "kind": "return",
+        "answered": true,
+        "correct_answer": true,
+        "notice": "Page-return baseline; returning a page is not proof of answer suitability."
+      }
+    },
+    {
+      "id": "library-supported",
+      "domain": "library",
+      "question": "what is its width?",
+      "topic": "Bookcase",
+      "supported": true,
+      "gold_evidence": [
+        "The Bookcase has a width of 120 cm."
+      ],
+      "rationale": null,
+      "category": "supported_attribute",
+      "latency_ms": 14.365856000040367,
+      "response": {
+        "kind": "grounded_answer",
+        "message": "On \u201cBookcase\u201d, the loaded page says:\n\nThe Bookcase has a width of 120 cm.\n\nThis is a source statement, not independently verified truth.",
+        "context": {
+          "title": "Bookcase",
+          "id": "DOC-0001",
+          "path": "doc-0001.html",
+          "hash": "sha256:ec47e6ae1b6e8b4a3c5d324b40fd438e043ace4f0e1126e01c1ffcebefb333e3"
+        },
+        "reasoning": [
+          {
+            "rule": "GROUND-CONTEXT",
+            "original_question": "what is its width?",
+            "expanded_question": "what is Bookcase width?",
+            "context_pin": {
+              "title": "Bookcase",
+              "id": "DOC-0001",
+              "path": "doc-0001.html",
+              "hash": "sha256:ec47e6ae1b6e8b4a3c5d324b40fd438e043ace4f0e1126e01c1ffcebefb333e3"
+            }
+          },
+          {
+            "rule": "GROUND-QUOTE"
+          }
+        ],
+        "sources": [
+          {
+            "title": "Bookcase",
+            "id": "DOC-0001",
+            "path": "doc-0001.html",
+            "hash": "sha256:ec47e6ae1b6e8b4a3c5d324b40fd438e043ace4f0e1126e01c1ffcebefb333e3"
+          }
+        ],
+        "evidence": [
+          {
+            "quote": "The Bookcase has a width of 120 cm.",
+            "start": 9,
+            "end": 44,
+            "value": "120 cm",
+            "reference": null
+          }
+        ],
+        "extractive": true,
+        "authority": "source_assertion",
+        "response_structure": {
+          "intent": "width",
+          "topic": "Bookcase",
+          "factual_claims": true,
+          "generated_factual_text": false
+        },
+        "suggestions": [
+          "how big is it?",
+          "how old is it?",
+          "show source"
+        ]
+      },
+      "chat": {
+        "kind": "grounded_answer",
+        "answered": true,
+        "correct_answer": true
+      },
+      "lexical_page_return": {
+        "kind": "return",
+        "answered": true,
+        "correct_answer": true,
+        "notice": "Page-return baseline; returning a page is not proof of answer suitability."
+      }
+    },
+    {
+      "id": "library-memory",
+      "domain": "library",
+      "question": "what is its width?",
+      "topic": "Bookcase",
+      "supported": true,
+      "gold_evidence": [
+        "The Bookcase has a width of 120 cm."
+      ],
+      "rationale": null,
+      "category": "distractor_memory",
+      "latency_ms": 10.522857999831103,
+      "response": {
+        "kind": "grounded_answer",
+        "message": "On \u201cBookcase\u201d, the loaded page says:\n\nThe Bookcase has a width of 120 cm.\n\nThis is a source statement, not independently verified truth.",
+        "context": {
+          "title": "Bookcase",
+          "id": "DOC-0001",
+          "path": "doc-0001.html",
+          "hash": "sha256:ec47e6ae1b6e8b4a3c5d324b40fd438e043ace4f0e1126e01c1ffcebefb333e3"
+        },
+        "reasoning": [
+          {
+            "rule": "GROUND-CONTEXT",
+            "original_question": "what is its width?",
+            "expanded_question": "what is Bookcase width?",
+            "context_pin": {
+              "title": "Bookcase",
+              "id": "DOC-0001",
+              "path": "doc-0001.html",
+              "hash": "sha256:ec47e6ae1b6e8b4a3c5d324b40fd438e043ace4f0e1126e01c1ffcebefb333e3"
+            }
+          },
+          {
+            "rule": "GROUND-QUOTE"
+          }
+        ],
+        "sources": [
+          {
+            "title": "Bookcase",
+            "id": "DOC-0001",
+            "path": "doc-0001.html",
+            "hash": "sha256:ec47e6ae1b6e8b4a3c5d324b40fd438e043ace4f0e1126e01c1ffcebefb333e3"
+          }
+        ],
+        "evidence": [
+          {
+            "quote": "The Bookcase has a width of 120 cm.",
+            "start": 9,
+            "end": 44,
+            "value": "120 cm",
+            "reference": null
+          }
+        ],
+        "extractive": true,
+        "authority": "source_assertion",
+        "response_structure": {
+          "intent": "width",
+          "topic": "Bookcase",
+          "factual_claims": true,
+          "generated_factual_text": false
+        },
+        "suggestions": [
+          "how big is it?",
+          "how old is it?",
+          "show source"
+        ]
+      },
+      "chat": {
+        "kind": "grounded_answer",
+        "answered": true,
+        "correct_answer": true
+      },
+      "lexical_page_return": {
+        "kind": "return",
+        "answered": true,
+        "correct_answer": true,
+        "notice": "Page-return baseline; returning a page is not proof of answer suitability."
+      }
+    },
+    {
+      "id": "library-unsupported-0",
+      "domain": "library",
+      "question": "Who may borrow from it?",
+      "topic": "Bookcase",
+      "supported": false,
+      "gold_evidence": [],
+      "rationale": "The page does not state the requested fact, permission, comparison or condition.",
+      "category": "unsupported_overlap",
+      "latency_ms": 11.646600999938528,
+      "response": {
+        "kind": "unsupported",
+        "message": "I\u2019m still on \u201cBookcase\u201d, but I can\u2019t answer that from its loaded page.\n\nWould you like to add sources? Choose a Wikipedia mode and send the search suggestion to build a new collection, or use the source-import controls to add a URL/text to your collection. Web search needs a configured crawler. Nothing has been fetched.",
+        "context": {
+          "title": "Bookcase",
+          "id": "DOC-0001",
+          "path": "doc-0001.html",
+          "hash": "sha256:ec47e6ae1b6e8b4a3c5d324b40fd438e043ace4f0e1126e01c1ffcebefb333e3"
+        },
+        "reasoning": [
+          {
+            "rule": "GROUND-REFUSE"
+          }
+        ],
+        "sources": [],
+        "authority": "unsupported",
+        "suggestions": [
+          "search Bookcase",
+          "show my MPLPB",
+          "keep chatting"
+        ],
+        "source_offer": {
+          "query": "Bookcase",
+          "automatic_fetch": false,
+          "search_creates_new_collection": true
+        },
+        "response_structure": {
+          "intent": "unsupported_question",
+          "topic": "Bookcase",
+          "factual_claims": false
+        },
+        "unsupported_reason": "Question is outside the supported attribute grammar."
+      },
+      "chat": {
+        "kind": "unsupported",
+        "answered": false,
+        "correct_answer": false
+      },
+      "lexical_page_return": {
+        "kind": "not_in_corpus",
+        "answered": false,
+        "correct_answer": false,
+        "notice": "Page-return baseline; returning a page is not proof of answer suitability."
+      }
+    },
+    {
+      "id": "library-unsupported-1",
+      "domain": "library",
+      "question": "How long can I borrow a book?",
+      "topic": "Bookcase",
+      "supported": false,
+      "gold_evidence": [],
+      "rationale": "The page does not state the requested fact, permission, comparison or condition.",
+      "category": "unsupported_overlap",
+      "latency_ms": 4.709644000058688,
+      "response": {
+        "kind": "unsupported",
+        "message": "I\u2019m still on \u201cBookcase\u201d, but I can\u2019t answer that from its loaded page.\n\nWould you like to add sources? Choose a Wikipedia mode and send the search suggestion to build a new collection, or use the source-import controls to add a URL/text to your collection. Web search needs a configured crawler. Nothing has been fetched.",
+        "context": {
+          "title": "Bookcase",
+          "id": "DOC-0001",
+          "path": "doc-0001.html",
+          "hash": "sha256:ec47e6ae1b6e8b4a3c5d324b40fd438e043ace4f0e1126e01c1ffcebefb333e3"
+        },
+        "reasoning": [
+          {
+            "rule": "GROUND-REFUSE"
+          }
+        ],
+        "sources": [],
+        "authority": "unsupported",
+        "suggestions": [
+          "search Bookcase",
+          "show my MPLPB",
+          "keep chatting"
+        ],
+        "source_offer": {
+          "query": "Bookcase",
+          "automatic_fetch": false,
+          "search_creates_new_collection": true
+        },
+        "response_structure": {
+          "intent": "unsupported_question",
+          "topic": "Bookcase",
+          "factual_claims": false
+        },
+        "unsupported_reason": "Question is outside the supported attribute grammar."
+      },
+      "chat": {
+        "kind": "unsupported",
+        "answered": false,
+        "correct_answer": false
+      },
+      "lexical_page_return": {
+        "kind": "not_in_corpus",
+        "answered": false,
+        "correct_answer": false,
+        "notice": "Page-return baseline; returning a page is not proof of answer suitability."
+      }
+    },
+    {
+      "id": "library-unsupported-2",
+      "domain": "library",
+      "question": "How wide is it when folded?",
+      "topic": "Bookcase",
+      "supported": false,
+      "gold_evidence": [],
+      "rationale": "The page does not state the requested fact, permission, comparison or condition.",
+      "category": "unsupported_overlap",
+      "latency_ms": 4.148500999917815,
+      "response": {
+        "kind": "unsupported",
+        "message": "I\u2019m still on \u201cBookcase\u201d, but I can\u2019t answer that from its loaded page.\n\nWould you like to add sources? Choose a Wikipedia mode and send the search suggestion to build a new collection, or use the source-import controls to add a URL/text to your collection. Web search needs a configured crawler. Nothing has been fetched.",
+        "context": {
+          "title": "Bookcase",
+          "id": "DOC-0001",
+          "path": "doc-0001.html",
+          "hash": "sha256:ec47e6ae1b6e8b4a3c5d324b40fd438e043ace4f0e1126e01c1ffcebefb333e3"
+        },
+        "reasoning": [
+          {
+            "rule": "GROUND-REFUSE"
+          }
+        ],
+        "sources": [],
+        "authority": "unsupported",
+        "suggestions": [
+          "search Bookcase",
+          "show my MPLPB",
+          "keep chatting"
+        ],
+        "source_offer": {
+          "query": "Bookcase",
+          "automatic_fetch": false,
+          "search_creates_new_collection": true
+        },
+        "response_structure": {
+          "intent": "unsupported_question",
+          "topic": "Bookcase",
+          "factual_claims": false
+        },
+        "unsupported_reason": "Question is outside the supported attribute grammar."
+      },
+      "chat": {
+        "kind": "unsupported",
+        "answered": false,
+        "correct_answer": false
+      },
+      "lexical_page_return": {
+        "kind": "not_in_corpus",
+        "answered": false,
+        "correct_answer": false,
+        "notice": "Page-return baseline; returning a page is not proof of answer suitability."
+      }
+    },
+    {
+      "id": "library-unsupported-3",
+      "domain": "library",
+      "question": "How heavy is it?",
+      "topic": "Bookcase",
+      "supported": false,
+      "gold_evidence": [],
+      "rationale": "The page does not state the requested fact, permission, comparison or condition.",
+      "category": "unsupported_overlap",
+      "latency_ms": 8.21547800001099,
+      "response": {
+        "kind": "unsupported",
+        "message": "I\u2019m still on \u201cBookcase\u201d, but I can\u2019t answer that from its loaded page.\n\nWould you like to add sources? Choose a Wikipedia mode and send the search suggestion to build a new collection, or use the source-import controls to add a URL/text to your collection. Web search needs a configured crawler. Nothing has been fetched.",
+        "context": {
+          "title": "Bookcase",
+          "id": "DOC-0001",
+          "path": "doc-0001.html",
+          "hash": "sha256:ec47e6ae1b6e8b4a3c5d324b40fd438e043ace4f0e1126e01c1ffcebefb333e3"
+        },
+        "reasoning": [
+          {
+            "rule": "GROUND-REFUSE"
+          }
+        ],
+        "sources": [],
+        "authority": "unsupported",
+        "suggestions": [
+          "search Bookcase mass",
+          "show my MPLPB",
+          "keep chatting"
+        ],
+        "source_offer": {
+          "query": "Bookcase mass",
+          "automatic_fetch": false,
+          "search_creates_new_collection": true
+        },
+        "response_structure": {
+          "intent": "mass",
+          "topic": "Bookcase",
+          "factual_claims": false
+        },
+        "unsupported_reason": "No supported answer statement matched."
+      },
+      "chat": {
+        "kind": "unsupported",
+        "answered": false,
+        "correct_answer": false
+      },
+      "lexical_page_return": {
+        "kind": "not_in_corpus",
+        "answered": false,
+        "correct_answer": false,
+        "notice": "Page-return baseline; returning a page is not proof of answer suitability."
+      }
+    },
+    {
+      "id": "library-unsupported-4",
+      "domain": "library",
+      "question": "How old is it?",
+      "topic": "Bookcase",
+      "supported": false,
+      "gold_evidence": [],
+      "rationale": "The page does not state the requested fact, permission, comparison or condition.",
+      "category": "unsupported_overlap",
+      "latency_ms": 10.005336999938663,
+      "response": {
+        "kind": "unsupported",
+        "message": "I\u2019m still on \u201cBookcase\u201d, but I can\u2019t answer that from its loaded page.\n\nWould you like to add sources? Choose a Wikipedia mode and send the search suggestion to build a new collection, or use the source-import controls to add a URL/text to your collection. Web search needs a configured crawler. Nothing has been fetched.",
+        "context": {
+          "title": "Bookcase",
+          "id": "DOC-0001",
+          "path": "doc-0001.html",
+          "hash": "sha256:ec47e6ae1b6e8b4a3c5d324b40fd438e043ace4f0e1126e01c1ffcebefb333e3"
+        },
+        "reasoning": [
+          {
+            "rule": "GROUND-REFUSE"
+          }
+        ],
+        "sources": [],
+        "authority": "unsupported",
+        "suggestions": [
+          "search Bookcase age",
+          "show my MPLPB",
+          "keep chatting"
+        ],
+        "source_offer": {
+          "query": "Bookcase age",
+          "automatic_fetch": false,
+          "search_creates_new_collection": true
+        },
+        "response_structure": {
+          "intent": "age",
+          "topic": "Bookcase",
+          "factual_claims": false
+        },
+        "unsupported_reason": "No supported answer statement matched."
+      },
+      "chat": {
+        "kind": "unsupported",
+        "answered": false,
+        "correct_answer": false
+      },
+      "lexical_page_return": {
+        "kind": "not_in_corpus",
+        "answered": false,
+        "correct_answer": false,
+        "notice": "Page-return baseline; returning a page is not proof of answer suitability."
+      }
+    },
+    {
+      "id": "library-unsupported-5",
+      "domain": "library",
+      "question": "Is it a book?",
+      "topic": "Bookcase",
+      "supported": false,
+      "gold_evidence": [],
+      "rationale": "The page does not state the requested fact, permission, comparison or condition.",
+      "category": "unsupported_overlap",
+      "latency_ms": 12.481745000059163,
+      "response": {
+        "kind": "unknown_relation",
+        "message": "No supported structured relationship is encoded for these subjects. Unknown, not false.\n\nI\u2019m still on \u201cBookcase\u201d, but I can\u2019t answer that from its loaded page.\n\nWould you like to add sources? Choose a Wikipedia mode and send the search suggestion to build a new collection, or use the source-import controls to add a URL/text to your collection. Web search needs a configured crawler. Nothing has been fetched.",
+        "context": {
+          "title": "Bookcase",
+          "id": "DOC-0001",
+          "path": "doc-0001.html",
+          "hash": "sha256:ec47e6ae1b6e8b4a3c5d324b40fd438e043ace4f0e1126e01c1ffcebefb333e3"
+        },
+        "reasoning": [
+          {
+            "rule": "CTX-1",
+            "expanded_question": "Is Bookcase a book?",
+            "context_pin": {
+              "title": "Bookcase",
+              "id": "DOC-0001",
+              "path": "doc-0001.html",
+              "hash": "sha256:ec47e6ae1b6e8b4a3c5d324b40fd438e043ace4f0e1126e01c1ffcebefb333e3"
+            }
+          },
+          {
+            "rule": "REL-1",
+            "expanded_question": "Is Bookcase a book?"
+          },
+          {
+            "rule": "REFUSE-1"
+          }
+        ],
+        "relations": [],
+        "gate": {
+          "kind": "source_bundle",
+          "question": "Bookcase book",
+          "profile": "internal",
+          "query_terms": [
+            "book",
+            "bookcas"
+          ],
+          "sources": [
+            {
+              "id": "DOC-0001",
+              "path": "doc-0001.html",
+              "title": "Bookcase",
+              "origin": "machine",
+              "origin_depth": 1,
+              "owner": "unknown",
+              "updated": "2026-01-01T00:00Z",
+              "status": "current",
+              "declared_status": "current",
+              "hash": "sha256:ec47e6ae1b6e8b4a3c5d324b40fd438e043ace4f0e1126e01c1ffcebefb333e3",
+              "derived_from": [],
+              "supersedes": [],
+              "ratified_by": "",
+              "location": "local",
+              "scope": "Bookcase",
+              "when_to_use": "",
+              "not_for": "",
+              "text": "Bookcase\nThe Bookcase has a width of 120 cm. The library keeps books on these shelves.",
+              "matched_terms": [
+                "book",
+                "bookcas"
+              ],
+              "scope_terms": [
+                "bookcas"
+              ],
+              "prose_only_terms": [
+                "book"
+              ],
+              "unmatched_terms": [],
+              "matches_every_query_term": true,
+              "ancestry": [],
+              "evidence_basis": {
+                "delivery": "verbatim_page_text",
+                "content_truth_verified": false,
+                "original_claim_basis": "not_encoded_by_legacy_page_format"
+              },
+              "recheck_conditions": [
+                "source changes",
+                "dependency is superseded or retired",
+                "serving policy changes"
+              ],
+              "verification": {
+                "hash_intact": true,
+                "lineage_pinned": true,
+                "origin_explicit": true,
+                "authorship_authenticated": false
+              },
+              "source_authorship": {
+                "status": "unknown",
+                "verified": false,
+                "notice": "Who made this source is unknown. A person can supply a source attribution for review."
+              }
+            },
+            {
+              "id": "DOC-0002",
+              "path": "doc-0002.html",
+              "title": "Bookcase sample",
+              "origin": "machine",
+              "origin_depth": 1,
+              "owner": "unknown",
+              "updated": "2026-01-01T00:00Z",
+              "status": "current",
+              "declared_status": "current",
+              "hash": "sha256:e52cd36a1633fca3f9557055a5f944a01f58e9b6c18ee59e1681c84a33a564f4",
+              "derived_from": [],
+              "supersedes": [],
+              "ratified_by": "",
+              "location": "local",
+              "scope": "Bookcase sample",
+              "when_to_use": "",
+              "not_for": "",
+              "text": "Bookcase sample\nThe Bookcase sample measures 23 cm across.",
+              "matched_terms": [
+                "bookcas"
+              ],
+              "scope_terms": [
+                "bookcas"
+              ],
+              "prose_only_terms": [],
+              "unmatched_terms": [
+                "book"
+              ],
+              "matches_every_query_term": false,
+              "ancestry": [],
+              "evidence_basis": {
+                "delivery": "verbatim_page_text",
+                "content_truth_verified": false,
+                "original_claim_basis": "not_encoded_by_legacy_page_format"
+              },
+              "recheck_conditions": [
+                "source changes",
+                "dependency is superseded or retired",
+                "serving policy changes"
+              ],
+              "verification": {
+                "hash_intact": true,
+                "lineage_pinned": true,
+                "origin_explicit": true,
+                "authorship_authenticated": false
+              },
+              "source_authorship": {
+                "status": "unknown",
+                "verified": false,
+                "notice": "Who made this source is unknown. A person can supply a source attribution for review."
+              }
+            }
+          ],
+          "term_sources": {
+            "book": [
+              "DOC-0001"
+            ],
+            "bookcas": [
+              "DOC-0001",
+              "DOC-0002"
+            ]
+          },
+          "unmatched_terms": [],
+          "lexical_coverage": "complete",
+          "excluded": [],
+          "query_flags": [],
+          "policy": {
+            "gate_version": 2,
+            "mode": "separate_lexical_sources",
+            "max_depth": 1,
+            "prose": true,
+            "not_for": true,
+            "enforce_sealed_external_policy": true,
+            "synthesize": false,
+            "follow_pointers": false,
+            "require_current_dependencies": true,
+            "settings_hash": "sha256:2b95571a707e2341b9dedc11b579a05bdd494cc4f4f2f13d1cac7e67a2beb03c"
+          },
+          "corpus_snapshot": "sha256:4bd73690a9cc7849b4d0ade8162029d4c118cc54927cca8827ca7a5bab0b2aad",
+          "shared_lineage": [],
+          "evidence_status": "retrieved_pages_not_truth_certification",
+          "relationship_status": "not_established_by_retrieval",
+          "answer_synthesized": false,
+          "authorship_authenticated": false,
+          "notice": "Each source is presented separately. Complete lexical coverage means the requested words occur across sources, not that a page answers the question or that separate facts are related. Origin and owner are page declarations, not authenticated identities."
+        },
+        "sources": [
+          {
+            "id": "DOC-0001",
+            "path": "doc-0001.html",
+            "title": "Bookcase",
+            "origin": "machine",
+            "origin_depth": 1,
+            "owner": "unknown",
+            "updated": "2026-01-01T00:00Z",
+            "status": "current",
+            "declared_status": "current",
+            "hash": "sha256:ec47e6ae1b6e8b4a3c5d324b40fd438e043ace4f0e1126e01c1ffcebefb333e3",
+            "derived_from": [],
+            "supersedes": [],
+            "ratified_by": "",
+            "location": "local",
+            "scope": "Bookcase",
+            "when_to_use": "",
+            "not_for": "",
+            "text": "Bookcase\nThe Bookcase has a width of 120 cm. The library keeps books on these shelves.",
+            "matched_terms": [
+              "book",
+              "bookcas"
+            ],
+            "scope_terms": [
+              "bookcas"
+            ],
+            "prose_only_terms": [
+              "book"
+            ],
+            "unmatched_terms": [],
+            "matches_every_query_term": true,
+            "ancestry": [],
+            "evidence_basis": {
+              "delivery": "verbatim_page_text",
+              "content_truth_verified": false,
+              "original_claim_basis": "not_encoded_by_legacy_page_format"
+            },
+            "recheck_conditions": [
+              "source changes",
+              "dependency is superseded or retired",
+              "serving policy changes"
+            ],
+            "verification": {
+              "hash_intact": true,
+              "lineage_pinned": true,
+              "origin_explicit": true,
+              "authorship_authenticated": false
+            },
+            "source_authorship": {
+              "status": "unknown",
+              "verified": false,
+              "notice": "Who made this source is unknown. A person can supply a source attribution for review."
+            }
+          },
+          {
+            "id": "DOC-0002",
+            "path": "doc-0002.html",
+            "title": "Bookcase sample",
+            "origin": "machine",
+            "origin_depth": 1,
+            "owner": "unknown",
+            "updated": "2026-01-01T00:00Z",
+            "status": "current",
+            "declared_status": "current",
+            "hash": "sha256:e52cd36a1633fca3f9557055a5f944a01f58e9b6c18ee59e1681c84a33a564f4",
+            "derived_from": [],
+            "supersedes": [],
+            "ratified_by": "",
+            "location": "local",
+            "scope": "Bookcase sample",
+            "when_to_use": "",
+            "not_for": "",
+            "text": "Bookcase sample\nThe Bookcase sample measures 23 cm across.",
+            "matched_terms": [
+              "bookcas"
+            ],
+            "scope_terms": [
+              "bookcas"
+            ],
+            "prose_only_terms": [],
+            "unmatched_terms": [
+              "book"
+            ],
+            "matches_every_query_term": false,
+            "ancestry": [],
+            "evidence_basis": {
+              "delivery": "verbatim_page_text",
+              "content_truth_verified": false,
+              "original_claim_basis": "not_encoded_by_legacy_page_format"
+            },
+            "recheck_conditions": [
+              "source changes",
+              "dependency is superseded or retired",
+              "serving policy changes"
+            ],
+            "verification": {
+              "hash_intact": true,
+              "lineage_pinned": true,
+              "origin_explicit": true,
+              "authorship_authenticated": false
+            },
+            "source_authorship": {
+              "status": "unknown",
+              "verified": false,
+              "notice": "Who made this source is unknown. A person can supply a source attribution for review."
+            }
+          }
+        ],
+        "suggestions": [
+          "search Bookcase",
+          "show my MPLPB",
+          "keep chatting"
+        ],
+        "source_offer": {
+          "query": "Bookcase",
+          "automatic_fetch": false,
+          "search_creates_new_collection": true
+        }
+      },
+      "chat": {
+        "kind": "unknown_relation",
+        "answered": false,
+        "correct_answer": false
+      },
+      "lexical_page_return": {
+        "kind": "return",
+        "answered": true,
+        "correct_answer": false,
+        "notice": "Page-return baseline; returning a page is not proof of answer suitability."
+      }
+    },
+    {
+      "id": "library-paraphrase",
+      "domain": "library",
+      "question": "how wide is it?",
+      "topic": "Bookcase sample",
+      "supported": true,
+      "gold_evidence": [
+        "The Bookcase sample measures 23 cm across."
+      ],
+      "rationale": null,
+      "category": "unsupported_grammar_positive_control",
+      "latency_ms": 13.582799000005252,
+      "response": {
+        "kind": "unsupported",
+        "message": "I\u2019m still on \u201cBookcase sample\u201d, but I can\u2019t answer that from its loaded page.\n\nWould you like to add sources? Choose a Wikipedia mode and send the search suggestion to build a new collection, or use the source-import controls to add a URL/text to your collection. Web search needs a configured crawler. Nothing has been fetched.",
+        "context": {
+          "title": "Bookcase sample",
+          "id": "DOC-0002",
+          "path": "doc-0002.html",
+          "hash": "sha256:e52cd36a1633fca3f9557055a5f944a01f58e9b6c18ee59e1681c84a33a564f4"
+        },
+        "reasoning": [
+          {
+            "rule": "GROUND-REFUSE"
+          }
+        ],
+        "sources": [],
+        "authority": "unsupported",
+        "suggestions": [
+          "search Bookcase sample width",
+          "show my MPLPB",
+          "keep chatting"
+        ],
+        "source_offer": {
+          "query": "Bookcase sample width",
+          "automatic_fetch": false,
+          "search_creates_new_collection": true
+        },
+        "response_structure": {
+          "intent": "width",
+          "topic": "Bookcase sample",
+          "factual_claims": false
+        },
+        "unsupported_reason": "No supported answer statement matched."
+      },
+      "chat": {
+        "kind": "unsupported",
+        "answered": false,
+        "correct_answer": false
+      },
+      "lexical_page_return": {
+        "kind": "return",
+        "answered": true,
+        "correct_answer": true,
+        "notice": "Page-return baseline; returning a page is not proof of answer suitability."
+      }
+    },
+    {
+      "id": "office-supported",
+      "domain": "office",
+      "question": "how long is it?",
+      "topic": "Desk",
+      "supported": true,
+      "gold_evidence": [
+        "The Desk has a length of 160 cm."
+      ],
+      "rationale": null,
+      "category": "supported_attribute",
+      "latency_ms": 21.29230200011989,
+      "response": {
+        "kind": "grounded_answer",
+        "message": "On \u201cDesk\u201d, the loaded page says:\n\nThe Desk has a length of 160 cm.\n\nThis is a source statement, not independently verified truth.",
+        "context": {
+          "title": "Desk",
+          "id": "DOC-0001",
+          "path": "doc-0001.html",
+          "hash": "sha256:775d01cdcfd024b38e50b4f41cd1f1f6a91f24347654033a7aef586195cc39f9"
+        },
+        "reasoning": [
+          {
+            "rule": "GROUND-CONTEXT",
+            "original_question": "how long is it?",
+            "expanded_question": "how long is Desk?",
+            "context_pin": {
+              "title": "Desk",
+              "id": "DOC-0001",
+              "path": "doc-0001.html",
+              "hash": "sha256:775d01cdcfd024b38e50b4f41cd1f1f6a91f24347654033a7aef586195cc39f9"
+            }
+          },
+          {
+            "rule": "GROUND-QUOTE"
+          }
+        ],
+        "sources": [
+          {
+            "title": "Desk",
+            "id": "DOC-0001",
+            "path": "doc-0001.html",
+            "hash": "sha256:775d01cdcfd024b38e50b4f41cd1f1f6a91f24347654033a7aef586195cc39f9"
+          }
+        ],
+        "evidence": [
+          {
+            "quote": "The Desk has a length of 160 cm.",
+            "start": 5,
+            "end": 37,
+            "value": "160 cm",
+            "reference": null
+          }
+        ],
+        "extractive": true,
+        "authority": "source_assertion",
+        "response_structure": {
+          "intent": "length",
+          "topic": "Desk",
+          "factual_claims": true,
+          "generated_factual_text": false
+        },
+        "suggestions": [
+          "how big is it?",
+          "how old is it?",
+          "show source"
+        ]
+      },
+      "chat": {
+        "kind": "grounded_answer",
+        "answered": true,
+        "correct_answer": true
+      },
+      "lexical_page_return": {
+        "kind": "ambiguous",
+        "answered": false,
+        "correct_answer": false,
+        "notice": "Page-return baseline; returning a page is not proof of answer suitability."
+      }
+    },
+    {
+      "id": "office-memory",
+      "domain": "office",
+      "question": "how long is it?",
+      "topic": "Desk",
+      "supported": true,
+      "gold_evidence": [
+        "The Desk has a length of 160 cm."
+      ],
+      "rationale": null,
+      "category": "distractor_memory",
+      "latency_ms": 5.919711000160532,
+      "response": {
+        "kind": "grounded_answer",
+        "message": "On \u201cDesk\u201d, the loaded page says:\n\nThe Desk has a length of 160 cm.\n\nThis is a source statement, not independently verified truth.",
+        "context": {
+          "title": "Desk",
+          "id": "DOC-0001",
+          "path": "doc-0001.html",
+          "hash": "sha256:775d01cdcfd024b38e50b4f41cd1f1f6a91f24347654033a7aef586195cc39f9"
+        },
+        "reasoning": [
+          {
+            "rule": "GROUND-CONTEXT",
+            "original_question": "how long is it?",
+            "expanded_question": "how long is Desk?",
+            "context_pin": {
+              "title": "Desk",
+              "id": "DOC-0001",
+              "path": "doc-0001.html",
+              "hash": "sha256:775d01cdcfd024b38e50b4f41cd1f1f6a91f24347654033a7aef586195cc39f9"
+            }
+          },
+          {
+            "rule": "GROUND-QUOTE"
+          }
+        ],
+        "sources": [
+          {
+            "title": "Desk",
+            "id": "DOC-0001",
+            "path": "doc-0001.html",
+            "hash": "sha256:775d01cdcfd024b38e50b4f41cd1f1f6a91f24347654033a7aef586195cc39f9"
+          }
+        ],
+        "evidence": [
+          {
+            "quote": "The Desk has a length of 160 cm.",
+            "start": 5,
+            "end": 37,
+            "value": "160 cm",
+            "reference": null
+          }
+        ],
+        "extractive": true,
+        "authority": "source_assertion",
+        "response_structure": {
+          "intent": "length",
+          "topic": "Desk",
+          "factual_claims": true,
+          "generated_factual_text": false
+        },
+        "suggestions": [
+          "how big is it?",
+          "how old is it?",
+          "show source"
+        ]
+      },
+      "chat": {
+        "kind": "grounded_answer",
+        "answered": true,
+        "correct_answer": true
+      },
+      "lexical_page_return": {
+        "kind": "ambiguous",
+        "answered": false,
+        "correct_answer": false,
+        "notice": "Page-return baseline; returning a page is not proof of answer suitability."
+      }
+    },
+    {
+      "id": "office-unsupported-0",
+      "domain": "office",
+      "question": "Who may use it?",
+      "topic": "Desk",
+      "supported": false,
+      "gold_evidence": [],
+      "rationale": "The page does not state the requested fact, permission, comparison or condition.",
+      "category": "unsupported_overlap",
+      "latency_ms": 8.431358000052569,
+      "response": {
+        "kind": "unsupported",
+        "message": "I\u2019m still on \u201cDesk\u201d, but I can\u2019t answer that from its loaded page.\n\nWould you like to add sources? Choose a Wikipedia mode and send the search suggestion to build a new collection, or use the source-import controls to add a URL/text to your collection. Web search needs a configured crawler. Nothing has been fetched.",
+        "context": {
+          "title": "Desk",
+          "id": "DOC-0001",
+          "path": "doc-0001.html",
+          "hash": "sha256:775d01cdcfd024b38e50b4f41cd1f1f6a91f24347654033a7aef586195cc39f9"
+        },
+        "reasoning": [
+          {
+            "rule": "GROUND-REFUSE"
+          }
+        ],
+        "sources": [],
+        "authority": "unsupported",
+        "suggestions": [
+          "search Desk",
+          "show my MPLPB",
+          "keep chatting"
+        ],
+        "source_offer": {
+          "query": "Desk",
+          "automatic_fetch": false,
+          "search_creates_new_collection": true
+        },
+        "response_structure": {
+          "intent": "unsupported_question",
+          "topic": "Desk",
+          "factual_claims": false
+        },
+        "unsupported_reason": "Question is outside the supported attribute grammar."
+      },
+      "chat": {
+        "kind": "unsupported",
+        "answered": false,
+        "correct_answer": false
+      },
+      "lexical_page_return": {
+        "kind": "ambiguous",
+        "answered": false,
+        "correct_answer": false,
+        "notice": "Page-return baseline; returning a page is not proof of answer suitability."
+      }
+    },
+    {
+      "id": "office-unsupported-1",
+      "domain": "office",
+      "question": "How much does it cost?",
+      "topic": "Desk",
+      "supported": false,
+      "gold_evidence": [],
+      "rationale": "The page does not state the requested fact, permission, comparison or condition.",
+      "category": "unsupported_overlap",
+      "latency_ms": 4.311710000138191,
+      "response": {
+        "kind": "unsupported",
+        "message": "I\u2019m still on \u201cDesk\u201d, but I can\u2019t answer that from its loaded page.\n\nWould you like to add sources? Choose a Wikipedia mode and send the search suggestion to build a new collection, or use the source-import controls to add a URL/text to your collection. Web search needs a configured crawler. Nothing has been fetched.",
+        "context": {
+          "title": "Desk",
+          "id": "DOC-0001",
+          "path": "doc-0001.html",
+          "hash": "sha256:775d01cdcfd024b38e50b4f41cd1f1f6a91f24347654033a7aef586195cc39f9"
+        },
+        "reasoning": [
+          {
+            "rule": "GROUND-REFUSE"
+          }
+        ],
+        "sources": [],
+        "authority": "unsupported",
+        "suggestions": [
+          "search Desk",
+          "show my MPLPB",
+          "keep chatting"
+        ],
+        "source_offer": {
+          "query": "Desk",
+          "automatic_fetch": false,
+          "search_creates_new_collection": true
+        },
+        "response_structure": {
+          "intent": "unsupported_question",
+          "topic": "Desk",
+          "factual_claims": false
+        },
+        "unsupported_reason": "Question is outside the supported attribute grammar."
+      },
+      "chat": {
+        "kind": "unsupported",
+        "answered": false,
+        "correct_answer": false
+      },
+      "lexical_page_return": {
+        "kind": "not_in_corpus",
+        "answered": false,
+        "correct_answer": false,
+        "notice": "Page-return baseline; returning a page is not proof of answer suitability."
+      }
+    },
+    {
+      "id": "office-unsupported-2",
+      "domain": "office",
+      "question": "How long is it if extended?",
+      "topic": "Desk",
+      "supported": false,
+      "gold_evidence": [],
+      "rationale": "The page does not state the requested fact, permission, comparison or condition.",
+      "category": "unsupported_overlap",
+      "latency_ms": 6.06157299989718,
+      "response": {
+        "kind": "unsupported",
+        "message": "I\u2019m still on \u201cDesk\u201d, but I can\u2019t answer that from its loaded page.\n\nWould you like to add sources? Choose a Wikipedia mode and send the search suggestion to build a new collection, or use the source-import controls to add a URL/text to your collection. Web search needs a configured crawler. Nothing has been fetched.",
+        "context": {
+          "title": "Desk",
+          "id": "DOC-0001",
+          "path": "doc-0001.html",
+          "hash": "sha256:775d01cdcfd024b38e50b4f41cd1f1f6a91f24347654033a7aef586195cc39f9"
+        },
+        "reasoning": [
+          {
+            "rule": "GROUND-REFUSE"
+          }
+        ],
+        "sources": [],
+        "authority": "unsupported",
+        "suggestions": [
+          "search Desk",
+          "show my MPLPB",
+          "keep chatting"
+        ],
+        "source_offer": {
+          "query": "Desk",
+          "automatic_fetch": false,
+          "search_creates_new_collection": true
+        },
+        "response_structure": {
+          "intent": "unsupported_question",
+          "topic": "Desk",
+          "factual_claims": false
+        },
+        "unsupported_reason": "Question is outside the supported attribute grammar."
+      },
+      "chat": {
+        "kind": "unsupported",
+        "answered": false,
+        "correct_answer": false
+      },
+      "lexical_page_return": {
+        "kind": "not_in_corpus",
+        "answered": false,
+        "correct_answer": false,
+        "notice": "Page-return baseline; returning a page is not proof of answer suitability."
+      }
+    },
+    {
+      "id": "office-unsupported-3",
+      "domain": "office",
+      "question": "Where can I buy it?",
+      "topic": "Desk",
+      "supported": false,
+      "gold_evidence": [],
+      "rationale": "The page does not state the requested fact, permission, comparison or condition.",
+      "category": "unsupported_overlap",
+      "latency_ms": 5.488421999871207,
+      "response": {
+        "kind": "unsupported",
+        "message": "I\u2019m still on \u201cDesk\u201d, but I can\u2019t answer that from its loaded page.\n\nWould you like to add sources? Choose a Wikipedia mode and send the search suggestion to build a new collection, or use the source-import controls to add a URL/text to your collection. Web search needs a configured crawler. Nothing has been fetched.",
+        "context": {
+          "title": "Desk",
+          "id": "DOC-0001",
+          "path": "doc-0001.html",
+          "hash": "sha256:775d01cdcfd024b38e50b4f41cd1f1f6a91f24347654033a7aef586195cc39f9"
+        },
+        "reasoning": [
+          {
+            "rule": "GROUND-REFUSE"
+          }
+        ],
+        "sources": [],
+        "authority": "unsupported",
+        "suggestions": [
+          "search Desk",
+          "show my MPLPB",
+          "keep chatting"
+        ],
+        "source_offer": {
+          "query": "Desk",
+          "automatic_fetch": false,
+          "search_creates_new_collection": true
+        },
+        "response_structure": {
+          "intent": "unsupported_question",
+          "topic": "Desk",
+          "factual_claims": false
+        },
+        "unsupported_reason": "Question is outside the supported attribute grammar."
+      },
+      "chat": {
+        "kind": "unsupported",
+        "answered": false,
+        "correct_answer": false
+      },
+      "lexical_page_return": {
+        "kind": "not_in_corpus",
+        "answered": false,
+        "correct_answer": false,
+        "notice": "Page-return baseline; returning a page is not proof of answer suitability."
+      }
+    },
+    {
+      "id": "office-unsupported-4",
+      "domain": "office",
+      "question": "How old is it?",
+      "topic": "Desk",
+      "supported": false,
+      "gold_evidence": [],
+      "rationale": "The page does not state the requested fact, permission, comparison or condition.",
+      "category": "unsupported_overlap",
+      "latency_ms": 8.285182999998142,
+      "response": {
+        "kind": "unsupported",
+        "message": "I\u2019m still on \u201cDesk\u201d, but I can\u2019t answer that from its loaded page.\n\nWould you like to add sources? Choose a Wikipedia mode and send the search suggestion to build a new collection, or use the source-import controls to add a URL/text to your collection. Web search needs a configured crawler. Nothing has been fetched.",
+        "context": {
+          "title": "Desk",
+          "id": "DOC-0001",
+          "path": "doc-0001.html",
+          "hash": "sha256:775d01cdcfd024b38e50b4f41cd1f1f6a91f24347654033a7aef586195cc39f9"
+        },
+        "reasoning": [
+          {
+            "rule": "GROUND-REFUSE"
+          }
+        ],
+        "sources": [],
+        "authority": "unsupported",
+        "suggestions": [
+          "search Desk age",
+          "show my MPLPB",
+          "keep chatting"
+        ],
+        "source_offer": {
+          "query": "Desk age",
+          "automatic_fetch": false,
+          "search_creates_new_collection": true
+        },
+        "response_structure": {
+          "intent": "age",
+          "topic": "Desk",
+          "factual_claims": false
+        },
+        "unsupported_reason": "No supported answer statement matched."
+      },
+      "chat": {
+        "kind": "unsupported",
+        "answered": false,
+        "correct_answer": false
+      },
+      "lexical_page_return": {
+        "kind": "not_in_corpus",
+        "answered": false,
+        "correct_answer": false,
+        "notice": "Page-return baseline; returning a page is not proof of answer suitability."
+      }
+    },
+    {
+      "id": "office-unsupported-5",
+      "domain": "office",
+      "question": "Is it fire resistant?",
+      "topic": "Desk",
+      "supported": false,
+      "gold_evidence": [],
+      "rationale": "The page does not state the requested fact, permission, comparison or condition.",
+      "category": "unsupported_overlap",
+      "latency_ms": 6.396065999979328,
+      "response": {
+        "kind": "unsupported",
+        "message": "I\u2019m still on \u201cDesk\u201d, but I can\u2019t answer that from its loaded page.\n\nWould you like to add sources? Choose a Wikipedia mode and send the search suggestion to build a new collection, or use the source-import controls to add a URL/text to your collection. Web search needs a configured crawler. Nothing has been fetched.",
+        "context": {
+          "title": "Desk",
+          "id": "DOC-0001",
+          "path": "doc-0001.html",
+          "hash": "sha256:775d01cdcfd024b38e50b4f41cd1f1f6a91f24347654033a7aef586195cc39f9"
+        },
+        "reasoning": [
+          {
+            "rule": "GROUND-REFUSE"
+          }
+        ],
+        "sources": [],
+        "authority": "unsupported",
+        "suggestions": [
+          "search Desk",
+          "show my MPLPB",
+          "keep chatting"
+        ],
+        "source_offer": {
+          "query": "Desk",
+          "automatic_fetch": false,
+          "search_creates_new_collection": true
+        },
+        "response_structure": {
+          "intent": "unsupported_question",
+          "topic": "Desk",
+          "factual_claims": false
+        },
+        "unsupported_reason": "Question is outside the supported attribute grammar."
+      },
+      "chat": {
+        "kind": "unsupported",
+        "answered": false,
+        "correct_answer": false
+      },
+      "lexical_page_return": {
+        "kind": "not_in_corpus",
+        "answered": false,
+        "correct_answer": false,
+        "notice": "Page-return baseline; returning a page is not proof of answer suitability."
+      }
+    },
+    {
+      "id": "office-paraphrase",
+      "domain": "office",
+      "question": "how wide is it?",
+      "topic": "Desk sample",
+      "supported": true,
+      "gold_evidence": [
+        "The Desk sample measures 23 cm across."
+      ],
+      "rationale": null,
+      "category": "unsupported_grammar_positive_control",
+      "latency_ms": 8.881238000185476,
+      "response": {
+        "kind": "unsupported",
+        "message": "I\u2019m still on \u201cDesk sample\u201d, but I can\u2019t answer that from its loaded page.\n\nWould you like to add sources? Choose a Wikipedia mode and send the search suggestion to build a new collection, or use the source-import controls to add a URL/text to your collection. Web search needs a configured crawler. Nothing has been fetched.",
+        "context": {
+          "title": "Desk sample",
+          "id": "DOC-0002",
+          "path": "doc-0002.html",
+          "hash": "sha256:b5f401821af7de95a22dddbe932944eaf821e7e8603ee1b1904cc92917fc0609"
+        },
+        "reasoning": [
+          {
+            "rule": "GROUND-REFUSE"
+          }
+        ],
+        "sources": [],
+        "authority": "unsupported",
+        "suggestions": [
+          "search Desk sample width",
+          "show my MPLPB",
+          "keep chatting"
+        ],
+        "source_offer": {
+          "query": "Desk sample width",
+          "automatic_fetch": false,
+          "search_creates_new_collection": true
+        },
+        "response_structure": {
+          "intent": "width",
+          "topic": "Desk sample",
+          "factual_claims": false
+        },
+        "unsupported_reason": "No supported answer statement matched."
+      },
+      "chat": {
+        "kind": "unsupported",
+        "answered": false,
+        "correct_answer": false
+      },
+      "lexical_page_return": {
+        "kind": "return",
+        "answered": true,
+        "correct_answer": true,
+        "notice": "Page-return baseline; returning a page is not proof of answer suitability."
+      }
+    },
+    {
+      "id": "software-supported",
+      "domain": "software",
+      "question": "how heavy is it?",
+      "topic": "Server",
+      "supported": true,
+      "gold_evidence": [
+        "The Server weighs 12 kg."
+      ],
+      "rationale": null,
+      "category": "supported_attribute",
+      "latency_ms": 14.256731000159562,
+      "response": {
+        "kind": "grounded_answer",
+        "message": "On \u201cServer\u201d, the loaded page says:\n\nThe Server weighs 12 kg.\n\nThis is a source statement, not independently verified truth.",
+        "context": {
+          "title": "Server",
+          "id": "DOC-0001",
+          "path": "doc-0001.html",
+          "hash": "sha256:3a4f47d9b73773bc82f761ff8f3d2ef197b549129d64648360592d558160687d"
+        },
+        "reasoning": [
+          {
+            "rule": "GROUND-CONTEXT",
+            "original_question": "how heavy is it?",
+            "expanded_question": "how heavy is Server?",
+            "context_pin": {
+              "title": "Server",
+              "id": "DOC-0001",
+              "path": "doc-0001.html",
+              "hash": "sha256:3a4f47d9b73773bc82f761ff8f3d2ef197b549129d64648360592d558160687d"
+            }
+          },
+          {
+            "rule": "GROUND-QUOTE"
+          }
+        ],
+        "sources": [
+          {
+            "title": "Server",
+            "id": "DOC-0001",
+            "path": "doc-0001.html",
+            "hash": "sha256:3a4f47d9b73773bc82f761ff8f3d2ef197b549129d64648360592d558160687d"
+          }
+        ],
+        "evidence": [
+          {
+            "quote": "The Server weighs 12 kg.",
+            "start": 7,
+            "end": 31,
+            "value": "12 kg",
+            "reference": null
+          }
+        ],
+        "extractive": true,
+        "authority": "source_assertion",
+        "response_structure": {
+          "intent": "mass",
+          "topic": "Server",
+          "factual_claims": true,
+          "generated_factual_text": false
+        },
+        "suggestions": [
+          "how big is it?",
+          "how old is it?",
+          "show source"
+        ]
+      },
+      "chat": {
+        "kind": "grounded_answer",
+        "answered": true,
+        "correct_answer": true
+      },
+      "lexical_page_return": {
+        "kind": "not_in_corpus",
+        "answered": false,
+        "correct_answer": false,
+        "notice": "Page-return baseline; returning a page is not proof of answer suitability."
+      }
+    },
+    {
+      "id": "software-memory",
+      "domain": "software",
+      "question": "how heavy is it?",
+      "topic": "Server",
+      "supported": true,
+      "gold_evidence": [
+        "The Server weighs 12 kg."
+      ],
+      "rationale": null,
+      "category": "distractor_memory",
+      "latency_ms": 6.4168119999976625,
+      "response": {
+        "kind": "grounded_answer",
+        "message": "On \u201cServer\u201d, the loaded page says:\n\nThe Server weighs 12 kg.\n\nThis is a source statement, not independently verified truth.",
+        "context": {
+          "title": "Server",
+          "id": "DOC-0001",
+          "path": "doc-0001.html",
+          "hash": "sha256:3a4f47d9b73773bc82f761ff8f3d2ef197b549129d64648360592d558160687d"
+        },
+        "reasoning": [
+          {
+            "rule": "GROUND-CONTEXT",
+            "original_question": "how heavy is it?",
+            "expanded_question": "how heavy is Server?",
+            "context_pin": {
+              "title": "Server",
+              "id": "DOC-0001",
+              "path": "doc-0001.html",
+              "hash": "sha256:3a4f47d9b73773bc82f761ff8f3d2ef197b549129d64648360592d558160687d"
+            }
+          },
+          {
+            "rule": "GROUND-QUOTE"
+          }
+        ],
+        "sources": [
+          {
+            "title": "Server",
+            "id": "DOC-0001",
+            "path": "doc-0001.html",
+            "hash": "sha256:3a4f47d9b73773bc82f761ff8f3d2ef197b549129d64648360592d558160687d"
+          }
+        ],
+        "evidence": [
+          {
+            "quote": "The Server weighs 12 kg.",
+            "start": 7,
+            "end": 31,
+            "value": "12 kg",
+            "reference": null
+          }
+        ],
+        "extractive": true,
+        "authority": "source_assertion",
+        "response_structure": {
+          "intent": "mass",
+          "topic": "Server",
+          "factual_claims": true,
+          "generated_factual_text": false
+        },
+        "suggestions": [
+          "how big is it?",
+          "how old is it?",
+          "show source"
+        ]
+      },
+      "chat": {
+        "kind": "grounded_answer",
+        "answered": true,
+        "correct_answer": true
+      },
+      "lexical_page_return": {
+        "kind": "not_in_corpus",
+        "answered": false,
+        "correct_answer": false,
+        "notice": "Page-return baseline; returning a page is not proof of answer suitability."
+      }
+    },
+    {
+      "id": "software-unsupported-0",
+      "domain": "software",
+      "question": "Who may log into it?",
+      "topic": "Server",
+      "supported": false,
+      "gold_evidence": [],
+      "rationale": "The page does not state the requested fact, permission, comparison or condition.",
+      "category": "unsupported_overlap",
+      "latency_ms": 4.416033000097741,
+      "response": {
+        "kind": "unsupported",
+        "message": "I\u2019m still on \u201cServer\u201d, but I can\u2019t answer that from its loaded page.\n\nWould you like to add sources? Choose a Wikipedia mode and send the search suggestion to build a new collection, or use the source-import controls to add a URL/text to your collection. Web search needs a configured crawler. Nothing has been fetched.",
+        "context": {
+          "title": "Server",
+          "id": "DOC-0001",
+          "path": "doc-0001.html",
+          "hash": "sha256:3a4f47d9b73773bc82f761ff8f3d2ef197b549129d64648360592d558160687d"
+        },
+        "reasoning": [
+          {
+            "rule": "GROUND-REFUSE"
+          }
+        ],
+        "sources": [],
+        "authority": "unsupported",
+        "suggestions": [
+          "search Server",
+          "show my MPLPB",
+          "keep chatting"
+        ],
+        "source_offer": {
+          "query": "Server",
+          "automatic_fetch": false,
+          "search_creates_new_collection": true
+        },
+        "response_structure": {
+          "intent": "unsupported_question",
+          "topic": "Server",
+          "factual_claims": false
+        },
+        "unsupported_reason": "Question is outside the supported attribute grammar."
+      },
+      "chat": {
+        "kind": "unsupported",
+        "answered": false,
+        "correct_answer": false
+      },
+      "lexical_page_return": {
+        "kind": "not_in_corpus",
+        "answered": false,
+        "correct_answer": false,
+        "notice": "Page-return baseline; returning a page is not proof of answer suitability."
+      }
+    },
+    {
+      "id": "software-unsupported-1",
+      "domain": "software",
+      "question": "How do I reset it?",
+      "topic": "Server",
+      "supported": false,
+      "gold_evidence": [],
+      "rationale": "The page does not state the requested fact, permission, comparison or condition.",
+      "category": "unsupported_overlap",
+      "latency_ms": 3.7556309998763027,
+      "response": {
+        "kind": "unsupported",
+        "message": "I\u2019m still on \u201cServer\u201d, but I can\u2019t answer that from its loaded page.\n\nWould you like to add sources? Choose a Wikipedia mode and send the search suggestion to build a new collection, or use the source-import controls to add a URL/text to your collection. Web search needs a configured crawler. Nothing has been fetched.",
+        "context": {
+          "title": "Server",
+          "id": "DOC-0001",
+          "path": "doc-0001.html",
+          "hash": "sha256:3a4f47d9b73773bc82f761ff8f3d2ef197b549129d64648360592d558160687d"
+        },
+        "reasoning": [
+          {
+            "rule": "GROUND-REFUSE"
+          }
+        ],
+        "sources": [],
+        "authority": "unsupported",
+        "suggestions": [
+          "search Server",
+          "show my MPLPB",
+          "keep chatting"
+        ],
+        "source_offer": {
+          "query": "Server",
+          "automatic_fetch": false,
+          "search_creates_new_collection": true
+        },
+        "response_structure": {
+          "intent": "unsupported_question",
+          "topic": "Server",
+          "factual_claims": false
+        },
+        "unsupported_reason": "Question is outside the supported attribute grammar."
+      },
+      "chat": {
+        "kind": "unsupported",
+        "answered": false,
+        "correct_answer": false
+      },
+      "lexical_page_return": {
+        "kind": "not_in_corpus",
+        "answered": false,
+        "correct_answer": false,
+        "notice": "Page-return baseline; returning a page is not proof of answer suitability."
+      }
+    },
+    {
+      "id": "software-unsupported-2",
+      "domain": "software",
+      "question": "How heavy is it with the rack?",
+      "topic": "Server",
+      "supported": false,
+      "gold_evidence": [],
+      "rationale": "The page does not state the requested fact, permission, comparison or condition.",
+      "category": "unsupported_overlap",
+      "latency_ms": 3.2583239999439684,
+      "response": {
+        "kind": "unsupported",
+        "message": "I\u2019m still on \u201cServer\u201d, but I can\u2019t answer that from its loaded page.\n\nWould you like to add sources? Choose a Wikipedia mode and send the search suggestion to build a new collection, or use the source-import controls to add a URL/text to your collection. Web search needs a configured crawler. Nothing has been fetched.",
+        "context": {
+          "title": "Server",
+          "id": "DOC-0001",
+          "path": "doc-0001.html",
+          "hash": "sha256:3a4f47d9b73773bc82f761ff8f3d2ef197b549129d64648360592d558160687d"
+        },
+        "reasoning": [
+          {
+            "rule": "GROUND-REFUSE"
+          }
+        ],
+        "sources": [],
+        "authority": "unsupported",
+        "suggestions": [
+          "search Server",
+          "show my MPLPB",
+          "keep chatting"
+        ],
+        "source_offer": {
+          "query": "Server",
+          "automatic_fetch": false,
+          "search_creates_new_collection": true
+        },
+        "response_structure": {
+          "intent": "unsupported_question",
+          "topic": "Server",
+          "factual_claims": false
+        },
+        "unsupported_reason": "Question is outside the supported attribute grammar."
+      },
+      "chat": {
+        "kind": "unsupported",
+        "answered": false,
+        "correct_answer": false
+      },
+      "lexical_page_return": {
+        "kind": "not_in_corpus",
+        "answered": false,
+        "correct_answer": false,
+        "notice": "Page-return baseline; returning a page is not proof of answer suitability."
+      }
+    },
+    {
+      "id": "software-unsupported-3",
+      "domain": "software",
+      "question": "How old is it?",
+      "topic": "Server",
+      "supported": false,
+      "gold_evidence": [],
+      "rationale": "The page does not state the requested fact, permission, comparison or condition.",
+      "category": "unsupported_overlap",
+      "latency_ms": 6.59623699993972,
+      "response": {
+        "kind": "unsupported",
+        "message": "I\u2019m still on \u201cServer\u201d, but I can\u2019t answer that from its loaded page.\n\nWould you like to add sources? Choose a Wikipedia mode and send the search suggestion to build a new collection, or use the source-import controls to add a URL/text to your collection. Web search needs a configured crawler. Nothing has been fetched.",
+        "context": {
+          "title": "Server",
+          "id": "DOC-0001",
+          "path": "doc-0001.html",
+          "hash": "sha256:3a4f47d9b73773bc82f761ff8f3d2ef197b549129d64648360592d558160687d"
+        },
+        "reasoning": [
+          {
+            "rule": "GROUND-REFUSE"
+          }
+        ],
+        "sources": [],
+        "authority": "unsupported",
+        "suggestions": [
+          "search Server age",
+          "show my MPLPB",
+          "keep chatting"
+        ],
+        "source_offer": {
+          "query": "Server age",
+          "automatic_fetch": false,
+          "search_creates_new_collection": true
+        },
+        "response_structure": {
+          "intent": "age",
+          "topic": "Server",
+          "factual_claims": false
+        },
+        "unsupported_reason": "No supported answer statement matched."
+      },
+      "chat": {
+        "kind": "unsupported",
+        "answered": false,
+        "correct_answer": false
+      },
+      "lexical_page_return": {
+        "kind": "not_in_corpus",
+        "answered": false,
+        "correct_answer": false,
+        "notice": "Page-return baseline; returning a page is not proof of answer suitability."
+      }
+    },
+    {
+      "id": "software-unsupported-4",
+      "domain": "software",
+      "question": "Is it vulnerable?",
+      "topic": "Server",
+      "supported": false,
+      "gold_evidence": [],
+      "rationale": "The page does not state the requested fact, permission, comparison or condition.",
+      "category": "unsupported_overlap",
+      "latency_ms": 4.183954000154699,
+      "response": {
+        "kind": "unsupported",
+        "message": "I\u2019m still on \u201cServer\u201d, but I can\u2019t answer that from its loaded page.\n\nWould you like to add sources? Choose a Wikipedia mode and send the search suggestion to build a new collection, or use the source-import controls to add a URL/text to your collection. Web search needs a configured crawler. Nothing has been fetched.",
+        "context": {
+          "title": "Server",
+          "id": "DOC-0001",
+          "path": "doc-0001.html",
+          "hash": "sha256:3a4f47d9b73773bc82f761ff8f3d2ef197b549129d64648360592d558160687d"
+        },
+        "reasoning": [
+          {
+            "rule": "GROUND-REFUSE"
+          }
+        ],
+        "sources": [],
+        "authority": "unsupported",
+        "suggestions": [
+          "search Server",
+          "show my MPLPB",
+          "keep chatting"
+        ],
+        "source_offer": {
+          "query": "Server",
+          "automatic_fetch": false,
+          "search_creates_new_collection": true
+        },
+        "response_structure": {
+          "intent": "unsupported_question",
+          "topic": "Server",
+          "factual_claims": false
+        },
+        "unsupported_reason": "Question is outside the supported attribute grammar."
+      },
+      "chat": {
+        "kind": "unsupported",
+        "answered": false,
+        "correct_answer": false
+      },
+      "lexical_page_return": {
+        "kind": "not_in_corpus",
+        "answered": false,
+        "correct_answer": false,
+        "notice": "Page-return baseline; returning a page is not proof of answer suitability."
+      }
+    },
+    {
+      "id": "software-unsupported-5",
+      "domain": "software",
+      "question": "How much memory does it have?",
+      "topic": "Server",
+      "supported": false,
+      "gold_evidence": [],
+      "rationale": "The page does not state the requested fact, permission, comparison or condition.",
+      "category": "unsupported_overlap",
+      "latency_ms": 4.803334000143877,
+      "response": {
+        "kind": "unsupported",
+        "message": "I\u2019m still on \u201cServer\u201d, but I can\u2019t answer that from its loaded page.\n\nWould you like to add sources? Choose a Wikipedia mode and send the search suggestion to build a new collection, or use the source-import controls to add a URL/text to your collection. Web search needs a configured crawler. Nothing has been fetched.",
+        "context": {
+          "title": "Server",
+          "id": "DOC-0001",
+          "path": "doc-0001.html",
+          "hash": "sha256:3a4f47d9b73773bc82f761ff8f3d2ef197b549129d64648360592d558160687d"
+        },
+        "reasoning": [
+          {
+            "rule": "GROUND-REFUSE"
+          }
+        ],
+        "sources": [],
+        "authority": "unsupported",
+        "suggestions": [
+          "search Server",
+          "show my MPLPB",
+          "keep chatting"
+        ],
+        "source_offer": {
+          "query": "Server",
+          "automatic_fetch": false,
+          "search_creates_new_collection": true
+        },
+        "response_structure": {
+          "intent": "unsupported_question",
+          "topic": "Server",
+          "factual_claims": false
+        },
+        "unsupported_reason": "Question is outside the supported attribute grammar."
+      },
+      "chat": {
+        "kind": "unsupported",
+        "answered": false,
+        "correct_answer": false
+      },
+      "lexical_page_return": {
+        "kind": "not_in_corpus",
+        "answered": false,
+        "correct_answer": false,
+        "notice": "Page-return baseline; returning a page is not proof of answer suitability."
+      }
+    },
+    {
+      "id": "software-paraphrase",
+      "domain": "software",
+      "question": "how wide is it?",
+      "topic": "Server sample",
+      "supported": true,
+      "gold_evidence": [
+        "The Server sample measures 23 cm across."
+      ],
+      "rationale": null,
+      "category": "unsupported_grammar_positive_control",
+      "latency_ms": 16.843106000123953,
+      "response": {
+        "kind": "unsupported",
+        "message": "I\u2019m still on \u201cServer sample\u201d, but I can\u2019t answer that from its loaded page.\n\nWould you like to add sources? Choose a Wikipedia mode and send the search suggestion to build a new collection, or use the source-import controls to add a URL/text to your collection. Web search needs a configured crawler. Nothing has been fetched.",
+        "context": {
+          "title": "Server sample",
+          "id": "DOC-0002",
+          "path": "doc-0002.html",
+          "hash": "sha256:24be9885daadc18fac9759dcc2aa77c1e0045b15ec72f500f52042e7bc50586c"
+        },
+        "reasoning": [
+          {
+            "rule": "GROUND-REFUSE"
+          }
+        ],
+        "sources": [],
+        "authority": "unsupported",
+        "suggestions": [
+          "search Server sample width",
+          "show my MPLPB",
+          "keep chatting"
+        ],
+        "source_offer": {
+          "query": "Server sample width",
+          "automatic_fetch": false,
+          "search_creates_new_collection": true
+        },
+        "response_structure": {
+          "intent": "width",
+          "topic": "Server sample",
+          "factual_claims": false
+        },
+        "unsupported_reason": "No supported answer statement matched."
+      },
+      "chat": {
+        "kind": "unsupported",
+        "answered": false,
+        "correct_answer": false
+      },
+      "lexical_page_return": {
+        "kind": "return",
+        "answered": true,
+        "correct_answer": true,
+        "notice": "Page-return baseline; returning a page is not proof of answer suitability."
+      }
+    },
+    {
+      "id": "transport-supported",
+      "domain": "transport",
+      "question": "what is its length?",
+      "topic": "Bridge",
+      "supported": true,
+      "gold_evidence": [
+        "The Bridge is 80 m in length."
+      ],
+      "rationale": null,
+      "category": "supported_attribute",
+      "latency_ms": 10.633439999992333,
+      "response": {
+        "kind": "grounded_answer",
+        "message": "On \u201cBridge\u201d, the loaded page says:\n\nThe Bridge is 80 m in length.\n\nThis is a source statement, not independently verified truth.",
+        "context": {
+          "title": "Bridge",
+          "id": "DOC-0001",
+          "path": "doc-0001.html",
+          "hash": "sha256:e2d2592f63a9e9372301d287a3728fc0fe97e0e350c3fa85e226d524c03adec7"
+        },
+        "reasoning": [
+          {
+            "rule": "GROUND-CONTEXT",
+            "original_question": "what is its length?",
+            "expanded_question": "what is Bridge length?",
+            "context_pin": {
+              "title": "Bridge",
+              "id": "DOC-0001",
+              "path": "doc-0001.html",
+              "hash": "sha256:e2d2592f63a9e9372301d287a3728fc0fe97e0e350c3fa85e226d524c03adec7"
+            }
+          },
+          {
+            "rule": "GROUND-QUOTE"
+          }
+        ],
+        "sources": [
+          {
+            "title": "Bridge",
+            "id": "DOC-0001",
+            "path": "doc-0001.html",
+            "hash": "sha256:e2d2592f63a9e9372301d287a3728fc0fe97e0e350c3fa85e226d524c03adec7"
+          }
+        ],
+        "evidence": [
+          {
+            "quote": "The Bridge is 80 m in length.",
+            "start": 7,
+            "end": 36,
+            "value": "80 m",
+            "reference": null
+          }
+        ],
+        "extractive": true,
+        "authority": "source_assertion",
+        "response_structure": {
+          "intent": "length",
+          "topic": "Bridge",
+          "factual_claims": true,
+          "generated_factual_text": false
+        },
+        "suggestions": [
+          "how big is it?",
+          "how old is it?",
+          "show source"
+        ]
+      },
+      "chat": {
+        "kind": "grounded_answer",
+        "answered": true,
+        "correct_answer": true
+      },
+      "lexical_page_return": {
+        "kind": "return",
+        "answered": true,
+        "correct_answer": true,
+        "notice": "Page-return baseline; returning a page is not proof of answer suitability."
+      }
+    },
+    {
+      "id": "transport-memory",
+      "domain": "transport",
+      "question": "what is its length?",
+      "topic": "Bridge",
+      "supported": true,
+      "gold_evidence": [
+        "The Bridge is 80 m in length."
+      ],
+      "rationale": null,
+      "category": "distractor_memory",
+      "latency_ms": 10.734591000073124,
+      "response": {
+        "kind": "grounded_answer",
+        "message": "On \u201cBridge\u201d, the loaded page says:\n\nThe Bridge is 80 m in length.\n\nThis is a source statement, not independently verified truth.",
+        "context": {
+          "title": "Bridge",
+          "id": "DOC-0001",
+          "path": "doc-0001.html",
+          "hash": "sha256:e2d2592f63a9e9372301d287a3728fc0fe97e0e350c3fa85e226d524c03adec7"
+        },
+        "reasoning": [
+          {
+            "rule": "GROUND-CONTEXT",
+            "original_question": "what is its length?",
+            "expanded_question": "what is Bridge length?",
+            "context_pin": {
+              "title": "Bridge",
+              "id": "DOC-0001",
+              "path": "doc-0001.html",
+              "hash": "sha256:e2d2592f63a9e9372301d287a3728fc0fe97e0e350c3fa85e226d524c03adec7"
+            }
+          },
+          {
+            "rule": "GROUND-QUOTE"
+          }
+        ],
+        "sources": [
+          {
+            "title": "Bridge",
+            "id": "DOC-0001",
+            "path": "doc-0001.html",
+            "hash": "sha256:e2d2592f63a9e9372301d287a3728fc0fe97e0e350c3fa85e226d524c03adec7"
+          }
+        ],
+        "evidence": [
+          {
+            "quote": "The Bridge is 80 m in length.",
+            "start": 7,
+            "end": 36,
+            "value": "80 m",
+            "reference": null
+          }
+        ],
+        "extractive": true,
+        "authority": "source_assertion",
+        "response_structure": {
+          "intent": "length",
+          "topic": "Bridge",
+          "factual_claims": true,
+          "generated_factual_text": false
+        },
+        "suggestions": [
+          "how big is it?",
+          "how old is it?",
+          "show source"
+        ]
+      },
+      "chat": {
+        "kind": "grounded_answer",
+        "answered": true,
+        "correct_answer": true
+      },
+      "lexical_page_return": {
+        "kind": "return",
+        "answered": true,
+        "correct_answer": true,
+        "notice": "Page-return baseline; returning a page is not proof of answer suitability."
+      }
+    },
+    {
+      "id": "transport-unsupported-0",
+      "domain": "transport",
+      "question": "Who may drive over it?",
+      "topic": "Bridge",
+      "supported": false,
+      "gold_evidence": [],
+      "rationale": "The page does not state the requested fact, permission, comparison or condition.",
+      "category": "unsupported_overlap",
+      "latency_ms": 6.2228760000380134,
+      "response": {
+        "kind": "unsupported",
+        "message": "I\u2019m still on \u201cBridge\u201d, but I can\u2019t answer that from its loaded page.\n\nWould you like to add sources? Choose a Wikipedia mode and send the search suggestion to build a new collection, or use the source-import controls to add a URL/text to your collection. Web search needs a configured crawler. Nothing has been fetched.",
+        "context": {
+          "title": "Bridge",
+          "id": "DOC-0001",
+          "path": "doc-0001.html",
+          "hash": "sha256:e2d2592f63a9e9372301d287a3728fc0fe97e0e350c3fa85e226d524c03adec7"
+        },
+        "reasoning": [
+          {
+            "rule": "GROUND-REFUSE"
+          }
+        ],
+        "sources": [],
+        "authority": "unsupported",
+        "suggestions": [
+          "search Bridge",
+          "show my MPLPB",
+          "keep chatting"
+        ],
+        "source_offer": {
+          "query": "Bridge",
+          "automatic_fetch": false,
+          "search_creates_new_collection": true
+        },
+        "response_structure": {
+          "intent": "unsupported_question",
+          "topic": "Bridge",
+          "factual_claims": false
+        },
+        "unsupported_reason": "Question is outside the supported attribute grammar."
+      },
+      "chat": {
+        "kind": "unsupported",
+        "answered": false,
+        "correct_answer": false
+      },
+      "lexical_page_return": {
+        "kind": "not_in_corpus",
+        "answered": false,
+        "correct_answer": false,
+        "notice": "Page-return baseline; returning a page is not proof of answer suitability."
+      }
+    },
+    {
+      "id": "transport-unsupported-1",
+      "domain": "transport",
+      "question": "How much weight can it carry?",
+      "topic": "Bridge",
+      "supported": false,
+      "gold_evidence": [],
+      "rationale": "The page does not state the requested fact, permission, comparison or condition.",
+      "category": "unsupported_overlap",
+      "latency_ms": 5.940781999925093,
+      "response": {
+        "kind": "unsupported",
+        "message": "I\u2019m still on \u201cBridge\u201d, but I can\u2019t answer that from its loaded page.\n\nWould you like to add sources? Choose a Wikipedia mode and send the search suggestion to build a new collection, or use the source-import controls to add a URL/text to your collection. Web search needs a configured crawler. Nothing has been fetched.",
+        "context": {
+          "title": "Bridge",
+          "id": "DOC-0001",
+          "path": "doc-0001.html",
+          "hash": "sha256:e2d2592f63a9e9372301d287a3728fc0fe97e0e350c3fa85e226d524c03adec7"
+        },
+        "reasoning": [
+          {
+            "rule": "GROUND-REFUSE"
+          }
+        ],
+        "sources": [],
+        "authority": "unsupported",
+        "suggestions": [
+          "search Bridge",
+          "show my MPLPB",
+          "keep chatting"
+        ],
+        "source_offer": {
+          "query": "Bridge",
+          "automatic_fetch": false,
+          "search_creates_new_collection": true
+        },
+        "response_structure": {
+          "intent": "unsupported_question",
+          "topic": "Bridge",
+          "factual_claims": false
+        },
+        "unsupported_reason": "Question is outside the supported attribute grammar."
+      },
+      "chat": {
+        "kind": "unsupported",
+        "answered": false,
+        "correct_answer": false
+      },
+      "lexical_page_return": {
+        "kind": "not_in_corpus",
+        "answered": false,
+        "correct_answer": false,
+        "notice": "Page-return baseline; returning a page is not proof of answer suitability."
+      }
+    },
+    {
+      "id": "transport-unsupported-2",
+      "domain": "transport",
+      "question": "How long is it after expansion?",
+      "topic": "Bridge",
+      "supported": false,
+      "gold_evidence": [],
+      "rationale": "The page does not state the requested fact, permission, comparison or condition.",
+      "category": "unsupported_overlap",
+      "latency_ms": 4.919147999999041,
+      "response": {
+        "kind": "unsupported",
+        "message": "I\u2019m still on \u201cBridge\u201d, but I can\u2019t answer that from its loaded page.\n\nWould you like to add sources? Choose a Wikipedia mode and send the search suggestion to build a new collection, or use the source-import controls to add a URL/text to your collection. Web search needs a configured crawler. Nothing has been fetched.",
+        "context": {
+          "title": "Bridge",
+          "id": "DOC-0001",
+          "path": "doc-0001.html",
+          "hash": "sha256:e2d2592f63a9e9372301d287a3728fc0fe97e0e350c3fa85e226d524c03adec7"
+        },
+        "reasoning": [
+          {
+            "rule": "GROUND-REFUSE"
+          }
+        ],
+        "sources": [],
+        "authority": "unsupported",
+        "suggestions": [
+          "search Bridge",
+          "show my MPLPB",
+          "keep chatting"
+        ],
+        "source_offer": {
+          "query": "Bridge",
+          "automatic_fetch": false,
+          "search_creates_new_collection": true
+        },
+        "response_structure": {
+          "intent": "unsupported_question",
+          "topic": "Bridge",
+          "factual_claims": false
+        },
+        "unsupported_reason": "Question is outside the supported attribute grammar."
+      },
+      "chat": {
+        "kind": "unsupported",
+        "answered": false,
+        "correct_answer": false
+      },
+      "lexical_page_return": {
+        "kind": "not_in_corpus",
+        "answered": false,
+        "correct_answer": false,
+        "notice": "Page-return baseline; returning a page is not proof of answer suitability."
+      }
+    },
+    {
+      "id": "transport-unsupported-3",
+      "domain": "transport",
+      "question": "Why was it built?",
+      "topic": "Bridge",
+      "supported": false,
+      "gold_evidence": [],
+      "rationale": "The page does not state the requested fact, permission, comparison or condition.",
+      "category": "unsupported_overlap",
+      "latency_ms": 4.247689000067112,
+      "response": {
+        "kind": "unsupported",
+        "message": "I\u2019m still on \u201cBridge\u201d, but I can\u2019t answer that from its loaded page.\n\nWould you like to add sources? Choose a Wikipedia mode and send the search suggestion to build a new collection, or use the source-import controls to add a URL/text to your collection. Web search needs a configured crawler. Nothing has been fetched.",
+        "context": {
+          "title": "Bridge",
+          "id": "DOC-0001",
+          "path": "doc-0001.html",
+          "hash": "sha256:e2d2592f63a9e9372301d287a3728fc0fe97e0e350c3fa85e226d524c03adec7"
+        },
+        "reasoning": [
+          {
+            "rule": "GROUND-REFUSE"
+          }
+        ],
+        "sources": [],
+        "authority": "unsupported",
+        "suggestions": [
+          "search Bridge",
+          "show my MPLPB",
+          "keep chatting"
+        ],
+        "source_offer": {
+          "query": "Bridge",
+          "automatic_fetch": false,
+          "search_creates_new_collection": true
+        },
+        "response_structure": {
+          "intent": "unsupported_question",
+          "topic": "Bridge",
+          "factual_claims": false
+        },
+        "unsupported_reason": "Question is outside the supported attribute grammar."
+      },
+      "chat": {
+        "kind": "unsupported",
+        "answered": false,
+        "correct_answer": false
+      },
+      "lexical_page_return": {
+        "kind": "not_in_corpus",
+        "answered": false,
+        "correct_answer": false,
+        "notice": "Page-return baseline; returning a page is not proof of answer suitability."
+      }
+    },
+    {
+      "id": "transport-unsupported-4",
+      "domain": "transport",
+      "question": "How old is it?",
+      "topic": "Bridge",
+      "supported": false,
+      "gold_evidence": [],
+      "rationale": "The page does not state the requested fact, permission, comparison or condition.",
+      "category": "unsupported_overlap",
+      "latency_ms": 7.022897000069861,
+      "response": {
+        "kind": "unsupported",
+        "message": "I\u2019m still on \u201cBridge\u201d, but I can\u2019t answer that from its loaded page.\n\nWould you like to add sources? Choose a Wikipedia mode and send the search suggestion to build a new collection, or use the source-import controls to add a URL/text to your collection. Web search needs a configured crawler. Nothing has been fetched.",
+        "context": {
+          "title": "Bridge",
+          "id": "DOC-0001",
+          "path": "doc-0001.html",
+          "hash": "sha256:e2d2592f63a9e9372301d287a3728fc0fe97e0e350c3fa85e226d524c03adec7"
+        },
+        "reasoning": [
+          {
+            "rule": "GROUND-REFUSE"
+          }
+        ],
+        "sources": [],
+        "authority": "unsupported",
+        "suggestions": [
+          "search Bridge age",
+          "show my MPLPB",
+          "keep chatting"
+        ],
+        "source_offer": {
+          "query": "Bridge age",
+          "automatic_fetch": false,
+          "search_creates_new_collection": true
+        },
+        "response_structure": {
+          "intent": "age",
+          "topic": "Bridge",
+          "factual_claims": false
+        },
+        "unsupported_reason": "No supported answer statement matched."
+      },
+      "chat": {
+        "kind": "unsupported",
+        "answered": false,
+        "correct_answer": false
+      },
+      "lexical_page_return": {
+        "kind": "not_in_corpus",
+        "answered": false,
+        "correct_answer": false,
+        "notice": "Page-return baseline; returning a page is not proof of answer suitability."
+      }
+    },
+    {
+      "id": "transport-unsupported-5",
+      "domain": "transport",
+      "question": "Is it safe?",
+      "topic": "Bridge",
+      "supported": false,
+      "gold_evidence": [],
+      "rationale": "The page does not state the requested fact, permission, comparison or condition.",
+      "category": "unsupported_overlap",
+      "latency_ms": 3.532545000098253,
+      "response": {
+        "kind": "unsupported",
+        "message": "I\u2019m still on \u201cBridge\u201d, but I can\u2019t answer that from its loaded page.\n\nWould you like to add sources? Choose a Wikipedia mode and send the search suggestion to build a new collection, or use the source-import controls to add a URL/text to your collection. Web search needs a configured crawler. Nothing has been fetched.",
+        "context": {
+          "title": "Bridge",
+          "id": "DOC-0001",
+          "path": "doc-0001.html",
+          "hash": "sha256:e2d2592f63a9e9372301d287a3728fc0fe97e0e350c3fa85e226d524c03adec7"
+        },
+        "reasoning": [
+          {
+            "rule": "GROUND-REFUSE"
+          }
+        ],
+        "sources": [],
+        "authority": "unsupported",
+        "suggestions": [
+          "search Bridge",
+          "show my MPLPB",
+          "keep chatting"
+        ],
+        "source_offer": {
+          "query": "Bridge",
+          "automatic_fetch": false,
+          "search_creates_new_collection": true
+        },
+        "response_structure": {
+          "intent": "unsupported_question",
+          "topic": "Bridge",
+          "factual_claims": false
+        },
+        "unsupported_reason": "Question is outside the supported attribute grammar."
+      },
+      "chat": {
+        "kind": "unsupported",
+        "answered": false,
+        "correct_answer": false
+      },
+      "lexical_page_return": {
+        "kind": "not_in_corpus",
+        "answered": false,
+        "correct_answer": false,
+        "notice": "Page-return baseline; returning a page is not proof of answer suitability."
+      }
+    },
+    {
+      "id": "transport-paraphrase",
+      "domain": "transport",
+      "question": "how wide is it?",
+      "topic": "Bridge sample",
+      "supported": true,
+      "gold_evidence": [
+        "The Bridge sample measures 23 cm across."
+      ],
+      "rationale": null,
+      "category": "unsupported_grammar_positive_control",
+      "latency_ms": 11.480430999881719,
+      "response": {
+        "kind": "unsupported",
+        "message": "I\u2019m still on \u201cBridge sample\u201d, but I can\u2019t answer that from its loaded page.\n\nWould you like to add sources? Choose a Wikipedia mode and send the search suggestion to build a new collection, or use the source-import controls to add a URL/text to your collection. Web search needs a configured crawler. Nothing has been fetched.",
+        "context": {
+          "title": "Bridge sample",
+          "id": "DOC-0002",
+          "path": "doc-0002.html",
+          "hash": "sha256:7850adebf4aa76924c2a42efc004ce0ae27508464eaed0f9458d7452b8f3cd4c"
+        },
+        "reasoning": [
+          {
+            "rule": "GROUND-REFUSE"
+          }
+        ],
+        "sources": [],
+        "authority": "unsupported",
+        "suggestions": [
+          "search Bridge sample width",
+          "show my MPLPB",
+          "keep chatting"
+        ],
+        "source_offer": {
+          "query": "Bridge sample width",
+          "automatic_fetch": false,
+          "search_creates_new_collection": true
+        },
+        "response_structure": {
+          "intent": "width",
+          "topic": "Bridge sample",
+          "factual_claims": false
+        },
+        "unsupported_reason": "No supported answer statement matched."
+      },
+      "chat": {
+        "kind": "unsupported",
+        "answered": false,
+        "correct_answer": false
+      },
+      "lexical_page_return": {
+        "kind": "return",
+        "answered": true,
+        "correct_answer": true,
+        "notice": "Page-return baseline; returning a page is not proof of answer suitability."
+      }
+    }
+  ],
+  "limitations": [
+    "Developer-generated fixtures cannot establish independent validity.",
+    "Matching gold spans checks mechanical agreement, not semantic entailment; human review is required.",
+    "Wilson intervals assume independent samples; related/template-generated probes violate that assumption.",
+    "Latency is local end-to-end chat timing, not a production load benchmark."
+  ]
+}

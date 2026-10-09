@@ -1,0 +1,607 @@
+{
+  "schema": 1,
+  "provenance": {
+    "type": "synthetic_developer_regression",
+    "corpus_author": "OpenAI assistant",
+    "question_author": "OpenAI assistant",
+    "label_author": "OpenAI assistant",
+    "independent_review": "pending",
+    "split": "development; not sealed human holdout"
+  },
+  "domains": [
+    {
+      "name": "astronomy",
+      "pages": [
+        {
+          "title": "Moon",
+          "scope": "Moon",
+          "body": "The Moon is about 3,474 km in diameter.\nThe Moon is about 4.5 billion years old."
+        },
+        {
+          "title": "Moon sample",
+          "scope": "Moon sample",
+          "body": "The Moon sample measures 23 cm across."
+        }
+      ],
+      "probes": [
+        {
+          "id": "astronomy-supported",
+          "topic": "Moon",
+          "question": "how big is it?",
+          "supported": true,
+          "evidence": [
+            "The Moon is about 3,474 km in diameter."
+          ],
+          "category": "supported_attribute"
+        },
+        {
+          "id": "astronomy-memory",
+          "topic": "Moon",
+          "question": "how big is it?",
+          "setup": [
+            "hello",
+            "remember User note: the size is 999999 km."
+          ],
+          "supported": true,
+          "evidence": [
+            "The Moon is about 3,474 km in diameter."
+          ],
+          "category": "distractor_memory"
+        },
+        {
+          "id": "astronomy-unsupported-0",
+          "topic": "Moon",
+          "question": "Who may land on the Moon?",
+          "supported": false,
+          "rationale": "The page does not state the requested fact, permission, comparison or condition.",
+          "category": "unsupported_overlap"
+        },
+        {
+          "id": "astronomy-unsupported-1",
+          "topic": "Moon",
+          "question": "How heavy is it?",
+          "supported": false,
+          "rationale": "The page does not state the requested fact, permission, comparison or condition.",
+          "category": "unsupported_overlap"
+        },
+        {
+          "id": "astronomy-unsupported-2",
+          "topic": "Moon",
+          "question": "Why is it that size?",
+          "supported": false,
+          "rationale": "The page does not state the requested fact, permission, comparison or condition.",
+          "category": "unsupported_overlap"
+        },
+        {
+          "id": "astronomy-unsupported-3",
+          "topic": "Moon",
+          "question": "How big is it compared with Earth?",
+          "supported": false,
+          "rationale": "The page does not state the requested fact, permission, comparison or condition.",
+          "category": "unsupported_overlap"
+        },
+        {
+          "id": "astronomy-unsupported-4",
+          "topic": "Moon",
+          "question": "Is it safe to live there?",
+          "supported": false,
+          "rationale": "The page does not state the requested fact, permission, comparison or condition.",
+          "category": "unsupported_overlap"
+        },
+        {
+          "id": "astronomy-unsupported-5",
+          "topic": "Moon",
+          "question": "How big is it in 100 years?",
+          "supported": false,
+          "rationale": "The page does not state the requested fact, permission, comparison or condition.",
+          "category": "unsupported_overlap"
+        },
+        {
+          "id": "astronomy-paraphrase",
+          "topic": "Moon sample",
+          "question": "how wide is it?",
+          "supported": true,
+          "evidence": [
+            "The Moon sample measures 23 cm across."
+          ],
+          "category": "unsupported_grammar_positive_control"
+        }
+      ]
+    },
+    {
+      "name": "workshop",
+      "pages": [
+        {
+          "title": "Kiln",
+          "scope": "Kiln",
+          "body": "The Kiln is 2 m in height.\nFiring instructions: heat the kiln slowly."
+        },
+        {
+          "title": "Kiln sample",
+          "scope": "Kiln sample",
+          "body": "The Kiln sample measures 23 cm across."
+        }
+      ],
+      "probes": [
+        {
+          "id": "workshop-supported",
+          "topic": "Kiln",
+          "question": "how tall is it?",
+          "supported": true,
+          "evidence": [
+            "The Kiln is 2 m in height."
+          ],
+          "category": "supported_attribute"
+        },
+        {
+          "id": "workshop-memory",
+          "topic": "Kiln",
+          "question": "how tall is it?",
+          "setup": [
+            "hello",
+            "remember User note: the size is 999999 km."
+          ],
+          "supported": true,
+          "evidence": [
+            "The Kiln is 2 m in height."
+          ],
+          "category": "distractor_memory"
+        },
+        {
+          "id": "workshop-unsupported-0",
+          "topic": "Kiln",
+          "question": "Who may operate a kiln?",
+          "supported": false,
+          "rationale": "The page does not state the requested fact, permission, comparison or condition.",
+          "category": "unsupported_overlap"
+        },
+        {
+          "id": "workshop-unsupported-1",
+          "topic": "Kiln",
+          "question": "Can children operate it?",
+          "supported": false,
+          "rationale": "The page does not state the requested fact, permission, comparison or condition.",
+          "category": "unsupported_overlap"
+        },
+        {
+          "id": "workshop-unsupported-2",
+          "topic": "Kiln",
+          "question": "What temperature should I use?",
+          "supported": false,
+          "rationale": "The page does not state the requested fact, permission, comparison or condition.",
+          "category": "unsupported_overlap"
+        },
+        {
+          "id": "workshop-unsupported-3",
+          "topic": "Kiln",
+          "question": "How tall is it after disassembly?",
+          "supported": false,
+          "rationale": "The page does not state the requested fact, permission, comparison or condition.",
+          "category": "unsupported_overlap"
+        },
+        {
+          "id": "workshop-unsupported-4",
+          "topic": "Kiln",
+          "question": "Why is it so tall?",
+          "supported": false,
+          "rationale": "The page does not state the requested fact, permission, comparison or condition.",
+          "category": "unsupported_overlap"
+        },
+        {
+          "id": "workshop-unsupported-5",
+          "topic": "Kiln",
+          "question": "How heavy is it?",
+          "supported": false,
+          "rationale": "The page does not state the requested fact, permission, comparison or condition.",
+          "category": "unsupported_overlap"
+        },
+        {
+          "id": "workshop-paraphrase",
+          "topic": "Kiln sample",
+          "question": "how wide is it?",
+          "supported": true,
+          "evidence": [
+            "The Kiln sample measures 23 cm across."
+          ],
+          "category": "unsupported_grammar_positive_control"
+        }
+      ]
+    },
+    {
+      "name": "library",
+      "pages": [
+        {
+          "title": "Bookcase",
+          "scope": "Bookcase",
+          "body": "The Bookcase has a width of 120 cm.\nThe library keeps books on these shelves."
+        },
+        {
+          "title": "Bookcase sample",
+          "scope": "Bookcase sample",
+          "body": "The Bookcase sample measures 23 cm across."
+        }
+      ],
+      "probes": [
+        {
+          "id": "library-supported",
+          "topic": "Bookcase",
+          "question": "what is its width?",
+          "supported": true,
+          "evidence": [
+            "The Bookcase has a width of 120 cm."
+          ],
+          "category": "supported_attribute"
+        },
+        {
+          "id": "library-memory",
+          "topic": "Bookcase",
+          "question": "what is its width?",
+          "setup": [
+            "hello",
+            "remember User note: the size is 999999 km."
+          ],
+          "supported": true,
+          "evidence": [
+            "The Bookcase has a width of 120 cm."
+          ],
+          "category": "distractor_memory"
+        },
+        {
+          "id": "library-unsupported-0",
+          "topic": "Bookcase",
+          "question": "Who may borrow from it?",
+          "supported": false,
+          "rationale": "The page does not state the requested fact, permission, comparison or condition.",
+          "category": "unsupported_overlap"
+        },
+        {
+          "id": "library-unsupported-1",
+          "topic": "Bookcase",
+          "question": "How long can I borrow a book?",
+          "supported": false,
+          "rationale": "The page does not state the requested fact, permission, comparison or condition.",
+          "category": "unsupported_overlap"
+        },
+        {
+          "id": "library-unsupported-2",
+          "topic": "Bookcase",
+          "question": "How wide is it when folded?",
+          "supported": false,
+          "rationale": "The page does not state the requested fact, permission, comparison or condition.",
+          "category": "unsupported_overlap"
+        },
+        {
+          "id": "library-unsupported-3",
+          "topic": "Bookcase",
+          "question": "How heavy is it?",
+          "supported": false,
+          "rationale": "The page does not state the requested fact, permission, comparison or condition.",
+          "category": "unsupported_overlap"
+        },
+        {
+          "id": "library-unsupported-4",
+          "topic": "Bookcase",
+          "question": "How old is it?",
+          "supported": false,
+          "rationale": "The page does not state the requested fact, permission, comparison or condition.",
+          "category": "unsupported_overlap"
+        },
+        {
+          "id": "library-unsupported-5",
+          "topic": "Bookcase",
+          "question": "Is it a book?",
+          "supported": false,
+          "rationale": "The page does not state the requested fact, permission, comparison or condition.",
+          "category": "unsupported_overlap"
+        },
+        {
+          "id": "library-paraphrase",
+          "topic": "Bookcase sample",
+          "question": "how wide is it?",
+          "supported": true,
+          "evidence": [
+            "The Bookcase sample measures 23 cm across."
+          ],
+          "category": "unsupported_grammar_positive_control"
+        }
+      ]
+    },
+    {
+      "name": "office",
+      "pages": [
+        {
+          "title": "Desk",
+          "scope": "Desk",
+          "body": "The Desk has a length of 160 cm.\nStaff use desks for office work."
+        },
+        {
+          "title": "Desk sample",
+          "scope": "Desk sample",
+          "body": "The Desk sample measures 23 cm across."
+        }
+      ],
+      "probes": [
+        {
+          "id": "office-supported",
+          "topic": "Desk",
+          "question": "how long is it?",
+          "supported": true,
+          "evidence": [
+            "The Desk has a length of 160 cm."
+          ],
+          "category": "supported_attribute"
+        },
+        {
+          "id": "office-memory",
+          "topic": "Desk",
+          "question": "how long is it?",
+          "setup": [
+            "hello",
+            "remember User note: the size is 999999 km."
+          ],
+          "supported": true,
+          "evidence": [
+            "The Desk has a length of 160 cm."
+          ],
+          "category": "distractor_memory"
+        },
+        {
+          "id": "office-unsupported-0",
+          "topic": "Desk",
+          "question": "Who may use it?",
+          "supported": false,
+          "rationale": "The page does not state the requested fact, permission, comparison or condition.",
+          "category": "unsupported_overlap"
+        },
+        {
+          "id": "office-unsupported-1",
+          "topic": "Desk",
+          "question": "How much does it cost?",
+          "supported": false,
+          "rationale": "The page does not state the requested fact, permission, comparison or condition.",
+          "category": "unsupported_overlap"
+        },
+        {
+          "id": "office-unsupported-2",
+          "topic": "Desk",
+          "question": "How long is it if extended?",
+          "supported": false,
+          "rationale": "The page does not state the requested fact, permission, comparison or condition.",
+          "category": "unsupported_overlap"
+        },
+        {
+          "id": "office-unsupported-3",
+          "topic": "Desk",
+          "question": "Where can I buy it?",
+          "supported": false,
+          "rationale": "The page does not state the requested fact, permission, comparison or condition.",
+          "category": "unsupported_overlap"
+        },
+        {
+          "id": "office-unsupported-4",
+          "topic": "Desk",
+          "question": "How old is it?",
+          "supported": false,
+          "rationale": "The page does not state the requested fact, permission, comparison or condition.",
+          "category": "unsupported_overlap"
+        },
+        {
+          "id": "office-unsupported-5",
+          "topic": "Desk",
+          "question": "Is it fire resistant?",
+          "supported": false,
+          "rationale": "The page does not state the requested fact, permission, comparison or condition.",
+          "category": "unsupported_overlap"
+        },
+        {
+          "id": "office-paraphrase",
+          "topic": "Desk sample",
+          "question": "how wide is it?",
+          "supported": true,
+          "evidence": [
+            "The Desk sample measures 23 cm across."
+          ],
+          "category": "unsupported_grammar_positive_control"
+        }
+      ]
+    },
+    {
+      "name": "software",
+      "pages": [
+        {
+          "title": "Server",
+          "scope": "Server",
+          "body": "The Server weighs 12 kg.\nThe server runs software and stores files."
+        },
+        {
+          "title": "Server sample",
+          "scope": "Server sample",
+          "body": "The Server sample measures 23 cm across."
+        }
+      ],
+      "probes": [
+        {
+          "id": "software-supported",
+          "topic": "Server",
+          "question": "how heavy is it?",
+          "supported": true,
+          "evidence": [
+            "The Server weighs 12 kg."
+          ],
+          "category": "supported_attribute"
+        },
+        {
+          "id": "software-memory",
+          "topic": "Server",
+          "question": "how heavy is it?",
+          "setup": [
+            "hello",
+            "remember User note: the size is 999999 km."
+          ],
+          "supported": true,
+          "evidence": [
+            "The Server weighs 12 kg."
+          ],
+          "category": "distractor_memory"
+        },
+        {
+          "id": "software-unsupported-0",
+          "topic": "Server",
+          "question": "Who may log into it?",
+          "supported": false,
+          "rationale": "The page does not state the requested fact, permission, comparison or condition.",
+          "category": "unsupported_overlap"
+        },
+        {
+          "id": "software-unsupported-1",
+          "topic": "Server",
+          "question": "How do I reset it?",
+          "supported": false,
+          "rationale": "The page does not state the requested fact, permission, comparison or condition.",
+          "category": "unsupported_overlap"
+        },
+        {
+          "id": "software-unsupported-2",
+          "topic": "Server",
+          "question": "How heavy is it with the rack?",
+          "supported": false,
+          "rationale": "The page does not state the requested fact, permission, comparison or condition.",
+          "category": "unsupported_overlap"
+        },
+        {
+          "id": "software-unsupported-3",
+          "topic": "Server",
+          "question": "How old is it?",
+          "supported": false,
+          "rationale": "The page does not state the requested fact, permission, comparison or condition.",
+          "category": "unsupported_overlap"
+        },
+        {
+          "id": "software-unsupported-4",
+          "topic": "Server",
+          "question": "Is it vulnerable?",
+          "supported": false,
+          "rationale": "The page does not state the requested fact, permission, comparison or condition.",
+          "category": "unsupported_overlap"
+        },
+        {
+          "id": "software-unsupported-5",
+          "topic": "Server",
+          "question": "How much memory does it have?",
+          "supported": false,
+          "rationale": "The page does not state the requested fact, permission, comparison or condition.",
+          "category": "unsupported_overlap"
+        },
+        {
+          "id": "software-paraphrase",
+          "topic": "Server sample",
+          "question": "how wide is it?",
+          "supported": true,
+          "evidence": [
+            "The Server sample measures 23 cm across."
+          ],
+          "category": "unsupported_grammar_positive_control"
+        }
+      ]
+    },
+    {
+      "name": "transport",
+      "pages": [
+        {
+          "title": "Bridge",
+          "scope": "Bridge",
+          "body": "The Bridge is 80 m in length.\nThe bridge carries road traffic."
+        },
+        {
+          "title": "Bridge sample",
+          "scope": "Bridge sample",
+          "body": "The Bridge sample measures 23 cm across."
+        }
+      ],
+      "probes": [
+        {
+          "id": "transport-supported",
+          "topic": "Bridge",
+          "question": "what is its length?",
+          "supported": true,
+          "evidence": [
+            "The Bridge is 80 m in length."
+          ],
+          "category": "supported_attribute"
+        },
+        {
+          "id": "transport-memory",
+          "topic": "Bridge",
+          "question": "what is its length?",
+          "setup": [
+            "hello",
+            "remember User note: the size is 999999 km."
+          ],
+          "supported": true,
+          "evidence": [
+            "The Bridge is 80 m in length."
+          ],
+          "category": "distractor_memory"
+        },
+        {
+          "id": "transport-unsupported-0",
+          "topic": "Bridge",
+          "question": "Who may drive over it?",
+          "supported": false,
+          "rationale": "The page does not state the requested fact, permission, comparison or condition.",
+          "category": "unsupported_overlap"
+        },
+        {
+          "id": "transport-unsupported-1",
+          "topic": "Bridge",
+          "question": "How much weight can it carry?",
+          "supported": false,
+          "rationale": "The page does not state the requested fact, permission, comparison or condition.",
+          "category": "unsupported_overlap"
+        },
+        {
+          "id": "transport-unsupported-2",
+          "topic": "Bridge",
+          "question": "How long is it after expansion?",
+          "supported": false,
+          "rationale": "The page does not state the requested fact, permission, comparison or condition.",
+          "category": "unsupported_overlap"
+        },
+        {
+          "id": "transport-unsupported-3",
+          "topic": "Bridge",
+          "question": "Why was it built?",
+          "supported": false,
+          "rationale": "The page does not state the requested fact, permission, comparison or condition.",
+          "category": "unsupported_overlap"
+        },
+        {
+          "id": "transport-unsupported-4",
+          "topic": "Bridge",
+          "question": "How old is it?",
+          "supported": false,
+          "rationale": "The page does not state the requested fact, permission, comparison or condition.",
+          "category": "unsupported_overlap"
+        },
+        {
+          "id": "transport-unsupported-5",
+          "topic": "Bridge",
+          "question": "Is it safe?",
+          "supported": false,
+          "rationale": "The page does not state the requested fact, permission, comparison or condition.",
+          "category": "unsupported_overlap"
+        },
+        {
+          "id": "transport-paraphrase",
+          "topic": "Bridge sample",
+          "question": "how wide is it?",
+          "supported": true,
+          "evidence": [
+            "The Bridge sample measures 23 cm across."
+          ],
+          "category": "unsupported_grammar_positive_control"
+        }
+      ]
+    }
+  ]
+}
