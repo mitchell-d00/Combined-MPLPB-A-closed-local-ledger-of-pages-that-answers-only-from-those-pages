@@ -343,6 +343,9 @@ class App:
                     result['source_corpus']=session['environment']['focus_corpus']
                     result['sources']=[dict(s,corpus=result['source_corpus']) for s in result.get('sources',[])]
                 result.setdefault('response_structure',{}).setdefault('mode',session['environment']['mode'])
+                if session['environment']['mode']=='chat' and result.get('authority')=='conversation_structure':
+                    result['support_notice']=E.D.NOTICE
+                    result['response_structure']['mplpb_supported']=False
             if not result.get('response_structure',{}).get('intent','').startswith('social_'):
                 session['mind'].pop('social',None)
             session['corpus'], session['context'] = corpus, result.get('context')
@@ -353,6 +356,8 @@ class App:
             payload['mind_sha256'] = hashlib.sha256(Path(M.__file__).read_bytes()).hexdigest()
             payload['grounded_chat_version'] = Q.VERSION
             payload['grounded_chat_sha256'] = hashlib.sha256(Path(Q.__file__).read_bytes()).hexdigest()
+            payload['casual_rules_version']=E.D.VERSION
+            payload['casual_rules_sha256']=hashlib.sha256(Path(E.D.__file__).read_bytes()).hexdigest()
             payload['environment_version'] = E.VERSION
             payload['environment_sha256'] = hashlib.sha256(Path(E.__file__).read_bytes()).hexdigest()
             payload['construction_version'] = N.VERSION

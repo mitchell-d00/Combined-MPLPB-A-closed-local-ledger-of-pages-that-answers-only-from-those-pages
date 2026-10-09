@@ -152,3 +152,25 @@ In zero-load chat, mentioning a saved title does not consult or load it. An expl
 `topic Exact title` loads the collection currently chosen in the main selector.
 Explicit imports/search builds enter focus mode for the resulting collection.
 Saved notes and transcripts are separate from source evidence in either mode.
+
+
+## Casual intent rules and old-save migration
+
+The browser now sends `default_chat: true` with chat requests. On the next ordinary
+message, a saved session with no selected topic and no environment field enters
+zero-load chat without deleting notes or rewriting historical turns. Explicit
+source commands and existing focus contexts retain their routing. API callers can
+use the same flag or send `just chat`; the legacy API routing is otherwise retained.
+
+`tools/casual_reasoning.py` handles greetings, system identity, rule explanations,
+construction, conversational choices, and clearly labeled miniature fiction.
+Full-utterance grammars accept common contractions, the `arnt` typo, and introductory
+“so/okay/well”. They do not strip away an embedded factual question. A saved discourse
+topic connects “why?”, “how?” and “tell me more” to the previous explanation and
+expires after an unrelated turn. Replies remain bounded authored constructions;
+this is not unrestricted language understanding.
+
+Conversational replies display **Deterministic chat; not MPLPB-supported.** The
+response and audit log record that distinction and the casual-rule code hash.
+Dictionary answers retain lexical-reference provenance; focused page answers keep
+source provenance. Casual text is never promoted into source evidence.

@@ -1,9 +1,10 @@
 """Explicit empty/chat and federated/focus scopes; never merge ledger evidence."""
 import re
+from tools import casual_reasoning as D
 from tools import chat_logic as C, chat_tutor as T, deterministic_mind as M
 from tools import social_chat as S, grounded_chat as Q, reference_resources as F
 
-VERSION = 'chat-environment-v1'
+VERSION = 'chat-environment-v2'
 
 
 def reply(body, context=None, **extra):
@@ -19,7 +20,7 @@ def load(app, session, keys):
     session['environment'] = {'mode': 'focus' if keys else 'chat', 'corpora': list(keys), 'focus_corpus': None}
     session['context'] = None
     mind = session['mind']
-    mind.pop('topic_offer', None); mind.pop('guide', None)
+    mind.pop('topic_offer', None); mind.pop('guide', None); mind.pop('chat_discourse',None)
     mind['casual_active'] = not keys
     mind['social'] = {'active': not keys, 'stage': 'story', 'turns': 0, 'style': 'chat'}
     return reply(('Focus mode; '+str(len(keys))+' MPLPB collections loaded. Each keeps its own evidence and delivery boundaries.' if keys else
@@ -44,18 +45,20 @@ def pages(app, keys, profile):
 
 def general(message, session):
     mind=session['mind'];key=T.casual_key(message)
+    conversational=D.respond(message,mind)
+    if conversational:return conversational
     if key in {'how do you think','how do you work','can you think','how does your mind work','what are you thinking','what are you'}:
         return reply('I use explicit rules to recognize a request, track our conversation and assemble a reply. My dictionary and thesaurus help with wording. I don’t use an LLM or have private thoughts. In focus mode, factual answers must come from the loaded MPLPB pages.', suggestions=['I had a bad day','load all MPLPB','language resources'])
     definition=re.fullmatch(r"(?:what is|what's|what are) (?:a |an |the )?([a-z][a-z '-]{0,79})[?.!]*",message.casefold().strip())
     if definition and definition[1] not in {'it','this','that','your name','your purpose'}:
         senses,_=F.lookup(definition[1])
         if senses:return F.handle('define '+definition[1],None)
+    social=S.handle(message,None,mind)
+    if social:return social
     help_reply=M.help_reply(message,None)
     if help_reply:return help_reply
     reference=F.handle(message,None)
     if reference:return reference
-    social=S.handle(message,None,mind)
-    if social:return social
     if T.smalltalk_candidate(message,mind):return T.smalltalk(message,None,mind,[], 'chat-empty')
     if key in {'what can we talk about','what should we talk about','what do you want to talk about'}:
         return reply('Your day, an idea, something you enjoy, or a question you’re working through. Where would you like to start?',suggestions=['I had a bad day','tell me a joke'])
@@ -73,12 +76,24 @@ def handle(app, data, session, message, corpus, profile):
         return load(app,session,data.get('loaded_corpora',[corpus]))
     env=session.get('environment')
     if not env:
-        if not session['context'] and key in {'how do you think','how does your mind work'}:
-            load(app,session,[])
-            return general(message,session)
-        return None
+        if not data.get('default_chat',False) and key not in {'how do you think','how does your mind work'}:
+            return None
+        # Old browser saves may have no environment despite displaying Just chat.
+        # Preserve explicit source/management commands and existing selected topics.
+        command=bool(re.match(r'^(?:topic|relate|focus|summarize|explain|compare|teach|show|clear|forget|remember|memory|search|find|import|guide|next|back|finish|define|dictionary|synonyms|thesaurus|language)\b',key))
+        relation=bool(re.fullmatch(r'is .+? (?:a|an|related to) .+',key))
+        selection=bool(re.fullmatch(r"(?:let's talk about|lets talk about|let us talk about|talk about|discuss) .+",key))
+        if session['context'] or command or relation or selection or key in T.LIST:
+            return None
+        # Migrate without clearing notes, transcript, or an in-progress social turn.
+        session['environment']={'mode':'chat','corpora':[],'focus_corpus':None}
+        session['mind'].pop('topic_offer',None)
+        session['mind']['casual_active']=True
+        env=session['environment']
     if key=='show loaded mplpb':
         return reply('Loaded MPLPB collections: '+(', '.join(env['corpora']) or 'none')+'.',session['context'],suggestions=['show my MPLPB','load all MPLPB','just chat'])
+    if session['mind'].get('guide',{}).get('active') and key in {'next','next step','continue guide','back','previous step','stop guide','finish guide','skip guide'}:
+        return None
     # Explicit source management and note/help commands retain their existing paths.
     if re.match(r'^(?:search|find|import|remember|memory|forget|guide|define|dictionary|synonyms|thesaurus|language)\b',key) or key in {'show memory','what do you remember','forget notes'}:
         return None
