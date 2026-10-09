@@ -47,7 +47,7 @@ def handle(message,session,collections=None):
         if state['focused_topic']:body+=' Focused page: '+state['focused_topic']+'.'
         if state['conversation_topic']:body+=' Conversation topic: '+state['conversation_topic']+'.'
     else:body=CAPABILITIES[topic][1]
-    return M.reply('conversation',body,session.get('context'),'SELF-KNOWLEDGE',authority='system_description',
+    return M.reply('help',body,session.get('context'),'SELF-KNOWLEDGE',authority='system_description',
         suggestions=[CAPABILITIES[k][0] for k in ('abilities','modes','limits') if k!=topic],
         self_knowledge={'version':VERSION,'topic':topic or 'current_state','basis':'authored capability model and observed session state','snapshot':state,'not_independent_validation':True},
         response_structure={'intent':'system_description','factual_claims':False,'mplpb_supported':False})
