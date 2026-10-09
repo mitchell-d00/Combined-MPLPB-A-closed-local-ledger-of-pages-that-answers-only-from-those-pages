@@ -249,6 +249,8 @@ class App:
                 raise ValueError('1000-turn save limit reached. State retained; export before an explicit restart.')
             wiki = data.get('wiki', 'simple')
             memory=session.setdefault('mind',{'notes':[]})
+            if T.casual_key(message) not in {'yes','yes please','lets explore',"let's explore",'no','no thanks','keep chatting','stay casual'}:
+                memory.pop('topic_offer',None)
             casual=None
             if T.smalltalk_candidate(message,memory):
                 try:titles=[p['title'] for p in self.inventory(corpus,profile)['pages'] if p['eligible']]

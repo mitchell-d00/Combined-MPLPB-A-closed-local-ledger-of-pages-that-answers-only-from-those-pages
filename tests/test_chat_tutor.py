@@ -136,3 +136,9 @@ class TutorTests(unittest.TestCase):
         self.assertIsNone(reply['context'])
         self.assertEqual(reply['sources'],[])
         self.assertEqual(self.chat('Hello',offer['session'],corpus)['response']['kind'],'smalltalk')
+
+    def test_unrelated_turn_expires_old_topic_offer(self):
+        offer=self.chat('I like Budget guide');sid=offer['session']
+        self.chat('hello',sid)
+        self.assertNotIn('topic_offer',self.app.sessions[sid]['mind'])
+        self.assertIsNone(self.chat('yes please',sid)['response']['context'])
