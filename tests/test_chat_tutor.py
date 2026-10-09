@@ -96,3 +96,43 @@ class TutorTests(unittest.TestCase):
         from tools import chat_tutor as T
         for question in ('Why did dinosaurs go extinct?','What do you think caused extinction?','How do fossils form?'):
             self.assertIsNone(T.conversation(question,None,{}))
+
+    def test_smalltalk_offers_topic_and_waits_for_acceptance(self):
+        first=self.chat('I like Dungeons and Dragons');sid=first['session']
+        self.assertEqual(first['response']['kind'],'smalltalk')
+        self.assertIsNone(first['response']['context'])
+        self.assertEqual(first['response']['sources'],[])
+        self.assertIn('yes please',first['response']['suggestions'])
+        self.app=App(topic_base=self.base)
+        accepted=self.chat('yes please',sid)['response']
+        self.assertEqual(accepted['kind'],'topic')
+        self.assertEqual(accepted['context']['title'],'Dungeons and Dragons')
+
+    def test_decline_multiple_titles_and_word_boundaries(self):
+        first=self.chat('I like Dungeons and Dragons and Budget guide');sid=first['session']
+        self.assertNotIn('yes please',first['response']['suggestions'])
+        self.assertIn('topic Budget guide',first['response']['suggestions'])
+        self.assertIsNone(self.chat('keep chatting',sid)['response']['context'])
+        self.assertNotIn('topic_offer',self.app.sessions[sid]['mind'])
+        self.assertEqual(self.chat('I like Budget guides')['response']['response_structure']['topic_mentions'],[])
+
+    def test_smalltalk_does_not_intercept_factual_questions_or_switch_scopes(self):
+        from tools import chat_tutor as T
+        self.assertFalse(T.smalltalk_candidate('Why do dinosaurs have feathers?',{}))
+        first=self.chat('I like Budget guide');sid=first['session']
+        changed=self.chat('yes please',sid,corpus='canned')['response']
+        self.assertIsNone(changed['context'])
+        self.assertEqual(self.chat('what are you?')['response']['kind'],'smalltalk')
+        self.assertEqual(self.chat('tell me a joke')['response']['sources'],[])
+
+    def test_offer_cannot_bypass_source_changed_after_invitation(self):
+        corpus=self.app.create_collection({'name':'Fossils'})['corpus']
+        self.app.import_source({'corpus':corpus,'title':'Fossils','url':'https://example.org/fossils','text':'Fossils show ancient life.'})
+        offer=self.chat('I like Fossils',corpus=corpus)
+        entry=self.app.collections.entries()[corpus]['captures'][0]
+        (self.app.collections.path(corpus)/'captures'/entry['id']/'source.bin').write_bytes(b'changed')
+        reply=self.chat('yes please',offer['session'],corpus)['response']
+        self.assertEqual(reply['kind'],'clarify')
+        self.assertIsNone(reply['context'])
+        self.assertEqual(reply['sources'],[])
+        self.assertEqual(self.chat('Hello',offer['session'],corpus)['response']['kind'],'smalltalk')

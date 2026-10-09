@@ -46,3 +46,11 @@ Every title displayed by a new “show my MPLPB” response is selectable direct
 HTTP and HTTPS addresses in chat messages, quoted relation evidence and decision details open in a separate tab. Source text is escaped before rendering. Other schemes and URLs containing embedded credentials remain text. Clicking a web link visits that site; it does not import it or verify it as MPLPB evidence.
 
 Walk back: revert the link renderer and structured topic-list field together; saved chat text and source pins need no rewriting.
+
+## Small talk and optional topic transitions
+
+Greetings, casual day-to-day phrases, purpose questions and a canned joke have finite, deterministic replies. These replies do not claim feelings or personal experiences. Creator questions still read the sealed self-reference. The “Just chat” button fills the composer.
+
+When a recognized casual message contains an exact eligible title from the current collection, the bot offers a source-backed discussion. Title matching is literal, with word boundaries; it is not semantic topic detection. No topic selection or network request happens until acceptance. A single title can be accepted with “yes please”; several titles require choosing one. “Keep chatting” clears the offer. Offers survive reopening the chat, but cannot authorize a selection after a corpus/profile change. Acceptance rechecks source eligibility. Blocked collections can still small-talk but cannot supply topic offers from invalid pages.
+
+Walk back: revert small-talk routing, templates and UI together. Preserve existing saved chats, notes, captures and evaluation probes; obsolete pending offers are inert if the feature is removed.

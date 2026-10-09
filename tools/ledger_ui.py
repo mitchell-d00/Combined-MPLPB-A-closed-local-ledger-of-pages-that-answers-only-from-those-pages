@@ -249,7 +249,14 @@ class App:
                 raise ValueError('1000-turn save limit reached. State retained; export before an explicit restart.')
             wiki = data.get('wiki', 'simple')
             memory=session.setdefault('mind',{'notes':[]})
-            tutor=T.conversation(message,session['context'],memory) or T.guide(message,session['context'],memory) or T.learning_request(message,session['context'])
+            casual=None
+            if T.smalltalk_candidate(message,memory):
+                try:titles=[p['title'] for p in self.inventory(corpus,profile)['pages'] if p['eligible']]
+                except (ValueError,OSError):titles=[]
+                casual=T.smalltalk(message,session['context'],memory,titles,corpus+'|'+profile)
+                if 'select_topic' in casual:
+                    casual=C.turn(self,corpus,self.root(corpus),profile,'topic '+casual['select_topic'],session['context'])
+            tutor=casual or T.conversation(message,session['context'],memory) or T.guide(message,session['context'],memory) or T.learning_request(message,session['context'])
             if tutor is not None:result=tutor
             elif T.key(message) in T.LIST:
                 try:

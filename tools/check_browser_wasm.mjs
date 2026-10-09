@@ -82,6 +82,10 @@ if(discussion.response.kind!=='conversation'||discussion.response.sources.length
 if(guide.response.guide?.step!==1||!guide.response.suggestions.includes('show my MPLPB'))throw Error('WASM guide failed');
 const next=await call('/api/chat',{corpus:'logic',session:sid,message:'next step'});
 if(next.response.guide?.step!==2)throw Error('WASM guide progression failed');
+const casual=await call('/api/chat',{corpus:'logic',session:sid,message:'I like Dungeons and Dragons'});
+if(casual.response.kind!=='smalltalk'||casual.response.sources.length||!casual.response.suggestions.includes('yes please'))throw Error('WASM topic offer failed');
+const accepted=await call('/api/chat',{corpus:'logic',session:sid,message:'yes please'});
+if(accepted.response.kind!=='topic'||accepted.response.context.title!=='Dungeons and Dragons')throw Error('WASM accepted topic failed');
 const askHelp=await call('/api/query',{corpus:'logic',question:'How do I clear mplpb some or all?'});
 if(!askHelp.help||askHelp.reader.kind!=='help'||askHelp.gate.sources.length)throw Error('WASM Ask help routing failed');
 console.log('PASS real WebAssembly: ownership, relation proof, summary, withholding, memory, saved relaunch, fixture imports and isolated collections.');

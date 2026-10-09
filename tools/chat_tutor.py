@@ -40,6 +40,65 @@ def local_phrase(message):
     aliases={'what is this about':'what is it?','what is this page about':'what is it?','explain this':'summarize it','explain it to me':'summarize it','can you summarize this':'summarize it','give me a summary':'summarize it','tell me more about it':'show source','where did that come from':'show source','what does the page say':'show source'}
     return aliases.get(key(message),message)
 
+SMALL_TALK={
+ 'hello':('Hello. We can just chat, or explore a topic when you feel like it.','How is your day going?'),
+ 'hi':('Hi. There’s no need to start a research session.','What’s on your mind?'),
+ 'hey':('Hey. We can keep this casual.','How is your day going?'),
+ 'how are you':('I’m ready to chat. I don’t have feelings or a day of my own.','How is your day going?'),
+ 'what are you':('I’m MPLPB, a deterministic chat interface around a local collection of pages. I use defined response rules.','Would you like to chat casually or see your pages?'),
+ 'why are you':('My purpose is to help you explore information while showing its sources and knowing when to stop.','We can also keep the conversation casual.'),
+ 'why do you exist':('I’m here to help you work with your local pages, their sources and their limits.','Would you like to chat or explore something?'),
+ 'what is your purpose':('I help you explore local pages with explicit rules and provenance checks.','You can also talk to me without choosing a topic.'),
+ 'just chatting':('That’s fine. We can leave the research aside for now.','What’s on your mind?'),
+ 'small talk':('We can keep this light.','How has your day been?'),
+ 'i am bored':('We could chat, try a joke, or choose a topic to explore.','Would you like to tell me about your day?'),
+ 'nothing much':('Nothing much is a perfectly good place to start.','Has anything caught your attention today?'),
+ 'good':('Glad to hear your day is going well.','What have you been up to?'),
+ 'not great':('Sorry it’s been a rough day.','Would you like to talk about it or change the subject?'),
+ 'tell me a joke':('Why did the notebook bring a ladder? To reach its higher notes.','Want to keep chatting?'),
+}
+CASUAL_PREFIXES=('i like ','i enjoy ','i was thinking about ','just chatting about ','i had a ','my day was ','today i ','i feel ')
+SMALL_ALIASES={'hi there':'hi','hello there':'hello','good morning':'hello','good afternoon':'hello','good evening':'hello','how are you doing':'how are you','how is it going':'how are you','how are things':'how are you',"i'm bored":'i am bored','just chat':'just chatting',"let's chat":'just chatting','lets chat':'just chatting','can we just chat':'just chatting','why are you here':'why do you exist','why were you made':'why do you exist','are you ai':'what are you','fine':'good','pretty good':'good','not much':'nothing much'}
+
+def casual_key(message):
+    command=key(message)
+    for greeting in ('hello ','hi ','hey '):
+        if command.startswith(greeting) and command[len(greeting):] in SMALL_TALK:
+            command=command[len(greeting):]
+            break
+    return SMALL_ALIASES.get(command,command)
+
+def smalltalk_candidate(message,memory):
+    command=casual_key(message)
+    return (command in SMALL_TALK or command in {'keep chatting','stay casual'}
+            or (command in {'yes','yes please','lets explore',"let's explore",'no','no thanks'} and bool(memory.get('topic_offer')))
+            or command.startswith(CASUAL_PREFIXES))
+
+def smalltalk(message,context,memory,titles,scope):
+    """Literal topic mentions invite a transition; no source facts or auto-fetch."""
+    command=casual_key(message);offer=memory.get('topic_offer')
+    if offer and offer.get('scope')!=scope:
+        memory.pop('topic_offer',None);offer=None
+    if command in {'yes','yes please','lets explore',"let's explore"} and offer:
+        if len(offer['titles'])==1 and offer['titles'][0] in titles:
+            memory.pop('topic_offer',None)
+            return {'select_topic':offer['titles'][0]}
+        return M.reply('clarify','Choose an exact available title to begin. The earlier offer does not override source checks.',context,'SMALL-ACCEPT-CHECK',suggestions=['topic '+t for t in offer['titles'] if t in titles]+['show my MPLPB'])
+    if command in {'no','no thanks','keep chatting','stay casual'}:
+        memory.pop('topic_offer',None)
+        return M.reply('smalltalk','Sure. We’ll keep it casual. What’s on your mind?',context,'SMALL-STAY',authority='conversation_structure',suggestions=['nothing much','tell me a joke','what are you?'])
+    body,question=SMALL_TALK.get(command,('I’m listening. We can keep this light.','Would you like to say more, or change the subject?'))
+    mentions=[t for t in titles if re.search(r'(?<!\w)'+re.escape(key(t))+r'(?!\w)',command)]
+    # Preserve specificity when one title is entirely contained in another.
+    mentions=[t for t in mentions if not any(t!=u and key(t) in key(u) for u in mentions)]
+    choices=['keep chatting','tell me a joke','show my MPLPB']
+    if mentions:
+        memory['topic_offer']={'titles':mentions,'scope':scope}
+        body='You mentioned '+', '.join('“'+t+'”' for t in mentions)+'. Those titles are in the current MPLPB.'
+        question='Would you like to move into a source-backed conversation about '+('this topic?' if len(mentions)==1 else 'one of these topics?')
+        choices=(['yes please'] if len(mentions)==1 else ['topic '+t for t in mentions[:8]])+['keep chatting']
+    return M.reply('smalltalk',body+'\n\n'+question,context,'SMALL-OFFER' if mentions else 'SMALL-CHAT',authority='conversation_structure',suggestions=choices,response_structure={'intent':'topic_offer' if mentions else 'smalltalk','factual_claims':False,'topic_mentions':mentions,'automatic_topic_switch':False})
+
 def conversation(message,context,memory):
     """Conversation about handling a topic, never evidence about its contents."""
     command=key(message)
