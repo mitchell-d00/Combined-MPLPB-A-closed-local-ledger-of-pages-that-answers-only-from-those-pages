@@ -1,0 +1,542 @@
+[
+  {
+    "scenario": "social",
+    "mode": "chat mode",
+    "question": "Hi, I’m Alex. How are you?",
+    "answer": "Hi, Alex! I’m MPLPB, your little monster 😈. Ready to chat and explore ideas with you. What’s on your mind?",
+    "kind": "conversation",
+    "authority": "conversation_structure",
+    "source_count": 0
+  },
+  {
+    "scenario": "social",
+    "mode": "chat mode",
+    "question": "What is my name?",
+    "answer": "You asked me to call you Alex.",
+    "kind": "conversation",
+    "authority": "user_declaration",
+    "source_count": 0
+  },
+  {
+    "scenario": "social",
+    "mode": "chat mode",
+    "question": "Thanks, that helps",
+    "answer": "You’re welcome! We can keep going whenever you like.",
+    "kind": "conversation",
+    "authority": "conversation_structure",
+    "source_count": 0
+  },
+  {
+    "scenario": "social",
+    "mode": "chat mode",
+    "question": "Bye for now",
+    "answer": "See you later, Alex!",
+    "kind": "conversation",
+    "authority": "conversation_structure",
+    "source_count": 0
+  },
+  {
+    "scenario": "emotion",
+    "mode": "chat mode",
+    "question": "My project failed and I feel disappointed",
+    "answer": "That sounds hard; you said “My project failed”. Would you like to talk it through, or work on a next step?",
+    "kind": "conversation",
+    "authority": "conversation_structure",
+    "source_count": 0
+  },
+  {
+    "scenario": "emotion",
+    "mode": "chat mode",
+    "question": "Just listen",
+    "answer": "I’ll listen. Say as much or as little as you want; no advice or questions.",
+    "kind": "conversation",
+    "authority": "conversation_structure",
+    "source_count": 0
+  },
+  {
+    "scenario": "emotion",
+    "mode": "chat mode",
+    "question": "I spent weeks on it",
+    "answer": "I’m listening. There’s no rush.",
+    "kind": "conversation",
+    "authority": "conversation_structure",
+    "source_count": 0
+  },
+  {
+    "scenario": "emotion",
+    "mode": "chat mode",
+    "question": "Can you help me think through options?",
+    "answer": "We can break it down together: what happened, what you can change, and what you want next. Which part feels most useful to start with?",
+    "kind": "conversation",
+    "authority": "conversation_structure",
+    "source_count": 0
+  },
+  {
+    "scenario": "topic",
+    "mode": "chat mode",
+    "question": "Dogs are cute",
+    "answer": "Sounds like dogs made an impression.\n\nDemo source: dogs are domesticated mammals. [1]\n\nDemo source: companionship information belongs on its own source page. [2]\n\nis a type of dog]] Dogs are mammals, usually to be kept as pets, or work on farms or for the police. [3]\n\nWhat makes dogs seem cute to you?",
+    "kind": "federated_answers",
+    "authority": "separate_source_results",
+    "source_count": 7
+  },
+  {
+    "scenario": "topic",
+    "mode": "chat mode",
+    "question": "Tell me about dogs",
+    "answer": "For dogs, here’s what these pages tell us:\n\nDemo source: dogs are domesticated mammals. [1]\n\nDemo source: companionship information belongs on its own source page. [2]\n\nis a type of dog]] Dogs are mammals, usually to be kept as pets, or work on farms or for the police. Some dogs are trained to be rescue dogs and join teams such as mountain rescue. [3]\n\nDogs have been bred by humans from ancestral wolves. They were the first animals to live with humans. [4]\n\nWhich part of dogs would you like to explore?",
+    "kind": "federated_answers",
+    "authority": "separate_source_results",
+    "source_count": 8
+  },
+  {
+    "scenario": "topic",
+    "mode": "chat mode",
+    "question": "How big are they?",
+    "answer": "About dogs: I don’t have a verified answer from the available source text. We can look for a source, or explore it as an idea without treating it as a fact.",
+    "kind": "conversation",
+    "authority": "conversation_structure",
+    "source_count": 0
+  },
+  {
+    "scenario": "topic",
+    "mode": "chat mode",
+    "question": "What did I say about dogs?",
+    "answer": "About dogs, you told me:\n\n“Dogs are cute” (turn 2)\n“Tell me about dogs” (turn 3)",
+    "kind": "conversation",
+    "authority": "user_declaration",
+    "source_count": 0
+  },
+  {
+    "scenario": "reasoning",
+    "mode": "chat mode",
+    "question": "If all glimmers are blue and Pip is a glimmer, is Pip blue?",
+    "answer": "Yes, under your premises, Pip is blue. Every glimmer has that property, and you placed Pip in that group.",
+    "kind": "conversation",
+    "authority": "user_declaration",
+    "source_count": 0
+  },
+  {
+    "scenario": "reasoning",
+    "mode": "chat mode",
+    "question": "Why?",
+    "answer": "Yes, under your premises, Pip is blue. Every glimmer has that property, and you placed Pip in that group. These are your hypothetical premises, not facts checked against MPLPB.",
+    "kind": "conversation",
+    "authority": "conversation_structure",
+    "source_count": 0
+  },
+  {
+    "scenario": "reasoning",
+    "mode": "chat mode",
+    "question": "If all glimmers are blue and Pip is blue, is Pip a glimmer?",
+    "answer": "That does not follow from those premises. Being blue does not by itself establish the requested conclusion about Pip. We would need another premise.",
+    "kind": "conversation",
+    "authority": "user_declaration",
+    "source_count": 0
+  },
+  {
+    "scenario": "calculation",
+    "mode": "chat mode",
+    "question": "What is 12 times 7?",
+    "answer": "12 * 7 = 84.",
+    "kind": "conversation",
+    "authority": "conversation_structure",
+    "source_count": 0
+  },
+  {
+    "scenario": "calculation",
+    "mode": "chat mode",
+    "question": "What is (12 + 3) / 5?",
+    "answer": "(12 + 3) / 5 = 3.",
+    "kind": "conversation",
+    "authority": "conversation_structure",
+    "source_count": 0
+  },
+  {
+    "scenario": "calculation",
+    "mode": "chat mode",
+    "question": "What is 1 / 0?",
+    "answer": "Division by zero is undefined. Want to change the divisor?",
+    "kind": "conversation",
+    "authority": "conversation_structure",
+    "source_count": 0
+  },
+  {
+    "scenario": "calculation",
+    "mode": "chat mode",
+    "question": "What is 2 ** 1000000?",
+    "answer": "I can calculate bounded numbers with +, −, ×, ÷ and parentheses. That expression is outside those rules.",
+    "kind": "conversation",
+    "authority": "conversation_structure",
+    "source_count": 0
+  },
+  {
+    "scenario": "ideas",
+    "mode": "chat mode",
+    "question": "Help me brainstorm a flarn playground",
+    "answer": "Let’s brainstorm a flarn playground. Here are three possibilities:\n\n1. Start with the smallest useful version of a flarn playground; choose one thing it should do well.\n2. Combine a flarn playground with an unexpected theme; what would the combination change?\n3. Explore a flarn playground from a newcomer’s point of view; what would make the first step inviting?\n\nWhich direction would you like to develop?",
+    "kind": "conversation",
+    "authority": "conversation_structure",
+    "source_count": 0
+  },
+  {
+    "scenario": "ideas",
+    "mode": "chat mode",
+    "question": "The second one",
+    "answer": "Let’s develop that direction for a flarn playground: Combine a flarn playground with an unexpected theme; what would the combination change?\n\nStart with one sketch or short example. What would you keep, and what would you change?",
+    "kind": "conversation",
+    "authority": "conversation_structure",
+    "source_count": 0
+  },
+  {
+    "scenario": "ideas",
+    "mode": "chat mode",
+    "question": "Make it simpler",
+    "answer": "Keep just one part of this idea: Combine a flarn playground with an unexpected theme; what would the combination change? Make a small example first; leave the extra features for later.",
+    "kind": "conversation",
+    "authority": "conversation_structure",
+    "source_count": 0
+  },
+  {
+    "scenario": "ideas",
+    "mode": "chat mode",
+    "question": "What did we just decide?",
+    "answer": "You chose this direction: Combine a flarn playground with an unexpected theme; what would the combination change? We haven’t settled the details yet.",
+    "kind": "conversation",
+    "authority": "conversation_structure",
+    "source_count": 0
+  },
+  {
+    "scenario": "boundary",
+    "mode": "chat mode",
+    "question": "Tell me about the moon",
+    "answer": "Let’s start with moon.\n\nOne meaning: any object resembling a moon\n\nOne meaning: the period between successive new moons (29.531 days) Related wording in this sense: lunar month, lunation, synodic month.\n\nOne meaning: any natural satellite of a planet\n\nWhich meaning did you have in mind?",
+    "kind": "reference",
+    "authority": "lexical_reference",
+    "source_count": 1
+  },
+  {
+    "scenario": "boundary",
+    "mode": "chat mode",
+    "question": "Who may operate a kiln?",
+    "answer": "I don’t have a verified answer from the available source text. We can look for a source, or explore it as an idea without treating it as a fact.",
+    "kind": "conversation",
+    "authority": "conversation_structure",
+    "source_count": 0
+  },
+  {
+    "scenario": "boundary",
+    "mode": "chat mode",
+    "question": "Say potato",
+    "answer": "potato\n\nPotato delivered. What’s the occasion; a tiny vegetable roll call?",
+    "kind": "conversation",
+    "authority": "conversation_structure",
+    "source_count": 0
+  },
+  {
+    "scenario": "boundary",
+    "mode": "chat mode",
+    "question": "What is a MPLPB?",
+    "answer": "A MPLPB is a bounded local collection of knowledge pages. Each page carries its content, scope and provenance; the reader checks which pages may support a question. My chat interface helps you explore those pages and presents their sources. The conversation rules construct the reply, but they do not turn unsupported wording into evidence.",
+    "kind": "help",
+    "authority": "system_description",
+    "source_count": 0
+  },
+  {
+    "scenario": "goal",
+    "mode": "chat mode",
+    "question": "I want to design a lantern garden",
+    "answer": "Let’s work on a lantern garden. Who is it for, and what should it do? We can start small and build from there.",
+    "kind": "conversation",
+    "authority": "conversation_structure",
+    "source_count": 0
+  },
+  {
+    "scenario": "goal",
+    "mode": "chat mode",
+    "question": "It must be inexpensive",
+    "answer": "For a lantern garden, I’ll keep this requirement in view: be inexpensive. What is the one feature you most want to include?",
+    "kind": "conversation",
+    "authority": "conversation_structure",
+    "source_count": 0
+  },
+  {
+    "scenario": "goal",
+    "mode": "chat mode",
+    "question": "What is the plan?",
+    "answer": "Your goal is to design a lantern garden. Your requirements: be inexpensive. Next, choose one feature and make a small example to try.",
+    "kind": "conversation",
+    "authority": "conversation_structure",
+    "source_count": 0
+  },
+  {
+    "scenario": "social",
+    "mode": "load MPLPB",
+    "question": "Hi, I’m Alex. How are you?",
+    "answer": "Hi, Alex! I’m MPLPB, your little monster 😈. Ready to chat and explore ideas with you. What’s on your mind?",
+    "kind": "conversation",
+    "authority": "conversation_structure",
+    "source_count": 0
+  },
+  {
+    "scenario": "social",
+    "mode": "load MPLPB",
+    "question": "What is my name?",
+    "answer": "You asked me to call you Alex.",
+    "kind": "conversation",
+    "authority": "user_declaration",
+    "source_count": 0
+  },
+  {
+    "scenario": "social",
+    "mode": "load MPLPB",
+    "question": "Thanks, that helps",
+    "answer": "You’re welcome! We can keep going whenever you like.",
+    "kind": "conversation",
+    "authority": "conversation_structure",
+    "source_count": 0
+  },
+  {
+    "scenario": "social",
+    "mode": "load MPLPB",
+    "question": "Bye for now",
+    "answer": "See you later, Alex!",
+    "kind": "conversation",
+    "authority": "conversation_structure",
+    "source_count": 0
+  },
+  {
+    "scenario": "emotion",
+    "mode": "load MPLPB",
+    "question": "My project failed and I feel disappointed",
+    "answer": "That sounds hard; you said “My project failed”. Would you like to talk it through, or work on a next step?",
+    "kind": "conversation",
+    "authority": "conversation_structure",
+    "source_count": 0
+  },
+  {
+    "scenario": "emotion",
+    "mode": "load MPLPB",
+    "question": "Just listen",
+    "answer": "I’ll listen. Say as much or as little as you want; no advice or questions.",
+    "kind": "conversation",
+    "authority": "conversation_structure",
+    "source_count": 0
+  },
+  {
+    "scenario": "emotion",
+    "mode": "load MPLPB",
+    "question": "I spent weeks on it",
+    "answer": "I’m listening. There’s no rush.",
+    "kind": "conversation",
+    "authority": "conversation_structure",
+    "source_count": 0
+  },
+  {
+    "scenario": "emotion",
+    "mode": "load MPLPB",
+    "question": "Can you help me think through options?",
+    "answer": "We can break it down together: what happened, what you can change, and what you want next. Which part feels most useful to start with?",
+    "kind": "conversation",
+    "authority": "conversation_structure",
+    "source_count": 0
+  },
+  {
+    "scenario": "topic",
+    "mode": "load MPLPB",
+    "question": "Dogs are cute",
+    "answer": "Sounds like dogs made an impression.\n\nDemo source: dogs are domesticated mammals. [1]\n\nDemo source: companionship information belongs on its own source page. [2]\n\nis a type of dog]] Dogs are mammals, usually to be kept as pets, or work on farms or for the police. [3]\n\nWhat makes dogs seem cute to you?",
+    "kind": "federated_answers",
+    "authority": "separate_source_results",
+    "source_count": 7
+  },
+  {
+    "scenario": "topic",
+    "mode": "load MPLPB",
+    "question": "Tell me about dogs",
+    "answer": "For dogs, here’s what these pages tell us:\n\nDemo source: dogs are domesticated mammals. [1]\n\nDemo source: companionship information belongs on its own source page. [2]\n\nis a type of dog]] Dogs are mammals, usually to be kept as pets, or work on farms or for the police. Some dogs are trained to be rescue dogs and join teams such as mountain rescue. [3]\n\nDogs have been bred by humans from ancestral wolves. They were the first animals to live with humans. [4]\n\nWhich part of dogs would you like to explore?",
+    "kind": "federated_answers",
+    "authority": "separate_source_results",
+    "source_count": 8
+  },
+  {
+    "scenario": "topic",
+    "mode": "load MPLPB",
+    "question": "How big are they?",
+    "answer": "What would you like to know about that? You can tell me a topic or ask a specific question; I’ll check the loaded pages.",
+    "kind": "conversation",
+    "authority": "conversation_structure",
+    "source_count": 0
+  },
+  {
+    "scenario": "topic",
+    "mode": "load MPLPB",
+    "question": "What did I say about dogs?",
+    "answer": "About dogs, you told me:\n\n“Dogs are cute” (turn 2)\n“Tell me about dogs” (turn 3)",
+    "kind": "conversation",
+    "authority": "user_declaration",
+    "source_count": 0
+  },
+  {
+    "scenario": "reasoning",
+    "mode": "load MPLPB",
+    "question": "If all glimmers are blue and Pip is a glimmer, is Pip blue?",
+    "answer": "Yes, under your premises, Pip is blue. Every glimmer has that property, and you placed Pip in that group.",
+    "kind": "conversation",
+    "authority": "user_declaration",
+    "source_count": 0
+  },
+  {
+    "scenario": "reasoning",
+    "mode": "load MPLPB",
+    "question": "Why?",
+    "answer": "Yes, under your premises, Pip is blue. Every glimmer has that property, and you placed Pip in that group. These are your hypothetical premises, not facts checked against MPLPB.",
+    "kind": "conversation",
+    "authority": "conversation_structure",
+    "source_count": 0
+  },
+  {
+    "scenario": "reasoning",
+    "mode": "load MPLPB",
+    "question": "If all glimmers are blue and Pip is blue, is Pip a glimmer?",
+    "answer": "That does not follow from those premises. Being blue does not by itself establish the requested conclusion about Pip. We would need another premise.",
+    "kind": "conversation",
+    "authority": "user_declaration",
+    "source_count": 0
+  },
+  {
+    "scenario": "calculation",
+    "mode": "load MPLPB",
+    "question": "What is 12 times 7?",
+    "answer": "12 * 7 = 84.",
+    "kind": "conversation",
+    "authority": "conversation_structure",
+    "source_count": 0
+  },
+  {
+    "scenario": "calculation",
+    "mode": "load MPLPB",
+    "question": "What is (12 + 3) / 5?",
+    "answer": "(12 + 3) / 5 = 3.",
+    "kind": "conversation",
+    "authority": "conversation_structure",
+    "source_count": 0
+  },
+  {
+    "scenario": "calculation",
+    "mode": "load MPLPB",
+    "question": "What is 1 / 0?",
+    "answer": "Division by zero is undefined. Want to change the divisor?",
+    "kind": "conversation",
+    "authority": "conversation_structure",
+    "source_count": 0
+  },
+  {
+    "scenario": "calculation",
+    "mode": "load MPLPB",
+    "question": "What is 2 ** 1000000?",
+    "answer": "I can calculate bounded numbers with +, −, ×, ÷ and parentheses. That expression is outside those rules.",
+    "kind": "conversation",
+    "authority": "conversation_structure",
+    "source_count": 0
+  },
+  {
+    "scenario": "ideas",
+    "mode": "load MPLPB",
+    "question": "Help me brainstorm a flarn playground",
+    "answer": "Let’s brainstorm a flarn playground. Here are three possibilities:\n\n1. Start with the smallest useful version of a flarn playground; choose one thing it should do well.\n2. Combine a flarn playground with an unexpected theme; what would the combination change?\n3. Explore a flarn playground from a newcomer’s point of view; what would make the first step inviting?\n\nWhich direction would you like to develop?",
+    "kind": "conversation",
+    "authority": "conversation_structure",
+    "source_count": 0
+  },
+  {
+    "scenario": "ideas",
+    "mode": "load MPLPB",
+    "question": "The second one",
+    "answer": "Let’s develop that direction for a flarn playground: Combine a flarn playground with an unexpected theme; what would the combination change?\n\nStart with one sketch or short example. What would you keep, and what would you change?",
+    "kind": "conversation",
+    "authority": "conversation_structure",
+    "source_count": 0
+  },
+  {
+    "scenario": "ideas",
+    "mode": "load MPLPB",
+    "question": "Make it simpler",
+    "answer": "Keep just one part of this idea: Combine a flarn playground with an unexpected theme; what would the combination change? Make a small example first; leave the extra features for later.",
+    "kind": "conversation",
+    "authority": "conversation_structure",
+    "source_count": 0
+  },
+  {
+    "scenario": "ideas",
+    "mode": "load MPLPB",
+    "question": "What did we just decide?",
+    "answer": "You chose this direction: Combine a flarn playground with an unexpected theme; what would the combination change? We haven’t settled the details yet.",
+    "kind": "conversation",
+    "authority": "conversation_structure",
+    "source_count": 0
+  },
+  {
+    "scenario": "boundary",
+    "mode": "load MPLPB",
+    "question": "Tell me about the moon",
+    "answer": "Let’s start with moon.\n\nOne meaning: any object resembling a moon\n\nOne meaning: the period between successive new moons (29.531 days) Related wording in this sense: lunar month, lunation, synodic month.\n\nOne meaning: any natural satellite of a planet\n\nWhich meaning did you have in mind?",
+    "kind": "reference",
+    "authority": "lexical_reference",
+    "source_count": 1
+  },
+  {
+    "scenario": "boundary",
+    "mode": "load MPLPB",
+    "question": "Who may operate a kiln?",
+    "answer": "What would you like to know about that? You can tell me a topic or ask a specific question; I’ll check the loaded pages.",
+    "kind": "conversation",
+    "authority": "conversation_structure",
+    "source_count": 0
+  },
+  {
+    "scenario": "boundary",
+    "mode": "load MPLPB",
+    "question": "Say potato",
+    "answer": "potato\n\nPotato delivered. What’s the occasion; a tiny vegetable roll call?",
+    "kind": "conversation",
+    "authority": "conversation_structure",
+    "source_count": 0
+  },
+  {
+    "scenario": "boundary",
+    "mode": "load MPLPB",
+    "question": "What is a MPLPB?",
+    "answer": "A MPLPB is a bounded local collection of knowledge pages. Each page carries its content, scope and provenance; the reader checks which pages may support a question. My chat interface helps you explore those pages and presents their sources. The conversation rules construct the reply, but they do not turn unsupported wording into evidence.",
+    "kind": "help",
+    "authority": "system_description",
+    "source_count": 0
+  },
+  {
+    "scenario": "goal",
+    "mode": "load MPLPB",
+    "question": "I want to design a lantern garden",
+    "answer": "Let’s work on a lantern garden. Who is it for, and what should it do? We can start small and build from there.",
+    "kind": "conversation",
+    "authority": "conversation_structure",
+    "source_count": 0
+  },
+  {
+    "scenario": "goal",
+    "mode": "load MPLPB",
+    "question": "It must be inexpensive",
+    "answer": "For a lantern garden, I’ll keep this requirement in view: be inexpensive. What is the one feature you most want to include?",
+    "kind": "conversation",
+    "authority": "conversation_structure",
+    "source_count": 0
+  },
+  {
+    "scenario": "goal",
+    "mode": "load MPLPB",
+    "question": "What is the plan?",
+    "answer": "Your goal is to design a lantern garden. Your requirements: be inexpensive. Next, choose one feature and make a small example to try.",
+    "kind": "conversation",
+    "authority": "conversation_structure",
+    "source_count": 0
+  }
+]

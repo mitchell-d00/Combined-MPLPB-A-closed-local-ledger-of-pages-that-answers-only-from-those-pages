@@ -160,3 +160,16 @@ const restoredMode=await call('/api/chat',{corpus:'logic',session:legacyCasual.s
 if(JSON.stringify(restoredMode.response.environment.corpora)!==JSON.stringify(['logic','system']))throw Error('WASM scope restoration failed');
 console.log('PASS real WebAssembly: ownership, relation proof, summary, withholding, memory, saved relaunch, fixture imports, isolated collections, offline references, grounded follow-ups and social turn-taking.');
 fs.writeFileSync(path.join(path.dirname(htmlPath),'wasm-validation.json'),JSON.stringify({runtime:bundle.runtime_version,passed:true,corpora:state.corpora.map(x=>x.key),ambiguous:ambiguous.reader.kind,relation:relation.response.kind,summary:summary.response.kind,withheld:withheld.reader.kind,chain_intact:saved.chain_intact,fixture_import_passed:true,virtual_save_relaunch_passed:true,browser_layout_tested:false,indexeddb_tested:false,live_wiki_tested:false},null,2));
+
+// Synthetic user conversations must work in the shipped Python/WASM runtime.
+for(const mode of ['chat mode','load MPLPB']){
+ const start=await call('/api/chat',{corpus:'logic',message:mode});
+ const chatSession=start.session;
+ for(const [message,expected] of [['Hi, I’m Alex. How are you?','Alex'],['What is my name?','Alex'],['What is 12 times 7?','84'],['If all glimmers are blue and Pip is a glimmer, is Pip blue?','under your premises']]){
+  const answer=await call('/api/chat',{corpus:'logic',session:chatSession,message});
+  if(!answer.response.message.includes(expected)||answer.response.sources.length)throw Error('WASM dialogue regression: '+message);
+ }
+ const resumed=await call('/api/chat/resume',{session:chatSession});
+ if(!resumed.chain_intact)throw Error('WASM dialogue transcript chain failed');
+}
+console.log('WASM dialogue scenarios passed');

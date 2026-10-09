@@ -37,6 +37,7 @@ from tools import language_planner as LP
 from tools import self_knowledge as SK
 from tools import proposition_chat as PC
 from tools import conversation_memory as CM
+from tools import dialogue_rules as DR
 
 
 class App:
@@ -267,7 +268,10 @@ class App:
                 memory.pop('topic_offer',None)
             language_request=LP.parse(message,memory,session.get('context'))
             casual=None
-            environment_result=CM.handle(message,session) or SK.handle(message,session,self.roots()) or PC.handle(self,data,session,message,corpus,profile) or E.handle(self,data,session,message,corpus,profile)
+            dialogue=DR.handle(message,session)
+            if dialogue and data.get('default_chat') and not session.get('environment') and not session.get('context'):
+                session['environment']={'mode':'chat','corpora':[],'focus_corpus':None}
+            environment_result=dialogue or CM.handle(message,session) or SK.handle(message,session,self.roots()) or PC.handle(self,data,session,message,corpus,profile) or E.handle(self,data,session,message,corpus,profile)
             open_casual=T.casual_followup(message,session['context'],memory) if environment_result is None else None
             if environment_result is None and casual is None and (T.smalltalk_candidate(message,memory) or open_casual is not None or S.candidate(message,memory)):
                 try:titles=[p['title'] for p in self.inventory(corpus,profile)['pages'] if p['eligible']]
@@ -368,6 +372,8 @@ class App:
             M.record(session.setdefault('mind', {'notes': []}), result)
             result['question_frame']=E.IC.PF.frame(message)
             payload = {'question': message, 'corpus': corpus, 'profile': profile, 'response': result}
+            payload['dialogue_rules_version']=DR.VERSION
+            payload['dialogue_rules_sha256']=hashlib.sha256(Path(DR.__file__).read_bytes()).hexdigest()
             payload['conversation_memory_version']=CM.VERSION
             payload['conversation_memory_sha256']=hashlib.sha256(Path(CM.__file__).read_bytes()).hexdigest()
             payload['proposition_chat_version']=PC.VERSION

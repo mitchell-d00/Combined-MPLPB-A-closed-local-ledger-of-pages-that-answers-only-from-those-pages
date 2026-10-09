@@ -40,7 +40,8 @@ def handle(message, memory):
     elif key.startswith(('what if ', 'imagine ', 'suppose ')):
         body = f'Let’s treat that as an imagined possibility about {subject}, rather than an established fact. What would follow from your assumption? What might prevent it?'
     elif re.match(r'^(?:what|who|when|where|how|is|are|does|do|can|will)\b',key) or message.endswith('?'):
-        body = f'Keeping {subject} in mind: I don’t have a verified answer to that here. What is your own guess or starting point? We can explore it as an idea, or you can choose serious mode to check loaded sources.'
+        referential=bool(re.search(r'\b(?:it|its|they|their|them|this|that)\b',key))
+        body = (f'About {subject}: ' if referential else '')+'I don’t have a verified answer from the available source text. We can look for a source, or explore it as an idea without treating it as a fact.'
     else:
         body = f'You said: “{message[:240]}”\n\nHow does that shape your idea about {subject}; what would you like to develop next?'
     return M.reply('conversation', body, None, 'IDEA-EXPLORE', authority='conversation_structure',

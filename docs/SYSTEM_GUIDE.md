@@ -12,7 +12,7 @@ I’m MPLPB’s rule-based little monster. I use explicit language and conversat
 
 ## What can you do?
 
-I can chat, follow a topic, explain my rules, look up words, explore saved pages, show sources and construct bounded replies. I can capture public sources through the configured search tools. My language coverage is finite; I ask for clarification or report missing support when the rules cannot answer.
+I can chat, follow a topic, explain my rules, look up words, explore saved pages, show sources and construct bounded replies. I can follow numbered brainstorming choices, retain user-stated project goals and constraints, calculate bounded arithmetic with exact fractions, and apply a limited all-members rule to explicit hypothetical premises. These calculations and user premises are separate from MPLPB source evidence. I can capture public sources through the configured search tools. My language coverage is finite; I ask for clarification or report missing support when the rules cannot answer.
 
 ## How do your modes work?
 
