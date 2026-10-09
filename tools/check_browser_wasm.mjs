@@ -102,6 +102,11 @@ if(missingMoon.response.kind!=='unsupported'||missingMoon.response.sources.lengt
 await py.runPythonAsync('B.app = App()');
 const moonAge=await call('/api/chat',{corpus:moonCollection.corpus,session:moonSelected.session,message:'and how old is it?'});
 if(moonAge.response.kind!=='grounded_answer'||!moonAge.response.message.includes('4.5 billion'))throw Error('WASM persisted grounded context failed');
+const unloaded=await call('/api/chat',{corpus:moonCollection.corpus,session:moonSelected.session,message:'just chat'});
+if(unloaded.response.context||unloaded.response.response_structure?.mode!=='casual')throw Error('WASM unload failed');
+await py.runPythonAsync('B.app = App()');
+const casualStory=await call('/api/chat',{corpus:moonCollection.corpus,session:moonSelected.session,message:'My boss yelled at me'});
+if(casualStory.response.context||casualStory.response.response_structure?.intent!=='social_followup')throw Error('WASM casual reload failed');
 const badDay=await call('/api/chat',{corpus:'logic',session:sid,message:'Iv had a bad day'});
 if(badDay.response.response_structure?.intent!=='social_invitation')throw Error('WASM social invitation failed');
 await py.runPythonAsync('B.app = App()');

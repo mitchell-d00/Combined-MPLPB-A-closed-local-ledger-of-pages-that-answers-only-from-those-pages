@@ -57,5 +57,8 @@ async function tick(){for(let i=0;i<20;i++)await Promise.resolve();}
  r.elements['chat-messages'].events.click({target:{closest:selector=>selector==='[data-topic]'?{dataset:{topic:'Budget guide'}}:null}});await tick();assert.match(r.elements['chat-messages'].innerHTML,/Topic selected: Budget guide/);
  r.elements.corpus.value='canned';r.run('corpusChanged()');await tick();let release;r.holdNext(resolve=>{release=resolve;});const pending=r.run('query()');await tick();r.elements.profile.value='external';r.elements.profile.events.change();release();await pending;assert.equal(r.elements.results.innerHTML,'');
  const off=runtime('file:');await tick();assert.equal(off.requests.length,0);assert.equal(off.elements.connection.hidden,false);assert.equal(off.elements.workspace.hidden,true);
+ assert.match(r.elements['chat-mode'].textContent,/MPLPB topic: Budget guide/);
+ const beforeChat=r.requests.length;r.elements['chat-send'].disabled=true;r.elements['chat-casual'].events.click();await tick();assert.equal(r.requests.length,beforeChat);r.elements['chat-send'].disabled=false;
+ r.elements['chat-casual'].events.click();await tick();assert.match(r.elements['chat-mode'].textContent,/Just chat/);assert.match(r.elements['chat-messages'].innerHTML,/active MPLPB topic is unloaded/);
  console.log('PASS: script workflow, source controls, profile changes, clarification, history, experiment, chat/rule/creator rendering, escaping, preferences, stale responses and file-mode instructions. No browser rendering performed.');
 })().catch(e=>{console.error(e);process.exitCode=1;});

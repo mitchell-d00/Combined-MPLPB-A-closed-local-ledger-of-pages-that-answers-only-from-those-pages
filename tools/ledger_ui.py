@@ -259,8 +259,20 @@ class App:
             if T.casual_key(message) not in {'yes','yes please','lets explore',"let's explore",'no','no thanks','keep chatting','stay casual'}:
                 memory.pop('topic_offer',None)
             casual=None
+            if T.casual_key(message) == 'just chatting':
+                session['context'] = None
+                memory.pop('topic_offer', None)
+                memory.pop('guide', None)
+                memory['casual_active'] = True
+                memory['social'] = {'active': True, 'stage': 'story', 'turns': 0, 'style': 'chat'}
+                casual = M.reply('smalltalk',
+                    'Just chat is on. The active MPLPB topic is unloaded; your saved pages and notes are still there. What’s on your mind?',
+                    None, 'CHAT-UNLOAD', authority='conversation_structure',
+                    suggestions=['I had a bad day', 'something lighter', 'show my MPLPB'],
+                    response_structure={'intent': 'social_start', 'mode': 'casual',
+                                        'factual_claims': False, 'automatic_topic_switch': False})
             open_casual=T.casual_followup(message,session['context'],memory)
-            if T.smalltalk_candidate(message,memory) or open_casual is not None or S.candidate(message,memory):
+            if casual is None and (T.smalltalk_candidate(message,memory) or open_casual is not None or S.candidate(message,memory)):
                 try:titles=[p['title'] for p in self.inventory(corpus,profile)['pages'] if p['eligible']]
                 except (ValueError,OSError):titles=[]
                 casual=T.smalltalk(message,session['context'],memory,titles,corpus+'|'+profile)

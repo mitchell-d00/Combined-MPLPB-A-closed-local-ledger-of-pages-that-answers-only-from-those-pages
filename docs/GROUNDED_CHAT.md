@@ -109,3 +109,13 @@ For supported MPLPB questions, the constructor builds an attribute/topic introdu
 the validated evidence sentence remains verbatim. Synonyms do not expand page
 ownership, relax exclusions, change numbers or fill missing answers. This is bounded
 deterministic composition, not unrestricted free-form reasoning or an LLM.
+
+
+## Just chat button
+
+The Just chat button immediately sends the local `just chat` command; no extra
+Send click is needed. It clears the selected topic and pending topic invitation,
+ends any active guide and opens the social conversation state. Saved sources,
+notes and transcript history are retained. The mode label shows whether a topic
+is active. The unloaded state persists on reload. Select `topic Exact title` or
+accept a new topic invitation to return to a source-backed conversation.

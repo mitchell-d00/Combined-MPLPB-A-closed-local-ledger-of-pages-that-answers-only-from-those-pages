@@ -81,3 +81,30 @@ class SocialChatTests(unittest.TestCase):
         self.assertTrue(log['chain_intact'])
         self.assertEqual(log['turns'][-1]['payload']['social_chat_version'],S.VERSION)
         self.assertEqual(self.app.collections.entries(),{})
+
+    def test_just_chat_unloads_topic_and_persists_without_deleting_pages(self):
+        sid=self.chat('topic Budget guide')['session']
+        self.chat('remember I like books',sid)
+        before=self.app.inventory('logic','internal')
+        self.app.sessions[sid]['mind']['topic_offer']={'titles':['Budget guide'],'scope':'logic|internal'}
+        result=self.chat('just chat',sid)['response']
+        self.assertIsNone(result['context'])
+        self.assertEqual(result['sources'],[])
+        self.assertEqual(result['response_structure']['mode'],'casual')
+        self.assertNotIn('topic_offer',self.app.sessions[sid]['mind'])
+        self.assertTrue(self.app.sessions[sid]['mind']['notes'])
+        self.assertEqual(before,self.app.inventory('logic','internal'))
+        self.app=App(topic_base=self.base)
+        self.assertIsNone(self.app.sessions[sid]['context'])
+        story=self.chat('My boss yelled at me',sid)['response']
+        self.assertEqual(story['response_structure']['intent'],'social_followup')
+        missing=self.chat('how big is it?',sid)['response']
+        self.assertEqual(missing['kind'],'unsupported')
+        self.assertIsNone(missing['context'])
+        selected=self.chat('topic Budget guide',sid)['response']
+        self.assertEqual(selected['context']['title'],'Budget guide')
+
+    def test_just_chat_aliases_unload(self):
+        for command in ('just chatting', "let’s chat", 'can we just chat'):
+            sid=self.chat('topic Budget guide')['session']
+            self.assertIsNone(self.chat(command,sid)['response']['context'])
