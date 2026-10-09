@@ -9,8 +9,8 @@ class IdeaChatTests(unittest.TestCase):
         self.tmp=tempfile.TemporaryDirectory();self.base=Path(self.tmp.name)/'topics';self.app=App(topic_base=self.base)
     def tearDown(self):self.tmp.cleanup()
     def chat(self,text,sid=None):return self.app.chat({'corpus':'logic','message':text,'session':sid,'default_chat':True})
-    def test_chat_request_leaves_serious_and_retains_topic_on_reload(self):
-        sid=self.chat('load MPLPB')['session']
+    def test_chat_request_retains_topic_on_reload(self):
+        sid=self.chat('just chat')['session']
         r=self.chat('Chat about moons',sid)['response']
         self.assertEqual(r['environment']['mode'],'chat');self.assertEqual(r['environment']['corpora'],[])
         self.assertIn('moons',r['message']);self.assertIn('not MPLPB-supported',r['support_notice'])
@@ -40,3 +40,22 @@ class IdeaChatTests(unittest.TestCase):
         self.assertTrue(r['sources']);self.assertIn('3474',r['message'])
         self.assertIsNone(r['context'])
         self.assertTrue(r['response_structure']['mplpb_supported'])
+
+    def test_conversation_keeps_loaded_page_and_factual_gate(self):
+        corpus=self.app.create_collection({'name':'Loaded Moon'})['corpus']
+        self.app.import_source({'corpus':corpus,'title':'Moon','url':'https://example.org/moon','text':'The Moon is 3474 km in diameter.'})
+        def send(msg,sid=None):return self.app.chat({'corpus':corpus,'message':msg,'session':sid,'default_chat':True})
+        sid=send('load MPLPB')['session'];send('topic Moon',sid)
+        for message in ['hello','I feel happy','say potato','chat about space gardens','tell me more','what if they floated?']:
+            r=send(message,sid)['response']
+            self.assertEqual(r['environment']['mode'],'focus')
+            self.assertEqual(r['environment']['corpora'],[corpus])
+            self.assertEqual(r['context']['title'],'Moon')
+            self.assertEqual(r['sources'],[])
+            self.assertIn('not MPLPB-supported',r['support_notice'])
+        self.app=App(topic_base=self.base)
+        r=send('how big is it?',sid)['response']
+        self.assertEqual(r['kind'],'grounded_answer');self.assertIn('3474',r['message'])
+        self.assertTrue(r['sources']);self.assertNotIn('support_notice',r)
+        r=send('who owns it?',sid)['response']
+        self.assertNotEqual(r.get('response_structure',{}).get('intent'),'casual_idea_exploration')

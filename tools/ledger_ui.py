@@ -349,9 +349,12 @@ class App:
                     result['source_corpus']=session['environment']['focus_corpus']
                     result['sources']=[dict(s,corpus=result['source_corpus']) for s in result.get('sources',[])]
                 result.setdefault('response_structure',{}).setdefault('mode',session['environment']['mode'])
-                if session['environment']['mode']=='chat' and result.get('authority')=='conversation_structure':
+                if result.get('authority')=='conversation_structure' and (session['environment']['mode']=='chat' or result.get('response_structure',{}).get('factual_claims') is False):
                     result['support_notice']=E.D.NOTICE
                     result['response_structure']['mplpb_supported']=False
+            if result.get('determination',{}).get('basis')=='conversation':
+                result['support_notice']=E.D.NOTICE
+                result.setdefault('response_structure',{})['mplpb_supported']=False
             if not result.get('response_structure',{}).get('intent','').startswith('social_'):
                 session['mind'].pop('social',None)
             session['corpus'], session['context'] = corpus, result.get('context')

@@ -56,7 +56,8 @@ class CasualReasoningTests(unittest.TestCase):
         self.chat('topic Budget guide',sid)
         r=self.chat('So you arnt an ai?',sid)['response']
         self.assertEqual(r['environment']['mode'],'focus')
-        self.assertEqual(r['kind'],'unsupported');self.assertNotIn('support_notice',r)
+        self.assertEqual(r['kind'],'conversation');self.assertIn('support_notice',r)
+        self.assertEqual(r['context']['title'],'Budget guide')
     def test_dictionary_retains_its_own_reference_authority(self):
         sid=self.chat('So hi?')['session']
         r=self.chat('define dog',sid)['response']

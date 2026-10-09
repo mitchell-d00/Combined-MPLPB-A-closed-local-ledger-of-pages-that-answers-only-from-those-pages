@@ -195,7 +195,8 @@ The reducer removes ineligible candidates before selecting anything:
 - Materially different meanings: clarify or present alternatives; do not rank one
   into truth. Collection-qualified topic selection uses this rule.
 
-Chat permits conversational candidates. MPLPB focus excludes casual candidates;
+Both modes permit conversational candidates. MPLPB focus requires them to be
+explicitly nonfactual and free of source claims;
 procedural help, source assertions, explicit deductions and uncertainty remain
 available. Legacy selected topics also receive the serious-mode guard. Dictionary
 references retain their own authority. Existing source gates establish support;
@@ -226,10 +227,13 @@ Only conversational preference/state (active, reply style, turn, no-jokes) is sa
 in the emotional state; no emotion label or emotional profile is added to notes or
 the ledger. The ordinary transcript still contains the conversation and its rule
 trace. Mode changes clear the emotional state. All emotional responses use the
-reduction rule and carry the not-MPLPB-supported label. Focus mode never routes
-through these rules. This is finite empathetic wording, not emotion detection or
+reduction rule and carry the not-MPLPB-supported label. Focus mode also routes social turns through these rules without unloading pages. This is finite empathetic wording, not emotion detection or
 human feelings in the program.
 
 
 ### Two conversational modes
-Chat accepts `chat about moons`, `talk about MPLPB`, and `explore an idea about gardens` without activating serious mode. Explicit casual requests leave serious mode; `topic Exact title` remains an explicit source-selection command. Idea state carries the named topic through follow-ups and saves with the session. Hypotheticals are framed as imagined possibilities; unknown factual questions remain unknown. This is bounded rule-based exploration, not general-purpose language understanding. Chat can also consult saved MPLPB pages using the same profile and evidence gates, retaining separate collection results and citations. Chat exploration does not automatically catalog a claim or switch modes. Serious mode still checks each loaded collection independently. Use `load MPLPB`, `serious mode`, or the load controls to enter it.
+Chat accepts `chat about moons`, `talk about MPLPB`, and `explore an idea about gardens` without activating serious mode. Explicit casual requests retain the current mode and loaded pages; `topic Exact title` remains an explicit source-selection command. Idea state carries the named topic through follow-ups and saves with the session. Hypotheticals are framed as imagined possibilities; unknown factual questions remain unknown. This is bounded rule-based exploration, not general-purpose language understanding. Chat can also consult saved MPLPB pages using the same profile and evidence gates, retaining separate collection results and citations. Chat exploration does not automatically catalog a claim or switch modes. Serious mode still checks each loaded collection independently. Use `load MPLPB`, `serious mode`, or the load controls to enter it.
+
+
+### Conversation with collections loaded
+Both modes allow small talk, emotional acknowledgements, echo requests, and explicit idea exploration. These replies are labeled deterministic conversation, not MPLPB-supported; they keep the loaded collections and evidence-page focus intact. Serious-mode factual queries still use the existing source gates. Only an explicit Just chat action unloads the serious scope.

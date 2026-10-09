@@ -49,11 +49,12 @@ class EmotionalRulesTests(unittest.TestCase):
         self.assertIn('leave jokes out',self.chat('tell me a joke',sid)['response']['message'])
         self.chat('jokes are okay',sid)
         self.assertIn('?',self.chat('say potato',sid)['response']['message'])
-    def test_serious_focus_does_not_apply_emotional_response(self):
+    def test_serious_focus_allows_labeled_emotional_response(self):
         sid=self.chat('load MPLPB')['session']
         r=self.chat('I feel sad',sid)['response']
         self.assertEqual(r['determination']['mode'],'focus')
-        self.assertNotIn('emotional',r.get('response_structure',{}).get('intent',''))
+        self.assertIn('emotional',r.get('response_structure',{}).get('intent',''))
+        self.assertIn('not MPLPB-supported',r['support_notice'])
     def test_same_state_same_response(self):
         state={'emotional':{'active':True,'style':'ask','turn':2,'no_jokes':False}}
         self.assertEqual(E.handle('I feel sad',copy.deepcopy(state)),E.handle('I feel sad',copy.deepcopy(state)))

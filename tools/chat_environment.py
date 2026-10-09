@@ -8,7 +8,7 @@ from tools import idea_chat as IC
 from tools import chat_logic as C, chat_tutor as T, deterministic_mind as M
 from tools import social_chat as S, grounded_chat as Q, reference_resources as F
 
-VERSION = 'chat-environment-v3'
+VERSION = 'chat-environment-v4'
 
 
 def reply(body, context=None, **extra):
@@ -121,7 +121,11 @@ def handle(app, data, session, message, corpus, profile):
     if key in {'just chatting','chat mode','stay casual','keep chatting'}:return load(app,session,[])
     # An explicit casual request can leave serious mode; topic alone cannot.
     if IC.topic_request(message) and key not in {"let's talk about it",'lets talk about it','talk about it','talk about this'}:
-        if session.get('environment',{}).get('mode') != 'chat':load(app,session,[])
+        if session.get('environment',{}).get('mode') == 'focus':
+            result=IC.handle(message,session['mind'])
+            result['context']=session['context']
+            return result
+        if not session.get('environment'):load(app,session,[])
         return explore_sources(app,data,session,message,corpus,profile) or general(message,session)
     if key in {'load all mplpb','load saved mplpb'}:return load(app,session,'all')
     if key in {'load mplpb','focus mode','serious mode'}:
@@ -156,6 +160,16 @@ def handle(app, data, session, message, corpus, profile):
             load(app,session,[corpus]);env=session['environment']
         else:
             return explore_sources(app,data,session,message,corpus,profile) or general(message,session)
+    # Social turns do not change loaded collections or the selected evidence page.
+    conversational=EM.handle(message,session['mind']) or D.respond(message,session['mind'])
+    if conversational is None and T.smalltalk_candidate(message,session['mind']):
+        conversational=S.handle(message,None,session['mind']) or T.smalltalk(message,None,session['mind'],[],'loaded-chat')
+    if conversational is None and session['mind'].get('idea_chat') and (key in {'tell me more','go on','why','how','how so','why not','any ideas'} or key.startswith(('what if ','imagine ','suppose '))):
+        conversational=IC.handle(message,session['mind'])
+    if conversational:
+        conversational['context']=session['context']
+        conversational.setdefault('response_structure',{}).update(factual_claims=False,mplpb_supported=False)
+        return conversational
     entries,blocked=pages(app,env['corpora'],profile)
     choices=['focus '+k+' :: '+pin['title'] for k,pin in entries]
     if key in T.LIST or key=='explore loaded mplpb':

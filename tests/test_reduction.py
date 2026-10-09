@@ -35,5 +35,9 @@ class ReductionTests(unittest.TestCase):
         conflict={'kind':'conflict','message':'two competing values','sources':[]}
         self.assertEqual(R.adjudicate(conflict,'focus')['message'],'two competing values')
         self.assertEqual(conflict['determination']['basis'],'uncertainty')
+    def test_focus_allows_explicit_nonfactual_conversation(self):
+        result={'kind':'conversation','authority':'conversation_structure','sources':[],
+                'response_structure':{'intent':'casual_echo','factual_claims':False}}
+        self.assertEqual(R.adjudicate(result,'focus')['determination']['basis'],'conversation')
     def test_candidate_id_collision_fails(self):
         with self.assertRaises(ValueError):R.determine([{'id':'x'},{'id':'x'}],'chat')

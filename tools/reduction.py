@@ -3,7 +3,7 @@
 This policy checks declared candidate contracts; it is not semantic entailment.
 Source-specific gates must establish support before submitting a factual candidate.
 """
-VERSION='reduction-to-determination-v1'
+VERSION='reduction-to-determination-v2'
 RULE='REDUCE-DETERMINE'
 
 
@@ -17,7 +17,8 @@ def determine(candidates, mode, turn=1):
         basis=candidate.get('basis')
         if basis not in {'conversation','source_assertion','deduction','reference','procedure','uncertainty'}:
             reasons.append('Unknown response basis')
-        if mode=='focus' and basis=='conversation':reasons.append('MPLPB focus mode excludes casual responses')
+        if mode=='focus' and basis=='conversation' and not candidate.get('nonfactual_conversation'):
+            reasons.append('Conversation must be explicitly separated from factual evidence')
         if basis in {'source_assertion','deduction'} and not candidate.get('support_checked'):
             reasons.append('Source-specific support checks have not passed')
         if basis=='source_assertion' and not candidate.get('sources'):reasons.append('No source pins')
@@ -64,6 +65,7 @@ def adjudicate(result, mode):
     elif result.get('authority')=='conversation_structure' and mode=='chat':basis='conversation'
     candidate={'id':'response','basis':basis,'meaning':kind,'sources':result.get('sources',[]),
                'support_checked':bool(result.get('sources')),
+               'nonfactual_conversation':structure.get('factual_claims') is False and not result.get('sources'),
                'premises':[p for r in result.get('relations',[]) for p in r.get('premises',[])],
                'rules':[rule for r in result.get('relations',[]) for rule in r.get('rules',[])]}
     selected,trace=determine([candidate],mode)

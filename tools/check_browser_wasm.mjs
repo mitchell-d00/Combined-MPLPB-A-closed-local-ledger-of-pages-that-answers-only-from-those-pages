@@ -139,7 +139,7 @@ if(potato.response.determination?.basis!=='conversation'||potato.response.determ
 if(moonSize.response.determination?.basis!=='source_assertion')throw Error('WASM source determination failed');
 const strictLoad=await call('/api/chat',{corpus:'logic',session:legacyCasual.session,message:'load MPLPB'});
 const seriousEcho=await call('/api/chat',{corpus:'logic',session:legacyCasual.session,message:'say potato'});
-if(seriousEcho.response.message.startsWith('potato')||seriousEcho.response.determination?.mode!=='focus')throw Error('WASM serious mode leaked playful echo');
+if(!seriousEcho.response.message.startsWith('potato')||seriousEcho.response.determination?.mode!=='focus'||seriousEcho.response.sources.length||!seriousEcho.response.support_notice||JSON.stringify(seriousEcho.response.environment.corpora)!==JSON.stringify(strictLoad.response.environment.corpora))throw Error('WASM loaded-scope conversation failed');
 await call('/api/chat',{corpus:'logic',session:legacyCasual.session,message:'just chat'});
 const emotional=await call('/api/chat',{corpus:'logic',session:legacyCasual.session,message:'I feel worried',default_chat:true});
 if(emotional.response.response_structure?.intent!=='casual_emotional_acknowledge'||emotional.response.sources.length)throw Error('WASM emotional acknowledgement failed');
