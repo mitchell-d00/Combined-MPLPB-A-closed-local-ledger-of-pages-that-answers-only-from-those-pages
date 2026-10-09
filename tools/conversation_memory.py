@@ -3,7 +3,7 @@ import re
 from tools import deterministic_mind as M
 from tools.chat_phrasing import memory_question
 
-VERSION='conversation-memory-v3'
+VERSION='conversation-memory-v4'
 FORGET={'forget my name','do not remember my name',"don't remember my name",'stop using my name'}
 NAME_QUESTIONS={'what is my name',"what's my name",'do you remember my name','who am i','what do you call me'}
 STATES={'sad','happy','tired','bored','angry','worried','anxious','upset','lonely','hungry','sorry','fine','okay','ok','good','great','excited','scared','stressed','depressed','sick','confused','here','back','ready','done','listening','not','a','an'}
@@ -22,11 +22,13 @@ def introduction(text):
     name=match[1].strip()
     words=name.split()
     if len(words)>4 or not all(re.fullmatch(r"[^\W\d_]+(?:[-'][^\W\d_]+)*",w,re.UNICODE) for w in words):return None
-    if any(w.casefold() in STATES|{'and','but','because','from','feeling','doing','the'} for w in words):return None
+    explicit=bool(re.match(r'^(?:my name is|call me|please call me|remember my name is) ',text,re.I))
+    initial=len(name)==1 and name.isalpha() and name.isupper()
+    if not explicit and not initial and any(w.casefold() in STATES|{'and','but','because','from','feeling','doing','the'} for w in words):return None
     # Bare 'I am ...' can be a state or occupation. Explicit name markers are
     # stronger; greeting + I am is a common introduction, never verified identity.
     bare=bool(re.match(r"^i(?: am|'m) ",text,re.I))
-    if bare:
+    if bare and not initial and re.fullmatch(r"[a-z][a-z '-]{0,79}",words[0].casefold()):
         from tools import reference_resources as R
         _,senses,_=R.lookup_forms(words[0].casefold())
         if any(s['part_of_speech'] in {'a','s','v','r'} for s in senses):return None

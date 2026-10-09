@@ -36,3 +36,7 @@ One unresolved factual question in a mixed turn is delegated to the existing env
 After an introduction mentioning MPLPB and the little monster, “What’s that?” presents both meanings as selectable questions. Naming either, or choosing “the first one” / “the second one”, establishes an explicit branch. “No MPLPB what is it” corrects the branch and answers the intended question without treating the correction as a subject-description assertion. Follow-up definitions and “tell me more” use the selected branch.
 
 The saved session retains pending choices, the active referent and up to 32 choice events with parent and turn identifiers. Unrelated substantive turns expire pending/active selection. Generic candidates come from typed page and conversation-topic context, not arbitrary assistant prose. Topic choices delegate to the existing source reader; clarification alone never creates evidence or changes loaded collections.
+
+### Declared names
+
+Name memory accepts uppercase single-letter initials, multiword names, hyphens, apostrophes and Unicode letters. Explicit `My name is …` and `Call me …` declarations take precedence over ordinary word meanings. Bare statements such as `I’m tired` remain states, not names. Names are user declarations, never MPLPB evidence; correction, recall and session reload use the conversation history.

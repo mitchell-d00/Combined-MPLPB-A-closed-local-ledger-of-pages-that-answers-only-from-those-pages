@@ -26,7 +26,7 @@ def act(text):
     if k in CM.NAME_QUESTIONS:return {'type':'recall_name'}
     # Greeting is evidence of an introduction, not a dictionary POS lookup.
     intro=re.fullmatch(r"(?:hi|hello|hey)[, ]+i(?: am|'m) (.+)",text,re.I)
-    name=CM.introduction('my name is '+intro[1]) if intro else CM.introduction(text)
+    name=CM.introduction('my name is '+intro[1]) if intro and (intro[1].split()[0].casefold() not in CM.STATES or len(intro[1])==1 and intro[1].isupper()) else CM.introduction(text)
     if name:return {'type':'introduce','value':name}
     if k in {'hi','hello','hey','so hi','hi there','hello again'}:return {'type':'greet'}
     if k in {'who are you','what are you','what is your name',"what's your name"}:return {'type':'identity'}
