@@ -201,7 +201,8 @@ def explore_sources(app,data,session,message,corpus,profile):
     result['has_more_source_text']=has_more
     result['support_notice']='Factual conversation; cited passages come from MPLPB pages. Conversational framing is not additional evidence.'
     result['suggestions']=topic_suggestions(subject,' '.join(excerpts))
-    if not has_more:result['suggestions']=['Search '+str(subject),'Explore an idea about '+str(subject)]
+    if not has_more:
+        result['suggestions']=[q for q in result['suggestions'] if not q.casefold().startswith('tell me more')]+['Explore an idea about '+str(subject)]
     result['response_structure']={'intent':'source_exploration','mode':env.get('mode','chat'),'factual_claims':True,'mplpb_supported':True,'subject':subject}
     return result
 

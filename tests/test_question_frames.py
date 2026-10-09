@@ -4,6 +4,9 @@ from tools import idea_chat as I
 
 class QuestionFrameTests(unittest.TestCase):
     def test_common_overview_frames_are_topic_independent(self):
+        self.assertEqual(I.topic_request('Dogs?')[1],'Dogs')
+        self.assertIsNone(I.topic_request('Hi?'))
+        self.assertIsNone(I.topic_request('I am sad?'))
         patterns=['tell me about {}','Can you tell me about {}?','Could you please tell me about {}?',
                   'Would you give me an overview of {}?','Tell me a little about {}','tell me something about {}',
                   'What do you know about {}?','What can you tell me about {}?',

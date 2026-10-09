@@ -69,5 +69,12 @@ async function tick(){for(let i=0;i<20;i++)await Promise.resolve();}
  assert.match(footer,/Sources/);assert.match(footer,/data-source-corpus="moon-corpus"/);assert.ok(!footer.includes('<bad>'));assert.match(footer,/&lt;bad&gt;/);
  r.run(`chatMessages=[{role:'assistant',response:{kind:'federated_answers',message:'Visible factual answer',sources:[{title:'Moon',path:'moon.html',corpus:'moon-corpus'}],suggestions:['Tell me more about moon']}}];drawChat()`);
  assert.ok(r.elements['chat-messages'].innerHTML.indexOf('Visible factual answer')<r.elements['chat-messages'].innerHTML.indexOf('aria-label="Sources"'));
+ r.run(`drawTopicActions({response_structure:{subject:'Moon'},suggestions:['How big is Moon?','Search Moon']})`);
+ assert.match(r.elements['chat-topic-actions'].innerHTML,/How big is Moon/);assert.match(r.elements['chat-topic-label'].textContent,/Moon/);
+ r.run(`drawTopicActions({response_structure:{subject:'Dogs'},suggestions:['Tell me about Dogs','Search Dogs']})`);
+ assert.match(r.elements['chat-topic-actions'].innerHTML,/Search Dogs/);assert.ok(!r.elements['chat-topic-actions'].innerHTML.includes('Moon'));
+ r.run(`drawTopicActions({suggestions:['<script>bad</script>']})`);assert.ok(!r.elements['chat-topic-actions'].innerHTML.includes('<script>'));
+ const beforeChoice=r.requests.length;r.elements['chat-send'].disabled=true;r.elements['chat-topic-actions'].events.click({target:{closest:()=>({dataset:{chatRequest:'So hi?'}})}});await tick();assert.equal(r.requests.length,beforeChoice);
+ r.elements['chat-send'].disabled=false;r.elements['chat-topic-actions'].events.click({target:{closest:()=>({dataset:{chatRequest:'So hi?'}})}});await tick();assert.equal(r.requests.length,beforeChoice+1);
  console.log('PASS: script workflow, source controls, profile changes, clarification, history, experiment, chat/rule/creator rendering, escaping, preferences, stale responses and file-mode instructions. No browser rendering performed.');
 })().catch(e=>{console.error(e);process.exitCode=1;});

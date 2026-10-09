@@ -98,6 +98,12 @@ class IdeaChatTests(unittest.TestCase):
             self.assertNotIn('focus canned',str(r['suggestions']))
             r=self.chat('Could you tell me how big it is?',sid)['response']
             self.assertIn('3474',r['message'])
+        self.app.import_source({'corpus':key,'title':'Dog','url':'https://example.org/dog','text':'Dogs are mammals.'})
+        r=self.chat('Dogs?',sid)['response']
+        self.assertIn('Dogs are mammals.',r['message'])
+        self.assertTrue(r['sources'])
+        self.assertTrue(all('dogs' in q.lower() for q in r['suggestions']))
+
     def test_attribution_only_capture_is_not_a_factual_answer(self):
         key=self.app.create_collection({'name':'Empty capture'})['corpus']
         self.app.import_source({'corpus':key,'title':'EmptyZorb','url':'https://example.org/zorb','text':'EmptyZorb\nSource: https://example.org/zorb License: CC BY-SA 4.0;'})

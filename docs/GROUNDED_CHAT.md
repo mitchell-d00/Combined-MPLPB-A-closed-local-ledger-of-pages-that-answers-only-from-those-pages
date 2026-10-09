@@ -27,3 +27,7 @@ With automatic Wikipedia lookup enabled, missing or exhausted topic text can tri
 ## Verification
 
 Regression tests exercise mode restoration, both-mode conversation, multi-collection boundaries, source exhaustion, newly added material, plural navigation, compound greetings, exact echo, and transcript integrity. Script tests check controls and state rendering; the WebAssembly check exercises the packaged Python engine. These checks are developer-authored and do not substitute for independent human evaluation or browser layout testing.
+
+## Conversation controls
+
+The composer has a fixed Everyday controls row and a Conversation choices row derived from the latest response, subject and source-aware suggestions. Topic choices are replaced when the conversation changes; historical suggestions remain in the transcript. Composer buttons send the same natural-language requests through the normal engine, with busy-state guards. A short topic question such as “Dogs?” enters topic exploration. Button labels are authored actions; the buttons do not contain stored answers. Deterministic response construction still uses authored rules and phrase components.

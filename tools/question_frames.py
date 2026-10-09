@@ -26,7 +26,12 @@ def overview_subject(message):
     text=normalize(message)
     if re.match(r"^what about (?:its |.+?'s |the (?:size|diameter|radius|age|height|length|width|mass|distance|orbital period) of )",text,re.I):return None
     match=re.fullmatch(r"(?:(?:let's |lets |let us )?(?:(?:chat|talk)(?: to me)? about|discuss|explore(?: an idea about| an idea| the idea of)?)|tell (?:me|us)(?: more| something| a little(?: more)?| a bit(?: more)?)? (?:about|regarding)|give me (?:an overview|(?:some )?information|(?:some )?facts|a summary|(?:some )?details) (?:about|on|of)|what (?:can you tell me|do you know) about|help me (?:understand|learn about)|teach me about|(?:explain|describe|summari[sz]e)|i (?:want|would like) to (?:learn|hear|know) about|i'd like to know about|can i ask you about|do you have (?:information|info) (?:on|about)|walk me through|fill me in on|bring me up to speed on|share (?:some )?(?:facts|information|details) (?:about|on)|(?:a quick )?overview of|what can (?:we|i) learn about|i(?: would|'d) (?:like|love) to hear about|what about|i(?: am|'m) interested in)\s+(.+?)[?.!]*",text,re.I)
-    if not match:return None
+    if not match:
+        # A short topic question is an overview request, not evidence or a command.
+        short=re.fullmatch(r"([A-Za-z][A-Za-z -]{0,59})\?",text)
+        stop={'hi','hello','hey','yes','no','okay','ok','sure','why','how','what','who','when','where','which','really','again','more','continue','you','me','it','this','that','help','thanks','thank you','bored','sad','happy','tired','sorry','please','so hi','and you','what about you','how about you'}
+        if short and len(short[1].split())==1 and short[1].casefold() not in stop and not re.match(r'^(?:what|who|where|when|why|how|which|is|are|can|could|do|does|will|would|should|say|repeat|load|clear|show|search|find)\b',short[1],re.I):return short[1]
+        return None
     subject=match[1].strip()
     if re.match(r'^summari[sz]e ',text,re.I) and subject.casefold() in {'it','this','that','this topic','that topic'}:return None
     # Self/conversation control has dedicated rules, not remote-source intent.
