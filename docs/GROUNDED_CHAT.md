@@ -209,3 +209,23 @@ candidate IDs, reasons, basis and rule version in Evidence and decision rules.
 Transcripts pin the reducer's code hash. Equal input, state, source versions and
 rule versions yield equal selection; timestamps/session identifiers are not claims
 of byte-identical newly created transcripts.
+
+
+## Emotional conversation rules
+
+In zero-load chat, `tools/emotional_rules.py` recognizes full first-person
+statements such as “I feel sad”, “I’m not sad”, and “I feel happy but also nervous”.
+It attributes the feeling to the user's words; it does not diagnose, infer a third
+party's emotions, or infer feelings from hypothetical/quoted statements. Mixed
+feelings are acknowledged together. The next step is the user's choice: listening
+or ideas. Listening mode avoids questions and unsolicited advice. Corrections,
+“not now”, and subject changes are respected. “No jokes” suppresses playful echo
+extras and explicit joke prompts until the user permits humor again.
+
+Only conversational preference/state (active, reply style, turn, no-jokes) is saved
+in the emotional state; no emotion label or emotional profile is added to notes or
+the ledger. The ordinary transcript still contains the conversation and its rule
+trace. Mode changes clear the emotional state. All emotional responses use the
+reduction rule and carry the not-MPLPB-supported label. Focus mode never routes
+through these rules. This is finite empathetic wording, not emotion detection or
+human feelings in the program.

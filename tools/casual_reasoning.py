@@ -30,7 +30,7 @@ def respond(message,memory):
         target=echo[2].strip()
         if re.match(r'^(?:please\s+)?(?:can|could|would) you\b',message.strip(),re.I):
             target=target.rstrip('?').rstrip()
-        exact=bool(echo[1]) or 'repeat after me' in message.casefold()
+        exact=bool(echo[1]) or 'repeat after me' in message.casefold() or memory.get('emotional',{}).get('no_jokes',False)
         if len(target)>300:
             return M.reply('conversation','Give me a word or a short phrase up to 300 characters to repeat.',None,'CASUAL-ECHO-LIMIT',authority='conversation_structure')
         state.update(topic='echo',echo=target,echo_exact=exact)

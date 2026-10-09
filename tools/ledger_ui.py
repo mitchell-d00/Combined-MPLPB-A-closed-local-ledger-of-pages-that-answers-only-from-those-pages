@@ -248,6 +248,7 @@ class App:
                 if session['corpus'] != corpus or session['profile'] != profile:
                     session['context'] = None
                     session.setdefault('mind',{}).pop('social',None)
+                    session['mind'].pop('emotional',None)
                     session['corpus'], session['profile'] = corpus, profile
             else:
                 if len(self.sessions) >= 32:
@@ -361,6 +362,8 @@ class App:
             payload['mind_sha256'] = hashlib.sha256(Path(M.__file__).read_bytes()).hexdigest()
             payload['grounded_chat_version'] = Q.VERSION
             payload['grounded_chat_sha256'] = hashlib.sha256(Path(Q.__file__).read_bytes()).hexdigest()
+            payload['emotional_rules_version']=E.EM.VERSION
+            payload['emotional_rules_sha256']=hashlib.sha256(Path(E.EM.__file__).read_bytes()).hexdigest()
             payload['determination_version']=RD.VERSION
             payload['determination_sha256']=hashlib.sha256(Path(RD.__file__).read_bytes()).hexdigest()
             payload['casual_rules_version']=E.D.VERSION

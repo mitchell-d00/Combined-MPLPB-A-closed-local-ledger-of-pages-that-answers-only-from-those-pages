@@ -2,6 +2,7 @@
 import re
 from tools import casual_reasoning as D
 from tools import reduction as RD
+from tools import emotional_rules as EM
 from tools import chat_logic as C, chat_tutor as T, deterministic_mind as M
 from tools import social_chat as S, grounded_chat as Q, reference_resources as F
 
@@ -21,7 +22,7 @@ def load(app, session, keys):
     session['environment'] = {'mode': 'focus' if keys else 'chat', 'corpora': list(keys), 'focus_corpus': None}
     session['context'] = None
     mind = session['mind']
-    mind.pop('topic_offer', None); mind.pop('guide', None); mind.pop('chat_discourse',None)
+    mind.pop('topic_offer', None); mind.pop('guide', None); mind.pop('chat_discourse',None); mind.pop('emotional',None)
     mind['casual_active'] = not keys
     mind['social'] = {'active': not keys, 'stage': 'story', 'turns': 0, 'style': 'chat'}
     return reply(('Focus mode; '+str(len(keys))+' MPLPB collections loaded. Each keeps its own evidence and delivery boundaries.' if keys else
@@ -46,6 +47,8 @@ def pages(app, keys, profile):
 
 def general(message, session):
     mind=session['mind'];key=T.casual_key(message)
+    emotional=EM.handle(message,mind)
+    if emotional:return emotional
     conversational=D.respond(message,mind)
     if conversational:return conversational
     if key in {'how do you think','how do you work','can you think','how does your mind work','what are you thinking','what are you'}:
