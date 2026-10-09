@@ -57,3 +57,13 @@ System definitions such as “What is a MPLPB?” and common overview phrasing r
 Local page excerpts and dictionary senses may provide subject context, not evidence that an opinion is true. The output composes a conversational clause, immutable source spans when available and a topic-specific follow-up. Listening mode suppresses that follow-up. Source and command rules retain priority for their supported forms; ordinary opinion statements do not silently trigger network searches. The module version and hash are recorded in transcript payloads.
 
 This is finite grammar coverage with authored grammatical fragments and explicit slots, not unrestricted semantic understanding or a claim that every possible question is understood. Research references informing the separation of representation and realization: [NLTK feature grammars](https://www.nltk.org/howto/featgram.html), [NLTK discourse](https://www.nltk.org/howto/discourse.html), and [SimpleNLG](https://github.com/simplenlg/simplenlg). Those libraries are not newly installed runtime dependencies.
+
+
+## Conversation recall and introductions
+
+`tools/conversation_memory.py` scans only the current session’s retained user questions; assistant outputs never establish the user’s name. Explicit introductions, name corrections, forgetting and compound identity follow-ups precede generic social fallback. A name is a user declaration, not authenticated identity. State/occupation phrasing is conservatively excluded from bare “I am” introductions; an explicit “call me” form removes ambiguity.
+
+Topic recall such as “What did I say about orchids?” matches the requested terms against earlier user statements, allowing simple plural normalization, and returns up to three recent matching turns. This is bounded lexical recall, not unrestricted semantic memory. Replies carry turn references and a small Conversation memory tag, with no MPLPB source claims or automatic remote lookup. The name is reconstructed across reloads from the saved conversation; a forgetting command prevents older introductions from restoring it. Restarting the session uses the existing reset behavior. Historical transcript text is not erased by forgetting a name.
+
+
+Explicit “brainstorm” requests compose three transformations around a supplied or remembered topic, without requiring loaded MPLPB pages or a dictionary entry. Subsequent “brainstorm” turns choose the next operation set deterministically. These are exploratory prompts, not factual claims or an unrestricted creative model. Existing conversation and name recall continue with zero loaded collections.

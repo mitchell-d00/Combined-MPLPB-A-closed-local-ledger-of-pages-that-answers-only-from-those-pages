@@ -36,6 +36,7 @@ from tools import reduction as RD
 from tools import language_planner as LP
 from tools import self_knowledge as SK
 from tools import proposition_chat as PC
+from tools import conversation_memory as CM
 
 
 class App:
@@ -266,7 +267,7 @@ class App:
                 memory.pop('topic_offer',None)
             language_request=LP.parse(message,memory,session.get('context'))
             casual=None
-            environment_result=SK.handle(message,session,self.roots()) or PC.handle(self,data,session,message,corpus,profile) or E.handle(self,data,session,message,corpus,profile)
+            environment_result=CM.handle(message,session) or SK.handle(message,session,self.roots()) or PC.handle(self,data,session,message,corpus,profile) or E.handle(self,data,session,message,corpus,profile)
             open_casual=T.casual_followup(message,session['context'],memory) if environment_result is None else None
             if environment_result is None and casual is None and (T.smalltalk_candidate(message,memory) or open_casual is not None or S.candidate(message,memory)):
                 try:titles=[p['title'] for p in self.inventory(corpus,profile)['pages'] if p['eligible']]
@@ -367,6 +368,8 @@ class App:
             M.record(session.setdefault('mind', {'notes': []}), result)
             result['question_frame']=E.IC.PF.frame(message)
             payload = {'question': message, 'corpus': corpus, 'profile': profile, 'response': result}
+            payload['conversation_memory_version']=CM.VERSION
+            payload['conversation_memory_sha256']=hashlib.sha256(Path(CM.__file__).read_bytes()).hexdigest()
             payload['proposition_chat_version']=PC.VERSION
             payload['proposition_chat_sha256']=hashlib.sha256(Path(PC.__file__).read_bytes()).hexdigest()
             payload['self_knowledge_version']=SK.VERSION

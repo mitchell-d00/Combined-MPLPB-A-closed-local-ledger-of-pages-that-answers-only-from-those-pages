@@ -41,6 +41,7 @@ def label(result):
     if result.get('source_scope') == 'saved_reference_outside_loaded_scope':return 'Saved reference · outside loaded scope'
     if result.get('response_structure',{}).get('intent')=='topic_opinion':return 'Conversation + dictionary context' if result.get('authority')=='lexical_reference' else 'Conversation + source context'
     if result.get('response_structure',{}).get('intent')=='user_topic_context':return 'User-provided context'
+    if result.get('response_structure',{}).get('intent')=='chat_memory':return 'Conversation memory'
     kind = result.get('kind')
     structure = result.get('response_structure', {})
     if kind in {'unsupported','not_in_corpus','unknown_relation'}:return 'No supporting answer'

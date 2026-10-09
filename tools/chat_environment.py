@@ -261,6 +261,8 @@ def discover_saved(app,session,message,profile):
 def handle(app, data, session, message, corpus, profile):
     message=IC.PF.normalize(message)
     key=T.casual_key(message)
+    brainstorming=IC.brainstorm(message,session['mind'],session.get('context'))
+    if brainstorming:return brainstorming
     if re.match(r'^explore an idea about ',message,re.I):
         if not session.get('environment'):load(app,session,[])
         result=IC.handle(message,session['mind'])

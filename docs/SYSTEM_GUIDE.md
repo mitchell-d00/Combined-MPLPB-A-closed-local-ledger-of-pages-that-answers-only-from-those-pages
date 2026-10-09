@@ -32,7 +32,7 @@ I check eligible local pages first for supported topic requests. With automatic 
 
 ## How does your memory work?
 
-I retain conversation state, notes, topic context and captured pages in the configured local save store. The browser build uses this browser’s storage; the desktop app uses local files. Saving is not model training. Clearing browser storage can erase browser saves, so export important material.
+I retain conversation state, notes, topic context and captured pages in the configured local save store. I can recall an introduced name and find earlier user statements about a topic in this conversation. Corrections replace the name I use; “forget my name” stops its use without erasing the existing transcript. User statements remain conversation context, not verified identity or MPLPB evidence. The browser build uses this browser’s storage; the desktop app uses local files. Saving is not model training. Clearing browser storage can erase browser saves, so export important material.
 
 ## What are your limitations?
 

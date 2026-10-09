@@ -53,6 +53,14 @@ both modes with their own reference tag. These lookups never silently load
 collections. Sources appear below factual replies; casual wording stays distinct
 from source evidence.
 
+Introductions such as `Hi, I’m Alex` receive a personal greeting. Names are
+recalled from user turns in the current conversation, including older saved
+turns. `What did I say about orchids?` recalls matching user messages with turn
+references. `Call me Sam` changes the name used; `forget my name` stops its use.
+Conversation recall is tagged separately from page evidence. With zero collections
+loaded, `Help me brainstorm a flarn playground` constructs three exploratory
+transformations around that topic; `brainstorm` continues with other directions.
+
 Common phrasing rules recognize subject-description statements, preferences,
 user-introduced topics, negation, polite questions, topic overviews, follow-ups,
 and composed requests such as `Say hi to the OpenAI forum and tell them what you are`.
@@ -231,7 +239,7 @@ nothing else.
 | `mplpb_combined/ledger.py` | The folder as a ledger: status, lineage, depth, validation, writing, the log |
 | `mplpb_combined/reader.py` | The answer rule, profiles, hubs |
 | `mplpb_combined/killtest.py` | The kill test: three arms, mechanical scoring |
-| `tests/` | 430 developer-authored regression tests covering the reader, captures, conversation, source boundaries and saved state |
+| `tests/` | 436 developer-authored regression tests covering the reader, captures, conversation, source boundaries and saved state |
 | `examples/studio/` | 25 pages about running a pottery studio; the kill-test corpus |
 | `examples/spec/` | The format described as ten pages in the format |
 | `examples/hub/` | Two pointers, one at each of the above |
