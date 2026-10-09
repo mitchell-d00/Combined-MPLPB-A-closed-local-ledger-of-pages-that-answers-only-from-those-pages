@@ -34,6 +34,7 @@ from tools import response_construction as N
 from tools import chat_environment as E
 from tools import reduction as RD
 from tools import language_planner as LP
+from tools import self_knowledge as SK
 
 
 class App:
@@ -264,7 +265,7 @@ class App:
                 memory.pop('topic_offer',None)
             language_request=LP.parse(message,memory,session.get('context'))
             casual=None
-            environment_result=E.handle(self,data,session,message,corpus,profile)
+            environment_result=SK.handle(message,session,self.roots()) or E.handle(self,data,session,message,corpus,profile)
             open_casual=T.casual_followup(message,session['context'],memory) if environment_result is None else None
             if environment_result is None and casual is None and (T.smalltalk_candidate(message,memory) or open_casual is not None or S.candidate(message,memory)):
                 try:titles=[p['title'] for p in self.inventory(corpus,profile)['pages'] if p['eligible']]
@@ -365,6 +366,8 @@ class App:
             M.record(session.setdefault('mind', {'notes': []}), result)
             result['question_frame']=E.IC.PF.frame(message)
             payload = {'question': message, 'corpus': corpus, 'profile': profile, 'response': result}
+            payload['self_knowledge_version']=SK.VERSION
+            payload['self_knowledge_sha256']=hashlib.sha256(Path(SK.__file__).read_bytes()).hexdigest()
             payload['language_planner_version']=LP.VERSION
             payload['language_planner_sha256']=hashlib.sha256(Path(LP.__file__).read_bytes()).hexdigest()
             payload['mind_version'] = M.VERSION

@@ -17,6 +17,16 @@ explicit source expansion. See [grounded chat](docs/GROUNDED_CHAT.md) and the
 [experiments and independent evaluation protocol](evaluation/contextual/README.md).
 These are finite extraction rules; independent human validation is still pending.
 
+## Know the current system
+
+See the [current system guide](docs/SYSTEM_GUIDE.md) for modes, language construction,
+search, memory, references and limitations. Its content comes from the same local
+capability model used for self-questions. Ask `What can you do?`, `What are your
+limitations?`, `What mode are you in?` or `What do you have loaded?`. Self-description
+is labeled separately from source-backed answers; it is software metadata, not
+consciousness or independent verification. Historical papers describe their own
+versions; this guide describes the current implementation.
+
 ## Shared language planner
 
 Every chat reply passes through a deterministic discourse planner before it is
@@ -217,7 +227,7 @@ nothing else.
 | `mplpb_combined/ledger.py` | The folder as a ledger: status, lineage, depth, validation, writing, the log |
 | `mplpb_combined/reader.py` | The answer rule, profiles, hubs |
 | `mplpb_combined/killtest.py` | The kill test: three arms, mechanical scoring |
-| `tests/` | 417 developer-authored regression tests covering the reader, captures, conversation, source boundaries and saved state |
+| `tests/` | 421 developer-authored regression tests covering the reader, captures, conversation, source boundaries and saved state |
 | `examples/studio/` | 25 pages about running a pottery studio; the kill-test corpus |
 | `examples/spec/` | The format described as ten pages in the format |
 | `examples/hub/` | Two pointers, one at each of the above |
