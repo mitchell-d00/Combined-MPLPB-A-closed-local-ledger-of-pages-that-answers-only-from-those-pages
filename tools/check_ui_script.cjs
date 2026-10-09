@@ -13,7 +13,7 @@ function runtime(protocol='http:',saved={}){
  for(const key of ['theme','setting','profile','page-status'])elements[key].value=({theme:'light',setting:'fantasy',profile:'internal','page-status':'all'})[key];
  const tabs=['explore','ask','chat','history','experiment','help'].map(key=>{const e=new Element('tab-'+key);e.dataset.view=key;return e;});
  let hold=null;
- const context=vm.createContext({console,URLSearchParams,Date,Number,String,JSON,Error,matchMedia:()=>({matches:false}),location:{protocol,search:''},localStorage:{getItem:k=>storage[k]||null,setItem:(k,v)=>storage[k]=v},document:{getElementById:k=>{assert.ok(elements[k],k);return elements[k];},querySelectorAll:q=>q==='[data-view]'?tabs:['explore','ask','chat','history','experiment','help'].map(k=>elements[k]),documentElement:{dataset:{}},addEventListener:(key,fn)=>documentEvents[key]=fn},fetch:async(url,options)=>{
+ const context=vm.createContext({console,URL,URLSearchParams,Date,Number,String,JSON,Error,matchMedia:()=>({matches:false}),location:{protocol,search:''},localStorage:{getItem:k=>storage[k]||null,setItem:(k,v)=>storage[k]=v},document:{getElementById:k=>{assert.ok(elements[k],k);return elements[k];},querySelectorAll:q=>q==='[data-view]'?tabs:['explore','ask','chat','history','experiment','help'].map(k=>elements[k]),documentElement:{dataset:{}},addEventListener:(key,fn)=>documentEvents[key]=fn},fetch:async(url,options)=>{
  requests.push(url);const u=new URL(url,'http://localhost');let data,status=200;
  if(u.pathname==='/api/state')data=fixtures.state;
  else if(u.pathname==='/api/inventory')data=fixtures.inventory[u.searchParams.get('corpus')+'|'+u.searchParams.get('profile')];
@@ -46,9 +46,15 @@ async function tick(){for(let i=0;i<20;i++)await Promise.resolve();}
  assert.ok(!injected.includes('<img'));assert.ok(!injected.includes('<script>'));assert.ok(injected.includes('&lt;img'));
  r.elements.corpus.value='logic';r.elements.profile.value='internal';await r.run('chatSend(\"relate Dungeons and Dragons -> game\")');assert.match(r.elements['chat-messages'].innerHTML,/TYPE-2/);await r.run('chatSend(\"who made you?\")');assert.match(r.elements['chat-messages'].innerHTML,/Mitchell D. McPhetridge/);
  const resumed=runtime('http:',r.storage);await tick();assert.match(resumed.elements['chat-messages'].innerHTML,/Mitchell D. McPhetridge/);assert.match(resumed.elements['chat-messages'].innerHTML,/TYPE-2/);assert.match(resumed.elements['chat-status'].textContent,/resumed/);
+ assert.match(r.run('linkText("Visit https://example.org/path?q=1&x=2.")'),/href="https:\/\/example.org\/path\?q=1&amp;x=2"/);
+ assert.ok(!r.run('linkText("javascript:alert(1) <img src=x> https://user:pass@example.org")').includes('<a'));
+ assert.match(r.run('chatText("First\\nLast",["First","Last"])'),/data-topic="Last"/);
+ assert.match(r.run('linkText("https://en.wikipedia.org/wiki/Fossil_(disambiguation).")'),/href="https:\/\/en.wikipedia.org\/wiki\/Fossil_\(disambiguation\)"/);
  const prefs=JSON.parse(r.storage['mplpb-ui-preferences']);assert.deepEqual(Object.keys(prefs).sort(),['corpus','profile','setting','theme']);
  r.elements.corpus.value='canned';r.elements.profile.value='internal';r.elements.question.value='How do I clear mplpb some or all?';await r.run('query()');assert.match(r.elements.results.innerHTML,/App help/);assert.match(r.elements.results.innerHTML,/Clear selected MPLPBs/);
  await r.run('chatSend("guide me")');assert.match(r.elements['chat-messages'].innerHTML,/Step 1 of 4/);assert.match(r.elements['chat-messages'].innerHTML,/data-suggest/);
+ await r.run('chatSend("show my MPLPB")');assert.match(r.elements['chat-messages'].innerHTML,/data-topic="Budget guide"/);
+ r.elements['chat-messages'].events.click({target:{closest:selector=>selector==='[data-topic]'?{dataset:{topic:'Budget guide'}}:null}});await tick();assert.match(r.elements['chat-messages'].innerHTML,/Topic selected: Budget guide/);
  r.elements.corpus.value='canned';r.run('corpusChanged()');await tick();let release;r.holdNext(resolve=>{release=resolve;});const pending=r.run('query()');await tick();r.elements.profile.value='external';r.elements.profile.events.change();release();await pending;assert.equal(r.elements.results.innerHTML,'');
  const off=runtime('file:');await tick();assert.equal(off.requests.length,0);assert.equal(off.elements.connection.hidden,false);assert.equal(off.elements.workspace.hidden,true);
  console.log('PASS: script workflow, source controls, profile changes, clarification, history, experiment, chat/rule/creator rendering, escaping, preferences, stale responses and file-mode instructions. No browser rendering performed.');

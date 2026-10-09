@@ -33,7 +33,7 @@ def main():
                     data['pages'][corpus + '|' + profile + '|' + rec['path']] = app.page(
                         corpus, rec['path'], profile)
     sid = None
-    for message in ('relate Dungeons and Dragons -> game', 'who made you?', 'guide me'):
+    for message in ('relate Dungeons and Dragons -> game', 'who made you?', 'guide me', 'show my MPLPB', 'topic Budget guide'):
         data['chats'][message] = app.chat(dict(corpus='logic', message=message, session=sid))
         sid = data['chats'][message]['session']
     data['resume'] = app.resume_chat(dict(session=sid))

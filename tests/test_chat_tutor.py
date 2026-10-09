@@ -53,6 +53,7 @@ class TutorTests(unittest.TestCase):
         self.assertIn('Dungeons and Dragons',result['message'])
         self.assertIn('topic Dungeons and Dragons',result['suggestions'])
         self.assertEqual(result['authority'],'local_inventory')
+        self.assertIn('Dungeons and Dragons',result['topics'])
 
     def test_learning_request_offers_choices_without_remote_action(self):
         with patch.object(self.app,'prepare_search',side_effect=AssertionError('No automatic crawl')):

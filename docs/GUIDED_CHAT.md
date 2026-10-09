@@ -38,3 +38,11 @@ Chat supports a finite conversational layer for handling topics. With a page sel
 
 “Keep it short” and “give me more detail” save a conversational style in the current chat. This changes navigation replies, not source quotations. Each reply has a `response_structure` containing its intent, topic, style and next step, with `factual_claims: false`. Its authority is `conversation_structure`, with no source evidence asserted. Topic labels are saved selections, not newly verified source claims. Factual questions still use the existing reader and provenance gate. Opinions are not fabricated. Unrecognized wording is not general semantic understanding.
 
+
+## Clickable chat links
+
+Every title displayed by a new “show my MPLPB” response is selectable directly in chat. Selecting it sends an exact local topic-selection request through the existing reader, retaining profile and provenance checks. Suggested questions still fill the composer for review before Send. Historical list turns without structured title metadata remain plain text; ask for a fresh list to get selectable titles.
+
+HTTP and HTTPS addresses in chat messages, quoted relation evidence and decision details open in a separate tab. Source text is escaped before rendering. Other schemes and URLs containing embedded credentials remain text. Clicking a web link visits that site; it does not import it or verify it as MPLPB evidence.
+
+Walk back: revert the link renderer and structured topic-list field together; saved chat text and source pins need no rewriting.

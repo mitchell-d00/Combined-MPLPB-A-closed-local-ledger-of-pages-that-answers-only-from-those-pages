@@ -254,7 +254,7 @@ class App:
             elif T.key(message) in T.LIST:
                 try:
                     pages=[p for p in self.inventory(corpus,profile)['pages'] if p['eligible']]
-                    result=M.reply('collection','Your MPLPB has '+str(len(pages))+' eligible page(s).\n\n'+('\n'.join(p['title'] for p in pages[:40]) if pages else 'No eligible pages are loaded. Choose a Wikipedia mode and build a topic collection.')+'\n\nWhich page would you like to explore?',session['context'],'INVENTORY-1',authority='local_inventory',suggestions=['topic '+p['title'] for p in pages[:4]]+['how do I search?','guide me'])
+                    result=M.reply('collection','Your MPLPB has '+str(len(pages))+' eligible page(s).\n\n'+('\n'.join(p['title'] for p in pages[:40]) if pages else 'No eligible pages are loaded. Choose a Wikipedia mode and build a topic collection.')+'\n\nWhich page would you like to explore?',session['context'],'INVENTORY-1',authority='local_inventory',topics=[p['title'] for p in pages[:40]],suggestions=['topic '+p['title'] for p in pages[:4]]+['how do I search?','guide me'])
                 except (ValueError,OSError) as exc:
                     result=M.reply('clarify','This collection is blocked: '+str(exc)+'\n\nIts saved files remain. Use search to build a fresh collection under this runtime, or refresh the old collection by explicitly reimporting its titles. You can also use the confirmed clear controls. Help still works.',None,'INVENTORY-BLOCKED',suggestions=['how do I search?','how do I clear all?','guide me'])
             elif message.lower().startswith('search '):
