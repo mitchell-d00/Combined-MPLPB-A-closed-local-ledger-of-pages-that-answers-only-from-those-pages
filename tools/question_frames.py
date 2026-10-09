@@ -1,6 +1,6 @@
 """Shared deterministic question framing; wording normalization is not evidence."""
 import re
-VERSION='question-frames-v1'
+VERSION='question-frames-v2'
 
 
 def normalize(message):
@@ -14,7 +14,7 @@ def normalize(message):
         before=text
         text=re.sub(r'^please[, ]+','',text,flags=re.I)
         text=re.sub(r'[, ]+please[?.!]*$','',text,flags=re.I)
-        text=re.sub(r'^(?:can|could|would|will) (?:you|we) (?:please )?(?=(?:tell|explain|describe|summari[sz]e|give|chat|talk|discuss|help|teach|explore)\b)','',text,flags=re.I)
+        text=re.sub(r'^(?:can|could|would|will) (?:you|we) (?:please )?(?=(?:tell|explain|describe|summari[sz]e|give|chat|talk|discuss|help|teach|explore|walk|share|say|introduce)\b)','',text,flags=re.I)
         text=re.sub(r"^(?:i (?:want|would like|wish) to know|i'd like to know|i(?: am|'m| was) wondering|do you know|any idea) (?:about )?(?=(?:what|who|where|when|why|how|which)\b)",'',text,flags=re.I)
         text=re.sub(r'^(?:tell me|explain(?: to me)?|help me understand) (?=(?:what|who|where|when|why|how|which)\b)','',text,flags=re.I)
         if text==before:break
@@ -25,7 +25,7 @@ def normalize(message):
 def overview_subject(message):
     text=normalize(message)
     if re.match(r"^what about (?:its |.+?'s |the (?:size|diameter|radius|age|height|length|width|mass|distance|orbital period) of )",text,re.I):return None
-    match=re.fullmatch(r"(?:(?:let's |lets |let us )?(?:(?:chat|talk)(?: to me)? about|discuss|explore(?: an idea about| an idea| the idea of)?)|tell (?:me|us)(?: more| something| a little(?: more)?| a bit(?: more)?)? (?:about|regarding)|give me (?:an overview|(?:some )?information|(?:some )?facts|a summary|(?:some )?details) (?:about|on|of)|what (?:can you tell me|do you know) about|help me (?:understand|learn about)|teach me about|(?:explain|describe|summari[sz]e)|i (?:want|would like) to (?:learn|hear|know) about|i'd like to know about|can i ask you about|do you have (?:information|info) (?:on|about)|what about|i(?: am|'m) interested in)\s+(.+?)[?.!]*",text,re.I)
+    match=re.fullmatch(r"(?:(?:let's |lets |let us )?(?:(?:chat|talk)(?: to me)? about|discuss|explore(?: an idea about| an idea| the idea of)?)|tell (?:me|us)(?: more| something| a little(?: more)?| a bit(?: more)?)? (?:about|regarding)|give me (?:an overview|(?:some )?information|(?:some )?facts|a summary|(?:some )?details) (?:about|on|of)|what (?:can you tell me|do you know) about|help me (?:understand|learn about)|teach me about|(?:explain|describe|summari[sz]e)|i (?:want|would like) to (?:learn|hear|know) about|i'd like to know about|can i ask you about|do you have (?:information|info) (?:on|about)|walk me through|fill me in on|bring me up to speed on|share (?:some )?(?:facts|information|details) (?:about|on)|(?:a quick )?overview of|what can (?:we|i) learn about|i(?: would|'d) (?:like|love) to hear about|what about|i(?: am|'m) interested in)\s+(.+?)[?.!]*",text,re.I)
     if not match:return None
     subject=match[1].strip()
     if re.match(r'^summari[sz]e ',text,re.I) and subject.casefold() in {'it','this','that','this topic','that topic'}:return None

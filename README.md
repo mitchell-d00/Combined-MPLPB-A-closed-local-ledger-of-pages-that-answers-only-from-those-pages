@@ -23,9 +23,19 @@ Say `what are you?`, `why do you exist?`, `I'm tired`, or `can we talk about not
 for casual conversation. Say `I had a bad day`, then `sure` to start a
 chat about your day; `just listen`, `change the subject`, and `not now` steer it.
 This uses saved local conversation rules and needs no AI account or model.
-Mentioning an exact eligible page title in a recognized
-casual phrase invites a more serious, source-backed conversation. It waits for
-your acceptance and checks the page again before selecting it.
+Conversation works in both Chat and Serious modes. Chat clears the active scope
+but retains saved pages; Serious restores the selected collections. Load all
+selects every available collection and displays the loaded scope. Topic requests
+can read eligible saved pages in Chat; Serious limits factual replies to loaded
+collections. Sources appear below factual replies, while casual wording is
+explicitly distinguished from source evidence.
+
+Common phrasing rules recognize polite questions, topic overviews, follow-ups,
+and composed requests such as `Say hi to the OpenAI forum and tell them what you are`.
+`Say hello to the astronomy club and tell them about Moon` can combine a greeting
+with a locally sourced overview. These draft replies in the chat; they do not post
+externally. Exhausted sources offer search or idea exploration instead of an
+endless “Tell me more” loop. See [current conversation behavior](docs/GROUNDED_CHAT.md).
 
 The repository includes these local resources, with original licenses and source pins:
 
@@ -44,6 +54,10 @@ Conversation is rule-based, not a general language model. Grammar data is availa
 as a reference; a syntax parser is not enabled. The encyclopedia is a selected set,
 not all of Wikipedia. Dictionary senses and synonyms never expand ledger ownership
 or bypass source checks. Source hashes establish byte consistency, not factual truth.
+English Wikipedia is the default optional online encyclopedia; Simple English
+Wikipedia is also available. Enabled automatic lookup can acquire missing or
+exhausted topic material and save revision-pinned pages locally. This is access
+to the online catalogue, not a full offline encyclopedia download.
 
 ```
 R = (id, scope, status, hash, derived_from, origin_depth)
@@ -193,7 +207,7 @@ nothing else.
 | `mplpb_combined/ledger.py` | The folder as a ledger: status, lineage, depth, validation, writing, the log |
 | `mplpb_combined/reader.py` | The answer rule, profiles, hubs |
 | `mplpb_combined/killtest.py` | The kill test: three arms, mechanical scoring |
-| `tests/` | 220 tests: 165 original, 11 delivery/clarification, and 44 wiki capture tests |
+| `tests/` | 412 developer-authored regression tests covering the reader, captures, conversation, source boundaries and saved state |
 | `examples/studio/` | 25 pages about running a pottery studio; the kill-test corpus |
 | `examples/spec/` | The format described as ten pages in the format |
 | `examples/hub/` | Two pointers, one at each of the above |
@@ -214,6 +228,18 @@ sha256sum -c killtest/probes.sha256              # run inside killtest/
 ```
 
 ## What the kill test showed
+
+The papers and frozen experiment reports describe the versions they evaluated;
+the current tree includes later conversation and browser features. Test counts
+and current behavior are documented here and in `docs/GROUNDED_CHAT.md`, not
+retroactively claimed as paper results.
+
+The core “owns the question” rule remains lexical: majority scope-word overlap,
+then an every-word prose fallback when no scope owns the question. That is not
+semantic entailment. A unique match can still answer the wrong kind of question.
+Conversational normalization and dictionary navigation do not remove this limit.
+Independent adversarial evaluation on externally authored corpora remains pending;
+passing the regression suite does not establish factual precision in deployment.
 
 ### Evaluation additions
 

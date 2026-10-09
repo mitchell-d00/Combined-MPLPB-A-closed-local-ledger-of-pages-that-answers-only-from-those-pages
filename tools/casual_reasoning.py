@@ -3,7 +3,7 @@ import re
 from tools import deterministic_mind as M
 from tools import reduction as R
 
-VERSION='casual-reasoning-v2'
+VERSION='casual-reasoning-v3'
 NOTICE='Deterministic chat; not MPLPB-supported.'
 
 
@@ -23,6 +23,21 @@ def respond(message,memory):
     state=memory.setdefault('chat_discourse',{'turn':0})
     state['turn']+=1
     state.pop('followup_of',None)
+    # Compose compatible speech acts before literal repetition; quoted/exact
+    # repetition stays literal. Audience text is a label, never an instruction.
+    introduction=re.fullmatch(r"(?:(?:please |(?:can|could|would|will) you )*)(?:say (?:hi|hello)|give a greeting|introduce yourself) to (.{1,100}?)(?: and (?:tell (?:them|everyone) (?:what|who) you are|(?:explain|describe) (?:what|who) you are|introduce yourself))?[?.!]*",message.strip(),re.I)
+    if introduction and ' and ' not in introduction[1].casefold():
+        audience=introduction[1].strip()
+        describe=bool(re.search(r'\band\b',message,re.I)) or 'introduce yourself' in message.casefold()
+        body='Hello to '+audience+'!'
+        if describe:
+            body+='\n\nI’m MPLPB’s little monster. I use explicit rules to interpret requests, follow our conversation and construct replies; I don’t use an LLM. I can chat in either mode. When I use MPLPB facts, I keep their source references and collection boundaries. Casual wording is not source evidence.'
+        state.update(topic='identity' if describe else 'greeting')
+        return M.reply('conversation',body,None,'CASUAL-AUDIENCE-INTRODUCTION',authority='conversation_structure',
+                       suggestions=['how do you work?','what are your rules?'],
+                       response_structure={'intent':'audience_introduction','factual_claims':False,'mplpb_supported':False,
+                                           'engine':VERSION,'acts':['greeting','system_description'] if describe else ['greeting'],
+                                           'description_basis':'local authored system rules','audience':audience,'sent_externally':False})
     echo=re.fullmatch(r"(?:please\s+)?(?:(?:can|could|would) you\s+)?(?:say( exactly| only)?\s+|repeat after me[: ]+|repeat\s+)(.+)",message.strip(),re.I|re.S)
     if state.get('topic')=='echo' and key in {'again','say it again','repeat it'}:
         echo=None
@@ -88,12 +103,12 @@ def respond(message,memory):
     detail={
         'ideas':'Which sounds best: a story, a question, or talking about your day?',
         'story':'',
-        'identity':'I can still chat, keep track of our conversation and help with wording. Focus mode is where I use loaded MPLPB pages for supported answers.',
+        'identity':'I can chat in either mode, keep track of our conversation and help with wording. Factual replies cite source pages; Serious mode limits those answers to its loaded collections.',
         'rules':'1. Identify your request, context and mode.\n2. Reduce the candidate replies using those constraints.\n3. Choose equivalent conversational wording by a fixed order; clarify materially different meanings.\n4. If nothing qualifies, explain what is missing.\n5. MPLPB mode stays serious and requires source support; reducing alternatives never creates evidence.',
         'construction':'Some replies use written explanations; social replies can combine phrases and WordNet-checked adjectives. The same message and saved state produce the same reply.',
         'experience':'Want me to listen, ask questions, or help you organize your thoughts?',
         'conversation':'Would you prefer a question, a joke, or a listening ear?',
-        'support':'Dictionary answers carry their own reference. For page-supported claims, load an MPLPB and use focus mode.',
+        'support':'Dictionary answers carry their own reference. Page-supported replies show their MPLPB sources separately from conversational wording.',
         'greeting':'',
     }[topic]
     if topic=='story':

@@ -105,6 +105,34 @@ class BrowserBridgeTests(unittest.IsolatedAsyncioTestCase):
             self.assertEqual(failed['automatic_lookup']['status'],'failed')
             self.assertTrue(B.app.resume_chat({'session':result['session']})['chain_intact'])
 
+    async def test_exhausted_local_text_expands_once_without_skipping_new_source(self):
+        key=B.app.create_collection({'name':'Local dogs'})['corpus']
+        B.app.import_source({'corpus':key,'title':'Dogs','url':'https://example.org/dogs','text':'Dogs are animals.'})
+        initial=B.app.chat({'corpus':key,'message':'load MPLPB'})
+        sid=initial['session']
+        B.app.chat({'corpus':key,'session':sid,'message':'Tell me about dogs'})
+        async def remote(url):
+            q=parse_qs(urlsplit(url).query)
+            if 'srsearch' in q:
+                payload={'query':{'search':[{'title':'Dog','pageid':1}]}}
+            else:
+                text='Dogs are animals. Dogs communicate with body language.'
+                payload={'query':{'pages':{'1':{'title':'Dog','pageid':1,'revisions':[{'revid':101,'timestamp':'2026-10-08T12:00:00Z','slots':{'main':{'*':text,'sha1':hashlib.sha1(text.encode()).hexdigest(),'contentmodel':'wikitext'}}}]}}}}
+            return json.dumps(payload).encode(),{'url':url,'retrieved_at':'2026-10-08T12:01:00Z','http_status':200}
+        data={'corpus':key,'session':sid,'message':'Tell me more about dogs','wiki':'english','auto_wiki':True}
+        with patch.object(B,'remote',remote):
+            r=await B.dispatch('/api/chat',data)
+        self.assertEqual(r['automatic_lookup']['status'],'captured')
+        self.assertIn('body language',r['response']['message'])
+        self.assertNotIn('Dogs are animals.',r['response']['message'])
+        self.assertEqual(r['response']['environment']['mode'],'focus')
+        self.assertIn(key,r['response']['environment']['corpora'])
+        with patch.object(B,'remote',AsyncMock(side_effect=AssertionError('Do not fetch again'))):
+            r=await B.dispatch('/api/chat',data)
+        self.assertTrue(r['response']['source_exhausted'])
+        self.assertEqual(r['automatic_lookup']['status'],'already_checked')
+        self.assertTrue(B.app.resume_chat({'session':sid})['chain_intact'])
+
     async def test_general_web_build_is_automatic_and_token_not_logged(self):
         raw=b'Dinosaurs lived in the past.'
         plan={'schema':1,'query':'dinosaurs','sources':[{'title':'Dinosaurs','url':'https://example.org/dinosaurs','raw':raw,'text':raw.decode(),'source_sha256':W.digest(raw),'observed_at':'2026-10-08T12:00:00Z'}], 'edges':[], 'failures':[], 'limits':{'pages':5}}

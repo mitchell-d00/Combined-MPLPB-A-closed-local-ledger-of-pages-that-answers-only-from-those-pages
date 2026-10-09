@@ -151,5 +151,11 @@ const factualTopic=await call('/api/chat',{corpus:'logic',session:legacyCasual.s
 if(!factualTopic.response.sources.length||factualTopic.response.response_structure?.intent!=='source_exploration')throw Error('WASM polite factual topic lookup failed');
 const factualMore=await call('/api/chat',{corpus:'logic',session:legacyCasual.session,message:'tell me more',default_chat:true});
 if(!factualMore.response.sources.length)throw Error('WASM factual continuation lost sources');
+const forumIntro=await call('/api/chat',{corpus:'logic',session:legacyCasual.session,message:'Say hi to the OpenAI forum and tell them what you are'});
+if(!forumIntro.response.message.startsWith('Hello to the OpenAI forum!')||forumIntro.response.sources.length||forumIntro.response.response_structure?.acts?.length!==2)throw Error('WASM compound introduction failed');
+await call('/api/chat',{corpus:'logic',session:legacyCasual.session,message:'load MPLPB',loaded_corpora:['logic','system']});
+await call('/api/chat',{corpus:'logic',session:legacyCasual.session,message:'chat mode'});
+const restoredMode=await call('/api/chat',{corpus:'logic',session:legacyCasual.session,message:'serious mode'});
+if(JSON.stringify(restoredMode.response.environment.corpora)!==JSON.stringify(['logic','system']))throw Error('WASM scope restoration failed');
 console.log('PASS real WebAssembly: ownership, relation proof, summary, withholding, memory, saved relaunch, fixture imports, isolated collections, offline references, grounded follow-ups and social turn-taking.');
 fs.writeFileSync(path.join(path.dirname(htmlPath),'wasm-validation.json'),JSON.stringify({runtime:bundle.runtime_version,passed:true,corpora:state.corpora.map(x=>x.key),ambiguous:ambiguous.reader.kind,relation:relation.response.kind,summary:summary.response.kind,withheld:withheld.reader.kind,chain_intact:saved.chain_intact,fixture_import_passed:true,virtual_save_relaunch_passed:true,browser_layout_tested:false,indexeddb_tested:false,live_wiki_tested:false},null,2));

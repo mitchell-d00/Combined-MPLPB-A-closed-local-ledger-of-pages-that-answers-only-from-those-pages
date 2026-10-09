@@ -77,16 +77,32 @@ def lookup(word):
             senses.append({'id':identifier,'part_of_speech':pos,'definitions':source.get('definition',[]),'synonyms':source.get('members',[]),'examples':source.get('example',[]),'relations':{k:v for k,v in source.items() if k in {'hypernym','hyponym','antonym','similar','meronym','holonym'}}})
     return senses,m
 
+def lookup_forms(word):
+    """Conservative lexical fallback; never expands ledger ownership fields."""
+    word=word.strip().casefold()
+    senses,m=lookup(word)
+    if senses:return word,senses,m
+    candidates=[]
+    if word.endswith('ies'):candidates.append(word[:-3]+'y')
+    if word.endswith('es'):candidates.append(word[:-2])
+    if word.endswith('s') and not word.endswith('ss'):candidates.append(word[:-1])
+    for base in candidates:
+        if len(base)<2:continue
+        senses,m=lookup(base)
+        if senses:return base,senses,m
+    return word,[],m
+
 def handle(message,context):
     command=message.strip()
     if command.casefold().strip('?.!') in {'language resources','reference resources','grammar resources','grammar guide'}:
         m=verify()
-        return M.reply('reference','Offline references: Open English WordNet 2025 for definitions, synonyms and sense relations; CMU Link Grammar English data for language structures; 23 revision-pinned Simple English Wikipedia pages.\n\nTry “define dog”, “synonyms dog”, or choose the Reference encyclopedia corpus. Grammar data is archived for development; this app does not run the Link Grammar parser. Synonyms never become page ownership words automatically.',context,'REFERENCE-CATALOG',authority='resource_catalog',suggestions=['define dog','synonyms dog','show my MPLPB'],resources=m['resources'])
+        return M.reply('reference','Offline references: Open English WordNet 2025 for definitions, synonyms and sense relations; CMU Link Grammar English data for language structures; 23 bundled revision-pinned Simple English Wikipedia pages, plus on-demand access to English and Simple English Wikipedia through the source selector. Captured articles are saved locally; the whole encyclopedia is not bundled.\n\nTry “define dog”, “synonyms dog”, or choose the Reference encyclopedia corpus. Grammar data is archived for development; this app does not run the Link Grammar parser. Synonyms never become page ownership words automatically.',context,'REFERENCE-CATALOG',authority='resource_catalog',suggestions=['define dog','synonyms dog','show my MPLPB'],resources=m['resources'])
     match=re.fullmatch(r'(?:define|dictionary|synonyms(?: for)?|thesaurus)\s+(.{1,80})|what does (.{1,80}) mean[?.!]*',command,re.I)
     if not match:return None
-    word=(match[1] or match[2]).rstrip('?.!').strip();senses,m=lookup(word)
+    word=(match[1] or match[2]).rstrip('?.!').strip();headword,senses,m=lookup_forms(word)
     if not senses:return M.reply('reference_missing','No exact entry for “'+word+'” in Open English WordNet 2025. Try a dictionary headword. This is not a claim that the word does not exist.',context,'REFERENCE-MISSING',authority='lexical_reference',suggestions=['language resources'])
-    lines=['Open English WordNet 2025 · '+word+'\nMeanings are separate senses; synonyms are not interchangeable in every context.']
+    lines=['Open English WordNet 2025 · '+headword+'\nMeanings are separate senses; synonyms are not interchangeable in every context.']
+    if headword!=word.casefold():lines.append('No exact entry for '+word+'; showing the possible base form '+headword+'.')
     for sense in senses[:12]:
         lines.append(sense['id']+' ('+sense['part_of_speech']+')\n'+'; '.join(sense['definitions'])+'\nSynset words: '+', '.join(sense['synonyms']))
     if len(senses)>12:lines.append('Showing 12 of '+str(len(senses))+' senses.')

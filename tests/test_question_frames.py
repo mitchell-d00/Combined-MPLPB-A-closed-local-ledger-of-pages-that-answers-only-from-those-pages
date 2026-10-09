@@ -13,7 +13,7 @@ class QuestionFrameTests(unittest.TestCase):
                   'Will you talk to me about {}?','Give me some facts on {}','Explore an idea about {}', 'Would you mind telling me about {}?',
                   'Could you give me some information about {}?', "I'd like to know about {}",
                   'Can I ask you about {}?', 'Tell me a bit more about {}',
-                  'Do you have info on {}?', 'What about {}?', 'Would you mind explaining {}?']
+                  'Do you have info on {}?', 'What about {}?', 'Would you mind explaining {}?', 'Walk me through {}', 'Could you walk me through {}?', 'Fill me in on {}', 'Bring me up to speed on {}', 'Share some details about {}', 'Can you share some facts on {}?', 'A quick overview of {}', 'What can we learn about {}?', "I'd love to hear about {}", 'I would like to hear about {}']
         for topic in ['the Moon','electric motors','a banana']:
             for pattern in patterns:
                 text=pattern.format(topic)

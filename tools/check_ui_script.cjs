@@ -61,6 +61,9 @@ async function tick(){for(let i=0;i<20;i++)await Promise.resolve();}
  const beforeChat=r.requests.length;r.elements['chat-send'].disabled=true;r.elements['chat-casual'].events.click();await tick();assert.equal(r.requests.length,beforeChat);r.elements['chat-send'].disabled=false;
  r.elements['chat-casual'].events.click();await tick();assert.match(r.elements['chat-mode'].textContent,/Just chat/);assert.match(r.elements['chat-messages'].innerHTML,/active MPLPB topic is unloaded/);
  r.elements['chat-load-all'].events.click();await tick();assert.match(r.elements['chat-mode'].textContent,/Serious mode/);r.elements['chat-scope'].selectedOptions=[{value:'logic'},{value:'system'}];r.elements['chat-load-selected'].events.click();await tick();assert.match(r.elements['chat-mode'].textContent,/2 MPLPB loaded/);
+ assert.match(r.elements['chat-scope'].innerHTML,/value="logic" selected/);assert.match(r.elements['chat-scope-status'].textContent,/2 collections loaded/);
+ r.elements['chat-mode-chat'].events.click();await tick();assert.match(r.elements['chat-mode'].textContent,/Just chat/);assert.ok(!r.elements['chat-scope'].innerHTML.includes(' selected'));
+ r.elements['chat-mode-serious'].events.click();await tick();assert.match(r.elements['chat-mode'].textContent,/2 MPLPB loaded/);assert.match(r.elements['chat-scope'].innerHTML,/value="system" selected/);
  const freshChat=runtime();await tick();freshChat.elements.corpus.value='logic';await freshChat.run('chatSend("So hi?")');assert.match(freshChat.elements['chat-messages'].innerHTML,/Deterministic chat; not MPLPB-supported/);assert.match(freshChat.elements['chat-mode'].textContent,/0 MPLPB loaded/);
  const footer=r.run(`chatSources({sources:[{title:'<bad>',path:'moon.html',corpus:'moon-corpus',hash:'sha256:abc'}]})`);
  assert.match(footer,/Sources/);assert.match(footer,/data-source-corpus="moon-corpus"/);assert.ok(!footer.includes('<bad>'));assert.match(footer,/&lt;bad&gt;/);

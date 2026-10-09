@@ -42,3 +42,8 @@ class ReferenceTests(unittest.TestCase):
         self.assertIsNone(F.handle('How did dinosaurs become extinct?',None))
         self.assertIsNone(F.handle('what are you?',None))
 
+    def test_plural_fallback_requires_an_existing_headword(self):
+        headword,senses,_=F.lookup_forms('dogs')
+        self.assertEqual(headword,'dog');self.assertTrue(senses)
+        self.assertFalse(F.lookup_forms('zzzzunknowns')[1])
+

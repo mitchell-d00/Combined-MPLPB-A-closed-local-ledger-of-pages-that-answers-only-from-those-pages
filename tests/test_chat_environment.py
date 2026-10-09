@@ -30,6 +30,44 @@ class ChatEnvironmentTests(unittest.TestCase):
         r=self.chat('how big is it?',sid)['response']
         self.assertIn('20 km',r['message']);self.assertNotIn('10 km',r['message'])
         self.assertEqual(r['sources'][0]['corpus'],self.b)
+
+    def test_mode_switch_restores_selected_scope_after_reload(self):
+        sid=self.chat('load MPLPB',loaded_corpora=[self.a,self.b])['session']
+        r=self.chat('switch to chat mode',sid)['response']
+        self.assertEqual(r['environment']['corpora'],[])
+        self.app=App(topic_base=self.base)
+        r=self.chat('switch to serious mode',sid)['response']
+        self.assertEqual(r['environment']['corpora'],[self.a,self.b])
+        self.assertTrue(self.app.resume_chat({'session':sid})['chain_intact'])
+
+    def test_greeting_plus_topic_reads_local_sources_without_changing_scope(self):
+        sid=self.chat('load MPLPB',loaded_corpora=[self.a])['session']
+        r=self.chat('Could you say hi to the astronomy club and tell them about Moon?',sid)['response']
+        self.assertTrue(r['message'].startswith('Hello to the astronomy club!'))
+        self.assertIn('10 km',r['message']);self.assertNotIn('20 km',r['message'])
+        self.assertEqual(r['environment']['corpora'],[self.a])
+        self.assertEqual({s['corpus'] for s in r['sources']},{self.a})
+        self.assertFalse(r['composition']['sent_externally'])
+        r=self.chat('Explore an idea about Moon',sid)['response']
+        self.assertEqual(r['sources'],[])
+        self.assertEqual(r['environment']['corpora'],[self.a])
+        self.assertFalse(r['response_structure']['factual_claims'])
+
+    def test_audience_introduction_composes_acts_in_both_modes(self):
+        for mode in ['chat mode','load all MPLPB']:
+            sid=self.chat(mode)['session']
+            expected=self.app.sessions[sid]['environment'].copy()
+            for phrase in ['say hi to the OpenAI forum and tell them what you are',
+                           'Could you say hello to my friends and introduce yourself?',
+                           'introduce yourself to our reading group']:
+                r=self.chat(phrase,sid)['response']
+                self.assertEqual(r['response_structure']['acts'],['greeting','system_description'])
+                self.assertIn('explicit rules',r['message'])
+                self.assertFalse(r['response_structure']['sent_externally'])
+                self.assertEqual(r['sources'],[])
+                self.assertEqual(r['environment'],expected)
+            r=self.chat('say exactly hi to my friends and introduce yourself',sid)['response']
+            self.assertEqual(r['message'],'hi to my friends and introduce yourself')
     def test_all_mode_snapshot_and_federated_conflicts(self):
         sid=self.chat('load all MPLPB')['session']
         self.assertEqual(set(self.app.sessions[sid]['environment']['corpora']),set(self.app.roots()))

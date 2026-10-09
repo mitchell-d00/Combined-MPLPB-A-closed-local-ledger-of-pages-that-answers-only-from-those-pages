@@ -8,7 +8,7 @@ from tools import idea_chat as IC
 from tools import chat_logic as C, chat_tutor as T, deterministic_mind as M
 from tools import social_chat as S, grounded_chat as Q, reference_resources as F
 
-VERSION = 'chat-environment-v6'
+VERSION = 'chat-environment-v7'
 
 
 def reply(body, context=None, **extra):
@@ -21,6 +21,9 @@ def load(app, session, keys):
     if keys == 'all': keys = sorted(roots)
     if not isinstance(keys, list) or len(keys) > 64 or any(not isinstance(k,str) or k not in roots for k in keys) or len(set(keys)) != len(keys):
         raise ValueError('Choose distinct available MPLPB collections (up to 64), or none.')
+    previous=session.get('environment',{})
+    if previous.get('mode')=='focus' and previous.get('corpora'):
+        session['saved_focus_corpora']=list(previous['corpora'])
     session['environment'] = {'mode': 'focus' if keys else 'chat', 'corpora': list(keys), 'focus_corpus': None}
     session['context'] = None
     mind = session['mind']
@@ -93,6 +96,9 @@ def factual_body(answer):
         if title:
             check=re.sub(r'^(?:'+re.escape(title)+r'\s*)+', '',check,flags=re.I)
         if not check or re.match(r'^(?:Source(?: capture| authorship)?:|License:)',check,re.I):continue
+        # Captured HTML can flatten a heading into the first sentence. Remove
+        # only a duplicated title prefix, retaining the sentence's own subject.
+        if title:text=re.sub(r'^'+re.escape(title)+r'\s+(?='+re.escape(title)+r'\b)', '',text,flags=re.I)
         lines.append(text)
     return '\n'.join(lines)
 
@@ -125,14 +131,20 @@ def explore_sources(app,data,session,message,corpus,profile):
     serious=env.get('mode')=='focus'
     keys=env.get('corpora',[]) if serious else sorted(app.roots())
     entries,blocked=pages(app,keys,profile)
-    candidates=[(k,p) for k,p in entries if subject and subject_key(p['title'])==subject_key(subject)]
+    names={subject_key(subject)} if subject else set()
+    if subject and re.fullmatch(r'[a-z]{1,39}s',subject_key(subject)) and not subject_key(subject).endswith('ss'):
+        headword,senses,_=F.lookup_forms(subject_key(subject))
+        if senses:names.add(headword)
+    candidates=[(k,p) for k,p in entries if subject_key(p['title']) in names]
     # Broader local navigation may return several related pages; never choose a truth winner.
-    if not candidates and request and subject:
+    if (request or followup) and subject:
         words=set(re.findall(r'[a-z0-9]+',subject_key(subject)))
-        candidates=[(k,p) for k,p in entries if words and words <= set(re.findall(r'[a-z0-9]+',subject_key(p['title'])))]
+        exact={(k,p['path']) for k,p in candidates}
+        candidates=[(k,p) for k,p in entries if (k,p['path']) in exact or (words and words <= set(re.findall(r'[a-z0-9]+',subject_key(p['title']))))]
     if not request and state.get('source_pages'):
         selected={(x['corpus'],x['path']) for x in state['source_pages']}
-        candidates=[(k,p) for k,p in entries if (k,p['path']) in selected]
+        current={(k,p['path']) for k,p in candidates}
+        candidates=[(k,p) for k,p in entries if (k,p['path']) in selected | current]
     results=[]
     if request or followup:
         for k,p in candidates:
@@ -160,19 +172,36 @@ def explore_sources(app,data,session,message,corpus,profile):
     if request:
         session['mind']['idea_chat'].update(subject=subject,sourced=True,source_pages=[{'corpus':x['corpus'],'path':x['response']['context']['path']} for x in results if x['response'].get('context')])
     excerpts=[]
-    cursor=session['mind'].get('idea_chat',{}).get('excerpt_cursor',0) if continuation else 0
+    offsets=session['mind'].get('idea_chat',{}).get('excerpt_offsets',{}) if continuation else {}
+    seen=set(session['mind'].get('idea_chat',{}).get('seen_sentences',[])) if continuation else set()
+    has_more=False
     for i,item in enumerate(results,1):
         body=factual_body(item['response'])
-        # Extract complete opening sentences; no invented connective facts.
         sentences=re.split(r'(?<=[.!?])\s+(?=[A-Z])',body)
-        part=sentences[cursor:cursor+2]
+        pin=item['response'].get('context') or item['response'].get('sources',[{}])[0]
+        key=item['corpus']+'|'+pin.get('path','')+'|'+pin.get('hash','')
+        cursor=offsets.get(key,0);part=[]
+        while cursor<len(sentences) and len(part)<2:
+            sentence=sentences[cursor];cursor+=1
+            fingerprint=' '.join(sentence.casefold().split())
+            if fingerprint not in seen:part.append(sentence);seen.add(fingerprint)
+        offsets[key]=cursor
+        if any(' '.join(t.casefold().split()) not in seen for t in sentences[cursor:]):has_more=True
         if part:excerpts.append(' '.join(part)+' ['+str(i)+']')
-    if session['mind'].get('idea_chat'):session['mind']['idea_chat']['excerpt_cursor']=cursor+2
-    if not excerpts:excerpts=['That’s all the factual text I have in these matching pages. You can search for more sources or ask about a detail.']
-    result=M.reply('federated_answers',('Sure; here’s a starting point about '+subject+'.' if subject else 'Here’s what I found.')+'\n\n'+'\n\n'.join(excerpts),session.get('context') if serious else None,'CHAT-SOURCES',authority='separate_source_results',scope_results=results,sources=[dict(s,corpus=x['corpus']) for x in results for s in x['response'].get('sources',[])],blocked_collections=blocked)
-    result['message']+='\n\nWhat would you like to know next?'
+    if session['mind'].get('idea_chat'):
+        session['mind']['idea_chat'].update(excerpt_offsets=offsets,seen_sentences=sorted(seen))
+    exhausted=not excerpts
+    if exhausted:
+        body='We’ve reached the end of the available text about '+str(subject)+'. We can find more sources or explore an idea about it.'
+    else:
+        opener=('Here’s more about '+subject+'.') if continuation else ('Let’s talk about '+subject+'.') if subject else 'Here’s what I found.'
+        body=opener+'\n\n'+'\n\n'.join(excerpts)+'\n\nWhat part interests you most?'
+    result=M.reply('federated_answers',body,session.get('context') if serious else None,'CHAT-SOURCES',authority='separate_source_results',scope_results=results,sources=[dict(s,corpus=x['corpus']) for x in results for s in x['response'].get('sources',[])],blocked_collections=blocked)
+    result['source_exhausted']=exhausted
+    result['has_more_source_text']=has_more
     result['support_notice']='Factual conversation; cited passages come from MPLPB pages. Conversational framing is not additional evidence.'
     result['suggestions']=topic_suggestions(subject,' '.join(excerpts))
+    if not has_more:result['suggestions']=['Search '+str(subject),'Explore an idea about '+str(subject)]
     result['response_structure']={'intent':'source_exploration','mode':env.get('mode','chat'),'factual_claims':True,'mplpb_supported':True,'subject':subject}
     return result
 
@@ -180,7 +209,19 @@ def explore_sources(app,data,session,message,corpus,profile):
 def handle(app, data, session, message, corpus, profile):
     message=IC.PF.normalize(message)
     key=T.casual_key(message)
-    if key in {'just chatting','chat mode','stay casual','keep chatting'}:return load(app,session,[])
+    if re.match(r'^explore an idea about ',message,re.I):
+        if not session.get('environment'):load(app,session,[])
+        result=IC.handle(message,session['mind'])
+        result['context']=session.get('context')
+        return result
+    composed=re.fullmatch(r'(?:say (?:hi|hello)|give a greeting) to (.{1,100}?) and (?:tell (?:them|everyone)|talk) about (.{1,160}?)[?.!]*',message,re.I)
+    if composed and ' and ' not in composed[1].casefold():
+        result=handle(app,data,session,'tell me about '+composed[2],corpus,profile)
+        if result:
+            result['message']='Hello to '+composed[1]+'!\n\n'+result['message']
+            result['composition']={'acts':['greeting','topic_overview'],'audience':composed[1],'sent_externally':False}
+            return result
+    if key in {'just chatting','chat mode','switch to chat','switch to chat mode','casual mode','stay casual','keep chatting'}:return load(app,session,[])
     if not data.get('default_chat') and not session.get('environment') and re.match(r'^(?:summari[sz]e |i (?:want|would like) to learn about )',message,re.I):return None
     # Topic requests keep the mode and consult available evidence before idea prompts.
     if IC.topic_request(message) and key not in {"let's talk about it",'lets talk about it','talk about it','talk about this'}:
@@ -191,8 +232,10 @@ def handle(app, data, session, message, corpus, profile):
         if not session.get('environment'):load(app,session,[])
         return explore_sources(app,data,session,message,corpus,profile) or general(message,session)
     if key in {'load all mplpb','load saved mplpb'}:return load(app,session,'all')
-    if key in {'load mplpb','focus mode','serious mode'}:
-        return load(app,session,data.get('loaded_corpora',[corpus]))
+    if key in {'focus mode','serious mode','switch to serious','switch to serious mode','switch to focus mode'}:
+        keys=[k for k in session.get('saved_focus_corpora',[]) if k in app.roots()]
+        return load(app,session,keys or [corpus])
+    if key=='load mplpb':return load(app,session,data.get('loaded_corpora',[corpus]))
     env=session.get('environment')
     if not env:
         if not data.get('default_chat',False) and key not in {'how do you think','how does your mind work'}:

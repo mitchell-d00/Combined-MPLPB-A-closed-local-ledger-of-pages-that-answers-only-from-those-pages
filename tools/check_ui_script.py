@@ -33,7 +33,7 @@ def main():
                     data['pages'][corpus + '|' + profile + '|' + rec['path']] = app.page(
                         corpus, rec['path'], profile)
     sid = None
-    for message in ('relate Dungeons and Dragons -> game', 'who made you?', 'guide me', 'show my MPLPB', 'topic Budget guide', 'just chat', 'load all MPLPB', 'load MPLPB'):
+    for message in ('relate Dungeons and Dragons -> game', 'who made you?', 'guide me', 'show my MPLPB', 'topic Budget guide', 'just chat', 'load all MPLPB', 'load MPLPB', 'chat mode', 'serious mode'):
         data['chats'][message] = app.chat(dict(corpus='logic', message=message, session=sid, **({'loaded_corpora':['logic','system']} if message=='load MPLPB' else {})))
         sid = data['chats'][message]['session']
     data['chats']['So hi?']=app.chat(dict(corpus='logic',message='So hi?',default_chat=True))

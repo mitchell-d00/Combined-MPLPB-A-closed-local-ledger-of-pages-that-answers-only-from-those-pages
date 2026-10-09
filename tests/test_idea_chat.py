@@ -112,4 +112,9 @@ class IdeaChatTests(unittest.TestCase):
         r=self.chat('Tell me more about Zorb planet',sid)['response']
         self.assertIn('rings are blue',r['message']);self.assertNotIn('Zorb is fictional',r['message'])
         r=self.chat('tell me more',sid)['response']
-        self.assertIn('all the factual text',r['message'])
+        self.assertTrue(r['source_exhausted'])
+        self.assertFalse(any('tell me more' in s.lower() for s in r['suggestions']))
+        self.app.import_source({'corpus':key,'title':'Zorb planet discoveries','url':'https://example.org/new','text':'New telescopes detected mountains.'})
+        r=self.chat('tell me more',sid)['response']
+        self.assertIn('detected mountains',r['message'])
+        self.assertNotIn('Zorb is fictional',r['message'])

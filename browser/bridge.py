@@ -210,11 +210,17 @@ async def dispatch(url, data=None):
             result=app.chat(data)
             from tools import idea_chat as IC
             request=IC.topic_request(message)
+            if IC.PF.normalize(message).casefold().startswith('explore an idea about '):request=None
             # One bounded fallback per user turn. Ordinary social text is never searched.
-            if data.get('auto_wiki') is True and request and not result['response'].get('sources') and data.get('wiki','simple') in W.APIS:
-                query=request[1].strip()
+            exhausted=result['response'].get('source_exhausted',False)
+            if data.get('auto_wiki') is True and (request or exhausted) and (exhausted or not result['response'].get('sources')) and data.get('wiki','simple') in W.APIS:
+                query=(result['response'].get('response_structure',{}).get('subject') if exhausted else request[1]).strip()
                 if not 1 <= len(query) <= 160:return result
                 sid=result['session']
+                attempt_key=data.get('wiki','simple')+'|'+query.casefold()
+                if attempt_key in app.sessions[sid]['mind'].get('wiki_expansions',[]):
+                    result['automatic_lookup']={'status':'already_checked','query':query,'wiki':data.get('wiki','simple')}
+                    return result
                 try:
                     built=await dispatch('/api/chat',{**data,'session':sid,'message':'search '+query,'auto_wiki':False})
                     key=built.get('corpus')
@@ -223,8 +229,10 @@ async def dispatch(url, data=None):
                     env=prior.get('environment',{})
                     if env.get('mode')=='focus' and key not in env.get('corpora',[]):
                         env['corpora'].append(key)
+                    prior['mind'].setdefault('wiki_expansions',[]).append(attempt_key)
                     # Retry using the original session, mode, notes, and newly captured pages.
-                    retried=app.chat({**data,'session':sid,'auto_wiki':False})
+                    retry_message=('Tell me more about '+query) if exhausted else message
+                    retried=app.chat({**data,'session':sid,'message':retry_message,'auto_wiki':False})
                     retried['automatic_lookup']={'status':'captured','query':query,'wiki':data.get('wiki','simple'),'corpus':key}
                     return retried
                 except Exception as exc:
