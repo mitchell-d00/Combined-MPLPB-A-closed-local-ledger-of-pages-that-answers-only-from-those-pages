@@ -11,6 +11,7 @@ from datetime import datetime, timezone
 from html.parser import HTMLParser
 from tools.exploration_store import source_url
 from tools import topic_crawl as TC
+from tools.chat_phrasing import conversational_request
 from tools.ledger_ui import App
 from tools import wiki_live_eval as W
 
@@ -147,6 +148,7 @@ async def dispatch(url, data=None):
         if route == '/api/chat':
             message = data.get('message', '')
             if not isinstance(message, str): raise ValueError('Message must be text')
+            message, _ = conversational_request(message)
             wiki = data.get('wiki', 'simple')
             if wiki=='web' and message.casefold().startswith('search '):
                 query=message[7:].strip()
@@ -212,13 +214,19 @@ async def dispatch(url, data=None):
             request=(None,planned_query) if planned_query else None
             # One bounded fallback per user turn. Ordinary social text is never searched.
             exhausted=result['response'].get('source_exhausted',False)
-            if data.get('auto_wiki') is True and request and (exhausted or not result['response'].get('sources')) and data.get('wiki','simple') in W.APIS:
+            needs_source = (not result['response'].get('sources') or
+                            result['response'].get('authority') == 'lexical_reference')
+            if data.get('auto_wiki') is True and request and (exhausted or needs_source) and data.get('wiki','simple') in W.APIS:
                 query=(result['response'].get('response_structure',{}).get('subject') if exhausted else request[1]).strip()
                 if not 1 <= len(query) <= 160:return result
                 sid=result['session']
                 attempt_key=data.get('wiki','simple')+'|'+query.casefold()
                 if attempt_key in app.sessions[sid]['mind'].get('wiki_expansions',[]):
                     result['automatic_lookup']={'status':'already_checked','query':query,'wiki':data.get('wiki','simple')}
+                    return result
+                failed_at=app.sessions[sid]['mind'].get('wiki_lookup_failures',{}).get(attempt_key)
+                if failed_at and datetime.now(timezone.utc).timestamp()-failed_at < 60:
+                    result['automatic_lookup']={'status':'deferred','query':query,'wiki':data.get('wiki','simple'),'reason':'Recent lookup failed; automatic retry is paused for one minute.'}
                     return result
                 try:
                     built=await dispatch('/api/chat',{**data,'session':sid,'message':'search '+query,'auto_wiki':False})
@@ -230,12 +238,15 @@ async def dispatch(url, data=None):
                         env['corpora'].append(key)
                     prior['mind'].setdefault('wiki_expansions',[]).append(attempt_key)
                     # Retry using the original session, mode, notes, and newly captured pages.
-                    retry_message=('Tell me more about '+query) if exhausted else message
+                    retry_message=('Tell me more about '+query) if exhausted else data.get('message', message)
                     retried=app.chat({**data,'session':sid,'message':retry_message,'auto_wiki':False})
                     retried['automatic_lookup']={'status':'captured','query':query,'wiki':data.get('wiki','simple'),'corpus':key}
                     return retried
                 except Exception as exc:
-                    # Retain local reply and existing state if remote acquisition fails.
+                    # Back off repeated automatic failures; explicit search remains available.
+                    failures=app.sessions[sid]['mind'].setdefault('wiki_lookup_failures',{})
+                    failures[attempt_key]=datetime.now(timezone.utc).timestamp()
+                    if len(failures)>32:del failures[next(iter(failures))]
                     result['automatic_lookup']={'status':'failed','query':query,'wiki':data.get('wiki','simple'),'reason':str(exc)}
             return result
     raise ValueError('Unknown API route')

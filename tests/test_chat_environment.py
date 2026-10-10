@@ -160,3 +160,28 @@ class ChatEnvironmentTests(unittest.TestCase):
             self.assertEqual({s['corpus'] for s in r['sources']},{self.b})
             self.assertEqual(r['environment']['corpora'],[self.a])
         self.assertTrue(self.app.resume_chat({'session':sid})['chain_intact'])
+
+    def test_numbered_excerpts_match_displayed_source_pages(self):
+        self.app.import_source({'corpus':self.a,'title':'Moon context','url':'https://example.org/context',
+                                'text':'Moon context includes the Moon and other satellites.'})
+        sid=self.chat('load MPLPB',loaded_corpora=[self.a])['session']
+        result=self.chat('Tell me about the Moon',sid)['response']
+        self.assertTrue(result['scope_results'])
+        self.assertEqual(len(result['sources']),len(result['scope_results']))
+        for source,item in zip(result['sources'],result['scope_results']):
+            self.assertEqual(source['path'],item['response']['context']['path'])
+            self.assertEqual(source['hash'],item['response']['context']['hash'])
+
+    def test_incidental_mentions_do_not_supply_topic_overviews(self):
+        self.app.import_source({'corpus':self.a,'title':'Arcade history','url':'https://example.org/arcades',
+                                'text':'Video games are electronic entertainment. Veloria has many arcades.'})
+        sid=self.chat('load MPLPB',loaded_corpora=[self.a])['session']
+        result=self.chat('Cool, tell me about Veloria',sid)['response']
+        self.assertEqual(result['sources'],[])
+        self.assertNotIn('Video games are',result['message'])
+        self.app.import_source({'corpus':self.b,'title':'Country introduction','url':'https://example.org/country',
+                                'text':'Veloria is a fictional country. It has many arcades.'})
+        sid=self.chat('load MPLPB',loaded_corpora=[self.b])['session']
+        result=self.chat('Cool, tell me about Veloria',sid)['response']
+        self.assertIn('Veloria is a fictional country',result['message'])
+        self.assertTrue(result['sources'])

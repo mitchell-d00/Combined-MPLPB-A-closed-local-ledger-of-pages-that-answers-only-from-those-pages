@@ -23,7 +23,7 @@ def conversational_request(text):
     not rewritten. The caller retains the original message for the transcript.
     """
     lead = r'(?:cool|great|nice|awesome|neat|okay|ok|alright|all right|sure|thanks|thank you)'
-    request = (r'(?:please\s+)?(?:tell me\b|explain\b|show me\b|help me\b|'
+    request = (r'(?:please\s+)?(?:tell me\b|explain\b|describe\b|summari[sz]e\b|teach me\b|show me\b|help me\b|'
                r'what\b|who\b|where\b|when\b|why\b|how\b|which\b|'
                r'can you\b|could you\b|would you\b|search\b|find\b|define\b)')
     match = re.fullmatch(r'(?P<prefix>(?:'+lead+r'(?:\s*[,!.;:]\s*|\s+)){1,3})'

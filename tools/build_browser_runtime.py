@@ -68,6 +68,9 @@ def build(core_archive, output):
     html = html.replace('Local reader unavailable:', 'Browser runtime unavailable:')
     html = html.replace('mplpb-session-id', 'mplpb-browser-session-id').replace('mplpb-ui-preferences', 'mplpb-browser-ui-preferences')
     html = html.replace('mplpb-collection-sessions', 'mplpb-browser-collection-sessions').replace('mplpb-crawler-url','mplpb-browser-crawler-url').replace('mplpb-guide-choice','mplpb-browser-guide-choice')
+    # Content-derived build identifier distinguishes a loaded tab from a new deploy.
+    build_id = hashlib.sha256(json.dumps(manifest, sort_keys=True).encode()).hexdigest()[:12]
+    html = html.replace('<footer class="footer">', '<footer class="footer"><span id="runtime-build">Build '+build_id+'</span> · Reload this page for published updates; saved chats are retained.<br>')
     # Browser mode has its own exact self-reference transport notice, shown on every screen.
     html = html.replace('<footer class="footer">', '<footer class="footer">Standalone WebAssembly mode · no Python server · saved in this browser.<br>')
     output = Path(output); output.parent.mkdir(parents=True, exist_ok=True); output.write_text(html, encoding='utf-8')

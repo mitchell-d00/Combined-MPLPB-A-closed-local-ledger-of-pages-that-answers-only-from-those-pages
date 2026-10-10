@@ -12,7 +12,8 @@ class SocialLeadInTests(unittest.TestCase):
         for prefix in ['Cool ', 'Great, ', 'Okay! ', 'Nice; ', 'Awesome ', 'Thanks, ',
                        'All right, ', 'Sure, ', 'Cool, thanks! ']:
             for request in ['tell me about the Moon', 'how big is it?',
-                            'tell me about Great Britain', 'tell me why not to use it']:
+                            'tell me about Great Britain', 'tell me why not to use it',
+                            'describe an apple', 'summarize the Moon', 'teach me about Mars']:
                 with self.subTest(prefix=prefix, request=request):
                     self.assertEqual(conversational_request(prefix + request)[0], request)
 

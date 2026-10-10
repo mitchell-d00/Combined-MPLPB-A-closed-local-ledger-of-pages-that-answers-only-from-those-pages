@@ -1,0 +1,52 @@
+{
+  "review_scope": "Targeted manual review; not a complete semantic grading of 1000 cases.",
+  "findings": [
+    {
+      "case": 401,
+      "request": "cool tell me about a microscope",
+      "observed_reply": "For a microscope, here\u2019s what this page tells us:\n\nPal\u00e6ontology or paleontology is the study of fossils of living things, and their phylogeny (evolutionary relationships). It depends on basic sciences such as zoology, botany and historical geology. [1]\n\nWhich part of a microscope would you like to explore?",
+      "sources": [
+        {
+          "title": "Paleontology",
+          "corpus": "reference",
+          "path": "wiki-0020.html",
+          "hash": "sha256:c9ba0482f68ac11e995934c4469d632f99bb50f31e738cbfd8d7be4b6a422a9a",
+          "id": "WIKI-0020"
+        }
+      ],
+      "finding": "An incidental topic mention allowed an unrelated opening passage to serve as an overview."
+    },
+    {
+      "case": 641,
+      "request": "cool tell me about Japan",
+      "observed_reply": "For Japan, here\u2019s what this page tells us:\n\nVideo games were introduced as an entertainment medium in 1971, becoming the start for a big entertainment industry in the late 1970s/early 1980s in the United States, Japan, and Europe. After a bad industry collapse in 1983 and a rebirth two years later, the video game industry has experienced large growth for over twenty years. [1]\n\nWhich part of Japan would you like to explore?",
+      "sources": [
+        {
+          "title": "History of video games",
+          "corpus": "reference",
+          "path": "wiki-0016.html",
+          "hash": "sha256:7890633ab22f4a00afa2da81ad1e79663dd40c21ae0394f7ade7ba034b8536e6",
+          "id": "WIKI-0016"
+        }
+      ],
+      "finding": "An incidental topic mention allowed an unrelated opening passage to serve as an overview."
+    },
+    {
+      "case": 801,
+      "request": "cool tell me about a penguin",
+      "observed_reply": "For a penguin, here\u2019s what this page tells us:\n\n): 1 Beak, 2 Head, 3 Iris, 4 Pupil, 5 Mantle, 6 Lesser coverts, 7 Scapulars, 8 Median coverts, 9 Tertials, 10 Rump, 11 Primaries, 12 Vent, 13 Thigh, 14 Tibio-tarsal articulation, 15 Tarsus, 16 Foot, 17 Tibia, 18 Belly, 19 Flanks, 20 Breast, 21 Throat, 22 Wattle, 23 Eyestripe]] s as adaptations]] Birds (Aves) are a group of animals with backbones. Birds are the only dinosaurs that survived the Cretaceous\u2013Paleogene extinction, and are part of the theropod group of dinosaurs. [1]\n\nWhich part of a penguin would you like to explore?",
+      "sources": [
+        {
+          "title": "Bird",
+          "corpus": "reference",
+          "path": "wiki-0004.html",
+          "hash": "sha256:680daf52527d1f13b595e2607220cfab58169eabd47973d2bbfbf6fa58facea6",
+          "id": "WIKI-0004"
+        }
+      ],
+      "finding": "An incidental topic mention allowed an unrelated opening passage to serve as an overview."
+    }
+  ],
+  "fix": "When title navigation has no candidate, require an explicit opening definition of the requested subject before presenting a fallback page as its overview.",
+  "retest": "postfix/ contains a 28-question live-Wikipedia WASM retest, including these three topics and apple. The original 1000-case run was not rerun after this final tightening."
+}

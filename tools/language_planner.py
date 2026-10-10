@@ -94,6 +94,11 @@ def finish(result, parsed, memory, turn):
     construction = structure.get('construction') or {}
     rules.extend(construction.get('rules', []))
     candidate = parsed.get('subject')
+    # A dictionary headword can disambiguate an indefinite noun request, but
+    # the dictionary itself is not an acquired encyclopedia source.
+    if result.get('authority') == 'lexical_reference' and candidate and subject:
+        if re.sub(r'^(?:a|an) ', '', candidate, flags=re.I).casefold() == subject.casefold():
+            candidate = subject
     query = None
     if result.get('authority') not in {'system_description','user_declaration','research_note'} and candidate and not parsed['imagined'] and not parsed['negation_present'] and ('overview' in parsed['actions'] or result.get('source_exhausted')):
         if candidate.casefold() not in PRONOUNS and 1 <= len(candidate) <= 160:query = candidate

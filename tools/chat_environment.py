@@ -119,6 +119,13 @@ def topic_suggestions(subject, body=''):
     return choices[:3]
 
 
+def defines_overview_subject(answer, subject):
+    """A topic mention elsewhere in a page does not make its opening an overview."""
+    pattern = (r'^(?:the\s+|a\s+|an\s+)?' + re.escape(subject_key(subject)) +
+               r'(?:\s*\([^)]{1,160}\))?\s+(?:is|are|was|were|means|refers to)\b')
+    return bool(re.match(pattern, factual_body(answer).strip(), re.I))
+
+
 def explore_sources(app,data,session,message,corpus,profile):
     """Use normal page gates for factual conversation in either mode."""
     request=IC.topic_request(message)
@@ -174,12 +181,13 @@ def explore_sources(app,data,session,message,corpus,profile):
         # Ask each eligible collection's established ownership reader independently.
         for k in dict.fromkeys(k for k,_ in entries):
             answer=C.turn(app,k,app.root(k),profile,subject,None)
-            if answer.get('kind')=='return' and answer.get('sources') and factual_body(answer):
+            if answer.get('kind')=='return' and answer.get('sources') and defines_overview_subject(answer,subject):
                 results.append({'corpus':k,'response':answer})
     if not results:return None
     if request:
         session['mind']['idea_chat'].update(subject=subject,sourced=True,source_pages=[{'corpus':x['corpus'],'path':x['response']['context']['path']} for x in results if x['response'].get('context')])
     excerpts=[]
+    excerpt_sources=[]
     offsets=session['mind'].get('idea_chat',{}).get('excerpt_offsets',{}) if continuation else {}
     seen=set(session['mind'].get('idea_chat',{}).get('seen_sentences',[])) if continuation else set()
     has_more=False
@@ -187,6 +195,7 @@ def explore_sources(app,data,session,message,corpus,profile):
         body=factual_body(item['response'])
         sentences=re.split(r'(?<=[.!?])\s+(?=[A-Z])',body)
         pin=item['response'].get('context') or item['response'].get('sources',[{}])[0]
+        excerpt_sources.append(dict(pin, corpus=item['corpus']))
         key=item['corpus']+'|'+pin.get('path','')+'|'+pin.get('hash','')
         cursor=offsets.get(key,0);part=[]
         while cursor<len(sentences) and len(part)<2:
@@ -204,7 +213,7 @@ def explore_sources(app,data,session,message,corpus,profile):
     else:
         opener=('Here’s more about '+subject+'.') if continuation else ('Let’s talk about '+subject+'.') if subject else 'Here’s what I found.'
         body=opener+'\n\n'+'\n\n'.join(excerpts)+'\n\nWhat part interests you most?'
-    result=M.reply('federated_answers',body,session.get('context') if serious else None,'CHAT-SOURCES',authority='separate_source_results',scope_results=results,sources=[dict(s,corpus=x['corpus']) for x in results for s in x['response'].get('sources',[])],blocked_collections=blocked)
+    result=M.reply('federated_answers',body,session.get('context') if serious else None,'CHAT-SOURCES',authority='separate_source_results',scope_results=results,sources=excerpt_sources,blocked_collections=blocked)
     result['source_scope']='loaded_scope' if serious else 'saved_reference'
     result['source_exhausted']=exhausted
     result['has_more_source_text']=has_more

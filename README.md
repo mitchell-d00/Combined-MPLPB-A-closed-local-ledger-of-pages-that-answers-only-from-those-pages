@@ -37,6 +37,14 @@ Automatic acquisition uses the plan, checks local pages first, and respects the
 network setting. Negated requests and imagined ideas do not trigger automatic
 search. This is a finite language grammar, not general semantic understanding.
 
+Conversational lead-ins such as `cool, tell me about an apple` are separated
+from the request before topic selection. With automatic Wikipedia enabled, a
+dictionary definition does not block acquisition of encyclopedia pages. A page
+that merely mentions a topic cannot supply its overview through the fallback. Failed
+automatic lookups pause for one minute per topic; explicit search stays available.
+The [1,000-question development smoke](evaluation/live-conversation/README.md)
+records routing and acquisition observations, not independently measured accuracy.
+
 ## Casual chat and offline references
 
 Say `what are you?`, `why do you exist?`, `I'm tired`, or `can we talk about nothing?`
@@ -137,6 +145,9 @@ The repository includes the reproducible builder: `python3 tools/build_browser_r
 This creates `dist/MPLPB_Browser.html`; generated output is excluded from Git.
 [Runtime details, requirements, verification and walk back](docs/BROWSER_RUNTIME.md).
 The desktop mode below remains available in root `index.html`.
+The standalone page footer shows its build identifier. Reload an already-open tab
+after an update. Saved chats remain; if an older capture fails its code-provenance
+checks, import it again under the new runtime rather than changing its old pins.
 
 ## Local browser UI
 
@@ -250,7 +261,7 @@ nothing else.
 | `mplpb_combined/ledger.py` | The folder as a ledger: status, lineage, depth, validation, writing, the log |
 | `mplpb_combined/reader.py` | The answer rule, profiles, hubs |
 | `mplpb_combined/killtest.py` | The kill test: three arms, mechanical scoring |
-| `tests/` | 514 developer-authored regression tests covering the reader, captures, conversation, source boundaries and saved state |
+| `tests/` | 519 developer-authored regression tests covering the reader, captures, conversation, source boundaries and saved state |
 | `examples/studio/` | 25 pages about running a pottery studio; the kill-test corpus |
 | `examples/spec/` | The format described as ten pages in the format |
 | `examples/hub/` | Two pointers, one at each of the above |
