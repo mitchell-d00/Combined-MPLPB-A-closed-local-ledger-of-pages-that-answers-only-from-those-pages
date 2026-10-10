@@ -116,7 +116,8 @@ def propose(frame, session, data):
         (d.get('selected_idea') and k in {'make it simpler','simplify it','what did we just decide','what did i choose','what did we decide'}) or
         re.fullmatch(r'(?:the |option |number )?(?:first|second|third|1|2|3)(?: one| option)?',k) or
         k in {'how is it going',"how's it going",'hello there','thanks, that helps','thanks that helps','thank you that helps','thanks a lot','thank you so much','bye for now','see you later','talk later'} or
-        'how are you' in k or
+        DR.SC.cue(text,session) is not None or
+        any(DR.SC.wellbeing(part) for part in CE.clauses(text)) or
         (EM.feeling(text) is None and re.search(r"(?:^| and | but | because )i (?:feel|am|'m) (?:disappointed|frustrated|overwhelmed|excited|sad|worried|lonely|happy)\b",k)) or
         (d.get('feeling') and k in {'help me think through options','can you help me think through options','help me think it through'})):
         add('rules','bounded_reasoning' if bounded_math or k.startswith('if all ') else 'dialogue_skill',95,

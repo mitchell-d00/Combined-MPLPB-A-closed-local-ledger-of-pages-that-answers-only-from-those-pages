@@ -9,7 +9,9 @@ import re
 from fractions import Fraction
 from tools import deterministic_mind as M, conversation_memory as CM, emotional_rules as EM
 
-VERSION='dialogue-rules-v1'
+from tools import social_cues as SC
+
+VERSION='dialogue-rules-v2'
 
 def reply(session,body,intent,**details):
     suggestions=details.pop('suggestions',[])
@@ -63,6 +65,16 @@ def handle(message,session):
     key=text.casefold().strip(' .!?')
     memory=session.setdefault('mind',{})
     state=memory.setdefault('dialogue',{})
+    social = SC.cue(text, session)
+    if social:
+        result = reply(session, SC.wording(social, memory), 'social', social_cue=social,
+                       suggestions=['Talk about my day', 'Help me brainstorm'] if social == 'wellbeing' else [])
+        # Preserve legacy response categories used by the existing UI flow.
+        if key in {'thanks', 'thank you'}:
+            result['kind'] = 'help'
+        elif key in {'bye', 'goodbye'}:
+            result['kind'] = 'smalltalk'
+        return result
     # Only complete bounded numeric/premise grammar can preempt source readers.
     calculated=arithmetic(text)
     if calculated:
@@ -83,7 +95,7 @@ def handle(message,session):
         normalized=CM.key(clause)
         found=CM.introduction(clause)
         if found:name=found;acts.append('introduce')
-        elif normalized in {'how are you','how are you doing','how is it going',"how's it going"}:acts.append('wellbeing')
+        elif SC.wellbeing(normalized):acts.append('wellbeing')
         elif normalized in {'hi','hey','hello','so hi','hi there','hello there'}:acts.append('greet')
         else:break
     else:
@@ -91,8 +103,8 @@ def handle(message,session):
             known=name or CM.name_from_chat(session)[0]
             body=('Hi, '+known+'!' if known else 'Hi!')
             if 'introduce' in acts:body+=' I’m MPLPB, your little monster 😈.'
-            if 'wellbeing' in acts:body+=' Ready to chat and explore ideas with you.'
-            body+=' What’s on your mind?'
+            if 'wellbeing' in acts:body+=' '+SC.wording('wellbeing',memory)
+            if 'wellbeing' not in acts:body+=' What’s on your mind?'
             return reply(session,body,'greeting',acts=acts,suggestions=['What can you do?','Help me brainstorm'])
     if key in {'thanks, that helps','thanks that helps','thank you that helps','thanks a lot','thank you so much'}:
         return reply(session,'You’re welcome! We can keep going whenever you like.','acknowledgment')

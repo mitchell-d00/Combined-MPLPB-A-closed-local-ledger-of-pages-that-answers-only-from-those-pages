@@ -67,3 +67,20 @@ Topic recall such as “What did I say about orchids?” matches the requested t
 
 
 Explicit “brainstorm” requests compose three transformations around a supplied or remembered topic, without requiring loaded MPLPB pages or a dictionary entry. Subsequent “brainstorm” turns choose the next operation set deterministically. These are exploratory prompts, not factual claims or an unrestricted creative model. Existing conversation and name recall continue with zero loaded collections.
+
+
+## Everyday social cues
+
+Complete greetings such as “How are you today?”, “How have you been?” and
+“How’s your day going?” receive short conversational replies, including
+“I’m functional, thanks!” A session-local counter mixes authored openings and
+follow-up questions deterministically and survives reload. These are social
+phrases, not runtime health checks or claims of feelings.
+
+Thanks, farewells and time-of-day greetings have brief responses. “And you?”,
+“good thanks” and “could be better” are recognized after an immediately preceding
+wellbeing exchange; they do not create personal facts. Existing listening,
+emotional-preference, source-query and literal-repeat handlers remain in place.
+The social replies carry conversation authority with no evidence citations, and
+never load collections or grant source support. This is bounded phrase coverage,
+not unrestricted social understanding.

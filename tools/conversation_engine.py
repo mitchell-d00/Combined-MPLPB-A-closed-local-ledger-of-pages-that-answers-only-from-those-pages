@@ -7,6 +7,8 @@ import copy
 import re
 from tools import deterministic_mind as M, conversation_memory as CM
 
+from tools import social_cues as SC
+
 VERSION='conversation-engine-v1'
 
 def normalize(text):
@@ -32,7 +34,7 @@ def act(text):
     if k in {'who are you','what are you','what is your name',"what's your name"}:return {'type':'identity'}
     if re.fullmatch(r'what (?:can|do) you (?:chat|talk) about',k) or k=='what can you do':return {'type':'abilities'}
     if k in {'talk','can we talk','can we chat','let us talk',"let's talk",'just talk'}:return {'type':'open_chat'}
-    if k in {'how are you','how are you doing'}:return {'type':'wellbeing'}
+    if SC.wellbeing(k):return {'type':'wellbeing'}
     # Explicit third-party declarations; user context, never verified facts.
     p=re.fullmatch(r'(?:actually[, ]+)?my (friend|sister|brother|partner|colleague|neighbor) ([\w-]{1,40}) (likes|enjoys|dislikes) (.{1,120})',text,re.I)
     if p:return {'type':'person','relation':p[1].lower(),'person':p[2],'predicate':p[3].lower(),'value':p[4]}
@@ -104,7 +106,7 @@ def handle(message,session,source_reader=None,interpretation=None):
         if t=='forget_name':bodies.append('Okay; I won’t use your name. The transcript is unchanged.')
         if t=='abilities':bodies.append('We can talk about your day, explore an idea, work through a small calculation, or discuss a topic using available pages. What interests you?')
         if t=='open_chat':bodies.append('Of course'+(', '+state['name'] if state['name'] else '')+'. '+('Shall we continue with '+state['topic']+'?' if state['topic'] else 'What’s on your mind?'))
-        if t=='wellbeing':bodies.append('Ready to chat and explore ideas with you.')
+        if t=='wellbeing':bodies.append(SC.wording('wellbeing',session.setdefault('mind',{})))
         if t=='topic':bodies.append('Let’s talk about '+a['value']+'. What interests you about it?')
         if t=='recall_topic':bodies.append('You wanted to talk about '+state['topic']+'.' if state['topic'] else 'We haven’t settled on a topic yet. What interests you?')
         if t in {'person','person_update','person_query'}:
