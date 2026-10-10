@@ -2,13 +2,19 @@
 import copy
 import re
 from tools import conversation_engine as CE, conversation_branches as B, chat_language_graph as LG
-VERSION='conversation-continuity-v1'
+from tools.chat_phrasing import conversational_request
+VERSION='conversation-continuity-v2'
 
 def prepare(message,session):
     text=CE.normalize(message);k=B.key(text)
     state=session.setdefault('mind',{}).setdefault('continuity',{})
     frame={'version':VERSION,'original':message,'resolved':text,'acts':[CE.act(c) for c in CE.clauses(text)],
            'subject':state.get('subject'),'correction':False,'reference':None}
+    text, lead_in = conversational_request(text)
+    if lead_in:
+        k = B.key(text)
+        frame['normalization'] = 'social_lead_in'
+        frame['social_lead_in'] = lead_in
     # Closed typo vocabulary for conversational controls, never names or source terms.
     typo={'helo':'hello','helllo':'hello','thnaks':'thanks','tell me moer':'tell me more'}
     if k in typo:text=typo[k];k=text;frame['normalization']='control_typo'

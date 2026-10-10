@@ -84,3 +84,10 @@ emotional-preference, source-query and literal-repeat handlers remain in place.
 The social replies carry conversation authority with no evidence citations, and
 never load collections or grant source support. This is bounded phrase coverage,
 not unrestricted social understanding.
+
+Conversational lead-ins such as “Cool, tell me about the Moon” and “Great, how
+big is it?” use the same request path as the words after the acknowledgement.
+This bounded normalization runs before social listening and preserves the
+original transcript plus a normalization trace. It does not strip adjectives
+from topics (“cool water”, “Great Britain”), negation, or literal-repeat text.
+Reference labels and source eligibility remain those of the underlying request.
