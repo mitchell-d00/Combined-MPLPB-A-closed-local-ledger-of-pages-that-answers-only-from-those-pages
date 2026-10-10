@@ -21,6 +21,7 @@ from mplpb_combined.delivery import external_restriction
 from mplpb_combined.record import text_of
 from tools import wiki_live_eval as W
 from tools.topic_chat_sources import TopicStore
+from tools import skill_planner as SP
 from tools import chat_logic as C
 from tools import deterministic_mind as M
 from tools.mind_session import SessionStore
@@ -280,19 +281,10 @@ class App:
             memory=session['mind']
             if environment_result and data.get('default_chat') and not session.get('environment') and not session.get('context'):
                 session['environment']={'mode':'chat','corpora':[],'focus_corpus':None}
-            open_casual=T.casual_followup(message,session['context'],memory) if environment_result is None else None
-            if environment_result is None and casual is None and (T.smalltalk_candidate(message,memory) or open_casual is not None or S.candidate(message,memory)):
-                try:titles=[p['title'] for p in self.inventory(corpus,profile)['pages'] if p['eligible']]
-                except (ValueError,OSError):titles=[]
-                casual=T.smalltalk(message,session['context'],memory,titles,corpus+'|'+profile)
-                if open_casual is not None and casual.get('kind')=='smalltalk' and not casual.get('response_structure',{}).get('topic_mentions'):
-                    casual=open_casual
-                if 'select_topic' in casual:
-                    casual=C.turn(self,corpus,self.root(corpus),profile,'topic '+casual['select_topic'],session['context'])
-                elif not casual.get('response_structure',{}).get('topic_mentions'):
-                    social=S.handle(message,session['context'],memory)
-                    if social is not None:casual=social
-            tutor=environment_result or F.handle(message,session['context']) or casual or T.conversation(message,session['context'],memory) or T.guide(message,session['context'],memory) or T.learning_request(message,session['context'])
+            tutor=environment_result
+            if tutor is None:
+                tutor=SP.execute(message,session,'legacy',self,corpus,profile)
+                memory=session['mind']
             if tutor is not None:result=tutor
             elif T.key(message) in T.LIST:
                 try:
@@ -343,11 +335,7 @@ class App:
                           'reasoning': ['SELF-1: return the sealed self-reference page; creator attribution is a declaration, not identity authentication.']}
             else:
                 interpreted=T.local_phrase(message)
-                result = M.handle(self.root(corpus), profile, interpreted, session['context'], session.setdefault('mind', {'notes': []}))
-                if result is None:
-                    result = Q.handle(self, corpus, self.root(corpus), profile, interpreted, session['context'])
-                if result is None:
-                    result = C.turn(self, corpus, self.root(corpus), profile, interpreted, session['context'])
+                result = SP.read_source(self,corpus,self.root(corpus),profile,interpreted,session['context'],session.setdefault('mind',{'notes':[]}))
                 if result['kind'] in {'not_in_corpus','unknown_relation'}:
                     offer = Q.missing(message,result.get('context'))
                     result['message'] += '\n\n' + offer['message']
@@ -382,6 +370,8 @@ class App:
             result['question_frame']=E.IC.PF.frame(message)
             payload = {'question': original_message, 'corpus': corpus, 'profile': profile, 'response': result}
             payload['chat_phrasing_sha256']=hashlib.sha256(Path(CX.__file__).with_name('chat_phrasing.py').read_bytes()).hexdigest()
+            payload['skill_planner_version']=SP.VERSION
+            payload['skill_planner_sha256']=hashlib.sha256(Path(SP.__file__).read_bytes()).hexdigest()
             payload['conversation_router_version']=CR.VERSION
             payload['conversation_router_sha256']=hashlib.sha256(Path(CR.__file__).read_bytes()).hexdigest()
             payload['conversation_continuity_version']=CC.VERSION

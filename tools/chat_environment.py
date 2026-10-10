@@ -8,7 +8,9 @@ from tools import idea_chat as IC
 from tools import chat_logic as C, chat_tutor as T, deterministic_mind as M
 from tools import social_chat as S, grounded_chat as Q, reference_resources as F
 
-VERSION = 'chat-environment-v8'
+from tools import skill_planner as SP
+
+VERSION = 'chat-environment-v9'
 
 
 def reply(body, context=None, **extra):
@@ -51,40 +53,39 @@ def pages(app, keys, profile):
 
 
 def general(message, session):
-    from tools import general_reference as GR
-    reference=GR.handle(message,session)
-    if reference:return reference
-    mind=session['mind'];key=T.casual_key(message)
-    lexical=lexical_topic(message,session)
-    if lexical:return lexical
-    if IC.topic_request(message):return IC.handle(message,mind)
-    if mind.get('idea_chat') and key in {'tell me more','go on','why','how','how so','why not','any ideas','yes','sure','explore an idea'}:
-        return IC.handle(message,mind)
-    emotional=EM.handle(message,mind)
-    if emotional:return emotional
-    conversational=D.respond(message,mind)
-    if conversational:return conversational
-    if key in {'how do you think','how do you work','can you think','how does your mind work','what are you thinking','what are you'}:
-        return reply('I use explicit rules to recognize a request, track our conversation and assemble a reply. My dictionary and thesaurus help with wording. I don’t use an LLM or have private thoughts. In focus mode, factual answers must come from the loaded MPLPB pages.', suggestions=['I had a bad day','load all MPLPB','language resources'])
-    definition=re.fullmatch(r"(?:what is|what's|what are) (?:a |an |the )?([a-z][a-z '-]{0,79})[?.!]*",message.casefold().strip())
-    if definition and definition[1] not in {'it','this','that','your name','your purpose'}:
-        senses,_=F.lookup(definition[1])
-        if senses:return F.handle('define '+definition[1],None)
-    exploration=IC.handle(message,mind)
-    if exploration:return exploration
-    social=S.handle(message,None,mind)
-    if social:return social
-    help_reply=M.help_reply(message,None)
-    if help_reply:return help_reply
-    reference=F.handle(message,None)
-    if reference:return reference
-    if T.smalltalk_candidate(message,mind):return T.smalltalk(message,None,mind,[], 'chat-empty')
-    if key in {'what can we talk about','what should we talk about','what do you want to talk about'}:
-        return reply('Your day, an idea, something you enjoy, or a question you’re working through. Where would you like to start?',suggestions=['I had a bad day','tell me a joke'])
+    result=SP.execute(message,session,'general')
+    if result is not None:return result
+    key=T.casual_key(message)
     if re.match(r'^(?:what|why|who|where|when|how|which|is|are|can|could|do|does|will|would|should)\b',key) or message.endswith('?'):
         return reply('I can’t supply a factual answer from the available local material yet. Could you name the topic or rephrase the question? We can also look for a source.',suggestions=['can we talk','load all MPLPB','language resources'])
-    mind.setdefault('social',{}).update(active=True,stage='story',style='chat')
-    return S.handle(message,None,mind) or reply('Tell me a little more about what you have in mind.',suggestions=['can we talk','load all MPLPB'])
+    shadow=copy.deepcopy(session)
+    shadow['mind'].setdefault('social',{}).update(active=True,stage='story',style='chat')
+    result=SP.execute(message,shadow,'general')
+    if result is not None:
+        session.clear();session.update(shadow)
+        return result
+    return reply('Tell me a little more about what you have in mind.',suggestions=['can we talk','load all MPLPB'])
+
+
+def retrieve(app,data,session,message,corpus,profile,outside=False,finish=False):
+    """Execute a declared source-search plan; unsuccessful steps cannot mutate state."""
+    steps=['loaded_sources']
+    if outside:steps.append('saved_references')
+    if finish:steps.append('general_skills')
+    trace={'phase':'before_execution','steps':list(steps),'request':message,
+           'stop_condition':'first supported retrieval; otherwise planned conversation skill',
+           'outcomes':[]}
+    for step in steps:
+        shadow=copy.deepcopy(session)
+        if step=='loaded_sources':result=explore_sources(app,data,shadow,message,corpus,profile)
+        elif step=='saved_references':result=discover_saved(app,shadow,message,profile)
+        else:result=general(message,shadow)
+        trace['outcomes'].append({'step':step,'status':'answered' if result is not None else 'no_support'})
+        if result is not None:
+            session.clear();session.update(shadow)
+            result['retrieval_plan']=trace
+            return result
+    return None
 
 
 def subject_key(subject):
@@ -125,13 +126,13 @@ def explore_sources(app,data,session,message,corpus,profile):
     if not request and defined:request=(None,defined)
     state=session['mind'].get('idea_chat',{})
     followup=T.casual_key(message) in {'tell me more','more','go on','continue','show source','show page'} and state.get('sourced')
-    if not request and not followup and (D.respond(message,copy.deepcopy(session['mind'])) or T.smalltalk_candidate(message,session['mind'])):return None
+    if not request and not followup and (D.recognize(message,session['mind']) or T.smalltalk_candidate(message,session['mind'])):return None
     subject=request[1].strip() if request else state.get('subject')
     continuation=bool(followup or (request and re.match(r'^tell me more about ',IC.PF.normalize(message),re.I) and subject_key(subject)==subject_key(state.get('subject',''))))
     if request:
         if subject_key(subject) in {'it','this','that'}:
             subject=state.get('subject') or (session.get('context') or {}).get('title') or subject
-        if not continuation:IC.handle('tell me about '+subject,session['mind'])
+        if not continuation:session['mind']['idea_chat']={'subject':subject,'turn':1}
         session['mind']['idea_chat']['subject']=subject
     if not request and not followup and not re.match(r'^(?:what|who|when|where|how|is|are|does|do|can|will|tell me about|summarize|explain)\b',message,re.I):return None
     env=session.get('environment',{})
@@ -269,8 +270,8 @@ def handle(app, data, session, message, corpus, profile):
         keys=env.get('corpora',[]) if env.get('mode')=='focus' else list(app.roots())
         entries,blocked=pages(app,keys,profile)
         return reply('Available topics:\n'+('\n'.join(k+' :: '+p['title'] for k,p in entries) or 'No eligible saved pages.')+'\nYou can also ask for general topics.',session.get('context'),suggestions=['Tell me about '+p['title'] for k,p in entries[:8]]+['general topics'],blocked_collections=blocked)
-    brainstorming=IC.brainstorm(message,session['mind'],session.get('context'))
-    if brainstorming:return brainstorming
+    if re.fullmatch(r"(?:(?:let's|lets|let us|help me) )?brainstorm(?: ideas)?(?: (?:for|about|on))?(?: (.{1,160}))?",message.strip(' .!?'),re.I):
+        return IC.brainstorm(message,session['mind'],session.get('context'))
     if re.match(r'^explore an idea about ',message,re.I):
         if not session.get('environment'):load(app,session,[])
         result=IC.handle(message,session['mind'])
@@ -288,11 +289,11 @@ def handle(app, data, session, message, corpus, profile):
     # Topic requests keep the mode and consult available evidence before idea prompts.
     if (IC.topic_request(message) or IC.PF.definition_subject(message)) and key not in {"let's talk about it",'lets talk about it','talk about it','talk about this'}:
         if session.get('environment',{}).get('mode') == 'focus':
-            result=explore_sources(app,data,session,message,corpus,profile) or discover_saved(app,session,message,profile) or lexical_topic(message,session) or IC.handle(message,session['mind'])
+            result=retrieve(app,data,session,message,corpus,profile,outside=True,finish=True)
             result['context']=session['context']
             return result
         if not session.get('environment'):load(app,session,[])
-        return explore_sources(app,data,session,message,corpus,profile) or general(message,session)
+        return retrieve(app,data,session,message,corpus,profile,finish=True)
     if key in {'load all mplpb','load saved mplpb'}:return load(app,session,'all')
     if key in {'focus mode','serious mode','switch to serious','switch to serious mode','switch to focus mode'}:
         keys=[k for k in session.get('saved_focus_corpora',[]) if k in app.roots()]
@@ -328,16 +329,12 @@ def handle(app, data, session, message, corpus, profile):
         if key.startswith(('topic ','focus ')):
             load(app,session,[corpus]);env=session['environment']
         else:
-            return explore_sources(app,data,session,message,corpus,profile) or general(message,session)
+            return retrieve(app,data,session,message,corpus,profile,finish=True)
     if session['mind'].get('idea_chat',{}).get('sourced') and (key in {'tell me more','more','go on','continue','show source','show page'} or (not session.get('context') and Q.question_intent(message,session['mind']['idea_chat']['subject']))):
-        sourced=explore_sources(app,data,session,message,corpus,profile) or discover_saved(app,session,message,profile)
+        sourced=retrieve(app,data,session,message,corpus,profile,outside=True)
         if sourced:return sourced
     # Social turns do not change loaded collections or the selected evidence page.
-    conversational=EM.handle(message,session['mind']) or D.respond(message,session['mind'])
-    if conversational is None and T.smalltalk_candidate(message,session['mind']):
-        conversational=S.handle(message,None,session['mind']) or T.smalltalk(message,None,session['mind'],[],'loaded-chat')
-    if conversational is None and session['mind'].get('idea_chat') and (key in {'tell me more','go on','why','how','how so','why not','any ideas'} or key.startswith(('what if ','imagine ','suppose '))):
-        conversational=IC.handle(message,session['mind'])
+    conversational=SP.execute(message,session,'focus')
     if conversational:
         conversational['context']=session['context']
         conversational.setdefault('response_structure',{}).update(factual_claims=False,mplpb_supported=False)
@@ -363,7 +360,7 @@ def handle(app, data, session, message, corpus, profile):
             env['focus_corpus']=None
             return reply('The focused page changed or is unavailable. Choose an eligible page again.',None,suggestions=choices[:40],blocked_collections=blocked)
         root=app.root(focused)
-        return M.handle(root,profile,message,context,session['mind']) or Q.handle(app,focused,root,profile,message,context) or C.turn(app,focused,root,profile,message,context)
+        return SP.read_source(app,focused,root,profile,message,context,session['mind'])
     # Evaluate explicit named-subject attribute queries independently in each ledger.
     results=[]
     relation=bool(re.fullmatch(r'relate .+?\s*->\s*.+|is .+? (?:a|an|related to) .+[?.!]*',message,re.I))

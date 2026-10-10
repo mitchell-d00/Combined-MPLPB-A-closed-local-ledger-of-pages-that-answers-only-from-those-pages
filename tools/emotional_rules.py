@@ -24,7 +24,24 @@ def feeling(message):
     return {'negated':False,'words':words}
 
 
+def recognize(message,memory):
+    key=S.key(message);state=memory.get('emotional',{})
+    if key in {'no jokes','please be gentle','be gentle','be serious with me','jokes are okay','you can joke','jokes are ok'}:return 'preference'
+    if state.get('no_jokes') and key in {'tell me a joke','a silly question','tell me something funny','make me laugh'}:return 'preference'
+    if re.match(r'^(?:say|repeat)\b|^(?:can|could|would) you say\b|^tell me (?:a joke|a story)\b',key):return None
+    if feeling(message):return 'feeling'
+    if key in {'just listen','listen','i just want to vent','no advice','do not give advice',"don't give advice"}:return 'listen'
+    if state.get('active'):
+        if key in {'ideas','some ideas','help me think','help me think it through','what should i do','give me advice'}:return 'ideas'
+        if key in S.NO|S.STOP|{'change the subject','something lighter'}:return 'stop'
+        if key in {'you got that wrong','that is not how i feel',"that's not how i feel",'stop assuming'}:return 'correction'
+        if key in S.YES:return 'clarify_preference'
+        if not re.match(S.COMMAND,key) and not re.search(S.QUESTION,key) and '?' not in message:return 'followup'
+    return None
+
+
 def handle(message,memory):
+    if not recognize(message,memory):return None
     key=S.key(message);cue=feeling(message)
     state=memory.setdefault('emotional',{'active':False,'style':'ask','turn':0,'no_jokes':False})
     intent=None;words=[]

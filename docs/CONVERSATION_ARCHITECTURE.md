@@ -65,18 +65,34 @@ it does not prove that their prose answers the question. Hashes establish byte
 integrity, not factual truth. Authority metadata is an audit contract, not a
 replacement for the existing source gates.
 
-## Migration boundary and remaining work
+## Consolidated skill and source routing
 
-The top-level competing-handler chain is replaced. Source acquisition, social
-realization, and other legacy skills inside the environment still contain bounded
-subrouters. They are reached through an explicit legacy-skill candidate. Their
-recognizers can be extracted into further proposals incrementally. No claim of
-unrestricted natural conversation or complete semantic consolidation is made.
+`skill_planner` replaces the remaining competing response chains in general chat,
+loaded chat, the UI compatibility path, and focused source reading. Local skills
+contribute read-only candidates with explicit priorities, reasons and authority.
+Only the selected renderer runs, on isolated session state. A declined selected
+skill clarifies; it does not try unrelated renderers. Casual speech acts, emotional
+preferences and interface help expose recognizers shared with their executors.
 
-The current priorities and several skill recognizers remain hand-authored.
-Broadening a recognizer requires collision tests against personal memory, literal
-requests, negation, and source controls. Favor extracting shared recognizers, as
-with self-knowledge and dialogue acts, over duplicating patterns.
+Focused reading selects the note/summary reader, attribute reader or ledger reader
+before reading. The existing refusal and pin-validation paths are preserved.
+Topic lookup uses a declared retrieval plan: eligible loaded sources, optionally
+saved references outside the loaded scope, then the applicable general skill.
+Each missing-source step is discarded without committing tentative context. An
+outside-scope reference keeps its separate label; it does not enter loaded evidence.
+This is an ordered evidence search, not competing guesses about conversational intent.
+
+`reply_plan.subplans` retains these pre-execution skill, source and retrieval
+plans. Retrieval outcomes and source pins are execution results. No renderer is
+called merely to find out whether it recognizes a message. Compound local reply
+planning remains in the shared conversation router. Procedural commands and
+finite rules inside an individual skill remain ordinary conditional code;
+consolidation does not mean eliminating conditionals or learning all language.
+
+Priorities and skill grammars remain authored and bounded. This release completes
+the identified routing consolidation, not unrestricted natural conversation or
+sentence-level entailment verification. Dictionary senses, conversational framing,
+user declarations and independently gated page results retain different authority.
 
 ## Validation
 
@@ -95,3 +111,7 @@ The existing 140-turn continuity smoke run is retained. All these tests are
 **developer-authored**, not independent validation. External testers should use
 unprompted conversations and unfamiliar corpora under the existing independent
 evaluation protocol. The project must publish those failures as well as successes.
+
+`tests/test_skill_planner.py` additionally checks pure recognition across scopes,
+losing-renderer isolation, decline rollback, failed-retrieval rollback, reader
+selection, reload/focus continuity and shared help recognition.

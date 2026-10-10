@@ -29,7 +29,7 @@ HELP_ALIASES = {
  'limits': {'what can you do','what are your limits','are you ai','are you a language model','can you answer anything','are you deterministic'},
 }
 
-def help_reply(message, context):
+def help_intent(message, context):
     key = re.sub(r'\s+', ' ', re.sub(r"[?!.,]", '', message.casefold().replace('’', "'"))).strip()
     key = re.sub(r"\bi'm\b", 'i am', key)
     key = re.sub(r"\bcan't\b", 'can not', key)
@@ -49,21 +49,39 @@ def help_reply(message, context):
     if key in {'guide me','walk me through it','teach me how to use it','how does mplpb work','what is this app','what is this'}:category='start'
     if category:
         title,body=HELP[category]
-        return reply('help',title+'\n\n'+body,context,'HELP-'+category.upper(),authority='interface_instructions',suggestions=['guide me','show my MPLPB','how do I search?'])
+        return 'HELP-'+category.upper()
     if key in {'hello','hi','hey','good morning','good afternoon','good evening'}:
-        return reply('help', 'Hi! I can help you explore your local pages. Ask “how do I use this?” for a quick start, or “how do I search?” to build a topic collection.', context, 'HELP-GREETING')
+        return 'HELP-GREETING'
     if key in {'thanks','thank you','thank you so much','ok','okay','got it'}:
-        return reply('help', 'You’re welcome. Ask “what do I do next?” if you need another step.', context, 'HELP-ACK')
+        return 'HELP-ACK'
     if key in {'how are you','how are you doing'}:
-        return reply('help', 'Ready to help with your pages. I do not have feelings. What would you like to explore? Ask “how do I search?” to get started.', context, 'HELP-GREETING')
+        return 'HELP-GREETING'
     search_help = re.fullmatch(r'how (?:do|can) i (?:search for|search|learn about|explore) (.{1,160})', key)
     if search_help:
-        return reply('help', 'Choose a Wikipedia mode beside Send, then send “search '+search_help[1]+'”. That builds a new local collection. After it finishes, ask “what is it?” or “summarize it”. Web mode instead needs the hosted crawler setup. This reply has not made a network request.', context, 'HELP-SEARCH', authority='interface_instructions')
+        return 'HELP-SEARCH'
     for topic, aliases in HELP_ALIASES.items():
         if key in aliases:
             title, body = HELP[topic]
-            return reply('help', title + '\n\n' + body, context, 'HELP-' + topic.upper(), authority='interface_instructions',suggestions=['guide me','show my MPLPB','how do I search?'])
+            return 'HELP-' + topic.upper()
     return None
+
+def help_reply(message, context):
+    intent=help_intent(message,context)
+    if intent is None:return None
+    key=re.sub(r'\s+',' ',re.sub(r"[?!.,]",'',message.casefold().replace('’',"'"))).strip()
+    key=re.sub(r'^(?:(?:please|explain|tell me) )+','',key)
+    if intent=='HELP-GREETING':
+        body=('Ready to help with your pages. I do not have feelings. What would you like to explore? Ask “how do I search?” to get started.' if key in {'how are you','how are you doing'} else
+              'Hi! I can help you explore your local pages. Ask “how do I use this?” for a quick start, or “how do I search?” to build a topic collection.')
+        return reply('help',body,context,intent)
+    if intent=='HELP-ACK':
+        return reply('help','You’re welcome. Ask “what do I do next?” if you need another step.',context,intent)
+    search_help=re.fullmatch(r'how (?:do|can) i (?:search for|search|learn about|explore) (.{1,160})',key)
+    if intent=='HELP-SEARCH' and search_help:
+        return reply('help','Choose a Wikipedia mode beside Send, then send “search '+search_help[1]+'”. That builds a new local collection. After it finishes, ask “what is it?” or “summarize it”. Web mode instead needs the hosted crawler setup. This reply has not made a network request.',context,intent,authority='interface_instructions')
+    title,body=HELP[intent[5:].lower()]
+    return reply('help',title+'\n\n'+body,context,intent,authority='interface_instructions',suggestions=['guide me','show my MPLPB','how do I search?'])
+
 
 def reply(kind, message, context, rule, sources=None, **extra):
     return dict(kind=kind, message=message, context=context,
@@ -85,8 +103,7 @@ def handle(root, profile, message, context, memory):
     """Return None for intents delegated to the original reader/chat rules."""
     key = message.casefold().strip(' ?.!')
     notes = memory.setdefault('notes', [])
-    guide = help_reply(message, context)
-    if guide is not None: return guide
+    if help_intent(message,context):return help_reply(message,context)
     if message.casefold().startswith('remember '):
         note = message[9:].strip()
         if not note or len(note) > 600 or len(notes) >= 20:

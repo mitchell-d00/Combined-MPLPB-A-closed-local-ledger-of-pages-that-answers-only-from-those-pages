@@ -12,7 +12,7 @@ from tools import dialogue_rules as DR, chat_environment as E, emotional_rules a
 from tools import deterministic_mind as M
 from tools.chat_phrasing import memory_question
 
-VERSION = 'conversation-router-v1'
+VERSION = 'conversation-router-v2'
 
 def relationships(session, acts):
     """Replay typed user declarations only. Assistant answers are never premises."""
@@ -125,7 +125,7 @@ def propose(frame, session, data):
     definition=PC.F.definition_subject(text)
     if (session.get('environment') or data.get('default_chat')) and (proposition or any(x['subject']==(definition or '').casefold() for x in mind.get('user_descriptions',[]))):
         add('proposition','subject_description',50,'subject/predicate/polarity',['user_declaration','conversation_structure','lexical_reference','gated_source'])
-    add('environment','topic_or_legacy_skill',0,'unresolved request; existing gated skills',['gated_source','lexical_reference','research_note','conversation_structure'])
+    add('environment','scoped_environment',0,'explicit scope, local skill plan, or gated retrieval plan',['gated_source','lexical_reference','research_note','conversation_structure'])
     return sorted(candidates,key=lambda c:(-c['priority'],c['handler'],c['intent']))
 
 def plan(frame, session, data, compound=True):

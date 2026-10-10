@@ -83,15 +83,17 @@ def handle(app,data,session,message,corpus,profile):
     if not session.get('environment') and not data.get('default_chat',False):return None
     memory=session.setdefault('mind',{})
     from tools import emotional_rules as EM
-    if EM.handle(message,copy.deepcopy(memory)) is not None:return None
+    if EM.recognize(message,memory) is not None:return None
     requested=F.definition_subject(message)
     declarations=memory.get('user_descriptions',[])
     matching=[d for d in declarations if requested and d['subject']==requested.casefold()]
     if matching:
         from tools import chat_environment as E
         shadow=copy.deepcopy(session)
-        source=E.explore_sources(app,data,shadow,'tell me about '+requested,corpus,profile)
-        if source and source.get('sources'):return None
+        source=E.retrieve(app,data,shadow,'tell me about '+requested,corpus,profile)
+        if source and source.get('sources'):
+            session.clear();session.update(shadow)
+            return source
         descriptions=list(dict.fromkeys(('not ' if d['negated'] else '')+d['predicate'] for d in matching))
         body='For '+requested+', you’ve supplied '+('this description' if len(descriptions)==1 else 'these descriptions')+': '+ '; '.join(descriptions)+'.'
         if len(descriptions)>1:body+=' Which description should we use for this conversation?'
@@ -110,9 +112,7 @@ def handle(app,data,session,message,corpus,profile):
         memory['user_descriptions']=declarations[-8:]
     shadow=copy.deepcopy(session)
     lookup='tell me about '+frame['subject']
-    sourced=E.explore_sources(app,data,shadow,lookup,corpus,profile)
-    if not sourced and session.get('environment',{}).get('mode')=='focus':
-        sourced=E.discover_saved(app,shadow,lookup,profile)
+    sourced=E.retrieve(app,data,shadow,lookup,corpus,profile,outside=session.get('environment',{}).get('mode')=='focus')
     # Remember the subject, never the opinion as established page evidence.
     memory['idea_chat']=shadow['mind'].get('idea_chat',{'subject':frame['subject'],'turn':0})
     lexical=[];subject_senses=[];subject_head=frame['subject']
@@ -150,6 +150,7 @@ def handle(app,data,session,message,corpus,profile):
     elif not sourced or not sourced.get('sources'):
         result=M.reply('conversation',body,session.get('context'),'PROPOSITION-CONVERSATION',
                        authority='conversation_structure',suggestions=suggestions)
+    if sourced and sourced.get('retrieval_plan'):result['retrieval_plan']=sourced['retrieval_plan']
     result['response_structure']={'intent':'topic_opinion' if result.get('sources') else 'casual_topic_opinion',
                                  'subject':frame['subject'],'factual_claims':bool(result.get('sources')),
                                  'mplpb_supported':bool(result.get('sources')) and result.get('authority')!='lexical_reference',

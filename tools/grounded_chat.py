@@ -107,6 +107,18 @@ def missing(question, context, attribute=None, reason='No supported answer state
         unsupported_reason=reason)
 
 
+def recognizes(message,context):
+    """Pure reader selection, including refusal paths for unsupported questions."""
+    q=normalized(message)
+    if q in {'what is it','what is this topic','what is that topic','tell me more','more','continue','show source','show page'} or q.startswith(('topic ','relate ')):return False
+    relation=re.fullmatch(r'is (.+?) (?:a|an|related to) .+',q)
+    if relation:return bool(context and relation[1] not in {'it',normalized(context['title'])})
+    if re.fullmatch(r"(?:let's talk about|lets talk about|let us talk about|talk about|discuss) (.{1,160})",q):return True
+    if q in {'what are we talking about','what is our topic','which topic are we on'}:return True
+    if re.match(r"(?:what|who|whom|whose|where|when|why|how|which|is|are|was|were|can|could|does|do|did|will|would|should|tell me)\b",q) or message.rstrip().endswith('?'):return True
+    return bool(context and q!=normalized(context['title']))
+
+
 def handle(app, corpus, root, profile, message, context):
     q = normalized(message)
     # Explicit overview/source and relation commands retain their separate semantics.

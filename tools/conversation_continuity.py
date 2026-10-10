@@ -73,6 +73,7 @@ def finish(frame,result,session):
     result['interpretation']=frame
     # Keep the pre-execution decision immutable; realized output is separate.
     result['reply_plan']=copy.deepcopy(frame.get('reply_plan',{}))
+    result['reply_plan']['subplans']={name:copy.deepcopy(result[name]) for name in ('skill_plan','source_plan','retrieval_plan') if name in result}
     result['reply_plan']['sources']=copy.deepcopy(result.get('sources',[]))
     result['realization']={'message':result['message'],'authority':result.get('authority'),
         'sources':copy.deepcopy(result.get('sources',[])),

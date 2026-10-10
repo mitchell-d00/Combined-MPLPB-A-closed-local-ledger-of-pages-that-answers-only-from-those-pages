@@ -18,7 +18,40 @@ def normalize(message):
     return re.sub(r'^(?:(?:so|okay|ok|well|hey)[, ]+)+','',key)
 
 
+def recognize(message,memory):
+    """Read-only speech-act recognition; never generates a reply."""
+    key=normalize(message);state=dict(memory.get('chat_discourse',{}))
+    introduction=re.fullmatch(r"(?:(?:please |(?:can|could|would|will) you )*)(?:say (?:hi|hello)|give a greeting|introduce yourself) to (.{1,100}?)(?: and (?:tell (?:them|everyone) (?:what|who) you are|(?:explain|describe) (?:what|who) you are|introduce yourself))?[?.!]*",message.strip(),re.I)
+    if introduction and ' and ' not in introduction[1].casefold():return 'audience_introduction'
+    if re.fullmatch(r"(?:please\s+)?(?:(?:can|could|would) you\s+)?(?:say( exactly| only)?\s+|repeat after me[: ]+|repeat\s+)(.+)",message.strip(),re.I|re.S):return 'echo'
+    if state.get('topic')=='echo' and key in {'again','say it again','repeat it','why','why not','just because','because i asked','because i said so','for fun'}:return 'echo_followup'
+    topic=None
+    if re.fullmatch(r'(?:hi|hello|hey)(?: there| again)?',key):topic='greeting'
+    elif re.fullmatch(r'(?:you are (?:not )?(?:an? )?(?:ai|llm|language model)|are you (?:not )?(?:an? )?(?:ai|llm|language model)|you are (?:not )?(?:an? )?(?:ai|llm|language model) (?:then|right)|why (?:are|are not) you (?:an? )?(?:ai|llm))',key):topic='identity'
+    elif key in {'what are you','who are you','what kind of ai are you','are you artificial intelligence'}:topic='identity'
+    elif re.fullmatch(r'(?:what (?:are|is)|explain|tell me|tell me about|show me) (?:the |your )?(?:rules|rule|construct rules|construction rules|response rules)(?: you (?:use|follow))?',key):topic='rules'
+    elif key in {'how do you think','how do you work','how does your mind work','how do you reply','how do you make replies','can you think'}:topic='construction'
+    elif key in {'do you have feelings','are you alive','are you conscious','are you a person'}:topic='experience'
+    elif key in {'can we talk','can you chat','can you talk to me','what can we talk about','what should we talk about','what do you want to talk about'}:topic='conversation'
+    elif key in {"i'm bored",'i am bored','im bored','any ideas','what can i do for fun','help me think of something to do'}:topic='ideas'
+    elif key in {'and you','what about you','how about you'}:topic='experience'
+    elif key in {'tell me a story','make up a story','tell me something imaginary'}:topic='story'
+    elif key in {'is that true','is this verified','where is your evidence','is that from a mplpb','is this from a mplpb','are these facts'}:topic='support'
+    elif key in {'why','how','how so','why is that','why not','tell me more','go on','what does that mean','explain that','what do you mean','what do you mean by that'}:
+        previous=state.get('topic')
+        topic={'identity':'construction','construction':'rules','rules':'rules','experience':'experience','support':'support','conversation':'conversation','greeting':'conversation','ideas':'ideas','story':'story'}.get(previous)
+        if topic:state['followup_of']=previous
+    else:
+        # Do not attach a later "why?" to an old subject after an unrelated turn.
+        state.pop('topic',None);state.pop('followup_of',None)
+        return None
+    if topic is None:
+        return None
+    return topic
+
+
 def respond(message,memory):
+    if not recognize(message,memory):return None
     key=normalize(message)
     state=memory.setdefault('chat_discourse',{'turn':0})
     state['turn']+=1
@@ -64,28 +97,10 @@ def respond(message,memory):
                        suggestions=['say potato','say banana','can we talk'],
                        response_structure={'intent':'casual_echo_followup','factual_claims':False,'mplpb_supported':False,'engine':VERSION})
     state.pop('echo',None);state.pop('echo_exact',None)
-    topic=None
-    if re.fullmatch(r'(?:hi|hello|hey)(?: there| again)?',key):topic='greeting'
-    elif re.fullmatch(r'(?:you are (?:not )?(?:an? )?(?:ai|llm|language model)|are you (?:not )?(?:an? )?(?:ai|llm|language model)|you are (?:not )?(?:an? )?(?:ai|llm|language model) (?:then|right)|why (?:are|are not) you (?:an? )?(?:ai|llm))',key):topic='identity'
-    elif key in {'what are you','who are you','what kind of ai are you','are you artificial intelligence'}:topic='identity'
-    elif re.fullmatch(r'(?:what (?:are|is)|explain|tell me|tell me about|show me) (?:the |your )?(?:rules|rule|construct rules|construction rules|response rules)(?: you (?:use|follow))?',key):topic='rules'
-    elif key in {'how do you think','how do you work','how does your mind work','how do you reply','how do you make replies','can you think'}:topic='construction'
-    elif key in {'do you have feelings','are you alive','are you conscious','are you a person'}:topic='experience'
-    elif key in {'can we talk','can you chat','can you talk to me','what can we talk about','what should we talk about','what do you want to talk about'}:topic='conversation'
-    elif key in {"i'm bored",'i am bored','im bored','any ideas','what can i do for fun','help me think of something to do'}:topic='ideas'
-    elif key in {'and you','what about you','how about you'}:topic='experience'
-    elif key in {'tell me a story','make up a story','tell me something imaginary'}:topic='story'
-    elif key in {'is that true','is this verified','where is your evidence','is that from a mplpb','is this from a mplpb','are these facts'}:topic='support'
-    elif key in {'why','how','how so','why is that','why not','tell me more','go on','what does that mean','explain that','what do you mean','what do you mean by that'}:
-        previous=state.get('topic')
-        topic={'identity':'construction','construction':'rules','rules':'rules','experience':'experience','support':'support','conversation':'conversation','greeting':'conversation','ideas':'ideas','story':'story'}.get(previous)
-        if topic:state['followup_of']=previous
-    else:
-        # Do not attach a later "why?" to an old subject after an unrelated turn.
-        state.pop('topic',None);state.pop('followup_of',None)
-        return None
-    if topic is None:
-        return None
+    topic=recognize(message,memory)
+    if topic is None:return None
+    if key in {'why','how','how so','why is that','why not','tell me more','go on','what does that mean','explain that','what do you mean','what do you mean by that'}:
+        state['followup_of']=state.get('topic')
     opening={
         'ideas':['We could invent a tiny story, try a silly question, or talk about something you enjoy.'],
         'story':['Here’s a little made-up story:'],
