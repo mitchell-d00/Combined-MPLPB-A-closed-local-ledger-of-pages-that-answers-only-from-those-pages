@@ -45,6 +45,8 @@ def prepare(message,session):
         frame['language_graph']=graph
         text=graph['command']
     frame['resolved']=text
+    frame['original_acts']=frame['acts']
+    frame['acts']=[CE.act(c) for c in CE.clauses(text)]
     return frame
 
 def finish(frame,result,session):
@@ -65,11 +67,16 @@ def finish(frame,result,session):
     substantive=any(a['type'] not in {'greet','wellbeing'} for a in frame['acts'])
     if substantive and not choices and not branch and not frame['reference'] and not frame['correction'] and B.key(frame['original']) not in {'thanks','thank you','thnaks','chat mode','serious mode','just chat'}:
         state.pop('choices',None);state.pop('branch',None);state.pop('selected',None);state.pop('unanswered_question',None)
+        branches=session['mind'].get('conversation_branches',{})
+        branches.pop('pending',None);branches.pop('active',None)
     state['recent']=(state.get('recent',[])+[{'request':frame['original'],'subject':state.get('subject'),'authority':result.get('authority'),'kind':result['kind']}])[-16:]
     result['interpretation']=frame
-    # A presentation plan records existing text and evidence; it does not rewrite quotations.
-    paragraphs=result['message'].split('\n\n')
-    result['reply_plan']={'version':VERSION,'answer':paragraphs[0],'detail':paragraphs[1:],
-        'followups':result.get('suggestions',[]),'authority':result.get('authority'),
-        'sources':copy.deepcopy(result.get('sources',[]))}
+    # Keep the pre-execution decision immutable; realized output is separate.
+    result['reply_plan']=copy.deepcopy(frame.get('reply_plan',{}))
+    result['reply_plan']['sources']=copy.deepcopy(result.get('sources',[]))
+    result['realization']={'message':result['message'],'authority':result.get('authority'),
+        'sources':copy.deepcopy(result.get('sources',[])),
+        'claim_units':copy.deepcopy(result.get('claim_units',[])),
+        'scope_results':copy.deepcopy(result.get('scope_results',[])),
+        'chat_is_evidence':False}
     return result

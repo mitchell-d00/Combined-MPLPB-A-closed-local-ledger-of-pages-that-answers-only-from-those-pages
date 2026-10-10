@@ -43,16 +43,18 @@ def prepare(session):
     # Replaying oldest-to-newest makes corrections reproducible after reload.
     slots={};postings={};vocabulary={}
     for entry in entries:
-        command=key(entry['user'])
-        definition=re.fullmatch(r'when i say (.{1,50}?) i mean (.{1,160})',command)
-        if definition:vocabulary[definition[1]]={'meaning':definition[2],'turn':entry['turn']}
-        forgotten_word=re.fullmatch(r'forget the meaning of (.{1,50})',command)
-        if forgotten_word:vocabulary.pop(forgotten_word[1],None)
-        forgotten=re.fullmatch(r'forget my (.{1,60})',command)
-        if forgotten:slots.pop(forgotten[1],None)
-        for item in declarations(entry['user']):
-            old=slots.get(item['slot'])
-            slots[item['slot']]={**item,'turn':entry['turn'],'supersedes':old['turn'] if old else None,'basis':'user_declaration'}
+        from tools.conversation_engine import clauses
+        for clause in clauses(entry['user']):
+            command=key(clause)
+            definition=re.fullmatch(r'when i say (.{1,50}?) i mean (.{1,160})',command)
+            if definition:vocabulary[definition[1]]={'meaning':definition[2],'turn':entry['turn']}
+            forgotten_word=re.fullmatch(r'forget the meaning of (.{1,50})',command)
+            if forgotten_word:vocabulary.pop(forgotten_word[1],None)
+            forgotten=re.fullmatch(r'forget my (.{1,60})',command)
+            if forgotten:slots.pop(forgotten[1],None)
+            for item in declarations(clause):
+                old=slots.get(item['slot'])
+                slots[item['slot']]={**item,'turn':entry['turn'],'supersedes':old['turn'] if old else None,'basis':'user_declaration'}
         for word in terms(entry['user']):postings.setdefault(word,[]).append(entry['turn'])
     index={'version':VERSION,'fingerprint':fingerprint,'turn_count':len(entries),'slots':slots,'vocabulary':vocabulary,'postings':postings,'entries':entries}
     mind['context_index']=index

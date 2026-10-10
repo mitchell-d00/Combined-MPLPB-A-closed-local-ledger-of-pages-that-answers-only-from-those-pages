@@ -69,8 +69,8 @@ def apply(state,a,turn):
         person=resolve_person(state,a['person'])
         if person:state['people'][person]['attributes'][a['predicate']]={'value':a['value'],'turn':turn}
 
-def handle(message,session,source_reader=None):
-    parts=clauses(message);acts=[act(p) for p in parts]
+def recognize(message,session,source_reader=True,acts=None):
+    parts=clauses(message);acts=copy.deepcopy(acts) if acts is not None else [act(p) for p in parts]
     if len(acts)==1 and CM.key(message)=='what can you do':return None
     if len(acts)==1 and acts[0]['type']=='topic' and (acts[0]['value'].lower() in {'nothing','anything'} or (acts[0]['value'].lower() in {'it','that','this','them'} and session.get('context'))):return None
     # Preserve legacy handlers for isolated acts that they already implement.
@@ -82,7 +82,14 @@ def handle(message,session,source_reader=None):
     # At most one independent source question; no speculative clause dropping.
     if unknown and (len(unknown)!=1 or not source_reader or not re.match(r'^(?:what|who|when|where|how|tell me|explain)\b',unknown[0]['text'],re.I)):
         return None
-    state=replay(session);bodies=[];refs=[];turn=len(session.get('log',[]))+1
+    return {"parts":parts,"acts":acts,"unknown":unknown}
+
+
+def handle(message,session,source_reader=None,interpretation=None):
+    plan=copy.deepcopy(interpretation) if interpretation is not None else recognize(message,session,source_reader)
+    if not plan:return None
+    parts,acts,unknown=plan["parts"],plan["acts"],plan["unknown"]
+    state=replay(session);bodies=[];units=[];refs=[];turn=len(session.get('log',[]))+1
     state['topic']=state['topic'] or session.get('mind',{}).get('idea_chat',{}).get('subject') or (session.get('context') or {}).get('title')
     for a in acts:
         if a['type']=='topic' and a['value'].lower() in {'it','that','this','them'}:
@@ -90,7 +97,7 @@ def handle(message,session,source_reader=None):
             a['value']=state['topic']
     if len(acts)==1 and acts[0]['type']=='person_update' and not state['people']:return None
     for a in acts:
-        t=a['type'];apply(state,a,turn)
+        t=a['type'];apply(state,a,turn);start=len(bodies)
         if t in {'introduce','greet'}:bodies.append('Hi'+(', '+state['name'] if state['name'] else '')+'!')
         if t in {'introduce','identity'} and not any('little monster' in b for b in bodies):bodies.append('I’m MPLPB, your rule-based little monster 😈.')
         if t=='recall_name':bodies.append('You asked me to call you '+state['name']+'.' if state['name'] else 'What would you like me to call you?')
@@ -110,17 +117,23 @@ def handle(message,session,source_reader=None):
                     bodies.append('You told me '+p['name']+' '+a['predicate']+' '+item['value']+'.')
                     refs.append({'turn':item['turn'],'basis':'user declaration'})
                 else:bodies.append('You haven’t told me what '+p['name']+' '+a['predicate']+' yet.')
+        for body in bodies[start:]:
+            authority=('system_description' if body=='I’m MPLPB, your rule-based little monster 😈.' or t in {'abilities','identity'}
+                       else 'conversation_structure' if t in {'introduce','greet','open_chat','wellbeing'} else 'user_declaration')
+            units.append({'text':body,'authority':authority,'sources':[],'act':t})
     prefix=' '.join(dict.fromkeys(bodies))
     trace={'version':VERSION,'acts':acts,'chat_references':refs,'identity_verified':False}
     if unknown:
         result=source_reader(unknown[0]['text'])
         if result is None:return None
-        result=copy.deepcopy(result);result['message']=prefix+'\n\n'+result['message']
+        result=copy.deepcopy(result)
+        result['claim_units']=units+[{'text':result['message'],'authority':result.get('authority','source_reader_result'),'sources':copy.deepcopy(result.get('sources',[]))}]
+        result['message']=prefix+'\n\n'+result['message']
         result['dialogue_plan']=trace
         return result
     session.setdefault('mind',{})['discourse']=state
     if any(a['type']=='topic' for a in acts):
         session['mind']['idea_chat']={'subject':state['topic'],'turn':0}
     return M.reply('conversation',prefix,session.get('context'),'DIALOGUE-PLAN',authority='user_declaration',
-        response_structure={'intent':'chat_memory','factual_claims':False,'mplpb_supported':False,**trace},
+        claim_units=units,response_structure={'intent':'chat_memory','factual_claims':False,'mplpb_supported':False,**trace},
         suggestions=['What can you chat about?','What is my name?'] if state['name'] else (['a silly question','Talk about my day','Help me brainstorm'] if any(a['type']=='open_chat' for a in acts) else ['Talk about my day','Help me brainstorm']))

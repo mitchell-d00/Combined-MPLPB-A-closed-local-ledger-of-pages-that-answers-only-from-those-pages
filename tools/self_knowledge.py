@@ -36,7 +36,7 @@ def snapshot(session):
             'conversation_topic':session.get('mind',{}).get('idea_chat',{}).get('subject')}
 
 
-def handle(message,session,collections=None):
+def recognize(message):
     key=re.sub(r'\s+',' ',F.normalize(message).casefold().replace('’',"'")).strip(' ?!.')
     current=key in {'what mode are you in','what do you have loaded','what are we talking about','describe your current state'}
     topic=next((name for name,forms in ALIASES.items() if key in forms),None)
@@ -51,7 +51,13 @@ def handle(message,session,collections=None):
                   'your limitations':'limits','your data':'resources','your sources':'sources',
                   'your language generation':'language'}
         topic=concepts.get(subject)
-    if not current and not topic:return None
+    return {"current":current,"topic":topic} if current or topic else None
+
+
+def handle(message,session,collections=None):
+    match=recognize(message)
+    if not match:return None
+    current,topic=match["current"],match["topic"]
     state=snapshot(session)
     if current:
         mode={'focus':'Serious','chat':'Chat','legacy':'No explicit mode selected'}[state['mode']]

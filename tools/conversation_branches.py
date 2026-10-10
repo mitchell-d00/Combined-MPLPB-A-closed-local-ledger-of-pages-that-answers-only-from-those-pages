@@ -15,7 +15,7 @@ def candidates(session):
     if not log:return []
     response=log[-1].get('payload',{}).get('response',{})
     acts=response.get('response_structure',{}).get('acts',[])
-    if any(a.get('type') in {'introduce','identity'} for a in acts):
+    if any(isinstance(a,dict) and a.get('type') in {'introduce','identity'} for a in acts):
         return [{'id':'mplpb','label':'MPLPB','kind':'system'}, {'id':'monster','label':'little monster','kind':'system'}]
     # Use typed context rather than treating arbitrary assistant prose as facts.
     found=[]

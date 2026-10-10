@@ -33,6 +33,7 @@ from tools import social_chat as S
 from tools import response_construction as N
 from tools import conversation_branches as CB
 from tools import conversation_continuity as CC
+from tools import conversation_router as CR
 from tools import conversation_engine as CE
 from tools import chat_environment as E
 from tools import reduction as RD
@@ -275,10 +276,10 @@ class App:
             message=interpretation['resolved']
             language_request=LP.parse(message,memory,session.get('context'))
             casual=None
-            dialogue=SK.handle(message,session,self.roots()) or CB.handle(message,session,lambda q: E.handle(self,data,session,q,corpus,profile)) or CE.handle(message,session,lambda q: E.handle(self,data,session,q,corpus,profile)) or CX.handle(message,session) or DR.handle(message,session)
-            if dialogue and data.get('default_chat') and not session.get('environment') and not session.get('context'):
+            environment_result=CR.execute(self,data,session,interpretation,corpus,profile)
+            memory=session['mind']
+            if environment_result and data.get('default_chat') and not session.get('environment') and not session.get('context'):
                 session['environment']={'mode':'chat','corpora':[],'focus_corpus':None}
-            environment_result=dialogue or CM.handle(message,session) or SK.handle(message,session,self.roots()) or PC.handle(self,data,session,message,corpus,profile) or E.handle(self,data,session,message,corpus,profile)
             open_casual=T.casual_followup(message,session['context'],memory) if environment_result is None else None
             if environment_result is None and casual is None and (T.smalltalk_candidate(message,memory) or open_casual is not None or S.candidate(message,memory)):
                 try:titles=[p['title'] for p in self.inventory(corpus,profile)['pages'] if p['eligible']]
@@ -381,6 +382,8 @@ class App:
             result['question_frame']=E.IC.PF.frame(message)
             payload = {'question': original_message, 'corpus': corpus, 'profile': profile, 'response': result}
             payload['chat_phrasing_sha256']=hashlib.sha256(Path(CX.__file__).with_name('chat_phrasing.py').read_bytes()).hexdigest()
+            payload['conversation_router_version']=CR.VERSION
+            payload['conversation_router_sha256']=hashlib.sha256(Path(CR.__file__).read_bytes()).hexdigest()
             payload['conversation_continuity_version']=CC.VERSION
             payload['conversation_continuity_sha256']=hashlib.sha256(Path(CC.__file__).read_bytes()).hexdigest()
             payload['conversation_branches_version']=CB.VERSION

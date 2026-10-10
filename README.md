@@ -250,7 +250,7 @@ nothing else.
 | `mplpb_combined/ledger.py` | The folder as a ledger: status, lineage, depth, validation, writing, the log |
 | `mplpb_combined/reader.py` | The answer rule, profiles, hubs |
 | `mplpb_combined/killtest.py` | The kill test: three arms, mechanical scoring |
-| `tests/` | 483 developer-authored regression tests covering the reader, captures, conversation, source boundaries and saved state |
+| `tests/` | 490 developer-authored regression tests covering the reader, captures, conversation, source boundaries and saved state |
 | `examples/studio/` | 25 pages about running a pottery studio; the kill-test corpus |
 | `examples/spec/` | The format described as ten pages in the format |
 | `examples/hub/` | Two pointers, one at each of the above |
@@ -367,3 +367,5 @@ See [synthetic runs and independent evaluation protocol](docs/CHAT_EVALUATION.md
 General chat also includes eight short, attributed NASA/NOAA research notes. Ask “general topics”; these notes are outside MPLPB evidence and do not replace the loaded reader.
 
 The base [chat language graph](docs/CHAT_LANGUAGE_GRAPH.md) relates supported phrase forms, subjects, intents and read-only handlers. It is bundled offline in both modes and never grants MPLPB evidence authority.
+
+Conversation routing now uses [pre-execution interpretation and reply plans](docs/CONVERSATION_ARCHITECTURE.md), with competing intent proposals and user-declared relationship edges. The ledger remains unchanged. Legacy specialized skills are still bounded; this is not unrestricted semantic understanding. Fixed full-conversation smoke results are in `evaluation/conversation/architecture-results.json`.

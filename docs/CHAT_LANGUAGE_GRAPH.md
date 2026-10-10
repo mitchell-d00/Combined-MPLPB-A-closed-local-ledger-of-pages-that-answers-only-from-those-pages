@@ -9,3 +9,5 @@ This is a foundation, not a general semantic graph or unrestricted conversation 
 The browser composer also preserves a newly typed draft when an earlier answer arrives, and rejects concurrent submissions. It previously cleared the input unconditionally, which could erase the next message during a slow request.
 
 Validation: graph phrase combinations and negative controls, public `App.chat` tests in both modes and on a fresh session, the full regression suite, and real Python/WebAssembly dialogue tests. Live browser testing reproduced the reported collection-routing bug. These tests are developer-authored; they do not establish full language coverage or independent human validation.
+
+The base command graph is now accompanied by a typed, user-declared conversation graph and candidate router. See [Conversation architecture](CONVERSATION_ARCHITECTURE.md) for its actual coverage, pre-execution plans, and remaining legacy subrouters.
