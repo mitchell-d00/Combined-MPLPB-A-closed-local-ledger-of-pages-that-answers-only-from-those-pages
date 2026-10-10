@@ -23,7 +23,7 @@ def recognize(message,memory):
     key=normalize(message);state=dict(memory.get('chat_discourse',{}))
     introduction=re.fullmatch(r"(?:(?:please |(?:can|could|would|will) you )*)(?:say (?:hi|hello)|give a greeting|introduce yourself) to (.{1,100}?)(?: and (?:tell (?:them|everyone) (?:what|who) you are|(?:explain|describe) (?:what|who) you are|introduce yourself))?[?.!]*",message.strip(),re.I)
     if introduction and ' and ' not in introduction[1].casefold():return 'audience_introduction'
-    if re.fullmatch(r"(?:please\s+)?(?:(?:can|could|would) you\s+)?(?:say( exactly| only)?\s+|repeat after me[: ]+|repeat\s+)(.+)",message.strip(),re.I|re.S):return 'echo'
+    if re.fullmatch(r"(?:please\s+)?(?:(?:can|could|would) you\s+)?(?:repeat after me[: ]+|(?:say|repeat)( exactly| only)?\s+)(.+)",message.strip(),re.I|re.S):return 'echo'
     if state.get('topic')=='echo' and key in {'again','say it again','repeat it','why','why not','just because','because i asked','because i said so','for fun'}:return 'echo_followup'
     topic=None
     if re.fullmatch(r'(?:hi|hello|hey)(?: there| again)?',key):topic='greeting'
@@ -71,7 +71,7 @@ def respond(message,memory):
                        response_structure={'intent':'audience_introduction','factual_claims':False,'mplpb_supported':False,
                                            'engine':VERSION,'acts':['greeting','system_description'] if describe else ['greeting'],
                                            'description_basis':'local authored system rules','audience':audience,'sent_externally':False})
-    echo=re.fullmatch(r"(?:please\s+)?(?:(?:can|could|would) you\s+)?(?:say( exactly| only)?\s+|repeat after me[: ]+|repeat\s+)(.+)",message.strip(),re.I|re.S)
+    echo=re.fullmatch(r"(?:please\s+)?(?:(?:can|could|would) you\s+)?(?:repeat after me[: ]+|(?:say|repeat)( exactly| only)?\s+)(.+)",message.strip(),re.I|re.S)
     if state.get('topic')=='echo' and key in {'again','say it again','repeat it'}:
         echo=None
     if echo:

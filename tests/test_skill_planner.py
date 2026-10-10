@@ -32,6 +32,11 @@ class SkillPlannerTests(unittest.TestCase):
             result=P.execute('I am relieved',session)
         self.assertEqual(result['skill_plan']['selected']['skill'],'emotional')
         self.assertEqual(result['sources'],[])
+        for request in ['repeat exactly purple rabbit','repeat only purple rabbit',
+                        'repeat after me: purple rabbit','say exactly purple rabbit']:
+            echoed=P.execute(request,session)
+            self.assertEqual(echoed['message'],'purple rabbit',request)
+            self.assertEqual(echoed['sources'],[])
 
     def test_decline_does_not_try_another_renderer_or_commit(self):
         session=self.session();before=copy.deepcopy(session)
