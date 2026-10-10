@@ -16,6 +16,8 @@ class OwnershipEvaluationTests(unittest.TestCase):
         self.assertEqual(len(result['summary']['by_family']),12)
         # Known failures stay visible; this is a baseline, not an acceptance gate.
         self.assertEqual(result['summary']['arms']['ledger']['wrong_ownership'],180)
+        self.assertEqual(result['summary']['arms']['supported_reader']['wrong_ownership'],0)
+        self.assertEqual(result['summary']['arms']['supported_reader']['wrong_refusal'],0)
 
     def test_external_oracle_and_wrong_returns(self):
         cases=[json.loads(x) for x in (ROOT/'rag-input.jsonl').read_text().splitlines()]

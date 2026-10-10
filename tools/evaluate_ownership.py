@@ -5,6 +5,9 @@ import json
 import tempfile
 from pathlib import Path
 from mplpb_combined.evaluate import run
+from tools.answer_support import supported_answer
+from mplpb_combined.ledger import write
+from mplpb_combined.killtest import Result, score
 
 
 def summarize(result):
@@ -37,6 +40,13 @@ def evaluate(path):
             domains.append({'name':c['id'],'pages':c['documents'],'probes':name,'sha256':hashlib.sha256(raw.encode()).hexdigest()})
         manifest=root/'manifest.json';manifest.write_text(json.dumps({'domains':domains}))
         result=run(manifest)
+        for i,(domain,c) in enumerate(zip(result['domains'],cases)):
+            corpus=root/('support-'+str(i));corpus.mkdir()
+            for page in c['documents']:write(corpus,**page,when='2026-01-01T00:00Z')
+            checked=supported_answer(corpus,c['question'])
+            got=Result(checked.kind,checked.record.id if checked.record else None)
+            domain['rows'][0]['arms']['supported_reader']={'kind':got.kind,'doc':got.doc,
+                'score':score(c['expected'],c['acceptable_ids'][0] if c['acceptable_ids'] else None,got)}
     return {'input_sha256':hashlib.sha256(path.read_bytes()).hexdigest(),'summary':summarize(result),
             'rows':[r for d in result['domains'] for r in d['rows']]}
 

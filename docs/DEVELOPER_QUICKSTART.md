@@ -12,8 +12,9 @@ flowchart TD
   Plan --> Gate["Source eligibility and ownership"]
   Chat <--> Memory["User context, separately attributed"]
   Gate --> Ledger["Sealed local pages"]
+  Ledger --> Support["Statement support or abstention"]
   Chat --> Reply["Reply with authority and source details"]
-  Ledger --> Reply
+  Support --> Reply
 ```
 
 `conversation_continuity` resolves supported references; `conversation_router`
@@ -56,11 +57,17 @@ python -m tools.evaluate_ownership
 ```
 
 Show the missing-attribute or wrong-entity row in `evaluation/ownership/results.json`.
-An eligible, intact page can own a query lexically while lacking its answer. The
-75% stress-set failure rate is a disclosed limitation, not a regression to conceal.
+An eligible, intact page can own a query lexically while lacking its answer. Compare the old lexical arm with `supported_reader`: zero wrong returns on this
+set. Run the expanded 600-case set: v2 answers 150/150 answerable cases,
+with no unsupported returns. These cases informed development; this is not a held-out score.
 
 **4:00–5:00 — Contribution contract.** Show `PRODUCTION_THREAT_MODEL.md` and the
 RAG comparison protocol. Ask the newcomer to propose an unfamiliar conversation
 and an unsupported-owner example before reading existing patterns. Add a frozen
 case, review the expected evidence, then change code. Passing tests protect known
 behavior; they do not establish unrestricted natural conversation.
+
+
+For a direct gated terminal query, use `python -m tools.supported_query CORPUS
+"What is the kettle color?"`. `mplpb-combined ask` remains the legacy candidate
+inspection command. Explain this distinction before embedding either API.

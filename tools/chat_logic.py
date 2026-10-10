@@ -153,10 +153,10 @@ def turn(app, corpus, root, profile, message, context):
     elif reader['kind'] == 'ambiguous':
         message_out = 'Several eligible pages match. Choose a topic; I cannot select one as the answer.'
     else:
-        message_out = 'No eligible page owns this question. I cannot answer it from this corpus.'
+        message_out = 'I found no supported answer to that question in this corpus. You can still inspect the matching pages.'
     return {'kind': reader['kind'], 'message': message_out, 'context': context,
             'reasoning': reasoning + [{'rule': 'MPLPB reader', 'matched_on': reader['matched_on'], 'reason': reader['reason']}],
-            'reader': reader, 'gate': result['gate'], 'sources': result['gate']['sources']}
+            'reader': reader, 'gate': result['gate'], 'sources': result['gate']['sources'] if reader['kind']=='return' else []}
 
 
 def log_turn(log, payload):

@@ -16,6 +16,7 @@ from urllib.parse import parse_qs, urlsplit
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
+from tools import answer_support as AS
 from mplpb_combined import ledger as L, reader as R, provenance_gate as G
 from mplpb_combined.delivery import external_restriction
 from mplpb_combined.record import text_of
@@ -219,7 +220,7 @@ class App:
             return {'help':help_result,'reader':{'kind':'help','question':question,'text':help_result['message'],'profile':name,'matched_on':'interface instruction intent'},'gate':{'sources':[]},'live_verified_by_this_query':False}
         root = self.root(data.get('corpus'))
         profile = R.PROFILES[name]
-        answer = R.answer(root, question, profile)
+        answer = AS.supported_answer(root, question, profile)
         reader = answer.to_dict()
         reader['citation'] = answer.citation()
         if answer.record:

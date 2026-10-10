@@ -115,3 +115,15 @@ evaluation protocol. The project must publish those failures as well as successe
 `tests/test_skill_planner.py` additionally checks pure recognition across scopes,
 losing-renderer isolation, decline rollback, failed-retrieval rollback, reader
 selection, reload/focus continuity and shared help recognition.
+
+
+## Answer support after candidate retrieval
+
+`App.query` now calls `tools.answer_support.supported_answer`. The underlying
+reader still selects a lexical candidate; a separate finite statement grammar
+must establish a matching affirmative body span before a factual answer returns.
+A failed check removes the answer body and citation, retaining candidate metadata
+for inspection. Conflicting matching statements yield ambiguity. Bare topic
+lookups are `candidate_only`. This gate is not general semantic entailment, and
+specialized summary/relationship paths are not replaced by it. See the 600-case
+ownership report for observed false refusals as well as false returns.

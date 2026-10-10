@@ -137,7 +137,7 @@ class BrowserBridgeTests(unittest.IsolatedAsyncioTestCase):
         self.assertTrue(B.app.resume_chat({'session':sid})['chain_intact'])
 
     async def test_general_web_build_is_automatic_and_token_not_logged(self):
-        raw=b'Dinosaurs lived in the past.'
+        raw=b'Dinosaurs are a synthetic source fixture. Dinosaurs lived in the past.'
         plan={'schema':1,'query':'dinosaurs','sources':[{'title':'Dinosaurs','url':'https://example.org/dinosaurs','raw':raw,'text':raw.decode(),'source_sha256':W.digest(raw),'observed_at':'2026-10-08T12:00:00Z'}], 'edges':[], 'failures':[], 'limits':{'pages':5}}
         with patch.object(B,'web_plan',AsyncMock(return_value=plan)):
             result=await B.dispatch('/api/chat',{'corpus':'canned','message':'search dinosaurs','wiki':'web','crawl_token':'private-test-token'})

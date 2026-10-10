@@ -18,7 +18,7 @@ operator, browser extension or host is outside the current integrity guarantee.
 
 | Threat / attacker capability | Existing boundary | Residual risk and production requirement |
 |---|---|---|
-| Publisher stuffs scope with query words or supplies irrelevant prose | Lexical ownership and not-for checks | Critical relevance risk: neither checks entailment. Return a candidate page, not a verified answer; require human review for consequential use. See ownership evaluation. |
+| Publisher stuffs scope with query words or supplies irrelevant prose | Lexical ownership and not-for checks | The UI answer path now adds finite statement support; raw reader/legacy CLI remain candidate retrieval. Unknown grammar abstains, but zero observed false returns does not prove general entailment. Require human review for consequential use. |
 | Publisher seals false, outdated or contradictory material | Hash/revision checks and ambiguity handling | Hashes prove matching bytes, not truth, author identity or freshness. Require trusted ingestion, review dates and explicit provenance. |
 | User or source embeds instructions to cross collection boundaries | Conversation authority labels; gated reader | Labels are not access control. Regression-test source/user/assistant separation. Do not allow imported instructions to alter executable code or delivery profiles. |
 | Malicious HTML/import or persistent chat payload | Existing rendering and capture paths | Require maintained escaping/sanitization and browser CSP review; tests are not a complete XSS audit. Treat origin compromise as loss of all browser data. |
@@ -43,3 +43,15 @@ and corpus hashes, restore a reviewed release, and notify affected operators.
 Do not silently reseal questionable evidence. Retest the original exploit before
 re-enabling access. Threat-model changes accompany new execution capabilities,
 remote storage, authentication, model integration or autonomous code adaptation.
+
+
+## Statement-support release boundary
+
+The 600-case development diagnostic records zero wrong returns on the new gated
+path and zero false refusals after grammar fixes on the same development set. It is not independent testing. Gate status and exact
+supporting spans are returned in `answer_support`; `candidate_only` indicates
+inspection, never a supported factual answer. The underlying sealed ledger, pins
+and legacy candidate API are unchanged. Deployments must route factual requests
+through the gate rather than directly calling the old reader. Other specialized
+summary, quote and structured-relation paths retain their own contracts; this
+release does not certify every chat utterance or sentence against this suite.

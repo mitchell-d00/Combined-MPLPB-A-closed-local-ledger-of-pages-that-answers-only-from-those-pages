@@ -109,13 +109,20 @@ class TestShippedExamples(unittest.TestCase):
     def test_the_examples_rebuild_to_the_same_bytes(self):
         sys.path.insert(0, str(REPO / "tools"))
         before = {p.relative_to(REPO).as_posix(): hashlib.sha256(p.read_bytes()).hexdigest()
-                  for p in sorted((REPO / "examples").rglob("*")) if p.is_file()}
+                  for p in sorted((REPO / "examples").rglob("*"))
+                  if p.is_file() and p.relative_to(REPO / "examples").parts[0] in {"studio", "spec", "hub"}}
         import build_examples
-        for build in (build_examples.build_studio, build_examples.build_spec,
-                      build_examples.build_hub):
-            build()
-        after = {p.relative_to(REPO).as_posix(): hashlib.sha256(p.read_bytes()).hexdigest()
-                 for p in sorted((REPO / "examples").rglob("*")) if p.is_file()}
+        # Rebuild in isolation: other UI tests can still read the shipped corpora.
+        import tempfile
+        from unittest.mock import patch
+        with tempfile.TemporaryDirectory() as tmp:
+            target = Path(tmp)
+            with patch.object(build_examples, 'HERE', target):
+                for build in (build_examples.build_studio, build_examples.build_spec,
+                              build_examples.build_hub):
+                    build()
+            after = {p.relative_to(target).as_posix(): hashlib.sha256(p.read_bytes()).hexdigest()
+                     for p in sorted((target / "examples").rglob("*")) if p.is_file()}
         self.assertEqual(before, after)
 
     def test_the_spec_corpus_answers_questions_about_its_own_format(self):

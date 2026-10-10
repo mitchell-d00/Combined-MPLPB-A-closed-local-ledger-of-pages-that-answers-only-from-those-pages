@@ -21,25 +21,61 @@ synonym question, conflicting pages, and instruction decoy. The instruction case
 measures false ownership, not execution of an injection. This suite does not cover
 all integrity/profile/pointer attacks; retain the existing regression suite too.
 
-## Measured result
+## Before/after measured result
 
-| System | Wrong owner / all cases | Return precision | Return coverage |
+The original frozen 240 cases remain unchanged. `baseline-results.json` preserves
+pre-fix output; `results.json` adds the gated `supported_reader` arm. The old
+`ledger` arm is intentionally retained and still fails; it is lexical retrieval.
+
+| Original 240 cases | Wrong owner | Supported returns | Wrong refusals |
 |---|---:|---:|---:|
-| MPLPB internal reader | 180/240 (75.0%) | 40/220 (18.2%) | 220/240 (91.7%) |
-| BM25 top-one, current pages | 200/240 (83.3%) | 40/240 (16.7%) | 240/240 (100%) |
-| TF-IDF top-one, current pages | 200/240 (83.3%) | 40/240 (16.7%) | 240/240 (100%) |
+| Legacy lexical reader | 180 | 40 | 0 |
+| New supported-answer path | 0 | 40 | 0 |
 
-These are stress-test rates, not production accuracy estimates. The ledger correctly
-refuses a unique answer for the 20 conflicting-page cases, but returns owners for
-all nine unsupported families. Neither lexical baseline has an ambiguity policy
-or a tuned abstention threshold. This is not a fair end-to-end RAG superiority claim.
-The output contains every decision and family breakdown; failures are retained.
+Run the expanded, frozen **600-case / 48-family** diagnostic:
 
-Wrong ownership means returning a page when no supported unique owner is labeled,
-or returning the wrong page. Precision conditions on returns; coverage alone is
-not success. Refusal on an answerable case is counted separately. No claims about
-truth of generated answers, statistical independence, or calibrated confidence
-follow from these measurements.
+```sh
+python -m tools.evaluate_ownership --input evaluation/ownership/expanded-input.jsonl --out evaluation/ownership/expanded-results.json
+```
+
+| Expanded 600 cases | Wrong owner | Return precision | Answerable cases answered |
+|---|---:|---:|---:|
+| Legacy lexical reader | 430 (71.7%) | 150/580 (25.9%) | 150/150 |
+| New supported-answer path | 0 | 150/150 (100%) | 150/150 (100%) |
+
+The v2 path answers all **150 answerable cases**, with zero false refusals in
+this set. Return coverage over *all* cases is 150/600 (25%). The previous v1
+path refused 50 answerable cases across five paraphrase families. The fix adds
+explicit opening-date, ownership, length, chosen-color, and closure-cause
+statement grammars; it does not loosen source eligibility or use scope as evidence.
+Negative regression cases check reversed relations, wrong entities, quotations,
+instructions, and conflicting values. Imported headings are excluded before
+sentence matching so they cannot contaminate the first body sentence.
+
+These cases informed development, including the paraphrase fixes, heading-only
+evidence, negated/positive conflicts and invalid port values. This is a development
+stress set, not an untouched held-out or independently authored evaluation.
+Substitutions within each family are correlated. Unknown grammar still abstains.
+
+The expanded cases include different objects, owners, colors, measurements,
+temporal qualifiers, hypothetical/quoted/instructional text, missing attributes,
+within-page conflicts, and answerable paraphrases. Neither this suite nor zero
+observed false returns establishes safety on arbitrary language or large corpora.
+The existing eligibility/hash/profile regression tests remain necessary.
+
+`tools.answer_support` consumes only a selected eligible page's affirmative body
+statements under a finite grammar. It excludes the generated heading, requires
+an exact requested subject, rejects uncertainty/negation, checks numeric port
+bounds and refuses conflicting values. Supported output contains matched spans,
+not the whole page. Source truth is still not authenticated. Unknown grammar
+abstains. Bare topic lookup remains inspection, explicitly `candidate_only`.
+
+The browser/server query endpoint uses this gate. Use `python -m tools.supported_query
+CORPUS "What is ...?"` for the same path in a source checkout. The existing
+`mplpb_combined.reader.answer` and installed `mplpb-combined ask` retain their legacy
+candidate-retrieval contract; they are **not** semantic-answer APIs. This preserves
+sealed archive engine pins and reproducibility of previous evaluations. Do not
+use those legacy paths as proof of answer support.
 
 ## Modern RAG comparison protocol — not yet measured
 

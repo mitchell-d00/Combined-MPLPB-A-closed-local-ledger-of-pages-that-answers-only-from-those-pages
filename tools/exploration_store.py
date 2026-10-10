@@ -140,7 +140,7 @@ class ExplorationStore:
                     'text_sha256': hashlib.sha256(text.encode()).hexdigest(), 'transport': transport,
                     'authorship': 'unknown', 'notice': 'Captured bytes, not verified truth or authorship. Pasted text is user-supplied, not a verified download.'}
         atomic_json(capture / 'manifest.json', manifest)
-        body = title.strip() + '\n' + text.strip() + '\n\nSource capture: ' + json.dumps(manifest, ensure_ascii=False)
+        body = text.strip() + '\n\nSource capture: ' + json.dumps(manifest, ensure_ascii=False)
         ledger = L.Ledger(base / 'pages')
         prefix = 'WEB-' + hashlib.sha256((url + '\0' + title.strip()).encode()).hexdigest()[:16]
         old = next((r for r in ledger.servable() if r.id.startswith(prefix + '-')), None)

@@ -250,7 +250,7 @@ nothing else.
 | `mplpb_combined/ledger.py` | The folder as a ledger: status, lineage, depth, validation, writing, the log |
 | `mplpb_combined/reader.py` | The answer rule, profiles, hubs |
 | `mplpb_combined/killtest.py` | The kill test: three arms, mechanical scoring |
-| `tests/` | 500 developer-authored regression tests covering the reader, captures, conversation, source boundaries and saved state |
+| `tests/` | 505 developer-authored regression tests covering the reader, captures, conversation, source boundaries and saved state |
 | `examples/studio/` | 25 pages about running a pottery studio; the kill-test corpus |
 | `examples/spec/` | The format described as ten pages in the format |
 | `examples/hub/` | Two pointers, one at each of the above |
@@ -375,8 +375,10 @@ Conversation routing now uses [pre-execution interpretation and reply plans](doc
 
 Start with the [five-minute developer demo and architecture diagram](docs/DEVELOPER_QUICKSTART.md).
 Read the [production threat model](docs/PRODUCTION_THREAT_MODEL.md) before shared deployment.
-The [240-case adversarial ownership evaluation](evaluation/ownership/README.md) exposes
-180 unsupported owner returns on its deliberately difficult synthetic cases.
+The [adversarial ownership evaluation](evaluation/ownership/README.md) preserves the
+original 240-case failures and adds a 600-case development stress set. The gated
+UI answer path makes zero unsupported returns on that development set and answers all
+150 answerable questions after adding five explicit relation grammars. The legacy lexical reader still fails 430/600 cases.
 These are semantic support failures, not hash-integrity failures. The report includes
 reproducible lexical comparisons and a modern RAG comparison protocol/scorer;
 modern RAG systems have **not** yet been measured. No production accuracy or
