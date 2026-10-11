@@ -47,3 +47,71 @@ class ReferenceTests(unittest.TestCase):
         self.assertEqual(headword,'dog');self.assertTrue(senses)
         self.assertFalse(F.lookup_forms('zzzzunknowns')[1])
 
+
+    def test_complete_headword_index_includes_nonletter_and_capital_entries(self):
+        m=F.verify();archive=m['resources'][0]
+        index=F.headword_index(str(F.BASE/archive['path']),archive['sha256'])
+        self.assertEqual(sum(map(len,index.values())),m['wordnet_counts']['entries'])
+        for word in ['Japan','japan','.22',"'hood",'100 mL']:
+            with self.subTest(word=word):self.assertTrue(F.lookup(word)[0])
+
+    def test_all_senses_are_reachable_without_duplicates(self):
+        session={'mind':{},'context':None}
+        F.topic('topic dictionary',session)
+        result=F.topic('What does run mean?',session);ids=[]
+        total=result['sense_page']['total'];self.assertGreater(total,12)
+        while True:
+            ids.extend(s['id'] for s in result['senses'])
+            if 'next senses' not in result['suggestions']:break
+            result=F.topic('next senses',session)
+        self.assertEqual(len(ids),total);self.assertEqual(len(set(ids)),total)
+        self.assertEqual(set(ids),{s['id'] for s in F.lookup('run')[0]})
+        previous=F.topic('previous senses',session)
+        self.assertLess(previous['sense_page']['offset'],result['sense_page']['offset'])
+
+    def test_reference_topic_persists_and_preserves_ledger_context(self):
+        with tempfile.TemporaryDirectory() as p:
+            args={'topic_base':Path(p)/'topics','session_path':Path(p)/'save.json'}
+            app=App(**args)
+            first=app.chat({'corpus':'logic','message':'topic Budget guide'})
+            sid=first['session'];context=first['response']['context']
+            app.chat({'corpus':'logic','session':sid,'message':'topic dictionary'})
+            app=App(**args)
+            with patch.object(app,'build_search',side_effect=AssertionError('offline lookup')):
+                result=app.chat({'corpus':'logic','session':sid,'message':'Japan'})['response']
+            self.assertEqual(result['reference_topic'],'dictionary')
+            self.assertEqual(result['authority'],'lexical_reference')
+            self.assertEqual(result['context'],context)
+            self.assertFalse(result['language_plan']['acquisition']['query'])
+            self.assertEqual(app.collections.entries(),{})
+
+    def test_thesaurus_and_explicit_exit(self):
+        session={'mind':{},'context':None}
+        F.topic('thesaurus',session)
+        result=F.topic('happy',session)
+        self.assertEqual(result['reference_topic'],'thesaurus')
+        self.assertIn('Synonyms in this sense:',result['message'])
+        F.topic('leave thesaurus',session)
+        self.assertNotIn('reference_topic',session['mind'])
+        self.assertIsNone(F.topic('happy',session))
+
+    def test_topic_does_not_swallow_conversation_or_user_meanings(self):
+        with tempfile.TemporaryDirectory() as p:
+            app=App(topic_base=p)
+            sid=app.chat({'corpus':'logic','message':'When I say flarn I mean a floating garden'})['session']
+            app.chat({'corpus':'logic','session':sid,'message':'topic dictionary'})
+            r=app.chat({'corpus':'logic','session':sid,'message':'What does flarn mean?'})['response']
+            self.assertEqual(r['authority'],'user_declaration')
+            self.assertIn('floating garden',r['message'])
+        for question in ['cool tell me about the moon','How are you today?','help','chat mode']:
+            session={'mind':{},'context':None}
+            F.topic('dictionary',session)
+            self.assertIsNone(F.topic(question,session))
+
+    def test_missing_reference_is_bounded_and_does_not_acquire(self):
+        with tempfile.TemporaryDirectory() as p:
+            app=App(topic_base=p)
+            sid=app.chat({'corpus':'logic','message':'topic dictionary'})['session']
+            result=app.chat({'corpus':'logic','session':sid,'message':'zzzzunknown'})['response']
+            self.assertEqual(result['kind'],'reference_missing')
+            self.assertFalse(result['language_plan']['acquisition']['query'])

@@ -6,6 +6,7 @@ This is a finite grammar, not a semantic entailment or unrestricted NLP engine.
 import hashlib
 import re
 from tools import question_frames as F
+from tools.chat_guidance import guidance
 
 VERSION = 'language-planner-v1'
 PRONOUNS = {'it', 'this', 'that', 'they', 'them', 'this topic', 'that topic'}
@@ -100,7 +101,7 @@ def finish(result, parsed, memory, turn):
         if re.sub(r'^(?:a|an) ', '', candidate, flags=re.I).casefold() == subject.casefold():
             candidate = subject
     query = None
-    if result.get('authority') not in {'system_description','user_declaration','research_note'} and candidate and not parsed['imagined'] and not parsed['negation_present'] and ('overview' in parsed['actions'] or result.get('source_exhausted')):
+    if not result.get('reference_topic') and result.get('authority') not in {'system_description','user_declaration','research_note'} and candidate and not parsed['imagined'] and not parsed['negation_present'] and ('overview' in parsed['actions'] or result.get('source_exhausted')):
         if candidate.casefold() not in PRONOUNS and 1 <= len(candidate) <= 160:query = candidate
     result['language_plan'] = {**parsed, 'subject': subject, 'realization_rules': rules,
         'response_act': structure.get('intent') or result.get('kind'),
@@ -110,4 +111,5 @@ def finish(result, parsed, memory, turn):
         'surface_changed': result.get('message','') != body,
         'source_paraphrasing': False, 'rules_are_not_evidence': True}
     result['support_label'] = label(result)
+    result['guidance'] = guidance(result)
     return result

@@ -13,8 +13,8 @@ from tools import reference_resources as F, general_reference as GR
 VERSION='skill-planner-v1'
 
 
-def reference_request(message):
-    return (message.strip().casefold().strip('?.!') in {'language resources','reference resources','grammar resources','grammar guide'} or
+def reference_request(message,session=None):
+    return (F.topic_request(message,session or {}) or message.strip().casefold().strip('?.!') in {'language resources','reference resources','grammar resources','grammar guide'} or
         bool(re.fullmatch(r'(?:define|dictionary|synonyms(?: for)?|thesaurus)\s+(.{1,80})|what does (.{1,80}) mean[?.!]*',message.strip(),re.I)))
 
 
@@ -53,7 +53,7 @@ def plan(message,session,scope='general',titles=()):
         return {'version':VERSION,'phase':'before_execution','scope':scope,'request':message,'candidates':[],'selected':None}
     def add(name,priority,basis,authority):
         candidates.append(dict(skill=name,priority=priority,basis=basis,authority=authority))
-    if reference_request(message):add('reference',120,'explicit language reference request','lexical_reference')
+    if reference_request(message,session):add('reference',120,'explicit language reference request','lexical_reference')
     if scope=='legacy' and guide_request(message,mind):add('guide',115,'guide command or pending guide topic','interface_instructions')
     if conversation_request(message):add('conversation',110,'explicit conversation preference or topic navigation','conversation_structure')
     if scope=='legacy' and re.fullmatch(r'(?:i want to learn about|i would like to learn about|help me learn about|teach me about|can we explore) (.{1,160})[?.!]*',message.strip(),re.I):
@@ -104,7 +104,7 @@ def execute(message,session,scope='general',app=None,corpus=None,profile=None,pl
     def open_social():
         mind.setdefault('social',{}).update(active=True,stage='story',style='chat')
         return S.handle(message,context,mind)
-    handlers={'reference':lambda:F.handle(message,context),'guide':lambda:T.guide(message,context,mind),
+    handlers={'reference':lambda:F.topic(message,shadow) or F.handle(message,context),'guide':lambda:T.guide(message,context,mind),
       'conversation':lambda:T.conversation(message,context,mind),'learning':lambda:T.learning_request(message,context),
       'emotional':lambda:EM.handle(message,mind),'discourse':lambda:D.respond(message,mind),
       'research':lambda:GR.handle(message,shadow),'lexical':lambda:E.lexical_topic(message,shadow),

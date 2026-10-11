@@ -45,6 +45,20 @@ automatic lookups pause for one minute per topic; explicit search stays availabl
 The [1,000-question development smoke](evaluation/live-conversation/README.md)
 records routing and acquisition observations, not independently measured accuracy.
 
+## Natural requests and exploration buttons
+
+Try “Cool, can we talk about Moon?”, “give me a quick overview of Japan”,
+“look up microscopes”, “another word for happy”, or “where did you get that?”.
+Bounded paraphrase rules retain the original message and preserve topic text,
+negation and literal-repeat requests. These are finite rules, not unrestricted
+language understanding. “Actually, I meant …” can correct an active topic.
+
+The exploration buttons change with each reply: read remaining source text,
+find more sources when it runs out, choose a meaning, browse dictionary senses,
+or start a new question. Buttons for new questions/topics prepare an editable
+message; they do not send it until you press Send. Explicit source-search buttons
+contact the selected online service. Suggested questions still pass evidence checks.
+
 ## Casual chat and offline references
 
 Say `what are you?`, `why do you exist?`, `I'm tired`, or `can we talk about nothing?`
@@ -92,9 +106,17 @@ The repository includes these local resources, with original licenses and source
 
 | Resource | Included | How to use |
 | --- | --- | --- |
-| Open English WordNet 2025 | 128,009 dictionary entries and 107,558 synsets | `define dog`, `synonyms dog`, `what does fossil mean?` |
+| Open English WordNet 2025 | 128,009 dictionary entries and 107,558 synsets | **Dictionary** / **Thesaurus** chat buttons, or `topic dictionary` / `topic thesaurus` |
 | CMU Link Grammar English data | 111 grammar, word-list and reference files | `grammar resources`; data archive in `resources/language/` |
 | Simple English Wikipedia selection | 23 archived articles on language, computing, animals, geology and games | Choose **Reference encyclopedia**, then `show my MPLPB` |
+
+Select a Dictionary or Thesaurus topic, then enter a headword (including names,
+numbers and multiword entries). `next senses` and `previous senses` page through
+all meanings, 12 at a time; synonyms stay grouped by meaning. `leave dictionary`
+or `leave thesaurus` exits. Explicit `define dog` and `synonyms dog` also work.
+The complete bundled edition is available offline; it is not every English word.
+These reference topics preserve the selected ledger context and do not create
+ledger pages or trigger Wikipedia acquisition.
 
 These are downloaded data, not remote lookup dependencies. Ordered archive parts
 are committed under `resources/language/archive-parts/`; the app reconstructs and
@@ -261,7 +283,7 @@ nothing else.
 | `mplpb_combined/ledger.py` | The folder as a ledger: status, lineage, depth, validation, writing, the log |
 | `mplpb_combined/reader.py` | The answer rule, profiles, hubs |
 | `mplpb_combined/killtest.py` | The kill test: three arms, mechanical scoring |
-| `tests/` | 519 developer-authored regression tests covering the reader, captures, conversation, source boundaries and saved state |
+| `tests/` | 533 developer-authored regression tests covering the reader, captures, conversation, source boundaries and saved state |
 | `examples/studio/` | 25 pages about running a pottery studio; the kill-test corpus |
 | `examples/spec/` | The format described as ten pages in the format |
 | `examples/hub/` | Two pointers, one at each of the above |

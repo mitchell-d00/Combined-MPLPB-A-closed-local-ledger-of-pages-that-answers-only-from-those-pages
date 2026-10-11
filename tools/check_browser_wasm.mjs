@@ -90,6 +90,20 @@ const askHelp=await call('/api/query',{corpus:'logic',question:'How do I clear m
 if(!askHelp.help||askHelp.reader.kind!=='help'||askHelp.gate.sources.length)throw Error('WASM Ask help routing failed');
 const definition=await call('/api/chat',{corpus:'logic',session:sid,message:'define dog'});
 if(definition.response.authority!=='lexical_reference'||!definition.response.senses.some(s=>s.id==='02086723-n'))throw Error('WASM dictionary lookup failed');
+const dictTopic=await call('/api/chat',{corpus:'logic',session:sid,message:'topic dictionary'});
+if(dictTopic.response.reference_topic!=='dictionary')throw Error('WASM dictionary topic failed');
+for(const word of ['Japan','.22','100 mL']){
+ const entry=await call('/api/chat',{corpus:'logic',session:sid,message:word});
+ if(!entry.response.senses?.length||entry.response.language_plan.acquisition.query)throw Error('WASM full headword access failed: '+word);
+}
+const runSenses=await call('/api/chat',{corpus:'logic',session:sid,message:'run'});
+const nextSenses=await call('/api/chat',{corpus:'logic',session:sid,message:'next senses'});
+if(runSenses.response.sense_page.total<=12||nextSenses.response.sense_page.offset!==12)throw Error('WASM sense paging failed');
+await call('/api/chat',{corpus:'logic',session:sid,message:'topic thesaurus'});
+const thesaurus=await call('/api/chat',{corpus:'logic',session:sid,message:'happy'});
+if(thesaurus.response.reference_topic!=='thesaurus'||!thesaurus.response.message.includes('Synonyms in this sense:'))throw Error('WASM thesaurus topic failed');
+await call('/api/chat',{corpus:'logic',session:sid,message:'leave thesaurus'});
+
 const reference=await call('/api/chat',{corpus:'reference',message:'topic Fossil'});
 if(reference.response.context?.title!=='Fossil')throw Error('WASM encyclopedia reference failed');
 const moonCollection=await call('/api/collections/create',{name:'Grounded Moon fixture'});
@@ -173,3 +187,12 @@ for(const mode of ['chat mode','load MPLPB']){
  if(!resumed.chain_intact)throw Error('WASM dialogue transcript chain failed');
 }
 console.log('WASM dialogue scenarios passed');
+
+const naturalWord=await call('/api/chat',{corpus:'logic',message:'Great, could you please give me the definition of orbit'});
+if(naturalWord.response.headword!=='orbit'||!naturalWord.response.guidance.actions.some(a=>a.request==='synonyms orbit'))throw Error('WASM natural dictionary guidance failed');
+const naturalSelf=await call('/api/chat',{corpus:'logic',session:naturalWord.session,message:'what does MPLPB mean?'});
+if(naturalSelf.response.support_label!=='System description')throw Error('WASM reference topic swallowed system description');
+const naturalTopic=await call('/api/chat',{corpus:'logic',session:naturalWord.session,message:'Cool, can we talk about Moon?',default_chat:true});
+if(naturalTopic.response.interpretation.resolved!=='Tell me about Moon?'||!naturalTopic.response.sources.length)throw Error('WASM natural topic request failed');
+if(!naturalTopic.response.guidance.actions.some(a=>a.mode==='draft'))throw Error('WASM exploration drafts missing');
+console.log('WASM natural requests and adaptive guidance passed');

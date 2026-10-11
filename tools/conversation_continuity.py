@@ -2,7 +2,7 @@
 import copy
 import re
 from tools import conversation_engine as CE, conversation_branches as B, chat_language_graph as LG
-from tools.chat_phrasing import conversational_request
+from tools.chat_phrasing import conversational_request, request_form
 VERSION='conversation-continuity-v2'
 
 def prepare(message,session):
@@ -15,6 +15,10 @@ def prepare(message,session):
         k = B.key(text)
         frame['normalization'] = 'social_lead_in'
         frame['social_lead_in'] = lead_in
+    text, form = request_form(text)
+    if form:
+        frame['request_form']=form
+        k=B.key(text)
     # Closed typo vocabulary for conversational controls, never names or source terms.
     typo={'helo':'hello','helllo':'hello','thnaks':'thanks','tell me moer':'tell me more'}
     if k in typo:text=typo[k];k=text;frame['normalization']='control_typo'
@@ -31,7 +35,7 @@ def prepare(message,session):
         if selected:
             session['mind'].setdefault('conversation_branches',{})['pending']=copy.deepcopy(choices)
             text=selected['label'];frame['reference']=k
-    correction=re.fullmatch(r"(?:no[, ]+i meant|no[, ]+i mean|i meant|i mean) (.{1,120})",text,re.I)
+    correction=re.fullmatch(r"(?:(?:no|actually)[, ]+i meant|(?:no|actually)[, ]+i mean|i meant|i mean) (.{1,120})",text,re.I)
     if correction and state.get('subject'):
         target=correction[1].strip(' .?!')
         selected=next((c for c in choices if B.key(c['label'])==B.key(target)),None)

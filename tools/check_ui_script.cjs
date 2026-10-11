@@ -73,6 +73,13 @@ async function tick(){for(let i=0;i<20;i++)await Promise.resolve();}
  assert.match(r.elements['chat-topic-actions'].innerHTML,/How big is Moon/);assert.match(r.elements['chat-topic-label'].textContent,/Moon/);
  r.run(`drawTopicActions({response_structure:{subject:'Dogs'},suggestions:['Tell me about Dogs','Search Dogs']})`);
  assert.match(r.elements['chat-topic-actions'].innerHTML,/Search Dogs/);assert.ok(!r.elements['chat-topic-actions'].innerHTML.includes('Moon'));
+ r.run(`drawTopicActions({guidance:{title:'Dictionary · run',hint:'Browse senses',actions:[{label:'Next senses',request:'next senses',mode:'send'},{label:'Another word',request:'define ',mode:'draft'}]}})`);
+ assert.match(r.elements['chat-topic-actions'].innerHTML,/Next senses/);assert.match(r.elements['chat-topic-label'].textContent,/Dictionary/);
+ const beforeDraft=r.requests.length;
+ r.elements['chat-topic-actions'].events.click({target:{closest:()=>({dataset:{chatRequest:'define ',chatAction:'draft'}})}});
+ await tick();assert.equal(r.requests.length,beforeDraft);assert.equal(r.elements['chat-input'].value,'define ');assert.ok(r.elements['chat-input'].focused);
+ r.elements['chat-topic-actions'].events.click({target:{closest:()=>({dataset:{chatRequest:'',chatAction:'draft'}})}});
+ assert.equal(r.elements['chat-input'].value,'');assert.equal(r.requests.length,beforeDraft);
  r.run(`drawTopicActions({suggestions:['<script>bad</script>']})`);assert.ok(!r.elements['chat-topic-actions'].innerHTML.includes('<script>'));
  const beforeChoice=r.requests.length;r.elements['chat-send'].disabled=true;r.elements['chat-topic-actions'].events.click({target:{closest:()=>({dataset:{chatRequest:'So hi?'}})}});await tick();assert.equal(r.requests.length,beforeChoice);
  r.elements['chat-send'].disabled=false;r.elements['chat-topic-actions'].events.click({target:{closest:()=>({dataset:{chatRequest:'So hi?'}})}});await tick();assert.equal(r.requests.length,beforeChoice+1);

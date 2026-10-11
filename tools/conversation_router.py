@@ -10,6 +10,7 @@ from tools import conversation_branches as CB, context_index as CX
 from tools import self_knowledge as SK, proposition_chat as PC
 from tools import dialogue_rules as DR, chat_environment as E, emotional_rules as EM
 from tools import deterministic_mind as M
+from tools import reference_resources as F, skill_planner as SP
 from tools.chat_phrasing import memory_question
 
 VERSION = 'conversation-router-v2'
@@ -61,6 +62,8 @@ def propose(frame, session, data):
     def add(handler,intent,priority,basis,authorities):
         candidates.append({'handler':handler,'intent':intent,'priority':priority,
                            'basis':basis,'allowed_authorities':authorities})
+    if F.topic_request(text,session):
+        add('reference','lexical_topic',125,'explicit reference command or selected lexical topic',['lexical_reference','resource_catalog','conversation_structure'])
     # High specificity commands cannot be swallowed by a topic/opinion handler.
     controls={'show loaded mplpb','list topics','show topics','what topics do you have',
               'load all mplpb','load saved mplpb','load mplpb','just chat','just chatting','chat mode',
@@ -205,7 +208,8 @@ def execute(app,data,session,frame,corpus,profile):
     # A rejected candidate must not leave partially applied memory behind.
     shadow=copy.deepcopy(session)
     reader=lambda q:E.handle(app,data,shadow,q,corpus,profile)
-    handlers={'self':lambda:SK.handle(text,shadow,app.roots()),
+    handlers={'reference':lambda:SP.execute(text,shadow,'legacy',app,corpus,profile),
+              'self':lambda:SK.handle(text,shadow,app.roots()),
               'branch':lambda:CB.handle(text,shadow,reader),
               'dialogue':lambda:CE.handle(text,shadow,reader,interpretation=frame.get('dialogue_interpretation')),
               'memory':lambda:CM.handle(text,shadow),

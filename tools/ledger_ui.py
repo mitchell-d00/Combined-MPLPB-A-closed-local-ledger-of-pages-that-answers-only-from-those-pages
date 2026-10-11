@@ -276,6 +276,11 @@ class App:
             interpretation=CC.prepare(message,session)
             original_message=message
             message=interpretation['resolved']
+            if F.topic_request(original_message,session):
+                message=original_message
+                interpretation['resolved']=message
+            else:
+                memory.pop('reference_topic',None)
             language_request=LP.parse(message,memory,session.get('context'))
             casual=None
             environment_result=CR.execute(self,data,session,interpretation,corpus,profile)
