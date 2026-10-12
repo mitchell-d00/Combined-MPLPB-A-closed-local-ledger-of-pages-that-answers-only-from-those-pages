@@ -120,6 +120,44 @@ def recognizes(message,context):
     return bool(context and q!=normalized(context['title']))
 
 
+def correction_suggestion(message, context):
+    """Offer, never execute, a closed pronoun-question spelling correction.
+
+    Full matches exclude names, numbers, negation, quotations and conditions.
+    Pin the offered question to the current title so old buttons cannot silently
+    ask about a newly selected topic. No fuzzy matching of page identities.
+    """
+    if not context:
+        return None
+    q = normalized(message)
+    attributes = {name: name for name in ATTRIBUTES}
+    attributes.update({'diamter': 'diameter', 'aeg': 'age', 'hieght': 'height',
+                       'lenght': 'length', 'widht': 'width'})
+    match = re.fullmatch(r'(what is|waht is|whats) its ([a-z ]+)', q)
+    attr = None
+    if match and match[2] in attributes:
+        if match[1] != 'what is' or match[2] != attributes[match[2]]:
+            attr = attributes[match[2]]
+    match = re.fullmatch(r'how (big|large|old|tall|long|wide|heavy) is (itt|it plz)', q)
+    if match:
+        attr = {'big': 'diameter', 'large': 'diameter', 'old': 'age',
+                'tall': 'height', 'long': 'length', 'wide': 'width', 'heavy': 'mass'}[match[1]]
+    if not attr:
+        return None
+    candidate = 'What is the '+attr+' of '+context['title']+'?'
+    # Titles with unusual syntax must still fit the existing grounded grammar.
+    if question_intent(candidate, context['title']) != attr:
+        return None
+    return M.reply('clarify', 'Did you mean “'+candidate+'”?\n\n'
+                   'Choose or resend that question to check the selected page. '
+                   'A spelling suggestion does not establish an answer.',
+                   context, 'GROUND-SPELLING', authority='conversation_structure',
+                   suggestions=[candidate],
+                   spelling_suggestion={'original_question': message, 'question': candidate,
+                                        'requires_confirmation': True, 'context_pin': dict(context)},
+                   response_structure={'intent': 'spelling_clarification', 'factual_claims': False})
+
+
 def handle(app, corpus, root, profile, message, context):
     q = normalized(message)
     # Explicit overview/source and relation commands retain their separate semantics.
@@ -145,6 +183,9 @@ def handle(app, corpus, root, profile, message, context):
         return M.reply('conversation','We’re talking about “'+context['title']+'”.' if context else
                        'No topic is selected. We can chat casually or choose a local page.',context,'GROUND-FOCUS',
                        authority='conversation_structure',suggestions=['show source','show my MPLPB'] if context else ['just chatting','show my MPLPB'])
+    correction = correction_suggestion(message, context)
+    if correction:
+        return correction
     is_question = bool(re.match(r"(?:what|who|whom|whose|where|when|why|how|which|is|are|was|were|can|could|does|do|did|will|would|should|tell me)\b",q)) or message.rstrip().endswith('?')
     if not is_question:
         if context and q != normalized(context['title']):
