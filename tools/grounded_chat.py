@@ -9,6 +9,7 @@ from mplpb_combined.record import text_of
 from tools import chat_logic as C
 from tools import deterministic_mind as M
 from tools import response_construction as N
+from tools import question_frames as QF
 
 VERSION = 'grounded-chat-v1'
 NUMBER = r'\d[\d,]*(?:\.\d+)?'
@@ -31,7 +32,7 @@ def normalized(text):
 
 def question_intent(message, title):
     """Full grammars only: modifiers/comparisons/conditions do not disappear."""
-    q = normalized(message)
+    q = normalized(QF.normalize(message))
     q = re.sub(r'^(?:and|also|okay|ok)[, ]+', '', q)
     t = re.escape(normalized(title))
     subject = rf'(?:it|this topic|that topic|(?:the )?{t})'
