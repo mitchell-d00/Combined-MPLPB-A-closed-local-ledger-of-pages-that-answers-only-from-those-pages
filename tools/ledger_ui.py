@@ -220,8 +220,15 @@ class App:
             return {'help':help_result,'reader':{'kind':'help','question':question,'text':help_result['message'],'profile':name,'matched_on':'interface instruction intent'},'gate':{'sources':[]},'live_verified_by_this_query':False}
         root = self.root(data.get('corpus'))
         profile = R.PROFILES[name]
-        answer = AS.supported_answer(root, question, profile)
-        reader = answer.to_dict()
+        if data.get('mode') == 'candidates':
+            from mplpb_answers.support import candidate_answer
+            answer, reader = candidate_answer(root, question, profile)
+            reader['kind'] = 'candidate_only' if answer.kind == R.RETURN else answer.kind
+        elif data.get('mode', 'supported') == 'supported':
+            answer = AS.supported_answer(root, question, profile)
+            reader = answer.to_dict()
+        else:
+            raise ValueError('Unknown query mode')
         reader['citation'] = answer.citation()
         if answer.record:
             reader['title'] = answer.record.title
@@ -335,7 +342,7 @@ class App:
                    'who are you', 'what is mplpb', 'what is your name', 'what is your purpose',
                    'who made mplpb', 'who created mplpb', 'who built you', 'tell me about yourself',
                    'what are your rules', 'what are your limits', 'how do you work'}:
-                own = self.query({'corpus': 'system', 'profile': profile, 'question': 'MPLPB system creator'})
+                own = self.query({'corpus': 'system', 'profile': profile, 'question': 'MPLPB system creator', 'mode':'candidates'})
                 result = {'kind': own['reader']['kind'], 'message': own['reader']['text'], 'reader': own['reader'],
                           'gate': own['gate'], 'context': session['context'], 'sources': own['gate']['sources'],
                           'reasoning': ['SELF-1: return the sealed self-reference page; creator attribution is a declaration, not identity authentication.']}
@@ -375,6 +382,7 @@ class App:
             M.record(session.setdefault('mind', {'notes': []}), result)
             result['question_frame']=E.IC.PF.frame(message)
             payload = {'question': original_message, 'corpus': corpus, 'profile': profile, 'response': result}
+            payload['answer_support_code'] = __import__('mplpb_answers.support', fromlist=['code_pins']).code_pins()
             payload['chat_phrasing_sha256']=hashlib.sha256(Path(CX.__file__).with_name('chat_phrasing.py').read_bytes()).hexdigest()
             payload['skill_planner_version']=SP.VERSION
             payload['skill_planner_sha256']=hashlib.sha256(Path(SP.__file__).read_bytes()).hexdigest()

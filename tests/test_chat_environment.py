@@ -156,7 +156,7 @@ class ChatEnvironmentTests(unittest.TestCase):
             r=self.chat(q,sid)['response']
             self.assertIn('synthetic blue crystal',r['message'])
             self.assertEqual(r['source_scope'],'saved_reference_outside_loaded_scope')
-            self.assertEqual(r['support_label'],'Saved reference · outside loaded scope')
+            self.assertEqual(r['support_label'],'Saved reference · outside loaded scope · source inspection')
             self.assertEqual({s['corpus'] for s in r['sources']},{self.b})
             self.assertEqual(r['environment']['corpora'],[self.a])
         self.assertTrue(self.app.resume_chat({'session':sid})['chain_intact'])

@@ -26,3 +26,11 @@ excludes `.git`, untracked build outputs and private local sessions. It is not
 a Git history backup or a prebuilt standalone browser runtime. Use the browser
 package for compiled standalone HTML. Verify the supplied SHA-256 and extract
 into a new directory. Keep session exports separate. See [ROLLBACK.md](ROLLBACK.md).
+
+## Answer CLI migration
+
+The wheel includes `mplpb_answers` plus the byte-preserved legacy core.
+`mplpb-combined ask` and `python -m mplpb_answers ask` require body support.
+`mplpb-combined candidates` labels legacy page retrieval explicitly.
+`python -m mplpb_combined ask` remains the old archival retrieval interface;
+use the new entry point for user-facing answers. See [the review](ANSWER_RELIABILITY.md).

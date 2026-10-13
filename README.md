@@ -199,16 +199,16 @@ the supplied experiment and include the corrected reader patch and demo.
 ## Try it
 
 ```bash
-python3 -m mplpb_combined ask examples/studio "how fast should I heat raw clay on its first firing"
-python3 -m mplpb_combined ask examples/studio "what is the glaze firing schedule for cone 6"
-python3 -m mplpb_combined ask examples/studio "what is the capital of France"
+python3 -m mplpb_answers candidates examples/studio "how fast should I heat raw clay on its first firing"
+python3 -m mplpb_answers candidates examples/studio "what is the glaze firing schedule for cone 6"
+python3 -m mplpb_answers candidates examples/studio "what is the capital of France"
 ```
 
 The first returns one page with its citation. The second stops and names the two pages that
 both own the question. The third says not in the corpus. Exit codes are 0, 2 and 3.
 
 ```
-$ python3 -m mplpb_combined ask examples/studio "the glaze pulled away from the pot"
+$ python3 -m mplpb_answers candidates examples/studio "the glaze pulled away from the pot"
 Glaze faults
 
   Crawling comes from dust or grease on the bisque, or a coat put on too thick that
@@ -263,7 +263,7 @@ python3 -m mplpb_combined revise  notes NOTE-0001 --body "Climb 80 C per hour to
 python3 -m mplpb_combined history notes NOTE-0001        # both versions, oldest first
 python3 -m mplpb_combined derive  notes --from NOTE-0002 --title "Checklist" \
     --scope "Firing day checklist" --body "..."          # machine page, depth 1
-python3 -m mplpb_combined ask     notes "firing day checklist" --profile external   # withheld
+python3 -m mplpb_answers candidates     notes "firing day checklist" --profile external   # withheld
 python3 -m mplpb_combined ratify  notes NOTE-0003 --who "Your Name"                 # depth 0
 python3 -m mplpb_combined validate notes
 ```
@@ -283,7 +283,7 @@ nothing else.
 | `mplpb_combined/ledger.py` | The folder as a ledger: status, lineage, depth, validation, writing, the log |
 | `mplpb_combined/reader.py` | The answer rule, profiles, hubs |
 | `mplpb_combined/killtest.py` | The kill test: three arms, mechanical scoring |
-| `tests/` | 555 developer-authored regression tests covering the reader, captures, conversation, source boundaries and saved state |
+| `tests/` | 562 developer-authored regression tests covering the reader, captures, conversation, source boundaries and saved state |
 | `examples/studio/` | 25 pages about running a pottery studio; the kill-test corpus |
 | `examples/spec/` | The format described as ten pages in the format |
 | `examples/hub/` | Two pointers, one at each of the above |
@@ -416,6 +416,19 @@ These are semantic support failures, not hash-integrity failures. The report inc
 reproducible lexical comparisons and a modern RAG comparison protocol/scorer;
 modern RAG systems have **not** yet been measured. No production accuracy or
 independent-validation claim follows from this developer-authored set.
+
+## Supported answers and candidate inspection
+
+Use `mplpb-combined ask CORPUS "QUESTION"` after installation, or
+`python -m mplpb_answers ask CORPUS "QUESTION"` from this checkout.
+Answers require an eligible body statement. Unknown grammar explicitly refuses.
+Use `mplpb-combined candidates` for labeled legacy page retrieval; the old
+`mplpb_combined.reader.answer` and `python -m mplpb_combined ask` are retained
+only for compatibility/reproduction. Historical ownership demonstrations below
+are candidate-retrieval examples, not general answer-accuracy evidence.
+
+See [the reliability review](docs/ANSWER_RELIABILITY.md) for failures, before/after
+coverage, independently authored external questions and provenance implications.
 
 ## Context behavior update
 

@@ -164,7 +164,7 @@ def explore_sources(app,data,session,message,corpus,profile):
     if request or followup:
         for k,p in candidates:
             answer=C.turn(app,k,app.root(k),profile,'show source',p)
-            if answer.get('kind')=='return' and answer.get('sources') and factual_body(answer):results.append({'corpus':k,'response':answer})
+            if answer.get('kind') in {'return','candidate_only'} and answer.get('sources') and factual_body(answer):results.append({'corpus':k,'response':answer})
     elif candidates and Q.question_intent(message,subject):
         for k,p in candidates:
             answer=Q.handle(app,k,app.root(k),profile,message,p)
@@ -180,8 +180,8 @@ def explore_sources(app,data,session,message,corpus,profile):
     if not results and request:
         # Ask each eligible collection's established ownership reader independently.
         for k in dict.fromkeys(k for k,_ in entries):
-            answer=C.turn(app,k,app.root(k),profile,subject,None)
-            if answer.get('kind')=='return' and answer.get('sources') and defines_overview_subject(answer,subject):
+            answer=C.turn(app,k,app.root(k),profile,'What is '+subject+'?',None)
+            if answer.get('kind') in {'return','candidate_only'} and answer.get('sources') and defines_overview_subject(answer,subject):
                 results.append({'corpus':k,'response':answer})
     if not results:return None
     if request:
@@ -217,11 +217,12 @@ def explore_sources(app,data,session,message,corpus,profile):
     result['source_scope']='loaded_scope' if serious else 'saved_reference'
     result['source_exhausted']=exhausted
     result['has_more_source_text']=has_more
-    result['support_notice']='Factual conversation; cited passages come from MPLPB pages. Conversational framing is not additional evidence.'
+    inspection=any(x['response'].get('kind')=='candidate_only' for x in results)
+    result['support_notice']=('Source inspection: cited excerpts are not certified answers to a factual question.' if inspection else 'Supported answers from eligible source statements; source truth is not independently verified.')
     result['suggestions']=topic_suggestions(subject,' '.join(excerpts))
     if not has_more:
         result['suggestions']=[q for q in result['suggestions'] if not q.casefold().startswith('tell me more')]+['Explore an idea about '+str(subject)]
-    result['response_structure']={'intent':'source_exploration','mode':env.get('mode','chat'),'factual_claims':True,'mplpb_supported':True,'subject':subject}
+    result['response_structure']={'intent':'source_exploration','mode':env.get('mode','chat'),'factual_claims':True,'mplpb_supported':not inspection,'source_inspection':inspection,'subject':subject}
     return result
 
 

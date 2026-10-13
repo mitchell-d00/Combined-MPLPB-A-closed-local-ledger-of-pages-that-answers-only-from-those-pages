@@ -34,7 +34,10 @@ class BrowserBridgeTests(unittest.IsolatedAsyncioTestCase):
         self.assertEqual(fetch.await_count, 1)
         self.assertEqual(fetch.call_args.kwargs['redirect'],'error')
         self.assertEqual(result['capture']['source_sha256'], W.digest(raw))
-        answer = B.app.query({'corpus':key,'question':'Fossils'})['reader']['text']
+        self.assertEqual(B.app.query({'corpus':key,'question':'Fossils'})['reader']['kind'], 'not_in_corpus')
+        inspection = B.app.query({'corpus':key,'question':'Fossils','mode':'candidates'})['reader']
+        self.assertEqual(inspection['kind'], 'candidate_only')
+        answer = inspection['text']
         self.assertIn('ancient life', answer)
         self.assertNotIn('evil()', answer)
 

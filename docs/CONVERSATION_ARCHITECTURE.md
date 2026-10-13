@@ -123,7 +123,6 @@ selection, reload/focus continuity and shared help recognition.
 reader still selects a lexical candidate; a separate finite statement grammar
 must establish a matching affirmative body span before a factual answer returns.
 A failed check removes the answer body and citation, retaining candidate metadata
-for inspection. Conflicting matching statements yield ambiguity. Bare topic
-lookups are `candidate_only`. This gate is not general semantic entailment, and
+for inspection. Conflicting matching statements yield ambiguity. Bare topics in normal Ask refuse; explicit source inspection is `candidate_only`. This gate is not general semantic entailment, and
 specialized summary/relationship paths are not replaced by it. See the 600-case
 ownership report for observed false refusals as well as false returns.
