@@ -23,6 +23,13 @@ repository and from other visitors. No server language model or Python service i
 started. Explicit Wikipedia search/import still needs network/CORS access. See
 [BROWSER_RUNTIME.md](BROWSER_RUNTIME.md) for runtime limits and storage behavior.
 
-Walk back: revert the workflow commit or re-run a previously successful deployment.
-An older runtime can reject captures pinned to newer adapter bytes. Export important
-transcripts before reverting. Browser saves are not erased by a deployment.
+## Release verification and rollback
+
+A successful push is not a successful deployment. Both build and deploy in the
+main commit's Pages workflow must succeed. Tests, browser/WebAssembly checks,
+packaging, context and conversation gates run before deployment. A failed build
+can leave the previous site live. Verify the live footer and embedded module bytes.
+
+See [ROLLBACK.md](ROLLBACK.md) for the pinned baseline and recovery procedure.
+Browser saves are not erased by deployment, but older runtime/profile bytes can
+reject newer captures. Export important sessions before switching versions.

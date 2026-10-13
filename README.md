@@ -283,7 +283,7 @@ nothing else.
 | `mplpb_combined/ledger.py` | The folder as a ledger: status, lineage, depth, validation, writing, the log |
 | `mplpb_combined/reader.py` | The answer rule, profiles, hubs |
 | `mplpb_combined/killtest.py` | The kill test: three arms, mechanical scoring |
-| `tests/` | 533 developer-authored regression tests covering the reader, captures, conversation, source boundaries and saved state |
+| `tests/` | 555 developer-authored regression tests covering the reader, captures, conversation, source boundaries and saved state |
 | `examples/studio/` | 25 pages about running a pottery studio; the kill-test corpus |
 | `examples/spec/` | The format described as ten pages in the format |
 | `examples/hub/` | Two pointers, one at each of the above |
@@ -416,3 +416,11 @@ These are semantic support failures, not hash-integrity failures. The report inc
 reproducible lexical comparisons and a modern RAG comparison protocol/scorer;
 modern RAG systems have **not** yet been measured. No production accuracy or
 independent-validation claim follows from this developer-authored set.
+
+## Context behavior update
+
+Guarded behavior classes now support recent social corrections and attribute
+follow-ups while retaining deterministic reactions and existing evidence gates.
+See the [class table and 240-case audit](evaluation/conversation-repairs/README.md),
+[context lifecycle](docs/CONTEXT_INDEX.md), and [evaluation limits](docs/CHAT_EVALUATION.md).
+The [rollback guide](docs/ROLLBACK.md) pins the previous working version.

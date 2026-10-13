@@ -50,3 +50,22 @@ Pending alternatives survive a social interruption such as “thanks”. “The 
 Replies expose a `reply_plan` containing the selected answer paragraph, remaining detail, follow-up choices, authority and sources. This is a structured presentation record of the routed reply, not a new unrestricted language generator. It does not rewrite quotations, upgrade user declarations or research notes, or change MPLPB eligibility. The module version and hash are recorded in the transcript audit payload.
 
 Run `python -m tools.smoke_conversation_continuity` for 140 developer-authored turns across five names and both modes, reloading the application after each turn. The checked-in report uses narrow expected-substring relevance checks, memory checks, consecutive fallback detection and source-boundary checks for these non-evidence scenarios. It is not an independent quality score. See [the independent trial protocol](INDEPENDENT_CONVERSATION_TRIAL.md); no human trial has been conducted for this release.
+
+## Guarded context behavior
+
+Recent social and attribute-question frames support corrections and follow-ups.
+Frames survive reload and brief courtesies, expire after more than two intervening
+turns, and are invalidated by substantive topic/control changes. They are separate
+from retained personal declarations and historical transcript recall.
+
+Explicit guards select behavior classes. Fixed ranks resolve only supported
+social temporal-slot spelling variants; ambiguous candidates request clarification.
+Entities, factual values, quotations, negation and extra clauses must not be
+silently rewritten. Attribute follow-ups reconstruct a question for the existing
+source reader; conversation never supplies substitute evidence.
+
+The same input and complete session state give the same result. This is finite
+grammar with composed responses, not probabilistic inference or general language
+understanding. Original input and interpretation traces remain available.
+
+See [class guards and test data](../evaluation/conversation-repairs/README.md).
