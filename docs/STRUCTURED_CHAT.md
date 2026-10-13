@@ -72,3 +72,26 @@ The checks exercise engine and transport behavior, not visual browser layout or
 an independently deployed live crawler. Dictionary explanations stay extractive;
 unsupported paraphrases and facts still require clarification or other eligible
 sources. No independent human accuracy measurement is claimed.
+
+## Live-site follow-up repairs
+
+Dictionary references no longer request automatic encyclopedia acquisition, even
+when automatic Wikipedia lookup is enabled. Explicit search remains available.
+Composed introductions and self-explanations are labelled “Conversation + system
+description”, including free chat.
+
+Calculation explanation requests resolve only the immediately preceding
+calculation or its explanation. The numeric expression is evaluated again with
+bounded exact arithmetic; numbered binary-operation steps follow parentheses
+and operator precedence. A final check recomputes and compares the explanation.
+Context selects the expression but never supplies the calculated result. An
+intervening topic does not revive an older calculation. Division by zero and
+unsupported expressions retain their explicit error responses.
+
+Repair validation: the 588-test full run completed with 587 passing and one
+obsolete test expecting dictionary-triggered Wikipedia capture. That expectation
+was replaced with a no-acquisition assertion; all 15 tests in the affected
+structured-request and live-acquisition modules then passed. Actual WebAssembly
+checks passed in all three modes with automatic lookup enabled, along with UI
+script, browser transport and crawler fixture checks. The full suite was not
+rerun after that test-only correction.

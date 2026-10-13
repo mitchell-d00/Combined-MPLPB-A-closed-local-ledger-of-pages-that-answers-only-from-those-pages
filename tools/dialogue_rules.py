@@ -29,18 +29,22 @@ def arithmetic(text):
     try:
         tree=ast.parse(expression,mode='eval')
         if len(list(ast.walk(tree)))>48:raise ValueError('expression too large')
+        steps=[]
         def value(node):
             if isinstance(node,ast.Constant) and type(node.value) in (int,float):
                 result=Fraction(str(node.value))
             elif isinstance(node,ast.UnaryOp) and isinstance(node.op,(ast.UAdd,ast.USub)):
                 result=value(node.operand)*(-1 if isinstance(node.op,ast.USub) else 1)
             elif isinstance(node,ast.BinOp) and type(node.op) in {ast.Add,ast.Sub,ast.Mult,ast.Div}:
-                result={ast.Add:operator.add,ast.Sub:operator.sub,ast.Mult:operator.mul,ast.Div:operator.truediv}[type(node.op)](value(node.left),value(node.right))
+                left,right=value(node.left),value(node.right)
+                result={ast.Add:operator.add,ast.Sub:operator.sub,ast.Mult:operator.mul,ast.Div:operator.truediv}[type(node.op)](left,right)
+                symbol={ast.Add:'+',ast.Sub:'-',ast.Mult:'*',ast.Div:'/'}[type(node.op)]
+                steps.append(str(left)+' '+symbol+' '+str(right)+' = '+str(result))
             else:raise ValueError('unsupported operator')
             if abs(result.numerator)>10**18 or result.denominator>10**18:raise ValueError('number too large')
             return result
         result=value(tree.body)
-        return expression+' = '+str(result)+'.',{'expression':expression,'result':str(result),'rule':'rational arithmetic; + - * / and parentheses'}
+        return expression+' = '+str(result)+'.',{'expression':expression,'result':str(result),'steps':steps,'rule':'rational arithmetic; + - * / and parentheses'}
     except ZeroDivisionError:return 'Division by zero is undefined. Want to change the divisor?',{'expression':expression,'error':'division by zero'}
     except (ValueError,SyntaxError,OverflowError):return 'I can calculate bounded numbers with +, −, ×, ÷ and parentheses. That expression is outside those rules.',{'expression':expression,'error':'outside bounded grammar'}
 
@@ -157,3 +161,27 @@ def handle(message,session):
         memory.setdefault('emotional',{})['style']='ideas'
         return reply(session,'We can break it down together: what happened, what you can change, and what you want next. Which part feels most useful to start with?','emotional_options',suggestions=['What happened','What I can change','What I want next'])
     return None
+
+
+def calculation_followup(message, session):
+    """Resolve only the immediately preceding calculation, never cached answer text."""
+    key=CM.key(message)
+    if key not in {'explain that','explain the calculation','explain your reasoning','how did you get that','why','why is that'}:
+        return None
+    prior=(session.get('log') or [{}])[-1].get('payload',{}).get('response',{})
+    structure=prior.get('response_structure',{})
+    if structure.get('intent') not in {'casual_calculation','casual_calculation_explanation'}:
+        return None
+    return structure.get('calculation',{}).get('expression')
+
+
+def explain_calculation(expression, session):
+    fresh=arithmetic(expression)
+    if fresh is None:
+        return reply(session,'I cannot revalidate that expression. Please enter the calculation again.','calculation_explanation')
+    body,trace=fresh
+    if trace.get('steps'):
+        body='Using parentheses and operator precedence, with exact fractions:\n'+'\n'.join(str(i+1)+'. '+step for i,step in enumerate(trace['steps']))+'\nResult: '+trace['result']+'.'
+    result=reply(session,body,'calculation_explanation',calculation=trace)
+    result['calculation_proof']={'expression':expression}
+    return result

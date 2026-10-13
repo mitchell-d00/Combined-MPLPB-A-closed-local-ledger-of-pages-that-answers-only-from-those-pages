@@ -9,6 +9,12 @@ VERSION='final-response-validation-v1'
 
 def validate_response(app, result, profile, corpus, approved_message):
     errors=[]; checks=[]
+    if result.get('calculation_proof'):
+        from tools.dialogue_rules import explain_calculation
+        fresh=explain_calculation(result['calculation_proof']['expression'],{})
+        if fresh['message']!=result.get('message') or any(fresh['response_structure'].get(k)!=result.get('response_structure',{}).get(k) for k in ('intent','calculation')):
+            errors.append('Calculation explanation failed fresh arithmetic validation.')
+        checks.append('fresh bounded arithmetic and exact explanation rendering')
     if result.get('lexical_proof'):
         from tools.structured_requests import revalidate_lexical
         try:

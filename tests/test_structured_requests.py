@@ -118,3 +118,36 @@ class StructuredRequestTests(unittest.TestCase):
             self.send('change the subject',sid)
             r=self.send('maybe something else',sid)['response']
             self.assertIn('hypothetical',r['message']);self.assertNotIn('felt',r['message'])
+
+    def test_live_regression_labels_and_calculation_explanations(self):
+        for mode,sid in self.modes():
+            r=self.send('I’m Ada how long will you remember that',sid)['response']
+            self.assertIn('system description',r['support_label'].lower())
+            for expression,expected in [('12 times 7','12 * 7 = 84'),('(2 + 3) * 4','2 + 3 = 5'),('1 / 3 + 1 / 6','1/3 + 1/6 = 1/2'),('4 / 0','undefined')]:
+                self.send(expression,sid)
+                r=self.send('Explain that',sid)['response']
+                self.assertIn(expected,r['message'],(mode,r))
+                self.assertEqual(r['response_structure']['intent'],'casual_calculation_explanation')
+                self.assertIn('fresh bounded arithmetic and exact explanation rendering',r['response_validation']['checks'])
+                self.assertEqual(r['message'],self.send('Explain that',sid)['response']['message'])
+                bad=copy.deepcopy(r);bad['message']+=' Result: 999.'
+                self.assertEqual(validate_response(self.app,bad,'internal','logic',bad['message'])['response_validation']['status'],'blocked')
+            self.send('What is an apple?',sid)
+            r=self.send('Explain that',sid)['response']
+            self.assertEqual(r['authority'],'lexical_reference')
+            self.send('What are you?',sid)
+            self.assertFalse(self.send('Explain that',sid)['response'].get('calculation_proof'))
+
+    def test_browser_dictionary_never_acquires_with_auto_lookup(self):
+        import asyncio
+        from browser import bridge as B
+        with patch.object(B,'app',self.app),patch.object(B,'remote',side_effect=AssertionError('Unexpected dictionary acquisition')) as remote:
+            async def run():
+                for mode in ['chat mode','serious mode','free chat']:
+                    a=await B.dispatch('/api/chat',{'corpus':'logic','message':mode})
+                    for q in ['Tell me about a dog','sense 1','Explain that','What is an apple?','Explain a bee','define obelisk']:
+                        r=await B.dispatch('/api/chat',{'corpus':'logic','session':a['session'],'message':q,'auto_wiki':True})
+                        self.assertEqual(r['response']['authority'],'lexical_reference')
+                        self.assertIsNone(r['response'].get('language_plan',{}).get('acquisition',{}).get('query'))
+                remote.assert_not_called()
+            asyncio.run(run())

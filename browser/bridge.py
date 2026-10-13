@@ -216,9 +216,8 @@ async def dispatch(url, data=None):
             request=(None,planned_query) if planned_query else None
             # One bounded fallback per user turn. Ordinary social text is never searched.
             exhausted=result['response'].get('source_exhausted',False)
-            needs_source = (not result['response'].get('sources') or
-                            result['response'].get('authority') == 'lexical_reference')
-            if data.get('auto_wiki') is True and request and (exhausted or needs_source) and data.get('wiki','simple') in W.APIS:
+            needs_source = not result['response'].get('sources')
+            if result['response'].get('authority') != 'lexical_reference' and data.get('auto_wiki') is True and request and (exhausted or needs_source) and data.get('wiki','simple') in W.APIS:
                 query=(result['response'].get('response_structure',{}).get('subject') if exhausted else request[1]).strip()
                 if not 1 <= len(query) <= 160:return result
                 sid=result['session']

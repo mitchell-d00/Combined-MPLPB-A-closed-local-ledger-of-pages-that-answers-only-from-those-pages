@@ -24,6 +24,9 @@ def parse(message, session):
     # Activity selection is distinct from an expression or a statement about maths.
     if re.fullmatch(r'(?:(?:let us|lets|let\'s|i want to|i would like to|i\'d like to) )?(?:(?:work through|do|try|start|help me with) )?(?:a |some )?(?:small |simple |basic )?(?:calculation|arithmetic|math)',key):
         return dict(base,action='select_activity',subject='calculation')
+    expression=DR.calculation_followup(message,session)
+    if expression is not None:
+        return dict(base,action='explain_calculation',subject=expression,context_reference='previous_calculation')
     lexical=session.get('mind',{}).get('lexical_discussion')
     if lexical:
         pick=re.fullmatch(r'(?:sense |meaning |the )?(\d+|first|second|third)(?: one| sense| meaning)?',key)
@@ -44,13 +47,14 @@ def parse(message, session):
 
 
 def handles(message, session):
-    return parse(message,session)['action'] in {'introduce_and_explain','self','select_activity','select_sense','lexical_followup','dictionary_overview','calculation_input','unresolved_compound'}
+    return parse(message,session)['action'] in {'introduce_and_explain','self','select_activity','select_sense','lexical_followup','dictionary_overview','calculation_input','unresolved_compound','explain_calculation'}
 
 
 def handle(message, session, collections=None):
     frame=parse(message,session);action=frame['action'];result=None
     if action=='unresolved_compound':
         result=M.reply('clarify','I recognized your introduction, but cannot resolve the rest of that request confidently. Could you ask the question separately?',session.get('context'),'COMPOSE-CLARIFY',authority='conversation_structure')
+    elif action=='explain_calculation':result=DR.explain_calculation(frame['subject'],session)
     elif action=='self':result=SK.handle(message,session,collections)
     elif action=='introduce_and_explain':
         intro,question=frame['clauses']

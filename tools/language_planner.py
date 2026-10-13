@@ -43,6 +43,8 @@ def label(result):
         return 'Saved reference · outside loaded scope · source inspection' if result.get('source_scope')=='saved_reference_outside_loaded_scope' else 'Source inspection · not an answer'
     if result.get('authority') == 'research_note':return 'Research note · outside MPLPB'
     if result.get('authority') == 'system_description':return 'System description'
+    if result.get('authority') == 'separate_conversation_claims' and any(u.get('authority')=='system_description' for u in result.get('claim_units',[])):
+        return 'Conversation + system description'
     if result.get('source_scope') == 'saved_reference_outside_loaded_scope':return 'Saved reference · outside loaded scope'
     if result.get('response_structure',{}).get('intent')=='topic_opinion':return 'Conversation + dictionary context' if result.get('authority')=='lexical_reference' else 'Conversation + source context'
     if result.get('response_structure',{}).get('intent')=='user_topic_context':return 'User-provided context'
@@ -104,7 +106,7 @@ def finish(result, parsed, memory, turn):
         if re.sub(r'^(?:a|an) ', '', candidate, flags=re.I).casefold() == subject.casefold():
             candidate = subject
     query = None
-    if not result.get('reference_topic') and result.get('authority') not in {'system_description','user_declaration','research_note'} and candidate and not parsed['imagined'] and not parsed['negation_present'] and ('overview' in parsed['actions'] or result.get('source_exhausted')):
+    if not result.get('reference_topic') and result.get('authority') not in {'system_description','user_declaration','research_note','lexical_reference'} and candidate and not parsed['imagined'] and not parsed['negation_present'] and ('overview' in parsed['actions'] or result.get('source_exhausted')):
         if candidate.casefold() not in PRONOUNS and 1 <= len(candidate) <= 160:query = candidate
     result['language_plan'] = {**parsed, 'subject': subject, 'realization_rules': rules,
         'response_act': structure.get('intent') or result.get('kind'),
