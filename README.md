@@ -9,6 +9,15 @@ derivation writes a new page and adds one to the depth.
 
 No model. The core reader uses local pages and the Python standard library. Optional search/crawl/import commands contact public sources explicitly; standalone browser mode uses IndexedDB for saved state.
 
+## Library routing
+
+Choose **Library index** in Chat or Serious mode to browse registered books.
+Explicit shelves preserve scope: an unresolved route asks you to narrow, and a
+selected book must still pass current source and body-support checks. Responses
+include source pins, related navigation pages and a path back to Main Index.
+See [library routing](docs/LIBRARY_ROUTING.md) for commands, custom hierarchies,
+measured catalog scaling and limits.
+
 ## Topic-bound follow-ups
 
 Selected topics persist across chat turns and reloads. Ask `how big is it?` or

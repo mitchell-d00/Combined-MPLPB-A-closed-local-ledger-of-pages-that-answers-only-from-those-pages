@@ -49,7 +49,8 @@ from tools import context_index as CX
 
 
 class App:
-    def __init__(self, custom=None, topic_base=None, session_path=None):
+    def __init__(self, custom=None, topic_base=None, session_path=None, library_manifest=None):
+        self.library_manifest = copy.deepcopy(library_manifest)
         self.topics = TopicStore(topic_base or ROOT / "local/topics")
         self.chat_lock = threading.RLock()
         self.session_store = SessionStore(session_path or (Path(topic_base).resolve() / 'session-save.json' if topic_base else ROOT / 'local/sessions/state.json'))
@@ -306,7 +307,12 @@ class App:
                 memory.pop('reference_topic',None)
             language_request=LP.parse(message,memory,session.get('context'))
             casual=None
-            environment_result=PR.handle(self,session,original_message,corpus,profile)
+            from tools import library_chat as LC
+            if not original_message.casefold().startswith(('library choose ','library choices ')):
+                session['mind'].pop('library_pending',None)
+            environment_result=LC.handle(self,original_message,session,profile)
+            if environment_result is None:
+                environment_result=PR.handle(self,session,original_message,corpus,profile)
             if environment_result is None:
                 environment_result=CR.execute(self,data,session,interpretation,corpus,profile)
             memory=session['mind']
@@ -592,10 +598,11 @@ def handler(app):
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--root', type=Path)
+    parser.add_argument('--library-manifest', type=Path, help='Explicit hierarchy over registered corpus keys')
     parser.add_argument('--port', type=int, default=8766)
     parser.add_argument('--open', action='store_true', help='Open the local UI in your default browser')
     args = parser.parse_args()
-    app = App(args.root)
+    app = App(args.root, library_manifest=json.loads(args.library_manifest.read_text()) if args.library_manifest else None)
     server = ThreadingHTTPServer(('127.0.0.1', args.port), handler(app))
     print(f'Local ledger UI: http://127.0.0.1:{server.server_port}', flush=True)
     if args.open:

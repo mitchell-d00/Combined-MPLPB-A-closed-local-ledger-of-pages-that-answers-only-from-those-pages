@@ -26,7 +26,9 @@ def respond(app,data):
     if len(state['log'])>=1000:raise ValueError('1000-turn ephemeral limit reached; leave free chat to discard this session.')
     state['turn']+=1
     response=None
-    if key not in START:
+    if key in {'browse library','main index','library'} or key.startswith('library '):
+        response={'kind':'clarify','message':'Leave free chat to browse or answer from the local library. This mode does not read ledger collections.','authority':'conversation_structure','sources':[]}
+    elif key not in START:
         frame=SR.parse(message,state)
         if frame['action'] not in {'select_activity','calculation_input'}:state['mind'].pop('pending_activity',None)
         if frame['action'] not in {'select_sense','lexical_followup'}:state['mind'].pop('lexical_discussion',None)

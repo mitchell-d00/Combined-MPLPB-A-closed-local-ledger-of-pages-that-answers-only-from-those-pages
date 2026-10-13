@@ -1,0 +1,12 @@
+{
+  "version": 1,
+  "root": "main",
+  "nodes": [
+    {"id": "main", "title": "Main Index", "parent": null},
+    {"id": "workshop", "title": "Workshop Sub-Index", "parent": "main", "aliases": ["workshop"]},
+    {"id": "pottery", "title": "Pottery book", "parent": "workshop", "corpus": "studio", "aliases": ["clay"]},
+    {"id": "reference", "title": "Reference Sub-Index", "parent": "main"},
+    {"id": "logic", "title": "Synthetic logic examples", "parent": "reference", "corpus": "logic"},
+    {"id": "system", "title": "System documentation", "parent": "reference", "corpus": "system"}
+  ]
+}

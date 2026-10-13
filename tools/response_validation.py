@@ -9,6 +9,12 @@ VERSION='final-response-validation-v1'
 
 def validate_response(app, result, profile, corpus, approved_message):
     errors=[]; checks=[]
+    if result.get('library_proof'):
+        from tools.library_chat import revalidate
+        try:
+            if not revalidate(app,result,profile):errors.append('Library route or supported answer changed.')
+        except (ValueError,KeyError,OSError):errors.append('Library route is unavailable.')
+        checks.append('fresh library scope, eligibility and supported answer')
     if result.get('calculation_proof'):
         from tools.dialogue_rules import explain_calculation
         fresh=explain_calculation(result['calculation_proof']['expression'],{})
@@ -49,7 +55,7 @@ def validate_response(app, result, profile, corpus, approved_message):
             if relation not in fresh: errors.append('Relation proof no longer follows from eligible sources.')
         if not result.get('relations') or result.get('message')!=approved_message: errors.append('Relation response changed or lacks a proof.')
         checks.append('fresh relation premises and permitted inference rules')
-    elif result.get('kind')=='return':
+    elif result.get('kind')=='return' and not result.get('library_proof'):
         errors.append('A factual return needs a supported reader or procedure proof.')
     if result.get('scope_results'):
         for item in result['scope_results']:

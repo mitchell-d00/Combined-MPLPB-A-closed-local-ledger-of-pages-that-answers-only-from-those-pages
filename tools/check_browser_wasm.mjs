@@ -228,3 +228,23 @@ for (const mode of ['chat mode','serious mode','free chat']) {
  if(!imagined.response.message.includes('imagined scenario')||imagined.response.message.includes('felt'))throw Error('WASM hypothetical continuity: '+mode);
 }
 console.log('WASM structured requests passed in Chat, Serious and free chat');
+
+await py.runPythonAsync(`
+from mplpb_combined.ledger import write
+write('/app/local/library-fixture-a',doc_id='LIB-A',title='Kettle',scope='kettle color',body='The kettle color is blue.')
+write('/app/local/library-fixture-b',doc_id='LIB-B',title='Kettle',scope='kettle color',body='The kettle color is red.')
+B.app.corpora['library-a']=('Library A','/app/local/library-fixture-a')
+B.app.corpora['library-b']=('Library B','/app/local/library-fixture-b')
+async def library_no_network(url):
+ raise AssertionError('Library routing must not acquire remote sources')
+B.remote=library_no_network
+`);
+const libraryStart=await call('/api/chat',{corpus:'logic',message:'library ask: What is the kettle color?',auto_wiki:true});
+if(libraryStart.response.kind!=='clarify'||libraryStart.response.sources.length)throw Error('WASM library scope ambiguity');
+const libraryAnswer=await call('/api/chat',{corpus:'logic',session:libraryStart.session,message:'library choose shelf-library-a',auto_wiki:true});
+if(libraryAnswer.response.kind!=='return'||!libraryAnswer.response.message.includes('blue')||libraryAnswer.response.response_validation.status!=='checked')throw Error('WASM library support');
+if(!libraryAnswer.response.library_route.path_back.length||libraryAnswer.response.sources[0].corpus!=='library-a')throw Error('WASM library provenance');
+const libraryFree=await call('/api/chat',{corpus:'logic',message:'free chat'});
+const libraryBlocked=await call('/api/chat',{corpus:'logic',session:libraryFree.session,message:'browse library',auto_wiki:true});
+if(libraryBlocked.response.kind!=='clarify'||libraryBlocked.response.sources.length)throw Error('WASM free-chat library boundary');
+console.log('WASM library routing, scope clarification and return paths passed');

@@ -38,6 +38,8 @@ def parse(message, memory, context=None):
 
 
 def label(result):
+    if result.get('library_route'):
+        return 'Library answer · source-backed' if result.get('kind')=='return' else 'Library navigation · not answer evidence'
     if result.get('procedure'):return 'Source-declared procedure · execution unverified'
     if result.get('kind')=='candidate_only' or result.get('response_structure',{}).get('source_inspection'):
         return 'Saved reference · outside loaded scope · source inspection' if result.get('source_scope')=='saved_reference_outside_loaded_scope' else 'Source inspection · not an answer'
@@ -106,7 +108,7 @@ def finish(result, parsed, memory, turn):
         if re.sub(r'^(?:a|an) ', '', candidate, flags=re.I).casefold() == subject.casefold():
             candidate = subject
     query = None
-    if not result.get('reference_topic') and result.get('authority') not in {'system_description','user_declaration','research_note','lexical_reference'} and candidate and not parsed['imagined'] and not parsed['negation_present'] and ('overview' in parsed['actions'] or result.get('source_exhausted')):
+    if not result.get('library_route') and not result.get('reference_topic') and result.get('authority') not in {'system_description','user_declaration','research_note','lexical_reference'} and candidate and not parsed['imagined'] and not parsed['negation_present'] and ('overview' in parsed['actions'] or result.get('source_exhausted')):
         if candidate.casefold() not in PRONOUNS and 1 <= len(candidate) <= 160:query = candidate
     result['language_plan'] = {**parsed, 'subject': subject, 'realization_rules': rules,
         'response_act': structure.get('intent') or result.get('kind'),
