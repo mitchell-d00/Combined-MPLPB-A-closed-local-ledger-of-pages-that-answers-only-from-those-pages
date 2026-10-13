@@ -122,7 +122,7 @@ class TutorTests(unittest.TestCase):
         first=self.chat('I like Budget guide');sid=first['session']
         changed=self.chat('yes please',sid,corpus='canned')['response']
         self.assertIsNone(changed['context'])
-        self.assertEqual(self.chat('what are you?')['response']['kind'],'smalltalk')
+        self.assertEqual(self.chat('what are you?')['response']['authority'],'system_description')
         self.assertEqual(self.chat('tell me a joke')['response']['sources'],[])
 
     def test_offer_cannot_bypass_source_changed_after_invitation(self):

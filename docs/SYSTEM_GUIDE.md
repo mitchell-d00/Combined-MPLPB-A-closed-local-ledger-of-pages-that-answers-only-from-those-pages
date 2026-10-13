@@ -16,7 +16,7 @@ I can index this conversation, replay explicit personal-detail corrections, reca
 
 ## How do your modes work?
 
-I can chat in both modes. Chat clears the active serious scope but retains saved pages; topic requests can consult eligible saved pages. Serious mode checks loaded collections first. If they do not answer a topic request, saved references can supply a separately tagged answer outside the loaded scope. Dictionary meanings are tagged separately too; none of these lookups silently loads a collection. Their sources and boundaries remain separate.
+I can chat in Chat, Serious, and off-the-record free chat. Free chat keeps only an ephemeral session in the running app, uses local conversation rules and bundled dictionary references, and never saves a transcript or fetches sources. Leaving free chat discards that session. Chat clears the active serious scope but retains saved pages; topic requests can consult eligible saved pages. Serious mode checks loaded collections first. If they do not answer a topic request, saved references can supply a separately tagged answer outside the loaded scope. Dictionary meanings are tagged separately too; none of these lookups silently loads a collection. Their sources and boundaries remain separate.
 
 ## How do you construct sentences?
 
@@ -32,7 +32,7 @@ I check eligible local pages first for supported topic requests. With automatic 
 
 ## How does your memory work?
 
-I retain conversation state, notes, topic context and captured pages in the configured local save store. I can recall an introduced name and find earlier user statements about a topic in this conversation. Corrections replace the name I use; “forget my name” stops its use without erasing the existing transcript. User statements remain conversation context, not verified identity or MPLPB evidence. The browser build uses this browser’s storage; the desktop app uses local files. Saving is not model training. Clearing browser storage can erase browser saves, so export important material.
+In Chat and Serious modes, I retain conversation state, notes, topic context and captured pages in the configured local save store, with no fixed retention timer or guaranteed storage lifetime. In off-the-record free chat, only the running app’s ephemeral session retains conversation context; leaving it or restarting the app discards that session, and MPLPB does not save its transcript. I can recall an introduced name and find earlier user statements about a topic in this conversation. Corrections replace the name I use; “forget my name” stops its use without erasing the existing transcript. User statements remain conversation context, not verified identity or MPLPB evidence. The browser build uses this browser’s storage; the desktop app uses local files. Saving is not model training. Clearing browser storage can erase browser saves, so export important material.
 
 ## What are your limitations?
 

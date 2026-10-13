@@ -67,8 +67,17 @@ def handle(message,context,memory):
         state.update(active=False,stage='idle');body='That’s okay. No need to explain. We can talk about something else or leave it for now.';intent='decline'
         suggestions=['a silly question','a little quiet']
     elif command in {'change the subject','something lighter','distract me'}:
-        state.update(active=True,stage='story',style='light')
+        state.update(active=True,stage='story',style='light',pending={'type':'hypothetical_preference','subject':'superpower'})
         body='Sure, a change of subject. If you could have an entirely ordinary superpower—like always finding your keys—what would you choose?';intent='light'
+    elif state.get('pending',{}).get('type')=='hypothetical_preference' and re.fullmatch(r"(?:i would like|i'd like|i would choose|i'd choose|i choose|my choice is) (.{1,160})",command):
+        preference=re.fullmatch(r"(?:i would like|i'd like|i would choose|i'd choose|i choose|my choice is) (.{1,160})",command)[1]
+        state.pop('pending',None)
+        state.update(active=True,stage='followup',style='hypothetical')
+        body='In that imagined scenario, your choice is “'+preference+'”. What would you try with that ability?';intent='hypothetical_preference'
+    elif state.get('pending',{}).get('type')=='hypothetical_preference' and command not in {'just listen','can we talk'}:
+        body='Which ability would you choose in that hypothetical scenario? You can say “I would choose …”.';intent='light'
+    elif state.get('style')=='hypothetical' and command not in YES|NO|STOP and not opening(command) and command not in {'just listen','change the subject','can we talk'}:
+        body='Keeping this hypothetical: “'+message[:300]+'”. What would happen next in your imagined scenario?';intent='hypothetical_continuation'
     elif command in {'just listen','i just want to vent','can i vent'}:
         state.update(active=True,stage='listen',style='listen')
         body='Of course. Go ahead—I’ll keep my replies short and leave room for you to talk.';intent='listen'
@@ -95,6 +104,7 @@ def handle(message,context,memory):
         state.update(active=True,stage='listen' if state.get('style')=='listen' else 'followup')
         body,construction=N.social(message,tone(command),state['turns'],
                                    listening=state.get('style')=='listen',previous=previous)
+    if intent not in {'light','hypothetical_preference','hypothetical_continuation'}:state.pop('pending',None)
     state['last_reply']=body
     memory['casual_active']=True
     return M.reply('smalltalk',body,context,'SOCIAL-'+intent.upper(),authority='conversation_structure',

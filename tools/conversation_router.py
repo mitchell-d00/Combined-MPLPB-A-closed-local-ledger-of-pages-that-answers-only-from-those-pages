@@ -13,7 +13,9 @@ from tools import deterministic_mind as M
 from tools import reference_resources as F, skill_planner as SP
 from tools.chat_phrasing import memory_question
 
-VERSION = 'conversation-router-v2'
+from tools import structured_requests as SR
+
+VERSION = 'conversation-router-v3'
 
 def relationships(session, acts):
     """Replay typed user declarations only. Assistant answers are never premises."""
@@ -62,6 +64,13 @@ def propose(frame, session, data):
     def add(handler,intent,priority,basis,authorities):
         candidates.append({'handler':handler,'intent':intent,'priority':priority,
                            'basis':basis,'allowed_authorities':authorities})
+    structured=SR.parse(frame['original'],session)
+    existing_clauses=CE.clauses(frame['original'])
+    existing_composition=(len(existing_clauses)>1 and all(CE.act(part)['type']!='unresolved' for part in existing_clauses))
+    dictionary_available=(structured['action']!='dictionary_overview' or
+                          (not structured['qualifiers'] and bool(F.lookup_forms(structured['subject'])[1])))
+    if SR.handles(frame['original'],session) and structured['action']!='self' and not existing_composition and dictionary_available:
+        add('structured','structured_request',128,'typed local request and context slots',['system_description','user_declaration','separate_conversation_claims','conversation_structure','lexical_reference','unsupported'])
     if F.topic_request(text,session):
         add('reference','lexical_topic',125,'explicit reference command or selected lexical topic',['lexical_reference','resource_catalog','conversation_structure'])
     # High specificity commands cannot be swallowed by a topic/opinion handler.
@@ -155,7 +164,7 @@ def plan(frame, session, data, compound=True):
     # Compose only fully recognized local skills. Never execute a partial command
     # or invent an interpretation for an unknown clause.
     identity_ack=bool(re.fullmatch(r"(?:that's me|that is me|yes that's me|yes that is me)[,; ]+(?:who are you|what is your name)[?!.]*",CM.key(frame['resolved'])))
-    if compound and len(parts)>1 and winner['handler']!='dialogue' and not identity_ack:
+    if compound and len(parts)>1 and winner['handler'] not in {'dialogue','structured'} and not identity_ack:
         children=[]
         for part in parts:
             child=dict(frame,original=part,resolved=part,acts=[CE.act(part)])
@@ -208,7 +217,8 @@ def execute(app,data,session,frame,corpus,profile):
     # A rejected candidate must not leave partially applied memory behind.
     shadow=copy.deepcopy(session)
     reader=lambda q:E.handle(app,data,shadow,q,corpus,profile)
-    handlers={'reference':lambda:SP.execute(text,shadow,'legacy',app,corpus,profile),
+    handlers={'structured':lambda:SR.handle(frame['original'],shadow,app.roots()),
+              'reference':lambda:SP.execute(text,shadow,'legacy',app,corpus,profile),
               'self':lambda:SK.handle(text,shadow,app.roots()),
               'branch':lambda:CB.handle(text,shadow,reader),
               'dialogue':lambda:CE.handle(text,shadow,reader,interpretation=frame.get('dialogue_interpretation')),

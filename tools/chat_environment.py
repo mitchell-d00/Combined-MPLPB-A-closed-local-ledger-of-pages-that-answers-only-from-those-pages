@@ -229,29 +229,8 @@ def explore_sources(app,data,session,message,corpus,profile):
 
 def lexical_topic(message,session):
     """Construct a topical reply from exact dictionary senses, preserving ambiguity."""
-    subject=IC.PF.overview_subject(message) or IC.PF.definition_subject(message)
-    if not subject or subject_key(subject) in {'it','this','that','you','yourself'}:return None
-    word=subject_key(subject)
-    headword,senses,_=F.lookup_forms(word)
-    if not senses:return None
-    result=F.handle('define '+headword,session.get('context'))
-    parts=[]
-    for sense in senses[:3]:
-        definitions=sense.get('definitions',[])
-        if not definitions:continue
-        synonyms=[w for w in sense.get('synonyms',[]) if w.casefold()!=headword.casefold()]
-        part='; '.join(definitions)
-        if len(senses)>1:part='One meaning: '+part
-        if synonyms:part+=' Related wording in this sense: '+', '.join(synonyms[:4])+'.'
-        parts.append(part)
-    if not parts:return None
-    result['message']='Let’s start with '+headword+'.\n\n'+'\n\n'.join(parts)
-    if session.get('mind',{}).get('emotional',{}).get('style')!='listen':
-        result['message']+='\n\n'+('Which meaning did you have in mind?' if len(senses)>1 else 'What would you like to explore about '+headword+'?')
-    result['suggestions']=['synonyms '+headword,'Search '+headword,'Explore an idea about '+headword]
-    result['response_structure']={'intent':'lexical_topic','subject':headword,'factual_claims':True,'mplpb_supported':False}
-    result['source_scope']='dictionary_reference'
-    return result
+    from tools.structured_requests import lexical
+    return lexical(message,session)
 
 
 def discover_saved(app,session,message,profile):

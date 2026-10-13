@@ -14,8 +14,9 @@ def key(text):return re.sub(r'\s+',' ',text.replace('’',"'")).strip(' .!?').ca
 
 def introduction(text):
     text=re.sub(r'\s+',' ',text.replace('’',"'")).strip(' .!?')
+    text=re.split(r'\s+(?=(?:how long|for how long|what|who|how|will you|do you)\b)',text,maxsplit=1,flags=re.I)[0]
     text=re.split(r'[.!?;]+\s*|,?\s+and\s+(?=(?:how|who|what)\b)',text, maxsplit=1,flags=re.I)[0]
-    text=re.sub(r'^(?:hi|hello|hey)[,! ]+', '',text,flags=re.I)
+    text=re.sub(r'^(?:hi|hello|hey|good morning|good afternoon|good evening)[,! ]+', '',text,flags=re.I)
     text=re.sub(r'^(?:actually|no)[, ]+', '',text,flags=re.I)
     match=re.fullmatch(r"(?:my name is|call me|please call me|remember my name is|i(?: am|'m)) ([^,;!?]{1,64}?)(?:[,;]? (?:and )?(?:who are you|what are you|what(?: is|'s) your name))?",text,re.I)
     if not match:return None
@@ -63,7 +64,7 @@ def handle(message,session):
     name,at=name_from_chat(session)
     found=introduction(message)
     if command in FORGET:
-        return reply('Okay; I won’t use your name. Your existing transcript is unchanged.',session)
+        return reply('Okay; I won’t use your name. '+('Earlier turns remain only in this ephemeral session until you leave free chat.' if session.get('environment',{}).get('mode')=='free' else 'Your existing transcript is unchanged.'),session)
     if found:
         return reply('Hi, '+found+'! I’m MPLPB, your little monster 😈. What’s on your mind?',session,
                      [{'turn':len(session.get('log',[]))+1,'basis':'user introduction'}],

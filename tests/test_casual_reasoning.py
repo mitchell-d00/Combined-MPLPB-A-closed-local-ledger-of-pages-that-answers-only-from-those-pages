@@ -14,11 +14,13 @@ class CasualReasoningTests(unittest.TestCase):
         return self.app.chat({'corpus':'logic','message':message,'session':sid,'default_chat':True})
     def test_screenshot_conversation_without_pressing_just_chat(self):
         sid=None
-        for message,intent in [("I'm bored",'casual_ideas'),('So you arnt an ai?','casual_identity'),('What are you','casual_identity'),('What are the rules','casual_rules'),('So hi?','casual_greeting')]:
+        for message,intent in [("I'm bored",'casual_ideas'),('So you arnt an ai?','casual_identity'),('What are you','system_description'),('What are the rules','casual_rules'),('So hi?','casual_greeting')]:
             result=self.chat(message,sid);sid=result['session'];r=result['response']
             self.assertEqual(r['response_structure']['intent'],intent)
             self.assertEqual(r['environment']['mode'],'chat');self.assertEqual(r['sources'],[])
-            self.assertEqual(r['support_notice'],D.NOTICE);self.assertNotIn('source_offer',r)
+            if intent=='system_description':self.assertEqual(r['authority'],'system_description')
+            else:self.assertEqual(r['support_notice'],D.NOTICE)
+            self.assertNotIn('source_offer',r)
             self.assertFalse(r['response_structure']['mplpb_supported'])
     def test_old_save_migrates_without_reset_or_source_read(self):
         sid=self.app.chat({'corpus':'logic','message':'remember I like books'})['session']

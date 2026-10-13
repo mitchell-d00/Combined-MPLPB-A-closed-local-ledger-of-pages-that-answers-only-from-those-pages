@@ -205,3 +205,22 @@ if(freeStored)throw Error('WASM persisted ephemeral chat');
 const freeResume=await call('/api/chat/resume',{session:freeTurn.session});
 if(!freeResume._browser_transport_error)throw Error('WASM free chat unexpectedly resumable');
 console.log('WASM off-record source and persistence boundaries passed');
+
+for (const mode of ['chat mode','serious mode','free chat']) {
+ const start=await call('/api/chat',{corpus:'logic',message:mode});
+ const send=message=>call('/api/chat',{corpus:'logic',session:start.session,message,auto_wiki:false});
+ const self=await send('Good morning I’m M how long will you remember my name');
+ if(!self.response.message.includes('Hi, M!') || !self.response.message.includes(mode==='free chat'?'ephemeral':'saved transcript'))throw Error('WASM composed memory explanation: '+mode);
+ const word=await send('Explain a bee');
+ if(word.response.authority!=='lexical_reference'||!word.response.lexical_proof||word.response.response_validation.status!=='checked')throw Error('WASM dictionary explanation: '+mode);
+ const chosen=await send('sense 1');
+ const follow=await send('Explain that');
+ if(follow.response.message!==chosen.response.message||follow.response.response_validation.status!=='checked')throw Error('WASM dictionary follow-up: '+mode);
+ const activity=await send('small calculation');
+ const math=await send('12 times 7');
+ if(!activity.response.message.includes('expression')||!math.response.message.includes('84'))throw Error('WASM calculation selection: '+mode);
+ await send('change the subject');
+ const imagined=await send('I would choose shape shifting');
+ if(!imagined.response.message.includes('imagined scenario')||imagined.response.message.includes('felt'))throw Error('WASM hypothetical continuity: '+mode);
+}
+console.log('WASM structured requests passed in Chat, Serious and free chat');

@@ -27,6 +27,15 @@ is labeled separately from source-backed answers; it is software metadata, not
 consciousness or independent verification. Historical papers describe their own
 versions; this guide describes the current implementation.
 
+## Structured requests in all chat modes
+
+Introductions can include a memory question without punctuation. Generic dictionary
+requests retain separate word senses and revalidate follow-ups; calculation selection
+asks for an expression; hypothetical choices remain hypothetical. Off-the-record
+free chat uses the shared final validator, keeps only ephemeral conversation state,
+and can cite bundled dictionary entries without remote fetching. See
+[structured chat behavior and limits](docs/STRUCTURED_CHAT.md).
+
 ## Shared language planner
 
 Every chat reply passes through a deterministic discourse planner before it is

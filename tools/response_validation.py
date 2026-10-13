@@ -9,6 +9,12 @@ VERSION='final-response-validation-v1'
 
 def validate_response(app, result, profile, corpus, approved_message):
     errors=[]; checks=[]
+    if result.get('lexical_proof'):
+        from tools.structured_requests import revalidate_lexical
+        try:
+            if not revalidate_lexical(result):errors.append('Dictionary sense or constrained wording changed.')
+        except (ValueError,KeyError,OSError):errors.append('Dictionary evidence is unavailable.')
+        checks.append('fresh dictionary sense and exact constrained rendering')
     if result.get('procedure'):
         if not PR.revalidate(app,result,profile): errors.append('Procedure constraints or generated wording changed.')
         checks.append('fresh procedure tags and exact constrained rendering')

@@ -291,6 +291,11 @@ class App:
             memory=session.setdefault('mind',{'notes':[]})
             if T.casual_key(message) not in {'yes','yes please','lets explore',"let's explore",'no','no thanks','keep chatting','stay casual'}:
                 memory.pop('topic_offer',None)
+            from tools import structured_requests as SR
+            structured=SR.parse(message,session)
+            if structured['action'] not in {'select_activity','calculation_input'}:memory.pop('pending_activity',None)
+            if structured['action'] not in {'select_sense','lexical_followup'}:
+                memory.pop('lexical_discussion',None)
             interpretation=CC.prepare(message,session)
             original_message=message
             message=interpretation['resolved']
