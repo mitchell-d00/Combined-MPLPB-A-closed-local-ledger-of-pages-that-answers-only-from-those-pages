@@ -91,3 +91,22 @@ This bounded normalization runs before social listening and preserves the
 original transcript plus a normalization trace. It does not strip adjectives
 from topics (“cool water”, “Great Britain”), negation, or literal-repeat text.
 Reference labels and source eligibility remain those of the underlying request.
+
+## Guarded context behavior
+
+Recent social and attribute-question frames support corrections and follow-ups.
+Frames survive reload and brief courtesies, expire after more than two intervening
+turns, and are invalidated by substantive topic/control changes. They are separate
+from retained personal declarations and historical transcript recall.
+
+Explicit guards select behavior classes. Fixed ranks resolve only supported
+social temporal-slot spelling variants; ambiguous candidates request clarification.
+Entities, factual values, quotations, negation and extra clauses must not be
+silently rewritten. Attribute follow-ups reconstruct a question for the existing
+source reader; conversation never supplies substitute evidence.
+
+The same input and complete session state give the same result. This is finite
+grammar with composed responses, not probabilistic inference or general language
+understanding. Original input and interpretation traces remain available.
+
+See [class guards and test data](../evaluation/conversation-repairs/README.md).

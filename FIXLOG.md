@@ -5,6 +5,14 @@ showed. Nothing is overwritten: each earlier reader is kept at `killtest/v1/read
 `killtest/v2/reader_v2.py`, its results beside it, and each earlier paper under
 `docs/superseded/`.
 
+## Context behavior update (2026-10-13)
+
+Added guarded social/attribute repairs and deterministic temporal-slot ranking.
+Frames survive reload, expire on substantive changes and cannot supply evidence.
+The audit passed 240 scenarios; the full suite passed 555 tests. See
+[behavior data](evaluation/conversation-repairs/README.md) and
+[rollback](docs/ROLLBACK.md). Earlier measurements below remain historical.
+
 ## Summary
 
 | | First probe set (56) | Held-out set (30) |

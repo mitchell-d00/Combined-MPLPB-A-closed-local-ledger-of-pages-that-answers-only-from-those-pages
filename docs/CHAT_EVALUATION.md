@@ -31,3 +31,17 @@ The expanded replay records 220 turns across 28 scenarios in both modes: greetin
 Freeze a commit, rule configuration and source snapshots before evaluation. Have evaluators outside the project select unfamiliar corpora and author questions without inspecting the rules. Include answerable, unanswerable, ambiguous and misleading-overlap questions; paraphrases, corrections and multi-turn topic shifts; both conversation modes and zero loaded collections. Separate tuning examples from a held-out set.
 
 Two independent reviewers should label answerability, citation support, scope compliance, memory correctness and conversational relevance; reconcile disagreements without changing the frozen run. Publish every prompt, response, source identifier and adjudication, including failures. Report unsupported-answer rate and abstention precision alongside coverage; report conversational quality separately. Synthetic passing counts cannot replace this evaluation.
+
+## Context behavior release validation
+
+The implementation passed 555 regression tests, 240/240 behavior scenarios,
+the existing 1,000-response audit plus 250 confirmation calls, 360/360 context
+cases and 78/78 fixed conversation turns. These developer-authored checks cover
+finite cases; they are not independent validation or proof of general language
+understanding. Historical reader failures remain limitations.
+
+Run `python -m tools.evaluate_conversation_repairs --output behavior-results.json`
+and `python -m unittest discover -s tests -q`. The
+[report](../evaluation/conversation-repairs/results.json) contains conversations,
+expected reactions, traces, source identifiers and evaluated source hashes.
+See the [class table](../evaluation/conversation-repairs/README.md) for guards.

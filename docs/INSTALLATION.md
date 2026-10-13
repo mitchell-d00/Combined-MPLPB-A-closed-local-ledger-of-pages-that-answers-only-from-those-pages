@@ -17,3 +17,12 @@ python -m pip wheel --no-deps --wheel-dir release .
 ```
 
 Chat adaptation is session-local data: explicit personal details, corrections and user-defined meanings. It does not install executable code or modify the MPLPB evidence reader. See `CONTEXT_INDEX.md` and `CHAT_EVALUATION.md` for grammar and limitations.
+
+## Full repository snapshot and recovery
+
+The full source ZIP contains every tracked file at its named commit, including
+application, parts, resources, tests, evaluation data and documentation. It
+excludes `.git`, untracked build outputs and private local sessions. It is not
+a Git history backup or a prebuilt standalone browser runtime. Use the browser
+package for compiled standalone HTML. Verify the supplied SHA-256 and extract
+into a new directory. Keep session exports separate. See [ROLLBACK.md](ROLLBACK.md).

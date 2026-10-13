@@ -1,52 +1,47 @@
-# Walk-back and rollback notes
+# Rollback and recovery
 
-This change adds the separate-source provenance gate, six topic corpora and their frozen probes, supplied papers, an upload review, and a dated documentation archive. The existing single-owner `ask` command remains available.
+## Pinned known-good baseline
 
-## Walk back behavior without reverting files
+Before the context behavior update (PR #5), main was:
 
-Use `python3 -m mplpb_combined ask <root> "<question>"` to retain the original majority-scope/prose-containment ownership and refusal rule. Stop the local query bench with Ctrl-C. The gate and bench do not modify a selected source corpus.
+- Commit: `6a7601b89a927a5cf3445979a512b8f5bf92e0f1`
+- Recovery branch: `rollback/pre-context-repairs-2026-10-13`
+- Verified live browser build: `a85403e84f9e`
+- Successful Pages workflow: `38333994142`
 
-The gate returns lexical source bundles, not a synthesized answer. A game source and a budget source do not establish a historical D&D budget. Declared authorship and intact hashes are not verified identity or truth. The gate's 29 tests and the 90 topic probes are controlled regression fixtures; they do not establish independent validation.
+Keep the recovery branch fixed during release cleanup. It preserves source code,
+not user saves. Export important sessions before changing versions.
 
-## Revert the complete addition on main
+## Local recovery
 
-The last main commit before this addition is:
+Keep the current installation and saves intact. In a clone:
 
-`6734fa4a74a2886ab335d30559d07e65d04d5aeb`
-
-Find the published addition by its exact commit subject:
-
-```bash
+```sh
 git fetch origin
-git switch main
-git pull --ff-only origin main
-git log --oneline --grep="Add provenance gate, topic corpora, papers and rollback notes" -n 1
+git worktree add --detach ../mplpb-before-context 6a7601b89a927a5cf3445979a512b8f5bf92e0f1
 ```
 
-After reviewing the shown commit, substitute its SHA below:
+Follow INSTALLATION.md in that separate directory. Use a separate browser profile
+for an older browser runtime. Older adapters may reject newer captures; retain
+original exports rather than deleting data to force compatibility.
 
-```bash
-git revert <addition-commit-sha>
-python3 -m unittest discover -s tests -t .
-git push origin main
-```
+## Deployed recovery
 
-This creates a new reversal commit and preserves shared history. Resolve any conflicts against subsequent changes before pushing; do not reset or force-push main. The original baseline had 122 tests. Later unrelated changes may alter that count.
+Use a revert commit; do not force-push or destructively reset main.
 
-The revert removes files introduced by this addition, including the copied papers and archive on the branch, and restores the prior CLI and README changes. Git history retains those files. Downloaded kits, other working copies, published caches, and already delivered source text are unaffected.
+1. Fetch origin and start a clean recovery branch from `origin/main`.
+2. Find PR #5's merge using `git log --first-parent --merges origin/main`.
+   Verify its parents and diff. The first parent should be the baseline above
+   if no intervening main commits landed before this release.
+3. Run `git revert -m 1 <verified-PR-5-merge-commit>` on the recovery branch.
+   Review conflicts and dependencies of later work; do not overwrite unrelated
+   changes with the entire baseline tree.
+4. Run `python -m unittest discover -s tests -q`,
+   `python -m tools.evaluate_context_matrix --output rollback-context.json`,
+   and `python -m tools.smoke_conversation_architecture`.
+5. Review and merge the recovery PR. Confirm both Pages build and deploy succeed;
+   verify live module bytes as well as the build footer.
 
-## Restore after a rollback
-
-Review the reversal commit, then use `git revert <reversal-commit-sha>`, run the tests, and push normally. The addition was verified with 151 tests and live local-interface checks for all five scenarios. Paper bytes are pinned by `papers/manifest.json`; pre-gate documentation by its dated manifest.
-
-See [the gate specification](PROVENANCE_GATE.md), [upload review](UPLOAD_REVIEW.md), and [past documentation](past-documentation/README.md) for scope and preserved failure results.
-
-## Walk back the supersession policy fix only
-
-The last main commit before this fix is `c665337492a4aa5c3619c57c439a0583732c68bd`. Find the subsequent commit with subject `Enforce supersession restoration and derivative serving policy`, then run `git revert <policy-fix-commit-sha>`, run the tests, and push normally. Do not revert the earlier provenance-gate addition to undo only this fix.
-
-Reverting restores the earlier serving and write behavior, including its permissive handling of invalid successor pages, stale derivatives, and the inability to write a restoration pinning a withdrawn head. Existing source files written after publication remain in their corpora; inspect them with the restored reader before relying on rollback behavior. Original probe files remain frozen. The policy fix passes 165 tests; that is regression evidence, not independent validation.
-
-## Sealed delivery and clarification fix
-
-This fix is based on `d9ba968475c4f317b3582cedeb15a1cba6900660`, and is prepared on `fix/sealed-delivery-clarification`. Undo only its published commit with `git revert <delivery-fix-sha>` and rerun tests, rather than resetting main. Pages newly carrying sealed delivery/authorship fields need the updated reader and hash format; the old reader does not enforce the same restrictions. Do not rely on rollback to preserve external withholding of these pages. Imported material and any delivered text outside Git are unaffected.
+Rebuilding reverted source can produce a different build identifier because
+metadata changed. Deployment does not roll back or erase local/browser user data.
+Restore the feature later by reverting the recovery commit after testing.
