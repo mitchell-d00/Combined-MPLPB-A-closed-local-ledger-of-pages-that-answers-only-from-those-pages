@@ -3,6 +3,7 @@ import copy
 import re
 from tools import conversation_engine as CE, conversation_branches as B, chat_language_graph as LG
 from tools.chat_phrasing import conversational_request, request_form
+from tools import conversation_repairs as RP
 VERSION='conversation-continuity-v2'
 
 def prepare(message,session):
@@ -10,6 +11,13 @@ def prepare(message,session):
     state=session.setdefault('mind',{}).setdefault('continuity',{})
     frame={'version':VERSION,'original':message,'resolved':text,'acts':[CE.act(c) for c in CE.clauses(text)],
            'subject':state.get('subject'),'correction':False,'reference':None}
+    repair=RP.interpret(text,session)
+    if repair:
+        repair['behavior_policy']=copy.deepcopy(RP.POLICY[repair['rule']])
+        repair['selected_reaction']='ask_clarification' if repair.get('needs_clarification') else repair['behavior_policy']['reaction']
+        frame['conversational_repair']=repair
+        text=repair.get('canonical',text)
+        k=B.key(text)
     text, lead_in = conversational_request(text)
     if lead_in:
         k = B.key(text)
@@ -36,7 +44,7 @@ def prepare(message,session):
             session['mind'].setdefault('conversation_branches',{})['pending']=copy.deepcopy(choices)
             text=selected['label'];frame['reference']=k
     correction=re.fullmatch(r"(?:(?:no|actually)[, ]+i meant|(?:no|actually)[, ]+i mean|i meant|i mean) (.{1,120})",text,re.I)
-    if correction and state.get('subject'):
+    if correction and state.get('subject') and not repair:
         target=correction[1].strip(' .?!')
         selected=next((c for c in choices if B.key(c['label'])==B.key(target)),None)
         text=selected['label'] if selected else 'Tell me about '+target
@@ -57,9 +65,14 @@ def prepare(message,session):
     frame['resolved']=text
     frame['original_acts']=frame['acts']
     frame['acts']=[CE.act(c) for c in CE.clauses(text)]
+    if repair and repair.get('needs_clarification'):
+        frame['acts']=[{'type':'repair_clarification'}]
+    elif repair and repair.get('repaired'):
+        frame['acts'].insert(0,{'type':'context_repair','value':repair['time']})
     return frame
 
 def finish(frame,result,session):
+    RP.remember(frame,session)
     state=session['mind'].setdefault('continuity',{})
     choices=result.get('response_structure',{}).get('branch_candidates')
     branch=result.get('conversation_branch',{}).get('selected')

@@ -76,7 +76,7 @@ def recognize(message,session,source_reader=True,acts=None):
     if len(acts)==1 and CM.key(message)=='what can you do':return None
     if len(acts)==1 and acts[0]['type']=='topic' and (acts[0]['value'].lower() in {'nothing','anything'} or (acts[0]['value'].lower() in {'it','that','this','them'} and session.get('context'))):return None
     # Preserve legacy handlers for isolated acts that they already implement.
-    dedicated={'person','person_update','person_query','open_chat','abilities','topic','recall_topic','recall_name'}
+    dedicated={'person','person_update','person_query','open_chat','abilities','topic','recall_topic','recall_name','repair_clarification','context_repair'}
     if len(acts)==1 and acts[0]['type'] not in dedicated:
         if not ((acts[0]['type']=='introduce' and re.match(r'^(?:hi|hello|hey)\b',message,re.I)) or (acts[0]['type']=='greet' and replay(session)['name'])):return None
     if all(a['type']=='unresolved' for a in acts):return None
@@ -107,6 +107,8 @@ def handle(message,session,source_reader=None,interpretation=None):
         if t=='abilities':bodies.append('We can talk about your day, explore an idea, work through a small calculation, or discuss a topic using available pages. What interests you?')
         if t=='open_chat':bodies.append('Of course'+(', '+state['name'] if state['name'] else '')+'. '+('Shall we continue with '+state['topic']+'?' if state['topic'] else 'What’s on your mind?'))
         if t=='wellbeing':bodies.append(SC.wording('wellbeing',session.setdefault('mind',{})))
+        if t=='context_repair':bodies.append('Got it—you meant '+a['value']+'.')
+        if t=='repair_clarification':bodies.append('Which earlier question do you mean? Please resend the whole sentence so I don’t guess.')
         if t=='topic':bodies.append('Let’s talk about '+a['value']+'. What interests you about it?')
         if t=='recall_topic':bodies.append('You wanted to talk about '+state['topic']+'.' if state['topic'] else 'We haven’t settled on a topic yet. What interests you?')
         if t in {'person','person_update','person_query'}:
@@ -121,7 +123,7 @@ def handle(message,session,source_reader=None,interpretation=None):
                 else:bodies.append('You haven’t told me what '+p['name']+' '+a['predicate']+' yet.')
         for body in bodies[start:]:
             authority=('system_description' if body=='I’m MPLPB, your rule-based little monster 😈.' or t in {'abilities','identity'}
-                       else 'conversation_structure' if t in {'introduce','greet','open_chat','wellbeing'} else 'user_declaration')
+                       else 'conversation_structure' if t in {'introduce','greet','open_chat','wellbeing','context_repair','repair_clarification'} else 'user_declaration')
             units.append({'text':body,'authority':authority,'sources':[],'act':t})
     prefix=' '.join(dict.fromkeys(bodies))
     trace={'version':VERSION,'acts':acts,'chat_references':refs,'identity_verified':False}
@@ -136,6 +138,7 @@ def handle(message,session,source_reader=None,interpretation=None):
     session.setdefault('mind',{})['discourse']=state
     if any(a['type']=='topic' for a in acts):
         session['mind']['idea_chat']={'subject':state['topic'],'turn':0}
-    return M.reply('conversation',prefix,session.get('context'),'DIALOGUE-PLAN',authority='user_declaration',
+    authority = 'conversation_structure' if units and all(u['authority']=='conversation_structure' for u in units) else 'user_declaration'
+    return M.reply('conversation',prefix,session.get('context'),'DIALOGUE-PLAN',authority=authority,
         claim_units=units,response_structure={'intent':'chat_memory','factual_claims':False,'mplpb_supported':False,**trace},
         suggestions=['What can you chat about?','What is my name?'] if state['name'] else (['a silly question','Talk about my day','Help me brainstorm'] if any(a['type']=='open_chat' for a in acts) else ['Talk about my day','Help me brainstorm']))
