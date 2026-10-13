@@ -148,6 +148,8 @@ async def dispatch(url, data=None):
         if route == '/api/chat':
             message = data.get('message', '')
             if not isinstance(message, str): raise ValueError('Message must be text')
+            from tools import free_chat as FC
+            if FC.active(data): return app.chat(data)
             message, _ = conversational_request(message)
             wiki = data.get('wiki', 'simple')
             if wiki=='web' and message.casefold().startswith('search '):

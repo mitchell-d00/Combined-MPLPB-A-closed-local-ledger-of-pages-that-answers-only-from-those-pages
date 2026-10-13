@@ -48,6 +48,7 @@ async function tick(){for(let i=0;i<20;i++)await Promise.resolve();}
  const injected=r.run(`sourceCard({...${JSON.stringify(fixtures.queries['canned|internal|Phrynomedusa vanzolinii'].gate.sources[0])},title:'<img src=x onerror=evil()>',text:'<script>evil()</script>'})`);
  assert.ok(!injected.includes('<img'));assert.ok(!injected.includes('<script>'));assert.ok(injected.includes('&lt;img'));
  r.elements.corpus.value='logic';r.elements.profile.value='internal';await r.run('chatSend(\"relate Dungeons and Dragons -> game\")');assert.match(r.elements['chat-messages'].innerHTML,/TYPE-2/);await r.run('chatSend(\"who made you?\")');assert.match(r.elements['chat-messages'].innerHTML,/Mitchell D. McPhetridge/);
+ const savedBeforeFree={...r.storage};await r.run('chatSend("off-the-record free chat")');await r.run('chatSend("hello free")');assert.deepEqual(r.storage,savedBeforeFree);assert.match(r.elements['chat-mode'].textContent,/Off-the-record/);assert.match(r.elements['chat-messages'].innerHTML,/not source-backed/);
  const resumed=runtime('http:',r.storage);await tick();assert.match(resumed.elements['chat-messages'].innerHTML,/Mitchell D. McPhetridge/);assert.match(resumed.elements['chat-messages'].innerHTML,/TYPE-2/);assert.match(resumed.elements['chat-status'].textContent,/resumed/);
  assert.match(r.run('linkText("Visit https://example.org/path?q=1&x=2.")'),/href="https:\/\/example.org\/path\?q=1&amp;x=2"/);
  assert.ok(!r.run('linkText("javascript:alert(1) <img src=x> https://user:pass@example.org")').includes('<a'));

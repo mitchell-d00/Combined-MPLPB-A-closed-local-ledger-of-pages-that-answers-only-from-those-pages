@@ -187,3 +187,17 @@ capture is not a substitute for that test.
 These regression passes do not establish general answer accuracy. External
 question results and remaining coverage failures above are part of the release
 evidence, not hidden exceptions.
+
+## Follow-up: procedural constraints and free chat
+
+The same review branch adds explicit source-authored linear procedure tags, draft-only automatic numbered-step tagging, and a final response evidence guard. Context cannot certify step completion. An isolated off-the-record conversational mode disables source acquisition and transcript saving. See [the procedure contract](PROCEDURAL_CONSTRAINTS.md). These additions do not repair untagged pottery coverage; the frozen labels and corpora remain unchanged. The 562-test result above predates these follow-up changes; their validation is recorded separately below.
+
+### Follow-up validation
+
+- Full main regression run: **574 tests passed in 811.761 seconds**.
+- Two automatic-tagging tests were added after that run began. The final **21-test** procedure/reliability run (including all 14 procedure/free-chat tests) passes; the **19-test** procedure/language-label run also passes. Current inventory: 576 main tests.
+- UI script checks pass, including free-chat storage isolation; browser transport and crawler fixtures pass.
+- Actual WebAssembly checks pass, including off-record no-save/no-resume behavior. The latest rebuilt bundle separately passes automatic source tagging and constrained procedure rendering.
+- Frozen/development/external results were regenerated with matching final answer-layer hashes. Procedural additions do not change those results or labels.
+- All 237 protected files still match baseline bytes.
+- Updated visual layout and live deployed crawler remain unverified, as described above. No merge or production deployment was performed.

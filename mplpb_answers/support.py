@@ -61,6 +61,9 @@ class SupportedAnswer(Answer):
     @property
     def text(self):
         if self.kind != RETURN or not self.record:return ''
+        if self.support.get('procedure'):
+            from .procedures import render
+            return render(self.support['procedure'])
         if self.support.get('status')=='supported':
             return '\n'.join(s['quote'] for s in self.support['spans'])
         return ''
@@ -79,6 +82,19 @@ def supported_answer(root, question, profile=None):
     from mplpb_combined.reader import answer, RETURN, AMBIGUOUS, NOT_IN_CORPUS
     from mplpb_combined.provenance_gate import gather
     from mplpb_combined.ledger import Ledger
+    from . import procedures
+    procedural = procedures.request(question)
+    if procedural:
+        selected = answer(root, question, profile)
+        out = SupportedAnswer(**selected.__dict__)
+        checked, rec = procedures.check(out.root, procedural, out.profile)
+        out.record = rec
+        out.kind = RETURN if rec else AMBIGUOUS if checked['status']=='conflict' else NOT_IN_CORPUS
+        out.support = {'status':checked['status'],'version':VERSION,'spans':[], 'procedure':checked}
+        out.reason = 'Source-authored procedure constraints; execution is not verified.' if rec else ' '.join(checked['gaps'])
+        out.matched_on = 'body procedure constraints' if rec else ''
+        if rec: out.depth = Ledger(out.root).depth(rec)
+        return out
     frame = parse(question)
     canonical = frame.canonical if frame else question
     selected = answer(root, canonical, profile)

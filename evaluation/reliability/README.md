@@ -24,3 +24,5 @@ in the sample; no live download is required to run this evaluation.
 These data distinguish regression behavior from answer accuracy. No human
 independent validation of MPLPB is claimed. Precision is null when no answers
 are returned. Ambiguity, false refusals and answerable coverage are separate.
+
+`mode-comparison.json` contains synthetic constrained-versus-free-chat examples; it is not an accuracy benchmark or a saved private conversation. See `docs/PROCEDURAL_CONSTRAINTS.md` for automatic tagging, source constraints and ephemeral-mode limits.

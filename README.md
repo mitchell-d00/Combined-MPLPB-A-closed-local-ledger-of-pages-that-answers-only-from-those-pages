@@ -283,7 +283,7 @@ nothing else.
 | `mplpb_combined/ledger.py` | The folder as a ledger: status, lineage, depth, validation, writing, the log |
 | `mplpb_combined/reader.py` | The answer rule, profiles, hubs |
 | `mplpb_combined/killtest.py` | The kill test: three arms, mechanical scoring |
-| `tests/` | 562 developer-authored regression tests covering the reader, captures, conversation, source boundaries and saved state |
+| `tests/` | 576 developer-authored regression tests covering the reader, captures, conversation, source boundaries and saved state |
 | `examples/studio/` | 25 pages about running a pottery studio; the kill-test corpus |
 | `examples/spec/` | The format described as ten pages in the format |
 | `examples/hub/` | Two pointers, one at each of the above |
@@ -437,3 +437,7 @@ follow-ups while retaining deterministic reactions and existing evidence gates.
 See the [class table and 240-case audit](evaluation/conversation-repairs/README.md),
 [context lifecycle](docs/CONTEXT_INDEX.md), and [evaluation limits](docs/CHAT_EVALUATION.md).
 The [rollback guide](docs/ROLLBACK.md) pins the previous working version.
+
+## Procedural constraints and off-the-record chat
+
+Source-authored step tags constrain procedural responses; saved context never proves completion. Numbered source lines can be automatically tagged as drafts with unknown constraints retained. Off-the-record free chat is a separate, unsaved deterministic conversation mode, explicitly not source-backed. See [formats, commands, privacy scope and limits](docs/PROCEDURAL_CONSTRAINTS.md).

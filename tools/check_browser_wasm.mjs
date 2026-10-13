@@ -196,3 +196,12 @@ const naturalTopic=await call('/api/chat',{corpus:'logic',session:naturalWord.se
 if(naturalTopic.response.interpretation.resolved!=='Tell me about Moon?'||!naturalTopic.response.sources.length)throw Error('WASM natural topic request failed');
 if(!naturalTopic.response.guidance.actions.some(a=>a.mode==='draft'))throw Error('WASM exploration drafts missing');
 console.log('WASM natural requests and adaptive guidance passed');
+
+const freeTurn=await call('/api/chat',{corpus:'logic',message:'off-the-record free chat'});
+const freeSearch=await call('/api/chat',{corpus:'logic',session:freeTurn.session,message:'search private test text',auto_wiki:true});
+if(!freeSearch.off_record||freeSearch.response.sources.length||freeSearch.turn_sha256!==null)throw Error('WASM free chat crossed evidence/persistence boundary');
+const freeStored=await py.runPythonAsync("any(k.startswith('free:') for k in __import__('browser.bridge',fromlist=['app']).app.sessions)");
+if(freeStored)throw Error('WASM persisted ephemeral chat');
+const freeResume=await call('/api/chat/resume',{session:freeTurn.session});
+if(!freeResume._browser_transport_error)throw Error('WASM free chat unexpectedly resumable');
+console.log('WASM off-record source and persistence boundaries passed');

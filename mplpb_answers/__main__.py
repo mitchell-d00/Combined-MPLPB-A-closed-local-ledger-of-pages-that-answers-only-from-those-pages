@@ -26,6 +26,20 @@ def cmd_candidates(args):
     return {'return':0,'ambiguous':2,'not_in_corpus':3}[result.kind]
 
 
+def cmd_tags(args):
+    from mplpb_combined.ledger import Ledger
+    from mplpb_combined.provenance_gate import gather
+    from mplpb_combined.record import text_of
+    from .procedures import automatic_tags
+    records=[r for r in Ledger(args.root).servable() if r.path==args.path]
+    if len(records)!=1: raise ValueError('Choose one current source page path')
+    rec=records[0]
+    if rec.path not in {s['path'] for s in gather(args.root,rec.title,R.PROFILES[args.profile]).sources}:
+        raise ValueError('Source page is withheld by the provenance gate')
+    print(json.dumps(automatic_tags(text_of(rec.body_html),{'id':rec.id,'path':rec.path,'hash':rec.hash}),indent=2))
+    return 0
+
+
 def build_parser():
     parser = legacy_parser()
     parser.prog = 'mplpb-combined'
@@ -36,6 +50,10 @@ def build_parser():
     candidate = sub.add_parser('candidates', help='inspect legacy lexical candidates; not supported answers',
                                parents=[legacy_parser()._subparsers._group_actions[0].choices['ask']], add_help=False)
     candidate.set_defaults(fn=cmd_candidates)
+    tags=sub.add_parser('tag-procedure',help='draft numbered-step tags without promoting them to evidence')
+    tags.add_argument('root');tags.add_argument('path')
+    tags.add_argument('--profile',choices=R.PROFILES,default='internal')
+    tags.set_defaults(fn=cmd_tags)
     return parser
 
 
