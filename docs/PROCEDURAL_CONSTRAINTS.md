@@ -118,8 +118,9 @@ or warnings, and the procedure reader cannot authenticate real-world execution.
 
 The archived core, original sources and capture pins are unchanged. The new
 procedure layer is standard-library-only and ships in `mplpb_answers`; browser
-and desktop chat share its validation code. The review branch contains no main
-deployment. To back out after a merge, revert the review commits normally rather
+and desktop chat share its validation code. The release is tracked in PR #6; GitHub Pages builds and deploys after a main
+merge. To roll back a merge commit, use `git revert -m 1 MERGE_COMMIT` and push the
+resulting revert through the normal review flow. Revert commits rather
 than rewriting ledger history or recalculating archived pins. Ephemeral chats
 have no saved transcript to migrate. Existing saved chats remain historical
 records, not freshly validated answers.
