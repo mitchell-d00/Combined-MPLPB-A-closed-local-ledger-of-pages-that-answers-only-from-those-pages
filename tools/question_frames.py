@@ -40,12 +40,14 @@ def overview_subject(message):
 
 
 def frame(message):
+    from mplpb_answers.frames import parse
+    support = parse(message)
     canonical=normalize(message)
     subject=overview_subject(message)
     word=re.match(r'(what|who|where|when|why|how|which|is|are|do|does|can|should|would|will)\b',canonical,re.I)
     return {'rule':VERSION,'original':message,'canonical':canonical,
             'kind':'overview' if subject else 'question' if word or canonical.endswith('?') else 'conversation_or_command',
-            'subject':subject,'normalization_is_evidence':False}
+            'subject':subject,'normalization_is_evidence':False,'support_frame':support.to_dict() if support else None}
 
 
 def definition_subject(message):

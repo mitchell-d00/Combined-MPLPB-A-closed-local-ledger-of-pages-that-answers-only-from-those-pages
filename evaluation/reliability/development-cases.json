@@ -1,0 +1,438 @@
+{
+  "independent": false,
+  "notice": "Developer-authored adversarial development cases. Not a held-out accuracy claim.",
+  "cases": [
+    {
+      "id": "opening-When",
+      "category": "paraphrase",
+      "question": "When did the Zephyr workshop open?",
+      "documents": [
+        {
+          "doc_id": "CASE-0001",
+          "title": "Local observations",
+          "scope": "When did the Zephyr workshop open?",
+          "body": "The Zephyr workshop opened in 1997."
+        }
+      ],
+      "expected": "return",
+      "value": "1997"
+    },
+    {
+      "id": "opening-In what year",
+      "category": "paraphrase",
+      "question": "In what year did the Zephyr workshop open?",
+      "documents": [
+        {
+          "doc_id": "CASE-0001",
+          "title": "Local observations",
+          "scope": "In what year did the Zephyr workshop open?",
+          "body": "The Zephyr workshop opened in 1997."
+        }
+      ],
+      "expected": "return",
+      "value": "1997"
+    },
+    {
+      "id": "opening-In which year",
+      "category": "paraphrase",
+      "question": "In which year did the Zephyr workshop open?",
+      "documents": [
+        {
+          "doc_id": "CASE-0001",
+          "title": "Local observations",
+          "scope": "In which year did the Zephyr workshop open?",
+          "body": "The Zephyr workshop opened in 1997."
+        }
+      ],
+      "expected": "return",
+      "value": "1997"
+    },
+    {
+      "id": "aster-other",
+      "category": "wrong_entity",
+      "question": "What is the Aster service port?",
+      "documents": [
+        {
+          "doc_id": "CASE-0001",
+          "title": "Local observations",
+          "scope": "What is the Aster service port?",
+          "body": "The Other service port is 8123."
+        }
+      ],
+      "expected": "not_in_corpus",
+      "value": null
+    },
+    {
+      "id": "aster-correct",
+      "category": "answerable",
+      "question": "What is the Aster service port?",
+      "documents": [
+        {
+          "doc_id": "CASE-0001",
+          "title": "Local observations",
+          "scope": "What is the Aster service port?",
+          "body": "The Aster service port is 8123."
+        }
+      ],
+      "expected": "return",
+      "value": "8123"
+    },
+    {
+      "id": "reversed",
+      "category": "direction_uncertainty",
+      "question": "Who owns the Juniper press?",
+      "documents": [
+        {
+          "doc_id": "CASE-0001",
+          "title": "Local observations",
+          "scope": "Who owns the Juniper press?",
+          "body": "The Juniper press owns Amara."
+        }
+      ],
+      "expected": "not_in_corpus",
+      "value": null
+    },
+    {
+      "id": "uncertain",
+      "category": "direction_uncertainty",
+      "question": "Who owns the Juniper press?",
+      "documents": [
+        {
+          "doc_id": "CASE-0001",
+          "title": "Local observations",
+          "scope": "Who owns the Juniper press?",
+          "body": "Amara may own the Juniper press."
+        }
+      ],
+      "expected": "not_in_corpus",
+      "value": null
+    },
+    {
+      "id": "uncertain-owner",
+      "category": "direction_uncertainty",
+      "question": "Who owns the Juniper press?",
+      "documents": [
+        {
+          "doc_id": "CASE-0001",
+          "title": "Local observations",
+          "scope": "Who owns the Juniper press?",
+          "body": "Possibly Amara owns the Juniper press."
+        }
+      ],
+      "expected": "not_in_corpus",
+      "value": null
+    },
+    {
+      "id": "quoted",
+      "category": "direction_uncertainty",
+      "question": "Who owns the Juniper press?",
+      "documents": [
+        {
+          "doc_id": "CASE-0001",
+          "title": "Local observations",
+          "scope": "Who owns the Juniper press?",
+          "body": "\"Amara owns the Juniper press.\""
+        }
+      ],
+      "expected": "not_in_corpus",
+      "value": null
+    },
+    {
+      "id": "conditional",
+      "category": "direction_uncertainty",
+      "question": "Who owns the Juniper press?",
+      "documents": [
+        {
+          "doc_id": "CASE-0001",
+          "title": "Local observations",
+          "scope": "Who owns the Juniper press?",
+          "body": "If approved, Amara owns the Juniper press."
+        }
+      ],
+      "expected": "not_in_corpus",
+      "value": null
+    },
+    {
+      "id": "owner-10",
+      "category": "paraphrase",
+      "question": "Who owns the Juniper press?",
+      "documents": [
+        {
+          "doc_id": "CASE-0001",
+          "title": "Local observations",
+          "scope": "Who owns the Juniper press?",
+          "body": "Amara owns the Juniper press."
+        }
+      ],
+      "expected": "return",
+      "value": "amara"
+    },
+    {
+      "id": "owner-11",
+      "category": "paraphrase",
+      "question": "Who is the owner of the Juniper press?",
+      "documents": [
+        {
+          "doc_id": "CASE-0001",
+          "title": "Local observations",
+          "scope": "Who is the owner of the Juniper press?",
+          "body": "Amara owns the Juniper press."
+        }
+      ],
+      "expected": "return",
+      "value": "amara"
+    },
+    {
+      "id": "source-conflict",
+      "category": "conflict",
+      "question": "Who owns the Juniper press?",
+      "documents": [
+        {
+          "doc_id": "CASE-0001",
+          "title": "Local observations",
+          "scope": "Who owns the Juniper press?",
+          "body": "Amara owns the Juniper press."
+        },
+        {
+          "doc_id": "CASE-0002",
+          "title": "Local observations",
+          "scope": "Who owns the Juniper press?",
+          "body": "Zuri owns the Juniper press."
+        }
+      ],
+      "expected": "ambiguous",
+      "value": null
+    },
+    {
+      "id": "denial-conflict",
+      "category": "negation",
+      "question": "Who owns the Juniper press?",
+      "documents": [
+        {
+          "doc_id": "CASE-0001",
+          "title": "Local observations",
+          "scope": "Who owns the Juniper press?",
+          "body": "Amara owns the Juniper press."
+        },
+        {
+          "doc_id": "CASE-0002",
+          "title": "Local observations",
+          "scope": "Who owns the Juniper press?",
+          "body": "Amara does not own the Juniper press."
+        }
+      ],
+      "expected": "ambiguous",
+      "value": null
+    },
+    {
+      "id": "same-page-denial",
+      "category": "negation",
+      "question": "When did the Zephyr workshop open?",
+      "documents": [
+        {
+          "doc_id": "CASE-0001",
+          "title": "Local observations",
+          "scope": "When did the Zephyr workshop open?",
+          "body": "The Zephyr workshop opened in 1997. The Zephyr workshop did not open in 1997."
+        }
+      ],
+      "expected": "ambiguous",
+      "value": null
+    },
+    {
+      "id": "negative-only",
+      "category": "negation",
+      "question": "When did the Zephyr workshop open?",
+      "documents": [
+        {
+          "doc_id": "CASE-0001",
+          "title": "Local observations",
+          "scope": "When did the Zephyr workshop open?",
+          "body": "The Zephyr workshop did not open in 1997."
+        }
+      ],
+      "expected": "not_in_corpus",
+      "value": null
+    },
+    {
+      "id": "wrong-event",
+      "category": "relation",
+      "question": "In what year did the Zephyr workshop open?",
+      "documents": [
+        {
+          "doc_id": "CASE-0001",
+          "title": "Local observations",
+          "scope": "In what year did the Zephyr workshop open?",
+          "body": "The Zephyr workshop closed in 1997."
+        }
+      ],
+      "expected": "not_in_corpus",
+      "value": null
+    },
+    {
+      "id": "time-question",
+      "category": "temporal",
+      "question": "Who owns the Juniper press in 2020?",
+      "documents": [
+        {
+          "doc_id": "CASE-0001",
+          "title": "Local observations",
+          "scope": "Who owns the Juniper press in 2020?",
+          "body": "Amara owns the Juniper press."
+        }
+      ],
+      "expected": "not_in_corpus",
+      "value": null
+    },
+    {
+      "id": "time-source",
+      "category": "temporal",
+      "question": "Who owns the Juniper press?",
+      "documents": [
+        {
+          "doc_id": "CASE-0001",
+          "title": "Local observations",
+          "scope": "Who owns the Juniper press?",
+          "body": "In 2020, Amara owns the Juniper press."
+        }
+      ],
+      "expected": "not_in_corpus",
+      "value": null
+    },
+    {
+      "id": "causal-absent",
+      "category": "causal",
+      "question": "Why did the Nacre studio close?",
+      "documents": [
+        {
+          "doc_id": "CASE-0001",
+          "title": "Local observations",
+          "scope": "Why did the Nacre studio close?",
+          "body": "The Nacre studio closed in 2005. Its lease ended in 2005."
+        }
+      ],
+      "expected": "not_in_corpus",
+      "value": null
+    },
+    {
+      "id": "causal-present",
+      "category": "answerable",
+      "question": "Why did the Nacre studio close?",
+      "documents": [
+        {
+          "doc_id": "CASE-0001",
+          "title": "Local observations",
+          "scope": "Why did the Nacre studio close?",
+          "body": "The Nacre studio closed because its lease ended."
+        }
+      ],
+      "expected": "return",
+      "value": "lease ended"
+    },
+    {
+      "id": "missing-attribute",
+      "category": "missing",
+      "question": "How long is the violet cable?",
+      "documents": [
+        {
+          "doc_id": "CASE-0001",
+          "title": "Local observations",
+          "scope": "How long is the violet cable?",
+          "body": "The violet cable is blue."
+        }
+      ],
+      "expected": "not_in_corpus",
+      "value": null
+    },
+    {
+      "id": "different-dimension",
+      "category": "relation",
+      "question": "How long is the violet cable?",
+      "documents": [
+        {
+          "doc_id": "CASE-0001",
+          "title": "Local observations",
+          "scope": "How long is the violet cable?",
+          "body": "The violet cable is 17 feet wide."
+        }
+      ],
+      "expected": "not_in_corpus",
+      "value": null
+    },
+    {
+      "id": "length-present",
+      "category": "answerable",
+      "question": "How long is the violet cable?",
+      "documents": [
+        {
+          "doc_id": "CASE-0001",
+          "title": "Local observations",
+          "scope": "How long is the violet cable?",
+          "body": "The violet cable is 17 feet long."
+        }
+      ],
+      "expected": "return",
+      "value": "17 feet"
+    },
+    {
+      "id": "unknown-grammar",
+      "category": "unknown",
+      "question": "Give the year of Zephyr opening.",
+      "documents": [
+        {
+          "doc_id": "CASE-0001",
+          "title": "Local observations",
+          "scope": "Give the year of Zephyr opening.",
+          "body": "The Zephyr workshop opened in 1997."
+        }
+      ],
+      "expected": "not_in_corpus",
+      "value": null
+    },
+    {
+      "id": "topic-not-answer",
+      "category": "inspection",
+      "question": "Aster service port",
+      "documents": [
+        {
+          "doc_id": "CASE-0001",
+          "title": "Local observations",
+          "scope": "Aster service port",
+          "body": "The Other service port is 8123."
+        }
+      ],
+      "expected": "not_in_corpus",
+      "value": null
+    },
+    {
+      "id": "unknown-value",
+      "category": "missing",
+      "question": "What is the Aster service port?",
+      "documents": [
+        {
+          "doc_id": "CASE-0001",
+          "title": "Local observations",
+          "scope": "What is the Aster service port?",
+          "body": "The Aster service port is unknown."
+        }
+      ],
+      "expected": "not_in_corpus",
+      "value": null
+    },
+    {
+      "id": "negative-question",
+      "category": "negation",
+      "question": "When did the Zephyr workshop not open?",
+      "documents": [
+        {
+          "doc_id": "CASE-0001",
+          "title": "Local observations",
+          "scope": "When did the Zephyr workshop not open?",
+          "body": "The Zephyr workshop opened in 1997."
+        }
+      ],
+      "expected": "not_in_corpus",
+      "value": null
+    }
+  ]
+}

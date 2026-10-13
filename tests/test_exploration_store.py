@@ -18,7 +18,8 @@ class ExplorationTests(unittest.TestCase):
     def test_collections_isolate_sources_and_restore_sessions(self):
         first, second = self.make('Fossils'), self.make('Computers')
         self.add(first)
-        self.assertEqual(self.app.query({'corpus':first, 'question':'Dinosaurs'})['reader']['kind'], 'return')
+        self.assertEqual(self.app.query({'corpus':first, 'question':'Dinosaurs'})['reader']['kind'], 'not_in_corpus')
+        self.assertEqual(self.app.query({'corpus':first, 'question':'Dinosaurs','mode':'candidates'})['reader']['kind'], 'candidate_only')
         self.assertEqual(self.app.query({'corpus':second, 'question':'Dinosaurs'})['reader']['kind'], 'not_in_corpus')
         turn = self.app.chat({'corpus':first, 'message':'remember museum'})
         restored = App(topic_base=self.base)

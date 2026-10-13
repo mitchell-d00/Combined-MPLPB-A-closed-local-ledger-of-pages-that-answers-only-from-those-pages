@@ -24,7 +24,7 @@ def build(core_archive, output):
         raise ValueError('Pyodide core archive differs from the published release digest')
     with tarfile.open(core_archive) as archive:
         runtime = {name: encode(archive.extractfile('pyodide/'+name).read()) for name in CORE_FILES}
-    folders = ('mplpb_combined', 'tools', 'examples/studio', 'examples/patch-canned',
+    folders = ('mplpb_combined', 'mplpb_answers', 'tools', 'examples/studio', 'examples/patch-canned',
                'examples/clarification-dogs', 'examples/provenance-gate/separate',
                'examples/system', 'examples/chat-logic', 'evaluation/wiki', 'docs/patch-canned/supplied', 'browser', 'resources')
     paths = set()

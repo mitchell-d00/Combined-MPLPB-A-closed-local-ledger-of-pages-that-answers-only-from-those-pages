@@ -1,0 +1,55 @@
+{
+  "purpose": "Synthetic behavior comparison, not an accuracy benchmark",
+  "free_chat_means": "deterministic conversation without source answering; no saved transcript or network",
+  "context_is_evidence": false,
+  "cases": [
+    {
+      "question": "What is the Aster service port?",
+      "constrained": {
+        "kind": "not_in_corpus",
+        "text": ""
+      },
+      "free_chat": {
+        "kind": "conversation",
+        "text": "You said: \u00abWhat is the Aster service port?\u00bb\nWhat would you like to explore about that?",
+        "source_backed": false
+      }
+    },
+    {
+      "question": "step 2 of procedure missing",
+      "constrained": {
+        "kind": "not_in_corpus",
+        "text": ""
+      },
+      "free_chat": {
+        "kind": "conversation",
+        "text": "You said: \u00abstep 2 of procedure missing\u00bb\nWhat would you like to explore about that?",
+        "source_backed": false
+      }
+    },
+    {
+      "question": "hello",
+      "constrained": {
+        "kind": "help",
+        "text": "Hi! I can help you explore your local pages. Ask \u201chow do I use this?\u201d for a quick start, or \u201chow do I search?\u201d to build a topic collection."
+      },
+      "free_chat": {
+        "kind": "conversation",
+        "text": "Hi! What\u2019s on your mind?",
+        "source_backed": false
+      }
+    },
+    {
+      "question": "tell me a story",
+      "constrained": {
+        "kind": "not_in_corpus",
+        "text": ""
+      },
+      "free_chat": {
+        "kind": "conversation",
+        "text": "Here\u2019s a little made-up story:\n\nIn a moonlit library, a curious paper dragon found a book with a blank final page. Instead of guessing what it meant, the creature invited a friend to investigate. What should they try first?",
+        "source_backed": false
+      }
+    }
+  ]
+}

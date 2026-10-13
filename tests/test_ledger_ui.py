@@ -49,7 +49,8 @@ class LedgerUITests(unittest.TestCase):
         self.assertEqual(len(result['gate']['sources']), 2)
         self.assertFalse(result['gate']['answer_synthesized'])
         self.assertFalse(result['live_verified_by_this_query'])
-        self.assertEqual(self.ask('canned', 'Phrynomedusa vanzolinii')['reader']['id'], 'CANNED-0001')
+        self.assertEqual(self.ask('canned', 'Phrynomedusa vanzolinii')['reader']['kind'], 'not_in_corpus')
+        self.assertEqual(self.ask('canned', 'Phrynomedusa vanzolinii')['gate']['sources'][0]['id'], 'CANNED-0001')
 
     def test_unknown_and_clarification(self):
         self.assertEqual(self.ask('canned', 'zebra')['reader']['kind'], 'not_in_corpus')

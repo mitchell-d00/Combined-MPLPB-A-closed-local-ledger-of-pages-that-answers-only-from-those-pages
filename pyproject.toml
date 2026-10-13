@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "combined-mplpb"
-version = "1.0.0"
+version = "2.0.0"
 description = "A closed local ledger of pages that answers only from those pages: return, ambiguous, or not in corpus. Standard library only."
 readme = "README.md"
 requires-python = ">=3.8"
@@ -14,7 +14,7 @@ keywords = ["mplpb", "provenance", "ledger", "retrieval", "refusal", "knowledge-
 dependencies = []
 
 [project.scripts]
-mplpb-combined = "mplpb_combined.__main__:main"
+mplpb-combined = "mplpb_answers.__main__:main"
 
 [tool.setuptools]
-packages = ["mplpb_combined"]
+packages = ["mplpb_combined", "mplpb_answers"]

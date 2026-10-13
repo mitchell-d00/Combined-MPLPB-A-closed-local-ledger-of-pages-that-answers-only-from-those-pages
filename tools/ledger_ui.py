@@ -24,6 +24,7 @@ from tools import wiki_live_eval as W
 from tools.topic_chat_sources import TopicStore
 from tools import skill_planner as SP
 from tools import chat_logic as C
+from tools import procedural_chat as PR
 from tools import deterministic_mind as M
 from tools.mind_session import SessionStore
 from tools.exploration_store import ExplorationStore
@@ -53,6 +54,7 @@ class App:
         self.chat_lock = threading.RLock()
         self.session_store = SessionStore(session_path or (Path(topic_base).resolve() / 'session-save.json' if topic_base else ROOT / 'local/sessions/state.json'))
         self.sessions = self.session_store.load()
+        self.free_sessions = {}
         self.collections = ExplorationStore(self.topics.base.parent / 'collections')
         self.corpora = {
             'canned': ('Patch canned · uneven names', ROOT / 'examples/patch-canned'),
@@ -220,8 +222,15 @@ class App:
             return {'help':help_result,'reader':{'kind':'help','question':question,'text':help_result['message'],'profile':name,'matched_on':'interface instruction intent'},'gate':{'sources':[]},'live_verified_by_this_query':False}
         root = self.root(data.get('corpus'))
         profile = R.PROFILES[name]
-        answer = AS.supported_answer(root, question, profile)
-        reader = answer.to_dict()
+        if data.get('mode') == 'candidates':
+            from mplpb_answers.support import candidate_answer
+            answer, reader = candidate_answer(root, question, profile)
+            reader['kind'] = 'candidate_only' if answer.kind == R.RETURN else answer.kind
+        elif data.get('mode', 'supported') == 'supported':
+            answer = AS.supported_answer(root, question, profile)
+            reader = answer.to_dict()
+        else:
+            raise ValueError('Unknown query mode')
         reader['citation'] = answer.citation()
         if answer.record:
             reader['title'] = answer.record.title
@@ -240,7 +249,9 @@ class App:
         p = R.PROFILES[profile]
         if external_restriction(rec, p) or (p.max_depth is not None and ledger.depth(rec) > p.max_depth):
             raise ValueError('Page is withheld by this profile')
-        return {'id': rec.id, 'title': rec.title, 'path': rec.path, 'text': text_of(rec.body_html),
+        from mplpb_answers.procedures import automatic_tags
+        tags=automatic_tags(text_of(rec.body_html),{'id':rec.id,'path':rec.path,'hash':rec.hash})
+        return {'procedure_tags':tags, 'id': rec.id, 'title': rec.title, 'path': rec.path, 'text': text_of(rec.body_html),
                 'hash': rec.hash, 'fields': rec.fields, 'depth': ledger.depth(rec)}
 
     def chat(self, data):
@@ -251,7 +262,13 @@ class App:
         corpus, profile = data.get('corpus'), data.get('profile', 'internal')
         if profile not in R.PROFILES or corpus not in self.roots():
             raise ValueError('Unknown corpus or profile')
+        from tools import free_chat as FC
         with self.chat_lock:
+            if message.casefold().strip(' .?!') in FC.STOP and FC.active(data):
+                self.free_sessions.pop(data.get('session'),None)
+                data=dict(data,session=None,off_record=False)
+            elif FC.active(data):
+                return FC.respond(self,data)
             sid = data.get('session')
             if sid:
                 if sid not in self.sessions:
@@ -259,6 +276,7 @@ class App:
                 session = copy.deepcopy(self.sessions[sid])
                 if session['corpus'] != corpus or session['profile'] != profile:
                     session['context'] = None
+                    session.get('mind',{}).pop('procedure_selector',None)
                     session.setdefault('mind',{}).pop('social',None)
                     session['mind'].pop('emotional',None)
                     session['corpus'], session['profile'] = corpus, profile
@@ -283,7 +301,9 @@ class App:
                 memory.pop('reference_topic',None)
             language_request=LP.parse(message,memory,session.get('context'))
             casual=None
-            environment_result=CR.execute(self,data,session,interpretation,corpus,profile)
+            environment_result=PR.handle(self,session,original_message,corpus,profile)
+            if environment_result is None:
+                environment_result=CR.execute(self,data,session,interpretation,corpus,profile)
             memory=session['mind']
             if environment_result and data.get('default_chat') and not session.get('environment') and not session.get('context'):
                 session['environment']={'mode':'chat','corpora':[],'focus_corpus':None}
@@ -335,8 +355,8 @@ class App:
                    'who are you', 'what is mplpb', 'what is your name', 'what is your purpose',
                    'who made mplpb', 'who created mplpb', 'who built you', 'tell me about yourself',
                    'what are your rules', 'what are your limits', 'how do you work'}:
-                own = self.query({'corpus': 'system', 'profile': profile, 'question': 'MPLPB system creator'})
-                result = {'kind': own['reader']['kind'], 'message': own['reader']['text'], 'reader': own['reader'],
+                own = self.query({'corpus': 'system', 'profile': profile, 'question': 'MPLPB system creator', 'mode':'candidates'})
+                result = {'kind': own['reader']['kind'], 'message': own['reader']['text'], 'reader': own['reader'], 'source_corpus':'system',
                           'gate': own['gate'], 'context': session['context'], 'sources': own['gate']['sources'],
                           'reasoning': ['SELF-1: return the sealed self-reference page; creator attribution is a declaration, not identity authentication.']}
             else:
@@ -356,7 +376,7 @@ class App:
                 session['environment']={'mode':'focus','corpora':[corpus],'focus_corpus':corpus if result.get('context') else None}
             if session.get('environment'):
                 result['environment']=copy.deepcopy(session['environment'])
-                if result.get('context') and session['environment'].get('focus_corpus') and not result.get('scope_results') and result.get('authority')!='lexical_reference':
+                if result.get('context') and not result.get('source_corpus') and session['environment'].get('focus_corpus') and not result.get('scope_results') and result.get('authority')!='lexical_reference':
                     result['source_corpus']=session['environment']['focus_corpus']
                     result['sources']=[dict(s,corpus=result['source_corpus']) for s in result.get('sources',[])]
                 result.setdefault('response_structure',{}).setdefault('mode',session['environment']['mode'])
@@ -370,11 +390,15 @@ class App:
                 session['mind'].pop('social',None)
             session['corpus'], session['context'] = corpus, result.get('context')
             T.followups(result,session['mind'])
+            approved_message=result.get('message','')
             result=LP.finish(result,language_request,session['mind'],len(session['log'])+1)
             result=CC.finish(interpretation,result,session)
+            from tools.response_validation import validate_response
+            result=validate_response(self,result,profile,corpus,approved_message)
             M.record(session.setdefault('mind', {'notes': []}), result)
             result['question_frame']=E.IC.PF.frame(message)
             payload = {'question': original_message, 'corpus': corpus, 'profile': profile, 'response': result}
+            payload['answer_support_code'] = __import__('mplpb_answers.support', fromlist=['code_pins']).code_pins()
             payload['chat_phrasing_sha256']=hashlib.sha256(Path(CX.__file__).with_name('chat_phrasing.py').read_bytes()).hexdigest()
             payload['skill_planner_version']=SP.VERSION
             payload['skill_planner_sha256']=hashlib.sha256(Path(SP.__file__).read_bytes()).hexdigest()
@@ -436,6 +460,9 @@ class App:
                     'notice': 'Hash continuity only. Not authenticated authorship, source truth or an evaluation score.'}
 
     def reset_chat(self, data):
+        if str(data.get('session','')).startswith('free:'):
+            self.free_sessions.pop(data['session'],None)
+            return {'reset':True,'notice':'Ephemeral conversation cleared.'}
         with self.chat_lock:
             updated = dict(self.sessions)
             updated.pop(data.get('session'), None)

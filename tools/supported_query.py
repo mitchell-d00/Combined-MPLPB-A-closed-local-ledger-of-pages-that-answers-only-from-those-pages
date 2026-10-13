@@ -1,4 +1,4 @@
-"""Conservative answer CLI. The legacy mplpb_combined ask command retrieves candidates."""
+"""Conservative answer CLI. Normal CLI: python -m mplpb_answers ask. Legacy candidate retrieval remains separate."""
 import argparse
 import json
 from tools.answer_support import supported_answer

@@ -31,12 +31,15 @@ function runtime(protocol='http:',saved={}){
 }
 async function tick(){for(let i=0;i<20;i++)await Promise.resolve();}
 (async()=>{
+ const checked=runtime();await tick();
+ await checked.run('render('+JSON.stringify(fixtures.supported_query)+')');assert.match(checked.elements.results.innerHTML,/SUPPORTED ANSWER/);assert.equal(fixtures.supported_query.reader.answer_support.status,'supported');
+ await checked.run('render('+JSON.stringify(fixtures.candidate_query)+')');assert.match(checked.elements.results.innerHTML,/CANDIDATE ONLY/);assert.equal(fixtures.candidate_query.reader.answer_support.status,'candidate_only');
  const r=runtime();await tick();
  assert.equal(r.elements['guide-invitation'].hidden,false);r.elements['guide-skip'].events.click();assert.equal(r.storage['mplpb-guide-choice'],'self');assert.equal(r.elements['guide-invitation'].hidden,true);
  assert.equal(r.elements.workspace.hidden,false);assert.match(r.elements['page-map'].innerHTML,/CANNED-0001/);assert.equal(r.elements['eligible-count'].textContent,2);
  await r.run('query()');assert.match(r.elements.results.innerHTML,/AMBIGUOUS/);assert.match(r.elements.results.innerHTML,/2 separate sources/);
  await r.run('page("canned-0001.html")');assert.equal(r.elements['page-dialog'].open,true);assert.match(r.elements['page-content'].innerHTML,/Synthetic reader fixture/);
- r.elements['ask-page'].events.click();await tick();assert.equal(r.elements['page-dialog'].open,false);assert.equal(r.elements.question.value,'Phrynomedusa vanzolinii');assert.match(r.elements.results.innerHTML,/RETURN/);
+ r.elements['ask-page'].events.click();await tick();assert.equal(r.elements['page-dialog'].open,false);assert.equal(r.elements.question.value,'Phrynomedusa vanzolinii');assert.match(r.elements.results.innerHTML,/NO SUPPORTED ANSWER/);
  r.elements.profile.value='external';r.elements.profile.events.change();await tick();assert.equal(r.elements['eligible-count'].textContent,0);assert.match(r.elements['page-map'].innerHTML,/withheld by external/);
  await r.run('page("canned-0001.html")');assert.equal(r.elements['page-dialog'].open,false);
  r.elements.corpus.value='dogs';r.elements.profile.value='internal';r.run('corpusChanged()');await tick();await r.run('query()');assert.match(r.elements.results.innerHTML,/Which meaning do you want/);assert.match(r.elements.results.innerHTML,/dog breeds/);
@@ -45,6 +48,7 @@ async function tick(){for(let i=0;i<20;i++)await Promise.resolve();}
  const injected=r.run(`sourceCard({...${JSON.stringify(fixtures.queries['canned|internal|Phrynomedusa vanzolinii'].gate.sources[0])},title:'<img src=x onerror=evil()>',text:'<script>evil()</script>'})`);
  assert.ok(!injected.includes('<img'));assert.ok(!injected.includes('<script>'));assert.ok(injected.includes('&lt;img'));
  r.elements.corpus.value='logic';r.elements.profile.value='internal';await r.run('chatSend(\"relate Dungeons and Dragons -> game\")');assert.match(r.elements['chat-messages'].innerHTML,/TYPE-2/);await r.run('chatSend(\"who made you?\")');assert.match(r.elements['chat-messages'].innerHTML,/Mitchell D. McPhetridge/);
+ const savedBeforeFree={...r.storage};await r.run('chatSend("off-the-record free chat")');await r.run('chatSend("hello free")');assert.deepEqual(r.storage,savedBeforeFree);assert.match(r.elements['chat-mode'].textContent,/Off-the-record/);assert.match(r.elements['chat-messages'].innerHTML,/not source-backed/);
  const resumed=runtime('http:',r.storage);await tick();assert.match(resumed.elements['chat-messages'].innerHTML,/Mitchell D. McPhetridge/);assert.match(resumed.elements['chat-messages'].innerHTML,/TYPE-2/);assert.match(resumed.elements['chat-status'].textContent,/resumed/);
  assert.match(r.run('linkText("Visit https://example.org/path?q=1&x=2.")'),/href="https:\/\/example.org\/path\?q=1&amp;x=2"/);
  assert.ok(!r.run('linkText("javascript:alert(1) <img src=x> https://user:pass@example.org")').includes('<a'));

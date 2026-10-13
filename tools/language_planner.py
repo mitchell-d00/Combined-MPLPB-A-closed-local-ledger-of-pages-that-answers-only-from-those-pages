@@ -38,6 +38,9 @@ def parse(message, memory, context=None):
 
 
 def label(result):
+    if result.get('procedure'):return 'Source-declared procedure · execution unverified'
+    if result.get('kind')=='candidate_only' or result.get('response_structure',{}).get('source_inspection'):
+        return 'Saved reference · outside loaded scope · source inspection' if result.get('source_scope')=='saved_reference_outside_loaded_scope' else 'Source inspection · not an answer'
     if result.get('authority') == 'research_note':return 'Research note · outside MPLPB'
     if result.get('authority') == 'system_description':return 'System description'
     if result.get('source_scope') == 'saved_reference_outside_loaded_scope':return 'Saved reference · outside loaded scope'

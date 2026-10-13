@@ -116,11 +116,13 @@ def turn(app, corpus, root, profile, message, context):
                     'context': None, 'reasoning': ['No selected topic for this follow-up.'], 'sources': []}
         expanded = re.sub(r'\b(this topic|that topic|its|it)\b', lambda _: context['title'], message, flags=re.I)
         reasoning.append({'rule': 'CTX-1', 'expanded_question': expanded, 'context_pin': context})
+    inspection = False
     if message.lower().strip(' ?.!') in {'tell me more', 'more', 'continue', 'show source', 'show page'}:
         if not context:
             return {'kind': 'clarify', 'message': 'Select a topic first.', 'context': None,
                     'reasoning': ['CTX-2 needs a selected topic.'], 'sources': []}
         expanded = context['title']
+        inspection = True
         reasoning.append({'rule': 'CTX-2', 'expanded_question': expanded, 'context_pin': context})
     # Deliberate command grammar, not semantic extraction from arbitrary prose.
     relation = re.fullmatch(r'relate (.{1,160}?)\s*->\s*(.{1,160})', expanded, re.I)
@@ -145,9 +147,9 @@ def turn(app, corpus, root, profile, message, context):
         return {'kind': 'relations', 'message': 'Supported by the source assertions and rules below; source truth is not authenticated.',
                 'context': context, 'reasoning': reasoning, 'relations': results,
                 'sources': list({(p['id'], p['hash']): p for f in results for p in f['premises']}.values())}
-    result = app.query({'corpus': corpus, 'profile': profile, 'question': expanded})
+    result = app.query({'corpus': corpus, 'profile': profile, 'question': expanded, 'mode':'candidates' if inspection else 'supported'})
     reader = result['reader']
-    if reader['kind'] == 'return':
+    if reader['kind'] in {'return','candidate_only'}:
         message_out = reader['text']
         context = context_for(root, reader['title'], profile)
     elif reader['kind'] == 'ambiguous':
@@ -156,7 +158,7 @@ def turn(app, corpus, root, profile, message, context):
         message_out = 'I found no supported answer to that question in this corpus. You can still inspect the matching pages.'
     return {'kind': reader['kind'], 'message': message_out, 'context': context,
             'reasoning': reasoning + [{'rule': 'MPLPB reader', 'matched_on': reader['matched_on'], 'reason': reader['reason']}],
-            'reader': reader, 'gate': result['gate'], 'sources': result['gate']['sources'] if reader['kind']=='return' else []}
+            'reader': reader, 'gate': result['gate'], 'sources': result['gate']['sources'] if reader['kind'] in {'return','candidate_only'} else []}
 
 
 def log_turn(log, payload):
