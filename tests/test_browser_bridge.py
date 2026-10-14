@@ -247,6 +247,38 @@ class BrowserBridgeTests(unittest.IsolatedAsyncioTestCase):
         pins['browser_adapter_sha256'] = 'bad'
         self.assertIn('browser adapter bytes differ from capture pin', B.browser_code_errors(pins))
 
+    async def test_reviewed_capture_adapters_keep_all_other_gates(self):
+        for adapter in B.COMPATIBLE_CAPTURE_ADAPTERS:
+            pins = dict(B.browser_code_pins(), browser_adapter_sha256=adapter)
+            self.assertEqual(B.browser_code_errors(pins), [])
+            for field in ('engine_sha256', 'checker_sha256', 'renderer_sha256'):
+                self.assertTrue(B.browser_code_errors(dict(pins, **{field: 'bad'})))
+            self.assertTrue(B.browser_code_errors(dict(pins, transport='unknown')))
+        self.assertTrue(B.browser_code_errors(dict(B.browser_code_pins(), browser_adapter_sha256='0'*64)))
+
+    async def test_old_browser_capture_reopens_without_rewriting_and_rejects_damage(self):
+        from tests.test_topic_chat_sources import response
+        from tools.topic_chat_sources import TopicStore
+        for adapter in B.COMPATIBLE_CAPTURE_ADAPTERS:
+            store = TopicStore(Path(self.temp.name)/adapter)
+            pins = dict(B.browser_code_pins(), browser_adapter_sha256=adapter)
+            with patch.object(W, 'request', return_value=response()), patch.object(W, 'code_pins', return_value=pins):
+                imported = store.import_title('Cat')
+            before = {p: p.read_bytes() for p in store.base.rglob('*') if p.is_file()}
+            with patch.object(W, 'code_errors', B.browser_code_errors):
+                root = TopicStore(store.base).root()
+                self.assertEqual(before, {p: p.read_bytes() for p in before})
+                raw = store.base/imported['capture']/'response.json'
+                original = raw.read_bytes()
+                raw.write_bytes(b'{}')
+                with self.assertRaisesRegex(ValueError, 'stored raw response differs'):
+                    store.root()
+                raw.write_bytes(original)
+                page = next(root.glob('*.html'))
+                page.write_text(page.read_text()+'tampered')
+                with self.assertRaisesRegex(ValueError, 'Imported local page bytes differ'):
+                    store.root()
+
     async def test_bad_runtime_archive_is_refused(self):
         path = Path(self.temp.name)/'bad.tar';path.write_bytes(b'bad')
         with self.assertRaises(ValueError): build(path,Path(self.temp.name)/'index.html')

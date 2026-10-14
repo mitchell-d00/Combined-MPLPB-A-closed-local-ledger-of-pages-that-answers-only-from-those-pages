@@ -24,11 +24,21 @@ def browser_code_pins():
             'transport': 'browser-pyfetch-v1',
             'notice': 'Browser transport; byte consistency only, not authenticated authorship or independent validation.'}
 
+# Reviewed releases with unchanged capture/transport semantics. These hashes are
+# compatibility declarations, never proof of authorship or source truth.
+COMPATIBLE_CAPTURE_ADAPTERS = {
+    "210311922a9bf8e48a891f6cbb5229ff2e233c02bcc53a5ab44263138f5f6d33": "1cfb8ad34cd268683601de9e8798d5b020296e34",
+    "ea19f6bc918253da7b78269157a967a6c313cc858ec7a8e3df84c9b1d256a502": "d2375e289674fc02b04e5a2c63a840a5df1bbe5c",
+    "ecdaf5843f69d0c192a9d35a6e4415a82c5e785240bff99f9ec86e867e9b6c90": "a77f19974b34e87394e5d10134475f9c877bb64f",
+}
+
 _original_code_errors = W.code_errors
 
 def browser_code_errors(pins):
     errors = _original_code_errors(pins)
-    if 'browser_adapter_sha256' in pins and pins['browser_adapter_sha256'] != W.digest(Path(__file__).read_bytes()):
+    adapter = pins.get('browser_adapter_sha256')
+    compatible = pins.get('transport') == 'browser-pyfetch-v1' and adapter in COMPATIBLE_CAPTURE_ADAPTERS
+    if 'browser_adapter_sha256' in pins and adapter != W.digest(Path(__file__).read_bytes()) and not compatible:
         errors.append('browser adapter bytes differ from capture pin')
     return errors
 

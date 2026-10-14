@@ -39,9 +39,17 @@ raw = json.dumps({'query': {'pages': {'1': {'title': 'Cat', 'pageid': 1,
 async def fixture_remote(url):
  return raw, {'url': url, 'retrieved_at': '2026-10-08T12:01:00Z', 'http_status': 200}
 B.remote = fixture_remote
+# Simulate a persisted capture produced before the dictionary-routing update.
+original_browser_pins = W.code_pins
+def historical_browser_pins():
+ pins = original_browser_pins()
+ pins['browser_adapter_sha256'] = next(iter(B.COMPATIBLE_CAPTURE_ADAPTERS))
+ return pins
+W.code_pins = historical_browser_pins
 `);
 const imported=await call('/api/chat',{corpus:'logic',message:'import Cat'});
 if(imported.corpus!=='topics'||!imported.response.context)throw Error('WASM source import failed');
+await py.runPythonAsync('W.code_pins = original_browser_pins\nB.app = App()');
 const importedAsk=await call('/api/chat',{corpus:'topics',session:imported.session,message:'what is it?'});
 if(importedAsk.response.kind!=='return')throw Error('WASM imported context failed');
 const collection=await call('/api/collections/create',{name:'Dinosaurs smoke'});
