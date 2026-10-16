@@ -21,6 +21,16 @@ bounded combinations per topic, with replay traces and 32 three-option turns
 before repetition. Try `brainstorm lantern gardens`, then `brainstorm`.
 See [the explicit goal, replay contract and limits](docs/DETERMINISTIC_GENERATION.md).
 
+## Conversation across content types
+
+Ordinary questions such as “How do you chat?”, “What are you explain exactly how
+you work” and “What’s the loaded MPLPB?” use system knowledge and current state.
+“Talk about your content” lists eligible topics. After a topic, “That’s
+interesting”, “I am confused” and “Can we discuss that” construct conversational
+framing around freshly checked pages or separately attributed seed notes.
+Dictionary discussion supports “Other words for that meaning” after a sense
+choice. See [conversation classes, construction and boundaries](docs/NATURAL_CONVERSATION.md).
+
 ## Library routing
 
 Choose **Library index** in Chat or Serious mode to browse registered books.

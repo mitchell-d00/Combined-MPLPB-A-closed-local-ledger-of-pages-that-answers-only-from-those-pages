@@ -15,12 +15,12 @@ def parse(message, session):
           'qualifiers':[],'context_reference':None,'original':message}
     # Split only a recognized introduction followed by a complete self-question.
     parts=re.split(r'[,;.!?]*\s+(?=(?:how long|for how long|what|who|how|will you|do you)\b)',text,maxsplit=1,flags=re.I)
-    if len(parts)==2 and CM.introduction(parts[0]) and SK.recognize(parts[1]):
+    if len(parts)==2 and CM.introduction(parts[0]) and SK.recognize(parts[1],session):
         return dict(base,action='introduce_and_explain',subject=CM.introduction(parts[0]),
-                    requested_attribute=SK.recognize(parts[1])['topic'],clauses=parts)
+                    requested_attribute=SK.recognize(parts[1],session)['topic'],clauses=parts)
     if len(parts)==2 and CM.introduction(parts[0]):
         return dict(base,action='unresolved_compound',subject=CM.introduction(parts[0]),clauses=parts)
-    if SK.recognize(text):return dict(base,action='self',requested_attribute=SK.recognize(text)['topic'])
+    if SK.recognize(text,session):return dict(base,action='self',requested_attribute=SK.recognize(text,session)['topic'])
     # Activity selection is distinct from an expression or a statement about maths.
     if re.fullmatch(r'(?:(?:let us|lets|let\'s|i want to|i would like to|i\'d like to) )?(?:(?:work through|do|try|start|help me with) )?(?:a |some )?(?:small |simple |basic )?(?:calculation|arithmetic|math)',key):
         return dict(base,action='select_activity',subject='calculation')
@@ -29,6 +29,8 @@ def parse(message, session):
         return dict(base,action='explain_calculation',subject=expression,context_reference='previous_calculation')
     lexical=session.get('mind',{}).get('lexical_discussion')
     if lexical:
+        if key in {'other words for that meaning','another word for that meaning','synonyms for that sense','can you say that another way','say that another way','what are its synonyms','what are the nuances','what is the nuance'}:
+            return dict(base,action='lexical_nuance',subject=lexical['word'],context_reference='lexical_discussion')
         pick=re.fullmatch(r'(?:sense |meaning |the )?(\d+|first|second|third)(?: one| sense| meaning)?',key)
         if pick:
             num={'first':1,'second':2,'third':3}.get(pick[1])
@@ -47,7 +49,7 @@ def parse(message, session):
 
 
 def handles(message, session):
-    return parse(message,session)['action'] in {'introduce_and_explain','self','select_activity','select_sense','lexical_followup','dictionary_overview','calculation_input','unresolved_compound','explain_calculation'}
+    return parse(message,session)['action'] in {'introduce_and_explain','self','select_activity','select_sense','lexical_followup','lexical_nuance','dictionary_overview','calculation_input','unresolved_compound','explain_calculation'}
 
 
 def handle(message, session, collections=None):
@@ -74,7 +76,7 @@ def handle(message, session, collections=None):
         if result is None:
             result=M.reply('clarify','Please enter a numeric expression using +, −, ×, ÷ and parentheses, or choose another activity.',session.get('context'),'CALCULATION-INPUT',authority='conversation_structure')
         else:session['mind'].pop('pending_activity',None)
-    elif action in {'select_sense','lexical_followup','dictionary_overview'}:
+    elif action in {'select_sense','lexical_followup','lexical_nuance','dictionary_overview'}:
         result=lexical(message,session,frame)
         if result is None:
             result=M.reply('reference_missing','No supported dictionary explanation for that complete request. Please specify a headword or an eligible source.',session.get('context'),'LEXICAL-MISSING',authority='lexical_reference')
@@ -84,9 +86,17 @@ def handle(message, session, collections=None):
     return result
 
 
-def render_lexical(word, senses, selected, archive):
+def render_lexical(word, senses, selected, archive, presentation=None):
     displayed=[s for s in senses if s['id']==selected] if selected else senses[:12]
     lines=['Open English WordNet 2025 · '+word]
+    if presentation=='nuance':
+        sense=next(s for s in senses if s['id']==selected)
+        alternatives=[w for w in sense['synonyms'] if w.casefold()!=word.casefold()]
+        lines += ['For this meaning of “'+word+'”: '+ '; '.join(sense['definitions']),
+                  'Words in this same sense group: '+(', '.join(alternatives) or 'no alternative headwords are listed')+'.',
+                  'These alternatives share a dictionary sense. That alone does not establish identical tone, register, or suitability in every sentence. What sentence are you working on?']
+        lines.append('Source: '+archive['url']+'\nLicense: CC-BY-4.0 · Open English WordNet Community, derived from Princeton WordNet.')
+        return '\n\n'.join(lines)
     for sense in displayed:
         number=next(i+1 for i,s in enumerate(senses) if s['id']==sense['id'])
         lines.append(str(number)+'. '+sense['id']+' ('+sense['part_of_speech']+') — '+'; '.join(sense['definitions']))
@@ -100,7 +110,7 @@ def render_lexical(word, senses, selected, archive):
 def lexical(message, session, frame=None):
     from tools import reference_resources as R
     frame=frame or parse(message,session)
-    if frame['action'] not in {'overview','dictionary_overview','select_sense','lexical_followup'} or frame['qualifiers']:return None
+    if frame['action'] not in {'overview','dictionary_overview','select_sense','lexical_followup','lexical_nuance'} or frame['qualifiers']:return None
     word=frame['subject']
     if not word or word.casefold() in {'it','this','that','you','yourself'}:return None
     # Whole headwords only; never discard entity modifiers or negation to find a hit.
@@ -116,13 +126,16 @@ def lexical(message, session, frame=None):
     if len(senses)==1:selected=senses[0]['id']
     if frame['requested_attribute']=='unsupported':
         return M.reply('unsupported','The selected dictionary definition does not establish that requested detail. Please ask a definition question or select a source with the required evidence.',session.get('context'),'LEXICAL-LIMIT',authority='unsupported')
+    if frame['action']=='lexical_nuance' and not selected:
+        return M.reply('clarify','Which meaning of '+headword+' do you want alternatives for? Choose a sense first so unrelated meanings stay separate.',session.get('context'),'LEXICAL-NUANCE-CHOICE',authority='conversation_structure',suggestions=['sense '+str(i+1) for i in range(min(len(senses),4))])
+    presentation='nuance' if frame['action']=='lexical_nuance' else None
     archive=manifest['resources'][0]
-    body=render_lexical(headword,senses,selected,archive)
+    body=render_lexical(headword,senses,selected,archive,presentation)
     session['mind']['lexical_discussion']={'word':headword,'sense':selected}
-    proof={'word':headword,'sense':selected,'sense_ids':[s['id'] for s in senses],'archive_hash':archive['sha256']}
+    proof={'word':headword,'sense':selected,'sense_ids':[s['id'] for s in senses],'archive_hash':archive['sha256'],'presentation':presentation}
     result=M.reply('reference',body,session.get('context'),'LEXICAL-DISCUSSION',authority='lexical_reference',
         sources=[{'id':'OEWN-2025','hash':archive['sha256'],'path':'resources/'+archive['path'],'url':archive['url'],'license':'CC-BY-4.0'}],
-        suggestions=['sense '+str(i+1) for i in range(min(len(senses),4))] if not selected else ['Explain that'],
+        suggestions=['sense '+str(i+1) for i in range(min(len(senses),4))] if not selected else ['Explain that','Other words for that meaning'],
         response_structure={'intent':'lexical_topic','subject':headword,'factual_claims':True,'mplpb_supported':False},
         lexical_proof=proof,headword=headword,senses=senses,source_scope='dictionary_reference',structured_request=frame)
     return result
@@ -133,4 +146,4 @@ def revalidate_lexical(result):
     proof=result['lexical_proof'];senses,manifest=R.lookup(proof['word']);archive=manifest['resources'][0]
     return (proof['archive_hash']==archive['sha256'] and proof['sense_ids']==[s['id'] for s in senses]
             and (proof['sense'] is None or proof['sense'] in proof['sense_ids'])
-            and result['message']==render_lexical(proof['word'],senses,proof['sense'],archive))
+            and result['message']==render_lexical(proof['word'],senses,proof['sense'],archive,proof.get('presentation')))

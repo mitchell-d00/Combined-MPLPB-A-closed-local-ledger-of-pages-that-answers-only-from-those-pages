@@ -13,7 +13,7 @@ from tools import deterministic_mind as M
 from tools import reference_resources as F, skill_planner as SP
 from tools.chat_phrasing import memory_question
 
-from tools import structured_requests as SR
+from tools import structured_requests as SR, topic_dialogue as TD
 
 VERSION = 'conversation-router-v3'
 
@@ -84,8 +84,10 @@ def propose(frame, session, data):
         'jokes are okay','you can joke','jokes are ok','just listen','listen','i just want to vent',
         'no advice','do not give advice',"don't give advice"}:
         add('environment','emotional_preference',98,'explicit feeling or conversation preference',['conversation_structure'])
-    if SK.recognize(text):
-        add('self','system_description',90,'authored capability or observed state',['system_description'])
+    if TD.recognize(text,session):
+        add('topic_dialogue','content_conversation',108,'typed conversational act with current subject',['conversation_structure','system_description','gated_source','research_note','lexical_reference'])
+    if SK.recognize(text,session):
+        add('self','system_description',112 if SK.recognize(text,session).get('followup') or SK.recognize(text,session).get('topics') else 90,'authored capability or observed state',['system_description'])
     branch=mind.get('conversation_branches',{})
     choices=branch.get('pending',[]) or CB.candidates(session)
     choice_words={CM.key(c['label']) for c in choices}
@@ -217,7 +219,8 @@ def execute(app,data,session,frame,corpus,profile):
     # A rejected candidate must not leave partially applied memory behind.
     shadow=copy.deepcopy(session)
     reader=lambda q:E.handle(app,data,shadow,q,corpus,profile)
-    handlers={'structured':lambda:SR.handle(frame['original'],shadow,app.roots()),
+    handlers={'topic_dialogue':lambda:TD.handle(app,data,shadow,text,corpus,profile),
+              'structured':lambda:SR.handle(frame['original'],shadow,app.roots()),
               'reference':lambda:SP.execute(text,shadow,'legacy',app,corpus,profile),
               'self':lambda:SK.handle(text,shadow,app.roots()),
               'branch':lambda:CB.handle(text,shadow,reader),

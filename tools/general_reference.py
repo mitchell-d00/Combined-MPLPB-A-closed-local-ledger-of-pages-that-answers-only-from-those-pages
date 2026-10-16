@@ -9,8 +9,8 @@ PATH=Path(__file__).resolve().parents[1]/'resources/general_chat.json'
 def records():
     return json.loads(PATH.read_text(encoding='utf-8'))['topics']
 
-def handle(message,session):
-    if session.get('environment',{}).get('mode')!='chat':return None
+def handle(message,session,allow_all_modes=False):
+    if not allow_all_modes and session.get('environment',{}).get('mode')!='chat':return None
     key=message.casefold().replace('’',"'").strip(' .!?')
     rows=records()
     if key in {'general topics','list general topics'}:
@@ -30,4 +30,4 @@ def handle(message,session):
     return M.reply('conversation',body,session.get('context'),'GENERAL-REFERENCE',authority='research_note',
         sources=[{'title':row['source_title'],'url':row['url'],'reviewed':'2026-10-09','basis':'authored paraphrase'}],
         suggestions=['Tell me more','Search '+row['topic'],'general topics'],
-        response_structure={'intent':'research_note','factual_claims':True,'mplpb_supported':False,'version':VERSION})
+        response_structure={'intent':'research_note','factual_claims':True,'mplpb_supported':False,'version':VERSION,'subject':row['topic']})

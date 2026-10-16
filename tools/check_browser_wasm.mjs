@@ -275,3 +275,30 @@ for (const mode of ['just chat', 'serious mode', 'free chat']) {
  if(new Set(results).size!==4)throw Error('WASM brainstorm still repeats after two groups');
 }
 console.log('WASM deterministic generation and evidence boundaries passed in all three modes');
+
+// Ordinary self/content conversation must work through the deployed entry point.
+for (const mode of ['chat mode','serious mode','free chat']) {
+ const started=await call('/api/chat',{corpus:'logic',message:mode});
+ const send=message=>call('/api/chat',{corpus:'logic',session:started.session,message,auto_wiki:true});
+ for (const message of ['How do you chat?','What are you explain exactly how you work','What’s the loaded mplpb?','Can you chat normally?']) {
+  const {response:r}=await send(message);
+  if(r.authority!=='system_description'||r.sources.length||r.response_validation.status!=='checked'||r.automatic_lookup)
+   throw Error('WASM ordinary self question failed: '+mode+' / '+message);
+ }
+ const catalog=(await send('What content do you have?')).response;
+ if(!catalog.content_catalog||!catalog.message.includes('seed notes'))throw Error('WASM content catalog: '+mode);
+ await send('Tell me about evaporation');
+ for(const message of ["That's interesting",'I am confused','Can we discuss that']) {
+  const {response:r}=await send(message);
+  if(r.authority!=='research_note'||r.topic_dialogue?.subject!=='evaporation'||r.response_structure.mplpb_supported||r.response_validation.status!=='checked')
+   throw Error('WASM content conversation failed: '+mode+' / '+message);
+ }
+ await send('Explain a bank');
+ const unresolved=(await send('Other words for that meaning')).response;
+ if(unresolved.kind!=='clarify')throw Error('WASM mixed word senses: '+mode);
+ await send('sense 1');
+ const nuance=(await send('Other words for that meaning')).response;
+ if(nuance.lexical_proof?.presentation!=='nuance'||nuance.response_validation.status!=='checked'||nuance.response_structure.mplpb_supported)
+  throw Error('WASM sense-specific nuance: '+mode);
+}
+console.log('WASM natural self/content conversation, seed discussion and sense-specific nuance passed');

@@ -35,7 +35,6 @@ def conversation_request(message):
 
 
 def research_request(message,session):
-    if session.get('environment',{}).get('mode')!='chat':return False
     k=message.casefold().replace('’',"'").strip(' .!?')
     if k in {'general topics','list general topics'}:return True
     if k in {'tell me more','more about that','go on'}:
@@ -62,7 +61,7 @@ def plan(message,session,scope='general',titles=()):
     if emotion and scope!='legacy':add('emotional',100 if emotion!='followup' else 65,'explicit feeling/preference or active listening','conversation_structure')
     discourse=D.recognize(message,mind)
     if discourse and scope!='legacy':add('discourse',95,'recognized speech act or its active follow-up','conversation_structure')
-    if scope=='general' and research_request(message,session):add('research',90,'named research note or its continuation','research_note')
+    if scope in {'general','focus'} and research_request(message,session):add('research',90,'named research note or its continuation','research_note')
     subject=IC.PF.overview_subject(message) or IC.PF.definition_subject(message)
     if scope=='general' and subject and subject.casefold() not in {'it','this','that','you','yourself'}:
         _,senses,_=F.lookup_forms(re.sub(r'^(?:the|a|an)\s+','',subject.casefold()))
@@ -107,7 +106,7 @@ def execute(message,session,scope='general',app=None,corpus=None,profile=None,pl
     handlers={'reference':lambda:F.topic(message,shadow) or F.handle(message,context),'guide':lambda:T.guide(message,context,mind),
       'conversation':lambda:T.conversation(message,context,mind),'learning':lambda:T.learning_request(message,context),
       'emotional':lambda:EM.handle(message,mind),'discourse':lambda:D.respond(message,mind),
-      'research':lambda:GR.handle(message,shadow),'lexical':lambda:E.lexical_topic(message,shadow),
+      'research':lambda:GR.handle(message,shadow,allow_all_modes=True),'lexical':lambda:E.lexical_topic(message,shadow),
       'idea':lambda:IC.handle(message,mind),'social':lambda:S.handle(message,context,mind),
       'help':lambda:M.help_reply(message,context),'smalltalk':smalltalk,'open_social':open_social}
     if winner['skill']!='discourse' and not D.recognize(message,mind):

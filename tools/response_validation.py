@@ -9,6 +9,18 @@ VERSION='final-response-validation-v1'
 
 def validate_response(app, result, profile, corpus, approved_message):
     errors=[]; checks=[]
+    if result.get('discussion_payload'):
+        from tools.response_construction import discussion
+        child=result['discussion_payload']; frame=result.get('discussion_frame',{})
+        try:
+            opener, trace=discussion(frame['subject'],frame['act'],frame['turn'])
+            fresh=validate_response(app,child,profile,corpus,child.get('message',''))
+            if (fresh['response_validation']['status']=='blocked' or
+                result.get('message')!=opener+'\n\n'+child['message'] or
+                result.get('sources')!=child.get('sources') or frame['construction']!=trace):
+                errors.append('Discussion framing or fresh content validation failed.')
+        except (KeyError,ValueError):errors.append('Discussion construction is invalid.')
+        checks.append('separate constructed framing and freshly checked content')
     if result.get('library_proof'):
         from tools.library_chat import revalidate
         try:

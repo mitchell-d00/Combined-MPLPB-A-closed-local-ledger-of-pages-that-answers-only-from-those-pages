@@ -108,7 +108,7 @@ def finish(result, parsed, memory, turn):
         if re.sub(r'^(?:a|an) ', '', candidate, flags=re.I).casefold() == subject.casefold():
             candidate = subject
     query = None
-    if not result.get('library_route') and not result.get('reference_topic') and result.get('authority') not in {'system_description','user_declaration','research_note','lexical_reference'} and candidate and not parsed['imagined'] and not parsed['negation_present'] and ('overview' in parsed['actions'] or result.get('source_exhausted')):
+    if not result.get('topic_dialogue') and not result.get('library_route') and not result.get('reference_topic') and result.get('authority') not in {'system_description','user_declaration','research_note','lexical_reference'} and candidate and not parsed['imagined'] and not parsed['negation_present'] and ('overview' in parsed['actions'] or result.get('source_exhausted')):
         if candidate.casefold() not in PRONOUNS and 1 <= len(candidate) <= 160:query = candidate
     result['language_plan'] = {**parsed, 'subject': subject, 'realization_rules': rules,
         'response_act': structure.get('intent') or result.get('kind'),

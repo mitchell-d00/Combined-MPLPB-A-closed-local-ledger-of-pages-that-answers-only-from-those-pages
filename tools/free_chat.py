@@ -2,7 +2,7 @@
 import re
 import uuid
 from tools import casual_reasoning as D
-from tools import idea_chat as I
+from tools import idea_chat as I, topic_dialogue as TD, general_reference as GR
 from tools import structured_requests as SR, conversation_memory as CM, dialogue_rules as DR
 from tools import social_chat as S, reference_resources as F, language_planner as LP
 from tools.response_validation import validate_response
@@ -32,8 +32,10 @@ def respond(app,data):
     elif key not in START:
         frame=SR.parse(message,state)
         if frame['action'] not in {'select_activity','calculation_input'}:state['mind'].pop('pending_activity',None)
-        if frame['action'] not in {'select_sense','lexical_followup'}:state['mind'].pop('lexical_discussion',None)
+        if frame['action'] not in {'select_sense','lexical_followup','lexical_nuance'} and not TD.recognize(message,state):state['mind'].pop('lexical_discussion',None)
         response=SR.handle(message,state,app.roots())
+        if response is None:response=TD.handle(app,data,state,message,data['corpus'],data.get('profile','internal'))
+        if response is None:response=GR.handle(message,state,allow_all_modes=True)
         if response is None:response=CM.handle(message,state)
         if response is None:response=DR.handle(message,state)
         if response is None and F.topic_request(message,state):response=F.topic(message,state)

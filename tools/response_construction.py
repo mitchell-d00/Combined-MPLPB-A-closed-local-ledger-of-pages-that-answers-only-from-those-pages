@@ -86,3 +86,23 @@ def social(message, category, turn, listening=False, previous=''):
 def source_intro(title, attribute):
     """Build only the framing. The caller must validate and attach an exact quote."""
     return sentence('For', attribute+',', 'the loaded page', '“'+title+'”', 'says')[:-1]+':'
+
+
+def discussion(subject, act, turn):
+    """Construct framing with sense-checked, authored transitive verb slots."""
+    word='discuss'; lexical=None
+    try:
+        senses, manifest=L.lookup('discuss')
+        sense=next(s for s in senses if s['id']=='01036184-v' and s['part_of_speech']=='v')
+        allowed=[w for w in ('discuss','talk about') if w in sense['synonyms']]
+        if allowed:
+            word=choose(allowed,turn)
+            lexical={'word':word,'sense':sense['id'],'part_of_speech':'v',
+                     'resource_sha256':manifest['resources'][0]['sha256']}
+    except (OSError,ValueError,KeyError,StopIteration):pass
+    lead={'discuss':'We can','interest':'There’s more we can',
+          'clarify':'Let’s take it one piece at a time. We can',
+          'perspective':'I don’t have personal tastes, but we can'}[act]
+    body=lead+' '+word+' '+subject+'.'
+    return body, {'engine':VERSION,'rules':['conversational_act + modal + sense_checked_verb + topic'],
+                  'lexical_choice':lexical,'deterministic':True,'synonyms_are_not_evidence':True}

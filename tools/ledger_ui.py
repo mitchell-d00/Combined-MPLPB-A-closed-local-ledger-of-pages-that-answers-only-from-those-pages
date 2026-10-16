@@ -41,7 +41,7 @@ from tools import conversation_engine as CE
 from tools import chat_environment as E
 from tools import reduction as RD
 from tools import language_planner as LP
-from tools import self_knowledge as SK
+from tools import self_knowledge as SK, topic_dialogue as TD
 from tools import proposition_chat as PC
 from tools import conversation_memory as CM
 from tools import dialogue_rules as DR
@@ -295,7 +295,7 @@ class App:
             from tools import structured_requests as SR
             structured=SR.parse(message,session)
             if structured['action'] not in {'select_activity','calculation_input'}:memory.pop('pending_activity',None)
-            if structured['action'] not in {'select_sense','lexical_followup'}:
+            if structured['action'] not in {'select_sense','lexical_followup','lexical_nuance'} and not TD.recognize(message,session):
                 memory.pop('lexical_discussion',None)
             interpretation=CC.prepare(message,session)
             original_message=message
