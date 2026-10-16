@@ -256,3 +256,22 @@ const libraryFree=await call('/api/chat',{corpus:'logic',message:'free chat'});
 const libraryBlocked=await call('/api/chat',{corpus:'logic',session:libraryFree.session,message:'browse library',auto_wiki:true});
 if(libraryBlocked.response.kind!=='clarify'||libraryBlocked.response.sources.length)throw Error('WASM free-chat library boundary');
 console.log('WASM library routing, scope clarification and return paths passed');
+
+// The deployed bundle must run the same grammar and retain its authority boundary.
+for (const mode of ['just chat', 'serious mode', 'free chat']) {
+ const started=await call('/api/chat',{corpus:'logic',message:mode});
+ const results=[];
+ for(let turn=1;turn<=4;turn++) {
+  const result=await call('/api/chat',{corpus:'logic',session:started.session,
+   message:turn===1?'brainstorm lantern gardens':'brainstorm',auto_wiki:true});
+  const r=result.response, trace=r.response_structure?.construction;
+  if(trace?.version!=='idea-grammar-v1'||trace.turn!==turn||trace.space_size!==96)
+   throw Error('WASM procedural generation trace: '+mode);
+  if(r.sources.length||r.response_structure.factual_claims||trace.mplpb_supported||r.language_plan?.acquisition?.query)
+   throw Error('WASM generated ideas crossed evidence/network boundary: '+mode);
+  if(r.response_validation.status!=='checked')throw Error('WASM generation skipped validator');
+  results.push(r.message);
+ }
+ if(new Set(results).size!==4)throw Error('WASM brainstorm still repeats after two groups');
+}
+console.log('WASM deterministic generation and evidence boundaries passed in all three modes');

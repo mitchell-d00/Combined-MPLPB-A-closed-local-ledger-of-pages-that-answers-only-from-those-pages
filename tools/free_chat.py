@@ -2,11 +2,12 @@
 import re
 import uuid
 from tools import casual_reasoning as D
+from tools import idea_chat as I
 from tools import structured_requests as SR, conversation_memory as CM, dialogue_rules as DR
 from tools import social_chat as S, reference_resources as F, language_planner as LP
 from tools.response_validation import validate_response
 
-VERSION='off-record-free-chat-v2'
+VERSION='off-record-free-chat-v3'
 START={'off the record','off-the-record','off the record mode','off-the-record free chat','free chat'}
 STOP={'leave off the record','leave free chat','serious mode','chat mode'}
 
@@ -37,6 +38,7 @@ def respond(app,data):
         if response is None:response=DR.handle(message,state)
         if response is None and F.topic_request(message,state):response=F.topic(message,state)
         if response is None:response=SR.lexical(message,state,frame)
+        if response is None:response=I.brainstorm(message,state['mind'])
         if response is None:response=D.respond(message,state['mind'])
         if response is None:response=S.handle(message,None,state['mind'])
     if response is None:

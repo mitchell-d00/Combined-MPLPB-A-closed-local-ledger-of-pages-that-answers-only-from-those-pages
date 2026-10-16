@@ -9,6 +9,18 @@ derivation writes a new page and adds one to the depth.
 
 No model. The core reader uses local pages and the Python standard library. Optional search/crawl/import commands contact public sources explicitly; standalone browser mode uses IndexedDB for saved state.
 
+## Goal: deterministic generation
+
+Build expressive, repeatable responses through auditable construction rules.
+Generative does not have to mean nondeterministic. New combinations may expand
+conversation while MPLPB's ownership, scope, provenance and evidence boundaries
+remain binding. Imagined ideas never become source-backed answers.
+
+Brainstorming now composes operations, perspectives and output forms into 96
+bounded combinations per topic, with replay traces and 32 three-option turns
+before repetition. Try `brainstorm lantern gardens`, then `brainstorm`.
+See [the explicit goal, replay contract and limits](docs/DETERMINISTIC_GENERATION.md).
+
 ## Library routing
 
 Choose **Library index** in Chat or Serious mode to browse registered books.

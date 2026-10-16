@@ -3,8 +3,9 @@ import re
 from tools import deterministic_mind as M
 from tools import reduction as R
 from tools import question_frames as PF
+from tools import procedural_generation as PG
 
-VERSION = 'idea-chat-v4'
+VERSION = 'idea-chat-v5'
 
 def topic_request(message):
     subject=PF.overview_subject(message)
@@ -60,19 +61,15 @@ def brainstorm(message,memory,context=None):
     if not subject:
         return M.reply('conversation','Absolutely. What would you like to brainstorm; a project, a story, or a problem?',context,'BRAINSTORM-TOPIC',authority='conversation_structure',
                        response_structure={'intent':'casual_idea_exploration','factual_claims':False,'mplpb_supported':False})
+    if len(subject) > 180:
+        return M.reply('conversation', 'Give me a shorter topic name; then we can explore your idea.', context, 'IDEA-LIMIT', authority='conversation_structure')
     prior=memory.get('idea_chat',{})
     turn=prior.get('brainstorm_turn',0)+1 if prior.get('subject')==subject else 1
+    lines, construction = PG.construct(subject, turn)
     memory['idea_chat']={'subject':subject,'turn':turn,'brainstorm_turn':turn}
-    operations=[('simplify','Start with the smallest useful version of ', '; choose one thing it should do well.'),
-                ('combine','Combine ', ' with an unexpected theme; what would the combination change?'),
-                ('perspective','Explore ', ' from a newcomer’s point of view; what would make the first step inviting?'),
-                ('reverse','Reverse one assumption about ', '; what possibility does that open?'),
-                ('constraint','Give ', ' one playful constraint; what could you create inside it?'),
-                ('prototype','Sketch a quick example of ', '; use it to discover what needs changing.')]
-    chosen=[operations[((turn-1)*3+i)%len(operations)] for i in range(3)]
-    body='Let’s brainstorm '+subject+'. Here are three possibilities:\n\n'+'\n'.join(str(i)+'. '+start+subject+end for i,(_,start,end) in enumerate(chosen,1))
+    body='Let’s brainstorm '+subject+'. Here are three imagined possibilities:\n\n'+'\n'.join(str(i)+'. '+line for i,line in enumerate(lines,1))
     if memory.get('emotional',{}).get('style')!='listen':body+='\n\nWhich direction would you like to develop?'
     return M.reply('conversation',body,context,'BRAINSTORM-CONSTRUCT',authority='conversation_structure',
                    suggestions=['Brainstorm '+subject,'Tell me about '+subject,'Search '+subject],
                    response_structure={'intent':'casual_idea_exploration','subject':subject,'factual_claims':False,'mplpb_supported':False,
-                                       'construction':{'version':VERSION,'rules':['transformation + user_topic + exploration_prompt'],'operations':[x[0] for x in chosen],'turn':turn}})
+                                       'construction':construction})
