@@ -185,6 +185,15 @@ class ChatEnvironmentTests(unittest.TestCase):
         self.assertIn('no readable prose preview',result['message'])
         self.assertNotIn('list1name',result['message'])
         self.assertFalse(result.get('extractive',False))
+        # Loose chat acknowledges the saved source without presenting navbox
+        # parameters as an answer or silently changing the loaded collection.
+        loose=self.chat('chat mode')['session']
+        reply=self.chat('Islam',loose)['response']
+        self.assertIn('no readable prose',reply['message'])
+        self.assertEqual(reply['sources'],[])
+        self.assertEqual(reply['environment']['mode'],'chat')
+        self.assertEqual(reply['environment']['corpora'],[])
+        self.assertEqual(reply['response_structure']['mplpb_supported'],False)
 
     def test_dictionary_topic_conversation_in_both_modes(self):
         for mode in ['chat mode','load MPLPB']:
