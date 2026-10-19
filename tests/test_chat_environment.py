@@ -183,6 +183,7 @@ class ChatEnvironmentTests(unittest.TestCase):
         result=self.chat('summarize it',sid)['response']
         self.assertEqual(result['kind'],'clarify')
         self.assertIn('no readable prose preview',result['message'])
+        self.assertEqual(result['context']['title'],'Islam')
         self.assertNotIn('list1name',result['message'])
         self.assertFalse(result.get('extractive',False))
         # Loose chat acknowledges the saved source without presenting navbox
