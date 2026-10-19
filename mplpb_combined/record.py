@@ -294,9 +294,15 @@ def render_page(fields: Dict[str, str], title: str, body_html: str) -> str:
 
 
 def _meta_tag(name: str) -> "re.Pattern[str]":
-    alt = "[-_]".join(re.escape(part) for part in name.split("-"))
+    # Include legacy aliases so sealing/adoption replaces taught_from rather
+    # than writing a second normalized derived-from field.
+    spellings = [name] + [legacy for legacy, canonical in ALIASES.items()
+                          if canonical == name]
+    alts = ["[-_]".join(re.escape(part) for part in spelling.split("-"))
+            for spelling in spellings]
     return re.compile(
-        r"<meta\b[^>]*\bname\s*=\s*[\"']" + re.escape(PREFIX) + alt + r"[\"'][^>]*>", re.I
+        r"<meta\b[^>]*\bname\s*=\s*[\"']" + re.escape(PREFIX)
+        + "(?:" + "|".join(alts) + r")[\"'][^>]*>", re.I
     )
 
 
