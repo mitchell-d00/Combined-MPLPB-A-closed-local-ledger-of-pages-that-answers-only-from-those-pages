@@ -7,6 +7,7 @@ import json
 from pathlib import Path
 import re
 import shutil
+import sys
 import tarfile
 import tempfile
 from urllib.request import urlopen
@@ -81,6 +82,9 @@ def build(core_archive, output):
     handshake_dir.mkdir(parents=True, exist_ok=True)
     shutil.copyfile(ROOT / '.well-known/mplpb.json', handshake_dir / 'mplpb.json')
     shutil.copyfile(ROOT / 'llms.txt', output.parent / 'llms.txt')
+    # Direct script invocation sets sys.path[0] to tools/, not the repository root.
+    if str(ROOT) not in sys.path:
+        sys.path.insert(0, str(ROOT))
     from tools.agent_snapshot import export_public_ledger
     export_public_ledger(output.parent / 'mplpb-public-ledger.json')
     return {'output': str(output), 'bytes': output.stat().st_size, 'sha256': hashlib.sha256(output.read_bytes()).hexdigest(),
