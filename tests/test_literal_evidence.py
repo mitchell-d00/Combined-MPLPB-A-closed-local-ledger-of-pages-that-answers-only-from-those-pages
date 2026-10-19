@@ -39,6 +39,9 @@ class LiteralEvidenceTests(unittest.TestCase):
             ("Where was France's Huguenot population largely centered?",
              "Huguenot numbers peaked near an estimated two million by 1562, concentrated mainly in the southern and central parts of France, about one-eighth the number of French Catholics.",
              "the southern and central parts of France"),
+            ("What is European Union Law?",
+             "European Union law is a body of treaties and legislation, such as Regulations and Directives, which have direct effect or indirect effect on the laws of European Union member states.",
+             "a body of treaties and legislation"),
             ("Along with geothermal and nuclear, what is a notable non-combustion heat source?",
              "Non-combustion heat sources such as solar power, nuclear power or geothermal energy may be used.",
              "solar power"),
@@ -71,6 +74,10 @@ class LiteralEvidenceTests(unittest.TestCase):
              "Catholic population was concentrated mainly in the northern parts of France."),
             ("Where was France's Huguenot population largely centered?",
              "Huguenot numbers were concentrated mainly in the southern parts of Germany."),
+            ("What is European Union Law?",
+             "American Union law is a body of treaties and legislation."),
+            ("What is European Union Law?",
+             "If confirmed, European Union law is a body of treaties and legislation."),
         ]
         for question, body in cases:
             with self.subTest(question=question):
