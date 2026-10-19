@@ -12,7 +12,9 @@ class AnswerSupportTests(unittest.TestCase):
             write(tmp,doc_id='T-0001',title='What is the kettle color?',scope='kettle color',body='The kettle color is unknown.')
             r=supported_answer(tmp,'What is the kettle color?')
             self.assertEqual(r.kind,'not_in_corpus');self.assertEqual(r.text,'');self.assertEqual(r.citation(),'')
-            self.assertTrue(r.candidates)
+            self.assertEqual(r.candidates, [])
+            self.assertTrue(r.support['candidate_checks'])
+            self.assertFalse(any(x['spans'] for x in r.support['candidate_checks']))
 
     def test_only_supported_span_is_returned(self):
         with tempfile.TemporaryDirectory() as tmp:
