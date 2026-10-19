@@ -53,6 +53,22 @@ def pages(app, keys, profile):
     return entries,blocked
 
 
+def exact_saved_titles(app, subject, profile):
+    """Cheap exact-title probe; recheck gate only on matching pages."""
+    found = []
+    for key in sorted(app.roots()):
+        try:
+            root = app.root(key)
+            matches = [r for r in C.eligible(root, profile)
+                       if r.title.casefold() == subject.casefold()]
+            if len(matches) != 1:
+                continue
+            found.append((key, C.context_for(root, matches[0].title, profile)))
+        except (OSError, ValueError, KeyError):
+            continue
+    return found
+
+
 def general(message, session):
     result=SP.execute(message,session,'general')
     if result is not None:return result
@@ -316,10 +332,15 @@ def handle(app, data, session, message, corpus, profile):
     if env['mode']=='chat':
         # Bare saved-page names work as conversational topics in loose Chat.
         # No corpus is silently loaded and duplicate names remain separately pinned.
-        if len(message) <= 160 and re.fullmatch(r"[a-z0-9][a-z0-9 &()'.,/-]*", key):
-            available, _ = pages(app, sorted(app.roots()), profile)
-            named = [(k, pin) for k, pin in available
-                     if subject_key(pin['title']) == subject_key(key)]
+        if (len(message) <= 160
+                and re.fullmatch(r"[a-z0-9][a-z0-9 &()'.,/-]*", key)
+                and not re.match(
+                    r"^(?:what|who|where|when|why|how|can|could|would|please|"
+                    r"tell|show|load|switch|search|find|import|define|dictionary|"
+                    r"synonyms|thesaurus|i|my|we|you|your|hello|hi|hey|"
+                    r"thanks|thank|just|chat|serious|focus|topic|"
+                    r"summari[sz]e|explain)\b", key)):
+            named = exact_saved_titles(app, message.strip(' .?!'), profile)
             if named:
                 found = explore_sources(app, data, session,
                                         'Tell me about ' + named[0][1]['title'],
