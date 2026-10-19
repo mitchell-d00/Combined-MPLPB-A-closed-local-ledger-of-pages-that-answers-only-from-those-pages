@@ -138,7 +138,10 @@ def handle(root, profile, message, context, memory):
             pin = selected(root, profile, context) if title.casefold() in {'it', 'this topic', 'that topic'} else C.context_for(root, title, profile)
             return reply('summary', excerpt(root, profile, pin), pin, 'QUOTE-1', [pin], extractive=True)
         except ValueError as exc:
-            return reply('clarify', str(exc), None, 'QUOTE-1')
+            # Only unreadable *presentation* retains an already revalidated
+            # page selection; stale or withheld source pins still clear it.
+            keep = context if 'no readable prose preview' in str(exc) else None
+            return reply('clarify', str(exc), keep, 'QUOTE-1')
     comparison = re.fullmatch(r'compare (.{1,160}?) vs (.{1,160})', message.strip().rstrip('?.!'), re.I)
     if comparison:
         try:
