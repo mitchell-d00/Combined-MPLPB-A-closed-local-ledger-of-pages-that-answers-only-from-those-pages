@@ -93,7 +93,7 @@ class LiteralEvidenceTests(unittest.TestCase):
             query = "When did the Aster event begin?"
             self.assertEqual(supported_answer(tmp, query).kind, "return")
             self.assertEqual(supported_answer(tmp, query, PROFILES["external"]).kind,
-                             "return")
+                             "not_in_corpus")
             self.assertEqual(supported_answer(tmp, query, Profile("blocked", -1, False)).kind,
                              "not_in_corpus")
 
