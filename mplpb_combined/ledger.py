@@ -78,6 +78,10 @@ class Ledger:
         self.by_id: Dict[str, List[Record]] = {}
         for r in self.records:
             self.by_id.setdefault(r.id, []).append(r)
+        # Valid, chained retire events are an independent status authority.
+        # Trust only an unbroken prefix. A missing/edited log is still not an
+        # externally authenticated audit trail.
+        self.logged_retire, self.log_corrupt = _retired_log_keys(self.root)
         # Only a valid successor may retire a predecessor. Broken, unsealed,
         # duplicate or cyclic records have no authority over other records.
         # Valid successors still make a half-finished revision safe to read.
@@ -121,7 +125,7 @@ class Ledger:
 
     # -- status ------------------------------------------------------------
     def effective_status(self, r: Record) -> str:
-        if r.id in self.superseded_by:
+        if r.id in self.superseded_by or (r.id, r.hash, r.path) in self.logged_retire:
             return "retired"
         return r.status
 
@@ -134,6 +138,8 @@ class Ledger:
                 return "unsealed" if f == "hash" else f"missing {f}"
         if r.status not in STATUSES:
             return "bad status"
+        if r.problems:
+            return "duplicate metadata"
         if not r.intact:
             return "altered"
         return ""
@@ -148,6 +154,9 @@ class Ledger:
         return [r for r in self.records if self._may_serve(r)]
 
     def _may_serve(self, r: Record) -> bool:
+        # An existing but corrupted log cannot authorize serving any page.
+        if self.log_corrupt:
+            return False
         if self.quarantine_reason(r) or self.effective_status(r) != "current":
             return False
         if r.origin not in ORIGINS:
@@ -268,6 +277,11 @@ class Ledger:
         for r in self.records:
             if r.kind == "index":
                 continue
+            if r.status == "current" and (r.id, r.hash, r.path) in self.logged_retire:
+                add("error", "C16", r.path,
+                    "page claims current after a valid recorded retirement; withheld from serving")
+            for field, detail in r.problems:
+                add("error", "C17", r.path, field + ": " + detail)
             for f in REQUIRED:
                 if not r.fields.get(f, ""):
                     add("error", "C1", r.path, f"missing mplpb:{f}")
@@ -375,6 +389,28 @@ def _append_log(root: Path, event: str, rec_id: str, rec_hash: str, path: str,
     entry["entry_hash"] = _entry_hash(entry)
     with open(p, "a", encoding="utf-8") as fh:
         fh.write(json.dumps(entry, sort_keys=True, ensure_ascii=False) + "\n")
+
+
+def _retired_log_keys(root: Path) -> set:
+    """Return retire events only when each event has a valid chained prefix."""
+    retired = set()
+    prev = ""
+    corrupt = False
+    for i, entry in enumerate(read_log(root), 1):
+        if (not isinstance(entry, dict) or "_unreadable" in entry
+                or entry.get("seq") != i or entry.get("prev", "") != prev
+                or entry.get("entry_hash") != _entry_hash(entry)):
+            corrupt = True
+            break
+        prev = entry["entry_hash"]
+        key = (entry.get("id"), entry.get("hash"), entry.get("path"))
+        # A revision's old page can be restored when the successor is invalid;
+        # the original lineage authority rule remains in charge of that case.
+        # Only a standalone withdrawal is irreversible from the activity log.
+        if (entry.get("event") == "retire" and
+                not str(entry.get("note", "")).startswith("superseded by ")):
+            retired.add(key)
+    return retired, corrupt
 
 
 def verify_log(ledger: Ledger) -> List[Finding]:
@@ -651,7 +687,9 @@ def seal(root, *, when: Optional[str] = None) -> List[str]:
         final = False
         while True:
             ledger = Ledger(root)
-            todo = [r for r in ledger.records if r.kind != "index" and not r.hash]
+            # Never seal a malformed header or bless a conflicting duplicate.
+            todo = [r for r in ledger.records if r.kind != "index"
+                    and not r.hash and not r.problems]
             if not todo:
                 break
             progressed = False

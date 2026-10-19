@@ -40,7 +40,7 @@ a an the and or but nor of to in on at for from by with without within into onto
 is are was were be been being am it its this that these those as if then than so
 do does did doing can could should would will shall may might must i my me mine we
 our us you your they their them he she his her what which who whom whose when
-where why how there here not no yes about over under after before while during
+where why how there here no yes about over under after before while during
 up down out off again each any all some more most other such only own same too
 very just also have has had having get got please tell need want use used using
 long much many often
@@ -80,7 +80,8 @@ def stem(token: str) -> str:
 
 
 def terms(text: str) -> Set[str]:
-    words = re.findall(r"[a-z0-9]+", re.sub(r"['\u2019]s\b", "", (text or "").lower()))
+    # Unicode word segments must not be fragmented into stray ASCII syllables.
+    words = re.findall(r"[^\W_]+", re.sub(r"['\u2019]s\b", "", (text or "").casefold()), re.UNICODE)
     return {stem(t) for t in words if t not in STOPWORDS}
 
 
@@ -241,10 +242,32 @@ def answer(root, question: str, profile: Optional[Profile] = None,
              for r in within} if profile.prose else None)
 
     content = terms(question)
+    # The lexical ownership reader cannot prove a negated proposition.
+    # Unsupported polarity must abstain rather than retrieve a positive page.
+    negative = bool(re.search(r"(?<!\w)(?:not|never|without)(?!\w)|n['’]t\b",
+                              question, re.I))
+    # Explicit quantities (especially cone 04 vs cone 6) are exact constraints;
+    # majority word overlap is not evidence that two settings are interchangeable.
+    numbers = set(re.findall(r"(?<!\w)\d+(?:\.\d+)?(?!\w)", question))
+    numeric_mismatch = set()
+    if numbers:
+        for r in within:
+            declared_numbers = set(re.findall(
+                r"(?<!\w)\d+(?:\.\d+)?(?!\w)",
+                r.scope + " " + r.when_to_use))
+            if not numbers <= declared_numbers:
+                numeric_mismatch.add(r.path)
+        declared = {k: v for k, v in declared.items() if k not in numeric_mismatch}
+        if full is not None:
+            full = {k: v for k, v in full.items() if k not in numeric_mismatch}
     barred: Dict[str, Set[str]] = {}
     if profile.not_for:
         for r in servable:
-            hit = not_for_terms(r) & content
+            danger = bool(re.search(r"\b(?:burn|injur\w*|wound|harm)\b", question, re.I))
+            exclusion_query = content | (
+                {"serious"} if danger and {"sever","critical"} & content else set()
+            )
+            hit = not_for_terms(r) & exclusion_query
             if hit:
                 barred[r.path] = hit
         declared = {k: v for k, v in declared.items() if k not in barred}
@@ -253,7 +276,7 @@ def answer(root, question: str, profile: Optional[Profile] = None,
         over = [r for r in over if r.path not in barred]
     seen = set().union(*(full or declared).values()) if (full or declared) else set()
     said: Dict[str, str] = {}               # stem -> the word as it was asked
-    for w in re.findall(r"[a-z0-9]+", re.sub(r"['\u2019]s\b", "", question.lower())):
+    for w in re.findall(r"[^\W_]+", re.sub(r"['\u2019]s\b", "", question.casefold()), re.UNICODE):
         said.setdefault(stem(w), w)
     out = Answer(
         kind=NOT_IN_CORPUS, question=question, profile=profile, root=str(ledger.root),
@@ -274,8 +297,23 @@ def answer(root, question: str, profile: Optional[Profile] = None,
     if not content:
         out.reason = "the question has no content words"
         return out
-
     kind, keys, step = decide(content, declared, full)
+    # Preserve an explicitly declared troubleshooting topic such as
+    # "kiln not reaching temperature"; do not infer negation from overlap.
+    if negative and kind != NOT_IN_CORPUS:
+        phrases = re.findall(r"\b(?:not|never|without)\s+[^\W_]+",
+                             question.casefold(), re.UNICODE)
+        interrogation = re.match(
+            r"^\s*(?:is|are|can|could|should|does|do|did|why|how|what|"
+            r"when|where|who|will|would|was|were)\b", question, re.I)
+        if (interrogation or not phrases or not all(
+                all(phrase in (by_path[key].scope + " " +
+                               by_path[key].when_to_use).casefold()
+                    for phrase in phrases)
+                for key in keys)):
+            out.reason = ("Negated claim not established by explicit source "
+                          "topic; use a supported statement.")
+            return out
     out.kind, out.matched_on = kind, step
     sets = declared if step == "scope" else (full or declared)
     out.candidates = [(by_path[k], sorted(said.get(t, t) for t in sets[k] & content))

@@ -116,7 +116,9 @@ def supported_answer(root, question, profile=None):
         by_path = {r.path: r for r in ledger.servable()}
         checks = [(by_path[s['path']], LE.statement_support(literal, by_path[s['path']]))
                   for s in bundle.sources]
-        out.candidates = [(rec, []) for rec, check in checks]
+        # Candidate diagnostics stay in answer_support.candidate_checks.
+        # Unrelated pages with zero matched answer spans are not answer owners.
+        out.candidates = []
         out.support['candidate_checks'] = [dict(id=rec.id, hash=rec.hash,
                                                status=check['status'], spans=check['spans'])
                                            for rec, check in checks]
@@ -160,7 +162,8 @@ def supported_answer(root, question, profile=None):
     by_path = {r.path:r for r in ledger.servable()}
     checks = [(by_path[s['path']], statement_support(question, by_path[s['path']]))
               for s in gate.sources]
-    out.candidates = [(rec, []) for rec, check in checks]
+    # Keep lexical inspection separate from verified answer evidence.
+    out.candidates = []
     out.support['candidate_checks'] = [dict(id=rec.id, path=rec.path, hash=rec.hash,
                                           status=check['status'], spans=check['spans'])
                                        for rec,check in checks]

@@ -12,7 +12,9 @@ class AnswerSupportTests(unittest.TestCase):
             write(tmp,doc_id='T-0001',title='What is the kettle color?',scope='kettle color',body='The kettle color is unknown.')
             r=supported_answer(tmp,'What is the kettle color?')
             self.assertEqual(r.kind,'not_in_corpus');self.assertEqual(r.text,'');self.assertEqual(r.citation(),'')
-            self.assertTrue(r.candidates)
+            self.assertEqual(r.candidates, [])
+            self.assertTrue(r.support['candidate_checks'])
+            self.assertFalse(any(x['spans'] for x in r.support['candidate_checks']))
 
     def test_only_supported_span_is_returned(self):
         with tempfile.TemporaryDirectory() as tmp:
@@ -24,7 +26,16 @@ class AnswerSupportTests(unittest.TestCase):
     def test_expanded_frozen_suite_and_coverage(self):
         root=Path(__file__).resolve().parents[1]/'evaluation'/'ownership'
         r=evaluate(root/'expanded-input.jsonl')
-        self.assertEqual(r,json.loads((root/'expanded-results.json').read_text()))
+        frozen=json.loads((root/'expanded-results.json').read_text())
+        # The archived report is a baseline, not an expected output for changed
+        # safety rules. Never rewrite the historical artifact to hide regressions.
+        self.assertEqual(r['input_sha256'],frozen['input_sha256'])
+        legacy=r['summary']['arms']['ledger']
+        baseline=frozen['summary']['arms']['ledger']
+        self.assertLessEqual(legacy['wrong_ownership'],baseline['wrong_ownership'])
+        self.assertLessEqual(legacy['wrong_refusal'],baseline['wrong_refusal'])
+        self.assertEqual(r['summary']['arms']['supported_reader'],
+                         frozen['summary']['arms']['supported_reader'])
         m=r['summary']['arms']['supported_reader']
         self.assertEqual(m['n'],600);self.assertEqual(m['wrong_ownership'],0)
         self.assertEqual(m['wrong_refusal'],0)

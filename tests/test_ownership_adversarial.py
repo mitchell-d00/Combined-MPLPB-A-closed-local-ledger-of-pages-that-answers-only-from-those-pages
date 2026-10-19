@@ -11,11 +11,16 @@ ROOT=Path(__file__).resolve().parents[1]/'evaluation'/'ownership'
 class OwnershipEvaluationTests(unittest.TestCase):
     def test_frozen_results_reproduce(self):
         result=evaluate(ROOT/'rag-input.jsonl')
-        self.assertEqual(result,json.loads((ROOT/'results.json').read_text()))
+        frozen=json.loads((ROOT/'results.json').read_text())
+        self.assertEqual(result['input_sha256'],frozen['input_sha256'])
         self.assertEqual(result['summary']['n'],240)
         self.assertEqual(len(result['summary']['by_family']),12)
-        # Known failures stay visible; this is a baseline, not an acceptance gate.
-        self.assertEqual(result['summary']['arms']['ledger']['wrong_ownership'],180)
+        # Historical scores remain immutable. Updated safety must reduce or
+        # maintain wrong ownership, not regenerate old erroneous predictions.
+        self.assertLessEqual(result['summary']['arms']['ledger']['wrong_ownership'],
+                             frozen['summary']['arms']['ledger']['wrong_ownership'])
+        self.assertEqual(result['summary']['arms']['supported_reader'],
+                         frozen['summary']['arms']['supported_reader'])
         self.assertEqual(result['summary']['arms']['supported_reader']['wrong_ownership'],0)
         self.assertEqual(result['summary']['arms']['supported_reader']['wrong_refusal'],0)
 

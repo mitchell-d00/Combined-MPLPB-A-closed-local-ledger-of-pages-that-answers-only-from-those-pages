@@ -1,0 +1,120 @@
+"""Chromium end-to-end smoke for the existing live site and a candidate build.
+
+Runs actual JavaScript / Pyodide from the GitHub Pages origin and from the
+locally served preview. It never writes to the published site or any shared
+browser profile. Each run uses a fresh, isolated browser context.
+"""
+import argparse
+from contextlib import contextmanager
+from functools import partial
+from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
+from pathlib import Path
+from threading import Thread
+
+from playwright.sync_api import sync_playwright
+
+
+@contextmanager
+def preview_server(directory):
+    handler = partial(SimpleHTTPRequestHandler, directory=str(Path(directory).resolve()))
+    server = ThreadingHTTPServer(("127.0.0.1", 0), handler)
+    worker = Thread(target=server.serve_forever, daemon=True)
+    worker.start()
+    try:
+        yield "http://127.0.0.1:%s/" % server.server_port
+    finally:
+        server.shutdown()
+        server.server_close()
+        worker.join(timeout=5)
+
+
+def verify(page, url, updated):
+    errors = []
+    page.on("pageerror", lambda exc: errors.append(str(exc)))
+    print("BROWSER LOAD", "candidate-preview" if updated else "published-live", url, flush=True)
+    page.goto(url, wait_until="domcontentloaded", timeout=120000)
+    page.wait_for_function(
+        "() => document.querySelector('#workspace') && "
+        "!document.querySelector('#workspace').hidden",
+        timeout=150000)
+    assert page.locator("#corpus option").count() >= 3, "corpus picker not populated"
+    assert page.evaluate("() => typeof window.MPLPB === 'object'"), "public API not initialized"
+
+    page.locator("[data-view='ask']").first.click()
+    page.locator("#corpus").select_option("studio")
+    page.locator("#question").fill("What is the glaze firing schedule to cone 04?")
+    if updated:
+        page.locator("#ask-reader-mode").select_option("supported")
+    page.locator("#ask-button").click()
+    page.locator("#results .outcome").wait_for(timeout=60000)
+    outcome = page.locator("#results .outcome").inner_text()
+    assert outcome != "SUPPORTED ANSWER", "unsafe cone 04 answer in strict mode"
+    print("BROWSER STRICT:", outcome, flush=True)
+
+    if updated:
+        page.locator("#ask-reader-mode").select_option("candidates")
+        page.locator("#question").fill(
+            "What is the glaze firing schedule for cone 6?")
+        page.locator("#ask-button").click()
+        page.locator("#results .outcome").wait_for(timeout=60000)
+        inspection = page.locator("#results .outcome").inner_text()
+        assert inspection != "SUPPORTED ANSWER", "inspection mislabeled as answer"
+        assert page.locator("#query-status").inner_text().lower().find(
+            "candidate inspection only") >= 0
+        print("BROWSER INSPECT:", inspection, flush=True)
+
+        # These bundled examples must open source inspection, not pretend that
+        # an unsupported answer is warranted by the finite statement grammar.
+        page.locator("#ask-reader-mode").select_option("supported")
+        page.locator("#samples [data-sample]").first.click()
+        page.wait_for_function(
+            "() => document.querySelector('#ask-reader-mode')?.value === 'candidates'",
+            timeout=10000)
+        page.locator("#results .outcome").wait_for(timeout=60000)
+        print("BROWSER SAMPLE: candidate inspection selected", flush=True)
+
+    page.locator("[data-view='chat']").first.click()
+    assert page.locator("#chat-mode-chat").count() == 1
+    assert page.locator("#chat-mode-serious").count() == 1
+    assert page.locator("#chat-scope").count() == 1
+    page.locator("[data-view='explore']").first.click()
+    assert page.locator("#page-map").count() == 1
+    assert not errors, "Browser JavaScript errors: " + repr(errors)
+    print("BROWSER PASS", "candidate-preview" if updated else "published-live",
+          flush=True)
+
+
+def main():
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--live-url", required=True)
+    parser.add_argument("--preview-dir", help="Built candidate dist/ directory; omit for deployed-live-only checks")
+    parser.add_argument("--live-updated", action="store_true",
+                        help="Expect the proposed features on the newly deployed public site")
+    args = parser.parse_args()
+    with sync_playwright() as playwright:
+        try:
+            browser = playwright.chromium.launch(channel="chrome", headless=True,
+                                                  args=["--no-sandbox", "--disable-dev-shm-usage"])
+        except Exception:
+            browser = playwright.chromium.launch(headless=True,
+                                                  args=["--no-sandbox", "--disable-dev-shm-usage"])
+        try:
+            for url, updated in ((args.live_url, args.live_updated),):
+                context = browser.new_context(ignore_https_errors=False)
+                try:
+                    verify(context.new_page(), url, updated)
+                finally:
+                    context.close()
+            if args.preview_dir:
+                with preview_server(args.preview_dir) as url:
+                    context = browser.new_context(ignore_https_errors=False)
+                    try:
+                        verify(context.new_page(), url, True)
+                    finally:
+                        context.close()
+        finally:
+            browser.close()
+
+
+if __name__ == "__main__":
+    main()

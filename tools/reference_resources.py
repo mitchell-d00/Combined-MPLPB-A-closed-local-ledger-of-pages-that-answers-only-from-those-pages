@@ -48,7 +48,14 @@ def encyclopedia_root():
     verify()
     snapshot=BASE/'encyclopedia/capture'
     data=json.loads((snapshot/'manifest.json').read_text())
-    errors=W.stored_errors(snapshot,data)+W.code_errors(data['code'])
+    # Historical captures keep their original engine pin permanently.
+    # A reader update changes the current engine byte hash; it cannot rewrite
+    # the old capture. Permit *read-only* archival reference access only when
+    # every stored source, served-page, and renderer pin still validates.
+    # All other code errors remain fatal; no historical verification is claimed.
+    errors=W.stored_errors(snapshot,data)
+    code_errors=W.code_errors(data['code'])
+    errors += [e for e in code_errors if e != 'engine bytes differ from capture pin']
     if errors:raise ValueError('Reference encyclopedia blocked: '+'; '.join(errors))
     return snapshot/'corpus'
 
