@@ -81,9 +81,17 @@ class _Head(HTMLParser):
         super().__init__(convert_charrefs=True)
         self.meta: Dict[str, str] = {}
         self.title = ""
+        self._in_head = False
         self._in_title = False
+        self.duplicates: List[str] = []
 
     def handle_starttag(self, tag, attrs):
+        if tag == "head":
+            self._in_head = True
+            return
+        # A body SVG <title> and body <meta> never alter the sealed header.
+        if not self._in_head:
+            return
         if tag == "title":
             self._in_title = True
         elif tag == "meta":
@@ -92,11 +100,16 @@ class _Head(HTMLParser):
             if name.startswith(PREFIX):
                 key = norm_name(name[len(PREFIX):])
                 value = (a.get("content") or "").strip()
-                if value or key not in self.meta:
+                if key in self.meta:
+                    self.duplicates.append(key)
+                else:
                     self.meta[key] = value
 
     def handle_endtag(self, tag):
-        if tag == "title":
+        if tag == "head":
+            self._in_head = False
+            self._in_title = False
+        elif tag == "title":
             self._in_title = False
 
     def handle_data(self, data):
@@ -246,6 +259,8 @@ def parse_page(text: str, relpath: str) -> Record:
     return Record(
         path=relpath, fields=fields, title=head.title.strip(), body_html=body,
         hash_actual=compute_hash(fields, head.title, body), text=text_of(body),
+        problems=[("duplicate metadata", "mplpb:" + key)
+                  for key in head.duplicates],
     )
 
 
@@ -289,6 +304,9 @@ def upsert_meta(text: str, name: str, content: str) -> str:
     """Set one mplpb: field in a page's head and touch nothing else."""
     tag = f'<meta name="{PREFIX}{name}" content="{html.escape(content, quote=True)}">'
     pat = _meta_tag(name)
+    # Never silently update just one of several conflicting metadata tags.
+    if len(pat.findall(text)) > 1:
+        raise ValueError("duplicate mplpb:" + name + "; repair the page header first")
     if pat.search(text):
         return pat.sub(lambda _m: tag, text, count=1)
     m = re.search(r"</head\s*>", text, re.I)
