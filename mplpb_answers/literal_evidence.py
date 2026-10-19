@@ -42,7 +42,7 @@ def parse(question):
         ("country_location", r"in what country is (.+?) located"),
         ("country_location", r"what country is (.+?) in"),
         ("merger_company", r"what company was formed by the merger of (.+?) and (.+)"),
-        # Two bounded paraphrases: the answer must still be found in the body.
+        # Three bounded request forms: the answer must still be found in the body.
         ("classification_branch", r"what branch of (.+?) deals with (?:broadly )?classifying (.+?) by difficulty and class of relationship"),
         ("population_center", r"where was (.+?)'s (.+?) population (?:largely|mainly) centered"),
         ("law_definition", r"what is (.+?) law"),
