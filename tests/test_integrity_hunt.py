@@ -120,5 +120,15 @@ class RetrievalSafetyHunt(unittest.TestCase):
                       ("candidate_only", "ambiguous", "not_in_corpus"))
 
 
+class AskInterfaceHunt(unittest.TestCase):
+    def test_inspect_and_strict_are_distinct_in_shipped_ui(self):
+        html = (Path(__file__).resolve().parents[1] / "index.html").read_text()
+        self.assertIn('id="ask-reader-mode"', html)
+        self.assertIn('mode:$(' + "'ask-reader-mode').value", html)
+        self.assertIn("visibleSources", html)
+        self.assertIn("Candidate pages", html)
+        self.assertIn("Strict mode found no verified answer", html)
+
+
 if __name__ == "__main__":
     unittest.main()
