@@ -14,7 +14,7 @@ _UNSAFE_QUESTION = re.compile(
     r"\b(?:not|never|before|after|during|unless|if|possibly|maybe|"
     r"currently|formerly|now|supposedly|allegedly)\b")
 _UNSAFE_EVIDENCE = re.compile(
-    r"\b(?:never|perhaps|possibly|allegedly|reportedly|"
+    r"\b(?:not|never|if|unless|perhaps|possibly|allegedly|reportedly|"
     r"supposedly|unknown|unrecorded)\b")
 _DECOY = re.compile(r"^(?:say|write|claim|imagine|suppose|assume|pretend|if)\b")
 
