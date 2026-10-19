@@ -59,6 +59,17 @@ class TestPageFormat(unittest.TestCase):
         self.assertEqual(out.count("mplpb:origin"), 1)
         self.assertEqual(parse_page(out, "a.html").depth_declared, 5)
 
+    def test_legacy_taught_from_alias_is_updated_not_duplicated(self):
+        page = ('<html><head><title>A</title>'
+                '<meta name="mplpb:taught_from" content="OLD-1">'
+                '</head><body><p>content</p></body></html>')
+        updated = upsert_meta(page, "derived-from", "NEW-1")
+        rec = parse_page(updated, "test.html")
+        self.assertFalse(rec.problems)
+        self.assertEqual(rec.fields["derived-from"], "NEW-1")
+        self.assertEqual(updated.count("mplpb:derived-from"), 1)
+        self.assertEqual(updated.count("mplpb:taught_from"), 0)
+
     def test_special_characters_survive_the_round_trip(self):
         f = self.fields(scope='Quotes "and" <angles> & ampersands')
         rec = parse_page(render_page(f, "A < B & C", "<p>x</p>"), "x.html")
