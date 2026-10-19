@@ -95,8 +95,15 @@ def selected(root, profile, context):
 def excerpt(root, profile, pin):
     selected(root, profile, pin)
     record = next(r for r in C.eligible(root, profile) if r.path == pin['path'])
-    paragraphs = [p.strip() for p in text_of(record.body_html).splitlines() if p.strip()]
-    # Verbatim source fragments, bounded; never assemble new factual sentences.
+    from tools import source_preview as PV
+    paragraphs = [p for p in PV.readable_lines(text_of(record.body_html))
+                  if p.casefold() != pin['title'].casefold()
+                  and not re.match(r'^(?:Source(?: capture| authorship)?|License):', p, re.I)]
+    if not paragraphs:
+        raise ValueError('The selected source has no readable prose preview. '
+                         'Use Show source to inspect the original pinned page; '
+                         'navigation markup is not evidence.')
+    # Verbatim readable source fragments, bounded; never invent or alter facts.
     return '\n\n'.join(paragraphs[:3])[:1600]
 
 def handle(root, profile, message, context, memory):
@@ -131,7 +138,10 @@ def handle(root, profile, message, context, memory):
             pin = selected(root, profile, context) if title.casefold() in {'it', 'this topic', 'that topic'} else C.context_for(root, title, profile)
             return reply('summary', excerpt(root, profile, pin), pin, 'QUOTE-1', [pin], extractive=True)
         except ValueError as exc:
-            return reply('clarify', str(exc), None, 'QUOTE-1')
+            # Only unreadable *presentation* retains an already revalidated
+            # page selection; stale or withheld source pins still clear it.
+            keep = context if 'no readable prose preview' in str(exc) else None
+            return reply('clarify', str(exc), keep, 'QUOTE-1')
     comparison = re.fullmatch(r'compare (.{1,160}?) vs (.{1,160})', message.strip().rstrip('?.!'), re.I)
     if comparison:
         try:
