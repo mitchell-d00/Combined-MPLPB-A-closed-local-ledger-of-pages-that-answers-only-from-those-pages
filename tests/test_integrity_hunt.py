@@ -54,6 +54,18 @@ class LedgerIntegrityHunt(unittest.TestCase):
         with self.assertRaises(ValueError):
             L.withdraw(self.root, rec.id)
 
+    def test_seal_refuses_unhashed_duplicate_status_metadata(self):
+        p = self.root / "legacy.html"
+        p.write_text('<html><head><title>Legacy</title>'
+                     '<meta name="mplpb:document-id" content="LEG-1">'
+                     '<meta name="mplpb:scope" content="legacy policy">'
+                     '<meta name="mplpb:status" content="current">'
+                     '<meta name="mplpb:status" content="current">'
+                     '</head><body><p>Deprecated.</p></body></html>')
+        self.assertEqual(L.seal(self.root), [])
+        self.assertIn("C17", [v.code for v in L.Ledger(self.root).findings()])
+        self.assertNotEqual(R.answer(self.root, "legacy policy").kind, R.RETURN)
+
     def test_body_svg_title_and_meta_cannot_change_header(self):
         rec = L.write(self.root, title="Kiln wiring", scope="kiln wiring diagram",
                       body_html=('<p>See diagram.</p><svg><title>Do not touch</title>'
