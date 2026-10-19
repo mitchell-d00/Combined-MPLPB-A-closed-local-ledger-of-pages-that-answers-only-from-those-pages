@@ -304,12 +304,15 @@ def upsert_meta(text: str, name: str, content: str) -> str:
     """Set one mplpb: field in a page's head and touch nothing else."""
     tag = f'<meta name="{PREFIX}{name}" content="{html.escape(content, quote=True)}">'
     pat = _meta_tag(name)
-    # Never silently update just one of several conflicting metadata tags.
-    if len(pat.findall(text)) > 1:
+    opened = re.search(r"<head\b[^>]*>", text, re.I)
+    closed = re.search(r"</head\s*>", text, re.I)
+    if not opened or not closed or opened.end() > closed.start():
+        raise ValueError("page has no complete head; cannot record a field in it")
+    head = text[opened.end():closed.start()]
+    # Only inspect the real head. An HTML body may have stray metadata markup.
+    if len(pat.findall(head)) > 1:
         raise ValueError("duplicate mplpb:" + name + "; repair the page header first")
-    if pat.search(text):
-        return pat.sub(lambda _m: tag, text, count=1)
-    m = re.search(r"</head\s*>", text, re.I)
-    if not m:
-        raise ValueError("page has no </head>; cannot record a field in it")
-    return text[: m.start()] + tag + "\n" + text[m.start():]
+    if pat.search(head):
+        head = pat.sub(lambda _m: tag, head, count=1)
+        return text[:opened.end()] + head + text[closed.start():]
+    return text[:closed.start()] + tag + "\n" + text[closed.start():]
