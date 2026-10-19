@@ -79,6 +79,9 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
+      # Each GitHub Actions job has a fresh filesystem. Without checkout the
+      # post-deploy job cannot find tools/browser_release_smoke.py.
+      - uses: actions/checkout@v4
       - uses: actions/configure-pages@v5
       - name: Deploy browser runtime
         id: deployment

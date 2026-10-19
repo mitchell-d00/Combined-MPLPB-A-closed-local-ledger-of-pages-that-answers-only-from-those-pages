@@ -67,6 +67,8 @@ The harness prints `BROWSER PASS published-live` and `BROWSER PASS candidate-pre
 
 Wait for `Publish MPLPB browser runtime` to finish its GitHub Pages deployment, then check the **newly live** site itself:
 
+**GitHub Actions detail:** The `build` and `deploy` jobs are separate, isolated runners. A deploy job that invokes `tools/browser_release_smoke.py` must first run `actions/checkout@v4` in that **deploy** job, even when the earlier build job already checked out the repository. Otherwise Python fails with `No such file or directory`; repeating the browser check cannot fix a missing checkout. The published Pages artifact may still deploy successfully while the workflow correctly reports a failing final browser gate.
+
 ```sh
 python tools/browser_release_smoke.py \
   --live-url https://mitchell-d00.github.io/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/ \
