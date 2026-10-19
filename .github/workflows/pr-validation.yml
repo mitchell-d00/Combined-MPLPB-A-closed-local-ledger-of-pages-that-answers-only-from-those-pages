@@ -19,8 +19,8 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '24'
-      - name: Test literal evidence and prior answer rules
-        run: python -m unittest tests.test_literal_evidence tests.test_answer_reliability tests.test_answer_support -q
+      - name: Test integrity regressions and evidence rules
+        run: python -m unittest tests.test_integrity_hunt tests.test_record tests.test_ledger tests.test_literal_evidence tests.test_answer_reliability tests.test_answer_support -q
       - name: Run full Python regression suite
         run: python -m unittest discover -s tests -q
       - name: Audit JavaScript, crawler and browser transport
