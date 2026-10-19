@@ -2,6 +2,8 @@
 
 # Combined MPLPB
 
+> **AI agents / browser QA:** Use the [reproducible browser-testing runbook](docs/BROWSER_TESTING_FOR_AGENTS.md) and [Chromium smoke harness](tools/browser_release_smoke.py) to test the **real published GitHub Pages app** separately from a proposed Pyodide/WebAssembly build. PR validation also exercises the browser, not just Python unit tests. Never claim the live deployment passed based only on a local source test.
+
 A closed local ledger of pages that answers only from those pages.
 
 Each page carries its own id, scope, status, hash, parent and depth. The reader reads the
