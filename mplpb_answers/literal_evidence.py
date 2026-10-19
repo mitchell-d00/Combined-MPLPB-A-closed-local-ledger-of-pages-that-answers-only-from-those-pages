@@ -127,9 +127,9 @@ def statement_support(frame, record):
         line = normalize(raw)
         if not line or _DECOY.search(line) or _UNSAFE_EVIDENCE.search(line):
             continue
-        # Quoted and hypothetical answers remain untrusted.
-        if any(char in raw for char in ('"', '“', '”')):
-            continue
+        # Remove quoted words from the matching surface, rather than rejecting
+        # an otherwise explicit statement that mentions a quotation elsewhere.
+        line = re.sub(r'"[^"]*"|“[^”]*”', ' [quoted] ', line)
         for value in _extract(frame, line):
             spans.append({"quote": raw, "value": value})
     distinct = {item["value"] for item in spans}
