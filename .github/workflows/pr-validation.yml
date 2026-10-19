@@ -45,3 +45,12 @@ jobs:
         run: |
           tar -xjf "$RUNNER_TEMP/pyodide-core.tar.bz2" -C "$RUNNER_TEMP"
           node tools/check_browser_wasm.mjs "$RUNNER_TEMP/pyodide" dist/index.html
+      - name: Prepare Chromium smoke-test dependencies
+        run: |
+          python -m pip install "playwright==1.58.0"
+      - name: Test published site and proposed WebAssembly UI in Chromium
+        run: >-
+          python tools/browser_release_smoke.py
+          --live-url
+          https://mitchell-d00.github.io/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/
+          --preview-dir dist
