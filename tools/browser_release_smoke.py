@@ -11,7 +11,7 @@ from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 from threading import Thread
 
-from playwright.sync_api import sync_playwright, TimeoutError as BrowserTimeout
+from playwright.sync_api import sync_playwright
 
 
 @contextmanager
@@ -87,7 +87,9 @@ def verify(page, url, updated):
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--live-url", required=True)
-    parser.add_argument("--preview-dir", required=True)
+    parser.add_argument("--preview-dir", help="Built candidate dist/ directory; omit for deployed-live-only checks")
+    parser.add_argument("--live-updated", action="store_true",
+                        help="Expect the proposed features on the newly deployed public site")
     args = parser.parse_args()
     with sync_playwright() as playwright:
         try:
@@ -97,18 +99,19 @@ def main():
             browser = playwright.chromium.launch(headless=True,
                                                   args=["--no-sandbox", "--disable-dev-shm-usage"])
         try:
-            for url, updated in ((args.live_url, False),):
+            for url, updated in ((args.live_url, args.live_updated),):
                 context = browser.new_context(ignore_https_errors=False)
                 try:
                     verify(context.new_page(), url, updated)
                 finally:
                     context.close()
-            with preview_server(args.preview_dir) as url:
-                context = browser.new_context(ignore_https_errors=False)
-                try:
-                    verify(context.new_page(), url, True)
-                finally:
-                    context.close()
+            if args.preview_dir:
+                with preview_server(args.preview_dir) as url:
+                    context = browser.new_context(ignore_https_errors=False)
+                    try:
+                        verify(context.new_page(), url, True)
+                    finally:
+                        context.close()
         finally:
             browser.close()
 
