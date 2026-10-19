@@ -136,6 +136,56 @@ class ChatEnvironmentTests(unittest.TestCase):
         self.assertIn('10 km',r['message']);self.assertIn('20 km',r['message'])
         self.assertEqual({s['corpus'] for s in r['sources']},{self.a,self.b})
 
+    def test_exact_page_title_selects_new_mplpb_in_serious_mode(self):
+        created=self.app.create_collection({'name':'Belief topics'})['corpus']
+        for title in ('God', 'Christianity', 'Judaism', 'Islam'):
+            self.app.import_source({'corpus':created,'title':title,
+                                    'url':'https://example.org/'+title.lower(),
+                                    'text':title+' is a distinct example topic.'})
+        sid=self.chat('load MPLPB',loaded_corpora=[created])['session']
+        selected=self.chat('Islam',sid)['response']
+        self.assertEqual(selected['kind'],'topic')
+        self.assertEqual(selected['context']['title'],'Islam')
+        self.assertEqual(selected['source_corpus'],created)
+        result=self.chat('summarize it',sid)['response']
+        self.assertEqual(result['kind'],'summary')
+        self.assertIn('Islam is a distinct example topic',result['message'])
+        self.assertNotIn('Judaism is',result['message'])
+        self.assertEqual({p['corpus'] for p in result['sources']},{created})
+        lex=self.chat('define serendipity',sid)['response']
+        self.assertEqual(lex['authority'],'lexical_reference')
+        self.assertEqual(lex['environment']['corpora'],[created])
+
+    def test_loose_chat_uses_saved_title_without_loading_corpus(self):
+        sid=self.chat('chat mode')['session']
+        result=self.chat('Moon',sid)['response']
+        self.assertEqual(result['environment']['mode'],'chat')
+        self.assertEqual(result['environment']['corpora'],[])
+        self.assertEqual(result['source_scope'],'saved_reference')
+        self.assertEqual({p['corpus'] for p in result['sources']},{self.a,self.b})
+        # Follow-ups stay in loose mode and preserve collection separation.
+        follow=self.chat('summarize it',sid)['response']
+        self.assertEqual(follow['environment']['mode'],'chat')
+        self.assertEqual(follow['environment']['corpora'],[])
+        self.assertTrue(follow.get('scope_results'))
+        self.assertEqual({p['corpus'] for p in follow['sources']},{self.a,self.b})
+
+    def test_unreadable_crawl_preview_refuses_not_wiki_markup(self):
+        created=self.app.create_collection({'name':'Wikipedia search'})['corpus']
+        self.app.import_source({'corpus':created,'title':'Islam',
+                                'url':'https://example.org/wiki/Islam',
+                                'text':('}} |} | abovestyle = padding:0.5em; '
+                                        'display:block; list1name = religions '
+                                        '| list1title = Religions | list2name = schools '
+                                        '| list2title = Schools')})
+        sid=self.chat('load MPLPB',loaded_corpora=[created])['session']
+        self.assertEqual(self.chat('Islam',sid)['response']['kind'],'topic')
+        result=self.chat('summarize it',sid)['response']
+        self.assertEqual(result['kind'],'clarify')
+        self.assertIn('no readable prose preview',result['message'])
+        self.assertNotIn('list1name',result['message'])
+        self.assertFalse(result.get('extractive',False))
+
     def test_dictionary_topic_conversation_in_both_modes(self):
         for mode in ['chat mode','load MPLPB']:
             sid=self.chat(mode,loaded_corpora=[self.a])['session']
