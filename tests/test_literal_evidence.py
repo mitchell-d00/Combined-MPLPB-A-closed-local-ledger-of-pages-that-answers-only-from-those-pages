@@ -123,7 +123,10 @@ class LiteralEvidenceTests(unittest.TestCase):
         result = run()
         self.assertEqual(result["sample_size"], 20)
         self.assertEqual(result["answerable"], 10)
-        self.assertEqual(result["answered_correctly"], 10)
+        self.assertEqual(result["answered_correctly"], 10,
+                         [(r["question"], r["kind"], r["return_correct"], r["evidence_spans"])
+                          for r in result["rows"] if r["expected"] == "return"
+                          and not r["return_correct"]])
         self.assertEqual(result["unanswerable"], 10)
         self.assertEqual(result["correctly_non_returned"], 10)
         self.assertEqual(result["wrong_returns"], 0)
