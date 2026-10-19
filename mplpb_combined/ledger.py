@@ -81,7 +81,7 @@ class Ledger:
         # Valid, chained retire events are an independent status authority.
         # Trust only an unbroken prefix. A missing/edited log is still not an
         # externally authenticated audit trail.
-        self.logged_retire = _retired_log_keys(self.root)
+        self.logged_retire, self.log_corrupt = _retired_log_keys(self.root)
         # Only a valid successor may retire a predecessor. Broken, unsealed,
         # duplicate or cyclic records have no authority over other records.
         # Valid successors still make a half-finished revision safe to read.
@@ -154,6 +154,9 @@ class Ledger:
         return [r for r in self.records if self._may_serve(r)]
 
     def _may_serve(self, r: Record) -> bool:
+        # An existing but corrupted log cannot authorize serving any page.
+        if self.log_corrupt:
+            return False
         if self.quarantine_reason(r) or self.effective_status(r) != "current":
             return False
         if r.origin not in ORIGINS:
@@ -392,16 +395,18 @@ def _retired_log_keys(root: Path) -> set:
     """Return retire events only when each event has a valid chained prefix."""
     retired = set()
     prev = ""
+    corrupt = False
     for i, entry in enumerate(read_log(root), 1):
         if (not isinstance(entry, dict) or "_unreadable" in entry
                 or entry.get("seq") != i or entry.get("prev", "") != prev
                 or entry.get("entry_hash") != _entry_hash(entry)):
+            corrupt = True
             break
         prev = entry["entry_hash"]
         key = (entry.get("id"), entry.get("hash"), entry.get("path"))
         if entry.get("event") == "retire":
             retired.add(key)
-    return retired
+    return retired, corrupt
 
 
 def verify_log(ledger: Ledger) -> List[Finding]:
