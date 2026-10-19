@@ -117,5 +117,17 @@ class LiteralEvidenceTests(unittest.TestCase):
                              "not_in_corpus")
 
 
+    def test_inspected_squad_development_excerpt(self):
+        # Previously inspected questions, NOT an independent accuracy claim.
+        from tools.evaluate_literal_coverage import run
+        result = run()
+        self.assertEqual(result["sample_size"], 20)
+        self.assertEqual(result["answerable"], 10)
+        self.assertEqual(result["answered_correctly"], 10)
+        self.assertEqual(result["unanswerable"], 10)
+        self.assertEqual(result["correctly_non_returned"], 10)
+        self.assertEqual(result["wrong_returns"], 0)
+
+
 if __name__ == "__main__":
     unittest.main()
