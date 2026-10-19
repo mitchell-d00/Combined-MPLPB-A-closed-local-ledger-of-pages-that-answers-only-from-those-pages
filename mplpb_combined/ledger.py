@@ -687,7 +687,9 @@ def seal(root, *, when: Optional[str] = None) -> List[str]:
         final = False
         while True:
             ledger = Ledger(root)
-            todo = [r for r in ledger.records if r.kind != "index" and not r.hash]
+            # Never seal a malformed header or bless a conflicting duplicate.
+            todo = [r for r in ledger.records if r.kind != "index"
+                    and not r.hash and not r.problems]
             if not todo:
                 break
             progressed = False
