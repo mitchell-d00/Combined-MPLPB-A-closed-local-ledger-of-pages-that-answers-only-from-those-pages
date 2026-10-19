@@ -297,11 +297,23 @@ def answer(root, question: str, profile: Optional[Profile] = None,
     if not content:
         out.reason = "the question has no content words"
         return out
-    if negative:
-        out.reason = "negation is not supported by the lexical ownership rule; use a supported source statement"
-        return out
-
     kind, keys, step = decide(content, declared, full)
+    # Preserve an explicitly declared troubleshooting topic such as
+    # "kiln not reaching temperature"; do not infer negation from overlap.
+    if negative and kind != NOT_IN_CORPUS:
+        phrases = re.findall(r"\b(?:not|never|without)\s+[^\W_]+",
+                             question.casefold(), re.UNICODE)
+        interrogation = re.match(
+            r"^\s*(?:is|are|can|could|should|does|do|did|why|how|what|"
+            r"when|where|who|will|would|was|were)\b", question, re.I)
+        if (interrogation or not phrases or not all(
+                all(phrase in (by_path[key].scope + " " +
+                               by_path[key].when_to_use).casefold()
+                    for phrase in phrases)
+                for key in keys)):
+            out.reason = ("Negated claim not established by explicit source "
+                          "topic; use a supported statement.")
+            return out
     out.kind, out.matched_on = kind, step
     sets = declared if step == "scope" else (full or declared)
     out.candidates = [(by_path[k], sorted(said.get(t, t) for t in sets[k] & content))
