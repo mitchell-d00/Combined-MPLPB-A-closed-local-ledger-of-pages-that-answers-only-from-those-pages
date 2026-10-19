@@ -333,7 +333,11 @@ def handle(app, data, session, message, corpus, profile):
         # Bare saved-page names work as conversational topics in loose Chat.
         # No corpus is silently loaded and duplicate names remain separately pinned.
         if (len(message) <= 160
+                and len(key.split()) <= 8
                 and re.fullmatch(r"[a-z0-9][a-z0-9 &()'.,/-]*", key)
+                # Conversation fragments are never page-title lookups.
+                and not re.search(r"\b(?:i|me|my|we|us|you|your|so|well|yes|"
+                                  r"no|not|dont|arnt|because|okay|ok)\b", key)
                 and not re.match(
                     r"^(?:what|who|where|when|why|how|can|could|would|please|"
                     r"tell|show|load|switch|search|find|import|define|dictionary|"
