@@ -265,7 +265,7 @@ def answer(root, question: str, profile: Optional[Profile] = None,
         for r in servable:
             danger = bool(re.search(r"\b(?:burn|injur\w*|wound|harm)\b", question, re.I))
             exclusion_query = content | (
-                {"serious"} if danger and {"severe","critical"} & content else set()
+                {"serious"} if danger and {"sever","critical"} & content else set()
             )
             hit = not_for_terms(r) & exclusion_query
             if hit:
