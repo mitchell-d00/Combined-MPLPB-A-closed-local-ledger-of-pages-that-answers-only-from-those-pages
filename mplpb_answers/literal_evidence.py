@@ -104,10 +104,10 @@ def _extract(frame, line):
     elif frame.relation == "population_center":
         # The question's population and country are checked separately.
         # A nearby location with the wrong group/country must never answer.
-        country = re.escape(frame.other)
+        group = re.escape(frame.other)
         patterns = (
-            rf"\b{entity} (?:numbers|population)\b.*?\bconcentrated "
-            rf"(?:mainly|largely) in (?P<value>the [a-z ]+? parts of {country})"
+            rf"\b{group} (?:numbers|population)\b.*?\bconcentrated "
+            rf"(?:mainly|largely) in (?P<value>the [a-z ]+? parts of {entity})"
             rf"(?=,|\.|$)",
         )
     elif frame.relation == "noncombustion_source":
