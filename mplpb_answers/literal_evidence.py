@@ -45,6 +45,7 @@ def parse(question):
         # Two bounded paraphrases: the answer must still be found in the body.
         ("classification_branch", r"what branch of (.+?) deals with (?:broadly )?classifying (.+?) by difficulty and class of relationship"),
         ("population_center", r"where was (.+?)'s (.+?) population (?:largely|mainly) centered"),
+        ("law_definition", r"what is (.+?) law"),
         ("noncombustion_source", r"along with (.+?) and (.+?), what is a notable non-combustion heat source"),
     )
     for kind, pattern in patterns:
@@ -109,6 +110,14 @@ def _extract(frame, line):
             rf"\b{group} (?:numbers|population)\b.*?\bconcentrated "
             rf"(?:mainly|largely) in (?P<value>the [a-z ]+? parts of {entity})"
             rf"(?=,|\.|$)",
+        )
+    elif frame.relation == "law_definition":
+        # Preserve an explicit legal-definition sentence even when its
+        # example clause contains ordinary "or" alternatives.
+        patterns = (
+            rf"^{entity} law is "
+            rf"(?P<value>a body of treaties and legislation"
+            rf"(?:, such as [^.;]+)?)$",
         )
     elif frame.relation == "noncombustion_source":
         match = re.match(r"^non-combustion heat sources such as (.+?) may be used$", line)
