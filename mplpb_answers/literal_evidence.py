@@ -42,6 +42,10 @@ def parse(question):
         ("country_location", r"in what country is (.+?) located"),
         ("country_location", r"what country is (.+?) in"),
         ("merger_company", r"what company was formed by the merger of (.+?) and (.+)"),
+        # Three bounded request forms: the answer must still be found in the body.
+        ("classification_branch", r"what branch of (.+?) deals with (?:broadly )?classifying (.+?) by difficulty and class of relationship"),
+        ("population_center", r"where was (.+?)'s (.+?) population (?:largely|mainly) centered"),
+        ("law_definition", r"what is (.+?) law"),
         ("noncombustion_source", r"along with (.+?) and (.+?), what is a notable non-combustion heat source"),
     )
     for kind, pattern in patterns:
@@ -87,6 +91,33 @@ def _extract(frame, line):
         patterns = (
             rf"^formed in [a-z0-9 ]+ by the (?:equal )?merger of {entity} and {other}, (?P<value>[a-z0-9-]{{2,30}}) became\b",
             rf"^(?P<value>[a-z0-9-]{{2,30}}) was formed by the merger of {entity} and {other}\b",
+        )
+    elif frame.relation == "classification_branch":
+        # Both the classification and the class-to-class relationship must
+        # appear in one affirmative sentence; topic overlap is not enough.
+        other = re.escape(frame.other)
+        patterns = (
+            rf"^(?P<value>[a-z][a-z ]{{2,100}}) is a branch of "
+            rf"(?:the theory of computation in )?{entity} that focuses on "
+            rf"classifying {other} according to their inherent difficulty, "
+            rf"and relating those classes to each other\b",
+        )
+    elif frame.relation == "population_center":
+        # The question's population and country are checked separately.
+        # A nearby location with the wrong group/country must never answer.
+        group = re.escape(frame.other)
+        patterns = (
+            rf"\b{group} (?:numbers|population)\b.*?\bconcentrated "
+            rf"(?:mainly|largely) in (?P<value>the [a-z ]+? parts of {entity})"
+            rf"(?=,|\.|$)",
+        )
+    elif frame.relation == "law_definition":
+        # Preserve an explicit legal-definition sentence even when its
+        # example clause contains ordinary "or" alternatives.
+        patterns = (
+            rf"^{entity} law is "
+            rf"(?P<value>a body of treaties and legislation"
+            rf"(?:, such as [^.;]+)?)$",
         )
     elif frame.relation == "noncombustion_source":
         match = re.match(r"^non-combustion heat sources such as (.+?) may be used$", line)
