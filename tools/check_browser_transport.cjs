@@ -20,5 +20,7 @@ async function clientTests(){
  const c=vm.createContext({console,Promise,Map,Error,JSON,Blob,URL,Worker,WebAssembly,navigator:{locks:{request:async(name,opts,fn)=>fn({})}},localStorage:{setItem:(k,v)=>storage[k]=v,getItem:k=>storage[k],removeItem:k=>delete storage[k]},document:{getElementById:()=>({textContent:JSON.stringify({worker:'test'})})},$:key=>elements[key],boot:()=>booted=true});
  vm.runInContext(clientCode,c);vm.runInContext('startBrowserRuntime()',c);await vm.runInContext('runtimeReady',c);await Promise.resolve();assert.equal(booted,true);assert.equal(elements.connection.hidden,true);
  const result=await vm.runInContext('browserApi("/api/chat",{body:"{\\"message\\":\\"hi\\"}"})',c);assert.equal(result.ok,true);assert.equal(requests.at(-1).url,'/api/chat');assert.equal(requests.at(-1).payload,'{"message":"hi"}');
+ vm.runInContext('runtimeWorker.onerror({message:"Worker crashed"})',c);
+ await assert.rejects(vm.runInContext('browserApi("/api/state")',c),/Worker crashed/);
 }
 (async()=>{await workerTests();await clientTests();console.log('PASS browser transport: serialized engine calls, save-before-success, conflict retention, quota stop, embedded hash rejection and client RPC. No browser layout/IndexedDB test.');})().catch(error=>{console.error(error);process.exitCode=1;});

@@ -5,6 +5,8 @@ const htmlPath=path.resolve(process.argv[3]||'dist/MPLPB_Browser.html');
 if(!process.argv[2])throw Error('Usage: node tools/check_browser_wasm.mjs CORE_DIRECTORY [HTML]');
 const {loadPyodide}=await import(pathToFileURL(path.join(core,'pyodide.mjs')));
 import fs from 'node:fs';
+import vm from 'node:vm';
+import assert from 'node:assert/strict';
 const html=fs.readFileSync(htmlPath,'utf8');
 const bundle=JSON.parse(html.match(/<script id="mplpb-runtime-bundle" type="application\/json">([\s\S]*?)<\/script>/)[1]);
 const py=await loadPyodide({indexURL:core+path.sep,enableRunUntilComplete:false});
@@ -13,6 +15,21 @@ for(const [name,encoded] of Object.entries(bundle.files)){
 }
 await py.runPythonAsync("import sys, os\nsys.path.insert(0, '/app')\nos.chdir('/app')\nfrom browser.bridge import call_json");
 async function call(route,data){py.globals.set('_u',route);py.globals.set('_d',data===undefined?'':JSON.stringify(data));return JSON.parse(await py.runPythonAsync('await call_json(_u,_d)'));}
+// Exercise the public facade shipped in the generated file against real WASM.
+const publicCode=html.match(/\/\/ BEGIN MPLPB PUBLIC API[^\n]*\n([\s\S]*?)\/\/ END MPLPB PUBLIC API/)[1];
+const publicContext=vm.createContext({URLSearchParams,api:async(url,options)=>{
+ const result=await call(url,options?.body?JSON.parse(options.body):undefined);
+ if(result._browser_transport_error)throw Error(result._browser_transport_error);
+ return result;
+}});
+vm.runInContext(publicCode,publicContext);
+const publicAPI=publicContext.MPLPB;
+assert.equal((await publicAPI.ready()).ok,true);
+const publicAnswer=await publicAPI.query('What is Dungeons and Dragons?',{corpus:'logic'});
+assert.equal(publicAnswer.ok,true);assert.equal(publicAnswer.data.reader.kind,'return');
+const localRejected=await publicAPI.chat('search Cat',{corpus:'logic'});
+assert.equal(localRejected.ok,false);assert.equal(localRejected.code,'NETWORK_DISABLED');
+console.log('PASS public JavaScript API on real WebAssembly');
 const state=await call('/api/state'); console.log('corpora',state.corpora.map(x=>x.key));
 const ambiguous=await call('/api/query',{corpus:'canned',question:'Phrynomedusa vanzolinii Hyundai Engineering and Construction'});
 if(ambiguous.reader.kind!=='ambiguous')throw Error('wrong name guard');

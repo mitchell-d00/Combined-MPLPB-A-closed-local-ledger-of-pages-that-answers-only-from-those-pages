@@ -1,8 +1,8 @@
 // Embedded worker runtime; transport replaces /api calls, not the MPLPB engine.
 const runtimeBundle=JSON.parse(document.getElementById('mplpb-runtime-bundle').textContent);
-let runtimeWorker,runtimeCounter=0,runtimeReady,runtimeLocked=false;
+let runtimeWorker,runtimeCounter=0,runtimeReady,runtimeLocked=false,runtimeFailure;
 const runtimePending=new Map();
-function runtimeRequest(operation,extra={}){return new Promise((resolve,reject)=>{const id=++runtimeCounter;runtimePending.set(id,{resolve,reject});runtimeWorker.postMessage({id,operation,...extra});});}
+function runtimeRequest(operation,extra={}){return new Promise((resolve,reject)=>{if(runtimeFailure){reject(runtimeFailure);return;}const id=++runtimeCounter;runtimePending.set(id,{resolve,reject});try{runtimeWorker.postMessage({id,operation,...extra});}catch(error){runtimePending.delete(id);reject(error);}});}
 async function browserApi(url,options){await runtimeReady;return runtimeRequest('call',{url,payload:options?.body||''});}
 async function initializeBrowserRuntime(){
  $('connection').hidden=false;$('connection-error').textContent='Starting embedded Python in your browser…';
@@ -14,7 +14,7 @@ async function initializeBrowserRuntime(){
  const workerURL=URL.createObjectURL(new Blob([runtimeBundle.worker],{type:'text/javascript'}));
  runtimeWorker=new Worker(workerURL,{type:'module'});URL.revokeObjectURL(workerURL);
  runtimeWorker.onmessage=e=>{const item=runtimePending.get(e.data.id);if(!item)return;runtimePending.delete(e.data.id);if(e.data.error)item.reject(Error(e.data.error));else item.resolve(e.data.result);};
- runtimeWorker.onerror=e=>{for(const item of runtimePending.values())item.reject(Error(e.message||'Browser runtime failed'));runtimePending.clear();};
+ runtimeWorker.onerror=e=>{runtimeFailure=Error(e.message||'Browser runtime failed');for(const item of runtimePending.values())item.reject(runtimeFailure);runtimePending.clear();};
  await runtimeRequest('initialize',{bundle:runtimeBundle});$('connection').hidden=true;
 }
 function startBrowserRuntime(){runtimeReady=initializeBrowserRuntime();runtimeReady.then(()=>boot()).catch(error=>{$('connection').hidden=false;$('connection-error').textContent=error.message;});}

@@ -64,6 +64,92 @@ function chatText(text,topics=[]){return String(text??'').split('\n').map(line=>
 const samples={canned:['Phrynomedusa vanzolinii Hyundai Engineering and Construction','Phrynomedusa vanzolinii','Hyundai Engineering and Construction'],studio:['how fast should I heat raw clay on its first firing','what is the glaze firing schedule for cone 6','what is the capital of France'],gate:['1974 dungeons and dragons budget'],dogs:['dog','dog breed','dog companion'],wiki:['Cat','Cat Dog','domestic feline','what is a pyrometer']};
 let state,sequence=0,inventorySequence=0,inventory=[],trail=[],pageScope="";
 async function api(url,options){const response=await fetch(url,options),data=await response.json();if(!response.ok)throw Error(data.error||'Request failed');return data;}
+// BEGIN MPLPB PUBLIC API — shared UI transport, unchanged reader decisions.
+globalThis.MPLPB=(()=>{
+ const version='1.0.0';
+ const descriptions={
+  ready:'Wait for the engine and return its available corpora and profiles.',
+  getState:'Read available corpora, profiles and engine notices.',
+  listCorpora:'List local corpora; use their keys in subsequent calls.',
+  query:'Ask the strict reader. Requires {corpus}; optional profile and mode.',
+  listPages:'Inspect page inventory with {corpus, profile?}.',
+  readPage:'Read an eligible page by path with {corpus, profile?}.',
+  getHistory:'Read retained capture history with {corpus}.',
+  chat:'Chat with {corpus, profile?, session?, allowNetwork?, wiki?, autoWiki?}. Local by default; saves turns.',
+  resumeChat:'Read a saved session by ID without changing the visible conversation.',
+  exportChat:'Return a saved transcript and its integrity result as data.',
+  resetChat:'Explicitly reset one session by ID; source pages are retained.',
+  createCollection:'Create a persistent empty collection from a name.',
+  importSource:'Import caller-supplied {corpus,title,url,text}; URL is metadata, never fetched.'
+ };
+ const fail=(message,code='INVALID_ARGUMENT')=>Object.assign(new Error(message),{code});
+ const text=(value,name,max)=>{
+  if(typeof value!=='string'||!value.trim()||value.length>max)throw fail(`${name} must be nonempty text of at most ${max} characters`);
+  return value;
+ };
+ function options(value,allowed){
+  if(!value||typeof value!=='object'||Array.isArray(value))throw fail('Options must be an object');
+  for(const key of Object.keys(value))if(!allowed.includes(key))throw fail('Unknown option: '+key);
+  return value;
+ }
+ function scope(value,extra=[]){
+  const o=options(value,['corpus','profile',...extra]);
+  const result={corpus:text(o.corpus,'corpus',200),profile:o.profile===undefined?'internal':text(o.profile,'profile',40)};
+  return result;
+ }
+ const post=(url,data)=>api(url,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(data)});
+ const get=(url,data)=>api(url+'?'+new URLSearchParams(data));
+ // API calls are ordered even in desktop mode. Snapshot inputs before queueing
+ // so caller mutations cannot change an operation while the runtime starts.
+ let queue=Promise.resolve();
+ function action(prepare){
+  let run;
+  try{run=prepare();}catch(e){return Promise.resolve({ok:false,code:e.code||'INVALID_ARGUMENT',error:e.message});}
+  const result=queue.then(async()=>{
+   try{return {ok:true,data:await run()};}
+   catch(e){return {ok:false,code:e.code||(String(e.message).startsWith('Local-only API:')?'NETWORK_DISABLED':'ENGINE_ERROR'),error:String(e.message||e)};}
+  });
+  queue=result.then(()=>undefined);
+  return result;
+ }
+ const methods={
+  ready:()=>action(()=>()=>api('/api/state')),
+  getState:()=>action(()=>()=>api('/api/state')),
+  listCorpora:()=>action(()=>async()=>(await api('/api/state')).corpora),
+  query:(question,o)=>action(()=>{
+   const data={...scope(o,['mode']),question:text(question,'question',4000)};
+   if(o.mode!==undefined){if(!['supported','candidates'].includes(o.mode))throw fail('mode must be supported or candidates');data.mode=o.mode;}
+   return ()=>post('/api/query',data);
+  }),
+  listPages:o=>action(()=>{const data=scope(o);return ()=>get('/api/inventory',data);}),
+  readPage:(path,o)=>action(()=>{const data={...scope(o),path:text(path,'path',2000)};return ()=>get('/api/page',data);}),
+  getHistory:o=>action(()=>{options(o,['corpus']);const data={corpus:text(o.corpus,'corpus',200)};return ()=>get('/api/history',data);}),
+  chat:(message,o)=>action(()=>{
+   const data={...scope(o,['session','allowNetwork','wiki','autoWiki']),message:text(message,'message',4000)};
+   for(const key of ['allowNetwork','autoWiki'])if(o[key]!==undefined&&typeof o[key]!=='boolean')throw fail(key+' must be boolean');
+   if(o.wiki!==undefined&&!['simple','english'].includes(o.wiki))throw fail('wiki must be simple or english');
+   if(o.autoWiki===true&&o.allowNetwork!==true)throw fail('autoWiki requires allowNetwork:true');
+   if(o.autoWiki===true&&typeof browserApi!=='function')throw fail('autoWiki requires the standalone browser build; desktop supports explicit search/find/import');
+   data.local_only=o.allowNetwork!==true;data.auto_wiki=o.autoWiki===true;data.wiki=o.wiki||'simple';
+   if(o.session!==undefined)data.session=text(o.session,'session',200);
+   return ()=>post('/api/chat',data);
+  }),
+  createCollection:name=>action(()=>{const data={name:text(name,'name',80)};return ()=>post('/api/collections/create',data);}),
+  importSource:source=>action(()=>{
+   options(source,['corpus','title','url','text']);
+   const data={corpus:text(source.corpus,'corpus',200),title:text(source.title,'title',200),url:text(source.url,'url',2000),text:text(source.text,'text',100000)};
+   // Desktop's JSON transport is capped at 16 KiB. The browser worker accepts
+   // larger local sources; the backend remains authoritative in either mode.
+   return ()=>post('/api/source/import',data);
+  })
+ };
+ for(const [name,route] of [['resumeChat','resume'],['exportChat','export'],['resetChat','reset']]){
+  methods[name]=session=>action(()=>{const data={session:text(session,'session',200)};return ()=>post('/api/chat/'+route,data);});
+ }
+ return Object.freeze({version,functions:()=>Object.keys(descriptions),help:()=>({version,async:true,networkDefault:'off',remoteLookup:'Explicit per-call allowNetwork:true; Wikipedia only',methods:{...descriptions},
+  notice:'ok reports execution, not answer support. Inspect data.reader.kind for queries; chat includes non-source modes. Explicit corpus and session IDs never select or render the UI.'}),...methods});
+})();
+// END MPLPB PUBLIC API
 function date(value){const d=new Date(value);return value&&!Number.isNaN(d.getTime())?d.toISOString().replace('T',' ').slice(0,19)+' UTC':'Not recorded';}
 function view(key){document.documentElement.dataset.view=key;document.querySelectorAll('.view').forEach(e=>e.hidden=e.id!==key);document.querySelectorAll('[data-view]').forEach(b=>(b.classList.toggle('active',b.dataset.view===key),b.setAttribute('aria-pressed',String(b.dataset.view===key))));if(key==='history')history();if(key==='experiment')experiment();}
 function sourceCard(s){return `<article class="card"><div class="eyebrow">Separate source</div><h3>${esc(s.title)}</h3><div class="tags"><span class="tag">${esc(s.id)}</span><span class="tag">Declared ${esc(s.origin)} · depth ${esc(s.origin_depth)}</span></div><p class="small"><strong>Words matched:</strong> ${esc(s.matched_terms.join(', '))}<br><strong>Not on this page:</strong> ${esc(s.unmatched_terms.join(', ')||'none')}</p><p class="text">${linkText(s.text.slice(0,500))}${s.text.length>500?'…':''}</p><button class="inline-link" data-page="${esc(s.path)}">Read source and sealed metadata</button><details><summary>Provenance</summary><pre>${esc(JSON.stringify({hash:s.hash,owner:s.owner,updated:s.updated,source_authorship:s.source_authorship,derived_from:s.derived_from,supersedes:s.supersedes},null,2))}</pre></details></article>`;}

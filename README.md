@@ -9,6 +9,12 @@ derivation writes a new page and adds one to the depth.
 
 No model. The core reader uses local pages and the Python standard library. Optional search/crawl/import commands contact public sources explicitly; standalone browser mode uses IndexedDB for saved state.
 
+**People and AI agents can use the same engine through `window.MPLPB`.** The
+standalone browser API works locally without internet, cloud processing, an API
+key or a hosted MPLPB service. Explicitly enabled Wikipedia lookups add online
+source acquisition; MPLPB can serve as local middleware for an AI frontend.
+See [the JavaScript API, offline/online requirements and examples](JAVASCRIPT-API.md).
+
 ## Goal: deterministic generation
 
 Build expressive, repeatable responses through auditable construction rules.
@@ -212,6 +218,35 @@ after an update. Saved chats remain; if an older capture fails its code-provenan
 checks, import it again under the new runtime rather than changing its old pins.
 
 ## Local browser UI
+
+### Direct JavaScript API
+
+The browser page exposes `window.MPLPB` for scripts and AI agents with access to
+that page's JavaScript context. For example:
+
+```js
+await window.MPLPB.query('What is Dungeons and Dragons?', {corpus:'logic'});
+```
+
+The API supports local queries, page inspection, chat, transcript export and
+imports of supplied text. **In the standalone build it can run entirely locally,
+with no internet, cloud processing, API key, model provider or Python server.**
+The complete HTML must already be on the device; browser storage retains saves.
+
+An AI frontend can use MPLPB as a **local middleware API**: send a question,
+receive the engine's structured decision, citations and provenance, then display
+the result. It preserves reader decisions and delivery profiles; `ok:true` alone
+does not mean an answer is supported.
+
+Remote lookups are off by default for API calls. With explicit per-call
+`allowNetwork:true`, an agent can search/import Wikipedia through MPLPB, retain
+the captures locally, then return to offline use. This needs internet to
+Wikipedia but no hosted MPLPB API service or API key. Optional `autoWiki:true`
+enables the standalone browser's bounded automatic topic lookup. The separate
+general-web crawler feature still requires its configured backend and token.
+A cloud AI frontend has its own service requirements; a local frontend can stay
+local. The source UI uses the existing desktop Python transport.
+See [JavaScript API and middleware examples](JAVASCRIPT-API.md).
 
 The front end follows Mitchell's **Give It Back: The RPG**: a corpus tile map,
 status panels, source dialogs, journal and three visual settings. It calls the
