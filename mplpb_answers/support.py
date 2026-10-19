@@ -95,6 +95,47 @@ def supported_answer(root, question, profile=None):
         out.matched_on = 'body procedure constraints' if rec else ''
         if rec: out.depth = Ledger(out.root).depth(rec)
         return out
+    # The literal extension is a separate, conservative grammar. It may only
+    # return directly evidenced sentences from eligible pages, never metadata.
+    from . import literal_evidence as LE
+    literal = LE.parse(question)
+    if literal:
+        selected = answer(root, question, profile)
+        out = SupportedAnswer(**selected.__dict__)
+        out.question = question
+        out.record = None
+        out.support = {'status': 'unsupported', 'version': LE.VERSION,
+                       'frame': literal.to_dict(), 'spans': [],
+                       'candidate_checks': []}
+        ledger = Ledger(out.root)
+        if any(r.kind == 'pointer' for r in ledger.servable()):
+            out.kind = AMBIGUOUS if selected.kind == AMBIGUOUS else NOT_IN_CORPUS
+            out.reason = 'Literal extraction requires a directly resolved corpus.'
+            return out
+        bundle = gather(out.root, ' '.join((literal.entity, literal.other)).strip(), out.profile)
+        by_path = {r.path: r for r in ledger.servable()}
+        checks = [(by_path[s['path']], LE.statement_support(literal, by_path[s['path']]))
+                  for s in bundle.sources]
+        out.candidates = [(rec, []) for rec, check in checks]
+        out.support['candidate_checks'] = [dict(id=rec.id, hash=rec.hash,
+                                               status=check['status'], spans=check['spans'])
+                                           for rec, check in checks]
+        supported = [(rec, check) for rec, check in checks if check['status'] == 'supported']
+        conflict = any(check['status'] == 'conflict' for _, check in checks)
+        if len(supported) == 1 and not conflict:
+            rec, check = supported[0]
+            out.record, out.depth, out.kind = rec, ledger.depth(rec), RETURN
+            out.support.update(check)
+            out.matched_on = 'literal body statement'
+            out.reason = check['reason']
+        else:
+            out.kind = AMBIGUOUS if conflict or len(supported) > 1 else NOT_IN_CORPUS
+            out.support['status'] = 'conflict' if out.kind == AMBIGUOUS else 'unsupported'
+            out.reason = ('Conflicting or multiple eligible supporting source statements.'
+                          if out.kind == AMBIGUOUS else
+                          'No eligible body statement supports the complete literal question.')
+            out.support['reason'] = out.reason
+        return out
     frame = parse(question)
     canonical = frame.canonical if frame else question
     selected = answer(root, canonical, profile)
