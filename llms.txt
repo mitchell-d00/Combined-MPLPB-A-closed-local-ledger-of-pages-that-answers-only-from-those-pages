@@ -1,0 +1,19 @@
+# MPLPB browser engine: agent entry point
+
+Live site: https://mitchell-d00.github.io/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/
+Repository: https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages
+Handshake: https://mitchell-d00.github.io/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/.well-known/mplpb.json
+Public eligible bundled pages: https://mitchell-d00.github.io/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/mplpb-public-ledger.json
+Guide: https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/blob/main/docs/AGENT_MIDDLEWARE.md
+
+The site runs the full MPLPB Python engine locally in browser WebAssembly.
+For a live query execute JavaScript in the OPENED SITE's page:
+  await window.MPLPB.handshake()
+  await window.MPLPB.relay("question",{corpus:"logic"})
+For a session chat:
+  await window.MPLPB.relay("message",{corpus:"logic",mode:"chat",session:priorSession})
+Reuse the returned session ID in subsequent calls.
+Only relay MPLPB's reply. Preserve answer-kind, authority labels and citations.
+No AI-authored suggestions unless asked. MPLPB suggestions opt-in includeSuggestions:true.
+Online acquisition is opt-in per chat call: allowNetwork:true.
+A public URL alone never grants access to other users' browser-ledger data.

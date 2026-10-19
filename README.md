@@ -1,3 +1,5 @@
+> **Connect an AI using only the site/repository URL:** See [MPLPB agent discovery](.well-known/mplpb.json), [the agent middleware guide](docs/AGENT_MIDDLEWARE.md), and [the JavaScript API](JAVASCRIPT-API.md). The hosted app runs the **full Python engine in WebAssembly in each browser**, and browser-capable agents can call `window.MPLPB.relay()`. HTTPS discovery alone cannot reach another user's browser storage. A public externally eligible page snapshot is published alongside the hosted app.
+
 # Combined MPLPB
 
 A closed local ledger of pages that answers only from those pages.

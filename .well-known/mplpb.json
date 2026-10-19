@@ -1,0 +1,42 @@
+{
+  "protocol": "mplpb-agent-handshake",
+  "version": "1.0",
+  "name": "Combined MPLPB browser middleware",
+  "repository": "https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages",
+  "site": "https://mitchell-d00.github.io/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/",
+  "discovery": {
+    "manifest": ".well-known/mplpb.json",
+    "agent_notes": "llms.txt",
+    "public_ledger": "mplpb-public-ledger.json",
+    "instructions": "https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/blob/main/docs/AGENT_MIDDLEWARE.md"
+  },
+  "runtime": {
+    "engine": "full Python MPLPB via browser WebAssembly",
+    "python_server_required": false,
+    "remote_http_query": false,
+    "transport": "execute window.MPLPB in the running app page",
+    "local_storage": "per-browser IndexedDB"
+  },
+  "methods": {
+    "handshake": "window.MPLPB.handshake()",
+    "strict_query": "window.MPLPB.relay(question,{corpus})",
+    "session_chat": "window.MPLPB.relay(message,{corpus,mode:'chat',session})",
+    "list_pages": "window.MPLPB.listPages({corpus,profile:'external'})",
+    "read_page": "window.MPLPB.readPage(path,{corpus,profile:'external'})"
+  },
+  "policy": {
+    "authority": "MPLPB reader or chat engine",
+    "verbatim_reply": true,
+    "unrequested_ai_suggestions": false,
+    "suggestions_opt_in": "includeSuggestions:true",
+    "default_network": false,
+    "allow_network_opt_in": "allowNetwork:true per chat call",
+    "preserve_ambiguity_and_refusal": true
+  },
+  "privacy": {
+    "snapshot": "build-time externally eligible bundled pages only",
+    "visitor_ledger_shared": false,
+    "visitor_sessions_shared": false
+  },
+  "notice": "A URL advertises callable methods, not permission to read another visitor's browser storage. HTTP-only callers can read the published public snapshot, but live MPLPB calls require a running browser context."
+}

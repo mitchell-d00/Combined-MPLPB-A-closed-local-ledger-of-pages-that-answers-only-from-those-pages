@@ -207,3 +207,47 @@ including supported/ambiguous/refused answers, profile restrictions, sessions,
 local imports, default remote-command rejection and explicitly enabled lookup
 using synthetic Wikipedia responses. The existing WebAssembly check also
 exercises the API from the generated HTML. No Node dependency is added to the app.
+
+## URL-only agent discovery and strict middleware relay
+
+Provide either the repository URL or the live GitHub Pages URL. The site publishes
+`/.well-known/mplpb.json` as its API discovery document, `/llms.txt` as a
+short agent guide, and `/mplpb-public-ledger.json` as a build-time snapshot of
+externally eligible **bundled** pages. The repository contains the discovery files too.
+
+The live browser application contains the **full Python MPLPB engine in WebAssembly**.
+GitHub Pages serves the code, while the browser actually executes it and stores each
+visitor's own sessions and imported sources. No reduced JavaScript answer engine
+is used. A remote GET does not execute that Python engine or reveal browser saves.
+
+In the app's own browser context:
+
+```js
+const hello = await window.MPLPB.handshake();
+const answer = await window.MPLPB.relay('What is Dungeons and Dragons?',{corpus:'logic'});
+// answer.data.kind and answer.data.reply are MPLPB's decision and verbatim text.
+const chat = await window.MPLPB.relay('hello',{corpus:'logic',mode:'chat'});
+const next = await window.MPLPB.relay('what did I say?',{
+ corpus:'logic',mode:'chat',session:chat.data.session
+});
+const withSuggestions = await window.MPLPB.relay('Give me suggestions',{
+ corpus:'logic',mode:'chat',session:next.data.session,includeSuggestions:true
+});
+```
+
+The default relay uses the strict local query path and exposes only the engine's
+answer text, decision, citation, provenance gate and status. Its response has no
+generated suggestions. In chat mode, the reply is copied directly from MPLPB's
+`response.message`. Structured suggestions/guidance are omitted unless
+`includeSuggestions:true`. The engine can itself include conversational offers
+inside `response.message`; an external AI must not add its own suggestions unless
+the user asks. Unsupported, candidate-only, ambiguous and refusal outcomes must
+remain visible and must not be rewritten into supported answers.
+
+Search, Wikipedia acquisition and source imports remain handled by MPLPB,
+subject to its existing permissions and transport rules. Optional online
+chat lookups require `allowNetwork:true` on each particular call. A conversation's
+`session` ID is returned by MPLPB; pass it to the next call to maintain history.
+Browser-local data and full runtime capabilities require a browser-capable agent.
+See [Agent Middleware](docs/AGENT_MIDDLEWARE.md) and the optional Node
+`tools/mplpb_agent_bridge.mjs` bridge for examples.

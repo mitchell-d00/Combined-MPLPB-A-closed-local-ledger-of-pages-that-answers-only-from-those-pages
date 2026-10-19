@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>MPLPB · The Local Ledger</title>
+<link rel="alternate" type="application/json" title="MPLPB agent handshake" href="./.well-known/mplpb.json">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23221d2b'/%3E%3Cpath d='M15 15h34v34H15zM23 24h18M23 32h18M23 40h10' stroke='%23d9a441' fill='none' stroke-width='3'/%3E%3C/svg%3E">
 <style>
 /* Appearance adapted from Give It Back: The RPG by Mitchell D. McPhetridge (MIT). */
@@ -69,6 +70,8 @@ globalThis.MPLPB=(()=>{
  const version='1.0.0';
  const descriptions={
   ready:'Wait for the engine and return its available corpora and profiles.',
+  handshake:'Discover local engine, transport limitations, and available corpora.',
+  relay:'Use MPLPB as strict query or session chat middleware. Only MPLPB writes the reply; suggestions require opt-in.',
   getState:'Read available corpora, profiles and engine notices.',
   listCorpora:'List local corpora; use their keys in subsequent calls.',
   query:'Ask the strict reader. Requires {corpus}; optional profile and mode.',
@@ -116,6 +119,53 @@ globalThis.MPLPB=(()=>{
   ready:()=>action(()=>()=>api('/api/state')),
   getState:()=>action(()=>()=>api('/api/state')),
   listCorpora:()=>action(()=>async()=>(await api('/api/state')).corpora),
+  handshake:()=>action(()=>async()=>{
+   const state=await api('/api/state');
+   return {protocol:'mplpb-agent-handshake',version:'1.0',engine:'full MPLPB Python reader running in the selected browser runtime',
+    transport:'browser-page-local',remoteHttpQuery:false,corpora:state.corpora,profiles:state.profiles,
+    operations:['relay','query','chat','listPages','readPage','getHistory','resumeChat','exportChat'],
+    policy:{reply:'verbatim MPLPB output',suggestions:'only when includeSuggestions:true',
+     network:'local by default; explicit allowNetwork:true for optional chat acquisition',
+     refusals:'preserve kind, authority, and citation; never promote an unsupported reply'}};
+  }),
+  relay:(message,o)=>action(()=>{
+   const s=scope(o,['mode','session','includeSuggestions','allowNetwork','wiki','autoWiki']);
+   const input=text(message,'message',4000);
+   const mode=o.mode===undefined?'query':o.mode;
+   if(!['query','chat'].includes(mode))throw fail('mode must be query or chat');
+   if(o.includeSuggestions!==undefined&&typeof o.includeSuggestions!=='boolean')throw fail('includeSuggestions must be boolean');
+   if(mode==='query'){
+    if(['session','allowNetwork','wiki','autoWiki'].some(k=>o[k]!==undefined))
+     throw fail('Query mode is local-only; chat and network options require mode:chat');
+    return async()=>{
+     const source=await post('/api/query',{...s,question:input});
+     const decision=source.reader;
+     return {mode:'query',kind:decision.kind,reply:decision.text||'',decision,
+      citation:decision.citation||null,gate:source.gate,
+      live_verified_by_this_query:source.live_verified_by_this_query,suggestions:[]};
+    };
+   }
+   for(const k of ['allowNetwork','autoWiki'])
+    if(o[k]!==undefined&&typeof o[k]!=='boolean')throw fail(k+' must be boolean');
+   if(o.wiki!==undefined&&!['simple','english'].includes(o.wiki))throw fail('wiki must be simple or english');
+   if(o.autoWiki===true&&o.allowNetwork!==true)throw fail('autoWiki requires allowNetwork:true');
+   if(o.autoWiki===true&&typeof browserApi!=='function')throw fail('autoWiki requires the standalone browser build');
+   const data={...s,message:input,local_only:o.allowNetwork!==true,
+    auto_wiki:o.autoWiki===true,wiki:o.wiki||'simple'};
+   if(o.session!==undefined)data.session=text(o.session,'session',200);
+   return async()=>{
+    const result=await post('/api/chat',data);
+    const response={...result.response};
+    if(o.includeSuggestions!==true){
+     delete response.suggestions;
+     delete response.guidance;
+     delete response.source_offer;
+    }
+    return {...result,response,mode:'chat',kind:response.kind,reply:response.message||'',
+     suggestions:o.includeSuggestions===true?(response.suggestions||[]):[]};
+   };
+  }),
+
   query:(question,o)=>action(()=>{
    const data={...scope(o,['mode']),question:text(question,'question',4000)};
    if(o.mode!==undefined){if(!['supported','candidates'].includes(o.mode))throw fail('mode must be supported or candidates');data.mode=o.mode;}

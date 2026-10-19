@@ -55,10 +55,35 @@ async function tests(){
  await new Promise(resolve=>setImmediate(resolve));assert.equal(settled,false);release();
  assert(success(await waiting).corpora.some(c=>c.key==='logic'));
  assert(success(await api.listCorpora()).some(c=>c.key==='studio'));
+ const discovered=success(await api.handshake());
+ assert.equal(discovered.protocol,'mplpb-agent-handshake');
+ assert.equal(discovered.remoteHttpQuery,false);
+ assert(discovered.corpora.some(c=>c.key==='logic'));
+ assert(api.functions().includes('relay'));
+
  const q='What is Dungeons and Dragons?';
  const direct=await transport('/api/query',{body:JSON.stringify({corpus:'logic',question:q,profile:'internal'})});
  const answer=success(await api.query(q,{corpus:'logic'}));assert.deepEqual(answer,direct);
  assert.equal(answer.reader.kind,'return');assert(answer.reader.citation);
+ const strict=success(await api.relay(q,{corpus:'logic'}));
+ assert.equal(strict.reply,answer.reader.text);
+ assert.equal(strict.kind,answer.reader.kind);
+ assert.deepEqual(strict.decision,answer.reader);
+ assert.equal(strict.suggestions.length,0);
+ const noAnswer=success(await api.relay('unfindable zzzzzzz',{corpus:'logic'}));
+ assert.equal(noAnswer.kind,'not_in_corpus');
+ assert.equal(noAnswer.suggestions.length,0);
+ assert.equal((await api.relay('hello',{corpus:'logic',mode:'other'})).code,'INVALID_ARGUMENT');
+ assert.equal((await api.relay('hello',{corpus:'logic',mode:'chat',includeSuggestions:'yes'})).code,'INVALID_ARGUMENT');
+ assert.equal((await api.relay('hello',{corpus:'logic',mode:'query',allowNetwork:true})).code,'INVALID_ARGUMENT');
+ const chatRelay=success(await api.relay('hello',{corpus:'logic',mode:'chat'}));
+ assert.equal(chatRelay.reply,chatRelay.response.message);
+ assert.equal(chatRelay.suggestions.length,0);
+ assert.equal(Object.hasOwn(chatRelay.response,'suggestions'),false);
+ const optInRelay=success(await api.relay('What could I ask?',{corpus:'logic',mode:'chat',session:chatRelay.session,includeSuggestions:true}));
+ assert.equal(optInRelay.reply,optInRelay.response.message);
+ assert.deepEqual(optInRelay.suggestions,optInRelay.response.suggestions||[]);
+
  assert.equal(success(await api.query('Phrynomedusa vanzolinii Hyundai Engineering and Construction',{corpus:'canned'})).reader.kind,'ambiguous');
  assert.equal(success(await api.query('unfindable zzzzzzz',{corpus:'logic'})).reader.kind,'not_in_corpus');
  assert.notEqual(success(await api.query('Phrynomedusa vanzolinii',{corpus:'canned',profile:'external'})).reader.kind,'return');

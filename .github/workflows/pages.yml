@@ -30,6 +30,8 @@ jobs:
           python tools/check_ui_script.py
           node tools/check_browser_transport.cjs
           node tests/javascript-api.cjs
+          node --check tools/mplpb_agent_bridge.mjs
+          node tools/mplpb_agent_bridge.mjs --help
           node crawler/test_worker.mjs
       - name: Download pinned Python WebAssembly core
         run: >-

@@ -6,6 +6,7 @@ import hashlib
 import json
 from pathlib import Path
 import re
+import shutil
 import tarfile
 import tempfile
 from urllib.request import urlopen
@@ -74,6 +75,14 @@ def build(core_archive, output):
     # Browser mode has its own exact self-reference transport notice, shown on every screen.
     html = html.replace('<footer class="footer">', '<footer class="footer">Standalone WebAssembly mode · no Python server · saved in this browser.<br>')
     output = Path(output); output.parent.mkdir(parents=True, exist_ok=True); output.write_text(html, encoding='utf-8')
+    # Public discovery and a build-time snapshot contain only external-profile
+    # bundled pages; never export individual browser saves or imported sessions.
+    handshake_dir = output.parent / '.well-known'
+    handshake_dir.mkdir(parents=True, exist_ok=True)
+    shutil.copyfile(ROOT / '.well-known/mplpb.json', handshake_dir / 'mplpb.json')
+    shutil.copyfile(ROOT / 'llms.txt', output.parent / 'llms.txt')
+    from tools.agent_snapshot import export_public_ledger
+    export_public_ledger(output.parent / 'mplpb-public-ledger.json')
     return {'output': str(output), 'bytes': output.stat().st_size, 'sha256': hashlib.sha256(output.read_bytes()).hexdigest(),
             'bundled_files': len(files), 'pyodide': VERSION, 'core_release_sha256': CORE_SHA256}
 
