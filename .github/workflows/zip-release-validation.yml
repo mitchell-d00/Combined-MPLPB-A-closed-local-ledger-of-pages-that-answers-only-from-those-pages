@@ -15,6 +15,10 @@ jobs:
     steps:
       - name: Checkout the exact candidate revision for packaging only
         uses: actions/checkout@v4
+        with:
+          # pull_request normally checks out a synthetic merge ref, not the PR head.
+          # Archive the actual submitted revision and record that exact SHA.
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
