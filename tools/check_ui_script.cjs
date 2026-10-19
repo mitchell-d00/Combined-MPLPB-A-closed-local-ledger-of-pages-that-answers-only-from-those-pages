@@ -54,7 +54,16 @@ async function tick(){for(let i=0;i<20;i++)await Promise.resolve();}
  assert.ok(!r.run('linkText("javascript:alert(1) <img src=x> https://user:pass@example.org")').includes('<a'));
  assert.match(r.run('chatText("First\\nLast",["First","Last"])'),/data-topic="Last"/);
  assert.match(r.run('linkText("https://en.wikipedia.org/wiki/Fossil_(disambiguation).")'),/href="https:\/\/en.wikipedia.org\/wiki\/Fossil_\(disambiguation\)"/);
- const prefs=JSON.parse(r.storage['mplpb-ui-preferences']);assert.deepEqual(Object.keys(prefs).sort(),['corpus','profile','setting','theme']);
+ r.elements['monster-name'].value='Explorer';r.elements['monster-name'].events.input();assert.match(r.elements['chat-title'].textContent,/Explorer/);
+ r.elements['monster-reason'].checked=true;r.elements['monster-reason'].events.change();
+ assert.match(r.elements['monster-status'].textContent,/Reason Mode is on/);
+ r.run('render('+JSON.stringify(fixtures.candidate_query)+')');
+ assert.match(r.elements.results.innerHTML,/<details open><summary>Reader decision trace/);
+ assert.match(r.elements.results.innerHTML,/CANDIDATE ONLY/);
+ r.elements['monster-enabled'].checked=false;r.elements['monster-enabled'].events.change();
+ assert.equal(r.elements['chat-title'].textContent,'Chat with MPLPB');
+ r.elements['monster-reason'].checked=false;r.elements['monster-reason'].events.change();
+ const prefs=JSON.parse(r.storage['mplpb-ui-preferences']);assert.deepEqual(Object.keys(prefs).sort(),['corpus','helperEnabled','helperName','profile','reasonMode','setting','theme']);
  r.elements.corpus.value='canned';r.elements.profile.value='internal';r.elements.question.value='How do I clear mplpb some or all?';await r.run('query()');assert.match(r.elements.results.innerHTML,/App help/);assert.match(r.elements.results.innerHTML,/Clear selected MPLPBs/);
  await r.run('chatSend("guide me")');assert.match(r.elements['chat-messages'].innerHTML,/Step 1 of 4/);assert.match(r.elements['chat-messages'].innerHTML,/data-suggest/);
  await r.run('chatSend("show my MPLPB")');assert.match(r.elements['chat-messages'].innerHTML,/data-topic="Budget guide"/);
