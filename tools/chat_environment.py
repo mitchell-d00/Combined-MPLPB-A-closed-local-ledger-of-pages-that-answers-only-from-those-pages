@@ -7,6 +7,7 @@ from tools import emotional_rules as EM
 from tools import idea_chat as IC
 from tools import chat_logic as C, chat_tutor as T, deterministic_mind as M
 from tools import social_chat as S, grounded_chat as Q, reference_resources as F
+from tools import source_preview as PV
 
 from tools import skill_planner as SP
 
@@ -96,7 +97,7 @@ def factual_body(answer):
     """Drop attribution-only lines, not factual prose; retain exact excerpt wording."""
     title=(answer.get('context') or {}).get('title','')
     lines=[]
-    for line in answer.get('message','').splitlines():
+    for line in PV.readable_lines(answer.get('message','')):
         text=line.strip()
         check=text
         if title:
@@ -313,6 +314,27 @@ def handle(app, data, session, message, corpus, profile):
     if re.match(r'^(?:search|find|import|remember|memory|forget|guide|define|dictionary|synonyms|thesaurus|language)\b',key) or key in {'show memory','what do you remember','forget notes'}:
         return None
     if env['mode']=='chat':
+        # Bare saved-page names work as conversational topics in loose Chat.
+        # No corpus is silently loaded and duplicate names remain separately pinned.
+        if len(message) <= 160 and re.fullmatch(r"[a-z0-9][a-z0-9 &()'.,/-]*", key):
+            available, _ = pages(app, sorted(app.roots()), profile)
+            named = [(k, pin) for k, pin in available
+                     if subject_key(pin['title']) == subject_key(key)]
+            if named:
+                found = explore_sources(app, data, session,
+                                        'Tell me about ' + named[0][1]['title'],
+                                        corpus, profile)
+                if found:
+                    return found
+        # Resolve it/this against the previous pinned source exploration, not
+        # against an unrelated page or free-form conversational guess.
+        prior = session['mind'].get('idea_chat', {})
+        if prior.get('sourced') and prior.get('subject') and key in {
+                'what is it', "what's it", 'summarize it', 'summarise it',
+                'tell me about it', 'explain it'}:
+            return retrieve(app, data, session,
+                            'Tell me about ' + prior['subject'],
+                            corpus, profile, finish=True)
         if key in T.LIST:
             return reply('No MPLPB is loaded into this chat. Your saved collections are available in the load controls.',suggestions=['load all MPLPB','focus mode'])
         if key.startswith(('topic ','focus ')):
@@ -334,8 +356,14 @@ def handle(app, data, session, message, corpus, profile):
         return reply('Loaded pages (collection boundaries retained):\n'+('\n'.join(k+' :: '+p['title'] for k,p in entries) or 'No eligible pages.')+('\nSome collections are blocked; see evidence details.' if blocked else ''),session['context'],suggestions=choices[:40]+['just chat'],scope_pages=[{'corpus':k,**p} for k,p in entries],blocked_collections=blocked)
     focus=re.fullmatch(r'focus ([^ ]+) :: (.+)',message,re.I)
     topic=re.fullmatch(r'topic (.+)',message,re.I)
-    if focus or topic:
-        candidates=[(k,p) for k,p in entries if p['title'].casefold()==(focus[2] if focus else topic[1]).casefold() and (not focus or k==focus[1])]
+    # A plain exact page title is an explicit selection in Serious mode.
+    # Title collisions still demand a collection-qualified focus command.
+    direct = message.strip(' .?!')
+    named = [(k,p) for k,p in entries if p['title'].casefold()==direct.casefold()]
+    if focus or topic or named:
+        candidates=[(k,p) for k,p in entries if p['title'].casefold()==
+                    (focus[2] if focus else topic[1] if topic else direct).casefold()
+                    and (not focus or k==focus[1])]
         chosen,trace=RD.determine([{'id':k+' :: '+p['title'],'basis':'procedure','meaning':k+' :: '+p['path'],'page':(k,p)} for k,p in candidates],'focus')
         if chosen is None:
             return reply('Choose one eligible page and its collection; duplicate titles are kept separate.',None,suggestions=['focus '+k+' :: '+p['title'] for k,p in candidates][:40],blocked_collections=blocked,selection_determination=trace)
