@@ -6,7 +6,7 @@ from pathlib import Path
 from mplpb_answers import literal_evidence as LE
 from mplpb_answers.support import supported_answer
 from mplpb_combined.ledger import write
-from mplpb_combined.reader import PROFILES
+from mplpb_combined.reader import PROFILES, Profile
 
 
 class LiteralEvidenceTests(unittest.TestCase):
@@ -93,6 +93,8 @@ class LiteralEvidenceTests(unittest.TestCase):
             query = "When did the Aster event begin?"
             self.assertEqual(supported_answer(tmp, query).kind, "return")
             self.assertEqual(supported_answer(tmp, query, PROFILES["external"]).kind,
+                             "return")
+            self.assertEqual(supported_answer(tmp, query, Profile("blocked", -1, False)).kind,
                              "not_in_corpus")
 
 
