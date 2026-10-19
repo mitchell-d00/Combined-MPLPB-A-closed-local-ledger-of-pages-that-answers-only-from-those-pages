@@ -28,6 +28,18 @@ class LedgerIntegrityHunt(unittest.TestCase):
         self.assertEqual(led.effective_status(led.by_id[rec.id][0]), "retired")
         self.assertIn("C16", [v.code for v in led.findings() if v.level == "error"])
 
+    def test_corrupt_existing_history_cannot_authorize_answers(self):
+        rec = L.write(self.root, title="Lab entry", scope="lab entry",
+                      body="The laboratory has one entry.")
+        log = L.log_path(self.root)
+        content = log.read_text()
+        log.write_text(content.replace('"event": "write"', '"event": "retire"'))
+        self.assertEqual(R.answer(self.root, "lab entry").kind, R.NOT_IN_CORPUS)
+        led = L.Ledger(self.root)
+        self.assertTrue(led.log_corrupt)
+        self.assertIn("C14", [v.code for v in led.findings() if v.level == "error"])
+        self.assertTrue((self.root / rec.path).exists())
+
     def test_duplicate_metadata_never_serves_or_silently_withdraws(self):
         rec = L.write(self.root, title="Old policy", scope="visitor badge policy",
                       body="Visitors need no badge.")
