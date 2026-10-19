@@ -177,11 +177,15 @@ def explore_sources(app,data,session,message,corpus,profile):
         selected={(x['corpus'],x['path']) for x in state['source_pages']}
         current={(k,p['path']) for k,p in candidates}
         candidates=[(k,p) for k,p in entries if (k,p['path']) in selected | current]
-    results=[]
+    results=[]; unreadable=[]
     if request or followup:
         for k,p in candidates:
             answer=C.turn(app,k,app.root(k),profile,'show source',p)
-            if answer.get('kind') in {'return','candidate_only'} and answer.get('sources') and factual_body(answer):results.append({'corpus':k,'response':answer})
+            if answer.get('kind') in {'return','candidate_only'} and answer.get('sources'):
+                if factual_body(answer):
+                    results.append({'corpus':k,'response':answer})
+                else:
+                    unreadable.append({'corpus':k,'title':p['title']})
     elif candidates and Q.question_intent(message,subject):
         for k,p in candidates:
             answer=Q.handle(app,k,app.root(k),profile,message,p)
@@ -200,6 +204,20 @@ def explore_sources(app,data,session,message,corpus,profile):
             answer=C.turn(app,k,app.root(k),profile,'What is '+subject+'?',None)
             if answer.get('kind') in {'return','candidate_only'} and answer.get('sources') and defines_overview_subject(answer,subject):
                 results.append({'corpus':k,'response':answer})
+    if not results and unreadable:
+        result=reply('The saved page was found, but the captured preview has '
+                     'no readable prose. Its source remains saved and pinned; '
+                     'inspect the original source or search for another capture.',
+                     session.get('context') if serious else None,
+                     suggestions=['show my MPLPB','search '+str(subject)],
+                     blocked_collections=blocked,
+                     unreadable_pages=unreadable,
+                     response_structure={'intent':'unreadable_source_preview',
+                                         'mode':env.get('mode','chat'),
+                                         'factual_claims':False,
+                                         'mplpb_supported':False})
+        result['source_scope']='loaded_scope' if serious else 'saved_reference'
+        return result
     if not results:return None
     if request:
         session['mind']['idea_chat'].update(subject=subject,sourced=True,source_pages=[{'corpus':x['corpus'],'path':x['response']['context']['path']} for x in results if x['response'].get('context')])
