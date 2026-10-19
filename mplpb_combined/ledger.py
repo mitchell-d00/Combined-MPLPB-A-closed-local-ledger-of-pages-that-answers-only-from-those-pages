@@ -404,7 +404,11 @@ def _retired_log_keys(root: Path) -> set:
             break
         prev = entry["entry_hash"]
         key = (entry.get("id"), entry.get("hash"), entry.get("path"))
-        if entry.get("event") == "retire":
+        # A revision's old page can be restored when the successor is invalid;
+        # the original lineage authority rule remains in charge of that case.
+        # Only a standalone withdrawal is irreversible from the activity log.
+        if (entry.get("event") == "retire" and
+                not str(entry.get("note", "")).startswith("superseded by ")):
             retired.add(key)
     return retired, corrupt
 
