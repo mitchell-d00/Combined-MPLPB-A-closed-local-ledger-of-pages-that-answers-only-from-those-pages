@@ -27,6 +27,7 @@ def browser_code_pins():
 # Reviewed releases with unchanged capture/transport semantics. These hashes are
 # compatibility declarations, never proof of authorship or source truth.
 COMPATIBLE_CAPTURE_ADAPTERS = {
+    '4e37d980e56f1a0681860b7cf2fd5be671e3864d261e8f5d30cbcf1b94be8918': "00b2dcf7acada5526520c517a2ba346d3adbf210",
     "210311922a9bf8e48a891f6cbb5229ff2e233c02bcc53a5ab44263138f5f6d33": "1cfb8ad34cd268683601de9e8798d5b020296e34",
     "ea19f6bc918253da7b78269157a967a6c313cc858ec7a8e3df84c9b1d256a502": "d2375e289674fc02b04e5a2c63a840a5df1bbe5c",
     "ecdaf5843f69d0c192a9d35a6e4415a82c5e785240bff99f9ec86e867e9b6c90": "a77f19974b34e87394e5d10134475f9c877bb64f",
@@ -156,6 +157,10 @@ async def dispatch(url, data=None):
                       '/api/chat/reset': app.reset_chat, '/api/chat/export': app.export_chat}
         if route in operations: return operations[route](data)
         if route == '/api/chat':
+            # Local-only calls bypass every browser acquisition path; App also
+            # checks resolved search/import commands before any remote access.
+            if data.get('local_only') is True:
+                return app.chat(data)
             message = data.get('message', '')
             if not isinstance(message, str): raise ValueError('Message must be text')
             from tools import free_chat as FC

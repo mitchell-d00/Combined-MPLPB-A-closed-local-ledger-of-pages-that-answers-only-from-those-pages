@@ -330,6 +330,8 @@ class App:
                 except (ValueError,OSError) as exc:
                     result=M.reply('clarify','This collection is blocked: '+str(exc)+'\n\nIts saved files remain. Use search to build a fresh collection under this runtime, or refresh the old collection by explicitly reimporting its titles. You can also use the confirmed clear controls. Help still works.',None,'INVENTORY-BLOCKED',suggestions=['how do I search?','how do I clear all?','guide me'])
             elif message.lower().startswith('search '):
+                if data.get('local_only') is True:
+                    raise ValueError('Local-only API: remote search is disabled')
                 if len(self.sessions) >= 32: raise ValueError('Save slots full; no crawl or collection created')
                 if len(self.collections.entries()) >= 32: raise ValueError('Collection limit reached; no crawl created')
                 built, result = self.build_search(message[7:].strip(), wiki)
@@ -343,11 +345,15 @@ class App:
                         result['context'], result['sources'] = None, []
                         result['message'] += ' Sources remain subject to the selected delivery profile.'
             elif message.lower().startswith('find '):
+                if data.get('local_only') is True:
+                    raise ValueError('Local-only API: remote search is disabled')
                 found = self.topic_store(corpus).search(message[5:].strip(), wiki)
                 result = {'kind': 'search', 'message': 'Choose a title to import. Search snippets are not local evidence.',
                           'search': found, 'sources': [], 'reasoning': ['Explicit remote topic search; no source claims inferred.'],
                           'context': session['context']}
             elif message.lower().startswith('import '):
+                if data.get('local_only') is True:
+                    raise ValueError('Local-only API: remote import is disabled; use importSource with supplied text')
                 imported = self.topic_store(corpus).import_title(message[7:].strip(), wiki)
                 corpus = corpus if corpus.startswith('mind-') else 'topics'
                 context = None
