@@ -99,6 +99,13 @@ class RetrievalSafetyHunt(unittest.TestCase):
         root = Path(__file__).resolve().parents[1] / "examples" / "studio"
         self.assertNotEqual(R.answer(root, negative).kind, R.RETURN)
 
+    def test_explicit_negative_troubleshooting_topic_remains_findable(self):
+        root = Path(__file__).resolve().parents[1] / "examples" / "studio"
+        problem = "kiln slow to climb and not reaching temperature"
+        result = R.answer(root, problem)
+        self.assertEqual(result.kind, R.RETURN)
+        self.assertEqual(result.record.id, "STUDIO-0007")
+
     def test_unicode_words_stay_whole(self):
         self.assertIn("schrühbrand", R.terms("Schrühbrand"))
         self.assertIn("обжиг", R.terms("Что такое обжиг?"))
