@@ -19,8 +19,17 @@ Open GitHub Actions for the completed `Verify zipped MPLPB source before merge` 
 - `mplpb-repository.zip.sha256` — content checksum.
 - `commit.sha` and `tree.sha` — candidate identity.
 - `validation-report.txt` — gate results written only after every test and browser check succeeds.
+- `mplpb-candidate-preview.html` — the exact ZIP-built HTML run through candidate Chromium smoke.
+- `release-evidence.json` — exact candidate commit/tree, tested ZIP and preview hashes, report hash and passed gate labels.
 
 GitHub wraps these files in its own downloadable Actions artifact archive, which is not the same as the inner tested repository ZIP. Extract the outer wrapper, then verify the inner ZIP's SHA-256 against `mplpb-repository.zip.sha256` before using it. Artifacts are retained for 30 days by the current workflow.
+
+The workflow creates and verifies the evidence manifest **after** all test gates pass;
+`release-evidence.json` always says `candidate_checks_passed_not_deployed`.
+A candidate manifest is not a signed provenance attestation or post-deploy evidence.
+An owner must separately require the `archive-first` and `regression` GitHub checks
+on `main` in repository branch rulesets; workflow text alone cannot prevent bypass.
+See [release evidence and branch settings](RELEASE_EVIDENCE.md).
 
 **Important:** An artifact produced by `if: always()` from a failed run is for investigation only. It is **not validated for release**. The summary report exists only after all tests complete.
 
