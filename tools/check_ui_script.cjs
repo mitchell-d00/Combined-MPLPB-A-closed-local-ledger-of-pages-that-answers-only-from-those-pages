@@ -10,6 +10,7 @@ function runtime(protocol='http:',saved={}){
   set innerHTML(value){this.html=value;if(this.tagName==='SELECT'&&!this.value){this.value=(value.match(/value="([^"]*)"/)||[])[1]||'';}}get innerHTML(){return this.html;}
  }
  for(const [,tag,id] of html.matchAll(/<([\w-]+)[^>]*\bid="([^"]+)"/g)){elements[id]=new Element(id);elements[id].tagName=tag.toUpperCase();}
+ elements['chat-auto-wiki'].checked=/<input[^>]*id="chat-auto-wiki"[^>]*\bchecked\b/.test(html);
  for(const key of ['theme','setting','profile','page-status'])elements[key].value=({theme:'light',setting:'fantasy',profile:'internal','page-status':'all'})[key];
  const tabs=['explore','ask','chat','history','experiment','help'].map(key=>{const e=new Element('tab-'+key);e.dataset.view=key;return e;});
  let hold=null;
@@ -18,7 +19,7 @@ function runtime(protocol='http:',saved={}){
  if(u.pathname==='/api/state')data=fixtures.state;
  else if(u.pathname==='/api/inventory')data=fixtures.inventory[u.searchParams.get('corpus')+'|'+u.searchParams.get('profile')];
  else if(u.pathname==='/api/query'){const q=JSON.parse(options.body);data=fixtures.queries[q.corpus+'|'+q.profile+'|'+q.question];if(hold){const resolve=hold;hold=null;await new Promise(resolve);}}
- else if(u.pathname==='/api/chat'){const q=JSON.parse(options.body);assert.equal(q.default_chat,true);data=fixtures.chats[q.message];if(q.message==='load MPLPB')assert.deepEqual(q.loaded_corpora,['logic','system']);}
+ else if(u.pathname==='/api/chat'){const q=JSON.parse(options.body);assert.equal(q.default_chat,true);assert.equal(q.auto_wiki,elements['chat-auto-wiki'].checked);data=fixtures.chats[q.message];if(q.message==='load MPLPB')assert.deepEqual(q.loaded_corpora,['logic','system']);}
  else if(u.pathname==='/api/chat/resume')data=fixtures.resume;
  else if(u.pathname==='/api/chat/reset')data={reset:true};
  else if(u.pathname==='/api/page'){data=fixtures.pages[u.searchParams.get('corpus')+'|'+u.searchParams.get('profile')+'|'+u.searchParams.get('path')];if(!data){status=400;data={error:'Page withheld'};}}
@@ -33,13 +34,26 @@ async function tick(){for(let i=0;i<20;i++)await Promise.resolve();}
 (async()=>{
  const checked=runtime();await tick();
  await checked.run('render('+JSON.stringify(fixtures.supported_query)+')');assert.match(checked.elements.results.innerHTML,/SUPPORTED ANSWER/);assert.equal(fixtures.supported_query.reader.answer_support.status,'supported');
+ assert.match(checked.elements.results.innerHTML,/Source evidence supporting the answer above/);
+ assert.doesNotMatch(checked.elements.results.innerHTML,/Candidate pages for inspection only/);
+ checked.elements['ask-reader-mode'].value='candidates';
  await checked.run('render('+JSON.stringify(fixtures.candidate_query)+')');assert.match(checked.elements.results.innerHTML,/CANDIDATE ONLY/);assert.equal(fixtures.candidate_query.reader.answer_support.status,'candidate_only');
+ assert.match(checked.elements.results.innerHTML,/Candidate pages for inspection only/);
+ assert.doesNotMatch(checked.elements.results.innerHTML,/Source evidence supporting/);
+ const fresh=runtime();await tick();assert.equal(fresh.elements['chat-auto-wiki'].checked,true);
+ fresh.elements['chat-auto-wiki'].checked=false;fresh.elements['chat-auto-wiki'].events.change();
+ assert.equal(JSON.parse(fresh.storage['mplpb-ui-preferences']).autoWiki,false);
+ fresh.elements.theme.value='dark';fresh.elements.theme.events.change();
+ const reload=runtime('http:',fresh.storage);await tick();assert.equal(reload.elements['chat-auto-wiki'].checked,false);
+ reload.elements.corpus.value='logic';await reload.run('chatSend("So hi?")');
+ reload.elements['chat-auto-wiki'].checked=true;reload.elements['chat-auto-wiki'].events.change();
+ const enabled=runtime('http:',reload.storage);await tick();assert.equal(enabled.elements['chat-auto-wiki'].checked,true);
  const r=runtime();await tick();
  assert.equal(r.elements['guide-invitation'].hidden,false);r.elements['guide-skip'].events.click();assert.equal(r.storage['mplpb-guide-choice'],'self');assert.equal(r.elements['guide-invitation'].hidden,true);
  assert.equal(r.elements.workspace.hidden,false);assert.match(r.elements['page-map'].innerHTML,/CANNED-0001/);assert.equal(r.elements['eligible-count'].textContent,2);
- await r.run('query()');assert.match(r.elements.results.innerHTML,/AMBIGUOUS/);assert.match(r.elements.results.innerHTML,/2 separate sources/);
+ await r.run('query()');assert.match(r.elements.results.innerHTML,/AMBIGUOUS/);assert.match(r.elements.results.innerHTML,/2 separate sources/);assert.doesNotMatch(r.elements.results.innerHTML,/Source evidence supporting/);
  await r.run('page("canned-0001.html")');assert.equal(r.elements['page-dialog'].open,true);assert.match(r.elements['page-content'].innerHTML,/Synthetic reader fixture/);
- r.elements['ask-page'].events.click();await tick();assert.equal(r.elements['page-dialog'].open,false);assert.equal(r.elements.question.value,'Phrynomedusa vanzolinii');assert.match(r.elements.results.innerHTML,/NO SUPPORTED ANSWER/);
+ r.elements['ask-page'].events.click();await tick();assert.equal(r.elements['page-dialog'].open,false);assert.equal(r.elements.question.value,'Phrynomedusa vanzolinii');assert.match(r.elements.results.innerHTML,/NO SUPPORTED ANSWER/);assert.match(r.elements.results.innerHTML,/Strict mode found no verified answer/);assert.doesNotMatch(r.elements.results.innerHTML,/Source evidence supporting/);
  r.elements.profile.value='external';r.elements.profile.events.change();await tick();assert.equal(r.elements['eligible-count'].textContent,0);assert.match(r.elements['page-map'].innerHTML,/withheld by external/);
  await r.run('page("canned-0001.html")');assert.equal(r.elements['page-dialog'].open,false);
  r.elements.corpus.value='dogs';r.elements.profile.value='internal';r.run('corpusChanged()');await tick();await r.run('query()');assert.match(r.elements.results.innerHTML,/Which meaning do you want/);assert.match(r.elements.results.innerHTML,/dog breeds/);
@@ -63,7 +77,7 @@ async function tick(){for(let i=0;i<20;i++)await Promise.resolve();}
  r.elements['monster-enabled'].checked=false;r.elements['monster-enabled'].events.change();
  assert.equal(r.elements['chat-title'].textContent,'Chat with MPLPB');
  r.elements['monster-reason'].checked=false;r.elements['monster-reason'].events.change();
- const prefs=JSON.parse(r.storage['mplpb-ui-preferences']);assert.deepEqual(Object.keys(prefs).sort(),['corpus','helperEnabled','helperName','profile','reasonMode','setting','theme']);
+ const prefs=JSON.parse(r.storage['mplpb-ui-preferences']);assert.deepEqual(Object.keys(prefs).sort(),['autoWiki','corpus','helperEnabled','helperName','profile','reasonMode','setting','theme']);
  r.elements.corpus.value='canned';r.elements.profile.value='internal';r.elements.question.value='How do I clear mplpb some or all?';await r.run('query()');assert.match(r.elements.results.innerHTML,/App help/);assert.match(r.elements.results.innerHTML,/Clear selected MPLPBs/);
  await r.run('chatSend("guide me")');assert.match(r.elements['chat-messages'].innerHTML,/Step 1 of 4/);assert.match(r.elements['chat-messages'].innerHTML,/data-suggest/);
  await r.run('chatSend("show my MPLPB")');assert.match(r.elements['chat-messages'].innerHTML,/data-topic="Budget guide"/);
