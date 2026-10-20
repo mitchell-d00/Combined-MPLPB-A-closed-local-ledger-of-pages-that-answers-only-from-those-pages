@@ -2,6 +2,8 @@
 
 # Combined MPLPB
 
+> **Production release evidence:** The ZIP-first workflow binds the exact candidate commit to a tested source ZIP, Chromium-tested browser HTML, validation report, and SHA-256 manifest. A candidate is **not** a verified deployment; required GitHub branch checks must be configured by an administrator. See [release evidence and required settings](docs/RELEASE_EVIDENCE.md).
+
 > **ZIP-first release gate:** Before merging, [package the exact PR commit and test the extracted ZIP in Python, WebAssembly and real Chromium](docs/ZIP_FIRST_RELEASE_TESTING.md). This produces a checksum-pinned downloadable Actions artifact. Never substitute checkout-only tests for packaged-code validation.
 
 > **AI agents / browser QA:** Use the [reproducible browser-testing runbook](docs/BROWSER_TESTING_FOR_AGENTS.md) and [Chromium smoke harness](tools/browser_release_smoke.py) to test the **real published GitHub Pages app** separately from a proposed Pyodide/WebAssembly build. PR validation also exercises the browser, not just Python unit tests. Never claim the live deployment passed based only on a local source test.
