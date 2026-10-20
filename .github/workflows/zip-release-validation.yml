@@ -102,6 +102,17 @@ jobs:
             echo "Post-merge deployed-live Chromium: separate Pages deployment gate"
           } > "$RUNNER_TEMP/mplpb-zipped/validation-report.txt"
           cat "$RUNNER_TEMP/mplpb-zipped/validation-report.txt"
+          # Copy the exact preview tested in Chromium, then bind all successful
+          # gates to this candidate SHA and to content digests. This manifest
+          # describes a candidate; post-deployment smoke stays a separate gate.
+          cp "$RUNNER_TEMP/mplpb-unpacked/dist/index.html" "$RUNNER_TEMP/mplpb-zipped/mplpb-candidate-preview.html"
+          cd "$RUNNER_TEMP/mplpb-unpacked"
+          python tools/release_evidence.py create \
+            --archive-dir "$RUNNER_TEMP/mplpb-zipped" \
+            --expected-commit "${{ github.event.pull_request.head.sha || github.sha }}"
+          python tools/release_evidence.py verify \
+            --archive-dir "$RUNNER_TEMP/mplpb-zipped" \
+            --expected-commit "${{ github.event.pull_request.head.sha || github.sha }}"
       - name: Preserve source ZIP, hash, commit and gate report
         if: always()
         uses: actions/upload-artifact@v4
