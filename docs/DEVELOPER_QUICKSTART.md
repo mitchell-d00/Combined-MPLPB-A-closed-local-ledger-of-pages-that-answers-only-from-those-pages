@@ -68,6 +68,9 @@ case, review the expected evidence, then change code. Passing tests protect know
 behavior; they do not establish unrestricted natural conversation.
 
 
-For a direct gated terminal query, use `python -m tools.supported_query CORPUS
-"What is the kettle color?"`. `mplpb-combined ask` remains the legacy candidate
-inspection command. Explain this distinction before embedding either API.
+For a direct gated terminal query, use `mplpb-combined ask CORPUS
+"What is the kettle color?"` after installation or `python -m mplpb_answers ask`
+from a source checkout. The legacy `python -m mplpb_combined ask` and explicit
+`mplpb-combined candidates` are **lexical candidate inspection only**, not supported
+answers. Treat `candidate_only` and a successful API invocation as insufficient
+for a source-backed factual claim. See `RELEASE_EVIDENCE.md` for the release gates.
