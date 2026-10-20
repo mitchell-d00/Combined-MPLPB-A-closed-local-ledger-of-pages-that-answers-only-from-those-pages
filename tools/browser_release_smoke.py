@@ -11,7 +11,7 @@ from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 from threading import Thread
 
-from playwright.sync_api import sync_playwright
+from playwright.sync_api import expect, sync_playwright
 
 
 @contextmanager
@@ -72,6 +72,40 @@ def verify(page, url, updated):
             timeout=10000)
         page.locator("#results .outcome").wait_for(timeout=60000)
         print("BROWSER SAMPLE: candidate inspection selected", flush=True)
+
+        # A supported answer must not inherit the inspection-only caption.
+        page.locator("#corpus").select_option("logic")
+        page.locator("#profile").select_option("internal")
+        page.locator("#ask-reader-mode").select_option("supported")
+        page.locator("#question").fill("What is Dungeons and Dragons?")
+        page.locator("#ask-button").click()
+        expect(page.locator("#results .outcome")).to_have_text(
+            "SUPPORTED ANSWER", timeout=60000)
+        expect(page.locator("#results .source-notice")).to_contain_text(
+            "Source evidence supporting the answer above")
+        expect(page.locator("#results .source-notice")).not_to_contain_text(
+            "Candidate pages for inspection only")
+        page.locator("#ask-reader-mode").select_option("candidates")
+        page.locator("#ask-button").click()
+        expect(page.locator("#results .outcome")).to_have_text(
+            "CANDIDATE ONLY", timeout=60000)
+        expect(page.locator("#results .source-notice")).to_contain_text(
+            "Candidate pages for inspection only")
+        print("BROWSER CAPTIONS: supported and inspection notices separated", flush=True)
+
+        # Persist the toggle immediately, without requiring a chat submission.
+        # Exercise both values and a second preference write before reload.
+        page.locator("[data-view='chat']").first.click()
+        for enabled in (False, True):
+            page.locator("#chat-auto-wiki").set_checked(enabled)
+            page.locator("#theme").select_option("dark" if not enabled else "light")
+            page.reload(wait_until="domcontentloaded")
+            page.wait_for_function(
+                "() => document.querySelector('#workspace') && "
+                "!document.querySelector('#workspace').hidden", timeout=150000)
+            page.locator("[data-view='chat']").first.click()
+            expect(page.locator("#chat-auto-wiki")).to_be_checked(checked=enabled)
+        print("BROWSER PREFERENCES: automatic lookup off/on survives reload", flush=True)
 
     page.locator("[data-view='chat']").first.click()
     assert page.locator("#chat-mode-chat").count() == 1
