@@ -1,0 +1,8 @@
+Candidate: 53d6f060d5c7140981053bf4edbf96a8f17c320c
+PR run: 39633376438 / ZIP-first run: 39633376570
+Full Python (653), integrity, JavaScript, actual WebAssembly and original Chromium smoke passed.
+Additional Chromium audit failed mobile layout: viewport 390, document scrollWidth 421.
+Screenshot artifact: 12360248372 (candidate-390.png).
+Cause: #chat-scope multi-select intrinsic width exceeded its containing panel.
+Repair: constrain select to containing width; preserve candidate no-overflow assertion.
+Live baseline measurements are retained separately because deployment is not changed by this PR.

@@ -9,13 +9,13 @@ import re
 from .frames import normalize
 from mplpb_combined.record import text_of
 
-VERSION = "literal-evidence-v1"
+VERSION = "literal-evidence-v2"
 _UNSAFE_QUESTION = re.compile(
     r"\b(?:not|never|before|after|during|unless|if|possibly|maybe|"
     r"currently|formerly|now|supposedly|allegedly)\b")
 _UNSAFE_EVIDENCE = re.compile(
     r"\b(?:not|never|if|unless|perhaps|possibly|allegedly|reportedly|"
-    r"supposedly|unknown|unrecorded)\b")
+    r"supposedly|unknown|unrecorded|maybe|probably|apparently|likely|might|could|would|should|claims?|says?|said|believes?)\b")
 _DECOY = re.compile(r"^(?:say|write|claim|imagine|suppose|assume|pretend|if)\b")
 
 
@@ -64,7 +64,7 @@ def _extract(frame, line):
     entity = re.escape(frame.entity)
     if frame.relation == "abbreviation":
         patterns = (
-            rf"\b{entity}, (?:often )?abbreviated (?:as )?(?P<value>[a-z0-9-]{{2,32}}), (?:is|are|was|were)\b",
+            rf"^(?:the )?{entity}, (?:often )?abbreviated (?:as )?(?P<value>[a-z0-9-]{{2,32}}), (?:is|are|was|were)\b",
             rf"^(?:the )?{entity} (?:is|was) (?:often )?abbreviated as (?P<value>[a-z0-9-]{{2,32}})$",
         )
     elif frame.relation == "event_start":
@@ -83,7 +83,7 @@ def _extract(frame, line):
         )
     elif frame.relation == "country_location":
         patterns = (
-            rf"\b{entity}, a (?:geographic )?region in (?P<value>[a-z]+(?: [a-z]+){{0,2}})(?=[,.]|$)",
+            rf"^(?:(?:the )?[a-z][a-z0-9 (),:;\"-]*?gave their name to )?{entity}, a (?:geographic )?region in (?P<value>[a-z]+(?: [a-z]+){{0,2}})(?=[,.]|$)",
             rf"^(?:the )?{entity} (?:is|lies|is located) in (?P<value>[a-z]+(?: [a-z]+){{0,2}})(?=[,.]|$)",
         )
     elif frame.relation == "merger_company":
@@ -107,7 +107,9 @@ def _extract(frame, line):
         # A nearby location with the wrong group/country must never answer.
         group = re.escape(frame.other)
         patterns = (
-            rf"\b{group} (?:numbers|population)\b.*?\bconcentrated "
+            rf"^{group} (?:numbers|population) "
+            rf"(?:(?:was|were) |(?:peaked (?:near |at )(?:an? )?(?:estimated )?"
+            rf"[a-z0-9 ]+ by \d{{4}}, ))?concentrated "
             rf"(?:mainly|largely) in (?P<value>the [a-z ]+? parts of {entity})"
             rf"(?=,|\.|$)",
         )
@@ -153,9 +155,23 @@ def statement_support(frame, record):
     body = re.sub(r"<h[1-6]\b[^>]*>.*?</h[1-6]>", "\n",
                   record.body_html, flags=re.I | re.S)
     spans = []
+    negative_values = []
+    # An explicit discourse instruction cannot certify its following sentences.
+    # Conservatively decline the page; do not execute or strip the instruction.
+    if re.search(r"(?:^|[.!?]\s+|\n)(?:imagine|suppose|assume|pretend|ignore)\b",
+                 text_of(body), re.I):
+        return {"status": "unsupported", "spans": [],
+                "reason": "Instructional or hypothetical source context is not factual evidence."}
     for sentence in re.split(r"(?<=[.!?])\s+|\n+", text_of(body)):
         raw = sentence.strip()
         line = normalize(raw)
+        # Detect explicit negative assertions using the same bounded relation
+        # grammar. The affirmative surface is for contradiction detection only.
+        negative = re.sub(r"\bdid not begin\b", "began", line)
+        negative = re.sub(r"\bdoes not have\b", "has", negative)
+        negative = re.sub(r"\b(is|are|was|were|has) not\b", r"\1", negative)
+        if negative != line and not _UNSAFE_EVIDENCE.search(negative):
+            negative_values.extend(_extract(frame, negative))
         if not line or _DECOY.search(line) or _UNSAFE_EVIDENCE.search(line):
             continue
         # Remove quoted words from the matching surface, rather than rejecting
@@ -164,11 +180,12 @@ def statement_support(frame, record):
         for value in _extract(frame, line):
             spans.append({"quote": raw, "value": value})
     distinct = {item["value"] for item in spans}
-    if len(distinct) > 1:
+    if len(distinct) > 1 or distinct.intersection(negative_values):
         return {"status": "conflict", "spans": spans,
                 "reason": "Different literal values in eligible source text."}
     if not spans:
         return {"status": "unsupported", "spans": [],
+                "negative_values": sorted(set(negative_values)),
                 "reason": "No exact affirmative source statement fits the bounded grammar."}
     return {"status": "supported", "spans": spans,
             "reason": "Exact source statement under a bounded grammar; factual truth not checked."}

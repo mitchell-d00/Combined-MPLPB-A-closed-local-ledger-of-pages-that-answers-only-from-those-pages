@@ -1,0 +1,20 @@
+test_citation_hash_matches_exact_supporting_source (tests.test_audit_20261021.AuditRegressions.test_citation_hash_matches_exact_supporting_source) ... ok
+test_corpus_isolation_stale_record_and_lineage_corruption (tests.test_audit_20261021.AuditRegressions.test_corpus_isolation_stale_record_and_lineage_corruption) ... ERROR
+test_new_language_controls (tests.test_audit_20261021.AuditRegressions.test_new_language_controls) ... ok
+
+======================================================================
+ERROR: test_corpus_isolation_stale_record_and_lineage_corruption (tests.test_audit_20261021.AuditRegressions.test_corpus_isolation_stale_record_and_lineage_corruption)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/a3b0e1855f51/candidate/tests/test_audit_20261021.py", line 35, in test_corpus_isolation_stale_record_and_lineage_corruption
+    self.assertNotEqual(supported_answer(a, q).kind, 'return')
+                        ^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/a3b0e1855f51/candidate/mplpb_answers/support.py", line 121, in supported_answer
+    checks = [(by_path[s['path']], LE.statement_support(literal, by_path[s['path']]))
+               ~~~~~~~^^^^^^^^^^^
+KeyError: 'doc-0002.html'
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.154s
+
+FAILED (errors=1)

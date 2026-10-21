@@ -2,13 +2,14 @@
 const fs=require('node:fs'),vm=require('node:vm'),assert=require('node:assert/strict'),{webcrypto}=require('node:crypto');
 const workerCode=fs.readFileSync('browser/worker.js','utf8'),clientCode=fs.readFileSync('browser/client.js','utf8');
 async function workerTests(){
- const messages=[],events=[];let rejectSave=false,rejectPython=false;
- const fake={globals:{set:(key,value)=>events.push(key)},FS:{syncfs:(load,cb)=>{events.push('save');cb(rejectSave?Error('quota'):null);}},runPythonAsync:async()=>{events.push('python');if(rejectPython)throw Error('source revision conflict');return '{"ok":true}';}};
+ const messages=[],events=[];let rejectSave=false,rejectPython=false,rejectNetwork=false;
+ const fake={globals:{set:(key,value)=>events.push(key)},FS:{syncfs:(load,cb)=>{events.push('save');cb(rejectSave?Error('quota'):null);}},runPythonAsync:async()=>{events.push('python');if(rejectNetwork)return JSON.stringify({_browser_transport_error:'Local-only API: remote search is disabled'});if(rejectPython)throw Error('source revision conflict');return '{"ok":true}';}};
  const c=vm.createContext({console,Promise,self:{},postMessage:data=>{events.push('response');messages.push(data);},fake,atob,value:null,Uint8Array,TextDecoder,crypto:webcrypto});
  vm.runInContext(workerCode,c);vm.runInContext('py=fake',c);
  c.self.onmessage({data:{id:1,url:'/api/chat'}});c.self.onmessage({data:{id:2,url:'/api/chat'}});await vm.runInContext('queue',c);
  assert.equal(messages.length,2);assert.deepEqual(events.filter(x=>['python','save','response'].includes(x)),['python','save','response','python','save','response']);
  rejectPython=true;c.self.onmessage({data:{id:3,url:'/api/chat'}});await vm.runInContext('queue',c);assert.match(messages.at(-1).error,/source revision conflict/);assert.deepEqual(events.slice(-2),['save','response']);
+ rejectPython=false;rejectNetwork=true;c.self.onmessage({data:{id:7,url:'/api/chat'}});await vm.runInContext('queue',c);assert.equal(messages.at(-1).error,'Local-only API: remote search is disabled');rejectNetwork=false;
  rejectPython=false;rejectSave=true;c.self.onmessage({data:{id:4,url:'/api/chat'}});await vm.runInContext('queue',c);assert.match(messages.at(-1).error,/save failed/);
  const count=events.filter(x=>x==='python').length;c.self.onmessage({data:{id:5,url:'/api/chat'}});await vm.runInContext('queue',c);assert.equal(events.filter(x=>x==='python').length,count);assert.match(messages.at(-1).error,/Runtime stopped/);
  const b=vm.createContext({console,Promise,self:{},postMessage:x=>messages.push(x),atob,Uint8Array,TextDecoder,crypto:webcrypto});vm.runInContext(workerCode,b);

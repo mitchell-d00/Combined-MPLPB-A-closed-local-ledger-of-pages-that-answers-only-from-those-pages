@@ -1,3 +1,5 @@
+> **2026-10-21 evaluator repair:** The lexical comparison now calls the legacy reader explicitly; it had drifted to the supported default through `App.query`. The rerun reproduces the table below (chat 12/18, lexical 10/18 with one unsupported return). Original labels and historical results are preserved. See [the system audit](../../docs/SYSTEM_AUDIT_2026-10-21.md).
+
 # Contextual chat experiments
 
 This directory contains **synthetic developer tests, not independent human validation**.

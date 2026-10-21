@@ -1,3 +1,5 @@
+> **2026-10-21 audit:** See the [current retest, defects, repairs and evidence status](SYSTEM_AUDIT_2026-10-21.md). Earlier dated results below remain historical; the October 19 SQuAD correction is included in the retest.
+
 # Production threat model
 
 Status: engineering threat model, not a penetration-test report or certification.

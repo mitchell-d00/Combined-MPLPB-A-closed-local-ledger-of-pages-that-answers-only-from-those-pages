@@ -40,4 +40,4 @@ self.onmessage=e=>{queue=queue.then(async()=>{const {id,operation,bundle,url,pay
  // Also retain observations archived by an import that was rejected.
  try{await sync(false);}catch(exc){failed=true;throw Error('Browser save failed: '+String(exc));}
  if(error)throw Error(error);postMessage({id,result});
- }catch(error){postMessage({id,error:String(error)});}});};
+ }catch(error){postMessage({id,error:String(error?.message||error)});}});};

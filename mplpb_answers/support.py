@@ -5,7 +5,7 @@ Scope/title metadata never supplies an answer. Unsupported grammar abstains.
 import re
 from mplpb_combined.record import text_of
 
-VERSION = 'statement-support-v3'
+VERSION = 'statement-support-v4'
 
 
 from .frames import normalize, parse
@@ -22,6 +22,10 @@ def statement_support(question, record):
     # Only body sentences, never declared scope or when-to-use. Whole sentence
     # matches reject quoted instructions, hypothetical prefixes and other subjects.
     body=re.sub(r'<h[1-6]\b[^>]*>.*?</h[1-6]>','\n',record.body_html,flags=re.I|re.S)
+    if re.search(r'(?:^|[.!?]\s+|\n)(?:imagine|suppose|assume|pretend|ignore)\b',
+                 text_of(body), re.I):
+        return {'status': 'unsupported', 'spans': [],
+                'reason': 'Instructional or hypothetical source context is not factual evidence.'}
     for sentence in re.split(r'(?<=[.!?])\s+|\n+',text_of(body)):
         raw=sentence.strip();line=normalize(raw)
         if re.match(r'^(?:say|write|claim|imagine|suppose|assume|pretend|if|perhaps|possibly|maybe)\b', line):
@@ -113,9 +117,11 @@ def supported_answer(root, question, profile=None):
             out.reason = 'Literal extraction requires a directly resolved corpus.'
             return out
         bundle = gather(out.root, ' '.join((literal.entity, literal.other)).strip(), out.profile)
+        # The sealed lexical gate may list a record rejected by current
+        # ledger status/lineage checks. Intersect; never trust or index it blindly.
         by_path = {r.path: r for r in ledger.servable()}
         checks = [(by_path[s['path']], LE.statement_support(literal, by_path[s['path']]))
-                  for s in bundle.sources]
+                  for s in bundle.sources if s['path'] in by_path]
         # Candidate diagnostics stay in answer_support.candidate_checks.
         # Unrelated pages with zero matched answer spans are not answer owners.
         out.candidates = []
@@ -123,7 +129,10 @@ def supported_answer(root, question, profile=None):
                                                status=check['status'], spans=check['spans'])
                                            for rec, check in checks]
         supported = [(rec, check) for rec, check in checks if check['status'] == 'supported']
-        conflict = any(check['status'] == 'conflict' for _, check in checks)
+        positive_values = {span['value'] for _, check in supported for span in check['spans']}
+        negative_values = {value for _, check in checks for value in check.get('negative_values', [])}
+        conflict = (any(check['status'] == 'conflict' for _, check in checks)
+                    or bool(positive_values.intersection(negative_values)))
         if len(supported) == 1 and not conflict:
             rec, check = supported[0]
             out.record, out.depth, out.kind = rec, ledger.depth(rec), RETURN
@@ -161,7 +170,7 @@ def supported_answer(root, question, profile=None):
     gate = gather(out.root, canonical, out.profile)
     by_path = {r.path:r for r in ledger.servable()}
     checks = [(by_path[s['path']], statement_support(question, by_path[s['path']]))
-              for s in gate.sources]
+              for s in gate.sources if s['path'] in by_path]
     # Keep lexical inspection separate from verified answer evidence.
     out.candidates = []
     out.support['candidate_checks'] = [dict(id=rec.id, path=rec.path, hash=rec.hash,

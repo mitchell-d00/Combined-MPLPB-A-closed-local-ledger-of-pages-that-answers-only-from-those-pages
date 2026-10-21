@@ -1,3 +1,5 @@
+> **2026-10-21 audit:** See the [current retest, defects, repairs and evidence status](SYSTEM_AUDIT_2026-10-21.md). Earlier dated results below remain historical; the October 19 SQuAD correction is included in the retest.
+
 # Candidate release evidence and required repository settings
 
 Status: engineering release procedure, not production certification. Added 2026-10-20.
@@ -29,6 +31,18 @@ commit. The SHA-256s are not independently signed attestations.
 recalculates the hashes and checks the exact SHA, report gate labels, and
 manifest. Tampering with an individual downloaded artifact is detected; a
 forged set of artifacts is outside this manifest's trust boundary.
+
+## Current repository settings — verified 2026-10-21
+
+The active `Bear` ruleset now targets `refs/heads/main`, requires a pull request,
+and requires `archive-first` and `regression` from GitHub Actions with strict
+current-branch checks. It also prevents deletion and non-fast-forward changes.
+Required approving reviews are zero. The branch endpoint reports `protected: true`;
+its separate traditional-protection block remains disabled. Rulesets and traditional
+protection are different mechanisms. The dated snapshot below predates this setup.
+See the exact read-only settings evidence in
+`evaluation/audit-2026-10-21/repository-rules-2026-10-21.json`.
+No settings were changed by this audit, and no merge/bypass was attempted.
 
 ## Repository settings that an owner must enforce
 

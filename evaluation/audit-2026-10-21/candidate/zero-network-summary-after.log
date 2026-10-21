@@ -1,0 +1,61 @@
+{
+  "cases": 200,
+  "virtual_users": 5,
+  "independent": false,
+  "kinds": {
+    "reference": 65,
+    "unsupported": 40,
+    "conversation": 80,
+    "help": 15
+  },
+  "authorities": {
+    "lexical_reference": 65,
+    "unsupported": 40,
+    "conversation_structure": 80,
+    "system_description": 15
+  },
+  "lookup_status": {
+    "none": 200
+  },
+  "transport_error_cases": [],
+  "prefix_route_failure_cases": [],
+  "citation_index_failure_cases": [],
+  "unexpected_social_or_no_search_network_cases": [],
+  "session_chains_intact": 5,
+  "prefixed_request_cases": 55,
+  "source_exploration_cases": 0,
+  "category_kinds": {
+    "attribute_or_followup": {
+      "unsupported": 40,
+      "reference": 10,
+      "conversation": 50
+    },
+    "overview": {
+      "reference": 50
+    },
+    "social_or_control": {
+      "conversation": 30,
+      "help": 15,
+      "reference": 5
+    }
+  },
+  "collections_built": 0,
+  "http_calls_including_run_cache": 0,
+  "run_cache_hits": 0,
+  "http_successes": 0,
+  "http_failures": 0,
+  "unique_successful_urls": 0,
+  "timing_seconds": {
+    "median": 0.473,
+    "p95": 7.189,
+    "max": 8.4
+  },
+  "runtime_bundle_consistent": true,
+  "semantic_accuracy": "Not scored. No independent human answer labels; completed replies are not correctness guarantees.",
+  "limitations": [
+    "25 topic families with correlated paraphrases; development cases informed fixes.",
+    "Node WebAssembly with real Wikipedia HTTP via paced curl; browser CORS/IndexedDB are outside the 1000-case runner.",
+    "Live browser UI acquisition and prefix routing were smoke-tested separately.",
+    "Latency includes shared network pacing and concurrent local workers; not a production performance benchmark."
+  ]
+}

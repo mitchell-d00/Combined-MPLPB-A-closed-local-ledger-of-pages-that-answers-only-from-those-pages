@@ -1,3 +1,5 @@
+> **2026-10-21 audit:** See the [current retest, defects, repairs and evidence status](docs/SYSTEM_AUDIT_2026-10-21.md). Earlier dated results below remain historical; the October 19 SQuAD correction is included in the retest.
+
 > **Connect an AI using only the site/repository URL:** See [MPLPB agent discovery](.well-known/mplpb.json), [the agent middleware guide](docs/AGENT_MIDDLEWARE.md), and [the JavaScript API](JAVASCRIPT-API.md). The hosted app runs the **full Python engine in WebAssembly in each browser**, and browser-capable agents can call `window.MPLPB.relay()`. HTTPS discovery alone cannot reach another user's browser storage. A public externally eligible page snapshot is published alongside the hosted app.
 
 # Combined MPLPB
@@ -11,9 +13,12 @@
 A closed local ledger of pages that answers only from those pages.
 
 Each page carries its own id, scope, status, hash, parent and depth. The reader reads the
-explicitly configured corpus folder. One current page owns the question: it returns that page. Two own it: it stops. None
-own it: it says not in the corpus. A change writes a new page and retires the old one. A
-derivation writes a new page and adds one to the depth.
+explicitly configured corpus folder. The default supported-answer path requires an
+eligible body statement that matches the complete question under its bounded grammar.
+One supporting source can supply an answer; conflicting or multiple supporting sources
+remain ambiguous; no support produces a refusal. Legacy lexical candidates are separately
+inspectable and do not establish factual support. A change writes a new page and retires
+the old one. A derivation writes a new page and adds one to the depth.
 
 No model. The core reader uses local pages and the Python standard library. Optional search/crawl/import commands contact public sources explicitly; standalone browser mode uses IndexedDB for saved state.
 
@@ -92,8 +97,8 @@ network setting. Negated requests and imagined ideas do not trigger automatic
 search. This is a finite language grammar, not general semantic understanding.
 
 Conversational lead-ins such as `cool, tell me about an apple` are separated
-from the request before topic selection. With automatic Wikipedia enabled, a
-dictionary definition does not block acquisition of encyclopedia pages. A page
+from the request before topic selection. Dictionary responses remain local even with automatic Wikipedia enabled;
+use explicit search/import to acquire encyclopedia pages. A page
 that merely mentions a topic cannot supply its overview through the fallback. Failed
 automatic lookups pause for one minute per topic; explicit search stays available.
 The [1,000-question development smoke](evaluation/live-conversation/README.md)
@@ -197,7 +202,8 @@ A(q) = R               if exactly one current R owns q
 Paper: [`docs/Combined_MPLPB.md`](docs/Combined_MPLPB.md) · `.txt` · `.pdf`
 (MPLPB-COMBINED-017 v3, draft for owner review) · fixes: [`docs/FIXLOG.md`](docs/FIXLOG.md)
 
-This is the master repository. The `ask` command implements the formula. The separate `gate` command returns lexical
+This is the master repository. The legacy `python -m mplpb_combined ask` implements the lexical formula;
+installed `mplpb-combined ask` additionally requires statement support. The separate `gate` command returns lexical
 source bundles with provenance, as described below. The five earlier implementations are carried whole under [`parts/`](parts/README.md), and
 the papers that are not in any of them are under [`docs/sources/`](docs/sources/README.md).
 

@@ -1,3 +1,5 @@
+> **2026-10-21 audit:** See the [current retest, defects, repairs and evidence status](../../docs/SYSTEM_AUDIT_2026-10-21.md). Earlier dated results below remain historical; the October 19 SQuAD correction is included in the retest.
+
 # Adversarial semantic ownership evaluation
 
 Run from the repository root:
@@ -72,10 +74,11 @@ abstains. Bare topic lookup remains inspection, explicitly `candidate_only`.
 
 The browser/server query endpoint uses this gate. Use `python -m tools.supported_query
 CORPUS "What is ...?"` for the same path in a source checkout. The existing
-`mplpb_combined.reader.answer` and installed `mplpb-combined ask` retain their legacy
+`mplpb_combined.reader.answer` and `python -m mplpb_combined ask` retain their legacy
 candidate-retrieval contract; they are **not** semantic-answer APIs. This preserves
 sealed archive engine pins and reproducibility of previous evaluations. Do not
-use those legacy paths as proof of answer support.
+use those legacy paths as proof of answer support. Installed `mplpb-combined ask`
+and `python -m mplpb_answers ask` use the supported-answer path.
 
 ## Modern RAG comparison protocol — not yet measured
 

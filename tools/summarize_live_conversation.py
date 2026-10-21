@@ -12,11 +12,17 @@ out=pathlib.Path(args.output);out.mkdir(parents=True,exist_ok=True)
 rows=[];network=[];sessions=[];bundles=[]
 for folder in map(pathlib.Path,args.runs):
     local_rows=[json.loads(s) for s in (folder/'responses.jsonl').read_text().splitlines()]
+    run_summary=json.loads((folder/'summary.json').read_text())
+    assert len(local_rows)==run_summary['cases'], 'Incomplete response log: '+str(folder)
     rows.extend(local_rows)
     # Older run-cache metadata retained pilot case/id fields. Correlate calls
     # using append order and the per-turn request count; preserve raw logs.
     call_cases=[r['id'] for r in local_rows for _ in range(r['network_requests'])]
-    local_network=[json.loads(s) for s in (folder/'network.jsonl').read_text().splitlines()]
+    network_file=folder/'network.jsonl'
+    # The runner creates this file on its first request; a wholly local run
+    # legitimately has no network log. Missing nonempty logs still fail.
+    local_network=([json.loads(s) for s in network_file.read_text().splitlines()]
+                   if call_cases or network_file.exists() else [])
     assert len(call_cases)==len(local_network)
     for i,(case,n) in enumerate(zip(call_cases,local_network),1):
         n['raw_metadata_case']=n.get('case');n['raw_metadata_id']=n.get('id')
@@ -24,7 +30,7 @@ for folder in map(pathlib.Path,args.runs):
         network.append(n)
     for name,dest in [('sessions.jsonl',sessions)]:
         dest.extend(json.loads(s) for s in (folder/name).read_text().splitlines())
-    bundles.append(json.loads((folder/'summary.json').read_text())['bundle_manifest'])
+    bundles.append(run_summary['bundle_manifest'])
 rows.sort(key=lambda r:r['id']);assert len({r['id'] for r in rows})==len(rows)
 counts=lambda xs:dict(collections.Counter(xs))
 compact=[];routing=[];citations=[];social_network=[];errors=[]
@@ -64,7 +70,7 @@ summary={'cases':len(rows),'virtual_users':len(sessions),'independent':False,
     'limitations':['25 topic families with correlated paraphrases; development cases informed fixes.',
       'Node WebAssembly with real Wikipedia HTTP via paced curl; browser CORS/IndexedDB are outside the 1000-case runner.',
       'Live browser UI acquisition and prefix routing were smoke-tested separately.',
-      'Latency includes shared network pacing and four local workers; not a production performance benchmark.']}
+      'Latency includes shared network pacing and concurrent local workers; not a production performance benchmark.']}
 (out/'summary.json').write_text(json.dumps(summary,indent=2)+'\n')
 (out/'network.jsonl').write_text(''.join(json.dumps(n)+'\n' for n in network))
 (out/'sessions.jsonl').write_text(''.join(json.dumps(n)+'\n' for n in sessions))

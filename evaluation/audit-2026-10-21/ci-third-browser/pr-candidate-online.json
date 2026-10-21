@@ -1,0 +1,344 @@
+{
+  "ok": true,
+  "data": {
+    "session": "8944ff29a4b843e0a3f43b9c47c5d734",
+    "corpus": "topics",
+    "profile": "internal",
+    "response": {
+      "kind": "import",
+      "message": "Imported pinned revision locally. No truth certification or evaluation score.",
+      "imported": {
+        "corpus": "topics",
+        "title": "Cat",
+        "source_pin": {
+          "revid": 1381299280,
+          "slot_sha1": "b281ad6cd74235898628356afb1278631009c8d8",
+          "wikitext_sha256": "92014add7189813fa0a9e5195cdda1c14800ca1af9aac352651202c212c330a9"
+        },
+        "observed_at": "2026-10-21T16:40:11.113999+00:00",
+        "capture": "captures/20261021T164011128999Z",
+        "notice": "Imported pinned revision locally. No truth certification or evaluation score."
+      },
+      "context": {
+        "title": "Cat",
+        "id": "TOPIC-f307222880d3c147",
+        "path": "topic-f307222880d3c147.html",
+        "hash": "sha256:229efd22fdbaf1ab4600f92718f3066ddfbee995ef6383b3e83582a6c65b6d7d"
+      },
+      "sources": [
+        {
+          "title": "Cat",
+          "id": "TOPIC-f307222880d3c147",
+          "path": "topic-f307222880d3c147.html",
+          "hash": "sha256:229efd22fdbaf1ab4600f92718f3066ddfbee995ef6383b3e83582a6c65b6d7d",
+          "corpus": "topics"
+        }
+      ],
+      "reasoning": [
+        "Main revision slot SHA-1 and wikitext SHA-256 checked; raw bytes retained."
+      ],
+      "determination": {
+        "rule": "REDUCE-DETERMINE",
+        "version": "reduction-to-determination-v2",
+        "mode": "focus",
+        "outcome": "unique",
+        "retained": [
+          "response"
+        ],
+        "eliminated": [],
+        "selected": "response",
+        "basis": "procedure",
+        "selection_order": "candidate ID; saved turn offset for equivalent wording",
+        "elimination_creates_evidence": false
+      },
+      "environment": {
+        "mode": "focus",
+        "corpora": [
+          "topics"
+        ],
+        "focus_corpus": "topics"
+      },
+      "source_corpus": "topics",
+      "response_structure": {
+        "mode": "focus"
+      },
+      "suggestions": [
+        "guide me",
+        "show my MPLPB",
+        "how do I search?"
+      ],
+      "language_plan": {
+        "version": "language-planner-v1",
+        "canonical": "import Cat",
+        "actions": [
+          "conversation_or_command"
+        ],
+        "subject": null,
+        "audience": null,
+        "reference": null,
+        "negation_present": false,
+        "imagined": false,
+        "question_word": "",
+        "normalization_is_evidence": false,
+        "realization_rules": [
+          "preserve_validated_payload"
+        ],
+        "response_act": "import",
+        "acquisition": {
+          "query": null,
+          "order": [
+            "eligible_local_pages",
+            "enabled_remote_capture"
+          ],
+          "search_snippets_are_evidence": false,
+          "automatic_network_requires_setting": true
+        },
+        "payload_sha256": "0e3fca78a201a4bc15bb0ed9e25e8bd648c272b7631b09c48829252352a9f720",
+        "surface_changed": false,
+        "source_paraphrasing": false,
+        "rules_are_not_evidence": true
+      },
+      "support_label": "Sources below",
+      "guidance": {
+        "title": "Explore Cat",
+        "hint": "Choose a follow-up, or type your own. Each answer still needs supporting text.",
+        "actions": [
+          {
+            "label": "how do I search?",
+            "request": "how do I search?",
+            "mode": "send"
+          },
+          {
+            "label": "View source text",
+            "request": "show source",
+            "mode": "send"
+          },
+          {
+            "label": "Ask a question",
+            "request": "",
+            "mode": "draft"
+          },
+          {
+            "label": "Choose another topic",
+            "request": "Tell me about ",
+            "mode": "draft"
+          }
+        ]
+      },
+      "interpretation": {
+        "version": "conversation-continuity-v2",
+        "original": "import Cat",
+        "resolved": "import Cat",
+        "acts": [
+          {
+            "type": "unresolved",
+            "text": "import Cat"
+          }
+        ],
+        "subject": null,
+        "correction": false,
+        "reference": null,
+        "original_acts": [
+          {
+            "type": "unresolved",
+            "text": "import Cat"
+          }
+        ],
+        "entities": {
+          "nodes": [
+            {
+              "id": "user",
+              "type": "person",
+              "label": "user"
+            }
+          ],
+          "edges": [],
+          "identity_verified": false,
+          "source_evidence": false
+        },
+        "unresolved_choices": [],
+        "dialogue_interpretation": null,
+        "candidates": [
+          {
+            "handler": "environment",
+            "intent": "scoped_environment",
+            "priority": 0,
+            "basis": "explicit scope, local skill plan, or gated retrieval plan",
+            "allowed_authorities": [
+              "gated_source",
+              "lexical_reference",
+              "research_note",
+              "conversation_structure"
+            ]
+          }
+        ],
+        "reply_plan": {
+          "version": "conversation-router-v3",
+          "phase": "before_execution",
+          "request": "import Cat",
+          "resolved_request": "import Cat",
+          "subject": null,
+          "intentions": [
+            {
+              "type": "unresolved",
+              "text": "import Cat"
+            }
+          ],
+          "selected": {
+            "handler": "environment",
+            "intent": "scoped_environment",
+            "priority": 0,
+            "basis": "explicit scope, local skill plan, or gated retrieval plan",
+            "allowed_authorities": [
+              "gated_source",
+              "lexical_reference",
+              "research_note",
+              "conversation_structure"
+            ]
+          },
+          "ambiguities": [],
+          "steps": [
+            {
+              "action": "answer_request",
+              "intent": "scoped_environment",
+              "allowed_authorities": [
+                "gated_source",
+                "lexical_reference",
+                "research_note",
+                "conversation_structure"
+              ]
+            },
+            {
+              "action": "attach_source_details",
+              "requires": "existing reader result; never chat memory"
+            }
+          ],
+          "policy": {
+            "chat_is_evidence": false,
+            "hash_proves_truth": false,
+            "lexical_match_proves_answer": false
+          },
+          "claims": [
+            {
+              "act": "unresolved",
+              "basis": "route_specific",
+              "may_promote_chat_to_evidence": false
+            }
+          ]
+        }
+      },
+      "reply_plan": {
+        "version": "conversation-router-v3",
+        "phase": "before_execution",
+        "request": "import Cat",
+        "resolved_request": "import Cat",
+        "subject": null,
+        "intentions": [
+          {
+            "type": "unresolved",
+            "text": "import Cat"
+          }
+        ],
+        "selected": {
+          "handler": "environment",
+          "intent": "scoped_environment",
+          "priority": 0,
+          "basis": "explicit scope, local skill plan, or gated retrieval plan",
+          "allowed_authorities": [
+            "gated_source",
+            "lexical_reference",
+            "research_note",
+            "conversation_structure"
+          ]
+        },
+        "ambiguities": [],
+        "steps": [
+          {
+            "action": "answer_request",
+            "intent": "scoped_environment",
+            "allowed_authorities": [
+              "gated_source",
+              "lexical_reference",
+              "research_note",
+              "conversation_structure"
+            ]
+          },
+          {
+            "action": "attach_source_details",
+            "requires": "existing reader result; never chat memory"
+          }
+        ],
+        "policy": {
+          "chat_is_evidence": false,
+          "hash_proves_truth": false,
+          "lexical_match_proves_answer": false
+        },
+        "claims": [
+          {
+            "act": "unresolved",
+            "basis": "route_specific",
+            "may_promote_chat_to_evidence": false
+          }
+        ],
+        "subplans": {},
+        "sources": [
+          {
+            "title": "Cat",
+            "id": "TOPIC-f307222880d3c147",
+            "path": "topic-f307222880d3c147.html",
+            "hash": "sha256:229efd22fdbaf1ab4600f92718f3066ddfbee995ef6383b3e83582a6c65b6d7d",
+            "corpus": "topics"
+          }
+        ]
+      },
+      "realization": {
+        "message": "Imported pinned revision locally. No truth certification or evaluation score.",
+        "authority": null,
+        "sources": [
+          {
+            "title": "Cat",
+            "id": "TOPIC-f307222880d3c147",
+            "path": "topic-f307222880d3c147.html",
+            "hash": "sha256:229efd22fdbaf1ab4600f92718f3066ddfbee995ef6383b3e83582a6c65b6d7d",
+            "corpus": "topics"
+          }
+        ],
+        "claim_units": [],
+        "scope_results": [],
+        "chat_is_evidence": false
+      },
+      "response_validation": {
+        "version": "final-response-validation-v1",
+        "status": "checked",
+        "checks": [
+          "existing non-answer/reference contract; current local pins checked"
+        ],
+        "context_is_evidence": false,
+        "source_presence_is_support": false,
+        "errors": []
+      },
+      "question_frame": {
+        "rule": "question-frames-v2",
+        "original": "import Cat",
+        "canonical": "import Cat",
+        "kind": "conversation_or_command",
+        "subject": null,
+        "normalization_is_evidence": false,
+        "support_frame": null
+      }
+    },
+    "turn": 1,
+    "turn_sha256": "dc4230751adbb6df4740254b295f78a6cf6fc0e93e4c41251af31315cc16cc93",
+    "mind": {
+      "notes": [],
+      "context": {
+        "title": "Cat",
+        "id": "TOPIC-f307222880d3c147",
+        "path": "topic-f307222880d3c147.html",
+        "hash": "sha256:229efd22fdbaf1ab4600f92718f3066ddfbee995ef6383b3e83582a6c65b6d7d"
+      }
+    },
+    "logic_version": "deterministic-mind-v1",
+    "notice": "Deterministic chat; explicit context and rules. No language model."
+  }
+}

@@ -17,6 +17,8 @@ const {loadPyodide}=await import(pathToFileURL(path.join(core,'pyodide.mjs')));
 const py=await loadPyodide({indexURL:core+path.sep,enableRunUntilComplete:false});
 for(const [name,body] of Object.entries(bundle.files)){const p='/app/'+name;py.FS.mkdirTree(path.dirname(p));py.FS.writeFile(p,Buffer.from(body,'base64'));}
 let requests=0,currentCase=null;
+const networkRows=[],sessionRows=[];
+function recordNetwork(row){networkRows.push(row);fs.appendFileSync(path.join(out,'network.jsonl'),JSON.stringify(row)+'\n');}
 py.registerJsModule('live_http',{download:async url=>{
  const u=new URL(url);if(!['en.wikipedia.org','simple.wikipedia.org'].includes(u.hostname)||u.pathname!='/w/api.php')throw Error('Unexpected live source');
  requests++;const id=String(requests).padStart(5,'0');
@@ -27,9 +29,9 @@ py.registerJsModule('live_http',{download:async url=>{
  const raw=fs.existsSync(target)?fs.readFileSync(target):Buffer.from('');
  if(metadata.http_status!==200)throw Error('Wikipedia HTTP '+metadata.http_status+'; retry after '+metadata.retry_after_seconds+' seconds');
  if(raw.length>2000000)throw Error('Wikipedia response exceeds 2 MB');
- fs.appendFileSync(path.join(out,'network.jsonl'),JSON.stringify({...metadata,case:currentCase,id,sha256:hash(raw),bytes:raw.length})+'\n');
+ recordNetwork({...metadata,case:currentCase,id,sha256:hash(raw),bytes:raw.length});
  return JSON.stringify({raw:raw.toString('base64'),metadata});
- }catch(e){fs.appendFileSync(path.join(out,'network.jsonl'),JSON.stringify({case:currentCase,id,url,started,error:String(e.message)})+'\n');throw e;}
+ }catch(e){recordNetwork({case:currentCase,id,url,started,error:String(e.message)});throw e;}
 }});
 await py.runPythonAsync(`import sys,os,json,base64\nsys.path.insert(0,'/app')\nos.chdir('/app')\nfrom browser import bridge as B\nfrom tools.ledger_ui import App\nfrom pathlib import Path\nfrom live_http import download\nasync def live_remote(url):\n    obj=json.loads(await download(url))\n    return base64.b64decode(obj['raw']),obj['metadata']\nB.remote=live_remote`);
 const cases=fs.readFileSync(inputArg,'utf8').trim().split('\n').map(JSON.parse);let user=null,sid=null;let count=0;
@@ -52,7 +54,14 @@ for(const c of cases){
  fs.appendFileSync(path.join(out,'responses.jsonl'),JSON.stringify(row)+'\n');
  count++;if(count%10===0)console.log(JSON.stringify({completed:count,total:cases.length,requests,last:c.message,kind:result.response?.kind,lookup:result.automatic_lookup?.status,error:result._browser_transport_error}));
  if(count===cases.length||cases[count].user!==user){py.globals.set('_sid',sid||'');
- const audit=await py.runPythonAsync("json.dumps({'user':_user,'chain_intact':B.app.export_chat({'session':_sid})['chain_intact'] if _sid else False,'collections':len(B.app.collections.entries())})");fs.appendFileSync(path.join(out,'sessions.jsonl'),audit+'\n');}
+ const audit=await py.runPythonAsync("json.dumps({'user':_user,'chain_intact':B.app.export_chat({'session':_sid})['chain_intact'] if _sid else False,'collections':len(B.app.collections.entries())})");sessionRows.push(JSON.parse(audit));fs.appendFileSync(path.join(out,'sessions.jsonl'),audit+'\n');}
+}
+// Final snapshots are authoritative; append logs are only progress evidence.
+// Checkpoints exposed by an external workspace must not become partial results.
+for(const [name,items] of [['responses',rows],['network',networkRows],['sessions',sessionRows]]){
+ const target=path.join(out,name+'.jsonl'),temporary=target+'.tmp';
+ fs.writeFileSync(temporary,items.map(row=>JSON.stringify(row)+'\n').join(''));
+ fs.renameSync(temporary,target);
 }
 const summary={cases:rows.length,requests,transport_errors:rows.filter(r=>r.result._browser_transport_error).length,lookup_status:{},kinds:{},source_authorities:{},bundle_manifest:bundle.manifest,independent:false,scope:'Synthetic development smoke: Node WebAssembly, live Wikipedia HTTP, no browser CORS or IndexedDB coverage; no semantic accuracy score.'};
 for(const r of rows){const p=r.result;for(const [field,v] of [['lookup_status',p.automatic_lookup?.status||'none'],['kinds',p.response?.kind||'error'],['source_authorities',p.response?.authority||'unspecified']])summary[field][v]=(summary[field][v]||0)+1;}

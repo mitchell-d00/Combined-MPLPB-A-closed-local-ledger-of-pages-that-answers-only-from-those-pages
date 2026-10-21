@@ -113,3 +113,15 @@ Include these five facts in a bug report or AI assessment:
 5. Proof: completed workflow URL, exit status, traces/screenshots where available, plus which checks were **not** performed.
 
 Do not say **green** until the *same commit* passes the full Python suite, JavaScript/API checks, WASM integration, and actual Chromium UI checks. Do not call the live deployment verified before the postdeploy run passes. Never edit source hashes, fixed historical benchmark outputs, or logs solely to make a test pass.
+
+## Additional 2026-10-21 audit
+
+`python -m tools.browser_audit_20261021 --preview-dir dist --output browser-results`
+runs disposable real-browser checks for supplied-source import, transcript export,
+source citation preservation, saved-session reload/new-page continuity, offline
+querying, denied-by-default network calls, responsive viewport dimensions, explicit
+Wikipedia acquisition, and deliberate session-save corruption. Online failures are
+recorded separately. With `--live-url URL`, it also examines the deployed baseline;
+known historical error-code behavior is recorded without relaxing the candidate's
+`NETWORK_DISABLED` assertion. This does not test actual iPad Safari or certify
+accessibility, long-term storage retention, or malicious arbitrary JavaScript.

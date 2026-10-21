@@ -74,3 +74,12 @@ conversation run passed 78/78 turns, and the context matrix passed 360/360 check
 The existing hosted page was also exercised in a browser for chat and reload
 persistence before updating main. These checks are bounded development evidence,
 not an independent assessment of generated ideas.
+
+## Replay scope verified 2026-10-21
+
+The audit repeats construction across process hash seeds and serialized state.
+Two separate fresh sessions given the same brainstorming request produced equal
+response payloads, but different session IDs and transcript hashes. Repeatable
+construction is not byte-identical observation metadata across fresh sessions;
+live acquisitions also depend on retained source revisions. See
+[SYSTEM_AUDIT_2026-10-21.md](SYSTEM_AUDIT_2026-10-21.md).

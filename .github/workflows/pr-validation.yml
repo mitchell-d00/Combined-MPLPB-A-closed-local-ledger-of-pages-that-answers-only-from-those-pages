@@ -54,3 +54,15 @@ jobs:
           --live-url
           https://mitchell-d00.github.io/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/
           --preview-dir dist
+      - name: Audit persistence, offline API and responsive layouts
+        run: >-
+          python -m tools.browser_audit_20261021 --preview-dir dist
+          --live-url https://mitchell-d00.github.io/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/
+          --output audit-browser-results
+      - name: Preserve additional browser audit evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: browser-audit-${{ github.run_id }}
+          path: audit-browser-results/
+          if-no-files-found: warn
