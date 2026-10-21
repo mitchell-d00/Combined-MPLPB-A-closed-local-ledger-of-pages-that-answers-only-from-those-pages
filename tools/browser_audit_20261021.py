@@ -55,7 +55,10 @@ def verify(browser, url, output, name):
     offline = call(page, 'query', q, {'corpus': collection})['reader']
     assert offline['kind'] == 'return' and offline['citation'] == answer['citation']
     blocked = page.evaluate("async () => await MPLPB.chat('search Cat',{corpus:'logic'})")
-    assert not blocked['ok'] and blocked['code'] == 'NETWORK_DISABLED', blocked
+    assert not blocked['ok'] and 'Local-only API:' in blocked['error'], blocked
+    if name == 'candidate':
+        assert blocked['code'] == 'NETWORK_DISABLED', blocked
+    # The deployed baseline has the separately recorded worker error-code bug.
     context.set_offline(False)
     layouts = []
     for width, height in [(1280,900),(390,844),(768,1024)]:
@@ -69,11 +72,36 @@ def verify(browser, url, output, name):
     online = page.evaluate("async () => await MPLPB.chat('import Cat',{corpus:'logic',allowNetwork:true,wiki:'english'})")
     (output/(name+'-online.json')).write_text(json.dumps(online,indent=2)+'\n')
     result = dict(browser=browser.version, runtime=runtime, offline=True,
+                  network_denial=blocked,
                   indexeddb_reload=True, new_page_restore=True, citations_preserved=True,
                   source_import=True, transcript_export=True, layouts=layouts,
                   online_result=online, page_errors=errors, ipad_safari_tested=False)
     (output/(name+'-browser.json')).write_text(json.dumps(result,indent=2)+'\n')
     assert not errors, errors
+    # Corrupt only this disposable context's known session file. Keep the bytes
+    # malformed through reload and require visible refusal, never silent reset.
+    corrupted = page.evaluate("""async () => {
+      const db = await new Promise((resolve,reject) => {
+        const r=indexedDB.open('/mplpb-browser-save-v1');
+        r.onsuccess=()=>resolve(r.result); r.onerror=()=>reject(r.error);
+      });
+      const key='/mplpb-browser-save-v1/sessions/state.json';
+      await new Promise((resolve,reject) => {
+        const tx=db.transaction('FILE_DATA','readwrite'), store=tx.objectStore('FILE_DATA');
+        const r=store.get(key);
+        r.onsuccess=()=>{if(!r.result){reject(Error('Missing saved session'));return;}
+          const entry=r.result, saved=JSON.parse(new TextDecoder().decode(entry.contents));
+          saved.sha256='0'.repeat(64);
+          entry.contents=new TextEncoder().encode(JSON.stringify(saved)); store.put(entry,key);};
+        tx.oncomplete=resolve;tx.onerror=()=>reject(tx.error);
+      });
+      db.close();return key;
+    }""")
+    page.reload(wait_until='domcontentloaded')
+    page.wait_for_function("() => document.querySelector('#connection-error').textContent.includes('integrity check')", timeout=150000)
+    result['corruption_rejected'] = corrupted
+    result['corruption_notice'] = page.locator('#connection-error').inner_text()
+    (output/(name+'-browser.json')).write_text(json.dumps(result,indent=2)+'\n')
     context.close()
     print('AUDIT BROWSER PASS', name, flush=True)
 

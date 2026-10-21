@@ -1,0 +1,32 @@
+usage: mplpb-combined [-h] [--version]
+                      {ask,gate,validate,list,show,history,write,revise,derive,ratify,withdraw,seal,index,killtest,candidates,tag-procedure}
+                      ...
+
+A closed local ledger of pages. Return, ambiguous, or not in corpus. Never
+blend.
+
+positional arguments:
+  {ask,gate,validate,list,show,history,write,revise,derive,ratify,withdraw,seal,index,killtest,candidates,tag-procedure}
+    ask                 answer one question from the folder, or refuse
+    gate                gather separate source pages with provenance; never
+                        synthesize
+    validate            check every page against the format; exit 1 on error
+    list                list records
+    show                read one record by id, retired or not
+    history             walk a supersession chain
+    write               write a new page
+    revise              write a new page and retire the old one
+    derive              write a page derived from others; depth goes up by one
+    ratify              a named person signs a page; depth returns to 0
+    withdraw            retire a page with no successor
+    seal                adopt hand-written or earlier-format pages: add hashes
+    index               rebuild index.html for people
+    killtest            strip the declared fields and compare
+    candidates          inspect legacy lexical candidates; not supported
+                        answers
+    tag-procedure       draft numbered-step tags without promoting them to
+                        evidence
+
+options:
+  -h, --help            show this help message and exit
+  --version             show program's version number and exit

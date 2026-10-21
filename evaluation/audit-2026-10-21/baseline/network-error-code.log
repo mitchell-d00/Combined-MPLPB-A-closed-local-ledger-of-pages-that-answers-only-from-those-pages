@@ -1,0 +1,15 @@
+AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
++ actual - expected
+
++ 'Error: Local-only API: remote search is disabled'
+- 'Local-only API: remote search is disabled'
+
+    at workerTests (/workspace/scratch/a3b0e1855f51/candidate/tools/check_browser_transport.cjs:12:128)
+    at async /workspace/scratch/a3b0e1855f51/candidate/tools/check_browser_transport.cjs:27:12 {
+  generatedMessage: true,
+  code: 'ERR_ASSERTION',
+  actual: 'Error: Local-only API: remote search is disabled',
+  expected: 'Local-only API: remote search is disabled',
+  operator: 'strictEqual',
+  diff: 'simple'
+}

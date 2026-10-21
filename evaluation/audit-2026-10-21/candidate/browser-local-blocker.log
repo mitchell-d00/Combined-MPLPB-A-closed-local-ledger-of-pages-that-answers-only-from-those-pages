@@ -1,0 +1,19 @@
+Traceback (most recent call last):
+  File "/workspace/scratch/a3b0e1855f51/candidate/tools/browser_release_smoke.py", line 154, in <module>
+    main()
+  File "/workspace/scratch/a3b0e1855f51/candidate/tools/browser_release_smoke.py", line 133, in main
+    browser = playwright.chromium.launch(headless=True,
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/a3b0e1855f51/audit-runtime/python/playwright/sync_api/_generated.py", line 14566, in launch
+    self._sync(
+  File "/workspace/scratch/a3b0e1855f51/audit-runtime/python/playwright/_impl/_sync_base.py", line 115, in _sync
+    return task.result()
+           ^^^^^^^^^^^^^
+  File "/workspace/scratch/a3b0e1855f51/audit-runtime/python/playwright/_impl/_browser_type.py", line 97, in launch
+    await self._channel.send(
+  File "/workspace/scratch/a3b0e1855f51/audit-runtime/python/playwright/_impl/_connection.py", line 69, in send
+    return await self._connection.wrap_api_call(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/a3b0e1855f51/audit-runtime/python/playwright/_impl/_connection.py", line 559, in wrap_api_call
+    raise rewrite_error(error, f"{parsed_st['apiName']}: {error}") from None
+playwright._impl._errors.Error: BrowserType.launch: ENOENT: no such file or directory, mkdtemp '/tmp/playwright-artifacts-xPPQ1X'

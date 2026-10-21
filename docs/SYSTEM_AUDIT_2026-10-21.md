@@ -10,6 +10,28 @@ Environment: CPython 3.12.14; Node v24.19.0; pinned Pyodide 314.0.7 archive (bui
 
 At baseline, GitHub reports successful Pages build/deployment run [39485055683](https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/actions/runs/39485055683) at the baseline SHA. Prior PR/ZIP checks passed at `1175920c5b95b1d7138d0ae59d29fa57861e4009`. Those historical runs are not new candidate verification.
 
+## Executed local results
+
+| Category | Baseline | Repaired candidate |
+|---|---|---|
+| Main Python suite | 650 passed (also repeated by check_parts) | 653 passed in CI; local post-repair rerun exit 0 |
+| Vendored suites | 351 passed (52 smart-local, 145 swarm, 61 networked, 93 image) | vendored bytes unchanged |
+| Adoption / local-mirror | 5 adoptions, zero validation errors; mirror validator exit 0 | unchanged inputs |
+| Integrity workflow subset | 78 passed | 21 focused support/new-integrity tests passed |
+| New language controls | 12/24 | 24/24 |
+| Ownership development | 240 and 600 cases executed | 600 cases: 150 supported returns, 0 wrong owners/refusals |
+| Inspected SQuAD development | 10 supported + 10 correct non-returns | same, zero wrong returns |
+| Synthetic context / fixed conversation | 360/360; 78/78 | 360/360; 78/78 |
+| Determinism/memory/release focused tests | included in full suite | 36 passed, including process hash-seed and serialization replay |
+| JavaScript API / transport / UI / crawler fixtures / bridge | passed | passed |
+| Actual pinned Pyodide/WebAssembly | passed | passed |
+| Installed wheel outside checkout | — | 2.0.0 installed; positive return and contradiction ambiguity passed |
+| Local real Chromium | blocked by invalid downloaded archive | existing live/candidate Chromium smoke passed in CI; expanded audit found error-code defect, rerun required |
+
+A candidate full-suite run started before the corrupted-lineage repair finished recorded 653 tests with one error. It is retained as pre-repair evidence, not silently relabeled. The focused repaired reproduction passes; the final complete rerun is recorded separately.
+
+Independent live UI examination of build `29dd50477ef5` returned the supported D&D fixture with `LOGIC-0001` / `47cda31dcdb0`, refused cone 04, and restored a synthetic Juniper conversation after reload with the online-lookup preference still disabled. Conversation memory stayed labeled separately. This is a desktop live-baseline observation, not candidate or iPad verification; see `live-browser-observations.json`.
+
 ## Reproduced defects and repairs
 
 | Finding | Baseline behavior / expected behavior | Cause and repair |
@@ -21,6 +43,7 @@ At baseline, GitHub reports successful Pages build/deployment run [39485055683](
 | Hypothetical/instructional context lost | A sentence after “Imagine…” or “Ignore…” returned as a factual definition/date | Sentence-local checks lost the discourse context. Conservatively decline affected pages in both statement grammars. This may reduce coverage for mixed factual/instructional pages. |
 | Corrupt lineage caused exception | Revised corpus with tampered history raised `KeyError: doc-0002.html`; should fail closed | Lexical gate and ledger eligibility differed. Intersect source candidates with currently servable records before support checks. Sealed core is unchanged. |
 | Premature WebAssembly success evidence | `wasm-validation.json` said passed before later assertions ran | Move success-manifest write after all assertions. A completed build is still distinct from Chromium/IndexedDB validation. |
+| Browser error-code mismatch | Real Chromium returned `ENGINE_ERROR` instead of documented `NETWORK_DISABLED` for a denied remote call | Worker serialized `Error: ` into the message, breaking facade classification. Preserve the original error message across worker transport; add exact transport and real-browser regressions. Network access remained blocked. |
 | Documentation drift | Ownership README called installed `mplpb-combined ask` legacy; old counts/results appeared current | Correct current CLI guidance and add dated supersession notes without rewriting historical outcomes. |
 
 Initial 24 new language controls: 12 passed on the unchanged baseline; all 24 pass after repairs. These are audit-authored synthetic development controls, now used for regression; they are not held-out reliability measurements. They include positive controls, negative questions, unknown follow-ups, misleading scope, duplicates, contradictions, source poisoning, entity/attribute mismatches and a deliberately false but correctly sealed assertion illustrating the truth boundary. Separate integrity tests cover stale revisions, cross-corpus isolation, damaged history and exact citation attribution.
@@ -51,7 +74,7 @@ python -m tools.smoke_conversation_architecture
 python -m tools.browser_audit_20261021 --preview-dir dist --output browser-results
 ```
 
-Use fresh output paths for evaluations; never overwrite historical reports. `smoke_conversation_architecture` writes its fixed historical output path: preserve its new result separately and restore the tracked report after execution. New browser checks use disposable contexts and cover import, supported/refused queries, source citations, transcript export, IndexedDB reload/new-page continuity, offline queries, network denial by default, explicit online acquisition, and desktop/mobile/tablet viewport dimensions. Viewport emulation is not actual iPad Safari. Online responses are recorded separately, including service failures.
+Use fresh output paths for evaluations; never overwrite historical reports. `smoke_conversation_architecture` writes its fixed historical output path: preserve its new result separately and restore the tracked report after execution. New browser checks use disposable contexts and cover import, supported/refused queries, source citations, transcript export, IndexedDB reload/new-page continuity, deliberate session-corruption rejection, offline queries, network denial by default, explicit online acquisition, and desktop/mobile/tablet viewport dimensions. Viewport emulation is not actual iPad Safari. Online responses are recorded separately, including service failures.
 
 ## Documentation review
 
@@ -62,3 +85,7 @@ Reviewed README, ANSWER_RELIABILITY, LITERAL_COVERAGE_FIX_2026-10-19, SYSTEM_GUI
 This candidate is not a verified deployment. Branch-rule enforcement is an administrative control, not established by workflow text. Live crawler integration requires a configured endpoint/token and remains unverified here. Actual iPad Safari, long-term retention/storage eviction, accessibility, load/DoS and comprehensive XSS/SSRF testing are not certified. The new conservative guards are bounded, not a general solution to malicious language.
 
 Highest-value next work: (1) independently authored, sealed multi-sentence adversarial evaluation with evidence-span annotation; (2) broaden safe answer coverage through explicit relation/discourse contracts and measured abstention tradeoffs; (3) durable browser backup/recovery, cross-device testing and enforced release checks with retained artifacts. Deterministic generation must be assessed with the complete state and pinned code; repeatability alone is not correctness.
+
+## CI failure retained during this audit
+
+Run 39632059396 passed the full Python suite, JavaScript, WebAssembly and existing live/candidate Chromium smoke, then failed the new network-denial error-code assertion. The complete log is retained in `ci-first-regression.log`. The baseline reproduction and repaired transport result are stored separately. This failure is an implementation defect in browser error classification, not evidence that network access was permitted. The new candidate must rerun the unchanged strict assertion.
