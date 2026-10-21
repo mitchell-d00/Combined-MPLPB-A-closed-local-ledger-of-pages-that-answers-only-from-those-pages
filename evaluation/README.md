@@ -1,3 +1,5 @@
+> **2026-10-21 retest:** Current execution results and retained failures are indexed in [the full-system audit](../docs/SYSTEM_AUDIT_2026-10-21.md). Historical result files below are unchanged.
+
 # Multi-domain evaluation
 
 Run `python3 -m mplpb_combined.evaluate evaluation/manifest.json --out evaluation/results.json`.

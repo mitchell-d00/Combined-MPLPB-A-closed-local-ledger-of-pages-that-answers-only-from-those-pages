@@ -33,3 +33,16 @@ class ContextEvaluationTests(unittest.TestCase):
             data={'schema':1,'domains':[{'name':'external','root':'corpus','corpus_sha256':{'page':'0'*64},'probes':[{'id':'one','topic':'Page','question':'Who may use it?','supported':False,'rationale':'Absent'}]}]}
             p=root/'manifest.json';p.write_text(json.dumps(data))
             with self.assertRaisesRegex(ValueError,'bytes changed'):run(p,sha(p))
+
+    def test_lexical_arm_is_not_silently_replaced_by_supported_query(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            spec={'schema':1,'domains':[{'name':'arm-contract','pages':[
+                {'doc_id':'ARM-0001','title':'Kettle','scope':'kettle color',
+                 'body':'The other kettle is blue.'}], 'probes':[
+                {'id':'arm-one','topic':'Kettle','question':'What is the kettle color?',
+                 'supported':False,'rationale':'No color statement for the requested kettle.'}]}]}
+            path=Path(tmp)/'cases.json';path.write_text(json.dumps(spec))
+            report=run(path,sha(path))
+            self.assertEqual(report['rows'][0]['lexical_page_return']['kind'],'return')
+            self.assertEqual(report['metrics']['lexical_page_return']['false_acceptances'],1)
+            self.assertIn('mplpb_answers/support.py',report['engine_sha256'])

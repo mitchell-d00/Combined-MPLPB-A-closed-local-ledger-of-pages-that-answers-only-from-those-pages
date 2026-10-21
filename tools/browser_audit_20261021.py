@@ -49,6 +49,7 @@ def verify(browser, url, output, name):
     # A new page in the same isolated origin context must restore IndexedDB too.
     page.close()
     page = context.new_page()
+    page.on('pageerror', lambda e: errors.append(str(e)))
     ready(page, url)
     assert call(page, 'resumeChat', sid)['chain_intact']
     context.set_offline(True)
@@ -66,7 +67,11 @@ def verify(browser, url, output, name):
         page.screenshot(path=str(output/f'{name}-{width}.png'), full_page=True)
         dimensions = page.evaluate('({width:innerWidth, scroll:document.documentElement.scrollWidth})')
         layouts.append(dimensions)
-        assert dimensions['scroll'] <= width + 1, dimensions
+        (output / (name+'-layouts.json')).write_text(json.dumps(layouts, indent=2)+'\n')
+        # The unchanged deployed baseline has a recorded mobile select overflow.
+        # Enforce the repaired layout on the candidate; retain live measurements.
+        if name == 'candidate':
+            assert dimensions['scroll'] <= width + 1, dimensions
     # Explicitly enabled external acquisition: record failures as failures, never
     # substitute a fixture for a live service. This is separate from offline gates.
     online = page.evaluate("async () => await MPLPB.chat('import Cat',{corpus:'logic',allowNetwork:true,wiki:'english'})")

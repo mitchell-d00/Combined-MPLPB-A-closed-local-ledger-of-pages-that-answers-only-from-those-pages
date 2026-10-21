@@ -14,6 +14,7 @@ ROOT=Path(__file__).resolve().parents[1]
 sys.path.insert(0,str(ROOT))
 from mplpb_combined import ledger as L
 from mplpb_combined.record import text_of
+from mplpb_combined.reader import answer as lexical_answer
 from tools.ledger_ui import App
 
 ANSWER_KINDS={'grounded_answer','return','summary','relations'}
@@ -43,7 +44,7 @@ def metrics(rows,arm):
             'unnecessary_refusal_rate':refused_supported/supported if supported else None}
 
 def engine_pins():
-    return {str(p.relative_to(ROOT)):sha(p) for folder in ('tools','mplpb_combined')
+    return {str(p.relative_to(ROOT)):sha(p) for folder in ('tools','mplpb_combined','mplpb_answers')
             for p in sorted((ROOT/folder).glob('*.py'))}
 
 def validate(spec):
@@ -95,7 +96,8 @@ def run(path,expected_sha):
                 expanded=probe['question']
                 import re
                 expanded=re.sub(r'\b(it|its|this topic|that topic)\b',lambda _:probe['topic'],expanded,flags=re.I)
-                baseline=app.query({'corpus':'custom','question':expanded})['reader']
+                # This arm is deliberately legacy retrieval, not the default supported API.
+                baseline=lexical_answer(root, expanded).to_dict()
                 row={'id':probe['id'],'domain':domain['name'],'question':probe['question'],'topic':probe['topic'],
                      'supported':probe['supported'],'gold_evidence':gold,'rationale':probe.get('rationale'),
                      'category':probe.get('category'),'latency_ms':elapsed,'response':reply}

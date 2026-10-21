@@ -1,3 +1,5 @@
+> **2026-10-21 correction:** The results below describe the earlier acquisition experiment. Current dictionary responses have `lexical_reference` authority and do not trigger automatic Wikipedia acquisition, even when enabled; this is covered by `tests/test_live_acquisition.py` and documented in `docs/STRUCTURED_CHAT.md`. Explicit search/import remains available. See the full-system audit for current rerun observations; do not interpret historical network counts as present behavior.
+
 # Live acquisition and conversational routing development smoke
 
 This evaluation exercises 1,000 synthetic questions in 25 virtual-user sessions,

@@ -94,8 +94,8 @@ network setting. Negated requests and imagined ideas do not trigger automatic
 search. This is a finite language grammar, not general semantic understanding.
 
 Conversational lead-ins such as `cool, tell me about an apple` are separated
-from the request before topic selection. With automatic Wikipedia enabled, a
-dictionary definition does not block acquisition of encyclopedia pages. A page
+from the request before topic selection. Dictionary responses remain local even with automatic Wikipedia enabled;
+use explicit search/import to acquire encyclopedia pages. A page
 that merely mentions a topic cannot supply its overview through the fallback. Failed
 automatic lookups pause for one minute per topic; explicit search stays available.
 The [1,000-question development smoke](evaluation/live-conversation/README.md)
