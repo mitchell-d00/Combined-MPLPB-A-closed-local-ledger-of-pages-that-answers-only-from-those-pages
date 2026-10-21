@@ -1,3 +1,5 @@
+> **2026-10-21 audit:** See the [current retest, defects, repairs and evidence status](docs/SYSTEM_AUDIT_2026-10-21.md). Earlier dated results below remain historical; the October 19 SQuAD correction is included in the retest.
+
 > **Connect an AI using only the site/repository URL:** See [MPLPB agent discovery](.well-known/mplpb.json), [the agent middleware guide](docs/AGENT_MIDDLEWARE.md), and [the JavaScript API](JAVASCRIPT-API.md). The hosted app runs the **full Python engine in WebAssembly in each browser**, and browser-capable agents can call `window.MPLPB.relay()`. HTTPS discovery alone cannot reach another user's browser storage. A public externally eligible page snapshot is published alongside the hosted app.
 
 # Combined MPLPB
@@ -197,7 +199,8 @@ A(q) = R               if exactly one current R owns q
 Paper: [`docs/Combined_MPLPB.md`](docs/Combined_MPLPB.md) · `.txt` · `.pdf`
 (MPLPB-COMBINED-017 v3, draft for owner review) · fixes: [`docs/FIXLOG.md`](docs/FIXLOG.md)
 
-This is the master repository. The `ask` command implements the formula. The separate `gate` command returns lexical
+This is the master repository. The legacy `python -m mplpb_combined ask` implements the lexical formula;
+installed `mplpb-combined ask` additionally requires statement support. The separate `gate` command returns lexical
 source bundles with provenance, as described below. The five earlier implementations are carried whole under [`parts/`](parts/README.md), and
 the papers that are not in any of them are under [`docs/sources/`](docs/sources/README.md).
 

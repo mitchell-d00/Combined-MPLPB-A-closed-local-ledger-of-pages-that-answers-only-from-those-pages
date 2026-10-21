@@ -1,3 +1,5 @@
+> **2026-10-21 audit:** See the [current retest, defects, repairs and evidence status](SYSTEM_AUDIT_2026-10-21.md). Earlier dated results below remain historical; the October 19 SQuAD correction is included in the retest.
+
 # Deterministic conversation and grounded answers
 
 The browser uses explicit intent, context and response-construction rules; no language model or provider account is required. These rules cover common phrasing, not arbitrary human language.

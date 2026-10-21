@@ -198,7 +198,6 @@ await call('/api/chat',{corpus:'logic',session:legacyCasual.session,message:'cha
 const restoredMode=await call('/api/chat',{corpus:'logic',session:legacyCasual.session,message:'serious mode'});
 if(JSON.stringify(restoredMode.response.environment.corpora)!==JSON.stringify(['logic','system']))throw Error('WASM scope restoration failed');
 console.log('PASS real WebAssembly: ownership, relation proof, summary, withholding, memory, saved relaunch, fixture imports, isolated collections, offline references, grounded follow-ups and social turn-taking.');
-fs.writeFileSync(path.join(path.dirname(htmlPath),'wasm-validation.json'),JSON.stringify({runtime:bundle.runtime_version,passed:true,corpora:state.corpora.map(x=>x.key),ambiguous:ambiguous.reader.kind,relation:relation.response.kind,summary:summary.response.kind,withheld:withheld.reader.kind,chain_intact:saved.chain_intact,fixture_import_passed:true,virtual_save_relaunch_passed:true,browser_layout_tested:false,indexeddb_tested:false,live_wiki_tested:false},null,2));
 
 // Synthetic user conversations must work in the shipped Python/WASM runtime.
 for(const mode of ['chat mode','load MPLPB']){
@@ -319,3 +318,6 @@ for (const mode of ['chat mode','serious mode','free chat']) {
   throw Error('WASM sense-specific nuance: '+mode);
 }
 console.log('WASM natural self/content conversation, seed discussion and sense-specific nuance passed');
+
+// Emit success only after every assertion above has completed.
+fs.writeFileSync(path.join(path.dirname(htmlPath),'wasm-validation.json'),JSON.stringify({runtime:bundle.runtime_version,passed:true,corpora:state.corpora.map(x=>x.key),ambiguous:ambiguous.reader.kind,relation:relation.response.kind,summary:summary.response.kind,withheld:withheld.reader.kind,chain_intact:saved.chain_intact,fixture_import_passed:true,virtual_save_relaunch_passed:true,browser_layout_tested:false,indexeddb_tested:false,live_wiki_tested:false},null,2));

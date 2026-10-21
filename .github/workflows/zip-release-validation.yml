@@ -85,6 +85,10 @@ jobs:
           python tools/browser_release_smoke.py \
             --live-url "https://mitchell-d00.github.io/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/" \
             --preview-dir dist
+      - name: Audit ZIP-built persistence, offline API and responsive layouts
+        run: |
+          cd "$RUNNER_TEMP/mplpb-unpacked"
+          python -m tools.browser_audit_20261021 --preview-dir dist --output "$RUNNER_TEMP/mplpb-zipped/browser-audit"
       - name: Record successful exact-archive release gates
         shell: bash
         run: |
