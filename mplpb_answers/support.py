@@ -129,9 +129,10 @@ def supported_answer(root, question, profile=None):
                                                status=check['status'], spans=check['spans'])
                                            for rec, check in checks]
         supported = [(rec, check) for rec, check in checks if check['status'] == 'supported']
+        positive_values = {span['value'] for _, check in supported for span in check['spans']}
+        negative_values = {value for _, check in checks for value in check.get('negative_values', [])}
         conflict = (any(check['status'] == 'conflict' for _, check in checks)
-                    or (bool(supported) and any(check.get('negative_match')
-                                               for _, check in checks)))
+                    or bool(positive_values.intersection(negative_values)))
         if len(supported) == 1 and not conflict:
             rec, check = supported[0]
             out.record, out.depth, out.kind = rec, ledger.depth(rec), RETURN

@@ -180,12 +180,12 @@ def statement_support(frame, record):
         for value in _extract(frame, line):
             spans.append({"quote": raw, "value": value})
     distinct = {item["value"] for item in spans}
-    if len(distinct) > 1 or (spans and negative_values):
+    if len(distinct) > 1 or distinct.intersection(negative_values):
         return {"status": "conflict", "spans": spans,
                 "reason": "Different literal values in eligible source text."}
     if not spans:
         return {"status": "unsupported", "spans": [],
-                "negative_match": bool(negative_values),
+                "negative_values": sorted(set(negative_values)),
                 "reason": "No exact affirmative source statement fits the bounded grammar."}
     return {"status": "supported", "spans": spans,
             "reason": "Exact source statement under a bounded grammar; factual truth not checked."}

@@ -13,9 +13,12 @@
 A closed local ledger of pages that answers only from those pages.
 
 Each page carries its own id, scope, status, hash, parent and depth. The reader reads the
-explicitly configured corpus folder. One current page owns the question: it returns that page. Two own it: it stops. None
-own it: it says not in the corpus. A change writes a new page and retires the old one. A
-derivation writes a new page and adds one to the depth.
+explicitly configured corpus folder. The default supported-answer path requires an
+eligible body statement that matches the complete question under its bounded grammar.
+One supporting source can supply an answer; conflicting or multiple supporting sources
+remain ambiguous; no support produces a refusal. Legacy lexical candidates are separately
+inspectable and do not establish factual support. A change writes a new page and retires
+the old one. A derivation writes a new page and adds one to the depth.
 
 No model. The core reader uses local pages and the Python standard library. Optional search/crawl/import commands contact public sources explicitly; standalone browser mode uses IndexedDB for saved state.
 

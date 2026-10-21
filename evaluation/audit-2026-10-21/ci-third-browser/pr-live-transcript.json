@@ -1,0 +1,381 @@
+{
+  "schema": 1,
+  "turns": [
+    {
+      "index": 1,
+      "at": "2026-10-21T16:40:27.000999+00:00",
+      "previous_sha256": null,
+      "payload": {
+        "question": "My name is Juniper",
+        "corpus": "mind-d6ba4706834b423a87e1f75b61b9894d",
+        "profile": "internal",
+        "response": {
+          "kind": "conversation",
+          "message": "Hi, Juniper! I\u2019m MPLPB, your little monster \ud83d\ude08. What\u2019s on your mind?",
+          "context": null,
+          "reasoning": [
+            {
+              "rule": "CHAT-MEMORY"
+            }
+          ],
+          "sources": [],
+          "authority": "user_declaration",
+          "response_structure": {
+            "intent": "chat_memory",
+            "factual_claims": false,
+            "mplpb_supported": false,
+            "chat_references": [
+              {
+                "turn": 1,
+                "basis": "user introduction"
+              }
+            ],
+            "identity_verified": false,
+            "version": "conversation-memory-v4"
+          },
+          "suggestions": [
+            "What can you do?",
+            "What is my name?",
+            "Talk about my day"
+          ],
+          "claim_units": [
+            {
+              "text": "Hi, Juniper! I\u2019m MPLPB, your little monster \ud83d\ude08. What\u2019s on your mind?",
+              "authority": "user_declaration",
+              "sources": [],
+              "granularity": "skill result; source scopes remain separate"
+            }
+          ],
+          "determination": {
+            "rule": "REDUCE-DETERMINE",
+            "version": "reduction-to-determination-v2",
+            "mode": "chat",
+            "outcome": "unique",
+            "retained": [
+              "response"
+            ],
+            "eliminated": [],
+            "selected": "response",
+            "basis": "procedure",
+            "selection_order": "candidate ID; saved turn offset for equivalent wording",
+            "elimination_creates_evidence": false
+          },
+          "language_plan": {
+            "version": "language-planner-v1",
+            "canonical": "My name is Juniper",
+            "actions": [
+              "conversation_or_command"
+            ],
+            "subject": null,
+            "audience": null,
+            "reference": null,
+            "negation_present": false,
+            "imagined": false,
+            "question_word": "",
+            "normalization_is_evidence": false,
+            "realization_rules": [
+              "preserve_validated_payload"
+            ],
+            "response_act": "chat_memory",
+            "acquisition": {
+              "query": null,
+              "order": [
+                "eligible_local_pages",
+                "enabled_remote_capture"
+              ],
+              "search_snippets_are_evidence": false,
+              "automatic_network_requires_setting": true
+            },
+            "payload_sha256": "96a0f9fa61500c91fa88e1560bf5d1a7d9ff34f9c8947c92d3b06608b03787cd",
+            "surface_changed": false,
+            "source_paraphrasing": false,
+            "rules_are_not_evidence": true
+          },
+          "support_label": "Conversation memory",
+          "guidance": {
+            "title": "Where would you like to go next?",
+            "hint": "Choose a suggestion or write naturally. You can switch topics at any time.",
+            "actions": [
+              {
+                "label": "What can you do?",
+                "request": "What can you do?",
+                "mode": "send"
+              },
+              {
+                "label": "What is my name?",
+                "request": "What is my name?",
+                "mode": "send"
+              },
+              {
+                "label": "Talk about my day",
+                "request": "Talk about my day",
+                "mode": "send"
+              },
+              {
+                "label": "Explore a topic",
+                "request": "Tell me about ",
+                "mode": "draft"
+              },
+              {
+                "label": "Look up a word",
+                "request": "topic dictionary",
+                "mode": "send"
+              }
+            ]
+          },
+          "interpretation": {
+            "version": "conversation-continuity-v2",
+            "original": "My name is Juniper",
+            "resolved": "My name is Juniper",
+            "acts": [
+              {
+                "type": "introduce",
+                "value": "Juniper"
+              }
+            ],
+            "subject": null,
+            "correction": false,
+            "reference": null,
+            "original_acts": [
+              {
+                "type": "introduce",
+                "value": "Juniper"
+              }
+            ],
+            "entities": {
+              "nodes": [
+                {
+                  "id": "user",
+                  "type": "person",
+                  "label": "Juniper"
+                }
+              ],
+              "edges": [],
+              "identity_verified": false,
+              "source_evidence": false
+            },
+            "unresolved_choices": [],
+            "dialogue_interpretation": null,
+            "candidates": [
+              {
+                "handler": "memory",
+                "intent": "personal_memory",
+                "priority": 100,
+                "basis": "explicit personal request",
+                "allowed_authorities": [
+                  "user_declaration",
+                  "system_description"
+                ]
+              },
+              {
+                "handler": "environment",
+                "intent": "scoped_environment",
+                "priority": 0,
+                "basis": "explicit scope, local skill plan, or gated retrieval plan",
+                "allowed_authorities": [
+                  "gated_source",
+                  "lexical_reference",
+                  "research_note",
+                  "conversation_structure"
+                ]
+              }
+            ],
+            "reply_plan": {
+              "version": "conversation-router-v3",
+              "phase": "before_execution",
+              "request": "My name is Juniper",
+              "resolved_request": "My name is Juniper",
+              "subject": null,
+              "intentions": [
+                {
+                  "type": "introduce",
+                  "value": "Juniper"
+                }
+              ],
+              "selected": {
+                "handler": "memory",
+                "intent": "personal_memory",
+                "priority": 100,
+                "basis": "explicit personal request",
+                "allowed_authorities": [
+                  "user_declaration",
+                  "system_description"
+                ]
+              },
+              "ambiguities": [],
+              "steps": [
+                {
+                  "action": "answer_request",
+                  "intent": "personal_memory",
+                  "allowed_authorities": [
+                    "user_declaration",
+                    "system_description"
+                  ]
+                },
+                {
+                  "action": "attach_source_details",
+                  "requires": "existing reader result; never chat memory"
+                }
+              ],
+              "policy": {
+                "chat_is_evidence": false,
+                "hash_proves_truth": false,
+                "lexical_match_proves_answer": false
+              },
+              "claims": [
+                {
+                  "act": "introduce",
+                  "basis": "user_declaration",
+                  "may_promote_chat_to_evidence": false
+                }
+              ]
+            }
+          },
+          "reply_plan": {
+            "version": "conversation-router-v3",
+            "phase": "before_execution",
+            "request": "My name is Juniper",
+            "resolved_request": "My name is Juniper",
+            "subject": null,
+            "intentions": [
+              {
+                "type": "introduce",
+                "value": "Juniper"
+              }
+            ],
+            "selected": {
+              "handler": "memory",
+              "intent": "personal_memory",
+              "priority": 100,
+              "basis": "explicit personal request",
+              "allowed_authorities": [
+                "user_declaration",
+                "system_description"
+              ]
+            },
+            "ambiguities": [],
+            "steps": [
+              {
+                "action": "answer_request",
+                "intent": "personal_memory",
+                "allowed_authorities": [
+                  "user_declaration",
+                  "system_description"
+                ]
+              },
+              {
+                "action": "attach_source_details",
+                "requires": "existing reader result; never chat memory"
+              }
+            ],
+            "policy": {
+              "chat_is_evidence": false,
+              "hash_proves_truth": false,
+              "lexical_match_proves_answer": false
+            },
+            "claims": [
+              {
+                "act": "introduce",
+                "basis": "user_declaration",
+                "may_promote_chat_to_evidence": false
+              }
+            ],
+            "subplans": {},
+            "sources": []
+          },
+          "realization": {
+            "message": "Hi, Juniper! I\u2019m MPLPB, your little monster \ud83d\ude08. What\u2019s on your mind?",
+            "authority": "user_declaration",
+            "sources": [],
+            "claim_units": [
+              {
+                "text": "Hi, Juniper! I\u2019m MPLPB, your little monster \ud83d\ude08. What\u2019s on your mind?",
+                "authority": "user_declaration",
+                "sources": [],
+                "granularity": "skill result; source scopes remain separate"
+              }
+            ],
+            "scope_results": [],
+            "chat_is_evidence": false
+          },
+          "response_validation": {
+            "version": "final-response-validation-v1",
+            "status": "checked",
+            "checks": [
+              "existing non-answer/reference contract; current local pins checked"
+            ],
+            "context_is_evidence": false,
+            "source_presence_is_support": false,
+            "errors": []
+          },
+          "question_frame": {
+            "rule": "question-frames-v2",
+            "original": "My name is Juniper",
+            "canonical": "My name is Juniper",
+            "kind": "conversation_or_command",
+            "subject": null,
+            "normalization_is_evidence": false,
+            "support_frame": null
+          }
+        },
+        "answer_support_code": {
+          "__init__.py": "1394a074b9d56bf217fa815a028c121056ddf339a196dc3668a580a0a9c0db37",
+          "__main__.py": "a46dab55e958fe20e264dc152e6a5731e9e605a25667bfc6c7c6e024a7b4c446",
+          "frames.py": "82c23f7382f862d3b95960b017dda278022ccee1f1bc4e9b339bf7c45ba8dede",
+          "library.py": "7d1613c28f01453270c8a53bf0e3f015bf197dff25b43edc764802e1e1306e5b",
+          "literal_evidence.py": "df050fe60d9cf01c1bd217dbbd659c8a841635f96ef45e559a219b801e356881",
+          "procedures.py": "d66b180651cc35df32a92e33f7df9ae5e031f2fba53ed769c2caddc37fa94523",
+          "support.py": "4a0e65a4491e6ee8357168b6ca8faeae53ffd77b6e0376b20ae40553a187e228"
+        },
+        "chat_phrasing_sha256": "23a870e3103c4697b717978e2c1c9ab5adfd5cf68912710e8e655261dd5c431d",
+        "skill_planner_version": "skill-planner-v1",
+        "skill_planner_sha256": "ad80c6df87982a1e96a711c0ca0fdec13c9380b0af2c947e75d5c394a6153529",
+        "conversation_router_version": "conversation-router-v3",
+        "conversation_router_sha256": "9e491877e63c3f1f56a061fdd3932139d0f74159e2638ba2dec8316bfed0fc64",
+        "conversation_continuity_version": "conversation-continuity-v2",
+        "conversation_continuity_sha256": "95cf85b1d1c41d850332c429d5cf8569294f4ee4f853baef8941cd933d810793",
+        "conversation_branches_version": "conversation-branches-v1",
+        "conversation_branches_sha256": "95fa6b724d252dd15810797c4c8aa951a36d8e4470a221327f5242459631f990",
+        "conversation_engine_version": "conversation-engine-v1",
+        "conversation_engine_sha256": "ac4f1aa4385092a940ac38b3f7e6ba30a0768002983c288f11547bfab6335a27",
+        "context_index_version": "context-index-v2",
+        "context_index_sha256": "88230ec8f3711c07da98025e039b7b9abb4c3f6f2ad42cd3d0702bdcb9d15cbb",
+        "dialogue_rules_version": "dialogue-rules-v2",
+        "dialogue_rules_sha256": "82ba0d74e3adf49660511bd0f47d4642b678db1fee7db7d647beaa51c4aaf6b4",
+        "conversation_memory_version": "conversation-memory-v4",
+        "conversation_memory_sha256": "bdaca2916b60dc56904f0eb2ba640e05f39e9935de8d0eca11608cb0dd37e671",
+        "proposition_chat_version": "proposition-chat-v1",
+        "proposition_chat_sha256": "2c51fb838f623ef58dd713efdd839f41dfde4a0e74c02aa0f72ae76b226fb6c4",
+        "self_knowledge_version": "self-knowledge-v6",
+        "self_knowledge_sha256": "4b4664afad6f079c0de1af12a23da6d8bb5eaadd9a657f6b0cb09bcbdd8505e5",
+        "language_planner_version": "language-planner-v1",
+        "language_planner_sha256": "0176cd1f9755315679bfa479b3e8bd853cb8f3b655c66398ac7a8ad538bead1f",
+        "mind_version": "deterministic-mind-v1",
+        "mind_sha256": "af0d16179e01db1eacf730734458cd2743827f73f91545a4d169fa48f2f75bd4",
+        "grounded_chat_version": "grounded-chat-v1",
+        "grounded_chat_sha256": "30fa89c6fbeff16205f895b680d119bf4c7b07ec9c9c43076a2c44c656ee3b3d",
+        "emotional_rules_version": "emotional-rules-v1",
+        "emotional_rules_sha256": "8683ebf91c363904f182ce1659c6a61ff7e645c5b612f7439da19fd3f5734cc9",
+        "determination_version": "reduction-to-determination-v2",
+        "determination_sha256": "7f756f6bd8565fcc2090bf5188eaa731716a9b28dc50969ee99103a2aee5ca7e",
+        "casual_rules_version": "casual-reasoning-v3",
+        "casual_rules_sha256": "7df45987a8c79706fedfa630561fe484bbda0bfb341e40e31d3db42a9c65209c",
+        "question_frame_version": "question-frames-v2",
+        "question_frame_sha256": "9a3481e8005ed945f2ca1e0431167f8399f3a2af4f6c08a21e1f676eceb587a9",
+        "idea_chat_version": "idea-chat-v5",
+        "idea_chat_sha256": "2bf512d1d033986a33862d97dbc47d76c1492d73ad23960b3bcefcb15a779656",
+        "environment_version": "chat-environment-v9",
+        "environment_sha256": "2df76494ddcd0741752cc8181fa6e08bf520ec53d19badad7ee3e3284e1451fc",
+        "construction_version": "response-construction-v1",
+        "construction_sha256": "22ee171e8436226147397e57b65e6fb9d30c090eb9d1a6b0443b03b25e039218",
+        "social_chat_version": "social-turns-v2",
+        "social_chat_sha256": "06771a495f307c79424e1deb11eacde7ac7e4d107b1f588d822b59b7542bb2ba"
+      },
+      "logic_version": "explicit-chat-rules-v1",
+      "logic_sha256": "1d777ce7a5e5e06314be94c90efabb254aaafe532f89562a1759943739ccb62f",
+      "sha256": "0ef4cb4676951247092b20f337cd7da546fbd4c1f9d838ed88ceb1740827165a"
+    }
+  ],
+  "chain_intact": true,
+  "notice": "Hash continuity only. Not authenticated authorship, source truth or an evaluation score."
+}

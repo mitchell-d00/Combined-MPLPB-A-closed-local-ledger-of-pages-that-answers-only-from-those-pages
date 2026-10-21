@@ -8,6 +8,18 @@ from mplpb_answers.support import supported_answer
 from tools.evaluate_audit_20261021 import run
 
 class AuditRegressions(unittest.TestCase):
+    def test_denial_of_other_value_is_not_a_contradiction(self):
+        for separate_pages in (False, True):
+            with self.subTest(separate_pages=separate_pages), tempfile.TemporaryDirectory() as root:
+                positive = 'The Lumen Festival began in 1998.'
+                negative = 'The Lumen Festival did not begin in 1999.'
+                bodies = [positive, negative] if separate_pages else [positive + ' ' + negative]
+                for body in bodies:
+                    L.write(root, title='Lumen Festival', scope='Lumen Festival', body=body)
+                result = supported_answer(root, 'When did the Lumen Festival begin?')
+                self.assertEqual(result.kind, 'return')
+                self.assertIn('1998', result.text)
+
     def test_new_language_controls(self):
         report = run()
         for row in report['rows']:

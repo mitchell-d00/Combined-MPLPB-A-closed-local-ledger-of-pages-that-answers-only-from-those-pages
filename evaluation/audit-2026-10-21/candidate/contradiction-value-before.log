@@ -1,0 +1,30 @@
+test_denial_of_other_value_is_not_a_contradiction (tests.test_audit_20261021.AuditRegressions.test_denial_of_other_value_is_not_a_contradiction) ... 
+  test_denial_of_other_value_is_not_a_contradiction (tests.test_audit_20261021.AuditRegressions.test_denial_of_other_value_is_not_a_contradiction) (separate_pages=False) ... FAIL
+  test_denial_of_other_value_is_not_a_contradiction (tests.test_audit_20261021.AuditRegressions.test_denial_of_other_value_is_not_a_contradiction) (separate_pages=True) ... FAIL
+
+======================================================================
+FAIL: test_denial_of_other_value_is_not_a_contradiction (tests.test_audit_20261021.AuditRegressions.test_denial_of_other_value_is_not_a_contradiction) (separate_pages=False)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/a3b0e1855f51/candidate/tests/test_audit_20261021.py", line 20, in test_denial_of_other_value_is_not_a_contradiction
+    self.assertEqual(result.kind, 'return')
+AssertionError: 'ambiguous' != 'return'
+- ambiguous
++ return
+
+
+======================================================================
+FAIL: test_denial_of_other_value_is_not_a_contradiction (tests.test_audit_20261021.AuditRegressions.test_denial_of_other_value_is_not_a_contradiction) (separate_pages=True)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/a3b0e1855f51/candidate/tests/test_audit_20261021.py", line 20, in test_denial_of_other_value_is_not_a_contradiction
+    self.assertEqual(result.kind, 'return')
+AssertionError: 'ambiguous' != 'return'
+- ambiguous
++ return
+
+
+----------------------------------------------------------------------
+Ran 1 test in 0.014s
+
+FAILED (failures=2)

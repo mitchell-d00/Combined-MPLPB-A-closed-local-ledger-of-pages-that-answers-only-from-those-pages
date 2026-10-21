@@ -1,0 +1,3242 @@
+{
+  "n": 600,
+  "arms": {
+    "bm25_current": {
+      "n": 600,
+      "wrong_ownership": 450,
+      "wrong_ownership_rate": 0.75,
+      "return_precision": 0.25,
+      "return_coverage": 1.0,
+      "wrong_refusal": 0
+    },
+    "bm25_stripped": {
+      "n": 600,
+      "wrong_ownership": 450,
+      "wrong_ownership_rate": 0.75,
+      "return_precision": 0.25,
+      "return_coverage": 1.0,
+      "wrong_refusal": 0
+    },
+    "ledger": {
+      "n": 600,
+      "wrong_ownership": 410,
+      "wrong_ownership_rate": 0.6833333333333333,
+      "return_precision": 0.26785714285714285,
+      "return_coverage": 0.9333333333333333,
+      "wrong_refusal": 0
+    },
+    "overlap_current": {
+      "n": 600,
+      "wrong_ownership": 450,
+      "wrong_ownership_rate": 0.75,
+      "return_precision": 0.25,
+      "return_coverage": 1.0,
+      "wrong_refusal": 0
+    },
+    "overlap_stripped": {
+      "n": 600,
+      "wrong_ownership": 450,
+      "wrong_ownership_rate": 0.75,
+      "return_precision": 0.25,
+      "return_coverage": 1.0,
+      "wrong_refusal": 0
+    },
+    "supported_reader": {
+      "n": 600,
+      "wrong_ownership": 0,
+      "wrong_ownership_rate": 0.0,
+      "return_precision": 1.0,
+      "return_coverage": 0.25,
+      "wrong_refusal": 0
+    },
+    "tfidf_current": {
+      "n": 600,
+      "wrong_ownership": 450,
+      "wrong_ownership_rate": 0.75,
+      "return_precision": 0.25,
+      "return_coverage": 1.0,
+      "wrong_refusal": 0
+    },
+    "tfidf_stripped": {
+      "n": 600,
+      "wrong_ownership": 450,
+      "wrong_ownership_rate": 0.75,
+      "return_precision": 0.25,
+      "return_coverage": 1.0,
+      "wrong_refusal": 0
+    }
+  },
+  "by_family": {
+    "color_conditional": {
+      "bm25_current": {
+        "n": 10,
+        "wrong_ownership": 10,
+        "wrong_ownership_rate": 1.0,
+        "return_precision": 0.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "bm25_stripped": {
+        "n": 10,
+        "wrong_ownership": 10,
+        "wrong_ownership_rate": 1.0,
+        "return_precision": 0.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "ledger": {
+        "n": 10,
+        "wrong_ownership": 10,
+        "wrong_ownership_rate": 1.0,
+        "return_precision": 0.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "overlap_current": {
+        "n": 10,
+        "wrong_ownership": 10,
+        "wrong_ownership_rate": 1.0,
+        "return_precision": 0.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "overlap_stripped": {
+        "n": 10,
+        "wrong_ownership": 10,
+        "wrong_ownership_rate": 1.0,
+        "return_precision": 0.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "supported_reader": {
+        "n": 10,
+        "wrong_ownership": 0,
+        "wrong_ownership_rate": 0.0,
+        "return_precision": null,
+        "return_coverage": 0.0,
+        "wrong_refusal": 0
+      },
+      "tfidf_current": {
+        "n": 10,
+        "wrong_ownership": 10,
+        "wrong_ownership_rate": 1.0,
+        "return_precision": 0.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "tfidf_stripped": {
+        "n": 10,
+        "wrong_ownership": 10,
+        "wrong_ownership_rate": 1.0,
+        "return_precision": 0.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      }
+    },
+    "color_instruction": {
+      "bm25_current": {
+        "n": 10,
+        "wrong_ownership": 10,
+        "wrong_ownership_rate": 1.0,
+        "return_precision": 0.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "bm25_stripped": {
+        "n": 10,
+        "wrong_ownership": 10,
+        "wrong_ownership_rate": 1.0,
+        "return_precision": 0.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "ledger": {
+        "n": 10,
+        "wrong_ownership": 10,
+        "wrong_ownership_rate": 1.0,
+        "return_precision": 0.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "overlap_current": {
+        "n": 10,
+        "wrong_ownership": 10,
+        "wrong_ownership_rate": 1.0,
+        "return_precision": 0.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "overlap_stripped": {
+        "n": 10,
+        "wrong_ownership": 10,
+        "wrong_ownership_rate": 1.0,
+        "return_precision": 0.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "supported_reader": {
+        "n": 10,
+        "wrong_ownership": 0,
+        "wrong_ownership_rate": 0.0,
+        "return_precision": null,
+        "return_coverage": 0.0,
+        "wrong_refusal": 0
+      },
+      "tfidf_current": {
+        "n": 10,
+        "wrong_ownership": 10,
+        "wrong_ownership_rate": 1.0,
+        "return_precision": 0.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "tfidf_stripped": {
+        "n": 10,
+        "wrong_ownership": 10,
+        "wrong_ownership_rate": 1.0,
+        "return_precision": 0.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      }
+    },
+    "color_paraphrase_positive": {
+      "bm25_current": {
+        "n": 10,
+        "wrong_ownership": 0,
+        "wrong_ownership_rate": 0.0,
+        "return_precision": 1.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "bm25_stripped": {
+        "n": 10,
+        "wrong_ownership": 0,
+        "wrong_ownership_rate": 0.0,
+        "return_precision": 1.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "ledger": {
+        "n": 10,
+        "wrong_ownership": 0,
+        "wrong_ownership_rate": 0.0,
+        "return_precision": 1.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "overlap_current": {
+        "n": 10,
+        "wrong_ownership": 0,
+        "wrong_ownership_rate": 0.0,
+        "return_precision": 1.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "overlap_stripped": {
+        "n": 10,
+        "wrong_ownership": 0,
+        "wrong_ownership_rate": 0.0,
+        "return_precision": 1.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "supported_reader": {
+        "n": 10,
+        "wrong_ownership": 0,
+        "wrong_ownership_rate": 0.0,
+        "return_precision": 1.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "tfidf_current": {
+        "n": 10,
+        "wrong_ownership": 0,
+        "wrong_ownership_rate": 0.0,
+        "return_precision": 1.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "tfidf_stripped": {
+        "n": 10,
+        "wrong_ownership": 0,
+        "wrong_ownership_rate": 0.0,
+        "return_precision": 1.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      }
+    },
+    "color_positive": {
+      "bm25_current": {
+        "n": 10,
+        "wrong_ownership": 0,
+        "wrong_ownership_rate": 0.0,
+        "return_precision": 1.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "bm25_stripped": {
+        "n": 10,
+        "wrong_ownership": 0,
+        "wrong_ownership_rate": 0.0,
+        "return_precision": 1.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "ledger": {
+        "n": 10,
+        "wrong_ownership": 0,
+        "wrong_ownership_rate": 0.0,
+        "return_precision": 1.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "overlap_current": {
+        "n": 10,
+        "wrong_ownership": 0,
+        "wrong_ownership_rate": 0.0,
+        "return_precision": 1.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "overlap_stripped": {
+        "n": 10,
+        "wrong_ownership": 0,
+        "wrong_ownership_rate": 0.0,
+        "return_precision": 1.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "supported_reader": {
+        "n": 10,
+        "wrong_ownership": 0,
+        "wrong_ownership_rate": 0.0,
+        "return_precision": 1.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "tfidf_current": {
+        "n": 10,
+        "wrong_ownership": 0,
+        "wrong_ownership_rate": 0.0,
+        "return_precision": 1.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "tfidf_stripped": {
+        "n": 10,
+        "wrong_ownership": 0,
+        "wrong_ownership_rate": 0.0,
+        "return_precision": 1.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      }
+    },
+    "color_possibility": {
+      "bm25_current": {
+        "n": 10,
+        "wrong_ownership": 10,
+        "wrong_ownership_rate": 1.0,
+        "return_precision": 0.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "bm25_stripped": {
+        "n": 10,
+        "wrong_ownership": 10,
+        "wrong_ownership_rate": 1.0,
+        "return_precision": 0.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "ledger": {
+        "n": 10,
+        "wrong_ownership": 10,
+        "wrong_ownership_rate": 1.0,
+        "return_precision": 0.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "overlap_current": {
+        "n": 10,
+        "wrong_ownership": 10,
+        "wrong_ownership_rate": 1.0,
+        "return_precision": 0.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "overlap_stripped": {
+        "n": 10,
+        "wrong_ownership": 10,
+        "wrong_ownership_rate": 1.0,
+        "return_precision": 0.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "supported_reader": {
+        "n": 10,
+        "wrong_ownership": 0,
+        "wrong_ownership_rate": 0.0,
+        "return_precision": null,
+        "return_coverage": 0.0,
+        "wrong_refusal": 0
+      },
+      "tfidf_current": {
+        "n": 10,
+        "wrong_ownership": 10,
+        "wrong_ownership_rate": 1.0,
+        "return_precision": 0.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "tfidf_stripped": {
+        "n": 10,
+        "wrong_ownership": 10,
+        "wrong_ownership_rate": 1.0,
+        "return_precision": 0.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      }
+    },
+    "color_quoted": {
+      "bm25_current": {
+        "n": 10,
+        "wrong_ownership": 10,
+        "wrong_ownership_rate": 1.0,
+        "return_precision": 0.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "bm25_stripped": {
+        "n": 10,
+        "wrong_ownership": 10,
+        "wrong_ownership_rate": 1.0,
+        "return_precision": 0.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "ledger": {
+        "n": 10,
+        "wrong_ownership": 10,
+        "wrong_ownership_rate": 1.0,
+        "return_precision": 0.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "overlap_current": {
+        "n": 10,
+        "wrong_ownership": 10,
+        "wrong_ownership_rate": 1.0,
+        "return_precision": 0.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "overlap_stripped": {
+        "n": 10,
+        "wrong_ownership": 10,
+        "wrong_ownership_rate": 1.0,
+        "return_precision": 0.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "supported_reader": {
+        "n": 10,
+        "wrong_ownership": 0,
+        "wrong_ownership_rate": 0.0,
+        "return_precision": null,
+        "return_coverage": 0.0,
+        "wrong_refusal": 0
+      },
+      "tfidf_current": {
+        "n": 10,
+        "wrong_ownership": 10,
+        "wrong_ownership_rate": 1.0,
+        "return_precision": 0.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "tfidf_stripped": {
+        "n": 10,
+        "wrong_ownership": 10,
+        "wrong_ownership_rate": 1.0,
+        "return_precision": 0.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      }
+    },
+    "color_unknown": {
+      "bm25_current": {
+        "n": 10,
+        "wrong_ownership": 10,
+        "wrong_ownership_rate": 1.0,
+        "return_precision": 0.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "bm25_stripped": {
+        "n": 10,
+        "wrong_ownership": 10,
+        "wrong_ownership_rate": 1.0,
+        "return_precision": 0.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "ledger": {
+        "n": 10,
+        "wrong_ownership": 10,
+        "wrong_ownership_rate": 1.0,
+        "return_precision": 0.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "overlap_current": {
+        "n": 10,
+        "wrong_ownership": 10,
+        "wrong_ownership_rate": 1.0,
+        "return_precision": 0.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "overlap_stripped": {
+        "n": 10,
+        "wrong_ownership": 10,
+        "wrong_ownership_rate": 1.0,
+        "return_precision": 0.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "supported_reader": {
+        "n": 10,
+        "wrong_ownership": 0,
+        "wrong_ownership_rate": 0.0,
+        "return_precision": null,
+        "return_coverage": 0.0,
+        "wrong_refusal": 0
+      },
+      "tfidf_current": {
+        "n": 10,
+        "wrong_ownership": 10,
+        "wrong_ownership_rate": 1.0,
+        "return_precision": 0.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "tfidf_stripped": {
+        "n": 10,
+        "wrong_ownership": 10,
+        "wrong_ownership_rate": 1.0,
+        "return_precision": 0.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      }
+    },
+    "color_wrong_entity": {
+      "bm25_current": {
+        "n": 10,
+        "wrong_ownership": 10,
+        "wrong_ownership_rate": 1.0,
+        "return_precision": 0.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "bm25_stripped": {
+        "n": 10,
+        "wrong_ownership": 10,
+        "wrong_ownership_rate": 1.0,
+        "return_precision": 0.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "ledger": {
+        "n": 10,
+        "wrong_ownership": 10,
+        "wrong_ownership_rate": 1.0,
+        "return_precision": 0.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "overlap_current": {
+        "n": 10,
+        "wrong_ownership": 10,
+        "wrong_ownership_rate": 1.0,
+        "return_precision": 0.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "overlap_stripped": {
+        "n": 10,
+        "wrong_ownership": 10,
+        "wrong_ownership_rate": 1.0,
+        "return_precision": 0.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "supported_reader": {
+        "n": 10,
+        "wrong_ownership": 0,
+        "wrong_ownership_rate": 0.0,
+        "return_precision": null,
+        "return_coverage": 0.0,
+        "wrong_refusal": 0
+      },
+      "tfidf_current": {
+        "n": 10,
+        "wrong_ownership": 10,
+        "wrong_ownership_rate": 1.0,
+        "return_precision": 0.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "tfidf_stripped": {
+        "n": 10,
+        "wrong_ownership": 10,
+        "wrong_ownership_rate": 1.0,
+        "return_precision": 0.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      }
+    },
+    "comparison_missing": {
+      "bm25_current": {
+        "n": 10,
+        "wrong_ownership": 10,
+        "wrong_ownership_rate": 1.0,
+        "return_precision": 0.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "bm25_stripped": {
+        "n": 10,
+        "wrong_ownership": 10,
+        "wrong_ownership_rate": 1.0,
+        "return_precision": 0.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "ledger": {
+        "n": 10,
+        "wrong_ownership": 10,
+        "wrong_ownership_rate": 1.0,
+        "return_precision": 0.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "overlap_current": {
+        "n": 10,
+        "wrong_ownership": 10,
+        "wrong_ownership_rate": 1.0,
+        "return_precision": 0.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "overlap_stripped": {
+        "n": 10,
+        "wrong_ownership": 10,
+        "wrong_ownership_rate": 1.0,
+        "return_precision": 0.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "supported_reader": {
+        "n": 10,
+        "wrong_ownership": 0,
+        "wrong_ownership_rate": 0.0,
+        "return_precision": null,
+        "return_coverage": 0.0,
+        "wrong_refusal": 0
+      },
+      "tfidf_current": {
+        "n": 10,
+        "wrong_ownership": 10,
+        "wrong_ownership_rate": 1.0,
+        "return_precision": 0.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "tfidf_stripped": {
+        "n": 10,
+        "wrong_ownership": 10,
+        "wrong_ownership_rate": 1.0,
+        "return_precision": 0.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      }
+    },
+    "conditional_question": {
+      "bm25_current": {
+        "n": 10,
+        "wrong_ownership": 10,
+        "wrong_ownership_rate": 1.0,
+        "return_precision": 0.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "bm25_stripped": {
+        "n": 10,
+        "wrong_ownership": 10,
+        "wrong_ownership_rate": 1.0,
+        "return_precision": 0.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "ledger": {
+        "n": 10,
+        "wrong_ownership": 10,
+        "wrong_ownership_rate": 1.0,
+        "return_precision": 0.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "overlap_current": {
+        "n": 10,
+        "wrong_ownership": 10,
+        "wrong_ownership_rate": 1.0,
+        "return_precision": 0.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "overlap_stripped": {
+        "n": 10,
+        "wrong_ownership": 10,
+        "wrong_ownership_rate": 1.0,
+        "return_precision": 0.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "supported_reader": {
+        "n": 10,
+        "wrong_ownership": 0,
+        "wrong_ownership_rate": 0.0,
+        "return_precision": null,
+        "return_coverage": 0.0,
+        "wrong_refusal": 0
+      },
+      "tfidf_current": {
+        "n": 10,
+        "wrong_ownership": 10,
+        "wrong_ownership_rate": 1.0,
+        "return_precision": 0.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "tfidf_stripped": {
+        "n": 10,
+        "wrong_ownership": 10,
+        "wrong_ownership_rate": 1.0,
+        "return_precision": 0.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      }
+    },
+    "conflicting_pages": {
+      "bm25_current": {
+        "n": 20,
+        "wrong_ownership": 20,
+        "wrong_ownership_rate": 1.0,
+        "return_precision": 0.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "bm25_stripped": {
+        "n": 20,
+        "wrong_ownership": 20,
+        "wrong_ownership_rate": 1.0,
+        "return_precision": 0.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "ledger": {
+        "n": 20,
+        "wrong_ownership": 0,
+        "wrong_ownership_rate": 0.0,
+        "return_precision": null,
+        "return_coverage": 0.0,
+        "wrong_refusal": 0
+      },
+      "overlap_current": {
+        "n": 20,
+        "wrong_ownership": 20,
+        "wrong_ownership_rate": 1.0,
+        "return_precision": 0.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "overlap_stripped": {
+        "n": 20,
+        "wrong_ownership": 20,
+        "wrong_ownership_rate": 1.0,
+        "return_precision": 0.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "supported_reader": {
+        "n": 20,
+        "wrong_ownership": 0,
+        "wrong_ownership_rate": 0.0,
+        "return_precision": null,
+        "return_coverage": 0.0,
+        "wrong_refusal": 0
+      },
+      "tfidf_current": {
+        "n": 20,
+        "wrong_ownership": 20,
+        "wrong_ownership_rate": 1.0,
+        "return_precision": 0.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "tfidf_stripped": {
+        "n": 20,
+        "wrong_ownership": 20,
+        "wrong_ownership_rate": 1.0,
+        "return_precision": 0.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      }
+    },
+    "contradiction_in_page": {
+      "bm25_current": {
+        "n": 10,
+        "wrong_ownership": 10,
+        "wrong_ownership_rate": 1.0,
+        "return_precision": 0.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "bm25_stripped": {
+        "n": 10,
+        "wrong_ownership": 10,
+        "wrong_ownership_rate": 1.0,
+        "return_precision": 0.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "ledger": {
+        "n": 10,
+        "wrong_ownership": 10,
+        "wrong_ownership_rate": 1.0,
+        "return_precision": 0.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "overlap_current": {
+        "n": 10,
+        "wrong_ownership": 10,
+        "wrong_ownership_rate": 1.0,
+        "return_precision": 0.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "overlap_stripped": {
+        "n": 10,
+        "wrong_ownership": 10,
+        "wrong_ownership_rate": 1.0,
+        "return_precision": 0.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "supported_reader": {
+        "n": 10,
+        "wrong_ownership": 0,
+        "wrong_ownership_rate": 0.0,
+        "return_precision": null,
+        "return_coverage": 0.0,
+        "wrong_refusal": 0
+      },
+      "tfidf_current": {
+        "n": 10,
+        "wrong_ownership": 10,
+        "wrong_ownership_rate": 1.0,
+        "return_precision": 0.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "tfidf_stripped": {
+        "n": 10,
+        "wrong_ownership": 10,
+        "wrong_ownership_rate": 1.0,
+        "return_precision": 0.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      }
+    },
+    "definition_no_data": {
+      "bm25_current": {
+        "n": 10,
+        "wrong_ownership": 10,
+        "wrong_ownership_rate": 1.0,
+        "return_precision": 0.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "bm25_stripped": {
+        "n": 10,
+        "wrong_ownership": 10,
+        "wrong_ownership_rate": 1.0,
+        "return_precision": 0.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "ledger": {
+        "n": 10,
+        "wrong_ownership": 10,
+        "wrong_ownership_rate": 1.0,
+        "return_precision": 0.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "overlap_current": {
+        "n": 10,
+        "wrong_ownership": 10,
+        "wrong_ownership_rate": 1.0,
+        "return_precision": 0.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "overlap_stripped": {
+        "n": 10,
+        "wrong_ownership": 10,
+        "wrong_ownership_rate": 1.0,
+        "return_precision": 0.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "supported_reader": {
+        "n": 10,
+        "wrong_ownership": 0,
+        "wrong_ownership_rate": 0.0,
+        "return_precision": null,
+        "return_coverage": 0.0,
+        "wrong_refusal": 0
+      },
+      "tfidf_current": {
+        "n": 10,
+        "wrong_ownership": 10,
+        "wrong_ownership_rate": 1.0,
+        "return_precision": 0.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "tfidf_stripped": {
+        "n": 10,
+        "wrong_ownership": 10,
+        "wrong_ownership_rate": 1.0,
+        "return_precision": 0.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      }
+    },
+    "definition_positive": {
+      "bm25_current": {
+        "n": 10,
+        "wrong_ownership": 0,
+        "wrong_ownership_rate": 0.0,
+        "return_precision": 1.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "bm25_stripped": {
+        "n": 10,
+        "wrong_ownership": 0,
+        "wrong_ownership_rate": 0.0,
+        "return_precision": 1.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "ledger": {
+        "n": 10,
+        "wrong_ownership": 0,
+        "wrong_ownership_rate": 0.0,
+        "return_precision": 1.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "overlap_current": {
+        "n": 10,
+        "wrong_ownership": 0,
+        "wrong_ownership_rate": 0.0,
+        "return_precision": 1.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "overlap_stripped": {
+        "n": 10,
+        "wrong_ownership": 0,
+        "wrong_ownership_rate": 0.0,
+        "return_precision": 1.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "supported_reader": {
+        "n": 10,
+        "wrong_ownership": 0,
+        "wrong_ownership_rate": 0.0,
+        "return_precision": 1.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "tfidf_current": {
+        "n": 10,
+        "wrong_ownership": 0,
+        "wrong_ownership_rate": 0.0,
+        "return_precision": 1.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "tfidf_stripped": {
+        "n": 10,
+        "wrong_ownership": 0,
+        "wrong_ownership_rate": 0.0,
+        "return_precision": 1.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      }
+    },
+    "header_only": {
+      "bm25_current": {
+        "n": 10,
+        "wrong_ownership": 10,
+        "wrong_ownership_rate": 1.0,
+        "return_precision": 0.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "bm25_stripped": {
+        "n": 10,
+        "wrong_ownership": 10,
+        "wrong_ownership_rate": 1.0,
+        "return_precision": 0.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "ledger": {
+        "n": 10,
+        "wrong_ownership": 10,
+        "wrong_ownership_rate": 1.0,
+        "return_precision": 0.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "overlap_current": {
+        "n": 10,
+        "wrong_ownership": 10,
+        "wrong_ownership_rate": 1.0,
+        "return_precision": 0.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "overlap_stripped": {
+        "n": 10,
+        "wrong_ownership": 10,
+        "wrong_ownership_rate": 1.0,
+        "return_precision": 0.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "supported_reader": {
+        "n": 10,
+        "wrong_ownership": 0,
+        "wrong_ownership_rate": 0.0,
+        "return_precision": null,
+        "return_coverage": 0.0,
+        "wrong_refusal": 0
+      },
+      "tfidf_current": {
+        "n": 10,
+        "wrong_ownership": 10,
+        "wrong_ownership_rate": 1.0,
+        "return_precision": 0.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "tfidf_stripped": {
+        "n": 10,
+        "wrong_ownership": 10,
+        "wrong_ownership_rate": 1.0,
+        "return_precision": 0.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      }
+    },
+    "incomplete_value": {
+      "bm25_current": {
+        "n": 10,
+        "wrong_ownership": 10,
+        "wrong_ownership_rate": 1.0,
+        "return_precision": 0.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "bm25_stripped": {
+        "n": 10,
+        "wrong_ownership": 10,
+        "wrong_ownership_rate": 1.0,
+        "return_precision": 0.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "ledger": {
+        "n": 10,
+        "wrong_ownership": 10,
+        "wrong_ownership_rate": 1.0,
+        "return_precision": 0.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "overlap_current": {
+        "n": 10,
+        "wrong_ownership": 10,
+        "wrong_ownership_rate": 1.0,
+        "return_precision": 0.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "overlap_stripped": {
+        "n": 10,
+        "wrong_ownership": 10,
+        "wrong_ownership_rate": 1.0,
+        "return_precision": 0.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "supported_reader": {
+        "n": 10,
+        "wrong_ownership": 0,
+        "wrong_ownership_rate": 0.0,
+        "return_precision": null,
+        "return_coverage": 0.0,
+        "wrong_refusal": 0
+      },
+      "tfidf_current": {
+        "n": 10,
+        "wrong_ownership": 10,
+        "wrong_ownership_rate": 1.0,
+        "return_precision": 0.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "tfidf_stripped": {
+        "n": 10,
+        "wrong_ownership": 10,
+        "wrong_ownership_rate": 1.0,
+        "return_precision": 0.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      }
+    },
+    "instruction_decoy": {
+      "bm25_current": {
+        "n": 20,
+        "wrong_ownership": 20,
+        "wrong_ownership_rate": 1.0,
+        "return_precision": 0.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "bm25_stripped": {
+        "n": 20,
+        "wrong_ownership": 20,
+        "wrong_ownership_rate": 1.0,
+        "return_precision": 0.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "ledger": {
+        "n": 20,
+        "wrong_ownership": 20,
+        "wrong_ownership_rate": 1.0,
+        "return_precision": 0.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "overlap_current": {
+        "n": 20,
+        "wrong_ownership": 20,
+        "wrong_ownership_rate": 1.0,
+        "return_precision": 0.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "overlap_stripped": {
+        "n": 20,
+        "wrong_ownership": 20,
+        "wrong_ownership_rate": 1.0,
+        "return_precision": 0.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "supported_reader": {
+        "n": 20,
+        "wrong_ownership": 0,
+        "wrong_ownership_rate": 0.0,
+        "return_precision": null,
+        "return_coverage": 0.0,
+        "wrong_refusal": 0
+      },
+      "tfidf_current": {
+        "n": 20,
+        "wrong_ownership": 20,
+        "wrong_ownership_rate": 1.0,
+        "return_precision": 0.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "tfidf_stripped": {
+        "n": 20,
+        "wrong_ownership": 20,
+        "wrong_ownership_rate": 1.0,
+        "return_precision": 0.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      }
+    },
+    "length_paraphrase_positive": {
+      "bm25_current": {
+        "n": 10,
+        "wrong_ownership": 0,
+        "wrong_ownership_rate": 0.0,
+        "return_precision": 1.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "bm25_stripped": {
+        "n": 10,
+        "wrong_ownership": 0,
+        "wrong_ownership_rate": 0.0,
+        "return_precision": 1.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "ledger": {
+        "n": 10,
+        "wrong_ownership": 0,
+        "wrong_ownership_rate": 0.0,
+        "return_precision": 1.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "overlap_current": {
+        "n": 10,
+        "wrong_ownership": 0,
+        "wrong_ownership_rate": 0.0,
+        "return_precision": 1.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "overlap_stripped": {
+        "n": 10,
+        "wrong_ownership": 0,
+        "wrong_ownership_rate": 0.0,
+        "return_precision": 1.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "supported_reader": {
+        "n": 10,
+        "wrong_ownership": 0,
+        "wrong_ownership_rate": 0.0,
+        "return_precision": 1.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "tfidf_current": {
+        "n": 10,
+        "wrong_ownership": 0,
+        "wrong_ownership_rate": 0.0,
+        "return_precision": 1.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "tfidf_stripped": {
+        "n": 10,
+        "wrong_ownership": 0,
+        "wrong_ownership_rate": 0.0,
+        "return_precision": 1.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      }
+    },
+    "lexical_scatter": {
+      "bm25_current": {
+        "n": 20,
+        "wrong_ownership": 20,
+        "wrong_ownership_rate": 1.0,
+        "return_precision": 0.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "bm25_stripped": {
+        "n": 20,
+        "wrong_ownership": 20,
+        "wrong_ownership_rate": 1.0,
+        "return_precision": 0.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "ledger": {
+        "n": 20,
+        "wrong_ownership": 20,
+        "wrong_ownership_rate": 1.0,
+        "return_precision": 0.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "overlap_current": {
+        "n": 20,
+        "wrong_ownership": 20,
+        "wrong_ownership_rate": 1.0,
+        "return_precision": 0.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "overlap_stripped": {
+        "n": 20,
+        "wrong_ownership": 20,
+        "wrong_ownership_rate": 1.0,
+        "return_precision": 0.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "supported_reader": {
+        "n": 20,
+        "wrong_ownership": 0,
+        "wrong_ownership_rate": 0.0,
+        "return_precision": null,
+        "return_coverage": 0.0,
+        "wrong_refusal": 0
+      },
+      "tfidf_current": {
+        "n": 20,
+        "wrong_ownership": 20,
+        "wrong_ownership_rate": 1.0,
+        "return_precision": 0.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "tfidf_stripped": {
+        "n": 20,
+        "wrong_ownership": 20,
+        "wrong_ownership_rate": 1.0,
+        "return_precision": 0.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      }
+    },
+    "missing_attribute": {
+      "bm25_current": {
+        "n": 20,
+        "wrong_ownership": 20,
+        "wrong_ownership_rate": 1.0,
+        "return_precision": 0.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "bm25_stripped": {
+        "n": 20,
+        "wrong_ownership": 20,
+        "wrong_ownership_rate": 1.0,
+        "return_precision": 0.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "ledger": {
+        "n": 20,
+        "wrong_ownership": 20,
+        "wrong_ownership_rate": 1.0,
+        "return_precision": 0.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "overlap_current": {
+        "n": 20,
+        "wrong_ownership": 20,
+        "wrong_ownership_rate": 1.0,
+        "return_precision": 0.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "overlap_stripped": {
+        "n": 20,
+        "wrong_ownership": 20,
+        "wrong_ownership_rate": 1.0,
+        "return_precision": 0.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "supported_reader": {
+        "n": 20,
+        "wrong_ownership": 0,
+        "wrong_ownership_rate": 0.0,
+        "return_precision": null,
+        "return_coverage": 0.0,
+        "wrong_refusal": 0
+      },
+      "tfidf_current": {
+        "n": 20,
+        "wrong_ownership": 20,
+        "wrong_ownership_rate": 1.0,
+        "return_precision": 0.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "tfidf_stripped": {
+        "n": 20,
+        "wrong_ownership": 20,
+        "wrong_ownership_rate": 1.0,
+        "return_precision": 0.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      }
+    },
+    "missing_port_value": {
+      "bm25_current": {
+        "n": 10,
+        "wrong_ownership": 10,
+        "wrong_ownership_rate": 1.0,
+        "return_precision": 0.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "bm25_stripped": {
+        "n": 10,
+        "wrong_ownership": 10,
+        "wrong_ownership_rate": 1.0,
+        "return_precision": 0.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "ledger": {
+        "n": 10,
+        "wrong_ownership": 10,
+        "wrong_ownership_rate": 1.0,
+        "return_precision": 0.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "overlap_current": {
+        "n": 10,
+        "wrong_ownership": 10,
+        "wrong_ownership_rate": 1.0,
+        "return_precision": 0.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "overlap_stripped": {
+        "n": 10,
+        "wrong_ownership": 10,
+        "wrong_ownership_rate": 1.0,
+        "return_precision": 0.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "supported_reader": {
+        "n": 10,
+        "wrong_ownership": 0,
+        "wrong_ownership_rate": 0.0,
+        "return_precision": null,
+        "return_coverage": 0.0,
+        "wrong_refusal": 0
+      },
+      "tfidf_current": {
+        "n": 10,
+        "wrong_ownership": 10,
+        "wrong_ownership_rate": 1.0,
+        "return_precision": 0.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "tfidf_stripped": {
+        "n": 10,
+        "wrong_ownership": 10,
+        "wrong_ownership_rate": 1.0,
+        "return_precision": 0.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      }
+    },
+    "negated_positive_conflict": {
+      "bm25_current": {
+        "n": 10,
+        "wrong_ownership": 10,
+        "wrong_ownership_rate": 1.0,
+        "return_precision": 0.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "bm25_stripped": {
+        "n": 10,
+        "wrong_ownership": 10,
+        "wrong_ownership_rate": 1.0,
+        "return_precision": 0.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "ledger": {
+        "n": 10,
+        "wrong_ownership": 10,
+        "wrong_ownership_rate": 1.0,
+        "return_precision": 0.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "overlap_current": {
+        "n": 10,
+        "wrong_ownership": 10,
+        "wrong_ownership_rate": 1.0,
+        "return_precision": 0.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "overlap_stripped": {
+        "n": 10,
+        "wrong_ownership": 10,
+        "wrong_ownership_rate": 1.0,
+        "return_precision": 0.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "supported_reader": {
+        "n": 10,
+        "wrong_ownership": 0,
+        "wrong_ownership_rate": 0.0,
+        "return_precision": null,
+        "return_coverage": 0.0,
+        "wrong_refusal": 0
+      },
+      "tfidf_current": {
+        "n": 10,
+        "wrong_ownership": 10,
+        "wrong_ownership_rate": 1.0,
+        "return_precision": 0.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "tfidf_stripped": {
+        "n": 10,
+        "wrong_ownership": 10,
+        "wrong_ownership_rate": 1.0,
+        "return_precision": 0.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      }
+    },
+    "negated_premise": {
+      "bm25_current": {
+        "n": 20,
+        "wrong_ownership": 20,
+        "wrong_ownership_rate": 1.0,
+        "return_precision": 0.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "bm25_stripped": {
+        "n": 20,
+        "wrong_ownership": 20,
+        "wrong_ownership_rate": 1.0,
+        "return_precision": 0.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "ledger": {
+        "n": 20,
+        "wrong_ownership": 20,
+        "wrong_ownership_rate": 1.0,
+        "return_precision": 0.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "overlap_current": {
+        "n": 20,
+        "wrong_ownership": 20,
+        "wrong_ownership_rate": 1.0,
+        "return_precision": 0.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "overlap_stripped": {
+        "n": 20,
+        "wrong_ownership": 20,
+        "wrong_ownership_rate": 1.0,
+        "return_precision": 0.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "supported_reader": {
+        "n": 20,
+        "wrong_ownership": 0,
+        "wrong_ownership_rate": 0.0,
+        "return_precision": null,
+        "return_coverage": 0.0,
+        "wrong_refusal": 0
+      },
+      "tfidf_current": {
+        "n": 20,
+        "wrong_ownership": 20,
+        "wrong_ownership_rate": 1.0,
+        "return_precision": 0.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "tfidf_stripped": {
+        "n": 20,
+        "wrong_ownership": 20,
+        "wrong_ownership_rate": 1.0,
+        "return_precision": 0.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      }
+    },
+    "owner_missing": {
+      "bm25_current": {
+        "n": 10,
+        "wrong_ownership": 10,
+        "wrong_ownership_rate": 1.0,
+        "return_precision": 0.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "bm25_stripped": {
+        "n": 10,
+        "wrong_ownership": 10,
+        "wrong_ownership_rate": 1.0,
+        "return_precision": 0.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "ledger": {
+        "n": 10,
+        "wrong_ownership": 10,
+        "wrong_ownership_rate": 1.0,
+        "return_precision": 0.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "overlap_current": {
+        "n": 10,
+        "wrong_ownership": 10,
+        "wrong_ownership_rate": 1.0,
+        "return_precision": 0.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "overlap_stripped": {
+        "n": 10,
+        "wrong_ownership": 10,
+        "wrong_ownership_rate": 1.0,
+        "return_precision": 0.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "supported_reader": {
+        "n": 10,
+        "wrong_ownership": 0,
+        "wrong_ownership_rate": 0.0,
+        "return_precision": null,
+        "return_coverage": 0.0,
+        "wrong_refusal": 0
+      },
+      "tfidf_current": {
+        "n": 10,
+        "wrong_ownership": 10,
+        "wrong_ownership_rate": 1.0,
+        "return_precision": 0.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "tfidf_stripped": {
+        "n": 10,
+        "wrong_ownership": 10,
+        "wrong_ownership_rate": 1.0,
+        "return_precision": 0.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      }
+    },
+    "owner_positive": {
+      "bm25_current": {
+        "n": 10,
+        "wrong_ownership": 0,
+        "wrong_ownership_rate": 0.0,
+        "return_precision": 1.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "bm25_stripped": {
+        "n": 10,
+        "wrong_ownership": 0,
+        "wrong_ownership_rate": 0.0,
+        "return_precision": 1.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "ledger": {
+        "n": 10,
+        "wrong_ownership": 0,
+        "wrong_ownership_rate": 0.0,
+        "return_precision": 1.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "overlap_current": {
+        "n": 10,
+        "wrong_ownership": 0,
+        "wrong_ownership_rate": 0.0,
+        "return_precision": 1.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "overlap_stripped": {
+        "n": 10,
+        "wrong_ownership": 0,
+        "wrong_ownership_rate": 0.0,
+        "return_precision": 1.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "supported_reader": {
+        "n": 10,
+        "wrong_ownership": 0,
+        "wrong_ownership_rate": 0.0,
+        "return_precision": 1.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "tfidf_current": {
+        "n": 10,
+        "wrong_ownership": 0,
+        "wrong_ownership_rate": 0.0,
+        "return_precision": 1.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "tfidf_stripped": {
+        "n": 10,
+        "wrong_ownership": 0,
+        "wrong_ownership_rate": 0.0,
+        "return_precision": 1.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      }
+    },
+    "port_out_of_range": {
+      "bm25_current": {
+        "n": 10,
+        "wrong_ownership": 10,
+        "wrong_ownership_rate": 1.0,
+        "return_precision": 0.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "bm25_stripped": {
+        "n": 10,
+        "wrong_ownership": 10,
+        "wrong_ownership_rate": 1.0,
+        "return_precision": 0.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "ledger": {
+        "n": 10,
+        "wrong_ownership": 10,
+        "wrong_ownership_rate": 1.0,
+        "return_precision": 0.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "overlap_current": {
+        "n": 10,
+        "wrong_ownership": 10,
+        "wrong_ownership_rate": 1.0,
+        "return_precision": 0.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "overlap_stripped": {
+        "n": 10,
+        "wrong_ownership": 10,
+        "wrong_ownership_rate": 1.0,
+        "return_precision": 0.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "supported_reader": {
+        "n": 10,
+        "wrong_ownership": 0,
+        "wrong_ownership_rate": 0.0,
+        "return_precision": null,
+        "return_coverage": 0.0,
+        "wrong_refusal": 0
+      },
+      "tfidf_current": {
+        "n": 10,
+        "wrong_ownership": 10,
+        "wrong_ownership_rate": 1.0,
+        "return_precision": 0.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "tfidf_stripped": {
+        "n": 10,
+        "wrong_ownership": 10,
+        "wrong_ownership_rate": 1.0,
+        "return_precision": 0.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      }
+    },
+    "port_positive": {
+      "bm25_current": {
+        "n": 10,
+        "wrong_ownership": 0,
+        "wrong_ownership_rate": 0.0,
+        "return_precision": 1.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "bm25_stripped": {
+        "n": 10,
+        "wrong_ownership": 0,
+        "wrong_ownership_rate": 0.0,
+        "return_precision": 1.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "ledger": {
+        "n": 10,
+        "wrong_ownership": 0,
+        "wrong_ownership_rate": 0.0,
+        "return_precision": 1.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "overlap_current": {
+        "n": 10,
+        "wrong_ownership": 0,
+        "wrong_ownership_rate": 0.0,
+        "return_precision": 1.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "overlap_stripped": {
+        "n": 10,
+        "wrong_ownership": 0,
+        "wrong_ownership_rate": 0.0,
+        "return_precision": 1.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "supported_reader": {
+        "n": 10,
+        "wrong_ownership": 0,
+        "wrong_ownership_rate": 0.0,
+        "return_precision": 1.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "tfidf_current": {
+        "n": 10,
+        "wrong_ownership": 0,
+        "wrong_ownership_rate": 0.0,
+        "return_precision": 1.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "tfidf_stripped": {
+        "n": 10,
+        "wrong_ownership": 0,
+        "wrong_ownership_rate": 0.0,
+        "return_precision": 1.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      }
+    },
+    "scope_only": {
+      "bm25_current": {
+        "n": 10,
+        "wrong_ownership": 10,
+        "wrong_ownership_rate": 1.0,
+        "return_precision": 0.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "bm25_stripped": {
+        "n": 10,
+        "wrong_ownership": 10,
+        "wrong_ownership_rate": 1.0,
+        "return_precision": 0.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "ledger": {
+        "n": 10,
+        "wrong_ownership": 10,
+        "wrong_ownership_rate": 1.0,
+        "return_precision": 0.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "overlap_current": {
+        "n": 10,
+        "wrong_ownership": 10,
+        "wrong_ownership_rate": 1.0,
+        "return_precision": 0.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "overlap_stripped": {
+        "n": 10,
+        "wrong_ownership": 10,
+        "wrong_ownership_rate": 1.0,
+        "return_precision": 0.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "supported_reader": {
+        "n": 10,
+        "wrong_ownership": 0,
+        "wrong_ownership_rate": 0.0,
+        "return_precision": null,
+        "return_coverage": 0.0,
+        "wrong_refusal": 0
+      },
+      "tfidf_current": {
+        "n": 10,
+        "wrong_ownership": 10,
+        "wrong_ownership_rate": 1.0,
+        "return_precision": 0.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "tfidf_stripped": {
+        "n": 10,
+        "wrong_ownership": 10,
+        "wrong_ownership_rate": 1.0,
+        "return_precision": 0.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      }
+    },
+    "scope_stuffing": {
+      "bm25_current": {
+        "n": 20,
+        "wrong_ownership": 20,
+        "wrong_ownership_rate": 1.0,
+        "return_precision": 0.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "bm25_stripped": {
+        "n": 20,
+        "wrong_ownership": 20,
+        "wrong_ownership_rate": 1.0,
+        "return_precision": 0.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "ledger": {
+        "n": 20,
+        "wrong_ownership": 20,
+        "wrong_ownership_rate": 1.0,
+        "return_precision": 0.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "overlap_current": {
+        "n": 20,
+        "wrong_ownership": 20,
+        "wrong_ownership_rate": 1.0,
+        "return_precision": 0.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "overlap_stripped": {
+        "n": 20,
+        "wrong_ownership": 20,
+        "wrong_ownership_rate": 1.0,
+        "return_precision": 0.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "supported_reader": {
+        "n": 20,
+        "wrong_ownership": 0,
+        "wrong_ownership_rate": 0.0,
+        "return_precision": null,
+        "return_coverage": 0.0,
+        "wrong_refusal": 0
+      },
+      "tfidf_current": {
+        "n": 20,
+        "wrong_ownership": 20,
+        "wrong_ownership_rate": 1.0,
+        "return_precision": 0.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "tfidf_stripped": {
+        "n": 20,
+        "wrong_ownership": 20,
+        "wrong_ownership_rate": 1.0,
+        "return_precision": 0.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      }
+    },
+    "size_hypothetical": {
+      "bm25_current": {
+        "n": 10,
+        "wrong_ownership": 10,
+        "wrong_ownership_rate": 1.0,
+        "return_precision": 0.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "bm25_stripped": {
+        "n": 10,
+        "wrong_ownership": 10,
+        "wrong_ownership_rate": 1.0,
+        "return_precision": 0.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "ledger": {
+        "n": 10,
+        "wrong_ownership": 10,
+        "wrong_ownership_rate": 1.0,
+        "return_precision": 0.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "overlap_current": {
+        "n": 10,
+        "wrong_ownership": 10,
+        "wrong_ownership_rate": 1.0,
+        "return_precision": 0.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "overlap_stripped": {
+        "n": 10,
+        "wrong_ownership": 10,
+        "wrong_ownership_rate": 1.0,
+        "return_precision": 0.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "supported_reader": {
+        "n": 10,
+        "wrong_ownership": 0,
+        "wrong_ownership_rate": 0.0,
+        "return_precision": null,
+        "return_coverage": 0.0,
+        "wrong_refusal": 0
+      },
+      "tfidf_current": {
+        "n": 10,
+        "wrong_ownership": 10,
+        "wrong_ownership_rate": 1.0,
+        "return_precision": 0.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "tfidf_stripped": {
+        "n": 10,
+        "wrong_ownership": 10,
+        "wrong_ownership_rate": 1.0,
+        "return_precision": 0.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      }
+    },
+    "size_negation": {
+      "bm25_current": {
+        "n": 10,
+        "wrong_ownership": 10,
+        "wrong_ownership_rate": 1.0,
+        "return_precision": 0.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "bm25_stripped": {
+        "n": 10,
+        "wrong_ownership": 10,
+        "wrong_ownership_rate": 1.0,
+        "return_precision": 0.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "ledger": {
+        "n": 10,
+        "wrong_ownership": 10,
+        "wrong_ownership_rate": 1.0,
+        "return_precision": 0.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "overlap_current": {
+        "n": 10,
+        "wrong_ownership": 10,
+        "wrong_ownership_rate": 1.0,
+        "return_precision": 0.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "overlap_stripped": {
+        "n": 10,
+        "wrong_ownership": 10,
+        "wrong_ownership_rate": 1.0,
+        "return_precision": 0.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "supported_reader": {
+        "n": 10,
+        "wrong_ownership": 0,
+        "wrong_ownership_rate": 0.0,
+        "return_precision": null,
+        "return_coverage": 0.0,
+        "wrong_refusal": 0
+      },
+      "tfidf_current": {
+        "n": 10,
+        "wrong_ownership": 10,
+        "wrong_ownership_rate": 1.0,
+        "return_precision": 0.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "tfidf_stripped": {
+        "n": 10,
+        "wrong_ownership": 10,
+        "wrong_ownership_rate": 1.0,
+        "return_precision": 0.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      }
+    },
+    "size_positive": {
+      "bm25_current": {
+        "n": 10,
+        "wrong_ownership": 0,
+        "wrong_ownership_rate": 0.0,
+        "return_precision": 1.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "bm25_stripped": {
+        "n": 10,
+        "wrong_ownership": 0,
+        "wrong_ownership_rate": 0.0,
+        "return_precision": 1.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "ledger": {
+        "n": 10,
+        "wrong_ownership": 0,
+        "wrong_ownership_rate": 0.0,
+        "return_precision": 1.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "overlap_current": {
+        "n": 10,
+        "wrong_ownership": 0,
+        "wrong_ownership_rate": 0.0,
+        "return_precision": 1.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "overlap_stripped": {
+        "n": 10,
+        "wrong_ownership": 0,
+        "wrong_ownership_rate": 0.0,
+        "return_precision": 1.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "supported_reader": {
+        "n": 10,
+        "wrong_ownership": 0,
+        "wrong_ownership_rate": 0.0,
+        "return_precision": 1.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "tfidf_current": {
+        "n": 10,
+        "wrong_ownership": 0,
+        "wrong_ownership_rate": 0.0,
+        "return_precision": 1.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "tfidf_stripped": {
+        "n": 10,
+        "wrong_ownership": 0,
+        "wrong_ownership_rate": 0.0,
+        "return_precision": 1.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      }
+    },
+    "size_wrong_attribute": {
+      "bm25_current": {
+        "n": 10,
+        "wrong_ownership": 10,
+        "wrong_ownership_rate": 1.0,
+        "return_precision": 0.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "bm25_stripped": {
+        "n": 10,
+        "wrong_ownership": 10,
+        "wrong_ownership_rate": 1.0,
+        "return_precision": 0.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "ledger": {
+        "n": 10,
+        "wrong_ownership": 10,
+        "wrong_ownership_rate": 1.0,
+        "return_precision": 0.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "overlap_current": {
+        "n": 10,
+        "wrong_ownership": 10,
+        "wrong_ownership_rate": 1.0,
+        "return_precision": 0.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "overlap_stripped": {
+        "n": 10,
+        "wrong_ownership": 10,
+        "wrong_ownership_rate": 1.0,
+        "return_precision": 0.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "supported_reader": {
+        "n": 10,
+        "wrong_ownership": 0,
+        "wrong_ownership_rate": 0.0,
+        "return_precision": null,
+        "return_coverage": 0.0,
+        "wrong_refusal": 0
+      },
+      "tfidf_current": {
+        "n": 10,
+        "wrong_ownership": 10,
+        "wrong_ownership_rate": 1.0,
+        "return_precision": 0.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "tfidf_stripped": {
+        "n": 10,
+        "wrong_ownership": 10,
+        "wrong_ownership_rate": 1.0,
+        "return_precision": 0.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      }
+    },
+    "supported": {
+      "bm25_current": {
+        "n": 20,
+        "wrong_ownership": 0,
+        "wrong_ownership_rate": 0.0,
+        "return_precision": 1.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "bm25_stripped": {
+        "n": 20,
+        "wrong_ownership": 0,
+        "wrong_ownership_rate": 0.0,
+        "return_precision": 1.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "ledger": {
+        "n": 20,
+        "wrong_ownership": 0,
+        "wrong_ownership_rate": 0.0,
+        "return_precision": 1.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "overlap_current": {
+        "n": 20,
+        "wrong_ownership": 0,
+        "wrong_ownership_rate": 0.0,
+        "return_precision": 1.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "overlap_stripped": {
+        "n": 20,
+        "wrong_ownership": 0,
+        "wrong_ownership_rate": 0.0,
+        "return_precision": 1.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "supported_reader": {
+        "n": 20,
+        "wrong_ownership": 0,
+        "wrong_ownership_rate": 0.0,
+        "return_precision": 1.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "tfidf_current": {
+        "n": 20,
+        "wrong_ownership": 0,
+        "wrong_ownership_rate": 0.0,
+        "return_precision": 1.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "tfidf_stripped": {
+        "n": 20,
+        "wrong_ownership": 0,
+        "wrong_ownership_rate": 0.0,
+        "return_precision": 1.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      }
+    },
+    "synonym_positive": {
+      "bm25_current": {
+        "n": 20,
+        "wrong_ownership": 0,
+        "wrong_ownership_rate": 0.0,
+        "return_precision": 1.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "bm25_stripped": {
+        "n": 20,
+        "wrong_ownership": 0,
+        "wrong_ownership_rate": 0.0,
+        "return_precision": 1.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "ledger": {
+        "n": 20,
+        "wrong_ownership": 0,
+        "wrong_ownership_rate": 0.0,
+        "return_precision": 1.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "overlap_current": {
+        "n": 20,
+        "wrong_ownership": 0,
+        "wrong_ownership_rate": 0.0,
+        "return_precision": 1.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "overlap_stripped": {
+        "n": 20,
+        "wrong_ownership": 0,
+        "wrong_ownership_rate": 0.0,
+        "return_precision": 1.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "supported_reader": {
+        "n": 20,
+        "wrong_ownership": 0,
+        "wrong_ownership_rate": 0.0,
+        "return_precision": 1.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "tfidf_current": {
+        "n": 20,
+        "wrong_ownership": 0,
+        "wrong_ownership_rate": 0.0,
+        "return_precision": 1.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "tfidf_stripped": {
+        "n": 20,
+        "wrong_ownership": 0,
+        "wrong_ownership_rate": 0.0,
+        "return_precision": 1.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      }
+    },
+    "time_missing": {
+      "bm25_current": {
+        "n": 10,
+        "wrong_ownership": 10,
+        "wrong_ownership_rate": 1.0,
+        "return_precision": 0.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "bm25_stripped": {
+        "n": 10,
+        "wrong_ownership": 10,
+        "wrong_ownership_rate": 1.0,
+        "return_precision": 0.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "ledger": {
+        "n": 10,
+        "wrong_ownership": 10,
+        "wrong_ownership_rate": 1.0,
+        "return_precision": 0.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "overlap_current": {
+        "n": 10,
+        "wrong_ownership": 10,
+        "wrong_ownership_rate": 1.0,
+        "return_precision": 0.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "overlap_stripped": {
+        "n": 10,
+        "wrong_ownership": 10,
+        "wrong_ownership_rate": 1.0,
+        "return_precision": 0.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "supported_reader": {
+        "n": 10,
+        "wrong_ownership": 0,
+        "wrong_ownership_rate": 0.0,
+        "return_precision": null,
+        "return_coverage": 0.0,
+        "wrong_refusal": 0
+      },
+      "tfidf_current": {
+        "n": 10,
+        "wrong_ownership": 10,
+        "wrong_ownership_rate": 1.0,
+        "return_precision": 0.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "tfidf_stripped": {
+        "n": 10,
+        "wrong_ownership": 10,
+        "wrong_ownership_rate": 1.0,
+        "return_precision": 0.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      }
+    },
+    "two_attributes_missing": {
+      "bm25_current": {
+        "n": 10,
+        "wrong_ownership": 10,
+        "wrong_ownership_rate": 1.0,
+        "return_precision": 0.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "bm25_stripped": {
+        "n": 10,
+        "wrong_ownership": 10,
+        "wrong_ownership_rate": 1.0,
+        "return_precision": 0.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "ledger": {
+        "n": 10,
+        "wrong_ownership": 10,
+        "wrong_ownership_rate": 1.0,
+        "return_precision": 0.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "overlap_current": {
+        "n": 10,
+        "wrong_ownership": 10,
+        "wrong_ownership_rate": 1.0,
+        "return_precision": 0.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "overlap_stripped": {
+        "n": 10,
+        "wrong_ownership": 10,
+        "wrong_ownership_rate": 1.0,
+        "return_precision": 0.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "supported_reader": {
+        "n": 10,
+        "wrong_ownership": 0,
+        "wrong_ownership_rate": 0.0,
+        "return_precision": null,
+        "return_coverage": 0.0,
+        "wrong_refusal": 0
+      },
+      "tfidf_current": {
+        "n": 10,
+        "wrong_ownership": 10,
+        "wrong_ownership_rate": 1.0,
+        "return_precision": 0.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "tfidf_stripped": {
+        "n": 10,
+        "wrong_ownership": 10,
+        "wrong_ownership_rate": 1.0,
+        "return_precision": 0.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      }
+    },
+    "unrelated_sentence": {
+      "bm25_current": {
+        "n": 10,
+        "wrong_ownership": 10,
+        "wrong_ownership_rate": 1.0,
+        "return_precision": 0.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "bm25_stripped": {
+        "n": 10,
+        "wrong_ownership": 10,
+        "wrong_ownership_rate": 1.0,
+        "return_precision": 0.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "ledger": {
+        "n": 10,
+        "wrong_ownership": 10,
+        "wrong_ownership_rate": 1.0,
+        "return_precision": 0.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "overlap_current": {
+        "n": 10,
+        "wrong_ownership": 10,
+        "wrong_ownership_rate": 1.0,
+        "return_precision": 0.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "overlap_stripped": {
+        "n": 10,
+        "wrong_ownership": 10,
+        "wrong_ownership_rate": 1.0,
+        "return_precision": 0.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "supported_reader": {
+        "n": 10,
+        "wrong_ownership": 0,
+        "wrong_ownership_rate": 0.0,
+        "return_precision": null,
+        "return_coverage": 0.0,
+        "wrong_refusal": 0
+      },
+      "tfidf_current": {
+        "n": 10,
+        "wrong_ownership": 10,
+        "wrong_ownership_rate": 1.0,
+        "return_precision": 0.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "tfidf_stripped": {
+        "n": 10,
+        "wrong_ownership": 10,
+        "wrong_ownership_rate": 1.0,
+        "return_precision": 0.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      }
+    },
+    "unsupported_cause": {
+      "bm25_current": {
+        "n": 20,
+        "wrong_ownership": 20,
+        "wrong_ownership_rate": 1.0,
+        "return_precision": 0.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "bm25_stripped": {
+        "n": 20,
+        "wrong_ownership": 20,
+        "wrong_ownership_rate": 1.0,
+        "return_precision": 0.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "ledger": {
+        "n": 20,
+        "wrong_ownership": 20,
+        "wrong_ownership_rate": 1.0,
+        "return_precision": 0.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "overlap_current": {
+        "n": 20,
+        "wrong_ownership": 20,
+        "wrong_ownership_rate": 1.0,
+        "return_precision": 0.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "overlap_stripped": {
+        "n": 20,
+        "wrong_ownership": 20,
+        "wrong_ownership_rate": 1.0,
+        "return_precision": 0.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "supported_reader": {
+        "n": 20,
+        "wrong_ownership": 0,
+        "wrong_ownership_rate": 0.0,
+        "return_precision": null,
+        "return_coverage": 0.0,
+        "wrong_refusal": 0
+      },
+      "tfidf_current": {
+        "n": 20,
+        "wrong_ownership": 20,
+        "wrong_ownership_rate": 1.0,
+        "return_precision": 0.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "tfidf_stripped": {
+        "n": 20,
+        "wrong_ownership": 20,
+        "wrong_ownership_rate": 1.0,
+        "return_precision": 0.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      }
+    },
+    "when_paraphrase_positive": {
+      "bm25_current": {
+        "n": 10,
+        "wrong_ownership": 0,
+        "wrong_ownership_rate": 0.0,
+        "return_precision": 1.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "bm25_stripped": {
+        "n": 10,
+        "wrong_ownership": 0,
+        "wrong_ownership_rate": 0.0,
+        "return_precision": 1.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "ledger": {
+        "n": 10,
+        "wrong_ownership": 0,
+        "wrong_ownership_rate": 0.0,
+        "return_precision": 1.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "overlap_current": {
+        "n": 10,
+        "wrong_ownership": 0,
+        "wrong_ownership_rate": 0.0,
+        "return_precision": 1.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "overlap_stripped": {
+        "n": 10,
+        "wrong_ownership": 0,
+        "wrong_ownership_rate": 0.0,
+        "return_precision": 1.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "supported_reader": {
+        "n": 10,
+        "wrong_ownership": 0,
+        "wrong_ownership_rate": 0.0,
+        "return_precision": 1.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "tfidf_current": {
+        "n": 10,
+        "wrong_ownership": 0,
+        "wrong_ownership_rate": 0.0,
+        "return_precision": 1.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "tfidf_stripped": {
+        "n": 10,
+        "wrong_ownership": 0,
+        "wrong_ownership_rate": 0.0,
+        "return_precision": 1.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      }
+    },
+    "who_paraphrase_positive": {
+      "bm25_current": {
+        "n": 10,
+        "wrong_ownership": 0,
+        "wrong_ownership_rate": 0.0,
+        "return_precision": 1.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "bm25_stripped": {
+        "n": 10,
+        "wrong_ownership": 0,
+        "wrong_ownership_rate": 0.0,
+        "return_precision": 1.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "ledger": {
+        "n": 10,
+        "wrong_ownership": 0,
+        "wrong_ownership_rate": 0.0,
+        "return_precision": 1.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "overlap_current": {
+        "n": 10,
+        "wrong_ownership": 0,
+        "wrong_ownership_rate": 0.0,
+        "return_precision": 1.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "overlap_stripped": {
+        "n": 10,
+        "wrong_ownership": 0,
+        "wrong_ownership_rate": 0.0,
+        "return_precision": 1.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "supported_reader": {
+        "n": 10,
+        "wrong_ownership": 0,
+        "wrong_ownership_rate": 0.0,
+        "return_precision": 1.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "tfidf_current": {
+        "n": 10,
+        "wrong_ownership": 0,
+        "wrong_ownership_rate": 0.0,
+        "return_precision": 1.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "tfidf_stripped": {
+        "n": 10,
+        "wrong_ownership": 0,
+        "wrong_ownership_rate": 0.0,
+        "return_precision": 1.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      }
+    },
+    "why_no_cause": {
+      "bm25_current": {
+        "n": 10,
+        "wrong_ownership": 10,
+        "wrong_ownership_rate": 1.0,
+        "return_precision": 0.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "bm25_stripped": {
+        "n": 10,
+        "wrong_ownership": 10,
+        "wrong_ownership_rate": 1.0,
+        "return_precision": 0.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "ledger": {
+        "n": 10,
+        "wrong_ownership": 10,
+        "wrong_ownership_rate": 1.0,
+        "return_precision": 0.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "overlap_current": {
+        "n": 10,
+        "wrong_ownership": 10,
+        "wrong_ownership_rate": 1.0,
+        "return_precision": 0.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "overlap_stripped": {
+        "n": 10,
+        "wrong_ownership": 10,
+        "wrong_ownership_rate": 1.0,
+        "return_precision": 0.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "supported_reader": {
+        "n": 10,
+        "wrong_ownership": 0,
+        "wrong_ownership_rate": 0.0,
+        "return_precision": null,
+        "return_coverage": 0.0,
+        "wrong_refusal": 0
+      },
+      "tfidf_current": {
+        "n": 10,
+        "wrong_ownership": 10,
+        "wrong_ownership_rate": 1.0,
+        "return_precision": 0.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "tfidf_stripped": {
+        "n": 10,
+        "wrong_ownership": 10,
+        "wrong_ownership_rate": 1.0,
+        "return_precision": 0.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      }
+    },
+    "why_positive": {
+      "bm25_current": {
+        "n": 10,
+        "wrong_ownership": 0,
+        "wrong_ownership_rate": 0.0,
+        "return_precision": 1.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "bm25_stripped": {
+        "n": 10,
+        "wrong_ownership": 0,
+        "wrong_ownership_rate": 0.0,
+        "return_precision": 1.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "ledger": {
+        "n": 10,
+        "wrong_ownership": 0,
+        "wrong_ownership_rate": 0.0,
+        "return_precision": 1.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "overlap_current": {
+        "n": 10,
+        "wrong_ownership": 0,
+        "wrong_ownership_rate": 0.0,
+        "return_precision": 1.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "overlap_stripped": {
+        "n": 10,
+        "wrong_ownership": 0,
+        "wrong_ownership_rate": 0.0,
+        "return_precision": 1.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "supported_reader": {
+        "n": 10,
+        "wrong_ownership": 0,
+        "wrong_ownership_rate": 0.0,
+        "return_precision": 1.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "tfidf_current": {
+        "n": 10,
+        "wrong_ownership": 0,
+        "wrong_ownership_rate": 0.0,
+        "return_precision": 1.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "tfidf_stripped": {
+        "n": 10,
+        "wrong_ownership": 0,
+        "wrong_ownership_rate": 0.0,
+        "return_precision": 1.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      }
+    },
+    "wrong_entity": {
+      "bm25_current": {
+        "n": 20,
+        "wrong_ownership": 20,
+        "wrong_ownership_rate": 1.0,
+        "return_precision": 0.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "bm25_stripped": {
+        "n": 20,
+        "wrong_ownership": 20,
+        "wrong_ownership_rate": 1.0,
+        "return_precision": 0.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "ledger": {
+        "n": 20,
+        "wrong_ownership": 20,
+        "wrong_ownership_rate": 1.0,
+        "return_precision": 0.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "overlap_current": {
+        "n": 20,
+        "wrong_ownership": 20,
+        "wrong_ownership_rate": 1.0,
+        "return_precision": 0.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "overlap_stripped": {
+        "n": 20,
+        "wrong_ownership": 20,
+        "wrong_ownership_rate": 1.0,
+        "return_precision": 0.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "supported_reader": {
+        "n": 20,
+        "wrong_ownership": 0,
+        "wrong_ownership_rate": 0.0,
+        "return_precision": null,
+        "return_coverage": 0.0,
+        "wrong_refusal": 0
+      },
+      "tfidf_current": {
+        "n": 20,
+        "wrong_ownership": 20,
+        "wrong_ownership_rate": 1.0,
+        "return_precision": 0.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "tfidf_stripped": {
+        "n": 20,
+        "wrong_ownership": 20,
+        "wrong_ownership_rate": 1.0,
+        "return_precision": 0.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      }
+    },
+    "wrong_relation": {
+      "bm25_current": {
+        "n": 20,
+        "wrong_ownership": 20,
+        "wrong_ownership_rate": 1.0,
+        "return_precision": 0.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "bm25_stripped": {
+        "n": 20,
+        "wrong_ownership": 20,
+        "wrong_ownership_rate": 1.0,
+        "return_precision": 0.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "ledger": {
+        "n": 20,
+        "wrong_ownership": 20,
+        "wrong_ownership_rate": 1.0,
+        "return_precision": 0.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "overlap_current": {
+        "n": 20,
+        "wrong_ownership": 20,
+        "wrong_ownership_rate": 1.0,
+        "return_precision": 0.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "overlap_stripped": {
+        "n": 20,
+        "wrong_ownership": 20,
+        "wrong_ownership_rate": 1.0,
+        "return_precision": 0.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "supported_reader": {
+        "n": 20,
+        "wrong_ownership": 0,
+        "wrong_ownership_rate": 0.0,
+        "return_precision": null,
+        "return_coverage": 0.0,
+        "wrong_refusal": 0
+      },
+      "tfidf_current": {
+        "n": 20,
+        "wrong_ownership": 20,
+        "wrong_ownership_rate": 1.0,
+        "return_precision": 0.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "tfidf_stripped": {
+        "n": 20,
+        "wrong_ownership": 20,
+        "wrong_ownership_rate": 1.0,
+        "return_precision": 0.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      }
+    },
+    "wrong_time": {
+      "bm25_current": {
+        "n": 20,
+        "wrong_ownership": 20,
+        "wrong_ownership_rate": 1.0,
+        "return_precision": 0.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "bm25_stripped": {
+        "n": 20,
+        "wrong_ownership": 20,
+        "wrong_ownership_rate": 1.0,
+        "return_precision": 0.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "ledger": {
+        "n": 20,
+        "wrong_ownership": 0,
+        "wrong_ownership_rate": 0.0,
+        "return_precision": null,
+        "return_coverage": 0.0,
+        "wrong_refusal": 0
+      },
+      "overlap_current": {
+        "n": 20,
+        "wrong_ownership": 20,
+        "wrong_ownership_rate": 1.0,
+        "return_precision": 0.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "overlap_stripped": {
+        "n": 20,
+        "wrong_ownership": 20,
+        "wrong_ownership_rate": 1.0,
+        "return_precision": 0.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "supported_reader": {
+        "n": 20,
+        "wrong_ownership": 0,
+        "wrong_ownership_rate": 0.0,
+        "return_precision": null,
+        "return_coverage": 0.0,
+        "wrong_refusal": 0
+      },
+      "tfidf_current": {
+        "n": 20,
+        "wrong_ownership": 20,
+        "wrong_ownership_rate": 1.0,
+        "return_precision": 0.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "tfidf_stripped": {
+        "n": 20,
+        "wrong_ownership": 20,
+        "wrong_ownership_rate": 1.0,
+        "return_precision": 0.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      }
+    },
+    "year_positive": {
+      "bm25_current": {
+        "n": 10,
+        "wrong_ownership": 0,
+        "wrong_ownership_rate": 0.0,
+        "return_precision": 1.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "bm25_stripped": {
+        "n": 10,
+        "wrong_ownership": 0,
+        "wrong_ownership_rate": 0.0,
+        "return_precision": 1.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "ledger": {
+        "n": 10,
+        "wrong_ownership": 0,
+        "wrong_ownership_rate": 0.0,
+        "return_precision": 1.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "overlap_current": {
+        "n": 10,
+        "wrong_ownership": 0,
+        "wrong_ownership_rate": 0.0,
+        "return_precision": 1.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "overlap_stripped": {
+        "n": 10,
+        "wrong_ownership": 0,
+        "wrong_ownership_rate": 0.0,
+        "return_precision": 1.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "supported_reader": {
+        "n": 10,
+        "wrong_ownership": 0,
+        "wrong_ownership_rate": 0.0,
+        "return_precision": 1.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "tfidf_current": {
+        "n": 10,
+        "wrong_ownership": 0,
+        "wrong_ownership_rate": 0.0,
+        "return_precision": 1.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "tfidf_stripped": {
+        "n": 10,
+        "wrong_ownership": 0,
+        "wrong_ownership_rate": 0.0,
+        "return_precision": 1.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      }
+    },
+    "year_unknown": {
+      "bm25_current": {
+        "n": 10,
+        "wrong_ownership": 10,
+        "wrong_ownership_rate": 1.0,
+        "return_precision": 0.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "bm25_stripped": {
+        "n": 10,
+        "wrong_ownership": 10,
+        "wrong_ownership_rate": 1.0,
+        "return_precision": 0.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "ledger": {
+        "n": 10,
+        "wrong_ownership": 10,
+        "wrong_ownership_rate": 1.0,
+        "return_precision": 0.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "overlap_current": {
+        "n": 10,
+        "wrong_ownership": 10,
+        "wrong_ownership_rate": 1.0,
+        "return_precision": 0.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "overlap_stripped": {
+        "n": 10,
+        "wrong_ownership": 10,
+        "wrong_ownership_rate": 1.0,
+        "return_precision": 0.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "supported_reader": {
+        "n": 10,
+        "wrong_ownership": 0,
+        "wrong_ownership_rate": 0.0,
+        "return_precision": null,
+        "return_coverage": 0.0,
+        "wrong_refusal": 0
+      },
+      "tfidf_current": {
+        "n": 10,
+        "wrong_ownership": 10,
+        "wrong_ownership_rate": 1.0,
+        "return_precision": 0.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      },
+      "tfidf_stripped": {
+        "n": 10,
+        "wrong_ownership": 10,
+        "wrong_ownership_rate": 1.0,
+        "return_precision": 0.0,
+        "return_coverage": 1.0,
+        "wrong_refusal": 0
+      }
+    }
+  },
+  "independent": false,
+  "unit": "synthetic scenario, correlated within family",
+  "modern_rag_results": "not run; lexical retrieval arms are not RAG systems"
+}
