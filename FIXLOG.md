@@ -5,6 +5,34 @@ showed. Nothing is overwritten: each earlier reader is kept at `killtest/v1/read
 `killtest/v2/reader_v2.py`, its results beside it, and each earlier paper under
 `docs/superseded/`.
 
+## Provenance-gated page retrieval (2026-10-27)
+
+Ported from the Advanced MPLPB 0.2.0 retrieval repair. The reader now:
+
+- strips the discourse wrapper “what does it mean if …” for page lookup only,
+  keeping the complete clause, quantities and polarity (`op02`);
+- when majority-scope and prose matching find no owner, lets a complete
+  multi-term `when-to-use` clause select its declaring page, keeping every
+  matching owner (`om03`, `om04`, `om08`);
+- refuses when the proposed owners leave out a requested term that eligible pages
+  explicitly exclude, without banning a real owner of that term (`ot04`, `ot07`).
+
+`MPLPB.retrieve` / `/api/retrieve` (`mplpb_combined/retrieval.py`) returns one
+owner's page after the provenance gate. It is marked `answer_supported:false`,
+never follows pointers and never picks a replacement owner after a gate rejection.
+`killtest.py` no longer fails on a first-seen match step.
+
+| | First probe set (56) | Held-out set (30) | Adjacent set (20) |
+|---|---|---|---|
+| Before: correct / wrong return | 50 / 0 | 22 / 1 | 15 / 3 |
+| After: correct / wrong return | 56 / 0 | 22 / 1 | 16 / 2 |
+
+No case regressed. The changes were designed against the first probe set, so 56/56
+is a regression result, not new evidence. The strict supported-answer path is
+unchanged in contract and moves from 20/56 to 22/56 only through two refusals.
+Frozen probe and corpus bytes are unchanged. `tests/test_page_retrieval.py` holds
+18 adversarial tests and the frozen-set score floors.
+
 ## Context behavior update (2026-10-13)
 
 Added guarded social/attribute repairs and deterministic temporal-slot ranking.

@@ -21,6 +21,7 @@
   "methods": {
     "handshake": "window.MPLPB.handshake()",
     "strict_query": "window.MPLPB.relay(question,{corpus})",
+    "page_retrieval": "window.MPLPB.retrieve(question,{corpus,profile})",
     "session_chat": "window.MPLPB.relay(message,{corpus,mode:'chat',session})",
     "list_pages": "window.MPLPB.listPages({corpus,profile:'external'})",
     "read_page": "window.MPLPB.readPage(path,{corpus,profile:'external'})"

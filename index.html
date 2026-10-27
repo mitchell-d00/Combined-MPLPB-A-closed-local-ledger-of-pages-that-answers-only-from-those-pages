@@ -74,6 +74,7 @@ globalThis.MPLPB=(()=>{
   handshake:'Discover local engine, transport limitations, and available corpora.',
   relay:'Use MPLPB as strict query or session chat middleware. Only MPLPB writes the reply; suggestions require opt-in.',
   getState:'Read available corpora, profiles and engine notices.',
+  retrieve:'Explicit one-owner page retrieval with structural provenance; never a supported answer.',
   listCorpora:'List local corpora; use their keys in subsequent calls.',
   query:'Ask the strict reader. Requires {corpus}; optional profile and mode.',
   listPages:'Inspect page inventory with {corpus, profile?}.',
@@ -167,6 +168,10 @@ globalThis.MPLPB=(()=>{
    };
   }),
 
+  retrieve:(question,o)=>action(()=>{
+   const data={...scope(o),question:text(question,'question',4000)};
+   return ()=>post('/api/retrieve',data);
+  }),
   query:(question,o)=>action(()=>{
    const data={...scope(o,['mode']),question:text(question,'question',4000)};
    if(o.mode!==undefined){if(!['supported','candidates'].includes(o.mode))throw fail('mode must be supported or candidates');data.mode=o.mode;}
