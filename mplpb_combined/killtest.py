@@ -162,7 +162,7 @@ def run(root, probes_path, profile: Optional[Profile] = None) -> dict:
                       run_scoped(root, probe["q"], scope_only))] += 1
         a = answer(root, probe["q"], profile)
         if a.kind == RETURN:
-            by_step[a.matched_on] += 1
+            by_step[a.matched_on] = by_step.get(a.matched_on, 0) + 1
 
     return {
         "corpus": str(root), "probes": str(probes_path), "probe_hash": check_hash(probes_path),

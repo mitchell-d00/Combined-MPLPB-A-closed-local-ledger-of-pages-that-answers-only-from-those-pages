@@ -73,6 +73,7 @@ before treating a chat response as evidence.
 | `ready()` / `getState()` | Engine state: corpora, profiles, rules and notice |
 | `listCorpora()` | Array of available corpus keys, labels and counts |
 | `query(question, {corpus, profile?, mode?})` | Full query result; mode defaults to `supported`, or explicitly `candidates` |
+| `retrieve(question, {corpus, profile?})` | One-owner page retrieval after the provenance gate. `data.kind` is `retrieved`, `ambiguous` or `not_in_corpus`; always `answer_supported:false` — a page to inspect, not an answer |
 | `listPages({corpus, profile?})` | Inventory with page paths, eligibility and reasons |
 | `readPage(path, {corpus, profile?})` | Eligible page text, sealed fields and hash; withheld or invalid paths fail |
 | `getHistory({corpus})` | Retained source-capture history, not chat turns |

@@ -238,6 +238,17 @@ class App:
         gate = G.gather(root, question, profile).to_dict()
         return {'reader': reader, 'gate': gate, 'live_verified_by_this_query': False}
 
+    def retrieve(self, data):
+        from mplpb_combined.retrieval import retrieve
+        if not isinstance(data, dict) or set(data) - {'question', 'corpus', 'profile'}:
+            raise ValueError('Invalid page retrieval arguments')
+        if not isinstance(data.get('corpus'), str) or data['corpus'] not in self.roots():
+            raise ValueError('Unknown corpus')
+        name = data.get('profile', 'internal')
+        if not isinstance(name, str) or name not in R.PROFILES:
+            raise ValueError('Unknown profile')
+        return retrieve(self.root(data['corpus']), data.get('question'), R.PROFILES[name])
+
     def page(self, corpus, path, profile):
         root = self.root(corpus)
         if profile not in R.PROFILES:
@@ -580,7 +591,7 @@ def handler(app):
             origin = self.headers.get('Origin')
             if origin and origin != 'http://' + self.headers.get('Host', ''):
                 return self.send(403, {'error': 'Origin rejected'})
-            operations = {'/api/query': app.query, '/api/chat': app.chat,
+            operations = {'/api/retrieve': app.retrieve, '/api/query': app.query, '/api/chat': app.chat,
                           '/api/collections/reset-many': app.reset_collections,
                           '/api/collections/create': app.create_collection, '/api/collections/reset': app.reset_collection, '/api/source/import': app.import_source,
                           '/api/chat/resume': app.resume_chat, '/api/chat/export': app.export_chat, '/api/chat/reset': app.reset_chat}
