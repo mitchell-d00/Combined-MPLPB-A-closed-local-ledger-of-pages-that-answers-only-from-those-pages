@@ -224,6 +224,28 @@ def decide(content: Set[str], declared: Dict[str, Set[str]],
     return NOT_IN_CORPUS, [], ""
 
 
+def ownership_question(question: str) -> str:
+    """Remove a discourse wrapper, retaining its complete conditional clause.
+
+    This changes lexical page lookup only, never statement-support grammar.
+    Do not strip modifiers, quantities, polarity or unknown entity words.
+    """
+    match = re.fullmatch(r"\s*what does it mean if\s+(.+?)\s*[?]?\s*", question, re.I)
+    return match[1] if match else question
+
+
+def situation_owners(content, records):
+    """Complete multi-term source-authored situation clauses, not query aliases.
+
+    Used only when the original majority/prose stages found no owner. Every
+    matching record is retained; no similarity ranking or cross-page union.
+    These clauses select pages for inspection, never establish answer support.
+    """
+    return [rec.path for rec in records if any(
+        len(clause_terms) >= 2 and clause_terms <= content
+        for clause_terms in (terms(clause) for clause in rec.when_to_use.split(';')))]
+
+
 def answer(root, question: str, profile: Optional[Profile] = None,
            _route: Sequence[str] = (), _visited: Sequence[str] = ()) -> Answer:
     profile = profile or PROFILES[DEFAULT_PROFILE]
@@ -241,7 +263,7 @@ def answer(root, question: str, profile: Optional[Profile] = None,
     full = ({r.path: (declared[r.path] if r.kind == "pointer" else page_terms(r))
              for r in within} if profile.prose else None)
 
-    content = terms(question)
+    content = terms(ownership_question(question))
     # The lexical ownership reader cannot prove a negated proposition.
     # Unsupported polarity must abstain rather than retrieve a positive page.
     negative = bool(re.search(r"(?<!\w)(?:not|never|without)(?!\w)|n['’]t\b",
@@ -298,6 +320,23 @@ def answer(root, question: str, profile: Optional[Profile] = None,
         out.reason = "the question has no content words"
         return out
     kind, keys, step = decide(content, declared, full)
+    if kind == NOT_IN_CORPUS:
+        eligible = [r for r in within if r.path in declared]
+        keys = situation_owners(content, eligible)
+        if keys:
+            kind = RETURN if len(keys) == 1 else AMBIGUOUS
+            step = 'situation'
+    # A declared exclusion is a useful negative boundary, not a global ban:
+    # if none of the proposed owners even contains that requested term, a
+    # shared generic topic must not manufacture an owner for the excluded case.
+    # An actual competing owner which contains it is still allowed to claim it.
+    if keys:
+        excluded_vocabulary = set().union(*(not_for_terms(r) for r in within)) if profile.not_for else set()
+        proposed_vocabulary = set().union(*(page_terms(by_path[k]) for k in keys))
+        unowned_exclusions = (content & excluded_vocabulary) - proposed_vocabulary
+        if unowned_exclusions:
+            out.reason = 'No proposed owner covers explicitly excluded query terms: ' + ', '.join(sorted(unowned_exclusions))
+            return out
     # Preserve an explicitly declared troubleshooting topic such as
     # "kiln not reaching temperature"; do not infer negation from overlap.
     if negative and kind != NOT_IN_CORPUS:
@@ -315,7 +354,7 @@ def answer(root, question: str, profile: Optional[Profile] = None,
                           "topic; use a supported statement.")
             return out
     out.kind, out.matched_on = kind, step
-    sets = declared if step == "scope" else (full or declared)
+    sets = declared if step in ("scope", "situation") else (full or declared)
     out.candidates = [(by_path[k], sorted(said.get(t, t) for t in sets[k] & content))
                       for k in keys]
     if kind == NOT_IN_CORPUS:
@@ -332,6 +371,9 @@ def answer(root, question: str, profile: Optional[Profile] = None,
     rec = by_path[keys[0]]
     out.record, out.depth = rec, depth[rec.path]
     if rec.kind != "pointer":
+        if step == 'situation':
+            out.reason = 'Exactly one current page declares a complete multi-term when-to-use situation; this retrieves the page, not semantic answer support.'
+            return out
         out.reason = ("exactly one current page owns this question by declared scope"
                       if step == "scope" else
                       "no page owns this by scope; exactly one contains every word of it")
