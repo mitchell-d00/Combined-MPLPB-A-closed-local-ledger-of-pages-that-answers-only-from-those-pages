@@ -24,7 +24,7 @@ accuracy study, or verified deployment of this candidate.
 
 ## Executed local checks
 
-- `python -m unittest discover -s tests -q`: **674 tests passed**, 383.151 seconds, Python 3.12 in this environment. This is a checkout regression run, not the ZIP-first candidate gate.
+- Baseline checkout `python -m unittest discover -s tests -q`: **674 tests passed**, 383.151 seconds, Python 3.12 in this environment, before the final documentation annotations. This is not the ZIP-first candidate gate.
 - `python tools/check_ui_script.py`: passed element-stub/UI workflow checks; no rendered browser.
 - `node tools/check_browser_transport.cjs`: passed serialization/save/error/embedded-hash checks; no actual IndexedDB/layout test.
 - `node tests/javascript-api.cjs`: passed real Python bridge/API parity, session/import, profile, offline-default, and synthetic online-acquisition checks.
@@ -55,6 +55,13 @@ zero. No repository settings were changed or bypasses tested; settings can chang
 after this observation. See [release evidence](RELEASE_EVIDENCE.md).
 
 ## Checks left to the candidate workflows
+
+The first candidate ZIP run found one documentation regression: inserting a note
+above the original opening paragraph in `SYSTEM_SELF.md` moved the line checked
+against the preserved SELF-0008 source. The note was moved below that paragraph;
+the original source and test were left intact. The affected chat-logic and
+generated-system-guide test modules passed locally after this correction. The
+required workflows must rerun against the corrected candidate before merge.
 
 No fresh real Chromium interaction or candidate WebAssembly build was run for
 this documentation pass; Python Playwright and `/usr/bin/chromium` are unavailable
