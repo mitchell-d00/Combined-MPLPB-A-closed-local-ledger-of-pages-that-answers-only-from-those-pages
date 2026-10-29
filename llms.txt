@@ -15,6 +15,11 @@ For a live query execute JavaScript in the OPENED SITE's page:
 For a session chat:
   await window.MPLPB.relay("message",{corpus:"logic",mode:"chat",session:priorSession})
 Reuse the returned session ID in subsequent calls.
+For page inspection (never an answer):
+  await window.MPLPB.retrieve("question",{corpus:"logic",profile:"internal"})
+kind retrieved always carries answer_supported:false.
+Keep page retrieval distinct from strict query, lexical candidates and source bundles.
+Resolve discovery paths relative to the full project URL, not the github.io root.
 Only relay MPLPB's reply. Preserve answer-kind, authority labels and citations.
 No AI-authored suggestions unless asked. MPLPB suggestions opt-in includeSuggestions:true.
 Online acquisition is opt-in per chat call: allowNetwork:true.

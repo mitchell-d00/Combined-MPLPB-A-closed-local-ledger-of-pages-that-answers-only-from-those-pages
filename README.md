@@ -1,532 +1,137 @@
-> **2026-10-21 audit:** See the [current retest, defects, repairs and evidence status](docs/SYSTEM_AUDIT_2026-10-21.md). Earlier dated results below remain historical; the October 19 SQuAD correction is included in the retest.
-
-> **Connect an AI using only the site/repository URL:** See [MPLPB agent discovery](.well-known/mplpb.json), [the agent middleware guide](docs/AGENT_MIDDLEWARE.md), and [the JavaScript API](JAVASCRIPT-API.md). The hosted app runs the **full Python engine in WebAssembly in each browser**, and browser-capable agents can call `window.MPLPB.relay()`. HTTPS discovery alone cannot reach another user's browser storage. A public externally eligible page snapshot is published alongside the hosted app.
-
 # Combined MPLPB
 
-> **Production release evidence:** The ZIP-first workflow binds the exact candidate commit to a tested source ZIP, Chromium-tested browser HTML, validation report, and SHA-256 manifest. A candidate is **not** a verified deployment; required GitHub branch checks must be configured by an administrator. See [release evidence and required settings](docs/RELEASE_EVIDENCE.md).
+A closed local ledger of pages, with supported answers, inspectable provenance, and deterministic conversation. Each page declares its identity, scope, status, sealed hash, origin, and lineage. Source-backed answers require eligible body evidence under a finite grammar; missing support refuses and competing support remains ambiguous.
 
-> **ZIP-first release gate:** Before merging, [package the exact PR commit and test the extracted ZIP in Python, WebAssembly and real Chromium](docs/ZIP_FIRST_RELEASE_TESTING.md). This produces a checksum-pinned downloadable Actions artifact. Never substitute checkout-only tests for packaged-code validation.
+**[Open the live application](https://mitchell-d00.github.io/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/)** · [Documentation index](docs/README.md) · [Installation](docs/INSTALLATION.md) · [JavaScript API](JAVASCRIPT-API.md)
 
-> **AI agents / browser QA:** Use the [reproducible browser-testing runbook](docs/BROWSER_TESTING_FOR_AGENTS.md) and [Chromium smoke harness](tools/browser_release_smoke.py) to test the **real published GitHub Pages app** separately from a proposed Pyodide/WebAssembly build. PR validation also exercises the browser, not just Python unit tests. Never claim the live deployment passed based only on a local source test.
+The hosted application runs the Python engine locally through WebAssembly. No model, AI account, API key, or Python server is needed to use the standalone runtime. Saved visitor collections and conversations stay in that browser's storage. Explicit or enabled automatic source acquisition uses the network; the optional general-web crawler has separate service requirements.
 
-A closed local ledger of pages that answers only from those pages.
+## Choose how to run it
 
-Each page carries its own id, scope, status, hash, parent and depth. The reader reads the
-explicitly configured corpus folder. The default supported-answer path requires an
-eligible body statement that matches the complete question under its bounded grammar.
-One supporting source can supply an answer; conflicting or multiple supporting sources
-remain ambiguous; no support produces a refusal. Legacy lexical candidates are separately
-inspectable and do not establish factual support. A change writes a new page and retires
-the old one. A derivation writes a new page and adds one to the depth.
+| Mode | Start | Requirements and storage |
+|---|---|---|
+| Live site | Open the link above. | A current browser with WebAssembly, workers, WebCrypto, IndexedDB, local storage, and Web Locks. Saves belong to that browser origin. |
+| Standalone download | Extract `mplpb-monster-browser.zip` and open `MPLPB_Browser.html`. | Complete runtime works offline after download. Some browsers restrict local-file storage; static HTTPS hosting is an alternative. |
+| Desktop source | Extract/clone this repository and run `python3 launch.py`. Windows: `Launch_MPLPB.bat`; Mac/Linux: `sh Launch_MPLPB.sh`. | Python 3.8+; no application dependencies. Keep the local server running at <http://127.0.0.1:8766>. Saves are local files. |
+| Installed CLI | `python -m pip install .`, then `mplpb-combined --help`. | Installs the ledger/answer CLI, not the full chat application. Use the source or browser ZIP for chat. |
 
-No model. The core reader uses local pages and the Python standard library. Optional search/crawl/import commands contact public sources explicitly; standalone browser mode uses IndexedDB for saved state.
+The root `index.html` is the desktop entry point; opening that source file alone does not run Python. The [standalone builder](docs/BROWSER_RUNTIME.md) produces `dist/MPLPB_Browser.html`; CI uses `dist/index.html` for Pages. The [Pages workflow](docs/GITHUB_PAGES.md) deploys `dist/` through **GitHub Actions**, rather than publishing the repository root.
 
-**People and AI agents can use the same engine through `window.MPLPB`.** The
-standalone browser API works locally without internet, cloud processing, an API
-key or a hosted MPLPB service. Explicitly enabled Wikipedia lookups add online
-source acquisition; MPLPB can serve as local middleware for an AI frontend.
-See [the JavaScript API, offline/online requirements and examples](JAVASCRIPT-API.md).
+Downloadable packages are attached to successful main-branch **Publish MPLPB browser runtime** Actions runs as `mplpb-monster`. See [package contents and verification](docs/INSTALLATION.md).
 
-## Goal: deterministic generation
+## Understand the four source interfaces
 
-Build expressive, repeatable responses through auditable construction rules.
-Generative does not have to mean nondeterministic. New combinations may expand
-conversation while MPLPB's ownership, scope, provenance and evidence boundaries
-remain binding. Imagined ideas never become source-backed answers.
+| Interface | What a successful result means | Answer authority |
+|---|---|---|
+| Supported answer: `mplpb-combined ask`, `python -m mplpb_answers ask`, `MPLPB.query()` / default `relay()` | Eligible body statements satisfy the bounded question grammar; result `return`. | Source-supported within that finite contract; a hash does not certify truth. |
+| Candidate inspection: `mplpb-combined candidates`, legacy `python -m mplpb_combined ask`, `query(...,{mode:'candidates'})` | The lexical reader selected candidate material. | Inspection only; candidate selection does not establish an answer. |
+| Gated page retrieval: Python `mplpb_combined.retrieval.retrieve`, `MPLPB.retrieve()` | Exactly one selected owner also passes the provenance gate; result `retrieved`. | Always `answer_supported:false`. Returns a page to inspect, not a supported answer. |
+| Separate source bundles: CLI `gate` / provenance bench | All eligible lexical matches are retained separately; result `source_bundle`. | Co-occurrence or lexical coverage does not establish the requested relationship. |
 
-Brainstorming now composes operations, perspectives and output forms into 96
-bounded combinations per topic, with replay traces and 32 three-option turns
-before repetition. Try `brainstorm lantern gardens`, then `brainstorm`.
-See [the explicit goal, replay contract and limits](docs/DETERMINISTIC_GENERATION.md).
+`ok:true` in the JavaScript API means the call completed. Inspect decision kinds, authority, support, citations, and exclusions before presenting evidence. Page retrieval does not follow hub pointers or choose a different owner after a gate rejection. [Retrieval contracts and examples](docs/PAGE_RETRIEVAL.md).
 
-## Conversation across content types
+The supported CLI distribution is **2.0.0**; the legacy core reports **1.0.0**. These are distinct from the JavaScript API's **1.0.0**, retrieval contract `gated-page-retrieval-v1`, paper versions, and content-derived browser build IDs. Compatibility does not mean legacy source bytes never change: the October 27 retrieval repair changed lexical matching while retaining its separate authority.
 
-Ordinary questions such as “How do you chat?”, “What are you explain exactly how
-you work” and “What’s the loaded MPLPB?” use system knowledge and current state.
-“Talk about your content” lists eligible topics. After a topic, “That’s
-interesting”, “I am confused” and “Can we discuss that” construct conversational
-framing around freshly checked pages or separately attributed seed notes.
-Dictionary discussion supports “Other words for that meaning” after a sense
-choice. See [conversation classes, construction and boundaries](docs/NATURAL_CONVERSATION.md).
+## Try the source checkout
 
-## Library routing
+```sh
+# Supported answer from explicitly marked synthetic relation facts:
+python3 -m mplpb_answers ask examples/chat-logic "What is Dungeons and Dragons?"
 
-Choose **Library index** in Chat or Serious mode to browse registered books.
-Explicit shelves preserve scope: an unresolved route asks you to narrow, and a
-selected book must still pass current source and body-support checks. Responses
-include source pins, related navigation pages and a path back to Main Index.
-See [library routing](docs/LIBRARY_ROUTING.md) for commands, custom hierarchies,
-measured catalog scaling and limits.
-
-## Topic-bound follow-ups
-
-Selected topics persist across chat turns and reloads. Ask `how big is it?` or
-`how old is it?` to request a supported source quotation. Missing facts offer
-explicit source expansion. See [grounded chat](docs/GROUNDED_CHAT.md) and the
-[experiments and independent evaluation protocol](evaluation/contextual/README.md).
-These are finite extraction rules; independent human validation is still pending.
-
-## Know the current system
-
-See the [current system guide](docs/SYSTEM_GUIDE.md) for modes, language construction,
-search, memory, references and limitations. Its content comes from the same local
-capability model used for self-questions. Ask `What can you do?`, `What are your
-limitations?`, `What mode are you in?` or `What do you have loaded?`. Self-description
-is labeled separately from source-backed answers; it is software metadata, not
-consciousness or independent verification. Historical papers describe their own
-versions; this guide describes the current implementation.
-
-## Structured requests in all chat modes
-
-Introductions can include a memory question without punctuation. Generic dictionary
-requests retain separate word senses and revalidate follow-ups; calculation selection
-asks for an expression; hypothetical choices remain hypothetical. Off-the-record
-free chat uses the shared final validator, keeps only ephemeral conversation state,
-and can cite bundled dictionary entries without remote fetching. See
-[structured chat behavior and limits](docs/STRUCTURED_CHAT.md).
-
-## Shared language planner
-
-Every chat reply passes through a deterministic discourse planner before it is
-saved. It resolves supported topic references, records conversational actions,
-and builds bounded framing with grammatical agreement. Source passages and
-proofs remain unchanged; source-free conversation and ideas carry small labels.
-Automatic acquisition uses the plan, checks local pages first, and respects the
-network setting. Negated requests and imagined ideas do not trigger automatic
-search. This is a finite language grammar, not general semantic understanding.
-
-Conversational lead-ins such as `cool, tell me about an apple` are separated
-from the request before topic selection. Dictionary responses remain local even with automatic Wikipedia enabled;
-use explicit search/import to acquire encyclopedia pages. A page
-that merely mentions a topic cannot supply its overview through the fallback. Failed
-automatic lookups pause for one minute per topic; explicit search stays available.
-The [1,000-question development smoke](evaluation/live-conversation/README.md)
-records routing and acquisition observations, not independently measured accuracy.
-
-## Natural requests and exploration buttons
-
-Try “Cool, can we talk about Moon?”, “give me a quick overview of Japan”,
-“look up microscopes”, “another word for happy”, or “where did you get that?”.
-Bounded paraphrase rules retain the original message and preserve topic text,
-negation and literal-repeat requests. These are finite rules, not unrestricted
-language understanding. “Actually, I meant …” can correct an active topic.
-
-The exploration buttons change with each reply: read remaining source text,
-find more sources when it runs out, choose a meaning, browse dictionary senses,
-or start a new question. Buttons for new questions/topics prepare an editable
-message; they do not send it until you press Send. Explicit source-search buttons
-contact the selected online service. Suggested questions still pass evidence checks.
-
-## Casual chat and offline references
-
-Say `what are you?`, `why do you exist?`, `I'm tired`, or `can we talk about nothing?`
-for casual conversation. Say `I had a bad day`, then `sure` to start a
-chat about your day; `just listen`, `change the subject`, and `not now` steer it.
-This uses saved local conversation rules and needs no AI account or model.
-Conversation works in both Chat and Serious modes. Chat clears the active scope
-but retains saved pages; Serious restores the selected collections. Load all
-selects every available collection and displays the loaded scope. Topic requests
-can read eligible saved pages in Chat. Serious checks loaded collections first;
-when those cannot answer a topic request, saved references may answer with an
-“outside loaded scope” tag. Dictionary meanings can support conversation in
-both modes with their own reference tag. These lookups never silently load
-collections. Sources appear below factual replies; casual wording stays distinct
-from source evidence.
-
-A session-local [context index](docs/CONTEXT_INDEX.md) replays user declarations
-forward to apply corrections and searches relevant exchanges backward. Explicit
-user-defined word meanings and personal details remain tagged as conversation
-context, never promoted to MPLPB evidence.
-
-Introductions such as `Hi, I’m Alex` receive a personal greeting. Names are
-recalled from user turns in the current conversation, including older saved
-turns. `What did I say about orchids?` recalls matching user messages with turn
-references. `Call me Sam` changes the name used; `forget my name` stops its use.
-Conversation recall is tagged separately from page evidence. With zero collections
-loaded, `Help me brainstorm a flarn playground` constructs three exploratory
-transformations around that topic; `brainstorm` continues with other directions.
-`The second one` selects the last numbered option; `Make it simpler` develops it.
-Compound greetings such as `Hi, I’m Alex. How are you?` preserve the introduction.
-User goals and constraints can be recalled with `What is the plan?`. Bounded
-arithmetic and explicit hypothetical syllogisms work in both modes, with no
-claim that their premises are source-verified. See the [synthetic conversation
-evaluation](evaluation/conversation/REPORT.md) for observed failures and limits.
-
-Common phrasing rules recognize subject-description statements, preferences,
-user-introduced topics, negation, polite questions, topic overviews, follow-ups,
-and composed requests such as `Say hi to the OpenAI forum and tell them what you are`.
-`Say hello to the astronomy club and tell them about Moon` can combine a greeting
-with a locally sourced overview. These draft replies in the chat; they do not post
-externally. Exhausted sources offer search or idea exploration instead of an
-endless “Tell me more” loop. See [current conversation behavior](docs/GROUNDED_CHAT.md).
-
-The repository includes these local resources, with original licenses and source pins:
-
-| Resource | Included | How to use |
-| --- | --- | --- |
-| Open English WordNet 2025 | 128,009 dictionary entries and 107,558 synsets | **Dictionary** / **Thesaurus** chat buttons, or `topic dictionary` / `topic thesaurus` |
-| CMU Link Grammar English data | 111 grammar, word-list and reference files | `grammar resources`; data archive in `resources/language/` |
-| Simple English Wikipedia selection | 23 archived articles on language, computing, animals, geology and games | Choose **Reference encyclopedia**, then `show my MPLPB` |
-
-Select a Dictionary or Thesaurus topic, then enter a headword (including names,
-numbers and multiword entries). `next senses` and `previous senses` page through
-all meanings, 12 at a time; synonyms stay grouped by meaning. `leave dictionary`
-or `leave thesaurus` exits. Explicit `define dog` and `synonyms dog` also work.
-The complete bundled edition is available offline; it is not every English word.
-These reference topics preserve the selected ledger context and do not create
-ledger pages or trigger Wikipedia acquisition.
-
-These are downloaded data, not remote lookup dependencies. Ordered archive parts
-are committed under `resources/language/archive-parts/`; the app reconstructs and
-verifies the ZIPs locally. The standalone browser build embeds the same resources.
-See [licenses, attribution and exact revisions](resources/README.md).
-
-Conversation is rule-based, not a general language model. Grammar data is available
-as a reference; a syntax parser is not enabled. The encyclopedia is a selected set,
-not all of Wikipedia. Dictionary senses and synonyms never expand ledger ownership
-or bypass source checks. Source hashes establish byte consistency, not factual truth.
-English Wikipedia is the default optional online encyclopedia; Simple English
-Wikipedia is also available. Enabled automatic lookup can acquire missing or
-exhausted topic material and save revision-pinned pages locally. This is access
-to the online catalogue, not a full offline encyclopedia download.
-
-```
-R = (id, scope, status, hash, derived_from, origin_depth)
-
-A(q) = R               if exactly one current R owns q
-       ambiguous       if two or more own q
-       not in corpus   if none own q
-```
-
-Paper: [`docs/Combined_MPLPB.md`](docs/Combined_MPLPB.md) · `.txt` · `.pdf`
-(MPLPB-COMBINED-017 v3, draft for owner review) · fixes: [`docs/FIXLOG.md`](docs/FIXLOG.md)
-
-This is the master repository. The legacy `python -m mplpb_combined ask` implements the lexical formula;
-installed `mplpb-combined ask` additionally requires statement support. The separate `gate` command returns lexical
-source bundles with provenance, as described below. The five earlier implementations are carried whole under [`parts/`](parts/README.md), and
-the papers that are not in any of them are under [`docs/sources/`](docs/sources/README.md).
-
-## Open in your browser
-
-The Pages workflow publishes the standalone runtime at:
-https://mitchell-d00.github.io/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/
-
-[Publishing setup and walk back](docs/GITHUB_PAGES.md). Deployment status determines
-whether that address serves the runtime; a source push alone is not a deployment.
-
-## Browser runtime without a Python server
-
-The generated **MPLPB_Browser.html** embeds the real Python engine through Pyodide
-WebAssembly, bundled pages and the RPG-style front end. Open the delivered file in
-a current browser, or use static HTTPS hosting. No Python installation or process
-is needed to run it. Startup is offline; explicit Wikipedia search/import uses the
-network. Browser storage permissions are required to retain state.
-
-The repository includes the reproducible builder: `python3 tools/build_browser_runtime.py`.
-This creates `dist/MPLPB_Browser.html`; generated output is excluded from Git.
-[Runtime details, requirements, verification and walk back](docs/BROWSER_RUNTIME.md).
-The desktop mode below remains available in root `index.html`.
-The standalone page footer shows its build identifier. Reload an already-open tab
-after an update. Saved chats remain; if an older capture fails its code-provenance
-checks, import it again under the new runtime rather than changing its old pins.
-
-## Local browser UI
-
-### Direct JavaScript API
-
-The browser page exposes `window.MPLPB` for scripts and AI agents with access to
-that page's JavaScript context. For example:
-
-```js
-await window.MPLPB.query('What is Dungeons and Dragons?', {corpus:'logic'});
-```
-
-The API supports local queries, page inspection, chat, transcript export and
-imports of supplied text. **In the standalone build it can run entirely locally,
-with no internet, cloud processing, API key, model provider or Python server.**
-The complete HTML must already be on the device; browser storage retains saves.
-
-An AI frontend can use MPLPB as a **local middleware API**: send a question,
-receive the engine's structured decision, citations and provenance, then display
-the result. It preserves reader decisions and delivery profiles; `ok:true` alone
-does not mean an answer is supported.
-
-Remote lookups are off by default for API calls. With explicit per-call
-`allowNetwork:true`, an agent can search/import Wikipedia through MPLPB, retain
-the captures locally, then return to offline use. This needs internet to
-Wikipedia but no hosted MPLPB API service or API key. Optional `autoWiki:true`
-enables the standalone browser's bounded automatic topic lookup. The separate
-general-web crawler feature still requires its configured backend and token.
-A cloud AI frontend has its own service requirements; a local frontend can stay
-local. The source UI uses the existing desktop Python transport.
-See [JavaScript API and middleware examples](JAVASCRIPT-API.md).
-
-The front end follows Mitchell's **Give It Back: The RPG**: a corpus tile map,
-status panels, source dialogs, journal and three visual settings. It calls the
-real local reader and gate. The complete front end is in `index.html`.
-
-On Windows, double-click `Launch_MPLPB.bat`. On Mac/Linux, run
-`sh Launch_MPLPB.sh`, or run `python3 launch.py` on any system with Python 3.
-The launcher opens <http://127.0.0.1:8766>. Keep the terminal running.
-
-New users can choose **Guide me** for a saved step-by-step introduction. Chat offers
-suggested questions and can present the selected MPLPB’s page titles. App-help
-questions also work in Ask, including when source verification is blocked.
-[Guided chat details](docs/GUIDED_CHAT.md).
-
-The **Chat** view supports `search TOPIC` to build a saved MPLPB from a bounded crawl, `find TOPIC` for Wikipedia suggestions, explicit Wikipedia title imports,
-follow-up context and bounded source-assertion rules. See
-[the chat workflow](docs/CHAT_WORKFLOW.md) and [system/creator reference](docs/SYSTEM_SELF.md).
-It uses no language model; general semantic conversation is not implemented.
-General web mode needs a deployed [Cloudflare crawler and search key](crawler/README.md); GitHub Pages alone cannot crawl arbitrary sites. Wikipedia modes run without that backend.
-
-See [browser UI instructions](docs/BROWSER_UI.md) for your own corpus, controls and
-validation limits. The [patch-canned notes](docs/patch-canned/README.md) preserve
-the supplied experiment and include the corrected reader patch and demo.
-
-## Try it
-
-```bash
+# Inspect lexical page ownership without asserting body support:
 python3 -m mplpb_answers candidates examples/studio "how fast should I heat raw clay on its first firing"
-python3 -m mplpb_answers candidates examples/studio "what is the glaze firing schedule for cone 6"
-python3 -m mplpb_answers candidates examples/studio "what is the capital of France"
-```
 
-The first returns one page with its citation. The second stops and names the two pages that
-both own the question. The third says not in the corpus. Exit codes are 0, 2 and 3.
-
-```
-$ python3 -m mplpb_answers candidates examples/studio "the glaze pulled away from the pot"
-Glaze faults
-
-  Crawling comes from dust or grease on the bisque, or a coat put on too thick that
-  cracked as it dried. ...
-
-  [STUDIO-0012 · glaze/studio-0012.html · current · origin human d0 · sha256:... · local]
-```
-
-A page owns a question when its `scope` and `when-to-use` fields declare more than half of the
-question's words. Before that majority check, two fully named declarations that
-are not strict subsets of another fully named declaration cause ambiguity. Strict
-subsets retain the more specific match. Only when no page owns it that way does the reader look at prose, and then a
-page must contain every word. A return decided by prose says so in its citation. Add `--why`
-to see which step decided, or `--no-prose` to allow scope only.
-
-A page can also say what it is **not for**. `--not-for "booking; permission"` on a kiln
-schedule sets that page aside for any question containing those words, and the refusal says
-which page stepped back and why.
-
-## Provenance gate and additional corpora
-
-`gate` returns every eligible lexical source separately. For “1974 dungeons and dragons budget”, game context and general budget material retain separate origins; both sources remain visible if both contain budget material. Their coexistence does not establish the historical D&D budget.
-
-```bash
+# Keep independently matched game and budget material separate:
 python3 -m mplpb_combined gate examples/provenance-gate/separate "1974 dungeons and dragons budget" --json
-python3 tools/provenance_bench.py --serve
 ```
 
-See [the gate specification](docs/PROVENANCE_GATE.md) and the [offline demonstration](examples/provenance-gate/index.html). Six additional topic corpora and ninety frozen lexical probes are under [examples/topics](examples/topics) and [evaluation/topics](evaluation/topics/README.md). These are controlled fixtures, with failures retained.
+For supported/candidate CLI queries, exit codes are 0 (return), 2 (ambiguous), and 3 (not in corpus). The gate uses 0 (source bundle) and 3 (not in corpus). The synthetic D&D fixture and a general budgeting page do not establish a historical D&D budget.
 
-Supplied papers are indexed in [papers](papers/README.md), their implications in [the upload review](docs/UPLOAD_REVIEW.md), and earlier documentation in [PAST_DOCUMENTATION.md](PAST_DOCUMENTATION.md).
+Create your own ledger with the existing writing commands:
 
-Supersession follows [explicit policy examples](docs/SUPERSESSION_POLICY.md): restoration pins the terminal head, and stale or incorrectly pinned derivatives are withheld. See [the fix report](docs/SUPERSESSION_FIX.md).
-
-Walk-back instructions: [docs/ROLLBACK.md](docs/ROLLBACK.md).
-
-## Experimental wiki and loose-file tools
-
-The [wiki package](evaluation/wiki/README.md) adds a menu, loose-source formatter, and immutable wiki captures. New captures retain revision main-slot wikitext, revision/slot/content pins, a deterministic local renderer, full local pages, and unknown-authorship delivery policy. The historical snapshot remains incomplete and unscorable; it is preserved with [the review](evaluation/wiki/REVIEW.md). This is a lexical smoke test, not independently labeled validation. Start with `python3 tools/menu.py`.
-
-See [sealed delivery and human clarification](docs/DELIVERY_AND_CLARIFICATION.md) for unknown authorship, shared `ask`/`gate` restrictions, and the dog intent demo.
-
-## Keep your own ledger
-
-```bash
+```sh
 mkdir notes
 python3 -m mplpb_combined write notes --prefix NOTE --title "Bisque schedule" \
-    --scope "Bisque firing schedule" --when-to-use "first firing; raw clay" \
-    --body "Climb 100 C per hour to 600 C."
-
-python3 -m mplpb_combined revise  notes NOTE-0001 --body "Climb 80 C per hour to 600 C."
-python3 -m mplpb_combined history notes NOTE-0001        # both versions, oldest first
-python3 -m mplpb_combined derive  notes --from NOTE-0002 --title "Checklist" \
-    --scope "Firing day checklist" --body "..."          # machine page, depth 1
-python3 -m mplpb_answers candidates     notes "firing day checklist" --profile external   # withheld
-python3 -m mplpb_combined ratify  notes NOTE-0003 --who "Your Name"                 # depth 0
+  --scope "Bisque firing schedule" --when-to-use "first firing; raw clay" \
+  --body "Climb 100 C per hour to 600 C."
+python3 -m mplpb_combined revise notes NOTE-0001 --body "Climb 80 C per hour to 600 C."
+python3 -m mplpb_combined history notes NOTE-0001
 python3 -m mplpb_combined validate notes
 ```
 
-Pages are plain HTML. Open any of them in a browser. `python3 -m mplpb_combined index notes`
-writes an `index.html` to browse from; the reader never answers from it.
+These demonstrate record management, not certified kiln instructions. Changes create successors; derivations pin their basis and increment depth. Retired or stale bases do not silently become valid again. See [supersession policy](docs/SUPERSESSION_POLICY.md), [delivery restrictions](docs/DELIVERY_AND_CLARIFICATION.md), and [the original format paper](docs/Combined_MPLPB.md).
 
-A corpus written by Smart Local, the Local Mirror, Swarm or Networked MPLPB can be read after
-`python3 -m mplpb_combined seal <root>`, which adds hashes and pins references and changes
-nothing else.
+## Use the interface
 
-## What is here
+- **Explore / Ask / Revision tree:** inspect pages and eligibility, submit supported questions, and review retained source history. Source inspection and decision traces remain distinct from supported answers.
+- **Chat / Serious:** deterministic conversation, source-bound topic discussion, saved context, explicit collection loading, and library routing. Chat clears active Serious scope but retains saved pages; outside-scope references remain labeled.
+- **Off-the-record free chat:** ephemeral conversation, with no saved transcript or source acquisition from its messages. Leaving the mode discards that session; separate source-management controls retain their explicit behavior.
+- **Build and search collections:** named collections, Wikipedia capture, permitted URL/pasted-text import, and explicit source management. General-web crawling needs a separately configured backend.
+- **Monster helper / Reason Mode:** presentation settings and visible decision traces; they do not change evidence rules or permissions.
 
-| Path | What |
-|---|---|
-| `mplpb_combined/record.py` | The page format: fields, parsing, the hash |
-| `mplpb_combined/ledger.py` | The folder as a ledger: status, lineage, depth, validation, writing, the log |
-| `mplpb_combined/reader.py` | The answer rule, profiles, hubs |
-| `mplpb_combined/killtest.py` | The kill test: three arms, mechanical scoring |
-| `tests/` | 576 developer-authored regression tests covering the reader, captures, conversation, source boundaries and saved state |
-| `examples/studio/` | 25 pages about running a pottery studio; the kill-test corpus |
-| `examples/spec/` | The format described as ten pages in the format |
-| `examples/hub/` | Two pointers, one at each of the above |
-| `killtest/` | Three frozen probe sets, their hashes, the results as run, and earlier runs under `v1/` and `v2/` |
-| `docs/` | The paper in three formats, the fix log, the superseded v1 paper, and the source papers |
-| `parts/` | Local Mirror, Smart Local, Swarm, Networked, Image |
-| `tools/` | Rebuild the examples, check the parts, render the paper |
+Try `guide me`, `show my MPLPB`, `What can you do?`, `browse library`, `define dog`, or `brainstorm lantern gardens`. API network access is opt-in on each call; the visible UI has its own automatic Wikipedia setting. Source passages, user declarations, dictionary entries, research notes, calculations, and imagined ideas carry different authority. Finite grammar does not provide unrestricted language understanding.
 
-## Check everything
+Read [interface controls](docs/BROWSER_UI.md), [chat workflow](docs/CHAT_WORKFLOW.md), [the generated system guide](docs/SYSTEM_GUIDE.md), and [all feature guides](docs/README.md).
 
-```bash
-python3 -m unittest discover -s tests -t .       # this package
-python3 tools/check_parts.py                     # every part, plus adoption of their sites
+## Local resources and saves
+
+The bundle includes Open English WordNet 2025 (128,009 entries and 107,558 synsets), 111 CMU Link Grammar data/reference files, and 23 selected Simple English Wikipedia captures. The grammar parser is not running, and the encyclopedia selection is not all of Wikipedia. Resources retain [licenses, exact revisions, and attribution](resources/README.md).
+
+Browser IndexedDB stores normal chats and imported captures; desktop mode uses its local save store. Reloading the same origin can resume saved sessions, but browser clearing, eviction, quotas, or origin changes can lose them. **Export transcript** backs up conversation/pins, not the complete source ledger. Clearing named collections archives retained files locally; it is not a browser-storage purge. See [context](docs/CONTEXT_INDEX.md), [collections](docs/EXPLORATION_COLLECTIONS.md), and [capture compatibility](docs/BROWSER_CAPTURE_COMPATIBILITY.md).
+
+## Connect an AI or script
+
+Run in the opened application's JavaScript context:
+
+```js
+const hello = await window.MPLPB.handshake();
+const result = await window.MPLPB.relay('What is Dungeons and Dragons?', {
+  corpus: 'logic'
+});
+if (!result.ok) throw new Error(result.error);
+console.log(result.data.kind, result.data.reply);
+```
+
+Use `listCorpora()` for valid corpus keys. Preserve MPLPB's reply, ambiguity/refusal, authority, and citations. `retrieve()` is explicitly page inspection. Chat sessions require reusing the returned session ID; online acquisition requires `allowNetwork:true` for that call, with `autoWiki:true` additionally needed for automatic fallback.
+
+The deployed project publishes `.well-known/mplpb.json`, `llms.txt`, and `mplpb-public-ledger.json` relative to its site URL. The public snapshot contains externally eligible bundled pages, not visitor saves. An HTTP-only client can inspect discovery/public data; running the engine requires a browser context. See [JavaScript API](JAVASCRIPT-API.md), [agent middleware](docs/AGENT_MIDDLEWARE.md), and the optional `tools/mplpb_agent_bridge.mjs`.
+
+## Development and release checks
+
+From the repository root:
+
+```sh
+python3 -m unittest discover -s tests -t .
+python3 tools/check_ui_script.py
+node tools/check_browser_transport.cjs
+node tests/javascript-api.cjs
+node crawler/test_worker.mjs
+```
+
+The Python application uses the standard library. Node is needed for developer checks; real browser tests additionally use Playwright/Chromium and a generated runtime. Start with the [developer quickstart](docs/DEVELOPER_QUICKSTART.md) and [browser testing runbook](docs/BROWSER_TESTING_FOR_AGENTS.md).
+
+The repository requires **`archive-first` and `regression`** checks on `main`. Before merge, [ZIP-first validation](docs/ZIP_FIRST_RELEASE_TESTING.md) packages the exact PR head and tests the extracted source, Python, JavaScript, pinned WebAssembly runtime, live baseline, and candidate Chromium interface. A passing candidate is not deployment evidence. After merge, the Pages workflow builds/deploys and tests the public site again. See [release evidence and ruleset verification](docs/RELEASE_EVIDENCE.md).
+
+Additional legacy checks and frozen-probe checksum verification:
+
+```sh
+python3 tools/check_parts.py
 python3 -m mplpb_combined killtest examples/studio killtest/probes.json
 python3 -m mplpb_combined killtest examples/studio killtest/probes_heldout.json
 python3 -m mplpb_combined killtest examples/studio killtest/probes_adjacent.json
-sha256sum -c killtest/probes.sha256              # run inside killtest/
+(cd killtest && sha256sum -c probes.sha256 probes_heldout.sha256 probes_adjacent.sha256)
 ```
 
-## What the kill test showed
+## Documents, evaluation, and limits
 
-The papers and frozen experiment reports describe the versions they evaluated;
-the current tree includes later conversation and browser features. Test counts
-and current behavior are documented here and in `docs/GROUNDED_CHAT.md`, not
-retroactively claimed as paper results.
+[CONTENTS](CONTENTS) maps the current repository. [The documentation index](docs/README.md) separates operational guides, dated audits, original papers, and earlier implementations. Original PDFs/texts, source manifests, frozen corpora/probes, and recorded evaluations retain their historical bytes and claims. They do not describe every later feature.
 
-The core “owns the question” rule remains lexical: majority scope-word overlap,
-then an every-word prose fallback when no scope owns the question. That is not
-semantic entailment. A unique match can still answer the wrong kind of question.
-Conversational normalization and dictionary navigation do not remove this limit.
-Independent adversarial evaluation on externally authored corpora remains pending;
-passing the regression suite does not establish factual precision in deployment.
+The latest lexical retrieval repair is recorded in [FIXLOG.md](FIXLOG.md); the broader [October 21 system audit](docs/SYSTEM_AUDIT_2026-10-21.md) and [answer reliability review](docs/ANSWER_RELIABILITY.md) record their own revisions and limits. Development fixtures and inspected external excerpts are not independent production accuracy measurements. See [evaluation protocol](evaluation/README.md) and [ownership failures/comparisons](evaluation/ownership/README.md).
 
-### Evaluation additions
-
-BM25 and TF-IDF now run alongside the original arms. Each compares stripped
-prose against the same current page pool and depth limit available to the reader.
-Fixed parameters, zero-overlap refusals, deterministic ties, and per-probe
-predictions make the comparison reproducible. Historical results are preserved;
-new runs expose `lexical_baselines` and `lexical_rows` in JSON and print totals.
-
-`python3 -m mplpb_combined.evaluate evaluation/manifest.json` runs 36 frozen
-developer-authored questions across software operations, library services, and
-office procedures. They are synthetic regression fixtures, not independent
-validation. Results retain every failure and report metrics by domain and
-expected outcome. See [`evaluation/README.md`](evaluation/README.md) for the
-independent-review protocol and how to evaluate externally authored corpora.
-
-Implicit retirement now requires a valid successor and valid, uniquely resolved,
-hash-pinned lineage. Altered, unsealed, duplicate, cyclic, incorrectly pinned,
-or depth-inconsistent records cannot control a predecessor's effective status.
-Explicit retirement remains retirement. Legacy unpinned references need `seal`
-before they can retire a predecessor implicitly.
-
-### Historical results
-
-The first run found bugs in the reader: it could not find a page by its own prose, and one
-stray word declared on another page stopped it. They are fixed, and `docs/FIXLOG.md` records
-each error, cause, fix and rerun. The first reader and its results are kept under
-`killtest/v1/`.
-
-Correct / wrong page returned / wrong refusal:
-
-| | First set, 56 (fixes were developed on it) | Held-out set, 30 (run once) |
-|---|---|---|
-| This reader, before the fix | 41 / 0 / 15 | 12 / 4 / 14 |
-| This reader, fixed | 50 / 0 / 6 | 20 / 3 / 7 |
-| Same code, fields stripped | 26 / 4 / 26 | 10 / 1 / 19 |
-| Plain search over the stripped pages | 16 / 40 / 0 | 10 / 20 / 0 |
-
-The fix holds on questions it was not developed against. It does not reach a perfect match,
-and it was not pushed there: the six remaining misses on the first set could each be removed
-by an adjustment that the held-out set gives no reason to trust.
-
-The three wrong returns on the held-out set are the thing to know about this reader. Each asks
-about something the corpus covers from an angle it does not ("who is allowed to use the gas
-kiln" returns the gas kiln firing schedule).
-
-The `not-for` field was added for that. With it, the held-out set goes to 22 / 1 / 7. On 20
-fresh questions written to test it, the reader scores 15 / 3 / 2 with the field and 12 / 4 / 4
-without: it stopped two wrong returns of four, lost no correct answer, and caused one wrong
-return of its own where two near-duplicate pages did not carry the same exclusion. The limits, in short: one corpus, one author, the
-same hand wrote the pages and the questions.
-
-## What this is not
-
-- Not a fact-checker. A returned page says where the words came from, not that they are right.
-- Not tamper-proof. A hash shows a page was not edited after writing. It does not show who
-  wrote it. Signatures are in `parts/networked/`.
-- Not a search engine. A page is reached by the words in its `scope` and `when-to-use` fields,
-  or by a question whose every word is on the page. It can still return the right subject's
-  page for a question that page does not answer, unless the page's `not-for` field predicted
-  the question's words.
-- Not multi-writer infrastructure. Writes take a lock file. Leases with fencing tokens are in
-  `parts/swarm/`.
-- Not tested on old hardware or old Python. It is written to Python 3.8 syntax and was run
-  under 3.12.
+Lexical relevance is not entailment; statement support covers bounded forms, not all semantics. Hashes establish consistency with pins, not truth, authenticated authorship, authorization, or protection from an operator replacing both data and seals. General conversation is rule-based; imagined ideas never become page evidence. Shared deployment needs separate [threat-model review](docs/PRODUCTION_THREAT_MODEL.md). [Recovery and rollback](docs/ROLLBACK.md) preserve history and distinguish source code from user saves.
 
 ## Licence
 
-MIT for code, CC BY 4.0 for documentation. See `LICENSE`. Each part keeps its own.
+MIT for code, CC BY 4.0 for documentation. See [LICENSE](LICENSE); retained parts and resources keep their own notices.
 
 Mitchell D. McPhetridge · October 2026
-
-
-Story replies use deterministic sentence construction with sense-checked WordNet adjectives, attributed user details and grammatical follow-up rules. See [construction boundaries](docs/GROUNDED_CHAT.md#compositional-response-construction). Loaded-page answers keep exact evidence quotes; no model or provider is required.
-
-Chat now has an explicit zero-collection Just chat environment and a Focus environment that loads selected or all stored MPLPB collections. Federated exploration retains each collection’s boundaries and labels; it does not merge evidence or chain relations across ledgers. See [environment behavior](docs/GROUNDED_CHAT.md#explicit-chat-and-focus-environments).
-
-## Conversation validation and packages
-
-See [synthetic runs and independent evaluation protocol](docs/CHAT_EVALUATION.md), [context and adaptation rules](docs/CONTEXT_INDEX.md), and [installation packages](docs/INSTALLATION.md). Main-branch CI builds source and browser ZIPs plus an install-tested core CLI wheel. Synthetic checks do not establish unrestricted language understanding.
-
-General chat also includes eight short, attributed NASA/NOAA research notes. Ask “general topics”; these notes are outside MPLPB evidence and do not replace the loaded reader.
-
-The base [chat language graph](docs/CHAT_LANGUAGE_GRAPH.md) relates supported phrase forms, subjects, intents and read-only handlers. It is bundled offline in both modes and never grants MPLPB evidence authority.
-
-Conversation routing now uses [pre-execution interpretation and reply plans](docs/CONVERSATION_ARCHITECTURE.md), with competing intent proposals and user-declared relationship edges. The ledger remains unchanged. Legacy specialized skills are still bounded; this is not unrestricted semantic understanding. Fixed full-conversation smoke results are in `evaluation/conversation/architecture-results.json`.
-
-
-### Production readiness and evaluation
-
-Start with the [five-minute developer demo and architecture diagram](docs/DEVELOPER_QUICKSTART.md).
-Read the [production threat model](docs/PRODUCTION_THREAT_MODEL.md) before shared deployment.
-The [adversarial ownership evaluation](evaluation/ownership/README.md) preserves the
-original 240-case failures and adds a 600-case development stress set. The gated
-UI answer path makes zero unsupported returns on that development set and answers all
-150 answerable questions after adding five explicit relation grammars. The legacy lexical reader still fails 430/600 cases.
-These are semantic support failures, not hash-integrity failures. The report includes
-reproducible lexical comparisons and a modern RAG comparison protocol/scorer;
-modern RAG systems have **not** yet been measured. No production accuracy or
-independent-validation claim follows from this developer-authored set.
-
-## Supported answers and candidate inspection
-
-Use `mplpb-combined ask CORPUS "QUESTION"` after installation, or
-`python -m mplpb_answers ask CORPUS "QUESTION"` from this checkout.
-Answers require an eligible body statement. Unknown grammar explicitly refuses.
-Use `mplpb-combined candidates` for labeled legacy page retrieval; the old
-`mplpb_combined.reader.answer` and `python -m mplpb_combined ask` are retained
-only for compatibility/reproduction. Historical ownership demonstrations below
-are candidate-retrieval examples, not general answer-accuracy evidence.
-
-See [the reliability review](docs/ANSWER_RELIABILITY.md) for failures, before/after
-coverage, independently authored external questions and provenance implications.
-
-## Context behavior update
-
-Guarded behavior classes now support recent social corrections and attribute
-follow-ups while retaining deterministic reactions and existing evidence gates.
-See the [class table and 240-case audit](evaluation/conversation-repairs/README.md),
-[context lifecycle](docs/CONTEXT_INDEX.md), and [evaluation limits](docs/CHAT_EVALUATION.md).
-The [rollback guide](docs/ROLLBACK.md) pins the previous working version.
-
-## Procedural constraints and off-the-record chat
-
-Source-authored step tags constrain procedural responses; saved context never proves completion. Numbered source lines can be automatically tagged as drafts with unknown constraints retained. Off-the-record free chat is a separate, unsaved deterministic conversation mode, explicitly not source-backed. See [formats, commands, privacy scope and limits](docs/PROCEDURAL_CONSTRAINTS.md).

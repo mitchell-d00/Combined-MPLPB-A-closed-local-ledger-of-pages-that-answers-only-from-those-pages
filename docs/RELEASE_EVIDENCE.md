@@ -1,4 +1,4 @@
-> **2026-10-21 audit:** See the [current retest, defects, repairs and evidence status](SYSTEM_AUDIT_2026-10-21.md). Earlier dated results below remain historical; the October 19 SQuAD correction is included in the retest.
+> **Dated system evidence:** The [2026-10-21 retest](SYSTEM_AUDIT_2026-10-21.md) records its revisions and includes the October 19 SQuAD correction. The later retrieval repair and [2026-10-29 documentation review](DOCUMENTATION_AUDIT_2026-10-29.md) are separate; earlier results remain historical.
 
 # Candidate release evidence and required repository settings
 
@@ -32,25 +32,27 @@ recalculates the hashes and checks the exact SHA, report gate labels, and
 manifest. Tampering with an individual downloaded artifact is detected; a
 forged set of artifacts is outside this manifest's trust boundary.
 
-## Current repository settings — verified 2026-10-21
+## Repository settings — rechecked 2026-10-29
 
 The active `Bear` ruleset now targets `refs/heads/main`, requires a pull request,
 and requires `archive-first` and `regression` from GitHub Actions with strict
 current-branch checks. It also prevents deletion and non-fast-forward changes.
-Required approving reviews are zero. The branch endpoint reports `protected: true`;
-its separate traditional-protection block remains disabled. Rulesets and traditional
-protection are different mechanisms. The dated snapshot below predates this setup.
-See the exact read-only settings evidence in
+Required approving reviews are zero. The read-only
+[ruleset endpoint](https://api.github.com/repos/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/rulesets/24696697)
+was rechecked on 2026-10-29 and retained those conditions/checks. This does not
+exercise a bypass attempt or guarantee settings will remain unchanged. Rulesets
+and traditional protection are different mechanisms. The October 21 branch
+endpoint observation (`protected: true`, traditional-protection block disabled)
+is retained in
 `evaluation/audit-2026-10-21/repository-rules-2026-10-21.json`.
-No settings were changed by this audit, and no merge/bypass was attempted.
+No settings were changed by either documentation review, and no merge/bypass was attempted.
 
-## Repository settings that an owner must enforce
+## Required settings and historical setup gap
 
-GitHub workflow files do **not** configure branch protection. As inspected
-on 2026-10-20, the active repository ruleset `Bear` restricts deletion and
-non-fast-forward changes but does not require passing checks; `main` reports
-traditional protection disabled. An administrator must configure an active
-branch ruleset targeting `main` that:
+GitHub workflow files do **not** configure branch protection. The 2026-10-20
+inspection found deletion/non-fast-forward restrictions without required checks;
+that gap was resolved by the later ruleset configuration above. An administrator
+must maintain an active branch ruleset targeting `main` that:
 
 1. Requires a pull request before merge and limits bypasses.
 2. Requires the exact-head `archive-first` job in

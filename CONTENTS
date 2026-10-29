@@ -1,54 +1,59 @@
-Combined MPLPB — master repository
-MPLPB-COMBINED-017 v3 (draft for owner review) · 2026-10-07
+Combined MPLPB — repository map
+Documentation reviewed 2026-10-29; versioned implementation and historical papers are distinct.
 
-README.md                 start here
-LICENSE                   MIT for code, CC BY 4.0 for documentation
-pyproject.toml            optional install; nothing needs it
-CONTENTS                  this file
+README.md                 current overview, live site, supported interfaces and checks
+JAVASCRIPT-API.md         page-local API, relay, retrieval and network permissions
+docs/README.md            documentation index: guides, dated reports and archives
+docs/PAGE_RETRIEVAL.md    supported answers vs candidates vs gated pages vs bundles
+docs/DOCUMENTATION_AUDIT_2026-10-29.md  documentation review scope and verification
+CONTENTS                  this map
+LICENSE                   MIT code / CC BY 4.0 documentation; retained notices apply
+pyproject.toml            distribution 2.0.0; installs CLI packages, not full chat UI
+PAST_DOCUMENTATION.md     route to preserved earlier documents
+FIXLOG.md                 current chronological fixes, including October 27 retrieval
+llms.txt                  agent discovery notes
+.well-known/mplpb.json    machine-readable discovery manifest
 
-mplpb_combined/           the package: standard library only, no network
-  record.py               the page format, parsing, the hash
-  ledger.py               crawl, status, lineage, depth, validation, writing, the log
-  reader.py               the answer rule, profiles, hubs
-  killtest.py             the kill test harness
-  __main__.py             command line
+launch.py                 desktop Python launcher; opens loopback port 8766
+Launch_MPLPB.bat / .sh    platform launchers
+index.html                desktop UI source; not the standalone Pages runtime
+browser/                  embedded Python bridge, worker, client and runtime licenses
+mplpb_combined/           legacy-version core: ledger, lexical reader, provenance gate,
+                          gated page retrieval, validation, CLI and evaluations
+mplpb_answers/            supported-answer grammar, CLI, procedures and library routes
+tools/                    chat/context/routing, UI server, source capture, browser builder,
+                          release packaging, browser tests and evaluation tools
+crawler/                  optional hosted general-web crawler and its setup guide
+resources/                pinned offline dictionary, grammar data and selected encyclopedia
 
-tests/                    106 tests; python3 -m unittest discover -s tests -t .
-
-examples/
-  studio/                 25 pages; the kill-test corpus
-  spec/                   the format, described as 10 pages in the format
-  hub/                    2 pointers, one at each corpus above
-
-killtest/
-  probes.json             56 questions; the first set, now a development set
-  probes.sha256           hash recorded before the first run; unchanged
-  results.txt / .json     the fixed reader on the first set
-  probes_heldout.json     30 questions written after the fix, before running it on them
-  probes_heldout.sha256   their hash
-  results_heldout.*       the current reader on the held-out set
-  probes_adjacent.json    20 questions written for the not-for field, run once
-  probes_adjacent.sha256  their hash
-  results_adjacent.*      the current reader on the adjacent set
-  v1/                     the first reader and its results, kept
-  v2/                     the second reader and its results, kept
-
-docs/
-  Combined_MPLPB.md       the paper (source of record)
-  Combined_MPLPB.txt      the same, plain text
-  Combined_MPLPB.pdf      the same
-  FIXLOG.md               each error, its cause, its fix, and the rerun
-  superseded/             the v1 and v2 papers
-  sources/                the formula as given; MPLPB-COST-012 v2; the collected manuscript
-
-parts/                    the five earlier implementations, whole; see parts/README.md
-  local-mirror/           MPLPB-LOCAL-008 v4
-  smart-local/            MPLPB-SMART-011 v1
-  swarm/                  MPLPB-SWARM-013 v3
+tests/                    Python regressions and JavaScript API checks
+                          python3 -m unittest discover -s tests -t .
+examples/                 sealed sample ledgers, synthetic facts and provenance demos
+evaluation/               dated/synthetic/external development sets, reports and protocols
+killtest/                 frozen probes/hashes, historical results, earlier reader versions
+papers/                   preserved supplied papers and byte manifests
+docs/                     operational guides plus dated design/audit reports
+  Combined_MPLPB.md/.txt/.pdf  original October 7 v3 paper; not a current application manual
+  FIXLOG.md               original paper-era log; current updates are in root FIXLOG.md
+  past-documentation/     pre-provenance-gate archive and manifest
+  superseded/             earlier paper versions
+  sources/                supplied background manuscripts and formula
+  patch-canned/           supplied experiment and reviewed historical patch
+parts/                    five earlier implementations, each with its own docs/tests/notices
+  local-mirror/           Local Mirror
+  smart-local/            Smart Local
+  swarm/                  Swarm
   networked/              Networked MPLPB
-  image/                  MPLPB-IMAGE-016 v2
+  image/                  Image MPLPB
 
-tools/
-  build_examples.py       rebuild examples/ byte for byte
-  check_parts.py          run every part's tests; adopt each part's example site
-  make_paper.py           render the paper to .txt (stdlib) and .pdf (needs reportlab)
+.github/workflows/
+  pr-validation.yml       regression job for proposed changes
+  zip-release-validation.yml  archive-first exact-candidate package/test evidence
+  pages.yml              main-branch build, packages, Pages deployment and live smoke
+
+Generated output (not tracked):
+  dist/                   standalone HTML and public discovery/snapshot assets
+  release/                source/browser ZIPs, checksums and optional CLI wheel
+Private runtime state (not repository documentation):
+  local/                  desktop saves, sessions and imported source captures
+  browser IndexedDB       standalone saves for that browser/origin

@@ -1,5 +1,13 @@
 # Rollback and recovery
 
+For a new incident, identify the actual last verified source revision and its
+release/deployment evidence first. Create a recovery branch from current main,
+inspect the affected change and later dependencies, and propose a tested revert.
+The checkpoint below is specifically **before PR #5's context update**; it is not
+automatically the best recovery target for subsequent releases, including the
+October 27 retrieval repair. [Release evidence](RELEASE_EVIDENCE.md) and the
+[ZIP-first gates](ZIP_FIRST_RELEASE_TESTING.md) apply to recovery candidates too.
+
 ## Pinned known-good baseline
 
 Before the context behavior update (PR #5), main was:
@@ -25,7 +33,7 @@ Follow INSTALLATION.md in that separate directory. Use a separate browser profil
 for an older browser runtime. Older adapters may reject newer captures; retain
 original exports rather than deleting data to force compatibility.
 
-## Deployed recovery
+## Deployed recovery for the PR #5 checkpoint
 
 Use a revert commit; do not force-push or destructively reset main.
 

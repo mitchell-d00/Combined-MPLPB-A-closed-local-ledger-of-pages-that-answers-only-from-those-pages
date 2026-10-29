@@ -1,5 +1,7 @@
 # Installation and release packages
 
+[Open the live application](https://mitchell-d00.github.io/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/) for a hosted start, or choose a package below. See the [documentation index](README.md) for runtime modes and source-interface contracts. Python 3.8+ is the declared desktop/package minimum; CI tests Python 3.12, not every supported Python/platform combination.
+
 The successful main-branch Pages workflow provides an artifact named `mplpb-monster` on its GitHub Actions run.
 
 * `mplpb-monster.zip`: committed repository source. Extract it, install Python 3.8 or newer, then run `python launch.py` or the supplied platform launcher. This includes the chat application and its bundled resources.
@@ -16,7 +18,16 @@ python tools/build_release_packages.py
 python -m pip wheel --no-deps --wheel-dir release .
 ```
 
-Chat adaptation is session-local data: explicit personal details, corrections and user-defined meanings. It does not install executable code or modify the MPLPB evidence reader. See `CONTEXT_INDEX.md` and `CHAT_EVALUATION.md` for grammar and limitations.
+Chat adaptation is session-local data: explicit personal details, corrections and user-defined meanings. It does not install executable code or modify the MPLPB evidence reader. See [context](CONTEXT_INDEX.md) and [chat evaluation](CHAT_EVALUATION.md) for grammar and limitations.
+
+The browser ZIP contains `MPLPB_Browser.html` and instructions. The static Pages
+deployment additionally includes the generated public-ledger snapshot and
+discovery files; those sidecar files are not inside the one-file runtime ZIP.
+The build/packaging commands use committed `HEAD` for source packaging. Rebuild
+and test the browser from that same revision before packaging; uncommitted edits
+are not included in the source ZIP. `SHA256.json` covers the two ZIPs, not the wheel
+or a claim that the site currently runs those bytes. PR candidate evidence uses
+the separately named [ZIP-first artifact](ZIP_FIRST_RELEASE_TESTING.md).
 
 ## Full repository snapshot and recovery
 
