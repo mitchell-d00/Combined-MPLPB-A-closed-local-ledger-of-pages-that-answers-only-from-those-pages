@@ -3,6 +3,14 @@
 MPLPB is a closed local ledger of sealed HTML pages. This interface is a front end
 to its Python reader and provenance gate. It is not a language model or a game simulation.
 
+This is the companion to the sealed SELF-0008 delivery and its historical
+validation sections, not the complete current capability model. Current
+self-description is generated in [SYSTEM_GUIDE.md](SYSTEM_GUIDE.md). The later
+supported-answer and gated-page contracts are explained in
+[PAGE_RETRIEVAL.md](PAGE_RETRIEVAL.md); the lexical reader description below is
+candidate selection, not sufficient answer authority. Sealed self-reference
+pages and their revision history are preserved rather than rewritten here.
+
 Current sealed self-reference: SELF-0008. Named collections have separate source
 stores and saved chats. Search TOPIC builds a new local collection. Wikipedia mode follows bounded literal
 links from a pinned seed revision. General web mode needs a configured hosted crawler

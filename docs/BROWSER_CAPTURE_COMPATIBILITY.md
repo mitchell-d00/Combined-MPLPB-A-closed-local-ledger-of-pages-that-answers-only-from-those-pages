@@ -2,7 +2,7 @@
 
 Saved Wikipedia collections from reviewed browser releases can reopen after a chat-adapter update. Previously every change to browser/bridge.py invalidated the capture adapter hash, even when source capture semantics were unchanged.
 
-The browser accepts only its current adapter hash or an explicit reviewed SHA-256 allowlist for browser-pyfetch-v1. The three supported historical revisions are listed beside their hashes in browser/bridge.py. Their differences concern free-chat dispatch and dictionary automatic acquisition, not stored source validation. Unknown adapters remain blocked. Future adapter releases need compatibility review before adding their hashes.
+The browser accepts only its current adapter hash or an explicit reviewed SHA-256 allowlist for browser-pyfetch-v1. Four historical revisions are currently listed in `COMPATIBLE_CAPTURE_ADAPTERS` in `browser/bridge.py`; that code is the authoritative compatibility list. Unknown adapters remain blocked. Future adapter releases need compatibility review before adding their hashes.
 
 No capture, manifest, history, or source pin is rewritten. Engine, checker, renderer, raw response, revision-slot, served page, inventory and conflict checks still apply. This is compatibility, not authentication or proof that a source is true.
 

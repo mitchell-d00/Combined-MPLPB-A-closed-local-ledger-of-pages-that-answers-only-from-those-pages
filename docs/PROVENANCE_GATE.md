@@ -1,6 +1,11 @@
 # Provenance gate: separate local source bundles
 
-Added 2026-10-08. The original `ask` command still applies the single-owner refusal rule. The new `gate` command implements a different, explicit contract: return all eligible lexical matches as separate source records, retaining their provenance. It does not turn multiple pages into one answer.
+Introduced 2026-10-08. `gate` returns all eligible lexical matches as separate
+source records, retaining their provenance; it does not turn multiple pages into
+one answer. The legacy `python -m mplpb_combined ask` inspects lexical ownership.
+The installed `mplpb-combined ask` / `python -m mplpb_answers ask` additionally
+requires eligible body support. `MPLPB.retrieve` returns one provenance-gated page
+with `answer_supported:false`. See [the four interface contracts](PAGE_RETRIEVAL.md).
 
 ## Run
 
@@ -42,6 +47,6 @@ Hashes check consistency against the recorded seals; someone able to change a pa
 
 Policy and corpus fingerprints expose changes; they are not signed identities or authorization controls. Delivery policy does not make private data safe to publish. There is no federation, model synthesis, image generation, or image evidence classification in this text gate. Synonyms, negation, dates, and relationships are not semantically resolved. Broad shared words can retrieve irrelevant pages; their separate delivery prevents fusion but does not fix lexical relevance.
 
-The implementation fails its contract if an altered source passes, a provenance field is silently omitted, a matching eligible budget source disappears because another page owns the query, a stale derived basis passes without recheck, or a shared ancestor is represented as independent corroboration. Twenty-nine regression tests cover these and other gate behaviors. They are controlled fixtures, not independent validation on a new author corpus. The 122 existing tests also pass, for 151 total. Original topic probes and their failures remain archived.
+The implementation fails its contract if an altered source passes, a provenance field is silently omitted, a matching eligible budget source disappears because another page owns the query, a stale derived basis passes without recheck, or a shared ancestor is represented as independent corroboration. The original gate delivery added 29 regression tests to a 122-test baseline (151 at that revision). These historical counts describe controlled fixtures, not current full-suite size or independent validation on a new author corpus. Run `python -m unittest tests.test_provenance_gate -v` and the full suite for current verification. Original topic probes and failures remain archived.
 
 See [UPLOAD_REVIEW.md](UPLOAD_REVIEW.md), [past documentation](past-documentation/README.md), and [papers](../papers/README.md).

@@ -32,8 +32,10 @@ score. Named collections additionally support explicit public HTTPS HTML/plain-t
 URL capture where browser CORS permits, or labelled pasted text. Explicit URL import follows no links; `search TOPIC` builds a bounded crawl collection. General-web mode needs the separately deployed Worker described in `crawler/README.md`.
 See [exploration collections](EXPLORATION_COLLECTIONS.md) for web search and import limits.
 
-The generated HTML is about 20 MB because it includes the runtime and pages.
-Browser startup and memory use can be significant on mobile hardware.
+The generated HTML includes the runtime, pages, reference archives, and tools;
+its size changes with bundled content. The live build inspected on 2026-10-29
+was 37,547,269 bytes (about 35.8 MiB). Browser startup and memory use can be
+significant on mobile hardware. This is a dated size observation, not a fixed limit.
 
 ## Build
 
@@ -54,6 +56,12 @@ Pyodide's MPL 2.0 and CPython's license are included under `browser/licenses/` a
 in the generated bundle. MPLPB and RPG-layout notices remain included.
 
 ## Verification and limits
+
+The observations below describe earlier integration runs. Current developer
+commands, real-browser coverage, and release gates are in the
+[browser-testing runbook](BROWSER_TESTING_FOR_AGENTS.md) and
+[ZIP-first workflow guide](ZIP_FIRST_RELEASE_TESTING.md). HTTP/byte inspection
+alone does not exercise runtime startup, storage, or UI interactions.
 
 Real WebAssembly execution was tested in Node with the same bundled Python files:
 name ambiguity, source-gated external withholding, relation proof, extractive

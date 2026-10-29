@@ -1,7 +1,6 @@
 # Topic search and deterministic chat
 
-Start with `python3 launch.py` or a platform launcher. Choose **Chat**.
-No API key, model or additional Python packages are required.
+Open the [live application](https://mitchell-d00.github.io/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/), a generated standalone runtime, or start desktop mode with `python3 launch.py` / a platform launcher. Choose **Chat**. No model or API key is required. Desktop mode uses standard-library Python; standalone mode runs the embedded engine in WebAssembly. See [installation](INSTALLATION.md).
 
 ## Basic help chat
 
@@ -14,7 +13,8 @@ Say “hi”, “how do I use this?”, “how do I search?”, “how do I save
 “how do I reset?”. The Get started, Search help and Save help buttons fill the
 composer; Send submits the question. Help gives fixed interface instructions,
 keeps the selected source context, and makes no network request. It is not a
-source-fact answer. Unsupported world questions still go through the lexical reader.
+source-fact answer. Source-answer requests still require eligible body support;
+lexical candidate selection alone is insufficient.
 The help vocabulary and procedural patterns are finite, not general natural-language
 understanding. App-help questions work in Ask even when source pins are blocked.
 
@@ -42,8 +42,9 @@ Changing corpus/profile clears topic focus. Context source pins are rechecked.
 
 ## Relations and rules
 
-The reader still decides ordinary questions using its existing lexical rule.
-The chat layer adds a separate bounded inference mode, not semantic retrieval.
+The lexical reader selects candidates; the supported-answer path separately
+checks finite body-statement grammars. Chat also has a bounded inference mode
+for explicit source assertions, rather than general semantic retrieval.
 It recognizes explicit source assertions in standalone paragraphs:
 
 ```text
@@ -90,8 +91,10 @@ negation, causal, numeric, temporal or arbitrary semantic rules are implemented.
 
 ## Source tree
 
-User captures live under ignored `local/topics/`, separate from the published
-`evaluation/wiki` kit. Each import creates an immutable raw source capture. A new
+Desktop captures use ignored local storage: shared topics under `local/topics/`
+and independent named collections under `local/collections/`. Standalone mode
+persists its corresponding virtual save tree in browser IndexedDB. These are
+separate from the published `evaluation/wiki` kit. Each import creates an immutable raw source capture. A new
 bundle contains the currently selected source revision for each topic, with a
 pinned head. Earlier bundles and source captures remain.
 
@@ -113,23 +116,28 @@ wiki evaluation captures. No import or chat turn is reported as an evaluation sc
 
 ## System and creator
 
-`who made you?`, `what can you do?`, `what are your limits?` and other explicit
-system prompts read the sealed self-reference corpus. Its human-readable source
-is [SYSTEM_SELF.md](SYSTEM_SELF.md). It names Mitchell D. McPhetridge / mitchell-d00
+Current capability/mode questions use the local model documented in the generated
+[SYSTEM_GUIDE.md](SYSTEM_GUIDE.md). Creator/source-history questions can consult
+the sealed self-reference corpus, whose human-readable source is
+[SYSTEM_SELF.md](SYSTEM_SELF.md). It names Mitchell D. McPhetridge / mitchell-d00
 as the declared creator, as requested by the user. The page does not authenticate
 identity or invent a biography. The assistant is an implementation collaborator.
 
 ## Save and check a conversation
 
-Sessions now persist in `local/sessions/state.json`, a known save slot rather than
-filesystem discovery. Up to 32 sessions and 1000 turns per session; limits stop further
-operations without evicting saved state. The browser remembers a session ID and
+Desktop sessions persist in `local/sessions/state.json`, a known save slot rather than
+filesystem discovery. Standalone mode persists its virtual save store in IndexedDB;
+it does not write to the host filesystem. Up to 32 sessions and 1000 turns per session;
+limits stop further operations without evicting saved state. The interface remembers a session ID and
 resumes the matching transcript after refresh or server relaunch. **Restart MPLPB**
 explicitly deletes that session. Imported source captures remain. Changing corpus or
 profile clears topic focus while keeping declared notes and historical turns.
 Use **Export transcript** before restart when you want a separate historical copy.
-Browser-storage clearing loses the automatic resume pointer; the saved server slot
-is not implicitly deleted. Save slots are local, unsigned records, not authentication.
+In desktop mode, browser-storage clearing loses the automatic resume pointer but
+does not implicitly delete the server save slot. In standalone mode, clearing
+browser storage can erase the saved sessions and imported sources themselves.
+Off-the-record free chat is ephemeral and has no saved transcript. Save slots are
+local, unsigned records, not authentication.
 
 Mind commands: `remember NOTE`, `memory`, `forget notes`, `forget topic`,
 `summarize it`, `summarize Exact title`, `compare Title A vs Title B`, and `why?`.
@@ -146,7 +154,13 @@ to the saved chain; it does not authenticate an author or certify source truth.
 A forger can recompute an unsigned chain. This is an auditable local record, not a
 signature or independent evidence.
 
-## Verification and walk back
+## Historical verification and walk back
+
+The observations and 256-test count below belong to the original chat delivery.
+They are not current full-suite results or a statement that later browser testing
+has not occurred. See [current browser testing](BROWSER_TESTING_FOR_AGENTS.md),
+[release evidence](RELEASE_EVIDENCE.md), and the [documentation index](README.md)
+for later procedures and dated audits.
 
 A live Simple English Wikipedia search for Dinosaur returned six suggestions.
 A live import captured revision `11003304`, checked slot SHA-1

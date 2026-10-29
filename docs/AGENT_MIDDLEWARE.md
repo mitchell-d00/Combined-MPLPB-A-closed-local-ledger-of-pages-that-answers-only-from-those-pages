@@ -9,7 +9,13 @@ Supply a client/AI with either:
 - Live page: https://mitchell-d00.github.io/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/
 - Repository: https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages
 
-Read the site's machine-readable `/.well-known/mplpb.json`. For GitHub repository links, derive the Pages origin from the owner and repository name, or follow the manifest in the repository. The companion `llms.txt` explains the contract. The `mplpb-public-ledger.json` endpoint publishes **only bundled pages eligible under the external profile**; it is created during deployment, never from saved visitor data.
+Resolve the machine-readable `.well-known/mplpb.json` relative to the full project
+site URL, including its repository path and trailing slash. For this project it
+is not `https://mitchell-d00.github.io/.well-known/mplpb.json`. Follow the manifest
+in the repository if hosting has a custom URL. The companion `llms.txt` explains
+the contract. `mplpb-public-ledger.json`, at the same project base, publishes
+**only bundled pages eligible under the external profile**; the builder generates
+it for deployment, never from saved visitor data.
 
 **Two connection levels:** (1) an HTTP-only client can read the manifest and published eligible-page snapshot; it cannot run the live engine. (2) A browser-capable client opens the app, waits for its embedded WebAssembly runtime, and invokes `window.MPLPB` inside that exact page. That is a real call to the full MPLPB engine. The browser maintains its own source ledger and sessions. Giving a URL never unlocks another browser's private IndexedDB.
 
@@ -37,6 +43,13 @@ if (!result.ok) throw new Error(result.error);
 The full API returns `{ok:true,data}` or a labeled error. A successful method execution is not proof of answer support. The relay's default mode is **strict query**. A supported answer requires `data.kind === 'return'`; `ambiguous`, `not_in_corpus`, `candidate_only` and help are not source-supported answers. Preserve the citation and gate information. This layer does not browse/search on its own.
 
 ## Conversation and optional searches
+
+For **page inspection**, use `window.MPLPB.retrieve(question,{corpus,profile})`.
+Its successful kind is `retrieved`, with `answer_supported:false` and
+`authority:'source_page_retrieval'`. Preserve those labels; the default relay
+continues to use the supported-answer path. The optional Node bridge does not
+expose a dedicated retrieve flag; use page-context JavaScript for that method.
+See [retrieval contracts](PAGE_RETRIEVAL.md).
 
 ```js
 const first = await window.MPLPB.relay('hello',{

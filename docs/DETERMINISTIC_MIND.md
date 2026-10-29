@@ -1,5 +1,10 @@
 # Deterministic mind and browser save slot
 
+Historical delivery report for the branch/revision below. Later standalone
+WebAssembly, source imports, and conversation features are documented in
+[the current documentation index](README.md). Its branch-publication statement,
+263-test result, and SELF-0002 reference describe that delivery only.
+
 Built over main `17896e3`; this branch is not published automatically.
 
 The browser is an actual client of the Python MPLPB reader and gate. It preserves

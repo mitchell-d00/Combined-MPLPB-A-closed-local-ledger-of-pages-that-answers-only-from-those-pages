@@ -60,7 +60,7 @@ claim sentence-level entailment checking for all legacy prose.
 
 The router never turns a declaration or repeated assistant answer into ledger
 evidence. It does not select a truth winner between conflicting pages. The core
-reader and provenance gate are unchanged: lexical ownership selects candidates;
+reader and provenance gate retain separate responsibilities: lexical ownership selects candidates;
 it does not prove that their prose answers the question. Hashes establish byte
 integrity, not factual truth. Authority metadata is an audit contract, not a
 replacement for the existing source gates.
@@ -119,10 +119,16 @@ selection, reload/focus continuity and shared help recognition.
 
 ## Answer support after candidate retrieval
 
-`App.query` now calls `tools.answer_support.supported_answer`. The underlying
+`App.query` calls the compatibility export `tools.answer_support.supported_answer`,
+implemented in `mplpb_answers/support.py`. The underlying
 reader still selects a lexical candidate; a separate finite statement grammar
 must establish a matching affirmative body span before a factual answer returns.
 A failed check removes the answer body and citation, retaining candidate metadata
 for inspection. Conflicting matching statements yield ambiguity. Bare topics in normal Ask refuse; explicit source inspection is `candidate_only`. This gate is not general semantic entailment, and
 specialized summary/relationship paths are not replaced by it. See the 600-case
 ownership report for observed false refusals as well as false returns.
+
+The additional `App.retrieve` / `MPLPB.retrieve` path returns one provenance-gated
+owner as page inspection, always `answer_supported:false`. It does not replace
+the supported-answer path or combine the gate's separate records into an answer.
+See [page retrieval contracts](PAGE_RETRIEVAL.md).
