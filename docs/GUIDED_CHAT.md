@@ -19,13 +19,16 @@ invalid sources. App help also works in Ask without requiring a valid source
 corpus. The answer is labelled interface instructions, not a source answer.
 
 Suggested questions fill the composer and require Send. A topic learning request
-offers topic/search choices; it never silently fetches. Common source phrases
+offers topic/search choices. Choosing an explicit source-search action contacts
+the selected service; ordinary topic requests can also acquire sources when
+automatic Wikipedia lookup is enabled. Common source phrases
 like “Can you summarize this?” map to existing pinned-source operations and record
 the interpreted command in the decision trace. Summaries remain source excerpts.
 
 Help matching recognizes finite aliases and constrained procedural word patterns
 about app use. This is not general semantic understanding. Unknown world questions
-still use the original lexical reader, ambiguity and refusal rules. Interface
+still require the applicable source eligibility and body-support rules;
+lexical ownership alone does not establish an answer. Interface
 lessons are program-authored instructions, not facts acquired from a corpus.
 
 Walk back: revert tutor, UI and App routing together. Preserve saved chats and

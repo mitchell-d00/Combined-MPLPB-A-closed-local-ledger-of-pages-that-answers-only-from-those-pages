@@ -1,5 +1,10 @@
 # Publication and walk back
 
+Historical publication record for the original UI/chat deliveries. Its rollback
+sequence, 256-test result, and unverified-browser statement describe those
+revisions. For current recovery use [ROLLBACK.md](ROLLBACK.md), and test the
+actual target revision with the [release gates](ZIP_FIRST_RELEASE_TESTING.md).
+
 Published base: b3de809de3c2b86168e99d090753c39bd86e71e3.
 The update retains three stages in history:
 

@@ -1,4 +1,4 @@
-> **2026-10-21 audit:** See the [current retest, defects, repairs and evidence status](SYSTEM_AUDIT_2026-10-21.md). Earlier dated results below remain historical; the October 19 SQuAD correction is included in the retest.
+> **Dated evaluation:** The [2026-10-21 retest](SYSTEM_AUDIT_2026-10-21.md) records its tested revisions. Current supported-answer, candidate, gated-page, and source-bundle interfaces are compared in [PAGE_RETRIEVAL.md](PAGE_RETRIEVAL.md); the October 27 reader repair is recorded separately in [root FIXLOG](../FIXLOG.md).
 
 # Architecture and five-minute demonstration
 
