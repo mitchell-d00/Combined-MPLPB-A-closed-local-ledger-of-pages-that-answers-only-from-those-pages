@@ -61,6 +61,12 @@ script, not six browser participants or a synthetic DOM test.
 The normal browser smoke accepts `--npc-report NEW.json`. A report is written only
 after the smoke completes; failed CI logs/artifacts remain investigation evidence.
 All browser state is in disposable contexts. No real user's collections are touched.
+The separate fast PR job also runs `python -m tools.browser_researcher_pilot
+--preview-dir dist --output NEW.json` against an actual built WebAssembly candidate.
+It provides early UI feedback while the full regression/ZIP gates continue.
+The first browser attempt is retained in CI as a harness failure: the test looked
+for the native session key instead of the standalone browser's deliberately
+separate `mplpb-browser-session-id`. The check now selects the correct namespace.
 
 ## Observed baseline and repair
 

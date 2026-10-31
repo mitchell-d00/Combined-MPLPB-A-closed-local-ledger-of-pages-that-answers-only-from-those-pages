@@ -77,7 +77,8 @@ def verify(page):
     page.locator('#chat-send').click()
     expect(page.locator('#chat-send')).to_be_enabled(timeout=60000)
     expect(page.locator('#chat-messages .assistant-message').last).to_contain_text('Saved as your declaration')
-    sid = page.evaluate("localStorage.getItem('mplpb-session-id')")
+    storage_key = page.evaluate("document.getElementById('mplpb-runtime-bundle') ? 'mplpb-browser-session-id' : 'mplpb-session-id'")
+    sid = page.evaluate('(key) => localStorage.getItem(key)', storage_key)
     if not sid:
         raise AssertionError('NPC chat was not saved')
     checked('save_multisentence_investigation_note')
@@ -105,3 +106,41 @@ def verify(page):
             'known_answerable_refusals': 1, 'human_usability_measured': False,
             'product_backup_or_upgrade_tested': False,
             'notice': 'One scripted persona, developer-inspected controls; not six browser users or a human pilot.'}
+
+
+def main():
+    import argparse
+    from pathlib import Path
+    from playwright.sync_api import sync_playwright
+    from tools.browser_release_smoke import preview_server
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('--preview-dir', required=True)
+    parser.add_argument('--output', required=True, type=Path)
+    args = parser.parse_args()
+    if args.output.exists():
+        raise FileExistsError('Choose a new browser pilot report path')
+    with preview_server(args.preview_dir) as url, sync_playwright() as playwright:
+        try:
+            browser = playwright.chromium.launch(channel='chrome', headless=True, args=['--no-sandbox', '--disable-dev-shm-usage'])
+        except Exception:
+            browser = playwright.chromium.launch(headless=True, args=['--no-sandbox', '--disable-dev-shm-usage'])
+        context = browser.new_context()
+        try:
+            page = context.new_page()
+            errors = []
+            page.on('pageerror', lambda exc: errors.append(str(exc)))
+            page.goto(url, wait_until='domcontentloaded', timeout=120000)
+            page.wait_for_function("() => window.MPLPB && !document.querySelector('#workspace').hidden", timeout=150000)
+            report = verify(page)
+            if errors:
+                raise AssertionError('Browser errors: '+str(errors))
+        finally:
+            context.close(); browser.close()
+    args.output.parent.mkdir(parents=True, exist_ok=True)
+    with args.output.open('x', encoding='utf-8') as stream:
+        stream.write(json.dumps(report, indent=2)+'\n')
+    print(json.dumps(report))
+
+
+if __name__ == '__main__':
+    main()
