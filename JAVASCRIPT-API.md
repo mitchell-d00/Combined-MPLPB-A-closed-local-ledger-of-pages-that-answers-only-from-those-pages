@@ -59,7 +59,7 @@ before waiting. There is no cancellation or transaction across multiple calls.
 
 **`ok:true` means the operation completed, not that an answer was supported.**
 Inspect `data.reader.kind`: `return`, `ambiguous`, `not_in_corpus`, or `help`.
-Candidate mode can return `candidate_only`, which is not a supported answer.
+Candidate mode can return `candidate_only`, which is not a supported answer. Explicit native assisted mode can return `model_assisted_answer`, `partial_answer`, `clarify`, `conflict` or `abstain`; its `answer_supported` stays false. Strict queries retain legacy kinds and gain `answer_contract` and `answer_diagnostics`. The hosted standalone runtime has no configured model and disables the assisted form option. [General contract and limitations](docs/GENERAL_ANSWER_PIPELINE.md).
 The full reader decision, citation, gate and provenance fields are returned
 unchanged. A successful chat can contain interface help, local calculations,
 creative suggestions or other labeled non-source responses. Use `query()` when
@@ -75,7 +75,7 @@ bundles have different authority. See [page retrieval contracts](docs/PAGE_RETRI
 | --- | --- |
 | `ready()` / `getState()` | Engine state: corpora, profiles, rules and notice |
 | `listCorpora()` | Array of available corpus keys, labels and counts |
-| `query(question, {corpus, profile?, mode?})` | Full query result; mode defaults to `supported`, or explicitly `candidates` |
+| `query(question, {corpus, profile?, mode?})` | Full query result; mode defaults to `supported`, or explicitly `candidates`; `assisted` requires a configured native local host |
 | `retrieve(question, {corpus, profile?})` | One-owner page retrieval after the provenance gate. `data.kind` is `retrieved`, `ambiguous` or `not_in_corpus`; always `answer_supported:false` — a page to inspect, not an answer |
 | `listPages({corpus, profile?})` | Inventory with page paths, eligibility and reasons |
 | `readPage(path, {corpus, profile?})` | Eligible page text, sealed fields and hash; withheld or invalid paths fail |

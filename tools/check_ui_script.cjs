@@ -36,6 +36,13 @@ async function tick(){for(let i=0;i<20;i++)await Promise.resolve();}
  await checked.run('render('+JSON.stringify(fixtures.supported_query)+')');assert.match(checked.elements.results.innerHTML,/SUPPORTED ANSWER/);assert.equal(fixtures.supported_query.reader.answer_support.status,'supported');
  assert.match(checked.elements.results.innerHTML,/Source evidence supporting the answer above/);
  assert.doesNotMatch(checked.elements.results.innerHTML,/Candidate pages for inspection only/);
+ const assistedFixture={reader:{answer_contract:{mode:'assisted',kind:'partial_answer',diagnostic:{message:'Only the restart step is evidenced.'},clarification:'',missing:['Maintenance date'],claims:[{text:'<img src=x onerror=bad()>',qualifiers:['Keep standby online'],citations:[{quote:'Drain the queue.',source_id:'SRC-1',hash:'sha256:fixture',path:'source.html'}]}]}}};
+ await checked.run('render('+JSON.stringify(assistedFixture)+')');
+ assert.match(checked.elements.results.innerHTML,/PARTIAL MODEL-ASSISTED ANSWER/);
+ assert.match(checked.elements.results.innerHTML,/Unanswered/);
+ assert.match(checked.elements.results.innerHTML,/&lt;img/);
+ assert.doesNotMatch(checked.elements.results.innerHTML,/<img src=x/);
+ assert.doesNotMatch(checked.elements.results.innerHTML,/>SUPPORTED ANSWER</);
  checked.elements['ask-reader-mode'].value='candidates';
  await checked.run('render('+JSON.stringify(fixtures.candidate_query)+')');assert.match(checked.elements.results.innerHTML,/CANDIDATE ONLY/);assert.equal(fixtures.candidate_query.reader.answer_support.status,'candidate_only');
  assert.match(checked.elements.results.innerHTML,/Candidate pages for inspection only/);

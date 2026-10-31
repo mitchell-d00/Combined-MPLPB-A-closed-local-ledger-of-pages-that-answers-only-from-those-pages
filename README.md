@@ -19,18 +19,21 @@ The root `index.html` is the desktop entry point; opening that source file alone
 
 Downloadable packages are attached to successful main-branch **Publish MPLPB browser runtime** Actions runs as `mplpb-monster`. See [package contents and verification](docs/INSTALLATION.md).
 
-## Understand the four source interfaces
+## Understand the answer and source interfaces
 
 | Interface | What a successful result means | Answer authority |
 |---|---|---|
 | Supported answer: `mplpb-combined ask`, `python -m mplpb_answers ask`, `MPLPB.query()` / default `relay()` | Eligible body statements satisfy the bounded question grammar; result `return`. | Source-supported within that finite contract; a hash does not certify truth. |
+| Optional model-assisted query: `ask --answer-mode assisted --reader-model ...` / configured native `query(...,{mode:"assisted"})` | Exact citations and a separate model review passed, or explicit partial/clarify/conflict/abstention output. | Always `answer_supported:false`; model-assessed semantics, not deterministic proof. |
 | Candidate inspection: `mplpb-combined candidates`, legacy `python -m mplpb_combined ask`, `query(...,{mode:'candidates'})` | The lexical reader selected candidate material. | Inspection only; candidate selection does not establish an answer. |
 | Gated page retrieval: Python `mplpb_combined.retrieval.retrieve`, `MPLPB.retrieve()` | Exactly one selected owner also passes the provenance gate; result `retrieved`. | Always `answer_supported:false`. Returns a page to inspect, not a supported answer. |
 | Separate source bundles: CLI `gate` / provenance bench | All eligible lexical matches are retained separately; result `source_bundle`. | Co-occurrence or lexical coverage does not establish the requested relationship. |
 
 `ok:true` in the JavaScript API means the call completed. Inspect decision kinds, authority, support, citations, and exclusions before presenting evidence. Page retrieval does not follow hub pointers or choose a different owner after a gate rejection. [Retrieval contracts and examples](docs/PAGE_RETRIEVAL.md).
 
-The supported CLI distribution is **2.0.0**; the legacy core reports **1.0.0**. These are distinct from the JavaScript API's **1.0.0**, retrieval contract `gated-page-retrieval-v1`, paper versions, and content-derived browser build IDs. Compatibility does not mean legacy source bytes never change: the October 27 retrieval repair changed lexical matching while retaining its separate authority.
+This source candidate is **2.1.0rc1**, following the 2.0.0 bounded-reader release; the legacy core reports **1.0.0**. These are distinct from the JavaScript API's **1.0.0**, retrieval contract `gated-page-retrieval-v1`, paper versions, and content-derived browser build IDs. Compatibility does not mean legacy source bytes never change: the October 27 retrieval repair changed lexical matching while retaining its separate authority.
+
+The [general answer pipeline](docs/GENERAL_ANSWER_PIPELINE.md) adds diagnostic abstentions and an opt-in native local reader. Strict mode remains the default and needs no model. Assisted mode is experimental; live-model quality and fresh cross-domain evaluation are still required before a general-quality shipping claim. See the [capability/release matrix](docs/RELEASE_2_1_RC1.md) and [human-scored evaluation](evaluation/general-reader/README.md).
 
 ## Try the source checkout
 

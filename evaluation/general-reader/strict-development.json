@@ -1,0 +1,517 @@
+{
+  "schema": "mplpb-general-evaluation-run-v1",
+  "suite_sha256": "f0d672d5bd0bd4a93ef2dd193e0be6129914f182319c74bd06a387690f95bee6",
+  "role": "development",
+  "provenance": {
+    "authors": [
+      "Codex development fixtures"
+    ],
+    "independent": false
+  },
+  "reader": {
+    "adapter": "strict",
+    "live_inference": false
+  },
+  "mode": "strict",
+  "threshold": 0.8,
+  "rows": [
+    {
+      "id": "dev-1",
+      "domain": "software",
+      "question": "How can an operator safely restart the worker?",
+      "answerability": "answerable",
+      "answer": {
+        "schema": "answer-contract-v1",
+        "mode": "strict",
+        "question": "How can an operator safely restart the worker?",
+        "kind": "abstain",
+        "answer_supported": false,
+        "text": "",
+        "claims": [],
+        "missing": [],
+        "clarification": "",
+        "confidence": null,
+        "confidence_calibrated": false,
+        "sources": [],
+        "retrieval": {
+          "eligible_pages": 1,
+          "total_passages": 1,
+          "passages": [],
+          "sources": [],
+          "search_complete": false,
+          "corpus_snapshot": "sha256:38523d58f14fabcab61098084fb846c69584412fb06c80fddc0f2f325d520ffc",
+          "ranking": "not_run"
+        },
+        "verification": {
+          "structural": false,
+          "semantic": "not_run",
+          "truth_verified": false,
+          "independence_verified": false
+        },
+        "reader": null,
+        "trace": [],
+        "diagnostic": {
+          "code": "interpretation_unsupported",
+          "stage": "strict",
+          "message": "Eligible passages exist, but the strict reader cannot establish an answer to this question.",
+          "corpus_answerability": "not_established"
+        },
+        "code_sha256": {
+          "__init__.py": "d57d776eaaea962867814b5af3f0ac836fdd0c70ffbde910a801e6240697a095",
+          "__main__.py": "f793ef475c212f719511b9326501c41503f66252008376516db2646fe1485820",
+          "body_text.py": "0c02ba271796c6aafb985f3ef6ea95902086052cf030c471c226d1f6cbd79c44",
+          "evaluate.py": "8c6e4444d661f5a2982338a45673ff594ae4cc4a86d3ec6e0bce6b7f77c90969",
+          "evaluation.py": "4d58e13a85f6edb1443bf156baaa48b1cdf72ce38e5e16a0ce53d195ac395715",
+          "evidence_contract.py": "5fb4226e9407d3432cdbaa518b10af9a5d5dc7bef0036e204848fbda3a3ffbe5",
+          "frames.py": "82c23f7382f862d3b95960b017dda278022ccee1f1bc4e9b339bf7c45ba8dede",
+          "library.py": "7d1613c28f01453270c8a53bf0e3f015bf197dff25b43edc764802e1e1306e5b",
+          "literal_evidence.py": "d4308c1f5e01c3d698ef625991de2182bfeb72ebafa77a410d8e041941c09614",
+          "local_reader.py": "6e7a6702f8296b63dd8a2be292ef620c9e67ed6170770e1222cfee58e23ea815",
+          "passages.py": "fae27b547e0cd848ce8a720914eaede5cd371b7db3144a4a68141889569fe5ec",
+          "pipeline.py": "400ac38c81e00c2e2bf9141a4a878f145daccb25fd79bcc1d41ed3b78346569c",
+          "practical_evidence.py": "c857a46cdfe12f026050edbce5172245d564cdf04d80aed32ebffb91261316d7",
+          "procedures.py": "d66b180651cc35df32a92e33f7df9ae5e031f2fba53ed769c2caddc37fa94523",
+          "support.py": "f4864a00d50fb32cea569034a2b25bedefb92448325f40e0d3b854bd42f86a07"
+        }
+      },
+      "retrieval_recall": null,
+      "elapsed_ms": 5.069
+    },
+    {
+      "id": "dev-2",
+      "domain": "library",
+      "question": "When is a loan eligible for renewal?",
+      "answerability": "answerable",
+      "answer": {
+        "schema": "answer-contract-v1",
+        "mode": "strict",
+        "question": "When is a loan eligible for renewal?",
+        "kind": "abstain",
+        "answer_supported": false,
+        "text": "",
+        "claims": [],
+        "missing": [],
+        "clarification": "",
+        "confidence": null,
+        "confidence_calibrated": false,
+        "sources": [],
+        "retrieval": {
+          "eligible_pages": 1,
+          "total_passages": 1,
+          "passages": [],
+          "sources": [],
+          "search_complete": false,
+          "corpus_snapshot": "sha256:5042552fcdcd2c85d0d12956c5cc0f4ea5a614a87f5fa0b7405e21e1eeda8ee9",
+          "ranking": "not_run"
+        },
+        "verification": {
+          "structural": false,
+          "semantic": "not_run",
+          "truth_verified": false,
+          "independence_verified": false
+        },
+        "reader": null,
+        "trace": [],
+        "diagnostic": {
+          "code": "interpretation_unsupported",
+          "stage": "strict",
+          "message": "Eligible passages exist, but the strict reader cannot establish an answer to this question.",
+          "corpus_answerability": "not_established"
+        },
+        "code_sha256": {
+          "__init__.py": "d57d776eaaea962867814b5af3f0ac836fdd0c70ffbde910a801e6240697a095",
+          "__main__.py": "f793ef475c212f719511b9326501c41503f66252008376516db2646fe1485820",
+          "body_text.py": "0c02ba271796c6aafb985f3ef6ea95902086052cf030c471c226d1f6cbd79c44",
+          "evaluate.py": "8c6e4444d661f5a2982338a45673ff594ae4cc4a86d3ec6e0bce6b7f77c90969",
+          "evaluation.py": "4d58e13a85f6edb1443bf156baaa48b1cdf72ce38e5e16a0ce53d195ac395715",
+          "evidence_contract.py": "5fb4226e9407d3432cdbaa518b10af9a5d5dc7bef0036e204848fbda3a3ffbe5",
+          "frames.py": "82c23f7382f862d3b95960b017dda278022ccee1f1bc4e9b339bf7c45ba8dede",
+          "library.py": "7d1613c28f01453270c8a53bf0e3f015bf197dff25b43edc764802e1e1306e5b",
+          "literal_evidence.py": "d4308c1f5e01c3d698ef625991de2182bfeb72ebafa77a410d8e041941c09614",
+          "local_reader.py": "6e7a6702f8296b63dd8a2be292ef620c9e67ed6170770e1222cfee58e23ea815",
+          "passages.py": "fae27b547e0cd848ce8a720914eaede5cd371b7db3144a4a68141889569fe5ec",
+          "pipeline.py": "400ac38c81e00c2e2bf9141a4a878f145daccb25fd79bcc1d41ed3b78346569c",
+          "practical_evidence.py": "c857a46cdfe12f026050edbce5172245d564cdf04d80aed32ebffb91261316d7",
+          "procedures.py": "d66b180651cc35df32a92e33f7df9ae5e031f2fba53ed769c2caddc37fa94523",
+          "support.py": "f4864a00d50fb32cea569034a2b25bedefb92448325f40e0d3b854bd42f86a07"
+        }
+      },
+      "retrieval_recall": null,
+      "elapsed_ms": 2.601
+    },
+    {
+      "id": "dev-3",
+      "domain": "office",
+      "question": "What approvals and records are required for travel reimbursement?",
+      "answerability": "answerable",
+      "answer": {
+        "schema": "answer-contract-v1",
+        "mode": "strict",
+        "question": "What approvals and records are required for travel reimbursement?",
+        "kind": "abstain",
+        "answer_supported": false,
+        "text": "",
+        "claims": [],
+        "missing": [],
+        "clarification": "",
+        "confidence": null,
+        "confidence_calibrated": false,
+        "sources": [],
+        "retrieval": {
+          "eligible_pages": 1,
+          "total_passages": 1,
+          "passages": [],
+          "sources": [],
+          "search_complete": false,
+          "corpus_snapshot": "sha256:2d73c96ccc40c3ec75bd673d4b2ef9c098e1ed57974875f796ba75d216b3c635",
+          "ranking": "not_run"
+        },
+        "verification": {
+          "structural": false,
+          "semantic": "not_run",
+          "truth_verified": false,
+          "independence_verified": false
+        },
+        "reader": null,
+        "trace": [],
+        "diagnostic": {
+          "code": "interpretation_unsupported",
+          "stage": "strict",
+          "message": "Eligible passages exist, but the strict reader cannot establish an answer to this question.",
+          "corpus_answerability": "not_established"
+        },
+        "code_sha256": {
+          "__init__.py": "d57d776eaaea962867814b5af3f0ac836fdd0c70ffbde910a801e6240697a095",
+          "__main__.py": "f793ef475c212f719511b9326501c41503f66252008376516db2646fe1485820",
+          "body_text.py": "0c02ba271796c6aafb985f3ef6ea95902086052cf030c471c226d1f6cbd79c44",
+          "evaluate.py": "8c6e4444d661f5a2982338a45673ff594ae4cc4a86d3ec6e0bce6b7f77c90969",
+          "evaluation.py": "4d58e13a85f6edb1443bf156baaa48b1cdf72ce38e5e16a0ce53d195ac395715",
+          "evidence_contract.py": "5fb4226e9407d3432cdbaa518b10af9a5d5dc7bef0036e204848fbda3a3ffbe5",
+          "frames.py": "82c23f7382f862d3b95960b017dda278022ccee1f1bc4e9b339bf7c45ba8dede",
+          "library.py": "7d1613c28f01453270c8a53bf0e3f015bf197dff25b43edc764802e1e1306e5b",
+          "literal_evidence.py": "d4308c1f5e01c3d698ef625991de2182bfeb72ebafa77a410d8e041941c09614",
+          "local_reader.py": "6e7a6702f8296b63dd8a2be292ef620c9e67ed6170770e1222cfee58e23ea815",
+          "passages.py": "fae27b547e0cd848ce8a720914eaede5cd371b7db3144a4a68141889569fe5ec",
+          "pipeline.py": "400ac38c81e00c2e2bf9141a4a878f145daccb25fd79bcc1d41ed3b78346569c",
+          "practical_evidence.py": "c857a46cdfe12f026050edbce5172245d564cdf04d80aed32ebffb91261316d7",
+          "procedures.py": "d66b180651cc35df32a92e33f7df9ae5e031f2fba53ed769c2caddc37fa94523",
+          "support.py": "f4864a00d50fb32cea569034a2b25bedefb92448325f40e0d3b854bd42f86a07"
+        }
+      },
+      "retrieval_recall": null,
+      "elapsed_ms": 2.008
+    },
+    {
+      "id": "dev-4",
+      "domain": "image-archive",
+      "question": "How should staff recover a corrupted capture?",
+      "answerability": "answerable",
+      "answer": {
+        "schema": "answer-contract-v1",
+        "mode": "strict",
+        "question": "How should staff recover a corrupted capture?",
+        "kind": "abstain",
+        "answer_supported": false,
+        "text": "",
+        "claims": [],
+        "missing": [],
+        "clarification": "",
+        "confidence": null,
+        "confidence_calibrated": false,
+        "sources": [],
+        "retrieval": {
+          "eligible_pages": 1,
+          "total_passages": 1,
+          "passages": [],
+          "sources": [],
+          "search_complete": false,
+          "corpus_snapshot": "sha256:96b4ff7d060bf9f752dcab1cf0c209b41978a630329f2367ff082355a77b2384",
+          "ranking": "not_run"
+        },
+        "verification": {
+          "structural": false,
+          "semantic": "not_run",
+          "truth_verified": false,
+          "independence_verified": false
+        },
+        "reader": null,
+        "trace": [],
+        "diagnostic": {
+          "code": "interpretation_unsupported",
+          "stage": "strict",
+          "message": "Eligible passages exist, but the strict reader cannot establish an answer to this question.",
+          "corpus_answerability": "not_established"
+        },
+        "code_sha256": {
+          "__init__.py": "d57d776eaaea962867814b5af3f0ac836fdd0c70ffbde910a801e6240697a095",
+          "__main__.py": "f793ef475c212f719511b9326501c41503f66252008376516db2646fe1485820",
+          "body_text.py": "0c02ba271796c6aafb985f3ef6ea95902086052cf030c471c226d1f6cbd79c44",
+          "evaluate.py": "8c6e4444d661f5a2982338a45673ff594ae4cc4a86d3ec6e0bce6b7f77c90969",
+          "evaluation.py": "4d58e13a85f6edb1443bf156baaa48b1cdf72ce38e5e16a0ce53d195ac395715",
+          "evidence_contract.py": "5fb4226e9407d3432cdbaa518b10af9a5d5dc7bef0036e204848fbda3a3ffbe5",
+          "frames.py": "82c23f7382f862d3b95960b017dda278022ccee1f1bc4e9b339bf7c45ba8dede",
+          "library.py": "7d1613c28f01453270c8a53bf0e3f015bf197dff25b43edc764802e1e1306e5b",
+          "literal_evidence.py": "d4308c1f5e01c3d698ef625991de2182bfeb72ebafa77a410d8e041941c09614",
+          "local_reader.py": "6e7a6702f8296b63dd8a2be292ef620c9e67ed6170770e1222cfee58e23ea815",
+          "passages.py": "fae27b547e0cd848ce8a720914eaede5cd371b7db3144a4a68141889569fe5ec",
+          "pipeline.py": "400ac38c81e00c2e2bf9141a4a878f145daccb25fd79bcc1d41ed3b78346569c",
+          "practical_evidence.py": "c857a46cdfe12f026050edbce5172245d564cdf04d80aed32ebffb91261316d7",
+          "procedures.py": "d66b180651cc35df32a92e33f7df9ae5e031f2fba53ed769c2caddc37fa94523",
+          "support.py": "f4864a00d50fb32cea569034a2b25bedefb92448325f40e0d3b854bd42f86a07"
+        }
+      },
+      "retrieval_recall": null,
+      "elapsed_ms": 1.719
+    },
+    {
+      "id": "dev-5",
+      "domain": "equipment",
+      "question": "What must happen before the inspection cover is removed?",
+      "answerability": "answerable",
+      "answer": {
+        "schema": "answer-contract-v1",
+        "mode": "strict",
+        "question": "What must happen before the inspection cover is removed?",
+        "kind": "abstain",
+        "answer_supported": false,
+        "text": "",
+        "claims": [],
+        "missing": [],
+        "clarification": "",
+        "confidence": null,
+        "confidence_calibrated": false,
+        "sources": [],
+        "retrieval": {
+          "eligible_pages": 1,
+          "total_passages": 1,
+          "passages": [],
+          "sources": [],
+          "search_complete": false,
+          "corpus_snapshot": "sha256:5eb250ee0ebdd6fbf849609c2d25cdec978514352be6591ac16e1851f0d7ff9c",
+          "ranking": "not_run"
+        },
+        "verification": {
+          "structural": false,
+          "semantic": "not_run",
+          "truth_verified": false,
+          "independence_verified": false
+        },
+        "reader": null,
+        "trace": [],
+        "diagnostic": {
+          "code": "interpretation_unsupported",
+          "stage": "strict",
+          "message": "Eligible passages exist, but the strict reader cannot establish an answer to this question.",
+          "corpus_answerability": "not_established"
+        },
+        "code_sha256": {
+          "__init__.py": "d57d776eaaea962867814b5af3f0ac836fdd0c70ffbde910a801e6240697a095",
+          "__main__.py": "f793ef475c212f719511b9326501c41503f66252008376516db2646fe1485820",
+          "body_text.py": "0c02ba271796c6aafb985f3ef6ea95902086052cf030c471c226d1f6cbd79c44",
+          "evaluate.py": "8c6e4444d661f5a2982338a45673ff594ae4cc4a86d3ec6e0bce6b7f77c90969",
+          "evaluation.py": "4d58e13a85f6edb1443bf156baaa48b1cdf72ce38e5e16a0ce53d195ac395715",
+          "evidence_contract.py": "5fb4226e9407d3432cdbaa518b10af9a5d5dc7bef0036e204848fbda3a3ffbe5",
+          "frames.py": "82c23f7382f862d3b95960b017dda278022ccee1f1bc4e9b339bf7c45ba8dede",
+          "library.py": "7d1613c28f01453270c8a53bf0e3f015bf197dff25b43edc764802e1e1306e5b",
+          "literal_evidence.py": "d4308c1f5e01c3d698ef625991de2182bfeb72ebafa77a410d8e041941c09614",
+          "local_reader.py": "6e7a6702f8296b63dd8a2be292ef620c9e67ed6170770e1222cfee58e23ea815",
+          "passages.py": "fae27b547e0cd848ce8a720914eaede5cd371b7db3144a4a68141889569fe5ec",
+          "pipeline.py": "400ac38c81e00c2e2bf9141a4a878f145daccb25fd79bcc1d41ed3b78346569c",
+          "practical_evidence.py": "c857a46cdfe12f026050edbce5172245d564cdf04d80aed32ebffb91261316d7",
+          "procedures.py": "d66b180651cc35df32a92e33f7df9ae5e031f2fba53ed769c2caddc37fa94523",
+          "support.py": "f4864a00d50fb32cea569034a2b25bedefb92448325f40e0d3b854bd42f86a07"
+        }
+      },
+      "retrieval_recall": null,
+      "elapsed_ms": 1.694
+    },
+    {
+      "id": "dev-6",
+      "domain": "software",
+      "question": "How does overflow handling work?",
+      "answerability": "answerable",
+      "answer": {
+        "schema": "answer-contract-v1",
+        "mode": "strict",
+        "question": "How does overflow handling work?",
+        "kind": "abstain",
+        "answer_supported": false,
+        "text": "",
+        "claims": [],
+        "missing": [],
+        "clarification": "",
+        "confidence": null,
+        "confidence_calibrated": false,
+        "sources": [],
+        "retrieval": {
+          "eligible_pages": 1,
+          "total_passages": 1,
+          "passages": [],
+          "sources": [],
+          "search_complete": false,
+          "corpus_snapshot": "sha256:f16108efa71dc1495d6124df9763a277562c76f7a007b5ef13bbbe4d3617c41a",
+          "ranking": "not_run"
+        },
+        "verification": {
+          "structural": false,
+          "semantic": "not_run",
+          "truth_verified": false,
+          "independence_verified": false
+        },
+        "reader": null,
+        "trace": [],
+        "diagnostic": {
+          "code": "interpretation_unsupported",
+          "stage": "strict",
+          "message": "Eligible passages exist, but the strict reader cannot establish an answer to this question.",
+          "corpus_answerability": "not_established"
+        },
+        "code_sha256": {
+          "__init__.py": "d57d776eaaea962867814b5af3f0ac836fdd0c70ffbde910a801e6240697a095",
+          "__main__.py": "f793ef475c212f719511b9326501c41503f66252008376516db2646fe1485820",
+          "body_text.py": "0c02ba271796c6aafb985f3ef6ea95902086052cf030c471c226d1f6cbd79c44",
+          "evaluate.py": "8c6e4444d661f5a2982338a45673ff594ae4cc4a86d3ec6e0bce6b7f77c90969",
+          "evaluation.py": "4d58e13a85f6edb1443bf156baaa48b1cdf72ce38e5e16a0ce53d195ac395715",
+          "evidence_contract.py": "5fb4226e9407d3432cdbaa518b10af9a5d5dc7bef0036e204848fbda3a3ffbe5",
+          "frames.py": "82c23f7382f862d3b95960b017dda278022ccee1f1bc4e9b339bf7c45ba8dede",
+          "library.py": "7d1613c28f01453270c8a53bf0e3f015bf197dff25b43edc764802e1e1306e5b",
+          "literal_evidence.py": "d4308c1f5e01c3d698ef625991de2182bfeb72ebafa77a410d8e041941c09614",
+          "local_reader.py": "6e7a6702f8296b63dd8a2be292ef620c9e67ed6170770e1222cfee58e23ea815",
+          "passages.py": "fae27b547e0cd848ce8a720914eaede5cd371b7db3144a4a68141889569fe5ec",
+          "pipeline.py": "400ac38c81e00c2e2bf9141a4a878f145daccb25fd79bcc1d41ed3b78346569c",
+          "practical_evidence.py": "c857a46cdfe12f026050edbce5172245d564cdf04d80aed32ebffb91261316d7",
+          "procedures.py": "d66b180651cc35df32a92e33f7df9ae5e031f2fba53ed769c2caddc37fa94523",
+          "support.py": "f4864a00d50fb32cea569034a2b25bedefb92448325f40e0d3b854bd42f86a07"
+        }
+      },
+      "retrieval_recall": null,
+      "elapsed_ms": 1.781
+    },
+    {
+      "id": "dev-absent",
+      "domain": "office",
+      "question": "Who approved the March budget?",
+      "answerability": "unanswerable",
+      "answer": {
+        "schema": "answer-contract-v1",
+        "mode": "strict",
+        "question": "Who approved the March budget?",
+        "kind": "abstain",
+        "answer_supported": false,
+        "text": "",
+        "claims": [],
+        "missing": [],
+        "clarification": "",
+        "confidence": null,
+        "confidence_calibrated": false,
+        "sources": [],
+        "retrieval": {
+          "eligible_pages": 1,
+          "total_passages": 1,
+          "passages": [],
+          "sources": [],
+          "search_complete": false,
+          "corpus_snapshot": "sha256:da3566fe270ac5b1d5704679370129a8ea4a04b944da712e71c5d5216888f7b2",
+          "ranking": "not_run"
+        },
+        "verification": {
+          "structural": false,
+          "semantic": "not_run",
+          "truth_verified": false,
+          "independence_verified": false
+        },
+        "reader": null,
+        "trace": [],
+        "diagnostic": {
+          "code": "interpretation_unsupported",
+          "stage": "strict",
+          "message": "Eligible passages exist, but the strict reader cannot establish an answer to this question.",
+          "corpus_answerability": "not_established"
+        },
+        "code_sha256": {
+          "__init__.py": "d57d776eaaea962867814b5af3f0ac836fdd0c70ffbde910a801e6240697a095",
+          "__main__.py": "f793ef475c212f719511b9326501c41503f66252008376516db2646fe1485820",
+          "body_text.py": "0c02ba271796c6aafb985f3ef6ea95902086052cf030c471c226d1f6cbd79c44",
+          "evaluate.py": "8c6e4444d661f5a2982338a45673ff594ae4cc4a86d3ec6e0bce6b7f77c90969",
+          "evaluation.py": "4d58e13a85f6edb1443bf156baaa48b1cdf72ce38e5e16a0ce53d195ac395715",
+          "evidence_contract.py": "5fb4226e9407d3432cdbaa518b10af9a5d5dc7bef0036e204848fbda3a3ffbe5",
+          "frames.py": "82c23f7382f862d3b95960b017dda278022ccee1f1bc4e9b339bf7c45ba8dede",
+          "library.py": "7d1613c28f01453270c8a53bf0e3f015bf197dff25b43edc764802e1e1306e5b",
+          "literal_evidence.py": "d4308c1f5e01c3d698ef625991de2182bfeb72ebafa77a410d8e041941c09614",
+          "local_reader.py": "6e7a6702f8296b63dd8a2be292ef620c9e67ed6170770e1222cfee58e23ea815",
+          "passages.py": "fae27b547e0cd848ce8a720914eaede5cd371b7db3144a4a68141889569fe5ec",
+          "pipeline.py": "400ac38c81e00c2e2bf9141a4a878f145daccb25fd79bcc1d41ed3b78346569c",
+          "practical_evidence.py": "c857a46cdfe12f026050edbce5172245d564cdf04d80aed32ebffb91261316d7",
+          "procedures.py": "d66b180651cc35df32a92e33f7df9ae5e031f2fba53ed769c2caddc37fa94523",
+          "support.py": "f4864a00d50fb32cea569034a2b25bedefb92448325f40e0d3b854bd42f86a07"
+        }
+      },
+      "retrieval_recall": null,
+      "elapsed_ms": 1.899
+    },
+    {
+      "id": "dev-conflict",
+      "domain": "software",
+      "question": "What is the Aster service port?",
+      "answerability": "ambiguous",
+      "answer": {
+        "schema": "answer-contract-v1",
+        "mode": "strict",
+        "question": "What is the Aster service port?",
+        "kind": "conflict",
+        "answer_supported": false,
+        "text": "",
+        "claims": [],
+        "missing": [],
+        "clarification": "",
+        "confidence": null,
+        "confidence_calibrated": false,
+        "sources": [],
+        "retrieval": {},
+        "verification": {
+          "structural": false,
+          "semantic": "not_run",
+          "truth_verified": false,
+          "independence_verified": false
+        },
+        "reader": null,
+        "trace": [],
+        "diagnostic": {
+          "code": "conflicting_or_multiple_owners",
+          "stage": "strict",
+          "message": "Multiple eligible supporting pages or conflicting statements; no winner chosen.",
+          "corpus_answerability": "not_established"
+        },
+        "code_sha256": {
+          "__init__.py": "d57d776eaaea962867814b5af3f0ac836fdd0c70ffbde910a801e6240697a095",
+          "__main__.py": "f793ef475c212f719511b9326501c41503f66252008376516db2646fe1485820",
+          "body_text.py": "0c02ba271796c6aafb985f3ef6ea95902086052cf030c471c226d1f6cbd79c44",
+          "evaluate.py": "8c6e4444d661f5a2982338a45673ff594ae4cc4a86d3ec6e0bce6b7f77c90969",
+          "evaluation.py": "4d58e13a85f6edb1443bf156baaa48b1cdf72ce38e5e16a0ce53d195ac395715",
+          "evidence_contract.py": "5fb4226e9407d3432cdbaa518b10af9a5d5dc7bef0036e204848fbda3a3ffbe5",
+          "frames.py": "82c23f7382f862d3b95960b017dda278022ccee1f1bc4e9b339bf7c45ba8dede",
+          "library.py": "7d1613c28f01453270c8a53bf0e3f015bf197dff25b43edc764802e1e1306e5b",
+          "literal_evidence.py": "d4308c1f5e01c3d698ef625991de2182bfeb72ebafa77a410d8e041941c09614",
+          "local_reader.py": "6e7a6702f8296b63dd8a2be292ef620c9e67ed6170770e1222cfee58e23ea815",
+          "passages.py": "fae27b547e0cd848ce8a720914eaede5cd371b7db3144a4a68141889569fe5ec",
+          "pipeline.py": "400ac38c81e00c2e2bf9141a4a878f145daccb25fd79bcc1d41ed3b78346569c",
+          "practical_evidence.py": "c857a46cdfe12f026050edbce5172245d564cdf04d80aed32ebffb91261316d7",
+          "procedures.py": "d66b180651cc35df32a92e33f7df9ae5e031f2fba53ed769c2caddc37fa94523",
+          "support.py": "f4864a00d50fb32cea569034a2b25bedefb92448325f40e0d3b854bd42f86a07"
+        }
+      },
+      "retrieval_recall": null,
+      "elapsed_ms": 3.984
+    }
+  ],
+  "release_policy": {
+    "min_reviewed_returns": 200,
+    "min_domains": 3,
+    "min_complete_answerable_coverage": 0.6,
+    "max_error_upper95": 0.02
+  },
+  "release_policy_sha256": "sha256:adfce0f8c098f473dc925e95a7272de775bca87aede94dbea8529e2b08e82785",
+  "calibration_run_sha256": null,
+  "independence_verified": false,
+  "run_sha256": "sha256:b0e116954cfc86c44f71cbdb532073ea26dc92b7fd98d0de7f3369cf1d8db997"
+}

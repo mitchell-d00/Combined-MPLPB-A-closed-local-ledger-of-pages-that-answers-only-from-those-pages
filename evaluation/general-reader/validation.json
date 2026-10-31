@@ -1,0 +1,84 @@
+{
+  "version": "2.1.0rc1",
+  "date": "2026-10-31",
+  "code_sha256": {
+    "__init__.py": "d57d776eaaea962867814b5af3f0ac836fdd0c70ffbde910a801e6240697a095",
+    "__main__.py": "f793ef475c212f719511b9326501c41503f66252008376516db2646fe1485820",
+    "body_text.py": "0c02ba271796c6aafb985f3ef6ea95902086052cf030c471c226d1f6cbd79c44",
+    "evaluate.py": "8c6e4444d661f5a2982338a45673ff594ae4cc4a86d3ec6e0bce6b7f77c90969",
+    "evaluation.py": "4d58e13a85f6edb1443bf156baaa48b1cdf72ce38e5e16a0ce53d195ac395715",
+    "evidence_contract.py": "5fb4226e9407d3432cdbaa518b10af9a5d5dc7bef0036e204848fbda3a3ffbe5",
+    "frames.py": "82c23f7382f862d3b95960b017dda278022ccee1f1bc4e9b339bf7c45ba8dede",
+    "library.py": "7d1613c28f01453270c8a53bf0e3f015bf197dff25b43edc764802e1e1306e5b",
+    "literal_evidence.py": "d4308c1f5e01c3d698ef625991de2182bfeb72ebafa77a410d8e041941c09614",
+    "local_reader.py": "6e7a6702f8296b63dd8a2be292ef620c9e67ed6170770e1222cfee58e23ea815",
+    "passages.py": "fae27b547e0cd848ce8a720914eaede5cd371b7db3144a4a68141889569fe5ec",
+    "pipeline.py": "400ac38c81e00c2e2bf9141a4a878f145daccb25fd79bcc1d41ed3b78346569c",
+    "practical_evidence.py": "c857a46cdfe12f026050edbce5172245d564cdf04d80aed32ebffb91261316d7",
+    "procedures.py": "d66b180651cc35df32a92e33f7df9ae5e031f2fba53ed769c2caddc37fa94523",
+    "support.py": "f4864a00d50fb32cea569034a2b25bedefb92448325f40e0d3b854bd42f86a07"
+  },
+  "integration_sha256": {
+    "index.html": "1c540531acfe46f17b3a1412ec284ee035ff6e0c58fbfcb92b7229965cd41493",
+    "tools/ledger_ui.py": "27d7ff3171691e4c63c521cd6fdfb24500149c96b488eb2c42a4bb865f9924e4",
+    "tests/javascript-api.cjs": "9bd25170b05bb8d27e422fa09bfad7c3ef059367f266a2966311fc5f6996fd76",
+    "tools/check_ui_script.cjs": "072615f2717557cdb2be185240fe94360b07d3d105a09d325790979c15e51244",
+    "pyproject.toml": "417053429d0b128fb036fbd3c80466ba3f9580ed48691588f0688a6ab74cfbe3"
+  },
+  "python_regression": {
+    "tests": 755,
+    "seconds": 260.409,
+    "result": "pass"
+  },
+  "focused_general_and_compatibility": {
+    "tests": 62,
+    "result": "pass"
+  },
+  "ui_script": "pass including assisted label, partial-answer display and HTML escaping",
+  "browser_transport": "pass",
+  "javascript_api": "pass including opt-in assisted-unavailable contract",
+  "fixture_crawler": "pass",
+  "configured_native_and_shared_bridge": "identical model-assessed payload; answer_supported false",
+  "local_reader_protocol": "loopback HTTP registry/chat and end-to-end fixtures pass; no actual model inference",
+  "installed_wheel": {
+    "sha256": "467ca5663812d618cd0ad23214d0a2f1a91a1d5a38b86ed3b36e6050f3699bea",
+    "module_byte_parity": "pass",
+    "outside_checkout": "CLI, general proposal/review/offset contract, packaged evaluator and blocked scoring pass"
+  },
+  "strict_pottery_retest": {
+    "probes": {
+      "supported_answers": [
+        "od08",
+        "op01",
+        "op03"
+      ],
+      "answerable": 32,
+      "wrong_returns": []
+    },
+    "probes_heldout": {
+      "supported_answers": [
+        "h09",
+        "h12"
+      ],
+      "answerable": 19,
+      "wrong_returns": []
+    },
+    "probes_adjacent": {
+      "supported_answers": [
+        "c04"
+      ],
+      "answerable": 8,
+      "wrong_returns": []
+    }
+  },
+  "live_model_quality": "not evaluated; no installed inference runtime or weights",
+  "general_quality_release": "blocked; development fixtures cannot certify accuracy",
+  "frozen_legacy_core_questions_source_pages_papers_and_specialist_store": "unchanged",
+  "exact_head_webassembly_and_chromium": "pending CI",
+  "latest_general_contract_tests": {
+    "tests": 39,
+    "seconds": 3.8,
+    "result": "pass",
+    "scope": "after final defaults and revoked-source diagnostic cleanup"
+  }
+}
