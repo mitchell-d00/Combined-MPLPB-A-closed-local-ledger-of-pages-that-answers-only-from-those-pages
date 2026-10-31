@@ -52,6 +52,7 @@ def verify(page, url):
     page.reload(wait_until='domcontentloaded')
     page.wait_for_function("() => window.MPLPB && !document.querySelector('#workspace').hidden", timeout=150000)
     page.locator('#corpus').select_option(key)
+    page.locator('#profile').select_option('internal')
     page.locator('[data-view="ask"]').first.click()
     page.locator('#question').fill('What does study registration require?')
     page.locator('#ask-button').click()
@@ -66,7 +67,7 @@ def verify(page, url):
     call('importSource', dict(source, text=updated))
     answer = call('query', 'What is required for study registration?', {'corpus': key})['reader']
     assert answer['text'] == updated and answer['hash'] != first['hash']
-    stale = page.evaluate('async ([p,k]) => await MPLPB.readPage(p,{corpus:k})', [first['path'], key])
+    stale = page.evaluate('async ([p,k]) => await MPLPB.readPage(p,{corpus:k,profile:"internal"})', [first['path'], key])
     assert not stale['ok']
     checks.append('revision_changes_answer_and_invalidates_old_citation')
     chat = call('chat', 'remember Check the waiver. Preserve earlier policy versions.', {'corpus': key})

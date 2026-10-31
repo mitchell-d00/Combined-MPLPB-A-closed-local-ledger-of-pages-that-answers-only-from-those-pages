@@ -2,7 +2,10 @@
 
 Baseline: `f425a0583e8a69ef17b86009ed40206871808416`.
 Tested implementation: `31b2426ef23906a9dea60ed6356e950534057731`.
-This work is local and has not been published or deployed.
+These results were recorded locally before publication.
+[publication-map.json](publication-map.json) maps the tested local commits to
+content-identical published Git trees; original report pins remain unchanged.
+Publication is separate from deployment and postdeployment verification.
 
 Both input files and acceptance thresholds were frozen before implementation.
 The separate evaluation was first executed after the implementation commit was
@@ -77,7 +80,9 @@ match the source bytes.
 Chromium 143.0.7499.0 was obtained as a test-only dependency and reported its
 version, but terminated with SIGTRAP during launch in this environment. There is
 no new actual-browser, visual, live-source-network or human usability pass.
-The executable browser reproduction script is supplied for an environment where
+These are local build-time observations. The policy-specific Chromium check now
+runs in both PR and extracted-ZIP CI; consult the exact-head Actions results for
+later browser verification. The executable browser reproduction script is supplied for an environment where
 Chromium can run. It needs Playwright and an installed browser; use
 `--browser-executable /path/to/chrome` when using a system browser.
 

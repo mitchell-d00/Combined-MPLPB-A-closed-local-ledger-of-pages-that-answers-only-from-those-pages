@@ -92,6 +92,9 @@ jobs:
             --live-url "https://mitchell-d00.github.io/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/" \
             --preview-dir dist \
             --npc-report "$RUNNER_TEMP/mplpb-zipped/npc-pilot/browser.json"
+          python -m tools.browser_collection_policies --preview-dir dist \
+            --browser-executable "$(command -v google-chrome)" \
+            --output "$RUNNER_TEMP/mplpb-zipped/npc-pilot/collection-policies.json"
       - name: Audit ZIP-built persistence, offline API and responsive layouts
         run: |
           cd "$RUNNER_TEMP/mplpb-unpacked"

@@ -142,7 +142,9 @@ citations, saved-state reopening, conflicts, withholding and fixture acquisition
 It is not a DOM/IndexedDB browser test. The Chromium script separately checks
 visible answers, citation clicks, revision, reload, offline queries and denied/
 permitted acquisition against an HTTP fixture. The current environment's Chromium
-launch failed; that script is provided but no new real-browser pass is claimed.
+launch failed; no local real-browser pass is claimed. The policy-specific check
+also runs in PR and extracted-ZIP CI; consult the exact-head Actions result for
+subsequent browser verification.
 Wikipedia fixture networking is not live Wikipedia verification.
 
 Independent collection builders, their own questions, semantic grading and human
