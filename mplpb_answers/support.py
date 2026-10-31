@@ -103,6 +103,13 @@ def supported_answer(root, question, profile=None):
     # return directly evidenced sentences from eligible pages, never metadata.
     from . import literal_evidence as LE
     literal = LE.parse(question)
+    practical = False
+    if literal is None:
+        from . import practical_evidence as PE
+        literal = PE.parse(question)
+        if literal is not None:
+            LE = PE
+            practical = True
     if literal:
         selected = answer(root, question, profile)
         out = SupportedAnswer(**selected.__dict__)
@@ -116,7 +123,7 @@ def supported_answer(root, question, profile=None):
             out.kind = AMBIGUOUS if selected.kind == AMBIGUOUS else NOT_IN_CORPUS
             out.reason = 'Literal extraction requires a directly resolved corpus.'
             return out
-        bundle = gather(out.root, ' '.join((literal.entity, literal.other)).strip(), out.profile)
+        bundle = gather(out.root, question if practical else ' '.join((literal.entity, literal.other)).strip(), out.profile)
         # The sealed lexical gate may list a record rejected by current
         # ledger status/lineage checks. Intersect; never trust or index it blindly.
         by_path = {r.path: r for r in ledger.servable()}
