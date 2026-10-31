@@ -1,0 +1,1980 @@
+{
+  "schema": "mplpb-user-collection-report-v1",
+  "suite_sha256": "c031748d274247556cfceaa388dd318dbae5d329330402ab4fd30a471017fd00",
+  "role": "evaluation",
+  "authorship": "Developer-authored synthetic tasks; no independent participants or human validation",
+  "independence_verified": false,
+  "human_usability_measured": false,
+  "acceptance": {
+    "max_wrong_returns": 0,
+    "min_answerable_coverage": 0.75,
+    "citation_completeness": 1.0,
+    "all_workflow_checks": true
+  },
+  "acceptance_sha256": "sha256:86373808f26c2f29995d1481169d81f617f25138b65080e5c8ae4ab498b3f48d",
+  "acceptance_passed": false,
+  "baseline_revision": "f425a0583e8a69ef17b86009ed40206871808416",
+  "reader_code_sha256": {
+    "__init__.py": "d57d776eaaea962867814b5af3f0ac836fdd0c70ffbde910a801e6240697a095",
+    "__main__.py": "f793ef475c212f719511b9326501c41503f66252008376516db2646fe1485820",
+    "body_text.py": "0c02ba271796c6aafb985f3ef6ea95902086052cf030c471c226d1f6cbd79c44",
+    "evaluate.py": "8c6e4444d661f5a2982338a45673ff594ae4cc4a86d3ec6e0bce6b7f77c90969",
+    "evaluation.py": "4d58e13a85f6edb1443bf156baaa48b1cdf72ce38e5e16a0ce53d195ac395715",
+    "evidence_contract.py": "5fb4226e9407d3432cdbaa518b10af9a5d5dc7bef0036e204848fbda3a3ffbe5",
+    "frames.py": "82c23f7382f862d3b95960b017dda278022ccee1f1bc4e9b339bf7c45ba8dede",
+    "library.py": "7d1613c28f01453270c8a53bf0e3f015bf197dff25b43edc764802e1e1306e5b",
+    "literal_evidence.py": "d4308c1f5e01c3d698ef625991de2182bfeb72ebafa77a410d8e041941c09614",
+    "local_reader.py": "6e7a6702f8296b63dd8a2be292ef620c9e67ed6170770e1222cfee58e23ea815",
+    "passages.py": "fae27b547e0cd848ce8a720914eaede5cd371b7db3144a4a68141889569fe5ec",
+    "pipeline.py": "400ac38c81e00c2e2bf9141a4a878f145daccb25fd79bcc1d41ed3b78346569c",
+    "practical_evidence.py": "c857a46cdfe12f026050edbce5172245d564cdf04d80aed32ebffb91261316d7",
+    "procedures.py": "d66b180651cc35df32a92e33f7df9ae5e031f2fba53ed769c2caddc37fa94523",
+    "support.py": "f4864a00d50fb32cea569034a2b25bedefb92448325f40e0d3b854bd42f86a07"
+  },
+  "runner_sha256": "668bccb39ea7bf7800daef3e6dce97f74ebd063d677e96aa240737e2088cae64",
+  "application_sha256": {
+    "tools/ledger_ui.py": "27d7ff3171691e4c63c521cd6fdfb24500149c96b488eb2c42a4bb865f9924e4",
+    "tools/exploration_store.py": "4e1c638256f6526235aebb704fe2b8a6df88a2dae78ab0fd690dcd66035a7b74"
+  },
+  "metrics": {
+    "questions": 16,
+    "answerable": 12,
+    "returned": 4,
+    "correct_literal_returns": 4,
+    "wrong_returns": 0,
+    "return_precision": 1.0,
+    "answerable_coverage": 0.3333333333333333,
+    "unnecessary_refusals": 8,
+    "ambiguities_or_conflicts": 0,
+    "retrieval_misses": 0,
+    "citation_accuracy_and_completeness": 1.0,
+    "completed_journeys": 0,
+    "journeys": 4,
+    "failed_workflow_checks": 8,
+    "query_latency_ms": 135.032,
+    "retrieval_chars": 10236,
+    "source_network_requests": 0,
+    "model_calls": 0,
+    "failure_classes": {
+      "missing_answer_in_frozen_sources": 4,
+      "none": 4,
+      "unresolved_evidence": 1,
+      "unsupported_wording": 7
+    },
+    "injected_capture_errors_rejected": 4
+  },
+  "rows": [
+    {
+      "case": "samples",
+      "id": "description",
+      "question": "What is Sample transfer?",
+      "answerable": true,
+      "answer": {
+        "schema": "answer-contract-v1",
+        "mode": "strict",
+        "question": "What is Sample transfer?",
+        "kind": "supported_answer",
+        "answer_supported": true,
+        "text": "Sample transfer is a laboratory policy.",
+        "claims": [
+          {
+            "text": "Sample transfer is a laboratory policy.",
+            "qualifiers": [],
+            "citations": [
+              {
+                "passage": "sha256:7b1ad24f7e151e56a390310097e67202ed98f35cde8868e7f6f826a89ab8b2e8",
+                "start": 0,
+                "end": 39,
+                "quote": "Sample transfer is a laboratory policy.",
+                "source_id": "WEB-b3c4d17657363b2e-0001",
+                "path": "web-b3c4d17657363b2e-0001.html",
+                "hash": "sha256:3c6a370259387aba33722583dab6c2c7739c9de42f4d1f40df072958b54f9807",
+                "body_start": 0,
+                "body_end": 39
+              }
+            ]
+          }
+        ],
+        "missing": [],
+        "clarification": "",
+        "confidence": null,
+        "confidence_calibrated": false,
+        "sources": [
+          {
+            "id": "WEB-b3c4d17657363b2e-0001",
+            "path": "web-b3c4d17657363b2e-0001.html",
+            "hash": "sha256:3c6a370259387aba33722583dab6c2c7739c9de42f4d1f40df072958b54f9807"
+          }
+        ],
+        "retrieval": {},
+        "verification": {
+          "structural": true,
+          "semantic": "bounded_deterministic_grammar",
+          "truth_verified": false,
+          "independence_verified": false
+        },
+        "reader": null,
+        "trace": [],
+        "diagnostic": {
+          "code": "supported",
+          "stage": "strict",
+          "message": "Explicit source statements satisfy the existing bounded grammar.",
+          "corpus_answerability": "not_established"
+        },
+        "code_sha256": {
+          "__init__.py": "d57d776eaaea962867814b5af3f0ac836fdd0c70ffbde910a801e6240697a095",
+          "__main__.py": "f793ef475c212f719511b9326501c41503f66252008376516db2646fe1485820",
+          "body_text.py": "0c02ba271796c6aafb985f3ef6ea95902086052cf030c471c226d1f6cbd79c44",
+          "evaluate.py": "8c6e4444d661f5a2982338a45673ff594ae4cc4a86d3ec6e0bce6b7f77c90969",
+          "evaluation.py": "4d58e13a85f6edb1443bf156baaa48b1cdf72ce38e5e16a0ce53d195ac395715",
+          "evidence_contract.py": "5fb4226e9407d3432cdbaa518b10af9a5d5dc7bef0036e204848fbda3a3ffbe5",
+          "frames.py": "82c23f7382f862d3b95960b017dda278022ccee1f1bc4e9b339bf7c45ba8dede",
+          "library.py": "7d1613c28f01453270c8a53bf0e3f015bf197dff25b43edc764802e1e1306e5b",
+          "literal_evidence.py": "d4308c1f5e01c3d698ef625991de2182bfeb72ebafa77a410d8e041941c09614",
+          "local_reader.py": "6e7a6702f8296b63dd8a2be292ef620c9e67ed6170770e1222cfee58e23ea815",
+          "passages.py": "fae27b547e0cd848ce8a720914eaede5cd371b7db3144a4a68141889569fe5ec",
+          "pipeline.py": "400ac38c81e00c2e2bf9141a4a878f145daccb25fd79bcc1d41ed3b78346569c",
+          "practical_evidence.py": "c857a46cdfe12f026050edbce5172245d564cdf04d80aed32ebffb91261316d7",
+          "procedures.py": "d66b180651cc35df32a92e33f7df9ae5e031f2fba53ed769c2caddc37fa94523",
+          "support.py": "f4864a00d50fb32cea569034a2b25bedefb92448325f40e0d3b854bd42f86a07"
+        }
+      },
+      "returned": true,
+      "correct_literal_return": true,
+      "wrong_return": false,
+      "unnecessary_refusal": false,
+      "gold_retrieved": true,
+      "citation": {
+        "citations": 1,
+        "valid": 1,
+        "complete": true,
+        "inspection": "native source service; actual browser clicks measured separately"
+      },
+      "latency_ms": 12.711,
+      "retrieval_chars": 647,
+      "failure_class": "none"
+    },
+    {
+      "case": "samples",
+      "id": "policy",
+      "question": "What requirements apply to sample transfer?",
+      "answerable": true,
+      "answer": {
+        "schema": "answer-contract-v1",
+        "mode": "strict",
+        "question": "What requirements apply to sample transfer?",
+        "kind": "abstain",
+        "answer_supported": false,
+        "text": "",
+        "claims": [],
+        "missing": [],
+        "clarification": "",
+        "confidence": null,
+        "confidence_calibrated": false,
+        "sources": [],
+        "retrieval": {
+          "eligible_pages": 1,
+          "total_passages": 3,
+          "passages": [],
+          "sources": [],
+          "search_complete": false,
+          "corpus_snapshot": "sha256:646b2993889e8f3b9471dbbef8513e9a6d5ac7bf41e5e38d2892b4b62eae126b",
+          "ranking": "not_run"
+        },
+        "verification": {
+          "structural": false,
+          "semantic": "not_run",
+          "truth_verified": false,
+          "independence_verified": false
+        },
+        "reader": null,
+        "trace": [],
+        "diagnostic": {
+          "code": "interpretation_unsupported",
+          "stage": "strict",
+          "message": "Eligible passages exist, but the strict reader cannot establish an answer to this question.",
+          "corpus_answerability": "not_established"
+        },
+        "code_sha256": {
+          "__init__.py": "d57d776eaaea962867814b5af3f0ac836fdd0c70ffbde910a801e6240697a095",
+          "__main__.py": "f793ef475c212f719511b9326501c41503f66252008376516db2646fe1485820",
+          "body_text.py": "0c02ba271796c6aafb985f3ef6ea95902086052cf030c471c226d1f6cbd79c44",
+          "evaluate.py": "8c6e4444d661f5a2982338a45673ff594ae4cc4a86d3ec6e0bce6b7f77c90969",
+          "evaluation.py": "4d58e13a85f6edb1443bf156baaa48b1cdf72ce38e5e16a0ce53d195ac395715",
+          "evidence_contract.py": "5fb4226e9407d3432cdbaa518b10af9a5d5dc7bef0036e204848fbda3a3ffbe5",
+          "frames.py": "82c23f7382f862d3b95960b017dda278022ccee1f1bc4e9b339bf7c45ba8dede",
+          "library.py": "7d1613c28f01453270c8a53bf0e3f015bf197dff25b43edc764802e1e1306e5b",
+          "literal_evidence.py": "d4308c1f5e01c3d698ef625991de2182bfeb72ebafa77a410d8e041941c09614",
+          "local_reader.py": "6e7a6702f8296b63dd8a2be292ef620c9e67ed6170770e1222cfee58e23ea815",
+          "passages.py": "fae27b547e0cd848ce8a720914eaede5cd371b7db3144a4a68141889569fe5ec",
+          "pipeline.py": "400ac38c81e00c2e2bf9141a4a878f145daccb25fd79bcc1d41ed3b78346569c",
+          "practical_evidence.py": "c857a46cdfe12f026050edbce5172245d564cdf04d80aed32ebffb91261316d7",
+          "procedures.py": "d66b180651cc35df32a92e33f7df9ae5e031f2fba53ed769c2caddc37fa94523",
+          "support.py": "f4864a00d50fb32cea569034a2b25bedefb92448325f40e0d3b854bd42f86a07"
+        }
+      },
+      "returned": false,
+      "correct_literal_return": false,
+      "wrong_return": false,
+      "unnecessary_refusal": true,
+      "gold_retrieved": true,
+      "citation": {
+        "citations": 0,
+        "valid": 0,
+        "complete": false,
+        "inspection": "native source service; actual browser clicks measured separately"
+      },
+      "latency_ms": 5.992,
+      "retrieval_chars": 647,
+      "failure_class": "unsupported_wording"
+    },
+    {
+      "case": "samples",
+      "id": "wording",
+      "question": "What does sample transfer require?",
+      "answerable": true,
+      "answer": {
+        "schema": "answer-contract-v1",
+        "mode": "strict",
+        "question": "What does sample transfer require?",
+        "kind": "abstain",
+        "answer_supported": false,
+        "text": "",
+        "claims": [],
+        "missing": [],
+        "clarification": "",
+        "confidence": null,
+        "confidence_calibrated": false,
+        "sources": [],
+        "retrieval": {
+          "eligible_pages": 1,
+          "total_passages": 3,
+          "passages": [],
+          "sources": [],
+          "search_complete": false,
+          "corpus_snapshot": "sha256:646b2993889e8f3b9471dbbef8513e9a6d5ac7bf41e5e38d2892b4b62eae126b",
+          "ranking": "not_run"
+        },
+        "verification": {
+          "structural": false,
+          "semantic": "not_run",
+          "truth_verified": false,
+          "independence_verified": false
+        },
+        "reader": null,
+        "trace": [],
+        "diagnostic": {
+          "code": "interpretation_unsupported",
+          "stage": "strict",
+          "message": "Eligible passages exist, but the strict reader cannot establish an answer to this question.",
+          "corpus_answerability": "not_established"
+        },
+        "code_sha256": {
+          "__init__.py": "d57d776eaaea962867814b5af3f0ac836fdd0c70ffbde910a801e6240697a095",
+          "__main__.py": "f793ef475c212f719511b9326501c41503f66252008376516db2646fe1485820",
+          "body_text.py": "0c02ba271796c6aafb985f3ef6ea95902086052cf030c471c226d1f6cbd79c44",
+          "evaluate.py": "8c6e4444d661f5a2982338a45673ff594ae4cc4a86d3ec6e0bce6b7f77c90969",
+          "evaluation.py": "4d58e13a85f6edb1443bf156baaa48b1cdf72ce38e5e16a0ce53d195ac395715",
+          "evidence_contract.py": "5fb4226e9407d3432cdbaa518b10af9a5d5dc7bef0036e204848fbda3a3ffbe5",
+          "frames.py": "82c23f7382f862d3b95960b017dda278022ccee1f1bc4e9b339bf7c45ba8dede",
+          "library.py": "7d1613c28f01453270c8a53bf0e3f015bf197dff25b43edc764802e1e1306e5b",
+          "literal_evidence.py": "d4308c1f5e01c3d698ef625991de2182bfeb72ebafa77a410d8e041941c09614",
+          "local_reader.py": "6e7a6702f8296b63dd8a2be292ef620c9e67ed6170770e1222cfee58e23ea815",
+          "passages.py": "fae27b547e0cd848ce8a720914eaede5cd371b7db3144a4a68141889569fe5ec",
+          "pipeline.py": "400ac38c81e00c2e2bf9141a4a878f145daccb25fd79bcc1d41ed3b78346569c",
+          "practical_evidence.py": "c857a46cdfe12f026050edbce5172245d564cdf04d80aed32ebffb91261316d7",
+          "procedures.py": "d66b180651cc35df32a92e33f7df9ae5e031f2fba53ed769c2caddc37fa94523",
+          "support.py": "f4864a00d50fb32cea569034a2b25bedefb92448325f40e0d3b854bd42f86a07"
+        }
+      },
+      "returned": false,
+      "correct_literal_return": false,
+      "wrong_return": false,
+      "unnecessary_refusal": true,
+      "gold_retrieved": true,
+      "citation": {
+        "citations": 0,
+        "valid": 0,
+        "complete": false,
+        "inspection": "native source service; actual browser clicks measured separately"
+      },
+      "latency_ms": 5.773,
+      "retrieval_chars": 647,
+      "failure_class": "unsupported_wording"
+    },
+    {
+      "case": "samples",
+      "id": "missing",
+      "question": "Who owns Sample transfer?",
+      "answerable": false,
+      "answer": {
+        "schema": "answer-contract-v1",
+        "mode": "strict",
+        "question": "Who owns Sample transfer?",
+        "kind": "abstain",
+        "answer_supported": false,
+        "text": "",
+        "claims": [],
+        "missing": [],
+        "clarification": "",
+        "confidence": null,
+        "confidence_calibrated": false,
+        "sources": [],
+        "retrieval": {
+          "eligible_pages": 1,
+          "total_passages": 3,
+          "passages": [],
+          "sources": [],
+          "search_complete": false,
+          "corpus_snapshot": "sha256:646b2993889e8f3b9471dbbef8513e9a6d5ac7bf41e5e38d2892b4b62eae126b",
+          "ranking": "not_run"
+        },
+        "verification": {
+          "structural": false,
+          "semantic": "not_run",
+          "truth_verified": false,
+          "independence_verified": false
+        },
+        "reader": null,
+        "trace": [],
+        "diagnostic": {
+          "code": "evidence_not_established",
+          "stage": "strict",
+          "message": "Eligible passages exist, but the strict reader cannot establish an answer to this question.",
+          "corpus_answerability": "not_established"
+        },
+        "code_sha256": {
+          "__init__.py": "d57d776eaaea962867814b5af3f0ac836fdd0c70ffbde910a801e6240697a095",
+          "__main__.py": "f793ef475c212f719511b9326501c41503f66252008376516db2646fe1485820",
+          "body_text.py": "0c02ba271796c6aafb985f3ef6ea95902086052cf030c471c226d1f6cbd79c44",
+          "evaluate.py": "8c6e4444d661f5a2982338a45673ff594ae4cc4a86d3ec6e0bce6b7f77c90969",
+          "evaluation.py": "4d58e13a85f6edb1443bf156baaa48b1cdf72ce38e5e16a0ce53d195ac395715",
+          "evidence_contract.py": "5fb4226e9407d3432cdbaa518b10af9a5d5dc7bef0036e204848fbda3a3ffbe5",
+          "frames.py": "82c23f7382f862d3b95960b017dda278022ccee1f1bc4e9b339bf7c45ba8dede",
+          "library.py": "7d1613c28f01453270c8a53bf0e3f015bf197dff25b43edc764802e1e1306e5b",
+          "literal_evidence.py": "d4308c1f5e01c3d698ef625991de2182bfeb72ebafa77a410d8e041941c09614",
+          "local_reader.py": "6e7a6702f8296b63dd8a2be292ef620c9e67ed6170770e1222cfee58e23ea815",
+          "passages.py": "fae27b547e0cd848ce8a720914eaede5cd371b7db3144a4a68141889569fe5ec",
+          "pipeline.py": "400ac38c81e00c2e2bf9141a4a878f145daccb25fd79bcc1d41ed3b78346569c",
+          "practical_evidence.py": "c857a46cdfe12f026050edbce5172245d564cdf04d80aed32ebffb91261316d7",
+          "procedures.py": "d66b180651cc35df32a92e33f7df9ae5e031f2fba53ed769c2caddc37fa94523",
+          "support.py": "f4864a00d50fb32cea569034a2b25bedefb92448325f40e0d3b854bd42f86a07"
+        }
+      },
+      "returned": false,
+      "correct_literal_return": false,
+      "wrong_return": false,
+      "unnecessary_refusal": false,
+      "gold_retrieved": null,
+      "citation": {
+        "citations": 0,
+        "valid": 0,
+        "complete": false,
+        "inspection": "native source service; actual browser clicks measured separately"
+      },
+      "latency_ms": 8.247,
+      "retrieval_chars": 647,
+      "failure_class": "missing_answer_in_frozen_sources"
+    },
+    {
+      "case": "images",
+      "id": "description",
+      "question": "What is Image access?",
+      "answerable": true,
+      "answer": {
+        "schema": "answer-contract-v1",
+        "mode": "strict",
+        "question": "What is Image access?",
+        "kind": "supported_answer",
+        "answer_supported": true,
+        "text": "Image access is an access policy.",
+        "claims": [
+          {
+            "text": "Image access is an access policy.",
+            "qualifiers": [],
+            "citations": [
+              {
+                "passage": "sha256:cbf875c2b1f222c35b61b89ff36da16f85595e163a4ee89ff5f4f8d9a6f03d1c",
+                "start": 0,
+                "end": 33,
+                "quote": "Image access is an access policy.",
+                "source_id": "WEB-e66bbb6b02614a03-0001",
+                "path": "web-e66bbb6b02614a03-0001.html",
+                "hash": "sha256:cfabd32db037f27fe5dfc52f5aed360ee44403fef2b7c0a0a131a046354989a1",
+                "body_start": 0,
+                "body_end": 33
+              }
+            ]
+          }
+        ],
+        "missing": [],
+        "clarification": "",
+        "confidence": null,
+        "confidence_calibrated": false,
+        "sources": [
+          {
+            "id": "WEB-e66bbb6b02614a03-0001",
+            "path": "web-e66bbb6b02614a03-0001.html",
+            "hash": "sha256:cfabd32db037f27fe5dfc52f5aed360ee44403fef2b7c0a0a131a046354989a1"
+          }
+        ],
+        "retrieval": {},
+        "verification": {
+          "structural": true,
+          "semantic": "bounded_deterministic_grammar",
+          "truth_verified": false,
+          "independence_verified": false
+        },
+        "reader": null,
+        "trace": [],
+        "diagnostic": {
+          "code": "supported",
+          "stage": "strict",
+          "message": "Explicit source statements satisfy the existing bounded grammar.",
+          "corpus_answerability": "not_established"
+        },
+        "code_sha256": {
+          "__init__.py": "d57d776eaaea962867814b5af3f0ac836fdd0c70ffbde910a801e6240697a095",
+          "__main__.py": "f793ef475c212f719511b9326501c41503f66252008376516db2646fe1485820",
+          "body_text.py": "0c02ba271796c6aafb985f3ef6ea95902086052cf030c471c226d1f6cbd79c44",
+          "evaluate.py": "8c6e4444d661f5a2982338a45673ff594ae4cc4a86d3ec6e0bce6b7f77c90969",
+          "evaluation.py": "4d58e13a85f6edb1443bf156baaa48b1cdf72ce38e5e16a0ce53d195ac395715",
+          "evidence_contract.py": "5fb4226e9407d3432cdbaa518b10af9a5d5dc7bef0036e204848fbda3a3ffbe5",
+          "frames.py": "82c23f7382f862d3b95960b017dda278022ccee1f1bc4e9b339bf7c45ba8dede",
+          "library.py": "7d1613c28f01453270c8a53bf0e3f015bf197dff25b43edc764802e1e1306e5b",
+          "literal_evidence.py": "d4308c1f5e01c3d698ef625991de2182bfeb72ebafa77a410d8e041941c09614",
+          "local_reader.py": "6e7a6702f8296b63dd8a2be292ef620c9e67ed6170770e1222cfee58e23ea815",
+          "passages.py": "fae27b547e0cd848ce8a720914eaede5cd371b7db3144a4a68141889569fe5ec",
+          "pipeline.py": "400ac38c81e00c2e2bf9141a4a878f145daccb25fd79bcc1d41ed3b78346569c",
+          "practical_evidence.py": "c857a46cdfe12f026050edbce5172245d564cdf04d80aed32ebffb91261316d7",
+          "procedures.py": "d66b180651cc35df32a92e33f7df9ae5e031f2fba53ed769c2caddc37fa94523",
+          "support.py": "f4864a00d50fb32cea569034a2b25bedefb92448325f40e0d3b854bd42f86a07"
+        }
+      },
+      "returned": true,
+      "correct_literal_return": true,
+      "wrong_return": false,
+      "unnecessary_refusal": false,
+      "gold_retrieved": true,
+      "citation": {
+        "citations": 1,
+        "valid": 1,
+        "complete": true,
+        "inspection": "native source service; actual browser clicks measured separately"
+      },
+      "latency_ms": 8.027,
+      "retrieval_chars": 626,
+      "failure_class": "none"
+    },
+    {
+      "case": "images",
+      "id": "policy",
+      "question": "When may images be released?",
+      "answerable": true,
+      "answer": {
+        "schema": "answer-contract-v1",
+        "mode": "strict",
+        "question": "When may images be released?",
+        "kind": "abstain",
+        "answer_supported": false,
+        "text": "",
+        "claims": [],
+        "missing": [],
+        "clarification": "",
+        "confidence": null,
+        "confidence_calibrated": false,
+        "sources": [],
+        "retrieval": {
+          "eligible_pages": 1,
+          "total_passages": 3,
+          "passages": [],
+          "sources": [],
+          "search_complete": false,
+          "corpus_snapshot": "sha256:a47a053ef70d98121eb7edb08c417f20bf917c1a9ed0b9f28e9480844d9145e0",
+          "ranking": "not_run"
+        },
+        "verification": {
+          "structural": false,
+          "semantic": "not_run",
+          "truth_verified": false,
+          "independence_verified": false
+        },
+        "reader": null,
+        "trace": [],
+        "diagnostic": {
+          "code": "interpretation_unsupported",
+          "stage": "strict",
+          "message": "Eligible passages exist, but the strict reader cannot establish an answer to this question.",
+          "corpus_answerability": "not_established"
+        },
+        "code_sha256": {
+          "__init__.py": "d57d776eaaea962867814b5af3f0ac836fdd0c70ffbde910a801e6240697a095",
+          "__main__.py": "f793ef475c212f719511b9326501c41503f66252008376516db2646fe1485820",
+          "body_text.py": "0c02ba271796c6aafb985f3ef6ea95902086052cf030c471c226d1f6cbd79c44",
+          "evaluate.py": "8c6e4444d661f5a2982338a45673ff594ae4cc4a86d3ec6e0bce6b7f77c90969",
+          "evaluation.py": "4d58e13a85f6edb1443bf156baaa48b1cdf72ce38e5e16a0ce53d195ac395715",
+          "evidence_contract.py": "5fb4226e9407d3432cdbaa518b10af9a5d5dc7bef0036e204848fbda3a3ffbe5",
+          "frames.py": "82c23f7382f862d3b95960b017dda278022ccee1f1bc4e9b339bf7c45ba8dede",
+          "library.py": "7d1613c28f01453270c8a53bf0e3f015bf197dff25b43edc764802e1e1306e5b",
+          "literal_evidence.py": "d4308c1f5e01c3d698ef625991de2182bfeb72ebafa77a410d8e041941c09614",
+          "local_reader.py": "6e7a6702f8296b63dd8a2be292ef620c9e67ed6170770e1222cfee58e23ea815",
+          "passages.py": "fae27b547e0cd848ce8a720914eaede5cd371b7db3144a4a68141889569fe5ec",
+          "pipeline.py": "400ac38c81e00c2e2bf9141a4a878f145daccb25fd79bcc1d41ed3b78346569c",
+          "practical_evidence.py": "c857a46cdfe12f026050edbce5172245d564cdf04d80aed32ebffb91261316d7",
+          "procedures.py": "d66b180651cc35df32a92e33f7df9ae5e031f2fba53ed769c2caddc37fa94523",
+          "support.py": "f4864a00d50fb32cea569034a2b25bedefb92448325f40e0d3b854bd42f86a07"
+        }
+      },
+      "returned": false,
+      "correct_literal_return": false,
+      "wrong_return": false,
+      "unnecessary_refusal": true,
+      "gold_retrieved": true,
+      "citation": {
+        "citations": 0,
+        "valid": 0,
+        "complete": false,
+        "inspection": "native source service; actual browser clicks measured separately"
+      },
+      "latency_ms": 5.89,
+      "retrieval_chars": 626,
+      "failure_class": "unsupported_wording"
+    },
+    {
+      "case": "images",
+      "id": "wording",
+      "question": "Under what conditions may an image be released?",
+      "answerable": true,
+      "answer": {
+        "schema": "answer-contract-v1",
+        "mode": "strict",
+        "question": "Under what conditions may an image be released?",
+        "kind": "abstain",
+        "answer_supported": false,
+        "text": "",
+        "claims": [],
+        "missing": [],
+        "clarification": "",
+        "confidence": null,
+        "confidence_calibrated": false,
+        "sources": [],
+        "retrieval": {
+          "eligible_pages": 1,
+          "total_passages": 3,
+          "passages": [],
+          "sources": [],
+          "search_complete": false,
+          "corpus_snapshot": "sha256:a47a053ef70d98121eb7edb08c417f20bf917c1a9ed0b9f28e9480844d9145e0",
+          "ranking": "not_run"
+        },
+        "verification": {
+          "structural": false,
+          "semantic": "not_run",
+          "truth_verified": false,
+          "independence_verified": false
+        },
+        "reader": null,
+        "trace": [],
+        "diagnostic": {
+          "code": "interpretation_unsupported",
+          "stage": "strict",
+          "message": "Eligible passages exist, but the strict reader cannot establish an answer to this question.",
+          "corpus_answerability": "not_established"
+        },
+        "code_sha256": {
+          "__init__.py": "d57d776eaaea962867814b5af3f0ac836fdd0c70ffbde910a801e6240697a095",
+          "__main__.py": "f793ef475c212f719511b9326501c41503f66252008376516db2646fe1485820",
+          "body_text.py": "0c02ba271796c6aafb985f3ef6ea95902086052cf030c471c226d1f6cbd79c44",
+          "evaluate.py": "8c6e4444d661f5a2982338a45673ff594ae4cc4a86d3ec6e0bce6b7f77c90969",
+          "evaluation.py": "4d58e13a85f6edb1443bf156baaa48b1cdf72ce38e5e16a0ce53d195ac395715",
+          "evidence_contract.py": "5fb4226e9407d3432cdbaa518b10af9a5d5dc7bef0036e204848fbda3a3ffbe5",
+          "frames.py": "82c23f7382f862d3b95960b017dda278022ccee1f1bc4e9b339bf7c45ba8dede",
+          "library.py": "7d1613c28f01453270c8a53bf0e3f015bf197dff25b43edc764802e1e1306e5b",
+          "literal_evidence.py": "d4308c1f5e01c3d698ef625991de2182bfeb72ebafa77a410d8e041941c09614",
+          "local_reader.py": "6e7a6702f8296b63dd8a2be292ef620c9e67ed6170770e1222cfee58e23ea815",
+          "passages.py": "fae27b547e0cd848ce8a720914eaede5cd371b7db3144a4a68141889569fe5ec",
+          "pipeline.py": "400ac38c81e00c2e2bf9141a4a878f145daccb25fd79bcc1d41ed3b78346569c",
+          "practical_evidence.py": "c857a46cdfe12f026050edbce5172245d564cdf04d80aed32ebffb91261316d7",
+          "procedures.py": "d66b180651cc35df32a92e33f7df9ae5e031f2fba53ed769c2caddc37fa94523",
+          "support.py": "f4864a00d50fb32cea569034a2b25bedefb92448325f40e0d3b854bd42f86a07"
+        }
+      },
+      "returned": false,
+      "correct_literal_return": false,
+      "wrong_return": false,
+      "unnecessary_refusal": true,
+      "gold_retrieved": true,
+      "citation": {
+        "citations": 0,
+        "valid": 0,
+        "complete": false,
+        "inspection": "native source service; actual browser clicks measured separately"
+      },
+      "latency_ms": 6.202,
+      "retrieval_chars": 626,
+      "failure_class": "unsupported_wording"
+    },
+    {
+      "case": "images",
+      "id": "missing",
+      "question": "Who owns Image access?",
+      "answerable": false,
+      "answer": {
+        "schema": "answer-contract-v1",
+        "mode": "strict",
+        "question": "Who owns Image access?",
+        "kind": "abstain",
+        "answer_supported": false,
+        "text": "",
+        "claims": [],
+        "missing": [],
+        "clarification": "",
+        "confidence": null,
+        "confidence_calibrated": false,
+        "sources": [],
+        "retrieval": {
+          "eligible_pages": 1,
+          "total_passages": 3,
+          "passages": [],
+          "sources": [],
+          "search_complete": false,
+          "corpus_snapshot": "sha256:a47a053ef70d98121eb7edb08c417f20bf917c1a9ed0b9f28e9480844d9145e0",
+          "ranking": "not_run"
+        },
+        "verification": {
+          "structural": false,
+          "semantic": "not_run",
+          "truth_verified": false,
+          "independence_verified": false
+        },
+        "reader": null,
+        "trace": [],
+        "diagnostic": {
+          "code": "evidence_not_established",
+          "stage": "strict",
+          "message": "Eligible passages exist, but the strict reader cannot establish an answer to this question.",
+          "corpus_answerability": "not_established"
+        },
+        "code_sha256": {
+          "__init__.py": "d57d776eaaea962867814b5af3f0ac836fdd0c70ffbde910a801e6240697a095",
+          "__main__.py": "f793ef475c212f719511b9326501c41503f66252008376516db2646fe1485820",
+          "body_text.py": "0c02ba271796c6aafb985f3ef6ea95902086052cf030c471c226d1f6cbd79c44",
+          "evaluate.py": "8c6e4444d661f5a2982338a45673ff594ae4cc4a86d3ec6e0bce6b7f77c90969",
+          "evaluation.py": "4d58e13a85f6edb1443bf156baaa48b1cdf72ce38e5e16a0ce53d195ac395715",
+          "evidence_contract.py": "5fb4226e9407d3432cdbaa518b10af9a5d5dc7bef0036e204848fbda3a3ffbe5",
+          "frames.py": "82c23f7382f862d3b95960b017dda278022ccee1f1bc4e9b339bf7c45ba8dede",
+          "library.py": "7d1613c28f01453270c8a53bf0e3f015bf197dff25b43edc764802e1e1306e5b",
+          "literal_evidence.py": "d4308c1f5e01c3d698ef625991de2182bfeb72ebafa77a410d8e041941c09614",
+          "local_reader.py": "6e7a6702f8296b63dd8a2be292ef620c9e67ed6170770e1222cfee58e23ea815",
+          "passages.py": "fae27b547e0cd848ce8a720914eaede5cd371b7db3144a4a68141889569fe5ec",
+          "pipeline.py": "400ac38c81e00c2e2bf9141a4a878f145daccb25fd79bcc1d41ed3b78346569c",
+          "practical_evidence.py": "c857a46cdfe12f026050edbce5172245d564cdf04d80aed32ebffb91261316d7",
+          "procedures.py": "d66b180651cc35df32a92e33f7df9ae5e031f2fba53ed769c2caddc37fa94523",
+          "support.py": "f4864a00d50fb32cea569034a2b25bedefb92448325f40e0d3b854bd42f86a07"
+        }
+      },
+      "returned": false,
+      "correct_literal_return": false,
+      "wrong_return": false,
+      "unnecessary_refusal": false,
+      "gold_retrieved": null,
+      "citation": {
+        "citations": 0,
+        "valid": 0,
+        "complete": false,
+        "inspection": "native source service; actual browser clicks measured separately"
+      },
+      "latency_ms": 7.744,
+      "retrieval_chars": 626,
+      "failure_class": "missing_answer_in_frozen_sources"
+    },
+    {
+      "case": "registration",
+      "id": "description",
+      "question": "What is Research registration?",
+      "answerable": true,
+      "answer": {
+        "schema": "answer-contract-v1",
+        "mode": "strict",
+        "question": "What is Research registration?",
+        "kind": "supported_answer",
+        "answer_supported": true,
+        "text": "Research registration is a registration policy.",
+        "claims": [
+          {
+            "text": "Research registration is a registration policy.",
+            "qualifiers": [],
+            "citations": [
+              {
+                "passage": "sha256:d99581c4369608efe98c238a089b9f2f630541386a28022b2048d60c3b6fb9a8",
+                "start": 0,
+                "end": 47,
+                "quote": "Research registration is a registration policy.",
+                "source_id": "WEB-b795d41c12b92fcf-0001",
+                "path": "web-b795d41c12b92fcf-0001.html",
+                "hash": "sha256:8dc575ecda9f75f20d32491960f1b8180daa09154bcc6d0f9380933bd206d7a2",
+                "body_start": 0,
+                "body_end": 47
+              }
+            ]
+          }
+        ],
+        "missing": [],
+        "clarification": "",
+        "confidence": null,
+        "confidence_calibrated": false,
+        "sources": [
+          {
+            "id": "WEB-b795d41c12b92fcf-0001",
+            "path": "web-b795d41c12b92fcf-0001.html",
+            "hash": "sha256:8dc575ecda9f75f20d32491960f1b8180daa09154bcc6d0f9380933bd206d7a2"
+          }
+        ],
+        "retrieval": {},
+        "verification": {
+          "structural": true,
+          "semantic": "bounded_deterministic_grammar",
+          "truth_verified": false,
+          "independence_verified": false
+        },
+        "reader": null,
+        "trace": [],
+        "diagnostic": {
+          "code": "supported",
+          "stage": "strict",
+          "message": "Explicit source statements satisfy the existing bounded grammar.",
+          "corpus_answerability": "not_established"
+        },
+        "code_sha256": {
+          "__init__.py": "d57d776eaaea962867814b5af3f0ac836fdd0c70ffbde910a801e6240697a095",
+          "__main__.py": "f793ef475c212f719511b9326501c41503f66252008376516db2646fe1485820",
+          "body_text.py": "0c02ba271796c6aafb985f3ef6ea95902086052cf030c471c226d1f6cbd79c44",
+          "evaluate.py": "8c6e4444d661f5a2982338a45673ff594ae4cc4a86d3ec6e0bce6b7f77c90969",
+          "evaluation.py": "4d58e13a85f6edb1443bf156baaa48b1cdf72ce38e5e16a0ce53d195ac395715",
+          "evidence_contract.py": "5fb4226e9407d3432cdbaa518b10af9a5d5dc7bef0036e204848fbda3a3ffbe5",
+          "frames.py": "82c23f7382f862d3b95960b017dda278022ccee1f1bc4e9b339bf7c45ba8dede",
+          "library.py": "7d1613c28f01453270c8a53bf0e3f015bf197dff25b43edc764802e1e1306e5b",
+          "literal_evidence.py": "d4308c1f5e01c3d698ef625991de2182bfeb72ebafa77a410d8e041941c09614",
+          "local_reader.py": "6e7a6702f8296b63dd8a2be292ef620c9e67ed6170770e1222cfee58e23ea815",
+          "passages.py": "fae27b547e0cd848ce8a720914eaede5cd371b7db3144a4a68141889569fe5ec",
+          "pipeline.py": "400ac38c81e00c2e2bf9141a4a878f145daccb25fd79bcc1d41ed3b78346569c",
+          "practical_evidence.py": "c857a46cdfe12f026050edbce5172245d564cdf04d80aed32ebffb91261316d7",
+          "procedures.py": "d66b180651cc35df32a92e33f7df9ae5e031f2fba53ed769c2caddc37fa94523",
+          "support.py": "f4864a00d50fb32cea569034a2b25bedefb92448325f40e0d3b854bd42f86a07"
+        }
+      },
+      "returned": true,
+      "correct_literal_return": true,
+      "wrong_return": false,
+      "unnecessary_refusal": false,
+      "gold_retrieved": true,
+      "citation": {
+        "citations": 1,
+        "valid": 1,
+        "complete": true,
+        "inspection": "native source service; actual browser clicks measured separately"
+      },
+      "latency_ms": 8.218,
+      "retrieval_chars": 648,
+      "failure_class": "none"
+    },
+    {
+      "case": "registration",
+      "id": "policy",
+      "question": "What does research registration require?",
+      "answerable": true,
+      "answer": {
+        "schema": "answer-contract-v1",
+        "mode": "strict",
+        "question": "What does research registration require?",
+        "kind": "abstain",
+        "answer_supported": false,
+        "text": "",
+        "claims": [],
+        "missing": [],
+        "clarification": "",
+        "confidence": null,
+        "confidence_calibrated": false,
+        "sources": [],
+        "retrieval": {
+          "eligible_pages": 1,
+          "total_passages": 3,
+          "passages": [],
+          "sources": [],
+          "search_complete": false,
+          "corpus_snapshot": "sha256:f828dc2be1ff84d59a8c4cb3c42bbec70220bcdecc0dfd8257be9858ff085a6f",
+          "ranking": "not_run"
+        },
+        "verification": {
+          "structural": false,
+          "semantic": "not_run",
+          "truth_verified": false,
+          "independence_verified": false
+        },
+        "reader": null,
+        "trace": [],
+        "diagnostic": {
+          "code": "interpretation_unsupported",
+          "stage": "strict",
+          "message": "Eligible passages exist, but the strict reader cannot establish an answer to this question.",
+          "corpus_answerability": "not_established"
+        },
+        "code_sha256": {
+          "__init__.py": "d57d776eaaea962867814b5af3f0ac836fdd0c70ffbde910a801e6240697a095",
+          "__main__.py": "f793ef475c212f719511b9326501c41503f66252008376516db2646fe1485820",
+          "body_text.py": "0c02ba271796c6aafb985f3ef6ea95902086052cf030c471c226d1f6cbd79c44",
+          "evaluate.py": "8c6e4444d661f5a2982338a45673ff594ae4cc4a86d3ec6e0bce6b7f77c90969",
+          "evaluation.py": "4d58e13a85f6edb1443bf156baaa48b1cdf72ce38e5e16a0ce53d195ac395715",
+          "evidence_contract.py": "5fb4226e9407d3432cdbaa518b10af9a5d5dc7bef0036e204848fbda3a3ffbe5",
+          "frames.py": "82c23f7382f862d3b95960b017dda278022ccee1f1bc4e9b339bf7c45ba8dede",
+          "library.py": "7d1613c28f01453270c8a53bf0e3f015bf197dff25b43edc764802e1e1306e5b",
+          "literal_evidence.py": "d4308c1f5e01c3d698ef625991de2182bfeb72ebafa77a410d8e041941c09614",
+          "local_reader.py": "6e7a6702f8296b63dd8a2be292ef620c9e67ed6170770e1222cfee58e23ea815",
+          "passages.py": "fae27b547e0cd848ce8a720914eaede5cd371b7db3144a4a68141889569fe5ec",
+          "pipeline.py": "400ac38c81e00c2e2bf9141a4a878f145daccb25fd79bcc1d41ed3b78346569c",
+          "practical_evidence.py": "c857a46cdfe12f026050edbce5172245d564cdf04d80aed32ebffb91261316d7",
+          "procedures.py": "d66b180651cc35df32a92e33f7df9ae5e031f2fba53ed769c2caddc37fa94523",
+          "support.py": "f4864a00d50fb32cea569034a2b25bedefb92448325f40e0d3b854bd42f86a07"
+        }
+      },
+      "returned": false,
+      "correct_literal_return": false,
+      "wrong_return": false,
+      "unnecessary_refusal": true,
+      "gold_retrieved": true,
+      "citation": {
+        "citations": 0,
+        "valid": 0,
+        "complete": false,
+        "inspection": "native source service; actual browser clicks measured separately"
+      },
+      "latency_ms": 9.961,
+      "retrieval_chars": 648,
+      "failure_class": "unsupported_wording"
+    },
+    {
+      "case": "registration",
+      "id": "wording",
+      "question": "What are the requirements for research registration?",
+      "answerable": true,
+      "answer": {
+        "schema": "answer-contract-v1",
+        "mode": "strict",
+        "question": "What are the requirements for research registration?",
+        "kind": "abstain",
+        "answer_supported": false,
+        "text": "",
+        "claims": [],
+        "missing": [],
+        "clarification": "",
+        "confidence": null,
+        "confidence_calibrated": false,
+        "sources": [],
+        "retrieval": {
+          "eligible_pages": 1,
+          "total_passages": 3,
+          "passages": [],
+          "sources": [],
+          "search_complete": false,
+          "corpus_snapshot": "sha256:f828dc2be1ff84d59a8c4cb3c42bbec70220bcdecc0dfd8257be9858ff085a6f",
+          "ranking": "not_run"
+        },
+        "verification": {
+          "structural": false,
+          "semantic": "not_run",
+          "truth_verified": false,
+          "independence_verified": false
+        },
+        "reader": null,
+        "trace": [],
+        "diagnostic": {
+          "code": "evidence_not_established",
+          "stage": "strict",
+          "message": "Eligible passages exist, but the strict reader cannot establish an answer to this question.",
+          "corpus_answerability": "not_established"
+        },
+        "code_sha256": {
+          "__init__.py": "d57d776eaaea962867814b5af3f0ac836fdd0c70ffbde910a801e6240697a095",
+          "__main__.py": "f793ef475c212f719511b9326501c41503f66252008376516db2646fe1485820",
+          "body_text.py": "0c02ba271796c6aafb985f3ef6ea95902086052cf030c471c226d1f6cbd79c44",
+          "evaluate.py": "8c6e4444d661f5a2982338a45673ff594ae4cc4a86d3ec6e0bce6b7f77c90969",
+          "evaluation.py": "4d58e13a85f6edb1443bf156baaa48b1cdf72ce38e5e16a0ce53d195ac395715",
+          "evidence_contract.py": "5fb4226e9407d3432cdbaa518b10af9a5d5dc7bef0036e204848fbda3a3ffbe5",
+          "frames.py": "82c23f7382f862d3b95960b017dda278022ccee1f1bc4e9b339bf7c45ba8dede",
+          "library.py": "7d1613c28f01453270c8a53bf0e3f015bf197dff25b43edc764802e1e1306e5b",
+          "literal_evidence.py": "d4308c1f5e01c3d698ef625991de2182bfeb72ebafa77a410d8e041941c09614",
+          "local_reader.py": "6e7a6702f8296b63dd8a2be292ef620c9e67ed6170770e1222cfee58e23ea815",
+          "passages.py": "fae27b547e0cd848ce8a720914eaede5cd371b7db3144a4a68141889569fe5ec",
+          "pipeline.py": "400ac38c81e00c2e2bf9141a4a878f145daccb25fd79bcc1d41ed3b78346569c",
+          "practical_evidence.py": "c857a46cdfe12f026050edbce5172245d564cdf04d80aed32ebffb91261316d7",
+          "procedures.py": "d66b180651cc35df32a92e33f7df9ae5e031f2fba53ed769c2caddc37fa94523",
+          "support.py": "f4864a00d50fb32cea569034a2b25bedefb92448325f40e0d3b854bd42f86a07"
+        }
+      },
+      "returned": false,
+      "correct_literal_return": false,
+      "wrong_return": false,
+      "unnecessary_refusal": true,
+      "gold_retrieved": true,
+      "citation": {
+        "citations": 0,
+        "valid": 0,
+        "complete": false,
+        "inspection": "native source service; actual browser clicks measured separately"
+      },
+      "latency_ms": 10.663,
+      "retrieval_chars": 648,
+      "failure_class": "unresolved_evidence"
+    },
+    {
+      "case": "registration",
+      "id": "missing",
+      "question": "Who owns Research registration?",
+      "answerable": false,
+      "answer": {
+        "schema": "answer-contract-v1",
+        "mode": "strict",
+        "question": "Who owns Research registration?",
+        "kind": "abstain",
+        "answer_supported": false,
+        "text": "",
+        "claims": [],
+        "missing": [],
+        "clarification": "",
+        "confidence": null,
+        "confidence_calibrated": false,
+        "sources": [],
+        "retrieval": {
+          "eligible_pages": 1,
+          "total_passages": 3,
+          "passages": [],
+          "sources": [],
+          "search_complete": false,
+          "corpus_snapshot": "sha256:f828dc2be1ff84d59a8c4cb3c42bbec70220bcdecc0dfd8257be9858ff085a6f",
+          "ranking": "not_run"
+        },
+        "verification": {
+          "structural": false,
+          "semantic": "not_run",
+          "truth_verified": false,
+          "independence_verified": false
+        },
+        "reader": null,
+        "trace": [],
+        "diagnostic": {
+          "code": "evidence_not_established",
+          "stage": "strict",
+          "message": "Eligible passages exist, but the strict reader cannot establish an answer to this question.",
+          "corpus_answerability": "not_established"
+        },
+        "code_sha256": {
+          "__init__.py": "d57d776eaaea962867814b5af3f0ac836fdd0c70ffbde910a801e6240697a095",
+          "__main__.py": "f793ef475c212f719511b9326501c41503f66252008376516db2646fe1485820",
+          "body_text.py": "0c02ba271796c6aafb985f3ef6ea95902086052cf030c471c226d1f6cbd79c44",
+          "evaluate.py": "8c6e4444d661f5a2982338a45673ff594ae4cc4a86d3ec6e0bce6b7f77c90969",
+          "evaluation.py": "4d58e13a85f6edb1443bf156baaa48b1cdf72ce38e5e16a0ce53d195ac395715",
+          "evidence_contract.py": "5fb4226e9407d3432cdbaa518b10af9a5d5dc7bef0036e204848fbda3a3ffbe5",
+          "frames.py": "82c23f7382f862d3b95960b017dda278022ccee1f1bc4e9b339bf7c45ba8dede",
+          "library.py": "7d1613c28f01453270c8a53bf0e3f015bf197dff25b43edc764802e1e1306e5b",
+          "literal_evidence.py": "d4308c1f5e01c3d698ef625991de2182bfeb72ebafa77a410d8e041941c09614",
+          "local_reader.py": "6e7a6702f8296b63dd8a2be292ef620c9e67ed6170770e1222cfee58e23ea815",
+          "passages.py": "fae27b547e0cd848ce8a720914eaede5cd371b7db3144a4a68141889569fe5ec",
+          "pipeline.py": "400ac38c81e00c2e2bf9141a4a878f145daccb25fd79bcc1d41ed3b78346569c",
+          "practical_evidence.py": "c857a46cdfe12f026050edbce5172245d564cdf04d80aed32ebffb91261316d7",
+          "procedures.py": "d66b180651cc35df32a92e33f7df9ae5e031f2fba53ed769c2caddc37fa94523",
+          "support.py": "f4864a00d50fb32cea569034a2b25bedefb92448325f40e0d3b854bd42f86a07"
+        }
+      },
+      "returned": false,
+      "correct_literal_return": false,
+      "wrong_return": false,
+      "unnecessary_refusal": false,
+      "gold_retrieved": null,
+      "citation": {
+        "citations": 0,
+        "valid": 0,
+        "complete": false,
+        "inspection": "native source service; actual browser clicks measured separately"
+      },
+      "latency_ms": 11.472,
+      "retrieval_chars": 648,
+      "failure_class": "missing_answer_in_frozen_sources"
+    },
+    {
+      "case": "records",
+      "id": "description",
+      "question": "What is Record disposal?",
+      "answerable": true,
+      "answer": {
+        "schema": "answer-contract-v1",
+        "mode": "strict",
+        "question": "What is Record disposal?",
+        "kind": "supported_answer",
+        "answer_supported": true,
+        "text": "Record disposal is a retention policy.",
+        "claims": [
+          {
+            "text": "Record disposal is a retention policy.",
+            "qualifiers": [],
+            "citations": [
+              {
+                "passage": "sha256:e48310178bc91b90a8a8add480b3a989c31d048d06ab0da9b67204bdac301088",
+                "start": 0,
+                "end": 38,
+                "quote": "Record disposal is a retention policy.",
+                "source_id": "WEB-adf95357f7e8cc6b-0001",
+                "path": "web-adf95357f7e8cc6b-0001.html",
+                "hash": "sha256:411fe6426ffbecdb2621c4d466e67b51a974d00b90c2084264e14bf91a613188",
+                "body_start": 0,
+                "body_end": 38
+              }
+            ]
+          }
+        ],
+        "missing": [],
+        "clarification": "",
+        "confidence": null,
+        "confidence_calibrated": false,
+        "sources": [
+          {
+            "id": "WEB-adf95357f7e8cc6b-0001",
+            "path": "web-adf95357f7e8cc6b-0001.html",
+            "hash": "sha256:411fe6426ffbecdb2621c4d466e67b51a974d00b90c2084264e14bf91a613188"
+          }
+        ],
+        "retrieval": {},
+        "verification": {
+          "structural": true,
+          "semantic": "bounded_deterministic_grammar",
+          "truth_verified": false,
+          "independence_verified": false
+        },
+        "reader": null,
+        "trace": [],
+        "diagnostic": {
+          "code": "supported",
+          "stage": "strict",
+          "message": "Explicit source statements satisfy the existing bounded grammar.",
+          "corpus_answerability": "not_established"
+        },
+        "code_sha256": {
+          "__init__.py": "d57d776eaaea962867814b5af3f0ac836fdd0c70ffbde910a801e6240697a095",
+          "__main__.py": "f793ef475c212f719511b9326501c41503f66252008376516db2646fe1485820",
+          "body_text.py": "0c02ba271796c6aafb985f3ef6ea95902086052cf030c471c226d1f6cbd79c44",
+          "evaluate.py": "8c6e4444d661f5a2982338a45673ff594ae4cc4a86d3ec6e0bce6b7f77c90969",
+          "evaluation.py": "4d58e13a85f6edb1443bf156baaa48b1cdf72ce38e5e16a0ce53d195ac395715",
+          "evidence_contract.py": "5fb4226e9407d3432cdbaa518b10af9a5d5dc7bef0036e204848fbda3a3ffbe5",
+          "frames.py": "82c23f7382f862d3b95960b017dda278022ccee1f1bc4e9b339bf7c45ba8dede",
+          "library.py": "7d1613c28f01453270c8a53bf0e3f015bf197dff25b43edc764802e1e1306e5b",
+          "literal_evidence.py": "d4308c1f5e01c3d698ef625991de2182bfeb72ebafa77a410d8e041941c09614",
+          "local_reader.py": "6e7a6702f8296b63dd8a2be292ef620c9e67ed6170770e1222cfee58e23ea815",
+          "passages.py": "fae27b547e0cd848ce8a720914eaede5cd371b7db3144a4a68141889569fe5ec",
+          "pipeline.py": "400ac38c81e00c2e2bf9141a4a878f145daccb25fd79bcc1d41ed3b78346569c",
+          "practical_evidence.py": "c857a46cdfe12f026050edbce5172245d564cdf04d80aed32ebffb91261316d7",
+          "procedures.py": "d66b180651cc35df32a92e33f7df9ae5e031f2fba53ed769c2caddc37fa94523",
+          "support.py": "f4864a00d50fb32cea569034a2b25bedefb92448325f40e0d3b854bd42f86a07"
+        }
+      },
+      "returned": true,
+      "correct_literal_return": true,
+      "wrong_return": false,
+      "unnecessary_refusal": false,
+      "gold_retrieved": true,
+      "citation": {
+        "citations": 1,
+        "valid": 1,
+        "complete": true,
+        "inspection": "native source service; actual browser clicks measured separately"
+      },
+      "latency_ms": 6.742,
+      "retrieval_chars": 638,
+      "failure_class": "none"
+    },
+    {
+      "case": "records",
+      "id": "policy",
+      "question": "Under what conditions can a record be destroyed?",
+      "answerable": true,
+      "answer": {
+        "schema": "answer-contract-v1",
+        "mode": "strict",
+        "question": "Under what conditions can a record be destroyed?",
+        "kind": "abstain",
+        "answer_supported": false,
+        "text": "",
+        "claims": [],
+        "missing": [],
+        "clarification": "",
+        "confidence": null,
+        "confidence_calibrated": false,
+        "sources": [],
+        "retrieval": {
+          "eligible_pages": 1,
+          "total_passages": 3,
+          "passages": [],
+          "sources": [],
+          "search_complete": false,
+          "corpus_snapshot": "sha256:bbb87c78000a94518f55d9506f239f2cea52dacc092913bc7db42c6b17a5c630",
+          "ranking": "not_run"
+        },
+        "verification": {
+          "structural": false,
+          "semantic": "not_run",
+          "truth_verified": false,
+          "independence_verified": false
+        },
+        "reader": null,
+        "trace": [],
+        "diagnostic": {
+          "code": "interpretation_unsupported",
+          "stage": "strict",
+          "message": "Eligible passages exist, but the strict reader cannot establish an answer to this question.",
+          "corpus_answerability": "not_established"
+        },
+        "code_sha256": {
+          "__init__.py": "d57d776eaaea962867814b5af3f0ac836fdd0c70ffbde910a801e6240697a095",
+          "__main__.py": "f793ef475c212f719511b9326501c41503f66252008376516db2646fe1485820",
+          "body_text.py": "0c02ba271796c6aafb985f3ef6ea95902086052cf030c471c226d1f6cbd79c44",
+          "evaluate.py": "8c6e4444d661f5a2982338a45673ff594ae4cc4a86d3ec6e0bce6b7f77c90969",
+          "evaluation.py": "4d58e13a85f6edb1443bf156baaa48b1cdf72ce38e5e16a0ce53d195ac395715",
+          "evidence_contract.py": "5fb4226e9407d3432cdbaa518b10af9a5d5dc7bef0036e204848fbda3a3ffbe5",
+          "frames.py": "82c23f7382f862d3b95960b017dda278022ccee1f1bc4e9b339bf7c45ba8dede",
+          "library.py": "7d1613c28f01453270c8a53bf0e3f015bf197dff25b43edc764802e1e1306e5b",
+          "literal_evidence.py": "d4308c1f5e01c3d698ef625991de2182bfeb72ebafa77a410d8e041941c09614",
+          "local_reader.py": "6e7a6702f8296b63dd8a2be292ef620c9e67ed6170770e1222cfee58e23ea815",
+          "passages.py": "fae27b547e0cd848ce8a720914eaede5cd371b7db3144a4a68141889569fe5ec",
+          "pipeline.py": "400ac38c81e00c2e2bf9141a4a878f145daccb25fd79bcc1d41ed3b78346569c",
+          "practical_evidence.py": "c857a46cdfe12f026050edbce5172245d564cdf04d80aed32ebffb91261316d7",
+          "procedures.py": "d66b180651cc35df32a92e33f7df9ae5e031f2fba53ed769c2caddc37fa94523",
+          "support.py": "f4864a00d50fb32cea569034a2b25bedefb92448325f40e0d3b854bd42f86a07"
+        }
+      },
+      "returned": false,
+      "correct_literal_return": false,
+      "wrong_return": false,
+      "unnecessary_refusal": true,
+      "gold_retrieved": true,
+      "citation": {
+        "citations": 0,
+        "valid": 0,
+        "complete": false,
+        "inspection": "native source service; actual browser clicks measured separately"
+      },
+      "latency_ms": 10.295,
+      "retrieval_chars": 638,
+      "failure_class": "unsupported_wording"
+    },
+    {
+      "case": "records",
+      "id": "wording",
+      "question": "When can records be destroyed?",
+      "answerable": true,
+      "answer": {
+        "schema": "answer-contract-v1",
+        "mode": "strict",
+        "question": "When can records be destroyed?",
+        "kind": "abstain",
+        "answer_supported": false,
+        "text": "",
+        "claims": [],
+        "missing": [],
+        "clarification": "",
+        "confidence": null,
+        "confidence_calibrated": false,
+        "sources": [],
+        "retrieval": {
+          "eligible_pages": 1,
+          "total_passages": 3,
+          "passages": [],
+          "sources": [],
+          "search_complete": false,
+          "corpus_snapshot": "sha256:bbb87c78000a94518f55d9506f239f2cea52dacc092913bc7db42c6b17a5c630",
+          "ranking": "not_run"
+        },
+        "verification": {
+          "structural": false,
+          "semantic": "not_run",
+          "truth_verified": false,
+          "independence_verified": false
+        },
+        "reader": null,
+        "trace": [],
+        "diagnostic": {
+          "code": "interpretation_unsupported",
+          "stage": "strict",
+          "message": "Eligible passages exist, but the strict reader cannot establish an answer to this question.",
+          "corpus_answerability": "not_established"
+        },
+        "code_sha256": {
+          "__init__.py": "d57d776eaaea962867814b5af3f0ac836fdd0c70ffbde910a801e6240697a095",
+          "__main__.py": "f793ef475c212f719511b9326501c41503f66252008376516db2646fe1485820",
+          "body_text.py": "0c02ba271796c6aafb985f3ef6ea95902086052cf030c471c226d1f6cbd79c44",
+          "evaluate.py": "8c6e4444d661f5a2982338a45673ff594ae4cc4a86d3ec6e0bce6b7f77c90969",
+          "evaluation.py": "4d58e13a85f6edb1443bf156baaa48b1cdf72ce38e5e16a0ce53d195ac395715",
+          "evidence_contract.py": "5fb4226e9407d3432cdbaa518b10af9a5d5dc7bef0036e204848fbda3a3ffbe5",
+          "frames.py": "82c23f7382f862d3b95960b017dda278022ccee1f1bc4e9b339bf7c45ba8dede",
+          "library.py": "7d1613c28f01453270c8a53bf0e3f015bf197dff25b43edc764802e1e1306e5b",
+          "literal_evidence.py": "d4308c1f5e01c3d698ef625991de2182bfeb72ebafa77a410d8e041941c09614",
+          "local_reader.py": "6e7a6702f8296b63dd8a2be292ef620c9e67ed6170770e1222cfee58e23ea815",
+          "passages.py": "fae27b547e0cd848ce8a720914eaede5cd371b7db3144a4a68141889569fe5ec",
+          "pipeline.py": "400ac38c81e00c2e2bf9141a4a878f145daccb25fd79bcc1d41ed3b78346569c",
+          "practical_evidence.py": "c857a46cdfe12f026050edbce5172245d564cdf04d80aed32ebffb91261316d7",
+          "procedures.py": "d66b180651cc35df32a92e33f7df9ae5e031f2fba53ed769c2caddc37fa94523",
+          "support.py": "f4864a00d50fb32cea569034a2b25bedefb92448325f40e0d3b854bd42f86a07"
+        }
+      },
+      "returned": false,
+      "correct_literal_return": false,
+      "wrong_return": false,
+      "unnecessary_refusal": true,
+      "gold_retrieved": true,
+      "citation": {
+        "citations": 0,
+        "valid": 0,
+        "complete": false,
+        "inspection": "native source service; actual browser clicks measured separately"
+      },
+      "latency_ms": 8.164,
+      "retrieval_chars": 638,
+      "failure_class": "unsupported_wording"
+    },
+    {
+      "case": "records",
+      "id": "missing",
+      "question": "Who owns Record disposal?",
+      "answerable": false,
+      "answer": {
+        "schema": "answer-contract-v1",
+        "mode": "strict",
+        "question": "Who owns Record disposal?",
+        "kind": "abstain",
+        "answer_supported": false,
+        "text": "",
+        "claims": [],
+        "missing": [],
+        "clarification": "",
+        "confidence": null,
+        "confidence_calibrated": false,
+        "sources": [],
+        "retrieval": {
+          "eligible_pages": 1,
+          "total_passages": 3,
+          "passages": [],
+          "sources": [],
+          "search_complete": false,
+          "corpus_snapshot": "sha256:bbb87c78000a94518f55d9506f239f2cea52dacc092913bc7db42c6b17a5c630",
+          "ranking": "not_run"
+        },
+        "verification": {
+          "structural": false,
+          "semantic": "not_run",
+          "truth_verified": false,
+          "independence_verified": false
+        },
+        "reader": null,
+        "trace": [],
+        "diagnostic": {
+          "code": "evidence_not_established",
+          "stage": "strict",
+          "message": "Eligible passages exist, but the strict reader cannot establish an answer to this question.",
+          "corpus_answerability": "not_established"
+        },
+        "code_sha256": {
+          "__init__.py": "d57d776eaaea962867814b5af3f0ac836fdd0c70ffbde910a801e6240697a095",
+          "__main__.py": "f793ef475c212f719511b9326501c41503f66252008376516db2646fe1485820",
+          "body_text.py": "0c02ba271796c6aafb985f3ef6ea95902086052cf030c471c226d1f6cbd79c44",
+          "evaluate.py": "8c6e4444d661f5a2982338a45673ff594ae4cc4a86d3ec6e0bce6b7f77c90969",
+          "evaluation.py": "4d58e13a85f6edb1443bf156baaa48b1cdf72ce38e5e16a0ce53d195ac395715",
+          "evidence_contract.py": "5fb4226e9407d3432cdbaa518b10af9a5d5dc7bef0036e204848fbda3a3ffbe5",
+          "frames.py": "82c23f7382f862d3b95960b017dda278022ccee1f1bc4e9b339bf7c45ba8dede",
+          "library.py": "7d1613c28f01453270c8a53bf0e3f015bf197dff25b43edc764802e1e1306e5b",
+          "literal_evidence.py": "d4308c1f5e01c3d698ef625991de2182bfeb72ebafa77a410d8e041941c09614",
+          "local_reader.py": "6e7a6702f8296b63dd8a2be292ef620c9e67ed6170770e1222cfee58e23ea815",
+          "passages.py": "fae27b547e0cd848ce8a720914eaede5cd371b7db3144a4a68141889569fe5ec",
+          "pipeline.py": "400ac38c81e00c2e2bf9141a4a878f145daccb25fd79bcc1d41ed3b78346569c",
+          "practical_evidence.py": "c857a46cdfe12f026050edbce5172245d564cdf04d80aed32ebffb91261316d7",
+          "procedures.py": "d66b180651cc35df32a92e33f7df9ae5e031f2fba53ed769c2caddc37fa94523",
+          "support.py": "f4864a00d50fb32cea569034a2b25bedefb92448325f40e0d3b854bd42f86a07"
+        }
+      },
+      "returned": false,
+      "correct_literal_return": false,
+      "wrong_return": false,
+      "unnecessary_refusal": false,
+      "gold_retrieved": null,
+      "citation": {
+        "citations": 0,
+        "valid": 0,
+        "complete": false,
+        "inspection": "native source service; actual browser clicks measured separately"
+      },
+      "latency_ms": 8.931,
+      "retrieval_chars": 638,
+      "failure_class": "missing_answer_in_frozen_sources"
+    }
+  ],
+  "journeys": [
+    {
+      "id": "samples",
+      "checks": [
+        {
+          "name": "pasted_origin_honest",
+          "passed": true
+        },
+        {
+          "name": "revision_retains_pinned_predecessor",
+          "passed": true
+        },
+        {
+          "name": "updated_policy_answer",
+          "passed": false
+        },
+        {
+          "name": "old_citation_not_fresh_evidence",
+          "passed": true
+        },
+        {
+          "name": "fresh_process_notes_and_transcript",
+          "passed": true
+        },
+        {
+          "name": "fresh_process_current_answer",
+          "passed": true
+        },
+        {
+          "name": "body_conflict_explicit",
+          "passed": false
+        },
+        {
+          "name": "external_sources_withheld",
+          "passed": true
+        },
+        {
+          "name": "quiescent_copy_retains_sources_history_and_notes",
+          "passed": true
+        },
+        {
+          "name": "capture_damage_is_an_error_not_an_answer",
+          "passed": true
+        }
+      ],
+      "events": [
+        {
+          "operation": "revision",
+          "answer": {
+            "schema": "answer-contract-v1",
+            "mode": "strict",
+            "question": "What requirements apply to sample transfer?",
+            "kind": "abstain",
+            "answer_supported": false,
+            "text": "",
+            "claims": [],
+            "missing": [],
+            "clarification": "",
+            "confidence": null,
+            "confidence_calibrated": false,
+            "sources": [],
+            "retrieval": {
+              "eligible_pages": 1,
+              "total_passages": 3,
+              "passages": [],
+              "sources": [],
+              "search_complete": false,
+              "corpus_snapshot": "sha256:9589ba5857416fe6e2c24eb43200675a27ac405d9a4216139a481b24b358495b",
+              "ranking": "not_run"
+            },
+            "verification": {
+              "structural": false,
+              "semantic": "not_run",
+              "truth_verified": false,
+              "independence_verified": false
+            },
+            "reader": null,
+            "trace": [],
+            "diagnostic": {
+              "code": "interpretation_unsupported",
+              "stage": "strict",
+              "message": "Eligible passages exist, but the strict reader cannot establish an answer to this question.",
+              "corpus_answerability": "not_established"
+            },
+            "code_sha256": {
+              "__init__.py": "d57d776eaaea962867814b5af3f0ac836fdd0c70ffbde910a801e6240697a095",
+              "__main__.py": "f793ef475c212f719511b9326501c41503f66252008376516db2646fe1485820",
+              "body_text.py": "0c02ba271796c6aafb985f3ef6ea95902086052cf030c471c226d1f6cbd79c44",
+              "evaluate.py": "8c6e4444d661f5a2982338a45673ff594ae4cc4a86d3ec6e0bce6b7f77c90969",
+              "evaluation.py": "4d58e13a85f6edb1443bf156baaa48b1cdf72ce38e5e16a0ce53d195ac395715",
+              "evidence_contract.py": "5fb4226e9407d3432cdbaa518b10af9a5d5dc7bef0036e204848fbda3a3ffbe5",
+              "frames.py": "82c23f7382f862d3b95960b017dda278022ccee1f1bc4e9b339bf7c45ba8dede",
+              "library.py": "7d1613c28f01453270c8a53bf0e3f015bf197dff25b43edc764802e1e1306e5b",
+              "literal_evidence.py": "d4308c1f5e01c3d698ef625991de2182bfeb72ebafa77a410d8e041941c09614",
+              "local_reader.py": "6e7a6702f8296b63dd8a2be292ef620c9e67ed6170770e1222cfee58e23ea815",
+              "passages.py": "fae27b547e0cd848ce8a720914eaede5cd371b7db3144a4a68141889569fe5ec",
+              "pipeline.py": "400ac38c81e00c2e2bf9141a4a878f145daccb25fd79bcc1d41ed3b78346569c",
+              "practical_evidence.py": "c857a46cdfe12f026050edbce5172245d564cdf04d80aed32ebffb91261316d7",
+              "procedures.py": "d66b180651cc35df32a92e33f7df9ae5e031f2fba53ed769c2caddc37fa94523",
+              "support.py": "f4864a00d50fb32cea569034a2b25bedefb92448325f40e0d3b854bd42f86a07"
+            }
+          }
+        },
+        {
+          "operation": "conflict",
+          "answer": {
+            "schema": "answer-contract-v1",
+            "mode": "strict",
+            "question": "What requirements apply to sample transfer?",
+            "kind": "abstain",
+            "answer_supported": false,
+            "text": "",
+            "claims": [],
+            "missing": [],
+            "clarification": "",
+            "confidence": null,
+            "confidence_calibrated": false,
+            "sources": [],
+            "retrieval": {
+              "eligible_pages": 2,
+              "total_passages": 5,
+              "passages": [],
+              "sources": [],
+              "search_complete": false,
+              "corpus_snapshot": "sha256:7d30f0dfebf4bd89abcfa4b4ac6bbc5beb79e48cc0a99e7bbe6fc2b49b443c57",
+              "ranking": "not_run"
+            },
+            "verification": {
+              "structural": false,
+              "semantic": "not_run",
+              "truth_verified": false,
+              "independence_verified": false
+            },
+            "reader": null,
+            "trace": [],
+            "diagnostic": {
+              "code": "interpretation_unsupported",
+              "stage": "strict",
+              "message": "Eligible passages exist, but the strict reader cannot establish an answer to this question.",
+              "corpus_answerability": "not_established"
+            },
+            "code_sha256": {
+              "__init__.py": "d57d776eaaea962867814b5af3f0ac836fdd0c70ffbde910a801e6240697a095",
+              "__main__.py": "f793ef475c212f719511b9326501c41503f66252008376516db2646fe1485820",
+              "body_text.py": "0c02ba271796c6aafb985f3ef6ea95902086052cf030c471c226d1f6cbd79c44",
+              "evaluate.py": "8c6e4444d661f5a2982338a45673ff594ae4cc4a86d3ec6e0bce6b7f77c90969",
+              "evaluation.py": "4d58e13a85f6edb1443bf156baaa48b1cdf72ce38e5e16a0ce53d195ac395715",
+              "evidence_contract.py": "5fb4226e9407d3432cdbaa518b10af9a5d5dc7bef0036e204848fbda3a3ffbe5",
+              "frames.py": "82c23f7382f862d3b95960b017dda278022ccee1f1bc4e9b339bf7c45ba8dede",
+              "library.py": "7d1613c28f01453270c8a53bf0e3f015bf197dff25b43edc764802e1e1306e5b",
+              "literal_evidence.py": "d4308c1f5e01c3d698ef625991de2182bfeb72ebafa77a410d8e041941c09614",
+              "local_reader.py": "6e7a6702f8296b63dd8a2be292ef620c9e67ed6170770e1222cfee58e23ea815",
+              "passages.py": "fae27b547e0cd848ce8a720914eaede5cd371b7db3144a4a68141889569fe5ec",
+              "pipeline.py": "400ac38c81e00c2e2bf9141a4a878f145daccb25fd79bcc1d41ed3b78346569c",
+              "practical_evidence.py": "c857a46cdfe12f026050edbce5172245d564cdf04d80aed32ebffb91261316d7",
+              "procedures.py": "d66b180651cc35df32a92e33f7df9ae5e031f2fba53ed769c2caddc37fa94523",
+              "support.py": "f4864a00d50fb32cea569034a2b25bedefb92448325f40e0d3b854bd42f86a07"
+            }
+          }
+        }
+      ],
+      "workflow_complete": false,
+      "saved_bytes": 32156,
+      "acquisition": "explicit pasted sources; no network source requests",
+      "backup_assessment": "Quiescent complete-directory copy restored these source/lineage/note fixtures. Transcript export omits sources. A portable, versioned, validated user backup/restore interface is not implemented."
+    },
+    {
+      "id": "images",
+      "checks": [
+        {
+          "name": "pasted_origin_honest",
+          "passed": true
+        },
+        {
+          "name": "revision_retains_pinned_predecessor",
+          "passed": true
+        },
+        {
+          "name": "updated_policy_answer",
+          "passed": false
+        },
+        {
+          "name": "old_citation_not_fresh_evidence",
+          "passed": true
+        },
+        {
+          "name": "fresh_process_notes_and_transcript",
+          "passed": true
+        },
+        {
+          "name": "fresh_process_current_answer",
+          "passed": true
+        },
+        {
+          "name": "body_conflict_explicit",
+          "passed": false
+        },
+        {
+          "name": "external_sources_withheld",
+          "passed": true
+        },
+        {
+          "name": "quiescent_copy_retains_sources_history_and_notes",
+          "passed": true
+        },
+        {
+          "name": "capture_damage_is_an_error_not_an_answer",
+          "passed": true
+        }
+      ],
+      "events": [
+        {
+          "operation": "revision",
+          "answer": {
+            "schema": "answer-contract-v1",
+            "mode": "strict",
+            "question": "When may images be released?",
+            "kind": "abstain",
+            "answer_supported": false,
+            "text": "",
+            "claims": [],
+            "missing": [],
+            "clarification": "",
+            "confidence": null,
+            "confidence_calibrated": false,
+            "sources": [],
+            "retrieval": {
+              "eligible_pages": 1,
+              "total_passages": 3,
+              "passages": [],
+              "sources": [],
+              "search_complete": false,
+              "corpus_snapshot": "sha256:5ca7f45713a0e8edce12b0828cdf83187418a35add9439a8b4d02faa16a288b9",
+              "ranking": "not_run"
+            },
+            "verification": {
+              "structural": false,
+              "semantic": "not_run",
+              "truth_verified": false,
+              "independence_verified": false
+            },
+            "reader": null,
+            "trace": [],
+            "diagnostic": {
+              "code": "interpretation_unsupported",
+              "stage": "strict",
+              "message": "Eligible passages exist, but the strict reader cannot establish an answer to this question.",
+              "corpus_answerability": "not_established"
+            },
+            "code_sha256": {
+              "__init__.py": "d57d776eaaea962867814b5af3f0ac836fdd0c70ffbde910a801e6240697a095",
+              "__main__.py": "f793ef475c212f719511b9326501c41503f66252008376516db2646fe1485820",
+              "body_text.py": "0c02ba271796c6aafb985f3ef6ea95902086052cf030c471c226d1f6cbd79c44",
+              "evaluate.py": "8c6e4444d661f5a2982338a45673ff594ae4cc4a86d3ec6e0bce6b7f77c90969",
+              "evaluation.py": "4d58e13a85f6edb1443bf156baaa48b1cdf72ce38e5e16a0ce53d195ac395715",
+              "evidence_contract.py": "5fb4226e9407d3432cdbaa518b10af9a5d5dc7bef0036e204848fbda3a3ffbe5",
+              "frames.py": "82c23f7382f862d3b95960b017dda278022ccee1f1bc4e9b339bf7c45ba8dede",
+              "library.py": "7d1613c28f01453270c8a53bf0e3f015bf197dff25b43edc764802e1e1306e5b",
+              "literal_evidence.py": "d4308c1f5e01c3d698ef625991de2182bfeb72ebafa77a410d8e041941c09614",
+              "local_reader.py": "6e7a6702f8296b63dd8a2be292ef620c9e67ed6170770e1222cfee58e23ea815",
+              "passages.py": "fae27b547e0cd848ce8a720914eaede5cd371b7db3144a4a68141889569fe5ec",
+              "pipeline.py": "400ac38c81e00c2e2bf9141a4a878f145daccb25fd79bcc1d41ed3b78346569c",
+              "practical_evidence.py": "c857a46cdfe12f026050edbce5172245d564cdf04d80aed32ebffb91261316d7",
+              "procedures.py": "d66b180651cc35df32a92e33f7df9ae5e031f2fba53ed769c2caddc37fa94523",
+              "support.py": "f4864a00d50fb32cea569034a2b25bedefb92448325f40e0d3b854bd42f86a07"
+            }
+          }
+        },
+        {
+          "operation": "conflict",
+          "answer": {
+            "schema": "answer-contract-v1",
+            "mode": "strict",
+            "question": "When may images be released?",
+            "kind": "conflict",
+            "answer_supported": false,
+            "text": "",
+            "claims": [],
+            "missing": [],
+            "clarification": "",
+            "confidence": null,
+            "confidence_calibrated": false,
+            "sources": [],
+            "retrieval": {
+              "eligible_pages": 2,
+              "total_passages": 5,
+              "passages": [],
+              "sources": [],
+              "search_complete": false,
+              "corpus_snapshot": "sha256:323e8069b912cefe70ed4be60f25bb9acd2a3bc5cab8c0a02b4d63727484f7d8",
+              "ranking": "not_run"
+            },
+            "verification": {
+              "structural": false,
+              "semantic": "not_run",
+              "truth_verified": false,
+              "independence_verified": false
+            },
+            "reader": null,
+            "trace": [],
+            "diagnostic": {
+              "code": "retrieval_ambiguous",
+              "stage": "retrieval",
+              "message": "Candidate ownership is ambiguous; this does not establish conflicting body evidence.",
+              "corpus_answerability": "not_established"
+            },
+            "code_sha256": {
+              "__init__.py": "d57d776eaaea962867814b5af3f0ac836fdd0c70ffbde910a801e6240697a095",
+              "__main__.py": "f793ef475c212f719511b9326501c41503f66252008376516db2646fe1485820",
+              "body_text.py": "0c02ba271796c6aafb985f3ef6ea95902086052cf030c471c226d1f6cbd79c44",
+              "evaluate.py": "8c6e4444d661f5a2982338a45673ff594ae4cc4a86d3ec6e0bce6b7f77c90969",
+              "evaluation.py": "4d58e13a85f6edb1443bf156baaa48b1cdf72ce38e5e16a0ce53d195ac395715",
+              "evidence_contract.py": "5fb4226e9407d3432cdbaa518b10af9a5d5dc7bef0036e204848fbda3a3ffbe5",
+              "frames.py": "82c23f7382f862d3b95960b017dda278022ccee1f1bc4e9b339bf7c45ba8dede",
+              "library.py": "7d1613c28f01453270c8a53bf0e3f015bf197dff25b43edc764802e1e1306e5b",
+              "literal_evidence.py": "d4308c1f5e01c3d698ef625991de2182bfeb72ebafa77a410d8e041941c09614",
+              "local_reader.py": "6e7a6702f8296b63dd8a2be292ef620c9e67ed6170770e1222cfee58e23ea815",
+              "passages.py": "fae27b547e0cd848ce8a720914eaede5cd371b7db3144a4a68141889569fe5ec",
+              "pipeline.py": "400ac38c81e00c2e2bf9141a4a878f145daccb25fd79bcc1d41ed3b78346569c",
+              "practical_evidence.py": "c857a46cdfe12f026050edbce5172245d564cdf04d80aed32ebffb91261316d7",
+              "procedures.py": "d66b180651cc35df32a92e33f7df9ae5e031f2fba53ed769c2caddc37fa94523",
+              "support.py": "f4864a00d50fb32cea569034a2b25bedefb92448325f40e0d3b854bd42f86a07"
+            }
+          }
+        }
+      ],
+      "workflow_complete": false,
+      "saved_bytes": 31908,
+      "acquisition": "explicit pasted sources; no network source requests",
+      "backup_assessment": "Quiescent complete-directory copy restored these source/lineage/note fixtures. Transcript export omits sources. A portable, versioned, validated user backup/restore interface is not implemented."
+    },
+    {
+      "id": "registration",
+      "checks": [
+        {
+          "name": "pasted_origin_honest",
+          "passed": true
+        },
+        {
+          "name": "revision_retains_pinned_predecessor",
+          "passed": true
+        },
+        {
+          "name": "updated_policy_answer",
+          "passed": false
+        },
+        {
+          "name": "old_citation_not_fresh_evidence",
+          "passed": true
+        },
+        {
+          "name": "fresh_process_notes_and_transcript",
+          "passed": true
+        },
+        {
+          "name": "fresh_process_current_answer",
+          "passed": true
+        },
+        {
+          "name": "body_conflict_explicit",
+          "passed": false
+        },
+        {
+          "name": "external_sources_withheld",
+          "passed": true
+        },
+        {
+          "name": "quiescent_copy_retains_sources_history_and_notes",
+          "passed": true
+        },
+        {
+          "name": "capture_damage_is_an_error_not_an_answer",
+          "passed": true
+        }
+      ],
+      "events": [
+        {
+          "operation": "revision",
+          "answer": {
+            "schema": "answer-contract-v1",
+            "mode": "strict",
+            "question": "What does research registration require?",
+            "kind": "abstain",
+            "answer_supported": false,
+            "text": "",
+            "claims": [],
+            "missing": [],
+            "clarification": "",
+            "confidence": null,
+            "confidence_calibrated": false,
+            "sources": [],
+            "retrieval": {
+              "eligible_pages": 1,
+              "total_passages": 3,
+              "passages": [],
+              "sources": [],
+              "search_complete": false,
+              "corpus_snapshot": "sha256:3258dc76a15a7de99c7d3df8c16ec626d1538dd712732df51d404b2d91c81f19",
+              "ranking": "not_run"
+            },
+            "verification": {
+              "structural": false,
+              "semantic": "not_run",
+              "truth_verified": false,
+              "independence_verified": false
+            },
+            "reader": null,
+            "trace": [],
+            "diagnostic": {
+              "code": "interpretation_unsupported",
+              "stage": "strict",
+              "message": "Eligible passages exist, but the strict reader cannot establish an answer to this question.",
+              "corpus_answerability": "not_established"
+            },
+            "code_sha256": {
+              "__init__.py": "d57d776eaaea962867814b5af3f0ac836fdd0c70ffbde910a801e6240697a095",
+              "__main__.py": "f793ef475c212f719511b9326501c41503f66252008376516db2646fe1485820",
+              "body_text.py": "0c02ba271796c6aafb985f3ef6ea95902086052cf030c471c226d1f6cbd79c44",
+              "evaluate.py": "8c6e4444d661f5a2982338a45673ff594ae4cc4a86d3ec6e0bce6b7f77c90969",
+              "evaluation.py": "4d58e13a85f6edb1443bf156baaa48b1cdf72ce38e5e16a0ce53d195ac395715",
+              "evidence_contract.py": "5fb4226e9407d3432cdbaa518b10af9a5d5dc7bef0036e204848fbda3a3ffbe5",
+              "frames.py": "82c23f7382f862d3b95960b017dda278022ccee1f1bc4e9b339bf7c45ba8dede",
+              "library.py": "7d1613c28f01453270c8a53bf0e3f015bf197dff25b43edc764802e1e1306e5b",
+              "literal_evidence.py": "d4308c1f5e01c3d698ef625991de2182bfeb72ebafa77a410d8e041941c09614",
+              "local_reader.py": "6e7a6702f8296b63dd8a2be292ef620c9e67ed6170770e1222cfee58e23ea815",
+              "passages.py": "fae27b547e0cd848ce8a720914eaede5cd371b7db3144a4a68141889569fe5ec",
+              "pipeline.py": "400ac38c81e00c2e2bf9141a4a878f145daccb25fd79bcc1d41ed3b78346569c",
+              "practical_evidence.py": "c857a46cdfe12f026050edbce5172245d564cdf04d80aed32ebffb91261316d7",
+              "procedures.py": "d66b180651cc35df32a92e33f7df9ae5e031f2fba53ed769c2caddc37fa94523",
+              "support.py": "f4864a00d50fb32cea569034a2b25bedefb92448325f40e0d3b854bd42f86a07"
+            }
+          }
+        },
+        {
+          "operation": "conflict",
+          "answer": {
+            "schema": "answer-contract-v1",
+            "mode": "strict",
+            "question": "What does research registration require?",
+            "kind": "conflict",
+            "answer_supported": false,
+            "text": "",
+            "claims": [],
+            "missing": [],
+            "clarification": "",
+            "confidence": null,
+            "confidence_calibrated": false,
+            "sources": [],
+            "retrieval": {
+              "eligible_pages": 2,
+              "total_passages": 5,
+              "passages": [],
+              "sources": [],
+              "search_complete": false,
+              "corpus_snapshot": "sha256:e50a9b0ba80534853299b10ac771b6b0402d2ce0cbedcbe737b98d216e2b19dc",
+              "ranking": "not_run"
+            },
+            "verification": {
+              "structural": false,
+              "semantic": "not_run",
+              "truth_verified": false,
+              "independence_verified": false
+            },
+            "reader": null,
+            "trace": [],
+            "diagnostic": {
+              "code": "retrieval_ambiguous",
+              "stage": "retrieval",
+              "message": "Candidate ownership is ambiguous; this does not establish conflicting body evidence.",
+              "corpus_answerability": "not_established"
+            },
+            "code_sha256": {
+              "__init__.py": "d57d776eaaea962867814b5af3f0ac836fdd0c70ffbde910a801e6240697a095",
+              "__main__.py": "f793ef475c212f719511b9326501c41503f66252008376516db2646fe1485820",
+              "body_text.py": "0c02ba271796c6aafb985f3ef6ea95902086052cf030c471c226d1f6cbd79c44",
+              "evaluate.py": "8c6e4444d661f5a2982338a45673ff594ae4cc4a86d3ec6e0bce6b7f77c90969",
+              "evaluation.py": "4d58e13a85f6edb1443bf156baaa48b1cdf72ce38e5e16a0ce53d195ac395715",
+              "evidence_contract.py": "5fb4226e9407d3432cdbaa518b10af9a5d5dc7bef0036e204848fbda3a3ffbe5",
+              "frames.py": "82c23f7382f862d3b95960b017dda278022ccee1f1bc4e9b339bf7c45ba8dede",
+              "library.py": "7d1613c28f01453270c8a53bf0e3f015bf197dff25b43edc764802e1e1306e5b",
+              "literal_evidence.py": "d4308c1f5e01c3d698ef625991de2182bfeb72ebafa77a410d8e041941c09614",
+              "local_reader.py": "6e7a6702f8296b63dd8a2be292ef620c9e67ed6170770e1222cfee58e23ea815",
+              "passages.py": "fae27b547e0cd848ce8a720914eaede5cd371b7db3144a4a68141889569fe5ec",
+              "pipeline.py": "400ac38c81e00c2e2bf9141a4a878f145daccb25fd79bcc1d41ed3b78346569c",
+              "practical_evidence.py": "c857a46cdfe12f026050edbce5172245d564cdf04d80aed32ebffb91261316d7",
+              "procedures.py": "d66b180651cc35df32a92e33f7df9ae5e031f2fba53ed769c2caddc37fa94523",
+              "support.py": "f4864a00d50fb32cea569034a2b25bedefb92448325f40e0d3b854bd42f86a07"
+            }
+          }
+        }
+      ],
+      "workflow_complete": false,
+      "saved_bytes": 32282,
+      "acquisition": "explicit pasted sources; no network source requests",
+      "backup_assessment": "Quiescent complete-directory copy restored these source/lineage/note fixtures. Transcript export omits sources. A portable, versioned, validated user backup/restore interface is not implemented."
+    },
+    {
+      "id": "records",
+      "checks": [
+        {
+          "name": "pasted_origin_honest",
+          "passed": true
+        },
+        {
+          "name": "revision_retains_pinned_predecessor",
+          "passed": true
+        },
+        {
+          "name": "updated_policy_answer",
+          "passed": false
+        },
+        {
+          "name": "old_citation_not_fresh_evidence",
+          "passed": true
+        },
+        {
+          "name": "fresh_process_notes_and_transcript",
+          "passed": true
+        },
+        {
+          "name": "fresh_process_current_answer",
+          "passed": true
+        },
+        {
+          "name": "body_conflict_explicit",
+          "passed": false
+        },
+        {
+          "name": "external_sources_withheld",
+          "passed": true
+        },
+        {
+          "name": "quiescent_copy_retains_sources_history_and_notes",
+          "passed": true
+        },
+        {
+          "name": "capture_damage_is_an_error_not_an_answer",
+          "passed": true
+        }
+      ],
+      "events": [
+        {
+          "operation": "revision",
+          "answer": {
+            "schema": "answer-contract-v1",
+            "mode": "strict",
+            "question": "Under what conditions can a record be destroyed?",
+            "kind": "abstain",
+            "answer_supported": false,
+            "text": "",
+            "claims": [],
+            "missing": [],
+            "clarification": "",
+            "confidence": null,
+            "confidence_calibrated": false,
+            "sources": [],
+            "retrieval": {
+              "eligible_pages": 1,
+              "total_passages": 3,
+              "passages": [],
+              "sources": [],
+              "search_complete": false,
+              "corpus_snapshot": "sha256:a9e260b976448e4cedcc9aa866d8b2168b51c12051bd67fe0539a206061da4da",
+              "ranking": "not_run"
+            },
+            "verification": {
+              "structural": false,
+              "semantic": "not_run",
+              "truth_verified": false,
+              "independence_verified": false
+            },
+            "reader": null,
+            "trace": [],
+            "diagnostic": {
+              "code": "interpretation_unsupported",
+              "stage": "strict",
+              "message": "Eligible passages exist, but the strict reader cannot establish an answer to this question.",
+              "corpus_answerability": "not_established"
+            },
+            "code_sha256": {
+              "__init__.py": "d57d776eaaea962867814b5af3f0ac836fdd0c70ffbde910a801e6240697a095",
+              "__main__.py": "f793ef475c212f719511b9326501c41503f66252008376516db2646fe1485820",
+              "body_text.py": "0c02ba271796c6aafb985f3ef6ea95902086052cf030c471c226d1f6cbd79c44",
+              "evaluate.py": "8c6e4444d661f5a2982338a45673ff594ae4cc4a86d3ec6e0bce6b7f77c90969",
+              "evaluation.py": "4d58e13a85f6edb1443bf156baaa48b1cdf72ce38e5e16a0ce53d195ac395715",
+              "evidence_contract.py": "5fb4226e9407d3432cdbaa518b10af9a5d5dc7bef0036e204848fbda3a3ffbe5",
+              "frames.py": "82c23f7382f862d3b95960b017dda278022ccee1f1bc4e9b339bf7c45ba8dede",
+              "library.py": "7d1613c28f01453270c8a53bf0e3f015bf197dff25b43edc764802e1e1306e5b",
+              "literal_evidence.py": "d4308c1f5e01c3d698ef625991de2182bfeb72ebafa77a410d8e041941c09614",
+              "local_reader.py": "6e7a6702f8296b63dd8a2be292ef620c9e67ed6170770e1222cfee58e23ea815",
+              "passages.py": "fae27b547e0cd848ce8a720914eaede5cd371b7db3144a4a68141889569fe5ec",
+              "pipeline.py": "400ac38c81e00c2e2bf9141a4a878f145daccb25fd79bcc1d41ed3b78346569c",
+              "practical_evidence.py": "c857a46cdfe12f026050edbce5172245d564cdf04d80aed32ebffb91261316d7",
+              "procedures.py": "d66b180651cc35df32a92e33f7df9ae5e031f2fba53ed769c2caddc37fa94523",
+              "support.py": "f4864a00d50fb32cea569034a2b25bedefb92448325f40e0d3b854bd42f86a07"
+            }
+          }
+        },
+        {
+          "operation": "conflict",
+          "answer": {
+            "schema": "answer-contract-v1",
+            "mode": "strict",
+            "question": "Under what conditions can a record be destroyed?",
+            "kind": "abstain",
+            "answer_supported": false,
+            "text": "",
+            "claims": [],
+            "missing": [],
+            "clarification": "",
+            "confidence": null,
+            "confidence_calibrated": false,
+            "sources": [],
+            "retrieval": {
+              "eligible_pages": 2,
+              "total_passages": 5,
+              "passages": [],
+              "sources": [],
+              "search_complete": false,
+              "corpus_snapshot": "sha256:a8d967600e4cb739c96c9e003a67657ecfee8b4e7db0b809a9d8a2d021c5f1ef",
+              "ranking": "not_run"
+            },
+            "verification": {
+              "structural": false,
+              "semantic": "not_run",
+              "truth_verified": false,
+              "independence_verified": false
+            },
+            "reader": null,
+            "trace": [],
+            "diagnostic": {
+              "code": "interpretation_unsupported",
+              "stage": "strict",
+              "message": "Eligible passages exist, but the strict reader cannot establish an answer to this question.",
+              "corpus_answerability": "not_established"
+            },
+            "code_sha256": {
+              "__init__.py": "d57d776eaaea962867814b5af3f0ac836fdd0c70ffbde910a801e6240697a095",
+              "__main__.py": "f793ef475c212f719511b9326501c41503f66252008376516db2646fe1485820",
+              "body_text.py": "0c02ba271796c6aafb985f3ef6ea95902086052cf030c471c226d1f6cbd79c44",
+              "evaluate.py": "8c6e4444d661f5a2982338a45673ff594ae4cc4a86d3ec6e0bce6b7f77c90969",
+              "evaluation.py": "4d58e13a85f6edb1443bf156baaa48b1cdf72ce38e5e16a0ce53d195ac395715",
+              "evidence_contract.py": "5fb4226e9407d3432cdbaa518b10af9a5d5dc7bef0036e204848fbda3a3ffbe5",
+              "frames.py": "82c23f7382f862d3b95960b017dda278022ccee1f1bc4e9b339bf7c45ba8dede",
+              "library.py": "7d1613c28f01453270c8a53bf0e3f015bf197dff25b43edc764802e1e1306e5b",
+              "literal_evidence.py": "d4308c1f5e01c3d698ef625991de2182bfeb72ebafa77a410d8e041941c09614",
+              "local_reader.py": "6e7a6702f8296b63dd8a2be292ef620c9e67ed6170770e1222cfee58e23ea815",
+              "passages.py": "fae27b547e0cd848ce8a720914eaede5cd371b7db3144a4a68141889569fe5ec",
+              "pipeline.py": "400ac38c81e00c2e2bf9141a4a878f145daccb25fd79bcc1d41ed3b78346569c",
+              "practical_evidence.py": "c857a46cdfe12f026050edbce5172245d564cdf04d80aed32ebffb91261316d7",
+              "procedures.py": "d66b180651cc35df32a92e33f7df9ae5e031f2fba53ed769c2caddc37fa94523",
+              "support.py": "f4864a00d50fb32cea569034a2b25bedefb92448325f40e0d3b854bd42f86a07"
+            }
+          }
+        }
+      ],
+      "workflow_complete": false,
+      "saved_bytes": 32077,
+      "acquisition": "explicit pasted sources; no network source requests",
+      "backup_assessment": "Quiescent complete-directory copy restored these source/lineage/note fixtures. Transcript export omits sources. A portable, versioned, validated user backup/restore interface is not implemented."
+    }
+  ],
+  "limitations": "Developer-authored frozen lexical controls, not independent semantic accuracy. Workflow checks do not count as correct answers. Backup/upgrade and real participants remain outstanding.",
+  "run_sha256": "sha256:49caef6203010f2b693cdc9673941896335b4a327ba36af91294f35fbae9f9a7"
+}

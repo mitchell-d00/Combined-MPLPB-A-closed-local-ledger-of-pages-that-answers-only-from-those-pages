@@ -1,0 +1,53 @@
+{
+  "tested_code_revision": "31b2426ef23906a9dea60ed6356e950534057731",
+  "base_revision": "f425a0583e8a69ef17b86009ed40206871808416",
+  "python_full_suite": {
+    "tests": 772,
+    "seconds": 274.463,
+    "result": "pass"
+  },
+  "policy_module_adversarial_tests": 8,
+  "packaged_full_wasm": "pass actual pinned Pyodide 314.0.7",
+  "packaged_policy_wasm": "pass; see packaged-wasm.json",
+  "ui_script": "pass; not a browser rendering test",
+  "browser_transport": "pass",
+  "javascript_api": "pass",
+  "crawler_fixtures": "pass; not a deployed/live crawler",
+  "wheel": {
+    "sha256": "6a9fac8b76be705e76afe659fc69c0433f0e4492316091fc2b6c49d79853db61",
+    "source_byte_parity": true,
+    "outside_checkout_policy_cli_revision_qualifiers": "pass"
+  },
+  "chromium": {
+    "version": "143.0.7499.0",
+    "result": "launch failed with SIGTRAP; no UI/IndexedDB pass claimed",
+    "application_dependency_added": false
+  },
+  "independent_participants": false,
+  "live_model_accuracy_measured": false,
+  "published": false,
+  "deployed": false,
+  "protected_core_corpora_papers_old_reports": "unchanged",
+  "source_sha256": {
+    "mplpb_answers/policy_evidence.py": "90ae363e5b2b92c52ef24a9ff4d820821a76729f012831c51e27f3ad54492c35",
+    "mplpb_answers/support.py": "0997ca22b577d4923b59def94f54f9e307c0f82e70207b6b71d49a39cb9291fc",
+    "mplpb_answers/pipeline.py": "4e5ec5c96a5968ed1a2d71ebd00004104a2b515c9504d328f395a7be3f705a76",
+    "tools/exploration_store.py": "bf6c354e30231cf24233bb856732fa31ad7ed5ba246cb4f3eb81ebffaf86b09f",
+    "tools/ledger_ui.py": "24855e1f0dbd9f2d5da243c0f9c85b6753bc73dc46d654c4ebb4b40702fc4e65",
+    "index.html": "0ff9c7ae855a0e7866089f5e94fa65991b53f9f11f71ba6636e614c9eb79e16e"
+  },
+  "execution_logs": {
+    "python-regression.log.gz": {
+      "raw_sha256": "b8e3437c1339ce4323f19d1794cd2d41c0d4039f72affeaea4d065a6cf41e426",
+      "archive_sha256": "3ce44bcc13aa89f6362bdbe0ea1d14951de08b236304e4ad49ae59b27a99f4a4"
+    },
+    "wasm-regression.log.gz": {
+      "raw_sha256": "cca0e1470f323ec78ecd7d0b30c3914bd04db997323a56b4bdc13e6cc7d02720",
+      "archive_sha256": "b536b52075026d57dd99f35b749e8baf50b9dacc5bc3c293cac451152cb7518a"
+    },
+    "browser-launch-failed.log.gz": {
+      "raw_sha256": "af33b6ad8a6c8d7bd877ef9f4cb4c255377b55f1ed02e62196a59ff1ab46c221",
+      "archive_sha256": "5fe94fa079683b8371362d60632183714ab36a0a13b2d8e688e461bc8bd3b345"
+    }
+  }
+}
