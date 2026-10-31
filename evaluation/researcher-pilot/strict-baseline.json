@@ -1,0 +1,1251 @@
+{
+  "schema": "mplpb-researcher-pilot-baseline-summary-v1",
+  "suite_sha256": "38b29eb6599f4484b5d7e7e654251aee54e6e25d9dd5d388b195c32c70e5d6d5",
+  "provenance": {
+    "author": "Codex, directed by Mitchell D. McPhetridge",
+    "participants": "fictional scripted NPCs",
+    "independent_validation": false,
+    "human_usability_measured": false,
+    "sampling": "deliberate finite-grammar controls plus known coverage gaps; not representative user sampling"
+  },
+  "status": "synthetic_development_workflow_only",
+  "independence_verified": false,
+  "reader": {
+    "adapter": "strict",
+    "live_inference": false
+  },
+  "implementation_sha256": {
+    "mplpb_answers/__init__.py": "d57d776eaaea962867814b5af3f0ac836fdd0c70ffbde910a801e6240697a095",
+    "mplpb_answers/__main__.py": "f793ef475c212f719511b9326501c41503f66252008376516db2646fe1485820",
+    "mplpb_answers/body_text.py": "0c02ba271796c6aafb985f3ef6ea95902086052cf030c471c226d1f6cbd79c44",
+    "mplpb_answers/evaluate.py": "8c6e4444d661f5a2982338a45673ff594ae4cc4a86d3ec6e0bce6b7f77c90969",
+    "mplpb_answers/evaluation.py": "4d58e13a85f6edb1443bf156baaa48b1cdf72ce38e5e16a0ce53d195ac395715",
+    "mplpb_answers/evidence_contract.py": "5fb4226e9407d3432cdbaa518b10af9a5d5dc7bef0036e204848fbda3a3ffbe5",
+    "mplpb_answers/frames.py": "82c23f7382f862d3b95960b017dda278022ccee1f1bc4e9b339bf7c45ba8dede",
+    "mplpb_answers/library.py": "7d1613c28f01453270c8a53bf0e3f015bf197dff25b43edc764802e1e1306e5b",
+    "mplpb_answers/literal_evidence.py": "d4308c1f5e01c3d698ef625991de2182bfeb72ebafa77a410d8e041941c09614",
+    "mplpb_answers/local_reader.py": "6e7a6702f8296b63dd8a2be292ef620c9e67ed6170770e1222cfee58e23ea815",
+    "mplpb_answers/passages.py": "fae27b547e0cd848ce8a720914eaede5cd371b7db3144a4a68141889569fe5ec",
+    "mplpb_answers/pipeline.py": "400ac38c81e00c2e2bf9141a4a878f145daccb25fd79bcc1d41ed3b78346569c",
+    "mplpb_answers/practical_evidence.py": "c857a46cdfe12f026050edbce5172245d564cdf04d80aed32ebffb91261316d7",
+    "mplpb_answers/procedures.py": "d66b180651cc35df32a92e33f7df9ae5e031f2fba53ed769c2caddc37fa94523",
+    "mplpb_answers/support.py": "f4864a00d50fb32cea569034a2b25bedefb92448325f40e0d3b854bd42f86a07",
+    "mplpb_work/__init__.py": "5015f3af15da1efed8d2f32bfb0c42a3d24d7c4fec53865dc96b8361db34a393",
+    "mplpb_work/__main__.py": "afa5fa55c9767520ccde8386c5f7c68a77ee2b10c7bad5d017f19efb2edb93e4",
+    "mplpb_work/api.py": "1f4b13cdbf37871d7fa0269f88017c3678458db32f6027524522934efed3797c",
+    "mplpb_work/errors.py": "633c7042a803a259e33db177b303dfd1d6ad5bc038f1908a3f70e469a966615a",
+    "mplpb_work/model.py": "a7ff286606893b7fd2c235f0a7af62ba316c3f7251856def87ae1f0f17de8e60",
+    "mplpb_work/store.py": "c0da4147627f2a6925cf4a8416debb92e9b86d7083df561b31d365f479a158bb",
+    "tools/evaluate_researcher_pilot.py": "5c8023317bb466b4a9a2aade63743aca8852e92debb2f0cf449855f01f6376b6",
+    "tools/exploration_store.py": "4e1c638256f6526235aebb704fe2b8a6df88a2dae78ab0fd690dcd66035a7b74",
+    "tools/ledger_ui.py": "27d7ff3171691e4c63c521cd6fdfb24500149c96b488eb2c42a4bb865f9924e4",
+    "tools/mind_session.py": "6e33cf5aeec9484a83d76a8dcb0518869f5c5b9597abbe08864b4503eab33c67"
+  },
+  "summary": {
+    "journeys": 6,
+    "workflow_passes": 0,
+    "checks": 108,
+    "failed_checks": 6,
+    "questions": 24,
+    "answerable": 18,
+    "returned": 12,
+    "literal_gold_supported": 12,
+    "wrong_returns_under_literal_oracle": 0,
+    "ungraded_model_returns": 0,
+    "unnecessary_refusals": 6,
+    "complete_answerable_coverage": 0.6666666666666666,
+    "retrieval_gold_recall": 1.0,
+    "valid_citations": 12,
+    "citations": 12,
+    "latency_ms_total": 218.988,
+    "semantic_accuracy_independently_measured": false,
+    "human_usability_measured": false
+  },
+  "product_readiness": {
+    "status": "not_certified",
+    "gaps": [
+      "Real participants and independently authored questions are absent",
+      "Browser click results are a separate Chromium gate, not native API evidence",
+      "No live-model quality inference without an explicitly configured reader and human grading",
+      "Dedicated investigation overview UI is not implemented",
+      "Portable user backup/restore and specialist-store relocation are not established by fixture copies",
+      "Schema upgrade/migration, long-duration storage and installation usability remain unmeasured",
+      "Unknown grammar is not reliably distinguished from absent evidence; actionable uncertainty needs product work"
+    ]
+  },
+  "retained_baseline_note": "Pre-repair full runs: multi-sentence working notes were split into clauses and not saved. No source/answer labels were changed to repair this failure.",
+  "original_full_run_sha256": "sha256:bcbf436058ff89c4dc8ac0827f8a5879f8187b75d04509fa2dc1f7f76b60e233",
+  "journeys": [
+    {
+      "id": "mara",
+      "domain": "history",
+      "workflow_passed": false,
+      "checks": [
+        {
+          "name": "import_Alder Museum reference",
+          "passed": true,
+          "detail": "User-supplied text, no fetched/authorship claim"
+        },
+        {
+          "name": "import_Unrelated field notes",
+          "passed": true,
+          "detail": "User-supplied text, no fetched/authorship claim"
+        },
+        {
+          "name": "question_definition",
+          "passed": true,
+          "detail": "Frozen strict contract; coverage is scored separately"
+        },
+        {
+          "name": "citations_definition",
+          "passed": true,
+          "detail": "Opened current page and checked source hash/body offsets"
+        },
+        {
+          "name": "question_year",
+          "passed": true,
+          "detail": "Frozen strict contract; coverage is scored separately"
+        },
+        {
+          "name": "citations_year",
+          "passed": true,
+          "detail": "Opened current page and checked source hash/body offsets"
+        },
+        {
+          "name": "question_conditions",
+          "passed": true,
+          "detail": "Frozen strict contract; coverage is scored separately"
+        },
+        {
+          "name": "question_absent",
+          "passed": true,
+          "detail": "Frozen strict contract; coverage is scored separately"
+        },
+        {
+          "name": "cli_http_parity",
+          "passed": true,
+          "detail": "Real CLI subprocess and native HTTP share strict payload"
+        },
+        {
+          "name": "conflicting_sources_stop",
+          "passed": true,
+          "detail": "No ranked winner or blended year"
+        },
+        {
+          "name": "notes_are_not_evidence",
+          "passed": true,
+          "detail": "Working note remains conversation state"
+        },
+        {
+          "name": "fresh_process_resume",
+          "passed": false,
+          "detail": "Same saved notes and exact transcript chain after interpreter replacement"
+        },
+        {
+          "name": "fresh_conflict_recheck",
+          "passed": true,
+          "detail": "Resume performs a fresh source query, not historical-answer reuse"
+        },
+        {
+          "name": "ended_writer_fenced",
+          "passed": true,
+          "detail": "Day-one capability cannot write as day two"
+        },
+        {
+          "name": "structured_handoff",
+          "passed": true,
+          "detail": "Findings, disagreement, failed route and fresh next-action permissions survive"
+        },
+        {
+          "name": "fixture_directory_restore",
+          "passed": true,
+          "detail": "Test-only quiescent directory copy; not product backup UI, portable specialist restore, or schema upgrade"
+        },
+        {
+          "name": "damaged_save_not_overwritten",
+          "passed": true,
+          "detail": "Readable recovery error; damaged bytes retained"
+        },
+        {
+          "name": "source_change_blocks_resume_answer",
+          "passed": true,
+          "detail": "Pinned source drift cannot become a fresh answer"
+        }
+      ],
+      "questions": [
+        {
+          "id": "definition",
+          "question": "What is the Alder Museum?",
+          "answerability": "answerable",
+          "observed_kind": "supported_answer",
+          "diagnostic": {
+            "code": "supported",
+            "stage": "strict",
+            "message": "Explicit source statements satisfy the existing bounded grammar.",
+            "corpus_answerability": "not_established"
+          },
+          "score": {
+            "returned": true,
+            "literal_gold_supported": true,
+            "requires_human_semantic_review": false,
+            "wrong_return_under_literal_oracle": false,
+            "unnecessary_refusal": false,
+            "safe_nonreturn": false,
+            "gold_passages": 1,
+            "gold_passages_retrieved": 1,
+            "retrieval_recall": 1.0,
+            "oracle": "developer-authored exact-quote regression; not human semantic grading"
+          }
+        },
+        {
+          "id": "year",
+          "question": "In what year did the Alder Museum open?",
+          "answerability": "answerable",
+          "observed_kind": "supported_answer",
+          "diagnostic": {
+            "code": "supported",
+            "stage": "strict",
+            "message": "Explicit source statements satisfy the existing bounded grammar.",
+            "corpus_answerability": "not_established"
+          },
+          "score": {
+            "returned": true,
+            "literal_gold_supported": true,
+            "requires_human_semantic_review": false,
+            "wrong_return_under_literal_oracle": false,
+            "unnecessary_refusal": false,
+            "safe_nonreturn": false,
+            "gold_passages": 1,
+            "gold_passages_retrieved": 1,
+            "retrieval_recall": 1.0,
+            "oracle": "developer-authored exact-quote regression; not human semantic grading"
+          }
+        },
+        {
+          "id": "conditions",
+          "question": "What must happen before a loan is delivered?",
+          "answerability": "answerable",
+          "observed_kind": "abstain",
+          "diagnostic": {
+            "code": "interpretation_unsupported",
+            "stage": "strict",
+            "message": "Eligible passages exist, but the strict reader cannot establish an answer to this question.",
+            "corpus_answerability": "not_established"
+          },
+          "score": {
+            "returned": false,
+            "literal_gold_supported": false,
+            "requires_human_semantic_review": false,
+            "wrong_return_under_literal_oracle": false,
+            "unnecessary_refusal": true,
+            "safe_nonreturn": false,
+            "gold_passages": 1,
+            "gold_passages_retrieved": 1,
+            "retrieval_recall": 1.0,
+            "oracle": "developer-authored exact-quote regression; not human semantic grading"
+          }
+        },
+        {
+          "id": "absent",
+          "question": "Who founded the Alder Museum?",
+          "answerability": "unanswerable",
+          "observed_kind": "abstain",
+          "diagnostic": {
+            "code": "interpretation_unsupported",
+            "stage": "strict",
+            "message": "Eligible passages exist, but the strict reader cannot establish an answer to this question.",
+            "corpus_answerability": "not_established"
+          },
+          "score": {
+            "returned": false,
+            "literal_gold_supported": false,
+            "requires_human_semantic_review": false,
+            "wrong_return_under_literal_oracle": false,
+            "unnecessary_refusal": false,
+            "safe_nonreturn": true,
+            "gold_passages": 0,
+            "gold_passages_retrieved": 0,
+            "retrieval_recall": null,
+            "oracle": "developer-authored exact-quote regression; not human semantic grading"
+          }
+        }
+      ]
+    },
+    {
+      "id": "dev",
+      "domain": "archives",
+      "workflow_passed": false,
+      "checks": [
+        {
+          "name": "import_Cedar Archive reference",
+          "passed": true,
+          "detail": "User-supplied text, no fetched/authorship claim"
+        },
+        {
+          "name": "import_Unrelated field notes",
+          "passed": true,
+          "detail": "User-supplied text, no fetched/authorship claim"
+        },
+        {
+          "name": "question_definition",
+          "passed": true,
+          "detail": "Frozen strict contract; coverage is scored separately"
+        },
+        {
+          "name": "citations_definition",
+          "passed": true,
+          "detail": "Opened current page and checked source hash/body offsets"
+        },
+        {
+          "name": "question_year",
+          "passed": true,
+          "detail": "Frozen strict contract; coverage is scored separately"
+        },
+        {
+          "name": "citations_year",
+          "passed": true,
+          "detail": "Opened current page and checked source hash/body offsets"
+        },
+        {
+          "name": "question_conditions",
+          "passed": true,
+          "detail": "Frozen strict contract; coverage is scored separately"
+        },
+        {
+          "name": "question_absent",
+          "passed": true,
+          "detail": "Frozen strict contract; coverage is scored separately"
+        },
+        {
+          "name": "cli_http_parity",
+          "passed": true,
+          "detail": "Real CLI subprocess and native HTTP share strict payload"
+        },
+        {
+          "name": "conflicting_sources_stop",
+          "passed": true,
+          "detail": "No ranked winner or blended year"
+        },
+        {
+          "name": "notes_are_not_evidence",
+          "passed": true,
+          "detail": "Working note remains conversation state"
+        },
+        {
+          "name": "fresh_process_resume",
+          "passed": false,
+          "detail": "Same saved notes and exact transcript chain after interpreter replacement"
+        },
+        {
+          "name": "fresh_conflict_recheck",
+          "passed": true,
+          "detail": "Resume performs a fresh source query, not historical-answer reuse"
+        },
+        {
+          "name": "ended_writer_fenced",
+          "passed": true,
+          "detail": "Day-one capability cannot write as day two"
+        },
+        {
+          "name": "structured_handoff",
+          "passed": true,
+          "detail": "Findings, disagreement, failed route and fresh next-action permissions survive"
+        },
+        {
+          "name": "fixture_directory_restore",
+          "passed": true,
+          "detail": "Test-only quiescent directory copy; not product backup UI, portable specialist restore, or schema upgrade"
+        },
+        {
+          "name": "damaged_save_not_overwritten",
+          "passed": true,
+          "detail": "Readable recovery error; damaged bytes retained"
+        },
+        {
+          "name": "source_change_blocks_resume_answer",
+          "passed": true,
+          "detail": "Pinned source drift cannot become a fresh answer"
+        }
+      ],
+      "questions": [
+        {
+          "id": "definition",
+          "question": "What is the Cedar Archive?",
+          "answerability": "answerable",
+          "observed_kind": "supported_answer",
+          "diagnostic": {
+            "code": "supported",
+            "stage": "strict",
+            "message": "Explicit source statements satisfy the existing bounded grammar.",
+            "corpus_answerability": "not_established"
+          },
+          "score": {
+            "returned": true,
+            "literal_gold_supported": true,
+            "requires_human_semantic_review": false,
+            "wrong_return_under_literal_oracle": false,
+            "unnecessary_refusal": false,
+            "safe_nonreturn": false,
+            "gold_passages": 1,
+            "gold_passages_retrieved": 1,
+            "retrieval_recall": 1.0,
+            "oracle": "developer-authored exact-quote regression; not human semantic grading"
+          }
+        },
+        {
+          "id": "year",
+          "question": "In what year did the Cedar Archive open?",
+          "answerability": "answerable",
+          "observed_kind": "supported_answer",
+          "diagnostic": {
+            "code": "supported",
+            "stage": "strict",
+            "message": "Explicit source statements satisfy the existing bounded grammar.",
+            "corpus_answerability": "not_established"
+          },
+          "score": {
+            "returned": true,
+            "literal_gold_supported": true,
+            "requires_human_semantic_review": false,
+            "wrong_return_under_literal_oracle": false,
+            "unnecessary_refusal": false,
+            "safe_nonreturn": false,
+            "gold_passages": 1,
+            "gold_passages_retrieved": 1,
+            "retrieval_recall": 1.0,
+            "oracle": "developer-authored exact-quote regression; not human semantic grading"
+          }
+        },
+        {
+          "id": "conditions",
+          "question": "What must be retained before edited copies are shared?",
+          "answerability": "answerable",
+          "observed_kind": "abstain",
+          "diagnostic": {
+            "code": "interpretation_unsupported",
+            "stage": "strict",
+            "message": "Eligible passages exist, but the strict reader cannot establish an answer to this question.",
+            "corpus_answerability": "not_established"
+          },
+          "score": {
+            "returned": false,
+            "literal_gold_supported": false,
+            "requires_human_semantic_review": false,
+            "wrong_return_under_literal_oracle": false,
+            "unnecessary_refusal": true,
+            "safe_nonreturn": false,
+            "gold_passages": 1,
+            "gold_passages_retrieved": 1,
+            "retrieval_recall": 1.0,
+            "oracle": "developer-authored exact-quote regression; not human semantic grading"
+          }
+        },
+        {
+          "id": "absent",
+          "question": "Who founded the Cedar Archive?",
+          "answerability": "unanswerable",
+          "observed_kind": "abstain",
+          "diagnostic": {
+            "code": "interpretation_unsupported",
+            "stage": "strict",
+            "message": "Eligible passages exist, but the strict reader cannot establish an answer to this question.",
+            "corpus_answerability": "not_established"
+          },
+          "score": {
+            "returned": false,
+            "literal_gold_supported": false,
+            "requires_human_semantic_review": false,
+            "wrong_return_under_literal_oracle": false,
+            "unnecessary_refusal": false,
+            "safe_nonreturn": true,
+            "gold_passages": 0,
+            "gold_passages_retrieved": 0,
+            "retrieval_recall": null,
+            "oracle": "developer-authored exact-quote regression; not human semantic grading"
+          }
+        }
+      ]
+    },
+    {
+      "id": "lin",
+      "domain": "software",
+      "workflow_passed": false,
+      "checks": [
+        {
+          "name": "import_Harbor Lab reference",
+          "passed": true,
+          "detail": "User-supplied text, no fetched/authorship claim"
+        },
+        {
+          "name": "import_Unrelated field notes",
+          "passed": true,
+          "detail": "User-supplied text, no fetched/authorship claim"
+        },
+        {
+          "name": "question_definition",
+          "passed": true,
+          "detail": "Frozen strict contract; coverage is scored separately"
+        },
+        {
+          "name": "citations_definition",
+          "passed": true,
+          "detail": "Opened current page and checked source hash/body offsets"
+        },
+        {
+          "name": "question_year",
+          "passed": true,
+          "detail": "Frozen strict contract; coverage is scored separately"
+        },
+        {
+          "name": "citations_year",
+          "passed": true,
+          "detail": "Opened current page and checked source hash/body offsets"
+        },
+        {
+          "name": "question_conditions",
+          "passed": true,
+          "detail": "Frozen strict contract; coverage is scored separately"
+        },
+        {
+          "name": "question_absent",
+          "passed": true,
+          "detail": "Frozen strict contract; coverage is scored separately"
+        },
+        {
+          "name": "cli_http_parity",
+          "passed": true,
+          "detail": "Real CLI subprocess and native HTTP share strict payload"
+        },
+        {
+          "name": "conflicting_sources_stop",
+          "passed": true,
+          "detail": "No ranked winner or blended year"
+        },
+        {
+          "name": "notes_are_not_evidence",
+          "passed": true,
+          "detail": "Working note remains conversation state"
+        },
+        {
+          "name": "fresh_process_resume",
+          "passed": false,
+          "detail": "Same saved notes and exact transcript chain after interpreter replacement"
+        },
+        {
+          "name": "fresh_conflict_recheck",
+          "passed": true,
+          "detail": "Resume performs a fresh source query, not historical-answer reuse"
+        },
+        {
+          "name": "ended_writer_fenced",
+          "passed": true,
+          "detail": "Day-one capability cannot write as day two"
+        },
+        {
+          "name": "structured_handoff",
+          "passed": true,
+          "detail": "Findings, disagreement, failed route and fresh next-action permissions survive"
+        },
+        {
+          "name": "fixture_directory_restore",
+          "passed": true,
+          "detail": "Test-only quiescent directory copy; not product backup UI, portable specialist restore, or schema upgrade"
+        },
+        {
+          "name": "damaged_save_not_overwritten",
+          "passed": true,
+          "detail": "Readable recovery error; damaged bytes retained"
+        },
+        {
+          "name": "source_change_blocks_resume_answer",
+          "passed": true,
+          "detail": "Pinned source drift cannot become a fresh answer"
+        }
+      ],
+      "questions": [
+        {
+          "id": "definition",
+          "question": "What is the Harbor Lab?",
+          "answerability": "answerable",
+          "observed_kind": "supported_answer",
+          "diagnostic": {
+            "code": "supported",
+            "stage": "strict",
+            "message": "Explicit source statements satisfy the existing bounded grammar.",
+            "corpus_answerability": "not_established"
+          },
+          "score": {
+            "returned": true,
+            "literal_gold_supported": true,
+            "requires_human_semantic_review": false,
+            "wrong_return_under_literal_oracle": false,
+            "unnecessary_refusal": false,
+            "safe_nonreturn": false,
+            "gold_passages": 1,
+            "gold_passages_retrieved": 1,
+            "retrieval_recall": 1.0,
+            "oracle": "developer-authored exact-quote regression; not human semantic grading"
+          }
+        },
+        {
+          "id": "year",
+          "question": "In what year did the Harbor Lab open?",
+          "answerability": "answerable",
+          "observed_kind": "supported_answer",
+          "diagnostic": {
+            "code": "supported",
+            "stage": "strict",
+            "message": "Explicit source statements satisfy the existing bounded grammar.",
+            "corpus_answerability": "not_established"
+          },
+          "score": {
+            "returned": true,
+            "literal_gold_supported": true,
+            "requires_human_semantic_review": false,
+            "wrong_return_under_literal_oracle": false,
+            "unnecessary_refusal": false,
+            "safe_nonreturn": false,
+            "gold_passages": 1,
+            "gold_passages_retrieved": 1,
+            "retrieval_recall": 1.0,
+            "oracle": "developer-authored exact-quote regression; not human semantic grading"
+          }
+        },
+        {
+          "id": "conditions",
+          "question": "How should workers prepare before restarting the service?",
+          "answerability": "answerable",
+          "observed_kind": "abstain",
+          "diagnostic": {
+            "code": "interpretation_unsupported",
+            "stage": "strict",
+            "message": "Eligible passages exist, but the strict reader cannot establish an answer to this question.",
+            "corpus_answerability": "not_established"
+          },
+          "score": {
+            "returned": false,
+            "literal_gold_supported": false,
+            "requires_human_semantic_review": false,
+            "wrong_return_under_literal_oracle": false,
+            "unnecessary_refusal": true,
+            "safe_nonreturn": false,
+            "gold_passages": 1,
+            "gold_passages_retrieved": 1,
+            "retrieval_recall": 1.0,
+            "oracle": "developer-authored exact-quote regression; not human semantic grading"
+          }
+        },
+        {
+          "id": "absent",
+          "question": "Who founded the Harbor Lab?",
+          "answerability": "unanswerable",
+          "observed_kind": "abstain",
+          "diagnostic": {
+            "code": "interpretation_unsupported",
+            "stage": "strict",
+            "message": "Eligible passages exist, but the strict reader cannot establish an answer to this question.",
+            "corpus_answerability": "not_established"
+          },
+          "score": {
+            "returned": false,
+            "literal_gold_supported": false,
+            "requires_human_semantic_review": false,
+            "wrong_return_under_literal_oracle": false,
+            "unnecessary_refusal": false,
+            "safe_nonreturn": true,
+            "gold_passages": 0,
+            "gold_passages_retrieved": 0,
+            "retrieval_recall": null,
+            "oracle": "developer-authored exact-quote regression; not human semantic grading"
+          }
+        }
+      ]
+    },
+    {
+      "id": "ruth",
+      "domain": "library",
+      "workflow_passed": false,
+      "checks": [
+        {
+          "name": "import_Willow Library reference",
+          "passed": true,
+          "detail": "User-supplied text, no fetched/authorship claim"
+        },
+        {
+          "name": "import_Unrelated field notes",
+          "passed": true,
+          "detail": "User-supplied text, no fetched/authorship claim"
+        },
+        {
+          "name": "question_definition",
+          "passed": true,
+          "detail": "Frozen strict contract; coverage is scored separately"
+        },
+        {
+          "name": "citations_definition",
+          "passed": true,
+          "detail": "Opened current page and checked source hash/body offsets"
+        },
+        {
+          "name": "question_year",
+          "passed": true,
+          "detail": "Frozen strict contract; coverage is scored separately"
+        },
+        {
+          "name": "citations_year",
+          "passed": true,
+          "detail": "Opened current page and checked source hash/body offsets"
+        },
+        {
+          "name": "question_conditions",
+          "passed": true,
+          "detail": "Frozen strict contract; coverage is scored separately"
+        },
+        {
+          "name": "question_absent",
+          "passed": true,
+          "detail": "Frozen strict contract; coverage is scored separately"
+        },
+        {
+          "name": "cli_http_parity",
+          "passed": true,
+          "detail": "Real CLI subprocess and native HTTP share strict payload"
+        },
+        {
+          "name": "conflicting_sources_stop",
+          "passed": true,
+          "detail": "No ranked winner or blended year"
+        },
+        {
+          "name": "notes_are_not_evidence",
+          "passed": true,
+          "detail": "Working note remains conversation state"
+        },
+        {
+          "name": "fresh_process_resume",
+          "passed": false,
+          "detail": "Same saved notes and exact transcript chain after interpreter replacement"
+        },
+        {
+          "name": "fresh_conflict_recheck",
+          "passed": true,
+          "detail": "Resume performs a fresh source query, not historical-answer reuse"
+        },
+        {
+          "name": "ended_writer_fenced",
+          "passed": true,
+          "detail": "Day-one capability cannot write as day two"
+        },
+        {
+          "name": "structured_handoff",
+          "passed": true,
+          "detail": "Findings, disagreement, failed route and fresh next-action permissions survive"
+        },
+        {
+          "name": "fixture_directory_restore",
+          "passed": true,
+          "detail": "Test-only quiescent directory copy; not product backup UI, portable specialist restore, or schema upgrade"
+        },
+        {
+          "name": "damaged_save_not_overwritten",
+          "passed": true,
+          "detail": "Readable recovery error; damaged bytes retained"
+        },
+        {
+          "name": "source_change_blocks_resume_answer",
+          "passed": true,
+          "detail": "Pinned source drift cannot become a fresh answer"
+        }
+      ],
+      "questions": [
+        {
+          "id": "definition",
+          "question": "What is the Willow Library?",
+          "answerability": "answerable",
+          "observed_kind": "supported_answer",
+          "diagnostic": {
+            "code": "supported",
+            "stage": "strict",
+            "message": "Explicit source statements satisfy the existing bounded grammar.",
+            "corpus_answerability": "not_established"
+          },
+          "score": {
+            "returned": true,
+            "literal_gold_supported": true,
+            "requires_human_semantic_review": false,
+            "wrong_return_under_literal_oracle": false,
+            "unnecessary_refusal": false,
+            "safe_nonreturn": false,
+            "gold_passages": 1,
+            "gold_passages_retrieved": 1,
+            "retrieval_recall": 1.0,
+            "oracle": "developer-authored exact-quote regression; not human semantic grading"
+          }
+        },
+        {
+          "id": "year",
+          "question": "In what year did the Willow Library open?",
+          "answerability": "answerable",
+          "observed_kind": "supported_answer",
+          "diagnostic": {
+            "code": "supported",
+            "stage": "strict",
+            "message": "Explicit source statements satisfy the existing bounded grammar.",
+            "corpus_answerability": "not_established"
+          },
+          "score": {
+            "returned": true,
+            "literal_gold_supported": true,
+            "requires_human_semantic_review": false,
+            "wrong_return_under_literal_oracle": false,
+            "unnecessary_refusal": false,
+            "safe_nonreturn": false,
+            "gold_passages": 1,
+            "gold_passages_retrieved": 1,
+            "retrieval_recall": 1.0,
+            "oracle": "developer-authored exact-quote regression; not human semantic grading"
+          }
+        },
+        {
+          "id": "conditions",
+          "question": "Under what conditions can a loan be renewed?",
+          "answerability": "answerable",
+          "observed_kind": "abstain",
+          "diagnostic": {
+            "code": "interpretation_unsupported",
+            "stage": "strict",
+            "message": "Eligible passages exist, but the strict reader cannot establish an answer to this question.",
+            "corpus_answerability": "not_established"
+          },
+          "score": {
+            "returned": false,
+            "literal_gold_supported": false,
+            "requires_human_semantic_review": false,
+            "wrong_return_under_literal_oracle": false,
+            "unnecessary_refusal": true,
+            "safe_nonreturn": false,
+            "gold_passages": 1,
+            "gold_passages_retrieved": 1,
+            "retrieval_recall": 1.0,
+            "oracle": "developer-authored exact-quote regression; not human semantic grading"
+          }
+        },
+        {
+          "id": "absent",
+          "question": "Who founded the Willow Library?",
+          "answerability": "unanswerable",
+          "observed_kind": "abstain",
+          "diagnostic": {
+            "code": "interpretation_unsupported",
+            "stage": "strict",
+            "message": "Eligible passages exist, but the strict reader cannot establish an answer to this question.",
+            "corpus_answerability": "not_established"
+          },
+          "score": {
+            "returned": false,
+            "literal_gold_supported": false,
+            "requires_human_semantic_review": false,
+            "wrong_return_under_literal_oracle": false,
+            "unnecessary_refusal": false,
+            "safe_nonreturn": true,
+            "gold_passages": 0,
+            "gold_passages_retrieved": 0,
+            "retrieval_recall": null,
+            "oracle": "developer-authored exact-quote regression; not human semantic grading"
+          }
+        }
+      ]
+    },
+    {
+      "id": "omar",
+      "domain": "policy",
+      "workflow_passed": false,
+      "checks": [
+        {
+          "name": "import_Maple Center reference",
+          "passed": true,
+          "detail": "User-supplied text, no fetched/authorship claim"
+        },
+        {
+          "name": "import_Unrelated field notes",
+          "passed": true,
+          "detail": "User-supplied text, no fetched/authorship claim"
+        },
+        {
+          "name": "question_definition",
+          "passed": true,
+          "detail": "Frozen strict contract; coverage is scored separately"
+        },
+        {
+          "name": "citations_definition",
+          "passed": true,
+          "detail": "Opened current page and checked source hash/body offsets"
+        },
+        {
+          "name": "question_year",
+          "passed": true,
+          "detail": "Frozen strict contract; coverage is scored separately"
+        },
+        {
+          "name": "citations_year",
+          "passed": true,
+          "detail": "Opened current page and checked source hash/body offsets"
+        },
+        {
+          "name": "question_conditions",
+          "passed": true,
+          "detail": "Frozen strict contract; coverage is scored separately"
+        },
+        {
+          "name": "question_absent",
+          "passed": true,
+          "detail": "Frozen strict contract; coverage is scored separately"
+        },
+        {
+          "name": "cli_http_parity",
+          "passed": true,
+          "detail": "Real CLI subprocess and native HTTP share strict payload"
+        },
+        {
+          "name": "conflicting_sources_stop",
+          "passed": true,
+          "detail": "No ranked winner or blended year"
+        },
+        {
+          "name": "notes_are_not_evidence",
+          "passed": true,
+          "detail": "Working note remains conversation state"
+        },
+        {
+          "name": "fresh_process_resume",
+          "passed": false,
+          "detail": "Same saved notes and exact transcript chain after interpreter replacement"
+        },
+        {
+          "name": "fresh_conflict_recheck",
+          "passed": true,
+          "detail": "Resume performs a fresh source query, not historical-answer reuse"
+        },
+        {
+          "name": "ended_writer_fenced",
+          "passed": true,
+          "detail": "Day-one capability cannot write as day two"
+        },
+        {
+          "name": "structured_handoff",
+          "passed": true,
+          "detail": "Findings, disagreement, failed route and fresh next-action permissions survive"
+        },
+        {
+          "name": "fixture_directory_restore",
+          "passed": true,
+          "detail": "Test-only quiescent directory copy; not product backup UI, portable specialist restore, or schema upgrade"
+        },
+        {
+          "name": "damaged_save_not_overwritten",
+          "passed": true,
+          "detail": "Readable recovery error; damaged bytes retained"
+        },
+        {
+          "name": "source_change_blocks_resume_answer",
+          "passed": true,
+          "detail": "Pinned source drift cannot become a fresh answer"
+        }
+      ],
+      "questions": [
+        {
+          "id": "definition",
+          "question": "What is the Maple Center?",
+          "answerability": "answerable",
+          "observed_kind": "supported_answer",
+          "diagnostic": {
+            "code": "supported",
+            "stage": "strict",
+            "message": "Explicit source statements satisfy the existing bounded grammar.",
+            "corpus_answerability": "not_established"
+          },
+          "score": {
+            "returned": true,
+            "literal_gold_supported": true,
+            "requires_human_semantic_review": false,
+            "wrong_return_under_literal_oracle": false,
+            "unnecessary_refusal": false,
+            "safe_nonreturn": false,
+            "gold_passages": 1,
+            "gold_passages_retrieved": 1,
+            "retrieval_recall": 1.0,
+            "oracle": "developer-authored exact-quote regression; not human semantic grading"
+          }
+        },
+        {
+          "id": "year",
+          "question": "In what year did the Maple Center open?",
+          "answerability": "answerable",
+          "observed_kind": "supported_answer",
+          "diagnostic": {
+            "code": "supported",
+            "stage": "strict",
+            "message": "Explicit source statements satisfy the existing bounded grammar.",
+            "corpus_answerability": "not_established"
+          },
+          "score": {
+            "returned": true,
+            "literal_gold_supported": true,
+            "requires_human_semantic_review": false,
+            "wrong_return_under_literal_oracle": false,
+            "unnecessary_refusal": false,
+            "safe_nonreturn": false,
+            "gold_passages": 1,
+            "gold_passages_retrieved": 1,
+            "retrieval_recall": 1.0,
+            "oracle": "developer-authored exact-quote regression; not human semantic grading"
+          }
+        },
+        {
+          "id": "conditions",
+          "question": "Which approvals and documents are needed for travel reimbursement?",
+          "answerability": "answerable",
+          "observed_kind": "abstain",
+          "diagnostic": {
+            "code": "interpretation_unsupported",
+            "stage": "strict",
+            "message": "Eligible passages exist, but the strict reader cannot establish an answer to this question.",
+            "corpus_answerability": "not_established"
+          },
+          "score": {
+            "returned": false,
+            "literal_gold_supported": false,
+            "requires_human_semantic_review": false,
+            "wrong_return_under_literal_oracle": false,
+            "unnecessary_refusal": true,
+            "safe_nonreturn": false,
+            "gold_passages": 1,
+            "gold_passages_retrieved": 1,
+            "retrieval_recall": 1.0,
+            "oracle": "developer-authored exact-quote regression; not human semantic grading"
+          }
+        },
+        {
+          "id": "absent",
+          "question": "Who founded the Maple Center?",
+          "answerability": "unanswerable",
+          "observed_kind": "abstain",
+          "diagnostic": {
+            "code": "interpretation_unsupported",
+            "stage": "strict",
+            "message": "Eligible passages exist, but the strict reader cannot establish an answer to this question.",
+            "corpus_answerability": "not_established"
+          },
+          "score": {
+            "returned": false,
+            "literal_gold_supported": false,
+            "requires_human_semantic_review": false,
+            "wrong_return_under_literal_oracle": false,
+            "unnecessary_refusal": false,
+            "safe_nonreturn": true,
+            "gold_passages": 0,
+            "gold_passages_retrieved": 0,
+            "retrieval_recall": null,
+            "oracle": "developer-authored exact-quote regression; not human semantic grading"
+          }
+        }
+      ]
+    },
+    {
+      "id": "bea",
+      "domain": "collections",
+      "workflow_passed": false,
+      "checks": [
+        {
+          "name": "import_Birch Gallery reference",
+          "passed": true,
+          "detail": "User-supplied text, no fetched/authorship claim"
+        },
+        {
+          "name": "import_Unrelated field notes",
+          "passed": true,
+          "detail": "User-supplied text, no fetched/authorship claim"
+        },
+        {
+          "name": "question_definition",
+          "passed": true,
+          "detail": "Frozen strict contract; coverage is scored separately"
+        },
+        {
+          "name": "citations_definition",
+          "passed": true,
+          "detail": "Opened current page and checked source hash/body offsets"
+        },
+        {
+          "name": "question_year",
+          "passed": true,
+          "detail": "Frozen strict contract; coverage is scored separately"
+        },
+        {
+          "name": "citations_year",
+          "passed": true,
+          "detail": "Opened current page and checked source hash/body offsets"
+        },
+        {
+          "name": "question_conditions",
+          "passed": true,
+          "detail": "Frozen strict contract; coverage is scored separately"
+        },
+        {
+          "name": "question_absent",
+          "passed": true,
+          "detail": "Frozen strict contract; coverage is scored separately"
+        },
+        {
+          "name": "cli_http_parity",
+          "passed": true,
+          "detail": "Real CLI subprocess and native HTTP share strict payload"
+        },
+        {
+          "name": "conflicting_sources_stop",
+          "passed": true,
+          "detail": "No ranked winner or blended year"
+        },
+        {
+          "name": "notes_are_not_evidence",
+          "passed": true,
+          "detail": "Working note remains conversation state"
+        },
+        {
+          "name": "fresh_process_resume",
+          "passed": false,
+          "detail": "Same saved notes and exact transcript chain after interpreter replacement"
+        },
+        {
+          "name": "fresh_conflict_recheck",
+          "passed": true,
+          "detail": "Resume performs a fresh source query, not historical-answer reuse"
+        },
+        {
+          "name": "ended_writer_fenced",
+          "passed": true,
+          "detail": "Day-one capability cannot write as day two"
+        },
+        {
+          "name": "structured_handoff",
+          "passed": true,
+          "detail": "Findings, disagreement, failed route and fresh next-action permissions survive"
+        },
+        {
+          "name": "fixture_directory_restore",
+          "passed": true,
+          "detail": "Test-only quiescent directory copy; not product backup UI, portable specialist restore, or schema upgrade"
+        },
+        {
+          "name": "damaged_save_not_overwritten",
+          "passed": true,
+          "detail": "Readable recovery error; damaged bytes retained"
+        },
+        {
+          "name": "source_change_blocks_resume_answer",
+          "passed": true,
+          "detail": "Pinned source drift cannot become a fresh answer"
+        }
+      ],
+      "questions": [
+        {
+          "id": "definition",
+          "question": "What is the Birch Gallery?",
+          "answerability": "answerable",
+          "observed_kind": "supported_answer",
+          "diagnostic": {
+            "code": "supported",
+            "stage": "strict",
+            "message": "Explicit source statements satisfy the existing bounded grammar.",
+            "corpus_answerability": "not_established"
+          },
+          "score": {
+            "returned": true,
+            "literal_gold_supported": true,
+            "requires_human_semantic_review": false,
+            "wrong_return_under_literal_oracle": false,
+            "unnecessary_refusal": false,
+            "safe_nonreturn": false,
+            "gold_passages": 1,
+            "gold_passages_retrieved": 1,
+            "retrieval_recall": 1.0,
+            "oracle": "developer-authored exact-quote regression; not human semantic grading"
+          }
+        },
+        {
+          "id": "year",
+          "question": "In what year did the Birch Gallery open?",
+          "answerability": "answerable",
+          "observed_kind": "supported_answer",
+          "diagnostic": {
+            "code": "supported",
+            "stage": "strict",
+            "message": "Explicit source statements satisfy the existing bounded grammar.",
+            "corpus_answerability": "not_established"
+          },
+          "score": {
+            "returned": true,
+            "literal_gold_supported": true,
+            "requires_human_semantic_review": false,
+            "wrong_return_under_literal_oracle": false,
+            "unnecessary_refusal": false,
+            "safe_nonreturn": false,
+            "gold_passages": 1,
+            "gold_passages_retrieved": 1,
+            "retrieval_recall": 1.0,
+            "oracle": "developer-authored exact-quote regression; not human semantic grading"
+          }
+        },
+        {
+          "id": "conditions",
+          "question": "When may objects leave quarantine?",
+          "answerability": "answerable",
+          "observed_kind": "abstain",
+          "diagnostic": {
+            "code": "interpretation_unsupported",
+            "stage": "strict",
+            "message": "Eligible passages exist, but the strict reader cannot establish an answer to this question.",
+            "corpus_answerability": "not_established"
+          },
+          "score": {
+            "returned": false,
+            "literal_gold_supported": false,
+            "requires_human_semantic_review": false,
+            "wrong_return_under_literal_oracle": false,
+            "unnecessary_refusal": true,
+            "safe_nonreturn": false,
+            "gold_passages": 1,
+            "gold_passages_retrieved": 1,
+            "retrieval_recall": 1.0,
+            "oracle": "developer-authored exact-quote regression; not human semantic grading"
+          }
+        },
+        {
+          "id": "absent",
+          "question": "Who founded the Birch Gallery?",
+          "answerability": "unanswerable",
+          "observed_kind": "abstain",
+          "diagnostic": {
+            "code": "interpretation_unsupported",
+            "stage": "strict",
+            "message": "Eligible passages exist, but the strict reader cannot establish an answer to this question.",
+            "corpus_answerability": "not_established"
+          },
+          "score": {
+            "returned": false,
+            "literal_gold_supported": false,
+            "requires_human_semantic_review": false,
+            "wrong_return_under_literal_oracle": false,
+            "unnecessary_refusal": false,
+            "safe_nonreturn": true,
+            "gold_passages": 0,
+            "gold_passages_retrieved": 0,
+            "retrieval_recall": null,
+            "oracle": "developer-authored exact-quote regression; not human semantic grading"
+          }
+        }
+      ]
+    }
+  ],
+  "run_sha256": "sha256:8aa850cac94befe9aa7fc478c033b90595ad185fe837b145333552c7ffbc4dab"
+}

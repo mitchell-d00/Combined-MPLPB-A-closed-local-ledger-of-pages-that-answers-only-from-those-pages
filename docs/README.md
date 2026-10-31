@@ -60,6 +60,7 @@ Feature guides can contain dated validation sections. Those sections report thei
 - [Release evidence and settings](RELEASE_EVIDENCE.md): artifact identity, required checks, and dated ruleset observations.
 - [Production threat model](PRODUCTION_THREAT_MODEL.md): trust boundaries and unresolved production concerns.
 - [Evaluation protocol](../evaluation/README.md), [chat evaluation](CHAT_EVALUATION.md), and [independent conversation trial](INDEPENDENT_CONVERSATION_TRIAL.md): distinguish development fixtures from independent evidence.
+- [Synthetic researcher pilot](../evaluation/researcher-pilot/README.md): six full native research journeys, literal-note recovery repair, candidate Chromium journey, and explicit product-readiness gaps.
 
 ## Dated reports and historical documents
 

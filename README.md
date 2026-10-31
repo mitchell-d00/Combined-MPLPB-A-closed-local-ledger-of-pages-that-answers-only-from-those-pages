@@ -35,6 +35,8 @@ This source candidate is **2.1.0rc1**, following the 2.0.0 bounded-reader releas
 
 The [general answer pipeline](docs/GENERAL_ANSWER_PIPELINE.md) adds diagnostic abstentions and an opt-in native local reader. Strict mode remains the default and needs no model. Assisted mode is experimental; live-model quality and fresh cross-domain evaluation are still required before a general-quality shipping claim. See the [capability/release matrix](docs/RELEASE_2_1_RC1.md) and [human-scored evaluation](evaluation/general-reader/README.md).
 
+The [synthetic researcher pilot](evaluation/researcher-pilot/README.md) runs six complete fictional investigations through real imports, queries, citation inspection, saved notes, specialist handoffs and fresh-process recovery. Candidate Chromium also exercises one journey through visible controls. These are reproducible development workflows, not human usability or independent accuracy evidence.
+
 ## Try the source checkout
 
 ```sh

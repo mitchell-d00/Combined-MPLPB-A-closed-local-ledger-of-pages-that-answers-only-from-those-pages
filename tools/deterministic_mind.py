@@ -117,7 +117,7 @@ def handle(root, profile, message, context, memory):
             raise ValueError('Notes need 1–600 characters; at most 20. Forget notes to free space.')
         if note not in notes:
             notes.append(note)
-        return reply('memory', 'Saved as your declaration, not verified source evidence: ' + note, context, 'NOTE-1')
+        return reply('memory', 'Saved as your declaration, not verified source evidence: ' + note, context, 'NOTE-1', authority='user_declaration')
     if key in {'memory', 'what do you remember', 'show memory'}:
         return reply('memory', '\n'.join(notes) if notes else 'No working notes saved.', context, 'NOTE-1', notes=list(notes), authority='user_declaration')
     if key in {'forget notes', 'forget memory'}:

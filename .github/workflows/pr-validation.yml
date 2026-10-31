@@ -8,6 +8,32 @@ permissions:
   contents: read
 
 jobs:
+  researcher-browser:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install pinned browser automation
+        run: python -m pip install "playwright==1.58.0"
+      - name: Download pinned WebAssembly core
+        run: >-
+          curl --fail --location --retry 2
+          https://github.com/pyodide/pyodide/releases/download/314.0.7/pyodide-core-314.0.7.tar.bz2
+          --output "$RUNNER_TEMP/pyodide-core.tar.bz2"
+      - name: Build candidate runtime
+        run: python tools/build_browser_runtime.py --core-archive "$RUNNER_TEMP/pyodide-core.tar.bz2" --output dist/index.html
+      - name: Run visible-control researcher journey before long regressions finish
+        run: python -m tools.browser_researcher_pilot --preview-dir dist --output "$RUNNER_TEMP/npc-browser/report.json"
+      - name: Retain synthetic browser report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: researcher-browser-${{ github.run_id }}
+          path: ${{ runner.temp }}/npc-browser/
+          if-no-files-found: warn
   regression:
     runs-on: ubuntu-latest
     timeout-minutes: 35
@@ -23,6 +49,8 @@ jobs:
         run: python -m unittest tests.test_integrity_hunt tests.test_record tests.test_ledger tests.test_literal_evidence tests.test_answer_reliability tests.test_answer_support -q
       - name: Run full Python regression suite
         run: python -m unittest discover -s tests -q
+      - name: Run complete synthetic researcher journeys
+        run: python -m tools.evaluate_researcher_pilot --output "$RUNNER_TEMP/npc-pilot/native.json"
       - name: Audit JavaScript, crawler and browser transport
         run: |
           python tools/check_ui_script.py
@@ -54,6 +82,7 @@ jobs:
           --live-url
           https://mitchell-d00.github.io/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/
           --preview-dir dist
+          --npc-report "${{ runner.temp }}/npc-pilot/browser.json"
       - name: Audit persistence, offline API and responsive layouts
         run: >-
           python -m tools.browser_audit_20261021 --preview-dir dist
@@ -64,5 +93,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: browser-audit-${{ github.run_id }}
-          path: audit-browser-results/
+          path: |
+            audit-browser-results/
+            ${{ runner.temp }}/npc-pilot/
           if-no-files-found: warn

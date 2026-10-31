@@ -16,8 +16,9 @@ def normalize(text):
 
 def clauses(text):
     text=normalize(text)
-    # Quoted/repetition requests belong to their existing literal-text handler.
-    if re.match(r'^(?:say|repeat|echo|when i say)\b',text,re.I):return [text]
+    # Literal payloads stay opaque during both routing and historical replay.
+    # A sentence inside a working note cannot rename the user on the next turn.
+    if re.match(r'^(?:say|repeat|echo|when i say|remember)\b',text,re.I):return [text]
     text=re.sub(r'\s+(?:and\s+)?(?=(?:what are you|who are you|what can you|how are you)\b)', ';',text,flags=re.I)
     parts=[s.strip(' ,') for s in re.split(r'[;!?]+|\.(?:\s+|$)|\s+and\s+(?=(?:my name|i am|i\x27m|tell me|what|who)\b)',text,flags=re.I) if s.strip(' ,')]
     return parts if len(parts)<=8 else [text]

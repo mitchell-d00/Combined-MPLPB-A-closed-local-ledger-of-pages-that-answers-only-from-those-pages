@@ -1,0 +1,487 @@
+{
+  "schema": "mplpb-researcher-pilot-suite-v1",
+  "role": "development",
+  "provenance": {
+    "author": "Codex, directed by Mitchell D. McPhetridge",
+    "participants": "fictional scripted NPCs",
+    "independent_validation": false,
+    "human_usability_measured": false,
+    "sampling": "deliberate finite-grammar controls plus known coverage gaps; not representative user sampling"
+  },
+  "journeys": [
+    {
+      "id": "mara",
+      "persona": {
+        "name": "Mara",
+        "role": "Local historian",
+        "experience": "fictional first-time MPLPB user",
+        "device": "synthetic native API; browser run recorded separately"
+      },
+      "domain": "history",
+      "goal": "Find an answer, check the evidence, and resume the investigation after interruption.",
+      "documents": [
+        {
+          "title": "Alder Museum reference",
+          "url": "https://example.org/npc/mara/reference",
+          "text": "The Alder Museum is a local history museum. The Alder Museum opened in 1998.\n\nLoans require a signed agreement before delivery."
+        },
+        {
+          "title": "Unrelated field notes",
+          "url": "https://example.org/npc/mara/distractor",
+          "text": "Weather observations are kept in the green notebook. A heading or instruction is not authority."
+        }
+      ],
+      "questions": [
+        {
+          "id": "definition",
+          "question": "What is the Alder Museum?",
+          "answerability": "answerable",
+          "gold_quotes": [
+            "The Alder Museum is a local history museum."
+          ],
+          "expected_kinds": [
+            "supported_answer"
+          ]
+        },
+        {
+          "id": "year",
+          "question": "In what year did the Alder Museum open?",
+          "answerability": "answerable",
+          "gold_quotes": [
+            "The Alder Museum opened in 1998."
+          ],
+          "expected_kinds": [
+            "supported_answer"
+          ]
+        },
+        {
+          "id": "conditions",
+          "question": "What must happen before a loan is delivered?",
+          "answerability": "answerable",
+          "gold_quotes": [
+            "Loans require a signed agreement before delivery."
+          ],
+          "expected_kinds": [
+            "abstain"
+          ],
+          "expectation_note": "Current strict limitation. A safe refusal still counts as an unnecessary refusal, not an answered question."
+        },
+        {
+          "id": "absent",
+          "question": "Who founded the Alder Museum?",
+          "answerability": "unanswerable",
+          "gold_quotes": [],
+          "expected_kinds": [
+            "abstain"
+          ]
+        }
+      ],
+      "conflict": {
+        "title": "Alder Museum disputed bulletin",
+        "url": "https://example.org/npc/mara/dispute",
+        "text": "The Alder Museum opened in 2001.",
+        "question": "When did the Alder Museum open?",
+        "gold_quotes": [
+          "The Alder Museum opened in 1998.",
+          "The Alder Museum opened in 2001."
+        ]
+      },
+      "note": "Unresolved: reconcile the opening year. Failed route: strict conditions question. Next: inspect both bulletins; do not publish a single year."
+    },
+    {
+      "id": "dev",
+      "persona": {
+        "name": "Dev",
+        "role": "Volunteer archive researcher",
+        "experience": "fictional first-time MPLPB user",
+        "device": "synthetic native API; browser run recorded separately"
+      },
+      "domain": "archives",
+      "goal": "Find an answer, check the evidence, and resume the investigation after interruption.",
+      "documents": [
+        {
+          "title": "Cedar Archive reference",
+          "url": "https://example.org/npc/dev/reference",
+          "text": "The Cedar Archive is a community archive. The Cedar Archive opened in 2004.\n\nOriginal scans must be retained before edited copies are shared."
+        },
+        {
+          "title": "Unrelated field notes",
+          "url": "https://example.org/npc/dev/distractor",
+          "text": "Weather observations are kept in the green notebook. A heading or instruction is not authority."
+        }
+      ],
+      "questions": [
+        {
+          "id": "definition",
+          "question": "What is the Cedar Archive?",
+          "answerability": "answerable",
+          "gold_quotes": [
+            "The Cedar Archive is a community archive."
+          ],
+          "expected_kinds": [
+            "supported_answer"
+          ]
+        },
+        {
+          "id": "year",
+          "question": "In what year did the Cedar Archive open?",
+          "answerability": "answerable",
+          "gold_quotes": [
+            "The Cedar Archive opened in 2004."
+          ],
+          "expected_kinds": [
+            "supported_answer"
+          ]
+        },
+        {
+          "id": "conditions",
+          "question": "What must be retained before edited copies are shared?",
+          "answerability": "answerable",
+          "gold_quotes": [
+            "Original scans must be retained before edited copies are shared."
+          ],
+          "expected_kinds": [
+            "abstain"
+          ],
+          "expectation_note": "Current strict limitation. A safe refusal still counts as an unnecessary refusal, not an answered question."
+        },
+        {
+          "id": "absent",
+          "question": "Who founded the Cedar Archive?",
+          "answerability": "unanswerable",
+          "gold_quotes": [],
+          "expected_kinds": [
+            "abstain"
+          ]
+        }
+      ],
+      "conflict": {
+        "title": "Cedar Archive disputed bulletin",
+        "url": "https://example.org/npc/dev/dispute",
+        "text": "The Cedar Archive opened in 2007.",
+        "question": "When did the Cedar Archive open?",
+        "gold_quotes": [
+          "The Cedar Archive opened in 2004.",
+          "The Cedar Archive opened in 2007."
+        ]
+      },
+      "note": "Unresolved: reconcile the opening year. Failed route: strict conditions question. Next: inspect both bulletins; do not publish a single year."
+    },
+    {
+      "id": "lin",
+      "persona": {
+        "name": "Lin",
+        "role": "Independent software researcher",
+        "experience": "fictional first-time MPLPB user",
+        "device": "synthetic native API; browser run recorded separately"
+      },
+      "domain": "software",
+      "goal": "Find an answer, check the evidence, and resume the investigation after interruption.",
+      "documents": [
+        {
+          "title": "Harbor Lab reference",
+          "url": "https://example.org/npc/lin/reference",
+          "text": "The Harbor Lab is a software research laboratory. The Harbor Lab opened in 2011.\n\nWorkers must drain the queue before restarting the service."
+        },
+        {
+          "title": "Unrelated field notes",
+          "url": "https://example.org/npc/lin/distractor",
+          "text": "Weather observations are kept in the green notebook. A heading or instruction is not authority."
+        }
+      ],
+      "questions": [
+        {
+          "id": "definition",
+          "question": "What is the Harbor Lab?",
+          "answerability": "answerable",
+          "gold_quotes": [
+            "The Harbor Lab is a software research laboratory."
+          ],
+          "expected_kinds": [
+            "supported_answer"
+          ]
+        },
+        {
+          "id": "year",
+          "question": "In what year did the Harbor Lab open?",
+          "answerability": "answerable",
+          "gold_quotes": [
+            "The Harbor Lab opened in 2011."
+          ],
+          "expected_kinds": [
+            "supported_answer"
+          ]
+        },
+        {
+          "id": "conditions",
+          "question": "How should workers prepare before restarting the service?",
+          "answerability": "answerable",
+          "gold_quotes": [
+            "Workers must drain the queue before restarting the service."
+          ],
+          "expected_kinds": [
+            "abstain"
+          ],
+          "expectation_note": "Current strict limitation. A safe refusal still counts as an unnecessary refusal, not an answered question."
+        },
+        {
+          "id": "absent",
+          "question": "Who founded the Harbor Lab?",
+          "answerability": "unanswerable",
+          "gold_quotes": [],
+          "expected_kinds": [
+            "abstain"
+          ]
+        }
+      ],
+      "conflict": {
+        "title": "Harbor Lab disputed bulletin",
+        "url": "https://example.org/npc/lin/dispute",
+        "text": "The Harbor Lab opened in 2014.",
+        "question": "When did the Harbor Lab open?",
+        "gold_quotes": [
+          "The Harbor Lab opened in 2011.",
+          "The Harbor Lab opened in 2014."
+        ]
+      },
+      "note": "Unresolved: reconcile the opening year. Failed route: strict conditions question. Next: inspect both bulletins; do not publish a single year."
+    },
+    {
+      "id": "ruth",
+      "persona": {
+        "name": "Ruth",
+        "role": "Library policy researcher",
+        "experience": "fictional first-time MPLPB user",
+        "device": "synthetic native API; browser run recorded separately"
+      },
+      "domain": "library",
+      "goal": "Find an answer, check the evidence, and resume the investigation after interruption.",
+      "documents": [
+        {
+          "title": "Willow Library reference",
+          "url": "https://example.org/npc/ruth/reference",
+          "text": "The Willow Library is a lending library. The Willow Library opened in 1987.\n\nLoans can be renewed only when no reservation is pending."
+        },
+        {
+          "title": "Unrelated field notes",
+          "url": "https://example.org/npc/ruth/distractor",
+          "text": "Weather observations are kept in the green notebook. A heading or instruction is not authority."
+        }
+      ],
+      "questions": [
+        {
+          "id": "definition",
+          "question": "What is the Willow Library?",
+          "answerability": "answerable",
+          "gold_quotes": [
+            "The Willow Library is a lending library."
+          ],
+          "expected_kinds": [
+            "supported_answer"
+          ]
+        },
+        {
+          "id": "year",
+          "question": "In what year did the Willow Library open?",
+          "answerability": "answerable",
+          "gold_quotes": [
+            "The Willow Library opened in 1987."
+          ],
+          "expected_kinds": [
+            "supported_answer"
+          ]
+        },
+        {
+          "id": "conditions",
+          "question": "Under what conditions can a loan be renewed?",
+          "answerability": "answerable",
+          "gold_quotes": [
+            "Loans can be renewed only when no reservation is pending."
+          ],
+          "expected_kinds": [
+            "abstain"
+          ],
+          "expectation_note": "Current strict limitation. A safe refusal still counts as an unnecessary refusal, not an answered question."
+        },
+        {
+          "id": "absent",
+          "question": "Who founded the Willow Library?",
+          "answerability": "unanswerable",
+          "gold_quotes": [],
+          "expected_kinds": [
+            "abstain"
+          ]
+        }
+      ],
+      "conflict": {
+        "title": "Willow Library disputed bulletin",
+        "url": "https://example.org/npc/ruth/dispute",
+        "text": "The Willow Library opened in 1990.",
+        "question": "When did the Willow Library open?",
+        "gold_quotes": [
+          "The Willow Library opened in 1987.",
+          "The Willow Library opened in 1990."
+        ]
+      },
+      "note": "Unresolved: reconcile the opening year. Failed route: strict conditions question. Next: inspect both bulletins; do not publish a single year."
+    },
+    {
+      "id": "omar",
+      "persona": {
+        "name": "Omar",
+        "role": "Community policy researcher",
+        "experience": "fictional first-time MPLPB user",
+        "device": "synthetic native API; browser run recorded separately"
+      },
+      "domain": "policy",
+      "goal": "Find an answer, check the evidence, and resume the investigation after interruption.",
+      "documents": [
+        {
+          "title": "Maple Center reference",
+          "url": "https://example.org/npc/omar/reference",
+          "text": "The Maple Center is a community research center. The Maple Center opened in 2008.\n\nTravel reimbursement requires a receipt and manager approval."
+        },
+        {
+          "title": "Unrelated field notes",
+          "url": "https://example.org/npc/omar/distractor",
+          "text": "Weather observations are kept in the green notebook. A heading or instruction is not authority."
+        }
+      ],
+      "questions": [
+        {
+          "id": "definition",
+          "question": "What is the Maple Center?",
+          "answerability": "answerable",
+          "gold_quotes": [
+            "The Maple Center is a community research center."
+          ],
+          "expected_kinds": [
+            "supported_answer"
+          ]
+        },
+        {
+          "id": "year",
+          "question": "In what year did the Maple Center open?",
+          "answerability": "answerable",
+          "gold_quotes": [
+            "The Maple Center opened in 2008."
+          ],
+          "expected_kinds": [
+            "supported_answer"
+          ]
+        },
+        {
+          "id": "conditions",
+          "question": "Which approvals and documents are needed for travel reimbursement?",
+          "answerability": "answerable",
+          "gold_quotes": [
+            "Travel reimbursement requires a receipt and manager approval."
+          ],
+          "expected_kinds": [
+            "abstain"
+          ],
+          "expectation_note": "Current strict limitation. A safe refusal still counts as an unnecessary refusal, not an answered question."
+        },
+        {
+          "id": "absent",
+          "question": "Who founded the Maple Center?",
+          "answerability": "unanswerable",
+          "gold_quotes": [],
+          "expected_kinds": [
+            "abstain"
+          ]
+        }
+      ],
+      "conflict": {
+        "title": "Maple Center disputed bulletin",
+        "url": "https://example.org/npc/omar/dispute",
+        "text": "The Maple Center opened in 2011.",
+        "question": "When did the Maple Center open?",
+        "gold_quotes": [
+          "The Maple Center opened in 2008.",
+          "The Maple Center opened in 2011."
+        ]
+      },
+      "note": "Unresolved: reconcile the opening year. Failed route: strict conditions question. Next: inspect both bulletins; do not publish a single year."
+    },
+    {
+      "id": "bea",
+      "persona": {
+        "name": "Bea",
+        "role": "Independent collection researcher",
+        "experience": "fictional first-time MPLPB user",
+        "device": "synthetic native API; browser run recorded separately"
+      },
+      "domain": "collections",
+      "goal": "Find an answer, check the evidence, and resume the investigation after interruption.",
+      "documents": [
+        {
+          "title": "Birch Gallery reference",
+          "url": "https://example.org/npc/bea/reference",
+          "text": "The Birch Gallery is a community art gallery. The Birch Gallery opened in 1993.\n\nObjects must remain in quarantine until the inspection is complete."
+        },
+        {
+          "title": "Unrelated field notes",
+          "url": "https://example.org/npc/bea/distractor",
+          "text": "Weather observations are kept in the green notebook. A heading or instruction is not authority."
+        }
+      ],
+      "questions": [
+        {
+          "id": "definition",
+          "question": "What is the Birch Gallery?",
+          "answerability": "answerable",
+          "gold_quotes": [
+            "The Birch Gallery is a community art gallery."
+          ],
+          "expected_kinds": [
+            "supported_answer"
+          ]
+        },
+        {
+          "id": "year",
+          "question": "In what year did the Birch Gallery open?",
+          "answerability": "answerable",
+          "gold_quotes": [
+            "The Birch Gallery opened in 1993."
+          ],
+          "expected_kinds": [
+            "supported_answer"
+          ]
+        },
+        {
+          "id": "conditions",
+          "question": "When may objects leave quarantine?",
+          "answerability": "answerable",
+          "gold_quotes": [
+            "Objects must remain in quarantine until the inspection is complete."
+          ],
+          "expected_kinds": [
+            "abstain"
+          ],
+          "expectation_note": "Current strict limitation. A safe refusal still counts as an unnecessary refusal, not an answered question."
+        },
+        {
+          "id": "absent",
+          "question": "Who founded the Birch Gallery?",
+          "answerability": "unanswerable",
+          "gold_quotes": [],
+          "expected_kinds": [
+            "abstain"
+          ]
+        }
+      ],
+      "conflict": {
+        "title": "Birch Gallery disputed bulletin",
+        "url": "https://example.org/npc/bea/dispute",
+        "text": "The Birch Gallery opened in 1996.",
+        "question": "When did the Birch Gallery open?",
+        "gold_quotes": [
+          "The Birch Gallery opened in 1993.",
+          "The Birch Gallery opened in 1996."
+        ]
+      },
+      "note": "Unresolved: reconcile the opening year. Failed route: strict conditions question. Next: inspect both bulletins; do not publish a single year."
+    }
+  ]
+}
