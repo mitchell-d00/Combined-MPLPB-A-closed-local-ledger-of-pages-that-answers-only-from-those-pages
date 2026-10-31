@@ -1,8 +1,12 @@
-# Specialist continuity: a proposed work-state ledger
+# Specialist continuity: durable work and guarded handoffs
 
-Status: design proposal, 2026-10-31. This document does not implement a scheduler,
-authorization service, multi-process writer, or identity authentication. The
-practical answer extraction shipped alongside it is a separate implementation.
+Status: **implemented local coordinator**, 2026-10-31, in `mplpb_work`. It provides
+transactional work history, host-issued seat capabilities, revision and fencing
+checks, filtered handoffs, and guarded host-adapter dispatch. Use the
+[API and operation guide](SPECIALIST_CONTINUITY_API.md) or run
+`python -m tools.demo_specialist_continuity`. AI providers and their operating-system
+sandboxes remain external to this coordinator. Model/provider metadata is declared;
+capability possession does not authenticate a human or attest a provider runtime.
 
 ## What survives a specialist
 
@@ -72,7 +76,7 @@ planning and execution, the writer must refuse and recompute the permission.
 
 ## Transition enforcement
 
-Use an append-only event stream and rebuildable projections. Each event includes
+The implementation uses an append-only event stream and rebuildable projections. Each event includes
 schema version, unique ID, sequence, previous-event digest, timestamp, actor
 instance, seat-contract revision, target record, expected target revision,
 operation, evidence references, and payload. A durable transaction performs:
@@ -89,10 +93,13 @@ operation, evidence references, and payload. A durable transaction performs:
    Recompute eligibility before any side effect.
 
 Hash chains detect changes relative to a trusted head. They do not authenticate
-an author or prevent a privileged writer from rewriting history. Host-held grants,
-transactional compare-and-swap, and an independently retained head/signature are
-separate deployment responsibilities. The existing Swarm lease/fence code is a
-starting point for discussion, not proof these transaction semantics already hold.
+an author or prevent a privileged writer from rewriting history. Host-issued grants and compare-and-swap now run inside SQLite `BEGIN IMMEDIATE`
+transactions. Every operation verifies the chain and reconstructs state; there is
+no separately trusted mutable projection. A global host head and seat-specific view
+heads reject stale writes without exposing private event counts. An independently
+retained checkpoint remains a deployment responsibility. The Swarm fencing
+principle is implemented transactionally here, without modifying the preserved
+Swarm implementation.
 
 A permission check is a necessary execution guard, not proof that an experiment
 or source-authored instruction is safe or that real-world prerequisites hold.
@@ -113,7 +120,7 @@ availability and current permission rather than treating the package as authorit
 Do not store private chain-of-thought. Structured findings, concise reasons,
 assumptions, visible artifacts and test results are sufficient work products.
 
-## Tests that would earn the architecture
+## Validation and remaining research
 
 Use a sealed task suite, randomized interruption points and fixed access policies.
 Compare document-only, transcript-only and structured-ledger handoffs with matched
@@ -136,7 +143,19 @@ Required challenges include:
 - A source changes after action selection: are dependent decisions and permissions
   rechecked at execution time?
 
-First implement a single-writer reference store, validate replay and interruption
-recovery, then add transactional concurrency and authenticated role enforcement.
-Only after these pass should real specialist runtimes be attached. These tests
-are a proposed research program; no multi-specialist result is claimed here.
+The local implementation now has adversarial development tests for replay, fresh
+process recovery, concurrent thread/process writers, stale heads, source changes,
+revocation, fencing, historical visibility, explicit transfer, failed routes,
+review budgets, guarded dispatch and receipt-backed completion. The
+[five-instance fixture report](../evaluation/specialist-continuity/README.md) records
+its observed behavior. These are deterministic development fixtures, not measured
+performance of five AI providers. The sealed comparison and information-theoretic
+experiments above remain research work.
+
+The current coordinator is native Python/SQLite with a CLI and a dedicated local
+HTTP API. It does not add a hosted browser work UI or invoke AI providers. A
+registered adapter is host-controlled code with a versioned operation name and
+known effect class. Unknown execution outcomes remain indeterminate until a host
+operator reconciles them. External systems still need idempotency and suitable
+isolation; a permission check cannot make an external side effect atomic with a
+local database transaction.

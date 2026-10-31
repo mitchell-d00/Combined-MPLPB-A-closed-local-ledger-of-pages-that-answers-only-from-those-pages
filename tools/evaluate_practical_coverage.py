@@ -51,9 +51,9 @@ def evaluate(output, baseline=BASELINE):
             module = importlib.util.module_from_spec(spec)
             spec.loader.exec_module(module)
             # Baseline support imports the unchanged current frame/procedure/literal
-            # helpers. Refuse comparison if their bytes differ from the baseline.
+            # runtime helpers. CLI registration is not part of answer evaluation. Refuse comparison if their bytes differ from the baseline.
             for name, digest in pins.items():
-                if name != 'support.py' and code_pins().get(name) != digest:
+                if name in {'frames.py', 'procedures.py', 'literal_evidence.py'} and code_pins().get(name) != digest:
                     raise ValueError('Baseline helper changed: '+name)
             reliability.supported_answer = module.supported_answer
             before = compact(reliability.evaluate(), pins, baseline)

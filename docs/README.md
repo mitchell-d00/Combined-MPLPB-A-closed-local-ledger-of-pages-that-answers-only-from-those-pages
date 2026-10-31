@@ -23,6 +23,7 @@ Reviewed against the October 27 retrieval repair on 2026-10-29. Application guid
 | Supported answers, candidates, gated pages, separate bundles | [Page retrieval and answer authority](PAGE_RETRIEVAL.md) |
 | JavaScript methods, options and error handling | [JavaScript API](../JAVASCRIPT-API.md) |
 | Discovery, public snapshot and verbatim relay | [Agent middleware](AGENT_MIDDLEWARE.md) / [agent notes](../llms.txt) |
+| Specialist tasks, claims, seat capabilities and handoffs | [Continuity model](SPECIALIST_CONTINUITY.md) / [API and operation](SPECIALIST_CONTINUITY_API.md) |
 | Separate lexical source records and provenance checks | [Provenance gate](PROVENANCE_GATE.md) |
 | Delivery profiles and clarification | [Delivery and clarification](DELIVERY_AND_CLARIFICATION.md) |
 | Successors, withdrawal, restoration and stale derivations | [Supersession policy](SUPERSESSION_POLICY.md) |

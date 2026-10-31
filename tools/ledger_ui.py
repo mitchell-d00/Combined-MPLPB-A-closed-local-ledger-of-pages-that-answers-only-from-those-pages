@@ -49,7 +49,11 @@ from tools import context_index as CX
 
 
 class App:
-    def __init__(self, custom=None, topic_base=None, session_path=None, library_manifest=None):
+    def __init__(self, custom=None, topic_base=None, session_path=None, library_manifest=None, work_store=None, work_executors=None):
+        self.work_store = None
+        if work_store is not None:
+            from mplpb_work import WorkStore
+            self.work_store = work_store if isinstance(work_store, WorkStore) else WorkStore(work_store, executors=work_executors)
         self.library_manifest = copy.deepcopy(library_manifest)
         self.topics = TopicStore(topic_base or ROOT / "local/topics")
         self.chat_lock = threading.RLock()
@@ -71,6 +75,12 @@ class App:
             if not custom.is_dir():
                 raise ValueError('Custom corpus folder does not exist')
             self.corpora['custom'] = ('Your local corpus', custom)
+
+    def work(self, data, credential):
+        if self.work_store is None:
+            raise ValueError('Specialist work store is not configured on this host')
+        from mplpb_work.api import request
+        return request(self.work_store, credential, data)
 
     def roots(self):
         roots = dict(self.corpora)
@@ -566,6 +576,8 @@ def handler(app):
             if not self.local():
                 return self.send(403, {'error': 'Local host required'})
             route = urlsplit(self.path)
+            if app.work_store is not None:
+                return self.send(404, {'error': 'Dedicated specialist work API; use authenticated /api/work'})
             try:
                 if route.path in ('/', '/index.html'):
                     return self.send(200, html, 'text/html; charset=utf-8')
@@ -591,7 +603,9 @@ def handler(app):
             origin = self.headers.get('Origin')
             if origin and origin != 'http://' + self.headers.get('Host', ''):
                 return self.send(403, {'error': 'Origin rejected'})
-            operations = {'/api/retrieve': app.retrieve, '/api/query': app.query, '/api/chat': app.chat,
+            if app.work_store is not None and self.path != '/api/work':
+                return self.send(404, {'error': 'Not found'})
+            operations = {'/api/work': lambda data: app.work(data, (self.headers.get('Authorization', '')[7:] if self.headers.get('Authorization', '').startswith('Bearer ') else '')), '/api/retrieve': app.retrieve, '/api/query': app.query, '/api/chat': app.chat,
                           '/api/collections/reset-many': app.reset_collections,
                           '/api/collections/create': app.create_collection, '/api/collections/reset': app.reset_collection, '/api/source/import': app.import_source,
                           '/api/chat/resume': app.resume_chat, '/api/chat/export': app.export_chat, '/api/chat/reset': app.reset_chat}
@@ -616,13 +630,15 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--root', type=Path)
     parser.add_argument('--library-manifest', type=Path, help='Explicit hierarchy over registered corpus keys')
+    parser.add_argument('--work-store', type=Path, help='Explicit initialized specialist work store; seat RPC uses bearer capabilities')
     parser.add_argument('--port', type=int, default=8766)
     parser.add_argument('--open', action='store_true', help='Open the local UI in your default browser')
     args = parser.parse_args()
-    app = App(args.root, library_manifest=json.loads(args.library_manifest.read_text()) if args.library_manifest else None)
+    app = App(args.root, work_store=args.work_store, library_manifest=json.loads(args.library_manifest.read_text()) if args.library_manifest else None)
     server = ThreadingHTTPServer(('127.0.0.1', args.port), handler(app))
-    print(f'Local ledger UI: http://127.0.0.1:{server.server_port}', flush=True)
-    if args.open:
+    label = 'Specialist work API' if args.work_store else 'Local ledger UI'
+    print(f'{label}: http://127.0.0.1:{server.server_port}', flush=True)
+    if args.open and not args.work_store:
         import threading
         import webbrowser
         browser_url = f'http://127.0.0.1:{server.server_port}'

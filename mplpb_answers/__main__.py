@@ -40,6 +40,11 @@ def cmd_tags(args):
     return 0
 
 
+def cmd_work(args):
+    from mplpb_work.__main__ import main as work_main
+    return work_main(args.work_args)
+
+
 def build_parser():
     parser = legacy_parser()
     parser.prog = 'mplpb-combined'
@@ -54,6 +59,10 @@ def build_parser():
     tags.add_argument('root');tags.add_argument('path')
     tags.add_argument('--profile',choices=R.PROFILES,default='internal')
     tags.set_defaults(fn=cmd_tags)
+    import argparse
+    work = sub.add_parser('work', help='durable specialist tasks, claims, permissions and handoffs')
+    work.add_argument('work_args', nargs=argparse.REMAINDER)
+    work.set_defaults(fn=cmd_work)
     return parser
 
 

@@ -78,12 +78,13 @@ node tests/javascript-api.cjs
 node crawler/test_worker.mjs
 ```
 
-The evaluator compares the baseline support implementation using unchanged helper
-modules and refuses if a baseline helper differs. `before.json` and `after.json`
+The evaluator compares the baseline support implementation using unchanged statement/procedure/literal runtime
+helpers and refuses if those helpers differ. CLI registration may evolve independently. `before.json` and `after.json`
 include code SHA-256 pins, frozen input hashes, metrics, individual outcomes,
-reasons and support spans. Source pages and labels are not rewritten. The new
-specialist work-state model is a [design proposal](../../docs/SPECIALIST_CONTINUITY.md),
-with no runtime enforcement or multi-agent performance claim.
+reasons and support spans. Source pages and labels are not rewritten. The [specialist work coordinator](../../docs/SPECIALIST_CONTINUITY.md) is now
+implemented separately. Its deterministic development fixtures do not establish
+multi-agent performance. Adding the `work` CLI changes the recorded CLI module
+hash; answer results remain unchanged.
 
 Validation: all 678 Python regression tests pass; the 36-test focused run also
 passes. UI script, browser transport, JavaScript API and fixture crawler checks
