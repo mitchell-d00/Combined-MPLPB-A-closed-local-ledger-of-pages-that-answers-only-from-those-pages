@@ -1,0 +1,61 @@
+{
+  "date": "2026-10-31",
+  "evidence_status": "developer regression and deterministic fixtures; not independent multi-agent performance validation",
+  "implementation_sha256": {
+    "__init__.py": "5015f3af15da1efed8d2f32bfb0c42a3d24d7c4fec53865dc96b8361db34a393",
+    "__main__.py": "afa5fa55c9767520ccde8386c5f7c68a77ee2b10c7bad5d017f19efb2edb93e4",
+    "api.py": "1f4b13cdbf37871d7fa0269f88017c3678458db32f6027524522934efed3797c",
+    "errors.py": "633c7042a803a259e33db177b303dfd1d6ad5bc038f1908a3f70e469a966615a",
+    "model.py": "a7ff286606893b7fd2c235f0a7af62ba316c3f7251856def87ae1f0f17de8e60",
+    "store.py": "c0da4147627f2a6925cf4a8416debb92e9b86d7083df561b31d365f479a158bb"
+  },
+  "answer_code_sha256": {
+    "__init__.py": "1394a074b9d56bf217fa815a028c121056ddf339a196dc3668a580a0a9c0db37",
+    "__main__.py": "c3058cccfd912be3d690c98b9b3bd9f1f304ee4f41308420bf488d5fa6bbaeef",
+    "frames.py": "82c23f7382f862d3b95960b017dda278022ccee1f1bc4e9b339bf7c45ba8dede",
+    "library.py": "7d1613c28f01453270c8a53bf0e3f015bf197dff25b43edc764802e1e1306e5b",
+    "literal_evidence.py": "d4308c1f5e01c3d698ef625991de2182bfeb72ebafa77a410d8e041941c09614",
+    "practical_evidence.py": "c857a46cdfe12f026050edbce5172245d564cdf04d80aed32ebffb91261316d7",
+    "procedures.py": "d66b180651cc35df32a92e33f7df9ae5e031f2fba53ed769c2caddc37fa94523",
+    "support.py": "f4864a00d50fb32cea569034a2b25bedefb92448325f40e0d3b854bd42f86a07"
+  },
+  "integration_sha256": {
+    "tools/ledger_ui.py": "2a1f119b0ae1b7e20a2a31f0c8a3e96cd993abbf1928bd158febe19016db594e",
+    "tools/demo_specialist_continuity.py": "642898ba34e96e67b306b381478a5a3fedb996837d68363514b13e6e113f3081",
+    "pyproject.toml": "22bf0be022647d5d13514112987d93f0ec1e1c933194d9b91ccc40966f6ca5e5"
+  },
+  "tests": {
+    "full_python": {
+      "count": 716,
+      "seconds": 246.51,
+      "result": "pass"
+    },
+    "final_continuity_and_local_ui": {
+      "count": 50,
+      "result": "pass",
+      "note": "Final dedicated work-host route isolation verified after broad regression began"
+    },
+    "answer_and_continuity_focus": {
+      "count": 51,
+      "result": "pass"
+    },
+    "ui_script": "pass",
+    "browser_transport": "pass",
+    "javascript_api": "pass",
+    "fixture_crawler": "pass"
+  },
+  "installed_wheel": {
+    "result": "pass",
+    "sha256": "045ca1f1d0386d615f3040caa8a7c832255f1ed4214fb9dfc741609b97c61bd0",
+    "checks": [
+      "packaged module byte parity",
+      "CLI bootstrap outside checkout",
+      "capability assignment",
+      "transactional task write",
+      "durable handoff"
+    ]
+  },
+  "protected_core_sources_questions_and_papers": "unchanged",
+  "browser_work_ui": "not implemented",
+  "webassembly_and_chromium_release_checks": "pending CI for new PR head"
+}

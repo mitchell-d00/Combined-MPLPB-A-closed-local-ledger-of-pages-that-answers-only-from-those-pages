@@ -128,6 +128,8 @@ python3 -m mplpb_combined killtest examples/studio killtest/probes_adjacent.json
 
 The latest lexical retrieval repair is recorded in [FIXLOG.md](FIXLOG.md); the broader [October 21 system audit](docs/SYSTEM_AUDIT_2026-10-21.md) and [answer reliability review](docs/ANSWER_RELIABILITY.md) record their own revisions and limits. Development fixtures and inspected external excerpts are not independent production accuracy measurements. See [evaluation protocol](evaluation/README.md) and [ownership failures/comparisons](evaluation/ownership/README.md).
 
+The [October 31 practical coverage repair](evaluation/practical-coverage/README.md) adds six supported returns across the frozen pottery sets, with no observed wrong returns and substantial remaining coverage gaps. The [specialist work coordinator](docs/SPECIALIST_CONTINUITY.md) implements durable tasks, revisable claims, failed attempts, scoped seat capabilities and filtered handoffs through a native CLI and dedicated local API. Run `python -m tools.demo_specialist_continuity` for the five-instance interruption/recovery fixture; see [API usage](docs/SPECIALIST_CONTINUITY_API.md).
+
 Lexical relevance is not entailment; statement support covers bounded forms, not all semantics. Hashes establish consistency with pins, not truth, authenticated authorship, authorization, or protection from an operator replacing both data and seals. General conversation is rule-based; imagined ideas never become page evidence. Shared deployment needs separate [threat-model review](docs/PRODUCTION_THREAT_MODEL.md). [Recovery and rollback](docs/ROLLBACK.md) preserve history and distinguish source code from user saves.
 
 ## Licence

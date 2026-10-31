@@ -1,3 +1,5 @@
+> **2026-10-31 coverage follow-up:** The [practical extraction retest](../evaluation/practical-coverage/README.md) returns 3, 2 and 1 supported answers on the frozen pottery sets, with zero wrong returns. Coverage remains low. The zero-return result below describes the historical implementation. See also the implemented [specialist continuity coordinator](SPECIALIST_CONTINUITY.md).
+
 > **2026-10-21 audit:** See the [current retest, defects, repairs and evidence status](SYSTEM_AUDIT_2026-10-21.md). Earlier dated results below remain historical; the October 19 SQuAD correction is included in the retest.
 
 # Answer reliability review — 2026-10-13
