@@ -49,6 +49,12 @@ jobs:
           cd "$RUNNER_TEMP/mplpb-unpacked"
           python -m unittest tests.test_integrity_hunt tests.test_record tests.test_ledger tests.test_literal_evidence tests.test_answer_reliability tests.test_answer_support -q
           python -m unittest discover -s tests -q
+      - name: Run complete synthetic researcher journeys FROM ZIP
+        shell: bash
+        run: |
+          set -euo pipefail
+          cd "$RUNNER_TEMP/mplpb-unpacked"
+          python -m tools.evaluate_researcher_pilot --output "$RUNNER_TEMP/mplpb-zipped/npc-pilot/native.json"
       - name: Test JavaScript API, crawler, UI script and bridge FROM ZIP
         shell: bash
         run: |
@@ -84,7 +90,8 @@ jobs:
           cd "$RUNNER_TEMP/mplpb-unpacked"
           python tools/browser_release_smoke.py \
             --live-url "https://mitchell-d00.github.io/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/" \
-            --preview-dir dist
+            --preview-dir dist \
+            --npc-report "$RUNNER_TEMP/mplpb-zipped/npc-pilot/browser.json"
       - name: Audit ZIP-built persistence, offline API and responsive layouts
         run: |
           cd "$RUNNER_TEMP/mplpb-unpacked"
@@ -103,6 +110,7 @@ jobs:
             echo "Pinned Python WebAssembly engine: PASS"
             echo "Chromium published-live baseline: PASS"
             echo "Chromium ZIP-built candidate: PASS"
+            echo "Synthetic researcher native and browser journeys: PASS (not human validation)"
             echo "Post-merge deployed-live Chromium: separate Pages deployment gate"
           } > "$RUNNER_TEMP/mplpb-zipped/validation-report.txt"
           cat "$RUNNER_TEMP/mplpb-zipped/validation-report.txt"

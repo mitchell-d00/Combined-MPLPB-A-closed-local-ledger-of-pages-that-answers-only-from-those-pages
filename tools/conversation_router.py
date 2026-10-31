@@ -15,7 +15,7 @@ from tools.chat_phrasing import memory_question
 
 from tools import structured_requests as SR, topic_dialogue as TD
 
-VERSION = 'conversation-router-v3'
+VERSION = 'conversation-router-v4'
 
 def relationships(session, acts):
     """Replay typed user declarations only. Assistant answers are never premises."""
@@ -64,6 +64,11 @@ def propose(frame, session, data):
     def add(handler,intent,priority,basis,authorities):
         candidates.append({'handler':handler,'intent':intent,'priority':priority,
                            'basis':basis,'allowed_authorities':authorities})
+    # An explicit note has one literal payload. Its punctuation, embedded
+    # commands and questions must never become separately executed clauses.
+    if text.casefold().startswith('remember '):
+        add('working_note','save_literal_note',140,'explicit bounded note command',['user_declaration'])
+        return candidates
     structured=SR.parse(frame['original'],session)
     existing_clauses=CE.clauses(frame['original'])
     existing_composition=(len(existing_clauses)>1 and all(CE.act(part)['type']!='unresolved' for part in existing_clauses))
@@ -166,7 +171,7 @@ def plan(frame, session, data, compound=True):
     # Compose only fully recognized local skills. Never execute a partial command
     # or invent an interpretation for an unknown clause.
     identity_ack=bool(re.fullmatch(r"(?:that's me|that is me|yes that's me|yes that is me)[,; ]+(?:who are you|what is your name)[?!.]*",CM.key(frame['resolved'])))
-    if compound and len(parts)>1 and winner['handler'] not in {'dialogue','structured'} and not identity_ack:
+    if compound and len(parts)>1 and winner['handler'] not in {'dialogue','structured','working_note'} and not identity_ack:
         children=[]
         for part in parts:
             child=dict(frame,original=part,resolved=part,acts=[CE.act(part)])
@@ -220,6 +225,7 @@ def execute(app,data,session,frame,corpus,profile):
     shadow=copy.deepcopy(session)
     reader=lambda q:E.handle(app,data,shadow,q,corpus,profile)
     handlers={'topic_dialogue':lambda:TD.handle(app,data,shadow,text,corpus,profile),
+              'working_note':lambda:M.handle(None,profile,text,shadow.get('context'),shadow.setdefault('mind',{})),
               'structured':lambda:SR.handle(frame['original'],shadow,app.roots()),
               'reference':lambda:SP.execute(text,shadow,'legacy',app,corpus,profile),
               'self':lambda:SK.handle(text,shadow,app.roots()),

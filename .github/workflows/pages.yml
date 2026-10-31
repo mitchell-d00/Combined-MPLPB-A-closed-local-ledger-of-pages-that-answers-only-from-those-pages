@@ -57,6 +57,8 @@ jobs:
           "$RUNNER_TEMP/mplpb-install/bin/mplpb-combined" --help
       - name: Run synthetic context matrix
         run: python -m tools.evaluate_context_matrix --output release/context-matrix.json
+      - name: Run complete synthetic researcher journeys
+        run: python -m tools.evaluate_researcher_pilot --output release/researcher-pilot.json
       - name: Check fixed conversation scenarios
         run: python -m tools.smoke_conversation_architecture
       - name: Upload installation packages

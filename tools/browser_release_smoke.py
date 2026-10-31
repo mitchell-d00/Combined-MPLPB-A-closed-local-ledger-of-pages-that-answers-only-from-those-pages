@@ -5,13 +5,17 @@ locally served preview. It never writes to the published site or any shared
 browser profile. Each run uses a fresh, isolated browser context.
 """
 import argparse
+import json
 from contextlib import contextmanager
 from functools import partial
 from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
+import sys
 from threading import Thread
 
 from playwright.sync_api import expect, sync_playwright
+
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
 
 @contextmanager
@@ -30,6 +34,7 @@ def preview_server(directory):
 
 def verify(page, url, updated):
     errors = []
+    npc_report = None
     page.on("pageerror", lambda exc: errors.append(str(exc)))
     print("BROWSER LOAD", "candidate-preview" if updated else "published-live", url, flush=True)
     page.goto(url, wait_until="domcontentloaded", timeout=120000)
@@ -93,6 +98,10 @@ def verify(page, url, updated):
             "Candidate pages for inspection only")
         print("BROWSER CAPTIONS: supported and inspection notices separated", flush=True)
 
+        from tools.browser_researcher_pilot import verify as researcher_journey
+        npc_report = researcher_journey(page)
+        print('NPC_BROWSER '+json.dumps(npc_report), flush=True)
+
         # Persist the toggle immediately, without requiring a chat submission.
         # Exercise both values and a second preference write before reload.
         page.locator("[data-view='chat']").first.click()
@@ -116,6 +125,7 @@ def verify(page, url, updated):
     assert not errors, "Browser JavaScript errors: " + repr(errors)
     print("BROWSER PASS", "candidate-preview" if updated else "published-live",
           flush=True)
+    return npc_report
 
 
 def main():
@@ -124,7 +134,11 @@ def main():
     parser.add_argument("--preview-dir", help="Built candidate dist/ directory; omit for deployed-live-only checks")
     parser.add_argument("--live-updated", action="store_true",
                         help="Expect the proposed features on the newly deployed public site")
+    parser.add_argument("--npc-report", type=Path, help="New output path for completed synthetic browser journeys")
     args = parser.parse_args()
+    if args.npc_report and args.npc_report.exists():
+        raise FileExistsError('Choose a new NPC report path')
+    npc_reports = []
     with sync_playwright() as playwright:
         try:
             browser = playwright.chromium.launch(channel="chrome", headless=True,
@@ -136,18 +150,26 @@ def main():
             for url, updated in ((args.live_url, args.live_updated),):
                 context = browser.new_context(ignore_https_errors=False)
                 try:
-                    verify(context.new_page(), url, updated)
+                    result = verify(context.new_page(), url, updated)
+                    if result:
+                        npc_reports.append(result)
                 finally:
                     context.close()
             if args.preview_dir:
                 with preview_server(args.preview_dir) as url:
                     context = browser.new_context(ignore_https_errors=False)
                     try:
-                        verify(context.new_page(), url, True)
+                        result = verify(context.new_page(), url, True)
+                        if result:
+                            npc_reports.append(result)
                     finally:
                         context.close()
         finally:
             browser.close()
+    if args.npc_report:
+        args.npc_report.parent.mkdir(parents=True, exist_ok=True)
+        with args.npc_report.open('x', encoding='utf-8') as stream:
+            stream.write(json.dumps({'synthetic': True, 'journeys': npc_reports}, indent=2)+'\n')
 
 
 if __name__ == "__main__":
