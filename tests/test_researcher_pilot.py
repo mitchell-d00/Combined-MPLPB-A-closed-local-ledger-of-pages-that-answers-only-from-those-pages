@@ -33,9 +33,9 @@ class ResearcherPilotTests(unittest.TestCase):
         s = self.report['summary']
         self.assertEqual(s['retrieval_gold_recall'], 1.0)
         self.assertEqual(s['answerable'], 18)
-        self.assertEqual(s['literal_gold_supported'], 12)
-        self.assertEqual(s['unnecessary_refusals'], 6)
-        self.assertAlmostEqual(s['complete_answerable_coverage'], 2/3)
+        self.assertEqual(s['literal_gold_supported'], 13)
+        self.assertEqual(s['unnecessary_refusals'], 5)
+        self.assertAlmostEqual(s['complete_answerable_coverage'], 13/18)
         self.assertEqual(s['wrong_returns_under_literal_oracle'], 0)
         self.assertEqual(s['valid_citations'], s['citations'])
         self.assertFalse(s['semantic_accuracy_independently_measured'])
@@ -84,7 +84,7 @@ class ResearcherPilotTests(unittest.TestCase):
         self.assertEqual(report['summary']['workflow_passes'], 5)
         self.assertEqual(report['summary']['answerable'], 18)
         self.assertEqual(report['summary']['unexecuted_questions'], 4)
-        self.assertEqual(report['summary']['literal_gold_supported'], 10)
+        self.assertEqual(report['summary']['literal_gold_supported'], 11)
 
     def test_changed_fixture_and_existing_output_fail_before_execution(self):
         with tempfile.TemporaryDirectory() as temp:

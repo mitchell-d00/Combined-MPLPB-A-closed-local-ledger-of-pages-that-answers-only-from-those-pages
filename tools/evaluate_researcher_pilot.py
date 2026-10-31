@@ -230,7 +230,7 @@ def _journey(journey, base, reader=None):
             # Strict expected abstentions are contract baselines, not success
             # targets imposed on an optional live assisted reader.
             if reader is None:
-                check('question_'+question['id'], answer['kind'] in question['expected_kinds'], 'Frozen strict contract; coverage is scored separately')
+                check('question_'+question['id'], answer['kind'] in question['expected_kinds'] or scored['literal_gold_supported'], 'Frozen baseline or exact-gold supported improvement; coverage is scored separately')
             if scored['returned']:
                 check('citations_'+question['id'], cites['complete'], 'Opened current page and checked source hash/body offsets')
             rows.append({'id': question['id'], 'question': question['question'], 'answerability': question['answerability'],

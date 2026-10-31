@@ -1,5 +1,10 @@
 # Synthetic researcher pilot
 
+> Local policy-reader follow-up: the same frozen questions now produce 13/18
+> supported answers and 109 passing workflow checks. The 12/18 reports below
+> retain their historical implementation pins. See [the new comparison](../user-collections/README.md);
+> no old question labels or result files were rewritten.
+
 Six fictional independent researchers execute complete native application journeys
 across history, archives, software, library policy, community policy and collections.
 The personas are scripts, not AI agents or recruited humans. The application,

@@ -27,6 +27,8 @@ jobs:
         run: python tools/build_browser_runtime.py --core-archive "$RUNNER_TEMP/pyodide-core.tar.bz2" --output dist/index.html
       - name: Run visible-control researcher journey before long regressions finish
         run: python -m tools.browser_researcher_pilot --preview-dir dist --output "$RUNNER_TEMP/npc-browser/report.json"
+      - name: Verify user-built policies, revision and permitted fixture acquisition in Chromium
+        run: python -m tools.browser_collection_policies --preview-dir dist --browser-executable "$(command -v google-chrome)" --output "$RUNNER_TEMP/npc-browser/collection-policies.json"
       - name: Retain synthetic browser report
         if: always()
         uses: actions/upload-artifact@v4

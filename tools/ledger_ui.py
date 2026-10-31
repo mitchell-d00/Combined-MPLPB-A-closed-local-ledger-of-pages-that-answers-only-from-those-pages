@@ -126,6 +126,13 @@ class App:
             corpora.append({'key': key, 'label': label, 'records': len(ledger.records),
                             'eligible': len(ledger.servable())})
         return {'chat_rules': C.RULES, 'corpora': corpora, 'profiles': list(R.PROFILES),
+                'collection_building': {'pasted_import': 'explicit user request',
+                    'wikipedia_acquisition': 'explicit search/import; browser automatic lookup only when enabled',
+                    'general_web': 'configured crawler and access token required',
+                    'derived_views': 'rebuilt from pinned sources; no new source authority',
+                    'notes': 'saved conversational declarations, not source evidence',
+                    'interpretation_expansion': 'requires a software update or explicitly configured assisted reader',
+                    'self_modifying_code': False},
                 'answer_capabilities': {'strict': True, 'assisted_configured': self.local_reader is not None, 'assisted_experimental': True, 'automatic_model_download': False},
                 'notice': 'Local lexical retrieval. Source declarations are not authenticated authorship.'}
 
@@ -222,6 +229,10 @@ class App:
                 'notice': 'Inventory lists local records; eligibility does not certify their claims.'}
 
     def query(self, data):
+        with self.chat_lock:
+            return self._query(data)
+
+    def _query(self, data):
         if any(key in data for key in ('reader_model', 'reviewer_model', 'reader_endpoint', 'reader_digest', 'reviewer_digest', 'local_reader')):
             raise ValueError('Reader connections and models must be configured by the host')
         question = data.get('question')
@@ -250,7 +261,7 @@ class App:
         reader['citation'] = answer.citation() if reader.get('answer_supported', data.get('mode') == 'candidates') else ''
         if answer.record:
             reader['title'] = answer.record.title
-        gate = G.gather(root, question, profile).to_dict()
+        gate = G.gather(root, question, profile).to_dict() if data.get('mode') == 'candidates' else result.gate
         return {'reader': reader, 'gate': gate, 'live_verified_by_this_query': False}
 
     def retrieve(self, data):
