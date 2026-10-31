@@ -1,14 +1,15 @@
 Combined MPLPB — repository map
-Documentation reviewed 2026-10-29; versioned implementation and historical papers are distinct.
+Current documentation reviewed 2026-10-31 after PRs #21/#22; historical papers and dated results remain distinct.
 
 README.md                 current overview, live site, supported interfaces and checks
 JAVASCRIPT-API.md         page-local API, relay, retrieval and network permissions
 docs/README.md            documentation index: guides, dated reports and archives
 docs/PAGE_RETRIEVAL.md    supported answers vs candidates vs gated pages vs bundles
-docs/DOCUMENTATION_AUDIT_2026-10-29.md  documentation review scope and verification
+docs/CURRENT_STATUS_2026-10-31.md  merged capabilities, checks and remaining product gaps
+docs/DOCUMENTATION_AUDIT_2026-10-29.md  preserved earlier documentation review
 CONTENTS                  this map
 LICENSE                   MIT code / CC BY 4.0 documentation; retained notices apply
-pyproject.toml            distribution 2.0.0; installs CLI packages, not full chat UI
+pyproject.toml            distribution 2.1.0rc1; installs answer/work/evaluation CLIs, not full chat UI
 PAST_DOCUMENTATION.md     route to preserved earlier documents
 FIXLOG.md                 current chronological fixes, including October 27 retrieval
 llms.txt                  agent discovery notes
@@ -20,7 +21,8 @@ index.html                desktop UI source; not the standalone Pages runtime
 browser/                  embedded Python bridge, worker, client and runtime licenses
 mplpb_combined/           legacy-version core: ledger, lexical reader, provenance gate,
                           gated page retrieval, validation, CLI and evaluations
-mplpb_answers/            supported-answer grammar, CLI, procedures and library routes
+mplpb_answers/            bounded answers, optional native reader, citations, scoring, procedures and library routes
+mplpb_work/               transactional specialist work, capabilities and guarded handoffs
 tools/                    chat/context/routing, UI server, source capture, browser builder,
                           release packaging, browser tests and evaluation tools
 crawler/                  optional hosted general-web crawler and its setup guide
@@ -30,6 +32,8 @@ tests/                    Python regressions and JavaScript API checks
                           python3 -m unittest discover -s tests -t .
 examples/                 sealed sample ledgers, synthetic facts and provenance demos
 evaluation/               dated/synthetic/external development sets, reports and protocols
+  general-reader/         pinned human-scoring runner and unmeasured live-model quality gates
+  researcher-pilot/       six synthetic native journeys, baseline/final reports and product gaps
 killtest/                 frozen probes/hashes, historical results, earlier reader versions
 papers/                   preserved supplied papers and byte manifests
 docs/                     operational guides plus dated design/audit reports
@@ -47,7 +51,7 @@ parts/                    five earlier implementations, each with its own docs/t
   image/                  Image MPLPB
 
 .github/workflows/
-  pr-validation.yml       regression job for proposed changes
+  pr-validation.yml       regression plus fast actual-Chromium researcher journey
   zip-release-validation.yml  archive-first exact-candidate package/test evidence
   pages.yml              main-branch build, packages, Pages deployment and live smoke
 

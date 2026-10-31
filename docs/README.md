@@ -2,7 +2,7 @@
 
 [Repository overview](../README.md) · [Repository map](../CONTENTS) · [Live application](https://mitchell-d00.github.io/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/)
 
-Reviewed against the October 27 retrieval repair on 2026-10-29. Application guides describe the current source; dated audits, papers, and experiment reports describe the revisions they measured. A historical test count or green workflow does not certify another revision. See [this documentation review](DOCUMENTATION_AUDIT_2026-10-29.md).
+Current entry points and release-status wording reviewed on 2026-10-31 after PRs #21/#22. See [merged capabilities, checks and product gaps](CURRENT_STATUS_2026-10-31.md). The [October 29 review](DOCUMENTATION_AUDIT_2026-10-29.md) remains historical. Dated audits, papers, and experiment reports describe the revisions they measured; their counts and green workflows do not certify another revision.
 
 ## Start and operate
 
@@ -66,7 +66,8 @@ Feature guides can contain dated validation sections. Those sections report thei
 
 | Material | Status and route |
 |---|---|
-| Latest fix chronology | [Root FIXLOG](../FIXLOG.md), including October 27 gated retrieval. |
+| Current implementation/status review | [October 31 status](CURRENT_STATUS_2026-10-31.md): local reader, researcher pilot, exact-head checks and remaining gaps. |
+| Latest fix chronology | [Root FIXLOG](../FIXLOG.md), including October 31 general-reader and researcher-pilot updates. |
 | Full-system audit | [2026-10-21 audit](SYSTEM_AUDIT_2026-10-21.md); measured its named revisions before the later retrieval repair. |
 | Answer reliability development review | [2026-10-13 review](ANSWER_RELIABILITY.md), with dated follow-ups. |
 | October 19 repairs | [Integrity](INTEGRITY_AUDIT_FIX_2026-10-19.md), [literal coverage](LITERAL_COVERAGE_FIX_2026-10-19.md), and [new collection chat](NEW_MPLPB_CHAT_FIX_2026-10-19.md). |

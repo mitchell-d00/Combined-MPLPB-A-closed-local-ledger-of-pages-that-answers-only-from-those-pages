@@ -5,6 +5,32 @@ showed. Nothing is overwritten: each earlier reader is kept at `killtest/v1/read
 `killtest/v2/reader_v2.py`, its results beside it, and each earlier paper under
 `docs/superseded/`.
 
+## Synthetic researcher journeys and working-note recovery (2026-10-31)
+
+[PR #22](https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/pull/22)
+added six complete fictional research workflows and a real Chromium UI journey.
+The full runs exposed multi-sentence notes being split into commands and note
+contents later being replayed as name changes. Explicit working notes now remain
+literal during routing and replay, retain line breaks, and carry user-declaration
+authority. Embedded commands do not execute or become source evidence.
+
+The failed baseline, intermediate run, final pinned report and seven-goal product
+gaps are retained in [the pilot](evaluation/researcher-pilot/README.md). Local
+validation passed 764 Python tests; exact-head regression, ZIP and Chromium checks
+passed before merge. The synthetic set answers 12/18 answerable questions and
+retains six unnecessary refusals; this does not replace independent grading or
+change the 6/59 strict pottery result. See [current status](docs/CURRENT_STATUS_2026-10-31.md)
+for the separate deployment boundary.
+
+## Optional general cited-answer pipeline (2026-10-31)
+
+[PR #21](https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/pull/21)
+added the shared answer contract, opt-in native local reader, exact quotations,
+separate semantic review, partial answers, diagnostic abstentions and packaged
+human-scoring gates. Model-assisted answers remain `answer_supported:false`.
+The [guide](docs/GENERAL_ANSWER_PIPELINE.md) documents setup and limits; no
+live-model accuracy gain or hosted-browser assisted inference is claimed.
+
 ## Provenance-gated page retrieval (2026-10-27)
 
 Ported from the Advanced MPLPB 0.2.0 retrieval repair. The reader now:
