@@ -90,14 +90,19 @@ node tests/javascript-api.cjs
 node crawler/test_worker.mjs
 ```
 
-Final validation: **755 Python tests** pass, including the new general-reader,
+Historical PR #21 local validation: **755 Python tests** passed, including the new general-reader,
 local HTTP protocol and human-scoring regressions. The focused compatibility run
 passes **62 tests**. UI rendering/escaping, transport, JavaScript API and fixture
 crawler checks pass. The installed 2.1.0rc1 wheel passes module-byte parity and
 CLI/pipeline/evaluator checks outside the checkout. Configured native UI and shared
 bridge payloads match. Exact pins and scope are recorded in `validation.json`.
-Live-model accuracy remains unmeasured; exact-head WebAssembly and Chromium release
-checks remain for CI. Frozen
+The required exact-head WebAssembly and Chromium checks subsequently passed for
+PR #21. The later researcher-pilot PR #22 passed its own regression, extracted-ZIP
+and Chromium checks; its local full suite has 764 passing tests. `validation.json`
+retains the original build-time observations and code pins, including the then-pending
+CI status; it is not silently rewritten as a fresh report. See the
+[current dated status](../../docs/CURRENT_STATUS_2026-10-31.md).
+Live-model accuracy remains unmeasured. Frozen
 pottery questions, source pages, supplied papers and the legacy engine are unchanged.
 Original reports elsewhere remain historical. See the [operation guide](../../docs/GENERAL_ANSWER_PIPELINE.md)
 and [release capability matrix](../../docs/RELEASE_2_1_RC1.md).

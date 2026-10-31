@@ -6,7 +6,7 @@ The successful main-branch Pages workflow provides an artifact named `mplpb-mons
 
 * `mplpb-monster.zip`: committed repository source. Extract it, install Python 3.8 or newer, then run `python launch.py` or the supplied platform launcher. This includes the chat application and its bundled resources.
 * `mplpb-monster-browser.zip`: extract and open `MPLPB_Browser.html` in a current browser, or serve it over static HTTPS. No Python server or AI account is needed. Browser storage permissions affect persistence. Explicit or enabled automatic Wikipedia lookup uses the network.
-* `combined_mplpb-*.whl`: the core ledger command-line package. Install with `python -m pip install PATH_TO_WHEEL`, then run `mplpb-combined --help`. This wheel does not include the browser chat application; use the source or browser ZIP for chat.
+* `combined_mplpb-*.whl`: the ledger, supported-answer, specialist-work and evaluation command-line packages. Install with `python -m pip install PATH_TO_WHEEL`, then run `mplpb-combined --help`. This wheel does not include the browser chat application; use the source or browser ZIP for chat.
 * `SHA256.json`: source commit, sizes and SHA-256 digests for both ZIPs.
 
 The source ZIP is built with `git archive HEAD`, so local collections, transcripts and temporary files cannot accidentally enter it. The browser ZIP packages the browser runtime that passed the WebAssembly checks. The workflow installs the wheel in a fresh virtual environment and exercises its command entry point before publishing the site.
@@ -40,8 +40,13 @@ into a new directory. Keep session exports separate. See [ROLLBACK.md](ROLLBACK.
 
 ## Answer CLI migration
 
-The wheel includes `mplpb_answers` plus the byte-preserved legacy core.
+The 2.1.0rc1 wheel includes `mplpb_answers`, `mplpb_work`, and the separately
+versioned legacy core. It installs `mplpb-combined`, `mplpb-library`, `mplpb-work`,
+and `mplpb-evaluate`; it does not package the source-checkout NPC runner or full UI.
 `mplpb-combined ask` and `python -m mplpb_answers ask` require body support.
 `mplpb-combined candidates` labels legacy page retrieval explicitly.
 `python -m mplpb_combined ask` remains the old archival retrieval interface;
-use the new entry point for user-facing answers. See [the review](ANSWER_RELIABILITY.md).
+use the new entry point for user-facing answers. Optional assisted Ask requires an
+explicitly configured native local reader and installed weights; strict mode and
+the standalone browser need no model. See [local-reader setup](GENERAL_ANSWER_PIPELINE.md),
+[specialist work](SPECIALIST_CONTINUITY_API.md), and [the review](ANSWER_RELIABILITY.md).

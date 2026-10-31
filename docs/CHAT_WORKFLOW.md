@@ -141,6 +141,15 @@ local, unsigned records, not authentication.
 
 Mind commands: `remember NOTE`, `memory`, `forget notes`, `forget topic`,
 `summarize it`, `summarize Exact title`, `compare Title A vs Title B`, and `why?`.
+Everything after an explicit `remember ` is one working-note payload, including
+multiple sentences and line breaks. For example, `remember Check both bulletins.
+Do not publish a single year.` saves that text; it does not execute the sentences
+as commands. A name declaration inside a note does not rename the user during
+later replay or after restart. Notes allow 1–600 characters, with at most 20 per
+session; an overlength request is rejected without partially saving it. See the
+[full researcher journeys](../evaluation/researcher-pilot/README.md) for the
+regressions that exposed and checked these boundaries.
+
 Notes cannot establish facts or trigger commands. Summaries quote at most three
 source text fragments, bounded to 1600 characters. Comparisons retain sources
 separately. Why explains the historical trace; it does not re-certify old evidence.
