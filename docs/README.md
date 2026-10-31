@@ -20,6 +20,7 @@ Reviewed against the October 27 retrieval repair on 2026-10-29. Application guid
 
 | Contract | Guide |
 |---|---|
+| General answer contract, local reader, diagnostics and release scope | [Pipeline guide](GENERAL_ANSWER_PIPELINE.md) / [2.1 release candidate](RELEASE_2_1_RC1.md) |
 | Supported answers, candidates, gated pages, separate bundles | [Page retrieval and answer authority](PAGE_RETRIEVAL.md) |
 | JavaScript methods, options and error handling | [JavaScript API](../JAVASCRIPT-API.md) |
 | Discovery, public snapshot and verbatim relay | [Agent middleware](AGENT_MIDDLEWARE.md) / [agent notes](../llms.txt) |

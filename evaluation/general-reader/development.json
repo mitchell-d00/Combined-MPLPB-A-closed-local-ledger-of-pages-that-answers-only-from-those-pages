@@ -1,0 +1,168 @@
+{
+  "schema": "mplpb-general-evaluation-v1",
+  "role": "development",
+  "provenance": {
+    "authors": [
+      "Codex development fixtures"
+    ],
+    "independent": false
+  },
+  "cases": [
+    {
+      "id": "dev-1",
+      "domain": "software",
+      "question": "How can an operator safely restart the worker?",
+      "answerability": "answerable",
+      "documents": [
+        {
+          "doc_id": "DOC-0001",
+          "title": "Local reference",
+          "scope": "reference",
+          "body": "Drain the queue before restarting the worker. Keep the standby online."
+        }
+      ],
+      "gold_passages": [
+        {
+          "source_id": "DOC-0001",
+          "quote": "Drain the queue before restarting the worker. Keep the standby online."
+        }
+      ]
+    },
+    {
+      "id": "dev-2",
+      "domain": "library",
+      "question": "When is a loan eligible for renewal?",
+      "answerability": "answerable",
+      "documents": [
+        {
+          "doc_id": "DOC-0001",
+          "title": "Local reference",
+          "scope": "reference",
+          "body": "A loan can be renewed only when no reservation is pending."
+        }
+      ],
+      "gold_passages": [
+        {
+          "source_id": "DOC-0001",
+          "quote": "A loan can be renewed only when no reservation is pending."
+        }
+      ]
+    },
+    {
+      "id": "dev-3",
+      "domain": "office",
+      "question": "What approvals and records are required for travel reimbursement?",
+      "answerability": "answerable",
+      "documents": [
+        {
+          "doc_id": "DOC-0001",
+          "title": "Local reference",
+          "scope": "reference",
+          "body": "Travel reimbursement requires manager approval and an itemized receipt."
+        }
+      ],
+      "gold_passages": [
+        {
+          "source_id": "DOC-0001",
+          "quote": "Travel reimbursement requires manager approval and an itemized receipt."
+        }
+      ]
+    },
+    {
+      "id": "dev-4",
+      "domain": "image-archive",
+      "question": "How should staff recover a corrupted capture?",
+      "answerability": "answerable",
+      "documents": [
+        {
+          "doc_id": "DOC-0001",
+          "title": "Local reference",
+          "scope": "reference",
+          "body": "Retain the original capture and create a new verified copy before editing."
+        }
+      ],
+      "gold_passages": [
+        {
+          "source_id": "DOC-0001",
+          "quote": "Retain the original capture and create a new verified copy before editing."
+        }
+      ]
+    },
+    {
+      "id": "dev-5",
+      "domain": "equipment",
+      "question": "What must happen before the inspection cover is removed?",
+      "answerability": "answerable",
+      "documents": [
+        {
+          "doc_id": "DOC-0001",
+          "title": "Local reference",
+          "scope": "reference",
+          "body": "Disconnect the supply and verify isolation before removing the inspection cover."
+        }
+      ],
+      "gold_passages": [
+        {
+          "source_id": "DOC-0001",
+          "quote": "Disconnect the supply and verify isolation before removing the inspection cover."
+        }
+      ]
+    },
+    {
+      "id": "dev-6",
+      "domain": "software",
+      "question": "How does overflow handling work?",
+      "answerability": "answerable",
+      "documents": [
+        {
+          "doc_id": "DOC-0001",
+          "title": "Local reference",
+          "scope": "reference",
+          "body": "Drop the oldest buffered events first. Preserve the newest events."
+        }
+      ],
+      "gold_passages": [
+        {
+          "source_id": "DOC-0001",
+          "quote": "Drop the oldest buffered events first. Preserve the newest events."
+        }
+      ]
+    },
+    {
+      "id": "dev-absent",
+      "domain": "office",
+      "question": "Who approved the March budget?",
+      "answerability": "unanswerable",
+      "documents": [
+        {
+          "doc_id": "DOC-0001",
+          "title": "Budget reference",
+          "scope": "budget",
+          "body": "The budget total is recorded separately."
+        }
+      ],
+      "gold_passages": []
+    },
+    {
+      "id": "dev-conflict",
+      "domain": "software",
+      "question": "What is the Aster service port?",
+      "answerability": "ambiguous",
+      "documents": [
+        {
+          "doc_id": "DOC-0001",
+          "title": "Service",
+          "scope": "Aster service port",
+          "body": "The Aster service port is 8123."
+        },
+        {
+          "doc_id": "DOC-0002",
+          "title": "Service override",
+          "scope": "Aster service port",
+          "body": "The Aster service port is 9123."
+        }
+      ],
+      "gold_passages": []
+    }
+  ]
+}

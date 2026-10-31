@@ -1,4 +1,4 @@
 """Supported answers over the immutable legacy candidate engine."""
 from .support import supported_answer, statement_support
 
-__version__ = '2.0.0'
+__version__ = '2.1.0rc1'

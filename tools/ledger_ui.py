@@ -16,7 +16,6 @@ from urllib.parse import parse_qs, urlsplit
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
-from tools import answer_support as AS
 from mplpb_combined import ledger as L, reader as R, provenance_gate as G
 from mplpb_combined.delivery import external_restriction
 from mplpb_combined.record import text_of
@@ -49,7 +48,8 @@ from tools import context_index as CX
 
 
 class App:
-    def __init__(self, custom=None, topic_base=None, session_path=None, library_manifest=None, work_store=None, work_executors=None):
+    def __init__(self, custom=None, topic_base=None, session_path=None, library_manifest=None, work_store=None, work_executors=None, local_reader=None):
+        self.local_reader = local_reader
         self.work_store = None
         if work_store is not None:
             from mplpb_work import WorkStore
@@ -126,6 +126,7 @@ class App:
             corpora.append({'key': key, 'label': label, 'records': len(ledger.records),
                             'eligible': len(ledger.servable())})
         return {'chat_rules': C.RULES, 'corpora': corpora, 'profiles': list(R.PROFILES),
+                'answer_capabilities': {'strict': True, 'assisted_configured': self.local_reader is not None, 'assisted_experimental': True, 'automatic_model_download': False},
                 'notice': 'Local lexical retrieval. Source declarations are not authenticated authorship.'}
 
     def create_collection(self, data):
@@ -221,6 +222,8 @@ class App:
                 'notice': 'Inventory lists local records; eligibility does not certify their claims.'}
 
     def query(self, data):
+        if any(key in data for key in ('reader_model', 'reviewer_model', 'reader_endpoint', 'reader_digest', 'reviewer_digest', 'local_reader')):
+            raise ValueError('Reader connections and models must be configured by the host')
         question = data.get('question')
         if not isinstance(question, str) or not question.strip() or len(question) > 4000:
             raise ValueError('Enter a question of 1–4000 characters')
@@ -237,12 +240,14 @@ class App:
             from mplpb_answers.support import candidate_answer
             answer, reader = candidate_answer(root, question, profile)
             reader['kind'] = 'candidate_only' if answer.kind == R.RETURN else answer.kind
-        elif data.get('mode', 'supported') == 'supported':
-            answer = AS.supported_answer(root, question, profile)
-            reader = answer.to_dict()
+        elif data.get('mode', 'supported') in {'supported', 'assisted'}:
+            from mplpb_answers.pipeline import answer_query
+            result = answer_query(root, question, profile, mode='assisted' if data.get('mode') == 'assisted' else 'strict', reader=self.local_reader)
+            answer = result.strict
+            reader = result.legacy()
         else:
             raise ValueError('Unknown query mode')
-        reader['citation'] = answer.citation()
+        reader['citation'] = answer.citation() if reader.get('answer_supported', data.get('mode') == 'candidates') else ''
         if answer.record:
             reader['title'] = answer.record.title
         gate = G.gather(root, question, profile).to_dict()
@@ -631,10 +636,18 @@ def main():
     parser.add_argument('--root', type=Path)
     parser.add_argument('--library-manifest', type=Path, help='Explicit hierarchy over registered corpus keys')
     parser.add_argument('--work-store', type=Path, help='Explicit initialized specialist work store; seat RPC uses bearer capabilities')
+    parser.add_argument('--reader-model', help='Explicit installed local model for opt-in assisted queries')
+    parser.add_argument('--reviewer-model')
+    parser.add_argument('--reader-endpoint', default='http://127.0.0.1:11434')
+    parser.add_argument('--reader-digest'); parser.add_argument('--reviewer-digest')
     parser.add_argument('--port', type=int, default=8766)
     parser.add_argument('--open', action='store_true', help='Open the local UI in your default browser')
     args = parser.parse_args()
-    app = App(args.root, work_store=args.work_store, library_manifest=json.loads(args.library_manifest.read_text()) if args.library_manifest else None)
+    local_reader = None
+    if args.reader_model:
+        from mplpb_answers.local_reader import OllamaLocalReader
+        local_reader = OllamaLocalReader(args.reader_model, args.reader_endpoint, args.reviewer_model, model_digest=args.reader_digest, reviewer_digest=args.reviewer_digest)
+    app = App(args.root, local_reader=local_reader, work_store=args.work_store, library_manifest=json.loads(args.library_manifest.read_text()) if args.library_manifest else None)
     server = ThreadingHTTPServer(('127.0.0.1', args.port), handler(app))
     label = 'Specialist work API' if args.work_store else 'Local ledger UI'
     print(f'{label}: http://127.0.0.1:{server.server_port}', flush=True)

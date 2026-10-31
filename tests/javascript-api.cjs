@@ -87,6 +87,10 @@ async function tests(){
  assert.equal(success(await api.query('Phrynomedusa vanzolinii Hyundai Engineering and Construction',{corpus:'canned'})).reader.kind,'ambiguous');
  assert.equal(success(await api.query('unfindable zzzzzzz',{corpus:'logic'})).reader.kind,'not_in_corpus');
  assert.notEqual(success(await api.query('Phrynomedusa vanzolinii',{corpus:'canned',profile:'external'})).reader.kind,'return');
+ const assistedUnavailable=success(await api.query('How should an operator restart a worker?',{corpus:'logic',mode:'assisted'}));
+ assert.equal(assistedUnavailable.reader.answer_supported,false);
+ assert.notEqual(assistedUnavailable.reader.kind,'return');
+ assert(assistedUnavailable.reader.answer_contract);
  const candidates=success(await api.query('Phrynomedusa vanzolinii',{corpus:'canned',mode:'candidates'}));assert.equal(candidates.reader.kind,'candidate_only');
  const pages=success(await api.listPages({corpus:'logic'}));const page=pages.pages.find(p=>p.eligible);
  assert(success(await api.readPage(page.path,{corpus:'logic'})).text);
