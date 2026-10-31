@@ -110,6 +110,12 @@ def supported_answer(root, question, profile=None):
         if literal is not None:
             LE = PE
             practical = True
+    if literal is None:
+        from . import policy_evidence as PO
+        literal = PO.parse(question)
+        if literal is not None:
+            LE = PO
+            practical = True  # Gate the complete original question and exclusions.
     if literal:
         selected = answer(root, question, profile)
         out = SupportedAnswer(**selected.__dict__)
@@ -139,8 +145,11 @@ def supported_answer(root, question, profile=None):
         positive_values = {span['value'] for _, check in supported for span in check['spans']}
         negative_values = {value for _, check in checks for value in check.get('negative_values', [])}
         conflict = (any(check['status'] == 'conflict' for _, check in checks)
-                    or bool(positive_values.intersection(negative_values)))
-        if len(supported) == 1 and not conflict:
+                    or bool(positive_values.intersection(negative_values))
+                    or (bool(supported) and any(check.get('policy_denial') for _, check in checks)))
+        unresolved = any(check.get('unresolved') for _, check in checks)
+        out.support['unresolved'] = unresolved
+        if len(supported) == 1 and not conflict and not unresolved:
             rec, check = supported[0]
             out.record, out.depth, out.kind = rec, ledger.depth(rec), RETURN
             out.support.update(check)
@@ -151,6 +160,7 @@ def supported_answer(root, question, profile=None):
             out.support['status'] = 'conflict' if out.kind == AMBIGUOUS else 'unsupported'
             out.reason = ('Conflicting or multiple eligible supporting source statements.'
                           if out.kind == AMBIGUOUS else
+                          'Relevant policy evidence has unresolved wording or inherited conditions.' if unresolved else
                           'No eligible body statement supports the complete literal question.')
             out.support['reason'] = out.reason
         return out

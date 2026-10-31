@@ -37,6 +37,8 @@ The [general answer pipeline](docs/GENERAL_ANSWER_PIPELINE.md) adds diagnostic a
 
 See the [October 31 implementation and verification status](docs/CURRENT_STATUS_2026-10-31.md) for merged changes, exact-head checks and remaining product gaps.
 
+The local [user-built collection repair](docs/USER_BUILT_COLLECTIONS.md) documents collection growth versus engine changes, bounded source-policy questions, state rechecks and portable-backup limitations.
+
 The [synthetic researcher pilot](evaluation/researcher-pilot/README.md) runs six complete fictional investigations through real imports, queries, citation inspection, saved notes, specialist handoffs and fresh-process recovery. Candidate Chromium also exercises one journey through visible controls. These are reproducible development workflows, not human usability or independent accuracy evidence.
 
 ## Try the source checkout

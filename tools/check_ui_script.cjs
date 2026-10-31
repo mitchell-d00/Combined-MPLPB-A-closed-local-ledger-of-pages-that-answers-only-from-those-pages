@@ -47,7 +47,7 @@ async function tick(){for(let i=0;i<20;i++)await Promise.resolve();}
  await checked.run('render('+JSON.stringify(fixtures.candidate_query)+')');assert.match(checked.elements.results.innerHTML,/CANDIDATE ONLY/);assert.equal(fixtures.candidate_query.reader.answer_support.status,'candidate_only');
  assert.match(checked.elements.results.innerHTML,/Candidate pages for inspection only/);
  assert.doesNotMatch(checked.elements.results.innerHTML,/Source evidence supporting/);
- const fresh=runtime();await tick();assert.equal(fresh.elements['chat-auto-wiki'].checked,true);
+ const fresh=runtime();await tick();assert.equal(fresh.elements['chat-auto-wiki'].checked,false);
  fresh.elements['chat-auto-wiki'].checked=false;fresh.elements['chat-auto-wiki'].events.change();
  assert.equal(JSON.parse(fresh.storage['mplpb-ui-preferences']).autoWiki,false);
  fresh.elements.theme.value='dark';fresh.elements.theme.events.change();

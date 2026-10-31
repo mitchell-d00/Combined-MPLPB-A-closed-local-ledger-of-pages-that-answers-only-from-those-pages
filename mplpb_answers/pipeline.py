@@ -1,14 +1,37 @@
 """One response policy for strict compatibility and opt-in model-assisted reading."""
 import copy
+from pathlib import Path
 from .body_text import body_text
 from dataclasses import dataclass, field
 from mplpb_combined.reader import PROFILES, DEFAULT_PROFILE
 from .support import supported_answer, code_pins
 from .frames import parse
-from . import literal_evidence, practical_evidence, procedures
+from . import literal_evidence, practical_evidence, policy_evidence, procedures
 from .evidence_contract import (VERSION, ReaderError, pin, canonical, shape, text,
                                 validate_proposal, validate_review, PROPOSAL_SCHEMA, REVIEW_SCHEMA, PLAN_SCHEMA)
 from .passages import PassageIndex
+from mplpb_combined import provenance_gate as G
+
+
+def _state(gate):
+    return pin({'snapshot': gate.corpus_snapshot, 'policy': gate.policy,
+                'sources': [(s['id'], s['hash']) for s in gate.sources], 'excluded': gate.excluded})
+
+
+def _next_steps(code):
+    if code in {'supported', 'model_assessed', 'partial_model_assessed'}:
+        return ['Open the cited source and check its conditions and revision.']
+    if 'conflict' in code or code == 'retrieval_ambiguous':
+        return ['Inspect the competing sources; specify the intended subject or resolve the disagreement by a source revision.']
+    if code in {'restricted_or_unavailable', 'source_changed'}:
+        return ['Check source integrity and delivery restrictions; restore or revise the source through the normal workflow, then ask again.']
+    if code == 'no_eligible_sources':
+        return ['Import relevant source material or check the selected collection. No acquisition was started.']
+    if code in {'interpretation_unsupported', 'unresolved_evidence', 'evidence_not_established'}:
+        return ['Inspect the relevant source. Try a supported question form or explicitly select a configured assisted reader; do not treat this refusal as proof that the answer is absent.']
+    if code == 'reader_unavailable':
+        return ['Ask the native host operator to configure an installed local reader, or continue with strict source inspection.']
+    return ['Review the diagnostic and source evidence before retrying.']
 
 
 @dataclass
@@ -30,7 +53,7 @@ class QueryResult:
 
 
 def _known_grammar(question):
-    return any((procedures.request(question), literal_evidence.parse(question), practical_evidence.parse(question), parse(question)))
+    return any((procedures.request(question), literal_evidence.parse(question), practical_evidence.parse(question), policy_evidence.parse(question), parse(question)))
 
 
 def answer_query(root, question, profile=None, *, mode='strict', reader=None, min_confidence=0.8,
@@ -45,18 +68,38 @@ def answer_query(root, question, profile=None, *, mode='strict', reader=None, mi
             or type(max_chars) is not int or not 1000 <= max_chars <= 64000):
         raise ValueError('Invalid retrieval budget')
     profile = profile or PROFILES[DEFAULT_PROFILE]
+    initial_gate = G.gather(root, question, profile)
+    initial_state = _state(initial_gate)
     strict = supported_answer(root, question, profile)
     contract = {'schema': VERSION, 'mode': mode, 'question': question, 'kind': 'abstain',
                 'answer_supported': False, 'text': '', 'claims': [], 'missing': [], 'clarification': '',
                 'confidence': None, 'confidence_calibrated': False, 'sources': [], 'retrieval': {},
                 'verification': {'structural': False, 'semantic': 'not_run', 'truth_verified': False, 'independence_verified': False},
                 'reader': None, 'trace': [], 'diagnostic': {}, 'code_sha256': code_pins()}
-    result = QueryResult(contract, strict)
+    result = QueryResult(contract, strict, initial_gate.to_dict())
 
     def finish(kind, code, message, stage):
+        try:
+            fresh = G.gather(root, question, profile)
+            unchanged = _state(fresh) == initial_state and Path(strict.root).resolve() == initial_gate_root
+        except (OSError, ValueError):
+            unchanged = False
+        if not unchanged or code == 'source_changed':
+            kind, code, stage = 'abstain', 'source_changed', 'state_recheck'
+            message = 'Source eligibility or serving policy changed during this query; no old evidence was accepted. Ask again against current sources.'
+            contract.update(text='', claims=[], sources=[], missing=[], clarification='',
+                            retrieval={'passages': [], 'sources': [], 'discarded': 'source_state_changed'},
+                            verification={'structural': False, 'semantic': 'discarded_due_to_source_change', 'truth_verified': False, 'independence_verified': False})
+            strict.kind, strict.record, strict.candidates = 'not_in_corpus', None, []
+            strict.support = {'status': 'unsupported', 'spans': [], 'reason': message}
+            result.gate = {'sources': [], 'excluded': [], 'corpus_snapshot': '', 'notice': message}
+        else:
+            result.gate = fresh.to_dict()
         contract.update(kind=kind, diagnostic={'code': code, 'stage': stage, 'message': message,
-                                             'corpus_answerability': 'not_established'})
+                                             'corpus_answerability': 'not_established', 'next_steps': _next_steps(code)})
         return result
+
+    initial_gate_root = Path(root).resolve()
 
     if strict.kind == 'return':
         body = body_text(strict.record.body_html)
@@ -96,7 +139,7 @@ def answer_query(root, question, profile=None, *, mode='strict', reader=None, mi
         if mode == 'strict':
             if strict.kind == 'ambiguous':
                 return finish('conflict', 'retrieval_ambiguous', 'Candidate ownership is ambiguous; this does not establish conflicting body evidence.', 'retrieval')
-            code = 'evidence_not_established' if _known_grammar(question) else 'interpretation_unsupported'
+            code = 'unresolved_evidence' if strict.support.get('unresolved') else 'evidence_not_established' if _known_grammar(question) else 'interpretation_unsupported'
             return finish('abstain', code, 'Eligible passages exist, but the strict reader cannot establish an answer to this question.', 'strict')
         if reader is None:
             return finish('abstain', 'reader_unavailable', 'Assisted mode needs an explicitly configured local reader. No model request was made.', 'reader')

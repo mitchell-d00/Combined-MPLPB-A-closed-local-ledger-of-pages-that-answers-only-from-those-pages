@@ -154,4 +154,11 @@ class ExplorationStore:
         entries[key]['records'] = [(r.id, hashlib.sha256((base / 'pages' / r.path).read_bytes()).hexdigest()) for r in L.Ledger(base / 'pages').records]
         self.save(entries)
         self.root(key)
-        return {'corpus': key, 'title': rec.title, 'id': rec.id, 'capture': manifest}
+        return {'corpus': key, 'title': rec.title, 'id': rec.id, 'capture': manifest,
+                'collection_build': {'operation': 'captured_sealed_and_collection_rebuilt',
+                    'transport': transport, 'source_origin': rec.origin, 'source_authorship': 'unknown',
+                    'current_sources': len(L.Ledger(base / 'pages').servable()),
+                    'external_delivery': 'withheld', 'eligibility': 'rechecked per question and delivery profile',
+                    'derived_representations': 'readable collection rebuilt now; passages and ranking constructed per query',
+                    'engine_changed': False, 'application_code_changed': False,
+                    'notice': 'The collection grew. Question interpretation and application rules did not change.'}}

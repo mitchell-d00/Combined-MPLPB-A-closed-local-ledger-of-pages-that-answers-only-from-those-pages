@@ -29,6 +29,7 @@ Current entry points and release-status wording reviewed on 2026-10-31 after PRs
 | Delivery profiles and clarification | [Delivery and clarification](DELIVERY_AND_CLARIFICATION.md) |
 | Successors, withdrawal, restoration and stale derivations | [Supersession policy](SUPERSESSION_POLICY.md) |
 | Constrained procedures, draft tags, off-the-record boundaries | [Procedural constraints](PROCEDURAL_CONSTRAINTS.md) |
+| Building collections and bounded policy answers | [User-built collections](USER_BUILT_COLLECTIONS.md) |
 | Independent collections, capture/import and clearing | [Exploration collections](EXPLORATION_COLLECTIONS.md) |
 | Optional hosted general-web crawling | [Crawler setup](../crawler/README.md) |
 

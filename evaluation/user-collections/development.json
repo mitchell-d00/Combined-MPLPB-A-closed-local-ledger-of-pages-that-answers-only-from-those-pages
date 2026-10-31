@@ -1,0 +1,193 @@
+{
+  "schema": "mplpb-user-collection-study-v1",
+  "role": "development",
+  "authorship": "Developer-authored synthetic tasks; no independent participants or human validation",
+  "acceptance": {
+    "max_wrong_returns": 0,
+    "min_answerable_coverage": 0.75,
+    "citation_completeness": 1.0,
+    "all_workflow_checks": true
+  },
+  "cases": [
+    {
+      "id": "expenses",
+      "task": "Office research",
+      "subject": "Travel reimbursement",
+      "source": {
+        "title": "Travel reimbursement reference",
+        "url": "https://example.org/collection-study/expenses",
+        "text": "Travel reimbursement is an office policy.\n\nTravel reimbursement requires a receipt and manager approval."
+      },
+      "questions": [
+        {
+          "id": "description",
+          "question": "What is Travel reimbursement?",
+          "answerable": true,
+          "gold": "Travel reimbursement is an office policy."
+        },
+        {
+          "id": "policy",
+          "question": "What does travel reimbursement require?",
+          "answerable": true,
+          "gold": "Travel reimbursement requires a receipt and manager approval."
+        },
+        {
+          "id": "wording",
+          "question": "What is required for travel reimbursement?",
+          "answerable": true,
+          "gold": "Travel reimbursement requires a receipt and manager approval."
+        },
+        {
+          "id": "missing",
+          "question": "Who owns Travel reimbursement?",
+          "answerable": false,
+          "gold": null
+        }
+      ],
+      "revision": {
+        "text": "Travel reimbursement is an office policy.\n\nTravel reimbursement requires a receipt and director approval.",
+        "gold": "Travel reimbursement requires a receipt and director approval."
+      },
+      "conflict": {
+        "title": "Travel reimbursement competing note",
+        "url": "https://example.org/collection-study/expenses/competing",
+        "text": "Travel reimbursement requires a receipt and manager approval."
+      }
+    },
+    {
+      "id": "loans",
+      "task": "Library research",
+      "subject": "Loan renewal",
+      "source": {
+        "title": "Loan renewal reference",
+        "url": "https://example.org/collection-study/loans",
+        "text": "Loan renewal is a library policy.\n\nLoans can be renewed only when no reservation is pending."
+      },
+      "questions": [
+        {
+          "id": "description",
+          "question": "What is Loan renewal?",
+          "answerable": true,
+          "gold": "Loan renewal is a library policy."
+        },
+        {
+          "id": "policy",
+          "question": "Under what conditions can a loan be renewed?",
+          "answerable": true,
+          "gold": "Loans can be renewed only when no reservation is pending."
+        },
+        {
+          "id": "wording",
+          "question": "When can loans be renewed?",
+          "answerable": true,
+          "gold": "Loans can be renewed only when no reservation is pending."
+        },
+        {
+          "id": "missing",
+          "question": "Who owns Loan renewal?",
+          "answerable": false,
+          "gold": null
+        }
+      ],
+      "revision": {
+        "text": "Loan renewal is a library policy.\n\nLoans can be renewed only when the account is active.",
+        "gold": "Loans can be renewed only when the account is active."
+      },
+      "conflict": {
+        "title": "Loan renewal competing note",
+        "url": "https://example.org/collection-study/loans/competing",
+        "text": "Loans can be renewed only when no reservation is pending."
+      }
+    },
+    {
+      "id": "archive",
+      "task": "Archive research",
+      "subject": "Archive access",
+      "source": {
+        "title": "Archive access reference",
+        "url": "https://example.org/collection-study/archive",
+        "text": "Archive access is an archive policy.\n\nArchive access requires a reader card unless the visitor has a day pass."
+      },
+      "questions": [
+        {
+          "id": "description",
+          "question": "What is Archive access?",
+          "answerable": true,
+          "gold": "Archive access is an archive policy."
+        },
+        {
+          "id": "policy",
+          "question": "What are the requirements for archive access?",
+          "answerable": true,
+          "gold": "Archive access requires a reader card unless the visitor has a day pass."
+        },
+        {
+          "id": "wording",
+          "question": "What does archive access require?",
+          "answerable": true,
+          "gold": "Archive access requires a reader card unless the visitor has a day pass."
+        },
+        {
+          "id": "missing",
+          "question": "Who owns Archive access?",
+          "answerable": false,
+          "gold": null
+        }
+      ],
+      "revision": {
+        "text": "Archive access is an archive policy.\n\nArchive access requires a booking and a reader card unless the visitor has a day pass.",
+        "gold": "Archive access requires a booking and a reader card unless the visitor has a day pass."
+      },
+      "conflict": {
+        "title": "Archive access competing note",
+        "url": "https://example.org/collection-study/archive/competing",
+        "text": "Archive access requires a reader card unless the visitor has a day pass."
+      }
+    },
+    {
+      "id": "equipment",
+      "task": "Community research",
+      "subject": "Equipment borrowing",
+      "source": {
+        "title": "Equipment borrowing reference",
+        "url": "https://example.org/collection-study/equipment",
+        "text": "Equipment borrowing is a borrowing policy.\n\nEquipment borrowing requires two signatures and a deposit of 40 credits."
+      },
+      "questions": [
+        {
+          "id": "description",
+          "question": "What is Equipment borrowing?",
+          "answerable": true,
+          "gold": "Equipment borrowing is a borrowing policy."
+        },
+        {
+          "id": "policy",
+          "question": "What is required for equipment borrowing?",
+          "answerable": true,
+          "gold": "Equipment borrowing requires two signatures and a deposit of 40 credits."
+        },
+        {
+          "id": "wording",
+          "question": "What does equipment borrowing require?",
+          "answerable": true,
+          "gold": "Equipment borrowing requires two signatures and a deposit of 40 credits."
+        },
+        {
+          "id": "missing",
+          "question": "Who owns Equipment borrowing?",
+          "answerable": false,
+          "gold": null
+        }
+      ],
+      "revision": {
+        "text": "Equipment borrowing is a borrowing policy.\n\nEquipment borrowing requires three signatures and a deposit of 65 credits.",
+        "gold": "Equipment borrowing requires three signatures and a deposit of 65 credits."
+      },
+      "conflict": {
+        "title": "Equipment borrowing competing note",
+        "url": "https://example.org/collection-study/equipment/competing",
+        "text": "Equipment borrowing requires two signatures and a deposit of 40 credits."
+      }
+    }
+  ]
+}
