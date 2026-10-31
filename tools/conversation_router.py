@@ -225,7 +225,7 @@ def execute(app,data,session,frame,corpus,profile):
     shadow=copy.deepcopy(session)
     reader=lambda q:E.handle(app,data,shadow,q,corpus,profile)
     handlers={'topic_dialogue':lambda:TD.handle(app,data,shadow,text,corpus,profile),
-              'working_note':lambda:M.handle(None,profile,text,shadow.get('context'),shadow.setdefault('mind',{})),
+              'working_note':lambda:M.handle(None,profile,frame['original'],shadow.get('context'),shadow.setdefault('mind',{})),
               'structured':lambda:SR.handle(frame['original'],shadow,app.roots()),
               'reference':lambda:SP.execute(text,shadow,'legacy',app,corpus,profile),
               'self':lambda:SK.handle(text,shadow,app.roots()),

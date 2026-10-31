@@ -361,7 +361,7 @@ def run(suite_path=DEFAULT_SUITE, reader=None):
               'reader': reader.describe() if reader else {'adapter': 'strict', 'live_inference': False},
               'implementation_sha256': {str(p.relative_to(ROOT)): hashlib.sha256(p.read_bytes()).hexdigest()
                   for p in sorted(set([Path(__file__)]+list((ROOT/'mplpb_answers').glob('*.py'))+list((ROOT/'mplpb_work').glob('*.py'))
-                  +[ROOT/'tools'/n for n in ('ledger_ui.py', 'exploration_store.py', 'mind_session.py', 'conversation_router.py', 'deterministic_mind.py')]))},
+                  +[ROOT/'tools'/n for n in ('ledger_ui.py', 'exploration_store.py', 'mind_session.py', 'conversation_engine.py', 'conversation_router.py', 'deterministic_mind.py')]))},
               'summary': summarize(journeys), 'journeys': journeys,
               'product_readiness': {'status': 'not_certified', 'gaps': [
                   'Real participants and independently authored questions are absent',

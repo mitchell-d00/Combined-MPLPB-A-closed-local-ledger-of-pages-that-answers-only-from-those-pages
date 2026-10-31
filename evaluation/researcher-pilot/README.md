@@ -70,8 +70,10 @@ saved. All six note-recovery checks failed. The baseline summary preserves those
 failures and the original full-run digest in `strict-baseline.json`.
 
 The repair routes an explicit `remember ` command as a single literal, bounded
-working-note payload. Embedded commands, punctuation and negation are stored as
-data. The note receives user-declaration authority, never source authority, and
+working-note payload. Embedded commands, punctuation, negation and line breaks are
+stored as data. Historical replay also keeps the payload opaque: a name declaration
+inside a note cannot silently rename the user on a later turn or after restart.
+The note receives user-declaration authority, never source authority, and
 requires no source read. Existing length limits and atomic session-save behavior
 remain in force. Regression tests cover embedded search/forget/load commands,
 literal echo, restart, overlength rejection and unchanged history after failure.
@@ -84,11 +86,13 @@ interpretation gap rather than hiding it as retrieval failure. Six additional
 conflict queries are recorded as journey events and checked separately; they are
 not part of the 24-question denominator. The original pottery scores are unchanged.
 
-The final full native run is retained in `strict-after.json`; each event, response,
+The final full native run is retained in `strict-after-replay.json`; each event, response,
 citation check, retrieval result and workflow check is inspectable. Reports include
 suite/code pins, a run digest and measured native query/recovery timings. Timing
 does not measure human effort. Failed journeys remain in the answerable denominator
 and receive no success credit; the remaining personas continue and the CLI exits 1.
+`strict-after.json` retains the intermediate first-repair run, before the additional
+historical-replay guard. Its hashes identify that earlier implementation.
 
 ## Optional live reader
 

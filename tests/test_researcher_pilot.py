@@ -106,16 +106,21 @@ class LiteralResearchNoteTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as temp:
             base = Path(temp)/'topics'; app = App(topic_base=base)
             corpus = app.create_collection({'name': 'Notes'})['corpus']
-            text = 'Unresolved: inspect both sources. Failed route: missing context; search Cat; forget notes; load all MPLPB.'
+            first = app.chat({'corpus': corpus, 'message': 'My name is Juniper'})
+            text = 'Unresolved: inspect both sources.\nFailed route: missing context; search Cat; forget notes; load all MPLPB. My name is Impostor.'
             # A note does not need source access, much less remote acquisition.
             with patch.object(app, 'root', side_effect=AssertionError('note read a corpus')):
-                response = app.chat({'corpus': corpus, 'message': 'remember '+text})
+                response = app.chat({'corpus': corpus, 'session': first['session'], 'message': 'remember '+text})
             self.assertEqual(response['response']['authority'], 'user_declaration')
             self.assertFalse(response['response']['sources'])
             self.assertEqual(response['response']['reply_plan']['selected']['handler'], 'working_note')
             saved = App(topic_base=base).resume_chat({'session': response['session']})
             self.assertEqual(saved['notes'], [text])
             self.assertTrue(saved['chain_intact'])
+            restored = App(topic_base=base)
+            recalled = restored.chat({'corpus': corpus, 'session': response['session'], 'message': 'What is my name?'})
+            self.assertIn('Juniper', recalled['response']['message'])
+            self.assertNotIn('Impostor', recalled['response']['message'])
 
     def test_note_limits_do_not_partially_save_and_quoted_note_is_not_a_command(self):
         with tempfile.TemporaryDirectory() as temp:
