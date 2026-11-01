@@ -27,20 +27,20 @@ C9 reflects the epistemic-laundering limitation documented by MPLPB-SWARM-013 an
 
 ## Implemented bounded contracts
 
-The default strict reader still has **no general-language model**. New code in \`mplpb_answers/operational_evidence.py\` recognizes two *generic* finite families. It is not keyed to the frozen probe IDs, page IDs, fixed amounts or particular pottery terms.
+The default strict reader still has **no general-language model**. New code in `mplpb_answers/operational_evidence.py` recognizes two *generic* finite families. It is not keyed to the frozen probe IDs, page IDs, fixed amounts or particular pottery terms.
 
-1. **Conditional outcome**: \`What happens if CONDITION?\` or \`What does it mean if CONDITION?\` requires a body sentence \`If CONDITION, OUTCOME.\` The full condition (including negation) must match. It quotes the source's complete sentence rather than synthesizing or treating an instruction as executed.
-2. **Separate storage**: \`Which OBJECTS must/should be kept in separate CONTAINERS?\` requires a body sentence \`Keep/Store LIST OBJECTS in separate CONTAINERS …\`. The complete list and any trailing qualification are returned exactly.
+1. **Conditional outcome**: `What happens if CONDITION?` or `What does it mean if CONDITION?` requires a body sentence `If CONDITION, OUTCOME.` The full condition (including negation) must match. It quotes the source's complete sentence rather than synthesizing or treating an instruction as executed.
+2. **Separate storage**: `Which OBJECTS must/should be kept in separate CONTAINERS?` requires a body sentence `Keep/Store LIST OBJECTS in separate CONTAINERS …`. The complete list and any trailing qualification are returned exactly.
 
 Both use source body text only, not titles, metadata or headings; hypotheses, speculative contexts and unrecognized question forms abstain. A changed source value changes the returned quote automatically. A page's authorship, external eligibility, origin depth, ledger hash, current/superseded state and declared exclusions remain enforced by the existing gate. Two eligible pages remain ambiguous, even with identical wording.
 
-The extracted result's authority is **source-declared text**, not an independently verified process recommendation, safe operational instruction, or proof of outcome. It remains a finite grammar: anaphora, general diagnosis, unrestricted conditionals, implicit procedure ordering, temporal inference, synonymous antecedents and semantic interpretation of arbitrary material are not implemented. The original strict contract still returns the legacy \`return\`/\`ambiguous\`/\`not_in_corpus\` kinds; use the shared diagnostic pipeline to distinguish unsupported interpretation from evidence absence.
+The extracted result's authority is **source-declared text**, not an independently verified process recommendation, safe operational instruction, or proof of outcome. It remains a finite grammar: anaphora, general diagnosis, unrestricted conditionals, implicit procedure ordering, temporal inference, synonymous antecedents and semantic interpretation of arbitrary material are not implemented. The original strict contract still returns the legacy `return`/`ambiguous`/`not_in_corpus` kinds; use the shared diagnostic pipeline to distinguish unsupported interpretation from evidence absence.
 
 ## Reproduction and release conditions
 
 Run on the proposed exact revision:
 
-\`\`\`sh
+```sh
 python -m unittest tests.test_operational_evidence tests.test_practical_evidence tests.test_policy_evidence -v
 python -m tools.evaluate_answer_reliability --output /tmp/mplpb-operational-retest.json
 python -m unittest discover -s tests -t .
@@ -48,9 +48,9 @@ python tools/check_ui_script.py
 node tools/check_browser_transport.cjs
 node tests/javascript-api.cjs
 node crawler/test_worker.mjs
-\`\`\`
+```
 
-Do **not** overwrite \`evaluation/practical-coverage/after.json\`: its score is an immutable historical snapshot. To report a new number, inspect the new retest JSON and publish a **separate** dated evaluation, with SHA-256 of frozen inputs, complete case outcomes, semantic review of each newly returned quotation, wrong-return and false-refusal counts, and the exact commit tested. Recheck the deployed/browser API and required extracted-ZIP tests separately before a release claim. Until those checks run, the change is **code proposed and regression tests authored**, not a measured uplift or live-deployment claim.
+Do **not** overwrite `evaluation/practical-coverage/after.json`: its score is an immutable historical snapshot. To report a new number, inspect the new retest JSON and publish a **separate** dated evaluation, with SHA-256 of frozen inputs, complete case outcomes, semantic review of each newly returned quotation, wrong-return and false-refusal counts, and the exact commit tested. Recheck the deployed/browser API and required extracted-ZIP tests separately before a release claim. Until those checks run, the change is **code proposed and regression tests authored**, not a measured uplift or live-deployment claim.
 
 ## Generalization beyond pottery
 
