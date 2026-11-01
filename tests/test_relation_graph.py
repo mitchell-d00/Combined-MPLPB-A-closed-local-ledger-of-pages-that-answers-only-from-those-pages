@@ -198,6 +198,13 @@ class RelationGraphTests(unittest.TestCase):
              'The preservation microscope is located in central museum lab.'),
             ('What does exhibition installation kit contain?',
              'The rehearsal kit contains brackets and tags.'),
+            ('Where should we store museum accession cards?',
+             'Store museum accession cards in blue drawer if dry.'),
+            ('What is the status of gallery mounting request?',
+             'Status of gallery mounting request is under review until signing.'),
+            ('Where is conservation microscope located?',
+             'The conservation microscope is located in north lab unless moved.'),
+
             ('Please, who is not responsible for artifact condition review?',
              'Museum registrar is responsible for artifact condition review.'),
         )
