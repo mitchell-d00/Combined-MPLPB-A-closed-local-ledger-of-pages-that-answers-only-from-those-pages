@@ -47,6 +47,20 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '24'
+      - name: Check Pages, JavaScript API, corpus and documentation synchronization
+        run: python tools/check_repository_infrastructure.py
+      - name: Audit versioned reference corpus release-growth and source admission
+        run: |
+          mkdir -p "$RUNNER_TEMP/reference-corpus"
+          python -m unittest tests.test_reference_corpus -v
+          python -m tools.build_reference_corpus --output "$RUNNER_TEMP/reference-corpus/release"
+      - name: Retain source-corpus growth reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: reference-corpus-${{ github.run_id }}
+          path: ${{ runner.temp }}/reference-corpus/release/**/audit.json
+          if-no-files-found: warn
       - name: Test integrity regressions and evidence rules
         run: python -m unittest tests.test_integrity_hunt tests.test_record tests.test_ledger tests.test_literal_evidence tests.test_answer_reliability tests.test_answer_support -q
       - name: Validate source-evidence graph and synthetic users against frozen probes
