@@ -1,6 +1,8 @@
 """Graph assertions, changed subjects, frozen examples, provenance and near misses."""
 import tempfile
 import unittest
+import hashlib
+import json
 from pathlib import Path
 
 from mplpb_combined.ledger import write
@@ -202,6 +204,34 @@ class RelationGraphTests(unittest.TestCase):
         for question, source in refusals:
             with self.subTest(question=question):
                 self.assertNotEqual(self.ask(question, source).kind, 'return')
+
+    def test_browser_capture_manifest_is_only_metadata_and_must_be_pinned(self):
+        source = 'Crawling comes from dust or grease on bisque.'
+        meta = {
+            'source_url': 'https://example.org/graph-test',
+            'source_sha256': hashlib.sha256(source.encode()).hexdigest(),
+            'text_sha256': hashlib.sha256(source.encode()).hexdigest(),
+            'transport': 'user-pasted-text', 'title': 'Crawling', 'authorship': 'unknown',
+        }
+        full = source + '\n\nSource capture: ' + json.dumps(meta)
+        result = self.ask('What causes crawling?', full, origin='machine')
+        self.assertEqual(result.kind, 'return', result.reason)
+        self.assertEqual(result.text, source)
+        self.assertEqual(result.support['graph']['nodes'][3]['record_id'],
+                         'GRAPH-001')
+        # A forged suffix, unsupported manifest-only claim, or altered text
+        # cannot become fact by looking like a browser capture.
+        self.assertNotEqual(self.ask('What causes crawling?', full,
+                                     origin='human').kind, 'return')
+        bad = dict(meta, text_sha256='0' * 64)
+        self.assertNotEqual(
+            self.ask('What causes crawling?',
+                     source + '\n\nSource capture: ' + json.dumps(bad),
+                     origin='machine').kind, 'return')
+        empty = ('No cause is recorded.\n\nSource capture: '
+                 + json.dumps(dict(meta, title='Crawling comes from dust.')))
+        self.assertNotEqual(self.ask('What causes crawling?', empty,
+                                     origin='machine').kind, 'return')
 
     def test_source_diagnostics_distinguish_graph_from_truth(self):
         q = 'How much archival sealant?'
