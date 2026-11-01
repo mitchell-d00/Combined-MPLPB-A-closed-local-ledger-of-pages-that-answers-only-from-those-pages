@@ -50,6 +50,31 @@ def evaluate():
             'current_metrics': now['metrics']['supported'],
             'changed_cases': changed,
         }
+    controls = {}
+    for name in ('development-cases', 'squad-sample'):
+        old = baseline['datasets'][name]
+        now = current['datasets'][name]
+        by_id = {row['id']: row['supported'] for row in old['rows']}
+        delta = []
+        for row in now['rows']:
+            new_result = row['supported']
+            old_result = by_id[row['id']]
+            if (new_result['kind'], new_result['id'], new_result['text']) != (
+                    old_result['kind'], old_result['id'], old_result['text']):
+                delta.append({'id': row['id'], 'question': row['question'],
+                              'before_kind': old_result['kind'],
+                              'after_kind': new_result['kind'],
+                              'after_quote': new_result['text'],
+                              'return_correct_document_proxy': new_result['return_correct']})
+        controls[name] = {
+            'frozen_sha256': now['sha256'],
+            'historical_metrics': old['metrics'],
+            'current_metrics': now['metrics']['supported'],
+            'changed_cases': delta,
+        }
+    for name, data in {**changes, **controls}.items():
+        if data['current_metrics']['wrong_returns'] > 0:
+            raise AssertionError('Wrong return in '+name+': refuse metric improvement until investigated')
     return {
         'report_schema': 'relation-graph-frozen-retest-v1',
         'historical_report_sha256': hashlib.sha256(baseline_bytes).hexdigest(),
@@ -58,6 +83,7 @@ def evaluate():
         'scoring_limit': 'Document ID and exact quotation are automated proxies; independently review every new return and near miss before any semantic accuracy or deployment claim.',
         'current_support_code_sha256': current['support_code'],
         'pottery_sets': changes,
+        'other_regression_controls': controls,
         'synthetic_users': simulate(),
     }
 
