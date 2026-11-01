@@ -1,0 +1,263 @@
+{
+  "schema": "mplpb-synthetic-users-v1",
+  "written": "2026-11-01",
+  "role": "developer-authored reusable regression scenarios, not independent or blind evaluation",
+  "policy": "Complete quote and current source ID for returns; ambiguity is not a correct answer; absent evidence must refuse",
+  "personas": [
+    {
+      "id": "pottery_apprentice",
+      "scenario": "A beginner handling an inherited studio ledger, including adversarial unsupported follow-ups",
+      "documents": [
+        {
+          "id": "SYN-001",
+          "title": "Glaze storage note",
+          "body": "If the bucket has hard-panned, add a teaspoon of Epsom salt solution and sieve again."
+        },
+        {
+          "id": "SYN-002",
+          "title": "Studio mixture",
+          "body": "Leave powders to slake for twenty minutes before stirring."
+        },
+        {
+          "id": "SYN-003",
+          "title": "Clay stock",
+          "body": "Grogged grey crank, bag code CR, is for sculpture and large slabs."
+        },
+        {
+          "id": "SYN-004",
+          "title": "Kiln cones",
+          "body": "If the guard has gone over, the load ran hot: shorten the soak next time."
+        }
+      ],
+      "questions": [
+        {
+          "q": "How much Epsom salt solution?",
+          "expected": "return",
+          "quote": "If the bucket has hard-panned, add a teaspoon of Epsom salt solution and sieve again."
+        },
+        {
+          "q": "How long should I slake powders before stirring?",
+          "expected": "return",
+          "quote": "Leave powders to slake for twenty minutes before stirring."
+        },
+        {
+          "q": "What is bag code CR for?",
+          "expected": "return",
+          "quote": "Grogged grey crank, bag code CR, is for sculpture and large slabs."
+        },
+        {
+          "q": "What happens if the guard has gone over?",
+          "expected": "return",
+          "quote": "If the guard has gone over, the load ran hot: shorten the soak next time."
+        },
+        {
+          "q": "How much Epsom salt solution after repairs?",
+          "expected": "not_in_corpus"
+        },
+        {
+          "q": "What is code CR for tomorrow?",
+          "expected": "not_in_corpus"
+        },
+        {
+          "q": "How much plaster for a mould?",
+          "expected": "not_in_corpus"
+        }
+      ]
+    },
+    {
+      "id": "archive_librarian",
+      "scenario": "An archival librarian with explicit catalog records rather than topic-only matching",
+      "documents": [
+        {
+          "id": "SYN-011",
+          "title": "Catalog labels",
+          "body": "Bag code UV9 is for archive intake labels."
+        },
+        {
+          "id": "SYN-012",
+          "title": "Drying rule",
+          "body": "Leave records to dry for two days before binding."
+        },
+        {
+          "id": "SYN-013",
+          "title": "Sealant quantity",
+          "body": "Add two teaspoons of archival sealant before filing."
+        }
+      ],
+      "questions": [
+        {
+          "q": "What is code UV9 for?",
+          "expected": "return",
+          "quote": "Bag code UV9 is for archive intake labels."
+        },
+        {
+          "q": "How long should I dry records before binding?",
+          "expected": "return",
+          "quote": "Leave records to dry for two days before binding."
+        },
+        {
+          "q": "How much archival sealant?",
+          "expected": "return",
+          "quote": "Add two teaspoons of archival sealant before filing."
+        },
+        {
+          "q": "What is code UV8 for?",
+          "expected": "not_in_corpus"
+        },
+        {
+          "q": "How long should I dry records before sealing?",
+          "expected": "not_in_corpus"
+        }
+      ]
+    },
+    {
+      "id": "lab_assistant",
+      "scenario": "Laboratory protocol language with polarity and containers kept separate",
+      "documents": [
+        {
+          "id": "SYN-021",
+          "title": "Specimen intake",
+          "body": "If the sample is unsealed, quarantine the batch."
+        },
+        {
+          "id": "SYN-022",
+          "title": "Separated specimens",
+          "body": "Keep wet and dry samples in separate cabinets."
+        },
+        {
+          "id": "SYN-023",
+          "title": "Late result",
+          "body": "If the indicator turns amber, the system enters inspection mode."
+        }
+      ],
+      "questions": [
+        {
+          "q": "What happens if the sample is unsealed?",
+          "expected": "return",
+          "quote": "If the sample is unsealed, quarantine the batch."
+        },
+        {
+          "q": "Which samples must be kept in separate cabinets?",
+          "expected": "return",
+          "quote": "Keep wet and dry samples in separate cabinets."
+        },
+        {
+          "q": "What happens if the indicator turns amber?",
+          "expected": "return",
+          "quote": "If the indicator turns amber, the system enters inspection mode."
+        },
+        {
+          "q": "What happens if the sample is sealed?",
+          "expected": "not_in_corpus"
+        },
+        {
+          "q": "Which samples must be kept in separate buckets?",
+          "expected": "not_in_corpus"
+        }
+      ]
+    },
+    {
+      "id": "warehouse_clerk",
+      "scenario": "Inventory code and conditional disposition",
+      "documents": [
+        {
+          "id": "SYN-031",
+          "title": "Packing code",
+          "body": "Bag code K9 is for cold chain packing."
+        },
+        {
+          "id": "SYN-032",
+          "title": "Scan exception",
+          "body": "If the barcode is missing, place the package on the exception shelf."
+        }
+      ],
+      "questions": [
+        {
+          "q": "What is bag code K9 for?",
+          "expected": "return",
+          "quote": "Bag code K9 is for cold chain packing."
+        },
+        {
+          "q": "What happens if the barcode is missing?",
+          "expected": "return",
+          "quote": "If the barcode is missing, place the package on the exception shelf."
+        },
+        {
+          "q": "What happens if the barcode is not missing?",
+          "expected": "not_in_corpus"
+        },
+        {
+          "q": "What is code K8 for?",
+          "expected": "not_in_corpus"
+        }
+      ]
+    },
+    {
+      "id": "plant_operator",
+      "scenario": "Explicit positive/negative conditions, no implicit causal inverses",
+      "documents": [
+        {
+          "id": "SYN-041",
+          "title": "Air gate",
+          "body": "If the air gate is open, stop the inlet fan. If the air gate is not open, log a maintenance ticket."
+        },
+        {
+          "id": "SYN-042",
+          "title": "Loading notes",
+          "body": "Keep wet and dry parts in separate crates."
+        }
+      ],
+      "questions": [
+        {
+          "q": "What happens if the air gate is open?",
+          "expected": "return",
+          "quote": "If the air gate is open, stop the inlet fan."
+        },
+        {
+          "q": "What happens if the air gate is not open?",
+          "expected": "return",
+          "quote": "If the air gate is not open, log a maintenance ticket."
+        },
+        {
+          "q": "Which parts should be kept in separate crates?",
+          "expected": "return",
+          "quote": "Keep wet and dry parts in separate crates."
+        },
+        {
+          "q": "What happens if the air gate is closed?",
+          "expected": "not_in_corpus"
+        }
+      ]
+    },
+    {
+      "id": "reviewer",
+      "scenario": "Multiple eligible sources must produce ambiguity, not top-one confidence",
+      "documents": [
+        {
+          "id": "SYN-051",
+          "title": "Claim A",
+          "body": "Bag code J7 is for pallet packing."
+        },
+        {
+          "id": "SYN-052",
+          "title": "Claim B",
+          "body": "Bag code J7 is for pallet packing."
+        }
+      ],
+      "questions": [
+        {
+          "q": "What is bag code J7 for?",
+          "expected": "ambiguous"
+        },
+        {
+          "q": "What is bag code J8 for?",
+          "expected": "not_in_corpus"
+        },
+        {
+          "q": "How much pallet sealant?",
+          "expected": "not_in_corpus"
+        }
+      ]
+    }
+  ]
+}
