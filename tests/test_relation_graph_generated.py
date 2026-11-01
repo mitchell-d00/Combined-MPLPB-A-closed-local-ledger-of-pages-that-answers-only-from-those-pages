@@ -12,7 +12,7 @@ class DiverseSmokeBenchTests(unittest.TestCase):
         r = self.report
         self.assertEqual(r['seed'], SEED)
         self.assertEqual(r['domains'], 12)
-        self.assertGreaterEqual(r['summary']['unique_questions'], 260)
+        self.assertEqual(r['summary']['unique_questions'], 312)
         self.assertEqual(r['summary']['duplicate_questions_skipped'], 0)
         self.assertEqual(len(set(x['id'] for x in r['rows'])), len(r['rows']))
         self.assertEqual(len(set(x['question'].casefold().replace(' ', '')
@@ -24,8 +24,8 @@ class DiverseSmokeBenchTests(unittest.TestCase):
         failures = [r for r in self.report['rows'] if not r['correct']]
         self.assertEqual(summary['failed'], 0, failures[:6])
         self.assertEqual(summary['wrong_returns'], 0)
-        self.assertGreaterEqual(summary['correct_returns'], 155)
-        self.assertGreaterEqual(summary['correct_refusals'], 100)
+        self.assertEqual(summary['correct_returns'], 204)
+        self.assertEqual(summary['correct_refusals'], 108)
         for category in ('storage', 'responsibility', 'due', 'status',
                          'location', 'contents', 'schedule'):
             self.assertEqual(self.report['categories'][category]['failed'], 0)
