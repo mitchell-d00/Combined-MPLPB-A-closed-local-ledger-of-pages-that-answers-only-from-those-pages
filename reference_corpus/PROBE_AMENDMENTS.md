@@ -17,3 +17,7 @@ The initial 93-question freeze preceded the finite-grammar preadmission scan. Ni
 | GKH-0010 | The proper noun is a name of a particular person or place. | The proper noun is a name identifying a particular entity. |
 
 This is a developer-authored and revised evaluation, **not an independently blind holdout**. Future results must pin the amended probe bytes and disclose any further corrections rather than mutating a released manifest.
+
+## PRE-RELEASE-002 · 2026-11-01
+
+CI's exact finite-grammar admission validator rejected the original climate averaging interval description because it included a disjunction `or`. The content was narrowed from “The climate averaging interval is a period usually lasting thirty years or more.” to “The climate averaging interval is a standard thirty-year period.”, and its expected quotation was updated before any reference release metrics were accepted. Original gold remains in `probes.v1.pre-amendment.json`; this developer-authored probe remains non-independent. The question, ID, answerable flag and stage remain unchanged.
