@@ -4,6 +4,8 @@ A closed local ledger of pages, with supported answers, inspectable provenance, 
 
 **[Open the live application](https://mitchell-d00.github.io/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/)** · [Documentation index](docs/README.md) · [Installation](docs/INSTALLATION.md) · [JavaScript API](JAVASCRIPT-API.md)
 
+**Infrastructure rule:** Every change must pass the [automated repository synchronization audit](docs/REPOSITORY_INFRASTRUCTURE.md), which checks the live Pages entry point, source `index.html`, JavaScript API, generated standalone runtime, packaging, documentation and corpus release boundaries. The [versioned machine-derived reference corpus](reference_corpus/README.md) is a separate **lab-only, unratified research preview**; it is **not** loaded into the hosted app by default.
+
 The hosted application runs the Python engine locally through WebAssembly. No model, AI account, API key, or Python server is needed to use the standalone runtime. Saved visitor collections and conversations stay in that browser's storage. Explicit or enabled automatic source acquisition uses the network; the optional general-web crawler has separate service requirements.
 
 ## Choose how to run it
