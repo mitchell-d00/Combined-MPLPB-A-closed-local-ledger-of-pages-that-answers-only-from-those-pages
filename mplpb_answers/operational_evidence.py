@@ -17,7 +17,7 @@ _NOUN = r'[a-z][a-z0-9-]*(?: [a-z][a-z0-9-]*){0,2}'
 _UNSAFE_QUESTION = re.compile(r'[;"“”]|\b(?:perhaps|maybe|possibly|probably|supposedly|allegedly)\b')
 _UNSAFE_SOURCE = re.compile(
     r'(^|[.!?]\s+|\n)(?:imagine|suppose|assume|pretend|ignore|'
-    r'example|hypothetical|draft)\b|["“”]', re.I
+    r'example|hypothetical|draft|perhaps|maybe|possibly|probably)\b|["“”]', re.I
 )
 _UNSAFE_CONSEQUENT = re.compile(
     r'\b(?:perhaps|possibly|maybe|probably|allegedly|reportedly|'
@@ -61,7 +61,46 @@ def _condition_key(text):
 
 def statement_support(frame, record):
     context = body_text(record.body_html)
-    if _UNSAFE_SOURCE.search(context):
+    if _UNSAFE_SOURCE.search(context) or re.search(r'(?m)^\s*if [^\n.!?]{0,100}:\s*
+        return {'status': 'unsupported', 'spans': [],
+                'reason': 'Hypothetical/instructional or quoted page context.'}
+    spans = []
+    unresolved = False
+    for raw in re.split(r'(?<=[.!?])\s+|\n+', context):
+        raw = raw.strip()
+        if not raw:
+            continue
+        line = normalize(raw)
+        if frame.relation == 'conditional_outcome':
+            # Every bit of the antecedent must be present. In particular:
+            # if the alarm is ON != if the alarm is NOT on.
+            match = re.fullmatch(r'if (?P<condition>[^,;:]+), (?P<outcome>.+)', line)
+            if not match or _condition_key(match['condition']) != _condition_key(frame.entity):
+                continue
+            outcome = match['outcome']
+            if len(outcome) < 4 or _UNSAFE_CONSEQUENT.search(outcome):
+                unresolved = True
+                continue
+            spans.append({'quote': raw, 'value': outcome})
+        elif frame.relation == 'separate_storage':
+            entity, container = map(re.escape, (frame.entity, frame.other))
+            match = re.fullmatch(
+                rf'(?:keep|store) (?P<value>[a-z0-9-]+(?: [a-z0-9-]+){{0,12}}) '
+                rf'{entity} in separate {container}(?:[;,] .+)?', line)
+            if not match:
+                continue
+            # Full sentence is returned: even a semicolon qualification remains.
+            value = match['value']
+            if re.search(r'\b(?:no|not|never|maybe|possibly|hypothetical)\b', value):
+                unresolved = True
+                continue
+            spans.append({'quote': raw, 'value': value})
+    values = {span['value'] for span in spans}
+    status = ('conflict' if len(values) > 1 else
+              'supported' if spans and not unresolved else 'unsupported')
+    return {'status': status, 'spans': spans, 'unresolved': unresolved,
+            'reason': 'Complete body conditional or separation instruction, quoted as a source declaration; not certified advice.'}
+, context, re.I):
         return {'status': 'unsupported', 'spans': [],
                 'reason': 'Hypothetical/instructional or quoted page context.'}
     spans = []
