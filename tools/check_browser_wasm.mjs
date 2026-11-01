@@ -75,6 +75,13 @@ const custom=await call('/api/chat',{corpus:collection.corpus,message:'topic Din
 if(custom.response.kind!=='topic')throw Error('WASM collection selection failed');
 const customAsk=await call('/api/chat',{corpus:collection.corpus,session:custom.session,message:'what is it?'});
 if(customAsk.response.kind!=='return')throw Error('WASM collection chat failed');
+const graphCollection=await call('/api/collections/create',{name:'Graph proof smoke'});
+await call('/api/source/import',{corpus:graphCollection.corpus,title:'Crawling source',url:'https://example.org/proof-graph',
+ text:'Crawling comes from dust or grease on the bisque, or a coat put on too thick that cracked as it dried.'});
+const graphAsk=await call('/api/query',{corpus:graphCollection.corpus,question:'What causes crawling?'});
+if(graphAsk.reader.kind!=='return'||!graphAsk.reader.text?.includes('Crawling comes from')||
+ graphAsk.reader.answer_support?.graph?.version!=='source-relation-graph-v1')
+ throw Error('WASM source evidence graph did not return pinned proof: '+JSON.stringify(graphAsk));
 const empty=await call('/api/collections/create',{name:'Empty smoke'});
 const isolated=await call('/api/query',{corpus:empty.corpus,question:'Dinosaurs'});
 if(isolated.reader.kind==='return')throw Error('WASM collections not isolated');
