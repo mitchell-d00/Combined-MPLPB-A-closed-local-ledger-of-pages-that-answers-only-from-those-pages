@@ -52,8 +52,9 @@ jobs:
       - name: Validate source-evidence graph and synthetic users against frozen probes
         run: |
           mkdir -p "$RUNNER_TEMP/graph-evaluation"
-          python -m unittest tests.test_relation_graph tests.test_relation_graph_synthetic_users tests.test_operational_evidence -v
+          python -m unittest tests.test_relation_graph tests.test_relation_graph_synthetic_users tests.test_relation_graph_generated tests.test_operational_evidence -v
           python -m tools.simulate_relation_graph_users --output "$RUNNER_TEMP/graph-evaluation/synthetic-users.json"
+          python -m tools.benchmark_relation_graph --output "$RUNNER_TEMP/graph-evaluation/diverse-benchmark.json"
           python -m tools.evaluate_relation_graph --output "$RUNNER_TEMP/graph-evaluation/frozen-retest.json"
       - name: Retain graph retest and synthetic-user evidence
         if: always()
