@@ -37,6 +37,16 @@
           "id": "SYN-006",
           "title": "Drying sculpture",
           "body": "Thick sculpture needs two weeks, not two days."
+        },
+        {
+          "id": "SYN-007",
+          "title": "Wedging alternatives",
+          "body": "Ram's head for small amounts, spiral for anything over two kilos."
+        },
+        {
+          "id": "SYN-008",
+          "title": "Pin inspection",
+          "body": "The coat should be the thickness of a postcard: scratch through with a pin to check."
         }
       ],
       "questions": [
@@ -81,6 +91,16 @@
         {
           "q": "How much plaster for a mould?",
           "expected": "not_in_corpus"
+        },
+        {
+          "q": "Ram's head or spiral?",
+          "expected": "return",
+          "quote": "Ram's head for small amounts, spiral for anything over two kilos."
+        },
+        {
+          "q": "How do I check the coat with a pin?",
+          "expected": "return",
+          "quote": "The coat should be the thickness of a postcard: scratch through with a pin to check."
         }
       ]
     },
@@ -102,6 +122,11 @@
           "id": "SYN-013",
           "title": "Sealant quantity",
           "body": "Add two teaspoons of archival sealant before filing."
+        },
+        {
+          "id": "SYN-014",
+          "title": "Frame choice",
+          "body": "Horizontal for narrow frames, vertical for wide frames."
         }
       ],
       "questions": [
@@ -127,6 +152,15 @@
         {
           "q": "How long should I dry records before sealing?",
           "expected": "not_in_corpus"
+        },
+        {
+          "q": "Horizontal or vertical?",
+          "expected": "return",
+          "quote": "Horizontal for narrow frames, vertical for wide frames."
+        },
+        {
+          "q": "Horizontal or diagonal?",
+          "expected": "not_in_corpus"
         }
       ]
     },
@@ -148,6 +182,11 @@
           "id": "SYN-023",
           "title": "Late result",
           "body": "If the indicator turns amber, the system enters inspection mode."
+        },
+        {
+          "id": "SYN-024",
+          "title": "Seal verification",
+          "body": "The seal should be flush: measure across with a gauge to check."
         }
       ],
       "questions": [
@@ -172,6 +211,15 @@
         },
         {
           "q": "Which samples must be kept in separate buckets?",
+          "expected": "not_in_corpus"
+        },
+        {
+          "q": "How do I check the seal with a gauge?",
+          "expected": "return",
+          "quote": "The seal should be flush: measure across with a gauge to check."
+        },
+        {
+          "q": "How do I check the seal with a thermometer?",
           "expected": "not_in_corpus"
         }
       ]
