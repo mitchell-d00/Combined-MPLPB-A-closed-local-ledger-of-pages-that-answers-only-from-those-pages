@@ -1,6 +1,6 @@
 # Deterministic source-evidence graph and synthetic users — proposed 2026-11-01
 
-The original strict pottery **6/59 (10.2%)** is a dated historical result, retained unchanged in `evaluation/practical-coverage/after.json`. A subsequent source-bound conditional/separation extension proposed two extra returns, not an independently scored 8/59 release. This graph builds on that branch and requires a new exact-head retest to establish any later numerator. All three pottery probe JSON files, SHA-256 sidecars, studio pages, old PDFs, and prior reports remain frozen.
+The original strict pottery **6/59 (10.2%)** is a dated historical result, retained unchanged in `evaluation/practical-coverage/after.json`. The previous deterministic graph candidate recorded **12/59 (20.3%)** on the already-inspected development question sets, as separately pinned in the evaluation report. This expanded cross-domain smoke-test candidate requires its own exact-head validation; new generated questions do not change that historical score or constitute independent language accuracy. All three pottery probe JSON files, SHA-256 sidecars, studio pages, old PDFs, and prior reports remain frozen.
 
 ## Why another graph?
 
@@ -19,7 +19,7 @@ body statement --qualified_by--> retained exception, condition, or contrast
 
 **The directed edges do not authorize reverse causality, cross-page completion, synonym guessing, medical guidance, or multi-hop inference.** Graph nodes are derived at query time, from *eligible* source bytes, and must not be stored as independently ratified ledger facts. Any statement on a retired, corrupt, excluded, not-for, withheld, or otherwise ineligible page is not an answer. Multiple matching eligible pages remain ambiguous even if their values agree.
 
-## Seven generic relation families added
+## Fourteen generic relation families
 
 | Question family | Permitted body assertion | Result |
 | --- | --- | --- |
@@ -31,13 +31,15 @@ body statement --qualified_by--> retained exception, condition, or contrast
 | How do I check ITEM with TOOL? | `ITEM should …: METHOD with TOOL to check` | Exact inspection sentence, including qualification |
 | How long does SUBJECT need? | `SUBJECT needs DURATION[, not CONTRAST]` | Duration plus complete contrast |
 
-These are **seven finite forms**, not all of English. Previous explicit *if-condition → outcome* and *separate items → containers* forms remain in `operational_evidence.py`. A source quote is a record of what a source declares, not evidence of real-world truth or an instruction that is safe for immediate execution. There is no unrestricted composition; answering "What caused X?" from merely co-occurring symptoms is still forbidden.
+Seven further relations use equally bounded source-declared evidence: storage instructions, named responsibilities, due dates, recorded statuses, locations, explicit contents, and scheduled dates. Their precise question and source grammars, positive/negative controls, and the Mitchell-Tech-style fixed-seed benchmark are documented in the [diverse-language smoke protocol](../evaluation/relation-graph/DIVERSE_SMOKE.md). These are **14 finite graph forms**, not all of English. Previous explicit *if-condition → outcome* and *separate items → containers* forms remain in `operational_evidence.py`. A source quote is a record of what a source declares, not evidence of real-world truth or an instruction that is safe for immediate execution. There is no unrestricted composition; answering "What caused X?" from merely co-occurring symptoms is still forbidden.
 
 The [pinned development retest](../evaluation/relation-graph/README.md) reports 12/59 correct-document returns on the inspected pottery questions, versus the preserved historical 6/59, without changing the original JSON or question files. Both the bounded 36-turn synthetic result and the exact returned source statements are recorded there; semantic accuracy outside these reviewed development examples remains unmeasured.
 
 ## Synthetic users and measurement boundaries
 
 `evaluation/relation-graph/synthetic-users.json` defines **six authored personas and 36 scripted queries** across a pottery apprentice, archivist, laboratory assistant, warehouse clerk, plant operator and duplicate-source reviewer. Each starts with an isolated, newly sealed local corpus; turns ask both answerable and absent/negated near-misses. The reviewer asks about two identical but independently eligible pages: the expected result is **ambiguous**, not a top-ranked success. Synthetic users are **software regression agents, not actual people or independent participants**.
+
+The separate [12-domain generated benchmark](../evaluation/relation-graph/DIVERSE_SMOKE.md) is derived from fictional, authored seed data, with globally unique questions, stable IDs, mutant source rechecks and duplicate-source ambiguity. It is not independent testing or a replacement for the six scripted users.
 
 `tools.simulate_relation_graph_users` runs all turns through the same public `supported_answer` path as real users, reports exact returned text and record pins, distinguishes wrong returns, false refusals and ambiguities, and records both fixture and code SHA-256 pins. Its oracle is authored and literal; a passing 36-turn run is not semantic accuracy validation.
 
@@ -48,6 +50,8 @@ The [pinned development retest](../evaluation/relation-graph/README.md) reports 
 ```sh
 python -m unittest tests.test_relation_graph tests.test_relation_graph_synthetic_users tests.test_operational_evidence -v
 python -m tools.simulate_relation_graph_users --output /tmp/mplpb-synthetic-users.json
+python -m unittest tests.test_relation_graph_generated -v
+python -m tools.benchmark_relation_graph --output /tmp/mplpb-diverse-benchmark.json
 python -m tools.evaluate_relation_graph --output /tmp/mplpb-graph-retest.json
 python -m unittest discover -s tests -t . -q
 python tools/check_ui_script.py
