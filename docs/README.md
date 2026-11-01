@@ -11,6 +11,8 @@ Current entry points and release-status wording reviewed on 2026-10-31 after PRs
 | Install source, browser ZIP, or CLI wheel | [Installation](INSTALLATION.md) |
 | Use the interface and understand storage modes | [Browser UI](BROWSER_UI.md) |
 | Build standalone HTML / runtime requirements | [Browser runtime](BROWSER_RUNTIME.md) |
+| Keep Pages UI, JavaScript API, documentation and packaging aligned | [Automated infrastructure synchronization](REPOSITORY_INFRASTRUCTURE.md) |
+| Generate sealed, versioned unratified reference ledgers | [Reference corpus preview](../reference_corpus/README.md) |
 | Publish the generated runtime | [GitHub Pages](GITHUB_PAGES.md) |
 | Preserve captures across compatible updates | [Capture compatibility](BROWSER_CAPTURE_COMPATIBILITY.md) |
 | Recover code without rewriting user saves | [Rollback](ROLLBACK.md) |
@@ -21,9 +23,9 @@ Current entry points and release-status wording reviewed on 2026-10-31 after PRs
 | Contract | Guide |
 |---|---|
 | General answer contract, local reader, diagnostics and release scope | [Pipeline guide](GENERAL_ANSWER_PIPELINE.md) / [2.1 release candidate](RELEASE_2_1_RC1.md) |
-| Supported answers, candidates, gated pages, separate bundles || Deterministic source-evidence relation graph, synthetic users and historical-score retest || Fixed-seed, deduplicated cross-domain evidence smoke tests (Mitchell-Tech testing pattern) | [Diverse question benchmark](../evaluation/relation-graph/DIVERSE_SMOKE.md) |
- [Evidence graph](DETERMINISTIC_EVIDENCE_GRAPH.md) |
- [Page retrieval and answer authority](PAGE_RETRIEVAL.md) |
+| Supported answers, candidates, gated pages, separate bundles | [Page retrieval and answer authority](PAGE_RETRIEVAL.md) |
+| Deterministic source-evidence graph, synthetic users and historical score | [Evidence graph](DETERMINISTIC_EVIDENCE_GRAPH.md) |
+| Fixed-seed deduplicated cross-domain evidence smoke | [Diverse question benchmark](../evaluation/relation-graph/DIVERSE_SMOKE.md) |
 | Proposed strict conditional and separation evidence, error classes, retained 6/59 score | [Operational evidence](OPERATIONAL_EVIDENCE.md) |
 | JavaScript methods, options and error handling | [JavaScript API](../JAVASCRIPT-API.md) |
 | Discovery, public snapshot and verbatim relay | [Agent middleware](AGENT_MIDDLEWARE.md) / [agent notes](../llms.txt) |
