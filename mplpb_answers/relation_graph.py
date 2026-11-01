@@ -62,7 +62,7 @@ class RelationRequest(LiteralRequest):
 
 
 def parse(question):
-    q = normalize(question)
+    q = re.sub(r'^(?:please,? |can you tell me |could you tell me )', '', normalize(question))
     if len(q) > 200 or BAD_REQUEST.search(q) or re.search(r'[?!:,.]', q):
         return None
     alternatives = re.fullmatch(
@@ -76,7 +76,8 @@ def parse(question):
         match = re.fullmatch(grammar, q)
         if match:
             values = match.groupdict()
-            return RelationRequest(relation, values['entity'], q,
+            entity = re.sub(r'^the ', '', values['entity'])
+            return RelationRequest(relation, entity, q,
                                    values.get('other') or values.get('action') or '')
     return None
 
