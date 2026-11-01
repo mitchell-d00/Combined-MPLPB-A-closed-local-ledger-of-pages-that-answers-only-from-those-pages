@@ -136,6 +136,73 @@ class RelationGraphTests(unittest.TestCase):
                 self.assertEqual(answer.record.id, rec_id)
                 self.assertEqual(answer.text, sentence)
 
+    def test_cross_domain_storage_owner_date_status_location_contents_and_schedule(self):
+        cases = (
+            ('Where should we store museum accession cards?',
+             'Store museum accession cards in blue archive drawer.'),
+            ('Where do I keep museum accession cards?',
+             'Keep museum accession cards in blue archive drawer.'),
+            ('Where should museum accession cards be stored?',
+             'Store museum accession cards in blue archive drawer.'),
+            ('Who is responsible for artifact condition review?',
+             'Museum registrar is responsible for artifact condition review.'),
+            ('Who has responsibility for artifact condition review?',
+             'Museum registrar is responsible for artifact condition review.'),
+            ('When is curator update report due?',
+             'The curator update report is due on 2027-12-02.'),
+            ('What is the due date for curator update report?',
+             'The due date for curator update report is 2027-12-02.'),
+            ('What date is curator update report due?',
+             'The curator update report is due on 2027-12-02.'),
+            ('What is the status of gallery mounting request?',
+             'Status of gallery mounting request is under examination.'),
+            ('What status is recorded for gallery mounting request?',
+             'The gallery mounting request has status under examination.'),
+            ('Where is conservation microscope located?',
+             'The conservation microscope is located in central museum lab.'),
+            ('What does exhibition installation kit contain?',
+             'The exhibition installation kit contains brackets and tags.'),
+            ('When is gallery opening tour scheduled?',
+             'The gallery opening tour is scheduled for 2027-12-08.'),
+            ('Please, where should I store museum accession cards?',
+             'Store museum accession cards in blue archive drawer.'),
+            ('Can you tell me when is curator update report due?',
+             'The curator update report is due on 2027-12-02.'),
+            ('Could you tell me what is the status of gallery mounting request?',
+             'Status of gallery mounting request is under examination.'),
+        )
+        for question, source in cases:
+            with self.subTest(question=question):
+                answer = self.ask(question, source)
+                self.assertEqual(answer.kind, 'return', answer.reason)
+                self.assertEqual(answer.text, source)
+                self.assertEqual(answer.support['graph']['proof_kind'],
+                                 'exact_source_statement')
+                self.assertFalse(answer.support['graph']['world_verified'])
+
+    def test_cross_domain_unsupported_qualifiers_and_dates_abstain(self):
+        refusals = (
+            ('Where should we store museum accession cards if wet?',
+             'Store museum accession cards in blue archive drawer.'),
+            ('Who is not responsible for artifact condition review?',
+             'Museum registrar is responsible for artifact condition review.'),
+            ('What is the status of gallery mounting request tomorrow?',
+             'Status of gallery mounting request is under examination.'),
+            ('What is the due date for curator update report?',
+             'The curator update report is due on 2027-14-39.'),
+            ('When is gallery opening tour scheduled?',
+             'The gallery opening tour is scheduled for 2027-99-31.'),
+            ('Where is conservation microscope located?',
+             'The preservation microscope is located in central museum lab.'),
+            ('What does exhibition installation kit contain?',
+             'The rehearsal kit contains brackets and tags.'),
+            ('Please, who is not responsible for artifact condition review?',
+             'Museum registrar is responsible for artifact condition review.'),
+        )
+        for question, source in refusals:
+            with self.subTest(question=question):
+                self.assertNotEqual(self.ask(question, source).kind, 'return')
+
     def test_source_diagnostics_distinguish_graph_from_truth(self):
         q = 'How much archival sealant?'
         result = self.ask(q, 'Add three teaspoons of archival sealant before filing.')
