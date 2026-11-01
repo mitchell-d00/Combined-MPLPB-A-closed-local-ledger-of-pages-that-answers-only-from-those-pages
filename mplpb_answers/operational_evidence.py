@@ -61,7 +61,7 @@ def _condition_key(text):
 
 def statement_support(frame, record):
     context = body_text(record.body_html)
-    if _UNSAFE_SOURCE.search(context) or re.search(r'(?m)^\s*if [^\n.!?]{0,100}:\s*
+    if _UNSAFE_SOURCE.search(context) or re.search(r'(?m)^\s*if [^\n.!?]{0,100}:\s*$', context, re.I):
         return {'status': 'unsupported', 'spans': [],
                 'reason': 'Hypothetical/instructional or quoted page context.'}
     spans = []
