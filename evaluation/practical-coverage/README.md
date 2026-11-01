@@ -1,5 +1,7 @@
 # Practical answer coverage: 2026-10-31
 
+> **Historical evaluation snapshot.** The 6/59 (10.2%) result belongs to the 2026-10-31 exact implementation. The proposed [operational evidence extension](../../docs/OPERATIONAL_EVIDENCE.md) adds generic bounded relation forms, but does not alter this report, the frozen inputs or any historic result. Only a separately pinned, reviewed rerun can establish a later coverage figure.
+
 This is a focused coverage repair, compared with current main at
 `251e918340c8cfe700b1157d5367e4af0a02bec6`. Historical reliability reports are
 preserved. The original, held-out and adjacent question sets have already been
