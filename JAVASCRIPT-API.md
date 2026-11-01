@@ -31,6 +31,23 @@ also exposes the API when served by `python3 launch.py`; that desktop mode still
 uses its local Python HTTP server. Opening the unbuilt source HTML as a file does
 not start an engine. Download/build the standalone file for server-free use.
 
+## Optional versioned reference corpus (not loaded into hosted app)
+
+The [MPLPB Reference Corpus research preview](reference_corpus/README.md) is built offline as versioned local ledgers, with machine-derived, **unratified** depth-two fact pages. The public GitHub Pages app does **not** automatically include these generated pages, and `listCorpora()` will not announce an unavailable reference pack. They are not authoritative, human-ratified or eligible under `internal` or `external` profiles. Developers may use an explicit local/generated corpus through the existing supported query API after loading it into an eligible collection. Example for a corpus key that **actually exists** in that runtime:
+
+```js
+const cor = (await window.MPLPB.listCorpora()).data;
+const found = cor.find(item => item.key === 'reference_lab');
+if (found) {
+  const result = await window.MPLPB.query('What is noun?', {corpus: found.key, profile:'lab'});
+  if (result.ok && result.data.reader.kind === 'return') {
+    console.log(result.data.reader.text, result.data.reader.hash);
+  }
+}
+```
+
+This is a conditional example, **not** a claim that `reference_lab` exists in the shipped UI. Consult the [infrastructure gate](docs/REPOSITORY_INFRASTRUCTURE.md) for release and interface synchronization; verify citation, source hash and ancestry using the actual `data.reader` response.
+
 ## Quick start
 
 Run in the opened app's browser console:
