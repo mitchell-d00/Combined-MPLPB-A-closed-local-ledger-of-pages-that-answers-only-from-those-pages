@@ -84,6 +84,19 @@ def _case_plan(domain, idx):
                 'expected': 'return', 'expected_doc': ident,
                 'expected_quote': quote,
             })
+    polite = (
+        (0, 'Please, where should I store {storage_subject}?'),
+        (2, 'Can you tell me when is {due_subject} due?'),
+        (3, 'Could you tell me what is the status of {status_subject}?'),
+    )
+    for variant, (index, template) in enumerate(polite, 1):
+        ident, relation, quote = pages[index]
+        rows.append({
+            'category': relation + '_polite', 'variant': variant,
+            'question': template.format(**domain),
+            'expected': 'return', 'expected_doc': ident,
+            'expected_quote': quote,
+        })
     for name, template in NEGATIVE_FORMS:
         rows.append({'category': name, 'variant': 1,
                      'question': template.format(**domain),
