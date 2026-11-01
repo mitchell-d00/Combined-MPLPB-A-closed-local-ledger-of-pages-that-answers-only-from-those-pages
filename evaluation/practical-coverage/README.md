@@ -1,5 +1,8 @@
 # Practical answer coverage: 2026-10-31
 
+> **Later experimental work (2026-11-01):** The [source-evidence graph proposal](../../docs/DETERMINISTIC_EVIDENCE_GRAPH.md) adds generic, provenance-gated relation types and scripted synthetic-user exercises. It does **not** overwrite the historical 6/59 or turn the old questions into an independent holdout. A new exact-head retest and review are required to report an updated score.
+
+
 > **Historical evaluation snapshot.** The 6/59 (10.2%) result belongs to the 2026-10-31 exact implementation. The proposed [operational evidence extension](../../docs/OPERATIONAL_EVIDENCE.md) adds generic bounded relation forms, but does not alter this report, the frozen inputs or any historic result. Only a separately pinned, reviewed rerun can establish a later coverage figure.
 
 This is a focused coverage repair, compared with current main at

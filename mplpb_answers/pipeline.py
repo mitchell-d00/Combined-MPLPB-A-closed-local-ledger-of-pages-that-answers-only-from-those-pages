@@ -6,7 +6,7 @@ from dataclasses import dataclass, field
 from mplpb_combined.reader import PROFILES, DEFAULT_PROFILE
 from .support import supported_answer, code_pins
 from .frames import parse
-from . import literal_evidence, practical_evidence, policy_evidence, procedures
+from . import literal_evidence, practical_evidence, policy_evidence, operational_evidence, relation_graph, procedures
 from .evidence_contract import (VERSION, ReaderError, pin, canonical, shape, text,
                                 validate_proposal, validate_review, PROPOSAL_SCHEMA, REVIEW_SCHEMA, PLAN_SCHEMA)
 from .passages import PassageIndex
@@ -53,7 +53,7 @@ class QueryResult:
 
 
 def _known_grammar(question):
-    return any((procedures.request(question), literal_evidence.parse(question), practical_evidence.parse(question), policy_evidence.parse(question), parse(question)))
+    return any((procedures.request(question), literal_evidence.parse(question), practical_evidence.parse(question), policy_evidence.parse(question), operational_evidence.parse(question), relation_graph.parse(question), parse(question)))
 
 
 def answer_query(root, question, profile=None, *, mode='strict', reader=None, min_confidence=0.8,
