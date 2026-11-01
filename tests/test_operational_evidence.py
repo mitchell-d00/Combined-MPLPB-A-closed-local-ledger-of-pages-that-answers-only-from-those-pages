@@ -111,7 +111,7 @@ class OperationalEvidenceTests(unittest.TestCase):
             self.assertNotEqual(supported_answer(root, q, PROFILES['external']).kind, 'return')
         with tempfile.TemporaryDirectory() as root:
             write(root, doc_id='QA-001', title='Excluded', scope='gate',
-                  body=body, not_for='gate')
+                  body=body, not_for='open')
             self.assertNotEqual(supported_answer(root, q).kind, 'return')
         with tempfile.TemporaryDirectory() as root:
             write(root, doc_id='QA-001', title='Damaged', scope='gate', body=body)
