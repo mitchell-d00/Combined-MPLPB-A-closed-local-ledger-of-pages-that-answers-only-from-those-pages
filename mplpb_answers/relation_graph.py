@@ -127,7 +127,7 @@ def _evidence(frame, line):
     elif frame.relation == 'due_date':
         entity = re.escape(frame.entity)
         match = re.fullmatch(
-            rf'(?:the )?{entity} is due (?:on|by) (?P<value>\d{4}-\d{2}-\d{2})',
+            rf'(?:the )?{entity} is due (?:on|by) (?P<value>\d{{4}}-\d{{2}}-\d{{2}})',
             line)
         if not match:
             match = re.fullmatch(rf'(?:the )?due date for (?:the )?{entity} is (?P<value>\d{{4}}-\d{{2}}-\d{{2}})', line)
@@ -157,7 +157,7 @@ def _evidence(frame, line):
     elif frame.relation == 'scheduled_date':
         entity = re.escape(frame.entity)
         match = re.fullmatch(
-            rf'(?:the )?{entity} is scheduled for (?P<value>\d{4}-\d{2}-\d{2})', line)
+            rf'(?:the )?{entity} is scheduled for (?P<value>\d{{4}}-\d{{2}}-\d{{2}})', line)
         if match:
             return match['value'], ''
     elif frame.relation == 'cause':
