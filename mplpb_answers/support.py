@@ -122,6 +122,12 @@ def supported_answer(root, question, profile=None):
         if literal is not None:
             LE = OP
             practical = True  # Full question remains authoritative for exclusions.
+    if literal is None:
+        from . import relation_graph as RG
+        literal = RG.parse(question)
+        if literal is not None:
+            LE = RG
+            practical = True  # Graph edges require a complete-query provenance gate.
     if literal:
         selected = answer(root, question, profile)
         out = SupportedAnswer(**selected.__dict__)
