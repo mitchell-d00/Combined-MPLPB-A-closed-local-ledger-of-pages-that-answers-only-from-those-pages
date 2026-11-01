@@ -86,6 +86,14 @@ def parse(question):
 
 def _evidence(frame, line):
     """Return (value, qualification) only for a complete licensed assertion."""
+    # Unqualified inventory, responsibility and storage questions cannot
+    # license an assertion that holds only under a stated condition.
+    if (frame.relation in {'storage_rule', 'responsibility', 'due_date',
+                           'recorded_status', 'location', 'contents',
+                           'scheduled_date'}
+            and re.search(r'\b(?:if|unless|except|provided|until|whenever)\b',
+                          line)):
+        return None
     if frame.relation == 'alternative_context':
         left, right = map(re.escape, (frame.entity, frame.other))
         match = re.fullmatch(
