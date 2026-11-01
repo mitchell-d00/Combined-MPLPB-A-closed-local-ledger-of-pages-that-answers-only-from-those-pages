@@ -1,5 +1,8 @@
 # Deterministic evidence graph — frozen pottery and synthetic-user retest
 
+> **Later unscored extension:** The [Mitchell-Tech-style 12-domain unique question smoke benchmark](DIVERSE_SMOKE.md) adds seven source-bound relation types, explicit phrasing variants, 312 planned distinct questions, and 24 metamorphic checks. Its pass count and browser capture behavior require separate candidate CI. This dated 12/59 report remains pinned to the earlier graph revision.
+
+
 **Measured candidate:** `01a41a9c644872b82ffb1c7774d70a9337252a1b` on PR #26, at GitHub Actions run [41340452091](https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/actions/runs/41340452091). The focused source-graph and synthetic-user step passed and retained full `frozen-retest.json` / `synthetic-users.json` as artifact `source-evidence-graph-41340452091` (artifact ID 13096543186). **Full Python, ZIP-first, WebAssembly and complete deployment checks are separate and must be inspected before merge.**
 
 ## Pottery coverage — unchanged frozen questions
