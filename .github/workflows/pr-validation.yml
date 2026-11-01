@@ -59,7 +59,8 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: reference-corpus-${{ github.run_id }}
-          path: ${{ runner.temp }}/reference-corpus/release/**/audit.json
+          path: ${{ runner.temp }}/reference-corpus/release/
+          retention-days: 30
           if-no-files-found: warn
       - name: Test integrity regressions and evidence rules
         run: python -m unittest tests.test_integrity_hunt tests.test_record tests.test_ledger tests.test_literal_evidence tests.test_answer_reliability tests.test_answer_support -q
