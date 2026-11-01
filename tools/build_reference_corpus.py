@@ -146,7 +146,7 @@ def build(root, catalog, version):
             continue
         sid = _source_id(catalog, src["id"])
         write(
-            root, doc_id=sid, kind="index",
+            root, doc_id=sid, kind="source",
             title="Local source citation "+src["id"],
             scope="source citation record "+src["id"],
             when_to_use="Provenance and lineage only; not evidence text",
@@ -155,7 +155,7 @@ def build(root, catalog, version):
                   "Topic anchor: "+src["anchor"]+"\n"
                   "Upstream bytes pinned: no\n"
                   "Human ratification: none\n"
-                  "Classification: machine-built attribution index; not upstream source text."),
+                  "Classification: machine-built provenance record; not upstream source text."),
             origin="machine", owner="MPLPB machine corpus builder",
             source_authorship="unknown", external="no", when="2026-11-01T00:00Z")
     for fact in selected:
@@ -176,13 +176,18 @@ def validate_ledger(root, catalog, selected):
     errors = [str(f) for f in findings if f.level == "error"]
     servable = ledger.servable()
     by_id = {f["id"]: f for f in selected}
-    if len(servable) != len(selected):
+    fact_servable = [r for r in servable if r.id in by_id]
+    source_records = [r for r in servable if r.kind == 'source']
+    if len(fact_servable) != len(selected):
         errors.append("Servable fact count differs from selected unique owners")
+    if len(servable) != len(selected) + len(source_records):
+        errors.append("Unexpected servable record kind in release")
+    source_ids = {_source_id(catalog, x['id']) for x in catalog['sources']}
+    for rec in source_records:
+        if rec.id not in source_ids or not rec.intact or rec.origin != 'machine' or ledger.depth(rec) != 1:
+            errors.append("Invalid provenance-source record: "+rec.id)
     scopes, questions = set(), set()
-    for record in servable:
-        if record.id not in by_id:
-            errors.append("Unexpected current servable page: "+record.id)
-            continue
+    for record in fact_servable:
         fact = by_id[record.id]
         if record.scope.casefold() in scopes or record.when_to_use.casefold() in questions:
             errors.append("Overlapping exact scope / declared question: "+record.id)
@@ -199,13 +204,13 @@ def validate_ledger(root, catalog, selected):
         else:
             ref = record.derived_from[0]
             basis = ledger.resolve(ref)
-            if (not basis or ref.hash != basis.hash_actual or basis.kind != "index"
+            if (not basis or ref.hash != basis.hash_actual or basis.kind != "source"
                     or basis.origin != "machine" or basis.depth_declared != 1):
                 errors.append("Fact is not pinned to a valid source citation record: "+record.id)
     if errors:
         raise AssertionError("Current-page admission failed:\n- "+"\n- ".join(errors))
-    return {"intact_servable": len(servable), "quarantined": len(ledger.quarantined()),
-            "source_citation_pages": len(ledger.records) - len(servable),
+    return {"intact_servable": len(fact_servable), "quarantined": len(ledger.quarantined()),
+            "source_citation_pages": len(source_records),
             "errors": 0, "depth": 2, "ratified": 0,
             "not_for_default_internal_profile": True}
 
