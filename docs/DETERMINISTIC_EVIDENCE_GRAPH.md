@@ -19,7 +19,7 @@ body statement --qualified_by--> retained exception, condition, or contrast
 
 **The directed edges do not authorize reverse causality, cross-page completion, synonym guessing, medical guidance, or multi-hop inference.** Graph nodes are derived at query time, from *eligible* source bytes, and must not be stored as independently ratified ledger facts. Any statement on a retired, corrupt, excluded, not-for, withheld, or otherwise ineligible page is not an answer. Multiple matching eligible pages remain ambiguous even if their values agree.
 
-## Five generic relation families added
+## Seven generic relation families added
 
 | Question family | Permitted body assertion | Result |
 | --- | --- | --- |
@@ -27,15 +27,17 @@ body statement --qualified_by--> retained exception, condition, or contrast
 | How much MATERIAL? | `Add NUMBER UNIT of MATERIAL …`, optionally after an exact stated condition | Entire sentence, including any conditions; never a stripped dosage |
 | How long should I ACTION MATERIAL before NEXT-ACTION? | `Leave MATERIAL to ACTION for DURATION before NEXT-ACTION` | Exact entity, verb, next action and original quote |
 | What causes SYMPTOM? | `SYMPTOM comes from CAUSE` / `is caused by CAUSE` | Source-declared cause; not independently verified diagnosis |
+| ALTERNATIVE-A or ALTERNATIVE-B? | `A for CONTEXT-1, B for CONTEXT-2` | Verbatim comparison, without selecting an unsupported winner |
+| How do I check ITEM with TOOL? | `ITEM should …: METHOD with TOOL to check` | Exact inspection sentence, including qualification |
 | How long does SUBJECT need? | `SUBJECT needs DURATION[, not CONTRAST]` | Duration plus complete contrast |
 
-These are **five finite forms**, not all of English. Previous explicit *if-condition → outcome* and *separate items → containers* forms remain in `operational_evidence.py`. A source quote is a record of what a source declares, not evidence of real-world truth or an instruction that is safe for immediate execution. There is no unrestricted composition; answering "What caused X?" from merely co-occurring symptoms is still forbidden.
+These are **seven finite forms**, not all of English. Previous explicit *if-condition → outcome* and *separate items → containers* forms remain in `operational_evidence.py`. A source quote is a record of what a source declares, not evidence of real-world truth or an instruction that is safe for immediate execution. There is no unrestricted composition; answering "What caused X?" from merely co-occurring symptoms is still forbidden.
 
 ## Synthetic users and measurement boundaries
 
-`evaluation/relation-graph/synthetic-users.json` defines **six authored personas and 30 scripted queries** across a pottery apprentice, archivist, laboratory assistant, warehouse clerk, plant operator and duplicate-source reviewer. Each starts with an isolated, newly sealed local corpus; turns ask both answerable and absent/negated near-misses. The reviewer asks about two identical but independently eligible pages: the expected result is **ambiguous**, not a top-ranked success. Synthetic users are **software regression agents, not actual people or independent participants**.
+`evaluation/relation-graph/synthetic-users.json` defines **six authored personas and 36 scripted queries** across a pottery apprentice, archivist, laboratory assistant, warehouse clerk, plant operator and duplicate-source reviewer. Each starts with an isolated, newly sealed local corpus; turns ask both answerable and absent/negated near-misses. The reviewer asks about two identical but independently eligible pages: the expected result is **ambiguous**, not a top-ranked success. Synthetic users are **software regression agents, not actual people or independent participants**.
 
-`tools.simulate_relation_graph_users` runs all turns through the same public `supported_answer` path as real users, reports exact returned text and record pins, distinguishes wrong returns, false refusals and ambiguities, and records both fixture and code SHA-256 pins. Its oracle is authored and literal; a passing 30-turn run is not semantic accuracy validation.
+`tools.simulate_relation_graph_users` runs all turns through the same public `supported_answer` path as real users, reports exact returned text and record pins, distinguishes wrong returns, false refusals and ambiguities, and records both fixture and code SHA-256 pins. Its oracle is authored and literal; a passing 36-turn run is not semantic accuracy validation.
 
 `tools.evaluate_relation_graph` independently **replays the unchanged historical question files** using the current code and compares them with the October 31 snapshot. It reports every changed result and both per-set metrics, without modifying the old report. Existing tests also query unchanged studio pages for bag-code use, additive amount, crawling cause and sculpture drying duration, plus both operational relations. Document identity is only a correctness proxy: review every newly returned complete statement against the actual question before announcing a new score.
 
@@ -55,7 +57,7 @@ Required PR checks include the extracted-ZIP, actual WebAssembly and real browse
 
 ## What still needs new language and relation engineering?
 
-A deterministic graph can improve *inspectability and bounded recall*, but **57+** of the original answerable cases are not instantly solved by adding a node type. The frozen probe labels are page-ownership proxies, and some questions are too underspecified for source-supported factual answers (e.g., kiln-room ambient temperature versus firing temperature; warm gloves without measured temperature; a yesterday-specific recycle decision without time-qualified source text). Other cases require reviewed alias rules, evidence-aware anaphora, scoped processes, comparative queries, situation-to-recommendation semantics, cross-sentence qualification propagation, source truth adjudication, or a distinct model-assisted channel. **Never reduce these to loose lexical overlap.**
+A deterministic graph can improve *inspectability and bounded recall*, but most of the original answerable cases are not instantly solved by adding a node type. The frozen probe labels are page-ownership proxies, and some questions are too underspecified for source-supported factual answers (e.g., kiln-room ambient temperature versus firing temperature; warm gloves without measured temperature; a yesterday-specific recycle decision without time-qualified source text). Other cases require reviewed alias rules, evidence-aware anaphora, scoped processes, comparative queries, situation-to-recommendation semantics, cross-sentence qualification propagation, source truth adjudication, or a distinct model-assisted channel. **Never reduce these to loose lexical overlap.**
 
 The product progression should be: (1) single-sentence proof paths; (2) testable phrase variants tied to explicit predicates, not uncontrolled synonyms; (3) document-local anaphora with retained ambiguity when multiple antecedents are possible; (4) explicit machine-readable procedure graphs with prerequisites/conditions; (5) carefully reviewed temporal and causal edges; and (6) independently authored, human-scored cross-domain evaluation and calibration before calling it general-quality.
 
