@@ -5,6 +5,8 @@ scope, search rank, inferred synonyms or the question alone. No multi-hop world
 inference, general-language understanding or procedure execution is implied.
 """
 from dataclasses import dataclass
+import hashlib
+import json
 import re
 from datetime import date
 
@@ -248,8 +250,40 @@ def _graph(frame, record, spans):
             'multi_hop_inference': False}
 
 
-def statement_support(frame, record):
+def _capture_evidence_text(record):
+    """Keep captured source text separate from its appended JSON audit manifest.
+
+    The browser import store appends 'Source capture: {manifest}' to the
+    record's body. That JSON is provenance, not an answer sentence and not
+    part of the captured text. Strip it *only* if a machine-origin page has
+    exactly one correctly pinned, well-formed capture manifest. Never turn
+    an unverified or hand-written suffix into a source quotation.
+    """
     text = body_text(record.body_html)
+    marker = '\nSource capture: '
+    if marker not in text:
+        return text
+    if getattr(record, 'origin', '') != 'machine' or text.count(marker) != 1:
+        return ''
+    body, raw = text.split(marker, 1)
+    if not body or len(raw) > 15000:
+        return ''
+    try:
+        manifest = json.loads(raw)
+    except (ValueError, TypeError):
+        return ''
+    if not isinstance(manifest, dict) or not all(
+            isinstance(manifest.get(key), str) and manifest[key]
+            for key in ('source_url', 'source_sha256', 'text_sha256', 'transport')):
+        return ''
+    if hashlib.sha256(body.encode('utf-8')).hexdigest() != manifest['text_sha256']:
+        # Refuse on a body projection that no longer matches captured text.
+        return ''
+    return body
+
+
+def statement_support(frame, record):
+    text = _capture_evidence_text(record)
     if BAD_SOURCE.search(text) or re.search(
             r'(?m)^\s*(?:if|unless|assuming|example|draft)\b[^.!?\n]{0,120}:\s*$',
             text, re.I):
