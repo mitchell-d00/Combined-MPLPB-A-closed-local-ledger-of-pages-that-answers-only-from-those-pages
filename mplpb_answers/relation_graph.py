@@ -31,6 +31,8 @@ BAD_REQUEST = re.compile(
 # how-long question. A pronoun alone cannot supply its missing subject.
 QUERY_FORMS = (
     ('code_purpose', rf'what is (?:the )?(?:bag )?code (?P<entity>{CODE}) for'),
+    ('cause', rf'what causes (?P<entity>{PHRASE})'),
+    ('required_time', rf'how long does (?P<entity>{PHRASE}) need'),
     ('additive_amount', rf'how much (?P<entity>{PHRASE})'),
     ('action_duration', rf'how long should (?:i|we) (?P<action>{WORD}) (?P<entity>{PHRASE}) before (?P<other>{WORD})'),
 )
@@ -59,7 +61,22 @@ def parse(question):
 
 def _evidence(frame, line):
     """Return (value, qualification) only for a complete licensed assertion."""
-    if frame.relation == 'code_purpose':
+    if frame.relation == 'cause':
+        subject = re.escape(frame.entity)
+        match = re.fullmatch(
+            rf'{subject} (?:comes? from|is caused by|are caused by) (?P<value>.+)',
+            line)
+        if match and not re.search(
+                r'\b(?:not|never|could|might|perhaps|unknown)\b', match['value']):
+            return match['value'], ''
+    elif frame.relation == 'required_time':
+        subject = re.escape(frame.entity)
+        match = re.fullmatch(
+            rf'{subject} needs (?P<value>{DURATION})(?:, not (?P<contrast>{DURATION}))?',
+            line)
+        if match:
+            return match['value'], match['contrast'] or ''
+    elif frame.relation == 'code_purpose':
         code = re.escape(frame.entity)
         match = re.fullmatch(
             rf'(?P<name>{PHRASE}), (?:bag code )?{code}, is for (?P<value>.+)',
