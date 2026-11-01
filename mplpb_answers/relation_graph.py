@@ -32,6 +32,7 @@ BAD_REQUEST = re.compile(
 QUERY_FORMS = (
     ('code_purpose', rf'what is (?:the )?(?:bag )?code (?P<entity>{CODE}) for'),
     ('cause', rf'what causes (?P<entity>{PHRASE})'),
+    ('inspection_method', rf'how do i check (?:the )?(?P<entity>{PHRASE}) with (?:a |the )?(?P<other>{PHRASE})'),
     ('required_time', rf'how long does (?P<entity>{PHRASE}) need'),
     ('additive_amount', rf'how much (?P<entity>{PHRASE})'),
     ('action_duration', rf'how long should (?:i|we) (?P<action>{WORD}) (?P<entity>{PHRASE}) before (?P<other>{WORD})'),
@@ -50,6 +51,13 @@ def parse(question):
     q = normalize(question)
     if len(q) > 200 or BAD_REQUEST.search(q) or re.search(r'[?!:,.]', q):
         return None
+    alternatives = re.fullmatch(
+        r"(?P<left>[a-z][a-z' -]{1,39}) or (?P<right>[a-z][a-z' -]{1,39})",
+        q)
+    if alternatives:
+        left, right = alternatives['left'].strip(), alternatives['right'].strip()
+        if left != right and len(left.split()) <= 4 and len(right.split()) <= 4:
+            return RelationRequest('alternative_context', left, q, right)
     for relation, grammar in QUERY_FORMS:
         match = re.fullmatch(grammar, q)
         if match:
@@ -61,7 +69,26 @@ def parse(question):
 
 def _evidence(frame, line):
     """Return (value, qualification) only for a complete licensed assertion."""
-    if frame.relation == 'cause':
+    if frame.relation == 'alternative_context':
+        left, right = map(re.escape, (frame.entity, frame.other))
+        match = re.fullmatch(
+            rf'{left} for (?P<leftcase>[^,;]+), {right} for (?P<rightcase>[^,;]+)',
+            line)
+        if match and not re.search(
+                r'\b(?:not|never|possibly|perhaps|might|could|unknown)\b',
+                line):
+            return match['leftcase'] + ' | ' + match['rightcase'], ''
+    elif frame.relation == 'inspection_method':
+        entity, tool = map(re.escape, (frame.entity, frame.other))
+        match = re.fullmatch(
+            rf'(?:the )?{entity} (?:should|must|is) [^:;]{{3,160}}: '
+            rf'(?P<method>[^:;]+) with (?:a |the )?{tool} to check',
+            line)
+        if match and not re.search(
+                r'\b(?:not|never|possibly|perhaps|unknown|might|could)\b',
+                match['method']):
+            return match['method'], ''
+    elif frame.relation == 'cause':
         subject = re.escape(frame.entity)
         match = re.fullmatch(
             rf'{subject} (?:comes? from|is caused by|are caused by) (?P<value>.+)',
