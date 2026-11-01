@@ -31,6 +31,10 @@ BAD_REQUEST = re.compile(
 # how-long question. A pronoun alone cannot supply its missing subject.
 QUERY_FORMS = (
     ('code_purpose', rf'what is (?:the )?(?:bag )?code (?P<entity>{CODE}) for'),
+    ('storage_rule', rf'where should (?:i|we) store (?P<entity>{PHRASE})'),
+    ('responsibility', rf'who is responsible for (?P<entity>{PHRASE})'),
+    ('due_date', rf'when is (?P<entity>{PHRASE}) due'),
+    ('recorded_status', rf'what is the status of (?P<entity>{PHRASE})'),
     ('cause', rf'what causes (?P<entity>{PHRASE})'),
     ('inspection_method', rf'how do i check (?:the )?(?P<entity>{PHRASE}) with (?:a |the )?(?P<other>{PHRASE})'),
     ('required_time', rf'how long does (?P<entity>{PHRASE}) need'),
@@ -88,6 +92,31 @@ def _evidence(frame, line):
                 r'\b(?:not|never|possibly|perhaps|unknown|might|could)\b',
                 match['method']):
             return match['method'], ''
+    elif frame.relation == 'storage_rule':
+        entity = re.escape(frame.entity)
+        match = re.fullmatch(rf'(?:store|keep) {entity} in (?P<value>{PHRASE})', line)
+        if match:
+            return match['value'], ''
+    elif frame.relation == 'responsibility':
+        entity = re.escape(frame.entity)
+        match = re.fullmatch(
+            rf'(?P<value>{PHRASE}) is responsible for {entity}', line)
+        if match:
+            return match['value'], ''
+    elif frame.relation == 'due_date':
+        entity = re.escape(frame.entity)
+        match = re.fullmatch(
+            rf'(?:the )?{entity} is due (?:on|by) (?P<value>\d{4}-\d{2}-\d{2})',
+            line)
+        if match:
+            return match['value'], ''
+    elif frame.relation == 'recorded_status':
+        entity = re.escape(frame.entity)
+        match = re.fullmatch(
+            rf'(?:the )?status of (?:the )?{entity} is (?P<value>{PHRASE})',
+            line)
+        if match:
+            return match['value'], ''
     elif frame.relation == 'cause':
         subject = re.escape(frame.entity)
         match = re.fullmatch(
