@@ -27,7 +27,7 @@ APPROVED_HOSTS = frozenset({
     "www.usgs.gov", "www.noaa.gov", "www.archives.gov",
 })
 ALLOWED_DOMAINS = frozenset({"language", "measurements", "astronomy", "earth", "civics"})
-DESCRIPTION = re.compile(r"^The ([a-z0-9 -]{2,110}) is ([^\n]{2,220})\.$")
+DESCRIPTION = re.compile(r"^The ([a-z0-9 -]{2,110}) is ([^\n]{1,220})\.$")
 SOURCE_KEYS = {"id", "publisher", "url", "title", "anchor", "domain",
                "review_status", "source_bytes_pinned"}
 FACT_KEYS = {"id", "subject", "value", "source", "stage", "relation",
