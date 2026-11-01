@@ -22,6 +22,10 @@ class RelationGraphTests(unittest.TestCase):
              'Grogged basalt, bag code XT7, is for sculpture and large wall panels.'),
             ('What is code UV9 for?',
              'Bag code UV9 is for sample transfer labels.'),
+            ('What causes crawling?',
+             'Crawling comes from dust or grease on the bisque, or a coat put on too thick that cracked as it dried.'),
+            ('How long does thick sculpture need?',
+             'Thick sculpture needs two weeks, not two days.'),
             ('How much Epsom salt solution?',
              'If the batch has hard-panned, add a teaspoon of Epsom salt solution and sieve again.'),
             ('How much archival sealant?',
@@ -48,6 +52,8 @@ class RelationGraphTests(unittest.TestCase):
         rows = (
             ('What is bag code XT7 for?', 'Bag code XT8 is for sculpture.'),
             ('What is bag code XT7 for?', 'Bag code XT7 is not for sculpture.'),
+            ('What causes crawling?', 'Crazing comes from glaze-body mismatch.'),
+            ('How long does thick sculpture need?', 'Thin sculpture needs two weeks.'),
             ('How much Epsom salt solution?', 'Add three teaspoons of magnesium solution.'),
             ('How much Epsom salt solution?', 'Perhaps add a teaspoon of Epsom salt solution.'),
             ('How long should I slake powders before stirring?', 'Leave clay to slake for twenty minutes before stirring.'),
@@ -104,6 +110,10 @@ class RelationGraphTests(unittest.TestCase):
              'Grogged crank, CR, is for sculpture and large slab work and tolerates uneven drying.'),
             ('How much Epsom salt solution?', 'STUDIO-0013',
              'If it has hard-panned, add a teaspoon of Epsom salt solution and sieve again.'),
+            ('What causes crawling?', 'STUDIO-0012',
+             'Crawling comes from dust or grease on the bisque, or a coat put on too thick that cracked as it dried.'),
+            ('How long does thick sculpture need?', 'STUDIO-0016',
+             'Thick sculpture needs two weeks, not two days.'),
         )
         for q, rec_id, sentence in examples:
             with self.subTest(q=q):
