@@ -7,7 +7,7 @@ class SyntheticUserGraphTests(unittest.TestCase):
     def test_all_six_personas_preserve_expected_evidence_and_refusal(self):
         report = run()
         self.assertEqual(report['personas'], 6)
-        self.assertEqual(report['metrics']['questions'], 28)
+        self.assertEqual(report['metrics']['questions'], 30)
         bad = [r for r in report['rows'] if not r['correct']]
         self.assertEqual(bad, [], bad)
         self.assertEqual(report['metrics']['wrong_returns'], 0)
