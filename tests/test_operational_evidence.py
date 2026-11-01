@@ -119,6 +119,32 @@ class OperationalEvidenceTests(unittest.TestCase):
             page.write_text(page.read_text().replace('second inspection', 'first inspection'))
             self.assertNotEqual(supported_answer(root, q).kind, 'return')
 
+
+    def test_existing_frozen_studio_cases_without_rewriting_probes(self):
+        # These question IDs, bodies and source records already existed before
+        # this implementation. They are development regressions, not held-out.
+        root = Path(__file__).resolve().parents[1] / 'examples' / 'studio'
+        cases = (
+            ('What does it mean if the guard has gone over?', 'STUDIO-0006',
+             'If the guard has gone over, the load ran hot: shorten the soak next time rather than lowering the set point.'),
+            ('Which bodies must be kept in separate buckets?', 'STUDIO-0014',
+             'Keep red and white bodies in separate buckets; a mixed batch cannot be sorted afterwards.'),
+        )
+        for question, expected_id, quote in cases:
+            with self.subTest(question=question):
+                result = supported_answer(root, question)
+                self.assertEqual(result.kind, 'return', result.reason)
+                self.assertEqual(result.record.id, expected_id)
+                self.assertEqual(result.text, quote)
+
+    def test_existing_adjacent_unanswerable_stays_unanswered(self):
+        root = Path(__file__).resolve().parents[1] / 'examples' / 'studio'
+        for question in ('What does it mean if the wheel pedal is broken?',
+                         'Which glazes must be kept in separate buckets?',
+                         'What happens if the kiln room is cold?'):
+            with self.subTest(question=question):
+                self.assertNotEqual(supported_answer(root, question).kind, 'return')
+
     def test_parsed_frames_do_not_claim_world_truth(self):
         frame = parse('Which documents must be kept in separate folders?')
         self.assertEqual(frame.relation, 'separate_storage')
