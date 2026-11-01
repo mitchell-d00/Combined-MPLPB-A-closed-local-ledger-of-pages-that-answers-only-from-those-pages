@@ -6,6 +6,7 @@ inference, general-language understanding or procedure execution is implied.
 """
 from dataclasses import dataclass
 import re
+from datetime import date
 
 from .body_text import body_text
 from .frames import normalize
@@ -34,7 +35,16 @@ QUERY_FORMS = (
     ('storage_rule', rf'where should (?:i|we) store (?P<entity>{PHRASE})'),
     ('responsibility', rf'who is responsible for (?P<entity>{PHRASE})'),
     ('due_date', rf'when is (?P<entity>{PHRASE}) due'),
-    ('recorded_status', rf'what is the status of (?P<entity>{PHRASE})'),
+    ('recorded_status', rf'(?:what is the status of|what status is recorded for) (?P<entity>{PHRASE})'),
+    ('storage_rule', rf'where (?:do|should) (?:i|we) (?:store|keep) (?P<entity>{PHRASE})'),
+    ('storage_rule', rf'where should (?P<entity>{PHRASE}) be stored'),
+    ('responsibility', rf'who has responsibility for (?P<entity>{PHRASE})'),
+    ('due_date', rf'what is the due date for (?P<entity>{PHRASE})'),
+    ('due_date', rf'what date is (?P<entity>{PHRASE}) due'),
+    ('location', rf'where is (?P<entity>{PHRASE}) located'),
+    ('contents', rf'what does (?P<entity>{PHRASE}) contain'),
+    ('scheduled_date', rf'when is (?P<entity>{PHRASE}) scheduled'),
+
     ('cause', rf'what causes (?P<entity>{PHRASE})'),
     ('inspection_method', rf'how do i check (?:the )?(?P<entity>{PHRASE}) with (?:a |the )?(?P<other>{PHRASE})'),
     ('required_time', rf'how long does (?P<entity>{PHRASE}) need'),
@@ -94,13 +104,13 @@ def _evidence(frame, line):
             return match['method'], ''
     elif frame.relation == 'storage_rule':
         entity = re.escape(frame.entity)
-        match = re.fullmatch(rf'(?:store|keep) {entity} in (?P<value>{PHRASE})', line)
+        match = re.fullmatch(rf'(?:store|keep) (?:the )?{entity} in (?P<value>{PHRASE})', line)
         if match:
             return match['value'], ''
     elif frame.relation == 'responsibility':
         entity = re.escape(frame.entity)
         match = re.fullmatch(
-            rf'(?P<value>{PHRASE}) is responsible for {entity}', line)
+            rf'(?P<value>{PHRASE}) is responsible for (?:the )?{entity}', line)
         if match:
             return match['value'], ''
     elif frame.relation == 'due_date':
@@ -108,6 +118,8 @@ def _evidence(frame, line):
         match = re.fullmatch(
             rf'(?:the )?{entity} is due (?:on|by) (?P<value>\d{4}-\d{2}-\d{2})',
             line)
+        if not match:
+            match = re.fullmatch(rf'(?:the )?due date for (?:the )?{entity} is (?P<value>\d{{4}}-\d{{2}}-\d{{2}})', line)
         if match:
             return match['value'], ''
     elif frame.relation == 'recorded_status':
@@ -115,6 +127,26 @@ def _evidence(frame, line):
         match = re.fullmatch(
             rf'(?:the )?status of (?:the )?{entity} is (?P<value>{PHRASE})',
             line)
+        if not match:
+            match = re.fullmatch(rf'(?:the )?{entity} has status (?P<value>{PHRASE})', line)
+        if match:
+            return match['value'], ''
+    elif frame.relation == 'location':
+        entity = re.escape(frame.entity)
+        match = re.fullmatch(
+            rf'(?:the )?{entity} is located in (?P<value>{PHRASE})', line)
+        if match:
+            return match['value'], ''
+    elif frame.relation == 'contents':
+        entity = re.escape(frame.entity)
+        match = re.fullmatch(
+            rf'(?:the )?{entity} contains (?P<value>[^;:.]+)', line)
+        if match and len(match['value']) <= 180:
+            return match['value'], ''
+    elif frame.relation == 'scheduled_date':
+        entity = re.escape(frame.entity)
+        match = re.fullmatch(
+            rf'(?:the )?{entity} is scheduled for (?P<value>\d{4}-\d{2}-\d{2})', line)
         if match:
             return match['value'], ''
     elif frame.relation == 'cause':
@@ -232,6 +264,11 @@ def statement_support(frame, record):
         if not found:
             continue
         value, qualification = found
+        if frame.relation in {'due_date', 'scheduled_date'}:
+            try:
+                date.fromisoformat(value)
+            except ValueError:
+                continue
         if not value or re.search(
                 r'\b(?:unknown|not|never|perhaps|maybe|probably|reportedly)\b',
                 value):
