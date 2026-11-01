@@ -1,5 +1,11 @@
 # Fix Log
 
+## Conditional and separation-evidence grammar (proposed 2026-11-01)
+
+The [operational-evidence notes](docs/OPERATIONAL_EVIDENCE.md) classify unsupported relation interpretation, antecedent loss, lexical false support, competing owners, policy bypass and historical-metric confusion. The strict reader adds generic conditional-outcome and separate-storage body grammar with full-query provenance gating; changed-entity, negation, qualifier, source-metadata, multiple-owner and tampering tests are in `tests/test_operational_evidence.py`. Do not rewrite the dated 6/59 (10.2%) baseline or count these code changes as a measured coverage improvement until an exact-head retest and CI checks have run.
+
+
+
 Errors found by running the kill test, what caused each, what was changed, and what the rerun
 showed. Nothing is overwritten: each earlier reader is kept at `killtest/v1/reader_v1.py` and
 `killtest/v2/reader_v2.py`, its results beside it, and each earlier paper under

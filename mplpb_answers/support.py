@@ -116,6 +116,12 @@ def supported_answer(root, question, profile=None):
         if literal is not None:
             LE = PO
             practical = True  # Gate the complete original question and exclusions.
+    if literal is None:
+        from . import operational_evidence as OP
+        literal = OP.parse(question)
+        if literal is not None:
+            LE = OP
+            practical = True  # Full question remains authoritative for exclusions.
     if literal:
         selected = answer(root, question, profile)
         out = SupportedAnswer(**selected.__dict__)

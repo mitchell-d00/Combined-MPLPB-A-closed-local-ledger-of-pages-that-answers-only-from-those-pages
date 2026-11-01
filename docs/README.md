@@ -22,6 +22,7 @@ Current entry points and release-status wording reviewed on 2026-10-31 after PRs
 |---|---|
 | General answer contract, local reader, diagnostics and release scope | [Pipeline guide](GENERAL_ANSWER_PIPELINE.md) / [2.1 release candidate](RELEASE_2_1_RC1.md) |
 | Supported answers, candidates, gated pages, separate bundles | [Page retrieval and answer authority](PAGE_RETRIEVAL.md) |
+| Proposed strict conditional and separation evidence, error classes, retained 6/59 score | [Operational evidence](OPERATIONAL_EVIDENCE.md) |
 | JavaScript methods, options and error handling | [JavaScript API](../JAVASCRIPT-API.md) |
 | Discovery, public snapshot and verbatim relay | [Agent middleware](AGENT_MIDDLEWARE.md) / [agent notes](../llms.txt) |
 | Specialist tasks, claims, seat capabilities and handoffs | [Continuity model](SPECIALIST_CONTINUITY.md) / [API and operation](SPECIALIST_CONTINUITY_API.md) |
