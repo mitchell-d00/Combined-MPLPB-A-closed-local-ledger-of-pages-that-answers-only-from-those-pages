@@ -22,15 +22,15 @@ The seven existing graph families (code purpose, amounts, action duration, cause
 | Contents | What does X contain? | The X contains EXPLICIT ITEMS. |
 | Scheduled date | When is X scheduled? | The X is scheduled for YYYY-MM-DD. |
 
-Dates must be real ISO calendar dates. Status means **status declared in the particular page**, not live status. Complete quotes preserve qualifications. This graph is neither a general synonym engine nor factual verification; it has no multi-hop inference or implied procedure execution.
+Dates must be real ISO calendar dates. Three extra polite question variants per domain are only accepted after a finite, explicit greeting-prefix grammar; the requested relation and all qualifiers remain intact. Status means **status declared in the particular page**, not live status. Complete quotes preserve qualifications. This graph is neither a general synonym engine nor factual verification; it has no multi-hop inference or implied procedure execution.
 
 ## Fixed-seed, globally unique synthetic smoke test
 
 [The seed fixture](diverse-smoke-seeds.json) has **12 fictional domains**: archive, library, software, orchard, freight rail, theater, museum, research, festival, animation studio, aquarium, and community services. Each domain has seven sealed body assertions, an invalid-date trap, positive variations and near-miss negatives.
 
-The runner (tools/benchmark_relation_graph.py) uses seed **20261101**, globally deduplicates normalized questions, and records stable IDs beginning MPLPB-SM-000001. The generated plan contains **276 unique questions: 168 expected supported returns and 108 expected refusals**, plus **24 separately counted metamorphic checks** for changed source values and two-owner ambiguity. These figures describe the planned fixture, **not a passing result**; CI owns actual evaluated outcomes and failure rows.
+The runner (tools/benchmark_relation_graph.py) uses seed **20261101**, globally deduplicates normalized questions, and records stable IDs beginning MPLPB-SM-000001. The generated plan contains **312 unique questions: 204 expected supported returns and 108 expected refusals**, plus **24 separately counted metamorphic checks** for changed source values and two-owner ambiguity. These figures describe the planned fixture, **not a passing result**; CI owns actual evaluated outcomes and failure rows.
 
-Questions go through the real public strict supported_answer path on temporary sealed ledger corpora, not a substitute regex unit. A positive passes only if document ID, literal quote and graph contract match the separate authored oracle. Negative tests cover extra conditions, time modifiers, incorrect subjects, absent records, negated responsibilities and invalid calendar dates. Two eligible source pages remain ambiguous even if their contents agree. A source-value change must change the returned quote.
+Questions go through the real public strict supported_answer path on temporary sealed ledger corpora, not a substitute regex unit. A positive passes only if document ID, literal quote and graph contract match the separate authored oracle. Negative tests cover extra conditions, time modifiers, incorrect subjects, absent records, negated responsibilities and invalid calendar dates. Two eligible source pages remain ambiguous even if their contents agree. A source-value change must change the returned quote. Imported browser captures append a JSON provenance manifest to the page body: the graph must isolate the original captured sentence from that manifest, require the machine-origin capture to match its text SHA-256 pin, and **never** use manifest words as answer evidence. A malformed or unpinned wrapper fails closed.
 
 ## Reproduce
 
