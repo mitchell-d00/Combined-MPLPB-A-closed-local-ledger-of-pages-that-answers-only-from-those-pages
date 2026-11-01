@@ -33,6 +33,8 @@ body statement --qualified_by--> retained exception, condition, or contrast
 
 These are **seven finite forms**, not all of English. Previous explicit *if-condition → outcome* and *separate items → containers* forms remain in `operational_evidence.py`. A source quote is a record of what a source declares, not evidence of real-world truth or an instruction that is safe for immediate execution. There is no unrestricted composition; answering "What caused X?" from merely co-occurring symptoms is still forbidden.
 
+The [pinned development retest](../evaluation/relation-graph/README.md) reports 12/59 correct-document returns on the inspected pottery questions, versus the preserved historical 6/59, without changing the original JSON or question files. Both the bounded 36-turn synthetic result and the exact returned source statements are recorded there; semantic accuracy outside these reviewed development examples remains unmeasured.
+
 ## Synthetic users and measurement boundaries
 
 `evaluation/relation-graph/synthetic-users.json` defines **six authored personas and 36 scripted queries** across a pottery apprentice, archivist, laboratory assistant, warehouse clerk, plant operator and duplicate-source reviewer. Each starts with an isolated, newly sealed local corpus; turns ask both answerable and absent/negated near-misses. The reviewer asks about two identical but independently eligible pages: the expected result is **ambiguous**, not a top-ranked success. Synthetic users are **software regression agents, not actual people or independent participants**.
