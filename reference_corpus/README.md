@@ -48,7 +48,7 @@ python -m mplpb_answers ask /tmp/mplpb-reference-release-new/v0.3.0/ledger "What
 
 The generated `release-audit.json` and version-specific `audit.json` are exact-case artifacts; CI retains them with each proposed revision. The generated corpus is **not automatically loaded** into a visitor's browser or into shipped default collections. A developer may explicitly copy/import a tested ledger and query it through the existing `window.MPLPB.query(question, {corpus, profile:'lab'})` or local CLI. `ok:true` means the API request completed, **not** that support is verified; inspect `reader.kind`, `reader.answer_support`, record ID, hash and `derived_from`.
 
-Repository infrastructure—including root `index.html`, the `io.html` compatibility redirect, standalone HTML builder, JavaScript API contract, docs, archive-first workflow and reference-corpus audit—must pass the [automated infrastructure synchronization gate](../docs/REPOSITORY_INFRASTRUCTURE.md) on each PR, main-branch change and scheduled weekly check.
+Repository infrastructure—including root `index.html`, standalone HTML builder, JavaScript API contract, docs, archive-first workflow and reference-corpus audit—must pass the [automated infrastructure synchronization gate](../docs/REPOSITORY_INFRASTRUCTURE.md) on each PR, main-branch change and scheduled weekly check.
 
 ## Limitations and next increments
 
