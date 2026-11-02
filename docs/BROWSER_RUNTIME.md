@@ -1,5 +1,7 @@
 # Standalone browser runtime
 
+Last reviewed: 2026-11-02. See [current status and result-to-test index](CURRENT_STATUS_2026-11-02.md). Dates and numeric results in historical validation sections retain their original scope; this review is not a rerun or independent certification.
+
 `MPLPB_Browser.html` embeds Pyodide 314.0.7 (CPython/WebAssembly), this repository's
 actual Python engine, the RPG-style UI, bundled sealed corpora and stored wiki
 capture data. No Python installation, local Python server or CDN download is needed

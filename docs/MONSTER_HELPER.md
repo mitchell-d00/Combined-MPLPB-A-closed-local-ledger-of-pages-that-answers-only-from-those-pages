@@ -1,5 +1,7 @@
 # Monster helper and Reason Mode
 
+Last reviewed: 2026-11-02. See [current status and result-to-test index](CURRENT_STATUS_2026-11-02.md). Dates and numeric results in historical validation sections retain their original scope; this review is not a rerun or independent certification.
+
 Monster is the optional, renameable **presentation helper** inside the existing
 MPLPB Chat screen. It does not run a model, create its own evidence, change
 source ownership, relax refusals, or publish local browser data.

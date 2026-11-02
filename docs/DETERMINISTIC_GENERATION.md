@@ -1,5 +1,7 @@
 # Deterministic generation within MPLPB boundaries
 
+Last reviewed: 2026-11-02. See [current status and result-to-test index](CURRENT_STATUS_2026-11-02.md). Dates and numeric results in historical validation sections retain their original scope; this review is not a rerun or independent certification.
+
 ## Explicit goal
 
 Increase expressive complexity through repeatable construction from small,

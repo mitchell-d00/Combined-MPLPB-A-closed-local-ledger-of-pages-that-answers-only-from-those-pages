@@ -2,6 +2,8 @@
 
 # Architecture and five-minute demonstration
 
+Last reviewed: 2026-11-02. See [current status and result-to-test index](CURRENT_STATUS_2026-11-02.md). Dates and numeric results in historical validation sections retain their original scope; this review is not a rerun or independent certification.
+
 MPLPB is a conversational interface to inspectable local pages. Conversation
 planning and evidence ownership are separate. Ownership remains lexical, not a
 semantic proof that a page answers a question.
@@ -60,7 +62,7 @@ python -m tools.evaluate_ownership
 
 Show the missing-attribute or wrong-entity row in `evaluation/ownership/results.json`.
 An eligible, intact page can own a query lexically while lacking its answer. Compare the old lexical arm with `supported_reader`: zero wrong returns on this
-set. Run the expanded 600-case set: v2 answers 150/150 answerable cases,
+set. The historical v2 expanded 600-case report recorded 150/150 answerable cases,
 with no unsupported returns. These cases informed development; this is not a held-out score.
 
 **4:00–5:00 — Contribution contract.** Show `PRODUCTION_THREAT_MODEL.md` and the

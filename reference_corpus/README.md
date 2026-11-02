@@ -1,5 +1,7 @@
 # MPLPB Reference Corpus — machine-derived research preview
 
+Last reviewed: 2026-11-02. See [current status and result-to-test index](../docs/CURRENT_STATUS_2026-11-02.md). Dates and numeric results in historical validation sections retain their original scope; this review is not a rerun or independent certification.
+
 **Status:** versioned, offline-generatable release candidate. **Not human-ratified, not certified authoritative, and not available to the default `internal` or `external` delivery profiles.** Its existing `lab` profile (maximum origin depth 2) is required. Original machine-origin source citation records have depth 1, and derived fact records have depth 2. The existing engine, finite grammar, and profiles remain unchanged.
 
 ## Contents, frozen questions, and staged growth
@@ -8,14 +10,14 @@ The [catalog](catalog.v1.json) contains **73 narrowly scoped source-derived desc
 
 The [93-question fixture](probes.v1.json) has 73 declared positives and 20 missing-information controls. These probes were authored by the developer, **not independent human participants or a blind holdout**. The nine pre-release gold-quotation corrections are fully traceable: [original snapshot](probes.v1.pre-amendment.json) and [amendment log](PROBE_AMENDMENTS.md). After admission, no release artifact is silently overwritten.
 
-| Release | Added facts | Total fact pages | Focus | Acceptance target (not independently verified) |
+| Release | Added facts | Total fact pages | Focus | Recorded authored-fixture returns (not independent validation) |
 |---|---:|---:|---|---:|
 | v0.0.0 | 0 | 0 | empty baseline | 0/73 |
 | v0.1.0 | 23 | 23 | grammar and lexical categories | 23/73 |
 | v0.2.0 | 25 | 48 | SI, weather and water-cycle concepts | 48/73 |
 | v0.3.0 | 25 | 73 | planets and founding documents | 73/73 |
 
-Each version is built as an **independent, never-overwritten sealed ledger snapshot**. The audit records per-question response, exact supporting record ID/hash, pinned lineage, negative refusals, wrong returns, new ambiguities and specific refusal→supported transitions. This progression is the acceptance target; CI must establish the actual figures. No metric is inferred from raw page count.
+Each version is built as an **independent, never-overwritten sealed ledger snapshot**. The audit records per-question response, exact supporting record ID/hash, pinned lineage, negative refusals, wrong returns, new ambiguities and specific refusal→supported transitions. These figures were reproduced in PR #29 and are retained with per-case evidence; see the permanent reproduction bundle below. Later CI must verify its own candidate. No metric is inferred from raw page count.
 
 ## Attribution versus fact certification
 

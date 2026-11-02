@@ -24,7 +24,9 @@ jobs:
         with:
           node-version: '24'
       - name: Check UI, JavaScript API, documentation and reference-pack boundaries
-        run: python tools/check_repository_infrastructure.py
+        run: |
+          python tools/check_repository_infrastructure.py
+          python -m tools.audit_documentation
       - name: Check Python engine and browser bridge
         run: python -m unittest discover -s tests -q
       - name: Check desktop UI and browser transport

@@ -1,5 +1,7 @@
 # General answer pipeline — 2.1.0rc1
 
+Last reviewed: 2026-11-02. See [current status and result-to-test index](CURRENT_STATUS_2026-11-02.md). Dates and numeric results in historical validation sections retain their original scope; this review is not a rerun or independent certification.
+
 This release candidate adds domain-independent passage reading without changing
 MPLPB's source eligibility rules or promoting model output into deterministic
 support. Default strict queries stay offline and use the bounded compatibility
@@ -8,8 +10,12 @@ Ollama models to interpret arbitrary saved prose.
 
 The new path is implemented and protocol-tested. Live-model accuracy, calibration
 and independent cross-domain evaluation remain unverified in this environment.
-The strict pottery result remains 6/59; this patch does not claim a measured
-increase by relabelling model-assisted answers as supported answers.
+The original strict pottery result was 6/59. The later graph/language retest
+records 12/59 document-identity returns across 106 probes; semantic review finds
+11 complete source statements and one conditional quotation with unresolved
+applicability. These inspected development questions are not a holdout. See the
+[current status](CURRENT_STATUS_2026-11-02.md); model-assisted output is never
+relabeled as deterministic support.
 
 ## One response policy
 
@@ -39,7 +45,9 @@ The passage index calls the existing provenance gate with the **complete origina
 question**. It verifies the gate policy version, exclusions, profile and corpus
 snapshot before preparing body text. Source hashes, current status, pinned lineage,
 depth, external restrictions and original not-for terms remain authoritative.
-The core and frozen source/benchmark files are unchanged.
+Frozen source/benchmark files remain unchanged. Later bounded-reader repairs
+retain negative assertions for conflict detection and add explicit procedure
+selection, clarification and recovery; eligibility rules are preserved.
 
 For prose-enabled profiles, eligible pages remain available even with no shared
 query words. BM25 term frequencies and a page-diversity discount rank paragraphs;
@@ -143,6 +151,8 @@ source-write authority, and its accepted prose is never a deterministic proof.
 
 | Code | Interpretation |
 | --- | --- |
+| `procedure_selection_needed` | An applicable procedure must be selected; no source claim is implied. |
+| `partial_procedure_evidence` | Source-declared steps are visible but required procedure fields are missing; inspect gaps without inventing instructions. |
 | `interpretation_unsupported` | Eligible passages exist but the strict grammar cannot interpret the request. |
 | `evidence_not_established` | No accepted answer was established; corpus absence is unknown. |
 | `restricted_or_unavailable` | Eligibility/profile restrictions prevent a usable evidence set. |

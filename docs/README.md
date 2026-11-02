@@ -1,8 +1,10 @@
 # Documentation index
 
+Last reviewed: 2026-11-02. See [current status and result-to-test index](CURRENT_STATUS_2026-11-02.md). Dates and numeric results in historical validation sections retain their original scope; this review is not a rerun or independent certification.
+
 [Repository overview](../README.md) · [Repository map](../CONTENTS) · [Live application](https://mitchell-d00.github.io/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/)
 
-Current entry points and release-status wording reviewed on 2026-10-31 after PRs #21/#22. See [merged capabilities, checks and product gaps](CURRENT_STATUS_2026-10-31.md). The [October 29 review](DOCUMENTATION_AUDIT_2026-10-29.md) remains historical. Dated audits, papers, and experiment reports describe the revisions they measured; their counts and green workflows do not certify another revision.
+Current entry points reviewed on 2026-11-02 at `c0eb212b51c41a96e361ae0ceb680a0a5df0d55f`. See [current capabilities, checks and product gaps](CURRENT_STATUS_2026-11-02.md) and the [result-to-test index](RESULTS_AND_TESTS.md). The [October 31 status](CURRENT_STATUS_2026-10-31.md) is historical. The [October 29 review](DOCUMENTATION_AUDIT_2026-10-29.md) remains historical. Dated audits, papers, and experiment reports describe the revisions they measured; their counts and green workflows do not certify another revision.
 
 ## Start and operate
 
@@ -26,7 +28,7 @@ Current entry points and release-status wording reviewed on 2026-10-31 after PRs
 | Supported answers, candidates, gated pages, separate bundles | [Page retrieval and answer authority](PAGE_RETRIEVAL.md) |
 | Deterministic source-evidence graph, synthetic users and historical score | [Evidence graph](DETERMINISTIC_EVIDENCE_GRAPH.md) |
 | Fixed-seed deduplicated cross-domain evidence smoke | [Diverse question benchmark](../evaluation/relation-graph/DIVERSE_SMOKE.md) |
-| Proposed strict conditional and separation evidence, error classes, retained 6/59 score | [Operational evidence](OPERATIONAL_EVIDENCE.md) |
+| Conditional and separation evidence: original proposal, with historical 6/59 measurement | [Operational evidence](OPERATIONAL_EVIDENCE.md) |
 | JavaScript methods, options and error handling | [JavaScript API](../JAVASCRIPT-API.md) |
 | Discovery, public snapshot and verbatim relay | [Agent middleware](AGENT_MIDDLEWARE.md) / [agent notes](../llms.txt) |
 | Specialist tasks, claims, seat capabilities and handoffs | [Continuity model](SPECIALIST_CONTINUITY.md) / [API and operation](SPECIALIST_CONTINUITY_API.md) |
@@ -72,8 +74,8 @@ Feature guides can contain dated validation sections. Those sections report thei
 
 | Material | Status and route |
 |---|---|
-| Current implementation/status review | [October 31 status](CURRENT_STATUS_2026-10-31.md): local reader, researcher pilot, exact-head checks and remaining gaps. |
-| Latest fix chronology | [Root FIXLOG](../FIXLOG.md), including October 31 general-reader and researcher-pilot updates. |
+| Earlier implementation/status review | [October 31 status](CURRENT_STATUS_2026-10-31.md): historical snapshot before the November 2 language and procedure repairs. |
+| Latest fix chronology | [Root FIXLOG](../FIXLOG.md), including the November 2 language, procedure, evidence-publication and documentation updates. |
 | Full-system audit | [2026-10-21 audit](SYSTEM_AUDIT_2026-10-21.md); measured its named revisions before the later retrieval repair. |
 | Answer reliability development review | [2026-10-13 review](ANSWER_RELIABILITY.md), with dated follow-ups. |
 | October 19 repairs | [Integrity](INTEGRITY_AUDIT_FIX_2026-10-19.md), [literal coverage](LITERAL_COVERAGE_FIX_2026-10-19.md), and [new collection chat](NEW_MPLPB_CHAT_FIX_2026-10-19.md). |

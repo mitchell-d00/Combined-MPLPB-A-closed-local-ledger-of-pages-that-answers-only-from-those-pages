@@ -1,5 +1,7 @@
 # MPLPB browser front end
 
+Last reviewed: 2026-11-02. See [current status and result-to-test index](CURRENT_STATUS_2026-11-02.md). Dates and numeric results in historical validation sections retain their original scope; this review is not a rerun or independent certification.
+
 [Documentation index](README.md) · [Live application](https://mitchell-d00.github.io/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/)
 
 The interface calls the same Python ledger, supported-answer layer, and provenance gate in desktop and standalone modes. The markup/styles/UI script live in root `index.html`; the standalone builder embeds that interface with a Python/WebAssembly worker. It does not implement a second reader in JavaScript or send requests to a model.

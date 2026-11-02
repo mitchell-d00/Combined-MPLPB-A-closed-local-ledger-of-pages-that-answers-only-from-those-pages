@@ -1,5 +1,7 @@
 # General web crawler setup
 
+Last reviewed: 2026-11-02. See [current status and result-to-test index](../docs/CURRENT_STATUS_2026-11-02.md). Dates and numeric results in historical validation sections retain their original scope; this review is not a rerun or independent certification.
+
 The browser's **Web · hosted crawler** mode needs this separate Cloudflare Worker.
 GitHub Pages serves the interface; it cannot fetch arbitrary sites server-side.
 This Worker has not been deployed by the Pages workflow. Without its URL and access

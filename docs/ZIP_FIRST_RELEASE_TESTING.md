@@ -1,5 +1,7 @@
 # ZIP-first release testing for humans and AI agents
 
+Last reviewed: 2026-11-02. See [current status and result-to-test index](CURRENT_STATUS_2026-11-02.md). Dates and numeric results in historical validation sections retain their original scope; this review is not a rerun or independent certification.
+
 This is the release order for Combined MPLPB. **Test the artifact you intend to ship**, not merely the Git checkout that created it. GitHub Actions is the execution environment; the ZIP and report are downloadable artifacts from its completed run.
 
 ## Six gates, in order

@@ -1,6 +1,8 @@
-> **2026-10-21 retest:** Current execution results and retained failures are indexed in [the full-system audit](../docs/SYSTEM_AUDIT_2026-10-21.md). Historical result files below are unchanged.
+> **2026-10-21 retest:** Historical execution results and retained failures are indexed in [the full-system audit](../docs/SYSTEM_AUDIT_2026-10-21.md). Historical result files below are unchanged.
 
 # Multi-domain evaluation
+
+Last reviewed: 2026-11-02. See [current status and result-to-test index](../docs/CURRENT_STATUS_2026-11-02.md). Dates and numeric results in historical validation sections retain their original scope; this review is not a rerun or independent certification.
 
 Run `python3 -m mplpb_combined.evaluate evaluation/manifest.json --out evaluation/results.json`.
 This freezes 36 synthetic developer-authored probes across software operations,

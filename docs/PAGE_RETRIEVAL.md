@@ -1,5 +1,7 @@
 # Page retrieval and answer authority
 
+Last reviewed: 2026-11-02. See [current status and result-to-test index](CURRENT_STATUS_2026-11-02.md). Dates and numeric results in historical validation sections retain their original scope; this review is not a rerun or independent certification.
+
 [Documentation index](README.md) · [JavaScript API](../JAVASCRIPT-API.md)
 
 The October 27 repair added provenance-gated single-owner page retrieval. It complements supported answers and the earlier separate-source gate; it does not replace their contracts. Lexical ownership can identify a useful page while its body lacks an answer to the question.

@@ -52,3 +52,12 @@ class HandoffTests(unittest.TestCase):
         H.build(self.root);shutil.rmtree(self.root/'.git')
         path=self.root/'handoff/manifest.json';m=json.loads(path.read_text());m['files']['../elsewhere']='bad';path.write_text(json.dumps(m))
         with self.assertRaises(ValueError):H.check(self.root)
+
+    def test_explicit_review_date_is_preserved_and_validated(self):
+        self.record['reviewed_on']='2026-11-02'
+        (self.root/'handoff/update.json').write_text(json.dumps(self.record))
+        H.build(self.root)
+        self.assertIn('Last reviewed: 2026-11-02.', (self.root/'HANDOFF.md').read_text())
+        self.record['reviewed_on']='2026-02-30'
+        (self.root/'handoff/update.json').write_text(json.dumps(self.record))
+        with self.assertRaises(ValueError):H.build(self.root)

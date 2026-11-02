@@ -1,6 +1,8 @@
-> **2026-10-21 audit:** See the [current retest, defects, repairs and evidence status](SYSTEM_AUDIT_2026-10-21.md). Earlier dated results below remain historical; the October 19 SQuAD correction is included in the retest.
+> **2026-10-21 audit:** Historical [retest, defects, repairs and evidence status](SYSTEM_AUDIT_2026-10-21.md); see the November 2 status linked below for current scope. Earlier dated results below remain historical; the October 19 SQuAD correction is included in the retest.
 
 # Production threat model
+
+Last reviewed: 2026-11-02. See [current status and result-to-test index](CURRENT_STATUS_2026-11-02.md). Dates and numeric results in historical validation sections retain their original scope; this review is not a rerun or independent certification.
 
 Status: engineering threat model, not a penetration-test report or certification.
 Scope: Python reader and local UI, static WebAssembly site, browser persistence,

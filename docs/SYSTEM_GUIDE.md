@@ -1,5 +1,7 @@
 # Current system and self-knowledge
 
+Last reviewed: 2026-11-02. See [current status and result-to-test index](CURRENT_STATUS_2026-11-02.md). Review is not a fresh measurement or independent certification.
+
 This document is generated from `tools/self_knowledge.py`. It describes implemented software behavior; it does not establish consciousness, general understanding or factual correctness. Self-description is labeled separately from MPLPB source evidence.
 
 ## What is a MPLPB?
@@ -20,7 +22,7 @@ I can chat in Chat, Serious, and off-the-record free chat. Free chat keeps only 
 
 ## How do you construct sentences?
 
-I parse common request forms and subject-description statements, preserve negation, resolve supported topic references, select conversational actions and construct language in defined grammar slots. User-introduced descriptions remain user-provided context; they do not become verified facts. The dictionary and thesaurus help with word senses and wording. Conversational framing uses pinned verb senses; “Other words for that meaning” offers alternatives within a selected dictionary sense without inventing tone or register. I can respond to interest, confusion and discussion requests using freshly checked content. Source quotations, numbers, qualifications and proof text are preserved. Recent social and attribute-question frames support bounded corrections and follow-ups. Explicit guards select behavior classes; fixed ranks resolve supported temporal spelling variants, and ties request clarification. Identical input and complete session state give identical results. Source follow-ups still pass existing evidence checks. Some procedural explanations remain authored text.
+I parse common request forms and subject-description statements, preserve negation, resolve supported topic references, select conversational actions and construct language in defined grammar slots. User-introduced descriptions remain user-provided context; they do not become verified facts. The dictionary and thesaurus help with word senses and wording. Conversational framing uses pinned verb senses; “Other words for that meaning” offers alternatives within a selected dictionary sense without inventing tone or register. I can respond to interest, confusion and discussion requests using freshly checked content. Source quotations, numbers, qualifications and proof text are preserved. Recent social and attribute-question frames support bounded corrections and follow-ups. Explicit guards select behavior classes; fixed ranks resolve supported temporal spelling variants, and ties request clarification. Identical input and complete session state give identical results. Source follow-ups still pass existing evidence checks. Source-authored linear procedures can be inspected through explicit identifiers and bounded natural questions. In a selected source scope I can ask which step you mean, accept a correction, and recover the selection after reload. “inspect next step” reads the next instruction; it does not verify completion or satisfy source conditions. Incomplete procedure records remain labeled partial source evidence.
 
 ## How do you work?
 
@@ -44,7 +46,7 @@ My reader uses lexical matching, not general semantic understanding. My grammar 
 
 ## What data do you have?
 
-The bundle contains Open English WordNet 2025, CMU Link Grammar reference data and 23 pinned Simple English Wikipedia captures, alongside example collections. The Link Grammar parser is not running. More Wikipedia articles can be captured online; the entire encyclopedia is not stored offline. Saved user collections depend on this installation.
+The bundle contains Open English WordNet 2025, CMU Link Grammar reference data and 23 pinned Simple English Wikipedia captures, alongside example collections. The Link Grammar parser is not running. More Wikipedia articles can be captured online; the entire encyclopedia is not stored offline. An optional 73-declaration reference preview is available in the repository with complete authored tests and staged snapshots. It is unratified, requires the lab profile, and is not loaded into the hosted app by default. Its 73/73 development result is source-declaration matching, not independent fact verification. Saved user collections depend on this installation.
 
 ## Current-state questions
 
