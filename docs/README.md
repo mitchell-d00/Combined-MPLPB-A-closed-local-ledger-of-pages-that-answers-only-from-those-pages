@@ -87,3 +87,5 @@ New code or documentation must not silently update frozen results, rewrite sourc
 Source-language contradiction repair and per-case audit (2026-11-02): [language audit](../evaluation/language-audit/README.md). Finite predicate polarity and storage paraphrases; synthetic validation is not independent human accuracy.
 
 Latest procedure recovery and repository-owned handoff: [Procedure clarification, recovery and ZIP handoff](../evaluation/procedure-recovery/README.md).
+
+Permanent reference-test evidence: [73/73 evidence and reproduction](../evaluation/reference-corpus-reproduction/README.md).

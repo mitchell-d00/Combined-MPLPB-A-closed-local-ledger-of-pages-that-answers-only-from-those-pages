@@ -52,6 +52,11 @@ jobs:
           python -m unittest tests.test_reference_corpus -q
           python -m tools.build_reference_corpus --output "$RUNNER_TEMP/mplpb-zipped/reference-corpus/release"
           python -m unittest discover -s tests -q
+      - name: Replay committed reference evidence FROM ZIP
+        shell: bash
+        run: |
+          cd "$RUNNER_TEMP/mplpb-unpacked"
+          python -m tools.verify_reference_evidence
       - name: Run complete synthetic researcher journeys FROM ZIP
         shell: bash
         run: |

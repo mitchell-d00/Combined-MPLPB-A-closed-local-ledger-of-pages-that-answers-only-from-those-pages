@@ -1,0 +1,1821 @@
+{
+  "version": "0.1.0",
+  "profile": "lab",
+  "snapshot_kind": "sealed_machine_unratified",
+  "catalog_sha256": "9d871e3322625ea5d4ed352af4f8eacc538c56f448a7b5693ba8f6b554328b6c",
+  "probes_sha256": "391968fa75b4380d1a2e1d46d8804208fd5e3463043c8e0db00049e7c04fc952",
+  "metrics": {
+    "answerable_total": 73,
+    "correct_supported": 23,
+    "answerable_coverage": 0.315068,
+    "correct_refusals": 20,
+    "negative_total": 20,
+    "ambiguous": 0,
+    "ambiguous_ids": [],
+    "wrong_returns": 0,
+    "wrong_ids": [],
+    "unnecessary_refusals": 50
+  },
+  "integrity": {
+    "intact_servable": 23,
+    "quarantined": 0,
+    "source_citation_pages": 4,
+    "errors": 0,
+    "depth": 2,
+    "ratified": 0,
+    "not_for_default_internal_profile": true
+  },
+  "delta": {
+    "refusal_to_supported": [
+      {
+        "probe": "GKH-0001",
+        "page_id": "REF-0001",
+        "page_sha256": "sha256:12e662991a7658503a2a291fdd12baaa1617a43bd1a6d3eb1ec81120ace6efc9",
+        "basis": [
+          {
+            "id": "SRC-0001",
+            "hash": "sha256:9d34de7feeff47fc16ab0a62aeea938d9fb2d1c6480697626708449365ea8972"
+          }
+        ],
+        "question": "What's noun?"
+      },
+      {
+        "probe": "GKH-0002",
+        "page_id": "REF-0002",
+        "page_sha256": "sha256:1f1a3e78192556ea52728b85ef31e0e27694738df1eaf3e9ce55cd66e87e7e30",
+        "basis": [
+          {
+            "id": "SRC-0001",
+            "hash": "sha256:9d34de7feeff47fc16ab0a62aeea938d9fb2d1c6480697626708449365ea8972"
+          }
+        ],
+        "question": "What is verb?"
+      },
+      {
+        "probe": "GKH-0003",
+        "page_id": "REF-0003",
+        "page_sha256": "sha256:325aded8eace7e4e26161d2c470e2e165b11a22843ea3659d96cc65c9f8f0118",
+        "basis": [
+          {
+            "id": "SRC-0001",
+            "hash": "sha256:9d34de7feeff47fc16ab0a62aeea938d9fb2d1c6480697626708449365ea8972"
+          }
+        ],
+        "question": "What is the pronoun?"
+      },
+      {
+        "probe": "GKH-0004",
+        "page_id": "REF-0004",
+        "page_sha256": "sha256:47d65450b11fe505ef6dd05c9c9b0b752a8b0eb5f645fd6027394437c04b8685",
+        "basis": [
+          {
+            "id": "SRC-0001",
+            "hash": "sha256:9d34de7feeff47fc16ab0a62aeea938d9fb2d1c6480697626708449365ea8972"
+          }
+        ],
+        "question": "What's adjective?"
+      },
+      {
+        "probe": "GKH-0005",
+        "page_id": "REF-0005",
+        "page_sha256": "sha256:37decc34cb7c07eef6d1735643f266b5eea672d952bcbc102e27c6485885e21a",
+        "basis": [
+          {
+            "id": "SRC-0001",
+            "hash": "sha256:9d34de7feeff47fc16ab0a62aeea938d9fb2d1c6480697626708449365ea8972"
+          }
+        ],
+        "question": "What is adverb?"
+      },
+      {
+        "probe": "GKH-0006",
+        "page_id": "REF-0006",
+        "page_sha256": "sha256:87dc8b6f5a3a5ca5a800e2fb864c83a4e924c9659e85d93167bd293130c9beb6",
+        "basis": [
+          {
+            "id": "SRC-0001",
+            "hash": "sha256:9d34de7feeff47fc16ab0a62aeea938d9fb2d1c6480697626708449365ea8972"
+          }
+        ],
+        "question": "What is the conjunction?"
+      },
+      {
+        "probe": "GKH-0007",
+        "page_id": "REF-0007",
+        "page_sha256": "sha256:30a634e66c48235e6ccafb7eb537c98f87e4c28097d02a380708a7da857e6025",
+        "basis": [
+          {
+            "id": "SRC-0001",
+            "hash": "sha256:9d34de7feeff47fc16ab0a62aeea938d9fb2d1c6480697626708449365ea8972"
+          }
+        ],
+        "question": "What's preposition?"
+      },
+      {
+        "probe": "GKH-0008",
+        "page_id": "REF-0008",
+        "page_sha256": "sha256:8cf6d6d89ed30c75df67d0a5c39db8dca99e7cf4cd5da30f4ceeb183df38c747",
+        "basis": [
+          {
+            "id": "SRC-0001",
+            "hash": "sha256:9d34de7feeff47fc16ab0a62aeea938d9fb2d1c6480697626708449365ea8972"
+          }
+        ],
+        "question": "What is article?"
+      },
+      {
+        "probe": "GKH-0009",
+        "page_id": "REF-0009",
+        "page_sha256": "sha256:86ddb94eaffc72ed282ed78d177a0cae7e75259972e64db049f8aad3e43ed34d",
+        "basis": [
+          {
+            "id": "SRC-0001",
+            "hash": "sha256:9d34de7feeff47fc16ab0a62aeea938d9fb2d1c6480697626708449365ea8972"
+          }
+        ],
+        "question": "What is the abstract noun?"
+      },
+      {
+        "probe": "GKH-0010",
+        "page_id": "REF-0010",
+        "page_sha256": "sha256:b02db8b6183ddcd8c49c65a837913c0205c745969566479db9e82a6ebd418cdd",
+        "basis": [
+          {
+            "id": "SRC-0001",
+            "hash": "sha256:9d34de7feeff47fc16ab0a62aeea938d9fb2d1c6480697626708449365ea8972"
+          }
+        ],
+        "question": "What's proper noun?"
+      },
+      {
+        "probe": "GKH-0011",
+        "page_id": "REF-0011",
+        "page_sha256": "sha256:467c3bfb1c499d399b87879bf7ba356b770235070d09852032bdafb0a601e0ff",
+        "basis": [
+          {
+            "id": "SRC-0001",
+            "hash": "sha256:9d34de7feeff47fc16ab0a62aeea938d9fb2d1c6480697626708449365ea8972"
+          }
+        ],
+        "question": "What is subject pronoun?"
+      },
+      {
+        "probe": "GKH-0012",
+        "page_id": "REF-0012",
+        "page_sha256": "sha256:f245450ece53537c5f67c2df2b74c9fa21f631de7937a0db04945a7cf2e6b4fc",
+        "basis": [
+          {
+            "id": "SRC-0001",
+            "hash": "sha256:9d34de7feeff47fc16ab0a62aeea938d9fb2d1c6480697626708449365ea8972"
+          }
+        ],
+        "question": "What is the object pronoun?"
+      },
+      {
+        "probe": "GKH-0013",
+        "page_id": "REF-0013",
+        "page_sha256": "sha256:781f4e88cd6d3511d33231519afdfcf539eff2c013a8e04d61676bf763d03d55",
+        "basis": [
+          {
+            "id": "SRC-0001",
+            "hash": "sha256:9d34de7feeff47fc16ab0a62aeea938d9fb2d1c6480697626708449365ea8972"
+          }
+        ],
+        "question": "What's verb phrase?"
+      },
+      {
+        "probe": "GKH-0014",
+        "page_id": "REF-0014",
+        "page_sha256": "sha256:d8bcb1f299b2514a49ef5b571e4716bdebd6202b237d5e21eea4a0e3225f1a31",
+        "basis": [
+          {
+            "id": "SRC-0002",
+            "hash": "sha256:2b7817f64c7e4df294eaf12ca6cbecff1edc8066f59c6195d7a976381074d177"
+          }
+        ],
+        "question": "What is independent clause?"
+      },
+      {
+        "probe": "GKH-0015",
+        "page_id": "REF-0015",
+        "page_sha256": "sha256:b191c830f02b70d72624633730f12a4d8c788d13986cb1e27347013abd4e4953",
+        "basis": [
+          {
+            "id": "SRC-0002",
+            "hash": "sha256:2b7817f64c7e4df294eaf12ca6cbecff1edc8066f59c6195d7a976381074d177"
+          }
+        ],
+        "question": "What is the dependent clause?"
+      },
+      {
+        "probe": "GKH-0016",
+        "page_id": "REF-0016",
+        "page_sha256": "sha256:38c748719ff8cb3e158fd2ec914cb59114f7e778429b327fa4792d79c266d256",
+        "basis": [
+          {
+            "id": "SRC-0003",
+            "hash": "sha256:148e8b994fe94e42297a643a91e6aa23ee40f825e2dc2160b5d109de76c06a19"
+          }
+        ],
+        "question": "What's simple sentence?"
+      },
+      {
+        "probe": "GKH-0017",
+        "page_id": "REF-0017",
+        "page_sha256": "sha256:d2ccb804a4ad718093008af344e47cb72cb99cb6160ceaa4444846a2f81dc09d",
+        "basis": [
+          {
+            "id": "SRC-0003",
+            "hash": "sha256:148e8b994fe94e42297a643a91e6aa23ee40f825e2dc2160b5d109de76c06a19"
+          }
+        ],
+        "question": "What is compound sentence?"
+      },
+      {
+        "probe": "GKH-0018",
+        "page_id": "REF-0018",
+        "page_sha256": "sha256:e461db0072718da2527a3e2443d2e0cbb4bda7a98b4f6b6b7f0756547e696717",
+        "basis": [
+          {
+            "id": "SRC-0001",
+            "hash": "sha256:9d34de7feeff47fc16ab0a62aeea938d9fb2d1c6480697626708449365ea8972"
+          }
+        ],
+        "question": "What is the prepositional phrase?"
+      },
+      {
+        "probe": "GKH-0019",
+        "page_id": "REF-0019",
+        "page_sha256": "sha256:89c10e25d5fb3031452af95c9e563a9558ddef7cbf08fc871b5507eaf2efae16",
+        "basis": [
+          {
+            "id": "SRC-0004",
+            "hash": "sha256:3556b0581f3c455082e7bbd1d7cdf5c20c3d436d9a6fd307b2c8234d644ed60f"
+          }
+        ],
+        "question": "What's synset?"
+      },
+      {
+        "probe": "GKH-0020",
+        "page_id": "REF-0020",
+        "page_sha256": "sha256:2fb653a4d10d6ef9db455e0b485dc84c1ba3913b2cf8d66e07e61869d849b6f2",
+        "basis": [
+          {
+            "id": "SRC-0004",
+            "hash": "sha256:3556b0581f3c455082e7bbd1d7cdf5c20c3d436d9a6fd307b2c8234d644ed60f"
+          }
+        ],
+        "question": "What is lexical database?"
+      },
+      {
+        "probe": "GKH-0021",
+        "page_id": "REF-0021",
+        "page_sha256": "sha256:8d9ea256cade5a40b432bf8a81d724ee8ac88f95f8eb754d112884cfea25722d",
+        "basis": [
+          {
+            "id": "SRC-0004",
+            "hash": "sha256:3556b0581f3c455082e7bbd1d7cdf5c20c3d436d9a6fd307b2c8234d644ed60f"
+          }
+        ],
+        "question": "What is the wordnet lexical relations?"
+      },
+      {
+        "probe": "GKH-0022",
+        "page_id": "REF-0022",
+        "page_sha256": "sha256:d228ef404404a0605de53d97c497d9dcc691a4f6d9323d5de14feb9d10911151",
+        "basis": [
+          {
+            "id": "SRC-0004",
+            "hash": "sha256:3556b0581f3c455082e7bbd1d7cdf5c20c3d436d9a6fd307b2c8234d644ed60f"
+          }
+        ],
+        "question": "What's wordnet definitions?"
+      },
+      {
+        "probe": "GKH-0023",
+        "page_id": "REF-0023",
+        "page_sha256": "sha256:393aa50778a585736773ce246905f625d21191c345a4a55f52ba2796fd30093b",
+        "basis": [
+          {
+            "id": "SRC-0004",
+            "hash": "sha256:3556b0581f3c455082e7bbd1d7cdf5c20c3d436d9a6fd307b2c8234d644ed60f"
+          }
+        ],
+        "question": "What is wordnet synonyms?"
+      }
+    ],
+    "new_ambiguities": []
+  },
+  "rows": [
+    {
+      "id": "GKH-0001",
+      "question": "What's noun?",
+      "expected_id": "REF-0001",
+      "expected_answer": "The noun is a word class naming people, places, things, and ideas.",
+      "kind": "return",
+      "correct_supported": true,
+      "quote": "The noun is a word class naming people, places, things, and ideas.",
+      "document_id": "REF-0001",
+      "document_sha256": "sha256:12e662991a7658503a2a291fdd12baaa1617a43bd1a6d3eb1ec81120ace6efc9",
+      "depth": 2,
+      "origin": "machine",
+      "derived_from": [
+        {
+          "id": "SRC-0001",
+          "hash": "sha256:9d34de7feeff47fc16ab0a62aeea938d9fb2d1c6480697626708449365ea8972"
+        }
+      ],
+      "reason": "Exact affirmative statement under a finite grammar; source truth is not verified."
+    },
+    {
+      "id": "GKH-0002",
+      "question": "What is verb?",
+      "expected_id": "REF-0002",
+      "expected_answer": "The verb is a word class expressing actions and states of being.",
+      "kind": "return",
+      "correct_supported": true,
+      "quote": "The verb is a word class expressing actions and states of being.",
+      "document_id": "REF-0002",
+      "document_sha256": "sha256:1f1a3e78192556ea52728b85ef31e0e27694738df1eaf3e9ce55cd66e87e7e30",
+      "depth": 2,
+      "origin": "machine",
+      "derived_from": [
+        {
+          "id": "SRC-0001",
+          "hash": "sha256:9d34de7feeff47fc16ab0a62aeea938d9fb2d1c6480697626708449365ea8972"
+        }
+      ],
+      "reason": "Exact affirmative statement under a finite grammar; source truth is not verified."
+    },
+    {
+      "id": "GKH-0003",
+      "question": "What is the pronoun?",
+      "expected_id": "REF-0003",
+      "expected_answer": "The pronoun is a word used in place of a noun.",
+      "kind": "return",
+      "correct_supported": true,
+      "quote": "The pronoun is a word used in place of a noun.",
+      "document_id": "REF-0003",
+      "document_sha256": "sha256:325aded8eace7e4e26161d2c470e2e165b11a22843ea3659d96cc65c9f8f0118",
+      "depth": 2,
+      "origin": "machine",
+      "derived_from": [
+        {
+          "id": "SRC-0001",
+          "hash": "sha256:9d34de7feeff47fc16ab0a62aeea938d9fb2d1c6480697626708449365ea8972"
+        }
+      ],
+      "reason": "Exact affirmative statement under a finite grammar; source truth is not verified."
+    },
+    {
+      "id": "GKH-0004",
+      "question": "What's adjective?",
+      "expected_id": "REF-0004",
+      "expected_answer": "The adjective is a word class modifying nouns and pronouns.",
+      "kind": "return",
+      "correct_supported": true,
+      "quote": "The adjective is a word class modifying nouns and pronouns.",
+      "document_id": "REF-0004",
+      "document_sha256": "sha256:47d65450b11fe505ef6dd05c9c9b0b752a8b0eb5f645fd6027394437c04b8685",
+      "depth": 2,
+      "origin": "machine",
+      "derived_from": [
+        {
+          "id": "SRC-0001",
+          "hash": "sha256:9d34de7feeff47fc16ab0a62aeea938d9fb2d1c6480697626708449365ea8972"
+        }
+      ],
+      "reason": "Exact affirmative statement under a finite grammar; source truth is not verified."
+    },
+    {
+      "id": "GKH-0005",
+      "question": "What is adverb?",
+      "expected_id": "REF-0005",
+      "expected_answer": "The adverb is a word class modifying verbs, adjectives, and other adverbs.",
+      "kind": "return",
+      "correct_supported": true,
+      "quote": "The adverb is a word class modifying verbs, adjectives, and other adverbs.",
+      "document_id": "REF-0005",
+      "document_sha256": "sha256:37decc34cb7c07eef6d1735643f266b5eea672d952bcbc102e27c6485885e21a",
+      "depth": 2,
+      "origin": "machine",
+      "derived_from": [
+        {
+          "id": "SRC-0001",
+          "hash": "sha256:9d34de7feeff47fc16ab0a62aeea938d9fb2d1c6480697626708449365ea8972"
+        }
+      ],
+      "reason": "Exact affirmative statement under a finite grammar; source truth is not verified."
+    },
+    {
+      "id": "GKH-0006",
+      "question": "What is the conjunction?",
+      "expected_id": "REF-0006",
+      "expected_answer": "The conjunction is a word joining words and clauses.",
+      "kind": "return",
+      "correct_supported": true,
+      "quote": "The conjunction is a word joining words and clauses.",
+      "document_id": "REF-0006",
+      "document_sha256": "sha256:87dc8b6f5a3a5ca5a800e2fb864c83a4e924c9659e85d93167bd293130c9beb6",
+      "depth": 2,
+      "origin": "machine",
+      "derived_from": [
+        {
+          "id": "SRC-0001",
+          "hash": "sha256:9d34de7feeff47fc16ab0a62aeea938d9fb2d1c6480697626708449365ea8972"
+        }
+      ],
+      "reason": "Exact affirmative statement under a finite grammar; source truth is not verified."
+    },
+    {
+      "id": "GKH-0007",
+      "question": "What's preposition?",
+      "expected_id": "REF-0007",
+      "expected_answer": "The preposition is a word expressing relationships of place, time, and direction through noun phrases.",
+      "kind": "return",
+      "correct_supported": true,
+      "quote": "The preposition is a word expressing relationships of place, time, and direction through noun phrases.",
+      "document_id": "REF-0007",
+      "document_sha256": "sha256:30a634e66c48235e6ccafb7eb537c98f87e4c28097d02a380708a7da857e6025",
+      "depth": 2,
+      "origin": "machine",
+      "derived_from": [
+        {
+          "id": "SRC-0001",
+          "hash": "sha256:9d34de7feeff47fc16ab0a62aeea938d9fb2d1c6480697626708449365ea8972"
+        }
+      ],
+      "reason": "Exact affirmative statement under a finite grammar; source truth is not verified."
+    },
+    {
+      "id": "GKH-0008",
+      "question": "What is article?",
+      "expected_id": "REF-0008",
+      "expected_answer": "The article is a determiner used before a noun phrase, including a, an, and the.",
+      "kind": "return",
+      "correct_supported": true,
+      "quote": "The article is a determiner used before a noun phrase, including a, an, and the.",
+      "document_id": "REF-0008",
+      "document_sha256": "sha256:8cf6d6d89ed30c75df67d0a5c39db8dca99e7cf4cd5da30f4ceeb183df38c747",
+      "depth": 2,
+      "origin": "machine",
+      "derived_from": [
+        {
+          "id": "SRC-0001",
+          "hash": "sha256:9d34de7feeff47fc16ab0a62aeea938d9fb2d1c6480697626708449365ea8972"
+        }
+      ],
+      "reason": "Exact affirmative statement under a finite grammar; source truth is not verified."
+    },
+    {
+      "id": "GKH-0009",
+      "question": "What is the abstract noun?",
+      "expected_id": "REF-0009",
+      "expected_answer": "The abstract noun is a noun naming ideas and qualities.",
+      "kind": "return",
+      "correct_supported": true,
+      "quote": "The abstract noun is a noun naming ideas and qualities.",
+      "document_id": "REF-0009",
+      "document_sha256": "sha256:86ddb94eaffc72ed282ed78d177a0cae7e75259972e64db049f8aad3e43ed34d",
+      "depth": 2,
+      "origin": "machine",
+      "derived_from": [
+        {
+          "id": "SRC-0001",
+          "hash": "sha256:9d34de7feeff47fc16ab0a62aeea938d9fb2d1c6480697626708449365ea8972"
+        }
+      ],
+      "reason": "Exact affirmative statement under a finite grammar; source truth is not verified."
+    },
+    {
+      "id": "GKH-0010",
+      "question": "What's proper noun?",
+      "expected_id": "REF-0010",
+      "expected_answer": "The proper noun is a name identifying a particular entity.",
+      "kind": "return",
+      "correct_supported": true,
+      "quote": "The proper noun is a name identifying a particular entity.",
+      "document_id": "REF-0010",
+      "document_sha256": "sha256:b02db8b6183ddcd8c49c65a837913c0205c745969566479db9e82a6ebd418cdd",
+      "depth": 2,
+      "origin": "machine",
+      "derived_from": [
+        {
+          "id": "SRC-0001",
+          "hash": "sha256:9d34de7feeff47fc16ab0a62aeea938d9fb2d1c6480697626708449365ea8972"
+        }
+      ],
+      "reason": "Exact affirmative statement under a finite grammar; source truth is not verified."
+    },
+    {
+      "id": "GKH-0011",
+      "question": "What is subject pronoun?",
+      "expected_id": "REF-0011",
+      "expected_answer": "The subject pronoun is a pronoun used as the subject of a clause.",
+      "kind": "return",
+      "correct_supported": true,
+      "quote": "The subject pronoun is a pronoun used as the subject of a clause.",
+      "document_id": "REF-0011",
+      "document_sha256": "sha256:467c3bfb1c499d399b87879bf7ba356b770235070d09852032bdafb0a601e0ff",
+      "depth": 2,
+      "origin": "machine",
+      "derived_from": [
+        {
+          "id": "SRC-0001",
+          "hash": "sha256:9d34de7feeff47fc16ab0a62aeea938d9fb2d1c6480697626708449365ea8972"
+        }
+      ],
+      "reason": "Exact affirmative statement under a finite grammar; source truth is not verified."
+    },
+    {
+      "id": "GKH-0012",
+      "question": "What is the object pronoun?",
+      "expected_id": "REF-0012",
+      "expected_answer": "The object pronoun is a pronoun used as an object in a clause.",
+      "kind": "return",
+      "correct_supported": true,
+      "quote": "The object pronoun is a pronoun used as an object in a clause.",
+      "document_id": "REF-0012",
+      "document_sha256": "sha256:f245450ece53537c5f67c2df2b74c9fa21f631de7937a0db04945a7cf2e6b4fc",
+      "depth": 2,
+      "origin": "machine",
+      "derived_from": [
+        {
+          "id": "SRC-0001",
+          "hash": "sha256:9d34de7feeff47fc16ab0a62aeea938d9fb2d1c6480697626708449365ea8972"
+        }
+      ],
+      "reason": "Exact affirmative statement under a finite grammar; source truth is not verified."
+    },
+    {
+      "id": "GKH-0013",
+      "question": "What's verb phrase?",
+      "expected_id": "REF-0013",
+      "expected_answer": "The verb phrase is a group containing a main verb and possible helping verbs.",
+      "kind": "return",
+      "correct_supported": true,
+      "quote": "The verb phrase is a group containing a main verb and possible helping verbs.",
+      "document_id": "REF-0013",
+      "document_sha256": "sha256:781f4e88cd6d3511d33231519afdfcf539eff2c013a8e04d61676bf763d03d55",
+      "depth": 2,
+      "origin": "machine",
+      "derived_from": [
+        {
+          "id": "SRC-0001",
+          "hash": "sha256:9d34de7feeff47fc16ab0a62aeea938d9fb2d1c6480697626708449365ea8972"
+        }
+      ],
+      "reason": "Exact affirmative statement under a finite grammar; source truth is not verified."
+    },
+    {
+      "id": "GKH-0014",
+      "question": "What is independent clause?",
+      "expected_id": "REF-0014",
+      "expected_answer": "The independent clause is a clause with a subject and verb that can stand as a sentence.",
+      "kind": "return",
+      "correct_supported": true,
+      "quote": "The independent clause is a clause with a subject and verb that can stand as a sentence.",
+      "document_id": "REF-0014",
+      "document_sha256": "sha256:d8bcb1f299b2514a49ef5b571e4716bdebd6202b237d5e21eea4a0e3225f1a31",
+      "depth": 2,
+      "origin": "machine",
+      "derived_from": [
+        {
+          "id": "SRC-0002",
+          "hash": "sha256:2b7817f64c7e4df294eaf12ca6cbecff1edc8066f59c6195d7a976381074d177"
+        }
+      ],
+      "reason": "Exact affirmative statement under a finite grammar; source truth is not verified."
+    },
+    {
+      "id": "GKH-0015",
+      "question": "What is the dependent clause?",
+      "expected_id": "REF-0015",
+      "expected_answer": "The dependent clause is a clause with a subject and verb that cannot stand alone as a sentence.",
+      "kind": "return",
+      "correct_supported": true,
+      "quote": "The dependent clause is a clause with a subject and verb that cannot stand alone as a sentence.",
+      "document_id": "REF-0015",
+      "document_sha256": "sha256:b191c830f02b70d72624633730f12a4d8c788d13986cb1e27347013abd4e4953",
+      "depth": 2,
+      "origin": "machine",
+      "derived_from": [
+        {
+          "id": "SRC-0002",
+          "hash": "sha256:2b7817f64c7e4df294eaf12ca6cbecff1edc8066f59c6195d7a976381074d177"
+        }
+      ],
+      "reason": "Exact affirmative statement under a finite grammar; source truth is not verified."
+    },
+    {
+      "id": "GKH-0016",
+      "question": "What's simple sentence?",
+      "expected_id": "REF-0016",
+      "expected_answer": "The simple sentence is a sentence consisting of one independent clause.",
+      "kind": "return",
+      "correct_supported": true,
+      "quote": "The simple sentence is a sentence consisting of one independent clause.",
+      "document_id": "REF-0016",
+      "document_sha256": "sha256:38c748719ff8cb3e158fd2ec914cb59114f7e778429b327fa4792d79c266d256",
+      "depth": 2,
+      "origin": "machine",
+      "derived_from": [
+        {
+          "id": "SRC-0003",
+          "hash": "sha256:148e8b994fe94e42297a643a91e6aa23ee40f825e2dc2160b5d109de76c06a19"
+        }
+      ],
+      "reason": "Exact affirmative statement under a finite grammar; source truth is not verified."
+    },
+    {
+      "id": "GKH-0017",
+      "question": "What is compound sentence?",
+      "expected_id": "REF-0017",
+      "expected_answer": "The compound sentence is a sentence with at least two independent clauses.",
+      "kind": "return",
+      "correct_supported": true,
+      "quote": "The compound sentence is a sentence with at least two independent clauses.",
+      "document_id": "REF-0017",
+      "document_sha256": "sha256:d2ccb804a4ad718093008af344e47cb72cb99cb6160ceaa4444846a2f81dc09d",
+      "depth": 2,
+      "origin": "machine",
+      "derived_from": [
+        {
+          "id": "SRC-0003",
+          "hash": "sha256:148e8b994fe94e42297a643a91e6aa23ee40f825e2dc2160b5d109de76c06a19"
+        }
+      ],
+      "reason": "Exact affirmative statement under a finite grammar; source truth is not verified."
+    },
+    {
+      "id": "GKH-0018",
+      "question": "What is the prepositional phrase?",
+      "expected_id": "REF-0018",
+      "expected_answer": "The prepositional phrase is a phrase beginning with a preposition and including its noun phrase.",
+      "kind": "return",
+      "correct_supported": true,
+      "quote": "The prepositional phrase is a phrase beginning with a preposition and including its noun phrase.",
+      "document_id": "REF-0018",
+      "document_sha256": "sha256:e461db0072718da2527a3e2443d2e0cbb4bda7a98b4f6b6b7f0756547e696717",
+      "depth": 2,
+      "origin": "machine",
+      "derived_from": [
+        {
+          "id": "SRC-0001",
+          "hash": "sha256:9d34de7feeff47fc16ab0a62aeea938d9fb2d1c6480697626708449365ea8972"
+        }
+      ],
+      "reason": "Exact affirmative statement under a finite grammar; source truth is not verified."
+    },
+    {
+      "id": "GKH-0019",
+      "question": "What's synset?",
+      "expected_id": "REF-0019",
+      "expected_answer": "The synset is a set of words representing a shared lexical sense in Wordnet.",
+      "kind": "return",
+      "correct_supported": true,
+      "quote": "The synset is a set of words representing a shared lexical sense in Wordnet.",
+      "document_id": "REF-0019",
+      "document_sha256": "sha256:89c10e25d5fb3031452af95c9e563a9558ddef7cbf08fc871b5507eaf2efae16",
+      "depth": 2,
+      "origin": "machine",
+      "derived_from": [
+        {
+          "id": "SRC-0004",
+          "hash": "sha256:3556b0581f3c455082e7bbd1d7cdf5c20c3d436d9a6fd307b2c8234d644ed60f"
+        }
+      ],
+      "reason": "Exact affirmative statement under a finite grammar; source truth is not verified."
+    },
+    {
+      "id": "GKH-0020",
+      "question": "What is lexical database?",
+      "expected_id": "REF-0020",
+      "expected_answer": "The lexical database is a structured collection describing words and their relations.",
+      "kind": "return",
+      "correct_supported": true,
+      "quote": "The lexical database is a structured collection describing words and their relations.",
+      "document_id": "REF-0020",
+      "document_sha256": "sha256:2fb653a4d10d6ef9db455e0b485dc84c1ba3913b2cf8d66e07e61869d849b6f2",
+      "depth": 2,
+      "origin": "machine",
+      "derived_from": [
+        {
+          "id": "SRC-0004",
+          "hash": "sha256:3556b0581f3c455082e7bbd1d7cdf5c20c3d436d9a6fd307b2c8234d644ed60f"
+        }
+      ],
+      "reason": "Exact affirmative statement under a finite grammar; source truth is not verified."
+    },
+    {
+      "id": "GKH-0021",
+      "question": "What is the wordnet lexical relations?",
+      "expected_id": "REF-0021",
+      "expected_answer": "The wordnet lexical relations is connections between word senses recorded in Wordnet.",
+      "kind": "return",
+      "correct_supported": true,
+      "quote": "The wordnet lexical relations is connections between word senses recorded in Wordnet.",
+      "document_id": "REF-0021",
+      "document_sha256": "sha256:8d9ea256cade5a40b432bf8a81d724ee8ac88f95f8eb754d112884cfea25722d",
+      "depth": 2,
+      "origin": "machine",
+      "derived_from": [
+        {
+          "id": "SRC-0004",
+          "hash": "sha256:3556b0581f3c455082e7bbd1d7cdf5c20c3d436d9a6fd307b2c8234d644ed60f"
+        }
+      ],
+      "reason": "Exact affirmative statement under a finite grammar; source truth is not verified."
+    },
+    {
+      "id": "GKH-0022",
+      "question": "What's wordnet definitions?",
+      "expected_id": "REF-0022",
+      "expected_answer": "The wordnet definitions is short descriptions attached to synsets in Wordnet.",
+      "kind": "return",
+      "correct_supported": true,
+      "quote": "The wordnet definitions is short descriptions attached to synsets in Wordnet.",
+      "document_id": "REF-0022",
+      "document_sha256": "sha256:d228ef404404a0605de53d97c497d9dcc691a4f6d9323d5de14feb9d10911151",
+      "depth": 2,
+      "origin": "machine",
+      "derived_from": [
+        {
+          "id": "SRC-0004",
+          "hash": "sha256:3556b0581f3c455082e7bbd1d7cdf5c20c3d436d9a6fd307b2c8234d644ed60f"
+        }
+      ],
+      "reason": "Exact affirmative statement under a finite grammar; source truth is not verified."
+    },
+    {
+      "id": "GKH-0023",
+      "question": "What is wordnet synonyms?",
+      "expected_id": "REF-0023",
+      "expected_answer": "The wordnet synonyms is words grouped under a shared synset sense in Wordnet.",
+      "kind": "return",
+      "correct_supported": true,
+      "quote": "The wordnet synonyms is words grouped under a shared synset sense in Wordnet.",
+      "document_id": "REF-0023",
+      "document_sha256": "sha256:393aa50778a585736773ce246905f625d21191c345a4a55f52ba2796fd30093b",
+      "depth": 2,
+      "origin": "machine",
+      "derived_from": [
+        {
+          "id": "SRC-0004",
+          "hash": "sha256:3556b0581f3c455082e7bbd1d7cdf5c20c3d436d9a6fd307b2c8234d644ed60f"
+        }
+      ],
+      "reason": "Exact affirmative statement under a finite grammar; source truth is not verified."
+    },
+    {
+      "id": "GKH-0024",
+      "question": "What is the si base unit for length?",
+      "expected_id": "REF-0024",
+      "expected_answer": "The si base unit for length is the meter.",
+      "kind": "not_in_corpus",
+      "correct_supported": false,
+      "quote": "",
+      "document_id": null,
+      "document_sha256": null,
+      "depth": null,
+      "origin": null,
+      "derived_from": [],
+      "reason": "No eligible body statement supports the complete question."
+    },
+    {
+      "id": "GKH-0025",
+      "question": "What's si base unit for time?",
+      "expected_id": "REF-0025",
+      "expected_answer": "The si base unit for time is the second.",
+      "kind": "not_in_corpus",
+      "correct_supported": false,
+      "quote": "",
+      "document_id": null,
+      "document_sha256": null,
+      "depth": null,
+      "origin": null,
+      "derived_from": [],
+      "reason": "No eligible body statement supports the complete question."
+    },
+    {
+      "id": "GKH-0026",
+      "question": "What is si base unit for mass?",
+      "expected_id": "REF-0026",
+      "expected_answer": "The si base unit for mass is the kilogram.",
+      "kind": "not_in_corpus",
+      "correct_supported": false,
+      "quote": "",
+      "document_id": null,
+      "document_sha256": null,
+      "depth": null,
+      "origin": null,
+      "derived_from": [],
+      "reason": "No eligible body statement supports the complete question."
+    },
+    {
+      "id": "GKH-0027",
+      "question": "What is the si base unit for electric current?",
+      "expected_id": "REF-0027",
+      "expected_answer": "The si base unit for electric current is the ampere.",
+      "kind": "not_in_corpus",
+      "correct_supported": false,
+      "quote": "",
+      "document_id": null,
+      "document_sha256": null,
+      "depth": null,
+      "origin": null,
+      "derived_from": [],
+      "reason": "No eligible body statement supports the complete question."
+    },
+    {
+      "id": "GKH-0028",
+      "question": "What's si base unit for temperature?",
+      "expected_id": "REF-0028",
+      "expected_answer": "The si base unit for temperature is the kelvin.",
+      "kind": "not_in_corpus",
+      "correct_supported": false,
+      "quote": "",
+      "document_id": null,
+      "document_sha256": null,
+      "depth": null,
+      "origin": null,
+      "derived_from": [],
+      "reason": "No eligible body statement supports the complete question."
+    },
+    {
+      "id": "GKH-0029",
+      "question": "What is si base unit for amount of substance?",
+      "expected_id": "REF-0029",
+      "expected_answer": "The si base unit for amount of substance is the mole.",
+      "kind": "not_in_corpus",
+      "correct_supported": false,
+      "quote": "",
+      "document_id": null,
+      "document_sha256": null,
+      "depth": null,
+      "origin": null,
+      "derived_from": [],
+      "reason": "No eligible body statement supports the complete question."
+    },
+    {
+      "id": "GKH-0030",
+      "question": "What is the si base unit for luminous intensity?",
+      "expected_id": "REF-0030",
+      "expected_answer": "The si base unit for luminous intensity is the candela.",
+      "kind": "not_in_corpus",
+      "correct_supported": false,
+      "quote": "",
+      "document_id": null,
+      "document_sha256": null,
+      "depth": null,
+      "origin": null,
+      "derived_from": [],
+      "reason": "No eligible body statement supports the complete question."
+    },
+    {
+      "id": "GKH-0031",
+      "question": "What's si meter symbol?",
+      "expected_id": "REF-0031",
+      "expected_answer": "The si meter symbol is m.",
+      "kind": "not_in_corpus",
+      "correct_supported": false,
+      "quote": "",
+      "document_id": null,
+      "document_sha256": null,
+      "depth": null,
+      "origin": null,
+      "derived_from": [],
+      "reason": "No eligible body statement supports the complete question."
+    },
+    {
+      "id": "GKH-0032",
+      "question": "What is si second symbol?",
+      "expected_id": "REF-0032",
+      "expected_answer": "The si second symbol is s.",
+      "kind": "not_in_corpus",
+      "correct_supported": false,
+      "quote": "",
+      "document_id": null,
+      "document_sha256": null,
+      "depth": null,
+      "origin": null,
+      "derived_from": [],
+      "reason": "No eligible body statement supports the complete question."
+    },
+    {
+      "id": "GKH-0033",
+      "question": "What is the si kilogram symbol?",
+      "expected_id": "REF-0033",
+      "expected_answer": "The si kilogram symbol is kg.",
+      "kind": "not_in_corpus",
+      "correct_supported": false,
+      "quote": "",
+      "document_id": null,
+      "document_sha256": null,
+      "depth": null,
+      "origin": null,
+      "derived_from": [],
+      "reason": "No eligible body statement supports the complete question."
+    },
+    {
+      "id": "GKH-0034",
+      "question": "What's si ampere symbol?",
+      "expected_id": "REF-0034",
+      "expected_answer": "The si ampere symbol is A.",
+      "kind": "not_in_corpus",
+      "correct_supported": false,
+      "quote": "",
+      "document_id": null,
+      "document_sha256": null,
+      "depth": null,
+      "origin": null,
+      "derived_from": [],
+      "reason": "No eligible body statement supports the complete question."
+    },
+    {
+      "id": "GKH-0035",
+      "question": "What is si kelvin symbol?",
+      "expected_id": "REF-0035",
+      "expected_answer": "The si kelvin symbol is K.",
+      "kind": "not_in_corpus",
+      "correct_supported": false,
+      "quote": "",
+      "document_id": null,
+      "document_sha256": null,
+      "depth": null,
+      "origin": null,
+      "derived_from": [],
+      "reason": "No eligible body statement supports the complete question."
+    },
+    {
+      "id": "GKH-0036",
+      "question": "What is the si mole symbol?",
+      "expected_id": "REF-0036",
+      "expected_answer": "The si mole symbol is mol.",
+      "kind": "not_in_corpus",
+      "correct_supported": false,
+      "quote": "",
+      "document_id": null,
+      "document_sha256": null,
+      "depth": null,
+      "origin": null,
+      "derived_from": [],
+      "reason": "No eligible body statement supports the complete question."
+    },
+    {
+      "id": "GKH-0037",
+      "question": "What's si candela symbol?",
+      "expected_id": "REF-0037",
+      "expected_answer": "The si candela symbol is cd.",
+      "kind": "not_in_corpus",
+      "correct_supported": false,
+      "quote": "",
+      "document_id": null,
+      "document_sha256": null,
+      "depth": null,
+      "origin": null,
+      "derived_from": [],
+      "reason": "No eligible body statement supports the complete question."
+    },
+    {
+      "id": "GKH-0038",
+      "question": "What is si base unit count?",
+      "expected_id": "REF-0038",
+      "expected_answer": "The si base unit count is seven.",
+      "kind": "not_in_corpus",
+      "correct_supported": false,
+      "quote": "",
+      "document_id": null,
+      "document_sha256": null,
+      "depth": null,
+      "origin": null,
+      "derived_from": [],
+      "reason": "No eligible body statement supports the complete question."
+    },
+    {
+      "id": "GKH-0039",
+      "question": "What is the si defining constants count?",
+      "expected_id": "REF-0039",
+      "expected_answer": "The si defining constants count is seven.",
+      "kind": "not_in_corpus",
+      "correct_supported": false,
+      "quote": "",
+      "document_id": null,
+      "document_sha256": null,
+      "depth": null,
+      "origin": null,
+      "derived_from": [],
+      "reason": "No eligible body statement supports the complete question."
+    },
+    {
+      "id": "GKH-0040",
+      "question": "What's si derived units with special names count?",
+      "expected_id": "REF-0040",
+      "expected_answer": "The si derived units with special names count is twenty-two.",
+      "kind": "not_in_corpus",
+      "correct_supported": false,
+      "quote": "",
+      "document_id": null,
+      "document_sha256": null,
+      "depth": null,
+      "origin": null,
+      "derived_from": [],
+      "reason": "No eligible body statement supports the complete question."
+    },
+    {
+      "id": "GKH-0041",
+      "question": "What is weather?",
+      "expected_id": "REF-0041",
+      "expected_answer": "The weather is the short-term state of the atmosphere at a particular place.",
+      "kind": "not_in_corpus",
+      "correct_supported": false,
+      "quote": "",
+      "document_id": null,
+      "document_sha256": null,
+      "depth": null,
+      "origin": null,
+      "derived_from": [],
+      "reason": "No eligible body statement supports the complete question."
+    },
+    {
+      "id": "GKH-0042",
+      "question": "What is the climate?",
+      "expected_id": "REF-0042",
+      "expected_answer": "The climate is the long-term pattern of weather conditions in a place.",
+      "kind": "not_in_corpus",
+      "correct_supported": false,
+      "quote": "",
+      "document_id": null,
+      "document_sha256": null,
+      "depth": null,
+      "origin": null,
+      "derived_from": [],
+      "reason": "No eligible body statement supports the complete question."
+    },
+    {
+      "id": "GKH-0043",
+      "question": "What's climate averaging interval?",
+      "expected_id": "REF-0043",
+      "expected_answer": "The climate averaging interval is a standard thirty-year period.",
+      "kind": "not_in_corpus",
+      "correct_supported": false,
+      "quote": "",
+      "document_id": null,
+      "document_sha256": null,
+      "depth": null,
+      "origin": null,
+      "derived_from": [],
+      "reason": "No eligible body statement supports the complete question."
+    },
+    {
+      "id": "GKH-0044",
+      "question": "What is water cycle?",
+      "expected_id": "REF-0044",
+      "expected_answer": "The water cycle is the circulation of water between storage places and physical states on Earth.",
+      "kind": "not_in_corpus",
+      "correct_supported": false,
+      "quote": "",
+      "document_id": null,
+      "document_sha256": null,
+      "depth": null,
+      "origin": null,
+      "derived_from": [],
+      "reason": "No eligible body statement supports the complete question."
+    },
+    {
+      "id": "GKH-0045",
+      "question": "What is the evaporation in the water cycle?",
+      "expected_id": "REF-0045",
+      "expected_answer": "The evaporation in the water cycle is the movement of liquid water into the atmosphere as water vapor.",
+      "kind": "not_in_corpus",
+      "correct_supported": false,
+      "quote": "",
+      "document_id": null,
+      "document_sha256": null,
+      "depth": null,
+      "origin": null,
+      "derived_from": [],
+      "reason": "No eligible body statement supports the complete question."
+    },
+    {
+      "id": "GKH-0046",
+      "question": "What's precipitation in the water cycle?",
+      "expected_id": "REF-0046",
+      "expected_answer": "The precipitation in the water cycle is water released from the atmosphere to the surface.",
+      "kind": "not_in_corpus",
+      "correct_supported": false,
+      "quote": "",
+      "document_id": null,
+      "document_sha256": null,
+      "depth": null,
+      "origin": null,
+      "derived_from": [],
+      "reason": "No eligible body statement supports the complete question."
+    },
+    {
+      "id": "GKH-0047",
+      "question": "What is infiltration in the water cycle?",
+      "expected_id": "REF-0047",
+      "expected_answer": "The infiltration in the water cycle is water moving from the surface into soil and rock.",
+      "kind": "not_in_corpus",
+      "correct_supported": false,
+      "quote": "",
+      "document_id": null,
+      "document_sha256": null,
+      "depth": null,
+      "origin": null,
+      "derived_from": [],
+      "reason": "No eligible body statement supports the complete question."
+    },
+    {
+      "id": "GKH-0048",
+      "question": "What is the surface runoff in the water cycle?",
+      "expected_id": "REF-0048",
+      "expected_answer": "The surface runoff in the water cycle is water moving across the land surface.",
+      "kind": "not_in_corpus",
+      "correct_supported": false,
+      "quote": "",
+      "document_id": null,
+      "document_sha256": null,
+      "depth": null,
+      "origin": null,
+      "derived_from": [],
+      "reason": "No eligible body statement supports the complete question."
+    },
+    {
+      "id": "GKH-0049",
+      "question": "What's solar system planet count?",
+      "expected_id": "REF-0049",
+      "expected_answer": "The solar system planet count is eight.",
+      "kind": "not_in_corpus",
+      "correct_supported": false,
+      "quote": "",
+      "document_id": null,
+      "document_sha256": null,
+      "depth": null,
+      "origin": null,
+      "derived_from": [],
+      "reason": "No eligible body statement supports the complete question."
+    },
+    {
+      "id": "GKH-0050",
+      "question": "What is first planet from the sun?",
+      "expected_id": "REF-0050",
+      "expected_answer": "The first planet from the sun is Mercury.",
+      "kind": "not_in_corpus",
+      "correct_supported": false,
+      "quote": "",
+      "document_id": null,
+      "document_sha256": null,
+      "depth": null,
+      "origin": null,
+      "derived_from": [],
+      "reason": "No eligible body statement supports the complete question."
+    },
+    {
+      "id": "GKH-0051",
+      "question": "What is the second planet from the sun?",
+      "expected_id": "REF-0051",
+      "expected_answer": "The second planet from the sun is Venus.",
+      "kind": "not_in_corpus",
+      "correct_supported": false,
+      "quote": "",
+      "document_id": null,
+      "document_sha256": null,
+      "depth": null,
+      "origin": null,
+      "derived_from": [],
+      "reason": "No eligible body statement supports the complete question."
+    },
+    {
+      "id": "GKH-0052",
+      "question": "What's third planet from the sun?",
+      "expected_id": "REF-0052",
+      "expected_answer": "The third planet from the sun is Earth.",
+      "kind": "not_in_corpus",
+      "correct_supported": false,
+      "quote": "",
+      "document_id": null,
+      "document_sha256": null,
+      "depth": null,
+      "origin": null,
+      "derived_from": [],
+      "reason": "No eligible body statement supports the complete question."
+    },
+    {
+      "id": "GKH-0053",
+      "question": "What is fourth planet from the sun?",
+      "expected_id": "REF-0053",
+      "expected_answer": "The fourth planet from the sun is Mars.",
+      "kind": "not_in_corpus",
+      "correct_supported": false,
+      "quote": "",
+      "document_id": null,
+      "document_sha256": null,
+      "depth": null,
+      "origin": null,
+      "derived_from": [],
+      "reason": "No eligible body statement supports the complete question."
+    },
+    {
+      "id": "GKH-0054",
+      "question": "What is the fifth planet from the sun?",
+      "expected_id": "REF-0054",
+      "expected_answer": "The fifth planet from the sun is Jupiter.",
+      "kind": "not_in_corpus",
+      "correct_supported": false,
+      "quote": "",
+      "document_id": null,
+      "document_sha256": null,
+      "depth": null,
+      "origin": null,
+      "derived_from": [],
+      "reason": "No eligible body statement supports the complete question."
+    },
+    {
+      "id": "GKH-0055",
+      "question": "What's sixth planet from the sun?",
+      "expected_id": "REF-0055",
+      "expected_answer": "The sixth planet from the sun is Saturn.",
+      "kind": "not_in_corpus",
+      "correct_supported": false,
+      "quote": "",
+      "document_id": null,
+      "document_sha256": null,
+      "depth": null,
+      "origin": null,
+      "derived_from": [],
+      "reason": "No eligible body statement supports the complete question."
+    },
+    {
+      "id": "GKH-0056",
+      "question": "What is seventh planet from the sun?",
+      "expected_id": "REF-0056",
+      "expected_answer": "The seventh planet from the sun is Uranus.",
+      "kind": "not_in_corpus",
+      "correct_supported": false,
+      "quote": "",
+      "document_id": null,
+      "document_sha256": null,
+      "depth": null,
+      "origin": null,
+      "derived_from": [],
+      "reason": "No eligible body statement supports the complete question."
+    },
+    {
+      "id": "GKH-0057",
+      "question": "What is the eighth planet from the sun?",
+      "expected_id": "REF-0057",
+      "expected_answer": "The eighth planet from the sun is Neptune.",
+      "kind": "not_in_corpus",
+      "correct_supported": false,
+      "quote": "",
+      "document_id": null,
+      "document_sha256": null,
+      "depth": null,
+      "origin": null,
+      "derived_from": [],
+      "reason": "No eligible body statement supports the complete question."
+    },
+    {
+      "id": "GKH-0058",
+      "question": "What's largest planet in the solar system?",
+      "expected_id": "REF-0058",
+      "expected_answer": "The largest planet in the solar system is Jupiter.",
+      "kind": "not_in_corpus",
+      "correct_supported": false,
+      "quote": "",
+      "document_id": null,
+      "document_sha256": null,
+      "depth": null,
+      "origin": null,
+      "derived_from": [],
+      "reason": "No eligible body statement supports the complete question."
+    },
+    {
+      "id": "GKH-0059",
+      "question": "What is smallest planet in the solar system?",
+      "expected_id": "REF-0059",
+      "expected_answer": "The smallest planet in the solar system is Mercury.",
+      "kind": "not_in_corpus",
+      "correct_supported": false,
+      "quote": "",
+      "document_id": null,
+      "document_sha256": null,
+      "depth": null,
+      "origin": null,
+      "derived_from": [],
+      "reason": "No eligible body statement supports the complete question."
+    },
+    {
+      "id": "GKH-0060",
+      "question": "What is the largest gas giant planet?",
+      "expected_id": "REF-0060",
+      "expected_answer": "The largest gas giant planet is Jupiter.",
+      "kind": "not_in_corpus",
+      "correct_supported": false,
+      "quote": "",
+      "document_id": null,
+      "document_sha256": null,
+      "depth": null,
+      "origin": null,
+      "derived_from": [],
+      "reason": "No eligible body statement supports the complete question."
+    },
+    {
+      "id": "GKH-0061",
+      "question": "What's number of recognized dwarf planets?",
+      "expected_id": "REF-0061",
+      "expected_answer": "The number of recognized dwarf planets is five.",
+      "kind": "not_in_corpus",
+      "correct_supported": false,
+      "quote": "",
+      "document_id": null,
+      "document_sha256": null,
+      "depth": null,
+      "origin": null,
+      "derived_from": [],
+      "reason": "No eligible body statement supports the complete question."
+    },
+    {
+      "id": "GKH-0062",
+      "question": "What is first four planets from the sun?",
+      "expected_id": "REF-0062",
+      "expected_answer": "The first four planets from the sun is Mercury, Venus, Earth, and Mars.",
+      "kind": "not_in_corpus",
+      "correct_supported": false,
+      "quote": "",
+      "document_id": null,
+      "document_sha256": null,
+      "depth": null,
+      "origin": null,
+      "derived_from": [],
+      "reason": "No eligible body statement supports the complete question."
+    },
+    {
+      "id": "GKH-0063",
+      "question": "What is the ice giant planets?",
+      "expected_id": "REF-0063",
+      "expected_answer": "The ice giant planets is Uranus and Neptune.",
+      "kind": "not_in_corpus",
+      "correct_supported": false,
+      "quote": "",
+      "document_id": null,
+      "document_sha256": null,
+      "depth": null,
+      "origin": null,
+      "derived_from": [],
+      "reason": "No eligible body statement supports the complete question."
+    },
+    {
+      "id": "GKH-0064",
+      "question": "What's gas giant planets?",
+      "expected_id": "REF-0064",
+      "expected_answer": "The gas giant planets is Jupiter and Saturn.",
+      "kind": "not_in_corpus",
+      "correct_supported": false,
+      "quote": "",
+      "document_id": null,
+      "document_sha256": null,
+      "depth": null,
+      "origin": null,
+      "derived_from": [],
+      "reason": "No eligible body statement supports the complete question."
+    },
+    {
+      "id": "GKH-0065",
+      "question": "What is bill of rights?",
+      "expected_id": "REF-0065",
+      "expected_answer": "The bill of rights is the first ten amendments to the United States Constitution.",
+      "kind": "not_in_corpus",
+      "correct_supported": false,
+      "quote": "",
+      "document_id": null,
+      "document_sha256": null,
+      "depth": null,
+      "origin": null,
+      "derived_from": [],
+      "reason": "No eligible body statement supports the complete question."
+    },
+    {
+      "id": "GKH-0066",
+      "question": "What is the first amendment freedoms?",
+      "expected_id": "REF-0066",
+      "expected_answer": "The first amendment freedoms is speech, the press, religion, assembly, and petition.",
+      "kind": "not_in_corpus",
+      "correct_supported": false,
+      "quote": "",
+      "document_id": null,
+      "document_sha256": null,
+      "depth": null,
+      "origin": null,
+      "derived_from": [],
+      "reason": "No eligible body statement supports the complete question."
+    },
+    {
+      "id": "GKH-0067",
+      "question": "What's second amendment protection?",
+      "expected_id": "REF-0067",
+      "expected_answer": "The second amendment protection is the right to keep and bear arms.",
+      "kind": "not_in_corpus",
+      "correct_supported": false,
+      "quote": "",
+      "document_id": null,
+      "document_sha256": null,
+      "depth": null,
+      "origin": null,
+      "derived_from": [],
+      "reason": "No eligible body statement supports the complete question."
+    },
+    {
+      "id": "GKH-0068",
+      "question": "What is fourth amendment protection?",
+      "expected_id": "REF-0068",
+      "expected_answer": "The fourth amendment protection is protection against unreasonable searches and seizures.",
+      "kind": "not_in_corpus",
+      "correct_supported": false,
+      "quote": "",
+      "document_id": null,
+      "document_sha256": null,
+      "depth": null,
+      "origin": null,
+      "derived_from": [],
+      "reason": "No eligible body statement supports the complete question."
+    },
+    {
+      "id": "GKH-0069",
+      "question": "What is the fifth amendment safeguards?",
+      "expected_id": "REF-0069",
+      "expected_answer": "The fifth amendment safeguards is grand jury protections, due process, and protection against self-incrimination.",
+      "kind": "not_in_corpus",
+      "correct_supported": false,
+      "quote": "",
+      "document_id": null,
+      "document_sha256": null,
+      "depth": null,
+      "origin": null,
+      "derived_from": [],
+      "reason": "No eligible body statement supports the complete question."
+    },
+    {
+      "id": "GKH-0070",
+      "question": "What's sixth amendment protections?",
+      "expected_id": "REF-0070",
+      "expected_answer": "The sixth amendment protections is a speedy public criminal trial with an impartial jury and counsel.",
+      "kind": "not_in_corpus",
+      "correct_supported": false,
+      "quote": "",
+      "document_id": null,
+      "document_sha256": null,
+      "depth": null,
+      "origin": null,
+      "derived_from": [],
+      "reason": "No eligible body statement supports the complete question."
+    },
+    {
+      "id": "GKH-0071",
+      "question": "What is declaration of independence adoption date?",
+      "expected_id": "REF-0071",
+      "expected_answer": "The declaration of independence adoption date is July 4, 1776.",
+      "kind": "not_in_corpus",
+      "correct_supported": false,
+      "quote": "",
+      "document_id": null,
+      "document_sha256": null,
+      "depth": null,
+      "origin": null,
+      "derived_from": [],
+      "reason": "No eligible body statement supports the complete question."
+    },
+    {
+      "id": "GKH-0072",
+      "question": "What is the declaration of independence principal drafter?",
+      "expected_id": "REF-0072",
+      "expected_answer": "The declaration of independence principal drafter is Thomas Jefferson.",
+      "kind": "not_in_corpus",
+      "correct_supported": false,
+      "quote": "",
+      "document_id": null,
+      "document_sha256": null,
+      "depth": null,
+      "origin": null,
+      "derived_from": [],
+      "reason": "No eligible body statement supports the complete question."
+    },
+    {
+      "id": "GKH-0073",
+      "question": "What's declaration of independence first engrossed signing date?",
+      "expected_id": "REF-0073",
+      "expected_answer": "The declaration of independence first engrossed signing date is August 2, 1776.",
+      "kind": "not_in_corpus",
+      "correct_supported": false,
+      "quote": "",
+      "document_id": null,
+      "document_sha256": null,
+      "depth": null,
+      "origin": null,
+      "derived_from": [],
+      "reason": "No eligible body statement supports the complete question."
+    },
+    {
+      "id": "GKN-0001",
+      "question": "What is imaginary isotope unit?",
+      "expected_id": null,
+      "expected_answer": null,
+      "kind": "not_in_corpus",
+      "correct_supported": false,
+      "quote": "",
+      "document_id": null,
+      "document_sha256": null,
+      "depth": null,
+      "origin": null,
+      "derived_from": [],
+      "reason": "No eligible body statement supports the complete question."
+    },
+    {
+      "id": "GKN-0002",
+      "question": "What is named ninth planet?",
+      "expected_id": null,
+      "expected_answer": null,
+      "kind": "not_in_corpus",
+      "correct_supported": false,
+      "quote": "",
+      "document_id": null,
+      "document_sha256": null,
+      "depth": null,
+      "origin": null,
+      "derived_from": [],
+      "reason": "No eligible body statement supports the complete question."
+    },
+    {
+      "id": "GKN-0003",
+      "question": "What is current mayor of a city?",
+      "expected_id": null,
+      "expected_answer": null,
+      "kind": "not_in_corpus",
+      "correct_supported": false,
+      "quote": "",
+      "document_id": null,
+      "document_sha256": null,
+      "depth": null,
+      "origin": null,
+      "derived_from": [],
+      "reason": "No eligible body statement supports the complete question."
+    },
+    {
+      "id": "GKN-0004",
+      "question": "What is today's weather in the harbor?",
+      "expected_id": null,
+      "expected_answer": null,
+      "kind": "not_in_corpus",
+      "correct_supported": false,
+      "quote": "",
+      "document_id": null,
+      "document_sha256": null,
+      "depth": null,
+      "origin": null,
+      "derived_from": [],
+      "reason": "No eligible body statement supports the complete question."
+    },
+    {
+      "id": "GKN-0005",
+      "question": "What is unknown wordnet relation?",
+      "expected_id": null,
+      "expected_answer": null,
+      "kind": "not_in_corpus",
+      "correct_supported": false,
+      "quote": "",
+      "document_id": null,
+      "document_sha256": null,
+      "depth": null,
+      "origin": null,
+      "derived_from": [],
+      "reason": "No eligible body statement supports the complete question."
+    },
+    {
+      "id": "GKN-0006",
+      "question": "What is first ocean on mars?",
+      "expected_id": null,
+      "expected_answer": null,
+      "kind": "not_in_corpus",
+      "correct_supported": false,
+      "quote": "",
+      "document_id": null,
+      "document_sha256": null,
+      "depth": null,
+      "origin": null,
+      "derived_from": [],
+      "reason": "No eligible body statement supports the complete question."
+    },
+    {
+      "id": "GKN-0007",
+      "question": "What is unlisted si base unit?",
+      "expected_id": null,
+      "expected_answer": null,
+      "kind": "not_in_corpus",
+      "correct_supported": false,
+      "quote": "",
+      "document_id": null,
+      "document_sha256": null,
+      "depth": null,
+      "origin": null,
+      "derived_from": [],
+      "reason": "No eligible body statement supports the complete question."
+    },
+    {
+      "id": "GKN-0008",
+      "question": "What is unrecognized climate symbol?",
+      "expected_id": null,
+      "expected_answer": null,
+      "kind": "not_in_corpus",
+      "correct_supported": false,
+      "quote": "",
+      "document_id": null,
+      "document_sha256": null,
+      "depth": null,
+      "origin": null,
+      "derived_from": [],
+      "reason": "No eligible body statement supports the complete question."
+    },
+    {
+      "id": "GKN-0009",
+      "question": "What is a private library address?",
+      "expected_id": null,
+      "expected_answer": null,
+      "kind": "not_in_corpus",
+      "correct_supported": false,
+      "quote": "",
+      "document_id": null,
+      "document_sha256": null,
+      "depth": null,
+      "origin": null,
+      "derived_from": [],
+      "reason": "No eligible body statement supports the complete question."
+    },
+    {
+      "id": "GKN-0010",
+      "question": "What is the ninth si base quantity?",
+      "expected_id": null,
+      "expected_answer": null,
+      "kind": "not_in_corpus",
+      "correct_supported": false,
+      "quote": "",
+      "document_id": null,
+      "document_sha256": null,
+      "depth": null,
+      "origin": null,
+      "derived_from": [],
+      "reason": "No eligible body statement supports the complete question."
+    },
+    {
+      "id": "GKN-0011",
+      "question": "What is the next leap year after 2040?",
+      "expected_id": null,
+      "expected_answer": null,
+      "kind": "not_in_corpus",
+      "correct_supported": false,
+      "quote": "",
+      "document_id": null,
+      "document_sha256": null,
+      "depth": null,
+      "origin": null,
+      "derived_from": [],
+      "reason": "Question is outside the supported statement grammar."
+    },
+    {
+      "id": "GKN-0012",
+      "question": "What is current lunar mission status?",
+      "expected_id": null,
+      "expected_answer": null,
+      "kind": "not_in_corpus",
+      "correct_supported": false,
+      "quote": "",
+      "document_id": null,
+      "document_sha256": null,
+      "depth": null,
+      "origin": null,
+      "derived_from": [],
+      "reason": "No eligible body statement supports the complete question."
+    },
+    {
+      "id": "GKN-0013",
+      "question": "What is unverified adjective synonym?",
+      "expected_id": null,
+      "expected_answer": null,
+      "kind": "not_in_corpus",
+      "correct_supported": false,
+      "quote": "",
+      "document_id": null,
+      "document_sha256": null,
+      "depth": null,
+      "origin": null,
+      "derived_from": [],
+      "reason": "No eligible body statement supports the complete question."
+    },
+    {
+      "id": "GKN-0014",
+      "question": "What is the first person on pluto?",
+      "expected_id": null,
+      "expected_answer": null,
+      "kind": "not_in_corpus",
+      "correct_supported": false,
+      "quote": "",
+      "document_id": null,
+      "document_sha256": null,
+      "depth": null,
+      "origin": null,
+      "derived_from": [],
+      "reason": "No eligible body statement supports the complete question."
+    },
+    {
+      "id": "GKN-0015",
+      "question": "What is current air quality index?",
+      "expected_id": null,
+      "expected_answer": null,
+      "kind": "not_in_corpus",
+      "correct_supported": false,
+      "quote": "",
+      "document_id": null,
+      "document_sha256": null,
+      "depth": null,
+      "origin": null,
+      "derived_from": [],
+      "reason": "No eligible body statement supports the complete question."
+    },
+    {
+      "id": "GKN-0016",
+      "question": "What is speculative tenth amendment interpretation?",
+      "expected_id": null,
+      "expected_answer": null,
+      "kind": "not_in_corpus",
+      "correct_supported": false,
+      "quote": "",
+      "document_id": null,
+      "document_sha256": null,
+      "depth": null,
+      "origin": null,
+      "derived_from": [],
+      "reason": "No eligible body statement supports the complete question."
+    },
+    {
+      "id": "GKN-0017",
+      "question": "What is fictional declaration signer?",
+      "expected_id": null,
+      "expected_answer": null,
+      "kind": "not_in_corpus",
+      "correct_supported": false,
+      "quote": "",
+      "document_id": null,
+      "document_sha256": null,
+      "depth": null,
+      "origin": null,
+      "derived_from": [],
+      "reason": "No eligible body statement supports the complete question."
+    },
+    {
+      "id": "GKN-0018",
+      "question": "What is stated number of moons on venus?",
+      "expected_id": null,
+      "expected_answer": null,
+      "kind": "not_in_corpus",
+      "correct_supported": false,
+      "quote": "",
+      "document_id": null,
+      "document_sha256": null,
+      "depth": null,
+      "origin": null,
+      "derived_from": [],
+      "reason": "No eligible body statement supports the complete question."
+    },
+    {
+      "id": "GKN-0019",
+      "question": "What is unrecorded water cycle phase?",
+      "expected_id": null,
+      "expected_answer": null,
+      "kind": "not_in_corpus",
+      "correct_supported": false,
+      "quote": "",
+      "document_id": null,
+      "document_sha256": null,
+      "depth": null,
+      "origin": null,
+      "derived_from": [],
+      "reason": "No eligible body statement supports the complete question."
+    },
+    {
+      "id": "GKN-0020",
+      "question": "What is the first river in the solar system?",
+      "expected_id": null,
+      "expected_answer": null,
+      "kind": "not_in_corpus",
+      "correct_supported": false,
+      "quote": "",
+      "document_id": null,
+      "document_sha256": null,
+      "depth": null,
+      "origin": null,
+      "derived_from": [],
+      "reason": "No eligible body statement supports the complete question."
+    }
+  ]
+}
