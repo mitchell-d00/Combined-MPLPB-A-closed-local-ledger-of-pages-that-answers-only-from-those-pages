@@ -83,3 +83,7 @@ Feature guides can contain dated validation sections. Those sections report thei
 | Earlier docs and code | [Past documentation](past-documentation/README.md), [superseded papers](superseded/), [patch experiment](patch-canned/README.md), and [five retained implementations](../parts/README.md). |
 
 New code or documentation must not silently update frozen results, rewrite source seals/capture pins, or turn historical observations into current certification. Generated standalone HTML is a separate build artifact; check its footer and embedded bytes when verifying deployment.
+
+Source-language contradiction repair and per-case audit (2026-11-02): [language audit](../evaluation/language-audit/README.md). Finite predicate polarity and storage paraphrases; synthetic validation is not independent human accuracy.
+
+Latest procedure recovery and repository-owned handoff: [Procedure clarification, recovery and ZIP handoff](../evaluation/procedure-recovery/README.md).

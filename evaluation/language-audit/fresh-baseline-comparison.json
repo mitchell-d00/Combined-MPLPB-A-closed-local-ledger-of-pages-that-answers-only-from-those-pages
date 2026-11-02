@@ -1,0 +1,122 @@
+{
+  "code_sha256": {
+    "__init__.py": "d57d776eaaea962867814b5af3f0ac836fdd0c70ffbde910a801e6240697a095",
+    "__main__.py": "f793ef475c212f719511b9326501c41503f66252008376516db2646fe1485820",
+    "body_text.py": "0c02ba271796c6aafb985f3ef6ea95902086052cf030c471c226d1f6cbd79c44",
+    "evaluate.py": "8c6e4444d661f5a2982338a45673ff594ae4cc4a86d3ec6e0bce6b7f77c90969",
+    "evaluation.py": "4d58e13a85f6edb1443bf156baaa48b1cdf72ce38e5e16a0ce53d195ac395715",
+    "evidence_contract.py": "5fb4226e9407d3432cdbaa518b10af9a5d5dc7bef0036e204848fbda3a3ffbe5",
+    "frames.py": "82c23f7382f862d3b95960b017dda278022ccee1f1bc4e9b339bf7c45ba8dede",
+    "library.py": "7d1613c28f01453270c8a53bf0e3f015bf197dff25b43edc764802e1e1306e5b",
+    "literal_evidence.py": "d4308c1f5e01c3d698ef625991de2182bfeb72ebafa77a410d8e041941c09614",
+    "local_reader.py": "6e7a6702f8296b63dd8a2be292ef620c9e67ed6170770e1222cfee58e23ea815",
+    "operational_evidence.py": "ac4ac4c1b9df9f412323674083dbc1bdb83a6570b8576fde9969eddafd791580",
+    "passages.py": "fae27b547e0cd848ce8a720914eaede5cd371b7db3144a4a68141889569fe5ec",
+    "pipeline.py": "25af0fa7a0aafb8ade6836fd7a188e329de27664d355a703d8db2577bf545be7",
+    "policy_evidence.py": "90ae363e5b2b92c52ef24a9ff4d820821a76729f012831c51e27f3ad54492c35",
+    "practical_evidence.py": "c857a46cdfe12f026050edbce5172245d564cdf04d80aed32ebffb91261316d7",
+    "procedures.py": "d66b180651cc35df32a92e33f7df9ae5e031f2fba53ed769c2caddc37fa94523",
+    "relation_graph.py": "12eea882a619c468ff61adc406026dc93a1844f1ffa28a96297e8549a68f5ee1",
+    "support.py": "aa35b92ac97fc831739c69825386c148d6fef9bc640ebac9394d705992a733cd"
+  },
+  "passed": 6,
+  "total": 12,
+  "rows": [
+    {
+      "domain": "navigation",
+      "question": "Where should we keep astrolabe keys?",
+      "expected": "return",
+      "kind": "not_in_corpus",
+      "text": "",
+      "passed": false
+    },
+    {
+      "domain": "navigation",
+      "question": "Where should we keep astrolabe keys?",
+      "expected": "ambiguous",
+      "kind": "not_in_corpus",
+      "text": "",
+      "passed": false
+    },
+    {
+      "domain": "navigation",
+      "question": "Where should we keep astrolabe keys?",
+      "expected": "return",
+      "kind": "not_in_corpus",
+      "text": "",
+      "passed": false
+    },
+    {
+      "domain": "navigation",
+      "question": "Where should we keep astrolabe keys?",
+      "expected": "not_in_corpus",
+      "kind": "not_in_corpus",
+      "text": "",
+      "passed": true
+    },
+    {
+      "domain": "textiles",
+      "question": "What is the purpose of code LM6?",
+      "expected": "return",
+      "kind": "not_in_corpus",
+      "text": "",
+      "passed": false
+    },
+    {
+      "domain": "textiles",
+      "question": "What is the purpose of code LM6?",
+      "expected": "ambiguous",
+      "kind": "not_in_corpus",
+      "text": "",
+      "passed": false
+    },
+    {
+      "domain": "textiles",
+      "question": "What is code LM6 for?",
+      "expected": "not_in_corpus",
+      "kind": "not_in_corpus",
+      "text": "",
+      "passed": true
+    },
+    {
+      "domain": "textiles",
+      "question": "Where should we keep loom shuttles?",
+      "expected": "not_in_corpus",
+      "kind": "not_in_corpus",
+      "text": "",
+      "passed": true
+    },
+    {
+      "domain": "fictional logistics",
+      "question": "When is zorvex scheduled?",
+      "expected": "ambiguous",
+      "kind": "return",
+      "text": "Zorvex is scheduled for 2029-08-15.",
+      "passed": false
+    },
+    {
+      "domain": "fictional logistics",
+      "question": "When is zorvex scheduled?",
+      "expected": "return",
+      "kind": "return",
+      "text": "Zorvex is scheduled for 2029-08-15.",
+      "passed": true
+    },
+    {
+      "domain": "fictional logistics",
+      "question": "Where should they be stored?",
+      "expected": "not_in_corpus",
+      "kind": "not_in_corpus",
+      "text": "",
+      "passed": true
+    },
+    {
+      "domain": "fictional logistics",
+      "question": "Where should we store zorvex labels?",
+      "expected": "ambiguous",
+      "kind": "ambiguous",
+      "text": "",
+      "passed": true
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+name: Repository handoff
+on: [push, pull_request, workflow_dispatch]
+permissions:
+  contents: read
+jobs:
+  handoff:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Check committed handoff freshness
+        id: freshness
+        continue-on-error: true
+        run: python tools/build_handoff.py --check
+      - name: Rebuild from the latest recorded update instructions
+        run: |
+          python tools/build_handoff.py
+          python tools/build_handoff.py --check
+      - uses: actions/upload-artifact@v4
+        with:
+          name: repository-handoff-${{ github.sha }}
+          path: |
+            HANDOFF.md
+            AGENTS.md
+            handoff/update.json
+            handoff/manifest.json
+      - name: Require a current handoff in the committed repository
+        if: steps.freshness.outcome == 'failure'
+        run: |
+          echo 'The committed handoff was stale. Download the rebuilt artifact, update the latest instruction record if needed, and regenerate before committing.'
+          exit 1

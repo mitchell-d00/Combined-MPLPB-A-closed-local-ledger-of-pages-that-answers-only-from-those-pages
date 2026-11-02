@@ -1,0 +1,63 @@
+{
+  "baseline_revision": "ee8abe66c46c457e35791e882a1b1f0a62307bb3",
+  "tested_implementation_revision": "253843255cdf0105f7e449a0b43117fc69cf3fdb",
+  "tested_archive_sha256": "ceb9cae0a3b9d2c2aab681c60ca07bee8be0a79c87f80bc0dca29bfc63a98f02",
+  "final_engine_code_sha256": {
+    "__init__.py": "d57d776eaaea962867814b5af3f0ac836fdd0c70ffbde910a801e6240697a095",
+    "__main__.py": "f793ef475c212f719511b9326501c41503f66252008376516db2646fe1485820",
+    "assertions.py": "54a8a56e2e19bd3565098a3b66f28da590341405a454cf154319686ea0a51458",
+    "body_text.py": "0c02ba271796c6aafb985f3ef6ea95902086052cf030c471c226d1f6cbd79c44",
+    "evaluate.py": "8c6e4444d661f5a2982338a45673ff594ae4cc4a86d3ec6e0bce6b7f77c90969",
+    "evaluation.py": "4d58e13a85f6edb1443bf156baaa48b1cdf72ce38e5e16a0ce53d195ac395715",
+    "evidence_contract.py": "5fb4226e9407d3432cdbaa518b10af9a5d5dc7bef0036e204848fbda3a3ffbe5",
+    "frames.py": "82c23f7382f862d3b95960b017dda278022ccee1f1bc4e9b339bf7c45ba8dede",
+    "library.py": "7d1613c28f01453270c8a53bf0e3f015bf197dff25b43edc764802e1e1306e5b",
+    "literal_evidence.py": "4dff854bea0a7ae453be35ee016be2533d9ed0b08b98b7ee4a28d2f10b5983fa",
+    "local_reader.py": "6e7a6702f8296b63dd8a2be292ef620c9e67ed6170770e1222cfee58e23ea815",
+    "operational_evidence.py": "ac4ac4c1b9df9f412323674083dbc1bdb83a6570b8576fde9969eddafd791580",
+    "passages.py": "fae27b547e0cd848ce8a720914eaede5cd371b7db3144a4a68141889569fe5ec",
+    "pipeline.py": "25af0fa7a0aafb8ade6836fd7a188e329de27664d355a703d8db2577bf545be7",
+    "policy_evidence.py": "90ae363e5b2b92c52ef24a9ff4d820821a76729f012831c51e27f3ad54492c35",
+    "practical_evidence.py": "0ad115570d1a5c1f756f2931e331a083d6f9ca6f7512223b5160278f5cda33af",
+    "procedures.py": "d66b180651cc35df32a92e33f7df9ae5e031f2fba53ed769c2caddc37fa94523",
+    "relation_graph.py": "b6757451ecfd718063ffa0d5aa0104344cc0b9fdd9550a884407367032c435f1",
+    "support.py": "d5d39570ad777c424e9d7a5ff674d2b97b8fac6baff18ed4ca4ccb89e7e99825"
+  },
+  "baseline_code_pins_match_commit": true,
+  "archive_evaluation_code_matches_final_engine": true,
+  "candidate_browser_polarity": "passed; visible supported then ambiguous",
+  "candidate_browser_policies": "7 checks passed",
+  "actual_wasm": "passed including imported-source polarity conflict",
+  "fresh_synthetic": "12/12; model authored, frozen before evaluation",
+  "existing_diverse_smoke": "312/312 plus 24/24 metamorphic; development data",
+  "conversation_smoke": "78/78 authored expectations; not human validation",
+  "baseline_full_tests": "791 attempted; 9 socket errors and 3 pilot failures without socket permission; see baseline-test-log.txt",
+  "final_full_tests": "PASS: 810 tests, 856.951 seconds, extracted archive, network permission for local fixture servers",
+  "static_and_javascript": [
+    "infrastructure audit",
+    "UI script audit",
+    "browser transport",
+    "JavaScript API real-engine parity",
+    "crawler fixtures"
+  ],
+  "live_browser": "blocked: proxy TLS certificate rejected; no TLS bypass",
+  "deployed": false,
+  "required_github_checks": "not run; local archive checks do not assert GitHub check status",
+  "candidate_release_browser": "passed using installed Chromium; includes eight researcher journey checks, reload and preferences",
+  "legacy_parts": {
+    "smart-local": "52 passed",
+    "swarm": "145 passed",
+    "networked": "61 attempted: 60 pass, one sandbox socket error; both HTTP tests pass with network permission",
+    "image": "93 attempted: 89 pass, four sandbox socket errors; all four pass with network permission",
+    "adoption": "all five sites sealed and validated, zero errors"
+  },
+  "raw_source_archive": "/tmp/language-archive/source.zip",
+  "test_roots": {
+    "implementation": "/tmp/language-extracted",
+    "baseline_evaluation": "/workspace/ledger at baseline HEAD before changes",
+    "baseline_contradictions": "/tmp/language-original-code, exact original packages extracted with git archive"
+  },
+  "final_engine_pins_still_match_tested_archive": true,
+  "evidence_commit_scope": "Audit, API documentation, reports and reusable browser test tooling only; no engine changes after tested implementation commit",
+  "frozen_questions_checksums": "probes.json, probes_heldout.json, probes_adjacent.json: OK"
+}

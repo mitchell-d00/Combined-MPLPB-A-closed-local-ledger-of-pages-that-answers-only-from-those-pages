@@ -29,6 +29,8 @@ def cmd_ask(args):
     elif args.answer_mode == 'strict':
         label = {'return':'SUPPORTED ANSWER', 'ambiguous':'AMBIGUOUS', 'not_in_corpus':'NO SUPPORTED ANSWER'}[data['kind']]
         print(label+'\n'+(R.render(result.strict, why=args.why) if data['kind'] == result.strict.kind else data['reason']))
+        if result.contract['diagnostic']['code'] == 'partial_procedure_evidence':
+            print(result.contract['text'])
         if result.strict.kind != 'return':
             print('Diagnostic: '+result.contract['diagnostic']['code']+' — '+result.contract['diagnostic']['message'])
     else:

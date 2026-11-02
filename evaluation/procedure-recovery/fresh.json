@@ -1,0 +1,16 @@
+{
+  "role": "Frozen model-authored synthetic journeys; not independent human validation",
+  "journeys": [
+    {"id":"orient-vexon", "domain":"fictional astronomy", "action":"Align the violet vane.", "warning":"Stop if the vane binds."},
+    {"id":"bind-folio", "domain":"bookbinding", "action":"Place the sheets in the cedar frame.", "warning":"Do not tighten a torn sheet."},
+    {"id":"sort-nacre", "domain":"fictional inventory", "action":"Place the labels in the silver tray.", "warning":"Stop when the tray is full."}
+  ],
+  "turns": [
+    {"message":"How do I {words}?", "kind":"return"},
+    {"message":"show warnings", "kind":"clarify"},
+    {"message":"step 1", "kind":"return"},
+    {"message":"next step", "kind":"clarify"},
+    {"message":"inspect next step", "kind":"return"},
+    {"message":"No, I meant step 1", "kind":"return"}
+  ]
+}

@@ -616,7 +616,7 @@ def _current(ledger: Ledger, doc_id: str) -> Record:
 
 def revise(root, doc_id: str, *, title: Optional[str] = None, scope: Optional[str] = None,
            when_to_use: Optional[str] = None, not_for: Optional[str] = None,
-           body: Optional[str] = None,
+           body: Optional[str] = None, body_html: Optional[str] = None,
            origin: str = "human", owner: str = "", ratified_by: str = "",
            when: Optional[str] = None, note: str = "", new_id: Optional[str] = None,
            _event: str = "revise") -> Record:
@@ -624,8 +624,10 @@ def revise(root, doc_id: str, *, title: Optional[str] = None, scope: Optional[st
     root = Path(root)
     with ledger_lock(root):
         old = _current(Ledger(root), doc_id)
-        inner = None
-        if body is None:
+        if body is not None and body_html is not None:
+            raise ValueError('Supply body or body_html, not both')
+        inner = body_html
+        if body is None and body_html is None:
             inner = re.sub(r"^\s*<h1>.*?</h1>\s*", "", old.body_html, count=1, flags=re.S)
         return write(
             root, title=title if title is not None else old.title,

@@ -1,5 +1,6 @@
 """Named, isolated local MPLPB collections. No discovery or automatic fetching."""
 import hashlib
+import html
 import json
 import uuid
 from pathlib import Path
@@ -139,15 +140,18 @@ class ExplorationStore:
                     'source_sha256': hashlib.sha256(payload).hexdigest(),
                     'text_sha256': hashlib.sha256(text.encode()).hexdigest(), 'transport': transport,
                     'authorship': 'unknown', 'notice': 'Captured bytes, not verified truth or authorship. Pasted text is user-supplied, not a verified download.'}
+        from mplpb_answers.body_text import body_text, VERSION as projection_version
+        manifest['projection_version'] = projection_version
+        manifest['body_text_sha256'] = hashlib.sha256(body_text('<pre>'+html.escape(text.strip())+'</pre>').encode()).hexdigest()
         atomic_json(capture / 'manifest.json', manifest)
         body = text.strip() + '\n\nSource capture: ' + json.dumps(manifest, ensure_ascii=False)
         ledger = L.Ledger(base / 'pages')
         prefix = 'WEB-' + hashlib.sha256((url + '\0' + title.strip()).encode()).hexdigest()[:16]
         old = next((r for r in ledger.servable() if r.id.startswith(prefix + '-')), None)
         if old:
-            rec = L.revise(base / 'pages', old.id, body=body, origin='machine', owner='unknown')
+            rec = L.revise(base / 'pages', old.id, body_html='<pre>'+html.escape(body)+'</pre>', origin='machine', owner='unknown')
         else:
-            rec = L.write(base / 'pages', title=title.strip(), scope=title.strip(), body=body,
+            rec = L.write(base / 'pages', title=title.strip(), scope=title.strip(), body_html='<pre>'+html.escape(body)+'</pre>',
                           prefix=prefix, origin='machine', owner='unknown', source_authorship='unknown', external='no')
         entries = self.entries()
         entries[key].setdefault('captures', []).append({'id': capture.name, 'manifest_sha256': hashlib.sha256((capture / 'manifest.json').read_bytes()).hexdigest()})

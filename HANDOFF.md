@@ -1,0 +1,51 @@
+# Repository handoff
+
+Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
+
+Base commit: `f492cd40ec74d10da572310c9bc150ab86b6ed31` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `57b2d4927de3ba97993fc6acd374750e7f4d77a65ab30b15deefec3b302c5641`.
+
+## Latest user update instructions
+
+Just push it to main merge, you can do that right?
+
+This publishes the previously implemented source-bound language, procedure recovery and repository-owned handoff repair. Earlier authorization: Approved for all.
+
+## Implemented scope
+
+- Combine explicit source-authored procedure evidence, natural identifier wording, scoped clarification, step correction, inspection follow-ups, reload recovery and source revalidation.
+- Expose incomplete procedure records as cited partial source excerpts, never as complete supported plans; retain prerequisites, conditions, warnings and stop text.
+- Add AGENTS.md, a deterministic handoff builder/checker, packaging freshness gate and push/PR artifact workflow; include them in the full source ZIP.
+- Repair imported multiline procedure structure and add versioned canonical-body projection pins while preserving raw capture hashes, historical captures and normal source revision lineage.
+- Publish the tested repository through the connected GitHub integration and merge into main after applicable required checks; preserve the current remote baseline and all existing source/history artifacts.
+
+## Validation recorded
+
+- Tested implementation 45c859d245413933aac5a86053a1b05c35ec3241 from its committed, extracted source ZIP: 824 Python tests passed (972.067 seconds). See evaluation/procedure-recovery/full-tests.txt.
+- 18/18 frozen authored procedure journey turns, 9 actual Chromium procedure checks and 3 explicit CLI/JSON citation checks passed. These are synthetic/development checks, not independent human validation.
+- Real pinned Pyodide/WebAssembly, infrastructure/UI audits, JavaScript API and transport, crawler fixtures and extracted-source handoff checks passed.
+- All 154 existing evaluation decisions and returned texts remain unchanged. The existing 12-domain smoke passes 312/312 plus 24/24 metamorphic checks.
+- Final runtime engine files match the tested implementation; the final update adds validation records, handoff information and the corrected external browser fixture scope selection. See evaluation/procedure-recovery/validation.json for pins.
+- Packaging verifies the final archive and extracted handoff; the ZIP checksum and source commit are recorded in the external SHA256.json delivery manifest, avoiding a self-referential ZIP hash.
+- Remote main was fetched and checked at ee8abe66c46c457e35791e882a1b1f0a62307bb3 before publication. GitHub CI and merge/deployment status are pending; local tests are not substituted for those checks.
+
+## Limitations and blocked checks
+
+- Procedure language remains bounded to explicit body identifiers and complete linear source-authored constraints; arbitrary prose, aliases, branches and execution verification remain unsupported.
+- GitHub required checks and deployed-site verification are separate from local ZIP and candidate-browser testing.
+- Ask and CLI are stateless. Use full procedure/step requests there; pending selections and terse corrections are recovered in scoped Chat sessions.
+- Older flattened multiline captures are not rewritten or silently trusted. Explicit reimport creates a normal successor and preserves old captures.
+- The browser fixture initially failed due to the import defect, then an empty chat selection. Both failed runs are preserved and the corrected nine-check run passed.
+- The handoff is development coordination, not source-ledger evidence. The Actions workflow rebuilds a handoff artifact but never invents new user instructions or commits changes automatically.
+
+## Next steps
+
+- Inspect the pull request checks at the actual published candidate SHA; resolve failures without bypassing required checks, then merge into main.
+- Verify the main commit and Pages workflow after merge; do not claim a deployed application from a source merge alone.
+- For future updates, record the latest user instruction, actual validation and limits in this file, stage intended source, rebuild/check the handoff and include it with the update.
+
+## Use this ZIP in your repository
+
+Extract the full ZIP, including dotfiles, into a clean directory. Review its files and run `python tools/build_handoff.py --check`. Copy the source into your existing checkout while preserving its `.git` directory and personal saves. Review the diff, commit on a branch, and push normally. Do not replace your Git history with a new repository. The included Actions workflows then run their configured checks; a local ZIP is not deployment verification.
+
+For the next change, update `handoff/update.json` from the latest instruction, stage intended files, run `python tools/build_handoff.py`, verify with `--check`, and include the generated handoff in the delivery.

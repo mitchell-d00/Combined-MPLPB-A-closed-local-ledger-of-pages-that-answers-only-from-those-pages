@@ -1,0 +1,163 @@
+Executing <Task finished name='Task-5' coro=<BrowserBridgeTests.test_automatic_lookup_can_be_disabled_and_failure_preserves_chain() done, defined at /workspace/ledger/tests/test_browser_bridge.py:102> result=None created at /opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/asyncio/runners.py:100> took 20.669 seconds
+Executing <Task finished name='Task-10' coro=<BrowserBridgeTests.test_automatic_topic_lookup_captures_wiki_and_preserves_mode() done, defined at /workspace/ledger/tests/test_browser_bridge.py:80> result=None created at /opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/asyncio/runners.py:100> took 24.727 seconds
+Executing <Task finished name='Task-30' coro=<BrowserBridgeTests.test_exhausted_local_text_expands_once_without_skipping_new_source() done, defined at /workspace/ledger/tests/test_browser_bridge.py:114> result=None created at /opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/asyncio/runners.py:100> took 1.710 seconds
+Executing <Task finished name='Task-45' coro=<BrowserBridgeTests.test_import_retains_revision_pins_and_conflict_stops() done, defined at /workspace/ledger/tests/test_browser_bridge.py:225> result=None created at /opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/asyncio/runners.py:100> took 0.154 seconds
+Executing <Task finished name='Task-60' coro=<BrowserBridgeTests.test_old_browser_capture_reopens_without_rewriting_and_rejects_damage() done, defined at /workspace/ledger/tests/test_browser_bridge.py:259> result=None created at /opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/asyncio/runners.py:100> took 0.133 seconds
+Executing <Task finished name='Task-80' coro=<BrowserBridgeTests.test_search_crawls_wiki_builds_and_preserves_previous_session() done, defined at /workspace/ledger/tests/test_browser_bridge.py:56> result=None created at /opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/asyncio/runners.py:100> took 0.438 seconds
+wrote /tmp/mplpb-k243p0fc/corpus/output/index.html
+Executing <Task finished name='Task-121' coro=<LiveAcquisitionRegressionTests.test_dictionary_stays_local_with_enabled_wiki_for_prefixed_apple() done, defined at /workspace/ledger/tests/test_live_acquisition.py:11> result=None created at /opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/asyncio/runners.py:100> took 12.450 seconds
+Executing <Task finished name='Task-126' coro=<LiveAcquisitionRegressionTests.test_failed_automatic_lookup_backs_off_without_changing_evidence() done, defined at /workspace/ledger/tests/test_live_acquisition.py:36> result=None created at /opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/asyncio/runners.py:100> took 10.413 seconds
+======================================================================
+ERROR: setUpClass (tests.test_ledger_ui.LedgerUITests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/ledger/tests/test_ledger_ui.py", line 16, in setUpClass
+    cls.server = ThreadingHTTPServer(('127.0.0.1', 0), handler(App(topic_base=cls.topic_temp.name)))
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/socketserver.py", line 453, in __init__
+    self.socket = socket.socket(self.address_family,
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/socket.py", line 233, in __init__
+    _socket.socket.__init__(self, family, type, proto, fileno)
+PermissionError: [Errno 1] Operation not permitted
+
+======================================================================
+ERROR: test_actual_adapter_is_wired_through_the_whole_query_pipeline (tests.test_local_reader.LocalReaderTests.test_actual_adapter_is_wired_through_the_whole_query_pipeline)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/ledger/tests/test_local_reader.py", line 43, in setUp
+    self.server=ThreadingHTTPServer(('127.0.0.1',0),Handler)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/socketserver.py", line 453, in __init__
+    self.socket = socket.socket(self.address_family,
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/socket.py", line 233, in __init__
+    _socket.socket.__init__(self, family, type, proto, fileno)
+PermissionError: [Errno 1] Operation not permitted
+
+======================================================================
+ERROR: test_duplicate_json_fields_and_nan_are_rejected (tests.test_local_reader.LocalReaderTests.test_duplicate_json_fields_and_nan_are_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/ledger/tests/test_local_reader.py", line 43, in setUp
+    self.server=ThreadingHTTPServer(('127.0.0.1',0),Handler)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/socketserver.py", line 453, in __init__
+    self.socket = socket.socket(self.address_family,
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/socket.py", line 233, in __init__
+    _socket.socket.__init__(self, family, type, proto, fileno)
+PermissionError: [Errno 1] Operation not permitted
+
+======================================================================
+ERROR: test_loopback_only_no_dns_paths_credentials_or_cloud_aliases (tests.test_local_reader.LocalReaderTests.test_loopback_only_no_dns_paths_credentials_or_cloud_aliases)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/ledger/tests/test_local_reader.py", line 43, in setUp
+    self.server=ThreadingHTTPServer(('127.0.0.1',0),Handler)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/socketserver.py", line 453, in __init__
+    self.socket = socket.socket(self.address_family,
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/socket.py", line 233, in __init__
+    _socket.socket.__init__(self, family, type, proto, fileno)
+PermissionError: [Errno 1] Operation not permitted
+
+======================================================================
+ERROR: test_no_calls_at_construction_and_explicit_pinned_metadata (tests.test_local_reader.LocalReaderTests.test_no_calls_at_construction_and_explicit_pinned_metadata)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/ledger/tests/test_local_reader.py", line 43, in setUp
+    self.server=ThreadingHTTPServer(('127.0.0.1',0),Handler)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/socketserver.py", line 453, in __init__
+    self.socket = socket.socket(self.address_family,
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/socket.py", line 233, in __init__
+    _socket.socket.__init__(self, family, type, proto, fileno)
+PermissionError: [Errno 1] Operation not permitted
+
+======================================================================
+ERROR: test_redirect_remote_model_and_changed_digest_fail_before_source_request (tests.test_local_reader.LocalReaderTests.test_redirect_remote_model_and_changed_digest_fail_before_source_request)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/ledger/tests/test_local_reader.py", line 43, in setUp
+    self.server=ThreadingHTTPServer(('127.0.0.1',0),Handler)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/socketserver.py", line 453, in __init__
+    self.socket = socket.socket(self.address_family,
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/socket.py", line 233, in __init__
+    _socket.socket.__init__(self, family, type, proto, fileno)
+PermissionError: [Errno 1] Operation not permitted
+
+======================================================================
+ERROR: test_same_model_cannot_silently_override_a_required_digest (tests.test_local_reader.LocalReaderTests.test_same_model_cannot_silently_override_a_required_digest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/ledger/tests/test_local_reader.py", line 43, in setUp
+    self.server=ThreadingHTTPServer(('127.0.0.1',0),Handler)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/socketserver.py", line 453, in __init__
+    self.socket = socket.socket(self.address_family,
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/socket.py", line 233, in __init__
+    _socket.socket.__init__(self, family, type, proto, fileno)
+PermissionError: [Errno 1] Operation not permitted
+
+======================================================================
+ERROR: test_truncated_or_tool_output_is_rejected (tests.test_local_reader.LocalReaderTests.test_truncated_or_tool_output_is_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/ledger/tests/test_local_reader.py", line 43, in setUp
+    self.server=ThreadingHTTPServer(('127.0.0.1',0),Handler)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/socketserver.py", line 453, in __init__
+    self.socket = socket.socket(self.address_family,
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/socket.py", line 233, in __init__
+    _socket.socket.__init__(self, family, type, proto, fileno)
+PermissionError: [Errno 1] Operation not permitted
+
+======================================================================
+ERROR: test_local_http_rpc_requires_bearer_and_excludes_host_operations (tests.test_specialist_continuity.ContinuityTests.test_local_http_rpc_requires_bearer_and_excludes_host_operations)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/ledger/tests/test_specialist_continuity.py", line 462, in test_local_http_rpc_requires_bearer_and_excludes_host_operations
+    server = ThreadingHTTPServer(('127.0.0.1', 0), handler(app))
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/socketserver.py", line 453, in __init__
+    self.socket = socket.socket(self.address_family,
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/socket.py", line 233, in __init__
+    _socket.socket.__init__(self, family, type, proto, fileno)
+PermissionError: [Errno 1] Operation not permitted
+
+======================================================================
+FAIL: test_broken_journey_stays_in_denominator_and_others_continue (tests.test_researcher_pilot.ResearcherPilotTests.test_broken_journey_stays_in_denominator_and_others_continue)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/ledger/tests/test_researcher_pilot.py", line 84, in test_broken_journey_stays_in_denominator_and_others_continue
+    self.assertEqual(report['summary']['workflow_passes'], 5)
+AssertionError: 0 != 5
+
+======================================================================
+FAIL: test_retrieval_success_and_safe_refusal_do_not_hide_coverage_gap (tests.test_researcher_pilot.ResearcherPilotTests.test_retrieval_success_and_safe_refusal_do_not_hide_coverage_gap)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/ledger/tests/test_researcher_pilot.py", line 34, in test_retrieval_success_and_safe_refusal_do_not_hide_coverage_gap
+    self.assertEqual(s['retrieval_gold_recall'], 1.0)
+AssertionError: 0.0 != 1.0
+
+======================================================================
+FAIL: test_six_complete_real_application_journeys (tests.test_researcher_pilot.ResearcherPilotTests.test_six_complete_real_application_journeys)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/ledger/tests/test_researcher_pilot.py", line 22, in test_six_complete_real_application_journeys
+    self.assertEqual(summary['workflow_passes'], 6)
+AssertionError: 0 != 6
+
+----------------------------------------------------------------------
+Ran 791 tests in 968.313s
+
+FAILED (failures=3, errors=9)

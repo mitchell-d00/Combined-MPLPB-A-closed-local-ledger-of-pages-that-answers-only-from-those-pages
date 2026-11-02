@@ -59,7 +59,7 @@ def statement_support(frame, record):
     if frame.relation == 'cone_material':
         pattern = (r'(?P<value>[a-z]+(?: [a-z]+){0,3}), bag code [a-z]{1,5}, matures at cone '
                    + re.escape(frame.entity) + r' and shrinks ' + NUMBER + r' percent')
-    spans, negative = [], []
+    spans, negative, negative_spans = [], [], []
     for sentence in re.split(r'(?<=[.!?])\s+|\n+', text):
         raw = sentence.strip()
         line = normalize(raw)
@@ -75,7 +75,8 @@ def statement_support(frame, record):
         m = re.fullmatch(pattern, denied) if denied != line else None
         if m:
             negative.append(m['value'])
+            negative_spans.append({'quote': raw, 'value': m['value']})
     values = {s['value'] for s in spans}
-    status = 'conflict' if len(values) > 1 or (spans and negative) else 'supported' if spans else 'unsupported'
-    return {'status': status, 'spans': spans, 'negative_values': negative,
+    status = 'conflict' if len(values) > 1 or (values.intersection(negative)) else 'supported' if spans else 'unsupported'
+    return {'status': status, 'spans': spans, 'negative_values': negative, 'negative_spans': negative_spans,
             'reason': 'Verbatim practical relation under a finite grammar; instructions are source declarations, not verified execution or general advice.'}

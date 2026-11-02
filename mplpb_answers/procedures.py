@@ -5,16 +5,26 @@ from mplpb_combined.record import text_of
 from mplpb_combined.ledger import Ledger
 from mplpb_combined.provenance_gate import gather
 
-VERSION = 'procedure-constraints-v1'
+VERSION = 'procedure-constraints-v2'
 MARKER = 'MPLPB-PROCEDURE/1 '
 
 
 def request(question):
     q = question.strip().rstrip('?.!')
     m = re.fullmatch(r'(?:show )?procedure ([A-Za-z0-9_-]{1,80})', q, re.I)
-    if m: return {'procedure': m[1].casefold(), 'step': None}
+    if m: return {'procedure': m[1].casefold(), 'step': None, 'original': question}
     m = re.fullmatch(r'(?:show )?step ([1-9][0-9]{0,2}) of procedure ([A-Za-z0-9_-]{1,80})', q, re.I)
-    if m: return {'procedure': m[2].casefold(), 'step': int(m[1])}
+    if m: return {'procedure': m[2].casefold(), 'step': int(m[1]), 'original': question}
+    # Natural wording maps only to the explicit body identifier, with spaces
+    # corresponding to hyphens. No stemming, alias guessing or title evidence.
+    m = re.fullmatch(r'(?:how (?:do|should) (?:i|we)|show me the steps (?:for|to)|what are the steps (?:for|to)) ([A-Za-z0-9_-]+(?: [A-Za-z0-9_-]+){0,9})', q, re.I)
+    if m:
+        ident = m[1].casefold().replace(' ', '-')
+        if len(ident) <= 80:
+            return {'procedure': ident, 'step': None, 'original': question,
+                    'interpretation': 'explicit_identifier_words', 'execution_requested': False}
+    if q.casefold() in {'show procedures', 'show me a procedure', 'which procedures are available', 'show me the procedure'}:
+        return {'procedure': None, 'step': None, 'original': question}
     return None
 
 
@@ -59,24 +69,32 @@ def validate(doc):
 def check(root, query, profile=None):
     """Re-read eligible bytes on every call, retaining all matching sources."""
     matches, errors = [], []
-    gate = gather(root, 'MPLPB PROCEDURE '+query['procedure'], profile)
+    identified = False
+    gate = gather(root, query.get('original') or 'MPLPB PROCEDURE '+(query['procedure'] or ''), profile)
+    catalog, partial = [], []
     records = {r.path:r for r in Ledger(root).servable()}
     for source in gate.sources:
+        if source['path'] not in records: continue
         rec = records[source['path']]
-        body=text_of(rec.body_html)
+        from .relation_graph import _capture_evidence_text
+        body = _capture_evidence_text(rec)
+        if re.search(r'(?im)^\s*(?:imagine|suppose|pretend|ignore)\b', body):
+            continue
         blocks=[(line.strip(),'json') for line in body.splitlines() if line.strip().startswith(MARKER)]
         lines=body.splitlines()
         starts=[i for i,line in enumerate(lines) if re.fullmatch(r'Procedure: [A-Za-z0-9_-]{1,80}',line.strip())]
         for position,start in enumerate(starts):
             end=starts[position+1] if position+1<len(starts) else len(lines)
             block='\n'.join(lines[start:end]).strip()
-            if lines[start].strip()[11:].casefold()!=query['procedure']: continue
+            block_id = lines[start].strip()[11:].casefold()
+            if query['procedure'] is not None and block_id != query['procedure']: continue
+            identified = True
             content='\n'.join(lines[start+1:end])
             recognized=all(not line.strip() or re.fullmatch(r'\s*(?:[1-9][0-9]{0,2}[.)] .+|(?:Prerequisites|Conditions|Warnings): .+)',line) for line in lines[start+1:end])
             draft=automatic_tags(content,{'id':rec.id,'path':rec.path,'hash':rec.hash})
             if not recognized:
                 errors.append('Unrecognized procedure construction in '+rec.id); continue
-            doc={'id':query['procedure'],'steps':[{k:step[k] for k in ('order','action','prerequisites','conditions','warnings')} for step in draft['steps']]}
+            doc={'id':block_id,'steps':[{k:step[k] for k in ('order','action','prerequisites','conditions','warnings')} for step in draft['steps']]}
             blocks.append((block,doc))
         for raw, format_spec in blocks:
             if len(raw)>256000:
@@ -85,27 +103,52 @@ def check(root, query, profile=None):
                 doc = json.loads(raw[len(MARKER):], object_pairs_hook=_pairs) if format_spec=='json' else format_spec
             except (ValueError, TypeError, RecursionError):
                 errors.append('Malformed procedure block in '+rec.id); continue
-            if not isinstance(doc, dict) or str(doc.get('id','')).casefold() != query['procedure']: continue
+            if not isinstance(doc, dict): continue
+            ident = str(doc.get('id','')).casefold()
+            if query['procedure'] is not None and ident != query['procedure']: continue
+            identified = True
             gaps = validate(doc)
-            if gaps: errors.extend(rec.id+': '+g for g in gaps); continue
+            if gaps and isinstance(doc.get('steps'),list):
+                for n, step in enumerate(doc['steps'],1):
+                    if isinstance(step,dict):
+                        gaps.extend(f'Step {n} needs an explicit {field} list.' for field in ('prerequisites','conditions','warnings') if not isinstance(step.get(field),list))
+                gaps = list(dict.fromkeys(gaps))
+            if gaps:
+                errors.extend(rec.id+': '+g for g in gaps)
+                # This is only a source excerpt, never a validated plan. Unknown
+                # constraints stay unknown; user declarations cannot fill them.
+                if re.fullmatch(r'[a-z0-9_-]{1,80}', ident) and isinstance(doc.get('steps'), list) and doc['steps']:
+                    partial.append({'id': rec.id, 'path': rec.path, 'hash': rec.hash,
+                                    'quote': raw, 'procedure': ident, 'gaps': gaps})
+                continue
+            catalog.append(ident)
             pin = {'id':rec.id,'path':rec.path,'hash':rec.hash,'quote':raw,
                    'format':'json' if format_spec=='json' else 'explicit-numbered-lines'}
             tags = [dict(s, source=dict(pin, pointer='/steps/'+str(i))) for i,s in enumerate(doc['steps'])]
-            matches.append((rec, tags))
+            matches.append((rec, tags, ident))
     result = {'version':VERSION,'status':'unsupported','procedure':query['procedure'],
               'requested_step':query['step'],'steps':[],'gaps':errors,
-              'context_is_evidence':False,'execution_verified':False}
-    if len(matches)>1:
+              'context_is_evidence':False,'execution_verified':False,
+              'partial_sources':partial, 'choices':sorted(set(catalog)), 'identified':identified}
+    if query['procedure'] is None and len(set(catalog)) > 1:
+        result.update(clarification='Which procedure would you like to inspect? '+', '.join(sorted(set(catalog))),
+                      gaps=['Select one explicit procedure identifier.'])
+    elif len(matches)>1:
         result.update(status='conflict',gaps=['Multiple eligible definitions; no procedure chosen.'])
     elif errors: pass
     elif not matches: result['gaps']=['No eligible source-authored procedure tags for this identifier.']
     else:
-        rec, tags = matches[0]
+        rec, tags, ident = matches[0]
+        result['procedure'] = ident
         if query['step'] is not None and query['step'] > len(tags):
             result['gaps']=['Required step '+str(query['step'])+' is missing. No continuation invented.']
         else:
             result.update(status='supported',steps=tags,source={'id':rec.id,'path':rec.path,'hash':rec.hash})
             return result, rec
+    if partial and not matches and len(partial) == 1:
+        result['partial'] = True
+    if query['procedure'] is None and not matches and not partial:
+        result['clarification'] = 'Which procedure would you like to inspect? No complete source-authored procedure is available in this scope.'
     return result, None
 
 
@@ -156,3 +199,13 @@ def automatic_tags(text, source):
     return {'version':VERSION,'status':'draft_unvalidated','steps':steps,
             'gaps':gaps,
             'eligible_for_generation':False,'context_is_evidence':False}
+
+
+def render_partial(result):
+    """Quote incomplete evidence without turning it into a supported procedure."""
+    return ('The source records part of this procedure, but I cannot establish a complete plan. '
+            'These are source excerpts, not instructions confirmed ready to execute.\n\n'
+            + '\n\n'.join(s['quote'] for s in result['partial_sources'])
+            + '\n\nMissing or invalid source constraints: ' + ' '.join(result['gaps'])
+            + '\nA clarification can select a procedure or step; it cannot supply missing source evidence. '
+              'An authorized source revision is needed to complete the record.')

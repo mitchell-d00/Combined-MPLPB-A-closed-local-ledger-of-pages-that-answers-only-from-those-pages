@@ -14,7 +14,7 @@ from .body_text import body_text
 from .frames import normalize
 from .literal_evidence import LiteralRequest
 
-VERSION = 'source-relation-graph-v1'
+VERSION = 'source-relation-graph-v2'
 WORD = r'[a-z][a-z0-9-]*'
 PHRASE = rf'{WORD}(?: {WORD}){{0,7}}'
 CODE = r'[a-z0-9-]{1,12}'
@@ -39,7 +39,8 @@ QUERY_FORMS = (
     ('due_date', rf'when is (?P<entity>{PHRASE}) due'),
     ('recorded_status', rf'(?:what is the status of|what status is recorded for) (?P<entity>{PHRASE})'),
     ('storage_rule', rf'where (?:do|should) (?:i|we) (?:store|keep) (?P<entity>{PHRASE})'),
-    ('storage_rule', rf'where should (?P<entity>{PHRASE}) be stored'),
+    ('storage_rule', rf'where should (?P<entity>{PHRASE}) be (?:stored|kept)'),
+    ('code_purpose', rf'what is (?:the )?purpose of (?:bag )?code (?P<entity>{CODE})'),
     ('responsibility', rf'who has responsibility for (?P<entity>{PHRASE})'),
     ('due_date', rf'what is the due date for (?P<entity>{PHRASE})'),
     ('due_date', rf'what date is (?P<entity>{PHRASE}) due'),
@@ -91,7 +92,7 @@ def _evidence(frame, line):
     if (frame.relation in {'storage_rule', 'responsibility', 'due_date',
                            'recorded_status', 'location', 'contents',
                            'scheduled_date'}
-            and re.search(r'\b(?:if|unless|except|provided|until|whenever)\b',
+            and re.search(r'\b(?:if|when|unless|except|provided|until|whenever|before|after|during|formerly|currently)\b',
                           line)):
         return None
     if frame.relation == 'alternative_context':
@@ -116,6 +117,8 @@ def _evidence(frame, line):
     elif frame.relation == 'storage_rule':
         entity = re.escape(frame.entity)
         match = re.fullmatch(rf'(?:store|keep) (?:the )?{entity} in (?P<value>{PHRASE})', line)
+        if not match:
+            match = re.fullmatch(rf'(?:the )?{entity} (?:should|must) be (?:stored|kept) in (?P<value>{PHRASE})', line)
         if match:
             return match['value'], ''
     elif frame.relation == 'responsibility':
@@ -237,7 +240,8 @@ def _graph(frame, record, spans):
     for i, span in enumerate(spans):
         fact, value, condition = f'fact:{i}', f'value:{i}', f'qualifier:{i}'
         nodes.extend([
-            {'id': fact, 'kind': 'statement', 'quote': span['quote']},
+            {'id': fact, 'kind': 'statement', 'quote': span['quote'],
+             'polarity': span.get('polarity', 'positive')},
             {'id': value, 'kind': 'value', 'text': span['value']},
         ])
         edges.extend([
@@ -284,7 +288,13 @@ def _capture_evidence_text(record):
             isinstance(manifest.get(key), str) and manifest[key]
             for key in ('source_url', 'source_sha256', 'text_sha256', 'transport')):
         return ''
-    if hashlib.sha256(body.encode('utf-8')).hexdigest() != manifest['text_sha256']:
+    expected = manifest['text_sha256']
+    if 'projection_version' in manifest:
+        from .body_text import VERSION as projection_version
+        if manifest['projection_version'] != projection_version or not isinstance(manifest.get('body_text_sha256'),str):
+            return ''
+        expected = manifest['body_text_sha256']
+    if hashlib.sha256(body.encode('utf-8')).hexdigest() != expected:
         # Refuse on a body projection that no longer matches captured text.
         return ''
     return body
@@ -297,14 +307,29 @@ def statement_support(frame, record):
             text, re.I):
         return {'status': 'unsupported', 'spans': [],
                 'reason': 'Hypothetical, reported or inherited source context.'}
-    spans = []
+    spans, negative_spans = [], []
+    unresolved = False
+    unresolved_spans = []
     for raw in re.split(r'(?<=[.!?])\s+|\n+', text):
         raw = raw.strip()
         if not raw:
             continue
         line = normalize(raw)
-        found = _evidence(frame, line)
+        # Only predicate negation, in a complete licensed sentence, is inverted
+        # for recognition. The original negative quote remains the evidence.
+        # Prefix conditions/time/quotation are never removed to make a match.
+        positive_line = re.sub(r'(^|, )(?:do not|never) (store|keep) ', r'\1\2 ', line)
+        positive_line = re.sub(r'\b(is|are|was|were|should|must) not\b', r'\1', positive_line)
+        positive_line = re.sub(r'\bdoes not contain\b', 'contains', positive_line)
+        is_negative = positive_line != line
+        found = _evidence(frame, positive_line)
         if not found:
+            # A scoped denial cannot establish an unconditional contradiction,
+            # but its applicability cannot silently be assumed false either.
+            scoped = re.fullmatch(r'(?:(?:if|when|unless) [^,]+|in \d{4}), (.+)', positive_line)
+            if is_negative and scoped and _evidence(frame, scoped[1]):
+                unresolved = True
+                unresolved_spans.append({'quote': raw, 'reason': 'Denial applicability requires context.'})
             continue
         value, qualification = found
         if frame.relation in {'due_date', 'scheduled_date'}:
@@ -316,14 +341,19 @@ def statement_support(frame, record):
                 r'\b(?:unknown|not|never|perhaps|maybe|probably|reportedly)\b',
                 value):
             continue
-        spans.append({'quote': raw, 'value': value,
-                      'qualification': qualification})
+        (negative_spans if is_negative else spans).append({'quote': raw, 'value': value,
+                      'qualification': qualification,
+                      'polarity': 'negative' if is_negative else 'positive'})
     # Different qualifications are different assertions, even if the numeric
     # quantities agree: never let an unconditional claim erase a condition.
     keys = {(s['value'], s['qualification']) for s in spans}
-    status = 'conflict' if len(keys) > 1 else 'supported' if spans else 'unsupported'
+    negative_keys = {(s['value'], s['qualification']) for s in negative_spans}
+    status = 'conflict' if len(keys) > 1 or keys & negative_keys else 'supported' if spans else 'unsupported'
     result = {
-        'status': status, 'spans': spans, 'graph': _graph(frame, record, spans),
+        'status': status, 'spans': spans, 'negative_spans': negative_spans,
+        'unresolved': unresolved, 'unresolved_spans': unresolved_spans,
+        'graph': _graph(frame, record, spans + negative_spans),
         'reason': 'Exact source-declared relation path; source truth and procedure execution not verified.',
     }
-    return result
+    from .assertions import attach
+    return attach(result, frame, record)

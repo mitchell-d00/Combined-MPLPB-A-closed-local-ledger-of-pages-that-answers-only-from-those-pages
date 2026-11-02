@@ -1,0 +1,21 @@
+{
+  "schema": "mplpb-browser-collection-policy-check-v1",
+  "checks_passed": [
+    "import_grows_collection_not_engine",
+    "ui_policy_answer_and_citation_inspection",
+    "revision_changes_answer_and_invalidates_old_citation",
+    "indexeddb_resume_and_offline_current_answer",
+    "acquisition_requires_permission",
+    "permitted_fixture_acquisition_builds_answerable_source",
+    "competing_policy_is_not_ranked_away"
+  ],
+  "runtime": "actual Chromium and embedded Pyodide",
+  "network": "Wikipedia HTTP fixture, not a live acquisition claim",
+  "fixture_source_requests": 1,
+  "unexpected_browser_errors": [],
+  "browser_version": "154.0.8037.57",
+  "human_validation": false,
+  "full_portable_backup_supported": false,
+  "runtime_html_sha256": "24052ecda8bf07c636c80aece325f5119b73f47d862fa597aaa56e9eccc4e1c9",
+  "runner_sha256": "4e531920255e8d71f27ec2af79390fdb0ea8fe29480af5a6d5802b644e803c4a"
+}

@@ -1,0 +1,4778 @@
+{
+  "role": "Frozen model-authored synthetic journeys; not independent human validation",
+  "fixture_sha256": "1cde37a8bb675b65afa506b92dda4a2a931b68ff911178981f5a3b378721e0dc",
+  "code_sha256": {
+    "__init__.py": "d57d776eaaea962867814b5af3f0ac836fdd0c70ffbde910a801e6240697a095",
+    "__main__.py": "aa3daa9e8a92ff198985326fa9e6b6369870b7dbbdca7c973265ef1ff4b40a54",
+    "assertions.py": "54a8a56e2e19bd3565098a3b66f28da590341405a454cf154319686ea0a51458",
+    "body_text.py": "0c02ba271796c6aafb985f3ef6ea95902086052cf030c471c226d1f6cbd79c44",
+    "evaluate.py": "8c6e4444d661f5a2982338a45673ff594ae4cc4a86d3ec6e0bce6b7f77c90969",
+    "evaluation.py": "4d58e13a85f6edb1443bf156baaa48b1cdf72ce38e5e16a0ce53d195ac395715",
+    "evidence_contract.py": "5fb4226e9407d3432cdbaa518b10af9a5d5dc7bef0036e204848fbda3a3ffbe5",
+    "frames.py": "82c23f7382f862d3b95960b017dda278022ccee1f1bc4e9b339bf7c45ba8dede",
+    "library.py": "7d1613c28f01453270c8a53bf0e3f015bf197dff25b43edc764802e1e1306e5b",
+    "literal_evidence.py": "4dff854bea0a7ae453be35ee016be2533d9ed0b08b98b7ee4a28d2f10b5983fa",
+    "local_reader.py": "6e7a6702f8296b63dd8a2be292ef620c9e67ed6170770e1222cfee58e23ea815",
+    "operational_evidence.py": "ac4ac4c1b9df9f412323674083dbc1bdb83a6570b8576fde9969eddafd791580",
+    "passages.py": "fae27b547e0cd848ce8a720914eaede5cd371b7db3144a4a68141889569fe5ec",
+    "pipeline.py": "8deeca428ee79dccb6808969f2f23aa9955f65b779f7e5c1988b24840ff752d6",
+    "policy_evidence.py": "90ae363e5b2b92c52ef24a9ff4d820821a76729f012831c51e27f3ad54492c35",
+    "practical_evidence.py": "0ad115570d1a5c1f756f2931e331a083d6f9ca6f7512223b5160278f5cda33af",
+    "procedures.py": "90cc6108617b3e56e578039f793581687bb2862e448421d5e5c7f088d2dfac37",
+    "relation_graph.py": "f63ac01659f6f6bfb69ff97bf6b4f8ad024efaf7a209d0b2be0702aceba6d541",
+    "support.py": "67821fc2399616dfbc10c52a440b3de5f6220a82aec44be595b60fd19b96f9ff"
+  },
+  "passed": 18,
+  "total": 18,
+  "rows": [
+    {
+      "domain": "fictional astronomy",
+      "message": "How do I orient vexon?",
+      "passed": true,
+      "response": {
+        "kind": "return",
+        "message": "Source-declared procedure orient-vexon. This describes instructions; completion and real-world conditions are not verified.\nStep 1: Align the violet vane.\nPrerequisite steps: none declared\nConditions: Use only dry material.\nWarnings: Stop if the vane binds.\nSource: FRESH-001 sha256:e1cc3264899b52e7c5511ae7632158d216d19b23fe4a32be431dd679e61db74c /steps/0\nStep 2: Close the cover.\nPrerequisite steps: 1\nConditions: Only after alignment.\nWarnings: Stop if the cover binds.\nSource: FRESH-001 sha256:e1cc3264899b52e7c5511ae7632158d216d19b23fe4a32be431dd679e61db74c /steps/1",
+        "context": null,
+        "sources": [
+          {
+            "id": "FRESH-001",
+            "path": "fresh-001.html",
+            "hash": "sha256:e1cc3264899b52e7c5511ae7632158d216d19b23fe4a32be431dd679e61db74c",
+            "corpus": "custom"
+          }
+        ],
+        "authority": "source_assertion",
+        "procedure_request": {
+          "procedure": "orient-vexon",
+          "step": null,
+          "original": "How do I orient vexon?",
+          "interpretation": "explicit_identifier_words",
+          "execution_requested": false
+        },
+        "response_structure": {
+          "intent": "procedural",
+          "mplpb_supported": true,
+          "factual_claims": true
+        },
+        "procedure_checks": [
+          {
+            "version": "procedure-constraints-v2",
+            "status": "supported",
+            "procedure": "orient-vexon",
+            "requested_step": null,
+            "steps": [
+              {
+                "order": 1,
+                "action": "Align the violet vane.",
+                "prerequisites": [],
+                "conditions": [
+                  "Use only dry material."
+                ],
+                "warnings": [
+                  "Stop if the vane binds."
+                ],
+                "source": {
+                  "id": "FRESH-001",
+                  "path": "fresh-001.html",
+                  "hash": "sha256:e1cc3264899b52e7c5511ae7632158d216d19b23fe4a32be431dd679e61db74c",
+                  "quote": "MPLPB-PROCEDURE/1 {\"id\": \"orient-vexon\", \"steps\": [{\"order\": 1, \"action\": \"Align the violet vane.\", \"prerequisites\": [], \"conditions\": [\"Use only dry material.\"], \"warnings\": [\"Stop if the vane binds.\"]}, {\"order\": 2, \"action\": \"Close the cover.\", \"prerequisites\": [1], \"conditions\": [\"Only after alignment.\"], \"warnings\": [\"Stop if the cover binds.\"]}]}",
+                  "format": "json",
+                  "pointer": "/steps/0"
+                }
+              },
+              {
+                "order": 2,
+                "action": "Close the cover.",
+                "prerequisites": [
+                  1
+                ],
+                "conditions": [
+                  "Only after alignment."
+                ],
+                "warnings": [
+                  "Stop if the cover binds."
+                ],
+                "source": {
+                  "id": "FRESH-001",
+                  "path": "fresh-001.html",
+                  "hash": "sha256:e1cc3264899b52e7c5511ae7632158d216d19b23fe4a32be431dd679e61db74c",
+                  "quote": "MPLPB-PROCEDURE/1 {\"id\": \"orient-vexon\", \"steps\": [{\"order\": 1, \"action\": \"Align the violet vane.\", \"prerequisites\": [], \"conditions\": [\"Use only dry material.\"], \"warnings\": [\"Stop if the vane binds.\"]}, {\"order\": 2, \"action\": \"Close the cover.\", \"prerequisites\": [1], \"conditions\": [\"Only after alignment.\"], \"warnings\": [\"Stop if the cover binds.\"]}]}",
+                  "format": "json",
+                  "pointer": "/steps/1"
+                }
+              }
+            ],
+            "gaps": [],
+            "context_is_evidence": false,
+            "execution_verified": false,
+            "partial_sources": [],
+            "choices": [
+              "orient-vexon"
+            ],
+            "identified": true,
+            "source": {
+              "id": "FRESH-001",
+              "path": "fresh-001.html",
+              "hash": "sha256:e1cc3264899b52e7c5511ae7632158d216d19b23fe4a32be431dd679e61db74c"
+            },
+            "corpus": "custom"
+          }
+        ],
+        "procedure": {
+          "version": "procedure-constraints-v2",
+          "status": "supported",
+          "procedure": "orient-vexon",
+          "requested_step": null,
+          "steps": [
+            {
+              "order": 1,
+              "action": "Align the violet vane.",
+              "prerequisites": [],
+              "conditions": [
+                "Use only dry material."
+              ],
+              "warnings": [
+                "Stop if the vane binds."
+              ],
+              "source": {
+                "id": "FRESH-001",
+                "path": "fresh-001.html",
+                "hash": "sha256:e1cc3264899b52e7c5511ae7632158d216d19b23fe4a32be431dd679e61db74c",
+                "quote": "MPLPB-PROCEDURE/1 {\"id\": \"orient-vexon\", \"steps\": [{\"order\": 1, \"action\": \"Align the violet vane.\", \"prerequisites\": [], \"conditions\": [\"Use only dry material.\"], \"warnings\": [\"Stop if the vane binds.\"]}, {\"order\": 2, \"action\": \"Close the cover.\", \"prerequisites\": [1], \"conditions\": [\"Only after alignment.\"], \"warnings\": [\"Stop if the cover binds.\"]}]}",
+                "format": "json",
+                "pointer": "/steps/0"
+              }
+            },
+            {
+              "order": 2,
+              "action": "Close the cover.",
+              "prerequisites": [
+                1
+              ],
+              "conditions": [
+                "Only after alignment."
+              ],
+              "warnings": [
+                "Stop if the cover binds."
+              ],
+              "source": {
+                "id": "FRESH-001",
+                "path": "fresh-001.html",
+                "hash": "sha256:e1cc3264899b52e7c5511ae7632158d216d19b23fe4a32be431dd679e61db74c",
+                "quote": "MPLPB-PROCEDURE/1 {\"id\": \"orient-vexon\", \"steps\": [{\"order\": 1, \"action\": \"Align the violet vane.\", \"prerequisites\": [], \"conditions\": [\"Use only dry material.\"], \"warnings\": [\"Stop if the vane binds.\"]}, {\"order\": 2, \"action\": \"Close the cover.\", \"prerequisites\": [1], \"conditions\": [\"Only after alignment.\"], \"warnings\": [\"Stop if the cover binds.\"]}]}",
+                "format": "json",
+                "pointer": "/steps/1"
+              }
+            }
+          ],
+          "gaps": [],
+          "context_is_evidence": false,
+          "execution_verified": false,
+          "partial_sources": [],
+          "choices": [
+            "orient-vexon"
+          ],
+          "identified": true,
+          "source": {
+            "id": "FRESH-001",
+            "path": "fresh-001.html",
+            "hash": "sha256:e1cc3264899b52e7c5511ae7632158d216d19b23fe4a32be431dd679e61db74c"
+          }
+        },
+        "source_corpus": "custom",
+        "determination": {
+          "rule": "REDUCE-DETERMINE",
+          "version": "reduction-to-determination-v2",
+          "mode": "focus",
+          "outcome": "unique",
+          "retained": [
+            "response"
+          ],
+          "eliminated": [],
+          "selected": "response",
+          "basis": "source_assertion",
+          "selection_order": "candidate ID; saved turn offset for equivalent wording",
+          "elimination_creates_evidence": false
+        },
+        "suggestions": [
+          "what is it?",
+          "summarize it",
+          "show source",
+          "show my MPLPB"
+        ],
+        "language_plan": {
+          "version": "language-planner-v1",
+          "canonical": "How do I orient vexon?",
+          "actions": [
+            "question"
+          ],
+          "subject": null,
+          "audience": null,
+          "reference": null,
+          "negation_present": false,
+          "imagined": false,
+          "question_word": "How",
+          "normalization_is_evidence": false,
+          "realization_rules": [
+            "preserve_validated_payload"
+          ],
+          "response_act": "procedural",
+          "acquisition": {
+            "query": null,
+            "order": [
+              "eligible_local_pages",
+              "enabled_remote_capture"
+            ],
+            "search_snippets_are_evidence": false,
+            "automatic_network_requires_setting": true
+          },
+          "payload_sha256": "89950d541daf83e66ba0e83952b020f647e98de92404e71a3f2ca31c0548f393",
+          "surface_changed": false,
+          "source_paraphrasing": false,
+          "rules_are_not_evidence": true
+        },
+        "support_label": "Source-declared procedure \u00b7 execution unverified",
+        "guidance": {
+          "title": "Explore these sources",
+          "hint": "Choose a follow-up, or type your own. Each answer still needs supporting text.",
+          "actions": [
+            {
+              "label": "what is it?",
+              "request": "what is it?",
+              "mode": "send"
+            },
+            {
+              "label": "Ask a question",
+              "request": "",
+              "mode": "draft"
+            },
+            {
+              "label": "Choose another topic",
+              "request": "Tell me about ",
+              "mode": "draft"
+            }
+          ]
+        },
+        "interpretation": {
+          "version": "conversation-continuity-v2",
+          "original": "How do I orient vexon?",
+          "resolved": "How do I orient vexon?",
+          "acts": [
+            {
+              "type": "unresolved",
+              "text": "How do I orient vexon"
+            }
+          ],
+          "subject": null,
+          "correction": false,
+          "reference": null,
+          "original_acts": [
+            {
+              "type": "unresolved",
+              "text": "How do I orient vexon"
+            }
+          ]
+        },
+        "reply_plan": {
+          "subplans": {},
+          "sources": [
+            {
+              "id": "FRESH-001",
+              "path": "fresh-001.html",
+              "hash": "sha256:e1cc3264899b52e7c5511ae7632158d216d19b23fe4a32be431dd679e61db74c",
+              "corpus": "custom"
+            }
+          ]
+        },
+        "realization": {
+          "message": "Source-declared procedure orient-vexon. This describes instructions; completion and real-world conditions are not verified.\nStep 1: Align the violet vane.\nPrerequisite steps: none declared\nConditions: Use only dry material.\nWarnings: Stop if the vane binds.\nSource: FRESH-001 sha256:e1cc3264899b52e7c5511ae7632158d216d19b23fe4a32be431dd679e61db74c /steps/0\nStep 2: Close the cover.\nPrerequisite steps: 1\nConditions: Only after alignment.\nWarnings: Stop if the cover binds.\nSource: FRESH-001 sha256:e1cc3264899b52e7c5511ae7632158d216d19b23fe4a32be431dd679e61db74c /steps/1",
+          "authority": "source_assertion",
+          "sources": [
+            {
+              "id": "FRESH-001",
+              "path": "fresh-001.html",
+              "hash": "sha256:e1cc3264899b52e7c5511ae7632158d216d19b23fe4a32be431dd679e61db74c",
+              "corpus": "custom"
+            }
+          ],
+          "claim_units": [],
+          "scope_results": [],
+          "chat_is_evidence": false
+        },
+        "response_validation": {
+          "version": "final-response-validation-v1",
+          "status": "checked",
+          "checks": [
+            "fresh procedure tags and exact constrained rendering"
+          ],
+          "context_is_evidence": false,
+          "source_presence_is_support": false,
+          "errors": []
+        },
+        "question_frame": {
+          "rule": "question-frames-v2",
+          "original": "How do I orient vexon?",
+          "canonical": "How do I orient vexon?",
+          "kind": "question",
+          "subject": null,
+          "normalization_is_evidence": false,
+          "support_frame": null
+        }
+      }
+    },
+    {
+      "domain": "fictional astronomy",
+      "message": "show warnings",
+      "passed": true,
+      "response": {
+        "kind": "clarify",
+        "message": "Which step would you like to inspect? You can say \u201cstep 1\u201d.",
+        "context": null,
+        "sources": [],
+        "authority": "unsupported",
+        "procedure_request": {
+          "procedure": "orient-vexon",
+          "step": 0,
+          "corpus": "custom",
+          "profile": "internal",
+          "source": {
+            "id": "FRESH-001",
+            "path": "fresh-001.html",
+            "hash": "sha256:e1cc3264899b52e7c5511ae7632158d216d19b23fe4a32be431dd679e61db74c"
+          }
+        },
+        "response_structure": {
+          "intent": "procedural",
+          "mplpb_supported": false,
+          "factual_claims": false
+        },
+        "determination": {
+          "rule": "REDUCE-DETERMINE",
+          "version": "reduction-to-determination-v2",
+          "mode": "chat",
+          "outcome": "unique",
+          "retained": [
+            "response"
+          ],
+          "eliminated": [],
+          "selected": "response",
+          "basis": "uncertainty",
+          "selection_order": "candidate ID; saved turn offset for equivalent wording",
+          "elimination_creates_evidence": false
+        },
+        "suggestions": [
+          "show my MPLPB",
+          "why did you refuse?",
+          "guide me"
+        ],
+        "language_plan": {
+          "version": "language-planner-v1",
+          "canonical": "show warnings",
+          "actions": [
+            "conversation_or_command"
+          ],
+          "subject": null,
+          "audience": null,
+          "reference": null,
+          "negation_present": false,
+          "imagined": false,
+          "question_word": "",
+          "normalization_is_evidence": false,
+          "realization_rules": [
+            "preserve_validated_payload"
+          ],
+          "response_act": "procedural",
+          "acquisition": {
+            "query": null,
+            "order": [
+              "eligible_local_pages",
+              "enabled_remote_capture"
+            ],
+            "search_snippets_are_evidence": false,
+            "automatic_network_requires_setting": true
+          },
+          "payload_sha256": "29995964f318aadd06e4d6ea733320a91646811775fc419a83b25205cd933563",
+          "surface_changed": false,
+          "source_paraphrasing": false,
+          "rules_are_not_evidence": true
+        },
+        "support_label": "Needs clarification",
+        "guidance": {
+          "title": "Choose what you mean",
+          "hint": "Choose one of the offered meanings, or write a more specific request.",
+          "actions": [
+            {
+              "label": "show my MPLPB",
+              "request": "show my MPLPB",
+              "mode": "send"
+            },
+            {
+              "label": "why did you refuse?",
+              "request": "why did you refuse?",
+              "mode": "send"
+            },
+            {
+              "label": "guide me",
+              "request": "guide me",
+              "mode": "send"
+            },
+            {
+              "label": "Clarify my question",
+              "request": "",
+              "mode": "draft"
+            }
+          ]
+        },
+        "interpretation": {
+          "version": "conversation-continuity-v2",
+          "original": "show warnings",
+          "resolved": "show warnings",
+          "acts": [
+            {
+              "type": "unresolved",
+              "text": "show warnings"
+            }
+          ],
+          "subject": null,
+          "correction": false,
+          "reference": null,
+          "original_acts": [
+            {
+              "type": "unresolved",
+              "text": "show warnings"
+            }
+          ]
+        },
+        "reply_plan": {
+          "subplans": {},
+          "sources": []
+        },
+        "realization": {
+          "message": "Which step would you like to inspect? You can say \u201cstep 1\u201d.",
+          "authority": "unsupported",
+          "sources": [],
+          "claim_units": [],
+          "scope_results": [],
+          "chat_is_evidence": false
+        },
+        "response_validation": {
+          "version": "final-response-validation-v1",
+          "status": "checked",
+          "checks": [
+            "existing non-answer/reference contract; current local pins checked"
+          ],
+          "context_is_evidence": false,
+          "source_presence_is_support": false,
+          "errors": []
+        },
+        "question_frame": {
+          "rule": "question-frames-v2",
+          "original": "show warnings",
+          "canonical": "show warnings",
+          "kind": "conversation_or_command",
+          "subject": null,
+          "normalization_is_evidence": false,
+          "support_frame": null
+        }
+      }
+    },
+    {
+      "domain": "fictional astronomy",
+      "message": "step 1",
+      "passed": true,
+      "response": {
+        "kind": "return",
+        "message": "Source-declared procedure orient-vexon. This describes instructions; completion and real-world conditions are not verified.\nStep 1: Align the violet vane.\nPrerequisite steps: none declared\nConditions: Use only dry material.\nWarnings: Stop if the vane binds.\nSource: FRESH-001 sha256:e1cc3264899b52e7c5511ae7632158d216d19b23fe4a32be431dd679e61db74c /steps/0",
+        "context": null,
+        "sources": [
+          {
+            "id": "FRESH-001",
+            "path": "fresh-001.html",
+            "hash": "sha256:e1cc3264899b52e7c5511ae7632158d216d19b23fe4a32be431dd679e61db74c",
+            "corpus": "custom"
+          }
+        ],
+        "authority": "source_assertion",
+        "procedure_request": {
+          "procedure": "orient-vexon",
+          "step": 1
+        },
+        "response_structure": {
+          "intent": "procedural",
+          "mplpb_supported": true,
+          "factual_claims": true
+        },
+        "procedure_checks": [
+          {
+            "version": "procedure-constraints-v2",
+            "status": "supported",
+            "procedure": "orient-vexon",
+            "requested_step": 1,
+            "steps": [
+              {
+                "order": 1,
+                "action": "Align the violet vane.",
+                "prerequisites": [],
+                "conditions": [
+                  "Use only dry material."
+                ],
+                "warnings": [
+                  "Stop if the vane binds."
+                ],
+                "source": {
+                  "id": "FRESH-001",
+                  "path": "fresh-001.html",
+                  "hash": "sha256:e1cc3264899b52e7c5511ae7632158d216d19b23fe4a32be431dd679e61db74c",
+                  "quote": "MPLPB-PROCEDURE/1 {\"id\": \"orient-vexon\", \"steps\": [{\"order\": 1, \"action\": \"Align the violet vane.\", \"prerequisites\": [], \"conditions\": [\"Use only dry material.\"], \"warnings\": [\"Stop if the vane binds.\"]}, {\"order\": 2, \"action\": \"Close the cover.\", \"prerequisites\": [1], \"conditions\": [\"Only after alignment.\"], \"warnings\": [\"Stop if the cover binds.\"]}]}",
+                  "format": "json",
+                  "pointer": "/steps/0"
+                }
+              },
+              {
+                "order": 2,
+                "action": "Close the cover.",
+                "prerequisites": [
+                  1
+                ],
+                "conditions": [
+                  "Only after alignment."
+                ],
+                "warnings": [
+                  "Stop if the cover binds."
+                ],
+                "source": {
+                  "id": "FRESH-001",
+                  "path": "fresh-001.html",
+                  "hash": "sha256:e1cc3264899b52e7c5511ae7632158d216d19b23fe4a32be431dd679e61db74c",
+                  "quote": "MPLPB-PROCEDURE/1 {\"id\": \"orient-vexon\", \"steps\": [{\"order\": 1, \"action\": \"Align the violet vane.\", \"prerequisites\": [], \"conditions\": [\"Use only dry material.\"], \"warnings\": [\"Stop if the vane binds.\"]}, {\"order\": 2, \"action\": \"Close the cover.\", \"prerequisites\": [1], \"conditions\": [\"Only after alignment.\"], \"warnings\": [\"Stop if the cover binds.\"]}]}",
+                  "format": "json",
+                  "pointer": "/steps/1"
+                }
+              }
+            ],
+            "gaps": [],
+            "context_is_evidence": false,
+            "execution_verified": false,
+            "partial_sources": [],
+            "choices": [
+              "orient-vexon"
+            ],
+            "identified": true,
+            "source": {
+              "id": "FRESH-001",
+              "path": "fresh-001.html",
+              "hash": "sha256:e1cc3264899b52e7c5511ae7632158d216d19b23fe4a32be431dd679e61db74c"
+            },
+            "corpus": "custom"
+          }
+        ],
+        "procedure": {
+          "version": "procedure-constraints-v2",
+          "status": "supported",
+          "procedure": "orient-vexon",
+          "requested_step": 1,
+          "steps": [
+            {
+              "order": 1,
+              "action": "Align the violet vane.",
+              "prerequisites": [],
+              "conditions": [
+                "Use only dry material."
+              ],
+              "warnings": [
+                "Stop if the vane binds."
+              ],
+              "source": {
+                "id": "FRESH-001",
+                "path": "fresh-001.html",
+                "hash": "sha256:e1cc3264899b52e7c5511ae7632158d216d19b23fe4a32be431dd679e61db74c",
+                "quote": "MPLPB-PROCEDURE/1 {\"id\": \"orient-vexon\", \"steps\": [{\"order\": 1, \"action\": \"Align the violet vane.\", \"prerequisites\": [], \"conditions\": [\"Use only dry material.\"], \"warnings\": [\"Stop if the vane binds.\"]}, {\"order\": 2, \"action\": \"Close the cover.\", \"prerequisites\": [1], \"conditions\": [\"Only after alignment.\"], \"warnings\": [\"Stop if the cover binds.\"]}]}",
+                "format": "json",
+                "pointer": "/steps/0"
+              }
+            },
+            {
+              "order": 2,
+              "action": "Close the cover.",
+              "prerequisites": [
+                1
+              ],
+              "conditions": [
+                "Only after alignment."
+              ],
+              "warnings": [
+                "Stop if the cover binds."
+              ],
+              "source": {
+                "id": "FRESH-001",
+                "path": "fresh-001.html",
+                "hash": "sha256:e1cc3264899b52e7c5511ae7632158d216d19b23fe4a32be431dd679e61db74c",
+                "quote": "MPLPB-PROCEDURE/1 {\"id\": \"orient-vexon\", \"steps\": [{\"order\": 1, \"action\": \"Align the violet vane.\", \"prerequisites\": [], \"conditions\": [\"Use only dry material.\"], \"warnings\": [\"Stop if the vane binds.\"]}, {\"order\": 2, \"action\": \"Close the cover.\", \"prerequisites\": [1], \"conditions\": [\"Only after alignment.\"], \"warnings\": [\"Stop if the cover binds.\"]}]}",
+                "format": "json",
+                "pointer": "/steps/1"
+              }
+            }
+          ],
+          "gaps": [],
+          "context_is_evidence": false,
+          "execution_verified": false,
+          "partial_sources": [],
+          "choices": [
+            "orient-vexon"
+          ],
+          "identified": true,
+          "source": {
+            "id": "FRESH-001",
+            "path": "fresh-001.html",
+            "hash": "sha256:e1cc3264899b52e7c5511ae7632158d216d19b23fe4a32be431dd679e61db74c"
+          }
+        },
+        "source_corpus": "custom",
+        "requested_constraint": "warnings",
+        "determination": {
+          "rule": "REDUCE-DETERMINE",
+          "version": "reduction-to-determination-v2",
+          "mode": "focus",
+          "outcome": "unique",
+          "retained": [
+            "response"
+          ],
+          "eliminated": [],
+          "selected": "response",
+          "basis": "source_assertion",
+          "selection_order": "candidate ID; saved turn offset for equivalent wording",
+          "elimination_creates_evidence": false
+        },
+        "suggestions": [
+          "what is it?",
+          "summarize it",
+          "show source",
+          "show my MPLPB"
+        ],
+        "language_plan": {
+          "version": "language-planner-v1",
+          "canonical": "step 1",
+          "actions": [
+            "conversation_or_command"
+          ],
+          "subject": null,
+          "audience": null,
+          "reference": null,
+          "negation_present": false,
+          "imagined": false,
+          "question_word": "",
+          "normalization_is_evidence": false,
+          "realization_rules": [
+            "preserve_validated_payload"
+          ],
+          "response_act": "procedural",
+          "acquisition": {
+            "query": null,
+            "order": [
+              "eligible_local_pages",
+              "enabled_remote_capture"
+            ],
+            "search_snippets_are_evidence": false,
+            "automatic_network_requires_setting": true
+          },
+          "payload_sha256": "5aab6f3aca40bc17cbd750ff7068a958643fd5c191a3e1eb34941a4d4b6de4b2",
+          "surface_changed": false,
+          "source_paraphrasing": false,
+          "rules_are_not_evidence": true
+        },
+        "support_label": "Source-declared procedure \u00b7 execution unverified",
+        "guidance": {
+          "title": "Explore these sources",
+          "hint": "Choose a follow-up, or type your own. Each answer still needs supporting text.",
+          "actions": [
+            {
+              "label": "what is it?",
+              "request": "what is it?",
+              "mode": "send"
+            },
+            {
+              "label": "Ask a question",
+              "request": "",
+              "mode": "draft"
+            },
+            {
+              "label": "Choose another topic",
+              "request": "Tell me about ",
+              "mode": "draft"
+            }
+          ]
+        },
+        "interpretation": {
+          "version": "conversation-continuity-v2",
+          "original": "step 1",
+          "resolved": "step 1",
+          "acts": [
+            {
+              "type": "unresolved",
+              "text": "step 1"
+            }
+          ],
+          "subject": null,
+          "correction": false,
+          "reference": null,
+          "original_acts": [
+            {
+              "type": "unresolved",
+              "text": "step 1"
+            }
+          ]
+        },
+        "reply_plan": {
+          "subplans": {},
+          "sources": [
+            {
+              "id": "FRESH-001",
+              "path": "fresh-001.html",
+              "hash": "sha256:e1cc3264899b52e7c5511ae7632158d216d19b23fe4a32be431dd679e61db74c",
+              "corpus": "custom"
+            }
+          ]
+        },
+        "realization": {
+          "message": "Source-declared procedure orient-vexon. This describes instructions; completion and real-world conditions are not verified.\nStep 1: Align the violet vane.\nPrerequisite steps: none declared\nConditions: Use only dry material.\nWarnings: Stop if the vane binds.\nSource: FRESH-001 sha256:e1cc3264899b52e7c5511ae7632158d216d19b23fe4a32be431dd679e61db74c /steps/0",
+          "authority": "source_assertion",
+          "sources": [
+            {
+              "id": "FRESH-001",
+              "path": "fresh-001.html",
+              "hash": "sha256:e1cc3264899b52e7c5511ae7632158d216d19b23fe4a32be431dd679e61db74c",
+              "corpus": "custom"
+            }
+          ],
+          "claim_units": [],
+          "scope_results": [],
+          "chat_is_evidence": false
+        },
+        "response_validation": {
+          "version": "final-response-validation-v1",
+          "status": "checked",
+          "checks": [
+            "fresh procedure tags and exact constrained rendering"
+          ],
+          "context_is_evidence": false,
+          "source_presence_is_support": false,
+          "errors": []
+        },
+        "question_frame": {
+          "rule": "question-frames-v2",
+          "original": "step 1",
+          "canonical": "step 1",
+          "kind": "conversation_or_command",
+          "subject": null,
+          "normalization_is_evidence": false,
+          "support_frame": null
+        }
+      }
+    },
+    {
+      "domain": "fictional astronomy",
+      "message": "next step",
+      "passed": true,
+      "response": {
+        "kind": "clarify",
+        "message": "Step 2 requires verification of prerequisite steps 1. Showing an earlier step does not prove completion. To read the next instruction without claiming completion, say \u201cinspect next step\u201d.",
+        "context": null,
+        "sources": [
+          {
+            "id": "FRESH-001",
+            "path": "fresh-001.html",
+            "hash": "sha256:e1cc3264899b52e7c5511ae7632158d216d19b23fe4a32be431dd679e61db74c",
+            "corpus": "custom"
+          }
+        ],
+        "authority": "unsupported",
+        "procedure_request": {
+          "procedure": "orient-vexon",
+          "step": 2
+        },
+        "response_structure": {
+          "intent": "procedural",
+          "mplpb_supported": false,
+          "factual_claims": false
+        },
+        "procedure_checks": [
+          {
+            "version": "procedure-constraints-v2",
+            "status": "supported",
+            "procedure": "orient-vexon",
+            "requested_step": 2,
+            "steps": [
+              {
+                "order": 1,
+                "action": "Align the violet vane.",
+                "prerequisites": [],
+                "conditions": [
+                  "Use only dry material."
+                ],
+                "warnings": [
+                  "Stop if the vane binds."
+                ],
+                "source": {
+                  "id": "FRESH-001",
+                  "path": "fresh-001.html",
+                  "hash": "sha256:e1cc3264899b52e7c5511ae7632158d216d19b23fe4a32be431dd679e61db74c",
+                  "quote": "MPLPB-PROCEDURE/1 {\"id\": \"orient-vexon\", \"steps\": [{\"order\": 1, \"action\": \"Align the violet vane.\", \"prerequisites\": [], \"conditions\": [\"Use only dry material.\"], \"warnings\": [\"Stop if the vane binds.\"]}, {\"order\": 2, \"action\": \"Close the cover.\", \"prerequisites\": [1], \"conditions\": [\"Only after alignment.\"], \"warnings\": [\"Stop if the cover binds.\"]}]}",
+                  "format": "json",
+                  "pointer": "/steps/0"
+                }
+              },
+              {
+                "order": 2,
+                "action": "Close the cover.",
+                "prerequisites": [
+                  1
+                ],
+                "conditions": [
+                  "Only after alignment."
+                ],
+                "warnings": [
+                  "Stop if the cover binds."
+                ],
+                "source": {
+                  "id": "FRESH-001",
+                  "path": "fresh-001.html",
+                  "hash": "sha256:e1cc3264899b52e7c5511ae7632158d216d19b23fe4a32be431dd679e61db74c",
+                  "quote": "MPLPB-PROCEDURE/1 {\"id\": \"orient-vexon\", \"steps\": [{\"order\": 1, \"action\": \"Align the violet vane.\", \"prerequisites\": [], \"conditions\": [\"Use only dry material.\"], \"warnings\": [\"Stop if the vane binds.\"]}, {\"order\": 2, \"action\": \"Close the cover.\", \"prerequisites\": [1], \"conditions\": [\"Only after alignment.\"], \"warnings\": [\"Stop if the cover binds.\"]}]}",
+                  "format": "json",
+                  "pointer": "/steps/1"
+                }
+              }
+            ],
+            "gaps": [],
+            "context_is_evidence": false,
+            "execution_verified": false,
+            "partial_sources": [],
+            "choices": [
+              "orient-vexon"
+            ],
+            "identified": true,
+            "source": {
+              "id": "FRESH-001",
+              "path": "fresh-001.html",
+              "hash": "sha256:e1cc3264899b52e7c5511ae7632158d216d19b23fe4a32be431dd679e61db74c"
+            },
+            "corpus": "custom"
+          }
+        ],
+        "procedure_constraints": {
+          "order": 2,
+          "action": "Close the cover.",
+          "prerequisites": [
+            1
+          ],
+          "conditions": [
+            "Only after alignment."
+          ],
+          "warnings": [
+            "Stop if the cover binds."
+          ],
+          "source": {
+            "id": "FRESH-001",
+            "path": "fresh-001.html",
+            "hash": "sha256:e1cc3264899b52e7c5511ae7632158d216d19b23fe4a32be431dd679e61db74c",
+            "quote": "MPLPB-PROCEDURE/1 {\"id\": \"orient-vexon\", \"steps\": [{\"order\": 1, \"action\": \"Align the violet vane.\", \"prerequisites\": [], \"conditions\": [\"Use only dry material.\"], \"warnings\": [\"Stop if the vane binds.\"]}, {\"order\": 2, \"action\": \"Close the cover.\", \"prerequisites\": [1], \"conditions\": [\"Only after alignment.\"], \"warnings\": [\"Stop if the cover binds.\"]}]}",
+            "format": "json",
+            "pointer": "/steps/1"
+          }
+        },
+        "determination": {
+          "rule": "REDUCE-DETERMINE",
+          "version": "reduction-to-determination-v2",
+          "mode": "chat",
+          "outcome": "unique",
+          "retained": [
+            "response"
+          ],
+          "eliminated": [],
+          "selected": "response",
+          "basis": "uncertainty",
+          "selection_order": "candidate ID; saved turn offset for equivalent wording",
+          "elimination_creates_evidence": false
+        },
+        "suggestions": [
+          "show my MPLPB",
+          "why did you refuse?",
+          "guide me"
+        ],
+        "language_plan": {
+          "version": "language-planner-v1",
+          "canonical": "next step",
+          "actions": [
+            "conversation_or_command"
+          ],
+          "subject": null,
+          "audience": null,
+          "reference": null,
+          "negation_present": false,
+          "imagined": false,
+          "question_word": "",
+          "normalization_is_evidence": false,
+          "realization_rules": [
+            "preserve_validated_payload"
+          ],
+          "response_act": "procedural",
+          "acquisition": {
+            "query": null,
+            "order": [
+              "eligible_local_pages",
+              "enabled_remote_capture"
+            ],
+            "search_snippets_are_evidence": false,
+            "automatic_network_requires_setting": true
+          },
+          "payload_sha256": "684e1b040ae0a7dfdfb4cd2dc861e53323a219a7ad18745972c688a04e11e0ab",
+          "surface_changed": false,
+          "source_paraphrasing": false,
+          "rules_are_not_evidence": true
+        },
+        "support_label": "Needs clarification",
+        "guidance": {
+          "title": "Choose what you mean",
+          "hint": "Choose one of the offered meanings, or write a more specific request.",
+          "actions": [
+            {
+              "label": "show my MPLPB",
+              "request": "show my MPLPB",
+              "mode": "send"
+            },
+            {
+              "label": "why did you refuse?",
+              "request": "why did you refuse?",
+              "mode": "send"
+            },
+            {
+              "label": "guide me",
+              "request": "guide me",
+              "mode": "send"
+            },
+            {
+              "label": "Clarify my question",
+              "request": "",
+              "mode": "draft"
+            }
+          ]
+        },
+        "interpretation": {
+          "version": "conversation-continuity-v2",
+          "original": "next step",
+          "resolved": "next step",
+          "acts": [
+            {
+              "type": "unresolved",
+              "text": "next step"
+            }
+          ],
+          "subject": null,
+          "correction": false,
+          "reference": null,
+          "original_acts": [
+            {
+              "type": "unresolved",
+              "text": "next step"
+            }
+          ]
+        },
+        "reply_plan": {
+          "subplans": {},
+          "sources": [
+            {
+              "id": "FRESH-001",
+              "path": "fresh-001.html",
+              "hash": "sha256:e1cc3264899b52e7c5511ae7632158d216d19b23fe4a32be431dd679e61db74c",
+              "corpus": "custom"
+            }
+          ]
+        },
+        "realization": {
+          "message": "Step 2 requires verification of prerequisite steps 1. Showing an earlier step does not prove completion. To read the next instruction without claiming completion, say \u201cinspect next step\u201d.",
+          "authority": "unsupported",
+          "sources": [
+            {
+              "id": "FRESH-001",
+              "path": "fresh-001.html",
+              "hash": "sha256:e1cc3264899b52e7c5511ae7632158d216d19b23fe4a32be431dd679e61db74c",
+              "corpus": "custom"
+            }
+          ],
+          "claim_units": [],
+          "scope_results": [],
+          "chat_is_evidence": false
+        },
+        "response_validation": {
+          "version": "final-response-validation-v1",
+          "status": "checked",
+          "checks": [
+            "existing non-answer/reference contract; current local pins checked"
+          ],
+          "context_is_evidence": false,
+          "source_presence_is_support": false,
+          "errors": []
+        },
+        "question_frame": {
+          "rule": "question-frames-v2",
+          "original": "next step",
+          "canonical": "next step",
+          "kind": "conversation_or_command",
+          "subject": null,
+          "normalization_is_evidence": false,
+          "support_frame": null
+        }
+      }
+    },
+    {
+      "domain": "fictional astronomy",
+      "message": "inspect next step",
+      "passed": true,
+      "response": {
+        "kind": "return",
+        "message": "Source-declared procedure orient-vexon. This describes instructions; completion and real-world conditions are not verified.\nStep 2: Close the cover.\nPrerequisite steps: 1\nConditions: Only after alignment.\nWarnings: Stop if the cover binds.\nSource: FRESH-001 sha256:e1cc3264899b52e7c5511ae7632158d216d19b23fe4a32be431dd679e61db74c /steps/1",
+        "context": null,
+        "sources": [
+          {
+            "id": "FRESH-001",
+            "path": "fresh-001.html",
+            "hash": "sha256:e1cc3264899b52e7c5511ae7632158d216d19b23fe4a32be431dd679e61db74c",
+            "corpus": "custom"
+          }
+        ],
+        "authority": "source_assertion",
+        "procedure_request": {
+          "procedure": "orient-vexon",
+          "step": 2
+        },
+        "response_structure": {
+          "intent": "procedural",
+          "mplpb_supported": true,
+          "factual_claims": true
+        },
+        "procedure_checks": [
+          {
+            "version": "procedure-constraints-v2",
+            "status": "supported",
+            "procedure": "orient-vexon",
+            "requested_step": 2,
+            "steps": [
+              {
+                "order": 1,
+                "action": "Align the violet vane.",
+                "prerequisites": [],
+                "conditions": [
+                  "Use only dry material."
+                ],
+                "warnings": [
+                  "Stop if the vane binds."
+                ],
+                "source": {
+                  "id": "FRESH-001",
+                  "path": "fresh-001.html",
+                  "hash": "sha256:e1cc3264899b52e7c5511ae7632158d216d19b23fe4a32be431dd679e61db74c",
+                  "quote": "MPLPB-PROCEDURE/1 {\"id\": \"orient-vexon\", \"steps\": [{\"order\": 1, \"action\": \"Align the violet vane.\", \"prerequisites\": [], \"conditions\": [\"Use only dry material.\"], \"warnings\": [\"Stop if the vane binds.\"]}, {\"order\": 2, \"action\": \"Close the cover.\", \"prerequisites\": [1], \"conditions\": [\"Only after alignment.\"], \"warnings\": [\"Stop if the cover binds.\"]}]}",
+                  "format": "json",
+                  "pointer": "/steps/0"
+                }
+              },
+              {
+                "order": 2,
+                "action": "Close the cover.",
+                "prerequisites": [
+                  1
+                ],
+                "conditions": [
+                  "Only after alignment."
+                ],
+                "warnings": [
+                  "Stop if the cover binds."
+                ],
+                "source": {
+                  "id": "FRESH-001",
+                  "path": "fresh-001.html",
+                  "hash": "sha256:e1cc3264899b52e7c5511ae7632158d216d19b23fe4a32be431dd679e61db74c",
+                  "quote": "MPLPB-PROCEDURE/1 {\"id\": \"orient-vexon\", \"steps\": [{\"order\": 1, \"action\": \"Align the violet vane.\", \"prerequisites\": [], \"conditions\": [\"Use only dry material.\"], \"warnings\": [\"Stop if the vane binds.\"]}, {\"order\": 2, \"action\": \"Close the cover.\", \"prerequisites\": [1], \"conditions\": [\"Only after alignment.\"], \"warnings\": [\"Stop if the cover binds.\"]}]}",
+                  "format": "json",
+                  "pointer": "/steps/1"
+                }
+              }
+            ],
+            "gaps": [],
+            "context_is_evidence": false,
+            "execution_verified": false,
+            "partial_sources": [],
+            "choices": [
+              "orient-vexon"
+            ],
+            "identified": true,
+            "source": {
+              "id": "FRESH-001",
+              "path": "fresh-001.html",
+              "hash": "sha256:e1cc3264899b52e7c5511ae7632158d216d19b23fe4a32be431dd679e61db74c"
+            },
+            "corpus": "custom"
+          }
+        ],
+        "procedure": {
+          "version": "procedure-constraints-v2",
+          "status": "supported",
+          "procedure": "orient-vexon",
+          "requested_step": 2,
+          "steps": [
+            {
+              "order": 1,
+              "action": "Align the violet vane.",
+              "prerequisites": [],
+              "conditions": [
+                "Use only dry material."
+              ],
+              "warnings": [
+                "Stop if the vane binds."
+              ],
+              "source": {
+                "id": "FRESH-001",
+                "path": "fresh-001.html",
+                "hash": "sha256:e1cc3264899b52e7c5511ae7632158d216d19b23fe4a32be431dd679e61db74c",
+                "quote": "MPLPB-PROCEDURE/1 {\"id\": \"orient-vexon\", \"steps\": [{\"order\": 1, \"action\": \"Align the violet vane.\", \"prerequisites\": [], \"conditions\": [\"Use only dry material.\"], \"warnings\": [\"Stop if the vane binds.\"]}, {\"order\": 2, \"action\": \"Close the cover.\", \"prerequisites\": [1], \"conditions\": [\"Only after alignment.\"], \"warnings\": [\"Stop if the cover binds.\"]}]}",
+                "format": "json",
+                "pointer": "/steps/0"
+              }
+            },
+            {
+              "order": 2,
+              "action": "Close the cover.",
+              "prerequisites": [
+                1
+              ],
+              "conditions": [
+                "Only after alignment."
+              ],
+              "warnings": [
+                "Stop if the cover binds."
+              ],
+              "source": {
+                "id": "FRESH-001",
+                "path": "fresh-001.html",
+                "hash": "sha256:e1cc3264899b52e7c5511ae7632158d216d19b23fe4a32be431dd679e61db74c",
+                "quote": "MPLPB-PROCEDURE/1 {\"id\": \"orient-vexon\", \"steps\": [{\"order\": 1, \"action\": \"Align the violet vane.\", \"prerequisites\": [], \"conditions\": [\"Use only dry material.\"], \"warnings\": [\"Stop if the vane binds.\"]}, {\"order\": 2, \"action\": \"Close the cover.\", \"prerequisites\": [1], \"conditions\": [\"Only after alignment.\"], \"warnings\": [\"Stop if the cover binds.\"]}]}",
+                "format": "json",
+                "pointer": "/steps/1"
+              }
+            }
+          ],
+          "gaps": [],
+          "context_is_evidence": false,
+          "execution_verified": false,
+          "partial_sources": [],
+          "choices": [
+            "orient-vexon"
+          ],
+          "identified": true,
+          "source": {
+            "id": "FRESH-001",
+            "path": "fresh-001.html",
+            "hash": "sha256:e1cc3264899b52e7c5511ae7632158d216d19b23fe4a32be431dd679e61db74c"
+          }
+        },
+        "source_corpus": "custom",
+        "determination": {
+          "rule": "REDUCE-DETERMINE",
+          "version": "reduction-to-determination-v2",
+          "mode": "focus",
+          "outcome": "unique",
+          "retained": [
+            "response"
+          ],
+          "eliminated": [],
+          "selected": "response",
+          "basis": "source_assertion",
+          "selection_order": "candidate ID; saved turn offset for equivalent wording",
+          "elimination_creates_evidence": false
+        },
+        "suggestions": [
+          "what is it?",
+          "summarize it",
+          "show source",
+          "show my MPLPB"
+        ],
+        "language_plan": {
+          "version": "language-planner-v1",
+          "canonical": "inspect next step",
+          "actions": [
+            "conversation_or_command"
+          ],
+          "subject": null,
+          "audience": null,
+          "reference": null,
+          "negation_present": false,
+          "imagined": false,
+          "question_word": "",
+          "normalization_is_evidence": false,
+          "realization_rules": [
+            "preserve_validated_payload"
+          ],
+          "response_act": "procedural",
+          "acquisition": {
+            "query": null,
+            "order": [
+              "eligible_local_pages",
+              "enabled_remote_capture"
+            ],
+            "search_snippets_are_evidence": false,
+            "automatic_network_requires_setting": true
+          },
+          "payload_sha256": "47b59bb662932cda9bc69fa3bddae351043bd8dbe3d9c70aea5dcba506ca620e",
+          "surface_changed": false,
+          "source_paraphrasing": false,
+          "rules_are_not_evidence": true
+        },
+        "support_label": "Source-declared procedure \u00b7 execution unverified",
+        "guidance": {
+          "title": "Explore these sources",
+          "hint": "Choose a follow-up, or type your own. Each answer still needs supporting text.",
+          "actions": [
+            {
+              "label": "what is it?",
+              "request": "what is it?",
+              "mode": "send"
+            },
+            {
+              "label": "Ask a question",
+              "request": "",
+              "mode": "draft"
+            },
+            {
+              "label": "Choose another topic",
+              "request": "Tell me about ",
+              "mode": "draft"
+            }
+          ]
+        },
+        "interpretation": {
+          "version": "conversation-continuity-v2",
+          "original": "inspect next step",
+          "resolved": "inspect next step",
+          "acts": [
+            {
+              "type": "unresolved",
+              "text": "inspect next step"
+            }
+          ],
+          "subject": null,
+          "correction": false,
+          "reference": null,
+          "original_acts": [
+            {
+              "type": "unresolved",
+              "text": "inspect next step"
+            }
+          ]
+        },
+        "reply_plan": {
+          "subplans": {},
+          "sources": [
+            {
+              "id": "FRESH-001",
+              "path": "fresh-001.html",
+              "hash": "sha256:e1cc3264899b52e7c5511ae7632158d216d19b23fe4a32be431dd679e61db74c",
+              "corpus": "custom"
+            }
+          ]
+        },
+        "realization": {
+          "message": "Source-declared procedure orient-vexon. This describes instructions; completion and real-world conditions are not verified.\nStep 2: Close the cover.\nPrerequisite steps: 1\nConditions: Only after alignment.\nWarnings: Stop if the cover binds.\nSource: FRESH-001 sha256:e1cc3264899b52e7c5511ae7632158d216d19b23fe4a32be431dd679e61db74c /steps/1",
+          "authority": "source_assertion",
+          "sources": [
+            {
+              "id": "FRESH-001",
+              "path": "fresh-001.html",
+              "hash": "sha256:e1cc3264899b52e7c5511ae7632158d216d19b23fe4a32be431dd679e61db74c",
+              "corpus": "custom"
+            }
+          ],
+          "claim_units": [],
+          "scope_results": [],
+          "chat_is_evidence": false
+        },
+        "response_validation": {
+          "version": "final-response-validation-v1",
+          "status": "checked",
+          "checks": [
+            "fresh procedure tags and exact constrained rendering"
+          ],
+          "context_is_evidence": false,
+          "source_presence_is_support": false,
+          "errors": []
+        },
+        "question_frame": {
+          "rule": "question-frames-v2",
+          "original": "inspect next step",
+          "canonical": "inspect next step",
+          "kind": "conversation_or_command",
+          "subject": null,
+          "normalization_is_evidence": false,
+          "support_frame": null
+        }
+      }
+    },
+    {
+      "domain": "fictional astronomy",
+      "message": "No, I meant step 1",
+      "passed": true,
+      "response": {
+        "kind": "return",
+        "message": "Source-declared procedure orient-vexon. This describes instructions; completion and real-world conditions are not verified.\nStep 1: Align the violet vane.\nPrerequisite steps: none declared\nConditions: Use only dry material.\nWarnings: Stop if the vane binds.\nSource: FRESH-001 sha256:e1cc3264899b52e7c5511ae7632158d216d19b23fe4a32be431dd679e61db74c /steps/0",
+        "context": null,
+        "sources": [
+          {
+            "id": "FRESH-001",
+            "path": "fresh-001.html",
+            "hash": "sha256:e1cc3264899b52e7c5511ae7632158d216d19b23fe4a32be431dd679e61db74c",
+            "corpus": "custom"
+          }
+        ],
+        "authority": "source_assertion",
+        "procedure_request": {
+          "procedure": "orient-vexon",
+          "step": 1
+        },
+        "response_structure": {
+          "intent": "procedural",
+          "mplpb_supported": true,
+          "factual_claims": true
+        },
+        "procedure_checks": [
+          {
+            "version": "procedure-constraints-v2",
+            "status": "supported",
+            "procedure": "orient-vexon",
+            "requested_step": 1,
+            "steps": [
+              {
+                "order": 1,
+                "action": "Align the violet vane.",
+                "prerequisites": [],
+                "conditions": [
+                  "Use only dry material."
+                ],
+                "warnings": [
+                  "Stop if the vane binds."
+                ],
+                "source": {
+                  "id": "FRESH-001",
+                  "path": "fresh-001.html",
+                  "hash": "sha256:e1cc3264899b52e7c5511ae7632158d216d19b23fe4a32be431dd679e61db74c",
+                  "quote": "MPLPB-PROCEDURE/1 {\"id\": \"orient-vexon\", \"steps\": [{\"order\": 1, \"action\": \"Align the violet vane.\", \"prerequisites\": [], \"conditions\": [\"Use only dry material.\"], \"warnings\": [\"Stop if the vane binds.\"]}, {\"order\": 2, \"action\": \"Close the cover.\", \"prerequisites\": [1], \"conditions\": [\"Only after alignment.\"], \"warnings\": [\"Stop if the cover binds.\"]}]}",
+                  "format": "json",
+                  "pointer": "/steps/0"
+                }
+              },
+              {
+                "order": 2,
+                "action": "Close the cover.",
+                "prerequisites": [
+                  1
+                ],
+                "conditions": [
+                  "Only after alignment."
+                ],
+                "warnings": [
+                  "Stop if the cover binds."
+                ],
+                "source": {
+                  "id": "FRESH-001",
+                  "path": "fresh-001.html",
+                  "hash": "sha256:e1cc3264899b52e7c5511ae7632158d216d19b23fe4a32be431dd679e61db74c",
+                  "quote": "MPLPB-PROCEDURE/1 {\"id\": \"orient-vexon\", \"steps\": [{\"order\": 1, \"action\": \"Align the violet vane.\", \"prerequisites\": [], \"conditions\": [\"Use only dry material.\"], \"warnings\": [\"Stop if the vane binds.\"]}, {\"order\": 2, \"action\": \"Close the cover.\", \"prerequisites\": [1], \"conditions\": [\"Only after alignment.\"], \"warnings\": [\"Stop if the cover binds.\"]}]}",
+                  "format": "json",
+                  "pointer": "/steps/1"
+                }
+              }
+            ],
+            "gaps": [],
+            "context_is_evidence": false,
+            "execution_verified": false,
+            "partial_sources": [],
+            "choices": [
+              "orient-vexon"
+            ],
+            "identified": true,
+            "source": {
+              "id": "FRESH-001",
+              "path": "fresh-001.html",
+              "hash": "sha256:e1cc3264899b52e7c5511ae7632158d216d19b23fe4a32be431dd679e61db74c"
+            },
+            "corpus": "custom"
+          }
+        ],
+        "procedure": {
+          "version": "procedure-constraints-v2",
+          "status": "supported",
+          "procedure": "orient-vexon",
+          "requested_step": 1,
+          "steps": [
+            {
+              "order": 1,
+              "action": "Align the violet vane.",
+              "prerequisites": [],
+              "conditions": [
+                "Use only dry material."
+              ],
+              "warnings": [
+                "Stop if the vane binds."
+              ],
+              "source": {
+                "id": "FRESH-001",
+                "path": "fresh-001.html",
+                "hash": "sha256:e1cc3264899b52e7c5511ae7632158d216d19b23fe4a32be431dd679e61db74c",
+                "quote": "MPLPB-PROCEDURE/1 {\"id\": \"orient-vexon\", \"steps\": [{\"order\": 1, \"action\": \"Align the violet vane.\", \"prerequisites\": [], \"conditions\": [\"Use only dry material.\"], \"warnings\": [\"Stop if the vane binds.\"]}, {\"order\": 2, \"action\": \"Close the cover.\", \"prerequisites\": [1], \"conditions\": [\"Only after alignment.\"], \"warnings\": [\"Stop if the cover binds.\"]}]}",
+                "format": "json",
+                "pointer": "/steps/0"
+              }
+            },
+            {
+              "order": 2,
+              "action": "Close the cover.",
+              "prerequisites": [
+                1
+              ],
+              "conditions": [
+                "Only after alignment."
+              ],
+              "warnings": [
+                "Stop if the cover binds."
+              ],
+              "source": {
+                "id": "FRESH-001",
+                "path": "fresh-001.html",
+                "hash": "sha256:e1cc3264899b52e7c5511ae7632158d216d19b23fe4a32be431dd679e61db74c",
+                "quote": "MPLPB-PROCEDURE/1 {\"id\": \"orient-vexon\", \"steps\": [{\"order\": 1, \"action\": \"Align the violet vane.\", \"prerequisites\": [], \"conditions\": [\"Use only dry material.\"], \"warnings\": [\"Stop if the vane binds.\"]}, {\"order\": 2, \"action\": \"Close the cover.\", \"prerequisites\": [1], \"conditions\": [\"Only after alignment.\"], \"warnings\": [\"Stop if the cover binds.\"]}]}",
+                "format": "json",
+                "pointer": "/steps/1"
+              }
+            }
+          ],
+          "gaps": [],
+          "context_is_evidence": false,
+          "execution_verified": false,
+          "partial_sources": [],
+          "choices": [
+            "orient-vexon"
+          ],
+          "identified": true,
+          "source": {
+            "id": "FRESH-001",
+            "path": "fresh-001.html",
+            "hash": "sha256:e1cc3264899b52e7c5511ae7632158d216d19b23fe4a32be431dd679e61db74c"
+          }
+        },
+        "source_corpus": "custom",
+        "determination": {
+          "rule": "REDUCE-DETERMINE",
+          "version": "reduction-to-determination-v2",
+          "mode": "focus",
+          "outcome": "unique",
+          "retained": [
+            "response"
+          ],
+          "eliminated": [],
+          "selected": "response",
+          "basis": "source_assertion",
+          "selection_order": "candidate ID; saved turn offset for equivalent wording",
+          "elimination_creates_evidence": false
+        },
+        "suggestions": [
+          "what is it?",
+          "summarize it",
+          "show source",
+          "show my MPLPB"
+        ],
+        "language_plan": {
+          "version": "language-planner-v1",
+          "canonical": "No, I meant step 1",
+          "actions": [
+            "conversation_or_command"
+          ],
+          "subject": null,
+          "audience": null,
+          "reference": null,
+          "negation_present": true,
+          "imagined": false,
+          "question_word": "",
+          "normalization_is_evidence": false,
+          "realization_rules": [
+            "preserve_validated_payload"
+          ],
+          "response_act": "procedural",
+          "acquisition": {
+            "query": null,
+            "order": [
+              "eligible_local_pages",
+              "enabled_remote_capture"
+            ],
+            "search_snippets_are_evidence": false,
+            "automatic_network_requires_setting": true
+          },
+          "payload_sha256": "5aab6f3aca40bc17cbd750ff7068a958643fd5c191a3e1eb34941a4d4b6de4b2",
+          "surface_changed": false,
+          "source_paraphrasing": false,
+          "rules_are_not_evidence": true
+        },
+        "support_label": "Source-declared procedure \u00b7 execution unverified",
+        "guidance": {
+          "title": "Explore these sources",
+          "hint": "Choose a follow-up, or type your own. Each answer still needs supporting text.",
+          "actions": [
+            {
+              "label": "what is it?",
+              "request": "what is it?",
+              "mode": "send"
+            },
+            {
+              "label": "Ask a question",
+              "request": "",
+              "mode": "draft"
+            },
+            {
+              "label": "Choose another topic",
+              "request": "Tell me about ",
+              "mode": "draft"
+            }
+          ]
+        },
+        "interpretation": {
+          "version": "conversation-continuity-v2",
+          "original": "No, I meant step 1",
+          "resolved": "No, I meant step 1",
+          "acts": [
+            {
+              "type": "unresolved",
+              "text": "No, I meant step 1"
+            }
+          ],
+          "subject": null,
+          "correction": false,
+          "reference": null,
+          "original_acts": [
+            {
+              "type": "unresolved",
+              "text": "No, I meant step 1"
+            }
+          ]
+        },
+        "reply_plan": {
+          "subplans": {},
+          "sources": [
+            {
+              "id": "FRESH-001",
+              "path": "fresh-001.html",
+              "hash": "sha256:e1cc3264899b52e7c5511ae7632158d216d19b23fe4a32be431dd679e61db74c",
+              "corpus": "custom"
+            }
+          ]
+        },
+        "realization": {
+          "message": "Source-declared procedure orient-vexon. This describes instructions; completion and real-world conditions are not verified.\nStep 1: Align the violet vane.\nPrerequisite steps: none declared\nConditions: Use only dry material.\nWarnings: Stop if the vane binds.\nSource: FRESH-001 sha256:e1cc3264899b52e7c5511ae7632158d216d19b23fe4a32be431dd679e61db74c /steps/0",
+          "authority": "source_assertion",
+          "sources": [
+            {
+              "id": "FRESH-001",
+              "path": "fresh-001.html",
+              "hash": "sha256:e1cc3264899b52e7c5511ae7632158d216d19b23fe4a32be431dd679e61db74c",
+              "corpus": "custom"
+            }
+          ],
+          "claim_units": [],
+          "scope_results": [],
+          "chat_is_evidence": false
+        },
+        "response_validation": {
+          "version": "final-response-validation-v1",
+          "status": "checked",
+          "checks": [
+            "fresh procedure tags and exact constrained rendering"
+          ],
+          "context_is_evidence": false,
+          "source_presence_is_support": false,
+          "errors": []
+        },
+        "question_frame": {
+          "rule": "question-frames-v2",
+          "original": "No, I meant step 1",
+          "canonical": "No, I meant step 1",
+          "kind": "conversation_or_command",
+          "subject": null,
+          "normalization_is_evidence": false,
+          "support_frame": null
+        }
+      }
+    },
+    {
+      "domain": "bookbinding",
+      "message": "How do I bind folio?",
+      "passed": true,
+      "response": {
+        "kind": "return",
+        "message": "Source-declared procedure bind-folio. This describes instructions; completion and real-world conditions are not verified.\nStep 1: Place the sheets in the cedar frame.\nPrerequisite steps: none declared\nConditions: Use only dry material.\nWarnings: Do not tighten a torn sheet.\nSource: FRESH-001 sha256:a17123a96fe949905741f247e37cf05b335ddc4943d4f586de5733f796110aea /steps/0\nStep 2: Close the cover.\nPrerequisite steps: 1\nConditions: Only after alignment.\nWarnings: Stop if the cover binds.\nSource: FRESH-001 sha256:a17123a96fe949905741f247e37cf05b335ddc4943d4f586de5733f796110aea /steps/1",
+        "context": null,
+        "sources": [
+          {
+            "id": "FRESH-001",
+            "path": "fresh-001.html",
+            "hash": "sha256:a17123a96fe949905741f247e37cf05b335ddc4943d4f586de5733f796110aea",
+            "corpus": "custom"
+          }
+        ],
+        "authority": "source_assertion",
+        "procedure_request": {
+          "procedure": "bind-folio",
+          "step": null,
+          "original": "How do I bind folio?",
+          "interpretation": "explicit_identifier_words",
+          "execution_requested": false
+        },
+        "response_structure": {
+          "intent": "procedural",
+          "mplpb_supported": true,
+          "factual_claims": true
+        },
+        "procedure_checks": [
+          {
+            "version": "procedure-constraints-v2",
+            "status": "supported",
+            "procedure": "bind-folio",
+            "requested_step": null,
+            "steps": [
+              {
+                "order": 1,
+                "action": "Place the sheets in the cedar frame.",
+                "prerequisites": [],
+                "conditions": [
+                  "Use only dry material."
+                ],
+                "warnings": [
+                  "Do not tighten a torn sheet."
+                ],
+                "source": {
+                  "id": "FRESH-001",
+                  "path": "fresh-001.html",
+                  "hash": "sha256:a17123a96fe949905741f247e37cf05b335ddc4943d4f586de5733f796110aea",
+                  "quote": "MPLPB-PROCEDURE/1 {\"id\": \"bind-folio\", \"steps\": [{\"order\": 1, \"action\": \"Place the sheets in the cedar frame.\", \"prerequisites\": [], \"conditions\": [\"Use only dry material.\"], \"warnings\": [\"Do not tighten a torn sheet.\"]}, {\"order\": 2, \"action\": \"Close the cover.\", \"prerequisites\": [1], \"conditions\": [\"Only after alignment.\"], \"warnings\": [\"Stop if the cover binds.\"]}]}",
+                  "format": "json",
+                  "pointer": "/steps/0"
+                }
+              },
+              {
+                "order": 2,
+                "action": "Close the cover.",
+                "prerequisites": [
+                  1
+                ],
+                "conditions": [
+                  "Only after alignment."
+                ],
+                "warnings": [
+                  "Stop if the cover binds."
+                ],
+                "source": {
+                  "id": "FRESH-001",
+                  "path": "fresh-001.html",
+                  "hash": "sha256:a17123a96fe949905741f247e37cf05b335ddc4943d4f586de5733f796110aea",
+                  "quote": "MPLPB-PROCEDURE/1 {\"id\": \"bind-folio\", \"steps\": [{\"order\": 1, \"action\": \"Place the sheets in the cedar frame.\", \"prerequisites\": [], \"conditions\": [\"Use only dry material.\"], \"warnings\": [\"Do not tighten a torn sheet.\"]}, {\"order\": 2, \"action\": \"Close the cover.\", \"prerequisites\": [1], \"conditions\": [\"Only after alignment.\"], \"warnings\": [\"Stop if the cover binds.\"]}]}",
+                  "format": "json",
+                  "pointer": "/steps/1"
+                }
+              }
+            ],
+            "gaps": [],
+            "context_is_evidence": false,
+            "execution_verified": false,
+            "partial_sources": [],
+            "choices": [
+              "bind-folio"
+            ],
+            "identified": true,
+            "source": {
+              "id": "FRESH-001",
+              "path": "fresh-001.html",
+              "hash": "sha256:a17123a96fe949905741f247e37cf05b335ddc4943d4f586de5733f796110aea"
+            },
+            "corpus": "custom"
+          }
+        ],
+        "procedure": {
+          "version": "procedure-constraints-v2",
+          "status": "supported",
+          "procedure": "bind-folio",
+          "requested_step": null,
+          "steps": [
+            {
+              "order": 1,
+              "action": "Place the sheets in the cedar frame.",
+              "prerequisites": [],
+              "conditions": [
+                "Use only dry material."
+              ],
+              "warnings": [
+                "Do not tighten a torn sheet."
+              ],
+              "source": {
+                "id": "FRESH-001",
+                "path": "fresh-001.html",
+                "hash": "sha256:a17123a96fe949905741f247e37cf05b335ddc4943d4f586de5733f796110aea",
+                "quote": "MPLPB-PROCEDURE/1 {\"id\": \"bind-folio\", \"steps\": [{\"order\": 1, \"action\": \"Place the sheets in the cedar frame.\", \"prerequisites\": [], \"conditions\": [\"Use only dry material.\"], \"warnings\": [\"Do not tighten a torn sheet.\"]}, {\"order\": 2, \"action\": \"Close the cover.\", \"prerequisites\": [1], \"conditions\": [\"Only after alignment.\"], \"warnings\": [\"Stop if the cover binds.\"]}]}",
+                "format": "json",
+                "pointer": "/steps/0"
+              }
+            },
+            {
+              "order": 2,
+              "action": "Close the cover.",
+              "prerequisites": [
+                1
+              ],
+              "conditions": [
+                "Only after alignment."
+              ],
+              "warnings": [
+                "Stop if the cover binds."
+              ],
+              "source": {
+                "id": "FRESH-001",
+                "path": "fresh-001.html",
+                "hash": "sha256:a17123a96fe949905741f247e37cf05b335ddc4943d4f586de5733f796110aea",
+                "quote": "MPLPB-PROCEDURE/1 {\"id\": \"bind-folio\", \"steps\": [{\"order\": 1, \"action\": \"Place the sheets in the cedar frame.\", \"prerequisites\": [], \"conditions\": [\"Use only dry material.\"], \"warnings\": [\"Do not tighten a torn sheet.\"]}, {\"order\": 2, \"action\": \"Close the cover.\", \"prerequisites\": [1], \"conditions\": [\"Only after alignment.\"], \"warnings\": [\"Stop if the cover binds.\"]}]}",
+                "format": "json",
+                "pointer": "/steps/1"
+              }
+            }
+          ],
+          "gaps": [],
+          "context_is_evidence": false,
+          "execution_verified": false,
+          "partial_sources": [],
+          "choices": [
+            "bind-folio"
+          ],
+          "identified": true,
+          "source": {
+            "id": "FRESH-001",
+            "path": "fresh-001.html",
+            "hash": "sha256:a17123a96fe949905741f247e37cf05b335ddc4943d4f586de5733f796110aea"
+          }
+        },
+        "source_corpus": "custom",
+        "determination": {
+          "rule": "REDUCE-DETERMINE",
+          "version": "reduction-to-determination-v2",
+          "mode": "focus",
+          "outcome": "unique",
+          "retained": [
+            "response"
+          ],
+          "eliminated": [],
+          "selected": "response",
+          "basis": "source_assertion",
+          "selection_order": "candidate ID; saved turn offset for equivalent wording",
+          "elimination_creates_evidence": false
+        },
+        "suggestions": [
+          "what is it?",
+          "summarize it",
+          "show source",
+          "show my MPLPB"
+        ],
+        "language_plan": {
+          "version": "language-planner-v1",
+          "canonical": "How do I bind folio?",
+          "actions": [
+            "question"
+          ],
+          "subject": null,
+          "audience": null,
+          "reference": null,
+          "negation_present": false,
+          "imagined": false,
+          "question_word": "How",
+          "normalization_is_evidence": false,
+          "realization_rules": [
+            "preserve_validated_payload"
+          ],
+          "response_act": "procedural",
+          "acquisition": {
+            "query": null,
+            "order": [
+              "eligible_local_pages",
+              "enabled_remote_capture"
+            ],
+            "search_snippets_are_evidence": false,
+            "automatic_network_requires_setting": true
+          },
+          "payload_sha256": "c042ffa102c3ab9806e1e237cf2261b540654151d1dd68ea4ddad9461ca55714",
+          "surface_changed": false,
+          "source_paraphrasing": false,
+          "rules_are_not_evidence": true
+        },
+        "support_label": "Source-declared procedure \u00b7 execution unverified",
+        "guidance": {
+          "title": "Explore these sources",
+          "hint": "Choose a follow-up, or type your own. Each answer still needs supporting text.",
+          "actions": [
+            {
+              "label": "what is it?",
+              "request": "what is it?",
+              "mode": "send"
+            },
+            {
+              "label": "Ask a question",
+              "request": "",
+              "mode": "draft"
+            },
+            {
+              "label": "Choose another topic",
+              "request": "Tell me about ",
+              "mode": "draft"
+            }
+          ]
+        },
+        "interpretation": {
+          "version": "conversation-continuity-v2",
+          "original": "How do I bind folio?",
+          "resolved": "How do I bind folio?",
+          "acts": [
+            {
+              "type": "unresolved",
+              "text": "How do I bind folio"
+            }
+          ],
+          "subject": null,
+          "correction": false,
+          "reference": null,
+          "original_acts": [
+            {
+              "type": "unresolved",
+              "text": "How do I bind folio"
+            }
+          ]
+        },
+        "reply_plan": {
+          "subplans": {},
+          "sources": [
+            {
+              "id": "FRESH-001",
+              "path": "fresh-001.html",
+              "hash": "sha256:a17123a96fe949905741f247e37cf05b335ddc4943d4f586de5733f796110aea",
+              "corpus": "custom"
+            }
+          ]
+        },
+        "realization": {
+          "message": "Source-declared procedure bind-folio. This describes instructions; completion and real-world conditions are not verified.\nStep 1: Place the sheets in the cedar frame.\nPrerequisite steps: none declared\nConditions: Use only dry material.\nWarnings: Do not tighten a torn sheet.\nSource: FRESH-001 sha256:a17123a96fe949905741f247e37cf05b335ddc4943d4f586de5733f796110aea /steps/0\nStep 2: Close the cover.\nPrerequisite steps: 1\nConditions: Only after alignment.\nWarnings: Stop if the cover binds.\nSource: FRESH-001 sha256:a17123a96fe949905741f247e37cf05b335ddc4943d4f586de5733f796110aea /steps/1",
+          "authority": "source_assertion",
+          "sources": [
+            {
+              "id": "FRESH-001",
+              "path": "fresh-001.html",
+              "hash": "sha256:a17123a96fe949905741f247e37cf05b335ddc4943d4f586de5733f796110aea",
+              "corpus": "custom"
+            }
+          ],
+          "claim_units": [],
+          "scope_results": [],
+          "chat_is_evidence": false
+        },
+        "response_validation": {
+          "version": "final-response-validation-v1",
+          "status": "checked",
+          "checks": [
+            "fresh procedure tags and exact constrained rendering"
+          ],
+          "context_is_evidence": false,
+          "source_presence_is_support": false,
+          "errors": []
+        },
+        "question_frame": {
+          "rule": "question-frames-v2",
+          "original": "How do I bind folio?",
+          "canonical": "How do I bind folio?",
+          "kind": "question",
+          "subject": null,
+          "normalization_is_evidence": false,
+          "support_frame": null
+        }
+      }
+    },
+    {
+      "domain": "bookbinding",
+      "message": "show warnings",
+      "passed": true,
+      "response": {
+        "kind": "clarify",
+        "message": "Which step would you like to inspect? You can say \u201cstep 1\u201d.",
+        "context": null,
+        "sources": [],
+        "authority": "unsupported",
+        "procedure_request": {
+          "procedure": "bind-folio",
+          "step": 0,
+          "corpus": "custom",
+          "profile": "internal",
+          "source": {
+            "id": "FRESH-001",
+            "path": "fresh-001.html",
+            "hash": "sha256:a17123a96fe949905741f247e37cf05b335ddc4943d4f586de5733f796110aea"
+          }
+        },
+        "response_structure": {
+          "intent": "procedural",
+          "mplpb_supported": false,
+          "factual_claims": false
+        },
+        "determination": {
+          "rule": "REDUCE-DETERMINE",
+          "version": "reduction-to-determination-v2",
+          "mode": "chat",
+          "outcome": "unique",
+          "retained": [
+            "response"
+          ],
+          "eliminated": [],
+          "selected": "response",
+          "basis": "uncertainty",
+          "selection_order": "candidate ID; saved turn offset for equivalent wording",
+          "elimination_creates_evidence": false
+        },
+        "suggestions": [
+          "show my MPLPB",
+          "why did you refuse?",
+          "guide me"
+        ],
+        "language_plan": {
+          "version": "language-planner-v1",
+          "canonical": "show warnings",
+          "actions": [
+            "conversation_or_command"
+          ],
+          "subject": null,
+          "audience": null,
+          "reference": null,
+          "negation_present": false,
+          "imagined": false,
+          "question_word": "",
+          "normalization_is_evidence": false,
+          "realization_rules": [
+            "preserve_validated_payload"
+          ],
+          "response_act": "procedural",
+          "acquisition": {
+            "query": null,
+            "order": [
+              "eligible_local_pages",
+              "enabled_remote_capture"
+            ],
+            "search_snippets_are_evidence": false,
+            "automatic_network_requires_setting": true
+          },
+          "payload_sha256": "29995964f318aadd06e4d6ea733320a91646811775fc419a83b25205cd933563",
+          "surface_changed": false,
+          "source_paraphrasing": false,
+          "rules_are_not_evidence": true
+        },
+        "support_label": "Needs clarification",
+        "guidance": {
+          "title": "Choose what you mean",
+          "hint": "Choose one of the offered meanings, or write a more specific request.",
+          "actions": [
+            {
+              "label": "show my MPLPB",
+              "request": "show my MPLPB",
+              "mode": "send"
+            },
+            {
+              "label": "why did you refuse?",
+              "request": "why did you refuse?",
+              "mode": "send"
+            },
+            {
+              "label": "guide me",
+              "request": "guide me",
+              "mode": "send"
+            },
+            {
+              "label": "Clarify my question",
+              "request": "",
+              "mode": "draft"
+            }
+          ]
+        },
+        "interpretation": {
+          "version": "conversation-continuity-v2",
+          "original": "show warnings",
+          "resolved": "show warnings",
+          "acts": [
+            {
+              "type": "unresolved",
+              "text": "show warnings"
+            }
+          ],
+          "subject": null,
+          "correction": false,
+          "reference": null,
+          "original_acts": [
+            {
+              "type": "unresolved",
+              "text": "show warnings"
+            }
+          ]
+        },
+        "reply_plan": {
+          "subplans": {},
+          "sources": []
+        },
+        "realization": {
+          "message": "Which step would you like to inspect? You can say \u201cstep 1\u201d.",
+          "authority": "unsupported",
+          "sources": [],
+          "claim_units": [],
+          "scope_results": [],
+          "chat_is_evidence": false
+        },
+        "response_validation": {
+          "version": "final-response-validation-v1",
+          "status": "checked",
+          "checks": [
+            "existing non-answer/reference contract; current local pins checked"
+          ],
+          "context_is_evidence": false,
+          "source_presence_is_support": false,
+          "errors": []
+        },
+        "question_frame": {
+          "rule": "question-frames-v2",
+          "original": "show warnings",
+          "canonical": "show warnings",
+          "kind": "conversation_or_command",
+          "subject": null,
+          "normalization_is_evidence": false,
+          "support_frame": null
+        }
+      }
+    },
+    {
+      "domain": "bookbinding",
+      "message": "step 1",
+      "passed": true,
+      "response": {
+        "kind": "return",
+        "message": "Source-declared procedure bind-folio. This describes instructions; completion and real-world conditions are not verified.\nStep 1: Place the sheets in the cedar frame.\nPrerequisite steps: none declared\nConditions: Use only dry material.\nWarnings: Do not tighten a torn sheet.\nSource: FRESH-001 sha256:a17123a96fe949905741f247e37cf05b335ddc4943d4f586de5733f796110aea /steps/0",
+        "context": null,
+        "sources": [
+          {
+            "id": "FRESH-001",
+            "path": "fresh-001.html",
+            "hash": "sha256:a17123a96fe949905741f247e37cf05b335ddc4943d4f586de5733f796110aea",
+            "corpus": "custom"
+          }
+        ],
+        "authority": "source_assertion",
+        "procedure_request": {
+          "procedure": "bind-folio",
+          "step": 1
+        },
+        "response_structure": {
+          "intent": "procedural",
+          "mplpb_supported": true,
+          "factual_claims": true
+        },
+        "procedure_checks": [
+          {
+            "version": "procedure-constraints-v2",
+            "status": "supported",
+            "procedure": "bind-folio",
+            "requested_step": 1,
+            "steps": [
+              {
+                "order": 1,
+                "action": "Place the sheets in the cedar frame.",
+                "prerequisites": [],
+                "conditions": [
+                  "Use only dry material."
+                ],
+                "warnings": [
+                  "Do not tighten a torn sheet."
+                ],
+                "source": {
+                  "id": "FRESH-001",
+                  "path": "fresh-001.html",
+                  "hash": "sha256:a17123a96fe949905741f247e37cf05b335ddc4943d4f586de5733f796110aea",
+                  "quote": "MPLPB-PROCEDURE/1 {\"id\": \"bind-folio\", \"steps\": [{\"order\": 1, \"action\": \"Place the sheets in the cedar frame.\", \"prerequisites\": [], \"conditions\": [\"Use only dry material.\"], \"warnings\": [\"Do not tighten a torn sheet.\"]}, {\"order\": 2, \"action\": \"Close the cover.\", \"prerequisites\": [1], \"conditions\": [\"Only after alignment.\"], \"warnings\": [\"Stop if the cover binds.\"]}]}",
+                  "format": "json",
+                  "pointer": "/steps/0"
+                }
+              },
+              {
+                "order": 2,
+                "action": "Close the cover.",
+                "prerequisites": [
+                  1
+                ],
+                "conditions": [
+                  "Only after alignment."
+                ],
+                "warnings": [
+                  "Stop if the cover binds."
+                ],
+                "source": {
+                  "id": "FRESH-001",
+                  "path": "fresh-001.html",
+                  "hash": "sha256:a17123a96fe949905741f247e37cf05b335ddc4943d4f586de5733f796110aea",
+                  "quote": "MPLPB-PROCEDURE/1 {\"id\": \"bind-folio\", \"steps\": [{\"order\": 1, \"action\": \"Place the sheets in the cedar frame.\", \"prerequisites\": [], \"conditions\": [\"Use only dry material.\"], \"warnings\": [\"Do not tighten a torn sheet.\"]}, {\"order\": 2, \"action\": \"Close the cover.\", \"prerequisites\": [1], \"conditions\": [\"Only after alignment.\"], \"warnings\": [\"Stop if the cover binds.\"]}]}",
+                  "format": "json",
+                  "pointer": "/steps/1"
+                }
+              }
+            ],
+            "gaps": [],
+            "context_is_evidence": false,
+            "execution_verified": false,
+            "partial_sources": [],
+            "choices": [
+              "bind-folio"
+            ],
+            "identified": true,
+            "source": {
+              "id": "FRESH-001",
+              "path": "fresh-001.html",
+              "hash": "sha256:a17123a96fe949905741f247e37cf05b335ddc4943d4f586de5733f796110aea"
+            },
+            "corpus": "custom"
+          }
+        ],
+        "procedure": {
+          "version": "procedure-constraints-v2",
+          "status": "supported",
+          "procedure": "bind-folio",
+          "requested_step": 1,
+          "steps": [
+            {
+              "order": 1,
+              "action": "Place the sheets in the cedar frame.",
+              "prerequisites": [],
+              "conditions": [
+                "Use only dry material."
+              ],
+              "warnings": [
+                "Do not tighten a torn sheet."
+              ],
+              "source": {
+                "id": "FRESH-001",
+                "path": "fresh-001.html",
+                "hash": "sha256:a17123a96fe949905741f247e37cf05b335ddc4943d4f586de5733f796110aea",
+                "quote": "MPLPB-PROCEDURE/1 {\"id\": \"bind-folio\", \"steps\": [{\"order\": 1, \"action\": \"Place the sheets in the cedar frame.\", \"prerequisites\": [], \"conditions\": [\"Use only dry material.\"], \"warnings\": [\"Do not tighten a torn sheet.\"]}, {\"order\": 2, \"action\": \"Close the cover.\", \"prerequisites\": [1], \"conditions\": [\"Only after alignment.\"], \"warnings\": [\"Stop if the cover binds.\"]}]}",
+                "format": "json",
+                "pointer": "/steps/0"
+              }
+            },
+            {
+              "order": 2,
+              "action": "Close the cover.",
+              "prerequisites": [
+                1
+              ],
+              "conditions": [
+                "Only after alignment."
+              ],
+              "warnings": [
+                "Stop if the cover binds."
+              ],
+              "source": {
+                "id": "FRESH-001",
+                "path": "fresh-001.html",
+                "hash": "sha256:a17123a96fe949905741f247e37cf05b335ddc4943d4f586de5733f796110aea",
+                "quote": "MPLPB-PROCEDURE/1 {\"id\": \"bind-folio\", \"steps\": [{\"order\": 1, \"action\": \"Place the sheets in the cedar frame.\", \"prerequisites\": [], \"conditions\": [\"Use only dry material.\"], \"warnings\": [\"Do not tighten a torn sheet.\"]}, {\"order\": 2, \"action\": \"Close the cover.\", \"prerequisites\": [1], \"conditions\": [\"Only after alignment.\"], \"warnings\": [\"Stop if the cover binds.\"]}]}",
+                "format": "json",
+                "pointer": "/steps/1"
+              }
+            }
+          ],
+          "gaps": [],
+          "context_is_evidence": false,
+          "execution_verified": false,
+          "partial_sources": [],
+          "choices": [
+            "bind-folio"
+          ],
+          "identified": true,
+          "source": {
+            "id": "FRESH-001",
+            "path": "fresh-001.html",
+            "hash": "sha256:a17123a96fe949905741f247e37cf05b335ddc4943d4f586de5733f796110aea"
+          }
+        },
+        "source_corpus": "custom",
+        "requested_constraint": "warnings",
+        "determination": {
+          "rule": "REDUCE-DETERMINE",
+          "version": "reduction-to-determination-v2",
+          "mode": "focus",
+          "outcome": "unique",
+          "retained": [
+            "response"
+          ],
+          "eliminated": [],
+          "selected": "response",
+          "basis": "source_assertion",
+          "selection_order": "candidate ID; saved turn offset for equivalent wording",
+          "elimination_creates_evidence": false
+        },
+        "suggestions": [
+          "what is it?",
+          "summarize it",
+          "show source",
+          "show my MPLPB"
+        ],
+        "language_plan": {
+          "version": "language-planner-v1",
+          "canonical": "step 1",
+          "actions": [
+            "conversation_or_command"
+          ],
+          "subject": null,
+          "audience": null,
+          "reference": null,
+          "negation_present": false,
+          "imagined": false,
+          "question_word": "",
+          "normalization_is_evidence": false,
+          "realization_rules": [
+            "preserve_validated_payload"
+          ],
+          "response_act": "procedural",
+          "acquisition": {
+            "query": null,
+            "order": [
+              "eligible_local_pages",
+              "enabled_remote_capture"
+            ],
+            "search_snippets_are_evidence": false,
+            "automatic_network_requires_setting": true
+          },
+          "payload_sha256": "a54eb96749249fcbea50a64c8abc14bf028d3d28c49fffb4e70a71b207692026",
+          "surface_changed": false,
+          "source_paraphrasing": false,
+          "rules_are_not_evidence": true
+        },
+        "support_label": "Source-declared procedure \u00b7 execution unverified",
+        "guidance": {
+          "title": "Explore these sources",
+          "hint": "Choose a follow-up, or type your own. Each answer still needs supporting text.",
+          "actions": [
+            {
+              "label": "what is it?",
+              "request": "what is it?",
+              "mode": "send"
+            },
+            {
+              "label": "Ask a question",
+              "request": "",
+              "mode": "draft"
+            },
+            {
+              "label": "Choose another topic",
+              "request": "Tell me about ",
+              "mode": "draft"
+            }
+          ]
+        },
+        "interpretation": {
+          "version": "conversation-continuity-v2",
+          "original": "step 1",
+          "resolved": "step 1",
+          "acts": [
+            {
+              "type": "unresolved",
+              "text": "step 1"
+            }
+          ],
+          "subject": null,
+          "correction": false,
+          "reference": null,
+          "original_acts": [
+            {
+              "type": "unresolved",
+              "text": "step 1"
+            }
+          ]
+        },
+        "reply_plan": {
+          "subplans": {},
+          "sources": [
+            {
+              "id": "FRESH-001",
+              "path": "fresh-001.html",
+              "hash": "sha256:a17123a96fe949905741f247e37cf05b335ddc4943d4f586de5733f796110aea",
+              "corpus": "custom"
+            }
+          ]
+        },
+        "realization": {
+          "message": "Source-declared procedure bind-folio. This describes instructions; completion and real-world conditions are not verified.\nStep 1: Place the sheets in the cedar frame.\nPrerequisite steps: none declared\nConditions: Use only dry material.\nWarnings: Do not tighten a torn sheet.\nSource: FRESH-001 sha256:a17123a96fe949905741f247e37cf05b335ddc4943d4f586de5733f796110aea /steps/0",
+          "authority": "source_assertion",
+          "sources": [
+            {
+              "id": "FRESH-001",
+              "path": "fresh-001.html",
+              "hash": "sha256:a17123a96fe949905741f247e37cf05b335ddc4943d4f586de5733f796110aea",
+              "corpus": "custom"
+            }
+          ],
+          "claim_units": [],
+          "scope_results": [],
+          "chat_is_evidence": false
+        },
+        "response_validation": {
+          "version": "final-response-validation-v1",
+          "status": "checked",
+          "checks": [
+            "fresh procedure tags and exact constrained rendering"
+          ],
+          "context_is_evidence": false,
+          "source_presence_is_support": false,
+          "errors": []
+        },
+        "question_frame": {
+          "rule": "question-frames-v2",
+          "original": "step 1",
+          "canonical": "step 1",
+          "kind": "conversation_or_command",
+          "subject": null,
+          "normalization_is_evidence": false,
+          "support_frame": null
+        }
+      }
+    },
+    {
+      "domain": "bookbinding",
+      "message": "next step",
+      "passed": true,
+      "response": {
+        "kind": "clarify",
+        "message": "Step 2 requires verification of prerequisite steps 1. Showing an earlier step does not prove completion. To read the next instruction without claiming completion, say \u201cinspect next step\u201d.",
+        "context": null,
+        "sources": [
+          {
+            "id": "FRESH-001",
+            "path": "fresh-001.html",
+            "hash": "sha256:a17123a96fe949905741f247e37cf05b335ddc4943d4f586de5733f796110aea",
+            "corpus": "custom"
+          }
+        ],
+        "authority": "unsupported",
+        "procedure_request": {
+          "procedure": "bind-folio",
+          "step": 2
+        },
+        "response_structure": {
+          "intent": "procedural",
+          "mplpb_supported": false,
+          "factual_claims": false
+        },
+        "procedure_checks": [
+          {
+            "version": "procedure-constraints-v2",
+            "status": "supported",
+            "procedure": "bind-folio",
+            "requested_step": 2,
+            "steps": [
+              {
+                "order": 1,
+                "action": "Place the sheets in the cedar frame.",
+                "prerequisites": [],
+                "conditions": [
+                  "Use only dry material."
+                ],
+                "warnings": [
+                  "Do not tighten a torn sheet."
+                ],
+                "source": {
+                  "id": "FRESH-001",
+                  "path": "fresh-001.html",
+                  "hash": "sha256:a17123a96fe949905741f247e37cf05b335ddc4943d4f586de5733f796110aea",
+                  "quote": "MPLPB-PROCEDURE/1 {\"id\": \"bind-folio\", \"steps\": [{\"order\": 1, \"action\": \"Place the sheets in the cedar frame.\", \"prerequisites\": [], \"conditions\": [\"Use only dry material.\"], \"warnings\": [\"Do not tighten a torn sheet.\"]}, {\"order\": 2, \"action\": \"Close the cover.\", \"prerequisites\": [1], \"conditions\": [\"Only after alignment.\"], \"warnings\": [\"Stop if the cover binds.\"]}]}",
+                  "format": "json",
+                  "pointer": "/steps/0"
+                }
+              },
+              {
+                "order": 2,
+                "action": "Close the cover.",
+                "prerequisites": [
+                  1
+                ],
+                "conditions": [
+                  "Only after alignment."
+                ],
+                "warnings": [
+                  "Stop if the cover binds."
+                ],
+                "source": {
+                  "id": "FRESH-001",
+                  "path": "fresh-001.html",
+                  "hash": "sha256:a17123a96fe949905741f247e37cf05b335ddc4943d4f586de5733f796110aea",
+                  "quote": "MPLPB-PROCEDURE/1 {\"id\": \"bind-folio\", \"steps\": [{\"order\": 1, \"action\": \"Place the sheets in the cedar frame.\", \"prerequisites\": [], \"conditions\": [\"Use only dry material.\"], \"warnings\": [\"Do not tighten a torn sheet.\"]}, {\"order\": 2, \"action\": \"Close the cover.\", \"prerequisites\": [1], \"conditions\": [\"Only after alignment.\"], \"warnings\": [\"Stop if the cover binds.\"]}]}",
+                  "format": "json",
+                  "pointer": "/steps/1"
+                }
+              }
+            ],
+            "gaps": [],
+            "context_is_evidence": false,
+            "execution_verified": false,
+            "partial_sources": [],
+            "choices": [
+              "bind-folio"
+            ],
+            "identified": true,
+            "source": {
+              "id": "FRESH-001",
+              "path": "fresh-001.html",
+              "hash": "sha256:a17123a96fe949905741f247e37cf05b335ddc4943d4f586de5733f796110aea"
+            },
+            "corpus": "custom"
+          }
+        ],
+        "procedure_constraints": {
+          "order": 2,
+          "action": "Close the cover.",
+          "prerequisites": [
+            1
+          ],
+          "conditions": [
+            "Only after alignment."
+          ],
+          "warnings": [
+            "Stop if the cover binds."
+          ],
+          "source": {
+            "id": "FRESH-001",
+            "path": "fresh-001.html",
+            "hash": "sha256:a17123a96fe949905741f247e37cf05b335ddc4943d4f586de5733f796110aea",
+            "quote": "MPLPB-PROCEDURE/1 {\"id\": \"bind-folio\", \"steps\": [{\"order\": 1, \"action\": \"Place the sheets in the cedar frame.\", \"prerequisites\": [], \"conditions\": [\"Use only dry material.\"], \"warnings\": [\"Do not tighten a torn sheet.\"]}, {\"order\": 2, \"action\": \"Close the cover.\", \"prerequisites\": [1], \"conditions\": [\"Only after alignment.\"], \"warnings\": [\"Stop if the cover binds.\"]}]}",
+            "format": "json",
+            "pointer": "/steps/1"
+          }
+        },
+        "determination": {
+          "rule": "REDUCE-DETERMINE",
+          "version": "reduction-to-determination-v2",
+          "mode": "chat",
+          "outcome": "unique",
+          "retained": [
+            "response"
+          ],
+          "eliminated": [],
+          "selected": "response",
+          "basis": "uncertainty",
+          "selection_order": "candidate ID; saved turn offset for equivalent wording",
+          "elimination_creates_evidence": false
+        },
+        "suggestions": [
+          "show my MPLPB",
+          "why did you refuse?",
+          "guide me"
+        ],
+        "language_plan": {
+          "version": "language-planner-v1",
+          "canonical": "next step",
+          "actions": [
+            "conversation_or_command"
+          ],
+          "subject": null,
+          "audience": null,
+          "reference": null,
+          "negation_present": false,
+          "imagined": false,
+          "question_word": "",
+          "normalization_is_evidence": false,
+          "realization_rules": [
+            "preserve_validated_payload"
+          ],
+          "response_act": "procedural",
+          "acquisition": {
+            "query": null,
+            "order": [
+              "eligible_local_pages",
+              "enabled_remote_capture"
+            ],
+            "search_snippets_are_evidence": false,
+            "automatic_network_requires_setting": true
+          },
+          "payload_sha256": "684e1b040ae0a7dfdfb4cd2dc861e53323a219a7ad18745972c688a04e11e0ab",
+          "surface_changed": false,
+          "source_paraphrasing": false,
+          "rules_are_not_evidence": true
+        },
+        "support_label": "Needs clarification",
+        "guidance": {
+          "title": "Choose what you mean",
+          "hint": "Choose one of the offered meanings, or write a more specific request.",
+          "actions": [
+            {
+              "label": "show my MPLPB",
+              "request": "show my MPLPB",
+              "mode": "send"
+            },
+            {
+              "label": "why did you refuse?",
+              "request": "why did you refuse?",
+              "mode": "send"
+            },
+            {
+              "label": "guide me",
+              "request": "guide me",
+              "mode": "send"
+            },
+            {
+              "label": "Clarify my question",
+              "request": "",
+              "mode": "draft"
+            }
+          ]
+        },
+        "interpretation": {
+          "version": "conversation-continuity-v2",
+          "original": "next step",
+          "resolved": "next step",
+          "acts": [
+            {
+              "type": "unresolved",
+              "text": "next step"
+            }
+          ],
+          "subject": null,
+          "correction": false,
+          "reference": null,
+          "original_acts": [
+            {
+              "type": "unresolved",
+              "text": "next step"
+            }
+          ]
+        },
+        "reply_plan": {
+          "subplans": {},
+          "sources": [
+            {
+              "id": "FRESH-001",
+              "path": "fresh-001.html",
+              "hash": "sha256:a17123a96fe949905741f247e37cf05b335ddc4943d4f586de5733f796110aea",
+              "corpus": "custom"
+            }
+          ]
+        },
+        "realization": {
+          "message": "Step 2 requires verification of prerequisite steps 1. Showing an earlier step does not prove completion. To read the next instruction without claiming completion, say \u201cinspect next step\u201d.",
+          "authority": "unsupported",
+          "sources": [
+            {
+              "id": "FRESH-001",
+              "path": "fresh-001.html",
+              "hash": "sha256:a17123a96fe949905741f247e37cf05b335ddc4943d4f586de5733f796110aea",
+              "corpus": "custom"
+            }
+          ],
+          "claim_units": [],
+          "scope_results": [],
+          "chat_is_evidence": false
+        },
+        "response_validation": {
+          "version": "final-response-validation-v1",
+          "status": "checked",
+          "checks": [
+            "existing non-answer/reference contract; current local pins checked"
+          ],
+          "context_is_evidence": false,
+          "source_presence_is_support": false,
+          "errors": []
+        },
+        "question_frame": {
+          "rule": "question-frames-v2",
+          "original": "next step",
+          "canonical": "next step",
+          "kind": "conversation_or_command",
+          "subject": null,
+          "normalization_is_evidence": false,
+          "support_frame": null
+        }
+      }
+    },
+    {
+      "domain": "bookbinding",
+      "message": "inspect next step",
+      "passed": true,
+      "response": {
+        "kind": "return",
+        "message": "Source-declared procedure bind-folio. This describes instructions; completion and real-world conditions are not verified.\nStep 2: Close the cover.\nPrerequisite steps: 1\nConditions: Only after alignment.\nWarnings: Stop if the cover binds.\nSource: FRESH-001 sha256:a17123a96fe949905741f247e37cf05b335ddc4943d4f586de5733f796110aea /steps/1",
+        "context": null,
+        "sources": [
+          {
+            "id": "FRESH-001",
+            "path": "fresh-001.html",
+            "hash": "sha256:a17123a96fe949905741f247e37cf05b335ddc4943d4f586de5733f796110aea",
+            "corpus": "custom"
+          }
+        ],
+        "authority": "source_assertion",
+        "procedure_request": {
+          "procedure": "bind-folio",
+          "step": 2
+        },
+        "response_structure": {
+          "intent": "procedural",
+          "mplpb_supported": true,
+          "factual_claims": true
+        },
+        "procedure_checks": [
+          {
+            "version": "procedure-constraints-v2",
+            "status": "supported",
+            "procedure": "bind-folio",
+            "requested_step": 2,
+            "steps": [
+              {
+                "order": 1,
+                "action": "Place the sheets in the cedar frame.",
+                "prerequisites": [],
+                "conditions": [
+                  "Use only dry material."
+                ],
+                "warnings": [
+                  "Do not tighten a torn sheet."
+                ],
+                "source": {
+                  "id": "FRESH-001",
+                  "path": "fresh-001.html",
+                  "hash": "sha256:a17123a96fe949905741f247e37cf05b335ddc4943d4f586de5733f796110aea",
+                  "quote": "MPLPB-PROCEDURE/1 {\"id\": \"bind-folio\", \"steps\": [{\"order\": 1, \"action\": \"Place the sheets in the cedar frame.\", \"prerequisites\": [], \"conditions\": [\"Use only dry material.\"], \"warnings\": [\"Do not tighten a torn sheet.\"]}, {\"order\": 2, \"action\": \"Close the cover.\", \"prerequisites\": [1], \"conditions\": [\"Only after alignment.\"], \"warnings\": [\"Stop if the cover binds.\"]}]}",
+                  "format": "json",
+                  "pointer": "/steps/0"
+                }
+              },
+              {
+                "order": 2,
+                "action": "Close the cover.",
+                "prerequisites": [
+                  1
+                ],
+                "conditions": [
+                  "Only after alignment."
+                ],
+                "warnings": [
+                  "Stop if the cover binds."
+                ],
+                "source": {
+                  "id": "FRESH-001",
+                  "path": "fresh-001.html",
+                  "hash": "sha256:a17123a96fe949905741f247e37cf05b335ddc4943d4f586de5733f796110aea",
+                  "quote": "MPLPB-PROCEDURE/1 {\"id\": \"bind-folio\", \"steps\": [{\"order\": 1, \"action\": \"Place the sheets in the cedar frame.\", \"prerequisites\": [], \"conditions\": [\"Use only dry material.\"], \"warnings\": [\"Do not tighten a torn sheet.\"]}, {\"order\": 2, \"action\": \"Close the cover.\", \"prerequisites\": [1], \"conditions\": [\"Only after alignment.\"], \"warnings\": [\"Stop if the cover binds.\"]}]}",
+                  "format": "json",
+                  "pointer": "/steps/1"
+                }
+              }
+            ],
+            "gaps": [],
+            "context_is_evidence": false,
+            "execution_verified": false,
+            "partial_sources": [],
+            "choices": [
+              "bind-folio"
+            ],
+            "identified": true,
+            "source": {
+              "id": "FRESH-001",
+              "path": "fresh-001.html",
+              "hash": "sha256:a17123a96fe949905741f247e37cf05b335ddc4943d4f586de5733f796110aea"
+            },
+            "corpus": "custom"
+          }
+        ],
+        "procedure": {
+          "version": "procedure-constraints-v2",
+          "status": "supported",
+          "procedure": "bind-folio",
+          "requested_step": 2,
+          "steps": [
+            {
+              "order": 1,
+              "action": "Place the sheets in the cedar frame.",
+              "prerequisites": [],
+              "conditions": [
+                "Use only dry material."
+              ],
+              "warnings": [
+                "Do not tighten a torn sheet."
+              ],
+              "source": {
+                "id": "FRESH-001",
+                "path": "fresh-001.html",
+                "hash": "sha256:a17123a96fe949905741f247e37cf05b335ddc4943d4f586de5733f796110aea",
+                "quote": "MPLPB-PROCEDURE/1 {\"id\": \"bind-folio\", \"steps\": [{\"order\": 1, \"action\": \"Place the sheets in the cedar frame.\", \"prerequisites\": [], \"conditions\": [\"Use only dry material.\"], \"warnings\": [\"Do not tighten a torn sheet.\"]}, {\"order\": 2, \"action\": \"Close the cover.\", \"prerequisites\": [1], \"conditions\": [\"Only after alignment.\"], \"warnings\": [\"Stop if the cover binds.\"]}]}",
+                "format": "json",
+                "pointer": "/steps/0"
+              }
+            },
+            {
+              "order": 2,
+              "action": "Close the cover.",
+              "prerequisites": [
+                1
+              ],
+              "conditions": [
+                "Only after alignment."
+              ],
+              "warnings": [
+                "Stop if the cover binds."
+              ],
+              "source": {
+                "id": "FRESH-001",
+                "path": "fresh-001.html",
+                "hash": "sha256:a17123a96fe949905741f247e37cf05b335ddc4943d4f586de5733f796110aea",
+                "quote": "MPLPB-PROCEDURE/1 {\"id\": \"bind-folio\", \"steps\": [{\"order\": 1, \"action\": \"Place the sheets in the cedar frame.\", \"prerequisites\": [], \"conditions\": [\"Use only dry material.\"], \"warnings\": [\"Do not tighten a torn sheet.\"]}, {\"order\": 2, \"action\": \"Close the cover.\", \"prerequisites\": [1], \"conditions\": [\"Only after alignment.\"], \"warnings\": [\"Stop if the cover binds.\"]}]}",
+                "format": "json",
+                "pointer": "/steps/1"
+              }
+            }
+          ],
+          "gaps": [],
+          "context_is_evidence": false,
+          "execution_verified": false,
+          "partial_sources": [],
+          "choices": [
+            "bind-folio"
+          ],
+          "identified": true,
+          "source": {
+            "id": "FRESH-001",
+            "path": "fresh-001.html",
+            "hash": "sha256:a17123a96fe949905741f247e37cf05b335ddc4943d4f586de5733f796110aea"
+          }
+        },
+        "source_corpus": "custom",
+        "determination": {
+          "rule": "REDUCE-DETERMINE",
+          "version": "reduction-to-determination-v2",
+          "mode": "focus",
+          "outcome": "unique",
+          "retained": [
+            "response"
+          ],
+          "eliminated": [],
+          "selected": "response",
+          "basis": "source_assertion",
+          "selection_order": "candidate ID; saved turn offset for equivalent wording",
+          "elimination_creates_evidence": false
+        },
+        "suggestions": [
+          "what is it?",
+          "summarize it",
+          "show source",
+          "show my MPLPB"
+        ],
+        "language_plan": {
+          "version": "language-planner-v1",
+          "canonical": "inspect next step",
+          "actions": [
+            "conversation_or_command"
+          ],
+          "subject": null,
+          "audience": null,
+          "reference": null,
+          "negation_present": false,
+          "imagined": false,
+          "question_word": "",
+          "normalization_is_evidence": false,
+          "realization_rules": [
+            "preserve_validated_payload"
+          ],
+          "response_act": "procedural",
+          "acquisition": {
+            "query": null,
+            "order": [
+              "eligible_local_pages",
+              "enabled_remote_capture"
+            ],
+            "search_snippets_are_evidence": false,
+            "automatic_network_requires_setting": true
+          },
+          "payload_sha256": "6c7bd31bcf3ba7bc167adc7953e65e99d1f8e1be14d74cd5a3776228d2757c75",
+          "surface_changed": false,
+          "source_paraphrasing": false,
+          "rules_are_not_evidence": true
+        },
+        "support_label": "Source-declared procedure \u00b7 execution unverified",
+        "guidance": {
+          "title": "Explore these sources",
+          "hint": "Choose a follow-up, or type your own. Each answer still needs supporting text.",
+          "actions": [
+            {
+              "label": "what is it?",
+              "request": "what is it?",
+              "mode": "send"
+            },
+            {
+              "label": "Ask a question",
+              "request": "",
+              "mode": "draft"
+            },
+            {
+              "label": "Choose another topic",
+              "request": "Tell me about ",
+              "mode": "draft"
+            }
+          ]
+        },
+        "interpretation": {
+          "version": "conversation-continuity-v2",
+          "original": "inspect next step",
+          "resolved": "inspect next step",
+          "acts": [
+            {
+              "type": "unresolved",
+              "text": "inspect next step"
+            }
+          ],
+          "subject": null,
+          "correction": false,
+          "reference": null,
+          "original_acts": [
+            {
+              "type": "unresolved",
+              "text": "inspect next step"
+            }
+          ]
+        },
+        "reply_plan": {
+          "subplans": {},
+          "sources": [
+            {
+              "id": "FRESH-001",
+              "path": "fresh-001.html",
+              "hash": "sha256:a17123a96fe949905741f247e37cf05b335ddc4943d4f586de5733f796110aea",
+              "corpus": "custom"
+            }
+          ]
+        },
+        "realization": {
+          "message": "Source-declared procedure bind-folio. This describes instructions; completion and real-world conditions are not verified.\nStep 2: Close the cover.\nPrerequisite steps: 1\nConditions: Only after alignment.\nWarnings: Stop if the cover binds.\nSource: FRESH-001 sha256:a17123a96fe949905741f247e37cf05b335ddc4943d4f586de5733f796110aea /steps/1",
+          "authority": "source_assertion",
+          "sources": [
+            {
+              "id": "FRESH-001",
+              "path": "fresh-001.html",
+              "hash": "sha256:a17123a96fe949905741f247e37cf05b335ddc4943d4f586de5733f796110aea",
+              "corpus": "custom"
+            }
+          ],
+          "claim_units": [],
+          "scope_results": [],
+          "chat_is_evidence": false
+        },
+        "response_validation": {
+          "version": "final-response-validation-v1",
+          "status": "checked",
+          "checks": [
+            "fresh procedure tags and exact constrained rendering"
+          ],
+          "context_is_evidence": false,
+          "source_presence_is_support": false,
+          "errors": []
+        },
+        "question_frame": {
+          "rule": "question-frames-v2",
+          "original": "inspect next step",
+          "canonical": "inspect next step",
+          "kind": "conversation_or_command",
+          "subject": null,
+          "normalization_is_evidence": false,
+          "support_frame": null
+        }
+      }
+    },
+    {
+      "domain": "bookbinding",
+      "message": "No, I meant step 1",
+      "passed": true,
+      "response": {
+        "kind": "return",
+        "message": "Source-declared procedure bind-folio. This describes instructions; completion and real-world conditions are not verified.\nStep 1: Place the sheets in the cedar frame.\nPrerequisite steps: none declared\nConditions: Use only dry material.\nWarnings: Do not tighten a torn sheet.\nSource: FRESH-001 sha256:a17123a96fe949905741f247e37cf05b335ddc4943d4f586de5733f796110aea /steps/0",
+        "context": null,
+        "sources": [
+          {
+            "id": "FRESH-001",
+            "path": "fresh-001.html",
+            "hash": "sha256:a17123a96fe949905741f247e37cf05b335ddc4943d4f586de5733f796110aea",
+            "corpus": "custom"
+          }
+        ],
+        "authority": "source_assertion",
+        "procedure_request": {
+          "procedure": "bind-folio",
+          "step": 1
+        },
+        "response_structure": {
+          "intent": "procedural",
+          "mplpb_supported": true,
+          "factual_claims": true
+        },
+        "procedure_checks": [
+          {
+            "version": "procedure-constraints-v2",
+            "status": "supported",
+            "procedure": "bind-folio",
+            "requested_step": 1,
+            "steps": [
+              {
+                "order": 1,
+                "action": "Place the sheets in the cedar frame.",
+                "prerequisites": [],
+                "conditions": [
+                  "Use only dry material."
+                ],
+                "warnings": [
+                  "Do not tighten a torn sheet."
+                ],
+                "source": {
+                  "id": "FRESH-001",
+                  "path": "fresh-001.html",
+                  "hash": "sha256:a17123a96fe949905741f247e37cf05b335ddc4943d4f586de5733f796110aea",
+                  "quote": "MPLPB-PROCEDURE/1 {\"id\": \"bind-folio\", \"steps\": [{\"order\": 1, \"action\": \"Place the sheets in the cedar frame.\", \"prerequisites\": [], \"conditions\": [\"Use only dry material.\"], \"warnings\": [\"Do not tighten a torn sheet.\"]}, {\"order\": 2, \"action\": \"Close the cover.\", \"prerequisites\": [1], \"conditions\": [\"Only after alignment.\"], \"warnings\": [\"Stop if the cover binds.\"]}]}",
+                  "format": "json",
+                  "pointer": "/steps/0"
+                }
+              },
+              {
+                "order": 2,
+                "action": "Close the cover.",
+                "prerequisites": [
+                  1
+                ],
+                "conditions": [
+                  "Only after alignment."
+                ],
+                "warnings": [
+                  "Stop if the cover binds."
+                ],
+                "source": {
+                  "id": "FRESH-001",
+                  "path": "fresh-001.html",
+                  "hash": "sha256:a17123a96fe949905741f247e37cf05b335ddc4943d4f586de5733f796110aea",
+                  "quote": "MPLPB-PROCEDURE/1 {\"id\": \"bind-folio\", \"steps\": [{\"order\": 1, \"action\": \"Place the sheets in the cedar frame.\", \"prerequisites\": [], \"conditions\": [\"Use only dry material.\"], \"warnings\": [\"Do not tighten a torn sheet.\"]}, {\"order\": 2, \"action\": \"Close the cover.\", \"prerequisites\": [1], \"conditions\": [\"Only after alignment.\"], \"warnings\": [\"Stop if the cover binds.\"]}]}",
+                  "format": "json",
+                  "pointer": "/steps/1"
+                }
+              }
+            ],
+            "gaps": [],
+            "context_is_evidence": false,
+            "execution_verified": false,
+            "partial_sources": [],
+            "choices": [
+              "bind-folio"
+            ],
+            "identified": true,
+            "source": {
+              "id": "FRESH-001",
+              "path": "fresh-001.html",
+              "hash": "sha256:a17123a96fe949905741f247e37cf05b335ddc4943d4f586de5733f796110aea"
+            },
+            "corpus": "custom"
+          }
+        ],
+        "procedure": {
+          "version": "procedure-constraints-v2",
+          "status": "supported",
+          "procedure": "bind-folio",
+          "requested_step": 1,
+          "steps": [
+            {
+              "order": 1,
+              "action": "Place the sheets in the cedar frame.",
+              "prerequisites": [],
+              "conditions": [
+                "Use only dry material."
+              ],
+              "warnings": [
+                "Do not tighten a torn sheet."
+              ],
+              "source": {
+                "id": "FRESH-001",
+                "path": "fresh-001.html",
+                "hash": "sha256:a17123a96fe949905741f247e37cf05b335ddc4943d4f586de5733f796110aea",
+                "quote": "MPLPB-PROCEDURE/1 {\"id\": \"bind-folio\", \"steps\": [{\"order\": 1, \"action\": \"Place the sheets in the cedar frame.\", \"prerequisites\": [], \"conditions\": [\"Use only dry material.\"], \"warnings\": [\"Do not tighten a torn sheet.\"]}, {\"order\": 2, \"action\": \"Close the cover.\", \"prerequisites\": [1], \"conditions\": [\"Only after alignment.\"], \"warnings\": [\"Stop if the cover binds.\"]}]}",
+                "format": "json",
+                "pointer": "/steps/0"
+              }
+            },
+            {
+              "order": 2,
+              "action": "Close the cover.",
+              "prerequisites": [
+                1
+              ],
+              "conditions": [
+                "Only after alignment."
+              ],
+              "warnings": [
+                "Stop if the cover binds."
+              ],
+              "source": {
+                "id": "FRESH-001",
+                "path": "fresh-001.html",
+                "hash": "sha256:a17123a96fe949905741f247e37cf05b335ddc4943d4f586de5733f796110aea",
+                "quote": "MPLPB-PROCEDURE/1 {\"id\": \"bind-folio\", \"steps\": [{\"order\": 1, \"action\": \"Place the sheets in the cedar frame.\", \"prerequisites\": [], \"conditions\": [\"Use only dry material.\"], \"warnings\": [\"Do not tighten a torn sheet.\"]}, {\"order\": 2, \"action\": \"Close the cover.\", \"prerequisites\": [1], \"conditions\": [\"Only after alignment.\"], \"warnings\": [\"Stop if the cover binds.\"]}]}",
+                "format": "json",
+                "pointer": "/steps/1"
+              }
+            }
+          ],
+          "gaps": [],
+          "context_is_evidence": false,
+          "execution_verified": false,
+          "partial_sources": [],
+          "choices": [
+            "bind-folio"
+          ],
+          "identified": true,
+          "source": {
+            "id": "FRESH-001",
+            "path": "fresh-001.html",
+            "hash": "sha256:a17123a96fe949905741f247e37cf05b335ddc4943d4f586de5733f796110aea"
+          }
+        },
+        "source_corpus": "custom",
+        "determination": {
+          "rule": "REDUCE-DETERMINE",
+          "version": "reduction-to-determination-v2",
+          "mode": "focus",
+          "outcome": "unique",
+          "retained": [
+            "response"
+          ],
+          "eliminated": [],
+          "selected": "response",
+          "basis": "source_assertion",
+          "selection_order": "candidate ID; saved turn offset for equivalent wording",
+          "elimination_creates_evidence": false
+        },
+        "suggestions": [
+          "what is it?",
+          "summarize it",
+          "show source",
+          "show my MPLPB"
+        ],
+        "language_plan": {
+          "version": "language-planner-v1",
+          "canonical": "No, I meant step 1",
+          "actions": [
+            "conversation_or_command"
+          ],
+          "subject": null,
+          "audience": null,
+          "reference": null,
+          "negation_present": true,
+          "imagined": false,
+          "question_word": "",
+          "normalization_is_evidence": false,
+          "realization_rules": [
+            "preserve_validated_payload"
+          ],
+          "response_act": "procedural",
+          "acquisition": {
+            "query": null,
+            "order": [
+              "eligible_local_pages",
+              "enabled_remote_capture"
+            ],
+            "search_snippets_are_evidence": false,
+            "automatic_network_requires_setting": true
+          },
+          "payload_sha256": "a54eb96749249fcbea50a64c8abc14bf028d3d28c49fffb4e70a71b207692026",
+          "surface_changed": false,
+          "source_paraphrasing": false,
+          "rules_are_not_evidence": true
+        },
+        "support_label": "Source-declared procedure \u00b7 execution unverified",
+        "guidance": {
+          "title": "Explore these sources",
+          "hint": "Choose a follow-up, or type your own. Each answer still needs supporting text.",
+          "actions": [
+            {
+              "label": "what is it?",
+              "request": "what is it?",
+              "mode": "send"
+            },
+            {
+              "label": "Ask a question",
+              "request": "",
+              "mode": "draft"
+            },
+            {
+              "label": "Choose another topic",
+              "request": "Tell me about ",
+              "mode": "draft"
+            }
+          ]
+        },
+        "interpretation": {
+          "version": "conversation-continuity-v2",
+          "original": "No, I meant step 1",
+          "resolved": "No, I meant step 1",
+          "acts": [
+            {
+              "type": "unresolved",
+              "text": "No, I meant step 1"
+            }
+          ],
+          "subject": null,
+          "correction": false,
+          "reference": null,
+          "original_acts": [
+            {
+              "type": "unresolved",
+              "text": "No, I meant step 1"
+            }
+          ]
+        },
+        "reply_plan": {
+          "subplans": {},
+          "sources": [
+            {
+              "id": "FRESH-001",
+              "path": "fresh-001.html",
+              "hash": "sha256:a17123a96fe949905741f247e37cf05b335ddc4943d4f586de5733f796110aea",
+              "corpus": "custom"
+            }
+          ]
+        },
+        "realization": {
+          "message": "Source-declared procedure bind-folio. This describes instructions; completion and real-world conditions are not verified.\nStep 1: Place the sheets in the cedar frame.\nPrerequisite steps: none declared\nConditions: Use only dry material.\nWarnings: Do not tighten a torn sheet.\nSource: FRESH-001 sha256:a17123a96fe949905741f247e37cf05b335ddc4943d4f586de5733f796110aea /steps/0",
+          "authority": "source_assertion",
+          "sources": [
+            {
+              "id": "FRESH-001",
+              "path": "fresh-001.html",
+              "hash": "sha256:a17123a96fe949905741f247e37cf05b335ddc4943d4f586de5733f796110aea",
+              "corpus": "custom"
+            }
+          ],
+          "claim_units": [],
+          "scope_results": [],
+          "chat_is_evidence": false
+        },
+        "response_validation": {
+          "version": "final-response-validation-v1",
+          "status": "checked",
+          "checks": [
+            "fresh procedure tags and exact constrained rendering"
+          ],
+          "context_is_evidence": false,
+          "source_presence_is_support": false,
+          "errors": []
+        },
+        "question_frame": {
+          "rule": "question-frames-v2",
+          "original": "No, I meant step 1",
+          "canonical": "No, I meant step 1",
+          "kind": "conversation_or_command",
+          "subject": null,
+          "normalization_is_evidence": false,
+          "support_frame": null
+        }
+      }
+    },
+    {
+      "domain": "fictional inventory",
+      "message": "How do I sort nacre?",
+      "passed": true,
+      "response": {
+        "kind": "return",
+        "message": "Source-declared procedure sort-nacre. This describes instructions; completion and real-world conditions are not verified.\nStep 1: Place the labels in the silver tray.\nPrerequisite steps: none declared\nConditions: Use only dry material.\nWarnings: Stop when the tray is full.\nSource: FRESH-001 sha256:2db5a62f327c23c35b154bd0d2384488d9a7bb54d91867d33effd7310fba44ac /steps/0\nStep 2: Close the cover.\nPrerequisite steps: 1\nConditions: Only after alignment.\nWarnings: Stop if the cover binds.\nSource: FRESH-001 sha256:2db5a62f327c23c35b154bd0d2384488d9a7bb54d91867d33effd7310fba44ac /steps/1",
+        "context": null,
+        "sources": [
+          {
+            "id": "FRESH-001",
+            "path": "fresh-001.html",
+            "hash": "sha256:2db5a62f327c23c35b154bd0d2384488d9a7bb54d91867d33effd7310fba44ac",
+            "corpus": "custom"
+          }
+        ],
+        "authority": "source_assertion",
+        "procedure_request": {
+          "procedure": "sort-nacre",
+          "step": null,
+          "original": "How do I sort nacre?",
+          "interpretation": "explicit_identifier_words",
+          "execution_requested": false
+        },
+        "response_structure": {
+          "intent": "procedural",
+          "mplpb_supported": true,
+          "factual_claims": true
+        },
+        "procedure_checks": [
+          {
+            "version": "procedure-constraints-v2",
+            "status": "supported",
+            "procedure": "sort-nacre",
+            "requested_step": null,
+            "steps": [
+              {
+                "order": 1,
+                "action": "Place the labels in the silver tray.",
+                "prerequisites": [],
+                "conditions": [
+                  "Use only dry material."
+                ],
+                "warnings": [
+                  "Stop when the tray is full."
+                ],
+                "source": {
+                  "id": "FRESH-001",
+                  "path": "fresh-001.html",
+                  "hash": "sha256:2db5a62f327c23c35b154bd0d2384488d9a7bb54d91867d33effd7310fba44ac",
+                  "quote": "MPLPB-PROCEDURE/1 {\"id\": \"sort-nacre\", \"steps\": [{\"order\": 1, \"action\": \"Place the labels in the silver tray.\", \"prerequisites\": [], \"conditions\": [\"Use only dry material.\"], \"warnings\": [\"Stop when the tray is full.\"]}, {\"order\": 2, \"action\": \"Close the cover.\", \"prerequisites\": [1], \"conditions\": [\"Only after alignment.\"], \"warnings\": [\"Stop if the cover binds.\"]}]}",
+                  "format": "json",
+                  "pointer": "/steps/0"
+                }
+              },
+              {
+                "order": 2,
+                "action": "Close the cover.",
+                "prerequisites": [
+                  1
+                ],
+                "conditions": [
+                  "Only after alignment."
+                ],
+                "warnings": [
+                  "Stop if the cover binds."
+                ],
+                "source": {
+                  "id": "FRESH-001",
+                  "path": "fresh-001.html",
+                  "hash": "sha256:2db5a62f327c23c35b154bd0d2384488d9a7bb54d91867d33effd7310fba44ac",
+                  "quote": "MPLPB-PROCEDURE/1 {\"id\": \"sort-nacre\", \"steps\": [{\"order\": 1, \"action\": \"Place the labels in the silver tray.\", \"prerequisites\": [], \"conditions\": [\"Use only dry material.\"], \"warnings\": [\"Stop when the tray is full.\"]}, {\"order\": 2, \"action\": \"Close the cover.\", \"prerequisites\": [1], \"conditions\": [\"Only after alignment.\"], \"warnings\": [\"Stop if the cover binds.\"]}]}",
+                  "format": "json",
+                  "pointer": "/steps/1"
+                }
+              }
+            ],
+            "gaps": [],
+            "context_is_evidence": false,
+            "execution_verified": false,
+            "partial_sources": [],
+            "choices": [
+              "sort-nacre"
+            ],
+            "identified": true,
+            "source": {
+              "id": "FRESH-001",
+              "path": "fresh-001.html",
+              "hash": "sha256:2db5a62f327c23c35b154bd0d2384488d9a7bb54d91867d33effd7310fba44ac"
+            },
+            "corpus": "custom"
+          }
+        ],
+        "procedure": {
+          "version": "procedure-constraints-v2",
+          "status": "supported",
+          "procedure": "sort-nacre",
+          "requested_step": null,
+          "steps": [
+            {
+              "order": 1,
+              "action": "Place the labels in the silver tray.",
+              "prerequisites": [],
+              "conditions": [
+                "Use only dry material."
+              ],
+              "warnings": [
+                "Stop when the tray is full."
+              ],
+              "source": {
+                "id": "FRESH-001",
+                "path": "fresh-001.html",
+                "hash": "sha256:2db5a62f327c23c35b154bd0d2384488d9a7bb54d91867d33effd7310fba44ac",
+                "quote": "MPLPB-PROCEDURE/1 {\"id\": \"sort-nacre\", \"steps\": [{\"order\": 1, \"action\": \"Place the labels in the silver tray.\", \"prerequisites\": [], \"conditions\": [\"Use only dry material.\"], \"warnings\": [\"Stop when the tray is full.\"]}, {\"order\": 2, \"action\": \"Close the cover.\", \"prerequisites\": [1], \"conditions\": [\"Only after alignment.\"], \"warnings\": [\"Stop if the cover binds.\"]}]}",
+                "format": "json",
+                "pointer": "/steps/0"
+              }
+            },
+            {
+              "order": 2,
+              "action": "Close the cover.",
+              "prerequisites": [
+                1
+              ],
+              "conditions": [
+                "Only after alignment."
+              ],
+              "warnings": [
+                "Stop if the cover binds."
+              ],
+              "source": {
+                "id": "FRESH-001",
+                "path": "fresh-001.html",
+                "hash": "sha256:2db5a62f327c23c35b154bd0d2384488d9a7bb54d91867d33effd7310fba44ac",
+                "quote": "MPLPB-PROCEDURE/1 {\"id\": \"sort-nacre\", \"steps\": [{\"order\": 1, \"action\": \"Place the labels in the silver tray.\", \"prerequisites\": [], \"conditions\": [\"Use only dry material.\"], \"warnings\": [\"Stop when the tray is full.\"]}, {\"order\": 2, \"action\": \"Close the cover.\", \"prerequisites\": [1], \"conditions\": [\"Only after alignment.\"], \"warnings\": [\"Stop if the cover binds.\"]}]}",
+                "format": "json",
+                "pointer": "/steps/1"
+              }
+            }
+          ],
+          "gaps": [],
+          "context_is_evidence": false,
+          "execution_verified": false,
+          "partial_sources": [],
+          "choices": [
+            "sort-nacre"
+          ],
+          "identified": true,
+          "source": {
+            "id": "FRESH-001",
+            "path": "fresh-001.html",
+            "hash": "sha256:2db5a62f327c23c35b154bd0d2384488d9a7bb54d91867d33effd7310fba44ac"
+          }
+        },
+        "source_corpus": "custom",
+        "determination": {
+          "rule": "REDUCE-DETERMINE",
+          "version": "reduction-to-determination-v2",
+          "mode": "focus",
+          "outcome": "unique",
+          "retained": [
+            "response"
+          ],
+          "eliminated": [],
+          "selected": "response",
+          "basis": "source_assertion",
+          "selection_order": "candidate ID; saved turn offset for equivalent wording",
+          "elimination_creates_evidence": false
+        },
+        "suggestions": [
+          "what is it?",
+          "summarize it",
+          "show source",
+          "show my MPLPB"
+        ],
+        "language_plan": {
+          "version": "language-planner-v1",
+          "canonical": "How do I sort nacre?",
+          "actions": [
+            "question"
+          ],
+          "subject": null,
+          "audience": null,
+          "reference": null,
+          "negation_present": false,
+          "imagined": false,
+          "question_word": "How",
+          "normalization_is_evidence": false,
+          "realization_rules": [
+            "preserve_validated_payload"
+          ],
+          "response_act": "procedural",
+          "acquisition": {
+            "query": null,
+            "order": [
+              "eligible_local_pages",
+              "enabled_remote_capture"
+            ],
+            "search_snippets_are_evidence": false,
+            "automatic_network_requires_setting": true
+          },
+          "payload_sha256": "c7eb0b2a8953e0d4c68352db87b1614345da250afc01817666b0299920102e68",
+          "surface_changed": false,
+          "source_paraphrasing": false,
+          "rules_are_not_evidence": true
+        },
+        "support_label": "Source-declared procedure \u00b7 execution unverified",
+        "guidance": {
+          "title": "Explore these sources",
+          "hint": "Choose a follow-up, or type your own. Each answer still needs supporting text.",
+          "actions": [
+            {
+              "label": "what is it?",
+              "request": "what is it?",
+              "mode": "send"
+            },
+            {
+              "label": "Ask a question",
+              "request": "",
+              "mode": "draft"
+            },
+            {
+              "label": "Choose another topic",
+              "request": "Tell me about ",
+              "mode": "draft"
+            }
+          ]
+        },
+        "interpretation": {
+          "version": "conversation-continuity-v2",
+          "original": "How do I sort nacre?",
+          "resolved": "How do I sort nacre?",
+          "acts": [
+            {
+              "type": "unresolved",
+              "text": "How do I sort nacre"
+            }
+          ],
+          "subject": null,
+          "correction": false,
+          "reference": null,
+          "original_acts": [
+            {
+              "type": "unresolved",
+              "text": "How do I sort nacre"
+            }
+          ]
+        },
+        "reply_plan": {
+          "subplans": {},
+          "sources": [
+            {
+              "id": "FRESH-001",
+              "path": "fresh-001.html",
+              "hash": "sha256:2db5a62f327c23c35b154bd0d2384488d9a7bb54d91867d33effd7310fba44ac",
+              "corpus": "custom"
+            }
+          ]
+        },
+        "realization": {
+          "message": "Source-declared procedure sort-nacre. This describes instructions; completion and real-world conditions are not verified.\nStep 1: Place the labels in the silver tray.\nPrerequisite steps: none declared\nConditions: Use only dry material.\nWarnings: Stop when the tray is full.\nSource: FRESH-001 sha256:2db5a62f327c23c35b154bd0d2384488d9a7bb54d91867d33effd7310fba44ac /steps/0\nStep 2: Close the cover.\nPrerequisite steps: 1\nConditions: Only after alignment.\nWarnings: Stop if the cover binds.\nSource: FRESH-001 sha256:2db5a62f327c23c35b154bd0d2384488d9a7bb54d91867d33effd7310fba44ac /steps/1",
+          "authority": "source_assertion",
+          "sources": [
+            {
+              "id": "FRESH-001",
+              "path": "fresh-001.html",
+              "hash": "sha256:2db5a62f327c23c35b154bd0d2384488d9a7bb54d91867d33effd7310fba44ac",
+              "corpus": "custom"
+            }
+          ],
+          "claim_units": [],
+          "scope_results": [],
+          "chat_is_evidence": false
+        },
+        "response_validation": {
+          "version": "final-response-validation-v1",
+          "status": "checked",
+          "checks": [
+            "fresh procedure tags and exact constrained rendering"
+          ],
+          "context_is_evidence": false,
+          "source_presence_is_support": false,
+          "errors": []
+        },
+        "question_frame": {
+          "rule": "question-frames-v2",
+          "original": "How do I sort nacre?",
+          "canonical": "How do I sort nacre?",
+          "kind": "question",
+          "subject": null,
+          "normalization_is_evidence": false,
+          "support_frame": null
+        }
+      }
+    },
+    {
+      "domain": "fictional inventory",
+      "message": "show warnings",
+      "passed": true,
+      "response": {
+        "kind": "clarify",
+        "message": "Which step would you like to inspect? You can say \u201cstep 1\u201d.",
+        "context": null,
+        "sources": [],
+        "authority": "unsupported",
+        "procedure_request": {
+          "procedure": "sort-nacre",
+          "step": 0,
+          "corpus": "custom",
+          "profile": "internal",
+          "source": {
+            "id": "FRESH-001",
+            "path": "fresh-001.html",
+            "hash": "sha256:2db5a62f327c23c35b154bd0d2384488d9a7bb54d91867d33effd7310fba44ac"
+          }
+        },
+        "response_structure": {
+          "intent": "procedural",
+          "mplpb_supported": false,
+          "factual_claims": false
+        },
+        "determination": {
+          "rule": "REDUCE-DETERMINE",
+          "version": "reduction-to-determination-v2",
+          "mode": "chat",
+          "outcome": "unique",
+          "retained": [
+            "response"
+          ],
+          "eliminated": [],
+          "selected": "response",
+          "basis": "uncertainty",
+          "selection_order": "candidate ID; saved turn offset for equivalent wording",
+          "elimination_creates_evidence": false
+        },
+        "suggestions": [
+          "show my MPLPB",
+          "why did you refuse?",
+          "guide me"
+        ],
+        "language_plan": {
+          "version": "language-planner-v1",
+          "canonical": "show warnings",
+          "actions": [
+            "conversation_or_command"
+          ],
+          "subject": null,
+          "audience": null,
+          "reference": null,
+          "negation_present": false,
+          "imagined": false,
+          "question_word": "",
+          "normalization_is_evidence": false,
+          "realization_rules": [
+            "preserve_validated_payload"
+          ],
+          "response_act": "procedural",
+          "acquisition": {
+            "query": null,
+            "order": [
+              "eligible_local_pages",
+              "enabled_remote_capture"
+            ],
+            "search_snippets_are_evidence": false,
+            "automatic_network_requires_setting": true
+          },
+          "payload_sha256": "29995964f318aadd06e4d6ea733320a91646811775fc419a83b25205cd933563",
+          "surface_changed": false,
+          "source_paraphrasing": false,
+          "rules_are_not_evidence": true
+        },
+        "support_label": "Needs clarification",
+        "guidance": {
+          "title": "Choose what you mean",
+          "hint": "Choose one of the offered meanings, or write a more specific request.",
+          "actions": [
+            {
+              "label": "show my MPLPB",
+              "request": "show my MPLPB",
+              "mode": "send"
+            },
+            {
+              "label": "why did you refuse?",
+              "request": "why did you refuse?",
+              "mode": "send"
+            },
+            {
+              "label": "guide me",
+              "request": "guide me",
+              "mode": "send"
+            },
+            {
+              "label": "Clarify my question",
+              "request": "",
+              "mode": "draft"
+            }
+          ]
+        },
+        "interpretation": {
+          "version": "conversation-continuity-v2",
+          "original": "show warnings",
+          "resolved": "show warnings",
+          "acts": [
+            {
+              "type": "unresolved",
+              "text": "show warnings"
+            }
+          ],
+          "subject": null,
+          "correction": false,
+          "reference": null,
+          "original_acts": [
+            {
+              "type": "unresolved",
+              "text": "show warnings"
+            }
+          ]
+        },
+        "reply_plan": {
+          "subplans": {},
+          "sources": []
+        },
+        "realization": {
+          "message": "Which step would you like to inspect? You can say \u201cstep 1\u201d.",
+          "authority": "unsupported",
+          "sources": [],
+          "claim_units": [],
+          "scope_results": [],
+          "chat_is_evidence": false
+        },
+        "response_validation": {
+          "version": "final-response-validation-v1",
+          "status": "checked",
+          "checks": [
+            "existing non-answer/reference contract; current local pins checked"
+          ],
+          "context_is_evidence": false,
+          "source_presence_is_support": false,
+          "errors": []
+        },
+        "question_frame": {
+          "rule": "question-frames-v2",
+          "original": "show warnings",
+          "canonical": "show warnings",
+          "kind": "conversation_or_command",
+          "subject": null,
+          "normalization_is_evidence": false,
+          "support_frame": null
+        }
+      }
+    },
+    {
+      "domain": "fictional inventory",
+      "message": "step 1",
+      "passed": true,
+      "response": {
+        "kind": "return",
+        "message": "Source-declared procedure sort-nacre. This describes instructions; completion and real-world conditions are not verified.\nStep 1: Place the labels in the silver tray.\nPrerequisite steps: none declared\nConditions: Use only dry material.\nWarnings: Stop when the tray is full.\nSource: FRESH-001 sha256:2db5a62f327c23c35b154bd0d2384488d9a7bb54d91867d33effd7310fba44ac /steps/0",
+        "context": null,
+        "sources": [
+          {
+            "id": "FRESH-001",
+            "path": "fresh-001.html",
+            "hash": "sha256:2db5a62f327c23c35b154bd0d2384488d9a7bb54d91867d33effd7310fba44ac",
+            "corpus": "custom"
+          }
+        ],
+        "authority": "source_assertion",
+        "procedure_request": {
+          "procedure": "sort-nacre",
+          "step": 1
+        },
+        "response_structure": {
+          "intent": "procedural",
+          "mplpb_supported": true,
+          "factual_claims": true
+        },
+        "procedure_checks": [
+          {
+            "version": "procedure-constraints-v2",
+            "status": "supported",
+            "procedure": "sort-nacre",
+            "requested_step": 1,
+            "steps": [
+              {
+                "order": 1,
+                "action": "Place the labels in the silver tray.",
+                "prerequisites": [],
+                "conditions": [
+                  "Use only dry material."
+                ],
+                "warnings": [
+                  "Stop when the tray is full."
+                ],
+                "source": {
+                  "id": "FRESH-001",
+                  "path": "fresh-001.html",
+                  "hash": "sha256:2db5a62f327c23c35b154bd0d2384488d9a7bb54d91867d33effd7310fba44ac",
+                  "quote": "MPLPB-PROCEDURE/1 {\"id\": \"sort-nacre\", \"steps\": [{\"order\": 1, \"action\": \"Place the labels in the silver tray.\", \"prerequisites\": [], \"conditions\": [\"Use only dry material.\"], \"warnings\": [\"Stop when the tray is full.\"]}, {\"order\": 2, \"action\": \"Close the cover.\", \"prerequisites\": [1], \"conditions\": [\"Only after alignment.\"], \"warnings\": [\"Stop if the cover binds.\"]}]}",
+                  "format": "json",
+                  "pointer": "/steps/0"
+                }
+              },
+              {
+                "order": 2,
+                "action": "Close the cover.",
+                "prerequisites": [
+                  1
+                ],
+                "conditions": [
+                  "Only after alignment."
+                ],
+                "warnings": [
+                  "Stop if the cover binds."
+                ],
+                "source": {
+                  "id": "FRESH-001",
+                  "path": "fresh-001.html",
+                  "hash": "sha256:2db5a62f327c23c35b154bd0d2384488d9a7bb54d91867d33effd7310fba44ac",
+                  "quote": "MPLPB-PROCEDURE/1 {\"id\": \"sort-nacre\", \"steps\": [{\"order\": 1, \"action\": \"Place the labels in the silver tray.\", \"prerequisites\": [], \"conditions\": [\"Use only dry material.\"], \"warnings\": [\"Stop when the tray is full.\"]}, {\"order\": 2, \"action\": \"Close the cover.\", \"prerequisites\": [1], \"conditions\": [\"Only after alignment.\"], \"warnings\": [\"Stop if the cover binds.\"]}]}",
+                  "format": "json",
+                  "pointer": "/steps/1"
+                }
+              }
+            ],
+            "gaps": [],
+            "context_is_evidence": false,
+            "execution_verified": false,
+            "partial_sources": [],
+            "choices": [
+              "sort-nacre"
+            ],
+            "identified": true,
+            "source": {
+              "id": "FRESH-001",
+              "path": "fresh-001.html",
+              "hash": "sha256:2db5a62f327c23c35b154bd0d2384488d9a7bb54d91867d33effd7310fba44ac"
+            },
+            "corpus": "custom"
+          }
+        ],
+        "procedure": {
+          "version": "procedure-constraints-v2",
+          "status": "supported",
+          "procedure": "sort-nacre",
+          "requested_step": 1,
+          "steps": [
+            {
+              "order": 1,
+              "action": "Place the labels in the silver tray.",
+              "prerequisites": [],
+              "conditions": [
+                "Use only dry material."
+              ],
+              "warnings": [
+                "Stop when the tray is full."
+              ],
+              "source": {
+                "id": "FRESH-001",
+                "path": "fresh-001.html",
+                "hash": "sha256:2db5a62f327c23c35b154bd0d2384488d9a7bb54d91867d33effd7310fba44ac",
+                "quote": "MPLPB-PROCEDURE/1 {\"id\": \"sort-nacre\", \"steps\": [{\"order\": 1, \"action\": \"Place the labels in the silver tray.\", \"prerequisites\": [], \"conditions\": [\"Use only dry material.\"], \"warnings\": [\"Stop when the tray is full.\"]}, {\"order\": 2, \"action\": \"Close the cover.\", \"prerequisites\": [1], \"conditions\": [\"Only after alignment.\"], \"warnings\": [\"Stop if the cover binds.\"]}]}",
+                "format": "json",
+                "pointer": "/steps/0"
+              }
+            },
+            {
+              "order": 2,
+              "action": "Close the cover.",
+              "prerequisites": [
+                1
+              ],
+              "conditions": [
+                "Only after alignment."
+              ],
+              "warnings": [
+                "Stop if the cover binds."
+              ],
+              "source": {
+                "id": "FRESH-001",
+                "path": "fresh-001.html",
+                "hash": "sha256:2db5a62f327c23c35b154bd0d2384488d9a7bb54d91867d33effd7310fba44ac",
+                "quote": "MPLPB-PROCEDURE/1 {\"id\": \"sort-nacre\", \"steps\": [{\"order\": 1, \"action\": \"Place the labels in the silver tray.\", \"prerequisites\": [], \"conditions\": [\"Use only dry material.\"], \"warnings\": [\"Stop when the tray is full.\"]}, {\"order\": 2, \"action\": \"Close the cover.\", \"prerequisites\": [1], \"conditions\": [\"Only after alignment.\"], \"warnings\": [\"Stop if the cover binds.\"]}]}",
+                "format": "json",
+                "pointer": "/steps/1"
+              }
+            }
+          ],
+          "gaps": [],
+          "context_is_evidence": false,
+          "execution_verified": false,
+          "partial_sources": [],
+          "choices": [
+            "sort-nacre"
+          ],
+          "identified": true,
+          "source": {
+            "id": "FRESH-001",
+            "path": "fresh-001.html",
+            "hash": "sha256:2db5a62f327c23c35b154bd0d2384488d9a7bb54d91867d33effd7310fba44ac"
+          }
+        },
+        "source_corpus": "custom",
+        "requested_constraint": "warnings",
+        "determination": {
+          "rule": "REDUCE-DETERMINE",
+          "version": "reduction-to-determination-v2",
+          "mode": "focus",
+          "outcome": "unique",
+          "retained": [
+            "response"
+          ],
+          "eliminated": [],
+          "selected": "response",
+          "basis": "source_assertion",
+          "selection_order": "candidate ID; saved turn offset for equivalent wording",
+          "elimination_creates_evidence": false
+        },
+        "suggestions": [
+          "what is it?",
+          "summarize it",
+          "show source",
+          "show my MPLPB"
+        ],
+        "language_plan": {
+          "version": "language-planner-v1",
+          "canonical": "step 1",
+          "actions": [
+            "conversation_or_command"
+          ],
+          "subject": null,
+          "audience": null,
+          "reference": null,
+          "negation_present": false,
+          "imagined": false,
+          "question_word": "",
+          "normalization_is_evidence": false,
+          "realization_rules": [
+            "preserve_validated_payload"
+          ],
+          "response_act": "procedural",
+          "acquisition": {
+            "query": null,
+            "order": [
+              "eligible_local_pages",
+              "enabled_remote_capture"
+            ],
+            "search_snippets_are_evidence": false,
+            "automatic_network_requires_setting": true
+          },
+          "payload_sha256": "3e89033c0a90bdeea77fea7185a52787151c65b19f71fc9159086075be69cf87",
+          "surface_changed": false,
+          "source_paraphrasing": false,
+          "rules_are_not_evidence": true
+        },
+        "support_label": "Source-declared procedure \u00b7 execution unverified",
+        "guidance": {
+          "title": "Explore these sources",
+          "hint": "Choose a follow-up, or type your own. Each answer still needs supporting text.",
+          "actions": [
+            {
+              "label": "what is it?",
+              "request": "what is it?",
+              "mode": "send"
+            },
+            {
+              "label": "Ask a question",
+              "request": "",
+              "mode": "draft"
+            },
+            {
+              "label": "Choose another topic",
+              "request": "Tell me about ",
+              "mode": "draft"
+            }
+          ]
+        },
+        "interpretation": {
+          "version": "conversation-continuity-v2",
+          "original": "step 1",
+          "resolved": "step 1",
+          "acts": [
+            {
+              "type": "unresolved",
+              "text": "step 1"
+            }
+          ],
+          "subject": null,
+          "correction": false,
+          "reference": null,
+          "original_acts": [
+            {
+              "type": "unresolved",
+              "text": "step 1"
+            }
+          ]
+        },
+        "reply_plan": {
+          "subplans": {},
+          "sources": [
+            {
+              "id": "FRESH-001",
+              "path": "fresh-001.html",
+              "hash": "sha256:2db5a62f327c23c35b154bd0d2384488d9a7bb54d91867d33effd7310fba44ac",
+              "corpus": "custom"
+            }
+          ]
+        },
+        "realization": {
+          "message": "Source-declared procedure sort-nacre. This describes instructions; completion and real-world conditions are not verified.\nStep 1: Place the labels in the silver tray.\nPrerequisite steps: none declared\nConditions: Use only dry material.\nWarnings: Stop when the tray is full.\nSource: FRESH-001 sha256:2db5a62f327c23c35b154bd0d2384488d9a7bb54d91867d33effd7310fba44ac /steps/0",
+          "authority": "source_assertion",
+          "sources": [
+            {
+              "id": "FRESH-001",
+              "path": "fresh-001.html",
+              "hash": "sha256:2db5a62f327c23c35b154bd0d2384488d9a7bb54d91867d33effd7310fba44ac",
+              "corpus": "custom"
+            }
+          ],
+          "claim_units": [],
+          "scope_results": [],
+          "chat_is_evidence": false
+        },
+        "response_validation": {
+          "version": "final-response-validation-v1",
+          "status": "checked",
+          "checks": [
+            "fresh procedure tags and exact constrained rendering"
+          ],
+          "context_is_evidence": false,
+          "source_presence_is_support": false,
+          "errors": []
+        },
+        "question_frame": {
+          "rule": "question-frames-v2",
+          "original": "step 1",
+          "canonical": "step 1",
+          "kind": "conversation_or_command",
+          "subject": null,
+          "normalization_is_evidence": false,
+          "support_frame": null
+        }
+      }
+    },
+    {
+      "domain": "fictional inventory",
+      "message": "next step",
+      "passed": true,
+      "response": {
+        "kind": "clarify",
+        "message": "Step 2 requires verification of prerequisite steps 1. Showing an earlier step does not prove completion. To read the next instruction without claiming completion, say \u201cinspect next step\u201d.",
+        "context": null,
+        "sources": [
+          {
+            "id": "FRESH-001",
+            "path": "fresh-001.html",
+            "hash": "sha256:2db5a62f327c23c35b154bd0d2384488d9a7bb54d91867d33effd7310fba44ac",
+            "corpus": "custom"
+          }
+        ],
+        "authority": "unsupported",
+        "procedure_request": {
+          "procedure": "sort-nacre",
+          "step": 2
+        },
+        "response_structure": {
+          "intent": "procedural",
+          "mplpb_supported": false,
+          "factual_claims": false
+        },
+        "procedure_checks": [
+          {
+            "version": "procedure-constraints-v2",
+            "status": "supported",
+            "procedure": "sort-nacre",
+            "requested_step": 2,
+            "steps": [
+              {
+                "order": 1,
+                "action": "Place the labels in the silver tray.",
+                "prerequisites": [],
+                "conditions": [
+                  "Use only dry material."
+                ],
+                "warnings": [
+                  "Stop when the tray is full."
+                ],
+                "source": {
+                  "id": "FRESH-001",
+                  "path": "fresh-001.html",
+                  "hash": "sha256:2db5a62f327c23c35b154bd0d2384488d9a7bb54d91867d33effd7310fba44ac",
+                  "quote": "MPLPB-PROCEDURE/1 {\"id\": \"sort-nacre\", \"steps\": [{\"order\": 1, \"action\": \"Place the labels in the silver tray.\", \"prerequisites\": [], \"conditions\": [\"Use only dry material.\"], \"warnings\": [\"Stop when the tray is full.\"]}, {\"order\": 2, \"action\": \"Close the cover.\", \"prerequisites\": [1], \"conditions\": [\"Only after alignment.\"], \"warnings\": [\"Stop if the cover binds.\"]}]}",
+                  "format": "json",
+                  "pointer": "/steps/0"
+                }
+              },
+              {
+                "order": 2,
+                "action": "Close the cover.",
+                "prerequisites": [
+                  1
+                ],
+                "conditions": [
+                  "Only after alignment."
+                ],
+                "warnings": [
+                  "Stop if the cover binds."
+                ],
+                "source": {
+                  "id": "FRESH-001",
+                  "path": "fresh-001.html",
+                  "hash": "sha256:2db5a62f327c23c35b154bd0d2384488d9a7bb54d91867d33effd7310fba44ac",
+                  "quote": "MPLPB-PROCEDURE/1 {\"id\": \"sort-nacre\", \"steps\": [{\"order\": 1, \"action\": \"Place the labels in the silver tray.\", \"prerequisites\": [], \"conditions\": [\"Use only dry material.\"], \"warnings\": [\"Stop when the tray is full.\"]}, {\"order\": 2, \"action\": \"Close the cover.\", \"prerequisites\": [1], \"conditions\": [\"Only after alignment.\"], \"warnings\": [\"Stop if the cover binds.\"]}]}",
+                  "format": "json",
+                  "pointer": "/steps/1"
+                }
+              }
+            ],
+            "gaps": [],
+            "context_is_evidence": false,
+            "execution_verified": false,
+            "partial_sources": [],
+            "choices": [
+              "sort-nacre"
+            ],
+            "identified": true,
+            "source": {
+              "id": "FRESH-001",
+              "path": "fresh-001.html",
+              "hash": "sha256:2db5a62f327c23c35b154bd0d2384488d9a7bb54d91867d33effd7310fba44ac"
+            },
+            "corpus": "custom"
+          }
+        ],
+        "procedure_constraints": {
+          "order": 2,
+          "action": "Close the cover.",
+          "prerequisites": [
+            1
+          ],
+          "conditions": [
+            "Only after alignment."
+          ],
+          "warnings": [
+            "Stop if the cover binds."
+          ],
+          "source": {
+            "id": "FRESH-001",
+            "path": "fresh-001.html",
+            "hash": "sha256:2db5a62f327c23c35b154bd0d2384488d9a7bb54d91867d33effd7310fba44ac",
+            "quote": "MPLPB-PROCEDURE/1 {\"id\": \"sort-nacre\", \"steps\": [{\"order\": 1, \"action\": \"Place the labels in the silver tray.\", \"prerequisites\": [], \"conditions\": [\"Use only dry material.\"], \"warnings\": [\"Stop when the tray is full.\"]}, {\"order\": 2, \"action\": \"Close the cover.\", \"prerequisites\": [1], \"conditions\": [\"Only after alignment.\"], \"warnings\": [\"Stop if the cover binds.\"]}]}",
+            "format": "json",
+            "pointer": "/steps/1"
+          }
+        },
+        "determination": {
+          "rule": "REDUCE-DETERMINE",
+          "version": "reduction-to-determination-v2",
+          "mode": "chat",
+          "outcome": "unique",
+          "retained": [
+            "response"
+          ],
+          "eliminated": [],
+          "selected": "response",
+          "basis": "uncertainty",
+          "selection_order": "candidate ID; saved turn offset for equivalent wording",
+          "elimination_creates_evidence": false
+        },
+        "suggestions": [
+          "show my MPLPB",
+          "why did you refuse?",
+          "guide me"
+        ],
+        "language_plan": {
+          "version": "language-planner-v1",
+          "canonical": "next step",
+          "actions": [
+            "conversation_or_command"
+          ],
+          "subject": null,
+          "audience": null,
+          "reference": null,
+          "negation_present": false,
+          "imagined": false,
+          "question_word": "",
+          "normalization_is_evidence": false,
+          "realization_rules": [
+            "preserve_validated_payload"
+          ],
+          "response_act": "procedural",
+          "acquisition": {
+            "query": null,
+            "order": [
+              "eligible_local_pages",
+              "enabled_remote_capture"
+            ],
+            "search_snippets_are_evidence": false,
+            "automatic_network_requires_setting": true
+          },
+          "payload_sha256": "684e1b040ae0a7dfdfb4cd2dc861e53323a219a7ad18745972c688a04e11e0ab",
+          "surface_changed": false,
+          "source_paraphrasing": false,
+          "rules_are_not_evidence": true
+        },
+        "support_label": "Needs clarification",
+        "guidance": {
+          "title": "Choose what you mean",
+          "hint": "Choose one of the offered meanings, or write a more specific request.",
+          "actions": [
+            {
+              "label": "show my MPLPB",
+              "request": "show my MPLPB",
+              "mode": "send"
+            },
+            {
+              "label": "why did you refuse?",
+              "request": "why did you refuse?",
+              "mode": "send"
+            },
+            {
+              "label": "guide me",
+              "request": "guide me",
+              "mode": "send"
+            },
+            {
+              "label": "Clarify my question",
+              "request": "",
+              "mode": "draft"
+            }
+          ]
+        },
+        "interpretation": {
+          "version": "conversation-continuity-v2",
+          "original": "next step",
+          "resolved": "next step",
+          "acts": [
+            {
+              "type": "unresolved",
+              "text": "next step"
+            }
+          ],
+          "subject": null,
+          "correction": false,
+          "reference": null,
+          "original_acts": [
+            {
+              "type": "unresolved",
+              "text": "next step"
+            }
+          ]
+        },
+        "reply_plan": {
+          "subplans": {},
+          "sources": [
+            {
+              "id": "FRESH-001",
+              "path": "fresh-001.html",
+              "hash": "sha256:2db5a62f327c23c35b154bd0d2384488d9a7bb54d91867d33effd7310fba44ac",
+              "corpus": "custom"
+            }
+          ]
+        },
+        "realization": {
+          "message": "Step 2 requires verification of prerequisite steps 1. Showing an earlier step does not prove completion. To read the next instruction without claiming completion, say \u201cinspect next step\u201d.",
+          "authority": "unsupported",
+          "sources": [
+            {
+              "id": "FRESH-001",
+              "path": "fresh-001.html",
+              "hash": "sha256:2db5a62f327c23c35b154bd0d2384488d9a7bb54d91867d33effd7310fba44ac",
+              "corpus": "custom"
+            }
+          ],
+          "claim_units": [],
+          "scope_results": [],
+          "chat_is_evidence": false
+        },
+        "response_validation": {
+          "version": "final-response-validation-v1",
+          "status": "checked",
+          "checks": [
+            "existing non-answer/reference contract; current local pins checked"
+          ],
+          "context_is_evidence": false,
+          "source_presence_is_support": false,
+          "errors": []
+        },
+        "question_frame": {
+          "rule": "question-frames-v2",
+          "original": "next step",
+          "canonical": "next step",
+          "kind": "conversation_or_command",
+          "subject": null,
+          "normalization_is_evidence": false,
+          "support_frame": null
+        }
+      }
+    },
+    {
+      "domain": "fictional inventory",
+      "message": "inspect next step",
+      "passed": true,
+      "response": {
+        "kind": "return",
+        "message": "Source-declared procedure sort-nacre. This describes instructions; completion and real-world conditions are not verified.\nStep 2: Close the cover.\nPrerequisite steps: 1\nConditions: Only after alignment.\nWarnings: Stop if the cover binds.\nSource: FRESH-001 sha256:2db5a62f327c23c35b154bd0d2384488d9a7bb54d91867d33effd7310fba44ac /steps/1",
+        "context": null,
+        "sources": [
+          {
+            "id": "FRESH-001",
+            "path": "fresh-001.html",
+            "hash": "sha256:2db5a62f327c23c35b154bd0d2384488d9a7bb54d91867d33effd7310fba44ac",
+            "corpus": "custom"
+          }
+        ],
+        "authority": "source_assertion",
+        "procedure_request": {
+          "procedure": "sort-nacre",
+          "step": 2
+        },
+        "response_structure": {
+          "intent": "procedural",
+          "mplpb_supported": true,
+          "factual_claims": true
+        },
+        "procedure_checks": [
+          {
+            "version": "procedure-constraints-v2",
+            "status": "supported",
+            "procedure": "sort-nacre",
+            "requested_step": 2,
+            "steps": [
+              {
+                "order": 1,
+                "action": "Place the labels in the silver tray.",
+                "prerequisites": [],
+                "conditions": [
+                  "Use only dry material."
+                ],
+                "warnings": [
+                  "Stop when the tray is full."
+                ],
+                "source": {
+                  "id": "FRESH-001",
+                  "path": "fresh-001.html",
+                  "hash": "sha256:2db5a62f327c23c35b154bd0d2384488d9a7bb54d91867d33effd7310fba44ac",
+                  "quote": "MPLPB-PROCEDURE/1 {\"id\": \"sort-nacre\", \"steps\": [{\"order\": 1, \"action\": \"Place the labels in the silver tray.\", \"prerequisites\": [], \"conditions\": [\"Use only dry material.\"], \"warnings\": [\"Stop when the tray is full.\"]}, {\"order\": 2, \"action\": \"Close the cover.\", \"prerequisites\": [1], \"conditions\": [\"Only after alignment.\"], \"warnings\": [\"Stop if the cover binds.\"]}]}",
+                  "format": "json",
+                  "pointer": "/steps/0"
+                }
+              },
+              {
+                "order": 2,
+                "action": "Close the cover.",
+                "prerequisites": [
+                  1
+                ],
+                "conditions": [
+                  "Only after alignment."
+                ],
+                "warnings": [
+                  "Stop if the cover binds."
+                ],
+                "source": {
+                  "id": "FRESH-001",
+                  "path": "fresh-001.html",
+                  "hash": "sha256:2db5a62f327c23c35b154bd0d2384488d9a7bb54d91867d33effd7310fba44ac",
+                  "quote": "MPLPB-PROCEDURE/1 {\"id\": \"sort-nacre\", \"steps\": [{\"order\": 1, \"action\": \"Place the labels in the silver tray.\", \"prerequisites\": [], \"conditions\": [\"Use only dry material.\"], \"warnings\": [\"Stop when the tray is full.\"]}, {\"order\": 2, \"action\": \"Close the cover.\", \"prerequisites\": [1], \"conditions\": [\"Only after alignment.\"], \"warnings\": [\"Stop if the cover binds.\"]}]}",
+                  "format": "json",
+                  "pointer": "/steps/1"
+                }
+              }
+            ],
+            "gaps": [],
+            "context_is_evidence": false,
+            "execution_verified": false,
+            "partial_sources": [],
+            "choices": [
+              "sort-nacre"
+            ],
+            "identified": true,
+            "source": {
+              "id": "FRESH-001",
+              "path": "fresh-001.html",
+              "hash": "sha256:2db5a62f327c23c35b154bd0d2384488d9a7bb54d91867d33effd7310fba44ac"
+            },
+            "corpus": "custom"
+          }
+        ],
+        "procedure": {
+          "version": "procedure-constraints-v2",
+          "status": "supported",
+          "procedure": "sort-nacre",
+          "requested_step": 2,
+          "steps": [
+            {
+              "order": 1,
+              "action": "Place the labels in the silver tray.",
+              "prerequisites": [],
+              "conditions": [
+                "Use only dry material."
+              ],
+              "warnings": [
+                "Stop when the tray is full."
+              ],
+              "source": {
+                "id": "FRESH-001",
+                "path": "fresh-001.html",
+                "hash": "sha256:2db5a62f327c23c35b154bd0d2384488d9a7bb54d91867d33effd7310fba44ac",
+                "quote": "MPLPB-PROCEDURE/1 {\"id\": \"sort-nacre\", \"steps\": [{\"order\": 1, \"action\": \"Place the labels in the silver tray.\", \"prerequisites\": [], \"conditions\": [\"Use only dry material.\"], \"warnings\": [\"Stop when the tray is full.\"]}, {\"order\": 2, \"action\": \"Close the cover.\", \"prerequisites\": [1], \"conditions\": [\"Only after alignment.\"], \"warnings\": [\"Stop if the cover binds.\"]}]}",
+                "format": "json",
+                "pointer": "/steps/0"
+              }
+            },
+            {
+              "order": 2,
+              "action": "Close the cover.",
+              "prerequisites": [
+                1
+              ],
+              "conditions": [
+                "Only after alignment."
+              ],
+              "warnings": [
+                "Stop if the cover binds."
+              ],
+              "source": {
+                "id": "FRESH-001",
+                "path": "fresh-001.html",
+                "hash": "sha256:2db5a62f327c23c35b154bd0d2384488d9a7bb54d91867d33effd7310fba44ac",
+                "quote": "MPLPB-PROCEDURE/1 {\"id\": \"sort-nacre\", \"steps\": [{\"order\": 1, \"action\": \"Place the labels in the silver tray.\", \"prerequisites\": [], \"conditions\": [\"Use only dry material.\"], \"warnings\": [\"Stop when the tray is full.\"]}, {\"order\": 2, \"action\": \"Close the cover.\", \"prerequisites\": [1], \"conditions\": [\"Only after alignment.\"], \"warnings\": [\"Stop if the cover binds.\"]}]}",
+                "format": "json",
+                "pointer": "/steps/1"
+              }
+            }
+          ],
+          "gaps": [],
+          "context_is_evidence": false,
+          "execution_verified": false,
+          "partial_sources": [],
+          "choices": [
+            "sort-nacre"
+          ],
+          "identified": true,
+          "source": {
+            "id": "FRESH-001",
+            "path": "fresh-001.html",
+            "hash": "sha256:2db5a62f327c23c35b154bd0d2384488d9a7bb54d91867d33effd7310fba44ac"
+          }
+        },
+        "source_corpus": "custom",
+        "determination": {
+          "rule": "REDUCE-DETERMINE",
+          "version": "reduction-to-determination-v2",
+          "mode": "focus",
+          "outcome": "unique",
+          "retained": [
+            "response"
+          ],
+          "eliminated": [],
+          "selected": "response",
+          "basis": "source_assertion",
+          "selection_order": "candidate ID; saved turn offset for equivalent wording",
+          "elimination_creates_evidence": false
+        },
+        "suggestions": [
+          "what is it?",
+          "summarize it",
+          "show source",
+          "show my MPLPB"
+        ],
+        "language_plan": {
+          "version": "language-planner-v1",
+          "canonical": "inspect next step",
+          "actions": [
+            "conversation_or_command"
+          ],
+          "subject": null,
+          "audience": null,
+          "reference": null,
+          "negation_present": false,
+          "imagined": false,
+          "question_word": "",
+          "normalization_is_evidence": false,
+          "realization_rules": [
+            "preserve_validated_payload"
+          ],
+          "response_act": "procedural",
+          "acquisition": {
+            "query": null,
+            "order": [
+              "eligible_local_pages",
+              "enabled_remote_capture"
+            ],
+            "search_snippets_are_evidence": false,
+            "automatic_network_requires_setting": true
+          },
+          "payload_sha256": "c3f599624459b555d245341302d33437b4c884c19f17efdac7067591c0e9de6f",
+          "surface_changed": false,
+          "source_paraphrasing": false,
+          "rules_are_not_evidence": true
+        },
+        "support_label": "Source-declared procedure \u00b7 execution unverified",
+        "guidance": {
+          "title": "Explore these sources",
+          "hint": "Choose a follow-up, or type your own. Each answer still needs supporting text.",
+          "actions": [
+            {
+              "label": "what is it?",
+              "request": "what is it?",
+              "mode": "send"
+            },
+            {
+              "label": "Ask a question",
+              "request": "",
+              "mode": "draft"
+            },
+            {
+              "label": "Choose another topic",
+              "request": "Tell me about ",
+              "mode": "draft"
+            }
+          ]
+        },
+        "interpretation": {
+          "version": "conversation-continuity-v2",
+          "original": "inspect next step",
+          "resolved": "inspect next step",
+          "acts": [
+            {
+              "type": "unresolved",
+              "text": "inspect next step"
+            }
+          ],
+          "subject": null,
+          "correction": false,
+          "reference": null,
+          "original_acts": [
+            {
+              "type": "unresolved",
+              "text": "inspect next step"
+            }
+          ]
+        },
+        "reply_plan": {
+          "subplans": {},
+          "sources": [
+            {
+              "id": "FRESH-001",
+              "path": "fresh-001.html",
+              "hash": "sha256:2db5a62f327c23c35b154bd0d2384488d9a7bb54d91867d33effd7310fba44ac",
+              "corpus": "custom"
+            }
+          ]
+        },
+        "realization": {
+          "message": "Source-declared procedure sort-nacre. This describes instructions; completion and real-world conditions are not verified.\nStep 2: Close the cover.\nPrerequisite steps: 1\nConditions: Only after alignment.\nWarnings: Stop if the cover binds.\nSource: FRESH-001 sha256:2db5a62f327c23c35b154bd0d2384488d9a7bb54d91867d33effd7310fba44ac /steps/1",
+          "authority": "source_assertion",
+          "sources": [
+            {
+              "id": "FRESH-001",
+              "path": "fresh-001.html",
+              "hash": "sha256:2db5a62f327c23c35b154bd0d2384488d9a7bb54d91867d33effd7310fba44ac",
+              "corpus": "custom"
+            }
+          ],
+          "claim_units": [],
+          "scope_results": [],
+          "chat_is_evidence": false
+        },
+        "response_validation": {
+          "version": "final-response-validation-v1",
+          "status": "checked",
+          "checks": [
+            "fresh procedure tags and exact constrained rendering"
+          ],
+          "context_is_evidence": false,
+          "source_presence_is_support": false,
+          "errors": []
+        },
+        "question_frame": {
+          "rule": "question-frames-v2",
+          "original": "inspect next step",
+          "canonical": "inspect next step",
+          "kind": "conversation_or_command",
+          "subject": null,
+          "normalization_is_evidence": false,
+          "support_frame": null
+        }
+      }
+    },
+    {
+      "domain": "fictional inventory",
+      "message": "No, I meant step 1",
+      "passed": true,
+      "response": {
+        "kind": "return",
+        "message": "Source-declared procedure sort-nacre. This describes instructions; completion and real-world conditions are not verified.\nStep 1: Place the labels in the silver tray.\nPrerequisite steps: none declared\nConditions: Use only dry material.\nWarnings: Stop when the tray is full.\nSource: FRESH-001 sha256:2db5a62f327c23c35b154bd0d2384488d9a7bb54d91867d33effd7310fba44ac /steps/0",
+        "context": null,
+        "sources": [
+          {
+            "id": "FRESH-001",
+            "path": "fresh-001.html",
+            "hash": "sha256:2db5a62f327c23c35b154bd0d2384488d9a7bb54d91867d33effd7310fba44ac",
+            "corpus": "custom"
+          }
+        ],
+        "authority": "source_assertion",
+        "procedure_request": {
+          "procedure": "sort-nacre",
+          "step": 1
+        },
+        "response_structure": {
+          "intent": "procedural",
+          "mplpb_supported": true,
+          "factual_claims": true
+        },
+        "procedure_checks": [
+          {
+            "version": "procedure-constraints-v2",
+            "status": "supported",
+            "procedure": "sort-nacre",
+            "requested_step": 1,
+            "steps": [
+              {
+                "order": 1,
+                "action": "Place the labels in the silver tray.",
+                "prerequisites": [],
+                "conditions": [
+                  "Use only dry material."
+                ],
+                "warnings": [
+                  "Stop when the tray is full."
+                ],
+                "source": {
+                  "id": "FRESH-001",
+                  "path": "fresh-001.html",
+                  "hash": "sha256:2db5a62f327c23c35b154bd0d2384488d9a7bb54d91867d33effd7310fba44ac",
+                  "quote": "MPLPB-PROCEDURE/1 {\"id\": \"sort-nacre\", \"steps\": [{\"order\": 1, \"action\": \"Place the labels in the silver tray.\", \"prerequisites\": [], \"conditions\": [\"Use only dry material.\"], \"warnings\": [\"Stop when the tray is full.\"]}, {\"order\": 2, \"action\": \"Close the cover.\", \"prerequisites\": [1], \"conditions\": [\"Only after alignment.\"], \"warnings\": [\"Stop if the cover binds.\"]}]}",
+                  "format": "json",
+                  "pointer": "/steps/0"
+                }
+              },
+              {
+                "order": 2,
+                "action": "Close the cover.",
+                "prerequisites": [
+                  1
+                ],
+                "conditions": [
+                  "Only after alignment."
+                ],
+                "warnings": [
+                  "Stop if the cover binds."
+                ],
+                "source": {
+                  "id": "FRESH-001",
+                  "path": "fresh-001.html",
+                  "hash": "sha256:2db5a62f327c23c35b154bd0d2384488d9a7bb54d91867d33effd7310fba44ac",
+                  "quote": "MPLPB-PROCEDURE/1 {\"id\": \"sort-nacre\", \"steps\": [{\"order\": 1, \"action\": \"Place the labels in the silver tray.\", \"prerequisites\": [], \"conditions\": [\"Use only dry material.\"], \"warnings\": [\"Stop when the tray is full.\"]}, {\"order\": 2, \"action\": \"Close the cover.\", \"prerequisites\": [1], \"conditions\": [\"Only after alignment.\"], \"warnings\": [\"Stop if the cover binds.\"]}]}",
+                  "format": "json",
+                  "pointer": "/steps/1"
+                }
+              }
+            ],
+            "gaps": [],
+            "context_is_evidence": false,
+            "execution_verified": false,
+            "partial_sources": [],
+            "choices": [
+              "sort-nacre"
+            ],
+            "identified": true,
+            "source": {
+              "id": "FRESH-001",
+              "path": "fresh-001.html",
+              "hash": "sha256:2db5a62f327c23c35b154bd0d2384488d9a7bb54d91867d33effd7310fba44ac"
+            },
+            "corpus": "custom"
+          }
+        ],
+        "procedure": {
+          "version": "procedure-constraints-v2",
+          "status": "supported",
+          "procedure": "sort-nacre",
+          "requested_step": 1,
+          "steps": [
+            {
+              "order": 1,
+              "action": "Place the labels in the silver tray.",
+              "prerequisites": [],
+              "conditions": [
+                "Use only dry material."
+              ],
+              "warnings": [
+                "Stop when the tray is full."
+              ],
+              "source": {
+                "id": "FRESH-001",
+                "path": "fresh-001.html",
+                "hash": "sha256:2db5a62f327c23c35b154bd0d2384488d9a7bb54d91867d33effd7310fba44ac",
+                "quote": "MPLPB-PROCEDURE/1 {\"id\": \"sort-nacre\", \"steps\": [{\"order\": 1, \"action\": \"Place the labels in the silver tray.\", \"prerequisites\": [], \"conditions\": [\"Use only dry material.\"], \"warnings\": [\"Stop when the tray is full.\"]}, {\"order\": 2, \"action\": \"Close the cover.\", \"prerequisites\": [1], \"conditions\": [\"Only after alignment.\"], \"warnings\": [\"Stop if the cover binds.\"]}]}",
+                "format": "json",
+                "pointer": "/steps/0"
+              }
+            },
+            {
+              "order": 2,
+              "action": "Close the cover.",
+              "prerequisites": [
+                1
+              ],
+              "conditions": [
+                "Only after alignment."
+              ],
+              "warnings": [
+                "Stop if the cover binds."
+              ],
+              "source": {
+                "id": "FRESH-001",
+                "path": "fresh-001.html",
+                "hash": "sha256:2db5a62f327c23c35b154bd0d2384488d9a7bb54d91867d33effd7310fba44ac",
+                "quote": "MPLPB-PROCEDURE/1 {\"id\": \"sort-nacre\", \"steps\": [{\"order\": 1, \"action\": \"Place the labels in the silver tray.\", \"prerequisites\": [], \"conditions\": [\"Use only dry material.\"], \"warnings\": [\"Stop when the tray is full.\"]}, {\"order\": 2, \"action\": \"Close the cover.\", \"prerequisites\": [1], \"conditions\": [\"Only after alignment.\"], \"warnings\": [\"Stop if the cover binds.\"]}]}",
+                "format": "json",
+                "pointer": "/steps/1"
+              }
+            }
+          ],
+          "gaps": [],
+          "context_is_evidence": false,
+          "execution_verified": false,
+          "partial_sources": [],
+          "choices": [
+            "sort-nacre"
+          ],
+          "identified": true,
+          "source": {
+            "id": "FRESH-001",
+            "path": "fresh-001.html",
+            "hash": "sha256:2db5a62f327c23c35b154bd0d2384488d9a7bb54d91867d33effd7310fba44ac"
+          }
+        },
+        "source_corpus": "custom",
+        "determination": {
+          "rule": "REDUCE-DETERMINE",
+          "version": "reduction-to-determination-v2",
+          "mode": "focus",
+          "outcome": "unique",
+          "retained": [
+            "response"
+          ],
+          "eliminated": [],
+          "selected": "response",
+          "basis": "source_assertion",
+          "selection_order": "candidate ID; saved turn offset for equivalent wording",
+          "elimination_creates_evidence": false
+        },
+        "suggestions": [
+          "what is it?",
+          "summarize it",
+          "show source",
+          "show my MPLPB"
+        ],
+        "language_plan": {
+          "version": "language-planner-v1",
+          "canonical": "No, I meant step 1",
+          "actions": [
+            "conversation_or_command"
+          ],
+          "subject": null,
+          "audience": null,
+          "reference": null,
+          "negation_present": true,
+          "imagined": false,
+          "question_word": "",
+          "normalization_is_evidence": false,
+          "realization_rules": [
+            "preserve_validated_payload"
+          ],
+          "response_act": "procedural",
+          "acquisition": {
+            "query": null,
+            "order": [
+              "eligible_local_pages",
+              "enabled_remote_capture"
+            ],
+            "search_snippets_are_evidence": false,
+            "automatic_network_requires_setting": true
+          },
+          "payload_sha256": "3e89033c0a90bdeea77fea7185a52787151c65b19f71fc9159086075be69cf87",
+          "surface_changed": false,
+          "source_paraphrasing": false,
+          "rules_are_not_evidence": true
+        },
+        "support_label": "Source-declared procedure \u00b7 execution unverified",
+        "guidance": {
+          "title": "Explore these sources",
+          "hint": "Choose a follow-up, or type your own. Each answer still needs supporting text.",
+          "actions": [
+            {
+              "label": "what is it?",
+              "request": "what is it?",
+              "mode": "send"
+            },
+            {
+              "label": "Ask a question",
+              "request": "",
+              "mode": "draft"
+            },
+            {
+              "label": "Choose another topic",
+              "request": "Tell me about ",
+              "mode": "draft"
+            }
+          ]
+        },
+        "interpretation": {
+          "version": "conversation-continuity-v2",
+          "original": "No, I meant step 1",
+          "resolved": "No, I meant step 1",
+          "acts": [
+            {
+              "type": "unresolved",
+              "text": "No, I meant step 1"
+            }
+          ],
+          "subject": null,
+          "correction": false,
+          "reference": null,
+          "original_acts": [
+            {
+              "type": "unresolved",
+              "text": "No, I meant step 1"
+            }
+          ]
+        },
+        "reply_plan": {
+          "subplans": {},
+          "sources": [
+            {
+              "id": "FRESH-001",
+              "path": "fresh-001.html",
+              "hash": "sha256:2db5a62f327c23c35b154bd0d2384488d9a7bb54d91867d33effd7310fba44ac",
+              "corpus": "custom"
+            }
+          ]
+        },
+        "realization": {
+          "message": "Source-declared procedure sort-nacre. This describes instructions; completion and real-world conditions are not verified.\nStep 1: Place the labels in the silver tray.\nPrerequisite steps: none declared\nConditions: Use only dry material.\nWarnings: Stop when the tray is full.\nSource: FRESH-001 sha256:2db5a62f327c23c35b154bd0d2384488d9a7bb54d91867d33effd7310fba44ac /steps/0",
+          "authority": "source_assertion",
+          "sources": [
+            {
+              "id": "FRESH-001",
+              "path": "fresh-001.html",
+              "hash": "sha256:2db5a62f327c23c35b154bd0d2384488d9a7bb54d91867d33effd7310fba44ac",
+              "corpus": "custom"
+            }
+          ],
+          "claim_units": [],
+          "scope_results": [],
+          "chat_is_evidence": false
+        },
+        "response_validation": {
+          "version": "final-response-validation-v1",
+          "status": "checked",
+          "checks": [
+            "fresh procedure tags and exact constrained rendering"
+          ],
+          "context_is_evidence": false,
+          "source_presence_is_support": false,
+          "errors": []
+        },
+        "question_frame": {
+          "rule": "question-frames-v2",
+          "original": "No, I meant step 1",
+          "canonical": "No, I meant step 1",
+          "kind": "conversation_or_command",
+          "subject": null,
+          "normalization_is_evidence": false,
+          "support_frame": null
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+test_cross_origin_post_blocked (tests.test_studio.StudioTests.test_cross_origin_post_blocked) ... ok
+test_external_profile_cannot_generate (tests.test_studio.StudioTests.test_external_profile_cannot_generate) ... ok
+test_generate_writes_pages_and_keeps_earlier_ones (tests.test_studio.StudioTests.test_generate_writes_pages_and_keeps_earlier_ones) ... ok
+test_outputs_serves_images_only (tests.test_studio.StudioTests.test_outputs_serves_images_only) ... ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 2.644s
+
+OK
+[14:31:05] "POST /api/generate HTTP/1.1" 403 -
+[14:31:06] "POST /api/generate HTTP/1.1" 403 -
+[14:31:06] "POST /api/generate HTTP/1.1" 200 -
+[14:31:06] "POST /api/generate HTTP/1.1" 200 -
+[14:31:06] "GET /outputs/IMG-20261102-0F6AD9.png HTTP/1.1" 200 -
+[14:31:07] "GET /outputs/_index.html HTTP/1.1" 404 -

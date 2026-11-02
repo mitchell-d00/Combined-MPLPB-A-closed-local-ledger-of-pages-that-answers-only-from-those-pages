@@ -39,7 +39,7 @@ def validate_response(app, result, profile, corpus, approved_message):
             if not revalidate_lexical(result):errors.append('Dictionary sense or constrained wording changed.')
         except (ValueError,KeyError,OSError):errors.append('Dictionary evidence is unavailable.')
         checks.append('fresh dictionary sense and exact constrained rendering')
-    if result.get('procedure'):
+    if result.get('procedure') or result.get('procedure_partial'):
         if not PR.revalidate(app,result,profile): errors.append('Procedure constraints or generated wording changed.')
         checks.append('fresh procedure tags and exact constrained rendering')
     elif result.get('kind')=='return' and result.get('reader',{}).get('question'):

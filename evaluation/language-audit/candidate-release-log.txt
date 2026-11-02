@@ -1,0 +1,12 @@
+BROWSER LOAD candidate-preview http://127.0.0.1:46171/
+127.0.0.1 - - [02/Nov/2026 14:31:03] "GET / HTTP/1.1" 200 -
+BROWSER STRICT: NO SUPPORTED ANSWER
+BROWSER INSPECT: AMBIGUOUS
+BROWSER SAMPLE: candidate inspection selected
+BROWSER CAPTIONS: supported and inspection notices separated
+127.0.0.1 - - [02/Nov/2026 14:31:32] "GET / HTTP/1.1" 200 -
+NPC_BROWSER {"schema": "mplpb-researcher-browser-pilot-v1", "suite_sha256": "38b29eb6599f4484b5d7e7e654251aee54e6e25d9dd5d388b195c32c70e5d6d5", "persona": "mara", "actual_browser": "Chromium with running application engine", "checks_passed": ["create_collection_through_ui", "paste_import_through_ui", "ask_and_click_cited_source", "known_reader_limit_is_not_an_answer", "conflicting_bulletins_do_not_choose_a_winner", "save_multisentence_investigation_note", "indexeddb_reload_preserves_note_and_exact_transcript", "resume_rechecks_sources"], "status": "synthetic_ui_workflow_passed", "known_answerable_refusals": 1, "human_usability_measured": false, "product_backup_or_upgrade_tested": false, "notice": "One scripted persona, developer-inspected controls; not six browser users or a human pilot."}
+127.0.0.1 - - [02/Nov/2026 14:31:49] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2026 14:32:11] "GET / HTTP/1.1" 200 -
+BROWSER PREFERENCES: automatic lookup off/on survives reload
+BROWSER PASS candidate-preview

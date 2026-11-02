@@ -315,6 +315,7 @@ class App:
                 if session['corpus'] != corpus or session['profile'] != profile:
                     session['context'] = None
                     session.get('mind',{}).pop('procedure_selector',None)
+                    session.get('mind',{}).pop('procedure_pending',None)
                     session.setdefault('mind',{}).pop('social',None)
                     session['mind'].pop('emotional',None)
                     session['corpus'], session['profile'] = corpus, profile

@@ -1,0 +1,47 @@
+# Procedure evidence, clarification and follow-up recovery
+
+Baseline: `d1ce8c37ddb6eaa7108b0eb72c420bb008398991`. The prior implementation already supported complete source-authored linear procedure blocks, but required explicit control grammar and did not recover a step selection from its own clarification. Existing frozen pottery pages and benchmark labels remain unchanged.
+
+## Enforced language and evidence rules
+
+`How do/should I/we ACTION?`, `Show me the steps for/to ACTION`, and `What are the steps for/to ACTION?` map ACTION's space-separated words to an **explicit body procedure identifier** (`prepare vellum` → `prepare-vellum`). Equivalence is limited to case and spaces/hyphens; no implicit aliases, inflections, title-derived actions or guessed semantics. A source must establish that identifier, ordered actions, prerequisite links, conditions and warnings. Unrecognized natural questions still reach existing question/help handlers instead of being intercepted merely because their wording starts with “how do I”.
+
+Complete plans retain the existing `MPLPB-PROCEDURE/1` schema and explicit-numbered-body format. Body headings alone cannot manufacture a procedure. Captured text is separated from its pinned audit manifest using the existing capture-integrity projection. Every source remains subject to current status, ancestry, seal, delivery and question exclusions. Multiple eligible owners remain ambiguous, including identical plans. A plan is never assembled across owners.
+
+A user can inspect a whole plan, ask for warnings/conditions/prerequisites, answer “Which step?” with `step 2`, correct with `No, I meant step 1`, or select another explicit procedure. Pending selectors survive ordinary thanks and persisted-session reload. Unrelated substantive requests clear them; scope/profile changes clear them. Every continuation rechecks source identity and eligibility. A revised or withdrawn source requires reselection. `next step` remains a clarification about prerequisites; `inspect next step` explicitly reads the next instruction without certifying execution. Reading, saying “done”, or adding notes cannot prove completion, satisfy a condition, or waive a warning. Missing steps never create continuations.
+
+An incomplete explicit procedure can supply **partial source evidence**, with exact block quotation, source pins and missing/invalid constraints. It remains `answer_supported:false`; the legacy strict result remains `not_in_corpus`, with `answer_contract.kind: partial_answer`. Chat uses `partial`, not `return`. This is an inspectable source excerpt, not a valid plan or safe execution recommendation. User declarations cannot fill the missing source fields; an authorized source revision is necessary. Repeated/malformed JSON declarations are not silently repaired, and competing incomplete records do not get ranked into an answer. Partial excerpts undergo fresh final-response validation. The Ask interface labels them “PARTIAL SOURCE EVIDENCE”, without claiming a local model was used.
+
+## Tests and limits
+
+`tests/test_procedure_recovery.py` covers unfamiliar identifiers across three domains, natural forms, near misses, exact quotes, prerequisites, conditional and stop text, clarification, corrections, reload, partial output, response tampering, source revisions, external restrictions, unrelated material, duplicate owners and preservation of older relation/help routes. `tests/test_handoff.py` covers instruction/source drift, postcommit stability, extracted-source validation, newly staged files, untracked-secret exclusion and unsafe manifest paths.
+
+The fresh model-authored fixture (`fresh.json`, checksum sidecar) was frozen before execution and passed 18/18 scripted turns without tuning to its outcomes. It is synthetic testing, not independent human validation. Previously authored regression examples are development data. The historical pottery evaluator remains a document-identity proxy; unchanged recall is not a failure of the new inspection/recovery contract, nor evidence that arbitrary procedural prose is understood.
+
+Limits: no general prose-to-procedure extraction, implicit prerequisite inference, branching plans, arbitrary aliases, semantic condition satisfaction, real-world completion verification, or cross-page joins. A source declaring “none” means none declared by that source, not no real hazards. User declarations and source authority remain separate.
+
+## Handoff and delivery
+
+Read root `AGENTS.md` and generated `HANDOFF.md`. `handoff/update.json` records the latest user instruction and actual validation. Stage intended files, run `python tools/build_handoff.py`, then `--check`, and commit the generated handoff. The release packager refuses stale handoffs or uncommitted tracked changes. The push/PR workflow rebuilds from the recorded instruction and retains a handoff artifact; a stale committed handoff still fails its freshness gate. It does not auto-commit or invent an instruction.
+
+The delivered full-repository ZIP includes dotfiles, workflows, source, resources, tests, old reports and handoff files. It omits Git database, personal saves, caches and generated runtime downloads. **GitHub does not unpack an uploaded ZIP automatically**: extract it, review/copy the contents into your existing checkout preserving `.git` and user saves, commit on a branch, and push. The included workflows then run normally. Local validation is not GitHub check status or deployment verification.
+
+Validation records will identify the tested source revision, archive hash, actual checks and blocked deployment checks. Final evidence-only updates may change report/handoff files; engine hashes must still match the tested implementation.
+
+## Browser-discovered capture defect and repair
+
+The first actual Chromium run failed at the imported procedure's initial Ask. The native source-import reproduction showed that the generic paragraph formatter joined single newlines, turning `Procedure: ID`, step numbers and constraint declarations into one line. The capture's raw text hash correctly no longer matched that flattened body projection, so the reader refused. Direct-ledger procedure tests had not exercised that importer boundary.
+
+New explicit imports now preserve line structure in escaped preformatted HTML. The raw capture and `text_sha256` remain pinned to the original supplied text. An additional `projection_version` and `body_text_sha256` pin the declared canonical body projection; the reader accepts only its exact known version and matching hash. Missing/unknown versions or changed projections do not get guessed. Older captures retain their bytes and legacy verification path; multiline captures flattened by the old importer require explicit reimport, which creates a normal successor and preserves history. `revise` now accepts an explicit `body_html` alternative (mutually exclusive with `body`) so new source revisions preserve the same structure as initial imports. Existing page hashes, body projection rules, source-authorship declarations, delivery restrictions and ledger revision authority are unchanged.
+
+The added native import regression verifies both first import and successor, exact source text/raw pins, intact history, and fail-closed handling of an unknown projection version. The failed first browser run is retained; its result is not hidden by the successful rerun.
+
+The corrected actual-browser run passes nine checks: natural Ask, explicit selection of the chat collection, step clarification, persisted reload, no inferred completion, next-instruction inspection, step correction, partial citations and the strict partial label. A second fixture run initially selected no entries in the separate chat scope chooser; its refusal was correct. The fixture now selects the intended collection explicitly, and that failed setup is retained separately. No collection boundary was relaxed to make it pass.
+
+Ask/CLI queries are stateless: use a complete request such as `procedure prepare-vellum` or `step 2 of procedure prepare-vellum`. Conversational answers such as `step 2` and `prepare-vellum` are recoverable in Chat only when a matching, scoped pending selection exists. Unknown source constraints require source revision, not a conversational “yes”.
+
+## Final local results
+
+Implementation `45c859d245413933aac5a86053a1b05c35ec3241`, tested from its committed extracted ZIP, passes **824 Python tests** (972.067 seconds). CLI/JSON checks pass three natural/step/partial cases with exact quotations and expected support/exit status. Actual Chromium passes all nine procedure checks; real Pyodide, JavaScript API/transport, UI/infrastructure audits and crawler fixtures pass. The 18-turn synthetic replay and existing 312-question/24-mutation smoke pass. All 154 frozen evaluation decisions and returned texts remain unchanged. `validation.json` records the archive hash, engine pins, blocked checks and test roots; source hashes distinguish the failed first browser candidate from the corrected implementation.
+
+The final evidence/fixture-only update preserves those engine pins. GitHub required-check status, deployment, live-site TLS validation and independent human evaluation are not claimed. Delivery packaging additionally checks the final ZIP and extracted handoff; its SHA-256 lives outside the ZIP in the delivery manifest, so the package does not claim a self-referential checksum.

@@ -9,6 +9,7 @@ VERSION = 'statement-support-v4'
 
 
 from .frames import normalize, parse
+from .assertions import attach, conflicts
 
 
 def statement_support(question, record):
@@ -18,6 +19,7 @@ def statement_support(question, record):
     subject = frame.entity if frame.relation == 'description' else ''
     patterns = [frame.statement]
     negative = False
+    negative_spans = []
     spans=[]
     # Only body sentences, never declared scope or when-to-use. Whole sentence
     # matches reject quoted instructions, hypothetical prefixes and other subjects.
@@ -32,6 +34,8 @@ def statement_support(question, record):
             continue
         if frame.negative_statement and re.fullmatch(frame.negative_statement,line):
             negative = True
+            match = re.fullmatch(frame.negative_statement, line)
+            negative_spans.append({'quote': raw, 'value': match['value']})
             continue
         fact=re.fullmatch(r'fact: (.+?) \| (instance_of|subclass_of) \| (.+)',line)
         if fact and subject and fact[1]==subject:
@@ -50,9 +54,9 @@ def statement_support(question, record):
             if any(c in value for c in ['"','“','”',';']):continue
             spans.append({'quote':raw,'value':value})
     values={s['value'] for s in spans}
-    if len(values)>1 or (spans and negative):return {'status':'conflict','reason':'Conflicting matching statements in the candidate page.','spans':spans,'frame':frame.to_dict()}
-    if not spans:return {'status':'unsupported','reason':'No affirmative statement answers the complete requested subject.','spans':[],'negative_match':negative}
-    return {'status':'supported','reason':'Exact affirmative statement under a finite grammar; source truth is not verified.','spans':spans,'frame':frame.to_dict()}
+    if len(values)>1 or (values & {s['value'] for s in negative_spans}):return {'status':'conflict','reason':'Conflicting matching statements in the candidate page.','spans':spans,'negative_spans':negative_spans,'frame':frame.to_dict()}
+    if not spans:return {'status':'unsupported','reason':'No affirmative statement answers the complete requested subject.','spans':[],'negative_match':negative, 'negative_spans':negative_spans}
+    return {'status':'supported','reason':'Exact affirmative statement under a finite grammar; source truth is not verified.','spans':spans,'negative_spans':negative_spans,'frame':frame.to_dict()}
 
 
 from dataclasses import dataclass, field
@@ -88,6 +92,10 @@ def supported_answer(root, question, profile=None):
     from mplpb_combined.ledger import Ledger
     from . import procedures
     procedural = procedures.request(question)
+    if procedural and procedural.get('interpretation'):
+        preliminary, _ = procedures.check(root, procedural, profile)
+        if not preliminary['identified']:
+            procedural = None  # Existing relation grammars still get their turn.
     if procedural:
         selected = answer(root, question, profile)
         out = SupportedAnswer(**selected.__dict__)
@@ -95,7 +103,7 @@ def supported_answer(root, question, profile=None):
         out.record = rec
         out.kind = RETURN if rec else AMBIGUOUS if checked['status']=='conflict' else NOT_IN_CORPUS
         out.support = {'status':checked['status'],'version':VERSION,'spans':[], 'procedure':checked}
-        out.reason = 'Source-authored procedure constraints; execution is not verified.' if rec else ' '.join(checked['gaps'])
+        out.reason = 'Source-authored procedure constraints; execution is not verified.' if rec else checked.get('clarification') or ' '.join(checked['gaps'])
         out.matched_on = 'body procedure constraints' if rec else ''
         if rec: out.depth = Ledger(out.root).depth(rec)
         return out
@@ -147,18 +155,18 @@ def supported_answer(root, question, profile=None):
         by_path = {r.path: r for r in ledger.servable()}
         checks = [(by_path[s['path']], LE.statement_support(literal, by_path[s['path']]))
                   for s in bundle.sources if s['path'] in by_path]
+        checks = [(rec, attach(check, literal, rec)) for rec, check in checks]
         # Candidate diagnostics stay in answer_support.candidate_checks.
         # Unrelated pages with zero matched answer spans are not answer owners.
         out.candidates = []
         out.support['candidate_checks'] = [dict(id=rec.id, hash=rec.hash,
-                                               status=check['status'], spans=check['spans'])
+                                               status=check['status'], spans=check['spans'],
+                                               negative_spans=check.get('negative_spans', []),
+                                               unresolved_spans=check.get('unresolved_spans', []),
+                                               assertions=check.get('assertions', []))
                                            for rec, check in checks]
         supported = [(rec, check) for rec, check in checks if check['status'] == 'supported']
-        positive_values = {span['value'] for _, check in supported for span in check['spans']}
-        negative_values = {value for _, check in checks for value in check.get('negative_values', [])}
-        conflict = (any(check['status'] == 'conflict' for _, check in checks)
-                    or bool(positive_values.intersection(negative_values))
-                    or (bool(supported) and any(check.get('policy_denial') for _, check in checks)))
+        conflict = conflicts(checks)
         unresolved = any(check.get('unresolved') for _, check in checks)
         out.support['unresolved'] = unresolved
         if len(supported) == 1 and not conflict and not unresolved:
@@ -172,7 +180,7 @@ def supported_answer(root, question, profile=None):
             out.support['status'] = 'conflict' if out.kind == AMBIGUOUS else 'unsupported'
             out.reason = ('Conflicting or multiple eligible supporting source statements.'
                           if out.kind == AMBIGUOUS else
-                          'Relevant policy evidence has unresolved wording or inherited conditions.' if unresolved else
+                          'Relevant evidence has unresolved wording or conditions; specify the applicable context.' if unresolved else
                           'No eligible body statement supports the complete literal question.')
             out.support['reason'] = out.reason
         return out
@@ -200,13 +208,17 @@ def supported_answer(root, question, profile=None):
     by_path = {r.path:r for r in ledger.servable()}
     checks = [(by_path[s['path']], statement_support(question, by_path[s['path']]))
               for s in gate.sources if s['path'] in by_path]
+    checks = [(rec, attach(check, frame, rec)) for rec, check in checks]
     # Keep lexical inspection separate from verified answer evidence.
     out.candidates = []
     out.support['candidate_checks'] = [dict(id=rec.id, path=rec.path, hash=rec.hash,
-                                          status=check['status'], spans=check['spans'])
+                                          status=check['status'], spans=check['spans'],
+                                               negative_spans=check.get('negative_spans', []),
+                                               unresolved_spans=check.get('unresolved_spans', []),
+                                               assertions=check.get('assertions', []))
                                        for rec,check in checks]
     supported = [(rec,check) for rec,check in checks if check['status']=='supported']
-    conflict = any(check['status']=='conflict' for _,check in checks) or (bool(supported) and any(check.get('negative_match') for _,check in checks))
+    conflict = conflicts(checks)
     if len(supported)==1 and not conflict:
         rec,check = supported[0]
         out.record, out.depth, out.kind = rec, ledger.depth(rec), RETURN

@@ -1,0 +1,750 @@
+{
+  "runtime": "actual Chromium / embedded Pyodide from extracted source ZIP",
+  "before": {
+    "reader": {
+      "kind": "return",
+      "question": "Where should prism records be kept?",
+      "profile": "internal",
+      "root": "/mplpb-browser-save-v1/collections/mind-118d1cb121b5454da126462eef2fa231/combined",
+      "reason": "Exact source-declared relation path; source truth and procedure execution not verified.",
+      "id": "WEB-cb793fb91fd49c33-0001",
+      "path": "web-cb793fb91fd49c33-0001.html",
+      "hash": "sha256:9847431a5021116d6299e4a9cb5651f51f87ab64a7782a4acaf7feb53866cd69",
+      "depth": 1,
+      "text": "Prism records must be kept in green cabinet.",
+      "candidates": [],
+      "known": [
+        "kept",
+        "prism",
+        "records"
+      ],
+      "unknown": [],
+      "matched_on": "literal body statement",
+      "withheld": [],
+      "set_aside": [],
+      "quarantined": 0,
+      "route": [],
+      "source_authorship": {
+        "status": "unknown",
+        "verified": false,
+        "notice": "Who made this source is unknown. A person can supply a source attribution for review."
+      },
+      "answer_support": {
+        "status": "supported",
+        "version": "source-relation-graph-v2",
+        "frame": {
+          "relation": "storage_rule",
+          "entity": "prism records",
+          "canonical": "where should prism records be kept",
+          "other": "",
+          "version": "source-relation-graph-v2",
+          "general_entailment": false,
+          "graph_type": "source_body_only",
+          "world_verified": false,
+          "execution_verified": false,
+          "inference_permitted": false,
+          "qualified_quote_required": true
+        },
+        "spans": [
+          {
+            "quote": "Prism records must be kept in green cabinet.",
+            "value": "green cabinet",
+            "qualification": "",
+            "polarity": "positive"
+          }
+        ],
+        "candidate_checks": [
+          {
+            "id": "WEB-cb793fb91fd49c33-0001",
+            "hash": "sha256:9847431a5021116d6299e4a9cb5651f51f87ab64a7782a4acaf7feb53866cd69",
+            "status": "supported",
+            "spans": [
+              {
+                "quote": "Prism records must be kept in green cabinet.",
+                "value": "green cabinet",
+                "qualification": "",
+                "polarity": "positive"
+              }
+            ],
+            "negative_spans": [],
+            "unresolved_spans": [],
+            "assertions": [
+              {
+                "subject": "prism records",
+                "relation": "storage_rule",
+                "value": "green cabinet",
+                "polarity": "positive",
+                "qualification": "",
+                "source_id": "WEB-cb793fb91fd49c33-0001",
+                "source_hash": "sha256:9847431a5021116d6299e4a9cb5651f51f87ab64a7782a4acaf7feb53866cd69",
+                "path": "web-cb793fb91fd49c33-0001.html",
+                "quote": "Prism records must be kept in green cabinet."
+              }
+            ]
+          }
+        ],
+        "unresolved": false,
+        "negative_spans": [],
+        "unresolved_spans": [],
+        "graph": {
+          "version": "source-relation-graph-v2",
+          "nodes": [
+            {
+              "id": "q",
+              "kind": "question",
+              "text": "where should prism records be kept"
+            },
+            {
+              "id": "p",
+              "kind": "predicate",
+              "text": "storage_rule"
+            },
+            {
+              "id": "s",
+              "kind": "entity",
+              "text": "prism records"
+            },
+            {
+              "id": "doc",
+              "kind": "source",
+              "record_id": "WEB-cb793fb91fd49c33-0001",
+              "hash": "sha256:9847431a5021116d6299e4a9cb5651f51f87ab64a7782a4acaf7feb53866cd69",
+              "path": "web-cb793fb91fd49c33-0001.html"
+            },
+            {
+              "id": "fact:0",
+              "kind": "statement",
+              "quote": "Prism records must be kept in green cabinet.",
+              "polarity": "positive"
+            },
+            {
+              "id": "value:0",
+              "kind": "value",
+              "text": "green cabinet"
+            }
+          ],
+          "edges": [
+            {
+              "from": "q",
+              "to": "p",
+              "type": "asks"
+            },
+            {
+              "from": "p",
+              "to": "s",
+              "type": "targets"
+            },
+            {
+              "from": "doc",
+              "to": "fact:0",
+              "type": "declares"
+            },
+            {
+              "from": "fact:0",
+              "to": "p",
+              "type": "asserts_relation"
+            },
+            {
+              "from": "fact:0",
+              "to": "s",
+              "type": "asserts_subject"
+            },
+            {
+              "from": "fact:0",
+              "to": "value:0",
+              "type": "supplies_value"
+            }
+          ],
+          "proof_kind": "exact_source_statement",
+          "independent_sources_verified": false,
+          "world_verified": false,
+          "execution_verified": false,
+          "multi_hop_inference": false
+        },
+        "reason": "Exact source-declared relation path; source truth and procedure execution not verified.",
+        "assertions": [
+          {
+            "subject": "prism records",
+            "relation": "storage_rule",
+            "value": "green cabinet",
+            "polarity": "positive",
+            "qualification": "",
+            "source_id": "WEB-cb793fb91fd49c33-0001",
+            "source_hash": "sha256:9847431a5021116d6299e4a9cb5651f51f87ab64a7782a4acaf7feb53866cd69",
+            "path": "web-cb793fb91fd49c33-0001.html",
+            "quote": "Prism records must be kept in green cabinet."
+          }
+        ],
+        "code_sha256": {
+          "__init__.py": "d57d776eaaea962867814b5af3f0ac836fdd0c70ffbde910a801e6240697a095",
+          "__main__.py": "f793ef475c212f719511b9326501c41503f66252008376516db2646fe1485820",
+          "assertions.py": "54a8a56e2e19bd3565098a3b66f28da590341405a454cf154319686ea0a51458",
+          "body_text.py": "0c02ba271796c6aafb985f3ef6ea95902086052cf030c471c226d1f6cbd79c44",
+          "evaluate.py": "8c6e4444d661f5a2982338a45673ff594ae4cc4a86d3ec6e0bce6b7f77c90969",
+          "evaluation.py": "4d58e13a85f6edb1443bf156baaa48b1cdf72ce38e5e16a0ce53d195ac395715",
+          "evidence_contract.py": "5fb4226e9407d3432cdbaa518b10af9a5d5dc7bef0036e204848fbda3a3ffbe5",
+          "frames.py": "82c23f7382f862d3b95960b017dda278022ccee1f1bc4e9b339bf7c45ba8dede",
+          "library.py": "7d1613c28f01453270c8a53bf0e3f015bf197dff25b43edc764802e1e1306e5b",
+          "literal_evidence.py": "4dff854bea0a7ae453be35ee016be2533d9ed0b08b98b7ee4a28d2f10b5983fa",
+          "local_reader.py": "6e7a6702f8296b63dd8a2be292ef620c9e67ed6170770e1222cfee58e23ea815",
+          "operational_evidence.py": "ac4ac4c1b9df9f412323674083dbc1bdb83a6570b8576fde9969eddafd791580",
+          "passages.py": "fae27b547e0cd848ce8a720914eaede5cd371b7db3144a4a68141889569fe5ec",
+          "pipeline.py": "25af0fa7a0aafb8ade6836fd7a188e329de27664d355a703d8db2577bf545be7",
+          "policy_evidence.py": "90ae363e5b2b92c52ef24a9ff4d820821a76729f012831c51e27f3ad54492c35",
+          "practical_evidence.py": "0ad115570d1a5c1f756f2931e331a083d6f9ca6f7512223b5160278f5cda33af",
+          "procedures.py": "d66b180651cc35df32a92e33f7df9ae5e031f2fba53ed769c2caddc37fa94523",
+          "relation_graph.py": "b6757451ecfd718063ffa0d5aa0104344cc0b9fdd9550a884407367032c435f1",
+          "support.py": "d5d39570ad777c424e9d7a5ff674d2b97b8fac6baff18ed4ca4ccb89e7e99825"
+        }
+      },
+      "answer_contract": {
+        "schema": "answer-contract-v1",
+        "mode": "strict",
+        "question": "Where should prism records be kept?",
+        "kind": "supported_answer",
+        "answer_supported": true,
+        "text": "Prism records must be kept in green cabinet.",
+        "claims": [
+          {
+            "text": "Prism records must be kept in green cabinet.",
+            "qualifiers": [],
+            "citations": [
+              {
+                "passage": "sha256:e8e8c9eb41791f330ee2a0feccf20df553fb3a8be7e92c3400588ceb04044a38",
+                "start": 0,
+                "end": 44,
+                "quote": "Prism records must be kept in green cabinet.",
+                "source_id": "WEB-cb793fb91fd49c33-0001",
+                "path": "web-cb793fb91fd49c33-0001.html",
+                "hash": "sha256:9847431a5021116d6299e4a9cb5651f51f87ab64a7782a4acaf7feb53866cd69",
+                "body_start": 0,
+                "body_end": 44
+              }
+            ]
+          }
+        ],
+        "missing": [],
+        "clarification": "",
+        "confidence": null,
+        "confidence_calibrated": false,
+        "sources": [
+          {
+            "id": "WEB-cb793fb91fd49c33-0001",
+            "path": "web-cb793fb91fd49c33-0001.html",
+            "hash": "sha256:9847431a5021116d6299e4a9cb5651f51f87ab64a7782a4acaf7feb53866cd69"
+          }
+        ],
+        "retrieval": {},
+        "verification": {
+          "structural": true,
+          "semantic": "bounded_deterministic_grammar",
+          "truth_verified": false,
+          "independence_verified": false
+        },
+        "reader": null,
+        "trace": [],
+        "diagnostic": {
+          "code": "supported",
+          "stage": "strict",
+          "message": "Explicit source statements satisfy the existing bounded grammar.",
+          "corpus_answerability": "not_established",
+          "next_steps": [
+            "Open the cited source and check its conditions and revision."
+          ]
+        },
+        "code_sha256": {
+          "__init__.py": "d57d776eaaea962867814b5af3f0ac836fdd0c70ffbde910a801e6240697a095",
+          "__main__.py": "f793ef475c212f719511b9326501c41503f66252008376516db2646fe1485820",
+          "assertions.py": "54a8a56e2e19bd3565098a3b66f28da590341405a454cf154319686ea0a51458",
+          "body_text.py": "0c02ba271796c6aafb985f3ef6ea95902086052cf030c471c226d1f6cbd79c44",
+          "evaluate.py": "8c6e4444d661f5a2982338a45673ff594ae4cc4a86d3ec6e0bce6b7f77c90969",
+          "evaluation.py": "4d58e13a85f6edb1443bf156baaa48b1cdf72ce38e5e16a0ce53d195ac395715",
+          "evidence_contract.py": "5fb4226e9407d3432cdbaa518b10af9a5d5dc7bef0036e204848fbda3a3ffbe5",
+          "frames.py": "82c23f7382f862d3b95960b017dda278022ccee1f1bc4e9b339bf7c45ba8dede",
+          "library.py": "7d1613c28f01453270c8a53bf0e3f015bf197dff25b43edc764802e1e1306e5b",
+          "literal_evidence.py": "4dff854bea0a7ae453be35ee016be2533d9ed0b08b98b7ee4a28d2f10b5983fa",
+          "local_reader.py": "6e7a6702f8296b63dd8a2be292ef620c9e67ed6170770e1222cfee58e23ea815",
+          "operational_evidence.py": "ac4ac4c1b9df9f412323674083dbc1bdb83a6570b8576fde9969eddafd791580",
+          "passages.py": "fae27b547e0cd848ce8a720914eaede5cd371b7db3144a4a68141889569fe5ec",
+          "pipeline.py": "25af0fa7a0aafb8ade6836fd7a188e329de27664d355a703d8db2577bf545be7",
+          "policy_evidence.py": "90ae363e5b2b92c52ef24a9ff4d820821a76729f012831c51e27f3ad54492c35",
+          "practical_evidence.py": "0ad115570d1a5c1f756f2931e331a083d6f9ca6f7512223b5160278f5cda33af",
+          "procedures.py": "d66b180651cc35df32a92e33f7df9ae5e031f2fba53ed769c2caddc37fa94523",
+          "relation_graph.py": "b6757451ecfd718063ffa0d5aa0104344cc0b9fdd9550a884407367032c435f1",
+          "support.py": "d5d39570ad777c424e9d7a5ff674d2b97b8fac6baff18ed4ca4ccb89e7e99825"
+        }
+      },
+      "answer_diagnostics": {
+        "code": "supported",
+        "stage": "strict",
+        "message": "Explicit source statements satisfy the existing bounded grammar.",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Open the cited source and check its conditions and revision."
+        ]
+      },
+      "answer_supported": true,
+      "citation": "[WEB-cb793fb91fd49c33-0001 \u00b7 web-cb793fb91fd49c33-0001.html \u00b7 current \u00b7 origin machine d1 \u00b7 sha256:9847431a5021 \u00b7 local]",
+      "title": "Preservation rules"
+    },
+    "gate": {
+      "kind": "source_bundle",
+      "question": "Where should prism records be kept?",
+      "profile": "internal",
+      "query_terms": [
+        "kept",
+        "prism",
+        "record"
+      ],
+      "sources": [
+        {
+          "id": "WEB-cb793fb91fd49c33-0001",
+          "path": "web-cb793fb91fd49c33-0001.html",
+          "title": "Preservation rules",
+          "origin": "machine",
+          "origin_depth": 1,
+          "owner": "unknown",
+          "updated": "2026-11-02T14:22Z",
+          "status": "current",
+          "declared_status": "current",
+          "hash": "sha256:9847431a5021116d6299e4a9cb5651f51f87ab64a7782a4acaf7feb53866cd69",
+          "derived_from": [],
+          "supersedes": [],
+          "ratified_by": "",
+          "location": "local",
+          "scope": "Preservation rules",
+          "when_to_use": "",
+          "not_for": "",
+          "text": "Preservation rules\nPrism records must be kept in green cabinet.\nSource capture: {\"source_url\": \"https://example.org/preservation\", \"title\": \"Preservation rules\", \"observed_at\": \"2026-11-02T14:22:38.216999+00:00\", \"source_sha256\": \"9af9159163e49f0524194179a57b12436ea1d0ec5be422455ee1c1670f8eb292\", \"text_sha256\": \"9af9159163e49f0524194179a57b12436ea1d0ec5be422455ee1c1670f8eb292\", \"transport\": \"user-pasted-text\", \"authorship\": \"unknown\", \"notice\": \"Captured bytes, not verified truth or authorship. Pasted text is user-supplied, not a verified download.\"}",
+          "matched_terms": [
+            "kept",
+            "prism",
+            "record"
+          ],
+          "scope_terms": [],
+          "prose_only_terms": [
+            "kept",
+            "prism",
+            "record"
+          ],
+          "unmatched_terms": [],
+          "matches_every_query_term": true,
+          "ancestry": [],
+          "evidence_basis": {
+            "delivery": "verbatim_page_text",
+            "content_truth_verified": false,
+            "original_claim_basis": "not_encoded_by_legacy_page_format"
+          },
+          "recheck_conditions": [
+            "source changes",
+            "dependency is superseded or retired",
+            "serving policy changes"
+          ],
+          "verification": {
+            "hash_intact": true,
+            "lineage_pinned": true,
+            "origin_explicit": true,
+            "authorship_authenticated": false
+          },
+          "source_authorship": {
+            "status": "unknown",
+            "verified": false,
+            "notice": "Who made this source is unknown. A person can supply a source attribution for review."
+          }
+        }
+      ],
+      "term_sources": {
+        "kept": [
+          "WEB-cb793fb91fd49c33-0001"
+        ],
+        "prism": [
+          "WEB-cb793fb91fd49c33-0001"
+        ],
+        "record": [
+          "WEB-cb793fb91fd49c33-0001"
+        ]
+      },
+      "unmatched_terms": [],
+      "lexical_coverage": "complete",
+      "excluded": [],
+      "query_flags": [],
+      "policy": {
+        "gate_version": 2,
+        "mode": "separate_lexical_sources",
+        "max_depth": 1,
+        "prose": true,
+        "not_for": true,
+        "enforce_sealed_external_policy": true,
+        "synthesize": false,
+        "follow_pointers": false,
+        "require_current_dependencies": true,
+        "settings_hash": "sha256:2b95571a707e2341b9dedc11b579a05bdd494cc4f4f2f13d1cac7e67a2beb03c"
+      },
+      "corpus_snapshot": "sha256:bed0e9cb6a43e1f53bc2792fe18b9d1df4e3692cf271890ffaad9d7a3355fa91",
+      "shared_lineage": [],
+      "evidence_status": "retrieved_pages_not_truth_certification",
+      "relationship_status": "not_established_by_retrieval",
+      "answer_synthesized": false,
+      "authorship_authenticated": false,
+      "notice": "Each source is presented separately. Complete lexical coverage means the requested words occur across sources, not that a page answers the question or that separate facts are related. Origin and owner are page declarations, not authenticated identities."
+    },
+    "live_verified_by_this_query": false
+  },
+  "after": {
+    "reader": {
+      "kind": "ambiguous",
+      "question": "Where should prism records be kept?",
+      "profile": "internal",
+      "root": "/mplpb-browser-save-v1/collections/mind-118d1cb121b5454da126462eef2fa231/combined",
+      "reason": "Conflicting or multiple eligible supporting source statements.",
+      "id": null,
+      "path": null,
+      "hash": null,
+      "depth": null,
+      "text": "",
+      "candidates": [],
+      "known": [
+        "kept",
+        "prism",
+        "records"
+      ],
+      "unknown": [],
+      "matched_on": "prose",
+      "withheld": [],
+      "set_aside": [],
+      "quarantined": 0,
+      "route": [],
+      "answer_support": {
+        "status": "conflict",
+        "version": "source-relation-graph-v2",
+        "frame": {
+          "relation": "storage_rule",
+          "entity": "prism records",
+          "canonical": "where should prism records be kept",
+          "other": "",
+          "version": "source-relation-graph-v2",
+          "general_entailment": false,
+          "graph_type": "source_body_only",
+          "world_verified": false,
+          "execution_verified": false,
+          "inference_permitted": false,
+          "qualified_quote_required": true
+        },
+        "spans": [],
+        "candidate_checks": [
+          {
+            "id": "WEB-9b14162829e8691f-0001",
+            "hash": "sha256:20dc85bc3edc215bbf8452c552e88490db17887d77a455e84b251816db8812a2",
+            "status": "unsupported",
+            "spans": [],
+            "negative_spans": [
+              {
+                "quote": "Prism records must not be kept in green cabinet.",
+                "value": "green cabinet",
+                "qualification": "",
+                "polarity": "negative"
+              }
+            ],
+            "unresolved_spans": [],
+            "assertions": [
+              {
+                "subject": "prism records",
+                "relation": "storage_rule",
+                "value": "green cabinet",
+                "polarity": "negative",
+                "qualification": "",
+                "source_id": "WEB-9b14162829e8691f-0001",
+                "source_hash": "sha256:20dc85bc3edc215bbf8452c552e88490db17887d77a455e84b251816db8812a2",
+                "path": "web-9b14162829e8691f-0001.html",
+                "quote": "Prism records must not be kept in green cabinet."
+              }
+            ]
+          },
+          {
+            "id": "WEB-cb793fb91fd49c33-0001",
+            "hash": "sha256:9847431a5021116d6299e4a9cb5651f51f87ab64a7782a4acaf7feb53866cd69",
+            "status": "supported",
+            "spans": [
+              {
+                "quote": "Prism records must be kept in green cabinet.",
+                "value": "green cabinet",
+                "qualification": "",
+                "polarity": "positive"
+              }
+            ],
+            "negative_spans": [],
+            "unresolved_spans": [],
+            "assertions": [
+              {
+                "subject": "prism records",
+                "relation": "storage_rule",
+                "value": "green cabinet",
+                "polarity": "positive",
+                "qualification": "",
+                "source_id": "WEB-cb793fb91fd49c33-0001",
+                "source_hash": "sha256:9847431a5021116d6299e4a9cb5651f51f87ab64a7782a4acaf7feb53866cd69",
+                "path": "web-cb793fb91fd49c33-0001.html",
+                "quote": "Prism records must be kept in green cabinet."
+              }
+            ]
+          }
+        ],
+        "unresolved": false,
+        "reason": "Conflicting or multiple eligible supporting source statements.",
+        "code_sha256": {
+          "__init__.py": "d57d776eaaea962867814b5af3f0ac836fdd0c70ffbde910a801e6240697a095",
+          "__main__.py": "f793ef475c212f719511b9326501c41503f66252008376516db2646fe1485820",
+          "assertions.py": "54a8a56e2e19bd3565098a3b66f28da590341405a454cf154319686ea0a51458",
+          "body_text.py": "0c02ba271796c6aafb985f3ef6ea95902086052cf030c471c226d1f6cbd79c44",
+          "evaluate.py": "8c6e4444d661f5a2982338a45673ff594ae4cc4a86d3ec6e0bce6b7f77c90969",
+          "evaluation.py": "4d58e13a85f6edb1443bf156baaa48b1cdf72ce38e5e16a0ce53d195ac395715",
+          "evidence_contract.py": "5fb4226e9407d3432cdbaa518b10af9a5d5dc7bef0036e204848fbda3a3ffbe5",
+          "frames.py": "82c23f7382f862d3b95960b017dda278022ccee1f1bc4e9b339bf7c45ba8dede",
+          "library.py": "7d1613c28f01453270c8a53bf0e3f015bf197dff25b43edc764802e1e1306e5b",
+          "literal_evidence.py": "4dff854bea0a7ae453be35ee016be2533d9ed0b08b98b7ee4a28d2f10b5983fa",
+          "local_reader.py": "6e7a6702f8296b63dd8a2be292ef620c9e67ed6170770e1222cfee58e23ea815",
+          "operational_evidence.py": "ac4ac4c1b9df9f412323674083dbc1bdb83a6570b8576fde9969eddafd791580",
+          "passages.py": "fae27b547e0cd848ce8a720914eaede5cd371b7db3144a4a68141889569fe5ec",
+          "pipeline.py": "25af0fa7a0aafb8ade6836fd7a188e329de27664d355a703d8db2577bf545be7",
+          "policy_evidence.py": "90ae363e5b2b92c52ef24a9ff4d820821a76729f012831c51e27f3ad54492c35",
+          "practical_evidence.py": "0ad115570d1a5c1f756f2931e331a083d6f9ca6f7512223b5160278f5cda33af",
+          "procedures.py": "d66b180651cc35df32a92e33f7df9ae5e031f2fba53ed769c2caddc37fa94523",
+          "relation_graph.py": "b6757451ecfd718063ffa0d5aa0104344cc0b9fdd9550a884407367032c435f1",
+          "support.py": "d5d39570ad777c424e9d7a5ff674d2b97b8fac6baff18ed4ca4ccb89e7e99825"
+        }
+      },
+      "answer_contract": {
+        "schema": "answer-contract-v1",
+        "mode": "strict",
+        "question": "Where should prism records be kept?",
+        "kind": "conflict",
+        "answer_supported": false,
+        "text": "",
+        "claims": [],
+        "missing": [],
+        "clarification": "",
+        "confidence": null,
+        "confidence_calibrated": false,
+        "sources": [],
+        "retrieval": {},
+        "verification": {
+          "structural": false,
+          "semantic": "not_run",
+          "truth_verified": false,
+          "independence_verified": false
+        },
+        "reader": null,
+        "trace": [],
+        "diagnostic": {
+          "code": "conflicting_or_multiple_owners",
+          "stage": "strict",
+          "message": "Conflicting or multiple eligible supporting source statements.",
+          "corpus_answerability": "not_established",
+          "next_steps": [
+            "Inspect the competing sources; specify the intended subject or resolve the disagreement by a source revision."
+          ]
+        },
+        "code_sha256": {
+          "__init__.py": "d57d776eaaea962867814b5af3f0ac836fdd0c70ffbde910a801e6240697a095",
+          "__main__.py": "f793ef475c212f719511b9326501c41503f66252008376516db2646fe1485820",
+          "assertions.py": "54a8a56e2e19bd3565098a3b66f28da590341405a454cf154319686ea0a51458",
+          "body_text.py": "0c02ba271796c6aafb985f3ef6ea95902086052cf030c471c226d1f6cbd79c44",
+          "evaluate.py": "8c6e4444d661f5a2982338a45673ff594ae4cc4a86d3ec6e0bce6b7f77c90969",
+          "evaluation.py": "4d58e13a85f6edb1443bf156baaa48b1cdf72ce38e5e16a0ce53d195ac395715",
+          "evidence_contract.py": "5fb4226e9407d3432cdbaa518b10af9a5d5dc7bef0036e204848fbda3a3ffbe5",
+          "frames.py": "82c23f7382f862d3b95960b017dda278022ccee1f1bc4e9b339bf7c45ba8dede",
+          "library.py": "7d1613c28f01453270c8a53bf0e3f015bf197dff25b43edc764802e1e1306e5b",
+          "literal_evidence.py": "4dff854bea0a7ae453be35ee016be2533d9ed0b08b98b7ee4a28d2f10b5983fa",
+          "local_reader.py": "6e7a6702f8296b63dd8a2be292ef620c9e67ed6170770e1222cfee58e23ea815",
+          "operational_evidence.py": "ac4ac4c1b9df9f412323674083dbc1bdb83a6570b8576fde9969eddafd791580",
+          "passages.py": "fae27b547e0cd848ce8a720914eaede5cd371b7db3144a4a68141889569fe5ec",
+          "pipeline.py": "25af0fa7a0aafb8ade6836fd7a188e329de27664d355a703d8db2577bf545be7",
+          "policy_evidence.py": "90ae363e5b2b92c52ef24a9ff4d820821a76729f012831c51e27f3ad54492c35",
+          "practical_evidence.py": "0ad115570d1a5c1f756f2931e331a083d6f9ca6f7512223b5160278f5cda33af",
+          "procedures.py": "d66b180651cc35df32a92e33f7df9ae5e031f2fba53ed769c2caddc37fa94523",
+          "relation_graph.py": "b6757451ecfd718063ffa0d5aa0104344cc0b9fdd9550a884407367032c435f1",
+          "support.py": "d5d39570ad777c424e9d7a5ff674d2b97b8fac6baff18ed4ca4ccb89e7e99825"
+        }
+      },
+      "answer_diagnostics": {
+        "code": "conflicting_or_multiple_owners",
+        "stage": "strict",
+        "message": "Conflicting or multiple eligible supporting source statements.",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Inspect the competing sources; specify the intended subject or resolve the disagreement by a source revision."
+        ]
+      },
+      "answer_supported": false,
+      "citation": ""
+    },
+    "gate": {
+      "kind": "source_bundle",
+      "question": "Where should prism records be kept?",
+      "profile": "internal",
+      "query_terms": [
+        "kept",
+        "prism",
+        "record"
+      ],
+      "sources": [
+        {
+          "id": "WEB-9b14162829e8691f-0001",
+          "path": "web-9b14162829e8691f-0001.html",
+          "title": "Opposing rule",
+          "origin": "machine",
+          "origin_depth": 1,
+          "owner": "unknown",
+          "updated": "2026-11-02T14:23Z",
+          "status": "current",
+          "declared_status": "current",
+          "hash": "sha256:20dc85bc3edc215bbf8452c552e88490db17887d77a455e84b251816db8812a2",
+          "derived_from": [],
+          "supersedes": [],
+          "ratified_by": "",
+          "location": "local",
+          "scope": "Opposing rule",
+          "when_to_use": "",
+          "not_for": "",
+          "text": "Opposing rule\nPrism records must not be kept in green cabinet.\nSource capture: {\"source_url\": \"https://example.org/opposition\", \"title\": \"Opposing rule\", \"observed_at\": \"2026-11-02T14:23:14.747000+00:00\", \"source_sha256\": \"31c4e44568f382c9a0165e6047e4b85719ceb0ded9c17e00b0f51f9d8a126fda\", \"text_sha256\": \"31c4e44568f382c9a0165e6047e4b85719ceb0ded9c17e00b0f51f9d8a126fda\", \"transport\": \"user-pasted-text\", \"authorship\": \"unknown\", \"notice\": \"Captured bytes, not verified truth or authorship. Pasted text is user-supplied, not a verified download.\"}",
+          "matched_terms": [
+            "kept",
+            "prism",
+            "record"
+          ],
+          "scope_terms": [],
+          "prose_only_terms": [
+            "kept",
+            "prism",
+            "record"
+          ],
+          "unmatched_terms": [],
+          "matches_every_query_term": true,
+          "ancestry": [],
+          "evidence_basis": {
+            "delivery": "verbatim_page_text",
+            "content_truth_verified": false,
+            "original_claim_basis": "not_encoded_by_legacy_page_format"
+          },
+          "recheck_conditions": [
+            "source changes",
+            "dependency is superseded or retired",
+            "serving policy changes"
+          ],
+          "verification": {
+            "hash_intact": true,
+            "lineage_pinned": true,
+            "origin_explicit": true,
+            "authorship_authenticated": false
+          },
+          "source_authorship": {
+            "status": "unknown",
+            "verified": false,
+            "notice": "Who made this source is unknown. A person can supply a source attribution for review."
+          }
+        },
+        {
+          "id": "WEB-cb793fb91fd49c33-0001",
+          "path": "web-cb793fb91fd49c33-0001.html",
+          "title": "Preservation rules",
+          "origin": "machine",
+          "origin_depth": 1,
+          "owner": "unknown",
+          "updated": "2026-11-02T14:22Z",
+          "status": "current",
+          "declared_status": "current",
+          "hash": "sha256:9847431a5021116d6299e4a9cb5651f51f87ab64a7782a4acaf7feb53866cd69",
+          "derived_from": [],
+          "supersedes": [],
+          "ratified_by": "",
+          "location": "local",
+          "scope": "Preservation rules",
+          "when_to_use": "",
+          "not_for": "",
+          "text": "Preservation rules\nPrism records must be kept in green cabinet.\nSource capture: {\"source_url\": \"https://example.org/preservation\", \"title\": \"Preservation rules\", \"observed_at\": \"2026-11-02T14:22:38.216999+00:00\", \"source_sha256\": \"9af9159163e49f0524194179a57b12436ea1d0ec5be422455ee1c1670f8eb292\", \"text_sha256\": \"9af9159163e49f0524194179a57b12436ea1d0ec5be422455ee1c1670f8eb292\", \"transport\": \"user-pasted-text\", \"authorship\": \"unknown\", \"notice\": \"Captured bytes, not verified truth or authorship. Pasted text is user-supplied, not a verified download.\"}",
+          "matched_terms": [
+            "kept",
+            "prism",
+            "record"
+          ],
+          "scope_terms": [],
+          "prose_only_terms": [
+            "kept",
+            "prism",
+            "record"
+          ],
+          "unmatched_terms": [],
+          "matches_every_query_term": true,
+          "ancestry": [],
+          "evidence_basis": {
+            "delivery": "verbatim_page_text",
+            "content_truth_verified": false,
+            "original_claim_basis": "not_encoded_by_legacy_page_format"
+          },
+          "recheck_conditions": [
+            "source changes",
+            "dependency is superseded or retired",
+            "serving policy changes"
+          ],
+          "verification": {
+            "hash_intact": true,
+            "lineage_pinned": true,
+            "origin_explicit": true,
+            "authorship_authenticated": false
+          },
+          "source_authorship": {
+            "status": "unknown",
+            "verified": false,
+            "notice": "Who made this source is unknown. A person can supply a source attribution for review."
+          }
+        }
+      ],
+      "term_sources": {
+        "kept": [
+          "WEB-9b14162829e8691f-0001",
+          "WEB-cb793fb91fd49c33-0001"
+        ],
+        "prism": [
+          "WEB-9b14162829e8691f-0001",
+          "WEB-cb793fb91fd49c33-0001"
+        ],
+        "record": [
+          "WEB-9b14162829e8691f-0001",
+          "WEB-cb793fb91fd49c33-0001"
+        ]
+      },
+      "unmatched_terms": [],
+      "lexical_coverage": "complete",
+      "excluded": [],
+      "query_flags": [],
+      "policy": {
+        "gate_version": 2,
+        "mode": "separate_lexical_sources",
+        "max_depth": 1,
+        "prose": true,
+        "not_for": true,
+        "enforce_sealed_external_policy": true,
+        "synthesize": false,
+        "follow_pointers": false,
+        "require_current_dependencies": true,
+        "settings_hash": "sha256:2b95571a707e2341b9dedc11b579a05bdd494cc4f4f2f13d1cac7e67a2beb03c"
+      },
+      "corpus_snapshot": "sha256:940ce891ddbf05de8ce727a9af43b60e5809bb8974794e28be1d9880669173b9",
+      "shared_lineage": [],
+      "evidence_status": "retrieved_pages_not_truth_certification",
+      "relationship_status": "not_established_by_retrieval",
+      "answer_synthesized": false,
+      "authorship_authenticated": false,
+      "notice": "Each source is presented separately. Complete lexical coverage means the requested words occur across sources, not that a page answers the question or that separate facts are related. Origin and owner are page declarations, not authenticated identities."
+    },
+    "live_verified_by_this_query": false
+  },
+  "visible_outcome": "AMBIGUOUS",
+  "checks": [
+    "passive paraphrase visible answer",
+    "verbatim modality",
+    "cross-source denial via public API",
+    "visible ambiguity"
+  ],
+  "human_validation": false
+}

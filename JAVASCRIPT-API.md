@@ -280,3 +280,11 @@ chat lookups require `allowNetwork:true` on each particular call. A conversation
 Browser-local data and full runtime capabilities require a browser-capable agent.
 See [Agent Middleware](docs/AGENT_MIDDLEWARE.md) and the optional Node
 `tools/mplpb_agent_bridge.mjs` bridge for examples.
+
+### Bounded predicate-polarity diagnostics (2026-11-02)
+
+Strict graph results use `source-relation-graph-v2`. This does not change the public JavaScript API version or authorize an unrestricted contradiction detector. Inspect `reader.answer_support.candidate_checks`: supported body quotes remain in `spans`, recognized denials remain in `negative_spans`, and unresolvable denial applicability remains in `unresolved_spans`. `assertions` records subject, relation, value, polarity, exact qualification, source ID/hash/path and original quote. Negative evidence can block support even when its candidate status is `unsupported`; that status means the page does not supply an affirmative answer.
+
+A matching denial blocks an unqualified return; an unrelated subject or different denied value does not establish contradiction. Two eligible positive owners remain ambiguous even if their wording agrees. Graph statement nodes expose polarity; do not treat a negative node's `supplies_value` edge as affirmative support. The legacy `ambiguous` kind includes both ownership ambiguity and conflicting statements: inspect the candidate checks instead of claiming that every ambiguity proves disagreement. Source quotations are declarations, not independently verified truth. See the [bounded contract, per-case audit and validation](evaluation/language-audit/README.md).
+
+Strict incomplete procedure records now expose `answer_contract.kind: partial_answer`, exact citations and missing constraints with `answer_supported:false`; legacy kind remains `not_in_corpus`. Chat uses `partial` for source excerpts. `procedure_selector`/pending step context is conversational selection, never proof of execution. Natural request and recovery boundaries: [procedure recovery](evaluation/procedure-recovery/README.md).

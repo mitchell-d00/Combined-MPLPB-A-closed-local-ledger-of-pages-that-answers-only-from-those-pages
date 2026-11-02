@@ -156,6 +156,7 @@ def statement_support(frame, record):
                   record.body_html, flags=re.I | re.S)
     spans = []
     negative_values = []
+    negative_spans = []
     # An explicit discourse instruction cannot certify its following sentences.
     # Conservatively decline the page; do not execute or strip the instruction.
     if re.search(r"(?:^|[.!?]\s+|\n)(?:imagine|suppose|assume|pretend|ignore)\b",
@@ -171,7 +172,9 @@ def statement_support(frame, record):
         negative = re.sub(r"\bdoes not have\b", "has", negative)
         negative = re.sub(r"\b(is|are|was|were|has) not\b", r"\1", negative)
         if negative != line and not _UNSAFE_EVIDENCE.search(negative):
-            negative_values.extend(_extract(frame, negative))
+            for value in _extract(frame, negative):
+                negative_values.append(value)
+                negative_spans.append({'quote': raw, 'value': value})
         if not line or _DECOY.search(line) or _UNSAFE_EVIDENCE.search(line):
             continue
         # Remove quoted words from the matching surface, rather than rejecting
@@ -181,11 +184,11 @@ def statement_support(frame, record):
             spans.append({"quote": raw, "value": value})
     distinct = {item["value"] for item in spans}
     if len(distinct) > 1 or distinct.intersection(negative_values):
-        return {"status": "conflict", "spans": spans,
+        return {"status": "conflict", "spans": spans, "negative_spans": negative_spans,
                 "reason": "Different literal values in eligible source text."}
     if not spans:
-        return {"status": "unsupported", "spans": [],
+        return {"status": "unsupported", "spans": [], "negative_spans": negative_spans,
                 "negative_values": sorted(set(negative_values)),
                 "reason": "No exact affirmative source statement fits the bounded grammar."}
-    return {"status": "supported", "spans": spans,
+    return {"status": "supported", "spans": spans, "negative_spans": negative_spans,
             "reason": "Exact source statement under a bounded grammar; factual truth not checked."}
