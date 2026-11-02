@@ -1,0 +1,27 @@
+{
+  "schema": "reference-reproduction-v1",
+  "recorded_at_utc": "2026-11-02T17:25:48.661996+00:00",
+  "source_revision": "1fc908bdead1eb326427a84d8a0d7175a89fb9dd",
+  "role": "Developer-authored development replay; not independent validation or external fact verification",
+  "commands": [
+    "python -m unittest tests.test_reference_corpus -v",
+    "python -m tools.build_reference_corpus --output evaluation/reference-corpus-reproduction/releases"
+  ],
+  "frozen_inputs": {
+    "reference_corpus/catalog.v1.json": "9d871e3322625ea5d4ed352af4f8eacc538c56f448a7b5693ba8f6b554328b6c",
+    "reference_corpus/probes.v1.json": "391968fa75b4380d1a2e1d46d8804208fd5e3463043c8e0db00049e7c04fc952",
+    "reference_corpus/probes.v1.pre-amendment.json": "e63c5c00154e9d9b426a795327951164822e1972968ca64d7690b14ddd1747b6",
+    "reference_corpus/PROBE_AMENDMENTS.md": "333c787956e3fa842738e725105dd4c7040a35f38ff978e500408089579052e2"
+  },
+  "test_module_sha256": "4f4dd48265f8e8edf95fa34a73ebd6a7038be6960b3a4515c05eac3bc3f38c74",
+  "builder_sha256": "77a3e0374857a5fbd78c10c27658a186c810ffc2dfed89a52f96098878112f85",
+  "source_bytes_verified": false,
+  "human_ratified": false,
+  "default_loaded": false,
+  "profile": "lab",
+  "total_questions_per_stage": 93,
+  "positive_questions": 73,
+  "negative_controls": 20,
+  "build_summary": "build-summary.json",
+  "test_output": "tests.txt"
+}

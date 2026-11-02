@@ -54,6 +54,8 @@ jobs:
           mkdir -p "$RUNNER_TEMP/reference-corpus"
           python -m unittest tests.test_reference_corpus -v
           python -m tools.build_reference_corpus --output "$RUNNER_TEMP/reference-corpus/release"
+      - name: Replay the committed 73-positive reference evidence
+        run: python -m tools.verify_reference_evidence
       - name: Retain source-corpus growth reports
         if: always()
         uses: actions/upload-artifact@v4

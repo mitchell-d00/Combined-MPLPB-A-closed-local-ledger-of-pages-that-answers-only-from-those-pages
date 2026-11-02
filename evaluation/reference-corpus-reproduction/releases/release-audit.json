@@ -1,0 +1,1038 @@
+{
+  "schema": "mplpb-reference-release-audit-v1",
+  "manifest_as_of": "2026-11-01",
+  "profile_required_for_unratified_fact_pages": "lab",
+  "authority": "machine-derived, unratified, cited; not independently source-byte verified",
+  "source_integrity_vs_factual_accuracy": "Local SHA-256 and lineage verify byte integrity only; not independent factual correctness, publisher authorship, or current online agreement.",
+  "catalog_and_probes": {
+    "catalog": "9d871e3322625ea5d4ed352af4f8eacc538c56f448a7b5693ba8f6b554328b6c",
+    "probes": "391968fa75b4380d1a2e1d46d8804208fd5e3463043c8e0db00049e7c04fc952"
+  },
+  "admission": {
+    "sources": 10,
+    "facts": 73,
+    "positive": 73,
+    "negative": 20,
+    "profile": "lab",
+    "external_bytes_verified": false,
+    "human_ratified": false
+  },
+  "engine_code_sha256": {
+    "__init__.py": "d57d776eaaea962867814b5af3f0ac836fdd0c70ffbde910a801e6240697a095",
+    "__main__.py": "aa3daa9e8a92ff198985326fa9e6b6369870b7dbbdca7c973265ef1ff4b40a54",
+    "assertions.py": "54a8a56e2e19bd3565098a3b66f28da590341405a454cf154319686ea0a51458",
+    "body_text.py": "0c02ba271796c6aafb985f3ef6ea95902086052cf030c471c226d1f6cbd79c44",
+    "evaluate.py": "8c6e4444d661f5a2982338a45673ff594ae4cc4a86d3ec6e0bce6b7f77c90969",
+    "evaluation.py": "4d58e13a85f6edb1443bf156baaa48b1cdf72ce38e5e16a0ce53d195ac395715",
+    "evidence_contract.py": "5fb4226e9407d3432cdbaa518b10af9a5d5dc7bef0036e204848fbda3a3ffbe5",
+    "frames.py": "82c23f7382f862d3b95960b017dda278022ccee1f1bc4e9b339bf7c45ba8dede",
+    "library.py": "7d1613c28f01453270c8a53bf0e3f015bf197dff25b43edc764802e1e1306e5b",
+    "literal_evidence.py": "4dff854bea0a7ae453be35ee016be2533d9ed0b08b98b7ee4a28d2f10b5983fa",
+    "local_reader.py": "6e7a6702f8296b63dd8a2be292ef620c9e67ed6170770e1222cfee58e23ea815",
+    "operational_evidence.py": "ac4ac4c1b9df9f412323674083dbc1bdb83a6570b8576fde9969eddafd791580",
+    "passages.py": "fae27b547e0cd848ce8a720914eaede5cd371b7db3144a4a68141889569fe5ec",
+    "pipeline.py": "8deeca428ee79dccb6808969f2f23aa9955f65b779f7e5c1988b24840ff752d6",
+    "policy_evidence.py": "90ae363e5b2b92c52ef24a9ff4d820821a76729f012831c51e27f3ad54492c35",
+    "practical_evidence.py": "0ad115570d1a5c1f756f2931e331a083d6f9ca6f7512223b5160278f5cda33af",
+    "procedures.py": "90cc6108617b3e56e578039f793581687bb2862e448421d5e5c7f088d2dfac37",
+    "relation_graph.py": "f63ac01659f6f6bfb69ff97bf6b4f8ad024efaf7a209d0b2be0702aceba6d541",
+    "support.py": "67821fc2399616dfbc10c52a440b3de5f6220a82aec44be595b60fd19b96f9ff"
+  },
+  "versions": [
+    {
+      "version": "0.0.0",
+      "profile": "lab",
+      "metrics": {
+        "answerable_total": 73,
+        "correct_supported": 0,
+        "answerable_coverage": 0.0,
+        "correct_refusals": 20,
+        "negative_total": 20,
+        "ambiguous": 0,
+        "ambiguous_ids": [],
+        "wrong_returns": 0,
+        "wrong_ids": [],
+        "unnecessary_refusals": 73
+      },
+      "integrity": {
+        "intact_servable": 0,
+        "quarantined": 0,
+        "source_citation_pages": 0,
+        "errors": 0,
+        "depth": 2,
+        "ratified": 0,
+        "not_for_default_internal_profile": true
+      },
+      "delta": {
+        "refusal_to_supported": [],
+        "new_ambiguities": []
+      }
+    },
+    {
+      "version": "0.1.0",
+      "profile": "lab",
+      "metrics": {
+        "answerable_total": 73,
+        "correct_supported": 23,
+        "answerable_coverage": 0.315068,
+        "correct_refusals": 20,
+        "negative_total": 20,
+        "ambiguous": 0,
+        "ambiguous_ids": [],
+        "wrong_returns": 0,
+        "wrong_ids": [],
+        "unnecessary_refusals": 50
+      },
+      "integrity": {
+        "intact_servable": 23,
+        "quarantined": 0,
+        "source_citation_pages": 4,
+        "errors": 0,
+        "depth": 2,
+        "ratified": 0,
+        "not_for_default_internal_profile": true
+      },
+      "delta": {
+        "refusal_to_supported": [
+          {
+            "probe": "GKH-0001",
+            "page_id": "REF-0001",
+            "page_sha256": "sha256:12e662991a7658503a2a291fdd12baaa1617a43bd1a6d3eb1ec81120ace6efc9",
+            "basis": [
+              {
+                "id": "SRC-0001",
+                "hash": "sha256:9d34de7feeff47fc16ab0a62aeea938d9fb2d1c6480697626708449365ea8972"
+              }
+            ],
+            "question": "What's noun?"
+          },
+          {
+            "probe": "GKH-0002",
+            "page_id": "REF-0002",
+            "page_sha256": "sha256:1f1a3e78192556ea52728b85ef31e0e27694738df1eaf3e9ce55cd66e87e7e30",
+            "basis": [
+              {
+                "id": "SRC-0001",
+                "hash": "sha256:9d34de7feeff47fc16ab0a62aeea938d9fb2d1c6480697626708449365ea8972"
+              }
+            ],
+            "question": "What is verb?"
+          },
+          {
+            "probe": "GKH-0003",
+            "page_id": "REF-0003",
+            "page_sha256": "sha256:325aded8eace7e4e26161d2c470e2e165b11a22843ea3659d96cc65c9f8f0118",
+            "basis": [
+              {
+                "id": "SRC-0001",
+                "hash": "sha256:9d34de7feeff47fc16ab0a62aeea938d9fb2d1c6480697626708449365ea8972"
+              }
+            ],
+            "question": "What is the pronoun?"
+          },
+          {
+            "probe": "GKH-0004",
+            "page_id": "REF-0004",
+            "page_sha256": "sha256:47d65450b11fe505ef6dd05c9c9b0b752a8b0eb5f645fd6027394437c04b8685",
+            "basis": [
+              {
+                "id": "SRC-0001",
+                "hash": "sha256:9d34de7feeff47fc16ab0a62aeea938d9fb2d1c6480697626708449365ea8972"
+              }
+            ],
+            "question": "What's adjective?"
+          },
+          {
+            "probe": "GKH-0005",
+            "page_id": "REF-0005",
+            "page_sha256": "sha256:37decc34cb7c07eef6d1735643f266b5eea672d952bcbc102e27c6485885e21a",
+            "basis": [
+              {
+                "id": "SRC-0001",
+                "hash": "sha256:9d34de7feeff47fc16ab0a62aeea938d9fb2d1c6480697626708449365ea8972"
+              }
+            ],
+            "question": "What is adverb?"
+          },
+          {
+            "probe": "GKH-0006",
+            "page_id": "REF-0006",
+            "page_sha256": "sha256:87dc8b6f5a3a5ca5a800e2fb864c83a4e924c9659e85d93167bd293130c9beb6",
+            "basis": [
+              {
+                "id": "SRC-0001",
+                "hash": "sha256:9d34de7feeff47fc16ab0a62aeea938d9fb2d1c6480697626708449365ea8972"
+              }
+            ],
+            "question": "What is the conjunction?"
+          },
+          {
+            "probe": "GKH-0007",
+            "page_id": "REF-0007",
+            "page_sha256": "sha256:30a634e66c48235e6ccafb7eb537c98f87e4c28097d02a380708a7da857e6025",
+            "basis": [
+              {
+                "id": "SRC-0001",
+                "hash": "sha256:9d34de7feeff47fc16ab0a62aeea938d9fb2d1c6480697626708449365ea8972"
+              }
+            ],
+            "question": "What's preposition?"
+          },
+          {
+            "probe": "GKH-0008",
+            "page_id": "REF-0008",
+            "page_sha256": "sha256:8cf6d6d89ed30c75df67d0a5c39db8dca99e7cf4cd5da30f4ceeb183df38c747",
+            "basis": [
+              {
+                "id": "SRC-0001",
+                "hash": "sha256:9d34de7feeff47fc16ab0a62aeea938d9fb2d1c6480697626708449365ea8972"
+              }
+            ],
+            "question": "What is article?"
+          },
+          {
+            "probe": "GKH-0009",
+            "page_id": "REF-0009",
+            "page_sha256": "sha256:86ddb94eaffc72ed282ed78d177a0cae7e75259972e64db049f8aad3e43ed34d",
+            "basis": [
+              {
+                "id": "SRC-0001",
+                "hash": "sha256:9d34de7feeff47fc16ab0a62aeea938d9fb2d1c6480697626708449365ea8972"
+              }
+            ],
+            "question": "What is the abstract noun?"
+          },
+          {
+            "probe": "GKH-0010",
+            "page_id": "REF-0010",
+            "page_sha256": "sha256:b02db8b6183ddcd8c49c65a837913c0205c745969566479db9e82a6ebd418cdd",
+            "basis": [
+              {
+                "id": "SRC-0001",
+                "hash": "sha256:9d34de7feeff47fc16ab0a62aeea938d9fb2d1c6480697626708449365ea8972"
+              }
+            ],
+            "question": "What's proper noun?"
+          },
+          {
+            "probe": "GKH-0011",
+            "page_id": "REF-0011",
+            "page_sha256": "sha256:467c3bfb1c499d399b87879bf7ba356b770235070d09852032bdafb0a601e0ff",
+            "basis": [
+              {
+                "id": "SRC-0001",
+                "hash": "sha256:9d34de7feeff47fc16ab0a62aeea938d9fb2d1c6480697626708449365ea8972"
+              }
+            ],
+            "question": "What is subject pronoun?"
+          },
+          {
+            "probe": "GKH-0012",
+            "page_id": "REF-0012",
+            "page_sha256": "sha256:f245450ece53537c5f67c2df2b74c9fa21f631de7937a0db04945a7cf2e6b4fc",
+            "basis": [
+              {
+                "id": "SRC-0001",
+                "hash": "sha256:9d34de7feeff47fc16ab0a62aeea938d9fb2d1c6480697626708449365ea8972"
+              }
+            ],
+            "question": "What is the object pronoun?"
+          },
+          {
+            "probe": "GKH-0013",
+            "page_id": "REF-0013",
+            "page_sha256": "sha256:781f4e88cd6d3511d33231519afdfcf539eff2c013a8e04d61676bf763d03d55",
+            "basis": [
+              {
+                "id": "SRC-0001",
+                "hash": "sha256:9d34de7feeff47fc16ab0a62aeea938d9fb2d1c6480697626708449365ea8972"
+              }
+            ],
+            "question": "What's verb phrase?"
+          },
+          {
+            "probe": "GKH-0014",
+            "page_id": "REF-0014",
+            "page_sha256": "sha256:d8bcb1f299b2514a49ef5b571e4716bdebd6202b237d5e21eea4a0e3225f1a31",
+            "basis": [
+              {
+                "id": "SRC-0002",
+                "hash": "sha256:2b7817f64c7e4df294eaf12ca6cbecff1edc8066f59c6195d7a976381074d177"
+              }
+            ],
+            "question": "What is independent clause?"
+          },
+          {
+            "probe": "GKH-0015",
+            "page_id": "REF-0015",
+            "page_sha256": "sha256:b191c830f02b70d72624633730f12a4d8c788d13986cb1e27347013abd4e4953",
+            "basis": [
+              {
+                "id": "SRC-0002",
+                "hash": "sha256:2b7817f64c7e4df294eaf12ca6cbecff1edc8066f59c6195d7a976381074d177"
+              }
+            ],
+            "question": "What is the dependent clause?"
+          },
+          {
+            "probe": "GKH-0016",
+            "page_id": "REF-0016",
+            "page_sha256": "sha256:38c748719ff8cb3e158fd2ec914cb59114f7e778429b327fa4792d79c266d256",
+            "basis": [
+              {
+                "id": "SRC-0003",
+                "hash": "sha256:148e8b994fe94e42297a643a91e6aa23ee40f825e2dc2160b5d109de76c06a19"
+              }
+            ],
+            "question": "What's simple sentence?"
+          },
+          {
+            "probe": "GKH-0017",
+            "page_id": "REF-0017",
+            "page_sha256": "sha256:d2ccb804a4ad718093008af344e47cb72cb99cb6160ceaa4444846a2f81dc09d",
+            "basis": [
+              {
+                "id": "SRC-0003",
+                "hash": "sha256:148e8b994fe94e42297a643a91e6aa23ee40f825e2dc2160b5d109de76c06a19"
+              }
+            ],
+            "question": "What is compound sentence?"
+          },
+          {
+            "probe": "GKH-0018",
+            "page_id": "REF-0018",
+            "page_sha256": "sha256:e461db0072718da2527a3e2443d2e0cbb4bda7a98b4f6b6b7f0756547e696717",
+            "basis": [
+              {
+                "id": "SRC-0001",
+                "hash": "sha256:9d34de7feeff47fc16ab0a62aeea938d9fb2d1c6480697626708449365ea8972"
+              }
+            ],
+            "question": "What is the prepositional phrase?"
+          },
+          {
+            "probe": "GKH-0019",
+            "page_id": "REF-0019",
+            "page_sha256": "sha256:89c10e25d5fb3031452af95c9e563a9558ddef7cbf08fc871b5507eaf2efae16",
+            "basis": [
+              {
+                "id": "SRC-0004",
+                "hash": "sha256:3556b0581f3c455082e7bbd1d7cdf5c20c3d436d9a6fd307b2c8234d644ed60f"
+              }
+            ],
+            "question": "What's synset?"
+          },
+          {
+            "probe": "GKH-0020",
+            "page_id": "REF-0020",
+            "page_sha256": "sha256:2fb653a4d10d6ef9db455e0b485dc84c1ba3913b2cf8d66e07e61869d849b6f2",
+            "basis": [
+              {
+                "id": "SRC-0004",
+                "hash": "sha256:3556b0581f3c455082e7bbd1d7cdf5c20c3d436d9a6fd307b2c8234d644ed60f"
+              }
+            ],
+            "question": "What is lexical database?"
+          },
+          {
+            "probe": "GKH-0021",
+            "page_id": "REF-0021",
+            "page_sha256": "sha256:8d9ea256cade5a40b432bf8a81d724ee8ac88f95f8eb754d112884cfea25722d",
+            "basis": [
+              {
+                "id": "SRC-0004",
+                "hash": "sha256:3556b0581f3c455082e7bbd1d7cdf5c20c3d436d9a6fd307b2c8234d644ed60f"
+              }
+            ],
+            "question": "What is the wordnet lexical relations?"
+          },
+          {
+            "probe": "GKH-0022",
+            "page_id": "REF-0022",
+            "page_sha256": "sha256:d228ef404404a0605de53d97c497d9dcc691a4f6d9323d5de14feb9d10911151",
+            "basis": [
+              {
+                "id": "SRC-0004",
+                "hash": "sha256:3556b0581f3c455082e7bbd1d7cdf5c20c3d436d9a6fd307b2c8234d644ed60f"
+              }
+            ],
+            "question": "What's wordnet definitions?"
+          },
+          {
+            "probe": "GKH-0023",
+            "page_id": "REF-0023",
+            "page_sha256": "sha256:393aa50778a585736773ce246905f625d21191c345a4a55f52ba2796fd30093b",
+            "basis": [
+              {
+                "id": "SRC-0004",
+                "hash": "sha256:3556b0581f3c455082e7bbd1d7cdf5c20c3d436d9a6fd307b2c8234d644ed60f"
+              }
+            ],
+            "question": "What is wordnet synonyms?"
+          }
+        ],
+        "new_ambiguities": []
+      }
+    },
+    {
+      "version": "0.2.0",
+      "profile": "lab",
+      "metrics": {
+        "answerable_total": 73,
+        "correct_supported": 48,
+        "answerable_coverage": 0.657534,
+        "correct_refusals": 20,
+        "negative_total": 20,
+        "ambiguous": 0,
+        "ambiguous_ids": [],
+        "wrong_returns": 0,
+        "wrong_ids": [],
+        "unnecessary_refusals": 25
+      },
+      "integrity": {
+        "intact_servable": 48,
+        "quarantined": 0,
+        "source_citation_pages": 7,
+        "errors": 0,
+        "depth": 2,
+        "ratified": 0,
+        "not_for_default_internal_profile": true
+      },
+      "delta": {
+        "refusal_to_supported": [
+          {
+            "probe": "GKH-0024",
+            "page_id": "REF-0024",
+            "page_sha256": "sha256:e4586cc2d475e26568ffe031c72f594781db66e010324ca5e2c1d3963abb5cc5",
+            "basis": [
+              {
+                "id": "SRC-0005",
+                "hash": "sha256:95d0e65e0a680f8cb9ca9ba5105cffd740d9530dcd9a3cbbb36c6c35a2b470d4"
+              }
+            ],
+            "question": "What is the si base unit for length?"
+          },
+          {
+            "probe": "GKH-0025",
+            "page_id": "REF-0025",
+            "page_sha256": "sha256:8ffc42c0f1605284a089f2f18568c9e93f4e3f0659f90c93a925c37f6d226cee",
+            "basis": [
+              {
+                "id": "SRC-0005",
+                "hash": "sha256:95d0e65e0a680f8cb9ca9ba5105cffd740d9530dcd9a3cbbb36c6c35a2b470d4"
+              }
+            ],
+            "question": "What's si base unit for time?"
+          },
+          {
+            "probe": "GKH-0026",
+            "page_id": "REF-0026",
+            "page_sha256": "sha256:9f1d298d19edfdc7a45105b7591cea6ebf5f5909c51bf514679d7d8de495699f",
+            "basis": [
+              {
+                "id": "SRC-0005",
+                "hash": "sha256:95d0e65e0a680f8cb9ca9ba5105cffd740d9530dcd9a3cbbb36c6c35a2b470d4"
+              }
+            ],
+            "question": "What is si base unit for mass?"
+          },
+          {
+            "probe": "GKH-0027",
+            "page_id": "REF-0027",
+            "page_sha256": "sha256:8c01088e561de866ec4e7b87bbd370df9852613bcc0b786434a8985c0f3fb903",
+            "basis": [
+              {
+                "id": "SRC-0005",
+                "hash": "sha256:95d0e65e0a680f8cb9ca9ba5105cffd740d9530dcd9a3cbbb36c6c35a2b470d4"
+              }
+            ],
+            "question": "What is the si base unit for electric current?"
+          },
+          {
+            "probe": "GKH-0028",
+            "page_id": "REF-0028",
+            "page_sha256": "sha256:73f85b0bc6a91f64a574068ce9d81d809046d938462f744fc3b73c0af6d84f80",
+            "basis": [
+              {
+                "id": "SRC-0005",
+                "hash": "sha256:95d0e65e0a680f8cb9ca9ba5105cffd740d9530dcd9a3cbbb36c6c35a2b470d4"
+              }
+            ],
+            "question": "What's si base unit for temperature?"
+          },
+          {
+            "probe": "GKH-0029",
+            "page_id": "REF-0029",
+            "page_sha256": "sha256:54ec35477ee99b31eae39d5f7dae1aa6dbd6d5f0d4600de42277d51608186aae",
+            "basis": [
+              {
+                "id": "SRC-0005",
+                "hash": "sha256:95d0e65e0a680f8cb9ca9ba5105cffd740d9530dcd9a3cbbb36c6c35a2b470d4"
+              }
+            ],
+            "question": "What is si base unit for amount of substance?"
+          },
+          {
+            "probe": "GKH-0030",
+            "page_id": "REF-0030",
+            "page_sha256": "sha256:f6eacb14094248804c1541def4250b77ff531645be9db8426990782a1054e44d",
+            "basis": [
+              {
+                "id": "SRC-0005",
+                "hash": "sha256:95d0e65e0a680f8cb9ca9ba5105cffd740d9530dcd9a3cbbb36c6c35a2b470d4"
+              }
+            ],
+            "question": "What is the si base unit for luminous intensity?"
+          },
+          {
+            "probe": "GKH-0031",
+            "page_id": "REF-0031",
+            "page_sha256": "sha256:12e548adf4abe57e9d8e0b1445ab46a0cd6175749e84ab734e5e87f825a15717",
+            "basis": [
+              {
+                "id": "SRC-0005",
+                "hash": "sha256:95d0e65e0a680f8cb9ca9ba5105cffd740d9530dcd9a3cbbb36c6c35a2b470d4"
+              }
+            ],
+            "question": "What's si meter symbol?"
+          },
+          {
+            "probe": "GKH-0032",
+            "page_id": "REF-0032",
+            "page_sha256": "sha256:60e6b5d4e9102bd72e46a2bd70dd4b15e4a79bdaa7b133f164c6718ae66ee78a",
+            "basis": [
+              {
+                "id": "SRC-0005",
+                "hash": "sha256:95d0e65e0a680f8cb9ca9ba5105cffd740d9530dcd9a3cbbb36c6c35a2b470d4"
+              }
+            ],
+            "question": "What is si second symbol?"
+          },
+          {
+            "probe": "GKH-0033",
+            "page_id": "REF-0033",
+            "page_sha256": "sha256:dd5c607f34d60abdcd1069c2849cb0ef5387898521024c188dbaa0eb3389fbff",
+            "basis": [
+              {
+                "id": "SRC-0005",
+                "hash": "sha256:95d0e65e0a680f8cb9ca9ba5105cffd740d9530dcd9a3cbbb36c6c35a2b470d4"
+              }
+            ],
+            "question": "What is the si kilogram symbol?"
+          },
+          {
+            "probe": "GKH-0034",
+            "page_id": "REF-0034",
+            "page_sha256": "sha256:08992c62006b0dcef5b3d7ae85d1fba6a9432653d25b30618c0c3059cbefe444",
+            "basis": [
+              {
+                "id": "SRC-0005",
+                "hash": "sha256:95d0e65e0a680f8cb9ca9ba5105cffd740d9530dcd9a3cbbb36c6c35a2b470d4"
+              }
+            ],
+            "question": "What's si ampere symbol?"
+          },
+          {
+            "probe": "GKH-0035",
+            "page_id": "REF-0035",
+            "page_sha256": "sha256:0e7bcd2132e3b466eace4f75bd20a8f87a0e89a59795e0813a76d444962ec373",
+            "basis": [
+              {
+                "id": "SRC-0005",
+                "hash": "sha256:95d0e65e0a680f8cb9ca9ba5105cffd740d9530dcd9a3cbbb36c6c35a2b470d4"
+              }
+            ],
+            "question": "What is si kelvin symbol?"
+          },
+          {
+            "probe": "GKH-0036",
+            "page_id": "REF-0036",
+            "page_sha256": "sha256:b4c77b708aedf3a975e65630048c87b2128211fafe91f0b9d9c93a540751dbd8",
+            "basis": [
+              {
+                "id": "SRC-0005",
+                "hash": "sha256:95d0e65e0a680f8cb9ca9ba5105cffd740d9530dcd9a3cbbb36c6c35a2b470d4"
+              }
+            ],
+            "question": "What is the si mole symbol?"
+          },
+          {
+            "probe": "GKH-0037",
+            "page_id": "REF-0037",
+            "page_sha256": "sha256:f3c1b84eb51f69eaf64a149ebe922be6deaab5f255e5ec3b02fa4a9b31c485da",
+            "basis": [
+              {
+                "id": "SRC-0005",
+                "hash": "sha256:95d0e65e0a680f8cb9ca9ba5105cffd740d9530dcd9a3cbbb36c6c35a2b470d4"
+              }
+            ],
+            "question": "What's si candela symbol?"
+          },
+          {
+            "probe": "GKH-0038",
+            "page_id": "REF-0038",
+            "page_sha256": "sha256:a0bffa75e83bf19647930c154b90d2cae3a728b7d65e1373f31c893a48f31c4b",
+            "basis": [
+              {
+                "id": "SRC-0005",
+                "hash": "sha256:95d0e65e0a680f8cb9ca9ba5105cffd740d9530dcd9a3cbbb36c6c35a2b470d4"
+              }
+            ],
+            "question": "What is si base unit count?"
+          },
+          {
+            "probe": "GKH-0039",
+            "page_id": "REF-0039",
+            "page_sha256": "sha256:921928dfbfc18137b371cf947f07a0db7fb56f7d220ab06ca7cf70b935fe24a5",
+            "basis": [
+              {
+                "id": "SRC-0005",
+                "hash": "sha256:95d0e65e0a680f8cb9ca9ba5105cffd740d9530dcd9a3cbbb36c6c35a2b470d4"
+              }
+            ],
+            "question": "What is the si defining constants count?"
+          },
+          {
+            "probe": "GKH-0040",
+            "page_id": "REF-0040",
+            "page_sha256": "sha256:097eb444734ede6dc473f4c7406d90223152875d8331fd2877acd7281bc9bfdc",
+            "basis": [
+              {
+                "id": "SRC-0005",
+                "hash": "sha256:95d0e65e0a680f8cb9ca9ba5105cffd740d9530dcd9a3cbbb36c6c35a2b470d4"
+              }
+            ],
+            "question": "What's si derived units with special names count?"
+          },
+          {
+            "probe": "GKH-0041",
+            "page_id": "REF-0041",
+            "page_sha256": "sha256:c5dfbc69de0f8f667def124b0cbff64ba46a0e1a571de8629cd85648baa68399",
+            "basis": [
+              {
+                "id": "SRC-0008",
+                "hash": "sha256:3fe0a733748fba9b835c0b1b56998ebed1410a29b97f2d8e69d1f8b65564e45d"
+              }
+            ],
+            "question": "What is weather?"
+          },
+          {
+            "probe": "GKH-0042",
+            "page_id": "REF-0042",
+            "page_sha256": "sha256:3f91a3c2a5e6ccc1a87c0fec1d1288f4e9b63076e8e072476df7cd617286e77b",
+            "basis": [
+              {
+                "id": "SRC-0008",
+                "hash": "sha256:3fe0a733748fba9b835c0b1b56998ebed1410a29b97f2d8e69d1f8b65564e45d"
+              }
+            ],
+            "question": "What is the climate?"
+          },
+          {
+            "probe": "GKH-0043",
+            "page_id": "REF-0043",
+            "page_sha256": "sha256:5d66fa6ce3f8c6db01f708832f97d5d7551db774acfedf987680ec833af2787d",
+            "basis": [
+              {
+                "id": "SRC-0008",
+                "hash": "sha256:3fe0a733748fba9b835c0b1b56998ebed1410a29b97f2d8e69d1f8b65564e45d"
+              }
+            ],
+            "question": "What's climate averaging interval?"
+          },
+          {
+            "probe": "GKH-0044",
+            "page_id": "REF-0044",
+            "page_sha256": "sha256:5aaa4851e82d79bf71bc5d0af60c6a5e72031b24f0c22cb2b5236eb152f34088",
+            "basis": [
+              {
+                "id": "SRC-0007",
+                "hash": "sha256:ade1f89df38f68d5100f22cdb51dbcd5fa78ab68bd7e0196919c7320e0eea67d"
+              }
+            ],
+            "question": "What is water cycle?"
+          },
+          {
+            "probe": "GKH-0045",
+            "page_id": "REF-0045",
+            "page_sha256": "sha256:4d40e4de7586b59e22333687e691107094f6a4ff2d50eb61ea73e255346ddd95",
+            "basis": [
+              {
+                "id": "SRC-0007",
+                "hash": "sha256:ade1f89df38f68d5100f22cdb51dbcd5fa78ab68bd7e0196919c7320e0eea67d"
+              }
+            ],
+            "question": "What is the evaporation in the water cycle?"
+          },
+          {
+            "probe": "GKH-0046",
+            "page_id": "REF-0046",
+            "page_sha256": "sha256:6014055eadf2bfa7b450f10eb28ea19c1856cb54a010b276d928ecf21cfab311",
+            "basis": [
+              {
+                "id": "SRC-0007",
+                "hash": "sha256:ade1f89df38f68d5100f22cdb51dbcd5fa78ab68bd7e0196919c7320e0eea67d"
+              }
+            ],
+            "question": "What's precipitation in the water cycle?"
+          },
+          {
+            "probe": "GKH-0047",
+            "page_id": "REF-0047",
+            "page_sha256": "sha256:c9a1ff1c2e2b816be764714e2ad1d3e44546478ce57df822b46e2685d4b54e77",
+            "basis": [
+              {
+                "id": "SRC-0007",
+                "hash": "sha256:ade1f89df38f68d5100f22cdb51dbcd5fa78ab68bd7e0196919c7320e0eea67d"
+              }
+            ],
+            "question": "What is infiltration in the water cycle?"
+          },
+          {
+            "probe": "GKH-0048",
+            "page_id": "REF-0048",
+            "page_sha256": "sha256:31ddb0e18a2e5ca08cf6a0546b90e8bbcb6cbe6bbd3c56140cd1ff806a4113d1",
+            "basis": [
+              {
+                "id": "SRC-0007",
+                "hash": "sha256:ade1f89df38f68d5100f22cdb51dbcd5fa78ab68bd7e0196919c7320e0eea67d"
+              }
+            ],
+            "question": "What is the surface runoff in the water cycle?"
+          }
+        ],
+        "new_ambiguities": []
+      }
+    },
+    {
+      "version": "0.3.0",
+      "profile": "lab",
+      "metrics": {
+        "answerable_total": 73,
+        "correct_supported": 73,
+        "answerable_coverage": 1.0,
+        "correct_refusals": 20,
+        "negative_total": 20,
+        "ambiguous": 0,
+        "ambiguous_ids": [],
+        "wrong_returns": 0,
+        "wrong_ids": [],
+        "unnecessary_refusals": 0
+      },
+      "integrity": {
+        "intact_servable": 73,
+        "quarantined": 0,
+        "source_citation_pages": 10,
+        "errors": 0,
+        "depth": 2,
+        "ratified": 0,
+        "not_for_default_internal_profile": true
+      },
+      "delta": {
+        "refusal_to_supported": [
+          {
+            "probe": "GKH-0049",
+            "page_id": "REF-0049",
+            "page_sha256": "sha256:d03e499f91c63c0b257d15e93a401ea0942ef16bce0a15696cc0691e4c194294",
+            "basis": [
+              {
+                "id": "SRC-0006",
+                "hash": "sha256:1d6e18f3881dff874b444148f1f2481388b94b04af571c2348e5a19e2b42a9d0"
+              }
+            ],
+            "question": "What's solar system planet count?"
+          },
+          {
+            "probe": "GKH-0050",
+            "page_id": "REF-0050",
+            "page_sha256": "sha256:277f7b0d4a3781367fc78f043d7ad7cee5abfc35383b7cfb5533e2602bfa1b3e",
+            "basis": [
+              {
+                "id": "SRC-0006",
+                "hash": "sha256:1d6e18f3881dff874b444148f1f2481388b94b04af571c2348e5a19e2b42a9d0"
+              }
+            ],
+            "question": "What is first planet from the sun?"
+          },
+          {
+            "probe": "GKH-0051",
+            "page_id": "REF-0051",
+            "page_sha256": "sha256:3ec3263e168629e4e8cf940053f3ef8e8e987513a1f9bbd777d46224802300f5",
+            "basis": [
+              {
+                "id": "SRC-0006",
+                "hash": "sha256:1d6e18f3881dff874b444148f1f2481388b94b04af571c2348e5a19e2b42a9d0"
+              }
+            ],
+            "question": "What is the second planet from the sun?"
+          },
+          {
+            "probe": "GKH-0052",
+            "page_id": "REF-0052",
+            "page_sha256": "sha256:96ca26a8ff5176a7e487864955457642ef9fd0185b05f7f80bb77855affd7714",
+            "basis": [
+              {
+                "id": "SRC-0006",
+                "hash": "sha256:1d6e18f3881dff874b444148f1f2481388b94b04af571c2348e5a19e2b42a9d0"
+              }
+            ],
+            "question": "What's third planet from the sun?"
+          },
+          {
+            "probe": "GKH-0053",
+            "page_id": "REF-0053",
+            "page_sha256": "sha256:0250d41478614774e1568482e6812795310a4b6f26273351cc246a9c6e87430f",
+            "basis": [
+              {
+                "id": "SRC-0006",
+                "hash": "sha256:1d6e18f3881dff874b444148f1f2481388b94b04af571c2348e5a19e2b42a9d0"
+              }
+            ],
+            "question": "What is fourth planet from the sun?"
+          },
+          {
+            "probe": "GKH-0054",
+            "page_id": "REF-0054",
+            "page_sha256": "sha256:9df3530bfe1cd64fbbd9768af7eb10f7a278f174d627ecc5739348d7c7d51a37",
+            "basis": [
+              {
+                "id": "SRC-0006",
+                "hash": "sha256:1d6e18f3881dff874b444148f1f2481388b94b04af571c2348e5a19e2b42a9d0"
+              }
+            ],
+            "question": "What is the fifth planet from the sun?"
+          },
+          {
+            "probe": "GKH-0055",
+            "page_id": "REF-0055",
+            "page_sha256": "sha256:134c3e46140ac0369506fd56b2f818a4cd44d7935139c7f0829e50a9a99fcbdc",
+            "basis": [
+              {
+                "id": "SRC-0006",
+                "hash": "sha256:1d6e18f3881dff874b444148f1f2481388b94b04af571c2348e5a19e2b42a9d0"
+              }
+            ],
+            "question": "What's sixth planet from the sun?"
+          },
+          {
+            "probe": "GKH-0056",
+            "page_id": "REF-0056",
+            "page_sha256": "sha256:0605c9018d6f9454a0d4f4b92b15af820417b6a04b7c84e4f418126768251ab5",
+            "basis": [
+              {
+                "id": "SRC-0006",
+                "hash": "sha256:1d6e18f3881dff874b444148f1f2481388b94b04af571c2348e5a19e2b42a9d0"
+              }
+            ],
+            "question": "What is seventh planet from the sun?"
+          },
+          {
+            "probe": "GKH-0057",
+            "page_id": "REF-0057",
+            "page_sha256": "sha256:342fcc59d7fa2b9876338d5872939ed183efdb958a446952fbe090f112062ba2",
+            "basis": [
+              {
+                "id": "SRC-0006",
+                "hash": "sha256:1d6e18f3881dff874b444148f1f2481388b94b04af571c2348e5a19e2b42a9d0"
+              }
+            ],
+            "question": "What is the eighth planet from the sun?"
+          },
+          {
+            "probe": "GKH-0058",
+            "page_id": "REF-0058",
+            "page_sha256": "sha256:78ba4f834eb33c1cf074aafd0037bfa9d9fb0f8d0871f8c65d5a7f2175a9e983",
+            "basis": [
+              {
+                "id": "SRC-0006",
+                "hash": "sha256:1d6e18f3881dff874b444148f1f2481388b94b04af571c2348e5a19e2b42a9d0"
+              }
+            ],
+            "question": "What's largest planet in the solar system?"
+          },
+          {
+            "probe": "GKH-0059",
+            "page_id": "REF-0059",
+            "page_sha256": "sha256:3132283821c643f5ef1926835853704b666e714d6abef45fcacd8a16e530b3d7",
+            "basis": [
+              {
+                "id": "SRC-0006",
+                "hash": "sha256:1d6e18f3881dff874b444148f1f2481388b94b04af571c2348e5a19e2b42a9d0"
+              }
+            ],
+            "question": "What is smallest planet in the solar system?"
+          },
+          {
+            "probe": "GKH-0060",
+            "page_id": "REF-0060",
+            "page_sha256": "sha256:9f9a09794eef9ffbfeea57bb3920c445c827182e2780bb2d90a7e469f5ba288a",
+            "basis": [
+              {
+                "id": "SRC-0006",
+                "hash": "sha256:1d6e18f3881dff874b444148f1f2481388b94b04af571c2348e5a19e2b42a9d0"
+              }
+            ],
+            "question": "What is the largest gas giant planet?"
+          },
+          {
+            "probe": "GKH-0061",
+            "page_id": "REF-0061",
+            "page_sha256": "sha256:5e1db6c8f71857914f2f8989c26a73797b905f10dfa93ae58299896b5af08808",
+            "basis": [
+              {
+                "id": "SRC-0006",
+                "hash": "sha256:1d6e18f3881dff874b444148f1f2481388b94b04af571c2348e5a19e2b42a9d0"
+              }
+            ],
+            "question": "What's number of recognized dwarf planets?"
+          },
+          {
+            "probe": "GKH-0062",
+            "page_id": "REF-0062",
+            "page_sha256": "sha256:5cbeb0d5c2c9797088b1b8b74a0990a076ed782e6e9ee3e800fe5326a845090c",
+            "basis": [
+              {
+                "id": "SRC-0006",
+                "hash": "sha256:1d6e18f3881dff874b444148f1f2481388b94b04af571c2348e5a19e2b42a9d0"
+              }
+            ],
+            "question": "What is first four planets from the sun?"
+          },
+          {
+            "probe": "GKH-0063",
+            "page_id": "REF-0063",
+            "page_sha256": "sha256:4d385d714d099f079ec92f96f392657864f521175f0564c4eef9df9ee101134a",
+            "basis": [
+              {
+                "id": "SRC-0006",
+                "hash": "sha256:1d6e18f3881dff874b444148f1f2481388b94b04af571c2348e5a19e2b42a9d0"
+              }
+            ],
+            "question": "What is the ice giant planets?"
+          },
+          {
+            "probe": "GKH-0064",
+            "page_id": "REF-0064",
+            "page_sha256": "sha256:c5e01bdb5fb30e4b9301a0bbb7fb0225f0d06e0636c5dd379a9da5f112ea6160",
+            "basis": [
+              {
+                "id": "SRC-0006",
+                "hash": "sha256:1d6e18f3881dff874b444148f1f2481388b94b04af571c2348e5a19e2b42a9d0"
+              }
+            ],
+            "question": "What's gas giant planets?"
+          },
+          {
+            "probe": "GKH-0065",
+            "page_id": "REF-0065",
+            "page_sha256": "sha256:d5085b17cfec1d083b1143a154786c4ddf9756e3595b8ed76f8b6d929f620c8d",
+            "basis": [
+              {
+                "id": "SRC-0009",
+                "hash": "sha256:98cd4f14b471988aa08565a9375a8f30d5374405eba20858481182475ee64dd0"
+              }
+            ],
+            "question": "What is bill of rights?"
+          },
+          {
+            "probe": "GKH-0066",
+            "page_id": "REF-0066",
+            "page_sha256": "sha256:386b33bd9e82c2d50fd1d1718181e8a5b6215176e646f5992dfe7ab51dd8679d",
+            "basis": [
+              {
+                "id": "SRC-0009",
+                "hash": "sha256:98cd4f14b471988aa08565a9375a8f30d5374405eba20858481182475ee64dd0"
+              }
+            ],
+            "question": "What is the first amendment freedoms?"
+          },
+          {
+            "probe": "GKH-0067",
+            "page_id": "REF-0067",
+            "page_sha256": "sha256:aaf8556c963ee03c1605a9f491b71b22fcaad1f65236d9ad2318406c48995cb0",
+            "basis": [
+              {
+                "id": "SRC-0009",
+                "hash": "sha256:98cd4f14b471988aa08565a9375a8f30d5374405eba20858481182475ee64dd0"
+              }
+            ],
+            "question": "What's second amendment protection?"
+          },
+          {
+            "probe": "GKH-0068",
+            "page_id": "REF-0068",
+            "page_sha256": "sha256:2bb9acb09368153fdbb74884a3b1c240f8062e50d3a2244c501ea8c57604cf82",
+            "basis": [
+              {
+                "id": "SRC-0009",
+                "hash": "sha256:98cd4f14b471988aa08565a9375a8f30d5374405eba20858481182475ee64dd0"
+              }
+            ],
+            "question": "What is fourth amendment protection?"
+          },
+          {
+            "probe": "GKH-0069",
+            "page_id": "REF-0069",
+            "page_sha256": "sha256:b6697470bb765e84963f2dfa0e8a71f4922d83a0345b77fd16ad3d85add00f40",
+            "basis": [
+              {
+                "id": "SRC-0009",
+                "hash": "sha256:98cd4f14b471988aa08565a9375a8f30d5374405eba20858481182475ee64dd0"
+              }
+            ],
+            "question": "What is the fifth amendment safeguards?"
+          },
+          {
+            "probe": "GKH-0070",
+            "page_id": "REF-0070",
+            "page_sha256": "sha256:5e288659488d26829b0a0851c897918f496e22ce0c4a28c270c4775223f06231",
+            "basis": [
+              {
+                "id": "SRC-0009",
+                "hash": "sha256:98cd4f14b471988aa08565a9375a8f30d5374405eba20858481182475ee64dd0"
+              }
+            ],
+            "question": "What's sixth amendment protections?"
+          },
+          {
+            "probe": "GKH-0071",
+            "page_id": "REF-0071",
+            "page_sha256": "sha256:a3be41a13422341dce4b0473392aff1cbd4fbdee3955a0de94c38d05e0b53df0",
+            "basis": [
+              {
+                "id": "SRC-0010",
+                "hash": "sha256:03cf4280cfc336291d3a7fb80e9a7062123507580be7fc8bad5c365ac2b1ceb8"
+              }
+            ],
+            "question": "What is declaration of independence adoption date?"
+          },
+          {
+            "probe": "GKH-0072",
+            "page_id": "REF-0072",
+            "page_sha256": "sha256:f46eed41d44b18bf13697e0990b197b4f0f49437ab27d5734a81e573c17f1e8b",
+            "basis": [
+              {
+                "id": "SRC-0010",
+                "hash": "sha256:03cf4280cfc336291d3a7fb80e9a7062123507580be7fc8bad5c365ac2b1ceb8"
+              }
+            ],
+            "question": "What is the declaration of independence principal drafter?"
+          },
+          {
+            "probe": "GKH-0073",
+            "page_id": "REF-0073",
+            "page_sha256": "sha256:324e5a1fc491b064e7786c5b33707f264ba49e8e66e34469ba34286c9f415f1f",
+            "basis": [
+              {
+                "id": "SRC-0010",
+                "hash": "sha256:03cf4280cfc336291d3a7fb80e9a7062123507580be7fc8bad5c365ac2b1ceb8"
+              }
+            ],
+            "question": "What's declaration of independence first engrossed signing date?"
+          }
+        ],
+        "new_ambiguities": []
+      }
+    }
+  ]
+}

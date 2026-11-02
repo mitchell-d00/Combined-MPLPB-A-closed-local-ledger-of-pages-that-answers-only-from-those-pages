@@ -53,3 +53,5 @@ Repository infrastructure—including root `index.html`, standalone HTML builder
 ## Limitations and next increments
 
 This is **73 bounded, machine-derived claims**, not a comprehensive reference encyclopedia. Narrow scopes are deliberately disjoint; an intentionally contested question belongs in a separate ambiguity test with two eligible owners, not a merged page. Follow-on content can draw from the already pinned Open English WordNet JSON and carefully reviewed public-domain or licensed facts, but those data need their own byte-level source provenance, attribution, license review, lexical-sense disambiguation and dedicated held-out evaluation. The corpus itself does not expand the reader grammar or automatically discover correct facts.
+
+The [permanently committed reproduction bundle](../evaluation/reference-corpus-reproduction/README.md) includes all staged ledger snapshots, all 372 question/stage outcomes, exact citations, input pins, test output and replay instructions. The 73/73 result describes authored lab-profile declaration matching, not independent fact verification.
