@@ -1,5 +1,7 @@
 # How the 73/73 result was obtained
 
+Last reviewed: 2026-11-02. See [current status and result-to-test index](../../docs/CURRENT_STATUS_2026-11-02.md). Dates and numeric results in historical validation sections retain their original scope; this review is not a rerun or independent certification.
+
 This is the permanent, inspectable evidence bundle for the **73 authored positive reference questions**, plus **20 missing-information controls**. It includes every generated ledger page and per-question result from all four stages. The original test code and frozen inputs were already on main; this bundle makes the generated evidence available without an expiring Actions artifact.
 
 ## What 73/73 means

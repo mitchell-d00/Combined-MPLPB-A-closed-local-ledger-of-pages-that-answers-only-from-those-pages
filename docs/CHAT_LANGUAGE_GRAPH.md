@@ -1,5 +1,7 @@
 # Base chat language graph
 
+Last reviewed: 2026-11-02. See [current status and result-to-test index](CURRENT_STATUS_2026-11-02.md). Dates and numeric results in historical validation sections retain their original scope; this review is not a rerun or independent certification.
+
 The offline resource `resources/chat_language_graph.json` connects phrase forms to subject aliases, then to intent nodes and existing read-only handlers. `tools/chat_language_graph.py` traverses these relations in the shared continuity pass before answer routing. Both buttons and typed requests use that pass, including a fresh session with zero collections loaded.
 
 The first graph covers collection inspection, topic listing, system identity, search help, memory help and language help. For example, “Can you tell me about loaded MPLPB?” traverses `loaded mplpb -> loaded_collections -> inspect_loaded -> show loaded MPLPB`. Results come from current application state, not a stored list. Matching is bounded to complete supported phrases after polite-prefix normalization. It does not rewrite a literal repetition, negated command, arbitrary topic or partially recognized compound instruction. An existing identity clarification branch retains priority.
@@ -8,6 +10,6 @@ This is a foundation, not a general semantic graph or unrestricted conversation 
 
 The browser composer also preserves a newly typed draft when an earlier answer arrives, and rejects concurrent submissions. It previously cleared the input unconditionally, which could erase the next message during a slow request.
 
-Validation: graph phrase combinations and negative controls, public `App.chat` tests in both modes and on a fresh session, the full regression suite, and real Python/WebAssembly dialogue tests. Live browser testing reproduced the reported collection-routing bug. These tests are developer-authored; they do not establish full language coverage or independent human validation.
+Original implementation validation: graph phrase combinations and negative controls, public `App.chat` tests in both modes and on a fresh session, the full regression suite, and real Python/WebAssembly dialogue tests. Live browser testing reproduced the reported collection-routing bug. These tests are developer-authored; they do not establish full language coverage or independent human validation.
 
 The base command graph is now accompanied by a typed, user-declared conversation graph and candidate router. See [Conversation architecture](CONVERSATION_ARCHITECTURE.md) for its actual coverage, pre-execution plans, and remaining legacy subrouters.

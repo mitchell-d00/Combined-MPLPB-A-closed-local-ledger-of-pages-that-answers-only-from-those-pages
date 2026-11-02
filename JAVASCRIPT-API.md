@@ -1,5 +1,7 @@
 # MPLPB local JavaScript API · v1.0.0
 
+Last reviewed: 2026-11-02. See [current status and result-to-test index](docs/CURRENT_STATUS_2026-11-02.md). Dates and numeric results in historical validation sections retain their original scope; this review is not a rerun or independent certification.
+
 `window.MPLPB` lets people, scripts and browser-capable AI agents use the same
 MPLPB engine as the interface, without clicking buttons. No API key or account
 is needed. This is a page-local JavaScript API, not a hosted service.

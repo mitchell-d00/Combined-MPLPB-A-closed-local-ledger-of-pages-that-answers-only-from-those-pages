@@ -1,5 +1,7 @@
 # Explicit library routing
 
+Last reviewed: 2026-11-02. See [current status and result-to-test index](CURRENT_STATUS_2026-11-02.md). Dates and numeric results in historical validation sections retain their original scope; this review is not a rerun or independent certification.
+
 The library layer implements the BOOT navigation contract over registered MPLPB
 corpora: broad requests show a sub-index; a selected book passes the complete
 question to the supported reader; uncertain scope asks for clarification. It
@@ -132,8 +134,9 @@ changed catalogs, replay, saved clarifications, both source-reading chat modes,
 network isolation and the free-chat boundary. WebAssembly checks exercise the
 same ambiguity → choose → supported answer flow in the embedded Python runtime.
 
-Validation for this implementation: all 601 Python tests passed in 275.526
+Historical validation for the original implementation: all 601 Python tests passed in 275.526
 seconds. All 30 focused library/self-knowledge/structured-request tests passed.
 Actual Pyodide WebAssembly routing checks, UI script checks, browser transport,
-crawler fixtures, and the packaged CLI smoke check passed. These are local
-validation results; the newly deployed public site was not rechecked here.
+crawler fixtures, and the packaged CLI smoke check passed. These are historical local
+validation results; that run did not recheck its new public deployment. Later
+publication outcomes are scoped in the current status page.

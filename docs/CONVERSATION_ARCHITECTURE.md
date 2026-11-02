@@ -1,5 +1,7 @@
 # Conversation interpretation and planning
 
+Last reviewed: 2026-11-02. See [current status and result-to-test index](CURRENT_STATUS_2026-11-02.md). Dates and numeric results in historical validation sections retain their original scope; this review is not a rerun or independent certification.
+
 The conversation router is separate from the MPLPB ledger. It consolidates the
 former top-level first-answer-wins chain in `App.chat`. Both typed requests and
 buttons enter that same endpoint.
@@ -94,7 +96,7 @@ the identified routing consolidation, not unrestricted natural conversation or
 sentence-level entailment verification. Dictionary senses, conversational framing,
 user declarations and independently gated page results retain different authority.
 
-## Validation
+## Historical implementation validation
 
 `tests/test_conversation_router.py` checks pre-execution planning without reply
 construction or retrieval, losing-handler isolation, deterministic plans,

@@ -1,5 +1,7 @@
 # Topic search and deterministic chat
 
+Last reviewed: 2026-11-02. See [current status and result-to-test index](CURRENT_STATUS_2026-11-02.md). Dates and numeric results in historical validation sections retain their original scope; this review is not a rerun or independent certification.
+
 Open the [live application](https://mitchell-d00.github.io/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/), a generated standalone runtime, or start desktop mode with `python3 launch.py` / a platform launcher. Choose **Chat**. No model or API key is required. Desktop mode uses standard-library Python; standalone mode runs the embedded engine in WebAssembly. See [installation](INSTALLATION.md).
 
 ## Basic help chat
@@ -193,7 +195,7 @@ changes, stale context, raw-source tampering, revision conflicts, older revision
 canonical redirects, network failure, creator answers, transcript changes and
 actual HTTP chat/export/reset routes. Optional Node tests cover chat rendering
 alongside the earlier UI logic. Those are element-stub tests, not browser rendering.
-Browser visual verification and Windows launcher execution remain unverified.
+At that original delivery, browser visual verification and Windows launcher execution were unverified. Subsequent Chromium results are in the current status; Windows launcher execution remains unverified.
 
 The original reader patch, frozen probes, original experiment files, published
 source captures and papers are preserved. No new blind/general accuracy claim

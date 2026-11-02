@@ -1,5 +1,7 @@
 # Deterministic conversation context
 
+Last reviewed: 2026-11-02. See [current status and result-to-test index](CURRENT_STATUS_2026-11-02.md). Dates and numeric results in historical validation sections retain their original scope; this review is not a rerun or independent certification.
+
 The context index is a session-local, role-aware view of the saved transcript. It runs before dialogue and source routing in both Chat and Serious modes. Zero loaded MPLPB collections do not disable conversation memory.
 
 * Forward replay: extract explicit `my ATTRIBUTE is VALUE` declarations, apply later corrections and `forget my ATTRIBUTE` tombstones, and preserve originating turn numbers.
@@ -17,7 +19,7 @@ User declarations are not verified world facts. Repetition does not increase aut
 Reproduce the synthetic context replay:
 
 ```
-python -m tools.evaluate_conversation --scenarios evaluation/conversation/context-scenarios.json --output evaluation/conversation/context-results.json
+python -m tools.evaluate_conversation --scenarios evaluation/conversation/context-scenarios.json --output NEW_CONTEXT_RESULTS.json
 python -m unittest tests.test_context_index -q
 ```
 
@@ -69,3 +71,5 @@ grammar with composed responses, not probabilistic inference or general language
 understanding. Original input and interpretation traces remain available.
 
 See [class guards and test data](../evaluation/conversation-repairs/README.md).
+
+Choose a new output filename for each replay. Preserve committed historical reports; a current run is separate evidence tied to its own revision.

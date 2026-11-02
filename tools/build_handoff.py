@@ -1,5 +1,6 @@
 """Build/check a content-pinned repository handoff from the last update record."""
 import argparse
+from datetime import date
 import hashlib
 import json
 from pathlib import Path
@@ -46,18 +47,24 @@ def inventory(root, names):
 
 def update_record(root):
     record = json.loads((root/'handoff/update.json').read_text())
-    if set(record) != {'instruction','scope','validation','limitations','next_steps'}:
+    required={'instruction','scope','validation','limitations','next_steps'}
+    if not required <= set(record) or set(record)-required-{'reviewed_on'}:
         raise ValueError('Update record needs instruction, scope, validation, limitations, next_steps')
     if not isinstance(record['instruction'],str) or not record['instruction'].strip():
         raise ValueError('Record the latest user instruction')
     for field in ('scope','validation','limitations','next_steps'):
         if not isinstance(record[field], list) or not all(isinstance(s,str) and s.strip() for s in record[field]):
             raise ValueError('Invalid update field: '+field)
+    if 'reviewed_on' in record:
+        if not isinstance(record['reviewed_on'],str):raise ValueError('Invalid explicit handoff review date')
+        if date.fromisoformat(record['reviewed_on']).isoformat()!=record['reviewed_on']:
+            raise ValueError('Invalid explicit handoff review date')
     return record
 
 
 def render(record, manifest):
     rows=['# Repository handoff', '',
+          'Last reviewed: '+record.get('reviewed_on','not recorded')+'.', '',
           'Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.', '',
           'Base commit: `'+manifest['base_revision']+'` (ancestry, not the final self-containing commit).',
           'Source inventory SHA-256: `'+manifest['inventory_sha256']+'`.', '',

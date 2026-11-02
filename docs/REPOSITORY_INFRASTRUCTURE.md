@@ -1,5 +1,7 @@
 # Supporting-infrastructure synchronization gate
 
+Last reviewed: 2026-11-02. See [current status and result-to-test index](CURRENT_STATUS_2026-11-02.md). Dates and numeric results in historical validation sections retain their original scope; this review is not a rerun or independent certification.
+
 **Always check repository infrastructure when the engine, corpus, user-visible interface, API, packaging or documentation changes.** Changes are not ready for merge merely because their Python unit tests pass.
 
 ## What is the live interface?
@@ -37,3 +39,11 @@ node tools/check_browser_transport.cjs
 ```
 
 Reference material is not automatically imported into a visitor's browser, nor does this automation silently approve source truth. Source audit and human ratification remain separate editorial gates.
+## Documentation and result coverage gate
+
+`python -m tools.audit_documentation` checks `docs/documentation.json`, explicit
+review dates on current guides, original byte hashes for historical/vendor docs,
+local links in current Markdown guides, and every evaluation family's retained
+test/reproduction paths in `docs/results.json`. It runs in PR, extracted-ZIP,
+main Pages and infrastructure workflows. A review date is never advanced by CI;
+it does not claim an old metric was remeasured. See [results and tests](RESULTS_AND_TESTS.md).

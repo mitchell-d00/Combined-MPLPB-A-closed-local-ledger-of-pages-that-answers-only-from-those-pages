@@ -1,5 +1,7 @@
 # Structured local chat requests
 
+Last reviewed: 2026-11-02. See [current status and result-to-test index](CURRENT_STATUS_2026-11-02.md). Dates and numeric results in historical validation sections retain their original scope; this review is not a rerun or independent certification.
+
 The chat router shares finite request slots across vocabulary: action, subject,
 requested attribute, qualifiers, and a context reference. These slots select a
 handler; they do not establish evidence or general language understanding.
@@ -55,7 +57,7 @@ unknown entries, negation and entity modifiers, calculations, hypothetical
 continuity, deterministic replay and browser free-chat network isolation. These
 are developer-authored regression cases, not independent accuracy measurements.
 
-## Verification for this change
+## Historical verification for the original change
 
 Based on main `d05ce39ad31088caef59d1e4fe109df34241208c`:
 
@@ -88,7 +90,7 @@ Context selects the expression but never supplies the calculated result. An
 intervening topic does not revive an older calculation. Division by zero and
 unsupported expressions retain their explicit error responses.
 
-Repair validation: the 588-test full run completed with 587 passing and one
+Historical repair validation: the 588-test full run completed with 587 passing and one
 obsolete test expecting dictionary-triggered Wikipedia capture. That expectation
 was replaced with a no-acquisition assertion; all 15 tests in the affected
 structured-request and live-acquisition modules then passed. Actual WebAssembly

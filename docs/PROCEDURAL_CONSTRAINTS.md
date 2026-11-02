@@ -1,5 +1,7 @@
 # Procedural constraints and free-chat comparison
 
+Last reviewed: 2026-11-02. See [current status and result-to-test index](CURRENT_STATUS_2026-11-02.md). Dates and numeric results in historical validation sections retain their original scope; this review is not a rerun or independent certification.
+
 This adds a finite procedure format, not a general procedural language model.
 Existing unstructured pottery pages are not silently rewritten or promoted.
 Context selects a procedure or step; it never proves a claim, completion,
@@ -53,6 +55,29 @@ failure replaces the response with an explicit refusal before persistence.
 These checks enforce their finite contracts; they do not establish unrestricted
 semantic correctness for every possible construction.
 
+## Clarification and follow-up recovery
+
+Bounded natural requests such as “Show me the steps for paper fold” select
+an explicit source identifier; “inspect next step” reuses only an unambiguous
+selected procedure and position. See `tests/test_procedure_recovery.py` for the
+accepted paraphrases and minimal pairs. Unknown or competing identifiers ask for
+selection rather than guessing from lexical similarity. A clarification response
+is not a supported procedure answer.
+
+An explicit step correction changes the inspected position. It does not establish
+completion or satisfy prerequisites. Follow-ups recheck current source bytes,
+permissions, collection scope and saved selection, including after reload. Changes
+to source identity or scope invalidate stale selection. Missing declarations yield
+partial evidence with explicit gaps, not invented conditions or a complete recipe.
+Draft numbered lines remain inspection data unless every required declaration
+passes the finite format. CLI JSON exposes the same contract/diagnostics; use
+`--json` to inspect partial evidence and clarification details.
+
+Body projection retains source body lines while removing HTML headings and
+metadata. Changing a heading cannot manufacture a procedure declaration. Tests
+cover both structured blocks and literal body declarations across unrelated
+synthetic domains; no arbitrary prose procedure extraction is claimed.
+
 ## Automatic tagging
 
 Source inspection automatically exposes draft tags for literal numbered body
@@ -67,7 +92,7 @@ prerequisites, conditions and warnings remain `null`, with
 `eligible_for_generation: false`. The tool does not infer them from adjacency or
 chat context. A human must reconcile these gaps with eligible source evidence,
 then author a complete procedure block through the normal revision workflow.
-When an eligible source already has an exact `Procedure: ID` heading, numbered
+When an eligible source already has an exact `Procedure: ID` body line (an HTML heading alone is insufficient), numbered
 actions, and explicit `Prerequisites:`, `Conditions:` and `Warnings:` lines for
 every step, the reader automatically tags and validates those source declarations
 without requiring a JSON rewrite. Unknown lines or absent fields still refuse.
@@ -118,8 +143,9 @@ or warnings, and the procedure reader cannot authenticate real-world execution.
 
 The archived core, original sources and capture pins are unchanged. The new
 procedure layer is standard-library-only and ships in `mplpb_answers`; browser
-and desktop chat share its validation code. The release is tracked in PR #6; GitHub Pages builds and deploys after a main
-merge. To roll back a merge commit, use `git revert -m 1 MERGE_COMMIT` and push the
+and desktop chat share its validation code. The original procedure layer was tracked in PR #6; the November 2 recovery
+repair and evidence publication are merged in PRs #28/#29. GitHub Pages builds
+and deploys after a main merge; consult the current status for exact runs. To roll back a merge commit, use `git revert -m 1 MERGE_COMMIT` and push the
 resulting revert through the normal review flow. Revert commits rather
 than rewriting ledger history or recalculating archived pins. Ephemeral chats
 have no saved transcript to migrate. Existing saved chats remain historical

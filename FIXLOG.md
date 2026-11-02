@@ -1,5 +1,7 @@
 # Fix Log
 
+Last reviewed: 2026-11-02. See [current status and result-to-test index](docs/CURRENT_STATUS_2026-11-02.md). Dates and numeric results in historical validation sections retain their original scope; this review is not a rerun or independent certification.
+
 ## Conditional and separation-evidence grammar (proposed 2026-11-01)
 
 The [operational-evidence notes](docs/OPERATIONAL_EVIDENCE.md) classify unsupported relation interpretation, antecedent loss, lexical false support, competing owners, policy bypass and historical-metric confusion. The strict reader adds generic conditional-outcome and separate-storage body grammar with full-query provenance gating; changed-entity, negation, qualifier, source-metadata, multiple-owner and tampering tests are in `tests/test_operational_evidence.py`. Do not rewrite the dated 6/59 (10.2%) baseline or count these code changes as a measured coverage improvement until an exact-head retest and CI checks have run.
@@ -249,3 +251,14 @@ pages need the same `not-for`. Recorded as FM-C9. A validator check for it is no
 **Why the fixing stopped here.** Adding "recipes" to the gas page, "cylinder" to wedging and
 "hot" to ventilation would pass a04, a07 and a10 and would prove only that I can read my own
 results. The four rows above are left as they came out.
+
+## 2026-11-02 — Documentation, result coverage and handoff review
+
+Inspected main `c0eb212b51c41a96e361ae0ceb680a0a5df0d55f`. Added a current status
+page, explicit review/history inventory and result-to-test/reproduction index.
+Corrected stale 6/59/current publication wording; retained document-identity versus
+semantic completeness distinctions and lab-only 73/73 limits. Added maintenance
+regressions and CI checks; generated system guidance and handoffs carry explicit
+review dates. Original reports, frozen sources/questions/labels and publication
+dates remain unchanged. Actual checks are recorded in
+`evaluation/documentation-audit/` and the generated repository handoff.

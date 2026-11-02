@@ -1,5 +1,7 @@
 # Provenance gate: separate local source bundles
 
+Last reviewed: 2026-11-02. See [current status and result-to-test index](CURRENT_STATUS_2026-11-02.md). Dates and numeric results in historical validation sections retain their original scope; this review is not a rerun or independent certification.
+
 Introduced 2026-10-08. `gate` returns all eligible lexical matches as separate
 source records, retaining their provenance; it does not turn multiple pages into
 one answer. The legacy `python -m mplpb_combined ask` inspects lexical ownership.

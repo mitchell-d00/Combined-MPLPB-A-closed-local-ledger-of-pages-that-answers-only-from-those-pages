@@ -1,0 +1,17 @@
+{
+  "role": "Documentation update extracted-ZIP validation; full release gates remain separate CI",
+  "candidate_revision": "2649f7ea06136989017ec1a8a7fb970a0b05cd8f",
+  "candidate_tree": "e1765514976406dc5a160e8e2660876e617237c9",
+  "archive_sha256": "b94e78cbaa0fba0de9363253e20ab2434e24d6f3b41eb643f9eea4f232b2e73d",
+  "checks": {
+    "archive_integrity": "passed",
+    "focused_tests": "15 passed; original output retained below",
+    "documentation_inventory": "passed from extracted ZIP",
+    "infrastructure": "passed from extracted ZIP",
+    "handoff": "passed from extracted ZIP"
+  },
+  "focused_test_log": "test_current_review_does_not_redate_history (tests.test_documentation_audit.DocumentationAuditTests.test_current_review_does_not_redate_history) ... ok\ntest_extracted_inventory_uses_pinned_manifest (tests.test_documentation_audit.DocumentationAuditTests.test_extracted_inventory_uses_pinned_manifest) ... ok\ntest_new_result_and_missing_test_require_coverage (tests.test_documentation_audit.DocumentationAuditTests.test_new_result_and_missing_test_require_coverage) ... ok\ntest_stale_or_duplicate_marker_is_rejected (tests.test_documentation_audit.DocumentationAuditTests.test_stale_or_duplicate_marker_is_rejected) ... ok\ntest_unclassified_docs_and_broken_current_links (tests.test_documentation_audit.DocumentationAuditTests.test_unclassified_docs_and_broken_current_links) ... ok\ntest_changed_instruction_and_tampered_handoff (tests.test_handoff.HandoffTests.test_changed_instruction_and_tampered_handoff) ... ok\ntest_explicit_review_date_is_preserved_and_validated (tests.test_handoff.HandoffTests.test_explicit_review_date_is_preserved_and_validated) ... ok\ntest_extracted_inventory_cannot_escape_root (tests.test_handoff.HandoffTests.test_extracted_inventory_cannot_escape_root) ... ok\ntest_freshness_staging_commit_and_extracted_zip (tests.test_handoff.HandoffTests.test_freshness_staging_commit_and_extracted_zip) ... ok\ntest_new_tracked_file_invalidates_and_no_secret_collection (tests.test_handoff.HandoffTests.test_new_tracked_file_invalidates_and_no_secret_collection) ... ok\ntest_current_state_is_observed_not_invented (tests.test_self_knowledge.SelfKnowledgeTests.test_current_state_is_observed_not_invented) ... ok\ntest_definition_phrasings_and_concept_slots (tests.test_self_knowledge.SelfKnowledgeTests.test_definition_phrasings_and_concept_slots) ... ok\ntest_documentation_matches_runtime_model (tests.test_self_knowledge.SelfKnowledgeTests.test_documentation_matches_runtime_model) ... ok\ntest_self_questions_work_in_both_modes_without_source_claims (tests.test_self_knowledge.SelfKnowledgeTests.test_self_questions_work_in_both_modes_without_source_claims) ... ok\ntest_self_routes_do_not_capture_world_questions (tests.test_self_knowledge.SelfKnowledgeTests.test_self_routes_do_not_capture_world_questions) ... ok\n\n----------------------------------------------------------------------\nRan 15 tests in 13.349s\n\nOK\n",
+  "limitations": [
+    "No full suite/browser/deployment claim from these focused local checks. Exact final published archive is tested separately by archive-first CI."
+  ]
+}

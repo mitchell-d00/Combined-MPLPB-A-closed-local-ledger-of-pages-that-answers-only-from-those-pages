@@ -48,7 +48,9 @@ jobs:
         with:
           node-version: '24'
       - name: Check Pages, JavaScript API, corpus and documentation synchronization
-        run: python tools/check_repository_infrastructure.py
+        run: |
+          python tools/check_repository_infrastructure.py
+          python -m tools.audit_documentation
       - name: Audit versioned reference corpus release-growth and source admission
         run: |
           mkdir -p "$RUNNER_TEMP/reference-corpus"

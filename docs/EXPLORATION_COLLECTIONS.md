@@ -1,5 +1,7 @@
 # Browser exploration collections
 
+Last reviewed: 2026-11-02. See [current status and result-to-test index](CURRENT_STATUS_2026-11-02.md). Dates and numeric results in historical validation sections retain their original scope; this review is not a rerun or independent certification.
+
 Open “Build and search your MPLPB collections” and create a named MPLPB. Select
 it in the corpus selector. Wikipedia searches run in chat; importing a title adds
 its pinned main revision slot to that collection. The existing shared imported

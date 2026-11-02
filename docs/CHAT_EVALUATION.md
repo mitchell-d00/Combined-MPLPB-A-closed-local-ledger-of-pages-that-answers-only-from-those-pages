@@ -1,16 +1,18 @@
 # Synthetic conversational evaluation
 
+Last reviewed: 2026-11-02. See [current status and result-to-test index](CURRENT_STATUS_2026-11-02.md). Dates and numeric results in historical validation sections retain their original scope; this review is not a rerun or independent certification.
+
 This is developer-authored regression evidence, not independent human evaluation or a fluency rating.
 
 ## Reproduce
 
 ```
 python -m unittest discover -s tests -q
-python -m tools.evaluate_context_matrix --output evaluation/conversation/context-matrix-after.json
-python -m tools.evaluate_conversation --scenarios evaluation/conversation/expanded-scenarios.json --output evaluation/conversation/expanded-results.json
+python -m tools.evaluate_context_matrix --output NEW_CONTEXT_MATRIX.json
+python -m tools.evaluate_conversation --scenarios evaluation/conversation/expanded-scenarios.json --output NEW_EXPANDED_RESULTS.json
 ```
 
-The context matrix checks 20 subjects × 8 personal-memory question forms × 2 modes, plus 40 forgetting checks: 360 checks. Each requires the corrected value, absence of the old value, user-declaration authority and no fabricated source. Each scenario has an isolated save profile; transcript integrity is checked. The runner exits unsuccessfully when an expectation fails. Latest recorded result: 360/360.
+The context matrix checks 20 subjects × 8 personal-memory question forms × 2 modes, plus 40 forgetting checks: 360 checks. Each requires the corrected value, absence of the old value, user-declaration authority and no fabricated source. Each scenario has an isolated save profile; transcript integrity is checked. The runner exits unsuccessfully when an expectation fails. Historical retained result: 360/360 (see the run metadata in the linked artifact).
 
 The phrasing ablation tests the memory router with normalization disabled and enabled: 80/160 versus 160/160 recognized questions. It is a controlled router comparison, not a historical full-system baseline. See `evaluation/conversation/phrasing-ablation.json`.
 
@@ -32,7 +34,7 @@ Freeze a commit, rule configuration and source snapshots before evaluation. Have
 
 Two independent reviewers should label answerability, citation support, scope compliance, memory correctness and conversational relevance; reconcile disagreements without changing the frozen run. Publish every prompt, response, source identifier and adjudication, including failures. Report unsupported-answer rate and abstention precision alongside coverage; report conversational quality separately. Synthetic passing counts cannot replace this evaluation.
 
-## Context behavior release validation
+## Historical context behavior validation
 
 The implementation passed 555 regression tests, 240/240 behavior scenarios,
 the existing 1,000-response audit plus 250 confirmation calls, 360/360 context
@@ -45,3 +47,5 @@ and `python -m unittest discover -s tests -q`. The
 [report](../evaluation/conversation-repairs/results.json) contains conversations,
 expected reactions, traces, source identifiers and evaluated source hashes.
 See the [class table](../evaluation/conversation-repairs/README.md) for guards.
+
+Choose a new output filename for each replay. Preserve committed historical reports; a current run is separate evidence tied to its own revision.
