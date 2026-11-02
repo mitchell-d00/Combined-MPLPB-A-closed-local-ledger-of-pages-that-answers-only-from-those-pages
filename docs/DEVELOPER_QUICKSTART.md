@@ -57,10 +57,10 @@ are not probabilities and unknown language can still fail.
 **3:00–4:00 — Deliberately break ownership.** Run:
 
 ```sh
-python -m tools.evaluate_ownership
+python -m tools.evaluate_ownership --out NEW_OWNERSHIP_RESULTS.json
 ```
 
-Show the missing-attribute or wrong-entity row in `evaluation/ownership/results.json`.
+Show the missing-attribute or wrong-entity row in the fresh `NEW_OWNERSHIP_RESULTS.json`. Compare it with the preserved historical `evaluation/ownership/results.json`; do not overwrite that report.
 An eligible, intact page can own a query lexically while lacking its answer. Compare the old lexical arm with `supported_reader`: zero wrong returns on this
 set. The historical v2 expanded 600-case report recorded 150/150 answerable cases,
 with no unsupported returns. These cases informed development; this is not a held-out score.

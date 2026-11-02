@@ -19,7 +19,7 @@ User declarations are not verified world facts. Repetition does not increase aut
 Reproduce the synthetic context replay:
 
 ```
-python -m tools.evaluate_conversation --scenarios evaluation/conversation/context-scenarios.json --output evaluation/conversation/context-results.json
+python -m tools.evaluate_conversation --scenarios evaluation/conversation/context-scenarios.json --output NEW_CONTEXT_RESULTS.json
 python -m unittest tests.test_context_index -q
 ```
 
@@ -71,3 +71,5 @@ grammar with composed responses, not probabilistic inference or general language
 understanding. Original input and interpretation traces remain available.
 
 See [class guards and test data](../evaluation/conversation-repairs/README.md).
+
+Choose a new output filename for each replay. Preserve committed historical reports; a current run is separate evidence tied to its own revision.

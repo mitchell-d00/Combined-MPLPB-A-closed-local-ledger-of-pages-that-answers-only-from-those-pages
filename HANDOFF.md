@@ -4,8 +4,8 @@ Last reviewed: 2026-11-02.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `6687c6b86984588d852b5195b4d3b5762a99158c` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `b6180a465d83ebfad88c76f2f674aba56cbf2ba7942f7a4be59fec6cda5e15b0`.
+Base commit: `b7656a8d42faf0435cf20e1643efc955737ce158` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `4b3a240b960957b3df86001f9e27c0e920da7a6d049f22aa1e9e1d34099be39c`.
 
 ## Latest user update instructions
 
@@ -16,6 +16,7 @@ Check and make sure the repo is all up to date all results have the tests and al
 - Review current documentation against main c0eb212b51c41a96e361ae0ceb680a0a5df0d55f; correct stale current-status, pottery proxy and publication claims without changing source-ledger or answer-engine semantics.
 - Add explicit current/historical/vendor document inventory with byte pins for preserved material, a result-to-test/reproduction index covering every evaluation family, regression tests and CI gates for both repository and extracted-ZIP paths.
 - Keep generated system descriptions and repository-owned handoffs consistent; record explicit review dates without automatically advancing them at build time.
+- Use fresh output paths in active reproduction examples so rerunning an evaluation cannot silently overwrite preserved historical reports.
 
 ## Validation recorded
 
@@ -23,6 +24,7 @@ Check and make sure the repo is all up to date all results have the tests and al
 - Baseline main c0eb212 Pages build, deploy and postdeployment Chromium smoke succeeded in run 41495283409. This is prior-revision deployment evidence, not this update.
 - Current update: 15 documentation, handoff and generated-system-guide tests passed in 8.572 seconds; infrastructure synchronization passed. Replayed all 372 reference stage/case outputs with matching answers, exact evidence and metrics (engine pins unchanged). Compared 1,264 protected baseline files byte-for-byte with no changes; documentation inventory and all 22 result/test families passed. Frozen source archive of 2649f7e passes the same 15 focused tests, documentation inventory, infrastructure and handoff checks from extracted bytes; see evaluation/documentation-audit/extracted-zip.json. At handoff freeze, final publication outcomes must be inspected in PR #30 and its exact-head Actions runs; this record certifies only the checks actually listed.
 - Initial PR #30 browser build rejected an edited resource README under the existing byte verifier. Restored the exact original file, classified it as preserved vendor material, and retained the failure/correction record without relaxing integrity checks.
+- After the pinned-resource correction, all 27 focused documentation/handoff/system/resource tests passed in 39.867 seconds. The corrected PR browser journey passed; subsequent final-head CI remains a separate release requirement.
 
 ## Limitations and blocked checks
 

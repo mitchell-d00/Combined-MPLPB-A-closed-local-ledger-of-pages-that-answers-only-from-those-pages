@@ -134,8 +134,9 @@ changed catalogs, replay, saved clarifications, both source-reading chat modes,
 network isolation and the free-chat boundary. WebAssembly checks exercise the
 same ambiguity → choose → supported answer flow in the embedded Python runtime.
 
-Validation for this implementation: all 601 Python tests passed in 275.526
+Historical validation for the original implementation: all 601 Python tests passed in 275.526
 seconds. All 30 focused library/self-knowledge/structured-request tests passed.
 Actual Pyodide WebAssembly routing checks, UI script checks, browser transport,
-crawler fixtures, and the packaged CLI smoke check passed. These are local
-validation results; the newly deployed public site was not rechecked here.
+crawler fixtures, and the packaged CLI smoke check passed. These are historical local
+validation results; that run did not recheck its new public deployment. Later
+publication outcomes are scoped in the current status page.

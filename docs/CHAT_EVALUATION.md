@@ -8,8 +8,8 @@ This is developer-authored regression evidence, not independent human evaluation
 
 ```
 python -m unittest discover -s tests -q
-python -m tools.evaluate_context_matrix --output evaluation/conversation/context-matrix-after.json
-python -m tools.evaluate_conversation --scenarios evaluation/conversation/expanded-scenarios.json --output evaluation/conversation/expanded-results.json
+python -m tools.evaluate_context_matrix --output NEW_CONTEXT_MATRIX.json
+python -m tools.evaluate_conversation --scenarios evaluation/conversation/expanded-scenarios.json --output NEW_EXPANDED_RESULTS.json
 ```
 
 The context matrix checks 20 subjects × 8 personal-memory question forms × 2 modes, plus 40 forgetting checks: 360 checks. Each requires the corrected value, absence of the old value, user-declaration authority and no fabricated source. Each scenario has an isolated save profile; transcript integrity is checked. The runner exits unsuccessfully when an expectation fails. Historical retained result: 360/360 (see the run metadata in the linked artifact).
@@ -47,3 +47,5 @@ and `python -m unittest discover -s tests -q`. The
 [report](../evaluation/conversation-repairs/results.json) contains conversations,
 expected reactions, traces, source identifiers and evaluated source hashes.
 See the [class table](../evaluation/conversation-repairs/README.md) for guards.
+
+Choose a new output filename for each replay. Preserve committed historical reports; a current run is separate evidence tied to its own revision.
