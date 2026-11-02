@@ -4,8 +4,8 @@ Last reviewed: 2026-11-02.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `c0eb212b51c41a96e361ae0ceb680a0a5df0d55f` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `b5dd8d58b9f73fed0125f27ee0d2bee82e8e67844566ad9ac6708ad7fa07437d`.
+Base commit: `6687c6b86984588d852b5195b4d3b5762a99158c` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `b6180a465d83ebfad88c76f2f674aba56cbf2ba7942f7a4be59fec6cda5e15b0`.
 
 ## Latest user update instructions
 
@@ -21,7 +21,8 @@ Check and make sure the repo is all up to date all results have the tests and al
 
 - Baseline PR #29 published regression passed 828 Python tests in 451.954 seconds; all four PR workflows succeeded.
 - Baseline main c0eb212 Pages build, deploy and postdeployment Chromium smoke succeeded in run 41495283409. This is prior-revision deployment evidence, not this update.
-- Current update: 15 documentation, handoff and generated-system-guide tests passed in 8.572 seconds; infrastructure synchronization passed. Replayed all 372 reference stage/case outputs with matching answers, exact evidence and metrics (engine pins unchanged). Compared 1,263 protected baseline files byte-for-byte with no changes; documentation inventory and all 22 result/test families passed. Frozen source archive of 2649f7e passes the same 15 focused tests, documentation inventory, infrastructure and handoff checks from extracted bytes; see evaluation/documentation-audit/extracted-zip.json. New candidate CI remains pending.
+- Current update: 15 documentation, handoff and generated-system-guide tests passed in 8.572 seconds; infrastructure synchronization passed. Replayed all 372 reference stage/case outputs with matching answers, exact evidence and metrics (engine pins unchanged). Compared 1,264 protected baseline files byte-for-byte with no changes; documentation inventory and all 22 result/test families passed. Frozen source archive of 2649f7e passes the same 15 focused tests, documentation inventory, infrastructure and handoff checks from extracted bytes; see evaluation/documentation-audit/extracted-zip.json. At handoff freeze, final publication outcomes must be inspected in PR #30 and its exact-head Actions runs; this record certifies only the checks actually listed.
+- Initial PR #30 browser build rejected an edited resource README under the existing byte verifier. Restored the exact original file, classified it as preserved vendor material, and retained the failure/correction record without relaxing integrity checks.
 
 ## Limitations and blocked checks
 

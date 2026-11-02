@@ -31,3 +31,13 @@ configuration. Old wiki observations with missing pins remain unscorable, and
 independent human semantic and usability validation remain outstanding. New CI
 and deployment outcomes belong to their exact Actions runs; this directory does
 not claim them before they execute.
+
+## Initial CI correction
+
+The first PR #30 browser build failed the existing resource byte check because a
+review banner had been added to the byte-pinned `resources/README.md`. The file
+was restored exactly from the inspected baseline and classified as preserved
+vendor material. No resource hash or verification rule was relaxed. The failure
+and correction are retained in `initial-ci-correction.json`; final CI must run
+on the corrected head. The initial extracted-source checks above did not exercise
+the resource verifier, so they did not detect this issue.

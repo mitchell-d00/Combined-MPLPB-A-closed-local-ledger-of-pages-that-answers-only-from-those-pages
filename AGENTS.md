@@ -19,7 +19,7 @@ For every implementation/update, and before providing a source ZIP or other deli
 For every update, review affected operational documentation and record its actual
 review date in `docs/documentation.json` and its `Last reviewed:` marker. Classify
 new documentation explicitly. Keep dated historical reports, original papers,
-licenses and frozen evaluation artifacts unchanged; do not refresh their dates.
+licenses, byte-pinned resource documentation and frozen evaluation artifacts unchanged; do not refresh their dates.
 Add or update `docs/results.json` and `docs/RESULTS_AND_TESTS.md` for new evaluation
 families, linking retained tests and reproduction tools with their measurement
 scope. A test link does not establish that a historical metric was rerun.
