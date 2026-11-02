@@ -1,0 +1,357 @@
+{
+  "code_sha256": {
+    "__init__.py": "d57d776eaaea962867814b5af3f0ac836fdd0c70ffbde910a801e6240697a095",
+    "__main__.py": "f793ef475c212f719511b9326501c41503f66252008376516db2646fe1485820",
+    "assertions.py": "54a8a56e2e19bd3565098a3b66f28da590341405a454cf154319686ea0a51458",
+    "body_text.py": "0c02ba271796c6aafb985f3ef6ea95902086052cf030c471c226d1f6cbd79c44",
+    "evaluate.py": "8c6e4444d661f5a2982338a45673ff594ae4cc4a86d3ec6e0bce6b7f77c90969",
+    "evaluation.py": "4d58e13a85f6edb1443bf156baaa48b1cdf72ce38e5e16a0ce53d195ac395715",
+    "evidence_contract.py": "5fb4226e9407d3432cdbaa518b10af9a5d5dc7bef0036e204848fbda3a3ffbe5",
+    "frames.py": "82c23f7382f862d3b95960b017dda278022ccee1f1bc4e9b339bf7c45ba8dede",
+    "library.py": "7d1613c28f01453270c8a53bf0e3f015bf197dff25b43edc764802e1e1306e5b",
+    "literal_evidence.py": "4dff854bea0a7ae453be35ee016be2533d9ed0b08b98b7ee4a28d2f10b5983fa",
+    "local_reader.py": "6e7a6702f8296b63dd8a2be292ef620c9e67ed6170770e1222cfee58e23ea815",
+    "operational_evidence.py": "ac4ac4c1b9df9f412323674083dbc1bdb83a6570b8576fde9969eddafd791580",
+    "passages.py": "fae27b547e0cd848ce8a720914eaede5cd371b7db3144a4a68141889569fe5ec",
+    "pipeline.py": "25af0fa7a0aafb8ade6836fd7a188e329de27664d355a703d8db2577bf545be7",
+    "policy_evidence.py": "90ae363e5b2b92c52ef24a9ff4d820821a76729f012831c51e27f3ad54492c35",
+    "practical_evidence.py": "0ad115570d1a5c1f756f2931e331a083d6f9ca6f7512223b5160278f5cda33af",
+    "procedures.py": "d66b180651cc35df32a92e33f7df9ae5e031f2fba53ed769c2caddc37fa94523",
+    "relation_graph.py": "b6757451ecfd718063ffa0d5aa0104344cc0b9fdd9550a884407367032c435f1",
+    "support.py": "d5d39570ad777c424e9d7a5ff674d2b97b8fac6baff18ed4ca4ccb89e7e99825"
+  },
+  "rows": [
+    {
+      "question": "Where should we store museum accession cards?",
+      "sources": [
+        "Store museum accession cards in blue archive drawer.",
+        "Do not store museum accession cards in blue archive drawer."
+      ],
+      "separate_pages": false,
+      "kind": "ambiguous",
+      "text": "",
+      "support": {
+        "status": "conflict",
+        "version": "source-relation-graph-v2",
+        "frame": {
+          "relation": "storage_rule",
+          "entity": "museum accession cards",
+          "canonical": "where should we store museum accession cards",
+          "other": "",
+          "version": "source-relation-graph-v2",
+          "general_entailment": false,
+          "graph_type": "source_body_only",
+          "world_verified": false,
+          "execution_verified": false,
+          "inference_permitted": false,
+          "qualified_quote_required": true
+        },
+        "spans": [],
+        "candidate_checks": [
+          {
+            "id": "LOCAL-001",
+            "hash": "sha256:19e33c108cc2cb527538d48aaa031ddcca6b1c3fcdcb735188325ddbb85db49f",
+            "status": "conflict",
+            "spans": [
+              {
+                "quote": "Store museum accession cards in blue archive drawer.",
+                "value": "blue archive drawer",
+                "qualification": "",
+                "polarity": "positive"
+              }
+            ],
+            "negative_spans": [
+              {
+                "quote": "Do not store museum accession cards in blue archive drawer.",
+                "value": "blue archive drawer",
+                "qualification": "",
+                "polarity": "negative"
+              }
+            ],
+            "unresolved_spans": [],
+            "assertions": [
+              {
+                "subject": "museum accession cards",
+                "relation": "storage_rule",
+                "value": "blue archive drawer",
+                "polarity": "positive",
+                "qualification": "",
+                "source_id": "LOCAL-001",
+                "source_hash": "sha256:19e33c108cc2cb527538d48aaa031ddcca6b1c3fcdcb735188325ddbb85db49f",
+                "path": "local-001.html",
+                "quote": "Store museum accession cards in blue archive drawer."
+              },
+              {
+                "subject": "museum accession cards",
+                "relation": "storage_rule",
+                "value": "blue archive drawer",
+                "polarity": "negative",
+                "qualification": "",
+                "source_id": "LOCAL-001",
+                "source_hash": "sha256:19e33c108cc2cb527538d48aaa031ddcca6b1c3fcdcb735188325ddbb85db49f",
+                "path": "local-001.html",
+                "quote": "Do not store museum accession cards in blue archive drawer."
+              }
+            ]
+          }
+        ],
+        "unresolved": false,
+        "reason": "Conflicting or multiple eligible supporting source statements."
+      }
+    },
+    {
+      "question": "Where should we store museum accession cards?",
+      "sources": [
+        "Store museum accession cards in blue archive drawer.",
+        "Do not store museum accession cards in blue archive drawer."
+      ],
+      "separate_pages": true,
+      "kind": "ambiguous",
+      "text": "",
+      "support": {
+        "status": "conflict",
+        "version": "source-relation-graph-v2",
+        "frame": {
+          "relation": "storage_rule",
+          "entity": "museum accession cards",
+          "canonical": "where should we store museum accession cards",
+          "other": "",
+          "version": "source-relation-graph-v2",
+          "general_entailment": false,
+          "graph_type": "source_body_only",
+          "world_verified": false,
+          "execution_verified": false,
+          "inference_permitted": false,
+          "qualified_quote_required": true
+        },
+        "spans": [],
+        "candidate_checks": [
+          {
+            "id": "LOCAL-001",
+            "hash": "sha256:79c64972484a501dcf285754cd69e8bc68006852cb4d0adb2c65c20e80e8d1ea",
+            "status": "supported",
+            "spans": [
+              {
+                "quote": "Store museum accession cards in blue archive drawer.",
+                "value": "blue archive drawer",
+                "qualification": "",
+                "polarity": "positive"
+              }
+            ],
+            "negative_spans": [],
+            "unresolved_spans": [],
+            "assertions": [
+              {
+                "subject": "museum accession cards",
+                "relation": "storage_rule",
+                "value": "blue archive drawer",
+                "polarity": "positive",
+                "qualification": "",
+                "source_id": "LOCAL-001",
+                "source_hash": "sha256:79c64972484a501dcf285754cd69e8bc68006852cb4d0adb2c65c20e80e8d1ea",
+                "path": "local-001.html",
+                "quote": "Store museum accession cards in blue archive drawer."
+              }
+            ]
+          },
+          {
+            "id": "LOCAL-002",
+            "hash": "sha256:eb3b4a054972e8a1b6838e8d451ba710f4c5bd4a21cb2340abf5347addc800ac",
+            "status": "unsupported",
+            "spans": [],
+            "negative_spans": [
+              {
+                "quote": "Do not store museum accession cards in blue archive drawer.",
+                "value": "blue archive drawer",
+                "qualification": "",
+                "polarity": "negative"
+              }
+            ],
+            "unresolved_spans": [],
+            "assertions": [
+              {
+                "subject": "museum accession cards",
+                "relation": "storage_rule",
+                "value": "blue archive drawer",
+                "polarity": "negative",
+                "qualification": "",
+                "source_id": "LOCAL-002",
+                "source_hash": "sha256:eb3b4a054972e8a1b6838e8d451ba710f4c5bd4a21cb2340abf5347addc800ac",
+                "path": "local-002.html",
+                "quote": "Do not store museum accession cards in blue archive drawer."
+              }
+            ]
+          }
+        ],
+        "unresolved": false,
+        "reason": "Conflicting or multiple eligible supporting source statements."
+      }
+    },
+    {
+      "question": "What is bag code XT7 for?",
+      "sources": [
+        "Bag code XT7 is for sculpture.",
+        "Bag code XT7 is not for sculpture."
+      ],
+      "separate_pages": false,
+      "kind": "ambiguous",
+      "text": "",
+      "support": {
+        "status": "conflict",
+        "version": "source-relation-graph-v2",
+        "frame": {
+          "relation": "code_purpose",
+          "entity": "xt7",
+          "canonical": "what is bag code xt7 for",
+          "other": "",
+          "version": "source-relation-graph-v2",
+          "general_entailment": false,
+          "graph_type": "source_body_only",
+          "world_verified": false,
+          "execution_verified": false,
+          "inference_permitted": false,
+          "qualified_quote_required": true
+        },
+        "spans": [],
+        "candidate_checks": [
+          {
+            "id": "LOCAL-001",
+            "hash": "sha256:cf1124b514048e339d09dfacce70a97fe242ec7f8b3fa8bc711ea93280573620",
+            "status": "conflict",
+            "spans": [
+              {
+                "quote": "Bag code XT7 is for sculpture.",
+                "value": "sculpture",
+                "qualification": "",
+                "polarity": "positive"
+              }
+            ],
+            "negative_spans": [
+              {
+                "quote": "Bag code XT7 is not for sculpture.",
+                "value": "sculpture",
+                "qualification": "",
+                "polarity": "negative"
+              }
+            ],
+            "unresolved_spans": [],
+            "assertions": [
+              {
+                "subject": "xt7",
+                "relation": "code_purpose",
+                "value": "sculpture",
+                "polarity": "positive",
+                "qualification": "",
+                "source_id": "LOCAL-001",
+                "source_hash": "sha256:cf1124b514048e339d09dfacce70a97fe242ec7f8b3fa8bc711ea93280573620",
+                "path": "local-001.html",
+                "quote": "Bag code XT7 is for sculpture."
+              },
+              {
+                "subject": "xt7",
+                "relation": "code_purpose",
+                "value": "sculpture",
+                "polarity": "negative",
+                "qualification": "",
+                "source_id": "LOCAL-001",
+                "source_hash": "sha256:cf1124b514048e339d09dfacce70a97fe242ec7f8b3fa8bc711ea93280573620",
+                "path": "local-001.html",
+                "quote": "Bag code XT7 is not for sculpture."
+              }
+            ]
+          }
+        ],
+        "unresolved": false,
+        "reason": "Conflicting or multiple eligible supporting source statements."
+      }
+    },
+    {
+      "question": "What is bag code XT7 for?",
+      "sources": [
+        "Bag code XT7 is for sculpture.",
+        "Bag code XT7 is not for sculpture."
+      ],
+      "separate_pages": true,
+      "kind": "ambiguous",
+      "text": "",
+      "support": {
+        "status": "conflict",
+        "version": "source-relation-graph-v2",
+        "frame": {
+          "relation": "code_purpose",
+          "entity": "xt7",
+          "canonical": "what is bag code xt7 for",
+          "other": "",
+          "version": "source-relation-graph-v2",
+          "general_entailment": false,
+          "graph_type": "source_body_only",
+          "world_verified": false,
+          "execution_verified": false,
+          "inference_permitted": false,
+          "qualified_quote_required": true
+        },
+        "spans": [],
+        "candidate_checks": [
+          {
+            "id": "LOCAL-001",
+            "hash": "sha256:9d0854a2990854ac00cace96f931fabdc91e2a5ae30a38b8508fddcc9643562a",
+            "status": "supported",
+            "spans": [
+              {
+                "quote": "Bag code XT7 is for sculpture.",
+                "value": "sculpture",
+                "qualification": "",
+                "polarity": "positive"
+              }
+            ],
+            "negative_spans": [],
+            "unresolved_spans": [],
+            "assertions": [
+              {
+                "subject": "xt7",
+                "relation": "code_purpose",
+                "value": "sculpture",
+                "polarity": "positive",
+                "qualification": "",
+                "source_id": "LOCAL-001",
+                "source_hash": "sha256:9d0854a2990854ac00cace96f931fabdc91e2a5ae30a38b8508fddcc9643562a",
+                "path": "local-001.html",
+                "quote": "Bag code XT7 is for sculpture."
+              }
+            ]
+          },
+          {
+            "id": "LOCAL-002",
+            "hash": "sha256:f16fbab63a07e956c5eb435329c924790001bbd6b1f58129ed4f0b32e32f99a3",
+            "status": "unsupported",
+            "spans": [],
+            "negative_spans": [
+              {
+                "quote": "Bag code XT7 is not for sculpture.",
+                "value": "sculpture",
+                "qualification": "",
+                "polarity": "negative"
+              }
+            ],
+            "unresolved_spans": [],
+            "assertions": [
+              {
+                "subject": "xt7",
+                "relation": "code_purpose",
+                "value": "sculpture",
+                "polarity": "negative",
+                "qualification": "",
+                "source_id": "LOCAL-002",
+                "source_hash": "sha256:f16fbab63a07e956c5eb435329c924790001bbd6b1f58129ed4f0b32e32f99a3",
+                "path": "local-002.html",
+                "quote": "Bag code XT7 is not for sculpture."
+              }
+            ]
+          }
+        ],
+        "unresolved": false,
+        "reason": "Conflicting or multiple eligible supporting source statements."
+      }
+    }
+  ]
+}

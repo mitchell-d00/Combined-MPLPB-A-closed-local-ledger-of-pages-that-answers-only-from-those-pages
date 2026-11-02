@@ -4,12 +4,15 @@ import hashlib
 import json
 from pathlib import Path
 import subprocess
+import sys
 import zipfile
 
 ROOT=Path(__file__).resolve().parents[1]
 
 def build(output, browser):
     output=Path(output).resolve();output.mkdir(parents=True,exist_ok=True)
+    subprocess.run([sys.executable,str(ROOT/'tools/build_handoff.py'),'--check'],cwd=ROOT,check=True)
+    subprocess.run(['git','diff','--quiet','HEAD','--'],cwd=ROOT,check=True)
     commit=subprocess.check_output(['git','rev-parse','HEAD'],cwd=ROOT,text=True).strip()
     source=output/'mplpb-monster.zip'
     subprocess.run(['git','archive','--format=zip','--prefix=mplpb-monster/','--output='+str(source),'HEAD'],cwd=ROOT,check=True)

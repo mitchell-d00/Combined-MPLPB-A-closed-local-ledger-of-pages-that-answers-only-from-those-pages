@@ -152,3 +152,7 @@ Lexical relevance is not entailment; statement support covers bounded forms, not
 MIT for code, CC BY 4.0 for documentation. See [LICENSE](LICENSE); retained parts and resources keep their own notices.
 
 Mitchell D. McPhetridge · October 2026
+
+Source-language contradiction repair and per-case audit (2026-11-02): [evaluation/language-audit/README.md](evaluation/language-audit/README.md). Finite predicate polarity and storage paraphrases; synthetic validation is not independent human accuracy.
+
+Latest procedure recovery and repository-owned handoff: [Procedure clarification, recovery and ZIP handoff](evaluation/procedure-recovery/README.md).

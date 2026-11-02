@@ -1,0 +1,17 @@
+{
+  "role": "Model-authored synthetic evaluation, frozen before execution; not independent human validation",
+  "cases": [
+    {"domain":"navigation", "question":"Where should we keep astrolabe keys?", "bodies":["Astrolabe keys should be kept in aft locker."], "kind":"return", "quote":"Astrolabe keys should be kept in aft locker."},
+    {"domain":"navigation", "question":"Where should we keep astrolabe keys?", "bodies":["Astrolabe keys should be kept in aft locker.", "Astrolabe keys should not be kept in aft locker."], "kind":"ambiguous"},
+    {"domain":"navigation", "question":"Where should we keep astrolabe keys?", "bodies":["Astrolabe keys should be kept in aft locker.", "Do not store sextant keys in aft locker."], "kind":"return", "quote":"Astrolabe keys should be kept in aft locker."},
+    {"domain":"navigation", "question":"Where should we keep astrolabe keys?", "bodies":["If afloat, store astrolabe keys in aft locker."], "kind":"not_in_corpus"},
+    {"domain":"textiles", "question":"What is the purpose of code LM6?", "bodies":["Bag code LM6 is for warp labels."], "kind":"return", "quote":"Bag code LM6 is for warp labels."},
+    {"domain":"textiles", "question":"What is the purpose of code LM6?", "bodies":["Bag code LM6 is for warp labels. Bag code LM6 is not for warp labels."], "kind":"ambiguous"},
+    {"domain":"textiles", "question":"What is code LM6 for?", "bodies":["Bag code LM8 is for warp labels."], "kind":"not_in_corpus"},
+    {"domain":"textiles", "question":"Where should we keep loom shuttles?", "bodies":["<h2>Store loom shuttles in cedar chest.</h2>No placement recorded."], "kind":"not_in_corpus"},
+    {"domain":"fictional logistics", "question":"When is zorvex scheduled?", "bodies":["Zorvex is scheduled for 2029-08-15.", "Zorvex is not scheduled for 2029-08-15."], "kind":"ambiguous"},
+    {"domain":"fictional logistics", "question":"When is zorvex scheduled?", "bodies":["Zorvex is scheduled for 2029-08-15."], "kind":"return", "quote":"Zorvex is scheduled for 2029-08-15."},
+    {"domain":"fictional logistics", "question":"Where should they be stored?", "bodies":["Store zorvex labels in aft locker."], "kind":"not_in_corpus"},
+    {"domain":"fictional logistics", "question":"Where should we store zorvex labels?", "bodies":["Store zorvex labels in aft locker.", "Store zorvex labels in aft locker."], "kind":"ambiguous"}
+  ]
+}

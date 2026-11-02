@@ -1,0 +1,1626 @@
+{
+  "report_schema": "relation-graph-frozen-retest-v1",
+  "historical_report_sha256": "89fa0cbc14ba1b566dceac8043eb40be994d799e1302c8706a7360b2831f4d9f",
+  "historical_result_unchanged": "6/59 (10.2%), 2026-10-31",
+  "current_role": "inspected development reuse, not fresh holdout",
+  "scoring_limit": "Document ID and exact quotation are automated proxies; independently review every new return and near miss before any semantic accuracy or deployment claim.",
+  "current_support_code_sha256": {
+    "__init__.py": "d57d776eaaea962867814b5af3f0ac836fdd0c70ffbde910a801e6240697a095",
+    "__main__.py": "f793ef475c212f719511b9326501c41503f66252008376516db2646fe1485820",
+    "body_text.py": "0c02ba271796c6aafb985f3ef6ea95902086052cf030c471c226d1f6cbd79c44",
+    "evaluate.py": "8c6e4444d661f5a2982338a45673ff594ae4cc4a86d3ec6e0bce6b7f77c90969",
+    "evaluation.py": "4d58e13a85f6edb1443bf156baaa48b1cdf72ce38e5e16a0ce53d195ac395715",
+    "evidence_contract.py": "5fb4226e9407d3432cdbaa518b10af9a5d5dc7bef0036e204848fbda3a3ffbe5",
+    "frames.py": "82c23f7382f862d3b95960b017dda278022ccee1f1bc4e9b339bf7c45ba8dede",
+    "library.py": "7d1613c28f01453270c8a53bf0e3f015bf197dff25b43edc764802e1e1306e5b",
+    "literal_evidence.py": "d4308c1f5e01c3d698ef625991de2182bfeb72ebafa77a410d8e041941c09614",
+    "local_reader.py": "6e7a6702f8296b63dd8a2be292ef620c9e67ed6170770e1222cfee58e23ea815",
+    "operational_evidence.py": "ac4ac4c1b9df9f412323674083dbc1bdb83a6570b8576fde9969eddafd791580",
+    "passages.py": "fae27b547e0cd848ce8a720914eaede5cd371b7db3144a4a68141889569fe5ec",
+    "pipeline.py": "25af0fa7a0aafb8ade6836fd7a188e329de27664d355a703d8db2577bf545be7",
+    "policy_evidence.py": "90ae363e5b2b92c52ef24a9ff4d820821a76729f012831c51e27f3ad54492c35",
+    "practical_evidence.py": "c857a46cdfe12f026050edbce5172245d564cdf04d80aed32ebffb91261316d7",
+    "procedures.py": "d66b180651cc35df32a92e33f7df9ae5e031f2fba53ed769c2caddc37fa94523",
+    "relation_graph.py": "12eea882a619c468ff61adc406026dc93a1844f1ffa28a96297e8549a68f5ee1",
+    "support.py": "aa35b92ac97fc831739c69825386c148d6fef9bc640ebac9394d705992a733cd"
+  },
+  "pottery_sets": {
+    "probes": {
+      "frozen_sha256": "fd0f8b1d61a206dcbb612fdc7503ab339a09ec02aebf576b27554c1fb4cb9076",
+      "historical_metrics": {
+        "n": 56,
+        "correct": 25,
+        "wrong_returns": 0,
+        "return_precision": 1.0,
+        "answerable_questions": 32,
+        "answerable_coverage": 0.09375,
+        "false_refusals": 29,
+        "ambiguity_on_answerable": 0,
+        "ambiguity_total": 4,
+        "correct_ambiguity": 4,
+        "ambiguity_on_unanswerable": 0
+      },
+      "current_metrics": {
+        "n": 56,
+        "correct": 29,
+        "wrong_returns": 0,
+        "return_precision": 1.0,
+        "answerable_questions": 32,
+        "answerable_coverage": 0.21875,
+        "false_refusals": 25,
+        "ambiguity_on_answerable": 0,
+        "ambiguity_total": 4,
+        "correct_ambiguity": 4,
+        "ambiguity_on_unanswerable": 0
+      },
+      "changed_cases": [
+        {
+          "id": "op02",
+          "question": "what does it mean if the guard has gone over",
+          "expected": "return",
+          "expected_doc": "STUDIO-0006",
+          "before": {
+            "kind": "not_in_corpus",
+            "record_id": null,
+            "quote": ""
+          },
+          "after": {
+            "kind": "return",
+            "record_id": "STUDIO-0006",
+            "quote": "If the guard has gone over, the load ran hot: shorten the soak next time rather than lowering the set point.",
+            "return_correct_document_proxy": true,
+            "support": {
+              "status": "supported",
+              "version": "operational-relations-v1",
+              "frame": {
+                "relation": "conditional_outcome",
+                "entity": "the guard has gone over",
+                "canonical": "what does it mean if the guard has gone over",
+                "other": "",
+                "version": "operational-relations-v1",
+                "general_entailment": false,
+                "answer_kind": "source_declaration",
+                "world_verified": false,
+                "execution_verified": false,
+                "entailment_general": false
+              },
+              "spans": [
+                {
+                  "quote": "If the guard has gone over, the load ran hot: shorten the soak next time rather than lowering the set point.",
+                  "value": "the load ran hot: shorten the soak next time rather than lowering the set point"
+                }
+              ],
+              "candidate_checks": [
+                {
+                  "id": "STUDIO-0006",
+                  "hash": "sha256:f0dfc1fb84a4e40c24249e0f04f21a9926fd7e50a4a2344c2342cfc84e2554f0",
+                  "status": "supported",
+                  "spans": [
+                    {
+                      "quote": "If the guard has gone over, the load ran hot: shorten the soak next time rather than lowering the set point.",
+                      "value": "the load ran hot: shorten the soak next time rather than lowering the set point"
+                    }
+                  ]
+                }
+              ],
+              "unresolved": false,
+              "reason": "Complete body conditional or separation instruction, quoted as a source declaration; not certified advice."
+            }
+          }
+        },
+        {
+          "id": "op05",
+          "question": "how much Epsom salt solution",
+          "expected": "return",
+          "expected_doc": "STUDIO-0013",
+          "before": {
+            "kind": "not_in_corpus",
+            "record_id": null,
+            "quote": ""
+          },
+          "after": {
+            "kind": "return",
+            "record_id": "STUDIO-0013",
+            "quote": "If it has hard-panned, add a teaspoon of Epsom salt solution and sieve again.",
+            "return_correct_document_proxy": true,
+            "support": {
+              "status": "supported",
+              "version": "source-relation-graph-v1",
+              "frame": {
+                "relation": "additive_amount",
+                "entity": "epsom salt solution",
+                "canonical": "how much epsom salt solution",
+                "other": "",
+                "version": "source-relation-graph-v1",
+                "general_entailment": false,
+                "graph_type": "source_body_only",
+                "world_verified": false,
+                "execution_verified": false,
+                "inference_permitted": false,
+                "qualified_quote_required": true
+              },
+              "spans": [
+                {
+                  "quote": "If it has hard-panned, add a teaspoon of Epsom salt solution and sieve again.",
+                  "value": "a teaspoon",
+                  "qualification": "it has hard-panned|and sieve again"
+                }
+              ],
+              "candidate_checks": [
+                {
+                  "id": "STUDIO-0013",
+                  "hash": "sha256:89560f59f14294641eb21a57cd465a7a6cd86cbd3545c88183cf3731fb4fab5e",
+                  "status": "supported",
+                  "spans": [
+                    {
+                      "quote": "If it has hard-panned, add a teaspoon of Epsom salt solution and sieve again.",
+                      "value": "a teaspoon",
+                      "qualification": "it has hard-panned|and sieve again"
+                    }
+                  ]
+                }
+              ],
+              "unresolved": false,
+              "graph": {
+                "version": "source-relation-graph-v1",
+                "nodes": [
+                  {
+                    "id": "q",
+                    "kind": "question",
+                    "text": "how much epsom salt solution"
+                  },
+                  {
+                    "id": "p",
+                    "kind": "predicate",
+                    "text": "additive_amount"
+                  },
+                  {
+                    "id": "s",
+                    "kind": "entity",
+                    "text": "epsom salt solution"
+                  },
+                  {
+                    "id": "doc",
+                    "kind": "source",
+                    "record_id": "STUDIO-0013",
+                    "hash": "sha256:89560f59f14294641eb21a57cd465a7a6cd86cbd3545c88183cf3731fb4fab5e",
+                    "path": "glaze/studio-0013.html"
+                  },
+                  {
+                    "id": "fact:0",
+                    "kind": "statement",
+                    "quote": "If it has hard-panned, add a teaspoon of Epsom salt solution and sieve again."
+                  },
+                  {
+                    "id": "value:0",
+                    "kind": "value",
+                    "text": "a teaspoon"
+                  },
+                  {
+                    "id": "qualifier:0",
+                    "kind": "qualification",
+                    "text": "it has hard-panned|and sieve again"
+                  }
+                ],
+                "edges": [
+                  {
+                    "from": "q",
+                    "to": "p",
+                    "type": "asks"
+                  },
+                  {
+                    "from": "p",
+                    "to": "s",
+                    "type": "targets"
+                  },
+                  {
+                    "from": "doc",
+                    "to": "fact:0",
+                    "type": "declares"
+                  },
+                  {
+                    "from": "fact:0",
+                    "to": "p",
+                    "type": "asserts_relation"
+                  },
+                  {
+                    "from": "fact:0",
+                    "to": "s",
+                    "type": "asserts_subject"
+                  },
+                  {
+                    "from": "fact:0",
+                    "to": "value:0",
+                    "type": "supplies_value"
+                  },
+                  {
+                    "from": "fact:0",
+                    "to": "qualifier:0",
+                    "type": "qualified_by"
+                  }
+                ],
+                "proof_kind": "exact_source_statement",
+                "independent_sources_verified": false,
+                "world_verified": false,
+                "execution_verified": false,
+                "multi_hop_inference": false
+              },
+              "reason": "Exact source-declared relation path; source truth and procedure execution not verified."
+            }
+          }
+        },
+        {
+          "id": "op06",
+          "question": "ram's head or spiral",
+          "expected": "return",
+          "expected_doc": "STUDIO-0015",
+          "before": {
+            "kind": "not_in_corpus",
+            "record_id": null,
+            "quote": ""
+          },
+          "after": {
+            "kind": "return",
+            "record_id": "STUDIO-0015",
+            "quote": "Ram's head for small amounts, spiral for anything over two kilos.",
+            "return_correct_document_proxy": true,
+            "support": {
+              "status": "supported",
+              "version": "source-relation-graph-v1",
+              "frame": {
+                "relation": "alternative_context",
+                "entity": "ram's head",
+                "canonical": "ram's head or spiral",
+                "other": "spiral",
+                "version": "source-relation-graph-v1",
+                "general_entailment": false,
+                "graph_type": "source_body_only",
+                "world_verified": false,
+                "execution_verified": false,
+                "inference_permitted": false,
+                "qualified_quote_required": true
+              },
+              "spans": [
+                {
+                  "quote": "Ram's head for small amounts, spiral for anything over two kilos.",
+                  "value": "small amounts | anything over two kilos",
+                  "qualification": ""
+                }
+              ],
+              "candidate_checks": [
+                {
+                  "id": "STUDIO-0015",
+                  "hash": "sha256:6ec7147ac1c4e1b8b66a8d08a2606f876b7162739e81e5d85a626d97ae0b356f",
+                  "status": "supported",
+                  "spans": [
+                    {
+                      "quote": "Ram's head for small amounts, spiral for anything over two kilos.",
+                      "value": "small amounts | anything over two kilos",
+                      "qualification": ""
+                    }
+                  ]
+                }
+              ],
+              "unresolved": false,
+              "graph": {
+                "version": "source-relation-graph-v1",
+                "nodes": [
+                  {
+                    "id": "q",
+                    "kind": "question",
+                    "text": "ram's head or spiral"
+                  },
+                  {
+                    "id": "p",
+                    "kind": "predicate",
+                    "text": "alternative_context"
+                  },
+                  {
+                    "id": "s",
+                    "kind": "entity",
+                    "text": "ram's head"
+                  },
+                  {
+                    "id": "doc",
+                    "kind": "source",
+                    "record_id": "STUDIO-0015",
+                    "hash": "sha256:6ec7147ac1c4e1b8b66a8d08a2606f876b7162739e81e5d85a626d97ae0b356f",
+                    "path": "clay/studio-0015.html"
+                  },
+                  {
+                    "id": "fact:0",
+                    "kind": "statement",
+                    "quote": "Ram's head for small amounts, spiral for anything over two kilos."
+                  },
+                  {
+                    "id": "value:0",
+                    "kind": "value",
+                    "text": "small amounts | anything over two kilos"
+                  }
+                ],
+                "edges": [
+                  {
+                    "from": "q",
+                    "to": "p",
+                    "type": "asks"
+                  },
+                  {
+                    "from": "p",
+                    "to": "s",
+                    "type": "targets"
+                  },
+                  {
+                    "from": "doc",
+                    "to": "fact:0",
+                    "type": "declares"
+                  },
+                  {
+                    "from": "fact:0",
+                    "to": "p",
+                    "type": "asserts_relation"
+                  },
+                  {
+                    "from": "fact:0",
+                    "to": "s",
+                    "type": "asserts_subject"
+                  },
+                  {
+                    "from": "fact:0",
+                    "to": "value:0",
+                    "type": "supplies_value"
+                  }
+                ],
+                "proof_kind": "exact_source_statement",
+                "independent_sources_verified": false,
+                "world_verified": false,
+                "execution_verified": false,
+                "multi_hop_inference": false
+              },
+              "reason": "Exact source-declared relation path; source truth and procedure execution not verified."
+            }
+          }
+        },
+        {
+          "id": "op07",
+          "question": "what is bag code CR for",
+          "expected": "return",
+          "expected_doc": "STUDIO-0017",
+          "before": {
+            "kind": "not_in_corpus",
+            "record_id": null,
+            "quote": ""
+          },
+          "after": {
+            "kind": "return",
+            "record_id": "STUDIO-0017",
+            "quote": "Grogged crank, CR, is for sculpture and large slab work and tolerates uneven drying.",
+            "return_correct_document_proxy": true,
+            "support": {
+              "status": "supported",
+              "version": "source-relation-graph-v1",
+              "frame": {
+                "relation": "code_purpose",
+                "entity": "cr",
+                "canonical": "what is bag code cr for",
+                "other": "",
+                "version": "source-relation-graph-v1",
+                "general_entailment": false,
+                "graph_type": "source_body_only",
+                "world_verified": false,
+                "execution_verified": false,
+                "inference_permitted": false,
+                "qualified_quote_required": true
+              },
+              "spans": [
+                {
+                  "quote": "Grogged crank, CR, is for sculpture and large slab work and tolerates uneven drying.",
+                  "value": "sculpture and large slab work and tolerates uneven drying",
+                  "qualification": ""
+                }
+              ],
+              "candidate_checks": [
+                {
+                  "id": "STUDIO-0017",
+                  "hash": "sha256:517cd0dd040bf1933ef02976a0aebe9adc43ff8b77bc3f4af4aad89b859f20c7",
+                  "status": "supported",
+                  "spans": [
+                    {
+                      "quote": "Grogged crank, CR, is for sculpture and large slab work and tolerates uneven drying.",
+                      "value": "sculpture and large slab work and tolerates uneven drying",
+                      "qualification": ""
+                    }
+                  ]
+                },
+                {
+                  "id": "STUDIO-0009",
+                  "hash": "sha256:5c587b19d0805802b717878935a3e07baed72d114dd6f7a778e7113c373fc09a",
+                  "status": "unsupported",
+                  "spans": []
+                },
+                {
+                  "id": "STUDIO-0013",
+                  "hash": "sha256:89560f59f14294641eb21a57cd465a7a6cd86cbd3545c88183cf3731fb4fab5e",
+                  "status": "unsupported",
+                  "spans": []
+                },
+                {
+                  "id": "STUDIO-0019",
+                  "hash": "sha256:428c75866ca8d966527a08a3da40c884cafeee1c5e7d9001f739addf27ebfc0d",
+                  "status": "unsupported",
+                  "spans": []
+                }
+              ],
+              "unresolved": false,
+              "graph": {
+                "version": "source-relation-graph-v1",
+                "nodes": [
+                  {
+                    "id": "q",
+                    "kind": "question",
+                    "text": "what is bag code cr for"
+                  },
+                  {
+                    "id": "p",
+                    "kind": "predicate",
+                    "text": "code_purpose"
+                  },
+                  {
+                    "id": "s",
+                    "kind": "entity",
+                    "text": "cr"
+                  },
+                  {
+                    "id": "doc",
+                    "kind": "source",
+                    "record_id": "STUDIO-0017",
+                    "hash": "sha256:517cd0dd040bf1933ef02976a0aebe9adc43ff8b77bc3f4af4aad89b859f20c7",
+                    "path": "clay/studio-0017.html"
+                  },
+                  {
+                    "id": "fact:0",
+                    "kind": "statement",
+                    "quote": "Grogged crank, CR, is for sculpture and large slab work and tolerates uneven drying."
+                  },
+                  {
+                    "id": "value:0",
+                    "kind": "value",
+                    "text": "sculpture and large slab work and tolerates uneven drying"
+                  }
+                ],
+                "edges": [
+                  {
+                    "from": "q",
+                    "to": "p",
+                    "type": "asks"
+                  },
+                  {
+                    "from": "p",
+                    "to": "s",
+                    "type": "targets"
+                  },
+                  {
+                    "from": "doc",
+                    "to": "fact:0",
+                    "type": "declares"
+                  },
+                  {
+                    "from": "fact:0",
+                    "to": "p",
+                    "type": "asserts_relation"
+                  },
+                  {
+                    "from": "fact:0",
+                    "to": "s",
+                    "type": "asserts_subject"
+                  },
+                  {
+                    "from": "fact:0",
+                    "to": "value:0",
+                    "type": "supplies_value"
+                  }
+                ],
+                "proof_kind": "exact_source_statement",
+                "independent_sources_verified": false,
+                "world_verified": false,
+                "execution_verified": false,
+                "multi_hop_inference": false
+              },
+              "reason": "Exact source-declared relation path; source truth and procedure execution not verified."
+            }
+          }
+        }
+      ]
+    },
+    "probes_heldout": {
+      "frozen_sha256": "097fa2ef7bf47661329a00b4c6c68ada4502553d69459952995e1e65184cb184",
+      "historical_metrics": {
+        "n": 30,
+        "correct": 13,
+        "wrong_returns": 0,
+        "return_precision": 1.0,
+        "answerable_questions": 19,
+        "answerable_coverage": 0.10526315789473684,
+        "false_refusals": 15,
+        "ambiguity_on_answerable": 2,
+        "ambiguity_total": 5,
+        "correct_ambiguity": 3,
+        "ambiguity_on_unanswerable": 0
+      },
+      "current_metrics": {
+        "n": 30,
+        "correct": 15,
+        "wrong_returns": 0,
+        "return_precision": 1.0,
+        "answerable_questions": 19,
+        "answerable_coverage": 0.21052631578947367,
+        "false_refusals": 13,
+        "ambiguity_on_answerable": 2,
+        "ambiguity_total": 5,
+        "correct_ambiguity": 3,
+        "ambiguity_on_unanswerable": 0
+      },
+      "changed_cases": [
+        {
+          "id": "h13",
+          "question": "how do I check the coat with a pin",
+          "expected": "return",
+          "expected_doc": "STUDIO-0010",
+          "before": {
+            "kind": "not_in_corpus",
+            "record_id": null,
+            "quote": ""
+          },
+          "after": {
+            "kind": "return",
+            "record_id": "STUDIO-0010",
+            "quote": "The coat should be the thickness of a postcard: scratch through with a pin to check.",
+            "return_correct_document_proxy": true,
+            "support": {
+              "status": "supported",
+              "version": "source-relation-graph-v1",
+              "frame": {
+                "relation": "inspection_method",
+                "entity": "coat",
+                "canonical": "how do i check the coat with a pin",
+                "other": "pin",
+                "version": "source-relation-graph-v1",
+                "general_entailment": false,
+                "graph_type": "source_body_only",
+                "world_verified": false,
+                "execution_verified": false,
+                "inference_permitted": false,
+                "qualified_quote_required": true
+              },
+              "spans": [
+                {
+                  "quote": "The coat should be the thickness of a postcard: scratch through with a pin to check.",
+                  "value": "scratch through",
+                  "qualification": ""
+                }
+              ],
+              "candidate_checks": [
+                {
+                  "id": "STUDIO-0022",
+                  "hash": "sha256:60329eb2aa3628e514a753fb0884c8d71fd98e1fae81806bba11a1bf6498462f",
+                  "status": "unsupported",
+                  "spans": []
+                },
+                {
+                  "id": "STUDIO-0025",
+                  "hash": "sha256:2a34493784d8bed7b85a4a66bb1e8692a252b287e1a9ad47cd2d6649d8cf5233",
+                  "status": "unsupported",
+                  "spans": []
+                },
+                {
+                  "id": "STUDIO-0010",
+                  "hash": "sha256:754eb7c2443b7a8504e357e2752cbda23ad25e6a233e86a2e28e0cd41e70831a",
+                  "status": "supported",
+                  "spans": [
+                    {
+                      "quote": "The coat should be the thickness of a postcard: scratch through with a pin to check.",
+                      "value": "scratch through",
+                      "qualification": ""
+                    }
+                  ]
+                },
+                {
+                  "id": "STUDIO-0011",
+                  "hash": "sha256:770ecbe342bc08daf328c4fe05f4514907490c3ef255499d44e857b656a1fff1",
+                  "status": "unsupported",
+                  "spans": []
+                },
+                {
+                  "id": "STUDIO-0012",
+                  "hash": "sha256:6aaf564869ffc57f570f27e0fe890a61b6120d0e98447ccf6527075ed7bd03f7",
+                  "status": "unsupported",
+                  "spans": []
+                },
+                {
+                  "id": "STUDIO-0006",
+                  "hash": "sha256:f0dfc1fb84a4e40c24249e0f04f21a9926fd7e50a4a2344c2342cfc84e2554f0",
+                  "status": "unsupported",
+                  "spans": []
+                },
+                {
+                  "id": "STUDIO-0007",
+                  "hash": "sha256:cb5ce815f27c3a42207876a1428ce8187504e4fd608ee69b6c4727bb0de19ffb",
+                  "status": "unsupported",
+                  "spans": []
+                }
+              ],
+              "unresolved": false,
+              "graph": {
+                "version": "source-relation-graph-v1",
+                "nodes": [
+                  {
+                    "id": "q",
+                    "kind": "question",
+                    "text": "how do i check the coat with a pin"
+                  },
+                  {
+                    "id": "p",
+                    "kind": "predicate",
+                    "text": "inspection_method"
+                  },
+                  {
+                    "id": "s",
+                    "kind": "entity",
+                    "text": "coat"
+                  },
+                  {
+                    "id": "doc",
+                    "kind": "source",
+                    "record_id": "STUDIO-0010",
+                    "hash": "sha256:754eb7c2443b7a8504e357e2752cbda23ad25e6a233e86a2e28e0cd41e70831a",
+                    "path": "glaze/studio-0010.html"
+                  },
+                  {
+                    "id": "fact:0",
+                    "kind": "statement",
+                    "quote": "The coat should be the thickness of a postcard: scratch through with a pin to check."
+                  },
+                  {
+                    "id": "value:0",
+                    "kind": "value",
+                    "text": "scratch through"
+                  }
+                ],
+                "edges": [
+                  {
+                    "from": "q",
+                    "to": "p",
+                    "type": "asks"
+                  },
+                  {
+                    "from": "p",
+                    "to": "s",
+                    "type": "targets"
+                  },
+                  {
+                    "from": "doc",
+                    "to": "fact:0",
+                    "type": "declares"
+                  },
+                  {
+                    "from": "fact:0",
+                    "to": "p",
+                    "type": "asserts_relation"
+                  },
+                  {
+                    "from": "fact:0",
+                    "to": "s",
+                    "type": "asserts_subject"
+                  },
+                  {
+                    "from": "fact:0",
+                    "to": "value:0",
+                    "type": "supplies_value"
+                  }
+                ],
+                "proof_kind": "exact_source_statement",
+                "independent_sources_verified": false,
+                "world_verified": false,
+                "execution_verified": false,
+                "multi_hop_inference": false
+              },
+              "reason": "Exact source-declared relation path; source truth and procedure execution not verified."
+            }
+          }
+        },
+        {
+          "id": "h16",
+          "question": "which bodies must be kept in separate buckets",
+          "expected": "return",
+          "expected_doc": "STUDIO-0014",
+          "before": {
+            "kind": "not_in_corpus",
+            "record_id": null,
+            "quote": ""
+          },
+          "after": {
+            "kind": "return",
+            "record_id": "STUDIO-0014",
+            "quote": "Keep red and white bodies in separate buckets; a mixed batch cannot be sorted afterwards.",
+            "return_correct_document_proxy": true,
+            "support": {
+              "status": "supported",
+              "version": "operational-relations-v1",
+              "frame": {
+                "relation": "separate_storage",
+                "entity": "bodies",
+                "canonical": "which bodies must be kept in separate buckets",
+                "other": "buckets",
+                "version": "operational-relations-v1",
+                "general_entailment": false,
+                "answer_kind": "source_declaration",
+                "world_verified": false,
+                "execution_verified": false,
+                "entailment_general": false
+              },
+              "spans": [
+                {
+                  "quote": "Keep red and white bodies in separate buckets; a mixed batch cannot be sorted afterwards.",
+                  "value": "red and white"
+                }
+              ],
+              "candidate_checks": [
+                {
+                  "id": "STUDIO-0014",
+                  "hash": "sha256:3416dc709712c90ca6c3d2ca216ffc38875221722fa52612efcde45a172f9d14",
+                  "status": "supported",
+                  "spans": [
+                    {
+                      "quote": "Keep red and white bodies in separate buckets; a mixed batch cannot be sorted afterwards.",
+                      "value": "red and white"
+                    }
+                  ]
+                },
+                {
+                  "id": "STUDIO-0017",
+                  "hash": "sha256:517cd0dd040bf1933ef02976a0aebe9adc43ff8b77bc3f4af4aad89b859f20c7",
+                  "status": "unsupported",
+                  "spans": []
+                },
+                {
+                  "id": "STUDIO-0009",
+                  "hash": "sha256:5c587b19d0805802b717878935a3e07baed72d114dd6f7a778e7113c373fc09a",
+                  "status": "unsupported",
+                  "spans": []
+                },
+                {
+                  "id": "STUDIO-0012",
+                  "hash": "sha256:6aaf564869ffc57f570f27e0fe890a61b6120d0e98447ccf6527075ed7bd03f7",
+                  "status": "unsupported",
+                  "spans": []
+                },
+                {
+                  "id": "STUDIO-0013",
+                  "hash": "sha256:89560f59f14294641eb21a57cd465a7a6cd86cbd3545c88183cf3731fb4fab5e",
+                  "status": "unsupported",
+                  "spans": []
+                },
+                {
+                  "id": "STUDIO-0004",
+                  "hash": "sha256:96e393925a2ab63317fb5adafbd7766f3d7f99619fd6264d2d9842ca97f32338",
+                  "status": "unsupported",
+                  "spans": []
+                }
+              ],
+              "unresolved": false,
+              "reason": "Complete body conditional or separation instruction, quoted as a source declaration; not certified advice."
+            }
+          }
+        }
+      ]
+    },
+    "probes_adjacent": {
+      "frozen_sha256": "9dfb4ecc4da5a03cb9fb3860d25f9ff856e07f9384016b6b17953af72669f3ba",
+      "historical_metrics": {
+        "n": 20,
+        "correct": 11,
+        "wrong_returns": 0,
+        "return_precision": 1.0,
+        "answerable_questions": 8,
+        "answerable_coverage": 0.125,
+        "false_refusals": 7,
+        "ambiguity_on_answerable": 0,
+        "ambiguity_total": 2,
+        "correct_ambiguity": 0,
+        "ambiguity_on_unanswerable": 2
+      },
+      "current_metrics": {
+        "n": 20,
+        "correct": 12,
+        "wrong_returns": 0,
+        "return_precision": 1.0,
+        "answerable_questions": 8,
+        "answerable_coverage": 0.125,
+        "false_refusals": 7,
+        "ambiguity_on_answerable": 0,
+        "ambiguity_total": 1,
+        "correct_ambiguity": 0,
+        "ambiguity_on_unanswerable": 1
+      },
+      "changed_cases": [
+        {
+          "id": "a03",
+          "question": "how much is a glaze firing",
+          "expected": "not_in_corpus",
+          "expected_doc": null,
+          "before": {
+            "kind": "ambiguous",
+            "record_id": null,
+            "quote": ""
+          },
+          "after": {
+            "kind": "not_in_corpus",
+            "record_id": null,
+            "quote": "",
+            "return_correct_document_proxy": false,
+            "support": {
+              "status": "unsupported",
+              "version": "source-relation-graph-v1",
+              "frame": {
+                "relation": "additive_amount",
+                "entity": "is a glaze firing",
+                "canonical": "how much is a glaze firing",
+                "other": "",
+                "version": "source-relation-graph-v1",
+                "general_entailment": false,
+                "graph_type": "source_body_only",
+                "world_verified": false,
+                "execution_verified": false,
+                "inference_permitted": false,
+                "qualified_quote_required": true
+              },
+              "spans": [],
+              "candidate_checks": [
+                {
+                  "id": "STUDIO-0017",
+                  "hash": "sha256:517cd0dd040bf1933ef02976a0aebe9adc43ff8b77bc3f4af4aad89b859f20c7",
+                  "status": "unsupported",
+                  "spans": []
+                },
+                {
+                  "id": "STUDIO-0022",
+                  "hash": "sha256:60329eb2aa3628e514a753fb0884c8d71fd98e1fae81806bba11a1bf6498462f",
+                  "status": "unsupported",
+                  "spans": []
+                },
+                {
+                  "id": "STUDIO-0025",
+                  "hash": "sha256:2a34493784d8bed7b85a4a66bb1e8692a252b287e1a9ad47cd2d6649d8cf5233",
+                  "status": "unsupported",
+                  "spans": []
+                },
+                {
+                  "id": "STUDIO-0009",
+                  "hash": "sha256:5c587b19d0805802b717878935a3e07baed72d114dd6f7a778e7113c373fc09a",
+                  "status": "unsupported",
+                  "spans": []
+                },
+                {
+                  "id": "STUDIO-0010",
+                  "hash": "sha256:754eb7c2443b7a8504e357e2752cbda23ad25e6a233e86a2e28e0cd41e70831a",
+                  "status": "unsupported",
+                  "spans": []
+                },
+                {
+                  "id": "STUDIO-0011",
+                  "hash": "sha256:770ecbe342bc08daf328c4fe05f4514907490c3ef255499d44e857b656a1fff1",
+                  "status": "unsupported",
+                  "spans": []
+                },
+                {
+                  "id": "STUDIO-0012",
+                  "hash": "sha256:6aaf564869ffc57f570f27e0fe890a61b6120d0e98447ccf6527075ed7bd03f7",
+                  "status": "unsupported",
+                  "spans": []
+                },
+                {
+                  "id": "STUDIO-0013",
+                  "hash": "sha256:89560f59f14294641eb21a57cd465a7a6cd86cbd3545c88183cf3731fb4fab5e",
+                  "status": "unsupported",
+                  "spans": []
+                },
+                {
+                  "id": "STUDIO-0002",
+                  "hash": "sha256:07573c7e73888e45f226435b5efdff0d7bdee6868e2b9be3e06f59bf15a35671",
+                  "status": "unsupported",
+                  "spans": []
+                },
+                {
+                  "id": "STUDIO-0003",
+                  "hash": "sha256:ecce20ca01291aa5a37230434aeac56ed9d44ae0ddc0c43d549d41735139f258",
+                  "status": "unsupported",
+                  "spans": []
+                },
+                {
+                  "id": "STUDIO-0004",
+                  "hash": "sha256:96e393925a2ab63317fb5adafbd7766f3d7f99619fd6264d2d9842ca97f32338",
+                  "status": "unsupported",
+                  "spans": []
+                },
+                {
+                  "id": "STUDIO-0005",
+                  "hash": "sha256:160c77944e0040f8caa5f64b1e8a7c9dac2ba95c215a179907236afed89e4477",
+                  "status": "unsupported",
+                  "spans": []
+                },
+                {
+                  "id": "STUDIO-0006",
+                  "hash": "sha256:f0dfc1fb84a4e40c24249e0f04f21a9926fd7e50a4a2344c2342cfc84e2554f0",
+                  "status": "unsupported",
+                  "spans": []
+                },
+                {
+                  "id": "STUDIO-0007",
+                  "hash": "sha256:cb5ce815f27c3a42207876a1428ce8187504e4fd608ee69b6c4727bb0de19ffb",
+                  "status": "unsupported",
+                  "spans": []
+                },
+                {
+                  "id": "STUDIO-0019",
+                  "hash": "sha256:428c75866ca8d966527a08a3da40c884cafeee1c5e7d9001f739addf27ebfc0d",
+                  "status": "unsupported",
+                  "spans": []
+                },
+                {
+                  "id": "STUDIO-0020",
+                  "hash": "sha256:e5cebe7a71c43b7dfd47f83807c0bdd57b0c504dd7256f560e7362b6c6960297",
+                  "status": "unsupported",
+                  "spans": []
+                }
+              ],
+              "unresolved": false,
+              "reason": "No eligible body statement supports the complete literal question."
+            }
+          }
+        }
+      ]
+    }
+  },
+  "other_regression_controls": {
+    "development-cases": {
+      "frozen_sha256": "ae4d8f31459b0b82e8b55671d0dd82fe752b51e155a0cbeaec8c673af04757d4",
+      "historical_metrics": {
+        "n": 28,
+        "correct": 28,
+        "wrong_returns": 0,
+        "return_precision": 1.0,
+        "answerable_questions": 8,
+        "answerable_coverage": 1.0,
+        "false_refusals": 0,
+        "ambiguity_on_answerable": 0,
+        "ambiguity_total": 3,
+        "correct_ambiguity": 3,
+        "ambiguity_on_unanswerable": 0
+      },
+      "current_metrics": {
+        "n": 28,
+        "correct": 28,
+        "wrong_returns": 0,
+        "return_precision": 1.0,
+        "answerable_questions": 8,
+        "answerable_coverage": 1.0,
+        "false_refusals": 0,
+        "ambiguity_on_answerable": 0,
+        "ambiguity_total": 3,
+        "correct_ambiguity": 3,
+        "ambiguity_on_unanswerable": 0
+      },
+      "changed_cases": []
+    },
+    "squad-sample": {
+      "frozen_sha256": "8c332e620cf11dad17b2abb5bdb8a92780b39fb2d4327b95c6115a9c3b22d087",
+      "historical_metrics": {
+        "n": 20,
+        "correct": 20,
+        "wrong_returns": 0,
+        "return_precision": 1.0,
+        "answerable_questions": 10,
+        "answerable_coverage": 1.0,
+        "false_refusals": 0,
+        "ambiguity_on_answerable": 0,
+        "ambiguity_total": 0,
+        "correct_ambiguity": 0,
+        "ambiguity_on_unanswerable": 0
+      },
+      "current_metrics": {
+        "n": 20,
+        "correct": 20,
+        "wrong_returns": 0,
+        "return_precision": 1.0,
+        "answerable_questions": 10,
+        "answerable_coverage": 1.0,
+        "false_refusals": 0,
+        "ambiguity_on_answerable": 0,
+        "ambiguity_total": 0,
+        "correct_ambiguity": 0,
+        "ambiguity_on_unanswerable": 0
+      },
+      "changed_cases": []
+    }
+  },
+  "synthetic_users": {
+    "protocol": "synthetic-users-v1",
+    "limitations": "Developer-authored fixtures, exact quote and source-ID oracle only; not human-reviewed semantic accuracy or independent users.",
+    "spec_sha256": "acff68e935002ca963d74e75b26c92b5954cc1effe1852cbd37015417cd67d25",
+    "code_sha256": {
+      "__init__.py": "d57d776eaaea962867814b5af3f0ac836fdd0c70ffbde910a801e6240697a095",
+      "__main__.py": "f793ef475c212f719511b9326501c41503f66252008376516db2646fe1485820",
+      "body_text.py": "0c02ba271796c6aafb985f3ef6ea95902086052cf030c471c226d1f6cbd79c44",
+      "evaluate.py": "8c6e4444d661f5a2982338a45673ff594ae4cc4a86d3ec6e0bce6b7f77c90969",
+      "evaluation.py": "4d58e13a85f6edb1443bf156baaa48b1cdf72ce38e5e16a0ce53d195ac395715",
+      "evidence_contract.py": "5fb4226e9407d3432cdbaa518b10af9a5d5dc7bef0036e204848fbda3a3ffbe5",
+      "frames.py": "82c23f7382f862d3b95960b017dda278022ccee1f1bc4e9b339bf7c45ba8dede",
+      "library.py": "7d1613c28f01453270c8a53bf0e3f015bf197dff25b43edc764802e1e1306e5b",
+      "literal_evidence.py": "d4308c1f5e01c3d698ef625991de2182bfeb72ebafa77a410d8e041941c09614",
+      "local_reader.py": "6e7a6702f8296b63dd8a2be292ef620c9e67ed6170770e1222cfee58e23ea815",
+      "operational_evidence.py": "ac4ac4c1b9df9f412323674083dbc1bdb83a6570b8576fde9969eddafd791580",
+      "passages.py": "fae27b547e0cd848ce8a720914eaede5cd371b7db3144a4a68141889569fe5ec",
+      "pipeline.py": "25af0fa7a0aafb8ade6836fd7a188e329de27664d355a703d8db2577bf545be7",
+      "policy_evidence.py": "90ae363e5b2b92c52ef24a9ff4d820821a76729f012831c51e27f3ad54492c35",
+      "practical_evidence.py": "c857a46cdfe12f026050edbce5172245d564cdf04d80aed32ebffb91261316d7",
+      "procedures.py": "d66b180651cc35df32a92e33f7df9ae5e031f2fba53ed769c2caddc37fa94523",
+      "relation_graph.py": "12eea882a619c468ff61adc406026dc93a1844f1ffa28a96297e8549a68f5ee1",
+      "support.py": "aa35b92ac97fc831739c69825386c148d6fef9bc640ebac9394d705992a733cd"
+    },
+    "personas": 6,
+    "metrics": {
+      "questions": 36,
+      "answerable": 21,
+      "correct_returns": 21,
+      "returned": 21,
+      "wrong_returns": 0,
+      "false_refusals_or_ambiguities": 0,
+      "correct_refusals": 14,
+      "correct_ambiguities": 1,
+      "all_expected_outcomes": 36,
+      "return_precision_proxy": 1.0,
+      "answerable_coverage_proxy": 1.0
+    },
+    "rows": [
+      {
+        "persona": "pottery_apprentice",
+        "turn": 1,
+        "question": "How much Epsom salt solution?",
+        "expected": "return",
+        "kind": "return",
+        "correct": true,
+        "source_id": "SYN-001",
+        "quote": "If the bucket has hard-panned, add a teaspoon of Epsom salt solution and sieve again.",
+        "expected_quote": "If the bucket has hard-panned, add a teaspoon of Epsom salt solution and sieve again.",
+        "reason": "Exact source-declared relation path; source truth and procedure execution not verified.",
+        "relation_version": "source-relation-graph-v1",
+        "graph_version": "source-relation-graph-v1",
+        "source_hash": "sha256:5833c5546fbd0e5e37d3b20b73d4f4d950ea0098defd31105ab900d631b4b961"
+      },
+      {
+        "persona": "pottery_apprentice",
+        "turn": 2,
+        "question": "How long should I slake powders before stirring?",
+        "expected": "return",
+        "kind": "return",
+        "correct": true,
+        "source_id": "SYN-002",
+        "quote": "Leave powders to slake for twenty minutes before stirring.",
+        "expected_quote": "Leave powders to slake for twenty minutes before stirring.",
+        "reason": "Exact source-declared relation path; source truth and procedure execution not verified.",
+        "relation_version": "source-relation-graph-v1",
+        "graph_version": "source-relation-graph-v1",
+        "source_hash": "sha256:6e22b645dc11e6c2ebcf3ab86bbafa9b9869705f1c18b922900b148cadef32c4"
+      },
+      {
+        "persona": "pottery_apprentice",
+        "turn": 3,
+        "question": "What is bag code CR for?",
+        "expected": "return",
+        "kind": "return",
+        "correct": true,
+        "source_id": "SYN-003",
+        "quote": "Grogged grey crank, bag code CR, is for sculpture and large slabs.",
+        "expected_quote": "Grogged grey crank, bag code CR, is for sculpture and large slabs.",
+        "reason": "Exact source-declared relation path; source truth and procedure execution not verified.",
+        "relation_version": "source-relation-graph-v1",
+        "graph_version": "source-relation-graph-v1",
+        "source_hash": "sha256:ea7ef926ed7197a7cf57832194f0dc8dba55ac1519dc507d82d3c8694e6e5e18"
+      },
+      {
+        "persona": "pottery_apprentice",
+        "turn": 4,
+        "question": "What happens if the guard has gone over?",
+        "expected": "return",
+        "kind": "return",
+        "correct": true,
+        "source_id": "SYN-004",
+        "quote": "If the guard has gone over, the load ran hot: shorten the soak next time.",
+        "expected_quote": "If the guard has gone over, the load ran hot: shorten the soak next time.",
+        "reason": "Complete body conditional or separation instruction, quoted as a source declaration; not certified advice.",
+        "relation_version": "operational-relations-v1",
+        "graph_version": null,
+        "source_hash": "sha256:038867a07e934bb51bfb0eed037a2303f6c6d598ab180ff31343bad8ca0d99f8"
+      },
+      {
+        "persona": "pottery_apprentice",
+        "turn": 5,
+        "question": "What causes crawling?",
+        "expected": "return",
+        "kind": "return",
+        "correct": true,
+        "source_id": "SYN-005",
+        "quote": "Crawling comes from dust or grease on the bisque, or a coat put on too thick that cracked as it dried.",
+        "expected_quote": "Crawling comes from dust or grease on the bisque, or a coat put on too thick that cracked as it dried.",
+        "reason": "Exact source-declared relation path; source truth and procedure execution not verified.",
+        "relation_version": "source-relation-graph-v1",
+        "graph_version": "source-relation-graph-v1",
+        "source_hash": "sha256:a418343b113e91f8ef73de73f44c30af8e8d8e5218f32012dff6ed18f5e1a114"
+      },
+      {
+        "persona": "pottery_apprentice",
+        "turn": 6,
+        "question": "How long does thick sculpture need?",
+        "expected": "return",
+        "kind": "return",
+        "correct": true,
+        "source_id": "SYN-006",
+        "quote": "Thick sculpture needs two weeks, not two days.",
+        "expected_quote": "Thick sculpture needs two weeks, not two days.",
+        "reason": "Exact source-declared relation path; source truth and procedure execution not verified.",
+        "relation_version": "source-relation-graph-v1",
+        "graph_version": "source-relation-graph-v1",
+        "source_hash": "sha256:d979fdb9fe2a0fe59ba399e8454a816eb96bcde2ca027b23140af452a847a5d2"
+      },
+      {
+        "persona": "pottery_apprentice",
+        "turn": 7,
+        "question": "How much Epsom salt solution after repairs?",
+        "expected": "not_in_corpus",
+        "kind": "not_in_corpus",
+        "correct": true,
+        "source_id": null,
+        "quote": "",
+        "expected_quote": "",
+        "reason": "Question is outside the supported statement grammar.",
+        "relation_version": "statement-support-v4",
+        "graph_version": null,
+        "source_hash": null
+      },
+      {
+        "persona": "pottery_apprentice",
+        "turn": 8,
+        "question": "What is code CR for tomorrow?",
+        "expected": "not_in_corpus",
+        "kind": "not_in_corpus",
+        "correct": true,
+        "source_id": null,
+        "quote": "",
+        "expected_quote": "",
+        "reason": "No eligible body statement supports the complete question.",
+        "relation_version": "statement-support-v4",
+        "graph_version": null,
+        "source_hash": null
+      },
+      {
+        "persona": "pottery_apprentice",
+        "turn": 9,
+        "question": "How much plaster for a mould?",
+        "expected": "not_in_corpus",
+        "kind": "not_in_corpus",
+        "correct": true,
+        "source_id": null,
+        "quote": "",
+        "expected_quote": "",
+        "reason": "No eligible body statement supports the complete literal question.",
+        "relation_version": "source-relation-graph-v1",
+        "graph_version": null,
+        "source_hash": null
+      },
+      {
+        "persona": "pottery_apprentice",
+        "turn": 10,
+        "question": "Ram's head or spiral?",
+        "expected": "return",
+        "kind": "return",
+        "correct": true,
+        "source_id": "SYN-007",
+        "quote": "Ram's head for small amounts, spiral for anything over two kilos.",
+        "expected_quote": "Ram's head for small amounts, spiral for anything over two kilos.",
+        "reason": "Exact source-declared relation path; source truth and procedure execution not verified.",
+        "relation_version": "source-relation-graph-v1",
+        "graph_version": "source-relation-graph-v1",
+        "source_hash": "sha256:fca8c1ecb2ca31f4f308623efd0ab247ca85b46e79a9f100c8193c36a3c09dab"
+      },
+      {
+        "persona": "pottery_apprentice",
+        "turn": 11,
+        "question": "How do I check the coat with a pin?",
+        "expected": "return",
+        "kind": "return",
+        "correct": true,
+        "source_id": "SYN-008",
+        "quote": "The coat should be the thickness of a postcard: scratch through with a pin to check.",
+        "expected_quote": "The coat should be the thickness of a postcard: scratch through with a pin to check.",
+        "reason": "Exact source-declared relation path; source truth and procedure execution not verified.",
+        "relation_version": "source-relation-graph-v1",
+        "graph_version": "source-relation-graph-v1",
+        "source_hash": "sha256:e12dc539e4c293bd4c660044b22ee85ed77334f717c87bc4ab6b6916026fd191"
+      },
+      {
+        "persona": "archive_librarian",
+        "turn": 1,
+        "question": "What is code UV9 for?",
+        "expected": "return",
+        "kind": "return",
+        "correct": true,
+        "source_id": "SYN-011",
+        "quote": "Bag code UV9 is for archive intake labels.",
+        "expected_quote": "Bag code UV9 is for archive intake labels.",
+        "reason": "Exact source-declared relation path; source truth and procedure execution not verified.",
+        "relation_version": "source-relation-graph-v1",
+        "graph_version": "source-relation-graph-v1",
+        "source_hash": "sha256:c425f4df7d1c459f853ac7e5172b0a306100794d3ba2bfa9e6b904652de75af6"
+      },
+      {
+        "persona": "archive_librarian",
+        "turn": 2,
+        "question": "How long should I dry records before binding?",
+        "expected": "return",
+        "kind": "return",
+        "correct": true,
+        "source_id": "SYN-012",
+        "quote": "Leave records to dry for two days before binding.",
+        "expected_quote": "Leave records to dry for two days before binding.",
+        "reason": "Exact source-declared relation path; source truth and procedure execution not verified.",
+        "relation_version": "source-relation-graph-v1",
+        "graph_version": "source-relation-graph-v1",
+        "source_hash": "sha256:f458f2f59e3fedacd2dfa5fc5bc88bcdd9e22c9940aa870df460ed822242cef6"
+      },
+      {
+        "persona": "archive_librarian",
+        "turn": 3,
+        "question": "How much archival sealant?",
+        "expected": "return",
+        "kind": "return",
+        "correct": true,
+        "source_id": "SYN-013",
+        "quote": "Add two teaspoons of archival sealant before filing.",
+        "expected_quote": "Add two teaspoons of archival sealant before filing.",
+        "reason": "Exact source-declared relation path; source truth and procedure execution not verified.",
+        "relation_version": "source-relation-graph-v1",
+        "graph_version": "source-relation-graph-v1",
+        "source_hash": "sha256:9b64f4c230ea12231d190463bf3833c2d3e39ce8533088d48a625c24e49d7798"
+      },
+      {
+        "persona": "archive_librarian",
+        "turn": 4,
+        "question": "What is code UV8 for?",
+        "expected": "not_in_corpus",
+        "kind": "not_in_corpus",
+        "correct": true,
+        "source_id": null,
+        "quote": "",
+        "expected_quote": "",
+        "reason": "No eligible body statement supports the complete literal question.",
+        "relation_version": "source-relation-graph-v1",
+        "graph_version": null,
+        "source_hash": null
+      },
+      {
+        "persona": "archive_librarian",
+        "turn": 5,
+        "question": "How long should I dry records before sealing?",
+        "expected": "not_in_corpus",
+        "kind": "not_in_corpus",
+        "correct": true,
+        "source_id": null,
+        "quote": "",
+        "expected_quote": "",
+        "reason": "No eligible body statement supports the complete literal question.",
+        "relation_version": "source-relation-graph-v1",
+        "graph_version": null,
+        "source_hash": null
+      },
+      {
+        "persona": "archive_librarian",
+        "turn": 6,
+        "question": "Horizontal or vertical?",
+        "expected": "return",
+        "kind": "return",
+        "correct": true,
+        "source_id": "SYN-014",
+        "quote": "Horizontal for narrow frames, vertical for wide frames.",
+        "expected_quote": "Horizontal for narrow frames, vertical for wide frames.",
+        "reason": "Exact source-declared relation path; source truth and procedure execution not verified.",
+        "relation_version": "source-relation-graph-v1",
+        "graph_version": "source-relation-graph-v1",
+        "source_hash": "sha256:99b1292c4ec23fed704bc06edd59f6abd872ffb82343cbb2ab3f87a0e7669c65"
+      },
+      {
+        "persona": "archive_librarian",
+        "turn": 7,
+        "question": "Horizontal or diagonal?",
+        "expected": "not_in_corpus",
+        "kind": "not_in_corpus",
+        "correct": true,
+        "source_id": null,
+        "quote": "",
+        "expected_quote": "",
+        "reason": "No eligible body statement supports the complete literal question.",
+        "relation_version": "source-relation-graph-v1",
+        "graph_version": null,
+        "source_hash": null
+      },
+      {
+        "persona": "lab_assistant",
+        "turn": 1,
+        "question": "What happens if the sample is unsealed?",
+        "expected": "return",
+        "kind": "return",
+        "correct": true,
+        "source_id": "SYN-021",
+        "quote": "If the sample is unsealed, quarantine the batch.",
+        "expected_quote": "If the sample is unsealed, quarantine the batch.",
+        "reason": "Complete body conditional or separation instruction, quoted as a source declaration; not certified advice.",
+        "relation_version": "operational-relations-v1",
+        "graph_version": null,
+        "source_hash": "sha256:71d0ac427b907cfd90f4f64f37e9d74b19dfd112b9af14abece8a241b6db1474"
+      },
+      {
+        "persona": "lab_assistant",
+        "turn": 2,
+        "question": "Which samples must be kept in separate cabinets?",
+        "expected": "return",
+        "kind": "return",
+        "correct": true,
+        "source_id": "SYN-022",
+        "quote": "Keep wet and dry samples in separate cabinets.",
+        "expected_quote": "Keep wet and dry samples in separate cabinets.",
+        "reason": "Complete body conditional or separation instruction, quoted as a source declaration; not certified advice.",
+        "relation_version": "operational-relations-v1",
+        "graph_version": null,
+        "source_hash": "sha256:324cb8033a19fa3c7cdb6da6153194f1a56b8fad14c520497b763e2b637e44d3"
+      },
+      {
+        "persona": "lab_assistant",
+        "turn": 3,
+        "question": "What happens if the indicator turns amber?",
+        "expected": "return",
+        "kind": "return",
+        "correct": true,
+        "source_id": "SYN-023",
+        "quote": "If the indicator turns amber, the system enters inspection mode.",
+        "expected_quote": "If the indicator turns amber, the system enters inspection mode.",
+        "reason": "Complete body conditional or separation instruction, quoted as a source declaration; not certified advice.",
+        "relation_version": "operational-relations-v1",
+        "graph_version": null,
+        "source_hash": "sha256:ccb5d083823ca43eafd2bf185eae31260b8bde36aa55585479bfd1cd8e77371f"
+      },
+      {
+        "persona": "lab_assistant",
+        "turn": 4,
+        "question": "What happens if the sample is sealed?",
+        "expected": "not_in_corpus",
+        "kind": "not_in_corpus",
+        "correct": true,
+        "source_id": null,
+        "quote": "",
+        "expected_quote": "",
+        "reason": "No eligible body statement supports the complete literal question.",
+        "relation_version": "operational-relations-v1",
+        "graph_version": null,
+        "source_hash": null
+      },
+      {
+        "persona": "lab_assistant",
+        "turn": 5,
+        "question": "Which samples must be kept in separate buckets?",
+        "expected": "not_in_corpus",
+        "kind": "not_in_corpus",
+        "correct": true,
+        "source_id": null,
+        "quote": "",
+        "expected_quote": "",
+        "reason": "No eligible body statement supports the complete literal question.",
+        "relation_version": "operational-relations-v1",
+        "graph_version": null,
+        "source_hash": null
+      },
+      {
+        "persona": "lab_assistant",
+        "turn": 6,
+        "question": "How do I check the seal with a gauge?",
+        "expected": "return",
+        "kind": "return",
+        "correct": true,
+        "source_id": "SYN-024",
+        "quote": "The seal should be flush: measure across with a gauge to check.",
+        "expected_quote": "The seal should be flush: measure across with a gauge to check.",
+        "reason": "Exact source-declared relation path; source truth and procedure execution not verified.",
+        "relation_version": "source-relation-graph-v1",
+        "graph_version": "source-relation-graph-v1",
+        "source_hash": "sha256:b2c703da050fee2ea465d97ea865cd8905dbc49b07fed704be25076d76ac93b4"
+      },
+      {
+        "persona": "lab_assistant",
+        "turn": 7,
+        "question": "How do I check the seal with a thermometer?",
+        "expected": "not_in_corpus",
+        "kind": "not_in_corpus",
+        "correct": true,
+        "source_id": null,
+        "quote": "",
+        "expected_quote": "",
+        "reason": "No eligible body statement supports the complete literal question.",
+        "relation_version": "source-relation-graph-v1",
+        "graph_version": null,
+        "source_hash": null
+      },
+      {
+        "persona": "warehouse_clerk",
+        "turn": 1,
+        "question": "What is bag code K9 for?",
+        "expected": "return",
+        "kind": "return",
+        "correct": true,
+        "source_id": "SYN-031",
+        "quote": "Bag code K9 is for cold chain packing.",
+        "expected_quote": "Bag code K9 is for cold chain packing.",
+        "reason": "Exact source-declared relation path; source truth and procedure execution not verified.",
+        "relation_version": "source-relation-graph-v1",
+        "graph_version": "source-relation-graph-v1",
+        "source_hash": "sha256:631aca620287922dc5706e6c8e62f0d28417549c7881dbb553ab4fb37983c259"
+      },
+      {
+        "persona": "warehouse_clerk",
+        "turn": 2,
+        "question": "What happens if the barcode is missing?",
+        "expected": "return",
+        "kind": "return",
+        "correct": true,
+        "source_id": "SYN-032",
+        "quote": "If the barcode is missing, place the package on the exception shelf.",
+        "expected_quote": "If the barcode is missing, place the package on the exception shelf.",
+        "reason": "Complete body conditional or separation instruction, quoted as a source declaration; not certified advice.",
+        "relation_version": "operational-relations-v1",
+        "graph_version": null,
+        "source_hash": "sha256:2ef3ad4998ec610414b2d7e4beaf3cb67e944a4ff05372b1c5a143d1b390eed4"
+      },
+      {
+        "persona": "warehouse_clerk",
+        "turn": 3,
+        "question": "What happens if the barcode is not missing?",
+        "expected": "not_in_corpus",
+        "kind": "not_in_corpus",
+        "correct": true,
+        "source_id": null,
+        "quote": "",
+        "expected_quote": "",
+        "reason": "No eligible body statement supports the complete literal question.",
+        "relation_version": "operational-relations-v1",
+        "graph_version": null,
+        "source_hash": null
+      },
+      {
+        "persona": "warehouse_clerk",
+        "turn": 4,
+        "question": "What is code K8 for?",
+        "expected": "not_in_corpus",
+        "kind": "not_in_corpus",
+        "correct": true,
+        "source_id": null,
+        "quote": "",
+        "expected_quote": "",
+        "reason": "No eligible body statement supports the complete literal question.",
+        "relation_version": "source-relation-graph-v1",
+        "graph_version": null,
+        "source_hash": null
+      },
+      {
+        "persona": "plant_operator",
+        "turn": 1,
+        "question": "What happens if the air gate is open?",
+        "expected": "return",
+        "kind": "return",
+        "correct": true,
+        "source_id": "SYN-041",
+        "quote": "If the air gate is open, stop the inlet fan.",
+        "expected_quote": "If the air gate is open, stop the inlet fan.",
+        "reason": "Complete body conditional or separation instruction, quoted as a source declaration; not certified advice.",
+        "relation_version": "operational-relations-v1",
+        "graph_version": null,
+        "source_hash": "sha256:ccd994b80ad2d21e0d30bb9ad7c21a5f6301f8342e2985e662e190580ba53f75"
+      },
+      {
+        "persona": "plant_operator",
+        "turn": 2,
+        "question": "What happens if the air gate is not open?",
+        "expected": "return",
+        "kind": "return",
+        "correct": true,
+        "source_id": "SYN-041",
+        "quote": "If the air gate is not open, log a maintenance ticket.",
+        "expected_quote": "If the air gate is not open, log a maintenance ticket.",
+        "reason": "Complete body conditional or separation instruction, quoted as a source declaration; not certified advice.",
+        "relation_version": "operational-relations-v1",
+        "graph_version": null,
+        "source_hash": "sha256:ccd994b80ad2d21e0d30bb9ad7c21a5f6301f8342e2985e662e190580ba53f75"
+      },
+      {
+        "persona": "plant_operator",
+        "turn": 3,
+        "question": "Which parts should be kept in separate crates?",
+        "expected": "return",
+        "kind": "return",
+        "correct": true,
+        "source_id": "SYN-042",
+        "quote": "Keep wet and dry parts in separate crates.",
+        "expected_quote": "Keep wet and dry parts in separate crates.",
+        "reason": "Complete body conditional or separation instruction, quoted as a source declaration; not certified advice.",
+        "relation_version": "operational-relations-v1",
+        "graph_version": null,
+        "source_hash": "sha256:19ab481d0a48d599ff6ba88ad78fc7b5570bc87f78b47c17b7a3159c3d347bf6"
+      },
+      {
+        "persona": "plant_operator",
+        "turn": 4,
+        "question": "What happens if the air gate is closed?",
+        "expected": "not_in_corpus",
+        "kind": "not_in_corpus",
+        "correct": true,
+        "source_id": null,
+        "quote": "",
+        "expected_quote": "",
+        "reason": "No eligible body statement supports the complete literal question.",
+        "relation_version": "operational-relations-v1",
+        "graph_version": null,
+        "source_hash": null
+      },
+      {
+        "persona": "reviewer",
+        "turn": 1,
+        "question": "What is bag code J7 for?",
+        "expected": "ambiguous",
+        "kind": "ambiguous",
+        "correct": true,
+        "source_id": null,
+        "quote": "",
+        "expected_quote": "",
+        "reason": "Conflicting or multiple eligible supporting source statements.",
+        "relation_version": "source-relation-graph-v1",
+        "graph_version": null,
+        "source_hash": null
+      },
+      {
+        "persona": "reviewer",
+        "turn": 2,
+        "question": "What is bag code J8 for?",
+        "expected": "not_in_corpus",
+        "kind": "not_in_corpus",
+        "correct": true,
+        "source_id": null,
+        "quote": "",
+        "expected_quote": "",
+        "reason": "No eligible body statement supports the complete literal question.",
+        "relation_version": "source-relation-graph-v1",
+        "graph_version": null,
+        "source_hash": null
+      },
+      {
+        "persona": "reviewer",
+        "turn": 3,
+        "question": "How much pallet sealant?",
+        "expected": "not_in_corpus",
+        "kind": "not_in_corpus",
+        "correct": true,
+        "source_id": null,
+        "quote": "",
+        "expected_quote": "",
+        "reason": "No eligible body statement supports the complete literal question.",
+        "relation_version": "source-relation-graph-v1",
+        "graph_version": null,
+        "source_hash": null
+      }
+    ]
+  }
+}

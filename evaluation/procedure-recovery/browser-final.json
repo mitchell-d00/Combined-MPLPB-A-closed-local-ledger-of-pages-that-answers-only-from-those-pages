@@ -1,0 +1,193 @@
+{
+  "runtime": "actual Chromium / embedded Pyodide",
+  "human_validation": false,
+  "checks": [
+    "natural Ask and source constraints",
+    "explicitly loaded chat collection",
+    "focused step clarification",
+    "reload recovery",
+    "no inferred completion",
+    "explicit next-step inspection",
+    "step correction",
+    "partial exact-source evidence",
+    "faithful strict partial label"
+  ],
+  "partial": {
+    "kind": "not_in_corpus",
+    "question": "How do I fold nacre?",
+    "profile": "internal",
+    "root": "/mplpb-browser-save-v1/collections/mind-81467080b8754b64acdc157b4bd1ec2a/combined",
+    "reason": "Source procedure evidence is incomplete; missing constraints are listed explicitly.",
+    "id": null,
+    "path": null,
+    "hash": null,
+    "depth": null,
+    "text": "The source records part of this procedure, but I cannot establish a complete plan. These are source excerpts, not instructions confirmed ready to execute.\n\nProcedure: fold-nacre\n1. Place the vane flat.\nPrerequisites: none\nConditions: Only while dry.\nWarnings: Do not use a wet frame.\n2. Close the cover.\nPrerequisites: 1\nConditions: Wait until aligned.\n\nMissing or invalid source constraints: WEB-2466162eb313f7f8-0001: Step 2 needs an explicit warnings list.\nA clarification can select a procedure or step; it cannot supply missing source evidence. An authorized source revision is needed to complete the record.",
+    "candidates": [
+      {
+        "id": "WEB-2466162eb313f7f8-0001",
+        "path": "web-2466162eb313f7f8-0001.html",
+        "scope": "Incomplete plan",
+        "matched": [
+          "fold",
+          "nacre"
+        ]
+      }
+    ],
+    "known": [
+      "fold",
+      "nacre"
+    ],
+    "unknown": [],
+    "matched_on": "",
+    "withheld": [],
+    "set_aside": [],
+    "quarantined": 0,
+    "route": [],
+    "answer_support": {
+      "status": "unsupported",
+      "version": "statement-support-v4",
+      "spans": [],
+      "procedure": {
+        "version": "procedure-constraints-v2",
+        "status": "unsupported",
+        "procedure": "fold-nacre",
+        "requested_step": null,
+        "steps": [],
+        "gaps": [
+          "WEB-2466162eb313f7f8-0001: Step 2 needs an explicit warnings list."
+        ],
+        "context_is_evidence": false,
+        "execution_verified": false,
+        "partial_sources": [
+          {
+            "id": "WEB-2466162eb313f7f8-0001",
+            "path": "web-2466162eb313f7f8-0001.html",
+            "hash": "sha256:6491ff0c9e1c2f40e4dfa32654fe28db5bdbc9ae633878539223992c3cda9ef1",
+            "quote": "Procedure: fold-nacre\n1. Place the vane flat.\nPrerequisites: none\nConditions: Only while dry.\nWarnings: Do not use a wet frame.\n2. Close the cover.\nPrerequisites: 1\nConditions: Wait until aligned.",
+            "procedure": "fold-nacre",
+            "gaps": [
+              "Step 2 needs an explicit warnings list."
+            ]
+          }
+        ],
+        "choices": [],
+        "identified": true,
+        "partial": true
+      },
+      "code_sha256": {
+        "__init__.py": "d57d776eaaea962867814b5af3f0ac836fdd0c70ffbde910a801e6240697a095",
+        "__main__.py": "aa3daa9e8a92ff198985326fa9e6b6369870b7dbbdca7c973265ef1ff4b40a54",
+        "assertions.py": "54a8a56e2e19bd3565098a3b66f28da590341405a454cf154319686ea0a51458",
+        "body_text.py": "0c02ba271796c6aafb985f3ef6ea95902086052cf030c471c226d1f6cbd79c44",
+        "evaluate.py": "8c6e4444d661f5a2982338a45673ff594ae4cc4a86d3ec6e0bce6b7f77c90969",
+        "evaluation.py": "4d58e13a85f6edb1443bf156baaa48b1cdf72ce38e5e16a0ce53d195ac395715",
+        "evidence_contract.py": "5fb4226e9407d3432cdbaa518b10af9a5d5dc7bef0036e204848fbda3a3ffbe5",
+        "frames.py": "82c23f7382f862d3b95960b017dda278022ccee1f1bc4e9b339bf7c45ba8dede",
+        "library.py": "7d1613c28f01453270c8a53bf0e3f015bf197dff25b43edc764802e1e1306e5b",
+        "literal_evidence.py": "4dff854bea0a7ae453be35ee016be2533d9ed0b08b98b7ee4a28d2f10b5983fa",
+        "local_reader.py": "6e7a6702f8296b63dd8a2be292ef620c9e67ed6170770e1222cfee58e23ea815",
+        "operational_evidence.py": "ac4ac4c1b9df9f412323674083dbc1bdb83a6570b8576fde9969eddafd791580",
+        "passages.py": "fae27b547e0cd848ce8a720914eaede5cd371b7db3144a4a68141889569fe5ec",
+        "pipeline.py": "8deeca428ee79dccb6808969f2f23aa9955f65b779f7e5c1988b24840ff752d6",
+        "policy_evidence.py": "90ae363e5b2b92c52ef24a9ff4d820821a76729f012831c51e27f3ad54492c35",
+        "practical_evidence.py": "0ad115570d1a5c1f756f2931e331a083d6f9ca6f7512223b5160278f5cda33af",
+        "procedures.py": "90cc6108617b3e56e578039f793581687bb2862e448421d5e5c7f088d2dfac37",
+        "relation_graph.py": "f63ac01659f6f6bfb69ff97bf6b4f8ad024efaf7a209d0b2be0702aceba6d541",
+        "support.py": "67821fc2399616dfbc10c52a440b3de5f6220a82aec44be595b60fd19b96f9ff"
+      }
+    },
+    "answer_contract": {
+      "schema": "answer-contract-v1",
+      "mode": "strict",
+      "question": "How do I fold nacre?",
+      "kind": "partial_answer",
+      "answer_supported": false,
+      "text": "The source records part of this procedure, but I cannot establish a complete plan. These are source excerpts, not instructions confirmed ready to execute.\n\nProcedure: fold-nacre\n1. Place the vane flat.\nPrerequisites: none\nConditions: Only while dry.\nWarnings: Do not use a wet frame.\n2. Close the cover.\nPrerequisites: 1\nConditions: Wait until aligned.\n\nMissing or invalid source constraints: WEB-2466162eb313f7f8-0001: Step 2 needs an explicit warnings list.\nA clarification can select a procedure or step; it cannot supply missing source evidence. An authorized source revision is needed to complete the record.",
+      "claims": [
+        {
+          "text": "Procedure: fold-nacre\n1. Place the vane flat.\nPrerequisites: none\nConditions: Only while dry.\nWarnings: Do not use a wet frame.\n2. Close the cover.\nPrerequisites: 1\nConditions: Wait until aligned.",
+          "qualifiers": [
+            "Incomplete source procedure; not ready-to-execute guidance."
+          ],
+          "citations": [
+            {
+              "source_id": "WEB-2466162eb313f7f8-0001",
+              "path": "web-2466162eb313f7f8-0001.html",
+              "hash": "sha256:6491ff0c9e1c2f40e4dfa32654fe28db5bdbc9ae633878539223992c3cda9ef1",
+              "quote": "Procedure: fold-nacre\n1. Place the vane flat.\nPrerequisites: none\nConditions: Only while dry.\nWarnings: Do not use a wet frame.\n2. Close the cover.\nPrerequisites: 1\nConditions: Wait until aligned.",
+              "start": 0,
+              "end": 196,
+              "body_start": 0,
+              "body_end": 196
+            }
+          ]
+        }
+      ],
+      "missing": [
+        "WEB-2466162eb313f7f8-0001: Step 2 needs an explicit warnings list."
+      ],
+      "clarification": "",
+      "confidence": null,
+      "confidence_calibrated": false,
+      "sources": [
+        {
+          "id": "WEB-2466162eb313f7f8-0001",
+          "path": "web-2466162eb313f7f8-0001.html",
+          "hash": "sha256:6491ff0c9e1c2f40e4dfa32654fe28db5bdbc9ae633878539223992c3cda9ef1"
+        }
+      ],
+      "retrieval": {},
+      "verification": {
+        "structural": true,
+        "semantic": "bounded_source_excerpt_not_complete_procedure",
+        "truth_verified": false,
+        "independence_verified": false
+      },
+      "reader": null,
+      "trace": [],
+      "diagnostic": {
+        "code": "partial_procedure_evidence",
+        "stage": "strict",
+        "message": "Source procedure evidence is incomplete; missing constraints are listed explicitly.",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Review the diagnostic and source evidence before retrying."
+        ]
+      },
+      "code_sha256": {
+        "__init__.py": "d57d776eaaea962867814b5af3f0ac836fdd0c70ffbde910a801e6240697a095",
+        "__main__.py": "aa3daa9e8a92ff198985326fa9e6b6369870b7dbbdca7c973265ef1ff4b40a54",
+        "assertions.py": "54a8a56e2e19bd3565098a3b66f28da590341405a454cf154319686ea0a51458",
+        "body_text.py": "0c02ba271796c6aafb985f3ef6ea95902086052cf030c471c226d1f6cbd79c44",
+        "evaluate.py": "8c6e4444d661f5a2982338a45673ff594ae4cc4a86d3ec6e0bce6b7f77c90969",
+        "evaluation.py": "4d58e13a85f6edb1443bf156baaa48b1cdf72ce38e5e16a0ce53d195ac395715",
+        "evidence_contract.py": "5fb4226e9407d3432cdbaa518b10af9a5d5dc7bef0036e204848fbda3a3ffbe5",
+        "frames.py": "82c23f7382f862d3b95960b017dda278022ccee1f1bc4e9b339bf7c45ba8dede",
+        "library.py": "7d1613c28f01453270c8a53bf0e3f015bf197dff25b43edc764802e1e1306e5b",
+        "literal_evidence.py": "4dff854bea0a7ae453be35ee016be2533d9ed0b08b98b7ee4a28d2f10b5983fa",
+        "local_reader.py": "6e7a6702f8296b63dd8a2be292ef620c9e67ed6170770e1222cfee58e23ea815",
+        "operational_evidence.py": "ac4ac4c1b9df9f412323674083dbc1bdb83a6570b8576fde9969eddafd791580",
+        "passages.py": "fae27b547e0cd848ce8a720914eaede5cd371b7db3144a4a68141889569fe5ec",
+        "pipeline.py": "8deeca428ee79dccb6808969f2f23aa9955f65b779f7e5c1988b24840ff752d6",
+        "policy_evidence.py": "90ae363e5b2b92c52ef24a9ff4d820821a76729f012831c51e27f3ad54492c35",
+        "practical_evidence.py": "0ad115570d1a5c1f756f2931e331a083d6f9ca6f7512223b5160278f5cda33af",
+        "procedures.py": "90cc6108617b3e56e578039f793581687bb2862e448421d5e5c7f088d2dfac37",
+        "relation_graph.py": "f63ac01659f6f6bfb69ff97bf6b4f8ad024efaf7a209d0b2be0702aceba6d541",
+        "support.py": "67821fc2399616dfbc10c52a440b3de5f6220a82aec44be595b60fd19b96f9ff"
+      }
+    },
+    "answer_diagnostics": {
+      "code": "partial_procedure_evidence",
+      "stage": "strict",
+      "message": "Source procedure evidence is incomplete; missing constraints are listed explicitly.",
+      "corpus_answerability": "not_established",
+      "next_steps": [
+        "Review the diagnostic and source evidence before retrying."
+      ]
+    },
+    "answer_supported": false,
+    "citation": ""
+  },
+  "runtime_sha256": "5a3fec796fdb29c12d42bd2c910b7d69b1bfec0b5ee19d64b03c37be32a7487b"
+}

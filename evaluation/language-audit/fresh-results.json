@@ -1,0 +1,1748 @@
+{
+  "revision": "ee8abe66c46c457e35791e882a1b1f0a62307bb3",
+  "code_sha256": {
+    "__init__.py": "d57d776eaaea962867814b5af3f0ac836fdd0c70ffbde910a801e6240697a095",
+    "__main__.py": "f793ef475c212f719511b9326501c41503f66252008376516db2646fe1485820",
+    "assertions.py": "54a8a56e2e19bd3565098a3b66f28da590341405a454cf154319686ea0a51458",
+    "body_text.py": "0c02ba271796c6aafb985f3ef6ea95902086052cf030c471c226d1f6cbd79c44",
+    "evaluate.py": "8c6e4444d661f5a2982338a45673ff594ae4cc4a86d3ec6e0bce6b7f77c90969",
+    "evaluation.py": "4d58e13a85f6edb1443bf156baaa48b1cdf72ce38e5e16a0ce53d195ac395715",
+    "evidence_contract.py": "5fb4226e9407d3432cdbaa518b10af9a5d5dc7bef0036e204848fbda3a3ffbe5",
+    "frames.py": "82c23f7382f862d3b95960b017dda278022ccee1f1bc4e9b339bf7c45ba8dede",
+    "library.py": "7d1613c28f01453270c8a53bf0e3f015bf197dff25b43edc764802e1e1306e5b",
+    "literal_evidence.py": "4dff854bea0a7ae453be35ee016be2533d9ed0b08b98b7ee4a28d2f10b5983fa",
+    "local_reader.py": "6e7a6702f8296b63dd8a2be292ef620c9e67ed6170770e1222cfee58e23ea815",
+    "operational_evidence.py": "ac4ac4c1b9df9f412323674083dbc1bdb83a6570b8576fde9969eddafd791580",
+    "passages.py": "fae27b547e0cd848ce8a720914eaede5cd371b7db3144a4a68141889569fe5ec",
+    "pipeline.py": "25af0fa7a0aafb8ade6836fd7a188e329de27664d355a703d8db2577bf545be7",
+    "policy_evidence.py": "90ae363e5b2b92c52ef24a9ff4d820821a76729f012831c51e27f3ad54492c35",
+    "practical_evidence.py": "0ad115570d1a5c1f756f2931e331a083d6f9ca6f7512223b5160278f5cda33af",
+    "procedures.py": "d66b180651cc35df32a92e33f7df9ae5e031f2fba53ed769c2caddc37fa94523",
+    "relation_graph.py": "b6757451ecfd718063ffa0d5aa0104344cc0b9fdd9550a884407367032c435f1",
+    "support.py": "d5d39570ad777c424e9d7a5ff674d2b97b8fac6baff18ed4ca4ccb89e7e99825"
+  },
+  "fixture_sha256": "0fc4cbb7ff3e43ed033f4df81c79d56a43b1c94004a08ce177875bd1c49c6afc",
+  "role": "model-authored frozen synthetic cases; not independent validation",
+  "passed": 12,
+  "total": 12,
+  "rows": [
+    {
+      "case": {
+        "domain": "navigation",
+        "question": "Where should we keep astrolabe keys?",
+        "bodies": [
+          "Astrolabe keys should be kept in aft locker."
+        ],
+        "kind": "return",
+        "quote": "Astrolabe keys should be kept in aft locker."
+      },
+      "passed": true,
+      "observed": {
+        "kind": "return",
+        "question": "Where should we keep astrolabe keys?",
+        "profile": "internal",
+        "root": "/tmp/tmpfr1k6201",
+        "reason": "Exact source-declared relation path; source truth and procedure execution not verified.",
+        "id": "UNFAMILIAR-000",
+        "path": "unfamiliar-000.html",
+        "hash": "sha256:39f3f422582814eeebc591d59a139cb5bb6ce083cb47642f95612303dae29825",
+        "depth": 0,
+        "text": "Astrolabe keys should be kept in aft locker.",
+        "candidates": [],
+        "known": [
+          "astrolabe",
+          "keys"
+        ],
+        "unknown": [
+          "keep"
+        ],
+        "matched_on": "literal body statement",
+        "withheld": [],
+        "set_aside": [],
+        "quarantined": 0,
+        "route": [],
+        "answer_support": {
+          "status": "supported",
+          "version": "source-relation-graph-v2",
+          "frame": {
+            "relation": "storage_rule",
+            "entity": "astrolabe keys",
+            "canonical": "where should we keep astrolabe keys",
+            "other": "",
+            "version": "source-relation-graph-v2",
+            "general_entailment": false,
+            "graph_type": "source_body_only",
+            "world_verified": false,
+            "execution_verified": false,
+            "inference_permitted": false,
+            "qualified_quote_required": true
+          },
+          "spans": [
+            {
+              "quote": "Astrolabe keys should be kept in aft locker.",
+              "value": "aft locker",
+              "qualification": "",
+              "polarity": "positive"
+            }
+          ],
+          "candidate_checks": [
+            {
+              "id": "UNFAMILIAR-000",
+              "hash": "sha256:39f3f422582814eeebc591d59a139cb5bb6ce083cb47642f95612303dae29825",
+              "status": "supported",
+              "spans": [
+                {
+                  "quote": "Astrolabe keys should be kept in aft locker.",
+                  "value": "aft locker",
+                  "qualification": "",
+                  "polarity": "positive"
+                }
+              ],
+              "negative_spans": [],
+              "unresolved_spans": [],
+              "assertions": [
+                {
+                  "subject": "astrolabe keys",
+                  "relation": "storage_rule",
+                  "value": "aft locker",
+                  "polarity": "positive",
+                  "qualification": "",
+                  "source_id": "UNFAMILIAR-000",
+                  "source_hash": "sha256:39f3f422582814eeebc591d59a139cb5bb6ce083cb47642f95612303dae29825",
+                  "path": "unfamiliar-000.html",
+                  "quote": "Astrolabe keys should be kept in aft locker."
+                }
+              ]
+            }
+          ],
+          "unresolved": false,
+          "negative_spans": [],
+          "unresolved_spans": [],
+          "graph": {
+            "version": "source-relation-graph-v2",
+            "nodes": [
+              {
+                "id": "q",
+                "kind": "question",
+                "text": "where should we keep astrolabe keys"
+              },
+              {
+                "id": "p",
+                "kind": "predicate",
+                "text": "storage_rule"
+              },
+              {
+                "id": "s",
+                "kind": "entity",
+                "text": "astrolabe keys"
+              },
+              {
+                "id": "doc",
+                "kind": "source",
+                "record_id": "UNFAMILIAR-000",
+                "hash": "sha256:39f3f422582814eeebc591d59a139cb5bb6ce083cb47642f95612303dae29825",
+                "path": "unfamiliar-000.html"
+              },
+              {
+                "id": "fact:0",
+                "kind": "statement",
+                "quote": "Astrolabe keys should be kept in aft locker.",
+                "polarity": "positive"
+              },
+              {
+                "id": "value:0",
+                "kind": "value",
+                "text": "aft locker"
+              }
+            ],
+            "edges": [
+              {
+                "from": "q",
+                "to": "p",
+                "type": "asks"
+              },
+              {
+                "from": "p",
+                "to": "s",
+                "type": "targets"
+              },
+              {
+                "from": "doc",
+                "to": "fact:0",
+                "type": "declares"
+              },
+              {
+                "from": "fact:0",
+                "to": "p",
+                "type": "asserts_relation"
+              },
+              {
+                "from": "fact:0",
+                "to": "s",
+                "type": "asserts_subject"
+              },
+              {
+                "from": "fact:0",
+                "to": "value:0",
+                "type": "supplies_value"
+              }
+            ],
+            "proof_kind": "exact_source_statement",
+            "independent_sources_verified": false,
+            "world_verified": false,
+            "execution_verified": false,
+            "multi_hop_inference": false
+          },
+          "reason": "Exact source-declared relation path; source truth and procedure execution not verified.",
+          "assertions": [
+            {
+              "subject": "astrolabe keys",
+              "relation": "storage_rule",
+              "value": "aft locker",
+              "polarity": "positive",
+              "qualification": "",
+              "source_id": "UNFAMILIAR-000",
+              "source_hash": "sha256:39f3f422582814eeebc591d59a139cb5bb6ce083cb47642f95612303dae29825",
+              "path": "unfamiliar-000.html",
+              "quote": "Astrolabe keys should be kept in aft locker."
+            }
+          ],
+          "code_sha256": {
+            "__init__.py": "d57d776eaaea962867814b5af3f0ac836fdd0c70ffbde910a801e6240697a095",
+            "__main__.py": "f793ef475c212f719511b9326501c41503f66252008376516db2646fe1485820",
+            "assertions.py": "54a8a56e2e19bd3565098a3b66f28da590341405a454cf154319686ea0a51458",
+            "body_text.py": "0c02ba271796c6aafb985f3ef6ea95902086052cf030c471c226d1f6cbd79c44",
+            "evaluate.py": "8c6e4444d661f5a2982338a45673ff594ae4cc4a86d3ec6e0bce6b7f77c90969",
+            "evaluation.py": "4d58e13a85f6edb1443bf156baaa48b1cdf72ce38e5e16a0ce53d195ac395715",
+            "evidence_contract.py": "5fb4226e9407d3432cdbaa518b10af9a5d5dc7bef0036e204848fbda3a3ffbe5",
+            "frames.py": "82c23f7382f862d3b95960b017dda278022ccee1f1bc4e9b339bf7c45ba8dede",
+            "library.py": "7d1613c28f01453270c8a53bf0e3f015bf197dff25b43edc764802e1e1306e5b",
+            "literal_evidence.py": "4dff854bea0a7ae453be35ee016be2533d9ed0b08b98b7ee4a28d2f10b5983fa",
+            "local_reader.py": "6e7a6702f8296b63dd8a2be292ef620c9e67ed6170770e1222cfee58e23ea815",
+            "operational_evidence.py": "ac4ac4c1b9df9f412323674083dbc1bdb83a6570b8576fde9969eddafd791580",
+            "passages.py": "fae27b547e0cd848ce8a720914eaede5cd371b7db3144a4a68141889569fe5ec",
+            "pipeline.py": "25af0fa7a0aafb8ade6836fd7a188e329de27664d355a703d8db2577bf545be7",
+            "policy_evidence.py": "90ae363e5b2b92c52ef24a9ff4d820821a76729f012831c51e27f3ad54492c35",
+            "practical_evidence.py": "0ad115570d1a5c1f756f2931e331a083d6f9ca6f7512223b5160278f5cda33af",
+            "procedures.py": "d66b180651cc35df32a92e33f7df9ae5e031f2fba53ed769c2caddc37fa94523",
+            "relation_graph.py": "b6757451ecfd718063ffa0d5aa0104344cc0b9fdd9550a884407367032c435f1",
+            "support.py": "d5d39570ad777c424e9d7a5ff674d2b97b8fac6baff18ed4ca4ccb89e7e99825"
+          }
+        }
+      },
+      "text": "Astrolabe keys should be kept in aft locker."
+    },
+    {
+      "case": {
+        "domain": "navigation",
+        "question": "Where should we keep astrolabe keys?",
+        "bodies": [
+          "Astrolabe keys should be kept in aft locker.",
+          "Astrolabe keys should not be kept in aft locker."
+        ],
+        "kind": "ambiguous"
+      },
+      "passed": true,
+      "observed": {
+        "kind": "ambiguous",
+        "question": "Where should we keep astrolabe keys?",
+        "profile": "internal",
+        "root": "/tmp/tmporjwlz6x",
+        "reason": "Conflicting or multiple eligible supporting source statements.",
+        "id": null,
+        "path": null,
+        "hash": null,
+        "depth": null,
+        "text": "",
+        "candidates": [],
+        "known": [
+          "astrolabe",
+          "keys"
+        ],
+        "unknown": [
+          "keep"
+        ],
+        "matched_on": "",
+        "withheld": [],
+        "set_aside": [],
+        "quarantined": 0,
+        "route": [],
+        "answer_support": {
+          "status": "conflict",
+          "version": "source-relation-graph-v2",
+          "frame": {
+            "relation": "storage_rule",
+            "entity": "astrolabe keys",
+            "canonical": "where should we keep astrolabe keys",
+            "other": "",
+            "version": "source-relation-graph-v2",
+            "general_entailment": false,
+            "graph_type": "source_body_only",
+            "world_verified": false,
+            "execution_verified": false,
+            "inference_permitted": false,
+            "qualified_quote_required": true
+          },
+          "spans": [],
+          "candidate_checks": [
+            {
+              "id": "UNFAMILIAR-000",
+              "hash": "sha256:39f3f422582814eeebc591d59a139cb5bb6ce083cb47642f95612303dae29825",
+              "status": "supported",
+              "spans": [
+                {
+                  "quote": "Astrolabe keys should be kept in aft locker.",
+                  "value": "aft locker",
+                  "qualification": "",
+                  "polarity": "positive"
+                }
+              ],
+              "negative_spans": [],
+              "unresolved_spans": [],
+              "assertions": [
+                {
+                  "subject": "astrolabe keys",
+                  "relation": "storage_rule",
+                  "value": "aft locker",
+                  "polarity": "positive",
+                  "qualification": "",
+                  "source_id": "UNFAMILIAR-000",
+                  "source_hash": "sha256:39f3f422582814eeebc591d59a139cb5bb6ce083cb47642f95612303dae29825",
+                  "path": "unfamiliar-000.html",
+                  "quote": "Astrolabe keys should be kept in aft locker."
+                }
+              ]
+            },
+            {
+              "id": "UNFAMILIAR-001",
+              "hash": "sha256:19a56e2a94c02040f636b4a478f7acfcb9c18862b738acde64ed92583be45691",
+              "status": "unsupported",
+              "spans": [],
+              "negative_spans": [
+                {
+                  "quote": "Astrolabe keys should not be kept in aft locker.",
+                  "value": "aft locker",
+                  "qualification": "",
+                  "polarity": "negative"
+                }
+              ],
+              "unresolved_spans": [],
+              "assertions": [
+                {
+                  "subject": "astrolabe keys",
+                  "relation": "storage_rule",
+                  "value": "aft locker",
+                  "polarity": "negative",
+                  "qualification": "",
+                  "source_id": "UNFAMILIAR-001",
+                  "source_hash": "sha256:19a56e2a94c02040f636b4a478f7acfcb9c18862b738acde64ed92583be45691",
+                  "path": "unfamiliar-001.html",
+                  "quote": "Astrolabe keys should not be kept in aft locker."
+                }
+              ]
+            }
+          ],
+          "unresolved": false,
+          "reason": "Conflicting or multiple eligible supporting source statements.",
+          "code_sha256": {
+            "__init__.py": "d57d776eaaea962867814b5af3f0ac836fdd0c70ffbde910a801e6240697a095",
+            "__main__.py": "f793ef475c212f719511b9326501c41503f66252008376516db2646fe1485820",
+            "assertions.py": "54a8a56e2e19bd3565098a3b66f28da590341405a454cf154319686ea0a51458",
+            "body_text.py": "0c02ba271796c6aafb985f3ef6ea95902086052cf030c471c226d1f6cbd79c44",
+            "evaluate.py": "8c6e4444d661f5a2982338a45673ff594ae4cc4a86d3ec6e0bce6b7f77c90969",
+            "evaluation.py": "4d58e13a85f6edb1443bf156baaa48b1cdf72ce38e5e16a0ce53d195ac395715",
+            "evidence_contract.py": "5fb4226e9407d3432cdbaa518b10af9a5d5dc7bef0036e204848fbda3a3ffbe5",
+            "frames.py": "82c23f7382f862d3b95960b017dda278022ccee1f1bc4e9b339bf7c45ba8dede",
+            "library.py": "7d1613c28f01453270c8a53bf0e3f015bf197dff25b43edc764802e1e1306e5b",
+            "literal_evidence.py": "4dff854bea0a7ae453be35ee016be2533d9ed0b08b98b7ee4a28d2f10b5983fa",
+            "local_reader.py": "6e7a6702f8296b63dd8a2be292ef620c9e67ed6170770e1222cfee58e23ea815",
+            "operational_evidence.py": "ac4ac4c1b9df9f412323674083dbc1bdb83a6570b8576fde9969eddafd791580",
+            "passages.py": "fae27b547e0cd848ce8a720914eaede5cd371b7db3144a4a68141889569fe5ec",
+            "pipeline.py": "25af0fa7a0aafb8ade6836fd7a188e329de27664d355a703d8db2577bf545be7",
+            "policy_evidence.py": "90ae363e5b2b92c52ef24a9ff4d820821a76729f012831c51e27f3ad54492c35",
+            "practical_evidence.py": "0ad115570d1a5c1f756f2931e331a083d6f9ca6f7512223b5160278f5cda33af",
+            "procedures.py": "d66b180651cc35df32a92e33f7df9ae5e031f2fba53ed769c2caddc37fa94523",
+            "relation_graph.py": "b6757451ecfd718063ffa0d5aa0104344cc0b9fdd9550a884407367032c435f1",
+            "support.py": "d5d39570ad777c424e9d7a5ff674d2b97b8fac6baff18ed4ca4ccb89e7e99825"
+          }
+        }
+      },
+      "text": ""
+    },
+    {
+      "case": {
+        "domain": "navigation",
+        "question": "Where should we keep astrolabe keys?",
+        "bodies": [
+          "Astrolabe keys should be kept in aft locker.",
+          "Do not store sextant keys in aft locker."
+        ],
+        "kind": "return",
+        "quote": "Astrolabe keys should be kept in aft locker."
+      },
+      "passed": true,
+      "observed": {
+        "kind": "return",
+        "question": "Where should we keep astrolabe keys?",
+        "profile": "internal",
+        "root": "/tmp/tmp5sejfwe3",
+        "reason": "Exact source-declared relation path; source truth and procedure execution not verified.",
+        "id": "UNFAMILIAR-000",
+        "path": "unfamiliar-000.html",
+        "hash": "sha256:39f3f422582814eeebc591d59a139cb5bb6ce083cb47642f95612303dae29825",
+        "depth": 0,
+        "text": "Astrolabe keys should be kept in aft locker.",
+        "candidates": [],
+        "known": [
+          "astrolabe",
+          "keys"
+        ],
+        "unknown": [
+          "keep"
+        ],
+        "matched_on": "literal body statement",
+        "withheld": [],
+        "set_aside": [],
+        "quarantined": 0,
+        "route": [],
+        "answer_support": {
+          "status": "supported",
+          "version": "source-relation-graph-v2",
+          "frame": {
+            "relation": "storage_rule",
+            "entity": "astrolabe keys",
+            "canonical": "where should we keep astrolabe keys",
+            "other": "",
+            "version": "source-relation-graph-v2",
+            "general_entailment": false,
+            "graph_type": "source_body_only",
+            "world_verified": false,
+            "execution_verified": false,
+            "inference_permitted": false,
+            "qualified_quote_required": true
+          },
+          "spans": [
+            {
+              "quote": "Astrolabe keys should be kept in aft locker.",
+              "value": "aft locker",
+              "qualification": "",
+              "polarity": "positive"
+            }
+          ],
+          "candidate_checks": [
+            {
+              "id": "UNFAMILIAR-000",
+              "hash": "sha256:39f3f422582814eeebc591d59a139cb5bb6ce083cb47642f95612303dae29825",
+              "status": "supported",
+              "spans": [
+                {
+                  "quote": "Astrolabe keys should be kept in aft locker.",
+                  "value": "aft locker",
+                  "qualification": "",
+                  "polarity": "positive"
+                }
+              ],
+              "negative_spans": [],
+              "unresolved_spans": [],
+              "assertions": [
+                {
+                  "subject": "astrolabe keys",
+                  "relation": "storage_rule",
+                  "value": "aft locker",
+                  "polarity": "positive",
+                  "qualification": "",
+                  "source_id": "UNFAMILIAR-000",
+                  "source_hash": "sha256:39f3f422582814eeebc591d59a139cb5bb6ce083cb47642f95612303dae29825",
+                  "path": "unfamiliar-000.html",
+                  "quote": "Astrolabe keys should be kept in aft locker."
+                }
+              ]
+            },
+            {
+              "id": "UNFAMILIAR-001",
+              "hash": "sha256:54b4919d107154cb8d6f43c6c0310b24b4aed15ce6e064627bf2a5dd08bd6145",
+              "status": "unsupported",
+              "spans": [],
+              "negative_spans": [],
+              "unresolved_spans": [],
+              "assertions": []
+            }
+          ],
+          "unresolved": false,
+          "negative_spans": [],
+          "unresolved_spans": [],
+          "graph": {
+            "version": "source-relation-graph-v2",
+            "nodes": [
+              {
+                "id": "q",
+                "kind": "question",
+                "text": "where should we keep astrolabe keys"
+              },
+              {
+                "id": "p",
+                "kind": "predicate",
+                "text": "storage_rule"
+              },
+              {
+                "id": "s",
+                "kind": "entity",
+                "text": "astrolabe keys"
+              },
+              {
+                "id": "doc",
+                "kind": "source",
+                "record_id": "UNFAMILIAR-000",
+                "hash": "sha256:39f3f422582814eeebc591d59a139cb5bb6ce083cb47642f95612303dae29825",
+                "path": "unfamiliar-000.html"
+              },
+              {
+                "id": "fact:0",
+                "kind": "statement",
+                "quote": "Astrolabe keys should be kept in aft locker.",
+                "polarity": "positive"
+              },
+              {
+                "id": "value:0",
+                "kind": "value",
+                "text": "aft locker"
+              }
+            ],
+            "edges": [
+              {
+                "from": "q",
+                "to": "p",
+                "type": "asks"
+              },
+              {
+                "from": "p",
+                "to": "s",
+                "type": "targets"
+              },
+              {
+                "from": "doc",
+                "to": "fact:0",
+                "type": "declares"
+              },
+              {
+                "from": "fact:0",
+                "to": "p",
+                "type": "asserts_relation"
+              },
+              {
+                "from": "fact:0",
+                "to": "s",
+                "type": "asserts_subject"
+              },
+              {
+                "from": "fact:0",
+                "to": "value:0",
+                "type": "supplies_value"
+              }
+            ],
+            "proof_kind": "exact_source_statement",
+            "independent_sources_verified": false,
+            "world_verified": false,
+            "execution_verified": false,
+            "multi_hop_inference": false
+          },
+          "reason": "Exact source-declared relation path; source truth and procedure execution not verified.",
+          "assertions": [
+            {
+              "subject": "astrolabe keys",
+              "relation": "storage_rule",
+              "value": "aft locker",
+              "polarity": "positive",
+              "qualification": "",
+              "source_id": "UNFAMILIAR-000",
+              "source_hash": "sha256:39f3f422582814eeebc591d59a139cb5bb6ce083cb47642f95612303dae29825",
+              "path": "unfamiliar-000.html",
+              "quote": "Astrolabe keys should be kept in aft locker."
+            }
+          ],
+          "code_sha256": {
+            "__init__.py": "d57d776eaaea962867814b5af3f0ac836fdd0c70ffbde910a801e6240697a095",
+            "__main__.py": "f793ef475c212f719511b9326501c41503f66252008376516db2646fe1485820",
+            "assertions.py": "54a8a56e2e19bd3565098a3b66f28da590341405a454cf154319686ea0a51458",
+            "body_text.py": "0c02ba271796c6aafb985f3ef6ea95902086052cf030c471c226d1f6cbd79c44",
+            "evaluate.py": "8c6e4444d661f5a2982338a45673ff594ae4cc4a86d3ec6e0bce6b7f77c90969",
+            "evaluation.py": "4d58e13a85f6edb1443bf156baaa48b1cdf72ce38e5e16a0ce53d195ac395715",
+            "evidence_contract.py": "5fb4226e9407d3432cdbaa518b10af9a5d5dc7bef0036e204848fbda3a3ffbe5",
+            "frames.py": "82c23f7382f862d3b95960b017dda278022ccee1f1bc4e9b339bf7c45ba8dede",
+            "library.py": "7d1613c28f01453270c8a53bf0e3f015bf197dff25b43edc764802e1e1306e5b",
+            "literal_evidence.py": "4dff854bea0a7ae453be35ee016be2533d9ed0b08b98b7ee4a28d2f10b5983fa",
+            "local_reader.py": "6e7a6702f8296b63dd8a2be292ef620c9e67ed6170770e1222cfee58e23ea815",
+            "operational_evidence.py": "ac4ac4c1b9df9f412323674083dbc1bdb83a6570b8576fde9969eddafd791580",
+            "passages.py": "fae27b547e0cd848ce8a720914eaede5cd371b7db3144a4a68141889569fe5ec",
+            "pipeline.py": "25af0fa7a0aafb8ade6836fd7a188e329de27664d355a703d8db2577bf545be7",
+            "policy_evidence.py": "90ae363e5b2b92c52ef24a9ff4d820821a76729f012831c51e27f3ad54492c35",
+            "practical_evidence.py": "0ad115570d1a5c1f756f2931e331a083d6f9ca6f7512223b5160278f5cda33af",
+            "procedures.py": "d66b180651cc35df32a92e33f7df9ae5e031f2fba53ed769c2caddc37fa94523",
+            "relation_graph.py": "b6757451ecfd718063ffa0d5aa0104344cc0b9fdd9550a884407367032c435f1",
+            "support.py": "d5d39570ad777c424e9d7a5ff674d2b97b8fac6baff18ed4ca4ccb89e7e99825"
+          }
+        }
+      },
+      "text": "Astrolabe keys should be kept in aft locker."
+    },
+    {
+      "case": {
+        "domain": "navigation",
+        "question": "Where should we keep astrolabe keys?",
+        "bodies": [
+          "If afloat, store astrolabe keys in aft locker."
+        ],
+        "kind": "not_in_corpus"
+      },
+      "passed": true,
+      "observed": {
+        "kind": "not_in_corpus",
+        "question": "Where should we keep astrolabe keys?",
+        "profile": "internal",
+        "root": "/tmp/tmp77tatk_o",
+        "reason": "No eligible body statement supports the complete literal question.",
+        "id": null,
+        "path": null,
+        "hash": null,
+        "depth": null,
+        "text": "",
+        "candidates": [],
+        "known": [
+          "astrolabe",
+          "keys"
+        ],
+        "unknown": [
+          "keep"
+        ],
+        "matched_on": "",
+        "withheld": [],
+        "set_aside": [],
+        "quarantined": 0,
+        "route": [],
+        "answer_support": {
+          "status": "unsupported",
+          "version": "source-relation-graph-v2",
+          "frame": {
+            "relation": "storage_rule",
+            "entity": "astrolabe keys",
+            "canonical": "where should we keep astrolabe keys",
+            "other": "",
+            "version": "source-relation-graph-v2",
+            "general_entailment": false,
+            "graph_type": "source_body_only",
+            "world_verified": false,
+            "execution_verified": false,
+            "inference_permitted": false,
+            "qualified_quote_required": true
+          },
+          "spans": [],
+          "candidate_checks": [
+            {
+              "id": "UNFAMILIAR-000",
+              "hash": "sha256:b9d9568f3014013a05082d87292c5d963ace4fb55141eb00265c412fb64cf953",
+              "status": "unsupported",
+              "spans": [],
+              "negative_spans": [],
+              "unresolved_spans": [],
+              "assertions": []
+            }
+          ],
+          "unresolved": false,
+          "reason": "No eligible body statement supports the complete literal question.",
+          "code_sha256": {
+            "__init__.py": "d57d776eaaea962867814b5af3f0ac836fdd0c70ffbde910a801e6240697a095",
+            "__main__.py": "f793ef475c212f719511b9326501c41503f66252008376516db2646fe1485820",
+            "assertions.py": "54a8a56e2e19bd3565098a3b66f28da590341405a454cf154319686ea0a51458",
+            "body_text.py": "0c02ba271796c6aafb985f3ef6ea95902086052cf030c471c226d1f6cbd79c44",
+            "evaluate.py": "8c6e4444d661f5a2982338a45673ff594ae4cc4a86d3ec6e0bce6b7f77c90969",
+            "evaluation.py": "4d58e13a85f6edb1443bf156baaa48b1cdf72ce38e5e16a0ce53d195ac395715",
+            "evidence_contract.py": "5fb4226e9407d3432cdbaa518b10af9a5d5dc7bef0036e204848fbda3a3ffbe5",
+            "frames.py": "82c23f7382f862d3b95960b017dda278022ccee1f1bc4e9b339bf7c45ba8dede",
+            "library.py": "7d1613c28f01453270c8a53bf0e3f015bf197dff25b43edc764802e1e1306e5b",
+            "literal_evidence.py": "4dff854bea0a7ae453be35ee016be2533d9ed0b08b98b7ee4a28d2f10b5983fa",
+            "local_reader.py": "6e7a6702f8296b63dd8a2be292ef620c9e67ed6170770e1222cfee58e23ea815",
+            "operational_evidence.py": "ac4ac4c1b9df9f412323674083dbc1bdb83a6570b8576fde9969eddafd791580",
+            "passages.py": "fae27b547e0cd848ce8a720914eaede5cd371b7db3144a4a68141889569fe5ec",
+            "pipeline.py": "25af0fa7a0aafb8ade6836fd7a188e329de27664d355a703d8db2577bf545be7",
+            "policy_evidence.py": "90ae363e5b2b92c52ef24a9ff4d820821a76729f012831c51e27f3ad54492c35",
+            "practical_evidence.py": "0ad115570d1a5c1f756f2931e331a083d6f9ca6f7512223b5160278f5cda33af",
+            "procedures.py": "d66b180651cc35df32a92e33f7df9ae5e031f2fba53ed769c2caddc37fa94523",
+            "relation_graph.py": "b6757451ecfd718063ffa0d5aa0104344cc0b9fdd9550a884407367032c435f1",
+            "support.py": "d5d39570ad777c424e9d7a5ff674d2b97b8fac6baff18ed4ca4ccb89e7e99825"
+          }
+        }
+      },
+      "text": ""
+    },
+    {
+      "case": {
+        "domain": "textiles",
+        "question": "What is the purpose of code LM6?",
+        "bodies": [
+          "Bag code LM6 is for warp labels."
+        ],
+        "kind": "return",
+        "quote": "Bag code LM6 is for warp labels."
+      },
+      "passed": true,
+      "observed": {
+        "kind": "return",
+        "question": "What is the purpose of code LM6?",
+        "profile": "internal",
+        "root": "/tmp/tmpujf7yqi8",
+        "reason": "Exact source-declared relation path; source truth and procedure execution not verified.",
+        "id": "UNFAMILIAR-000",
+        "path": "unfamiliar-000.html",
+        "hash": "sha256:188d7663afd326ec1af345ccc5f8646ee8f1130e0fc55eceb76404226e4eebbf",
+        "depth": 0,
+        "text": "Bag code LM6 is for warp labels.",
+        "candidates": [],
+        "known": [
+          "code",
+          "lm6"
+        ],
+        "unknown": [
+          "purpose"
+        ],
+        "matched_on": "literal body statement",
+        "withheld": [],
+        "set_aside": [],
+        "quarantined": 0,
+        "route": [],
+        "answer_support": {
+          "status": "supported",
+          "version": "source-relation-graph-v2",
+          "frame": {
+            "relation": "code_purpose",
+            "entity": "lm6",
+            "canonical": "what is the purpose of code lm6",
+            "other": "",
+            "version": "source-relation-graph-v2",
+            "general_entailment": false,
+            "graph_type": "source_body_only",
+            "world_verified": false,
+            "execution_verified": false,
+            "inference_permitted": false,
+            "qualified_quote_required": true
+          },
+          "spans": [
+            {
+              "quote": "Bag code LM6 is for warp labels.",
+              "value": "warp labels",
+              "qualification": "",
+              "polarity": "positive"
+            }
+          ],
+          "candidate_checks": [
+            {
+              "id": "UNFAMILIAR-000",
+              "hash": "sha256:188d7663afd326ec1af345ccc5f8646ee8f1130e0fc55eceb76404226e4eebbf",
+              "status": "supported",
+              "spans": [
+                {
+                  "quote": "Bag code LM6 is for warp labels.",
+                  "value": "warp labels",
+                  "qualification": "",
+                  "polarity": "positive"
+                }
+              ],
+              "negative_spans": [],
+              "unresolved_spans": [],
+              "assertions": [
+                {
+                  "subject": "lm6",
+                  "relation": "code_purpose",
+                  "value": "warp labels",
+                  "polarity": "positive",
+                  "qualification": "",
+                  "source_id": "UNFAMILIAR-000",
+                  "source_hash": "sha256:188d7663afd326ec1af345ccc5f8646ee8f1130e0fc55eceb76404226e4eebbf",
+                  "path": "unfamiliar-000.html",
+                  "quote": "Bag code LM6 is for warp labels."
+                }
+              ]
+            }
+          ],
+          "unresolved": false,
+          "negative_spans": [],
+          "unresolved_spans": [],
+          "graph": {
+            "version": "source-relation-graph-v2",
+            "nodes": [
+              {
+                "id": "q",
+                "kind": "question",
+                "text": "what is the purpose of code lm6"
+              },
+              {
+                "id": "p",
+                "kind": "predicate",
+                "text": "code_purpose"
+              },
+              {
+                "id": "s",
+                "kind": "entity",
+                "text": "lm6"
+              },
+              {
+                "id": "doc",
+                "kind": "source",
+                "record_id": "UNFAMILIAR-000",
+                "hash": "sha256:188d7663afd326ec1af345ccc5f8646ee8f1130e0fc55eceb76404226e4eebbf",
+                "path": "unfamiliar-000.html"
+              },
+              {
+                "id": "fact:0",
+                "kind": "statement",
+                "quote": "Bag code LM6 is for warp labels.",
+                "polarity": "positive"
+              },
+              {
+                "id": "value:0",
+                "kind": "value",
+                "text": "warp labels"
+              }
+            ],
+            "edges": [
+              {
+                "from": "q",
+                "to": "p",
+                "type": "asks"
+              },
+              {
+                "from": "p",
+                "to": "s",
+                "type": "targets"
+              },
+              {
+                "from": "doc",
+                "to": "fact:0",
+                "type": "declares"
+              },
+              {
+                "from": "fact:0",
+                "to": "p",
+                "type": "asserts_relation"
+              },
+              {
+                "from": "fact:0",
+                "to": "s",
+                "type": "asserts_subject"
+              },
+              {
+                "from": "fact:0",
+                "to": "value:0",
+                "type": "supplies_value"
+              }
+            ],
+            "proof_kind": "exact_source_statement",
+            "independent_sources_verified": false,
+            "world_verified": false,
+            "execution_verified": false,
+            "multi_hop_inference": false
+          },
+          "reason": "Exact source-declared relation path; source truth and procedure execution not verified.",
+          "assertions": [
+            {
+              "subject": "lm6",
+              "relation": "code_purpose",
+              "value": "warp labels",
+              "polarity": "positive",
+              "qualification": "",
+              "source_id": "UNFAMILIAR-000",
+              "source_hash": "sha256:188d7663afd326ec1af345ccc5f8646ee8f1130e0fc55eceb76404226e4eebbf",
+              "path": "unfamiliar-000.html",
+              "quote": "Bag code LM6 is for warp labels."
+            }
+          ],
+          "code_sha256": {
+            "__init__.py": "d57d776eaaea962867814b5af3f0ac836fdd0c70ffbde910a801e6240697a095",
+            "__main__.py": "f793ef475c212f719511b9326501c41503f66252008376516db2646fe1485820",
+            "assertions.py": "54a8a56e2e19bd3565098a3b66f28da590341405a454cf154319686ea0a51458",
+            "body_text.py": "0c02ba271796c6aafb985f3ef6ea95902086052cf030c471c226d1f6cbd79c44",
+            "evaluate.py": "8c6e4444d661f5a2982338a45673ff594ae4cc4a86d3ec6e0bce6b7f77c90969",
+            "evaluation.py": "4d58e13a85f6edb1443bf156baaa48b1cdf72ce38e5e16a0ce53d195ac395715",
+            "evidence_contract.py": "5fb4226e9407d3432cdbaa518b10af9a5d5dc7bef0036e204848fbda3a3ffbe5",
+            "frames.py": "82c23f7382f862d3b95960b017dda278022ccee1f1bc4e9b339bf7c45ba8dede",
+            "library.py": "7d1613c28f01453270c8a53bf0e3f015bf197dff25b43edc764802e1e1306e5b",
+            "literal_evidence.py": "4dff854bea0a7ae453be35ee016be2533d9ed0b08b98b7ee4a28d2f10b5983fa",
+            "local_reader.py": "6e7a6702f8296b63dd8a2be292ef620c9e67ed6170770e1222cfee58e23ea815",
+            "operational_evidence.py": "ac4ac4c1b9df9f412323674083dbc1bdb83a6570b8576fde9969eddafd791580",
+            "passages.py": "fae27b547e0cd848ce8a720914eaede5cd371b7db3144a4a68141889569fe5ec",
+            "pipeline.py": "25af0fa7a0aafb8ade6836fd7a188e329de27664d355a703d8db2577bf545be7",
+            "policy_evidence.py": "90ae363e5b2b92c52ef24a9ff4d820821a76729f012831c51e27f3ad54492c35",
+            "practical_evidence.py": "0ad115570d1a5c1f756f2931e331a083d6f9ca6f7512223b5160278f5cda33af",
+            "procedures.py": "d66b180651cc35df32a92e33f7df9ae5e031f2fba53ed769c2caddc37fa94523",
+            "relation_graph.py": "b6757451ecfd718063ffa0d5aa0104344cc0b9fdd9550a884407367032c435f1",
+            "support.py": "d5d39570ad777c424e9d7a5ff674d2b97b8fac6baff18ed4ca4ccb89e7e99825"
+          }
+        }
+      },
+      "text": "Bag code LM6 is for warp labels."
+    },
+    {
+      "case": {
+        "domain": "textiles",
+        "question": "What is the purpose of code LM6?",
+        "bodies": [
+          "Bag code LM6 is for warp labels. Bag code LM6 is not for warp labels."
+        ],
+        "kind": "ambiguous"
+      },
+      "passed": true,
+      "observed": {
+        "kind": "ambiguous",
+        "question": "What is the purpose of code LM6?",
+        "profile": "internal",
+        "root": "/tmp/tmp4gbpuzmz",
+        "reason": "Conflicting or multiple eligible supporting source statements.",
+        "id": null,
+        "path": null,
+        "hash": null,
+        "depth": null,
+        "text": "",
+        "candidates": [],
+        "known": [
+          "code",
+          "lm6"
+        ],
+        "unknown": [
+          "purpose"
+        ],
+        "matched_on": "",
+        "withheld": [],
+        "set_aside": [],
+        "quarantined": 0,
+        "route": [],
+        "answer_support": {
+          "status": "conflict",
+          "version": "source-relation-graph-v2",
+          "frame": {
+            "relation": "code_purpose",
+            "entity": "lm6",
+            "canonical": "what is the purpose of code lm6",
+            "other": "",
+            "version": "source-relation-graph-v2",
+            "general_entailment": false,
+            "graph_type": "source_body_only",
+            "world_verified": false,
+            "execution_verified": false,
+            "inference_permitted": false,
+            "qualified_quote_required": true
+          },
+          "spans": [],
+          "candidate_checks": [
+            {
+              "id": "UNFAMILIAR-000",
+              "hash": "sha256:5182aa7cba60dea029a756f8d4671552729ab0a7529404941b5a74496a9dcef5",
+              "status": "conflict",
+              "spans": [
+                {
+                  "quote": "Bag code LM6 is for warp labels.",
+                  "value": "warp labels",
+                  "qualification": "",
+                  "polarity": "positive"
+                }
+              ],
+              "negative_spans": [
+                {
+                  "quote": "Bag code LM6 is not for warp labels.",
+                  "value": "warp labels",
+                  "qualification": "",
+                  "polarity": "negative"
+                }
+              ],
+              "unresolved_spans": [],
+              "assertions": [
+                {
+                  "subject": "lm6",
+                  "relation": "code_purpose",
+                  "value": "warp labels",
+                  "polarity": "positive",
+                  "qualification": "",
+                  "source_id": "UNFAMILIAR-000",
+                  "source_hash": "sha256:5182aa7cba60dea029a756f8d4671552729ab0a7529404941b5a74496a9dcef5",
+                  "path": "unfamiliar-000.html",
+                  "quote": "Bag code LM6 is for warp labels."
+                },
+                {
+                  "subject": "lm6",
+                  "relation": "code_purpose",
+                  "value": "warp labels",
+                  "polarity": "negative",
+                  "qualification": "",
+                  "source_id": "UNFAMILIAR-000",
+                  "source_hash": "sha256:5182aa7cba60dea029a756f8d4671552729ab0a7529404941b5a74496a9dcef5",
+                  "path": "unfamiliar-000.html",
+                  "quote": "Bag code LM6 is not for warp labels."
+                }
+              ]
+            }
+          ],
+          "unresolved": false,
+          "reason": "Conflicting or multiple eligible supporting source statements.",
+          "code_sha256": {
+            "__init__.py": "d57d776eaaea962867814b5af3f0ac836fdd0c70ffbde910a801e6240697a095",
+            "__main__.py": "f793ef475c212f719511b9326501c41503f66252008376516db2646fe1485820",
+            "assertions.py": "54a8a56e2e19bd3565098a3b66f28da590341405a454cf154319686ea0a51458",
+            "body_text.py": "0c02ba271796c6aafb985f3ef6ea95902086052cf030c471c226d1f6cbd79c44",
+            "evaluate.py": "8c6e4444d661f5a2982338a45673ff594ae4cc4a86d3ec6e0bce6b7f77c90969",
+            "evaluation.py": "4d58e13a85f6edb1443bf156baaa48b1cdf72ce38e5e16a0ce53d195ac395715",
+            "evidence_contract.py": "5fb4226e9407d3432cdbaa518b10af9a5d5dc7bef0036e204848fbda3a3ffbe5",
+            "frames.py": "82c23f7382f862d3b95960b017dda278022ccee1f1bc4e9b339bf7c45ba8dede",
+            "library.py": "7d1613c28f01453270c8a53bf0e3f015bf197dff25b43edc764802e1e1306e5b",
+            "literal_evidence.py": "4dff854bea0a7ae453be35ee016be2533d9ed0b08b98b7ee4a28d2f10b5983fa",
+            "local_reader.py": "6e7a6702f8296b63dd8a2be292ef620c9e67ed6170770e1222cfee58e23ea815",
+            "operational_evidence.py": "ac4ac4c1b9df9f412323674083dbc1bdb83a6570b8576fde9969eddafd791580",
+            "passages.py": "fae27b547e0cd848ce8a720914eaede5cd371b7db3144a4a68141889569fe5ec",
+            "pipeline.py": "25af0fa7a0aafb8ade6836fd7a188e329de27664d355a703d8db2577bf545be7",
+            "policy_evidence.py": "90ae363e5b2b92c52ef24a9ff4d820821a76729f012831c51e27f3ad54492c35",
+            "practical_evidence.py": "0ad115570d1a5c1f756f2931e331a083d6f9ca6f7512223b5160278f5cda33af",
+            "procedures.py": "d66b180651cc35df32a92e33f7df9ae5e031f2fba53ed769c2caddc37fa94523",
+            "relation_graph.py": "b6757451ecfd718063ffa0d5aa0104344cc0b9fdd9550a884407367032c435f1",
+            "support.py": "d5d39570ad777c424e9d7a5ff674d2b97b8fac6baff18ed4ca4ccb89e7e99825"
+          }
+        }
+      },
+      "text": ""
+    },
+    {
+      "case": {
+        "domain": "textiles",
+        "question": "What is code LM6 for?",
+        "bodies": [
+          "Bag code LM8 is for warp labels."
+        ],
+        "kind": "not_in_corpus"
+      },
+      "passed": true,
+      "observed": {
+        "kind": "not_in_corpus",
+        "question": "What is code LM6 for?",
+        "profile": "internal",
+        "root": "/tmp/tmpnnd52ufd",
+        "reason": "No eligible body statement supports the complete literal question.",
+        "id": null,
+        "path": null,
+        "hash": null,
+        "depth": null,
+        "text": "",
+        "candidates": [],
+        "known": [
+          "code"
+        ],
+        "unknown": [
+          "lm6"
+        ],
+        "matched_on": "",
+        "withheld": [],
+        "set_aside": [],
+        "quarantined": 0,
+        "route": [],
+        "answer_support": {
+          "status": "unsupported",
+          "version": "source-relation-graph-v2",
+          "frame": {
+            "relation": "code_purpose",
+            "entity": "lm6",
+            "canonical": "what is code lm6 for",
+            "other": "",
+            "version": "source-relation-graph-v2",
+            "general_entailment": false,
+            "graph_type": "source_body_only",
+            "world_verified": false,
+            "execution_verified": false,
+            "inference_permitted": false,
+            "qualified_quote_required": true
+          },
+          "spans": [],
+          "candidate_checks": [
+            {
+              "id": "UNFAMILIAR-000",
+              "hash": "sha256:e99f1e349847ac79e4d881cae88b1e64ccd311d5d54cd4b84a312fced6f80fdb",
+              "status": "unsupported",
+              "spans": [],
+              "negative_spans": [],
+              "unresolved_spans": [],
+              "assertions": []
+            }
+          ],
+          "unresolved": false,
+          "reason": "No eligible body statement supports the complete literal question.",
+          "code_sha256": {
+            "__init__.py": "d57d776eaaea962867814b5af3f0ac836fdd0c70ffbde910a801e6240697a095",
+            "__main__.py": "f793ef475c212f719511b9326501c41503f66252008376516db2646fe1485820",
+            "assertions.py": "54a8a56e2e19bd3565098a3b66f28da590341405a454cf154319686ea0a51458",
+            "body_text.py": "0c02ba271796c6aafb985f3ef6ea95902086052cf030c471c226d1f6cbd79c44",
+            "evaluate.py": "8c6e4444d661f5a2982338a45673ff594ae4cc4a86d3ec6e0bce6b7f77c90969",
+            "evaluation.py": "4d58e13a85f6edb1443bf156baaa48b1cdf72ce38e5e16a0ce53d195ac395715",
+            "evidence_contract.py": "5fb4226e9407d3432cdbaa518b10af9a5d5dc7bef0036e204848fbda3a3ffbe5",
+            "frames.py": "82c23f7382f862d3b95960b017dda278022ccee1f1bc4e9b339bf7c45ba8dede",
+            "library.py": "7d1613c28f01453270c8a53bf0e3f015bf197dff25b43edc764802e1e1306e5b",
+            "literal_evidence.py": "4dff854bea0a7ae453be35ee016be2533d9ed0b08b98b7ee4a28d2f10b5983fa",
+            "local_reader.py": "6e7a6702f8296b63dd8a2be292ef620c9e67ed6170770e1222cfee58e23ea815",
+            "operational_evidence.py": "ac4ac4c1b9df9f412323674083dbc1bdb83a6570b8576fde9969eddafd791580",
+            "passages.py": "fae27b547e0cd848ce8a720914eaede5cd371b7db3144a4a68141889569fe5ec",
+            "pipeline.py": "25af0fa7a0aafb8ade6836fd7a188e329de27664d355a703d8db2577bf545be7",
+            "policy_evidence.py": "90ae363e5b2b92c52ef24a9ff4d820821a76729f012831c51e27f3ad54492c35",
+            "practical_evidence.py": "0ad115570d1a5c1f756f2931e331a083d6f9ca6f7512223b5160278f5cda33af",
+            "procedures.py": "d66b180651cc35df32a92e33f7df9ae5e031f2fba53ed769c2caddc37fa94523",
+            "relation_graph.py": "b6757451ecfd718063ffa0d5aa0104344cc0b9fdd9550a884407367032c435f1",
+            "support.py": "d5d39570ad777c424e9d7a5ff674d2b97b8fac6baff18ed4ca4ccb89e7e99825"
+          }
+        }
+      },
+      "text": ""
+    },
+    {
+      "case": {
+        "domain": "textiles",
+        "question": "Where should we keep loom shuttles?",
+        "bodies": [
+          "<h2>Store loom shuttles in cedar chest.</h2>No placement recorded."
+        ],
+        "kind": "not_in_corpus"
+      },
+      "passed": true,
+      "observed": {
+        "kind": "not_in_corpus",
+        "question": "Where should we keep loom shuttles?",
+        "profile": "internal",
+        "root": "/tmp/tmpodua1mrc",
+        "reason": "No eligible body statement supports the complete literal question.",
+        "id": null,
+        "path": null,
+        "hash": null,
+        "depth": null,
+        "text": "",
+        "candidates": [],
+        "known": [
+          "loom",
+          "shuttles"
+        ],
+        "unknown": [
+          "keep"
+        ],
+        "matched_on": "",
+        "withheld": [],
+        "set_aside": [],
+        "quarantined": 0,
+        "route": [],
+        "answer_support": {
+          "status": "unsupported",
+          "version": "source-relation-graph-v2",
+          "frame": {
+            "relation": "storage_rule",
+            "entity": "loom shuttles",
+            "canonical": "where should we keep loom shuttles",
+            "other": "",
+            "version": "source-relation-graph-v2",
+            "general_entailment": false,
+            "graph_type": "source_body_only",
+            "world_verified": false,
+            "execution_verified": false,
+            "inference_permitted": false,
+            "qualified_quote_required": true
+          },
+          "spans": [],
+          "candidate_checks": [
+            {
+              "id": "UNFAMILIAR-000",
+              "hash": "sha256:eb07030346a016250a5a09e4709046b0136ab7ca9c09fe0dbf4406ed42637388",
+              "status": "unsupported",
+              "spans": [],
+              "negative_spans": [],
+              "unresolved_spans": [],
+              "assertions": []
+            }
+          ],
+          "unresolved": false,
+          "reason": "No eligible body statement supports the complete literal question.",
+          "code_sha256": {
+            "__init__.py": "d57d776eaaea962867814b5af3f0ac836fdd0c70ffbde910a801e6240697a095",
+            "__main__.py": "f793ef475c212f719511b9326501c41503f66252008376516db2646fe1485820",
+            "assertions.py": "54a8a56e2e19bd3565098a3b66f28da590341405a454cf154319686ea0a51458",
+            "body_text.py": "0c02ba271796c6aafb985f3ef6ea95902086052cf030c471c226d1f6cbd79c44",
+            "evaluate.py": "8c6e4444d661f5a2982338a45673ff594ae4cc4a86d3ec6e0bce6b7f77c90969",
+            "evaluation.py": "4d58e13a85f6edb1443bf156baaa48b1cdf72ce38e5e16a0ce53d195ac395715",
+            "evidence_contract.py": "5fb4226e9407d3432cdbaa518b10af9a5d5dc7bef0036e204848fbda3a3ffbe5",
+            "frames.py": "82c23f7382f862d3b95960b017dda278022ccee1f1bc4e9b339bf7c45ba8dede",
+            "library.py": "7d1613c28f01453270c8a53bf0e3f015bf197dff25b43edc764802e1e1306e5b",
+            "literal_evidence.py": "4dff854bea0a7ae453be35ee016be2533d9ed0b08b98b7ee4a28d2f10b5983fa",
+            "local_reader.py": "6e7a6702f8296b63dd8a2be292ef620c9e67ed6170770e1222cfee58e23ea815",
+            "operational_evidence.py": "ac4ac4c1b9df9f412323674083dbc1bdb83a6570b8576fde9969eddafd791580",
+            "passages.py": "fae27b547e0cd848ce8a720914eaede5cd371b7db3144a4a68141889569fe5ec",
+            "pipeline.py": "25af0fa7a0aafb8ade6836fd7a188e329de27664d355a703d8db2577bf545be7",
+            "policy_evidence.py": "90ae363e5b2b92c52ef24a9ff4d820821a76729f012831c51e27f3ad54492c35",
+            "practical_evidence.py": "0ad115570d1a5c1f756f2931e331a083d6f9ca6f7512223b5160278f5cda33af",
+            "procedures.py": "d66b180651cc35df32a92e33f7df9ae5e031f2fba53ed769c2caddc37fa94523",
+            "relation_graph.py": "b6757451ecfd718063ffa0d5aa0104344cc0b9fdd9550a884407367032c435f1",
+            "support.py": "d5d39570ad777c424e9d7a5ff674d2b97b8fac6baff18ed4ca4ccb89e7e99825"
+          }
+        }
+      },
+      "text": ""
+    },
+    {
+      "case": {
+        "domain": "fictional logistics",
+        "question": "When is zorvex scheduled?",
+        "bodies": [
+          "Zorvex is scheduled for 2029-08-15.",
+          "Zorvex is not scheduled for 2029-08-15."
+        ],
+        "kind": "ambiguous"
+      },
+      "passed": true,
+      "observed": {
+        "kind": "ambiguous",
+        "question": "When is zorvex scheduled?",
+        "profile": "internal",
+        "root": "/tmp/tmpv_4e1f5s",
+        "reason": "Conflicting or multiple eligible supporting source statements.",
+        "id": null,
+        "path": null,
+        "hash": null,
+        "depth": null,
+        "text": "",
+        "candidates": [],
+        "known": [
+          "scheduled",
+          "zorvex"
+        ],
+        "unknown": [],
+        "matched_on": "prose",
+        "withheld": [],
+        "set_aside": [],
+        "quarantined": 0,
+        "route": [],
+        "answer_support": {
+          "status": "conflict",
+          "version": "source-relation-graph-v2",
+          "frame": {
+            "relation": "scheduled_date",
+            "entity": "zorvex",
+            "canonical": "when is zorvex scheduled",
+            "other": "",
+            "version": "source-relation-graph-v2",
+            "general_entailment": false,
+            "graph_type": "source_body_only",
+            "world_verified": false,
+            "execution_verified": false,
+            "inference_permitted": false,
+            "qualified_quote_required": true
+          },
+          "spans": [],
+          "candidate_checks": [
+            {
+              "id": "UNFAMILIAR-000",
+              "hash": "sha256:57a2c2812a4164aa08ea4ab846cdf398d9e9fd668bef40da30233329da638abb",
+              "status": "supported",
+              "spans": [
+                {
+                  "quote": "Zorvex is scheduled for 2029-08-15.",
+                  "value": "2029-08-15",
+                  "qualification": "",
+                  "polarity": "positive"
+                }
+              ],
+              "negative_spans": [],
+              "unresolved_spans": [],
+              "assertions": [
+                {
+                  "subject": "zorvex",
+                  "relation": "scheduled_date",
+                  "value": "2029-08-15",
+                  "polarity": "positive",
+                  "qualification": "",
+                  "source_id": "UNFAMILIAR-000",
+                  "source_hash": "sha256:57a2c2812a4164aa08ea4ab846cdf398d9e9fd668bef40da30233329da638abb",
+                  "path": "unfamiliar-000.html",
+                  "quote": "Zorvex is scheduled for 2029-08-15."
+                }
+              ]
+            },
+            {
+              "id": "UNFAMILIAR-001",
+              "hash": "sha256:baadcf7ec516c6f294ed56188a0b1fc4afd796013c40e0a4a23d76db6fe01a69",
+              "status": "unsupported",
+              "spans": [],
+              "negative_spans": [
+                {
+                  "quote": "Zorvex is not scheduled for 2029-08-15.",
+                  "value": "2029-08-15",
+                  "qualification": "",
+                  "polarity": "negative"
+                }
+              ],
+              "unresolved_spans": [],
+              "assertions": [
+                {
+                  "subject": "zorvex",
+                  "relation": "scheduled_date",
+                  "value": "2029-08-15",
+                  "polarity": "negative",
+                  "qualification": "",
+                  "source_id": "UNFAMILIAR-001",
+                  "source_hash": "sha256:baadcf7ec516c6f294ed56188a0b1fc4afd796013c40e0a4a23d76db6fe01a69",
+                  "path": "unfamiliar-001.html",
+                  "quote": "Zorvex is not scheduled for 2029-08-15."
+                }
+              ]
+            }
+          ],
+          "unresolved": false,
+          "reason": "Conflicting or multiple eligible supporting source statements.",
+          "code_sha256": {
+            "__init__.py": "d57d776eaaea962867814b5af3f0ac836fdd0c70ffbde910a801e6240697a095",
+            "__main__.py": "f793ef475c212f719511b9326501c41503f66252008376516db2646fe1485820",
+            "assertions.py": "54a8a56e2e19bd3565098a3b66f28da590341405a454cf154319686ea0a51458",
+            "body_text.py": "0c02ba271796c6aafb985f3ef6ea95902086052cf030c471c226d1f6cbd79c44",
+            "evaluate.py": "8c6e4444d661f5a2982338a45673ff594ae4cc4a86d3ec6e0bce6b7f77c90969",
+            "evaluation.py": "4d58e13a85f6edb1443bf156baaa48b1cdf72ce38e5e16a0ce53d195ac395715",
+            "evidence_contract.py": "5fb4226e9407d3432cdbaa518b10af9a5d5dc7bef0036e204848fbda3a3ffbe5",
+            "frames.py": "82c23f7382f862d3b95960b017dda278022ccee1f1bc4e9b339bf7c45ba8dede",
+            "library.py": "7d1613c28f01453270c8a53bf0e3f015bf197dff25b43edc764802e1e1306e5b",
+            "literal_evidence.py": "4dff854bea0a7ae453be35ee016be2533d9ed0b08b98b7ee4a28d2f10b5983fa",
+            "local_reader.py": "6e7a6702f8296b63dd8a2be292ef620c9e67ed6170770e1222cfee58e23ea815",
+            "operational_evidence.py": "ac4ac4c1b9df9f412323674083dbc1bdb83a6570b8576fde9969eddafd791580",
+            "passages.py": "fae27b547e0cd848ce8a720914eaede5cd371b7db3144a4a68141889569fe5ec",
+            "pipeline.py": "25af0fa7a0aafb8ade6836fd7a188e329de27664d355a703d8db2577bf545be7",
+            "policy_evidence.py": "90ae363e5b2b92c52ef24a9ff4d820821a76729f012831c51e27f3ad54492c35",
+            "practical_evidence.py": "0ad115570d1a5c1f756f2931e331a083d6f9ca6f7512223b5160278f5cda33af",
+            "procedures.py": "d66b180651cc35df32a92e33f7df9ae5e031f2fba53ed769c2caddc37fa94523",
+            "relation_graph.py": "b6757451ecfd718063ffa0d5aa0104344cc0b9fdd9550a884407367032c435f1",
+            "support.py": "d5d39570ad777c424e9d7a5ff674d2b97b8fac6baff18ed4ca4ccb89e7e99825"
+          }
+        }
+      },
+      "text": ""
+    },
+    {
+      "case": {
+        "domain": "fictional logistics",
+        "question": "When is zorvex scheduled?",
+        "bodies": [
+          "Zorvex is scheduled for 2029-08-15."
+        ],
+        "kind": "return",
+        "quote": "Zorvex is scheduled for 2029-08-15."
+      },
+      "passed": true,
+      "observed": {
+        "kind": "return",
+        "question": "When is zorvex scheduled?",
+        "profile": "internal",
+        "root": "/tmp/tmpkgzq5zw9",
+        "reason": "Exact source-declared relation path; source truth and procedure execution not verified.",
+        "id": "UNFAMILIAR-000",
+        "path": "unfamiliar-000.html",
+        "hash": "sha256:57a2c2812a4164aa08ea4ab846cdf398d9e9fd668bef40da30233329da638abb",
+        "depth": 0,
+        "text": "Zorvex is scheduled for 2029-08-15.",
+        "candidates": [],
+        "known": [
+          "scheduled",
+          "zorvex"
+        ],
+        "unknown": [],
+        "matched_on": "literal body statement",
+        "withheld": [],
+        "set_aside": [],
+        "quarantined": 0,
+        "route": [],
+        "answer_support": {
+          "status": "supported",
+          "version": "source-relation-graph-v2",
+          "frame": {
+            "relation": "scheduled_date",
+            "entity": "zorvex",
+            "canonical": "when is zorvex scheduled",
+            "other": "",
+            "version": "source-relation-graph-v2",
+            "general_entailment": false,
+            "graph_type": "source_body_only",
+            "world_verified": false,
+            "execution_verified": false,
+            "inference_permitted": false,
+            "qualified_quote_required": true
+          },
+          "spans": [
+            {
+              "quote": "Zorvex is scheduled for 2029-08-15.",
+              "value": "2029-08-15",
+              "qualification": "",
+              "polarity": "positive"
+            }
+          ],
+          "candidate_checks": [
+            {
+              "id": "UNFAMILIAR-000",
+              "hash": "sha256:57a2c2812a4164aa08ea4ab846cdf398d9e9fd668bef40da30233329da638abb",
+              "status": "supported",
+              "spans": [
+                {
+                  "quote": "Zorvex is scheduled for 2029-08-15.",
+                  "value": "2029-08-15",
+                  "qualification": "",
+                  "polarity": "positive"
+                }
+              ],
+              "negative_spans": [],
+              "unresolved_spans": [],
+              "assertions": [
+                {
+                  "subject": "zorvex",
+                  "relation": "scheduled_date",
+                  "value": "2029-08-15",
+                  "polarity": "positive",
+                  "qualification": "",
+                  "source_id": "UNFAMILIAR-000",
+                  "source_hash": "sha256:57a2c2812a4164aa08ea4ab846cdf398d9e9fd668bef40da30233329da638abb",
+                  "path": "unfamiliar-000.html",
+                  "quote": "Zorvex is scheduled for 2029-08-15."
+                }
+              ]
+            }
+          ],
+          "unresolved": false,
+          "negative_spans": [],
+          "unresolved_spans": [],
+          "graph": {
+            "version": "source-relation-graph-v2",
+            "nodes": [
+              {
+                "id": "q",
+                "kind": "question",
+                "text": "when is zorvex scheduled"
+              },
+              {
+                "id": "p",
+                "kind": "predicate",
+                "text": "scheduled_date"
+              },
+              {
+                "id": "s",
+                "kind": "entity",
+                "text": "zorvex"
+              },
+              {
+                "id": "doc",
+                "kind": "source",
+                "record_id": "UNFAMILIAR-000",
+                "hash": "sha256:57a2c2812a4164aa08ea4ab846cdf398d9e9fd668bef40da30233329da638abb",
+                "path": "unfamiliar-000.html"
+              },
+              {
+                "id": "fact:0",
+                "kind": "statement",
+                "quote": "Zorvex is scheduled for 2029-08-15.",
+                "polarity": "positive"
+              },
+              {
+                "id": "value:0",
+                "kind": "value",
+                "text": "2029-08-15"
+              }
+            ],
+            "edges": [
+              {
+                "from": "q",
+                "to": "p",
+                "type": "asks"
+              },
+              {
+                "from": "p",
+                "to": "s",
+                "type": "targets"
+              },
+              {
+                "from": "doc",
+                "to": "fact:0",
+                "type": "declares"
+              },
+              {
+                "from": "fact:0",
+                "to": "p",
+                "type": "asserts_relation"
+              },
+              {
+                "from": "fact:0",
+                "to": "s",
+                "type": "asserts_subject"
+              },
+              {
+                "from": "fact:0",
+                "to": "value:0",
+                "type": "supplies_value"
+              }
+            ],
+            "proof_kind": "exact_source_statement",
+            "independent_sources_verified": false,
+            "world_verified": false,
+            "execution_verified": false,
+            "multi_hop_inference": false
+          },
+          "reason": "Exact source-declared relation path; source truth and procedure execution not verified.",
+          "assertions": [
+            {
+              "subject": "zorvex",
+              "relation": "scheduled_date",
+              "value": "2029-08-15",
+              "polarity": "positive",
+              "qualification": "",
+              "source_id": "UNFAMILIAR-000",
+              "source_hash": "sha256:57a2c2812a4164aa08ea4ab846cdf398d9e9fd668bef40da30233329da638abb",
+              "path": "unfamiliar-000.html",
+              "quote": "Zorvex is scheduled for 2029-08-15."
+            }
+          ],
+          "code_sha256": {
+            "__init__.py": "d57d776eaaea962867814b5af3f0ac836fdd0c70ffbde910a801e6240697a095",
+            "__main__.py": "f793ef475c212f719511b9326501c41503f66252008376516db2646fe1485820",
+            "assertions.py": "54a8a56e2e19bd3565098a3b66f28da590341405a454cf154319686ea0a51458",
+            "body_text.py": "0c02ba271796c6aafb985f3ef6ea95902086052cf030c471c226d1f6cbd79c44",
+            "evaluate.py": "8c6e4444d661f5a2982338a45673ff594ae4cc4a86d3ec6e0bce6b7f77c90969",
+            "evaluation.py": "4d58e13a85f6edb1443bf156baaa48b1cdf72ce38e5e16a0ce53d195ac395715",
+            "evidence_contract.py": "5fb4226e9407d3432cdbaa518b10af9a5d5dc7bef0036e204848fbda3a3ffbe5",
+            "frames.py": "82c23f7382f862d3b95960b017dda278022ccee1f1bc4e9b339bf7c45ba8dede",
+            "library.py": "7d1613c28f01453270c8a53bf0e3f015bf197dff25b43edc764802e1e1306e5b",
+            "literal_evidence.py": "4dff854bea0a7ae453be35ee016be2533d9ed0b08b98b7ee4a28d2f10b5983fa",
+            "local_reader.py": "6e7a6702f8296b63dd8a2be292ef620c9e67ed6170770e1222cfee58e23ea815",
+            "operational_evidence.py": "ac4ac4c1b9df9f412323674083dbc1bdb83a6570b8576fde9969eddafd791580",
+            "passages.py": "fae27b547e0cd848ce8a720914eaede5cd371b7db3144a4a68141889569fe5ec",
+            "pipeline.py": "25af0fa7a0aafb8ade6836fd7a188e329de27664d355a703d8db2577bf545be7",
+            "policy_evidence.py": "90ae363e5b2b92c52ef24a9ff4d820821a76729f012831c51e27f3ad54492c35",
+            "practical_evidence.py": "0ad115570d1a5c1f756f2931e331a083d6f9ca6f7512223b5160278f5cda33af",
+            "procedures.py": "d66b180651cc35df32a92e33f7df9ae5e031f2fba53ed769c2caddc37fa94523",
+            "relation_graph.py": "b6757451ecfd718063ffa0d5aa0104344cc0b9fdd9550a884407367032c435f1",
+            "support.py": "d5d39570ad777c424e9d7a5ff674d2b97b8fac6baff18ed4ca4ccb89e7e99825"
+          }
+        }
+      },
+      "text": "Zorvex is scheduled for 2029-08-15."
+    },
+    {
+      "case": {
+        "domain": "fictional logistics",
+        "question": "Where should they be stored?",
+        "bodies": [
+          "Store zorvex labels in aft locker."
+        ],
+        "kind": "not_in_corpus"
+      },
+      "passed": true,
+      "observed": {
+        "kind": "not_in_corpus",
+        "question": "Where should they be stored?",
+        "profile": "internal",
+        "root": "/tmp/tmp5gvq6_l7",
+        "reason": "No eligible body statement supports the complete literal question.",
+        "id": null,
+        "path": null,
+        "hash": null,
+        "depth": null,
+        "text": "",
+        "candidates": [],
+        "known": [
+          "stored"
+        ],
+        "unknown": [],
+        "matched_on": "prose",
+        "withheld": [],
+        "set_aside": [],
+        "quarantined": 0,
+        "route": [],
+        "answer_support": {
+          "status": "unsupported",
+          "version": "source-relation-graph-v2",
+          "frame": {
+            "relation": "storage_rule",
+            "entity": "they",
+            "canonical": "where should they be stored",
+            "other": "",
+            "version": "source-relation-graph-v2",
+            "general_entailment": false,
+            "graph_type": "source_body_only",
+            "world_verified": false,
+            "execution_verified": false,
+            "inference_permitted": false,
+            "qualified_quote_required": true
+          },
+          "spans": [],
+          "candidate_checks": [
+            {
+              "id": "UNFAMILIAR-000",
+              "hash": "sha256:b3b72c62df9820f227874864e92d5bd0031507c718a12f3203b3ae10a824c971",
+              "status": "unsupported",
+              "spans": [],
+              "negative_spans": [],
+              "unresolved_spans": [],
+              "assertions": []
+            }
+          ],
+          "unresolved": false,
+          "reason": "No eligible body statement supports the complete literal question.",
+          "code_sha256": {
+            "__init__.py": "d57d776eaaea962867814b5af3f0ac836fdd0c70ffbde910a801e6240697a095",
+            "__main__.py": "f793ef475c212f719511b9326501c41503f66252008376516db2646fe1485820",
+            "assertions.py": "54a8a56e2e19bd3565098a3b66f28da590341405a454cf154319686ea0a51458",
+            "body_text.py": "0c02ba271796c6aafb985f3ef6ea95902086052cf030c471c226d1f6cbd79c44",
+            "evaluate.py": "8c6e4444d661f5a2982338a45673ff594ae4cc4a86d3ec6e0bce6b7f77c90969",
+            "evaluation.py": "4d58e13a85f6edb1443bf156baaa48b1cdf72ce38e5e16a0ce53d195ac395715",
+            "evidence_contract.py": "5fb4226e9407d3432cdbaa518b10af9a5d5dc7bef0036e204848fbda3a3ffbe5",
+            "frames.py": "82c23f7382f862d3b95960b017dda278022ccee1f1bc4e9b339bf7c45ba8dede",
+            "library.py": "7d1613c28f01453270c8a53bf0e3f015bf197dff25b43edc764802e1e1306e5b",
+            "literal_evidence.py": "4dff854bea0a7ae453be35ee016be2533d9ed0b08b98b7ee4a28d2f10b5983fa",
+            "local_reader.py": "6e7a6702f8296b63dd8a2be292ef620c9e67ed6170770e1222cfee58e23ea815",
+            "operational_evidence.py": "ac4ac4c1b9df9f412323674083dbc1bdb83a6570b8576fde9969eddafd791580",
+            "passages.py": "fae27b547e0cd848ce8a720914eaede5cd371b7db3144a4a68141889569fe5ec",
+            "pipeline.py": "25af0fa7a0aafb8ade6836fd7a188e329de27664d355a703d8db2577bf545be7",
+            "policy_evidence.py": "90ae363e5b2b92c52ef24a9ff4d820821a76729f012831c51e27f3ad54492c35",
+            "practical_evidence.py": "0ad115570d1a5c1f756f2931e331a083d6f9ca6f7512223b5160278f5cda33af",
+            "procedures.py": "d66b180651cc35df32a92e33f7df9ae5e031f2fba53ed769c2caddc37fa94523",
+            "relation_graph.py": "b6757451ecfd718063ffa0d5aa0104344cc0b9fdd9550a884407367032c435f1",
+            "support.py": "d5d39570ad777c424e9d7a5ff674d2b97b8fac6baff18ed4ca4ccb89e7e99825"
+          }
+        }
+      },
+      "text": ""
+    },
+    {
+      "case": {
+        "domain": "fictional logistics",
+        "question": "Where should we store zorvex labels?",
+        "bodies": [
+          "Store zorvex labels in aft locker.",
+          "Store zorvex labels in aft locker."
+        ],
+        "kind": "ambiguous"
+      },
+      "passed": true,
+      "observed": {
+        "kind": "ambiguous",
+        "question": "Where should we store zorvex labels?",
+        "profile": "internal",
+        "root": "/tmp/tmp2kgnxfyo",
+        "reason": "Conflicting or multiple eligible supporting source statements.",
+        "id": null,
+        "path": null,
+        "hash": null,
+        "depth": null,
+        "text": "",
+        "candidates": [],
+        "known": [
+          "labels",
+          "store",
+          "zorvex"
+        ],
+        "unknown": [],
+        "matched_on": "prose",
+        "withheld": [],
+        "set_aside": [],
+        "quarantined": 0,
+        "route": [],
+        "answer_support": {
+          "status": "conflict",
+          "version": "source-relation-graph-v2",
+          "frame": {
+            "relation": "storage_rule",
+            "entity": "zorvex labels",
+            "canonical": "where should we store zorvex labels",
+            "other": "",
+            "version": "source-relation-graph-v2",
+            "general_entailment": false,
+            "graph_type": "source_body_only",
+            "world_verified": false,
+            "execution_verified": false,
+            "inference_permitted": false,
+            "qualified_quote_required": true
+          },
+          "spans": [],
+          "candidate_checks": [
+            {
+              "id": "UNFAMILIAR-000",
+              "hash": "sha256:b3b72c62df9820f227874864e92d5bd0031507c718a12f3203b3ae10a824c971",
+              "status": "supported",
+              "spans": [
+                {
+                  "quote": "Store zorvex labels in aft locker.",
+                  "value": "aft locker",
+                  "qualification": "",
+                  "polarity": "positive"
+                }
+              ],
+              "negative_spans": [],
+              "unresolved_spans": [],
+              "assertions": [
+                {
+                  "subject": "zorvex labels",
+                  "relation": "storage_rule",
+                  "value": "aft locker",
+                  "polarity": "positive",
+                  "qualification": "",
+                  "source_id": "UNFAMILIAR-000",
+                  "source_hash": "sha256:b3b72c62df9820f227874864e92d5bd0031507c718a12f3203b3ae10a824c971",
+                  "path": "unfamiliar-000.html",
+                  "quote": "Store zorvex labels in aft locker."
+                }
+              ]
+            },
+            {
+              "id": "UNFAMILIAR-001",
+              "hash": "sha256:d788c9f6051eb4d1e042bea082f32ba94d0699585d397475c8d1c1a2a392d2db",
+              "status": "supported",
+              "spans": [
+                {
+                  "quote": "Store zorvex labels in aft locker.",
+                  "value": "aft locker",
+                  "qualification": "",
+                  "polarity": "positive"
+                }
+              ],
+              "negative_spans": [],
+              "unresolved_spans": [],
+              "assertions": [
+                {
+                  "subject": "zorvex labels",
+                  "relation": "storage_rule",
+                  "value": "aft locker",
+                  "polarity": "positive",
+                  "qualification": "",
+                  "source_id": "UNFAMILIAR-001",
+                  "source_hash": "sha256:d788c9f6051eb4d1e042bea082f32ba94d0699585d397475c8d1c1a2a392d2db",
+                  "path": "unfamiliar-001.html",
+                  "quote": "Store zorvex labels in aft locker."
+                }
+              ]
+            }
+          ],
+          "unresolved": false,
+          "reason": "Conflicting or multiple eligible supporting source statements.",
+          "code_sha256": {
+            "__init__.py": "d57d776eaaea962867814b5af3f0ac836fdd0c70ffbde910a801e6240697a095",
+            "__main__.py": "f793ef475c212f719511b9326501c41503f66252008376516db2646fe1485820",
+            "assertions.py": "54a8a56e2e19bd3565098a3b66f28da590341405a454cf154319686ea0a51458",
+            "body_text.py": "0c02ba271796c6aafb985f3ef6ea95902086052cf030c471c226d1f6cbd79c44",
+            "evaluate.py": "8c6e4444d661f5a2982338a45673ff594ae4cc4a86d3ec6e0bce6b7f77c90969",
+            "evaluation.py": "4d58e13a85f6edb1443bf156baaa48b1cdf72ce38e5e16a0ce53d195ac395715",
+            "evidence_contract.py": "5fb4226e9407d3432cdbaa518b10af9a5d5dc7bef0036e204848fbda3a3ffbe5",
+            "frames.py": "82c23f7382f862d3b95960b017dda278022ccee1f1bc4e9b339bf7c45ba8dede",
+            "library.py": "7d1613c28f01453270c8a53bf0e3f015bf197dff25b43edc764802e1e1306e5b",
+            "literal_evidence.py": "4dff854bea0a7ae453be35ee016be2533d9ed0b08b98b7ee4a28d2f10b5983fa",
+            "local_reader.py": "6e7a6702f8296b63dd8a2be292ef620c9e67ed6170770e1222cfee58e23ea815",
+            "operational_evidence.py": "ac4ac4c1b9df9f412323674083dbc1bdb83a6570b8576fde9969eddafd791580",
+            "passages.py": "fae27b547e0cd848ce8a720914eaede5cd371b7db3144a4a68141889569fe5ec",
+            "pipeline.py": "25af0fa7a0aafb8ade6836fd7a188e329de27664d355a703d8db2577bf545be7",
+            "policy_evidence.py": "90ae363e5b2b92c52ef24a9ff4d820821a76729f012831c51e27f3ad54492c35",
+            "practical_evidence.py": "0ad115570d1a5c1f756f2931e331a083d6f9ca6f7512223b5160278f5cda33af",
+            "procedures.py": "d66b180651cc35df32a92e33f7df9ae5e031f2fba53ed769c2caddc37fa94523",
+            "relation_graph.py": "b6757451ecfd718063ffa0d5aa0104344cc0b9fdd9550a884407367032c435f1",
+            "support.py": "d5d39570ad777c424e9d7a5ff674d2b97b8fac6baff18ed4ca4ccb89e7e99825"
+          }
+        }
+      },
+      "text": ""
+    }
+  ]
+}

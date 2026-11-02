@@ -80,8 +80,15 @@ await call('/api/source/import',{corpus:graphCollection.corpus,title:'Crawling s
  text:'Crawling comes from dust or grease on the bisque, or a coat put on too thick that cracked as it dried.'});
 const graphAsk=await call('/api/query',{corpus:graphCollection.corpus,question:'What causes crawling?'});
 if(graphAsk.reader.kind!=='return'||!graphAsk.reader.text?.includes('Crawling comes from')||
- graphAsk.reader.answer_support?.graph?.version!=='source-relation-graph-v1')
+ graphAsk.reader.answer_support?.graph?.version!=='source-relation-graph-v2')
  throw Error('WASM source evidence graph did not return pinned proof: '+JSON.stringify(graphAsk));
+const polarityCollection=await call('/api/collections/create',{name:'Polarity smoke'});
+await call('/api/source/import',{corpus:polarityCollection.corpus,title:'Storage rules',url:'https://example.org/storage',
+ text:'Store prism records in green cabinet. Do not store prism records in green cabinet.'});
+const polarityAsk=await call('/api/query',{corpus:polarityCollection.corpus,question:'Where should we store prism records?'});
+if(polarityAsk.reader.kind!=='ambiguous'||polarityAsk.reader.answer_supported)
+ throw Error('WASM lost contradictory negative assertion');
+console.log('PASS WASM imported-source polarity conflict');
 const empty=await call('/api/collections/create',{name:'Empty smoke'});
 const isolated=await call('/api/query',{corpus:empty.corpus,question:'Dinosaurs'});
 if(isolated.reader.kind==='return')throw Error('WASM collections not isolated');

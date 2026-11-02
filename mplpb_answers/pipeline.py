@@ -49,6 +49,8 @@ class QueryResult:
         if self.contract['kind'] != 'supported_answer' and (self.contract['mode'] == 'assisted' or self.strict.kind == 'return'):
             data.update(kind=self.contract['kind'] if self.contract['mode'] == 'assisted' else 'not_in_corpus', text=self.contract['text'],
                         reason=self.contract['diagnostic']['message'], citation='', candidates=[])
+        if self.contract['diagnostic'].get('code') in {'partial_procedure_evidence', 'procedure_selection_needed'}:
+            data.update(text=self.contract['text'], reason=self.contract['diagnostic']['message'])
         return data
 
 
@@ -101,6 +103,33 @@ def answer_query(root, question, profile=None, *, mode='strict', reader=None, mi
 
     initial_gate_root = Path(root).resolve()
 
+    procedure = strict.support.get('procedure', {})
+    if procedure.get('clarification'):
+        contract['clarification'] = procedure['clarification']
+        contract['text'] = procedure['clarification']
+        return finish('clarify', 'procedure_selection_needed', procedure['clarification'], 'interpretation')
+    if procedure.get('partial'):
+        from mplpb_combined.ledger import Ledger
+        records = {r.path:r for r in Ledger(strict.root).servable()}
+        allowed = {s['path'] for s in initial_gate.sources}
+        citations = []
+        for source in procedure['partial_sources']:
+            rec = records.get(source['path'])
+            if not rec or rec.path not in allowed or rec.hash != source['hash']:
+                return finish('abstain', 'source_changed', 'Partial procedure evidence is unavailable.', 'eligibility')
+            body = body_text(rec.body_html)
+            start = body.find(source['quote'])
+            if start < 0:
+                return finish('abstain', 'invalid_citation', 'Partial procedure excerpt cannot be located.', 'strict')
+            citations.append(dict(source_id=rec.id,path=rec.path,hash=rec.hash,quote=source['quote'],
+                                  start=start,end=start+len(source['quote']),body_start=start,body_end=start+len(source['quote'])))
+        contract.update(text=procedures.render_partial(procedure), missing=procedure['gaps'],
+                        claims=[{'text':s['quote'],'qualifiers':['Incomplete source procedure; not ready-to-execute guidance.'],
+                                 'citations':[citation]} for s,citation in zip(procedure['partial_sources'],citations)],
+                        sources=[{k:s[k] for k in ('id','path','hash')} for s in procedure['partial_sources']])
+        contract['verification'].update(structural=True, semantic='bounded_source_excerpt_not_complete_procedure')
+        return finish('partial_answer', 'partial_procedure_evidence',
+                      'Source procedure evidence is incomplete; missing constraints are listed explicitly.', 'strict')
     if strict.kind == 'return':
         body = body_text(strict.record.body_html)
         quotes = [span['quote'] for span in strict.support.get('spans', [])]
