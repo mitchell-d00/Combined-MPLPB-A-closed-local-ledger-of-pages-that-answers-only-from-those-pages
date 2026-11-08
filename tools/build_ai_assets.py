@@ -1,0 +1,95 @@
+"""Reconstruct pinned optional browser-AI runtime assets without fetching models."""
+import argparse
+import base64
+import gzip
+import hashlib
+import json
+from pathlib import Path
+import shutil
+
+ROOT=Path(__file__).resolve().parents[1]
+BEGIN='<!-- BEGIN OPTIONAL AI HELPER -->'
+END='<!-- END OPTIONAL AI HELPER -->'
+
+
+def runtime(root=ROOT):
+    base=Path(root)/'assets/ai'
+    manifest=json.loads((base/'manifest.json').read_text())['runtime']
+    chunks=[]
+    for part in manifest['parts']:
+        path=Path(part['path'])
+        if path.is_absolute() or '..' in path.parts:raise ValueError('Unsafe AI runtime part path')
+        raw=(base/path).read_bytes()
+        if hashlib.sha256(raw).hexdigest()!=part['sha256']:raise ValueError('Optional AI runtime part differs from pin')
+        chunks.append(base64.b64decode(raw,validate=False))
+    packed=b''.join(chunks)
+    if hashlib.sha256(packed).hexdigest()!=manifest['gzip_sha256']:raise ValueError('Optional AI runtime archive differs from pin')
+    raw=gzip.decompress(packed)
+    if len(raw)!=manifest['uncompressed_bytes'] or hashlib.sha256(raw).hexdigest()!=manifest['uncompressed_sha256']:
+        raise ValueError('Optional AI runtime bytes differ from pin')
+    return raw
+
+
+def build(output,root=ROOT):
+    output=Path(output);output.mkdir(parents=True,exist_ok=True)
+    (output/'webllm.mjs').write_bytes(runtime(root))
+    for name in ('model.json','manifest.json','LICENSE-WEBLLM.txt','LICENSE-PHI4.txt','LICENSE-LOGLEVEL.txt'):
+        shutil.copyfile(Path(root)/'assets/ai'/name,output/name)
+    return {'runtime_bytes':(output/'webllm.mjs').stat().st_size,'models_downloaded':False,'paid_service_configured':False}
+
+
+def markup(root=ROOT):
+    scripts='\n'.join((Path(root)/'browser'/name).read_text() for name in ('ai-helper.js','ai-helper-ui.js'))
+    return BEGIN+'''\n<details id="ai-helper" class="panel" style="max-width:1100px;margin:16px auto;padding:16px">
+<summary><strong>Builder and chat helper · optional free browser AI</strong></summary>
+<p>Everyone can use this page. No paid AI service or account is required. The optional pretrained model runs on a compatible visitor device; it does not run on GitHub’s servers.</p>
+<button id="ai-helper-load" type="button">Load optional Phi-4-mini · about 2.2 GB download</button>
+<label><input id="ai-helper-use-model" type="checkbox" disabled> Use loaded AI for proposals</label>
+<p class="small">The model reports about 3.4 GB working memory before other browser overhead. Devices may be unable to run it. MPLPB remains available. No fine-tuning or automatic training on your conversations takes place.</p>
+<div style="display:flex;gap:8px;flex-wrap:wrap">
+<label>Collection <select id="ai-helper-corpus" aria-label="Helper collection"></select></label>
+<label>Task <select id="ai-helper-mode"><option value="ask">Ask sources</option><option value="chat">Chat with MPLPB</option><option value="build">Build a collection/source</option><option value="general">General chat · model text is unverified</option></select></label>
+</div>
+<label>Your request <textarea id="ai-helper-message" rows="3" maxlength="4000" style="width:100%;box-sizing:border-box" placeholder="Ask a question, discuss your sources, or describe what you want to build."></textarea></label>
+<details><summary>Provide source text for a reviewed import</summary>
+<label>Title <input id="ai-helper-title" maxlength="200"></label>
+<label>Source URL <input id="ai-helper-url" type="url" placeholder="https://…"></label>
+<label>Exact supplied text <textarea id="ai-helper-source" rows="5" maxlength="10000" style="width:100%;box-sizing:border-box"></textarea></label>
+<p class="small">Choose Build to propose an import. Supplied text is saved exactly after review. An AI-generated draft is labeled unverified; saving it does not ratify its truth or authorship.</p>
+</details>
+<button id="ai-helper-send" type="button">Send to helper</button>
+<p id="ai-helper-status" role="status" aria-live="polite">No model loaded. The existing MPLPB engine and manual reviewed builder are available.</p>
+<pre id="ai-helper-output" style="white-space:pre-wrap;overflow-wrap:anywhere"></pre>
+<pre id="ai-helper-review" style="white-space:pre-wrap;overflow-wrap:anywhere"></pre>
+<button id="ai-helper-approve" type="button" hidden>Save this reviewed draft</button>
+<button id="ai-helper-cancel" type="button" hidden>Cancel draft</button>
+<details><summary>Inspect the original engine result and evidence</summary><pre id="ai-helper-evidence" style="white-space:pre-wrap;overflow-wrap:anywhere"></pre></details>
+<details><summary>Inspect inputs, model proposals and actual execution paths</summary><pre id="ai-helper-trace" style="white-space:pre-wrap;overflow-wrap:anywhere"></pre></details>
+<button id="ai-helper-export" type="button">Export this tab’s interaction trace</button>
+<p class="small">The trace separates proposals, approvals and engine results. It is not a model’s private reasoning. General model context is limited and held in this tab; export before closing. Your browser’s pages are not automatically shared with other visitors.</p>
+</details>
+<script>\n'''+scripts+'\n</script>\n'+END
+
+
+def embed(root=ROOT,check=False):
+    path=Path(root)/'index.html';html=path.read_text();original=html;block=markup(root)
+    if BEGIN in html:
+        start=html.index(BEGIN);end=html.index(END,start)+len(END)
+        if html[end:end+1]=='\n':end+=1
+        html=html[:start]+html[end:]
+    updated=html.replace('</body>',block+'\n</body>',1)
+    if check:
+        if updated!=original:raise ValueError('Optional helper HTML is stale; run python tools/build_ai_assets.py --embed-helper')
+    else:path.write_text(updated)
+
+
+def main():
+    p=argparse.ArgumentParser(description=__doc__)
+    p.add_argument('--output',type=Path);p.add_argument('--embed-helper',action='store_true');p.add_argument('--check',action='store_true')
+    args=p.parse_args()
+    if args.embed_helper or args.check:embed(check=args.check)
+    if args.output:print(json.dumps(build(args.output),indent=2))
+    elif not (args.embed_helper or args.check):p.error('Choose --output, --embed-helper or --check')
+
+
+if __name__=='__main__':main()

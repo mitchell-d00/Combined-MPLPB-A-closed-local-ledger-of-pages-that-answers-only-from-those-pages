@@ -80,6 +80,7 @@ jobs:
           python tools/check_ui_script.py
           node tools/check_browser_transport.cjs
           node tests/javascript-api.cjs
+          node tests/browser-ai-helper.cjs
           node crawler/test_worker.mjs
           node --check tools/mplpb_agent_bridge.mjs
           node tools/mplpb_agent_bridge.mjs --help
@@ -112,6 +113,10 @@ jobs:
           python -m tools.browser_collection_policies --preview-dir dist \
             --browser-executable "$(command -v google-chrome)" \
             --output "$RUNNER_TEMP/mplpb-zipped/npc-pilot/collection-policies.json"
+      - name: Verify free helper in the exact ZIP-built browser
+        run: |
+          cd "$RUNNER_TEMP/mplpb-unpacked"
+          python -m tools.browser_free_helper --preview-dir dist --browser-executable "$(command -v google-chrome)" --output "$RUNNER_TEMP/mplpb-zipped/free-helper.json"
       - name: Audit ZIP-built persistence, offline API and responsive layouts
         run: |
           cd "$RUNNER_TEMP/mplpb-unpacked"

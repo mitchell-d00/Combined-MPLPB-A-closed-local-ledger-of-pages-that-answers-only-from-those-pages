@@ -34,6 +34,7 @@ jobs:
           python tools/check_ui_script.py
           node tools/check_browser_transport.cjs
           node tests/javascript-api.cjs
+          node tests/browser-ai-helper.cjs
           node --check tools/mplpb_agent_bridge.mjs
           node tools/mplpb_agent_bridge.mjs --help
           node crawler/test_worker.mjs
@@ -110,3 +111,18 @@ jobs:
           done
           echo "Published site never passed real browser smoke verification" >&2
           exit 1
+
+      - name: Verify reviewed helper and recovery on the published site
+        run: >-
+          python -m tools.browser_free_helper
+          --live-url "${{ steps.deployment.outputs.page_url }}"
+          --browser-executable "$(command -v google-chrome)"
+          --output "${{ runner.temp }}/published-free-helper.json"
+      - name: Retain published helper evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: published-free-helper-${{ github.run_id }}
+          path: ${{ runner.temp }}/published-free-helper.json
+          retention-days: 1
+          if-no-files-found: warn

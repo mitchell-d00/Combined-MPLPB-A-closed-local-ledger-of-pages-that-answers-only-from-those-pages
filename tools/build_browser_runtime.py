@@ -87,6 +87,9 @@ def build(core_archive, output):
         sys.path.insert(0, str(ROOT))
     from tools.agent_snapshot import export_public_ledger
     export_public_ledger(output.parent / 'mplpb-public-ledger.json')
+    from tools.build_ai_assets import build as build_ai_assets, embed
+    embed(check=True)
+    build_ai_assets(output.parent / 'ai')
     return {'output': str(output), 'bytes': output.stat().st_size, 'sha256': hashlib.sha256(output.read_bytes()).hexdigest(),
             'bundled_files': len(files), 'pyodide': VERSION, 'core_release_sha256': CORE_SHA256}
 

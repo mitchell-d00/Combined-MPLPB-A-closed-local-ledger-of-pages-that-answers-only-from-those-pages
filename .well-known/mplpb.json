@@ -10,7 +10,8 @@
     "public_ledger": "mplpb-public-ledger.json",
     "instructions": "https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/blob/main/docs/AGENT_MIDDLEWARE.md",
     "browser_testing": "https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/blob/main/docs/BROWSER_TESTING_FOR_AGENTS.md",
-    "local_mcp": "https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/blob/main/docs/MCP_AGENT.md"
+    "local_mcp": "https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/blob/main/docs/MCP_AGENT.md",
+    "browser_helper": "https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/blob/main/docs/FREE_PUBLIC_HELPER.md"
   },
   "runtime": {
     "engine": "full Python MPLPB via browser WebAssembly",
@@ -50,5 +51,14 @@
     "remote_http_endpoint": false,
     "configuration": "host-authorized collection keys/paths and fixed delivery profile",
     "shares_browser_indexeddb": false
+  },
+  "browser_helper": {
+    "entry": "same published browser page",
+    "model_loading": "explicit opt-in; compatible visitor WebGPU device required",
+    "source_writes": "human-reviewed create/import through the existing page API",
+    "paid_inference_backend": false,
+    "model_training": false,
+    "visitor_storage_shared": false,
+    "remote_mcp_endpoint": false
   }
 }

@@ -1,6 +1,6 @@
 # MPLPB local JavaScript API · v1.0.0
 
-Last reviewed: 2026-11-02. See [current status and result-to-test index](docs/CURRENT_STATUS_2026-11-02.md). Dates and numeric results in historical validation sections retain their original scope; this review is not a rerun or independent certification.
+Last reviewed: 2026-11-08. See [current status and result-to-test index](docs/CURRENT_STATUS_2026-11-02.md). Dates and numeric results in historical validation sections retain their original scope; this review is not a rerun or independent certification.
 
 `window.MPLPB` lets people, scripts and browser-capable AI agents use the same
 MPLPB engine as the interface, without clicking buttons. No API key or account
@@ -290,3 +290,12 @@ Strict graph results use `source-relation-graph-v2`. This does not change the pu
 A matching denial blocks an unqualified return; an unrelated subject or different denied value does not establish contradiction. Two eligible positive owners remain ambiguous even if their wording agrees. Graph statement nodes expose polarity; do not treat a negative node's `supplies_value` edge as affirmative support. The legacy `ambiguous` kind includes both ownership ambiguity and conflicting statements: inspect the candidate checks instead of claiming that every ambiguity proves disagreement. Source quotations are declarations, not independently verified truth. See the [bounded contract, per-case audit and validation](evaluation/language-audit/README.md).
 
 Strict incomplete procedure records now expose `answer_contract.kind: partial_answer`, exact citations and missing constraints with `answer_supported:false`; legacy kind remains `not_in_corpus`. Chat uses `partial` for source excerpts. `procedure_selector`/pending step context is conversational selection, never proof of execution. Natural request and recovery boundaries: [procedure recovery](evaluation/procedure-recovery/README.md).
+
+## Optional public builder/chat helper
+
+The [browser helper](docs/FREE_PUBLIC_HELPER.md) calls these same methods. It
+requires review before `createCollection`/`importSource`, sends the original
+question to strict relay, preserves source results/citations and labels general
+model text separately. Model loading is explicit and device-dependent; no remote
+paid inference endpoint or API key is configured. It does not change this API's
+source, profile, network, persistence or authority contracts.

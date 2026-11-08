@@ -39,6 +39,7 @@ modern application tests do not retrospectively validate those experiments.
 | [evaluation](../evaluation) | [test_evaluation.py](../tests/test_evaluation.py) | [evaluate.py](../mplpb_combined/evaluate.py) | Original frozen root benchmark results/probes; retain original labels and reader revision. |
 | [killtest](../killtest) | [test_answer.py](../tests/test_answer.py); [test_canned_guard.py](../tests/test_canned_guard.py) | [killtest.py](../mplpb_combined/killtest.py) | Original adjudication inputs and outputs preserved; run original revision for exact historical reproduction. |
 | [mcp-agent](../evaluation/mcp-agent) | [test_mcp_agent.py](../tests/test_mcp_agent.py) | [check_mcp_client.py](../tools/check_mcp_client.py) | Authored local protocol and recovery; official SDK client, not external AI obedience or human validation. |
+| [free-browser-helper](../evaluation/free-browser-helper) | [Python assets](../tests/test_browser_ai_assets.py); [owner corpus](../tests/test_owner_corpus.py); [real-engine helper](../tests/browser-ai-helper.cjs) | [Chromium](../tools/browser_free_helper.py); [asset builder](../tools/build_ai_assets.py); [corpus preparation](../tools/prepare_owner_corpus.py) | Source workflow and synthetic plans; no live neural/iPad/human validation. |
 
 ## Reproduce the currently claimed reference result
 

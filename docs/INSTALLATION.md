@@ -1,6 +1,6 @@
 # Installation and release packages
 
-Last reviewed: 2026-11-02. See [current status and result-to-test index](CURRENT_STATUS_2026-11-02.md). Dates and numeric results in historical validation sections retain their original scope; this review is not a rerun or independent certification.
+Last reviewed: 2026-11-08. See [current status and result-to-test index](CURRENT_STATUS_2026-11-02.md). Dates and numeric results in historical validation sections retain their original scope; this review is not a rerun or independent certification.
 
 [Open the live application](https://mitchell-d00.github.io/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/) for a hosted start, or choose a package below. See the [documentation index](README.md) for runtime modes and source-interface contracts. Python 3.8+ is the declared desktop/package minimum; CI tests Python 3.12, not every supported Python/platform combination.
 
@@ -52,3 +52,5 @@ use the new entry point for user-facing answers. Optional assisted Ask requires 
 explicitly configured native local reader and installed weights; strict mode and
 the standalone browser need no model. See [local-reader setup](GENERAL_ANSWER_PIPELINE.md),
 [specialist work](SPECIALIST_CONTINUITY_API.md), and [the review](ANSWER_RELIABILITY.md).
+
+The optional [browser model helper](FREE_PUBLIC_HELPER.md) uses sidecars in the public site/full generated site folder. The one-file browser ZIP does not package those sidecars or model weights; its core MPLPB engine remains available offline.
