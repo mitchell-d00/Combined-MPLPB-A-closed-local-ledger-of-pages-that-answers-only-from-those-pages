@@ -36,3 +36,17 @@ python -m tools.browser_free_helper --preview-dir PREVIEW --browser-executable C
 ```
 
 See [public helper scope and zero-cost tradeoffs](../../docs/FREE_PUBLIC_HELPER.md).
+
+## Initialization-failure follow-up
+
+An iPad user reported a 100% download followed by `exit(1)` after baseline main
+`0c8199257e23c4030ab8ccb72cb687d399b9b115`. `model-load-diagnostics.json` records
+the observed communication/diagnostic defect and exact scope. New reports named
+`loader-*` are separate from the original release evidence above. The loader
+cases use authored GPU/runtime stubs, plus construction/unload of the actual
+pinned WebLLM module without model weights. They do not reproduce physical GPU
+initialization or establish why that user's device stopped.
+
+```sh
+node tests/browser-model-loader.cjs
+```

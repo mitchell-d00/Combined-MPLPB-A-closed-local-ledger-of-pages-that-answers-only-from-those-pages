@@ -43,3 +43,16 @@ Owner-authorized public README material is prepared separately as candidate pros
 not a ready conversation dataset or default source authority. Exact newer source,
 archive and publication checks belong to [its evidence directory](../evaluation/free-browser-helper/README.md)
 and corresponding Actions runs; prior MCP results above retain their own scope.
+
+## Later model-load failure report
+
+Baseline main `0c8199257e23c4030ab8ccb72cb687d399b9b115` passed its required
+873-test regression/ZIP workflows and public Chromium deployment checks in
+PR #32 / Pages run 42490859108. The user then reported an iPad model download
+reaching 100% before `exit(1)`. Download completion is not successful inference.
+The follow-up adds local stage/error/logger diagnostics and export, bounded
+cleanup, explicit reload before initialization retry and an AI-unavailable label.
+Source evidence rules and the selected model/runtime bytes are unchanged.
+See [loader test cases](../tests/browser-model-loader.cjs); test/runtime stubs
+are authored development cases, not independent validation or a repaired-device
+claim. The physical device root cause remains unresolved pending its report.
