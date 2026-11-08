@@ -29,11 +29,13 @@ class Loader{
   let engine,recordLogs=true;
   try{
    const nav=this.env.navigator;
-   this.emit('browser',{user_agent:bounded(nav.userAgent||'',600),device_memory_GB_hint:typeof nav.deviceMemory==='number'?nav.deviceMemory:null,notice:'A browser hint is not measured available RAM.'});
+   attempt.browser={user_agent:bounded(nav.userAgent||'',600),device_memory_GB_hint:typeof nav.deviceMemory==='number'?nav.deviceMemory:null,notice:'A browser hint is not measured available RAM.'};
+   this.emit('browser',clone(attempt.browser));
    if(!nav.gpu)throw Error('This browser does not expose WebGPU. MPLPB remains available without the optional model.');
    const adapter=await nav.gpu.requestAdapter();if(!adapter)throw Error('No usable browser GPU was found.');
    const limits={};for(const key of ['maxBufferSize','maxStorageBufferBindingSize','maxComputeWorkgroupStorageSize','maxComputeInvocationsPerWorkgroup'])limits[key]=Number.isFinite(adapter.limits[key])?adapter.limits[key]:null;
-   this.emit('gpu_adapter',{features:Array.from(adapter.features).slice(0,128).map(x=>bounded(x,100)).sort(),limits});
+   attempt.gpu_adapter={features:Array.from(adapter.features).slice(0,128).map(x=>bounded(x,100)).sort(),limits};
+   this.emit('gpu_adapter',clone(attempt.gpu_adapter));
    this.phase('configuration');
    const configResponse=await this.env.fetch(new URL('ai/model.json',this.env.document.baseURI));
    if(!configResponse.ok)throw Error('Optional model assets are unavailable in this build; use the published browser site.');

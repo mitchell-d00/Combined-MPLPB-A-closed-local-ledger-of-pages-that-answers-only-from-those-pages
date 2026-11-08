@@ -4,8 +4,8 @@ Last reviewed: 2026-11-08.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `0c8199257e23c4030ab8ccb72cb687d399b9b115` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `fa4a2527932297cf474e40e9d596a003a6aecb866f2cbbff5a5db16de9be382a`.
+Base commit: `3d37fb8f1b9b7ddd4dc3df4328a2e9396950e5f3` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `4ee7c844177d05d765cc505ba9c975d18f3e2735e4c19015182779825544e68a`.
 
 ## Latest user update instructions
 
@@ -19,6 +19,7 @@ Persisting constraint: “this can’t cost me anything, I build very cheap”.
 - Distinguish a 100% download from successful initialization. Keep general-chat requests unsent while loading and label an unloaded model as unavailable rather than question clarification.
 - Use the documented constructor/reload equivalent of the same pinned runtime so failure cleanup can be attempted. Bound unload to three seconds; require a user-triggered page reload before another initialization attempt. Do not clear caches or ledger data.
 - Preserve all source authority, integrity, collection and delivery rules, model/runtime/license bytes, historical evaluations and frozen probes/labels. Keep the zero-cost, no-paid-provider, no-training scope.
+- Keep bounded browser/GPU summaries on each attempt separately from the recent-event ring, so long two-phase parameter loads cannot evict diagnostic context.
 
 ## Validation recorded
 
@@ -27,6 +28,8 @@ Persisting constraint: “this can’t cost me anything, I build very cheap”.
 - 13 authored loader/state/DOM checks passed, including 100%-then-exit failure, deferred readiness, missing features, changed runtime hash, bounded logs, cleanup error/timeout, blocked repeated initialization, and unchanged real pinned WebLLM constructor/logger/unload API without weights. Runtime/GPU failure scenarios are simulated, not actual neural inference.
 - 33 existing helper checks against the actual native source engine and eight focused asset/data Python tests passed. Twelve actual Chromium/WebAssembly workflow checks passed, including visible separate load-stage report, physical report download matching its display without source questions, strict source/citation/conflict paths and saved clarification after reload.
 - Compared 877 protected baseline files with Git blobs, unchanged. Documentation, handoff, committed archive and exact-head CI are recorded separately and are not claimed before completion.
+- Follow-up baseline 3d37fb8f1b9b7ddd4dc3df4328a2e9396950e5f3 exposed a report-retention defect: progress/log rollover could evict the sole browser/GPU events. The strengthened bounded-events case failed before the fix; actual WebLLM emits download and device-load progress for 66 shards. Store browser/GPU snapshots independently from the event ring. This does not diagnose or resolve physical GPU initialization.
+- Context-retention fix: all 13 loader checks, 33 actual native-engine checks and eight focused Python tests pass; 12 actual Chromium/WebAssembly checks pass. Updated bounded-events assertion verifies browser/GPU fields survive rollover. This is not a physical-device or live-model pass.
 
 ## Limitations and blocked checks
 
@@ -37,7 +40,7 @@ Persisting constraint: “this can’t cost me anything, I build very cheap”.
 
 ## Next steps
 
-- Freeze and archive a committed candidate, test its extracted content and wait for required exact-head regression/archive/browser/documentation/handoff gates before merge. Verify the newly published site separately.
+- Freeze the context-retention follow-up, verify the exact extracted source and wait for required exact-head CI before merging. Verify its public deployment separately. The previous diagnostic release passed all required gates; its metadata-retention follow-up must be tested as its own revision.
 - After the new loader is published, reload the site and make one explicit model-load attempt if desired. If it fails, export the model-only report before reloading and inspect the concrete runtime evidence; do not diagnose exit(1) from speculation.
 - For future updates, replace this record with the latest task instructions, review affected documentation/result links, stage intended files and regenerate/check the repository-owned handoff. No private personal context belongs in public source/training artifacts.
 

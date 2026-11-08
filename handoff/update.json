@@ -5,14 +5,17 @@
     "Add a bounded model-load diagnostic report with original stage, progress, GPU/browser capabilities, available runtime logger messages, thrown error/stack/cause and cleanup outcomes. Export it locally without source questions and include it in the broader explicit interaction export.",
     "Distinguish a 100% download from successful initialization. Keep general-chat requests unsent while loading and label an unloaded model as unavailable rather than question clarification.",
     "Use the documented constructor/reload equivalent of the same pinned runtime so failure cleanup can be attempted. Bound unload to three seconds; require a user-triggered page reload before another initialization attempt. Do not clear caches or ledger data.",
-    "Preserve all source authority, integrity, collection and delivery rules, model/runtime/license bytes, historical evaluations and frozen probes/labels. Keep the zero-cost, no-paid-provider, no-training scope."
+    "Preserve all source authority, integrity, collection and delivery rules, model/runtime/license bytes, historical evaluations and frozen probes/labels. Keep the zero-cost, no-paid-provider, no-training scope.",
+    "Keep bounded browser/GPU summaries on each attempt separately from the recent-event ring, so long two-phase parameter loads cannot evict diagnostic context."
   ],
   "validation": [
     "Baseline main 0c8199257e23c4030ab8ccb72cb687d399b9b115 had passed 873 Python tests, 45 MCP SDK checks and actual public Chromium deployment in PR #32 / Pages run 42490859108. These are baseline results, not a new-device success.",
     "The user reported a real iPad attempt completing its download then failing with exit(1). The visible message does not establish memory exhaustion, GPU incompatibility or another specific cause.",
     "13 authored loader/state/DOM checks passed, including 100%-then-exit failure, deferred readiness, missing features, changed runtime hash, bounded logs, cleanup error/timeout, blocked repeated initialization, and unchanged real pinned WebLLM constructor/logger/unload API without weights. Runtime/GPU failure scenarios are simulated, not actual neural inference.",
     "33 existing helper checks against the actual native source engine and eight focused asset/data Python tests passed. Twelve actual Chromium/WebAssembly workflow checks passed, including visible separate load-stage report, physical report download matching its display without source questions, strict source/citation/conflict paths and saved clarification after reload.",
-    "Compared 877 protected baseline files with Git blobs, unchanged. Documentation, handoff, committed archive and exact-head CI are recorded separately and are not claimed before completion."
+    "Compared 877 protected baseline files with Git blobs, unchanged. Documentation, handoff, committed archive and exact-head CI are recorded separately and are not claimed before completion.",
+    "Follow-up baseline 3d37fb8f1b9b7ddd4dc3df4328a2e9396950e5f3 exposed a report-retention defect: progress/log rollover could evict the sole browser/GPU events. The strengthened bounded-events case failed before the fix; actual WebLLM emits download and device-load progress for 66 shards. Store browser/GPU snapshots independently from the event ring. This does not diagnose or resolve physical GPU initialization.",
+    "Context-retention fix: all 13 loader checks, 33 actual native-engine checks and eight focused Python tests pass; 12 actual Chromium/WebAssembly checks pass. Updated bounded-events assertion verifies browser/GPU fields survive rollover. This is not a physical-device or live-model pass."
   ],
   "limitations": [
     "The physical iPad failure root cause remains unresolved until device diagnostics are captured. No successful Phi-4 generation, hardware compatibility, independent human evaluation or model training is claimed.",
@@ -21,7 +24,7 @@
     "The public site remains static hosting with visitor-device compute. There is no paid AI API, rental, hosted MCP/inference backend or unlimited free hosting promise."
   ],
   "next_steps": [
-    "Freeze and archive a committed candidate, test its extracted content and wait for required exact-head regression/archive/browser/documentation/handoff gates before merge. Verify the newly published site separately.",
+    "Freeze the context-retention follow-up, verify the exact extracted source and wait for required exact-head CI before merging. Verify its public deployment separately. The previous diagnostic release passed all required gates; its metadata-retention follow-up must be tested as its own revision.",
     "After the new loader is published, reload the site and make one explicit model-load attempt if desired. If it fails, export the model-only report before reloading and inspect the concrete runtime evidence; do not diagnose exit(1) from speculation.",
     "For future updates, replace this record with the latest task instructions, review affected documentation/result links, stage intended files and regenerate/check the repository-owned handoff. No private personal context belongs in public source/training artifacts."
   ]
