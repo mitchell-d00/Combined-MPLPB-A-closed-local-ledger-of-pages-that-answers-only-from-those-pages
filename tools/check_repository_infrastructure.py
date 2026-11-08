@@ -24,7 +24,7 @@ REQUIRED = (
     "tools/mplpb_mcp.py", "tools/check_mcp_client.py", "tests/test_mcp_agent.py",
     "browser/ai-helper.js", "browser/ai-model-loader.js", "browser/ai-helper-ui.js", "tools/build_ai_assets.py",
     "docs/FREE_PUBLIC_HELPER.md", "assets/ai/manifest.json", "assets/ai/model.json",
-    "tests/browser-ai-helper.cjs", "tests/browser-model-loader.cjs", "tests/test_browser_ai_assets.py", "tests/test_owner_corpus.py",
+    "tests/browser-ai-helper.cjs", "tests/browser-model-loader.cjs", "tests/browser-webgpu-limits.cjs", "tests/test_browser_ai_assets.py", "tests/test_owner_corpus.py",
     "docs/MCP_AGENT.md", "docs/PRODUCTION_READINESS.md", ".well-known/mplpb.json",
     ".github/workflows/pages.yml", ".github/workflows/pr-validation.yml",
     ".github/workflows/zip-release-validation.yml",
@@ -86,7 +86,7 @@ def audit(root=ROOT):
         runtime(root)
     except (ValueError, OSError) as exc:
         problems.append(str(exc))
-    if 'FREE_PUBLIC_HELPER.md' not in readme or 'browser-ai-helper.cjs' not in pr or 'browser-ai-helper.cjs' not in zip_flow or 'browser-model-loader.cjs' not in pr or 'browser-model-loader.cjs' not in zip_flow:
+    if 'FREE_PUBLIC_HELPER.md' not in readme or 'browser-ai-helper.cjs' not in pr or 'browser-ai-helper.cjs' not in zip_flow or 'browser-model-loader.cjs' not in pr or 'browser-model-loader.cjs' not in zip_flow or 'browser-webgpu-limits.cjs' not in pr or 'browser-webgpu-limits.cjs' not in zip_flow:
         problems.append('Public free helper documentation/native-engine checks are missing')
     discovery = json.loads((root / ".well-known/mplpb.json").read_text())
     mcp = discovery.get("local_mcp", {})

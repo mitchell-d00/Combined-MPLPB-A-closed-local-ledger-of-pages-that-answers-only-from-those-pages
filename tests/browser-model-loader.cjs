@@ -10,14 +10,14 @@ async function scenario(name,run){await run();checks.push(name);}
 async function fixture(behavior={}){
  const hash=Buffer.from(await webcrypto.subtle.digest('SHA-256',bytes)).toString('hex');
  const config={model_id:'unfamiliar-model',minimum_tensor_buffer_bytes:1024,runtime:{sha256:hash,version:'test'},record:{model:'https://example.org/pinned-model/',model_lib:'https://example.org/pinned-lib',integrity:{onFailure:'error',model_lib:'sha256-pinned'}}};
- const state={fetches:[],constructors:0,unloads:0,forwarded:[]};
+ const state={fetches:[],fetchOptions:[],constructors:0,unloads:0,forwarded:[]};
  class Engine{
   constructor(options){state.constructors++;state.options=options;this.logger=text=>state.forwarded.push(text);state.engine=this;}
   async reload(id){state.id=id;state.options.initProgressCallback({progress:1,text:'Fetching param cache[66/66]: 100% completed'});if(behavior.reload)await behavior.reload(this,state);}
   async unload(){state.unloads++;if(behavior.unload)await behavior.unload();}
  }
  const env={navigator:{userAgent:'Authored test browser',gpu:{requestAdapter:async()=>({features:new Set(['shader-f16']),limits:{maxBufferSize:2048,maxStorageBufferBindingSize:2048}})}},document:{baseURI:'https://example.org/app/'},crypto:webcrypto,
-  fetch:async url=>{state.fetches.push(String(url));return String(url).endsWith('model.json')?{ok:true,json:async()=>config}:{ok:true,arrayBuffer:async()=>bytes.buffer};},importRuntime:async()=>({MLCEngine:Engine})};
+  fetch:async (url,options)=>{state.fetches.push(String(url));state.fetchOptions.push(options);return String(url).endsWith('model.json')?{ok:true,json:async()=>config}:{ok:true,arrayBuffer:async()=>bytes.buffer};},importRuntime:async()=>({MLCEngine:Engine})};
  return {state,config,env};
 }
 async function run(){
@@ -32,12 +32,12 @@ async function run(){
  });
  await scenario('100 percent remains loading until reload actually resolves; concurrency blocked',async()=>{
   let release;const pause=new Promise(resolve=>release=resolve);const f=await fixture({reload:async()=>pause}),l=new Loader({env:f.env});const load=l.load();while(!f.state.engine)await new Promise(resolve=>setTimeout(resolve,0));
-  assert.equal(l.snapshot().attempts[0].status,'loading');await assert.rejects(()=>l.load(),/already in progress/);release();await load;assert.equal(l.snapshot().attempts[0].status,'ready');assert.equal(f.state.unloads,0);assert.deepEqual(f.state.options.appConfig.model_list,[f.config.record]);
+  assert.equal(l.snapshot().attempts[0].status,'loading');await assert.rejects(()=>l.load(),/already in progress/);release();await load;assert.equal(l.snapshot().attempts[0].status,'ready');assert.equal(f.state.unloads,0);assert(f.state.fetchOptions.every(o=>o.cache==='no-cache'));assert.deepEqual(f.state.options.appConfig.model_list,[{...f.config.record,mplpb_minimum_tensor_buffer_bytes:f.config.minimum_tensor_buffer_bytes}]);
   const count=l.snapshot().attempts[0].events.length;f.state.engine.logger('later inference log');assert.equal(l.snapshot().attempts[0].events.length,count);
  });
  await scenario('cleanup errors preserve original failure and recovery requirement',async()=>{const f=await fixture({reload:async()=>{throw Error('original exit(1)');},unload:async()=>{throw Error('cleanup failed');}}),l=new Loader({env:f.env});await assert.rejects(()=>l.load(),/original exit/);const a=l.snapshot().attempts[0];assert.equal(a.error.message,'original exit(1)');assert(a.events.some(e=>e.kind==='cleanup'&&e.data.result==='unload_incomplete'));assert.equal(l.loading,false);});
  await scenario('hanging cleanup is bounded without clearing source data',async()=>{const f=await fixture({reload:async()=>{throw Error('original exit(1)');},unload:async()=>new Promise(()=>{})}),l=new Loader({env:f.env});await assert.rejects(()=>l.load(),/original exit/);assert.equal(l.loading,false);assert(l.snapshot().attempts[0].events.some(e=>e.kind==='cleanup'&&e.data.error?.message.includes('3000 ms')));});
- await scenario('bounded events and snapshots cannot mutate the retained report',async()=>{const f=await fixture({reload:async e=>{for(let n=0;n<140;n++)e.logger('x'.repeat(5000));}}),l=new Loader({env:f.env});await l.load();const report=l.snapshot();assert(report.attempts[0].events.length<=120);assert(report.attempts[0].omitted_events>0);assert.equal(report.attempts[0].browser.user_agent,'Authored test browser');assert.deepEqual(report.attempts[0].gpu_adapter.features,['shader-f16']);assert(report.attempts[0].events.filter(e=>e.kind==='runtime_log').every(e=>e.data.text.length<=1500));report.attempts.length=0;assert.equal(l.snapshot().attempts.length,1);});
+ await scenario('bounded events and snapshots cannot mutate the retained report',async()=>{const f=await fixture({reload:async e=>{e.logger('MPLPB_GPU_DEVICE_LIMITS '+JSON.stringify({maxBufferSize:2048,maxStorageBufferBindingSize:2048}));for(let n=0;n<140;n++)e.logger('x'.repeat(5000));}}),l=new Loader({env:f.env});await l.load();const report=l.snapshot();assert(report.attempts[0].events.length<=120);assert(report.attempts[0].omitted_events>0);assert.equal(report.attempts[0].browser.user_agent,'Authored test browser');assert.deepEqual(report.attempts[0].gpu_adapter.features,['shader-f16']);assert.equal(report.attempts[0].gpu_device.maxBufferSize,2048);assert(report.attempts[0].events.filter(e=>e.kind==='runtime_log').every(e=>e.data.text.length<=1500));report.attempts.length=0;assert.equal(l.snapshot().attempts.length,1);});
  await scenario('older preflight failures are bounded and omissions explicit',async()=>{const f=await fixture();delete f.env.navigator.gpu;const l=new Loader({env:f.env});for(let n=0;n<5;n++)await assert.rejects(()=>l.load());assert.equal(l.snapshot().attempts.length,3);assert.equal(l.snapshot().omitted_attempts,2);assert.equal(l.snapshot().attempts[0].number,3);});
  await scenario('pinned runtime logger hook changes fail visibly',async()=>{const f=await fixture();f.env.importRuntime=async()=>({MLCEngine:class{async unload(){}}});await assert.rejects(()=>new Loader({env:f.env}).load(),/logger is unavailable/);});
  await scenario('real helper UI exposes initialization failure without a ledger call',async()=>{
@@ -56,7 +56,8 @@ async function run(){
   const zlib=require('node:zlib'),os=require('node:os'),path=require('node:path'),{pathToFileURL}=require('node:url'),{createHash}=require('node:crypto');
   const manifest=JSON.parse(fs.readFileSync('assets/ai/manifest.json','utf8')).runtime;
   const packed=Buffer.concat(manifest.parts.map(part=>{const raw=fs.readFileSync(path.join('assets/ai',part.path));assert.equal(createHash('sha256').update(raw).digest('hex'),part.sha256);return Buffer.from(raw.toString(),'base64');}));
-  const raw=zlib.gunzipSync(packed);assert.equal(createHash('sha256').update(raw).digest('hex'),manifest.uncompressed_sha256);
+  let raw=zlib.gunzipSync(packed);assert.equal(createHash('sha256').update(raw).digest('hex'),manifest.uncompressed_sha256);
+  const {execFileSync}=require('node:child_process');raw=execFileSync(process.env.PYTHON||'python3',['-c','import sys; from tools.build_ai_assets import runtime; sys.stdout.buffer.write(runtime())'],{maxBuffer:16*1024*1024});assert.equal(createHash('sha256').update(raw).digest('hex'),manifest.local_patch?.output_sha256||manifest.uncompressed_sha256);
   const dir=fs.mkdtempSync(path.join(os.tmpdir(),'mplpb-loader-api-')),file=path.join(dir,'webllm.mjs'),originalFetch=global.fetch;
   try{fs.writeFileSync(file,raw);global.fetch=()=>{throw Error('No model or source fetch permitted');};const runtime=await import(pathToFileURL(file).href),engine=new runtime.MLCEngine({logLevel:'WARN',appConfig:{model_list:[]}});assert.equal(typeof engine.logger,'function');assert.equal(typeof engine.reload,'function');await engine.unload();}
   finally{global.fetch=originalFetch;fs.rmSync(dir,{recursive:true,force:true});}

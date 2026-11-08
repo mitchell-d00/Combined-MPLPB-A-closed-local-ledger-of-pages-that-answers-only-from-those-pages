@@ -70,8 +70,9 @@ It does not capture every console
 or GPU message, determine available RAM, survive closing/reloading the tab, or
 establish a hardware root cause by itself. A browser-process crash may lose it.
 The loader uses the documented `MLCEngine` constructor/reload equivalent and the
-logger hook inspected in pinned WebLLM 0.2.87. Runtime bytes and model pins remain
-unchanged; an unexpected logger-hook change fails visibly.
+logger hook inspected in pinned WebLLM 0.2.87. An unexpected logger-hook change fails visibly. The later device-limit repair
+is an explicit pinned local derivative of that runtime; original upstream bytes,
+model weights/library pins and cache identity are preserved.
 
 Failed initialization attempts runtime unload with a three-second bound; its
 outcome is recorded, without claiming all partial GPU allocations were reclaimed.
@@ -80,6 +81,33 @@ allocating another model in the same page. No cache or ledger deletion is
 requested. The same model/cache identity is reused; browser eviction can still
 require another download. Source tools remain usable without AI. An unloaded AI
 is labeled **AI not loaded**, not a request to clarify the user's question.
+
+## Adapter capacity and actual device capacity
+
+The user's report showed a 512 MiB adapter, successful runtime integrity and a
+cached parameter load stopping after its first shard with `Object has already
+been disposed`. Inspection and execution of the upstream negotiation function
+confirmed it requests only 256 MiB buffers / 128 MiB bindings on that adapter,
+although the selected model's largest tensor requires 307,298,304 bytes. This is
+a confirmed undersized-device configuration; the disposed-object error may be a
+secondary effect of a GPU loss. No total-RAM diagnosis is inferred from it.
+
+The versioned local runtime patch requests the smaller of the upstream 1 GiB
+target and the actual supported capacity for each buffer limit. Other feature,
+compute and storage-count requirements remain unchanged. The loader passes the
+same declared tensor minimum used by its adapter preflight into a documented
+local runtime extension, `mplpb_minimum_tensor_buffer_bytes`. The runtime checks
+actual negotiated device limits against it before uploading parameters. Those
+limits are retained separately in the load report. A sufficient single-buffer
+limit does not prove sufficient total memory or successful inference.
+
+The original upstream parts/licenses are retained. Patch context, patch bytes and
+output hash/size are verified during reconstruction, and the browser verifies the
+new active-runtime hash. This is an explicitly identified local derivative of
+WebLLM 0.2.87. Model weights, compiled-library/config pins and cache identity stay
+the same; no cache clearing or paid fallback is introduced. A physical iPad retest
+is required; production-function tests using authored adapters do not establish
+that its full model initialization or generation will complete.
 
 ## What transparency means
 

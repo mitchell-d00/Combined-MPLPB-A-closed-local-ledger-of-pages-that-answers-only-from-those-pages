@@ -4,45 +4,43 @@ Last reviewed: 2026-11-08.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `3d37fb8f1b9b7ddd4dc3df4328a2e9396950e5f3` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `4ee7c844177d05d765cc505ba9c975d18f3e2735e4c19015182779825544e68a`.
+Base commit: `28fccbdc8c928bd87a8e3ab4791337ed9fa847e0` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `0a25b64d8572c3c6d422effcee80442a996be0199904f6c25d7abc5b5123766c`.
 
 ## Latest user update instructions
 
-Latest user image reports: “Optional AI unavailable: Program terminated with exit(1)”. Follow-up clarification: “It reached 100% first”. Investigate this reported loading failure and make its handling recoverable. [The investigation scope is inferred from the supplied error image and conversation; the quoted error and follow-up are verbatim.]
+The user supplied mplpb-model-load-report.json after reporting an iPad model download completing and initialization failing. Continue investigating and repairing the actual failure. Report text: “Object has already been disposed”. [The repair objective is inferred from the attached report and ongoing debugging request.]
 
-Persisting constraint: “this can’t cost me anything, I build very cheap”.
+Persisting user constraint: “this can’t cost me anything, I build very cheap”.
 
 ## Implemented scope
 
-- Add a bounded model-load diagnostic report with original stage, progress, GPU/browser capabilities, available runtime logger messages, thrown error/stack/cause and cleanup outcomes. Export it locally without source questions and include it in the broader explicit interaction export.
-- Distinguish a 100% download from successful initialization. Keep general-chat requests unsent while loading and label an unloaded model as unavailable rather than question clarification.
-- Use the documented constructor/reload equivalent of the same pinned runtime so failure cleanup can be attempted. Bound unload to three seconds; require a user-triggered page reload before another initialization attempt. Do not clear caches or ledger data.
-- Preserve all source authority, integrity, collection and delivery rules, model/runtime/license bytes, historical evaluations and frozen probes/labels. Keep the zero-cost, no-paid-provider, no-training scope.
-- Keep bounded browser/GPU summaries on each attempt separately from the recent-event ring, so long two-phase parameter loads cannot evict diagnostic context.
+- Repair a confirmed mismatch between adapter capacity and actual requested device limits. Request min(1 GiB upstream target, supported capacity) independently for allocation/binding limits, without changing other required GPU features/compute/count limits.
+- Pass the same declared model-tensor minimum from loader preflight to an explicit local runtime extension; validate actual device limits before uploading parameters and retain those limits in the bounded report. Revalidate the small config/runtime HTTP resources after deployment without changing weight/cache identity.
+- Preserve original vendor parts/licenses and reconstruct a versioned local runtime derivative with exact source-context matching, input/patch/output hashes and byte count. Identify that derivative explicitly in model/runtime metadata and documentation; do not silently call it unmodified upstream.
+- Preserve all source-answer authority, integrity, ancestry, collection/delivery rules, frozen questions/labels and historical evaluations. Add no paid provider, training, weight changes or source/cache deletion.
 
 ## Validation recorded
 
-- Baseline main 0c8199257e23c4030ab8ccb72cb687d399b9b115 had passed 873 Python tests, 45 MCP SDK checks and actual public Chromium deployment in PR #32 / Pages run 42490859108. These are baseline results, not a new-device success.
-- The user reported a real iPad attempt completing its download then failing with exit(1). The visible message does not establish memory exhaustion, GPU incompatibility or another specific cause.
-- 13 authored loader/state/DOM checks passed, including 100%-then-exit failure, deferred readiness, missing features, changed runtime hash, bounded logs, cleanup error/timeout, blocked repeated initialization, and unchanged real pinned WebLLM constructor/logger/unload API without weights. Runtime/GPU failure scenarios are simulated, not actual neural inference.
-- 33 existing helper checks against the actual native source engine and eight focused asset/data Python tests passed. Twelve actual Chromium/WebAssembly workflow checks passed, including visible separate load-stage report, physical report download matching its display without source questions, strict source/citation/conflict paths and saved clarification after reload.
-- Compared 877 protected baseline files with Git blobs, unchanged. Documentation, handoff, committed archive and exact-head CI are recorded separately and are not claimed before completion.
-- Follow-up baseline 3d37fb8f1b9b7ddd4dc3df4328a2e9396950e5f3 exposed a report-retention defect: progress/log rollover could evict the sole browser/GPU events. The strengthened bounded-events case failed before the fix; actual WebLLM emits download and device-load progress for 66 shards. Store browser/GPU snapshots independently from the event ring. This does not diagnose or resolve physical GPU initialization.
-- Context-retention fix: all 13 loader checks, 33 actual native-engine checks and eight focused Python tests pass; 12 actual Chromium/WebAssembly checks pass. Updated bounded-events assertion verifies browser/GPU fields survive rollover. This is not a physical-device or live-model pass.
+- Baseline main 28fccbdc8c928bd87a8e3ab4791337ed9fa847e0 passed 873-test required regressions and public helper deployment checks. The supplied report is actual failure evidence, not independent model-quality validation. Its full private browser metadata/stack report is not published.
+- Executed the actual pinned upstream negotiation function with authored adapter values matching the report: 512 MiB adapter becomes 256 MiB allocation / 128 MiB binding requests. Both are below the declared 307298304-byte tensor minimum. This establishes an undersized device configuration; it does not prove every later failure cause or total-RAM exhaustion.
+- 12 actual production-function checks pass across 256/128, 384, 512, 768, 1024 and 2048 MiB capacities; they exercise clamping, unchanged other requirements, actual-device/binding near misses, invalid minima and upstream callers without a host minimum. Adapters/devices are authored stubs, not physical GPU tests.
+- 13 loader/state/DOM/API cases and 33 native-engine helper checks pass. Ten focused Python asset/data tests pass, including fail-closed modified-patch and stale active-runtime-pin rejection. The actual pinned runtime API is constructed/unloaded without weights; there is no neural inference claim.
+- Compared 884 protected baseline files against original Git blobs, unchanged. Focused browser/archive/required-CI/postdeployment results are retained separately and will not be claimed before completion.
+- 12 actual Chromium/WebAssembly helper workflows passed for the candidate, including source/citation/conflict checks, recovery after reload, diagnostic display and physical JSON report export. Model availability is simulated as unsupported in that workflow; this is not Phi-4 inference or a physical iPad repair result.
 
 ## Limitations and blocked checks
 
-- The physical iPad failure root cause remains unresolved until device diagnostics are captured. No successful Phi-4 generation, hardware compatibility, independent human evaluation or model training is claimed.
-- Reports are local and bounded; they capture the pinned instance logger and thrown errors, not all GPU/console events. They do not measure available RAM and are lost on tab reload/closure unless exported. A process crash can prevent export.
-- Unloading is attempted and bounded, not proof that every partial GPU allocation is reclaimed. A new initialization requires page reload after failure; the report should be exported first. Browser eviction can still remove cached model files.
-- The public site remains static hosting with visitor-device compute. There is no paid AI API, rental, hosted MCP/inference backend or unlimited free hosting promise.
+- The patch repairs a confirmed per-buffer negotiation defect. A sufficient 512 MiB single-buffer capacity does not establish enough total device/process memory, successful full Phi-4 initialization or usable generation. Physical iPad retesting remains required.
+- The reported disposed-object failure can follow GPU device loss. Its exact causal sequence is not fully captured in the supplied report; do not relabel it as proven RAM exhaustion or an independently reproduced tensor-lifetime bug.
+- Tests execute actual production functions and pinned runtime code with authored resource values. They do not substitute for real-device or independent human answer-quality validation. Existing source-language limits remain.
+- The static public app uses visitor hardware; no paid AI API, hosted inference/MCP service or mandatory purchase is configured. Hosting/cache/device limits remain, and no fine-tuning occurs.
 
 ## Next steps
 
-- Freeze the context-retention follow-up, verify the exact extracted source and wait for required exact-head CI before merging. Verify its public deployment separately. The previous diagnostic release passed all required gates; its metadata-retention follow-up must be tested as its own revision.
-- After the new loader is published, reload the site and make one explicit model-load attempt if desired. If it fails, export the model-only report before reloading and inspect the concrete runtime evidence; do not diagnose exit(1) from speculation.
-- For future updates, replace this record with the latest task instructions, review affected documentation/result links, stage intended files and regenerate/check the repository-owned handoff. No private personal context belongs in public source/training artifacts.
+- Freeze a committed candidate, archive/extract it, complete the required exact-head source/ZIP/SDK/WebAssembly/browser/documentation/handoff gates, then merge and verify the actual public deployment separately.
+- After the patched runtime is published, reload and make one explicit model-load attempt on the iPad. The report should identify local patch webgpu-device-limits-v1 and actual negotiated limits. Confirm initialization/generation rather than treating a completed download as success; inspect any new failure evidence.
+- For future updates, replace this record from the latest instructions, review affected docs/result links, stage intended files and regenerate/check the repository-owned handoff. Keep private user context out of public sources/training artifacts.
 
 ## Use this ZIP in your repository
 
