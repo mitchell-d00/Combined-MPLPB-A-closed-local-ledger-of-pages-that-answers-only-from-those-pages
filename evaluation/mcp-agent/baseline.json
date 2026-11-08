@@ -1,0 +1,20 @@
+{
+  "date": "2026-11-08",
+  "revision": "acf7800a5f8320ec29ee957d002eaaba8ed4e816",
+  "mcp_server_present": false,
+  "baseline_checks": {
+    "focused_tests": "----------------------------------------------------------------------\nRan 18 tests in 2.698s\n\nOK\n",
+    "javascript_api": "PASS JavaScript API: real engine parity, ambiguity/refusal, delivery profiles, offline default, opt-in Wikipedia fixtures, sessions, imports, validation, readiness and error recovery.\n"
+  },
+  "prior_main_pages_run": {
+    "id": 41502464401,
+    "build": "success",
+    "deploy_and_postdeployment_chromium": "success"
+  },
+  "findings": [
+    "Existing browser and native APIs already use the full reader. A URL alone does not expose private browser storage.",
+    "Optional Node bridge needs browser automation for live calls and manually supplied corpus/session arguments.",
+    "No local MCP tool server, MCP session lifecycle, host collection scope or MCP client conformance test exists at this revision.",
+    "Local trusted-operator use is the declared deployment scope. Shared service authentication, tenant isolation and independent language/usability validation are not established."
+  ]
+}

@@ -84,6 +84,11 @@ jobs:
           if-no-files-found: warn
       - name: Run full Python regression suite
         run: python -m unittest discover -s tests -q
+      - name: Test local MCP with the official SDK client
+        run: |
+          python -m venv "$RUNNER_TEMP/mcp-sdk"
+          "$RUNNER_TEMP/mcp-sdk/bin/python" -m pip install "mcp==1.26.0"
+          "$RUNNER_TEMP/mcp-sdk/bin/python" tools/check_mcp_client.py --output "$RUNNER_TEMP/mcp-client.json"
       - name: Run complete synthetic researcher journeys
         run: python -m tools.evaluate_researcher_pilot --output "$RUNNER_TEMP/npc-pilot/native.json"
       - name: Audit JavaScript, crawler and browser transport

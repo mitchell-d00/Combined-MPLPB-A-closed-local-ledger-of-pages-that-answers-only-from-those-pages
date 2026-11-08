@@ -2,7 +2,7 @@
 
 # Production threat model
 
-Last reviewed: 2026-11-02. See [current status and result-to-test index](CURRENT_STATUS_2026-11-02.md). Dates and numeric results in historical validation sections retain their original scope; this review is not a rerun or independent certification.
+Last reviewed: 2026-11-08. See [current status and result-to-test index](CURRENT_STATUS_2026-11-08.md). Dates and numeric results in historical validation sections retain their original scope; this review is not a rerun or independent certification.
 
 Status: engineering threat model, not a penetration-test report or certification.
 Scope: Python reader and local UI, static WebAssembly site, browser persistence,
@@ -59,3 +59,20 @@ and legacy candidate API are unchanged. Deployments must route factual requests
 through the gate rather than directly calling the old reader. Other specialized
 summary, quote and structured-relation paths retain their own contracts; this
 release does not certify every chat utterance or sentence against this suite.
+
+## Local MCP adapter scope (November 8)
+
+`tools/mplpb_mcp.py` exposes the same App through sequential local stdio. The host
+fixes source keys/paths and delivery profile, and the adapter offers no source
+management or network tool. Conversation saves are isolated by policy and staged
+until the full response fits. HTML containment, explicit leaf registration,
+request/output/source/storage budgets and integrity checks add local boundaries.
+Source text remains untrusted data; imported instructions cannot grant permission.
+
+These controls do not authenticate the client, sandbox its process or constrain
+its unrelated tools. A cloud client can receive private source text under its own
+provider policies. An exclusive namespace process lock rejects concurrent MCP hosts sharing a
+conversation save; hard CPU deadlines are not implemented. Existing derived caches may
+be rebuilt through the normal pinned collection reader. This does not alter
+source facts. Shared hosting and consequential autonomous decisions remain outside
+the supported scope. See [readiness](PRODUCTION_READINESS.md) and [MCP rules](MCP_AGENT.md).

@@ -1,0 +1,35 @@
+{
+  "role": "Local source validation; publication/ZIP/deployment evidence remains separate",
+  "baseline_revision": "acf7800a5f8320ec29ee957d002eaaba8ed4e816",
+  "validated_on": "2026-11-08",
+  "checks": {
+    "baseline_focused_tests": 18,
+    "baseline_javascript_api": "passed",
+    "mcp_focused_tests": 31,
+    "official_sdk_checks": 45,
+    "sdk_version": "1.26.0",
+    "infrastructure": "passed",
+    "documentation_inventory": "passed at staged candidate",
+    "protected_baseline_files": 1425,
+    "extracted_candidate": {
+      "revision": "94249884391442bc6b05f51f27640249d77d73df",
+      "focused_tests": 46,
+      "official_sdk_checks": 45,
+      "javascript_api": "passed",
+      "documentation": "passed",
+      "infrastructure": "passed",
+      "handoff": "passed",
+      "zip_sha256": "9dde3d5ea06f3e3ef4b461f3ed239a40e2fb3c5d174d3abc85445a98236d6873"
+    }
+  },
+  "implementation_files_sha256": {
+    "tools/mplpb_mcp.py": "2d374e84c3a8fa050e387eee885d8c0453f0d5ac8b0635859fa2fa553fba1065",
+    "tools/check_mcp_client.py": "65f55a0d13550794aef9c26679e9c3e473227f7ba74f7373b7f0cdfa5de089eb",
+    "tests/test_mcp_agent.py": "decd9397bb57db7c1b3d5d872bb9d741b8ac2daf727c3d16575880887c21ab7e"
+  },
+  "limits": [
+    "Authored synthetic/tool validation; not independent human review or particular AI application behavior.",
+    "Linux/Python 3.12 source path; shared-service/OS sandbox/hard CPU deadline are not established.",
+    "Full local suite is running separately; final PR/browser/deployment results belong to their exact-head CI runs."
+  ]
+}

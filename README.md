@@ -1,6 +1,6 @@
 # Combined MPLPB
 
-Last reviewed: 2026-11-02. See [current status and result-to-test index](docs/CURRENT_STATUS_2026-11-02.md). Dates and numeric results in historical validation sections retain their original scope; this review is not a rerun or independent certification.
+Last reviewed: 2026-11-08. See [current status and result-to-test index](docs/CURRENT_STATUS_2026-11-08.md). Dates and numeric results in historical validation sections retain their original scope; this review is not a rerun or independent certification.
 
 A closed local ledger of pages, with supported answers, inspectable provenance, and deterministic conversation. Each page declares its identity, scope, status, sealed hash, origin, and lineage. Source-backed answers require eligible body evidence under a finite grammar; missing support refuses and competing support remains ambiguous.
 
@@ -39,7 +39,7 @@ This source candidate is **2.1.0rc1**, following the 2.0.0 bounded-reader releas
 
 The [general answer pipeline](docs/GENERAL_ANSWER_PIPELINE.md) adds diagnostic abstentions and an opt-in native local reader. Strict mode remains the default and needs no model. Assisted mode is experimental; live-model quality and fresh cross-domain evaluation are still required before a general-quality shipping claim. See the [capability/release matrix](docs/RELEASE_2_1_RC1.md) and [human-scored evaluation](evaluation/general-reader/README.md).
 
-See the [November 2 implementation and verification status](docs/CURRENT_STATUS_2026-11-02.md) for merged changes, actual checks and remaining product gaps, and the [result-to-test index](docs/RESULTS_AND_TESTS.md) for reproduction. The October 31 status remains historical.
+See the [November 8 implementation and verification status](docs/CURRENT_STATUS_2026-11-08.md) for merged changes, actual checks and remaining product gaps, and the [result-to-test index](docs/RESULTS_AND_TESTS.md) for reproduction. The October 31 status remains historical.
 
 The local [user-built collection repair](docs/USER_BUILT_COLLECTIONS.md) documents collection growth versus engine changes, bounded source-policy questions, state rechecks and portable-backup limitations.
 
@@ -160,3 +160,9 @@ Source-language contradiction repair and per-case audit (2026-11-02): [evaluatio
 Latest procedure recovery and repository-owned handoff: [Procedure clarification, recovery and ZIP handoff](evaluation/procedure-recovery/README.md).
 
 Permanent reference-test evidence: [73/73 evidence and reproduction](evaluation/reference-corpus-reproduction/README.md).
+
+Local MCP for AI clients: [connection setup and tools](docs/MCP_AGENT.md).
+The host authorizes collection keys and a fixed delivery profile; clients use the
+same full reader, inspect evidence, and recover bounded conversations. No browser
+automation or model provider is required by the server. See [production readiness](docs/PRODUCTION_READINESS.md)
+for the local scope, tested capabilities and remaining deployment/validation gaps.
