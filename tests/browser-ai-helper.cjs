@@ -24,7 +24,7 @@ let checks=0;const check=(name,condition)=>{assert(condition,name);checks++;};
 async function run(){
  const helper=new Helper(api);
  let unavailable=await helper.turn('Hello',{mode:'general'});
- check('general without model explains capability without a source call',unavailable.authority==='capability_notice'&&!helper.events.some(e=>e.kind==='tool_request'));
+ check('general without model explains capability without a source call',unavailable.kind==='unavailable'&&unavailable.authority==='capability_notice'&&!helper.events.some(e=>e.kind==='tool_request'));
  let value=await helper.turn('Synthetic source shelf',{mode:'build',corpus:'logic'});
  check('creation is a draft',value.kind==='draft');check('no unapproved engine write',!helper.events.some(e=>e.kind==='tool_request'));
  helper.cancel();check('cancel has no write',!helper.events.some(e=>e.kind==='tool_request'));

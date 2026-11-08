@@ -1,0 +1,20 @@
+{
+  "role": "Authored model-loader state/DOM tests with simulated runtime and GPU; not live neural inference or independent human validation",
+  "checks": 13,
+  "passed": true,
+  "cases": [
+    "no GPU reports preflight failure without fetching",
+    "missing f16 blocks before runtime download",
+    "unknown or inadequate buffer capacity is rejected",
+    "changed runtime bytes stop before import or initialization",
+    "100 percent followed by exit(1) retains runtime evidence and never becomes ready",
+    "100 percent remains loading until reload actually resolves; concurrency blocked",
+    "cleanup errors preserve original failure and recovery requirement",
+    "hanging cleanup is bounded without clearing source data",
+    "bounded events and snapshots cannot mutate the retained report",
+    "older preflight failures are bounded and omissions explicit",
+    "pinned runtime logger hook changes fail visibly",
+    "real helper UI exposes initialization failure without a ledger call",
+    "real pinned WebLLM constructor/logger/unload API works without loading weights"
+  ]
+}

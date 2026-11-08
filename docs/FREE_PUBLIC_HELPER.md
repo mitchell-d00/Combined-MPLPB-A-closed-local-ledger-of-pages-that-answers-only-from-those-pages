@@ -50,6 +50,35 @@ has **not** been validated here. The actual browser tests validate source/builde
 behavior, native fallback and the unavailable-model path; simulated model plans
 validate orchestration boundaries, not neural answer quality.
 
+## When the model fails to initialize
+
+A visitor reported an iPad download reaching 100%, followed by
+`Program terminated with exit(1)`. This is evidence of a failed attempt, not a
+confirmed memory diagnosis or a working iPad model. Download progress and model
+readiness are separate: only successful engine initialization enables AI chat.
+
+**Model loading details** records the stage, preflight browser/GPU capabilities,
+last progress, thrown error/stack/cause and available TVM runtime logger messages.
+Use **Export model load report** before reloading to retain this information.
+This report is local and excludes source questions; it is not uploaded or used for
+training. The broader interaction trace can include questions/source text.
+
+Capture is bounded to three attempts and 120 recent events per attempt, with
+omission counts and declared text/stack limits. It does not capture every console
+or GPU message, determine available RAM, survive closing/reloading the tab, or
+establish a hardware root cause by itself. A browser-process crash may lose it.
+The loader uses the documented `MLCEngine` constructor/reload equivalent and the
+logger hook inspected in pinned WebLLM 0.2.87. Runtime bytes and model pins remain
+unchanged; an unexpected logger-hook change fails visibly.
+
+Failed initialization attempts runtime unload with a three-second bound; its
+outcome is recorded, without claiming all partial GPU allocations were reclaimed.
+The retry control then explicitly reloads the page, rather than repeatedly
+allocating another model in the same page. No cache or ledger deletion is
+requested. The same model/cache identity is reused; browser eviction can still
+require another download. Source tools remain usable without AI. An unloaded AI
+is labeled **AI not loaded**, not a request to clarify the user's question.
+
 ## What transparency means
 
 The interface separates the original user input, a model's unverified proposal,
@@ -107,7 +136,7 @@ core offline engine but does not include these optional sidecars or model weight
 Use the public site or serve the complete generated site folder for the optional
 model. The source package includes the pinned reconstruction parts and notices.
 
-Run `node tests/browser-ai-helper.cjs`,
+Run `node tests/browser-ai-helper.cjs`, `node tests/browser-model-loader.cjs`,
 `python -m unittest tests.test_browser_ai_assets tests.test_owner_corpus -v`, and
 `python -m tools.browser_free_helper --preview-dir PREVIEW --browser-executable CHROME --output NEW_REPORT.json`.
 See [retained evidence](../evaluation/free-browser-helper/README.md). Source tests,

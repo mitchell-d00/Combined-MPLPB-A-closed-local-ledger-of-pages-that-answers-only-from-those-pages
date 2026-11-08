@@ -24,9 +24,27 @@ def verify(page,url):
     page.wait_for_function("() => window.MPLPB && !document.querySelector('#workspace').hidden",timeout=150000)
     page.locator('#ai-helper > summary').click()
     expect(page.locator('#ai-helper-corpus option')).not_to_have_count(0,timeout=60000)
+    page.locator('#ai-helper-message').fill('Private draft question is not a model-load diagnostic')
     page.locator('#ai-helper-load').click()
     expect(page.locator('#ai-helper-status')).to_contain_text('WebGPU',timeout=30000)
     checks.append('unsupported_gpu_is_explicit_and_no_model_download_is_started')
+    expect(page.locator('#ai-helper-model-status')).to_contain_text('browser compatibility check')
+    page.locator('#ai-helper-load-report').locator('xpath=ancestor::details[1]/summary').click()
+    load_report=json.loads(page.locator('#ai-helper-load-report').inner_text())
+    assert load_report['attempts'][-1]['status']=='failed'
+    assert load_report['attempts'][-1]['failed_phase']=='preflight'
+    checks.append('load_failure_has_a_separate_visible_stage_and_diagnostic_report')
+    with page.expect_download() as exported:
+        page.locator('#ai-helper-export-load').click()
+    saved_report=json.loads(Path(exported.value.path()).read_text())
+    assert saved_report==load_report
+    assert 'Private draft question' not in json.dumps(saved_report)
+    checks.append('model_report_download_matches_display_without_source_questions')
+    page.locator('#ai-helper-mode').select_option('general')
+    page.locator('#ai-helper-send').click()
+    expect(page.locator('#ai-helper-output')).to_contain_text('AI not loaded',timeout=30000)
+    expect(page.locator('#ai-helper-output')).not_to_contain_text('Clarification needed')
+    checks.append('unloaded_general_chat_is_availability_not_question_clarification')
     page.locator('#ai-helper-mode').select_option('build')
     page.locator('#ai-helper-message').fill('Browser helper research')
     page.locator('#ai-helper-send').click()
@@ -89,7 +107,7 @@ def verify(page,url):
     assert not errors,errors
     return {'role':'Authored Chromium workflow on actual WebAssembly MPLPB; no live-model inference or independent human validation',
             'checks_passed':checks,'outbound_requests':outbound,'page_errors':errors,'corpus':key,
-            'model_downloaded':False,'iPad_verified':False,'trace':trace}
+            'model_downloaded':False,'iPad_verified':False,'trace':trace,'initial_model_load_report':load_report}
 
 
 def main():
@@ -110,7 +128,7 @@ def main():
             report=verify(context.new_page(),url)
             report['target_kind']='candidate_preview' if args.preview_dir else 'published_site'
             report['target']=str(args.preview_dir) if args.preview_dir else url
-            report['implementation_sha256']={name:hashlib.sha256((Path(__file__).resolve().parents[1]/name).read_bytes()).hexdigest() for name in ('browser/ai-helper.js','browser/ai-helper-ui.js','tools/browser_free_helper.py')}
+            report['implementation_sha256']={name:hashlib.sha256((Path(__file__).resolve().parents[1]/name).read_bytes()).hexdigest() for name in ('browser/ai-helper.js','browser/ai-model-loader.js','browser/ai-helper-ui.js','tools/browser_free_helper.py')}
             if args.preview_dir:report['preview_sha256']=hashlib.sha256((args.preview_dir/'index.html').read_bytes()).hexdigest()
         finally:browser.close()
     args.output.parent.mkdir(parents=True,exist_ok=True);args.output.write_text(json.dumps(report,indent=2)+'\n')

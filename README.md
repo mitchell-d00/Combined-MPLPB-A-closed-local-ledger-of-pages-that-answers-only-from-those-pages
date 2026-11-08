@@ -174,3 +174,8 @@ large download for compatible WebGPU devices; no paid AI server, account or key
 is configured. Live Phi-4 generation and iPad compatibility remain unverified;
 the core engine and reviewed manual builder work without the model. No fine-tuning
 or automatic training on visitor conversations runs.
+
+Model download completion does not establish readiness. If initialization fails,
+open **Model loading details** and use **Export model load report** before
+reloading. The [helper guide](docs/FREE_PUBLIC_HELPER.md#when-the-model-fails-to-initialize)
+explains the local diagnostics and retry boundary. No model training occurs.

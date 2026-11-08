@@ -50,7 +50,7 @@ class Helper{
     plan=proposal(raw,mode);
    }else{
     this.event('native_fallback',{reason:'No AI model loaded; use the existing MPLPB engine or a manual reviewed draft.'});
-    if(mode==='general')return this.render({kind:'clarify',authority:'capability_notice',text:'General AI chat needs the optional model. You can still use Ask sources, Chat with MPLPB, or Build without it.'});
+    if(mode==='general')return this.render({kind:'unavailable',authority:'capability_notice',text:'General AI chat needs the optional model. You can still use Ask sources, Chat with MPLPB, or Build without it.'});
     if(mode==='build'){
      plan=source?{action:'import_source',summary:'Save the exact provided text after review.',title:source.title,body:source.text}:
       {action:'create_collection',summary:'Use the entered message as the proposed collection name.',name:message};

@@ -1,0 +1,28 @@
+{
+  "baseline_revision": "0c8199257e23c4030ab8ccb72cb687d399b9b115",
+  "reported_symptom": "Program terminated with exit(1)",
+  "user_report": "It reached 100% first",
+  "evidence_status": "User-reported physical-device failure; cause unresolved. Not an independent semantic or usability validation.",
+  "first_software_defect": "The loader discarded stage/runtime detail and the initializing engine reference, exposed only error.message, and presented an unloaded general AI as clarification needed.",
+  "repairs": [
+    "Separate download progress, initialization, readiness and general-chat availability.",
+    "Capture bounded local stage, browser/preflight GPU, runtime logger, error/stack/cause and cleanup evidence.",
+    "Retain engine instance for bounded unload attempt; require explicit page reload before initialization retry.",
+    "Export a model-only report without source questions; retain it in the broader tab trace.",
+    "Preserve source rules, corpus/profile control, model/runtime pins and cache identity."
+  ],
+  "boundaries": [
+    "Initialization is ready only when reload resolves; 100% callback is insufficient.",
+    "GPU/cause diagnosis is not inferred from exit(1). Available logs can be incomplete and are explicitly bounded.",
+    "No model-weight download, training, paid fallback, cache/ledger deletion or real iPad repair is claimed by authored tests."
+  ],
+  "authored_loader_checks": 13,
+  "real_native_helper_checks": 33,
+  "focused_python_tests": 8,
+  "actual_Chromium_helper_checks": 12,
+  "cases_role": "Authored development tests. GPU/runtime failure cases are simulated; actual pinned WebLLM constructor/logger/unload is also checked without weights.",
+  "live_Phi4_inference_verified": false,
+  "iPad_failure_root_cause_verified": false,
+  "protected_baseline_files": 877,
+  "status": "local_candidate_checks_passed_archive_and_exact_head_CI_pending"
+}

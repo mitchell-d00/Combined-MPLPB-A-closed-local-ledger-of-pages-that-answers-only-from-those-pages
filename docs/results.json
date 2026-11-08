@@ -323,14 +323,15 @@
       "tests": [
         "tests/test_browser_ai_assets.py",
         "tests/test_owner_corpus.py",
-        "tests/browser-ai-helper.cjs"
+        "tests/browser-ai-helper.cjs",
+        "tests/browser-model-loader.cjs"
       ],
       "runners": [
         "tools/browser_free_helper.py",
         "tools/build_ai_assets.py",
         "tools/prepare_owner_corpus.py"
       ],
-      "scope": "Authored real-engine/browser workflow and pinned assets/candidate-data tests; synthetic plans only, no live Phi-4/iPad or independent human validation.",
+      "scope": "Authored real-engine/browser workflow and pinned assets/candidate-data tests; synthetic plans only, no live Phi-4/iPad or independent human validation. Includes bounded model-load stage/error/export/retry diagnostics, with simulated failure cases and real runtime API construction without weights; no device root-cause or inference claim.",
       "measurement_status": "Local development evidence; exact candidate/CI/deployment outcomes are separate."
     }
   ]

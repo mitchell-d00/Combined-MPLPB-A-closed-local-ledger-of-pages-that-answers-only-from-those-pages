@@ -45,3 +45,13 @@ generation: the test environment lacks required shader-f16, and iPad/Safari neur
 behavior is unverified. Free hosting/CDN limits and device memory remain material.
 No fine-tuning or automatic visitor-chat training has run. This is an experimental
 public interface, not a shared inference service or production-quality model claim.
+
+## Reported iPad initialization failure
+
+An actual user reported `exit(1)` after a 100% download. The model has not been
+shown working on that device. A separate bounded loader report now preserves
+available runtime evidence, distinguishes progress from readiness, and attempts
+cleanup before requiring a page reload for another initialization. Authored
+simulated-runtime cases validate this handling; the real pinned WebLLM constructor
+and unload API are checked without weights. These are not live inference tests
+or proof of the user's hardware failure cause. See [failure recovery](FREE_PUBLIC_HELPER.md#when-the-model-fails-to-initialize).

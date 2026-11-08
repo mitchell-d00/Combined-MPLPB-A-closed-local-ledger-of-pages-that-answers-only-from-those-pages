@@ -46,6 +46,10 @@ def markup(root=ROOT):
 <p>Everyone can use this page. No paid AI service or account is required. The optional pretrained model runs on a compatible visitor device; it does not run on GitHub’s servers.</p>
 <button id="ai-helper-load" type="button">Load optional Phi-4-mini · about 2.2 GB download</button>
 <label><input id="ai-helper-use-model" type="checkbox" disabled> Use loaded AI for proposals</label>
+<p id="ai-helper-model-status" role="status" aria-live="polite">No AI model loaded. Downloading and initialization are separate stages.</p>
+<details><summary>Model loading details</summary><pre id="ai-helper-load-report" style="white-space:pre-wrap;overflow-wrap:anywhere"></pre></details>
+<button id="ai-helper-export-load" type="button">Export model load report</button>
+<p class="small">This local report includes browser/GPU capabilities, load progress and available runtime errors. It is not uploaded automatically and does not include your source questions. A 100% download does not establish that the model can initialize.</p>
 <p class="small">The model reports about 3.4 GB working memory before other browser overhead. Devices may be unable to run it. MPLPB remains available. No fine-tuning or automatic training on your conversations takes place.</p>
 <div style="display:flex;gap:8px;flex-wrap:wrap">
 <label>Collection <select id="ai-helper-corpus" aria-label="Helper collection"></select></label>
@@ -82,7 +86,7 @@ def embed(root=ROOT,check=False):
         start=html.index(JS_BEGIN);end=html.index(JS_END,start)+len(JS_END)
         if html[end:end+1]=='\n':end+=1
         html=html[:start]+html[end:]
-    scripts='\n'.join((Path(root)/'browser'/name).read_text() for name in ('ai-helper.js','ai-helper-ui.js'))
+    scripts='\n'.join((Path(root)/'browser'/name).read_text() for name in ('ai-helper.js','ai-model-loader.js','ai-helper-ui.js'))
     script=JS_BEGIN+'\ndocument.addEventListener(\'DOMContentLoaded\',function(){\n'+scripts+'\n});\n'+JS_END+'\n'
     # Keep the desktop single-inline-script/CSP contract. The helper markup is
     # parsed after that script, so initialize it only once DOM parsing completes.
