@@ -3,10 +3,18 @@
 Last reviewed: 2026-11-08.
 
 The core app does not need a language model. These pinned parts reconstruct the
-unmodified WebLLM 0.2.87 browser runtime when building the public site. No model
+original WebLLM 0.2.87 browser runtime, then apply the explicitly pinned
+`webgpu-device-limits-v1` local patch when building the public site. No model
 weights are bundled, and no paid inference endpoint or API key is configured.
 `tools/build_ai_assets.py` verifies every part and the reconstructed runtime.
-The browser checks the runtime hash before importing it. Model config and compiled
+The browser checks the active patched-runtime hash before importing it.
+The manifest retains upstream and patch/output hashes; patch matching fails closed.
+Original compressed runtime parts and all third-party licenses remain unchanged.
+The local patch requests buffer limits within the adapter’s supported capacity
+instead of dropping intermediate-capacity devices to undersized defaults.
+It also checks actual device limits against the host-declared tensor minimum and
+records negotiated limits before loading weights. This is a local derivative,
+not an assertion that the upstream package contained the repair. Model config and compiled
 library pins are also checked by the runtime; immutable model locations identify
 the selected snapshot, not its truth or independently authenticated lineage.
 

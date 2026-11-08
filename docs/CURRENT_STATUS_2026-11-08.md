@@ -56,3 +56,15 @@ Source evidence rules and the selected model/runtime bytes are unchanged.
 See [loader test cases](../tests/browser-model-loader.cjs); test/runtime stubs
 are authored development cases, not independent validation or a repaired-device
 claim. The physical device root cause remains unresolved pending its report.
+
+## Device-report limit negotiation repair
+
+At baseline `28fccbdc8c928bd87a8e3ab4791337ed9fa847e0`, the supplied report
+confirmed cached loading stopped after the first shard with a disposed-object
+error. Execution of the upstream resource-negotiation function reproduced an
+undersized device request (256/128 MiB) on the reported 512 MiB adapter. The
+selected tensor minimum is 307,298,304 bytes. A fail-closed, byte-pinned local
+WebLLM derivative now retains intermediate capacities, validates actual device
+limits and records them. This is not a neural-generation or repaired-iPad claim.
+See the new [limit tests](../tests/browser-webgpu-limits.cjs) and separate
+[findings](../evaluation/free-browser-helper/device-limit-finding.json).

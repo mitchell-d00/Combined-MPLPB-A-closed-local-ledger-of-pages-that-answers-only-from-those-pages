@@ -17,11 +17,24 @@ class BrowserAIAssetsTests(unittest.TestCase):
     def test_reconstruct_pinned_runtime_without_network(self):
         raw=A.runtime()
         manifest=json.loads((A.ROOT/'assets/ai/manifest.json').read_text())['runtime']
-        self.assertEqual(hashlib.sha256(raw).hexdigest(),manifest['uncompressed_sha256'])
+        self.assertEqual(hashlib.sha256(raw).hexdigest(),manifest.get('local_patch',{}).get('output_sha256',manifest['uncompressed_sha256']))
         self.assertIn(b'CreateMLCEngine',raw)
         result=A.build(self.root/'site')
         self.assertFalse(result['models_downloaded']);self.assertFalse(result['paid_service_configured'])
         self.assertEqual((self.root/'site/webllm.mjs').read_bytes(),raw)
+
+    def test_changed_patch_fails_before_build(self):
+        shutil.copytree(A.ROOT/'assets',self.root/'assets')
+        path=self.root/'assets/ai/patches/webgpu-device-limits-v1.json'
+        path.write_bytes(path.read_bytes()+b' ')
+        with self.assertRaisesRegex(ValueError,'patch differs from pin'):A.runtime(self.root)
+
+    def test_stale_model_runtime_pin_fails_before_delivery(self):
+        shutil.copytree(A.ROOT/'assets',self.root/'assets')
+        path=self.root/'assets/ai/model.json'
+        model=json.loads(path.read_text());model['runtime']['sha256']='0'*64
+        path.write_text(json.dumps(model))
+        with self.assertRaisesRegex(ValueError,'runtime pin differs'):A.build(self.root/'site',self.root)
 
     def test_changed_runtime_part_fails_before_build(self):
         shutil.copytree(A.ROOT/'assets',self.root/'assets')

@@ -55,3 +55,11 @@ cleanup before requiring a page reload for another initialization. Authored
 simulated-runtime cases validate this handling; the real pinned WebLLM constructor
 and unload API are checked without weights. These are not live inference tests
 or proof of the user's hardware failure cause. See [failure recovery](FREE_PUBLIC_HELPER.md#when-the-model-fails-to-initialize).
+
+The supplied device report and execution of the actual upstream negotiation
+function identified an additional concrete defect: an adapter supporting 512 MiB
+was configured with only 256/128 MiB limits, below the model's 307,298,304-byte
+tensor minimum. A pinned local runtime patch retains supported intermediate
+capacities and checks/logs actual device limits before parameters load. This
+repairs the configuration defect; full physical-device inference remains a
+separate check. Model identity/cache, source ownership and delivery rules remain.

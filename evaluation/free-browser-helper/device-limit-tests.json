@@ -1,0 +1,19 @@
+{
+  "role": "Actual pinned production functions, authored adapter/device values; not physical GPU or neural/human validation",
+  "checks": 12,
+  "passed": true,
+  "cases": [
+    "upstream reproduces insufficient negotiated capacity on 512 MiB adapter",
+    "bounded actual request for adapter 256/128 MiB",
+    "bounded actual request for adapter 384/384 MiB",
+    "bounded actual request for adapter 512/512 MiB",
+    "bounded actual request for adapter 768/512 MiB",
+    "bounded actual request for adapter 1024/1024 MiB",
+    "bounded actual request for adapter 2048/2048 MiB",
+    "actual negotiated 512 MiB device accepts declared tensor minimum",
+    "actual undersized device rejected even when adapter was sufficient",
+    "binding near miss rejected separately from buffer allocation",
+    "missing actual limits and invalid declared minimum fail closed",
+    "upstream callers without host minimum remain compatible"
+  ]
+}

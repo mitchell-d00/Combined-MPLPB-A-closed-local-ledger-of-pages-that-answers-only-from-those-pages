@@ -1,0 +1,39 @@
+{
+  "baseline_revision": "28fccbdc8c928bd87a8e3ab4791337ed9fa847e0",
+  "device_evidence_scope": "Sanitized facts from a user-provided diagnostic report. Original device UA, timestamps, attachment identifiers and blob stack URLs are not published. No successful neural inference is claimed.",
+  "observed": {
+    "required_feature_shader_f16": true,
+    "adapter_maxBufferSize": 536870912,
+    "adapter_maxStorageBufferBindingSize": 536870912,
+    "last_progress": "Loading cached shard 1/66, about 14%",
+    "error": "Object has already been disposed",
+    "failed_record": "transformer.embd.q_scale"
+  },
+  "source_trace": [
+    "Upstream detectGPUDevice requests 1 GiB, but falls back to 256 MiB buffers and 128 MiB bindings for the observed 512 MiB adapter.",
+    "The selected model declares a largest tensor of 307298304 bytes, exceeding both negotiated limits.",
+    "The report shows successful runtime verification, parameter loading started, then a disposed-object error. Runtime device-loss handling can dispose the instance; that error is not by itself proof of total RAM exhaustion."
+  ],
+  "confirmed_defect": "Adapter preflight passes while the runtime negotiates a device too small for a known model tensor.",
+  "general_repair": "Request min(upstream 1 GiB target, each supported adapter capacity); validate actual device limits against the same host tensor minimum before parameters load; retain negotiated limits separately.",
+  "runtime_derivative": {
+    "path": "patches/webgpu-device-limits-v1.json",
+    "id": "webgpu-device-limits-v1",
+    "sha256": "237bdd1b87682427fd8f3c4a5e5e3095b11f698fedbe463e5c023328ce30d483",
+    "output_sha256": "9afbc1d07c664cf60972bc88e5e64e9c5594b8b03dfc1c24dcb18620774ce73c",
+    "output_bytes": 6813068
+  },
+  "boundaries": [
+    "No source-answer rules, collection/profile/provenance restrictions, model weight/config/library pins or cache identity change.",
+    "GPU feature/compute/storage-count requirements remain unchanged. No requested buffer limit exceeds the adapter capability.",
+    "Sufficient per-buffer limits do not establish sufficient total memory, full initialization or successful generation. A physical iPad retest remains required."
+  ],
+  "local_validation": {
+    "actual_production_negotiation_and_guard_cases": 12,
+    "loader_state_DOM_and_real_runtime_API_without_weights": 13,
+    "real_native_helper": 33,
+    "Python_assets_and_data": 10,
+    "actual_Chromium_workflow": 12
+  },
+  "status": "candidate_local_checks_passed_exact_archive_CI_and_deployment_separate"
+}

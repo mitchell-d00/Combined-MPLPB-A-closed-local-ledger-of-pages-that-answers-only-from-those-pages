@@ -57,3 +57,18 @@ The context-retention follow-up preserves browser/GPU summaries outside the
 case failed on baseline `3d37fb8f1b9b7ddd4dc3df4328a2e9396950e5f3` before this
 repair. See `loader-context-retention.json` and its separate before/after artifacts.
 This is diagnostic context retention, not evidence of working model inference.
+
+## Supplied device report: actual limit mismatch
+
+The user's report identified a 512 MiB adapter and a disposed-object error
+during cached loading. Running the actual upstream negotiation function with
+those limits reproduced a 256/128 MiB device request, below the declared
+307,298,304-byte tensor minimum. `device-limit-finding.json` records sanitized
+facts, the source trace, a pinned local runtime derivative and its boundaries.
+`device-limit-baseline.json` and `device-limit-tests.json` are actual production
+functions exercised with authored device values, not physical GPU/model success.
+Original runtime parts, licenses, model weights and historical results are retained.
+
+```sh
+node tests/browser-webgpu-limits.cjs
+```

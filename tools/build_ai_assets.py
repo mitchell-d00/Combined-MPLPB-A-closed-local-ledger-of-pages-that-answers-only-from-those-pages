@@ -29,14 +29,36 @@ def runtime(root=ROOT):
     raw=gzip.decompress(packed)
     if len(raw)!=manifest['uncompressed_bytes'] or hashlib.sha256(raw).hexdigest()!=manifest['uncompressed_sha256']:
         raise ValueError('Optional AI runtime bytes differ from pin')
+    patch_pin=manifest.get('local_patch')
+    if patch_pin:
+        path=Path(patch_pin['path'])
+        if path.is_absolute() or '..' in path.parts:raise ValueError('Unsafe AI runtime patch path')
+        patch_bytes=(base/path).read_bytes()
+        if hashlib.sha256(patch_bytes).hexdigest()!=patch_pin['sha256']:raise ValueError('AI runtime patch differs from pin')
+        patch=json.loads(patch_bytes)
+        if patch.get('schema')!='mplpb-runtime-literal-patch-v1' or patch.get('id')!=patch_pin['id'] or patch.get('upstream_sha256')!=manifest['uncompressed_sha256']:
+            raise ValueError('AI runtime patch does not identify this upstream')
+        source=raw.decode('utf-8')
+        for change in patch['changes']:
+            if change['expected_occurrences']!=1 or source.count(change['old'])!=1:raise ValueError('AI runtime patch context differs')
+            source=source.replace(change['old'],change['new'])
+        raw=source.encode('utf-8')
+        if len(raw)!=patch_pin['output_bytes'] or hashlib.sha256(raw).hexdigest()!=patch_pin['output_sha256']:raise ValueError('Patched AI runtime differs from output pin')
     return raw
 
 
 def build(output,root=ROOT):
     output=Path(output);output.mkdir(parents=True,exist_ok=True)
-    (output/'webllm.mjs').write_bytes(runtime(root))
+    raw=runtime(root)
+    model=json.loads((Path(root)/'assets/ai/model.json').read_text())
+    manifest=json.loads((Path(root)/'assets/ai/manifest.json').read_text())['runtime']
+    if model['runtime']['sha256']!=hashlib.sha256(raw).hexdigest() or model['runtime'].get('local_patch')!=manifest.get('local_patch',{}).get('id'):
+        raise ValueError('Model configuration runtime pin differs from built runtime')
+    (output/'webllm.mjs').write_bytes(raw)
     for name in ('model.json','manifest.json','LICENSE-WEBLLM.txt','LICENSE-PHI4.txt','LICENSE-LOGLEVEL.txt'):
         shutil.copyfile(Path(root)/'assets/ai'/name,output/name)
+    if (Path(root)/'assets/ai/patches').exists():
+        shutil.copytree(Path(root)/'assets/ai/patches',output/'patches',dirs_exist_ok=True)
     return {'runtime_bytes':(output/'webllm.mjs').stat().st_size,'models_downloaded':False,'paid_service_configured':False}
 
 

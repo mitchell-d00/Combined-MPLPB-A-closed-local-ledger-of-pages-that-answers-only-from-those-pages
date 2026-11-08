@@ -36,6 +36,7 @@ jobs:
           node tests/javascript-api.cjs
           node tests/browser-ai-helper.cjs
           node tests/browser-model-loader.cjs
+          node tests/browser-webgpu-limits.cjs
           node --check tools/mplpb_agent_bridge.mjs
           node tools/mplpb_agent_bridge.mjs --help
           node crawler/test_worker.mjs
