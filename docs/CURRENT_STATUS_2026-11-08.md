@@ -36,7 +36,7 @@ pottery results have not become independent general-language validation.
 The later [free public helper](FREE_PUBLIC_HELPER.md) targets a shared website
 address without a paid AI backend. It adds reviewed source building, native/model
 labels and recorded proposals versus actual tool results. Local authored evidence
-records nine real Chromium checks (including reload recovery), 32 checks against
+records nine real Chromium checks (including reload recovery), 33 checks against
 the real engine and eight Python asset/data tests. Live Phi-4 generation and iPad
 behavior are unverified; the test GPU lacks shader-f16. No model is fine-tuned.
 Owner-authorized public README material is prepared separately as candidate prose,

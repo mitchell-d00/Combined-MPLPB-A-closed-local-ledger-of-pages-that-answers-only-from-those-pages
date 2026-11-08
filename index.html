@@ -289,37 +289,8 @@ function bindWorkshop(){
 
 }
 if(location.protocol==='file:')$('connection').hidden=false;else boot();
-</script>
-<!-- BEGIN OPTIONAL AI HELPER -->
-<details id="ai-helper" class="panel" style="max-width:1100px;margin:16px auto;padding:16px">
-<summary><strong>Builder and chat helper · optional free browser AI</strong></summary>
-<p>Everyone can use this page. No paid AI service or account is required. The optional pretrained model runs on a compatible visitor device; it does not run on GitHub’s servers.</p>
-<button id="ai-helper-load" type="button">Load optional Phi-4-mini · about 2.2 GB download</button>
-<label><input id="ai-helper-use-model" type="checkbox" disabled> Use loaded AI for proposals</label>
-<p class="small">The model reports about 3.4 GB working memory before other browser overhead. Devices may be unable to run it. MPLPB remains available. No fine-tuning or automatic training on your conversations takes place.</p>
-<div style="display:flex;gap:8px;flex-wrap:wrap">
-<label>Collection <select id="ai-helper-corpus" aria-label="Helper collection"></select></label>
-<label>Task <select id="ai-helper-mode"><option value="ask">Ask sources</option><option value="chat">Chat with MPLPB</option><option value="build">Build a collection/source</option><option value="general">General chat · model text is unverified</option></select></label>
-</div>
-<label>Your request <textarea id="ai-helper-message" rows="3" maxlength="4000" style="width:100%;box-sizing:border-box" placeholder="Ask a question, discuss your sources, or describe what you want to build."></textarea></label>
-<details><summary>Provide source text for a reviewed import</summary>
-<label>Title <input id="ai-helper-title" maxlength="200"></label>
-<label>Source URL <input id="ai-helper-url" type="url" placeholder="https://…"></label>
-<label>Exact supplied text <textarea id="ai-helper-source" rows="5" maxlength="10000" style="width:100%;box-sizing:border-box"></textarea></label>
-<p class="small">Choose Build to propose an import. Supplied text is saved exactly after review. An AI-generated draft is labeled unverified; saving it does not ratify its truth or authorship.</p>
-</details>
-<button id="ai-helper-send" type="button">Send to helper</button>
-<p id="ai-helper-status" role="status" aria-live="polite">No model loaded. The existing MPLPB engine and manual reviewed builder are available.</p>
-<pre id="ai-helper-output" style="white-space:pre-wrap;overflow-wrap:anywhere"></pre>
-<pre id="ai-helper-review" style="white-space:pre-wrap;overflow-wrap:anywhere"></pre>
-<button id="ai-helper-approve" type="button" hidden>Save this reviewed draft</button>
-<button id="ai-helper-cancel" type="button" hidden>Cancel draft</button>
-<details><summary>Inspect the original engine result and evidence</summary><pre id="ai-helper-evidence" style="white-space:pre-wrap;overflow-wrap:anywhere"></pre></details>
-<details><summary>Inspect inputs, model proposals and actual execution paths</summary><pre id="ai-helper-trace" style="white-space:pre-wrap;overflow-wrap:anywhere"></pre></details>
-<button id="ai-helper-export" type="button">Export this tab’s interaction trace</button>
-<p class="small">The trace separates proposals, approvals and engine results. It is not a model’s private reasoning. General model context is limited and held in this tab; export before closing. Your browser’s pages are not automatically shared with other visitors.</p>
-</details>
-<script>
+// BEGIN OPTIONAL AI HELPER SCRIPT
+document.addEventListener('DOMContentLoaded',function(){
 /* Optional probabilistic helper. MPLPB owns source decisions; models propose actions. */
 (function(root){
 'use strict';
@@ -507,7 +478,38 @@ el('ai-helper-load').addEventListener('click',async()=>{
 });
 })();
 
+});
+// END OPTIONAL AI HELPER SCRIPT
 </script>
+<!-- BEGIN OPTIONAL AI HELPER -->
+<details id="ai-helper" class="panel" style="max-width:1100px;margin:16px auto;padding:16px">
+<summary><strong>Builder and chat helper · optional free browser AI</strong></summary>
+<p>Everyone can use this page. No paid AI service or account is required. The optional pretrained model runs on a compatible visitor device; it does not run on GitHub’s servers.</p>
+<button id="ai-helper-load" type="button">Load optional Phi-4-mini · about 2.2 GB download</button>
+<label><input id="ai-helper-use-model" type="checkbox" disabled> Use loaded AI for proposals</label>
+<p class="small">The model reports about 3.4 GB working memory before other browser overhead. Devices may be unable to run it. MPLPB remains available. No fine-tuning or automatic training on your conversations takes place.</p>
+<div style="display:flex;gap:8px;flex-wrap:wrap">
+<label>Collection <select id="ai-helper-corpus" aria-label="Helper collection"></select></label>
+<label>Task <select id="ai-helper-mode"><option value="ask">Ask sources</option><option value="chat">Chat with MPLPB</option><option value="build">Build a collection/source</option><option value="general">General chat · model text is unverified</option></select></label>
+</div>
+<label>Your request <textarea id="ai-helper-message" rows="3" maxlength="4000" style="width:100%;box-sizing:border-box" placeholder="Ask a question, discuss your sources, or describe what you want to build."></textarea></label>
+<details><summary>Provide source text for a reviewed import</summary>
+<label>Title <input id="ai-helper-title" maxlength="200"></label>
+<label>Source URL <input id="ai-helper-url" type="url" placeholder="https://…"></label>
+<label>Exact supplied text <textarea id="ai-helper-source" rows="5" maxlength="10000" style="width:100%;box-sizing:border-box"></textarea></label>
+<p class="small">Choose Build to propose an import. Supplied text is saved exactly after review. An AI-generated draft is labeled unverified; saving it does not ratify its truth or authorship.</p>
+</details>
+<button id="ai-helper-send" type="button">Send to helper</button>
+<p id="ai-helper-status" role="status" aria-live="polite">No model loaded. The existing MPLPB engine and manual reviewed builder are available.</p>
+<pre id="ai-helper-output" style="white-space:pre-wrap;overflow-wrap:anywhere"></pre>
+<pre id="ai-helper-review" style="white-space:pre-wrap;overflow-wrap:anywhere"></pre>
+<button id="ai-helper-approve" type="button" hidden>Save this reviewed draft</button>
+<button id="ai-helper-cancel" type="button" hidden>Cancel draft</button>
+<details><summary>Inspect the original engine result and evidence</summary><pre id="ai-helper-evidence" style="white-space:pre-wrap;overflow-wrap:anywhere"></pre></details>
+<details><summary>Inspect inputs, model proposals and actual execution paths</summary><pre id="ai-helper-trace" style="white-space:pre-wrap;overflow-wrap:anywhere"></pre></details>
+<button id="ai-helper-export" type="button">Export this tab’s interaction trace</button>
+<p class="small">The trace separates proposals, approvals and engine results. It is not a model’s private reasoning. General model context is limited and held in this tab; export before closing. Your browser’s pages are not automatically shared with other visitors.</p>
+</details>
 <!-- END OPTIONAL AI HELPER -->
 </body>
 </html>

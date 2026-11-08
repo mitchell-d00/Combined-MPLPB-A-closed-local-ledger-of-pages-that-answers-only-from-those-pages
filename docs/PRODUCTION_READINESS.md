@@ -39,7 +39,7 @@ a candidate browser check and a postdeployment check are distinct evidence.
 The [public browser helper](FREE_PUBLIC_HELPER.md) adds reviewed collection/source
 building and a visible execution trace using the existing page API. The optional
 pretrained model runs on compatible visitor devices; no shared AI server is
-configured. Nine actual Chromium workflow checks, 32 real-engine contract checks
+configured. Nine actual Chromium workflow checks, 33 real-engine contract checks
 and eight Python asset/data checks pass locally. These do not validate live model
 generation: the test environment lacks required shader-f16, and iPad/Safari neural
 behavior is unverified. Free hosting/CDN limits and device memory remain material.

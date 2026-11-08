@@ -1,6 +1,7 @@
 """Pinned optional browser assets and faithful embedding; no model weights downloaded."""
 import hashlib
 import json
+import re
 from pathlib import Path
 import shutil
 import tempfile
@@ -36,6 +37,8 @@ class BrowserAIAssetsTests(unittest.TestCase):
         A.embed(self.root,check=True);A.embed(self.root)
         self.assertEqual((self.root/'index.html').read_text(),first)
         self.assertLess(first.index('original()'),first.index('browser-ai-helper-v1'))
+        self.assertEqual(len(re.findall(r'<script>(.*?)</script>',first,re.S)),1)
+        self.assertIn("document.addEventListener('DOMContentLoaded'",first)
         (self.root/'browser/ai-helper.js').write_text('changed')
         with self.assertRaisesRegex(ValueError,'stale'):A.embed(self.root,check=True)
 

@@ -14,8 +14,13 @@ conflict handling and a saved clarification after a real page reload. Model plan
 in contract tests are synthetic; live Phi-4 generation is not represented as tested.
 
 `native-contract.json`, `focused-tests.json`, `browser.json` and `gpu-probe.json`
-retain actual outcomes. `validation.json` identifies source content and later
-archive/release evidence when recorded. No independent human quality or iPad pass
+retain actual outcomes. `validation.json` identifies source content. `extracted-zip.json` pins the
+implementation revision/tree and exact ZIP with focused native/Chromium evidence.
+A later socket-enabled test found a single-script packaging mismatch in that
+preliminary revision. The embedding repair and successful 66-test rerun are
+recorded separately in `validation.json`, with all failure logs retained.
+`candidate-browser-after-embedding-fix.json` is the revised nine-check browser
+result. Exact-head required CI and public deployment are separate gates. No independent human quality or iPad pass
 is claimed. The software test GPU lacks shader-f16, so the selected neural format
 cannot be validated there. Source/builder/native conversation remain usable.
 

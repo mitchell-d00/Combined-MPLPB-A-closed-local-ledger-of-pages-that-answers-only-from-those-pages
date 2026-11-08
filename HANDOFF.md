@@ -4,8 +4,8 @@ Last reviewed: 2026-11-08.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `9f03116d32bba20b69f0ec9cddf58eb799ab8f17` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `31610d12860a23225cf4fa3337a36d557cfaf6615856ca1c30481339885ae00f`.
+Base commit: `2e70d737c415b22a9f25d053f7e43ffffabc9fd8` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `df1973b357285d8d95f553bf1c390436efe9dd35bb32cbd8bbefd8ffc8908cdb`.
 
 ## Latest user update instructions
 
@@ -32,6 +32,9 @@ Use that and I’ll use my own work as its first training set and open source da
 - Eight authored Python asset/data tests passed. Current local Chromium evidence has nine checks on actual WebAssembly, reviewed imports and pending clarification recovery after a real page reload; live model generation is not included. Frozen candidate and final deployment checks will be recorded separately.
 - Actual software GPU probe exposed WebGPU but no shader-f16. No Phi-4 tensor download or neural generation was claimed. Public owner-material preparation captured 46 of 48 root READMEs, 1131 candidate passages, with exact-overlap screening against 1394 stored questions; raw review archive remains separate from the app.
 - Compared 900 protected files with baseline Git blobs, unchanged. See evaluation/free-browser-helper/preservation.json. No model training, independent human validation, unrestricted language understanding or iPad pass is claimed.
+- Frozen implementation 2e70d737c415b22a9f25d053f7e43ffffabc9fd8, tree 9c24f52a088134faf50be2e6f4efe691b4eb8cd4, exact ZIP SHA-256 d2b4005a18cc2618f2fdab0946643dacab376d87701c30db7453d3ad532b3324: extracted handoff/infrastructure/docs, eight focused tests, 33 actual native-engine checks and nine actual Chromium/WebAssembly workflow checks passed. See evaluation/free-browser-helper/extracted-zip.json. Full required CI and postdeployment remain separate.
+- The first full local run was blocked by restricted-sandbox loopback socket creation: 861 executed, nine errors and three dependent researcher-journey failures; LedgerUI setup prevented 12 tests from running. The log is preserved separately. Affected modules are being rerun with networking, and exact-head CI remains required. This blocked attempt is not represented as a pass.
+- The socket-enabled retry of four modules exposed one genuine single-inline-script packaging regression (65/66 passed) in preliminary implementation 2e70d73. Fixed helper embedding to initialize on DOMContentLoaded inside the existing script without changing any preexisting test or CSP rule. The same 66 tests now pass, along with eight focused Python tests, 33 native-engine checks and nine actual Chromium/WebAssembly checks. Both rerun logs and revised browser/code hashes are retained; final full CI remains separate.
 
 ## Limitations and blocked checks
 
@@ -43,7 +46,7 @@ Use that and I’ll use my own work as its first training set and open source da
 
 ## Next steps
 
-- Freeze an implementation commit, archive/extract it, rerun the applicable Python, JavaScript, actual WebAssembly and Chromium checks, retain exact revisions/hashes and open a PR. Merge only after the required exact-head workflows pass; verify public Pages after deployment separately.
+- The preliminary frozen ZIP focused checks and revised-candidate local checks are complete; the preliminary revision is not a release. Inspect final exact-head regression/archive/browser/handoff/infrastructure CI before merge. Verify public Pages after deployment separately. Live Phi-4 inference remains unverified.
 - Use the existing public address and open Builder and chat helper. Source questions/native chat/manual reviewed imports need no model. Load optional Phi-4 only on a compatible device if the large download is acceptable; no paid fallback is configured.
 - For future updates, replace this instruction record from the latest task instructions, review affected documentation/result links, stage intended files and regenerate/check the repository-owned handoff. Do not import private chat or personal context into public training data.
 

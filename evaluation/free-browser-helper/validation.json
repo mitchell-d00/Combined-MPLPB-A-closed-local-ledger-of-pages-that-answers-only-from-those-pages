@@ -1,6 +1,6 @@
 {
   "baseline": "9f03116d32bba20b69f0ec9cddf58eb799ab8f17",
-  "status": "implementation_candidate_not_deployed",
+  "status": "revised_candidate_local_checks_passed_required_CI_and_deployment_separate",
   "live_model_inference_verified": false,
   "fine_tuning_performed": false,
   "independent_human_validation": false,
@@ -8,5 +8,40 @@
   "native_contract_checks": 33,
   "python_focused_tests": 8,
   "protected_baseline_files": 900,
-  "note": "Frozen archive and deployment evidence are separate. See CI and later immutable reports."
+  "note": "Frozen archive and deployment evidence are separate. See CI and later immutable reports.",
+  "extracted_archive_report": "extracted-zip.json",
+  "restricted_local_attempt": {
+    "report": "restricted-sandbox-attempt.log",
+    "tests_executed": 861,
+    "expected_discovered": 873,
+    "errors": 9,
+    "failures": 3,
+    "cause": "Restricted execution denied local socket creation, including whole LedgerUITests setup and HTTP-dependent researcher journeys. Affected modules are being retried with networking; required CI has normal runner sockets. This attempt is not a pass."
+  },
+  "preliminary_archive_scope": "The pinned preliminary implementation passed focused archive checks, but subsequent socket-enabled regression found a two-script packaging-contract mismatch. That revision is not approved for release. The final embedding repair preserves the existing one-script/CSP contract; exact-head CI must test its own final archive.",
+  "embedding_repair": {
+    "original_implementation": "2e70d737c415b22a9f25d053f7e43ffffabc9fd8",
+    "original_tree": "9c24f52a088134faf50be2e6f4efe691b4eb8cd4",
+    "observed_failure": "Existing LedgerUI security/packaging test expected exactly one inline script, helper added two.",
+    "repair": "Append helper initialization inside the existing inline script and wait for DOMContentLoaded; retain every old test and the exact CSP hash contract.",
+    "affected_modules_retested": 66,
+    "affected_modules_passed": true,
+    "python_focused": 8,
+    "native_engine_checks": 33,
+    "actual_chromium_checks": 9,
+    "implementation_sha256": {
+      "index.html": "dfaa2862ce315fd6e7ab3c142583e0762b42dade52135f8d4f23db03ab7a8c61",
+      "tools/build_ai_assets.py": "44b0d0cd63a878b402e7828db05324eebaf0a09b2dca5c9e3e9331c05ec8aa73",
+      "tests/test_browser_ai_assets.py": "8a9d918d1964b290c89adf7293e58e284afcef00105a42205150f1ffd1c99b43",
+      "browser/ai-helper.js": "7fc9e710f46d2d80e02c32e4f3e6e0a2acaab25dd7542f6267d0e20dc3ea194d",
+      "browser/ai-helper-ui.js": "09559bf4030be4198809199ff18ad293df7cfa4c4e3330b1a19133f52bb7b3a9"
+    },
+    "candidate_browser_report": "candidate-browser-after-embedding-fix.json"
+  },
+  "baseline_pages": {
+    "commit": "9f03116d32bba20b69f0ec9cddf58eb799ab8f17",
+    "run_id": 42481804185,
+    "conclusion": "success",
+    "meaning": "Prior main deployed and passed postdeploy smoke; not verification of this candidate."
+  }
 }

@@ -10,6 +10,8 @@ import shutil
 ROOT=Path(__file__).resolve().parents[1]
 BEGIN='<!-- BEGIN OPTIONAL AI HELPER -->'
 END='<!-- END OPTIONAL AI HELPER -->'
+JS_BEGIN='// BEGIN OPTIONAL AI HELPER SCRIPT'
+JS_END='// END OPTIONAL AI HELPER SCRIPT'
 
 
 def runtime(root=ROOT):
@@ -39,7 +41,6 @@ def build(output,root=ROOT):
 
 
 def markup(root=ROOT):
-    scripts='\n'.join((Path(root)/'browser'/name).read_text() for name in ('ai-helper.js','ai-helper-ui.js'))
     return BEGIN+'''\n<details id="ai-helper" class="panel" style="max-width:1100px;margin:16px auto;padding:16px">
 <summary><strong>Builder and chat helper · optional free browser AI</strong></summary>
 <p>Everyone can use this page. No paid AI service or account is required. The optional pretrained model runs on a compatible visitor device; it does not run on GitHub’s servers.</p>
@@ -68,7 +69,7 @@ def markup(root=ROOT):
 <button id="ai-helper-export" type="button">Export this tab’s interaction trace</button>
 <p class="small">The trace separates proposals, approvals and engine results. It is not a model’s private reasoning. General model context is limited and held in this tab; export before closing. Your browser’s pages are not automatically shared with other visitors.</p>
 </details>
-<script>\n'''+scripts+'\n</script>\n'+END
+'''+END
 
 
 def embed(root=ROOT,check=False):
@@ -77,6 +78,15 @@ def embed(root=ROOT,check=False):
         start=html.index(BEGIN);end=html.index(END,start)+len(END)
         if html[end:end+1]=='\n':end+=1
         html=html[:start]+html[end:]
+    if JS_BEGIN in html:
+        start=html.index(JS_BEGIN);end=html.index(JS_END,start)+len(JS_END)
+        if html[end:end+1]=='\n':end+=1
+        html=html[:start]+html[end:]
+    scripts='\n'.join((Path(root)/'browser'/name).read_text() for name in ('ai-helper.js','ai-helper-ui.js'))
+    script=JS_BEGIN+'\ndocument.addEventListener(\'DOMContentLoaded\',function(){\n'+scripts+'\n});\n'+JS_END+'\n'
+    # Keep the desktop single-inline-script/CSP contract. The helper markup is
+    # parsed after that script, so initialize it only once DOM parsing completes.
+    html=html.replace('</script>',script+'</script>',1)
     updated=html.replace('</body>',block+'\n</body>',1)
     if check:
         if updated!=original:raise ValueError('Optional helper HTML is stale; run python tools/build_ai_assets.py --embed-helper')
