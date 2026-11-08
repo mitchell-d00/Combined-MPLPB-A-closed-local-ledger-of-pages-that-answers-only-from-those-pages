@@ -16,8 +16,10 @@ budgets and staged session saves preserve boundaries. No source-language rule,
 ledger fact, frozen benchmark question or original label is changed.
 
 The preimplementation baseline passed 18 focused agent/procedure/polarity tests
-and the JavaScript API suite. New source tests and an actual official MCP SDK
-client check exercise the adapter; exact local evidence is retained under
+and the JavaScript API suite. Implementation candidate `94249884391442bc6b05f51f27640249d77d73df` passes
+31 authored MCP tests and 45 official SDK checks. Its committed extracted source
+ZIP passes 46 combined focused tests, those 45 SDK checks, JavaScript API,
+documentation, infrastructure and handoff checks. Exact local evidence is retained under
 [evaluation/mcp-agent](../evaluation/mcp-agent/README.md). Later exact-head CI and
 publication outcomes belong to their PR/Actions runs. Do not infer deployment
 verification from local source tests.

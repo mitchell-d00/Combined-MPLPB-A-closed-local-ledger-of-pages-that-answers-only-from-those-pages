@@ -4,8 +4,8 @@ Last reviewed: 2026-11-08.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `acf7800a5f8320ec29ee957d002eaaba8ed4e816` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `3bdb3799cc9e196a42d284405c405bf0a785167ab52343de015ffda42fb99acb`.
+Base commit: `94249884391442bc6b05f51f27640249d77d73df` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `b4bf80024b59c1b80fe33ce740d314954814748b1dfdace4d6d044543f086399`.
 
 ## Latest user update instructions
 
@@ -28,6 +28,7 @@ Selected connection: Local MCP connection for AI clients
 - 31 authored MCP tests passed, including actual stdio subprocesses, scoped profile/sessions, source/metadata near misses, positive/negative contradiction, revised/withdrawn/tampered sources, capture integrity, process-lock rejection, bounded failure rollback and procedure corrections after reconnect.
 - Official MCP Python SDK 1.26.0 completed 45 protocol/workflow checks, including process restart, exact source hash inspection, qualifying procedure evidence, contradictions, changed values and justified refusal. Reports pin tested adapter/client bytes; no external AI model or independent human validation is claimed.
 - Documentation inventory, infrastructure synchronization and handoff checks passed. Compared 1425 protected baseline files against original Git blob contents with no changes, including every preexisting evaluation artifact and answer/conversation module. Extracted candidate and final PR/deployment checks remain separate and are not yet certified by this source record.
+- Frozen committed candidate 94249884391442bc6b05f51f27640249d77d73df, ZIP SHA-256 9dde3d5ea06f3e3ef4b461f3ed239a40e2fb3c5d174d3abc85445a98236d6873, passes 46 combined focused tests, 45 official SDK checks, real-engine JavaScript API, documentation, infrastructure and handoff checks from extracted bytes. See evaluation/mcp-agent/extracted-zip.json. The full local suite is running separately; this source record does not assert its result.
 
 ## Limitations and blocked checks
 
@@ -39,7 +40,7 @@ Selected connection: Local MCP connection for AI clients
 ## Next steps
 
 - Read docs/MCP_AGENT.md; configure absolute Python/server/data paths and explicitly authorize source keys or leaf ledgers under the intended host delivery profile.
-- Complete documentation/infrastructure checks, compare frozen source/history bytes, build and check the handoff, then test a frozen extracted candidate and required PR checks before merge.
+- Local focused/SDK/static/history/committed-extracted-ZIP checks are complete. Inspect exact-head required PR/archive/browser results before merge, then keep postdeployment verification separate.
 - For future changes, replace this update record from the latest instructions, maintain the documentation/result index, stage intended files and regenerate/check the handoff.
 
 ## Use this ZIP in your repository
