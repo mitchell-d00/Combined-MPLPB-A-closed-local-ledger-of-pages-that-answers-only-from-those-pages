@@ -64,7 +64,9 @@ This report is local and excludes source questions; it is not uploaded or used f
 training. The broader interaction trace can include questions/source text.
 
 Capture is bounded to three attempts and 120 recent events per attempt, with
-omission counts and declared text/stack limits. It does not capture every console
+omission counts and declared text/stack limits. Browser/GPU summaries are kept
+separately from recent events so long downloads cannot evict those summaries.
+It does not capture every console
 or GPU message, determine available RAM, survive closing/reloading the tab, or
 establish a hardware root cause by itself. A browser-process crash may lose it.
 The loader uses the documented `MLCEngine` constructor/reload equivalent and the

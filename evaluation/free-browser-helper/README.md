@@ -50,3 +50,10 @@ initialization or establish why that user's device stopped.
 ```sh
 node tests/browser-model-loader.cjs
 ```
+
+The context-retention follow-up preserves browser/GPU summaries outside the
+120-event ring. WebLLM emits separate download and device-load progress for its
+66 shards, exceeding that ring on a fresh load. The strengthened bounded-events
+case failed on baseline `3d37fb8f1b9b7ddd4dc3df4328a2e9396950e5f3` before this
+repair. See `loader-context-retention.json` and its separate before/after artifacts.
+This is diagnostic context retention, not evidence of working model inference.

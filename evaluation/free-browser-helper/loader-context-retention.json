@@ -1,0 +1,15 @@
+{
+  "baseline_revision": "3d37fb8f1b9b7ddd4dc3df4328a2e9396950e5f3",
+  "defect": "A fresh model load reports each of 66 download shards and then each of 66 device-load shards. A bounded 120-event ring could evict the sole browser/GPU snapshots before a failure.",
+  "before": "The strengthened existing rollover test failed with missing browser.user_agent; retained log is loader-context-retention-before.log.",
+  "repair": "Store browser and GPU summaries independently on each retained attempt; the event ring and omission counts remain bounded.",
+  "checks": {
+    "loader_state_DOM_and_real_runtime_API_without_weights": 13,
+    "actual_Chromium_workflow": 12,
+    "real_native_helper": 33,
+    "focused_Python": 8
+  },
+  "live_neural_inference": false,
+  "iPad_root_cause_established": false,
+  "status": "local_candidate_checks_passed_required_CI_pending"
+}
