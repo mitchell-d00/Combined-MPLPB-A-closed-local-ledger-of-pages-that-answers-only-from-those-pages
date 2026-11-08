@@ -166,3 +166,11 @@ The host authorizes collection keys and a fixed delivery profile; clients use th
 same full reader, inspect evidence, and recover bounded conversations. No browser
 automation or model provider is required by the server. See [production readiness](docs/PRODUCTION_READINESS.md)
 for the local scope, tested capabilities and remaining deployment/validation gaps.
+
+The public page now also has an [optional free browser builder/chat helper](docs/FREE_PUBLIC_HELPER.md).
+It uses the existing page API, requires review before source writes, preserves
+MPLPB answers/citations, and separates general model text. Phi-4 is an optional
+large download for compatible WebGPU devices; no paid AI server, account or key
+is configured. Live Phi-4 generation and iPad compatibility remain unverified;
+the core engine and reviewed manual builder work without the model. No fine-tuning
+or automatic training on visitor conversations runs.

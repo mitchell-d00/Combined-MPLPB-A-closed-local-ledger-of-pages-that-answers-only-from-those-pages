@@ -114,3 +114,11 @@ that profile as private data. A new blank profile starts with bundled corpora on
 The project does not claim that any third-party AI must obey the manifest or can
 reach the browser merely from a URL; it gives capable clients a discoverable,
 documented API and an executable bridge.
+
+## Public browser helper and source-building scope
+
+The [public helper](FREE_PUBLIC_HELPER.md) uses `window.MPLPB` inside the running
+page. Its reviewed create/import actions are distinct from the read-and-chat
+local MCP server. A URL alone does not expose a remote MCP endpoint or another
+visitor's private storage. Model proposals are unverified; source writes require
+human review. Actual calls, results and source qualifications remain inspectable.

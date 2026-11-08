@@ -33,3 +33,15 @@ own source review and evaluation; a seal or test count does not authenticate tru
 See [setup and enforced MCP rules](MCP_AGENT.md), [current status](CURRENT_STATUS_2026-11-08.md)
 and [result/test index](RESULTS_AND_TESTS.md). Source tests, an extracted-ZIP test,
 a candidate browser check and a postdeployment check are distinct evidence.
+
+## Free public helper update
+
+The [public browser helper](FREE_PUBLIC_HELPER.md) adds reviewed collection/source
+building and a visible execution trace using the existing page API. The optional
+pretrained model runs on compatible visitor devices; no shared AI server is
+configured. Nine actual Chromium workflow checks, 33 real-engine contract checks
+and eight Python asset/data checks pass locally. These do not validate live model
+generation: the test environment lacks required shader-f16, and iPad/Safari neural
+behavior is unverified. Free hosting/CDN limits and device memory remain material.
+No fine-tuning or automatic visitor-chat training has run. This is an experimental
+public interface, not a shared inference service or production-quality model claim.

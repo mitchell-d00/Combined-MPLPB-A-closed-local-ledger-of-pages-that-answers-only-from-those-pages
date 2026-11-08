@@ -1,0 +1,55 @@
+127.0.0.1 - - [08/Nov/2026 14:15:51] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [08/Nov/2026 14:15:51] "GET /index.html HTTP/1.1" 200 -
+127.0.0.1 - - [08/Nov/2026 14:15:51] "GET /api/experiment HTTP/1.1" 200 -
+127.0.0.1 - - [08/Nov/2026 14:15:51] "GET /missing HTTP/1.1" 404 -
+127.0.0.1 - - [08/Nov/2026 14:15:51] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [08/Nov/2026 14:15:51] "POST /api/query HTTP/1.1" 200 -
+127.0.0.1 - - [08/Nov/2026 14:15:51] "POST /api/query HTTP/1.1" 200 -
+127.0.0.1 - - [08/Nov/2026 14:15:51] "POST /api/query HTTP/1.1" 200 -
+127.0.0.1 - - [08/Nov/2026 14:15:52] "POST /api/chat HTTP/1.1" 200 -
+127.0.0.1 - - [08/Nov/2026 14:15:52] "POST /api/chat HTTP/1.1" 200 -
+127.0.0.1 - - [08/Nov/2026 14:15:52] "POST /api/chat/export HTTP/1.1" 200 -
+127.0.0.1 - - [08/Nov/2026 14:15:52] "POST /api/chat/resume HTTP/1.1" 200 -
+127.0.0.1 - - [08/Nov/2026 14:15:52] "POST /api/chat/reset HTTP/1.1" 200 -
+127.0.0.1 - - [08/Nov/2026 14:15:52] "POST /api/chat/export HTTP/1.1" 400 -
+127.0.0.1 - - [08/Nov/2026 14:15:52] "POST /api/chat HTTP/1.1" 200 -
+127.0.0.1 - - [08/Nov/2026 14:15:52] "POST /api/chat HTTP/1.1" 200 -
+127.0.0.1 - - [08/Nov/2026 14:15:52] "POST /api/chat HTTP/1.1" 200 -
+127.0.0.1 - - [08/Nov/2026 14:15:52] "POST /api/query HTTP/1.1" 200 -
+127.0.0.1 - - [08/Nov/2026 14:15:52] "GET /api/page?corpus=canned&path=canned-0001.html&profile=external HTTP/1.1" 400 -
+127.0.0.1 - - [08/Nov/2026 14:15:52] "GET /api/page?corpus=canned&path=canned-0001.html&profile=internal HTTP/1.1" 200 -
+127.0.0.1 - - [08/Nov/2026 14:15:52] "GET /api/state HTTP/1.1" 403 -
+127.0.0.1 - - [08/Nov/2026 14:15:52] "POST /api/query HTTP/1.1" 403 -
+127.0.0.1 - - [08/Nov/2026 14:15:52] "GET /api/history HTTP/1.1" 200 -
+127.0.0.1 - - [08/Nov/2026 14:15:52] "POST /api/query HTTP/1.1" 400 -
+127.0.0.1 - - [08/Nov/2026 14:15:52] "POST /api/query HTTP/1.1" 400 -
+127.0.0.1 - - [08/Nov/2026 14:15:52] "POST /api/query HTTP/1.1" 400 -
+127.0.0.1 - - [08/Nov/2026 14:15:52] "POST /api/query HTTP/1.1" 400 -
+127.0.0.1 - - [08/Nov/2026 14:15:52] "POST /api/query HTTP/1.1" 415 -
+127.0.0.1 - - [08/Nov/2026 14:15:52] "GET /api/inventory?corpus=studio&profile=internal HTTP/1.1" 200 -
+127.0.0.1 - - [08/Nov/2026 14:15:52] "GET /api/page?corpus=studio&path=derived%2Fstudio-0024.html HTTP/1.1" 400 -
+127.0.0.1 - - [08/Nov/2026 14:15:52] "GET /api/inventory?corpus=canned&profile=external HTTP/1.1" 200 -
+127.0.0.1 - - [08/Nov/2026 14:15:52] "GET /api/page?corpus=canned&path=..%2F..%2FREADME.md HTTP/1.1" 400 -
+127.0.0.1 - - [08/Nov/2026 14:15:52] "POST /api/query HTTP/1.1" 400 -
+127.0.0.1 - - [08/Nov/2026 14:15:52] "POST /api/query HTTP/1.1" 200 -
+127.0.0.1 - - [08/Nov/2026 14:15:52] "POST /api/query HTTP/1.1" 200 -
+127.0.0.1 - - [08/Nov/2026 14:16:15] "POST /api/work HTTP/1.1" 400 -
+127.0.0.1 - - [08/Nov/2026 14:16:15] "POST /api/work HTTP/1.1" 400 -
+127.0.0.1 - - [08/Nov/2026 14:16:15] "POST /api/work HTTP/1.1" 200 -
+127.0.0.1 - - [08/Nov/2026 14:16:15] "GET /api/query HTTP/1.1" 404 -
+127.0.0.1 - - [08/Nov/2026 14:16:15] "GET /api/page?corpus=studio&path=kiln/studio-0004.html HTTP/1.1" 404 -
+127.0.0.1 - - [08/Nov/2026 14:16:15] "GET /api/state HTTP/1.1" 404 -
+127.0.0.1 - - [08/Nov/2026 14:16:15] "GET / HTTP/1.1" 404 -
+127.0.0.1 - - [08/Nov/2026 14:16:15] "POST /api/query HTTP/1.1" 404 -
+======================================================================
+FAIL: test_assets_and_supplied_experiment_are_available (tests.test_ledger_ui.LedgerUITests.test_assets_and_supplied_experiment_are_available)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/tmp/mplpb-free-helper-2e70d73-extracted/tests/test_ledger_ui.py", line 106, in test_assets_and_supplied_experiment_are_available
+    self.assertEqual(len(scripts), 1)
+AssertionError: 2 != 1
+
+----------------------------------------------------------------------
+Ran 66 tests in 25.322s
+
+FAILED (failures=1)

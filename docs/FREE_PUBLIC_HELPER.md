@@ -1,0 +1,115 @@
+# Public builder and chat helper with no AI server bill
+
+Last reviewed: 2026-11-08.
+
+The product remains a public website at the existing MPLPB address. Everyone can
+open it. GitHub Pages serves the interface; the MPLPB engine runs in each visitor's
+browser. An optional pretrained Phi-4-mini model can run in a compatible browser,
+so no shared AI server, paid API, account, subscription or local Python setup is
+required by a visitor. This does not promise unlimited free hosting/bandwidth or
+support for every device. The core app continues to work without the model.
+
+## Use the helper
+
+Open **Builder and chat helper** near the bottom of the page. Choose the collection
+and task, then send a request. The delivery profile is the profile chosen in the
+existing MPLPB controls; the model cannot override it.
+
+- **Ask sources** sends the original question to the strict reader. A model may
+  propose the action but cannot substitute a simpler question or supply its answer.
+- **Chat with MPLPB** uses its existing conversational and source-follow-up rules.
+  Saved engine session identifiers allow a pending clarification to continue after
+  reload; source changes still require reselection.
+- **Build** proposes a collection name or source draft. Review it before choosing
+  Save. Change the request or provided text and send again to replace a proposal.
+- **General chat** produces clearly labeled, unverified model conversation when a
+  model is loaded. Without it, the helper explains how to use the
+  native source conversation mode. General model context is limited to recent turns and held in this tab.
+
+Provided source text is saved exactly through the existing import API after
+review. A model cannot invent an external citation URL. An unsourced model draft
+gets an explicitly invalid local placeholder and an AI-generated/unverified label.
+Saving does not establish truth, authenticated authorship or human ratification.
+Existing origin/depth, ancestry, delivery and source-ownership rules still apply.
+The helper performs no autonomous web acquisition, revisions, deletion or ratification.
+
+## Optional model and device limits
+
+Loading the model is a separate explicit action. Its tensor download is about
+2.16 GB; the upstream runtime estimates roughly 3.44 GB working memory before
+browser/engine overhead. WebGPU, shader-f16 and adequate buffer/memory limits are
+required. The runtime and model locations are pinned. The app checks compatibility
+before starting the large download and shows failures instead of enabling a paid
+fallback. Browser caching/storage eviction can require another download later.
+
+The current pretrained model is Microsoft's MIT-licensed Phi-4-mini-instruct,
+converted to MLC format. The runtime is WebLLM 0.2.87, Apache-2.0, with notices
+retained under `assets/ai`. No claim is made that every iPad can run it. The
+execution environment's software GPU lacks shader-f16, so live Phi-4 generation
+has **not** been validated here. The actual browser tests validate source/builder
+behavior, native fallback and the unavailable-model path; simulated model plans
+validate orchestration boundaries, not neural answer quality.
+
+## What transparency means
+
+The interface separates the original user input, a model's unverified proposal,
+the selected scope/profile, human approval, actual tool arguments/results and final
+rendering. Model transport records include the visible request/response and
+sampling configuration when inference runs. They do not expose or claim a faithful
+account of a neural model's hidden internal reasoning.
+
+Source-backed words come from MPLPB unchanged, with its citations and qualifications.
+General model text stays labeled separately. A failed/unsupported request shows
+the engine's diagnostic rather than treating grammar failure as proof that the
+fact is absent. Inspect the original engine result and event trace, or export the
+trace. An export can contain private questions/source text: it is not uploaded or
+used for training automatically. Trace events are a tab-local interaction record,
+not signed evidence, permanent audit storage or a claim that sources are true.
+
+The browser's private ledger is not shared with other visitors by the address.
+A third-party AI given only that URL does not acquire the visitor's IndexedDB.
+This helper uses the page's existing JavaScript API. The separately launched local
+MCP stdio server remains available to capable desktop clients; GitHub Pages does
+not become a hosted MCP or AI inference service.
+
+## Your work and training
+
+The owner authorized their own public work at the supplied GitHub, PhilPeople,
+Academia and Medium profiles as initial material. The current preparation pass
+captured 46 public repository root READMEs from 48 repositories, yielding 1,131
+candidate prose passages after screening against 1,394 stored evaluation questions.
+Other supplied profiles were used as indexes; their full papers/blogs were not
+bulk-ingested. No login/paywall was bypassed. Attribution, source hashes, declared
+permission, observed licenses and limitations are retained.
+
+Raw prose is not an approved conversation dataset. The separate candidate archive
+is for review; it is not automatically redistributed in the app or imported as
+source authority. Mixed third-party material still needs review. Exact overlap
+screening does not prove absence of paraphrase contamination. OpenAssistant/oasst1
+is listed separately as a possible Apache-2.0 conversation source and was not
+used for training. Visitor chats and private notes are excluded.
+
+No model has been fine-tuned. Training Phi-4 reliably cannot be promised at zero
+cost with the available hardware. A useful first step is to put reviewed work in
+MPLPB pages and retrieve it while retaining the pretrained model's conversational
+skills. Data preparation can run manually through the free standard public-repo
+Actions workflow and produce a downloadable artifact; there is no GPU-training
+job or paid service hidden in that workflow. Standard public-repository runners
+are free under GitHub’s current terms; hosting, artifact storage and upstream
+downloads still have service limits. The preparation artifact expires after one
+day. No spending limit or billing setting is changed by this implementation.
+
+## Packages and validation
+
+The published site contains optional runtime sidecars under `ai/`; model weights
+remain at their identified external source. The one-file browser ZIP retains the
+core offline engine but does not include these optional sidecars or model weights.
+Use the public site or serve the complete generated site folder for the optional
+model. The source package includes the pinned reconstruction parts and notices.
+
+Run `node tests/browser-ai-helper.cjs`,
+`python -m unittest tests.test_browser_ai_assets tests.test_owner_corpus -v`, and
+`python -m tools.browser_free_helper --preview-dir PREVIEW --browser-executable CHROME --output NEW_REPORT.json`.
+See [retained evidence](../evaluation/free-browser-helper/README.md). Source tests,
+extracted-ZIP checks, candidate Chromium, live neural inference and deployed/iPad
+verification are distinct; none is silently inferred from another.

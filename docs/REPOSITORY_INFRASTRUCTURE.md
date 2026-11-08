@@ -52,3 +52,9 @@ The local MCP source adapter is checked by `tests/test_mcp_agent.py`. Normal and
 extracted-ZIP CI additionally install the pinned SDK in an isolated test venv and
 run `tools/check_mcp_client.py`; the server itself has no SDK runtime dependency.
 The source package includes the adapter; the CLI wheel's scope is unchanged.
+
+The optional browser helper's generated inline code and pinned runtime assets are
+checked by `tools/build_ai_assets.py --check`, `tests/browser-ai-helper.cjs`, the
+asset/corpus unit tests and a real candidate Chromium workflow. Building Pages
+reconstructs runtime sidecars locally without fetching model weights. Required
+normal/extracted-ZIP checks do not incur model-provider calls or training jobs.

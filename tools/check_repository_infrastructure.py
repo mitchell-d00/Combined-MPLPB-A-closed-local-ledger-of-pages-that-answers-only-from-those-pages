@@ -6,8 +6,11 @@ separately by the existing exact-head ZIP/Pyodide/Chromium workflows.
 from pathlib import Path
 import json
 import re
+import sys
 
 ROOT = Path(__file__).resolve().parents[1]
+if str(ROOT) not in sys.path:
+    sys.path.insert(0, str(ROOT))
 PAGES = "https://mitchell-d00.github.io/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/"
 REQUIRED = (
     "index.html", "browser/client.js", "browser/worker.js",
@@ -19,6 +22,9 @@ REQUIRED = (
     "reference_corpus/catalog.v1.json", "reference_corpus/probes.v1.json",
     "tools/build_reference_corpus.py", "tests/test_reference_corpus.py",
     "tools/mplpb_mcp.py", "tools/check_mcp_client.py", "tests/test_mcp_agent.py",
+    "browser/ai-helper.js", "browser/ai-helper-ui.js", "tools/build_ai_assets.py",
+    "docs/FREE_PUBLIC_HELPER.md", "assets/ai/manifest.json", "assets/ai/model.json",
+    "tests/browser-ai-helper.cjs", "tests/test_browser_ai_assets.py", "tests/test_owner_corpus.py",
     "docs/MCP_AGENT.md", "docs/PRODUCTION_READINESS.md", ".well-known/mplpb.json",
     ".github/workflows/pages.yml", ".github/workflows/pr-validation.yml",
     ".github/workflows/zip-release-validation.yml",
@@ -74,6 +80,14 @@ def audit(root=ROOT):
     ):
         if pattern not in text:
             problems.append("Missing linkage in "+name+": "+pattern)
+    from tools.build_ai_assets import embed, runtime
+    try:
+        embed(root, check=True)
+        runtime(root)
+    except (ValueError, OSError) as exc:
+        problems.append(str(exc))
+    if 'FREE_PUBLIC_HELPER.md' not in readme or 'browser-ai-helper.cjs' not in pr or 'browser-ai-helper.cjs' not in zip_flow:
+        problems.append('Public free helper documentation/native-engine checks are missing')
     discovery = json.loads((root / ".well-known/mplpb.json").read_text())
     mcp = discovery.get("local_mcp", {})
     if mcp.get("transport") != "stdio" or mcp.get("remote_http_endpoint") is not False:

@@ -316,6 +316,22 @@
       ],
       "scope": "Authored local MCP protocol/authority/session tests and actual official SDK client workflow; no third-party model obedience or independent human validation.",
       "measurement_status": "Current local adapter execution; exact candidate/CI/deployment identity remains separate."
+    },
+    {
+      "family": "free-browser-helper",
+      "artifacts": "evaluation/free-browser-helper",
+      "tests": [
+        "tests/test_browser_ai_assets.py",
+        "tests/test_owner_corpus.py",
+        "tests/browser-ai-helper.cjs"
+      ],
+      "runners": [
+        "tools/browser_free_helper.py",
+        "tools/build_ai_assets.py",
+        "tools/prepare_owner_corpus.py"
+      ],
+      "scope": "Authored real-engine/browser workflow and pinned assets/candidate-data tests; synthetic plans only, no live Phi-4/iPad or independent human validation.",
+      "measurement_status": "Local development evidence; exact candidate/CI/deployment outcomes are separate."
     }
   ]
 }

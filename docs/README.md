@@ -96,3 +96,5 @@ Local AI integration: [MCP tools and setup](MCP_AGENT.md),
 [feature completeness and production readiness](PRODUCTION_READINESS.md), and
 [authored MCP evidence](../evaluation/mcp-agent/README.md). Earlier guides keep
 their actual review dates; the November 2 status snapshot is historical.
+
+Public website: [free builder/chat helper](FREE_PUBLIC_HELPER.md), [authored browser evidence](../evaluation/free-browser-helper/README.md), and [owner-work preparation](../training/owner-work/README.md).

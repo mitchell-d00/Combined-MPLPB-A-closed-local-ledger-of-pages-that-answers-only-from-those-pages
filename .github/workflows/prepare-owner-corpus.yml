@@ -1,0 +1,42 @@
+name: Prepare owner corpus
+
+on:
+  workflow_dispatch:
+    inputs:
+      owner:
+        description: Public GitHub owner whose own first-party writing is authorized
+        required: true
+        default: mitchell-d00
+        type: string
+      permission:
+        description: Record the owner's permission and first-party scope (not blanket third-party rights)
+        required: true
+        type: string
+
+permissions:
+  contents: read
+
+jobs:
+  prepare-only:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Prepare attributed candidate prose without training
+        env:
+          CORPUS_OWNER: ${{ inputs.owner }}
+          CORPUS_PERMISSION: ${{ inputs.permission }}
+        run: >-
+          python tools/prepare_owner_corpus.py
+          --owner "$CORPUS_OWNER"
+          --permission "$CORPUS_PERMISSION"
+          --output "$RUNNER_TEMP/owner-work"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: owner-work-candidate-prose-${{ github.run_id }}
+          path: ${{ runner.temp }}/owner-work/
+          retention-days: 1
+          if-no-files-found: error

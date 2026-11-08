@@ -30,3 +30,16 @@ within local trusted-operator scope from shared hosting, client-obedience and
 independent human-validation gaps. Existing finite source-language limits and
 honest ambiguity/refusal remain. The authored 73/73 reference fixture and inspected
 pottery results have not become independent general-language validation.
+
+## Optional public helper and zero-cost constraint
+
+The later [free public helper](FREE_PUBLIC_HELPER.md) targets a shared website
+address without a paid AI backend. It adds reviewed source building, native/model
+labels and recorded proposals versus actual tool results. Local authored evidence
+records nine real Chromium checks (including reload recovery), 33 checks against
+the real engine and eight Python asset/data tests. Live Phi-4 generation and iPad
+behavior are unverified; the test GPU lacks shader-f16. No model is fine-tuned.
+Owner-authorized public README material is prepared separately as candidate prose,
+not a ready conversation dataset or default source authority. Exact newer source,
+archive and publication checks belong to [its evidence directory](../evaluation/free-browser-helper/README.md)
+and corresponding Actions runs; prior MCP results above retain their own scope.
