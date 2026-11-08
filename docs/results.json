@@ -1,6 +1,6 @@
 {
   "schema": "result-test-index-v1",
-  "reviewed_on": "2026-11-02",
+  "reviewed_on": "2026-11-08",
   "meaning": "Links establish retained test/reproduction coverage, not a fresh execution or certification of historical metrics. Original source, dates, fixtures and exact revisions remain in the linked reports.",
   "families": [
     {
@@ -304,6 +304,18 @@
       ],
       "scope": "Original adjudication inputs and outputs preserved; run original revision for exact historical reproduction.",
       "measurement_status": "retained results; original run date/revision/configuration applies"
+    },
+    {
+      "family": "mcp-agent",
+      "artifacts": "evaluation/mcp-agent",
+      "tests": [
+        "tests/test_mcp_agent.py"
+      ],
+      "runners": [
+        "tools/check_mcp_client.py"
+      ],
+      "scope": "Authored local MCP protocol/authority/session tests and actual official SDK client workflow; no third-party model obedience or independent human validation.",
+      "measurement_status": "Current local adapter execution; exact candidate/CI/deployment identity remains separate."
     }
   ]
 }

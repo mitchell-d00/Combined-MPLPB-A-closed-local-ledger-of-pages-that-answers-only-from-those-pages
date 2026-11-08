@@ -1,8 +1,18 @@
-# Combined MPLPB: agent middleware via one URL
+# Combined MPLPB: local MCP and browser agent interfaces
 
-Last reviewed: 2026-11-02. See [current status and result-to-test index](CURRENT_STATUS_2026-11-02.md). Dates and numeric results in historical validation sections retain their original scope; this review is not a rerun or independent certification.
+Last reviewed: 2026-11-08. See [current status and result-to-test index](CURRENT_STATUS_2026-11-08.md). Dates and numeric results in historical validation sections retain their original scope; this review is not a rerun or independent certification.
 
 The live page embeds the **entire Python Combined MPLPB engine** (ledger, reader, provenance, chat, source capture, and retained session storage) in WebAssembly. GitHub Pages hosts the downloadable runtime, but Python executes in the visitor's browser. No separate server API, cloud model, or smaller replacement engine is required.
+
+## Local MCP connection
+
+For an MCP-capable AI client, use the [local stdio adapter](MCP_AGENT.md). It
+starts the existing native App directly, without Playwright or an HTTP service.
+Tools discover host-authorized collections, ask strict questions, inspect sources
+and continue bounded conversations. Profiles are host-fixed and source management
+and acquisition are absent. The browser connection below remains available;
+these are separate runtimes and save stores, not shared private browser storage.
+See [production readiness](PRODUCTION_READINESS.md) for tested scope and limits.
 
 ## Handshake by link
 

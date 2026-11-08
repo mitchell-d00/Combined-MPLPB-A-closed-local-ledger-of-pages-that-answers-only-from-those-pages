@@ -1,10 +1,10 @@
 # Results and their tests
 
-Last reviewed: 2026-11-02.
+Last reviewed: 2026-11-08.
 
 Every retained evaluation family is listed below. The [machine-readable index](results.json)
 is checked in CI for missing test files, reproduction tools and unindexed evaluation
-directories. The [current status](CURRENT_STATUS_2026-11-02.md) separates published
+directories. The [current status](CURRENT_STATUS_2026-11-08.md) separates published
 measurements from this update's checks.
 
 Tests protect behavior under their assertions. A file link does not certify a
@@ -38,6 +38,7 @@ modern application tests do not retrospectively validate those experiments.
 | [documentation-audit](../evaluation/documentation-audit) | [test_documentation_audit.py](../tests/test_documentation_audit.py); [test_handoff.py](../tests/test_handoff.py); [test_self_knowledge.py](../tests/test_self_knowledge.py) | [audit_documentation.py](../tools/audit_documentation.py) | Current documentation inventory and evidence-link checks; structural coverage does not prove historical metrics. |
 | [evaluation](../evaluation) | [test_evaluation.py](../tests/test_evaluation.py) | [evaluate.py](../mplpb_combined/evaluate.py) | Original frozen root benchmark results/probes; retain original labels and reader revision. |
 | [killtest](../killtest) | [test_answer.py](../tests/test_answer.py); [test_canned_guard.py](../tests/test_canned_guard.py) | [killtest.py](../mplpb_combined/killtest.py) | Original adjudication inputs and outputs preserved; run original revision for exact historical reproduction. |
+| [mcp-agent](../evaluation/mcp-agent) | [test_mcp_agent.py](../tests/test_mcp_agent.py) | [check_mcp_client.py](../tools/check_mcp_client.py) | Authored local protocol and recovery; official SDK client, not external AI obedience or human validation. |
 
 ## Reproduce the currently claimed reference result
 

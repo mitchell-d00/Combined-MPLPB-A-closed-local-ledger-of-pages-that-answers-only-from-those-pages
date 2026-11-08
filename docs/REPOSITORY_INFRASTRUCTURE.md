@@ -1,6 +1,6 @@
 # Supporting-infrastructure synchronization gate
 
-Last reviewed: 2026-11-02. See [current status and result-to-test index](CURRENT_STATUS_2026-11-02.md). Dates and numeric results in historical validation sections retain their original scope; this review is not a rerun or independent certification.
+Last reviewed: 2026-11-08. See [current status and result-to-test index](CURRENT_STATUS_2026-11-08.md). Dates and numeric results in historical validation sections retain their original scope; this review is not a rerun or independent certification.
 
 **Always check repository infrastructure when the engine, corpus, user-visible interface, API, packaging or documentation changes.** Changes are not ready for merge merely because their Python unit tests pass.
 
@@ -47,3 +47,8 @@ local links in current Markdown guides, and every evaluation family's retained
 test/reproduction paths in `docs/results.json`. It runs in PR, extracted-ZIP,
 main Pages and infrastructure workflows. A review date is never advanced by CI;
 it does not claim an old metric was remeasured. See [results and tests](RESULTS_AND_TESTS.md).
+
+The local MCP source adapter is checked by `tests/test_mcp_agent.py`. Normal and
+extracted-ZIP CI additionally install the pinned SDK in an isolated test venv and
+run `tools/check_mcp_client.py`; the server itself has no SDK runtime dependency.
+The source package includes the adapter; the CLI wheel's scope is unchanged.

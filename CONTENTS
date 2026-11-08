@@ -1,5 +1,5 @@
 Combined MPLPB — repository map
-Last reviewed: 2026-11-02. Current status: docs/CURRENT_STATUS_2026-11-02.md; dated reports and original papers remain historical.
+Last reviewed: 2026-11-08. Current status: docs/CURRENT_STATUS_2026-11-08.md; dated reports and original papers remain historical.
 
 README.md                 current overview, live site, supported interfaces and checks
 JAVASCRIPT-API.md         page-local API, relay, retrieval and network permissions
@@ -7,7 +7,7 @@ docs/README.md            documentation index: guides, dated reports and archive
 docs/REPOSITORY_INFRASTRUCTURE.md   always-check automated Pages, JavaScript API, packaging and docs synchronization
 reference_corpus/        staged, sealed, lab-only machine-derived fact ledger catalog, frozen probes, release audit and amendments
 docs/PAGE_RETRIEVAL.md    supported answers vs candidates vs gated pages vs bundles
-docs/CURRENT_STATUS_2026-11-02.md  current capabilities, checks and remaining product gaps
+docs/CURRENT_STATUS_2026-11-08.md  current capabilities, checks and remaining product gaps
 docs/RESULTS_AND_TESTS.md  results linked to retained tests and reproduction tools
 docs/documentation.json  reviewed guides and preserved historical byte hashes
 docs/CURRENT_STATUS_2026-10-31.md  historical implementation/status snapshot
@@ -73,3 +73,5 @@ Source-language contradiction repair and per-case audit (2026-11-02): evaluation
 Latest procedure recovery and repository-owned handoff: evaluation/procedure-recovery/README.md; AGENTS.md; HANDOFF.md; handoff/update.json.
 
 Permanent reference-test evidence: evaluation/reference-corpus-reproduction/README.md; tools/verify_reference_evidence.py.
+
+Local MCP: tools/mplpb_mcp.py; tests/test_mcp_agent.py; tools/check_mcp_client.py; docs/MCP_AGENT.md; docs/PRODUCTION_READINESS.md; evaluation/mcp-agent/.

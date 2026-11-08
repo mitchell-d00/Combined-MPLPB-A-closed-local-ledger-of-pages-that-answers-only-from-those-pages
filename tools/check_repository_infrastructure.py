@@ -4,6 +4,7 @@ This is a static repository consistency check. Runtime functionality is tested
 separately by the existing exact-head ZIP/Pyodide/Chromium workflows.
 """
 from pathlib import Path
+import json
 import re
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -17,6 +18,8 @@ REQUIRED = (
     "docs/REPOSITORY_INFRASTRUCTURE.md", "reference_corpus/README.md",
     "reference_corpus/catalog.v1.json", "reference_corpus/probes.v1.json",
     "tools/build_reference_corpus.py", "tests/test_reference_corpus.py",
+    "tools/mplpb_mcp.py", "tools/check_mcp_client.py", "tests/test_mcp_agent.py",
+    "docs/MCP_AGENT.md", "docs/PRODUCTION_READINESS.md", ".well-known/mplpb.json",
     ".github/workflows/pages.yml", ".github/workflows/pr-validation.yml",
     ".github/workflows/zip-release-validation.yml",
     ".github/workflows/infrastructure-audit.yml",
@@ -71,6 +74,15 @@ def audit(root=ROOT):
     ):
         if pattern not in text:
             problems.append("Missing linkage in "+name+": "+pattern)
+    discovery = json.loads((root / ".well-known/mplpb.json").read_text())
+    mcp = discovery.get("local_mcp", {})
+    if mcp.get("transport") != "stdio" or mcp.get("remote_http_endpoint") is not False:
+        problems.append("Local MCP discovery must not imply a hosted query endpoint")
+    for text in (pr, zip_flow):
+        if "tools/check_mcp_client.py" not in text or "mcp==1.26.0" not in text:
+            problems.append("PR and extracted-ZIP CI must exercise the pinned official MCP SDK client")
+    if "MCP_AGENT.md" not in readme or "MCP_AGENT.md" not in docs:
+        problems.append("Missing MCP setup in canonical navigation")
     if re.search(r"^\|\s*Supported answers.*\|\|",docs,re.M):
         problems.append("Malformed documentation index row (merged table cells)")
     return problems
