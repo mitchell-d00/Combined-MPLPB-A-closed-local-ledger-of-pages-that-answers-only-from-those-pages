@@ -356,6 +356,61 @@ class ContinuityTests(unittest.TestCase):
         with self.assertRaises(WorkError):
             self.put('reviewer', 'T1', 'task', task, revision=1)
 
+    def test_completion_cannot_drop_unmet_criterion_in_same_write(self):
+        task = self.task(); task['criteria'].append('second check passes')
+        self.put('reviewer', 'T1', 'task', task, revision=1)
+        self.put('finder', 'E1', 'evidence', self.evidence())
+        self.put('finder', 'C1', 'claim', self.claim(), {'E1': 1})
+        self.put('builder', 'A1', 'action', self.action(task_revision=2), {'C1': 1})
+        passed = self.execute()
+        done = copy.deepcopy(task); done.update(state='done', acceptance={passed['attempt']: 1})
+        # The adapter reported success for one criterion, not both.
+        with self.assertRaises(WorkError):
+            self.put('reviewer', 'T1', 'task', done, revision=2)
+        done['criteria'] = ['test passes']
+        before = self.store.head(self.host)
+        with self.assertRaises(WorkError):
+            self.put('reviewer', 'T1', 'task', done, revision=2)
+        self.assertEqual(self.store.head(self.host), before)
+        self.assertEqual(self.rows()['T1']['payload']['state'], 'open')
+
+    def test_completion_cannot_replace_goal_using_old_receipt(self):
+        self.prepare(); passed = self.execute()
+        done = self.task(); done.update(state='done', acceptance={passed['attempt']: 1}, goal='A different task outcome')
+        with self.assertRaises(WorkError):
+            self.put('reviewer', 'T1', 'task', done, revision=1)
+
+    def test_completion_cannot_replace_task_inputs_using_old_receipt(self):
+        self.prepare(); passed = self.execute()
+        self.put('finder', 'E2', 'evidence', self.evidence('Component X remains available.'))
+        done = self.task(); done.update(state='done', acceptance={passed['attempt']: 1})
+        with self.assertRaises(WorkError):
+            self.put('reviewer', 'T1', 'task', done, {'E2': 1}, revision=1)
+
+    def test_completion_allows_reordered_identical_criteria(self):
+        task = self.task(); task['criteria'].append('second check passes')
+        self.put('reviewer', 'T1', 'task', task, revision=1)
+        self.put('finder', 'E1', 'evidence', self.evidence())
+        self.put('finder', 'C1', 'claim', self.claim(), {'E1': 1})
+        self.put('builder', 'A1', 'action', self.action(task_revision=2), {'C1': 1})
+        self.store.executors['fixture.run.v1'] = lambda _: {'result': 'passed', 'validation': {c: True for c in task['criteria']}, 'artifact': 'both checks pass'}
+        passed = self.execute()
+        done = copy.deepcopy(task); done.update(state='done', acceptance={passed['attempt']: 1})
+        done['criteria'].reverse()
+        self.put('reviewer', 'T1', 'task', done, revision=2)
+        self.assertEqual(self.rows()['T1']['effective_status'], 'done')
+
+    def test_completion_accepts_fresh_execution_after_explicit_contract_revision(self):
+        self.prepare(); self.execute()
+        task = self.task(); task.update(goal='A deliberately revised task', criteria=['revised check passes'])
+        self.put('reviewer', 'T1', 'task', task, revision=1)
+        self.put('builder', 'A2', 'action', self.action(task_revision=2), {'C1': 1})
+        self.store.executors['fixture.run.v1'] = lambda _: {'result': 'passed', 'validation': {'revised check passes': True}, 'artifact': 'revised contract checked'}
+        passed = self.execute('A2')
+        done = copy.deepcopy(task); done.update(state='done', acceptance={passed['attempt']: 1})
+        self.put('reviewer', 'T1', 'task', done, revision=2)
+        self.assertEqual(self.rows()['T1']['effective_status'], 'done')
+
     def test_failed_attempts_immutable_and_failed_route_not_repeated(self):
         self.prepare()
         self.store.executors['fixture.run.v1'] = lambda _: {'result': 'failed', 'validation': {}, 'artifact': 'broken fixture'}

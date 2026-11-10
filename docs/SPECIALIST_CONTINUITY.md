@@ -1,6 +1,6 @@
 # Specialist continuity: durable work and guarded handoffs
 
-Last reviewed: 2026-11-02. See [current status and result-to-test index](CURRENT_STATUS_2026-11-02.md). Dates and numeric results in historical validation sections retain their original scope; this review is not a rerun or independent certification.
+Last reviewed: 2026-11-10. See [current status and result-to-test index](CURRENT_STATUS_2026-11-02.md). Dates and numeric results in historical validation sections retain their original scope; this review is not a rerun or independent certification.
 
 Status: **implemented local coordinator**, 2026-10-31, in `mplpb_work`. It provides
 transactional work history, host-issued seat capabilities, revision and fencing
@@ -161,3 +161,9 @@ known effect class. Unknown execution outcomes remain indeterminate until a host
 operator reconciles them. External systems still need idempotency and suitable
 isolation; a permission check cannot make an external side effect atomic with a
 local database transaction.
+
+The [November 10 contract audit](../evaluation/no-unverified-promotion/README.md)
+adds a narrow completion correction: a done write cannot simultaneously change
+the goal, review budget, criterion set or input dependencies covered by an old
+receipt. Explicit open revision and fresh execution remain supported. Its paired
+regressions are development evidence, not a cross-domain efficacy study.

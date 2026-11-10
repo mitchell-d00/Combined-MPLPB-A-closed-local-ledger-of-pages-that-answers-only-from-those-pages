@@ -1,0 +1,36 @@
+{
+  "schema": "nup-targeted-reproduction-v1",
+  "role": "Developer-authored frozen completion counterexamples and legitimate controls, not independent validation",
+  "implementation_revision": "73b795634332e48aab499c16e07a2af4328f2f7a",
+  "implementation_sha256": "c0da4147627f2a6925cf4a8416debb92e9b86d7083df561b31d365f479a158bb",
+  "tests_sha256": "421d7c2727b938d5b02dc81c098306093f86508e9e27d13e5c244f35fac277b7",
+  "development_cases_sha256": "0c11f7a828d1906e1d87a5b5771efb28f0cee8ed63d45922ef1b9f6343661278",
+  "test_cases": [
+    {
+      "test": "test_completion_cannot_drop_unmet_criterion_in_same_write",
+      "outcome": "FAIL"
+    },
+    {
+      "test": "test_completion_cannot_replace_goal_using_old_receipt",
+      "outcome": "FAIL"
+    },
+    {
+      "test": "test_completion_cannot_replace_task_inputs_using_old_receipt",
+      "outcome": "FAIL"
+    },
+    {
+      "test": "test_completion_allows_reordered_identical_criteria",
+      "outcome": "ok"
+    },
+    {
+      "test": "test_completion_accepts_fresh_execution_after_explicit_contract_revision",
+      "outcome": "ok"
+    }
+  ],
+  "summary": {
+    "tests_run": 5,
+    "failed_assertions": 3,
+    "legitimate_controls_passed": 2
+  },
+  "interpretation": "Three newly written rejection assertions failed because prohibited completion writes were accepted by the existing coordinator. Two legitimate-completion controls passed. These are five deterministic local development cases, not population rates."
+}

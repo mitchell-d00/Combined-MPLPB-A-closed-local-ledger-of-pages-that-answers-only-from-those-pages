@@ -189,3 +189,9 @@ Model download completion does not establish readiness. If initialization fails,
 open **Model loading details** and use **Export model load report** before
 reloading. The [helper guide](docs/FREE_PUBLIC_HELPER.md#when-the-model-fails-to-initialize)
 explains the local diagnostics and retry boundary. No model training occurs.
+
+The [No-Unverified-Promotion research audit](evaluation/no-unverified-promotion/README.md)
+compares answer, artifact, release and specialist contracts against Mitchell D.
+McPhetridge’s preserved research. It classifies the synthesis as an existing
+engineering principle in MPLPB terminology, records one corrected completion
+defect, and provides a source matrix and prospective adversarial protocol.

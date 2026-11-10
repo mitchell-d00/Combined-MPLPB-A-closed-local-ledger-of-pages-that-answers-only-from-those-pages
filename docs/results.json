@@ -350,6 +350,24 @@
       ],
       "scope": "Pinned upstream MIT license/config/library/tensor-metadata downloads and authored loader/real Chromium selection tests; runtime/GPU success uses explicit fixtures, not neural inference or physical iPad validation.",
       "measurement_status": "Local implementation checks; exact archive, CI and deployed revision outcomes are separate."
+    },
+    {
+      "family": "no-unverified-promotion",
+      "artifacts": "evaluation/no-unverified-promotion",
+      "tests": [
+        "tests/test_answer_reliability.py",
+        "tests/test_answer_support.py",
+        "tests/test_page_retrieval.py",
+        "tests/test_release_answer_contract.py",
+        "tests/test_release_evidence.py",
+        "tests/test_handoff.py",
+        "tests/test_specialist_continuity.py"
+      ],
+      "runners": [
+        "tools/audit_unverified_promotion.py"
+      ],
+      "scope": "88 contract tests, authored artifact boundary control and five-case old/patched completion comparison; inspected development evidence, no held-out four-domain efficacy or novelty claim.",
+      "measurement_status": "2026-11-10 local replay retained with exact implementation/test hashes; historical results remain unchanged"
     }
   ]
 }

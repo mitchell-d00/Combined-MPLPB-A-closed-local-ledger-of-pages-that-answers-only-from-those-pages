@@ -1,0 +1,129 @@
+{
+  "schema": "nup-development-cases-v1",
+  "baseline_commit": "73b795634332e48aab499c16e07a2af4328f2f7a",
+  "frozen_at_utc": "2026-11-10T13:04:58.929005+00:00",
+  "role": "Locally frozen author-inspected development specifications before new reproduction measurements; no independently authored or held-out cases. Not a public preregistration.",
+  "cases": [
+    {
+      "id": "A1",
+      "domain": "answer",
+      "scenario": "correct selection, wrong entity body",
+      "strong_claim_permitted": false
+    },
+    {
+      "id": "A2",
+      "domain": "answer",
+      "scenario": "intact citation, unsupported interpretation",
+      "strong_claim_permitted": false
+    },
+    {
+      "id": "A3",
+      "domain": "answer",
+      "scenario": "accurate old bytes, withdrawn source",
+      "strong_claim_permitted": false
+    },
+    {
+      "id": "A4",
+      "domain": "answer",
+      "scenario": "current exact body support under finite grammar",
+      "strong_claim_permitted": true
+    },
+    {
+      "id": "B1",
+      "domain": "artifact",
+      "scenario": "file exists but requested content is wrong",
+      "strong_claim_permitted": false
+    },
+    {
+      "id": "B2",
+      "domain": "artifact",
+      "scenario": "coherent manifest of semantically wrong preview",
+      "strong_claim_permitted": false
+    },
+    {
+      "id": "B3",
+      "domain": "artifact",
+      "scenario": "archive bytes altered after manifest",
+      "strong_claim_permitted": false
+    },
+    {
+      "id": "B4",
+      "domain": "artifact",
+      "scenario": "requested bytes and applicable integrity checks pass",
+      "strong_claim_permitted": true
+    },
+    {
+      "id": "C1",
+      "domain": "release",
+      "scenario": "checkout passed but packaged artifact differs",
+      "strong_claim_permitted": false
+    },
+    {
+      "id": "C2",
+      "domain": "release",
+      "scenario": "candidate passes but public deployment fails",
+      "strong_claim_permitted": false
+    },
+    {
+      "id": "C3",
+      "domain": "release",
+      "scenario": "manifest describes a different candidate head",
+      "strong_claim_permitted": false
+    },
+    {
+      "id": "C4",
+      "domain": "release",
+      "scenario": "same tested identity and scoped live checks pass",
+      "strong_claim_permitted": true
+    },
+    {
+      "id": "D1",
+      "domain": "work",
+      "scenario": "handoff recovered but seat grant revoked",
+      "strong_claim_permitted": false
+    },
+    {
+      "id": "D2",
+      "domain": "work",
+      "scenario": "attempt says passed but one acceptance criterion untested",
+      "strong_claim_permitted": false
+    },
+    {
+      "id": "D3",
+      "domain": "work",
+      "scenario": "drop missing criterion in same write as done",
+      "strong_claim_permitted": false
+    },
+    {
+      "id": "D4",
+      "domain": "work",
+      "scenario": "unchanged contract and all criteria receipt-backed",
+      "strong_claim_permitted": true
+    },
+    {
+      "id": "D5",
+      "domain": "work",
+      "scenario": "change goal during completion using old receipt",
+      "strong_claim_permitted": false
+    },
+    {
+      "id": "D6",
+      "domain": "work",
+      "scenario": "change task dependencies during completion",
+      "strong_claim_permitted": false
+    },
+    {
+      "id": "D7",
+      "domain": "work",
+      "scenario": "reorder identical criteria during completion",
+      "strong_claim_permitted": true
+    },
+    {
+      "id": "D8",
+      "domain": "work",
+      "scenario": "separately revise open contract, execute again, then accept",
+      "strong_claim_permitted": true
+    }
+  ],
+  "measurement_plan": "Run existing contract regressions across A/B/C/D; reproduce D3/D5/D6 on baseline before smallest task-completion fix and rerun exact same cases with D4/D7/D8 legitimate controls. B2 is an expected trust/semantic boundary, not a production defect. No cross-domain randomized effect is claimed from these local replays."
+}

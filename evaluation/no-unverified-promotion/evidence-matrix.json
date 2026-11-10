@@ -1,0 +1,600 @@
+{
+  "schema": "nup-evidence-matrix-v1",
+  "research_author": "Mitchell D. McPhetridge",
+  "audited_baseline": "73b795634332e48aab499c16e07a2af4328f2f7a",
+  "meaning": "Every source is revision-pinned. Historical documents, current code, new fixtures, inference and unexecuted proposals are distinct. The candidate name/synthesis is new in this task, not retroactively attributed to old papers.",
+  "instances": [
+    {
+      "id": "A1",
+      "domain": "A retrieval/answer",
+      "original_sources": [
+        {
+          "file": "docs/ANSWER_RELIABILITY.md",
+          "revision": "75cbbd0794e891e0e8e4759e0993a0de7c5eab9f",
+          "location": "Candidate selection was presented",
+          "line": 9,
+          "sha256": "94b1563827ca1d7445de7a24c32194c43be63e4c7c6a166655842bdee95b2b1b",
+          "url": "https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/blob/75cbbd0794e891e0e8e4759e0993a0de7c5eab9f/docs/ANSWER_RELIABILITY.md#L9"
+        }
+      ],
+      "audited_implementation": {
+        "file": "mplpb_answers/support.py",
+        "revision": "73b795634332e48aab499c16e07a2af4328f2f7a",
+        "location": "def supported_answer",
+        "line": 83,
+        "sha256": "67821fc2399616dfbc10c52a440b3de5f6220a82aec44be595b60fd19b96f9ff",
+        "url": "https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/blob/73b795634332e48aab499c16e07a2af4328f2f7a/mplpb_answers/support.py#L83"
+      },
+      "historical_date_and_basis": "2026-10-13 audit and repair commit; original baseline 715d1b567e3ed76e567b9462a4faf0fa513fce31 named by that audit.",
+      "initial_operation_and_result": "Aster scope selects a page whose body states the Other service port. The legacy reader returns candidate text.",
+      "stronger_downstream_claim": "The Aster service port has the value quoted for Other.",
+      "why_insufficient": "Lexical ownership/relevance does not bind the requested subject and relation to an eligible body statement.",
+      "required_condition": "Current eligible body evidence for the complete question under the finite grammar; conflicting support remains ambiguous.",
+      "existing_enforcement": "supported_answer checks eligible candidate bodies; pipeline/CLI keep candidate inspection separate.",
+      "recorded_failure_and_repair": "Historical audit records four wrong legacy returns on held-out/adjacent pottery sets, refused by the new path at substantial coverage cost. This audit replays contracts, not those historical accuracy numbers.",
+      "reproduction_command": "python -m unittest tests.test_release_answer_contract tests.test_answer_reliability -v",
+      "expected_behavior": "Wrong-entity candidate remains available for inspection, strict answer refuses; correct body returns and competitors cause ambiguity.",
+      "evidence_classes": [
+        "historical_documented_observation",
+        "implemented_behavior",
+        "current_development_replay"
+      ],
+      "shared_principle_assessment": "Strong support for a narrower-operation-to-answer misclassification; not evidence of unrestricted entailment or a novel universal law."
+    },
+    {
+      "id": "A2",
+      "domain": "A retrieval/answer",
+      "original_sources": [
+        {
+          "file": "docs/PAGE_RETRIEVAL.md",
+          "revision": "73b795634332e48aab499c16e07a2af4328f2f7a",
+          "location": "Page retrieval and answer authority",
+          "line": 1,
+          "sha256": "dac39ff1b7a15a3989aa8e4eeb6332ecea05485085b4ba5ebe1af7e0002ef2a1",
+          "url": "https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/blob/73b795634332e48aab499c16e07a2af4328f2f7a/docs/PAGE_RETRIEVAL.md#L1"
+        }
+      ],
+      "audited_implementation": {
+        "file": "mplpb_combined/retrieval.py",
+        "revision": "73b795634332e48aab499c16e07a2af4328f2f7a",
+        "location": "def retrieve",
+        "line": 9,
+        "sha256": "35528e3645af096d957df51fdb39ca66decd1f5a0a98cf61061e4ff51408c1c4",
+        "url": "https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/blob/73b795634332e48aab499c16e07a2af4328f2f7a/mplpb_combined/retrieval.py#L9"
+      },
+      "historical_date_and_basis": "Page-retrieval repair 2026-10-27, commit 2f2c17f9eb597b16ada7be0d5074d6d94b3f364b; current guide reviewed November 2.",
+      "initial_operation_and_result": "One page passes identity/path/hash/text/provenance checks and is returned with an accurate citation.",
+      "stronger_downstream_claim": "The returned page supports a requested interpretation, factual truth, or permission to act.",
+      "why_insufficient": "A citation locates bytes; it does not decide entailment, truth or permission.",
+      "required_condition": "Use the relevant answer, semantic assessment or authorization contract for the specific claim.",
+      "existing_enforcement": "retrieve always sets answer_supported:false and authority:source_page_retrieval, including successful retrieval.",
+      "recorded_failure_and_repair": "Contract and adversarial missing-body-support regression exist; no separate observed production interpretation error is asserted here.",
+      "reproduction_command": "python -m unittest tests.test_page_retrieval -v",
+      "expected_behavior": "Retrieved wrong-entity page is not a supported answer; gate rejection withholds text/citation without replacement.",
+      "evidence_classes": [
+        "implemented_behavior",
+        "current_development_replay"
+      ],
+      "shared_principle_assessment": "Supports the scoped non-entailment distinction; success is legitimate when the claim is only that a page was retrieved."
+    },
+    {
+      "id": "A3",
+      "domain": "A source eligibility",
+      "original_sources": [
+        {
+          "file": "docs/PAGE_RETRIEVAL.md",
+          "revision": "73b795634332e48aab499c16e07a2af4328f2f7a",
+          "location": "Selection and checks",
+          "line": 50,
+          "sha256": "dac39ff1b7a15a3989aa8e4eeb6332ecea05485085b4ba5ebe1af7e0002ef2a1",
+          "url": "https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/blob/73b795634332e48aab499c16e07a2af4328f2f7a/docs/PAGE_RETRIEVAL.md#L50"
+        }
+      ],
+      "audited_implementation": {
+        "file": "mplpb_combined/provenance_gate.py",
+        "revision": "73b795634332e48aab499c16e07a2af4328f2f7a",
+        "location": "def gather",
+        "line": 139,
+        "sha256": "52a07e7f166a9580d5ae1741b4558176cc4e737c985c1ca43d475c050f0e7839",
+        "url": "https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/blob/73b795634332e48aab499c16e07a2af4328f2f7a/mplpb_combined/provenance_gate.py#L139"
+      },
+      "historical_date_and_basis": "Eligibility is present in audited baseline; this audit does not assign one introduction date to every lineage guard.",
+      "initial_operation_and_result": "Previously accurate, sealed body text or a derivation remains stored after its basis is withdrawn.",
+      "stronger_downstream_claim": "The old page is currently eligible evidence for a supported answer or action.",
+      "why_insufficient": "Byte integrity and historical availability do not establish current lineage, delivery scope or source authority.",
+      "required_condition": "Recheck seals, current lineage, dependency status, profile restrictions and exclusions at use.",
+      "existing_enforcement": "gather/_lineage/_retired_dependencies and WorkStore._source/_effective recheck current eligibility.",
+      "recorded_failure_and_repair": "Existing retirement/tamper tests are replayed; no new truth-verification feature or altered source hash is introduced.",
+      "reproduction_command": "python -m unittest tests.test_page_retrieval tests.test_specialist_continuity -v",
+      "expected_behavior": "Withdrawn bases and stale dependencies block current use; historical records remain recoverable under visibility policy.",
+      "evidence_classes": [
+        "implemented_behavior",
+        "current_development_replay"
+      ],
+      "shared_principle_assessment": "Supports freshness/identity as claim-specific evidence; a historically valid observation need not be erased when current eligibility changes."
+    },
+    {
+      "id": "A4",
+      "domain": "A assisted semantics",
+      "original_sources": [
+        {
+          "file": "docs/PRODUCTION_READINESS.md",
+          "revision": "73b795634332e48aab499c16e07a2af4328f2f7a",
+          "location": "Intended scope",
+          "line": 1,
+          "sha256": "7ab252d4e71c33b759210996c2939f18faffe4328b752b21f8355a53d34f333b",
+          "url": "https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/blob/73b795634332e48aab499c16e07a2af4328f2f7a/docs/PRODUCTION_READINESS.md#L1"
+        }
+      ],
+      "audited_implementation": {
+        "file": "mplpb_answers/pipeline.py",
+        "revision": "73b795634332e48aab499c16e07a2af4328f2f7a",
+        "location": "def answer_query",
+        "line": 61,
+        "sha256": "8deeca428ee79dccb6808969f2f23aa9955f65b779f7e5c1988b24840ff752d6",
+        "url": "https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/blob/73b795634332e48aab499c16e07a2af4328f2f7a/mplpb_answers/pipeline.py#L61"
+      },
+      "historical_date_and_basis": "General cited-answer pipeline introduced 2026-10-31, faca0a58c7824ad6bc9ce197c0997415fbf878bd.",
+      "initial_operation_and_result": "An assisted reader supplies exact quotations and a separate semantic review.",
+      "stronger_downstream_claim": "The claim is deterministic source proof, calibrated truth, or independently validated general quality.",
+      "why_insufficient": "Span validity and model review differ from deterministic grammar support and external truth/calibration.",
+      "required_condition": "Report model-assessed authority and uncertainty; independent calibration/quality evidence is separate.",
+      "existing_enforcement": "Assisted outputs keep answer_supported:false; verification flags distinguish structural, semantic, truth and independence.",
+      "recorded_failure_and_repair": "Audited implementation and documented outstanding evaluation, not a newly executed live-model experiment.",
+      "reproduction_command": "python -m unittest tests.test_general_answers -v",
+      "expected_behavior": "Model-assessed answers do not become deterministic supported answers. This module was not part of the 88-test focused replay.",
+      "evidence_classes": [
+        "implemented_behavior",
+        "documented_limit",
+        "not_executed_in_focused_replay"
+      ],
+      "shared_principle_assessment": "Supports typed evidence limits, but does not supply empirical validation of the proposed synthesis."
+    },
+    {
+      "id": "B1",
+      "domain": "B artifact verification",
+      "original_sources": [
+        {
+          "file": "AGENTS.md",
+          "revision": "73b795634332e48aab499c16e07a2af4328f2f7a",
+          "location": "For every implementation/update",
+          "line": 7,
+          "sha256": "fceb05ece6a10b37ab9cf56a1066829ef03b00d85c79ab960762fb219fe40e91",
+          "url": "https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/blob/73b795634332e48aab499c16e07a2af4328f2f7a/AGENTS.md#L7"
+        }
+      ],
+      "audited_implementation": {
+        "file": "tools/build_handoff.py",
+        "revision": "73b795634332e48aab499c16e07a2af4328f2f7a",
+        "location": "def check",
+        "line": 100,
+        "sha256": "5018a62e6c6eee25128c9612b35ea02b5827ff7918433f045872614e49b88660",
+        "url": "https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/blob/73b795634332e48aab499c16e07a2af4328f2f7a/tools/build_handoff.py#L100"
+      },
+      "historical_date_and_basis": "Repository handoff introduced November 2 in aeafc6ecc071577b4db6636b7d08d07f662b41e4.",
+      "initial_operation_and_result": "A handoff document and content manifest have been generated.",
+      "stronger_downstream_claim": "The handoff is current, complete, or the requested substantive work has been correctly finished.",
+      "why_insufficient": "Existence does not bind current tracked inputs or assess the semantic adequacy of the work.",
+      "required_condition": "Inventory and render must match current staged source; requested-content acceptance remains separate.",
+      "existing_enforcement": "build_handoff.check recomputes inventory hashes and the rendered update record; no generic task-quality oracle.",
+      "recorded_failure_and_repair": "Existing tests reject changed instructions, tracked additions, tampered handoff and source modifications.",
+      "reproduction_command": "python -m unittest tests.test_handoff -v",
+      "expected_behavior": "Stale or modified handoffs fail; a consistent handoff is not a source-ledger truth or completion certificate.",
+      "evidence_classes": [
+        "implemented_behavior",
+        "current_development_replay"
+      ],
+      "shared_principle_assessment": "Supports the distinction between created and consistent; broader semantic verification must be named rather than assumed."
+    },
+    {
+      "id": "B2",
+      "domain": "B semantic boundary",
+      "original_sources": [
+        {
+          "file": "docs/RELEASE_EVIDENCE.md",
+          "revision": "73b795634332e48aab499c16e07a2af4328f2f7a",
+          "location": "A hash checks byte consistency",
+          "line": 26,
+          "sha256": "81dff9ad5f1b70ad4452e8f462e37463d00f01f90630cfb4e8c7b3b7370a5f58",
+          "url": "https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/blob/73b795634332e48aab499c16e07a2af4328f2f7a/docs/RELEASE_EVIDENCE.md#L26"
+        }
+      ],
+      "audited_implementation": {
+        "file": "tools/release_evidence.py",
+        "revision": "73b795634332e48aab499c16e07a2af4328f2f7a",
+        "location": "def inspect",
+        "line": 39,
+        "sha256": "6a2de2f57cb166851911eff5d11206e03f961622c72aeaba62bd5911739f4004",
+        "url": "https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/blob/73b795634332e48aab499c16e07a2af4328f2f7a/tools/release_evidence.py#L39"
+      },
+      "historical_date_and_basis": "Manifest verifier introduced October 20 in a01a67afa6c364c708ed960921eb7e992113e123; new authored boundary control November 10.",
+      "initial_operation_and_result": "A readable ZIP and preview with wrong requested content have mutually consistent hashes and authored fixture gate labels. Native manifest verification succeeds.",
+      "stronger_downstream_claim": "The generated artifact satisfies an arbitrary requested content criterion.",
+      "why_insufficient": "A coherent unsigned manifest cannot supply content semantics or authenticate its own fixture assertions.",
+      "required_condition": "A separately defined acceptance predicate and trusted producer/run provenance for the particular deliverable.",
+      "existing_enforcement": "Native verifier intentionally checks coherent trusted-CI inputs. It does not claim arbitrary semantic acceptance.",
+      "recorded_failure_and_repair": "New boundary control is observed in contract-replay.json. This is an expected trust boundary, not a newly established verifier defect. Fixture PASS labels are not claimed as executed CI results.",
+      "reproduction_command": "python tools/audit_unverified_promotion.py --output NEW_REPORT.json",
+      "expected_behavior": "artifact_boundary.manifest_verified=true while requested_semantic_content_satisfied=false.",
+      "evidence_classes": [
+        "new_authored_boundary_control",
+        "documented_trust_limit"
+      ],
+      "shared_principle_assessment": "Shows why one generic artifact_verified flag is inadequate; it also refutes a blanket claim that a manifest gate alone prevents all promotion errors."
+    },
+    {
+      "id": "B3",
+      "domain": "B packaging",
+      "original_sources": [
+        {
+          "file": "docs/ZIP_FIRST_RELEASE_TESTING.md",
+          "revision": "73b795634332e48aab499c16e07a2af4328f2f7a",
+          "location": "Test the artifact you intend to ship",
+          "line": 5,
+          "sha256": "d0779605fdb88a222cbfb8ddd915494fdc853c939d8809f8f91c6f9bf2847e7f",
+          "url": "https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/blob/73b795634332e48aab499c16e07a2af4328f2f7a/docs/ZIP_FIRST_RELEASE_TESTING.md#L5"
+        }
+      ],
+      "audited_implementation": {
+        "file": "tools/build_release_packages.py",
+        "revision": "73b795634332e48aab499c16e07a2af4328f2f7a",
+        "location": "def build",
+        "line": 12,
+        "sha256": "ba3174374c09003136f5e1db55470fbc6a04348de02d23bbf972fd5b28eec1af",
+        "url": "https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/blob/73b795634332e48aab499c16e07a2af4328f2f7a/tools/build_release_packages.py#L12"
+      },
+      "historical_date_and_basis": "ZIP-first runbook introduced October 19 in 4be3e7538f9c937a53ffb318991ee06a4ce17866.",
+      "initial_operation_and_result": "Source/browser ZIPs are packaged from tracked source and supplied browser input, with checksums.",
+      "stronger_downstream_claim": "Every supplied browser input was tested or the package fulfills every user acceptance criterion.",
+      "why_insufficient": "Packaging hashes identify submitted bytes. The caller must supply the intended tested browser build; arbitrary semantic acceptance is outside this packaging function.",
+      "required_condition": "Archive validation, correct candidate input, extracted tests and deliverable-specific acceptance evidence.",
+      "existing_enforcement": "Builder requires a current handoff/clean HEAD and uses git archive; CI separately tests the extracted candidate.",
+      "recorded_failure_and_repair": "Documented operational input requirement. No new wrong-browser-input production defect is asserted or patched by this audit.",
+      "reproduction_command": "python tools/build_handoff.py --check; python -m unittest tests.test_release_evidence -v",
+      "expected_behavior": "Content tampering and wrong expected commit fail relevant checks; packaging alone is not a general deliverable approval.",
+      "evidence_classes": [
+        "implemented_behavior",
+        "operational_precondition",
+        "not_a_new_content_verifier"
+      ],
+      "shared_principle_assessment": "Supports narrower attestations and exposes dependence on caller discipline rather than just gate existence."
+    },
+    {
+      "id": "C1",
+      "domain": "C checkout versus package",
+      "original_sources": [
+        {
+          "file": "docs/ZIP_FIRST_RELEASE_TESTING.md",
+          "revision": "4be3e7538f9c937a53ffb318991ee06a4ce17866",
+          "location": "Six gates, in order",
+          "line": 5,
+          "sha256": "6f996888c773ca91d6429f679e156ccfe68db5e19ea362bcbd19ee6caa2888e5",
+          "url": "https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/blob/4be3e7538f9c937a53ffb318991ee06a4ce17866/docs/ZIP_FIRST_RELEASE_TESTING.md#L5"
+        }
+      ],
+      "audited_implementation": {
+        "file": ".github/workflows/zip-release-validation.yml",
+        "revision": "73b795634332e48aab499c16e07a2af4328f2f7a",
+        "location": "Freeze a ZIP",
+        "line": 28,
+        "sha256": "a7ce0eaded682bd07d99c6016b61733e4dcde66495197c34adcdde3f0787150e",
+        "url": "https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/blob/73b795634332e48aab499c16e07a2af4328f2f7a/.github/workflows/zip-release-validation.yml#L28"
+      },
+      "historical_date_and_basis": "ZIP-first release sequence documented October 19; current exact-head workflow inspected at audit baseline.",
+      "initial_operation_and_result": "Tests run successfully in a source checkout.",
+      "stronger_downstream_claim": "The separately packaged candidate ZIP is complete and works.",
+      "why_insufficient": "Packaging can omit/change dependencies or files, so the object tested and object delivered may differ.",
+      "required_condition": "Freeze exact commit/tree, archive, verify/extract, and run tests/build from that extraction.",
+      "existing_enforcement": "Workflow uses explicit PR head SHA, archive checksum, unzip and extracted working directories.",
+      "recorded_failure_and_repair": "Engineering process and code enforcement observed; no fresh deliberately broken package was deployed.",
+      "reproduction_command": "Inspect .github/workflows/zip-release-validation.yml; run its extracted-ZIP workflow for the exact candidate.",
+      "expected_behavior": "Only exact extracted-candidate tests support candidate status; checkout passes remain narrower evidence.",
+      "evidence_classes": [
+        "implemented_workflow",
+        "source_audit",
+        "future_fault_injection_protocol"
+      ],
+      "shared_principle_assessment": "Supports identity-bound checking; independent projects and controlled package faults remain future comparative work."
+    },
+    {
+      "id": "C2",
+      "domain": "C exact-head candidate",
+      "original_sources": [
+        {
+          "file": "docs/RELEASE_EVIDENCE.md",
+          "revision": "73b795634332e48aab499c16e07a2af4328f2f7a",
+          "location": "What is protected by code",
+          "line": 9,
+          "sha256": "81dff9ad5f1b70ad4452e8f462e37463d00f01f90630cfb4e8c7b3b7370a5f58",
+          "url": "https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/blob/73b795634332e48aab499c16e07a2af4328f2f7a/docs/RELEASE_EVIDENCE.md#L9"
+        }
+      ],
+      "audited_implementation": {
+        "file": "tools/release_evidence.py",
+        "revision": "73b795634332e48aab499c16e07a2af4328f2f7a",
+        "location": "def verify",
+        "line": 79,
+        "sha256": "6a2de2f57cb166851911eff5d11206e03f961622c72aeaba62bd5911739f4004",
+        "url": "https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/blob/73b795634332e48aab499c16e07a2af4328f2f7a/tools/release_evidence.py#L79"
+      },
+      "historical_date_and_basis": "Candidate evidence manifest October 20; current verifier source unchanged at audit baseline.",
+      "initial_operation_and_result": "One commit or a previous candidate passed its tests and has a valid manifest.",
+      "stronger_downstream_claim": "Another PR head is tested, or the candidate is already deployed/verified.",
+      "why_insufficient": "Evidence is attached to a particular identity and claim; candidate status is not deployment status.",
+      "required_condition": "Expected candidate commit, coherent hashes and required report labels under trusted CI; separate live evidence.",
+      "existing_enforcement": "Wrong commit/missing gates/tampering/forged deployed status fail; success status remains candidate_checks_passed_not_deployed.",
+      "recorded_failure_and_repair": "Seven existing release-manifest regressions replayed; results are not a signature or hostile producer test.",
+      "reproduction_command": "python -m unittest tests.test_release_evidence -v",
+      "expected_behavior": "Wrong head and stronger forged status reject; intact correct candidate is accepted as candidate only.",
+      "evidence_classes": [
+        "implemented_behavior",
+        "current_development_replay"
+      ],
+      "shared_principle_assessment": "Strong support for type/scope/identity discipline already implemented, without a new promotion layer."
+    },
+    {
+      "id": "C3",
+      "domain": "C deployment",
+      "original_sources": [
+        {
+          "file": "docs/ZIP_FIRST_RELEASE_TESTING.md",
+          "revision": "73b795634332e48aab499c16e07a2af4328f2f7a",
+          "location": "Merge, deploy, and browser-test live again",
+          "line": 14,
+          "sha256": "d0779605fdb88a222cbfb8ddd915494fdc853c939d8809f8f91c6f9bf2847e7f",
+          "url": "https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/blob/73b795634332e48aab499c16e07a2af4328f2f7a/docs/ZIP_FIRST_RELEASE_TESTING.md#L14"
+        }
+      ],
+      "audited_implementation": {
+        "file": ".github/workflows/pages.yml",
+        "revision": "73b795634332e48aab499c16e07a2af4328f2f7a",
+        "location": "Smoke test newly published",
+        "line": 103,
+        "sha256": "2db0baba2486eda2e6b58149e36a780c047f2469d9f6019f46b4a559819555b6",
+        "url": "https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/blob/73b795634332e48aab499c16e07a2af4328f2f7a/.github/workflows/pages.yml#L103"
+      },
+      "historical_date_and_basis": "Current Pages workflow inspected at audit baseline; this audit does not claim it performed a new deployment fault experiment.",
+      "initial_operation_and_result": "Build/candidate tests pass and Pages deploy step completes.",
+      "stronger_downstream_claim": "Observed public behavior is verified or all public bytes equal the tested candidate.",
+      "why_insufficient": "Upload completion is not a live behavioral check; a finite smoke test is not whole-site correctness or exact byte identity.",
+      "required_condition": "Run the public URL browser checks and record their scope/run/revision; full identity guarantees require an explicit deployed-digest binding.",
+      "existing_enforcement": "needs:build protects deployment ordering; live smoke/helper failures fail the job after deployment. They do not automatically roll back, prevent human overclaiming, or compare entire public HTML to candidate digest.",
+      "recorded_failure_and_repair": "Existing postdeployment checks and limitations audited. No newly executed stale-site failure injection or digest-binding repair is claimed.",
+      "reproduction_command": "python tools/browser_release_smoke.py --live-url PUBLIC_URL --live-updated",
+      "expected_behavior": "Behavioral failures reject smoke verification; a pass supports only observed checks, not every device, truth, future availability or full byte identity.",
+      "evidence_classes": [
+        "implemented_workflow",
+        "scope_limit",
+        "not_new_live_experiment"
+      ],
+      "shared_principle_assessment": "Supports distinct obligations, while showing that \"verified\" still needs an explicitly bounded claim."
+    },
+    {
+      "id": "C4",
+      "domain": "C settings versus documentation",
+      "original_sources": [
+        {
+          "file": "docs/RELEASE_EVIDENCE.md",
+          "revision": "73b795634332e48aab499c16e07a2af4328f2f7a",
+          "location": "Required settings and historical setup gap",
+          "line": 52,
+          "sha256": "81dff9ad5f1b70ad4452e8f462e37463d00f01f90630cfb4e8c7b3b7370a5f58",
+          "url": "https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/blob/73b795634332e48aab499c16e07a2af4328f2f7a/docs/RELEASE_EVIDENCE.md#L52"
+        }
+      ],
+      "audited_implementation": {
+        "file": ".github/workflows/zip-release-validation.yml",
+        "revision": "73b795634332e48aab499c16e07a2af4328f2f7a",
+        "location": "archive-first:",
+        "line": 12,
+        "sha256": "a7ce0eaded682bd07d99c6016b61733e4dcde66495197c34adcdde3f0787150e",
+        "url": "https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/blob/73b795634332e48aab499c16e07a2af4328f2f7a/.github/workflows/zip-release-validation.yml#L12"
+      },
+      "historical_date_and_basis": "October 20 missing required-check setup is documented; October 29 ruleset recheck is recorded. Fresh read-only settings observation retained for November 10.",
+      "initial_operation_and_result": "A repository contains a workflow and release instructions.",
+      "stronger_downstream_claim": "Main-branch merges are technically gated by required checks.",
+      "why_insufficient": "A workflow file does not configure server-side branch rules.",
+      "required_condition": "An active ruleset targeting main must require the actual current check contexts and appropriate bypass policy.",
+      "existing_enforcement": "Fresh ruleset observation shows active main-target PR, strict archive-first/regression requirements and no bypass actors; no failed-merge/bypass attempt was performed.",
+      "recorded_failure_and_repair": "Historical setup gap is documented as repaired; current observation is not a durability guarantee or adversarial enforcement test.",
+      "reproduction_command": "Read GitHub rulesets/24696697 and inspect evaluation/no-unverified-promotion/ruleset-observation.json.",
+      "expected_behavior": "Configuration observation is reported as observation, not as a proof that an attempted bad merge was blocked.",
+      "evidence_classes": [
+        "historical_documented_gap",
+        "fresh_read_only_observation",
+        "no_bypass_experiment"
+      ],
+      "shared_principle_assessment": "Supports separation of declarative intent from effective enforcement; also limits what the audit itself may claim."
+    },
+    {
+      "id": "D1",
+      "domain": "D handoff/authorization",
+      "original_sources": [
+        {
+          "file": "docs/SPECIALIST_CONTINUITY.md",
+          "revision": "41779b4aec0444af506ec4efde434a2e545e6e4b",
+          "location": "Handoff boundary",
+          "line": 107,
+          "sha256": "0375e2e57dff532ca4ec663e5dc76e2edb1802c06c719f8b4334e1dc1bfd6300",
+          "url": "https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/blob/41779b4aec0444af506ec4efde434a2e545e6e4b/docs/SPECIALIST_CONTINUITY.md#L107"
+        }
+      ],
+      "audited_implementation": {
+        "file": "mplpb_work/store.py",
+        "revision": "73b795634332e48aab499c16e07a2af4328f2f7a",
+        "location": "def _actor",
+        "line": 176,
+        "sha256": "c0da4147627f2a6925cf4a8416debb92e9b86d7083df561b31d365f479a158bb",
+        "url": "https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/blob/73b795634332e48aab499c16e07a2af4328f2f7a/mplpb_work/store.py#L176"
+      },
+      "historical_date_and_basis": "Implemented coordinator October 31, commit 41779b4aec0444af506ec4efde434a2e545e6e4b.",
+      "initial_operation_and_result": "A successor can recover a filtered handoff with prior work and proposed actions.",
+      "stronger_downstream_claim": "It inherits a predecessor capability or may execute after expiry/revocation/fencing.",
+      "why_insufficient": "Recovered data is not a current grant. Authorization is actor-, seat-, tool-, scope- and time-specific.",
+      "required_condition": "Fresh host-issued capability, current grant and fence, correct operation/tool/scope, dependencies and task revision at dispatch.",
+      "existing_enforcement": "handoff reconstructs snapshot under current grant; _actor/_permission/execute recheck state and reject stale credentials before dispatch.",
+      "recorded_failure_and_repair": "Existing expiry/revocation/fencing, failed-route and dispatch guards replayed; external side effects remain non-atomic with local storage.",
+      "reproduction_command": "python -m unittest tests.test_specialist_continuity.ContinuityTests.test_expiry_revocation_and_fencing_are_checked_at_write -v",
+      "expected_behavior": "Old credentials reject and adapter calls remain absent; successor identity is new and does not certify truth.",
+      "evidence_classes": [
+        "implemented_behavior",
+        "current_development_replay"
+      ],
+      "shared_principle_assessment": "Supports complete mediation/fresh authority, an existing engineering concern rather than an independent novel law."
+    },
+    {
+      "id": "D2",
+      "domain": "D recovered assessments",
+      "original_sources": [
+        {
+          "file": "docs/SPECIALIST_CONTINUITY.md",
+          "revision": "73b795634332e48aab499c16e07a2af4328f2f7a",
+          "location": "A stored conclusion must never",
+          "line": 19,
+          "sha256": "8df891c460f143277469037da5e525533fb9f57d66f97a99459879db9e4241d9",
+          "url": "https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/blob/73b795634332e48aab499c16e07a2af4328f2f7a/docs/SPECIALIST_CONTINUITY.md#L19"
+        }
+      ],
+      "audited_implementation": {
+        "file": "mplpb_work/store.py",
+        "revision": "73b795634332e48aab499c16e07a2af4328f2f7a",
+        "location": "def _effective",
+        "line": 324,
+        "sha256": "c0da4147627f2a6925cf4a8416debb92e9b86d7083df561b31d365f479a158bb",
+        "url": "https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/blob/73b795634332e48aab499c16e07a2af4328f2f7a/mplpb_work/store.py#L324"
+      },
+      "historical_date_and_basis": "Coordinator October 31; theory relates to the preserved September revisability manuscript.",
+      "initial_operation_and_result": "A claim, repeated review or failed attempt survives interruption and appears in a handoff.",
+      "stronger_downstream_claim": "The claim becomes true/independently corroborated, or the failed route becomes an accepted success prerequisite.",
+      "why_insufficient": "Persistence and duplication add no new source support. A failed attempt can inform a decision without being a passing prerequisite.",
+      "required_condition": "Retain challenges, roots/spans, effective state and unsuccessful attempts; resolve with current evidence and separate rights.",
+      "existing_enforcement": "No terminal true assessment; challenges propagate; copied reviews record no new roots; failed routes are separate contextual links.",
+      "recorded_failure_and_repair": "Five-instance deterministic fixture and copied-review/failed-context regressions exist and were replayed; not independent AI-provider performance.",
+      "reproduction_command": "python -m unittest tests.test_specialist_continuity -v",
+      "expected_behavior": "Contested claims stay contested across owner revision, failed context survives, and successful allowed retry requires changed conditions.",
+      "evidence_classes": [
+        "implemented_behavior",
+        "current_development_replay"
+      ],
+      "shared_principle_assessment": "Supports evidential non-amplification, but not a theorem that all repeated assessments are useless or no legitimate inference is possible."
+    },
+    {
+      "id": "D3",
+      "domain": "D task completion defect",
+      "original_sources": [
+        {
+          "file": "docs/SPECIALIST_CONTINUITY_API.md",
+          "revision": "73b795634332e48aab499c16e07a2af4328f2f7a",
+          "location": "A changed task",
+          "line": 128,
+          "sha256": "0b184a52e05a913a84c88c90f56969434dbe0b62aabe5722031940d7e4eed36a",
+          "url": "https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/blob/73b795634332e48aab499c16e07a2af4328f2f7a/docs/SPECIALIST_CONTINUITY_API.md#L128"
+        },
+        {
+          "file": "mplpb_work/store.py",
+          "revision": "73b795634332e48aab499c16e07a2af4328f2f7a",
+          "location": "if p['state'] == 'done':",
+          "line": 514,
+          "sha256": "c0da4147627f2a6925cf4a8416debb92e9b86d7083df561b31d365f479a158bb",
+          "url": "https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/blob/73b795634332e48aab499c16e07a2af4328f2f7a/mplpb_work/store.py#L514"
+        }
+      ],
+      "audited_implementation": {
+        "file": "mplpb_work/store.py",
+        "revision": "73b795634332e48aab499c16e07a2af4328f2f7a",
+        "location": "def _validate_record",
+        "line": 421,
+        "sha256": "c0da4147627f2a6925cf4a8416debb92e9b86d7083df561b31d365f479a158bb",
+        "url": "https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/blob/73b795634332e48aab499c16e07a2af4328f2f7a/mplpb_work/store.py#L421"
+      },
+      "historical_date_and_basis": "Original coordinator October 31; new locally frozen counterexamples and minimal correction November 10.",
+      "initial_operation_and_result": "A real host receipt reports a passed attempt under the old task revision. Baseline accepts an atomic done write that drops an unmet criterion, changes the goal, or replaces task input pins.",
+      "stronger_downstream_claim": "The new task contract is completed by evidence for the old contract.",
+      "why_insufficient": "Existing receipt revision/criterion-name checks did not compare the proposed completion contract with the pre-completion contract in the same write.",
+      "required_condition": "Preserve goal, review policy, criterion set and task input pins when consuming the receipt; deliberately revise while open and execute again when they change.",
+      "existing_enforcement": "Baseline had receipt/status/freshness/coverage gates but missed this atomic contract-substitution case. New seven-line local guard closes it without changing answer/permission authority.",
+      "recorded_failure_and_repair": "Before: three new rejection assertions fail; two valid controls pass. After: all five pass. Same tests/interpreter/fixtures used against archived old store and patched store.",
+      "reproduction_command": "python tools/audit_unverified_promotion.py --baseline-ref 73b795634332e48aab499c16e07a2af4328f2f7a --output NEW_REPORT.json",
+      "expected_behavior": "Baseline accepts all three prohibited writes; patched implementation rejects them, accepts reordered identical criteria and freshly rerun revised tasks.",
+      "evidence_classes": [
+        "new_reproduced_development_defect",
+        "failing_regression_before_fix",
+        "narrow_implementation_correction"
+      ],
+      "shared_principle_assessment": "A concrete additional instance consistent with the proposed abstraction. Three invented local cases do not establish four-domain population effects or novelty."
+    },
+    {
+      "id": "P1",
+      "domain": "Research visibility versus validation",
+      "original_sources": [
+        {
+          "file": "papers/Clarity_Is_Not_Validation.txt",
+          "revision": "c665337492a4aa5c3619c57c439a0583732c68bd",
+          "location": "1. The Distinction",
+          "line": 20,
+          "sha256": "c43c12a49d032b62da9ed8c15210b1285e3d36e7000aa9995882b0330f36b11f",
+          "url": "https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/blob/c665337492a4aa5c3619c57c439a0583732c68bd/papers/Clarity_Is_Not_Validation.txt#L20"
+        }
+      ],
+      "audited_implementation": {
+        "file": "papers/Clarity_Is_Not_Validation.txt",
+        "revision": "73b795634332e48aab499c16e07a2af4328f2f7a",
+        "location": "6. Kill Conditions",
+        "line": 75,
+        "sha256": "c43c12a49d032b62da9ed8c15210b1285e3d36e7000aa9995882b0330f36b11f",
+        "url": "https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/blob/73b795634332e48aab499c16e07a2af4328f2f7a/papers/Clarity_Is_Not_Validation.txt#L75"
+      },
+      "historical_date_and_basis": "Manuscript has no established internal authoring date; repository first retained it October 8. Do not substitute the retention date for publication or experiment date.",
+      "initial_operation_and_result": "A visible, detailed trajectory is published or recovered.",
+      "stronger_downstream_claim": "The claim is validated or clarity has been demonstrated merely by visibility.",
+      "why_insufficient": "The paper distinguishes validation from clarity and demands visible retraction for its proposed clarity test; its kill conditions are explicitly untested.",
+      "required_condition": "Claim-specific adjudication; test whether the paper’s proposed retraction criterion itself survives counterexamples.",
+      "existing_enforcement": "This is a manuscript proposal and source for the audit, not an executable gate or independent scientific validation.",
+      "recorded_failure_and_repair": "The manuscript self-reports a PHA retraction. This audit did not independently reproduce that external experiment or validate its general necessity claim.",
+      "reproduction_command": "Read papers/Clarity_Is_Not_Validation.txt sections 1, 3 and 6 at the pinned revision.",
+      "expected_behavior": "Treat the distinctions as attributed formulations and the positive clarity criterion as falsifiable, not an established universal rule.",
+      "evidence_classes": [
+        "original_author_formulation",
+        "untested_specification",
+        "new_analogy"
+      ],
+      "shared_principle_assessment": "Conceptually related, but its normative/epistemic criteria are not identical to a software postcondition. It cannot by itself prove the cross-domain mechanism."
+    },
+    {
+      "id": "P2",
+      "domain": "Research continuity versus epistemic validity",
+      "original_sources": [
+        {
+          "file": "papers/Continuation_Must_Preserve_Revisability.pdf",
+          "revision": "c665337492a4aa5c3619c57c439a0583732c68bd",
+          "location": "PDF pages 1–3 (abstract and sections 1–2)",
+          "line": null,
+          "sha256": "7b0c289cd6952b726029140e8b1fbc76addd96681ca4ed810d718f9f2846cc64",
+          "url": "https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/blob/c665337492a4aa5c3619c57c439a0583732c68bd/papers/Continuation_Must_Preserve_Revisability.pdf"
+        }
+      ],
+      "audited_implementation": {
+        "file": "docs/SPECIALIST_CONTINUITY.md",
+        "revision": "73b795634332e48aab499c16e07a2af4328f2f7a",
+        "location": "What survives a specialist",
+        "line": 13,
+        "sha256": "8df891c460f143277469037da5e525533fb9f57d66f97a99459879db9e4241d9",
+        "url": "https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/blob/73b795634332e48aab499c16e07a2af4328f2f7a/docs/SPECIALIST_CONTINUITY.md#L13"
+      },
+      "historical_date_and_basis": "September 2026 printed on PDF page 1; first repository retention October 8. PDF pages 1–3 contain the continuity/revisability distinction.",
+      "initial_operation_and_result": "An earlier working conclusion is mechanically recovered in a new runtime.",
+      "stronger_downstream_claim": "The inherited premise has gained evidential support or should remain a terminal fact.",
+      "why_insufficient": "An inference can survive without its uncertainty; the recovery operation does not supply the missing epistemic basis.",
+      "required_condition": "Retain observation/inference, assumptions, contrary evidence, dependencies and revisiting conditions.",
+      "existing_enforcement": "Coordinator stores these distinctions and computes effective state; it does not adjudicate arbitrary propositions as true.",
+      "recorded_failure_and_repair": "Original manuscript supplies a supplier/configuration example; coordinator’s five-instance realization is a deterministic development fixture.",
+      "reproduction_command": "python -m tools.demo_specialist_continuity",
+      "expected_behavior": "Recovery exposes prior failed/contested work and requires current rights; no five-provider or universal semantic validation follows.",
+      "evidence_classes": [
+        "original_author_formulation",
+        "implemented_engineering_application"
+      ],
+      "shared_principle_assessment": "Strong source support for the work-state component of the new synthesis; not evidence the exact proposed name/formula already existed."
+    }
+  ]
+}

@@ -4,43 +4,311 @@ Last reviewed: 2026-11-10.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `639f449070028616334295b8a3c38753535367fc` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `9cabc973b7ce46234986104b00099bc1071a932c2d1ad984b707ec043a6d08b8`.
+Base commit: `73b795634332e48aab499c16e07a2af4328f2f7a` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `64e9ee0989d618cbc98c77aa1ae5384a00102f188b3c6c41ae3f667ae12a72e0`.
 
 ## Latest user update instructions
 
-I don’t seem to hav3 a send and makesend and prompt line under the window th3 ai will respond to  in the ai chat frame so it can help build MPLPB
+Codex Research and Implementation Task
 
-Persisting instructions: use only MIT-licensed selectable models; publish to main for live-site testing.
+Combined MPLPB — Investigate the No-Unverified-Promotion Principle
+
+Repository:
+https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages
+
+Research author: Mitchell D. McPhetridge
+
+Task type: Source-grounded research, technical audit, potential formalization, adversarial testing, and narrowly scoped implementation.
+
+1. Objective
+
+Investigate whether the Combined MPLPB research and implementation reveal a generalized failure mechanism across multiple domains:
+
+A successful intermediate operation is incorrectly promoted into a stronger claim of validity, authority, correctness, or completion without the evidence required for that stronger claim.
+
+Use the provisional working name:
+
+The No-Unverified-Promotion Principle
+
+This name is a research candidate, not an established term or an automatically accepted discovery.
+
+The objective is to determine whether the principle is:
+
+1. Explicitly supported by Mitchell D. McPhetridge’s existing research and implementation history.
+2. A useful abstraction across multiple independently identifiable failure classes.
+3. Already implemented through existing MPLPB contracts and gates.
+4. Testable through adversarial and comparative experiments.
+5. Distinct enough from existing engineering concepts to warrant a separate technical paper or specification.
+
+Do not presume the principle is new, scientifically validated, universally applicable, or worth implementing before investigating those questions.
+
+2. Initial hypothesis
+
+Consider the candidate rule:
+
+Success at one operational stage does not automatically authorize a stronger downstream claim.
+
+A tentative formal representation is:
+
+[
+S_n \not\Rightarrow V_{n+1}
+]
+
+Where:
+
+* (S_n) is successful execution at stage (n).
+* (V_{n+1}) is a stronger downstream validity claim.
+* Promotion requires evidence sufficient for the specific downstream claim.
+
+Investigate whether this formulation captures a genuine common mechanism or merely restates ordinary requirements for testing, verification, authorization, or type-safe transitions.
+
+If the formulation is inadequate, correct it or reject it.
+
+3. Inspect the existing repository first
+
+Before modifying code, read:
+
+* AGENTS.md
+* HANDOFF.md
+* handoff/update.json
+* README.md
+* CONTENTS
+* docs/ANSWER_RELIABILITY.md
+* docs/PAGE_RETRIEVAL.md
+* docs/RELEASE_EVIDENCE.md
+* docs/ZIP_FIRST_RELEASE_TESTING.md
+* docs/SPECIALIST_CONTINUITY.md
+* docs/PRODUCTION_READINESS.md
+* docs/RESULTS_AND_TESTS.md
+* papers/Clarity_Is_Not_Validation.txt
+
+Inspect the relevant source modules and tests, including mplpb_combined, mplpb_answers, mplpb_work, and the release-validation tools.
+
+Follow additional repository references when they are relevant.
+
+Use the existing historical source material as evidence. Preserve exact source revisions and commit identities.
+
+4. Investigate four candidate failure domains
+
+A. Retrieval versus supported answering
+
+The October 13 answer-reliability audit describes candidate selection being presented as answering.
+
+Investigate the transition:
+
+candidate_found → answer_supported
+
+Determine what evidence is required for a legitimate supported answer.
+
+Identify existing safeguards and adversarial cases where a correct source selection nevertheless fails to support the requested proposition.
+
+B. Artifact creation versus artifact verification
+
+Investigate the distinction between:
+
+artifact_created → artifact_verified
+
+A generated file, archive, manifest, document, or application package may exist without satisfying its acceptance criteria.
+
+Examine how MPLPB distinguishes successful creation, correct content, verified packaging, and an approved deliverable.
+
+C. Software testing versus deployment verification
+
+Investigate the transitions:
+
+build_succeeded → candidate_tested → deployed → deployed_verified
+
+Study ZIP-first validation, exact-head checks, source hashes, WebAssembly execution, browser tests, and postdeployment verification.
+
+Identify which transitions are technically enforced and which depend on operational discipline.
+
+D. Specialist handoff versus authorized task completion
+
+Investigate:
+
+handoff_created → successor_recovered → action_authorized → task_completed
+
+Use the implemented specialist-continuity coordinator.
+
+Determine how it distinguishes recovered evidence, contested claims, valid permissions, successful attempts, and accepted task outcomes.
+
+Pay particular attention to stale authority, revoked capabilities, failed attempts, and false completion receipts.
+
+5. Construct an evidence matrix
+
+For each candidate instance, record:
+
+* Original source file and revision.
+* Exact location or source-code function.
+* Historical date, where established.
+* Initial operation and observed result.
+* Stronger downstream claim.
+* Why the initial result is insufficient.
+* Required verification or authorization condition.
+* Existing software enforcement, if any.
+* Recorded failure and repair, if any.
+* Reproduction command and expected behavior.
+* Whether the example genuinely supports one shared principle.
+
+Distinguish documented observation, implemented behavior, untested specification, and new inference.
+
+Do not describe developer-authored test fixtures as independent scientific validation.
+
+6. Challenge the hypothesis
+
+Actively attempt to disprove the proposed unification.
+
+Ask:
+
+* Are these genuinely instances of one failure class, or several unrelated errors?
+* Is there already a standard engineering term that explains the mechanism sufficiently?
+* Does the principle make a prediction not already made by the individual source contracts?
+* Does it prohibit legitimate inference or harmless transitions?
+* Are there cases where downstream validity genuinely follows from upstream success by construction?
+* Does an explicit promotion gate reduce errors, or merely introduce unnecessary refusals and complexity?
+* Can the proposed principle be applied consistently by evaluators unfamiliar with the implementation?
+
+Investigate relevant existing concepts, including design by contract, type systems, proof obligations, provenance validation, authorization boundaries, and continuous-delivery gates.
+
+Do not claim novelty merely because this repository uses different terminology.
+
+7. Build a falsifiable experimental protocol
+
+If the source audit supports the candidate principle, design adversarial tests across the four domains.
+
+Introduce cases such as:
+
+* Correct page selected, unsupported answer requested.
+* Accurate citation, incorrect interpretation.
+* Correct source text, stale source authority.
+* File successfully generated, wrong requested content.
+* Source checkout tests passed, packaged artifact broken.
+* Candidate browser tests passed, public deployment failed.
+* Specialist handoff succeeded, authorization expired.
+* Attempt returned success, but task acceptance criteria were unmet.
+
+Compare systems with and without an explicit downstream promotion check, while controlling for task difficulty and other relevant differences.
+
+Measure:
+
+* Unsupported promotion rate.
+* Correct task completion.
+* False refusal rate.
+* Undetected authorization failures.
+* Human correction burden.
+* Added computation and latency.
+* Error recovery.
+
+Include negative controls and boundary cases in which promotion is justified.
+
+Freeze evaluation cases before measuring outcomes. Separate development fixtures from held-out tests.
+
+8. Implementation requirements
+
+Do not immediately add a new global promotion framework.
+
+First determine whether existing MPLPB source, answer, release, and specialist-work contracts already enforce the relevant distinctions.
+
+Avoid duplicating existing guards or introducing another authority layer without demonstrated need.
+
+If a concrete uncovered defect is identified:
+
+1. Write a failing regression test.
+2. Implement the smallest sufficient correction.
+3. Preserve existing supported-answer semantics and explicit refusals.
+4. Preserve source hashes, lineage, supersession, historical results, and archival materials.
+5. Re-run the relevant tests and record actual outcomes.
+6. Keep the original failure and its repair traceable.
+
+If no defect is established, deliver a research specification and test protocol rather than unnecessary code changes.
+
+Do not weaken source eligibility or broaden model authority to make tests pass.
+
+9. Expected research outputs
+
+Prepare:
+
+A. Research finding
+
+A technical explanation of whether the proposed common failure mechanism exists across the inspected domains.
+
+B. Attribution and provenance
+
+Identify the original McPhetridge sources containing each component and distinguish the author’s existing formulations from this newly proposed synthesis.
+
+C. Formal candidate specification
+
+Define the proposed rule, scope, exceptions, falsifiers, and relationship to existing contracts.
+
+D. Adversarial evaluation
+
+Provide reproducible test cases and results for any tests actually executed.
+
+E. Implementation assessment
+
+Explain whether an implementation change is necessary, which existing safeguards already cover the problem, and any remaining enforcement gaps.
+
+F. Final classification
+
+Choose one of the following based on evidence:
+
+* Supported generalizable engineering principle.
+* Useful but limited design pattern.
+* Existing principle expressed in MPLPB terminology.
+* Insufficient evidence.
+* Rejected hypothesis.
+
+Explain the classification with specific evidence and limitations.
+
+10. Research integrity and repository safety
+
+* Attribute the underlying MPLPB research to Mitchell D. McPhetridge.
+* Do not introduce external research frameworks as sources of this discovery.
+* Do not rewrite preserved papers or frozen evaluations.
+* Do not manufacture dates, tests, results, or claims of independent validation.
+* Do not equate documentation, code existence, passing tests, and deployed behavior.
+* Preserve the repository’s original source and answer-authority contracts.
+* Follow all repository handoff, documentation, test, packaging, and release requirements.
+* Report blocked tests honestly.
+* Do not claim publication, peer review, deployment, or scientific validation unless the appropriate evidence exists.
+* Do not modify protected source artifacts merely to make the hypothesis appear true.
+
+11. Final research question
+
+Does Mitchell D. McPhetridge’s Combined MPLPB research demonstrate a generalizable class of errors in which successful intermediate operations are incorrectly promoted into stronger claims of evidence, authority, correctness, or completion—and can explicit, claim-specific verification gates measurably reduce those errors across multiple software and research workflows?
+
+Investigate the question, rather than assuming the answer.
+
+A failed generalization is an acceptable research outcome.
+
+The objective is not to make the principle sound convincing. The objective is to determine whether it survives technical inspection, counterexamples, and reproducible testing.
 
 ## Implemented scope
 
-- Add a scrolling AI conversation frame with the prompt and Send immediately beneath it, before the expandable source-import form. Support Enter/Send, Shift+Enter, streamed replies, bounded tab-local transcript rows, duplicate-send prevention, and visible in-frame errors. Default the helper task to AI chat while retaining source tasks and reviewed Build.
-- Use a separate plain-text streaming provider for general AI chat instead of requiring a structured JSON action plan. Bound recent context and output; keep original user messages unchanged. Keep structured-plan validation and human approval for Build, and unchanged reader/citation rules for source questions.
-- Capture generation request/response errors and stack in the local interaction trace. On disposed/lost runtime errors, revoke the provider, invalidate readiness with a generation-phase diagnostic retaining the earlier ready event, prevent reuse and offer Reload AI after error. Do not clear source collections or weight caches.
-- Preserve the MIT-only model catalog, all model/compiled-library/runtime pins and notices, native source rules, imported sources, frozen evaluations and the zero-paid-provider constraint. Do not publish private uploaded device reports or screenshots.
-- Extend actual Chromium iPad/narrow-layout and provider/loader tests, update affected guides/result indexes and regenerate the repository handoff. Publish through the existing exact-head archive/regression and Pages checks under the user’s existing main-publication instruction.
+- Audit baseline 73b795634332e48aab499c16e07a2af4328f2f7a and historical McPhetridge sources across answer, artifact, release and specialist contracts. Retain a 40-source hash/revision inventory, 16-instance evidence matrix, qualified specification, adversarial protocol and research classification: Existing principle expressed in MPLPB terminology.
+- Freeze 20 inspected development case specifications before new completion measurements. Retain failing old-implementation logs and reproduce the same five cases against archived baseline and candidate in isolated processes. Clearly distinguish these fixtures from held-out or scientific validation.
+- Correct only the demonstrated atomic completion-contract substitution: a done write must preserve the prior goal, review budget, criterion set and task dependencies. Preserve harmless criterion reordering and explicit open revision with fresh execution. No global framework, source eligibility change or model authority expansion.
+- Update affected specialist guides, research navigation, result/documentation indexes and repository handoff. Preserve original papers, imported sources, frozen evaluations, vendor assets, lineage and historical results.
 
 ## Validation recorded
 
-- Inspected the user-provided Phi-1.5 report reaching ready on Apple WebGPU and the screenshot showing a disposed-object error after Send. This is successful initialization plus failed generation evidence, not a reproduced GPU-loss or total-memory diagnosis.
-- 45 helper/provider/native-engine checks pass, including plain streamed text without JSON planning, original prompt/history, short output budgets, oversize rejection before generation, structured Build, diagnostic stack capture, provider revocation and invalid-runtime reuse prevention.
-- 18 loader/state/DOM/runtime API checks, 12 actual pinned GPU-negotiation-function checks, and 8 Python asset tests pass. UI script, browser transport, JavaScript API and crawler checks pass. Authored GPU/model responses do not establish neural inference quality or device compatibility.
-- 13 focused Python asset/documentation tests pass. Exact archive, CI and actual deployed-site checks belong to their corresponding revision/run and must not be inferred from these focused checkout results.
-- Actual Chromium/WebAssembly source-helper workflow passes 12 checks; the extended picker/chat workflow passes 11 checks with explicit runtime/GPU fixtures. It covers 810×1080 and 375×812 composer geometry, expanded source fields, plain streamed replies, Enter/Send, duplicate prevention, escaped user text, previous-turn context, reviewed model-proposed collection creation and disposed-generation reload recovery. No model weights or neural inference were used.
+- Focused replay passes 88 tests: 33 answer/retrieval, 12 release/handoff and 43 specialist tests. The retained five-case baseline comparison accepts three prohibited completion writes and two valid controls; patched store rejects all three prohibited writes and accepts both valid controls.
+- An authored readable wrong-content ZIP with coherent fixture manifest is accepted by the narrower manifest consistency verifier; its semantic content criterion is false. This is a scope control, not actual CI, a production verifier defect or deployment proof.
+- Read-only ruleset observation finds active strict main PR/archive-first/regression rules without bypass actors. No failing merge or bypass experiment was attempted.
+- Validated all 33 matrix source references against exact Git revision bytes and SHA-256. Compared 860 protected baseline source-answer, paper, resource, vendor and historical evaluation files byte-for-byte with the audit baseline; all unchanged.
+- Documentation inventory passes (225 documents, 26 evaluation families), infrastructure linkage and ten focused documentation/handoff tests pass. UI script, browser transport, JavaScript API, 45 helper, 18 loader, 12 GPU-negotiation and crawler checks pass. Node/Python subprocess sandbox EPERM was resolved by rerunning the two affected checks outside that sandbox; no implementation change was needed.
 
 ## Limitations and blocked checks
 
-- The text generation path removes unnecessary JSON grammar setup and reduces reply budgets, but does not prove the physical iPad disposed-object root cause is fixed. Successful actual iPad generation and long-lived GPU stability require retesting.
-- Browser/provider tests use an authored model/GPU fixture with the real source engine. They validate layout, streaming orchestration, review and recovery, not an actual neural response. Base-model quality and exact tokenizer capacity remain unverified.
-- Chat input/context uses conservative character budgets and bounded recent turns; character counts are not exact token counts. Model output remains unverified and cannot substitute for MPLPB source evidence.
-- Existing runtime and selectable model bytes/licenses remain unchanged; no paid API, telemetry, training, automatic cache deletion or hidden fallback is added.
+- No independently sealed held-out evaluation, human correction-burden study, independent rater agreement, gate-overhead measurement, four-domain causal benefit, novelty proof, scientific publication or peer review. Suite timings include setup and are not gate-latency estimates.
+- Local replay identifies implementation/test bytes by SHA-256. Exact committed archive and CI are separate checks; do not infer their success from checkout tests. No research-related deployment or public-byte-identity fault experiment was performed.
+- Existing artifact/release checks have trusted-CI and bounded smoke scopes; current public smoke does not establish full deployed-byte equality or all-device correctness. Host adapters and acceptance specifications remain trust boundaries.
 
 ## Next steps
 
-- Complete the exact-head archive/regression gates, merge to main under the persistent publication instruction, and verify the actual deployed conversation frame and source workflow separately. Keep release evidence outside the frozen implementation candidate.
-- Reload the published page on iPad, load Phi-1.5 from its existing cache and send a short AI-chat message. Confirm an actual reply; if generation fails, export the interaction trace before using Reload AI after error.
-- Future updates must preserve source/vendor/history bytes, review affected docs, stage intended files and regenerate/check this handoff from the latest user instructions.
+- Freeze the committed candidate, archive/extract it, check its handoff and execute exact-head archive-first/regression checks. Keep subsequent CI evidence separate from this implementation candidate.
+- For scientific efficacy claims, independently author and seal held-out cases, randomize paired conditions, measure all protocol outcomes and publish negative results. Keep domain contracts if a generic layer provides no incremental benefit.
+- Future changes must preserve historical/vendor/source bytes, record actual checks and update handoff from the latest user instructions.
 
 ## Use this ZIP in your repository
 
