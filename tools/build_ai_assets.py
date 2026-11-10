@@ -54,8 +54,24 @@ def build(output,root=ROOT):
     manifest=json.loads((Path(root)/'assets/ai/manifest.json').read_text())['runtime']
     if model['runtime']['sha256']!=hashlib.sha256(raw).hexdigest() or model['runtime'].get('local_patch')!=manifest.get('local_patch',{}).get('id'):
         raise ValueError('Model configuration runtime pin differs from built runtime')
+    catalog=json.loads((Path(root)/'assets/ai/models.json').read_text())
+    ids=set()
+    if catalog.get('schema')!='mplpb-model-catalog-v1' or not catalog.get('models'):raise ValueError('Invalid MIT model catalog')
+    for entry in catalog['models']:
+        if entry.get('license_spdx')!='MIT':raise ValueError('Only MIT-licensed models may be delivered')
+        mid=entry['model_id'];record=entry['record']
+        if mid in ids or record['model_id']!=mid:raise ValueError('Duplicate or inconsistent model identity')
+        ids.add(mid)
+        if entry['runtime']!=model['runtime']:raise ValueError('Catalog runtime pin differs from built runtime')
+        notice=Path(entry['license_file'])
+        if notice.is_absolute() or len(notice.parts)!=1:raise ValueError('Unsafe model license path')
+        license_bytes=(Path(root)/'assets/ai'/notice).read_bytes()
+        if hashlib.sha256(license_bytes).hexdigest()!=entry['license_sha256'] or b'MIT License' not in license_bytes:raise ValueError('MIT license notice differs from pin')
+        if record.get('integrity',{}).get('onFailure')!='error' or not all(record['integrity'].get(key,'').startswith('sha256-') for key in ('config','model_lib')):raise ValueError('Model config and library must be integrity pinned')
+        if entry['minimum_tensor_buffer_bytes']<=0 or entry['weights']['tensor_download_bytes']<=0:raise ValueError('Invalid model resource sizes')
+    if catalog.get('default_model_id') not in ids:raise ValueError('Default model is missing from catalog')
     (output/'webllm.mjs').write_bytes(raw)
-    for name in ('model.json','manifest.json','LICENSE-WEBLLM.txt','LICENSE-PHI4.txt','LICENSE-LOGLEVEL.txt'):
+    for name in ('model.json','models.json','manifest.json','LICENSE-WEBLLM.txt','LICENSE-PHI4.txt','LICENSE-LOGLEVEL.txt',*(entry['license_file'] for entry in catalog['models'])):
         shutil.copyfile(Path(root)/'assets/ai'/name,output/name)
     if (Path(root)/'assets/ai/patches').exists():
         shutil.copytree(Path(root)/'assets/ai/patches',output/'patches',dirs_exist_ok=True)
@@ -66,13 +82,15 @@ def markup(root=ROOT):
     return BEGIN+'''\n<details id="ai-helper" class="panel" style="max-width:1100px;margin:16px auto;padding:16px">
 <summary><strong>Builder and chat helper · optional free browser AI</strong></summary>
 <p>Everyone can use this page. No paid AI service or account is required. The optional pretrained model runs on a compatible visitor device; it does not run on GitHub’s servers.</p>
-<button id="ai-helper-load" type="button">Load optional Phi-4-mini · about 2.2 GB download</button>
+<label>AI model · MIT licenses only <select id="ai-helper-model" aria-describedby="ai-helper-model-info" disabled></select></label>
+<p id="ai-helper-model-info" class="small" role="status">Loading model choices. No model weights are downloaded until you press Load.</p>
+<button id="ai-helper-load" type="button" disabled>Load selected model</button>
 <label><input id="ai-helper-use-model" type="checkbox" disabled> Use loaded AI for proposals</label>
 <p id="ai-helper-model-status" role="status" aria-live="polite">No AI model loaded. Downloading and initialization are separate stages.</p>
 <details><summary>Model loading details</summary><pre id="ai-helper-load-report" style="white-space:pre-wrap;overflow-wrap:anywhere"></pre></details>
 <button id="ai-helper-export-load" type="button">Export model load report</button>
 <p class="small">This local report includes browser/GPU capabilities, load progress and available runtime errors. It is not uploaded automatically and does not include your source questions. A 100% download does not establish that the model can initialize.</p>
-<p class="small">The model reports about 3.4 GB working memory before other browser overhead. Devices may be unable to run it. MPLPB remains available. No fine-tuning or automatic training on your conversations takes place.</p>
+<p class="small">Phi-1.5 is the smallest default; successful iPad loading is not guaranteed. Working memory estimates are not measured free memory. To change models after a load attempt, choose one and reload. MPLPB remains available. No fine-tuning or automatic training on your conversations takes place.</p>
 <div style="display:flex;gap:8px;flex-wrap:wrap">
 <label>Collection <select id="ai-helper-corpus" aria-label="Helper collection"></select></label>
 <label>Task <select id="ai-helper-mode"><option value="ask">Ask sources</option><option value="chat">Chat with MPLPB</option><option value="build">Build a collection/source</option><option value="general">General chat · model text is unverified</option></select></label>

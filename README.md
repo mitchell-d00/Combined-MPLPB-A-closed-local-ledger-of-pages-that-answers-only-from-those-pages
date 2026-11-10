@@ -1,6 +1,6 @@
 # Combined MPLPB
 
-Last reviewed: 2026-11-08. See [current status and result-to-test index](docs/CURRENT_STATUS_2026-11-08.md). Dates and numeric results in historical validation sections retain their original scope; this review is not a rerun or independent certification.
+Last reviewed: 2026-11-10. See [current status and result-to-test index](docs/CURRENT_STATUS_2026-11-08.md). Dates and numeric results in historical validation sections retain their original scope; this review is not a rerun or independent certification.
 
 A closed local ledger of pages, with supported answers, inspectable provenance, and deterministic conversation. Each page declares its identity, scope, status, sealed hash, origin, and lineage. Source-backed answers require eligible body evidence under a finite grammar; missing support refuses and competing support remains ambiguous.
 
@@ -169,9 +169,14 @@ for the local scope, tested capabilities and remaining deployment/validation gap
 
 The public page now also has an [optional free browser builder/chat helper](docs/FREE_PUBLIC_HELPER.md).
 It uses the existing page API, requires review before source writes, preserves
-MPLPB answers/citations, and separates general model text. Phi-4 is an optional
-large download for compatible WebGPU devices; no paid AI server, account or key
-is configured. Live Phi-4 generation and iPad compatibility remain unverified;
+MPLPB answers/citations, and separates general model text. The model picker offers
+only MIT-licensed models: **Phi-1.5** (0.80 GB weights, the smaller default),
+**Phi-2** (1.56 GB), and **Phi-4-mini instruct** (2.16 GB). Each choice shows its
+estimated working memory. Phi-1.5 and Phi-2 are base models with weaker instruction
+following; a smaller download is not a guarantee of reliable planning or iPad support.
+Changing models after initialization requires reloading to avoid simultaneous
+allocations. No paid AI server, account or key is configured.
+Live model generation and iPad compatibility remain unverified;
 the core engine and reviewed manual builder work without the model. No fine-tuning
 or automatic training on visitor conversations runs.
 

@@ -11,7 +11,20 @@ function describeError(error,depth=0){
 }
 class Loader{
  constructor(options={}){
-  this.env=options.env||root;this.onChange=options.onChange||(()=>{});this.attempts=[];this.omittedAttempts=0;this.loading=false;this.requiresReload=false;
+  this.env=options.env||root;this.onChange=options.onChange||(()=>{});this.attempts=[];this.omittedAttempts=0;this.loading=false;this.requiresReload=false;this.loaded=false;
+ }
+ async catalog(){
+  const response=await this.env.fetch(new URL('ai/models.json',this.env.document.baseURI),{cache:'no-cache'});
+  if(!response.ok)throw Error('The MIT model catalog is unavailable in this build; use the published browser site.');
+  const catalog=await response.json(),ids=new Set();
+  if(catalog.schema!=='mplpb-model-catalog-v1'||!Array.isArray(catalog.models)||!catalog.models.length)throw Error('Invalid MIT model catalog.');
+  for(const model of catalog.models){
+   if(model.license_spdx!=='MIT')throw Error('Only MIT-licensed models may be loaded.');
+   if(typeof model.model_id!=='string'||!model.model_id||ids.has(model.model_id)||model.record?.model_id!==model.model_id||!Array.isArray(model.record.required_features))throw Error('Invalid or duplicate model identity in catalog.');
+   ids.add(model.model_id);
+  }
+  if(!ids.has(catalog.default_model_id))throw Error('Default model is missing from the MIT catalog.');
+  return catalog;
  }
  snapshot(){return {schema:'mplpb-model-load-report-v1',notice:'Local runtime diagnostics, not model reasoning or source evidence. No upload or training is performed. Older events/attempts may be omitted; omissions are counted.',limits:{attempts:3,events_per_attempt:120,log_characters:1500,error_stack_characters:6000},omitted_attempts:this.omittedAttempts,attempts:clone(this.attempts)};}
  emit(kind,data){
@@ -20,11 +33,11 @@ class Loader{
   try{this.onChange(this.snapshot());}catch{/* Diagnostic display must not change model execution. */}
  }
  phase(name){this.attempts.at(-1).phase=name;this.emit('phase',{name});}
- async load(){
+ async load(modelId){
   if(this.loading)throw Error('A model load is already in progress');
-  if(this.requiresReload)throw Error('Reload this page before retrying model initialization. The source tools remain available.');
+  if(this.requiresReload||this.loaded)throw Error('Reload this page before loading another model or retrying initialization. The source tools remain available.');
   this.loading=true;
-  const attempt={number:(this.attempts.at(-1)?.number||0)+1,started_at:new Date().toISOString(),status:'loading',phase:'preflight',events:[],omitted_events:0};
+  const attempt={number:(this.attempts.at(-1)?.number||0)+1,started_at:new Date().toISOString(),selected_model_id:modelId||null,status:'loading',phase:'preflight',events:[],omitted_events:0};
   this.attempts.push(attempt);if(this.attempts.length>3){this.attempts.shift();this.omittedAttempts++;}
   let engine,recordLogs=true;
   try{
@@ -37,11 +50,14 @@ class Loader{
    attempt.gpu_adapter={features:Array.from(adapter.features).slice(0,128).map(x=>bounded(x,100)).sort(),limits};
    this.emit('gpu_adapter',clone(attempt.gpu_adapter));
    this.phase('configuration');
-   const configResponse=await this.env.fetch(new URL('ai/model.json',this.env.document.baseURI),{cache:'no-cache'});
-   if(!configResponse.ok)throw Error('Optional model assets are unavailable in this build; use the published browser site.');
-   const configuration=await configResponse.json();
-   attempt.model={id:configuration.model_id,runtime:configuration.runtime,record:configuration.record};
-   if(!adapter.features.has('shader-f16'))throw Error('This Phi-4 format requires WebGPU shader-f16 support.');
+   const catalog=await this.catalog(),selected=modelId||catalog.default_model_id;
+   const configuration=catalog.models.find(model=>model.model_id===selected);
+   if(!configuration)throw Error('The selected model is not in the MIT catalog. Choose an available model.');
+   attempt.selected_model_id=selected;
+   attempt.model={id:configuration.model_id,license_spdx:configuration.license_spdx,runtime:configuration.runtime,record:configuration.record};
+   for(const feature of configuration.record.required_features){
+    if(!adapter.features.has(feature))throw Error('This model format requires WebGPU '+feature+' support.');
+   }
    const minimum=configuration.minimum_tensor_buffer_bytes;
    if(!Number.isSafeInteger(minimum)||minimum<=0||limits.maxBufferSize===null||limits.maxStorageBufferBindingSize===null||limits.maxBufferSize<minimum||limits.maxStorageBufferBindingSize<minimum)throw Error('This GPU cannot establish the buffer capacity required by the model.');
    this.phase('runtime_download');
@@ -86,7 +102,7 @@ class Loader{
     try{originalLogger(...args);}catch{}
    };
    await engine.reload(configuration.model_id);
-   recordLogs=false;attempt.status='ready';attempt.phase='ready';this.emit('ready',{notice:'Initialization resolved. Download progress alone did not establish readiness; response quality is not certified.'});
+   this.loaded=true;recordLogs=false;attempt.status='ready';attempt.phase='ready';this.emit('ready',{notice:'Initialization resolved. Download progress alone did not establish readiness; response quality is not certified.'});
    return {engine,configuration};
   }catch(error){
    attempt.status='failed';attempt.failed_phase=attempt.phase;this.requiresReload=attempt.phase==='engine_initialization';attempt.requires_page_reload=this.requiresReload;attempt.error=describeError(error);this.emit('failure',clone(attempt.error));

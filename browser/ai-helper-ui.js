@@ -2,7 +2,8 @@
 (function(){
 'use strict';
 const el=id=>document.getElementById(id),panel=el('ai-helper');if(!panel)return;
-let helper,provider=null,configuration;
+let helper,provider=null,configuration,modelCatalog;
+const modelKey='mplpb-optional-helper-model-id-v1';
 const sessionKey='mplpb-optional-helper-session-ids-v1',scopeKey='mplpb-optional-helper-selected-collection-v1';
 function readSaved(key,fallback){try{return JSON.parse(localStorage.getItem(key))||fallback;}catch{return fallback;}}
 function rememberScope(value){try{localStorage.setItem(scopeKey,JSON.stringify(value));}catch{}}
@@ -21,6 +22,27 @@ function download(value,name){
  const url=URL.createObjectURL(new Blob([JSON.stringify(value,null,2)],{type:'application/json'})),link=document.createElement('a');
  link.href=url;link.download=name;document.body.append(link);link.click();link.remove();setTimeout(()=>URL.revokeObjectURL(url),1000);
 }
+function modelChoice(){
+ const model=modelCatalog?.models.find(row=>row.model_id===el('ai-helper-model').value);
+ if(!model)return;
+ el('ai-helper-model-info').textContent=model.label+' · MIT license · '+(model.weights.tensor_download_bytes/1e9).toFixed(2)+' GB weights · estimated '+(model.record.vram_required_MB/1000).toFixed(2)+' GB working memory before browser overhead. '+model.description;
+ try{localStorage.setItem(modelKey,JSON.stringify(model.model_id));}catch{}
+ if(loader.loaded||loader.requiresReload){
+  provider=null;if(helper)helper.provider=null;el('ai-helper-use-model').checked=false;el('ai-helper-use-model').disabled=true;
+  el('ai-helper-load').disabled=false;el('ai-helper-load').textContent='Reload page to load selection';
+  status('Model selection saved. Reload before loading it so two models are not kept in memory.');
+ }else{el('ai-helper-load').textContent='Load '+model.label;}
+}
+async function initializeModels(){
+ const select=el('ai-helper-model'),button=el('ai-helper-load');select.disabled=true;button.disabled=true;
+ try{
+  modelCatalog=await loader.catalog();select.replaceChildren();
+  for(const model of modelCatalog.models){const option=document.createElement('option');option.value=model.model_id;option.textContent=model.label+' · MIT · '+(model.weights.tensor_download_bytes/1e9).toFixed(2)+' GB';select.append(option);}
+  const saved=readSaved(modelKey,null);select.value=modelCatalog.models.some(row=>row.model_id===saved)?saved:modelCatalog.default_model_id;
+  modelChoice();select.disabled=false;button.disabled=false;
+ }catch(error){el('ai-helper-model-info').textContent=error.message;status('Optional model selection unavailable: '+error.message+' The MPLPB source tools remain available.');}
+}
+el('ai-helper-model').addEventListener('change',modelChoice);
 async function ready(){
  if(!helper)helper=new MPLPBHelper.Helper(window.MPLPB,provider,{sessions:readSaved(sessionKey,{}),saveSessions:sessions=>localStorage.setItem(sessionKey,JSON.stringify(sessions))});
  const result=await window.MPLPB.listCorpora();if(!result.ok)throw Error(result.error);
@@ -61,11 +83,11 @@ el('ai-helper-export').addEventListener('click',()=>download({...helper?.trace()
 el('ai-helper-export-load').addEventListener('click',()=>download(loader.snapshot(),'mplpb-model-load-report.json'));
 el('ai-helper-load').addEventListener('click',async()=>{
  const button=el('ai-helper-load');
- if(loader.requiresReload){location.reload();return;}
- button.disabled=true;
+ if(loader.requiresReload||loader.loaded){location.reload();return;}
+ button.disabled=true;el('ai-helper-model').disabled=true;
  try{
   status('Loading the optional model. You can still use the source tools. General chat becomes available only after initialization finishes.');
-  const loaded=await loader.load(),engine=loaded.engine;configuration=loaded.configuration;
+  const loaded=await loader.load(el('ai-helper-model').value),engine=loaded.engine;configuration=loaded.configuration;
   provider={identity:{model:configuration.model_id,weights:configuration.weights,license:configuration.license,runtime:configuration.runtime},
    propose:async(request,schema)=>{
     if(JSON.stringify(request).length>10000)throw Error('The model input is too large. Use a shorter draft or turn off the optional model; no source was written.');
@@ -77,12 +99,13 @@ el('ai-helper-load').addEventListener('click',async()=>{
     return JSON.parse(content);
    }};
   if(helper)helper.provider=provider;el('ai-helper-use-model').checked=true;el('ai-helper-use-model').disabled=false;
-  status('Pretrained Phi-4-mini loaded in this browser. No training has run; your conversations are not being sent for training.');
+  status(configuration.label+' loaded in this browser. No training has run; your conversations are not being sent for training.');
   button.textContent='Model loaded';
  }catch(error){
   provider=null;if(helper)helper.provider=null;el('ai-helper-use-model').checked=false;el('ai-helper-use-model').disabled=true;
   status('Optional AI unavailable: '+error.message+' The ordinary MPLPB tools still work. Export the model load report to inspect this failure.');
   button.disabled=false;if(loader.requiresReload)button.textContent='Reload page to retry AI';
- }finally{trace();}
+ }finally{el('ai-helper-model').disabled=false;trace();}
 });
+initializeModels();
 })();

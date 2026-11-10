@@ -1,6 +1,6 @@
 {
   "schema": "result-test-index-v1",
-  "reviewed_on": "2026-11-08",
+  "reviewed_on": "2026-11-10",
   "meaning": "Links establish retained test/reproduction coverage, not a fresh execution or certification of historical metrics. Original source, dates, fixtures and exact revisions remain in the linked reports.",
   "families": [
     {
@@ -334,6 +334,21 @@
       ],
       "scope": "Authored real-engine/browser workflow and pinned assets/candidate-data tests; synthetic plans only, no live Phi-4/iPad or independent human validation. Includes bounded model-load stage/error/export/retry diagnostics, with simulated failure cases and real runtime API construction without weights; no device root-cause or inference claim. Actual pinned upstream/patched limit-negotiation functions are exercised with authored adapter/device capacities; physical model inference remains separate.",
       "measurement_status": "Local development evidence; exact candidate/CI/deployment outcomes are separate."
+    },
+    {
+      "family": "model-selection",
+      "artifacts": "evaluation/model-selection",
+      "tests": [
+        "tests/test_browser_ai_assets.py",
+        "tests/browser-model-loader.cjs"
+      ],
+      "runners": [
+        "tools/browser_model_selection.py",
+        "tools/browser_free_helper.py",
+        "tools/build_ai_assets.py"
+      ],
+      "scope": "Pinned upstream MIT license/config/library/tensor-metadata downloads and authored loader/real Chromium selection tests; runtime/GPU success uses explicit fixtures, not neural inference or physical iPad validation.",
+      "measurement_status": "Local implementation checks; exact archive, CI and deployed revision outcomes are separate."
     }
   ]
 }

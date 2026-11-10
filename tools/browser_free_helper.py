@@ -126,6 +126,11 @@ def main():
         try:
             context=browser.new_context(viewport={'width':1100,'height':850})
             report=verify(context.new_page(),url)
+            # Fresh storage exercises the default and model switching separately
+            # from source workflow persistence. GPU/engine success is a fixture.
+            from tools.browser_model_selection import verify as verify_models
+            with browser.new_context(viewport={'width':810,'height':1080},has_touch=True,accept_downloads=True) as model_context:
+                report['model_selection']=verify_models(model_context.new_page(),url)
             report['target_kind']='candidate_preview' if args.preview_dir else 'published_site'
             report['target']=str(args.preview_dir) if args.preview_dir else url
             report['implementation_sha256']={name:hashlib.sha256((Path(__file__).resolve().parents[1]/name).read_bytes()).hexdigest() for name in ('browser/ai-helper.js','browser/ai-model-loader.js','browser/ai-helper-ui.js','tools/browser_free_helper.py')}
