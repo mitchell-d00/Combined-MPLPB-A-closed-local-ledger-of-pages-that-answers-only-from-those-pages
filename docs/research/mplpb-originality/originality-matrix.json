@@ -1,0 +1,1019 @@
+{
+  "schema": "mplpb-originality-matrix-v1",
+  "audited_revision": "4fd0203e26d90b267480c3c06a5ef4b06444641e",
+  "research_author": "Mitchell D. McPhetridge",
+  "status_policy": "Status applies only to each explicit novelty_claim_under_test. Supported for a local observation is not supported worldwide priority. Attributable originality, exact functional differences, global priority and empirical effectiveness are separate claims.",
+  "source_inventory": "mplpb-sources.json",
+  "external_code_inventory": "external-code.json",
+  "mechanisms": [
+    {
+      "id": "M01",
+      "mechanism": "Declared page-scope ownership, exclusion terms, specificity and one-owner/refusal routing",
+      "novelty_claim_under_test": "Originality of the particular lexical ownership/refusal policy",
+      "mplpb_origin_source_ids": [
+        "local-web",
+        "smart-paper",
+        "smart-router",
+        "first-reader",
+        "combined-v3"
+      ],
+      "original_author": "Mitchell D. McPhetridge research; executable contribution and Codex assistance as recorded in the report",
+      "external_prior_art": [
+        "FEVER 2018 retrieval/verification pipeline; scorer 4801615100fbf6327f8e99b5dbaefe5dd890e869 src/fever/scorer.py:26–48",
+        "RAG, Lewis et al. 2020, probabilistic retriever/generator"
+      ],
+      "technical_comparison": "FEVER separately scores labels/evidence; RAG marginalizes retrieved documents. Neither inspected mechanism is the exact majority-declared-scope/prose-fallback/exclusion decision procedure. MPLPB metadata ownership itself was shown insufficient for answer support.",
+      "overlap_classification": "4: Similar goal with different implementation",
+      "distinctive_contribution": "An attributable, explicit deterministic routing policy and retained repair history; no superiority or world-first policy proven.",
+      "implementation_evidence": "first-reader decide; current tests/test_canned_guard.py and tests/test_ownership_adversarial.py; historical FIXLOG failures retained.",
+      "novelty_status": "plausible",
+      "confidence": "High confidence in inspected functional differences; low confidence in global priority. Generic routing/refusal is older.",
+      "relationship_to_pr38": "Recognized an older mechanism and its limitations; did not introduce it.",
+      "global_priority": "Not established by a bounded search; where contradicted, that applies to the explicitly stated broad claim rather than every implementation detail.",
+      "archive_witness_ids": [
+        "A04"
+      ],
+      "mplpb_origin": [
+        {
+          "id": "local-web",
+          "author_attribution": "Mitchell D. McPhetridge research; repository implementation and Codex-assisted changes distinguished in report",
+          "path": "parts/local-mirror/docs/MPLPB_Local_Web_v4.md",
+          "revision": "dd8e6d4e8e101c6b19fd7f834e0e76b00064e3fd",
+          "git_blob_sha": "ac047cafffc257ff11fe37c04794bf222ef46327",
+          "sha256": "a12b8cc07c2a88a9396a26452efd0601727f9077dba21dafbd0e03952e3156ef",
+          "location": "Last Updated:",
+          "line": 4,
+          "git_metadata": "dd8e6d4e8e101c6b19fd7f834e0e76b00064e3fd|2026-10-07T12:08:53-04:00|2026-10-07T12:08:53-04:00|Mitchell D McPhetridge|Add files via upload",
+          "url": "https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/blob/dd8e6d4e8e101c6b19fd7f834e0e76b00064e3fd/parts/local-mirror/docs/MPLPB_Local_Web_v4.md#L4"
+        },
+        {
+          "id": "smart-paper",
+          "author_attribution": "Mitchell D. McPhetridge research; repository implementation and Codex-assisted changes distinguished in report",
+          "path": "parts/smart-local/docs/Smart_Local_MPLPB.txt",
+          "revision": "c9a8b9e5aeeb34e48718e739d5dcb359f236f99a",
+          "git_blob_sha": "a08cb54ac03443697fc9b166757c3d2bfdd88149",
+          "sha256": "56feed445f02ff80dfc6c748a3c20e51f85d610f34f352aced9317e902d61c83",
+          "location": "Updated",
+          "line": 19,
+          "git_metadata": "c9a8b9e5aeeb34e48718e739d5dcb359f236f99a|2026-10-07T14:40:25-04:00|2026-10-07T14:40:25-04:00|Mitchell D McPhetridge|Add files via upload",
+          "url": "https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/blob/c9a8b9e5aeeb34e48718e739d5dcb359f236f99a/parts/smart-local/docs/Smart_Local_MPLPB.txt#L19"
+        },
+        {
+          "id": "smart-router",
+          "author_attribution": "Mitchell D. McPhetridge research; repository implementation and Codex-assisted changes distinguished in report",
+          "path": "parts/smart-local/mplpb/router.py",
+          "revision": "ceeb69162b5b79b4adf732aa05ea4aeef0564a2d",
+          "git_blob_sha": "09101101346d6ae35b1a0a0fb15d230234167420",
+          "sha256": "2d27656ae4ce486e9e6dda8a988adf254bdf132973860eab1c3517bdd33044de",
+          "location": "OWNERSHIP_MARGIN",
+          "line": 35,
+          "git_metadata": "ceeb69162b5b79b4adf732aa05ea4aeef0564a2d|2026-10-07T14:26:20-04:00|2026-10-07T14:26:20-04:00|Mitchell D McPhetridge|Add files via upload",
+          "url": "https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/blob/ceeb69162b5b79b4adf732aa05ea4aeef0564a2d/parts/smart-local/mplpb/router.py#L35"
+        },
+        {
+          "id": "first-reader",
+          "author_attribution": "Mitchell D. McPhetridge research; repository implementation and Codex-assisted changes distinguished in report",
+          "path": "mplpb_combined/reader.py",
+          "revision": "c326d37c5cc2653a4c3c1c073bdaebc6437a664d",
+          "git_blob_sha": "c5581c153c2880cc51d56f2110d18cbbdb9a4663",
+          "sha256": "90c1895d01dc8f9650a29c8ef63963673c4bcc3391d2755683967252ed5030b2",
+          "location": "def decide",
+          "line": 189,
+          "git_metadata": "c326d37c5cc2653a4c3c1c073bdaebc6437a664d|2026-10-07T11:46:19-04:00|2026-10-07T11:46:19-04:00|Mitchell D McPhetridge|Add files via upload",
+          "url": "https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/blob/c326d37c5cc2653a4c3c1c073bdaebc6437a664d/mplpb_combined/reader.py#L189"
+        },
+        {
+          "id": "combined-v3",
+          "author_attribution": "Mitchell D. McPhetridge research; repository implementation and Codex-assisted changes distinguished in report",
+          "path": "docs/Combined_MPLPB.md",
+          "revision": "66048aa62a9c74ed98185531fa8c8fa6bbdb41a7",
+          "git_blob_sha": "4a1615b44f5adf7a61e09f44286d5de97c29214b",
+          "sha256": "c56db5020f273c2f223c13e036e3c34aeec293e7a043f6aab4bbff88a0b820fc",
+          "location": "| Updated |",
+          "line": 10,
+          "git_metadata": "66048aa62a9c74ed98185531fa8c8fa6bbdb41a7|2026-10-07T11:53:41-04:00|2026-10-07T11:53:41-04:00|Mitchell D McPhetridge|Add files via upload",
+          "url": "https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/blob/66048aa62a9c74ed98185531fa8c8fa6bbdb41a7/docs/Combined_MPLPB.md#L10"
+        }
+      ],
+      "first_located_implementation_or_formalization": {
+        "id": "first-reader",
+        "author_attribution": "Mitchell D. McPhetridge research; repository implementation and Codex-assisted changes distinguished in report",
+        "path": "mplpb_combined/reader.py",
+        "revision": "c326d37c5cc2653a4c3c1c073bdaebc6437a664d",
+        "git_blob_sha": "c5581c153c2880cc51d56f2110d18cbbdb9a4663",
+        "sha256": "90c1895d01dc8f9650a29c8ef63963673c4bcc3391d2755683967252ed5030b2",
+        "location": "def decide",
+        "line": 189,
+        "git_metadata": "c326d37c5cc2653a4c3c1c073bdaebc6437a664d|2026-10-07T11:46:19-04:00|2026-10-07T11:46:19-04:00|Mitchell D McPhetridge|Add files via upload",
+        "url": "https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/blob/c326d37c5cc2653a4c3c1c073bdaebc6437a664d/mplpb_combined/reader.py#L189"
+      },
+      "date_limit": "See timeline for manuscript declarations and earlier precursors; the code/formalization date here is Git metadata, not certified first public disclosure.",
+      "archive_witness_scope": "Related earlier title/manuscript archival record, not an independently recovered executable mechanism or byte-equivalence proof. See archive-witnesses.json."
+    },
+    {
+      "id": "M02",
+      "mechanism": "Source bundles with sealed bytes, explicit origin/depth, pinned lineage, current eligibility and refusal reasons",
+      "novelty_claim_under_test": "Originality of the exact page eligibility/bundle contract, not hashing or provenance generally",
+      "mplpb_origin_source_ids": [
+        "first-ledger",
+        "provenance-gate",
+        "provenance-spec"
+      ],
+      "original_author": "Mitchell D. McPhetridge research; executable contribution and Codex assistance as recorded in the report",
+      "external_prior_art": [
+        "Kuhn/Dumontier Trusty URIs, ESWC 2014 §§3–5",
+        "nanopub-java 06d88324b64f75688bd56a4adf0e6e264717529a NanopubImpl.java:286 onward; CheckNanopub.java:137 onward"
+      ],
+      "technical_comparison": "Nanopublications separate assertion/provenance/publication metadata and check hash/signature properties. MPLPB returns separate eligible HTML pages with exclusions and shared-lineage warnings. Its seals do not authenticate authors or establish truth; nanopublication signatures provide properties MPLPB lacks.",
+      "overlap_classification": "3: Shared components with a different combination",
+      "distinctive_contribution": "Executable corpus-specific eligibility and non-fusion policy, combining familiar provenance checks. Not a demonstrated replacement or superset of nanopublication security.",
+      "implementation_evidence": "provenance_gate.GateResult, gather; tests/test_provenance_gate.py; later receipt replays in PR #38.",
+      "novelty_status": "not established",
+      "confidence": "High source-backed distinction; insufficient exact-policy predecessor coverage to settle priority.",
+      "relationship_to_pr38": "Recognized and scoped existing contract.",
+      "global_priority": "Not established by a bounded search; where contradicted, that applies to the explicitly stated broad claim rather than every implementation detail.",
+      "archive_witness_ids": [
+        "A03"
+      ],
+      "mplpb_origin": [
+        {
+          "id": "first-ledger",
+          "author_attribution": "Mitchell D. McPhetridge research; repository implementation and Codex-assisted changes distinguished in report",
+          "path": "mplpb_combined/ledger.py",
+          "revision": "c326d37c5cc2653a4c3c1c073bdaebc6437a664d",
+          "git_blob_sha": "c3d6340acf458a65e74e09a1600d5d64758b166a",
+          "sha256": "57a7f732229788344c84e52b61bf86a7ceb49f87d044caa4d829983783090b90",
+          "location": "def write",
+          "line": 414,
+          "git_metadata": "c326d37c5cc2653a4c3c1c073bdaebc6437a664d|2026-10-07T11:46:19-04:00|2026-10-07T11:46:19-04:00|Mitchell D McPhetridge|Add files via upload",
+          "url": "https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/blob/c326d37c5cc2653a4c3c1c073bdaebc6437a664d/mplpb_combined/ledger.py#L414"
+        },
+        {
+          "id": "provenance-gate",
+          "author_attribution": "Mitchell D. McPhetridge research; repository implementation and Codex-assisted changes distinguished in report",
+          "path": "mplpb_combined/provenance_gate.py",
+          "revision": "c665337492a4aa5c3619c57c439a0583732c68bd",
+          "git_blob_sha": "c55bf6b3c4434ed18c4e2e8a4be4fc015bc8a2a0",
+          "sha256": "b20afb72011cf9352cbd77144d77d3d887c1696cced778939ffaeb43ea1d4206",
+          "location": "class GateResult",
+          "line": 21,
+          "git_metadata": "c665337492a4aa5c3619c57c439a0583732c68bd|2026-10-08T08:07:32-04:00|2026-10-08T08:07:32-04:00|Mitchell D McPhetridge|Add provenance gate, topic corpora, papers and rollback notes",
+          "url": "https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/blob/c665337492a4aa5c3619c57c439a0583732c68bd/mplpb_combined/provenance_gate.py#L21"
+        },
+        {
+          "id": "provenance-spec",
+          "author_attribution": "Mitchell D. McPhetridge research; repository implementation and Codex-assisted changes distinguished in report",
+          "path": "docs/PROVENANCE_GATE.md",
+          "revision": "c665337492a4aa5c3619c57c439a0583732c68bd",
+          "git_blob_sha": "ecb38c31789bd824e785b76025568f929e58f596",
+          "sha256": "5c53b767507a3fc6101ad12618f5737111ad84509b347db632550836c90524e0",
+          "location": "Limits",
+          "line": 39,
+          "git_metadata": "c665337492a4aa5c3619c57c439a0583732c68bd|2026-10-08T08:07:32-04:00|2026-10-08T08:07:32-04:00|Mitchell D McPhetridge|Add provenance gate, topic corpora, papers and rollback notes",
+          "url": "https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/blob/c665337492a4aa5c3619c57c439a0583732c68bd/docs/PROVENANCE_GATE.md#L39"
+        }
+      ],
+      "first_located_implementation_or_formalization": {
+        "id": "provenance-gate",
+        "author_attribution": "Mitchell D. McPhetridge research; repository implementation and Codex-assisted changes distinguished in report",
+        "path": "mplpb_combined/provenance_gate.py",
+        "revision": "c665337492a4aa5c3619c57c439a0583732c68bd",
+        "git_blob_sha": "c55bf6b3c4434ed18c4e2e8a4be4fc015bc8a2a0",
+        "sha256": "b20afb72011cf9352cbd77144d77d3d887c1696cced778939ffaeb43ea1d4206",
+        "location": "class GateResult",
+        "line": 21,
+        "git_metadata": "c665337492a4aa5c3619c57c439a0583732c68bd|2026-10-08T08:07:32-04:00|2026-10-08T08:07:32-04:00|Mitchell D McPhetridge|Add provenance gate, topic corpora, papers and rollback notes",
+        "url": "https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/blob/c665337492a4aa5c3619c57c439a0583732c68bd/mplpb_combined/provenance_gate.py#L21"
+      },
+      "date_limit": "See timeline for manuscript declarations and earlier precursors; the code/formalization date here is Git metadata, not certified first public disclosure.",
+      "archive_witness_scope": "Related earlier title/manuscript archival record, not an independently recovered executable mechanism or byte-equivalence proof. See archive-witnesses.json."
+    },
+    {
+      "id": "M03",
+      "mechanism": "Write successor before retirement; validate supersession authority; retain history; withhold stale derivatives",
+      "novelty_claim_under_test": "Originality of the exact fail-closed supersession/eligibility rules",
+      "mplpb_origin_source_ids": [
+        "first-ledger",
+        "authority-repair",
+        "stale-basis",
+        "retirement-log"
+      ],
+      "original_author": "Mitchell D. McPhetridge research; executable contribution and Codex assistance as recorded in the report",
+      "external_prior_art": [
+        "W3C PROV-O, Recommendation 2013-04-30: wasRevisionOf, wasInvalidatedBy, invalidatedAtTime",
+        "Trusty URIs 2014 reference-tree integrity"
+      ],
+      "technical_comparison": "PROV describes revisions/invalidation; hashes bind references. MPLPB additionally computes serving/status authority, rejects invalid successors, distinguishes stale derivation from revision, and uses retained retirement events. A descriptive ontology does not alone implement these runtime refusal rules.",
+      "overlap_classification": "3: Shared components with a different combination",
+      "distinctive_contribution": "Concrete local serving semantics and crash/failure handling. No evidence that revision-aware serving or safe update ordering was invented here.",
+      "implementation_evidence": "Ledger._status_authority, effective_status, _may_serve, write; tests/test_ledger.py, tests/test_integrity_hunt.py.",
+      "novelty_status": "not established",
+      "confidence": "High confidence these executable rules exist and were repaired; external exact mechanism search incomplete.",
+      "relationship_to_pr38": "Recognized older repairs; no new lineage rule introduced.",
+      "global_priority": "Not established by a bounded search; where contradicted, that applies to the explicitly stated broad claim rather than every implementation detail.",
+      "archive_witness_ids": [],
+      "mplpb_origin": [
+        {
+          "id": "first-ledger",
+          "author_attribution": "Mitchell D. McPhetridge research; repository implementation and Codex-assisted changes distinguished in report",
+          "path": "mplpb_combined/ledger.py",
+          "revision": "c326d37c5cc2653a4c3c1c073bdaebc6437a664d",
+          "git_blob_sha": "c3d6340acf458a65e74e09a1600d5d64758b166a",
+          "sha256": "57a7f732229788344c84e52b61bf86a7ceb49f87d044caa4d829983783090b90",
+          "location": "def write",
+          "line": 414,
+          "git_metadata": "c326d37c5cc2653a4c3c1c073bdaebc6437a664d|2026-10-07T11:46:19-04:00|2026-10-07T11:46:19-04:00|Mitchell D McPhetridge|Add files via upload",
+          "url": "https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/blob/c326d37c5cc2653a4c3c1c073bdaebc6437a664d/mplpb_combined/ledger.py#L414"
+        },
+        {
+          "id": "authority-repair",
+          "author_attribution": "Mitchell D. McPhetridge research; repository implementation and Codex-assisted changes distinguished in report",
+          "path": "mplpb_combined/ledger.py",
+          "revision": "478a86bbeb34fed263f2166b90dc620317d0000f",
+          "git_blob_sha": "baf42a2932cb756a6ab75c62ae7b3ef6593b5b55",
+          "sha256": "917acb4e4a32a6243d00b3a44a2dc511d2daccdc87e421432807eb1189182487",
+          "location": "def _status_authority",
+          "line": 93,
+          "git_metadata": "478a86bbeb34fed263f2166b90dc620317d0000f|2026-10-08T00:02:29-04:00|2026-10-08T00:02:29-04:00|Mitchell D McPhetridge|Harden supersession authority and add reproducible retrieval evaluations",
+          "url": "https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/blob/478a86bbeb34fed263f2166b90dc620317d0000f/mplpb_combined/ledger.py#L93"
+        },
+        {
+          "id": "stale-basis",
+          "author_attribution": "Mitchell D. McPhetridge research; repository implementation and Codex-assisted changes distinguished in report",
+          "path": "mplpb_combined/ledger.py",
+          "revision": "3bac10f21a5b74e8aacbf9dada9773cfee25dcb0",
+          "git_blob_sha": "f8f56af25688b6c808545c345fd8302412509000",
+          "sha256": "2e6e1411f94b5692eb8b06f0173a80600f416d47fcc73c996b84532fcf2cf229",
+          "location": "def _may_serve",
+          "line": 150,
+          "git_metadata": "3bac10f21a5b74e8aacbf9dada9773cfee25dcb0|2026-10-08T10:00:35-04:00|2026-10-08T10:00:35-04:00|Mitchell D McPhetridge|Enforce supersession restoration and derivative serving policy",
+          "url": "https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/blob/3bac10f21a5b74e8aacbf9dada9773cfee25dcb0/mplpb_combined/ledger.py#L150"
+        },
+        {
+          "id": "retirement-log",
+          "author_attribution": "Mitchell D. McPhetridge research; repository implementation and Codex-assisted changes distinguished in report",
+          "path": "mplpb_combined/ledger.py",
+          "revision": "57f0bd508dce84b4aa5535ffc77647f90618788d",
+          "git_blob_sha": "29a5acb6f03dba7bef33d9daef1af83ad87217b5",
+          "sha256": "b171c3d55a9597dcd46c76fb5c1a027a25a22192f9a96ba1ebc86dd756068f2f",
+          "location": "def _retired_log_keys",
+          "line": 394,
+          "git_metadata": "57f0bd508dce84b4aa5535ffc77647f90618788d|2026-10-19T15:39:25-04:00|2026-10-19T15:39:25-04:00|Mitchell D McPhetridge|Block all served pages when an existing retirement log hash chain is corrupt",
+          "url": "https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/blob/57f0bd508dce84b4aa5535ffc77647f90618788d/mplpb_combined/ledger.py#L394"
+        }
+      ],
+      "first_located_implementation_or_formalization": {
+        "id": "first-ledger",
+        "author_attribution": "Mitchell D. McPhetridge research; repository implementation and Codex-assisted changes distinguished in report",
+        "path": "mplpb_combined/ledger.py",
+        "revision": "c326d37c5cc2653a4c3c1c073bdaebc6437a664d",
+        "git_blob_sha": "c3d6340acf458a65e74e09a1600d5d64758b166a",
+        "sha256": "57a7f732229788344c84e52b61bf86a7ceb49f87d044caa4d829983783090b90",
+        "location": "def write",
+        "line": 414,
+        "git_metadata": "c326d37c5cc2653a4c3c1c073bdaebc6437a664d|2026-10-07T11:46:19-04:00|2026-10-07T11:46:19-04:00|Mitchell D McPhetridge|Add files via upload",
+        "url": "https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/blob/c326d37c5cc2653a4c3c1c073bdaebc6437a664d/mplpb_combined/ledger.py#L414"
+      },
+      "date_limit": "See timeline for manuscript declarations and earlier precursors; the code/formalization date here is Git metadata, not certified first public disclosure.",
+      "archive_witness_scope": "Related earlier title/manuscript archival record, not an independently recovered executable mechanism or byte-equivalence proof. See archive-witnesses.json."
+    },
+    {
+      "id": "M04",
+      "mechanism": "Retrieval/citation success remains distinct from proposition-level supported answers and explicit refusal",
+      "novelty_claim_under_test": "First general separation of retrieval and evidential support",
+      "mplpb_origin_source_ids": [
+        "smart-router",
+        "answer-split",
+        "answer-impl",
+        "retrieval-impl"
+      ],
+      "original_author": "Mitchell D. McPhetridge research; executable contribution and Codex assistance as recorded in the report",
+      "external_prior_art": [
+        "FEVER 2018, strict scorer 2019 is_strictly_correct",
+        "ALCE 2023; eval.py at 246c476a4edfc564266b7346b6e29ef4861ae937 compute_autoais"
+      ],
+      "technical_comparison": "Earlier systems distinguish retrieved evidence, correct labels and citation entailment. MPLPB implements a bounded deterministic grammar plus current source eligibility and conflict refusal; ALCE uses model-based entailment scoring, not the same acceptance implementation.",
+      "overlap_classification": "2: Functionally equivalent mechanism at the stated broad separation",
+      "distinctive_contribution": "MPLPB-specific finite grammar, eligibility integration and failure trace remain attributable; broad separation is externally established.",
+      "implementation_evidence": "supported_answer; retrieve always reports answer_supported false; PR #38 preserves 33 focused answer/retrieval tests.",
+      "novelty_status": "contradicted",
+      "confidence": "High confidence against first-general-separation claim; exact local implementation originality is a separate, unresolved question.",
+      "relationship_to_pr38": "Recognized October 13 repair; did not originate the distinction.",
+      "global_priority": "Not established by a bounded search; where contradicted, that applies to the explicitly stated broad claim rather than every implementation detail.",
+      "archive_witness_ids": [
+        "A04"
+      ],
+      "mplpb_origin": [
+        {
+          "id": "smart-router",
+          "author_attribution": "Mitchell D. McPhetridge research; repository implementation and Codex-assisted changes distinguished in report",
+          "path": "parts/smart-local/mplpb/router.py",
+          "revision": "ceeb69162b5b79b4adf732aa05ea4aeef0564a2d",
+          "git_blob_sha": "09101101346d6ae35b1a0a0fb15d230234167420",
+          "sha256": "2d27656ae4ce486e9e6dda8a988adf254bdf132973860eab1c3517bdd33044de",
+          "location": "OWNERSHIP_MARGIN",
+          "line": 35,
+          "git_metadata": "ceeb69162b5b79b4adf732aa05ea4aeef0564a2d|2026-10-07T14:26:20-04:00|2026-10-07T14:26:20-04:00|Mitchell D McPhetridge|Add files via upload",
+          "url": "https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/blob/ceeb69162b5b79b4adf732aa05ea4aeef0564a2d/parts/smart-local/mplpb/router.py#L35"
+        },
+        {
+          "id": "answer-split",
+          "author_attribution": "Mitchell D. McPhetridge research; repository implementation and Codex-assisted changes distinguished in report",
+          "path": "docs/ANSWER_RELIABILITY.md",
+          "revision": "75cbbd0794e891e0e8e4759e0993a0de7c5eab9f",
+          "git_blob_sha": "cd8c39019160234add11aaacad796932a209c6e2",
+          "sha256": "94b1563827ca1d7445de7a24c32194c43be63e4c7c6a166655842bdee95b2b1b",
+          "location": "Candidate selection",
+          "line": 9,
+          "git_metadata": "75cbbd0794e891e0e8e4759e0993a0de7c5eab9f|2026-10-13T08:25:32-04:00|2026-10-13T08:25:32-04:00|Mitchell D McPhetridge|Separate supported answers from archived candidate retrieval",
+          "url": "https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/blob/75cbbd0794e891e0e8e4759e0993a0de7c5eab9f/docs/ANSWER_RELIABILITY.md#L9"
+        },
+        {
+          "id": "answer-impl",
+          "author_attribution": "Mitchell D. McPhetridge research; repository implementation and Codex-assisted changes distinguished in report",
+          "path": "mplpb_answers/support.py",
+          "revision": "75cbbd0794e891e0e8e4759e0993a0de7c5eab9f",
+          "git_blob_sha": "34a8f29fa1b5eee053e7231e6f0be051f0f46742",
+          "sha256": "00d0acd8e8673e70ec2194c5cb447e4144593080d2c5c857e2321d0825b22aa2",
+          "location": "def supported_answer",
+          "line": 72,
+          "git_metadata": "75cbbd0794e891e0e8e4759e0993a0de7c5eab9f|2026-10-13T08:25:32-04:00|2026-10-13T08:25:32-04:00|Mitchell D McPhetridge|Separate supported answers from archived candidate retrieval",
+          "url": "https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/blob/75cbbd0794e891e0e8e4759e0993a0de7c5eab9f/mplpb_answers/support.py#L72"
+        },
+        {
+          "id": "retrieval-impl",
+          "author_attribution": "Mitchell D. McPhetridge research; repository implementation and Codex-assisted changes distinguished in report",
+          "path": "mplpb_combined/retrieval.py",
+          "revision": "2f2c17f9eb597b16ada7be0d5074d6d94b3f364b",
+          "git_blob_sha": "96fc8fa51372407f67ac227a5156b56e0a24039c",
+          "sha256": "35528e3645af096d957df51fdb39ca66decd1f5a0a98cf61061e4ff51408c1c4",
+          "location": "def retrieve",
+          "line": 9,
+          "git_metadata": "2f2c17f9eb597b16ada7be0d5074d6d94b3f364b|2026-10-27T18:04:42Z|2026-10-27T18:04:42Z|Mitchell D McPhetridge|Add provenance-gated page retrieval and repair three ownership misses",
+          "url": "https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/blob/2f2c17f9eb597b16ada7be0d5074d6d94b3f364b/mplpb_combined/retrieval.py#L9"
+        }
+      ],
+      "first_located_implementation_or_formalization": {
+        "id": "answer-impl",
+        "author_attribution": "Mitchell D. McPhetridge research; repository implementation and Codex-assisted changes distinguished in report",
+        "path": "mplpb_answers/support.py",
+        "revision": "75cbbd0794e891e0e8e4759e0993a0de7c5eab9f",
+        "git_blob_sha": "34a8f29fa1b5eee053e7231e6f0be051f0f46742",
+        "sha256": "00d0acd8e8673e70ec2194c5cb447e4144593080d2c5c857e2321d0825b22aa2",
+        "location": "def supported_answer",
+        "line": 72,
+        "git_metadata": "75cbbd0794e891e0e8e4759e0993a0de7c5eab9f|2026-10-13T08:25:32-04:00|2026-10-13T08:25:32-04:00|Mitchell D McPhetridge|Separate supported answers from archived candidate retrieval",
+        "url": "https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/blob/75cbbd0794e891e0e8e4759e0993a0de7c5eab9f/mplpb_answers/support.py#L72"
+      },
+      "date_limit": "See timeline for manuscript declarations and earlier precursors; the code/formalization date here is Git metadata, not certified first public disclosure.",
+      "archive_witness_scope": "Related earlier title/manuscript archival record, not an independently recovered executable mechanism or byte-equivalence proof. See archive-witnesses.json."
+    },
+    {
+      "id": "M05",
+      "mechanism": "Revisable scoped claims, live challenges, dependency invalidation and non-independent copied evidence",
+      "novelty_claim_under_test": "Originality of MPLPB's scoped claim/challenge/provenance-root policy, not first reason maintenance",
+      "mplpb_origin_source_ids": [
+        "continuation",
+        "work-design",
+        "work-original"
+      ],
+      "original_author": "Mitchell D. McPhetridge research; executable contribution and Codex assistance as recorded in the report",
+      "external_prior_art": [
+        "Doyle, A Truth Maintenance System, MIT 1979 / Artificial Intelligence 1979",
+        "PROV-O 2013 derivation relations; Graphiti 2025 episode links and temporal invalidation"
+      ],
+      "technical_comparison": "Reason maintenance already tracks justifications and revises consequences. Graphiti stores episode provenance and validity windows, with model-assisted edge resolution. MPLPB computes scoped effective states/challenges from explicit revision pins and keeps permission separate; copied roots do not become new corroboration.",
+      "overlap_classification": "3: Shared components with a different combination",
+      "distinctive_contribution": "An attributable executable work-record policy; neither persistent reasons nor invalidation is a first invention. No external system was tested for epistemic equivalence.",
+      "implementation_evidence": "WorkStore._effective, _roots, _evidence_spans; deterministic challenge/source-change tests; retained manuscript formulations.",
+      "novelty_status": "not established",
+      "confidence": "High on broad antecedents and local data structures; moderate on combinations, low on priority.",
+      "relationship_to_pr38": "Recognized earlier revisability requirements and implementation; no terminal truth authority introduced.",
+      "global_priority": "Not established by a bounded search; where contradicted, that applies to the explicitly stated broad claim rather than every implementation detail.",
+      "archive_witness_ids": [
+        "A05"
+      ],
+      "mplpb_origin": [
+        {
+          "id": "continuation",
+          "author_attribution": "Mitchell D. McPhetridge research; repository implementation and Codex-assisted changes distinguished in report",
+          "path": "papers/Continuation_Must_Preserve_Revisability.pdf",
+          "revision": "c665337492a4aa5c3619c57c439a0583732c68bd",
+          "git_blob_sha": "614898df27961a7ecab3db7c5b8d518e747c0698",
+          "sha256": "7b0c289cd6952b726029140e8b1fbc76addd96681ca4ed810d718f9f2846cc64",
+          "location": "PDF pages 1–3; printed September 2026",
+          "line": null,
+          "git_metadata": "c665337492a4aa5c3619c57c439a0583732c68bd|2026-10-08T08:07:32-04:00|2026-10-08T08:07:32-04:00|Mitchell D McPhetridge|Add provenance gate, topic corpora, papers and rollback notes",
+          "url": "https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/blob/c665337492a4aa5c3619c57c439a0583732c68bd/papers/Continuation_Must_Preserve_Revisability.pdf"
+        },
+        {
+          "id": "work-design",
+          "author_attribution": "Mitchell D. McPhetridge research; repository implementation and Codex-assisted changes distinguished in report",
+          "path": "docs/SPECIALIST_CONTINUITY.md",
+          "revision": "f396aaac1e994a81320c6c3d71c5a42d17bca9f2",
+          "git_blob_sha": "e7b5b5bde7b5ac4d5d0253ad8739005910ec9968",
+          "sha256": "8c30ceca875b8f88af1f9849d9306487eca9a76f0a9232222d7c0519bf23c3c3",
+          "location": "What survives",
+          "line": 7,
+          "git_metadata": "f396aaac1e994a81320c6c3d71c5a42d17bca9f2|2026-10-31T08:40:55-04:00|2026-10-31T08:40:55-04:00|Mitchell D McPhetridge|Add bounded practical answer extraction and specialist continuity design",
+          "url": "https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/blob/f396aaac1e994a81320c6c3d71c5a42d17bca9f2/docs/SPECIALIST_CONTINUITY.md#L7"
+        },
+        {
+          "id": "work-original",
+          "author_attribution": "Mitchell D. McPhetridge research; repository implementation and Codex-assisted changes distinguished in report",
+          "path": "mplpb_work/store.py",
+          "revision": "41779b4aec0444af506ec4efde434a2e545e6e4b",
+          "git_blob_sha": "c3ef206f31c11b495455eacd967f3a1501894432",
+          "sha256": "c0da4147627f2a6925cf4a8416debb92e9b86d7083df561b31d365f479a158bb",
+          "location": "def _effective",
+          "line": 324,
+          "git_metadata": "41779b4aec0444af506ec4efde434a2e545e6e4b|2026-10-31T09:14:44-04:00|2026-10-31T09:14:44-04:00|Mitchell D McPhetridge|Implement durable specialist work, capability-gated handoffs and guarded execution",
+          "url": "https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/blob/41779b4aec0444af506ec4efde434a2e545e6e4b/mplpb_work/store.py#L324"
+        }
+      ],
+      "first_located_implementation_or_formalization": {
+        "id": "work-original",
+        "author_attribution": "Mitchell D. McPhetridge research; repository implementation and Codex-assisted changes distinguished in report",
+        "path": "mplpb_work/store.py",
+        "revision": "41779b4aec0444af506ec4efde434a2e545e6e4b",
+        "git_blob_sha": "c3ef206f31c11b495455eacd967f3a1501894432",
+        "sha256": "c0da4147627f2a6925cf4a8416debb92e9b86d7083df561b31d365f479a158bb",
+        "location": "def _effective",
+        "line": 324,
+        "git_metadata": "41779b4aec0444af506ec4efde434a2e545e6e4b|2026-10-31T09:14:44-04:00|2026-10-31T09:14:44-04:00|Mitchell D McPhetridge|Implement durable specialist work, capability-gated handoffs and guarded execution",
+        "url": "https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/blob/41779b4aec0444af506ec4efde434a2e545e6e4b/mplpb_work/store.py#L324"
+      },
+      "date_limit": "See timeline for manuscript declarations and earlier precursors; the code/formalization date here is Git metadata, not certified first public disclosure.",
+      "archive_witness_scope": "Related earlier title/manuscript archival record, not an independently recovered executable mechanism or byte-equivalence proof. See archive-witnesses.json."
+    },
+    {
+      "id": "M06",
+      "mechanism": "Successor handoff requires current, scoped, unexpired, unrevoked and unfenced authority",
+      "novelty_claim_under_test": "First current-authority check or scoped capability boundary",
+      "mplpb_origin_source_ids": [
+        "work-design",
+        "work-permission",
+        "work-handoff"
+      ],
+      "original_author": "Mitchell D. McPhetridge research; executable contribution and Codex assistance as recorded in the report",
+      "external_prior_art": [
+        "Birgisson et al., Macaroons, NDSS 2014",
+        "libmacaroons ca0211d8633c270b73e803cf7c2269f3b81cf530 macaroons.c:685–716,803–930"
+      ],
+      "technical_comparison": "Macaroons verify context caveats and support attenuation; MPLPB uses host-issued opaque tokens, centrally recorded grants and seat fences. Both reject authority outside current conditions, but token construction, delegation and enforcement are different.",
+      "overlap_classification": "2: Functionally equivalent authority primitive; not identical implementation",
+      "distinctive_contribution": "Native visibility-filtered handoff bound to current MPLPB grants/source state; not a new capability-security primitive or cryptographic delegation system.",
+      "implementation_evidence": "WorkStore._actor, _permission, handoff and execute; expiry/revocation/fencing tests in specialist suite.",
+      "novelty_status": "contradicted",
+      "confidence": "High against first scoped/current authority claim; narrower integrated-handoff priority remains unsettled.",
+      "relationship_to_pr38": "Recognized existing implementation and its trust limits.",
+      "global_priority": "Not established by a bounded search; where contradicted, that applies to the explicitly stated broad claim rather than every implementation detail.",
+      "archive_witness_ids": [],
+      "mplpb_origin": [
+        {
+          "id": "work-design",
+          "author_attribution": "Mitchell D. McPhetridge research; repository implementation and Codex-assisted changes distinguished in report",
+          "path": "docs/SPECIALIST_CONTINUITY.md",
+          "revision": "f396aaac1e994a81320c6c3d71c5a42d17bca9f2",
+          "git_blob_sha": "e7b5b5bde7b5ac4d5d0253ad8739005910ec9968",
+          "sha256": "8c30ceca875b8f88af1f9849d9306487eca9a76f0a9232222d7c0519bf23c3c3",
+          "location": "What survives",
+          "line": 7,
+          "git_metadata": "f396aaac1e994a81320c6c3d71c5a42d17bca9f2|2026-10-31T08:40:55-04:00|2026-10-31T08:40:55-04:00|Mitchell D McPhetridge|Add bounded practical answer extraction and specialist continuity design",
+          "url": "https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/blob/f396aaac1e994a81320c6c3d71c5a42d17bca9f2/docs/SPECIALIST_CONTINUITY.md#L7"
+        },
+        {
+          "id": "work-permission",
+          "author_attribution": "Mitchell D. McPhetridge research; repository implementation and Codex-assisted changes distinguished in report",
+          "path": "mplpb_work/store.py",
+          "revision": "41779b4aec0444af506ec4efde434a2e545e6e4b",
+          "git_blob_sha": "c3ef206f31c11b495455eacd967f3a1501894432",
+          "sha256": "c0da4147627f2a6925cf4a8416debb92e9b86d7083df561b31d365f479a158bb",
+          "location": "def _permission",
+          "line": 361,
+          "git_metadata": "41779b4aec0444af506ec4efde434a2e545e6e4b|2026-10-31T09:14:44-04:00|2026-10-31T09:14:44-04:00|Mitchell D McPhetridge|Implement durable specialist work, capability-gated handoffs and guarded execution",
+          "url": "https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/blob/41779b4aec0444af506ec4efde434a2e545e6e4b/mplpb_work/store.py#L361"
+        },
+        {
+          "id": "work-handoff",
+          "author_attribution": "Mitchell D. McPhetridge research; repository implementation and Codex-assisted changes distinguished in report",
+          "path": "mplpb_work/store.py",
+          "revision": "41779b4aec0444af506ec4efde434a2e545e6e4b",
+          "git_blob_sha": "c3ef206f31c11b495455eacd967f3a1501894432",
+          "sha256": "c0da4147627f2a6925cf4a8416debb92e9b86d7083df561b31d365f479a158bb",
+          "location": "def handoff",
+          "line": 417,
+          "git_metadata": "41779b4aec0444af506ec4efde434a2e545e6e4b|2026-10-31T09:14:44-04:00|2026-10-31T09:14:44-04:00|Mitchell D McPhetridge|Implement durable specialist work, capability-gated handoffs and guarded execution",
+          "url": "https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/blob/41779b4aec0444af506ec4efde434a2e545e6e4b/mplpb_work/store.py#L417"
+        }
+      ],
+      "first_located_implementation_or_formalization": {
+        "id": "work-permission",
+        "author_attribution": "Mitchell D. McPhetridge research; repository implementation and Codex-assisted changes distinguished in report",
+        "path": "mplpb_work/store.py",
+        "revision": "41779b4aec0444af506ec4efde434a2e545e6e4b",
+        "git_blob_sha": "c3ef206f31c11b495455eacd967f3a1501894432",
+        "sha256": "c0da4147627f2a6925cf4a8416debb92e9b86d7083df561b31d365f479a158bb",
+        "location": "def _permission",
+        "line": 361,
+        "git_metadata": "41779b4aec0444af506ec4efde434a2e545e6e4b|2026-10-31T09:14:44-04:00|2026-10-31T09:14:44-04:00|Mitchell D McPhetridge|Implement durable specialist work, capability-gated handoffs and guarded execution",
+        "url": "https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/blob/41779b4aec0444af506ec4efde434a2e545e6e4b/mplpb_work/store.py#L361"
+      },
+      "date_limit": "See timeline for manuscript declarations and earlier precursors; the code/formalization date here is Git metadata, not certified first public disclosure.",
+      "archive_witness_scope": "Related earlier title/manuscript archival record, not an independently recovered executable mechanism or byte-equivalence proof. See archive-witnesses.json."
+    },
+    {
+      "id": "M07",
+      "mechanism": "Host receipts tied to task revision, criteria and inputs; same-write completion cannot alter that contract",
+      "novelty_claim_under_test": "Originality of the revision-bound receipt and atomic completion-contract policy, not first fixed-criteria acceptance",
+      "mplpb_origin_source_ids": [
+        "work-receipt",
+        "completion-fix",
+        "completion-tests"
+      ],
+      "original_author": "Mitchell D. McPhetridge research; executable contribution and Codex assistance as recorded in the report",
+      "external_prior_art": [
+        "SWE-bench 2023; grading.py at 5f5a7df799663adba4b191eca3d675faf3621fe2:78–207",
+        "in-toto 2019; verifylib.py at fb464b508caee65e607d3896d2a572ad378f609b:1502 onward"
+      ],
+      "technical_comparison": "SWE-bench grades against fixed FAIL_TO_PASS/PASS_TO_PASS requirements. In-toto verifies evidence against a separately authorized layout. MPLPB stores receipts and task revisions in a mutable work ledger; PR #38 closes atomic contract substitution. These are related obligations, not identical APIs or a new proof theorem.",
+      "overlap_classification": "3: Shared components with a different combination",
+      "distinctive_contribution": "A concrete local receipt/completion implementation and a newly reproduced local bug/fix. The particular seven-line correction is not evidence of a new general acceptance method.",
+      "implementation_evidence": "Retained same cases: invalid accepted 3/3→0/3; valid accepted 2/2→2/2. Tests and original logs remain byte-identical.",
+      "novelty_status": "not established",
+      "confidence": "High confidence in bug/repair and earlier fixed-criteria acceptance; priority of exact receipt schema not established.",
+      "relationship_to_pr38": "Existing October 31 receipts recognized; seven-line preservation guard and five regressions introduced November 10.",
+      "global_priority": "Not established by a bounded search; where contradicted, that applies to the explicitly stated broad claim rather than every implementation detail.",
+      "archive_witness_ids": [],
+      "mplpb_origin": [
+        {
+          "id": "work-receipt",
+          "author_attribution": "Mitchell D. McPhetridge research; repository implementation and Codex-assisted changes distinguished in report",
+          "path": "mplpb_work/store.py",
+          "revision": "41779b4aec0444af506ec4efde434a2e545e6e4b",
+          "git_blob_sha": "c3ef206f31c11b495455eacd967f3a1501894432",
+          "sha256": "c0da4147627f2a6925cf4a8416debb92e9b86d7083df561b31d365f479a158bb",
+          "location": "def execute",
+          "line": 607,
+          "git_metadata": "41779b4aec0444af506ec4efde434a2e545e6e4b|2026-10-31T09:14:44-04:00|2026-10-31T09:14:44-04:00|Mitchell D McPhetridge|Implement durable specialist work, capability-gated handoffs and guarded execution",
+          "url": "https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/blob/41779b4aec0444af506ec4efde434a2e545e6e4b/mplpb_work/store.py#L607"
+        },
+        {
+          "id": "completion-fix",
+          "author_attribution": "Mitchell D. McPhetridge research; repository implementation and Codex-assisted changes distinguished in report",
+          "path": "mplpb_work/store.py",
+          "revision": "4fd0203e26d90b267480c3c06a5ef4b06444641e",
+          "git_blob_sha": "069a0450b6f440de341916870ddeb8af2c697254",
+          "sha256": "c73c4f55f1567ff63434a6d6e7bd2b3adef7a5cb80ffde31684667072c541976",
+          "location": "Task contract changed during completion",
+          "line": 521,
+          "git_metadata": "4fd0203e26d90b267480c3c06a5ef4b06444641e|2026-11-10T08:31:58-05:00|2026-11-10T08:31:58-05:00|Mitchell D McPhetridge|Audit claim-specific promotion contracts and prevent atomic completion substitution",
+          "url": "https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/blob/4fd0203e26d90b267480c3c06a5ef4b06444641e/mplpb_work/store.py#L521"
+        },
+        {
+          "id": "completion-tests",
+          "author_attribution": "Mitchell D. McPhetridge research; repository implementation and Codex-assisted changes distinguished in report",
+          "path": "tests/test_specialist_continuity.py",
+          "revision": "4fd0203e26d90b267480c3c06a5ef4b06444641e",
+          "git_blob_sha": "e1f5b06a99a382fbc393ba08ad8f607779487e37",
+          "sha256": "421d7c2727b938d5b02dc81c098306093f86508e9e27d13e5c244f35fac277b7",
+          "location": "def test_completion_cannot_drop_unmet_criterion_in_same_write",
+          "line": 359,
+          "git_metadata": "4fd0203e26d90b267480c3c06a5ef4b06444641e|2026-11-10T08:31:58-05:00|2026-11-10T08:31:58-05:00|Mitchell D McPhetridge|Audit claim-specific promotion contracts and prevent atomic completion substitution",
+          "url": "https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/blob/4fd0203e26d90b267480c3c06a5ef4b06444641e/tests/test_specialist_continuity.py#L359"
+        }
+      ],
+      "first_located_implementation_or_formalization": {
+        "id": "work-receipt",
+        "author_attribution": "Mitchell D. McPhetridge research; repository implementation and Codex-assisted changes distinguished in report",
+        "path": "mplpb_work/store.py",
+        "revision": "41779b4aec0444af506ec4efde434a2e545e6e4b",
+        "git_blob_sha": "c3ef206f31c11b495455eacd967f3a1501894432",
+        "sha256": "c0da4147627f2a6925cf4a8416debb92e9b86d7083df561b31d365f479a158bb",
+        "location": "def execute",
+        "line": 607,
+        "git_metadata": "41779b4aec0444af506ec4efde434a2e545e6e4b|2026-10-31T09:14:44-04:00|2026-10-31T09:14:44-04:00|Mitchell D McPhetridge|Implement durable specialist work, capability-gated handoffs and guarded execution",
+        "url": "https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/blob/41779b4aec0444af506ec4efde434a2e545e6e4b/mplpb_work/store.py#L607"
+      },
+      "date_limit": "See timeline for manuscript declarations and earlier precursors; the code/formalization date here is Git metadata, not certified first public disclosure.",
+      "archive_witness_scope": "Related earlier title/manuscript archival record, not an independently recovered executable mechanism or byte-equivalence proof. See archive-witnesses.json."
+    },
+    {
+      "id": "M08",
+      "mechanism": "Durable revision-sensitive handoff preserves failed/contested work without inheriting authority",
+      "novelty_claim_under_test": "Originality of MPLPB's source- and grant-sensitive durable handoff, not first replay or checkpoints",
+      "mplpb_origin_source_ids": [
+        "continuation",
+        "work-handoff",
+        "work-original"
+      ],
+      "original_author": "Mitchell D. McPhetridge research; executable contribution and Codex assistance as recorded in the report",
+      "external_prior_art": [
+        "Temporal sdk-go 380add9260ea3cf0a01d6757a4ed304e6e8c4277 internal_event_handlers.go:1465–1498",
+        "LangGraph 7256752f482cb4e5ac652b41bc4d6ae793585e8e checkpoint/base and pregel/algo.py:729–746"
+      ],
+      "technical_comparison": "Temporal matches history events to scheduled activities and separates failed/completed outcomes. LangGraph checkpoints channel versions/versions seen and schedules changed inputs. MPLPB adds its source/claim/grant semantics to handoff views. General frameworks can host application checks; their selected defaults are not proof of inability to reproduce MPLPB.",
+      "overlap_classification": "3: Shared components with a different combination",
+      "distinctive_contribution": "A specific source-sensitive, permission-filtered work coordinator, not first durable execution or agent memory.",
+      "implementation_evidence": "WorkStore.handoff/_effective; filtered fresh-process recovery and failed-attempt tests; five-instance scripted fixture.",
+      "novelty_status": "not established",
+      "confidence": "High on inspected state/version differences, low on complete-system equivalence or priority.",
+      "relationship_to_pr38": "Recognized earlier mechanism; completion repair does not create durable handoff itself.",
+      "global_priority": "Not established by a bounded search; where contradicted, that applies to the explicitly stated broad claim rather than every implementation detail.",
+      "archive_witness_ids": [
+        "A05"
+      ],
+      "mplpb_origin": [
+        {
+          "id": "continuation",
+          "author_attribution": "Mitchell D. McPhetridge research; repository implementation and Codex-assisted changes distinguished in report",
+          "path": "papers/Continuation_Must_Preserve_Revisability.pdf",
+          "revision": "c665337492a4aa5c3619c57c439a0583732c68bd",
+          "git_blob_sha": "614898df27961a7ecab3db7c5b8d518e747c0698",
+          "sha256": "7b0c289cd6952b726029140e8b1fbc76addd96681ca4ed810d718f9f2846cc64",
+          "location": "PDF pages 1–3; printed September 2026",
+          "line": null,
+          "git_metadata": "c665337492a4aa5c3619c57c439a0583732c68bd|2026-10-08T08:07:32-04:00|2026-10-08T08:07:32-04:00|Mitchell D McPhetridge|Add provenance gate, topic corpora, papers and rollback notes",
+          "url": "https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/blob/c665337492a4aa5c3619c57c439a0583732c68bd/papers/Continuation_Must_Preserve_Revisability.pdf"
+        },
+        {
+          "id": "work-handoff",
+          "author_attribution": "Mitchell D. McPhetridge research; repository implementation and Codex-assisted changes distinguished in report",
+          "path": "mplpb_work/store.py",
+          "revision": "41779b4aec0444af506ec4efde434a2e545e6e4b",
+          "git_blob_sha": "c3ef206f31c11b495455eacd967f3a1501894432",
+          "sha256": "c0da4147627f2a6925cf4a8416debb92e9b86d7083df561b31d365f479a158bb",
+          "location": "def handoff",
+          "line": 417,
+          "git_metadata": "41779b4aec0444af506ec4efde434a2e545e6e4b|2026-10-31T09:14:44-04:00|2026-10-31T09:14:44-04:00|Mitchell D McPhetridge|Implement durable specialist work, capability-gated handoffs and guarded execution",
+          "url": "https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/blob/41779b4aec0444af506ec4efde434a2e545e6e4b/mplpb_work/store.py#L417"
+        },
+        {
+          "id": "work-original",
+          "author_attribution": "Mitchell D. McPhetridge research; repository implementation and Codex-assisted changes distinguished in report",
+          "path": "mplpb_work/store.py",
+          "revision": "41779b4aec0444af506ec4efde434a2e545e6e4b",
+          "git_blob_sha": "c3ef206f31c11b495455eacd967f3a1501894432",
+          "sha256": "c0da4147627f2a6925cf4a8416debb92e9b86d7083df561b31d365f479a158bb",
+          "location": "def _effective",
+          "line": 324,
+          "git_metadata": "41779b4aec0444af506ec4efde434a2e545e6e4b|2026-10-31T09:14:44-04:00|2026-10-31T09:14:44-04:00|Mitchell D McPhetridge|Implement durable specialist work, capability-gated handoffs and guarded execution",
+          "url": "https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/blob/41779b4aec0444af506ec4efde434a2e545e6e4b/mplpb_work/store.py#L324"
+        }
+      ],
+      "first_located_implementation_or_formalization": {
+        "id": "work-handoff",
+        "author_attribution": "Mitchell D. McPhetridge research; repository implementation and Codex-assisted changes distinguished in report",
+        "path": "mplpb_work/store.py",
+        "revision": "41779b4aec0444af506ec4efde434a2e545e6e4b",
+        "git_blob_sha": "c3ef206f31c11b495455eacd967f3a1501894432",
+        "sha256": "c0da4147627f2a6925cf4a8416debb92e9b86d7083df561b31d365f479a158bb",
+        "location": "def handoff",
+        "line": 417,
+        "git_metadata": "41779b4aec0444af506ec4efde434a2e545e6e4b|2026-10-31T09:14:44-04:00|2026-10-31T09:14:44-04:00|Mitchell D McPhetridge|Implement durable specialist work, capability-gated handoffs and guarded execution",
+        "url": "https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/blob/41779b4aec0444af506ec4efde434a2e545e6e4b/mplpb_work/store.py#L417"
+      },
+      "date_limit": "See timeline for manuscript declarations and earlier precursors; the code/formalization date here is Git metadata, not certified first public disclosure.",
+      "archive_witness_scope": "Related earlier title/manuscript archival record, not an independently recovered executable mechanism or byte-equivalence proof. See archive-witnesses.json."
+    },
+    {
+      "id": "M09",
+      "mechanism": "Exact candidate archive/head/hash evidence stays separate from deployment verification",
+      "novelty_claim_under_test": "First artifact provenance/acceptance gating",
+      "mplpb_origin_source_ids": [
+        "zip-runbook",
+        "release-impl",
+        "handoff-impl"
+      ],
+      "original_author": "Mitchell D. McPhetridge research; executable contribution and Codex assistance as recorded in the report",
+      "external_prior_art": [
+        "in-toto USENIX Security 2019 and pinned verifylib.py",
+        "Hoare 1969; Meyer 1992 specified obligations"
+      ],
+      "technical_comparison": "In-toto verifies signed layouts, authorized links, artifact rules and inspection results. MPLPB binds unsigned trusted-CI reports/ZIP/preview to an exact candidate and separately runs public smoke. Neither implies every downstream property; in-toto supplies signature guarantees absent in MPLPB.",
+      "overlap_classification": "3: Shared components with a different combination",
+      "distinctive_contribution": "Repository-specific executable packaging/release discipline. First supply-chain verification or generic promotion gating is contradicted by earlier work.",
+      "implementation_evidence": "tools/release_evidence.py; archive-first and Pages workflows; PR #38 verified candidate, not deployed.",
+      "novelty_status": "contradicted",
+      "confidence": "High against broad first-gating claim; no exhaustive priority claim about every CI detail.",
+      "relationship_to_pr38": "Recognized existing gates; did not invent supply-chain evidence or add deployment guarantees.",
+      "global_priority": "Not established by a bounded search; where contradicted, that applies to the explicitly stated broad claim rather than every implementation detail.",
+      "archive_witness_ids": [],
+      "mplpb_origin": [
+        {
+          "id": "zip-runbook",
+          "author_attribution": "Mitchell D. McPhetridge research; repository implementation and Codex-assisted changes distinguished in report",
+          "path": "docs/ZIP_FIRST_RELEASE_TESTING.md",
+          "revision": "4be3e7538f9c937a53ffb318991ee06a4ce17866",
+          "git_blob_sha": "9a0f8998d53cffc0a1eb969deaaf9561269c46df",
+          "sha256": "6f996888c773ca91d6429f679e156ccfe68db5e19ea362bcbd19ee6caa2888e5",
+          "location": "Six gates",
+          "line": 5,
+          "git_metadata": "4be3e7538f9c937a53ffb318991ee06a4ce17866|2026-10-19T16:31:32-04:00|2026-10-19T16:31:32-04:00|Mitchell D McPhetridge|Explain reproducible ZIP-first release gate and browser validation for AI agents",
+          "url": "https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/blob/4be3e7538f9c937a53ffb318991ee06a4ce17866/docs/ZIP_FIRST_RELEASE_TESTING.md#L5"
+        },
+        {
+          "id": "release-impl",
+          "author_attribution": "Mitchell D. McPhetridge research; repository implementation and Codex-assisted changes distinguished in report",
+          "path": "tools/release_evidence.py",
+          "revision": "a01a67afa6c364c708ed960921eb7e992113e123",
+          "git_blob_sha": "375a30dc5f1c62560f13da949649830b3a40c067",
+          "sha256": "6a2de2f57cb166851911eff5d11206e03f961622c72aeaba62bd5911739f4004",
+          "location": "def verify",
+          "line": 79,
+          "git_metadata": "a01a67afa6c364c708ed960921eb7e992113e123|2026-10-20T14:33:42-04:00|2026-10-20T14:33:42-04:00|Mitchell D McPhetridge|Add fail-closed candidate release evidence manifest and verifier",
+          "url": "https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/blob/a01a67afa6c364c708ed960921eb7e992113e123/tools/release_evidence.py#L79"
+        },
+        {
+          "id": "handoff-impl",
+          "author_attribution": "Mitchell D. McPhetridge research; repository implementation and Codex-assisted changes distinguished in report",
+          "path": "tools/build_handoff.py",
+          "revision": "aeafc6ecc071577b4db6636b7d08d07f662b41e4",
+          "git_blob_sha": "7bc0c06df9317cef1bd750dca523de3bedcf4fbd",
+          "sha256": "0ea14f551e370a055c39cfb3e9489da72b44f6a6faa29d9b0878419a29abf535",
+          "location": "def inventory",
+          "line": 43,
+          "git_metadata": "aeafc6ecc071577b4db6636b7d08d07f662b41e4|2026-11-02T11:25:07-05:00|2026-11-02T11:25:07-05:00|Mitchell D McPhetridge|Repair source-bound polarity, procedure recovery and repository handoffs",
+          "url": "https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/blob/aeafc6ecc071577b4db6636b7d08d07f662b41e4/tools/build_handoff.py#L43"
+        }
+      ],
+      "first_located_implementation_or_formalization": {
+        "id": "release-impl",
+        "author_attribution": "Mitchell D. McPhetridge research; repository implementation and Codex-assisted changes distinguished in report",
+        "path": "tools/release_evidence.py",
+        "revision": "a01a67afa6c364c708ed960921eb7e992113e123",
+        "git_blob_sha": "375a30dc5f1c62560f13da949649830b3a40c067",
+        "sha256": "6a2de2f57cb166851911eff5d11206e03f961622c72aeaba62bd5911739f4004",
+        "location": "def verify",
+        "line": 79,
+        "git_metadata": "a01a67afa6c364c708ed960921eb7e992113e123|2026-10-20T14:33:42-04:00|2026-10-20T14:33:42-04:00|Mitchell D McPhetridge|Add fail-closed candidate release evidence manifest and verifier",
+        "url": "https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/blob/a01a67afa6c364c708ed960921eb7e992113e123/tools/release_evidence.py#L79"
+      },
+      "date_limit": "See timeline for manuscript declarations and earlier precursors; the code/formalization date here is Git metadata, not certified first public disclosure.",
+      "archive_witness_scope": "Related earlier title/manuscript archival record, not an independently recovered executable mechanism or byte-equivalence proof. See archive-witnesses.json."
+    },
+    {
+      "id": "M10",
+      "mechanism": "Cross-domain claim/identity/revision/scope/time audit and paired boundary-case protocol",
+      "novelty_claim_under_test": "Novel reusable method or prediction beyond the separate contracts",
+      "mplpb_origin_source_ids": [
+        "clarity",
+        "pr38-report",
+        "pr38-spec",
+        "pr38-protocol"
+      ],
+      "original_author": "Mitchell D. McPhetridge research; executable contribution and Codex assistance as recorded in the report",
+      "external_prior_art": [
+        "Hoare 1969 / Meyer 1992 proof and contract obligations",
+        "Magentic-One 2024 §5.4 verification-failure analysis",
+        "Cravero experience report v1, posted 2026-09-29; checkpoints and independent acceptance"
+      ],
+      "technical_comparison": "The synthesis asks a consistent diagnostic question and organized the discovery of a task mismatch. No incremental predictive or diagnostic gain over expert contract review has been measured. Paired controls, fixed acceptance oracles and refusal-cost metrics are established experimental practices.",
+      "overlap_classification": "3: Shared components with a different combination",
+      "distinctive_contribution": "A useful source-grounded audit organization and prospective four-domain case design; not a demonstrated new evaluation methodology.",
+      "implementation_evidence": "PR #38 specification/protocol and local defect trace; 20 inspected cases are not an independently sealed benchmark.",
+      "novelty_status": "not established",
+      "confidence": "Moderate on practical organizational usefulness; no controlled novelty or incremental-utility evidence.",
+      "relationship_to_pr38": "New organization/formal notation/protocol in PR #38; underlying distinctions older. Working name is task-proposed.",
+      "global_priority": "Not established by a bounded search; where contradicted, that applies to the explicitly stated broad claim rather than every implementation detail.",
+      "archive_witness_ids": [
+        "A02"
+      ],
+      "mplpb_origin": [
+        {
+          "id": "clarity",
+          "author_attribution": "Mitchell D. McPhetridge research; repository implementation and Codex-assisted changes distinguished in report",
+          "path": "papers/Clarity_Is_Not_Validation.txt",
+          "revision": "c665337492a4aa5c3619c57c439a0583732c68bd",
+          "git_blob_sha": "04198621216be67b579cd681f3c75294247bfa18",
+          "sha256": "c43c12a49d032b62da9ed8c15210b1285e3d36e7000aa9995882b0330f36b11f",
+          "location": "Clarity",
+          "line": 1,
+          "git_metadata": "c665337492a4aa5c3619c57c439a0583732c68bd|2026-10-08T08:07:32-04:00|2026-10-08T08:07:32-04:00|Mitchell D McPhetridge|Add provenance gate, topic corpora, papers and rollback notes",
+          "url": "https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/blob/c665337492a4aa5c3619c57c439a0583732c68bd/papers/Clarity_Is_Not_Validation.txt#L1"
+        },
+        {
+          "id": "pr38-report",
+          "author_attribution": "Mitchell D. McPhetridge research; repository implementation and Codex-assisted changes distinguished in report",
+          "path": "evaluation/no-unverified-promotion/README.md",
+          "revision": "4fd0203e26d90b267480c3c06a5ef4b06444641e",
+          "git_blob_sha": "f16436ea70cf5559b0552a1d0fcbc88e8ffee140",
+          "sha256": "2ef43da293cbda2edc907f7859880f1484a75a1d1563642a1a9cec9677cbb25a",
+          "location": "Final classification:",
+          "line": 11,
+          "git_metadata": "4fd0203e26d90b267480c3c06a5ef4b06444641e|2026-11-10T08:31:58-05:00|2026-11-10T08:31:58-05:00|Mitchell D McPhetridge|Audit claim-specific promotion contracts and prevent atomic completion substitution",
+          "url": "https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/blob/4fd0203e26d90b267480c3c06a5ef4b06444641e/evaluation/no-unverified-promotion/README.md#L11"
+        },
+        {
+          "id": "pr38-spec",
+          "author_attribution": "Mitchell D. McPhetridge research; repository implementation and Codex-assisted changes distinguished in report",
+          "path": "evaluation/no-unverified-promotion/SPECIFICATION.md",
+          "revision": "4fd0203e26d90b267480c3c06a5ef4b06444641e",
+          "git_blob_sha": "126217dadb1594c088b2b901ebb553c0f07155b4",
+          "sha256": "65907fcb0cecc600f60b2c48bc3ebeb09adf1fced3a48fee1ee801c7916a5a3b",
+          "location": "If K does not entail",
+          "line": 29,
+          "git_metadata": "4fd0203e26d90b267480c3c06a5ef4b06444641e|2026-11-10T08:31:58-05:00|2026-11-10T08:31:58-05:00|Mitchell D McPhetridge|Audit claim-specific promotion contracts and prevent atomic completion substitution",
+          "url": "https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/blob/4fd0203e26d90b267480c3c06a5ef4b06444641e/evaluation/no-unverified-promotion/SPECIFICATION.md#L29"
+        },
+        {
+          "id": "pr38-protocol",
+          "author_attribution": "Mitchell D. McPhetridge research; repository implementation and Codex-assisted changes distinguished in report",
+          "path": "evaluation/no-unverified-promotion/PROTOCOL.md",
+          "revision": "4fd0203e26d90b267480c3c06a5ef4b06444641e",
+          "git_blob_sha": "d1ae855400f57063a934b8db54a1a9fe93a9a309",
+          "sha256": "ded57fd2840608e51a32107326de54667a6045e87ab87fdf9b6d80e239889c0d",
+          "location": "Matched conditions",
+          "line": 44,
+          "git_metadata": "4fd0203e26d90b267480c3c06a5ef4b06444641e|2026-11-10T08:31:58-05:00|2026-11-10T08:31:58-05:00|Mitchell D McPhetridge|Audit claim-specific promotion contracts and prevent atomic completion substitution",
+          "url": "https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/blob/4fd0203e26d90b267480c3c06a5ef4b06444641e/evaluation/no-unverified-promotion/PROTOCOL.md#L44"
+        }
+      ],
+      "first_located_implementation_or_formalization": {
+        "id": "pr38-spec",
+        "author_attribution": "Mitchell D. McPhetridge research; repository implementation and Codex-assisted changes distinguished in report",
+        "path": "evaluation/no-unverified-promotion/SPECIFICATION.md",
+        "revision": "4fd0203e26d90b267480c3c06a5ef4b06444641e",
+        "git_blob_sha": "126217dadb1594c088b2b901ebb553c0f07155b4",
+        "sha256": "65907fcb0cecc600f60b2c48bc3ebeb09adf1fced3a48fee1ee801c7916a5a3b",
+        "location": "If K does not entail",
+        "line": 29,
+        "git_metadata": "4fd0203e26d90b267480c3c06a5ef4b06444641e|2026-11-10T08:31:58-05:00|2026-11-10T08:31:58-05:00|Mitchell D McPhetridge|Audit claim-specific promotion contracts and prevent atomic completion substitution",
+        "url": "https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/blob/4fd0203e26d90b267480c3c06a5ef4b06444641e/evaluation/no-unverified-promotion/SPECIFICATION.md#L29"
+      },
+      "date_limit": "See timeline for manuscript declarations and earlier precursors; the code/formalization date here is Git metadata, not certified first public disclosure.",
+      "archive_witness_scope": "Related earlier title/manuscript archival record, not an independently recovered executable mechanism or byte-equivalence proof. See archive-witnesses.json."
+    },
+    {
+      "id": "M11",
+      "mechanism": "Integration of sealed local pages, eligibility/refusal, revisable work, current capabilities and receipt acceptance",
+      "novelty_claim_under_test": "Priority of the particular complete MPLPB architectural synthesis",
+      "mplpb_origin_source_ids": [
+        "local-web",
+        "provenance-gate",
+        "answer-impl",
+        "work-original",
+        "completion-fix"
+      ],
+      "original_author": "Mitchell D. McPhetridge research; executable contribution and Codex assistance as recorded in the report",
+      "external_prior_art": [
+        "Magentic-One 2024 ledgers and model-directed completion; pinned AutoGen orchestrator lines 192–215,265–317",
+        "Graphiti 2025 temporal/provenance memory; pinned edges.py and edge_operations.py",
+        "Cravero 2026-09-29 experience report: protected baselines, authorized bounded intervention, persistent evidence and separate verification"
+      ],
+      "technical_comparison": "These are close combinations, not just shared words. The inspected AutoGen completion path relies on a model ledger; Graphiti updates extracted relationships through temporal/model resolution; the experience report describes human/prompt checkpoints. MPLPB supplies concrete source and work-store checks. No inspected predecessor shows this exact full set, but that is bounded negative evidence, not proof of invention.",
+      "overlap_classification": "3: Shared components with a different combination",
+      "distinctive_contribution": "An attributable executable integration with explicit boundaries. It is a connected family of contracts, not one globally verified engine; native specialist work is not a hosted browser agent team.",
+      "implementation_evidence": "WorkStore._source bridges source eligibility to work records; _effective/_permission/execute/completion implement later stages. Reported behavior comes from authored tests.",
+      "novelty_status": "plausible",
+      "confidence": "High that source-backed differences exist; low-to-moderate that the selected comparison set captures all closest predecessors. Priority unresolved.",
+      "relationship_to_pr38": "Most integration predates PR #38 (October 31); its correction completes one missing invariant, not the invention of the whole architecture.",
+      "global_priority": "Not established by a bounded search; where contradicted, that applies to the explicitly stated broad claim rather than every implementation detail.",
+      "archive_witness_ids": [
+        "A01",
+        "A03",
+        "A04",
+        "A05"
+      ],
+      "mplpb_origin": [
+        {
+          "id": "local-web",
+          "author_attribution": "Mitchell D. McPhetridge research; repository implementation and Codex-assisted changes distinguished in report",
+          "path": "parts/local-mirror/docs/MPLPB_Local_Web_v4.md",
+          "revision": "dd8e6d4e8e101c6b19fd7f834e0e76b00064e3fd",
+          "git_blob_sha": "ac047cafffc257ff11fe37c04794bf222ef46327",
+          "sha256": "a12b8cc07c2a88a9396a26452efd0601727f9077dba21dafbd0e03952e3156ef",
+          "location": "Last Updated:",
+          "line": 4,
+          "git_metadata": "dd8e6d4e8e101c6b19fd7f834e0e76b00064e3fd|2026-10-07T12:08:53-04:00|2026-10-07T12:08:53-04:00|Mitchell D McPhetridge|Add files via upload",
+          "url": "https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/blob/dd8e6d4e8e101c6b19fd7f834e0e76b00064e3fd/parts/local-mirror/docs/MPLPB_Local_Web_v4.md#L4"
+        },
+        {
+          "id": "provenance-gate",
+          "author_attribution": "Mitchell D. McPhetridge research; repository implementation and Codex-assisted changes distinguished in report",
+          "path": "mplpb_combined/provenance_gate.py",
+          "revision": "c665337492a4aa5c3619c57c439a0583732c68bd",
+          "git_blob_sha": "c55bf6b3c4434ed18c4e2e8a4be4fc015bc8a2a0",
+          "sha256": "b20afb72011cf9352cbd77144d77d3d887c1696cced778939ffaeb43ea1d4206",
+          "location": "class GateResult",
+          "line": 21,
+          "git_metadata": "c665337492a4aa5c3619c57c439a0583732c68bd|2026-10-08T08:07:32-04:00|2026-10-08T08:07:32-04:00|Mitchell D McPhetridge|Add provenance gate, topic corpora, papers and rollback notes",
+          "url": "https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/blob/c665337492a4aa5c3619c57c439a0583732c68bd/mplpb_combined/provenance_gate.py#L21"
+        },
+        {
+          "id": "answer-impl",
+          "author_attribution": "Mitchell D. McPhetridge research; repository implementation and Codex-assisted changes distinguished in report",
+          "path": "mplpb_answers/support.py",
+          "revision": "75cbbd0794e891e0e8e4759e0993a0de7c5eab9f",
+          "git_blob_sha": "34a8f29fa1b5eee053e7231e6f0be051f0f46742",
+          "sha256": "00d0acd8e8673e70ec2194c5cb447e4144593080d2c5c857e2321d0825b22aa2",
+          "location": "def supported_answer",
+          "line": 72,
+          "git_metadata": "75cbbd0794e891e0e8e4759e0993a0de7c5eab9f|2026-10-13T08:25:32-04:00|2026-10-13T08:25:32-04:00|Mitchell D McPhetridge|Separate supported answers from archived candidate retrieval",
+          "url": "https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/blob/75cbbd0794e891e0e8e4759e0993a0de7c5eab9f/mplpb_answers/support.py#L72"
+        },
+        {
+          "id": "work-original",
+          "author_attribution": "Mitchell D. McPhetridge research; repository implementation and Codex-assisted changes distinguished in report",
+          "path": "mplpb_work/store.py",
+          "revision": "41779b4aec0444af506ec4efde434a2e545e6e4b",
+          "git_blob_sha": "c3ef206f31c11b495455eacd967f3a1501894432",
+          "sha256": "c0da4147627f2a6925cf4a8416debb92e9b86d7083df561b31d365f479a158bb",
+          "location": "def _effective",
+          "line": 324,
+          "git_metadata": "41779b4aec0444af506ec4efde434a2e545e6e4b|2026-10-31T09:14:44-04:00|2026-10-31T09:14:44-04:00|Mitchell D McPhetridge|Implement durable specialist work, capability-gated handoffs and guarded execution",
+          "url": "https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/blob/41779b4aec0444af506ec4efde434a2e545e6e4b/mplpb_work/store.py#L324"
+        },
+        {
+          "id": "completion-fix",
+          "author_attribution": "Mitchell D. McPhetridge research; repository implementation and Codex-assisted changes distinguished in report",
+          "path": "mplpb_work/store.py",
+          "revision": "4fd0203e26d90b267480c3c06a5ef4b06444641e",
+          "git_blob_sha": "069a0450b6f440de341916870ddeb8af2c697254",
+          "sha256": "c73c4f55f1567ff63434a6d6e7bd2b3adef7a5cb80ffde31684667072c541976",
+          "location": "Task contract changed during completion",
+          "line": 521,
+          "git_metadata": "4fd0203e26d90b267480c3c06a5ef4b06444641e|2026-11-10T08:31:58-05:00|2026-11-10T08:31:58-05:00|Mitchell D McPhetridge|Audit claim-specific promotion contracts and prevent atomic completion substitution",
+          "url": "https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/blob/4fd0203e26d90b267480c3c06a5ef4b06444641e/mplpb_work/store.py#L521"
+        }
+      ],
+      "first_located_implementation_or_formalization": {
+        "id": "work-original",
+        "author_attribution": "Mitchell D. McPhetridge research; repository implementation and Codex-assisted changes distinguished in report",
+        "path": "mplpb_work/store.py",
+        "revision": "41779b4aec0444af506ec4efde434a2e545e6e4b",
+        "git_blob_sha": "c3ef206f31c11b495455eacd967f3a1501894432",
+        "sha256": "c0da4147627f2a6925cf4a8416debb92e9b86d7083df561b31d365f479a158bb",
+        "location": "def _effective",
+        "line": 324,
+        "git_metadata": "41779b4aec0444af506ec4efde434a2e545e6e4b|2026-10-31T09:14:44-04:00|2026-10-31T09:14:44-04:00|Mitchell D McPhetridge|Implement durable specialist work, capability-gated handoffs and guarded execution",
+        "url": "https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/blob/41779b4aec0444af506ec4efde434a2e545e6e4b/mplpb_work/store.py#L324"
+      },
+      "date_limit": "See timeline for manuscript declarations and earlier precursors; the code/formalization date here is Git metadata, not certified first public disclosure.",
+      "archive_witness_scope": "Related earlier title/manuscript archival record, not an independently recovered executable mechanism or byte-equivalence proof. See archive-witnesses.json."
+    },
+    {
+      "id": "M12",
+      "mechanism": "Specific atomic receipt/contract-substitution failure trace with legitimate controls",
+      "novelty_claim_under_test": "New local observation in the identified MPLPB implementation, not first worldwide failure class",
+      "mplpb_origin_source_ids": [
+        "completion-tests",
+        "pr38-results"
+      ],
+      "original_author": "Mitchell D. McPhetridge research; executable contribution and Codex assistance as recorded in the report",
+      "external_prior_art": [
+        "SWE-bench fixed-criteria grading predates this trace",
+        "Magentic-One 2024 already documents inadequate verification before completion"
+      ],
+      "technical_comparison": "The exact old-store behavior and repair are traceable in code/results. Earlier failures involving premature completion show the broad error class was known. This audit did not search every bug tracker or reproduce other systems.",
+      "overlap_classification": "4: Similar goal/failure class with different implementation",
+      "distinctive_contribution": "Supported new repository-specific defect observation and regression record. No claim of first universal phenomenon, new scientific method or independent replication.",
+      "implementation_evidence": "Frozen paired 3/3→0/3 invalid; 2/2→2/2 valid, preserved. Replays do not increase independent sample size.",
+      "novelty_status": "supported",
+      "confidence": "High for the narrowly stated local observation; global empirical priority and generalized efficacy remain not established.",
+      "relationship_to_pr38": "Discovered/reproduced/repaired in PR #38; preserved here without changing tests or results.",
+      "global_priority": "Not established by a bounded search; where contradicted, that applies to the explicitly stated broad claim rather than every implementation detail.",
+      "archive_witness_ids": [],
+      "mplpb_origin": [
+        {
+          "id": "completion-tests",
+          "author_attribution": "Mitchell D. McPhetridge research; repository implementation and Codex-assisted changes distinguished in report",
+          "path": "tests/test_specialist_continuity.py",
+          "revision": "4fd0203e26d90b267480c3c06a5ef4b06444641e",
+          "git_blob_sha": "e1f5b06a99a382fbc393ba08ad8f607779487e37",
+          "sha256": "421d7c2727b938d5b02dc81c098306093f86508e9e27d13e5c244f35fac277b7",
+          "location": "def test_completion_cannot_drop_unmet_criterion_in_same_write",
+          "line": 359,
+          "git_metadata": "4fd0203e26d90b267480c3c06a5ef4b06444641e|2026-11-10T08:31:58-05:00|2026-11-10T08:31:58-05:00|Mitchell D McPhetridge|Audit claim-specific promotion contracts and prevent atomic completion substitution",
+          "url": "https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/blob/4fd0203e26d90b267480c3c06a5ef4b06444641e/tests/test_specialist_continuity.py#L359"
+        },
+        {
+          "id": "pr38-results",
+          "author_attribution": "Mitchell D. McPhetridge research; repository implementation and Codex-assisted changes distinguished in report",
+          "path": "evaluation/no-unverified-promotion/contract-replay.json",
+          "revision": "4fd0203e26d90b267480c3c06a5ef4b06444641e",
+          "git_blob_sha": "ea7a22ac338f6cf72e8cd023fa68e8c70045658f",
+          "sha256": "66cb43f6d34bb1d5cc7f653ec48be9f145d807e364cd7fbb54364c04aa8ff7ec",
+          "location": "",
+          "line": null,
+          "git_metadata": "4fd0203e26d90b267480c3c06a5ef4b06444641e|2026-11-10T08:31:58-05:00|2026-11-10T08:31:58-05:00|Mitchell D McPhetridge|Audit claim-specific promotion contracts and prevent atomic completion substitution",
+          "url": "https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/blob/4fd0203e26d90b267480c3c06a5ef4b06444641e/evaluation/no-unverified-promotion/contract-replay.json"
+        }
+      ],
+      "first_located_implementation_or_formalization": {
+        "id": "completion-tests",
+        "author_attribution": "Mitchell D. McPhetridge research; repository implementation and Codex-assisted changes distinguished in report",
+        "path": "tests/test_specialist_continuity.py",
+        "revision": "4fd0203e26d90b267480c3c06a5ef4b06444641e",
+        "git_blob_sha": "e1f5b06a99a382fbc393ba08ad8f607779487e37",
+        "sha256": "421d7c2727b938d5b02dc81c098306093f86508e9e27d13e5c244f35fac277b7",
+        "location": "def test_completion_cannot_drop_unmet_criterion_in_same_write",
+        "line": 359,
+        "git_metadata": "4fd0203e26d90b267480c3c06a5ef4b06444641e|2026-11-10T08:31:58-05:00|2026-11-10T08:31:58-05:00|Mitchell D McPhetridge|Audit claim-specific promotion contracts and prevent atomic completion substitution",
+        "url": "https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/blob/4fd0203e26d90b267480c3c06a5ef4b06444641e/tests/test_specialist_continuity.py#L359"
+      },
+      "date_limit": "See timeline for manuscript declarations and earlier precursors; the code/formalization date here is Git metadata, not certified first public disclosure.",
+      "archive_witness_scope": "Related earlier title/manuscript archival record, not an independently recovered executable mechanism or byte-equivalence proof. See archive-witnesses.json."
+    }
+  ]
+}

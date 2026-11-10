@@ -44,6 +44,12 @@ modern application tests do not retrospectively validate those experiments.
 
 | [no-unverified-promotion](../evaluation/no-unverified-promotion/README.md) | [specialist regression](../tests/test_specialist_continuity.py); [answer](../tests/test_answer_support.py); [retrieval](../tests/test_page_retrieval.py); [release](../tests/test_release_evidence.py); [handoff](../tests/test_handoff.py) | [audit_unverified_promotion.py](../tools/audit_unverified_promotion.py) | 88 contract assertions, authored artifact control and five-case paired completion regression; no independent four-domain efficacy or novelty result. |
 
+The [originality reassessment](research/mplpb-originality/README.md) separates the
+logical, architectural, mechanism, implementation and empirical questions raised
+by the no-unverified-promotion audit. It is a static source/prior-art comparison,
+not a new evaluation family or new efficacy score; PR #38’s retained cases and
+results remain unchanged.
+
 ## Reproduce the currently claimed reference result
 
 ```sh

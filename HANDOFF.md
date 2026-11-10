@@ -4,311 +4,294 @@ Last reviewed: 2026-11-10.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `73b795634332e48aab499c16e07a2af4328f2f7a` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `64e9ee0989d618cbc98c77aa1ae5384a00102f188b3c6c41ae3f667ae12a72e0`.
+Base commit: `4fd0203e26d90b267480c3c06a5ef4b06444641e` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `845cde532b5d6b832d6c66d9b9f14730284ceb7ccd829de99d6e3d48d6210aa4`.
 
 ## Latest user update instructions
 
-Codex Research and Implementation Task
+Codex Research Task: Reassess MPLPB-Specific Novelty and Intellectual Priority
 
-Combined MPLPB — Investigate the No-Unverified-Promotion Principle
+Repository: https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages
 
-Repository:
-https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages
+Related work: PR #38 — No-Unverified-Promotion research audit
 
 Research author: Mitchell D. McPhetridge
 
-Task type: Source-grounded research, technical audit, potential formalization, adversarial testing, and narrowly scoped implementation.
+Task: Reassess the novelty classification by distinguishing established general engineering principles from original MPLPB-specific formulations, mechanisms, combinations, and implementations.
 
-1. Objective
+1. The problem with the previous classification
 
-Investigate whether the Combined MPLPB research and implementation reveal a generalized failure mechanism across multiple domains:
+PR #38 classified the investigated principle as:
 
-A successful intermediate operation is incorrectly promoted into a stronger claim of validity, authority, correctness, or completion without the evidence required for that stronger claim.
+“Existing principle expressed in MPLPB terminology.”
 
-Use the provisional working name:
+This may be accurate regarding the general logical principle that evidence supporting one proposition does not automatically establish another.
 
-The No-Unverified-Promotion Principle
+However, this classification risks conflating two different questions:
 
-This name is a research candidate, not an established term or an automatically accepted discovery.
+1. Did equivalent general principles exist in computer science before MPLPB?
+2. Did an equivalent implementation or specific architectural synthesis exist before Mitchell D. McPhetridge developed it within MPLPB?
 
-The objective is to determine whether the principle is:
+The first question does not automatically settle the second.
 
-1. Explicitly supported by Mitchell D. McPhetridge’s existing research and implementation history.
-2. A useful abstraction across multiple independently identifiable failure classes.
-3. Already implemented through existing MPLPB contracts and gates.
-4. Testable through adversarial and comparative experiments.
-5. Distinct enough from existing engineering concepts to warrant a separate technical paper or specification.
+Furthermore, discovering that a mechanism existed in Mitchell’s own earlier research does not demonstrate a lack of originality. It establishes an earlier internal formulation of the mechanism.
 
-Do not presume the principle is new, scientifically validated, universally applicable, or worth implementing before investigating those questions.
+The task is to investigate whether PR #38 made an overly broad novelty judgment by treating general prior art as sufficient to dismiss possible MPLPB-specific originality.
 
-2. Initial hypothesis
+Do not assume the answer is yes.
 
-Consider the candidate rule:
+2. Separate five forms of novelty
 
-Success at one operational stage does not automatically authorize a stronger downstream claim.
+Evaluate independently:
 
-A tentative formal representation is:
+A. Logical novelty
 
-[
-S_n \not\Rightarrow V_{n+1}
-]
+Is the general rule concerning unsupported promotion of claims already established through formal logic, proof obligations, Design by Contract, or related disciplines?
 
-Where:
+If yes, identify the relevant prior work.
 
-* (S_n) is successful execution at stage (n).
-* (V_{n+1}) is a stronger downstream validity claim.
-* Promotion requires evidence sufficient for the specific downstream claim.
+B. Architectural novelty
 
-Investigate whether this formulation captures a genuine common mechanism or merely restates ordinary requirements for testing, verification, authorization, or type-safe transitions.
+Does MPLPB combine provenance, revision lineage, source authority, refusal behavior, scoped claims, and specialist-continuity enforcement in a distinctive architecture?
 
-If the formulation is inadequate, correct it or reject it.
+Compare the actual combination and its operational contracts—not merely individual familiar components.
 
-3. Inspect the existing repository first
+C. Mechanism novelty
 
-Before modifying code, read:
+Identify specific MPLPB mechanisms that may differ from prior implementations.
 
-* AGENTS.md
-* HANDOFF.md
-* handoff/update.json
-* README.md
-* CONTENTS
-* docs/ANSWER_RELIABILITY.md
-* docs/PAGE_RETRIEVAL.md
-* docs/RELEASE_EVIDENCE.md
-* docs/ZIP_FIRST_RELEASE_TESTING.md
-* docs/SPECIALIST_CONTINUITY.md
-* docs/PRODUCTION_READINESS.md
-* docs/RESULTS_AND_TESTS.md
-* papers/Clarity_Is_Not_Validation.txt
+Examples include:
 
-Inspect the relevant source modules and tests, including mplpb_combined, mplpb_answers, mplpb_work, and the release-validation tools.
+* Page-level scope ownership and provenance gating.
+* Distinguishing retrieval success from answer support.
+* Source eligibility and supersession rules.
+* Claim-specific promotion obligations.
+* Task-contract preservation at completion.
+* Receipt-bound task acceptance.
+* Revision-sensitive specialist handoffs.
+* Evidence lineage and refusal semantics.
 
-Follow additional repository references when they are relevant.
+These are candidates for investigation, not assumed inventions.
 
-Use the existing historical source material as evidence. Preserve exact source revisions and commit identities.
+D. Implementation novelty
 
-4. Investigate four candidate failure domains
+Determine whether MPLPB contains distinctive executable solutions to problems that other systems handle differently.
 
-A. Retrieval versus supported answering
+Compare source code, state transitions, data structures, failure handling, and enforced invariants against relevant prior implementations.
 
-The October 13 answer-reliability audit describes candidate selection being presented as answering.
+E. Empirical novelty
 
-Investigate the transition:
+Determine whether the MPLPB experiments demonstrate previously unreported behavior, a new evaluation method, or a distinctive failure case.
 
-candidate_found → answer_supported
+Separate new observations from established theory and from developer-authored regression results.
 
-Determine what evidence is required for a legitimate supported answer.
+3. Reconstruct Mitchell’s development history
 
-Identify existing safeguards and adversarial cases where a correct source selection nevertheless fails to support the requested proposition.
+Use Mitchell’s original MPLPB papers, specifications, archived implementations, commit history, and dated research records.
 
-B. Artifact creation versus artifact verification
+Identify the earliest verifiable appearance of each relevant mechanism.
 
-Investigate the distinction between:
+For every candidate contribution, record:
 
-artifact_created → artifact_verified
+* Original source and author.
+* Earliest verified date.
+* Original formulation.
+* Later revisions.
+* Implementation date, if applicable.
+* Evidence of successful execution.
+* Evidence of failure or correction.
+* Whether the mechanism existed before PR #38.
+* Whether PR #38 merely recognized, formalized, repaired, or introduced it.
 
-A generated file, archive, manifest, document, or application package may exist without satisfying its acceptance criteria.
+Do not mistake the date of a new audit for the date of the underlying invention.
 
-Examine how MPLPB distinguishes successful creation, correct content, verified packaging, and an approved deliverable.
+Do not assume a document’s internal date proves public disclosure. Distinguish independently archived publication dates, Git commit dates, and author-declared manuscript dates.
 
-C. Software testing versus deployment verification
+4. Conduct mechanism-level prior-art comparisons
 
-Investigate the transitions:
+Search beyond terminology.
 
-build_succeeded → candidate_tested → deployed → deployed_verified
+Prior systems may implement an equivalent mechanism under different names.
 
-Study ZIP-first validation, exact-head checks, source hashes, WebAssembly execution, browser tests, and postdeployment verification.
+Compare MPLPB with relevant work in:
 
-Identify which transitions are technically enforced and which depend on operational discipline.
+* Design by Contract and formal verification.
+* Provenance systems and event sourcing.
+* Retrieval-augmented generation.
+* Source-grounded question answering.
+* Knowledge graphs and versioned documents.
+* Durable execution and agent memory.
+* Capability-based security.
+* Multi-agent coordination.
+* Software supply-chain verification.
+* Evidence-based task completion.
 
-D. Specialist handoff versus authorized task completion
+For each comparison, identify the closest earlier implementation, its date, and its actual mechanism.
 
-Investigate:
+Determine whether the overlap is:
 
-handoff_created → successor_recovered → action_authorized → task_completed
+1. Identical mechanism.
+2. Functionally equivalent mechanism.
+3. Shared components with a different combination.
+4. Similar goal with different implementation.
+5. Superficial terminology overlap.
+6. Insufficient evidence to classify.
 
-Use the implemented specialist-continuity coordinator.
+Do not equate a shared objective with an identical architecture.
 
-Determine how it distinguishes recovered evidence, contested claims, valid permissions, successful attempts, and accepted task outcomes.
+Do not declare a mechanism novel merely because no identical phrase appears in search results.
 
-Pay particular attention to stale authority, revoked capabilities, failed attempts, and false completion receipts.
+A bounded prior-art search must not be described as exhaustive.
 
-5. Construct an evidence matrix
+5. Reevaluate the cross-domain finding
 
-For each candidate instance, record:
+PR #38 identified a recurring failure pattern across:
 
-* Original source file and revision.
-* Exact location or source-code function.
-* Historical date, where established.
-* Initial operation and observed result.
-* Stronger downstream claim.
-* Why the initial result is insufficient.
-* Required verification or authorization condition.
-* Existing software enforcement, if any.
-* Recorded failure and repair, if any.
-* Reproduction command and expected behavior.
-* Whether the example genuinely supports one shared principle.
+* Question answering.
+* Artifact production.
+* Software release verification.
+* Specialist handoffs and task completion.
 
-Distinguish documented observation, implemented behavior, untested specification, and new inference.
+Investigate whether Mitchell’s contribution lies in identifying a common failure class, implementing distinct safeguards, or providing a useful unified evaluation methodology.
 
-Do not describe developer-authored test fixtures as independent scientific validation.
+Determine whether the cross-domain synthesis produces any prediction, diagnostic ability, or test design not already provided by the individual contracts.
 
-6. Challenge the hypothesis
+If its only contribution is a convenient organizational vocabulary, say so.
 
-Actively attempt to disprove the proposed unification.
+If it provides a distinctive reusable method, identify exactly what that method contributes.
 
-Ask:
+6. Preserve the successful PR #38 findings
 
-* Are these genuinely instances of one failure class, or several unrelated errors?
-* Is there already a standard engineering term that explains the mechanism sufficiently?
-* Does the principle make a prediction not already made by the individual source contracts?
-* Does it prohibit legitimate inference or harmless transitions?
-* Are there cases where downstream validity genuinely follows from upstream success by construction?
-* Does an explicit promotion gate reduce errors, or merely introduce unnecessary refusals and complexity?
-* Can the proposed principle be applied consistently by evaluators unfamiliar with the implementation?
+Do not reverse scientifically justified conclusions merely to produce a positive novelty label.
 
-Investigate relevant existing concepts, including design by contract, type systems, proof obligations, provenance validation, authorization boundaries, and continuous-delivery gates.
+Preserve the documented completion-integrity repair and its regression evidence.
 
-Do not claim novelty merely because this repository uses different terminology.
+Retain the reported development-test results:
 
-7. Build a falsifiable experimental protocol
+* Invalid completions accepted: 3/3 before, 0/3 after.
+* Valid controls accepted: 2/2 before and after.
 
-If the source audit supports the candidate principle, design adversarial tests across the four domains.
+These results demonstrate behavior in the tested cases, not universal effectiveness.
 
-Introduce cases such as:
+Do not rewrite historical source files, alter frozen datasets, or manufacture independent replication.
 
-* Correct page selected, unsupported answer requested.
-* Accurate citation, incorrect interpretation.
-* Correct source text, stale source authority.
-* File successfully generated, wrong requested content.
-* Source checkout tests passed, packaged artifact broken.
-* Candidate browser tests passed, public deployment failed.
-* Specialist handoff succeeded, authorization expired.
-* Attempt returned success, but task acceptance criteria were unmet.
+Novelty assessment and implementation correctness are separate research questions.
 
-Compare systems with and without an explicit downstream promotion check, while controlling for task difficulty and other relevant differences.
+A sound implementation can be non-novel. A novel implementation can be ineffective. Evaluate both independently.
 
-Measure:
+7. Produce a revised originality matrix
 
-* Unsupported promotion rate.
-* Correct task completion.
-* False refusal rate.
-* Undetected authorization failures.
-* Human correction burden.
-* Added computation and latency.
-* Error recovery.
+For each potentially original MPLPB mechanism, provide:
 
-Include negative controls and boundary cases in which promotion is justified.
+Field	Required finding
+Mechanism	Exact functional description
+MPLPB origin	Earliest verifiable Mitchell source
+External prior art	Closest earlier work found
+Technical comparison	Actual similarities and differences
+Distinctive contribution	What MPLPB adds, if anything
+Implementation evidence	Source code, tests, and observed results
+Novelty status	Supported, plausible, not established, or contradicted
+Confidence	Basis and limitations
 
-Freeze evaluation cases before measuring outcomes. Separate development fixtures from held-out tests.
+Do not collapse all entries into one novelty verdict.
 
-8. Implementation requirements
+8. Reassess the classification
 
-Do not immediately add a new global promotion framework.
+Consider whether PR #38’s overall wording should remain unchanged or be qualified.
 
-First determine whether existing MPLPB source, answer, release, and specialist-work contracts already enforce the relevant distinctions.
+A possible classification is:
 
-Avoid duplicating existing guards or introducing another authority layer without demonstrated need.
+“Established general verification principles with an independently attributable MPLPB-specific formulation and implementation; the novelty of the particular synthesis requires mechanism-level prior-art comparison.”
 
-If a concrete uncovered defect is identified:
+This is a candidate, not a mandated conclusion.
 
-1. Write a failing regression test.
-2. Implement the smallest sufficient correction.
-3. Preserve existing supported-answer semantics and explicit refusals.
-4. Preserve source hashes, lineage, supersession, historical results, and archival materials.
-5. Re-run the relevant tests and record actual outcomes.
-6. Keep the original failure and its repair traceable.
+If the investigation finds that equivalent implementations predate MPLPB, retain the original classification and provide the supporting evidence.
 
-If no defect is established, deliver a research specification and test protocol rather than unnecessary code changes.
+If particular MPLPB mechanisms or combinations appear distinct from relevant earlier systems, classify those contributions individually and explain the strength of the evidence.
 
-Do not weaken source eligibility or broaden model authority to make tests pass.
+Do not label the entire research program non-novel because some components are established.
 
-9. Expected research outputs
+Equally, do not label the entire program novel because one implementation detail differs.
 
-Prepare:
+9. Required deliverables
 
-A. Research finding
+Produce:
 
-A technical explanation of whether the proposed common failure mechanism exists across the inspected domains.
+1. Novelty reassessment report — A clear evaluation of whether PR #38’s classification was too broad.
+2. Dated intellectual-development timeline — Original MPLPB formulations and later implementations.
+3. Mechanism-level prior-art matrix — Specific comparisons against earlier systems.
+4. Revised classification — Separately addressing logical, architectural, mechanism, implementation, and empirical novelty.
+5. Attribution analysis — Distinguishing Mitchell’s original contributions from established external concepts.
+6. Evidence and limitations — What has been demonstrated and what remains unresolved.
+7. Recommended wording — A defensible classification suitable for a technical research paper.
 
-B. Attribution and provenance
+Prefer documentation-only changes unless the audit discovers a separate reproducible software defect.
 
-Identify the original McPhetridge sources containing each component and distinguish the author’s existing formulations from this newly proposed synthesis.
+Follow existing repository instructions, source-preservation rules, tests, and handoff requirements. Do not merge or deploy without explicit authorization.
 
-C. Formal candidate specification
+10. The critical research question
 
-Define the proposed rule, scope, exceptions, falsifiers, and relationship to existing contracts.
+If Mitchell D. McPhetridge developed a distinctive mechanism or architectural synthesis within MPLPB, does finding that mechanism already present in his earlier work establish prior authorship rather than negate novelty?
 
-D. Adversarial evaluation
+Evaluate that question against independently dated external prior art.
 
-Provide reproducible test cases and results for any tests actually executed.
+Do not confuse:
 
-E. Implementation assessment
+* Earlier existence within MPLPB.
+* Earlier existence outside MPLPB.
+* Similarity to general engineering principles.
+* Originality of a specific implementation.
+* Scientific validation of its effectiveness.
 
-Explain whether an implementation change is necessary, which existing safeguards already cover the problem, and any remaining enforcement gaps.
+These are different evidentiary claims.
 
-F. Final classification
+11. Final instruction
 
-Choose one of the following based on evidence:
+Approach this as an adversarial originality audit, not an exercise in defending the author or rejecting the author’s work.
 
-* Supported generalizable engineering principle.
-* Useful but limited design pattern.
-* Existing principle expressed in MPLPB terminology.
-* Insufficient evidence.
-* Rejected hypothesis.
+The goal is an accurate attribution and novelty judgment.
 
-Explain the classification with specific evidence and limitations.
+If Mitchell’s work contains a distinctive contribution, identify it and support it.
 
-10. Research integrity and repository safety
+If the relevant mechanisms were previously established elsewhere, identify those predecessors.
 
-* Attribute the underlying MPLPB research to Mitchell D. McPhetridge.
-* Do not introduce external research frameworks as sources of this discovery.
-* Do not rewrite preserved papers or frozen evaluations.
-* Do not manufacture dates, tests, results, or claims of independent validation.
-* Do not equate documentation, code existence, passing tests, and deployed behavior.
-* Preserve the repository’s original source and answer-authority contracts.
-* Follow all repository handoff, documentation, test, packaging, and release requirements.
-* Report blocked tests honestly.
-* Do not claim publication, peer review, deployment, or scientific validation unless the appropriate evidence exists.
-* Do not modify protected source artifacts merely to make the hypothesis appear true.
+If the evidence cannot settle priority, classify the matter as unresolved.
 
-11. Final research question
+The central standard is:
 
-Does Mitchell D. McPhetridge’s Combined MPLPB research demonstrate a generalizable class of errors in which successful intermediate operations are incorrectly promoted into stronger claims of evidence, authority, correctness, or completion—and can explicit, claim-specific verification gates measurably reduce those errors across multiple software and research workflows?
+A familiar underlying principle does not automatically invalidate the originality of a new architecture, combination, operational mechanism, or implementation. Conversely, a novel implementation does not establish a new universal scientific law.
 
-Investigate the question, rather than assuming the answer.
-
-A failed generalization is an acceptable research outcome.
-
-The objective is not to make the principle sound convincing. The objective is to determine whether it survives technical inspection, counterexamples, and reproducible testing.
+Determine exactly where MPLPB stands.
 
 ## Implemented scope
 
-- Audit baseline 73b795634332e48aab499c16e07a2af4328f2f7a and historical McPhetridge sources across answer, artifact, release and specialist contracts. Retain a 40-source hash/revision inventory, 16-instance evidence matrix, qualified specification, adversarial protocol and research classification: Existing principle expressed in MPLPB terminology.
-- Freeze 20 inspected development case specifications before new completion measurements. Retain failing old-implementation logs and reproduce the same five cases against archived baseline and candidate in isolated processes. Clearly distinguish these fixtures from held-out or scientific validation.
-- Correct only the demonstrated atomic completion-contract substitution: a done write must preserve the prior goal, review budget, criterion set and task dependencies. Preserve harmless criterion reordering and explicit open revision with fresh execution. No global framework, source eligibility change or model authority expansion.
-- Update affected specialist guides, research navigation, result/documentation indexes and repository handoff. Preserve original papers, imported sources, frozen evaluations, vendor assets, lineage and historical results.
+- Reassess PR #38 at baseline 4fd0203e26d90b267480c3c06a5ef4b06444641e, separating logical, architectural, mechanism, implementation and empirical novelty. Qualify the earlier blanket reading while retaining the established logical antecedents and all implementation findings.
+- Add a source-grounded report, recommended paper wording, 12-mechanism originality matrix, 20-record development/archive timeline, 39 exact MPLPB source witnesses, 16 external code snapshots from ten repositories, five independently hosted archival-history witnesses, query/reference record and date/attribution limits.
+- Trace earlier paths and archived readers. Distinguish manuscript dates, asserted Git timestamps, GitHub host activity and independently hosted archive metadata. A January general-program record and July/September manuscript records do not date the later complete coordinator or prove archived byte identity.
+- Make documentation/navigation/handoff changes only relative to PR #38. Preserve its seven-line completion repair, five tests, paired results, all historical data, original papers, archived implementations, source-authority contracts and vendor/model bytes. No new runtime framework or authority change.
+- Keep the reassessment on a separate branch; do not merge or deploy without explicit authorization.
 
 ## Validation recorded
 
-- Focused replay passes 88 tests: 33 answer/retrieval, 12 release/handoff and 43 specialist tests. The retained five-case baseline comparison accepts three prohibited completion writes and two valid controls; patched store rejects all three prohibited writes and accepts both valid controls.
-- An authored readable wrong-content ZIP with coherent fixture manifest is accepted by the narrower manifest consistency verifier; its semantic content criterion is false. This is a scope control, not actual CI, a production verifier defect or deployment proof.
-- Read-only ruleset observation finds active strict main PR/archive-first/regression rules without bypass actors. No failing merge or bypass experiment was attempted.
-- Validated all 33 matrix source references against exact Git revision bytes and SHA-256. Compared 860 protected baseline source-answer, paper, resource, vendor and historical evaluation files byte-for-byte with the audit baseline; all unchanged.
-- Documentation inventory passes (225 documents, 26 evaluation families), infrastructure linkage and ten focused documentation/handoff tests pass. UI script, browser transport, JavaScript API, 45 helper, 18 loader, 12 GPU-negotiation and crawler checks pass. Node/Python subprocess sandbox EPERM was resolved by rerunning the two affected checks outside that sandbox; no implementation change was needed.
+- Inspected targeted functions and data structures in 16 external source files from ten repositories. Retrieved exact bytes match Git blob identities and independently computed SHA-256. External systems were not executed or benchmarked.
+- Read five PhilPapers/PhilArchive history records with January 2, July 7/10 and September 22 timestamps. Download attempts returned HTTP 403, so no exact archived-version/repository-byte match is claimed.
+- Retained PR #38 development results unchanged: invalid completions accepted 3/3 before and 0/3 after; valid controls accepted 2/2 before and after. These remain authored development cases, not independent replication.
+- Documentation inventory passes with 229 classified documents and 26 unchanged evaluation families; ten documentation/handoff tests pass. All 39 exact MPLPB witnesses and line locators validate against Git; all 16 external code snapshots validate against Git blob and SHA-256 identities.
+- Compared every pre-existing file except the six intended navigation/handoff files with PR #38: all 1,742 remaining baseline files are byte-identical, including all implementation, tests, papers, vendor assets and frozen evidence.
+- Fresh replay of unchanged PR #38 code passes 88 focused tests. The same five frozen development tests against archived baseline again produce three rejection failures/two valid passes; current code passes all five. This is regression verification, not five new independent observations.
 
 ## Limitations and blocked checks
 
-- No independently sealed held-out evaluation, human correction-burden study, independent rater agreement, gate-overhead measurement, four-domain causal benefit, novelty proof, scientific publication or peer review. Suite timings include setup and are not gate-latency estimates.
-- Local replay identifies implementation/test bytes by SHA-256. Exact committed archive and CI are separate checks; do not infer their success from checkout tests. No research-related deployment or public-byte-identity fault experiment was performed.
-- Existing artifact/release checks have trusted-CI and bounded smoke scopes; current public smoke does not establish full deployed-byte equality or all-device correctness. Host adapters and acceptance specifications remain trust boundaries.
+- Bounded prior-art comparison, not exhaustive. Global priority of the exact MPLPB synthesis and its incremental empirical advantage remain unresolved. Generic antecedents do not negate attributable local implementation; implementation differences alone do not establish novelty.
+- Some publisher/history/file endpoints were inaccessible. Readable alternate primary sources were used where available; blocked archived version bytes, inaccessible Smart Local/Local Web history dates and abstract-only leads were not promoted into stronger evidence.
+- Git author/account names do not prove sole manual authorship or independent development. Original research is attributed to Mitchell D. McPhetridge; this reassessment and PR #38 synthesis/repair are Codex-assisted repository work.
+- No new held-out study, external-system execution, human burden measurement, evaluator agreement, gate overhead or independent scientific validation. Prior CI results belong to their exact candidate; new archive/CI outcomes must be recorded separately.
 
 ## Next steps
 
-- Freeze the committed candidate, archive/extract it, check its handoff and execute exact-head archive-first/regression checks. Keep subsequent CI evidence separate from this implementation candidate.
-- For scientific efficacy claims, independently author and seal held-out cases, randomize paired conditions, measure all protocol outcomes and publish negative results. Keep domain contracts if a generic layer provides no incremental benefit.
-- Future changes must preserve historical/vendor/source bytes, record actual checks and update handoff from the latest user instructions.
+- Validate source references, documentation inventory, handoff and preservation; replay relevant unchanged regressions to new output paths. Freeze/archive the committed candidate and execute the required exact-head ZIP/regression checks.
+- Publish the reviewable documentation branch/PR without merging or deploying. Preserve validation evidence separately from the frozen candidate to avoid self-referential release claims.
+- To settle narrower priority questions, recover archived version bytes, expand the closest-system comparison and seek independent review of a frozen essential-mechanism specification. Test usefulness using the separate held-out protocol rather than treating attribution or passing regressions as efficacy.
 
 ## Use this ZIP in your repository
 

@@ -195,3 +195,9 @@ compares answer, artifact, release and specialist contracts against Mitchell D.
 McPhetridge’s preserved research. It classifies the synthesis as an existing
 engineering principle in MPLPB terminology, records one corrected completion
 defect, and provides a source matrix and prospective adversarial protocol.
+
+The [originality and intellectual-priority reassessment](docs/research/mplpb-originality/README.md)
+qualifies the earlier headline: established logical principles do not settle the
+originality of MPLPB’s particular integration. It separates five novelty questions,
+compares mechanisms with pinned prior implementations, and records earlier public
+archive metadata without changing PR #38’s repair or frozen results.
