@@ -39,7 +39,8 @@ python -m tools.browser_free_helper --preview-dir dist --browser-executable /usr
 
 The supplied private device reports are not published. They showed the patched
 512 MiB per-buffer limits and a later cached-weight initialization failure. This
-motivates a smaller choice but does not prove total-memory exhaustion. Successful
-physical iPad initialization and generation remain to be tested. Candidate,
+motivates a smaller choice but does not prove total-memory exhaustion. A later user-provided report records Phi-1.5 initializing successfully on Apple
+WebGPU; a screenshot then records a disposed-object error on generation. Successful
+generation and independent physical iPad reproduction remain unverified. Candidate,
 archive, CI and deployed-site results apply only to their respective revisions;
 see the PR/Actions runs for exact release outcomes.

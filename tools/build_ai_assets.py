@@ -80,34 +80,48 @@ def build(output,root=ROOT):
 
 def markup(root=ROOT):
     return BEGIN+'''\n<details id="ai-helper" class="panel" style="max-width:1100px;margin:16px auto;padding:16px">
-<summary><strong>Builder and chat helper · optional free browser AI</strong></summary>
-<p>Everyone can use this page. No paid AI service or account is required. The optional pretrained model runs on a compatible visitor device; it does not run on GitHub’s servers.</p>
+<summary><strong>AI chat and MPLPB builder · free local AI</strong></summary>
+<p>Chat with your loaded AI, ask about your sources, or build MPLPB collections with review before saving. No paid AI service or account is required.</p>
 <label>AI model · MIT licenses only <select id="ai-helper-model" aria-describedby="ai-helper-model-info" disabled></select></label>
 <p id="ai-helper-model-info" class="small" role="status">Loading model choices. No model weights are downloaded until you press Load.</p>
 <button id="ai-helper-load" type="button" disabled>Load selected model</button>
-<label><input id="ai-helper-use-model" type="checkbox" disabled> Use loaded AI for proposals</label>
+<label><input id="ai-helper-use-model" type="checkbox" disabled> Use loaded AI in this helper</label>
 <p id="ai-helper-model-status" role="status" aria-live="polite">No AI model loaded. Downloading and initialization are separate stages.</p>
+<details><summary>Model notes and device requirements</summary>
+<p class="small">The pretrained model runs on your device, not GitHub’s servers. Phi-1.5 is the smallest default; working memory estimates are not measured free memory. Changing models after loading requires a reload. No fine-tuning or automatic training on your conversations takes place.</p>
+</details>
 <details><summary>Model loading details</summary><pre id="ai-helper-load-report" style="white-space:pre-wrap;overflow-wrap:anywhere"></pre></details>
 <button id="ai-helper-export-load" type="button">Export model load report</button>
-<p class="small">This local report includes browser/GPU capabilities, load progress and available runtime errors. It is not uploaded automatically and does not include your source questions. A 100% download does not establish that the model can initialize.</p>
-<p class="small">Phi-1.5 is the smallest default; successful iPad loading is not guaranteed. Working memory estimates are not measured free memory. To change models after a load attempt, choose one and reload. MPLPB remains available. No fine-tuning or automatic training on your conversations takes place.</p>
+<section id="ai-helper-chat-frame" aria-label="AI chat and MPLPB builder" style="margin-top:16px">
+<h2>AI chat and MPLPB builder</h2>
 <div style="display:flex;gap:8px;flex-wrap:wrap">
 <label>Collection <select id="ai-helper-corpus" aria-label="Helper collection"></select></label>
-<label>Task <select id="ai-helper-mode"><option value="ask">Ask sources</option><option value="chat">Chat with MPLPB</option><option value="build">Build a collection/source</option><option value="general">General chat · model text is unverified</option></select></label>
+<label>Task <select id="ai-helper-mode"><option value="general">AI chat · unverified model text</option><option value="build">Build a collection/source · review before saving</option><option value="ask">Ask sources</option><option value="chat">MPLPB source conversation</option></select></label>
 </div>
-<label>Your request <textarea id="ai-helper-message" rows="3" maxlength="4000" style="width:100%;box-sizing:border-box" placeholder="Ask a question, discuss your sources, or describe what you want to build."></textarea></label>
+<div id="ai-helper-messages" role="log" aria-label="AI helper conversation" aria-live="polite" style="height:clamp(180px,32vh,360px);overflow-y:auto;border:1px solid currentColor;border-radius:8px;padding:12px;margin:12px 0;overflow-wrap:anywhere">
+<p class="small">Your conversation appears here. Choose AI chat to talk with the loaded model, or Build to propose a collection or source for review.</p>
+<div id="ai-helper-history"></div>
+<pre id="ai-helper-output" style="white-space:pre-wrap;overflow-wrap:anywhere"></pre>
+</div>
+<form id="ai-helper-form">
+<label for="ai-helper-message">Message the AI or describe what you want to build</label>
+<div style="display:flex;align-items:flex-end;gap:8px">
+<textarea id="ai-helper-message" rows="2" maxlength="4000" style="flex:1;min-width:0;box-sizing:border-box;resize:vertical" placeholder="Type your message here…"></textarea>
+<button id="ai-helper-send" class="primary" type="submit" style="flex-shrink:0;min-height:44px">Send</button>
+</div>
+<p class="small">Enter to send · Shift+Enter for a new line. Replies stay above this prompt.</p>
+<p id="ai-helper-status" role="status" aria-live="polite">Load an AI model for AI chat. The source tools and reviewed manual builder also work without it.</p>
+</form>
+<pre id="ai-helper-review" style="white-space:pre-wrap;overflow-wrap:anywhere"></pre>
+<button id="ai-helper-approve" type="button" hidden>Save this reviewed draft</button>
+<button id="ai-helper-cancel" type="button" hidden>Cancel draft</button>
+</section>
 <details><summary>Provide source text for a reviewed import</summary>
 <label>Title <input id="ai-helper-title" maxlength="200"></label>
 <label>Source URL <input id="ai-helper-url" type="url" placeholder="https://…"></label>
 <label>Exact supplied text <textarea id="ai-helper-source" rows="5" maxlength="10000" style="width:100%;box-sizing:border-box"></textarea></label>
 <p class="small">Choose Build to propose an import. Supplied text is saved exactly after review. An AI-generated draft is labeled unverified; saving it does not ratify its truth or authorship.</p>
 </details>
-<button id="ai-helper-send" type="button">Send to helper</button>
-<p id="ai-helper-status" role="status" aria-live="polite">No model loaded. The existing MPLPB engine and manual reviewed builder are available.</p>
-<pre id="ai-helper-output" style="white-space:pre-wrap;overflow-wrap:anywhere"></pre>
-<pre id="ai-helper-review" style="white-space:pre-wrap;overflow-wrap:anywhere"></pre>
-<button id="ai-helper-approve" type="button" hidden>Save this reviewed draft</button>
-<button id="ai-helper-cancel" type="button" hidden>Cancel draft</button>
 <details><summary>Inspect the original engine result and evidence</summary><pre id="ai-helper-evidence" style="white-space:pre-wrap;overflow-wrap:anywhere"></pre></details>
 <details><summary>Inspect inputs, model proposals and actual execution paths</summary><pre id="ai-helper-trace" style="white-space:pre-wrap;overflow-wrap:anywhere"></pre></details>
 <button id="ai-helper-export" type="button">Export this tab’s interaction trace</button>
@@ -126,7 +140,7 @@ def embed(root=ROOT,check=False):
         start=html.index(JS_BEGIN);end=html.index(JS_END,start)+len(JS_END)
         if html[end:end+1]=='\n':end+=1
         html=html[:start]+html[end:]
-    scripts='\n'.join((Path(root)/'browser'/name).read_text() for name in ('ai-helper.js','ai-model-loader.js','ai-helper-ui.js'))
+    scripts='\n'.join((Path(root)/'browser'/name).read_text() for name in ('ai-helper.js','ai-model-loader.js','ai-provider.js','ai-helper-ui.js'))
     script=JS_BEGIN+'\ndocument.addEventListener(\'DOMContentLoaded\',function(){\n'+scripts+'\n});\n'+JS_END+'\n'
     # Keep the desktop single-inline-script/CSP contract. The helper markup is
     # parsed after that script, so initialize it only once DOM parsing completes.

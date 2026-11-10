@@ -180,6 +180,11 @@ Live model generation and iPad compatibility remain unverified;
 the core engine and reviewed manual builder work without the model. No fine-tuning
 or automatic training on visitor conversations runs.
 
+The **AI chat and MPLPB builder** has a conversation window with the prompt and
+Send button directly below it. AI chat streams plain text; Build keeps reviewed
+source/collection proposals. A disposed runtime is marked unavailable and offers
+a reload control instead of continuing to show a usable model.
+
 Model download completion does not establish readiness. If initialization fails,
 open **Model loading details** and use **Export model load report** before
 reloading. The [helper guide](docs/FREE_PUBLIC_HELPER.md#when-the-model-fails-to-initialize)

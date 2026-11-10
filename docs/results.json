@@ -330,9 +330,10 @@
       "runners": [
         "tools/browser_free_helper.py",
         "tools/build_ai_assets.py",
-        "tools/prepare_owner_corpus.py"
+        "tools/prepare_owner_corpus.py",
+        "tools/browser_model_selection.py"
       ],
-      "scope": "Authored real-engine/browser workflow and pinned assets/candidate-data tests; synthetic plans only, no live Phi-4/iPad or independent human validation. Includes bounded model-load stage/error/export/retry diagnostics, with simulated failure cases and real runtime API construction without weights; no device root-cause or inference claim. Actual pinned upstream/patched limit-negotiation functions are exercised with authored adapter/device capacities; physical model inference remains separate.",
+      "scope": "Authored real-engine/browser workflow and pinned assets/candidate-data tests; synthetic plans only, no live Phi-4/iPad or independent human validation. Includes bounded model-load stage/error/export/retry diagnostics, with simulated failure cases and real runtime API construction without weights; no device root-cause or inference claim. Actual pinned upstream/patched limit-negotiation functions are exercised with authored adapter/device capacities; physical model inference remains separate. Plain streamed chat, prompt/Send placement at iPad/narrow widths, reviewed model-proposed collection creation, and generation-time disposal/reload recovery use explicit engine fixtures; no neural or physical iPad generation claim.",
       "measurement_status": "Local development evidence; exact candidate/CI/deployment outcomes are separate."
     },
     {

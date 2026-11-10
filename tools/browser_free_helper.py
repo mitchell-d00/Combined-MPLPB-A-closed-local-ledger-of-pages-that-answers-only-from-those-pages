@@ -55,6 +55,7 @@ def verify(page,url):
     page.locator('#ai-helper-cancel').click()
     expect(page.locator('#ai-helper-approve')).to_be_hidden()
     checks.append('cancelled_proposal_has_no_save')
+    page.locator('#ai-helper-message').fill('Browser helper research')
     page.locator('#ai-helper-send').click();expect(page.locator('#ai-helper-approve')).to_be_visible()
     page.locator('#ai-helper-approve').click()
     expect(page.locator('#ai-helper-output')).to_contain_text('MPLPB save receipt',timeout=60000)
@@ -80,9 +81,11 @@ def verify(page,url):
     page.locator('#ai-helper-mode').select_option('build')
     page.locator('#ai-helper-url').fill('https://example.org/browser-source-b')
     source.fill('The Zorvex receiver channel is not 8437.')
+    page.locator('#ai-helper-message').fill('Save the exact conflicting source')
     page.locator('#ai-helper-send').click();expect(page.locator('#ai-helper-approve')).to_be_visible()
     page.locator('#ai-helper-approve').click();expect(page.locator('#ai-helper-output')).to_contain_text('MPLPB save receipt',timeout=60000)
     page.locator('#ai-helper-mode').select_option('ask')
+    page.locator('#ai-helper-message').fill('What is the Zorvex receiver channel?')
     page.locator('#ai-helper-send').click()
     expect(page.locator('#ai-helper-output')).to_contain_text('Ambiguous',timeout=60000)
     checks.append('added_denial_prevents_supported_positive')
@@ -133,7 +136,7 @@ def main():
                 report['model_selection']=verify_models(model_context.new_page(),url)
             report['target_kind']='candidate_preview' if args.preview_dir else 'published_site'
             report['target']=str(args.preview_dir) if args.preview_dir else url
-            report['implementation_sha256']={name:hashlib.sha256((Path(__file__).resolve().parents[1]/name).read_bytes()).hexdigest() for name in ('browser/ai-helper.js','browser/ai-model-loader.js','browser/ai-helper-ui.js','tools/browser_free_helper.py')}
+            report['implementation_sha256']={name:hashlib.sha256((Path(__file__).resolve().parents[1]/name).read_bytes()).hexdigest() for name in ('browser/ai-helper.js','browser/ai-model-loader.js','browser/ai-provider.js','browser/ai-helper-ui.js','tools/browser_free_helper.py','tools/browser_model_selection.py')}
             if args.preview_dir:report['preview_sha256']=hashlib.sha256((args.preview_dir/'index.html').read_bytes()).hexdigest()
         finally:browser.close()
     args.output.parent.mkdir(parents=True,exist_ok=True);args.output.write_text(json.dumps(report,indent=2)+'\n')
