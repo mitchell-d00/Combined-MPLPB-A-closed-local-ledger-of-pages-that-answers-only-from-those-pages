@@ -31,6 +31,11 @@ async function run(){
   await assert.rejects(()=>l.load(f.config.model_id),/Reload this page/);assert.equal(f.state.constructors,1);
  });
  await scenario('unknown selection never downloads the runtime or starts an engine',async()=>{const f=await fixture();await assert.rejects(()=>new Loader({env:f.env}).load('not-in-catalog'),/not in the MIT catalog/);assert.equal(f.state.fetches.length,1);assert.equal(f.state.constructors,0);});
+ await scenario('generation failure invalidates ready state and requires reload with retained initialization evidence',async()=>{
+  const f=await fixture(),l=new Loader({env:f.env});await l.load();l.invalidate(Error('The current Object has already been disposed'));
+  const a=l.snapshot().attempts[0];assert.equal(a.status,'failed');assert.equal(a.failed_phase,'generation');assert(a.events.some(e=>e.kind==='ready'));assert(a.events.some(e=>e.kind==='generation_failure'));assert.equal(l.loaded,false);assert.equal(l.requiresReload,true);
+  await assert.rejects(()=>l.load(),/Reload this page/);assert.equal(f.state.constructors,1);
+ });
  await scenario('non-MIT model anywhere in catalog fails closed',async()=>{const f=await fixture();f.config.license_spdx='Apache-2.0';await assert.rejects(()=>new Loader({env:f.env}).load(),/Only MIT/);assert.equal(f.state.constructors,0);assert.equal(f.state.fetches.length,1);});
  await scenario('duplicate identities and missing defaults fail before engine allocation',async()=>{const f=await fixture();f.catalog.models.push(f.config);await assert.rejects(()=>new Loader({env:f.env}).load(),/duplicate/);f.catalog.models.pop();f.catalog.default_model_id='missing';await assert.rejects(()=>new Loader({env:f.env}).load(),/Default model/);assert.equal(f.state.constructors,0);});
  await scenario('changed runtime bytes stop before import or initialization',async()=>{const f=await fixture();f.config.runtime.sha256='0'.repeat(64);const l=new Loader({env:f.env});await assert.rejects(()=>l.load(),/pinned build/);assert.equal(f.state.constructors,0);assert.equal(l.snapshot().attempts[0].failed_phase,'runtime_integrity');});

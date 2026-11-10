@@ -33,6 +33,12 @@ class Loader{
   try{this.onChange(this.snapshot());}catch{/* Diagnostic display must not change model execution. */}
  }
  phase(name){this.attempts.at(-1).phase=name;this.emit('phase',{name});}
+ invalidate(error){
+  this.loaded=false;this.requiresReload=true;
+  const attempt=this.attempts.at(-1);if(!attempt)return;
+  attempt.status='failed';attempt.phase='generation';attempt.failed_phase='generation';attempt.requires_page_reload=true;attempt.error=describeError(error);
+  this.emit('generation_failure',clone(attempt.error));
+ }
  async load(modelId){
   if(this.loading)throw Error('A model load is already in progress');
   if(this.requiresReload||this.loaded)throw Error('Reload this page before loading another model or retrying initialization. The source tools remain available.');

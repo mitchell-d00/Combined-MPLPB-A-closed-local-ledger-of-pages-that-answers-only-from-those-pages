@@ -2,6 +2,7 @@
 const assert=require('node:assert/strict'),fs=require('node:fs'),vm=require('node:vm');
 const {spawn}=require('node:child_process'),{createInterface}=require('node:readline');
 const {Helper}=require('../browser/ai-helper.js');
+const {create:createProvider}=require('../browser/ai-provider.js');
 const python=spawn(process.env.PYTHON||'python3',['-u','-c',`
 import asyncio,json,sys,tempfile
 from pathlib import Path
@@ -22,6 +23,33 @@ const html=fs.readFileSync('index.html','utf8'),code=html.match(/\/\/ BEGIN MPLP
 const ctx=vm.createContext({URLSearchParams,api:transport});vm.runInContext(code,ctx);const api=ctx.MPLPB;
 let checks=0;const check=(name,condition)=>{assert(condition,name);checks++;};
 async function run(){
+ const generationRequests=[];let failGeneration=false,fatalCalls=0;
+ const generationEngine={chat:{completions:{create:async request=>{
+  generationRequests.push(request);
+  if(failGeneration)throw Error('The current Object has already been disposed');
+  if(request.stream)return(async function*(){yield {choices:[{delta:{content:'Hello'}}]};yield {choices:[{delta:{content:' from local AI'},finish_reason:'stop'}]};})();
+  return {choices:[{message:{content:JSON.stringify({action:'create_collection',summary:'Propose a reviewed collection',name:'Provider fixture collection'})},finish_reason:'stop'}]};
+ }}}};
+ const generationConfig={model_id:'authored-fixture',license:'MIT',record:{overrides:{context_window_size:2048}}};
+ const plainProvider=createProvider(generationEngine,generationConfig);
+ const plainHelper=new Helper(new Proxy({},{get(){throw Error('General AI chat must not call source tools');}}),plainProvider);
+ const streamed=[];let plainReply=await plainHelper.turn('Hello <script> stays text',{mode:'general',onText:text=>streamed.push(text)});
+ check('plain AI chat returns model text without planner JSON',plainReply.text==='Hello from local AI'&&generationRequests[0].response_format===undefined&&generationRequests[0].stream===true);
+ check('plain prompt is unchanged and streamed updates are visible',generationRequests[0].messages.at(-1).content==='Hello <script> stays text'&&streamed.length===2);
+ check('small model uses a bounded generation budget',generationRequests[0].max_tokens===256);
+ await plainHelper.turn('Continue',{mode:'general'});
+ check('plain conversation includes previous user and assistant turns',generationRequests[1].messages.some(m=>m.role==='assistant'&&m.content==='Hello from local AI'));
+ const beforeOversize=generationRequests.length;await assert.rejects(()=>plainHelper.turn('x'.repeat(3500),{mode:'general'}),/too long/);checks++;
+ check('oversize plain request is rejected before generation and unlocks helper',generationRequests.length===beforeOversize&&!plainHelper.busy);
+ const structured=await plainProvider.propose({mode:'build',original:'Make a collection'},require('../browser/ai-helper.js').SCHEMA);
+ check('Build keeps structured plans instead of treating chat as permission to write',structured.action==='create_collection'&&generationRequests.at(-1).response_format.type==='json_object');
+ const failedProvider=createProvider(generationEngine,generationConfig,{onFatalError:()=>{fatalCalls++;failedHelper.provider=null;}}),failedHelper=new Helper(api,failedProvider);
+ failGeneration=true;
+ await assert.rejects(()=>failedHelper.turn('Trigger a fixture runtime loss',{mode:'general'}),/disposed/);checks++;
+ check('disposed runtime revokes provider without hiding original error',fatalCalls===1&&failedHelper.provider===null&&!failedHelper.busy);
+ const failureTrace=failedHelper.trace();check('generation trace retains transport error and stack',failureTrace.events.some(e=>e.kind==='model_transport'&&e.data.error.message.includes('disposed')&&e.data.error.stack.includes('Error')));
+ const afterFatal=generationRequests.length;await assert.rejects(()=>failedProvider.chat({original:'Retry',conversation:[]}),/Reload the page/);checks++;
+ check('invalid runtime is never reused',generationRequests.length===afterFatal);
  const helper=new Helper(api);
  let unavailable=await helper.turn('Hello',{mode:'general'});
  check('general without model explains capability without a source call',unavailable.kind==='unavailable'&&unavailable.authority==='capability_notice'&&!helper.events.some(e=>e.kind==='tool_request'));

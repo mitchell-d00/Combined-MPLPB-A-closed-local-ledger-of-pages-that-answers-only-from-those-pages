@@ -11,8 +11,10 @@ support for every device. The core app continues to work without the model.
 
 ## Use the helper
 
-Open **Builder and chat helper** near the bottom of the page. Choose the collection
-and task, then send a request. The delivery profile is the profile chosen in the
+Open **AI chat and MPLPB builder** near the bottom of the page. Choose the collection
+and task. Replies appear in the conversation window; type in the prompt directly
+below it and press **Send**, or Enter (Shift+Enter adds a line). The source-import
+form is below the composer, so expanding it does not separate the prompt from Send. The delivery profile is the profile chosen in the
 existing MPLPB controls; the model cannot override it.
 
 - **Ask sources** sends the original question to the strict reader. A model may
@@ -22,8 +24,9 @@ existing MPLPB controls; the model cannot override it.
   reload; source changes still require reselection.
 - **Build** proposes a collection name or source draft. Review it before choosing
   Save. Change the request or provided text and send again to replace a proposal.
-- **General chat** produces clearly labeled, unverified model conversation when a
-  model is loaded. Without it, the helper explains how to use the
+- **AI chat** (the General chat task) streams clearly labeled, unverified plain-text
+  model conversation when a model is loaded. It does not require a JSON tool plan
+  or a selected source collection. Without it, the helper explains how to use the
   native source conversation mode. General model context is limited to recent turns and held in this tab.
 
 Provided source text is saved exactly through the existing import API after
@@ -32,6 +35,25 @@ gets an explicitly invalid local placeholder and an AI-generated/unverified labe
 Saving does not establish truth, authenticated authorship or human ratification.
 Existing origin/depth, ancestry, delivery and source-ownership rules still apply.
 The helper performs no autonomous web acquisition, revisions, deletion or ratification.
+
+## Chat errors after a successful load
+
+Initialization and successful generation are separate. A user-provided report
+records Phi-1.5 reaching ready on Apple WebGPU; a subsequent screenshot shows
+`The current Object has already been disposed` when sending. This establishes a
+generation-time failure, not its hardware cause or a successful conversation.
+
+Plain AI conversation now bypasses the structured JSON planner and uses a short,
+bounded streaming request. Build continues to validate structured proposals and
+requires review before source writes. Recent chat context is bounded; character
+budgets do not guarantee exact tokenizer counts or reliable base-model output.
+
+A disposed/lost runtime is marked unavailable, its proposal provider is revoked,
+and **Reload AI after error** appears. The original generation error/stack is
+retained in the interaction trace, and the load report records a generation
+failure while retaining the earlier initialization-ready event. Export diagnostics
+before reloading. Reloading does not delete source collections or weight caches.
+Source tasks and the manual reviewed builder remain available without the model.
 
 ## Optional model and device limits
 

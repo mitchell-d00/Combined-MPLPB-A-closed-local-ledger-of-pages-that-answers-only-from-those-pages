@@ -8,7 +8,17 @@ def verify(page, url):
     checks=[];external=[];errors=[];catalogs=[];reject_license=False
     runtime=b'''export class MLCEngine {
       constructor(options){this.options=options;this.logger=()=>{};
-        globalThis.modelFixture={record:options.appConfig.model_list[0],loads:0};}
+        globalThis.modelFixture={record:options.appConfig.model_list[0],loads:0,requests:[],pauseReplies:true};
+        this.chat={completions:{create:async request=>{
+          const state=globalThis.modelFixture;state.requests.push(request);
+          if(state.failNext)throw Error('The current Object has already been disposed');
+          if(request.stream)return(async function*(){
+            yield {choices:[{delta:{content:'Hello'}}]};
+            if(state.pauseReplies)await new Promise(resolve=>globalThis.releaseReplyFixture=resolve);
+            yield {choices:[{delta:{content:' from the local AI'},finish_reason:'stop'}]};
+          })();
+          return {choices:[{message:{content:JSON.stringify({action:'create_collection',summary:'Propose a reviewed collection',name:'AI chat builder fixture'})},finish_reason:'stop'}]};
+        }}};}
       async reload(id){globalThis.modelFixture.id=id;globalThis.modelFixture.loads++;
         this.options.initProgressCallback({progress:0.26,text:'Authored loading fixture'});
         await new Promise(resolve=>globalThis.releaseModelFixture=resolve);}
@@ -65,6 +75,55 @@ def verify(page, url):
     assert report['attempts'][-1]['model']['id']==chosen['model_id']
     assert report['attempts'][-1]['status']=='ready'
     checks.append('ready state and exported report identify the loaded model')
+    # Exercise actual UI-to-provider-to-helper dispatch. Neural output is a fixture.
+    page.locator('#ai-helper-mode').select_option('general')
+    prompt=page.locator('#ai-helper-message');send=page.locator('#ai-helper-send')
+    for width,height in [(810,1080),(375,812)]:
+        page.set_viewport_size({'width':width,'height':height})
+        log=page.locator('#ai-helper-messages').bounding_box();box=prompt.bounding_box();button_box=send.bounding_box()
+        assert box['y']>=log['y']+log['height']
+        assert abs(button_box['y']+button_box['height']-box['y']-box['height'])<2
+        assert button_box['x']+button_box['width']<=width
+    before=send.bounding_box()['y']
+    page.locator('#ai-helper-source').evaluate('(e)=>e.closest("details").open=true')
+    assert abs(send.bounding_box()['y']-before)<1
+    checks.append('iPad and narrow layouts keep prompt/Send directly below response window and above expanded source import')
+    prompt.fill('Hello <script>globalThis.badChatHtml=true</script>')
+    send.click();expect(page.locator('#ai-helper-output')).to_contain_text('Hello')
+    page.wait_for_function('() => !!globalThis.releaseReplyFixture')
+    expect(send).to_be_disabled();expect(select).to_be_disabled()
+    prompt.press('Enter')
+    assert page.evaluate('() => globalThis.modelFixture.requests.length')==1
+    page.evaluate('() => {globalThis.modelFixture.pauseReplies=false;globalThis.releaseReplyFixture()}')
+    expect(page.locator('#ai-helper-output')).to_contain_text('Hello from the local AI')
+    expect(prompt).to_have_value('')
+    actual=page.evaluate('() => globalThis.modelFixture.requests[0]')
+    assert 'response_format' not in actual and actual['stream'] is True
+    assert actual['messages'][-1]['content']=='Hello <script>globalThis.badChatHtml=true</script>'
+    assert not page.evaluate('() => !!globalThis.badChatHtml')
+    checks.append('Send streams a plain-text reply, escapes transcript text and blocks duplicate sends')
+    prompt.fill('Tell me more');prompt.press('Enter')
+    expect(prompt).to_have_value('');expect(page.locator('#ai-helper-output')).to_contain_text('Hello from the local AI')
+    assert page.evaluate('() => globalThis.modelFixture.requests[1].messages.some(m=>m.role==="assistant"&&m.content==="Hello from the local AI")')
+    checks.append('Enter sends the next message with prior chat context')
+    page.locator('#ai-helper-mode').select_option('build');prompt.fill('Create a collection for my notes');send.click()
+    expect(page.locator('#ai-helper-approve')).to_be_visible()
+    assert not page.evaluate('async()=> (await MPLPB.listCorpora()).data.some(c=>c.label==="AI chat builder fixture")')
+    page.locator('#ai-helper-approve').click()
+    expect(page.locator('#ai-helper-output')).to_contain_text('MPLPB save receipt')
+    assert page.evaluate('async()=> (await MPLPB.listCorpora()).data.some(c=>c.label==="AI chat builder fixture")')
+    checks.append('AI Build proposes a collection and real MPLPB creates it only after review')
+    page.locator('#ai-helper-mode').select_option('general');page.evaluate('() => globalThis.modelFixture.failNext=true')
+    prompt.fill('Trigger the authored failure');send.click()
+    expect(page.locator('#ai-helper-output')).to_contain_text('disposed')
+    expect(button).to_have_text('Reload AI after error')
+    expect(page.locator('#ai-helper-use-model')).to_be_disabled()
+    expect(page.locator('#ai-helper-use-model')).not_to_be_checked()
+    failed=json.loads(page.locator('#ai-helper-load-report').text_content())
+    assert failed['attempts'][-1]['failed_phase']=='generation'
+    assert page.evaluate('async()=> (await MPLPB.ready()).ok')
+    checks.append('disposed generation invalidates readiness, keeps original diagnostic and offers reload while source engine remains available')
+    page.set_viewport_size({'width':810,'height':1080})
     other=data['models'][2];select.select_option(other['model_id'])
     expect(page.locator('#ai-helper-use-model')).not_to_be_checked()
     expect(page.locator('#ai-helper-use-model')).to_be_disabled()
