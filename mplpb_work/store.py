@@ -512,6 +512,13 @@ class WorkStore:
                 raise Denied('Dispatched actions are immutable; propose a new action')
         if kind == 'task':
             if p['state'] == 'done':
+                # A receipt covers the pre-completion contract, not a goal or
+                # input/acceptance contract rewritten in this same put().
+                # Criteria are an unordered set, as in the coverage check below.
+                if old and (any(p[field] != old['payload'][field] for field in ('goal', 'review_budget'))
+                            or set(p['criteria']) != set(old['payload']['criteria'])
+                            or record['dependencies'] != old['dependencies']):
+                    raise WorkError('Task contract changed during completion; revise it while open and execute again')
                 receipts = []
                 for ref in p['acceptance']:
                     attempt = state['records'][ref]

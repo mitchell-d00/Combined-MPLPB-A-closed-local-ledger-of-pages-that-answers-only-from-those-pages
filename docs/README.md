@@ -1,10 +1,16 @@
 # Documentation index
 
-Last reviewed: 2026-11-08. See [current status and result-to-test index](CURRENT_STATUS_2026-11-08.md). Dates and numeric results in historical validation sections retain their original scope; this review is not a rerun or independent certification.
+Last reviewed: 2026-11-10. See [current status and result-to-test index](CURRENT_STATUS_2026-11-08.md). Dates and numeric results in historical validation sections retain their original scope; this review is not a rerun or independent certification.
 
 [Repository overview](../README.md) · [Repository map](../CONTENTS) · [Live application](https://mitchell-d00.github.io/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/)
 
 Current entry points reviewed on 2026-11-08 at baseline `acf7800a5f8320ec29ee957d002eaaba8ed4e816`. See [current capabilities, checks and product gaps](CURRENT_STATUS_2026-11-08.md) and the [result-to-test index](RESULTS_AND_TESTS.md). The [October 31 status](CURRENT_STATUS_2026-10-31.md) is historical. The [October 29 review](DOCUMENTATION_AUDIT_2026-10-29.md) remains historical. Dated audits, papers, and experiment reports describe the revisions they measured; their counts and green workflows do not certify another revision.
+
+The [research status and completion-fix release note](research/mplpb-originality/RELEASE_NOTE.md)
+presents the work as an attributable engineering contribution and technical case
+study, still being tested. For MPLPB, the particular combination may be distinctive,
+but it is unproven as world-first. The [originality reassessment](research/mplpb-originality/README.md)
+separates that open priority question from established logical principles.
 
 ## Start and operate
 

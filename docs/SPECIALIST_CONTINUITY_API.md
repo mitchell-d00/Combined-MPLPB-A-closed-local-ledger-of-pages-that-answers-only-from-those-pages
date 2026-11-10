@@ -1,6 +1,6 @@
 # Specialist work API and operation
 
-Last reviewed: 2026-11-02. See [current status and result-to-test index](CURRENT_STATUS_2026-11-02.md). Dates and numeric results in historical validation sections retain their original scope; this review is not a rerun or independent certification.
+Last reviewed: 2026-11-10. See [current status and result-to-test index](CURRENT_STATUS_2026-11-02.md). Dates and numeric results in historical validation sections retain their original scope; this review is not a rerun or independent certification.
 
 The native `mplpb_work` coordinator preserves task relationships, evolving claims,
 failed routes, specialist identities and permission history. It is part of the
@@ -129,6 +129,12 @@ as `needs_recheck`, including receipt-backed task completion. A changed task
 revision prevents an old action or old passing receipt from satisfying the new
 contract. The original quote and old claim remain recoverable for authorized
 readers even if their current source is stale.
+
+A completion write must preserve the preceding task contract: goal, review budget,
+criterion set and input dependency revisions. An old receipt cannot justify a
+same-write substitution or removal of requirements. Reordering identical criteria
+is allowed. To change the contract, revise the task while open, then obtain fresh
+execution evidence before completing it. See the [completion audit](../evaluation/no-unverified-promotion/README.md).
 
 Review creations and substantive revisions consume the task's declared budget.
 Resolving a live challenge does not spend another review round. Shared provenance

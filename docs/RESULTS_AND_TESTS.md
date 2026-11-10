@@ -42,6 +42,14 @@ modern application tests do not retrospectively validate those experiments.
 | [free-browser-helper](../evaluation/free-browser-helper) | [Python assets](../tests/test_browser_ai_assets.py); [owner corpus](../tests/test_owner_corpus.py); [real-engine helper](../tests/browser-ai-helper.cjs); [loader state/DOM](../tests/browser-model-loader.cjs); [actual GPU negotiation](../tests/browser-webgpu-limits.cjs) | [Chromium](../tools/browser_free_helper.py); [asset builder](../tools/build_ai_assets.py); [corpus preparation](../tools/prepare_owner_corpus.py) | Source workflow, plain streamed-chat transport and synthetic reviewed plans; no live neural/iPad generation or human validation. |
 | [model-selection](../evaluation/model-selection) | [Assets and MIT enforcement](../tests/test_browser_ai_assets.py); [selected loader records](../tests/browser-model-loader.cjs) | [Chromium picker fixtures](../tools/browser_model_selection.py); [browser runner](../tools/browser_free_helper.py); [asset builder](../tools/build_ai_assets.py) | Actual pinned asset/license downloads and authored selection/reload tests; no physical iPad or neural-inference claim. |
 
+| [no-unverified-promotion](../evaluation/no-unverified-promotion/README.md) | [specialist regression](../tests/test_specialist_continuity.py); [answer](../tests/test_answer_support.py); [retrieval](../tests/test_page_retrieval.py); [release](../tests/test_release_evidence.py); [handoff](../tests/test_handoff.py) | [audit_unverified_promotion.py](../tools/audit_unverified_promotion.py) | 88 contract assertions, authored artifact control and five-case paired completion regression; no independent four-domain efficacy or novelty result. |
+
+The [originality reassessment](research/mplpb-originality/README.md) separates the
+logical, architectural, mechanism, implementation and empirical questions raised
+by the no-unverified-promotion audit. It is a static source/prior-art comparison,
+not a new evaluation family or new efficacy score; PR #38’s retained cases and
+results remain unchanged.
+
 ## Reproduce the currently claimed reference result
 
 ```sh

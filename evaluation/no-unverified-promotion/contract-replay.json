@@ -1,0 +1,519 @@
+{
+  "schema": "nup-contract-audit-v1",
+  "scope": "Deterministic developer-authored contract replay and one semantic/trust boundary control. Test counts are not unsupported-promotion population rates, independent validation, or deployment evidence.",
+  "code_sha256": {
+    "mplpb_answers/support.py": "67821fc2399616dfbc10c52a440b3de5f6220a82aec44be595b60fd19b96f9ff",
+    "mplpb_answers/pipeline.py": "8deeca428ee79dccb6808969f2f23aa9955f65b779f7e5c1988b24840ff752d6",
+    "mplpb_combined/retrieval.py": "35528e3645af096d957df51fdb39ca66decd1f5a0a98cf61061e4ff51408c1c4",
+    "tools/release_evidence.py": "6a2de2f57cb166851911eff5d11206e03f961622c72aeaba62bd5911739f4004",
+    "mplpb_work/store.py": "c73c4f55f1567ff63434a6d6e7bd2b3adef7a5cb80ffde31684667072c541976",
+    "tests/test_specialist_continuity.py": "421d7c2727b938d5b02dc81c098306093f86508e9e27d13e5c244f35fac277b7",
+    "tools/audit_unverified_promotion.py": "00c83dee3b7b5b172a9ff7870d557df4ec3d3391a78e593a8cf618fb6ddddaf9"
+  },
+  "case_freeze_sha256": "0c11f7a828d1906e1d87a5b5771efb28f0cee8ed63d45922ef1b9f6343661278",
+  "regressions": {
+    "A_answer": {
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+        "-m",
+        "unittest",
+        "tests.test_answer_reliability",
+        "tests.test_answer_support",
+        "tests.test_page_retrieval",
+        "tests.test_release_answer_contract",
+        "-v"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds_including_setup": 6.671726665999813,
+      "reported_test_count": 33,
+      "cases": [
+        {
+          "test": "test_cli_supported_default_and_explicit_candidates",
+          "outcome": "ok"
+        },
+        {
+          "test": "test_desktop_browser_query_contract_and_reload",
+          "outcome": "ok"
+        },
+        {
+          "test": "test_development_pairs",
+          "outcome": "ok"
+        },
+        {
+          "test": "test_eligible_body_can_answer_without_scope_majority",
+          "outcome": "ok"
+        },
+        {
+          "test": "test_scope_specificity_cannot_hide_conflicting_evidence",
+          "outcome": "ok"
+        },
+        {
+          "test": "test_shared_frame_and_preserved_constraints",
+          "outcome": "ok"
+        },
+        {
+          "test": "test_tampered_body_cannot_answer",
+          "outcome": "ok"
+        },
+        {
+          "test": "test_body_support_and_absence_of_scope_evidence",
+          "outcome": "ok"
+        },
+        {
+          "test": "test_expanded_frozen_suite_and_coverage",
+          "outcome": "ok"
+        },
+        {
+          "test": "test_imported_heading_does_not_merge_with_answer",
+          "outcome": "ok"
+        },
+        {
+          "test": "test_only_supported_span_is_returned",
+          "outcome": "ok"
+        },
+        {
+          "test": "test_relation_paraphrases_preserve_entity_direction_and_support",
+          "outcome": "ok"
+        },
+        {
+          "test": "test_gated_retrieval_scores_on_frozen_sets",
+          "outcome": "ok"
+        },
+        {
+          "test": "test_browser_bridge_parity_and_injection_is_never_executed",
+          "outcome": "ok"
+        },
+        {
+          "test": "test_complete_declared_situation_is_page_inspection_only",
+          "outcome": "ok"
+        },
+        {
+          "test": "test_declared_situation_does_not_bypass_not_for",
+          "outcome": "ok"
+        },
+        {
+          "test": "test_discourse_wrapper_preserves_clause_and_polarity",
+          "outcome": "ok"
+        },
+        {
+          "test": "test_escaping_html_symlink_is_rejected_before_reading",
+          "outcome": "ok"
+        },
+        {
+          "test": "test_exclusion_is_not_a_global_ban_on_legitimate_owner",
+          "outcome": "ok"
+        },
+        {
+          "test": "test_explicit_exclusion_cannot_create_generic_owners",
+          "outcome": "ok"
+        },
+        {
+          "test": "test_gate_rejection_does_not_pick_a_replacement_owner",
+          "outcome": "ok"
+        },
+        {
+          "test": "test_missing_body_support_never_unlocks_strict_answer",
+          "outcome": "ok"
+        },
+        {
+          "test": "test_missing_explicit_origin_cannot_use_legacy_fallback",
+          "outcome": "ok"
+        },
+        {
+          "test": "test_multiple_situation_owners_stop_without_ranking",
+          "outcome": "ok"
+        },
+        {
+          "test": "test_network_and_unknown_arguments_are_rejected",
+          "outcome": "ok"
+        },
+        {
+          "test": "test_pointers_do_not_expand_the_selected_corpus",
+          "outcome": "ok"
+        },
+        {
+          "test": "test_quantities_are_not_discarded_for_situation_match",
+          "outcome": "ok"
+        },
+        {
+          "test": "test_retired_dependency_and_external_profile_remain_blocked",
+          "outcome": "ok"
+        },
+        {
+          "test": "test_single_term_declarations_do_not_trigger_fallback",
+          "outcome": "ok"
+        },
+        {
+          "test": "test_situation_clauses_are_not_combined_across_pages",
+          "outcome": "ok"
+        },
+        {
+          "test": "test_tampered_and_duplicate_pages_do_not_return",
+          "outcome": "ok"
+        },
+        {
+          "test": "test_misleading_scope_never_becomes_supported_answer",
+          "outcome": "ok"
+        },
+        {
+          "test": "test_supported_body_and_ambiguous_competitor",
+          "outcome": "ok"
+        }
+      ],
+      "output": "test_cli_supported_default_and_explicit_candidates (tests.test_answer_reliability.ReliabilityTests.test_cli_supported_default_and_explicit_candidates) ... ok\ntest_desktop_browser_query_contract_and_reload (tests.test_answer_reliability.ReliabilityTests.test_desktop_browser_query_contract_and_reload) ... ok\ntest_development_pairs (tests.test_answer_reliability.ReliabilityTests.test_development_pairs) ... ok\ntest_eligible_body_can_answer_without_scope_majority (tests.test_answer_reliability.ReliabilityTests.test_eligible_body_can_answer_without_scope_majority) ... ok\ntest_scope_specificity_cannot_hide_conflicting_evidence (tests.test_answer_reliability.ReliabilityTests.test_scope_specificity_cannot_hide_conflicting_evidence) ... ok\ntest_shared_frame_and_preserved_constraints (tests.test_answer_reliability.ReliabilityTests.test_shared_frame_and_preserved_constraints) ... ok\ntest_tampered_body_cannot_answer (tests.test_answer_reliability.ReliabilityTests.test_tampered_body_cannot_answer) ... ok\ntest_body_support_and_absence_of_scope_evidence (tests.test_answer_support.AnswerSupportTests.test_body_support_and_absence_of_scope_evidence) ... ok\ntest_expanded_frozen_suite_and_coverage (tests.test_answer_support.AnswerSupportTests.test_expanded_frozen_suite_and_coverage) ... ok\ntest_imported_heading_does_not_merge_with_answer (tests.test_answer_support.AnswerSupportTests.test_imported_heading_does_not_merge_with_answer) ... ok\ntest_only_supported_span_is_returned (tests.test_answer_support.AnswerSupportTests.test_only_supported_span_is_returned) ... ok\ntest_relation_paraphrases_preserve_entity_direction_and_support (tests.test_answer_support.AnswerSupportTests.test_relation_paraphrases_preserve_entity_direction_and_support) ... ok\ntest_gated_retrieval_scores_on_frozen_sets (tests.test_page_retrieval.HistoricalBenchmarkTests.test_gated_retrieval_scores_on_frozen_sets) ... ok\ntest_browser_bridge_parity_and_injection_is_never_executed (tests.test_page_retrieval.RetrievalRepairTests.test_browser_bridge_parity_and_injection_is_never_executed) ... ok\ntest_complete_declared_situation_is_page_inspection_only (tests.test_page_retrieval.RetrievalRepairTests.test_complete_declared_situation_is_page_inspection_only) ... ok\ntest_declared_situation_does_not_bypass_not_for (tests.test_page_retrieval.RetrievalRepairTests.test_declared_situation_does_not_bypass_not_for) ... ok\ntest_discourse_wrapper_preserves_clause_and_polarity (tests.test_page_retrieval.RetrievalRepairTests.test_discourse_wrapper_preserves_clause_and_polarity) ... ok\ntest_escaping_html_symlink_is_rejected_before_reading (tests.test_page_retrieval.RetrievalRepairTests.test_escaping_html_symlink_is_rejected_before_reading) ... ok\ntest_exclusion_is_not_a_global_ban_on_legitimate_owner (tests.test_page_retrieval.RetrievalRepairTests.test_exclusion_is_not_a_global_ban_on_legitimate_owner) ... ok\ntest_explicit_exclusion_cannot_create_generic_owners (tests.test_page_retrieval.RetrievalRepairTests.test_explicit_exclusion_cannot_create_generic_owners) ... ok\ntest_gate_rejection_does_not_pick_a_replacement_owner (tests.test_page_retrieval.RetrievalRepairTests.test_gate_rejection_does_not_pick_a_replacement_owner) ... ok\ntest_missing_body_support_never_unlocks_strict_answer (tests.test_page_retrieval.RetrievalRepairTests.test_missing_body_support_never_unlocks_strict_answer) ... ok\ntest_missing_explicit_origin_cannot_use_legacy_fallback (tests.test_page_retrieval.RetrievalRepairTests.test_missing_explicit_origin_cannot_use_legacy_fallback) ... ok\ntest_multiple_situation_owners_stop_without_ranking (tests.test_page_retrieval.RetrievalRepairTests.test_multiple_situation_owners_stop_without_ranking) ... ok\ntest_network_and_unknown_arguments_are_rejected (tests.test_page_retrieval.RetrievalRepairTests.test_network_and_unknown_arguments_are_rejected) ... ok\ntest_pointers_do_not_expand_the_selected_corpus (tests.test_page_retrieval.RetrievalRepairTests.test_pointers_do_not_expand_the_selected_corpus) ... ok\ntest_quantities_are_not_discarded_for_situation_match (tests.test_page_retrieval.RetrievalRepairTests.test_quantities_are_not_discarded_for_situation_match) ... ok\ntest_retired_dependency_and_external_profile_remain_blocked (tests.test_page_retrieval.RetrievalRepairTests.test_retired_dependency_and_external_profile_remain_blocked) ... ok\ntest_single_term_declarations_do_not_trigger_fallback (tests.test_page_retrieval.RetrievalRepairTests.test_single_term_declarations_do_not_trigger_fallback) ... ok\ntest_situation_clauses_are_not_combined_across_pages (tests.test_page_retrieval.RetrievalRepairTests.test_situation_clauses_are_not_combined_across_pages) ... ok\ntest_tampered_and_duplicate_pages_do_not_return (tests.test_page_retrieval.RetrievalRepairTests.test_tampered_and_duplicate_pages_do_not_return) ... ok\ntest_misleading_scope_never_becomes_supported_answer (tests.test_release_answer_contract.ReleaseAnswerContractTests.test_misleading_scope_never_becomes_supported_answer) ... ok\ntest_supported_body_and_ambiguous_competitor (tests.test_release_answer_contract.ReleaseAnswerContractTests.test_supported_body_and_ambiguous_competitor) ... ok\n\n----------------------------------------------------------------------\nRan 33 tests in 6.489s\n\nOK\n"
+    },
+    "B_C_artifact_release": {
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+        "-m",
+        "unittest",
+        "tests.test_release_evidence",
+        "tests.test_handoff",
+        "-v"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds_including_setup": 0.203669610000361,
+      "reported_test_count": 12,
+      "cases": [
+        {
+          "test": "test_create_and_verify_exact_candidate",
+          "outcome": "ok"
+        },
+        {
+          "test": "test_rejects_archive_checksum_mismatch",
+          "outcome": "ok"
+        },
+        {
+          "test": "test_rejects_empty_or_symlinked_preview",
+          "outcome": "ok"
+        },
+        {
+          "test": "test_rejects_forged_manifest_fields",
+          "outcome": "ok"
+        },
+        {
+          "test": "test_rejects_missing_gate",
+          "outcome": "ok"
+        },
+        {
+          "test": "test_rejects_tampering_after_manifest_creation",
+          "outcome": "ok"
+        },
+        {
+          "test": "test_rejects_wrong_pr_head",
+          "outcome": "ok"
+        },
+        {
+          "test": "test_changed_instruction_and_tampered_handoff",
+          "outcome": "ok"
+        },
+        {
+          "test": "test_explicit_review_date_is_preserved_and_validated",
+          "outcome": "ok"
+        },
+        {
+          "test": "test_extracted_inventory_cannot_escape_root",
+          "outcome": "ok"
+        },
+        {
+          "test": "test_freshness_staging_commit_and_extracted_zip",
+          "outcome": "ok"
+        },
+        {
+          "test": "test_new_tracked_file_invalidates_and_no_secret_collection",
+          "outcome": "ok"
+        }
+      ],
+      "output": "test_create_and_verify_exact_candidate (tests.test_release_evidence.ReleaseEvidenceTests.test_create_and_verify_exact_candidate) ... ok\ntest_rejects_archive_checksum_mismatch (tests.test_release_evidence.ReleaseEvidenceTests.test_rejects_archive_checksum_mismatch) ... ok\ntest_rejects_empty_or_symlinked_preview (tests.test_release_evidence.ReleaseEvidenceTests.test_rejects_empty_or_symlinked_preview) ... ok\ntest_rejects_forged_manifest_fields (tests.test_release_evidence.ReleaseEvidenceTests.test_rejects_forged_manifest_fields) ... ok\ntest_rejects_missing_gate (tests.test_release_evidence.ReleaseEvidenceTests.test_rejects_missing_gate) ... ok\ntest_rejects_tampering_after_manifest_creation (tests.test_release_evidence.ReleaseEvidenceTests.test_rejects_tampering_after_manifest_creation) ... ok\ntest_rejects_wrong_pr_head (tests.test_release_evidence.ReleaseEvidenceTests.test_rejects_wrong_pr_head) ... ok\ntest_changed_instruction_and_tampered_handoff (tests.test_handoff.HandoffTests.test_changed_instruction_and_tampered_handoff) ... ok\ntest_explicit_review_date_is_preserved_and_validated (tests.test_handoff.HandoffTests.test_explicit_review_date_is_preserved_and_validated) ... ok\ntest_extracted_inventory_cannot_escape_root (tests.test_handoff.HandoffTests.test_extracted_inventory_cannot_escape_root) ... ok\ntest_freshness_staging_commit_and_extracted_zip (tests.test_handoff.HandoffTests.test_freshness_staging_commit_and_extracted_zip) ... ok\ntest_new_tracked_file_invalidates_and_no_secret_collection (tests.test_handoff.HandoffTests.test_new_tracked_file_invalidates_and_no_secret_collection) ... ok\n\n----------------------------------------------------------------------\nRan 12 tests in 0.140s\n\nOK\n"
+    },
+    "D_work": {
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+        "-m",
+        "unittest",
+        "tests.test_specialist_continuity",
+        "-v"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds_including_setup": 3.1767678280002656,
+      "reported_test_count": 43,
+      "cases": [
+        {
+          "test": "test_adapter_error_is_indeterminate_not_a_clean_failure",
+          "outcome": "ok"
+        },
+        {
+          "test": "test_chain_corruption_and_independent_truncation_checkpoint",
+          "outcome": "ok"
+        },
+        {
+          "test": "test_challenge_blocks_transitive_dependents_and_owner_cannot_erase_it",
+          "outcome": "ok"
+        },
+        {
+          "test": "test_changed_criteria_do_not_inherit_old_passing_receipt",
+          "outcome": "ok"
+        },
+        {
+          "test": "test_checkpoint_detects_history_rewrite_even_if_local_head_replaced",
+          "outcome": "ok"
+        },
+        {
+          "test": "test_cli_is_installed_in_supported_entrypoint",
+          "outcome": "ok"
+        },
+        {
+          "test": "test_completion_accepts_fresh_execution_after_explicit_contract_revision",
+          "outcome": "ok"
+        },
+        {
+          "test": "test_completion_allows_reordered_identical_criteria",
+          "outcome": "ok"
+        },
+        {
+          "test": "test_completion_cannot_drop_unmet_criterion_in_same_write",
+          "outcome": "ok"
+        },
+        {
+          "test": "test_completion_cannot_replace_goal_using_old_receipt",
+          "outcome": "ok"
+        },
+        {
+          "test": "test_completion_cannot_replace_task_inputs_using_old_receipt",
+          "outcome": "ok"
+        },
+        {
+          "test": "test_concurrent_processes_use_database_compare_and_swap",
+          "outcome": "ok"
+        },
+        {
+          "test": "test_concurrent_writers_have_one_winner_and_no_partial_event",
+          "outcome": "ok"
+        },
+        {
+          "test": "test_copied_review_adds_no_evidence_roots_or_truth",
+          "outcome": "ok"
+        },
+        {
+          "test": "test_crash_reopen_is_indeterminate_and_never_auto_retries",
+          "outcome": "ok"
+        },
+        {
+          "test": "test_different_spans_same_root_are_not_called_independent_sources",
+          "outcome": "ok"
+        },
+        {
+          "test": "test_dispatch_idempotency_and_missing_adapter",
+          "outcome": "ok"
+        },
+        {
+          "test": "test_dispatched_action_cannot_be_rewritten_or_transferred",
+          "outcome": "ok"
+        },
+        {
+          "test": "test_expiry_revocation_and_fencing_are_checked_at_write",
+          "outcome": "ok"
+        },
+        {
+          "test": "test_explicit_transfer_includes_history_but_requires_rights",
+          "outcome": "ok"
+        },
+        {
+          "test": "test_external_profile_cannot_recover_private_source_via_old_claim_history",
+          "outcome": "ok"
+        },
+        {
+          "test": "test_failed_attempt_is_context_for_decision_not_a_success_prerequisite",
+          "outcome": "ok"
+        },
+        {
+          "test": "test_failed_attempts_immutable_and_failed_route_not_repeated",
+          "outcome": "ok"
+        },
+        {
+          "test": "test_five_instances_recover_and_revise_inherited_premise",
+          "outcome": "ok"
+        },
+        {
+          "test": "test_heading_scope_and_tampered_source_cannot_supply_evidence",
+          "outcome": "ok"
+        },
+        {
+          "test": "test_host_effect_class_cannot_be_downgraded_by_action",
+          "outcome": "ok"
+        },
+        {
+          "test": "test_new_process_can_recover_without_original_runtime",
+          "outcome": "ok"
+        },
+        {
+          "test": "test_no_capability_self_promotion_or_ungranted_write",
+          "outcome": "ok"
+        },
+        {
+          "test": "test_no_terminal_truth_and_no_forged_pass_or_completion",
+          "outcome": "ok"
+        },
+        {
+          "test": "test_plaintext_private_content_absent_from_live_and_handoff_views",
+          "outcome": "ok"
+        },
+        {
+          "test": "test_private_writer_cannot_create_shared_content",
+          "outcome": "ok"
+        },
+        {
+          "test": "test_public_seat_api_cannot_invoke_administration",
+          "outcome": "ok"
+        },
+        {
+          "test": "test_review_revisions_cannot_bypass_declared_budget",
+          "outcome": "ok"
+        },
+        {
+          "test": "test_scope_and_tool_allowlists_are_enforced_independently",
+          "outcome": "ok"
+        },
+        {
+          "test": "test_seat_cannot_resolve_challenge_without_resolution_right",
+          "outcome": "ok"
+        },
+        {
+          "test": "test_source_change_invalidates_claim_decision_action_and_completed_task",
+          "outcome": "ok"
+        },
+        {
+          "test": "test_stale_head_and_target_revision_reject_without_appending",
+          "outcome": "ok"
+        },
+        {
+          "test": "test_task_dependency_graph_cannot_cycle",
+          "outcome": "ok"
+        },
+        {
+          "test": "test_task_input_pins_travel_into_execution_attempt",
+          "outcome": "ok"
+        },
+        {
+          "test": "test_task_revision_is_rechecked_at_dispatch_and_acceptance",
+          "outcome": "ok"
+        },
+        {
+          "test": "test_transfer_does_not_launder_historical_dependencies",
+          "outcome": "ok"
+        },
+        {
+          "test": "test_visibility_cannot_be_laundered_through_reference",
+          "outcome": "ok"
+        }
+      ],
+      "output": "test_adapter_error_is_indeterminate_not_a_clean_failure (tests.test_specialist_continuity.ContinuityTests.test_adapter_error_is_indeterminate_not_a_clean_failure) ... ok\ntest_chain_corruption_and_independent_truncation_checkpoint (tests.test_specialist_continuity.ContinuityTests.test_chain_corruption_and_independent_truncation_checkpoint) ... ok\ntest_challenge_blocks_transitive_dependents_and_owner_cannot_erase_it (tests.test_specialist_continuity.ContinuityTests.test_challenge_blocks_transitive_dependents_and_owner_cannot_erase_it) ... ok\ntest_changed_criteria_do_not_inherit_old_passing_receipt (tests.test_specialist_continuity.ContinuityTests.test_changed_criteria_do_not_inherit_old_passing_receipt) ... ok\ntest_checkpoint_detects_history_rewrite_even_if_local_head_replaced (tests.test_specialist_continuity.ContinuityTests.test_checkpoint_detects_history_rewrite_even_if_local_head_replaced) ... ok\ntest_cli_is_installed_in_supported_entrypoint (tests.test_specialist_continuity.ContinuityTests.test_cli_is_installed_in_supported_entrypoint) ... ok\ntest_completion_accepts_fresh_execution_after_explicit_contract_revision (tests.test_specialist_continuity.ContinuityTests.test_completion_accepts_fresh_execution_after_explicit_contract_revision) ... ok\ntest_completion_allows_reordered_identical_criteria (tests.test_specialist_continuity.ContinuityTests.test_completion_allows_reordered_identical_criteria) ... ok\ntest_completion_cannot_drop_unmet_criterion_in_same_write (tests.test_specialist_continuity.ContinuityTests.test_completion_cannot_drop_unmet_criterion_in_same_write) ... ok\ntest_completion_cannot_replace_goal_using_old_receipt (tests.test_specialist_continuity.ContinuityTests.test_completion_cannot_replace_goal_using_old_receipt) ... ok\ntest_completion_cannot_replace_task_inputs_using_old_receipt (tests.test_specialist_continuity.ContinuityTests.test_completion_cannot_replace_task_inputs_using_old_receipt) ... ok\ntest_concurrent_processes_use_database_compare_and_swap (tests.test_specialist_continuity.ContinuityTests.test_concurrent_processes_use_database_compare_and_swap) ... ok\ntest_concurrent_writers_have_one_winner_and_no_partial_event (tests.test_specialist_continuity.ContinuityTests.test_concurrent_writers_have_one_winner_and_no_partial_event) ... ok\ntest_copied_review_adds_no_evidence_roots_or_truth (tests.test_specialist_continuity.ContinuityTests.test_copied_review_adds_no_evidence_roots_or_truth) ... ok\ntest_crash_reopen_is_indeterminate_and_never_auto_retries (tests.test_specialist_continuity.ContinuityTests.test_crash_reopen_is_indeterminate_and_never_auto_retries) ... ok\ntest_different_spans_same_root_are_not_called_independent_sources (tests.test_specialist_continuity.ContinuityTests.test_different_spans_same_root_are_not_called_independent_sources) ... ok\ntest_dispatch_idempotency_and_missing_adapter (tests.test_specialist_continuity.ContinuityTests.test_dispatch_idempotency_and_missing_adapter) ... ok\ntest_dispatched_action_cannot_be_rewritten_or_transferred (tests.test_specialist_continuity.ContinuityTests.test_dispatched_action_cannot_be_rewritten_or_transferred) ... ok\ntest_expiry_revocation_and_fencing_are_checked_at_write (tests.test_specialist_continuity.ContinuityTests.test_expiry_revocation_and_fencing_are_checked_at_write) ... ok\ntest_explicit_transfer_includes_history_but_requires_rights (tests.test_specialist_continuity.ContinuityTests.test_explicit_transfer_includes_history_but_requires_rights) ... ok\ntest_external_profile_cannot_recover_private_source_via_old_claim_history (tests.test_specialist_continuity.ContinuityTests.test_external_profile_cannot_recover_private_source_via_old_claim_history) ... ok\ntest_failed_attempt_is_context_for_decision_not_a_success_prerequisite (tests.test_specialist_continuity.ContinuityTests.test_failed_attempt_is_context_for_decision_not_a_success_prerequisite) ... ok\ntest_failed_attempts_immutable_and_failed_route_not_repeated (tests.test_specialist_continuity.ContinuityTests.test_failed_attempts_immutable_and_failed_route_not_repeated) ... ok\ntest_five_instances_recover_and_revise_inherited_premise (tests.test_specialist_continuity.ContinuityTests.test_five_instances_recover_and_revise_inherited_premise) ... ok\ntest_heading_scope_and_tampered_source_cannot_supply_evidence (tests.test_specialist_continuity.ContinuityTests.test_heading_scope_and_tampered_source_cannot_supply_evidence) ... ok\ntest_host_effect_class_cannot_be_downgraded_by_action (tests.test_specialist_continuity.ContinuityTests.test_host_effect_class_cannot_be_downgraded_by_action) ... ok\ntest_local_http_rpc_requires_bearer_and_excludes_host_operations (tests.test_specialist_continuity.ContinuityTests.test_local_http_rpc_requires_bearer_and_excludes_host_operations) ... 127.0.0.1 - - [10/Nov/2026 13:11:45] \"POST /api/work HTTP/1.1\" 400 -\n127.0.0.1 - - [10/Nov/2026 13:11:45] \"POST /api/work HTTP/1.1\" 400 -\n127.0.0.1 - - [10/Nov/2026 13:11:45] \"POST /api/work HTTP/1.1\" 200 -\n127.0.0.1 - - [10/Nov/2026 13:11:45] \"GET /api/query HTTP/1.1\" 404 -\n127.0.0.1 - - [10/Nov/2026 13:11:45] \"GET /api/page?corpus=studio&path=kiln/studio-0004.html HTTP/1.1\" 404 -\n127.0.0.1 - - [10/Nov/2026 13:11:45] \"GET /api/state HTTP/1.1\" 404 -\n127.0.0.1 - - [10/Nov/2026 13:11:45] \"GET / HTTP/1.1\" 404 -\n127.0.0.1 - - [10/Nov/2026 13:11:45] \"POST /api/query HTTP/1.1\" 404 -\nok\ntest_new_process_can_recover_without_original_runtime (tests.test_specialist_continuity.ContinuityTests.test_new_process_can_recover_without_original_runtime) ... ok\ntest_no_capability_self_promotion_or_ungranted_write (tests.test_specialist_continuity.ContinuityTests.test_no_capability_self_promotion_or_ungranted_write) ... ok\ntest_no_terminal_truth_and_no_forged_pass_or_completion (tests.test_specialist_continuity.ContinuityTests.test_no_terminal_truth_and_no_forged_pass_or_completion) ... ok\ntest_plaintext_private_content_absent_from_live_and_handoff_views (tests.test_specialist_continuity.ContinuityTests.test_plaintext_private_content_absent_from_live_and_handoff_views) ... ok\ntest_private_writer_cannot_create_shared_content (tests.test_specialist_continuity.ContinuityTests.test_private_writer_cannot_create_shared_content) ... ok\ntest_public_seat_api_cannot_invoke_administration (tests.test_specialist_continuity.ContinuityTests.test_public_seat_api_cannot_invoke_administration) ... ok\ntest_review_revisions_cannot_bypass_declared_budget (tests.test_specialist_continuity.ContinuityTests.test_review_revisions_cannot_bypass_declared_budget) ... ok\ntest_scope_and_tool_allowlists_are_enforced_independently (tests.test_specialist_continuity.ContinuityTests.test_scope_and_tool_allowlists_are_enforced_independently) ... ok\ntest_seat_cannot_resolve_challenge_without_resolution_right (tests.test_specialist_continuity.ContinuityTests.test_seat_cannot_resolve_challenge_without_resolution_right) ... ok\ntest_source_change_invalidates_claim_decision_action_and_completed_task (tests.test_specialist_continuity.ContinuityTests.test_source_change_invalidates_claim_decision_action_and_completed_task) ... ok\ntest_stale_head_and_target_revision_reject_without_appending (tests.test_specialist_continuity.ContinuityTests.test_stale_head_and_target_revision_reject_without_appending) ... ok\ntest_task_dependency_graph_cannot_cycle (tests.test_specialist_continuity.ContinuityTests.test_task_dependency_graph_cannot_cycle) ... ok\ntest_task_input_pins_travel_into_execution_attempt (tests.test_specialist_continuity.ContinuityTests.test_task_input_pins_travel_into_execution_attempt) ... ok\ntest_task_revision_is_rechecked_at_dispatch_and_acceptance (tests.test_specialist_continuity.ContinuityTests.test_task_revision_is_rechecked_at_dispatch_and_acceptance) ... ok\ntest_transfer_does_not_launder_historical_dependencies (tests.test_specialist_continuity.ContinuityTests.test_transfer_does_not_launder_historical_dependencies) ... ok\ntest_visibility_cannot_be_laundered_through_reference (tests.test_specialist_continuity.ContinuityTests.test_visibility_cannot_be_laundered_through_reference) ... ok\n\n----------------------------------------------------------------------\nRan 43 tests in 3.085s\n\nOK\n"
+    }
+  },
+  "artifact_boundary": {
+    "role": "Authored trust/semantic boundary control; not an uncovered verifier bug",
+    "gate_labels_are_fixture_data_not_executed_ci_results": true,
+    "commit_and_tree_are_example_identifiers": true,
+    "requested_bytes_hex": "45585045435445443a206d65617375726564206f7574636f6d65",
+    "actual_bytes_hex": "554e52454c415445443a206472616674",
+    "zip_readable": true,
+    "manifest_verified": true,
+    "native_status": "candidate_checks_passed_not_deployed",
+    "requested_semantic_content_satisfied": false,
+    "conclusion": "Manifest verification is scoped to coherent inputs from trusted CI; it does not validate arbitrary requested content or certify a public deployment."
+  },
+  "not_measured": [
+    "independent held-out performance",
+    "four-domain controlled promotion rates",
+    "human correction burden",
+    "inter-rater reliability",
+    "added gate latency/compute",
+    "new deployment behavior"
+  ],
+  "targeted_comparison": {
+    "role": "Same five frozen author-inspected tests, interpreter and fixtures; old implementation plus new tests versus patched implementation. Not independent observations or a four-domain randomized comparison.",
+    "baseline_commit": "73b795634332e48aab499c16e07a2af4328f2f7a",
+    "baseline_store_sha256": "c0da4147627f2a6925cf4a8416debb92e9b86d7083df561b31d365f479a158bb",
+    "candidate_store_sha256": "c73c4f55f1567ff63434a6d6e7bd2b3adef7a5cb80ffde31684667072c541976",
+    "tests_sha256": "421d7c2727b938d5b02dc81c098306093f86508e9e27d13e5c244f35fac277b7",
+    "baseline": {
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+        "-m",
+        "unittest",
+        "tests.test_specialist_continuity.ContinuityTests.test_completion_cannot_drop_unmet_criterion_in_same_write",
+        "tests.test_specialist_continuity.ContinuityTests.test_completion_cannot_replace_goal_using_old_receipt",
+        "tests.test_specialist_continuity.ContinuityTests.test_completion_cannot_replace_task_inputs_using_old_receipt",
+        "tests.test_specialist_continuity.ContinuityTests.test_completion_allows_reordered_identical_criteria",
+        "tests.test_specialist_continuity.ContinuityTests.test_completion_accepts_fresh_execution_after_explicit_contract_revision",
+        "-v"
+      ],
+      "exit_code": 1,
+      "elapsed_seconds_including_setup": 0.5281200740000713,
+      "reported_test_count": 5,
+      "cases": [
+        {
+          "test": "test_completion_cannot_drop_unmet_criterion_in_same_write",
+          "outcome": "FAIL"
+        },
+        {
+          "test": "test_completion_cannot_replace_goal_using_old_receipt",
+          "outcome": "FAIL"
+        },
+        {
+          "test": "test_completion_cannot_replace_task_inputs_using_old_receipt",
+          "outcome": "FAIL"
+        },
+        {
+          "test": "test_completion_allows_reordered_identical_criteria",
+          "outcome": "ok"
+        },
+        {
+          "test": "test_completion_accepts_fresh_execution_after_explicit_contract_revision",
+          "outcome": "ok"
+        }
+      ],
+      "output": "test_completion_cannot_drop_unmet_criterion_in_same_write (tests.test_specialist_continuity.ContinuityTests.test_completion_cannot_drop_unmet_criterion_in_same_write) ... FAIL\ntest_completion_cannot_replace_goal_using_old_receipt (tests.test_specialist_continuity.ContinuityTests.test_completion_cannot_replace_goal_using_old_receipt) ... FAIL\ntest_completion_cannot_replace_task_inputs_using_old_receipt (tests.test_specialist_continuity.ContinuityTests.test_completion_cannot_replace_task_inputs_using_old_receipt) ... FAIL\ntest_completion_allows_reordered_identical_criteria (tests.test_specialist_continuity.ContinuityTests.test_completion_allows_reordered_identical_criteria) ... ok\ntest_completion_accepts_fresh_execution_after_explicit_contract_revision (tests.test_specialist_continuity.ContinuityTests.test_completion_accepts_fresh_execution_after_explicit_contract_revision) ... ok\n\n======================================================================\nFAIL: test_completion_cannot_drop_unmet_criterion_in_same_write (tests.test_specialist_continuity.ContinuityTests.test_completion_cannot_drop_unmet_criterion_in_same_write)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"/tmp/tmp7480_rdf/tests/test_specialist_continuity.py\", line 372, in test_completion_cannot_drop_unmet_criterion_in_same_write\n    with self.assertRaises(WorkError):\n         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: WorkError not raised\n\n======================================================================\nFAIL: test_completion_cannot_replace_goal_using_old_receipt (tests.test_specialist_continuity.ContinuityTests.test_completion_cannot_replace_goal_using_old_receipt)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"/tmp/tmp7480_rdf/tests/test_specialist_continuity.py\", line 380, in test_completion_cannot_replace_goal_using_old_receipt\n    with self.assertRaises(WorkError):\n         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: WorkError not raised\n\n======================================================================\nFAIL: test_completion_cannot_replace_task_inputs_using_old_receipt (tests.test_specialist_continuity.ContinuityTests.test_completion_cannot_replace_task_inputs_using_old_receipt)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"/tmp/tmp7480_rdf/tests/test_specialist_continuity.py\", line 387, in test_completion_cannot_replace_task_inputs_using_old_receipt\n    with self.assertRaises(WorkError):\n         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: WorkError not raised\n\n----------------------------------------------------------------------\nRan 5 tests in 0.415s\n\nFAILED (failures=3)\n"
+    },
+    "candidate": {
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+        "-m",
+        "unittest",
+        "tests.test_specialist_continuity.ContinuityTests.test_completion_cannot_drop_unmet_criterion_in_same_write",
+        "tests.test_specialist_continuity.ContinuityTests.test_completion_cannot_replace_goal_using_old_receipt",
+        "tests.test_specialist_continuity.ContinuityTests.test_completion_cannot_replace_task_inputs_using_old_receipt",
+        "tests.test_specialist_continuity.ContinuityTests.test_completion_allows_reordered_identical_criteria",
+        "tests.test_specialist_continuity.ContinuityTests.test_completion_accepts_fresh_execution_after_explicit_contract_revision",
+        "-v"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds_including_setup": 0.4817948449999676,
+      "reported_test_count": 5,
+      "cases": [
+        {
+          "test": "test_completion_cannot_drop_unmet_criterion_in_same_write",
+          "outcome": "ok"
+        },
+        {
+          "test": "test_completion_cannot_replace_goal_using_old_receipt",
+          "outcome": "ok"
+        },
+        {
+          "test": "test_completion_cannot_replace_task_inputs_using_old_receipt",
+          "outcome": "ok"
+        },
+        {
+          "test": "test_completion_allows_reordered_identical_criteria",
+          "outcome": "ok"
+        },
+        {
+          "test": "test_completion_accepts_fresh_execution_after_explicit_contract_revision",
+          "outcome": "ok"
+        }
+      ],
+      "output": "test_completion_cannot_drop_unmet_criterion_in_same_write (tests.test_specialist_continuity.ContinuityTests.test_completion_cannot_drop_unmet_criterion_in_same_write) ... ok\ntest_completion_cannot_replace_goal_using_old_receipt (tests.test_specialist_continuity.ContinuityTests.test_completion_cannot_replace_goal_using_old_receipt) ... ok\ntest_completion_cannot_replace_task_inputs_using_old_receipt (tests.test_specialist_continuity.ContinuityTests.test_completion_cannot_replace_task_inputs_using_old_receipt) ... ok\ntest_completion_allows_reordered_identical_criteria (tests.test_specialist_continuity.ContinuityTests.test_completion_allows_reordered_identical_criteria) ... ok\ntest_completion_accepts_fresh_execution_after_explicit_contract_revision (tests.test_specialist_continuity.ContinuityTests.test_completion_accepts_fresh_execution_after_explicit_contract_revision) ... ok\n\n----------------------------------------------------------------------\nRan 5 tests in 0.398s\n\nOK\n"
+    },
+    "latency_interpretation": "Single suite durations include setup and are not an estimate of added gate computation or population latency."
+  }
+}

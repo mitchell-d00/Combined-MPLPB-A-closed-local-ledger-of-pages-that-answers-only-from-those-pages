@@ -1,0 +1,37 @@
+test_completion_cannot_drop_unmet_criterion_in_same_write (tests.test_specialist_continuity.ContinuityTests.test_completion_cannot_drop_unmet_criterion_in_same_write) ... FAIL
+test_completion_cannot_replace_goal_using_old_receipt (tests.test_specialist_continuity.ContinuityTests.test_completion_cannot_replace_goal_using_old_receipt) ... FAIL
+test_completion_cannot_replace_task_inputs_using_old_receipt (tests.test_specialist_continuity.ContinuityTests.test_completion_cannot_replace_task_inputs_using_old_receipt) ... FAIL
+test_completion_allows_reordered_identical_criteria (tests.test_specialist_continuity.ContinuityTests.test_completion_allows_reordered_identical_criteria) ... ok
+test_completion_accepts_fresh_execution_after_explicit_contract_revision (tests.test_specialist_continuity.ContinuityTests.test_completion_accepts_fresh_execution_after_explicit_contract_revision) ... ok
+
+======================================================================
+FAIL: test_completion_cannot_drop_unmet_criterion_in_same_write (tests.test_specialist_continuity.ContinuityTests.test_completion_cannot_drop_unmet_criterion_in_same_write)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/mplpb/tests/test_specialist_continuity.py", line 372, in test_completion_cannot_drop_unmet_criterion_in_same_write
+    with self.assertRaises(WorkError):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: WorkError not raised
+
+======================================================================
+FAIL: test_completion_cannot_replace_goal_using_old_receipt (tests.test_specialist_continuity.ContinuityTests.test_completion_cannot_replace_goal_using_old_receipt)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/mplpb/tests/test_specialist_continuity.py", line 380, in test_completion_cannot_replace_goal_using_old_receipt
+    with self.assertRaises(WorkError):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: WorkError not raised
+
+======================================================================
+FAIL: test_completion_cannot_replace_task_inputs_using_old_receipt (tests.test_specialist_continuity.ContinuityTests.test_completion_cannot_replace_task_inputs_using_old_receipt)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/mplpb/tests/test_specialist_continuity.py", line 387, in test_completion_cannot_replace_task_inputs_using_old_receipt
+    with self.assertRaises(WorkError):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: WorkError not raised
+
+----------------------------------------------------------------------
+Ran 5 tests in 0.476s
+
+FAILED (failures=3)
