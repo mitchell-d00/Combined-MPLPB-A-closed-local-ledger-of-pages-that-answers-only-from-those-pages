@@ -4,6 +4,11 @@ Last reviewed: 2026-11-10. See [current status and result-to-test index](docs/CU
 
 A closed local ledger of pages, with supported answers, inspectable provenance, and deterministic conversation. Each page declares its identity, scope, status, sealed hash, origin, and lineage. Source-backed answers require eligible body evidence under a finite grammar; missing support refuses and competing support remains ambiguous.
 
+**Research status: attributable engineering contribution and technical case study;
+still being tested. For MPLPB, the particular combination may be distinctive, but
+it is unproven as world-first.** No new universal law or confirmed world-first
+architecture is claimed. See the [research status and completion-fix release note](docs/research/mplpb-originality/RELEASE_NOTE.md).
+
 **[Open the live application](https://mitchell-d00.github.io/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/)** · [Documentation index](docs/README.md) · [Installation](docs/INSTALLATION.md) · [JavaScript API](JAVASCRIPT-API.md)
 
 **Infrastructure rule:** Every change must pass the [automated repository synchronization audit](docs/REPOSITORY_INFRASTRUCTURE.md), which checks the live Pages entry point, source `index.html`, JavaScript API, generated standalone runtime, packaging, documentation and corpus release boundaries. The [versioned machine-derived reference corpus](reference_corpus/README.md) is a separate **lab-only, unratified research preview**; it is **not** loaded into the hosted app by default.
@@ -192,8 +197,9 @@ explains the local diagnostics and retry boundary. No model training occurs.
 
 The [No-Unverified-Promotion research audit](evaluation/no-unverified-promotion/README.md)
 compares answer, artifact, release and specialist contracts against Mitchell D.
-McPhetridge’s preserved research. It classifies the synthesis as an existing
-engineering principle in MPLPB terminology, records one corrected completion
+McPhetridge’s preserved research. Its classification of the general logical rule
+as an existing engineering principle does not settle the originality of MPLPB’s
+particular combination. It records one corrected completion
 defect, and provides a source matrix and prospective adversarial protocol.
 
 The [originality and intellectual-priority reassessment](docs/research/mplpb-originality/README.md)

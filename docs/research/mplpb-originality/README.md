@@ -3,8 +3,14 @@
 Last reviewed: 2026-11-10.
 
 Research author: **Mitchell D. McPhetridge**. Prepared through a Codex-assisted
-source and prior-art audit. Status: technical research draft, not a priority
-certificate, independent replication or proof of effectiveness.
+source and prior-art audit. Status: **attributable engineering contribution and
+technical case study; still being tested**.
+
+**For MPLPB, the particular combination may be distinctive, but it is unproven
+as world-first.** No new universal law or confirmed world-first architecture is
+claimed. This source audit and its software regressions are not independent
+replication or proof of general effectiveness. See the [release note](RELEASE_NOTE.md)
+for the included completion-integrity fix and continuing experimental work.
 Baseline: PR #38 commit `4fd0203e26d90b267480c3c06a5ef4b06444641e`.
 This reassessment changes documentation only. The earlier repair, tests, cases,
 results, papers and archived implementations remain unchanged.
