@@ -409,7 +409,20 @@ function describeError(error,depth=0){
 }
 class Loader{
  constructor(options={}){
-  this.env=options.env||root;this.onChange=options.onChange||(()=>{});this.attempts=[];this.omittedAttempts=0;this.loading=false;this.requiresReload=false;
+  this.env=options.env||root;this.onChange=options.onChange||(()=>{});this.attempts=[];this.omittedAttempts=0;this.loading=false;this.requiresReload=false;this.loaded=false;
+ }
+ async catalog(){
+  const response=await this.env.fetch(new URL('ai/models.json',this.env.document.baseURI),{cache:'no-cache'});
+  if(!response.ok)throw Error('The MIT model catalog is unavailable in this build; use the published browser site.');
+  const catalog=await response.json(),ids=new Set();
+  if(catalog.schema!=='mplpb-model-catalog-v1'||!Array.isArray(catalog.models)||!catalog.models.length)throw Error('Invalid MIT model catalog.');
+  for(const model of catalog.models){
+   if(model.license_spdx!=='MIT')throw Error('Only MIT-licensed models may be loaded.');
+   if(typeof model.model_id!=='string'||!model.model_id||ids.has(model.model_id)||model.record?.model_id!==model.model_id||!Array.isArray(model.record.required_features))throw Error('Invalid or duplicate model identity in catalog.');
+   ids.add(model.model_id);
+  }
+  if(!ids.has(catalog.default_model_id))throw Error('Default model is missing from the MIT catalog.');
+  return catalog;
  }
  snapshot(){return {schema:'mplpb-model-load-report-v1',notice:'Local runtime diagnostics, not model reasoning or source evidence. No upload or training is performed. Older events/attempts may be omitted; omissions are counted.',limits:{attempts:3,events_per_attempt:120,log_characters:1500,error_stack_characters:6000},omitted_attempts:this.omittedAttempts,attempts:clone(this.attempts)};}
  emit(kind,data){
@@ -418,11 +431,11 @@ class Loader{
   try{this.onChange(this.snapshot());}catch{/* Diagnostic display must not change model execution. */}
  }
  phase(name){this.attempts.at(-1).phase=name;this.emit('phase',{name});}
- async load(){
+ async load(modelId){
   if(this.loading)throw Error('A model load is already in progress');
-  if(this.requiresReload)throw Error('Reload this page before retrying model initialization. The source tools remain available.');
+  if(this.requiresReload||this.loaded)throw Error('Reload this page before loading another model or retrying initialization. The source tools remain available.');
   this.loading=true;
-  const attempt={number:(this.attempts.at(-1)?.number||0)+1,started_at:new Date().toISOString(),status:'loading',phase:'preflight',events:[],omitted_events:0};
+  const attempt={number:(this.attempts.at(-1)?.number||0)+1,started_at:new Date().toISOString(),selected_model_id:modelId||null,status:'loading',phase:'preflight',events:[],omitted_events:0};
   this.attempts.push(attempt);if(this.attempts.length>3){this.attempts.shift();this.omittedAttempts++;}
   let engine,recordLogs=true;
   try{
@@ -435,11 +448,14 @@ class Loader{
    attempt.gpu_adapter={features:Array.from(adapter.features).slice(0,128).map(x=>bounded(x,100)).sort(),limits};
    this.emit('gpu_adapter',clone(attempt.gpu_adapter));
    this.phase('configuration');
-   const configResponse=await this.env.fetch(new URL('ai/model.json',this.env.document.baseURI),{cache:'no-cache'});
-   if(!configResponse.ok)throw Error('Optional model assets are unavailable in this build; use the published browser site.');
-   const configuration=await configResponse.json();
-   attempt.model={id:configuration.model_id,runtime:configuration.runtime,record:configuration.record};
-   if(!adapter.features.has('shader-f16'))throw Error('This Phi-4 format requires WebGPU shader-f16 support.');
+   const catalog=await this.catalog(),selected=modelId||catalog.default_model_id;
+   const configuration=catalog.models.find(model=>model.model_id===selected);
+   if(!configuration)throw Error('The selected model is not in the MIT catalog. Choose an available model.');
+   attempt.selected_model_id=selected;
+   attempt.model={id:configuration.model_id,license_spdx:configuration.license_spdx,runtime:configuration.runtime,record:configuration.record};
+   for(const feature of configuration.record.required_features){
+    if(!adapter.features.has(feature))throw Error('This model format requires WebGPU '+feature+' support.');
+   }
    const minimum=configuration.minimum_tensor_buffer_bytes;
    if(!Number.isSafeInteger(minimum)||minimum<=0||limits.maxBufferSize===null||limits.maxStorageBufferBindingSize===null||limits.maxBufferSize<minimum||limits.maxStorageBufferBindingSize<minimum)throw Error('This GPU cannot establish the buffer capacity required by the model.');
    this.phase('runtime_download');
@@ -484,7 +500,7 @@ class Loader{
     try{originalLogger(...args);}catch{}
    };
    await engine.reload(configuration.model_id);
-   recordLogs=false;attempt.status='ready';attempt.phase='ready';this.emit('ready',{notice:'Initialization resolved. Download progress alone did not establish readiness; response quality is not certified.'});
+   this.loaded=true;recordLogs=false;attempt.status='ready';attempt.phase='ready';this.emit('ready',{notice:'Initialization resolved. Download progress alone did not establish readiness; response quality is not certified.'});
    return {engine,configuration};
   }catch(error){
    attempt.status='failed';attempt.failed_phase=attempt.phase;this.requiresReload=attempt.phase==='engine_initialization';attempt.requires_page_reload=this.requiresReload;attempt.error=describeError(error);this.emit('failure',clone(attempt.error));
@@ -504,7 +520,8 @@ if(typeof module==='object'&&module.exports)module.exports=root.MPLPBModelLoader
 (function(){
 'use strict';
 const el=id=>document.getElementById(id),panel=el('ai-helper');if(!panel)return;
-let helper,provider=null,configuration;
+let helper,provider=null,configuration,modelCatalog;
+const modelKey='mplpb-optional-helper-model-id-v1';
 const sessionKey='mplpb-optional-helper-session-ids-v1',scopeKey='mplpb-optional-helper-selected-collection-v1';
 function readSaved(key,fallback){try{return JSON.parse(localStorage.getItem(key))||fallback;}catch{return fallback;}}
 function rememberScope(value){try{localStorage.setItem(scopeKey,JSON.stringify(value));}catch{}}
@@ -523,6 +540,27 @@ function download(value,name){
  const url=URL.createObjectURL(new Blob([JSON.stringify(value,null,2)],{type:'application/json'})),link=document.createElement('a');
  link.href=url;link.download=name;document.body.append(link);link.click();link.remove();setTimeout(()=>URL.revokeObjectURL(url),1000);
 }
+function modelChoice(){
+ const model=modelCatalog?.models.find(row=>row.model_id===el('ai-helper-model').value);
+ if(!model)return;
+ el('ai-helper-model-info').textContent=model.label+' · MIT license · '+(model.weights.tensor_download_bytes/1e9).toFixed(2)+' GB weights · estimated '+(model.record.vram_required_MB/1000).toFixed(2)+' GB working memory before browser overhead. '+model.description;
+ try{localStorage.setItem(modelKey,JSON.stringify(model.model_id));}catch{}
+ if(loader.loaded||loader.requiresReload){
+  provider=null;if(helper)helper.provider=null;el('ai-helper-use-model').checked=false;el('ai-helper-use-model').disabled=true;
+  el('ai-helper-load').disabled=false;el('ai-helper-load').textContent='Reload page to load selection';
+  status('Model selection saved. Reload before loading it so two models are not kept in memory.');
+ }else{el('ai-helper-load').textContent='Load '+model.label;}
+}
+async function initializeModels(){
+ const select=el('ai-helper-model'),button=el('ai-helper-load');select.disabled=true;button.disabled=true;
+ try{
+  modelCatalog=await loader.catalog();select.replaceChildren();
+  for(const model of modelCatalog.models){const option=document.createElement('option');option.value=model.model_id;option.textContent=model.label+' · MIT · '+(model.weights.tensor_download_bytes/1e9).toFixed(2)+' GB';select.append(option);}
+  const saved=readSaved(modelKey,null);select.value=modelCatalog.models.some(row=>row.model_id===saved)?saved:modelCatalog.default_model_id;
+  modelChoice();select.disabled=false;button.disabled=false;
+ }catch(error){el('ai-helper-model-info').textContent=error.message;status('Optional model selection unavailable: '+error.message+' The MPLPB source tools remain available.');}
+}
+el('ai-helper-model').addEventListener('change',modelChoice);
 async function ready(){
  if(!helper)helper=new MPLPBHelper.Helper(window.MPLPB,provider,{sessions:readSaved(sessionKey,{}),saveSessions:sessions=>localStorage.setItem(sessionKey,JSON.stringify(sessions))});
  const result=await window.MPLPB.listCorpora();if(!result.ok)throw Error(result.error);
@@ -563,11 +601,11 @@ el('ai-helper-export').addEventListener('click',()=>download({...helper?.trace()
 el('ai-helper-export-load').addEventListener('click',()=>download(loader.snapshot(),'mplpb-model-load-report.json'));
 el('ai-helper-load').addEventListener('click',async()=>{
  const button=el('ai-helper-load');
- if(loader.requiresReload){location.reload();return;}
- button.disabled=true;
+ if(loader.requiresReload||loader.loaded){location.reload();return;}
+ button.disabled=true;el('ai-helper-model').disabled=true;
  try{
   status('Loading the optional model. You can still use the source tools. General chat becomes available only after initialization finishes.');
-  const loaded=await loader.load(),engine=loaded.engine;configuration=loaded.configuration;
+  const loaded=await loader.load(el('ai-helper-model').value),engine=loaded.engine;configuration=loaded.configuration;
   provider={identity:{model:configuration.model_id,weights:configuration.weights,license:configuration.license,runtime:configuration.runtime},
    propose:async(request,schema)=>{
     if(JSON.stringify(request).length>10000)throw Error('The model input is too large. Use a shorter draft or turn off the optional model; no source was written.');
@@ -579,14 +617,15 @@ el('ai-helper-load').addEventListener('click',async()=>{
     return JSON.parse(content);
    }};
   if(helper)helper.provider=provider;el('ai-helper-use-model').checked=true;el('ai-helper-use-model').disabled=false;
-  status('Pretrained Phi-4-mini loaded in this browser. No training has run; your conversations are not being sent for training.');
+  status(configuration.label+' loaded in this browser. No training has run; your conversations are not being sent for training.');
   button.textContent='Model loaded';
  }catch(error){
   provider=null;if(helper)helper.provider=null;el('ai-helper-use-model').checked=false;el('ai-helper-use-model').disabled=true;
   status('Optional AI unavailable: '+error.message+' The ordinary MPLPB tools still work. Export the model load report to inspect this failure.');
   button.disabled=false;if(loader.requiresReload)button.textContent='Reload page to retry AI';
- }finally{trace();}
+ }finally{el('ai-helper-model').disabled=false;trace();}
 });
+initializeModels();
 })();
 
 });
@@ -596,13 +635,15 @@ el('ai-helper-load').addEventListener('click',async()=>{
 <details id="ai-helper" class="panel" style="max-width:1100px;margin:16px auto;padding:16px">
 <summary><strong>Builder and chat helper · optional free browser AI</strong></summary>
 <p>Everyone can use this page. No paid AI service or account is required. The optional pretrained model runs on a compatible visitor device; it does not run on GitHub’s servers.</p>
-<button id="ai-helper-load" type="button">Load optional Phi-4-mini · about 2.2 GB download</button>
+<label>AI model · MIT licenses only <select id="ai-helper-model" aria-describedby="ai-helper-model-info" disabled></select></label>
+<p id="ai-helper-model-info" class="small" role="status">Loading model choices. No model weights are downloaded until you press Load.</p>
+<button id="ai-helper-load" type="button" disabled>Load selected model</button>
 <label><input id="ai-helper-use-model" type="checkbox" disabled> Use loaded AI for proposals</label>
 <p id="ai-helper-model-status" role="status" aria-live="polite">No AI model loaded. Downloading and initialization are separate stages.</p>
 <details><summary>Model loading details</summary><pre id="ai-helper-load-report" style="white-space:pre-wrap;overflow-wrap:anywhere"></pre></details>
 <button id="ai-helper-export-load" type="button">Export model load report</button>
 <p class="small">This local report includes browser/GPU capabilities, load progress and available runtime errors. It is not uploaded automatically and does not include your source questions. A 100% download does not establish that the model can initialize.</p>
-<p class="small">The model reports about 3.4 GB working memory before other browser overhead. Devices may be unable to run it. MPLPB remains available. No fine-tuning or automatic training on your conversations takes place.</p>
+<p class="small">Phi-1.5 is the smallest default; successful iPad loading is not guaranteed. Working memory estimates are not measured free memory. To change models after a load attempt, choose one and reload. MPLPB remains available. No fine-tuning or automatic training on your conversations takes place.</p>
 <div style="display:flex;gap:8px;flex-wrap:wrap">
 <label>Collection <select id="ai-helper-corpus" aria-label="Helper collection"></select></label>
 <label>Task <select id="ai-helper-mode"><option value="ask">Ask sources</option><option value="chat">Chat with MPLPB</option><option value="build">Build a collection/source</option><option value="general">General chat · model text is unverified</option></select></label>

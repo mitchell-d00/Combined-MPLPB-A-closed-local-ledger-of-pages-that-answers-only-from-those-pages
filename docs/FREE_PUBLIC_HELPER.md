@@ -1,10 +1,10 @@
 # Public builder and chat helper with no AI server bill
 
-Last reviewed: 2026-11-08.
+Last reviewed: 2026-11-10.
 
 The product remains a public website at the existing MPLPB address. Everyone can
 open it. GitHub Pages serves the interface; the MPLPB engine runs in each visitor's
-browser. An optional pretrained Phi-4-mini model can run in a compatible browser,
+browser. An optional pretrained MIT-licensed model can run in a compatible browser,
 so no shared AI server, paid API, account, subscription or local Python setup is
 required by a visitor. This does not promise unlimited free hosting/bandwidth or
 support for every device. The core app continues to work without the model.
@@ -35,20 +35,34 @@ The helper performs no autonomous web acquisition, revisions, deletion or ratifi
 
 ## Optional model and device limits
 
-Loading the model is a separate explicit action. Its tensor download is about
-2.16 GB; the upstream runtime estimates roughly 3.44 GB working memory before
-browser/engine overhead. WebGPU, shader-f16 and adequate buffer/memory limits are
+Choose **AI model · MIT licenses only**, then press **Load**. Phi-1.5 is the
+smaller default (0.80 GB weights, estimated 1.21 GB working memory); Phi-2
+(1.56 GB, estimated 3.05 GB memory) and Phi-4-mini instruct (2.16 GB, estimated
+3.44 GB memory) are also available. These upstream estimates exclude browser
+overhead and do not measure free memory or certify the configured context.
+WebGPU, shader-f16 and adequate buffer/memory limits are
 required. The runtime and model locations are pinned. The app checks compatibility
 before starting the large download and shows failures instead of enabling a paid
 fallback. Browser caching/storage eviction can require another download later.
 
-The current pretrained model is Microsoft's MIT-licensed Phi-4-mini-instruct,
-converted to MLC format. The runtime is WebLLM 0.2.87, Apache-2.0, with notices
+Every selectable model is MIT-licensed by Microsoft and converted to MLC format.
+Original MIT notices, immutable model revisions, config/library integrity pins
+and per-model tensor minima are included. Phi-1.5 and Phi-2 are base models;
+their instruction-following and structured JSON planning may be unreliable.
+The runtime is WebLLM 0.2.87, Apache-2.0, with notices
 retained under `assets/ai`. No claim is made that every iPad can run it. The
 execution environment's software GPU lacks shader-f16, so live Phi-4 generation
 has **not** been validated here. The actual browser tests validate source/builder
 behavior, native fallback and the unavailable-model path; simulated model plans
 validate orchestration boundaries, not neural answer quality.
+
+Only the selected model is initialized. Changing the choice after initialization
+disables its old proposal provider and changes the button to **Reload page to
+load selection**. The choice is saved locally and survives reload; an unavailable
+saved choice falls back to Phi-1.5. Reloading avoids accumulating two engines.
+Initialization failure also requires a reload before retrying; choose a smaller
+model first if needed. Model caches and source collections are not deleted.
+The default is a smaller option to test on iPad, not a confirmed iPad repair.
 
 ## When the model fails to initialize
 

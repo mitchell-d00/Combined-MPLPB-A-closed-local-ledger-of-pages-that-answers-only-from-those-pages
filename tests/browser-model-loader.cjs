@@ -9,7 +9,8 @@ let checks=[];
 async function scenario(name,run){await run();checks.push(name);}
 async function fixture(behavior={}){
  const hash=Buffer.from(await webcrypto.subtle.digest('SHA-256',bytes)).toString('hex');
- const config={model_id:'unfamiliar-model',minimum_tensor_buffer_bytes:1024,runtime:{sha256:hash,version:'test'},record:{model:'https://example.org/pinned-model/',model_lib:'https://example.org/pinned-lib',integrity:{onFailure:'error',model_lib:'sha256-pinned'}}};
+ const config={model_id:'unfamiliar-model',label:'Fixture model',license_spdx:'MIT',description:'Authored fixture',weights:{tensor_download_bytes:1000},minimum_tensor_buffer_bytes:1024,runtime:{sha256:hash,version:'test'},record:{model_id:'unfamiliar-model',vram_required_MB:1,required_features:['shader-f16'],model:'https://example.org/pinned-model/',model_lib:'https://example.org/pinned-lib',integrity:{onFailure:'error',model_lib:'sha256-pinned'}}};
+ const catalog={schema:'mplpb-model-catalog-v1',default_model_id:config.model_id,models:[config]};
  const state={fetches:[],fetchOptions:[],constructors:0,unloads:0,forwarded:[]};
  class Engine{
   constructor(options){state.constructors++;state.options=options;this.logger=text=>state.forwarded.push(text);state.engine=this;}
@@ -17,13 +18,21 @@ async function fixture(behavior={}){
   async unload(){state.unloads++;if(behavior.unload)await behavior.unload();}
  }
  const env={navigator:{userAgent:'Authored test browser',gpu:{requestAdapter:async()=>({features:new Set(['shader-f16']),limits:{maxBufferSize:2048,maxStorageBufferBindingSize:2048}})}},document:{baseURI:'https://example.org/app/'},crypto:webcrypto,
-  fetch:async (url,options)=>{state.fetches.push(String(url));state.fetchOptions.push(options);return String(url).endsWith('model.json')?{ok:true,json:async()=>config}:{ok:true,arrayBuffer:async()=>bytes.buffer};},importRuntime:async()=>({MLCEngine:Engine})};
- return {state,config,env};
+  fetch:async (url,options)=>{state.fetches.push(String(url));state.fetchOptions.push(options);return String(url).endsWith('models.json')?{ok:true,json:async()=>catalog}:{ok:true,arrayBuffer:async()=>bytes.buffer};},importRuntime:async()=>({MLCEngine:Engine})};
+ return {state,config,catalog,env};
 }
 async function run(){
  await scenario('no GPU reports preflight failure without fetching',async()=>{const f=await fixture();delete f.env.navigator.gpu;const l=new Loader({env:f.env});await assert.rejects(()=>l.load(),/WebGPU/);assert.equal(f.state.fetches.length,0);assert.equal(l.snapshot().attempts[0].failed_phase,'preflight');assert.equal(l.loading,false);});
  await scenario('missing f16 blocks before runtime download',async()=>{const f=await fixture();f.env.navigator.gpu.requestAdapter=async()=>({features:new Set(),limits:{}});const l=new Loader({env:f.env});await assert.rejects(()=>l.load(),/shader-f16/);assert.equal(f.state.fetches.length,1);assert.equal(f.state.constructors,0);});
  await scenario('unknown or inadequate buffer capacity is rejected',async()=>{const f=await fixture();f.env.navigator.gpu.requestAdapter=async()=>({features:new Set(['shader-f16']),limits:{maxBufferSize:2048}});await assert.rejects(()=>new Loader({env:f.env}).load(),/buffer capacity/);assert.equal(f.state.fetches.length,1);});
+ await scenario('explicit choice uses its own identity, buffer minimum and runtime record',async()=>{
+  const f=await fixture();const second=JSON.parse(JSON.stringify(f.config));second.model_id='second-model';second.record.model_id=second.model_id;second.record.model='https://example.org/second-model/';second.minimum_tensor_buffer_bytes=1536;f.catalog.models.push(second);
+  const l=new Loader({env:f.env}),result=await l.load(second.model_id);assert.equal(result.configuration.model_id,second.model_id);assert.equal(f.state.id,second.model_id);assert.equal(f.state.options.appConfig.model_list[0].mplpb_minimum_tensor_buffer_bytes,1536);assert.equal(l.snapshot().attempts[0].selected_model_id,second.model_id);
+  await assert.rejects(()=>l.load(f.config.model_id),/Reload this page/);assert.equal(f.state.constructors,1);
+ });
+ await scenario('unknown selection never downloads the runtime or starts an engine',async()=>{const f=await fixture();await assert.rejects(()=>new Loader({env:f.env}).load('not-in-catalog'),/not in the MIT catalog/);assert.equal(f.state.fetches.length,1);assert.equal(f.state.constructors,0);});
+ await scenario('non-MIT model anywhere in catalog fails closed',async()=>{const f=await fixture();f.config.license_spdx='Apache-2.0';await assert.rejects(()=>new Loader({env:f.env}).load(),/Only MIT/);assert.equal(f.state.constructors,0);assert.equal(f.state.fetches.length,1);});
+ await scenario('duplicate identities and missing defaults fail before engine allocation',async()=>{const f=await fixture();f.catalog.models.push(f.config);await assert.rejects(()=>new Loader({env:f.env}).load(),/duplicate/);f.catalog.models.pop();f.catalog.default_model_id='missing';await assert.rejects(()=>new Loader({env:f.env}).load(),/Default model/);assert.equal(f.state.constructors,0);});
  await scenario('changed runtime bytes stop before import or initialization',async()=>{const f=await fixture();f.config.runtime.sha256='0'.repeat(64);const l=new Loader({env:f.env});await assert.rejects(()=>l.load(),/pinned build/);assert.equal(f.state.constructors,0);assert.equal(l.snapshot().attempts[0].failed_phase,'runtime_integrity');});
  await scenario('100 percent followed by exit(1) retains runtime evidence and never becomes ready',async()=>{
   const f=await fixture({reload:async engine=>{engine.logger('TVM: authored allocation error detail');throw new Error('Program terminated with exit(1)',{cause:Error('Authored runtime cause')});}}),l=new Loader({env:f.env});

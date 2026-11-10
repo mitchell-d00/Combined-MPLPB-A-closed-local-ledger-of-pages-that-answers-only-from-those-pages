@@ -1,0 +1,135 @@
+{
+  "schema": "mplpb-model-catalog-v1",
+  "default_model_id": "phi-1_5-q4f16_1-MLC",
+  "models": [
+    {
+      "model_id": "phi-1_5-q4f16_1-MLC",
+      "label": "Phi-1.5",
+      "license": "MIT",
+      "license_spdx": "MIT",
+      "license_source": "https://huggingface.co/microsoft/phi-1_5/resolve/77aa61eeac94fbf33d492b9f2744c98b42d5b5eb/LICENSE",
+      "license_file": "LICENSE-PHI1_5.txt",
+      "license_sha256": "fa8235e5b48faca34e3ca98cf4f694ef08bd216d28b58071a1f85b1d50cb814d",
+      "description": "Smaller base model; instruction following and JSON planning may be unreliable. iPad compatibility is unverified.",
+      "weights": {
+        "url": "https://huggingface.co/mlc-ai/phi-1_5-q4f16_1-MLC/resolve/48ccb37900769345f634cf56f1d7afafbc27d2ec/",
+        "upstream": "https://huggingface.co/microsoft/phi-1_5/resolve/77aa61eeac94fbf33d492b9f2744c98b42d5b5eb/",
+        "conversion_revision": "48ccb37900769345f634cf56f1d7afafbc27d2ec",
+        "tensor_download_bytes": 798633984,
+        "notice": "Immutable locations/pins establish byte identity, not source truth, model safety or independently authenticated conversion lineage."
+      },
+      "runtime": {
+        "package": "@mlc-ai/web-llm",
+        "version": "0.2.87",
+        "sha256": "9afbc1d07c664cf60972bc88e5e64e9c5594b8b03dfc1c24dcb18620774ce73c",
+        "upstream_sha256": "3bff4c55cd2f0200711517341babcebe7a91a8ef85b983420439fcf26835a674",
+        "local_patch": "webgpu-device-limits-v1"
+      },
+      "minimum_tensor_buffer_bytes": 52428800,
+      "record": {
+        "model": "https://huggingface.co/mlc-ai/phi-1_5-q4f16_1-MLC/resolve/48ccb37900769345f634cf56f1d7afafbc27d2ec/",
+        "model_id": "phi-1_5-q4f16_1-MLC",
+        "model_lib": "https://raw.githubusercontent.com/mlc-ai/binary-mlc-llm-libs/146ed9cd4b4062e967b017fd2291f7106b50599f/web-llm-models/v0_2_87/base/phi-1_5-q4f16_1_cs1k-webgpu.wasm",
+        "vram_required_MB": 1210.09,
+        "required_features": [
+          "shader-f16"
+        ],
+        "overrides": {
+          "context_window_size": 2048,
+          "prefill_chunk_size": 128
+        },
+        "integrity": {
+          "model_lib": "sha256-JXdGJFInVNGwgCM8LJQ+hxFTr+Do2qNvKkx/WaydZ5k=",
+          "config": "sha256-xHq/cy76mEgVz7DLcyXCi6/dQkwIpLczspbANrSNIGI=",
+          "onFailure": "error"
+        }
+      }
+    },
+    {
+      "model_id": "phi-2-q4f16_1-MLC",
+      "label": "Phi-2",
+      "license": "MIT",
+      "license_spdx": "MIT",
+      "license_source": "https://huggingface.co/microsoft/phi-2/resolve/810d367871c1d460086d9f82db8696f2e0a0fcd0/LICENSE",
+      "license_file": "LICENSE-PHI2.txt",
+      "license_sha256": "fa8235e5b48faca34e3ca98cf4f694ef08bd216d28b58071a1f85b1d50cb814d",
+      "description": "Smaller base model; instruction following and JSON planning may be unreliable. iPad compatibility is unverified.",
+      "weights": {
+        "url": "https://huggingface.co/mlc-ai/phi-2-q4f16_1-MLC/resolve/c0e829d9a02ab956a96380c668e48c2adc7ab28a/",
+        "upstream": "https://huggingface.co/microsoft/phi-2/resolve/810d367871c1d460086d9f82db8696f2e0a0fcd0/",
+        "conversion_revision": "c0e829d9a02ab956a96380c668e48c2adc7ab28a",
+        "tensor_download_bytes": 1564948480,
+        "notice": "Immutable locations/pins establish byte identity, not source truth, model safety or independently authenticated conversion lineage."
+      },
+      "runtime": {
+        "package": "@mlc-ai/web-llm",
+        "version": "0.2.87",
+        "sha256": "9afbc1d07c664cf60972bc88e5e64e9c5594b8b03dfc1c24dcb18620774ce73c",
+        "upstream_sha256": "3bff4c55cd2f0200711517341babcebe7a91a8ef85b983420439fcf26835a674",
+        "local_patch": "webgpu-device-limits-v1"
+      },
+      "minimum_tensor_buffer_bytes": 65536000,
+      "record": {
+        "model": "https://huggingface.co/mlc-ai/phi-2-q4f16_1-MLC/resolve/c0e829d9a02ab956a96380c668e48c2adc7ab28a/",
+        "model_id": "phi-2-q4f16_1-MLC",
+        "model_lib": "https://raw.githubusercontent.com/mlc-ai/binary-mlc-llm-libs/146ed9cd4b4062e967b017fd2291f7106b50599f/web-llm-models/v0_2_87/base/phi-2-q4f16_1_cs1k-webgpu.wasm",
+        "vram_required_MB": 3053.97,
+        "required_features": [
+          "shader-f16"
+        ],
+        "overrides": {
+          "context_window_size": 2048,
+          "prefill_chunk_size": 128
+        },
+        "integrity": {
+          "model_lib": "sha256-guyErMG05o4d1SNQK7NYaaQn8WE/DGOaKofoMr9VDZ4=",
+          "config": "sha256-MyB6nsStDrgjVAmsnNHaHHRFMk/UhC2SPHHp0Jv21es=",
+          "onFailure": "error"
+        }
+      }
+    },
+    {
+      "model_id": "Phi-4-mini-instruct-q4f16_1-MLC",
+      "license": "MIT (Microsoft model); converted MLC distribution",
+      "weights": {
+        "url": "https://huggingface.co/mlc-ai/Phi-4-mini-instruct-q4f16_1-MLC/resolve/c2ecf2bf3a81d201ccdbfb9019d67fb8f0dede52/",
+        "upstream": "https://huggingface.co/microsoft/Phi-4-mini-instruct/tree/cfbefacb99257ffa30c83adab238a50856ac3083",
+        "conversion_revision": "c2ecf2bf3a81d201ccdbfb9019d67fb8f0dede52",
+        "tensor_download_bytes": 2158049280,
+        "notice": "Immutable locations/pins establish byte identity, not source truth, model safety or independently authenticated conversion lineage."
+      },
+      "runtime": {
+        "package": "@mlc-ai/web-llm",
+        "version": "0.2.87",
+        "sha256": "9afbc1d07c664cf60972bc88e5e64e9c5594b8b03dfc1c24dcb18620774ce73c",
+        "upstream_sha256": "3bff4c55cd2f0200711517341babcebe7a91a8ef85b983420439fcf26835a674",
+        "local_patch": "webgpu-device-limits-v1"
+      },
+      "minimum_tensor_buffer_bytes": 307298304,
+      "record": {
+        "model": "https://huggingface.co/mlc-ai/Phi-4-mini-instruct-q4f16_1-MLC/resolve/c2ecf2bf3a81d201ccdbfb9019d67fb8f0dede52/",
+        "model_id": "Phi-4-mini-instruct-q4f16_1-MLC",
+        "model_lib": "https://raw.githubusercontent.com/mlc-ai/binary-mlc-llm-libs/146ed9cd4b4062e967b017fd2291f7106b50599f/web-llm-models/v0_2_87/base/Phi-4-mini-instruct-q4f16_1_cs1k-webgpu.wasm",
+        "vram_required_MB": 3437.58,
+        "required_features": [
+          "shader-f16"
+        ],
+        "overrides": {
+          "context_window_size": 4096,
+          "prefill_chunk_size": 128
+        },
+        "integrity": {
+          "model_lib": "sha256-ZZgvhh/kMjtqsUSNsuNUdmQ3UkA85Q51HzpgrsMnR7Y=",
+          "config": "sha256-+ZdkUE7aR17cQl1sh2kAXu3TXHribkAsee33IsmiOfw=",
+          "onFailure": "error"
+        }
+      },
+      "label": "Phi-4-mini instruct",
+      "license_spdx": "MIT",
+      "license_source": "https://huggingface.co/microsoft/Phi-4-mini-instruct/resolve/cfbefacb99257ffa30c83adab238a50856ac3083/LICENSE",
+      "license_file": "LICENSE-PHI4.txt",
+      "license_sha256": "fa8235e5b48faca34e3ca98cf4f694ef08bd216d28b58071a1f85b1d50cb814d",
+      "description": "Instruction-tuned; largest download and memory estimate. Previously failed on the reported iPad; loading is not guaranteed."
+    }
+  ]
+}
