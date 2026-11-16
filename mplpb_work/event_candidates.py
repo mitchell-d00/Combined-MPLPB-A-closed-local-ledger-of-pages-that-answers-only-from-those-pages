@@ -63,10 +63,12 @@ def inspect_events(root,question,profile=None,source_ids=None,expected_snapshot=
         event=fields.get('event-id',{}).get('value','')
         declared_occurrence=fields.get('occurrence-id',{}).get('value','')
         if declared_occurrence and not re.fullmatch(r'[A-Za-z0-9][A-Za-z0-9._:@/-]{0,99}',declared_occurrence):continue
+        event_key=fields.get('event-key',{}).get('value','')
+        if event_key and not re.fullmatch(r'[A-Za-z0-9][A-Za-z0-9._:@/-]{0,99}',event_key):continue
         if not re.fullmatch(r'[A-Za-z0-9][A-Za-z0-9._:@/-]{0,99}',message):continue
         if event and not re.fullmatch(r'[A-Za-z0-9][A-Za-z0-9._:@/-]{0,99}',event):continue
         occurrence={'occurrence_id':record.id+'@'+record.hash_actual,
-                    'event_key':fields.get('event-key',{}).get('value',''),
+                    'event_key':event_key,
                     'declared_occurrence_id':fields.get('occurrence-id',{}).get('value',''),
                     'source_id':record.id,'path':record.path,'hash':record.hash_actual,
                     'message_id':message,'event_id':event,
@@ -75,7 +77,7 @@ def inspect_events(root,question,profile=None,source_ids=None,expected_snapshot=
                     'body_sha256':hashlib.sha256(body[body_start:].encode()).hexdigest(),
                     'citations':list(fields.values()),'identity_basis':'explicit_source_identifiers',
                     'answer_supported':False,'content_truth_verified':False}
-        if event:groups[event].append(occurrence)
+        if event:groups[('declared_event_id',event)].append(occurrence)
         else:unassigned.append(occurrence)
     # A new shared-key node requires two distinct source appearances. No title,
     # subject, date similarity or receipt is an identity key.
@@ -86,17 +88,18 @@ def inspect_events(root,question,profile=None,source_ids=None,expected_snapshot=
     assigned=set()
     for key,appearances in shared.items():
         if len(appearances)>=2:
-            event='source-key:'+key
-            groups[event].extend(appearances)
+            groups[('shared_event_key',key)].extend(appearances)
             assigned.update(a['occurrence_id'] for a in appearances)
     unassigned=[o for o in unassigned if o['occurrence_id'] not in assigned]
     candidates=[]
-    for event,occurrences in sorted(groups.items()):
+    for (namespace,key),occurrences in sorted(groups.items()):
+        event=key if namespace=='declared_event_id' else 'source-key:'+key
         versions=defaultdict(set)
         for occurrence in occurrences:versions[occurrence['message_id']].add(occurrence['body_sha256'])
         review=any(len(values)>1 for values in versions.values())
         candidates.append({'event_id':event,'kind':'documentary_event_candidate',
-                           'node_id':'event:'+hashlib.sha256(event.encode()).hexdigest(),
+                           'node_id':'event:'+hashlib.sha256((namespace+'\0'+key).encode()).hexdigest(),
+                           'identity_namespace':namespace,'identity_key':key,
                            'answer_supported':False,'content_truth_verified':False,
                            'status':'needs_review' if review else 'candidate',
                            'changed_message_body':review,'occurrences':occurrences,

@@ -131,6 +131,15 @@ class ScopedEvidenceTests(unittest.TestCase):
         self.assertEqual({o['occurrence_id'] for o in node['occurrences']},{a.id+'@'+a.hash,b.id+'@'+b.hash})
         self.assertNotIn(node['node_id'],{o['occurrence_id'] for o in node['occurrences']})
 
+    def test_declared_event_id_cannot_collide_with_generated_shared_key_node(self):
+        self.page('SRC-1','Event-ID: source-key:KEY-1\nMessage-ID: MSG-1\nBody: declared')
+        self.page('SRC-2','Event-Key: KEY-1\nMessage-ID: MSG-2\nBody: appearance')
+        self.page('SRC-3','Event-Key: KEY-1\nMessage-ID: MSG-3\nBody: appearance')
+        nodes=inspect_events(self.root,'archive record')['candidates']
+        self.assertEqual(len(nodes),2);self.assertEqual(len({n['node_id'] for n in nodes}),2)
+        self.assertEqual(sorted(len(n['occurrences']) for n in nodes),[1,2])
+        self.assertTrue(all(not n['answer_supported'] for n in nodes))
+
     def test_sealed_event_and_occurrence_declarations_are_not_answers(self):
         rec=self.page('SRC-1','Source appearance.',event_id='EVENT-7',occurrence_id='OCC-4')
         events=inspect_events(self.root,'archive record')

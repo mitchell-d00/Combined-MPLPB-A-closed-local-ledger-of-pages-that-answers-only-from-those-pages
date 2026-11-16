@@ -4,8 +4,8 @@ Last reviewed: 2026-11-16.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `08cc859965d920baf22f54f69e1866dee370370a` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `399d5a88be3ec4987a9970748c0f91530d910f3ca7db407a4496d4d79a3616d8`.
+Base commit: `876b4f6c9b4e0a58c9bbf68fc747a339d37ecbce` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `1ddf9304c5f1438cb6481e934834e4a241f88a45e650603794a553252df371b5`.
 
 ## Latest user update instructions
 
@@ -48,13 +48,14 @@ Keep all new paths inside the existing pipeline, relation_graph, and mplpb_work 
 
 ## Validation recorded
 
-- 26 focused extension tests pass, including all four diagnostics, exact-field conflicts and gates, source-change discard, distinct event keys, window boundaries, withdrawn corrections, concurrent query views, quoted-hop candidates, receipt separation and private operator metadata.
+- 27 focused extension tests pass, including all four diagnostics, exact-field conflicts and gates, source-change discard, distinct event keys, window boundaries, withdrawn corrections, concurrent query views, quoted-hop candidates, receipt separation and private operator metadata.
 - 80 existing/focused coordinator, relation-graph and response checks passed in an earlier integrated run. 59 source/record/supersession/study controls passed before the final concurrency/correction tests. The unchanged public suite passed 52/52 with zero observed false supported bridges.
 - Full final extracted-source Python regression, required documentation/handoff checks, actual Linux worker isolation, exact-head archive/WebAssembly/browser CI and postdeployment verification remain to complete.
 - Existing strict-first compatibility and extension checks pass together: a deterministic strict-first proof is labelled strict; actual assisted and candidate outputs remain unsupported. The superseded full run was stopped before completion and is not reported as a pass.
 - Final field-context control also retains competing later source field mentions outside the initial header instead of selecting a supported header answer. Final extension and strict-first controls pass together (47 tests); exact final-head full CI remains required.
 - An extracted pre-final candidate completed 966 tests with one portability import-allowlist failure for the new standard-library contextvars dependency. The allowlist now permits contextvars; no other import restriction was removed. A final guard also prevents historical query views from authorizing current work and requires an explicit field at the provenance gate for scoped sources. Final exact-head full CI remains required.
 - The 26 final scoped-extension controls pass with an explicitly pinned fixture clock, so declared correction-window tests do not depend on the year the suite runs.
+- Final event identity control keeps declared IDs and generated shared-key nodes in separate namespaces; a matching display label cannot merge their appearances. All 39 scoped and historical-investigation tests pass together, including the new collision control.
 
 ## Limitations and blocked checks
 

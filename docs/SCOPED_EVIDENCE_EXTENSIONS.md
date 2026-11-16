@@ -56,7 +56,8 @@ Source pages can declare sealed `event_id` / `occurrence_id` metadata through
 `ledger.write`, or explicit `Event-ID:` / `Occurrence-ID:` source body headers.
 `inspect_events` retains every appearance as its own `source-id@hash` occurrence,
 along with any declared occurrence ID. An event has a distinct `event:` node ID
-and its own false support/truth flags. A source declaration is not a historical
+and its own false support/truth flags. Declared event IDs and generated shared-key
+nodes occupy separate identity namespaces, even when their display labels match. A source declaration is not a historical
 identity certification.
 
 A new shared-key event candidate requires at least two appearances declaring the
