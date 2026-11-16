@@ -1,0 +1,51 @@
+{
+  "scope": "Direct probes, not independent semantic scores",
+  "program": "import json\nfrom mplpb_work.prose_relations import ACTION,_embedding,_passive_agent\nq='Mira ordered the archive note to Ruth and sent the register.'\nm=next(m for m in ACTION.finditer(q) if m[0]=='sent')\nprint(json.dumps({'prepositional_to_governors':_embedding(q,m),'honorific_agent':_passive_agent(' by Gen. Dwight D. Eisenhower to encourage soldiers.')}))\n",
+  "observations": [
+    {
+      "revision": "3790547ad1db0a5b796714e13cdb521eb9a8603a",
+      "observed": {
+        "prepositional_to_governors": [
+          {
+            "action": "order",
+            "predicate_text": "ordered",
+            "start": 5,
+            "end": 12,
+            "scope": "requested_or_intended_not_completed"
+          }
+        ],
+        "honorific_agent": {
+          "text": "Gen",
+          "start": 4,
+          "end": 7,
+          "basis": "explicit passive by-phrase; identity not resolved"
+        }
+      }
+    },
+    {
+      "revision": "c1352c1342cb0f4d9dff602146a0b896d34835eb",
+      "observed": {
+        "prepositional_to_governors": [],
+        "honorific_agent": {
+          "text": "Gen. Dwight D. Eisenhower",
+          "start": 4,
+          "end": 29,
+          "basis": "explicit passive by-phrase; identity not resolved"
+        }
+      }
+    },
+    {
+      "revision": "c6f77bef76a90219ae6e2074f0302fa3d72ada19",
+      "observed": {
+        "prepositional_to_governors": [],
+        "honorific_agent": {
+          "text": "Gen. Dwight D. Eisenhower",
+          "start": 4,
+          "end": 29,
+          "basis": "explicit passive by-phrase; identity not resolved"
+        }
+      }
+    }
+  ],
+  "other_error": "c1352c1 mislabeled referenced-letter February 16th as receipt; before/after exact original findings retained in examples.json."
+}

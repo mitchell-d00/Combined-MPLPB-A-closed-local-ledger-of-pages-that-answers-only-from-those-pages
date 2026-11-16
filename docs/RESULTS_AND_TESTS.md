@@ -101,4 +101,4 @@ Targeted recovery update (2026-11-16): the [source-linked recovery study](PROSE_
 
 ## Documentary scope — 2026-11-16
 
-The [scope repair protocol](DOCUMENTARY_SCOPE.md) links adversarial tests and a frozen original-record comparison with exact byte mapping. Candidate counts are not accuracy scores. Independent review and unseen evaluation are NOT RUN; [new evidence](../evaluation/documentary-scope/BASELINE.md) preserves the baseline and later terminal results separately.
+The [scope repair protocol](DOCUMENTARY_SCOPE.md) links 24 new adversarial tests and unchanged original-record comparisons. [Terminal results](../evaluation/documentary-scope/RESULTS.md) retain 1,035 passing archive tests, baseline comparisons, source-linked failures, cost measurements and blank independent review packets. Native support remains 0/14 and 0/8; candidate counts are not accuracy scores. Independent semantic review and unseen evaluation are NOT RUN. The [refusal diagnosis](../evaluation/documentary-scope/REFUSAL_ANALYSIS.md) specifies the missing verification/composition layer.
