@@ -4,12 +4,30 @@ Last reviewed: 2026-11-16.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `81ec51367010582d72223f8c02fc4823ec8f7eb3` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `782220cd567bd4ae40efb5e898051b7c8ffe9adcbb46bf97ac7e29242eebea76`.
+Base commit: `1cc0b83ded9185428b92b1d4f08b8288e97c6d9c` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `7df492f5579b8c223875b7fc1b6f168f82c76e9352f9a51d4a89165e1e08191f`.
 
 ## Latest user update instructions
 
-Repair MPLPB’s Source Conversion, Mapping, and Round-Trip Reconstruction. Preserve the current experiment exactly. Diagnose the earliest demonstrated failure stage; preserve originals, authority boundaries and candidate status. Implement reversible evidence-linked mappings, a fresh-process unfamiliar-page integration test, before-and-after frozen historical evaluations, full regressions and measured costs. Do not fabricate favorable scores or independent human validation.
+CODEX: Repair MPLPB’s Source Conversion, Mapping, and Round-Trip Reconstruction
+
+Investigate why those existing capabilities are not producing useful historical evidence reconstruction when presented with previously unprepared original documents.
+
+Fix the underlying conversion, indexing, mapping, retrieval, or reconstruction problem wherever the evidence shows it occurs.
+
+Do not assume that MPLPB needs an entirely new architecture.
+
+Do not assume the reported 0/14 supported-answer baseline means source conversion failed. Determine the precise failure stage before modifying implementation behavior.
+
+Do not overwrite the baseline or alter the frozen questions, source corpus, answer keys, or scoring criteria.
+
+If a benchmark is currently executing, preserve its completed outputs and let the existing execution reach a documented terminal state before replacing any relevant code.
+
+MPLPB should be able to receive unfamiliar information, preserve the original, organize it into useful native objects, reconstruct the supporting evidence, and distinguish what the source actually establishes from what the system merely proposes.
+
+The goal is to improve MPLPB’s real capabilities, not to change test scores artificially.
+
+Begin by determining whether the historical baseline failed at import, indexing, retrieval, semantic mapping, or verification. Repair the earliest demonstrated bottleneck while preserving the rest of MPLPB’s existing architecture.
 
 ## Implemented scope
 
@@ -24,20 +42,29 @@ Repair MPLPB’s Source Conversion, Mapping, and Round-Trip Reconstruction. Pres
 
 ## Validation recorded
 
-- Pre-repair full suite: 988 tests passed in 470.820 seconds.
-- 25 focused import, mapping, round-trip, authority and protocol tests passed.
-- 23/23 frozen draft reference passages round-trip to original byte slices; semantic judgments NOT RUN.
+- Baseline source integrity verified; baseline targeted authority regressions: 137 passed.
+- Initial implementation full suite: 988 passed; repaired full suite: 994 passed in 453.483 seconds.
+- 25 focused protocol, source conversion, fresh-process public-original integration and mapping controls passed in extracted source.
+- UI script, JavaScript API, browser transport and crawler fixture checks passed from extracted committed ZIP 1cc0b83.
+- Prepared public suite: 52/52; separate randomized finite-contract controls: 24/24 for baseline, initial update and repair. Repair controls are public-key regressions, not a new blind.
+- All 14 repaired historical questions completed under the unchanged 180-second budget and frozen v2 conditions. Draft span coverage: baseline expert 0/23, initial prose 5/23, repair 10/23; native support remains 0/14.
+- 96/96 returned citations match canonical source text; 865/865 candidate objects and 126 unique raw passages passed post-run fidelity checks. All 23 draft-reference passages round-trip to original bytes.
+- Documentation inventory and infrastructure checks passed; exact final-head CI results are available on PR #44 and must be checked before release.
 
 ## Limitations and blocked checks
 
-- Historical semantic judgments and independent human evaluation NOT RUN.
-- Correction, relationship, entity and event structures are lexical candidates; no semantic promotion.
-- New repair historical evaluation and full post-repair suite remain to run.
+- Independent human historical evaluation, independent unseen question authorship and adjudication NOT RUN. Review packets prepared, no participant identities or times invented.
+- All semantic event/relationship/correction precision/recall and false-positive historical judgments remain unknown. Draft-span coverage is retrieval only.
+- Lexical candidate rules do not establish unrestricted semantic meaning, event identity, chronology, correction scope, causality or source truth. Native supported coverage remains zero in the authentic study.
+- Repeated source reads impose measured processing costs; no efficiency improvement claimed. Compute price and human times unknown.
+- Historical corpus editions/OCR, lossy canonical layout projection, incomplete retrieval and unreviewed draft references limit conclusions.
+- No deployment or independent external review claimed.
 
 ## Next steps
 
-- Finish unchanged authentic baseline, then execute the modified implementation under the identical frozen primary conditions. Run actual search comparators and separate synthetic controls; publish complete outputs and failures.
-- Complete frozen-candidate regression/archive checks, source-linked report and human packets. Prepare a focused PR with actual CI/publication receipts; no independent review or deployment is asserted without evidence.
+- Review the focused public PR #44, exact-head CI and complete dated research report.
+- Obtain two genuinely separate historical reviewers and separately authored sealed questions; adjudicate disagreements explicitly.
+- Investigate remaining retrieval omissions and lexical mapping limits against retained failures in a new frozen, dated experiment.
 
 ## Use this ZIP in your repository
 

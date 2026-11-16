@@ -143,3 +143,8 @@ The keyword/BM25 arms are actual gated retrieval executions, not full human sour
 governed workflows. General AI comparison and an independent human conventional
 workflow are NOT RUN. No private third-party implementation is represented as
 evaluated. See the dated report for actual results and remaining uncertainty.
+
+
+## Retained execution report
+
+See the [complete dated report](../evaluation/unprepared-originals/2026-11-16/REPORT.md), [conversion diagnosis](SOURCE_MAPPING_REPAIR.md), and `tools/audit_original_mappings.py`. The report includes all primary outputs, preserved failed measurement pilots, costs, missing draft evidence and blank independent-review packets. Run the same frozen harness for baseline and update; native hash pins in each receipt identify the measured implementation. Source fidelity and historical semantic correctness are separate results.

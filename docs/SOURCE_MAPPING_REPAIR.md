@@ -40,3 +40,8 @@ python -m unittest tests.test_source_mapping tests.test_unprepared_prose tests.t
 Output files and imported collections must be new paths. Native answers use the existing answer contract; candidate maps remain `answer_supported=false` and `content_truth_verified=false`, even when their quotes match exactly. The command-line inspection does not execute an operator or contact a model.
 
 The same frozen v2 harness evaluates each implementation, including the repair, with the unchanged 180-second per-question budget. Use the [evaluation guide](UNPREPARED_ORIGINAL_CHALLENGE.md) and measured revisions in run receipts. The separate round-trip audit records its own processing costs. Never present its post-run use of draft references as question-time discovery.
+
+
+## Executed comparison
+
+The [dated research report](../evaluation/unprepared-originals/2026-11-16/REPORT.md) retains all prior runs and complete costs. All 14 repaired historical cases completed: draft-span coverage is 10/23, compared with 0/23 in the original expert report and 5/23 in the first candidate path and actual BM25 comparator. Native supported coverage remains 0/14. All 96 returned citations match the pinned projection; 865 candidate mappings and 126 unique raw supporting passages pass the post-run fidelity audit. These are mechanical fidelity/retrieval measures, not semantic historical accuracy. The full repaired suite passed 994 tests; prepared public evidence passed 52/52 and separate randomized controls passed 24/24. Independent historical review is NOT RUN.

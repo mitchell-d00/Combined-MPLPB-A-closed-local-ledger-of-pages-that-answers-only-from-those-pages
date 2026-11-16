@@ -1,0 +1,1738 @@
+{
+  "schema": "unprepared-research-results-v1",
+  "created_at": "2026-11-16T16:41:45.655838+00:00",
+  "baseline_commit": "614b18cc34f5270d4cb7dfbbf8239391a9f83b31",
+  "initial_candidate_commit": "057863715ee0a24849430bd96b516f6fc55a4783",
+  "conversion_repair_commit": "81ec51367010582d72223f8c02fc4823ec8f7eb3",
+  "native_source_hashes_in_run_receipts": true,
+  "inputs_unchanged": true,
+  "per_question_seconds": 180,
+  "arms": {
+    "baseline": {
+      "cases": 14,
+      "completed": 14,
+      "native_supported_answers": 0,
+      "draft_spans_retrieved": 0,
+      "draft_spans": 23,
+      "citations_checked": 0,
+      "exact_citations_valid": 0,
+      "kinds": {
+        "abstain": 10,
+        "conflict": 4
+      },
+      "cpu_seconds": 758.990843095,
+      "worker_wall_seconds": 759.8199184409896,
+      "max_worker_rss_bytes": 39251968,
+      "logical_source_html_bytes_read": 9172462090,
+      "logical_read_calls": 44905,
+      "model_calls": 0,
+      "api_charge_usd": 0,
+      "compute_price_usd": null,
+      "human_labeling_seconds": null,
+      "human_correction_seconds": null,
+      "human_review_seconds": null,
+      "human_adjudication_seconds": null
+    },
+    "updated": {
+      "cases": 14,
+      "completed": 14,
+      "native_supported_answers": 0,
+      "draft_spans_retrieved": 5,
+      "draft_spans": 23,
+      "citations_checked": 168,
+      "exact_citations_valid": 168,
+      "kinds": {
+        "abstain": 10,
+        "conflict": 4
+      },
+      "cpu_seconds": 901.6751862760001,
+      "worker_wall_seconds": 902.5201624960027,
+      "max_worker_rss_bytes": 42627072,
+      "logical_source_html_bytes_read": 9372640530,
+      "logical_read_calls": 45885,
+      "model_calls": 0,
+      "api_charge_usd": 0,
+      "compute_price_usd": null,
+      "human_labeling_seconds": null,
+      "human_correction_seconds": null,
+      "human_review_seconds": null,
+      "human_adjudication_seconds": null
+    },
+    "conversion-repair": {
+      "cases": 14,
+      "completed": 14,
+      "native_supported_answers": 0,
+      "draft_spans_retrieved": 10,
+      "draft_spans": 23,
+      "citations_checked": 96,
+      "exact_citations_valid": 96,
+      "kinds": {
+        "abstain": 10,
+        "conflict": 4
+      },
+      "cpu_seconds": 869.154565195,
+      "worker_wall_seconds": 870.1097792000073,
+      "max_worker_rss_bytes": 42573824,
+      "logical_source_html_bytes_read": 9412676218,
+      "logical_read_calls": 46081,
+      "model_calls": 0,
+      "api_charge_usd": 0,
+      "compute_price_usd": null,
+      "human_labeling_seconds": null,
+      "human_correction_seconds": null,
+      "human_review_seconds": null,
+      "human_adjudication_seconds": null
+    },
+    "bm25": {
+      "cases": 14,
+      "completed": 14,
+      "native_supported_answers": 0,
+      "draft_spans_retrieved": 5,
+      "draft_spans": 23,
+      "citations_checked": 168,
+      "exact_citations_valid": 168,
+      "kinds": {
+        "null": 14
+      },
+      "cpu_seconds": 17.254675491,
+      "worker_wall_seconds": 17.277236270005233,
+      "max_worker_rss_bytes": 33677312,
+      "logical_source_html_bytes_read": 40035688,
+      "logical_read_calls": 196,
+      "model_calls": 0,
+      "api_charge_usd": 0,
+      "compute_price_usd": null,
+      "human_labeling_seconds": null,
+      "human_correction_seconds": null,
+      "human_review_seconds": null,
+      "human_adjudication_seconds": null
+    },
+    "keyword": {
+      "cases": 14,
+      "completed": 14,
+      "native_supported_answers": 0,
+      "draft_spans_retrieved": 0,
+      "draft_spans": 23,
+      "citations_checked": 0,
+      "exact_citations_valid": 0,
+      "kinds": {
+        "null": 14
+      },
+      "cpu_seconds": 11.731267739,
+      "worker_wall_seconds": 11.753784742977587,
+      "max_worker_rss_bytes": 31858688,
+      "logical_source_html_bytes_read": 40035688,
+      "logical_read_calls": 196,
+      "model_calls": 0,
+      "api_charge_usd": 0,
+      "compute_price_usd": null,
+      "human_labeling_seconds": null,
+      "human_correction_seconds": null,
+      "human_review_seconds": null,
+      "human_adjudication_seconds": null
+    }
+  },
+  "case_index": [
+    {
+      "id": "H01",
+      "question": "How could Lyell have finished Darwin's volume on October 3, 1859 before its public release? Separate the letter, proof copies and publication.",
+      "draft_expectation": "The edition explicitly says early letters refer to proof sheets/early copies before publication; Lyell dates his letter October 3d, 1859. Do not equate first reading with publication.",
+      "draft_answerability": "answerable",
+      "historical_correctness": "UNASSESSED",
+      "incorrect_answer": null,
+      "missed_relationships": null,
+      "false_causal_relationships": null,
+      "appropriate_refusal": null,
+      "arms": {
+        "baseline": {
+          "output": "baseline/H01.json",
+          "kind": "abstain",
+          "diagnostic": "interpretation_unsupported",
+          "draft_span_coverage": 0.0,
+          "missed_draft_reference_spans": [
+            {
+              "source_id": "ORIGINAL-0001",
+              "source_hash": "sha256:cda3c0719ca4c839dfef3c3165934214c5e995fa3fb840a61b9a0ba77ebb9c32",
+              "start": 3729,
+              "end": 3984,
+              "quote": "The first and a few of the subsequent letters refer to proof sheets, and\nto early copies of the 'Origin' which were sent to friends before the\nbook was published.]\nC. LYELL TO CHARLES DARWIN. (Part of this letter is given in the 'Life\nof Sir Charles Lyell",
+              "original_id": "DARWIN-1887",
+              "source_url": "https://raw.githubusercontent.com/GITenberg/Life-and-Letters-of-Charles-Darwin---Volume-2_2088/9f84c5d2a15f65b0bcac389322d5e98fffd4ace9/2088.txt"
+            },
+            {
+              "source_id": "ORIGINAL-0001",
+              "source_hash": "sha256:cda3c0719ca4c839dfef3c3165934214c5e995fa3fb840a61b9a0ba77ebb9c32",
+              "start": 3893,
+              "end": 4193,
+              "quote": "C. LYELL TO CHARLES DARWIN. (Part of this letter is given in the 'Life\nof Sir Charles Lyell,' volume ii. page 325.) October 3d, 1859.\nMy dear Darwin,\nI have just finished your volume and right glad I am that I did my best\nwith Hooker to persuade you to publish it without waiting for a time\nwhich pro",
+              "original_id": "DARWIN-1887",
+              "source_url": "https://raw.githubusercontent.com/GITenberg/Life-and-Letters-of-Charles-Darwin---Volume-2_2088/9f84c5d2a15f65b0bcac389322d5e98fffd4ace9/2088.txt"
+            }
+          ]
+        },
+        "updated": {
+          "output": "updated/H01.json",
+          "kind": "abstain",
+          "diagnostic": "interpretation_unsupported",
+          "draft_span_coverage": 1.0,
+          "missed_draft_reference_spans": []
+        },
+        "conversion-repair": {
+          "output": "conversion-repair/H01.json",
+          "kind": "abstain",
+          "diagnostic": "interpretation_unsupported",
+          "draft_span_coverage": 1.0,
+          "missed_draft_reference_spans": []
+        },
+        "bm25": {
+          "output": "bm25/H01.json",
+          "kind": null,
+          "diagnostic": null,
+          "draft_span_coverage": 1.0,
+          "missed_draft_reference_spans": []
+        },
+        "keyword": {
+          "output": "keyword/H01.json",
+          "kind": null,
+          "diagnostic": null,
+          "draft_span_coverage": 0.0,
+          "missed_draft_reference_spans": [
+            {
+              "source_id": "ORIGINAL-0001",
+              "source_hash": "sha256:cda3c0719ca4c839dfef3c3165934214c5e995fa3fb840a61b9a0ba77ebb9c32",
+              "start": 3729,
+              "end": 3984,
+              "quote": "The first and a few of the subsequent letters refer to proof sheets, and\nto early copies of the 'Origin' which were sent to friends before the\nbook was published.]\nC. LYELL TO CHARLES DARWIN. (Part of this letter is given in the 'Life\nof Sir Charles Lyell",
+              "original_id": "DARWIN-1887",
+              "source_url": "https://raw.githubusercontent.com/GITenberg/Life-and-Letters-of-Charles-Darwin---Volume-2_2088/9f84c5d2a15f65b0bcac389322d5e98fffd4ace9/2088.txt"
+            },
+            {
+              "source_id": "ORIGINAL-0001",
+              "source_hash": "sha256:cda3c0719ca4c839dfef3c3165934214c5e995fa3fb840a61b9a0ba77ebb9c32",
+              "start": 3893,
+              "end": 4193,
+              "quote": "C. LYELL TO CHARLES DARWIN. (Part of this letter is given in the 'Life\nof Sir Charles Lyell,' volume ii. page 325.) October 3d, 1859.\nMy dear Darwin,\nI have just finished your volume and right glad I am that I did my best\nwith Hooker to persuade you to publish it without waiting for a time\nwhich pro",
+              "original_id": "DARWIN-1887",
+              "source_url": "https://raw.githubusercontent.com/GITenberg/Life-and-Letters-of-Charles-Darwin---Volume-2_2088/9f84c5d2a15f65b0bcac389322d5e98fffd4ace9/2088.txt"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "H02",
+      "question": "Who arranged for Wallace to receive Darwin's book, and which dated letter records the arrangement?",
+      "draft_expectation": "Darwin writes to A.R. Wallace on November 13th, 1859 that he told Murray to send a copy by post. Letter appearance is not proof of actual delivery.",
+      "draft_answerability": "answerable",
+      "historical_correctness": "UNASSESSED",
+      "incorrect_answer": null,
+      "missed_relationships": null,
+      "false_causal_relationships": null,
+      "appropriate_refusal": null,
+      "arms": {
+        "baseline": {
+          "output": "baseline/H02.json",
+          "kind": "conflict",
+          "diagnostic": "retrieval_ambiguous",
+          "draft_span_coverage": 0.0,
+          "missed_draft_reference_spans": [
+            {
+              "source_id": "ORIGINAL-0001",
+              "source_hash": "sha256:cda3c0719ca4c839dfef3c3165934214c5e995fa3fb840a61b9a0ba77ebb9c32",
+              "start": 31135,
+              "end": 31465,
+              "quote": "CHARLES DARWIN TO A.R. WALLACE. Ilkley, November 13th, 1859.\nMy dear Sir,\nI have told Murray to send you by post (if possible) a copy of my book,\nand I hope that you will receive it at nearly the same time with this\nnote. (N.B. I have got a bad finger, which makes me write extra badly.)\nIf you are so inclined, I should very much",
+              "original_id": "DARWIN-1887",
+              "source_url": "https://raw.githubusercontent.com/GITenberg/Life-and-Letters-of-Charles-Darwin---Volume-2_2088/9f84c5d2a15f65b0bcac389322d5e98fffd4ace9/2088.txt"
+            }
+          ]
+        },
+        "updated": {
+          "output": "updated/H02.json",
+          "kind": "conflict",
+          "diagnostic": "retrieval_ambiguous",
+          "draft_span_coverage": 0.0,
+          "missed_draft_reference_spans": [
+            {
+              "source_id": "ORIGINAL-0001",
+              "source_hash": "sha256:cda3c0719ca4c839dfef3c3165934214c5e995fa3fb840a61b9a0ba77ebb9c32",
+              "start": 31135,
+              "end": 31465,
+              "quote": "CHARLES DARWIN TO A.R. WALLACE. Ilkley, November 13th, 1859.\nMy dear Sir,\nI have told Murray to send you by post (if possible) a copy of my book,\nand I hope that you will receive it at nearly the same time with this\nnote. (N.B. I have got a bad finger, which makes me write extra badly.)\nIf you are so inclined, I should very much",
+              "original_id": "DARWIN-1887",
+              "source_url": "https://raw.githubusercontent.com/GITenberg/Life-and-Letters-of-Charles-Darwin---Volume-2_2088/9f84c5d2a15f65b0bcac389322d5e98fffd4ace9/2088.txt"
+            }
+          ]
+        },
+        "conversion-repair": {
+          "output": "conversion-repair/H02.json",
+          "kind": "conflict",
+          "diagnostic": "retrieval_ambiguous",
+          "draft_span_coverage": 0.0,
+          "missed_draft_reference_spans": [
+            {
+              "source_id": "ORIGINAL-0001",
+              "source_hash": "sha256:cda3c0719ca4c839dfef3c3165934214c5e995fa3fb840a61b9a0ba77ebb9c32",
+              "start": 31135,
+              "end": 31465,
+              "quote": "CHARLES DARWIN TO A.R. WALLACE. Ilkley, November 13th, 1859.\nMy dear Sir,\nI have told Murray to send you by post (if possible) a copy of my book,\nand I hope that you will receive it at nearly the same time with this\nnote. (N.B. I have got a bad finger, which makes me write extra badly.)\nIf you are so inclined, I should very much",
+              "original_id": "DARWIN-1887",
+              "source_url": "https://raw.githubusercontent.com/GITenberg/Life-and-Letters-of-Charles-Darwin---Volume-2_2088/9f84c5d2a15f65b0bcac389322d5e98fffd4ace9/2088.txt"
+            }
+          ]
+        },
+        "bm25": {
+          "output": "bm25/H02.json",
+          "kind": null,
+          "diagnostic": null,
+          "draft_span_coverage": 0.0,
+          "missed_draft_reference_spans": [
+            {
+              "source_id": "ORIGINAL-0001",
+              "source_hash": "sha256:cda3c0719ca4c839dfef3c3165934214c5e995fa3fb840a61b9a0ba77ebb9c32",
+              "start": 31135,
+              "end": 31465,
+              "quote": "CHARLES DARWIN TO A.R. WALLACE. Ilkley, November 13th, 1859.\nMy dear Sir,\nI have told Murray to send you by post (if possible) a copy of my book,\nand I hope that you will receive it at nearly the same time with this\nnote. (N.B. I have got a bad finger, which makes me write extra badly.)\nIf you are so inclined, I should very much",
+              "original_id": "DARWIN-1887",
+              "source_url": "https://raw.githubusercontent.com/GITenberg/Life-and-Letters-of-Charles-Darwin---Volume-2_2088/9f84c5d2a15f65b0bcac389322d5e98fffd4ace9/2088.txt"
+            }
+          ]
+        },
+        "keyword": {
+          "output": "keyword/H02.json",
+          "kind": null,
+          "diagnostic": null,
+          "draft_span_coverage": 0.0,
+          "missed_draft_reference_spans": [
+            {
+              "source_id": "ORIGINAL-0001",
+              "source_hash": "sha256:cda3c0719ca4c839dfef3c3165934214c5e995fa3fb840a61b9a0ba77ebb9c32",
+              "start": 31135,
+              "end": 31465,
+              "quote": "CHARLES DARWIN TO A.R. WALLACE. Ilkley, November 13th, 1859.\nMy dear Sir,\nI have told Murray to send you by post (if possible) a copy of my book,\nand I hope that you will receive it at nearly the same time with this\nnote. (N.B. I have got a bad finger, which makes me write extra badly.)\nIf you are so inclined, I should very much",
+              "original_id": "DARWIN-1887",
+              "source_url": "https://raw.githubusercontent.com/GITenberg/Life-and-Letters-of-Charles-Darwin---Volume-2_2088/9f84c5d2a15f65b0bcac389322d5e98fffd4ace9/2088.txt"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "H03",
+      "question": "Does Huxley's November 23rd letter describe a second publication of the book, or his own reading of an earlier copy?",
+      "draft_expectation": "The letter says he finished the book yesterday. Its date, his reading, and public publication are different documentary/event roles. No new publication event follows from this letter alone.",
+      "draft_answerability": "answerable",
+      "historical_correctness": "UNASSESSED",
+      "incorrect_answer": null,
+      "missed_relationships": null,
+      "false_causal_relationships": null,
+      "appropriate_refusal": null,
+      "arms": {
+        "baseline": {
+          "output": "baseline/H03.json",
+          "kind": "conflict",
+          "diagnostic": "retrieval_ambiguous",
+          "draft_span_coverage": 0.0,
+          "missed_draft_reference_spans": [
+            {
+              "source_id": "ORIGINAL-0001",
+              "source_hash": "sha256:cda3c0719ca4c839dfef3c3165934214c5e995fa3fb840a61b9a0ba77ebb9c32",
+              "start": 49405,
+              "end": 49695,
+              "quote": "T.H. HUXLEY TO CHARLES DARWIN. Jermyn Street W., November 23rd, 1859.\nMy dear Darwin,\nI finished your book yesterday, a lucky examination having furnished me\nwith a few hours of continuous leisure.\nSince I read Von Baer's (Karl Ernst von Baer, born 1792, died at Dorpat\n1876--one of the mos",
+              "original_id": "DARWIN-1887",
+              "source_url": "https://raw.githubusercontent.com/GITenberg/Life-and-Letters-of-Charles-Darwin---Volume-2_2088/9f84c5d2a15f65b0bcac389322d5e98fffd4ace9/2088.txt"
+            }
+          ]
+        },
+        "updated": {
+          "output": "updated/H03.json",
+          "kind": "conflict",
+          "diagnostic": "retrieval_ambiguous",
+          "draft_span_coverage": 1.0,
+          "missed_draft_reference_spans": []
+        },
+        "conversion-repair": {
+          "output": "conversion-repair/H03.json",
+          "kind": "conflict",
+          "diagnostic": "retrieval_ambiguous",
+          "draft_span_coverage": 1.0,
+          "missed_draft_reference_spans": []
+        },
+        "bm25": {
+          "output": "bm25/H03.json",
+          "kind": null,
+          "diagnostic": null,
+          "draft_span_coverage": 1.0,
+          "missed_draft_reference_spans": []
+        },
+        "keyword": {
+          "output": "keyword/H03.json",
+          "kind": null,
+          "diagnostic": null,
+          "draft_span_coverage": 0.0,
+          "missed_draft_reference_spans": [
+            {
+              "source_id": "ORIGINAL-0001",
+              "source_hash": "sha256:cda3c0719ca4c839dfef3c3165934214c5e995fa3fb840a61b9a0ba77ebb9c32",
+              "start": 49405,
+              "end": 49695,
+              "quote": "T.H. HUXLEY TO CHARLES DARWIN. Jermyn Street W., November 23rd, 1859.\nMy dear Darwin,\nI finished your book yesterday, a lucky examination having furnished me\nwith a few hours of continuous leisure.\nSince I read Von Baer's (Karl Ernst von Baer, born 1792, died at Dorpat\n1876--one of the mos",
+              "original_id": "DARWIN-1887",
+              "source_url": "https://raw.githubusercontent.com/GITenberg/Life-and-Letters-of-Charles-Darwin---Volume-2_2088/9f84c5d2a15f65b0bcac389322d5e98fffd4ace9/2088.txt"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "H04",
+      "question": "What does the diary say Darwin was correcting at the end of November and beginning of December, and what does that establish about a later edition?",
+      "draft_expectation": "The diary reports corrections for a second edition of 3000 copies; this does not enumerate individual corrections or authorize replacing the original evidence.",
+      "draft_answerability": "answerable",
+      "historical_correctness": "UNASSESSED",
+      "incorrect_answer": null,
+      "missed_relationships": null,
+      "false_causal_relationships": null,
+      "appropriate_refusal": null,
+      "arms": {
+        "baseline": {
+          "output": "baseline/H04.json",
+          "kind": "conflict",
+          "diagnostic": "retrieval_ambiguous",
+          "draft_span_coverage": 0.0,
+          "missed_draft_reference_spans": [
+            {
+              "source_id": "ORIGINAL-0001",
+              "source_hash": "sha256:cda3c0719ca4c839dfef3c3165934214c5e995fa3fb840a61b9a0ba77ebb9c32",
+              "start": 3598,
+              "end": 3848,
+              "quote": "During end of November and beginning of\nDecember, employed in correcting for second edition of 3000 copies;\nmultitude of letters.\"\nThe first and a few of the subsequent letters refer to proof sheets, and\nto early copies of the 'Origin' which were sen",
+              "original_id": "DARWIN-1887",
+              "source_url": "https://raw.githubusercontent.com/GITenberg/Life-and-Letters-of-Charles-Darwin---Volume-2_2088/9f84c5d2a15f65b0bcac389322d5e98fffd4ace9/2088.txt"
+            }
+          ]
+        },
+        "updated": {
+          "output": "updated/H04.json",
+          "kind": "conflict",
+          "diagnostic": "retrieval_ambiguous",
+          "draft_span_coverage": 1.0,
+          "missed_draft_reference_spans": []
+        },
+        "conversion-repair": {
+          "output": "conversion-repair/H04.json",
+          "kind": "conflict",
+          "diagnostic": "retrieval_ambiguous",
+          "draft_span_coverage": 1.0,
+          "missed_draft_reference_spans": []
+        },
+        "bm25": {
+          "output": "bm25/H04.json",
+          "kind": null,
+          "diagnostic": null,
+          "draft_span_coverage": 1.0,
+          "missed_draft_reference_spans": []
+        },
+        "keyword": {
+          "output": "keyword/H04.json",
+          "kind": null,
+          "diagnostic": null,
+          "draft_span_coverage": 0.0,
+          "missed_draft_reference_spans": [
+            {
+              "source_id": "ORIGINAL-0001",
+              "source_hash": "sha256:cda3c0719ca4c839dfef3c3165934214c5e995fa3fb840a61b9a0ba77ebb9c32",
+              "start": 3598,
+              "end": 3848,
+              "quote": "During end of November and beginning of\nDecember, employed in correcting for second edition of 3000 copies;\nmultitude of letters.\"\nThe first and a few of the subsequent letters refer to proof sheets, and\nto early copies of the 'Origin' which were sen",
+              "original_id": "DARWIN-1887",
+              "source_url": "https://raw.githubusercontent.com/GITenberg/Life-and-Letters-of-Charles-Darwin---Volume-2_2088/9f84c5d2a15f65b0bcac389322d5e98fffd4ace9/2088.txt"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "H05",
+      "question": "Compare the opening truth claim in Jefferson's rough draft and the final Declaration transcript. What wording changed and what remained?",
+      "draft_expectation": "Draft: sacred & undeniable; final: self-evident. Both passages refer to equality and rights. Attribution of a particular editor is not established solely by these two quotations.",
+      "draft_answerability": "answerable",
+      "historical_correctness": "UNASSESSED",
+      "incorrect_answer": null,
+      "missed_relationships": null,
+      "false_causal_relationships": null,
+      "appropriate_refusal": null,
+      "arms": {
+        "baseline": {
+          "output": "baseline/H05.json",
+          "kind": "abstain",
+          "diagnostic": "interpretation_unsupported",
+          "draft_span_coverage": 0.0,
+          "missed_draft_reference_spans": [
+            {
+              "source_id": "ORIGINAL-0004",
+              "source_hash": "sha256:b87d5883c09e9742bd7912abac58ed15694dadaf9d97f4d2191d3188051a7359",
+              "start": 1122,
+              "end": 1412,
+              "quote": "We hold these truths to be sacred & undeniable; that all men are created equal & independant, that from that equal creation they derive rights inherent & inalienable, among which are the preservation of life, & liberty, & the pursuit of happiness; that to secure these ends, governments are",
+              "original_id": "JEFFERSON-DRAFT",
+              "source_url": "https://www.loc.gov/exhibits/declara/ruffdrft.html"
+            },
+            {
+              "source_id": "ORIGINAL-0005",
+              "source_hash": "sha256:1f670fe87ed6e4044e60858300adedc09c4d82982fd7201b1288644f6fc5440d",
+              "start": 1537,
+              "end": 1837,
+              "quote": "We hold these truths to be self-evident, that all men are created equal, that they are endowed by their Creator with certain unalienable Rights, that among these are Life, Liberty and the pursuit of Happiness.--That to secure these rights, Governments are instituted among Men, deriving their just po",
+              "original_id": "DECLARATION-1776",
+              "source_url": "https://www.archives.gov/founding-docs/declaration-transcript"
+            }
+          ]
+        },
+        "updated": {
+          "output": "updated/H05.json",
+          "kind": "abstain",
+          "diagnostic": "interpretation_unsupported",
+          "draft_span_coverage": 0.0,
+          "missed_draft_reference_spans": [
+            {
+              "source_id": "ORIGINAL-0004",
+              "source_hash": "sha256:b87d5883c09e9742bd7912abac58ed15694dadaf9d97f4d2191d3188051a7359",
+              "start": 1122,
+              "end": 1412,
+              "quote": "We hold these truths to be sacred & undeniable; that all men are created equal & independant, that from that equal creation they derive rights inherent & inalienable, among which are the preservation of life, & liberty, & the pursuit of happiness; that to secure these ends, governments are",
+              "original_id": "JEFFERSON-DRAFT",
+              "source_url": "https://www.loc.gov/exhibits/declara/ruffdrft.html"
+            },
+            {
+              "source_id": "ORIGINAL-0005",
+              "source_hash": "sha256:1f670fe87ed6e4044e60858300adedc09c4d82982fd7201b1288644f6fc5440d",
+              "start": 1537,
+              "end": 1837,
+              "quote": "We hold these truths to be self-evident, that all men are created equal, that they are endowed by their Creator with certain unalienable Rights, that among these are Life, Liberty and the pursuit of Happiness.--That to secure these rights, Governments are instituted among Men, deriving their just po",
+              "original_id": "DECLARATION-1776",
+              "source_url": "https://www.archives.gov/founding-docs/declaration-transcript"
+            }
+          ]
+        },
+        "conversion-repair": {
+          "output": "conversion-repair/H05.json",
+          "kind": "abstain",
+          "diagnostic": "interpretation_unsupported",
+          "draft_span_coverage": 0.0,
+          "missed_draft_reference_spans": [
+            {
+              "source_id": "ORIGINAL-0004",
+              "source_hash": "sha256:b87d5883c09e9742bd7912abac58ed15694dadaf9d97f4d2191d3188051a7359",
+              "start": 1122,
+              "end": 1412,
+              "quote": "We hold these truths to be sacred & undeniable; that all men are created equal & independant, that from that equal creation they derive rights inherent & inalienable, among which are the preservation of life, & liberty, & the pursuit of happiness; that to secure these ends, governments are",
+              "original_id": "JEFFERSON-DRAFT",
+              "source_url": "https://www.loc.gov/exhibits/declara/ruffdrft.html"
+            },
+            {
+              "source_id": "ORIGINAL-0005",
+              "source_hash": "sha256:1f670fe87ed6e4044e60858300adedc09c4d82982fd7201b1288644f6fc5440d",
+              "start": 1537,
+              "end": 1837,
+              "quote": "We hold these truths to be self-evident, that all men are created equal, that they are endowed by their Creator with certain unalienable Rights, that among these are Life, Liberty and the pursuit of Happiness.--That to secure these rights, Governments are instituted among Men, deriving their just po",
+              "original_id": "DECLARATION-1776",
+              "source_url": "https://www.archives.gov/founding-docs/declaration-transcript"
+            }
+          ]
+        },
+        "bm25": {
+          "output": "bm25/H05.json",
+          "kind": null,
+          "diagnostic": null,
+          "draft_span_coverage": 0.0,
+          "missed_draft_reference_spans": [
+            {
+              "source_id": "ORIGINAL-0004",
+              "source_hash": "sha256:b87d5883c09e9742bd7912abac58ed15694dadaf9d97f4d2191d3188051a7359",
+              "start": 1122,
+              "end": 1412,
+              "quote": "We hold these truths to be sacred & undeniable; that all men are created equal & independant, that from that equal creation they derive rights inherent & inalienable, among which are the preservation of life, & liberty, & the pursuit of happiness; that to secure these ends, governments are",
+              "original_id": "JEFFERSON-DRAFT",
+              "source_url": "https://www.loc.gov/exhibits/declara/ruffdrft.html"
+            },
+            {
+              "source_id": "ORIGINAL-0005",
+              "source_hash": "sha256:1f670fe87ed6e4044e60858300adedc09c4d82982fd7201b1288644f6fc5440d",
+              "start": 1537,
+              "end": 1837,
+              "quote": "We hold these truths to be self-evident, that all men are created equal, that they are endowed by their Creator with certain unalienable Rights, that among these are Life, Liberty and the pursuit of Happiness.--That to secure these rights, Governments are instituted among Men, deriving their just po",
+              "original_id": "DECLARATION-1776",
+              "source_url": "https://www.archives.gov/founding-docs/declaration-transcript"
+            }
+          ]
+        },
+        "keyword": {
+          "output": "keyword/H05.json",
+          "kind": null,
+          "diagnostic": null,
+          "draft_span_coverage": 0.0,
+          "missed_draft_reference_spans": [
+            {
+              "source_id": "ORIGINAL-0004",
+              "source_hash": "sha256:b87d5883c09e9742bd7912abac58ed15694dadaf9d97f4d2191d3188051a7359",
+              "start": 1122,
+              "end": 1412,
+              "quote": "We hold these truths to be sacred & undeniable; that all men are created equal & independant, that from that equal creation they derive rights inherent & inalienable, among which are the preservation of life, & liberty, & the pursuit of happiness; that to secure these ends, governments are",
+              "original_id": "JEFFERSON-DRAFT",
+              "source_url": "https://www.loc.gov/exhibits/declara/ruffdrft.html"
+            },
+            {
+              "source_id": "ORIGINAL-0005",
+              "source_hash": "sha256:1f670fe87ed6e4044e60858300adedc09c4d82982fd7201b1288644f6fc5440d",
+              "start": 1537,
+              "end": 1837,
+              "quote": "We hold these truths to be self-evident, that all men are created equal, that they are endowed by their Creator with certain unalienable Rights, that among these are Life, Liberty and the pursuit of Happiness.--That to secure these rights, Governments are instituted among Men, deriving their just po",
+              "original_id": "DECLARATION-1776",
+              "source_url": "https://www.archives.gov/founding-docs/declaration-transcript"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "H06",
+      "question": "Which passage about the slave trade appears in the rough draft but not in this final Declaration transcript? Can these pages alone identify every person responsible for the deletion?",
+      "draft_expectation": "The rough draft contains the quoted slave-trade passage; the final transcript lacks that passage. Do not infer all individual editorial responsibility from textual absence.",
+      "draft_answerability": "partially_answerable",
+      "historical_correctness": "UNASSESSED",
+      "incorrect_answer": null,
+      "missed_relationships": null,
+      "false_causal_relationships": null,
+      "appropriate_refusal": null,
+      "arms": {
+        "baseline": {
+          "output": "baseline/H06.json",
+          "kind": "abstain",
+          "diagnostic": "interpretation_unsupported",
+          "draft_span_coverage": 0.0,
+          "missed_draft_reference_spans": [
+            {
+              "source_id": "ORIGINAL-0004",
+              "source_hash": "sha256:b87d5883c09e9742bd7912abac58ed15694dadaf9d97f4d2191d3188051a7359",
+              "start": 6293,
+              "end": 6713,
+              "quote": "he has waged cruel war against human nature itself, violating it's most sacred rights of life & liberty in the persons of a distant people who never offended him, captivating & carrying them into slavery in another hemisphere, or to incur miserable death in their transportation thither. this piratical warfare, the opprobrium of infidel powers, is the warfare of the CHRISTIAN king of Great Britain. determined to keep ",
+              "original_id": "JEFFERSON-DRAFT",
+              "source_url": "https://www.loc.gov/exhibits/declara/ruffdrft.html"
+            },
+            {
+              "source_id": "ORIGINAL-0005",
+              "source_hash": "sha256:1f670fe87ed6e4044e60858300adedc09c4d82982fd7201b1288644f6fc5440d",
+              "start": 1537,
+              "end": 1837,
+              "quote": "We hold these truths to be self-evident, that all men are created equal, that they are endowed by their Creator with certain unalienable Rights, that among these are Life, Liberty and the pursuit of Happiness.--That to secure these rights, Governments are instituted among Men, deriving their just po",
+              "original_id": "DECLARATION-1776",
+              "source_url": "https://www.archives.gov/founding-docs/declaration-transcript"
+            }
+          ]
+        },
+        "updated": {
+          "output": "updated/H06.json",
+          "kind": "abstain",
+          "diagnostic": "interpretation_unsupported",
+          "draft_span_coverage": 0.0,
+          "missed_draft_reference_spans": [
+            {
+              "source_id": "ORIGINAL-0004",
+              "source_hash": "sha256:b87d5883c09e9742bd7912abac58ed15694dadaf9d97f4d2191d3188051a7359",
+              "start": 6293,
+              "end": 6713,
+              "quote": "he has waged cruel war against human nature itself, violating it's most sacred rights of life & liberty in the persons of a distant people who never offended him, captivating & carrying them into slavery in another hemisphere, or to incur miserable death in their transportation thither. this piratical warfare, the opprobrium of infidel powers, is the warfare of the CHRISTIAN king of Great Britain. determined to keep ",
+              "original_id": "JEFFERSON-DRAFT",
+              "source_url": "https://www.loc.gov/exhibits/declara/ruffdrft.html"
+            },
+            {
+              "source_id": "ORIGINAL-0005",
+              "source_hash": "sha256:1f670fe87ed6e4044e60858300adedc09c4d82982fd7201b1288644f6fc5440d",
+              "start": 1537,
+              "end": 1837,
+              "quote": "We hold these truths to be self-evident, that all men are created equal, that they are endowed by their Creator with certain unalienable Rights, that among these are Life, Liberty and the pursuit of Happiness.--That to secure these rights, Governments are instituted among Men, deriving their just po",
+              "original_id": "DECLARATION-1776",
+              "source_url": "https://www.archives.gov/founding-docs/declaration-transcript"
+            }
+          ]
+        },
+        "conversion-repair": {
+          "output": "conversion-repair/H06.json",
+          "kind": "abstain",
+          "diagnostic": "interpretation_unsupported",
+          "draft_span_coverage": 0.0,
+          "missed_draft_reference_spans": [
+            {
+              "source_id": "ORIGINAL-0004",
+              "source_hash": "sha256:b87d5883c09e9742bd7912abac58ed15694dadaf9d97f4d2191d3188051a7359",
+              "start": 6293,
+              "end": 6713,
+              "quote": "he has waged cruel war against human nature itself, violating it's most sacred rights of life & liberty in the persons of a distant people who never offended him, captivating & carrying them into slavery in another hemisphere, or to incur miserable death in their transportation thither. this piratical warfare, the opprobrium of infidel powers, is the warfare of the CHRISTIAN king of Great Britain. determined to keep ",
+              "original_id": "JEFFERSON-DRAFT",
+              "source_url": "https://www.loc.gov/exhibits/declara/ruffdrft.html"
+            },
+            {
+              "source_id": "ORIGINAL-0005",
+              "source_hash": "sha256:1f670fe87ed6e4044e60858300adedc09c4d82982fd7201b1288644f6fc5440d",
+              "start": 1537,
+              "end": 1837,
+              "quote": "We hold these truths to be self-evident, that all men are created equal, that they are endowed by their Creator with certain unalienable Rights, that among these are Life, Liberty and the pursuit of Happiness.--That to secure these rights, Governments are instituted among Men, deriving their just po",
+              "original_id": "DECLARATION-1776",
+              "source_url": "https://www.archives.gov/founding-docs/declaration-transcript"
+            }
+          ]
+        },
+        "bm25": {
+          "output": "bm25/H06.json",
+          "kind": null,
+          "diagnostic": null,
+          "draft_span_coverage": 0.0,
+          "missed_draft_reference_spans": [
+            {
+              "source_id": "ORIGINAL-0004",
+              "source_hash": "sha256:b87d5883c09e9742bd7912abac58ed15694dadaf9d97f4d2191d3188051a7359",
+              "start": 6293,
+              "end": 6713,
+              "quote": "he has waged cruel war against human nature itself, violating it's most sacred rights of life & liberty in the persons of a distant people who never offended him, captivating & carrying them into slavery in another hemisphere, or to incur miserable death in their transportation thither. this piratical warfare, the opprobrium of infidel powers, is the warfare of the CHRISTIAN king of Great Britain. determined to keep ",
+              "original_id": "JEFFERSON-DRAFT",
+              "source_url": "https://www.loc.gov/exhibits/declara/ruffdrft.html"
+            },
+            {
+              "source_id": "ORIGINAL-0005",
+              "source_hash": "sha256:1f670fe87ed6e4044e60858300adedc09c4d82982fd7201b1288644f6fc5440d",
+              "start": 1537,
+              "end": 1837,
+              "quote": "We hold these truths to be self-evident, that all men are created equal, that they are endowed by their Creator with certain unalienable Rights, that among these are Life, Liberty and the pursuit of Happiness.--That to secure these rights, Governments are instituted among Men, deriving their just po",
+              "original_id": "DECLARATION-1776",
+              "source_url": "https://www.archives.gov/founding-docs/declaration-transcript"
+            }
+          ]
+        },
+        "keyword": {
+          "output": "keyword/H06.json",
+          "kind": null,
+          "diagnostic": null,
+          "draft_span_coverage": 0.0,
+          "missed_draft_reference_spans": [
+            {
+              "source_id": "ORIGINAL-0004",
+              "source_hash": "sha256:b87d5883c09e9742bd7912abac58ed15694dadaf9d97f4d2191d3188051a7359",
+              "start": 6293,
+              "end": 6713,
+              "quote": "he has waged cruel war against human nature itself, violating it's most sacred rights of life & liberty in the persons of a distant people who never offended him, captivating & carrying them into slavery in another hemisphere, or to incur miserable death in their transportation thither. this piratical warfare, the opprobrium of infidel powers, is the warfare of the CHRISTIAN king of Great Britain. determined to keep ",
+              "original_id": "JEFFERSON-DRAFT",
+              "source_url": "https://www.loc.gov/exhibits/declara/ruffdrft.html"
+            },
+            {
+              "source_id": "ORIGINAL-0005",
+              "source_hash": "sha256:1f670fe87ed6e4044e60858300adedc09c4d82982fd7201b1288644f6fc5440d",
+              "start": 1537,
+              "end": 1837,
+              "quote": "We hold these truths to be self-evident, that all men are created equal, that they are endowed by their Creator with certain unalienable Rights, that among these are Life, Liberty and the pursuit of Happiness.--That to secure these rights, Governments are instituted among Men, deriving their just po",
+              "original_id": "DECLARATION-1776",
+              "source_url": "https://www.archives.gov/founding-docs/declaration-transcript"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "H07",
+      "question": "Distinguish the bombardment, surrender, evacuation and telegram dates in the Fort Sumter record, without treating the webpage review date as an event date.",
+      "draft_expectation": "Institutional framing dates fighting April 12-13 and surrender April 13; original message says evacuation on the fourteenth and telegram header eighteenth. The modern review date is not the battle date.",
+      "draft_answerability": "answerable",
+      "historical_correctness": "UNASSESSED",
+      "incorrect_answer": null,
+      "missed_relationships": null,
+      "false_causal_relationships": null,
+      "appropriate_refusal": null,
+      "arms": {
+        "baseline": {
+          "output": "baseline/H07.json",
+          "kind": "abstain",
+          "diagnostic": "interpretation_unsupported",
+          "draft_span_coverage": 0.0,
+          "missed_draft_reference_spans": [
+            {
+              "source_id": "ORIGINAL-0006",
+              "source_hash": "sha256:4220f999d1cfe2734726fbfc6857334ae548b827d22492a27546f1f7d10abf54",
+              "start": 1603,
+              "end": 1923,
+              "quote": "On April 12, the Confederate batteries opened fire on the fort, which was unable to reply effectively. At 2:30 p.m., April 13, Major Anderson surrendered Fort Sumter, evacuating the garrison on the following day. The battle had started at 4:30 a.m. and ended 34 hours later.\nMajor Anderson notiﬁed Secretary of War Simon",
+              "original_id": "SUMTER-1861",
+              "source_url": "https://www.archives.gov/milestone-documents/telegram-announcing-the-surrender-of-fort-sumter"
+            },
+            {
+              "source_id": "ORIGINAL-0006",
+              "source_hash": "sha256:4220f999d1cfe2734726fbfc6857334ae548b827d22492a27546f1f7d10abf54",
+              "start": 2567,
+              "end": 2837,
+              "quote": "S.S. Baltic. off Sandy Hook apr. Eighteenth Ten Thirty A.M. via New York. Hon. S. Cameron. Secy. War Washn. Having defended Fort Sumter for thirty four hours until the quarters were entirely burned the main gates destroyed by fire. The gorge walls seriously injured. The",
+              "original_id": "SUMTER-1861",
+              "source_url": "https://www.archives.gov/milestone-documents/telegram-announcing-the-surrender-of-fort-sumter"
+            },
+            {
+              "source_id": "ORIGINAL-0006",
+              "source_hash": "sha256:4220f999d1cfe2734726fbfc6857334ae548b827d22492a27546f1f7d10abf54",
+              "start": 3172,
+              "end": 3402,
+              "quote": "and marched out of the fort Sunday afternoon the fourteenth inst. With colors flying and drums beating. Bringing away company and private property and saluting my flag with fifty guns. Robert Anderson. Major First Artillery. Comma",
+              "original_id": "SUMTER-1861",
+              "source_url": "https://www.archives.gov/milestone-documents/telegram-announcing-the-surrender-of-fort-sumter"
+            }
+          ]
+        },
+        "updated": {
+          "output": "updated/H07.json",
+          "kind": "abstain",
+          "diagnostic": "interpretation_unsupported",
+          "draft_span_coverage": 0.0,
+          "missed_draft_reference_spans": [
+            {
+              "source_id": "ORIGINAL-0006",
+              "source_hash": "sha256:4220f999d1cfe2734726fbfc6857334ae548b827d22492a27546f1f7d10abf54",
+              "start": 1603,
+              "end": 1923,
+              "quote": "On April 12, the Confederate batteries opened fire on the fort, which was unable to reply effectively. At 2:30 p.m., April 13, Major Anderson surrendered Fort Sumter, evacuating the garrison on the following day. The battle had started at 4:30 a.m. and ended 34 hours later.\nMajor Anderson notiﬁed Secretary of War Simon",
+              "original_id": "SUMTER-1861",
+              "source_url": "https://www.archives.gov/milestone-documents/telegram-announcing-the-surrender-of-fort-sumter"
+            },
+            {
+              "source_id": "ORIGINAL-0006",
+              "source_hash": "sha256:4220f999d1cfe2734726fbfc6857334ae548b827d22492a27546f1f7d10abf54",
+              "start": 2567,
+              "end": 2837,
+              "quote": "S.S. Baltic. off Sandy Hook apr. Eighteenth Ten Thirty A.M. via New York. Hon. S. Cameron. Secy. War Washn. Having defended Fort Sumter for thirty four hours until the quarters were entirely burned the main gates destroyed by fire. The gorge walls seriously injured. The",
+              "original_id": "SUMTER-1861",
+              "source_url": "https://www.archives.gov/milestone-documents/telegram-announcing-the-surrender-of-fort-sumter"
+            },
+            {
+              "source_id": "ORIGINAL-0006",
+              "source_hash": "sha256:4220f999d1cfe2734726fbfc6857334ae548b827d22492a27546f1f7d10abf54",
+              "start": 3172,
+              "end": 3402,
+              "quote": "and marched out of the fort Sunday afternoon the fourteenth inst. With colors flying and drums beating. Bringing away company and private property and saluting my flag with fifty guns. Robert Anderson. Major First Artillery. Comma",
+              "original_id": "SUMTER-1861",
+              "source_url": "https://www.archives.gov/milestone-documents/telegram-announcing-the-surrender-of-fort-sumter"
+            }
+          ]
+        },
+        "conversion-repair": {
+          "output": "conversion-repair/H07.json",
+          "kind": "abstain",
+          "diagnostic": "interpretation_unsupported",
+          "draft_span_coverage": 0.3333333333333333,
+          "missed_draft_reference_spans": [
+            {
+              "source_id": "ORIGINAL-0006",
+              "source_hash": "sha256:4220f999d1cfe2734726fbfc6857334ae548b827d22492a27546f1f7d10abf54",
+              "start": 2567,
+              "end": 2837,
+              "quote": "S.S. Baltic. off Sandy Hook apr. Eighteenth Ten Thirty A.M. via New York. Hon. S. Cameron. Secy. War Washn. Having defended Fort Sumter for thirty four hours until the quarters were entirely burned the main gates destroyed by fire. The gorge walls seriously injured. The",
+              "original_id": "SUMTER-1861",
+              "source_url": "https://www.archives.gov/milestone-documents/telegram-announcing-the-surrender-of-fort-sumter"
+            },
+            {
+              "source_id": "ORIGINAL-0006",
+              "source_hash": "sha256:4220f999d1cfe2734726fbfc6857334ae548b827d22492a27546f1f7d10abf54",
+              "start": 3172,
+              "end": 3402,
+              "quote": "and marched out of the fort Sunday afternoon the fourteenth inst. With colors flying and drums beating. Bringing away company and private property and saluting my flag with fifty guns. Robert Anderson. Major First Artillery. Comma",
+              "original_id": "SUMTER-1861",
+              "source_url": "https://www.archives.gov/milestone-documents/telegram-announcing-the-surrender-of-fort-sumter"
+            }
+          ]
+        },
+        "bm25": {
+          "output": "bm25/H07.json",
+          "kind": null,
+          "diagnostic": null,
+          "draft_span_coverage": 0.0,
+          "missed_draft_reference_spans": [
+            {
+              "source_id": "ORIGINAL-0006",
+              "source_hash": "sha256:4220f999d1cfe2734726fbfc6857334ae548b827d22492a27546f1f7d10abf54",
+              "start": 1603,
+              "end": 1923,
+              "quote": "On April 12, the Confederate batteries opened fire on the fort, which was unable to reply effectively. At 2:30 p.m., April 13, Major Anderson surrendered Fort Sumter, evacuating the garrison on the following day. The battle had started at 4:30 a.m. and ended 34 hours later.\nMajor Anderson notiﬁed Secretary of War Simon",
+              "original_id": "SUMTER-1861",
+              "source_url": "https://www.archives.gov/milestone-documents/telegram-announcing-the-surrender-of-fort-sumter"
+            },
+            {
+              "source_id": "ORIGINAL-0006",
+              "source_hash": "sha256:4220f999d1cfe2734726fbfc6857334ae548b827d22492a27546f1f7d10abf54",
+              "start": 2567,
+              "end": 2837,
+              "quote": "S.S. Baltic. off Sandy Hook apr. Eighteenth Ten Thirty A.M. via New York. Hon. S. Cameron. Secy. War Washn. Having defended Fort Sumter for thirty four hours until the quarters were entirely burned the main gates destroyed by fire. The gorge walls seriously injured. The",
+              "original_id": "SUMTER-1861",
+              "source_url": "https://www.archives.gov/milestone-documents/telegram-announcing-the-surrender-of-fort-sumter"
+            },
+            {
+              "source_id": "ORIGINAL-0006",
+              "source_hash": "sha256:4220f999d1cfe2734726fbfc6857334ae548b827d22492a27546f1f7d10abf54",
+              "start": 3172,
+              "end": 3402,
+              "quote": "and marched out of the fort Sunday afternoon the fourteenth inst. With colors flying and drums beating. Bringing away company and private property and saluting my flag with fifty guns. Robert Anderson. Major First Artillery. Comma",
+              "original_id": "SUMTER-1861",
+              "source_url": "https://www.archives.gov/milestone-documents/telegram-announcing-the-surrender-of-fort-sumter"
+            }
+          ]
+        },
+        "keyword": {
+          "output": "keyword/H07.json",
+          "kind": null,
+          "diagnostic": null,
+          "draft_span_coverage": 0.0,
+          "missed_draft_reference_spans": [
+            {
+              "source_id": "ORIGINAL-0006",
+              "source_hash": "sha256:4220f999d1cfe2734726fbfc6857334ae548b827d22492a27546f1f7d10abf54",
+              "start": 1603,
+              "end": 1923,
+              "quote": "On April 12, the Confederate batteries opened fire on the fort, which was unable to reply effectively. At 2:30 p.m., April 13, Major Anderson surrendered Fort Sumter, evacuating the garrison on the following day. The battle had started at 4:30 a.m. and ended 34 hours later.\nMajor Anderson notiﬁed Secretary of War Simon",
+              "original_id": "SUMTER-1861",
+              "source_url": "https://www.archives.gov/milestone-documents/telegram-announcing-the-surrender-of-fort-sumter"
+            },
+            {
+              "source_id": "ORIGINAL-0006",
+              "source_hash": "sha256:4220f999d1cfe2734726fbfc6857334ae548b827d22492a27546f1f7d10abf54",
+              "start": 2567,
+              "end": 2837,
+              "quote": "S.S. Baltic. off Sandy Hook apr. Eighteenth Ten Thirty A.M. via New York. Hon. S. Cameron. Secy. War Washn. Having defended Fort Sumter for thirty four hours until the quarters were entirely burned the main gates destroyed by fire. The gorge walls seriously injured. The",
+              "original_id": "SUMTER-1861",
+              "source_url": "https://www.archives.gov/milestone-documents/telegram-announcing-the-surrender-of-fort-sumter"
+            },
+            {
+              "source_id": "ORIGINAL-0006",
+              "source_hash": "sha256:4220f999d1cfe2734726fbfc6857334ae548b827d22492a27546f1f7d10abf54",
+              "start": 3172,
+              "end": 3402,
+              "quote": "and marched out of the fort Sunday afternoon the fourteenth inst. With colors flying and drums beating. Bringing away company and private property and saluting my flag with fifty guns. Robert Anderson. Major First Artillery. Comma",
+              "original_id": "SUMTER-1861",
+              "source_url": "https://www.archives.gov/milestone-documents/telegram-announcing-the-surrender-of-fort-sumter"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "H08",
+      "question": "According to the Apollo 13 summary, why was the landing aborted and what spacecraft supported return to Earth?",
+      "draft_expectation": "Summary links abort to abrupt service-module cryogenic oxygen loss associated with fire at approximately 56 hours; lunar module supplied minimum support. Preserve the report's qualifications and OCR imperfections.",
+      "draft_answerability": "answerable",
+      "historical_correctness": "UNASSESSED",
+      "incorrect_answer": null,
+      "missed_relationships": null,
+      "false_causal_relationships": null,
+      "appropriate_refusal": null,
+      "arms": {
+        "baseline": {
+          "output": "baseline/H08.json",
+          "kind": "abstain",
+          "diagnostic": "interpretation_unsupported",
+          "draft_span_coverage": 0.0,
+          "missed_draft_reference_spans": [
+            {
+              "source_id": "ORIGINAL-0007",
+              "source_hash": "sha256:e3ec7774d22142e5251f1650d4fe1faa1e11c125c274e8a4c982d18b23714c8f",
+              "start": 6904,
+              "end": 7434,
+              "quote": "The Apollo 13 mission, planned as a lunar landing in the Fra Mauro\narea, was aborted because of an abrupt loss of service module cryogenic\noxygen associated with a fire in one of the two tanks at approximately\n56 hours.\nThe lunar module provided the necessary support to sustain a\nminimum operational\ncondition for a safe return to earth.\nA circumlunar\nprofile was executed as the most efficient means of earth return, with\nthe lunar module providing power and life support until transfer to the\ncommand module just prior to entry",
+              "original_id": "APOLLO13-1970",
+              "source_url": "https://ntrs.nasa.gov/api/citations/19710003598/downloads/19710003598.txt"
+            }
+          ]
+        },
+        "updated": {
+          "output": "updated/H08.json",
+          "kind": "abstain",
+          "diagnostic": "interpretation_unsupported",
+          "draft_span_coverage": 0.0,
+          "missed_draft_reference_spans": [
+            {
+              "source_id": "ORIGINAL-0007",
+              "source_hash": "sha256:e3ec7774d22142e5251f1650d4fe1faa1e11c125c274e8a4c982d18b23714c8f",
+              "start": 6904,
+              "end": 7434,
+              "quote": "The Apollo 13 mission, planned as a lunar landing in the Fra Mauro\narea, was aborted because of an abrupt loss of service module cryogenic\noxygen associated with a fire in one of the two tanks at approximately\n56 hours.\nThe lunar module provided the necessary support to sustain a\nminimum operational\ncondition for a safe return to earth.\nA circumlunar\nprofile was executed as the most efficient means of earth return, with\nthe lunar module providing power and life support until transfer to the\ncommand module just prior to entry",
+              "original_id": "APOLLO13-1970",
+              "source_url": "https://ntrs.nasa.gov/api/citations/19710003598/downloads/19710003598.txt"
+            }
+          ]
+        },
+        "conversion-repair": {
+          "output": "conversion-repair/H08.json",
+          "kind": "abstain",
+          "diagnostic": "interpretation_unsupported",
+          "draft_span_coverage": 1.0,
+          "missed_draft_reference_spans": []
+        },
+        "bm25": {
+          "output": "bm25/H08.json",
+          "kind": null,
+          "diagnostic": null,
+          "draft_span_coverage": 0.0,
+          "missed_draft_reference_spans": [
+            {
+              "source_id": "ORIGINAL-0007",
+              "source_hash": "sha256:e3ec7774d22142e5251f1650d4fe1faa1e11c125c274e8a4c982d18b23714c8f",
+              "start": 6904,
+              "end": 7434,
+              "quote": "The Apollo 13 mission, planned as a lunar landing in the Fra Mauro\narea, was aborted because of an abrupt loss of service module cryogenic\noxygen associated with a fire in one of the two tanks at approximately\n56 hours.\nThe lunar module provided the necessary support to sustain a\nminimum operational\ncondition for a safe return to earth.\nA circumlunar\nprofile was executed as the most efficient means of earth return, with\nthe lunar module providing power and life support until transfer to the\ncommand module just prior to entry",
+              "original_id": "APOLLO13-1970",
+              "source_url": "https://ntrs.nasa.gov/api/citations/19710003598/downloads/19710003598.txt"
+            }
+          ]
+        },
+        "keyword": {
+          "output": "keyword/H08.json",
+          "kind": null,
+          "diagnostic": null,
+          "draft_span_coverage": 0.0,
+          "missed_draft_reference_spans": [
+            {
+              "source_id": "ORIGINAL-0007",
+              "source_hash": "sha256:e3ec7774d22142e5251f1650d4fe1faa1e11c125c274e8a4c982d18b23714c8f",
+              "start": 6904,
+              "end": 7434,
+              "quote": "The Apollo 13 mission, planned as a lunar landing in the Fra Mauro\narea, was aborted because of an abrupt loss of service module cryogenic\noxygen associated with a fire in one of the two tanks at approximately\n56 hours.\nThe lunar module provided the necessary support to sustain a\nminimum operational\ncondition for a safe return to earth.\nA circumlunar\nprofile was executed as the most efficient means of earth return, with\nthe lunar module providing power and life support until transfer to the\ncommand module just prior to entry",
+              "original_id": "APOLLO13-1970",
+              "source_url": "https://ntrs.nasa.gov/api/citations/19710003598/downloads/19710003598.txt"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "H09",
+      "question": "The Apollo 13 OCR has a change sheet marked May 1970 and a title page marked September 1970. What can this text alone establish about revision order and mission elapsed time?",
+      "draft_expectation": "Report the conflicting/role-distinct document dates and replacement-page instruction without silently fixing OCR or deriving a new flight event. Scanned-image verification is needed to resolve the date anomaly.",
+      "draft_answerability": "ambiguous",
+      "historical_correctness": "UNASSESSED",
+      "incorrect_answer": null,
+      "missed_relationships": null,
+      "false_causal_relationships": null,
+      "appropriate_refusal": null,
+      "arms": {
+        "baseline": {
+          "output": "baseline/H09.json",
+          "kind": "abstain",
+          "diagnostic": "interpretation_unsupported",
+          "draft_span_coverage": 0.0,
+          "missed_draft_reference_spans": [
+            {
+              "source_id": "ORIGINAL-0007",
+              "source_hash": "sha256:e3ec7774d22142e5251f1650d4fe1faa1e11c125c274e8a4c982d18b23714c8f",
+              "start": 2797,
+              "end": 3327,
+              "quote": "CHANGE\nSHEET\nFOR\nNASA-MSC\nAPOLLO\nINTERNAL\nREPORT\n13 MISSION\nREPORT\nChange\ni\nMay 1970\n[\nJames A. McDivitt\nb\nColonel, USAF\nManager, Apollo Spacecraft\nPage 1 of 13 pages\n(with enclosures)\nProgram\nAfter the attached enclosures\n(pages 7-3, 7-4, 7-7, 7-8, 11-3 through\n11-6, E-3, E-4, and back cover), which are replacement pages, have been\ninserted, insert this CHANGE SHEET between the cover and title page and\nwrite on the cover \"Change 1 inserted.\"\nIn addition to the attached Changes, please complete\nMission Report Questionaire\nan",
+              "original_id": "APOLLO13-1970",
+              "source_url": "https://ntrs.nasa.gov/api/citations/19710003598/downloads/19710003598.txt"
+            },
+            {
+              "source_id": "ORIGINAL-0007",
+              "source_hash": "sha256:e3ec7774d22142e5251f1650d4fe1faa1e11c125c274e8a4c982d18b23714c8f",
+              "start": 3733,
+              "end": 3873,
+              "quote": "September\nProgram\nADMINISTRATION\nCENTER\nTEXAS\n1970\nApollo 13 lift-off.\niii\nTABLE\nOF CONTENTS\nSection\nPage\ni. 0\nSUMMARY\n.....................",
+              "original_id": "APOLLO13-1970",
+              "source_url": "https://ntrs.nasa.gov/api/citations/19710003598/downloads/19710003598.txt"
+            }
+          ]
+        },
+        "updated": {
+          "output": "updated/H09.json",
+          "kind": "abstain",
+          "diagnostic": "interpretation_unsupported",
+          "draft_span_coverage": 0.5,
+          "missed_draft_reference_spans": [
+            {
+              "source_id": "ORIGINAL-0007",
+              "source_hash": "sha256:e3ec7774d22142e5251f1650d4fe1faa1e11c125c274e8a4c982d18b23714c8f",
+              "start": 3733,
+              "end": 3873,
+              "quote": "September\nProgram\nADMINISTRATION\nCENTER\nTEXAS\n1970\nApollo 13 lift-off.\niii\nTABLE\nOF CONTENTS\nSection\nPage\ni. 0\nSUMMARY\n.....................",
+              "original_id": "APOLLO13-1970",
+              "source_url": "https://ntrs.nasa.gov/api/citations/19710003598/downloads/19710003598.txt"
+            }
+          ]
+        },
+        "conversion-repair": {
+          "output": "conversion-repair/H09.json",
+          "kind": "abstain",
+          "diagnostic": "interpretation_unsupported",
+          "draft_span_coverage": 1.0,
+          "missed_draft_reference_spans": []
+        },
+        "bm25": {
+          "output": "bm25/H09.json",
+          "kind": null,
+          "diagnostic": null,
+          "draft_span_coverage": 0.5,
+          "missed_draft_reference_spans": [
+            {
+              "source_id": "ORIGINAL-0007",
+              "source_hash": "sha256:e3ec7774d22142e5251f1650d4fe1faa1e11c125c274e8a4c982d18b23714c8f",
+              "start": 3733,
+              "end": 3873,
+              "quote": "September\nProgram\nADMINISTRATION\nCENTER\nTEXAS\n1970\nApollo 13 lift-off.\niii\nTABLE\nOF CONTENTS\nSection\nPage\ni. 0\nSUMMARY\n.....................",
+              "original_id": "APOLLO13-1970",
+              "source_url": "https://ntrs.nasa.gov/api/citations/19710003598/downloads/19710003598.txt"
+            }
+          ]
+        },
+        "keyword": {
+          "output": "keyword/H09.json",
+          "kind": null,
+          "diagnostic": null,
+          "draft_span_coverage": 0.0,
+          "missed_draft_reference_spans": [
+            {
+              "source_id": "ORIGINAL-0007",
+              "source_hash": "sha256:e3ec7774d22142e5251f1650d4fe1faa1e11c125c274e8a4c982d18b23714c8f",
+              "start": 2797,
+              "end": 3327,
+              "quote": "CHANGE\nSHEET\nFOR\nNASA-MSC\nAPOLLO\nINTERNAL\nREPORT\n13 MISSION\nREPORT\nChange\ni\nMay 1970\n[\nJames A. McDivitt\nb\nColonel, USAF\nManager, Apollo Spacecraft\nPage 1 of 13 pages\n(with enclosures)\nProgram\nAfter the attached enclosures\n(pages 7-3, 7-4, 7-7, 7-8, 11-3 through\n11-6, E-3, E-4, and back cover), which are replacement pages, have been\ninserted, insert this CHANGE SHEET between the cover and title page and\nwrite on the cover \"Change 1 inserted.\"\nIn addition to the attached Changes, please complete\nMission Report Questionaire\nan",
+              "original_id": "APOLLO13-1970",
+              "source_url": "https://ntrs.nasa.gov/api/citations/19710003598/downloads/19710003598.txt"
+            },
+            {
+              "source_id": "ORIGINAL-0007",
+              "source_hash": "sha256:e3ec7774d22142e5251f1650d4fe1faa1e11c125c274e8a4c982d18b23714c8f",
+              "start": 3733,
+              "end": 3873,
+              "quote": "September\nProgram\nADMINISTRATION\nCENTER\nTEXAS\n1970\nApollo 13 lift-off.\niii\nTABLE\nOF CONTENTS\nSection\nPage\ni. 0\nSUMMARY\n.....................",
+              "original_id": "APOLLO13-1970",
+              "source_url": "https://ntrs.nasa.gov/api/citations/19710003598/downloads/19710003598.txt"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "H10",
+      "question": "Does the shared language of withdrawal and return establish a causal relationship between the Sumter telegram and the Apollo 13 mission?",
+      "draft_expectation": "No causal bridge is established in this selected corpus. Similar words do not connect the events.",
+      "draft_answerability": "unestablished",
+      "historical_correctness": "UNASSESSED",
+      "incorrect_answer": null,
+      "missed_relationships": null,
+      "false_causal_relationships": null,
+      "appropriate_refusal": null,
+      "arms": {
+        "baseline": {
+          "output": "baseline/H10.json",
+          "kind": "abstain",
+          "diagnostic": "interpretation_unsupported",
+          "draft_span_coverage": 0.0,
+          "missed_draft_reference_spans": [
+            {
+              "source_id": "ORIGINAL-0006",
+              "source_hash": "sha256:4220f999d1cfe2734726fbfc6857334ae548b827d22492a27546f1f7d10abf54",
+              "start": 2567,
+              "end": 2717,
+              "quote": "S.S. Baltic. off Sandy Hook apr. Eighteenth Ten Thirty A.M. via New York. Hon. S. Cameron. Secy. War Washn. Having defended Fort Sumter for thirty fou",
+              "original_id": "SUMTER-1861",
+              "source_url": "https://www.archives.gov/milestone-documents/telegram-announcing-the-surrender-of-fort-sumter"
+            },
+            {
+              "source_id": "ORIGINAL-0007",
+              "source_hash": "sha256:e3ec7774d22142e5251f1650d4fe1faa1e11c125c274e8a4c982d18b23714c8f",
+              "start": 6904,
+              "end": 7144,
+              "quote": "The Apollo 13 mission, planned as a lunar landing in the Fra Mauro\narea, was aborted because of an abrupt loss of service module cryogenic\noxygen associated with a fire in one of the two tanks at approximately\n56 hours.\nThe lunar module pro",
+              "original_id": "APOLLO13-1970",
+              "source_url": "https://ntrs.nasa.gov/api/citations/19710003598/downloads/19710003598.txt"
+            }
+          ]
+        },
+        "updated": {
+          "output": "updated/H10.json",
+          "kind": "abstain",
+          "diagnostic": "interpretation_unsupported",
+          "draft_span_coverage": 0.0,
+          "missed_draft_reference_spans": [
+            {
+              "source_id": "ORIGINAL-0006",
+              "source_hash": "sha256:4220f999d1cfe2734726fbfc6857334ae548b827d22492a27546f1f7d10abf54",
+              "start": 2567,
+              "end": 2717,
+              "quote": "S.S. Baltic. off Sandy Hook apr. Eighteenth Ten Thirty A.M. via New York. Hon. S. Cameron. Secy. War Washn. Having defended Fort Sumter for thirty fou",
+              "original_id": "SUMTER-1861",
+              "source_url": "https://www.archives.gov/milestone-documents/telegram-announcing-the-surrender-of-fort-sumter"
+            },
+            {
+              "source_id": "ORIGINAL-0007",
+              "source_hash": "sha256:e3ec7774d22142e5251f1650d4fe1faa1e11c125c274e8a4c982d18b23714c8f",
+              "start": 6904,
+              "end": 7144,
+              "quote": "The Apollo 13 mission, planned as a lunar landing in the Fra Mauro\narea, was aborted because of an abrupt loss of service module cryogenic\noxygen associated with a fire in one of the two tanks at approximately\n56 hours.\nThe lunar module pro",
+              "original_id": "APOLLO13-1970",
+              "source_url": "https://ntrs.nasa.gov/api/citations/19710003598/downloads/19710003598.txt"
+            }
+          ]
+        },
+        "conversion-repair": {
+          "output": "conversion-repair/H10.json",
+          "kind": "abstain",
+          "diagnostic": "interpretation_unsupported",
+          "draft_span_coverage": 0.0,
+          "missed_draft_reference_spans": [
+            {
+              "source_id": "ORIGINAL-0006",
+              "source_hash": "sha256:4220f999d1cfe2734726fbfc6857334ae548b827d22492a27546f1f7d10abf54",
+              "start": 2567,
+              "end": 2717,
+              "quote": "S.S. Baltic. off Sandy Hook apr. Eighteenth Ten Thirty A.M. via New York. Hon. S. Cameron. Secy. War Washn. Having defended Fort Sumter for thirty fou",
+              "original_id": "SUMTER-1861",
+              "source_url": "https://www.archives.gov/milestone-documents/telegram-announcing-the-surrender-of-fort-sumter"
+            },
+            {
+              "source_id": "ORIGINAL-0007",
+              "source_hash": "sha256:e3ec7774d22142e5251f1650d4fe1faa1e11c125c274e8a4c982d18b23714c8f",
+              "start": 6904,
+              "end": 7144,
+              "quote": "The Apollo 13 mission, planned as a lunar landing in the Fra Mauro\narea, was aborted because of an abrupt loss of service module cryogenic\noxygen associated with a fire in one of the two tanks at approximately\n56 hours.\nThe lunar module pro",
+              "original_id": "APOLLO13-1970",
+              "source_url": "https://ntrs.nasa.gov/api/citations/19710003598/downloads/19710003598.txt"
+            }
+          ]
+        },
+        "bm25": {
+          "output": "bm25/H10.json",
+          "kind": null,
+          "diagnostic": null,
+          "draft_span_coverage": 0.0,
+          "missed_draft_reference_spans": [
+            {
+              "source_id": "ORIGINAL-0006",
+              "source_hash": "sha256:4220f999d1cfe2734726fbfc6857334ae548b827d22492a27546f1f7d10abf54",
+              "start": 2567,
+              "end": 2717,
+              "quote": "S.S. Baltic. off Sandy Hook apr. Eighteenth Ten Thirty A.M. via New York. Hon. S. Cameron. Secy. War Washn. Having defended Fort Sumter for thirty fou",
+              "original_id": "SUMTER-1861",
+              "source_url": "https://www.archives.gov/milestone-documents/telegram-announcing-the-surrender-of-fort-sumter"
+            },
+            {
+              "source_id": "ORIGINAL-0007",
+              "source_hash": "sha256:e3ec7774d22142e5251f1650d4fe1faa1e11c125c274e8a4c982d18b23714c8f",
+              "start": 6904,
+              "end": 7144,
+              "quote": "The Apollo 13 mission, planned as a lunar landing in the Fra Mauro\narea, was aborted because of an abrupt loss of service module cryogenic\noxygen associated with a fire in one of the two tanks at approximately\n56 hours.\nThe lunar module pro",
+              "original_id": "APOLLO13-1970",
+              "source_url": "https://ntrs.nasa.gov/api/citations/19710003598/downloads/19710003598.txt"
+            }
+          ]
+        },
+        "keyword": {
+          "output": "keyword/H10.json",
+          "kind": null,
+          "diagnostic": null,
+          "draft_span_coverage": 0.0,
+          "missed_draft_reference_spans": [
+            {
+              "source_id": "ORIGINAL-0006",
+              "source_hash": "sha256:4220f999d1cfe2734726fbfc6857334ae548b827d22492a27546f1f7d10abf54",
+              "start": 2567,
+              "end": 2717,
+              "quote": "S.S. Baltic. off Sandy Hook apr. Eighteenth Ten Thirty A.M. via New York. Hon. S. Cameron. Secy. War Washn. Having defended Fort Sumter for thirty fou",
+              "original_id": "SUMTER-1861",
+              "source_url": "https://www.archives.gov/milestone-documents/telegram-announcing-the-surrender-of-fort-sumter"
+            },
+            {
+              "source_id": "ORIGINAL-0007",
+              "source_hash": "sha256:e3ec7774d22142e5251f1650d4fe1faa1e11c125c274e8a4c982d18b23714c8f",
+              "start": 6904,
+              "end": 7144,
+              "quote": "The Apollo 13 mission, planned as a lunar landing in the Fra Mauro\narea, was aborted because of an abrupt loss of service module cryogenic\noxygen associated with a fire in one of the two tanks at approximately\n56 hours.\nThe lunar module pro",
+              "original_id": "APOLLO13-1970",
+              "source_url": "https://ntrs.nasa.gov/api/citations/19710003598/downloads/19710003598.txt"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "H11",
+      "question": "Did Darwin's note arranging Wallace's book delivery cause the Apollo 13 abort? Provide a source-supported link or explicitly state that it is unavailable.",
+      "draft_expectation": "No source-supported link is provided; do not invent causation from co-presence in this corpus.",
+      "draft_answerability": "unestablished",
+      "historical_correctness": "UNASSESSED",
+      "incorrect_answer": null,
+      "missed_relationships": null,
+      "false_causal_relationships": null,
+      "appropriate_refusal": null,
+      "arms": {
+        "baseline": {
+          "output": "baseline/H11.json",
+          "kind": "abstain",
+          "diagnostic": "interpretation_unsupported",
+          "draft_span_coverage": 0.0,
+          "missed_draft_reference_spans": [
+            {
+              "source_id": "ORIGINAL-0001",
+              "source_hash": "sha256:cda3c0719ca4c839dfef3c3165934214c5e995fa3fb840a61b9a0ba77ebb9c32",
+              "start": 31135,
+              "end": 31335,
+              "quote": "CHARLES DARWIN TO A.R. WALLACE. Ilkley, November 13th, 1859.\nMy dear Sir,\nI have told Murray to send you by post (if possible) a copy of my book,\nand I hope that you will receive it at nearly the same",
+              "original_id": "DARWIN-1887",
+              "source_url": "https://raw.githubusercontent.com/GITenberg/Life-and-Letters-of-Charles-Darwin---Volume-2_2088/9f84c5d2a15f65b0bcac389322d5e98fffd4ace9/2088.txt"
+            },
+            {
+              "source_id": "ORIGINAL-0007",
+              "source_hash": "sha256:e3ec7774d22142e5251f1650d4fe1faa1e11c125c274e8a4c982d18b23714c8f",
+              "start": 6904,
+              "end": 7144,
+              "quote": "The Apollo 13 mission, planned as a lunar landing in the Fra Mauro\narea, was aborted because of an abrupt loss of service module cryogenic\noxygen associated with a fire in one of the two tanks at approximately\n56 hours.\nThe lunar module pro",
+              "original_id": "APOLLO13-1970",
+              "source_url": "https://ntrs.nasa.gov/api/citations/19710003598/downloads/19710003598.txt"
+            }
+          ]
+        },
+        "updated": {
+          "output": "updated/H11.json",
+          "kind": "abstain",
+          "diagnostic": "interpretation_unsupported",
+          "draft_span_coverage": 0.0,
+          "missed_draft_reference_spans": [
+            {
+              "source_id": "ORIGINAL-0001",
+              "source_hash": "sha256:cda3c0719ca4c839dfef3c3165934214c5e995fa3fb840a61b9a0ba77ebb9c32",
+              "start": 31135,
+              "end": 31335,
+              "quote": "CHARLES DARWIN TO A.R. WALLACE. Ilkley, November 13th, 1859.\nMy dear Sir,\nI have told Murray to send you by post (if possible) a copy of my book,\nand I hope that you will receive it at nearly the same",
+              "original_id": "DARWIN-1887",
+              "source_url": "https://raw.githubusercontent.com/GITenberg/Life-and-Letters-of-Charles-Darwin---Volume-2_2088/9f84c5d2a15f65b0bcac389322d5e98fffd4ace9/2088.txt"
+            },
+            {
+              "source_id": "ORIGINAL-0007",
+              "source_hash": "sha256:e3ec7774d22142e5251f1650d4fe1faa1e11c125c274e8a4c982d18b23714c8f",
+              "start": 6904,
+              "end": 7144,
+              "quote": "The Apollo 13 mission, planned as a lunar landing in the Fra Mauro\narea, was aborted because of an abrupt loss of service module cryogenic\noxygen associated with a fire in one of the two tanks at approximately\n56 hours.\nThe lunar module pro",
+              "original_id": "APOLLO13-1970",
+              "source_url": "https://ntrs.nasa.gov/api/citations/19710003598/downloads/19710003598.txt"
+            }
+          ]
+        },
+        "conversion-repair": {
+          "output": "conversion-repair/H11.json",
+          "kind": "abstain",
+          "diagnostic": "interpretation_unsupported",
+          "draft_span_coverage": 0.5,
+          "missed_draft_reference_spans": [
+            {
+              "source_id": "ORIGINAL-0001",
+              "source_hash": "sha256:cda3c0719ca4c839dfef3c3165934214c5e995fa3fb840a61b9a0ba77ebb9c32",
+              "start": 31135,
+              "end": 31335,
+              "quote": "CHARLES DARWIN TO A.R. WALLACE. Ilkley, November 13th, 1859.\nMy dear Sir,\nI have told Murray to send you by post (if possible) a copy of my book,\nand I hope that you will receive it at nearly the same",
+              "original_id": "DARWIN-1887",
+              "source_url": "https://raw.githubusercontent.com/GITenberg/Life-and-Letters-of-Charles-Darwin---Volume-2_2088/9f84c5d2a15f65b0bcac389322d5e98fffd4ace9/2088.txt"
+            }
+          ]
+        },
+        "bm25": {
+          "output": "bm25/H11.json",
+          "kind": null,
+          "diagnostic": null,
+          "draft_span_coverage": 0.0,
+          "missed_draft_reference_spans": [
+            {
+              "source_id": "ORIGINAL-0001",
+              "source_hash": "sha256:cda3c0719ca4c839dfef3c3165934214c5e995fa3fb840a61b9a0ba77ebb9c32",
+              "start": 31135,
+              "end": 31335,
+              "quote": "CHARLES DARWIN TO A.R. WALLACE. Ilkley, November 13th, 1859.\nMy dear Sir,\nI have told Murray to send you by post (if possible) a copy of my book,\nand I hope that you will receive it at nearly the same",
+              "original_id": "DARWIN-1887",
+              "source_url": "https://raw.githubusercontent.com/GITenberg/Life-and-Letters-of-Charles-Darwin---Volume-2_2088/9f84c5d2a15f65b0bcac389322d5e98fffd4ace9/2088.txt"
+            },
+            {
+              "source_id": "ORIGINAL-0007",
+              "source_hash": "sha256:e3ec7774d22142e5251f1650d4fe1faa1e11c125c274e8a4c982d18b23714c8f",
+              "start": 6904,
+              "end": 7144,
+              "quote": "The Apollo 13 mission, planned as a lunar landing in the Fra Mauro\narea, was aborted because of an abrupt loss of service module cryogenic\noxygen associated with a fire in one of the two tanks at approximately\n56 hours.\nThe lunar module pro",
+              "original_id": "APOLLO13-1970",
+              "source_url": "https://ntrs.nasa.gov/api/citations/19710003598/downloads/19710003598.txt"
+            }
+          ]
+        },
+        "keyword": {
+          "output": "keyword/H11.json",
+          "kind": null,
+          "diagnostic": null,
+          "draft_span_coverage": 0.0,
+          "missed_draft_reference_spans": [
+            {
+              "source_id": "ORIGINAL-0001",
+              "source_hash": "sha256:cda3c0719ca4c839dfef3c3165934214c5e995fa3fb840a61b9a0ba77ebb9c32",
+              "start": 31135,
+              "end": 31335,
+              "quote": "CHARLES DARWIN TO A.R. WALLACE. Ilkley, November 13th, 1859.\nMy dear Sir,\nI have told Murray to send you by post (if possible) a copy of my book,\nand I hope that you will receive it at nearly the same",
+              "original_id": "DARWIN-1887",
+              "source_url": "https://raw.githubusercontent.com/GITenberg/Life-and-Letters-of-Charles-Darwin---Volume-2_2088/9f84c5d2a15f65b0bcac389322d5e98fffd4ace9/2088.txt"
+            },
+            {
+              "source_id": "ORIGINAL-0007",
+              "source_hash": "sha256:e3ec7774d22142e5251f1650d4fe1faa1e11c125c274e8a4c982d18b23714c8f",
+              "start": 6904,
+              "end": 7144,
+              "quote": "The Apollo 13 mission, planned as a lunar landing in the Fra Mauro\narea, was aborted because of an abrupt loss of service module cryogenic\noxygen associated with a fire in one of the two tanks at approximately\n56 hours.\nThe lunar module pro",
+              "original_id": "APOLLO13-1970",
+              "source_url": "https://ntrs.nasa.gov/api/citations/19710003598/downloads/19710003598.txt"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "H12",
+      "question": "Which named engineer personally authorized an oxygen-tank fire, and which original letter proves that authorization?",
+      "draft_expectation": "The question presupposes an authorization not established by these records. Refuse or qualify the premise; do not infer a person from a report signature.",
+      "draft_answerability": "unestablished",
+      "historical_correctness": "UNASSESSED",
+      "incorrect_answer": null,
+      "missed_relationships": null,
+      "false_causal_relationships": null,
+      "appropriate_refusal": null,
+      "arms": {
+        "baseline": {
+          "output": "baseline/H12.json",
+          "kind": "abstain",
+          "diagnostic": "interpretation_unsupported",
+          "draft_span_coverage": 0.0,
+          "missed_draft_reference_spans": [
+            {
+              "source_id": "ORIGINAL-0007",
+              "source_hash": "sha256:e3ec7774d22142e5251f1650d4fe1faa1e11c125c274e8a4c982d18b23714c8f",
+              "start": 6904,
+              "end": 7174,
+              "quote": "The Apollo 13 mission, planned as a lunar landing in the Fra Mauro\narea, was aborted because of an abrupt loss of service module cryogenic\noxygen associated with a fire in one of the two tanks at approximately\n56 hours.\nThe lunar module provided the necessary support to",
+              "original_id": "APOLLO13-1970",
+              "source_url": "https://ntrs.nasa.gov/api/citations/19710003598/downloads/19710003598.txt"
+            }
+          ]
+        },
+        "updated": {
+          "output": "updated/H12.json",
+          "kind": "abstain",
+          "diagnostic": "interpretation_unsupported",
+          "draft_span_coverage": 0.0,
+          "missed_draft_reference_spans": [
+            {
+              "source_id": "ORIGINAL-0007",
+              "source_hash": "sha256:e3ec7774d22142e5251f1650d4fe1faa1e11c125c274e8a4c982d18b23714c8f",
+              "start": 6904,
+              "end": 7174,
+              "quote": "The Apollo 13 mission, planned as a lunar landing in the Fra Mauro\narea, was aborted because of an abrupt loss of service module cryogenic\noxygen associated with a fire in one of the two tanks at approximately\n56 hours.\nThe lunar module provided the necessary support to",
+              "original_id": "APOLLO13-1970",
+              "source_url": "https://ntrs.nasa.gov/api/citations/19710003598/downloads/19710003598.txt"
+            }
+          ]
+        },
+        "conversion-repair": {
+          "output": "conversion-repair/H12.json",
+          "kind": "abstain",
+          "diagnostic": "interpretation_unsupported",
+          "draft_span_coverage": 0.0,
+          "missed_draft_reference_spans": [
+            {
+              "source_id": "ORIGINAL-0007",
+              "source_hash": "sha256:e3ec7774d22142e5251f1650d4fe1faa1e11c125c274e8a4c982d18b23714c8f",
+              "start": 6904,
+              "end": 7174,
+              "quote": "The Apollo 13 mission, planned as a lunar landing in the Fra Mauro\narea, was aborted because of an abrupt loss of service module cryogenic\noxygen associated with a fire in one of the two tanks at approximately\n56 hours.\nThe lunar module provided the necessary support to",
+              "original_id": "APOLLO13-1970",
+              "source_url": "https://ntrs.nasa.gov/api/citations/19710003598/downloads/19710003598.txt"
+            }
+          ]
+        },
+        "bm25": {
+          "output": "bm25/H12.json",
+          "kind": null,
+          "diagnostic": null,
+          "draft_span_coverage": 0.0,
+          "missed_draft_reference_spans": [
+            {
+              "source_id": "ORIGINAL-0007",
+              "source_hash": "sha256:e3ec7774d22142e5251f1650d4fe1faa1e11c125c274e8a4c982d18b23714c8f",
+              "start": 6904,
+              "end": 7174,
+              "quote": "The Apollo 13 mission, planned as a lunar landing in the Fra Mauro\narea, was aborted because of an abrupt loss of service module cryogenic\noxygen associated with a fire in one of the two tanks at approximately\n56 hours.\nThe lunar module provided the necessary support to",
+              "original_id": "APOLLO13-1970",
+              "source_url": "https://ntrs.nasa.gov/api/citations/19710003598/downloads/19710003598.txt"
+            }
+          ]
+        },
+        "keyword": {
+          "output": "keyword/H12.json",
+          "kind": null,
+          "diagnostic": null,
+          "draft_span_coverage": 0.0,
+          "missed_draft_reference_spans": [
+            {
+              "source_id": "ORIGINAL-0007",
+              "source_hash": "sha256:e3ec7774d22142e5251f1650d4fe1faa1e11c125c274e8a4c982d18b23714c8f",
+              "start": 6904,
+              "end": 7174,
+              "quote": "The Apollo 13 mission, planned as a lunar landing in the Fra Mauro\narea, was aborted because of an abrupt loss of service module cryogenic\noxygen associated with a fire in one of the two tanks at approximately\n56 hours.\nThe lunar module provided the necessary support to",
+              "original_id": "APOLLO13-1970",
+              "source_url": "https://ntrs.nasa.gov/api/citations/19710003598/downloads/19710003598.txt"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "H13",
+      "question": "Which distinct documentary layers in the Sumter page refer to the same historical message, and which statements belong to modern archival framing rather than the telegram?",
+      "draft_expectation": "The citation/presentation and the transcribed telegram are distinct layers within one acquired page. Preserve the message as an appearance, not a fabricated second battle event; exact historical identity remains a candidate interpretation requiring review.",
+      "draft_answerability": "answerable",
+      "historical_correctness": "UNASSESSED",
+      "incorrect_answer": null,
+      "missed_relationships": null,
+      "false_causal_relationships": null,
+      "appropriate_refusal": null,
+      "arms": {
+        "baseline": {
+          "output": "baseline/H13.json",
+          "kind": "abstain",
+          "diagnostic": "interpretation_unsupported",
+          "draft_span_coverage": 0.0,
+          "missed_draft_reference_spans": [
+            {
+              "source_id": "ORIGINAL-0006",
+              "source_hash": "sha256:4220f999d1cfe2734726fbfc6857334ae548b827d22492a27546f1f7d10abf54",
+              "start": 355,
+              "end": 715,
+              "quote": "Citation: Telegram from Maj. Robert Anderson to Hon. Simon Cameron, Secretary, announcing his withdrawal from Fort Sumter; April 18, 1861; Union Battle Reports, 1874 - 1899; Records of the Adjutant General's Office, Record Group 94; National Archives Building, Washington, DC.\nView All Pages in the National Archives Catalog\nView Transcript\nThe first engagemen",
+              "original_id": "SUMTER-1861",
+              "source_url": "https://www.archives.gov/milestone-documents/telegram-announcing-the-surrender-of-fort-sumter"
+            },
+            {
+              "source_id": "ORIGINAL-0006",
+              "source_hash": "sha256:4220f999d1cfe2734726fbfc6857334ae548b827d22492a27546f1f7d10abf54",
+              "start": 2567,
+              "end": 2867,
+              "quote": "S.S. Baltic. off Sandy Hook apr. Eighteenth Ten Thirty A.M. via New York. Hon. S. Cameron. Secy. War Washn. Having defended Fort Sumter for thirty four hours until the quarters were entirely burned the main gates destroyed by fire. The gorge walls seriously injured. The magazine surrounded by flames",
+              "original_id": "SUMTER-1861",
+              "source_url": "https://www.archives.gov/milestone-documents/telegram-announcing-the-surrender-of-fort-sumter"
+            }
+          ]
+        },
+        "updated": {
+          "output": "updated/H13.json",
+          "kind": "abstain",
+          "diagnostic": "interpretation_unsupported",
+          "draft_span_coverage": 0.0,
+          "missed_draft_reference_spans": [
+            {
+              "source_id": "ORIGINAL-0006",
+              "source_hash": "sha256:4220f999d1cfe2734726fbfc6857334ae548b827d22492a27546f1f7d10abf54",
+              "start": 355,
+              "end": 715,
+              "quote": "Citation: Telegram from Maj. Robert Anderson to Hon. Simon Cameron, Secretary, announcing his withdrawal from Fort Sumter; April 18, 1861; Union Battle Reports, 1874 - 1899; Records of the Adjutant General's Office, Record Group 94; National Archives Building, Washington, DC.\nView All Pages in the National Archives Catalog\nView Transcript\nThe first engagemen",
+              "original_id": "SUMTER-1861",
+              "source_url": "https://www.archives.gov/milestone-documents/telegram-announcing-the-surrender-of-fort-sumter"
+            },
+            {
+              "source_id": "ORIGINAL-0006",
+              "source_hash": "sha256:4220f999d1cfe2734726fbfc6857334ae548b827d22492a27546f1f7d10abf54",
+              "start": 2567,
+              "end": 2867,
+              "quote": "S.S. Baltic. off Sandy Hook apr. Eighteenth Ten Thirty A.M. via New York. Hon. S. Cameron. Secy. War Washn. Having defended Fort Sumter for thirty four hours until the quarters were entirely burned the main gates destroyed by fire. The gorge walls seriously injured. The magazine surrounded by flames",
+              "original_id": "SUMTER-1861",
+              "source_url": "https://www.archives.gov/milestone-documents/telegram-announcing-the-surrender-of-fort-sumter"
+            }
+          ]
+        },
+        "conversion-repair": {
+          "output": "conversion-repair/H13.json",
+          "kind": "abstain",
+          "diagnostic": "interpretation_unsupported",
+          "draft_span_coverage": 0.5,
+          "missed_draft_reference_spans": [
+            {
+              "source_id": "ORIGINAL-0006",
+              "source_hash": "sha256:4220f999d1cfe2734726fbfc6857334ae548b827d22492a27546f1f7d10abf54",
+              "start": 2567,
+              "end": 2867,
+              "quote": "S.S. Baltic. off Sandy Hook apr. Eighteenth Ten Thirty A.M. via New York. Hon. S. Cameron. Secy. War Washn. Having defended Fort Sumter for thirty four hours until the quarters were entirely burned the main gates destroyed by fire. The gorge walls seriously injured. The magazine surrounded by flames",
+              "original_id": "SUMTER-1861",
+              "source_url": "https://www.archives.gov/milestone-documents/telegram-announcing-the-surrender-of-fort-sumter"
+            }
+          ]
+        },
+        "bm25": {
+          "output": "bm25/H13.json",
+          "kind": null,
+          "diagnostic": null,
+          "draft_span_coverage": 0.0,
+          "missed_draft_reference_spans": [
+            {
+              "source_id": "ORIGINAL-0006",
+              "source_hash": "sha256:4220f999d1cfe2734726fbfc6857334ae548b827d22492a27546f1f7d10abf54",
+              "start": 355,
+              "end": 715,
+              "quote": "Citation: Telegram from Maj. Robert Anderson to Hon. Simon Cameron, Secretary, announcing his withdrawal from Fort Sumter; April 18, 1861; Union Battle Reports, 1874 - 1899; Records of the Adjutant General's Office, Record Group 94; National Archives Building, Washington, DC.\nView All Pages in the National Archives Catalog\nView Transcript\nThe first engagemen",
+              "original_id": "SUMTER-1861",
+              "source_url": "https://www.archives.gov/milestone-documents/telegram-announcing-the-surrender-of-fort-sumter"
+            },
+            {
+              "source_id": "ORIGINAL-0006",
+              "source_hash": "sha256:4220f999d1cfe2734726fbfc6857334ae548b827d22492a27546f1f7d10abf54",
+              "start": 2567,
+              "end": 2867,
+              "quote": "S.S. Baltic. off Sandy Hook apr. Eighteenth Ten Thirty A.M. via New York. Hon. S. Cameron. Secy. War Washn. Having defended Fort Sumter for thirty four hours until the quarters were entirely burned the main gates destroyed by fire. The gorge walls seriously injured. The magazine surrounded by flames",
+              "original_id": "SUMTER-1861",
+              "source_url": "https://www.archives.gov/milestone-documents/telegram-announcing-the-surrender-of-fort-sumter"
+            }
+          ]
+        },
+        "keyword": {
+          "output": "keyword/H13.json",
+          "kind": null,
+          "diagnostic": null,
+          "draft_span_coverage": 0.0,
+          "missed_draft_reference_spans": [
+            {
+              "source_id": "ORIGINAL-0006",
+              "source_hash": "sha256:4220f999d1cfe2734726fbfc6857334ae548b827d22492a27546f1f7d10abf54",
+              "start": 355,
+              "end": 715,
+              "quote": "Citation: Telegram from Maj. Robert Anderson to Hon. Simon Cameron, Secretary, announcing his withdrawal from Fort Sumter; April 18, 1861; Union Battle Reports, 1874 - 1899; Records of the Adjutant General's Office, Record Group 94; National Archives Building, Washington, DC.\nView All Pages in the National Archives Catalog\nView Transcript\nThe first engagemen",
+              "original_id": "SUMTER-1861",
+              "source_url": "https://www.archives.gov/milestone-documents/telegram-announcing-the-surrender-of-fort-sumter"
+            },
+            {
+              "source_id": "ORIGINAL-0006",
+              "source_hash": "sha256:4220f999d1cfe2734726fbfc6857334ae548b827d22492a27546f1f7d10abf54",
+              "start": 2567,
+              "end": 2867,
+              "quote": "S.S. Baltic. off Sandy Hook apr. Eighteenth Ten Thirty A.M. via New York. Hon. S. Cameron. Secy. War Washn. Having defended Fort Sumter for thirty four hours until the quarters were entirely burned the main gates destroyed by fire. The gorge walls seriously injured. The magazine surrounded by flames",
+              "original_id": "SUMTER-1861",
+              "source_url": "https://www.archives.gov/milestone-documents/telegram-announcing-the-surrender-of-fort-sumter"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "H14",
+      "question": "Can the selected Darwin correspondence alone establish whether Darwin or Wallace first conceived natural selection, rather than who read or sent a particular book?",
+      "draft_expectation": "Reading/sending dates do not settle conception priority; these selected passages do not establish the required complete priority history.",
+      "draft_answerability": "unestablished",
+      "historical_correctness": "UNASSESSED",
+      "incorrect_answer": null,
+      "missed_relationships": null,
+      "false_causal_relationships": null,
+      "appropriate_refusal": null,
+      "arms": {
+        "baseline": {
+          "output": "baseline/H14.json",
+          "kind": "conflict",
+          "diagnostic": "retrieval_ambiguous",
+          "draft_span_coverage": 0.0,
+          "missed_draft_reference_spans": [
+            {
+              "source_id": "ORIGINAL-0001",
+              "source_hash": "sha256:cda3c0719ca4c839dfef3c3165934214c5e995fa3fb840a61b9a0ba77ebb9c32",
+              "start": 31135,
+              "end": 31475,
+              "quote": "CHARLES DARWIN TO A.R. WALLACE. Ilkley, November 13th, 1859.\nMy dear Sir,\nI have told Murray to send you by post (if possible) a copy of my book,\nand I hope that you will receive it at nearly the same time with this\nnote. (N.B. I have got a bad finger, which makes me write extra badly.)\nIf you are so inclined, I should very much like to h",
+              "original_id": "DARWIN-1887",
+              "source_url": "https://raw.githubusercontent.com/GITenberg/Life-and-Letters-of-Charles-Darwin---Volume-2_2088/9f84c5d2a15f65b0bcac389322d5e98fffd4ace9/2088.txt"
+            }
+          ]
+        },
+        "updated": {
+          "output": "updated/H14.json",
+          "kind": "conflict",
+          "diagnostic": "retrieval_ambiguous",
+          "draft_span_coverage": 0.0,
+          "missed_draft_reference_spans": [
+            {
+              "source_id": "ORIGINAL-0001",
+              "source_hash": "sha256:cda3c0719ca4c839dfef3c3165934214c5e995fa3fb840a61b9a0ba77ebb9c32",
+              "start": 31135,
+              "end": 31475,
+              "quote": "CHARLES DARWIN TO A.R. WALLACE. Ilkley, November 13th, 1859.\nMy dear Sir,\nI have told Murray to send you by post (if possible) a copy of my book,\nand I hope that you will receive it at nearly the same time with this\nnote. (N.B. I have got a bad finger, which makes me write extra badly.)\nIf you are so inclined, I should very much like to h",
+              "original_id": "DARWIN-1887",
+              "source_url": "https://raw.githubusercontent.com/GITenberg/Life-and-Letters-of-Charles-Darwin---Volume-2_2088/9f84c5d2a15f65b0bcac389322d5e98fffd4ace9/2088.txt"
+            }
+          ]
+        },
+        "conversion-repair": {
+          "output": "conversion-repair/H14.json",
+          "kind": "conflict",
+          "diagnostic": "retrieval_ambiguous",
+          "draft_span_coverage": 0.0,
+          "missed_draft_reference_spans": [
+            {
+              "source_id": "ORIGINAL-0001",
+              "source_hash": "sha256:cda3c0719ca4c839dfef3c3165934214c5e995fa3fb840a61b9a0ba77ebb9c32",
+              "start": 31135,
+              "end": 31475,
+              "quote": "CHARLES DARWIN TO A.R. WALLACE. Ilkley, November 13th, 1859.\nMy dear Sir,\nI have told Murray to send you by post (if possible) a copy of my book,\nand I hope that you will receive it at nearly the same time with this\nnote. (N.B. I have got a bad finger, which makes me write extra badly.)\nIf you are so inclined, I should very much like to h",
+              "original_id": "DARWIN-1887",
+              "source_url": "https://raw.githubusercontent.com/GITenberg/Life-and-Letters-of-Charles-Darwin---Volume-2_2088/9f84c5d2a15f65b0bcac389322d5e98fffd4ace9/2088.txt"
+            }
+          ]
+        },
+        "bm25": {
+          "output": "bm25/H14.json",
+          "kind": null,
+          "diagnostic": null,
+          "draft_span_coverage": 0.0,
+          "missed_draft_reference_spans": [
+            {
+              "source_id": "ORIGINAL-0001",
+              "source_hash": "sha256:cda3c0719ca4c839dfef3c3165934214c5e995fa3fb840a61b9a0ba77ebb9c32",
+              "start": 31135,
+              "end": 31475,
+              "quote": "CHARLES DARWIN TO A.R. WALLACE. Ilkley, November 13th, 1859.\nMy dear Sir,\nI have told Murray to send you by post (if possible) a copy of my book,\nand I hope that you will receive it at nearly the same time with this\nnote. (N.B. I have got a bad finger, which makes me write extra badly.)\nIf you are so inclined, I should very much like to h",
+              "original_id": "DARWIN-1887",
+              "source_url": "https://raw.githubusercontent.com/GITenberg/Life-and-Letters-of-Charles-Darwin---Volume-2_2088/9f84c5d2a15f65b0bcac389322d5e98fffd4ace9/2088.txt"
+            }
+          ]
+        },
+        "keyword": {
+          "output": "keyword/H14.json",
+          "kind": null,
+          "diagnostic": null,
+          "draft_span_coverage": 0.0,
+          "missed_draft_reference_spans": [
+            {
+              "source_id": "ORIGINAL-0001",
+              "source_hash": "sha256:cda3c0719ca4c839dfef3c3165934214c5e995fa3fb840a61b9a0ba77ebb9c32",
+              "start": 31135,
+              "end": 31475,
+              "quote": "CHARLES DARWIN TO A.R. WALLACE. Ilkley, November 13th, 1859.\nMy dear Sir,\nI have told Murray to send you by post (if possible) a copy of my book,\nand I hope that you will receive it at nearly the same time with this\nnote. (N.B. I have got a bad finger, which makes me write extra badly.)\nIf you are so inclined, I should very much like to h",
+              "original_id": "DARWIN-1887",
+              "source_url": "https://raw.githubusercontent.com/GITenberg/Life-and-Letters-of-Charles-Darwin---Volume-2_2088/9f84c5d2a15f65b0bcac389322d5e98fffd4ace9/2088.txt"
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "independent_human_evaluation": "NOT RUN",
+  "independent_question_authorship": "NOT RUN",
+  "outcome": "Partial engineering success; historical reconstruction accuracy UNASSESSED, not established by retrieval or fidelity.",
+  "semantic_metrics": {
+    "event_precision": null,
+    "event_recall": null,
+    "relationship_precision": null,
+    "relationship_recall": null,
+    "correction_precision": null,
+    "correction_recall": null,
+    "false_positive_relationship_rate": null,
+    "chronological_error_count": null,
+    "appropriate_refusal_rate": null,
+    "unsupported_answer_rate": null
+  }
+}
