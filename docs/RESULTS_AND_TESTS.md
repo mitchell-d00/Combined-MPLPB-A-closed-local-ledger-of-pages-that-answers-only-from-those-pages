@@ -98,3 +98,7 @@ The [prose reconstruction follow-up](PROSE_RECONSTRUCTION_FOLLOWUP.md) measures 
 
 
 Targeted recovery update (2026-11-16): the [source-linked recovery study](PROSE_RECONSTRUCTION_FOLLOWUP.md#targeted-recovery-and-false-association-retention) reports retained useful associations, recovered omissions, false date-cue corrections and unresolved transfer failures. It does not establish general historical understanding or independent human validation.
+
+## Documentary scope — 2026-11-16
+
+The [scope repair protocol](DOCUMENTARY_SCOPE.md) links adversarial tests and a frozen original-record comparison with exact byte mapping. Candidate counts are not accuracy scores. Independent review and unseen evaluation are NOT RUN; [new evidence](../evaluation/documentary-scope/BASELINE.md) preserves the baseline and later terminal results separately.

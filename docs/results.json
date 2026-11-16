@@ -414,6 +414,21 @@
       ],
       "scope": "Frozen authentic original editions and developer questions, separate randomized fictional controls, candidate mapping and raw/canonical round-trip fidelity. Draft span coverage is retrieval only. Independent historical review NOT RUN. Follow-up retains source-linked developer semantic judgments, incorrect and unresolved relationships, missed facets, and a post-code-freeze cold transfer record; no independent human validation. Targeted recovery retains all previous useful reviewed associations; later two-record transfer remains unresolved. Calendar cues are assessed separately. All semantic labels remain developer/AI judgments, not independent human evaluation.",
       "measurement_status": "Actual dated baseline and updated executions, preserved pilots, incomplete independent semantic assessment"
+    },
+    {
+      "family": "documentary-scope",
+      "artifacts": "evaluation/documentary-scope",
+      "tests": [
+        "tests/test_documentary_scope.py",
+        "tests/test_prose_reconstruction.py",
+        "tests/test_source_mapping.py"
+      ],
+      "runners": [
+        "tools/compare_documentary_scope.py",
+        "tools/unprepared_challenge.py"
+      ],
+      "scope": "Finite scope/role interpretation controls and unchanged original-record development comparisons; candidates never earn answer support.",
+      "measurement_status": "Focused tests executed; full candidate comparison pending; independent review NOT RUN"
     }
   ]
 }

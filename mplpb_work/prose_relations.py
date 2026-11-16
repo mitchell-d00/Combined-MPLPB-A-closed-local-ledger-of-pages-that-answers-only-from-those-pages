@@ -16,12 +16,14 @@ from .source_mapping import anchor,_item as _source_item
 
 
 def _item(*args,**kwargs):
-    return _source_item(*args,operation='finite-prose-interpretation-v5',**kwargs)
+    return _source_item(*args,operation='finite-prose-interpretation-v6',**kwargs)
 
-VERSION='source-propositions-v5'
+VERSION='source-propositions-v6'
 VERBS={
  'called off':'cancel','call off':'cancel','cancelled':'cancel','canceled':'cancel','cancel':'cancel',
  'responded':'respond','respond':'respond',
+ 'reported':'report_speech','alleged':'allege','claimed':'claim',
+ 'requested':'request','promised':'promise','planned':'plan',
  'appoint':'appoint','appointed':'appoint','decided':'decide','decide':'decide','proceed':'proceed',
  'wrote':'write','write':'write','written':'write','scribbled':'write','drafting':'draft','drafted':'draft',
  'distributed':'distribute','published':'publish','publishing':'publish','read':'read',
@@ -80,12 +82,49 @@ def sentences(text):
 def _modality(quote,position):
     # Clause-local qualifiers are retained alongside the full sentence. A later
     # conditional clause must not turn a preceding writing event into a defeat.
-    prefix=quote[:position];clause=re.split(r';|\b(?:but|and)\b',prefix,flags=re.I)[-1][-180:]
+    prefix=quote[:position]
+    scope=re.split(r';|\bbut\b',prefix,flags=re.I)[-1][-600:]
+    clause=re.split(r'\band\b',scope,flags=re.I)[-1][-180:]
+    # A conjunction alone cannot erase a governing condition or a shared
+    # auxiliary. An explicit new subject ends shared negation, but not an if
+    # clause until its comma boundary. Keep full wording for human scope review.
+    if re.search(r'\b(?:if|unless)\b[^,]*$',scope,re.I):return 'conditional_or_uncertain'
+    if not _actor(clause):clause=re.split(r',',scope)[-1]
     if re.search(r'\b(?:if|should|would|might|could|were to)\b',clause,re.I):return 'conditional_or_uncertain'
     if re.search(r'\b(?:not|never|no)\b',clause,re.I):return 'negated_or_scope_limited'
     if re.search(r'\bmay\b',clause,re.I):return 'permission_or_possibility'
     if re.search(r'\b(?:will|shall|to|about to|hope|intended)\s+(?:\w+\s+){0,3}$',clause,re.I):return 'future_request_or_intention'
     return 'source_reports_action'
+
+
+def _embedding(quote,match):
+    """Literal complement governors, never proof of the embedded event.
+
+    Stop at sentence/clause boundaries and retain exact coordinates. The finite
+    grammar deliberately leaves indirect or distant attribution unresolved.
+    """
+    result=[]
+    for prior in ACTION.finditer(quote,0,match.start()):
+        action=VERBS[re.sub(r'\s+',' ',prior[0].lower())]
+        bridge=quote[prior.end():match.start()]
+        if re.search(r'[;.!?]|\bbut\b',bridge,re.I):continue
+        if action in {'report_speech','allege','claim','deny'} and re.search(r'\bthat\b',bridge,re.I):
+            role='reported_not_independently_verified'
+        elif action in {'order','instruct','request','promise','plan'} and re.search(r'\bto\b',bridge,re.I):
+            role='requested_or_intended_not_completed'
+        else:continue
+        result.append({'action':action,'predicate_text':prior[0],
+                       'start':prior.start(),'end':prior.end(),'scope':role})
+    return result
+
+
+def _passive_agent(following):
+    # Literal role only: no alias resolution, calendar-agent guess or inference
+    # from the nearest name. In particular "by June" is a deadline, not a person.
+    m=re.match(r'\s+by\s+((?:the\s+)?[A-Z][A-Za-z]*(?:\s+(?:of|the|[A-Z][A-Za-z]*)){0,7})(?=\s*(?:[,.;:]|$|\b(?:to|on|in|at|for|with)\b))',following)
+    if not m or any(re.fullmatch(MONTH_NAMES,w,re.I) for w in m[1].split()):return None
+    return {'text':m[1],'start':m.start(1),'end':m.end(1),
+            'basis':'explicit passive by-phrase; identity not resolved'}
 
 
 def _predicate(quote,match):
@@ -196,12 +235,18 @@ def extract(index,passages,state,*,max_propositions=48,max_connections=16):
                 object_bindings=[]
                 if header and re.match(r'\s+you\b',quote[match.end():],re.I):
                     object_bindings=[{'pronoun':'you','resolved_candidate':header[2],'basis':'explicit documentary addressee heading'}]
-                if re.search(r'\b(?:is|are|was|were|been|be)(?:\s+\w+){0,4}\s*$',prefix,re.I):
+                passive=bool(re.search(r'\b(?:is|are|was|were|been|be)(?:\s+(?:not|never|hereby|also|being|already|later|then|previously|widely)){0,4}\s*$',prefix,re.I))
+                agent=_passive_agent(quote[match.end():]) if passive else None
+                if agent:
+                    agent=dict(agent,start=a+match.end()+agent['start'],end=a+match.end()+agent['end'])
+                if passive:
                     subject=None;unresolved.append('passive_agent_unresolved')
                 following=quote[match.end():];object_text=following.strip()
                 next_action=ACTION.search(quote,match.end())
                 role_end=next_action.start() if next_action else len(quote)
-                dates=[{'raw_text':m[0],'candidate_role':('creation' if action in {'write','draft'} else 'distribution' if action in {'send','distribute'} else 'action_time_unresolved') if match.end()<=m.start()<role_end else 'context_date_role_unresolved',
+                date_role={'write':'creation','draft':'creation','send':'distribution','distribute':'distribution',
+                           'receive':'receipt','publish':'publication','revise':'revision','amend':'revision'}.get(action,'action_time_unresolved')
+                dates=[{'raw_text':m[0],'candidate_role':date_role if match.end()<=m.start()<role_end else 'context_date_role_unresolved',
                         'start':a+m.start(),'end':a+m.end(),'normalized_time':None} for m in date_cues(quote)]
                 evidence=[anchor(dict(p,body_start=a,text=quote))]
                 if bindings or object_bindings:
@@ -212,11 +257,17 @@ def extract(index,passages,state,*,max_propositions=48,max_connections=16):
                 ts=meta[p['path']]['transcript_start']
                 layer='unresolved' if ts is None else 'after_source_transcript_heading' if a>=ts else 'before_source_transcript_heading'
                 modality=_modality(quote,match.start())
+                governors=[dict(g,start=a+g['start'],end=a+g['end']) for g in _embedding(quote,match)]
+                assertion_layer='reported_not_independently_verified' if any(g['scope']=='reported_not_independently_verified' for g in governors) else 'direct_source_assertion_candidate'
+                if governors and modality=='source_reports_action':
+                    modality='reported_action_not_verified' if assertion_layer=='reported_not_independently_verified' else 'future_request_or_intention'
                 if subject is None and modality=='source_reports_action':modality='actor_or_passive_agent_unresolved'
                 frame=_item('source_proposition_candidate',evidence,
                     {'actor':subject,'action':action,'predicate_text':match[0],
                      'object_text':object_text,'affected_subject_text':prefix.strip()[-220:] if subject is None else None,'modality':modality,
-                     'documentary_bindings':bindings,'object_bindings':object_bindings,'date_candidates':dates,'source_layer_hint':layer},state,
+                     'documentary_bindings':bindings,'object_bindings':object_bindings,'date_candidates':dates,'source_layer_hint':layer,
+                     'voice':'passive_candidate' if passive else 'active_or_unresolved',
+                     'passive_agent_candidate':agent,'assertion_layer':assertion_layer,'governing_predicates':governors},state,
                     operation_basis='ordinary-prose actor/action/object rules; finite and fallible',
                     qualification_cues=[m[0] for m in QUALIFICATION.finditer(quote)],
                     predicate_start=a+match.start(),predicate_end=a+match.end(),
@@ -235,6 +286,12 @@ def extract(index,passages,state,*,max_propositions=48,max_connections=16):
         for right in frames[i+1:]:
             rv=right['value'];re_=right['evidence'][0]
             if le['path']==re_['path'] and le['body_start']==re_['body_start']:
+                for governor in rv.get('governing_predicates',[]):
+                    if governor['start']==left['predicate_start']:
+                        connections.append(_item('embedded_action_candidate',[le],
+                            {'governing_proposition':left['mapping_id'],'embedded_proposition':right['mapping_id'],'scope':governor['scope']},state,
+                            operation_basis='literal that/to complement; no execution or independent corroboration established',
+                            action_completed=False,identity_verified=False,causality='NOT ESTABLISHED'))
                 bridge=le['quote'][left['predicate_end']-le['body_start']:right['predicate_start']-le['body_start']]
                 clause=le['quote'][le['quote'].rfind(',',0,left['predicate_start']-le['body_start'])+1:right['predicate_start']-le['body_start']]
                 if lv['actor'] and rv['actor'] is None and lv['action']=='respond' and rv['action']=='issue' and re.search(r'\band\s*$',bridge,re.I) and not re.search(r'\b(?:that|which|who|whether|if|unless)\b',clause,re.I):
@@ -289,6 +346,8 @@ def extract(index,passages,state,*,max_propositions=48,max_connections=16):
                 operation_basis='shared literal four-word sequences and token alignment; not a verified correction',
                 direction=None,causality='NOT ESTABLISHED',predecessor_resolved=False))
     return {'schema':VERSION,'propositions':frames,'qualifications':qualifications,'connections':connections[:max_connections],
+        'question':index.question,'kind':'candidate_interpretation' if frames or connections else 'abstain',
+        'source_support_established':False,'historical_truth_independently_verified':False,
         'answer_supported':False,'content_truth_verified':False,
         'semantic_verification':'NOT RUN','budget_truncated':truncated or len(connections)>max_connections,
         'limits':{'max_propositions':max_propositions,'max_connections':max_connections,'max_sentence_characters':2200},
