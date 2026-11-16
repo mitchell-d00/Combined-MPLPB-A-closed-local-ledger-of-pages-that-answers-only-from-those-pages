@@ -1,6 +1,6 @@
 # Intended scope, completeness and production readiness
 
-Last reviewed: 2026-11-08.
+Last reviewed: 2026-11-16.
 
 MPLPB is a local research system with bounded source-language rules. Its local
 MCP adapter now gives compatible AI clients a standard route to the existing
@@ -63,3 +63,5 @@ tensor minimum. A pinned local runtime patch retains supported intermediate
 capacities and checks/logs actual device limits before parameters load. This
 repairs the configuration defect; full physical-device inference remains a
 separate check. Model identity/cache, source ownership and delivery rules remain.
+
+> Update 2026-11-16: The [public 52-case evidence suite](PUBLIC_EVIDENCE_TESTS.md) and [bounded expert relation path](HISTORICAL_EXPERT_PATH.md) document the current update. Prior dated measurements and preserved historical sources retain their original scope; this note does not rerun or revise them.

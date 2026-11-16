@@ -1,6 +1,6 @@
 # Mechanism-level originality matrix
 
-Last reviewed: 2026-11-10.
+Last reviewed: 2026-11-16.
 
 The [canonical matrix](originality-matrix.json) contains the complete required fields, including origin, functional comparison, implementation evidence, attribution, confidence and PR #38 relationship. [Pinned MPLPB sources](mplpb-sources.json) and [external code snapshots](external-code.json) resolve exact versions. Status is scoped to the stated claim; it is not a verdict on the whole research program.
 
@@ -18,3 +18,5 @@ The [canonical matrix](originality-matrix.json) contains the complete required f
 | M10 Cross-domain claim/identity/revision/scope/time audit and paired boundary-case protocol | Novel reusable method or prediction beyond the separate contracts | Hoare 1969 / Meyer 1992 proof and contract obligations; Magentic-One 2024 §5.4 verification-failure analysis; Cravero experience report v1, posted 2026-09-29; checkpoints and independent acceptance | 3: Shared components with a different combination | **not established** — Moderate on practical organizational usefulness; no controlled novelty or incremental-utility evidence. |
 | M11 Integration of sealed local pages, eligibility/refusal, revisable work, current capabilities and receipt acceptance | Priority of the particular complete MPLPB architectural synthesis | Magentic-One 2024 ledgers and model-directed completion; pinned AutoGen orchestrator lines 192–215,265–317; Graphiti 2025 temporal/provenance memory; pinned edges.py and edge_operations.py; Cravero 2026-09-29 experience report: protected baselines, authorized bounded intervention, persistent evidence and separate verification | 3: Shared components with a different combination | **plausible** — High that source-backed differences exist; low-to-moderate that the selected comparison set captures all closest predecessors. Priority unresolved. |
 | M12 Specific atomic receipt/contract-substitution failure trace with legitimate controls | New local observation in the identified MPLPB implementation, not first worldwide failure class | SWE-bench fixed-criteria grading predates this trace; Magentic-One 2024 already documents inadequate verification before completion | 4: Similar goal/failure class with different implementation | **supported** — High for the narrowly stated local observation; global empirical priority and generalized efficacy remain not established. |
+
+> Update 2026-11-16: The [public 52-case evidence suite](../../PUBLIC_EVIDENCE_TESTS.md) and [bounded expert relation path](../../HISTORICAL_EXPERT_PATH.md) document the current update. Prior dated measurements and preserved historical sources retain their original scope; this note does not rerun or revise them.

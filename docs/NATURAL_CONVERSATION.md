@@ -1,6 +1,6 @@
 # Natural conversation within deterministic boundaries
 
-Last reviewed: 2026-11-02. See [current status and result-to-test index](CURRENT_STATUS_2026-11-02.md). Dates and numeric results in historical validation sections retain their original scope; this review is not a rerun or independent certification.
+Last reviewed: 2026-11-16. See [current status and result-to-test index](CURRENT_STATUS_2026-11-02.md). Dates and numeric results in historical validation sections retain their original scope; this review is not a rerun or independent certification.
 
 ## Goal
 
@@ -77,3 +77,5 @@ it does not promise unrestricted simplification or semantic paraphrase. The
 bundled seeds are a small authored collection, and the Link Grammar parser is
 still not running. More patterns can be added without relaxing the existing
 ownership, eligibility, ambiguity, lineage or source-support rules.
+
+> Update 2026-11-16: The [public 52-case evidence suite](PUBLIC_EVIDENCE_TESTS.md) and [bounded expert relation path](HISTORICAL_EXPERT_PATH.md) document the current update. Prior dated measurements and preserved historical sources retain their original scope; this note does not rerun or revise them.

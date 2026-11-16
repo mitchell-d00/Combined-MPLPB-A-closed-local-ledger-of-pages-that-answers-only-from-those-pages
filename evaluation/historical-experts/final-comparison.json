@@ -1,0 +1,41 @@
+{
+  "schema": "public-evidence-final-comparison-v1",
+  "case_manifest_sha256": "a05b688c4434b1e4153b30f9bd453cdb6a41ec2babcfe2351735692e1c8277c1",
+  "evaluator_sha256": "9b3fcaba777cfdd5aa012fdf7e38111320d1938530e49a801d76cc3231ddd913",
+  "baseline": {
+    "revision": "257e54a51edac272eb6b2441457f38a40485ee4d",
+    "summary": {
+      "pass": 10,
+      "gap": 42
+    },
+    "report": "final-baseline-results.json"
+  },
+  "before_source_layout_fix": {
+    "implementation_module_inventory_matches_revision": "8fb3eb82cde1781c1402d57986b63179b82ad4e5",
+    "proof": "Module hashes equal the retained clean implementation report current-results.json",
+    "summary": {
+      "pass": 51,
+      "gap": 1
+    },
+    "report": "layout-regression-before.json"
+  },
+  "current": {
+    "revision": "0d4f3e357eedb7130c709ab96052e2677e2d2831",
+    "summary": {
+      "pass": 52
+    },
+    "report": "final-current-results.json"
+  },
+  "report_sha256": {
+    "final-current-results.json": "9f1c8344b55fa35b6d38387d7ec6d446cf361a5a97639dd537f98abae1268d33",
+    "final-baseline-results.json": "dec6238ee2d083e33f25b960d26edfac9d988bd051ce985f0c91395f3b024dfd",
+    "layout-regression-before.json": "9a0c46e006e3bd29f4efc75595ef1cee1fbd38260647d7db9ec66b96d2b13906",
+    "final-original-paper-replay.json": "6483ddda652396af0cfe10e970b5517a0fd0874f8cbc50c41a52dbf43f36b8e7"
+  },
+  "scope": [
+    "Same 52-case final manifest and evaluator bytes for all three runs; one existing case was strengthened to require exact unchanged header layout.",
+    "The preceding implementation exposes one capability gap under that strengthened requirement; the fixed implementation passes all 52.",
+    "Earlier reports/comparison are preserved with their original manifest/evaluator hashes and must not be treated as final-manifest results.",
+    "These are visible development controls, not blind historical-accuracy or human-effort results. False supported bridges were zero in these bounded runs."
+  ]
+}

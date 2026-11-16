@@ -1,6 +1,6 @@
 # Repository update and handoff instructions
 
-Last reviewed: 2026-11-02. See [current status and result-to-test index](docs/CURRENT_STATUS_2026-11-02.md). Dates and numeric results in historical validation sections retain their original scope; this review is not a rerun or independent certification.
+Last reviewed: 2026-11-16. See [current status and result-to-test index](docs/CURRENT_STATUS_2026-11-02.md). Dates and numeric results in historical validation sections retain their original scope; this review is not a rerun or independent certification.
 
 Read `HANDOFF.md`, `handoff/update.json`, README release requirements, and the applicable source contracts before changing this repository. Preserve frozen sources, questions, labels, reports, delivery restrictions and provenance. User instructions in the current session take precedence over this file.
 
@@ -28,3 +28,5 @@ Run `python -m tools.audit_documentation`; use `--as-of YYYY-MM-DD` when perform
 a complete review for that date. Never automatically advance review dates based
 on a build clock. Record `reviewed_on` explicitly in `handoff/update.json` for the
 reviewed update. The handoff builder preserves that date when CI rebuilds it.
+
+> Update 2026-11-16: The [public 52-case evidence suite](docs/PUBLIC_EVIDENCE_TESTS.md) and [bounded expert relation path](docs/HISTORICAL_EXPERT_PATH.md) document the current update. Prior dated measurements and preserved historical sources retain their original scope; this note does not rerun or revise them.

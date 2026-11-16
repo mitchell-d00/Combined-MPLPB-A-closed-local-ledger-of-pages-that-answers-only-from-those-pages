@@ -80,6 +80,31 @@ def cmd_work(args):
     return work_main(args.work_args)
 
 
+def cmd_investigate(args):
+    from mplpb_work.investigation import investigate
+    try:
+        result=investigate(args.root,args.question,profile=R.PROFILES[args.profile],
+            start_source_ids=args.source,max_hops=args.max_hops,max_sources=args.max_sources,
+            max_chars=args.max_source_chars,work_directory=args.work_directory)
+    except (ValueError,OSError) as exc:
+        print(json.dumps({'error':str(exc),'answer_supported':False}),file=sys.stderr)
+        return 3
+    print(json.dumps(result,indent=2,ensure_ascii=False))
+    return 0 if result['status']=='evidence_report' else 3
+
+
+def cmd_correct_claim(args):
+    from .corrections import correct_claim
+    try:
+        result=correct_claim(args.root,args.source_id,args.old_quote,args.new_quote,
+                             effective_at=args.effective_at,profile=R.PROFILES[args.profile])
+    except (ValueError,OSError) as exc:
+        print(json.dumps({'error':str(exc),'answer_supported':False}),file=sys.stderr)
+        return 3
+    print(json.dumps(result,indent=2,ensure_ascii=False))
+    return 0
+
+
 def build_parser():
     parser = legacy_parser()
     parser.prog = 'mplpb-combined'
@@ -107,6 +132,21 @@ def build_parser():
     work = sub.add_parser('work', help='durable specialist tasks, claims, permissions and handoffs')
     work.add_argument('work_args', nargs=argparse.REMAINDER)
     work.set_defaults(fn=cmd_work)
+    investigation=sub.add_parser('investigate',help='crawl declared relations with capability-gated documentary experts; not a factual answer')
+    investigation.add_argument('root');investigation.add_argument('question')
+    investigation.add_argument('--profile',choices=R.PROFILES,default='internal')
+    investigation.add_argument('--source',action='append',help='exact eligible source record ID to start from; repeat for multiple seeds')
+    investigation.add_argument('--max-hops',type=int,default=2)
+    investigation.add_argument('--max-sources',type=int,default=12)
+    investigation.add_argument('--max-source-chars',type=int,default=200000)
+    investigation.add_argument('--work-directory',help='new private directory to retain specialist work and host recovery credential')
+    investigation.set_defaults(fn=cmd_investigate)
+    correction=sub.add_parser('correct-claim',help='explicitly revise one unique source span while preserving the predecessor and unaffected text')
+    correction.add_argument('root');correction.add_argument('source_id')
+    correction.add_argument('--old-quote',required=True);correction.add_argument('--new-quote',required=True)
+    correction.add_argument('--effective-at',default='')
+    correction.add_argument('--profile',choices=R.PROFILES,default='internal')
+    correction.set_defaults(fn=cmd_correct_claim)
     return parser
 
 

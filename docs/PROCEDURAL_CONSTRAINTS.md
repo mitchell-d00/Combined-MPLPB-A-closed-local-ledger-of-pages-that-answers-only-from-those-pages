@@ -1,6 +1,6 @@
 # Procedural constraints and free-chat comparison
 
-Last reviewed: 2026-11-02. See [current status and result-to-test index](CURRENT_STATUS_2026-11-02.md). Dates and numeric results in historical validation sections retain their original scope; this review is not a rerun or independent certification.
+Last reviewed: 2026-11-16. See [current status and result-to-test index](CURRENT_STATUS_2026-11-02.md). Dates and numeric results in historical validation sections retain their original scope; this review is not a rerun or independent certification.
 
 This adds a finite procedure format, not a general procedural language model.
 Existing unstructured pottery pages are not silently rewritten or promoted.
@@ -150,3 +150,5 @@ resulting revert through the normal review flow. Revert commits rather
 than rewriting ledger history or recalculating archived pins. Ephemeral chats
 have no saved transcript to migrate. Existing saved chats remain historical
 records, not freshly validated answers.
+
+> Update 2026-11-16: The [public 52-case evidence suite](PUBLIC_EVIDENCE_TESTS.md) and [bounded expert relation path](HISTORICAL_EXPERT_PATH.md) document the current update. Prior dated measurements and preserved historical sources retain their original scope; this note does not rerun or revise them.

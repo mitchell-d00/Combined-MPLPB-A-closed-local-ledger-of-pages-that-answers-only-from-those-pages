@@ -1,6 +1,6 @@
 # Standalone browser runtime
 
-Last reviewed: 2026-11-02. See [current status and result-to-test index](CURRENT_STATUS_2026-11-02.md). Dates and numeric results in historical validation sections retain their original scope; this review is not a rerun or independent certification.
+Last reviewed: 2026-11-16. See [current status and result-to-test index](CURRENT_STATUS_2026-11-02.md). Dates and numeric results in historical validation sections retain their original scope; this review is not a rerun or independent certification.
 
 `MPLPB_Browser.html` embeds Pyodide 314.0.7 (CPython/WebAssembly), this repository's
 actual Python engine, the RPG-style UI, bundled sealed corpora and stored wiki
@@ -82,3 +82,5 @@ The root `index.html` and Python launcher retain desktop mode. Remove the genera
 standalone build to stop offering browser mode. Browser saves are not desktop saves;
 export before clearing browser storage or changing origin. SELF-0005 documents the
 collection browser mode and retains earlier self-reference pages in the revision tree.
+
+> Update 2026-11-16: The [public 52-case evidence suite](PUBLIC_EVIDENCE_TESTS.md) and [bounded expert relation path](HISTORICAL_EXPERT_PATH.md) document the current update. Prior dated measurements and preserved historical sources retain their original scope; this note does not rerun or revise them.

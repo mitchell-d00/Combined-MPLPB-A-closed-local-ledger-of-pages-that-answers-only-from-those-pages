@@ -1,0 +1,375 @@
+{
+  "schema": "public-evidence-comparison-v1",
+  "case_manifest_sha256": "99dd6a3a7b95eac2d2eae1a6d471a365debd9f0f264de5b6f1491cd79f3b7109",
+  "evaluator_sha256": "0b2fe1bc7818910fd50d1d444937ce4d1aa99d56ba066cc5195bb8efca76bc16",
+  "baseline": {
+    "revision": "257e54a51edac272eb6b2441457f38a40485ee4d",
+    "tree": "d80770559758f727fedd058834295a4993a4d373",
+    "summary": {
+      "pass": 10,
+      "gap": 42
+    },
+    "source_inventory_pinned_in": "baseline-results.json"
+  },
+  "current": {
+    "revision": "8fb3eb82cde1781c1402d57986b63179b82ad4e5",
+    "tree": "27a3aa74c9ae53667b3446cec7b1bd5d6ea37d4c",
+    "summary": {
+      "pass": 52
+    },
+    "source_inventory_pinned_in": "current-results.json"
+  },
+  "false_supported_bridges": {
+    "baseline": 0,
+    "current": 0
+  },
+  "published_reports_sha256": {
+    "current-results.json": "601fbbfde64df535869b9871d692ac3297dedbe583367ba9ef8d85de43bcc76a",
+    "baseline-results.json": "77ab61c682b1d5b2ae916175d6ee59525d6eb9b48559eb218e76863a9d4060ec",
+    "original-paper-replay.json": "07d8cba4b087686dc750deee3a80b67feb8812300d35bce45f673abefb0755a0"
+  },
+  "changed_cases": [
+    {
+      "id": "diagnostic-exhaustion",
+      "family": "diagnostic_separation",
+      "before": "gap",
+      "after": "pass",
+      "before_actual": "unavailable_or_undifferentiated",
+      "after_actual": "explicit_budget_stop"
+    },
+    {
+      "id": "exact-route-zero",
+      "family": "exact_routing",
+      "before": "gap",
+      "after": "pass",
+      "before_actual": "unavailable",
+      "after_actual": "unavailable"
+    },
+    {
+      "id": "exact-route-one",
+      "family": "exact_routing",
+      "before": "gap",
+      "after": "pass",
+      "before_actual": "expert_path_unavailable",
+      "after_actual": "traversed"
+    },
+    {
+      "id": "exact-route-many",
+      "family": "exact_routing",
+      "before": "gap",
+      "after": "pass",
+      "before_actual": "expert_path_unavailable",
+      "after_actual": "ambiguous_target"
+    },
+    {
+      "id": "contradiction-not-pruned",
+      "family": "exact_routing",
+      "before": "gap",
+      "after": "pass",
+      "before_actual": "no_supported_answer",
+      "after_actual": "no_supported_answer"
+    },
+    {
+      "id": "event-candidates",
+      "family": "event_identity",
+      "before": "gap",
+      "after": "pass",
+      "before_actual": "typed_event_identity_unimplemented",
+      "after_actual": "typed_event_candidate_with_review"
+    },
+    {
+      "id": "partial-correction",
+      "family": "time_scoped_correction",
+      "before": "gap",
+      "after": "pass",
+      "before_actual": "whole_document_revision_not_claim_scoped",
+      "after_actual": "scoped_correction_with_unaffected_fact"
+    },
+    {
+      "id": "missing-bridge",
+      "family": "candidate_inference",
+      "before": "gap",
+      "after": "pass",
+      "before_actual": "expert_path_unavailable",
+      "after_actual": "unresolved_without_supported_answer"
+    },
+    {
+      "id": "negated-bridge",
+      "family": "candidate_inference",
+      "before": "gap",
+      "after": "pass",
+      "before_actual": "expert_path_unavailable",
+      "after_actual": "unresolved_without_supported_answer"
+    },
+    {
+      "id": "receipt-boundary",
+      "family": "receipt_independence",
+      "before": "gap",
+      "after": "pass",
+      "before_actual": "execution_only_no_delivery_claim",
+      "after_actual": "execution_only_no_delivery_claim"
+    },
+    {
+      "id": "event-subject-collision",
+      "family": "event_identity",
+      "before": "gap",
+      "after": "pass",
+      "before_actual": "extension_unavailable",
+      "after_actual": "separate_candidates"
+    },
+    {
+      "id": "event-no-id",
+      "family": "event_identity",
+      "before": "gap",
+      "after": "pass",
+      "before_actual": "extension_unavailable",
+      "after_actual": "unassigned_occurrences"
+    },
+    {
+      "id": "event-message-duplicates",
+      "family": "event_identity",
+      "before": "gap",
+      "after": "pass",
+      "before_actual": "extension_unavailable",
+      "after_actual": "candidate_with_two_occurrences"
+    },
+    {
+      "id": "event-message-changed",
+      "family": "event_identity",
+      "before": "gap",
+      "after": "pass",
+      "before_actual": "extension_unavailable",
+      "after_actual": "needs_review"
+    },
+    {
+      "id": "event-body-tamper",
+      "family": "event_identity",
+      "before": "gap",
+      "after": "pass",
+      "before_actual": "extension_unavailable",
+      "after_actual": "source_unavailable"
+    },
+    {
+      "id": "event-restricted",
+      "family": "event_identity",
+      "before": "gap",
+      "after": "pass",
+      "before_actual": "extension_unavailable",
+      "after_actual": "source_unavailable"
+    },
+    {
+      "id": "event-excluded",
+      "family": "event_identity",
+      "before": "gap",
+      "after": "pass",
+      "before_actual": "extension_unavailable",
+      "after_actual": "source_unavailable"
+    },
+    {
+      "id": "event-date-basis",
+      "family": "event_identity",
+      "before": "gap",
+      "after": "pass",
+      "before_actual": "extension_unavailable",
+      "after_actual": "source_stated_date_preserved"
+    },
+    {
+      "id": "correction-ambiguous-span",
+      "family": "time_scoped_correction",
+      "before": "gap",
+      "after": "pass",
+      "before_actual": "extension_unavailable",
+      "after_actual": "rejected"
+    },
+    {
+      "id": "correction-missing-span",
+      "family": "time_scoped_correction",
+      "before": "gap",
+      "after": "pass",
+      "before_actual": "extension_unavailable",
+      "after_actual": "rejected"
+    },
+    {
+      "id": "correction-empty-span",
+      "family": "time_scoped_correction",
+      "before": "gap",
+      "after": "pass",
+      "before_actual": "extension_unavailable",
+      "after_actual": "rejected"
+    },
+    {
+      "id": "correction-invalid-date",
+      "family": "time_scoped_correction",
+      "before": "gap",
+      "after": "pass",
+      "before_actual": "extension_unavailable",
+      "after_actual": "rejected"
+    },
+    {
+      "id": "correction-history",
+      "family": "time_scoped_correction",
+      "before": "gap",
+      "after": "pass",
+      "before_actual": "extension_unavailable",
+      "after_actual": "predecessor_and_successor"
+    },
+    {
+      "id": "correction-external",
+      "family": "time_scoped_correction",
+      "before": "gap",
+      "after": "pass",
+      "before_actual": "extension_unavailable",
+      "after_actual": "rejected"
+    },
+    {
+      "id": "correction-source-stale",
+      "family": "time_scoped_correction",
+      "before": "gap",
+      "after": "pass",
+      "before_actual": "extension_unavailable",
+      "after_actual": "rejected"
+    },
+    {
+      "id": "correction-no-implicit-write",
+      "family": "time_scoped_correction",
+      "before": "gap",
+      "after": "pass",
+      "before_actual": "extension_unavailable",
+      "after_actual": "source_unchanged"
+    },
+    {
+      "id": "crawl-conditional-related",
+      "family": "candidate_inference",
+      "before": "gap",
+      "after": "pass",
+      "before_actual": "extension_unavailable",
+      "after_actual": "unexpanded_qualified_relation"
+    },
+    {
+      "id": "crawl-conditional-supersedes",
+      "family": "candidate_inference",
+      "before": "gap",
+      "after": "pass",
+      "before_actual": "extension_unavailable",
+      "after_actual": "unexpanded_qualified_relation"
+    },
+    {
+      "id": "crawl-version-miss",
+      "family": "exact_routing",
+      "before": "gap",
+      "after": "pass",
+      "before_actual": "extension_unavailable",
+      "after_actual": "target_unavailable"
+    },
+    {
+      "id": "crawl-version-match",
+      "family": "exact_routing",
+      "before": "gap",
+      "after": "pass",
+      "before_actual": "extension_unavailable",
+      "after_actual": "traversed"
+    },
+    {
+      "id": "crawl-cycle",
+      "family": "candidate_inference",
+      "before": "gap",
+      "after": "pass",
+      "before_actual": "extension_unavailable",
+      "after_actual": "bounded_cycle"
+    },
+    {
+      "id": "crawl-zero-hop",
+      "family": "candidate_inference",
+      "before": "gap",
+      "after": "pass",
+      "before_actual": "extension_unavailable",
+      "after_actual": "hop_limit"
+    },
+    {
+      "id": "crawl-one-source",
+      "family": "candidate_inference",
+      "before": "gap",
+      "after": "pass",
+      "before_actual": "extension_unavailable",
+      "after_actual": "source_or_character_budget"
+    },
+    {
+      "id": "crawl-private-target",
+      "family": "source_authority",
+      "before": "gap",
+      "after": "pass",
+      "before_actual": "extension_unavailable",
+      "after_actual": "target_unavailable"
+    },
+    {
+      "id": "crawl-unavailable-target",
+      "family": "candidate_inference",
+      "before": "gap",
+      "after": "pass",
+      "before_actual": "extension_unavailable",
+      "after_actual": "target_unavailable"
+    },
+    {
+      "id": "crawl-generic-title",
+      "family": "exact_routing",
+      "before": "gap",
+      "after": "pass",
+      "before_actual": "extension_unavailable",
+      "after_actual": "unresolved_target_identifier"
+    },
+    {
+      "id": "diagnostic-budget-input",
+      "family": "diagnostic_separation",
+      "before": "gap",
+      "after": "pass",
+      "before_actual": "extension_unavailable",
+      "after_actual": "invalid_budget"
+    },
+    {
+      "id": "diagnostic-query-preserved",
+      "family": "diagnostic_separation",
+      "before": "gap",
+      "after": "pass",
+      "before_actual": "extension_unavailable",
+      "after_actual": "original_question_preserved"
+    },
+    {
+      "id": "receipt-three-experts",
+      "family": "receipt_independence",
+      "before": "gap",
+      "after": "pass",
+      "before_actual": "extension_unavailable",
+      "after_actual": "three_receipts"
+    },
+    {
+      "id": "receipt-no-provider",
+      "family": "receipt_independence",
+      "before": "gap",
+      "after": "pass",
+      "before_actual": "extension_unavailable",
+      "after_actual": "local_software_roles"
+    },
+    {
+      "id": "receipt-no-completion-promotion",
+      "family": "receipt_independence",
+      "before": "gap",
+      "after": "pass",
+      "before_actual": "extension_unavailable",
+      "after_actual": "not_a_supported_answer"
+    },
+    {
+      "id": "receipt-private-recovery",
+      "family": "receipt_independence",
+      "before": "gap",
+      "after": "pass",
+      "before_actual": "extension_unavailable",
+      "after_actual": "private_recoverable_work"
+    }
+  ],
+  "scope": [
+    "Same 52 public development requirements, evaluator bytes and fixed fixture record time; all source-generating code and expectations are visible.",
+    "Missing expert interfaces are capability gaps, not wrong historical answers. Pass counts combine safety, bounded capability and measurement checks; they are not a historical-accuracy percentage.",
+    "No hidden holdout, human participants, general causal/as-of reconstruction or real-world event truth is claimed.",
+    "The current report was produced from a clean committed implementation; later report/handoff additions are evidence-only. Final PR-head CI is separate and must be successful before merge."
+  ]
+}

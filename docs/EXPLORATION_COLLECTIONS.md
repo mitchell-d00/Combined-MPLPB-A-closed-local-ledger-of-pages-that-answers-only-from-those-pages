@@ -1,6 +1,6 @@
 # Browser exploration collections
 
-Last reviewed: 2026-11-02. See [current status and result-to-test index](CURRENT_STATUS_2026-11-02.md). Dates and numeric results in historical validation sections retain their original scope; this review is not a rerun or independent certification.
+Last reviewed: 2026-11-16. See [current status and result-to-test index](CURRENT_STATUS_2026-11-02.md). Dates and numeric results in historical validation sections retain their original scope; this review is not a rerun or independent certification.
 
 Open “Build and search your MPLPB collections” and create a named MPLPB. Select
 it in the corpus selector. Wikipedia searches run in chat; importing a title adds
@@ -65,3 +65,5 @@ legacy imported-topics collection are excluded. The chosen collections and their
 chats leave active state; prior source files and session snapshots stay in local
 archives. This is a workspace clear, not a browser-storage purge. No archive
 restore UI is provided yet. Failed registry writes roll moved collections back.
+
+> Update 2026-11-16: The [public 52-case evidence suite](PUBLIC_EVIDENCE_TESTS.md) and [bounded expert relation path](HISTORICAL_EXPERT_PATH.md) document the current update. Prior dated measurements and preserved historical sources retain their original scope; this note does not rerun or revise them.

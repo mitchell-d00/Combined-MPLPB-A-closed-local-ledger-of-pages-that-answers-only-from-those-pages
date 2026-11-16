@@ -1,6 +1,6 @@
 # Deterministic generation within MPLPB boundaries
 
-Last reviewed: 2026-11-02. See [current status and result-to-test index](CURRENT_STATUS_2026-11-02.md). Dates and numeric results in historical validation sections retain their original scope; this review is not a rerun or independent certification.
+Last reviewed: 2026-11-16. See [current status and result-to-test index](CURRENT_STATUS_2026-11-02.md). Dates and numeric results in historical validation sections retain their original scope; this review is not a rerun or independent certification.
 
 ## Explicit goal
 
@@ -85,3 +85,5 @@ response payloads, but different session IDs and transcript hashes. Repeatable
 construction is not byte-identical observation metadata across fresh sessions;
 live acquisitions also depend on retained source revisions. See
 [SYSTEM_AUDIT_2026-10-21.md](SYSTEM_AUDIT_2026-10-21.md).
+
+> Update 2026-11-16: The [public 52-case evidence suite](PUBLIC_EVIDENCE_TESTS.md) and [bounded expert relation path](HISTORICAL_EXPERT_PATH.md) document the current update. Prior dated measurements and preserved historical sources retain their original scope; this note does not rerun or revise them.

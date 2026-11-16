@@ -1,6 +1,6 @@
 # Formal candidate: claim-specific promotion obligations
 
-Last reviewed: 2026-11-10.
+Last reviewed: 2026-11-16.
 
 Research author: Mitchell D. McPhetridge. Status: a proposed engineering
 specification distilled from the pinned source audit, not an established new term,
@@ -132,3 +132,5 @@ The present audit supports scoped engineering non-entailment and one local fix.
 It does not establish universal applicability, scientific novelty, independent
 evaluator reliability or a four-domain causal effect. See [the protocol](PROTOCOL.md)
 for how those claims could be tested rather than assumed.
+
+> Update 2026-11-16: The [public 52-case evidence suite](../../docs/PUBLIC_EVIDENCE_TESTS.md) and [bounded expert relation path](../../docs/HISTORICAL_EXPERT_PATH.md) document the current update. Prior dated measurements and preserved historical sources retain their original scope; this note does not rerun or revise them.

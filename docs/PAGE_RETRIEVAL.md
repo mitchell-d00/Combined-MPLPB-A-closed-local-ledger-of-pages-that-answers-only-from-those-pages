@@ -1,6 +1,6 @@
 # Page retrieval and answer authority
 
-Last reviewed: 2026-11-02. See [current status and result-to-test index](CURRENT_STATUS_2026-11-02.md). Dates and numeric results in historical validation sections retain their original scope; this review is not a rerun or independent certification.
+Last reviewed: 2026-11-16. See [current status and result-to-test index](CURRENT_STATUS_2026-11-02.md). Dates and numeric results in historical validation sections retain their original scope; this review is not a rerun or independent certification.
 
 [Documentation index](README.md) · [JavaScript API](../JAVASCRIPT-API.md)
 
@@ -69,3 +69,5 @@ node tests/javascript-api.cjs
 The 18 Python tests cover clause/polarity/quantity handling, multiple owners, exclusions, missing body support, duplicate/tampered pages, missing origin, gate rejection without replacement, stale dependencies, external withholding, symlink escape, pointers, argument validation, bridge parity, and frozen-probe score floors. These are development regressions, not new independent evaluation. [Root FIXLOG](../FIXLOG.md) records before/after measurements.
 
 The supported-answer grammar remains separate: retrieving a page does not certify its truth, the requested relationship, permission to act, or an answer to the question. Hashes show consistency with sealed bytes, not authenticated authorship.
+
+> Update 2026-11-16: The [public 52-case evidence suite](PUBLIC_EVIDENCE_TESTS.md) and [bounded expert relation path](HISTORICAL_EXPERT_PATH.md) document the current update. Prior dated measurements and preserved historical sources retain their original scope; this note does not rerun or revise them.

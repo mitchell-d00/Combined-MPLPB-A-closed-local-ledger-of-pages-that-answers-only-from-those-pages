@@ -1,6 +1,6 @@
 # MPLPB originality and priority reassessment
 
-Last reviewed: 2026-11-10.
+Last reviewed: 2026-11-16.
 
 Research author: **Mitchell D. McPhetridge**. Prepared through a Codex-assisted
 source and prior-art audit. Status: **attributable engineering contribution and
@@ -270,3 +270,5 @@ mechanism in Mitchell's own earlier work establishes evidence of earlier interna
 authorship/formulation rather than negating originality. Whether that mechanism
 was externally novel must still be decided mechanism by mechanism; the present
 evidence leaves priority of the exact synthesis unresolved.**
+
+> Update 2026-11-16: The [public 52-case evidence suite](../../PUBLIC_EVIDENCE_TESTS.md) and [bounded expert relation path](../../HISTORICAL_EXPERT_PATH.md) document the current update. Prior dated measurements and preserved historical sources retain their original scope; this note does not rerun or revise them.

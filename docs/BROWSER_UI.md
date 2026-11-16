@@ -1,6 +1,6 @@
 # MPLPB browser front end
 
-Last reviewed: 2026-11-02. See [current status and result-to-test index](CURRENT_STATUS_2026-11-02.md). Dates and numeric results in historical validation sections retain their original scope; this review is not a rerun or independent certification.
+Last reviewed: 2026-11-16. See [current status and result-to-test index](CURRENT_STATUS_2026-11-02.md). Dates and numeric results in historical validation sections retain their original scope; this review is not a rerun or independent certification.
 
 [Documentation index](README.md) · [Live application](https://mitchell-d00.github.io/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/)
 
@@ -62,3 +62,5 @@ node tests/javascript-api.cjs
 These checks cover element-stub behavior, transport, and API integration; they are not rendered-browser tests. Use the [real Chromium runbook](BROWSER_TESTING_FOR_AGENTS.md) and [ZIP-first release gate](ZIP_FIRST_RELEASE_TESTING.md) for hosted baseline, generated candidate, persistence, and deployment checks. Results belong to the revision/run tested; Windows launcher execution and hardware/browser coverage need separate evidence.
 
 The layout adapts Mitchell's [Give It Back: The RPG](https://github.com/mitchell-d00/Give-It-Back-The-RPG), originally inspected at `d4a2c2945f3894a6cdb11456c7744cd5d06b4c41`. Its MIT notice remains in [GIVE_IT_BACK_UI_LICENSE.txt](GIVE_IT_BACK_UI_LICENSE.txt). Its world generator/story rules are not included. [Publication history](PUBLISH_AND_ROLLBACK.md) documents the original UI delivery; [rollback](ROLLBACK.md) explains current recovery practice.
+
+> Update 2026-11-16: The [public 52-case evidence suite](PUBLIC_EVIDENCE_TESTS.md) and [bounded expert relation path](HISTORICAL_EXPERT_PATH.md) document the current update. Prior dated measurements and preserved historical sources retain their original scope; this note does not rerun or revise them.

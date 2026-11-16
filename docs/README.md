@@ -1,6 +1,6 @@
 # Documentation index
 
-Last reviewed: 2026-11-10. See [current status and result-to-test index](CURRENT_STATUS_2026-11-08.md). Dates and numeric results in historical validation sections retain their original scope; this review is not a rerun or independent certification.
+Last reviewed: 2026-11-16. See [current status and result-to-test index](CURRENT_STATUS_2026-11-08.md). Dates and numeric results in historical validation sections retain their original scope; this review is not a rerun or independent certification.
 
 [Repository overview](../README.md) · [Repository map](../CONTENTS) · [Live application](https://mitchell-d00.github.io/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/)
 
@@ -104,3 +104,7 @@ Local AI integration: [MCP tools and setup](MCP_AGENT.md),
 their actual review dates; the November 2 status snapshot is historical.
 
 Public website: [free builder/chat helper](FREE_PUBLIC_HELPER.md), [authored browser evidence](../evaluation/free-browser-helper/README.md), and [owner-work preparation](../training/owner-work/README.md).
+
+- [Historical expert path and bounded relation crawling](HISTORICAL_EXPERT_PATH.md).
+
+> Update 2026-11-16: The [public 52-case evidence suite](PUBLIC_EVIDENCE_TESTS.md) and [bounded expert relation path](HISTORICAL_EXPERT_PATH.md) document the current update. Prior dated measurements and preserved historical sources retain their original scope; this note does not rerun or revise them.

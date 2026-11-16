@@ -1,6 +1,6 @@
 # Search scope, references and limitations
 
-Last reviewed: 2026-11-10.
+Last reviewed: 2026-11-16.
 
 This is a bounded adversarial comparison for Mitchell D. McPhetridge's MPLPB
 research. It is not an exhaustive priority search. The [mechanism matrix](MATRIX.md)
@@ -93,3 +93,5 @@ systems, scientific workflow tools, organizational procedures or unpublished wor
 It does not establish that any author read or copied another source. It does not
 measure performance, usability or gate overhead. Priority of the exact architecture
 remains unresolved; generic antecedents and specific differences can both be real.
+
+> Update 2026-11-16: The [public 52-case evidence suite](../../PUBLIC_EVIDENCE_TESTS.md) and [bounded expert relation path](../../HISTORICAL_EXPERT_PATH.md) document the current update. Prior dated measurements and preserved historical sources retain their original scope; this note does not rerun or revise them.

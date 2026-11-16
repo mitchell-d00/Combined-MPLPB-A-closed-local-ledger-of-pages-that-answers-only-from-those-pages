@@ -1,6 +1,6 @@
 # Topic search and deterministic chat
 
-Last reviewed: 2026-11-02. See [current status and result-to-test index](CURRENT_STATUS_2026-11-02.md). Dates and numeric results in historical validation sections retain their original scope; this review is not a rerun or independent certification.
+Last reviewed: 2026-11-16. See [current status and result-to-test index](CURRENT_STATUS_2026-11-02.md). Dates and numeric results in historical validation sections retain their original scope; this review is not a rerun or independent certification.
 
 Open the [live application](https://mitchell-d00.github.io/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/), a generated standalone runtime, or start desktop mode with `python3 launch.py` / a platform launcher. Choose **Chat**. No model or API key is required. Desktop mode uses standard-library Python; standalone mode runs the embedded engine in WebAssembly. See [installation](INSTALLATION.md).
 
@@ -202,3 +202,5 @@ source captures and papers are preserved. No new blind/general accuracy claim
 is made. The earlier RPG UI commit is retained in published history;
 reverting the chat commit removes this layer and retains that front end. Imported data is separate under `local/`; retain or archive it yourself
 when changing versions. See PUBLISH_AND_ROLLBACK.md for the publication history.
+
+> Update 2026-11-16: The [public 52-case evidence suite](PUBLIC_EVIDENCE_TESTS.md) and [bounded expert relation path](HISTORICAL_EXPERT_PATH.md) document the current update. Prior dated measurements and preserved historical sources retain their original scope; this note does not rerun or revise them.

@@ -1,5 +1,7 @@
 """Query-independent passage preparation and bounded BM25 retrieval after gating."""
 from collections import Counter
+from html import escape
+from html.parser import HTMLParser
 import math
 import re
 from mplpb_combined import provenance_gate as G
@@ -7,6 +9,84 @@ from mplpb_combined.ledger import Ledger
 from mplpb_combined.reader import PROFILES, DEFAULT_PROFILE, terms
 from .body_text import body_text, VERSION as BODY_VERSION
 from .evidence_contract import pin, ReaderError
+
+
+def _preformatted_spans(source, body):
+    """Locate preformatted blocks in the unchanged canonical body projection.
+
+    Physical newlines inside a pre block are not paragraph boundaries. Rebuild
+    only enough markup to use the same body projection for offsets; attributes
+    never supply evidence. A mismatch falls back to ordinary line passages.
+    """
+    if '<pre' not in source.casefold():
+        return []
+
+    class Blocks(HTMLParser):
+        def __init__(self):
+            super().__init__(convert_charrefs=True)
+            self.parts, self.spans = [], []
+            self.depth = 0
+
+        def handle_starttag(self, tag, attrs):
+            if tag == 'pre':
+                if not self.depth:
+                    prefix = body_text(''.join(self.parts))
+                    self.begin = len(prefix) + bool(prefix)
+                    self.part = len(self.parts)
+                self.depth += 1
+            self.parts.append('<'+tag+'>')
+
+        def handle_endtag(self, tag):
+            self.parts.append('</'+tag+'>')
+            if tag == 'pre' and self.depth:
+                self.depth -= 1
+                if not self.depth:
+                    projected = body_text(''.join(self.parts[self.part:]))
+                    end = self.begin + len(projected)
+                    if projected and body[self.begin:end] == projected:
+                        self.spans.append((self.begin, end))
+
+        def handle_data(self, text):
+            self.parts.append(escape(text, quote=False))
+
+    parser = Blocks()
+    parser.feed(source)
+    parser.close()
+    return parser.spans
+
+
+def _passage_units(source, body, context_chars=1200):
+    """Yield exact body slices, grouping adjacent preformatted source lines.
+
+    Keep normal HTML paragraphs separate. Bound raw preformatted contexts by
+    complete lines, retaining one preceding short line when splitting so a
+    wrapped condition and its continuation can travel together. A split block
+    is explicitly incomplete context, not a claim about semantic paragraphs.
+    """
+    def lines(begin, end):
+        cursor = begin
+        for line in body[begin:end].splitlines(keepends=True):
+            text = line.rstrip('\n')
+            if text:
+                yield cursor, text, False
+            cursor += len(line)
+
+    cursor = 0
+    for begin, end in _preformatted_spans(source, body):
+        yield from lines(cursor, begin)
+        start, stop, previous = begin, begin, begin
+        truncated = end-begin > context_chars
+        for line in body[begin:end].splitlines(keepends=True):
+            line_end = stop+len(line)
+            if stop > start and line_end-start > context_chars:
+                yield start, body[start:stop].rstrip('\n'), truncated
+                # This is an exact overlapping slice, never a sentence rewrite.
+                start = previous if stop-previous <= 250 else stop
+            previous, stop = stop, line_end
+        if stop > start:
+            yield start, body[start:stop].rstrip('\n'), truncated
+        cursor = end
+    yield from lines(cursor, len(body))
 
 
 class PassageIndex:
@@ -51,8 +131,7 @@ class PassageIndex:
                     stack.append(ledger.by_id[ref.id][0])
             source['evidence_roots'] = sorted(roots)
             self.sources.append(source)
-            offset = 0
-            for paragraph in body.splitlines():
+            for offset, paragraph, split_context in _passage_units(rec.body_html, body):
                 # Preserve full paragraphs. Very long blocks use overlapping
                 # windows and carry a truncation label, rather than hiding it.
                 for start in range(0, len(paragraph), 3500):
@@ -63,10 +142,10 @@ class PassageIndex:
                     identity = {'source': rec.path, 'hash': rec.hash_actual, 'start': begin, 'text': chunk}
                     self.passages.append({'id': pin(identity), 'source_id': rec.id, 'path': rec.path,
                         'hash': rec.hash_actual, 'body_start': begin, 'text': chunk,
-                        'body_projection': BODY_VERSION, 'context_truncated': len(paragraph) > 4000})
+                        'body_projection': BODY_VERSION,
+                        'context_truncated': split_context or len(paragraph) > 4000})
                     if start+4000 >= len(paragraph):
                         break
-                offset += len(paragraph)+1
 
     def retrieve(self, queries, max_passages=24, max_chars=24000):
         if not 1 <= max_passages <= 64 or not 1000 <= max_chars <= 64000:

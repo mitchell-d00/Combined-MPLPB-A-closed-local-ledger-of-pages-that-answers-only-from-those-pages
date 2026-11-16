@@ -1,6 +1,6 @@
 # Current status — November 8, 2026
 
-Last reviewed: 2026-11-08.
+Last reviewed: 2026-11-16.
 
 Inspected baseline main: `acf7800a5f8320ec29ee957d002eaaba8ed4e816`.
 Its Pages build, deployment and postdeployment check completed successfully in
@@ -68,3 +68,5 @@ WebLLM derivative now retains intermediate capacities, validates actual device
 limits and records them. This is not a neural-generation or repaired-iPad claim.
 See the new [limit tests](../tests/browser-webgpu-limits.cjs) and separate
 [findings](../evaluation/free-browser-helper/device-limit-finding.json).
+
+> Update 2026-11-16: The [public 52-case evidence suite](PUBLIC_EVIDENCE_TESTS.md) and [bounded expert relation path](HISTORICAL_EXPERT_PATH.md) document the current update. Prior dated measurements and preserved historical sources retain their original scope; this note does not rerun or revise them.

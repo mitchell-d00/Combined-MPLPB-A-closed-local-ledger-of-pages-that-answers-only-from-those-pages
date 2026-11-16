@@ -43,6 +43,7 @@ modern application tests do not retrospectively validate those experiments.
 | [model-selection](../evaluation/model-selection) | [Assets and MIT enforcement](../tests/test_browser_ai_assets.py); [selected loader records](../tests/browser-model-loader.cjs) | [Chromium picker fixtures](../tools/browser_model_selection.py); [browser runner](../tools/browser_free_helper.py); [asset builder](../tools/build_ai_assets.py) | Actual pinned asset/license downloads and authored selection/reload tests; no physical iPad or neural-inference claim. |
 
 | [no-unverified-promotion](../evaluation/no-unverified-promotion/README.md) | [specialist regression](../tests/test_specialist_continuity.py); [answer](../tests/test_answer_support.py); [retrieval](../tests/test_page_retrieval.py); [release](../tests/test_release_evidence.py); [handoff](../tests/test_handoff.py) | [audit_unverified_promotion.py](../tools/audit_unverified_promotion.py) | 88 contract assertions, authored artifact control and five-case paired completion regression; no independent four-domain efficacy or novelty result. |
+| [historical-experts](../evaluation/historical-experts/README.md) | [extractor](../tests/test_historical_evidence.py), [verifier](../tests/test_historical_verifier.py), [crawl](../tests/test_historical_investigation.py), [passages](../tests/test_historical_passages.py) | [original-paper replay](../tools/evaluate_historical_experts.py) | Bounded documentary relation crawl on hash-pinned original papers; developer controls, not historical truth or general semantic accuracy. |
 
 The [originality reassessment](research/mplpb-originality/README.md) separates the
 logical, architectural, mechanism, implementation and empirical questions raised
@@ -76,3 +77,5 @@ Normal PR and extracted-ZIP workflows run the full Python suite, native/JavaScri
 interfaces, actual WebAssembly and real Chromium paths. Pages runs a separate
 postdeployment smoke. CI results are tied to their commit and run ID; a previous
 828-test pass is not a claim that all future revisions have passed.
+
+> Update 2026-11-16: The [public 52-case evidence suite](PUBLIC_EVIDENCE_TESTS.md) and [bounded expert relation path](HISTORICAL_EXPERT_PATH.md) document the current update. Prior dated measurements and preserved historical sources retain their original scope; this note does not rerun or revise them.

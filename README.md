@@ -1,6 +1,6 @@
 # Combined MPLPB
 
-Last reviewed: 2026-11-10. See [current status and result-to-test index](docs/CURRENT_STATUS_2026-11-08.md). Dates and numeric results in historical validation sections retain their original scope; this review is not a rerun or independent certification.
+Last reviewed: 2026-11-16. See [current status and result-to-test index](docs/CURRENT_STATUS_2026-11-08.md). Dates and numeric results in historical validation sections retain their original scope; this review is not a rerun or independent certification.
 
 A closed local ledger of pages, with supported answers, inspectable provenance, and deterministic conversation. Each page declares its identity, scope, status, sealed hash, origin, and lineage. Source-backed answers require eligible body evidence under a finite grammar; missing support refuses and competing support remains ambiguous.
 
@@ -45,6 +45,8 @@ This source candidate is **2.1.0rc1**, following the 2.0.0 bounded-reader releas
 The [general answer pipeline](docs/GENERAL_ANSWER_PIPELINE.md) adds diagnostic abstentions and an opt-in native local reader. Strict mode remains the default and needs no model. Assisted mode is experimental; live-model quality and fresh cross-domain evaluation are still required before a general-quality shipping claim. See the [capability/release matrix](docs/RELEASE_2_1_RC1.md) and [human-scored evaluation](evaluation/general-reader/README.md).
 
 See the [November 8 implementation and verification status](docs/CURRENT_STATUS_2026-11-08.md) for merged changes, actual checks and remaining product gaps, and the [result-to-test index](docs/RESULTS_AND_TESTS.md) for reproduction. The October 31 status remains historical.
+
+The [historical expert path](docs/HISTORICAL_EXPERT_PATH.md) runs source-bound documentary, chronology and verification specialists through the existing work coordinator. Use `mplpb-combined investigate` to crawl explicitly declared document relationships with exact citations, current eligibility checks and bounded hops. Its output remains an evidence report, not a certified historical answer.
 
 The local [user-built collection repair](docs/USER_BUILT_COLLECTIONS.md) documents collection growth versus engine changes, bounded source-policy questions, state rechecks and portable-backup limitations.
 
@@ -207,3 +209,5 @@ qualifies the earlier headline: established logical principles do not settle the
 originality of MPLPB’s particular integration. It separates five novelty questions,
 compares mechanisms with pinned prior implementations, and records earlier public
 archive metadata without changing PR #38’s repair or frozen results.
+
+> Update 2026-11-16: The [public 52-case evidence suite](docs/PUBLIC_EVIDENCE_TESTS.md) and [bounded expert relation path](docs/HISTORICAL_EXPERT_PATH.md) document the current update. Prior dated measurements and preserved historical sources retain their original scope; this note does not rerun or revise them.

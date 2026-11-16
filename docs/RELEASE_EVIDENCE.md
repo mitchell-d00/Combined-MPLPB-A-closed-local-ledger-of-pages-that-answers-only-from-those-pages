@@ -2,7 +2,7 @@
 
 # Candidate release evidence and required repository settings
 
-Last reviewed: 2026-11-02. See [current status and result-to-test index](CURRENT_STATUS_2026-11-02.md). Dates and numeric results in historical validation sections retain their original scope; this review is not a rerun or independent certification.
+Last reviewed: 2026-11-16. See [current status and result-to-test index](CURRENT_STATUS_2026-11-02.md). Dates and numeric results in historical validation sections retain their original scope; this review is not a rerun or independent certification.
 
 Status: engineering release procedure, not production certification. Added 2026-10-20.
 
@@ -108,3 +108,5 @@ This work does not replace independent evaluation, browser retention testing,
 security review, or the production threat model. See
 `PRODUCTION_THREAT_MODEL.md`, `ZIP_FIRST_RELEASE_TESTING.md`, and
 `BROWSER_TESTING_FOR_AGENTS.md`.
+
+> Update 2026-11-16: The [public 52-case evidence suite](PUBLIC_EVIDENCE_TESTS.md) and [bounded expert relation path](HISTORICAL_EXPERT_PATH.md) document the current update. Prior dated measurements and preserved historical sources retain their original scope; this note does not rerun or revise them.

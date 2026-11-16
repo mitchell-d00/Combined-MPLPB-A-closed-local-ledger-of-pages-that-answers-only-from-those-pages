@@ -2,7 +2,7 @@
 
 # Multi-domain evaluation
 
-Last reviewed: 2026-11-02. See [current status and result-to-test index](../docs/CURRENT_STATUS_2026-11-02.md). Dates and numeric results in historical validation sections retain their original scope; this review is not a rerun or independent certification.
+Last reviewed: 2026-11-16. See [current status and result-to-test index](../docs/CURRENT_STATUS_2026-11-02.md). Dates and numeric results in historical validation sections retain their original scope; this review is not a rerun or independent certification.
 
 Run `python3 -m mplpb_combined.evaluate evaluation/manifest.json --out evaluation/results.json`.
 This freezes 36 synthetic developer-authored probes across software operations,
@@ -85,3 +85,5 @@ retired even if its successor is damaged; the reader does not undo withdrawals.
 Unpinned legacy references do not provide implicit retirement authority until
 `seal` pins them. Other validator findings remain visible; this patch does not
 change every serving rule into a strict whole-corpus validation gate.
+
+> Update 2026-11-16: The [public 52-case evidence suite](../docs/PUBLIC_EVIDENCE_TESTS.md) and [bounded expert relation path](../docs/HISTORICAL_EXPERT_PATH.md) document the current update. Prior dated measurements and preserved historical sources retain their original scope; this note does not rerun or revise them.

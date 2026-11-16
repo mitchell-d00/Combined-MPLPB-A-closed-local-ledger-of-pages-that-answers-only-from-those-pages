@@ -1,6 +1,6 @@
 # Optional browser model assets
 
-Last reviewed: 2026-11-10.
+Last reviewed: 2026-11-16.
 
 The core app does not need a language model. These pinned parts reconstruct the
 original WebLLM 0.2.87 browser runtime, then apply the explicitly pinned
@@ -48,3 +48,5 @@ requires a reload. Weight caches are not deleted.
 This uses a pretrained model. No fine-tuning or training on visitor conversations
 runs. Free hosting/CDN usage remains subject to the services' normal limits; the
 app does not configure a billable backend or silently fall back to one.
+
+> Update 2026-11-16: The [public 52-case evidence suite](../../docs/PUBLIC_EVIDENCE_TESTS.md) and [bounded expert relation path](../../docs/HISTORICAL_EXPERT_PATH.md) document the current update. Prior dated measurements and preserved historical sources retain their original scope; this note does not rerun or revise them.

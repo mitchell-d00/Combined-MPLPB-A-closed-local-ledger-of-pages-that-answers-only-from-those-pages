@@ -1,6 +1,6 @@
 # Conversation interpretation and planning
 
-Last reviewed: 2026-11-02. See [current status and result-to-test index](CURRENT_STATUS_2026-11-02.md). Dates and numeric results in historical validation sections retain their original scope; this review is not a rerun or independent certification.
+Last reviewed: 2026-11-16. See [current status and result-to-test index](CURRENT_STATUS_2026-11-02.md). Dates and numeric results in historical validation sections retain their original scope; this review is not a rerun or independent certification.
 
 The conversation router is separate from the MPLPB ledger. It consolidates the
 former top-level first-answer-wins chain in `App.chat`. Both typed requests and
@@ -134,3 +134,5 @@ The additional `App.retrieve` / `MPLPB.retrieve` path returns one provenance-gat
 owner as page inspection, always `answer_supported:false`. It does not replace
 the supported-answer path or combine the gate's separate records into an answer.
 See [page retrieval contracts](PAGE_RETRIEVAL.md).
+
+> Update 2026-11-16: The [public 52-case evidence suite](PUBLIC_EVIDENCE_TESTS.md) and [bounded expert relation path](HISTORICAL_EXPERT_PATH.md) document the current update. Prior dated measurements and preserved historical sources retain their original scope; this note does not rerun or revise them.

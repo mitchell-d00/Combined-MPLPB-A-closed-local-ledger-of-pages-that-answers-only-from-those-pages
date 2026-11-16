@@ -1,6 +1,6 @@
 # No-Unverified-Promotion: source audit and research finding
 
-Last reviewed: 2026-11-10.
+Last reviewed: 2026-11-16.
 
 Research author: **Mitchell D. McPhetridge**. Prepared through a Codex-assisted
 repository audit. Status: technical research draft and implementation audit;
@@ -279,3 +279,5 @@ rejected to preserve earlier measurements. Do not overwrite frozen cases, papers
 historical reports, gold labels, source seals or imported user data. Exact-head
 ZIP/CI and any later deployment verification must be recorded separately; this
 research draft and its local test report are not publication or deployment proof.
+
+> Update 2026-11-16: The [public 52-case evidence suite](../../docs/PUBLIC_EVIDENCE_TESTS.md) and [bounded expert relation path](../../docs/HISTORICAL_EXPERT_PATH.md) document the current update. Prior dated measurements and preserved historical sources retain their original scope; this note does not rerun or revise them.

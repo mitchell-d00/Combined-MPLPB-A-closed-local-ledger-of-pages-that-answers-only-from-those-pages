@@ -1,6 +1,6 @@
 # User-built collections: growth, policy answers and limits
 
-Last reviewed: 2026-11-02. See [current status and result-to-test index](CURRENT_STATUS_2026-11-02.md). Dates and numeric results in historical validation sections retain their original scope; this review is not a rerun or independent certification.
+Last reviewed: 2026-11-16. See [current status and result-to-test index](CURRENT_STATUS_2026-11-02.md). Dates and numeric results in historical validation sections retain their original scope; this review is not a rerun or independent certification.
 
 This is a focused local implementation on top of `f425a05`, not a claim that
 MPLPB autonomously improves its own engine. No independent participants were
@@ -154,3 +154,5 @@ Independent collection builders, their own questions, semantic grading and human
 usability remain outstanding. The next high-value product addition is a validated
 complete backup/restore workflow; broader interpretation should follow new
 failure evidence rather than benchmark-specific rules.
+
+> Update 2026-11-16: The [public 52-case evidence suite](PUBLIC_EVIDENCE_TESTS.md) and [bounded expert relation path](HISTORICAL_EXPERT_PATH.md) document the current update. Prior dated measurements and preserved historical sources retain their original scope; this note does not rerun or revise them.

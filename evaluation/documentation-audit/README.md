@@ -1,6 +1,6 @@
 # Documentation and evidence coverage audit
 
-Last reviewed: 2026-11-02.
+Last reviewed: 2026-11-16.
 
 Inspected baseline: `c0eb212b51c41a96e361ae0ceb680a0a5df0d55f`.
 This is a repository/documentation audit, not a new source-language accuracy run.
@@ -41,3 +41,5 @@ vendor material. No resource hash or verification rule was relaxed. The failure
 and correction are retained in `initial-ci-correction.json`; final CI must run
 on the corrected head. The initial extracted-source checks above did not exercise
 the resource verifier, so they did not detect this issue.
+
+> Update 2026-11-16: The [public 52-case evidence suite](../../docs/PUBLIC_EVIDENCE_TESTS.md) and [bounded expert relation path](../../docs/HISTORICAL_EXPERT_PATH.md) document the current update. Prior dated measurements and preserved historical sources retain their original scope; this note does not rerun or revise them.

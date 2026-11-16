@@ -2,7 +2,7 @@
 
 # Architecture and five-minute demonstration
 
-Last reviewed: 2026-11-02. See [current status and result-to-test index](CURRENT_STATUS_2026-11-02.md). Dates and numeric results in historical validation sections retain their original scope; this review is not a rerun or independent certification.
+Last reviewed: 2026-11-16. See [current status and result-to-test index](CURRENT_STATUS_2026-11-02.md). Dates and numeric results in historical validation sections retain their original scope; this review is not a rerun or independent certification.
 
 MPLPB is a conversational interface to inspectable local pages. Conversation
 planning and evidence ownership are separate. Ownership remains lexical, not a
@@ -78,3 +78,5 @@ from a source checkout. The legacy `python -m mplpb_combined ask` and explicit
 `mplpb-combined candidates` are **lexical candidate inspection only**, not supported
 answers. Treat `candidate_only` and a successful API invocation as insufficient
 for a source-backed factual claim. See `RELEASE_EVIDENCE.md` for the release gates.
+
+> Update 2026-11-16: The [public 52-case evidence suite](PUBLIC_EVIDENCE_TESTS.md) and [bounded expert relation path](HISTORICAL_EXPERT_PATH.md) document the current update. Prior dated measurements and preserved historical sources retain their original scope; this note does not rerun or revise them.

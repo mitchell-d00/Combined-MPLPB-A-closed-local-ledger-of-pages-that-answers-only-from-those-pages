@@ -1,6 +1,6 @@
 # Research and completion-integrity release note
 
-Last reviewed: 2026-11-10.
+Last reviewed: 2026-11-16.
 
 Research author: **Mitchell D. McPhetridge**. This release presents MPLPB as an
 **attributable engineering contribution and technical case study**. Its research
@@ -47,3 +47,5 @@ and gate-overhead measurements remain future work under the [protocol](../../../
 This note records the intended release content and research status. Merge,
 deployment and postdeployment outcomes must be recorded from the actual completed
 workflow runs rather than inferred from this document.
+
+> Update 2026-11-16: The [public 52-case evidence suite](../../PUBLIC_EVIDENCE_TESTS.md) and [bounded expert relation path](../../HISTORICAL_EXPERT_PATH.md) document the current update. Prior dated measurements and preserved historical sources retain their original scope; this note does not rerun or revise them.

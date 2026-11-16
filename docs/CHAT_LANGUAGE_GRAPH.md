@@ -1,6 +1,6 @@
 # Base chat language graph
 
-Last reviewed: 2026-11-02. See [current status and result-to-test index](CURRENT_STATUS_2026-11-02.md). Dates and numeric results in historical validation sections retain their original scope; this review is not a rerun or independent certification.
+Last reviewed: 2026-11-16. See [current status and result-to-test index](CURRENT_STATUS_2026-11-02.md). Dates and numeric results in historical validation sections retain their original scope; this review is not a rerun or independent certification.
 
 The offline resource `resources/chat_language_graph.json` connects phrase forms to subject aliases, then to intent nodes and existing read-only handlers. `tools/chat_language_graph.py` traverses these relations in the shared continuity pass before answer routing. Both buttons and typed requests use that pass, including a fresh session with zero collections loaded.
 
@@ -13,3 +13,5 @@ The browser composer also preserves a newly typed draft when an earlier answer a
 Original implementation validation: graph phrase combinations and negative controls, public `App.chat` tests in both modes and on a fresh session, the full regression suite, and real Python/WebAssembly dialogue tests. Live browser testing reproduced the reported collection-routing bug. These tests are developer-authored; they do not establish full language coverage or independent human validation.
 
 The base command graph is now accompanied by a typed, user-declared conversation graph and candidate router. See [Conversation architecture](CONVERSATION_ARCHITECTURE.md) for its actual coverage, pre-execution plans, and remaining legacy subrouters.
+
+> Update 2026-11-16: The [public 52-case evidence suite](PUBLIC_EVIDENCE_TESTS.md) and [bounded expert relation path](HISTORICAL_EXPERT_PATH.md) document the current update. Prior dated measurements and preserved historical sources retain their original scope; this note does not rerun or revise them.

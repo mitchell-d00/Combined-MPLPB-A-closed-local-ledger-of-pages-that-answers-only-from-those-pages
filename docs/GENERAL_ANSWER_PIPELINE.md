@@ -1,6 +1,6 @@
 # General answer pipeline — 2.1.0rc1
 
-Last reviewed: 2026-11-02. See [current status and result-to-test index](CURRENT_STATUS_2026-11-02.md). Dates and numeric results in historical validation sections retain their original scope; this review is not a rerun or independent certification.
+Last reviewed: 2026-11-16. See [current status and result-to-test index](CURRENT_STATUS_2026-11-02.md). Dates and numeric results in historical validation sections retain their original scope; this review is not a rerun or independent certification.
 
 This release candidate adds domain-independent passage reading without changing
 MPLPB's source eligibility rules or promoting model output into deterministic
@@ -188,3 +188,9 @@ scripted HTTP fixture cannot certify this reader. Statistical checks do not veri
 reviewer independence, dataset freshness or distributional assumptions. Even a
 passing report is only eligible for human release review. General-quality release
 is currently blocked until the missing live and independent evidence is supplied.
+
+## Explicit expert investigation
+
+`mplpb-combined investigate` is a separate [historical evidence path](HISTORICAL_EXPERT_PATH.md), using the existing work coordinator and independent verification. It crawls only explicitly declared document-ID relations under the original question/profile, with bounded hops, exact source citations and unresolved targets. Reports remain `answer_supported:false`; strict answers and model-assisted assessments retain their existing contracts.
+
+> Update 2026-11-16: The [public 52-case evidence suite](PUBLIC_EVIDENCE_TESTS.md) and [bounded expert relation path](HISTORICAL_EXPERT_PATH.md) document the current update. Prior dated measurements and preserved historical sources retain their original scope; this note does not rerun or revise them.

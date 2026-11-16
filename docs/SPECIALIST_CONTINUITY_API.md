@@ -8,6 +8,10 @@ Combined MPLPB distribution and uses the Python standard library, including SQLi
 The strict answer engine continues to answer only from eligible source pages.
 Work records never become supported answers merely because they survived a handoff.
 
+## Historical relation investigation
+
+The explicit [historical expert path](HISTORICAL_EXPERT_PATH.md) runs three versioned local expert operations through these capability and receipt checks. `mplpb-combined investigate CORPUS "Trace declared relations" --source DOCUMENT-0001` follows explicit IDs and versions inside the selected corpus, then independently verifies each declaration. Its evidence report never promotes expert agreement to a supported answer.
+
 ## Try the complete example
 
 ```sh
@@ -277,3 +281,5 @@ no hosted-browser work-store UI, hosted specialist service or AI-provider schedu
 The five-instance demonstration validates deterministic work recovery and guards;
 [the research model](SPECIALIST_CONTINUITY.md) retains the separate experiments
 needed to assess real specialist usefulness.
+
+> Update 2026-11-16: The [public 52-case evidence suite](PUBLIC_EVIDENCE_TESTS.md) and [bounded expert relation path](HISTORICAL_EXPERT_PATH.md) document the current update. Prior dated measurements and preserved historical sources retain their original scope; this note does not rerun or revise them.
