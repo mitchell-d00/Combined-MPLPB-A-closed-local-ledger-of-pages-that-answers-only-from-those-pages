@@ -1,5 +1,6 @@
 """One response policy for strict compatibility and opt-in model-assisted reading."""
 import copy
+import re
 from pathlib import Path
 from .body_text import body_text
 from dataclasses import dataclass, field
@@ -12,6 +13,13 @@ from .evidence_contract import (VERSION, ReaderError, pin, canonical, shape, tex
 from .passages import PassageIndex
 from mplpb_combined import provenance_gate as G
 
+DIAGNOSTICS = {
+    'exact_field_missing': 'Inspect the exact record and supply an explicit source body field; an identifier alone is not field support.',
+    'contradictory_passages_pruned': 'Increase the evidence budget to display all competing passages; no selected subset licenses an answer.',
+    'event_identity_unresolved': 'Supply an explicit source-declared event or occurrence key; similar subjects do not establish identity.',
+    'correction_scope_unclear': 'Name the corrected field and, when needed, an ISO as-of time.',
+}
+
 
 def _state(gate):
     return pin({'snapshot': gate.corpus_snapshot, 'policy': gate.policy,
@@ -19,6 +27,8 @@ def _state(gate):
 
 
 def _next_steps(code):
+    if code in DIAGNOSTICS:
+        return [DIAGNOSTICS[code]]
     if code in {'supported', 'model_assessed', 'partial_model_assessed'}:
         return ['Open the cited source and check its conditions and revision.']
     if 'conflict' in code or code == 'retrieval_ambiguous':
@@ -46,6 +56,9 @@ class QueryResult:
         data['answer_contract'] = copy.deepcopy(self.contract)
         data['answer_diagnostics'] = copy.deepcopy(self.contract['diagnostic'])
         data['answer_supported'] = self.contract['answer_supported']
+        if self.contract['kind']=='supported_answer' and self.strict.kind!='return':
+            data.update(kind='return',text=self.contract['text'],reason=self.contract['diagnostic']['message'],
+                        citation='; '.join(s['id']+'@'+s['hash'] for s in self.contract['sources']),candidates=[])
         if self.contract['kind'] != 'supported_answer' and (self.contract['mode'] == 'assisted' or self.strict.kind == 'return'):
             data.update(kind=self.contract['kind'] if self.contract['mode'] == 'assisted' else 'not_in_corpus', text=self.contract['text'],
                         reason=self.contract['diagnostic']['message'], citation='', candidates=[])
@@ -59,7 +72,19 @@ def _known_grammar(question):
 
 
 def answer_query(root, question, profile=None, *, mode='strict', reader=None, min_confidence=0.8,
-                 max_passages=12, max_chars=8000):
+                 max_passages=12, max_chars=8000, record_id=None, field=None, exact_value=None,
+                 as_of=None, relation_hops=None):
+    if not isinstance(question,str) or not question.strip() or len(question)>4000:
+        raise ValueError('Question must contain 1–4000 characters')
+    from mplpb_combined.ledger import serving_view
+    request = relation_graph.exact_request(question,record_id,field,exact_value)
+    with serving_view(as_of,request['field']):
+        return _answer_query(root,question,profile,mode=mode,reader=reader,min_confidence=min_confidence,
+                             max_passages=max_passages,max_chars=max_chars,exact=request,relation_hops=relation_hops)
+
+
+def _answer_query(root, question, profile=None, *, mode, reader, min_confidence,
+                  max_passages, max_chars, exact, relation_hops):
     if not isinstance(question, str) or not question.strip() or len(question) > 4000:
         raise ValueError('Question must contain 1–4000 characters')
     if mode not in {'strict', 'assisted'}:
@@ -95,13 +120,85 @@ def answer_query(root, question, profile=None, *, mode='strict', reader=None, mi
             strict.kind, strict.record, strict.candidates = 'not_in_corpus', None, []
             strict.support = {'status': 'unsupported', 'spans': [], 'reason': message}
             result.gate = {'sources': [], 'excluded': [], 'corpus_snapshot': '', 'notice': message}
+            if 'exploration' in contract:
+                contract['exploration']={'status':'source_changed','edges':[],'answer_supported':False,'content_truth_verified':False}
         else:
             result.gate = fresh.to_dict()
+        if kind != 'supported_answer':
+            contract['answer_supported'] = False
+        if (mode=='assisted' and kind=='supported_answer'
+                and contract['verification']['semantic']=='bounded_deterministic_grammar'):
+            # Preserve the existing strict-first path without labelling its
+            # deterministic source proof as assisted output.
+            contract['mode']='strict'
+        if contract['mode']=='assisted' or relation_hops is not None:
+            contract['answer_supported']=False
+            if kind=='supported_answer':
+                kind='model_assisted_answer' if mode=='assisted' else 'partial_answer'
+                code='candidate_source_evidence'
+                message='Bounded source evidence is retained for inspection; this optional mode does not promote candidates to supported answers.'
         contract.update(kind=kind, diagnostic={'code': code, 'stage': stage, 'message': message,
                                              'corpus_answerability': 'not_established', 'next_steps': _next_steps(code)})
         return result
 
     initial_gate_root = Path(root).resolve()
+
+    if (strict.kind!='return' and not exact['field']
+            and any(s['reason']=='correction scope unclear' for s in initial_gate.excluded)):
+        return finish('abstain','correction_scope_unclear','Name the field before using a field-scoped correction.','interpretation')
+
+    if relation_hops is not None:
+        contract['exploration'] = relation_graph.explore(root,question,relation_hops,profile)
+    # Exact routes are established only after the ordinary full eligibility gate.
+    index = None
+    exact_requested = bool(exact['record_id'] or exact['field'] or exact['exact_value']
+        or re.search(r'\b[A-Z][A-Z0-9]*(?:-[A-Z0-9]+)+\b',question) or any(
+        re.search(r'(?<![\w-])'+re.escape(source['id'])+r'(?![\w-])',question) for source in initial_gate.sources))
+    if exact_requested:
+        try:
+            index = PassageIndex(strict.root,question,profile,exact=exact)
+        except ReaderError as exc:
+            return finish('abstain',exc.code,str(exc),'eligibility')
+        if exact['field'] and not index.exact_status:
+            return finish('clarify','needs_clarification','Supply a record identifier or a unique source field/value selector.','retrieval')
+        if index.exact_status:
+            pack=index.retrieve([question],max_passages,max_chars)
+            contract.update(retrieval=pack,sources=copy.deepcopy(pack['sources']))
+            if index.exact_status=='ambiguous_value':
+                return finish('clarify','retrieval_ambiguous','The supplied field value is not unique among eligible pages.','retrieval')
+            if not index.exact_paths:
+                return finish('abstain','event_identity_unresolved' if exact['field'] in {'event id','occurrence id'} else 'exact_field_missing',
+                              'No unique eligible exact route supplies the requested field.','retrieval')
+            if exact['field']:
+                rows=[f for r in index.records if r.path in index.exact_paths
+                      for f in relation_graph.declared_fields(r) if f['field']==exact['field']]
+                if not rows:
+                    return finish('abstain','exact_field_missing','The exact eligible record has no explicit body evidence for the requested field.','strict')
+                contexts=[f for r in index.records if r.path in index.exact_paths
+                          for f in relation_graph.field_contexts(r,exact['field'])]
+                rows+=contexts
+                values={r['value'] for r in rows}
+                conflict=len(values)>1
+                # Never erase a competing field with a ranking or page-diversity discount.
+                shown=[];size=0
+                for row in rows:
+                    if len(shown)>=max_passages or size+len(row['quote'])>max_chars:continue
+                    shown.append(row);size+=len(row['quote'])
+                contract['claims']=[{'text':r['quote'],'qualifiers':['Source-declared field; source truth is unverified.'],'citations':[r]} for r in shown]
+                contract['retrieval'].update(field_passages=shown,omitted_field_passages=len(rows)-len(shown))
+                if len(shown)!=len(rows):
+                    return finish('conflict' if conflict else 'abstain','contradictory_passages_pruned' if conflict else 'retrieval_budget_exceeded',
+                                  'The budget cannot display all matching field passages; no selection is accepted as support.','retrieval')
+                if conflict:
+                    return finish('conflict','conflicting_or_multiple_owners','All competing eligible field passages remain visible.','strict')
+                if contexts:
+                    return finish('abstain','unresolved_evidence','Additional field mentions outside the declared header require source-context review.','strict')
+                contract.update(text='\n'.join(dict.fromkeys(r['quote'] for r in rows)),answer_supported=mode=='strict')
+                contract['verification'].update(structural=True,semantic='bounded_explicit_field')
+                return finish('supported_answer' if mode=='strict' else 'model_assisted_answer',
+                              'supported' if mode=='strict' else 'candidate_source_evidence','Exact source body field evidence; no inference from record identity.','strict')
+            if strict.kind!='return' or strict.record.path not in index.exact_paths:
+                return finish('abstain','exact_field_missing','The exact route does not establish the requested field under a bounded grammar.','strict')
 
     procedure = strict.support.get('procedure', {})
     if procedure.get('clarification'):
@@ -130,6 +227,8 @@ def answer_query(root, question, profile=None, *, mode='strict', reader=None, mi
         contract['verification'].update(structural=True, semantic='bounded_source_excerpt_not_complete_procedure')
         return finish('partial_answer', 'partial_procedure_evidence',
                       'Source procedure evidence is incomplete; missing constraints are listed explicitly.', 'strict')
+    if strict.kind == 'return' and strict.record.fields.get('corrects-field') and not exact['field']:
+        return finish('abstain','correction_scope_unclear','Name the explicit field before applying a field-scoped correction.','interpretation')
     if strict.kind == 'return':
         body = body_text(strict.record.body_html)
         quotes = [span['quote'] for span in strict.support.get('spans', [])]
@@ -155,7 +254,7 @@ def answer_query(root, question, profile=None, *, mode='strict', reader=None, mi
         return finish('conflict', 'conflicting_or_multiple_owners', strict.reason, 'strict')
     stage = 'eligibility'
     try:
-        index = PassageIndex(strict.root, question, profile)
+        index = PassageIndex(strict.root, question, profile, exact=exact)
         result.gate = index.gate.to_dict()
         # Strict abstentions do not pay for model ranking or expose unrelated
         # passage bodies. Build the bounded retrieval pack only on explicit opt-in.
@@ -165,6 +264,10 @@ def answer_query(root, question, profile=None, *, mode='strict', reader=None, mi
         if not index.sources:
             code = 'restricted_or_unavailable' if index.gate.excluded else 'no_eligible_sources'
             return finish('abstain', code, 'No eligible body passages are available under this question and profile; corpus absence is not established.', 'eligibility')
+        if any(r.fields.get('corrects-field') and r.path in {s['path'] for s in index.gate.sources} for r in index.records) and not exact['field']:
+            return finish('abstain','correction_scope_unclear','Name the explicit field before applying a field-scoped correction.','interpretation')
+        if re.search(r'\b(?:same event|event identity|same occurrence)\b',question,re.I):
+            return finish('abstain','event_identity_unresolved','No explicit source key establishes the requested event identity.','interpretation')
         if mode == 'strict':
             if strict.kind == 'ambiguous':
                 return finish('conflict', 'retrieval_ambiguous', 'Candidate ownership is ambiguous; this does not establish conflicting body evidence.', 'retrieval')

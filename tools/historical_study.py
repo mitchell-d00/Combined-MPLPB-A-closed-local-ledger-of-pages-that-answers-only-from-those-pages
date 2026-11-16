@@ -176,6 +176,10 @@ def score(directory,review_paths):
             for field in ('labeling_seconds','correction_seconds'):
                 value=case.get(field)
                 if type(value) not in (int,float) or not math.isfinite(value) or value<0:raise ValueError('Nonnegative reported review times required')
+            if 'operator_seconds' in case:
+                value=case['operator_seconds']
+                if type(value) not in (int,float) or not math.isfinite(value) or value<0:
+                    raise ValueError('operator_seconds must be a finite nonnegative number')
             if not isinstance(case.get('rationale'),str) or not case['rationale'].strip():raise ValueError('Reviewer rationale required')
             citations=case.get('citations')
             if not isinstance(citations,list) or len(citations)>32 or (case['complete'] and not citations):raise ValueError('Completed answers require source citations')
@@ -186,8 +190,13 @@ def score(directory,review_paths):
         reviews.append({c['id']:c for c in cases})
     disagreements=[i for i in sorted(ids) if len({tuple(r[i][k] for k in ('complete','false_bridge','source_accurate')) for r in reviews})!=1]
     expected={g['id']:set(g['required_source_ids']) for g in gold}
-    coverage={}
+    coverage={};work_effort=[]
     for row in result['rows']:
+        seconds=row['investigation'].get('operator_seconds')
+        if seconds is not None:
+            if type(seconds) not in (int,float) or not math.isfinite(seconds) or seconds<0:
+                raise ValueError('Invalid work-event operator_seconds')
+            work_effort.append(seconds)
         got={s['id'] for s in row['investigation']['sources']}
         coverage[row['id']]=len(got & expected[row['id']])/len(expected[row['id']]) if expected[row['id']] else None
     output={'schema':'original-record-study-score-v1','seal_sha256':digest(receipt),'run_sha256':digest(result),
@@ -201,6 +210,10 @@ def score(directory,review_paths):
                 'source_accurate':sum(c['source_accurate'] for c in r.values())/len(ids)} for r in reviews],
             'reviewer_reported_labeling_seconds':sum(c['labeling_seconds'] for r in reviews for c in r.values()),
             'reviewer_reported_correction_seconds':sum(c['correction_seconds'] for r in reviews for c in r.values()),
+            'operator_seconds':sum(c['operator_seconds'] for r in reviews for c in r.values() if 'operator_seconds' in c)
+                if any('operator_seconds' in c for r in reviews for c in r.values()) else None,
+            'operator_time_attested':False,
+            'work_event_operator_seconds':sum(work_effort) if work_effort else None,
             'reviewer_identity_attested':False,'independence_verified':False,
             'notice':'Submission IDs/times are self-reported. Agreement and exact quotations do not attest reviewer independence or certify historical truth.'}
     save(directory/'score.json',output)

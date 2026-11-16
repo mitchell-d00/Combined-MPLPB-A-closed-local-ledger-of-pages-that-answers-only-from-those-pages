@@ -24,13 +24,15 @@ FIELDS = (
     "origin", "origin-depth", "derived-from", "supersedes", "ratified-by",
     "points-to", "owner", "updated", "category",
     "external", "source-authorship", "clarify-options",
+    "corrects-field", "valid-from", "valid-until", "event-id", "occurrence-id",
 )
 # The hash covers every field except the two that must be able to change
 # without altering what the page says: its status, and the hash itself.
 UNHASHED = ("status", "hash")
 # Fields added after the first release enter the hash only when a page uses
 # them, so every page written before they existed keeps the hash it had.
-LATE = ("not-for", "external", "source-authorship", "clarify-options")
+LATE = ("not-for", "external", "source-authorship", "clarify-options",
+        "corrects-field", "valid-from", "valid-until", "event-id", "occurrence-id")
 HASHED = tuple(f for f in FIELDS if f not in UNHASHED and f not in LATE)
 
 INDEX_NAMES = ("index.html", "_index.html")

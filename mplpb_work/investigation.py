@@ -310,7 +310,9 @@ def _run(root, question, profile, seeds, hops, count, chars, directory, persiste
         report={'sources':[],'observations':[],'relations':[],
                 'verification':{'source_state_current':True,'verified':[],'rejected':[]},
                 'notice':'An expert stage failed validation; no findings were accepted.'}
-    report.update(schema=VERSION,question=question,profile=profile.name,
+    operator_view=store.handoff(tokens['verification'])
+    report.update(operator_seconds=operator_view['operator_seconds'],operator_events=operator_view['operator_events'],
+                  schema=VERSION,question=question,profile=profile.name,
                   authority='verified_documentary_observations' if passed else 'unverified_investigation',
                   status='evidence_report' if passed else 'needs_recheck',answer_supported=False,
                   truth_verified=False,independence_verified=False,

@@ -45,7 +45,7 @@ def token_hash(token):
 
 def _empty():
     return {'head': ZERO, 'seq': 0, 'records': {}, 'history': {}, 'seats': {},
-            'instances': {}, 'transfers': {}, 'receipts': {}}
+            'instances': {}, 'transfers': {}, 'receipts': {}, 'operator_events': [], 'external_receipts': []}
 
 
 def _apply(state, event):
@@ -77,8 +77,21 @@ def _apply(state, event):
         for record in p['records']:
             state['records'][record['id']] = record
             state['history'].setdefault(record['id'], []).append(record)
+    elif kind == 'external_receipt':
+        state['external_receipts'].append(p['external_receipt'])
     else:
         raise IntegrityError('Unknown event type')
+    if 'operator_seconds' in event:
+        M.operator_seconds(event['operator_seconds'])
+        record=p.get('record') or (p.get('records') or [None])[0]
+        if record is None and 'receipt' in p:
+            record=state['records'][p['receipt']['action']]
+        if record is None and 'external_receipt' in p:
+            record=state['records'][p['external_receipt']['action']]
+        if record is None:raise IntegrityError('Operator effort requires a work record')
+        state['operator_events'].append({'event_id':event['id'],'record_id':record['id'],
+            'revision':record['revision'],'operator_seconds':event['operator_seconds'],
+            'basis':event.get('operator_seconds_basis','self_reported')})
     state['seq'], state['head'] = event['seq'], digest(event)
 
 
@@ -160,10 +173,15 @@ class WorkStore:
             raise IntegrityError('Invalid work ledger') from exc
         return state
 
-    def _append(self, db, state, kind, payload, actor):
+    def _append(self, db, state, kind, payload, actor, operator_seconds=None, operator_seconds_basis='self_reported'):
+        M.operator_seconds(operator_seconds)
+        if operator_seconds_basis not in {'self_reported','measured'}:
+            raise WorkError('Unknown operator time basis')
         event = {'schema': SCHEMA, 'seq': state['seq']+1, 'prev': state['head'],
                  'id': uuid.uuid4().hex, 'time': self.clock(), 'type': kind,
                  'actor': actor, 'implementation_sha256': implementation_pins(), 'payload': copy.deepcopy(payload)}
+        if operator_seconds is not None:
+            event.update(operator_seconds=operator_seconds,operator_seconds_basis=operator_seconds_basis)
         pin = digest(event)
         db.execute('INSERT INTO events VALUES (?,?,?)', (event['seq'], canonical(event), pin))
         db.execute('UPDATE head SET seq=?,hash=? WHERE id=1', (event['seq'], pin))
@@ -265,6 +283,12 @@ class WorkStore:
         return operation in actor['operations'] and ('*' in actor['scopes'] or task in actor['scopes'])
 
     def _source(self, state, payload, profile, cache, with_body=False):
+        # A read-only historical query context cannot authorize present work.
+        from mplpb_combined.ledger import serving_view
+        with serving_view():
+            return self._current_source(state,payload,profile,cache,with_body)
+
+    def _current_source(self, state, payload, profile, cache, with_body=False):
         from mplpb_combined.provenance_gate import gather
         from mplpb_combined.reader import PROFILES
         from mplpb_combined.ledger import Ledger
@@ -424,6 +448,11 @@ class WorkStore:
                   'content_truth_verified': False, 'identity_basis': 'Host-issued bearer capability; model metadata is declared, not provider-attested.',
                   'instance': copy.deepcopy(state['instances'][actor['instance']]), 'instances': own_instances,
                   'contract': contract, 'records': records}
+        result['operator_events']=[copy.deepcopy(e) for e in state['operator_events']
+            if e['record_id'] in visible and self._readable_version(state,actor,state['history'][e['record_id']][e['revision']-1])]
+        result['operator_seconds']=sum(e['operator_seconds'] for e in result['operator_events']) if result['operator_events'] else None
+        result['operator_time_attested']=False
+        result['external_receipts']=[copy.deepcopy(r) for r in state['external_receipts'] if r['action'] in visible]
         # Seat view head excludes private events, counts, credentials and global sequence.
         result['head'] = digest(result)
         result['next_actions'] = [r['id'] for r in records if r['kind'] == 'action' and r['permission'] == 'allowed']
@@ -581,7 +610,8 @@ class WorkStore:
                 result.update(WorkStore._evidence_spans(state, record['dependencies'], trail | {key}))
         return result
 
-    def put(self, credential, *, id, kind, payload, dependencies, visibility, expected_revision, expected_head):
+    def put(self, credential, *, id, kind, payload, dependencies, visibility, expected_revision, expected_head, operator_seconds=None):
+        M.operator_seconds(operator_seconds)
         M.identifier(id)
         if id.startswith('attempt:'):
             raise Denied('Execution attempt identifiers are reserved for the host')
@@ -600,7 +630,7 @@ class WorkStore:
                       'revised_by': actor['instance'], 'created_at': old['created_at'] if old else self.clock(),
                       'revised_at': self.clock()}
             self._validate_record(state, actor, record, old)
-            self._append(db, state, 'put', {'record': record, 'seat': actor['seat'], 'fence': actor['fence']}, actor['instance'])
+            self._append(db, state, 'put', {'record': record, 'seat': actor['seat'], 'fence': actor['fence']}, actor['instance'],operator_seconds)
             return self._view(state, actor)
 
     def transfer(self, credential, *, id, to, include_history, expected_revision, expected_head):
@@ -651,6 +681,7 @@ class WorkStore:
             if operation not in self.executors:
                 raise Denied('No host adapter registered for this operation')
             receipt = {'id': uuid.uuid4().hex, 'action': id, 'action_revision': expected_revision,
+                       'answer_supported':False,'content_truth_verified':False,
                        'instance': actor['instance'], 'seat': actor['seat'], 'fence': actor['fence'],
                        'status': 'started', 'validation': {}, 'artifact_hash': None,
                        'task': action['payload']['task'], 'task_revision': action['payload']['task_revision'],
@@ -679,11 +710,15 @@ class WorkStore:
             if adapter is None or effect != action['payload']['side_effect']:
                 raise Denied('Adapter changed before dispatch')
             outcome = adapter({'idempotency_key': receipt['id'], 'action': copy.deepcopy(action), 'context': view})
-            if (not isinstance(outcome, dict) or set(outcome) != {'result', 'validation', 'artifact'}
+            if (not isinstance(outcome, dict) or not {'result', 'validation', 'artifact'}<=set(outcome)
+                    or not set(outcome)<={'result','validation','artifact','operator_seconds','operator_seconds_basis'}
                     or outcome['result'] not in {'passed', 'failed', 'inconclusive'}
                     or not isinstance(outcome['validation'], dict)
                     or any(type(v) is not bool for v in outcome['validation'].values())):
                 raise WorkError('Host adapter returned an invalid result')
+            M.operator_seconds(outcome.get('operator_seconds'))
+            if outcome.get('operator_seconds_basis','measured') not in {'measured','self_reported'}:
+                raise WorkError('Unknown operator time basis')
             M.words(outcome['artifact'], 16000)
             for key in outcome['validation']:
                 M.words(key, 1000)
@@ -713,7 +748,8 @@ class WorkStore:
                 raise Conflict('Execution has already been reconciled')
             if authority is not None:
                 receipt.update(reconciled_by='host', reconciliation_reason=reason)
-            receipt.update(status=outcome['result'], validation=outcome['validation'], artifact_hash=digest(outcome['artifact']))
+            receipt.update(status=outcome['result'], validation=outcome['validation'], artifact_hash=digest(outcome['artifact']),
+                           answer_supported=False,content_truth_verified=False)
             action = copy.deepcopy(state['records'][receipt['action']])
             if action['revision'] != receipt['action_revision']+(1 if 'attempt:'+receipt_id in state['records'] else 0):
                 raise Conflict('Dispatched action was changed')
@@ -728,8 +764,23 @@ class WorkStore:
                        'failure': 'none' if outcome['result'] == 'passed' else outcome['artifact'],
                        'retry_when': 'A new authorized action and current input pins are required; never retry an indeterminate receipt automatically.',
                        'artifact': outcome['artifact']}}
-            self._append(db, state, 'finish', {'receipt': receipt, 'records': [action, attempt]}, 'host-adapter')
+            self._append(db, state, 'finish', {'receipt': receipt, 'records': [action, attempt]}, 'host-adapter',
+                         outcome.get('operator_seconds'),outcome.get('operator_seconds_basis','measured'))
             return {'receipt': receipt, 'attempt': attempt['id'], 'action': action['id']}
+
+    def record_external_receipt(self, authority, *, receipt, kind, artifact, expected_head, operator_seconds=None):
+        """Host-declared READ/ACK observation; never an independent truth check."""
+        M.words(artifact,16000);M.operator_seconds(operator_seconds)
+        if kind not in {'READ','ACK'}:raise WorkError('External receipt must be READ or ACK')
+        with self._transaction() as (db,state):
+            self._host(state,authority);self._expect(state['head'],expected_head)
+            execution=state['receipts'].get(receipt)
+            if not execution:raise WorkError('External receipt requires an existing execution receipt')
+            observation={'id':uuid.uuid4().hex,'execution_receipt':receipt,'action':execution['action'],
+                'kind':kind,'artifact_hash':digest(artifact),'answer_supported':False,
+                'content_truth_verified':False,'external_world_verified':False,'basis':'host_declared'}
+            self._append(db,state,'external_receipt',{'external_receipt':observation},'host',operator_seconds,'measured')
+            return copy.deepcopy(observation)
 
     def audit(self, authority, checkpoint=None):
         with self._transaction() as (db, state):

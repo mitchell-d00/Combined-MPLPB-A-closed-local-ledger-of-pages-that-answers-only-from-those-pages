@@ -215,3 +215,5 @@ archive metadata without changing PR #38’s repair or frozen results.
 The [original-record study workflow](docs/ORIGINAL_RECORD_STUDY.md) prepares pinned public originals, separates sealed questions from gold expectations, captures system outputs and checks external review submissions. Protocol tests do not establish independent human validation.
 
 The original-record worker can run with fail-closed Linux isolation using `run --sandboxed`; see the [study sandbox and its limits](docs/ORIGINAL_RECORD_STUDY.md). Public [isolation tests](tests/test_study_sandbox.py) exercise denied gold access, input writes, network access and environment inheritance. The host administrator remains trusted.
+
+Update 2026-11-16: [Scoped evidence extensions](docs/SCOPED_EVIDENCE_EXTENSIONS.md) add precise field/identity/correction diagnostics, exact source routing, distinct event nodes, declared correction windows, quoted relation inspection and non-authoritative receipt/effort metadata. Public focused tests are linked in the guide; historical reports retain their original scope.
