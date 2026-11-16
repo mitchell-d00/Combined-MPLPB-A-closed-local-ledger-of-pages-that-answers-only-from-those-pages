@@ -16,10 +16,12 @@ from .source_mapping import anchor,_item as _source_item
 
 
 def _item(*args,**kwargs):
-    return _source_item(*args,operation='finite-prose-interpretation-v2',**kwargs)
+    return _source_item(*args,operation='finite-prose-interpretation-v3',**kwargs)
 
-VERSION='source-propositions-v2'
+VERSION='source-propositions-v3'
 VERBS={
+ 'called off':'cancel','call off':'cancel','cancelled':'cancel','canceled':'cancel','cancel':'cancel',
+ 'responded':'respond','respond':'respond',
  'appoint':'appoint','appointed':'appoint','decided':'decide','decide':'decide','proceed':'proceed',
  'wrote':'write','write':'write','written':'write','scribbled':'write','drafting':'draft','drafted':'draft',
  'distributed':'distribute','published':'publish','publishing':'publish','read':'read',
@@ -91,11 +93,15 @@ def _actor(prefix):
     pronoun=re.search(r'\b(I|[Hh]e|[Ss]he|[Tt]hey|[Ww]e|[Yy]ou)\s*$',tail)
     if pronoun:return pronoun[1]
     compound=re.search(r"([A-Z][a-z]+(?:\s+[A-Z][a-z]+)*\s+and\s+[A-Z][a-z]+(?:\s+[A-Z][a-z]+)*)\s*$",tail)
-    if compound:return compound[1]
+    if compound:
+        before=tail[:compound.start()]
+        if re.search(r'\b(?:of|in|at|from|for|to)\s+(?:the\s+)?$',before,re.I):return None
+        return compound[1]
     names=list(NAMES.finditer(tail))
     if names:
         name=names[-1]
         if not tail[name.end():].strip() and name[0].casefold() not in {'much','in','during','even','this','that','the','later','december','january','february','march','april','may','june','july','august','september','october','november'}:
+            if re.search(r'\b(?:of|in|at|from|for|to)\s+(?:the\s+)?$',tail[:name.start()],re.I):return None
             return name[0]
     if re.search(r'\b[Ss]uch regulations\s*$',tail):return 'Such regulations'
     return None
@@ -153,9 +159,9 @@ def extract(index,passages,state,*,max_propositions=48,max_connections=16):
             for match in ACTION.finditer(quote):
                 key=(p['path'],a,match.start())
                 if key in seen:continue
+                if not _predicate(quote,match):continue
                 if len(frames)>=max_propositions or per_context>=6:truncated=True;break
                 per_context+=1
-                if not _predicate(quote,match):continue
                 seen.add(key);action=VERBS[match[0].lower()];prefix=quote[:match.start()]
                 if action=='tell':action='instruct' if re.search(r'\bto\s+(?:send|write|publish|correct|retract)\b',quote[match.end():],re.I) else 'report_speech'
                 subject=_actor(prefix)
@@ -211,6 +217,10 @@ def extract(index,passages,state,*,max_propositions=48,max_connections=16):
         for right in frames[i+1:]:
             rv=right['value'];re_=right['evidence'][0]
             if le['path']==re_['path'] and le['body_start']==re_['body_start']:
+                bridge=le['quote'][left['predicate_end']-le['body_start']:right['predicate_start']-le['body_start']]
+                clause=le['quote'][le['quote'].rfind(',',0,left['predicate_start']-le['body_start'])+1:right['predicate_start']-le['body_start']]
+                if lv['actor'] and rv['actor'] is None and lv['action']=='respond' and rv['action']=='issue' and re.search(r'\band\s*$',bridge,re.I) and not re.search(r'\b(?:that|which|who|whether|if|unless)\b',clause,re.I):
+                    connections.append(_item('possible_coordinated_actor',[le],{'prior_action_proposition':left['mapping_id'],'following_action_proposition':right['mapping_id'],'actor_candidate':lv['actor']},state,operation_basis='same-clause respond-and-issue with no intervening subject or relative marker; candidate only',identity_verified=False,direction='shared_actor_candidate',causality='NOT ESTABLISHED'))
                 if lv['action']=='decide' and rv['action']=='proceed' and left['predicate_start']<right['predicate_start'] and re.search(r'\bto\s+proceed\b',le['quote'],re.I):
                     connections.append(_item('planned_action_candidate',[le],{'decision_proposition':left['mapping_id'],'planned_action_proposition':right['mapping_id'],'actor_candidate':lv['actor']},state,operation_basis='explicit decision with to-proceed complement; plan is not completion',action_completed=False,direction='decision_to_planned_action',causality='NOT ESTABLISHED'))
                 if lv['action']=='instruct' and rv['action']=='send' and left['predicate_start']<right['predicate_start']:

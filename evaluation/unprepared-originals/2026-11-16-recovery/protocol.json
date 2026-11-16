@@ -1,0 +1,35 @@
+{
+  "schema": "missed-relationship-recovery-protocol-v1",
+  "recorded_at": "2026-11-16T17:55:13.193825+00:00",
+  "baseline_native_commit": "01f128bc6022ff64c2edf5c363f05f173ac95972",
+  "source_snapshot_commit": "b087a24bbaff84fe6ee0b75551777711d84a12ef",
+  "objectives": [
+    "Recover the Order of the Day distribution relationship with its eve-of-invasion date role.",
+    "Recover Randolph cancellation from ordinary called-off phrasing.",
+    "Resolve or conservatively reject the known District-versus-United-States actor error.",
+    "Retain previously useful correct source associations; measure all new incorrect and unresolved proposals."
+  ],
+  "required_target_fields": {
+    "U03": [
+      "action=distribute",
+      "full source quote and source hash",
+      "distribution-date candidate, no invented agent"
+    ],
+    "T01": [
+      "actor=Randolph",
+      "action=cancel",
+      "march as literal object",
+      "never infer that an intended or negated cancellation happened"
+    ]
+  },
+  "comparison_policy": "Same frozen original corpus/questions/rules; semantic assessment uses the same v2 source-unit dedup and source-consistency criteria. New transfer sources and questions are frozen before running prior then updated code.",
+  "independent_human_evaluation": "NOT RUN",
+  "historical_global_recall": null,
+  "budget_seconds_per_question": 180,
+  "reference_pins": {
+    "unfamiliar": "d505c679af963cd4f77dd16653d9fc2a2b84ee70e68b8af8bcd101172bffd70f",
+    "legal-transfer": "b55913bd7f3f03cdbada98c8e01182792f123b1cb3a3cd050e3f29dc1a4ceed5",
+    "cold-transfer": "b2f4ce5bc55782c8515d9f0a17bfd956cd31fd2cdfa6b6f9bdfb81460da6f999"
+  },
+  "earlier_results_immutable": true
+}

@@ -96,5 +96,40 @@ class ProseReconstructionTests(unittest.TestCase):
         self.assertEqual(len(links),1);self.assertEqual(links[0]['value']['actor_candidate'],'Mira')
         self.assertFalse(links[0]['identity_verified']);self.assertFalse(links[0]['answer_supported'])
 
+    def test_distribution_from_unprepared_original_survives_noun_budget(self):
+        from tools.unprepared_sources import import_corpus
+        corpus=ROOT/'evaluation/unprepared-originals/2026-11-16-followup/unfamiliar'
+        self.root.rmdir();import_corpus(corpus,self.root)
+        question=json.loads((corpus/'questions.json').read_text())['cases'][2]['question']
+        report=self.report(question)
+        distribution=[x for x in report['propositions'] if x['value']['action']=='distribute']
+        self.assertTrue(distribution)
+        self.assertTrue(any(d['candidate_role']=='distribution' and 'eve' in d['raw_text'] for m in distribution for d in m['value']['date_candidates']))
+        self.assertTrue(all(not x['answer_supported'] for x in distribution))
+
+    def test_call_off_keeps_negation_and_conditional_scope(self):
+        write(self.root,doc_id='SOURCE-1',title='Fictional controls',scope='archive',body_html='<p>Mira called off the archive meeting.</p><p>Ruth did not call off the archive meeting.</p><p>If Orin called off the archive meeting, the register would change.</p>')
+        frames=self.report('archive meeting called off')['propositions']
+        actual=next(x for x in frames if x['value']['actor']=='Mira')
+        negative=next(x for x in frames if x['value']['actor']=='Ruth')
+        conditional=next(x for x in frames if x['value']['actor']=='Orin')
+        self.assertEqual(actual['value']['action'],'cancel')
+        self.assertEqual(negative['value']['modality'],'negated_or_scope_limited')
+        self.assertEqual(conditional['value']['modality'],'conditional_or_uncertain')
+        self.assertFalse(actual['answer_supported'])
+
+    def test_prepositional_name_does_not_steal_subject_role(self):
+        write(self.root,doc_id='SOURCE-1',title='Fictional control',scope='archive',body='The office of Mira shall appoint an archive clerk. Ruth appointed an archive clerk.')
+        frames=self.report('Mira Ruth appoint archive clerk')['propositions']
+        self.assertTrue(any(x['value']['actor']=='Ruth' for x in frames))
+        self.assertFalse(any(x['value']['actor']=='Mira' for x in frames))
+
+    def test_coordinated_actor_is_candidate_and_relative_clause_stays_unresolved(self):
+        write(self.root,doc_id='SOURCE-1',title='Fictional control',scope='archive',body_html='<p>Ruth responded to Mira and issued an archive notice.</p><p>Ruth responded to a letter that Mira sent and issued an archive notice.</p>')
+        report=self.report('Ruth Mira archive notice')
+        links=[x for x in report['connections'] if x['kind']=='possible_coordinated_actor']
+        self.assertEqual(len(links),1);self.assertEqual(links[0]['value']['actor_candidate'],'Ruth')
+        self.assertFalse(links[0]['identity_verified']);self.assertFalse(links[0]['answer_supported'])
+
 
 if __name__=='__main__':unittest.main()
