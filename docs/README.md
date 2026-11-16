@@ -108,3 +108,5 @@ Public website: [free builder/chat helper](FREE_PUBLIC_HELPER.md), [authored bro
 - [Historical expert path and bounded relation crawling](HISTORICAL_EXPERT_PATH.md).
 
 > Update 2026-11-16: The [public 52-case evidence suite](PUBLIC_EVIDENCE_TESTS.md) and [bounded expert relation path](HISTORICAL_EXPERT_PATH.md) document the current update. Prior dated measurements and preserved historical sources retain their original scope; this note does not rerun or revise them.
+
+The [original-record study workflow](ORIGINAL_RECORD_STUDY.md) prepares pinned public originals, separates sealed questions from gold expectations, captures system outputs and checks external review submissions. Protocol tests do not establish independent human validation.

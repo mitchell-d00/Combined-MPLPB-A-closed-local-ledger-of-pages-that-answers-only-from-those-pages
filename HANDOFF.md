@@ -4,46 +4,35 @@ Last reviewed: 2026-11-16.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `0d4f3e357eedb7130c709ab96052e2677e2d2831` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `442239c357d7269ae65c9a9066bd41eb2527890022190265242b81350f7ae724`.
+Base commit: `330779de18f5f3a28b2bc507dfca42d2a29b0580` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `f92e5ca32a97d39d5750a7cbba4e1d48504bc5e10deb78177c6ceb00e650ae65`.
 
 ## Latest user update instructions
 
-Read MPLPB, challenge reconstruction of complex relationships from original historical evidence, and fix the errors using the existing experts. Add an expert path that crawls relations while preserving MPLPB boundaries. Build public, inspectable tests and results without personal attribution or discussion of external commentary. Expand to 52 substantive tests; once all tests pass, push and merge to main. Update current operational documents with dated notes while preserving historical documents.
+Can you do yiur suggestions and test them and once they pass tests push them and merge to main
+
+MPLPB’s public original records
 
 ## Implemented scope
 
-- Implement explicit capability-gated documentary, chronology and independent verification expert operations through WorkStore, bounded relation crawling, exact citations and source/profile rechecks. No expert receipt or candidate is a supported historical answer.
-- Preserve preformatted source context and exact offsets; add documentary event candidates with separate occurrences/review flags and explicit uniquely scoped source corrections that retain predecessor and unaffected text.
-- Publish a checksum-pinned, fully visible 52-case development suite, reproducible fictional fixtures, per-case results and measurements. Compare the same suite against an identified earlier source inventory. Do not claim hidden tests, human validation, or unavailable private-data reproduction.
-- Add dated navigation/update notes to all current operational documents; preserve historical/vendor bytes, licenses, original papers, frozen corpora/probes/reports and source authority restrictions. User instruction is summarized to honor the explicit prohibition on personal attribution in public artifacts.
-- Test a frozen extracted candidate, require successful exact-head checks, then merge to main under the user’s explicit authorization and observe postdeployment verification.
-- Pin fixture record time and retain final per-case source hashes so public scenarios regenerate reproducible sealed bytes. Preserve human-effort measurements as unknown and separate unsupported capabilities from safety outcomes.
-- Retain public per-case current/baseline results, implementation module hashes, fixture source hashes, resource measurements, and a version-bound comparison; preserve the tested implementation separately from evidence-only additions.
-- Preserve canonical header layout during scoped source correction and retain a same-suite before/fix regression receipt; earlier published result files remain tied to their original case/evaluator hashes.
+- Add a concrete original-record evaluation workflow using four unchanged public MPLPB originals: prepare, seal, run and score phases with pinned sources, question/gold separation, code/configuration receipts and non-overwriting output.
+- Require complete source-cited review submissions, distinct reviewer IDs, explicit self-reported effort and adjudication for disagreement. Never claim that IDs or protocol tests prove independent human validation.
+- Preserve existing 52-case suite, frozen reports, historical/vendor bytes and current source authority. Update affected operational guides and result/test index. Merge only after exact-head required checks pass.
 
 ## Validation recorded
 
-- Preliminary public development run passed all 52 cases with zero observed false supported bridges; a final frozen candidate replay is still required.
-- Original-paper expert replay reached four hash-pinned originals, independently verified 31 documentary observations, traversed six declared relation edges and left 15 unresolved links visible; all three expert stages passed in the inspected run. These counts are documentary development controls, not historical truth or general semantic accuracy.
-- Earlier focused extractor/verifier/crawler/passage tests passed before the final event/correction/public-suite integration. Full current regression, documentation, exact archive and browser checks remain to run.
-- The first full candidate run completed 926 tests with one generated-guide synchronization failure; the generator has been updated to match the reviewed operational guide. Final candidate testing must confirm this correction.
-- The generated-guide fix passed 13 focused system/documentation/public-suite tests, including the 52-case evaluator. The final corrected candidate still needs its extracted full regression and exact-head CI.
-- The corrected frozen extracted implementation passed all 926 Python regression tests. Its strict 52-case suite and four-original-paper replay passed, as did extracted JavaScript/API/transport/crawler/infrastructure checks. The final fixed-timestamp/hash-receipt harness change passed eight focused tests including all 52 public requirements; exact final-head CI remains required.
-- The clean published implementation 8fb3eb82cde1781c1402d57986b63179b82ad4e5 passed 52/52 public cases and the four-original-paper expert replay. Retained current/baseline per-case reports share manifest/evaluator hashes; baseline 257e54a records 10 passes and 42 capability gaps, with zero observed false supported bridges in both inspected runs. The comparison does not establish general historical accuracy.
-- Strengthened the existing correction-history requirement to check exact unaffected canonical text and header line breaks. The source-preservation fix passed 52/52 public cases and 20 focused public/investigation/system-guide tests. Final revised-head CI remains required before merge.
-- Final clean implementation 0d4f3e357eedb7130c709ab96052e2677e2d2831 passes 52/52 strengthened public requirements. The exact same final manifest/evaluator records 51 passes and one layout gap on preceding module bytes and 10 passes/42 gaps on baseline 257e54a; per-case final reports, source hashes and the paired correction regression receipt are public. Earlier report files remain preserved with their own hashes.
+- Ten final protocol tests passed, including private salted commitments, gold-free execution, code/source/question tamper rejection, citation validation and honest disagreement/independence reporting.
+- The existing 52-case suite passed. The initial full local run passed 936 tests before the final salted-commitment refinement; the refined protocol passed its ten focused tests. Extracted protocol and JavaScript/API/transport/crawler checks passed. Exact final-head full/archive/browser CI remains required.
 
 ## Limitations and blocked checks
 
-- Only explicitly declared documentary fields and IDs/versions license relation traversal. Unknown or ambiguous targets, negation, conditions, restrictions, missing witnesses and budget limits cannot become guessed bridges.
-- Event candidates are not confirmed historical events; source-stated dates are not inferred publication/invention dates. Scoped corrections require explicit authoring and do not provide unrestricted as-of or causal reconstruction.
-- All 52 questions are public development tests, not blind holdouts. CPU/wall/Python allocation/source-text-read measurements are scoped; human labeling/correction effort remains unknown. Source integrity and source truth remain distinct.
+- No external reviewers or genuinely unseen questions have been supplied. Preparation deliberately emits no invented holdout questions or human judgments. Independent validation cannot be claimed from this work.
+- This implements evaluation infrastructure; arbitrary semantic event inference, automatic historical correction, unrestricted as-of reasoning and externally attested READ/ACK transitions remain outside current capabilities. Reviewer time/identity are self-reported and unverified.
 
 ## Next steps
 
-- Run final 52-case acceptance, full regressions and all required checks; freeze and test extracted source, preserving code/manifest identity.
-- Publish implementation, complete test fixtures/results, source/version pins and reproduction commands; merge only after exact-head archive-first and regression success, then observe deployment and actual live browser verification.
+- Run protocol, 52-case, full Python and required archive/browser CI checks; merge the tested candidate under user authorization.
+- Have separate external authors/reviewers supply unseen questions and judgments, then publish their permitted receipts and results after adjudication.
 
 ## Use this ZIP in your repository
 
