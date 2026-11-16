@@ -1,5 +1,6 @@
 """Explicit, uniquely scoped source corrections; never automatic fact rewriting."""
 import json
+import html
 from datetime import datetime
 from .body_text import body_text
 from mplpb_combined.ledger import Ledger, revise
@@ -35,7 +36,8 @@ def correct_claim(root,source_id,old_quote,new_quote,*,effective_at='',profile=N
                 'predecessor_hash':record.hash_actual,'start':start,'end':start+len(old_quote),
                 'old_quote':old_quote,'new_quote':new_quote,'effective_at':effective_at,
                 'time_basis':'author_declared','historical_truth_verified':False}
-    successor=revise(root,record.id,body=body[:start]+new_quote+body[start+len(old_quote):],
+    corrected_body=body[:start]+new_quote+body[start+len(old_quote):]
+    successor=revise(root,record.id,body_html='<pre>'+html.escape(corrected_body)+'</pre>',
                      note=json.dumps(correction,sort_keys=True),_event='scoped-correction')
     return {'source':{'id':successor.id,'path':successor.path,'hash':successor.hash_actual},
             'correction':correction,'answer_supported':False,'truth_verified':False}

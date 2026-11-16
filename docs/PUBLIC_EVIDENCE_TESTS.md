@@ -39,7 +39,7 @@ actual event time are separate. Restricted, excluded or corrupt source material
 cannot supply a candidate.
 
 An explicit source correction can replace one unique exact span while preserving
-unaffected source text and the complete predecessor. The native authoring command
+unaffected source text, canonical header line breaks and the complete predecessor. The native authoring command
 is deliberately separate from read-only expert investigation:
 
 ```sh

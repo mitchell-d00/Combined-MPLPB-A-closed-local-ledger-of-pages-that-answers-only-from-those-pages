@@ -4,8 +4,8 @@ Last reviewed: 2026-11-16.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `8fb3eb82cde1781c1402d57986b63179b82ad4e5` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `21eec01b5c90e4a3f7aee865e11249fc911f1f56a84f83abce164078dd09b296`.
+Base commit: `6a0d635ee4fcf3af21a9a798cc1b9489f0e80544` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `35b3a79cd3fdd9d28bab5ad1d6130ed3e564565193579ea2c2886c5103567322`.
 
 ## Latest user update instructions
 
@@ -20,6 +20,7 @@ Read MPLPB, challenge reconstruction of complex relationships from original hist
 - Test a frozen extracted candidate, require successful exact-head checks, then merge to main under the user’s explicit authorization and observe postdeployment verification.
 - Pin fixture record time and retain final per-case source hashes so public scenarios regenerate reproducible sealed bytes. Preserve human-effort measurements as unknown and separate unsupported capabilities from safety outcomes.
 - Retain public per-case current/baseline results, implementation module hashes, fixture source hashes, resource measurements, and a version-bound comparison; preserve the tested implementation separately from evidence-only additions.
+- Preserve canonical header layout during scoped source correction and retain a same-suite before/fix regression receipt; earlier published result files remain tied to their original case/evaluator hashes.
 
 ## Validation recorded
 
@@ -30,6 +31,7 @@ Read MPLPB, challenge reconstruction of complex relationships from original hist
 - The generated-guide fix passed 13 focused system/documentation/public-suite tests, including the 52-case evaluator. The final corrected candidate still needs its extracted full regression and exact-head CI.
 - The corrected frozen extracted implementation passed all 926 Python regression tests. Its strict 52-case suite and four-original-paper replay passed, as did extracted JavaScript/API/transport/crawler/infrastructure checks. The final fixed-timestamp/hash-receipt harness change passed eight focused tests including all 52 public requirements; exact final-head CI remains required.
 - The clean published implementation 8fb3eb82cde1781c1402d57986b63179b82ad4e5 passed 52/52 public cases and the four-original-paper expert replay. Retained current/baseline per-case reports share manifest/evaluator hashes; baseline 257e54a records 10 passes and 42 capability gaps, with zero observed false supported bridges in both inspected runs. The comparison does not establish general historical accuracy.
+- Strengthened the existing correction-history requirement to check exact unaffected canonical text and header line breaks. The source-preservation fix passed 52/52 public cases and 20 focused public/investigation/system-guide tests. Final revised-head CI remains required before merge.
 
 ## Limitations and blocked checks
 

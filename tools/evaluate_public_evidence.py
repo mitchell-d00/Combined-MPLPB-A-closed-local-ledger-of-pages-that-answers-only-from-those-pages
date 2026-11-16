@@ -21,6 +21,7 @@ from mplpb_answers.pipeline import answer_query
 from mplpb_answers import pipeline
 from mplpb_combined.ledger import write, revise, Ledger
 from mplpb_combined.reader import PROFILES
+from mplpb_answers.body_text import body_text
 try:
     from mplpb_work.investigation import investigate
 except ImportError:
@@ -79,7 +80,8 @@ def extension(case,root):
         if correct_claim is None:return 'extension_unavailable',observed
         text='Mira owns observatory. The observatory is located in North Field.'
         if key=='correction-ambiguous-span':text+=' Mira owns observatory.'
-        rec=write(root,doc_id='SRC-0001',title='Correction witness',scope='archival records',body=text,
+        if key=='correction-history':text='Document ID: CORRECTION-101\nUpdated: 1900-01-01 v1\n'+text
+        rec=write(root,doc_id='SRC-0001',title='Correction witness',scope='archival records',body_html='<pre>'+html.escape(text)+'</pre>',
                   external='no' if key=='correction-external' else '')
         if key=='correction-source-stale':revise(root,rec.id,body='Sol owns observatory.')
         if key=='correction-no-implicit-write':
@@ -96,7 +98,9 @@ def extension(case,root):
         except ValueError:return 'rejected',{'rejected':True}
         history=Ledger(root).history(rec.id)
         observed['history']=[{'id':r.id,'text':r.text} for r in history]
-        return 'predecessor_and_successor' if key=='correction-history' and len(history)==2 and 'Mira owns' in history[0].text and 'North Field' in history[-1].text else 'unexpected_correction',observed
+        exact_preserved=(len(history)==2 and body_text(history[-1].body_html)==text.replace('Mira owns observatory.','Sol owns observatory.'))
+        observed['unaffected_projection_exact']=exact_preserved
+        return 'predecessor_and_successor' if key=='correction-history' and exact_preserved and 'Mira owns' in history[0].text else 'unexpected_correction',observed
     if investigate is None:return 'extension_unavailable',observed
     field='Supersedes' if key=='crawl-conditional-supersedes' else 'Related'
     target=('If approved, CASE-202 v1' if 'conditional' in key else 'Unnamed companion' if key=='crawl-generic-title'
