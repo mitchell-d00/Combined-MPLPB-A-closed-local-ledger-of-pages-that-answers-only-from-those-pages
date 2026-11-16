@@ -1,0 +1,299 @@
+{
+  "schema": "developer-proposition-review-inventory-v2",
+  "assessment_status": "PENDING",
+  "assessment_type": "Codex developer semantic inspection, NOT independent human review",
+  "runs": [
+    {
+      "corpus": "evaluation/unprepared-originals/2026-11-16-recovery/transfer",
+      "run": "evaluation/unprepared-originals/2026-11-16-recovery/transfer/allocation",
+      "receipt_sha256": "3c5b756daefa408d3885700f9e269919562c215fb217de759142b58d15a7a7f7"
+    }
+  ],
+  "items": [
+    {
+      "review_key": "e107c97c10c1831b7a1db1775d88df88b0ed034d1befe44b0cb883866f892f71",
+      "short_id": "P001",
+      "kind": "proposition",
+      "corpus": "transfer",
+      "original_id": "ZIMMERMANN-1917",
+      "original_url": "https://www.archives.gov/milestone-documents/zimmermann-telegram",
+      "original_sha256": "6fbd586b6aa65d2b6849ea177beb3ddd01e15f44292860b1e198c3e93bc93321",
+      "value": {
+        "actor": null,
+        "action": "cause",
+        "predicate_text": "caused",
+        "object_text": "Germany to break its pledge to limit submarine warfare.",
+        "affected_subject_text": "Meanwhile, frustration over the effective British naval blockade",
+        "modality": "actor_or_passive_agent_unresolved",
+        "documentary_bindings": [],
+        "object_bindings": [],
+        "date_candidates": [],
+        "source_layer_hint": "before_source_transcript_heading"
+      },
+      "candidate_kind": "source_proposition_candidate",
+      "evidence": [
+        {
+          "source_id": "ORIGINAL-0001",
+          "path": "original-0001.html",
+          "hash": "sha256:3a325ffe67582c149ee122de66ae06cae1699eb5e8fef9203c441a8bf3430674",
+          "body_start": 1813,
+          "body_end": 1940,
+          "body_projection": "body-text-no-headings-v1",
+          "quote": "Meanwhile, frustration over the effective British naval blockade caused Germany to break its pledge to limit submarine warfare."
+        }
+      ],
+      "occurrences": [
+        {
+          "case_id": "Z01",
+          "mapping_id": "2404780ada2dd6a5591186eb3e17f86bfd3bec2c997ae19aa9ee865e126b70a3"
+        },
+        {
+          "case_id": "Z02",
+          "mapping_id": "7d3f151b77be0b49891fe885e1bbee327d20b1e8a7f170f6a85ed3b0c884a854"
+        },
+        {
+          "case_id": "X01",
+          "mapping_id": "f586b6a83e94e925e0d70ad7bc8d9bc23152a3a0d8ea44470bdbc15480241c33"
+        }
+      ],
+      "legacy_review_keys": [
+        "c861492c32a292d02b0000fc0e91957540f8c8a46071cb37a68aa95f1007cc75"
+      ]
+    },
+    {
+      "review_key": "4530fa7b0b45aab01c346f9188261c77c4b2a47c511cef617a140d018aadaf3d",
+      "short_id": "P002",
+      "kind": "proposition",
+      "corpus": "transfer",
+      "original_id": "ZIMMERMANN-1917",
+      "original_url": "https://www.archives.gov/milestone-documents/zimmermann-telegram",
+      "original_sha256": "6fbd586b6aa65d2b6849ea177beb3ddd01e15f44292860b1e198c3e93bc93321",
+      "value": {
+        "actor": null,
+        "action": "publish",
+        "predicate_text": "published",
+        "object_text": "widely in the American press on March 1. The telegram had such an impact on American opinion that, according to David Kahn, author of The Codebreakers, \"No other single cryptanalysis has had such enormous consequences.\"",
+        "affected_subject_text": "On February 24 Britain released the Zimmermann telegram to Wilson, and news of the telegram was",
+        "modality": "actor_or_passive_agent_unresolved",
+        "documentary_bindings": [],
+        "object_bindings": [],
+        "date_candidates": [
+          {
+            "raw_text": "February 24",
+            "candidate_role": "context_date_role_unresolved",
+            "start": 2030,
+            "end": 2041,
+            "normalized_time": null
+          },
+          {
+            "raw_text": "March 1",
+            "candidate_role": "action_time_unresolved",
+            "start": 2165,
+            "end": 2172,
+            "normalized_time": null
+          }
+        ],
+        "source_layer_hint": "before_source_transcript_heading"
+      },
+      "candidate_kind": "source_proposition_candidate",
+      "evidence": [
+        {
+          "source_id": "ORIGINAL-0001",
+          "path": "original-0001.html",
+          "hash": "sha256:3a325ffe67582c149ee122de66ae06cae1699eb5e8fef9203c441a8bf3430674",
+          "body_start": 2027,
+          "body_end": 2352,
+          "body_projection": "body-text-no-headings-v1",
+          "quote": "On February 24 Britain released the Zimmermann telegram to Wilson, and news of the telegram was published widely in the American press on March 1. The telegram had such an impact on American opinion that, according to David Kahn, author of The Codebreakers, \"No other single cryptanalysis has had such enormous consequences.\""
+        }
+      ],
+      "occurrences": [
+        {
+          "case_id": "Z01",
+          "mapping_id": "6f172374bb331aba136a2b2bcf53bb9158b69efe772148ba5bb46116635341fc"
+        },
+        {
+          "case_id": "Z02",
+          "mapping_id": "28954bcc22d7a1a184d1e1b07f878b35070894dd93022dfc0a8a7ff14f6adf46"
+        },
+        {
+          "case_id": "X01",
+          "mapping_id": "5139bc135c672c4e97744577402274ea5bee9722e25eb92067efd2e5307ed3e5"
+        }
+      ],
+      "legacy_review_keys": [
+        "df2f3fe7dcbe958c0ab8130fb1e732aa4c9ea24eb79ed0e350e05e5cb186b76a"
+      ]
+    },
+    {
+      "review_key": "7aaf5f848a1fc8e6919e8ab80899bd8faf98d5acf64827a860999c27ba7d97a5",
+      "short_id": "P003",
+      "kind": "proposition",
+      "corpus": "transfer",
+      "original_id": "ZIMMERMANN-1917",
+      "original_url": "https://www.archives.gov/milestone-documents/zimmermann-telegram",
+      "original_sha256": "6fbd586b6aa65d2b6849ea177beb3ddd01e15f44292860b1e198c3e93bc93321",
+      "value": {
+        "actor": null,
+        "action": "send",
+        "predicate_text": "sent",
+        "object_text": "to Mexico, proposing a military alliance against the United States.",
+        "affected_subject_text": "This telegram, written by German Foreign Secretary Arthur Zimmermann, is a coded message",
+        "modality": "actor_or_passive_agent_unresolved",
+        "documentary_bindings": [],
+        "object_bindings": [],
+        "date_candidates": [],
+        "source_layer_hint": "before_source_transcript_heading"
+      },
+      "candidate_kind": "source_proposition_candidate",
+      "evidence": [
+        {
+          "source_id": "ORIGINAL-0001",
+          "path": "original-0001.html",
+          "hash": "sha256:3a325ffe67582c149ee122de66ae06cae1699eb5e8fef9203c441a8bf3430674",
+          "body_start": 695,
+          "body_end": 856,
+          "body_projection": "body-text-no-headings-v1",
+          "quote": "This telegram, written by German Foreign Secretary Arthur Zimmermann, is a coded message sent to Mexico, proposing a military alliance against the United States."
+        }
+      ],
+      "occurrences": [
+        {
+          "case_id": "Z01",
+          "mapping_id": "a468e47f4734a74d43c492e9b7baae96d2cac39609c6c9e3503dd91fe5d687d5"
+        },
+        {
+          "case_id": "Z02",
+          "mapping_id": "43ccebdda24f828bc8b1eb29429abc12ecb25b4b30d39db0169e1b2e3861ac8e"
+        },
+        {
+          "case_id": "X01",
+          "mapping_id": "a36235bc30b85211e394838c6a4136dd54547ba1ac798674da5c3a2e33ba33fe"
+        }
+      ],
+      "legacy_review_keys": [
+        "900a23af63de3ba2b90a88fb39c765bb1b91516f1a8642ae838eb3bef02451a7"
+      ]
+    },
+    {
+      "review_key": "4dcea90f235004784de051d2857104d7f723382742df7cc3d9e09a5fc20025be",
+      "short_id": "P004",
+      "kind": "proposition",
+      "corpus": "transfer",
+      "original_id": "REIMS-1945",
+      "original_url": "https://www.archives.gov/milestone-documents/surrender-of-germany",
+      "original_sha256": "2a30884d3b0b49011fcf17fe8c7aa8e09e1a69264874a69f3a870255ac139dd0",
+      "value": {
+        "actor": null,
+        "action": "authorize",
+        "predicate_text": "authorized",
+        "object_text": "to sign the surrender document; Maj. Wilhelm Oxenius, an aide to Jodl; and Adm.",
+        "affected_subject_text": "These were: Gen. Alfred Jodl, who alone had been",
+        "modality": "actor_or_passive_agent_unresolved",
+        "documentary_bindings": [],
+        "object_bindings": [],
+        "date_candidates": [],
+        "source_layer_hint": "before_source_transcript_heading"
+      },
+      "candidate_kind": "source_proposition_candidate",
+      "evidence": [
+        {
+          "source_id": "ORIGINAL-0002",
+          "path": "original-0002.html",
+          "hash": "sha256:f714f0302f1f2381fd247491533edc48b5c4710f3d6b426c85c2d54de74a0bb2",
+          "body_start": 1338,
+          "body_end": 1477,
+          "body_projection": "body-text-no-headings-v1",
+          "quote": "These were: Gen. Alfred Jodl, who alone had been authorized to sign the surrender document; Maj. Wilhelm Oxenius, an aide to Jodl; and Adm."
+        }
+      ],
+      "occurrences": [
+        {
+          "case_id": "Z01",
+          "mapping_id": "a98fd5aa3ddec1cecc4ecb1ce4e37086d0823ff641552ed773e39dfc9f3c0c42"
+        },
+        {
+          "case_id": "Z02",
+          "mapping_id": "71927b8001a1352f5cf35554b0eca90b44f03f8306b07a40fc3f5796775ed15e"
+        },
+        {
+          "case_id": "G01",
+          "mapping_id": "b1635aaa15979c30dea240256caa0e57e1c865dc47642d3ed4a9091ac5306cff"
+        },
+        {
+          "case_id": "G02",
+          "mapping_id": "9b5dea23e594a52bff68932eb40e94becfc8ff75f1151088295af1ffb7f9fb5d"
+        },
+        {
+          "case_id": "G03",
+          "mapping_id": "9c4db50186b371f7ef228048a49301d4165873bb3a273ac6308c7dbdc82864cf"
+        },
+        {
+          "case_id": "X01",
+          "mapping_id": "7953d87f0be9ee13e48be4cc3c8fc1e8a7ffd13d5924317e5356bb8e8801b80c"
+        }
+      ],
+      "legacy_review_keys": [
+        "ce2786ed93d5d49925aae681e79c94a802bf8eee64954dac04fc9f3e0b57b11e"
+      ]
+    },
+    {
+      "review_key": "22b63d835a1221b0eae77bf9d0e35406920502187f3f910e3a96fc4eaf76ce6d",
+      "short_id": "P005",
+      "kind": "proposition",
+      "corpus": "transfer",
+      "original_id": "REIMS-1945",
+      "original_url": "https://www.archives.gov/milestone-documents/surrender-of-germany",
+      "original_sha256": "2a30884d3b0b49011fcf17fe8c7aa8e09e1a69264874a69f3a870255ac139dd0",
+      "value": {
+        "actor": null,
+        "action": "issue",
+        "predicate_text": "issued",
+        "object_text": "by the Supreme Commander, Allied Expeditionary Force and by the Soviet High Command.",
+        "affected_subject_text": "3.  The German High Command will at once issue to the appropriate commander, and ensure the carrying out of any further orders",
+        "modality": "actor_or_passive_agent_unresolved",
+        "documentary_bindings": [],
+        "object_bindings": [],
+        "date_candidates": [],
+        "source_layer_hint": "after_source_transcript_heading"
+      },
+      "candidate_kind": "source_proposition_candidate",
+      "evidence": [
+        {
+          "source_id": "ORIGINAL-0002",
+          "path": "original-0002.html",
+          "hash": "sha256:f714f0302f1f2381fd247491533edc48b5c4710f3d6b426c85c2d54de74a0bb2",
+          "body_start": 3383,
+          "body_end": 3601,
+          "body_projection": "body-text-no-headings-v1",
+          "quote": "3.  The German High Command will at once issue to the appropriate commander, and ensure the carrying out of any further orders issued by the Supreme Commander, Allied Expeditionary Force and by the Soviet High Command."
+        }
+      ],
+      "occurrences": [
+        {
+          "case_id": "Z02",
+          "mapping_id": "8058153537113c61516a07ba9e52f543daab7791ae671e8793ab7c363ce9f269"
+        },
+        {
+          "case_id": "G01",
+          "mapping_id": "efb85ed6382b7d602c79e8c3f0c73e854f3238e6fcacda0323d03c414f8f5b2a"
+        },
+        {
+          "case_id": "G02",
+          "mapping_id": "847768eed06fb090d5cc6a97418adeb49ab888207b8fdf08d9aba78b121149ac"
+        },
+        {
+          "case_id": "G03",
+          "mapping_id": "10d8be80c25849d3f9509f2c2577d40064f0c1517d7f319f6f8e99d811b2ba11"
+        },
+        {
+          "case_id": "X01",
+          "mapping_id": "3845030a709109687f652e11eef7c76574cc554b657ea6d64f8094d8c714b6a0"
+        }
+      ],
+      "legacy_review_keys": [
+        "d346480bd2a0b60f6782b3def09568f690ce0470b374cb9df1b65a96b01ecb8c"
+      ]
+    }
+  ]
+}

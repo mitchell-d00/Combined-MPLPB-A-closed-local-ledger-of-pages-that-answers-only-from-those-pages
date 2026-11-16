@@ -45,6 +45,18 @@ def inventory(studies,output,version=1):
     save(output,value);return value
 
 
+def association_key(item):
+    """Retain actor/action judgments when only separately-scored date cues change.
+
+    This is a comparison projection, not an alteration of the original inventory
+    or labels. Evidence, actor, action, object, modality and bindings must agree.
+    """
+    value={k:v for k,v in item['value'].items() if k!='date_candidates' and 'proposition' not in k}
+    evidence=[(e['hash'],e['source_id'],e['body_start'],e['body_end'],e['quote']) for e in item['evidence']]
+    if item['candidate_kind'] in {'parallel_wording_candidate','possible_statement_conflict'}:evidence.sort();value={}
+    return digest([item['original_sha256'],item['candidate_kind'],value,evidence])
+
+
 def score(inventory_path,assessment_path):
     inv=read(inventory_path);assessment=read(assessment_path)
     if assessment['inventory_sha256']!=hashlib.sha256(Path(inventory_path).read_bytes()).hexdigest():raise ValueError('Assessment inventory differs')

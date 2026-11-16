@@ -1,0 +1,3091 @@
+{
+  "schema": "developer-proposition-review-inventory-v2",
+  "assessment_status": "PENDING",
+  "assessment_type": "Codex developer semantic inspection, NOT independent human review",
+  "runs": [
+    {
+      "corpus": "evaluation/unprepared-originals/2026-11-16-followup/unfamiliar",
+      "run": "evaluation/unprepared-originals/2026-11-16-recovery/unfamiliar",
+      "receipt_sha256": "f7e949d85dc92e9e21a3ccaf51f0210f804681113742302583e60ef2be2e934e"
+    },
+    {
+      "corpus": "evaluation/unprepared-originals/2026-11-16-followup/legal-transfer",
+      "run": "evaluation/unprepared-originals/2026-11-16-recovery/legal-transfer",
+      "receipt_sha256": "1d88d35123594fa6c7c206d0bfa89a65656616426e5a7906f0af09914863662a"
+    }
+  ],
+  "items": [
+    {
+      "review_key": "956f9ea21c24a58ecc0b3a622165909176bd2036b229c90c32ab9b44ec18ca05",
+      "short_id": "P001",
+      "kind": "proposition",
+      "corpus": "unfamiliar",
+      "original_id": "OVERLORD-1944",
+      "original_url": "https://www.archives.gov/milestone-documents/general-eisenhowers-order-of-the-day",
+      "original_sha256": "5bb1b674a1d1556e3768a628cf22582982e7a47a6979f728b401b2cb59586a05",
+      "value": {
+        "actor": "Roosevelt",
+        "action": "appoint",
+        "predicate_text": "appointed",
+        "object_text": "Gen. Dwight David Eisenhower to that position.",
+        "affected_subject_text": null,
+        "modality": "source_reports_action",
+        "documentary_bindings": [],
+        "object_bindings": [],
+        "date_candidates": [],
+        "source_layer_hint": "before_source_transcript_heading"
+      },
+      "candidate_kind": "source_proposition_candidate",
+      "evidence": [
+        {
+          "source_id": "ORIGINAL-0001",
+          "path": "original-0001.html",
+          "hash": "sha256:93d03d3493443fc88a7926765b45deac1cfc15592e9bf03cc27b5a2c737fe124",
+          "body_start": 1940,
+          "body_end": 2042,
+          "body_projection": "body-text-no-headings-v1",
+          "quote": "Shortly after the conference ended, Roosevelt appointed Gen. Dwight David Eisenhower to that position."
+        }
+      ],
+      "occurrences": [
+        {
+          "case_id": "U01",
+          "mapping_id": "545d7a576ec7d0cfa37ceedfc65e4b7b8e1f76471c0d160b7b6c7d71ab4aef5a"
+        },
+        {
+          "case_id": "U02",
+          "mapping_id": "112f1d2fdb82d715cb1cc68db52150b7643b71bff5251fb23e125f0883d6ba8d"
+        },
+        {
+          "case_id": "U03",
+          "mapping_id": "0991d99f8d2d9995c624eb937ee20f723b591e210ddafda79e094cf8a7b9b374"
+        },
+        {
+          "case_id": "U08",
+          "mapping_id": "34e4d24337077cd2ccc58a63d28477f9a69d2536874515c37204819604e0edd2"
+        }
+      ],
+      "legacy_review_keys": [
+        "4b193c5f1070d6d07a5c4cb3f40cb760cc9b1658320a226b1bcad1ceef4c63a7"
+      ]
+    },
+    {
+      "review_key": "c715981805620de7d95ad81db182d8776aad6cfeceaa55b01727929faf3080ac",
+      "short_id": "P002",
+      "kind": "proposition",
+      "corpus": "unfamiliar",
+      "original_id": "OVERLORD-1944",
+      "original_url": "https://www.archives.gov/milestone-documents/general-eisenhowers-order-of-the-day",
+      "original_sha256": "5bb1b674a1d1556e3768a628cf22582982e7a47a6979f728b401b2cb59586a05",
+      "value": {
+        "actor": "Eisenhower",
+        "action": "decide",
+        "predicate_text": "decided",
+        "object_text": "before dawn on June 5 to proceed with Overlord.",
+        "affected_subject_text": null,
+        "modality": "source_reports_action",
+        "documentary_bindings": [],
+        "object_bindings": [],
+        "date_candidates": [
+          {
+            "raw_text": "June 5",
+            "candidate_role": "action_time_unresolved",
+            "start": 2734,
+            "end": 2740,
+            "normalized_time": null
+          }
+        ],
+        "source_layer_hint": "before_source_transcript_heading"
+      },
+      "candidate_kind": "source_proposition_candidate",
+      "evidence": [
+        {
+          "source_id": "ORIGINAL-0001",
+          "path": "original-0001.html",
+          "hash": "sha256:93d03d3493443fc88a7926765b45deac1cfc15592e9bf03cc27b5a2c737fe124",
+          "body_start": 2535,
+          "body_end": 2766,
+          "body_projection": "body-text-no-headings-v1",
+          "quote": "Against a tense backdrop of uncertain weather forecasts, disagreements in strategy, and related timing dilemmas predicated on the need for optimal tidal conditions, Eisenhower decided before dawn on June 5 to proceed with Overlord."
+        }
+      ],
+      "occurrences": [
+        {
+          "case_id": "U01",
+          "mapping_id": "87402486c70fa1c3cd6b90430b6f3b1b81be7e3b0c6f441874315a1e0f92b8e5"
+        },
+        {
+          "case_id": "U02",
+          "mapping_id": "c26c971f2ebadb909c4e1a01e5437024078b4dbc6ad134a4f994908f49ca03ee"
+        },
+        {
+          "case_id": "U03",
+          "mapping_id": "d5fed4943b02bb135fe7acaae32bc470addd2396b8992d52ac9297b049f726c6"
+        },
+        {
+          "case_id": "U08",
+          "mapping_id": "c2a68cf0bca2b311f7dcbf5ffa59f02808869295388c907d59e464aefb770d8e"
+        }
+      ],
+      "legacy_review_keys": [
+        "e542ec159c3822b3e9b11fb96f544fe7962ea4a370040c6d3cb1806b84e2da67"
+      ]
+    },
+    {
+      "review_key": "1d17d63827dc9b9440004f28e1651ee99568728a6a721aa32077e442f2670454",
+      "short_id": "P003",
+      "kind": "proposition",
+      "corpus": "unfamiliar",
+      "original_id": "OVERLORD-1944",
+      "original_url": "https://www.archives.gov/milestone-documents/general-eisenhowers-order-of-the-day",
+      "original_sha256": "5bb1b674a1d1556e3768a628cf22582982e7a47a6979f728b401b2cb59586a05",
+      "value": {
+        "actor": null,
+        "action": "proceed",
+        "predicate_text": "proceed",
+        "object_text": "with Overlord.",
+        "affected_subject_text": "Against a tense backdrop of uncertain weather forecasts, disagreements in strategy, and related timing dilemmas predicated on the need for optimal tidal conditions, Eisenhower decided before dawn on June 5 to",
+        "modality": "future_request_or_intention",
+        "documentary_bindings": [],
+        "object_bindings": [],
+        "date_candidates": [
+          {
+            "raw_text": "June 5",
+            "candidate_role": "context_date_role_unresolved",
+            "start": 2734,
+            "end": 2740,
+            "normalized_time": null
+          }
+        ],
+        "source_layer_hint": "before_source_transcript_heading"
+      },
+      "candidate_kind": "source_proposition_candidate",
+      "evidence": [
+        {
+          "source_id": "ORIGINAL-0001",
+          "path": "original-0001.html",
+          "hash": "sha256:93d03d3493443fc88a7926765b45deac1cfc15592e9bf03cc27b5a2c737fe124",
+          "body_start": 2535,
+          "body_end": 2766,
+          "body_projection": "body-text-no-headings-v1",
+          "quote": "Against a tense backdrop of uncertain weather forecasts, disagreements in strategy, and related timing dilemmas predicated on the need for optimal tidal conditions, Eisenhower decided before dawn on June 5 to proceed with Overlord."
+        }
+      ],
+      "occurrences": [
+        {
+          "case_id": "U01",
+          "mapping_id": "c30b95ee410e652100849491dac15e932650315facc252eb3737ef8c86b32280"
+        },
+        {
+          "case_id": "U02",
+          "mapping_id": "25e1dd9cab62579443d6c02283d76c40082a15a497764f75d477441e2a27092d"
+        },
+        {
+          "case_id": "U03",
+          "mapping_id": "69902e1c6b1988019aa094e4caa5a53f59f8f45c9144f19a6c9ae15d8bad05ea"
+        },
+        {
+          "case_id": "U08",
+          "mapping_id": "1de6a4f77bad968037ea4203483ce4d78709bff56b8cbce78eb423315127206c"
+        }
+      ],
+      "legacy_review_keys": [
+        "145380a4e0e5be40a37b0ef0568c5e90130e447ac000c8ed10f022b1d00f498b"
+      ]
+    },
+    {
+      "review_key": "17720aeaa9b6d6696e994610a332270be531f52c7437110d8f659145dde115e6",
+      "short_id": "P004",
+      "kind": "proposition",
+      "corpus": "unfamiliar",
+      "original_id": "OVERLORD-1944",
+      "original_url": "https://www.archives.gov/milestone-documents/general-eisenhowers-order-of-the-day",
+      "original_sha256": "5bb1b674a1d1556e3768a628cf22582982e7a47a6979f728b401b2cb59586a05",
+      "value": {
+        "actor": "he",
+        "action": "write",
+        "predicate_text": "scribbled",
+        "object_text": "a note intended for release, accepting responsibility for the decision to launch the invasion and full blame should the effort to create a beachhead on the Normandy coast fail.",
+        "affected_subject_text": null,
+        "modality": "source_reports_action",
+        "documentary_bindings": [],
+        "object_bindings": [],
+        "date_candidates": [],
+        "source_layer_hint": "before_source_transcript_heading"
+      },
+      "candidate_kind": "source_proposition_candidate",
+      "evidence": [
+        {
+          "source_id": "ORIGINAL-0001",
+          "path": "original-0001.html",
+          "hash": "sha256:93d03d3493443fc88a7926765b45deac1cfc15592e9bf03cc27b5a2c737fe124",
+          "body_start": 2767,
+          "body_end": 2983,
+          "body_projection": "body-text-no-headings-v1",
+          "quote": "Later that same afternoon, he scribbled a note intended for release, accepting responsibility for the decision to launch the invasion and full blame should the effort to create a beachhead on the Normandy coast fail."
+        }
+      ],
+      "occurrences": [
+        {
+          "case_id": "U01",
+          "mapping_id": "704433e9d0e395cd7d8b4d7c24b4f01596fb9a06d3d240d52c669b8941ff159f"
+        },
+        {
+          "case_id": "U02",
+          "mapping_id": "b7c80857be24ffa04c73e84af39e5e68aa7d0a94d145cc53a1133e71b87e9061"
+        },
+        {
+          "case_id": "U03",
+          "mapping_id": "28d8a51c70bbc97cd22b76530b1611e46e680741698df96616a32c0885c54dcd"
+        },
+        {
+          "case_id": "U08",
+          "mapping_id": "bb08fa5cea40e9da0a44b84b8c0467d4e8c31f8718e44a0deaa17fe4ba4ca60b"
+        }
+      ],
+      "legacy_review_keys": [
+        "59de4da9e2fccf7de6a74d2b75a726291d85a42a415096133f05ffcf84d2a068"
+      ]
+    },
+    {
+      "review_key": "23fa1396abca35a293b509447489fd72eec1bafb16db5044e4ab290624414075",
+      "short_id": "P005",
+      "kind": "proposition",
+      "corpus": "unfamiliar",
+      "original_id": "OVERLORD-1944",
+      "original_url": "https://www.archives.gov/milestone-documents/general-eisenhowers-order-of-the-day",
+      "original_sha256": "5bb1b674a1d1556e3768a628cf22582982e7a47a6979f728b401b2cb59586a05",
+      "value": {
+        "actor": null,
+        "action": "fail",
+        "predicate_text": "fail",
+        "object_text": ".",
+        "affected_subject_text": "Later that same afternoon, he scribbled a note intended for release, accepting responsibility for the decision to launch the invasion and full blame should the effort to create a beachhead on the Normandy coast",
+        "modality": "conditional_or_uncertain",
+        "documentary_bindings": [],
+        "object_bindings": [],
+        "date_candidates": [],
+        "source_layer_hint": "before_source_transcript_heading"
+      },
+      "candidate_kind": "source_proposition_candidate",
+      "evidence": [
+        {
+          "source_id": "ORIGINAL-0001",
+          "path": "original-0001.html",
+          "hash": "sha256:93d03d3493443fc88a7926765b45deac1cfc15592e9bf03cc27b5a2c737fe124",
+          "body_start": 2767,
+          "body_end": 2983,
+          "body_projection": "body-text-no-headings-v1",
+          "quote": "Later that same afternoon, he scribbled a note intended for release, accepting responsibility for the decision to launch the invasion and full blame should the effort to create a beachhead on the Normandy coast fail."
+        }
+      ],
+      "occurrences": [
+        {
+          "case_id": "U01",
+          "mapping_id": "99aaca07b34fc296d43b4f7653fea61a896e091329d01c78f19dbf4e8e48c0e2"
+        },
+        {
+          "case_id": "U02",
+          "mapping_id": "8bff63da48fb5cff7ca50e02bafb33037de54e7cafa1cad08cf993be2caf6158"
+        },
+        {
+          "case_id": "U03",
+          "mapping_id": "ced55a32a10e41ff11580df3efaa639b8dbdac9942a3e13d0829387af04860de"
+        },
+        {
+          "case_id": "U08",
+          "mapping_id": "fee97d40f45975866294f8aa9cb87076f11db5f30465034d58941fd1a4e25728"
+        }
+      ],
+      "legacy_review_keys": [
+        "0e684ddf6d24e4306a9d2058a6d0a3f7b035d57d76fa66b5d17f3a92e69ec163"
+      ]
+    },
+    {
+      "review_key": "e1903d5ddfe4ff169781d378427e6769e57a4ebfb1bd9d3a6d6d7cab832598f0",
+      "short_id": "P006",
+      "kind": "proposition",
+      "corpus": "unfamiliar",
+      "original_id": "OVERLORD-1944",
+      "original_url": "https://www.archives.gov/milestone-documents/general-eisenhowers-order-of-the-day",
+      "original_sha256": "5bb1b674a1d1556e3768a628cf22582982e7a47a6979f728b401b2cb59586a05",
+      "value": {
+        "actor": "Eisenhower",
+        "action": "draft",
+        "predicate_text": "drafting",
+        "object_text": "in February.",
+        "affected_subject_text": null,
+        "modality": "source_reports_action",
+        "documentary_bindings": [],
+        "object_bindings": [],
+        "date_candidates": [
+          {
+            "raw_text": "June 6, 1944",
+            "candidate_role": "context_date_role_unresolved",
+            "start": 3039,
+            "end": 3051,
+            "normalized_time": null
+          },
+          {
+            "raw_text": "February",
+            "candidate_role": "creation",
+            "start": 3088,
+            "end": 3096,
+            "normalized_time": null
+          }
+        ],
+        "source_layer_hint": "before_source_transcript_heading"
+      },
+      "candidate_kind": "source_proposition_candidate",
+      "evidence": [
+        {
+          "source_id": "ORIGINAL-0001",
+          "path": "original-0001.html",
+          "hash": "sha256:93d03d3493443fc88a7926765b45deac1cfc15592e9bf03cc27b5a2c737fe124",
+          "body_start": 2984,
+          "body_end": 3097,
+          "body_projection": "body-text-no-headings-v1",
+          "quote": "Much more polished is his printed Order of the Day for June 6, 1944, which Eisenhower began drafting in February."
+        }
+      ],
+      "occurrences": [
+        {
+          "case_id": "U01",
+          "mapping_id": "95a5b0a06d505f95bd70702f4ecc1beb203102e3988d73c89194968d97fe548e"
+        },
+        {
+          "case_id": "U02",
+          "mapping_id": "9126e65f15d74c12621ef5b3d36ce231b35ac90c67f7721f26d8b6e9414ed870"
+        },
+        {
+          "case_id": "U03",
+          "mapping_id": "49791c352a431a46a8d6a2ef51e1039d7dbd1add5b753139ae117c887378e84f"
+        },
+        {
+          "case_id": "U08",
+          "mapping_id": "0dd7bb24b5c0deaafa77b7f543bbd7b16c380079d779e914e7ec98691d43fe19"
+        }
+      ],
+      "legacy_review_keys": [
+        "2857d12236a73ef9f876be6007e09524fc5cc608cb233340e6e17df0f2c188c2"
+      ]
+    },
+    {
+      "review_key": "4b5602020cdb44e1c0a88d9d0d95c14dad8299fde339517be769d5a4488def67",
+      "short_id": "P007",
+      "kind": "proposition",
+      "corpus": "unfamiliar",
+      "original_id": "OVERLORD-1944",
+      "original_url": "https://www.archives.gov/milestone-documents/general-eisenhowers-order-of-the-day",
+      "original_sha256": "5bb1b674a1d1556e3768a628cf22582982e7a47a6979f728b401b2cb59586a05",
+      "value": {
+        "actor": "Churchill and Roosevelt",
+        "action": "report_speech",
+        "predicate_text": "told",
+        "object_text": "Stalin that the invasion “would be possible” by August 1, 1944, but that no decision had yet been made to name a supreme commander.",
+        "affected_subject_text": null,
+        "modality": "source_reports_action",
+        "documentary_bindings": [],
+        "object_bindings": [],
+        "date_candidates": [
+          {
+            "raw_text": "August 1, 1944",
+            "candidate_role": "action_time_unresolved",
+            "start": 1599,
+            "end": 1613,
+            "normalized_time": null
+          }
+        ],
+        "source_layer_hint": "before_source_transcript_heading"
+      },
+      "candidate_kind": "source_proposition_candidate",
+      "evidence": [
+        {
+          "source_id": "ORIGINAL-0001",
+          "path": "original-0001.html",
+          "hash": "sha256:93d03d3493443fc88a7926765b45deac1cfc15592e9bf03cc27b5a2c737fe124",
+          "body_start": 1522,
+          "body_end": 1682,
+          "body_projection": "body-text-no-headings-v1",
+          "quote": "Churchill and Roosevelt told Stalin that the invasion “would be possible” by August 1, 1944, but that no decision had yet been made to name a supreme commander."
+        }
+      ],
+      "occurrences": [
+        {
+          "case_id": "U01",
+          "mapping_id": "43aadebd1474cddd8a31150624074fbbc1a18eb426b5ec67e8f8d1610a7f012f"
+        },
+        {
+          "case_id": "U02",
+          "mapping_id": "4c767281262be2e4cd1c2f83f60f906ced0bc66a95c02b919979d84cb3a4ce4d"
+        },
+        {
+          "case_id": "U03",
+          "mapping_id": "8650421f3ab5b89340e7197ace6ffc84070baed2726628ab061c8385f89bc4fb"
+        }
+      ],
+      "legacy_review_keys": [
+        "30b406f47af870effec8026c57c2ad9f7515fdec062504ac1c6b48039d9185cc"
+      ]
+    },
+    {
+      "review_key": "64ef7f6474d2f6aac0c9eefb56acad70284e3931bf1bb87b5e1b941391e0d694",
+      "short_id": "P008",
+      "kind": "proposition",
+      "corpus": "unfamiliar",
+      "original_id": "OVERLORD-1944",
+      "original_url": "https://www.archives.gov/milestone-documents/general-eisenhowers-order-of-the-day",
+      "original_sha256": "5bb1b674a1d1556e3768a628cf22582982e7a47a6979f728b401b2cb59586a05",
+      "value": {
+        "actor": null,
+        "action": "issue",
+        "predicate_text": "issued",
+        "object_text": "by Gen. Dwight D. Eisenhower to encourage Allied soldiers taking part in the D-day invasion.",
+        "affected_subject_text": "This order was",
+        "modality": "actor_or_passive_agent_unresolved",
+        "documentary_bindings": [],
+        "object_bindings": [],
+        "date_candidates": [],
+        "source_layer_hint": "before_source_transcript_heading"
+      },
+      "candidate_kind": "source_proposition_candidate",
+      "evidence": [
+        {
+          "source_id": "ORIGINAL-0001",
+          "path": "original-0001.html",
+          "hash": "sha256:93d03d3493443fc88a7926765b45deac1cfc15592e9bf03cc27b5a2c737fe124",
+          "body_start": 674,
+          "body_end": 788,
+          "body_projection": "body-text-no-headings-v1",
+          "quote": "This order was issued by Gen. Dwight D. Eisenhower to encourage Allied soldiers taking part in the D-day invasion."
+        }
+      ],
+      "occurrences": [
+        {
+          "case_id": "U01",
+          "mapping_id": "6e05dc0cf497c9e10cfce483fb625af253cb0a1aff52b178ab972c12cc10d466"
+        },
+        {
+          "case_id": "U02",
+          "mapping_id": "6d40520d56893a708c4bacf2d606b6c4f754a69b6953f1922e6559d091789162"
+        },
+        {
+          "case_id": "U06",
+          "mapping_id": "5ae8c46ae8f8b96d3ac2f5b98946123f167f4fce46a88f809c94c3f6c57e45ad"
+        },
+        {
+          "case_id": "U08",
+          "mapping_id": "9f220f155d47d3f9adf57e05dc25ac2f552bd270b99433951f922a26216df914"
+        }
+      ],
+      "legacy_review_keys": [
+        "bef83fb6af550a889c2d76393894abae4a74d40f9d9892e83add1f91c9f7310a"
+      ]
+    },
+    {
+      "review_key": "a5eb384ba091c73960932d0970d9b757316c07b5ad392e46ef1844a7b6ec7811",
+      "short_id": "P009",
+      "kind": "proposition",
+      "corpus": "unfamiliar",
+      "original_id": "YELLOWSTONE-1872",
+      "original_url": "https://www.archives.gov/milestone-documents/act-establishing-yellowstone-national-park",
+      "original_sha256": "ecdfc26dbc7044a7fbaa33f0153e0e2f49d74f284af24fb39f3484afc7ec56e8",
+      "value": {
+        "actor": null,
+        "action": "publish",
+        "predicate_text": "publishing",
+        "object_text": "in scientific and popular journals, giving interviews to newspapers, and providing entrepreneurs with images for duplication on stenographic cards and chromolithographic print sets.",
+        "affected_subject_text": "In addition to the annual reports of the surveys, government explorers disseminated information to the east coast about western environment and geology by lecturing,",
+        "modality": "actor_or_passive_agent_unresolved",
+        "documentary_bindings": [],
+        "object_bindings": [],
+        "date_candidates": [],
+        "source_layer_hint": "before_source_transcript_heading"
+      },
+      "candidate_kind": "source_proposition_candidate",
+      "evidence": [
+        {
+          "source_id": "ORIGINAL-0002",
+          "path": "original-0002.html",
+          "hash": "sha256:2b2900e5cc6ad6fbcf9027310ff7ea41568a67df84a51a8f72352e1945ef85a4",
+          "body_start": 2121,
+          "body_end": 2479,
+          "body_projection": "body-text-no-headings-v1",
+          "quote": "In addition to the annual reports of the surveys, government explorers disseminated information to the east coast about western environment and geology by lecturing, publishing in scientific and popular journals, giving interviews to newspapers, and providing entrepreneurs with images for duplication on stenographic cards and chromolithographic print sets."
+        }
+      ],
+      "occurrences": [
+        {
+          "case_id": "U01",
+          "mapping_id": "c5e298c43d98aa4b78f3376d165b06078097c3450231614d57c26f1cf69ce9ef"
+        },
+        {
+          "case_id": "U02",
+          "mapping_id": "0a6583851c451eeaf1de790d368e797fa502cda321c6d6379cd5d58b030f9b0a"
+        },
+        {
+          "case_id": "U06",
+          "mapping_id": "c90dd677d44fccff7b7759ac98f3681df8bbe19ca698d8dd9d3a54d0089dc6ed"
+        }
+      ],
+      "legacy_review_keys": [
+        "6024895d68199425613f21c6656237d6dd1350ea469535d2dd550f2ba8ac47c2"
+      ]
+    },
+    {
+      "review_key": "25e8bf2096c539fe8fb1b93f5472d3b2086d6f9c086d169b2b0ce653484f59f6",
+      "short_id": "P010",
+      "kind": "proposition",
+      "corpus": "unfamiliar",
+      "original_id": "YELLOWSTONE-1872",
+      "original_url": "https://www.archives.gov/milestone-documents/act-establishing-yellowstone-national-park",
+      "original_sha256": "ecdfc26dbc7044a7fbaa33f0153e0e2f49d74f284af24fb39f3484afc7ec56e8",
+      "value": {
+        "actor": null,
+        "action": "withdraw",
+        "predicate_text": "withdrawn",
+        "object_text": "from settlement, occupancy, or sale under the laws of the United States, and dedicated and set apart as a public park or pleasuring-ground for the benefit and enjoyment of the people; and all persons who shall locate or settle upon or occupy the same, or any part thereof, except as hereinafter provided, shall be considered trespassers and removed therefrom.",
+        "affected_subject_text": "n miles west of the most western point of Madison lake; thence north along said meridian to the latitude of the junction of Yellowstone and Gardiner's rivers; thence east to the place of beginning, is hereby reserved and",
+        "modality": "actor_or_passive_agent_unresolved",
+        "documentary_bindings": [],
+        "object_bindings": [],
+        "date_candidates": [],
+        "source_layer_hint": "after_source_transcript_heading"
+      },
+      "candidate_kind": "source_proposition_candidate",
+      "evidence": [
+        {
+          "source_id": "ORIGINAL-0002",
+          "path": "original-0002.html",
+          "hash": "sha256:2b2900e5cc6ad6fbcf9027310ff7ea41568a67df84a51a8f72352e1945ef85a4",
+          "body_start": 5962,
+          "body_end": 7200,
+          "body_projection": "body-text-no-headings-v1",
+          "quote": "Be it enacted by the Senate and House of Representatives of the United States of America in Congress assembled, That the tract of land in the Territories of Montana and Wyoming, lying near the headwaters of the Yellowstone River, and described as follows, to wit, commencing at the junction of Gardiner's river with the Yellowstone river, and running east to the meridian passing ten miles to the eastward of the most eastern point of Yellowstone lake; thence south along said meridian to the parallel of latitude passing ten miles south of the most southern point of Yellowstone lake; thence west along said parallel to the meridian passing fifteen miles west of the most western point of Madison lake; thence north along said meridian to the latitude of the junction of Yellowstone and Gardiner's rivers; thence east to the place of beginning, is hereby reserved and withdrawn from settlement, occupancy, or sale under the laws of the United States, and dedicated and set apart as a public park or pleasuring-ground for the benefit and enjoyment of the people; and all persons who shall locate or settle upon or occupy the same, or any part thereof, except as hereinafter provided, shall be considered trespassers and removed therefrom."
+        }
+      ],
+      "occurrences": [
+        {
+          "case_id": "U01",
+          "mapping_id": "42772eeae2d31e1e26e60edad7a8b50aca8994e7d4f9c11833cabbdd6147889f"
+        },
+        {
+          "case_id": "U03",
+          "mapping_id": "118ae499f57eef70e399dd1f302e44ae1d446272d3e275b8a8549a45e239ffc9"
+        },
+        {
+          "case_id": "U06",
+          "mapping_id": "c2c5a07f330110dd36eacdce6fefac1752a892fb3be67156443a5d2cfca4c1f9"
+        },
+        {
+          "case_id": "U07",
+          "mapping_id": "e511d9c176fd9cc5d060f969c97aeb7a9bbfaf2ed187a19f5e4af8b8196b70f3"
+        },
+        {
+          "case_id": "U08",
+          "mapping_id": "9998f38751c919bf37e36a0b63fa2e689aeb6009f0984c597bd90f8740c4e812"
+        }
+      ],
+      "legacy_review_keys": [
+        "ceb689421a78db10bd311dabacab05673f6434bc47a91ccf6fbc97864c3f44c8"
+      ]
+    },
+    {
+      "review_key": "6c44b82a212d959bd1b2714d86314e006d1a9ee9b8d122e3e516aaa01691f921",
+      "short_id": "P011",
+      "kind": "proposition",
+      "corpus": "unfamiliar",
+      "original_id": "YELLOWSTONE-1872",
+      "original_url": "https://www.archives.gov/milestone-documents/act-establishing-yellowstone-national-park",
+      "original_sha256": "ecdfc26dbc7044a7fbaa33f0153e0e2f49d74f284af24fb39f3484afc7ec56e8",
+      "value": {
+        "actor": "Such regulations",
+        "action": "provide",
+        "predicate_text": "provide",
+        "object_text": "for the preservation, from injury or spoliation, of all timber, mineral deposits, natural curiosities, or wonders within said park, and their retention in their natural condition.",
+        "affected_subject_text": null,
+        "modality": "future_request_or_intention",
+        "documentary_bindings": [],
+        "object_bindings": [],
+        "date_candidates": [],
+        "source_layer_hint": "after_source_transcript_heading"
+      },
+      "candidate_kind": "source_proposition_candidate",
+      "evidence": [
+        {
+          "source_id": "ORIGINAL-0002",
+          "path": "original-0002.html",
+          "hash": "sha256:2b2900e5cc6ad6fbcf9027310ff7ea41568a67df84a51a8f72352e1945ef85a4",
+          "body_start": 7472,
+          "body_end": 7682,
+          "body_projection": "body-text-no-headings-v1",
+          "quote": "Such regulations shall provide for the preservation, from injury or spoliation, of all timber, mineral deposits, natural curiosities, or wonders within said park, and their retention in their natural condition."
+        }
+      ],
+      "occurrences": [
+        {
+          "case_id": "U01",
+          "mapping_id": "4afa824dc8653379dfd523a77d6006ccc080286376ca55718258c570c813c7f3"
+        },
+        {
+          "case_id": "U06",
+          "mapping_id": "2004b8d82723699169977610bb0f2d42286b0229496c9ed268d8aa798b6b10a9"
+        },
+        {
+          "case_id": "U07",
+          "mapping_id": "5cd101652c05bb0d12dc5038a715d044890f25e56b08477289ccdf5c878f38c3"
+        },
+        {
+          "case_id": "U08",
+          "mapping_id": "6dbe267cd13537c9e1557745e52f2375acec0bec191c3a2200d5473a167fc16c"
+        }
+      ],
+      "legacy_review_keys": [
+        "4239eb7d4507761fd60011c3f063e3e77dfe59af78a3f4b7d7b15cc46e0cc2ab"
+      ]
+    },
+    {
+      "review_key": "2c6f4c7bc572e895bf0a461369205b5dabe2d529b06ff553af6af24a656b1f56",
+      "short_id": "P012",
+      "kind": "proposition",
+      "corpus": "unfamiliar",
+      "original_id": "YELLOWSTONE-1872",
+      "original_url": "https://www.archives.gov/milestone-documents/act-establishing-yellowstone-national-park",
+      "original_sha256": "ecdfc26dbc7044a7fbaa33f0153e0e2f49d74f284af24fb39f3484afc7ec56e8",
+      "value": {
+        "actor": "The Secretary",
+        "action": "grant",
+        "predicate_text": "grant",
+        "object_text": "leases for building purposes for terms not exceeding ten years, of small parcels of ground, at such places in said park as shall require the erection of buildings for the accommodation of visitors; all of the proceeds of said leases, and all other revenues that may be derived from any source connected with said park, to be expended under his direction in the management of the same, and the construction of roads and bridle-paths therein.",
+        "affected_subject_text": null,
+        "modality": "permission_or_possibility",
+        "documentary_bindings": [],
+        "object_bindings": [],
+        "date_candidates": [
+          {
+            "raw_text": "may",
+            "candidate_role": "context_date_role_unresolved",
+            "start": 7697,
+            "end": 7700,
+            "normalized_time": null
+          },
+          {
+            "raw_text": "may",
+            "candidate_role": "action_time_unresolved",
+            "start": 7988,
+            "end": 7991,
+            "normalized_time": null
+          }
+        ],
+        "source_layer_hint": "after_source_transcript_heading"
+      },
+      "candidate_kind": "source_proposition_candidate",
+      "evidence": [
+        {
+          "source_id": "ORIGINAL-0002",
+          "path": "original-0002.html",
+          "hash": "sha256:2b2900e5cc6ad6fbcf9027310ff7ea41568a67df84a51a8f72352e1945ef85a4",
+          "body_start": 7683,
+          "body_end": 8166,
+          "body_projection": "body-text-no-headings-v1",
+          "quote": "The Secretary may in his discretion, grant leases for building purposes for terms not exceeding ten years, of small parcels of ground, at such places in said park as shall require the erection of buildings for the accommodation of visitors; all of the proceeds of said leases, and all other revenues that may be derived from any source connected with said park, to be expended under his direction in the management of the same, and the construction of roads and bridle-paths therein."
+        }
+      ],
+      "occurrences": [
+        {
+          "case_id": "U01",
+          "mapping_id": "40fe46cb1850a305e3e28cf9dcb4e8e5550a709467465382b2e6577916c7d689"
+        },
+        {
+          "case_id": "U06",
+          "mapping_id": "fcafe9fe711be11c8757da843aed20635d579161a21a2f1a30fe8fe29ca682b6"
+        },
+        {
+          "case_id": "U07",
+          "mapping_id": "30af05d6f37836541811c20a4836cf526627533a73840a9dd5e000da955c07ef"
+        },
+        {
+          "case_id": "U08",
+          "mapping_id": "af31bf41354b5d223b4dc0a1eb28d1e71f0e5331726c6d7c0e81cfa58fb87168"
+        }
+      ],
+      "legacy_review_keys": [
+        "2cc2286f34e9d20209ad0a9f93c7b8028b0a4b4886e0123a5b841421d7b9d845"
+      ]
+    },
+    {
+      "review_key": "7ac9bf0730a90bcc9618edcca93dd2d3ac6f0d4422191ed292a73495e68bb229",
+      "short_id": "P013",
+      "kind": "proposition",
+      "corpus": "unfamiliar",
+      "original_id": "YELLOWSTONE-1872",
+      "original_url": "https://www.archives.gov/milestone-documents/act-establishing-yellowstone-national-park",
+      "original_sha256": "ecdfc26dbc7044a7fbaa33f0153e0e2f49d74f284af24fb39f3484afc7ec56e8",
+      "value": {
+        "actor": "He",
+        "action": "provide",
+        "predicate_text": "provide",
+        "object_text": "against the wanton destruction of the fish and game found within said park, and against their capture or destruction for the purposes of merchandise or profit.",
+        "affected_subject_text": null,
+        "modality": "future_request_or_intention",
+        "documentary_bindings": [],
+        "object_bindings": [],
+        "date_candidates": [],
+        "source_layer_hint": "after_source_transcript_heading"
+      },
+      "candidate_kind": "source_proposition_candidate",
+      "evidence": [
+        {
+          "source_id": "ORIGINAL-0002",
+          "path": "original-0002.html",
+          "hash": "sha256:2b2900e5cc6ad6fbcf9027310ff7ea41568a67df84a51a8f72352e1945ef85a4",
+          "body_start": 8167,
+          "body_end": 8343,
+          "body_projection": "body-text-no-headings-v1",
+          "quote": "He shall provide against the wanton destruction of the fish and game found within said park, and against their capture or destruction for the purposes of merchandise or profit."
+        }
+      ],
+      "occurrences": [
+        {
+          "case_id": "U01",
+          "mapping_id": "12cf8013ec03f92caee6a15e54c2169dcac7c950a0be5dc3296a353826df057c"
+        },
+        {
+          "case_id": "U06",
+          "mapping_id": "63899192782bbeb50bcd23316aca27e343b5c7f8150b2aa415870bd004980ae1"
+        },
+        {
+          "case_id": "U07",
+          "mapping_id": "0778d9774b7089e8dba7738cd5b361738133136495da09af2ebf1ea0d25b8709"
+        }
+      ],
+      "legacy_review_keys": [
+        "e3d16aa6f587a692fbd3079abe9b24f0d9b88198c946d7800806633e690cfcc5"
+      ]
+    },
+    {
+      "review_key": "c9d94764f7ea246f41e53a5a061b75286bf84c1e8477221c8bf28fb3a8c0e995",
+      "short_id": "P014",
+      "kind": "proposition",
+      "corpus": "unfamiliar",
+      "original_id": "YELLOWSTONE-1872",
+      "original_url": "https://www.archives.gov/milestone-documents/act-establishing-yellowstone-national-park",
+      "original_sha256": "ecdfc26dbc7044a7fbaa33f0153e0e2f49d74f284af24fb39f3484afc7ec56e8",
+      "value": {
+        "actor": "He",
+        "action": "cause",
+        "predicate_text": "cause",
+        "object_text": "all persons trespassing upon the same after the passage of this act to be removed therefrom, and generally shall be authorized to take all such measures as shall be necessary or proper to fully carry out the objects and purposes of this act.",
+        "affected_subject_text": null,
+        "modality": "future_request_or_intention",
+        "documentary_bindings": [],
+        "object_bindings": [],
+        "date_candidates": [],
+        "source_layer_hint": "after_source_transcript_heading"
+      },
+      "candidate_kind": "source_proposition_candidate",
+      "evidence": [
+        {
+          "source_id": "ORIGINAL-0002",
+          "path": "original-0002.html",
+          "hash": "sha256:2b2900e5cc6ad6fbcf9027310ff7ea41568a67df84a51a8f72352e1945ef85a4",
+          "body_start": 8344,
+          "body_end": 8605,
+          "body_projection": "body-text-no-headings-v1",
+          "quote": "He shall also cause all persons trespassing upon the same after the passage of this act to be removed therefrom, and generally shall be authorized to take all such measures as shall be necessary or proper to fully carry out the objects and purposes of this act."
+        }
+      ],
+      "occurrences": [
+        {
+          "case_id": "U01",
+          "mapping_id": "9b05c3d9a60f8a72e49f04f3f879de8012de783f0356a8c83502fffe8211643b"
+        },
+        {
+          "case_id": "U06",
+          "mapping_id": "ded7b04158f3e1cff8543b1cc7aa7ef19d3f9a03ee2de8716e4af2143b265f9c"
+        },
+        {
+          "case_id": "U07",
+          "mapping_id": "86ede0f87a9c22e5c9b0407e1c4d05cfa9507184d54ca45a290b229c7ef835bc"
+        }
+      ],
+      "legacy_review_keys": [
+        "921417bc90e60f17cced505beaad059c608c5ac75faa5b18e1bd67b7a987678c"
+      ]
+    },
+    {
+      "review_key": "dfa3f9aa1ae502f51493bd2cc009edb3cb353b5b9c21f350b2526005fb4254ed",
+      "short_id": "P015",
+      "kind": "proposition",
+      "corpus": "unfamiliar",
+      "original_id": "YELLOWSTONE-1872",
+      "original_url": "https://www.archives.gov/milestone-documents/act-establishing-yellowstone-national-park",
+      "original_sha256": "ecdfc26dbc7044a7fbaa33f0153e0e2f49d74f284af24fb39f3484afc7ec56e8",
+      "value": {
+        "actor": null,
+        "action": "authorize",
+        "predicate_text": "authorized",
+        "object_text": "to take all such measures as shall be necessary or proper to fully carry out the objects and purposes of this act.",
+        "affected_subject_text": "He shall also cause all persons trespassing upon the same after the passage of this act to be removed therefrom, and generally shall be",
+        "modality": "future_request_or_intention",
+        "documentary_bindings": [],
+        "object_bindings": [],
+        "date_candidates": [],
+        "source_layer_hint": "after_source_transcript_heading"
+      },
+      "candidate_kind": "source_proposition_candidate",
+      "evidence": [
+        {
+          "source_id": "ORIGINAL-0002",
+          "path": "original-0002.html",
+          "hash": "sha256:2b2900e5cc6ad6fbcf9027310ff7ea41568a67df84a51a8f72352e1945ef85a4",
+          "body_start": 8344,
+          "body_end": 8605,
+          "body_projection": "body-text-no-headings-v1",
+          "quote": "He shall also cause all persons trespassing upon the same after the passage of this act to be removed therefrom, and generally shall be authorized to take all such measures as shall be necessary or proper to fully carry out the objects and purposes of this act."
+        }
+      ],
+      "occurrences": [
+        {
+          "case_id": "U01",
+          "mapping_id": "a27d654ea07fc01a3b5667db19cd6d4d082634952382fa076a41619c78243f55"
+        },
+        {
+          "case_id": "U06",
+          "mapping_id": "7c3a66408532322f698bbef127e88eecc075c3afd2059a9426d9cd8f557c28cd"
+        },
+        {
+          "case_id": "U07",
+          "mapping_id": "004b65a3075e3f6fe333b2d7b0bb11b49dd30f588fd50936645554da9a248de6"
+        }
+      ],
+      "legacy_review_keys": [
+        "00deb2fcbcf347e60545675860f06b0327c28a91659e947b630fed0657f8a083"
+      ]
+    },
+    {
+      "review_key": "b89e400a477d7f73015c18ace05d02f164adf15b15268c77b92eef1bc23787b4",
+      "short_id": "C016",
+      "kind": "connection",
+      "corpus": "unfamiliar",
+      "original_id": "OVERLORD-1944",
+      "original_url": "https://www.archives.gov/milestone-documents/general-eisenhowers-order-of-the-day",
+      "original_sha256": "5bb1b674a1d1556e3768a628cf22582982e7a47a6979f728b401b2cb59586a05",
+      "value": {
+        "decision_proposition": "87402486c70fa1c3cd6b90430b6f3b1b81be7e3b0c6f441874315a1e0f92b8e5",
+        "planned_action_proposition": "c30b95ee410e652100849491dac15e932650315facc252eb3737ef8c86b32280",
+        "actor_candidate": "Eisenhower"
+      },
+      "candidate_kind": "planned_action_candidate",
+      "evidence": [
+        {
+          "source_id": "ORIGINAL-0001",
+          "path": "original-0001.html",
+          "hash": "sha256:93d03d3493443fc88a7926765b45deac1cfc15592e9bf03cc27b5a2c737fe124",
+          "body_start": 2535,
+          "body_end": 2766,
+          "body_projection": "body-text-no-headings-v1",
+          "quote": "Against a tense backdrop of uncertain weather forecasts, disagreements in strategy, and related timing dilemmas predicated on the need for optimal tidal conditions, Eisenhower decided before dawn on June 5 to proceed with Overlord."
+        }
+      ],
+      "occurrences": [
+        {
+          "case_id": "U01",
+          "mapping_id": "6f29344704a9b39ad4830bb154551057ef73b6daa2fb76d49162dc24993d0570"
+        },
+        {
+          "case_id": "U02",
+          "mapping_id": "e0624e7e7b732722cdc5dcfa66b7f74533b3a5a890d1bc4eea7c1ba2ac67513b"
+        },
+        {
+          "case_id": "U03",
+          "mapping_id": "d2d2589cee41b5db154b5dc239cb380c8a47be22daef16e05a73ff2280394247"
+        },
+        {
+          "case_id": "U08",
+          "mapping_id": "6d62f2f05e0bd5d867d700f3205d127f45dc25daf978a1c9a77fcd98813dbb24"
+        }
+      ],
+      "legacy_review_keys": [
+        "cde9a5ced15c6882672858089d1676760b1feaa5e97e80ae37f468981caaf7e8",
+        "482c5424089612b3f707815fc1d7e2f235665d7d912152cb045de9053f4d4acf",
+        "8a14f9ba8addd82e251a47e0cefc98af116854d49069147c165e0ef8e5c80535",
+        "ca518744772d181080a01ed3de4685bcc77f3382d67161335523693f436ca185"
+      ]
+    },
+    {
+      "review_key": "1f0ab45873dd2354b9f1805eda4012d7983901b3169489fbcbcaef5aba79a0cb",
+      "short_id": "C017",
+      "kind": "connection",
+      "corpus": "unfamiliar",
+      "original_id": "OVERLORD-1944",
+      "original_url": "https://www.archives.gov/milestone-documents/general-eisenhowers-order-of-the-day",
+      "original_sha256": "5bb1b674a1d1556e3768a628cf22582982e7a47a6979f728b401b2cb59586a05",
+      "value": {
+        "pronoun_proposition": "704433e9d0e395cd7d8b4d7c24b4f01596fb9a06d3d240d52c669b8941ff159f",
+        "antecedent_proposition": "87402486c70fa1c3cd6b90430b6f3b1b81be7e3b0c6f441874315a1e0f92b8e5",
+        "actor_candidate": "Eisenhower"
+      },
+      "candidate_kind": "possible_pronoun_antecedent",
+      "evidence": [
+        {
+          "source_id": "ORIGINAL-0001",
+          "path": "original-0001.html",
+          "hash": "sha256:93d03d3493443fc88a7926765b45deac1cfc15592e9bf03cc27b5a2c737fe124",
+          "body_start": 2535,
+          "body_end": 2766,
+          "body_projection": "body-text-no-headings-v1",
+          "quote": "Against a tense backdrop of uncertain weather forecasts, disagreements in strategy, and related timing dilemmas predicated on the need for optimal tidal conditions, Eisenhower decided before dawn on June 5 to proceed with Overlord."
+        },
+        {
+          "source_id": "ORIGINAL-0001",
+          "path": "original-0001.html",
+          "hash": "sha256:93d03d3493443fc88a7926765b45deac1cfc15592e9bf03cc27b5a2c737fe124",
+          "body_start": 2767,
+          "body_end": 2983,
+          "body_projection": "body-text-no-headings-v1",
+          "quote": "Later that same afternoon, he scribbled a note intended for release, accepting responsibility for the decision to launch the invasion and full blame should the effort to create a beachhead on the Normandy coast fail."
+        }
+      ],
+      "occurrences": [
+        {
+          "case_id": "U01",
+          "mapping_id": "f0134e8702cbbb9c0cd05d9073529f69c7dc09f3aca089890a0776de021a5c3a"
+        },
+        {
+          "case_id": "U02",
+          "mapping_id": "fa3feddc938f587d18d232bd7c273c2d1a9c54530e83957342d2b483824ab419"
+        },
+        {
+          "case_id": "U03",
+          "mapping_id": "8d23cbc8e8991dc64655279646f0472b44ca54ccc85c4f442284fa8fde7954eb"
+        },
+        {
+          "case_id": "U08",
+          "mapping_id": "73aa777b1d661415b3525122f254307e21a714cf848324f9d18d809defe6099d"
+        }
+      ],
+      "legacy_review_keys": [
+        "277c9b90c3510a46f7218a231ba3f863c90bb09ed19ac049e0d7acc74b510b45",
+        "c6d4507d9244537f993f5d162bac477ac1fc77df13cefe80cdfd215328ae0212",
+        "17861609e508dffe43fbe29820c0df8757aaa510926bd76a5fdc4f71352659cf",
+        "c048b586a8922e526b6f248863d3fc6d7ad8ff874b9c6270adfee83a60e783f4"
+      ]
+    },
+    {
+      "review_key": "2876f9da9e639fe7a425ed6ae6b591d9466edcbeee41195a4bfe643a623ab4d8",
+      "short_id": "C018",
+      "kind": "connection",
+      "corpus": "unfamiliar",
+      "original_id": "YELLOWSTONE-1872",
+      "original_url": "https://www.archives.gov/milestone-documents/act-establishing-yellowstone-national-park",
+      "original_sha256": "ecdfc26dbc7044a7fbaa33f0153e0e2f49d74f284af24fb39f3484afc7ec56e8",
+      "value": {
+        "pronoun_proposition": "12cf8013ec03f92caee6a15e54c2169dcac7c950a0be5dc3296a353826df057c",
+        "antecedent_proposition": "40fe46cb1850a305e3e28cf9dcb4e8e5550a709467465382b2e6577916c7d689",
+        "actor_candidate": "The Secretary"
+      },
+      "candidate_kind": "possible_pronoun_antecedent",
+      "evidence": [
+        {
+          "source_id": "ORIGINAL-0002",
+          "path": "original-0002.html",
+          "hash": "sha256:2b2900e5cc6ad6fbcf9027310ff7ea41568a67df84a51a8f72352e1945ef85a4",
+          "body_start": 7683,
+          "body_end": 8166,
+          "body_projection": "body-text-no-headings-v1",
+          "quote": "The Secretary may in his discretion, grant leases for building purposes for terms not exceeding ten years, of small parcels of ground, at such places in said park as shall require the erection of buildings for the accommodation of visitors; all of the proceeds of said leases, and all other revenues that may be derived from any source connected with said park, to be expended under his direction in the management of the same, and the construction of roads and bridle-paths therein."
+        },
+        {
+          "source_id": "ORIGINAL-0002",
+          "path": "original-0002.html",
+          "hash": "sha256:2b2900e5cc6ad6fbcf9027310ff7ea41568a67df84a51a8f72352e1945ef85a4",
+          "body_start": 8167,
+          "body_end": 8343,
+          "body_projection": "body-text-no-headings-v1",
+          "quote": "He shall provide against the wanton destruction of the fish and game found within said park, and against their capture or destruction for the purposes of merchandise or profit."
+        }
+      ],
+      "occurrences": [
+        {
+          "case_id": "U01",
+          "mapping_id": "1d90c3b9b6e0b3c0c076362a060207bc1f277671bb26ed36a445ae8917a1ef4d"
+        },
+        {
+          "case_id": "U06",
+          "mapping_id": "b9f0fc401eb7d8d2162414714e3aab55b719270c635ece8778e60968752ad718"
+        },
+        {
+          "case_id": "U07",
+          "mapping_id": "58b2b3c773d918d46a1a805cc9df90d7960313e50fd02e038e81c5353513ae16"
+        }
+      ],
+      "legacy_review_keys": [
+        "50693b05b095fc21b9627ee20cbea8edf1a1e37357420ab500cd260ae8324eda",
+        "8c97ad7df7d6598e391ff4edfb3c492a8133da40e485970f2454887f9e3885ac",
+        "3c45c0d1b59e11127d30fa1d6b85b114223570b00845893886cecc848df2cd33"
+      ]
+    },
+    {
+      "review_key": "11de9fb8359aca053d0aab607fd2137ff62581f016b4876e728b5f9a63453785",
+      "short_id": "C019",
+      "kind": "connection",
+      "corpus": "unfamiliar",
+      "original_id": "YELLOWSTONE-1872",
+      "original_url": "https://www.archives.gov/milestone-documents/act-establishing-yellowstone-national-park",
+      "original_sha256": "ecdfc26dbc7044a7fbaa33f0153e0e2f49d74f284af24fb39f3484afc7ec56e8",
+      "value": {
+        "pronoun_proposition": "9b05c3d9a60f8a72e49f04f3f879de8012de783f0356a8c83502fffe8211643b",
+        "antecedent_proposition": "40fe46cb1850a305e3e28cf9dcb4e8e5550a709467465382b2e6577916c7d689",
+        "actor_candidate": "The Secretary"
+      },
+      "candidate_kind": "possible_pronoun_antecedent",
+      "evidence": [
+        {
+          "source_id": "ORIGINAL-0002",
+          "path": "original-0002.html",
+          "hash": "sha256:2b2900e5cc6ad6fbcf9027310ff7ea41568a67df84a51a8f72352e1945ef85a4",
+          "body_start": 7683,
+          "body_end": 8166,
+          "body_projection": "body-text-no-headings-v1",
+          "quote": "The Secretary may in his discretion, grant leases for building purposes for terms not exceeding ten years, of small parcels of ground, at such places in said park as shall require the erection of buildings for the accommodation of visitors; all of the proceeds of said leases, and all other revenues that may be derived from any source connected with said park, to be expended under his direction in the management of the same, and the construction of roads and bridle-paths therein."
+        },
+        {
+          "source_id": "ORIGINAL-0002",
+          "path": "original-0002.html",
+          "hash": "sha256:2b2900e5cc6ad6fbcf9027310ff7ea41568a67df84a51a8f72352e1945ef85a4",
+          "body_start": 8344,
+          "body_end": 8605,
+          "body_projection": "body-text-no-headings-v1",
+          "quote": "He shall also cause all persons trespassing upon the same after the passage of this act to be removed therefrom, and generally shall be authorized to take all such measures as shall be necessary or proper to fully carry out the objects and purposes of this act."
+        }
+      ],
+      "occurrences": [
+        {
+          "case_id": "U01",
+          "mapping_id": "19fa1616c3ea54deadef94031196b2751f88caf67177a2b02329d90b5acd55a3"
+        },
+        {
+          "case_id": "U06",
+          "mapping_id": "90097920699eea491c1e2af8ac6331c85b71086713ae77e1452df81b731276fc"
+        },
+        {
+          "case_id": "U07",
+          "mapping_id": "b4989a3e5cb7169fb8f3fddee48c0a457d2d7f3e3809f3d45f733fb8e9bcf200"
+        }
+      ],
+      "legacy_review_keys": [
+        "a311ebcf6dce9d3551ef5980fe52f03ec0fa1581595e32abeaef4bd16f0fab51",
+        "61ec0f7deb7fb12d1e4a10c66449d40f1663af117ec65d7a47821bddaa499b5f",
+        "7d08f8f61997b5b9e9283c1c9abf67459ed46cd249d123772e3c8a5408b28c1c"
+      ]
+    },
+    {
+      "review_key": "b14214b266f28a28cd3d513d00240c238d0bceaee7e925cf3417ab5ad0ab65c7",
+      "short_id": "P020",
+      "kind": "proposition",
+      "corpus": "unfamiliar",
+      "original_id": "OVERLORD-1944",
+      "original_url": "https://www.archives.gov/milestone-documents/general-eisenhowers-order-of-the-day",
+      "original_sha256": "5bb1b674a1d1556e3768a628cf22582982e7a47a6979f728b401b2cb59586a05",
+      "value": {
+        "actor": null,
+        "action": "distribute",
+        "predicate_text": "distributed",
+        "object_text": "to the 175,000-member expeditionary force on the eve of the invasion.",
+        "affected_subject_text": "The order was",
+        "modality": "actor_or_passive_agent_unresolved",
+        "documentary_bindings": [],
+        "object_bindings": [],
+        "date_candidates": [
+          {
+            "raw_text": "eve of the invasion",
+            "candidate_role": "distribution",
+            "start": 3173,
+            "end": 3192,
+            "normalized_time": null
+          }
+        ],
+        "source_layer_hint": "before_source_transcript_heading"
+      },
+      "candidate_kind": "source_proposition_candidate",
+      "evidence": [
+        {
+          "source_id": "ORIGINAL-0001",
+          "path": "original-0001.html",
+          "hash": "sha256:93d03d3493443fc88a7926765b45deac1cfc15592e9bf03cc27b5a2c737fe124",
+          "body_start": 3098,
+          "body_end": 3193,
+          "body_projection": "body-text-no-headings-v1",
+          "quote": "The order was distributed to the 175,000-member expeditionary force on the eve of the invasion."
+        }
+      ],
+      "occurrences": [
+        {
+          "case_id": "U03",
+          "mapping_id": "cbf88a69db04b785d510ff95e71e00c2693b2b563945af7390d9cf9f9ad391c9"
+        }
+      ],
+      "legacy_review_keys": [
+        "5663e523fa6eeb5a3edba6d4b0f8337ee770855c0a5b29f6fcaf6b9d9103c13d"
+      ]
+    },
+    {
+      "review_key": "5e4eb300c6cd68d931adaba85b0a157640abfaa485f0b99ddd3449aeeaefda3d",
+      "short_id": "P021",
+      "kind": "proposition",
+      "corpus": "unfamiliar",
+      "original_id": "EMANCIPATION-1863",
+      "original_url": "https://www.archives.gov/milestone-documents/emancipation-proclamation",
+      "original_sha256": "e2615cf9992a43b3b86ee1b0eec9211fa24a6530424e8394979a8775577c4fe0",
+      "value": {
+        "actor": null,
+        "action": "designate",
+        "predicate_text": "designate",
+        "object_text": "the States and parts of States, if any, in which the people thereof, respectively, shall then be in rebellion against the United States; and the fact that any State, or the people thereof, shall on that day be, in good faith, represented in the Congress of the United States by members chosen thereto at elections wherein a majority of the qualified voters of such State shall have participated, shall, in the absence of strong countervailing testimony, be deemed conclusive evidence that such State, and the people thereof, are not then in rebellion against the United States.\"",
+        "affected_subject_text": "\"That the Executive will, on the first day of January aforesaid, by proclamation,",
+        "modality": "actor_or_passive_agent_unresolved",
+        "documentary_bindings": [],
+        "object_bindings": [],
+        "date_candidates": [
+          {
+            "raw_text": "January",
+            "candidate_role": "context_date_role_unresolved",
+            "start": 4364,
+            "end": 4371,
+            "normalized_time": null
+          }
+        ],
+        "source_layer_hint": "after_source_transcript_heading"
+      },
+      "candidate_kind": "source_proposition_candidate",
+      "evidence": [
+        {
+          "source_id": "ORIGINAL-0003",
+          "path": "original-0003.html",
+          "hash": "sha256:0b85c918a8ebb763e38521d95e79e8d65d80d3c5d2667c14d2992a8d13e92b69",
+          "body_start": 4318,
+          "body_end": 4988,
+          "body_projection": "body-text-no-headings-v1",
+          "quote": "\"That the Executive will, on the first day of January aforesaid, by proclamation, designate the States and parts of States, if any, in which the people thereof, respectively, shall then be in rebellion against the United States; and the fact that any State, or the people thereof, shall on that day be, in good faith, represented in the Congress of the United States by members chosen thereto at elections wherein a majority of the qualified voters of such State shall have participated, shall, in the absence of strong countervailing testimony, be deemed conclusive evidence that such State, and the people thereof, are not then in rebellion against the United States.\""
+        }
+      ],
+      "occurrences": [
+        {
+          "case_id": "U03",
+          "mapping_id": "2908e65e237c8f2f9ffd56a336f17bce2578bbbe86668177b4b9f288e1b11cca"
+        },
+        {
+          "case_id": "U04",
+          "mapping_id": "998af943245cde0440d04616cf5b0df707ce92d24436cd715876d2a5d849d703"
+        },
+        {
+          "case_id": "U05",
+          "mapping_id": "9734e936b1ebfdb71af9e87f5c36a6f12286aa0db9dfe9796daa28acbc9734a8"
+        }
+      ],
+      "legacy_review_keys": [
+        "4be27ff7308d480102ae0e28643cc96e4d2106b251d686e91190f803088ca6b7"
+      ]
+    },
+    {
+      "review_key": "fe1cac06ca88ad55d1a22e6661a45fa9ed301c044c454f3683a83721ee99f665",
+      "short_id": "P022",
+      "kind": "proposition",
+      "corpus": "unfamiliar",
+      "original_id": "EMANCIPATION-1863",
+      "original_url": "https://www.archives.gov/milestone-documents/emancipation-proclamation",
+      "original_sha256": "e2615cf9992a43b3b86ee1b0eec9211fa24a6530424e8394979a8775577c4fe0",
+      "value": {
+        "actor": "Abraham Lincoln",
+        "action": "designate",
+        "predicate_text": "designate",
+        "object_text": "as the States and parts of States wherein the people thereof respectively, are this day in rebellion against the United States, the following, to wit:",
+        "affected_subject_text": null,
+        "modality": "source_reports_action",
+        "documentary_bindings": [],
+        "object_bindings": [],
+        "date_candidates": [
+          {
+            "raw_text": "January",
+            "candidate_role": "context_date_role_unresolved",
+            "start": 5346,
+            "end": 5353,
+            "normalized_time": null
+          }
+        ],
+        "source_layer_hint": "after_source_transcript_heading"
+      },
+      "candidate_kind": "source_proposition_candidate",
+      "evidence": [
+        {
+          "source_id": "ORIGINAL-0003",
+          "path": "original-0003.html",
+          "hash": "sha256:0b85c918a8ebb763e38521d95e79e8d65d80d3c5d2667c14d2992a8d13e92b69",
+          "body_start": 4989,
+          "body_end": 5733,
+          "body_projection": "body-text-no-headings-v1",
+          "quote": "Now, therefore I, Abraham Lincoln, President of the United States, by virtue of the power in me vested as Commander-in-Chief, of the Army and Navy of the United States in time of actual armed rebellion against the authority and government of the United States, and as a fit and necessary war measure for suppressing said rebellion, do, on this first day of January, in the year of our Lord one thousand eight hundred and sixty-three, and in accordance with my purpose so to do publicly proclaimed for the full period of one hundred days, from the day first above mentioned, order and designate as the States and parts of States wherein the people thereof respectively, are this day in rebellion against the United States, the following, to wit:"
+        }
+      ],
+      "occurrences": [
+        {
+          "case_id": "U03",
+          "mapping_id": "f77697d2eb324e70165dbcf15eff8d41997e0de40d69906b895db7b736e3a945"
+        },
+        {
+          "case_id": "U04",
+          "mapping_id": "93c816d8335701758dbe2aca928b9fe77d4f62ef7686cc6cdaa87e76bde31574"
+        },
+        {
+          "case_id": "U05",
+          "mapping_id": "f922d22cf1884a7f0bb149e266cfa917bb827dcc7a85e32beab9643269c14175"
+        }
+      ],
+      "legacy_review_keys": [
+        "1f0393e807883e42dc09ceaa0e3453093a3436c10076ea2f6cbb94299a31346b"
+      ]
+    },
+    {
+      "review_key": "ea53abe70c79db455f1d779b504b79bae4f03a49727f54b4000b82e3c12b43c0",
+      "short_id": "P023",
+      "kind": "proposition",
+      "corpus": "unfamiliar",
+      "original_id": "EMANCIPATION-1863",
+      "original_url": "https://www.archives.gov/milestone-documents/emancipation-proclamation",
+      "original_sha256": "e2615cf9992a43b3b86ee1b0eec9211fa24a6530424e8394979a8775577c4fe0",
+      "value": {
+        "actor": null,
+        "action": "issue",
+        "predicate_text": "issued",
+        "object_text": ".",
+        "affected_subject_text": "ey, Accomac, Northampton, Elizabeth City, York, Princess Ann, and Norfolk, including the cities of Norfolk and Portsmouth[)], and which excepted parts, are for the present, left precisely as if this proclamation were not",
+        "modality": "conditional_or_uncertain",
+        "documentary_bindings": [],
+        "object_bindings": [],
+        "date_candidates": [],
+        "source_layer_hint": "after_source_transcript_heading"
+      },
+      "candidate_kind": "source_proposition_candidate",
+      "evidence": [
+        {
+          "source_id": "ORIGINAL-0003",
+          "path": "original-0003.html",
+          "hash": "sha256:0b85c918a8ebb763e38521d95e79e8d65d80d3c5d2667c14d2992a8d13e92b69",
+          "body_start": 5734,
+          "body_end": 6378,
+          "body_projection": "body-text-no-headings-v1",
+          "quote": "Arkansas, Texas, Louisiana, (except the Parishes of St. Bernard, Plaquemines, Jefferson, St. John, St. Charles, St. James Ascension, Assumption, Terrebonne, Lafourche, St. Mary, St. Martin, and Orleans, including the City of New Orleans) Mississippi, Alabama, Florida, Georgia, South Carolina, North Carolina, and Virginia, (except the forty-eight counties designated as West Virginia, and also the counties of Berkley, Accomac, Northampton, Elizabeth City, York, Princess Ann, and Norfolk, including the cities of Norfolk and Portsmouth[)], and which excepted parts, are for the present, left precisely as if this proclamation were not issued."
+        }
+      ],
+      "occurrences": [
+        {
+          "case_id": "U03",
+          "mapping_id": "576bc9ebebbf874b4a38fa435bb2554bd44936dd8ebd8bf57786623bbe06008d"
+        },
+        {
+          "case_id": "U04",
+          "mapping_id": "0cfb0e1d692da338e7265abedcc698554e88e085de32f59cf950e7e5a6d8648b"
+        },
+        {
+          "case_id": "U05",
+          "mapping_id": "79f3c50bc6d9688c0042ac41ec67d53beac8f06749bb4174a5c8be240d67a4bd"
+        }
+      ],
+      "legacy_review_keys": [
+        "36d8dd1018d89ac664175503bad18afb41467cac9c05f1ffe6479cd4e31fdda1"
+      ]
+    },
+    {
+      "review_key": "bb7d99b720027b70b870db974e39a3d431a5d1c0d1f179c4bfeda9a8492daf47",
+      "short_id": "P024",
+      "kind": "proposition",
+      "corpus": "unfamiliar",
+      "original_id": "EMANCIPATION-1863",
+      "original_url": "https://www.archives.gov/milestone-documents/emancipation-proclamation",
+      "original_sha256": "e2615cf9992a43b3b86ee1b0eec9211fa24a6530424e8394979a8775577c4fe0",
+      "value": {
+        "actor": null,
+        "action": "receive",
+        "predicate_text": "received",
+        "object_text": "into the armed service of the United States to garrison forts, positions, stations, and other places, and to man vessels of all sorts in said service.",
+        "affected_subject_text": "And I further declare and make known, that such persons of suitable condition, will be",
+        "modality": "future_request_or_intention",
+        "documentary_bindings": [],
+        "object_bindings": [],
+        "date_candidates": [],
+        "source_layer_hint": "after_source_transcript_heading"
+      },
+      "candidate_kind": "source_proposition_candidate",
+      "evidence": [
+        {
+          "source_id": "ORIGINAL-0003",
+          "path": "original-0003.html",
+          "hash": "sha256:0b85c918a8ebb763e38521d95e79e8d65d80d3c5d2667c14d2992a8d13e92b69",
+          "body_start": 6973,
+          "body_end": 7219,
+          "body_projection": "body-text-no-headings-v1",
+          "quote": "And I further declare and make known, that such persons of suitable condition, will be received into the armed service of the United States to garrison forts, positions, stations, and other places, and to man vessels of all sorts in said service."
+        }
+      ],
+      "occurrences": [
+        {
+          "case_id": "U03",
+          "mapping_id": "7d52be61655811565da1324bc36a910a746c232f628fe76b4f3868d67378f25a"
+        },
+        {
+          "case_id": "U05",
+          "mapping_id": "fd0b518165fbc22ea06dbcdcb47eb1250b3beae9e9203be1ca37cf5789894c6e"
+        },
+        {
+          "case_id": "U08",
+          "mapping_id": "1d83ef079d3a805a415353393c06ba65ecfa87b997a40f7fedcfec1fa7f7e75a"
+        }
+      ],
+      "legacy_review_keys": [
+        "1958cf0ed924e48ea8c21cc852996a7db8329dde50518a70e6b03e77e4b0364f"
+      ]
+    },
+    {
+      "review_key": "0ef81e946c3eeaafaa7ed330cc52babd14f85519e7709b22a5b70ac2cc051209",
+      "short_id": "P025",
+      "kind": "proposition",
+      "corpus": "unfamiliar",
+      "original_id": "EMANCIPATION-1863",
+      "original_url": "https://www.archives.gov/milestone-documents/emancipation-proclamation",
+      "original_sha256": "e2615cf9992a43b3b86ee1b0eec9211fa24a6530424e8394979a8775577c4fe0",
+      "value": {
+        "actor": null,
+        "action": "cause",
+        "predicate_text": "caused",
+        "object_text": "the seal of the United States to be affixed.",
+        "affected_subject_text": "In witness whereof, I have hereunto set my hand and",
+        "modality": "actor_or_passive_agent_unresolved",
+        "documentary_bindings": [],
+        "object_bindings": [],
+        "date_candidates": [],
+        "source_layer_hint": "after_source_transcript_heading"
+      },
+      "candidate_kind": "source_proposition_candidate",
+      "evidence": [
+        {
+          "source_id": "ORIGINAL-0003",
+          "path": "original-0003.html",
+          "hash": "sha256:0b85c918a8ebb763e38521d95e79e8d65d80d3c5d2667c14d2992a8d13e92b69",
+          "body_start": 7425,
+          "body_end": 7528,
+          "body_projection": "body-text-no-headings-v1",
+          "quote": "In witness whereof, I have hereunto set my hand and caused the seal of the United States to be affixed."
+        }
+      ],
+      "occurrences": [
+        {
+          "case_id": "U03",
+          "mapping_id": "44e2074dbc41373940a5b070ed267192dbefc47bfa1d465b3255ba11f5f9a879"
+        },
+        {
+          "case_id": "U05",
+          "mapping_id": "c65fccd37381e1657ce5a94014222393ea57c741240e61a700e2bb1757657ba0"
+        },
+        {
+          "case_id": "U08",
+          "mapping_id": "a5a8b3ec8c730b4e9fd86b3f0895290333afdc0e03cb6fe190e393fa4766761d"
+        }
+      ],
+      "legacy_review_keys": [
+        "281108b3600f4e29e75859014a33a63b439905f3dbd6706a7aa0b456a65bb4e5"
+      ]
+    },
+    {
+      "review_key": "3b8f94191470d6b7ba6d1ec03207c4ea2a8d4ac3c1285591e6c4db6fa42156b7",
+      "short_id": "P026",
+      "kind": "proposition",
+      "corpus": "unfamiliar",
+      "original_id": "EMANCIPATION-1863",
+      "original_url": "https://www.archives.gov/milestone-documents/emancipation-proclamation",
+      "original_sha256": "e2615cf9992a43b3b86ee1b0eec9211fa24a6530424e8394979a8775577c4fe0",
+      "value": {
+        "actor": null,
+        "action": "issue",
+        "predicate_text": "issued",
+        "object_text": "by the President of the United States, containing, among other things, the following, to wit:",
+        "affected_subject_text": "Whereas, on the twenty-second day of September, in the year of our Lord one thousand eight hundred and sixty-two, a proclamation was",
+        "modality": "actor_or_passive_agent_unresolved",
+        "documentary_bindings": [],
+        "object_bindings": [],
+        "date_candidates": [
+          {
+            "raw_text": "September",
+            "candidate_role": "context_date_role_unresolved",
+            "start": 3539,
+            "end": 3548,
+            "normalized_time": null
+          }
+        ],
+        "source_layer_hint": "after_source_transcript_heading"
+      },
+      "candidate_kind": "source_proposition_candidate",
+      "evidence": [
+        {
+          "source_id": "ORIGINAL-0003",
+          "path": "original-0003.html",
+          "hash": "sha256:0b85c918a8ebb763e38521d95e79e8d65d80d3c5d2667c14d2992a8d13e92b69",
+          "body_start": 3502,
+          "body_end": 3735,
+          "body_projection": "body-text-no-headings-v1",
+          "quote": "Whereas, on the twenty-second day of September, in the year of our Lord one thousand eight hundred and sixty-two, a proclamation was issued by the President of the United States, containing, among other things, the following, to wit:"
+        }
+      ],
+      "occurrences": [
+        {
+          "case_id": "U03",
+          "mapping_id": "49450d210a72a4732c6eacf7c50ced3fad42af1d35af3d15541a7e7db1bf52d8"
+        },
+        {
+          "case_id": "U04",
+          "mapping_id": "e94552755be72487e1c2d3102e798f15358f0eef591756fef56bc39ca05fe1e0"
+        },
+        {
+          "case_id": "U05",
+          "mapping_id": "fd56559f9078a80f26eac3020c3f0e3280a321d5796e4c2457136daf84abf621"
+        }
+      ],
+      "legacy_review_keys": [
+        "7658dd6dca243ec4659ee2c3fe4da6c00e2aec8f7c4748cc66a4c3cffbc1c3c5"
+      ]
+    },
+    {
+      "review_key": "f1d4528b40d7dd87114d4e8c035de58604d6acd7cd5451878056523aa87d8107",
+      "short_id": "P027",
+      "kind": "proposition",
+      "corpus": "unfamiliar",
+      "original_id": "EMANCIPATION-1863",
+      "original_url": "https://www.archives.gov/milestone-documents/emancipation-proclamation",
+      "original_sha256": "e2615cf9992a43b3b86ee1b0eec9211fa24a6530424e8394979a8775577c4fe0",
+      "value": {
+        "actor": null,
+        "action": "quote_or_contain",
+        "predicate_text": "containing",
+        "object_text": ", among other things, the following, to wit:",
+        "affected_subject_text": "Whereas, on the twenty-second day of September, in the year of our Lord one thousand eight hundred and sixty-two, a proclamation was issued by the President of the United States,",
+        "modality": "actor_or_passive_agent_unresolved",
+        "documentary_bindings": [],
+        "object_bindings": [],
+        "date_candidates": [
+          {
+            "raw_text": "September",
+            "candidate_role": "context_date_role_unresolved",
+            "start": 3539,
+            "end": 3548,
+            "normalized_time": null
+          }
+        ],
+        "source_layer_hint": "after_source_transcript_heading"
+      },
+      "candidate_kind": "source_proposition_candidate",
+      "evidence": [
+        {
+          "source_id": "ORIGINAL-0003",
+          "path": "original-0003.html",
+          "hash": "sha256:0b85c918a8ebb763e38521d95e79e8d65d80d3c5d2667c14d2992a8d13e92b69",
+          "body_start": 3502,
+          "body_end": 3735,
+          "body_projection": "body-text-no-headings-v1",
+          "quote": "Whereas, on the twenty-second day of September, in the year of our Lord one thousand eight hundred and sixty-two, a proclamation was issued by the President of the United States, containing, among other things, the following, to wit:"
+        }
+      ],
+      "occurrences": [
+        {
+          "case_id": "U03",
+          "mapping_id": "ec7960db68772fb1cf9f269573ea7743fdb8d7734a00cf1ab8026254d6613a49"
+        },
+        {
+          "case_id": "U04",
+          "mapping_id": "ddc36b90c8ad15caf1b393a937b29c375bf5b79d01a16aa842edb4e344e4c342"
+        },
+        {
+          "case_id": "U05",
+          "mapping_id": "81303c5c3cb784b88f94785c17e2f69bfb0027d0f81e7eef539203b490f717d0"
+        }
+      ],
+      "legacy_review_keys": [
+        "0753ecb97549d8563e964537d341836ed50937f8d6c843830ab156cb4b1eba58"
+      ]
+    },
+    {
+      "review_key": "e3568b0e49cce78cc67797d308e8e9883829903152e14f323f07fb3834eed95c",
+      "short_id": "P028",
+      "kind": "proposition",
+      "corpus": "unfamiliar",
+      "original_id": "YELLOWSTONE-1872",
+      "original_url": "https://www.archives.gov/milestone-documents/act-establishing-yellowstone-national-park",
+      "original_sha256": "ecdfc26dbc7044a7fbaa33f0153e0e2f49d74f284af24fb39f3484afc7ec56e8",
+      "value": {
+        "actor": null,
+        "action": "support",
+        "predicate_text": "supported",
+        "object_text": "in his effort by Jay Cooke, the railroad magnate who anticipated increased tourist ridership on his lines serving the Yellowstone area.",
+        "affected_subject_text": "He was",
+        "modality": "actor_or_passive_agent_unresolved",
+        "documentary_bindings": [],
+        "object_bindings": [],
+        "date_candidates": [],
+        "source_layer_hint": "before_source_transcript_heading"
+      },
+      "candidate_kind": "source_proposition_candidate",
+      "evidence": [
+        {
+          "source_id": "ORIGINAL-0002",
+          "path": "original-0002.html",
+          "hash": "sha256:2b2900e5cc6ad6fbcf9027310ff7ea41568a67df84a51a8f72352e1945ef85a4",
+          "body_start": 5102,
+          "body_end": 5254,
+          "body_projection": "body-text-no-headings-v1",
+          "quote": "He was supported in his effort by Jay Cooke, the railroad magnate who anticipated increased tourist ridership on his lines serving the Yellowstone area."
+        }
+      ],
+      "occurrences": [
+        {
+          "case_id": "U03",
+          "mapping_id": "750cb8ee8900391b40d21714919fa25ca007ac585a9b26e52ef014d819f61add"
+        },
+        {
+          "case_id": "U06",
+          "mapping_id": "d87ea108060acecf76c96771a67debac557b03b7f239db66e7299373c26cbfae"
+        },
+        {
+          "case_id": "U07",
+          "mapping_id": "bf6735b885aab78137ce97a726fc3c9d21368b6b0eb5d9a6d45ad84714fa2b90"
+        },
+        {
+          "case_id": "U08",
+          "mapping_id": "a8d03dafc449abf719ec90c35cda4f1b02c216afbe96c5fdd7fefd2138a0fb42"
+        }
+      ],
+      "legacy_review_keys": [
+        "882eaf466118222db305d30bde1418b0f2fa7b62e76c5d0bffd4ef1843144168"
+      ]
+    },
+    {
+      "review_key": "01e0ccd5346e5bdca4737f78219673d1815f727c12712353204fc954ce8fc619",
+      "short_id": "P029",
+      "kind": "proposition",
+      "corpus": "unfamiliar",
+      "original_id": "EMANCIPATION-1863",
+      "original_url": "https://www.archives.gov/milestone-documents/emancipation-proclamation",
+      "original_sha256": "e2615cf9992a43b3b86ee1b0eec9211fa24a6530424e8394979a8775577c4fe0",
+      "value": {
+        "actor": "President",
+        "action": "issue",
+        "predicate_text": "issued",
+        "object_text": "the Emancipation Proclamation declaring \"that all persons held as slaves\" within the rebellious areas \"are, and henceforward shall be free.\"",
+        "affected_subject_text": null,
+        "modality": "source_reports_action",
+        "documentary_bindings": [],
+        "object_bindings": [],
+        "date_candidates": [],
+        "source_layer_hint": "before_source_transcript_heading"
+      },
+      "candidate_kind": "source_proposition_candidate",
+      "evidence": [
+        {
+          "source_id": "ORIGINAL-0003",
+          "path": "original-0003.html",
+          "hash": "sha256:0b85c918a8ebb763e38521d95e79e8d65d80d3c5d2667c14d2992a8d13e92b69",
+          "body_start": 1281,
+          "body_end": 1491,
+          "body_projection": "body-text-no-headings-v1",
+          "quote": "One hundred days later, with the rebellion unabated, President issued the Emancipation Proclamation declaring \"that all persons held as slaves\" within the rebellious areas \"are, and henceforward shall be free.\""
+        }
+      ],
+      "occurrences": [
+        {
+          "case_id": "U04",
+          "mapping_id": "a70cfe102624bd8c71fff557cce9b0fa82ae51c1db9236b55a59caa1d93f1a96"
+        },
+        {
+          "case_id": "U05",
+          "mapping_id": "ed0fb2fd6bb72de7901c85ab2b50d7f3a2318939652aa6d7f4b8c081534b2b0a"
+        },
+        {
+          "case_id": "U08",
+          "mapping_id": "94939e11b84e60620b76eead8977db587027fb8cbf9fd36e73c95baabaa08257"
+        }
+      ],
+      "legacy_review_keys": [
+        "54de02e5b7105f837e0e0cc9a2e7a96b4a037245b518b38a3078e64e41c36439"
+      ]
+    },
+    {
+      "review_key": "86fac7d7b383ac2050a6039cbf53bb13a8aa63379e17c615885907a2cee65fd1",
+      "short_id": "P030",
+      "kind": "proposition",
+      "corpus": "unfamiliar",
+      "original_id": "EMANCIPATION-1863",
+      "original_url": "https://www.archives.gov/milestone-documents/emancipation-proclamation",
+      "original_sha256": "e2615cf9992a43b3b86ee1b0eec9211fa24a6530424e8394979a8775577c4fe0",
+      "value": {
+        "actor": "President Abraham Lincoln",
+        "action": "issue",
+        "predicate_text": "issued",
+        "object_text": "the Emancipation Proclamation on January 1, 1863, announcing, \"that all persons held as slaves\" within the rebellious areas \"are, and henceforward shall be free.\"",
+        "affected_subject_text": null,
+        "modality": "source_reports_action",
+        "documentary_bindings": [],
+        "object_bindings": [],
+        "date_candidates": [
+          {
+            "raw_text": "January 1, 1863",
+            "candidate_role": "action_time_unresolved",
+            "start": 640,
+            "end": 655,
+            "normalized_time": null
+          }
+        ],
+        "source_layer_hint": "before_source_transcript_heading"
+      },
+      "candidate_kind": "source_proposition_candidate",
+      "evidence": [
+        {
+          "source_id": "ORIGINAL-0003",
+          "path": "original-0003.html",
+          "hash": "sha256:0b85c918a8ebb763e38521d95e79e8d65d80d3c5d2667c14d2992a8d13e92b69",
+          "body_start": 574,
+          "body_end": 769,
+          "body_projection": "body-text-no-headings-v1",
+          "quote": "President Abraham Lincoln issued the Emancipation Proclamation on January 1, 1863, announcing, \"that all persons held as slaves\" within the rebellious areas \"are, and henceforward shall be free.\""
+        }
+      ],
+      "occurrences": [
+        {
+          "case_id": "U04",
+          "mapping_id": "20d8bcfde3d83951e7bb67ce8c8b56f903d8a4bbb2aa467feb2eeae664dd4c09"
+        },
+        {
+          "case_id": "U05",
+          "mapping_id": "68e326a0e607534186431c20aa4e7f51cd4b0acd789c7904342e4c082fee7ace"
+        },
+        {
+          "case_id": "U08",
+          "mapping_id": "39f220fdb9b3d56d45b013683ad36719eb8a1f9fe97fca462dd8632a1def910d"
+        }
+      ],
+      "legacy_review_keys": [
+        "a9e14f9004bd718a16046dac7ad053340ae5a6738c22abf3f657b60c5f4ae692"
+      ]
+    },
+    {
+      "review_key": "51117003e96364d1586f43ae23ebd696c6ee6681bf5b736049609b617011116b",
+      "short_id": "P031",
+      "kind": "proposition",
+      "corpus": "unfamiliar",
+      "original_id": "EMANCIPATION-1863",
+      "original_url": "https://www.archives.gov/milestone-documents/emancipation-proclamation",
+      "original_sha256": "e2615cf9992a43b3b86ee1b0eec9211fa24a6530424e8394979a8775577c4fe0",
+      "value": {
+        "actor": "President Lincoln",
+        "action": "issue",
+        "predicate_text": "issued",
+        "object_text": "his Preliminary Emancipation Proclamation, which stated that enslaved people in those states or parts of states still in rebellion as of January 1, 1863, would be declared free.",
+        "affected_subject_text": null,
+        "modality": "source_reports_action",
+        "documentary_bindings": [],
+        "object_bindings": [],
+        "date_candidates": [
+          {
+            "raw_text": "September 22, 1862",
+            "candidate_role": "context_date_role_unresolved",
+            "start": 1053,
+            "end": 1071,
+            "normalized_time": null
+          },
+          {
+            "raw_text": "January 1, 1863",
+            "candidate_role": "action_time_unresolved",
+            "start": 1240,
+            "end": 1255,
+            "normalized_time": null
+          }
+        ],
+        "source_layer_hint": "before_source_transcript_heading"
+      },
+      "candidate_kind": "source_proposition_candidate",
+      "evidence": [
+        {
+          "source_id": "ORIGINAL-0003",
+          "path": "original-0003.html",
+          "hash": "sha256:0b85c918a8ebb763e38521d95e79e8d65d80d3c5d2667c14d2992a8d13e92b69",
+          "body_start": 1037,
+          "body_end": 1280,
+          "body_projection": "body-text-no-headings-v1",
+          "quote": "That changed on September 22, 1862, when President Lincoln issued his Preliminary Emancipation Proclamation, which stated that enslaved people in those states or parts of states still in rebellion as of January 1, 1863, would be declared free."
+        }
+      ],
+      "occurrences": [
+        {
+          "case_id": "U04",
+          "mapping_id": "5f24f89ef827851d0a3a508297fe1fb0915469857060a435c4d41cddef85b5d0"
+        },
+        {
+          "case_id": "U05",
+          "mapping_id": "3d3cf450595526df20d524d6791f8c0e2851d536532fdbdeb4d80becdf0268a7"
+        },
+        {
+          "case_id": "U08",
+          "mapping_id": "9a0c2ed7f12dad12a87fbc785ee78d7556d867d5bda8e77ba9abf38710a710cc"
+        }
+      ],
+      "legacy_review_keys": [
+        "d9de7f4523c5de91703ef9237bb67f07b350f3be5a6ab35bcd9632c3678204ba"
+      ]
+    },
+    {
+      "review_key": "cecdabdd1ade1241f3729babc4c804763b2558afca540b370d7746286240635a",
+      "short_id": "P032",
+      "kind": "proposition",
+      "corpus": "unfamiliar",
+      "original_id": "EMANCIPATION-1863",
+      "original_url": "https://www.archives.gov/milestone-documents/emancipation-proclamation",
+      "original_sha256": "e2615cf9992a43b3b86ee1b0eec9211fa24a6530424e8394979a8775577c4fe0",
+      "value": {
+        "actor": "I",
+        "action": "order",
+        "predicate_text": "order",
+        "object_text": "and declare that all persons held as slaves within said designated States, and parts of States, are, and henceforward shall be free; and that the Executive government of the United States, including the military and naval authorities thereof, will recognize and maintain the freedom of said persons.",
+        "affected_subject_text": null,
+        "modality": "source_reports_action",
+        "documentary_bindings": [],
+        "object_bindings": [],
+        "date_candidates": [],
+        "source_layer_hint": "after_source_transcript_heading"
+      },
+      "candidate_kind": "source_proposition_candidate",
+      "evidence": [
+        {
+          "source_id": "ORIGINAL-0003",
+          "path": "original-0003.html",
+          "hash": "sha256:0b85c918a8ebb763e38521d95e79e8d65d80d3c5d2667c14d2992a8d13e92b69",
+          "body_start": 6379,
+          "body_end": 6748,
+          "body_projection": "body-text-no-headings-v1",
+          "quote": "And by virtue of the power, and for the purpose aforesaid, I do order and declare that all persons held as slaves within said designated States, and parts of States, are, and henceforward shall be free; and that the Executive government of the United States, including the military and naval authorities thereof, will recognize and maintain the freedom of said persons."
+        }
+      ],
+      "occurrences": [
+        {
+          "case_id": "U04",
+          "mapping_id": "00a1278fd1388ff2bc5546b52d134ed3905d77b869fdbf8355a1d710152084e8"
+        },
+        {
+          "case_id": "U05",
+          "mapping_id": "020c1c9770236b8831969fd7ab1e3fb7a091de72b7577000fc7c2aab1bd3e12e"
+        }
+      ],
+      "legacy_review_keys": [
+        "e26e351e53475536d30bbc86d405790a9618d4e585a851cce350d21061bcf819"
+      ]
+    },
+    {
+      "review_key": "ab9ccf46a31bb696331ea206d1a48bb6b6d00025904e5f103b22c26b66ec3681",
+      "short_id": "P033",
+      "kind": "proposition",
+      "corpus": "unfamiliar",
+      "original_id": "EMANCIPATION-1863",
+      "original_url": "https://www.archives.gov/milestone-documents/emancipation-proclamation",
+      "original_sha256": "e2615cf9992a43b3b86ee1b0eec9211fa24a6530424e8394979a8775577c4fe0",
+      "value": {
+        "actor": null,
+        "action": "allow",
+        "predicate_text": "allowed",
+        "object_text": ", they labor faithfully for reasonable wages.",
+        "affected_subject_text": "And I hereby enjoin upon the people so declared to be free to abstain from all violence, unless in necessary self-defence; and I recommend to them that, in all cases when",
+        "modality": "actor_or_passive_agent_unresolved",
+        "documentary_bindings": [],
+        "object_bindings": [],
+        "date_candidates": [],
+        "source_layer_hint": "after_source_transcript_heading"
+      },
+      "candidate_kind": "source_proposition_candidate",
+      "evidence": [
+        {
+          "source_id": "ORIGINAL-0003",
+          "path": "original-0003.html",
+          "hash": "sha256:0b85c918a8ebb763e38521d95e79e8d65d80d3c5d2667c14d2992a8d13e92b69",
+          "body_start": 6749,
+          "body_end": 6972,
+          "body_projection": "body-text-no-headings-v1",
+          "quote": "And I hereby enjoin upon the people so declared to be free to abstain from all violence, unless in necessary self-defence; and I recommend to them that, in all cases when allowed, they labor faithfully for reasonable wages."
+        }
+      ],
+      "occurrences": [
+        {
+          "case_id": "U04",
+          "mapping_id": "5ae9bad21db00a119b86cd6ba204f7c792a9422d79dcfbc1b2eb3df4bc0b5e47"
+        },
+        {
+          "case_id": "U05",
+          "mapping_id": "41e9479f5558f73a7026659af741ebde86ca70c815772b7b436f3b612b189895"
+        },
+        {
+          "case_id": "U08",
+          "mapping_id": "a1748af4f1ebb2c15aa0c1cf5a0e2705c24b5bbc5e1290bb24e619c4a434a47d"
+        }
+      ],
+      "legacy_review_keys": [
+        "5f86e45d579d9f1ca8861de4c8c811f424e8999024ab3cd692222d1e5c77d256"
+      ]
+    },
+    {
+      "review_key": "e791a79b8e18847208fe1236e7efc81d50071e836b4965ad2357c0ffc3db8d0d",
+      "short_id": "P034",
+      "kind": "proposition",
+      "corpus": "unfamiliar",
+      "original_id": "YELLOWSTONE-1872",
+      "original_url": "https://www.archives.gov/milestone-documents/act-establishing-yellowstone-national-park",
+      "original_sha256": "ecdfc26dbc7044a7fbaa33f0153e0e2f49d74f284af24fb39f3484afc7ec56e8",
+      "value": {
+        "actor": "Ferdinand Hayden",
+        "action": "survey",
+        "predicate_text": "surveyed",
+        "object_text": "the area in 1871.",
+        "affected_subject_text": null,
+        "modality": "source_reports_action",
+        "documentary_bindings": [],
+        "object_bindings": [],
+        "date_candidates": [],
+        "source_layer_hint": "before_source_transcript_heading"
+      },
+      "candidate_kind": "source_proposition_candidate",
+      "evidence": [
+        {
+          "source_id": "ORIGINAL-0002",
+          "path": "original-0002.html",
+          "hash": "sha256:2b2900e5cc6ad6fbcf9027310ff7ea41568a67df84a51a8f72352e1945ef85a4",
+          "body_start": 4545,
+          "body_end": 4588,
+          "body_projection": "body-text-no-headings-v1",
+          "quote": "Ferdinand Hayden surveyed the area in 1871."
+        }
+      ],
+      "occurrences": [
+        {
+          "case_id": "U06",
+          "mapping_id": "40b36e1bf27b582bdf2949cd9afdc9fc62391fa4a713de9b77940560273d26a4"
+        },
+        {
+          "case_id": "U07",
+          "mapping_id": "52be7e3da2ba457cfe4ee19bafd8c099f69d5f3bd2a0bfed119b7889a078df76"
+        },
+        {
+          "case_id": "U08",
+          "mapping_id": "3428c5de759974a20709b4e71259ece757df34ab53e88b643a4953af2c9d5ac1"
+        }
+      ],
+      "legacy_review_keys": [
+        "900ac9c0934e05357c4d609f4fc78bfd26a1b4d54536662b19ea4831c55b7624"
+      ]
+    },
+    {
+      "review_key": "c045af5600e586cddbc5d967ab98c43a721ace1dbb082704022b80acb286f0f9",
+      "short_id": "P035",
+      "kind": "proposition",
+      "corpus": "unfamiliar",
+      "original_id": "YELLOWSTONE-1872",
+      "original_url": "https://www.archives.gov/milestone-documents/act-establishing-yellowstone-national-park",
+      "original_sha256": "ecdfc26dbc7044a7fbaa33f0153e0e2f49d74f284af24fb39f3484afc7ec56e8",
+      "value": {
+        "actor": "He",
+        "action": "write",
+        "predicate_text": "wrote",
+        "object_text": "a well-received article for Scribner’s Monthly that included fellow expedition member Thomas Moran’s illustrations.",
+        "affected_subject_text": null,
+        "modality": "source_reports_action",
+        "documentary_bindings": [],
+        "object_bindings": [],
+        "date_candidates": [],
+        "source_layer_hint": "before_source_transcript_heading"
+      },
+      "candidate_kind": "source_proposition_candidate",
+      "evidence": [
+        {
+          "source_id": "ORIGINAL-0002",
+          "path": "original-0002.html",
+          "hash": "sha256:2b2900e5cc6ad6fbcf9027310ff7ea41568a67df84a51a8f72352e1945ef85a4",
+          "body_start": 4706,
+          "body_end": 4838,
+          "body_projection": "body-text-no-headings-v1",
+          "quote": "He quickly wrote a well-received article for Scribner’s Monthly that included fellow expedition member Thomas Moran’s illustrations."
+        }
+      ],
+      "occurrences": [
+        {
+          "case_id": "U06",
+          "mapping_id": "80d709d5d8db32807d73bf95d23f4a179153264a46ac083974a6ae4af0dd8b75"
+        },
+        {
+          "case_id": "U07",
+          "mapping_id": "8fca066892054b167ac47c2ebe21f6c518f6dadc48c42e9d8ce227ef0a8e9b07"
+        },
+        {
+          "case_id": "U08",
+          "mapping_id": "58723eb149738ef7c2367e0fe66ab0ef59a47ca3d24614c96d6ff391bae481bc"
+        }
+      ],
+      "legacy_review_keys": [
+        "4f811088ec711bf0232952e7c8ae43322904a61144f26ad1847e163f10ff285a"
+      ]
+    },
+    {
+      "review_key": "dd529255a43e2ab7ea73f39e2678c329ee9fec307acd14ec9d4037a7561eb5af",
+      "short_id": "P036",
+      "kind": "proposition",
+      "corpus": "unfamiliar",
+      "original_id": "YELLOWSTONE-1872",
+      "original_url": "https://www.archives.gov/milestone-documents/act-establishing-yellowstone-national-park",
+      "original_sha256": "ecdfc26dbc7044a7fbaa33f0153e0e2f49d74f284af24fb39f3484afc7ec56e8",
+      "value": {
+        "actor": "He",
+        "action": "provide",
+        "predicate_text": "provided",
+        "object_text": "Charles Bierstadt, brother to the artist and a leading manufacturer of stereographic cards, with copies of William Jackson’s expedition photographs.",
+        "affected_subject_text": null,
+        "modality": "source_reports_action",
+        "documentary_bindings": [],
+        "object_bindings": [],
+        "date_candidates": [],
+        "source_layer_hint": "before_source_transcript_heading"
+      },
+      "candidate_kind": "source_proposition_candidate",
+      "evidence": [
+        {
+          "source_id": "ORIGINAL-0002",
+          "path": "original-0002.html",
+          "hash": "sha256:2b2900e5cc6ad6fbcf9027310ff7ea41568a67df84a51a8f72352e1945ef85a4",
+          "body_start": 4839,
+          "body_end": 4999,
+          "body_projection": "body-text-no-headings-v1",
+          "quote": "He provided Charles Bierstadt, brother to the artist and a leading manufacturer of stereographic cards, with copies of William Jackson’s expedition photographs."
+        }
+      ],
+      "occurrences": [
+        {
+          "case_id": "U06",
+          "mapping_id": "7b539ba5c8136446f641743c121cd1b164cfd4f9cf9a355ccd041d44b5a928a9"
+        },
+        {
+          "case_id": "U07",
+          "mapping_id": "420c19cd71b491fb1703a149db94649b6ed934d5549280fc0913a2e828822932"
+        },
+        {
+          "case_id": "U08",
+          "mapping_id": "8447fd79fa41a16a0419a885d6ee8cc823395ffbf483e3482e8a000340525a96"
+        }
+      ],
+      "legacy_review_keys": [
+        "789fb9c8ab187e1adb931433c3a78a898ece3e231bd5369ca543e8141606e3c3"
+      ]
+    },
+    {
+      "review_key": "ab7c12584f7574178534a69a45ab559f197c89e4dfa9bb024c46c8bba6c9b25f",
+      "short_id": "P037",
+      "kind": "proposition",
+      "corpus": "unfamiliar",
+      "original_id": "YELLOWSTONE-1872",
+      "original_url": "https://www.archives.gov/milestone-documents/act-establishing-yellowstone-national-park",
+      "original_sha256": "ecdfc26dbc7044a7fbaa33f0153e0e2f49d74f284af24fb39f3484afc7ec56e8",
+      "value": {
+        "actor": "He",
+        "action": "lobby",
+        "predicate_text": "lobbied",
+        "object_text": "members of Congress by presenting them with an album of Jackson’s Yellowstone photographs.",
+        "affected_subject_text": null,
+        "modality": "source_reports_action",
+        "documentary_bindings": [],
+        "object_bindings": [],
+        "date_candidates": [],
+        "source_layer_hint": "before_source_transcript_heading"
+      },
+      "candidate_kind": "source_proposition_candidate",
+      "evidence": [
+        {
+          "source_id": "ORIGINAL-0002",
+          "path": "original-0002.html",
+          "hash": "sha256:2b2900e5cc6ad6fbcf9027310ff7ea41568a67df84a51a8f72352e1945ef85a4",
+          "body_start": 5000,
+          "body_end": 5101,
+          "body_projection": "body-text-no-headings-v1",
+          "quote": "He lobbied members of Congress by presenting them with an album of Jackson’s Yellowstone photographs."
+        }
+      ],
+      "occurrences": [
+        {
+          "case_id": "U06",
+          "mapping_id": "46a247bf5bd8f63d5722b1a392e91fcbbd27e05a2f1233f282a6c2a3960888a3"
+        },
+        {
+          "case_id": "U07",
+          "mapping_id": "b62e6411dfb331d7a6e76c56b29ea4103ee1b11e043403452aaab94145323010"
+        },
+        {
+          "case_id": "U08",
+          "mapping_id": "a6f782c0f4c6c8cc1fba145908247b09a1340ffb1307e659ee9b21064cb42048"
+        }
+      ],
+      "legacy_review_keys": [
+        "890dc03556eb0fd3baa65b0c3e185858adfbf62e4b240e34d7048740b1ee9729"
+      ]
+    },
+    {
+      "review_key": "8c389a4eeee71f375bd0e874094b9d0d6c2da2c818d236505feff62f7654d3a0",
+      "short_id": "C038",
+      "kind": "connection",
+      "corpus": "unfamiliar",
+      "original_id": "YELLOWSTONE-1872",
+      "original_url": "https://www.archives.gov/milestone-documents/act-establishing-yellowstone-national-park",
+      "original_sha256": "ecdfc26dbc7044a7fbaa33f0153e0e2f49d74f284af24fb39f3484afc7ec56e8",
+      "value": {
+        "pronoun_proposition": "80d709d5d8db32807d73bf95d23f4a179153264a46ac083974a6ae4af0dd8b75",
+        "antecedent_proposition": "40b36e1bf27b582bdf2949cd9afdc9fc62391fa4a713de9b77940560273d26a4",
+        "actor_candidate": "Ferdinand Hayden"
+      },
+      "candidate_kind": "possible_pronoun_antecedent",
+      "evidence": [
+        {
+          "source_id": "ORIGINAL-0002",
+          "path": "original-0002.html",
+          "hash": "sha256:2b2900e5cc6ad6fbcf9027310ff7ea41568a67df84a51a8f72352e1945ef85a4",
+          "body_start": 4545,
+          "body_end": 4588,
+          "body_projection": "body-text-no-headings-v1",
+          "quote": "Ferdinand Hayden surveyed the area in 1871."
+        },
+        {
+          "source_id": "ORIGINAL-0002",
+          "path": "original-0002.html",
+          "hash": "sha256:2b2900e5cc6ad6fbcf9027310ff7ea41568a67df84a51a8f72352e1945ef85a4",
+          "body_start": 4706,
+          "body_end": 4838,
+          "body_projection": "body-text-no-headings-v1",
+          "quote": "He quickly wrote a well-received article for Scribner’s Monthly that included fellow expedition member Thomas Moran’s illustrations."
+        }
+      ],
+      "occurrences": [
+        {
+          "case_id": "U06",
+          "mapping_id": "4827ba5bff5f588f5fda011a72813e2605d045d841d45fc9df82087c2d967ce5"
+        },
+        {
+          "case_id": "U07",
+          "mapping_id": "6d7c8d84f9edaa5baf613700dbe9eb2331e800c9840bffa6ac2599d5fec7b611"
+        },
+        {
+          "case_id": "U08",
+          "mapping_id": "6e7e97fae4162e2cbdf114df109e0936e0118956e022ed1269bc1c6e6ff1d87e"
+        }
+      ],
+      "legacy_review_keys": [
+        "04630cb7ec2fb65f448065654342b9c93511a41a56c2e31726de7a57d09d70b6",
+        "0d43e343e947fb4829b78b0a3c045c75397991b1875b4c62e8d0597a365f5b30",
+        "075c1f1446f55002c5561c08c64c76d18c21717b9be3fdbcb931424bce4d6f7f"
+      ]
+    },
+    {
+      "review_key": "8b4ddd20a7e8da7e214c6c71f7b9f6ab4fc30ef194d7140b3e81f015bc9a3d41",
+      "short_id": "C039",
+      "kind": "connection",
+      "corpus": "unfamiliar",
+      "original_id": "YELLOWSTONE-1872",
+      "original_url": "https://www.archives.gov/milestone-documents/act-establishing-yellowstone-national-park",
+      "original_sha256": "ecdfc26dbc7044a7fbaa33f0153e0e2f49d74f284af24fb39f3484afc7ec56e8",
+      "value": {
+        "pronoun_proposition": "7b539ba5c8136446f641743c121cd1b164cfd4f9cf9a355ccd041d44b5a928a9",
+        "antecedent_proposition": "40b36e1bf27b582bdf2949cd9afdc9fc62391fa4a713de9b77940560273d26a4",
+        "actor_candidate": "Ferdinand Hayden"
+      },
+      "candidate_kind": "possible_pronoun_antecedent",
+      "evidence": [
+        {
+          "source_id": "ORIGINAL-0002",
+          "path": "original-0002.html",
+          "hash": "sha256:2b2900e5cc6ad6fbcf9027310ff7ea41568a67df84a51a8f72352e1945ef85a4",
+          "body_start": 4545,
+          "body_end": 4588,
+          "body_projection": "body-text-no-headings-v1",
+          "quote": "Ferdinand Hayden surveyed the area in 1871."
+        },
+        {
+          "source_id": "ORIGINAL-0002",
+          "path": "original-0002.html",
+          "hash": "sha256:2b2900e5cc6ad6fbcf9027310ff7ea41568a67df84a51a8f72352e1945ef85a4",
+          "body_start": 4839,
+          "body_end": 4999,
+          "body_projection": "body-text-no-headings-v1",
+          "quote": "He provided Charles Bierstadt, brother to the artist and a leading manufacturer of stereographic cards, with copies of William Jackson’s expedition photographs."
+        }
+      ],
+      "occurrences": [
+        {
+          "case_id": "U06",
+          "mapping_id": "b75a0423ea23a48816cd82b2290b9d3e7a0de329da82341800e513cac3b9d1ab"
+        },
+        {
+          "case_id": "U07",
+          "mapping_id": "b5c556502a75be654b24dc59fd222456e3b4b79aec5fdfa792019f371da22b83"
+        },
+        {
+          "case_id": "U08",
+          "mapping_id": "7ca587ce4e5d40e03db4b657b0c078b00342217849bc04d02147f88272041506"
+        }
+      ],
+      "legacy_review_keys": [
+        "3ecc6a0e4f2170e4c82d66566d1e043f6a5e5a2cb46582a384b94109344fe5b6",
+        "640a208242592e8b48b9fbb927c4abe3cd8b52dd2a8cfae8bd44f29187b52da1",
+        "2e3b902f6f5d78b2b443e87e2df3b10a81c35ebac56d87414ff3dec74e0c0f1d"
+      ]
+    },
+    {
+      "review_key": "7b1f55a3ec1525b65baab13d87d7f3b90fbd11bd3d5c3ceef247382cc0f69547",
+      "short_id": "C040",
+      "kind": "connection",
+      "corpus": "unfamiliar",
+      "original_id": "YELLOWSTONE-1872",
+      "original_url": "https://www.archives.gov/milestone-documents/act-establishing-yellowstone-national-park",
+      "original_sha256": "ecdfc26dbc7044a7fbaa33f0153e0e2f49d74f284af24fb39f3484afc7ec56e8",
+      "value": {
+        "pronoun_proposition": "46a247bf5bd8f63d5722b1a392e91fcbbd27e05a2f1233f282a6c2a3960888a3",
+        "antecedent_proposition": "40b36e1bf27b582bdf2949cd9afdc9fc62391fa4a713de9b77940560273d26a4",
+        "actor_candidate": "Ferdinand Hayden"
+      },
+      "candidate_kind": "possible_pronoun_antecedent",
+      "evidence": [
+        {
+          "source_id": "ORIGINAL-0002",
+          "path": "original-0002.html",
+          "hash": "sha256:2b2900e5cc6ad6fbcf9027310ff7ea41568a67df84a51a8f72352e1945ef85a4",
+          "body_start": 4545,
+          "body_end": 4588,
+          "body_projection": "body-text-no-headings-v1",
+          "quote": "Ferdinand Hayden surveyed the area in 1871."
+        },
+        {
+          "source_id": "ORIGINAL-0002",
+          "path": "original-0002.html",
+          "hash": "sha256:2b2900e5cc6ad6fbcf9027310ff7ea41568a67df84a51a8f72352e1945ef85a4",
+          "body_start": 5000,
+          "body_end": 5101,
+          "body_projection": "body-text-no-headings-v1",
+          "quote": "He lobbied members of Congress by presenting them with an album of Jackson’s Yellowstone photographs."
+        }
+      ],
+      "occurrences": [
+        {
+          "case_id": "U06",
+          "mapping_id": "2d3044f7869d66d89f380b76cb2e932abf8fdb288172add770aeb7b83cd39034"
+        },
+        {
+          "case_id": "U07",
+          "mapping_id": "e2031c17579c19674f39f9f23e17c7a180dc02c49b648c28bd7c39ff390d43cf"
+        },
+        {
+          "case_id": "U08",
+          "mapping_id": "0ccbdee14b0fb14d45aad462b803f2418c2813eec1efcdd6312c092b0cde2ee2"
+        }
+      ],
+      "legacy_review_keys": [
+        "806e65a6344e2e6fb62d768d9b7636a801a28befdbee6614406d6e9690a2a141",
+        "ddee021045f199dc2ca192e85bb50fa9a78dbf118b62bf009bbd85241178a815",
+        "c0bc2f2284cef08537f1ba7a129f87b0f79540dca35d7d8595f52cf3e1ccfc7a"
+      ]
+    },
+    {
+      "review_key": "5b780dcce7b4e59003de8cb76d94892a3eeebd6aba5166717c8a13e3f726bf9a",
+      "short_id": "P041",
+      "kind": "proposition",
+      "corpus": "legal-transfer",
+      "original_id": "AMENDMENTS-11-27",
+      "original_url": "https://www.archives.gov/founding-docs/amendments-11-27",
+      "original_sha256": "f696d3eb5194237248d403205878d6fd7664450f69aac8e54b0feedd774327c5",
+      "value": {
+        "actor": null,
+        "action": "authorize",
+        "predicate_text": "authorized",
+        "object_text": "by law, including debts incurred for payment of pensions and bounties for services in suppressing insurrection or rebellion, shall not be questioned.",
+        "affected_subject_text": "The validity of the public debt of the United States,",
+        "modality": "actor_or_passive_agent_unresolved",
+        "documentary_bindings": [],
+        "object_bindings": [],
+        "date_candidates": [],
+        "source_layer_hint": "unresolved"
+      },
+      "candidate_kind": "source_proposition_candidate",
+      "evidence": [
+        {
+          "source_id": "ORIGINAL-0001",
+          "path": "original-0001.html",
+          "hash": "sha256:22d1b25c378de31c772f1a4fec9566ac9d653c73d5531743ee7b8aae7d308d7b",
+          "body_start": 6367,
+          "body_end": 6581,
+          "body_projection": "body-text-no-headings-v1",
+          "quote": "The validity of the public debt of the United States, authorized by law, including debts incurred for payment of pensions and bounties for services in suppressing insurrection or rebellion, shall not be questioned."
+        }
+      ],
+      "occurrences": [
+        {
+          "case_id": "L01",
+          "mapping_id": "8a3e485d4882d6f9ae56db2b3d518bb0825082e685fc3f2d0fed1fbd50b8ac9d"
+        },
+        {
+          "case_id": "L02",
+          "mapping_id": "3a72ad5caa73fe7ddf7d90eb49f70a42a3b8d47cc2170ba6ca57d10b73814eaf"
+        }
+      ],
+      "legacy_review_keys": [
+        "dd772a15501c93059a79be55b651a4756c0098565b236eb0390364de7f7d83ff"
+      ]
+    },
+    {
+      "review_key": "8915ea89e279c7adce0a2843add09fe0b47a5bc90a8c858705ddaad2c936c4ed",
+      "short_id": "P042",
+      "kind": "proposition",
+      "corpus": "legal-transfer",
+      "original_id": "AMENDMENTS-11-27",
+      "original_url": "https://www.archives.gov/founding-docs/amendments-11-27",
+      "original_sha256": "f696d3eb5194237248d403205878d6fd7664450f69aac8e54b0feedd774327c5",
+      "value": {
+        "actor": null,
+        "action": "deny",
+        "predicate_text": "denied",
+        "object_text": "or abridged by the United States or by any State on account of race, color, or previous condition of servitude--",
+        "affected_subject_text": "The right of citizens of the United States to vote shall not be",
+        "modality": "negated_or_scope_limited",
+        "documentary_bindings": [],
+        "object_bindings": [],
+        "date_candidates": [],
+        "source_layer_hint": "unresolved"
+      },
+      "candidate_kind": "source_proposition_candidate",
+      "evidence": [
+        {
+          "source_id": "ORIGINAL-0001",
+          "path": "original-0001.html",
+          "hash": "sha256:22d1b25c378de31c772f1a4fec9566ac9d653c73d5531743ee7b8aae7d308d7b",
+          "body_start": 7084,
+          "body_end": 7267,
+          "body_projection": "body-text-no-headings-v1",
+          "quote": "The right of citizens of the United States to vote shall not be denied or abridged by the United States or by any State on account of race, color, or previous condition of servitude--"
+        }
+      ],
+      "occurrences": [
+        {
+          "case_id": "L01",
+          "mapping_id": "eb5ab23ccfebbf15d785c68167208f35d7c810ff833c3dd42b4d449428af12c5"
+        },
+        {
+          "case_id": "L02",
+          "mapping_id": "e7274f49ee3f0f425451f9c2e8bca0f64a00d26b3833e8fd62bae2078b7b24dc"
+        }
+      ],
+      "legacy_review_keys": [
+        "0fbbd504a0a503f18d00e934e224caf61539e53a297e82add589ed6cf9554fdf"
+      ]
+    },
+    {
+      "review_key": "3d79ce163179590f30293fa4f57a8e1611994eca162f1e0d7a6e7eb8bb903b8c",
+      "short_id": "P043",
+      "kind": "proposition",
+      "corpus": "legal-transfer",
+      "original_id": "AMENDMENTS-11-27",
+      "original_url": "https://www.archives.gov/founding-docs/amendments-11-27",
+      "original_sha256": "f696d3eb5194237248d403205878d6fd7664450f69aac8e54b0feedd774327c5",
+      "value": {
+        "actor": null,
+        "action": "provide",
+        "predicate_text": "provide",
+        "object_text": "for the case of the death of any of the persons from whom the House of Representatives may choose a President whenever the right of choice shall have devolved upon them, and for the case of the death of any of the persons from whom the Senate may choose a Vice President whenever the right of choice shall have devolved upon them.",
+        "affected_subject_text": "The Congress may by law",
+        "modality": "permission_or_possibility",
+        "documentary_bindings": [],
+        "object_bindings": [],
+        "date_candidates": [
+          {
+            "raw_text": "may",
+            "candidate_role": "context_date_role_unresolved",
+            "start": 11139,
+            "end": 11142,
+            "normalized_time": null
+          },
+          {
+            "raw_text": "may",
+            "candidate_role": "action_time_unresolved",
+            "start": 11245,
+            "end": 11248,
+            "normalized_time": null
+          },
+          {
+            "raw_text": "may",
+            "candidate_role": "action_time_unresolved",
+            "start": 11401,
+            "end": 11404,
+            "normalized_time": null
+          }
+        ],
+        "source_layer_hint": "unresolved"
+      },
+      "candidate_kind": "source_proposition_candidate",
+      "evidence": [
+        {
+          "source_id": "ORIGINAL-0001",
+          "path": "original-0001.html",
+          "hash": "sha256:22d1b25c378de31c772f1a4fec9566ac9d653c73d5531743ee7b8aae7d308d7b",
+          "body_start": 11126,
+          "body_end": 11488,
+          "body_projection": "body-text-no-headings-v1",
+          "quote": "The Congress may by law provide for the case of the death of any of the persons from whom the House of Representatives may choose a President whenever the right of choice shall have devolved upon them, and for the case of the death of any of the persons from whom the Senate may choose a Vice President whenever the right of choice shall have devolved upon them."
+        }
+      ],
+      "occurrences": [
+        {
+          "case_id": "L01",
+          "mapping_id": "5b949bbc021dc8f0262d9495ab7b0c97e75bcce83dbddfa1056c927094017a99"
+        },
+        {
+          "case_id": "L02",
+          "mapping_id": "cf3df78c965e9716a735f4d3f24028357db8cca1374b530efdce46f5787e7324"
+        },
+        {
+          "case_id": "L03",
+          "mapping_id": "f27c2862e10aa0e1aa2c32f1ddf1ec57c0d7518bb9b6f1fc509f4f5bc2d4b8e5"
+        }
+      ],
+      "legacy_review_keys": [
+        "7fd7519d22a7f1f98f18817e18bd06c52304c9954fa95f066a67ad87a37cddf4"
+      ]
+    },
+    {
+      "review_key": "20030b0b663131aab4c430e148901195cb647abb06c2d06419ddc72e10b59156",
+      "short_id": "P044",
+      "kind": "proposition",
+      "corpus": "legal-transfer",
+      "original_id": "AMENDMENTS-11-27",
+      "original_url": "https://www.archives.gov/founding-docs/amendments-11-27",
+      "original_sha256": "f696d3eb5194237248d403205878d6fd7664450f69aac8e54b0feedd774327c5",
+      "value": {
+        "actor": null,
+        "action": "repeal",
+        "predicate_text": "repealed",
+        "object_text": ".",
+        "affected_subject_text": "The eighteenth article of amendment to the Constitution of the United States is hereby",
+        "modality": "actor_or_passive_agent_unresolved",
+        "documentary_bindings": [],
+        "object_bindings": [],
+        "date_candidates": [],
+        "source_layer_hint": "unresolved"
+      },
+      "candidate_kind": "source_proposition_candidate",
+      "evidence": [
+        {
+          "source_id": "ORIGINAL-0001",
+          "path": "original-0001.html",
+          "hash": "sha256:22d1b25c378de31c772f1a4fec9566ac9d653c73d5531743ee7b8aae7d308d7b",
+          "body_start": 11876,
+          "body_end": 11972,
+          "body_projection": "body-text-no-headings-v1",
+          "quote": "The eighteenth article of amendment to the Constitution of the United States is hereby repealed."
+        }
+      ],
+      "occurrences": [
+        {
+          "case_id": "L01",
+          "mapping_id": "121eb180601e1ce302588aad76b56307340064f2a0c904fe0fbee2f65669eeaa"
+        },
+        {
+          "case_id": "L02",
+          "mapping_id": "44b69f25bf6b9c76661bda30b41eb9150c74700e786e4c418f6c24dc5ca4c7c1"
+        },
+        {
+          "case_id": "L03",
+          "mapping_id": "ed355912ca444d41927bcea293592a801b6c6b1d9de860059089db07e46e365e"
+        }
+      ],
+      "legacy_review_keys": [
+        "e60abf6ad63ae96fc720492c7ca1539ea31d14c5db5d5c1eb93ea4b8b915c21c"
+      ]
+    },
+    {
+      "review_key": "c01c00d43341333c5d790b21fb6d67630132940b0d751ee390a8967b5bef20f9",
+      "short_id": "P045",
+      "kind": "proposition",
+      "corpus": "legal-transfer",
+      "original_id": "AMENDMENTS-11-27",
+      "original_url": "https://www.archives.gov/founding-docs/amendments-11-27",
+      "original_sha256": "f696d3eb5194237248d403205878d6fd7664450f69aac8e54b0feedd774327c5",
+      "value": {
+        "actor": null,
+        "action": "prohibit",
+        "predicate_text": "prohibited",
+        "object_text": ".",
+        "affected_subject_text": "The transportation or importation into any State, Territory, or possession of the United States for delivery or use therein of intoxicating liquors, in violation of the laws thereof, is hereby",
+        "modality": "actor_or_passive_agent_unresolved",
+        "documentary_bindings": [],
+        "object_bindings": [],
+        "date_candidates": [],
+        "source_layer_hint": "unresolved"
+      },
+      "candidate_kind": "source_proposition_candidate",
+      "evidence": [
+        {
+          "source_id": "ORIGINAL-0001",
+          "path": "original-0001.html",
+          "hash": "sha256:22d1b25c378de31c772f1a4fec9566ac9d653c73d5531743ee7b8aae7d308d7b",
+          "body_start": 11973,
+          "body_end": 12177,
+          "body_projection": "body-text-no-headings-v1",
+          "quote": "The transportation or importation into any State, Territory, or possession of the United States for delivery or use therein of intoxicating liquors, in violation of the laws thereof, is hereby prohibited."
+        }
+      ],
+      "occurrences": [
+        {
+          "case_id": "L01",
+          "mapping_id": "fab32b216aad9f2e7cdd62234a23989f2c51ea6e31443626a83b2fae5eb56f47"
+        },
+        {
+          "case_id": "L02",
+          "mapping_id": "6d9c8c0e8f75c9c38ebb171d78bae558f1275835c7e2bb3f30531d139b6c35fe"
+        },
+        {
+          "case_id": "L03",
+          "mapping_id": "5db67104e2ba30e9d39b0be62b9e3bf375e88464cf00d495b9a77aba4cf2c16a"
+        }
+      ],
+      "legacy_review_keys": [
+        "262e8998a3a5f236d0f2a9ad9eb8b9553cdb42a872c10ccca4239169227b1228"
+      ]
+    },
+    {
+      "review_key": "50ca4474368d0687e641b473a9d35beb4187da676b08348f9628992620b1790a",
+      "short_id": "P046",
+      "kind": "proposition",
+      "corpus": "legal-transfer",
+      "original_id": "AMENDMENTS-11-27",
+      "original_url": "https://www.archives.gov/founding-docs/amendments-11-27",
+      "original_sha256": "f696d3eb5194237248d403205878d6fd7664450f69aac8e54b0feedd774327c5",
+      "value": {
+        "actor": null,
+        "action": "repeal",
+        "predicate_text": "Repealed",
+        "object_text": "by amendment 21.",
+        "affected_subject_text": "",
+        "modality": "actor_or_passive_agent_unresolved",
+        "documentary_bindings": [],
+        "object_bindings": [],
+        "date_candidates": [],
+        "source_layer_hint": "unresolved"
+      },
+      "candidate_kind": "source_proposition_candidate",
+      "evidence": [
+        {
+          "source_id": "ORIGINAL-0001",
+          "path": "original-0001.html",
+          "hash": "sha256:22d1b25c378de31c772f1a4fec9566ac9d653c73d5531743ee7b8aae7d308d7b",
+          "body_start": 8692,
+          "body_end": 8717,
+          "body_projection": "body-text-no-headings-v1",
+          "quote": "Repealed by amendment 21."
+        }
+      ],
+      "occurrences": [
+        {
+          "case_id": "L01",
+          "mapping_id": "f7ddbc2956092a6dd4318f06c088edf8cb063916728a3c3fb239fe2abe803d7f"
+        },
+        {
+          "case_id": "L02",
+          "mapping_id": "871919513eb1d491a8b6a3164687b7f5dc0958e1d4881453ed94c319ac37e247"
+        },
+        {
+          "case_id": "L03",
+          "mapping_id": "20a6a4a033b14f5e8ded20cb200e6c48a470de5e3d6315bfe1249f1f4ff1a8e4"
+        }
+      ],
+      "legacy_review_keys": [
+        "049515072092fcc672a3e9fb3626b96ea83032f9eff4ed5e85c1d5716c21c0a9"
+      ]
+    },
+    {
+      "review_key": "c8bd6328ac005190c86a912c6cf68153a0239e697b78127be213f3644115c145",
+      "short_id": "P047",
+      "kind": "proposition",
+      "corpus": "legal-transfer",
+      "original_id": "AMENDMENTS-11-27",
+      "original_url": "https://www.archives.gov/founding-docs/amendments-11-27",
+      "original_sha256": "f696d3eb5194237248d403205878d6fd7664450f69aac8e54b0feedd774327c5",
+      "value": {
+        "actor": null,
+        "action": "prohibit",
+        "predicate_text": "prohibited",
+        "object_text": ".",
+        "affected_subject_text": "ale, or transportation of intoxicating liquors within, the importation thereof into, or the exportation thereof from the United States and all territory subject to the jurisdiction thereof for beverage purposes is hereby",
+        "modality": "actor_or_passive_agent_unresolved",
+        "documentary_bindings": [],
+        "object_bindings": [],
+        "date_candidates": [],
+        "source_layer_hint": "unresolved"
+      },
+      "candidate_kind": "source_proposition_candidate",
+      "evidence": [
+        {
+          "source_id": "ORIGINAL-0001",
+          "path": "original-0001.html",
+          "hash": "sha256:22d1b25c378de31c772f1a4fec9566ac9d653c73d5531743ee7b8aae7d308d7b",
+          "body_start": 8718,
+          "body_end": 9021,
+          "body_projection": "body-text-no-headings-v1",
+          "quote": "After one year from the ratification of this article the manufacture, sale, or transportation of intoxicating liquors within, the importation thereof into, or the exportation thereof from the United States and all territory subject to the jurisdiction thereof for beverage purposes is hereby prohibited."
+        }
+      ],
+      "occurrences": [
+        {
+          "case_id": "L01",
+          "mapping_id": "0018740317dd7ac2c120b589e71608555407b6f47de3df259588dee349f022ca"
+        },
+        {
+          "case_id": "L02",
+          "mapping_id": "75c475800cb4d0d91258370f37508de6583b79c992cd8d67b75a173e2c0653d8"
+        },
+        {
+          "case_id": "L03",
+          "mapping_id": "48e74eeca4de131ab35bcf79d574d82afc7ea25ed1f29caa963c54a90c235be4"
+        }
+      ],
+      "legacy_review_keys": [
+        "00ddd908622eaef84c6a948182adda5eb738c4e91b32accf4273beb1c37f8e84"
+      ]
+    },
+    {
+      "review_key": "5042b58b5953f1eef77d0d6a8d3e25d403b2a931f77a8831d76460a10720697f",
+      "short_id": "P048",
+      "kind": "proposition",
+      "corpus": "legal-transfer",
+      "original_id": "AMENDMENTS-11-27",
+      "original_url": "https://www.archives.gov/founding-docs/amendments-11-27",
+      "original_sha256": "f696d3eb5194237248d403205878d6fd7664450f69aac8e54b0feedd774327c5",
+      "value": {
+        "actor": null,
+        "action": "deny",
+        "predicate_text": "denied",
+        "object_text": "or abridged by the United States or by any State on account of sex.",
+        "affected_subject_text": "The right of citizens of the United States to vote shall not be",
+        "modality": "negated_or_scope_limited",
+        "documentary_bindings": [],
+        "object_bindings": [],
+        "date_candidates": [],
+        "source_layer_hint": "unresolved"
+      },
+      "candidate_kind": "source_proposition_candidate",
+      "evidence": [
+        {
+          "source_id": "ORIGINAL-0001",
+          "path": "original-0001.html",
+          "hash": "sha256:22d1b25c378de31c772f1a4fec9566ac9d653c73d5531743ee7b8aae7d308d7b",
+          "body_start": 9467,
+          "body_end": 9605,
+          "body_projection": "body-text-no-headings-v1",
+          "quote": "The right of citizens of the United States to vote shall not be denied or abridged by the United States or by any State on account of sex."
+        }
+      ],
+      "occurrences": [
+        {
+          "case_id": "L02",
+          "mapping_id": "2541d95e57e6ced6c76ae9d737417df46f46ccfc4adeaee67e67a65ca98b3969"
+        },
+        {
+          "case_id": "L03",
+          "mapping_id": "31ac74fa361662295741f4cb089199a89c04c70945b4e669f0670fde696c7cb1"
+        }
+      ],
+      "legacy_review_keys": [
+        "e8128601f9169930d2b3835cdf57f5b76679b0d0a69bf9317db75fa4e8f617fa"
+      ]
+    },
+    {
+      "review_key": "ea30c8daae3b0e23130e5e94d3a83f23756d00861aa7af75e01b618f15251164",
+      "short_id": "P049",
+      "kind": "proposition",
+      "corpus": "legal-transfer",
+      "original_id": "AMENDMENTS-11-27",
+      "original_url": "https://www.archives.gov/founding-docs/amendments-11-27",
+      "original_sha256": "f696d3eb5194237248d403205878d6fd7664450f69aac8e54b0feedd774327c5",
+      "value": {
+        "actor": null,
+        "action": "deny",
+        "predicate_text": "denied",
+        "object_text": "to any of the male inhabitants of such State, being twenty-one years of age,* and citizens of the United States, or in any way abridged, except for participation in rebellion, or other crime, the basis of representation therein shall be reduced in the proportion which the number of such male citizens shall bear to the whole number of male citizens twenty-one years of age in such State.",
+        "affected_subject_text": "at any election for the choice of electors for President and Vice-President of the United States, Representatives in Congress, the Executive and Judicial officers of a State, or the members of the Legislature thereof, is",
+        "modality": "actor_or_passive_agent_unresolved",
+        "documentary_bindings": [],
+        "object_bindings": [],
+        "date_candidates": [],
+        "source_layer_hint": "unresolved"
+      },
+      "candidate_kind": "source_proposition_candidate",
+      "evidence": [
+        {
+          "source_id": "ORIGINAL-0001",
+          "path": "original-0001.html",
+          "hash": "sha256:22d1b25c378de31c772f1a4fec9566ac9d653c73d5531743ee7b8aae7d308d7b",
+          "body_start": 5095,
+          "body_end": 5738,
+          "body_projection": "body-text-no-headings-v1",
+          "quote": "But when the right to vote at any election for the choice of electors for President and Vice-President of the United States, Representatives in Congress, the Executive and Judicial officers of a State, or the members of the Legislature thereof, is denied to any of the male inhabitants of such State, being twenty-one years of age,* and citizens of the United States, or in any way abridged, except for participation in rebellion, or other crime, the basis of representation therein shall be reduced in the proportion which the number of such male citizens shall bear to the whole number of male citizens twenty-one years of age in such State."
+        }
+      ],
+      "occurrences": [
+        {
+          "case_id": "L02",
+          "mapping_id": "f0c983b18bd18969175aef58c80460159d1bf6f4d7064b43d094dab552dded81"
+        }
+      ],
+      "legacy_review_keys": [
+        "0d3a9eae96b9e72aef851ad696646f54b6fe72f6a68b31399e477836e6870f43"
+      ]
+    },
+    {
+      "review_key": "7de31aef7d402a6a19c5f99f8e4c53b86bb058fa30432d349f73e9a736cd57fe",
+      "short_id": "P050",
+      "kind": "proposition",
+      "corpus": "legal-transfer",
+      "original_id": "AMENDMENTS-11-27",
+      "original_url": "https://www.archives.gov/founding-docs/amendments-11-27",
+      "original_sha256": "f696d3eb5194237248d403205878d6fd7664450f69aac8e54b0feedd774327c5",
+      "value": {
+        "actor": null,
+        "action": "appoint",
+        "predicate_text": "appoint",
+        "object_text": "a different day.",
+        "affected_subject_text": "The Congress shall assemble at least once in every year, and such meeting shall begin at noon on the 3d day of January, unless they shall by law",
+        "modality": "future_request_or_intention",
+        "documentary_bindings": [],
+        "object_bindings": [],
+        "date_candidates": [
+          {
+            "raw_text": "January",
+            "candidate_role": "context_date_role_unresolved",
+            "start": 10336,
+            "end": 10343,
+            "normalized_time": null
+          }
+        ],
+        "source_layer_hint": "unresolved"
+      },
+      "candidate_kind": "source_proposition_candidate",
+      "evidence": [
+        {
+          "source_id": "ORIGINAL-0001",
+          "path": "original-0001.html",
+          "hash": "sha256:22d1b25c378de31c772f1a4fec9566ac9d653c73d5531743ee7b8aae7d308d7b",
+          "body_start": 10225,
+          "body_end": 10394,
+          "body_projection": "body-text-no-headings-v1",
+          "quote": "The Congress shall assemble at least once in every year, and such meeting shall begin at noon on the 3d day of January, unless they shall by law appoint a different day."
+        }
+      ],
+      "occurrences": [
+        {
+          "case_id": "L02",
+          "mapping_id": "aaf427401dd9ff3599235c578745312a31eda8102a1d5b3b19378a27298eaeb5"
+        },
+        {
+          "case_id": "L03",
+          "mapping_id": "9b9b773a83089b57a133424b36d18d19344615381143ebf1b49f0d9deaa134eb"
+        }
+      ],
+      "legacy_review_keys": [
+        "f7ff95347aa6842b910c4d79f80dabb61212b787f896732c64449726e9c17fa7"
+      ]
+    },
+    {
+      "review_key": "30c36f93bbbb2d7a87abe04fadc948e1927b78acb3f3335f619647d93856765f",
+      "short_id": "P051",
+      "kind": "proposition",
+      "corpus": "legal-transfer",
+      "original_id": "AMENDMENTS-11-27",
+      "original_url": "https://www.archives.gov/founding-docs/amendments-11-27",
+      "original_sha256": "f696d3eb5194237248d403205878d6fd7664450f69aac8e54b0feedd774327c5",
+      "value": {
+        "actor": null,
+        "action": "fail",
+        "predicate_text": "failed",
+        "object_text": "to qualify, then the Vice President elect shall act as President until a President shall have qualified; and the Congress may by law provide for the case wherein neither a President elect nor a Vice President elect shall have qualified, declaring who shall then act as President, or the manner in which one who is to act shall be selected, and such person shall act accordingly until a President or Vice President shall have qualified.",
+        "affected_subject_text": "If a President shall not have been chosen before the time fixed for the beginning of his term, or if the President elect shall have",
+        "modality": "conditional_or_uncertain",
+        "documentary_bindings": [],
+        "object_bindings": [],
+        "date_candidates": [
+          {
+            "raw_text": "may",
+            "candidate_role": "action_time_unresolved",
+            "start": 10812,
+            "end": 10815,
+            "normalized_time": null
+          }
+        ],
+        "source_layer_hint": "unresolved"
+      },
+      "candidate_kind": "source_proposition_candidate",
+      "evidence": [
+        {
+          "source_id": "ORIGINAL-0001",
+          "path": "original-0001.html",
+          "hash": "sha256:22d1b25c378de31c772f1a4fec9566ac9d653c73d5531743ee7b8aae7d308d7b",
+          "body_start": 10551,
+          "body_end": 11125,
+          "body_projection": "body-text-no-headings-v1",
+          "quote": "If a President shall not have been chosen before the time fixed for the beginning of his term, or if the President elect shall have failed to qualify, then the Vice President elect shall act as President until a President shall have qualified; and the Congress may by law provide for the case wherein neither a President elect nor a Vice President elect shall have qualified, declaring who shall then act as President, or the manner in which one who is to act shall be selected, and such person shall act accordingly until a President or Vice President shall have qualified."
+        }
+      ],
+      "occurrences": [
+        {
+          "case_id": "L02",
+          "mapping_id": "e7540779c1fe353b1d5ac6a29ca03a321a4d13457c73bc0b00fd06431d8d1dc8"
+        },
+        {
+          "case_id": "L03",
+          "mapping_id": "d1229ec9a4cc2a34940ee9a39ffd57dbac91e3e5141ea63fe271510752db1f92"
+        }
+      ],
+      "legacy_review_keys": [
+        "1844343f761c3eabf6b5512abaa241a2850b23c86f5a83c91821490ad5b2d43a"
+      ]
+    },
+    {
+      "review_key": "dd72432489adb20a37301f8ffe82065ea04656fb3ab72b879688c9a69130dee6",
+      "short_id": "P052",
+      "kind": "proposition",
+      "corpus": "legal-transfer",
+      "original_id": "AMENDMENTS-11-27",
+      "original_url": "https://www.archives.gov/founding-docs/amendments-11-27",
+      "original_sha256": "f696d3eb5194237248d403205878d6fd7664450f69aac8e54b0feedd774327c5",
+      "value": {
+        "actor": null,
+        "action": "provide",
+        "predicate_text": "provide",
+        "object_text": "for the case wherein neither a President elect nor a Vice President elect shall have qualified, declaring who shall then act as President, or the manner in which one who is to act shall be selected, and such person shall act accordingly until a President or Vice President shall have qualified.",
+        "affected_subject_text": "e time fixed for the beginning of his term, or if the President elect shall have failed to qualify, then the Vice President elect shall act as President until a President shall have qualified; and the Congress may by law",
+        "modality": "permission_or_possibility",
+        "documentary_bindings": [],
+        "object_bindings": [],
+        "date_candidates": [
+          {
+            "raw_text": "may",
+            "candidate_role": "context_date_role_unresolved",
+            "start": 10812,
+            "end": 10815,
+            "normalized_time": null
+          }
+        ],
+        "source_layer_hint": "unresolved"
+      },
+      "candidate_kind": "source_proposition_candidate",
+      "evidence": [
+        {
+          "source_id": "ORIGINAL-0001",
+          "path": "original-0001.html",
+          "hash": "sha256:22d1b25c378de31c772f1a4fec9566ac9d653c73d5531743ee7b8aae7d308d7b",
+          "body_start": 10551,
+          "body_end": 11125,
+          "body_projection": "body-text-no-headings-v1",
+          "quote": "If a President shall not have been chosen before the time fixed for the beginning of his term, or if the President elect shall have failed to qualify, then the Vice President elect shall act as President until a President shall have qualified; and the Congress may by law provide for the case wherein neither a President elect nor a Vice President elect shall have qualified, declaring who shall then act as President, or the manner in which one who is to act shall be selected, and such person shall act accordingly until a President or Vice President shall have qualified."
+        }
+      ],
+      "occurrences": [
+        {
+          "case_id": "L02",
+          "mapping_id": "6539c26dbb2745787e3791aaa3c3368008d6f524c8b9075e3c551bbc574871c4"
+        },
+        {
+          "case_id": "L03",
+          "mapping_id": "74fc27e3567b81f511843f7b48009e98f7b1fefb03509cbb0b81d00ba361fd49"
+        }
+      ],
+      "legacy_review_keys": [
+        "6583f26dbca2afda4c4589ec183120e3b7b7564b458b18b1b8d317f5c8bd067a"
+      ]
+    },
+    {
+      "review_key": "23a2c149c72c1b16cbf97e6d094fa60af918f4950294438bd6d3e3a2336b4a67",
+      "short_id": "P053",
+      "kind": "proposition",
+      "corpus": "legal-transfer",
+      "original_id": "AMENDMENTS-11-27",
+      "original_url": "https://www.archives.gov/founding-docs/amendments-11-27",
+      "original_sha256": "f696d3eb5194237248d403205878d6fd7664450f69aac8e54b0feedd774327c5",
+      "value": {
+        "actor": null,
+        "action": "appoint",
+        "predicate_text": "appoint",
+        "object_text": "in such manner as the Congress may direct:",
+        "affected_subject_text": "The District constituting the seat of Government of the United States shall",
+        "modality": "future_request_or_intention",
+        "documentary_bindings": [],
+        "object_bindings": [],
+        "date_candidates": [
+          {
+            "raw_text": "may",
+            "candidate_role": "action_time_unresolved",
+            "start": 13606,
+            "end": 13609,
+            "normalized_time": null
+          }
+        ],
+        "source_layer_hint": "unresolved"
+      },
+      "candidate_kind": "source_proposition_candidate",
+      "evidence": [
+        {
+          "source_id": "ORIGINAL-0001",
+          "path": "original-0001.html",
+          "hash": "sha256:22d1b25c378de31c772f1a4fec9566ac9d653c73d5531743ee7b8aae7d308d7b",
+          "body_start": 13491,
+          "body_end": 13617,
+          "body_projection": "body-text-no-headings-v1",
+          "quote": "The District constituting the seat of Government of the United States shall appoint in such manner as the Congress may direct:"
+        }
+      ],
+      "occurrences": [
+        {
+          "case_id": "L03",
+          "mapping_id": "c02130a15244802e2ef49f675efb53f08615b976f437594ecbcd5f23bb45d024"
+        }
+      ],
+      "legacy_review_keys": [
+        "ad1d2698812f43217744f73c1a492e8f0e85a9d1e5089d008a433f1b010ced90"
+      ]
+    },
+    {
+      "review_key": "a9265e5ef188e53d6f4dbe307055e72f39c8008d07c0dd1c2c237089bc9d57bd",
+      "short_id": "P054",
+      "kind": "proposition",
+      "corpus": "legal-transfer",
+      "original_id": "AMENDMENTS-11-27",
+      "original_url": "https://www.archives.gov/founding-docs/amendments-11-27",
+      "original_sha256": "f696d3eb5194237248d403205878d6fd7664450f69aac8e54b0feedd774327c5",
+      "value": {
+        "actor": null,
+        "action": "appoint",
+        "predicate_text": "appointed",
+        "object_text": "by the States, but they shall be considered, for the purposes of the election of President and Vice President, to be electors appointed by a State; and they shall meet in the District and perform such duties as provided by the twelfth article of amendment.",
+        "affected_subject_text": "ent equal to the whole number of Senators and Representatives in Congress to which the District would be entitled if it were a State, but in no event more than the least populous State; they shall be in addition to those",
+        "modality": "future_request_or_intention",
+        "documentary_bindings": [],
+        "object_bindings": [],
+        "date_candidates": [],
+        "source_layer_hint": "unresolved"
+      },
+      "candidate_kind": "source_proposition_candidate",
+      "evidence": [
+        {
+          "source_id": "ORIGINAL-0001",
+          "path": "original-0001.html",
+          "hash": "sha256:22d1b25c378de31c772f1a4fec9566ac9d653c73d5531743ee7b8aae7d308d7b",
+          "body_start": 13618,
+          "body_end": 14154,
+          "body_projection": "body-text-no-headings-v1",
+          "quote": "A number of electors of President and Vice President equal to the whole number of Senators and Representatives in Congress to which the District would be entitled if it were a State, but in no event more than the least populous State; they shall be in addition to those appointed by the States, but they shall be considered, for the purposes of the election of President and Vice President, to be electors appointed by a State; and they shall meet in the District and perform such duties as provided by the twelfth article of amendment."
+        }
+      ],
+      "occurrences": [
+        {
+          "case_id": "L03",
+          "mapping_id": "a7fba8c671a18b1f649a58e67b796445d0c757f27803b2ee090cc496c316b3a3"
+        }
+      ],
+      "legacy_review_keys": [
+        "d39dc80c5063c577a2b401d60be3e1cb3a6f80becad4149d58c4e701962b8b10"
+      ]
+    },
+    {
+      "review_key": "aeab6fd5b9da0e0f92c6b7a771ac3d3cbe9a3fa128ac9b79ec7fd398c900f652",
+      "short_id": "P055",
+      "kind": "proposition",
+      "corpus": "legal-transfer",
+      "original_id": "AMENDMENTS-11-27",
+      "original_url": "https://www.archives.gov/founding-docs/amendments-11-27",
+      "original_sha256": "f696d3eb5194237248d403205878d6fd7664450f69aac8e54b0feedd774327c5",
+      "value": {
+        "actor": null,
+        "action": "appoint",
+        "predicate_text": "appointed",
+        "object_text": "by a State; and they shall meet in the District and perform such duties as provided by the twelfth article of amendment.",
+        "affected_subject_text": "t in no event more than the least populous State; they shall be in addition to those appointed by the States, but they shall be considered, for the purposes of the election of President and Vice President, to be electors",
+        "modality": "future_request_or_intention",
+        "documentary_bindings": [],
+        "object_bindings": [],
+        "date_candidates": [],
+        "source_layer_hint": "unresolved"
+      },
+      "candidate_kind": "source_proposition_candidate",
+      "evidence": [
+        {
+          "source_id": "ORIGINAL-0001",
+          "path": "original-0001.html",
+          "hash": "sha256:22d1b25c378de31c772f1a4fec9566ac9d653c73d5531743ee7b8aae7d308d7b",
+          "body_start": 13618,
+          "body_end": 14154,
+          "body_projection": "body-text-no-headings-v1",
+          "quote": "A number of electors of President and Vice President equal to the whole number of Senators and Representatives in Congress to which the District would be entitled if it were a State, but in no event more than the least populous State; they shall be in addition to those appointed by the States, but they shall be considered, for the purposes of the election of President and Vice President, to be electors appointed by a State; and they shall meet in the District and perform such duties as provided by the twelfth article of amendment."
+        }
+      ],
+      "occurrences": [
+        {
+          "case_id": "L03",
+          "mapping_id": "39b2f7acdc92f55bd36ab833740d9c7aebbde64f2adecd05e2b07ae2870ede62"
+        }
+      ],
+      "legacy_review_keys": [
+        "84ce046ced6be6f5c01d7b2aff2d797a46c653aa495b738fa6044fe551077b06"
+      ]
+    },
+    {
+      "review_key": "89718ca1955fc20f75c6255dff286becba3334fcf0ef0ed2961c849314e73fa3",
+      "short_id": "P056",
+      "kind": "proposition",
+      "corpus": "legal-transfer",
+      "original_id": "AMENDMENTS-11-27",
+      "original_url": "https://www.archives.gov/founding-docs/amendments-11-27",
+      "original_sha256": "f696d3eb5194237248d403205878d6fd7664450f69aac8e54b0feedd774327c5",
+      "value": {
+        "actor": null,
+        "action": "deny",
+        "predicate_text": "denied",
+        "object_text": "or abridged by the United States or any State by reason of failure to pay any poll tax or other tax.",
+        "affected_subject_text": "he right of citizens of the United States to vote in any primary or other election for President or Vice President, for electors for President or Vice President, or for Senator or Representative in Congress, shall not be",
+        "modality": "negated_or_scope_limited",
+        "documentary_bindings": [],
+        "object_bindings": [],
+        "date_candidates": [],
+        "source_layer_hint": "unresolved"
+      },
+      "candidate_kind": "source_proposition_candidate",
+      "evidence": [
+        {
+          "source_id": "ORIGINAL-0001",
+          "path": "original-0001.html",
+          "hash": "sha256:22d1b25c378de31c772f1a4fec9566ac9d653c73d5531743ee7b8aae7d308d7b",
+          "body_start": 14300,
+          "body_end": 14629,
+          "body_projection": "body-text-no-headings-v1",
+          "quote": "The right of citizens of the United States to vote in any primary or other election for President or Vice President, for electors for President or Vice President, or for Senator or Representative in Congress, shall not be denied or abridged by the United States or any State by reason of failure to pay any poll tax or other tax."
+        }
+      ],
+      "occurrences": [
+        {
+          "case_id": "L03",
+          "mapping_id": "6237f2fdf6300697d893d6cd2899d6c62eba55c546df3dd694b9ab3c917a3cc1"
+        }
+      ],
+      "legacy_review_keys": [
+        "2dcb61c8424dfb7bf904cf01f5b0b97a55d9a9bbf408d0de33426c180705daf5"
+      ]
+    },
+    {
+      "review_key": "8cabca30c4163e5fbe965817cc84c0ba9a61cbc76f081e1cf33315794489d6c8",
+      "short_id": "P057",
+      "kind": "proposition",
+      "corpus": "legal-transfer",
+      "original_id": "AMENDMENTS-11-27",
+      "original_url": "https://www.archives.gov/founding-docs/amendments-11-27",
+      "original_sha256": "f696d3eb5194237248d403205878d6fd7664450f69aac8e54b0feedd774327c5",
+      "value": {
+        "actor": null,
+        "action": "provide",
+        "predicate_text": "provide",
+        "object_text": ", transmit to the President pro tempore of the Senate and the Speaker of the House of Representatives their written declaration that the President is unable to discharge the powers and duties of his office, the Vice President shall immediately assume the powers and duties of the office as Acting President.",
+        "affected_subject_text": "Whenever the Vice President and a majority of either the principal officers of the executive departments or of such other body as Congress may by law",
+        "modality": "permission_or_possibility",
+        "documentary_bindings": [],
+        "object_bindings": [],
+        "date_candidates": [
+          {
+            "raw_text": "may",
+            "candidate_role": "context_date_role_unresolved",
+            "start": 15694,
+            "end": 15697,
+            "normalized_time": null
+          }
+        ],
+        "source_layer_hint": "unresolved"
+      },
+      "candidate_kind": "source_proposition_candidate",
+      "evidence": [
+        {
+          "source_id": "ORIGINAL-0001",
+          "path": "original-0001.html",
+          "hash": "sha256:22d1b25c378de31c772f1a4fec9566ac9d653c73d5531743ee7b8aae7d308d7b",
+          "body_start": 15555,
+          "body_end": 16019,
+          "body_projection": "body-text-no-headings-v1",
+          "quote": "Whenever the Vice President and a majority of either the principal officers of the executive departments or of such other body as Congress may by law provide, transmit to the President pro tempore of the Senate and the Speaker of the House of Representatives their written declaration that the President is unable to discharge the powers and duties of his office, the Vice President shall immediately assume the powers and duties of the office as Acting President."
+        }
+      ],
+      "occurrences": [
+        {
+          "case_id": "L03",
+          "mapping_id": "bd0e042d77bab3b63e2af6d3fb372b0ab639ed92b191ab471e1001d450c9ccf2"
+        }
+      ],
+      "legacy_review_keys": [
+        "da7363608615d7e89ecb72aa93ed89df066ec7e4e75066b613b8c7312c25e377"
+      ]
+    },
+    {
+      "review_key": "e0f3e5aff570e7202f1eabd7f68ab536324fdb76c0453578150c7ec094432c8a",
+      "short_id": "P058",
+      "kind": "proposition",
+      "corpus": "legal-transfer",
+      "original_id": "AMENDMENTS-11-27",
+      "original_url": "https://www.archives.gov/founding-docs/amendments-11-27",
+      "original_sha256": "f696d3eb5194237248d403205878d6fd7664450f69aac8e54b0feedd774327c5",
+      "value": {
+        "actor": null,
+        "action": "provide",
+        "predicate_text": "provide",
+        "object_text": ", transmit within four days to the President pro tempore of the Senate and the Speaker of the House of Representatives their written declaration that the President is unable to discharge the powers and duties of his office.",
+        "affected_subject_text": " no inability exists, he shall resume the powers and duties of his office unless the Vice President and a majority of either the principal officers of the executive department or of such other body as Congress may by law",
+        "modality": "permission_or_possibility",
+        "documentary_bindings": [],
+        "object_bindings": [],
+        "date_candidates": [
+          {
+            "raw_text": "may",
+            "candidate_role": "context_date_role_unresolved",
+            "start": 16390,
+            "end": 16393,
+            "normalized_time": null
+          }
+        ],
+        "source_layer_hint": "unresolved"
+      },
+      "candidate_kind": "source_proposition_candidate",
+      "evidence": [
+        {
+          "source_id": "ORIGINAL-0001",
+          "path": "original-0001.html",
+          "hash": "sha256:22d1b25c378de31c772f1a4fec9566ac9d653c73d5531743ee7b8aae7d308d7b",
+          "body_start": 16020,
+          "body_end": 16631,
+          "body_projection": "body-text-no-headings-v1",
+          "quote": "Thereafter, when the President transmits to the President pro tempore of the Senate and the Speaker of the House of Representatives his written declaration that no inability exists, he shall resume the powers and duties of his office unless the Vice President and a majority of either the principal officers of the executive department or of such other body as Congress may by law provide, transmit within four days to the President pro tempore of the Senate and the Speaker of the House of Representatives their written declaration that the President is unable to discharge the powers and duties of his office."
+        }
+      ],
+      "occurrences": [
+        {
+          "case_id": "L03",
+          "mapping_id": "7859f5a171f2173696c142bc0bb56c1a4a5c2bde4eb41bd130319b60a54fd3d5"
+        }
+      ],
+      "legacy_review_keys": [
+        "1a1788220c997ee495bfc0c757dd9269758723d90ac2dbbc50162a197f9be0e4"
+      ]
+    }
+  ]
+}

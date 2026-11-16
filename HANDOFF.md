@@ -4,8 +4,8 @@ Last reviewed: 2026-11-16.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `11311b3063dd0e8b6288845c99cb2d52d1b6f11c` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `a0d2b68b8b4e40460ba1c3f756f8a6ac896fa8fa247280b5174b489e1acb194c`.
+Base commit: `f12540c73d15ee81248e9eb4fe07f5b12242a312` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `acf8ed32aae8ef02094edbcd764480c585768081d011e570044dfb80fa567d86`.
 
 ## Latest user update instructions
 
@@ -38,6 +38,7 @@ The next challenge is demonstrating that MPLPB can consistently recover the impo
 - Recognize cancellation phrases across preserved physical line breaks without rewriting original text.
 - Reject ambiguous modal may and non-calendar march/marching as date cues; keep calendar-context bare months, explicit dates and relative-time phrases without normalized-event-time claims.
 - Allow the existing CLI inverse mapper to select rich propositions, connections and qualification nodes while retaining source rechecks and non-authoritative output.
+- Publish complete baseline/final recovery results, all intermediate failures, per-case resource measurements, source-linked semantic labels and blank independent review/adjudication packets in a new immutable dated report.
 
 ## Validation recorded
 
@@ -50,8 +51,17 @@ The next challenge is demonstrating that MPLPB can consistently recover the impo
 - Recovery focused controls: 26 passed in 1.683 seconds after fixing a conditional actor-clause error. The premature passing statement in cbee135 is explicitly corrected in recovery/validation-correction.json.
 - Allocation revision: 28 focused controls passed in 3.928 seconds, including all four existing complete-evidence distribution opportunities and multiline conditional cancellation.
 - Previous a259 whole historical run reached terminal state before allocation code replacement; its consistency failure remains immutable.
-- Date-guard development diagnostic retained all 16 genuine reviewed date cues and rejected all 12 false cues from the fixed 28-cue review; full paired execution remains pending.
 - 30 focused reconstruction/source controls passed in 4.484 seconds in the isolated worktree; current main benchmark was not modified.
+- Final native f12540c full Python suite: 1011 tests passed in 486.615 seconds; complete log/hash retained.
+- Final public prepared evidence suite: 52/52; final separate released synthetic controls: 24/24. Neither establishes historical semantic accuracy.
+- All 21 previous useful reviewed associations retained; three source-consistent candidates added. Final reviewed actor/action/text associations: 24 correct, zero labeled incorrect, 51 unresolved across 75; developer/AI source review, not independent humans.
+- Final distribution recovery is 4/4 complete-evidence context opportunities; cancellation is 3/3. These are two target relations, not seven independent historical events. The unsuccessful 1/4 intermediate run is preserved.
+- Final date-cue source review retains all 16 genuine cues and removes all 12 false cues; actor/action quality remains separately reported.
+- All five native f12540c CI workflows passed, including archive/browser, worker isolation, infrastructure, conventional regression and handoff.
+- Actual extracted f12540c source archive: handoff/documentation checks passed, 30 focused controls passed in 4.440 seconds, UI/transport/JavaScript API/crawler checks passed.
+- All 491 tracked original-study and frozen import/evaluation files remain byte-identical to ee9975a; all 105 existing test files unchanged.
+- Final f12540c original 14-question run completed under the frozen 180-second budget: 18/23 incomplete draft spans retrieved; native supported answers remain 0/14. No source, question, score or authority requirement was changed.
+- All 850 final rich mapping objects across five authentic studies passed exact quote, canonical offset, digest, native pin, current source/policy and non-authority checks; each case exercised a fresh inverse reconstruction. Mechanical fidelity is not semantic correctness. Complete final blank human review packets are prepared; independent review NOT RUN.
 
 ## Limitations and blocked checks
 
@@ -59,11 +69,15 @@ The next challenge is demonstrating that MPLPB can consistently recover the impo
 - Independent human evaluation NOT RUN; developer judgments must be labeled and scoped.
 - Developer semantic assessment is not independent human review and has incomplete historical reference scope.
 - The intermediate launch metadata used a mistyped commit label; an explicit correction preserves original receipts and binds actual native SHA256 pins to commit 6499338f00377181a8ffc169b9977d4be31841e1.
+- Two additional historical records still produce five unresolved proposed associations and miss important intent/publication/signing/ceasefire/revision links. Broad consistent historical reconstruction is not demonstrated.
+- Zero incorrect labels in the limited actor/action assessment is not a global historical false-positive rate; date roles and unresolved candidates remain uncertain.
+- Later allocation/date revisions reused the post-a259-code-freeze transfer records; final implementation is not independently unseen.
+- Human labeling, correction, review and adjudication time, engineering/model-assistance cost and compute pricing are unknown. No efficiency or deployment claim.
 
 ## Next steps
 
-- Repeat frozen studies and full regressions for the date guard; report actor/action quality and date-cue quality separately.
-- Keep broader transfer failures and independent human assessment NOT RUN; do not claim general consistency from repaired examples.
+- Use genuinely independent authors/reviewers for a new sealed challenge; prepared human review and adjudication are NOT RUN.
+- Address unresolved transfer semantics in a future frozen experiment, preserving current failures and source authority.
 
 ## Use this ZIP in your repository
 

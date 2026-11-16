@@ -1,0 +1,6 @@
+{
+  "initial_attempt": "default freeze.json",
+  "outcome": "refused before worker execution: Evaluation harness changed after freeze",
+  "explanation": "The original v1 seal intentionally pins the older measurement harness. Existing freeze-v2.json pins the unchanged current harness. The actual final execution uses --seal freeze-v2.json, as all current v2 comparisons do. Neither seal was modified.",
+  "final_run": "final-synthetic/run-receipt.json"
+}

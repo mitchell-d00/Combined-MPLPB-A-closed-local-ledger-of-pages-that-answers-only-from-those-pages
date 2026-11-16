@@ -1,0 +1,419 @@
+{
+  "schema": "developer-semantic-assessment-v2",
+  "implementation_commit": "11311b3063dd0e8b6288845c99cb2d52d1b6f11c",
+  "inventory_sha256": "bf381fb66da36cc2268e4448cad8127e27168ba905e8e3606c9381efcbfcc5f4",
+  "assessor": "Codex developer source inspection, NOT independent human review",
+  "scope": "Same source-consistency criterion and semantic-unit deduplication as prior; targeted event/date recovery is separately reported when actor remains unresolved. No global historical precision/recall claim.",
+  "independent_review": "NOT RUN",
+  "human_labeling_seconds": null,
+  "items": [
+    {
+      "review_key": "9e5a217d0c76bd1379f70fdcbf2438eb9b8681d2b63bbb500b56c748e4c8190e",
+      "short_id": "P001",
+      "label": "correct",
+      "rationale": "Roosevelt explicitly issues order 8802 in June 1941.",
+      "evidence": [
+        {
+          "source_id": "ORIGINAL-0001",
+          "path": "original-0001.html",
+          "hash": "sha256:1b028b588481a8ab9eb0fae12c2c6f791119581796ef940a262d9c91f10e75e4",
+          "body_start": 740,
+          "body_end": 927,
+          "body_projection": "body-text-no-headings-v1",
+          "quote": "In June of 1941, President Roosevelt issued Executive Order 8802, banning discriminatory employment practices by federal agencies and all unions and companies engaged in war-related work."
+        }
+      ],
+      "original_id": "EO-8802-1941",
+      "original_url": "https://www.archives.gov/milestone-documents/executive-order-8802",
+      "occurrences": [
+        {
+          "case_id": "T01",
+          "mapping_id": "e6080eee868c64f84a5205383f4d2737780ea4a5ba2c5a8cde21d24e37d7d9f8"
+        },
+        {
+          "case_id": "T02",
+          "mapping_id": "706ac683d149789e0a1f2baa4e5d7b81dea225568afb212320b02bc9094695cc"
+        },
+        {
+          "case_id": "T03",
+          "mapping_id": "8051338f1f82932c9af86e4a0efab299b94420769709095cb2cec89adf5a506b"
+        }
+      ],
+      "assessment_basis": "Identical source-consistency unit/evidence retained from actual review; occurrence coverage is checked separately."
+    },
+    {
+      "review_key": "21750323a24e4eb715c96f5bc31d6a1c0e72677d60c3d5c11651995b40e54b6d",
+      "short_id": "P002",
+      "label": "unresolved",
+      "rationale": "The source action is quoted but an actor, passive agent, target or clause scope remains unresolved; no complete association is credited. Separate source-linked connections may propose a binding without silently filling this field.",
+      "evidence": [
+        {
+          "source_id": "ORIGINAL-0001",
+          "path": "original-0001.html",
+          "hash": "sha256:1b028b588481a8ab9eb0fae12c2c6f791119581796ef940a262d9c91f10e75e4",
+          "body_start": 1491,
+          "body_end": 1675,
+          "body_projection": "body-text-no-headings-v1",
+          "quote": "Randolph presented a list of grievances regarding the civil rights of African Americans, demanding that an executive order be issued to stop job discrimination in the defense industry."
+        }
+      ],
+      "original_id": "EO-8802-1941",
+      "original_url": "https://www.archives.gov/milestone-documents/executive-order-8802",
+      "occurrences": [
+        {
+          "case_id": "T01",
+          "mapping_id": "c368ca73e5a7f596682f6bd50f1d17bfaa165d60e0b30a8e85414fe1f2c2faaf"
+        },
+        {
+          "case_id": "T02",
+          "mapping_id": "467b87803619daabed5fe2442b7dd7a103a3b519f09bb05a23b8cd9d5ae4c02a"
+        },
+        {
+          "case_id": "T03",
+          "mapping_id": "3025f65c5b8f5e432e42a0bc2f116ea1fbd140117fea90a53598ccaa48497eb9"
+        }
+      ],
+      "assessment_basis": "Identical source-consistency unit/evidence retained from actual review; occurrence coverage is checked separately."
+    },
+    {
+      "review_key": "370b9fda8739cdd60e4c9690e3e599b0b616cae2d4520871f07dac2d7e253a5f",
+      "short_id": "P003",
+      "label": "correct",
+      "rationale": "Roosevelt explicitly responded to Black leaders; this is the source-stated actor/action.",
+      "evidence": [
+        {
+          "source_id": "ORIGINAL-0001",
+          "path": "original-0001.html",
+          "hash": "sha256:1b028b588481a8ab9eb0fae12c2c6f791119581796ef940a262d9c91f10e75e4",
+          "body_start": 1836,
+          "body_end": 2073,
+          "body_projection": "body-text-no-headings-v1",
+          "quote": "In reaction to the fear of tens of thousands\u2014if not more\u2014African Americans marching on the nation\u2019s capitol, and after consultation with his advisers, Roosevelt responded to the Black leaders and issued Executive Order 8802 on June 25th."
+        }
+      ],
+      "original_id": "EO-8802-1941",
+      "original_url": "https://www.archives.gov/milestone-documents/executive-order-8802",
+      "occurrences": [
+        {
+          "case_id": "T01",
+          "mapping_id": "73e729041609a9aabd43ff4cb4d68bb87cbefd0e1c67c37d29bf3ab536fbc537"
+        },
+        {
+          "case_id": "T02",
+          "mapping_id": "e366bed080c15c5ab1e994bd2e29ac6bafbf5a0a10f8adfe06cac8232b3fa8a2"
+        },
+        {
+          "case_id": "T03",
+          "mapping_id": "b5055f19fbbbe1c4d784a31be7395d1ebec360fc99842decbe69bcb427ad5cd4"
+        }
+      ],
+      "assessment_basis": "Identical source-consistency unit/evidence retained from actual review; occurrence coverage is checked separately."
+    },
+    {
+      "review_key": "03078247a67eb0b733729f4b55556340157ad8cc6c79d81029a5b9ffa0ab8ee7",
+      "short_id": "P004",
+      "label": "unresolved",
+      "rationale": "The source action is quoted but an actor, passive agent, target or clause scope remains unresolved; no complete association is credited. Separate source-linked connections may propose a binding without silently filling this field.",
+      "evidence": [
+        {
+          "source_id": "ORIGINAL-0001",
+          "path": "original-0001.html",
+          "hash": "sha256:1b028b588481a8ab9eb0fae12c2c6f791119581796ef940a262d9c91f10e75e4",
+          "body_start": 1836,
+          "body_end": 2073,
+          "body_projection": "body-text-no-headings-v1",
+          "quote": "In reaction to the fear of tens of thousands\u2014if not more\u2014African Americans marching on the nation\u2019s capitol, and after consultation with his advisers, Roosevelt responded to the Black leaders and issued Executive Order 8802 on June 25th."
+        }
+      ],
+      "original_id": "EO-8802-1941",
+      "original_url": "https://www.archives.gov/milestone-documents/executive-order-8802",
+      "occurrences": [
+        {
+          "case_id": "T01",
+          "mapping_id": "71947c57e93e974bcf8c1327bde019abe0ea3248481a43413b5a572cd234e3ce"
+        },
+        {
+          "case_id": "T02",
+          "mapping_id": "2ececedbb42d25fce11ed9df45c5c3881c79ef47456f33d0da8c2fc6a158e113"
+        },
+        {
+          "case_id": "T03",
+          "mapping_id": "fc754c46a2e3158db66c0ceb571f4a4b0204ce96aa5c6b6a5335b8d364fc0e3d"
+        }
+      ],
+      "assessment_basis": "Identical source-consistency unit/evidence retained from actual review; occurrence coverage is checked separately."
+    },
+    {
+      "review_key": "27a236b1c68303bae0d124f45a5c88d596a1b3f5742c764f1f1beb74025c5bf2",
+      "short_id": "P005",
+      "label": "correct",
+      "rationale": "Randolph explicitly called off the march; cancellation is actual in the account, not an intention or the later 1963 march.",
+      "evidence": [
+        {
+          "source_id": "ORIGINAL-0001",
+          "path": "original-0001.html",
+          "hash": "sha256:1b028b588481a8ab9eb0fae12c2c6f791119581796ef940a262d9c91f10e75e4",
+          "body_start": 2313,
+          "body_end": 2449,
+          "body_projection": "body-text-no-headings-v1",
+          "quote": "In exchange for Executive Order 8802, Randolph called off the march, though he would be a driving force of the 1963 March on Washington."
+        }
+      ],
+      "original_id": "EO-8802-1941",
+      "original_url": "https://www.archives.gov/milestone-documents/executive-order-8802",
+      "occurrences": [
+        {
+          "case_id": "T01",
+          "mapping_id": "9b3caa22ec03fbe844782beca83f18ece6628b6ac5f71173b33ffebee93c752a"
+        },
+        {
+          "case_id": "T02",
+          "mapping_id": "9287f3af4c653b7c519f6c6849b06aaa0bfa75f813060338fa8cd71121535a32"
+        },
+        {
+          "case_id": "T03",
+          "mapping_id": "1091c1610877d1a35be6753764d8f427162b42ad97e19b254228f847d2bb4929"
+        }
+      ],
+      "assessment_basis": "Identical source-consistency unit/evidence retained from actual review; occurrence coverage is checked separately."
+    },
+    {
+      "review_key": "318653d952b432f06874b9d71de78dcd8804ca9fd5d9a5746d7d75d659f77f5e",
+      "short_id": "P006",
+      "label": "unresolved",
+      "rationale": "The source action is quoted but an actor, passive agent, target or clause scope remains unresolved; no complete association is credited. Separate source-linked connections may propose a binding without silently filling this field.",
+      "evidence": [
+        {
+          "source_id": "ORIGINAL-0001",
+          "path": "original-0001.html",
+          "hash": "sha256:1b028b588481a8ab9eb0fae12c2c6f791119581796ef940a262d9c91f10e75e4",
+          "body_start": 5412,
+          "body_end": 5606,
+          "body_projection": "body-text-no-headings-v1",
+          "quote": "3. There is established in the Office of Production Management a Committee on Fair Employment Practice, which shall consist of a chairman and four other members to be appointed by the President."
+        }
+      ],
+      "original_id": "EO-8802-1941",
+      "original_url": "https://www.archives.gov/milestone-documents/executive-order-8802",
+      "occurrences": [
+        {
+          "case_id": "T01",
+          "mapping_id": "cda3a47f9365d53894e977a2aa35292b749e9fce4764076d8480344da4f9ae5b"
+        },
+        {
+          "case_id": "T02",
+          "mapping_id": "4f28fdb64557282cfe33b039444ea2699b9b89d7f4b8373e90608fd98cea0c60"
+        },
+        {
+          "case_id": "T03",
+          "mapping_id": "a45947999da1d3ee07e46e18bb6e892656c887b00b5ad41bb9b7d5413e99c7b4"
+        }
+      ],
+      "assessment_basis": "Identical source-consistency unit/evidence retained from actual review; occurrence coverage is checked separately."
+    },
+    {
+      "review_key": "a594efb29ce0f8616c1be06a09039049b78b7c2fb45f9b462689fb0e7e17a6f1",
+      "short_id": "P007",
+      "label": "correct",
+      "rationale": "Committee shall receive/investigate complaints and redress valid grievances. The candidate retains the duty as future/normative, not completed factual proof.",
+      "evidence": [
+        {
+          "source_id": "ORIGINAL-0001",
+          "path": "original-0001.html",
+          "hash": "sha256:1b028b588481a8ab9eb0fae12c2c6f791119581796ef940a262d9c91f10e75e4",
+          "body_start": 5826,
+          "body_end": 6026,
+          "body_projection": "body-text-no-headings-v1",
+          "quote": "The Committee shall receive and investigate complaints of discrimination in violation of the provisions of this order and shall take appropriate steps to redress grievances which it finds to be valid."
+        }
+      ],
+      "original_id": "EO-8802-1941",
+      "original_url": "https://www.archives.gov/milestone-documents/executive-order-8802",
+      "occurrences": [
+        {
+          "case_id": "T01",
+          "mapping_id": "2b51cb6071ba5cc51deb46e2ac2c4752330a60a63e82ab5bb519bea4f8c5d3be"
+        },
+        {
+          "case_id": "T02",
+          "mapping_id": "64604d4db8da74e011aa52c32604567e930f6aedadd227b346bc1aaeee24e000"
+        },
+        {
+          "case_id": "T03",
+          "mapping_id": "7365cb7d31cb235af6b54bc29f1ec783488706fafc2bc3c115f94c8e94e9b293"
+        }
+      ],
+      "assessment_basis": "Identical source-consistency unit/evidence retained from actual review; occurrence coverage is checked separately."
+    },
+    {
+      "review_key": "3d631b29ec71404974626393e9ee38eafbc6105d3201d2966054278f46425f42",
+      "short_id": "P008",
+      "label": "correct",
+      "rationale": "Truman explicitly issued order 9981 in the source framing.",
+      "evidence": [
+        {
+          "source_id": "ORIGINAL-0001",
+          "path": "original-0001.html",
+          "hash": "sha256:1b028b588481a8ab9eb0fae12c2c6f791119581796ef940a262d9c91f10e75e4",
+          "body_start": 2910,
+          "body_end": 3034,
+          "body_projection": "body-text-no-headings-v1",
+          "quote": "Shortly after the dismantling of the FEPC, President Truman issued Executive Order 9981 banning segregation in the military."
+        }
+      ],
+      "original_id": "EO-8802-1941",
+      "original_url": "https://www.archives.gov/milestone-documents/executive-order-8802",
+      "occurrences": [
+        {
+          "case_id": "T01",
+          "mapping_id": "b8fa13cdeb05fdfef8372104472e92147994c053d41be353cba835a0d77f0eab"
+        },
+        {
+          "case_id": "T02",
+          "mapping_id": "aa456dea6a5cc6d9e7a6ccb4ecefe2c8bacd9329b89582d019acbabb1fe69869"
+        },
+        {
+          "case_id": "T03",
+          "mapping_id": "64eba1529a7c584079f70cdb9811b59343263e6ec36db3bf3cd1840b5329d4f3"
+        }
+      ],
+      "assessment_basis": "Identical source-consistency unit/evidence retained from actual review; occurrence coverage is checked separately."
+    },
+    {
+      "review_key": "e0f1ab5897853bce8ee49372f0a1d2158736246688fb0bf55be1e48c5f1ae5ee",
+      "short_id": "P009",
+      "label": "unresolved",
+      "rationale": "The source action is quoted but an actor, passive agent, target or clause scope remains unresolved; no complete association is credited. Separate source-linked connections may propose a binding without silently filling this field.",
+      "evidence": [
+        {
+          "source_id": "ORIGINAL-0001",
+          "path": "original-0001.html",
+          "hash": "sha256:1b028b588481a8ab9eb0fae12c2c6f791119581796ef940a262d9c91f10e75e4",
+          "body_start": 3479,
+          "body_end": 3847,
+          "body_projection": "body-text-no-headings-v1",
+          "quote": "WHEREAS it is the policy of the United States to encourage full participation in the national defense program by all citizens of the United States, regardless of race, creed, color, or national origin, in the firm belief that the democratic way of life within the Nation can be defended successfully only with the help and support of all groups within its borders; and"
+        }
+      ],
+      "original_id": "EO-8802-1941",
+      "original_url": "https://www.archives.gov/milestone-documents/executive-order-8802",
+      "occurrences": [
+        {
+          "case_id": "T01",
+          "mapping_id": "54ea6988891db0d15ea41a83c2d6df36a11309ca2acd289ea797e1d1bd0cb033"
+        },
+        {
+          "case_id": "T02",
+          "mapping_id": "147f0d1c3610f640aac7bc01a3e616bc4dfd552a3e8630fd21188a0b546c70c7"
+        },
+        {
+          "case_id": "T03",
+          "mapping_id": "50259e1482da62d8e36148bc18cfc75020a42b502ed3c6519d785318d9f0a761"
+        }
+      ],
+      "assessment_basis": "Identical source-consistency unit/evidence retained from actual review; occurrence coverage is checked separately."
+    },
+    {
+      "review_key": "707ad1bf4274d776468b9f683ea816aa5eaaca6f331d996a95d9e8ed48747c15",
+      "short_id": "P010",
+      "label": "unresolved",
+      "rationale": "The source action is quoted but an actor, passive agent, target or clause scope remains unresolved; no complete association is credited. Separate source-linked connections may propose a binding without silently filling this field.",
+      "evidence": [
+        {
+          "source_id": "ORIGINAL-0001",
+          "path": "original-0001.html",
+          "hash": "sha256:1b028b588481a8ab9eb0fae12c2c6f791119581796ef940a262d9c91f10e75e4",
+          "body_start": 4120,
+          "body_end": 4809,
+          "body_projection": "body-text-no-headings-v1",
+          "quote": "NOW, THEREFORE, by virtue of the authority vested in me by the Constitution and the statutes, and as a prerequisite to the successful conduct of our national defense production effort, I do hereby reaffirm the policy of the United States that there shall be no discrimination in the employment of workers in defense industries or government because of race, creed, color, or national origin, and I do hereby declare that it is the duty of employers and of labor organizations, in furtherance of said policy and of this order, to provide for the full and equitable participation of all workers in defense industries, without discrimination because of race, creed, color, or national origin;"
+        }
+      ],
+      "original_id": "EO-8802-1941",
+      "original_url": "https://www.archives.gov/milestone-documents/executive-order-8802",
+      "occurrences": [
+        {
+          "case_id": "T01",
+          "mapping_id": "6df2a922fdbddc17b31269ecaf1b4b1c0163eed71d51f3c57decd9d7a0a61de0"
+        },
+        {
+          "case_id": "T02",
+          "mapping_id": "088d1359bba41155849e46ada253fab6235a92d38d1bf350fb2abca7634e4974"
+        },
+        {
+          "case_id": "T03",
+          "mapping_id": "f783eb08b463fa9182436e6c756a15556c2150df604758805b6938bd1a89ef1d"
+        }
+      ],
+      "assessment_basis": "Identical source-consistency unit/evidence retained from actual review; occurrence coverage is checked separately."
+    },
+    {
+      "review_key": "29ba9e66557dcd14f7804a5de4fcd5484cfc38b38061bbb5b5ee185c6261d4a1",
+      "short_id": "P011",
+      "label": "unresolved",
+      "rationale": "The source action is quoted but an actor, passive agent, target or clause scope remains unresolved; no complete association is credited. Separate source-linked connections may propose a binding without silently filling this field.",
+      "evidence": [
+        {
+          "source_id": "ORIGINAL-0001",
+          "path": "original-0001.html",
+          "hash": "sha256:1b028b588481a8ab9eb0fae12c2c6f791119581796ef940a262d9c91f10e75e4",
+          "body_start": 4810,
+          "body_end": 4846,
+          "body_projection": "body-text-no-headings-v1",
+          "quote": "And it is hereby ordered as follows:"
+        }
+      ],
+      "original_id": "EO-8802-1941",
+      "original_url": "https://www.archives.gov/milestone-documents/executive-order-8802",
+      "occurrences": [
+        {
+          "case_id": "T01",
+          "mapping_id": "ecb82e089ef85931e5e6e09fcace1514570bddc8ac8e8a00a4f25fc8fcc3ceae"
+        },
+        {
+          "case_id": "T02",
+          "mapping_id": "24c74d2f70659d946edf9d7a990fe0023421f4e1150be28189b13e74746476f1"
+        },
+        {
+          "case_id": "T03",
+          "mapping_id": "c54c58583dc3d353108405d4260e0a5dad033dbe4f4f2115528e0dadb8a01411"
+        }
+      ],
+      "assessment_basis": "Identical source-consistency unit/evidence retained from actual review; occurrence coverage is checked separately."
+    },
+    {
+      "review_key": "46e8afaf0ae18a83049cfedb9342d6222951f62b4a0593bc4a1d72346a0772c7",
+      "short_id": "C012",
+      "label": "correct",
+      "rationale": "Same-clause Roosevelt responded and issued supports a candidate shared actor, without claiming verified identity or causation.",
+      "evidence": [
+        {
+          "source_id": "ORIGINAL-0001",
+          "path": "original-0001.html",
+          "hash": "sha256:1b028b588481a8ab9eb0fae12c2c6f791119581796ef940a262d9c91f10e75e4",
+          "body_start": 1836,
+          "body_end": 2073,
+          "body_projection": "body-text-no-headings-v1",
+          "quote": "In reaction to the fear of tens of thousands\u2014if not more\u2014African Americans marching on the nation\u2019s capitol, and after consultation with his advisers, Roosevelt responded to the Black leaders and issued Executive Order 8802 on June 25th."
+        }
+      ],
+      "original_id": "EO-8802-1941",
+      "original_url": "https://www.archives.gov/milestone-documents/executive-order-8802",
+      "occurrences": [
+        {
+          "case_id": "T01",
+          "mapping_id": "d332b64ce72893e868b52ef47ac253d787a288ecd2e6b065a688fc215d95dfc3"
+        },
+        {
+          "case_id": "T02",
+          "mapping_id": "3f4f9696872519fe499b09c216835c93d6b3377d0af5a724321c16bd802513ff"
+        },
+        {
+          "case_id": "T03",
+          "mapping_id": "a68ec8e7105f1cbe3e8e77a5b1445d53abff14438259a9b809a1525158d090cd"
+        }
+      ],
+      "assessment_basis": "Identical source-consistency unit/evidence retained from actual review; occurrence coverage is checked separately."
+    }
+  ]
+}

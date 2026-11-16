@@ -227,3 +227,6 @@ See the [frozen original-record evaluation](docs/UNPREPARED_ORIGINAL_CHALLENGE.m
 ## Source-linked reconstruction follow-up — 2026-11-16
 
 The [prose reconstruction follow-up](docs/PROSE_RECONSTRUCTION_FOLLOWUP.md) measures false candidate relationships, retained useful associations, missing facets and processing costs on real public records. Source-consistent developer judgments remain separate from independent human validation and deterministic answer support. Earlier results are preserved.
+
+
+Targeted recovery update (2026-11-16): the [source-linked recovery study](docs/PROSE_RECONSTRUCTION_FOLLOWUP.md#targeted-recovery-and-false-association-retention) reports retained useful associations, recovered omissions, false date-cue corrections and unresolved transfer failures. It does not establish general historical understanding or independent human validation.

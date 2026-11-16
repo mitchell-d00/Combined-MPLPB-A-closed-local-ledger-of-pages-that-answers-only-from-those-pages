@@ -28,3 +28,10 @@ The first proposition prototype passed boundary regressions but developer inspec
 
 
 The [complete dated report](../evaluation/unprepared-originals/2026-11-16-followup/REPORT.md) retains all source-linked labels and errors. The final 01f128b evaluation recovered 18/23 old draft spans. In the reused unfamiliar-source set, developer-assessed correct/incorrect/unresolved proposals changed from 15/38/17 to 18/1/37. In the post-code-freeze transfer record, correct proposals remained 3 while incorrect fell 14 to 0 and unresolved rose 1 to 6. Neither test counts nor these limited developer labels establish general historical understanding.
+
+
+## Targeted recovery and false-association retention
+
+The [recovery report](../evaluation/unprepared-originals/2026-11-16-recovery/REPORT.md) preserves the failed intermediate 1/4 distribution recovery and the subsequent 4/4 result, plus 3/3 cancellation contexts. These are two targeted relationships across seven retrieved contexts. All 21 previously useful developer-reviewed associations remain; three are added. A wrong actor becomes unresolved, and the reviewed false calendar cues fall from 12 to zero while all 16 genuine cues remain. All structures remain candidates, with fresh source checks and exact reverse mappings.
+
+The additional Zimmermann Telegram and surrender records still produce five unresolved associations and miss important relationships. Broad consistent reconstruction is not established. Developer semantic labels, quote fidelity, prepared regression tests and independent human assessment are separate evidence; independent review remains NOT RUN. The new report includes source-linked errors, unresolved proposals, unchanged questions, measured costs and exact revision/rerun commands.
