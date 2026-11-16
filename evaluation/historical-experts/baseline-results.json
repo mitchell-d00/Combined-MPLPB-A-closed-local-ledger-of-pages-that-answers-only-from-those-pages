@@ -1,0 +1,2060 @@
+{
+  "schema": "public-evidence-results-v1",
+  "manifest_sha256": "99dd6a3a7b95eac2d2eae1a6d471a365debd9f0f264de5b6f1491cd79f3b7109",
+  "evaluator_sha256": "0b2fe1bc7818910fd50d1d444937ce4d1aa99d56ba066cc5195bb8efca76bc16",
+  "implementation_revision": null,
+  "working_tree_changed": null,
+  "implementation_files_sha256": {
+    "mplpb_answers/__init__.py": "d57d776eaaea962867814b5af3f0ac836fdd0c70ffbde910a801e6240697a095",
+    "mplpb_answers/__main__.py": "aa3daa9e8a92ff198985326fa9e6b6369870b7dbbdca7c973265ef1ff4b40a54",
+    "mplpb_answers/assertions.py": "54a8a56e2e19bd3565098a3b66f28da590341405a454cf154319686ea0a51458",
+    "mplpb_answers/body_text.py": "0c02ba271796c6aafb985f3ef6ea95902086052cf030c471c226d1f6cbd79c44",
+    "mplpb_answers/evaluate.py": "8c6e4444d661f5a2982338a45673ff594ae4cc4a86d3ec6e0bce6b7f77c90969",
+    "mplpb_answers/evaluation.py": "4d58e13a85f6edb1443bf156baaa48b1cdf72ce38e5e16a0ce53d195ac395715",
+    "mplpb_answers/evidence_contract.py": "5fb4226e9407d3432cdbaa518b10af9a5d5dc7bef0036e204848fbda3a3ffbe5",
+    "mplpb_answers/frames.py": "82c23f7382f862d3b95960b017dda278022ccee1f1bc4e9b339bf7c45ba8dede",
+    "mplpb_answers/library.py": "7d1613c28f01453270c8a53bf0e3f015bf197dff25b43edc764802e1e1306e5b",
+    "mplpb_answers/literal_evidence.py": "4dff854bea0a7ae453be35ee016be2533d9ed0b08b98b7ee4a28d2f10b5983fa",
+    "mplpb_answers/local_reader.py": "6e7a6702f8296b63dd8a2be292ef620c9e67ed6170770e1222cfee58e23ea815",
+    "mplpb_answers/operational_evidence.py": "ac4ac4c1b9df9f412323674083dbc1bdb83a6570b8576fde9969eddafd791580",
+    "mplpb_answers/passages.py": "fae27b547e0cd848ce8a720914eaede5cd371b7db3144a4a68141889569fe5ec",
+    "mplpb_answers/pipeline.py": "8deeca428ee79dccb6808969f2f23aa9955f65b779f7e5c1988b24840ff752d6",
+    "mplpb_answers/policy_evidence.py": "90ae363e5b2b92c52ef24a9ff4d820821a76729f012831c51e27f3ad54492c35",
+    "mplpb_answers/practical_evidence.py": "0ad115570d1a5c1f756f2931e331a083d6f9ca6f7512223b5160278f5cda33af",
+    "mplpb_answers/procedures.py": "90cc6108617b3e56e578039f793581687bb2862e448421d5e5c7f088d2dfac37",
+    "mplpb_answers/relation_graph.py": "f63ac01659f6f6bfb69ff97bf6b4f8ad024efaf7a209d0b2be0702aceba6d541",
+    "mplpb_answers/support.py": "67821fc2399616dfbc10c52a440b3de5f6220a82aec44be595b60fd19b96f9ff",
+    "mplpb_combined/__init__.py": "8ce7a60dc73b0229eb89f7cf3c4a3a47df70f410d0d957dc95b6e41281bb9672",
+    "mplpb_combined/__main__.py": "353ea5ef6cba220377dce05ac3c4eb0b2ecabe5a68188c591b69d9698862e356",
+    "mplpb_combined/baselines.py": "1b2426ccc12397c0525dcff875e1b922bc776c20174ed08aa89cd1f47891e4d3",
+    "mplpb_combined/delivery.py": "27400863c4007413ccd009efe19821a7963a014b47a01905455adb12b7b454ca",
+    "mplpb_combined/evaluate.py": "a537600f26c021040e54cc7badada45443c18af9dd2aa8e52b9f4e43081d79ff",
+    "mplpb_combined/killtest.py": "8b9b7c889626fe1bfe0f1aa87cb80698de2ae67db256e4355a6ce43508f88aa7",
+    "mplpb_combined/ledger.py": "a64d6d0ceee2f8ecc82829324c67c45b5215cf07974523fa3331d8092248524f",
+    "mplpb_combined/provenance_gate.py": "52a07e7f166a9580d5ae1741b4558176cc4e737c985c1ca43d475c050f0e7839",
+    "mplpb_combined/reader.py": "304c170fab15414c75111fddb277a8b50b4e62eacd86daa99dc071aba506c5ff",
+    "mplpb_combined/record.py": "1752789b8d500b1804811a0bbfe71c84a344af2a1018d286d8d42fedf50f82d0",
+    "mplpb_combined/retrieval.py": "35528e3645af096d957df51fdb39ca66decd1f5a0a98cf61061e4ff51408c1c4",
+    "mplpb_work/__init__.py": "5015f3af15da1efed8d2f32bfb0c42a3d24d7c4fec53865dc96b8361db34a393",
+    "mplpb_work/__main__.py": "afa5fa55c9767520ccde8386c5f7c68a77ee2b10c7bad5d017f19efb2edb93e4",
+    "mplpb_work/api.py": "1f4b13cdbf37871d7fa0269f88017c3678458db32f6027524522934efed3797c",
+    "mplpb_work/errors.py": "633c7042a803a259e33db177b303dfd1d6ad5bc038f1908a3f70e469a966615a",
+    "mplpb_work/model.py": "a7ff286606893b7fd2c235f0a7af62ba316c3f7251856def87ae1f0f17de8e60",
+    "mplpb_work/store.py": "c73c4f55f1567ff63434a6d6e7bd2b3adef7a5cb80ffde31684667072c541976"
+  },
+  "configuration": {
+    "models_enabled": false,
+    "network_enabled": false,
+    "fixture_record_time": "2000-01-01T00:00Z",
+    "hidden_questions": 0,
+    "fixtures": "fully published fictional cases",
+    "default_hops": 2,
+    "default_sources": 12
+  },
+  "measurement_limits": [
+    "Wall/CPU and tracemalloc Python allocations are measured; total process RSS is not measured.",
+    "Per-case wall/CPU/allocation measurements include fixture setup and execution. Output source coverage is not answer recall or source relevance.",
+    "Source-text bytes count Path.read_text calls under each fixture root, including repeated reads; binary/OS-cache I/O is not claimed.",
+    "Human labeling/correction time is unknown; no usability claim is made.",
+    "A safety pass does not establish useful historical reconstruction. Missing capability stays a gap."
+  ],
+  "summary": {
+    "pass": 10,
+    "gap": 42
+  },
+  "families": [
+    "candidate_inference",
+    "diagnostic_separation",
+    "event_identity",
+    "exact_routing",
+    "operator_and_compute_cost",
+    "receipt_independence",
+    "source_authority",
+    "time_scoped_correction"
+  ],
+  "false_supported_bridges": 0,
+  "bridge_probes_executed": 0,
+  "false_supported_bridge_rate": null,
+  "rows": [
+    {
+      "id": "authority-corrupt",
+      "family": "source_authority",
+      "requirement": "An altered unsealed source cannot support an answer",
+      "expected": "no_supported_answer",
+      "score": "safety",
+      "actual": "no_supported_answer",
+      "status": "pass",
+      "observed": {
+        "schema": "answer-contract-v1",
+        "mode": "strict",
+        "question": "Who owns observatory?",
+        "kind": "abstain",
+        "answer_supported": false,
+        "text": "",
+        "claims": [],
+        "missing": [],
+        "clarification": "",
+        "confidence": null,
+        "confidence_calibrated": false,
+        "sources": [],
+        "retrieval": {
+          "eligible_pages": 0,
+          "total_passages": 0,
+          "passages": [],
+          "sources": [],
+          "search_complete": false,
+          "corpus_snapshot": "sha256:c4a4a7975741a89f6274d009fba228e8de618e36da0aeac58f05421f69d87ddd",
+          "ranking": "not_run"
+        },
+        "verification": {
+          "structural": false,
+          "semantic": "not_run",
+          "truth_verified": false,
+          "independence_verified": false
+        },
+        "reader": null,
+        "trace": [],
+        "diagnostic": {
+          "code": "restricted_or_unavailable",
+          "stage": "eligibility",
+          "message": "No eligible body passages are available under this question and profile; corpus absence is not established.",
+          "corpus_answerability": "not_established",
+          "next_steps": [
+            "Check source integrity and delivery restrictions; restore or revise the source through the normal workflow, then ask again."
+          ]
+        },
+        "code_sha256": {
+          "__init__.py": "d57d776eaaea962867814b5af3f0ac836fdd0c70ffbde910a801e6240697a095",
+          "__main__.py": "aa3daa9e8a92ff198985326fa9e6b6369870b7dbbdca7c973265ef1ff4b40a54",
+          "assertions.py": "54a8a56e2e19bd3565098a3b66f28da590341405a454cf154319686ea0a51458",
+          "body_text.py": "0c02ba271796c6aafb985f3ef6ea95902086052cf030c471c226d1f6cbd79c44",
+          "evaluate.py": "8c6e4444d661f5a2982338a45673ff594ae4cc4a86d3ec6e0bce6b7f77c90969",
+          "evaluation.py": "4d58e13a85f6edb1443bf156baaa48b1cdf72ce38e5e16a0ce53d195ac395715",
+          "evidence_contract.py": "5fb4226e9407d3432cdbaa518b10af9a5d5dc7bef0036e204848fbda3a3ffbe5",
+          "frames.py": "82c23f7382f862d3b95960b017dda278022ccee1f1bc4e9b339bf7c45ba8dede",
+          "library.py": "7d1613c28f01453270c8a53bf0e3f015bf197dff25b43edc764802e1e1306e5b",
+          "literal_evidence.py": "4dff854bea0a7ae453be35ee016be2533d9ed0b08b98b7ee4a28d2f10b5983fa",
+          "local_reader.py": "6e7a6702f8296b63dd8a2be292ef620c9e67ed6170770e1222cfee58e23ea815",
+          "operational_evidence.py": "ac4ac4c1b9df9f412323674083dbc1bdb83a6570b8576fde9969eddafd791580",
+          "passages.py": "fae27b547e0cd848ce8a720914eaede5cd371b7db3144a4a68141889569fe5ec",
+          "pipeline.py": "8deeca428ee79dccb6808969f2f23aa9955f65b779f7e5c1988b24840ff752d6",
+          "policy_evidence.py": "90ae363e5b2b92c52ef24a9ff4d820821a76729f012831c51e27f3ad54492c35",
+          "practical_evidence.py": "0ad115570d1a5c1f756f2931e331a083d6f9ca6f7512223b5160278f5cda33af",
+          "procedures.py": "90cc6108617b3e56e578039f793581687bb2862e448421d5e5c7f088d2dfac37",
+          "relation_graph.py": "f63ac01659f6f6bfb69ff97bf6b4f8ad024efaf7a209d0b2be0702aceba6d541",
+          "support.py": "67821fc2399616dfbc10c52a440b3de5f6220a82aec44be595b60fd19b96f9ff"
+        }
+      },
+      "measurement": {
+        "wall_seconds": 0.05639373899975908,
+        "cpu_seconds": 0.05636698800000001,
+        "peak_python_allocated_bytes": 225994,
+        "source_text_read_bytes": 8642,
+        "source_text_read_calls": 20,
+        "source_bytes": 597,
+        "final_source_files_sha256": {
+          "src-0001.html": "92e0403075493ec6fcd3c051bdeca2e16d410ec4ca261618219da3acf656bd41"
+        },
+        "source_count": 1,
+        "sources_represented_in_output": 0,
+        "output_source_coverage": 0.0,
+        "human_labeling_seconds": null,
+        "human_correction_seconds": null
+      }
+    },
+    {
+      "id": "authority-restricted",
+      "family": "source_authority",
+      "requirement": "External delivery cannot expose a restricted source",
+      "expected": "no_supported_answer",
+      "score": "safety",
+      "actual": "no_supported_answer",
+      "status": "pass",
+      "observed": {
+        "schema": "answer-contract-v1",
+        "mode": "strict",
+        "question": "Who owns observatory?",
+        "kind": "abstain",
+        "answer_supported": false,
+        "text": "",
+        "claims": [],
+        "missing": [],
+        "clarification": "",
+        "confidence": null,
+        "confidence_calibrated": false,
+        "sources": [],
+        "retrieval": {
+          "eligible_pages": 0,
+          "total_passages": 0,
+          "passages": [],
+          "sources": [],
+          "search_complete": false,
+          "corpus_snapshot": "sha256:291a0d7baf26141a5f0d13607eac4503170b289f947049f13f244bcc3c016a51",
+          "ranking": "not_run"
+        },
+        "verification": {
+          "structural": false,
+          "semantic": "not_run",
+          "truth_verified": false,
+          "independence_verified": false
+        },
+        "reader": null,
+        "trace": [],
+        "diagnostic": {
+          "code": "restricted_or_unavailable",
+          "stage": "eligibility",
+          "message": "No eligible body passages are available under this question and profile; corpus absence is not established.",
+          "corpus_answerability": "not_established",
+          "next_steps": [
+            "Check source integrity and delivery restrictions; restore or revise the source through the normal workflow, then ask again."
+          ]
+        },
+        "code_sha256": {
+          "__init__.py": "d57d776eaaea962867814b5af3f0ac836fdd0c70ffbde910a801e6240697a095",
+          "__main__.py": "aa3daa9e8a92ff198985326fa9e6b6369870b7dbbdca7c973265ef1ff4b40a54",
+          "assertions.py": "54a8a56e2e19bd3565098a3b66f28da590341405a454cf154319686ea0a51458",
+          "body_text.py": "0c02ba271796c6aafb985f3ef6ea95902086052cf030c471c226d1f6cbd79c44",
+          "evaluate.py": "8c6e4444d661f5a2982338a45673ff594ae4cc4a86d3ec6e0bce6b7f77c90969",
+          "evaluation.py": "4d58e13a85f6edb1443bf156baaa48b1cdf72ce38e5e16a0ce53d195ac395715",
+          "evidence_contract.py": "5fb4226e9407d3432cdbaa518b10af9a5d5dc7bef0036e204848fbda3a3ffbe5",
+          "frames.py": "82c23f7382f862d3b95960b017dda278022ccee1f1bc4e9b339bf7c45ba8dede",
+          "library.py": "7d1613c28f01453270c8a53bf0e3f015bf197dff25b43edc764802e1e1306e5b",
+          "literal_evidence.py": "4dff854bea0a7ae453be35ee016be2533d9ed0b08b98b7ee4a28d2f10b5983fa",
+          "local_reader.py": "6e7a6702f8296b63dd8a2be292ef620c9e67ed6170770e1222cfee58e23ea815",
+          "operational_evidence.py": "ac4ac4c1b9df9f412323674083dbc1bdb83a6570b8576fde9969eddafd791580",
+          "passages.py": "fae27b547e0cd848ce8a720914eaede5cd371b7db3144a4a68141889569fe5ec",
+          "pipeline.py": "8deeca428ee79dccb6808969f2f23aa9955f65b779f7e5c1988b24840ff752d6",
+          "policy_evidence.py": "90ae363e5b2b92c52ef24a9ff4d820821a76729f012831c51e27f3ad54492c35",
+          "practical_evidence.py": "0ad115570d1a5c1f756f2931e331a083d6f9ca6f7512223b5160278f5cda33af",
+          "procedures.py": "90cc6108617b3e56e578039f793581687bb2862e448421d5e5c7f088d2dfac37",
+          "relation_graph.py": "f63ac01659f6f6bfb69ff97bf6b4f8ad024efaf7a209d0b2be0702aceba6d541",
+          "support.py": "67821fc2399616dfbc10c52a440b3de5f6220a82aec44be595b60fd19b96f9ff"
+        }
+      },
+      "measurement": {
+        "wall_seconds": 0.02860463599790819,
+        "cpu_seconds": 0.028562791000000004,
+        "peak_python_allocated_bytes": 47905,
+        "source_text_read_bytes": 8387,
+        "source_text_read_calls": 19,
+        "source_bytes": 640,
+        "final_source_files_sha256": {
+          "src-0001.html": "c0d3558e59ca75250cb4a80c2eab4fe4d595f3902b5076068353419930288bb5"
+        },
+        "source_count": 1,
+        "sources_represented_in_output": 0,
+        "output_source_coverage": 0.0,
+        "human_labeling_seconds": null,
+        "human_correction_seconds": null
+      }
+    },
+    {
+      "id": "authority-conflict",
+      "family": "source_authority",
+      "requirement": "Contradictory eligible assertions remain conflicting",
+      "expected": "conflict",
+      "score": "safety",
+      "actual": "conflict",
+      "status": "pass",
+      "observed": {
+        "schema": "answer-contract-v1",
+        "mode": "strict",
+        "question": "Who owns observatory?",
+        "kind": "conflict",
+        "answer_supported": false,
+        "text": "",
+        "claims": [],
+        "missing": [],
+        "clarification": "",
+        "confidence": null,
+        "confidence_calibrated": false,
+        "sources": [],
+        "retrieval": {},
+        "verification": {
+          "structural": false,
+          "semantic": "not_run",
+          "truth_verified": false,
+          "independence_verified": false
+        },
+        "reader": null,
+        "trace": [],
+        "diagnostic": {
+          "code": "conflicting_or_multiple_owners",
+          "stage": "strict",
+          "message": "Multiple eligible supporting pages or conflicting statements; no winner chosen.",
+          "corpus_answerability": "not_established",
+          "next_steps": [
+            "Inspect the competing sources; specify the intended subject or resolve the disagreement by a source revision."
+          ]
+        },
+        "code_sha256": {
+          "__init__.py": "d57d776eaaea962867814b5af3f0ac836fdd0c70ffbde910a801e6240697a095",
+          "__main__.py": "aa3daa9e8a92ff198985326fa9e6b6369870b7dbbdca7c973265ef1ff4b40a54",
+          "assertions.py": "54a8a56e2e19bd3565098a3b66f28da590341405a454cf154319686ea0a51458",
+          "body_text.py": "0c02ba271796c6aafb985f3ef6ea95902086052cf030c471c226d1f6cbd79c44",
+          "evaluate.py": "8c6e4444d661f5a2982338a45673ff594ae4cc4a86d3ec6e0bce6b7f77c90969",
+          "evaluation.py": "4d58e13a85f6edb1443bf156baaa48b1cdf72ce38e5e16a0ce53d195ac395715",
+          "evidence_contract.py": "5fb4226e9407d3432cdbaa518b10af9a5d5dc7bef0036e204848fbda3a3ffbe5",
+          "frames.py": "82c23f7382f862d3b95960b017dda278022ccee1f1bc4e9b339bf7c45ba8dede",
+          "library.py": "7d1613c28f01453270c8a53bf0e3f015bf197dff25b43edc764802e1e1306e5b",
+          "literal_evidence.py": "4dff854bea0a7ae453be35ee016be2533d9ed0b08b98b7ee4a28d2f10b5983fa",
+          "local_reader.py": "6e7a6702f8296b63dd8a2be292ef620c9e67ed6170770e1222cfee58e23ea815",
+          "operational_evidence.py": "ac4ac4c1b9df9f412323674083dbc1bdb83a6570b8576fde9969eddafd791580",
+          "passages.py": "fae27b547e0cd848ce8a720914eaede5cd371b7db3144a4a68141889569fe5ec",
+          "pipeline.py": "8deeca428ee79dccb6808969f2f23aa9955f65b779f7e5c1988b24840ff752d6",
+          "policy_evidence.py": "90ae363e5b2b92c52ef24a9ff4d820821a76729f012831c51e27f3ad54492c35",
+          "practical_evidence.py": "0ad115570d1a5c1f756f2931e331a083d6f9ca6f7512223b5160278f5cda33af",
+          "procedures.py": "90cc6108617b3e56e578039f793581687bb2862e448421d5e5c7f088d2dfac37",
+          "relation_graph.py": "f63ac01659f6f6bfb69ff97bf6b4f8ad024efaf7a209d0b2be0702aceba6d541",
+          "support.py": "67821fc2399616dfbc10c52a440b3de5f6220a82aec44be595b60fd19b96f9ff"
+        }
+      },
+      "measurement": {
+        "wall_seconds": 0.03877714700138313,
+        "cpu_seconds": 0.03874905700000003,
+        "peak_python_allocated_bytes": 68554,
+        "source_text_read_bytes": 13736,
+        "source_text_read_calls": 23,
+        "source_bytes": 1204,
+        "final_source_files_sha256": {
+          "src-0001.html": "83e6bde96f031bb0425a6d8d2ef96c3e1ed5bf80b5174bc113c15c082766e407",
+          "src-0002.html": "f9dd231754c784ac70ac469771b5bd16a318fe19021113e0075284e32363b1ed"
+        },
+        "source_count": 2,
+        "sources_represented_in_output": 0,
+        "output_source_coverage": 0.0,
+        "human_labeling_seconds": null,
+        "human_correction_seconds": null
+      }
+    },
+    {
+      "id": "diagnostic-grammar",
+      "family": "diagnostic_separation",
+      "requirement": "Unsupported grammar is distinguished from absence",
+      "expected": "interpretation_unsupported",
+      "score": "capability",
+      "actual": "interpretation_unsupported",
+      "status": "pass",
+      "observed": {
+        "schema": "answer-contract-v1",
+        "mode": "strict",
+        "question": "Explain the sequence of archival negotiations",
+        "kind": "abstain",
+        "answer_supported": false,
+        "text": "",
+        "claims": [],
+        "missing": [],
+        "clarification": "",
+        "confidence": null,
+        "confidence_calibrated": false,
+        "sources": [],
+        "retrieval": {
+          "eligible_pages": 1,
+          "total_passages": 1,
+          "passages": [],
+          "sources": [],
+          "search_complete": false,
+          "corpus_snapshot": "sha256:e4324db3e5e162af74b807a1f33a91d7d1399ab2ee9e19f85c52d64d51bf17d4",
+          "ranking": "not_run"
+        },
+        "verification": {
+          "structural": false,
+          "semantic": "not_run",
+          "truth_verified": false,
+          "independence_verified": false
+        },
+        "reader": null,
+        "trace": [],
+        "diagnostic": {
+          "code": "interpretation_unsupported",
+          "stage": "strict",
+          "message": "Eligible passages exist, but the strict reader cannot establish an answer to this question.",
+          "corpus_answerability": "not_established",
+          "next_steps": [
+            "Inspect the relevant source. Try a supported question form or explicitly select a configured assisted reader; do not treat this refusal as proof that the answer is absent."
+          ]
+        },
+        "code_sha256": {
+          "__init__.py": "d57d776eaaea962867814b5af3f0ac836fdd0c70ffbde910a801e6240697a095",
+          "__main__.py": "aa3daa9e8a92ff198985326fa9e6b6369870b7dbbdca7c973265ef1ff4b40a54",
+          "assertions.py": "54a8a56e2e19bd3565098a3b66f28da590341405a454cf154319686ea0a51458",
+          "body_text.py": "0c02ba271796c6aafb985f3ef6ea95902086052cf030c471c226d1f6cbd79c44",
+          "evaluate.py": "8c6e4444d661f5a2982338a45673ff594ae4cc4a86d3ec6e0bce6b7f77c90969",
+          "evaluation.py": "4d58e13a85f6edb1443bf156baaa48b1cdf72ce38e5e16a0ce53d195ac395715",
+          "evidence_contract.py": "5fb4226e9407d3432cdbaa518b10af9a5d5dc7bef0036e204848fbda3a3ffbe5",
+          "frames.py": "82c23f7382f862d3b95960b017dda278022ccee1f1bc4e9b339bf7c45ba8dede",
+          "library.py": "7d1613c28f01453270c8a53bf0e3f015bf197dff25b43edc764802e1e1306e5b",
+          "literal_evidence.py": "4dff854bea0a7ae453be35ee016be2533d9ed0b08b98b7ee4a28d2f10b5983fa",
+          "local_reader.py": "6e7a6702f8296b63dd8a2be292ef620c9e67ed6170770e1222cfee58e23ea815",
+          "operational_evidence.py": "ac4ac4c1b9df9f412323674083dbc1bdb83a6570b8576fde9969eddafd791580",
+          "passages.py": "fae27b547e0cd848ce8a720914eaede5cd371b7db3144a4a68141889569fe5ec",
+          "pipeline.py": "8deeca428ee79dccb6808969f2f23aa9955f65b779f7e5c1988b24840ff752d6",
+          "policy_evidence.py": "90ae363e5b2b92c52ef24a9ff4d820821a76729f012831c51e27f3ad54492c35",
+          "practical_evidence.py": "0ad115570d1a5c1f756f2931e331a083d6f9ca6f7512223b5160278f5cda33af",
+          "procedures.py": "90cc6108617b3e56e578039f793581687bb2862e448421d5e5c7f088d2dfac37",
+          "relation_graph.py": "f63ac01659f6f6bfb69ff97bf6b4f8ad024efaf7a209d0b2be0702aceba6d541",
+          "support.py": "67821fc2399616dfbc10c52a440b3de5f6220a82aec44be595b60fd19b96f9ff"
+        }
+      },
+      "measurement": {
+        "wall_seconds": 0.0227046709987917,
+        "cpu_seconds": 0.022687687999999984,
+        "peak_python_allocated_bytes": 49836,
+        "source_text_read_bytes": 6054,
+        "source_text_read_calls": 14,
+        "source_bytes": 613,
+        "final_source_files_sha256": {
+          "src-0001.html": "a42249c967994b66b6351851bba69da8e2b95b9e1b7bcdfb6926103a29cdc66b"
+        },
+        "source_count": 1,
+        "sources_represented_in_output": 0,
+        "output_source_coverage": 0.0,
+        "human_labeling_seconds": null,
+        "human_correction_seconds": null
+      }
+    },
+    {
+      "id": "diagnostic-absence",
+      "family": "diagnostic_separation",
+      "requirement": "An empty corpus reports no eligible sources",
+      "expected": "no_eligible_sources",
+      "score": "capability",
+      "actual": "no_eligible_sources",
+      "status": "pass",
+      "observed": {
+        "schema": "answer-contract-v1",
+        "mode": "strict",
+        "question": "Who owns observatory?",
+        "kind": "abstain",
+        "answer_supported": false,
+        "text": "",
+        "claims": [],
+        "missing": [],
+        "clarification": "",
+        "confidence": null,
+        "confidence_calibrated": false,
+        "sources": [],
+        "retrieval": {
+          "eligible_pages": 0,
+          "total_passages": 0,
+          "passages": [],
+          "sources": [],
+          "search_complete": false,
+          "corpus_snapshot": "sha256:4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "ranking": "not_run"
+        },
+        "verification": {
+          "structural": false,
+          "semantic": "not_run",
+          "truth_verified": false,
+          "independence_verified": false
+        },
+        "reader": null,
+        "trace": [],
+        "diagnostic": {
+          "code": "no_eligible_sources",
+          "stage": "eligibility",
+          "message": "No eligible body passages are available under this question and profile; corpus absence is not established.",
+          "corpus_answerability": "not_established",
+          "next_steps": [
+            "Import relevant source material or check the selected collection. No acquisition was started."
+          ]
+        },
+        "code_sha256": {
+          "__init__.py": "d57d776eaaea962867814b5af3f0ac836fdd0c70ffbde910a801e6240697a095",
+          "__main__.py": "aa3daa9e8a92ff198985326fa9e6b6369870b7dbbdca7c973265ef1ff4b40a54",
+          "assertions.py": "54a8a56e2e19bd3565098a3b66f28da590341405a454cf154319686ea0a51458",
+          "body_text.py": "0c02ba271796c6aafb985f3ef6ea95902086052cf030c471c226d1f6cbd79c44",
+          "evaluate.py": "8c6e4444d661f5a2982338a45673ff594ae4cc4a86d3ec6e0bce6b7f77c90969",
+          "evaluation.py": "4d58e13a85f6edb1443bf156baaa48b1cdf72ce38e5e16a0ce53d195ac395715",
+          "evidence_contract.py": "5fb4226e9407d3432cdbaa518b10af9a5d5dc7bef0036e204848fbda3a3ffbe5",
+          "frames.py": "82c23f7382f862d3b95960b017dda278022ccee1f1bc4e9b339bf7c45ba8dede",
+          "library.py": "7d1613c28f01453270c8a53bf0e3f015bf197dff25b43edc764802e1e1306e5b",
+          "literal_evidence.py": "4dff854bea0a7ae453be35ee016be2533d9ed0b08b98b7ee4a28d2f10b5983fa",
+          "local_reader.py": "6e7a6702f8296b63dd8a2be292ef620c9e67ed6170770e1222cfee58e23ea815",
+          "operational_evidence.py": "ac4ac4c1b9df9f412323674083dbc1bdb83a6570b8576fde9969eddafd791580",
+          "passages.py": "fae27b547e0cd848ce8a720914eaede5cd371b7db3144a4a68141889569fe5ec",
+          "pipeline.py": "8deeca428ee79dccb6808969f2f23aa9955f65b779f7e5c1988b24840ff752d6",
+          "policy_evidence.py": "90ae363e5b2b92c52ef24a9ff4d820821a76729f012831c51e27f3ad54492c35",
+          "practical_evidence.py": "0ad115570d1a5c1f756f2931e331a083d6f9ca6f7512223b5160278f5cda33af",
+          "procedures.py": "90cc6108617b3e56e578039f793581687bb2862e448421d5e5c7f088d2dfac37",
+          "relation_graph.py": "f63ac01659f6f6bfb69ff97bf6b4f8ad024efaf7a209d0b2be0702aceba6d541",
+          "support.py": "67821fc2399616dfbc10c52a440b3de5f6220a82aec44be595b60fd19b96f9ff"
+        }
+      },
+      "measurement": {
+        "wall_seconds": 0.0046146800013957545,
+        "cpu_seconds": 0.004614873999999991,
+        "peak_python_allocated_bytes": 43821,
+        "source_text_read_bytes": 0,
+        "source_text_read_calls": 0,
+        "source_bytes": 0,
+        "final_source_files_sha256": {},
+        "source_count": 0,
+        "sources_represented_in_output": 0,
+        "output_source_coverage": null,
+        "human_labeling_seconds": null,
+        "human_correction_seconds": null
+      }
+    },
+    {
+      "id": "diagnostic-evidence",
+      "family": "diagnostic_separation",
+      "requirement": "Eligible material without the requested statement reports insufficient evidence",
+      "expected": "evidence_not_established",
+      "score": "capability",
+      "actual": "evidence_not_established",
+      "status": "pass",
+      "observed": {
+        "schema": "answer-contract-v1",
+        "mode": "strict",
+        "question": "Who owns observatory?",
+        "kind": "abstain",
+        "answer_supported": false,
+        "text": "",
+        "claims": [],
+        "missing": [],
+        "clarification": "",
+        "confidence": null,
+        "confidence_calibrated": false,
+        "sources": [],
+        "retrieval": {
+          "eligible_pages": 1,
+          "total_passages": 1,
+          "passages": [],
+          "sources": [],
+          "search_complete": false,
+          "corpus_snapshot": "sha256:e4324db3e5e162af74b807a1f33a91d7d1399ab2ee9e19f85c52d64d51bf17d4",
+          "ranking": "not_run"
+        },
+        "verification": {
+          "structural": false,
+          "semantic": "not_run",
+          "truth_verified": false,
+          "independence_verified": false
+        },
+        "reader": null,
+        "trace": [],
+        "diagnostic": {
+          "code": "evidence_not_established",
+          "stage": "strict",
+          "message": "Eligible passages exist, but the strict reader cannot establish an answer to this question.",
+          "corpus_answerability": "not_established",
+          "next_steps": [
+            "Inspect the relevant source. Try a supported question form or explicitly select a configured assisted reader; do not treat this refusal as proof that the answer is absent."
+          ]
+        },
+        "code_sha256": {
+          "__init__.py": "d57d776eaaea962867814b5af3f0ac836fdd0c70ffbde910a801e6240697a095",
+          "__main__.py": "aa3daa9e8a92ff198985326fa9e6b6369870b7dbbdca7c973265ef1ff4b40a54",
+          "assertions.py": "54a8a56e2e19bd3565098a3b66f28da590341405a454cf154319686ea0a51458",
+          "body_text.py": "0c02ba271796c6aafb985f3ef6ea95902086052cf030c471c226d1f6cbd79c44",
+          "evaluate.py": "8c6e4444d661f5a2982338a45673ff594ae4cc4a86d3ec6e0bce6b7f77c90969",
+          "evaluation.py": "4d58e13a85f6edb1443bf156baaa48b1cdf72ce38e5e16a0ce53d195ac395715",
+          "evidence_contract.py": "5fb4226e9407d3432cdbaa518b10af9a5d5dc7bef0036e204848fbda3a3ffbe5",
+          "frames.py": "82c23f7382f862d3b95960b017dda278022ccee1f1bc4e9b339bf7c45ba8dede",
+          "library.py": "7d1613c28f01453270c8a53bf0e3f015bf197dff25b43edc764802e1e1306e5b",
+          "literal_evidence.py": "4dff854bea0a7ae453be35ee016be2533d9ed0b08b98b7ee4a28d2f10b5983fa",
+          "local_reader.py": "6e7a6702f8296b63dd8a2be292ef620c9e67ed6170770e1222cfee58e23ea815",
+          "operational_evidence.py": "ac4ac4c1b9df9f412323674083dbc1bdb83a6570b8576fde9969eddafd791580",
+          "passages.py": "fae27b547e0cd848ce8a720914eaede5cd371b7db3144a4a68141889569fe5ec",
+          "pipeline.py": "8deeca428ee79dccb6808969f2f23aa9955f65b779f7e5c1988b24840ff752d6",
+          "policy_evidence.py": "90ae363e5b2b92c52ef24a9ff4d820821a76729f012831c51e27f3ad54492c35",
+          "practical_evidence.py": "0ad115570d1a5c1f756f2931e331a083d6f9ca6f7512223b5160278f5cda33af",
+          "procedures.py": "90cc6108617b3e56e578039f793581687bb2862e448421d5e5c7f088d2dfac37",
+          "relation_graph.py": "f63ac01659f6f6bfb69ff97bf6b4f8ad024efaf7a209d0b2be0702aceba6d541",
+          "support.py": "67821fc2399616dfbc10c52a440b3de5f6220a82aec44be595b60fd19b96f9ff"
+        }
+      },
+      "measurement": {
+        "wall_seconds": 0.02543140899797436,
+        "cpu_seconds": 0.02541067600000002,
+        "peak_python_allocated_bytes": 47178,
+        "source_text_read_bytes": 8171,
+        "source_text_read_calls": 19,
+        "source_bytes": 613,
+        "final_source_files_sha256": {
+          "src-0001.html": "a42249c967994b66b6351851bba69da8e2b95b9e1b7bcdfb6926103a29cdc66b"
+        },
+        "source_count": 1,
+        "sources_represented_in_output": 0,
+        "output_source_coverage": 0.0,
+        "human_labeling_seconds": null,
+        "human_correction_seconds": null
+      }
+    },
+    {
+      "id": "diagnostic-exhaustion",
+      "family": "diagnostic_separation",
+      "requirement": "A bounded expert discovery limit is distinct from proved source absence",
+      "expected": "explicit_budget_stop",
+      "score": "capability",
+      "actual": "unavailable_or_undifferentiated",
+      "status": "gap",
+      "observed": {
+        "status": "unavailable",
+        "sources": [],
+        "relations": [],
+        "answer_supported": false,
+        "receipts": []
+      },
+      "measurement": {
+        "wall_seconds": 0.00875185800032341,
+        "cpu_seconds": 0.008745871999999988,
+        "peak_python_allocated_bytes": 19608,
+        "source_text_read_bytes": 2439,
+        "source_text_read_calls": 5,
+        "source_bytes": 1223,
+        "final_source_files_sha256": {
+          "src-0001.html": "93fb572e7ff91d024b97c73c7280418d806f2ef2f93e5cb984f6eb5d0ade45ad",
+          "src-0002.html": "5949b12e5b54a28054b97ff566b3048b3269dc9604442f0318f730fe8bde607a"
+        },
+        "source_count": 2,
+        "sources_represented_in_output": 0,
+        "output_source_coverage": 0.0,
+        "human_labeling_seconds": null,
+        "human_correction_seconds": null
+      }
+    },
+    {
+      "id": "exact-route-zero",
+      "family": "exact_routing",
+      "requirement": "An unavailable explicit starting identifier cannot be substituted",
+      "expected": "unavailable",
+      "score": "safety",
+      "actual": "unavailable",
+      "status": "gap",
+      "observed": {
+        "requested_source_id": "ABSENT-999",
+        "result": "unavailable"
+      },
+      "measurement": {
+        "wall_seconds": 0.008160737001162488,
+        "cpu_seconds": 0.00815416400000002,
+        "peak_python_allocated_bytes": 19573,
+        "source_text_read_bytes": 2439,
+        "source_text_read_calls": 5,
+        "source_bytes": 1223,
+        "final_source_files_sha256": {
+          "src-0001.html": "93fb572e7ff91d024b97c73c7280418d806f2ef2f93e5cb984f6eb5d0ade45ad",
+          "src-0002.html": "5949b12e5b54a28054b97ff566b3048b3269dc9604442f0318f730fe8bde607a"
+        },
+        "source_count": 2,
+        "sources_represented_in_output": 0,
+        "output_source_coverage": 0.0,
+        "human_labeling_seconds": null,
+        "human_correction_seconds": null
+      }
+    },
+    {
+      "id": "exact-route-one",
+      "family": "exact_routing",
+      "requirement": "A declared document ID and version can route to one eligible witness",
+      "expected": "traversed",
+      "score": "capability",
+      "actual": "expert_path_unavailable",
+      "status": "gap",
+      "observed": {
+        "status": "unavailable",
+        "sources": [],
+        "relations": [],
+        "answer_supported": false,
+        "receipts": []
+      },
+      "measurement": {
+        "wall_seconds": 0.008307962998514995,
+        "cpu_seconds": 0.008303504999999989,
+        "peak_python_allocated_bytes": 19437,
+        "source_text_read_bytes": 2439,
+        "source_text_read_calls": 5,
+        "source_bytes": 1223,
+        "final_source_files_sha256": {
+          "src-0001.html": "93fb572e7ff91d024b97c73c7280418d806f2ef2f93e5cb984f6eb5d0ade45ad",
+          "src-0002.html": "5949b12e5b54a28054b97ff566b3048b3269dc9604442f0318f730fe8bde607a"
+        },
+        "source_count": 2,
+        "sources_represented_in_output": 0,
+        "output_source_coverage": 0.0,
+        "human_labeling_seconds": null,
+        "human_correction_seconds": null
+      }
+    },
+    {
+      "id": "exact-route-many",
+      "family": "exact_routing",
+      "requirement": "Duplicate declared identities cannot be ranked into a unique target",
+      "expected": "ambiguous_target",
+      "score": "safety",
+      "actual": "expert_path_unavailable",
+      "status": "gap",
+      "observed": {
+        "status": "unavailable",
+        "sources": [],
+        "relations": [],
+        "answer_supported": false,
+        "receipts": []
+      },
+      "measurement": {
+        "wall_seconds": 0.01320903600208112,
+        "cpu_seconds": 0.013183060999999996,
+        "peak_python_allocated_bytes": 23545,
+        "source_text_read_bytes": 5593,
+        "source_text_read_calls": 10,
+        "source_bytes": 1824,
+        "final_source_files_sha256": {
+          "src-0001.html": "93fb572e7ff91d024b97c73c7280418d806f2ef2f93e5cb984f6eb5d0ade45ad",
+          "src-0002.html": "5949b12e5b54a28054b97ff566b3048b3269dc9604442f0318f730fe8bde607a",
+          "src-0003.html": "3310fabc2e3704f58e54cb569cad65f4a606014f8c9a2bbed5ad9ded195d8cb9"
+        },
+        "source_count": 3,
+        "sources_represented_in_output": 0,
+        "output_source_coverage": 0.0,
+        "human_labeling_seconds": null,
+        "human_correction_seconds": null
+      }
+    },
+    {
+      "id": "contradiction-not-pruned",
+      "family": "exact_routing",
+      "requirement": "An exact-source investigation does not certify a world answer by omitting a contradictory eligible source",
+      "expected": "no_supported_answer",
+      "score": "safety",
+      "actual": "no_supported_answer",
+      "status": "gap",
+      "observed": {
+        "investigation": {
+          "status": "unavailable",
+          "sources": [],
+          "relations": [],
+          "answer_supported": false,
+          "receipts": []
+        },
+        "independent_strict_check": {
+          "schema": "answer-contract-v1",
+          "mode": "strict",
+          "question": "Who owns observatory?",
+          "kind": "conflict",
+          "answer_supported": false,
+          "text": "",
+          "claims": [],
+          "missing": [],
+          "clarification": "",
+          "confidence": null,
+          "confidence_calibrated": false,
+          "sources": [],
+          "retrieval": {},
+          "verification": {
+            "structural": false,
+            "semantic": "not_run",
+            "truth_verified": false,
+            "independence_verified": false
+          },
+          "reader": null,
+          "trace": [],
+          "diagnostic": {
+            "code": "conflicting_or_multiple_owners",
+            "stage": "strict",
+            "message": "Multiple eligible supporting pages or conflicting statements; no winner chosen.",
+            "corpus_answerability": "not_established",
+            "next_steps": [
+              "Inspect the competing sources; specify the intended subject or resolve the disagreement by a source revision."
+            ]
+          },
+          "code_sha256": {
+            "__init__.py": "d57d776eaaea962867814b5af3f0ac836fdd0c70ffbde910a801e6240697a095",
+            "__main__.py": "aa3daa9e8a92ff198985326fa9e6b6369870b7dbbdca7c973265ef1ff4b40a54",
+            "assertions.py": "54a8a56e2e19bd3565098a3b66f28da590341405a454cf154319686ea0a51458",
+            "body_text.py": "0c02ba271796c6aafb985f3ef6ea95902086052cf030c471c226d1f6cbd79c44",
+            "evaluate.py": "8c6e4444d661f5a2982338a45673ff594ae4cc4a86d3ec6e0bce6b7f77c90969",
+            "evaluation.py": "4d58e13a85f6edb1443bf156baaa48b1cdf72ce38e5e16a0ce53d195ac395715",
+            "evidence_contract.py": "5fb4226e9407d3432cdbaa518b10af9a5d5dc7bef0036e204848fbda3a3ffbe5",
+            "frames.py": "82c23f7382f862d3b95960b017dda278022ccee1f1bc4e9b339bf7c45ba8dede",
+            "library.py": "7d1613c28f01453270c8a53bf0e3f015bf197dff25b43edc764802e1e1306e5b",
+            "literal_evidence.py": "4dff854bea0a7ae453be35ee016be2533d9ed0b08b98b7ee4a28d2f10b5983fa",
+            "local_reader.py": "6e7a6702f8296b63dd8a2be292ef620c9e67ed6170770e1222cfee58e23ea815",
+            "operational_evidence.py": "ac4ac4c1b9df9f412323674083dbc1bdb83a6570b8576fde9969eddafd791580",
+            "passages.py": "fae27b547e0cd848ce8a720914eaede5cd371b7db3144a4a68141889569fe5ec",
+            "pipeline.py": "8deeca428ee79dccb6808969f2f23aa9955f65b779f7e5c1988b24840ff752d6",
+            "policy_evidence.py": "90ae363e5b2b92c52ef24a9ff4d820821a76729f012831c51e27f3ad54492c35",
+            "practical_evidence.py": "0ad115570d1a5c1f756f2931e331a083d6f9ca6f7512223b5160278f5cda33af",
+            "procedures.py": "90cc6108617b3e56e578039f793581687bb2862e448421d5e5c7f088d2dfac37",
+            "relation_graph.py": "f63ac01659f6f6bfb69ff97bf6b4f8ad024efaf7a209d0b2be0702aceba6d541",
+            "support.py": "67821fc2399616dfbc10c52a440b3de5f6220a82aec44be595b60fd19b96f9ff"
+          }
+        }
+      },
+      "measurement": {
+        "wall_seconds": 0.051245842998469016,
+        "cpu_seconds": 0.05123436399999998,
+        "peak_python_allocated_bytes": 53291,
+        "source_text_read_bytes": 23145,
+        "source_text_read_calls": 33,
+        "source_bytes": 1852,
+        "final_source_files_sha256": {
+          "src-0001.html": "93fb572e7ff91d024b97c73c7280418d806f2ef2f93e5cb984f6eb5d0ade45ad",
+          "src-0002.html": "5949b12e5b54a28054b97ff566b3048b3269dc9604442f0318f730fe8bde607a",
+          "src-0003.html": "e8c1e011921245cf145addec68e03bc80b07cff8a6ef543812421e14280abc9d"
+        },
+        "source_count": 3,
+        "sources_represented_in_output": 0,
+        "output_source_coverage": 0.0,
+        "human_labeling_seconds": null,
+        "human_correction_seconds": null
+      }
+    },
+    {
+      "id": "event-occurrences",
+      "family": "event_identity",
+      "requirement": "Two appearances remain separate source occurrences",
+      "expected": "two_source_occurrences",
+      "score": "capability",
+      "actual": "two_source_occurrences",
+      "status": "pass",
+      "observed": {
+        "source_occurrences": [
+          {
+            "id": "SRC-0001",
+            "hash": "sha256:4cc510659097f5370ef66d9680777f04c758848510f5d60c3e87e17468b69494"
+          },
+          {
+            "id": "SRC-0002",
+            "hash": "sha256:d4f845ccc4dc644a19c81e7f0c09fde65d54f443b645a449af11853a71c33a2b"
+          }
+        ],
+        "event_candidate_schema": null,
+        "changed_body_review": null
+      },
+      "measurement": {
+        "wall_seconds": 0.011053270001866622,
+        "cpu_seconds": 0.011049877999999957,
+        "peak_python_allocated_bytes": 19665,
+        "source_text_read_bytes": 4654,
+        "source_text_read_calls": 8,
+        "source_bytes": 1358,
+        "final_source_files_sha256": {
+          "src-0001.html": "7fd5819031590e009d3e476d24949cdc7cfecb98dfe8a2e6639c871e5dc5d6e6",
+          "src-0002.html": "19c270fa335a6e460d4eb1855de13408bf476cb04fb0e9dba37a67edc4874841"
+        },
+        "source_count": 2,
+        "sources_represented_in_output": 2,
+        "output_source_coverage": 1.0,
+        "human_labeling_seconds": null,
+        "human_correction_seconds": null
+      }
+    },
+    {
+      "id": "event-candidates",
+      "family": "event_identity",
+      "requirement": "An event candidate is explicitly distinct from its appearances and changed bodies trigger review",
+      "expected": "typed_event_candidate_with_review",
+      "score": "capability",
+      "actual": "typed_event_identity_unimplemented",
+      "status": "gap",
+      "observed": {
+        "source_occurrences": [
+          {
+            "id": "SRC-0001",
+            "hash": "sha256:4cc510659097f5370ef66d9680777f04c758848510f5d60c3e87e17468b69494"
+          },
+          {
+            "id": "SRC-0002",
+            "hash": "sha256:d4f845ccc4dc644a19c81e7f0c09fde65d54f443b645a449af11853a71c33a2b"
+          },
+          {
+            "id": "SRC-0003",
+            "hash": "sha256:90341fec24eecb827771ad284d1361bbc0e58599d8d7819ac509b5f5daab3fa9"
+          }
+        ],
+        "event_candidate_schema": null,
+        "changed_body_review": null
+      },
+      "measurement": {
+        "wall_seconds": 0.019865795999066904,
+        "cpu_seconds": 0.01984873699999995,
+        "peak_python_allocated_bytes": 23599,
+        "source_text_read_bytes": 9068,
+        "source_text_read_calls": 14,
+        "source_bytes": 2037,
+        "final_source_files_sha256": {
+          "src-0001.html": "7fd5819031590e009d3e476d24949cdc7cfecb98dfe8a2e6639c871e5dc5d6e6",
+          "src-0002.html": "19c270fa335a6e460d4eb1855de13408bf476cb04fb0e9dba37a67edc4874841",
+          "src-0003.html": "ba832eb5434babd47ef2d794da9168c037dca30acd10ae9dbbf5d0b4c7e01736"
+        },
+        "source_count": 3,
+        "sources_represented_in_output": 3,
+        "output_source_coverage": 1.0,
+        "human_labeling_seconds": null,
+        "human_correction_seconds": null
+      }
+    },
+    {
+      "id": "partial-correction",
+      "family": "time_scoped_correction",
+      "requirement": "A partial correction preserves the original and supports only its specified claim without losing unaffected facts",
+      "expected": "scoped_correction_with_unaffected_fact",
+      "score": "capability",
+      "actual": "whole_document_revision_not_claim_scoped",
+      "status": "gap",
+      "observed": {
+        "owner": {
+          "schema": "answer-contract-v1",
+          "mode": "strict",
+          "question": "Who owns observatory?",
+          "kind": "supported_answer",
+          "answer_supported": true,
+          "text": "Sol owns observatory.",
+          "claims": [
+            {
+              "text": "Sol owns observatory.",
+              "qualifiers": [],
+              "citations": [
+                {
+                  "passage": "sha256:f25dfc0087b0dd09efa367e832503da849dbeaec67f247e237f85d5a3b3f2ca1",
+                  "start": 0,
+                  "end": 21,
+                  "quote": "Sol owns observatory.",
+                  "source_id": "SRC-0002",
+                  "path": "src-0002.html",
+                  "hash": "sha256:0c889390e0a972601cfc195d14f8ed47559c148a452c0eae0c4102e08b08f661",
+                  "body_start": 0,
+                  "body_end": 21
+                }
+              ]
+            }
+          ],
+          "missing": [],
+          "clarification": "",
+          "confidence": null,
+          "confidence_calibrated": false,
+          "sources": [
+            {
+              "id": "SRC-0002",
+              "path": "src-0002.html",
+              "hash": "sha256:0c889390e0a972601cfc195d14f8ed47559c148a452c0eae0c4102e08b08f661"
+            }
+          ],
+          "retrieval": {},
+          "verification": {
+            "structural": true,
+            "semantic": "bounded_deterministic_grammar",
+            "truth_verified": false,
+            "independence_verified": false
+          },
+          "reader": null,
+          "trace": [],
+          "diagnostic": {
+            "code": "supported",
+            "stage": "strict",
+            "message": "Explicit source statements satisfy the existing bounded grammar.",
+            "corpus_answerability": "not_established",
+            "next_steps": [
+              "Open the cited source and check its conditions and revision."
+            ]
+          },
+          "code_sha256": {
+            "__init__.py": "d57d776eaaea962867814b5af3f0ac836fdd0c70ffbde910a801e6240697a095",
+            "__main__.py": "aa3daa9e8a92ff198985326fa9e6b6369870b7dbbdca7c973265ef1ff4b40a54",
+            "assertions.py": "54a8a56e2e19bd3565098a3b66f28da590341405a454cf154319686ea0a51458",
+            "body_text.py": "0c02ba271796c6aafb985f3ef6ea95902086052cf030c471c226d1f6cbd79c44",
+            "evaluate.py": "8c6e4444d661f5a2982338a45673ff594ae4cc4a86d3ec6e0bce6b7f77c90969",
+            "evaluation.py": "4d58e13a85f6edb1443bf156baaa48b1cdf72ce38e5e16a0ce53d195ac395715",
+            "evidence_contract.py": "5fb4226e9407d3432cdbaa518b10af9a5d5dc7bef0036e204848fbda3a3ffbe5",
+            "frames.py": "82c23f7382f862d3b95960b017dda278022ccee1f1bc4e9b339bf7c45ba8dede",
+            "library.py": "7d1613c28f01453270c8a53bf0e3f015bf197dff25b43edc764802e1e1306e5b",
+            "literal_evidence.py": "4dff854bea0a7ae453be35ee016be2533d9ed0b08b98b7ee4a28d2f10b5983fa",
+            "local_reader.py": "6e7a6702f8296b63dd8a2be292ef620c9e67ed6170770e1222cfee58e23ea815",
+            "operational_evidence.py": "ac4ac4c1b9df9f412323674083dbc1bdb83a6570b8576fde9969eddafd791580",
+            "passages.py": "fae27b547e0cd848ce8a720914eaede5cd371b7db3144a4a68141889569fe5ec",
+            "pipeline.py": "8deeca428ee79dccb6808969f2f23aa9955f65b779f7e5c1988b24840ff752d6",
+            "policy_evidence.py": "90ae363e5b2b92c52ef24a9ff4d820821a76729f012831c51e27f3ad54492c35",
+            "practical_evidence.py": "0ad115570d1a5c1f756f2931e331a083d6f9ca6f7512223b5160278f5cda33af",
+            "procedures.py": "90cc6108617b3e56e578039f793581687bb2862e448421d5e5c7f088d2dfac37",
+            "relation_graph.py": "f63ac01659f6f6bfb69ff97bf6b4f8ad024efaf7a209d0b2be0702aceba6d541",
+            "support.py": "67821fc2399616dfbc10c52a440b3de5f6220a82aec44be595b60fd19b96f9ff"
+          }
+        },
+        "unaffected_location": {
+          "schema": "answer-contract-v1",
+          "mode": "strict",
+          "question": "Where is observatory located?",
+          "kind": "abstain",
+          "answer_supported": false,
+          "text": "",
+          "claims": [],
+          "missing": [],
+          "clarification": "",
+          "confidence": null,
+          "confidence_calibrated": false,
+          "sources": [],
+          "retrieval": {
+            "eligible_pages": 1,
+            "total_passages": 1,
+            "passages": [],
+            "sources": [],
+            "search_complete": false,
+            "corpus_snapshot": "sha256:8aa597a3d0ae5103fd54fdb1aa0b39e4d7083fd2c05905b0e7d1f8bb7bb42ebf",
+            "ranking": "not_run"
+          },
+          "verification": {
+            "structural": false,
+            "semantic": "not_run",
+            "truth_verified": false,
+            "independence_verified": false
+          },
+          "reader": null,
+          "trace": [],
+          "diagnostic": {
+            "code": "evidence_not_established",
+            "stage": "strict",
+            "message": "Eligible passages exist, but the strict reader cannot establish an answer to this question.",
+            "corpus_answerability": "not_established",
+            "next_steps": [
+              "Inspect the relevant source. Try a supported question form or explicitly select a configured assisted reader; do not treat this refusal as proof that the answer is absent."
+            ]
+          },
+          "code_sha256": {
+            "__init__.py": "d57d776eaaea962867814b5af3f0ac836fdd0c70ffbde910a801e6240697a095",
+            "__main__.py": "aa3daa9e8a92ff198985326fa9e6b6369870b7dbbdca7c973265ef1ff4b40a54",
+            "assertions.py": "54a8a56e2e19bd3565098a3b66f28da590341405a454cf154319686ea0a51458",
+            "body_text.py": "0c02ba271796c6aafb985f3ef6ea95902086052cf030c471c226d1f6cbd79c44",
+            "evaluate.py": "8c6e4444d661f5a2982338a45673ff594ae4cc4a86d3ec6e0bce6b7f77c90969",
+            "evaluation.py": "4d58e13a85f6edb1443bf156baaa48b1cdf72ce38e5e16a0ce53d195ac395715",
+            "evidence_contract.py": "5fb4226e9407d3432cdbaa518b10af9a5d5dc7bef0036e204848fbda3a3ffbe5",
+            "frames.py": "82c23f7382f862d3b95960b017dda278022ccee1f1bc4e9b339bf7c45ba8dede",
+            "library.py": "7d1613c28f01453270c8a53bf0e3f015bf197dff25b43edc764802e1e1306e5b",
+            "literal_evidence.py": "4dff854bea0a7ae453be35ee016be2533d9ed0b08b98b7ee4a28d2f10b5983fa",
+            "local_reader.py": "6e7a6702f8296b63dd8a2be292ef620c9e67ed6170770e1222cfee58e23ea815",
+            "operational_evidence.py": "ac4ac4c1b9df9f412323674083dbc1bdb83a6570b8576fde9969eddafd791580",
+            "passages.py": "fae27b547e0cd848ce8a720914eaede5cd371b7db3144a4a68141889569fe5ec",
+            "pipeline.py": "8deeca428ee79dccb6808969f2f23aa9955f65b779f7e5c1988b24840ff752d6",
+            "policy_evidence.py": "90ae363e5b2b92c52ef24a9ff4d820821a76729f012831c51e27f3ad54492c35",
+            "practical_evidence.py": "0ad115570d1a5c1f756f2931e331a083d6f9ca6f7512223b5160278f5cda33af",
+            "procedures.py": "90cc6108617b3e56e578039f793581687bb2862e448421d5e5c7f088d2dfac37",
+            "relation_graph.py": "f63ac01659f6f6bfb69ff97bf6b4f8ad024efaf7a209d0b2be0702aceba6d541",
+            "support.py": "67821fc2399616dfbc10c52a440b3de5f6220a82aec44be595b60fd19b96f9ff"
+          }
+        },
+        "history_versions": 2,
+        "explicit_scoped_correction": null
+      },
+      "measurement": {
+        "wall_seconds": 0.08358878799845115,
+        "cpu_seconds": 0.08356698800000001,
+        "peak_python_allocated_bytes": 78681,
+        "source_text_read_bytes": 43957,
+        "source_text_read_calls": 56,
+        "source_bytes": 1360,
+        "final_source_files_sha256": {
+          "src-0001.html": "69390bec8a34885a139d2484cd75b56466e0bb0ff84e01d79be8cd27ca974d68",
+          "src-0002.html": "310ee8d82d1772f3eb726be4859920ae57fca1293c3cc2b54231e9ec22d6006c"
+        },
+        "source_count": 2,
+        "sources_represented_in_output": 1,
+        "output_source_coverage": 0.5,
+        "human_labeling_seconds": null,
+        "human_correction_seconds": null
+      }
+    },
+    {
+      "id": "missing-bridge",
+      "family": "candidate_inference",
+      "requirement": "A missing intermediate witness blocks a proposed relationship",
+      "expected": "unresolved_without_supported_answer",
+      "score": "safety",
+      "actual": "expert_path_unavailable",
+      "status": "gap",
+      "observed": {
+        "status": "unavailable",
+        "sources": [],
+        "relations": [],
+        "answer_supported": false,
+        "receipts": []
+      },
+      "measurement": {
+        "wall_seconds": 0.0029642289991897997,
+        "cpu_seconds": 0.0029646770000000267,
+        "peak_python_allocated_bytes": 15119,
+        "source_text_read_bytes": 622,
+        "source_text_read_calls": 1,
+        "source_bytes": 622,
+        "final_source_files_sha256": {
+          "src-0001.html": "93fb572e7ff91d024b97c73c7280418d806f2ef2f93e5cb984f6eb5d0ade45ad"
+        },
+        "source_count": 1,
+        "sources_represented_in_output": 0,
+        "output_source_coverage": 0.0,
+        "human_labeling_seconds": null,
+        "human_correction_seconds": null
+      }
+    },
+    {
+      "id": "negated-bridge",
+      "family": "candidate_inference",
+      "requirement": "A negated Related declaration cannot license a positive hop",
+      "expected": "unresolved_without_supported_answer",
+      "score": "safety",
+      "actual": "expert_path_unavailable",
+      "status": "gap",
+      "observed": {
+        "status": "unavailable",
+        "sources": [],
+        "relations": [],
+        "answer_supported": false,
+        "receipts": []
+      },
+      "measurement": {
+        "wall_seconds": 0.007557127002655761,
+        "cpu_seconds": 0.007552981000000014,
+        "peak_python_allocated_bytes": 19380,
+        "source_text_read_bytes": 2469,
+        "source_text_read_calls": 5,
+        "source_bytes": 1238,
+        "final_source_files_sha256": {
+          "src-0001.html": "37014e2fb57e0ca917b1d88684e02841144694ef12bf65182a0c8965e2dd0367",
+          "src-0002.html": "5949b12e5b54a28054b97ff566b3048b3269dc9604442f0318f730fe8bde607a"
+        },
+        "source_count": 2,
+        "sources_represented_in_output": 0,
+        "output_source_coverage": 0.0,
+        "human_labeling_seconds": null,
+        "human_correction_seconds": null
+      }
+    },
+    {
+      "id": "receipt-boundary",
+      "family": "receipt_independence",
+      "requirement": "Successful local expert execution is not evidence of delivery, reading or acknowledgement",
+      "expected": "execution_only_no_delivery_claim",
+      "score": "safety",
+      "actual": "execution_only_no_delivery_claim",
+      "status": "gap",
+      "observed": {
+        "expert_receipts": [],
+        "delivered": null,
+        "read": null,
+        "acknowledged": null,
+        "answer_supported": false
+      },
+      "measurement": {
+        "wall_seconds": 0.007957267000165302,
+        "cpu_seconds": 0.007952153000000073,
+        "peak_python_allocated_bytes": 19226,
+        "source_text_read_bytes": 2439,
+        "source_text_read_calls": 5,
+        "source_bytes": 1223,
+        "final_source_files_sha256": {
+          "src-0001.html": "93fb572e7ff91d024b97c73c7280418d806f2ef2f93e5cb984f6eb5d0ade45ad",
+          "src-0002.html": "5949b12e5b54a28054b97ff566b3048b3269dc9604442f0318f730fe8bde607a"
+        },
+        "source_count": 2,
+        "sources_represented_in_output": 0,
+        "output_source_coverage": 0.0,
+        "human_labeling_seconds": null,
+        "human_correction_seconds": null
+      }
+    },
+    {
+      "id": "burden-metrics",
+      "family": "operator_and_compute_cost",
+      "requirement": "Measure CPU, wall time, Python peak memory and source bytes; label unmeasured human effort explicitly",
+      "expected": "measured_compute_unknown_human_time",
+      "score": "measurement",
+      "actual": "measured_compute_unknown_human_time",
+      "status": "pass",
+      "observed": {
+        "query_kind": "supported_answer",
+        "human_labeling_seconds": null,
+        "human_correction_seconds": null,
+        "human_time_basis": "not measured; no real participants"
+      },
+      "measurement": {
+        "wall_seconds": 0.019453529002930736,
+        "cpu_seconds": 0.019438858999999975,
+        "peak_python_allocated_bytes": 51045,
+        "source_text_read_bytes": 5964,
+        "source_text_read_calls": 14,
+        "source_bytes": 598,
+        "final_source_files_sha256": {
+          "src-0001.html": "83e6bde96f031bb0425a6d8d2ef96c3e1ed5bf80b5174bc113c15c082766e407"
+        },
+        "source_count": 1,
+        "sources_represented_in_output": 0,
+        "output_source_coverage": 0.0,
+        "human_labeling_seconds": null,
+        "human_correction_seconds": null
+      }
+    },
+    {
+      "id": "event-subject-collision",
+      "family": "event_identity",
+      "requirement": "Equal subject lines with different explicit event IDs remain separate",
+      "expected": "separate_candidates",
+      "score": "safety",
+      "actual": "extension_unavailable",
+      "status": "gap",
+      "observed": {},
+      "measurement": {
+        "wall_seconds": 0.00012365200018393807,
+        "cpu_seconds": 0.00012337300000009321,
+        "peak_python_allocated_bytes": 1648,
+        "source_text_read_bytes": 0,
+        "source_text_read_calls": 0,
+        "source_bytes": 0,
+        "final_source_files_sha256": {},
+        "source_count": 0,
+        "sources_represented_in_output": 0,
+        "output_source_coverage": null,
+        "human_labeling_seconds": null,
+        "human_correction_seconds": null
+      }
+    },
+    {
+      "id": "event-no-id",
+      "family": "event_identity",
+      "requirement": "Missing event IDs do not produce guessed event identity",
+      "expected": "unassigned_occurrences",
+      "score": "safety",
+      "actual": "extension_unavailable",
+      "status": "gap",
+      "observed": {},
+      "measurement": {
+        "wall_seconds": 7.732399899396114e-05,
+        "cpu_seconds": 7.728500000003802e-05,
+        "peak_python_allocated_bytes": 1640,
+        "source_text_read_bytes": 0,
+        "source_text_read_calls": 0,
+        "source_bytes": 0,
+        "final_source_files_sha256": {},
+        "source_count": 0,
+        "sources_represented_in_output": 0,
+        "output_source_coverage": null,
+        "human_labeling_seconds": null,
+        "human_correction_seconds": null
+      }
+    },
+    {
+      "id": "event-message-duplicates",
+      "family": "event_identity",
+      "requirement": "Repeated identical messages retain separate occurrences without a false changed-body flag",
+      "expected": "candidate_with_two_occurrences",
+      "score": "capability",
+      "actual": "extension_unavailable",
+      "status": "gap",
+      "observed": {},
+      "measurement": {
+        "wall_seconds": 0.0001179530008812435,
+        "cpu_seconds": 0.00011828499999999575,
+        "peak_python_allocated_bytes": 1632,
+        "source_text_read_bytes": 0,
+        "source_text_read_calls": 0,
+        "source_bytes": 0,
+        "final_source_files_sha256": {},
+        "source_count": 0,
+        "sources_represented_in_output": 0,
+        "output_source_coverage": null,
+        "human_labeling_seconds": null,
+        "human_correction_seconds": null
+      }
+    },
+    {
+      "id": "event-message-changed",
+      "family": "event_identity",
+      "requirement": "Changed bodies under one explicit message ID require review",
+      "expected": "needs_review",
+      "score": "safety",
+      "actual": "extension_unavailable",
+      "status": "gap",
+      "observed": {},
+      "measurement": {
+        "wall_seconds": 7.135500345611945e-05,
+        "cpu_seconds": 7.140599999999608e-05,
+        "peak_python_allocated_bytes": 1624,
+        "source_text_read_bytes": 0,
+        "source_text_read_calls": 0,
+        "source_bytes": 0,
+        "final_source_files_sha256": {},
+        "source_count": 0,
+        "sources_represented_in_output": 0,
+        "output_source_coverage": null,
+        "human_labeling_seconds": null,
+        "human_correction_seconds": null
+      }
+    },
+    {
+      "id": "event-body-tamper",
+      "family": "event_identity",
+      "requirement": "Unsealed event bodies cannot become candidates",
+      "expected": "source_unavailable",
+      "score": "safety",
+      "actual": "extension_unavailable",
+      "status": "gap",
+      "observed": {},
+      "measurement": {
+        "wall_seconds": 6.363400098052807e-05,
+        "cpu_seconds": 6.356400000007145e-05,
+        "peak_python_allocated_bytes": 1616,
+        "source_text_read_bytes": 0,
+        "source_text_read_calls": 0,
+        "source_bytes": 0,
+        "final_source_files_sha256": {},
+        "source_count": 0,
+        "sources_represented_in_output": 0,
+        "output_source_coverage": null,
+        "human_labeling_seconds": null,
+        "human_correction_seconds": null
+      }
+    },
+    {
+      "id": "event-restricted",
+      "family": "event_identity",
+      "requirement": "Restricted occurrences remain unavailable externally",
+      "expected": "source_unavailable",
+      "score": "safety",
+      "actual": "extension_unavailable",
+      "status": "gap",
+      "observed": {},
+      "measurement": {
+        "wall_seconds": 0.00011471900143078528,
+        "cpu_seconds": 0.00010870200000001606,
+        "peak_python_allocated_bytes": 1600,
+        "source_text_read_bytes": 0,
+        "source_text_read_calls": 0,
+        "source_bytes": 0,
+        "final_source_files_sha256": {},
+        "source_count": 0,
+        "sources_represented_in_output": 0,
+        "output_source_coverage": null,
+        "human_labeling_seconds": null,
+        "human_correction_seconds": null
+      }
+    },
+    {
+      "id": "event-excluded",
+      "family": "event_identity",
+      "requirement": "The original question exclusions apply to event candidates",
+      "expected": "source_unavailable",
+      "score": "safety",
+      "actual": "extension_unavailable",
+      "status": "gap",
+      "observed": {},
+      "measurement": {
+        "wall_seconds": 6.56869997328613e-05,
+        "cpu_seconds": 6.558699999992257e-05,
+        "peak_python_allocated_bytes": 1592,
+        "source_text_read_bytes": 0,
+        "source_text_read_calls": 0,
+        "source_bytes": 0,
+        "final_source_files_sha256": {},
+        "source_count": 0,
+        "sources_represented_in_output": 0,
+        "output_source_coverage": null,
+        "human_labeling_seconds": null,
+        "human_correction_seconds": null
+      }
+    },
+    {
+      "id": "event-date-basis",
+      "family": "event_identity",
+      "requirement": "The exact source-stated date remains distinct from wrapper update time",
+      "expected": "source_stated_date_preserved",
+      "score": "capability",
+      "actual": "extension_unavailable",
+      "status": "gap",
+      "observed": {},
+      "measurement": {
+        "wall_seconds": 6.077000216464512e-05,
+        "cpu_seconds": 6.079000000003276e-05,
+        "peak_python_allocated_bytes": 1584,
+        "source_text_read_bytes": 0,
+        "source_text_read_calls": 0,
+        "source_bytes": 0,
+        "final_source_files_sha256": {},
+        "source_count": 0,
+        "sources_represented_in_output": 0,
+        "output_source_coverage": null,
+        "human_labeling_seconds": null,
+        "human_correction_seconds": null
+      }
+    },
+    {
+      "id": "correction-ambiguous-span",
+      "family": "time_scoped_correction",
+      "requirement": "A repeated old quote cannot silently select a correction location",
+      "expected": "rejected",
+      "score": "safety",
+      "actual": "extension_unavailable",
+      "status": "gap",
+      "observed": {},
+      "measurement": {
+        "wall_seconds": 0.0001319049988524057,
+        "cpu_seconds": 0.00013171600000005945,
+        "peak_python_allocated_bytes": 1576,
+        "source_text_read_bytes": 0,
+        "source_text_read_calls": 0,
+        "source_bytes": 0,
+        "final_source_files_sha256": {},
+        "source_count": 0,
+        "sources_represented_in_output": 0,
+        "output_source_coverage": null,
+        "human_labeling_seconds": null,
+        "human_correction_seconds": null
+      }
+    },
+    {
+      "id": "correction-missing-span",
+      "family": "time_scoped_correction",
+      "requirement": "A correction must identify existing original text",
+      "expected": "rejected",
+      "score": "safety",
+      "actual": "extension_unavailable",
+      "status": "gap",
+      "observed": {},
+      "measurement": {
+        "wall_seconds": 6.787999882362783e-05,
+        "cpu_seconds": 6.784999999998043e-05,
+        "peak_python_allocated_bytes": 1568,
+        "source_text_read_bytes": 0,
+        "source_text_read_calls": 0,
+        "source_bytes": 0,
+        "final_source_files_sha256": {},
+        "source_count": 0,
+        "sources_represented_in_output": 0,
+        "output_source_coverage": null,
+        "human_labeling_seconds": null,
+        "human_correction_seconds": null
+      }
+    },
+    {
+      "id": "correction-empty-span",
+      "family": "time_scoped_correction",
+      "requirement": "An empty correction scope is rejected",
+      "expected": "rejected",
+      "score": "safety",
+      "actual": "extension_unavailable",
+      "status": "gap",
+      "observed": {},
+      "measurement": {
+        "wall_seconds": 6.081999890739098e-05,
+        "cpu_seconds": 6.070999999996385e-05,
+        "peak_python_allocated_bytes": 1568,
+        "source_text_read_bytes": 0,
+        "source_text_read_calls": 0,
+        "source_bytes": 0,
+        "final_source_files_sha256": {},
+        "source_count": 0,
+        "sources_represented_in_output": 0,
+        "output_source_coverage": null,
+        "human_labeling_seconds": null,
+        "human_correction_seconds": null
+      }
+    },
+    {
+      "id": "correction-invalid-date",
+      "family": "time_scoped_correction",
+      "requirement": "Invalid declared effective dates are rejected",
+      "expected": "rejected",
+      "score": "safety",
+      "actual": "extension_unavailable",
+      "status": "gap",
+      "observed": {},
+      "measurement": {
+        "wall_seconds": 6.095999924582429e-05,
+        "cpu_seconds": 6.0979999999988266e-05,
+        "peak_python_allocated_bytes": 1568,
+        "source_text_read_bytes": 0,
+        "source_text_read_calls": 0,
+        "source_bytes": 0,
+        "final_source_files_sha256": {},
+        "source_count": 0,
+        "sources_represented_in_output": 0,
+        "output_source_coverage": null,
+        "human_labeling_seconds": null,
+        "human_correction_seconds": null
+      }
+    },
+    {
+      "id": "correction-history",
+      "family": "time_scoped_correction",
+      "requirement": "An explicit scoped correction preserves its predecessor and unaffected source text",
+      "expected": "predecessor_and_successor",
+      "score": "capability",
+      "actual": "extension_unavailable",
+      "status": "gap",
+      "observed": {},
+      "measurement": {
+        "wall_seconds": 6.98529984219931e-05,
+        "cpu_seconds": 6.974299999995548e-05,
+        "peak_python_allocated_bytes": 1568,
+        "source_text_read_bytes": 0,
+        "source_text_read_calls": 0,
+        "source_bytes": 0,
+        "final_source_files_sha256": {},
+        "source_count": 0,
+        "sources_represented_in_output": 0,
+        "output_source_coverage": null,
+        "human_labeling_seconds": null,
+        "human_correction_seconds": null
+      }
+    },
+    {
+      "id": "correction-external",
+      "family": "time_scoped_correction",
+      "requirement": "A restricted source cannot be corrected through an external delivery profile",
+      "expected": "rejected",
+      "score": "safety",
+      "actual": "extension_unavailable",
+      "status": "gap",
+      "observed": {},
+      "measurement": {
+        "wall_seconds": 6.559700341313146e-05,
+        "cpu_seconds": 6.555699999999387e-05,
+        "peak_python_allocated_bytes": 1568,
+        "source_text_read_bytes": 0,
+        "source_text_read_calls": 0,
+        "source_bytes": 0,
+        "final_source_files_sha256": {},
+        "source_count": 0,
+        "sources_represented_in_output": 0,
+        "output_source_coverage": null,
+        "human_labeling_seconds": null,
+        "human_correction_seconds": null
+      }
+    },
+    {
+      "id": "correction-source-stale",
+      "family": "time_scoped_correction",
+      "requirement": "An obsolete source cannot be corrected as the current head",
+      "expected": "rejected",
+      "score": "safety",
+      "actual": "extension_unavailable",
+      "status": "gap",
+      "observed": {},
+      "measurement": {
+        "wall_seconds": 7.049399937386625e-05,
+        "cpu_seconds": 7.031400000001575e-05,
+        "peak_python_allocated_bytes": 1568,
+        "source_text_read_bytes": 0,
+        "source_text_read_calls": 0,
+        "source_bytes": 0,
+        "final_source_files_sha256": {},
+        "source_count": 0,
+        "sources_represented_in_output": 0,
+        "output_source_coverage": null,
+        "human_labeling_seconds": null,
+        "human_correction_seconds": null
+      }
+    },
+    {
+      "id": "correction-no-implicit-write",
+      "family": "time_scoped_correction",
+      "requirement": "Expert inspection cannot automatically rewrite a source",
+      "expected": "source_unchanged",
+      "score": "safety",
+      "actual": "extension_unavailable",
+      "status": "gap",
+      "observed": {},
+      "measurement": {
+        "wall_seconds": 5.8607001847121865e-05,
+        "cpu_seconds": 5.85770000000041e-05,
+        "peak_python_allocated_bytes": 1568,
+        "source_text_read_bytes": 0,
+        "source_text_read_calls": 0,
+        "source_bytes": 0,
+        "final_source_files_sha256": {},
+        "source_count": 0,
+        "sources_represented_in_output": 0,
+        "output_source_coverage": null,
+        "human_labeling_seconds": null,
+        "human_correction_seconds": null
+      }
+    },
+    {
+      "id": "crawl-conditional-related",
+      "family": "candidate_inference",
+      "requirement": "A conditional Related field is not an unconditional crawl license",
+      "expected": "unexpanded_qualified_relation",
+      "score": "safety",
+      "actual": "extension_unavailable",
+      "status": "gap",
+      "observed": {},
+      "measurement": {
+        "wall_seconds": 5.708399839932099e-05,
+        "cpu_seconds": 5.7085000000012265e-05,
+        "peak_python_allocated_bytes": 1568,
+        "source_text_read_bytes": 0,
+        "source_text_read_calls": 0,
+        "source_bytes": 0,
+        "final_source_files_sha256": {},
+        "source_count": 0,
+        "sources_represented_in_output": 0,
+        "output_source_coverage": null,
+        "human_labeling_seconds": null,
+        "human_correction_seconds": null
+      }
+    },
+    {
+      "id": "crawl-conditional-supersedes",
+      "family": "candidate_inference",
+      "requirement": "Conditional supersession cannot become an unconditional edge",
+      "expected": "unexpanded_qualified_relation",
+      "score": "safety",
+      "actual": "extension_unavailable",
+      "status": "gap",
+      "observed": {},
+      "measurement": {
+        "wall_seconds": 5.618299837806262e-05,
+        "cpu_seconds": 5.61940000000094e-05,
+        "peak_python_allocated_bytes": 1568,
+        "source_text_read_bytes": 0,
+        "source_text_read_calls": 0,
+        "source_bytes": 0,
+        "final_source_files_sha256": {},
+        "source_count": 0,
+        "sources_represented_in_output": 0,
+        "output_source_coverage": null,
+        "human_labeling_seconds": null,
+        "human_correction_seconds": null
+      }
+    },
+    {
+      "id": "crawl-version-miss",
+      "family": "exact_routing",
+      "requirement": "A named version must not fall back to a different version",
+      "expected": "target_unavailable",
+      "score": "safety",
+      "actual": "extension_unavailable",
+      "status": "gap",
+      "observed": {},
+      "measurement": {
+        "wall_seconds": 5.535099990083836e-05,
+        "cpu_seconds": 5.534200000001377e-05,
+        "peak_python_allocated_bytes": 1568,
+        "source_text_read_bytes": 0,
+        "source_text_read_calls": 0,
+        "source_bytes": 0,
+        "final_source_files_sha256": {},
+        "source_count": 0,
+        "sources_represented_in_output": 0,
+        "output_source_coverage": null,
+        "human_labeling_seconds": null,
+        "human_correction_seconds": null
+      }
+    },
+    {
+      "id": "crawl-version-match",
+      "family": "exact_routing",
+      "requirement": "The exact declared target version can be traversed",
+      "expected": "traversed",
+      "score": "capability",
+      "actual": "extension_unavailable",
+      "status": "gap",
+      "observed": {},
+      "measurement": {
+        "wall_seconds": 5.6192999181803316e-05,
+        "cpu_seconds": 5.623300000001663e-05,
+        "peak_python_allocated_bytes": 1568,
+        "source_text_read_bytes": 0,
+        "source_text_read_calls": 0,
+        "source_bytes": 0,
+        "final_source_files_sha256": {},
+        "source_count": 0,
+        "sources_represented_in_output": 0,
+        "output_source_coverage": null,
+        "human_labeling_seconds": null,
+        "human_correction_seconds": null
+      }
+    },
+    {
+      "id": "crawl-cycle",
+      "family": "candidate_inference",
+      "requirement": "A declared relation cycle terminates with distinct source visits",
+      "expected": "bounded_cycle",
+      "score": "safety",
+      "actual": "extension_unavailable",
+      "status": "gap",
+      "observed": {},
+      "measurement": {
+        "wall_seconds": 5.461999899125658e-05,
+        "cpu_seconds": 5.4551000000069294e-05,
+        "peak_python_allocated_bytes": 1568,
+        "source_text_read_bytes": 0,
+        "source_text_read_calls": 0,
+        "source_bytes": 0,
+        "final_source_files_sha256": {},
+        "source_count": 0,
+        "sources_represented_in_output": 0,
+        "output_source_coverage": null,
+        "human_labeling_seconds": null,
+        "human_correction_seconds": null
+      }
+    },
+    {
+      "id": "crawl-zero-hop",
+      "family": "candidate_inference",
+      "requirement": "A zero-hop budget prevents target traversal",
+      "expected": "hop_limit",
+      "score": "safety",
+      "actual": "extension_unavailable",
+      "status": "gap",
+      "observed": {},
+      "measurement": {
+        "wall_seconds": 8.300199988298118e-05,
+        "cpu_seconds": 8.322400000004837e-05,
+        "peak_python_allocated_bytes": 1568,
+        "source_text_read_bytes": 0,
+        "source_text_read_calls": 0,
+        "source_bytes": 0,
+        "final_source_files_sha256": {},
+        "source_count": 0,
+        "sources_represented_in_output": 0,
+        "output_source_coverage": null,
+        "human_labeling_seconds": null,
+        "human_correction_seconds": null
+      }
+    },
+    {
+      "id": "crawl-one-source",
+      "family": "candidate_inference",
+      "requirement": "A one-source budget stays explicit",
+      "expected": "source_or_character_budget",
+      "score": "safety",
+      "actual": "extension_unavailable",
+      "status": "gap",
+      "observed": {},
+      "measurement": {
+        "wall_seconds": 7.094399916240945e-05,
+        "cpu_seconds": 7.076500000002817e-05,
+        "peak_python_allocated_bytes": 1568,
+        "source_text_read_bytes": 0,
+        "source_text_read_calls": 0,
+        "source_bytes": 0,
+        "final_source_files_sha256": {},
+        "source_count": 0,
+        "sources_represented_in_output": 0,
+        "output_source_coverage": null,
+        "human_labeling_seconds": null,
+        "human_correction_seconds": null
+      }
+    },
+    {
+      "id": "crawl-private-target",
+      "family": "source_authority",
+      "requirement": "A relation link cannot launder a restricted target",
+      "expected": "target_unavailable",
+      "score": "safety",
+      "actual": "extension_unavailable",
+      "status": "gap",
+      "observed": {},
+      "measurement": {
+        "wall_seconds": 5.8375997468829155e-05,
+        "cpu_seconds": 5.830699999997968e-05,
+        "peak_python_allocated_bytes": 1568,
+        "source_text_read_bytes": 0,
+        "source_text_read_calls": 0,
+        "source_bytes": 0,
+        "final_source_files_sha256": {},
+        "source_count": 0,
+        "sources_represented_in_output": 0,
+        "output_source_coverage": null,
+        "human_labeling_seconds": null,
+        "human_correction_seconds": null
+      }
+    },
+    {
+      "id": "crawl-unavailable-target",
+      "family": "candidate_inference",
+      "requirement": "A missing target remains unavailable",
+      "expected": "target_unavailable",
+      "score": "safety",
+      "actual": "extension_unavailable",
+      "status": "gap",
+      "observed": {},
+      "measurement": {
+        "wall_seconds": 5.70740012335591e-05,
+        "cpu_seconds": 5.711499999994096e-05,
+        "peak_python_allocated_bytes": 1568,
+        "source_text_read_bytes": 0,
+        "source_text_read_calls": 0,
+        "source_bytes": 0,
+        "final_source_files_sha256": {},
+        "source_count": 0,
+        "sources_represented_in_output": 0,
+        "output_source_coverage": null,
+        "human_labeling_seconds": null,
+        "human_correction_seconds": null
+      }
+    },
+    {
+      "id": "crawl-generic-title",
+      "family": "exact_routing",
+      "requirement": "An unnamed title cannot be guessed into a target ID",
+      "expected": "unresolved_target_identifier",
+      "score": "safety",
+      "actual": "extension_unavailable",
+      "status": "gap",
+      "observed": {},
+      "measurement": {
+        "wall_seconds": 5.7143999583786353e-05,
+        "cpu_seconds": 5.713500000004146e-05,
+        "peak_python_allocated_bytes": 1568,
+        "source_text_read_bytes": 0,
+        "source_text_read_calls": 0,
+        "source_bytes": 0,
+        "final_source_files_sha256": {},
+        "source_count": 0,
+        "sources_represented_in_output": 0,
+        "output_source_coverage": null,
+        "human_labeling_seconds": null,
+        "human_correction_seconds": null
+      }
+    },
+    {
+      "id": "diagnostic-known-conflict",
+      "family": "diagnostic_separation",
+      "requirement": "An explicit location denial remains a conflict",
+      "expected": "conflict",
+      "score": "capability",
+      "actual": "conflict",
+      "status": "pass",
+      "observed": {
+        "schema": "answer-contract-v1",
+        "mode": "strict",
+        "question": "Where is instrument located?",
+        "kind": "conflict",
+        "answer_supported": false,
+        "text": "",
+        "claims": [],
+        "missing": [],
+        "clarification": "",
+        "confidence": null,
+        "confidence_calibrated": false,
+        "sources": [],
+        "retrieval": {},
+        "verification": {
+          "structural": false,
+          "semantic": "not_run",
+          "truth_verified": false,
+          "independence_verified": false
+        },
+        "reader": null,
+        "trace": [],
+        "diagnostic": {
+          "code": "conflicting_or_multiple_owners",
+          "stage": "strict",
+          "message": "Conflicting or multiple eligible supporting source statements.",
+          "corpus_answerability": "not_established",
+          "next_steps": [
+            "Inspect the competing sources; specify the intended subject or resolve the disagreement by a source revision."
+          ]
+        },
+        "code_sha256": {
+          "__init__.py": "d57d776eaaea962867814b5af3f0ac836fdd0c70ffbde910a801e6240697a095",
+          "__main__.py": "aa3daa9e8a92ff198985326fa9e6b6369870b7dbbdca7c973265ef1ff4b40a54",
+          "assertions.py": "54a8a56e2e19bd3565098a3b66f28da590341405a454cf154319686ea0a51458",
+          "body_text.py": "0c02ba271796c6aafb985f3ef6ea95902086052cf030c471c226d1f6cbd79c44",
+          "evaluate.py": "8c6e4444d661f5a2982338a45673ff594ae4cc4a86d3ec6e0bce6b7f77c90969",
+          "evaluation.py": "4d58e13a85f6edb1443bf156baaa48b1cdf72ce38e5e16a0ce53d195ac395715",
+          "evidence_contract.py": "5fb4226e9407d3432cdbaa518b10af9a5d5dc7bef0036e204848fbda3a3ffbe5",
+          "frames.py": "82c23f7382f862d3b95960b017dda278022ccee1f1bc4e9b339bf7c45ba8dede",
+          "library.py": "7d1613c28f01453270c8a53bf0e3f015bf197dff25b43edc764802e1e1306e5b",
+          "literal_evidence.py": "4dff854bea0a7ae453be35ee016be2533d9ed0b08b98b7ee4a28d2f10b5983fa",
+          "local_reader.py": "6e7a6702f8296b63dd8a2be292ef620c9e67ed6170770e1222cfee58e23ea815",
+          "operational_evidence.py": "ac4ac4c1b9df9f412323674083dbc1bdb83a6570b8576fde9969eddafd791580",
+          "passages.py": "fae27b547e0cd848ce8a720914eaede5cd371b7db3144a4a68141889569fe5ec",
+          "pipeline.py": "8deeca428ee79dccb6808969f2f23aa9955f65b779f7e5c1988b24840ff752d6",
+          "policy_evidence.py": "90ae363e5b2b92c52ef24a9ff4d820821a76729f012831c51e27f3ad54492c35",
+          "practical_evidence.py": "0ad115570d1a5c1f756f2931e331a083d6f9ca6f7512223b5160278f5cda33af",
+          "procedures.py": "90cc6108617b3e56e578039f793581687bb2862e448421d5e5c7f088d2dfac37",
+          "relation_graph.py": "f63ac01659f6f6bfb69ff97bf6b4f8ad024efaf7a209d0b2be0702aceba6d541",
+          "support.py": "67821fc2399616dfbc10c52a440b3de5f6220a82aec44be595b60fd19b96f9ff"
+        }
+      },
+      "measurement": {
+        "wall_seconds": 0.02003422599955229,
+        "cpu_seconds": 0.02002590900000001,
+        "peak_python_allocated_bytes": 59051,
+        "source_text_read_bytes": 6200,
+        "source_text_read_calls": 14,
+        "source_bytes": 624,
+        "final_source_files_sha256": {
+          "conflict-0001.html": "9cd91a8cc6fae18ece4e10f6c838db757fdb659183eea36bbd9716d85432b56e"
+        },
+        "source_count": 1,
+        "sources_represented_in_output": 0,
+        "output_source_coverage": 0.0,
+        "human_labeling_seconds": null,
+        "human_correction_seconds": null
+      }
+    },
+    {
+      "id": "diagnostic-invalid-question",
+      "family": "diagnostic_separation",
+      "requirement": "Invalid empty input is distinct from source absence",
+      "expected": "invalid_question",
+      "score": "safety",
+      "actual": "invalid_question",
+      "status": "pass",
+      "observed": {
+        "rejected": true
+      },
+      "measurement": {
+        "wall_seconds": 0.0001415090009686537,
+        "cpu_seconds": 0.00014098900000003578,
+        "peak_python_allocated_bytes": 3144,
+        "source_text_read_bytes": 0,
+        "source_text_read_calls": 0,
+        "source_bytes": 0,
+        "final_source_files_sha256": {},
+        "source_count": 0,
+        "sources_represented_in_output": 0,
+        "output_source_coverage": null,
+        "human_labeling_seconds": null,
+        "human_correction_seconds": null
+      }
+    },
+    {
+      "id": "diagnostic-budget-input",
+      "family": "diagnostic_separation",
+      "requirement": "An invalid hop budget is rejected before expert work",
+      "expected": "invalid_budget",
+      "score": "safety",
+      "actual": "extension_unavailable",
+      "status": "gap",
+      "observed": {},
+      "measurement": {
+        "wall_seconds": 8.014799823286012e-05,
+        "cpu_seconds": 8.011900000004513e-05,
+        "peak_python_allocated_bytes": 1568,
+        "source_text_read_bytes": 0,
+        "source_text_read_calls": 0,
+        "source_bytes": 0,
+        "final_source_files_sha256": {},
+        "source_count": 0,
+        "sources_represented_in_output": 0,
+        "output_source_coverage": null,
+        "human_labeling_seconds": null,
+        "human_correction_seconds": null
+      }
+    },
+    {
+      "id": "diagnostic-query-preserved",
+      "family": "diagnostic_separation",
+      "requirement": "The original question and exclusions survive expert dispatch",
+      "expected": "original_question_preserved",
+      "score": "safety",
+      "actual": "extension_unavailable",
+      "status": "gap",
+      "observed": {},
+      "measurement": {
+        "wall_seconds": 0.0001201169980049599,
+        "cpu_seconds": 0.00011643199999999965,
+        "peak_python_allocated_bytes": 1568,
+        "source_text_read_bytes": 0,
+        "source_text_read_calls": 0,
+        "source_bytes": 0,
+        "final_source_files_sha256": {},
+        "source_count": 0,
+        "sources_represented_in_output": 0,
+        "output_source_coverage": null,
+        "human_labeling_seconds": null,
+        "human_correction_seconds": null
+      }
+    },
+    {
+      "id": "receipt-three-experts",
+      "family": "receipt_independence",
+      "requirement": "Documentary, chronology and verification work each produce a passing receipt",
+      "expected": "three_receipts",
+      "score": "capability",
+      "actual": "extension_unavailable",
+      "status": "gap",
+      "observed": {},
+      "measurement": {
+        "wall_seconds": 6.854099774500355e-05,
+        "cpu_seconds": 6.853200000001003e-05,
+        "peak_python_allocated_bytes": 1568,
+        "source_text_read_bytes": 0,
+        "source_text_read_calls": 0,
+        "source_bytes": 0,
+        "final_source_files_sha256": {},
+        "source_count": 0,
+        "sources_represented_in_output": 0,
+        "output_source_coverage": null,
+        "human_labeling_seconds": null,
+        "human_correction_seconds": null
+      }
+    },
+    {
+      "id": "receipt-no-provider",
+      "family": "receipt_independence",
+      "requirement": "Deterministic software roles do not masquerade as provider calls",
+      "expected": "local_software_roles",
+      "score": "safety",
+      "actual": "extension_unavailable",
+      "status": "gap",
+      "observed": {},
+      "measurement": {
+        "wall_seconds": 6.9472000177484e-05,
+        "cpu_seconds": 6.95629999999392e-05,
+        "peak_python_allocated_bytes": 1568,
+        "source_text_read_bytes": 0,
+        "source_text_read_calls": 0,
+        "source_bytes": 0,
+        "final_source_files_sha256": {},
+        "source_count": 0,
+        "sources_represented_in_output": 0,
+        "output_source_coverage": null,
+        "human_labeling_seconds": null,
+        "human_correction_seconds": null
+      }
+    },
+    {
+      "id": "receipt-no-completion-promotion",
+      "family": "receipt_independence",
+      "requirement": "Completed expert work is not a supported world answer",
+      "expected": "not_a_supported_answer",
+      "score": "safety",
+      "actual": "extension_unavailable",
+      "status": "gap",
+      "observed": {},
+      "measurement": {
+        "wall_seconds": 9.603200305718929e-05,
+        "cpu_seconds": 9.61430000000485e-05,
+        "peak_python_allocated_bytes": 1568,
+        "source_text_read_bytes": 0,
+        "source_text_read_calls": 0,
+        "source_bytes": 0,
+        "final_source_files_sha256": {},
+        "source_count": 0,
+        "sources_represented_in_output": 0,
+        "output_source_coverage": null,
+        "human_labeling_seconds": null,
+        "human_correction_seconds": null
+      }
+    },
+    {
+      "id": "receipt-private-recovery",
+      "family": "receipt_independence",
+      "requirement": "Explicit retained work uses a private recovery credential that is absent from results",
+      "expected": "private_recoverable_work",
+      "score": "safety",
+      "actual": "extension_unavailable",
+      "status": "gap",
+      "observed": {},
+      "measurement": {
+        "wall_seconds": 7.1955997555051e-05,
+        "cpu_seconds": 7.176700000000036e-05,
+        "peak_python_allocated_bytes": 1568,
+        "source_text_read_bytes": 0,
+        "source_text_read_calls": 0,
+        "source_bytes": 0,
+        "final_source_files_sha256": {},
+        "source_count": 0,
+        "sources_represented_in_output": 0,
+        "output_source_coverage": null,
+        "human_labeling_seconds": null,
+        "human_correction_seconds": null
+      }
+    }
+  ]
+}

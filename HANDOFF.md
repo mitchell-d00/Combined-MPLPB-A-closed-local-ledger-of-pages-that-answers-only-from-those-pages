@@ -4,8 +4,8 @@ Last reviewed: 2026-11-16.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `cc21ce300b5ec228c07fc77a149804fba6c89792` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `4effb382a5509210b06a1504aeb31919c1bc970fa9c6aad2ca1cc65a1c358ff3`.
+Base commit: `8fb3eb82cde1781c1402d57986b63179b82ad4e5` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `21eec01b5c90e4a3f7aee865e11249fc911f1f56a84f83abce164078dd09b296`.
 
 ## Latest user update instructions
 
@@ -19,6 +19,7 @@ Read MPLPB, challenge reconstruction of complex relationships from original hist
 - Add dated navigation/update notes to all current operational documents; preserve historical/vendor bytes, licenses, original papers, frozen corpora/probes/reports and source authority restrictions. User instruction is summarized to honor the explicit prohibition on personal attribution in public artifacts.
 - Test a frozen extracted candidate, require successful exact-head checks, then merge to main under the user’s explicit authorization and observe postdeployment verification.
 - Pin fixture record time and retain final per-case source hashes so public scenarios regenerate reproducible sealed bytes. Preserve human-effort measurements as unknown and separate unsupported capabilities from safety outcomes.
+- Retain public per-case current/baseline results, implementation module hashes, fixture source hashes, resource measurements, and a version-bound comparison; preserve the tested implementation separately from evidence-only additions.
 
 ## Validation recorded
 
@@ -28,6 +29,7 @@ Read MPLPB, challenge reconstruction of complex relationships from original hist
 - The first full candidate run completed 926 tests with one generated-guide synchronization failure; the generator has been updated to match the reviewed operational guide. Final candidate testing must confirm this correction.
 - The generated-guide fix passed 13 focused system/documentation/public-suite tests, including the 52-case evaluator. The final corrected candidate still needs its extracted full regression and exact-head CI.
 - The corrected frozen extracted implementation passed all 926 Python regression tests. Its strict 52-case suite and four-original-paper replay passed, as did extracted JavaScript/API/transport/crawler/infrastructure checks. The final fixed-timestamp/hash-receipt harness change passed eight focused tests including all 52 public requirements; exact final-head CI remains required.
+- The clean published implementation 8fb3eb82cde1781c1402d57986b63179b82ad4e5 passed 52/52 public cases and the four-original-paper expert replay. Retained current/baseline per-case reports share manifest/evaluator hashes; baseline 257e54a records 10 passes and 42 capability gaps, with zero observed false supported bridges in both inspected runs. The comparison does not establish general historical accuracy.
 
 ## Limitations and blocked checks
 

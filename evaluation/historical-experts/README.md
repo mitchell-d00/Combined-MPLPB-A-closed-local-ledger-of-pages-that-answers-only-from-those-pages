@@ -35,3 +35,9 @@ documentary grammar. Original frozen evaluations and reports remain unchanged.
 > Update 2026-11-16: The [public 52-case evidence suite](../../docs/PUBLIC_EVIDENCE_TESTS.md) and [bounded expert relation path](../../docs/HISTORICAL_EXPERT_PATH.md) document the current update. Prior dated measurements and preserved historical sources retain their original scope; this note does not rerun or revise them.
 
 The [public 52-case protocol](../../docs/PUBLIC_EVIDENCE_TESTS.md) adds visible fictional inputs, expected results, a checksum-pinned manifest, per-case measurements and explicit gap scoring. Run `python -m tools.evaluate_public_evidence --require-capabilities --output /tmp/new-results.json`. Source-event candidates and scoped source corrections are bounded operations; their success does not establish historical truth.
+
+## Retained public results
+
+The clean implementation at `8fb3eb82cde1781c1402d57986b63179b82ad4e5` passed **52/52** published cases with zero observed false supported bridges. The earlier pinned `257e54a51edac272eb6b2441457f38a40485ee4d` implementation records 10 passes and 42 explicit capability gaps under the same case/evaluator hashes. These are interface and boundary controls, not an accuracy comparison on arbitrary history.
+
+Inspect [current per-case results](current-results.json), [baseline per-case results](baseline-results.json), [version and hash comparison](comparison.json), and [original-paper replay](original-paper-replay.json). Runtime/CPU/allocation/source-read measurements and unknown human-effort fields are retained per case. Missing, restricted, ambiguous and over-budget targets remain visible. Exact final-head archive/regression and postdeployment results are recorded separately in the PR/Actions receipts.
