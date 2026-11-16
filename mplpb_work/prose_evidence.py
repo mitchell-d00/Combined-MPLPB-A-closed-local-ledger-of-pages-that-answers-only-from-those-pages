@@ -27,6 +27,9 @@ def discover(root,question,profile=None,*,max_passages=12,max_chars=12000):
         index=PassageIndex(root,question,profile)
         pack=index.retrieve([question],max_passages,max_chars)
     except ReaderError as exc:return dict(empty,status=exc.code,source_state_current=False)
+    from .source_mapping import context_windows
+    pack['passages']=context_windows(index,pack['passages'],max_chars,max_passages)
+    pack['search_complete']=False  # Bounded contexts never establish complete semantic search.
     candidates=[]
     for passage in pack['passages']:
         if passage.get('retrieval_score') is not None and passage['retrieval_score']<=0:continue
@@ -45,9 +48,11 @@ def discover(root,question,profile=None,*,max_passages=12,max_chars=12000):
             'body_start':start,'body_end':start+len(quote),'quote':quote,
             'date_mentions':mentions,'uncertainty_flags':flags,'answer_supported':False,'content_truth_verified':False,
             'identity_resolution':'NOT ESTABLISHED','causal_inference':'PROHIBITED'})
+    from .source_mapping import derive
+    mapping=derive(index,pack['passages'])
     if not index.unchanged() or verification_snapshot(root,question,profile)!=initial:
         return dict(empty,status='source_changed',source_state_current=False)
     return dict(empty,status='candidate_contexts' if candidates else 'no_matching_contexts',candidates=candidates,
-                source_state_current=True,search_complete=pack['search_complete'],
+                source_state_current=True,information_map=mapping,search_complete=pack['search_complete'],
                 budgets={'max_passages':max_passages,'max_characters':max_chars},
                 retrieval_method=pack['ranking'])

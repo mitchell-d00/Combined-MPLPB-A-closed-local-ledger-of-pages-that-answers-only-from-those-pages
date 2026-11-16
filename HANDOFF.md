@@ -4,24 +4,12 @@ Last reviewed: 2026-11-16.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `614b18cc34f5270d4cb7dfbbf8239391a9f83b31` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `624decfc6224ecc255a2cb56b1b52b598809e2eaa3ce99e4004e46dbc82b1b84`.
+Base commit: `057863715ee0a24849430bd96b516f6fc55a4783` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `cb91f53f7c74bab471ed9130ce687ad5425afa3f8bc66a8c956188f3e2970b95`.
 
 ## Latest user update instructions
 
-Continue with both evaluation arms.
-
-Preserve the authentic historical corpus separately from the randomized synthetic controls.
-
-Freeze and hash the source records, questions, scoring rules, and baseline code revision before evaluating performance. Run the unchanged baseline first, then evaluate any implementation improvements against the same frozen conditions.
-
-Do not allow synthetic records or generated answer keys to contaminate the authentic-source evaluation.
-
-Retain all correct answers, incorrect answers, missed relationships, false causal relationships, refusals, costs, and regression results.
-
-Clearly label synthetic withheld-answer controls as distinct from independently blinded human evaluation. If external reviewers are unavailable, mark that evaluation NOT RUN.
-
-Proceed with implementation and automated testing. Do not stop solely because independent human reviewers are unavailable.
+Repair MPLPB’s Source Conversion, Mapping, and Round-Trip Reconstruction. Preserve the current experiment exactly. Diagnose the earliest demonstrated failure stage; preserve originals, authority boundaries and candidate status. Implement reversible evidence-linked mappings, a fresh-process unfamiliar-page integration test, before-and-after frozen historical evaluations, full regressions and measured costs. Do not fabricate favorable scores or independent human validation.
 
 ## Implemented scope
 
@@ -31,17 +19,20 @@ Proceed with implementation and automated testing. Do not stop solely because in
 - Add opt-in eligible prose context candidates after an observed baseline evidence-discovery failure; never infer historical identity, apply corrections or promote candidate output.
 - Generate source-linked review packets and strict separate-human/adjudication scoring, with all actual independent human evaluation marked NOT RUN. Preserve unknown costs/metrics rather than inventing zero.
 - Preserve historical artifacts, source authority, fencing and source-change safeguards; add targeted positive, negative and regression tests.
+- Trace all 14 original questions through acquisition, import, indexing, actual retrieval and interpretation; preserve all earlier executions.
+- Add bounded source-context expansion, reversible lexical candidate structures and exact raw-source reverse coordinates using existing native gates and answer contract.
 
 ## Validation recorded
 
-- 19 challenge/prose unit controls pass. The unchanged baseline authority/contract suite passes 137 tests; logs and exact source revision are retained.
-- Both frozen baseline arms are executing in real Linux namespaces. Synthetic baseline cases completed; authentic baseline is still running. No final performance conclusion is claimed yet.
+- Pre-repair full suite: 988 tests passed in 470.820 seconds.
+- 25 focused import, mapping, round-trip, authority and protocol tests passed.
+- 23/23 frozen draft reference passages round-trip to original byte slices; semantic judgments NOT RUN.
 
 ## Limitations and blocked checks
 
-- Independent question authorship, separate human review and adjudication are NOT RUN. Developer-authored historical questions and randomized synthetic controls do not establish independent blinding.
-- Candidate context discovery is not historical reconstruction. Semantic precision/recall, false relationships, chronological accuracy and human effort remain unassessed until actual reviewers provide defensible references.
-- Peak RSS is measured, allocation peaks are unknown in primary v2 runs. Host load and profiling changes preclude treating pilot versus v2 timings as implementation efficiency gains.
+- Historical semantic judgments and independent human evaluation NOT RUN.
+- Correction, relationship, entity and event structures are lexical candidates; no semantic promotion.
+- New repair historical evaluation and full post-repair suite remain to run.
 
 ## Next steps
 
