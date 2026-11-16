@@ -4,8 +4,8 @@ Last reviewed: 2026-11-16.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `4763ddcc51a9fc1a0a24b308df29d06fa7d7294d` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `92b3d21f65008cd71e150c4a9fcc817a86e23cbf63d537aa2a734a55e08b2ee4`.
+Base commit: `08cc859965d920baf22f54f69e1866dee370370a` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `399d5a88be3ec4987a9970748c0f91530d910f3ca7db407a4496d4d79a3616d8`.
 
 ## Latest user update instructions
 
@@ -54,6 +54,7 @@ Keep all new paths inside the existing pipeline, relation_graph, and mplpb_work 
 - Existing strict-first compatibility and extension checks pass together: a deterministic strict-first proof is labelled strict; actual assisted and candidate outputs remain unsupported. The superseded full run was stopped before completion and is not reported as a pass.
 - Final field-context control also retains competing later source field mentions outside the initial header instead of selecting a supported header answer. Final extension and strict-first controls pass together (47 tests); exact final-head full CI remains required.
 - An extracted pre-final candidate completed 966 tests with one portability import-allowlist failure for the new standard-library contextvars dependency. The allowlist now permits contextvars; no other import restriction was removed. A final guard also prevents historical query views from authorizing current work and requires an explicit field at the provenance gate for scoped sources. Final exact-head full CI remains required.
+- The 26 final scoped-extension controls pass with an explicitly pinned fixture clock, so declared correction-window tests do not depend on the year the suite runs.
 
 ## Limitations and blocked checks
 

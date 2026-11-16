@@ -2,6 +2,7 @@
 import copy
 import html
 import math
+import os
 from pathlib import Path
 import tempfile
 import unittest
@@ -21,6 +22,8 @@ from mplpb_work.api import request
 
 class ScopedEvidenceTests(unittest.TestCase):
     def setUp(self):
+        self.clock=patch.dict(os.environ,{'MPLPB_NOW':'2026-11-16T00:00Z'})
+        self.clock.start();self.addCleanup(self.clock.stop)
         self.tmp=tempfile.TemporaryDirectory();self.addCleanup(self.tmp.cleanup)
         self.root=Path(self.tmp.name)
 
