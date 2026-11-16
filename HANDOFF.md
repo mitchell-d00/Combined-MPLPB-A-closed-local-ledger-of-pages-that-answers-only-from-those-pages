@@ -4,8 +4,8 @@ Last reviewed: 2026-11-16.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `6a0d635ee4fcf3af21a9a798cc1b9489f0e80544` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `35b3a79cd3fdd9d28bab5ad1d6130ed3e564565193579ea2c2886c5103567322`.
+Base commit: `0d4f3e357eedb7130c709ab96052e2677e2d2831` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `442239c357d7269ae65c9a9066bd41eb2527890022190265242b81350f7ae724`.
 
 ## Latest user update instructions
 
@@ -32,6 +32,7 @@ Read MPLPB, challenge reconstruction of complex relationships from original hist
 - The corrected frozen extracted implementation passed all 926 Python regression tests. Its strict 52-case suite and four-original-paper replay passed, as did extracted JavaScript/API/transport/crawler/infrastructure checks. The final fixed-timestamp/hash-receipt harness change passed eight focused tests including all 52 public requirements; exact final-head CI remains required.
 - The clean published implementation 8fb3eb82cde1781c1402d57986b63179b82ad4e5 passed 52/52 public cases and the four-original-paper expert replay. Retained current/baseline per-case reports share manifest/evaluator hashes; baseline 257e54a records 10 passes and 42 capability gaps, with zero observed false supported bridges in both inspected runs. The comparison does not establish general historical accuracy.
 - Strengthened the existing correction-history requirement to check exact unaffected canonical text and header line breaks. The source-preservation fix passed 52/52 public cases and 20 focused public/investigation/system-guide tests. Final revised-head CI remains required before merge.
+- Final clean implementation 0d4f3e357eedb7130c709ab96052e2677e2d2831 passes 52/52 strengthened public requirements. The exact same final manifest/evaluator records 51 passes and one layout gap on preceding module bytes and 10 passes/42 gaps on baseline 257e54a; per-case final reports, source hashes and the paired correction regression receipt are public. Earlier report files remain preserved with their own hashes.
 
 ## Limitations and blocked checks
 

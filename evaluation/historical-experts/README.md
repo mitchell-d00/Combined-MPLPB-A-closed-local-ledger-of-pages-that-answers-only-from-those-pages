@@ -41,3 +41,9 @@ The [public 52-case protocol](../../docs/PUBLIC_EVIDENCE_TESTS.md) adds visible 
 The clean implementation at `8fb3eb82cde1781c1402d57986b63179b82ad4e5` passed **52/52** published cases with zero observed false supported bridges. The earlier pinned `257e54a51edac272eb6b2441457f38a40485ee4d` implementation records 10 passes and 42 explicit capability gaps under the same case/evaluator hashes. These are interface and boundary controls, not an accuracy comparison on arbitrary history.
 
 Inspect [current per-case results](current-results.json), [baseline per-case results](baseline-results.json), [version and hash comparison](comparison.json), and [original-paper replay](original-paper-replay.json). Runtime/CPU/allocation/source-read measurements and unknown human-effort fields are retained per case. Missing, restricted, ambiguous and over-budget targets remain visible. Exact final-head archive/regression and postdeployment results are recorded separately in the PR/Actions receipts.
+
+## Final source-preservation guard
+
+The final 52-case manifest strengthens the existing `correction-history` case to require exact unaffected canonical text and header line breaks. Under identical final case/evaluator hashes, the preceding implementation records **51 passes and one gap**, and corrected clean implementation `0d4f3e357eedb7130c709ab96052e2677e2d2831` records **52/52**. The earlier-version baseline records 10 passes and 42 gaps. No false supported bridges were observed in these bounded runs.
+
+Use [final current results](final-current-results.json), [final baseline results](final-baseline-results.json), [before-fix regression receipt](layout-regression-before.json), [final comparison and hashes](final-comparison.json), and [final original-paper replay](final-original-paper-replay.json). The preceding reports above remain preserved under their original, earlier manifest/evaluator hashes. Final PR-head CI is a separate gate.
