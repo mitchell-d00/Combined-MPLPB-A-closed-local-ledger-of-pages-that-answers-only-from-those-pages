@@ -1,0 +1,32 @@
+# Why native support remains absent
+
+Last reviewed: 2026-11-16.
+
+This is engineering diagnosis by the development assistant, not independent semantic review or an answer key. References below point to the unchanged [14 questions](../unprepared-originals/2026-11-16/questions.json) and [incomplete draft source spans](../unprepared-originals/2026-11-16/reference-draft.json). Reference labels do not establish correctness. All appropriateness/error-rate metrics remain null pending review.
+
+The decisive control is `mplpb_answers/pipeline.py`: when existing finite support grammars fail, strict mode returns `interpretation_unsupported` (or a more specific eligibility/conflict diagnostic). It deliberately does not promote prose candidates. `prose_relations.py` runs separately under discovery/investigation and cannot establish a supported answer by changing its output flags. The repair in this experiment improves interpretation but does not implement a new source entailment contract. Retrieval alone cannot close this gap.
+
+| Case | Inspectable documentary opportunity | Verification still required; appropriate limit |
+|---|---|---|
+| H01 | ORIGINAL-0001, draft spans 3729–4193: early copies/proof sheets and Lyell's October letter | Identify letter and editorial framing separately; distinguish reading, sending and public release. Do not infer a release date from a letter date. |
+| H02 | ORIGINAL-0001, 31135–31465: author/addressee/date header and “I have told Murray to send you by post (if possible)” | Verify header-local I/you bindings and the reported instruction. It is not proof that Murray posted a copy or Wallace received it. “Arranged” also needs a clearly scoped interpretation. |
+| H03 | ORIGINAL-0001, 49405–49695: Huxley's dated letter and “I finished your book yesterday” | Resolve documentary speaker/addressee and relative date without turning a reading into another publication. |
+| H04 | ORIGINAL-0001, 3598–3848: diary “employed in correcting for second edition” | Source supports activity described by the diary; completion, release and all changes to a later edition require further evidence. |
+| H05 | ORIGINAL-0004, 1122–1412; ORIGINAL-0005, 1537–1837: different opening wording | A literal text difference is tractable. First verify which complete source appearances are the draft/final passages, then align exact words. Text difference alone does not identify the reviser. |
+| H06 | ORIGINAL-0004, 6293–6713: slave-trade passage | Absence requires inspecting the complete selected final transcript, not absence from retrieved snippets. Responsible individuals require separate records; refuse that part if missing. |
+| H07 | ORIGINAL-0006, 1603–1923 and 2567–2837: narration and telegram | Keep bombardment, surrender, evacuation and telegram timestamp distinct; preserve modern narrative versus original message and unresolved calendar/time-zone details. |
+| H08 | ORIGINAL-0007, 6904–7434: mission summary's explicit abort explanation | Attribute the causal assertion to the report, retain the precise oxygen-loss/fire wording, and separately establish the spacecraft's stated role. Do not substitute a physical-causation truth claim or infer an engineer's authorization. |
+| H09 | ORIGINAL-0007, 2797–3873: OCR change-sheet and title-page month/year markings | Distinct documentary date roles and OCR uncertainty; page order alone does not prove revision order or mission elapsed time. |
+| H10 | Sumter and Apollo passages share words | Shared words cannot supply a causal bridge. This refusal should not be “fixed” by inventing a link. A bounded search's failure to find a link is not proof of universal absence. |
+| H11 | Darwin instruction and Apollo abort summary | No supported intermediary identified; preserve refusal rather than joining unrelated documents. |
+| H12 | Apollo abort summary | An oxygen-loss/fire account is not an authorization record. Named personal responsibility cannot be filled from the nearest name. |
+| H13 | ORIGINAL-0006 citation/framing 355–715 and message 2567–2867 | Establish a documentary reference witness and compare complete message appearances. Do not treat matching subject or date as sufficient event identity. |
+| H14 | Selected Darwin correspondence | Reading/sending records do not establish world-first conception of a theory. Scope and missing intellectual-history records require refusal. |
+
+The immediate next implementation should add **atomic evidence obligations and a separately implemented support verifier**, initially for explicit documentary assertions. Each obligation must carry the original full question and delivery profile, exact full-statement evidence, unresolved roles, temporal basis, necessary documentary connections, alternative/contrary statements and budget completeness. Reuse `finish()` source-state rechecks and original-question exclusions. Do not recursively call the answer pipeline with shortened questions that lose `not_for` exclusions.
+
+A candidate extractor may propose an instruction or a causal assertion. An acceptance checker must separately establish the exact proposition, its qualification scope, identity witnesses and all required connections; a citation, matching pattern or model approval is insufficient. Unresolved scope, omitted relevant evidence or a missing intermediate stops acceptance. No original source or frozen question should be edited to make this work.
+
+Composition should yield `partial_answer` when independently established claims cover only part of a compound question, and list the remaining obligations. Top-level `supported_answer` requires every requested claim to pass; partial documentary support never establishes independent historical truth. Use the existing contract's claims/missing/verification fields rather than relabeling candidate graphs. Models can propose checks, but cannot award deterministic support.
+
+Regression targets should include full-question exclusion retention under decomposition, negative/conditional complements, request versus execution, literal wording change versus author attribution, and positive evidence plus an adversarial later contradiction. Then rerun these unchanged questions with the same frozen budgets. Gains must be in accepted correct source assertions or relationships, with false support separately reviewed—not candidate counts. The present implementation does **not** complete that verifier or demonstrate that gain.

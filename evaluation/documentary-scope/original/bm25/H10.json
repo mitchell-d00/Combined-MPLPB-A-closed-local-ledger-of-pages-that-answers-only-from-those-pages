@@ -1,0 +1,382 @@
+{
+  "case_id": "H10",
+  "question": "Does the shared language of withdrawal and return establish a causal relationship between the Sumter telegram and the Apollo 13 mission?",
+  "arm": "bm25",
+  "implementation_sha256": {
+    "mplpb_combined/__init__.py": "8ce7a60dc73b0229eb89f7cf3c4a3a47df70f410d0d957dc95b6e41281bb9672",
+    "mplpb_combined/__main__.py": "353ea5ef6cba220377dce05ac3c4eb0b2ecabe5a68188c591b69d9698862e356",
+    "mplpb_combined/baselines.py": "1b2426ccc12397c0525dcff875e1b922bc776c20174ed08aa89cd1f47891e4d3",
+    "mplpb_combined/delivery.py": "27400863c4007413ccd009efe19821a7963a014b47a01905455adb12b7b454ca",
+    "mplpb_combined/evaluate.py": "a537600f26c021040e54cc7badada45443c18af9dd2aa8e52b9f4e43081d79ff",
+    "mplpb_combined/killtest.py": "8b9b7c889626fe1bfe0f1aa87cb80698de2ae67db256e4355a6ce43508f88aa7",
+    "mplpb_combined/ledger.py": "a2c65367cabb1ff1c981ebac06cd3f8f998cd3d5e155aaf951d7a2fed9d02163",
+    "mplpb_combined/provenance_gate.py": "4ba1c7ec9b5a824b8e3eb6617e6872f35561a23b4dc4555822f78612f8c7a7b4",
+    "mplpb_combined/reader.py": "304c170fab15414c75111fddb277a8b50b4e62eacd86daa99dc071aba506c5ff",
+    "mplpb_combined/record.py": "36ee0e58f8428324a3a85d5a5625d8f1c43c5a8652f83afdb4e1a2f77ee05718",
+    "mplpb_combined/retrieval.py": "35528e3645af096d957df51fdb39ca66decd1f5a0a98cf61061e4ff51408c1c4",
+    "mplpb_answers/__init__.py": "d57d776eaaea962867814b5af3f0ac836fdd0c70ffbde910a801e6240697a095",
+    "mplpb_answers/__main__.py": "fecbccbf48ccfa9462f5f911126935dcc834cfeaf4bd1e579170d3a2097b48ca",
+    "mplpb_answers/assertions.py": "54a8a56e2e19bd3565098a3b66f28da590341405a454cf154319686ea0a51458",
+    "mplpb_answers/body_text.py": "0c02ba271796c6aafb985f3ef6ea95902086052cf030c471c226d1f6cbd79c44",
+    "mplpb_answers/corrections.py": "4f9cccee9fdc8d0b8c6eb37caf66cac34da8d9aa21a4a66e04b268eb122e0b6a",
+    "mplpb_answers/evaluate.py": "8c6e4444d661f5a2982338a45673ff594ae4cc4a86d3ec6e0bce6b7f77c90969",
+    "mplpb_answers/evaluation.py": "4d58e13a85f6edb1443bf156baaa48b1cdf72ce38e5e16a0ce53d195ac395715",
+    "mplpb_answers/evidence_contract.py": "5fb4226e9407d3432cdbaa518b10af9a5d5dc7bef0036e204848fbda3a3ffbe5",
+    "mplpb_answers/frames.py": "82c23f7382f862d3b95960b017dda278022ccee1f1bc4e9b339bf7c45ba8dede",
+    "mplpb_answers/library.py": "7d1613c28f01453270c8a53bf0e3f015bf197dff25b43edc764802e1e1306e5b",
+    "mplpb_answers/literal_evidence.py": "4dff854bea0a7ae453be35ee016be2533d9ed0b08b98b7ee4a28d2f10b5983fa",
+    "mplpb_answers/local_reader.py": "6e7a6702f8296b63dd8a2be292ef620c9e67ed6170770e1222cfee58e23ea815",
+    "mplpb_answers/operational_evidence.py": "ac4ac4c1b9df9f412323674083dbc1bdb83a6570b8576fde9969eddafd791580",
+    "mplpb_answers/passages.py": "d302e760befba392d408514e11711b157c5df61d5a35888970f38664a4a1ebbe",
+    "mplpb_answers/pipeline.py": "08d1456f45c9b4e8364dc0d96d61dced7eb7c87efbbb69622c29aa1cc7786ebe",
+    "mplpb_answers/policy_evidence.py": "90ae363e5b2b92c52ef24a9ff4d820821a76729f012831c51e27f3ad54492c35",
+    "mplpb_answers/practical_evidence.py": "0ad115570d1a5c1f756f2931e331a083d6f9ca6f7512223b5160278f5cda33af",
+    "mplpb_answers/procedures.py": "90cc6108617b3e56e578039f793581687bb2862e448421d5e5c7f088d2dfac37",
+    "mplpb_answers/prose_retrieval.py": "67ec2d7de9564eb38d3da52f714dc72d299a665a1864ddffbadc4ff30f7b508d",
+    "mplpb_answers/relation_graph.py": "2166e4a1f3e16726dce78613feb2aeb4b664b56c4c070b7c9b6ebb2f348b9e20",
+    "mplpb_answers/support.py": "67821fc2399616dfbc10c52a440b3de5f6220a82aec44be595b60fd19b96f9ff",
+    "mplpb_work/__init__.py": "5015f3af15da1efed8d2f32bfb0c42a3d24d7c4fec53865dc96b8361db34a393",
+    "mplpb_work/__main__.py": "afa5fa55c9767520ccde8386c5f7c68a77ee2b10c7bad5d017f19efb2edb93e4",
+    "mplpb_work/api.py": "fd6e2b5893edb441a78e5abb2d41e49e42f476ae9e67ed720571605eb4909f1c",
+    "mplpb_work/errors.py": "633c7042a803a259e33db177b303dfd1d6ad5bc038f1908a3f70e469a966615a",
+    "mplpb_work/event_candidates.py": "78af56a9ea8de0993612c3a96999b54618dc506f1ac54374dde7805710716a34",
+    "mplpb_work/historical_evidence.py": "888900d1c90948946f24bd26efe31544747bc220bc9e2c0ce9a35382ec73eaa3",
+    "mplpb_work/historical_verifier.py": "6b801f50085aa0e3791c4f0dd2669d757c962dcc7d91080b8cef0ca001c9c4be",
+    "mplpb_work/investigation.py": "307967ea52dd5b7b90a4ede2e85f481c016d90e13fd3865323fabdcd23e9dc8b",
+    "mplpb_work/model.py": "951148c7beda70581dbd6c539b496b3be968ef50e634961283015e0808d4eb20",
+    "mplpb_work/prose_evidence.py": "156460525352ea6cb71f9b4176846a86c52995b214abffd7b322eba6dd844ee0",
+    "mplpb_work/prose_relations.py": "39cf9dcccd371e220941f0f9ba3e631f9dbbc4ad6a2f5959e3d9a463ee9916a3",
+    "mplpb_work/source_mapping.py": "e7e7f32068c2a3c5779aa23cc1cddd1f9380f631942feb0c1d6d268ed921cf82",
+    "mplpb_work/source_support.py": "a3460d71ca56141ac43f387f093854fc41f286369c7a9f5e6832e77fa38493b9",
+    "mplpb_work/store.py": "18596005e04b9a588fc187fcc56892fa19ff1c42d6beacf4a8425e6015f9aa46"
+  },
+  "retrieval": {
+    "lineage_groups": [
+      {
+        "root": "ORIGINAL-0001@sha256:cda3c0719ca4c839dfef3c3165934214c5e995fa3fb840a61b9a0ba77ebb9c32",
+        "sources": [
+          "ORIGINAL-0001"
+        ]
+      },
+      {
+        "root": "ORIGINAL-0002@sha256:954b6ef1585a74113b11936096e15e3ac95406cb9e99b0bf4908d917647adfca",
+        "sources": [
+          "ORIGINAL-0002"
+        ]
+      },
+      {
+        "root": "ORIGINAL-0003@sha256:4cf9834770c4c7f8a27bf808434c8530b781f008d5e594caf37a45ecd90c0d51",
+        "sources": [
+          "ORIGINAL-0003"
+        ]
+      },
+      {
+        "root": "ORIGINAL-0004@sha256:b87d5883c09e9742bd7912abac58ed15694dadaf9d97f4d2191d3188051a7359",
+        "sources": [
+          "ORIGINAL-0004"
+        ]
+      },
+      {
+        "root": "ORIGINAL-0005@sha256:1f670fe87ed6e4044e60858300adedc09c4d82982fd7201b1288644f6fc5440d",
+        "sources": [
+          "ORIGINAL-0005"
+        ]
+      },
+      {
+        "root": "ORIGINAL-0006@sha256:4220f999d1cfe2734726fbfc6857334ae548b827d22492a27546f1f7d10abf54",
+        "sources": [
+          "ORIGINAL-0006"
+        ]
+      },
+      {
+        "root": "ORIGINAL-0007@sha256:e3ec7774d22142e5251f1650d4fe1faa1e11c125c274e8a4c982d18b23714c8f",
+        "sources": [
+          "ORIGINAL-0007"
+        ]
+      }
+    ],
+    "independence_verified": false,
+    "passages": [
+      {
+        "id": "sha256:fb145b8a745f4312c93b3752383e1db6ba106a75ce5ff9f4d378b6ee3c46f0b7",
+        "source_id": "ORIGINAL-0006",
+        "path": "original-0006.html",
+        "hash": "sha256:4220f999d1cfe2734726fbfc6857334ae548b827d22492a27546f1f7d10abf54",
+        "body_start": 355,
+        "text": "Citation: Telegram from Maj. Robert Anderson to Hon. Simon Cameron, Secretary, announcing his withdrawal from Fort Sumter; April 18, 1861; Union Battle Reports, 1874 - 1899; Records of the Adjutant General's Office, Record Group 94; National Archives Building, Washington, DC.",
+        "body_projection": "body-text-no-headings-v1",
+        "context_truncated": false,
+        "retrieval_score": 24.5662946477454
+      },
+      {
+        "id": "sha256:e19a0a6f29c0e838a11501d3927901972c91b980347158b2a0d5058ffc735705",
+        "source_id": "ORIGINAL-0007",
+        "path": "original-0007.html",
+        "hash": "sha256:e3ec7774d22142e5251f1650d4fe1faa1e11c125c274e8a4c982d18b23714c8f",
+        "body_start": 233034,
+        "text": "of the one returned\nbottle demonstrated satisfactory\noperation under normal gravity.\nThe\nreturned bottle still contained 2.5 cc of medication after five or six\ntest sprays.\nMedical kits for future flights will include nose drops packaged\nthe same as the eye drops.\nThis packaging has been satisfactory on previous flight for eye drops.\nThis anomaly\nis closed.\n15-1\n15.0\nCONCLUS IONS\nThe Apollo 13 mission was the first in the Program requiring an\nemergency abort, with the Gemini VIII mission the only prior case in\nmanned spaceflight where a flight was terminated early.\nThe excellent\nperformance\nof the lunar module systems in a backup capacity and the\ntraining of both the flight crew and ground support personnel resulted\nin the safe and efficient return of the crew.\nThe following conclusions\nare drawn from the information contained in this report.\na. The mission was aborted because of the total loss of primary\noxygen in the service module.\nThis loss resulted from an incompatibility\nbetween switch design and preflight procedures,\na condition which, when",
+        "body_projection": "body-text-no-headings-v1",
+        "context_truncated": true,
+        "retrieval_score": 16.227972112241467
+      },
+      {
+        "id": "sha256:a6c17eb6c0c479d675c00c3d396a5b0f1deb317e822f7f795cc9512030459b46",
+        "source_id": "ORIGINAL-0006",
+        "path": "original-0006.html",
+        "hash": "sha256:4220f999d1cfe2734726fbfc6857334ae548b827d22492a27546f1f7d10abf54",
+        "body_start": 244,
+        "text": "Home > Telegram Announcing the Surrender of Fort Sumter (1861)",
+        "body_projection": "body-text-no-headings-v1",
+        "context_truncated": false,
+        "retrieval_score": 18.272412422101638
+      },
+      {
+        "id": "sha256:b68ecc9c3c2687c91e9c653b478d0e69ef9fcc768048a29974a3701453191564",
+        "source_id": "ORIGINAL-0003",
+        "path": "original-0003.html",
+        "hash": "sha256:4cf9834770c4c7f8a27bf808434c8530b781f008d5e594caf37a45ecd90c0d51",
+        "body_start": 152790,
+        "text": "works based on the work as long as all references to Project Gutenberg\nare removed. Of course, we hope that you will support the Project\nGutenberg-tm mission of promoting free access to electronic works by\nfreely sharing Project Gutenberg-tm works in compliance with the terms of\nthis agreement for keeping the Project Gutenberg-tm name associated with\nthe work. You can easily comply with the terms of this agreement by\nkeeping this work in the same format with its attached full Project\nGutenberg-tm License when you share it without charge with others.\n1.D. The copyright laws of the place where you are located also govern\nwhat you can do with this work. Copyright laws in most countries are in\na constant state of change. If you are outside the United States, check\nthe laws of your country in addition to the terms of this agreement\nbefore downloading, copying, displaying, performing, distributing or\ncreating derivative works based on this work or any other Project\nGutenberg-tm work. The Foundation makes no representations concerning\nthe copyright status of any work in any country outside the United\nStates.\n1.E. Unless you have removed all references to Project Gutenberg:",
+        "body_projection": "body-text-no-headings-v1",
+        "context_truncated": true,
+        "retrieval_score": 8.844679877845241
+      },
+      {
+        "id": "sha256:ca386a4cf3c2f31727d8bbf96701eb24e378c18d19a8b7082f3308d5289561de",
+        "source_id": "ORIGINAL-0005",
+        "path": "original-0005.html",
+        "hash": "sha256:1f670fe87ed6e4044e60858300adedc09c4d82982fd7201b1288644f6fc5440d",
+        "body_start": 78,
+        "text": "Bookmark/Share",
+        "body_projection": "body-text-no-headings-v1",
+        "context_truncated": false,
+        "retrieval_score": 7.879853577559198
+      },
+      {
+        "id": "sha256:3403583e871428bb92c4eaad8c24bf594ce036483db6ab0f5488c73a8e37d457",
+        "source_id": "ORIGINAL-0007",
+        "path": "original-0007.html",
+        "hash": "sha256:e3ec7774d22142e5251f1650d4fe1faa1e11c125c274e8a4c982d18b23714c8f",
+        "body_start": 2346,
+        "text": "AS-I05\nBP-9A\nMicrometeoroid\nexperiment and\nservice module\nRCS launch\nenvironment\nJuly 30, 1965\nCape Kennedy ,\nFla.\nA-004\nSC-002\nPower-on tumbling\nboundary abort\nJan. 20 , 1966\nWhite Sands\nMissile Range,\nN. Mex.\nAS-20l\nSC-009\nSupercircular\nentry with high\nheat rate\nFeb. 26, 1966\nCape Kennedy ,\nFla.\nAS-202\nSC-Oll\nSupercircular\nentry with high\nheat load\nAug. 25, 1966\nCape Kennedy,\nFla.\n(Continued inside back cover)\n28, 1964\n...\n...\n..\nl\n-,\nMSC-02680\nCHANGE\nSHEET\nFOR\nNASA-MSC\nAPOLLO\nINTERNAL\nREPORT\n13 MISSION\nREPORT\nChange\ni\nMay 1970\n[\nJames A. McDivitt\nb\nColonel, USAF\nManager, Apollo Spacecraft\nPage 1 of 13 pages\n(with enclosures)\nProgram\nAfter the attached enclosures\n(pages 7-3, 7-4, 7-7, 7-8, 11-3 through\n11-6, E-3, E-4, and back cover), which are replacement pages, have been\ninserted, insert this CHANGE SHEET between the cover and title page and\nwrite on the cover \"Change 1 inserted.\"\nIn addition to the attached Changes, please complete\nMission Report Questionaire\nand return as indicated.\nNOTE:\nmation\nA black bar in the margin of affected\nthat was changed or added.\nSignature\nof person\nincorporating\nchanges\npages\nthe attached\nindicates\nthe infor-\nDate\ni\nMSC-02680\nAPOLLO\n13 MISSION",
+        "body_projection": "body-text-no-headings-v1",
+        "context_truncated": true,
+        "retrieval_score": 15.675644282699714
+      },
+      {
+        "id": "sha256:9454b02552ba850973523567d3dd77811899134188ae7f7e596ab0a326d68d78",
+        "source_id": "ORIGINAL-0002",
+        "path": "original-0002.html",
+        "hash": "sha256:954b6ef1585a74113b11936096e15e3ac95406cb9e99b0bf4908d917647adfca",
+        "body_start": 430269,
+        "text": "The nature of heterostyled plants may be illustrated in the primrose,\none of the best known examples of the class. If a number of primroses be\ngathered, it will be found that some plants yield nothing but \"pin-eyed\"\nflowers, in which the style (or organ for the transmission of the pollen\nto the ovule) is long, while the others yield only \"thrum-eyed\" flowers\nwith short styles. Thus primroses are divided into two sets or castes\ndiffering structurally from each other. My father showed that they also\ndiffer sexually, and that in fact the bond between the two castes\nmore nearly resembles that between separate sexes than any other known\nrelationship. Thus for example a long-styled primrose, though it can\nbe fertilised by its own pollen, is not FULLY fertile unless it is\nimpregnated by the pollen of a short-styled flower. Heterostyled plants\nare comparable to hermaphrodite animals, such as snails, which require\nthe concourse of two individuals, although each possesses both the\nsexual elements. The difference is that in the case of the primrose\nit is PERFECT FERTILITY, and not simply FERTILITY, that depends on the\nmutual action of the two sets of individuals.",
+        "body_projection": "body-text-no-headings-v1",
+        "context_truncated": true,
+        "retrieval_score": 7.798932884968633
+      },
+      {
+        "id": "sha256:78aa7f8a8290991210cf2d611088010298914cc99232802dd0f30ac881a79b00",
+        "source_id": "ORIGINAL-0001",
+        "path": "original-0001.html",
+        "hash": "sha256:cda3c0719ca4c839dfef3c3165934214c5e995fa3fb840a61b9a0ba77ebb9c32",
+        "body_start": 288434,
+        "text": "an Insect Fauna of the Amazon Valley,\" in the 'Transactions of the\nEntomological Society,' vol.5, N.S. (The paper was read November 24,\n1860.) Mr. Bates points out that with the return, after the glacial\nperiod, of a warmer climate in the equatorial regions, the \"species then\nliving near the equator would retreat north and south to their\nformer homes, leaving some of their congeners, slowly modified\nsubsequently... to re-people the zone they had forsaken.\" In this case\nthe species now living at the equator ought to show clear relationship\nto the species inhabiting the regions about the 25th parallel, whose\ndistant relatives they would of course be. But this is not the case,\nand this is the difficulty my father refers to. Mr. Belt has offered\nan explanation in his 'Naturalist in Nicaragua' (1874), page 266. \"I\nbelieve the answer is that there was much extermination during the\nglacial period, that many species (and some genera, etc., as, for\ninstance, the American horse), did not survive it... but that a refuge\nwas found for many species on lands now below the ocean, that were\nuncovered by the lowering of the sea, caused by the immense quantity of",
+        "body_projection": "body-text-no-headings-v1",
+        "context_truncated": true,
+        "retrieval_score": 7.039538118510985
+      },
+      {
+        "id": "sha256:e272e12c0b27d82fc13937ad643cfd23553220e60e3f0cb96b61664bade9e014",
+        "source_id": "ORIGINAL-0004",
+        "path": "original-0004.html",
+        "hash": "sha256:b87d5883c09e9742bd7912abac58ed15694dadaf9d97f4d2191d3188051a7359",
+        "body_start": 9765,
+        "text": "We therefore the representatives of the United States of America in General Congress assembled do, in the name & by authority of the good people of these states, reject and renounce all allegiance & subjection to the kings of Great Britain & all others who may hereafter claim by, through, or under them; we utterly dissolve & break off all political connection which may have heretofore subsisted between us & the people or parliament of Great Britain; and finally we do assert and declare these a colonies to be free and independant states, and that as free & independant states they shall hereafter have power to levy war, conclude peace, contract alliances, establish commerce, & to do all other acts and things which independent states may of right do. And for the support of this declaration we mutually pledge to each other our lives, our fortunes, & our sacred honour.",
+        "body_projection": "body-text-no-headings-v1",
+        "context_truncated": false,
+        "retrieval_score": 6.660843012255979
+      },
+      {
+        "id": "sha256:56d92e452173730cb7f2b651745bb4fdc857af4d262da94118a226219439b43a",
+        "source_id": "ORIGINAL-0007",
+        "path": "original-0007.html",
+        "hash": "sha256:e3ec7774d22142e5251f1650d4fe1faa1e11c125c274e8a4c982d18b23714c8f",
+        "body_start": 10330,
+        "text": "of deep-rooted surface material.\nBecause an inflight anomaly in the cryogenic orygen supply required\nan abort of the rmission prior to insertion into lunar orbit, discussions\nof systems performa_Ice only relate to the abort profile and the system\nconfigurations\nrequired as a result of the emergency.\nA complete discussion of the anom_ly is presented in reference i, and the abort profile\nis described in section 3. Because of the added criticality of onboard\nconsumables, a discussion of usage profiles in both vehicles is contained\nin section 7.\nA complete anaJysis of all flight data is not possible within the\ntime allotted for preparation\nof this report.\nTherefore, report supplements will be published for certain Apollo 13 systems analyses, as shown\nin appendix E. This appendix also lists the current status of all Apollo\nmission supplements _ either published or in preparation.\nOther supplements will be published as the need is identified.\nIn this report, all actual times prior to earth landing are elapsed\ntime from range zero, established\nas the integral second before lift-off.\nRange zero for this mission was 19:13:00 G.m.t., April ii, 1970.\nAll",
+        "body_projection": "body-text-no-headings-v1",
+        "context_truncated": true,
+        "retrieval_score": 14.667198186971298
+      },
+      {
+        "id": "sha256:57131062626776ea796381b08f473f427e55de173db1bf99b47b8bcef8ed69ab",
+        "source_id": "ORIGINAL-0006",
+        "path": "original-0006.html",
+        "hash": "sha256:4220f999d1cfe2734726fbfc6857334ae548b827d22492a27546f1f7d10abf54",
+        "body_start": 696,
+        "text": "The first engagement of the Civil War took place at Fort Sumter on April 12 and 13, 1861. After 34 hours of fighting, the Union surrendered the fort to the Confederates.",
+        "body_projection": "body-text-no-headings-v1",
+        "context_truncated": false,
+        "retrieval_score": 12.242151897613676
+      },
+      {
+        "id": "sha256:6881916b94fe83cf57057f58a2988aa59c47427da92990ce3d714d2a3f178c70",
+        "source_id": "ORIGINAL-0002",
+        "path": "original-0002.html",
+        "hash": "sha256:954b6ef1585a74113b11936096e15e3ac95406cb9e99b0bf4908d917647adfca",
+        "body_start": 132343,
+        "text": "heard from Mr. Bridges about their honesty and their language. I\ncertainly should have predicted that not all the Missionaries in the\nworld could have done what has been done.' On December 1st, 1881,\nsending me his annual subscription to the Orphanage at the Mission\nStation, he wrote: 'Judging from the \"Missionary Journal\", the Mission\nin Tierra del Fuego seems going on quite wonderfully well.'\"]\nCHARLES DARWIN TO JOHN LUBBOCK. Down, July 17, 1870.\nMy dear Lubbock,\nAs I hear that the Census will be brought before the House to-morrow, I\nwrite to say how much I hope that you will express your opinion on the\ndesirability of queries in relation to consanguineous marriages being\ninserted. As you are aware, I have made experiments on the subject\nduring several years; AND IT IS MY CLEAR CONVICTION THAT THERE IS NOW\nAMPLE EVIDENCE OF THE EXISTENCE OF A GREAT PHYSIOLOGICAL LAW, RENDERING\nAN ENQUIRY WITH REFERENCE TO MANKIND OF MUCH IMPORTANCE. IN ENGLAND AND\nMANY PARTS OF EUROPE THE MARRIAGES OF COUSINS ARE OBJECTED TO FROM THEIR\nSUPPOSED INJURIOUS CONSEQUENCES; BUT THIS BELIEF RESTS ON NO DIRECT\nEVIDENCE. IT IS THEREFORE MANIFESTLY DESIRABLE THAT THE BELIEF SHOULD",
+        "body_projection": "body-text-no-headings-v1",
+        "context_truncated": true,
+        "retrieval_score": 7.4613255393713285
+      }
+    ],
+    "sources": [
+      {
+        "id": "ORIGINAL-0001",
+        "path": "original-0001.html",
+        "hash": "sha256:cda3c0719ca4c839dfef3c3165934214c5e995fa3fb840a61b9a0ba77ebb9c32",
+        "title": "Imported original ORIGINAL-0001",
+        "origin": "machine",
+        "origin_depth": 1,
+        "scope": "public historical records",
+        "not_for": "",
+        "derived_from": [],
+        "supersedes": [],
+        "evidence_roots": [
+          "ORIGINAL-0001@sha256:cda3c0719ca4c839dfef3c3165934214c5e995fa3fb840a61b9a0ba77ebb9c32"
+        ]
+      },
+      {
+        "id": "ORIGINAL-0002",
+        "path": "original-0002.html",
+        "hash": "sha256:954b6ef1585a74113b11936096e15e3ac95406cb9e99b0bf4908d917647adfca",
+        "title": "Imported original ORIGINAL-0002",
+        "origin": "machine",
+        "origin_depth": 1,
+        "scope": "public historical records",
+        "not_for": "",
+        "derived_from": [],
+        "supersedes": [],
+        "evidence_roots": [
+          "ORIGINAL-0002@sha256:954b6ef1585a74113b11936096e15e3ac95406cb9e99b0bf4908d917647adfca"
+        ]
+      },
+      {
+        "id": "ORIGINAL-0003",
+        "path": "original-0003.html",
+        "hash": "sha256:4cf9834770c4c7f8a27bf808434c8530b781f008d5e594caf37a45ecd90c0d51",
+        "title": "Imported original ORIGINAL-0003",
+        "origin": "machine",
+        "origin_depth": 1,
+        "scope": "public historical records",
+        "not_for": "",
+        "derived_from": [],
+        "supersedes": [],
+        "evidence_roots": [
+          "ORIGINAL-0003@sha256:4cf9834770c4c7f8a27bf808434c8530b781f008d5e594caf37a45ecd90c0d51"
+        ]
+      },
+      {
+        "id": "ORIGINAL-0004",
+        "path": "original-0004.html",
+        "hash": "sha256:b87d5883c09e9742bd7912abac58ed15694dadaf9d97f4d2191d3188051a7359",
+        "title": "Imported original ORIGINAL-0004",
+        "origin": "machine",
+        "origin_depth": 1,
+        "scope": "public historical records",
+        "not_for": "",
+        "derived_from": [],
+        "supersedes": [],
+        "evidence_roots": [
+          "ORIGINAL-0004@sha256:b87d5883c09e9742bd7912abac58ed15694dadaf9d97f4d2191d3188051a7359"
+        ]
+      },
+      {
+        "id": "ORIGINAL-0005",
+        "path": "original-0005.html",
+        "hash": "sha256:1f670fe87ed6e4044e60858300adedc09c4d82982fd7201b1288644f6fc5440d",
+        "title": "Imported original ORIGINAL-0005",
+        "origin": "machine",
+        "origin_depth": 1,
+        "scope": "public historical records",
+        "not_for": "",
+        "derived_from": [],
+        "supersedes": [],
+        "evidence_roots": [
+          "ORIGINAL-0005@sha256:1f670fe87ed6e4044e60858300adedc09c4d82982fd7201b1288644f6fc5440d"
+        ]
+      },
+      {
+        "id": "ORIGINAL-0006",
+        "path": "original-0006.html",
+        "hash": "sha256:4220f999d1cfe2734726fbfc6857334ae548b827d22492a27546f1f7d10abf54",
+        "title": "Imported original ORIGINAL-0006",
+        "origin": "machine",
+        "origin_depth": 1,
+        "scope": "public historical records",
+        "not_for": "",
+        "derived_from": [],
+        "supersedes": [],
+        "evidence_roots": [
+          "ORIGINAL-0006@sha256:4220f999d1cfe2734726fbfc6857334ae548b827d22492a27546f1f7d10abf54"
+        ]
+      },
+      {
+        "id": "ORIGINAL-0007",
+        "path": "original-0007.html",
+        "hash": "sha256:e3ec7774d22142e5251f1650d4fe1faa1e11c125c274e8a4c982d18b23714c8f",
+        "title": "Imported original ORIGINAL-0007",
+        "origin": "machine",
+        "origin_depth": 1,
+        "scope": "public historical records",
+        "not_for": "",
+        "derived_from": [],
+        "supersedes": [],
+        "evidence_roots": [
+          "ORIGINAL-0007@sha256:e3ec7774d22142e5251f1650d4fe1faa1e11c125c274e8a4c982d18b23714c8f"
+        ]
+      }
+    ],
+    "eligible_pages": 7,
+    "total_passages": 1529,
+    "search_complete": false,
+    "queries": [
+      "Does the shared language of withdrawal and return establish a causal relationship between the Sumter telegram and the Apollo 13 mission?"
+    ],
+    "corpus_snapshot": "sha256:a31b8bd4c51317baf5703b5d8a62963eafb48af85867e64916f2f6b424bbd231",
+    "ranking": "bm25-with-page-diversity-v1"
+  },
+  "answer_supported": false,
+  "notice": "Actual gated source search execution, not a reconstructed answer or human workflow.",
+  "measurements": {
+    "wall_seconds": 3.2401878939999733,
+    "cpu_seconds": 1.29889311,
+    "peak_python_allocated_bytes": null,
+    "allocation_tracing": "disabled in primary v2 runs; pilot retained separately",
+    "peak_process_rss_bytes": 33648640,
+    "rss_scope": "fresh Linux worker including imports; not incremental phase memory",
+    "source_html_bytes_read": 2859692,
+    "source_read_calls": 14,
+    "source_documents_examined": 7,
+    "source_document_paths": [
+      "original-0001.html",
+      "original-0002.html",
+      "original-0003.html",
+      "original-0004.html",
+      "original-0005.html",
+      "original-0006.html",
+      "original-0007.html"
+    ],
+    "model_calls": 0,
+    "api_charge_usd": 0,
+    "compute_charge_usd": null,
+    "whole_worker_cpu_seconds": 1.436483,
+    "human_labeling_seconds": null,
+    "human_correction_seconds": null,
+    "human_review_seconds": null,
+    "human_adjudication_seconds": null,
+    "original_source_documents_examined": 5
+  },
+  "execution_status": "completed",
+  "parent_wall_seconds": 3.708264678999967
+}

@@ -414,6 +414,37 @@
       ],
       "scope": "Frozen authentic original editions and developer questions, separate randomized fictional controls, candidate mapping and raw/canonical round-trip fidelity. Draft span coverage is retrieval only. Independent historical review NOT RUN. Follow-up retains source-linked developer semantic judgments, incorrect and unresolved relationships, missed facets, and a post-code-freeze cold transfer record; no independent human validation. Targeted recovery retains all previous useful reviewed associations; later two-record transfer remains unresolved. Calendar cues are assessed separately. All semantic labels remain developer/AI judgments, not independent human evaluation.",
       "measurement_status": "Actual dated baseline and updated executions, preserved pilots, incomplete independent semantic assessment"
+    },
+    {
+      "family": "documentary-scope",
+      "artifacts": "evaluation/documentary-scope",
+      "tests": [
+        "tests/test_documentary_scope.py",
+        "tests/test_prose_reconstruction.py",
+        "tests/test_source_mapping.py"
+      ],
+      "runners": [
+        "tools/compare_documentary_scope.py",
+        "tools/unprepared_challenge.py"
+      ],
+      "scope": "Finite scope/role interpretation controls and unchanged original-record development comparisons; candidates never earn answer support.",
+      "measurement_status": "Executed: baseline 1011 tests, final archive 1035 tests; public prepared controls 52/52; original/familiar draft spans unchanged at 18/23 and 9/9, native support 0/14 and 0/8. Independent semantic review NOT RUN."
+    },
+    {
+      "family": "documentary-assertions",
+      "artifacts": "evaluation/documentary-assertions",
+      "tests": [
+        "tests/test_documentary_assertions.py",
+        "tests/test_documentary_originals.py",
+        "tests/documentary-render.cjs"
+      ],
+      "runners": [
+        "tools/compare_documentary_answers.py",
+        "tools/unprepared_challenge.py",
+        "tools/check_browser_wasm.mjs"
+      ],
+      "scope": "Finite source-attributed assertion certificates, independent question obligations and checked partial composition; no historical truth or independent human accuracy claim.",
+      "measurement_status": "Executed on extracted 6acf45a: 1068 Python tests, public 52/52, actual WebAssembly and Chromium. Unchanged original/government questions: checked partial answers 0\u21922/22, full supported answers 0\u21920/22; independent semantic review and unseen evaluation NOT RUN."
     }
   ]
 }

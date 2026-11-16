@@ -1,0 +1,37 @@
+[
+  {
+    "pid": 1972,
+    "command": "python -m unittest discover -s tests -q",
+    "reason": "outer-sandbox baseline retry superseded by native clean archive run",
+    "status": "canceled_by_engineer",
+    "outputs_preserved": true
+  },
+  {
+    "pid": 2096,
+    "command": "python -m unittest discover -s tests -q",
+    "reason": "outer-sandbox first-candidate suite superseded by native final suite",
+    "status": "canceled_by_engineer",
+    "outputs_preserved": true
+  },
+  {
+    "pid": 2067,
+    "command": "python -m tools.unprepared_challenge run evaluation/unprepared-originals/2026-11-16 --implementation /tmp/mplpb-candidate --mode updated --commit 3790547ad1db0a5b796714e13cdb521eb9a8603a --seal freeze-v2.json --output /tmp/mplpb-original-updated",
+    "reason": "first candidate original replay superseded after demonstrated scope errors",
+    "status": "canceled_by_engineer",
+    "outputs_preserved": true
+  },
+  {
+    "pid": 2670,
+    "command": "python -m tools.unprepared_challenge run evaluation/unprepared-originals/2026-11-16 --implementation /tmp/mplpb-final --mode updated --commit 337287f34b170bfdbb6c1aa24b3642a864df2b68 --seal freeze-v2.json --output /tmp/mplpb-original-final",
+    "reason": "second candidate original replay superseded after demonstrated honorific truncation",
+    "status": "canceled_by_engineer",
+    "outputs_preserved": true
+  },
+  {
+    "pid": 2635,
+    "command": "python -m unittest discover -s tests -q",
+    "reason": "second candidate full suite superseded by corrected source archive",
+    "status": "canceled_by_engineer",
+    "outputs_preserved": true
+  }
+]

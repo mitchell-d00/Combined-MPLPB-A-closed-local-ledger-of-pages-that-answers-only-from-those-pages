@@ -1,0 +1,39 @@
+{
+  "revision": "c6f77bef76a90219ae6e2074f0302fa3d72ada19",
+  "working_directory": "extracted c6f77be archive /tmp/mplpb-temporal",
+  "execution": "set -e sequence completed with exit code 0 outside outer sandbox",
+  "checks": [
+    {
+      "command": "python tools/check_ui_script.py",
+      "status": "passed"
+    },
+    {
+      "command": "node tools/check_browser_transport.cjs",
+      "status": "passed"
+    },
+    {
+      "command": "node tests/javascript-api.cjs",
+      "status": "passed"
+    },
+    {
+      "command": "node tests/browser-ai-helper.cjs",
+      "status": "passed"
+    },
+    {
+      "command": "node tests/browser-model-loader.cjs",
+      "status": "passed"
+    },
+    {
+      "command": "node tests/browser-webgpu-limits.cjs",
+      "status": "passed"
+    },
+    {
+      "command": "node crawler/test_worker.mjs",
+      "status": "passed"
+    }
+  ],
+  "neural_inference": "NOT RUN",
+  "human_validation": "NOT RUN",
+  "cpu_seconds": null,
+  "peak_memory_bytes": null
+}

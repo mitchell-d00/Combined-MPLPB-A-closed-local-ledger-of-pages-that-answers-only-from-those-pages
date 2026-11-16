@@ -1,0 +1,216 @@
+"""Compose checked source assertions; extraction never awards support.
+
+Question decomposition is an inspection plan. Every gate and verifier retains
+the complete question/profile. Only the independent assertion kernel can produce
+source-support certificates, with historical truth explicitly unverified.
+"""
+import re
+from .body_text import body_text
+from .evidence_contract import pin
+from . import documentary_verify as kernel
+from mplpb_combined.reader import terms
+
+VERSION='documentary-composition-v1'
+ACTIONS={'appointed':'appoint','sent':'send','received':'receive','wrote':'write',
+         'surveyed':'survey','published':'publish','revised':'revise','canceled':'cancel',
+         'ordered':'order','requested':'request','instructed':'instruct'}
+
+
+def _proposal_units(text):
+    start=0
+    for m in re.finditer(r'[.!?]["”\)\]]?\s+(?=[A-Z"\[])',text):
+        word=re.search(r'(\w+)$',text[:m.start()])
+        if word and (len(word[1])==1 or word[1].lower() in {'mr','mrs','ms','dr','gen','maj','prof','hon','st','jr','sr'}):continue
+        end=m.start()+1
+        if end<len(text) and text[end] in '\"”)]':end+=1
+        a=start+len(text[start:end])-len(text[start:end].lstrip())
+        if a<end:yield a,end,text[a:end]
+        start=m.end()
+    if text[start:].strip():
+        a=start+len(text[start:])-len(text[start:].lstrip());yield a,len(text),text[a:]
+
+
+def _contexts(index,passages,max_chars,max_passages):
+    bodies={r.path:body_text(r.body_html) for r in index.records};result=[];used=0
+    for p in passages:
+        a=p['body_start'];b=a+len(p['text']);remaining=max_chars-used
+        if len(result)>=max_passages or b-a>remaining:continue
+        if any(q['path']==p['path'] and q['body_start']<=a and q['body_start']+len(q['text'])>=b for q in result):continue
+        margin=min(500,(remaining-(b-a))//2);lo=max(0,a-margin);hi=min(len(bodies[p['path']]),b+margin)
+        item=dict(p,body_start=lo,text=bodies[p['path']][lo:hi]);result.append(item);used+=hi-lo
+    return result
+
+
+def plan(question):
+    clauses=re.split(r'\?\s+(?=[A-Z])|,?\s+and\s+(?=(?:who|which|what|when|how|why|did|does|can)\b)',question,flags=re.I)
+    if len(clauses)>4:return None
+    goals=[]
+    for clause in clauses:
+        clause=clause.strip().rstrip('? .')
+        q=re.sub(r'^According to [^,]{1,120},\s*','',clause,flags=re.I)
+        who=re.fullmatch(r'Who ('+'|'.join(ACTIONS)+r') (.{1,240})',q,re.I)
+        if who:
+            goals.append({'question':clause,'kind':'who_action','action':ACTIONS[who[1].lower()],'object_text':who[2]})
+        elif re.match(r'Who (?:arranged|asked|requested|instructed)\b',q,re.I):
+            goals.append({'question':clause,'kind':'reported_instruction'})
+        elif re.match(r'Which (?:dated )?letter\b',q,re.I):
+            goals.append({'question':clause,'kind':'letter_context'})
+        else:goals.append({'question':clause,'kind':'unresolved'})
+    return goals if any(g['kind'] in {'who_action','reported_instruction'} for g in goals) else None
+
+
+def propose(index,passages):
+    """Opaque exact-source proposals only; no authoritative actor/event fields."""
+    bodies={r.path:body_text(r.body_html) for r in index.records};result=[];seen=set()
+    def add(p,a,b,kind):
+        key=(p['path'],a,b,kind)
+        if key in seen or len(result)>=12:return
+        seen.add(key);result.append({'kind':kind,'source_id':p['source_id'],'path':p['path'],
+          'hash':p['hash'],'start':a,'end':b,'quote':bodies[p['path']][a:b]})
+    for p in passages:
+        body=bodies[p['path']];a=p['body_start'];b=a+len(p['text'])
+        # Letter openings need both the original heading and complete statement.
+        for heading in re.finditer(r"(?m)^[A-Z][A-Z .’'\-]{2,70} TO ",p['text']):
+            h=a+heading.start()
+            opening=re.search(r'\bI\s+(?:have\s+)?(?:told|asked|instructed|requested|ordered)\s+',body[h:min(b,h+400)])
+            if not opening:continue
+            start=h+opening.start();first=next(_proposal_units(body[start:b]),None)
+            if first:add(p,h,start+first[1],'letter_instruction')
+        for lo,hi,q in _proposal_units(p['text']):
+            if hi-lo<=2200 and re.search(r'\b(?:'+'|'.join(ACTIONS)+r'|did\s+not\s+(?:'+'|'.join(ACTIONS.values())+r'))\b',q):
+                add(p,a+lo,a+hi,'action_statement')
+    return result
+
+
+def _relevant(goal,proof,question):
+    v=proof['proposition']
+    if goal['kind']=='who_action':
+        if v['relation']=='source_reports_instruction' and goal['action'] in {'request','instruct','order'}:
+            return bool(terms(goal['object_text']) & terms(v['intermediary_text']+' '+v['object_text']+' '+v['requested_recipient_text']))
+        if v['relation']!='source_action_assertion' or v['action']!=goal['action']:return False
+        return bool(terms(goal['object_text']) & terms(v['object_text']))
+    if goal['kind'] in {'reported_instruction','letter_context'} and v['relation']=='source_reports_instruction':
+        wanted=terms(question)-terms('who arranged asked requested instructed which dated letter records arrangement receive send copy book report')
+        observed=terms(' '.join(str(x) for x in v.values() if isinstance(x,str)))
+        return bool(wanted & observed) or bool(terms(question)&terms(v['object_text']))
+    return False
+
+
+def _claim(proof):
+    v=proof['proposition']
+    if v['relation']=='source_action_assertion':
+        prefix=(v['temporal_qualification_text']+', ') if v['temporal_qualification_text'] else ''
+        text='Source assertion: '+prefix+v['actor_text']+' '+('did not '+v['action'] if v['negative'] else next(k for k,a in ACTIONS.items() if a==v['action']))+' '+v['object_text']+'.'
+        qualifiers=['Source-attributed statement; event/person identity and historical truth are not independently verified.']
+        if v['action'] in {'order','request','instruct'}:qualifiers.append('A directive or request does not establish its execution.')
+        if v['unresolved_reference']:qualifiers.append('An object, role or date reference remains unresolved.')
+    else:
+        text=('The letter headed '+v['writer_text']+' TO '+v['addressee_text']+
+              (' ('+v['heading_date_text']+')' if v['heading_date_text'] else '')+
+              ' reports that its writer '+('had ' if v['request_aspect']=='perfect' else '')+v['request_verb']+' '+v['intermediary_text']+
+              ' to '+v['requested_action']+' its addressee the item described as “'+v['object_text']+'”.')
+        qualifiers=['The I/you/my bindings refer only to this documentary appearance; authorship is source-declared, not authenticated.',
+                    'Reported instruction does not establish actual dispatch or receipt.',
+                    'Heading date does not establish when the instruction, dispatch or receipt occurred.']
+        if v['condition_text']:qualifiers.append('Literal action/delivery qualification (exact scope unresolved): '+v['condition_text'])
+        if v['delivery_text']:qualifiers.append('Requested delivery method: '+v['delivery_text'])
+        if v['hope_text']:qualifiers.append('Additional hope stated by writer: '+v['hope_text'])
+        if v['literal_following_note']:qualifiers.append('Following source note retained without a separate historical claim: '+v['literal_following_note'])
+    return {'text':text,'qualifiers':qualifiers,'citations':proof['citations'],
+            'proposition':v,'source_support_established':True,'support_scope':'source_attributed_assertion',
+            'verification':proof['verification'],'historical_truth_independently_verified':False,
+            'proof_sha256':pin(proof)}
+
+
+def compose(index,max_passages,max_chars):
+    goals=plan(index.question)
+    if goals is None:return None
+    from .prose_retrieval import retrieve
+    pack=retrieve(index,max_passages,max_chars)
+    passages=_contexts(index,pack['passages'],max_chars,max_passages)
+    proposals=propose(index,passages)
+    checked=kernel.check(index,proposals)
+    if checked['status']=='source_changed':return {'kind':'abstain','code':'source_changed'}
+    proofs=checked['proofs'];selected=[];statuses=[];missing=[];conflict=False;ambiguous=False;alternatives=[]
+    for goal in goals:
+        matches=[p for p in proofs if _relevant(goal,p,index.question)]
+        status={'question':goal['question'],'kind':goal['kind'],'status':'unresolved'}
+        if goal['kind']=='who_action':
+            exact=[p for p in matches if p['proposition']['relation']=='source_action_assertion' and not p['proposition']['unresolved_reference']
+                   and kernel.normalized(p['proposition']['object_text'])==kernel.normalized(goal['object_text'])]
+            # Scan all eligible source units, not only retrieval winners. A
+            # qualified/unparsed relevant unit prevents complete acceptance.
+            competing=[p for p in checked['observations'] if p['proposition']['action']==goal['action']
+                       and kernel.normalized(p['proposition']['object_text'])==kernel.normalized(goal['object_text'])]
+            if exact:
+                matches=competing
+                actors={kernel.normalized(p['proposition']['actor_text']) for p in competing if not p['proposition']['negative']}
+                polarities={p['proposition']['negative'] for p in competing}
+                scopes={p['proposition']['temporal_qualification_text'] for p in competing}
+                unknown_contexts=[(r,a,b,q) for r,a,b,q,value in checked['contexts']
+                    if (value is None and (terms(goal['object_text'])&terms(q) or re.search(r'\b(?:he|she|it|they|that|this|those|these)\b',q,re.I))
+                    and (re.search(r'\b'+re.escape(goal['action'])+r'\w*\b',q,re.I)
+                         or any(re.search(r'\b'+re.escape(w)+r'\b',q,re.I) for w,act in ACTIONS.items() if act==goal['action'])))
+                    or (re.search(r'\b(?:retracted|withdrawn|corrected|superseded|amended|revoked|rescinded|denied|canceled)\b',q,re.I)
+                        and (value is None or value['action']!=goal['action']))]
+                unknown=bool(unknown_contexts)
+                for r,a,b,q in unknown_contexts:
+                    e=kernel.citation(r,body_text(r.body_html),a,b)
+                    if e not in alternatives:alternatives.append(e)
+                if len(polarities)>1 and len(scopes)==1:conflict=True;status['status']='opposed_source_statements_event_identity_unverified'
+                elif len(actors)>1 or len(scopes)>1:ambiguous=True;status['status']='event_or_actor_scope_unresolved'
+                elif actors and checked['scan_complete'] and not unknown:
+                    status['status']='supported_source_assertion'
+                else:status['status']='partial_source_assertion'
+            elif matches:status['status']='partial_source_assertion'
+        elif matches:
+            status['status']='supported_documentary_context' if goal['kind']=='letter_context' and all(p['proposition']['heading_date_text'] for p in matches) else 'partial_source_assertion'
+            for record,a,b,q,value in checked['contexts']:
+                if re.search(r'\b(?:canceled|cancelled|withdrawn|retracted|corrected|denied)\b',q,re.I) and any(terms(q)&terms(p['proposition']['object_text']) for p in matches):
+                    e=kernel.citation(record,body_text(record.body_html),a,b)
+                    if e not in alternatives:alternatives.append(e)
+        for proof in matches:
+            if proof not in selected:selected.append(proof)
+        if status['status'] not in {'supported_source_assertion','supported_documentary_context'}:
+            reason=('Exact requested identity/object and actual arrangement, dispatch and receipt are not established by a reported instruction.' if goal['kind']=='reported_instruction'
+                    else 'Exact requested argument, reference, qualification, or complete contrary-evidence search is not established.')
+            missing.append(goal['question']+': '+reason)
+        statuses.append(status)
+    if not checked['scan_complete']:missing.append('Contrary-evidence scan reached its explicit character/unit/assertion budget; absence of contradiction is not established.')
+    request_scope=any(p['proposition']['relation']=='source_reports_instruction' for p in selected)
+    if request_scope:missing.append('Request occurrence, later correction/cancellation and execution are outside this source-attribution certificate.')
+    shown=[];used=0;count=0
+    for proof in selected:
+        size=sum(len(e['quote']) for e in proof['citations']);n=len(proof['citations'])
+        if used+size>max_chars or count+n>max_passages:
+            missing.append('Verified/competing statements exceed the display budget; no pruned subset establishes a complete answer.');continue
+        shown.append(proof);used+=size;count+=n
+    displayed_alternatives=[]
+    for e in alternatives:
+        if used+len(e['quote'])>max_chars or count>=max_passages:continue
+        displayed_alternatives.append(e);used+=len(e['quote']);count+=1
+    if len(displayed_alternatives)!=len(alternatives):missing.append('Some unresolved alternative evidence cannot fit the display budget.')
+    claims=[_claim(p) for p in shown]
+    all_supported=bool(claims) and not missing and all(g['status']=='supported_source_assertion' for g in statuses)
+    kind='conflict' if conflict else 'clarify' if ambiguous else 'supported_answer' if all_supported else 'partial_answer' if claims else 'abstain'
+    text='\n'.join(c['text']+' '+ ' '.join(c['qualifiers']) for c in claims)
+    if conflict:text='The sources make opposed assertions; event co-reference and a historical contradiction are not established.\n'+text
+    if missing:text+=('\nUnresolved: '+'; '.join(missing))
+    sources=[]
+    for c in claims:
+        for e in c['citations']:
+            s={'id':e['source_id'],'path':e['path'],'hash':e['hash']}
+            if s not in sources:sources.append(s)
+    return {'kind':kind,'code':'documentary_statement_conflict' if conflict else 'documentary_scope_ambiguous' if ambiguous else 'supported_documentary_assertion' if all_supported else 'partial_documentary_evidence' if claims else 'documentary_assertion_not_established',
+            'text':text,'claims':claims,'sources':sources,'missing':missing,'answer_supported':all_supported,
+            'verification':{'structural':bool(claims),'semantic':kernel.VERSION,'truth_verified':False,'independence_verified':False},
+            'documentary_support':{'schema':VERSION,'original_question':index.question,'profile':index.profile.name,
+                'obligations':statuses,'source_support_claims':len(claims),'historical_truth_independently_verified':False,
+                'composition_rule':'Conjunction of independently checked source assertions; no person/event co-reference inferred.',
+                'historical_conflict_verified':False,'event_coreference_established':False,
+                'contrary_evidence_scan_complete':checked['scan_complete'] and not request_scope,
+                'scan_scope':'Finite literal action assertions; request occurrence/correction/execution not certified.',
+                'examined_characters':checked['examined_characters'],'examined_units':checked['examined_units'],'limits_reached':checked['limits_reached'],
+                'limits':checked['limits'],'rejected_proposals':checked['rejected'],
+                'alternative_evidence':displayed_alternatives,'unshown_alternative_evidence_count':len(alternatives)-len(displayed_alternatives),
+                'retrieval_limits':{'max_passages':max_passages,'max_characters':max_chars}}}

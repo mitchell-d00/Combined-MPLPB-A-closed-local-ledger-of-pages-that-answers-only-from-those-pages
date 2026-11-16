@@ -1,0 +1,21 @@
+{
+  "command": [
+    "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+    "-m",
+    "tools.compare_documentary_scope",
+    "evaluation/unprepared-originals/2026-11-16-followup/unfamiliar",
+    "/tmp/mplpb-unfamiliar-baseline-retry",
+    "/tmp/mplpb-unfamiliar-temporal",
+    "--output",
+    "/tmp/mplpb-unfamiliar-measured-comparison"
+  ],
+  "wall_budget_seconds": 600,
+  "source_bytes_read": null,
+  "independent_review": "NOT RUN",
+  "status": "completed",
+  "exit_code": 0,
+  "wall_seconds": 3.375296977999824,
+  "cpu_seconds": 3.3690309999999997,
+  "peak_process_rss_bytes": 34435072,
+  "scope": "Fresh Linux audit child including imports; separate from query-worker costs. Source read bytes not instrumented."
+}

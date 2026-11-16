@@ -89,6 +89,18 @@ const polarityAsk=await call('/api/query',{corpus:polarityCollection.corpus,ques
 if(polarityAsk.reader.kind!=='ambiguous'||polarityAsk.reader.answer_supported)
  throw Error('WASM lost contradictory negative assertion');
 console.log('PASS WASM imported-source polarity conflict');
+const documentaryCollection=await call('/api/collections/create',{name:'Documentary assertion smoke'});
+await call('/api/source/import',{corpus:documentaryCollection.corpus,title:'Archive appointments',url:'https://example.org/appointments',
+ text:'Ruth Stone appointed Mira Vale. Orin Hale appointed Lena Grey.'});
+const documentaryAsk=await call('/api/query',{corpus:documentaryCollection.corpus,
+ question:'Who appointed Mira Vale, and who appointed Lena Grey?'});
+if(!documentaryAsk.reader.answer_contract?.answer_supported||documentaryAsk.reader.answer_contract.claims.length!==2)
+ throw Error('WASM documentary assertion composition failed: '+JSON.stringify(documentaryAsk));
+const documentaryPartial=await call('/api/query',{corpus:documentaryCollection.corpus,
+ question:'Who appointed Mira Vale, and why did this cause the war?'});
+if(documentaryPartial.reader.answer_contract?.kind!=='partial_answer'||documentaryPartial.reader.answer_supported)
+ throw Error('WASM documentary partial answer overclaimed: '+JSON.stringify(documentaryPartial));
+console.log('PASS WASM checked documentary assertions and partial composition');
 const empty=await call('/api/collections/create',{name:'Empty smoke'});
 const isolated=await call('/api/query',{corpus:empty.corpus,question:'Dinosaurs'});
 if(isolated.reader.kind==='return')throw Error('WASM collections not isolated');

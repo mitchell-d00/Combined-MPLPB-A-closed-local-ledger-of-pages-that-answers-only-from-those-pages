@@ -1,0 +1,27 @@
+======================================================================
+FAIL: test_reported_instruction_has_header_bindings_and_preserved_conditions (tests.test_documentary_assertions.DocumentaryAssertionTests.test_reported_instruction_has_header_bindings_and_preserved_conditions)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/mplpb/tests/test_documentary_assertions.py", line 66, in test_reported_instruction_has_header_bindings_and_preserved_conditions
+    self.assertTrue(any('Actual arrangement' in m for m in r['missing']))
+AssertionError: False is not true
+
+======================================================================
+FAIL: test_original_appointment_keeps_referenced_role_and_comparison_unresolved (tests.test_documentary_originals.DocumentaryOriginalTests.test_original_appointment_keeps_referenced_role_and_comparison_unresolved)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/mplpb/tests/test_documentary_originals.py", line 37, in test_original_appointment_keeps_referenced_role_and_comparison_unresolved
+    r=self.inspect('evaluation/unprepared-originals/2026-11-16-followup/unfamiliar','U01')
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/mplpb/tests/test_documentary_originals.py", line 19, in inspect
+    self.assertEqual(r['kind'],'partial_answer');self.assertFalse(r['answer_supported'])
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'abstain' != 'partial_answer'
+- abstain
++ partial_answer
+
+
+----------------------------------------------------------------------
+Ran 25 tests in 10.454s
+
+FAILED (failures=2)

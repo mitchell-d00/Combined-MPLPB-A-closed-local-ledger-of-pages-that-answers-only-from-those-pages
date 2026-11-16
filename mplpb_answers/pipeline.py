@@ -62,7 +62,7 @@ class QueryResult:
         if self.contract['kind'] != 'supported_answer' and (self.contract['mode'] == 'assisted' or self.strict.kind == 'return'):
             data.update(kind=self.contract['kind'] if self.contract['mode'] == 'assisted' else 'not_in_corpus', text=self.contract['text'],
                         reason=self.contract['diagnostic']['message'], citation='', candidates=[])
-        if self.contract['diagnostic'].get('code') in {'partial_procedure_evidence', 'procedure_selection_needed'}:
+        if self.contract['diagnostic'].get('code') in {'partial_procedure_evidence', 'procedure_selection_needed', 'partial_documentary_evidence'}:
             data.update(text=self.contract['text'], reason=self.contract['diagnostic']['message'])
         return data
 
@@ -122,6 +122,8 @@ def _answer_query(root, question, profile=None, *, mode, reader, min_confidence,
             result.gate = {'sources': [], 'excluded': [], 'corpus_snapshot': '', 'notice': message}
             if 'exploration' in contract:
                 contract['exploration']={'status':'source_changed','edges':[],'answer_supported':False,'content_truth_verified':False}
+            if 'documentary_support' in contract:
+                contract['documentary_support']={'status':'discarded_due_to_source_change','source_support_claims':0}
         else:
             result.gate = fresh.to_dict()
         if kind != 'supported_answer':
@@ -269,6 +271,15 @@ def _answer_query(root, question, profile=None, *, mode, reader, min_confidence,
         if re.search(r'\b(?:same event|event identity|same occurrence)\b',question,re.I):
             return finish('abstain','event_identity_unresolved','No explicit source key establishes the requested event identity.','interpretation')
         if mode == 'strict':
+            from .documentary import compose
+            stage='documentary_verification'
+            documentary=compose(index,max_passages,max_chars)
+            if documentary is not None:
+                kind=documentary.pop('kind');code=documentary.pop('code')
+                contract.update(documentary)
+                if kind=='clarify':contract['clarification']='Specify the intended documentary appearance, actor or temporal scope.'
+                return finish(kind,code,
+                    'Checked source-attributed assertions only; unresolved question obligations remain explicit and historical truth is unverified.',stage)
             if strict.kind == 'ambiguous':
                 return finish('conflict', 'retrieval_ambiguous', 'Candidate ownership is ambiguous; this does not establish conflicting body evidence.', 'retrieval')
             code = 'unresolved_evidence' if strict.support.get('unresolved') else 'evidence_not_established' if _known_grammar(question) else 'interpretation_unsupported'
