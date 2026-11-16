@@ -70,3 +70,8 @@ separate check. Model identity/cache, source ownership and delivery rules remain
 ## Unprepared-original conversion study — 2026-11-16
 
 See the [frozen original-record evaluation](UNPREPARED_ORIGINAL_CHALLENGE.md) and [source mapping repair](SOURCE_MAPPING_REPAIR.md). Authentic originals and randomized synthetic controls have separate frozen inputs and retained outputs. Reversible candidate mappings preserve native authority boundaries; exact quote fidelity does not verify historical meaning. Independent human historical assessment is NOT RUN. Earlier results retain their original scope.
+
+
+## Source-linked reconstruction follow-up — 2026-11-16
+
+The [prose reconstruction follow-up](PROSE_RECONSTRUCTION_FOLLOWUP.md) measures false candidate relationships, retained useful associations, missing facets and processing costs on real public records. Source-consistent developer judgments remain separate from independent human validation and deterministic answer support. Earlier results are preserved.

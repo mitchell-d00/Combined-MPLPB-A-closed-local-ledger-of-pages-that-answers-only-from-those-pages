@@ -11,7 +11,7 @@ from pathlib import Path
 from tools.unprepared_challenge import read,save,summary,digest
 
 
-def inventory(studies,output):
+def inventory(studies,output,version=1):
     unique={};runs=[]
     for corpus,run in studies:
         corpus=Path(corpus);run=Path(run);summary(corpus,run)
@@ -25,14 +25,22 @@ def inventory(studies,output):
                     ev=item['evidence'][0];original=originals[ev['source_id']]
                     identity=[original['original_sha256'],item.get('predicate_start'),item['kind'],item['value'],
                               [(e['source_id'],e['body_start'],e['body_end']) for e in item['evidence']]]
-                    key=hashlib.sha256(json.dumps(identity,sort_keys=True).encode()).hexdigest()
+                    legacy_key=hashlib.sha256(json.dumps(identity,sort_keys=True).encode()).hexdigest()
+                    if version==2:
+                        clean={k:v for k,v in item['value'].items() if 'proposition' not in k}
+                        evkey=[(originals[e['source_id']]['original_sha256'],e['body_start'],e['body_end'],e['quote']) for e in item['evidence']]
+                        if item['kind'] in {'parallel_wording_candidate','possible_statement_conflict'}:
+                            evkey.sort();clean={}  # directionless evidence-pair identity
+                        identity=[item['kind'],item.get('predicate_start'),clean,evkey]
+                    key=legacy_key if version==1 else digest(identity)
                     if key not in unique:
                         unique[key]={'review_key':key,'short_id':('P' if kind=='proposition' else 'C')+str(len(unique)+1).zfill(3),
                             'kind':kind,'corpus':corpus.name,'original_id':original['original_id'],'original_url':original['original_url'],
                             'original_sha256':original['original_sha256'],'value':item['value'],'candidate_kind':item['kind'],
-                            'evidence':item['evidence'],'occurrences':[]}
+                            'evidence':item['evidence'],'occurrences':[],'legacy_review_keys':[]}
+                    if legacy_key not in unique[key]['legacy_review_keys']:unique[key]['legacy_review_keys'].append(legacy_key)
                     unique[key]['occurrences'].append({'case_id':entry['id'],'mapping_id':item['mapping_id']})
-    value={'schema':'developer-proposition-review-inventory-v1','assessment_status':'PENDING',
+    value={'schema':'developer-proposition-review-inventory-v'+str(version),'assessment_status':'PENDING',
         'assessment_type':'Codex developer semantic inspection, NOT independent human review','runs':runs,'items':list(unique.values())}
     save(output,value);return value
 
@@ -62,10 +70,10 @@ def score(inventory_path,assessment_path):
 
 def main():
     p=argparse.ArgumentParser(description=__doc__);s=p.add_subparsers(dest='command',required=True)
-    a=s.add_parser('inventory');a.add_argument('--study',action='append',nargs=2,metavar=('CORPUS','RUN'),required=True);a.add_argument('--output',required=True)
+    a=s.add_parser('inventory');a.add_argument('--version',type=int,choices=[1,2],default=1);a.add_argument('--study',action='append',nargs=2,metavar=('CORPUS','RUN'),required=True);a.add_argument('--output',required=True)
     b=s.add_parser('score');b.add_argument('inventory');b.add_argument('assessment');b.add_argument('--output',required=True)
     args=p.parse_args()
-    if args.command=='inventory':inventory(args.study,args.output)
+    if args.command=='inventory':inventory(args.study,args.output,args.version)
     else:save(args.output,score(args.inventory,args.assessment))
 
 

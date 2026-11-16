@@ -4,8 +4,8 @@ Last reviewed: 2026-11-16.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `6499338f00377181a8ffc169b9977d4be31841e1` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `9ebb92e8ef9f34c00c52cde8d458978df079c80ba63e8bcee2401fdad1e23b9d`.
+Base commit: `01f128bc6022ff64c2edf5c363f05f173ac95972` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `1096a328287330217a918811b6e3e7190030af1bad9d16fc3072fdeed2fea57c`.
 
 ## Latest user update instructions
 
@@ -21,6 +21,10 @@ Preserve all existing results and run the full regression suite. Do not change t
 
 The goal is simple: MPLPB should not just store and retrieve information. It should help reconstruct what happened from the evidence, while knowing what it cannot prove. My main recommendation: Stop focusing on increasing the number of passing unit tests. Focus on proving that MPLPB can understand and connect information from real documents.
 
+The most important engineering objective now is reducing false relationships while retaining useful correct ones.
+
+The next challenge is demonstrating that MPLPB can consistently recover the important relationships it currently misses, without reintroducing false ones.
+
 ## Implemented scope
 
 - Diagnose all 13 old missing draft spans without changing original inputs, scoring or earlier results.
@@ -31,10 +35,12 @@ The goal is simple: MPLPB should not just store and retrieve information. It sho
 
 ## Validation recorded
 
-- Unchanged prior implementation executed first on separately frozen unfamiliar and legal transfer sources.
-- First retrieval/proposition prototype completed all 14 old historical cases under frozen v2 criteria before native replacement.
-- First prototype full boundary suite passed 1000 tests, yet source inspection found 38 incorrect and 10 irrelevant semantic proposals among 80 unique candidates. These failures remain preserved.
-- Second-revision focused boundary/grammar controls passed in development checkout; full final tests and final frozen executions pending.
+- Final 01f128b completed all 14 original cases at 18/23 frozen draft-span coverage, native support 0/14.
+- Developer semantic review, comparable deduplication: prototype 15 correct / 38 incorrect / 17 unresolved / 8 irrelevant; final 18 correct / 1 incorrect / 37 unresolved.
+- Cold source acquired after code freeze: correct 3 retained; incorrect 14 to 0; unresolved 1 to 6. Not independent human review.
+- Full final regression suite passed 1003 tests; public prepared 52/52; separate synthetic regression controls 24/24.
+- All 727 rich proposal objects across historical and new studies passed source/policy/pin/quote integrity and non-authority checks.
+- Native commit 01f128b passed all five CI workflow families, including exact archive and browser regressions.
 
 ## Limitations and blocked checks
 
@@ -45,8 +51,8 @@ The goal is simple: MPLPB should not just store and retrieve information. It sho
 
 ## Next steps
 
-- Run frozen primary/unfamiliar comparisons, inspect every scored interpretation against original sources, retain all failures.
-- Run full regression and extracted-source checks before publishing final evidence.
+- Recover missed distribution and called-off relationships with generic phrase/selection repairs; compare false proposals and retained useful relationships together.
+- Keep earlier results and errors immutable; test further transfer records without authoring answer-bearing source fields.
 
 ## Use this ZIP in your repository
 

@@ -1,5 +1,5 @@
 {
-  "instruction": "Continue improving MPLPB without weakening its existing protections.\n\nFirst, investigate why 13 of the 23 historical reference passages are still missing and improve retrieval.\n\nSecond, help MPLPB recognize events, corrections, contradictions, and relationships in ordinary writing. Every connection must link back to the original evidence and remain a candidate until properly verified.\n\nThird, test these improvements against unfamiliar historical documents. Measure correct relationships, incorrect relationships, missing information, processing costs, and justified refusals.\n\nPreserve all existing results and run the full regression suite. Do not change the tests to make MPLPB appear more successful.\n\nThe goal is simple: MPLPB should not just store and retrieve information. It should help reconstruct what happened from the evidence, while knowing what it cannot prove. My main recommendation: Stop focusing on increasing the number of passing unit tests. Focus on proving that MPLPB can understand and connect information from real documents.",
+  "instruction": "Continue improving MPLPB without weakening its existing protections.\n\nFirst, investigate why 13 of the 23 historical reference passages are still missing and improve retrieval.\n\nSecond, help MPLPB recognize events, corrections, contradictions, and relationships in ordinary writing. Every connection must link back to the original evidence and remain a candidate until properly verified.\n\nThird, test these improvements against unfamiliar historical documents. Measure correct relationships, incorrect relationships, missing information, processing costs, and justified refusals.\n\nPreserve all existing results and run the full regression suite. Do not change the tests to make MPLPB appear more successful.\n\nThe goal is simple: MPLPB should not just store and retrieve information. It should help reconstruct what happened from the evidence, while knowing what it cannot prove. My main recommendation: Stop focusing on increasing the number of passing unit tests. Focus on proving that MPLPB can understand and connect information from real documents.\n\nThe most important engineering objective now is reducing false relationships while retaining useful correct ones.\n\nThe next challenge is demonstrating that MPLPB can consistently recover the important relationships it currently misses, without reintroducing false ones.",
   "reviewed_on": "2026-11-16",
   "scope": [
     "Diagnose all 13 old missing draft spans without changing original inputs, scoring or earlier results.",
@@ -9,10 +9,12 @@
     "Use actual unfamiliar-record semantic failures to correct noun/adjective event errors, compound speakers, passive roles, quote boundaries and irrelevant website comparisons; retain bounded candidate pronoun/planned-action connections."
   ],
   "validation": [
-    "Unchanged prior implementation executed first on separately frozen unfamiliar and legal transfer sources.",
-    "First retrieval/proposition prototype completed all 14 old historical cases under frozen v2 criteria before native replacement.",
-    "First prototype full boundary suite passed 1000 tests, yet source inspection found 38 incorrect and 10 irrelevant semantic proposals among 80 unique candidates. These failures remain preserved.",
-    "Second-revision focused boundary/grammar controls passed in development checkout; full final tests and final frozen executions pending."
+    "Final 01f128b completed all 14 original cases at 18/23 frozen draft-span coverage, native support 0/14.",
+    "Developer semantic review, comparable deduplication: prototype 15 correct / 38 incorrect / 17 unresolved / 8 irrelevant; final 18 correct / 1 incorrect / 37 unresolved.",
+    "Cold source acquired after code freeze: correct 3 retained; incorrect 14 to 0; unresolved 1 to 6. Not independent human review.",
+    "Full final regression suite passed 1003 tests; public prepared 52/52; separate synthetic regression controls 24/24.",
+    "All 727 rich proposal objects across historical and new studies passed source/policy/pin/quote integrity and non-authority checks.",
+    "Native commit 01f128b passed all five CI workflow families, including exact archive and browser regressions."
   ],
   "limitations": [
     "Finite deterministic candidate interpretation is fallible and not unrestricted semantic understanding.",
@@ -21,7 +23,7 @@
     "The intermediate launch metadata used a mistyped commit label; an explicit correction preserves original receipts and binds actual native SHA256 pins to commit 6499338f00377181a8ffc169b9977d4be31841e1."
   ],
   "next_steps": [
-    "Run frozen primary/unfamiliar comparisons, inspect every scored interpretation against original sources, retain all failures.",
-    "Run full regression and extracted-source checks before publishing final evidence."
+    "Recover missed distribution and called-off relationships with generic phrase/selection repairs; compare false proposals and retained useful relationships together.",
+    "Keep earlier results and errors immutable; test further transfer records without authoring answer-bearing source fields."
   ]
 }
