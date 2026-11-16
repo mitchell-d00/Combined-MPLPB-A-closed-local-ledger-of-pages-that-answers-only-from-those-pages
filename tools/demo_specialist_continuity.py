@@ -47,15 +47,18 @@ def run():
         put('finder', 'T1', 'task', task)
         for id, quote in [('E1', 'Configuration AX-14 is discontinued.'), ('E2', 'Component X remains available.')]:
             put('finder', id, 'evidence', {'task': 'T1', 'corpus': 'catalog', 'source_id': source.id, 'source_hash': source.hash, 'quote': quote, 'query': 'supplier component availability'})
-        claim = {'task': 'T1', 'proposition': 'Component X is discontinued', 'basis': 'inference', 'assessment': 'supported_under_scope',
-                 'assumptions': ['Configuration status implies component status'], 'alternatives': ['Other configurations remain'], 'revisit_when': 'Read component-level catalog statement'}
+        claim = {'task': 'T1', 'proposition': 'Configuration AX-14 is discontinued', 'basis': 'inference', 'assessment': 'supported_under_scope',
+                 'assumptions': [], 'alternatives': ['Other configurations remain'], 'revisit_when': 'Read component-level catalog statement'}
         put('finder', 'C1', 'claim', claim, {'E1': 1})
         action = {'task': 'T1', 'task_revision': 1, 'operation': 'fixture.availability.v1', 'arguments': {'interpretation': 'configuration implies component'},
                   'side_effect': 'local', 'executor_seat': 'builder', 'state': 'proposed', 'retry_of': {}, 'retry_reason': ''}
         put('builder', 'A1', 'action', action, {'C1': 1})
         store.executors['fixture.availability.v1'] = lambda request: {'result': 'failed', 'validation': {'catalog fixture passes': False}, 'artifact': 'Fixture failed: configuration is not component-level availability'}
         failed = store.execute(tokens['builder'], id='A1', expected_revision=1, expected_head=store.snapshot(tokens['builder'])['head'])
-        review = {'task': 'T1', 'target': {'C1': 1}, 'target_variable': 'component-level availability', 'regime': 'synthetic catalog',
+        claim.update(proposition='Component X is discontinued')
+        put('reviewer', 'C1', 'claim', claim, {'E1': 1}, revision=1)
+        blocked_before_challenge = {r['id']: r for r in store.snapshot(tokens['builder'])['records']}['C1']['effective_status']
+        review = {'task': 'T1', 'target': {'C1': 2}, 'target_variable': 'component-level availability', 'regime': 'synthetic catalog',
                   'finding': 'The inference exceeds the source scope', 'outcome': 'challenge', 'resolution': ''}
         put('challenger', 'R1', 'review', review, {'E2': 1})
         for seat in ('finder', 'challenger', 'builder'):
@@ -73,11 +76,11 @@ def run():
         except Denied:
             fenced = True
         claim.update(proposition='Component X remains available', assumptions=[])
-        put('reviewer', 'C1', 'claim', claim, {'E2': 1}, revision=1)
+        put('reviewer', 'C1', 'claim', claim, {'E2': 1}, revision=2)
         review.update(outcome='resolved', resolution='Revised proposition to the exact component-level source scope')
         put('reviewer', 'R1', 'review', review, {'E2': 1}, revision=1)
         action.update(arguments={'interpretation': 'explicit component-level statement'}, retry_of={failed['attempt']: 1}, retry_reason='Corrected scope and source pin')
-        put('builder', 'A2', 'action', action, {'C1': 2})
+        put('builder', 'A2', 'action', action, {'C1': 3})
         store.executors['fixture.availability.v1'] = lambda request: {'result': 'passed', 'validation': {'catalog fixture passes': True}, 'artifact': 'Corrected catalog fixture passed'}
         passed = store.execute(tokens['builder'], id='A2', expected_revision=1, expected_head=store.snapshot(tokens['builder'])['head'])
         task.update(state='done', acceptance={passed['attempt']: 1})
@@ -89,7 +92,7 @@ def run():
         return {'scenario': 'five specialist instances with process replacement', 'evaluation_status': 'offline developer fixture; not independent multi-agent performance evidence',
                 'implementation_sha256': implementation_pins(), 'instances': sorted(i['id'] for i in identities),
                 'same_model_distinct_instances': len({i['id'] for i in identities}) == 5 and len({i['model']['name'] for i in identities}) == 1, 'successor_process': 'fresh subprocess', 'successor_continues_work_of': successor['instance']['continues_work_of'],
-                'inherited_claim_status': inherited['C1']['effective_status'], 'inherited_failed_attempt': inherited[failed['attempt']]['payload']['result'],
+                'claim_status_before_challenge': blocked_before_challenge, 'inherited_claim_status': inherited['C1']['effective_status'], 'inherited_failed_attempt': inherited[failed['attempt']]['payload']['result'],
                 'ended_writer_rejected': fenced, 'claim_revisions_preserved': len(final['C1']['history']),
                 'final_claim_assessment': final['C1']['effective_status'], 'final_task_status': final['T1']['effective_status'],
                 'supported_answer_claimed': successor['answer_supported'], 'event_chain_verified': audited['head'] == checkpoint, 'event_count': checkpoint['seq']}

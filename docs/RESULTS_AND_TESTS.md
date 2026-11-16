@@ -1,6 +1,6 @@
 # Results and their tests
 
-Last reviewed: 2026-11-10.
+Last reviewed: 2026-11-16.
 
 Every retained evaluation family is listed below. The [machine-readable index](results.json)
 is checked in CI for missing test files, reproduction tools and unindexed evaluation
@@ -30,7 +30,7 @@ modern application tests do not retrospectively validate those experiments.
 | [conversation-repairs](../evaluation/conversation-repairs) | [test_conversation_repairs.py](../tests/test_conversation_repairs.py) | [evaluate_conversation_repairs.py](../tools/evaluate_conversation_repairs.py) | Developer-authored conversation regression examples, not independent users. |
 | [live-conversation](../evaluation/live-conversation) | [test_browser_bridge.py](../tests/test_browser_bridge.py); [test_live_acquisition.py](../tests/test_live_acquisition.py) | [live_conversation_wasm.mjs](../tools/live_conversation_wasm.mjs); [summarize_live_conversation.py](../tools/summarize_live_conversation.py) | Retained WebAssembly/live transport experiment; networking and deployed revision are run-specific. |
 | [response-1000](../evaluation/response-1000) | [test_response_edge_smoke.py](../tests/test_response_edge_smoke.py) | [evaluate_response_1000.py](../tools/evaluate_response_1000.py) | Authored finite response edge smoke; not independent language accuracy. |
-| [specialist-continuity](../evaluation/specialist-continuity) | [test_specialist_continuity.py](../tests/test_specialist_continuity.py) | [demo_specialist_continuity.py](../tools/demo_specialist_continuity.py) | Five-instance scripted interruption/recovery fixture; not distributed independent agents. |
+| [specialist-continuity](../evaluation/specialist-continuity) | [test_specialist_continuity.py](../tests/test_specialist_continuity.py) | [demo_specialist_continuity.py](../tools/demo_specialist_continuity.py) | Five-instance recovery plus bounded source-status support regressions, including pre-challenge blocking; developer fixtures only. Historical reports remain unchanged. |
 | [user-collections](../evaluation/user-collections) | [test_policy_evidence.py](../tests/test_policy_evidence.py); [test_exploration_store.py](../tests/test_exploration_store.py) | [evaluate_user_collections.py](../tools/evaluate_user_collections.py); [browser_collection_policies.py](../tools/browser_collection_policies.py) | Synthetic unfamiliar collections, revisions and policy checks; independent builders outstanding. |
 | [wiki](../evaluation/wiki) | [test_wiki_capture.py](../tests/test_wiki_capture.py) | [wiki_live_eval.py](../tools/wiki_live_eval.py) | Historical capture integrity checks; missing payload pins/raw-live mismatch prevent scoring the preserved snapshot. |
 | [topics](../evaluation/topics) | [test_answer.py](../tests/test_answer.py) | [build_topic_examples.py](../tools/build_topic_examples.py); [test_topic_examples.py](../tools/test_topic_examples.py) | Authored topic-example source fixtures; no unseen-domain language accuracy claim. |
