@@ -1,0 +1,173 @@
+"""Bounded, quote-linked propositions from ordinary prose; no semantic proof.
+
+These rules propose actor/action/object, scope and modality. They do not certify
+historical truth or resolve identity by vocabulary overlap. Every result retains
+its complete source sentence and an explicit candidate status.
+"""
+import difflib
+import re
+from collections import Counter
+from mplpb_answers.body_text import body_text
+from mplpb_answers.prose_retrieval import metadata
+from mplpb_combined.reader import terms
+from .source_mapping import anchor,_item
+
+VERSION='source-propositions-v1'
+VERBS={
+ 'appoint':'appoint','appointed':'appoint','decided':'decide','decide':'decide','proceed':'proceed',
+ 'wrote':'write','write':'write','written':'write','scribbled':'write','drafting':'draft','drafted':'draft',
+ 'distributed':'distribute','published':'publish','publishing':'publish','read':'read',
+ 'told':'instruct','instructed':'instruct','ordered':'order','order':'order','designate':'designate',
+ 'sent':'send','send':'send','sending':'send','received':'receive','receive':'receive',
+ 'surveyed':'survey','provided':'provide','provide':'provide','lobbied':'lobby','supported':'support',
+ 'correcting':'correct','corrected':'correct','correct':'correct','reconsidered':'reconsider',
+ 'retracted':'retract','retract':'retract','withdrawn':'withdraw','withdrew':'withdraw',
+ 'revised':'revise','amended':'amend','denied':'deny','disagreed':'disagree',
+ 'repealed':'repeal','repeal':'repeal',
+ 'issued':'issue','containing':'quote_or_contain','quote':'quote','quoted':'quote',
+ 'grant':'grant','allowed':'allow','authorized':'authorize','aborted':'abort',
+ 'defended':'defend','surrendered':'surrender','evacuated':'evacuate','marched':'march',
+ 'failed':'fail','fail':'fail','caused':'cause','cause':'cause',
+}
+ACTION=re.compile(r'\b('+'|'.join(sorted(VERBS,key=len,reverse=True))+r')\b',re.I)
+LETTER=re.compile(r"(?m)^([A-Z][A-Z .’'\-]{2,70}?)\s+TO\s+([A-Z][A-Z .’'\-]{2,70}?)(?=\.\s+[A-Z][a-z]|\.\s*\n|\s*\n)")
+NAMES=re.compile(r"\b(?:[A-Z][a-z]+(?:[’'][a-z]+)?(?:\s+(?:[A-Z]\.\s*)?[A-Z][a-z]+){0,2}|I|[Hh]e|[Ss]he|[Tt]hey|[Ww]e|[Yy]ou)\b")
+DATE=re.compile(r'\b(?:(?:January|February|March|April|May|June|July|August|September|October|November|December)(?:\s+\d{1,2}(?:st|nd|rd|th|d)?(?:,)?(?:\s+\[?\d{4}\]?)?)?|\d{4}-\d{2}-\d{2}|(?:eve|afternoon|morning)\s+of\s+[^.;!?]{1,50})',re.I)
+QUALIFICATION=re.compile(r'\b(?:not|never|no|if|unless|except(?:ed)?|only|all|every|may|might|could|should|shall|will|possible|hope|intended|discretion|as if)\b',re.I)
+ABBREVIATIONS={'mr','mrs','ms','dr','prof','gen','maj','hon','st','secy','jr','sr','s','ss'}
+
+
+def sentences(text):
+    start=0
+    for m in re.finditer(r'[.!?]\s+(?=[A-Z"\[])',text):
+        prefix=text[max(0,m.start()-80):m.start()];last=re.search(r'(\w+)$',prefix)
+        if last and (len(last[1])==1 or last[1].casefold() in ABBREVIATIONS):continue
+        end=m.start()+1
+        if text[start:end].strip():
+            a=start+len(text[start:end])-len(text[start:end].lstrip());yield a,end,text[a:end]
+        start=m.end()
+    if text[start:].strip():
+        a=start+len(text[start:])-len(text[start:].lstrip());yield a,len(text),text[a:]
+
+
+def _modality(quote,position):
+    # Clause-local qualifiers are retained alongside the full sentence. A later
+    # conditional clause must not turn a preceding writing event into a defeat.
+    prefix=quote[:position];clause=re.split(r';|\b(?:but|and)\b',prefix,flags=re.I)[-1][-180:]
+    if re.search(r'\b(?:if|should|would|might|could|were to)\b',clause,re.I):return 'conditional_or_uncertain'
+    if re.search(r'\b(?:not|never|no)\b',clause,re.I):return 'negated_or_scope_limited'
+    if re.search(r'\bmay\b',clause,re.I):return 'permission_or_possibility'
+    if re.search(r'\b(?:will|shall|to|about to|hope|intended)\s+(?:\w+\s+){0,3}$',clause,re.I):return 'future_request_or_intention'
+    return 'source_reports_action'
+
+
+def extract(index,passages,state,*,max_propositions=48,max_connections=16):
+    bodies={r.path:body_text(r.body_html) for r in index.records};meta={r.path:metadata(r) for r in index.records}
+    sentence_index={path:list(sentences(text)) for path,text in bodies.items()}
+    frames=[];seen=set();truncated=False;contexts=[];context_seen=set()
+    for p in passages:
+        text=bodies[p['path']];begin=p['body_start'];end=begin+len(p['text'])
+        # A header is usable only within its documentary appearance; no global
+        # I->author binding across documents or following letter boundaries.
+        all_headers=list(LETTER.finditer(text))
+        per_context=0
+        for a,b,quote in sentence_index[p['path']]:
+            if not (a<end and b>begin) or b-a>2200:continue
+            e=anchor(dict(p,body_start=a,text=quote));ck=(e['path'],a,b)
+            if ck not in context_seen and len(contexts)<80:contexts.append(e);context_seen.add(ck)
+            relevant=[m for m in all_headers if m.start()<=a and a-m.end()<10000]
+            header=relevant[-1] if relevant else None
+            if header and any(m.start()>header.start() and m.start()<b for m in all_headers):header=None
+            for match in ACTION.finditer(quote):
+                key=(p['path'],a,match.start())
+                if key in seen:continue
+                if len(frames)>=max_propositions or per_context>=6:truncated=True;break
+                per_context+=1
+                seen.add(key);action=VERBS[match[0].lower()];prefix=quote[:match.start()]
+                names=[m for m in NAMES.finditer(prefix) if m[0].casefold() not in {'january','february','march','april','may','june','july','august','september','october','november','december','later','during','this','that','the','by','on'}];subject=names[-1][0] if names else None
+                unresolved=[];bindings=[]
+                apposition=re.search(r"\bI,\s*([A-Z][A-Za-z .’'\-]{2,65}?),",prefix)
+                if apposition:subject=apposition[1].strip()
+                # Do not guess a person for a title, unresolved pronoun or passive.
+                if subject and subject.lower() in {'i','we','you','he','she','they'}:
+                    if header and subject.lower() in {'i','you'}:
+                        bindings=[{'pronoun':subject,'resolved_candidate':header[1 if subject.lower()=='i' else 2],
+                                   'basis':'explicit documentary AUTHOR TO RECIPIENT heading'}]
+                        subject=bindings[0]['resolved_candidate']
+                    else:unresolved.append('pronoun_actor_unresolved')
+                object_bindings=[]
+                if header and re.match(r'\s+you\b',quote[match.end():],re.I):
+                    object_bindings=[{'pronoun':'you','resolved_candidate':header[2],'basis':'explicit documentary addressee heading'}]
+                if re.search(r'\b(?:was|were|been|be)\s*$',prefix,re.I):subject=None;unresolved.append('passive_agent_unresolved')
+                following=quote[match.end():];object_text=following.strip()
+                next_action=ACTION.search(quote,match.end())
+                role_end=next_action.start() if next_action else len(quote)
+                dates=[{'raw_text':m[0],'candidate_role':('creation' if action in {'write','draft'} else 'distribution' if action in {'send','distribute'} else 'action_time_unresolved') if match.end()<=m.start()<role_end else 'context_date_role_unresolved',
+                        'start':a+m.start(),'end':a+m.end(),'normalized_time':None} for m in DATE.finditer(quote)]
+                evidence=[anchor(dict(p,body_start=a,text=quote))]
+                if bindings or object_bindings:
+                    stop=min(len(text),header.end()+200)
+                    following_header=next((m.start() for m in all_headers if m.start()>header.start()),len(text))
+                    stop=min(stop,following_header)
+                    evidence.append(anchor(dict(p,body_start=header.start(),text=text[header.start():stop])))
+                ts=meta[p['path']]['transcript_start']
+                layer='unresolved' if ts is None else 'after_source_transcript_heading' if a>=ts else 'before_source_transcript_heading'
+                modality=_modality(quote,match.start())
+                if subject is None and modality=='source_reports_action':modality='actor_or_passive_agent_unresolved'
+                frame=_item('source_proposition_candidate',evidence,
+                    {'actor':subject,'action':action,'predicate_text':match[0],
+                     'object_text':object_text,'affected_subject_text':prefix.strip()[-220:] if subject is None else None,'modality':modality,
+                     'documentary_bindings':bindings,'object_bindings':object_bindings,'date_candidates':dates,'source_layer_hint':layer},state,
+                    operation_basis='ordinary-prose actor/action/object rules; finite and fallible',
+                    qualification_cues=[m[0] for m in QUALIFICATION.finditer(quote)],
+                    predicate_start=a+match.start(),predicate_end=a+match.end(),
+                    unresolved_actor_or_scope=unresolved,event_identity=None,conflicting_evidence=[],
+                    conflict_search='Only bounded candidate contexts compared; not exhaustive')
+                frames.append(frame)
+    qualifications=[]
+    for e in contexts:
+        cues=[m[0] for m in QUALIFICATION.finditer(e['quote'])]
+        if cues and len(qualifications)<12:
+            qualifications.append(_item('scope_or_modality_candidate',[e],{'literal_qualifiers':cues},state,
+                operation_basis='explicit qualification language; scope requires review',scope_resolved=False))
+    connections=[]
+    for i,left in enumerate(frames):
+        lv=left['value'];le=left['evidence'][0]
+        for right in frames[i+1:]:
+            rv=right['value'];re_=right['evidence'][0]
+            if le['path']==re_['path'] and le['body_start']==re_['body_start']:
+                if lv['action']=='instruct' and rv['action']=='send' and left['predicate_start']<right['predicate_start']:
+                    connections.append(_item('reported_request_candidate',[le],{'request_proposition':left['mapping_id'],'requested_action_proposition':right['mapping_id']},state,
+                        operation_basis='instruction and nested send action in the same quoted sentence; not completion',requested_action_completed=False,direction='request_to_requested_action',causality='NOT ESTABLISHED'))
+                continue
+            kind=None;basis=None
+            # Exact candidate actor/action/object agreement with opposite polarity
+            # is narrower than a vocabulary-similarity contradiction detector.
+            la,ra=lv['actor'],rv['actor'];lo=terms(lv['object_text']);ro=terms(rv['object_text'])
+            same_actor=la and ra and la.casefold()==ra.casefold() and la.lower() not in {'i','we','you','he','she','they'}
+            if same_actor and lv['action']==rv['action'] and lo and lo==ro and (lv['modality']=='negated_or_scope_limited')!=(rv['modality']=='negated_or_scope_limited'):
+                kind='possible_statement_conflict';basis='same candidate actor/predicate/object; opposite local polarity'
+            elif lv['action'] in {'correct','reconsider','retract','revise','amend'} or rv['action'] in {'correct','reconsider','retract','revise','amend'}:
+                if same_actor and len(lo&ro)>=3:
+                    kind='possible_correction_link';basis='explicit correction action with candidate actor and shared object terms; scope unresolved'
+            if kind:
+                connections.append(_item(kind,[le,re_],{'left_proposition':left['mapping_id'],'right_proposition':right['mapping_id']},state,
+                    operation_basis=basis,direction=None,causality='NOT ESTABLISHED',predecessor_resolved=False))
+    # A parallel wording candidate connects explicit shared wording, not events.
+    for i,left in enumerate(contexts):
+        for right in contexts[i+1:]:
+            if left['path']==right['path']:continue
+            a=left['quote'];b=right['quote'];wa=re.findall(r'\w+',a.casefold());wb=re.findall(r'\w+',b.casefold())
+            grams=lambda w:{tuple(w[n:n+4]) for n in range(len(w)-3)}
+            if len(grams(wa)&grams(wb))<2:continue
+            similarity=difflib.SequenceMatcher(None,wa,wb,autojunk=False).ratio()
+            if similarity<.45 or a==b:continue
+            connections.append(_item('parallel_wording_candidate',[left,right],{'token_similarity':similarity,
+                'left_only_words':sorted(set(wa)-set(wb)),'right_only_words':sorted(set(wb)-set(wa))},state,
+                operation_basis='shared literal four-word sequences and token alignment; not a verified correction',
+                direction=None,causality='NOT ESTABLISHED',predecessor_resolved=False))
+    return {'schema':VERSION,'propositions':frames,'qualifications':qualifications,'connections':connections[:max_connections],
+        'answer_supported':False,'content_truth_verified':False,
+        'semantic_verification':'NOT RUN','budget_truncated':truncated or len(connections)>max_connections,
+        'limits':{'max_propositions':max_propositions,'max_connections':max_connections,'max_sentence_characters':2200},
+        'notice':'Actor, object, modality, date role and connections are candidate interpretations; inspect full evidence and unresolved bindings.'}

@@ -9,7 +9,7 @@ from mplpb_answers.evidence_contract import ReaderError
 from mplpb_combined.reader import PROFILES,DEFAULT_PROFILE
 from .historical_verifier import verification_snapshot
 
-VERSION='unprepared-prose-candidates-v1'
+VERSION='unprepared-prose-candidates-v2'
 DATE=re.compile(r'\b(?:\d{4}-\d{2}-\d{2}|(?:January|February|March|April|May|June|July|August|September|October|November|December)\s+\d{1,2}(?:st|nd|rd|th|d)?(?:,)?\s+\[?\d{4}\]?)\b',re.I)
 CORRECTION=re.compile(r'\b(?:correct(?:ed|ing|ion|ions)?|revis(?:ed|ion|ions)|replace(?:d|ment)?|change(?:d|s)?|amend(?:ed|ment)?|errat[au])\b',re.I)
 RELATION=re.compile(r'\b(?:wrote|written|read|received|sent|send|replied|published|reported|withdrawal|withdrew|superseded)\b',re.I)
@@ -25,7 +25,9 @@ def discover(root,question,profile=None,*,max_passages=12,max_chars=12000):
     initial=verification_snapshot(root,question,profile)
     try:
         index=PassageIndex(root,question,profile)
-        pack=index.retrieve([question],max_passages,max_chars)
+        seed=index.retrieve([question],max_passages,max_chars)
+        from mplpb_answers.prose_retrieval import retrieve
+        pack=retrieve(index,max_passages,max_chars,seed=seed)
     except ReaderError as exc:return dict(empty,status=exc.code,source_state_current=False)
     from .source_mapping import context_windows
     pack['passages']=context_windows(index,pack['passages'],max_chars,max_passages)
@@ -50,9 +52,12 @@ def discover(root,question,profile=None,*,max_passages=12,max_chars=12000):
             'identity_resolution':'NOT ESTABLISHED','causal_inference':'PROHIBITED'})
     from .source_mapping import derive
     mapping=derive(index,pack['passages'])
+    from .prose_relations import extract
+    from .source_mapping import _state
+    mapping['proposed_reconstruction']=extract(index,pack['passages'],_state(root,question,profile))
     if not index.unchanged() or verification_snapshot(root,question,profile)!=initial:
         return dict(empty,status='source_changed',source_state_current=False)
     return dict(empty,status='candidate_contexts' if candidates else 'no_matching_contexts',candidates=candidates,
                 source_state_current=True,information_map=mapping,search_complete=pack['search_complete'],
                 budgets={'max_passages':max_passages,'max_characters':max_chars},
-                retrieval_method=pack['ranking'])
+                retrieval_method=pack['ranking'],retrieval_discovery={k:v for k,v in pack.items() if k in {'query_expansion_terms','facets','routing_metadata_is_answer_evidence'}})
