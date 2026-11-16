@@ -178,7 +178,9 @@ class DocumentaryAssertionTests(unittest.TestCase):
 
     def test_quotation_markup_and_qualified_heading_do_not_lose_scope(self):
         for markup in ['<blockquote><p>Ruth Stone appointed Mira Vale.</p></blockquote>',
-                       '<h2>Hypothetical example</h2><p>Ruth Stone appointed Mira Vale.</p>']:
+                       '<h2>Hypothetical example</h2><p>Ruth Stone appointed Mira Vale.</p>',
+                       '<h2>Plan</h2><p>Ruth Stone appointed Mira Vale.</p>',
+                       '<h2>Draft proposal</h2><p>Ruth Stone appointed Mira Vale.</p>']:
             with self.subTest(markup=markup),tempfile.TemporaryDirectory() as t:
                 write(t,doc_id='SOURCE-1',title='Archive',scope='archive',body_html=markup)
                 self.assertFalse(answer_query(t,'Who appointed Mira Vale?').contract['answer_supported'])
@@ -243,7 +245,8 @@ class DocumentaryAssertionTests(unittest.TestCase):
     def test_temporal_adverb_and_planning_context_are_not_guessed_actors_or_events(self):
         for body in ['Yesterday Ruth Stone appointed Mira Vale.',
                      'Apparently Ruth Stone appointed Mira Vale.',
-                     'The plan was as follows. Ruth Stone appointed Mira Vale.']:
+                     'The plan was as follows. Ruth Stone appointed Mira Vale.',
+                     'PLAN.\nRuth Stone appointed Mira Vale.']:
             with self.subTest(body=body),tempfile.TemporaryDirectory() as t:
                 write(t,doc_id='SOURCE-1',title='Archive',scope='archive',body=body)
                 self.assertFalse(answer_query(t,'Who appointed Mira Vale?').contract['answer_supported'])

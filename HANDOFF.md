@@ -4,8 +4,8 @@ Last reviewed: 2026-11-16.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `4e4db3ef80caab004abfb86bbfe651a09fe1dc9e` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `f9cb340405804fd12e4c5fa0c05b53daeaa7ee9eeeae2813b88ea2be24a27dc6`.
+Base commit: `ba021f47bfdcf90ce2061090514d0724e6ace49f` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `51e4482f7b82ba532a17efb96cbf4864c77ee54e18280087271d8ac95bd6dd61`.
 
 ## Latest user update instructions
 
@@ -36,12 +36,14 @@ We can do this The next implementation should target explicit documentary assert
 - Add a strict finite source-assertion proof checker and atomic obligation/composition path, distinct from candidate extraction and historical truth.
 - Preserve full-question eligibility/profiles, current source rechecks, correction boundaries, complete qualifiers, directive/execution distinction, literal dates, and bounded partial output.
 - Add original-record regressions, varied adversarial tests, citation rendering and real WebAssembly integration tests; prepare certificate-rechecking comparison tooling without changing frozen runners or questions.
+- Reject explicit plan/proposal/draft heading or standalone-label scope; preserve the discovered false acceptance and add negative controls.
 
 ## Validation recorded
 
 - 33 new documentary/original-record tests passed in 9.917 seconds before source freeze; broader focused run passed 95 tests.
 - Prototype native probes on unchanged H02/U01 returned checked partial assertions with execution, reference and comparison limits retained. These are not complete historical answers or independent accuracy scores.
 - Prototype prepared public evidence controls passed 52/52; real WebAssembly source composition and UI rendering controls passed. Final extracted candidate checks and frozen complete replays are pending.
+- ba021f4 clean archive retry passed all 1068 Python tests in 374.824 seconds; eight-case replay produced one rechecked partial source assertion and zero full historical supported answers. A later plan-heading negative control exposed a false acceptance; final fix needs a new source freeze and checks.
 
 ## Limitations and blocked checks
 

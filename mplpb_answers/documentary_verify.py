@@ -46,7 +46,7 @@ def context_ranges(record):
     if body_text(''.join(parser.parts))!=full:return [(0,len(full)+1)]
     for _,start in parser.stack:parser.ranges.append((start,len(full)+1))
     for i,(start,level,heading) in enumerate(parser.headings):
-        if META.search(heading) or re.search(r'\b(?:if|unless|conditional)\b',heading,re.I):
+        if META.search(heading) or re.search(r'\b(?:if|unless|conditional|plans?|planned|planning|proposals?|proposed|draft|scenario|forecast|prediction|hypothesis|intention|intended)\b',heading,re.I):
             end=next((a for a,l,_ in parser.headings[i+1:] if l<=level),len(full)+1)
             parser.ranges.append((start,end))
     return parser.ranges
@@ -214,7 +214,8 @@ def check(index,proposals,*,max_scan_chars=200000):
             prior=body[:a]
             safe=(not any(lo<b and hi>a for lo,hi in regions[path]) and not quoted_context(prior) and not META.search(prior)
                   and not re.search(r'\b(?:if|unless)\b',prior[-180:],re.I)
-                  and not re.search(r'\b(?:the|a) (?:plan|proposal|scenario|draft|forecast|prediction|hypothesis) (?:was|is|reads|follows|stated)\b',prior[-240:],re.I))
+                  and not re.search(r'\b(?:the|a) (?:plan|proposal|scenario|draft|forecast|prediction|hypothesis) (?:was|is|reads|follows|stated)\b',prior[-240:],re.I)
+                  and not re.search(r'(?:^|\n)\s*(?:plan|proposal|draft|scenario|forecast|prediction|hypothesis)[.:]?\s*$',prior[-240:],re.I))
             contexts.append((record,a,b,q,value if safe else None))
             if value and safe:
                 if len(scanned)>=64:complete=False;limits_reached.add('source_assertions');continue
