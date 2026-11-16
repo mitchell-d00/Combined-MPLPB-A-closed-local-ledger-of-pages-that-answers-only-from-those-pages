@@ -26,7 +26,9 @@ def main():
     args=p.parse_args()
     if args.command=='map':save(args.output,inspect(args.ledger,args.question));return
     report=load(args.report);m=report['candidate_analysis']['information_map']
-    items=[x for x in m['mappings']+m['relationships'] if x['mapping_id']==args.mapping_id]
+    rich=m.get('proposed_reconstruction',{})
+    candidates=m['mappings']+m['relationships']+rich.get('propositions',[])+rich.get('connections',[])+rich.get('qualifications',[])
+    items=[x for x in candidates if x['mapping_id']==args.mapping_id]
     if len(items)!=1:raise ValueError('Choose one mapping ID')
     result=reconstruct(args.ledger,report['question'],items[0])
     if result['quote_fidelity']:

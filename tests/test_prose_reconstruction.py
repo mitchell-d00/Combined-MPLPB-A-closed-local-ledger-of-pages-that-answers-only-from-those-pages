@@ -157,5 +157,18 @@ class ProseReconstructionTests(unittest.TestCase):
         self.assertTrue(reconstruct(self.root,q,m)['quote_fidelity'])
         self.assertFalse(m['answer_supported'])
 
+    def test_modal_and_protest_words_do_not_become_dates(self):
+        write(self.root,doc_id='SOURCE-1',title='Quoted public-record language',scope='archive',body_html='<p>The Secretary may in his discretion, grant leases for ten years.</p><p>Randolph called off the march, though he would be a driving force of the 1963 March on Washington.</p>')
+        frames=self.report('Secretary Randolph leases march')['propositions']
+        self.assertTrue(any(x['value']['action']=='cancel' for x in frames))
+        self.assertFalse(any(d['raw_text'].lower() in {'may','march'} for x in frames for d in x['value']['date_candidates']))
+
+    def test_real_calendar_and_relative_cues_keep_exact_offsets(self):
+        from mplpb_work.prose_relations import date_cues
+        quote='By May 1944 the force was ready. Eisenhower began drafting in February. The first day of January preceded June 5, 1944 and the eve of the invasion.'
+        cues=list(date_cues(quote))
+        self.assertEqual([m[0] for m in cues],['May 1944','February','January','June 5, 1944','eve of the invasion'])
+        self.assertTrue(all(quote[m.start():m.end()]==m[0] for m in cues))
+
 
 if __name__=='__main__':unittest.main()

@@ -4,8 +4,8 @@ Last reviewed: 2026-11-16.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `a2597bfbd16577ccd22f28d0686bd656ce408b66` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `eee28e1788cd39f302829016cc6b19d1c83afe285b3058019b3338efb154fa5e`.
+Base commit: `11311b3063dd0e8b6288845c99cb2d52d1b6f11c` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `a0d2b68b8b4e40460ba1c3f756f8a6ac896fa8fa247280b5174b489e1acb194c`.
 
 ## Latest user update instructions
 
@@ -36,6 +36,8 @@ The next challenge is demonstrating that MPLPB can consistently recover the impo
 - Reject prepositional names as grammatical actors; expose same-clause coordinated actor proposals conservatively, without upgrading semantic truth.
 - A stricter frozen-context test found distribution recovery inconsistent at 1/4. Replace the per-context cap with the existing global 48-proposition bound; preserve all earlier results and evaluate retention/false proposals again.
 - Recognize cancellation phrases across preserved physical line breaks without rewriting original text.
+- Reject ambiguous modal may and non-calendar march/marching as date cues; keep calendar-context bare months, explicit dates and relative-time phrases without normalized-event-time claims.
+- Allow the existing CLI inverse mapper to select rich propositions, connections and qualification nodes while retaining source rechecks and non-authoritative output.
 
 ## Validation recorded
 
@@ -48,6 +50,8 @@ The next challenge is demonstrating that MPLPB can consistently recover the impo
 - Recovery focused controls: 26 passed in 1.683 seconds after fixing a conditional actor-clause error. The premature passing statement in cbee135 is explicitly corrected in recovery/validation-correction.json.
 - Allocation revision: 28 focused controls passed in 3.928 seconds, including all four existing complete-evidence distribution opportunities and multiline conditional cancellation.
 - Previous a259 whole historical run reached terminal state before allocation code replacement; its consistency failure remains immutable.
+- Date-guard development diagnostic retained all 16 genuine reviewed date cues and rejected all 12 false cues from the fixed 28-cue review; full paired execution remains pending.
+- 30 focused reconstruction/source controls passed in 4.484 seconds in the isolated worktree; current main benchmark was not modified.
 
 ## Limitations and blocked checks
 
@@ -58,8 +62,8 @@ The next challenge is demonstrating that MPLPB can consistently recover the impo
 
 ## Next steps
 
-- Evaluate allocation revision under all unchanged frozen source/question conditions; publish exact retention and new false/unresolved counts.
-- Retain negative transfer results; do not claim broad historical consistency merely because the specific repaired targets pass.
+- Repeat frozen studies and full regressions for the date guard; report actor/action quality and date-cue quality separately.
+- Keep broader transfer failures and independent human assessment NOT RUN; do not claim general consistency from repaired examples.
 
 ## Use this ZIP in your repository
 

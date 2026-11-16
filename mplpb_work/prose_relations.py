@@ -16,9 +16,9 @@ from .source_mapping import anchor,_item as _source_item
 
 
 def _item(*args,**kwargs):
-    return _source_item(*args,operation='finite-prose-interpretation-v4',**kwargs)
+    return _source_item(*args,operation='finite-prose-interpretation-v5',**kwargs)
 
-VERSION='source-propositions-v4'
+VERSION='source-propositions-v5'
 VERBS={
  'called off':'cancel','call off':'cancel','cancelled':'cancel','canceled':'cancel','cancel':'cancel',
  'responded':'respond','respond':'respond',
@@ -40,7 +40,25 @@ VERBS={
 ACTION=re.compile(r'\b('+'|'.join(re.escape(v).replace(r'\ ',r'\s+') for v in sorted(VERBS,key=len,reverse=True))+r')\b',re.I)
 LETTER=re.compile(r"(?m)^([A-Z][A-Z .’'\-]{2,70}?)\s+TO\s+([A-Z][A-Z .’'\-]{2,70}?)(?=\.\s+[A-Z][a-z]|\.\s*\n|\s*\n)")
 NAMES=re.compile(r"\b(?:[A-Z][a-z]+(?:[’'][a-z]+)?(?:\s+(?:[A-Z]\.\s*)?[A-Z][a-z]+){0,2}|I|[Hh]e|[Ss]he|[Tt]hey|[Ww]e|[Yy]ou)\b")
-DATE=re.compile(r'\b(?:(?:January|February|March|April|May|June|July|August|September|October|November|December)(?:\s+\d{1,2}(?:st|nd|rd|th|d)?(?:,)?(?:\s+\[?\d{4}\]?)?)?|\d{4}-\d{2}-\d{2}|(?:eve|afternoon|morning)\s+of\s+[^.;!?]{1,50})',re.I)
+MONTH_NAMES='January|February|March|April|May|June|July|August|September|October|November|December'
+DATE=re.compile(r'\b(?:\d{4}-\d{2}-\d{2}|(?:'+MONTH_NAMES+r')(?:\s+(?:\d{4}(?!\d)|\d{1,2}(?:st|nd|rd|th|d)?(?:,)?(?:\s+\[?\d{4}\]?)?))?|(?:eve|afternoon|morning)\s+of\s+[^.;!?]{1,50})(?!\w)',re.I)
+BARE_MONTH=re.compile(r'(?:'+MONTH_NAMES+r')',re.I)
+
+
+def date_cues(quote):
+    """Calendar cues require calendar context; may/march are also ordinary words.
+
+    No normalized event time is inferred. Full source wording stays in evidence
+    even when an ambiguous lexical cue is rejected.
+    """
+    for match in DATE.finditer(quote):
+        if BARE_MONTH.fullmatch(match[0]):
+            before=quote[max(0,match.start()-70):match.start()]
+            temporal=bool(re.search(r'\b(?:in|on|by|during|until|since|before|after|for|from)\s*$',before,re.I)
+                          or re.search(r'\b(?:month|day|end|beginning|middle|start|close|first|second|third|last)\s+of\s*$',before,re.I))
+            if not temporal:continue
+        yield match
+
 QUALIFICATION=re.compile(r'\b(?:not|never|no|if|unless|except(?:ed)?|only|all|every|may|might|could|should|shall|will|possible|hope|intended|discretion|as if|in violation|not exceeding|subject to|provided that)\b',re.I)
 ABBREVIATIONS={'mr','mrs','ms','dr','prof','gen','maj','hon','st','secy','jr','sr','s','ss'}
 
@@ -184,7 +202,7 @@ def extract(index,passages,state,*,max_propositions=48,max_connections=16):
                 next_action=ACTION.search(quote,match.end())
                 role_end=next_action.start() if next_action else len(quote)
                 dates=[{'raw_text':m[0],'candidate_role':('creation' if action in {'write','draft'} else 'distribution' if action in {'send','distribute'} else 'action_time_unresolved') if match.end()<=m.start()<role_end else 'context_date_role_unresolved',
-                        'start':a+m.start(),'end':a+m.end(),'normalized_time':None} for m in DATE.finditer(quote)]
+                        'start':a+m.start(),'end':a+m.end(),'normalized_time':None} for m in date_cues(quote)]
                 evidence=[anchor(dict(p,body_start=a,text=quote))]
                 if bindings or object_bindings:
                     stop=min(len(text),header.end()+200)
