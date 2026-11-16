@@ -53,7 +53,9 @@ class DocumentaryScopeTests(unittest.TestCase):
         self.add('Ruth ordered Mira to send the archive report.')
         rich=self.report();sent=next(f for f in rich['propositions'] if f['value']['action']=='send')
         self.assertEqual(sent['value']['modality'], 'future_request_or_intention')
-        self.assertFalse(next(c for c in rich['connections'] if c['kind']=='embedded_action_candidate')['action_completed'])
+        link=next(c for c in rich['connections'] if c['kind']=='embedded_action_candidate')
+        self.assertIsNone(link['action_completed'])
+        self.assertFalse(link['execution_established'])
 
     def test_prepositional_to_is_not_an_infinitive_complement(self):
         self.add('Mira ordered the archive note to Ruth and sent the register.')
@@ -78,8 +80,20 @@ class DocumentaryScopeTests(unittest.TestCase):
         self.assertIsNone(sent['event_identity'])
 
     def test_passive_deadline_is_not_agent(self):
-        self.add('The archive report was sent by June 1944.')
-        self.assertIsNone(self.report()['propositions'][0]['value']['passive_agent_candidate'])
+        self.add('The archive report was sent by June 1944. The archive register was sent by June.')
+        self.assertTrue(all(f['value']['passive_agent_candidate'] is None for f in self.report()['propositions']))
+
+    def test_dated_object_does_not_become_receipt_time(self):
+        self.add('Mira received on July 1, 1944 the archive letter dated June 20, 1944.')
+        sent=self.report()['propositions'][0]
+        dates=sent['value']['date_candidates']
+        self.assertEqual([d['candidate_role'] for d in dates], ['receipt', 'referenced_document_date'])
+        self.assertTrue(all(d['normalized_time'] is None for d in dates))
+
+    def test_conditional_consequent_survives_comma_and_conjunction(self):
+        self.add('Ruth wrote the archive report, and if Mira agreed, Ruth shall probably send the register.')
+        sent=next(f for f in self.report()['propositions'] if f['value']['action']=='send')
+        self.assertEqual(sent['value']['modality'], 'conditional_or_uncertain')
 
     def test_passive_honorific_and_initials_keep_complete_agent_span(self):
         self.add('The archive report was sent by Dr. Mira J. Vale to Ruth.')

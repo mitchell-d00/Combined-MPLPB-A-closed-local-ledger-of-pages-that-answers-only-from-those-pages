@@ -4,8 +4,8 @@ Last reviewed: 2026-11-16.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `337287f34b170bfdbb6c1aa24b3642a864df2b68` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `30a930b9099bceffdea69266f8c4be1ba025ff20a4c49c52ef380cb59cf5e6d5`.
+Base commit: `c1352c1342cb0f4d9dff602146a0b896d34835eb` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `483d1e781aa2ceae8d17c76be380d5531a4b8ebf87838403bb95a72a77595a37`.
 
 ## Latest user update instructions
 
@@ -25,6 +25,8 @@ Prioritize real, verifiable historical reconstruction and preserve the existing 
 
 The final objective is a system whose capabilities can be established through independently reproducible original-source experiments, not through assertions about what it should be able to do.
 
+How can we fix this The familiar-record replay still has no supported answers, and the broader reconstruction objective remains unproven.
+
 ## Implemented scope
 
 - Inspect current architecture, frozen reports and original mapping; preserve every prior artifact.
@@ -32,6 +34,8 @@ The final objective is a system whose capabilities can be established through in
 - Add adversarial controls and hash-checked original-record comparison with byte mappings and blank human reviews.
 - Tighten request complement grammar after a prepositional-to false-governor probe on frozen 3790547; preserve intermediate source and outputs.
 - Real unchanged-original comparison exposed passive agent truncated at an honorific (Gen.); preserve full honorific/initial spans generically, with a distinct synthetic test and exact coordinates.
+- Document the exact strict-pipeline blocker and claim-level verification obligations for all 14 original questions; do not equate the current repair with supported reconstruction.
+- Original-record inspection exposed a wrong receipt-date role for a letter explicitly dated February 16; distinguish dated referenced documents from receipt dates, retain conditional consequents, and keep unverified embedded completion null.
 
 ## Validation recorded
 
@@ -40,6 +44,10 @@ The final objective is a system whose capabilities can be established through in
 - Initial frozen original/unfamiliar runs failed bubblewrap outer-sandbox NETLINK_ROUTE setup; retained, retry using unchanged bubblewrap runner outside outer sandbox.
 - Unfamiliar baseline retry completed all eight cases; 9/9 incomplete draft spans, native support 0/8.
 - Source-freeze documentation audit failed: new historical baseline entry lacked sha256; add the required pin and rerun.
+- c1352c1 extracted source archive: 1033 tests passed in 532.886 seconds; clean baseline 1011 passed in 629.069 seconds.
+- c1352c1 public evidence 52/52, original-paper replay 31 verified declarations, real WebAssembly and published-baseline/local-candidate Chromium checks passed.
+- These c1352c1 receipts precede the temporal fix; new final source checks are required.
+- 1445 prior frozen historical files byte-identical to 38e2738; original tests unchanged.
 
 ## Limitations and blocked checks
 
@@ -47,6 +55,7 @@ The final objective is a system whose capabilities can be established through in
 - No native historical supported-answer gain demonstrated; finite fallible candidate interpretation only.
 - Full candidate original-record replay, regression and archive checks pending at source freeze; evidence update will record actual results.
 - All follow-up original sources have now been inspected during development; no held-out or independent semantics claim.
+- The original-record experiment found a date-role error despite passing synthetic controls; the c1352c1 outputs are intermediate evidence, not a successful final semantic evaluation.
 
 ## Next steps
 

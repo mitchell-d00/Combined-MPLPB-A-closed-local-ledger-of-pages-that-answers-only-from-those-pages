@@ -89,6 +89,7 @@ def _modality(quote,position):
     # auxiliary. An explicit new subject ends shared negation, but not an if
     # clause until its comma boundary. Keep full wording for human scope review.
     if re.search(r'\b(?:if|unless)\b[^,]*$',scope,re.I):return 'conditional_or_uncertain'
+    if re.search(r'\b(?:if|unless)\b',clause,re.I):return 'conditional_or_uncertain'
     if not _actor(clause):clause=re.split(r',',scope)[-1]
     if re.search(r'\b(?:if|should|would|might|could|were to)\b',clause,re.I):return 'conditional_or_uncertain'
     if re.search(r'\b(?:not|never|no)\b',clause,re.I):return 'negated_or_scope_limited'
@@ -122,7 +123,7 @@ def _passive_agent(following):
     # Literal role only: no alias resolution, calendar-agent guess or inference
     # from the nearest name. In particular "by June" is a deadline, not a person.
     m=re.match(r'\s+by\s+((?:the\s+)?[A-Z][A-Za-z]*\.?(?:\s+(?:of|the|[A-Z][A-Za-z]*\.?)){0,7})(?=\s*(?:[,.;:]|$|\b(?:to|on|in|at|for|with)\b))',following)
-    if not m or any(re.fullmatch(MONTH_NAMES,w,re.I) for w in m[1].split()):return None
+    if not m or any(re.fullmatch(MONTH_NAMES,w.rstrip('.'),re.I) for w in m[1].split()):return None
     value=m[1].rstrip('.')
     return {'text':value,'start':m.start(1),'end':m.start(1)+len(value),
             'basis':'explicit passive by-phrase; identity not resolved'}
@@ -247,7 +248,7 @@ def extract(index,passages,state,*,max_propositions=48,max_connections=16):
                 role_end=next_action.start() if next_action else len(quote)
                 date_role={'write':'creation','draft':'creation','send':'distribution','distribute':'distribution',
                            'receive':'receipt','publish':'publication','revise':'revision','amend':'revision'}.get(action,'action_time_unresolved')
-                dates=[{'raw_text':m[0],'candidate_role':date_role if match.end()<=m.start()<role_end else 'context_date_role_unresolved',
+                dates=[{'raw_text':m[0],'candidate_role':('referenced_document_date' if re.search(r'\bdated\s*$',quote[match.end():m.start()],re.I) else date_role) if match.end()<=m.start()<role_end else 'context_date_role_unresolved',
                         'start':a+m.start(),'end':a+m.end(),'normalized_time':None} for m in date_cues(quote)]
                 evidence=[anchor(dict(p,body_start=a,text=quote))]
                 if bindings or object_bindings:
@@ -292,7 +293,7 @@ def extract(index,passages,state,*,max_propositions=48,max_connections=16):
                         connections.append(_item('embedded_action_candidate',[le],
                             {'governing_proposition':left['mapping_id'],'embedded_proposition':right['mapping_id'],'scope':governor['scope']},state,
                             operation_basis='literal that/to complement; no execution or independent corroboration established',
-                            action_completed=False,identity_verified=False,causality='NOT ESTABLISHED'))
+                            action_completed=None,execution_established=False,identity_verified=False,causality='NOT ESTABLISHED'))
                 bridge=le['quote'][left['predicate_end']-le['body_start']:right['predicate_start']-le['body_start']]
                 clause=le['quote'][le['quote'].rfind(',',0,left['predicate_start']-le['body_start'])+1:right['predicate_start']-le['body_start']]
                 if lv['actor'] and rv['actor'] is None and lv['action']=='respond' and rv['action']=='issue' and re.search(r'\band\s*$',bridge,re.I) and not re.search(r'\b(?:that|which|who|whether|if|unless)\b',clause,re.I):
