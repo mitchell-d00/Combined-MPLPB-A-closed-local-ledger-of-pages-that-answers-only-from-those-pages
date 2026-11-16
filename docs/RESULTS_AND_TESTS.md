@@ -81,3 +81,5 @@ postdeployment smoke. CI results are tied to their commit and run ID; a previous
 > Update 2026-11-16: The [public 52-case evidence suite](PUBLIC_EVIDENCE_TESTS.md) and [bounded expert relation path](HISTORICAL_EXPERT_PATH.md) document the current update. Prior dated measurements and preserved historical sources retain their original scope; this note does not rerun or revise them.
 
 The [original-record study workflow](ORIGINAL_RECORD_STUDY.md) prepares pinned public originals, separates sealed questions from gold expectations, captures system outputs and checks external review submissions. Protocol tests do not establish independent human validation.
+
+The original-record worker can run with fail-closed Linux isolation using `run --sandboxed`; see the [study sandbox and its limits](ORIGINAL_RECORD_STUDY.md). Public [isolation tests](../tests/test_study_sandbox.py) exercise denied gold access, input writes, network access and environment inheritance. The host administrator remains trusted.

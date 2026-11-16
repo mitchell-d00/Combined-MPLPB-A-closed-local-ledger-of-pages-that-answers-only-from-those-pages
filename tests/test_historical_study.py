@@ -97,5 +97,12 @@ class HistoricalStudyTests(unittest.TestCase):
         paths[1].write_text(json.dumps(review))
         with self.assertRaises(ValueError):S.score(self.directory,paths)
 
+    def test_stale_sandbox_receipt_cannot_be_attached_to_another_run(self):
+        self.sealed();paths=self.reviews()
+        S.save(self.directory/'sandbox-receipt.json',{'schema':'execution-worker-sandbox-v1',
+            'run_sha256':'stale','private_gold_mounted':False,
+            'inputs_read_only':True,'network_namespace_isolated':True})
+        with self.assertRaises(ValueError):S.score(self.directory,paths)
+
 
 if __name__=='__main__':unittest.main()

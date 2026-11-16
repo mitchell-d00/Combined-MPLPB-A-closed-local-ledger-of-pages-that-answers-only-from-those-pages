@@ -45,6 +45,7 @@ def read(path):
 def implementation_pins():
     paths=[p for package in ('mplpb_answers','mplpb_combined','mplpb_work') for p in (ROOT/package).glob('*.py')]
     paths.append(Path(__file__))
+    paths.append(ROOT/'tools/study_sandbox.py')
     return {str(p.relative_to(ROOT)):hashlib.sha256(p.read_bytes()).hexdigest() for p in sorted(paths)}
 
 
@@ -101,7 +102,7 @@ def seal(directory,questions_path):
              'implementation_sha256':implementation_pins(),
              'configuration':{'profile':'internal','max_hops':2,'max_sources':12,'max_source_chars':200000,
                               'models_enabled':False,'fixture_record_time':'2026-11-16T00:00Z'},
-             'independence_verified':False,'blindness_basis':'gold excluded from runtime payload; filesystem access is not sandboxed'}
+             'independence_verified':False,'blindness_basis':'gold excluded from runtime payload; OS isolation, when requested, is recorded separately'}
     save(directory/'seal.json',receipt)
     return receipt
 
@@ -113,8 +114,9 @@ def pinned(directory):
     return corpus,questions,receipt
 
 
-def execute(directory):
+def execute(directory,output_directory=None):
     directory=Path(directory);corpus,questions,receipt=pinned(directory)
+    output_directory=Path(output_directory) if output_directory is not None else directory
     if implementation_pins()!=receipt['implementation_sha256']:raise ValueError('Implementation changed after sealing')
     rows=[]
     with tempfile.TemporaryDirectory(prefix='mplpb-sealed-study-') as root:
@@ -130,11 +132,11 @@ def execute(directory):
     if pinned(directory)[2]!=receipt or implementation_pins()!=receipt['implementation_sha256']:raise ValueError('Study or implementation changed during execution')
     result={'schema':'original-record-study-run-v1','seal_sha256':digest(receipt),'rows':rows,
             'independence_verified':False,'status':'awaiting_external_review'}
-    save(directory/'run.json',result)
+    save(output_directory/'run.json',result)
     template={'run_sha256':digest(result),'reviewer_id':'',
               'cases':[{'id':r['id'],'complete':None,'false_bridge':None,'source_accurate':None,
                         'labeling_seconds':None,'correction_seconds':None,'citations':[],'rationale':''} for r in rows]}
-    save(directory/'review-template.json',template)
+    save(output_directory/'review-template.json',template)
     return result
 
 
@@ -148,6 +150,15 @@ def score(directory,review_paths):
     committed_gold=read(directory/'private/gold.json')
     if digest(committed_gold)!=receipt['gold_sha256']:raise ValueError('Gold changed')
     gold=committed_gold['cases']
+    sandbox_receipt=None
+    if (directory/'sandbox-receipt.json').exists():
+        sandbox_receipt=read(directory/'sandbox-receipt.json')
+        if (sandbox_receipt.get('schema')!='execution-worker-sandbox-v1'
+                or sandbox_receipt.get('run_sha256')!=digest(result)
+                or sandbox_receipt.get('private_gold_mounted') is not False
+                or sandbox_receipt.get('inputs_read_only') is not True
+                or sandbox_receipt.get('network_namespace_isolated') is not True):
+            raise ValueError('Sandbox receipt does not match the run or isolation contract')
     if len(review_paths)<2:raise ValueError('At least two separate reviewer submissions required')
     bodies={s['id']:body_text('<pre>'+html.escape(s['text'])+'</pre>') for s in corpus['sources']}
     ids={q['id'] for q in questions};reviewers=set();reviews=[]
@@ -181,6 +192,7 @@ def score(directory,review_paths):
         coverage[row['id']]=len(got & expected[row['id']])/len(expected[row['id']]) if expected[row['id']] else None
     output={'schema':'original-record-study-score-v1','seal_sha256':digest(receipt),'run_sha256':digest(result),
             'scorer_sha256':hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),
+            'sandbox_receipt_sha256':digest(sandbox_receipt) if sandbox_receipt is not None else None,
             'review_sha256':[digest(read(p)) for p in review_paths],
             'status':'adjudication_required' if disagreements else 'review_submissions_agree',
             'disagreements':disagreements,'required_source_coverage':coverage,
@@ -201,9 +213,14 @@ def main():
         p=sub.add_parser(command);p.add_argument('directory',type=Path)
         if command=='seal':p.add_argument('questions',type=Path)
         if command=='score':p.add_argument('reviews',nargs='+',type=Path)
+        if command=='run':p.add_argument('--sandboxed',action='store_true',help='require Linux bubblewrap isolation; never falls back to direct execution')
     args=parser.parse_args()
     try:
-        value=prepare(args.directory) if args.command=='prepare' else seal(args.directory,args.questions) if args.command=='seal' else execute(args.directory) if args.command=='run' else score(args.directory,args.reviews)
+        if args.command=='run' and args.sandboxed:
+            from tools.study_sandbox import execute_sandboxed
+            value=execute_sandboxed(args.directory)
+        else:
+            value=prepare(args.directory) if args.command=='prepare' else seal(args.directory,args.questions) if args.command=='seal' else execute(args.directory) if args.command=='run' else score(args.directory,args.reviews)
     except (ValueError,OSError,KeyError,TypeError) as exc:parser.exit(2,str(exc)+'\n')
     print(json.dumps({'status':value.get('status','sealed'),'independence_verified':False},indent=2))
 
