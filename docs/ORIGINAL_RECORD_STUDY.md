@@ -83,3 +83,5 @@ and independent external delivery/read/acknowledgement verification are not adde
 by this evaluation workflow. Current native expert/correction capabilities remain
 bounded by their declared contracts. See [public tests](PUBLIC_EVIDENCE_TESTS.md)
 and [expert investigation](HISTORICAL_EXPERT_PATH.md).
+
+Update 2026-11-16: [Scoped evidence extensions](SCOPED_EVIDENCE_EXTENSIONS.md) add precise field/identity/correction diagnostics, exact source routing, distinct event nodes, declared correction windows, quoted relation inspection and non-authoritative receipt/effort metadata. Public focused tests are linked in the guide; historical reports retain their original scope.

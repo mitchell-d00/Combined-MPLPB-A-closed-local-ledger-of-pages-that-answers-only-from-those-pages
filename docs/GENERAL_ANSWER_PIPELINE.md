@@ -194,3 +194,5 @@ is currently blocked until the missing live and independent evidence is supplied
 `mplpb-combined investigate` is a separate [historical evidence path](HISTORICAL_EXPERT_PATH.md), using the existing work coordinator and independent verification. It crawls only explicitly declared document-ID relations under the original question/profile, with bounded hops, exact source citations and unresolved targets. Reports remain `answer_supported:false`; strict answers and model-assisted assessments retain their existing contracts.
 
 > Update 2026-11-16: The [public 52-case evidence suite](PUBLIC_EVIDENCE_TESTS.md) and [bounded expert relation path](HISTORICAL_EXPERT_PATH.md) document the current update. Prior dated measurements and preserved historical sources retain their original scope; this note does not rerun or revise them.
+
+Update 2026-11-16: See [scoped evidence extensions](SCOPED_EVIDENCE_EXTENSIONS.md) for exact source-field routing, correction windows, distinct event nodes, bounded quoted exploration, and non-authoritative receipt/operator-effort fields. These extensions preserve source eligibility and candidate/assisted support boundaries.

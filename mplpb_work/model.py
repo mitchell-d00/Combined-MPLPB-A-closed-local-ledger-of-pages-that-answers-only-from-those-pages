@@ -1,10 +1,16 @@
 """Closed work-record schema. Working assessments are never truth certificates."""
 import json
+import math
 import re
 from .errors import WorkError
 
 KINDS = {'task', 'evidence', 'claim', 'attempt', 'decision', 'action', 'review'}
 OPERATIONS = {verb+':'+kind for verb in ('create', 'revise') for kind in KINDS} | {'execute', 'transfer', 'resolve_review'}
+
+
+def operator_seconds(value):
+    if value is not None and (type(value) not in (int,float) or not math.isfinite(value) or value<0):
+        raise WorkError('operator_seconds must be a finite nonnegative number')
 ASSESSMENTS = {'proposed', 'supported_under_scope', 'contested', 'withdrawn', 'needs_recheck'}
 FIELDS = {
     'task': {'goal', 'criteria', 'review_budget', 'state', 'acceptance'},

@@ -104,5 +104,17 @@ class HistoricalStudyTests(unittest.TestCase):
             'inputs_read_only':True,'network_namespace_isolated':True})
         with self.assertRaises(ValueError):S.score(self.directory,paths)
 
+    def test_operator_seconds_are_optional_reported_metrics_only(self):
+        self.sealed();paths=self.reviews()
+        for path in paths:
+            review=S.read(path);review['cases'][0]['operator_seconds']=1.5
+            path.write_text(json.dumps(review))
+        result=S.score(self.directory,paths)
+        self.assertEqual(result['operator_seconds'],3)
+        self.assertFalse(result['operator_time_attested']);self.assertFalse(result['independence_verified'])
+        (self.directory/'score.json').unlink()
+        review=S.read(paths[0]);review['cases'][0]['operator_seconds']=-1;paths[0].write_text(json.dumps(review))
+        with self.assertRaises(ValueError):S.score(self.directory,paths)
+
 
 if __name__=='__main__':unittest.main()

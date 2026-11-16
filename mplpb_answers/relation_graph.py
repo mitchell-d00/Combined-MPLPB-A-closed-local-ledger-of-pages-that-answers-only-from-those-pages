@@ -357,3 +357,132 @@ def statement_support(frame, record):
     }
     from .assertions import attach
     return attach(result, frame, record)
+
+
+# Exact labels are a separate bounded body grammar, not inferred field semantics.
+FIELD_LINE = re.compile(r'(?m)^([A-Za-z][A-Za-z0-9 _-]{0,79}):[ \t]*(\S[^\r\n]*)$')
+IDENTITY_FIELDS = {'record id', 'document id', 'event id', 'occurrence id', 'message id'}
+
+
+def declared_fields(record):
+    from mplpb_combined.ledger import field_name
+    body = body_text(record.body_html)
+    boundary=len(body)
+    offset=0
+    for line in body.splitlines(keepends=True):
+        m=FIELD_LINE.fullmatch(line.rstrip('\r\n'))
+        if not m or field_name(m[1]) in {'body','example','sample','quoted example'}:
+            boundary=offset;break
+        offset+=len(line)
+    return [{'field':field_name(m[1]), 'value':m[2].strip(), 'quote':m[0],
+             'source_id':record.id, 'path':record.path, 'hash':record.hash_actual,
+             'body_start':m.start(), 'body_end':m.end(), 'start':m.start(), 'end':m.end()}
+            for m in FIELD_LINE.finditer(body[:boundary])]
+
+
+def field_contexts(record, requested):
+    """Retain competing later mentions without granting examples field authority."""
+    from mplpb_combined.ledger import field_name
+    headers=declared_fields(record)
+    positions={f['body_start'] for f in headers}
+    body=body_text(record.body_html)
+    return [{'field':field_name(m[1]),'value':m[2].strip(),'quote':m[0],
+             'source_id':record.id,'path':record.path,'hash':record.hash_actual,
+             'body_start':m.start(),'body_end':m.end(),'start':m.start(),'end':m.end(),
+             'context_only':True}
+            for m in FIELD_LINE.finditer(body)
+            if field_name(m[1])==requested and m.start() not in positions]
+
+
+def exact_request(question, record_id=None, field=None, exact_value=None):
+    from mplpb_combined.ledger import field_name
+    match = re.fullmatch(r'(?i)what is (?:the )?([A-Za-z][A-Za-z0-9 _-]{0,79}) (?:for|of) '
+                         r'(?:record|event|occurrence) ([A-Za-z0-9][A-Za-z0-9._:@/-]{0,180})\??', question.strip())
+    if match:
+        field = field or match[1]
+        record_id = record_id or match[2]
+    if field is not None and (not isinstance(field,str) or not re.fullmatch(r'[A-Za-z][A-Za-z0-9 _-]{0,79}',field)):
+        raise ValueError('Expected an explicit field label')
+    if record_id is not None and (not isinstance(record_id,str) or not re.fullmatch(r'[A-Za-z0-9][A-Za-z0-9._:@/-]{0,180}',record_id)):
+        raise ValueError('Invalid exact record pin')
+    if exact_value is not None and (not isinstance(exact_value,dict) or set(exact_value)!={'field','value'}
+            or not isinstance(exact_value['field'],str) or not isinstance(exact_value['value'],str)
+            or not exact_value['value'].strip() or len(exact_value['value'])>200):
+        raise ValueError('Exact value needs an explicit field/value pair')
+    return {'record_id':record_id,'field':field_name(field) if field else None,'exact_value':exact_value}
+
+
+def exact_sources(records, question, request):
+    """Route after eligibility. Shared explicit keys retain every appearance."""
+    from mplpb_combined.ledger import field_name
+    key=request['record_id']
+    def present(value):
+        return bool(re.search(r'(?<![\w:@/-])'+re.escape(value)+r'(?![\w:@/-])',question))
+    keys=[key] if key else [r.id for r in records if present(r.id)]
+    if not keys:
+        keys=[r.hash_actual for r in records if present(r.hash_actual)]
+    if not keys:
+        keys=sorted({f['value'] for r in records for f in declared_fields(r)
+                     if f['field'] in IDENTITY_FIELDS and present(f['value'])})
+    matches=[]
+    for record in records:
+        fields=declared_fields(record)
+        identities={f['value'] for f in fields if f['field'] in IDENTITY_FIELDS}
+        identities.update(record.fields.get(k,'') for k in ('event-id','occurrence-id'))
+        if any(k in {record.id, record.hash_actual, record.id+'@'+record.hash_actual} or k in identities for k in keys):
+            matches.append(record)
+    value=request['exact_value']
+    if not keys and value:
+        matches=[r for r in records if any(f['field']==field_name(value['field']) and f['value']==value['value'] for f in declared_fields(r))]
+        if len(matches)!=1:
+            return [], 'ambiguous_value' if matches else 'missing'
+        # Retain competing appearances of the same explicit identity as well.
+        shared={f['value'] for f in declared_fields(matches[0]) if f['field'] in IDENTITY_FIELDS}
+        matches=[r for r in records if r in matches or any(f['field'] in IDENTITY_FIELDS and f['value'] in shared for f in declared_fields(r))]
+    return matches, 'exact' if matches else 'missing' if keys or value else None
+
+
+def explore(root, question, hops, profile):
+    """At most two quoted forward edges; never compose an answer or cause chain."""
+    from mplpb_answers.evidence_contract import pin
+    from mplpb_combined.ledger import Ledger
+    from mplpb_combined import provenance_gate as G
+    if not isinstance(hops,list) or not 1<=len(hops)<=2:
+        raise ValueError('Relation exploration accepts one or two explicit hops')
+    gate=G.gather(root,question,profile)
+    snapshot=pin(gate.to_dict());excluded={s['path'] for s in gate.excluded}
+    lexical={s['path'] for s in gate.sources}
+    records={r.id:r for r in Ledger(root).servable() if r.kind not in {'pointer','index'} and r.path not in excluded
+             and (profile.prose or r.path in lexical)}
+    edges=[];previous=None
+    for hop in hops:
+        if not isinstance(hop,dict) or not set(hop)<={'question','source_id','hash','quote'} or not isinstance(hop.get('question'),str):
+            raise ValueError('A hop requires a bounded relation question and optional pinned quote')
+        if len(hop['question'])>200:raise ValueError('Hop question exceeds the relation grammar budget')
+        if any(k in hop and (not isinstance(hop[k],str) or len(hop[k])>limit)
+               for k,limit in (('source_id',100),('hash',100),('quote',4000))):
+            raise ValueError('Hop pin or quote exceeds the evidence budget')
+        frame=parse(hop['question']);record=records.get(hop.get('source_id'))
+        quoted=False;value=None;reason='missing_eligible_quote'
+        if frame and not (len(hops)>1 and frame.relation=='cause'):
+            if record and hop.get('hash')==record.hash_actual and isinstance(hop.get('quote'),str):
+                hop_gate=G.gather(root,hop['question'],profile)
+                allowed={s['path'] for s in hop_gate.sources}
+                check=statement_support(frame,record) if record.path in allowed else {}
+                spans=[s for s in check.get('spans',[]) if s['quote']==hop['quote']]
+                if check.get('status')=='supported' and spans:
+                    value=spans[0]['value'];quoted=previous is None or normalize(frame.entity)==normalize(previous)
+                    reason='eligible_quote' if quoted else 'unlinked_subject'
+        elif frame:
+            reason='causal_composition_prohibited'
+        start=body_text(record.body_html).find(hop['quote']) if quoted else None
+        edges.append({'question':hop['question'],'status':'source_quoted_edge' if quoted else 'candidate',
+                      'family':frame.relation if frame else None,'direction':'source_declared_only',
+                      'quote_verified':quoted,'citation':dict(source_id=record.id,path=record.path,hash=record.hash_actual,quote=hop['quote'],
+                          body_start=start,body_end=start+len(hop['quote'])) if quoted else None,
+                      'reason':reason,'answer_supported':False})
+        previous=value if quoted else None
+    if pin(G.gather(root,question,profile).to_dict())!=snapshot:
+        return {'status':'source_changed','edges':[],'answer_supported':False}
+    return {'status':'source_quoted_edges' if all(e['quote_verified'] for e in edges) else 'candidate',
+            'edges':edges,'answer_supported':False,'content_truth_verified':False,'multi_hop_answer_inference':False}

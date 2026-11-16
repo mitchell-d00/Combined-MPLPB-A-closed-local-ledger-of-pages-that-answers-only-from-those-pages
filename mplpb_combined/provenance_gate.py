@@ -14,7 +14,7 @@ from pathlib import Path
 from typing import Optional
 
 from .delivery import external_restriction, authorship, clarification
-from .ledger import Ledger, ORIGINS
+from .ledger import Ledger, ORIGINS, SERVING_VIEW
 from .reader import Profile, PROFILES, DEFAULT_PROFILE, declared_terms, page_terms, not_for_terms, terms
 
 
@@ -156,12 +156,15 @@ def gather(root, question: str, profile: Optional[Profile] = None) -> GateResult
         if path not in page.resolve().parents:
             raise ValueError('HTML page escapes the corpus root: ' + page.relative_to(path).as_posix())
     ledger = Ledger(path)
-    content = terms(question)
+    view = SERVING_VIEW.get() or {}
+    content = terms(question+' '+(view.get('field') or ''))
     result = GateResult(question, profile.name, sorted(content),
                         term_sources={t: [] for t in sorted(content)})
     settings = {'gate_version': 2, 'mode': 'separate_lexical_sources',
                 'max_depth': profile.max_depth, 'prose': profile.prose, 'not_for': profile.not_for,
                 'enforce_sealed_external_policy': True, 'synthesize': False, 'follow_pointers': False, 'require_current_dependencies': True}
+    if SERVING_VIEW.get() and any(SERVING_VIEW.get().values()):
+        settings['serving_view'] = dict(SERVING_VIEW.get())
     result.policy = dict(settings, settings_hash=_digest(settings))
     result.corpus_snapshot = _digest([
         {'path': r.path, 'id': r.id, 'hash': r.hash_actual, 'status': ledger.effective_status(r)}
@@ -195,6 +198,9 @@ def gather(root, question: str, profile: Optional[Profile] = None) -> GateResult
         excluded_terms = sorted(content & not_for_terms(rec)) if profile.not_for else []
         if not reason and excluded_terms:
             reason = 'not-for: ' + ', '.join(excluded_terms)
+        if not reason and rec.fields.get('corrects-field') and not view.get('field'):
+            reason = ('correction scope unclear' if content & page_terms(rec)
+                      else 'field-scoped source requires a field selector')
         if reason:
             result.excluded.append({'id': rec.id, 'path': rec.path, 'reason': reason})
             continue

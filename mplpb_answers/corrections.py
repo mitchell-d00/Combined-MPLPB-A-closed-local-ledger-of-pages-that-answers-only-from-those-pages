@@ -8,7 +8,8 @@ from mplpb_combined.provenance_gate import gather
 from mplpb_combined.reader import PROFILES, DEFAULT_PROFILE
 
 
-def correct_claim(root,source_id,old_quote,new_quote,*,effective_at='',profile=None):
+def correct_claim(root,source_id,old_quote,new_quote,*,effective_at='',profile=None,
+                  corrects_field=None,valid_from=None,valid_until=None):
     """Author an explicit successor replacing one exact, unique source span.
 
     Unchanged source text and the complete predecessor remain inspectable. The
@@ -32,12 +33,22 @@ def correct_claim(root,source_id,old_quote,new_quote,*,effective_at='',profile=N
     body=body_text(record.body_html)
     start=body.find(old_quote)
     if start<0 or body.find(old_quote,start+1)>=0:raise ValueError('Correction requires one unique exact source span')
+    if corrects_field:
+        from .relation_graph import declared_fields
+        from mplpb_combined.ledger import field_name
+        if not any(f['field']==field_name(corrects_field) and f['quote']==old_quote for f in declared_fields(record)):
+            raise ValueError('Field correction requires the complete explicit field line')
+        if not new_quote.startswith(old_quote.split(':',1)[0]+':') or '\n' in new_quote:
+            raise ValueError('A field correction must preserve its explicit field label')
     correction={'kind':'scoped_source_correction','predecessor_id':record.id,
                 'predecessor_hash':record.hash_actual,'start':start,'end':start+len(old_quote),
                 'old_quote':old_quote,'new_quote':new_quote,'effective_at':effective_at,
                 'time_basis':'author_declared','historical_truth_verified':False}
     corrected_body=body[:start]+new_quote+body[start+len(old_quote):]
     successor=revise(root,record.id,body_html='<pre>'+html.escape(corrected_body)+'</pre>',
-                     note=json.dumps(correction,sort_keys=True),_event='scoped-correction')
+                     note=json.dumps(correction,sort_keys=True),_event='scoped-correction',
+                     corrects_field=corrects_field,valid_from=valid_from,valid_until=valid_until)
     return {'source':{'id':successor.id,'path':successor.path,'hash':successor.hash_actual},
-            'correction':correction,'answer_supported':False,'truth_verified':False}
+            'correction':dict(correction,corrects_field=successor.fields.get('corrects-field',''),
+                              valid_from=successor.fields.get('valid-from',''),valid_until=successor.fields.get('valid-until','')),
+            'answer_supported':False,'truth_verified':False}

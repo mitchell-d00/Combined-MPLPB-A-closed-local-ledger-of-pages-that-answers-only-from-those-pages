@@ -22,13 +22,14 @@ def cmd_ask(args):
     if args.answer_mode == 'strict' and reader is not None:
         raise ValueError('Use --answer-mode assisted to enable the explicitly configured local reader')
     result = answer_query(args.root, args.question, _profile(args), mode=args.answer_mode, reader=reader,
-                          min_confidence=args.assisted_threshold, max_passages=args.max_passages, max_chars=args.max_context_chars)
+                          min_confidence=args.assisted_threshold, max_passages=args.max_passages, max_chars=args.max_context_chars,
+                          record_id=args.record_id,field=args.field,as_of=args.as_of)
     data = result.legacy()
     if args.json:
         print(json.dumps(data, indent=2, ensure_ascii=False))
     elif args.answer_mode == 'strict':
         label = {'return':'SUPPORTED ANSWER', 'ambiguous':'AMBIGUOUS', 'not_in_corpus':'NO SUPPORTED ANSWER'}[data['kind']]
-        print(label+'\n'+(R.render(result.strict, why=args.why) if data['kind'] == result.strict.kind else data['reason']))
+        print(label+'\n'+(R.render(result.strict, why=args.why) if data['kind'] == result.strict.kind else result.contract['text'] or data['reason']))
         if result.contract['diagnostic']['code'] == 'partial_procedure_evidence':
             print(result.contract['text'])
         if result.strict.kind != 'return':
@@ -97,7 +98,8 @@ def cmd_correct_claim(args):
     from .corrections import correct_claim
     try:
         result=correct_claim(args.root,args.source_id,args.old_quote,args.new_quote,
-                             effective_at=args.effective_at,profile=R.PROFILES[args.profile])
+                             effective_at=args.effective_at,profile=R.PROFILES[args.profile],
+                             corrects_field=args.corrects_field,valid_from=args.valid_from,valid_until=args.valid_until)
     except (ValueError,OSError) as exc:
         print(json.dumps({'error':str(exc),'answer_supported':False}),file=sys.stderr)
         return 3
@@ -121,6 +123,9 @@ def build_parser():
     ask.add_argument('--assisted-threshold', type=float, default=0.8)
     ask.add_argument('--max-passages', type=int, default=12)
     ask.add_argument('--max-context-chars', type=int, default=8000)
+    ask.add_argument('--record-id', help='Exact record ID or ID@sha256 pin; routing never supplies field support')
+    ask.add_argument('--field', help='Explicit source body field label')
+    ask.add_argument('--as-of', help='ISO date or timezone-qualified timestamp for a declared correction window')
     candidate = sub.add_parser('candidates', help='inspect legacy lexical candidates; not supported answers',
                                parents=[legacy_parser()._subparsers._group_actions[0].choices['ask']], add_help=False)
     candidate.set_defaults(fn=cmd_candidates)
@@ -145,6 +150,8 @@ def build_parser():
     correction.add_argument('root');correction.add_argument('source_id')
     correction.add_argument('--old-quote',required=True);correction.add_argument('--new-quote',required=True)
     correction.add_argument('--effective-at',default='')
+    correction.add_argument('--corrects-field')
+    correction.add_argument('--valid-from');correction.add_argument('--valid-until')
     correction.add_argument('--profile',choices=R.PROFILES,default='internal')
     correction.set_defaults(fn=cmd_correct_claim)
     return parser

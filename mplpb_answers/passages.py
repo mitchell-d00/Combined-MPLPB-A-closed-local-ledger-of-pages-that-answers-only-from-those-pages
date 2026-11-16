@@ -90,7 +90,7 @@ def _passage_units(source, body, context_chars=1200):
 
 
 class PassageIndex:
-    def __init__(self, root, question, profile=None):
+    def __init__(self, root, question, profile=None, *, exact=None):
         self.root, self.question = root, question
         self.profile = profile or PROFILES[DEFAULT_PROFILE]
         self.gate = G.gather(root, question, self.profile)
@@ -110,6 +110,10 @@ class PassageIndex:
         # prose=False profiles retain the original scope-only retrieval boundary.
         records = [r for r in ledger.servable() if r.kind not in {'pointer', 'index'}
                    and r.path not in excluded and (self.profile.prose or r.path in lexical)]
+        from .relation_graph import exact_request, exact_sources
+        self.records = records
+        routed, self.exact_status = exact_sources(records, question, exact or exact_request(question))
+        self.exact_paths = {r.path for r in routed}
         self.sources, self.passages = [], []
         for rec in records:
             body = body_text(rec.body_html)
@@ -152,6 +156,19 @@ class PassageIndex:
             raise ValueError('Invalid retrieval budget')
         if not isinstance(queries, list) or len(queries) > 4 or any(not isinstance(q, str) or len(q) > 4000 for q in queries):
             raise ReaderError('invalid_reader_output', 'Invalid retrieval query list')
+        if self.exact_status:
+            passages = [p for p in self.passages if p['path'] in self.exact_paths]
+            selected=[];size=0
+            for passage in passages:
+                if len(selected)>=max_passages or size+len(passage['text'])>max_chars:
+                    continue
+                selected.append(dict(passage,retrieval_score=None));size+=len(passage['text'])
+            return {'passages':selected,'sources':[s for s in self.sources if s['path'] in self.exact_paths],
+                    'eligible_pages':len(self.sources),'total_passages':len(passages),
+                    'search_complete':len(selected)==len(passages),'queries':queries,
+                    'corpus_snapshot':self.gate.corpus_snapshot,'ranking':'exact-field-no-ranking-v1',
+                    'exact_status':self.exact_status,'independence_verified':False,
+                    'omitted_passages':len(passages)-len(selected),'lineage_groups':[]}
         counts = [Counter(t for token in re.findall(r'[^\W_]+', re.sub(r"['’]s\b", '', p['text'].casefold())) for t in terms(token)) for p in self.passages]
         # Reuse the core term normalization per token while retaining frequency.
         # This is deterministic ranking, never semantic evidence.

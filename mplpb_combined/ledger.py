@@ -19,13 +19,14 @@ import os
 import re
 import time
 from contextlib import contextmanager
+from contextvars import ContextVar
 from dataclasses import dataclass
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Dict, Iterable, Iterator, List, Optional, Sequence
 
 from .record import (
-    Record, Ref, format_refs, parse_page, plain_to_html, read_page, render_page,
+    Record, Ref, format_refs, parse_refs, parse_page, plain_to_html, read_page, render_page,
     upsert_meta,
 )
 
@@ -35,6 +36,49 @@ LOCK_NAME = ".lock"
 STATUSES = ("current", "retired")
 ORIGINS = ("human", "machine")
 REQUIRED = ("document-id", "scope", "status", "hash", "origin-depth")
+SERVING_VIEW = ContextVar('mplpb_serving_view', default=None)
+
+
+def field_name(value):
+    return re.sub(r'[_-]+', ' ', value).casefold().strip()
+
+
+def instant(value):
+    if not isinstance(value, str) or not re.fullmatch(r'\d{4}-\d{2}-\d{2}(?:T.+)?', value):
+        raise ValueError('Expected an ISO date or timezone-qualified timestamp')
+    parsed = datetime.fromisoformat(value.replace('Z', '+00:00'))
+    if 'T' in value and parsed.tzinfo is None:
+        raise ValueError('Timestamps require an explicit timezone')
+    return parsed.replace(tzinfo=timezone.utc) if parsed.tzinfo is None else parsed.astimezone(timezone.utc)
+
+
+@contextmanager
+def serving_view(as_of=None, corrects_field=None):
+    view = {'as_of': instant(as_of).isoformat() if as_of is not None else None,
+            'field': field_name(corrects_field) if corrects_field else None}
+    token = SERVING_VIEW.set(view)
+    try:
+        yield
+    finally:
+        SERVING_VIEW.reset(token)
+
+
+def correction_error(fields):
+    if not any(fields.get(k) for k in ('corrects-field', 'valid-from', 'valid-until')):
+        return ''
+    if not fields.get('supersedes'):
+        return 'correction requires a pinned predecessor'
+    field = fields.get('corrects-field', '')
+    if field and not re.fullmatch(r'[A-Za-z][A-Za-z0-9 _-]{0,79}', field):
+        return 'invalid correction field'
+    try:
+        start = instant(fields['valid-from']) if fields.get('valid-from') else None
+        end = instant(fields['valid-until']) if fields.get('valid-until') else None
+        if start and end and start >= end:
+            return 'empty or reversed correction window'
+    except ValueError:
+        return 'invalid correction window'
+    return ''
 
 
 @dataclass(frozen=True)
@@ -60,8 +104,10 @@ def utc_now() -> str:
 class Ledger:
     """A read-only view of one root, rebuilt from the files each time."""
 
-    def __init__(self, root) -> None:
+    def __init__(self, root, *, serving=True) -> None:
         self.root = Path(root)
+        self.view = (SERVING_VIEW.get() or {'as_of': None, 'field': None}) if serving else None
+        self.view_time = instant((self.view or {}).get('as_of') or utc_now())
         if not self.root.is_dir():
             raise FileNotFoundError(f"not a directory: {self.root}")
         self.records: List[Record] = []
@@ -125,9 +171,41 @@ class Ledger:
 
     # -- status ------------------------------------------------------------
     def effective_status(self, r: Record) -> str:
+        if self.view is not None:
+            if (r.id, r.hash, r.path) in self.logged_retire:
+                return 'retired'
+            successors = self.superseded_by.get(r.id, [])
+            # An explicit withdrawal in the successor chain never resurrects a basis.
+            stack, seen = list(successors), set()
+            while stack:
+                successor = stack.pop()
+                if successor.path in seen:
+                    continue
+                seen.add(successor.path)
+                if (successor.id, successor.hash, successor.path) in self.logged_retire:
+                    return 'retired'
+                stack.extend(self.superseded_by.get(successor.id, []))
+            if not self._correction_applies(r):
+                return 'retired'
+            if any(self._correction_applies(s) for s in successors):
+                return 'retired'
+            if successors and all(any(s.fields.get(k) for k in ('corrects-field','valid-from','valid-until')) for s in successors):
+                return 'current'  # A view of the pinned predecessor, never a status write.
+            return r.status
         if r.id in self.superseded_by or (r.id, r.hash, r.path) in self.logged_retire:
             return "retired"
         return r.status
+
+    def _correction_applies(self, r):
+        fields = r.fields
+        if correction_error(fields):
+            return False
+        if fields.get('valid-from') and self.view_time < instant(fields['valid-from']):
+            return False
+        if fields.get('valid-until') and self.view_time >= instant(fields['valid-until']):
+            return False
+        return not (fields.get('corrects-field') and self.view.get('field')
+                    and field_name(fields['corrects-field']) != self.view['field'])
 
     def quarantine_reason(self, r: Record) -> str:
         """Why a record may not be served, or '' if it may."""
@@ -142,6 +220,8 @@ class Ledger:
             return "duplicate metadata"
         if not r.intact:
             return "altered"
+        if correction_error(r.fields):
+            return correction_error(r.fields)
         return ""
 
     def servable(self) -> List[Record]:
@@ -498,11 +578,17 @@ def allocate_id(ledger: Ledger, prefix: str) -> str:
 def _must_resolve(ledger: Ledger, ids: Iterable[str], why: str) -> List[Record]:
     out = []
     for i in ids:
-        recs = ledger.by_id.get(i, [])
+        refs = parse_refs(i)
+        if len(refs)!=1:
+            raise ValueError(f'{why}: expected one record identifier or hash pin')
+        ref = refs[0]
+        recs = ledger.by_id.get(ref.id, [])
         if not recs:
             raise KeyError(f"{why}: no record {i} in this folder")
         if len(recs) > 1:
             raise ValueError(f"{why}: id {i} is held by more than one page")
+        if ref.hash and recs[0].hash_actual!=ref.hash:
+            raise ValueError(f'{why}: predecessor hash pin does not match')
         if ledger.quarantine_reason(recs[0]):
             raise ValueError(f"{why}: {i} is {ledger.quarantine_reason(recs[0])}; refusing to build on it")
         out.append(recs[0])
@@ -517,6 +603,8 @@ def write(root, *, title: str, scope: str, when_to_use: str = "", not_for: str =
           ratified_by: str = "", kind: str = "page", points_to: str = "",
           when: Optional[str] = None, event: str = "write", note: str = "",
           external: str = "", source_authorship: str = "", clarify_options: str = "",
+          corrects_field: str = "", valid_from: str = "", valid_until: str = "",
+          event_id: str = "", occurrence_id: str = "",
           _locked: bool = False) -> Record:
     """Write one new page. Nothing that exists is changed except the status
     line of a page this one supersedes, and that happens last."""
@@ -532,7 +620,7 @@ def write(root, *, title: str, scope: str, when_to_use: str = "", not_for: str =
     when = when or utc_now()
 
     def go() -> Record:
-        ledger = Ledger(root)
+        ledger = Ledger(root, serving=False)
         parents = _must_resolve(ledger, derived_from, "derived-from")
         olds = _must_resolve(ledger, supersedes, "supersedes")
         new_id = doc_id or allocate_id(ledger, prefix)
@@ -565,7 +653,15 @@ def write(root, *, title: str, scope: str, when_to_use: str = "", not_for: str =
             "owner": owner, "updated": when,
             "external": external, "source-authorship": source_authorship,
             "clarify-options": clarify_options,
+            "corrects-field": corrects_field, "valid-from": valid_from, "valid-until": valid_until,
+            "event-id": event_id, "occurrence-id": occurrence_id,
         }
+        error = correction_error(fields)
+        if error:
+            raise ValueError(error)
+        for value in (event_id, occurrence_id):
+            if value and not re.fullmatch(r'[A-Za-z0-9][A-Za-z0-9._:@/-]{0,99}', value):
+                raise ValueError('Invalid declared event or occurrence identifier')
         inner = body_html if body_html is not None else plain_to_html(body)
         page_body = f"<h1>{html.escape(' '.join(title.split()), quote=False)}</h1>\n{inner}".strip()
         target = root / directory / f"{new_id.lower()}.html"
@@ -619,11 +715,12 @@ def revise(root, doc_id: str, *, title: Optional[str] = None, scope: Optional[st
            body: Optional[str] = None, body_html: Optional[str] = None,
            origin: str = "human", owner: str = "", ratified_by: str = "",
            when: Optional[str] = None, note: str = "", new_id: Optional[str] = None,
+           corrects_field: Optional[str] = None, valid_from: Optional[str] = None, valid_until: Optional[str] = None,
            _event: str = "revise") -> Record:
     """A change writes a new page and retires the old one. It does not overwrite."""
     root = Path(root)
     with ledger_lock(root):
-        old = _current(Ledger(root), doc_id)
+        old = _current(Ledger(root, serving=False), doc_id)
         if body is not None and body_html is not None:
             raise ValueError('Supply body or body_html, not both')
         inner = body_html
@@ -642,6 +739,10 @@ def revise(root, doc_id: str, *, title: Optional[str] = None, scope: Optional[st
             external=old.fields.get("external", ""),
             source_authorship=old.fields.get("source-authorship", ""),
             clarify_options=old.fields.get("clarify-options", ""),
+            corrects_field=old.fields.get('corrects-field','') if corrects_field is None else corrects_field,
+            valid_from=old.fields.get('valid-from','') if valid_from is None else valid_from,
+            valid_until=old.fields.get('valid-until','') if valid_until is None else valid_until,
+            event_id=old.fields.get('event-id',''),occurrence_id=old.fields.get('occurrence-id',''),
             when=when, event=_event, note=note, _locked=True,
         )
 
@@ -662,7 +763,7 @@ def ratify(root, doc_id: str, who: str, *, when: Optional[str] = None, note: str
     """A named person stands behind a page. Depth returns to 0; the lineage stays."""
     if not who.strip():
         raise ValueError("ratification needs a name")
-    old = _current(Ledger(Path(root)), doc_id)
+    old = _current(Ledger(Path(root), serving=False), doc_id)
     return revise(root, doc_id, origin=old.origin, ratified_by=who.strip(), when=when,
                   note=note or f"ratified by {who.strip()}", new_id=new_id, _event="ratify")
 
@@ -671,7 +772,7 @@ def withdraw(root, doc_id: str, *, when: Optional[str] = None, note: str = "") -
     """Retire a page with no successor. It stays in the folder."""
     root = Path(root)
     with ledger_lock(root):
-        old = _current(Ledger(root), doc_id)
+        old = _current(Ledger(root, serving=False), doc_id)
         _retire_in_place(root, old, when or utc_now(), note or "withdrawn")
 
 
@@ -688,7 +789,7 @@ def seal(root, *, when: Optional[str] = None) -> List[str]:
     with ledger_lock(root):
         final = False
         while True:
-            ledger = Ledger(root)
+            ledger = Ledger(root, serving=False)
             # Never seal a malformed header or bless a conflicting duplicate.
             todo = [r for r in ledger.records if r.kind != "index"
                     and not r.hash and not r.problems]
@@ -739,7 +840,7 @@ def seal(root, *, when: Optional[str] = None) -> List[str]:
 def build_index(root, title: str = "Main Index") -> Path:
     """Write index.html: a derived page for people. The reader never answers from it."""
     root = Path(root)
-    ledger = Ledger(root)
+    ledger = Ledger(root, serving=False)
     rows_cur, rows_ret = [], []
     for r in ledger.records:
         if r.kind == "index":
