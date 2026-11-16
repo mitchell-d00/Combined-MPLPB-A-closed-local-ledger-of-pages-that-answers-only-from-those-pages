@@ -55,6 +55,12 @@ class DocumentaryScopeTests(unittest.TestCase):
         self.assertEqual(sent['value']['modality'], 'future_request_or_intention')
         self.assertFalse(next(c for c in rich['connections'] if c['kind']=='embedded_action_candidate')['action_completed'])
 
+    def test_prepositional_to_is_not_an_infinitive_complement(self):
+        self.add('Mira ordered the archive note to Ruth and sent the register.')
+        rich=self.report();sent=next(f for f in rich['propositions'] if f['value']['action']=='send')
+        self.assertFalse(sent['value']['governing_predicates'])
+        self.assertFalse(any(c['kind']=='embedded_action_candidate' for c in rich['connections']))
+
     def test_requested_action_later_canceled_stays_two_appearances(self):
         self.add('Ruth requested Mira to send the archive report.')
         self.add('Mira canceled sending the archive report.')

@@ -4,8 +4,8 @@ Last reviewed: 2026-11-16.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `38e273855e577cff038f704c63fe09b22ac6889a` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `491ed9c98b1c93dcc0c01c22c225cf490a9909534e239fb519b6efc18d7f4092`.
+Base commit: `3790547ad1db0a5b796714e13cdb521eb9a8603a` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `e38cc21e7bd5e3a355901479a9696f205c0b9d8d5449877b84cf8feaec6bbc91`.
 
 ## Latest user update instructions
 
@@ -30,6 +30,7 @@ The final objective is a system whose capabilities can be established through in
 - Inspect current architecture, frozen reports and original mapping; preserve every prior artifact.
 - Repair ordinary-prose shared scope, reporting/request complements, passive role candidates and date roles without authority promotion.
 - Add adversarial controls and hash-checked original-record comparison with byte mappings and blank human reviews.
+- Tighten request complement grammar after a prepositional-to false-governor probe on frozen 3790547; preserve intermediate source and outputs.
 
 ## Validation recorded
 
@@ -37,6 +38,7 @@ The final objective is a system whose capabilities can be established through in
 - 50 focused tests passed in 4.652 seconds, including 20 new adversarial controls.
 - Initial frozen original/unfamiliar runs failed bubblewrap outer-sandbox NETLINK_ROUTE setup; retained, retry using unchanged bubblewrap runner outside outer sandbox.
 - Unfamiliar baseline retry completed all eight cases; 9/9 incomplete draft spans, native support 0/8.
+- Source-freeze documentation audit failed: new historical baseline entry lacked sha256; add the required pin and rerun.
 
 ## Limitations and blocked checks
 

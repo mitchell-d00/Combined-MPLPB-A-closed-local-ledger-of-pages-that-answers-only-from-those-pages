@@ -110,7 +110,7 @@ def _embedding(quote,match):
         if re.search(r'[;.!?]|\bbut\b',bridge,re.I):continue
         if action in {'report_speech','allege','claim','deny'} and re.search(r'\bthat\b',bridge,re.I):
             role='reported_not_independently_verified'
-        elif action in {'order','instruct','request','promise','plan'} and re.search(r'\bto\b',bridge,re.I):
+        elif action in {'order','instruct','request','promise','plan'} and re.search(r'\bto\s+(?:(?:not|never|also|immediately|then)\s+){0,3}$',bridge,re.I):
             role='requested_or_intended_not_completed'
         else:continue
         result.append({'action':action,'predicate_text':prior[0],
