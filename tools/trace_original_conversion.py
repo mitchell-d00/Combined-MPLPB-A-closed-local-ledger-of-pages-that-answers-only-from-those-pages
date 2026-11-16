@@ -52,7 +52,7 @@ def trace(directory):
         'findings':['All 23 draft spans survive native import exactly in the canonical projection.',
             'Six draft spans cross passage boundaries; no source loss is implied.',
             'Baseline expert skips large native pages at its 200000-character source budget; header-only grammar does not map prose.',
-            'Actual gated BM25 search returns 6 of 23 draft spans; the strict answer pipeline often stops before answer retrieval.',
+            'Actual gated BM25 search returns 5 of 23 draft spans; the strict answer pipeline often stops before answer retrieval.',
             'interpretation_unsupported and retrieval_ambiguous require separate historical review; zero support is not a failed import.']}
 
 

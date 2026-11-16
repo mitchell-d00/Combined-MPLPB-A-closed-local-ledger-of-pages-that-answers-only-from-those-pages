@@ -1,0 +1,10 @@
+{
+  "case_id": "H01",
+  "question": "How could Lyell have finished Darwin's volume on October 3, 1859 before its public release? Separate the letter, proof copies and publication.",
+  "arm": "baseline",
+  "execution_status": "failed",
+  "error": "TimeoutExpired: Command '['/usr/bin/bwrap', '--unshare-all', '--unshare-user', '--disable-userns', '--die-with-parent', '--new-session', '--cap-drop', 'ALL', '--clearenv', '--ro-bind', '/usr', '/usr', '--ro-bind', '/lib', '/lib', '--ro-bind', '/lib64', '/lib64', '--ro-bind', '/bin', '/bin', '--ro-bind', '/opt/codex/runtimes/codex-primary-runtime/dependencies/python', '/opt/codex/runtimes/codex-primary-runtime/dependencies/python', '--ro-bind', '/tmp/mplpb-unprepared-run-3gza0ooq/code', '/app', '--ro-bind', '/tmp/mplpb-unprepared-run-3gza0ooq/inputs', '/study', '--bind', '/tmp/mplpb-unprepared-run-3gza0ooq/out-H01', '/output', '--size', '268435456', '--tmpfs', '/scratch', '--proc', '/proc', '--dev', '/dev', '--chdir', '/scratch', '--setenv', 'PATH', '/usr/bin:/bin', '--setenv', 'PYTHONPATH', '/app', '--setenv', 'PYTHONNOUSERSITE', '1', '--setenv', 'TMPDIR', '/scratch', '/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3.12', '-B', '-c', \"import sys,runpy;sys.argv=['challenge','worker','--implementation','/app','--ledger','/study/ledger','--case','/study/question.json','--output','/output/result.json','--mode','baseline'];runpy.run_path('/app/tools/unprepared_challenge.py',run_name='__main__')\"]' timed out after 179.9999652780025 seconds",
+  "parent_wall_seconds": 180.00373517400294,
+  "measurements": null,
+  "answer_supported": false
+}

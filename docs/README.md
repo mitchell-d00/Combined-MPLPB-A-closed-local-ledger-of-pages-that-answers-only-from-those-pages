@@ -112,3 +112,8 @@ Public website: [free builder/chat helper](FREE_PUBLIC_HELPER.md), [authored bro
 The [original-record study workflow](ORIGINAL_RECORD_STUDY.md) prepares pinned public originals, separates sealed questions from gold expectations, captures system outputs and checks external review submissions. Protocol tests do not establish independent human validation.
 
 Update 2026-11-16: [Scoped evidence extensions](SCOPED_EVIDENCE_EXTENSIONS.md) add precise field/identity/correction diagnostics, exact source routing, distinct event nodes, declared correction windows, quoted relation inspection and non-authoritative receipt/effort metadata. Public focused tests are linked in the guide; historical reports retain their original scope.
+
+
+## Unprepared-original conversion study — 2026-11-16
+
+See the [frozen original-record evaluation](UNPREPARED_ORIGINAL_CHALLENGE.md) and [source mapping repair](SOURCE_MAPPING_REPAIR.md). Authentic originals and randomized synthetic controls have separate frozen inputs and retained outputs. Reversible candidate mappings preserve native authority boundaries; exact quote fidelity does not verify historical meaning. Independent human historical assessment is NOT RUN. Earlier results retain their original scope.

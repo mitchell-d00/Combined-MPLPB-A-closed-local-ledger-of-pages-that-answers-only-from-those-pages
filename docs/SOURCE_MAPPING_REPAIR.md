@@ -6,9 +6,9 @@ The frozen experiment is retained in [the dated results directory](../evaluation
 
 ## Diagnosed stages
 
-The [stage audit](../evaluation/unprepared-originals/2026-11-16/conversion-stage-audit.json) traces every historical question. Five immutable originals import reproducibly into seven valid native pages. All 23 unreviewed draft reference spans survive the existing canonical text projection. The projection intentionally normalizes whitespace and omits HTML headings; original bytes remain separately preserved. This is not byte-identical HTML conversion.
+The [stage audit](../evaluation/unprepared-originals/2026-11-16/conversion-stage-audit-v2.json) traces every historical question. Five immutable originals import reproducibly into seven valid native pages. All 23 unreviewed draft reference spans survive the existing canonical text projection. The projection intentionally normalizes whitespace and omits HTML headings; original bytes remain separately preserved. This is not byte-identical HTML conversion.
 
-The actual gated passage index contains 1,529 passages. Six draft reference spans cross individual passage boundaries. Separate BM25 execution retrieves 6/23 complete draft spans. The original expert path skips large pages at its character budget and recognizes declared documentary headers rather than arbitrary historical prose. The answer pipeline often returns `interpretation_unsupported` with answer retrieval `not_run`; three questions return `retrieval_ambiguous`. These are different constraints. A zero supported-answer count does not demonstrate failed acquisition or import, and a negative control is not automatically a semantic failure.
+The actual gated passage index contains 1,529 passages. Six draft reference spans cross individual passage boundaries. Separate BM25 execution retrieves 5/23 complete draft spans. The original expert path skips large pages at its character budget and recognizes declared documentary headers rather than arbitrary historical prose. The answer pipeline often returns `interpretation_unsupported` with answer retrieval `not_run`; three questions return `retrieval_ambiguous`. These are different constraints. A zero supported-answer count does not demonstrate failed acquisition or import, and a negative control is not automatically a semantic failure.
 
 ## Implemented repair
 

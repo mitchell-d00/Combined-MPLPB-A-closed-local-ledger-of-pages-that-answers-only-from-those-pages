@@ -1,0 +1,26 @@
+{
+  "schema": "measurement-harness-revision-v2",
+  "unchanged_frozen_input_digests": {
+    "corpus-manifest.json": "b46af89e2d7eb00789e34592214957f89d7334fcb5c73d840d90c5fc8969fb1d",
+    "questions.json": "a37fe4660b58c73c19674a6595955d4c5ab074bfa8f6ecb1b79cd162a4eeaea9",
+    "reference-draft.json": "e6e29504c43a919dbdf4233735ee3acbf0df28fed736af3f9a59a777499cb27c",
+    "protocol.json": "478fb6e16fdc4e0d6afda22f0a1308ddf808868fa5e5d720057122fa55da840b"
+  },
+  "baseline_native_unchanged": true,
+  "old_harness_sha256": "b9fc1c64a1e934770ca58864040ae3e716cb9c9a00b57ecf30cd0209b8cb43e9",
+  "new_harness_sha256": "f4c4541ae3c14d1c82f607056c9b5b05c9a32bcbf64071bc6b68b21a12d0c777",
+  "changes": [
+    "Disable Python allocation tracing; retain fresh-worker OS peak RSS and CPU/wall measurements.",
+    "Persist completed native/candidate phases before any later timeout."
+  ],
+  "unchanged": [
+    "source bytes",
+    "questions",
+    "reference draft",
+    "scoring protocol",
+    "180-second worker wall limit",
+    "native baseline code"
+  ],
+  "pilot_retained": "baseline-profiled-pilot",
+  "independent_human_evaluation": "NOT RUN"
+}

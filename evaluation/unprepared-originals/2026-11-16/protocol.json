@@ -1,0 +1,20 @@
+{
+  "schema": "unprepared-reconstruction-protocol-v1",
+  "frozen_before_baseline": true,
+  "primary_outcomes": ["successful", "partially_successful", "unsuccessful", "unassessed"],
+  "evaluation_class": "developer_authored_public_development; independent_blinded_phase_pending",
+  "reference_policy": "Source-anchored draft expectations are incomplete and not independent historical ground truth. Exact evidence-span coverage is a retrieval metric. Semantic event/relation/correction metrics require explicit human TP/FP/FN judgments and denominators.",
+  "success_rule": "Two reviewers agree on complete source-supported reconstruction and no incorrect or unsupported assertions; citation checks pass.",
+  "partial_rule": "Reviewers agree some requested reconstruction is supported, with omissions or explicit unresolved parts and no unsupported promotion.",
+  "failure_rule": "Reviewers agree the answer is incorrect/unsupported or a required reconstructible answer is missed. Refusal alone is not automatically successful or unsuccessful.",
+  "unassessed_rule": "Judgments missing, reference coverage unknown, or reviewer disagreement without adjudication.",
+  "semantic_metrics": ["event_precision", "event_recall", "relationship_precision", "relationship_recall", "correction_precision", "correction_recall", "false_positive_relationship_rate", "false_negative_counts", "chronological_errors", "appropriate_refusal_rate", "unsupported_answer_rate"],
+  "unknown_policy": "null with reason, never fabricated zero; recall requires an explicitly delimited reference set",
+  "human_policy": "At least two separate human submissions; IDs and signatures supplied by users are not independently authenticated by this software. Preserve disagreements. Adjudication must cite both submitted review digests and a rationale.",
+  "measurement_policy": "Fresh child per question; CPU, wall, peak RSS, Python allocations, repeated source HTML bytes read, unique source documents read, import cost and failures retained. No model calls: API charge 0, computational cost measured separately. Human times and monetary compute prices unknown until supplied.",
+  "budgets": {"max_sources": 12, "max_hops": 2, "max_source_characters": 200000, "max_passages": 12, "max_passage_characters": 12000, "worker_wall_timeout_seconds": 180},
+  "safeguards": ["native ledger only", "normal provenance gate for every source quote", "no rewriting originals to answer-bearing fields", "no gold in runtime corpus", "candidate output stays unsupported", "no automatic supersession from historical prose", "no inferred causal edge", "no source gate weakening"],
+  "comparators": ["unchanged pinned MPLPB", "modified MPLPB", "gated BM25 source retrieval", "gated conjunctive keyword source retrieval"],
+  "general_ai_comparator": "NOT RUN: no equivalent configured model/authorized operational execution available",
+  "failure_retention": "All runs and per-question errors are append-only files; failed experiments are never overwritten or relabelled. Frozen case/protocol/source digests must match for comparison."
+}
