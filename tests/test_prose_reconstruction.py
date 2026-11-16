@@ -1,0 +1,174 @@
+"""Bounded interpretation controls. Historical performance is scored separately."""
+import json
+from pathlib import Path
+import tempfile
+import unittest
+from mplpb_combined.ledger import write,withdraw
+from mplpb_combined.reader import PROFILES
+from mplpb_work.prose_evidence import discover
+from mplpb_work.source_mapping import reconstruct
+from mplpb_answers.prose_retrieval import retrieve
+from mplpb_answers.passages import PassageIndex
+
+ROOT=Path(__file__).resolve().parents[1]
+
+
+class ProseReconstructionTests(unittest.TestCase):
+    def setUp(self):
+        self.tmp=tempfile.TemporaryDirectory();self.addCleanup(self.tmp.cleanup);self.root=Path(self.tmp.name)
+
+    def report(self,q):return discover(self.root,q)['information_map']['proposed_reconstruction']
+
+    def test_original_correspondence_request_is_not_delivery(self):
+        # Exact preserved historical text, not new Event-ID/Related/answer fields.
+        case=json.loads((ROOT/'evaluation/unprepared-originals/2026-11-16/reference-draft.json').read_text())['cases'][1]
+        quote=case['citations'][0]['quote']
+        write(self.root,doc_id='LETTER-1',title='Imported excerpt',scope='correspondence',body=quote)
+        report=self.report('Who arranged for Wallace to receive the book?')
+        actions=report['propositions'];sends=[x for x in actions if x['value']['action']=='send']
+        self.assertTrue(sends);s=sends[0]
+        self.assertEqual(s['value']['actor'],'Murray')
+        self.assertEqual(s['value']['modality'],'future_request_or_intention')
+        self.assertIn('WALLACE',s['value']['object_bindings'][0]['resolved_candidate'])
+        self.assertIn('possible',s['qualification_cues']);self.assertFalse(s['answer_supported'])
+        self.assertTrue(any(x['kind']=='reported_request_candidate' for x in report['connections']))
+        for item in actions+report['connections']:
+            r=reconstruct(self.root,'Who arranged for Wallace to receive the book?',item)
+            self.assertTrue(r['quote_fidelity']);self.assertFalse(r['semantic_relationship_verified'])
+
+    def test_conditional_failure_and_discretion_not_actual_events(self):
+        write(self.root,doc_id='SOURCE-1',title='Fictional control',scope='archive',body='Mira wrote a note. If the operation should fail, Mira would retract the report. The Secretary may in his discretion, grant leases for ten years.')
+        frames=self.report('Mira operation report Secretary leases')['propositions']
+        retract=next(x for x in frames if x['value']['action']=='retract')
+        grant=next(x for x in frames if x['value']['action']=='grant')
+        self.assertEqual(retract['value']['modality'],'conditional_or_uncertain')
+        self.assertEqual(grant['value']['modality'],'permission_or_possibility')
+        self.assertFalse(retract['answer_supported']);self.assertFalse(grant['content_truth_verified'])
+
+    def test_opposing_literal_statements_are_candidates_with_both_quotes(self):
+        write(self.root,doc_id='LETTER-1',title='Fictional',scope='archive',body='Mira retracted all earlier archive claims.')
+        write(self.root,doc_id='LETTER-2',title='Fictional',scope='archive',body='Mira did not retract all earlier archive claims.')
+        r=self.report('Mira archive claims retracted')
+        conflicts=[x for x in r['connections'] if x['kind']=='possible_statement_conflict']
+        self.assertTrue(conflicts);self.assertEqual(len(conflicts[0]['evidence']),2)
+        self.assertTrue(any('not retract all' in e['quote'] for e in conflicts[0]['evidence']))
+        self.assertFalse(conflicts[0]['answer_supported'])
+
+    def test_shared_vocabulary_does_not_create_event_or_causal_edge(self):
+        write(self.root,doc_id='LETTER-1',title='Fictional',scope='archive',body='Mira sent an archive note.')
+        write(self.root,doc_id='LETTER-2',title='Fictional',scope='archive',body='Orin received a garden register.')
+        r=self.report('Mira Orin archive garden')
+        self.assertTrue(r['propositions']);self.assertFalse(r['connections'])
+        self.assertTrue(all(x['event_identity'] is None for x in r['propositions']))
+
+    def test_heading_routing_does_not_make_heading_answer_evidence(self):
+        write(self.root,doc_id='SOURCE-1',title='Imported',scope='archive',body_html='<h2>Observatory archive ledger</h2><p>The sample conclusion is tentative, not confirmed.</p>')
+        report=discover(self.root,'Observatory archive sample conclusion')
+        self.assertTrue(report['candidates'])
+        self.assertTrue(all('Observatory' not in c['quote'] for c in report['candidates']))
+        self.assertFalse(report['retrieval_discovery']['routing_metadata_is_answer_evidence'])
+
+    def test_restrictions_and_withdrawal_still_govern_facets(self):
+        r=write(self.root,doc_id='SOURCE-1',title='Fictional',scope='archive',external='no',body='Mira retracted the archive conclusion.')
+        self.assertFalse(discover(self.root,'Mira archive conclusion',PROFILES['external'])['candidates'])
+        withdraw(self.root,r.id)
+        self.assertFalse(discover(self.root,'Mira archive conclusion')['candidates'])
+
+    def test_nominal_actions_and_navigation_are_not_historical_events(self):
+        write(self.root,doc_id='SOURCE-1',title='Fictional',scope='archive',body_html='<nav><p>Apply for a Grant</p></nav><p>The Order of the Day described a well-received article and a written declaration about the Union cause.</p><footer><p>Mira wrote a website notice.</p></footer>')
+        report=self.report('archive Order article declaration')
+        self.assertFalse(report['propositions'])
+        self.assertFalse(report['connections'])
+
+    def test_passive_repeal_and_scope_remain_literal_candidates(self):
+        write(self.root,doc_id='SOURCE-1',title='Quoted public constitutional text',scope='archive',body_html='<p>The eighteenth article of amendment to the Constitution of the United States is hereby repealed.</p><p>The transportation or importation into any State, Territory, or possession of the United States for delivery or use therein of intoxicating liquors, in violation of the laws thereof, is hereby prohibited.</p>')
+        report=self.report('constitutional provision repealed transportation laws')
+        repeal=next(x for x in report['propositions'] if x['value']['action']=='repeal')
+        self.assertIsNone(repeal['value']['actor'])
+        self.assertIn('eighteenth article',repeal['value']['affected_subject_text'])
+        self.assertTrue(any('in violation' in x['value']['literal_qualifiers'] for x in report['qualifications']))
+        self.assertFalse(repeal['answer_supported']);self.assertFalse(repeal['content_truth_verified'])
+
+    def test_same_paragraph_actor_continuity_is_only_a_proposal(self):
+        write(self.root,doc_id='SOURCE-1',title='Fictional',scope='archive',body_html='<p>Mira surveyed the archive. She wrote an archive note.</p><p>She sent an archive report.</p>')
+        report=self.report('Mira archive note report')
+        links=[x for x in report['connections'] if x['kind']=='possible_pronoun_antecedent']
+        self.assertEqual(len(links),1);self.assertEqual(links[0]['value']['actor_candidate'],'Mira')
+        self.assertFalse(links[0]['identity_verified']);self.assertFalse(links[0]['answer_supported'])
+
+    def test_distribution_from_unprepared_original_survives_noun_budget(self):
+        from tools.unprepared_sources import import_corpus
+        corpus=ROOT/'evaluation/unprepared-originals/2026-11-16-followup/unfamiliar'
+        self.root.rmdir();import_corpus(corpus,self.root)
+        question=json.loads((corpus/'questions.json').read_text())['cases'][2]['question']
+        report=self.report(question)
+        distribution=[x for x in report['propositions'] if x['value']['action']=='distribute']
+        self.assertTrue(distribution)
+        self.assertTrue(any(d['candidate_role']=='distribution' and 'eve' in d['raw_text'] for m in distribution for d in m['value']['date_candidates']))
+        self.assertTrue(all(not x['answer_supported'] for x in distribution))
+
+    def test_call_off_keeps_negation_and_conditional_scope(self):
+        write(self.root,doc_id='SOURCE-1',title='Fictional controls',scope='archive',body_html='<p>Mira called off the archive meeting.</p><p>Ruth did not call off the archive meeting.</p><p>If Orin called off the archive meeting, the register would change.</p>')
+        frames=self.report('archive meeting called off')['propositions']
+        actual=next(x for x in frames if x['value']['actor']=='Mira')
+        negative=next(x for x in frames if x['value']['actor']=='Ruth')
+        conditional=next(x for x in frames if x['value']['actor']=='Orin')
+        self.assertEqual(actual['value']['action'],'cancel')
+        self.assertEqual(negative['value']['modality'],'negated_or_scope_limited')
+        self.assertEqual(conditional['value']['modality'],'conditional_or_uncertain')
+        self.assertFalse(actual['answer_supported'])
+
+    def test_prepositional_name_does_not_steal_subject_role(self):
+        write(self.root,doc_id='SOURCE-1',title='Fictional control',scope='archive',body='The office of Mira shall appoint an archive clerk. Ruth appointed an archive clerk.')
+        frames=self.report('Mira Ruth appoint archive clerk')['propositions']
+        self.assertTrue(any(x['value']['actor']=='Ruth' for x in frames))
+        self.assertFalse(any(x['value']['actor']=='Mira' for x in frames))
+
+    def test_coordinated_actor_is_candidate_and_relative_clause_stays_unresolved(self):
+        write(self.root,doc_id='SOURCE-1',title='Fictional control',scope='archive',body_html='<p>Ruth responded to Mira and issued an archive notice.</p><p>Ruth responded to a letter that Mira sent and issued an archive notice.</p>')
+        report=self.report('Ruth Mira archive notice')
+        links=[x for x in report['connections'] if x['kind']=='possible_coordinated_actor']
+        self.assertEqual(len(links),1);self.assertEqual(links[0]['value']['actor_candidate'],'Ruth')
+        self.assertFalse(links[0]['identity_verified']);self.assertFalse(links[0]['answer_supported'])
+
+    def test_distribution_consistency_across_frozen_question_variants(self):
+        from tools.unprepared_sources import import_corpus
+        corpus=ROOT/'evaluation/unprepared-originals/2026-11-16-followup/unfamiliar'
+        self.root.rmdir();import_corpus(corpus,self.root)
+        quote='The order was distributed to the 175,000-member expeditionary force on the eve of the invasion.'
+        opportunities=0
+        for case in json.loads((corpus/'questions.json').read_text())['cases']:
+            report=discover(self.root,case['question'])
+            if any(quote in c['quote'] for c in report['candidates']):
+                opportunities+=1
+                frames=report['information_map']['proposed_reconstruction']['propositions']
+                self.assertTrue(any(x['value']['action']=='distribute' and x['evidence'][0]['quote']==quote for x in frames),case['id'])
+                self.assertLessEqual(len(frames),48)
+        self.assertEqual(opportunities,4)
+
+    def test_multiline_cancellation_keeps_source_coordinates_and_condition(self):
+        write(self.root,doc_id='SOURCE-1',title='Fictional control',scope='archive',body_html='<pre>If Mira called\noff the archive meeting, Ruth would write a note.</pre>')
+        q='Mira archive meeting called off'
+        report=self.report(q)
+        m=next(x for x in report['propositions'] if x['value']['action']=='cancel')
+        self.assertEqual(m['value']['actor'],'Mira')
+        self.assertEqual(m['value']['modality'],'conditional_or_uncertain')
+        self.assertIn('called\noff',m['evidence'][0]['quote'])
+        self.assertTrue(reconstruct(self.root,q,m)['quote_fidelity'])
+        self.assertFalse(m['answer_supported'])
+
+    def test_modal_and_protest_words_do_not_become_dates(self):
+        write(self.root,doc_id='SOURCE-1',title='Quoted public-record language',scope='archive',body_html='<p>The Secretary may in his discretion, grant leases for ten years.</p><p>Randolph called off the march, though he would be a driving force of the 1963 March on Washington.</p>')
+        frames=self.report('Secretary Randolph leases march')['propositions']
+        self.assertTrue(any(x['value']['action']=='cancel' for x in frames))
+        self.assertFalse(any(d['raw_text'].lower() in {'may','march'} for x in frames for d in x['value']['date_candidates']))
+
+    def test_real_calendar_and_relative_cues_keep_exact_offsets(self):
+        from mplpb_work.prose_relations import date_cues
+        quote='By May 1944 the force was ready. Eisenhower began drafting in February. The first day of January preceded June 5, 1944 and the eve of the invasion.'
+        cues=list(date_cues(quote))
+        self.assertEqual([m[0] for m in cues],['May 1944','February','January','June 5, 1944','eve of the invasion'])
+        self.assertTrue(all(quote[m.start():m.end()]==m[0] for m in cues))
+
+
+if __name__=='__main__':unittest.main()

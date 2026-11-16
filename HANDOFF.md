@@ -4,69 +4,80 @@ Last reviewed: 2026-11-16.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `876b4f6c9b4e0a58c9bbf68fc747a339d37ecbce` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `1ddf9304c5f1438cb6481e934834e4a241f88a45e650603794a553252df371b5`.
+Base commit: `f12540c73d15ee81248e9eb4fe07f5b12242a312` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `acf8ed32aae8ef02094edbcd764480c585768081d011e570044dfb80fa567d86`.
 
 ## Latest user update instructions
 
-Implement the following extensions inside the existing Combined MPLPB codebase. Use its current answer-contract-v1, diagnostic codes, supersession rules, relation-graph families, and work-event model. Do not weaken eligibility gates, hash pins, origin/depth checks, or the rule that assisted/candidate output stays answer_supported=false.
-1 Precise refusal diagnostics
-Extend the diagnostic table in the answer pipeline. When a query fails, return a specific code instead of a generic abstain. Add or tighten:
-exact_field_missing
-contradictory_passages_pruned
-event_identity_unresolved
-correction_scope_unclear
-Example shape:
-if exact_id_match and not field_support:
-    return Answer(kind="abstain", diagnostic="exact_field_missing", answer_supported=False)
-2 Exact-field source routing
-When the query supplies a pinned record ID or unique field value, route directly to matching eligible pages and skip ranking/diversity discounts. If multiple eligible pages conflict, return a conflict answer with the passages visible rather than pruning them.
-3 Distinct event identities
-Add an optional event_id / occurrence_id that can be declared on a source page or created only when two or more appearances share an explicit source-declared key. Appearances stay separate evidence records. The event identity is a distinct node and does not inherit answer support from any single appearance.
-4 Versioned / time-scoped correction
-Extend supersession so a correction page can name:
-supersedes pin (predecessor hash)
-optional corrects_field
-optional valid_from / valid_until
-A query as-of a time outside the correction window continues to see the predecessor. Withdrawing the correction does not restore the predecessor.
-5 Optional evidence-gated relation exploration
-Add a mode that permits relation hops only when every hop is backed by an eligible source quote. Any hop lacking a quote returns as candidate only (answer_supported=false). Keep the existing prohibition on reverse causality and unrestricted multi-hop.
-6 Operational receipts stay independent
-A completion receipt or external READ/ACK is recorded in the work-event stream but never promotes a claim to supported_answer. Source support still requires a pinned eligible quote. Handoffs continue to carry answer_supported=false and content_truth_verified=false.
-7 Operator-burden measurement
-Add an optional operator_seconds field on work events (self-reported or measured). Expose it in handoffs and study scoring. Do not use the value for eligibility or answer support.
-Keep all new paths inside the existing pipeline, relation_graph, and mplpb_work modules. Preserve current refusal, fencing, and recheck-on-source-change behavior. Add focused tests that demonstrate each diagnostic, the exact-field route, time-scoped correction, and that candidates/receipts remain non-authoritative.
+Continue improving MPLPB without weakening its existing protections.
+
+First, investigate why 13 of the 23 historical reference passages are still missing and improve retrieval.
+
+Second, help MPLPB recognize events, corrections, contradictions, and relationships in ordinary writing. Every connection must link back to the original evidence and remain a candidate until properly verified.
+
+Third, test these improvements against unfamiliar historical documents. Measure correct relationships, incorrect relationships, missing information, processing costs, and justified refusals.
+
+Preserve all existing results and run the full regression suite. Do not change the tests to make MPLPB appear more successful.
+
+The goal is simple: MPLPB should not just store and retrieve information. It should help reconstruct what happened from the evidence, while knowing what it cannot prove. My main recommendation: Stop focusing on increasing the number of passing unit tests. Focus on proving that MPLPB can understand and connect information from real documents.
+
+The most important engineering objective now is reducing false relationships while retaining useful correct ones.
+
+The next challenge is demonstrating that MPLPB can consistently recover the important relationships it currently misses, without reintroducing false ones.
 
 ## Implemented scope
 
-- Extend answer-contract-v1 diagnostics and gated exact source/body-field routing without ranking or diversity pruning; keep conflicts and budget omissions explicit.
-- Add sealed optional event/occurrence declarations and distinct non-authoritative event nodes; repeated Event-Key requires two appearances. Message IDs alone never become event IDs.
-- Extend pinned supersession with optional field and UTC validity windows. Query-local serving views are isolated, do not mutate source bytes, and cannot resurrect withdrawn corrections or override terminal-head write rules.
-- Add at most two independently quoted relation hops within existing families; candidates and all exploration/assisted outputs remain unsupported.
-- Keep completion/host-declared READ/ACK receipts independent of source support. Add optional finite operator effort on work events, visibility-filtered handoffs and study scoring; never use effort for eligibility.
-- Update affected operational documentation/result index while preserving historical/vendor files, frozen source corpora and published result artifacts.
+- Diagnose all 13 old missing draft spans without changing original inputs, scoring or earlier results.
+- Reuse the gated passage index for source/subject query facets and preserve exact routes, restrictions and quote-only source authority.
+- Add candidate actor/action/object, modality, scope, documentary bindings, date roles and typed textual connections; no semantic authority promotion.
+- Freeze and compare prior/current on unfamiliar public originals, retain developer source-linked semantic assessments, mistakes and omissions, costs and justified refusals.
+- Use actual unfamiliar-record semantic failures to correct noun/adjective event errors, compound speakers, passive roles, quote boundaries and irrelevant website comparisons; retain bounded candidate pronoun/planned-action connections.
+- Recover the demonstrated distribution omission by counting only valid predicates against extraction limits; recognize generic called-off/cancelled phrasing with negation and conditional scope.
+- Reject prepositional names as grammatical actors; expose same-clause coordinated actor proposals conservatively, without upgrading semantic truth.
+- A stricter frozen-context test found distribution recovery inconsistent at 1/4. Replace the per-context cap with the existing global 48-proposition bound; preserve all earlier results and evaluate retention/false proposals again.
+- Recognize cancellation phrases across preserved physical line breaks without rewriting original text.
+- Reject ambiguous modal may and non-calendar march/marching as date cues; keep calendar-context bare months, explicit dates and relative-time phrases without normalized-event-time claims.
+- Allow the existing CLI inverse mapper to select rich propositions, connections and qualification nodes while retaining source rechecks and non-authoritative output.
+- Publish complete baseline/final recovery results, all intermediate failures, per-case resource measurements, source-linked semantic labels and blank independent review/adjudication packets in a new immutable dated report.
 
 ## Validation recorded
 
-- 27 focused extension tests pass, including all four diagnostics, exact-field conflicts and gates, source-change discard, distinct event keys, window boundaries, withdrawn corrections, concurrent query views, quoted-hop candidates, receipt separation and private operator metadata.
-- 80 existing/focused coordinator, relation-graph and response checks passed in an earlier integrated run. 59 source/record/supersession/study controls passed before the final concurrency/correction tests. The unchanged public suite passed 52/52 with zero observed false supported bridges.
-- Full final extracted-source Python regression, required documentation/handoff checks, actual Linux worker isolation, exact-head archive/WebAssembly/browser CI and postdeployment verification remain to complete.
-- Existing strict-first compatibility and extension checks pass together: a deterministic strict-first proof is labelled strict; actual assisted and candidate outputs remain unsupported. The superseded full run was stopped before completion and is not reported as a pass.
-- Final field-context control also retains competing later source field mentions outside the initial header instead of selecting a supported header answer. Final extension and strict-first controls pass together (47 tests); exact final-head full CI remains required.
-- An extracted pre-final candidate completed 966 tests with one portability import-allowlist failure for the new standard-library contextvars dependency. The allowlist now permits contextvars; no other import restriction was removed. A final guard also prevents historical query views from authorizing current work and requires an explicit field at the provenance gate for scoped sources. Final exact-head full CI remains required.
-- The 26 final scoped-extension controls pass with an explicitly pinned fixture clock, so declared correction-window tests do not depend on the year the suite runs.
-- Final event identity control keeps declared IDs and generated shared-key nodes in separate namespaces; a matching display label cannot merge their appearances. All 39 scoped and historical-investigation tests pass together, including the new collision control.
+- Final 01f128b completed all 14 original cases at 18/23 frozen draft-span coverage, native support 0/14.
+- Developer semantic review, comparable deduplication: prototype 15 correct / 38 incorrect / 17 unresolved / 8 irrelevant; final 18 correct / 1 incorrect / 37 unresolved.
+- Cold source acquired after code freeze: correct 3 retained; incorrect 14 to 0; unresolved 1 to 6. Not independent human review.
+- Full final regression suite passed 1003 tests; public prepared 52/52; separate synthetic regression controls 24/24.
+- All 727 rich proposal objects across historical and new studies passed source/policy/pin/quote integrity and non-authority checks.
+- Native commit 01f128b passed all five CI workflow families, including exact archive and browser regressions.
+- Recovery focused controls: 26 passed in 1.683 seconds after fixing a conditional actor-clause error. The premature passing statement in cbee135 is explicitly corrected in recovery/validation-correction.json.
+- Allocation revision: 28 focused controls passed in 3.928 seconds, including all four existing complete-evidence distribution opportunities and multiline conditional cancellation.
+- Previous a259 whole historical run reached terminal state before allocation code replacement; its consistency failure remains immutable.
+- 30 focused reconstruction/source controls passed in 4.484 seconds in the isolated worktree; current main benchmark was not modified.
+- Final native f12540c full Python suite: 1011 tests passed in 486.615 seconds; complete log/hash retained.
+- Final public prepared evidence suite: 52/52; final separate released synthetic controls: 24/24. Neither establishes historical semantic accuracy.
+- All 21 previous useful reviewed associations retained; three source-consistent candidates added. Final reviewed actor/action/text associations: 24 correct, zero labeled incorrect, 51 unresolved across 75; developer/AI source review, not independent humans.
+- Final distribution recovery is 4/4 complete-evidence context opportunities; cancellation is 3/3. These are two target relations, not seven independent historical events. The unsuccessful 1/4 intermediate run is preserved.
+- Final date-cue source review retains all 16 genuine cues and removes all 12 false cues; actor/action quality remains separately reported.
+- All five native f12540c CI workflows passed, including archive/browser, worker isolation, infrastructure, conventional regression and handoff.
+- Actual extracted f12540c source archive: handoff/documentation checks passed, 30 focused controls passed in 4.440 seconds, UI/transport/JavaScript API/crawler checks passed.
+- All 491 tracked original-study and frozen import/evaluation files remain byte-identical to ee9975a; all 105 existing test files unchanged.
+- Final f12540c original 14-question run completed under the frozen 180-second budget: 18/23 incomplete draft spans retrieved; native supported answers remain 0/14. No source, question, score or authority requirement was changed.
+- All 850 final rich mapping objects across five authentic studies passed exact quote, canonical offset, digest, native pin, current source/policy and non-authority checks; each case exercised a fresh inverse reconstruction. Mechanical fidelity is not semantic correctness. Complete final blank human review packets are prepared; independent review NOT RUN.
 
 ## Limitations and blocked checks
 
-- Only explicit initial body-field headers and declared identity keys license exact field answers. This is bounded source extraction, not general semantic interpretation or historical truth certification.
-- As-of serving applies only to explicit correction windows. It does not reconstruct arbitrary historical ledger states, infer event identity from resemblance, or license causal composition.
-- External READ/ACK is host-declared, not independently attested external-world verification. Operator measurements and reviewer identities remain unattested; no independent human burden/accuracy study has been performed.
+- Finite deterministic candidate interpretation is fallible and not unrestricted semantic understanding.
+- Independent human evaluation NOT RUN; developer judgments must be labeled and scoped.
+- Developer semantic assessment is not independent human review and has incomplete historical reference scope.
+- The intermediate launch metadata used a mistyped commit label; an explicit correction preserves original receipts and binds actual native SHA256 pins to commit 6499338f00377181a8ffc169b9977d4be31841e1.
+- Two additional historical records still produce five unresolved proposed associations and miss important intent/publication/signing/ceasefire/revision links. Broad consistent historical reconstruction is not demonstrated.
+- Zero incorrect labels in the limited actor/action assessment is not a global historical false-positive rate; date roles and unresolved candidates remain uncertain.
+- Later allocation/date revisions reused the post-a259-code-freeze transfer records; final implementation is not independently unseen.
+- Human labeling, correction, review and adjudication time, engineering/model-assistance cost and compute pricing are unknown. No efficiency or deployment claim.
 
 ## Next steps
 
-- Freeze and test an extracted committed candidate, complete all required exact-head checks, and publish/merge under the existing authorization only after those checks pass.
-- Observe production deployment and live Chromium verification; record exact tested revision/tree and actual outcomes on the pull request.
+- Use genuinely independent authors/reviewers for a new sealed challenge; prepared human review and adjudication are NOT RUN.
+- Address unresolved transfer semantics in a future frozen experiment, preserving current failures and source authority.
 
 ## Use this ZIP in your repository
 

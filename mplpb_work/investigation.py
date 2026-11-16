@@ -183,7 +183,7 @@ def _crawl(root, question, profile, start_source_ids, max_hops, max_sources, max
 
 
 def investigate(root, question, *, profile=None, start_source_ids=None, max_hops=2,
-                max_sources=12, max_chars=200000, work_directory=None):
+                max_sources=12, max_chars=200000, work_directory=None, prose_candidates=False):
     """Run a bounded documentary investigation with three capability-gated seats.
 
     Omit work_directory for ephemeral work; an explicit new directory retains the
@@ -199,6 +199,7 @@ def investigate(root, question, *, profile=None, start_source_ids=None, max_hops
         raise ValueError('Source budget must be 1–32')
     if type(max_chars) is not int or not 1000<=max_chars<=1000000:
         raise ValueError('Character budget must be 1000–1000000')
+    if type(prose_candidates) is not bool:raise ValueError('prose_candidates must be a boolean')
     profile = profile or PROFILES[DEFAULT_PROFILE]
     if profile.name not in PROFILES or profile != PROFILES[profile.name]:
         raise ValueError('Choose a known delivery profile')
@@ -211,11 +212,11 @@ def investigate(root, question, *, profile=None, start_source_ids=None, max_hops
             raise ValueError('Choose unique, currently eligible source identifiers')
     if work_directory is None:
         with tempfile.TemporaryDirectory(prefix='mplpb-history-') as directory:
-            return _run(root,question,profile,start_source_ids,max_hops,max_sources,max_chars,directory,False)
-    return _run(root,question,profile,start_source_ids,max_hops,max_sources,max_chars,work_directory,True)
+            return _run(root,question,profile,start_source_ids,max_hops,max_sources,max_chars,directory,False,prose_candidates)
+    return _run(root,question,profile,start_source_ids,max_hops,max_sources,max_chars,work_directory,True,prose_candidates)
 
 
-def _run(root, question, profile, seeds, hops, count, chars, directory, persistent):
+def _run(root, question, profile, seeds, hops, count, chars, directory, persistent, prose_candidates=False):
     initial = verification_snapshot(root,question,profile)
     store, authority = WorkStore.create(directory, {'investigation':Path(root).resolve()})
     if persistent:
@@ -298,6 +299,9 @@ def _run(root, question, profile, seeds, hops, count, chars, directory, persiste
     if passed:
         task['state']='done'
         put('verification','investigation','task',task,revision=1)
+    if prose_candidates and passed:
+        from .prose_evidence import discover
+        report['prose_candidates']=discover(root,question,profile,max_passages=12,max_chars=min(chars,12000))
     # Completion itself performs fresh dependency reads. Recheck the entire
     # serving state afterwards too, before exposing any old source quotation.
     unchanged=verification_snapshot(root,question,profile)==initial

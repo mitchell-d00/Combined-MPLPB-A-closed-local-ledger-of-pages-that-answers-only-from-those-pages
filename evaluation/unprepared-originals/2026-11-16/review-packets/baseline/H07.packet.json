@@ -1,0 +1,696 @@
+{
+  "case_id": "H07",
+  "arm": "baseline",
+  "question": "Distinguish the bombardment, surrender, evacuation and telegram dates in the Fort Sumter record, without treating the webpage review date as an event date.",
+  "output": {
+    "case_id": "H07",
+    "question": "Distinguish the bombardment, surrender, evacuation and telegram dates in the Fort Sumter record, without treating the webpage review date as an event date.",
+    "arm": "baseline",
+    "implementation_sha256": {
+      "mplpb_combined/__init__.py": "8ce7a60dc73b0229eb89f7cf3c4a3a47df70f410d0d957dc95b6e41281bb9672",
+      "mplpb_combined/__main__.py": "353ea5ef6cba220377dce05ac3c4eb0b2ecabe5a68188c591b69d9698862e356",
+      "mplpb_combined/baselines.py": "1b2426ccc12397c0525dcff875e1b922bc776c20174ed08aa89cd1f47891e4d3",
+      "mplpb_combined/delivery.py": "27400863c4007413ccd009efe19821a7963a014b47a01905455adb12b7b454ca",
+      "mplpb_combined/evaluate.py": "a537600f26c021040e54cc7badada45443c18af9dd2aa8e52b9f4e43081d79ff",
+      "mplpb_combined/killtest.py": "8b9b7c889626fe1bfe0f1aa87cb80698de2ae67db256e4355a6ce43508f88aa7",
+      "mplpb_combined/ledger.py": "a2c65367cabb1ff1c981ebac06cd3f8f998cd3d5e155aaf951d7a2fed9d02163",
+      "mplpb_combined/provenance_gate.py": "4ba1c7ec9b5a824b8e3eb6617e6872f35561a23b4dc4555822f78612f8c7a7b4",
+      "mplpb_combined/reader.py": "304c170fab15414c75111fddb277a8b50b4e62eacd86daa99dc071aba506c5ff",
+      "mplpb_combined/record.py": "36ee0e58f8428324a3a85d5a5625d8f1c43c5a8652f83afdb4e1a2f77ee05718",
+      "mplpb_combined/retrieval.py": "35528e3645af096d957df51fdb39ca66decd1f5a0a98cf61061e4ff51408c1c4",
+      "mplpb_answers/__init__.py": "d57d776eaaea962867814b5af3f0ac836fdd0c70ffbde910a801e6240697a095",
+      "mplpb_answers/__main__.py": "fecbccbf48ccfa9462f5f911126935dcc834cfeaf4bd1e579170d3a2097b48ca",
+      "mplpb_answers/assertions.py": "54a8a56e2e19bd3565098a3b66f28da590341405a454cf154319686ea0a51458",
+      "mplpb_answers/body_text.py": "0c02ba271796c6aafb985f3ef6ea95902086052cf030c471c226d1f6cbd79c44",
+      "mplpb_answers/corrections.py": "4f9cccee9fdc8d0b8c6eb37caf66cac34da8d9aa21a4a66e04b268eb122e0b6a",
+      "mplpb_answers/evaluate.py": "8c6e4444d661f5a2982338a45673ff594ae4cc4a86d3ec6e0bce6b7f77c90969",
+      "mplpb_answers/evaluation.py": "4d58e13a85f6edb1443bf156baaa48b1cdf72ce38e5e16a0ce53d195ac395715",
+      "mplpb_answers/evidence_contract.py": "5fb4226e9407d3432cdbaa518b10af9a5d5dc7bef0036e204848fbda3a3ffbe5",
+      "mplpb_answers/frames.py": "82c23f7382f862d3b95960b017dda278022ccee1f1bc4e9b339bf7c45ba8dede",
+      "mplpb_answers/library.py": "7d1613c28f01453270c8a53bf0e3f015bf197dff25b43edc764802e1e1306e5b",
+      "mplpb_answers/literal_evidence.py": "4dff854bea0a7ae453be35ee016be2533d9ed0b08b98b7ee4a28d2f10b5983fa",
+      "mplpb_answers/local_reader.py": "6e7a6702f8296b63dd8a2be292ef620c9e67ed6170770e1222cfee58e23ea815",
+      "mplpb_answers/operational_evidence.py": "ac4ac4c1b9df9f412323674083dbc1bdb83a6570b8576fde9969eddafd791580",
+      "mplpb_answers/passages.py": "d302e760befba392d408514e11711b157c5df61d5a35888970f38664a4a1ebbe",
+      "mplpb_answers/pipeline.py": "08d1456f45c9b4e8364dc0d96d61dced7eb7c87efbbb69622c29aa1cc7786ebe",
+      "mplpb_answers/policy_evidence.py": "90ae363e5b2b92c52ef24a9ff4d820821a76729f012831c51e27f3ad54492c35",
+      "mplpb_answers/practical_evidence.py": "0ad115570d1a5c1f756f2931e331a083d6f9ca6f7512223b5160278f5cda33af",
+      "mplpb_answers/procedures.py": "90cc6108617b3e56e578039f793581687bb2862e448421d5e5c7f088d2dfac37",
+      "mplpb_answers/relation_graph.py": "2166e4a1f3e16726dce78613feb2aeb4b664b56c4c070b7c9b6ebb2f348b9e20",
+      "mplpb_answers/support.py": "67821fc2399616dfbc10c52a440b3de5f6220a82aec44be595b60fd19b96f9ff",
+      "mplpb_work/__init__.py": "5015f3af15da1efed8d2f32bfb0c42a3d24d7c4fec53865dc96b8361db34a393",
+      "mplpb_work/__main__.py": "afa5fa55c9767520ccde8386c5f7c68a77ee2b10c7bad5d017f19efb2edb93e4",
+      "mplpb_work/api.py": "fd6e2b5893edb441a78e5abb2d41e49e42f476ae9e67ed720571605eb4909f1c",
+      "mplpb_work/errors.py": "633c7042a803a259e33db177b303dfd1d6ad5bc038f1908a3f70e469a966615a",
+      "mplpb_work/event_candidates.py": "78af56a9ea8de0993612c3a96999b54618dc506f1ac54374dde7805710716a34",
+      "mplpb_work/historical_evidence.py": "888900d1c90948946f24bd26efe31544747bc220bc9e2c0ce9a35382ec73eaa3",
+      "mplpb_work/historical_verifier.py": "6b801f50085aa0e3791c4f0dd2669d757c962dcc7d91080b8cef0ca001c9c4be",
+      "mplpb_work/investigation.py": "48d83cfe9080edef88f2527783a4ee1632c4ce7b3bcf03e8c844b91e3b9413ae",
+      "mplpb_work/model.py": "951148c7beda70581dbd6c539b496b3be968ef50e634961283015e0808d4eb20",
+      "mplpb_work/source_support.py": "a3460d71ca56141ac43f387f093854fc41f286369c7a9f5e6832e77fa38493b9",
+      "mplpb_work/store.py": "18596005e04b9a588fc187fcc56892fa19ff1c42d6beacf4a8425e6015f9aa46"
+    },
+    "answer": {
+      "schema": "answer-contract-v1",
+      "mode": "strict",
+      "question": "Distinguish the bombardment, surrender, evacuation and telegram dates in the Fort Sumter record, without treating the webpage review date as an event date.",
+      "kind": "abstain",
+      "answer_supported": false,
+      "text": "",
+      "claims": [],
+      "missing": [],
+      "clarification": "",
+      "confidence": null,
+      "confidence_calibrated": false,
+      "sources": [],
+      "retrieval": {
+        "eligible_pages": 7,
+        "total_passages": 1529,
+        "passages": [],
+        "sources": [],
+        "search_complete": false,
+        "corpus_snapshot": "sha256:a31b8bd4c51317baf5703b5d8a62963eafb48af85867e64916f2f6b424bbd231",
+        "ranking": "not_run"
+      },
+      "verification": {
+        "structural": false,
+        "semantic": "not_run",
+        "truth_verified": false,
+        "independence_verified": false
+      },
+      "reader": null,
+      "trace": [],
+      "diagnostic": {
+        "code": "interpretation_unsupported",
+        "stage": "strict",
+        "message": "Eligible passages exist, but the strict reader cannot establish an answer to this question.",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Inspect the relevant source. Try a supported question form or explicitly select a configured assisted reader; do not treat this refusal as proof that the answer is absent."
+        ]
+      },
+      "code_sha256": {
+        "__init__.py": "d57d776eaaea962867814b5af3f0ac836fdd0c70ffbde910a801e6240697a095",
+        "__main__.py": "fecbccbf48ccfa9462f5f911126935dcc834cfeaf4bd1e579170d3a2097b48ca",
+        "assertions.py": "54a8a56e2e19bd3565098a3b66f28da590341405a454cf154319686ea0a51458",
+        "body_text.py": "0c02ba271796c6aafb985f3ef6ea95902086052cf030c471c226d1f6cbd79c44",
+        "corrections.py": "4f9cccee9fdc8d0b8c6eb37caf66cac34da8d9aa21a4a66e04b268eb122e0b6a",
+        "evaluate.py": "8c6e4444d661f5a2982338a45673ff594ae4cc4a86d3ec6e0bce6b7f77c90969",
+        "evaluation.py": "4d58e13a85f6edb1443bf156baaa48b1cdf72ce38e5e16a0ce53d195ac395715",
+        "evidence_contract.py": "5fb4226e9407d3432cdbaa518b10af9a5d5dc7bef0036e204848fbda3a3ffbe5",
+        "frames.py": "82c23f7382f862d3b95960b017dda278022ccee1f1bc4e9b339bf7c45ba8dede",
+        "library.py": "7d1613c28f01453270c8a53bf0e3f015bf197dff25b43edc764802e1e1306e5b",
+        "literal_evidence.py": "4dff854bea0a7ae453be35ee016be2533d9ed0b08b98b7ee4a28d2f10b5983fa",
+        "local_reader.py": "6e7a6702f8296b63dd8a2be292ef620c9e67ed6170770e1222cfee58e23ea815",
+        "operational_evidence.py": "ac4ac4c1b9df9f412323674083dbc1bdb83a6570b8576fde9969eddafd791580",
+        "passages.py": "d302e760befba392d408514e11711b157c5df61d5a35888970f38664a4a1ebbe",
+        "pipeline.py": "08d1456f45c9b4e8364dc0d96d61dced7eb7c87efbbb69622c29aa1cc7786ebe",
+        "policy_evidence.py": "90ae363e5b2b92c52ef24a9ff4d820821a76729f012831c51e27f3ad54492c35",
+        "practical_evidence.py": "0ad115570d1a5c1f756f2931e331a083d6f9ca6f7512223b5160278f5cda33af",
+        "procedures.py": "90cc6108617b3e56e578039f793581687bb2862e448421d5e5c7f088d2dfac37",
+        "relation_graph.py": "2166e4a1f3e16726dce78613feb2aeb4b664b56c4c070b7c9b6ebb2f348b9e20",
+        "support.py": "67821fc2399616dfbc10c52a440b3de5f6220a82aec44be595b60fd19b96f9ff"
+      }
+    },
+    "investigation": {
+      "sources": [
+        {
+          "id": "ORIGINAL-0006",
+          "path": "original-0006.html",
+          "hash": "sha256:4220f999d1cfe2734726fbfc6857334ae548b827d22492a27546f1f7d10abf54",
+          "depth": 0
+        },
+        {
+          "id": "ORIGINAL-0005",
+          "path": "original-0005.html",
+          "hash": "sha256:1f670fe87ed6e4044e60858300adedc09c4d82982fd7201b1288644f6fc5440d",
+          "depth": 0
+        },
+        {
+          "id": "ORIGINAL-0003",
+          "path": "original-0003.html",
+          "hash": "sha256:4cf9834770c4c7f8a27bf808434c8530b781f008d5e594caf37a45ecd90c0d51",
+          "depth": 0
+        },
+        {
+          "id": "ORIGINAL-0004",
+          "path": "original-0004.html",
+          "hash": "sha256:b87d5883c09e9742bd7912abac58ed15694dadaf9d97f4d2191d3188051a7359",
+          "depth": 0
+        }
+      ],
+      "observations": [],
+      "relations": [],
+      "verification": {
+        "version": "historical-observation-verifier-v1",
+        "code": "verified",
+        "source_state_current": true,
+        "verified": [],
+        "rejected": [],
+        "answer_supported": false,
+        "truth_verified": false,
+        "authority": "verified_bounded_documentary_observations",
+        "notice": "Exact source declarations only; no historical truth, causation, priority or unrestricted synthesis is certified."
+      },
+      "seeds": [
+        "ORIGINAL-0006",
+        "ORIGINAL-0002",
+        "ORIGINAL-0005",
+        "ORIGINAL-0003",
+        "ORIGINAL-0004",
+        "ORIGINAL-0007",
+        "ORIGINAL-0001"
+      ],
+      "stops": [
+        {
+          "source_id": "ORIGINAL-0002",
+          "reason": "source_or_character_budget"
+        },
+        {
+          "source_id": "ORIGINAL-0007",
+          "reason": "source_or_character_budget"
+        },
+        {
+          "source_id": "ORIGINAL-0001",
+          "reason": "source_or_character_budget"
+        }
+      ],
+      "discovery_complete": true,
+      "discovery_characters_examined": 267352,
+      "discovery_limits": {
+        "sources": 256,
+        "source_html_prefix": 50000,
+        "total_html_characters": 1000000
+      },
+      "source_characters_examined": 194574,
+      "observation_budget_reached": false,
+      "event_candidates": {
+        "version": "documentary-event-candidates-v1",
+        "source_state_current": true,
+        "candidates": [],
+        "unassigned_occurrences": [],
+        "answer_supported": false,
+        "truth_verified": false,
+        "notice": "Explicit source IDs group candidate occurrences; equal subjects do not prove identity and changed bodies require review."
+      },
+      "chronology": {
+        "dates": [],
+        "historical_event_order_verified": false,
+        "publication_priority_verified": false,
+        "notice": "Declared document dates only. Git timestamps, observation time and event time are separate evidence bases."
+      },
+      "operator_seconds": null,
+      "operator_events": [],
+      "schema": "bounded-relation-investigation-v1",
+      "question": "Distinguish the bombardment, surrender, evacuation and telegram dates in the Fort Sumter record, without treating the webpage review date as an event date.",
+      "profile": "internal",
+      "authority": "verified_documentary_observations",
+      "status": "evidence_report",
+      "answer_supported": false,
+      "truth_verified": false,
+      "independence_verified": false,
+      "experts": [
+        {
+          "role": "documentary",
+          "operation": "history.documentary.v1",
+          "implementation": "deterministic local software"
+        },
+        {
+          "role": "chronology",
+          "operation": "history.chronology.v1",
+          "implementation": "deterministic local software"
+        },
+        {
+          "role": "verification",
+          "operation": "history.verification.v1",
+          "implementation": "deterministic local software"
+        }
+      ],
+      "receipts": [
+        {
+          "role": "documentary",
+          "receipt": "0e7a77e981584af6a5caf476d7764a9e",
+          "status": "passed"
+        },
+        {
+          "role": "chronology",
+          "receipt": "2819ac7bf28f4d15936bbb1ae06d3864",
+          "status": "passed"
+        },
+        {
+          "role": "verification",
+          "receipt": "a06c87869783405f87d76330a8109df9",
+          "status": "passed"
+        }
+      ],
+      "work_retained": false,
+      "boundaries": {
+        "max_hops": 2,
+        "max_sources": 12,
+        "max_source_characters": 200000,
+        "corpus_escape_allowed": false,
+        "title_guessing_allowed": false,
+        "causal_inference_allowed": false,
+        "source_pages_written": false
+      },
+      "unresolved": [
+        "Interpretation of the original question beyond the declared fields remains unproved.",
+        "Related and supersedes declarations do not prove causation, endorsement or historical priority.",
+        "Missing, excluded, retired, ambiguous or over-budget targets were not traversed."
+      ]
+    },
+    "measurements": {
+      "wall_seconds": 53.68866473199887,
+      "cpu_seconds": 53.594473388,
+      "peak_python_allocated_bytes": null,
+      "allocation_tracing": "disabled in primary v2 runs; pilot retained separately",
+      "peak_process_rss_bytes": 38961152,
+      "rss_scope": "fresh Linux worker including imports; not incremental phase memory",
+      "source_html_bytes_read": 666308236,
+      "source_read_calls": 3262,
+      "source_documents_examined": 7,
+      "source_document_paths": [
+        "original-0001.html",
+        "original-0002.html",
+        "original-0003.html",
+        "original-0004.html",
+        "original-0005.html",
+        "original-0006.html",
+        "original-0007.html"
+      ],
+      "model_calls": 0,
+      "api_charge_usd": 0,
+      "compute_charge_usd": null,
+      "whole_worker_cpu_seconds": 53.709367,
+      "human_labeling_seconds": null,
+      "human_correction_seconds": null,
+      "human_review_seconds": null,
+      "human_adjudication_seconds": null,
+      "original_source_documents_examined": 5
+    },
+    "execution_status": "completed",
+    "parent_wall_seconds": 53.832685142995615
+  },
+  "source_manifest": {
+    "schema": "unprepared-public-corpus-v1",
+    "baseline_commit": "614b18cc34f5270d4cb7dfbbf8239391a9f83b31",
+    "acquired_date_utc": "2026-11-16",
+    "sources": [
+      {
+        "id": "DARWIN-1887",
+        "url": "https://raw.githubusercontent.com/GITenberg/Life-and-Letters-of-Charles-Darwin---Volume-2_2088/9f84c5d2a15f65b0bcac389322d5e98fffd4ace9/2088.txt",
+        "path": "originals/darwin-volume2.txt",
+        "bytes": 1095407,
+        "sha256": "58bf88db528647ee9fe139071278e34e86d3a09aea56509a696d1dbeecef4aa1",
+        "retrieved_at_utc": "2026-11-16T15:22:38.645095+00:00",
+        "http_headers": "not retained during exploratory acquisition; unknown",
+        "encoding": "utf-8",
+        "media_type": "text/plain",
+        "rights_basis": "1887 published correspondence edition, public domain in the US; complete Project Gutenberg license retained",
+        "rights_url": "https://raw.githubusercontent.com/GITenberg/Life-and-Letters-of-Charles-Darwin---Volume-2_2088/9f84c5d2a15f65b0bcac389322d5e98fffd4ace9/LICENSE",
+        "original_metadata_location": "original bytes and adjacent provenance files"
+      },
+      {
+        "id": "JEFFERSON-DRAFT",
+        "url": "https://www.loc.gov/exhibits/declara/ruffdrft.html",
+        "path": "originals/jefferson-draft.html",
+        "bytes": 19268,
+        "sha256": "244940c64e2678f2684517d282d916214174566e2c7a335e705e63724e6a9c61",
+        "retrieved_at_utc": "2026-11-16T15:18:51.073840+00:00",
+        "http_headers": "not retained during exploratory acquisition; unknown",
+        "encoding": "utf-8",
+        "media_type": "text/html",
+        "rights_basis": "1776 original text, public domain; LOC transcription and exhibition framing separately retained",
+        "rights_url": "https://www.loc.gov/legal/",
+        "original_metadata_location": "original bytes and adjacent provenance files"
+      },
+      {
+        "id": "DECLARATION-1776",
+        "url": "https://www.archives.gov/founding-docs/declaration-transcript",
+        "path": "originals/declaration.html",
+        "bytes": 48690,
+        "sha256": "e55e09632cab8180823eb28a12664c4386bbac8f42e1d160c28c53372a2c8b8d",
+        "retrieved_at_utc": "2026-11-16T15:18:51.265874+00:00",
+        "http_headers": "not retained during exploratory acquisition; unknown",
+        "encoding": "utf-8",
+        "media_type": "text/html",
+        "rights_basis": "1776 federal founding document, public domain; NARA government-produced transcription reusable under stated policy",
+        "rights_url": "https://www.archives.gov/global-pages/privacy.html",
+        "original_metadata_location": "original bytes and adjacent provenance files"
+      },
+      {
+        "id": "SUMTER-1861",
+        "url": "https://www.archives.gov/milestone-documents/telegram-announcing-the-surrender-of-fort-sumter",
+        "path": "originals/sumter-telegram.html",
+        "bytes": 38348,
+        "sha256": "a31a882c38f16ac76d827cd92c9269405d6b2ee70117c2c44eac2d13cfd18510",
+        "retrieved_at_utc": "2026-11-16T15:21:01.627397+00:00",
+        "http_headers": "not retained during exploratory acquisition; unknown",
+        "encoding": "utf-8",
+        "media_type": "text/html",
+        "rights_basis": "1861 historical telegram, pre-1931 public-domain text; NARA government-produced presentation",
+        "rights_url": "https://www.archives.gov/global-pages/privacy.html",
+        "original_metadata_location": "original bytes and adjacent provenance files"
+      },
+      {
+        "id": "APOLLO13-1970",
+        "url": "https://ntrs.nasa.gov/api/citations/19710003598/downloads/19710003598.txt",
+        "path": "originals/apollo13.txt",
+        "bytes": 266144,
+        "sha256": "aadcc1b68fb3819890915e2e8ddf628cca86b6195936c7d20ed474e348456738",
+        "retrieved_at_utc": "2026-11-16T15:21:02.545983+00:00",
+        "http_headers": "not retained during exploratory acquisition; unknown",
+        "encoding": "utf-8",
+        "media_type": "text/plain",
+        "rights_basis": "NASA NTRS GOV_PUBLIC_USE_PERMITTED; PUBLIC distribution; no third-party material indicated",
+        "rights_url": "https://ntrs.nasa.gov/api/citations/19710003598",
+        "original_metadata_location": "original bytes and adjacent provenance files"
+      }
+    ],
+    "provenance_files": [
+      {
+        "id": "PG-LICENSE",
+        "url": "https://raw.githubusercontent.com/GITenberg/Life-and-Letters-of-Charles-Darwin---Volume-2_2088/9f84c5d2a15f65b0bcac389322d5e98fffd4ace9/LICENSE",
+        "path": "provenance/pg-license.txt",
+        "bytes": 17504,
+        "sha256": "1e301e03fb28addf6ad03d42b1429e87679013d1ee7e141c7c968fbef0ad961d",
+        "retrieved_at_utc": "2026-11-16T15:22:38.943815+00:00",
+        "http_headers": "not retained during exploratory acquisition; unknown",
+        "encoding": "utf-8",
+        "rights_basis": "Publisher-provided public rights/provenance statement; retained verbatim for source verification"
+      },
+      {
+        "id": "PG-METADATA",
+        "url": "https://raw.githubusercontent.com/GITenberg/Life-and-Letters-of-Charles-Darwin---Volume-2_2088/9f84c5d2a15f65b0bcac389322d5e98fffd4ace9/metadata.yaml",
+        "path": "provenance/pg-metadata.yaml",
+        "bytes": 1274,
+        "sha256": "141ce36f7b9b292e6beef2c5ff911984fb306204e9e6b410b438a4e101a2ce14",
+        "retrieved_at_utc": "2026-11-16T15:22:39.275375+00:00",
+        "http_headers": "not retained during exploratory acquisition; unknown",
+        "encoding": "utf-8",
+        "rights_basis": "Publisher-provided public rights/provenance statement; retained verbatim for source verification"
+      },
+      {
+        "id": "NASA-METADATA",
+        "url": "https://ntrs.nasa.gov/api/citations/19710003598",
+        "path": "provenance/nasa-metadata.json",
+        "bytes": 2757,
+        "sha256": "d9c30737844df6615c73bf027ef97df184de4cc588438bb69308ea6bab2aa724",
+        "retrieved_at_utc": "2026-11-16T15:19:20.351939+00:00",
+        "http_headers": "not retained during exploratory acquisition; unknown",
+        "encoding": "utf-8",
+        "rights_basis": "Publisher-provided public rights/provenance statement; retained verbatim for source verification"
+      },
+      {
+        "id": "LOC-RIGHTS",
+        "url": "https://www.loc.gov/legal/",
+        "path": "provenance/loc-rights.html",
+        "bytes": 44257,
+        "sha256": "e9cedbc600af16188f59981354efcc75cb3bb3762f89d26ce69ddb683da45f9f",
+        "retrieved_at_utc": "2026-11-16T15:21:01.661885+00:00",
+        "http_headers": "not retained during exploratory acquisition; unknown",
+        "encoding": "utf-8",
+        "rights_basis": "Publisher-provided public rights/provenance statement; retained verbatim for source verification"
+      },
+      {
+        "id": "NARA-RIGHTS",
+        "url": "https://www.archives.gov/global-pages/privacy.html",
+        "path": "provenance/nara-rights.html",
+        "bytes": 57095,
+        "sha256": "b0808e62f1bbbad0f68fa1740c3a802656803a6bc23c2bfe694288e0389261ea",
+        "retrieved_at_utc": "2026-11-16T15:18:51.155961+00:00",
+        "http_headers": "not retained during exploratory acquisition; unknown",
+        "encoding": "utf-8",
+        "rights_basis": "Publisher-provided public rights/provenance statement; retained verbatim for source verification"
+      }
+    ],
+    "unprepared_for_mplpb": true,
+    "coverage": "Purposive five-source development corpus, not a representative archive sample. Transcriptions/editions are not autograph manuscript scans."
+  },
+  "import_receipt": {
+    "schema": "unprepared-native-import-v1",
+    "corpus_manifest_sha256": "3bc03260139a918c956fbdf877c3b9962593dbb4f231ece7511ce85c3f62343b",
+    "corpus_namespace": "unprepared-public-corpus-v1",
+    "records": [
+      {
+        "id": "ORIGINAL-0001",
+        "path": "original-0001.html",
+        "hash": "sha256:cda3c0719ca4c839dfef3c3165934214c5e995fa3fb840a61b9a0ba77ebb9c32",
+        "original_id": "DARWIN-1887",
+        "original_sha256": "58bf88db528647ee9fe139071278e34e86d3a09aea56509a696d1dbeecef4aa1",
+        "original_url": "https://raw.githubusercontent.com/GITenberg/Life-and-Letters-of-Charles-Darwin---Volume-2_2088/9f84c5d2a15f65b0bcac389322d5e98fffd4ace9/2088.txt",
+        "projection_sha256": "999aadd94732bc112c43277100115d618f13ef7f35f01b64330c572c94cb3a00",
+        "projection_character_start": 0,
+        "projection_character_end": 450000,
+        "canonical_characters": 450000,
+        "transformation": {
+          "operation": "declared character decoding, HTML escape and existing canonical body projection"
+        },
+        "projection_version": "body-text-no-headings-v1",
+        "wrapper_fields_added": {
+          "document-id": "ORIGINAL-0001",
+          "title": "Imported original ORIGINAL-0001",
+          "scope": "public historical records",
+          "origin": "machine",
+          "origin-depth": 1,
+          "status": "current",
+          "updated": "2026-11-16T00:00Z",
+          "hash": "sha256:cda3c0719ca4c839dfef3c3165934214c5e995fa3fb840a61b9a0ba77ebb9c32",
+          "derived-from": "",
+          "supersedes": ""
+        },
+        "wrapper_metadata_is_source_authored": false,
+        "answer_fields_added": false
+      },
+      {
+        "id": "ORIGINAL-0002",
+        "path": "original-0002.html",
+        "hash": "sha256:954b6ef1585a74113b11936096e15e3ac95406cb9e99b0bf4908d917647adfca",
+        "original_id": "DARWIN-1887",
+        "original_sha256": "58bf88db528647ee9fe139071278e34e86d3a09aea56509a696d1dbeecef4aa1",
+        "original_url": "https://raw.githubusercontent.com/GITenberg/Life-and-Letters-of-Charles-Darwin---Volume-2_2088/9f84c5d2a15f65b0bcac389322d5e98fffd4ace9/2088.txt",
+        "projection_sha256": "eac723de01fa5bf5723a2da772fcdd42330b6c72e43f0ddcf0bb53e08c7c1e5c",
+        "projection_character_start": 450000,
+        "projection_character_end": 900000,
+        "canonical_characters": 450000,
+        "transformation": {
+          "operation": "declared character decoding, HTML escape and existing canonical body projection"
+        },
+        "projection_version": "body-text-no-headings-v1",
+        "wrapper_fields_added": {
+          "document-id": "ORIGINAL-0002",
+          "title": "Imported original ORIGINAL-0002",
+          "scope": "public historical records",
+          "origin": "machine",
+          "origin-depth": 1,
+          "status": "current",
+          "updated": "2026-11-16T00:00Z",
+          "hash": "sha256:954b6ef1585a74113b11936096e15e3ac95406cb9e99b0bf4908d917647adfca",
+          "derived-from": "",
+          "supersedes": ""
+        },
+        "wrapper_metadata_is_source_authored": false,
+        "answer_fields_added": false
+      },
+      {
+        "id": "ORIGINAL-0003",
+        "path": "original-0003.html",
+        "hash": "sha256:4cf9834770c4c7f8a27bf808434c8530b781f008d5e594caf37a45ecd90c0d51",
+        "original_id": "DARWIN-1887",
+        "original_sha256": "58bf88db528647ee9fe139071278e34e86d3a09aea56509a696d1dbeecef4aa1",
+        "original_url": "https://raw.githubusercontent.com/GITenberg/Life-and-Letters-of-Charles-Darwin---Volume-2_2088/9f84c5d2a15f65b0bcac389322d5e98fffd4ace9/2088.txt",
+        "projection_sha256": "91bc741558941490c9b95eca92aea1e686f30a36c8482abe32c146aaa6e9b1c2",
+        "projection_character_start": 900000,
+        "projection_character_end": 1067459,
+        "canonical_characters": 167459,
+        "transformation": {
+          "operation": "declared character decoding, HTML escape and existing canonical body projection"
+        },
+        "projection_version": "body-text-no-headings-v1",
+        "wrapper_fields_added": {
+          "document-id": "ORIGINAL-0003",
+          "title": "Imported original ORIGINAL-0003",
+          "scope": "public historical records",
+          "origin": "machine",
+          "origin-depth": 1,
+          "status": "current",
+          "updated": "2026-11-16T00:00Z",
+          "hash": "sha256:4cf9834770c4c7f8a27bf808434c8530b781f008d5e594caf37a45ecd90c0d51",
+          "derived-from": "",
+          "supersedes": ""
+        },
+        "wrapper_metadata_is_source_authored": false,
+        "answer_fields_added": false
+      },
+      {
+        "id": "ORIGINAL-0004",
+        "path": "original-0004.html",
+        "hash": "sha256:b87d5883c09e9742bd7912abac58ed15694dadaf9d97f4d2191d3188051a7359",
+        "original_id": "JEFFERSON-DRAFT",
+        "original_sha256": "244940c64e2678f2684517d282d916214174566e2c7a335e705e63724e6a9c61",
+        "original_url": "https://www.loc.gov/exhibits/declara/ruffdrft.html",
+        "projection_sha256": "4264d198083cd09e32078c5ab523a2a8eecab93ca4e3e175ff18a65f69ed4e50",
+        "projection_character_start": 0,
+        "projection_character_end": 10878,
+        "canonical_characters": 10878,
+        "transformation": {
+          "operation": "body envelope selection only; source body markup retained",
+          "raw_character_start": 1574,
+          "raw_character_end": 19253
+        },
+        "projection_version": "body-text-no-headings-v1",
+        "wrapper_fields_added": {
+          "document-id": "ORIGINAL-0004",
+          "title": "Imported original ORIGINAL-0004",
+          "scope": "public historical records",
+          "origin": "machine",
+          "origin-depth": 1,
+          "status": "current",
+          "updated": "2026-11-16T00:00Z",
+          "hash": "sha256:b87d5883c09e9742bd7912abac58ed15694dadaf9d97f4d2191d3188051a7359",
+          "derived-from": "",
+          "supersedes": ""
+        },
+        "wrapper_metadata_is_source_authored": false,
+        "answer_fields_added": false
+      },
+      {
+        "id": "ORIGINAL-0005",
+        "path": "original-0005.html",
+        "hash": "sha256:1f670fe87ed6e4044e60858300adedc09c4d82982fd7201b1288644f6fc5440d",
+        "original_id": "DECLARATION-1776",
+        "original_sha256": "e55e09632cab8180823eb28a12664c4386bbac8f42e1d160c28c53372a2c8b8d",
+        "original_url": "https://www.archives.gov/founding-docs/declaration-transcript",
+        "projection_sha256": "8072cca8159fd027e318cf1096afe980123a1384629aafe464b0755ecb9a8fea",
+        "projection_character_start": 0,
+        "projection_character_end": 11561,
+        "canonical_characters": 11561,
+        "transformation": {
+          "operation": "body envelope selection only; source body markup retained",
+          "raw_character_start": 18344,
+          "raw_character_end": 48665
+        },
+        "projection_version": "body-text-no-headings-v1",
+        "wrapper_fields_added": {
+          "document-id": "ORIGINAL-0005",
+          "title": "Imported original ORIGINAL-0005",
+          "scope": "public historical records",
+          "origin": "machine",
+          "origin-depth": 1,
+          "status": "current",
+          "updated": "2026-11-16T00:00Z",
+          "hash": "sha256:1f670fe87ed6e4044e60858300adedc09c4d82982fd7201b1288644f6fc5440d",
+          "derived-from": "",
+          "supersedes": ""
+        },
+        "wrapper_metadata_is_source_authored": false,
+        "answer_fields_added": false
+      },
+      {
+        "id": "ORIGINAL-0006",
+        "path": "original-0006.html",
+        "hash": "sha256:4220f999d1cfe2734726fbfc6857334ae548b827d22492a27546f1f7d10abf54",
+        "original_id": "SUMTER-1861",
+        "original_sha256": "a31a882c38f16ac76d827cd92c9269405d6b2ee70117c2c44eac2d13cfd18510",
+        "original_url": "https://www.archives.gov/milestone-documents/telegram-announcing-the-surrender-of-fort-sumter",
+        "projection_sha256": "e67446830eeb99b17c8668d5bfd56eda866094578a6f0b2bd14542dd7390c1a7",
+        "projection_character_start": 0,
+        "projection_character_end": 4676,
+        "canonical_characters": 4676,
+        "transformation": {
+          "operation": "body envelope selection only; source body markup retained",
+          "raw_character_start": 19032,
+          "raw_character_end": 38317
+        },
+        "projection_version": "body-text-no-headings-v1",
+        "wrapper_fields_added": {
+          "document-id": "ORIGINAL-0006",
+          "title": "Imported original ORIGINAL-0006",
+          "scope": "public historical records",
+          "origin": "machine",
+          "origin-depth": 1,
+          "status": "current",
+          "updated": "2026-11-16T00:00Z",
+          "hash": "sha256:4220f999d1cfe2734726fbfc6857334ae548b827d22492a27546f1f7d10abf54",
+          "derived-from": "",
+          "supersedes": ""
+        },
+        "wrapper_metadata_is_source_authored": false,
+        "answer_fields_added": false
+      },
+      {
+        "id": "ORIGINAL-0007",
+        "path": "original-0007.html",
+        "hash": "sha256:e3ec7774d22142e5251f1650d4fe1faa1e11c125c274e8a4c982d18b23714c8f",
+        "original_id": "APOLLO13-1970",
+        "original_sha256": "aadcc1b68fb3819890915e2e8ddf628cca86b6195936c7d20ed474e348456738",
+        "original_url": "https://ntrs.nasa.gov/api/citations/19710003598/downloads/19710003598.txt",
+        "projection_sha256": "1c5e277db38fdb12b506279674db491aa4bbdc82d0772787128b5accfaa90fe3",
+        "projection_character_start": 0,
+        "projection_character_end": 260522,
+        "canonical_characters": 260522,
+        "transformation": {
+          "operation": "declared character decoding, HTML escape and existing canonical body projection"
+        },
+        "projection_version": "body-text-no-headings-v1",
+        "wrapper_fields_added": {
+          "document-id": "ORIGINAL-0007",
+          "title": "Imported original ORIGINAL-0007",
+          "scope": "public historical records",
+          "origin": "machine",
+          "origin-depth": 1,
+          "status": "current",
+          "updated": "2026-11-16T00:00Z",
+          "hash": "sha256:e3ec7774d22142e5251f1650d4fe1faa1e11c125c274e8a4c982d18b23714c8f",
+          "derived-from": "",
+          "supersedes": ""
+        },
+        "wrapper_metadata_is_source_authored": false,
+        "answer_fields_added": false
+      }
+    ],
+    "notes": [
+      "Titles, scope, IDs, depth and time are import bookkeeping only.",
+      "Original content is not rewritten into Event-ID, Related, Corrects or answer labels.",
+      "Modern editorial framing, OCR errors, layout loss in canonical text and fixed chunk boundaries are retained limitations."
+    ]
+  },
+  "reference_draft": {
+    "id": "H07",
+    "expectation_draft": "Institutional framing dates fighting April 12-13 and surrender April 13; original message says evacuation on the fourteenth and telegram header eighteenth. The modern review date is not the battle date.",
+    "answerability_draft": "answerable",
+    "reference_scope": "Only the specific source passages and question facets listed; not exhaustive historical truth",
+    "reference_complete": false,
+    "review_status": "unreviewed developer draft",
+    "citations": [
+      {
+        "source_id": "ORIGINAL-0006",
+        "source_hash": "sha256:4220f999d1cfe2734726fbfc6857334ae548b827d22492a27546f1f7d10abf54",
+        "start": 1603,
+        "end": 1923,
+        "quote": "On April 12, the Confederate batteries opened fire on the fort, which was unable to reply effectively. At 2:30 p.m., April 13, Major Anderson surrendered Fort Sumter, evacuating the garrison on the following day. The battle had started at 4:30 a.m. and ended 34 hours later.\nMajor Anderson notiﬁed Secretary of War Simon",
+        "original_id": "SUMTER-1861",
+        "source_url": "https://www.archives.gov/milestone-documents/telegram-announcing-the-surrender-of-fort-sumter"
+      },
+      {
+        "source_id": "ORIGINAL-0006",
+        "source_hash": "sha256:4220f999d1cfe2734726fbfc6857334ae548b827d22492a27546f1f7d10abf54",
+        "start": 2567,
+        "end": 2837,
+        "quote": "S.S. Baltic. off Sandy Hook apr. Eighteenth Ten Thirty A.M. via New York. Hon. S. Cameron. Secy. War Washn. Having defended Fort Sumter for thirty four hours until the quarters were entirely burned the main gates destroyed by fire. The gorge walls seriously injured. The",
+        "original_id": "SUMTER-1861",
+        "source_url": "https://www.archives.gov/milestone-documents/telegram-announcing-the-surrender-of-fort-sumter"
+      },
+      {
+        "source_id": "ORIGINAL-0006",
+        "source_hash": "sha256:4220f999d1cfe2734726fbfc6857334ae548b827d22492a27546f1f7d10abf54",
+        "start": 3172,
+        "end": 3402,
+        "quote": "and marched out of the fort Sunday afternoon the fourteenth inst. With colors flying and drums beating. Bringing away company and private property and saluting my flag with fifty guns. Robert Anderson. Major First Artillery. Comma",
+        "original_id": "SUMTER-1861",
+        "source_url": "https://www.archives.gov/milestone-documents/telegram-announcing-the-surrender-of-fort-sumter"
+      }
+    ]
+  },
+  "reference_notice": "Incomplete developer draft; reviewer must inspect originals and may reject it."
+}

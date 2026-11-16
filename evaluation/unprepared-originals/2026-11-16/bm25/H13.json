@@ -1,0 +1,357 @@
+{
+  "case_id": "H13",
+  "question": "Which distinct documentary layers in the Sumter page refer to the same historical message, and which statements belong to modern archival framing rather than the telegram?",
+  "arm": "bm25",
+  "implementation_sha256": {
+    "mplpb_combined/__init__.py": "8ce7a60dc73b0229eb89f7cf3c4a3a47df70f410d0d957dc95b6e41281bb9672",
+    "mplpb_combined/__main__.py": "353ea5ef6cba220377dce05ac3c4eb0b2ecabe5a68188c591b69d9698862e356",
+    "mplpb_combined/baselines.py": "1b2426ccc12397c0525dcff875e1b922bc776c20174ed08aa89cd1f47891e4d3",
+    "mplpb_combined/delivery.py": "27400863c4007413ccd009efe19821a7963a014b47a01905455adb12b7b454ca",
+    "mplpb_combined/evaluate.py": "a537600f26c021040e54cc7badada45443c18af9dd2aa8e52b9f4e43081d79ff",
+    "mplpb_combined/killtest.py": "8b9b7c889626fe1bfe0f1aa87cb80698de2ae67db256e4355a6ce43508f88aa7",
+    "mplpb_combined/ledger.py": "a2c65367cabb1ff1c981ebac06cd3f8f998cd3d5e155aaf951d7a2fed9d02163",
+    "mplpb_combined/provenance_gate.py": "4ba1c7ec9b5a824b8e3eb6617e6872f35561a23b4dc4555822f78612f8c7a7b4",
+    "mplpb_combined/reader.py": "304c170fab15414c75111fddb277a8b50b4e62eacd86daa99dc071aba506c5ff",
+    "mplpb_combined/record.py": "36ee0e58f8428324a3a85d5a5625d8f1c43c5a8652f83afdb4e1a2f77ee05718",
+    "mplpb_combined/retrieval.py": "35528e3645af096d957df51fdb39ca66decd1f5a0a98cf61061e4ff51408c1c4",
+    "mplpb_answers/__init__.py": "d57d776eaaea962867814b5af3f0ac836fdd0c70ffbde910a801e6240697a095",
+    "mplpb_answers/__main__.py": "fecbccbf48ccfa9462f5f911126935dcc834cfeaf4bd1e579170d3a2097b48ca",
+    "mplpb_answers/assertions.py": "54a8a56e2e19bd3565098a3b66f28da590341405a454cf154319686ea0a51458",
+    "mplpb_answers/body_text.py": "0c02ba271796c6aafb985f3ef6ea95902086052cf030c471c226d1f6cbd79c44",
+    "mplpb_answers/corrections.py": "4f9cccee9fdc8d0b8c6eb37caf66cac34da8d9aa21a4a66e04b268eb122e0b6a",
+    "mplpb_answers/evaluate.py": "8c6e4444d661f5a2982338a45673ff594ae4cc4a86d3ec6e0bce6b7f77c90969",
+    "mplpb_answers/evaluation.py": "4d58e13a85f6edb1443bf156baaa48b1cdf72ce38e5e16a0ce53d195ac395715",
+    "mplpb_answers/evidence_contract.py": "5fb4226e9407d3432cdbaa518b10af9a5d5dc7bef0036e204848fbda3a3ffbe5",
+    "mplpb_answers/frames.py": "82c23f7382f862d3b95960b017dda278022ccee1f1bc4e9b339bf7c45ba8dede",
+    "mplpb_answers/library.py": "7d1613c28f01453270c8a53bf0e3f015bf197dff25b43edc764802e1e1306e5b",
+    "mplpb_answers/literal_evidence.py": "4dff854bea0a7ae453be35ee016be2533d9ed0b08b98b7ee4a28d2f10b5983fa",
+    "mplpb_answers/local_reader.py": "6e7a6702f8296b63dd8a2be292ef620c9e67ed6170770e1222cfee58e23ea815",
+    "mplpb_answers/operational_evidence.py": "ac4ac4c1b9df9f412323674083dbc1bdb83a6570b8576fde9969eddafd791580",
+    "mplpb_answers/passages.py": "d302e760befba392d408514e11711b157c5df61d5a35888970f38664a4a1ebbe",
+    "mplpb_answers/pipeline.py": "08d1456f45c9b4e8364dc0d96d61dced7eb7c87efbbb69622c29aa1cc7786ebe",
+    "mplpb_answers/policy_evidence.py": "90ae363e5b2b92c52ef24a9ff4d820821a76729f012831c51e27f3ad54492c35",
+    "mplpb_answers/practical_evidence.py": "0ad115570d1a5c1f756f2931e331a083d6f9ca6f7512223b5160278f5cda33af",
+    "mplpb_answers/procedures.py": "90cc6108617b3e56e578039f793581687bb2862e448421d5e5c7f088d2dfac37",
+    "mplpb_answers/relation_graph.py": "2166e4a1f3e16726dce78613feb2aeb4b664b56c4c070b7c9b6ebb2f348b9e20",
+    "mplpb_answers/support.py": "67821fc2399616dfbc10c52a440b3de5f6220a82aec44be595b60fd19b96f9ff",
+    "mplpb_work/__init__.py": "5015f3af15da1efed8d2f32bfb0c42a3d24d7c4fec53865dc96b8361db34a393",
+    "mplpb_work/__main__.py": "afa5fa55c9767520ccde8386c5f7c68a77ee2b10c7bad5d017f19efb2edb93e4",
+    "mplpb_work/api.py": "fd6e2b5893edb441a78e5abb2d41e49e42f476ae9e67ed720571605eb4909f1c",
+    "mplpb_work/errors.py": "633c7042a803a259e33db177b303dfd1d6ad5bc038f1908a3f70e469a966615a",
+    "mplpb_work/event_candidates.py": "78af56a9ea8de0993612c3a96999b54618dc506f1ac54374dde7805710716a34",
+    "mplpb_work/historical_evidence.py": "888900d1c90948946f24bd26efe31544747bc220bc9e2c0ce9a35382ec73eaa3",
+    "mplpb_work/historical_verifier.py": "6b801f50085aa0e3791c4f0dd2669d757c962dcc7d91080b8cef0ca001c9c4be",
+    "mplpb_work/investigation.py": "48d83cfe9080edef88f2527783a4ee1632c4ce7b3bcf03e8c844b91e3b9413ae",
+    "mplpb_work/model.py": "951148c7beda70581dbd6c539b496b3be968ef50e634961283015e0808d4eb20",
+    "mplpb_work/source_support.py": "a3460d71ca56141ac43f387f093854fc41f286369c7a9f5e6832e77fa38493b9",
+    "mplpb_work/store.py": "18596005e04b9a588fc187fcc56892fa19ff1c42d6beacf4a8425e6015f9aa46"
+  },
+  "retrieval": {
+    "lineage_groups": [
+      {
+        "root": "ORIGINAL-0001@sha256:cda3c0719ca4c839dfef3c3165934214c5e995fa3fb840a61b9a0ba77ebb9c32",
+        "sources": [
+          "ORIGINAL-0001"
+        ]
+      },
+      {
+        "root": "ORIGINAL-0002@sha256:954b6ef1585a74113b11936096e15e3ac95406cb9e99b0bf4908d917647adfca",
+        "sources": [
+          "ORIGINAL-0002"
+        ]
+      },
+      {
+        "root": "ORIGINAL-0003@sha256:4cf9834770c4c7f8a27bf808434c8530b781f008d5e594caf37a45ecd90c0d51",
+        "sources": [
+          "ORIGINAL-0003"
+        ]
+      },
+      {
+        "root": "ORIGINAL-0005@sha256:1f670fe87ed6e4044e60858300adedc09c4d82982fd7201b1288644f6fc5440d",
+        "sources": [
+          "ORIGINAL-0005"
+        ]
+      },
+      {
+        "root": "ORIGINAL-0006@sha256:4220f999d1cfe2734726fbfc6857334ae548b827d22492a27546f1f7d10abf54",
+        "sources": [
+          "ORIGINAL-0006"
+        ]
+      },
+      {
+        "root": "ORIGINAL-0007@sha256:e3ec7774d22142e5251f1650d4fe1faa1e11c125c274e8a4c982d18b23714c8f",
+        "sources": [
+          "ORIGINAL-0007"
+        ]
+      }
+    ],
+    "independence_verified": false,
+    "passages": [
+      {
+        "id": "sha256:a6c17eb6c0c479d675c00c3d396a5b0f1deb317e822f7f795cc9512030459b46",
+        "source_id": "ORIGINAL-0006",
+        "path": "original-0006.html",
+        "hash": "sha256:4220f999d1cfe2734726fbfc6857334ae548b827d22492a27546f1f7d10abf54",
+        "body_start": 244,
+        "text": "Home > Telegram Announcing the Surrender of Fort Sumter (1861)",
+        "body_projection": "body-text-no-headings-v1",
+        "context_truncated": false,
+        "retrieval_score": 18.272412422101638
+      },
+      {
+        "id": "sha256:08b286d3cc3b34b62fe62345d16a63a46fecdc6fdc3c87d250b83dbf724b5a9a",
+        "source_id": "ORIGINAL-0002",
+        "path": "original-0002.html",
+        "hash": "sha256:954b6ef1585a74113b11936096e15e3ac95406cb9e99b0bf4908d917647adfca",
+        "body_start": 233833,
+        "text": "Darwin) has been obliged, virtually, to give up his theory, it is still\nmaintained by Darwinians with 'unscrupulous audacity,' and the actual\nrepudiation of it concealed by the 'conspiracy of silence.'\" Mr. Wallace\ngoes on to show that these charges are without foundation, and points\nout that, \"if there is one thing more than another for which Mr. Darwin\nis pre-eminent among modern literary and scientific men, it is for his\nperfect literary honesty, his self-abnegation in confessing himself\nwrong, and the eager haste with which he proclaims and even magnifies\nsmall errors in his works, for the most part discovered by himself.\"\nThe following extract from a letter to Mr. Wallace (June 17th) refers to\nMr. Mivart's statement ('Lessons from Nature,' page 144) that Mr. Darwin\nat first studiously disguised his views as to the \"bestiality of man\":--\n\"I have only just heard of and procured your two articles in the\nAcademy. I thank you most cordially for your generous defence of me\nagainst Mr. Mivart. In the 'Origin' I did not discuss the derivation\nof any one species; but that I might not be accused of concealing my\nopinion, I went out of my way, and inserted a sentence which seemed to",
+        "body_projection": "body-text-no-headings-v1",
+        "context_truncated": true,
+        "retrieval_score": 12.28546851010943
+      },
+      {
+        "id": "sha256:93ffef520f39aef38d028fc7645b5d7a876bdf21bc04cb66f25e74568135a3e8",
+        "source_id": "ORIGINAL-0001",
+        "path": "original-0001.html",
+        "hash": "sha256:cda3c0719ca4c839dfef3c3165934214c5e995fa3fb840a61b9a0ba77ebb9c32",
+        "body_start": 279704,
+        "text": "\"I shall be glad to hear when you have decided how many copies you will\nprint off--the more the better for me in all ways, as far as compatible\nwith safety; for I hope never again to make so many corrections, or\nrather additions, which I have made in hopes of making my many rather\nstupid reviewers at least understand what is meant. I hope and think I\nshall improve the book considerably.\"\nAn interesting feature in the new edition was the \"Historical Sketch of\nthe Recent Progress of Opinion on the Origin of Species\" (The Historical\nSketch had already appeared in the first German edition (1860) and the\nAmerican edition. Bronn states in the German edition (footnote, page\n1) that it was his critique in the 'N. Jahrbuch fur Mineralogie' that\nsuggested the idea of such a sketch to my father.) which now appeared\nfor the first time, and was continued in the later editions of the work.\nIt bears a strong impress of the author's personal character in the\nobvious wish to do full justice to all his predecessors,--though even in\nthis respect it has not escaped some adverse criticism.\nTowards the end of the present year (1861), the final arrangements",
+        "body_projection": "body-text-no-headings-v1",
+        "context_truncated": true,
+        "retrieval_score": 11.962879782584452
+      },
+      {
+        "id": "sha256:9e60c3bd2dc0e13ea781a2e8945b8d82743640d0bd83825ef872c11373a951fa",
+        "source_id": "ORIGINAL-0005",
+        "path": "original-0005.html",
+        "hash": "sha256:1f670fe87ed6e4044e60858300adedc09c4d82982fd7201b1288644f6fc5440d",
+        "body_start": 10233,
+        "text": "The condition of the parchment Declaration of Independence is a sign of the place it has held in the hearts of many Americans. Years of public display have faded and worn this treasured document. Today it is maintained under the most exacting archival conditions possible.",
+        "body_projection": "body-text-no-headings-v1",
+        "context_truncated": false,
+        "retrieval_score": 9.977917174372962
+      },
+      {
+        "id": "sha256:fb145b8a745f4312c93b3752383e1db6ba106a75ce5ff9f4d378b6ee3c46f0b7",
+        "source_id": "ORIGINAL-0006",
+        "path": "original-0006.html",
+        "hash": "sha256:4220f999d1cfe2734726fbfc6857334ae548b827d22492a27546f1f7d10abf54",
+        "body_start": 355,
+        "text": "Citation: Telegram from Maj. Robert Anderson to Hon. Simon Cameron, Secretary, announcing his withdrawal from Fort Sumter; April 18, 1861; Union Battle Reports, 1874 - 1899; Records of the Adjutant General's Office, Record Group 94; National Archives Building, Washington, DC.",
+        "body_projection": "body-text-no-headings-v1",
+        "context_truncated": false,
+        "retrieval_score": 15.279761580990652
+      },
+      {
+        "id": "sha256:253c964d434ecaf0e398a9318a10af6ba5d4d6403817ce4ec837b81eb77c94c5",
+        "source_id": "ORIGINAL-0007",
+        "path": "original-0007.html",
+        "hash": "sha256:e3ec7774d22142e5251f1650d4fe1faa1e11c125c274e8a4c982d18b23714c8f",
+        "body_start": 166469,
+        "text": "The ii photographs\nhave been normalized so that the earth is the\nsame size in all frames.\nFrames 8590 and 8591 have been further enlarged.\nBy viewing these two frames under a stereoscope, pronounced apparent relief\nis seen in the cloud patterns.\nThe relief is so pronounced,\nin fact, that\nit cannot be attributed solely to height differences\nof clouds.\nIt appears\nto result, in part, from the relative horizontal motion in the cloud fields;\nthat is, clouds moving in the same direction as the spacecraft appear farther away than those moving in the direction opposite that of the spacecraft.\nii. 3\nSEISMIC\nDETECTION\nIn prior lunar missions,\nspacecraft with the intention\nOF THIRD\nSTAGE\nLUNAR\nIMPACT\nthe third stage has been separated from the\nof entering a solar orbit through a near-\nmiss, or \"slingshot,\" approach to the moon.\nFor Apollo 13, an opportunity\nwas available to gain further data on large-mass impact phenomena which\ncould be derived using the seismic equipment deployed during Apollo 12.\nThe impact of the lunar module ascent stage during Apollo 12 pointed up\ncertain unexplained\nseismological\nevents which the S-IVB impact was expected to reproduc'e.\nii-i0\nThe S-IVB\nimpacted",
+        "body_projection": "body-text-no-headings-v1",
+        "context_truncated": true,
+        "retrieval_score": 6.971080933177727
+      },
+      {
+        "id": "sha256:7b47b232efb8bad72288b74512d6e67ef59b4f367f3d87d16d26849ba4d66b3a",
+        "source_id": "ORIGINAL-0003",
+        "path": "original-0003.html",
+        "hash": "sha256:4cf9834770c4c7f8a27bf808434c8530b781f008d5e594caf37a45ecd90c0d51",
+        "body_start": 80555,
+        "text": "Sir Joseph Hooker was asked by my father \"to take into consideration,\nwith the aid of the botanical staff at Kew and the late Mr. Bentham, the\nextent and scope of the proposed work, and to suggest the best means of\nhaving it executed. In doing this, Sir Joseph had further the advantage\nof the great knowledge and experience of Professor Asa Gray, of\nCambridge, U.S.A., and of Mr. John Ball, F.R.S.\" ('Journal of Botany,'\nloc. cit.)\nThe plan of the proposed work having been carefully considered, Sir\nJoseph Hooker was able to confide its elaboration in detail to Mr.\nB. Daydon Jackson, Secretary of the Linnean Society, whose extensive\nknowledge of botanical literature qualifies him for the task. My\nfather's original idea of producing a modern edition of Steudel's\n'Nomenclator' has been practically abandoned, the aim now kept in view\nis rather to construct a list of genera and species (with references)\nfounded on Bentham and Hooker's 'Genera Plantarum.' The colossal nature\nof the work in progress at Kew may be estimated by the fact that the\nmanuscript of the 'Index' is at the present time (1887) believed to\nweigh more than a ton. Under Sir Joseph Hooker's supervision the work",
+        "body_projection": "body-text-no-headings-v1",
+        "context_truncated": true,
+        "retrieval_score": 6.943243408874169
+      },
+      {
+        "id": "sha256:55c97d2aa9c4d25d13c3ea78261f0ce8dc019614a5adf2d908927803cd2951d2",
+        "source_id": "ORIGINAL-0002",
+        "path": "original-0002.html",
+        "hash": "sha256:954b6ef1585a74113b11936096e15e3ac95406cb9e99b0bf4908d917647adfca",
+        "body_start": 97069,
+        "text": "the guess has been talked over; and the circulation and discussion sum\nup the significance of the editions.\" Mr. Robertson makes the true, but\nmisleading statement: \"Mr. Darwin prefaces his fifth English edition\nwith an Essay, which he calls 'An Historical Sketch,' etc.\" As a matter\nof fact the Sketch appeared in the third edition in 1861.\nMr. Robertson goes on to say that the Sketch ought to be called a\ncollection of extracts anticipatory or corroborative of the hypothesis\nof Natural Selection. \"For no account is given of any hostile opinions.\nThe fact is very significant. This historical sketch thus resembles the\nhistories of the reign of Louis XVIII., published after the Restoration,\nfrom which the Republic and the Empire, Robespierre and Buonaparte were\nomitted.\"\nThe following letter to Prof. Victor Carus gives an idea of the\ncharacter of the new edition of the 'Origin:']\nCHARLES DARWIN TO VICTOR CARUS. Down, May 4, 1869.\n... I have gone very carefully through the whole, trying to make\nsome parts clearer, and adding a few discussions and facts of some\nimportance. The new edition is only two pages at the end longer than",
+        "body_projection": "body-text-no-headings-v1",
+        "context_truncated": true,
+        "retrieval_score": 11.669445476757451
+      },
+      {
+        "id": "sha256:2783b01b4760289c40f049a64341ba18d872f0aae90e88185f5c6f3ba7e68edb",
+        "source_id": "ORIGINAL-0001",
+        "path": "original-0001.html",
+        "hash": "sha256:cda3c0719ca4c839dfef3c3165934214c5e995fa3fb840a61b9a0ba77ebb9c32",
+        "body_start": 191995,
+        "text": "more easily converted than simple naturalists, because more accustomed\nto reasoning. Before telling you about the progress of opinion on the\nsubject, you must let me say how I admire the generous manner in which\nyou speak of my book. Most persons would in your position have felt some\nenvy or jealousy. How nobly free you seem to be of this common failing\nof mankind. But you speak far too modestly of yourself. You would, if\nyou had my leisure, have done the work just as well, perhaps better,\nthan I have done it...\n... Agassiz sends me a personal civil message, but incessantly attacks\nme; but Asa Gray fights like a hero in defence. Lyell keeps as firm as a\ntower, and this Autumn will publish on the 'Geological History of Man,'\nand will then declare his conversion, which now is universally known. I\nhope that you have received Hooker's splendid essay... Yesterday I heard\nfrom Lyell that a German, Dr. Schaaffhausen (Hermann Schaaffhausen\n'Ueber Bestandigkeit und Umwandlung der Arten.' Verhandl. d. Naturhist.\nVereins, Bonn, 1853. See 'Origin,' Historical Sketch.), has sent him\na pamphlet published some years ago, in which the same view is nearly",
+        "body_projection": "body-text-no-headings-v1",
+        "context_truncated": true,
+        "retrieval_score": 10.47356573271913
+      },
+      {
+        "id": "sha256:bf0700eb81f605ffc6171b1be91f875579c3f4e63996fbd5a6b1e4f902b1bc21",
+        "source_id": "ORIGINAL-0001",
+        "path": "original-0001.html",
+        "hash": "sha256:cda3c0719ca4c839dfef3c3165934214c5e995fa3fb840a61b9a0ba77ebb9c32",
+        "body_start": 253462,
+        "text": "homological difference may be detected. Please read page 193, beginning,\n\"The electric organs,\" and trust me that the sentence, \"In all these\ncases of two very distinct species,\" etc. etc., was not put in rashly,\nfor I went carefully into every case. Apply this argument to the whole\nframe, internal and external, of mammifers, and you will see why I think\nso strongly that all have descended from one progenitor. I have just\nre-read your letter, and I am not perfectly sure that I understand your\npoint.\nI enclose two diagrams showing the sort of manner I CONJECTURE that\nmammals have been developed. I thought a little on this when writing\npage 429, beginning, \"Mr. Waterhouse.\" (Please read the paragraph.) I\nhave not knowledge enough to choose between these two diagrams. If the\nbrain of Marsupials in embryo closely resembles that of Placentals,\nI should strongly prefer No.2, and this agrees with the antiquity of\nMicrolestes. As a general rule I should prefer No.1 diagram; whether or\nnot Marsupials have gone on being developed, or rising in rank, from a\nvery early period would depend on circumstances too complex for even",
+        "body_projection": "body-text-no-headings-v1",
+        "context_truncated": true,
+        "retrieval_score": 10.414658871578844
+      },
+      {
+        "id": "sha256:ec7f88ef3e744d65370a82dd0d5e5885ac5bcb970e350480190e878e26d77c3d",
+        "source_id": "ORIGINAL-0003",
+        "path": "original-0003.html",
+        "hash": "sha256:4cf9834770c4c7f8a27bf808434c8530b781f008d5e594caf37a45ecd90c0d51",
+        "body_start": 53051,
+        "text": "Independently of the question of transmission, my mind is so full of\nfacts leading me to believe that light, gravity, etc., act not in a\ndirect manner on growth, but as stimuli, that I am quite unable to\nmodify my judgment on this head. I could not understand the passage at\npage 78, until I consulted my son George, who is a mathematician. He\nsupposes that your objection is founded on the diffused light from the\nlamp illuminating both sides of the object, and not being reduced, with\nincreasing distance in the same ratio as the direct light; but he doubts\nwhether this NECESSARY correction will account for the very little\ndifference in the heliotropic curvature of the plants in the successive\npots.\nWith respect to the sensitiveness of the tips of roots to contact, I\ncannot admit your view until it is proved that I am in error about bits\nof card attached by liquid gum causing movement; whereas no movement\nwas caused if the card remained separated from the tip by a layer of the\nliquid gum. The fact also of thicker and thinner bits of card attached\non opposite sides of the same root by shellac, causing movement in one",
+        "body_projection": "body-text-no-headings-v1",
+        "context_truncated": true,
+        "retrieval_score": 6.891996410785139
+      },
+      {
+        "id": "sha256:039a1de80f5fa5c4aa336abbbc78c06a1d434307657db0122b0ff7d957cebb69",
+        "source_id": "ORIGINAL-0002",
+        "path": "original-0002.html",
+        "hash": "sha256:954b6ef1585a74113b11936096e15e3ac95406cb9e99b0bf4908d917647adfca",
+        "body_start": 204003,
+        "text": "is that I am bewildered and astonished by his statements, but am\nnot convinced, though, on the whole, it seems to me probable that\nArchebiosis is true. I am not convinced, partly I think owing to the\ndeductive cast of much of his reasoning; and I know not why, but I never\nfeel convinced by deduction, even in the case of H. Spencer's writings.\nIf Dr. Bastian's book had been turned upside down, and he had begun with\nthe various cases of Heterogenesis, and then gone on to organic,\nand afterwards to saline solutions, and had then given his general\narguments, I should have been, I believe, much more influenced.\nI suspect, however, that my chief difficulty is the effect of old\nconvictions being stereotyped on my brain. I must have more evidence\nthat germs, or the minutest fragments of the lowest forms, are always\nkilled by 212 degrees of Fahr. Perhaps the mere reiteration of the\nstatements given by Dr. Bastian [by] other men, whose judgment I\nrespect, and who have worked long on the lower organisms, would suffice\nto convince me. Here is a fine confession of intellectual weakness; but\nwhat an inexplicable frame of mind is that of belief!",
+        "body_projection": "body-text-no-headings-v1",
+        "context_truncated": true,
+        "retrieval_score": 9.642259000284326
+      }
+    ],
+    "sources": [
+      {
+        "id": "ORIGINAL-0001",
+        "path": "original-0001.html",
+        "hash": "sha256:cda3c0719ca4c839dfef3c3165934214c5e995fa3fb840a61b9a0ba77ebb9c32",
+        "title": "Imported original ORIGINAL-0001",
+        "origin": "machine",
+        "origin_depth": 1,
+        "scope": "public historical records",
+        "not_for": "",
+        "derived_from": [],
+        "supersedes": [],
+        "evidence_roots": [
+          "ORIGINAL-0001@sha256:cda3c0719ca4c839dfef3c3165934214c5e995fa3fb840a61b9a0ba77ebb9c32"
+        ]
+      },
+      {
+        "id": "ORIGINAL-0002",
+        "path": "original-0002.html",
+        "hash": "sha256:954b6ef1585a74113b11936096e15e3ac95406cb9e99b0bf4908d917647adfca",
+        "title": "Imported original ORIGINAL-0002",
+        "origin": "machine",
+        "origin_depth": 1,
+        "scope": "public historical records",
+        "not_for": "",
+        "derived_from": [],
+        "supersedes": [],
+        "evidence_roots": [
+          "ORIGINAL-0002@sha256:954b6ef1585a74113b11936096e15e3ac95406cb9e99b0bf4908d917647adfca"
+        ]
+      },
+      {
+        "id": "ORIGINAL-0003",
+        "path": "original-0003.html",
+        "hash": "sha256:4cf9834770c4c7f8a27bf808434c8530b781f008d5e594caf37a45ecd90c0d51",
+        "title": "Imported original ORIGINAL-0003",
+        "origin": "machine",
+        "origin_depth": 1,
+        "scope": "public historical records",
+        "not_for": "",
+        "derived_from": [],
+        "supersedes": [],
+        "evidence_roots": [
+          "ORIGINAL-0003@sha256:4cf9834770c4c7f8a27bf808434c8530b781f008d5e594caf37a45ecd90c0d51"
+        ]
+      },
+      {
+        "id": "ORIGINAL-0005",
+        "path": "original-0005.html",
+        "hash": "sha256:1f670fe87ed6e4044e60858300adedc09c4d82982fd7201b1288644f6fc5440d",
+        "title": "Imported original ORIGINAL-0005",
+        "origin": "machine",
+        "origin_depth": 1,
+        "scope": "public historical records",
+        "not_for": "",
+        "derived_from": [],
+        "supersedes": [],
+        "evidence_roots": [
+          "ORIGINAL-0005@sha256:1f670fe87ed6e4044e60858300adedc09c4d82982fd7201b1288644f6fc5440d"
+        ]
+      },
+      {
+        "id": "ORIGINAL-0006",
+        "path": "original-0006.html",
+        "hash": "sha256:4220f999d1cfe2734726fbfc6857334ae548b827d22492a27546f1f7d10abf54",
+        "title": "Imported original ORIGINAL-0006",
+        "origin": "machine",
+        "origin_depth": 1,
+        "scope": "public historical records",
+        "not_for": "",
+        "derived_from": [],
+        "supersedes": [],
+        "evidence_roots": [
+          "ORIGINAL-0006@sha256:4220f999d1cfe2734726fbfc6857334ae548b827d22492a27546f1f7d10abf54"
+        ]
+      },
+      {
+        "id": "ORIGINAL-0007",
+        "path": "original-0007.html",
+        "hash": "sha256:e3ec7774d22142e5251f1650d4fe1faa1e11c125c274e8a4c982d18b23714c8f",
+        "title": "Imported original ORIGINAL-0007",
+        "origin": "machine",
+        "origin_depth": 1,
+        "scope": "public historical records",
+        "not_for": "",
+        "derived_from": [],
+        "supersedes": [],
+        "evidence_roots": [
+          "ORIGINAL-0007@sha256:e3ec7774d22142e5251f1650d4fe1faa1e11c125c274e8a4c982d18b23714c8f"
+        ]
+      }
+    ],
+    "eligible_pages": 7,
+    "total_passages": 1529,
+    "search_complete": false,
+    "queries": [
+      "Which distinct documentary layers in the Sumter page refer to the same historical message, and which statements belong to modern archival framing rather than the telegram?"
+    ],
+    "corpus_snapshot": "sha256:a31b8bd4c51317baf5703b5d8a62963eafb48af85867e64916f2f6b424bbd231",
+    "ranking": "bm25-with-page-diversity-v1"
+  },
+  "answer_supported": false,
+  "notice": "Actual gated source search execution, not a reconstructed answer or human workflow.",
+  "measurements": {
+    "wall_seconds": 1.2585647050000262,
+    "cpu_seconds": 1.254844802,
+    "peak_python_allocated_bytes": null,
+    "allocation_tracing": "disabled in primary v2 runs; pilot retained separately",
+    "peak_process_rss_bytes": 33611776,
+    "rss_scope": "fresh Linux worker including imports; not incremental phase memory",
+    "source_html_bytes_read": 2859692,
+    "source_read_calls": 14,
+    "source_documents_examined": 7,
+    "source_document_paths": [
+      "original-0001.html",
+      "original-0002.html",
+      "original-0003.html",
+      "original-0004.html",
+      "original-0005.html",
+      "original-0006.html",
+      "original-0007.html"
+    ],
+    "model_calls": 0,
+    "api_charge_usd": 0,
+    "compute_charge_usd": null,
+    "whole_worker_cpu_seconds": 1.3932250000000002,
+    "human_labeling_seconds": null,
+    "human_correction_seconds": null,
+    "human_review_seconds": null,
+    "human_adjudication_seconds": null,
+    "original_source_documents_examined": 5
+  },
+  "execution_status": "completed",
+  "parent_wall_seconds": 1.4213483330022427
+}

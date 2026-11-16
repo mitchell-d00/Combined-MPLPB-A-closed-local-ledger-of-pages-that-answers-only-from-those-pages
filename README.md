@@ -217,3 +217,16 @@ The [original-record study workflow](docs/ORIGINAL_RECORD_STUDY.md) prepares pin
 The original-record worker can run with fail-closed Linux isolation using `run --sandboxed`; see the [study sandbox and its limits](docs/ORIGINAL_RECORD_STUDY.md). Public [isolation tests](tests/test_study_sandbox.py) exercise denied gold access, input writes, network access and environment inheritance. The host administrator remains trusted.
 
 Update 2026-11-16: [Scoped evidence extensions](docs/SCOPED_EVIDENCE_EXTENSIONS.md) add precise field/identity/correction diagnostics, exact source routing, distinct event nodes, declared correction windows, quoted relation inspection and non-authoritative receipt/effort metadata. Public focused tests are linked in the guide; historical reports retain their original scope.
+
+
+## Unprepared-original conversion study — 2026-11-16
+
+See the [frozen original-record evaluation](docs/UNPREPARED_ORIGINAL_CHALLENGE.md) and [source mapping repair](docs/SOURCE_MAPPING_REPAIR.md). Authentic originals and randomized synthetic controls have separate frozen inputs and retained outputs. Reversible candidate mappings preserve native authority boundaries; exact quote fidelity does not verify historical meaning. Independent human historical assessment is NOT RUN. Earlier results retain their original scope.
+
+
+## Source-linked reconstruction follow-up — 2026-11-16
+
+The [prose reconstruction follow-up](docs/PROSE_RECONSTRUCTION_FOLLOWUP.md) measures false candidate relationships, retained useful associations, missing facets and processing costs on real public records. Source-consistent developer judgments remain separate from independent human validation and deterministic answer support. Earlier results are preserved.
+
+
+Targeted recovery update (2026-11-16): the [source-linked recovery study](docs/PROSE_RECONSTRUCTION_FOLLOWUP.md#targeted-recovery-and-false-association-retention) reports retained useful associations, recovered omissions, false date-cue corrections and unresolved transfer failures. It does not establish general historical understanding or independent human validation.

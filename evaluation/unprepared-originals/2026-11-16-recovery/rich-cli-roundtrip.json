@@ -1,0 +1,44 @@
+{
+  "schema": "rich-cli-roundtrip-execution-v1",
+  "mapping_id": "9b3caa22ec03fbe844782beca83f18ece6628b6ac5f71173b33ffebee93c752a",
+  "source_case": "allocation-cold-transfer/T01.json",
+  "actual_result": {
+    "status": "reconstructed",
+    "passages": [
+      {
+        "source_id": "ORIGINAL-0001",
+        "path": "original-0001.html",
+        "hash": "sha256:1b028b588481a8ab9eb0fae12c2c6f791119581796ef940a262d9c91f10e75e4",
+        "body_start": 2313,
+        "body_end": 2449,
+        "body_projection": "body-text-no-headings-v1",
+        "quote": "In exchange for Executive Order 8802, Randolph called off the march, though he would be a driving force of the 1963 March on Washington."
+      }
+    ],
+    "quote_fidelity": true,
+    "semantic_relationship_verified": false,
+    "answer_supported": false,
+    "content_truth_verified": false,
+    "original_passages": [
+      {
+        "original_id": "EO-8802-1941",
+        "original_sha256": "2ede0de2f57520dae954e201cb5de0bdf586d92d2a99aaf7a3e63eae1410b4ad",
+        "original_url": "https://www.archives.gov/milestone-documents/executive-order-8802",
+        "original_character_start": 26278,
+        "original_character_end": 26414,
+        "original_byte_start": 26286,
+        "original_byte_end": 26422,
+        "raw_excerpt": "In exchange for Executive Order 8802, Randolph called off the march, though he would be a driving force of the 1963 March on Washington.",
+        "raw_excerpt_sha256": "314b4a1e4d574d4aad066b92796c9550e02dde1009119243c91932c0dcac8d7a",
+        "canonical_quote": "In exchange for Executive Order 8802, Randolph called off the march, though he would be a driving force of the 1963 March on Washington.",
+        "projection_version": "body-text-no-headings-v1",
+        "round_trip_quote_fidelity": true,
+        "semantic_relationship_verified": false,
+        "answer_supported": false,
+        "notice": "Raw excerpt retains source markup and layout; canonical quote uses the existing normalized projection."
+      }
+    ]
+  },
+  "tool_sha256": "fa1bd9db3fe0f9a837bd5253165fa17787a1a644ae171a96502484325b98dbfd",
+  "scope": "Actual fresh-process CLI reverse mapping of a new cancellation proposition to original bytes; no semantic truth promotion."
+}

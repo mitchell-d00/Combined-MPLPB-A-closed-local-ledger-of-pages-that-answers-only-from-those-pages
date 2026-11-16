@@ -65,3 +65,16 @@ repairs the configuration defect; full physical-device inference remains a
 separate check. Model identity/cache, source ownership and delivery rules remain.
 
 > Update 2026-11-16: The [public 52-case evidence suite](PUBLIC_EVIDENCE_TESTS.md) and [bounded expert relation path](HISTORICAL_EXPERT_PATH.md) document the current update. Prior dated measurements and preserved historical sources retain their original scope; this note does not rerun or revise them.
+
+
+## Unprepared-original conversion study — 2026-11-16
+
+See the [frozen original-record evaluation](UNPREPARED_ORIGINAL_CHALLENGE.md) and [source mapping repair](SOURCE_MAPPING_REPAIR.md). Authentic originals and randomized synthetic controls have separate frozen inputs and retained outputs. Reversible candidate mappings preserve native authority boundaries; exact quote fidelity does not verify historical meaning. Independent human historical assessment is NOT RUN. Earlier results retain their original scope.
+
+
+## Source-linked reconstruction follow-up — 2026-11-16
+
+The [prose reconstruction follow-up](PROSE_RECONSTRUCTION_FOLLOWUP.md) measures false candidate relationships, retained useful associations, missing facets and processing costs on real public records. Source-consistent developer judgments remain separate from independent human validation and deterministic answer support. Earlier results are preserved.
+
+
+Targeted recovery update (2026-11-16): the [source-linked recovery study](PROSE_RECONSTRUCTION_FOLLOWUP.md#targeted-recovery-and-false-association-retention) reports retained useful associations, recovered omissions, false date-cue corrections and unresolved transfer failures. It does not establish general historical understanding or independent human validation.
