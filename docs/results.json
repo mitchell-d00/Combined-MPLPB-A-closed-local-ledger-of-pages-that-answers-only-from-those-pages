@@ -377,13 +377,17 @@
         "tests/test_historical_verifier.py",
         "tests/test_historical_investigation.py",
         "tests/test_historical_passages.py",
-        "tests/test_public_evidence_challenge.py"
+        "tests/test_public_evidence_challenge.py",
+        "tests/test_historical_study.py",
+        "tests/test_study_sandbox.py"
       ],
       "runners": [
         "tools/evaluate_historical_experts.py",
-        "tools/evaluate_public_evidence.py"
+        "tools/evaluate_public_evidence.py",
+        "tools/historical_study.py",
+        "tools/study_sandbox.py"
       ],
-      "scope": "52 fully published development requirements across evidence authority, diagnostics, exact routing, event candidates, explicit scoped corrections, candidate inference, receipt separation and measured computation, plus bounded original-paper expert replay. No blind, human-usability or general historical-truth claim.",
+      "scope": "52 fully published development requirements across evidence authority, diagnostics, exact routing, event candidates, explicit scoped corrections, candidate inference, receipt separation and measured computation, plus bounded original-paper expert replay. No blind, human-usability or general historical-truth claim. Includes original-source study protocol tests; external questions/reviewer participation and independent validation remain outstanding. Linux worker isolation has dedicated actual namespace probes and fail-closed controls; no human-operator or host-administrator isolation claim.",
       "measurement_status": "Developer-authored inspected controls; run current candidate tests/replay and inspect actual exact-head CI before claiming successful validation."
     }
   ]

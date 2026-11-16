@@ -1,0 +1,36 @@
+name: Verify isolated study worker
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  study-sandbox:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install and identify the OS isolator
+        run: |
+          sudo apt-get update
+          sudo apt-get install --yes --no-install-recommends bubblewrap
+          bwrap --version
+          uname -r
+      - name: Require actual isolation, not skipped capability checks
+        run: |
+          STUDY_TEST_PYTHON="$(command -v python)"
+          mkdir -p "$RUNNER_TEMP/mplpb-sandbox-source"
+          git archive HEAD | tar -x -C "$RUNNER_TEMP/mplpb-sandbox-source"
+          cd "$RUNNER_TEMP/mplpb-sandbox-source"
+          sudo env PYTHONPATH="$PWD" MPLPB_REQUIRE_SANDBOX=1 "$STUDY_TEST_PYTHON" -m unittest tests.test_study_sandbox -v
