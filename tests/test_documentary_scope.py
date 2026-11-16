@@ -81,6 +81,13 @@ class DocumentaryScopeTests(unittest.TestCase):
         self.add('The archive report was sent by June 1944.')
         self.assertIsNone(self.report()['propositions'][0]['value']['passive_agent_candidate'])
 
+    def test_passive_honorific_and_initials_keep_complete_agent_span(self):
+        self.add('The archive report was sent by Dr. Mira J. Vale to Ruth.')
+        sent=self.report()['propositions'][0];agent=sent['value']['passive_agent_candidate']
+        self.assertEqual(agent['text'], 'Dr. Mira J. Vale')
+        e=sent['evidence'][0]
+        self.assertEqual(e['quote'][agent['start']-e['body_start']:agent['end']-e['body_start']], agent['text'])
+
     def test_copula_in_prior_clause_does_not_erase_active_actor(self):
         self.add('Ruth was certain Mira sent the archive report.')
         sent=self.report()['propositions'][0]

@@ -121,9 +121,10 @@ def _embedding(quote,match):
 def _passive_agent(following):
     # Literal role only: no alias resolution, calendar-agent guess or inference
     # from the nearest name. In particular "by June" is a deadline, not a person.
-    m=re.match(r'\s+by\s+((?:the\s+)?[A-Z][A-Za-z]*(?:\s+(?:of|the|[A-Z][A-Za-z]*)){0,7})(?=\s*(?:[,.;:]|$|\b(?:to|on|in|at|for|with)\b))',following)
+    m=re.match(r'\s+by\s+((?:the\s+)?[A-Z][A-Za-z]*\.?(?:\s+(?:of|the|[A-Z][A-Za-z]*\.?)){0,7})(?=\s*(?:[,.;:]|$|\b(?:to|on|in|at|for|with)\b))',following)
     if not m or any(re.fullmatch(MONTH_NAMES,w,re.I) for w in m[1].split()):return None
-    return {'text':m[1],'start':m.start(1),'end':m.end(1),
+    value=m[1].rstrip('.')
+    return {'text':value,'start':m.start(1),'end':m.start(1)+len(value),
             'basis':'explicit passive by-phrase; identity not resolved'}
 
 

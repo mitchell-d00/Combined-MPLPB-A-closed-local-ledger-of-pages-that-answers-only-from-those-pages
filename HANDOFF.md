@@ -4,8 +4,8 @@ Last reviewed: 2026-11-16.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `3790547ad1db0a5b796714e13cdb521eb9a8603a` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `e38cc21e7bd5e3a355901479a9696f205c0b9d8d5449877b84cf8feaec6bbc91`.
+Base commit: `337287f34b170bfdbb6c1aa24b3642a864df2b68` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `30a930b9099bceffdea69266f8c4be1ba025ff20a4c49c52ef380cb59cf5e6d5`.
 
 ## Latest user update instructions
 
@@ -31,6 +31,7 @@ The final objective is a system whose capabilities can be established through in
 - Repair ordinary-prose shared scope, reporting/request complements, passive role candidates and date roles without authority promotion.
 - Add adversarial controls and hash-checked original-record comparison with byte mappings and blank human reviews.
 - Tighten request complement grammar after a prepositional-to false-governor probe on frozen 3790547; preserve intermediate source and outputs.
+- Real unchanged-original comparison exposed passive agent truncated at an honorific (Gen.); preserve full honorific/initial spans generically, with a distinct synthetic test and exact coordinates.
 
 ## Validation recorded
 
@@ -45,6 +46,7 @@ The final objective is a system whose capabilities can be established through in
 - Independent human review and genuinely unseen challenge NOT RUN.
 - No native historical supported-answer gain demonstrated; finite fallible candidate interpretation only.
 - Full candidate original-record replay, regression and archive checks pending at source freeze; evidence update will record actual results.
+- All follow-up original sources have now been inspected during development; no held-out or independent semantics claim.
 
 ## Next steps
 
