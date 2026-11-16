@@ -196,3 +196,8 @@ is currently blocked until the missing live and independent evidence is supplied
 > Update 2026-11-16: The [public 52-case evidence suite](PUBLIC_EVIDENCE_TESTS.md) and [bounded expert relation path](HISTORICAL_EXPERT_PATH.md) document the current update. Prior dated measurements and preserved historical sources retain their original scope; this note does not rerun or revise them.
 
 Update 2026-11-16: See [scoped evidence extensions](SCOPED_EVIDENCE_EXTENSIONS.md) for exact source-field routing, correction windows, distinct event nodes, bounded quoted exploration, and non-authoritative receipt/operator-effort fields. These extensions preserve source eligibility and candidate/assisted support boundaries.
+
+
+## Checked documentary fallback — 2026-11-16
+
+After existing strict grammars, the [finite documentary verifier](DOCUMENTARY_ASSERTIONS.md) can certify source-attributed assertions and compose checked question obligations under the complete original question/profile. Every part and applicable contrary-evidence check must pass for `supported_answer`; `partial_answer` keeps exact supported claims and missing obligations with overall `answer_supported:false`. Source support does not establish historical truth, authorship authentication or event identity. [Frozen results](../evaluation/documentary-assertions/RESULTS.md) retain 1,068 passing tests, two new checked partial answers and zero complete historical answers across 22 unchanged questions.

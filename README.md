@@ -230,3 +230,6 @@ The [prose reconstruction follow-up](docs/PROSE_RECONSTRUCTION_FOLLOWUP.md) meas
 
 
 Targeted recovery update (2026-11-16): the [source-linked recovery study](docs/PROSE_RECONSTRUCTION_FOLLOWUP.md#targeted-recovery-and-false-association-retention) reports retained useful associations, recovered omissions, false date-cue corrections and unresolved transfer failures. It does not establish general historical understanding or independent human validation.
+
+
+Documentary assertion update (2026-11-16): [checked source assertions and compound-question composition](docs/DOCUMENTARY_ASSERTIONS.md) are implemented and built. [Frozen results](evaluation/documentary-assertions/RESULTS.md) show checked partial answers increasing from 0 to 2 across 22 unchanged questions; full supported answers remain 0/22. Independent semantic review and unseen evaluation are NOT RUN.

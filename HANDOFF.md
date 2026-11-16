@@ -4,8 +4,8 @@ Last reviewed: 2026-11-16.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `ba021f47bfdcf90ce2061090514d0724e6ace49f` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `51e4482f7b82ba532a17efb96cbf4864c77ee54e18280087271d8ac95bd6dd61`.
+Base commit: `6acf45a9f77213953f8236379236c96662442153` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `de95d944be40166d168a1cb7886abea7d1a75ca40b7576ba81fc92a2751f7be9`.
 
 ## Latest user update instructions
 
@@ -40,22 +40,21 @@ We can do this The next implementation should target explicit documentary assert
 
 ## Validation recorded
 
-- 33 new documentary/original-record tests passed in 9.917 seconds before source freeze; broader focused run passed 95 tests.
-- Prototype native probes on unchanged H02/U01 returned checked partial assertions with execution, reference and comparison limits retained. These are not complete historical answers or independent accuracy scores.
-- Prototype prepared public evidence controls passed 52/52; real WebAssembly source composition and UI rendering controls passed. Final extracted candidate checks and frozen complete replays are pending.
-- ba021f4 clean archive retry passed all 1068 Python tests in 374.824 seconds; eight-case replay produced one rechecked partial source assertion and zero full historical supported answers. A later plan-heading negative control exposed a false acceptance; final fix needs a new source freeze and checks.
+- Final extracted 6acf45a9f77213953f8236379236c96662442153 passed all 1068 Python tests in 377.064 seconds; 52/52 prepared public controls with zero observed false bridges; existing historical expert software stages passed.
+- Unchanged frozen original14 and government8 replays completed: kernel-checked partial source answers 0→2/22; full supported answers remain 0/22; incomplete draft span coverage unchanged18/23 and9/9. Every accepted certificate rechecked and all citations mapped to original bytes.
+- Actual WebAssembly, five real Chromium UI checks, rendering/JavaScript/transport/loader/WebGPU/crawler controls, infrastructure and extracted handoff/documentation checks passed. Browser build SHA256 a151987fc14d19a18bc4273986d33fbee4d5f40fe451b2791cbb6c6eb66189f9.
+- Preserved interrupted runs, prototype failures and earlier ba021f4 plan-heading false acceptance; final source fixed that scope error and reran all gates. Full outputs, metrics, source pins, two blank reviewers and adjudication retained in evaluation/documentary-assertions.
 
 ## Limitations and blocked checks
 
-- Independent human semantic review and unseen evaluation NOT RUN.
-- Finite native-source assertion support does not establish historical truth, authenticated authorship or person/event co-reference.
-- Original-record complete-answer gains and final regression results pending at this freeze; do not infer success from candidate counts.
-- Source parsing is conservative and fallible; unsupported syntax, scope, aliases, voices and corrections can remain unresolved.
+- Complete original-record historical answers remain0/22. This update establishes finite checked partial source evidence and controlled compound composition, not general historical reconstruction.
+- Independent human semantic review, adjudication and unseen evaluation NOT RUN; semantic precision/recall, false-support rates and genuine human times null.
+- Finite parsing does not authenticate authorship, resolve person/event identity, infer missing records or establish execution from a request. Unsupported syntax, scope, aliases, pronouns, voices and corrections remain unresolved or potentially fallible.
 
 ## Next steps
 
-- Freeze and test the extracted source candidate, replay unchanged original/familiar questions and independently recheck every accepted certificate and original-byte citation.
-- Retain every failure/partial result, distinguish checked partials from full answers, and prepare real human reviews before accuracy claims.
+- Obtain two independent human reviews and adjudication of full retained evidence packets before semantic accuracy claims.
+- Develop independently checked reference/identity/temporal and correction obligations; preserve original questions and budgets, count errors and missing obligations, and run genuinely unseen custodian-sealed evaluation.
 
 ## Use this ZIP in your repository
 

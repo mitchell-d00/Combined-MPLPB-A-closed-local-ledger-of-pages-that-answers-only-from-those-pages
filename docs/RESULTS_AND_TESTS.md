@@ -105,4 +105,4 @@ The [scope repair protocol](DOCUMENTARY_SCOPE.md) links 24 new adversarial tests
 
 ## Checked documentary assertions — 2026-11-16
 
-The [finite source-assertion/composition contract](DOCUMENTARY_ASSERTIONS.md) adds native checked partial answers and independently checked question obligations. [New evaluation evidence](../evaluation/documentary-assertions/BASELINE.md) preserves the previous zero-assertion baseline and all intermediate failures. Final frozen measurements are separate from focused controls; independent human semantic review remains NOT RUN.
+The [finite source-assertion/composition contract](DOCUMENTARY_ASSERTIONS.md) adds native checked partial answers and independently checked question obligations. [New evaluation evidence](../evaluation/documentary-assertions/RESULTS.md) preserves the previous zero-assertion baseline and all intermediate failures. Final frozen measurements show checked partial answers 0→2/22 and full supported answers 0→0/22, with 1,068 Python tests passing. Independent human semantic review remains NOT RUN.
