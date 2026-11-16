@@ -1,6 +1,6 @@
 # Specialist work API and operation
 
-Last reviewed: 2026-11-10. See [current status and result-to-test index](CURRENT_STATUS_2026-11-02.md). Dates and numeric results in historical validation sections retain their original scope; this review is not a rerun or independent certification.
+Last reviewed: 2026-11-16. See [current status and result-to-test index](CURRENT_STATUS_2026-11-02.md). Dates and numeric results in historical validation sections retain their original scope; this review is not a rerun or independent certification.
 
 The native `mplpb_work` coordinator preserves task relationships, evolving claims,
 failed routes, specialist identities and permission history. It is part of the
@@ -116,6 +116,26 @@ a new ID. The `attempt:` namespace is reserved for host execution receipts.
 | Decision | `task`, `choice`, `alternatives`, `reason`, `assessment` (`proposed`, `accepted`, `withdrawn`), `recheck_when`, `failed_attempts` mapping historical unsuccessful attempts to revisions. Failure is contextual evidence, not a successful prerequisite. |
 | Action | `task`, `task_revision`, versioned `operation`, JSON `arguments`, `side_effect` (`local`, `external`), `executor_seat`, `state` (`proposed`, `cancelled`), `retry_of` mapping at most one unsuccessful attempt to its revision, `retry_reason`. Inputs go in `dependencies`. |
 | Review | `task`, a single pinned claim `target`, declared `target_variable`, `regime`, `finding`, `outcome` (`challenge`, `support`, `inconclusive`, `resolved`), `resolution`. Observations go in `dependencies`. |
+
+The coordinator independently recomputes source support on every snapshot,
+handoff, dependency check and dispatch. `supported_under_scope` in a submitted
+payload is a requested assessment; it becomes effective only after this check.
+The versioned `work-source-status-v1` checker supports unconditional statements
+of the form `Subject is/remains [not] available/discontinued/active/inactive/enabled/disabled`.
+It requires a complete matching source sentence in a directly pinned evidence
+quote, compares the exact subject and polarity, and checks the full cited source
+body for opposing status statements. Support requires the full body to stay within
+this grammar; surrounding prose may contain unresolved scope. Conditions, assumptions, other language and
+claim-only dependency chains yield `needs_recheck`; an explicit opposing status
+yields `contested`. Neither a support vote nor challenge resolution bypasses this
+check. Dependent decisions, actions and completions then require rechecking.
+Existing ledger events remain intact and are re-evaluated without migration.
+Each visible claim includes a `support_check` version and effective status.
+
+This finite check does not establish general semantic entailment or factual truth,
+and does not search unrelated or uncited pages for contradictions. New languages
+and inference rules require explicit checker extensions and adversarial tests.
+Unsupported inferences remain proposals rather than executable premises.
 
 A claim's working assessment can be `proposed`, `supported_under_scope`,
 `contested`, `withdrawn` or `needs_recheck`. There is no terminal `true` state.

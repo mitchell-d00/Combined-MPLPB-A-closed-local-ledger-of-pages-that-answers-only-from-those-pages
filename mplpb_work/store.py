@@ -18,6 +18,7 @@ import time
 import uuid
 
 from . import model as M
+from . import source_support
 from .errors import WorkError, Conflict, Denied, IntegrityError
 
 SCHEMA = 'mplpb-work-v1'
@@ -263,7 +264,7 @@ class WorkStore:
     def _allowed(actor, operation, task):
         return operation in actor['operations'] and ('*' in actor['scopes'] or task in actor['scopes'])
 
-    def _source(self, state, payload, profile, cache):
+    def _source(self, state, payload, profile, cache, with_body=False):
         from mplpb_combined.provenance_gate import gather
         from mplpb_combined.reader import PROFILES
         from mplpb_combined.ledger import Ledger
@@ -287,7 +288,10 @@ class WorkStore:
                 return None
             nodes = [source]+source['ancestry']
             roots = sorted({n['id']+'@'+n['hash'] for n in nodes if not n['derived_from'] and not n['supersedes']})
-            return {'roots': roots, 'depth': source['origin_depth'], 'external_allowed': not bool(external_restriction(rec, PROFILES['external']))}
+            result = {'roots': roots, 'depth': source['origin_depth'], 'external_allowed': not bool(external_restriction(rec, PROFILES['external']))}
+            if with_body:
+                result['body'] = body
+            return result
         except (OSError, ValueError, KeyError):
             return None
 
@@ -341,6 +345,18 @@ class WorkStore:
                    and (r['payload']['outcome'] == 'challenge' or (r['payload']['outcome'] == 'resolved' and self._effective(state, r, profile, cache, trail) != 'resolved'))
                    for r in state['records'].values()):
                 return 'contested'
+            if p['assessment'] == 'supported_under_scope':
+                evidence = []
+                for key in record['dependencies']:
+                    dep = state['records'][key]
+                    # Claim agreement and transitive lineage are not source support.
+                    if dep['kind'] != 'evidence':
+                        return 'needs_recheck'
+                    source = self._source(state, dep['payload'], profile, cache, with_body=True)
+                    if not source:
+                        return 'needs_recheck'
+                    evidence.append((source['body'], dep['payload']['quote']))
+                return source_support.check(p, evidence)
             return p['assessment']
         if kind == 'action':
             if any(r['action'] == record['id'] and r['status'] == 'started' for r in state['receipts'].values()):
@@ -394,6 +410,9 @@ class WorkStore:
         for key in sorted(visible):
             record = copy.deepcopy(state['records'][key])
             record['effective_status'] = self._effective(state, record, actor['profile'], cache)
+            if record['kind'] == 'claim':
+                record['support_check'] = {'version': source_support.VERSION,
+                    'status': record['effective_status'], 'general_entailment': False}
             record['history'] = [copy.deepcopy(r) for r in state['history'][key] if self._readable_version(state, actor, r)]
             if record['kind'] == 'action':
                 record['permission'] = self._permission(state, actor, record, visible, cache)

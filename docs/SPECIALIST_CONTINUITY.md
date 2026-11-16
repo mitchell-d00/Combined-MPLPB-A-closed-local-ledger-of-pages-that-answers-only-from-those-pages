@@ -1,6 +1,6 @@
 # Specialist continuity: durable work and guarded handoffs
 
-Last reviewed: 2026-11-10. See [current status and result-to-test index](CURRENT_STATUS_2026-11-02.md). Dates and numeric results in historical validation sections retain their original scope; this review is not a rerun or independent certification.
+Last reviewed: 2026-11-16. See [current status and result-to-test index](CURRENT_STATUS_2026-11-02.md). Dates and numeric results in historical validation sections retain their original scope; this review is not a rerun or independent certification.
 
 Status: **implemented local coordinator**, 2026-10-31, in `mplpb_work`. It provides
 transactional work history, host-issued seat capabilities, revision and fencing
@@ -44,6 +44,26 @@ applications of the papers, not experimentally established consequences:
 | Action proposal | Exact operation; actor/seat; prerequisite revisions; required grant; side-effect class | `requires`, `permitted_by` |
 | Review | Target; information available; finding; distinct evidence; outcome and stopping criteria | `reviews`, `challenges`, `resolves` |
 
+The coordinator independently recomputes source support on every snapshot,
+handoff, dependency check and dispatch. `supported_under_scope` in a submitted
+payload is a requested assessment; it becomes effective only after this check.
+The versioned `work-source-status-v1` checker supports unconditional statements
+of the form `Subject is/remains [not] available/discontinued/active/inactive/enabled/disabled`.
+It requires a complete matching source sentence in a directly pinned evidence
+quote, compares the exact subject and polarity, and checks the full cited source
+body for opposing status statements. Support requires the full body to stay within
+this grammar; surrounding prose may contain unresolved scope. Conditions, assumptions, other language and
+claim-only dependency chains yield `needs_recheck`; an explicit opposing status
+yields `contested`. Neither a support vote nor challenge resolution bypasses this
+check. Dependent decisions, actions and completions then require rechecking.
+Existing ledger events remain intact and are re-evaluated without migration.
+Each visible claim includes a `support_check` version and effective status.
+
+This finite check does not establish general semantic entailment or factual truth,
+and does not search unrelated or uncited pages for contradictions. New languages
+and inference rules require explicit checker extensions and adversarial tests.
+Unsupported inferences remain proposals rather than executable premises.
+
 A claim's working assessment can be `proposed`, `supported_under_scope`,
 `contested`, `withdrawn`, or `needs_recheck`. There is no irreversible `true` state.
 An action's permission result is independently `allowed`, `blocked`, or
@@ -58,19 +78,15 @@ challenges.
 
 ## Five-specialist example
 
-1. **Evidence specialist A** records E1, an exact source span, and proposes C1.
-   C1 is an inference, with the source's narrower scope recorded as an assumption.
-2. **Challenger B** records E2 and challenges C1's scope. C1 becomes contested;
-   decisions depending on that revision become `needs_recheck`.
-3. **Implementer C** runs attempt I1 using pinned inputs. Its test fails. The
-   failure, logs, and condition for trying again survive; they are not replaced
-   by a summary saying merely “implementation complete.”
-4. **Successor D** starts after A, B and C disappear. D gets a new instance ID,
-   an explicit seat grant, and a visibility-filtered work package. D sees the
-   unresolved challenge and failed route. D cannot inherit C's expired write token.
-5. **Reviewer E** checks the task's acceptance criteria against the available
-   evidence and attempt. E may authorize a narrowly scoped experiment if granted
-   that right. E cannot make C1 supported by voting for it or reading more copies.
+1. **Evidence specialist A** records the configuration statement and a matching
+   scoped claim. An implementation fixture fails; its receipt and retry conditions persist.
+2. A later component-wide inference contradicts the full cited source. The
+   coordinator marks it `contested` before **Challenger B** adds a review.
+3. **Implementer C** cannot execute an action using that contested revision.
+4. **Successor D** recovers the claim, failed attempt and unresolved challenge in a
+   fresh process with a new grant; the predecessor credential no longer works.
+5. **Reviewer E** revises the claim to the directly quoted component statement and
+   resolves the challenge. Fresh source checks permit a new scoped action.
 
 The next permissible action might be “run experiment I2 on this fixture,” while
 “publish the conclusion” remains blocked. If a grant or input pin changes between

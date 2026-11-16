@@ -58,8 +58,8 @@ class ContinuityTests(unittest.TestCase):
                 'source_hash': self.source.hash, 'quote': quote, 'query': 'supplier availability'}
 
     def claim(self, **changes):
-        p = {'task': 'T1', 'proposition': 'Component X is discontinued', 'basis': 'inference',
-             'assessment': 'supported_under_scope', 'assumptions': ['Configuration covers component'],
+        p = {'task': 'T1', 'proposition': 'Configuration AX-14 is discontinued', 'basis': 'inference',
+             'assessment': 'supported_under_scope', 'assumptions': [],
              'alternatives': ['Other configurations may remain'], 'revisit_when': 'Check component catalog'}
         p.update(changes)
         return p
@@ -126,12 +126,73 @@ class ContinuityTests(unittest.TestCase):
         self.put('reviewer', 'T1', 'task', done, revision=1)
         rows = self.rows()
         self.assertEqual(rows['T1']['effective_status'], 'done')
-        self.assertEqual(rows['C1']['history'][0]['payload']['proposition'], 'Component X is discontinued')
+        self.assertEqual(rows['C1']['history'][0]['payload']['proposition'], 'Configuration AX-14 is discontinued')
         audit = self.store.audit(self.host)
         identities = [e['payload']['instance'] for e in audit['events'] if e['type'] == 'assign']
         self.assertEqual(len(identities), 5)
         self.assertEqual(len({i['id'] for i in identities}), 5)
         self.assertEqual(len({i['model']['name'] for i in identities}), 1)
+
+    def test_contradictory_inference_blocked_without_a_challenge(self):
+        self.put('finder', 'E1', 'evidence', self.evidence())
+        self.put('finder', 'C1', 'claim', self.claim(proposition='Component X is discontinued'), {'E1': 1})
+        self.put('builder', 'A1', 'action', self.action(), {'C1': 1})
+        self.assertEqual(self.rows()['C1']['effective_status'], 'contested')
+        self.assertEqual(self.rows()['A1']['permission'], 'blocked')
+        with self.assertRaises(Denied):
+            self.execute()
+        self.assertEqual(self.calls, [])
+        reopened = WorkStore(self.base/'work', clock=lambda: self.now[0])
+        rows = {r['id']: r for r in reopened.handoff(self.tokens['builder'])['records']}
+        self.assertEqual(rows['C1']['effective_status'], 'contested')
+        self.assertEqual(rows['C1']['payload']['assessment'], 'supported_under_scope')
+
+    def test_legacy_supported_claim_is_rechecked_and_review_cannot_override(self):
+        from unittest.mock import patch
+        with patch('mplpb_work.source_support.check', return_value='supported_under_scope'):
+            self.put('finder', 'E1', 'evidence', self.evidence())
+            self.put('finder', 'C1', 'claim', self.claim(proposition='Component X is discontinued'), {'E1': 1})
+            self.put('builder', 'A1', 'action', self.action(), {'C1': 1})
+            self.put('reviewer', 'D1', 'decision', {
+                'task': 'T1', 'choice': 'Use component', 'alternatives': [],
+                'reason': 'Inherited claim', 'assessment': 'accepted',
+                'recheck_when': 'Source changes', 'failed_attempts': {}}, {'C1': 1})
+        self.put('critic', 'R1', 'review', self.review(outcome='support'), {'E1': 1})
+        rows = self.rows()
+        self.assertEqual(rows['C1']['effective_status'], 'contested')
+        self.assertEqual(rows['D1']['effective_status'], 'needs_recheck')
+        self.assertEqual(rows['A1']['permission'], 'blocked')
+
+    def test_unknown_inference_and_claim_chain_cannot_enable_work(self):
+        self.prepare()
+        self.put('finder', 'C2', 'claim', self.claim(), {'C1': 1})
+        self.assertEqual(self.rows()['C2']['effective_status'], 'needs_recheck')
+        self.put('finder', 'C1', 'claim', self.claim(proposition='Component Z is available'), {'E1': 1}, revision=1)
+        self.assertEqual(self.rows()['C1']['effective_status'], 'needs_recheck')
+        self.assertEqual(self.rows()['A1']['permission'], 'blocked')
+
+    def test_assumptions_and_partial_quotes_do_not_establish_support(self):
+        self.put('finder', 'E1', 'evidence', self.evidence('AX-14 is discontinued.'))
+        self.put('finder', 'C1', 'claim', self.claim(), {'E1': 1})
+        self.assertEqual(self.rows()['C1']['effective_status'], 'needs_recheck')
+        self.put('finder', 'E2', 'evidence', self.evidence())
+        self.put('finder', 'C1', 'claim', self.claim(assumptions=['Assume source applies']), {'E2': 1}, revision=1)
+        self.assertEqual(self.rows()['C1']['effective_status'], 'needs_recheck')
+
+    def test_source_check_preserves_subject_negation_and_conditions(self):
+        from mplpb_work.source_support import check
+        for proposition, body, expected in [
+            ('Component X is available', 'Component X is not available.', 'contested'),
+            ('Component Y is available', 'Component X is available.', 'needs_recheck'),
+            ('Component X is available', 'If approved, Component X is available.', 'needs_recheck'),
+            ('Component X is available', 'Component X is available if approved.', 'needs_recheck'),
+            ('Component X is available', 'If approved,\nComponent X is available.', 'needs_recheck'),
+            ('Component X is available', 'Hypothetical example. Component X is available.', 'needs_recheck'),
+            ('Component X is available', 'Component X is available. Component X is not available.', 'contested'),
+            ('Component X remains available', 'Component X remains available.', 'supported_under_scope'),
+        ]:
+            with self.subTest(proposition=proposition, body=body):
+                self.assertEqual(check(self.claim(proposition=proposition), [(body, body)]), expected)
 
     def test_plaintext_private_content_absent_from_live_and_handoff_views(self):
         before = self.store.snapshot(self.tokens['builder'])
@@ -316,7 +377,7 @@ class ContinuityTests(unittest.TestCase):
         self.put('finder', 'C1', 'claim', self.claim(assessment='proposed'))
         self.store.audit(self.host, checkpoint)
         with sqlite3.connect(str(self.store.path)) as db:
-            db.execute("UPDATE events SET body=replace(body,'Component X','Component Y') WHERE seq=(SELECT max(seq) FROM events)")
+            db.execute("UPDATE events SET body=replace(body,'Configuration AX-14','Configuration AX-15') WHERE seq=(SELECT max(seq) FROM events)")
         with self.assertRaises(IntegrityError):
             self.store.snapshot(self.tokens['builder'])
 
