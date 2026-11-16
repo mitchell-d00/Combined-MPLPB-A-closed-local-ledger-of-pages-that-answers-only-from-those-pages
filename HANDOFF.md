@@ -4,8 +4,8 @@ Last reviewed: 2026-11-16.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `b087a24bbaff84fe6ee0b75551777711d84a12ef` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `970c72af37e639104a73512d29f3391665e951c3c228c9cb3dbee85428c54281`.
+Base commit: `cbee135077d24dc77a6b311690e3f45909fcb468` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `4ea8818f43978538544e0b222d723e3e5cd5b034a8f1c327bf6993b20c56cb2d`.
 
 ## Latest user update instructions
 
@@ -43,7 +43,7 @@ The next challenge is demonstrating that MPLPB can consistently recover the impo
 - Full final regression suite passed 1003 tests; public prepared 52/52; separate synthetic regression controls 24/24.
 - All 727 rich proposal objects across historical and new studies passed source/policy/pin/quote integrity and non-authority checks.
 - Native commit 01f128b passed all five CI workflow families, including exact archive and browser regressions.
-- 26 focused reconstruction/source-protection controls passed after the recovery changes; no earlier tests changed.
+- Recovery focused controls: 26 passed in 1.683 seconds after fixing a conditional actor-clause error. The premature passing statement in cbee135 is explicitly corrected in recovery/validation-correction.json.
 
 ## Limitations and blocked checks
 

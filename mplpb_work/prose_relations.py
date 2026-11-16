@@ -102,7 +102,7 @@ def _actor(prefix):
         name=names[-1]
         if not tail[name.end():].strip() and name[0].casefold() not in {'much','in','during','even','this','that','the','later','december','january','february','march','april','may','june','july','august','september','october','november'}:
             if re.search(r'\b(?:of|in|at|from|for|to)\s+(?:the\s+)?$',tail[:name.start()],re.I):return None
-            return name[0]
+            return re.sub(r'^(?:If|When|Whenever|Unless|Although)\s+','',name[0])
     if re.search(r'\b[Ss]uch regulations\s*$',tail):return 'Such regulations'
     return None
 
