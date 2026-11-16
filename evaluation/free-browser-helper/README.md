@@ -1,6 +1,6 @@
 # Free public browser helper — development evidence
 
-Last reviewed: 2026-11-08.
+Last reviewed: 2026-11-16.
 
 Baseline: `9f03116d32bba20b69f0ec9cddf58eb799ab8f17`, the merged local MCP update.
 This update adds an optional browser model/builder layer using the existing public
@@ -72,3 +72,5 @@ Original runtime parts, licenses, model weights and historical results are retai
 ```sh
 node tests/browser-webgpu-limits.cjs
 ```
+
+> Update 2026-11-16: The [public 52-case evidence suite](../../docs/PUBLIC_EVIDENCE_TESTS.md) and [bounded expert relation path](../../docs/HISTORICAL_EXPERT_PATH.md) document the current update. Prior dated measurements and preserved historical sources retain their original scope; this note does not rerun or revise them.

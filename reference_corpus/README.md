@@ -1,6 +1,6 @@
 # MPLPB Reference Corpus — machine-derived research preview
 
-Last reviewed: 2026-11-02. See [current status and result-to-test index](../docs/CURRENT_STATUS_2026-11-02.md). Dates and numeric results in historical validation sections retain their original scope; this review is not a rerun or independent certification.
+Last reviewed: 2026-11-16. See [current status and result-to-test index](../docs/CURRENT_STATUS_2026-11-02.md). Dates and numeric results in historical validation sections retain their original scope; this review is not a rerun or independent certification.
 
 **Status:** versioned, offline-generatable release candidate. **Not human-ratified, not certified authoritative, and not available to the default `internal` or `external` delivery profiles.** Its existing `lab` profile (maximum origin depth 2) is required. Original machine-origin source citation records have depth 1, and derived fact records have depth 2. The existing engine, finite grammar, and profiles remain unchanged.
 
@@ -57,3 +57,5 @@ Repository infrastructure—including root `index.html`, standalone HTML builder
 This is **73 bounded, machine-derived claims**, not a comprehensive reference encyclopedia. Narrow scopes are deliberately disjoint; an intentionally contested question belongs in a separate ambiguity test with two eligible owners, not a merged page. Follow-on content can draw from the already pinned Open English WordNet JSON and carefully reviewed public-domain or licensed facts, but those data need their own byte-level source provenance, attribution, license review, lexical-sense disambiguation and dedicated held-out evaluation. The corpus itself does not expand the reader grammar or automatically discover correct facts.
 
 The [permanently committed reproduction bundle](../evaluation/reference-corpus-reproduction/README.md) includes all staged ledger snapshots, all 372 question/stage outcomes, exact citations, input pins, test output and replay instructions. The 73/73 result describes authored lab-profile declaration matching, not independent fact verification.
+
+> Update 2026-11-16: The [public 52-case evidence suite](../docs/PUBLIC_EVIDENCE_TESTS.md) and [bounded expert relation path](../docs/HISTORICAL_EXPERT_PATH.md) document the current update. Prior dated measurements and preserved historical sources retain their original scope; this note does not rerun or revise them.

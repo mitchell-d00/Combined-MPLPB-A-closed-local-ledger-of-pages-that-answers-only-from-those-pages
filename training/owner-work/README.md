@@ -1,6 +1,6 @@
 # Owner-authorized candidate material
 
-Last reviewed: 2026-11-08.
+Last reviewed: 2026-11-16.
 
 `inventory.json` records the supplied source indexes, declared owner permission,
 observed repository licenses, source URLs/hashes and actual preparation counts.
@@ -27,3 +27,5 @@ questions are screened out of candidate passages; paraphrase contamination and
 mixed third-party rights still require review. Private app conversations are not
 included. `public-dataset-candidate.json` identifies a possible separately licensed
 public conversation source; it has not been downloaded or used for training.
+
+> Update 2026-11-16: The [public 52-case evidence suite](../../docs/PUBLIC_EVIDENCE_TESTS.md) and [bounded expert relation path](../../docs/HISTORICAL_EXPERT_PATH.md) document the current update. Prior dated measurements and preserved historical sources retain their original scope; this note does not rerun or revise them.

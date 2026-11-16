@@ -1,6 +1,6 @@
 # General web crawler setup
 
-Last reviewed: 2026-11-02. See [current status and result-to-test index](../docs/CURRENT_STATUS_2026-11-02.md). Dates and numeric results in historical validation sections retain their original scope; this review is not a rerun or independent certification.
+Last reviewed: 2026-11-16. See [current status and result-to-test index](../docs/CURRENT_STATUS_2026-11-02.md). Dates and numeric results in historical validation sections retain their original scope; this review is not a rerun or independent certification.
 
 The browser's **Web · hosted crawler** mode needs this separate Cloudflare Worker.
 GitHub Pages serves the interface; it cannot fetch arbitrary sites server-side.
@@ -66,3 +66,5 @@ Node tests use fixture responses, not a paid/free provider account or a deployed
 Worker. Run `node test_worker.mjs`. General-web live deployment remains a separate
 verification step. To walk back, remove the crawler URL/token and use a Wikipedia
 mode; retain/export existing source captures. Do not expose provider keys in HTML.
+
+> Update 2026-11-16: The [public 52-case evidence suite](../docs/PUBLIC_EVIDENCE_TESTS.md) and [bounded expert relation path](../docs/HISTORICAL_EXPERT_PATH.md) document the current update. Prior dated measurements and preserved historical sources retain their original scope; this note does not rerun or revise them.

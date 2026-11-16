@@ -1,6 +1,6 @@
 # How the 73/73 result was obtained
 
-Last reviewed: 2026-11-02. See [current status and result-to-test index](../../docs/CURRENT_STATUS_2026-11-02.md). Dates and numeric results in historical validation sections retain their original scope; this review is not a rerun or independent certification.
+Last reviewed: 2026-11-16. See [current status and result-to-test index](../../docs/CURRENT_STATUS_2026-11-02.md). Dates and numeric results in historical validation sections retain their original scope; this review is not a rerun or independent certification.
 
 This is the permanent, inspectable evidence bundle for the **73 authored positive reference questions**, plus **20 missing-information controls**. It includes every generated ledger page and per-question result from all four stages. The original test code and frozen inputs were already on main; this bundle makes the generated evidence available without an expiring Actions artifact.
 
@@ -40,3 +40,5 @@ python -m mplpb_answers ask /tmp/mplpb-reference-new-run/v0.3.0/ledger 'What is 
 Use a fresh output directory for each build. The builder refuses to overwrite a prior release. Compare new per-case outcomes and source quotes with the stored evidence; publish a separate report if the engine changes. The verifier checks frozen input hashes and every committed snapshot/report file before replaying all 372 rows. It compares answers and citations, while allowing later diagnostic wording to improve. Recorded engine hashes identify this run; a changed engine is reported rather than disguised as the old version.
 
 The existing PR and ZIP workflows run the reference tests, regenerate fresh stages, and retain the generated releases. They also replay this committed evidence bundle. GitHub status is established by those actual runs, not by prose in this README.
+
+> Update 2026-11-16: The [public 52-case evidence suite](../../docs/PUBLIC_EVIDENCE_TESTS.md) and [bounded expert relation path](../../docs/HISTORICAL_EXPERT_PATH.md) document the current update. Prior dated measurements and preserved historical sources retain their original scope; this note does not rerun or revise them.

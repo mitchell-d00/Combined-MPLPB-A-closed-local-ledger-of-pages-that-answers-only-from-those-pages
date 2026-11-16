@@ -1,6 +1,6 @@
 # Open MPLPB at a web address
 
-Last reviewed: 2026-11-02. See [current status and result-to-test index](CURRENT_STATUS_2026-11-02.md). Dates and numeric results in historical validation sections retain their original scope; this review is not a rerun or independent certification.
+Last reviewed: 2026-11-16. See [current status and result-to-test index](CURRENT_STATUS_2026-11-02.md). Dates and numeric results in historical validation sections retain their original scope; this review is not a rerun or independent certification.
 
 The `Publish MPLPB browser runtime` workflow builds the standalone runtime and
 publishes it as the GitHub Pages site's `index.html`. Visitors need a current
@@ -38,3 +38,5 @@ can leave the previous site live. Verify the live footer and embedded module byt
 See [ROLLBACK.md](ROLLBACK.md) for the pinned baseline and recovery procedure.
 Browser saves are not erased by deployment, but older runtime/profile bytes can
 reject newer captures. Export important sessions before switching versions.
+
+> Update 2026-11-16: The [public 52-case evidence suite](PUBLIC_EVIDENCE_TESTS.md) and [bounded expert relation path](HISTORICAL_EXPERT_PATH.md) document the current update. Prior dated measurements and preserved historical sources retain their original scope; this note does not rerun or revise them.

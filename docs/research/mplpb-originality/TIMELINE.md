@@ -1,6 +1,6 @@
 # Intellectual-development timeline
 
-Last reviewed: 2026-11-10.
+Last reviewed: 2026-11-16.
 
 Research author: Mitchell D. McPhetridge. [Canonical timeline](timeline.json); [exact source witnesses](mplpb-sources.json). Author-declared dates are not independently verified publication dates. Git and host timestamps are separately identified. Upload order is not necessarily development order. Early independently hosted archive records are listed separately; exact version byte identity remains unverified.
 
@@ -32,3 +32,5 @@ The Local Web and Smart Local headers locate precursor formulations in author-de
 The external [Cravero experience report v1](https://www.preprints.org/manuscript/202609.2499/v1) is platform-dated September 29, 2026. Its related [Poblete/Cravero/Diaz paper](https://doi.org/10.3390/electronics15215135) is publisher-dated November 5. The earlier version was inspected directly; November-only formulations are not backdated to September. These records are comparison evidence, not proof of influence or identical implementation.
 
 The five A-records above are an additional archive chronology, beginning January 2. They supersede any reading that October Git uploads are the first externally dated MPLPB records. The September 22 Continuation archive record precedes the September 29 external experience report; this is an ordering of archive records, not proof that the later host-enforced implementations are equivalent or that the current PDF bytes were archived then. See [archive-witnesses.json](archive-witnesses.json).
+
+> Update 2026-11-16: The [public 52-case evidence suite](../../PUBLIC_EVIDENCE_TESTS.md) and [bounded expert relation path](../../HISTORICAL_EXPERT_PATH.md) document the current update. Prior dated measurements and preserved historical sources retain their original scope; this note does not rerun or revise them.

@@ -1,6 +1,6 @@
 # Current system and self-knowledge
 
-Last reviewed: 2026-11-02. See [current status and result-to-test index](CURRENT_STATUS_2026-11-02.md). Review is not a fresh measurement or independent certification.
+Last reviewed: 2026-11-16. See [current status and result-to-test index](CURRENT_STATUS_2026-11-02.md). Review is not a fresh measurement or independent certification.
 
 This document is generated from `tools/self_knowledge.py`. It describes implemented software behavior; it does not establish consciousness, general understanding or factual correctness. Self-description is labeled separately from MPLPB source evidence.
 
@@ -51,3 +51,5 @@ The bundle contains Open English WordNet 2025, CMU Link Grammar reference data a
 ## Current-state questions
 
 Ask “What mode are you in?”, “What do you have loaded?” or “What are we talking about?”. These answers read the current session, preserve its mode and scope, and do not fetch remote sources. Current loaded collections are distinct from collections merely saved locally.
+
+> Update 2026-11-16: The [public 52-case evidence suite](PUBLIC_EVIDENCE_TESTS.md) and [bounded expert relation path](HISTORICAL_EXPERT_PATH.md) document the current update. Prior dated measurements and preserved historical sources retain their original scope; this note does not rerun or revise them.

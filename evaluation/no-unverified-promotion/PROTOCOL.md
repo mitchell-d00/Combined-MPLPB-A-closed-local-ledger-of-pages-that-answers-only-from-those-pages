@@ -1,6 +1,6 @@
 # Adversarial evaluation protocol
 
-Last reviewed: 2026-11-10.
+Last reviewed: 2026-11-16.
 
 Status: research specification, with a separately identified executed development
 replay. Research author: Mitchell D. McPhetridge. This is not an independent
@@ -140,3 +140,5 @@ ordinary domain contracts explain every prediction without added utility. Reject
 an efficacy claim if the frozen comparison fails its practical criteria. Novelty
 requires a separate, broader prior-art investigation; benchmark performance cannot
 establish historical priority. These are acceptable negative research outcomes.
+
+> Update 2026-11-16: The [public 52-case evidence suite](../../docs/PUBLIC_EVIDENCE_TESTS.md) and [bounded expert relation path](../../docs/HISTORICAL_EXPERT_PATH.md) document the current update. Prior dated measurements and preserved historical sources retain their original scope; this note does not rerun or revise them.

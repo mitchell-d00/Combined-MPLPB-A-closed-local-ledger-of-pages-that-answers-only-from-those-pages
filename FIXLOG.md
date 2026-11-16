@@ -1,6 +1,6 @@
 # Fix Log
 
-Last reviewed: 2026-11-02. See [current status and result-to-test index](docs/CURRENT_STATUS_2026-11-02.md). Dates and numeric results in historical validation sections retain their original scope; this review is not a rerun or independent certification.
+Last reviewed: 2026-11-16. See [current status and result-to-test index](docs/CURRENT_STATUS_2026-11-02.md). Dates and numeric results in historical validation sections retain their original scope; this review is not a rerun or independent certification.
 
 ## Conditional and separation-evidence grammar (proposed 2026-11-01)
 
@@ -262,3 +262,5 @@ regressions and CI checks; generated system guidance and handoffs carry explicit
 review dates. Original reports, frozen sources/questions/labels and publication
 dates remain unchanged. Actual checks are recorded in
 `evaluation/documentation-audit/` and the generated repository handoff.
+
+> Update 2026-11-16: The [public 52-case evidence suite](docs/PUBLIC_EVIDENCE_TESTS.md) and [bounded expert relation path](docs/HISTORICAL_EXPERT_PATH.md) document the current update. Prior dated measurements and preserved historical sources retain their original scope; this note does not rerun or revise them.

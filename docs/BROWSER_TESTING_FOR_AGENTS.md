@@ -1,6 +1,6 @@
 # Browser testing runbook for humans and AI agents
 
-Last reviewed: 2026-11-02. See [current status and result-to-test index](CURRENT_STATUS_2026-11-02.md). Dates and numeric results in historical validation sections retain their original scope; this review is not a rerun or independent certification.
+Last reviewed: 2026-11-16. See [current status and result-to-test index](CURRENT_STATUS_2026-11-02.md). Dates and numeric results in historical validation sections retain their original scope; this review is not a rerun or independent certification.
 
 **Purpose.** This is the repeatable release-gate procedure for the actual hosted MPLPB browser application and the proposed build. Do not describe an HTTP fetch, a static HTML inspection, or a Python-only test as **live-browser testing**. The hosted page embeds Pyodide/WebAssembly, runs the same Python application locally inside the browser, and stores user state in that browser's IndexedDB.
 
@@ -127,3 +127,5 @@ recorded separately. With `--live-url URL`, it also examines the deployed baseli
 known historical error-code behavior is recorded without relaxing the candidate's
 `NETWORK_DISABLED` assertion. This does not test actual iPad Safari or certify
 accessibility, long-term storage retention, or malicious arbitrary JavaScript.
+
+> Update 2026-11-16: The [public 52-case evidence suite](PUBLIC_EVIDENCE_TESTS.md) and [bounded expert relation path](HISTORICAL_EXPERT_PATH.md) document the current update. Prior dated measurements and preserved historical sources retain their original scope; this note does not rerun or revise them.

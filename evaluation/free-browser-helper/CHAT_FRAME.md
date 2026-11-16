@@ -1,6 +1,6 @@
 # AI chat frame and generation recovery
 
-Last reviewed: 2026-11-10.
+Last reviewed: 2026-11-16.
 
 The AI helper has a bounded, scrolling conversation window with its prompt and
 Send button directly below. The source-import form follows the composer, so
@@ -48,3 +48,5 @@ These tests do not generate a real neural response or independently reproduce
 the iPad failure. Physical-device generation, model quality, exact tokenizer
 capacity and long-lived GPU stability remain unverified. Exact archive/CI and
 published-site results belong to their corresponding commit and Actions runs.
+
+> Update 2026-11-16: The [public 52-case evidence suite](../../docs/PUBLIC_EVIDENCE_TESTS.md) and [bounded expert relation path](../../docs/HISTORICAL_EXPERT_PATH.md) document the current update. Prior dated measurements and preserved historical sources retain their original scope; this note does not rerun or revise them.

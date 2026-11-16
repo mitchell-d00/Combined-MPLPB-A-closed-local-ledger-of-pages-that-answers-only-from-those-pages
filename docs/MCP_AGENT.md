@@ -1,6 +1,6 @@
 # Local MCP connection for AI clients
 
-Last reviewed: 2026-11-08.
+Last reviewed: 2026-11-16.
 
 An MCP-capable AI client can launch `tools/mplpb_mcp.py` and discover the full
 MPLPB reader through standard tools. The adapter uses the same native `App` as
@@ -162,3 +162,5 @@ independent human usability is certified. Retained evidence and predeclared
 acceptance scenarios are in [evaluation/mcp-agent](../evaluation/mcp-agent/README.md).
 
 Platform verification for this update is Linux/Python 3.12. Windows/macOS and individual AI application configurations are not verified by these tests.
+
+> Update 2026-11-16: The [public 52-case evidence suite](PUBLIC_EVIDENCE_TESTS.md) and [bounded expert relation path](HISTORICAL_EXPERT_PATH.md) document the current update. Prior dated measurements and preserved historical sources retain their original scope; this note does not rerun or revise them.

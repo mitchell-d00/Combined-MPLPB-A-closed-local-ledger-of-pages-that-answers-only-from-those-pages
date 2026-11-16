@@ -1,6 +1,6 @@
 # Structured local chat requests
 
-Last reviewed: 2026-11-02. See [current status and result-to-test index](CURRENT_STATUS_2026-11-02.md). Dates and numeric results in historical validation sections retain their original scope; this review is not a rerun or independent certification.
+Last reviewed: 2026-11-16. See [current status and result-to-test index](CURRENT_STATUS_2026-11-02.md). Dates and numeric results in historical validation sections retain their original scope; this review is not a rerun or independent certification.
 
 The chat router shares finite request slots across vocabulary: action, subject,
 requested attribute, qualifiers, and a context reference. These slots select a
@@ -97,3 +97,5 @@ structured-request and live-acquisition modules then passed. Actual WebAssembly
 checks passed in all three modes with automatic lookup enabled, along with UI
 script, browser transport and crawler fixture checks. The full suite was not
 rerun after that test-only correction.
+
+> Update 2026-11-16: The [public 52-case evidence suite](PUBLIC_EVIDENCE_TESTS.md) and [bounded expert relation path](HISTORICAL_EXPERT_PATH.md) document the current update. Prior dated measurements and preserved historical sources retain their original scope; this note does not rerun or revise them.

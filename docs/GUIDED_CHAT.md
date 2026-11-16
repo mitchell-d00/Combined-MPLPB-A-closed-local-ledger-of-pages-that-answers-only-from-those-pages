@@ -1,6 +1,6 @@
 # Guided conversational interface
 
-Last reviewed: 2026-11-02. See [current status and result-to-test index](CURRENT_STATUS_2026-11-02.md). Dates and numeric results in historical validation sections retain their original scope; this review is not a rerun or independent certification.
+Last reviewed: 2026-11-16. See [current status and result-to-test index](CURRENT_STATUS_2026-11-02.md). Dates and numeric results in historical validation sections retain their original scope; this review is not a rerun or independent certification.
 
 On the first visit, the app asks whether the user wants guidance. Yes, guide me
 opens a saved four-step tutor in Chat. Declining hides the invitation; Guide me
@@ -63,3 +63,5 @@ Use “language resources” for the bundled dictionary, thesaurus, grammar refe
 When a recognized casual message contains an exact eligible title from the current collection, the bot offers a source-backed discussion. Title matching is literal, with word boundaries; it is not semantic topic detection. No topic selection or network request happens until acceptance. A single title can be accepted with “yes please”; several titles require choosing one. “Keep chatting” clears the offer. Offers survive reopening the chat, but expire after an unrelated turn and cannot authorize a selection after a corpus/profile change. Acceptance rechecks source eligibility. Blocked collections can still small-talk but cannot supply topic offers from invalid pages.
 
 Walk back: revert small-talk routing, templates and UI together. Preserve existing saved chats, notes, captures and evaluation probes; obsolete pending offers are inert if the feature is removed.
+
+> Update 2026-11-16: The [public 52-case evidence suite](PUBLIC_EVIDENCE_TESTS.md) and [bounded expert relation path](HISTORICAL_EXPERT_PATH.md) document the current update. Prior dated measurements and preserved historical sources retain their original scope; this note does not rerun or revise them.

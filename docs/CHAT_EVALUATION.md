@@ -1,6 +1,6 @@
 # Synthetic conversational evaluation
 
-Last reviewed: 2026-11-02. See [current status and result-to-test index](CURRENT_STATUS_2026-11-02.md). Dates and numeric results in historical validation sections retain their original scope; this review is not a rerun or independent certification.
+Last reviewed: 2026-11-16. See [current status and result-to-test index](CURRENT_STATUS_2026-11-02.md). Dates and numeric results in historical validation sections retain their original scope; this review is not a rerun or independent certification.
 
 This is developer-authored regression evidence, not independent human evaluation or a fluency rating.
 
@@ -49,3 +49,5 @@ expected reactions, traces, source identifiers and evaluated source hashes.
 See the [class table](../evaluation/conversation-repairs/README.md) for guards.
 
 Choose a new output filename for each replay. Preserve committed historical reports; a current run is separate evidence tied to its own revision.
+
+> Update 2026-11-16: The [public 52-case evidence suite](PUBLIC_EVIDENCE_TESTS.md) and [bounded expert relation path](HISTORICAL_EXPERT_PATH.md) document the current update. Prior dated measurements and preserved historical sources retain their original scope; this note does not rerun or revise them.

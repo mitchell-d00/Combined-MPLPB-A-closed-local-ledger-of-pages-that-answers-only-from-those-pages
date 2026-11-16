@@ -1,6 +1,6 @@
 # Local MCP agent integration evidence
 
-Last reviewed: 2026-11-08.
+Last reviewed: 2026-11-16.
 
 Baseline: `acf7800a5f8320ec29ee957d002eaaba8ed4e816`. `baseline.json` retains the
 preimplementation checks and observations. `acceptance.frozen.json` and its
@@ -33,3 +33,5 @@ There is no new independent model accuracy, human usability, shared-service
 security or deployed-site claim from these checks. See
 [enforced rules](../../docs/MCP_AGENT.md) and
 [readiness limits](../../docs/PRODUCTION_READINESS.md).
+
+> Update 2026-11-16: The [public 52-case evidence suite](../../docs/PUBLIC_EVIDENCE_TESTS.md) and [bounded expert relation path](../../docs/HISTORICAL_EXPERT_PATH.md) document the current update. Prior dated measurements and preserved historical sources retain their original scope; this note does not rerun or revise them.

@@ -1,6 +1,6 @@
 # Evidence matrix
 
-Last reviewed: 2026-11-10.
+Last reviewed: 2026-11-16.
 
 Research author: Mitchell D. McPhetridge. The canonical [JSON matrix](evidence-matrix.json) supplies all requested fields for each row, including exact revisions, hashes, locations, dates, observations, missing conditions, gates, repairs, commands and limitations. [Source inventory](sources.json) pins the broader audit.
 
@@ -24,3 +24,5 @@ Research author: Mitchell D. McPhetridge. The canonical [JSON matrix](evidence-m
 | [P2](https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/blob/c665337492a4aa5c3619c57c439a0583732c68bd/papers/Continuation_Must_Preserve_Revisability.pdf) | Research continuity versus epistemic validity | An earlier working conclusion is mechanically recovered in a new runtime. → The inherited premise has gained evidential support or should remain a terminal fact. | Coordinator stores these distinctions and computes effective state; it does not adjudicate arbitrary propositions as true. | original_author_formulation, implemented_engineering_application |
 
 D3 is the only established new production defect in this audit. B2 is an expected semantic/trust boundary of manifest verification; C3 records the finite scope and absent whole-HTML digest binding of the current smoke test. Neither is silently relabeled as an independently reproduced release failure. P1/P2 are attributed research formulations, not extra independent experimental domains.
+
+> Update 2026-11-16: The [public 52-case evidence suite](../../docs/PUBLIC_EVIDENCE_TESTS.md) and [bounded expert relation path](../../docs/HISTORICAL_EXPERT_PATH.md) document the current update. Prior dated measurements and preserved historical sources retain their original scope; this note does not rerun or revise them.

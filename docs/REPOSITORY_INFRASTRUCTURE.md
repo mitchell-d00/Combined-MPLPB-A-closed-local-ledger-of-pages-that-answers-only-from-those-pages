@@ -1,6 +1,6 @@
 # Supporting-infrastructure synchronization gate
 
-Last reviewed: 2026-11-08. See [current status and result-to-test index](CURRENT_STATUS_2026-11-08.md). Dates and numeric results in historical validation sections retain their original scope; this review is not a rerun or independent certification.
+Last reviewed: 2026-11-16. See [current status and result-to-test index](CURRENT_STATUS_2026-11-08.md). Dates and numeric results in historical validation sections retain their original scope; this review is not a rerun or independent certification.
 
 **Always check repository infrastructure when the engine, corpus, user-visible interface, API, packaging or documentation changes.** Changes are not ready for merge merely because their Python unit tests pass.
 
@@ -58,3 +58,5 @@ checked by `tools/build_ai_assets.py --check`, `tests/browser-ai-helper.cjs`, th
 asset/corpus unit tests and a real candidate Chromium workflow. Building Pages
 reconstructs runtime sidecars locally without fetching model weights. Required
 normal/extracted-ZIP checks do not incur model-provider calls or training jobs.
+
+> Update 2026-11-16: The [public 52-case evidence suite](PUBLIC_EVIDENCE_TESTS.md) and [bounded expert relation path](HISTORICAL_EXPERT_PATH.md) document the current update. Prior dated measurements and preserved historical sources retain their original scope; this note does not rerun or revise them.

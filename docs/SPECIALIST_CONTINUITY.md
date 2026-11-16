@@ -183,3 +183,5 @@ adds a narrow completion correction: a done write cannot simultaneously change
 the goal, review budget, criterion set or input dependencies covered by an old
 receipt. Explicit open revision and fresh execution remain supported. Its paired
 regressions are development evidence, not a cross-domain efficacy study.
+
+> Update 2026-11-16: The [public 52-case evidence suite](PUBLIC_EVIDENCE_TESTS.md) and [bounded expert relation path](HISTORICAL_EXPERT_PATH.md) document the current update. Prior dated measurements and preserved historical sources retain their original scope; this note does not rerun or revise them.

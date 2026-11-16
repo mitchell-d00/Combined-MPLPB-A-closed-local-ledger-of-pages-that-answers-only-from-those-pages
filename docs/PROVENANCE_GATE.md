@@ -1,6 +1,6 @@
 # Provenance gate: separate local source bundles
 
-Last reviewed: 2026-11-02. See [current status and result-to-test index](CURRENT_STATUS_2026-11-02.md). Dates and numeric results in historical validation sections retain their original scope; this review is not a rerun or independent certification.
+Last reviewed: 2026-11-16. See [current status and result-to-test index](CURRENT_STATUS_2026-11-02.md). Dates and numeric results in historical validation sections retain their original scope; this review is not a rerun or independent certification.
 
 Introduced 2026-10-08. `gate` returns all eligible lexical matches as separate
 source records, retaining their provenance; it does not turn multiple pages into
@@ -52,3 +52,5 @@ Policy and corpus fingerprints expose changes; they are not signed identities or
 The implementation fails its contract if an altered source passes, a provenance field is silently omitted, a matching eligible budget source disappears because another page owns the query, a stale derived basis passes without recheck, or a shared ancestor is represented as independent corroboration. The original gate delivery added 29 regression tests to a 122-test baseline (151 at that revision). These historical counts describe controlled fixtures, not current full-suite size or independent validation on a new author corpus. Run `python -m unittest tests.test_provenance_gate -v` and the full suite for current verification. Original topic probes and failures remain archived.
 
 See [UPLOAD_REVIEW.md](UPLOAD_REVIEW.md), [past documentation](past-documentation/README.md), and [papers](../papers/README.md).
+
+> Update 2026-11-16: The [public 52-case evidence suite](PUBLIC_EVIDENCE_TESTS.md) and [bounded expert relation path](HISTORICAL_EXPERT_PATH.md) document the current update. Prior dated measurements and preserved historical sources retain their original scope; this note does not rerun or revise them.

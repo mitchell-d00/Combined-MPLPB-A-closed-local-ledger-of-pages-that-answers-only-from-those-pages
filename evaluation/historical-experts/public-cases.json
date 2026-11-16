@@ -1,0 +1,376 @@
+{
+  "schema": "public-evidence-challenge-v1",
+  "suite_role": "Published development tests; no hidden or held-out status is claimed",
+  "normalization": "Exact Unicode source text; documentary field matching preserves IDs, versions, negation and complete source quotes",
+  "models": {
+    "enabled": false,
+    "provider_calls": 0
+  },
+  "cases": [
+    {
+      "id": "authority-corrupt",
+      "family": "source_authority",
+      "requirement": "An altered unsealed source cannot support an answer",
+      "expected": "no_supported_answer",
+      "score": "safety"
+    },
+    {
+      "id": "authority-restricted",
+      "family": "source_authority",
+      "requirement": "External delivery cannot expose a restricted source",
+      "expected": "no_supported_answer",
+      "score": "safety"
+    },
+    {
+      "id": "authority-conflict",
+      "family": "source_authority",
+      "requirement": "Contradictory eligible assertions remain conflicting",
+      "expected": "conflict",
+      "score": "safety"
+    },
+    {
+      "id": "diagnostic-grammar",
+      "family": "diagnostic_separation",
+      "requirement": "Unsupported grammar is distinguished from absence",
+      "expected": "interpretation_unsupported",
+      "score": "capability"
+    },
+    {
+      "id": "diagnostic-absence",
+      "family": "diagnostic_separation",
+      "requirement": "An empty corpus reports no eligible sources",
+      "expected": "no_eligible_sources",
+      "score": "capability"
+    },
+    {
+      "id": "diagnostic-evidence",
+      "family": "diagnostic_separation",
+      "requirement": "Eligible material without the requested statement reports insufficient evidence",
+      "expected": "evidence_not_established",
+      "score": "capability"
+    },
+    {
+      "id": "diagnostic-exhaustion",
+      "family": "diagnostic_separation",
+      "requirement": "A bounded expert discovery limit is distinct from proved source absence",
+      "expected": "explicit_budget_stop",
+      "score": "capability"
+    },
+    {
+      "id": "exact-route-zero",
+      "family": "exact_routing",
+      "requirement": "An unavailable explicit starting identifier cannot be substituted",
+      "expected": "unavailable",
+      "score": "safety"
+    },
+    {
+      "id": "exact-route-one",
+      "family": "exact_routing",
+      "requirement": "A declared document ID and version can route to one eligible witness",
+      "expected": "traversed",
+      "score": "capability"
+    },
+    {
+      "id": "exact-route-many",
+      "family": "exact_routing",
+      "requirement": "Duplicate declared identities cannot be ranked into a unique target",
+      "expected": "ambiguous_target",
+      "score": "safety"
+    },
+    {
+      "id": "contradiction-not-pruned",
+      "family": "exact_routing",
+      "requirement": "An exact-source investigation does not certify a world answer by omitting a contradictory eligible source",
+      "expected": "no_supported_answer",
+      "score": "safety"
+    },
+    {
+      "id": "event-occurrences",
+      "family": "event_identity",
+      "requirement": "Two appearances remain separate source occurrences",
+      "expected": "two_source_occurrences",
+      "score": "capability"
+    },
+    {
+      "id": "event-candidates",
+      "family": "event_identity",
+      "requirement": "An event candidate is explicitly distinct from its appearances and changed bodies trigger review",
+      "expected": "typed_event_candidate_with_review",
+      "score": "capability"
+    },
+    {
+      "id": "partial-correction",
+      "family": "time_scoped_correction",
+      "requirement": "A partial correction preserves the original and supports only its specified claim without losing unaffected facts",
+      "expected": "scoped_correction_with_unaffected_fact",
+      "score": "capability"
+    },
+    {
+      "id": "missing-bridge",
+      "family": "candidate_inference",
+      "requirement": "A missing intermediate witness blocks a proposed relationship",
+      "expected": "unresolved_without_supported_answer",
+      "score": "safety"
+    },
+    {
+      "id": "negated-bridge",
+      "family": "candidate_inference",
+      "requirement": "A negated Related declaration cannot license a positive hop",
+      "expected": "unresolved_without_supported_answer",
+      "score": "safety"
+    },
+    {
+      "id": "receipt-boundary",
+      "family": "receipt_independence",
+      "requirement": "Successful local expert execution is not evidence of delivery, reading or acknowledgement",
+      "expected": "execution_only_no_delivery_claim",
+      "score": "safety"
+    },
+    {
+      "id": "burden-metrics",
+      "family": "operator_and_compute_cost",
+      "requirement": "Measure CPU, wall time, Python peak memory and source bytes; label unmeasured human effort explicitly",
+      "expected": "measured_compute_unknown_human_time",
+      "score": "measurement"
+    },
+    {
+      "id": "event-subject-collision",
+      "family": "event_identity",
+      "requirement": "Equal subject lines with different explicit event IDs remain separate",
+      "expected": "separate_candidates",
+      "score": "safety"
+    },
+    {
+      "id": "event-no-id",
+      "family": "event_identity",
+      "requirement": "Missing event IDs do not produce guessed event identity",
+      "expected": "unassigned_occurrences",
+      "score": "safety"
+    },
+    {
+      "id": "event-message-duplicates",
+      "family": "event_identity",
+      "requirement": "Repeated identical messages retain separate occurrences without a false changed-body flag",
+      "expected": "candidate_with_two_occurrences",
+      "score": "capability"
+    },
+    {
+      "id": "event-message-changed",
+      "family": "event_identity",
+      "requirement": "Changed bodies under one explicit message ID require review",
+      "expected": "needs_review",
+      "score": "safety"
+    },
+    {
+      "id": "event-body-tamper",
+      "family": "event_identity",
+      "requirement": "Unsealed event bodies cannot become candidates",
+      "expected": "source_unavailable",
+      "score": "safety"
+    },
+    {
+      "id": "event-restricted",
+      "family": "event_identity",
+      "requirement": "Restricted occurrences remain unavailable externally",
+      "expected": "source_unavailable",
+      "score": "safety"
+    },
+    {
+      "id": "event-excluded",
+      "family": "event_identity",
+      "requirement": "The original question exclusions apply to event candidates",
+      "expected": "source_unavailable",
+      "score": "safety"
+    },
+    {
+      "id": "event-date-basis",
+      "family": "event_identity",
+      "requirement": "The exact source-stated date remains distinct from wrapper update time",
+      "expected": "source_stated_date_preserved",
+      "score": "capability"
+    },
+    {
+      "id": "correction-ambiguous-span",
+      "family": "time_scoped_correction",
+      "requirement": "A repeated old quote cannot silently select a correction location",
+      "expected": "rejected",
+      "score": "safety"
+    },
+    {
+      "id": "correction-missing-span",
+      "family": "time_scoped_correction",
+      "requirement": "A correction must identify existing original text",
+      "expected": "rejected",
+      "score": "safety"
+    },
+    {
+      "id": "correction-empty-span",
+      "family": "time_scoped_correction",
+      "requirement": "An empty correction scope is rejected",
+      "expected": "rejected",
+      "score": "safety"
+    },
+    {
+      "id": "correction-invalid-date",
+      "family": "time_scoped_correction",
+      "requirement": "Invalid declared effective dates are rejected",
+      "expected": "rejected",
+      "score": "safety"
+    },
+    {
+      "id": "correction-history",
+      "family": "time_scoped_correction",
+      "requirement": "An explicit scoped correction preserves its predecessor and unaffected source text",
+      "expected": "predecessor_and_successor",
+      "score": "capability"
+    },
+    {
+      "id": "correction-external",
+      "family": "time_scoped_correction",
+      "requirement": "A restricted source cannot be corrected through an external delivery profile",
+      "expected": "rejected",
+      "score": "safety"
+    },
+    {
+      "id": "correction-source-stale",
+      "family": "time_scoped_correction",
+      "requirement": "An obsolete source cannot be corrected as the current head",
+      "expected": "rejected",
+      "score": "safety"
+    },
+    {
+      "id": "correction-no-implicit-write",
+      "family": "time_scoped_correction",
+      "requirement": "Expert inspection cannot automatically rewrite a source",
+      "expected": "source_unchanged",
+      "score": "safety"
+    },
+    {
+      "id": "crawl-conditional-related",
+      "family": "candidate_inference",
+      "requirement": "A conditional Related field is not an unconditional crawl license",
+      "expected": "unexpanded_qualified_relation",
+      "score": "safety"
+    },
+    {
+      "id": "crawl-conditional-supersedes",
+      "family": "candidate_inference",
+      "requirement": "Conditional supersession cannot become an unconditional edge",
+      "expected": "unexpanded_qualified_relation",
+      "score": "safety"
+    },
+    {
+      "id": "crawl-version-miss",
+      "family": "exact_routing",
+      "requirement": "A named version must not fall back to a different version",
+      "expected": "target_unavailable",
+      "score": "safety"
+    },
+    {
+      "id": "crawl-version-match",
+      "family": "exact_routing",
+      "requirement": "The exact declared target version can be traversed",
+      "expected": "traversed",
+      "score": "capability"
+    },
+    {
+      "id": "crawl-cycle",
+      "family": "candidate_inference",
+      "requirement": "A declared relation cycle terminates with distinct source visits",
+      "expected": "bounded_cycle",
+      "score": "safety"
+    },
+    {
+      "id": "crawl-zero-hop",
+      "family": "candidate_inference",
+      "requirement": "A zero-hop budget prevents target traversal",
+      "expected": "hop_limit",
+      "score": "safety"
+    },
+    {
+      "id": "crawl-one-source",
+      "family": "candidate_inference",
+      "requirement": "A one-source budget stays explicit",
+      "expected": "source_or_character_budget",
+      "score": "safety"
+    },
+    {
+      "id": "crawl-private-target",
+      "family": "source_authority",
+      "requirement": "A relation link cannot launder a restricted target",
+      "expected": "target_unavailable",
+      "score": "safety"
+    },
+    {
+      "id": "crawl-unavailable-target",
+      "family": "candidate_inference",
+      "requirement": "A missing target remains unavailable",
+      "expected": "target_unavailable",
+      "score": "safety"
+    },
+    {
+      "id": "crawl-generic-title",
+      "family": "exact_routing",
+      "requirement": "An unnamed title cannot be guessed into a target ID",
+      "expected": "unresolved_target_identifier",
+      "score": "safety"
+    },
+    {
+      "id": "diagnostic-known-conflict",
+      "family": "diagnostic_separation",
+      "requirement": "An explicit location denial remains a conflict",
+      "expected": "conflict",
+      "score": "capability"
+    },
+    {
+      "id": "diagnostic-invalid-question",
+      "family": "diagnostic_separation",
+      "requirement": "Invalid empty input is distinct from source absence",
+      "expected": "invalid_question",
+      "score": "safety"
+    },
+    {
+      "id": "diagnostic-budget-input",
+      "family": "diagnostic_separation",
+      "requirement": "An invalid hop budget is rejected before expert work",
+      "expected": "invalid_budget",
+      "score": "safety"
+    },
+    {
+      "id": "diagnostic-query-preserved",
+      "family": "diagnostic_separation",
+      "requirement": "The original question and exclusions survive expert dispatch",
+      "expected": "original_question_preserved",
+      "score": "safety"
+    },
+    {
+      "id": "receipt-three-experts",
+      "family": "receipt_independence",
+      "requirement": "Documentary, chronology and verification work each produce a passing receipt",
+      "expected": "three_receipts",
+      "score": "capability"
+    },
+    {
+      "id": "receipt-no-provider",
+      "family": "receipt_independence",
+      "requirement": "Deterministic software roles do not masquerade as provider calls",
+      "expected": "local_software_roles",
+      "score": "safety"
+    },
+    {
+      "id": "receipt-no-completion-promotion",
+      "family": "receipt_independence",
+      "requirement": "Completed expert work is not a supported world answer",
+      "expected": "not_a_supported_answer",
+      "score": "safety"
+    },
+    {
+      "id": "receipt-private-recovery",
+      "family": "receipt_independence",
+      "requirement": "Explicit retained work uses a private recovery credential that is absent from results",
+      "expected": "private_recoverable_work",
+      "score": "safety"
+    }
+  ],
+  "fixture_record_time": "2000-01-01T00:00Z"
+}

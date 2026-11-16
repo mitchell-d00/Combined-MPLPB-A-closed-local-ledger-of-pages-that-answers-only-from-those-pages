@@ -1,6 +1,6 @@
 # Public builder and chat helper with no AI server bill
 
-Last reviewed: 2026-11-10.
+Last reviewed: 2026-11-16.
 
 The product remains a public website at the existing MPLPB address. Everyone can
 open it. GitHub Pages serves the interface; the MPLPB engine runs in each visitor's
@@ -208,3 +208,5 @@ Run `node tests/browser-ai-helper.cjs`, `node tests/browser-model-loader.cjs`,
 See [retained evidence](../evaluation/free-browser-helper/README.md). Source tests,
 extracted-ZIP checks, candidate Chromium, live neural inference and deployed/iPad
 verification are distinct; none is silently inferred from another.
+
+> Update 2026-11-16: The [public 52-case evidence suite](PUBLIC_EVIDENCE_TESTS.md) and [bounded expert relation path](HISTORICAL_EXPERT_PATH.md) document the current update. Prior dated measurements and preserved historical sources retain their original scope; this note does not rerun or revise them.

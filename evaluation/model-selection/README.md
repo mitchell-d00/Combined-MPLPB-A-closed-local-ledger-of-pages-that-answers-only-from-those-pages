@@ -1,6 +1,6 @@
 # MIT-only browser model selection
 
-Last reviewed: 2026-11-10.
+Last reviewed: 2026-11-16.
 
 The picker offers Phi-1.5 (default), Phi-2 and Phi-4-mini instruct. All three
 models are MIT-licensed by Microsoft; original notices are bundled and hashed.
@@ -44,3 +44,5 @@ WebGPU; a screenshot then records a disposed-object error on generation. Success
 generation and independent physical iPad reproduction remain unverified. Candidate,
 archive, CI and deployed-site results apply only to their respective revisions;
 see the PR/Actions runs for exact release outcomes.
+
+> Update 2026-11-16: The [public 52-case evidence suite](../../docs/PUBLIC_EVIDENCE_TESTS.md) and [bounded expert relation path](../../docs/HISTORICAL_EXPERT_PATH.md) document the current update. Prior dated measurements and preserved historical sources retain their original scope; this note does not rerun or revise them.
