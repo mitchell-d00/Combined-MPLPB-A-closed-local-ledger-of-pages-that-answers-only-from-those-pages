@@ -74,5 +74,27 @@ class ProseReconstructionTests(unittest.TestCase):
         withdraw(self.root,r.id)
         self.assertFalse(discover(self.root,'Mira archive conclusion')['candidates'])
 
+    def test_nominal_actions_and_navigation_are_not_historical_events(self):
+        write(self.root,doc_id='SOURCE-1',title='Fictional',scope='archive',body_html='<nav><p>Apply for a Grant</p></nav><p>The Order of the Day described a well-received article and a written declaration about the Union cause.</p><footer><p>Mira wrote a website notice.</p></footer>')
+        report=self.report('archive Order article declaration')
+        self.assertFalse(report['propositions'])
+        self.assertFalse(report['connections'])
+
+    def test_passive_repeal_and_scope_remain_literal_candidates(self):
+        write(self.root,doc_id='SOURCE-1',title='Quoted public constitutional text',scope='archive',body_html='<p>The eighteenth article of amendment to the Constitution of the United States is hereby repealed.</p><p>The transportation or importation into any State, Territory, or possession of the United States for delivery or use therein of intoxicating liquors, in violation of the laws thereof, is hereby prohibited.</p>')
+        report=self.report('constitutional provision repealed transportation laws')
+        repeal=next(x for x in report['propositions'] if x['value']['action']=='repeal')
+        self.assertIsNone(repeal['value']['actor'])
+        self.assertIn('eighteenth article',repeal['value']['affected_subject_text'])
+        self.assertTrue(any('in violation' in x['value']['literal_qualifiers'] for x in report['qualifications']))
+        self.assertFalse(repeal['answer_supported']);self.assertFalse(repeal['content_truth_verified'])
+
+    def test_same_paragraph_actor_continuity_is_only_a_proposal(self):
+        write(self.root,doc_id='SOURCE-1',title='Fictional',scope='archive',body_html='<p>Mira surveyed the archive. She wrote an archive note.</p><p>She sent an archive report.</p>')
+        report=self.report('Mira archive note report')
+        links=[x for x in report['connections'] if x['kind']=='possible_pronoun_antecedent']
+        self.assertEqual(len(links),1);self.assertEqual(links[0]['value']['actor_candidate'],'Mira')
+        self.assertFalse(links[0]['identity_verified']);self.assertFalse(links[0]['answer_supported'])
+
 
 if __name__=='__main__':unittest.main()

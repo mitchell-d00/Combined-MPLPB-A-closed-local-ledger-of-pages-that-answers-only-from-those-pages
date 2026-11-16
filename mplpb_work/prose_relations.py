@@ -7,23 +7,29 @@ its complete source sentence and an explicit candidate status.
 import difflib
 import re
 from collections import Counter
+from html.parser import HTMLParser
+from html import escape
 from mplpb_answers.body_text import body_text
 from mplpb_answers.prose_retrieval import metadata
 from mplpb_combined.reader import terms
-from .source_mapping import anchor,_item
+from .source_mapping import anchor,_item as _source_item
 
-VERSION='source-propositions-v1'
+
+def _item(*args,**kwargs):
+    return _source_item(*args,operation='finite-prose-interpretation-v2',**kwargs)
+
+VERSION='source-propositions-v2'
 VERBS={
  'appoint':'appoint','appointed':'appoint','decided':'decide','decide':'decide','proceed':'proceed',
  'wrote':'write','write':'write','written':'write','scribbled':'write','drafting':'draft','drafted':'draft',
  'distributed':'distribute','published':'publish','publishing':'publish','read':'read',
- 'told':'instruct','instructed':'instruct','ordered':'order','order':'order','designate':'designate',
+ 'told':'tell','instructed':'instruct','ordered':'order','order':'order','designate':'designate',
  'sent':'send','send':'send','sending':'send','received':'receive','receive':'receive',
  'surveyed':'survey','provided':'provide','provide':'provide','lobbied':'lobby','supported':'support',
  'correcting':'correct','corrected':'correct','correct':'correct','reconsidered':'reconsider',
  'retracted':'retract','retract':'retract','withdrawn':'withdraw','withdrew':'withdraw',
  'revised':'revise','amended':'amend','denied':'deny','disagreed':'disagree',
- 'repealed':'repeal','repeal':'repeal',
+ 'repealed':'repeal','repeal':'repeal','prohibited':'prohibit','prohibit':'prohibit',
  'issued':'issue','containing':'quote_or_contain','quote':'quote','quoted':'quote',
  'grant':'grant','allowed':'allow','authorized':'authorize','aborted':'abort',
  'defended':'defend','surrendered':'surrender','evacuated':'evacuate','marched':'march',
@@ -33,16 +39,17 @@ ACTION=re.compile(r'\b('+'|'.join(sorted(VERBS,key=len,reverse=True))+r')\b',re.
 LETTER=re.compile(r"(?m)^([A-Z][A-Z .’'\-]{2,70}?)\s+TO\s+([A-Z][A-Z .’'\-]{2,70}?)(?=\.\s+[A-Z][a-z]|\.\s*\n|\s*\n)")
 NAMES=re.compile(r"\b(?:[A-Z][a-z]+(?:[’'][a-z]+)?(?:\s+(?:[A-Z]\.\s*)?[A-Z][a-z]+){0,2}|I|[Hh]e|[Ss]he|[Tt]hey|[Ww]e|[Yy]ou)\b")
 DATE=re.compile(r'\b(?:(?:January|February|March|April|May|June|July|August|September|October|November|December)(?:\s+\d{1,2}(?:st|nd|rd|th|d)?(?:,)?(?:\s+\[?\d{4}\]?)?)?|\d{4}-\d{2}-\d{2}|(?:eve|afternoon|morning)\s+of\s+[^.;!?]{1,50})',re.I)
-QUALIFICATION=re.compile(r'\b(?:not|never|no|if|unless|except(?:ed)?|only|all|every|may|might|could|should|shall|will|possible|hope|intended|discretion|as if)\b',re.I)
+QUALIFICATION=re.compile(r'\b(?:not|never|no|if|unless|except(?:ed)?|only|all|every|may|might|could|should|shall|will|possible|hope|intended|discretion|as if|in violation|not exceeding|subject to|provided that)\b',re.I)
 ABBREVIATIONS={'mr','mrs','ms','dr','prof','gen','maj','hon','st','secy','jr','sr','s','ss'}
 
 
 def sentences(text):
     start=0
-    for m in re.finditer(r'[.!?]\s+(?=[A-Z"\[])',text):
+    for m in re.finditer(r'[.!?]["”\)\]]?\s+(?=[A-Z"\[])',text):
         prefix=text[max(0,m.start()-80):m.start()];last=re.search(r'(\w+)$',prefix)
         if last and (len(last[1])==1 or last[1].casefold() in ABBREVIATIONS):continue
         end=m.start()+1
+        if end<len(text) and text[end] in '"”)]':end+=1
         if text[start:end].strip():
             a=start+len(text[start:end])-len(text[start:end].lstrip());yield a,end,text[a:end]
         start=m.end()
@@ -61,9 +68,74 @@ def _modality(quote,position):
     return 'source_reports_action'
 
 
+def _predicate(quote,match):
+    """Reject common nominal/adjectival uses without asserting full POS parsing."""
+    word=match[0].lower();prefix=quote[:match.start()];suffix=quote[match.end():]
+    if match.start() and quote[match.start()-1] in '-‐‑':return False
+    if word=='written':return bool(re.search(r'\b(?:has|have|had|was|were|is|been|be)\s*$',prefix,re.I))
+    if word=='appointed' and re.match(r'\s*(?:;|,|$)',suffix):return False
+    if word=='provided' and (re.search(r'\b(?:as|hereinafter|hereinbefore)\s*$',prefix,re.I) or re.match(r'\s*,?\s*that\b',suffix,re.I)):return False
+    if word in {'order','cause','grant','quote'}:
+        # Base forms need a grammatical cue; titles and nominal "cause of" do not.
+        return bool(re.search(r'\b(?:I|we|you|they|do|did|will|shall|may|might|would|could|should|to)\s+(?:(?:also|hereby|not)\s+|in\s+his\s+discretion,?\s+)?$',prefix,re.I))
+    return True
+
+
+def _actor(prefix):
+    # Prefer an immediately attached grammatical actor, never the nearest proper
+    # noun anywhere in a long prepositional phrase.
+    apposition=re.search(r"\bI,\s*([A-Z][A-Za-z .’'\-]{2,65}?),",prefix)
+    if apposition:return apposition[1].strip()
+    tail=re.sub(r'\b(?:have|has|had|did|do|does|will|shall|would|could|should|may|might|not|never|quickly|also|began|in his discretion)\b[, ]*',' ',prefix,flags=re.I).strip()
+    tail=re.sub(r'\bto\s*$','',tail,flags=re.I).strip()
+    pronoun=re.search(r'\b(I|[Hh]e|[Ss]he|[Tt]hey|[Ww]e|[Yy]ou)\s*$',tail)
+    if pronoun:return pronoun[1]
+    compound=re.search(r"([A-Z][a-z]+(?:\s+[A-Z][a-z]+)*\s+and\s+[A-Z][a-z]+(?:\s+[A-Z][a-z]+)*)\s*$",tail)
+    if compound:return compound[1]
+    names=list(NAMES.finditer(tail))
+    if names:
+        name=names[-1]
+        if not tail[name.end():].strip() and name[0].casefold() not in {'much','in','during','even','this','that','the','later','december','january','february','march','april','may','june','july','august','september','october','november'}:
+            return name[0]
+    if re.search(r'\b[Ss]uch regulations\s*$',tail):return 'Such regulations'
+    return None
+
+
+def _non_event_ranges(record):
+    """Source-marked site chrome is not an event, while original bytes remain."""
+    if not re.search(r'<(?:nav|header|footer|aside|form)\b',record.body_html,re.I):return []
+    class Chrome(HTMLParser):
+        def __init__(self):super().__init__();self.parts=[];self.depth=0;self.ranges=[]
+        def handle_starttag(self,t,attrs):
+            if t in {'nav','header','footer','aside','form'}:
+                if not self.depth:
+                    prefix=body_text(''.join(self.parts));self.begin=len(prefix)+bool(prefix)
+                self.depth+=1
+            self.parts.append('<'+t+'>')
+        def handle_endtag(self,t):
+            self.parts.append('</'+t+'>')
+            if t in {'nav','header','footer','aside','form'} and self.depth:
+                self.depth-=1
+                if not self.depth:self.ranges.append((self.begin,len(body_text(''.join(self.parts)))))
+        def handle_data(self,t):self.parts.append(escape(t,quote=False))
+    p=Chrome();p.feed(record.body_html);p.close();return p.ranges
+
+
+def _sentence_index(record,text):
+    if '<pre' in record.body_html.casefold():return list(sentences(text))
+    # Canonical HTML block lines are already source-defined paragraph boundaries.
+    result=[];offset=0;ranges=_non_event_ranges(record)
+    for line in text.splitlines(keepends=True):
+        for a,b,q in sentences(line.rstrip('\n')):
+            if not any(lo<=offset+a<hi for lo,hi in ranges):result.append((offset+a,offset+b,q))
+        offset+=len(line)
+    return result
+
+
 def extract(index,passages,state,*,max_propositions=48,max_connections=16):
     bodies={r.path:body_text(r.body_html) for r in index.records};meta={r.path:metadata(r) for r in index.records}
-    sentence_index={path:list(sentences(text)) for path,text in bodies.items()}
+    records={r.path:r for r in index.records}
+    sentence_index={path:_sentence_index(records[path],text) for path,text in bodies.items()}
     frames=[];seen=set();truncated=False;contexts=[];context_seen=set()
     for p in passages:
         text=bodies[p['path']];begin=p['body_start'];end=begin+len(p['text'])
@@ -83,8 +155,10 @@ def extract(index,passages,state,*,max_propositions=48,max_connections=16):
                 if key in seen:continue
                 if len(frames)>=max_propositions or per_context>=6:truncated=True;break
                 per_context+=1
+                if not _predicate(quote,match):continue
                 seen.add(key);action=VERBS[match[0].lower()];prefix=quote[:match.start()]
-                names=[m for m in NAMES.finditer(prefix) if m[0].casefold() not in {'january','february','march','april','may','june','july','august','september','october','november','december','later','during','this','that','the','by','on'}];subject=names[-1][0] if names else None
+                if action=='tell':action='instruct' if re.search(r'\bto\s+(?:send|write|publish|correct|retract)\b',quote[match.end():],re.I) else 'report_speech'
+                subject=_actor(prefix)
                 unresolved=[];bindings=[]
                 apposition=re.search(r"\bI,\s*([A-Z][A-Za-z .’'\-]{2,65}?),",prefix)
                 if apposition:subject=apposition[1].strip()
@@ -98,7 +172,8 @@ def extract(index,passages,state,*,max_propositions=48,max_connections=16):
                 object_bindings=[]
                 if header and re.match(r'\s+you\b',quote[match.end():],re.I):
                     object_bindings=[{'pronoun':'you','resolved_candidate':header[2],'basis':'explicit documentary addressee heading'}]
-                if re.search(r'\b(?:was|were|been|be)\s*$',prefix,re.I):subject=None;unresolved.append('passive_agent_unresolved')
+                if re.search(r'\b(?:is|are|was|were|been|be)(?:\s+\w+){0,4}\s*$',prefix,re.I):
+                    subject=None;unresolved.append('passive_agent_unresolved')
                 following=quote[match.end():];object_text=following.strip()
                 next_action=ACTION.search(quote,match.end())
                 role_end=next_action.start() if next_action else len(quote)
@@ -136,6 +211,8 @@ def extract(index,passages,state,*,max_propositions=48,max_connections=16):
         for right in frames[i+1:]:
             rv=right['value'];re_=right['evidence'][0]
             if le['path']==re_['path'] and le['body_start']==re_['body_start']:
+                if lv['action']=='decide' and rv['action']=='proceed' and left['predicate_start']<right['predicate_start'] and re.search(r'\bto\s+proceed\b',le['quote'],re.I):
+                    connections.append(_item('planned_action_candidate',[le],{'decision_proposition':left['mapping_id'],'planned_action_proposition':right['mapping_id'],'actor_candidate':lv['actor']},state,operation_basis='explicit decision with to-proceed complement; plan is not completion',action_completed=False,direction='decision_to_planned_action',causality='NOT ESTABLISHED'))
                 if lv['action']=='instruct' and rv['action']=='send' and left['predicate_start']<right['predicate_start']:
                     connections.append(_item('reported_request_candidate',[le],{'request_proposition':left['mapping_id'],'requested_action_proposition':right['mapping_id']},state,
                         operation_basis='instruction and nested send action in the same quoted sentence; not completion',requested_action_completed=False,direction='request_to_requested_action',causality='NOT ESTABLISHED'))
@@ -153,8 +230,25 @@ def extract(index,passages,state,*,max_propositions=48,max_connections=16):
             if kind:
                 connections.append(_item(kind,[le,re_],{'left_proposition':left['mapping_id'],'right_proposition':right['mapping_id']},state,
                     operation_basis=basis,direction=None,causality='NOT ESTABLISHED',predecessor_resolved=False))
+    # A bounded same-paragraph antecedent proposal is exposed separately; it
+    # does not silently replace the unresolved pronoun in the proposition.
+    ordered=sorted(frames,key=lambda f:(f['evidence'][0]['path'],f['predicate_start']))
+    for n,current in enumerate(ordered):
+        cv=current['value'];ce=current['evidence'][0]
+        if str(cv['actor']).casefold() not in {'he','she'}:continue
+        prior=[f for f in ordered[:n] if f['evidence'][0]['path']==ce['path']
+               and ce['body_start']-f['evidence'][0]['body_start'] in range(1,1001)
+               and f['value']['actor'] and str(f['value']['actor']).casefold() not in {'i','we','he','she','they','you'}
+               and '\n' not in bodies[ce['path']][f['evidence'][0]['body_start']:ce['body_start']]]
+        if prior:
+            antecedent=prior[-1]
+            connections.append(_item('possible_pronoun_antecedent',[antecedent['evidence'][0],ce],
+                {'pronoun_proposition':current['mapping_id'],'antecedent_proposition':antecedent['mapping_id'],'actor_candidate':antecedent['value']['actor']},state,
+                operation_basis='nearest explicit acting subject in the same paragraph within 1000 characters; ambiguity remains',
+                identity_verified=False,direction='candidate_actor_to_unresolved_pronoun',causality='NOT ESTABLISHED'))
     # A parallel wording candidate connects explicit shared wording, not events.
-    for i,left in enumerate(contexts):
+    compare_wording=bool(terms(index.question)&terms('wording compare correction revise reconsider retract changed difference contradiction'))
+    for i,left in enumerate(contexts) if compare_wording else []:
         for right in contexts[i+1:]:
             if left['path']==right['path']:continue
             a=left['quote'];b=right['quote'];wa=re.findall(r'\w+',a.casefold());wb=re.findall(r'\w+',b.casefold())

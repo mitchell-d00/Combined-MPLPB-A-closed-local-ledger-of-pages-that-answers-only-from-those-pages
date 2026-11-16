@@ -20,3 +20,8 @@ python -m unittest tests.test_prose_reconstruction tests.test_source_mapping tes
 ```
 
 The existing frozen evaluator/importer and 180-second budget govern both compared implementations. Independent assessment remains NOT RUN. Unit controls validate boundaries; they do not establish historical understanding.
+
+
+## Measured semantic failures and second revision
+
+The first proposition prototype passed boundary regressions but developer inspection of all 80 unique unfamiliar-record proposals found 15 source-consistent, 38 incorrect, 17 unresolved and 10 irrelevant connections. These are developer/AI judgments, not independent human evaluation. All quotes, rationale and wrong outputs remain in the dated directory. The next revision rejects nominal/adjectival action matches, separates source-defined HTML paragraphs and site chrome, keeps uncertain agents unresolved, distinguishes reported speech from instructions, and proposes bounded same-paragraph antecedents and planned-action links with both source passages. It never silently substitutes a candidate antecedent as verified identity. New actual-source runs are required; those failures are not relabeled.
