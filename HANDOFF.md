@@ -4,8 +4,8 @@ Last reviewed: 2026-11-16.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `cbee135077d24dc77a6b311690e3f45909fcb468` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `4ea8818f43978538544e0b222d723e3e5cd5b034a8f1c327bf6993b20c56cb2d`.
+Base commit: `a2597bfbd16577ccd22f28d0686bd656ce408b66` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `eee28e1788cd39f302829016cc6b19d1c83afe285b3058019b3338efb154fa5e`.
 
 ## Latest user update instructions
 
@@ -34,6 +34,8 @@ The next challenge is demonstrating that MPLPB can consistently recover the impo
 - Use actual unfamiliar-record semantic failures to correct noun/adjective event errors, compound speakers, passive roles, quote boundaries and irrelevant website comparisons; retain bounded candidate pronoun/planned-action connections.
 - Recover the demonstrated distribution omission by counting only valid predicates against extraction limits; recognize generic called-off/cancelled phrasing with negation and conditional scope.
 - Reject prepositional names as grammatical actors; expose same-clause coordinated actor proposals conservatively, without upgrading semantic truth.
+- A stricter frozen-context test found distribution recovery inconsistent at 1/4. Replace the per-context cap with the existing global 48-proposition bound; preserve all earlier results and evaluate retention/false proposals again.
+- Recognize cancellation phrases across preserved physical line breaks without rewriting original text.
 
 ## Validation recorded
 
@@ -44,6 +46,8 @@ The next challenge is demonstrating that MPLPB can consistently recover the impo
 - All 727 rich proposal objects across historical and new studies passed source/policy/pin/quote integrity and non-authority checks.
 - Native commit 01f128b passed all five CI workflow families, including exact archive and browser regressions.
 - Recovery focused controls: 26 passed in 1.683 seconds after fixing a conditional actor-clause error. The premature passing statement in cbee135 is explicitly corrected in recovery/validation-correction.json.
+- Allocation revision: 28 focused controls passed in 3.928 seconds, including all four existing complete-evidence distribution opportunities and multiline conditional cancellation.
+- Previous a259 whole historical run reached terminal state before allocation code replacement; its consistency failure remains immutable.
 
 ## Limitations and blocked checks
 
@@ -54,8 +58,8 @@ The next challenge is demonstrating that MPLPB can consistently recover the impo
 
 ## Next steps
 
-- Run unchanged frozen studies and additional post-code-freeze transfer originals; assess retained correct relationships, all new wrong/unresolved proposals, missed facets and processing costs.
-- Preserve the prior reports and rerun the full regression/authority suite before publication.
+- Evaluate allocation revision under all unchanged frozen source/question conditions; publish exact retention and new false/unresolved counts.
+- Retain negative transfer results; do not claim broad historical consistency merely because the specific repaired targets pass.
 
 ## Use this ZIP in your repository
 

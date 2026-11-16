@@ -16,9 +16,9 @@ from .source_mapping import anchor,_item as _source_item
 
 
 def _item(*args,**kwargs):
-    return _source_item(*args,operation='finite-prose-interpretation-v3',**kwargs)
+    return _source_item(*args,operation='finite-prose-interpretation-v4',**kwargs)
 
-VERSION='source-propositions-v3'
+VERSION='source-propositions-v4'
 VERBS={
  'called off':'cancel','call off':'cancel','cancelled':'cancel','canceled':'cancel','cancel':'cancel',
  'responded':'respond','respond':'respond',
@@ -37,7 +37,7 @@ VERBS={
  'defended':'defend','surrendered':'surrender','evacuated':'evacuate','marched':'march',
  'failed':'fail','fail':'fail','caused':'cause','cause':'cause',
 }
-ACTION=re.compile(r'\b('+'|'.join(sorted(VERBS,key=len,reverse=True))+r')\b',re.I)
+ACTION=re.compile(r'\b('+'|'.join(re.escape(v).replace(r'\ ',r'\s+') for v in sorted(VERBS,key=len,reverse=True))+r')\b',re.I)
 LETTER=re.compile(r"(?m)^([A-Z][A-Z .’'\-]{2,70}?)\s+TO\s+([A-Z][A-Z .’'\-]{2,70}?)(?=\.\s+[A-Z][a-z]|\.\s*\n|\s*\n)")
 NAMES=re.compile(r"\b(?:[A-Z][a-z]+(?:[’'][a-z]+)?(?:\s+(?:[A-Z]\.\s*)?[A-Z][a-z]+){0,2}|I|[Hh]e|[Ss]he|[Tt]hey|[Ww]e|[Yy]ou)\b")
 DATE=re.compile(r'\b(?:(?:January|February|March|April|May|June|July|August|September|October|November|December)(?:\s+\d{1,2}(?:st|nd|rd|th|d)?(?:,)?(?:\s+\[?\d{4}\]?)?)?|\d{4}-\d{2}-\d{2}|(?:eve|afternoon|morning)\s+of\s+[^.;!?]{1,50})',re.I)
@@ -160,9 +160,9 @@ def extract(index,passages,state,*,max_propositions=48,max_connections=16):
                 key=(p['path'],a,match.start())
                 if key in seen:continue
                 if not _predicate(quote,match):continue
-                if len(frames)>=max_propositions or per_context>=6:truncated=True;break
+                if len(frames)>=max_propositions:truncated=True;break
                 per_context+=1
-                seen.add(key);action=VERBS[match[0].lower()];prefix=quote[:match.start()]
+                seen.add(key);action=VERBS[re.sub(r'\s+',' ',match[0].lower())];prefix=quote[:match.start()]
                 if action=='tell':action='instruct' if re.search(r'\bto\s+(?:send|write|publish|correct|retract)\b',quote[match.end():],re.I) else 'report_speech'
                 subject=_actor(prefix)
                 unresolved=[];bindings=[]

@@ -131,5 +131,31 @@ class ProseReconstructionTests(unittest.TestCase):
         self.assertEqual(len(links),1);self.assertEqual(links[0]['value']['actor_candidate'],'Ruth')
         self.assertFalse(links[0]['identity_verified']);self.assertFalse(links[0]['answer_supported'])
 
+    def test_distribution_consistency_across_frozen_question_variants(self):
+        from tools.unprepared_sources import import_corpus
+        corpus=ROOT/'evaluation/unprepared-originals/2026-11-16-followup/unfamiliar'
+        self.root.rmdir();import_corpus(corpus,self.root)
+        quote='The order was distributed to the 175,000-member expeditionary force on the eve of the invasion.'
+        opportunities=0
+        for case in json.loads((corpus/'questions.json').read_text())['cases']:
+            report=discover(self.root,case['question'])
+            if any(quote in c['quote'] for c in report['candidates']):
+                opportunities+=1
+                frames=report['information_map']['proposed_reconstruction']['propositions']
+                self.assertTrue(any(x['value']['action']=='distribute' and x['evidence'][0]['quote']==quote for x in frames),case['id'])
+                self.assertLessEqual(len(frames),48)
+        self.assertEqual(opportunities,4)
+
+    def test_multiline_cancellation_keeps_source_coordinates_and_condition(self):
+        write(self.root,doc_id='SOURCE-1',title='Fictional control',scope='archive',body_html='<pre>If Mira called\noff the archive meeting, Ruth would write a note.</pre>')
+        q='Mira archive meeting called off'
+        report=self.report(q)
+        m=next(x for x in report['propositions'] if x['value']['action']=='cancel')
+        self.assertEqual(m['value']['actor'],'Mira')
+        self.assertEqual(m['value']['modality'],'conditional_or_uncertain')
+        self.assertIn('called\noff',m['evidence'][0]['quote'])
+        self.assertTrue(reconstruct(self.root,q,m)['quote_fidelity'])
+        self.assertFalse(m['answer_supported'])
+
 
 if __name__=='__main__':unittest.main()
