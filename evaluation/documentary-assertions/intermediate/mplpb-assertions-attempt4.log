@@ -1,0 +1,19 @@
+======================================================================
+FAIL: test_original_appointment_keeps_referenced_role_and_comparison_unresolved (tests.test_documentary_originals.DocumentaryOriginalTests.test_original_appointment_keeps_referenced_role_and_comparison_unresolved)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/mplpb/tests/test_documentary_originals.py", line 37, in test_original_appointment_keeps_referenced_role_and_comparison_unresolved
+    r=self.inspect('evaluation/unprepared-originals/2026-11-16-followup/unfamiliar','U01')
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/mplpb/tests/test_documentary_originals.py", line 19, in inspect
+    self.assertEqual(r['kind'],'partial_answer');self.assertFalse(r['answer_supported'])
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'abstain' != 'partial_answer'
+- abstain
++ partial_answer
+
+
+----------------------------------------------------------------------
+Ran 28 tests in 10.564s
+
+FAILED (failures=1)
