@@ -4,14 +4,16 @@ Last reviewed: 2026-11-17.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `6289eca8b73923bc73cc1bb4df775258c9bbd52b` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `3dc8a66cab149f02878596af7950dcf0b1b36ea981270d0460ed40c8aa411efb`.
+Base commit: `bbd5bd2914fb4565c8561672dae3bd5f9779aad6` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `68659dacee35bf8a8f105c6836c7cfdcfb455fe416ad9b67100dbfad47ca8a1a`.
 
 ## Latest user update instructions
 
 Reproduce, diagnose, and fix false identity clustering in MPLPB’s offline sorter. Most important instruction is to fix occurrence classification, not just remove one cluster edge. A good fix distinguishes “this identifier appears in a document” from “this identifier is declared as the identity of this document.”
 
 One of the main things we preserve the task state and verification rules so any capable AI instance can resume the work. demonstrating that the system doesn’t need its previous AI instance to keep functioning. While investigating how little continuity an individual AI instance actually needs.
+
+Merge it
 
 ## Implemented scope
 
@@ -21,6 +23,7 @@ One of the main things we preserve the task state and verification rules so any 
 - Extend positive, adversarial, Unicode, budget, replay and native safety checks; preserve before/after exact evidence-node traces.
 - Retain a resumable checkpoint with source/test/probe hashes, commands, results, verification contracts and remaining ambiguity independent of this conversation.
 - Add a fresh-process checkpoint consumer; retain exact consumed checkpoint, minimal-environment results and frozen-archive evidence. No model identity or private transcript required for deterministic verification.
+- Publish the verified sorter scope fix through a pull request to main, preserving required archive-first and regression gates; do not bypass protection.
 
 ## Validation recorded
 
@@ -40,6 +43,7 @@ One of the main things we preserve the task state and verification rules so any 
 
 ## Next steps
 
+- Create the sorter-fix pull request, wait for required checks on its exact head, merge when green, then inspect the Pages deployment separately. Merge authorization is explicit; no claim of deployed verification before it passes.
 - Read checkpoint.json and REPORT.md in evaluation/preprocessing-sorter/2026-11-17-header-scope; use resume_verification.py with a new output directory to verify pins and existing tests.
 - Preserve the implementation freeze6289eca and its archived results separately from evidence-only commits; do not restore the defect to satisfy the supplied probe’s obsolete bug-presence assertion.
 - Future research: measure a genuinely fresh AI worker’s resumption using only the public handoff; do not infer model continuity or semantic accuracy from deterministic software replay.
