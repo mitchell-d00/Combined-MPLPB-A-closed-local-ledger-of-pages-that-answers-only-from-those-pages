@@ -1,0 +1,13 @@
+======================================================================
+FAIL: test_quoted_role_declaration_does_not_complete (tests.test_comparison_completion.ComparisonCompletionTests.test_quoted_role_declaration_does_not_complete)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/mplpb/tests/test_comparison_completion.py", line 88, in test_quoted_role_declaration_does_not_complete
+    self.assertTrue(r['answer_supported']);self.assertEqual({s['id'] for s in r['sources']},{'DRAFT','TRANSCRIPT'})
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: False is not true
+
+----------------------------------------------------------------------
+Ran 108 tests in 15.516s
+
+FAILED (failures=1)

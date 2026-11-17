@@ -101,6 +101,18 @@ const documentaryPartial=await call('/api/query',{corpus:documentaryCollection.c
 if(documentaryPartial.reader.answer_contract?.kind!=='partial_answer'||documentaryPartial.reader.answer_supported)
  throw Error('WASM documentary partial answer overclaimed: '+JSON.stringify(documentaryPartial));
 console.log('PASS WASM checked documentary assertions and partial composition');
+const framedCollection=await call('/api/collections/create',{name:'Framed source comparison smoke'});
+await call('/api/source/import',{corpus:framedCollection.corpus,title:'Draft record',url:'https://example.org/draft',
+ text:'(This is Professor Clara Reed\'s reconstruction of Iris Vale\'s "original Rough draught" of the Harbor Charter before it was revised by the council.)\n\nWe hold these rules to be fair and binding.'});
+await call('/api/source/import',{corpus:framedCollection.corpus,title:'Transcription record',url:'https://example.org/transcript',
+ text:'Note: The following text is a transcription of the copper engraving of the parchment Harbor Charter.\n\nWe hold these rules to be clear and binding.'});
+const framedQuestion="Compare the opening rule claim in Iris Vale's rough draft and the final Harbor Charter transcript. What wording changed and what remained?";
+const framedAnswer=await call('/api/query',{corpus:framedCollection.corpus,question:framedQuestion});
+if(!framedAnswer.reader.answer_supported||!framedAnswer.reader.answer_contract.claims[0]?.proposition.question_obligations_verified||framedAnswer.reader.answer_contract.claims[0].citations.length!==4)
+ throw Error('WASM did not check all source-comparison obligations: '+JSON.stringify(framedAnswer));
+const framedExtra=await call('/api/query',{corpus:framedCollection.corpus,question:framedQuestion+' Why did the council change it?'});
+if(framedExtra.reader.answer_supported)throw Error('WASM comparison promoted unsupported motive');
+console.log('PASS WASM source-framed complete comparison and unresolved motive');
 const empty=await call('/api/collections/create',{name:'Empty smoke'});
 const isolated=await call('/api/query',{corpus:empty.corpus,question:'Dinosaurs'});
 if(isolated.reader.kind==='return')throw Error('WASM collections not isolated');

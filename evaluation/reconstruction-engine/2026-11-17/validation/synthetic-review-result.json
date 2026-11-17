@@ -1,0 +1,57 @@
+{
+  "schema": "historical-review-v1",
+  "claim_id": "C1",
+  "claim_revision": 1,
+  "review_status": "synthetic_fixture_reviewed",
+  "reviews": [
+    {
+      "review_id": "R1",
+      "record_revision": 1,
+      "current": true,
+      "decision": "support",
+      "claim_sha256": "sha256:4325fcba6f2492275c4d1112baeb2bd022c2345e2cc636ee92829daafbe67b5a",
+      "evidence_pins": {
+        "E1": 1
+      },
+      "historical_truth_independently_verified": false,
+      "independence_attestation": "Two fixture seats, not real independent reviewers.",
+      "rationale": "Synthetic software test; no human review.",
+      "reviewer_id": "fixture-reviewer-a",
+      "reviewer_instance": "fixture-reviewer-a-1",
+      "reviewer_kind": "synthetic_fixture",
+      "reviewer_seat": "fixture-reviewer-a",
+      "scope": "synthetic-expedition-v1 only",
+      "uncertainties": [
+        "No real historical truth evaluated"
+      ]
+    },
+    {
+      "review_id": "R2",
+      "record_revision": 1,
+      "current": true,
+      "decision": "support",
+      "claim_sha256": "sha256:4325fcba6f2492275c4d1112baeb2bd022c2345e2cc636ee92829daafbe67b5a",
+      "evidence_pins": {
+        "E1": 1
+      },
+      "historical_truth_independently_verified": false,
+      "independence_attestation": "Two fixture seats, not real independent reviewers.",
+      "rationale": "Synthetic software test; no human review.",
+      "reviewer_id": "fixture-reviewer-b",
+      "reviewer_instance": "fixture-reviewer-b-1",
+      "reviewer_kind": "synthetic_fixture",
+      "reviewer_seat": "fixture-reviewer-b",
+      "scope": "synthetic-expedition-v1 only",
+      "uncertainties": [
+        "No real historical truth evaluated"
+      ]
+    }
+  ],
+  "synthetic_fixture_truth_matches": true,
+  "synthetic_oracle_sha256": "sha256:3ea0e45499e8573e2586cc0f091f36d7a9b1590df8d854bad907818abcc58911",
+  "reviewer_identity_independently_verified": false,
+  "reviewer_independence_verified": false,
+  "historical_truth_independently_verified": false,
+  "answer_supported": false,
+  "notice": "Host capabilities authorize entries, not reviewer identity or historical truth. Synthetic truth applies only to its declared test universe."
+}

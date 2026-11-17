@@ -1,0 +1,16 @@
+======================================================================
+FAIL: test_complete_comparison_checks_roles_target_and_both_operations (tests.test_comparison_completion.ComparisonCompletionTests.test_complete_comparison_checks_roles_target_and_both_operations)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/mplpb/tests/test_comparison_completion.py", line 25, in test_complete_comparison_checks_roles_target_and_both_operations
+    self.assertEqual(r['kind'],'supported_answer');self.assertTrue(r['answer_supported'])
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'abstain' != 'supported_answer'
+- abstain
++ supported_answer
+
+
+----------------------------------------------------------------------
+Ran 9 tests in 0.139s
+
+FAILED (failures=1)

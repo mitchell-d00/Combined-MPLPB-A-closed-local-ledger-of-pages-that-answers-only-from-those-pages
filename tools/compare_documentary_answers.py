@@ -41,13 +41,15 @@ def compare(corpus,before,after,output):
                     if record is None:raise ValueError('Certificate source currently ineligible')
                     relation=claim['proposition']['relation']
                     same=[e for e in cites if e['path']==first['path']]
-                    start=min(e['body_start'] for e in same);end=max(e['body_end'] for e in same)
+                    completion=bool(claim['proposition'].get('question_obligations_verified'))
+                    start=first['body_start'] if completion else min(e['body_start'] for e in same)
+                    end=first['body_end'] if completion else max(e['body_end'] for e in same)
                     text=body_text(record.body_html)
                     kind=('letter_instruction' if relation=='source_reports_instruction' else 'action_statement' if relation=='source_action_assertion'
-                          else 'wording_comparison' if relation=='exact_wording_comparison' else 'relationship_statement')
+                          else 'comparison_completion' if completion else 'wording_comparison' if relation=='exact_wording_comparison' else 'relationship_statement')
                     proposals.append({'kind':kind,'source_id':record.id,'path':record.path,'hash':record.hash_actual,
                                       'start':start,'end':end,'quote':text[start:end]})
-                    if kind=='wording_comparison':
+                    if kind in {'wording_comparison','comparison_completion'}:
                         other=cites[1]
                         proposals[-1]['other']={'path':other['path'],'source_id':other['source_id'],'hash':other['hash'],
                                                 'start':other['body_start'],'end':other['body_end'],'quote':other['quote']}

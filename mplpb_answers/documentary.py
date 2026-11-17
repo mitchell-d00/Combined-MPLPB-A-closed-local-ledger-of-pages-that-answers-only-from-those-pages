@@ -59,6 +59,8 @@ def plan(question):
             goals.append({'question':clause,'kind':'explicit_cause' if q.lower().startswith('why') else 'resource_support'})
         elif re.match(r'(?:Compare|What (?:wording|words|text)|How .*differ)',q,re.I):
             goals.append({'question':clause,'kind':'wording_comparison'})
+        elif re.fullmatch(r'(?:what|which) (?:wording |words )?(?:remained|remains|is shared|was retained)',q,re.I):
+            goals.append({'question':clause,'kind':'wording_shared'})
         elif re.match(r'(?:When |What happened (?:before|after)|Did .* (?:before|after))',q,re.I):
             goals.append({'question':clause,'kind':'temporal_statement'})
         else:goals.append({'question':clause,'kind':'unresolved'})
@@ -92,34 +94,39 @@ def propose(index,passages):
         import difflib
         from .source_units import comparison_units
         records={r.path:r for r in index.records}
-        candidates=[]
+        candidates=[];candidate_seen=set();comparison_plan=kernel.comparison_request(index.question)
         for p in passages:
             for lo,hi,q in comparison_units(records[p['path']]):
                 if lo<p['body_start']+len(p['text']) and hi>p['body_start'] and 8<=hi-lo<=2200:
-                    candidates.append((p,lo,hi,q))
+                    key=(p['path'],lo,hi)
+                    if key not in candidate_seen:candidates.append((p,lo,hi,q));candidate_seen.add(key)
         pairs=[]
+        minimum_shared=2 if comparison_plan else 4
         for i,left in enumerate(candidates[:60]):
             for right in candidates[i+1:60]:
                 if left[0]['path']==right[0]['path']:continue
                 x,y=terms(left[3]),terms(right[3]);shared=x&y
-                if len(shared)<4:continue
+                if len(shared)<minimum_shared:continue
                 common=difflib.SequenceMatcher(None,left[3].split(),right[3].split(),autojunk=False).find_longest_match().size
-                if common<4:continue
+                if common<minimum_shared:continue
                 score=10*len(terms(index.question)&shared)+common/max(1,min(len(left[3].split()),len(right[3].split())))
+                if comparison_plan:score+=100*len(set(comparison_plan['topic_terms'])&shared)
                 pairs.append((score,left,right))
-        for _,left,right in sorted(pairs,key=lambda x:-x[0])[:2]:
+        for _,left,right in sorted(pairs,key=lambda x:-x[0])[:4 if comparison_plan else 2]:
             p,a,b,q=left;r,lo,hi,t=right
             # Comparisons share the same 12-proposal bound as all other rules.
             if len(result)>=12:break
             result.append({'kind':'wording_comparison','source_id':p['source_id'],'path':p['path'],'hash':p['hash'],'start':a,'end':b,'quote':q,
                 'other':{'source_id':r['source_id'],'path':r['path'],'hash':r['hash'],'start':lo,'end':hi,'quote':t}})
+            if len(result)<12 and kernel.comparison_request(index.question):
+                result.append(dict(result[-1],kind='comparison_completion'))
     return result
 
 
 def _relevant(goal,proof,question):
     v=proof['proposition']
     relation={'explicit_cause':'source_causal_assertion','resource_support':'source_resource_assertion',
-              'wording_comparison':'exact_wording_comparison','temporal_statement':'source_temporal_assertion'}.get(goal['kind'])
+              'wording_comparison':'exact_wording_comparison','wording_shared':'exact_wording_comparison','temporal_statement':'source_temporal_assertion'}.get(goal['kind'])
     if relation:
         if v['relation']!=relation:return False
         if relation=='exact_wording_comparison':return True
@@ -167,7 +174,10 @@ def _claim(proof):
         else:text='Source assertion: '+re.sub(r'\s+',' ',proof['citations'][0]['quote'])
         qualifiers=['Only the complete cited wording is checked; historical truth and event/person identity are not independently verified.']
         if v['relation']=='source_causal_assertion':qualifiers.append('The source explicitly attributes a cause; this does not independently establish historical causation.')
-        if v['relation']=='exact_wording_comparison':qualifiers.append('No version order, correction, motive, responsible person or whole-document absence is established by this local comparison.')
+        if v['relation']=='exact_wording_comparison':
+            qualifiers.append('No version order, correction, motive, responsible person or whole-document absence is established by this local comparison.')
+            if v.get('question_obligations_verified'):
+                qualifiers.append('Complete only for the supplied source-declared reconstruction/transcription and their cited opening topic. Historical authenticity and finality are not independently verified.')
     return {'text':text,'qualifiers':qualifiers,'citations':proof['citations'],
             'proposition':v,'source_support_established':True,'support_scope':'source_attributed_assertion',
             'verification':proof['verification'],'historical_truth_independently_verified':False,
@@ -190,11 +200,15 @@ def compose(index,max_passages,max_chars):
     checked=kernel.check(index,proposals)
     if checked['status']=='source_changed':return {'kind':'abstain','code':'source_changed'}
     proofs=checked['proofs'];selected=[];statuses=[];missing=[];conflict=False;ambiguous=False;alternatives=[]
+    closures=[p for p in proofs if p['proposition'].get('question_obligations_verified')
+              and p['proposition'].get('verified_question')==index.question]
+    literal_completion=(len(closures)==1 and all(g['kind'] in {'wording_comparison','wording_shared'} for g in goals))
+    if literal_completion:proofs=closures
     for goal in goals:
         matches=[p for p in proofs if _relevant(goal,p,index.question)]
         status={'question':goal['question'],'kind':goal['kind'],'status':'unresolved'}
-        if goal['kind'] in {'explicit_cause','resource_support','wording_comparison','temporal_statement'}:
-            if matches:status['status']='checked_relationship_scope_partial'
+        if goal['kind'] in {'explicit_cause','resource_support','wording_comparison','wording_shared','temporal_statement'}:
+            if matches:status['status']='supported_source_assertion' if literal_completion else 'checked_relationship_scope_partial'
         elif goal['kind']=='who_action':
             exact=[p for p in matches if p['proposition']['relation']=='source_action_assertion' and not p['proposition']['unresolved_reference']
                    and kernel.normalized(p['proposition']['object_text'])==kernel.normalized(goal['object_text'])]
@@ -236,8 +250,8 @@ def compose(index,max_passages,max_chars):
                     else 'Exact requested argument, reference, qualification, or complete contrary-evidence search is not established.')
             missing.append(goal['question']+': '+reason)
         statuses.append(status)
-    if not checked['scan_complete']:missing.append('Contrary-evidence scan reached its explicit character/unit/assertion budget; absence of contradiction is not established.')
-    if context_limits:missing.append('Some complete source units exceeded the context budget; search/context is incomplete.')
+    if not checked['scan_complete'] and not literal_completion:missing.append('Contrary-evidence scan reached its explicit character/unit/assertion budget; absence of contradiction is not established.')
+    if context_limits and not literal_completion:missing.append('Some complete source units exceeded the context budget; search/context is incomplete.')
     request_scope=any(p['proposition']['relation']=='source_reports_instruction' for p in selected)
     if request_scope:missing.append('Request occurrence, later correction/cancellation and execution are outside this source-attribution certificate.')
     shown=[];used=0;count=0
@@ -274,5 +288,6 @@ def compose(index,max_passages,max_chars):
                 'examined_characters':checked['examined_characters'],'examined_units':checked['examined_units'],'limits_reached':checked['limits_reached'],
                 'limits':checked['limits'],'rejected_proposals':checked['rejected'],
                 'context_limits':context_limits,
+                'comparison_completion_scope':closures[0]['proposition'].get('reference_scope') if literal_completion else None,
                 'alternative_evidence':displayed_alternatives,'unshown_alternative_evidence_count':len(alternatives)-len(displayed_alternatives),
                 'retrieval_limits':{'max_passages':max_passages,'max_characters':max_chars}}}

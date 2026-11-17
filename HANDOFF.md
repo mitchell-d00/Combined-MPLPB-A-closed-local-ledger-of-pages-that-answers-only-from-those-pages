@@ -4,8 +4,8 @@ Last reviewed: 2026-11-17.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `83646398d1a01735b49e3f2afe534e984196623e` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `0e44c314a8e1d9e2357dacbc3ed2bfc485b94091bc8f590ee15ab875459ef9a6`.
+Base commit: `5b6632a2bb0e208267980f6f9501581b13775424` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `7b4c0f8d7f9dda6047e11411fa264fa0623c90e7985990e5810f9a0605612306`.
 
 ## Latest user update instructions
 
@@ -23,6 +23,16 @@ Set rules for historical truth to be entered do synthetic historical truth so th
 
 Summarize what all we are doing and then continue
 
+How can we improve Complete historical answers
+
+Have history built as MPLPB are added if a relationship exists it is set and mplpb can suggest other relationships but not as factual as human eyes seeing what may be historical can that work ?
+
+How can we fix it 2 → 3 out of 22 unchanged questions; complete supported answers remain 0/22.
+
+22/22
+
+Summarize all we are doing and then continue
+
 ## Implemented scope
 
 - Extend existing source-unit inspection, complete-context discovery, obligation retrieval and independent documentary kernel for literal causal/temporal/resource/passive assertions and exact wording comparisons.
@@ -31,6 +41,7 @@ Summarize what all we are doing and then continue
 - Add capability-gated typed historical-review entries through existing WorkStore; synthetic oracle fixture exercises rules without claiming real historical truth or real independent reviewers.
 - Add target accounting after existing human-review/adjudication validation; 200 unseen-question independent evaluation and performance targets remain unmeasured.
 - Rehash both bounded raw crawler captures before accepting byte identity; reject forged hashes and missing raw payloads.
+- Add an independently derived source-framed literal-comparison completion proof: explicit body-role declarations, unique source/work references, opening-topic paragraphs and all question operations; never force22 affirmative answers to unsupported questions.
 
 ## Validation recorded
 
@@ -38,12 +49,15 @@ Summarize what all we are doing and then continue
 - Expanded focused run passed147 tests in18.179 seconds before final freeze; both crawler suites passed. Full final archive checks and unchanged historical replay pending.
 - Preserved first slow source-unit parsing attempt and failed review-schema/crawler-runtime attempts; repaired bounded lexical tail and existing effective_status field usage.
 - Post-freeze crawler adversarial test rejected digest-only identity and detected a forged body; fixed comparator rehashes raw captures. Both affected Node crawler suites passed; the Python runtime remains byte-identical to8364639.
+- Pre-completion frozen source5b6632a passed1106 tests in387.305 seconds and all browser/WASM controls. Fresh22-case comparison remains preserved separately: partials2→3, full0→0.
+- New native H05 probe returns a source-scoped complete comparison with four witnesses. Varied wording, missing/ambiguous/qualified roles, wrong authors/work, budgets, extra motives and mutations are tested. Completion-phase frozen full regression/replay pending.
 
 ## Limitations and blocked checks
 
-- Independent human review, adjudication, real historical truth validation and >=200 unseen-question evaluation NOT RUN; proposed targets are not achievements.
-- New relation proofs retain partial scope; document/event/person identities, execution from requests, correction scope and OCR quotation ambiguity can remain unresolved.
-- Final comparative outcomes and resource costs pending at this source freeze; do not infer historical accuracy from tests or candidates.
+- Independent human review and >=200 unseen-question evaluation NOT RUN; no9/10 or80/95/75/95 target claim.
+- Complete comparison is limited to supplied body-declared appearances, exact wording and literal question obligations. Historical authenticity, finality, event identity and historical truth remain unverified.
+- Automatic corpus-wide history maintenance, reliable general pronoun/entity resolution, arbitrary correction composition and damaged OCR quotation interpretation remain incomplete.
+- Final completion-phase full regression and unchanged-question results pending at this freeze.
 
 ## Next steps
 

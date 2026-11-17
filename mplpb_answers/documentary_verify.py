@@ -10,7 +10,7 @@ from html.parser import HTMLParser
 from .body_text import body_text, VERSION as BODY_VERSION
 from .passages import PassageIndex
 
-VERSION = 'documentary-assertion-kernel-v2'
+VERSION = 'documentary-assertion-kernel-v3'
 PAST = {'appointed':'appoint','sent':'send','received':'receive','wrote':'write',
         'surveyed':'survey','published':'publish','revised':'revise','canceled':'cancel',
          'ordered':'order','requested':'request','instructed':'instruct'}
@@ -20,7 +20,7 @@ NAME = re.compile(r"[A-Z][A-Za-z’'\-]*(?:\.(?=\s|$))?(?:\s+[A-Z][A-Za-z’'\-]
 DATE = re.compile(r'\b(?:January|February|March|April|May|June|July|August|September|October|November|December)\s+\d{1,2}(?:st|nd|rd|th|d)?[,]?\s+\d{4}\b')
 
 
-def context_ranges(record):
+def context_ranges(record, *, document_draft=False):
     """Conservatively exclude quotation/chrome and qualified heading scopes.
 
     Position through the unchanged canonical projection. A page containing a
@@ -46,7 +46,9 @@ def context_ranges(record):
     if body_text(''.join(parser.parts))!=full:return [(0,len(full)+1)]
     for _,start in parser.stack:parser.ranges.append((start,len(full)+1))
     for i,(start,level,heading) in enumerate(parser.headings):
-        if META.search(heading) or re.search(r'\b(?:if|unless|conditional|plans?|planned|planning|proposals?|proposed|draft|scenario|forecast|prediction|hypothesis|intention|intended)\b',heading,re.I):
+        qualifiers=r'if|unless|conditional|plans?|planned|planning|proposals?|proposed|scenario|forecast|prediction|hypothesis|intention|intended'
+        if not document_draft:qualifiers+='|draft'
+        if META.search(heading) or re.search(r'\b(?:'+qualifiers+r')\b',heading,re.I):
             end=next((a for a,l,_ in parser.headings[i+1:] if l<=level),len(full)+1)
             parser.ranges.append((start,end))
     return parser.ranges
@@ -224,11 +226,11 @@ def check(index,proposals,*,max_scan_chars=200000):
             if value:
                 h=value.pop('header_end');s=value.pop('statement_start')
                 citations=[citation(record,body,a,h),citation(record,body,s,b)]
-        elif kind in {'relationship_statement','wording_comparison'}:
+        elif kind in {'relationship_statement','wording_comparison','comparison_completion'}:
             # Re-read complete native units; an exact substring alone cannot
             # hide a leading negation, attribution or conditional governor.
             from .source_units import comparison_units
-            native=comparison_units(record) if kind=='wording_comparison' else units(body)
+            native=comparison_units(record) if kind in {'wording_comparison','comparison_completion'} else units(body)
             unit=next(((lo,hi,q) for lo,hi,q in native if (lo,hi)==(a,b)),None)
             def safe_unit(record,a,b,body):
                 prior=body[:a]
@@ -238,7 +240,7 @@ def check(index,proposals,*,max_scan_chars=200000):
                     and not re.search(r'\b(?:if|unless)\b',prior[-180:],re.I)
                     and not re.search(r'\b(?:the|a) (?:plan|proposal|scenario|draft|forecast|prediction|hypothesis) (?:was|is|reads|follows|stated)\b',prior[-240:],re.I)
                     and not re.search(r'(?:^|\n)\s*(?:plan|proposal|draft|scenario|forecast|prediction|hypothesis)[.:]?\s*$',prior[-240:],re.I))
-            if unit and (kind=='wording_comparison' or safe_unit(record,a,b,body)):
+            if unit and (kind in {'wording_comparison','comparison_completion'} or safe_unit(record,a,b,body)):
                 if kind=='relationship_statement':
                     value=relationship_assertion(unit[2])
                     if value:citations=[citation(record,body,a,b)]
@@ -250,6 +252,11 @@ def check(index,proposals,*,max_scan_chars=200000):
                         and any((x,y)==(lo,hi) for x,y,_ in comparison_units(r))):
                         value=wording_difference(unit[2],bodies[r.path][lo:hi])
                         if value:citations=[citation(record,body,a,b),citation(r,bodies[r.path],lo,hi)]
+                        if value and kind=='comparison_completion':
+                            closure=comparison_completion(fresh,record,a,b,r,lo,hi)
+                            if closure:
+                                value.update(closure['proposition']);citations.extend(closure['citations'])
+                            else:value=None;citations=[]
         elif kind=='action_statement':
             matches=[v for r,lo,hi,v in scanned if r.path==record.path and (lo,hi)==(a,b)]
             if len(matches)==1:
@@ -347,3 +354,83 @@ def check_source_identity(index,left,right):
             'same_original_bytes':None,'authorship_authenticated':False,'event_identity_established':False,
             'independent_corroboration_established':False,'historical_truth_independently_verified':False,
             'notice':'Canonical equality is not original-byte equality. Use pinned raw captures/import round trips for original bytes.'}
+
+
+def comparison_request(question):
+    """Closed literal-comparison questions; extra factual obligations stop closure."""
+    from mplpb_combined.reader import terms
+    if not re.match(r'^(?:Compare\b|How (?:does|do)\b)',question):return None
+    if re.search(r'\b(?:not|never|unless|if|only|except|whether|alleged|possibly|supposed|hypothetical|assume|imagine|denied)\b',question,re.I):return None
+    owner=re.search(r"\b(?:in|between|from)\s+([A-Z][A-Za-z .’'\-]{0,80}?)['’]s\s+rough\s+(?:draft|draught)\b",question)
+    if not owner:return None
+    tail=question[owner.end():]
+    work=re.search(r'\b([A-Z][A-Za-z \-]{1,100}?)\s+transcript\b',tail)
+    if not work:return None
+    middle=tail[:work.start()];suffix=tail[work.end():]
+    if set(re.findall(r'[A-Za-z]+',middle.lower()))-set('and differs differ from the final to versus vs with'.split()):return None
+    if set(re.findall(r'[A-Za-z]+',suffix.lower()))-set('what which wording words changed changes remained remains shared retained is was and describe differs differ'.split()):return None
+    if re.sub(r'[A-Za-z\s?.;,]','',middle+suffix):return None
+    prefix=question[:owner.start()]
+    if not re.search(r'\b(?:opening|initial|first)\b',prefix):return None
+    focus=terms(prefix)-terms('compare how does do the opening initial first wording words claim statement in between differ difference and')
+    if not 1<=len(focus)<=5:return None
+    return {'author_reference':owner[1].strip(),'work_reference':work[1].strip(),'topic_terms':sorted(focus),
+            'operations':['changed_wording','shared_wording'],'scope':'the supplied source-declared reconstruction and transcription; not historical authenticity or finality'}
+
+
+def comparison_completion(index,left,a,b,right,lo,hi):
+    """Independently bind source references and close literal comparison goals.
+
+    Framing is cited body prose, never a filename/title or model label. This
+    proves selection of two supplied documentary appearances and text operations,
+    not manuscript authenticity, event identity or a last-ever historical version.
+    """
+    from .source_units import comparison_units
+    from mplpb_combined.reader import terms
+    request=comparison_request(index.question)
+    if request is None or len(index.records)>32:return None
+    frames=[]
+    for record in index.records:
+        # A document headed Draft may still explicitly identify its own rough
+        # reconstruction for a literal comparison. This exception never applies
+        # to action/execution proofs; plan/conditional/quotation scopes still stop it.
+        body=body_text(record.body_html);regions=context_ranges(record,document_draft=True)
+        for start,end,q in comparison_units(record):
+            if start>=6000:break
+            clean=re.sub(r'\s+',' ',q).strip();prior=body[:start]
+            if (META.search(clean) or re.search(r'\b(?:not|never|if|unless|may|might|perhaps|probably|possibly|supposed|purported|allegedly|reportedly)\b',clean,re.I)
+                or quoted_context(prior) or re.search(r'\b(?:if|unless)\b',prior[-180:],re.I)
+                or any(x<end and y>start for x,y in regions)):continue
+            rough=re.search(r"reconstruction of ([^\n\"“”]{2,120}?)['’]s [\"“](?:original )?Rough (?:draft|draught)[\"”] of (?:the )?(.{2,100}?) before it was revised\b",clean,re.I)
+            trans=re.match(r'(?:Note: )?The following text is a transcription of (.{2,220}?)(?:\.| \()',clean)
+            if rough and re.match(r'\(?This is ',clean):
+                frames.append({'role':'rough_reconstruction','author':rough[1],'work':rough[2],
+                               'record':record,'start':start,'end':end})
+            elif trans:
+                frames.append({'role':'source_declared_transcription','artifact':trans[1],
+                               'record':record,'start':start,'end':end})
+    drafts=[f for f in frames if f['role']=='rough_reconstruction'
+            and (normalized(f['author'])==normalized(request['author_reference'])
+                 or normalized(f['author']).endswith(' '+normalized(request['author_reference'])))
+            and list(terms(request['work_reference']))
+            and normalized(f['work']).startswith(normalized(request['work_reference']))]
+    if len(drafts)!=1:return None
+    draft=drafts[0]
+    transcripts=[f for f in frames if f['role']=='source_declared_transcription'
+                 and normalized(draft['work']) in normalized(f['artifact']) and f['record'].path!=draft['record'].path]
+    if len(transcripts)!=1:return None
+    transcript=transcripts[0];wanted={left.path:(a,b),right.path:(lo,hi)}
+    if set(wanted)!={draft['record'].path,transcript['record'].path}:return None
+    for frame in (draft,transcript):
+        eligible=[(x,y,q) for x,y,q in comparison_units(frame['record'])
+                  if x>=frame['end'] and set(request['topic_terms'])<=terms(q)]
+        if not eligible or eligible[0][:2]!=wanted[frame['record'].path]:return None
+        if '?' in eligible[0][2] or not eligible[0][2].rstrip().endswith('.'):return None
+    roles=[{'role':f['role'],'source_id':f['record'].id,'hash':f['record'].hash_actual,
+            'work_reference':draft['work'],'declaration_only':True} for f in (draft,transcript)]
+    return {'proposition':{'question_obligations_verified':True,'verified_question':index.question,
+            'completion_rule':'source-framed-literal-comparison-v1','document_roles':roles,
+            'document_authenticity_verified':False,'historical_finality_verified':False,
+            'reference_scope':request['scope'],'topic_terms':request['topic_terms'],
+            'completed_operations':request['operations']},
+        'citations':[citation(f['record'],body_text(f['record'].body_html),f['start'],f['end']) for f in (draft,transcript)]}

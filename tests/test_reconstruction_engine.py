@@ -169,7 +169,7 @@ class ReconstructionEngineTests(unittest.TestCase):
         root=self.root/'originals';receipt=import_corpus(corpus,root)
         question=next(c['question'] for c in json.loads((corpus/'questions.json').read_text())['cases'] if c['id']=='H05')
         r=answer_query(root,question).contract
-        self.assertEqual(r['kind'],'partial_answer');self.assertFalse(r['answer_supported'])
+        self.assertEqual(r['kind'],'supported_answer');self.assertTrue(r['answer_supported'])
         compared=[c for c in r['claims'] if c['proposition']['relation']=='exact_wording_comparison'];self.assertTrue(compared)
         self.assertTrue(any('self-evident' in c['text'] and 'sacred & undeniable' in c['text'] for c in compared))
         for claim in compared:

@@ -10,7 +10,7 @@ import re
 from .body_text import body_text, VERSION as BODY_VERSION
 from .evidence_contract import pin
 
-VERSION = 'documentary-source-units-v1'
+VERSION = 'documentary-source-units-v2'
 CHROME = {'nav', 'header', 'footer', 'aside', 'form'}
 
 
@@ -20,10 +20,39 @@ def comparison_units(record):
     A semicolon-separated paragraph need not end in a full stop. This rule
     compares text, not whether any assertion in that paragraph is true.
     """
-    from .passages import _passage_units
+    from .passages import _passage_units, _preformatted_spans
     body=body_text(record.body_html)
+    class PreText(HTMLParser):
+        def __init__(self):super().__init__();self.depth=0;self.values=[];self.current=[]
+        def handle_starttag(self,tag,attrs):
+            if tag=='pre':
+                if not self.depth:self.current=[]
+                self.depth+=1
+        def handle_endtag(self,tag):
+            if tag=='pre' and self.depth:
+                self.depth-=1
+                if not self.depth:self.values.append(''.join(self.current))
+        def handle_data(self,value):
+            if self.depth:self.current.append(value)
+    parser=PreText();parser.feed(record.body_html);parser.close()
+    mapped={}
+    for (start,end),raw in zip(_preformatted_spans(record.body_html,body),parser.values):
+        parts=[body_text('<pre>'+escape(p)+'</pre>') for p in re.split(r'\n[ \t]*\n+',raw)]
+        parts=[p for p in parts if p]
+        # Only use physical paragraph boundaries if they reproduce the exact
+        # existing projection. Neither OCR correction nor whitespace rewriting
+        # is allowed to move canonical evidence coordinates.
+        if len(parts)>1 and '\n'.join(parts)==body[start:end]:
+            cursor=start
+            for q in parts:mapped[cursor]=(cursor+len(q),q);cursor+=len(q)+1
+    emitted=set()
     for a,q,truncated in _passage_units(record.body_html,body):
-        if not truncated and q.strip() and len(q)<=2200:
+        if mapped and any(x<a+len(q) and y>a for x,(y,_) in mapped.items()):
+            for x,(y,text) in mapped.items():
+                if x<a+len(q) and y>a and (x,y) not in emitted and y-x<=2200 and not re.match(r'^Source capture:\s*\{',text,re.I):
+                    emitted.add((x,y));yield x,y,text
+            continue
+        if not truncated and q.strip() and len(q)<=2200 and not re.match(r'^Source capture:\s*\{',q,re.I):
             yield a,a+len(q),q
 
 
