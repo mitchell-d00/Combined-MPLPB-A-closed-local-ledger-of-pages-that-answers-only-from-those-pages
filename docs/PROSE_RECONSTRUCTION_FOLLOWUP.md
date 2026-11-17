@@ -1,6 +1,8 @@
 # Prose reconstruction follow-up
 
-Last reviewed: 2026-11-16.
+Last reviewed: 2026-11-17.
+
+Package role: [how this part fits Combined MPLPB](PACKAGE_GUIDE.md#documentary-research). This guide covers documentary inspection; source assertions, candidate relations and historical truth remain distinct.
 
 This iteration starts at `ee9975a9c6d3a6413a9295763e7cbea068195f17`. Earlier source bytes, questions, rules, reports, outputs and tests remain unchanged. The [13-span diagnosis](../evaluation/unprepared-originals/2026-11-16-followup/missing-13-diagnosis.json) identifies ranking, navigation and context-budget failures rather than failed imports. Some negative-control reference excerpts cannot establish absence or causality by themselves.
 

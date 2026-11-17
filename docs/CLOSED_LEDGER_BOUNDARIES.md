@@ -2,6 +2,8 @@
 
 Last reviewed: 2026-11-17.
 
+Package role: [how this part fits Combined MPLPB](PACKAGE_GUIDE.md#answers-and-inspection). Source integrity, finite statement support and outside-world truth are distinct.
+
 `answer-contract-v1` now adds `diagnostic.category` while preserving existing detailed
 codes, legacy return kinds and proof requirements. The categories distinguish
 unsupported question grammar, absent eligible source, known source conflict,

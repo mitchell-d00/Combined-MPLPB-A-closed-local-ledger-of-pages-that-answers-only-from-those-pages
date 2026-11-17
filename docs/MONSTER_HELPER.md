@@ -2,6 +2,8 @@
 
 Last reviewed: 2026-11-17. See [current status and result-to-test index](CURRENT_STATUS.md). Dates and numeric results in historical validation sections retain their original scope; this review is not a rerun or independent certification.
 
+Package role: [how this part fits Combined MPLPB](PACKAGE_GUIDE.md#delivery-and-packaging). This operational guide covers one delivery or maintenance surface of the combined package.
+
 Monster is the optional, renameable **presentation helper** inside the existing
 MPLPB Chat screen. It does not run a model, create its own evidence, change
 source ownership, relax refusals, or publish local browser data.

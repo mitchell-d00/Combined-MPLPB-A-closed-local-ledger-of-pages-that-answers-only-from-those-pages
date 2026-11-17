@@ -4,33 +4,48 @@ Last reviewed: 2026-11-17.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `49b2360934cc2ebb37688414902d68f7b83d2cb8` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `a5a495cd823d046290224c99342384cc75c14e86bc90cb62faa63271285818f9`.
+Base commit: `91df919e8c274d4b43303f9e1ec492d8e6013c09` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `efd4aeeecb1a3f3981c70d78b74063e1dae7b2396ef9fa242cf588d660c1f898`.
 
 ## Latest user update instructions
 
-Rewrite the papers remove that I used Ai to write it “Prepared with AI-assisted implementation and writing.” Folks dismiss ai as sloppy I’m not sloppy did you upload th3 paper to my repo?
+Write Readme etc to promote sorter, mplpb , etc as a package  explain all its parts research the repo deeply update all documentation
+
+Risks to watch
+• Over-smoothing the strict authority boundaries (supported answer vs candidate vs gated retrieval vs model-assisted). Those distinctions are the point of the system.
+• Letting promotional language creep in. The existing docs are careful about “case study, still being tested, not proven world-first.” That restraint is a feature.
+• Burying the “one owner returns, two stop, none refuses” rule under workflow language.
 
 ## Implemented scope
 
-- Revise the published sorter technical paper in Markdown, text and PDF to remove the requested preparation sentence.
-- Update the paper guide, version1.1 metadata, generated-format hashes and documentation catalog; preserve factual evaluation and independent-validation limits.
-- Publish the requested paper-only revision through normal protected-main PR checks; no runtime or historical evidence changes.
+- Research the existing package source, interfaces, dependency closure, retained measurements and current documentation inventory.
+- Replace the accumulated README chronology with a restrained package overview; put the ownership rule and distinct support states near the top.
+- Add a comprehensive component/distribution/workflow/storage guide and complete current-guide index; update operational role navigation, installation/developer/status docs, repository map and agent discovery.
+- Keep the generated system guide synchronized through its documentation generator only; no conversation capability, reader, gate or proof-rule changes.
+- Preserve original papers, raw sources, frozen questions/expectations, evaluation protocols and historical/vendor bytes.
 
 ## Validation recorded
 
-- Prior paper was uploaded and merged to main by PR47, commit49b2360; publication workflow44093727619 succeeded.
-- All three v1.1 formats regenerated with existing renderer. Exact editorial-only source diff, whitespace-normalized PDF/text sentence removal, retained validation limitations, nine-page count and all format hashes checked. Focused renderer/handoff/documentation tests12/12 passed0.225s.
+- Inspected native ledger/provenance/pipeline/support contracts, sorter and mapping imports, MCP seven-tool declaration, crawler source modes, packaging script and three-package wheel configuration.
+- Reviewed current-guide introductions/headings and roles;60 operational role links updated and all88 current entries indexed. Frozen research/protocol records remain untouched.
+- Documentation inventory and all34 evaluation-family links passed. Internal-link/heading check:951 links and74 anchors without missing targets including the final audit-report link.
+- Infrastructure synchronization passed after fixing an initially missing live-site URL in the rewritten docs index.
+- AST scope check confirms only documentation() changed in tools/self_knowledge.py; generated SYSTEM_GUIDE equals its output. All three core packages are unchanged.
+- All305 pre-existing historical/vendor document hashes and evaluation/papers/resources/parts/training trees remain unchanged from91df919.
+- No new local software regression suite, historical replay, model experiment or semantic accuracy scoring was run for this documentation update.
 
 ## Limitations and blocked checks
 
-- Historical semantic review remains NOT RUN; removing the preparation sentence does not alter the report’s measurements or support boundaries.
-- Original historical sources, older papers and evaluation reports remain unchanged.
+- Documentation improves package discoverability, not historical reasoning, semantic accuracy, unseen evaluation or production readiness.
+- One eligible owner returning a page is not strict source-body proof; candidate/gated/model-only results remain non-authoritative.
+- Independent historical semantic validation remains NOT RUN; existing dated measurements are retained, not rerun or relabeled.
+- Frozen research/protocol/current evidence records are indexed without editing their measured content.
 
 ## Next steps
 
-- Check rendered PDF/text, hashes and exact requested-sentence removal; run focused documentation/renderer tests from a committed archive.
-- Push and merge the editorial PR only after exact-head required CI succeeds.
+- Commit the package documentation, audit record and regenerated source handoff; inspect a clean archive of that commit.
+- Publish through existing protected-main checks without changing source authority or branch protections.
+- Keep future capability/accuracy claims tied to their own retained measurements rather than this presentation review.
 
 ## Use this ZIP in your repository
 

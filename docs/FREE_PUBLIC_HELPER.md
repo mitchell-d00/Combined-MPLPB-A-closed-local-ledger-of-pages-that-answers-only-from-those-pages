@@ -1,6 +1,8 @@
 # Public builder and chat helper with no AI server bill
 
-Last reviewed: 2026-11-16.
+Last reviewed: 2026-11-17.
+
+Package role: [how this part fits Combined MPLPB](PACKAGE_GUIDE.md#optional-models). The optional browser model is separate from the deterministic core and cannot grant source support.
 
 The product remains a public website at the existing MPLPB address. Everyone can
 open it. GitHub Pages serves the interface; the MPLPB engine runs in each visitor's

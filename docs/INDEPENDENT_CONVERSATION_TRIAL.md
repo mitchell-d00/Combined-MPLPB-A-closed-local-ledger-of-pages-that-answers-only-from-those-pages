@@ -2,6 +2,8 @@
 
 Last reviewed: 2026-11-17. See [current status and result-to-test index](CURRENT_STATUS.md). Dates and numeric results in historical validation sections retain their original scope; this review is not a rerun or independent certification.
 
+Package role: [how this part fits Combined MPLPB](PACKAGE_GUIDE.md#conversation-and-resources). This guide covers bounded conversation or reference routing; context and source authority remain distinct.
+
 Status: protocol prepared; no independent participants recruited or results collected.
 Developer smoke tests are not independent validation.
 

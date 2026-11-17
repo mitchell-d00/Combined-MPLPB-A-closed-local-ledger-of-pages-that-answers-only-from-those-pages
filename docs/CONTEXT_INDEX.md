@@ -2,6 +2,8 @@
 
 Last reviewed: 2026-11-17. See [current status and result-to-test index](CURRENT_STATUS.md). Dates and numeric results in historical validation sections retain their original scope; this review is not a rerun or independent certification.
 
+Package role: [how this part fits Combined MPLPB](PACKAGE_GUIDE.md#conversation-and-resources). Session memory and user corrections remain context, not automatically source evidence.
+
 The context index is a session-local, role-aware view of the saved transcript. It runs before dialogue and source routing in both Chat and Serious modes. Zero loaded MPLPB collections do not disable conversation memory.
 
 * Forward replay: extract explicit `my ATTRIBUTE is VALUE` declarations, apply later corrections and `forget my ATTRIBUTE` tombstones, and preserve originating turn numbers.

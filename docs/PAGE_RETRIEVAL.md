@@ -2,6 +2,8 @@
 
 Last reviewed: 2026-11-17. See [current status and result-to-test index](CURRENT_STATUS.md). Dates and numeric results in historical validation sections retain their original scope; this review is not a rerun or independent certification.
 
+Package role: [how this part fits Combined MPLPB](PACKAGE_GUIDE.md#answers-and-inspection). One owner returns a page; competing owners stop; no owner refuses. Page retrieval is not an answer proof.
+
 [Documentation index](README.md) · [JavaScript API](../JAVASCRIPT-API.md)
 
 The October 27 repair added provenance-gated single-owner page retrieval. It complements supported answers and the earlier separate-source gate; it does not replace their contracts. Lexical ownership can identify a useful page while its body lacks an answer to the question.

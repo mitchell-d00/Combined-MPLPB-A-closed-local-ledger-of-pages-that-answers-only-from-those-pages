@@ -2,6 +2,8 @@
 
 Last reviewed: 2026-11-17. See [current status and result-to-test index](CURRENT_STATUS.md). Dates and numeric results in historical validation sections retain their original scope; this review is not a rerun or independent certification.
 
+Package role: [how this part fits Combined MPLPB](PACKAGE_GUIDE.md#evidence-and-limits). This guide covers evidence or operation limits; dated results keep the revision and scope they measured.
+
 **Always check repository infrastructure when the engine, corpus, user-visible interface, API, packaging or documentation changes.** Changes are not ready for merge merely because their Python unit tests pass.
 
 ## What is the live interface?

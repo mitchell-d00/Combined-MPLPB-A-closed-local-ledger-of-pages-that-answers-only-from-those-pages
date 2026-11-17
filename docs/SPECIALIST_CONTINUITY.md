@@ -2,6 +2,8 @@
 
 Last reviewed: 2026-11-17. See [current status and result-to-test index](CURRENT_STATUS.md). Dates and numeric results in historical validation sections retain their original scope; this review is not a rerun or independent certification.
 
+Package role: [how this part fits Combined MPLPB](PACKAGE_GUIDE.md#work-and-receipts). Work history and observed receipts remain separate from strict source support and verified execution.
+
 Status: **implemented local coordinator**, 2026-10-31, in `mplpb_work`. It provides
 transactional work history, host-issued seat capabilities, revision and fencing
 checks, filtered handoffs, and guarded host-adapter dispatch. Use the

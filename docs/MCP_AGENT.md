@@ -1,6 +1,8 @@
 # Local MCP connection for AI clients
 
-Last reviewed: 2026-11-16.
+Last reviewed: 2026-11-17.
+
+Package role: [how this part fits Combined MPLPB](PACKAGE_GUIDE.md#connections-and-acquisition). Native stdio tools expose authorized reader/chat operations, not a source-writing or shared-browser service.
 
 An MCP-capable AI client can launch `tools/mplpb_mcp.py` and discover the full
 MPLPB reader through standard tools. The adapter uses the same native `App` as

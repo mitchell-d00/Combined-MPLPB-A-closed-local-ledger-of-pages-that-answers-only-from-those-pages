@@ -2,6 +2,8 @@
 
 Last reviewed: 2026-11-17. See [current status and result-to-test index](CURRENT_STATUS.md). Dates and numeric results in historical validation sections retain their original scope; this review is not a rerun or independent certification.
 
+Package role: [how this part fits Combined MPLPB](PACKAGE_GUIDE.md#connections-and-acquisition). Collection capture/import precedes eligibility and does not authenticate testimony.
+
 Open “Build and search your MPLPB collections” and create a named MPLPB. Select
 it in the corpus selector. Wikipedia searches run in chat; importing a title adds
 its pinned main revision slot to that collection. The existing shared imported

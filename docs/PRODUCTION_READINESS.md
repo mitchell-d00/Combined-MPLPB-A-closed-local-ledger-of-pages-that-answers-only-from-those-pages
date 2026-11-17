@@ -2,6 +2,8 @@
 
 Last reviewed: 2026-11-17.
 
+Package role: [how this part fits Combined MPLPB](PACKAGE_GUIDE.md#evidence-and-limits). Local implemented behavior, shared-service readiness and independent semantic accuracy need separate evidence.
+
 MPLPB is a local research system with bounded source-language rules. Its local
 MCP adapter now gives compatible AI clients a standard route to the existing
 reader and conversation engine. That closes an integration gap; it does not

@@ -2,6 +2,8 @@
 
 Last reviewed: 2026-11-17. See [current status and result-to-test index](docs/CURRENT_STATUS.md). Dates and numeric results in historical validation sections retain their original scope; this review is not a rerun or independent certification.
 
+Package role: [how this part fits Combined MPLPB](docs/PACKAGE_GUIDE.md#evidence-and-limits). This guide covers evidence or operation limits; dated results keep the revision and scope they measured.
+
 The earlier reader, README, CLI and complete six-topic test kit are preserved in [docs/past-documentation](docs/past-documentation/README.md), with a dated archive and SHA-256 manifest.
 
 The supplied papers have their own [papers folder](papers/README.md). See [the upload review](docs/UPLOAD_REVIEW.md) for what was added from each upload and [the provenance gate specification](docs/PROVENANCE_GATE.md) for current behavior and limits.
@@ -23,3 +25,12 @@ cleanup updates navigation and operational descriptions, not original evidence.
 ## New sorter paper, preserved earlier record
 
 The [2026-11-17 dual-mode sorter paper](docs/research/dual-mode-sorter/README.md) is a new attributed technical report in Markdown, text and PDF. It cites the [initial sorter contract](evaluation/preprocessing-sorter/2026-11-17/RESULTS.md) and [native export refinement](evaluation/preprocessing-sorter/2026-11-17-native-export/RESULTS.md). It does not replace the original Combined MPLPB paper or revise any earlier historical experiment, question, source or failed run.
+
+## Current package presentation
+
+The [package guide](docs/PACKAGE_GUIDE.md) explains the sorter, ledger, reader,
+application, work coordinator, acquisition and integration as one package.
+The [current guide index](docs/README.md) groups operational documentation by
+responsibility. This navigation update does not revise the original papers,
+research protocols, frozen questions, source records or historical measurements.
+The ownership rule and strict/candidate/gated/assisted boundaries remain explicit.

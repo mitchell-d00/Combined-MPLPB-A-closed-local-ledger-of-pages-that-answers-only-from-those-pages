@@ -2,6 +2,8 @@
 
 Last reviewed: 2026-11-17.
 
+Package role: [how this part fits Combined MPLPB](PACKAGE_GUIDE.md#evidence-and-limits). This guide covers evidence or operation limits; dated results keep the revision and scope they measured.
+
 Every retained evaluation family is listed below. The [machine-readable index](results.json)
 is checked in CI for missing test files, reproduction tools and unindexed evaluation
 directories. The [current status](CURRENT_STATUS.md) separates published

@@ -1,6 +1,8 @@
 # Optional browser model assets
 
-Last reviewed: 2026-11-16.
+Last reviewed: 2026-11-17.
+
+Package role: [how this part fits Combined MPLPB](../../docs/PACKAGE_GUIDE.md#optional-models). These optional model assets are separate from the standard-library core and offline sorter.
 
 The core app does not need a language model. These pinned parts reconstruct the
 original WebLLM 0.2.87 browser runtime, then apply the explicitly pinned

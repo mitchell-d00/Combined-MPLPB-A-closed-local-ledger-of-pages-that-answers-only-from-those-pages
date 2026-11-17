@@ -2,6 +2,8 @@
 
 Last reviewed: 2026-11-17. See [current status and result-to-test index](CURRENT_STATUS.md). Dates and numeric results in historical validation sections retain their original scope; this review is not a rerun or independent certification.
 
+Package role: [how this part fits Combined MPLPB](PACKAGE_GUIDE.md#storage-and-recovery). Adding or revising sources is distinct from changing the engine or proving historical truth.
+
 This is a focused local implementation on top of `f425a05`, not a claim that
 MPLPB autonomously improves its own engine. No independent participants were
 available. Development and separately frozen developer evaluation inputs are in

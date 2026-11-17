@@ -2,6 +2,8 @@
 
 Last reviewed: 2026-11-17. See [current status and result-to-test index](CURRENT_STATUS.md). Dates and numeric results in historical validation sections retain their original scope; this review is not a rerun or independent certification.
 
+Package role: [how this part fits Combined MPLPB](PACKAGE_GUIDE.md#connections-and-acquisition). Browser transport and discovery keep source decisions and private stores separate.
+
 The live page embeds the **entire Python Combined MPLPB engine** (ledger, reader, provenance, chat, source capture, and retained session storage) in WebAssembly. GitHub Pages hosts the downloadable runtime, but Python executes in the visitor's browser. No separate server API, cloud model, or smaller replacement engine is required.
 
 ## Local MCP connection

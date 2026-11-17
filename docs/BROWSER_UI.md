@@ -2,6 +2,8 @@
 
 Last reviewed: 2026-11-17. See [current status and result-to-test index](CURRENT_STATUS.md). Dates and numeric results in historical validation sections retain their original scope; this review is not a rerun or independent certification.
 
+Package role: [how this part fits Combined MPLPB](PACKAGE_GUIDE.md#delivery-and-packaging). The interface connects the ledger, reader, collections and conversation without merging their authority.
+
 [Documentation index](README.md) · [Live application](https://mitchell-d00.github.io/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/)
 
 The interface calls the same Python ledger, supported-answer layer, and provenance gate in desktop and standalone modes. The markup/styles/UI script live in root `index.html`; the standalone builder embeds that interface with a Python/WebAssembly worker. It does not implement a second reader in JavaScript or send requests to a model.

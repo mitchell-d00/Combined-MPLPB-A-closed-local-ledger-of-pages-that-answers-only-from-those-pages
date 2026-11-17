@@ -1,6 +1,8 @@
 # Source conversion and reversible prose mapping
 
-Last reviewed: 2026-11-16.
+Last reviewed: 2026-11-17.
+
+Package role: [how this part fits Combined MPLPB](PACKAGE_GUIDE.md#documentary-research). This guide covers documentary inspection; source assertions, candidate relations and historical truth remain distinct.
 
 The frozen experiment is retained in [the dated results directory](../evaluation/unprepared-originals/2026-11-16). Its baseline is `614b18cc34f5270d4cb7dfbbf8239391a9f83b31`; the first candidate-context implementation is `057863715ee0a24849430bd96b516f6fc55a4783`. Neither is rewritten by this repair. Independent historical judgments remain **NOT RUN**.
 

@@ -1,6 +1,8 @@
 # Public evidence and relation tests
 
-Last reviewed: 2026-11-16.
+Last reviewed: 2026-11-17.
+
+Package role: [how this part fits Combined MPLPB](PACKAGE_GUIDE.md#evidence-and-limits). This guide covers evidence or operation limits; dated results keep the revision and scope they measured.
 
 The public suite contains **52 inspectable development cases** across source
 authority, diagnostic separation, exact routing, event identity, scoped source

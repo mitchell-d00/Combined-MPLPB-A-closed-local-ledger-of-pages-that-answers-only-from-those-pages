@@ -2,6 +2,8 @@
 
 Last reviewed: 2026-11-17. See [current status and result-to-test index](CURRENT_STATUS.md). Dates and numeric results in historical validation sections retain their original scope; this review is not a rerun or independent certification.
 
+Package role: [how this part fits Combined MPLPB](PACKAGE_GUIDE.md#answers-and-inspection). This contract governs source eligibility or support; successful inspection does not automatically establish an answer.
+
 The optional `external`, `source-authorship`, and `clarify-options` fields are included in a page's hash when present. Legacy pages without those fields retain their existing seals. Changing or removing an existing field breaks the seal. A deliberately resealed record is a new declaration, not authenticated authority.
 
 Both `ask` and `gate` use the same delivery policy for `external` and customized `external*` profiles. A sealed `external=no` page is withheld; a source explicitly labeled unknown is also withheld externally. Other profile behavior is preserved. Importers write restrictions together with the page and original ledger event rather than editing sealed pages afterward. Revisions preserve them. Old imported files with previously unsealed external fields must be re-ingested or explicitly migrated before they can pass the new seal checks; do not silently reseal them as verified.

@@ -2,6 +2,8 @@
 
 Last reviewed: 2026-11-17.
 
+Package role: [how this part fits Combined MPLPB](PACKAGE_GUIDE.md#documentary-research). Documentary reports distinguish checked portions, proposed relations and unresolved obligations.
+
 The reconstruction path extends the existing strict documentary checker and reversible prose investigation. It does not replace either engine. Source integrity, quotation fidelity, typed statement support, candidate interpretation, human review and historical truth remain separate states.
 
 ```sh

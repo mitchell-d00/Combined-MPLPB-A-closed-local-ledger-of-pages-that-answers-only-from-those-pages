@@ -2,6 +2,8 @@
 
 Last reviewed: 2026-11-17. See [current status and result-to-test index](CURRENT_STATUS.md). Dates and numeric results in historical validation sections retain their original scope; this review is not a rerun or independent certification.
 
+Package role: [how this part fits Combined MPLPB](PACKAGE_GUIDE.md#answers-and-inspection). Strict proof, candidate inspection and model-only interpretation retain separate support states.
+
 This release candidate adds domain-independent passage reading without changing
 MPLPB's source eligibility rules or promoting model output into deterministic
 support. Default strict queries stay offline and use the bounded compatibility

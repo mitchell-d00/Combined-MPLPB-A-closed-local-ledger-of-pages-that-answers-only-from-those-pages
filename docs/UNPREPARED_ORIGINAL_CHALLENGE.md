@@ -1,6 +1,8 @@
 # Unprepared original-record reconstruction challenge
 
-Last reviewed: 2026-11-16.
+Last reviewed: 2026-11-17.
+
+Package role: [how this part fits Combined MPLPB](PACKAGE_GUIDE.md#documentary-research). This guide covers documentary inspection; source assertions, candidate relations and historical truth remain distinct.
 
 This challenge measures rather than presumes historical reconstruction. The
 [dated baseline inventory](../evaluation/unprepared-originals/2026-11-16/BASELINE.md)

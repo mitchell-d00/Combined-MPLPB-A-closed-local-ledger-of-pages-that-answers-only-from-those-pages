@@ -1,260 +1,177 @@
 # Combined MPLPB
 
-Last reviewed: 2026-11-17. See [current status and result-to-test index](docs/CURRENT_STATUS.md). Dates and numeric results in historical validation sections retain their original scope; this review is not a rerun or independent certification.
+Last reviewed: 2026-11-17.
 
-A closed local ledger of pages, with supported answers, inspectable provenance, and deterministic conversation. Each page declares its identity, scope, status, sealed hash, origin, and lineage. Source-backed answers require eligible body evidence under a finite grammar; missing support refuses and competing support remains ambiguous.
+Combined MPLPB is a closed local ledger with tools for raw-material sorting,
+bounded source questions, documentary inspection and retained work history.
+Its browser, native CLI and agent adapters preserve the existing authority rules.
 
-**Research status: attributable engineering contribution and technical case study;
-still being tested. For MPLPB, the particular combination may be distinctive, but
-it is unproven as world-first.** No new universal law or confirmed world-first
-architecture is claimed. See the [research status and completion-fix release note](docs/research/mplpb-originality/RELEASE_NOTE.md).
+**One owner returns; two stop; none refuses.** This is the ownership rule:
+one eligible owner may return its page, competing owners stop for ambiguity,
+and no eligible owner means refusal. A returned page is not automatically a
+supported answer. Strict answering additionally checks eligible source wording
+under the finite proof rules. Source integrity does not establish historical truth.
 
-**[Open the live application](https://mitchell-d00.github.io/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/)** · [Documentation index](docs/README.md) · [Installation](docs/INSTALLATION.md) · [JavaScript API](JAVASCRIPT-API.md)
+**Research status:** attributable engineering contribution and technical case
+study, still being tested. The particular combination may be distinctive;
+it is not proven world-first. Independent historical semantic accuracy and
+shared-service production readiness remain unestablished.
 
-**Infrastructure rule:** Every change must pass the [automated repository synchronization audit](docs/REPOSITORY_INFRASTRUCTURE.md), which checks the live Pages entry point, source `index.html`, JavaScript API, generated standalone runtime, packaging, documentation and corpus release boundaries. The [versioned machine-derived reference corpus](reference_corpus/README.md) is a separate **lab-only, unratified research preview**; it is **not** loaded into the hosted app by default.
+[Open the application](https://mitchell-d00.github.io/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/)
+· [Package guide](docs/PACKAGE_GUIDE.md)
+· [Installation](docs/INSTALLATION.md)
+· [All documentation](docs/README.md)
+· [Current evidence](docs/CURRENT_STATUS.md)
 
-The hosted application runs the Python engine locally through WebAssembly. No model, AI account, API key, or Python server is needed to use the standalone runtime. Saved visitor collections and conversations stay in that browser's storage. Explicit or enabled automatic source acquisition uses the network; the optional general-web crawler has separate service requirements.
+## What is in the package?
 
-## Latest source-research milestone
+| Part | What it does | What its output establishes |
+|---|---|---|
+| [Offline sorter](docs/PREPROCESSING_SORTER.md) | Extracts keys, dates, headers, references and repeated phrases from raw UTF-8 text/Markdown, with exact source spans | Textual observations and optional review edges; no supported answers |
+| [Ledger and provenance gate](docs/PROVENANCE_GATE.md) | Keeps sealed pages, revisions, ancestry, restrictions and current serving eligibility | Which source bytes and pages may be inspected under the selected policy |
+| [Strict answer reader](docs/GENERAL_ANSWER_PIPELINE.md) | Checks eligible body statements against bounded question/proof rules | Source-attributed support where established; ambiguity or refusal otherwise |
+| [Page and source inspection](docs/PAGE_RETRIEVAL.md) | Retrieves an eligible owner page or keeps matching sources separate | Inspectable pages/bundles, not a factual answer merely because retrieval succeeded |
+| [Documentary research](docs/HISTORICAL_RECONSTRUCTION_ENGINE.md) | Separates checked source assertions, exact wording comparisons, question parts and candidate relations | Checked portions and unresolved evidence; no automatic event identity or historical truth |
+| [Conversation and reference library](docs/CHAT_WORKFLOW.md) | Offers local Chat, Serious and off-the-record modes, bounded follow-ups, dictionary lookup and library routing | Conversation, context and source evidence retain distinct labels |
+| [Collections and acquisition](docs/EXPLORATION_COLLECTIONS.md) | Imports supplied text and permitted captures into local collections | Captured/supplied sources with provenance; acquisition does not authenticate testimony |
+| [Specialist work](docs/SPECIALIST_CONTINUITY_API.md) | Retains tasks, claims, revisions, capabilities, attempts and handoffs | Recoverable work history; a saved claim or completion statement is not proof of execution |
+| [Integration](docs/AGENT_MIDDLEWARE.md) | Exposes the existing engine through the page-local JavaScript API and native adapters | The same decisions and restrictions; client success is not answer support |
 
-The [unchanged22-question experiment](evaluation/solo-milestone/2026-11-17/RESULTS.md)
-adds one checked complete arrangement answer: source-supported completions1→2,
-without adding a delivery/execution claim. A blinded fresh-context **AI assessment**
-rates complete correct1→2, correct refusal4→4, and errors/over-refusals17→16.
-This is development evidence, not human validation or general historical accuracy.
-[Use the solo research workflow](docs/SOLO_RESEARCH_WORKFLOW.md) to inspect exact
-sources and unresolved question parts. Source-only assurance and outside-world
-confirmation remain visible. Earlier dated results below retain their original scope.
+The [package guide](docs/PACKAGE_GUIDE.md) explains the implementation modules,
+optional components, storage boundaries and how these parts connect. It includes
+the [local MCP adapter](docs/MCP_AGENT.md), [crawler](crawler/README.md),
+[optional browser helper](docs/FREE_PUBLIC_HELPER.md),
+[lab-only reference corpus](reference_corpus/README.md),
+[resources](resources/README.md), and preserved [earlier implementations](parts/README.md).
 
 ## Choose how to run it
 
-| Mode | Start | Requirements and storage |
+| Delivery | Start | Scope |
 |---|---|---|
-| Live site | Open the link above. | A current browser with WebAssembly, workers, WebCrypto, IndexedDB, local storage, and Web Locks. Saves belong to that browser origin. |
-| Standalone download | Extract `mplpb-monster-browser.zip` and open `MPLPB_Browser.html`. | Complete runtime works offline after download. Some browsers restrict local-file storage; static HTTPS hosting is an alternative. |
-| Desktop source | Extract/clone this repository and run `python3 launch.py`. Windows: `Launch_MPLPB.bat`; Mac/Linux: `sh Launch_MPLPB.sh`. | Python 3.8+; no application dependencies. Keep the local server running at <http://127.0.0.1:8766>. Saves are local files. |
-| Installed CLI | `python -m pip install .`, then `mplpb-combined --help`. | Installs the ledger/answer CLI, not the full chat application. Use the source or browser ZIP for chat. |
+| Hosted browser | Open the application above | Python runs locally in browser WebAssembly; visitor sources and saved sessions belong to that browser origin |
+| Standalone browser ZIP | Extract `mplpb-monster-browser.zip`, then open `MPLPB_Browser.html` or serve it over static HTTPS | Core engine works offline after download; storage permissions and optional sidecars affect features |
+| Full source checkout/ZIP | Run `python3 launch.py`; Windows can use `Launch_MPLPB.bat` | Desktop interface, filesystem saves, source tools, MCP launcher, examples and retained evidence |
+| Python wheel/install | Run `python -m pip install .` or install the release wheel | Ledger/answer, library, work and evaluation CLIs, plus the sorter module; does not install the full chat UI or bundled reference data |
 
-The root `index.html` is the desktop entry point; opening that source file alone does not run Python. The [standalone builder](docs/BROWSER_RUNTIME.md) produces `dist/MPLPB_Browser.html`; CI uses `dist/index.html` for Pages. The [Pages workflow](docs/GITHUB_PAGES.md) deploys `dist/` through **GitHub Actions**, rather than publishing the repository root.
+Python 3.8+ is the declared native minimum; CI exercises Python 3.12. The core
+runtime uses the standard library and needs no model or inference account.
+Network acquisition, hosted crawling and optional models have separate requirements.
+The root `index.html` is the desktop entry point. GitHub Pages serves the generated
+`dist/index.html` through its deployment workflow, not the unbuilt root file.
+[Package contents and installation](docs/INSTALLATION.md).
 
-Downloadable packages are attached to successful main-branch **Publish MPLPB browser runtime** Actions runs as `mplpb-monster`. See [package contents and verification](docs/INSTALLATION.md).
+## Try the sorter
 
-## Understand the answer and source interfaces
+From a source checkout, this example uses explicitly fictional development files:
 
-| Interface | What a successful result means | Answer authority |
+```bash
+python -m mplpb_work.sorter sort tests/fixtures/sorter \
+  --mode not-compared --output /tmp/mplpb-observations-new.json
+python -m mplpb_work.sorter sort tests/fixtures/sorter \
+  --mode compare --output /tmp/mplpb-comparison-new.json
+python -m mplpb_work.sorter peruse /tmp/mplpb-comparison-new.json \
+  --sources tests/fixtures/sorter
+python -m mplpb_work.sorter export-retired /tmp/mplpb-comparison-new.json \
+  --sources tests/fixtures/sorter --ledger /tmp/mplpb-snapshot-new
+python -m mplpb_answers validate /tmp/mplpb-snapshot-new --strict
+```
+
+Use your own raw-material directory instead of the fixture directory. Outputs must
+be new and outside the input tree; use fresh names for repeat runs. `/tmp` is a
+POSIX example path; use an appropriate temporary directory on Windows.
+
+Both modes emit **identical nodes, spans, source hashes and provisional statuses**.
+Not-compared stops at observations. Compare adds non-authoritative review edges;
+matching subjects never force event identity, and missing intermediate records
+stop links. The native snapshot is sealed and retired before publication. Existing
+`validate` and `show` accept it for inspection; `gate` and `ask` withhold it under
+all three profiles. It must not be reactivated as factual evidence.
+
+Sorting does not automatically admit originals for supported answering. Use the
+existing source-management/import workflow with the originals' actual permissions,
+provenance and delivery policy. [Input/output contract and commands](docs/PREPROCESSING_SORTER.md).
+
+## Ask, retrieve or investigate deliberately
+
+| Interface | Result meaning | Support boundary |
 |---|---|---|
-| Supported answer: `mplpb-combined ask`, `python -m mplpb_answers ask`, `MPLPB.query()` / default `relay()` | Eligible body statements satisfy the bounded question grammar; result `return`. | Source-supported within that finite contract; a hash does not certify truth. |
-| Optional model-assisted query: `ask --answer-mode assisted --reader-model ...` / configured native `query(...,{mode:"assisted"})` | Exact citations and a separate model review passed, or explicit partial/clarify/conflict/abstention output. | Always `answer_supported:false`; model-assessed semantics, not deterministic proof. |
-| Candidate inspection: `mplpb-combined candidates`, legacy `python -m mplpb_combined ask`, `query(...,{mode:'candidates'})` | The lexical reader selected candidate material. | Inspection only; candidate selection does not establish an answer. |
-| Gated page retrieval: Python `mplpb_combined.retrieval.retrieve`, `MPLPB.retrieve()` | Exactly one selected owner also passes the provenance gate; result `retrieved`. | Always `answer_supported:false`. Returns a page to inspect, not a supported answer. |
-| Separate source bundles: CLI `gate` / provenance bench | All eligible lexical matches are retained separately; result `source_bundle`. | Co-occurrence or lexical coverage does not establish the requested relationship. |
+| `mplpb-combined ask` / `python -m mplpb_answers ask` | Strict answer contract, including supported, partial, ambiguous and refused outcomes | Only an accepted deterministic proof can set strict source support |
+| `candidates` / legacy `python -m mplpb_combined ask` | Lexical owner/candidate inspection | Candidate selection is not answer support |
+| `MPLPB.retrieve()` / Python gated `retrieve()` | Selected owner page passes provenance and serving policy | `answer_supported:false`; page inspection only |
+| `gate` | Separate eligible source bundle | Matching vocabulary does not establish a relationship |
+| `reconstruct` / `investigate` | Documentary report with checked portions, candidates and unresolved evidence | A checked portion need not complete the question; no invented bridges |
+| Optional model-assisted reading | Strict-first proof if available; otherwise labeled assisted interpretation | Model-only output remains unsupported; matching quotations do not prove semantics |
 
-`ok:true` in the JavaScript API means the call completed. Inspect decision kinds, authority, support, citations, and exclusions before presenting evidence. Page retrieval does not follow hub pointers or choose a different owner after a gate rejection. [Retrieval contracts and examples](docs/PAGE_RETRIEVAL.md).
+The synthetic demonstration can be queried without adding any source fields:
 
-This source candidate is **2.1.0rc1**, following the 2.0.0 bounded-reader release; the legacy core reports **1.0.0**. These are distinct from the JavaScript API's **1.0.0**, retrieval contract `gated-page-retrieval-v1`, paper versions, and content-derived browser build IDs. Compatibility does not mean legacy source bytes never change: the October 27 retrieval repair changed lexical matching while retaining its separate authority.
-
-The [general answer pipeline](docs/GENERAL_ANSWER_PIPELINE.md) adds diagnostic abstentions and an opt-in native local reader. Strict mode remains the default and needs no model. Assisted mode is experimental; live-model quality and fresh cross-domain evaluation are still required before a general-quality shipping claim. See the [capability/release matrix](docs/RELEASE_2_1_RC1.md) and [human-scored evaluation](evaluation/general-reader/README.md).
-
-See the [current implementation and verification status](docs/CURRENT_STATUS.md) for capabilities, actual checks and remaining product gaps, and the [result-to-test index](docs/RESULTS_AND_TESTS.md) for reproduction. The October 31 status remains historical.
-
-The [historical expert path](docs/HISTORICAL_EXPERT_PATH.md) runs source-bound documentary, chronology and verification specialists through the existing work coordinator. Use `mplpb-combined investigate` to crawl explicitly declared document relationships with exact citations, current eligibility checks and bounded hops. Its output remains an evidence report, not a certified historical answer.
-
-The local [user-built collection repair](docs/USER_BUILT_COLLECTIONS.md) documents collection growth versus engine changes, bounded source-policy questions, state rechecks and portable-backup limitations.
-
-The [synthetic researcher pilot](evaluation/researcher-pilot/README.md) runs six complete fictional investigations through real imports, queries, citation inspection, saved notes, specialist handoffs and fresh-process recovery. Candidate Chromium also exercises one journey through visible controls. These are reproducible development workflows, not human usability or independent accuracy evidence.
-
-## Try the source checkout
-
-```sh
-# Supported answer from explicitly marked synthetic relation facts:
-python3 -m mplpb_answers ask examples/chat-logic "What is Dungeons and Dragons?"
-
-# Inspect lexical page ownership without asserting body support:
-python3 -m mplpb_answers candidates examples/studio "how fast should I heat raw clay on its first firing"
-
-# Keep independently matched game and budget material separate:
-python3 -m mplpb_combined gate examples/provenance-gate/separate "1974 dungeons and dragons budget" --json
+```bash
+python -m mplpb_answers ask examples/chat-logic \
+  'What is Dungeons and Dragons?' --profile internal
 ```
 
-For supported/candidate CLI queries, exit codes are 0 (return), 2 (ambiguous), and 3 (not in corpus). The gate uses 0 (source bundle) and 3 (not in corpus). The synthetic D&D fixture and a general budgeting page do not establish a historical D&D budget.
+The example corpus is authored demonstration material. It is not a historical
+accuracy benchmark. Public-facing code must preserve support flags, qualifications,
+citations, conflicts and refusals. `ok:true` means an API call completed, not that
+its claims are supported. [Result contracts](docs/PAGE_RETRIEVAL.md).
 
-Create your own ledger with the existing writing commands:
+## Use the application or connect a client
 
-```sh
-mkdir notes
-python3 -m mplpb_combined write notes --prefix NOTE --title "Bisque schedule" \
-  --scope "Bisque firing schedule" --when-to-use "first firing; raw clay" \
-  --body "Climb 100 C per hour to 600 C."
-python3 -m mplpb_combined revise notes NOTE-0001 --body "Climb 80 C per hour to 600 C."
-python3 -m mplpb_combined history notes NOTE-0001
-python3 -m mplpb_combined validate notes
+The interface provides source inspection, revisions, named collections and
+bounded conversation. Chat, Serious and off-the-record free chat have different
+scope/storage rules. Saved user context and research notes do not become ledger
+facts. Transcript export is not a complete source-ledger backup.
+[Browser controls](docs/BROWSER_UI.md) · [Conversation](docs/CHAT_WORKFLOW.md)
+· [Storage and recovery](docs/PACKAGE_GUIDE.md#storage-and-recovery).
+
+In the running application page:
+
+```javascript
+await window.MPLPB.handshake();
+const result = await window.MPLPB.relay(
+  'What is Dungeons and Dragons?', {corpus: 'logic'}
+);
 ```
 
-These demonstrate record management, not certified kiln instructions. Changes create successors; derivations pin their basis and increment depth. Retired or stale bases do not silently become valid again. See [supersession policy](docs/SUPERSESSION_POLICY.md), [delivery restrictions](docs/DELIVERY_AND_CLARIFICATION.md), and [the original format paper](docs/Combined_MPLPB.md).
+Live calls require that browser context; a published URL is not a remote query
+server and does not expose another visitor's IndexedDB. The native MCP server
+requires a full checkout and host-authorized collection roots. It does not share
+browser saves or provide source-writing tools.
+[JavaScript API](JAVASCRIPT-API.md) · [Local MCP](docs/MCP_AGENT.md).
 
-## Use the interface
+## Evidence, limits and research
 
-- **Explore / Ask / Revision tree:** inspect pages and eligibility, submit supported questions, and review retained source history. Source inspection and decision traces remain distinct from supported answers.
-- **Chat / Serious:** deterministic conversation, source-bound topic discussion, saved context, explicit collection loading, and library routing. Chat clears active Serious scope but retains saved pages; outside-scope references remain labeled.
-- **Off-the-record free chat:** ephemeral conversation, with no saved transcript or source acquisition from its messages. Leaving the mode discards that session; separate source-management controls retain their explicit behavior.
-- **Build and search collections:** named collections, Wikipedia capture, permitted URL/pasted-text import, and explicit source management. General-web crawling needs a separately configured backend.
-- **Monster helper / Reason Mode:** presentation settings and visible decision traces; they do not change evidence rules or permissions.
+The retained [sorter contract](evaluation/preprocessing-sorter/2026-11-17/RESULTS.md)
+and [native-export refinement](evaluation/preprocessing-sorter/2026-11-17-native-export/RESULTS.md)
+cover source fidelity, identical nodes, stopped links and all-profile withholding.
+These are developer-authored controls, not independent historical accuracy results.
 
-Try `guide me`, `show my MPLPB`, `What can you do?`, `browse library`, `define dog`, or `brainstorm lantern gardens`. API network access is opt-in on each call; the visible UI has its own automatic Wikipedia setting. Source passages, user declarations, dictionary entries, research notes, calculations, and imagined ideas carry different authority. Finite grammar does not provide unrestricted language understanding.
+The separate [unchanged22-question experiment](evaluation/solo-milestone/2026-11-17/RESULTS.md)
+records two complete source-supported answers and one checked partial. It retains
+correct refusals and remaining limitations; preprocessing did not increase that score.
+The [result/test index](docs/RESULTS_AND_TESTS.md) distinguishes original measurements,
+software controls, AI assessments and unrun independent evaluation.
 
-Read [interface controls](docs/BROWSER_UI.md), [chat workflow](docs/CHAT_WORKFLOW.md), [the generated system guide](docs/SYSTEM_GUIDE.md), and [all feature guides](docs/README.md).
+A hash does not authenticate testimony. Similar sources are not automatically
+independent corroboration. Unsupported grammar, ambiguous identities, conditions,
+contradictions, incomplete evidence and exhausted budgets can still prevent an
+answer. [Current status](docs/CURRENT_STATUS.md) · [Readiness and threat model](docs/PRODUCTION_READINESS.md)
+· [Research status](docs/research/mplpb-originality/RELEASE_NOTE.md).
 
-## Local resources and saves
+The sorter paper by Mitchell D. McPhetridge is available as
+[Markdown](docs/research/dual-mode-sorter/dual-mode-sorter.md),
+[text](docs/research/dual-mode-sorter/dual-mode-sorter.txt) and
+[PDF](docs/research/dual-mode-sorter/dual-mode-sorter.pdf).
+[Earlier papers and notes](PAST_DOCUMENTATION.md) retain their original bytes and scope.
 
-The bundle includes Open English WordNet 2025 (128,009 entries and 107,558 synsets), 111 CMU Link Grammar data/reference files, and 23 selected Simple English Wikipedia captures. The grammar parser is not running, and the encyclopedia selection is not all of Wikipedia. Resources retain [licenses, exact revisions, and attribution](resources/README.md).
+## Development, packaging and licenses
 
-Browser IndexedDB stores normal chats and imported captures; desktop mode uses its local save store. Reloading the same origin can resume saved sessions, but browser clearing, eviction, quotas, or origin changes can lose them. **Export transcript** backs up conversation/pins, not the complete source ledger. Clearing named collections archives retained files locally; it is not a browser-storage purge. See [context](docs/CONTEXT_INDEX.md), [collections](docs/EXPLORATION_COLLECTIONS.md), and [capture compatibility](docs/BROWSER_CAPTURE_COMPATIBILITY.md).
+The [developer guide](docs/DEVELOPER_QUICKSTART.md) maps the implementation;
+[CONTENTS](CONTENTS) maps the repository. Follow [AGENTS.md](AGENTS.md) for handoffs,
+[ZIP-first release requirements](docs/ZIP_FIRST_RELEASE_TESTING.md) for committed
+candidate validation, and [infrastructure synchronization](docs/REPOSITORY_INFRASTRUCTURE.md)
+for linked source/API/browser artifacts. Main's required archive/regression checks
+and postdeployment browser checks are separate evidence. Historical green runs do
+not certify later commits.
 
-## Connect an AI or script
-
-Run in the opened application's JavaScript context:
-
-```js
-const hello = await window.MPLPB.handshake();
-const result = await window.MPLPB.relay('What is Dungeons and Dragons?', {
-  corpus: 'logic'
-});
-if (!result.ok) throw new Error(result.error);
-console.log(result.data.kind, result.data.reply);
-```
-
-Use `listCorpora()` for valid corpus keys. Preserve MPLPB's reply, ambiguity/refusal, authority, and citations. `retrieve()` is explicitly page inspection. Chat sessions require reusing the returned session ID; online acquisition requires `allowNetwork:true` for that call, with `autoWiki:true` additionally needed for automatic fallback.
-
-The deployed project publishes `.well-known/mplpb.json`, `llms.txt`, and `mplpb-public-ledger.json` relative to its site URL. The public snapshot contains externally eligible bundled pages, not visitor saves. An HTTP-only client can inspect discovery/public data; running the engine requires a browser context. See [JavaScript API](JAVASCRIPT-API.md), [agent middleware](docs/AGENT_MIDDLEWARE.md), and the optional `tools/mplpb_agent_bridge.mjs`.
-
-## Development and release checks
-
-From the repository root:
-
-```sh
-python3 -m unittest discover -s tests -t .
-python3 tools/check_ui_script.py
-node tools/check_browser_transport.cjs
-node tests/javascript-api.cjs
-node crawler/test_worker.mjs
-```
-
-The Python application uses the standard library. Node is needed for developer checks; real browser tests additionally use Playwright/Chromium and a generated runtime. Start with the [developer quickstart](docs/DEVELOPER_QUICKSTART.md) and [browser testing runbook](docs/BROWSER_TESTING_FOR_AGENTS.md).
-
-The repository requires **`archive-first` and `regression`** checks on `main`. Before merge, [ZIP-first validation](docs/ZIP_FIRST_RELEASE_TESTING.md) packages the exact PR head and tests the extracted source, Python, JavaScript, pinned WebAssembly runtime, live baseline, and candidate Chromium interface. A passing candidate is not deployment evidence. After merge, the Pages workflow builds/deploys and tests the public site again. See [release evidence and ruleset verification](docs/RELEASE_EVIDENCE.md).
-
-Additional legacy checks and frozen-probe checksum verification:
-
-```sh
-python3 tools/check_parts.py
-python3 -m mplpb_combined killtest examples/studio killtest/probes.json
-python3 -m mplpb_combined killtest examples/studio killtest/probes_heldout.json
-python3 -m mplpb_combined killtest examples/studio killtest/probes_adjacent.json
-(cd killtest && sha256sum -c probes.sha256 probes_heldout.sha256 probes_adjacent.sha256)
-```
-
-## Documents, evaluation, and limits
-
-[CONTENTS](CONTENTS) maps the current repository. [The documentation index](docs/README.md) separates operational guides, dated audits, original papers, and earlier implementations. Original PDFs/texts, source manifests, frozen corpora/probes, and recorded evaluations retain their historical bytes and claims. They do not describe every later feature.
-
-The latest lexical retrieval repair is recorded in [FIXLOG.md](FIXLOG.md); the broader [October 21 system audit](docs/SYSTEM_AUDIT_2026-10-21.md) and [answer reliability review](docs/ANSWER_RELIABILITY.md) record their own revisions and limits. Development fixtures and inspected external excerpts are not independent production accuracy measurements. See [evaluation protocol](evaluation/README.md) and [ownership failures/comparisons](evaluation/ownership/README.md).
-
-An additional [Mitchell-Tech-style, fixed-seed cross-domain smoke benchmark](evaluation/relation-graph/DIVERSE_SMOKE.md) tests 12 fictional domains with 312 planned unique questions and 24 source-mutation/ambiguity checks. Its pass count is not asserted until exact-head CI completes.
-
-The implemented [deterministic source-evidence graph](docs/DETERMINISTIC_EVIDENCE_GRAPH.md) expands seven finite source-body relations; the [pinned development retest](evaluation/relation-graph/README.md) reports **12/59 (20.3%)** on the previously inspected pottery questions, versus the preserved historical **6/59 (10.2%)**, by document identity. That proxy does not establish complete semantic answers: the later meaning review finds 11 complete source statements and one conditional quotation with unresolved applicability. Six scripted synthetic users also pass 36/36 author-written expected outcomes. These are not independent human accuracy or production-release claims.
-
-The [October 31 practical coverage repair](evaluation/practical-coverage/README.md) adds six supported returns across the frozen pottery sets, with no observed wrong returns and substantial remaining coverage gaps. The implemented [source-bound operational-relation extension](docs/OPERATIONAL_EVIDENCE.md) handles exact conditional outcomes and separation-list instructions, documents the wider error classes, and adds adversarial regression tests; the original **6/59 (10.2%)** remains historical. The separately pinned graph/language retest records 12/59 document returns, with the semantic limitations above. The [specialist work coordinator](docs/SPECIALIST_CONTINUITY.md) implements durable tasks, revisable claims, failed attempts, scoped seat capabilities and filtered handoffs through a native CLI and dedicated local API. Run `python -m tools.demo_specialist_continuity` for the five-instance interruption/recovery fixture; see [API usage](docs/SPECIALIST_CONTINUITY_API.md).
-
-Lexical relevance is not entailment; statement support covers bounded forms, not all semantics. Hashes establish consistency with pins, not truth, authenticated authorship, authorization, or protection from an operator replacing both data and seals. General conversation is rule-based; imagined ideas never become page evidence. Shared deployment needs separate [threat-model review](docs/PRODUCTION_THREAT_MODEL.md). [Recovery and rollback](docs/ROLLBACK.md) preserve history and distinguish source code from user saves.
-
-## Licence
-
-MIT for code, CC BY 4.0 for documentation. See [LICENSE](LICENSE); retained parts and resources keep their own notices.
-
-Mitchell D. McPhetridge · October 2026
-
-Source-language contradiction repair and per-case audit (2026-11-02): [evaluation/language-audit/README.md](evaluation/language-audit/README.md). Finite predicate polarity and storage paraphrases; synthetic validation is not independent human accuracy.
-
-Latest procedure recovery and repository-owned handoff: [Procedure clarification, recovery and ZIP handoff](evaluation/procedure-recovery/README.md).
-
-Permanent reference-test evidence: [73/73 evidence and reproduction](evaluation/reference-corpus-reproduction/README.md).
-
-Local MCP for AI clients: [connection setup and tools](docs/MCP_AGENT.md).
-The host authorizes collection keys and a fixed delivery profile; clients use the
-same full reader, inspect evidence, and recover bounded conversations. No browser
-automation or model provider is required by the server. See [production readiness](docs/PRODUCTION_READINESS.md)
-for the local scope, tested capabilities and remaining deployment/validation gaps.
-
-The public page now also has an [optional free browser builder/chat helper](docs/FREE_PUBLIC_HELPER.md).
-It uses the existing page API, requires review before source writes, preserves
-MPLPB answers/citations, and separates general model text. The model picker offers
-only MIT-licensed models: **Phi-1.5** (0.80 GB weights, the smaller default),
-**Phi-2** (1.56 GB), and **Phi-4-mini instruct** (2.16 GB). Each choice shows its
-estimated working memory. Phi-1.5 and Phi-2 are base models with weaker instruction
-following; a smaller download is not a guarantee of reliable planning or iPad support.
-Changing models after initialization requires reloading to avoid simultaneous
-allocations. No paid AI server, account or key is configured.
-Live model generation and iPad compatibility remain unverified;
-the core engine and reviewed manual builder work without the model. No fine-tuning
-or automatic training on visitor conversations runs.
-
-The **AI chat and MPLPB builder** has a conversation window with the prompt and
-Send button directly below it. AI chat streams plain text; Build keeps reviewed
-source/collection proposals. A disposed runtime is marked unavailable and offers
-a reload control instead of continuing to show a usable model.
-
-Model download completion does not establish readiness. If initialization fails,
-open **Model loading details** and use **Export model load report** before
-reloading. The [helper guide](docs/FREE_PUBLIC_HELPER.md#when-the-model-fails-to-initialize)
-explains the local diagnostics and retry boundary. No model training occurs.
-
-The [No-Unverified-Promotion research audit](evaluation/no-unverified-promotion/README.md)
-compares answer, artifact, release and specialist contracts against Mitchell D.
-McPhetridge’s preserved research. Its classification of the general logical rule
-as an existing engineering principle does not settle the originality of MPLPB’s
-particular combination. It records one corrected completion
-defect, and provides a source matrix and prospective adversarial protocol.
-
-The [originality and intellectual-priority reassessment](docs/research/mplpb-originality/README.md)
-qualifies the earlier headline: established logical principles do not settle the
-originality of MPLPB’s particular integration. It separates five novelty questions,
-compares mechanisms with pinned prior implementations, and records earlier public
-archive metadata without changing PR #38’s repair or frozen results.
-
-> Update 2026-11-16: The [public 52-case evidence suite](docs/PUBLIC_EVIDENCE_TESTS.md) and [bounded expert relation path](docs/HISTORICAL_EXPERT_PATH.md) document the current update. Prior dated measurements and preserved historical sources retain their original scope; this note does not rerun or revise them.
-
-The [original-record study workflow](docs/ORIGINAL_RECORD_STUDY.md) prepares pinned public originals, separates sealed questions from gold expectations, captures system outputs and checks external review submissions. Protocol tests do not establish independent human validation.
-
-The original-record worker can run with fail-closed Linux isolation using `run --sandboxed`; see the [study sandbox and its limits](docs/ORIGINAL_RECORD_STUDY.md). Public [isolation tests](tests/test_study_sandbox.py) exercise denied gold access, input writes, network access and environment inheritance. The host administrator remains trusted.
-
-Update 2026-11-16: [Scoped evidence extensions](docs/SCOPED_EVIDENCE_EXTENSIONS.md) add precise field/identity/correction diagnostics, exact source routing, distinct event nodes, declared correction windows, quoted relation inspection and non-authoritative receipt/effort metadata. Public focused tests are linked in the guide; historical reports retain their original scope.
-
-
-## Unprepared-original conversion study — 2026-11-16
-
-See the [frozen original-record evaluation](docs/UNPREPARED_ORIGINAL_CHALLENGE.md) and [source mapping repair](docs/SOURCE_MAPPING_REPAIR.md). Authentic originals and randomized synthetic controls have separate frozen inputs and retained outputs. Reversible candidate mappings preserve native authority boundaries; exact quote fidelity does not verify historical meaning. Independent human historical assessment is NOT RUN. Earlier results retain their original scope.
-
-
-## Source-linked reconstruction follow-up — 2026-11-16
-
-The [prose reconstruction follow-up](docs/PROSE_RECONSTRUCTION_FOLLOWUP.md) measures false candidate relationships, retained useful associations, missing facets and processing costs on real public records. Source-consistent developer judgments remain separate from independent human validation and deterministic answer support. Earlier results are preserved.
-
-
-Targeted recovery update (2026-11-16): the [source-linked recovery study](docs/PROSE_RECONSTRUCTION_FOLLOWUP.md#targeted-recovery-and-false-association-retention) reports retained useful associations, recovered omissions, false date-cue corrections and unresolved transfer failures. It does not establish general historical understanding or independent human validation.
-
-
-Documentary assertion update (2026-11-16): [checked source assertions and compound-question composition](docs/DOCUMENTARY_ASSERTIONS.md) are implemented and built. [Frozen results](evaluation/documentary-assertions/RESULTS.md) show checked partial answers increasing from 0 to 2 across 22 unchanged questions; full supported answers remain 0/22. Independent semantic review and unseen evaluation are NOT RUN.
-
-
-Reconstruction update (2026-11-17): [documentary research mode](docs/HISTORICAL_RECONSTRUCTION_ENGINE.md) adds source-unit/layer inspection, literal relationship checks, exact paragraph comparisons and candidate graphs. [Review rules](docs/HISTORICAL_TRUTH_RULES.md) keep synthetic fixture truth, human assessments and real historical truth separate. Final new measurements are retained separately; earlier historical reports remain unchanged.
-
-
-Measured completion update (2026-11-17): [final reconstruction experiment](evaluation/reconstruction-engine/2026-11-17/RESULTS.md) reports one complete source-supported wording comparison and two checked partials on 22 unchanged questions, versus zero complete and two partials before. The extracted implementation passed 1,124 tests and actual browser/WebAssembly checks. Historical authenticity, independent semantic accuracy and the proposed 9/10 outcome remain unestablished.
-
-The [offline candidate sorter](docs/PREPROCESSING_SORTER.md) extracts reversible textual observations and optional review edges from raw historical text. It creates no supported answers; its native snapshot remains retired.
-
-## Dual-mode raw-material sorter and paper
-
-The offline sorter converts raw UTF-8 text and Markdown into source-anchored candidate graphs and validated, retired native pages. Both modes preserve identical nodes; compare adds only review edges. The existing native reader can validate and display the snapshot while withholding it under all three profiles. It adds no historical supported answers.
-
-[Sorter usage](docs/PREPROCESSING_SORTER.md) · [New technical paper by Mitchell D. McPhetridge](docs/research/dual-mode-sorter/README.md) · [Markdown](docs/research/dual-mode-sorter/dual-mode-sorter.md) · [Text](docs/research/dual-mode-sorter/dual-mode-sorter.txt) · [PDF](docs/research/dual-mode-sorter/dual-mode-sorter.pdf)
+Code is MIT licensed; documentation is CC BY 4.0. Bundled data, models and preserved
+parts retain their own notices. See [LICENSE](LICENSE) and [resource attribution](resources/README.md).

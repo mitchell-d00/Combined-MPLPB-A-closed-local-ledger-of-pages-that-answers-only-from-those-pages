@@ -2,6 +2,8 @@
 
 Last reviewed: 2026-11-17. See [current status and result-to-test index](docs/CURRENT_STATUS.md). Dates and numeric results in historical validation sections retain their original scope; this review is not a rerun or independent certification.
 
+Package role: [how this part fits Combined MPLPB](docs/PACKAGE_GUIDE.md#connections-and-acquisition). The page-local API preserves strict answers, candidates, gated retrieval and assisted interpretations as distinct outcomes.
+
 `window.MPLPB` lets people, scripts and browser-capable AI agents use the same
 MPLPB engine as the interface, without clicking buttons. No API key or account
 is needed. This is a page-local JavaScript API, not a hosted service.

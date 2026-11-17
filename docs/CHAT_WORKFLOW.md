@@ -2,6 +2,8 @@
 
 Last reviewed: 2026-11-17. See [current status and result-to-test index](CURRENT_STATUS.md). Dates and numeric results in historical validation sections retain their original scope; this review is not a rerun or independent certification.
 
+Package role: [how this part fits Combined MPLPB](PACKAGE_GUIDE.md#conversation-and-resources). Conversation uses its own context rules while source claims retain ledger checks.
+
 Open the [live application](https://mitchell-d00.github.io/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/), a generated standalone runtime, or start desktop mode with `python3 launch.py` / a platform launcher. Choose **Chat**. No model or API key is required. Desktop mode uses standard-library Python; standalone mode runs the embedded engine in WebAssembly. See [installation](INSTALLATION.md).
 
 ## Basic help chat

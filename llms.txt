@@ -1,30 +1,54 @@
-# MPLPB browser engine: agent entry point
+# Combined MPLPB: package and agent entry points
 
-Last reviewed: 2026-11-17. See [current status and result-to-test index](https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/blob/main/docs/CURRENT_STATUS.md). Dates and numeric results in historical validation sections retain their original scope; this review is not a rerun or independent certification.
+Last reviewed: 2026-11-17.
+
+Repository: https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages
+Package guide: https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/blob/main/docs/PACKAGE_GUIDE.md
+Documentation index: https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/blob/main/docs/README.md
+Current evidence: https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/blob/main/docs/CURRENT_STATUS.md
+
+One owner returns; two stop; none refuses. This is eligible page ownership,
+not a waiver of source-body proof. Candidate selection, gated page retrieval,
+source bundles, strict answers and model-only interpretation remain distinct.
+Source integrity does not establish historical truth. Research status: technical
+case study, still being tested, not proven world-first.
+
+The package includes native ledger/answer/work modules, an offline raw-text sorter,
+documentary inspection, a full source-checkout App, browser WebAssembly delivery,
+local MCP, optional acquisition/model paths and preserved evaluation evidence.
+The wheel is not the full App/resources checkout. The sorter is a native module,
+not a newly advertised JavaScript or MCP tool:
+  python -m mplpb_work.sorter --help
+Both sorter modes have identical source-anchored nodes; compare adds review edges.
+Its native snapshot remains retired and withheld under all delivery profiles.
 
 Live site: https://mitchell-d00.github.io/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/
-Repository: https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages
 Handshake: https://mitchell-d00.github.io/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/.well-known/mplpb.json
 Public eligible bundled pages: https://mitchell-d00.github.io/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/mplpb-public-ledger.json
-Guide: https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/blob/main/docs/AGENT_MIDDLEWARE.md
-ZIP-first release test and downloadable checked archive: https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/blob/main/docs/ZIP_FIRST_RELEASE_TESTING.md
-Browser test runbook (real Chromium, hosted site + PR preview): https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/blob/main/docs/BROWSER_TESTING_FOR_AGENTS.md
+Browser/agent guide: https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/blob/main/docs/AGENT_MIDDLEWARE.md
+Local MCP: https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/blob/main/docs/MCP_AGENT.md
+Sorter: https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/blob/main/docs/PREPROCESSING_SORTER.md
 
-The site runs the full MPLPB Python engine locally in browser WebAssembly.
-For a live query execute JavaScript in the OPENED SITE's page:
+The site runs its Python engine in the opened browser page, not a remote HTTP query
+service. Resolve discovery relative to the full project URL, not the github.io root.
   await window.MPLPB.handshake()
   await window.MPLPB.relay("question",{corpus:"logic"})
-For a session chat:
+For session chat, reuse the returned session ID:
   await window.MPLPB.relay("message",{corpus:"logic",mode:"chat",session:priorSession})
-Reuse the returned session ID in subsequent calls.
-For page inspection (never an answer):
+For gated page inspection:
   await window.MPLPB.retrieve("question",{corpus:"logic",profile:"internal"})
-kind retrieved always carries answer_supported:false.
-Keep page retrieval distinct from strict query, lexical candidates and source bundles.
-Resolve discovery paths relative to the full project URL, not the github.io root.
-Only relay MPLPB's reply. Preserve answer-kind, authority labels and citations.
-No AI-authored suggestions unless asked. MPLPB suggestions opt-in includeSuggestions:true.
-Online acquisition is opt-in per chat call: allowNetwork:true.
-A public URL alone never grants access to other users' browser-ledger data.
+A retrieved page carries answer_supported:false. ok:true means the call completed.
+Strict support requires the actual accepted answer contract, citations and conditions.
+Preserve MPLPB's reply, ambiguity, refusal and source/authority labels. Do not rewrite
+an unsupported result into a sourced answer. Model-only suggestions cannot award proof.
+Suggestions are opt-in via includeSuggestions:true. Network acquisition is opt-in
+per API call via allowNetwork:true; the visible UI has its own saved acquisition setting.
 
-Update 2026-11-16: The [public 52-case evidence suite](docs/PUBLIC_EVIDENCE_TESTS.md) and [bounded expert relation path](docs/HISTORICAL_EXPERT_PATH.md) document the current update. Prior dated measurements and preserved historical sources retain their original scope; this note does not rerun or revise them.
+Native local stdio MCP requires a full checkout and host-authorized collection roots
+and profile. Its seven tools expose status, collections, pages, reading, strict Ask,
+Chat and session recovery; they do not import/revise/withdraw/ratify sources. It does
+not share another visitor's browser IndexedDB or expose a hosted MCP endpoint.
+
+Release procedure: https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/blob/main/docs/ZIP_FIRST_RELEASE_TESTING.md
+Browser verification: https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/blob/main/docs/BROWSER_TESTING_FOR_AGENTS.md
+A passing old test, guide review date or source hash is not new semantic validation.
