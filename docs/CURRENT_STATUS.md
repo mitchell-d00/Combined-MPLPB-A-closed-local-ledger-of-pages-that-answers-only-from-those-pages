@@ -67,3 +67,7 @@ in their existing trusted-operator scope. General historical truth, reliable
 unprepared-event identity, arbitrary causal chains, physical-device model inference
 and shared-service production readiness remain unestablished; see
 [readiness boundaries](PRODUCTION_READINESS.md).
+
+## Raw-text candidate preprocessing
+
+The [offline sorter](PREPROCESSING_SORTER.md) preserves original UTF-8 bytes and exposes lexical observations. Both modes have identical nodes; compare adds only review edges. Its optional native snapshot is retired and withheld by the unchanged reader. This does not add historical supported answers.

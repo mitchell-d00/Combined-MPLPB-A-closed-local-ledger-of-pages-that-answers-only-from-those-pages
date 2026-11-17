@@ -126,3 +126,5 @@ The [prose reconstruction follow-up](PROSE_RECONSTRUCTION_FOLLOWUP.md) measures 
 
 
 Targeted recovery update (2026-11-16): the [source-linked recovery study](PROSE_RECONSTRUCTION_FOLLOWUP.md#targeted-recovery-and-false-association-retention) reports retained useful associations, recovered omissions, false date-cue corrections and unresolved transfer failures. It does not establish general historical understanding or independent human validation.
+
+[Offline raw-text candidate sorter](PREPROCESSING_SORTER.md): identical extraction in both modes, optional comparison edges, and a withheld native snapshot.

@@ -4,46 +4,38 @@ Last reviewed: 2026-11-17.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `6a92167124e0842a909792d95cec7a0b637de578` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `279c1393aa3cb3205e8e8d243d305a662fe7bea22aaad28206e467964461301e`.
+Base commit: `3df2c6e22f0ef454f3ee67b88d43402a42f63443` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `5e9f6fd50561fc202f001b72384e12bfa36ce39f7ebb7d2081070670797517f9`.
 
 ## Latest user update instructions
 
-Push it to main and make sure all documentation is uptodate as well as past notes etc clean up the repo make sure it has no loose ends etc
+The two modes differ only in the edges they emit. Both compare and not-compared must extract the same source-anchored keys, spans, and provisional statuses from the same input. Confirm this with fixtures: same input, both modes, identical nodes, differing only in edges. The retired-page snapshot is truly withheld under the existing reader under all three delivery profiles without modification. Once these two checks pass, freeze the implementation and document the input/output contract for both modes. Do not claim the sorter completes historical reconstruction. Keep every proposed relationship non-authoritative and inspectable.
 
 ## Implemented scope
 
-- Publish the authorized source/reconstruction/solo-milestone branch through main after exact-head required checks.
-- Create a current status entry point, update current guide navigation and relevant API/CLI/receipt/answer descriptions, and preserve dated notes, frozen corpora and historical reports byte-for-byte.
-- Reconcile handoff, past-documentation index, root fix log and repository map with the measured2/22 source-only completion milestone and clearly labeled AI assessment.
-- Verify clean Git state, required archive/regression CI and post-merge Pages publication; preserve actual evidence and disclose unresolved research limitations.
+- Implement offline standard-library raw-text sorter with separate extraction, provisional status assignment, comparison and JSON emission.
+- Compare appends only review edges; nodes and source anchors identical between modes. Clusters and correction windows remain edge annotations.
+- Reversible original UTF-8 byte/character spans, bounded processing, replay verification and prior assessment preservation.
+- Explicit new-ledger retired snapshot export through unchanged native ledger; no grammar, gate or answer support changes.
 
 ## Validation recorded
 
-- Baselineec41332:74 focused tests passed6.530s; all22 unchanged historical workers completed under original frozen seals and budgets.
-- Final native runtime d369346: complete source support1→2/22, partial2→1/22; onlyH02 changes. Other21 native kinds, claims, excerpts and qualifications unchanged; zero new delivery/execution/truth claims.
-- Fresh fork_turns=none blinded AI assessment of44 responses: complete correct1→2, correct refusal4→4, errors/over-refusals17→16, unassessed0. All108 original-byte evidence anchors validated; fabricated quote mutation rejected. AI assessment is not human validation or source authority.
-- All3 native claims/8 citations independently rerun through current finite kernel and mapped back to pinned original bytes. Frozen corpus/question/protocol/harness/import/worker limits identical.
-- ZIP-extracted80a4b02d0a13ac0f986f83622514c4be5dddd844:1157 tests passed337.950s, public52/52. JavaScript API, browser transport, crawler fixtures, actual pinned WebAssembly and11 actual Chromium documentary/UI checks passed; generated release HTML byte-identical to tested d369346 candidate.
-- Combined22-case worker CPU852.674→242.284s with identical logical source bytes read. Single shared-host development replay; supporting-only intermediate and all failed full-test attempts retained separately.
-- Intermediate482e498 full1148-test run failed one standard-library allowlist declaration; first arrangement d369346 full1157-test run failed obsolete H02 partial-only expectation. Standard-library declaration and regression expectation updated, preserving no-delivery/source-byte invariants. Final full rerun passed.
-- Final documentation/infrastructure/handoff audits and10 handoff/documentation tests passed0.118s. Raw assessment-source whitespace/CRLF is preserved with narrow -text/-whitespace attributes; source bytes were not cleaned.
-- Publication baseline82f4134 is clean and ten commits ahead of remote main4d0f447 with no divergence; fresh fetch confirmed. Source/candidate checks for the new documentation head remain separate from retained80a4b02 runtime evidence.
-- Documentation inventory and all377 classified documents/33 evaluation families passed;85 current guides are indexed,56 current navigation/operational guides updated, dated November8 status preserved as historical. Handoff/documentation tests passed10/10; infrastructure synchronization passed.
-- GitHub archive run44072489661 on6a92167 exposed one generated SYSTEM_GUIDE/runtime-model mismatch after navigation cleanup (1157 tests, one failure). Updated generator review date/current-status link and regenerated the guide; no answer proof/semantic rule changed. Required CI will rerun on the corrected head.
+- Pre-edit focused baseline:43 tests passed0.839s.
+- Final focused sorter and source/boundary tests:67 tests passed1.308s, including24 sorter tests.
+- Direct gate test excludes retired snapshot under all profiles; native answers and past as-of answers remain unsupported.
+- One stronger exclusion assertion initially expected retired for external; corrected to reflect existing external=no precedence, with no reader changes. Frozen archive regression checks pending.
 
 ## Limitations and blocked checks
 
-- The measured completion gain is one development question, not22/22 success, general historical understanding, a9/10 rating or unseen accuracy validation.
-- AI assessment used one fresh context of the configured model, with unknown provider/version pin and procedural shared-filesystem blinding; it is not human review, model-provider independence or authenticated historical truth.
-- Recorded arrangements do not establish instruction acceptance, execution, dispatch, delivery or event/person identity; printed dates retain heading role.16 AI-assessed errors/over-refusals remain.
-- Local storage checks establish byte equality at inspection time under the trusted native host/OS, not durable storage, human reading, delivery or completion. Human effort and AI inference charges remain null.
-- Apollo evidence is discovered but remains blocked by earlier OCR quotation state; no quotation safeguard was relaxed to award support.
+- Lexical candidates only; no semantic accuracy or historical reconstruction claim.
+- No independent semantic review performed; fictional fixtures do not measure original-record answer coverage.
+- Serving eligibility is not inferred from raw input headers. Original source policy must be supplied through normal ingestion.
+- Bounded algorithmic work, no hard OS timeout; trusted local filesystem required.
 
 ## Next steps
 
-- Track exact-head release/deployment receipts in GitHub Actions and retain source/AI-assessment boundaries in future updates.
-- Continue the documented16 AI-assessed shortcomings without reclassifying candidate interpretations or requesting unavailable human reviewers.
+- Freeze committed candidate and run archive-extracted regression/public-evidence checks.
+- Retain commands, profile refusals and actual resource costs in versioned sorter evidence.
 
 ## Use this ZIP in your repository
 
