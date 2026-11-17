@@ -1,11 +1,12 @@
 """Versioned body projection for citations; headings/active metadata are excluded."""
+from functools import lru_cache
 from html.parser import HTMLParser
 import re
 
 VERSION = 'body-text-no-headings-v1'
 
 
-def body_text(html):
+def _project(html):
     class Body(HTMLParser):
         SKIP = {'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'script', 'style', 'head', 'title', 'noscript'}
         BLOCK = {'p', 'div', 'li', 'tr', 'br', 'pre', 'section', 'ul', 'ol', 'table'}
@@ -31,3 +32,17 @@ def body_text(html):
     parser = Body(); parser.feed(html); parser.close()
     lines = [re.sub(r'[ \t]+', ' ', line).strip() for line in ''.join(parser.parts).splitlines()]
     return '\n'.join(line for line in lines if line)
+
+
+@lru_cache(maxsize=4)
+def _cached_projection(html):
+    return _project(html)
+
+
+def body_text(html):
+    """Cache immutable canonical content only; never eligibility or policy.
+
+    Four inputs, each at most two million characters, bound retained content.
+    Larger inputs bypass the cache. Exact input bytes/text form the cache key.
+    """
+    return _cached_projection(html) if len(html)<=2000000 else _project(html)

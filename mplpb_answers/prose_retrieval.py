@@ -55,6 +55,12 @@ def retrieve(index,max_passages=12,max_chars=12000,seed=None):
     entities=set().union(*(terms(x) for x in re.findall(r'\b[A-Z][a-z]+\b',question) if x not in QUESTION_WORDS))
     clauses=[terms(x) for x in re.split(r'[?;]|\b(?:and|or|rather than|without)\b',question,flags=re.I) if len(terms(x))>=2]
     facets=[query]+clauses[:3]
+    from .documentary import plan
+    obligations=plan(question) or []
+    for goal in obligations:
+        facet=terms(goal['question'])
+        if facet and facet not in facets:facets.append(facet)
+    facets=facets[:5]
     rows=[Counter(terms(token).pop() for token in re.findall(r'[^\W_]+',p['text']) if len(terms(token))==1) for p in index.passages]
     n=len(rows);df=Counter(t for row in rows for t in row);lengths=[sum(c.values()) for c in rows];avg=sum(lengths)/max(1,n)
     idf={t:math.log(1+(n-df[t]+.5)/(df[t]+.5)) for t in expanded|entities}
@@ -110,10 +116,19 @@ def retrieve(index,max_passages=12,max_chars=12000,seed=None):
         if start is not None:
             original=[i for i in ranked if index.passages[i]['body_start']>=start]
             if original:add(original[0],'declared-transcript-section-discovery-only')
+    obligation_diagnostics=[]
+    for goal in obligations:
+        wanted=terms(goal['question'])
+        ranked=sorted(ordered,key=lambda si:(-len(wanted&set(rows[si[1]])),-si[0]))
+        if ranked:add(ranked[0][1],'independent-question-obligation')
+        obligation_diagnostics.append({'question':goal['question'],'kind':goal['kind'],
+            'status':'bounded_search_only','source_support_established':False})
     for _,i in ordered:add(i,'query-facet-rank-fusion')
     paths={p['path'] for p in selected}
     return {'passages':selected,'sources':[s for s in index.sources if s['path'] in paths],
         'eligible_pages':len(index.sources),'total_passages':len(index.passages),'search_complete':False,
         'queries':[question],'ranking':VERSION,'corpus_snapshot':index.gate.corpus_snapshot,
         'independence_verified':False,'routing_metadata_is_answer_evidence':False,
-        'query_expansion_terms':sorted(expanded-query),'facets':[sorted(f) for f in facets]}
+        'query_expansion_terms':sorted(expanded-query),'facets':[sorted(f) for f in facets],
+        'obligations':obligation_diagnostics,'omitted_passages':len(index.passages)-len(selected),
+        'search_scope':'Currently eligible indexed passages only; bounded selection cannot establish historical absence.'}

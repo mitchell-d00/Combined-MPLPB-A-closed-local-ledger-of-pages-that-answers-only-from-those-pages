@@ -1,6 +1,6 @@
 # General web crawler setup
 
-Last reviewed: 2026-11-16. See [current status and result-to-test index](../docs/CURRENT_STATUS_2026-11-02.md). Dates and numeric results in historical validation sections retain their original scope; this review is not a rerun or independent certification.
+Last reviewed: 2026-11-17. See [current status and result-to-test index](../docs/CURRENT_STATUS_2026-11-02.md). Dates and numeric results in historical validation sections retain their original scope; this review is not a rerun or independent certification.
 
 The browser's **Web · hosted crawler** mode needs this separate Cloudflare Worker.
 GitHub Pages serves the interface; it cannot fetch arbitrary sites server-side.
@@ -61,6 +61,34 @@ relationship. Server-reported capture provenance is not an independently verifie
 site download or authorship declaration. A zero-page crawl does not invent evidence.
 Ordinary chat then reads that local collection; it does not search again implicitly.
 Refresh retains sources/chats until reset, subject to browser storage limits.
+
+## Direct historical source captures
+
+The same authenticated `POST /crawl` route now also accepts an explicit source set:
+
+```json
+{"seeds":[{"url":"https://archive.example/original.txt","sha256":"OPTIONAL_64_LOWERCASE_HEX_DIGEST"}]}
+```
+
+Supply one or two public HTTPS URLs, optionally with known original-byte hashes;
+omit `sha256` when unknown. Use either `seeds` or a search `query`. Direct seeds do
+not call a search provider or require a search key. Origin/token authentication,
+robots checks, failure handling, type/byte/count/depth/time limits and redirect
+refusal remain the existing crawler's rules. HTML/plain text are supported; PDF
+and automatic OCR are not. Source bytes are returned unchanged in base64 with
+their SHA-256. A pin mismatch produces a failure, never an accepted replacement.
+Capturing a webpage does not automatically admit it to an authoritative ledger.
+Use the existing capture/import path, retain provenance, and inspect source policy.
+
+`crawlSources` exposes the same set operation to a native Node caller. `sourceIdentity`
+distinguishes identical captured-byte digests from the same URL with changed bytes;
+URLs, digest strings and server observation times do not authenticate authorship.
+Identical copies are not independent corroboration and never establish event identity
+or historical truth. Keep every original capture/version. This update does not
+deploy a Worker or configure accounts/secrets.
+
+Run `node crawler/test_historical.mjs` as well as the existing worker tests. These
+use authored fixture responses; actual publisher/network availability is separate.
 
 Node tests use fixture responses, not a paid/free provider account or a deployed
 Worker. Run `node test_worker.mjs`. General-web live deployment remains a separate

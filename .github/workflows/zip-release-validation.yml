@@ -85,6 +85,7 @@ jobs:
           node tests/browser-model-loader.cjs
           node tests/browser-webgpu-limits.cjs
           node crawler/test_worker.mjs
+          node crawler/test_historical.mjs
           node --check tools/mplpb_agent_bridge.mjs
           node tools/mplpb_agent_bridge.mjs --help
       - name: Download the release-pinned Python WebAssembly runtime

@@ -55,8 +55,14 @@ def plan(question):
             goals.append({'question':clause,'kind':'reported_instruction'})
         elif re.match(r'Which (?:dated )?letter\b',q,re.I):
             goals.append({'question':clause,'kind':'letter_context'})
+        elif re.match(r'(?:Why (?:was|were|did)|what (?:spacecraft|vehicle|resource|equipment|system)|what .*provide)',q,re.I):
+            goals.append({'question':clause,'kind':'explicit_cause' if q.lower().startswith('why') else 'resource_support'})
+        elif re.match(r'(?:Compare|What (?:wording|words|text)|How .*differ)',q,re.I):
+            goals.append({'question':clause,'kind':'wording_comparison'})
+        elif re.match(r'(?:When |What happened (?:before|after)|Did .* (?:before|after))',q,re.I):
+            goals.append({'question':clause,'kind':'temporal_statement'})
         else:goals.append({'question':clause,'kind':'unresolved'})
-    return goals if any(g['kind'] in {'who_action','reported_instruction'} for g in goals) else None
+    return goals if any(g['kind'] not in {'unresolved','letter_context'} for g in goals) else None
 
 
 def propose(index,passages):
@@ -79,15 +85,49 @@ def propose(index,passages):
         for lo,hi,q in _proposal_units(p['text']):
             if hi-lo<=2200 and re.search(r'\b(?:'+'|'.join(ACTIONS)+r'|did\s+not\s+(?:'+'|'.join(ACTIONS.values())+r'))\b',q):
                 add(p,a+lo,a+hi,'action_statement')
+        for lo,hi,q in kernel.units(body):
+            if lo>=b or hi<=a or hi-lo>2200:continue
+            if kernel.relationship_assertion(q):add(p,lo,hi,'relationship_statement')
+    if any(g['kind']=='wording_comparison' for g in plan(index.question) or []):
+        import difflib
+        from .source_units import comparison_units
+        records={r.path:r for r in index.records}
+        candidates=[]
+        for p in passages:
+            for lo,hi,q in comparison_units(records[p['path']]):
+                if lo<p['body_start']+len(p['text']) and hi>p['body_start'] and 8<=hi-lo<=2200:
+                    candidates.append((p,lo,hi,q))
+        pairs=[]
+        for i,left in enumerate(candidates[:60]):
+            for right in candidates[i+1:60]:
+                if left[0]['path']==right[0]['path']:continue
+                x,y=terms(left[3]),terms(right[3]);shared=x&y
+                if len(shared)<4:continue
+                common=difflib.SequenceMatcher(None,left[3].split(),right[3].split(),autojunk=False).find_longest_match().size
+                if common<4:continue
+                score=10*len(terms(index.question)&shared)+common/max(1,min(len(left[3].split()),len(right[3].split())))
+                pairs.append((score,left,right))
+        for _,left,right in sorted(pairs,key=lambda x:-x[0])[:2]:
+            p,a,b,q=left;r,lo,hi,t=right
+            # Comparisons share the same 12-proposal bound as all other rules.
+            if len(result)>=12:break
+            result.append({'kind':'wording_comparison','source_id':p['source_id'],'path':p['path'],'hash':p['hash'],'start':a,'end':b,'quote':q,
+                'other':{'source_id':r['source_id'],'path':r['path'],'hash':r['hash'],'start':lo,'end':hi,'quote':t}})
     return result
 
 
 def _relevant(goal,proof,question):
     v=proof['proposition']
+    relation={'explicit_cause':'source_causal_assertion','resource_support':'source_resource_assertion',
+              'wording_comparison':'exact_wording_comparison','temporal_statement':'source_temporal_assertion'}.get(goal['kind'])
+    if relation:
+        if v['relation']!=relation:return False
+        if relation=='exact_wording_comparison':return True
+        return bool(terms(goal['question']) & terms(' '.join(str(x) for x in v.values() if isinstance(x,str))))
     if goal['kind']=='who_action':
         if v['relation']=='source_reports_instruction' and goal['action'] in {'request','instruct','order'}:
             return bool(terms(goal['object_text']) & terms(v['intermediary_text']+' '+v['object_text']+' '+v['requested_recipient_text']))
-        if v['relation']!='source_action_assertion' or v['action']!=goal['action']:return False
+        if v['relation'] not in {'source_action_assertion','source_passive_action_assertion'} or v['action']!=goal['action']:return False
         return bool(terms(goal['object_text']) & terms(v['object_text']))
     if goal['kind'] in {'reported_instruction','letter_context'} and v['relation']=='source_reports_instruction':
         wanted=terms(question)-terms('who arranged asked requested instructed which dated letter records arrangement receive send copy book report')
@@ -104,7 +144,7 @@ def _claim(proof):
         qualifiers=['Source-attributed statement; event/person identity and historical truth are not independently verified.']
         if v['action'] in {'order','request','instruct'}:qualifiers.append('A directive or request does not establish its execution.')
         if v['unresolved_reference']:qualifiers.append('An object, role or date reference remains unresolved.')
-    else:
+    elif v['relation']=='source_reports_instruction':
         text=('The letter headed '+v['writer_text']+' TO '+v['addressee_text']+
               (' ('+v['heading_date_text']+')' if v['heading_date_text'] else '')+
               ' reports that its writer '+('had ' if v['request_aspect']=='perfect' else '')+v['request_verb']+' '+v['intermediary_text']+
@@ -116,6 +156,18 @@ def _claim(proof):
         if v['delivery_text']:qualifiers.append('Requested delivery method: '+v['delivery_text'])
         if v['hope_text']:qualifiers.append('Additional hope stated by writer: '+v['hope_text'])
         if v['literal_following_note']:qualifiers.append('Following source note retained without a separate historical claim: '+v['literal_following_note'])
+    else:
+        if v['relation']=='exact_wording_comparison':
+            parts=[]
+            for change in v['alignment'][:12]:
+                if change['operation']=='equal':parts.append('Shared wording: “'+change['left_text']+'”.')
+                else:parts.append('Source A: “'+change['left_text']+'”; source B: “'+change['right_text']+'”.')
+            text='Exact comparison of the two cited units. '+' '.join(parts)
+            if len(v['alignment'])>12:text+=' Further differences and shared text are retained in the complete structured alignment.'
+        else:text='Source assertion: '+re.sub(r'\s+',' ',proof['citations'][0]['quote'])
+        qualifiers=['Only the complete cited wording is checked; historical truth and event/person identity are not independently verified.']
+        if v['relation']=='source_causal_assertion':qualifiers.append('The source explicitly attributes a cause; this does not independently establish historical causation.')
+        if v['relation']=='exact_wording_comparison':qualifiers.append('No version order, correction, motive, responsible person or whole-document absence is established by this local comparison.')
     return {'text':text,'qualifiers':qualifiers,'citations':proof['citations'],
             'proposition':v,'source_support_established':True,'support_scope':'source_attributed_assertion',
             'verification':proof['verification'],'historical_truth_independently_verified':False,
@@ -127,7 +179,13 @@ def compose(index,max_passages,max_chars):
     if goals is None:return None
     from .prose_retrieval import retrieve
     pack=retrieve(index,max_passages,max_chars)
-    passages=_contexts(index,pack['passages'],max_chars,max_passages)
+    from .source_units import expand
+    passages,context_limits=expand(index,pack['passages'],max_passages,max_chars)
+    if any(g['kind']=='wording_comparison' for g in goals):
+        # Literal comparisons retain complete native paragraphs, including
+        # semicolon-separated originals that are longer than a sentence.
+        passages=pack['passages']
+    if not passages:passages=_contexts(index,pack['passages'],max_chars,max_passages)
     proposals=propose(index,passages)
     checked=kernel.check(index,proposals)
     if checked['status']=='source_changed':return {'kind':'abstain','code':'source_changed'}
@@ -135,7 +193,9 @@ def compose(index,max_passages,max_chars):
     for goal in goals:
         matches=[p for p in proofs if _relevant(goal,p,index.question)]
         status={'question':goal['question'],'kind':goal['kind'],'status':'unresolved'}
-        if goal['kind']=='who_action':
+        if goal['kind'] in {'explicit_cause','resource_support','wording_comparison','temporal_statement'}:
+            if matches:status['status']='checked_relationship_scope_partial'
+        elif goal['kind']=='who_action':
             exact=[p for p in matches if p['proposition']['relation']=='source_action_assertion' and not p['proposition']['unresolved_reference']
                    and kernel.normalized(p['proposition']['object_text'])==kernel.normalized(goal['object_text'])]
             # Scan all eligible source units, not only retrieval winners. A
@@ -177,6 +237,7 @@ def compose(index,max_passages,max_chars):
             missing.append(goal['question']+': '+reason)
         statuses.append(status)
     if not checked['scan_complete']:missing.append('Contrary-evidence scan reached its explicit character/unit/assertion budget; absence of contradiction is not established.')
+    if context_limits:missing.append('Some complete source units exceeded the context budget; search/context is incomplete.')
     request_scope=any(p['proposition']['relation']=='source_reports_instruction' for p in selected)
     if request_scope:missing.append('Request occurrence, later correction/cancellation and execution are outside this source-attribution certificate.')
     shown=[];used=0;count=0
@@ -212,5 +273,6 @@ def compose(index,max_passages,max_chars):
                 'scan_scope':'Finite literal action assertions; request occurrence/correction/execution not certified.',
                 'examined_characters':checked['examined_characters'],'examined_units':checked['examined_units'],'limits_reached':checked['limits_reached'],
                 'limits':checked['limits'],'rejected_proposals':checked['rejected'],
+                'context_limits':context_limits,
                 'alternative_evidence':displayed_alternatives,'unshown_alternative_evidence_count':len(alternatives)-len(displayed_alternatives),
                 'retrieval_limits':{'max_passages':max_passages,'max_characters':max_chars}}}

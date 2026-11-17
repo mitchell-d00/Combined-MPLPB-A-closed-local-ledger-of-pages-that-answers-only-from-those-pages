@@ -1,6 +1,6 @@
 # Checked documentary assertions and question composition
 
-Last reviewed: 2026-11-16.
+Last reviewed: 2026-11-17.
 
 Strict answers now have a bounded documentary path after existing strict grammars fail. `documentary.py` proposes exact source units and decomposes up to four question obligations. `documentary_verify.py` reloads current eligible bytes with the **complete original question and delivery profile**, independently locates full source units and derives typed source assertions. Extractor fields, graph edges, citations alone and model approval cannot issue certificates.
 
@@ -24,3 +24,6 @@ Reproduce the frozen original studies with their existing seals and unchanged ru
 
 
 Final extracted implementation `6acf45a9f77213953f8236379236c96662442153` passed 1,068 Python tests, prepared public controls, actual WebAssembly and Chromium UI checks. [Retained frozen comparisons](../evaluation/documentary-assertions/RESULTS.md) show two checked partial source answers versus zero before across 22 unchanged questions; full historical supported answers remain zero. The earlier plan-heading false acceptance and fix are retained. Independent human review and unseen evaluation are NOT RUN.
+
+
+Reconstruction update (2026-11-17): [documentary research mode](HISTORICAL_RECONSTRUCTION_ENGINE.md) adds source-unit/layer inspection, literal relationship checks, exact paragraph comparisons and candidate graphs. [Review rules](HISTORICAL_TRUTH_RULES.md) keep synthetic fixture truth, human assessments and real historical truth separate. Final new measurements are retained separately; earlier historical reports remain unchanged.

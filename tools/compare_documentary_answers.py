@@ -39,11 +39,18 @@ def compare(corpus,before,after,output):
                 for claim in claims:
                     cites=claim['citations'];first=cites[0];record=records.get(first['path'])
                     if record is None:raise ValueError('Certificate source currently ineligible')
-                    start=min(e['body_start'] for e in cites);end=max(e['body_end'] for e in cites)
+                    relation=claim['proposition']['relation']
+                    same=[e for e in cites if e['path']==first['path']]
+                    start=min(e['body_start'] for e in same);end=max(e['body_end'] for e in same)
                     text=body_text(record.body_html)
-                    kind='letter_instruction' if claim['proposition']['relation']=='source_reports_instruction' else 'action_statement'
+                    kind=('letter_instruction' if relation=='source_reports_instruction' else 'action_statement' if relation=='source_action_assertion'
+                          else 'wording_comparison' if relation=='exact_wording_comparison' else 'relationship_statement')
                     proposals.append({'kind':kind,'source_id':record.id,'path':record.path,'hash':record.hash_actual,
                                       'start':start,'end':end,'quote':text[start:end]})
+                    if kind=='wording_comparison':
+                        other=cites[1]
+                        proposals[-1]['other']={'path':other['path'],'source_id':other['source_id'],'hash':other['hash'],
+                                                'start':other['body_start'],'end':other['body_end'],'quote':other['quote']}
                 checked=documentary_verify.check(index,proposals)
                 if checked['status']!='checked':raise ValueError('Sources changed during certificate recheck')
                 for claim in claims:

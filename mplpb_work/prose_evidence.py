@@ -55,9 +55,35 @@ def discover(root,question,profile=None,*,max_passages=12,max_chars=12000):
     from .prose_relations import extract
     from .source_mapping import _state
     mapping['proposed_reconstruction']=extract(index,pack['passages'],_state(root,question,profile))
+    from .source_mapping import relationship_graph
+    mapping['relationship_graph']=relationship_graph(index,mapping['proposed_reconstruction'],pack['passages'])
+    # Keep structure/layers separate from propositions and historical authority.
+    mapping['source_unit_index']=index.documentary_units(max_chars=200000,max_units=1000)
     if not index.unchanged() or verification_snapshot(root,question,profile)!=initial:
         return dict(empty,status='source_changed',source_state_current=False)
     return dict(empty,status='candidate_contexts' if candidates else 'no_matching_contexts',candidates=candidates,
                 source_state_current=True,information_map=mapping,search_complete=pack['search_complete'],
                 budgets={'max_passages':max_passages,'max_characters':max_chars},
                 retrieval_method=pack['ranking'],retrieval_discovery={k:v for k,v in pack.items() if k in {'query_expansion_terms','facets','routing_metadata_is_answer_evidence'}})
+
+
+def reconstruct_report(root,question,profile=None,*,max_passages=12,max_chars=12000,reader=None):
+    """Existing native answers and reversible research views, with final gate."""
+    from mplpb_answers.pipeline import answer_query
+    profile=profile or PROFILES[DEFAULT_PROFILE]
+    before=verification_snapshot(root,question,profile)
+    answer=answer_query(root,question,profile,max_passages=max_passages,max_chars=max_chars).contract
+    candidates=discover(root,question,profile,max_passages=max_passages,max_chars=max_chars)
+    assisted=None
+    if reader is not None:
+        # The existing reader validates schema, exact anchors and model pins.
+        # Its output stays explicitly model-assisted even after favorable review.
+        assisted=answer_query(root,question,profile,mode='assisted',reader=reader,
+                             max_passages=max_passages,max_chars=max_chars).contract
+    if verification_snapshot(root,question,profile)!=before:
+        return {'schema':'historical-reconstruction-report-v1','question':question,'status':'source_changed',
+                'native_answer':None,'candidate_analysis':None,'model_candidates':None,'answer_supported':False}
+    return {'schema':'historical-reconstruction-report-v1','question':question,'status':'research_report',
+            'native_answer':answer,'candidate_analysis':candidates,'model_candidates':assisted,
+            'answer_supported':answer['answer_supported'],'historical_truth_independently_verified':False,
+            'notice':'Checked source assertions, reversible candidate graphs, model interpretations and historical truth have separate authority.'}

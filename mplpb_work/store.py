@@ -206,6 +206,14 @@ class WorkStore:
             self._host(state, authority)
             return {'seq': state['seq'], 'hash': state['head']}
 
+    def historical_review(self, credential, entry):
+        from .historical_review import enter_review
+        return enter_review(self,credential,entry)
+
+    def historical_reviews(self, credential, claim_id):
+        from .historical_review import inspect_reviews
+        return inspect_reviews(self,credential,claim_id)
+
     @staticmethod
     def _expect(actual, expected):
         if not isinstance(expected, str) or not hmac.compare_digest(actual, expected):
@@ -523,6 +531,11 @@ class WorkStore:
             target = state['records'][next(iter(p['target']))]
             if target['kind'] != 'claim' or set(visibility) != set(target['visibility']):
                 raise Denied('A challenge must have the same visibility as its claim')
+            if p['regime']=='historical-review-v1':
+                from .historical_review import validate_record
+                validate_record(p,record['dependencies'],actor,state)
+                if any(self._effective(state,state['records'][key],actor['profile'],{})!='eligible' for key in record['dependencies']):
+                    raise WorkError('Historical review evidence is no longer eligible')
             rounds = {r['review_round'] for versions in state['history'].values() for r in versions
                       if r['kind'] == 'review' and r['payload']['task'] == scope}
             resolving = old and old['payload']['outcome'] == 'challenge' and p['outcome'] == 'resolved'

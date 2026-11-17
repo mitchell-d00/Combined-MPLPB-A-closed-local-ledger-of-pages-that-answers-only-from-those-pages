@@ -94,6 +94,18 @@ def cmd_investigate(args):
     return 0 if result['status']=='evidence_report' else 3
 
 
+def cmd_reconstruct(args):
+    from mplpb_work.prose_evidence import reconstruct_report
+    reader=None
+    if args.reader_model:
+        from .local_reader import OllamaLocalReader
+        reader=OllamaLocalReader(args.reader_model,endpoint=args.reader_endpoint)
+    result=reconstruct_report(args.root,args.question,R.PROFILES[args.profile],
+                              max_passages=args.max_passages,max_chars=args.max_context_chars,reader=reader)
+    print(json.dumps(result,indent=2,ensure_ascii=False))
+    return 0 if result['status']=='research_report' else 3
+
+
 def cmd_correct_claim(args):
     from .corrections import correct_claim
     try:
@@ -146,6 +158,14 @@ def build_parser():
     investigation.add_argument('--max-source-chars',type=int,default=200000)
     investigation.add_argument('--work-directory',help='new private directory to retain specialist work and host recovery credential')
     investigation.set_defaults(fn=cmd_investigate)
+    reconstruction=sub.add_parser('reconstruct',help='inspect checked documentary evidence, candidate graph, layers and unresolved obligations')
+    reconstruction.add_argument('root');reconstruction.add_argument('question')
+    reconstruction.add_argument('--profile',choices=R.PROFILES,default='internal')
+    reconstruction.add_argument('--max-passages',type=int,default=12)
+    reconstruction.add_argument('--max-context-chars',type=int,default=12000)
+    reconstruction.add_argument('--reader-model',help='optional explicitly installed local candidate reader; never historical truth authority')
+    reconstruction.add_argument('--reader-endpoint',default='http://127.0.0.1:11434')
+    reconstruction.set_defaults(fn=cmd_reconstruct)
     correction=sub.add_parser('correct-claim',help='explicitly revise one unique source span while preserving the predecessor and unaffected text')
     correction.add_argument('root');correction.add_argument('source_id')
     correction.add_argument('--old-quote',required=True);correction.add_argument('--new-quote',required=True)

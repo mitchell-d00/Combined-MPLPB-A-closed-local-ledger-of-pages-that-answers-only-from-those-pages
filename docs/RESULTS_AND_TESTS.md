@@ -1,6 +1,6 @@
 # Results and their tests
 
-Last reviewed: 2026-11-16.
+Last reviewed: 2026-11-17.
 
 Every retained evaluation family is listed below. The [machine-readable index](results.json)
 is checked in CI for missing test files, reproduction tools and unindexed evaluation
@@ -106,3 +106,6 @@ The [scope repair protocol](DOCUMENTARY_SCOPE.md) links 24 new adversarial tests
 ## Checked documentary assertions — 2026-11-16
 
 The [finite source-assertion/composition contract](DOCUMENTARY_ASSERTIONS.md) adds native checked partial answers and independently checked question obligations. [New evaluation evidence](../evaluation/documentary-assertions/RESULTS.md) preserves the previous zero-assertion baseline and all intermediate failures. Final frozen measurements show checked partial answers 0→2/22 and full supported answers 0→0/22, with 1,068 Python tests passing. Independent human semantic review remains NOT RUN.
+
+
+Reconstruction update (2026-11-17): [documentary research mode](HISTORICAL_RECONSTRUCTION_ENGINE.md) adds source-unit/layer inspection, literal relationship checks, exact paragraph comparisons and candidate graphs. [Review rules](HISTORICAL_TRUTH_RULES.md) keep synthetic fixture truth, human assessments and real historical truth separate. Final new measurements are retained separately; earlier historical reports remain unchanged.

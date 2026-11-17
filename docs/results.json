@@ -445,6 +445,24 @@
       ],
       "scope": "Finite source-attributed assertion certificates, independent question obligations and checked partial composition; no historical truth or independent human accuracy claim.",
       "measurement_status": "Executed on extracted 6acf45a: 1068 Python tests, public 52/52, actual WebAssembly and Chromium. Unchanged original/government questions: checked partial answers 0\u21922/22, full supported answers 0\u21920/22; independent semantic review and unseen evaluation NOT RUN."
+    },
+    {
+      "family": "reconstruction-engine",
+      "artifacts": "evaluation/reconstruction-engine",
+      "tests": [
+        "tests/test_reconstruction_engine.py",
+        "tests/test_historical_review_rules.py",
+        "tests/test_historical_targets.py",
+        "crawler/test_historical.mjs"
+      ],
+      "runners": [
+        "tools/compare_documentary_answers.py",
+        "tools/unprepared_challenge.py",
+        "tools/demo_historical_review.py",
+        "tools/historical_targets.py"
+      ],
+      "scope": "Finite independent documentary checks and unchanged original-record development replay; graph candidates and synthetic truth fixtures never establish real historical truth.",
+      "measurement_status": "Baseline1068 tests and52 public controls passed; focused new/old tests run; final frozen candidate replay pending. Independent human/unseen evaluation NOT RUN."
     }
   ]
 }

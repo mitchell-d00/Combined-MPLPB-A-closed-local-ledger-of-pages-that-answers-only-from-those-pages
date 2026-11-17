@@ -1,65 +1,53 @@
 # Repository handoff
 
-Last reviewed: 2026-11-16.
+Last reviewed: 2026-11-17.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `df9fe5065d572753ac8924a071677d02ff87d58e` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `75db2d5ce174ca3a37540923afdc439a1a0c009affe72a48b823fa8a43d7d754`.
+Base commit: `4d0f4470adfa88e36b736d78f429ee86d003a925` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `775232e20a040bc8a4837d8cfcdf53e031582a0e5f95eb145adf73c0470b1570`.
 
 ## Latest user update instructions
 
-Codex Engineering Assignment: Evidence-Grounded Historical Reconstruction
+CODEX BUILD PROMPT — MPLPB Historical Reconstruction Engine
+Build a working, source-grounded historical reconstruction engine inside the existing Combined MPLPB repository.
+Build the actual implementation. Do not merely produce a design document or implementation proposal.
+Every accepted source-supported claim must have an inspectable, independently checked evidence path. Every unverified historical interpretation must remain explicitly unverified.
 
-Your task is to improve the actual repository and produce reproducible evidence of the improvement, not merely write an assessment, proposal, or favorable benchmark report.
+Codex, I want you to take Combined MPLPB to a genuine 9/10 research-engineering standard by making it more capable, accurate, independently verifiable, and easy to use.
+Proceed with the implementation and make the strongest measurable progress possible in the available environment. Do not claim a target has been met unless actual results demonstrate it.
 
-Complete as much of the actual engineering work as the available environment permits.
+Build and test rules then code that resolves source identity and historical truth, but don’t break mplpb, build a crawller set it has basic crawllers in repo
 
-Start by inspecting the repository and establishing the baseline.
+Set rules for historical truth to be entered do synthetic historical truth so the method has a test subject
 
-Then implement the highest-impact improvements.
-
-Do not stop at a plan. Do not merely add documentation or a benchmark that awards credit for candidate relationships.
-
-Prioritize real, verifiable historical reconstruction and preserve the existing integrity-first design.
-
-The final objective is a system whose capabilities can be established through independently reproducible original-source experiments, not through assertions about what it should be able to do.
-
-How can we fix this The familiar-record replay still has no supported answers, and the broader reconstruction objective remains unproven.
-
-How can we improve  close the supported-answer gap
-
-We can do this The next implementation should target explicit documentary assertions and compound-question composition, then demonstrate gains on unchanged questions. Add it to the tests and build it
-
-Push it Merge them
+Summarize what all we are doing and then continue
 
 ## Implemented scope
 
-- Add a strict finite source-assertion proof checker and atomic obligation/composition path, distinct from candidate extraction and historical truth.
-- Preserve full-question eligibility/profiles, current source rechecks, correction boundaries, complete qualifiers, directive/execution distinction, literal dates, and bounded partial output.
-- Add original-record regressions, varied adversarial tests, citation rendering and real WebAssembly integration tests; prepare certificate-rechecking comparison tooling without changing frozen runners or questions.
-- Reject explicit plan/proposal/draft heading or standalone-label scope; preserve the discovered false acceptance and add negative controls.
-- Publish the tested engineering branch and merge through main's required pull-request checks; preserve exact implementation/evidence revisions and existing frozen artifacts.
+- Extend existing source-unit inspection, complete-context discovery, obligation retrieval and independent documentary kernel for literal causal/temporal/resource/passive assertions and exact wording comparisons.
+- Expose a reversible candidate graph and reconstruction CLI using existing source/provenance/reader systems; content-only bounded projection cache never caches serving decisions.
+- Extend existing crawler with direct public URL seeds, optional source hashes and explicit byte-versus-event identity boundaries. No deployment or paid search requirement for direct seeds.
+- Add capability-gated typed historical-review entries through existing WorkStore; synthetic oracle fixture exercises rules without claiming real historical truth or real independent reviewers.
+- Add target accounting after existing human-review/adjudication validation; 200 unseen-question independent evaluation and performance targets remain unmeasured.
 
 ## Validation recorded
 
-- Final extracted 6acf45a9f77213953f8236379236c96662442153 passed all 1068 Python tests in 377.064 seconds; 52/52 prepared public controls with zero observed false bridges; existing historical expert software stages passed.
-- Unchanged frozen original14 and government8 replays completed: kernel-checked partial source answers 0→2/22; full supported answers remain 0/22; incomplete draft span coverage unchanged18/23 and9/9. Every accepted certificate rechecked and all citations mapped to original bytes.
-- Actual WebAssembly, five real Chromium UI checks, rendering/JavaScript/transport/loader/WebGPU/crawler controls, infrastructure and extracted handoff/documentation checks passed. Browser build SHA256 a151987fc14d19a18bc4273986d33fbee4d5f40fe451b2791cbb6c6eb66189f9.
-- Preserved interrupted runs, prototype failures and earlier ba021f4 plan-heading false acceptance; final source fixed that scope error and reran all gates. Full outputs, metrics, source pins, two blank reviewers and adjudication retained in evaluation/documentary-assertions.
-- Fetched origin before publication: remote main remains38e273855e577cff038f704c63fe09b22ac6889a, an ancestor of the tested branch. Required archive-first/regression checks will run on the pushed PR head; remote merge not yet claimed.
+- Clean merged baseline4d0f4470adfa88e36b736d78f429ee86d003a925:1068 tests passed in376.449 seconds;62 focused tests in14.641 seconds;52 public controls passed.
+- Expanded focused run passed147 tests in18.179 seconds before final freeze; both crawler suites passed. Full final archive checks and unchanged historical replay pending.
+- Preserved first slow source-unit parsing attempt and failed review-schema/crawler-runtime attempts; repaired bounded lexical tail and existing effective_status field usage.
 
 ## Limitations and blocked checks
 
-- Complete original-record historical answers remain0/22. This update establishes finite checked partial source evidence and controlled compound composition, not general historical reconstruction.
-- Independent human semantic review, adjudication and unseen evaluation NOT RUN; semantic precision/recall, false-support rates and genuine human times null.
-- Finite parsing does not authenticate authorship, resolve person/event identity, infer missing records or establish execution from a request. Unsupported syntax, scope, aliases, pronouns, voices and corrections remain unresolved or potentially fallible.
+- Independent human review, adjudication, real historical truth validation and >=200 unseen-question evaluation NOT RUN; proposed targets are not achievements.
+- New relation proofs retain partial scope; document/event/person identities, execution from requests, correction scope and OCR quotation ambiguity can remain unresolved.
+- Final comparative outcomes and resource costs pending at this source freeze; do not infer historical accuracy from tests or candidates.
 
 ## Next steps
 
-- Push the working branch, open a pull request against main, wait for required checks and merge without bypassing repository protections.
-- Obtain two independent human reviews and adjudication of full retained evidence packets before semantic accuracy claims.
-- Develop independently checked reference/identity/temporal and correction obligations; preserve original questions and budgets, count errors and missing obligations, and run genuinely unseen custodian-sealed evaluation.
+- Freeze committed source, test extracted archive, replay all22 unchanged questions using original seals/budgets and audit every accepted certificate against original bytes.
+- Retain full successful, failed, partial and unresolved outputs, measure resource costs and report unknown metrics as null.
+- Obtain real independent custodians/authors/reviewers and sealed unseen materials before target/rating claims.
 
 ## Use this ZIP in your repository
 

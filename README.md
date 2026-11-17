@@ -1,6 +1,6 @@
 # Combined MPLPB
 
-Last reviewed: 2026-11-16. See [current status and result-to-test index](docs/CURRENT_STATUS_2026-11-08.md). Dates and numeric results in historical validation sections retain their original scope; this review is not a rerun or independent certification.
+Last reviewed: 2026-11-17. See [current status and result-to-test index](docs/CURRENT_STATUS_2026-11-08.md). Dates and numeric results in historical validation sections retain their original scope; this review is not a rerun or independent certification.
 
 A closed local ledger of pages, with supported answers, inspectable provenance, and deterministic conversation. Each page declares its identity, scope, status, sealed hash, origin, and lineage. Source-backed answers require eligible body evidence under a finite grammar; missing support refuses and competing support remains ambiguous.
 
@@ -233,3 +233,6 @@ Targeted recovery update (2026-11-16): the [source-linked recovery study](docs/P
 
 
 Documentary assertion update (2026-11-16): [checked source assertions and compound-question composition](docs/DOCUMENTARY_ASSERTIONS.md) are implemented and built. [Frozen results](evaluation/documentary-assertions/RESULTS.md) show checked partial answers increasing from 0 to 2 across 22 unchanged questions; full supported answers remain 0/22. Independent semantic review and unseen evaluation are NOT RUN.
+
+
+Reconstruction update (2026-11-17): [documentary research mode](docs/HISTORICAL_RECONSTRUCTION_ENGINE.md) adds source-unit/layer inspection, literal relationship checks, exact paragraph comparisons and candidate graphs. [Review rules](docs/HISTORICAL_TRUTH_RULES.md) keep synthetic fixture truth, human assessments and real historical truth separate. Final new measurements are retained separately; earlier historical reports remain unchanged.
