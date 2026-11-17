@@ -4,7 +4,7 @@ Last reviewed: 2026-11-17.
 
 **Mitchell D. McPhetridge** — *A Dual-Mode Sorter for MPLPB: Turning Unformatted
 Material into Inspectable Candidates*, with subtitle *Source-Anchored Candidate
-Extraction for Closed Local Ledgers*. Version1.0, 17 November2026.
+Extraction for Closed Local Ledgers*. Version1.1, 17 November2026.
 
 Download/read the same report in [Markdown](dual-mode-sorter.md),
 [plain text](dual-mode-sorter.txt), or [PDF](dual-mode-sorter.pdf).
@@ -15,7 +15,7 @@ The report describes the implemented offline sorter, identical nodes across its
 modes, non-authoritative review edges, exact source anchoring and native retired
 snapshot acceptance/withholding. Its source/measurement references are frozen
 engineering commits and dated developer-authored controls, not new independent
-historical accuracy results. AI-assisted preparation is disclosed. Original papers,
+historical accuracy results. Original papers,
 corpora, questions and prior reports remain unchanged.
 
 Use the [operational guide](../../PREPROCESSING_SORTER.md) for current commands.
@@ -36,8 +36,8 @@ python tools/make_paper.py \
   --source docs/research/dual-mode-sorter/dual-mode-sorter.md \
   --title 'A Dual-Mode Sorter for MPLPB: Turning Unformatted Material into Inspectable Candidates' \
   --author 'Mitchell D. McPhetridge' \
-  --subject 'Source-Anchored Candidate Extraction for Closed Local Ledgers; technical report v1.0' \
-  --footer 'A Dual-Mode Sorter for MPLPB | v1.0 | 2026-11-17' \
+  --subject 'Source-Anchored Candidate Extraction for Closed Local Ledgers; technical report v1.1' \
+  --footer 'A Dual-Mode Sorter for MPLPB | v1.1 | 2026-11-17' \
   --invariant
 ```
 
