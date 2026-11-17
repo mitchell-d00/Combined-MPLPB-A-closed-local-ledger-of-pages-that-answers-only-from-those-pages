@@ -98,3 +98,7 @@ gate and final source-state checks.
 
 The record cache uses standard-library `functools`; the core's explicit permitted
 standard-library import list includes it. Network/model imports remain prohibited.
+
+The [dated milestone report](../evaluation/solo-milestone/2026-11-17/RESULTS.md)
+separates the measured arrangement completion and blinded AI assessment from
+cache speed, evidence inspection and local storage support work.

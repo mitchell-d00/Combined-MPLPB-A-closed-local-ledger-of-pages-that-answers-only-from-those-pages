@@ -122,3 +122,15 @@ The [reproduction runner](../tools/reproduce_boundaries.py),
 [scoped-extension controls](../tests/test_scoped_extensions.py) protect source-only
 assurance, diagnostic distinctions and host-declared observation sequencing.
 No independent historical accuracy or exact legacy887-test reproduction is claimed.
+
+## Solo recorded-arrangement milestone
+
+[Versioned before/after evidence](../evaluation/solo-milestone/2026-11-17/RESULTS.md)
+retains22 unchanged original-record questions and a blinded fresh-context **AI
+assessment**: complete correct1→2, correct refusal4→4, errors/over-refusals17→16.
+[Arrangement tests](../tests/test_arrangement_completion.py) and
+[solo checks](../tests/test_solo_research.py) cover source-only completion, cache
+invalidation, readable evidence and bounded local storage receipts. Existing
+[isolated replay](../tools/unprepared_challenge.py), retained exact-byte score
+validation and fresh kernel/original-byte audit provide reproduction paths.
+This is neither human validation nor independently unseen historical accuracy.
