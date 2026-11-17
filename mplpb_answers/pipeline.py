@@ -21,6 +21,59 @@ DIAGNOSTICS = {
 }
 
 
+# Additive categories preserve the detailed legacy codes and answer contract.
+def refusal_category(code, kind):
+    if code == 'source_changed':
+        return 'source_state_changed'
+    if code in {'contradictory_passages_pruned', 'conflicting_or_multiple_owners', 'conflicting_field_values', 'documentary_statement_conflict'}:
+        return 'known_source_conflict'
+    if 'budget' in code or code in {'index_exhausted', 'context_exhausted'}:
+        return 'index_exhaustion'
+    if code in {'no_eligible_sources', 'restricted_or_unavailable'}:
+        return 'absent_eligible_source'
+    if code == 'interpretation_unsupported':
+        return 'unsupported_question_grammar'
+    if code in {'retrieval_ambiguous', 'event_identity_unresolved', 'needs_clarification', 'correction_scope_unclear', 'documentary_scope_ambiguous'}:
+        return 'clarification_required'
+    if kind == 'supported_answer':
+        return 'source_support_established'
+    if code == 'reader_reported_conflict':
+        return 'unverified_reported_conflict'
+    if code == 'reader_unavailable' or code.startswith('model_') or code.startswith('reader_'):
+        return 'reader_unavailable_or_failed'
+    return 'insufficient_evidence'
+
+
+SOURCE_NOTICE = ('Source support establishes what eligible ledger pages state. '
+                 'Outside-world confirmation is required before treating those statements as historical truth. '
+                 'MPLPB cannot detect a coherent false original without contrary evidence, authenticate arbitrary testimony, '
+                 'or establish general historical reconstruction from source integrity alone.')
+
+
+def source_assurance(contract, gate):
+    """Inspection of fresh declared lineage, never an independence/truth test.
+
+    Count only output sources, not unrelated eligible pages. Unknown roots remain
+    unknown. Even distinct declared roots do not establish independent witnesses.
+    """
+    pins = {(s['id'], s['hash']) for s in contract['sources']}
+    sources = [s for s in gate.get('sources', []) if (s['id'], s['hash']) in pins]
+    roots = set()
+    for source in sources:
+        for node in [source] + source.get('ancestry', []):
+            if not node.get('derived_from') and not node.get('supersedes'):
+                roots.add((node['id'], node['hash']))
+    complete = bool(pins) and len(sources) == len(pins) and bool(roots)
+    count = len(roots) if complete else None
+    return {'basis': 'source_attributed_only',
+            'outside_world_confirmation_required': True,
+            'outside_world_truth': 'not_established',
+            'authorship_authenticated': False, 'independence_verified': False,
+            'declared_evidence_root_count': count,
+            'single_declared_root': count == 1 if count is not None else None,
+            'notice': SOURCE_NOTICE}
+
+
 def _state(gate):
     return pin({'snapshot': gate.corpus_snapshot, 'policy': gate.policy,
                 'sources': [(s['id'], s['hash']) for s in gate.sources], 'excluded': gate.excluded})
@@ -139,8 +192,13 @@ def _answer_query(root, question, profile=None, *, mode, reader, min_confidence,
                 kind='model_assisted_answer' if mode=='assisted' else 'partial_answer'
                 code='candidate_source_evidence'
                 message='Bounded source evidence is retained for inspection; this optional mode does not promote candidates to supported answers.'
+        category = refusal_category(code, kind)
+        if code == 'exact_field_missing' and contract['retrieval'].get('eligible_pages') == 0:
+            category = 'absent_eligible_source'
         contract.update(kind=kind, diagnostic={'code': code, 'stage': stage, 'message': message,
+                                             'category': category,
                                              'corpus_answerability': 'not_established', 'next_steps': _next_steps(code)})
+        contract['source_assurance'] = source_assurance(contract, result.gate)
         return result
 
     initial_gate_root = Path(root).resolve()

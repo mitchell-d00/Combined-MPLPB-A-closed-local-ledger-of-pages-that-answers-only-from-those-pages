@@ -47,6 +47,8 @@ def cmd_ask(args):
             print('Unanswered: '+'; '.join(c['missing']))
         if c['clarification']:
             print(c['clarification'])
+    if not args.json:
+        print(result.contract['source_assurance']['notice'])
     if args.answer_mode == 'strict':
         return {'return': 0, 'ambiguous': 2, 'not_in_corpus': 3}[data['kind']]
     return {'supported_answer': 0, 'model_assisted_answer': 0, 'partial_answer': 4, 'conflict': 2, 'clarify': 5, 'abstain': 3}[result.contract['kind']]

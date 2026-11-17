@@ -781,15 +781,31 @@ class WorkStore:
                          outcome.get('operator_seconds'),outcome.get('operator_seconds_basis','measured'))
             return {'receipt': receipt, 'attempt': attempt['id'], 'action': action['id']}
 
-    def record_external_receipt(self, authority, *, receipt, kind, artifact, expected_head, operator_seconds=None):
-        """Host-declared READ/ACK observation; never an independent truth check."""
+    def record_external_receipt(self, authority, *, receipt, kind, artifact, expected_head, operator_seconds=None, predecessor=None):
+        """Host observations with optional checked ordering; never external truth.
+
+        Legacy unlinked READ/ACK observations cannot license a checked chain.
+        Each new transition needs its own artifact and same-execution predecessor.
+        """
         M.words(artifact,16000);M.operator_seconds(operator_seconds)
-        if kind not in {'READ','ACK'}:raise WorkError('External receipt must be READ or ACK')
+        previous_kind = {'STORE': None, 'DISPATCH': 'STORE', 'DELIVERY': 'DISPATCH',
+                         'READ': 'DELIVERY', 'ACK': 'READ', 'COMPLETION': 'ACK'}
+        if kind not in previous_kind:raise WorkError('Unknown external receipt transition')
+        legacy = predecessor is None and kind in {'READ','ACK'}
         with self._transaction() as (db,state):
             self._host(state,authority);self._expect(state['head'],expected_head)
             execution=state['receipts'].get(receipt)
             if not execution:raise WorkError('External receipt requires an existing execution receipt')
+            if not legacy:
+                if kind == 'STORE':
+                    if predecessor is not None:raise WorkError('STORE cannot have a predecessor')
+                else:
+                    prior = next((r for r in state['external_receipts'] if r['id'] == predecessor), None)
+                    if (not prior or not prior.get('transition_checked')
+                            or prior['execution_receipt'] != receipt or prior['kind'] != previous_kind[kind]):
+                        raise WorkError('Missing matching checked predecessor receipt')
             observation={'id':uuid.uuid4().hex,'execution_receipt':receipt,'action':execution['action'],
+                'predecessor':predecessor,'transition_checked':not legacy,
                 'kind':kind,'artifact_hash':digest(artifact),'answer_supported':False,
                 'content_truth_verified':False,'external_world_verified':False,'basis':'host_declared'}
             self._append(db,state,'external_receipt',{'external_receipt':observation},'host',operator_seconds,'measured')
