@@ -1,0 +1,33 @@
+{
+  "upstream_run": true,
+  "checks": {
+    "same_sources": true,
+    "same_nodes": true,
+    "raw_edge_prefix_unchanged": true,
+    "added_edges_all_review_only": true,
+    "all_nodes_unsupported": true,
+    "no_transitive_paths": true,
+    "byte_spans_round_trip": true,
+    "quoted_header_in_unverified_cluster": false,
+    "changed_bodies_flagged": true,
+    "ambiguous_correction_target_unresolved": true,
+    "missing_correction_target_unresolved": true
+  },
+  "all_checks_true": false,
+  "sources": 8,
+  "nodes": 159,
+  "raw_edges": 253,
+  "compare_edges": 313,
+  "extra_edge_kinds": [
+    "candidate_identity_cluster",
+    "embedded_identifier_review",
+    "repeated_phrase_review",
+    "shared_header_review",
+    "unresolved_reference_review"
+  ]
+}
+Traceback (most recent call last):
+  File "/tmp/mplpb-supplied-sorter-probe/reproduce_upstream.py", line 49, in <module>
+    assert all(checks.values()),'One or more hypotheses did not hold'
+           ^^^^^^^^^^^^^^^^^^^^
+AssertionError: One or more hypotheses did not hold

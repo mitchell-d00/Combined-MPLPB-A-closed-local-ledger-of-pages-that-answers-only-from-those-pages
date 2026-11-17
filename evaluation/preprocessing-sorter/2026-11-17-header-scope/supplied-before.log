@@ -1,0 +1,27 @@
+{
+  "upstream_run": true,
+  "checks": {
+    "same_sources": true,
+    "same_nodes": true,
+    "raw_edge_prefix_unchanged": true,
+    "added_edges_all_review_only": true,
+    "all_nodes_unsupported": true,
+    "no_transitive_paths": true,
+    "byte_spans_round_trip": true,
+    "quoted_header_in_unverified_cluster": true,
+    "changed_bodies_flagged": true,
+    "ambiguous_correction_target_unresolved": true,
+    "missing_correction_target_unresolved": true
+  },
+  "all_checks_true": true,
+  "sources": 8,
+  "nodes": 159,
+  "raw_edges": 253,
+  "compare_edges": 312,
+  "extra_edge_kinds": [
+    "candidate_identity_cluster",
+    "repeated_phrase_review",
+    "shared_header_review",
+    "unresolved_reference_review"
+  ]
+}

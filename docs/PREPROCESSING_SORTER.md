@@ -173,3 +173,48 @@ answer eligibility without adapting the reader's grammar or policy checks.
 ## Technical report and preserved evidence
 
 [A Dual-Mode Sorter for MPLPB](research/dual-mode-sorter/README.md), by Mitchell D. McPhetridge, is available in Markdown, plain text and PDF. It documents the implemented stages, dual-mode contract, native publication checks, measured development costs, failed attempts and remaining limitations. Its frozen software results are not independent historical validation. Shared-subject pair proposals consider at most the first16 occurrences per subject; graph completeness does not mean every possible review pair was enumerated.
+
+## Header appearances versus primary declarations
+
+Header recognition is an observation, not a declaration of the containing file's
+identity. Extraction now classifies layout **before occurrence partitioning**.
+Recognized fences (backticks or tildes), Markdown blockquotes, explicitly delimited
+quotations, forwarded-message frames and bounded example/quotation cues retain
+headers as embedded observations. Nested explicit forward frames remain scoped
+until their closing markers; an unclosed frame remains review-scoped. A code-fence
+closer must use the same marker family, sufficient length and no trailing text.
+
+Header nodes retain `header_context`, `header_role` and
+`primary_identity_eligible`. A top-level declaration candidate has
+`header_role: record_declaration_candidate`. An embedded appearance has
+`header_role: embedded_text_observation` and cannot be a primary identity key.
+These fields are derived layout assessments, not proof that a communication is
+genuine. An ordinary top-level header stays eligible even if its paragraph also
+contains quoted body prose; paragraph scope warnings alone do not decide its role.
+
+Only primary declaration candidates can delimit record occurrences, enter primary
+identity-cluster membership, resolve a documentary reference target, or supply the
+outer occurrence's declared-status/date-role candidates. The source occurrence
+also records `identity_role`: `declared_record_candidate` or
+`textual_appearance_only`. The latter means no primary identifier was recognized,
+not that the file or a quoted historical communication ceased to exist.
+
+Both modes preserve the same observations and classifications. Compare may append
+`embedded_identifier_review` edges with lexical `matching_primary_occurrences`.
+These annotations preserve discovery of copied/forwarded material without merging
+it into primary cluster membership. An embedded-only target remains unresolved
+with `embedded_only_target`; missing and ambiguous targets retain their existing
+refusal/review behavior. Shared subjects and similar wording still cannot establish
+historical identity or event independence.
+
+These are finite layout rules. Unmarked quotations, ambiguous forwarded archives,
+misleading labels and damaged/OCR delimiters can require manual scope review.
+No universal document-boundary or historical-identity resolution is claimed. Earlier
+graphs remain preserved; the changed implementation fingerprint requires a fresh
+replay rather than accepting an old classification silently.
+
+[Scope regression evidence and resume checkpoint](../evaluation/preprocessing-sorter/2026-11-17-header-scope/REPORT.md)
+records the supplied probe, the failing pre-fix tests, before/after cluster members,
+source-byte checks and verification commands. The checkpoint allows a fresh process
+or future worker to recover the task and rules without relying on this session;
+it does not measure a minimum AI context size or prove general historical accuracy.
