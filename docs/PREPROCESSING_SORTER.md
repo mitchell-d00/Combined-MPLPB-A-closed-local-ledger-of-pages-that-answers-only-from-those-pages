@@ -97,13 +97,13 @@ fresh source bytes then shows candidates. To store it as a native sealed page:
 
 ```bash
 python -m mplpb_work.sorter export-retired /tmp/sorter-example/compare.json --sources tests/fixtures/sorter --ledger /tmp/sorter-example/ledger
-python -m mplpb_answers ask /tmp/sorter-example/ledger 'Which record corrects the cargo request?' --profile lab --json
-python -m mplpb_answers ask /tmp/sorter-example/ledger 'Which record corrects the cargo request?' --profile internal --json
-python -m mplpb_answers ask /tmp/sorter-example/ledger 'Which record corrects the cargo request?' --profile external --json
+python -m mplpb_answers ask /tmp/sorter-example/ledger 'What is Owner for record MAIL-001?' --profile lab --json
+python -m mplpb_answers ask /tmp/sorter-example/ledger 'What is Owner for record MAIL-001?' --profile internal --json
+python -m mplpb_answers ask /tmp/sorter-example/ledger 'What is Owner for record MAIL-001?' --profile external --json
 ```
 
 The last three commands refuse (exit3), with `answer_supported: false` and empty
-claims. The native `SORTER-CANDIDATES` page is intact, machine-origin, unratified,
+`answer_contract.claims`. The native `SORTER-CANDIDATES` page is intact, machine-origin, unratified,
 external=no and **retired before publication** from private staging. No existing
 ledger is overwritten. The unchanged gate withholds retired evidence in lab/internal;
 external also enforces external=no before its retirement check. Tests directly
@@ -121,3 +121,8 @@ Fixtures in `tests/fixtures/sorter` are fictional development material. They tes
 repeated appearances, changed bodies, partial corrections and stopped links; they
 are not an independent historical accuracy evaluation. The retained 22-question
 historical completion measurements are unchanged by this preprocessing tool.
+
+For a retained graph pair, direct gate exclusions and all three CLI refusal logs,
+run `python -m tools.evaluate_sorter --output /tmp/sorter-evidence-new` from the
+frozen checkout. This uses fictional fixtures and reports software checks, not
+semantic accuracy. Its source/reader code is identical to the frozen implementation.

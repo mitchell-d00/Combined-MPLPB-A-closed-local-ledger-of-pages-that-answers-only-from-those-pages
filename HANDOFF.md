@@ -4,8 +4,8 @@ Last reviewed: 2026-11-17.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `3df2c6e22f0ef454f3ee67b88d43402a42f63443` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `5e9f6fd50561fc202f001b72384e12bfa36ce39f7ebb7d2081070670797517f9`.
+Base commit: `d528b65d6b00f4777f6224591eaed81b4ee25ad1` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `1f31f801b31a6a5de15c0ec44271fe71d5070a1c86534a54f757f34537e41df4`.
 
 ## Latest user update instructions
 
@@ -23,7 +23,13 @@ The two modes differ only in the edges they emit. Both compare and not-compared 
 - Pre-edit focused baseline:43 tests passed0.839s.
 - Final focused sorter and source/boundary tests:67 tests passed1.308s, including24 sorter tests.
 - Direct gate test excludes retired snapshot under all profiles; native answers and past as-of answers remain unsupported.
-- One stronger exclusion assertion initially expected retired for external; corrected to reflect existing external=no precedence, with no reader changes. Frozen archive regression checks pending.
+- One stronger exclusion assertion initially expected retired for external; corrected to reflect existing external=no precedence, with no reader changes.
+- Frozen d528b65 ZIP extracted full suite:1181 tests passed342.822s; public evidence52/52, false supported bridges0 on authored controls. Boundary suite51 passed.
+- Actual JavaScript API, browser transport, crawler fixtures, pinned Pyodide WebAssembly and real Chromium published-live/candidate-preview checks passed. First browser launch executable missing; system Chromium retry passed.
+- Retained mode audit:176 identical nodes and sources,264 raw edges,341 comparison edges; every added edge comparison_only and non-authoritative.
+- Retained native snapshot: intact, retired, unratified; zero eligible sources across lab/internal/external; CLI exit3 with empty answer_contract.claims.
+- Development per-mode processing cost:2804 original bytes read across two passes; not-compared0.166s wall/0.166s CPU, compare0.137s wall/0.136s CPU, shared Linux x86_64 Python3.12.14 five visible CPUs. Single-run numbers do not establish speedup.
+- Documentation/handoff tests10/10; requested mode-equality and reader-withholding fixtures2/2; infrastructure and documentation inventory audits passed.
 
 ## Limitations and blocked checks
 
@@ -34,8 +40,9 @@ The two modes differ only in the edges they emit. Both compare and not-compared 
 
 ## Next steps
 
-- Freeze committed candidate and run archive-extracted regression/public-evidence checks.
-- Retain commands, profile refusals and actual resource costs in versioned sorter evidence.
+- Preserve frozen sorter source SHA and use tools.evaluate_sorter with a fresh output directory for reproducible software contract checks.
+- Keep all relationships provisional and import unchanged originals only through normal ownership/policy/provenance workflows.
+- Independent historical semantic accuracy evaluation remains NOT RUN; this sorter does not change the historical22-question supported-answer metric.
 
 ## Use this ZIP in your repository
 

@@ -16,6 +16,7 @@ modern application tests do not retrospectively validate those experiments.
 
 | Family / retained artifacts | Regression tests | Reproduction tools | Scope / limits |
 |---|---|---|---|
+| [preprocessing-sorter](../evaluation/preprocessing-sorter) | [test_sorter.py](../tests/test_sorter.py) | [evaluate_sorter.py](../tools/evaluate_sorter.py) | Fictional lexical fixtures, identical nodes across modes and retired snapshot withholding; no historical accuracy claim. |
 | [language-audit](../evaluation/language-audit) | [test_assertion_polarity.py](../tests/test_assertion_polarity.py); [test_relation_graph.py](../tests/test_relation_graph.py); [test_literal_evidence.py](../tests/test_literal_evidence.py); [test_answer_support.py](../tests/test_answer_support.py) | [evaluate_answer_reliability.py](../tools/evaluate_answer_reliability.py); [evaluate_language_audit.py](../tools/evaluate_language_audit.py); [trace_language_audit.py](../tools/trace_language_audit.py) | Inspected pottery labels and synthetic development data; document identity is not completeness. |
 | [procedure-recovery](../evaluation/procedure-recovery) | [test_procedure_recovery.py](../tests/test_procedure_recovery.py); [test_procedure_constraints.py](../tests/test_procedure_constraints.py); [test_exploration_store.py](../tests/test_exploration_store.py) | [evaluate_procedure_recovery.py](../tools/evaluate_procedure_recovery.py); [browser_procedure_recovery.py](../tools/browser_procedure_recovery.py) | Authored linear procedures and synthetic recovery; not arbitrary prose or human execution validation. |
 | [reference-corpus-reproduction](../evaluation/reference-corpus-reproduction) | [test_reference_corpus.py](../tests/test_reference_corpus.py); [test_reference_evidence.py](../tests/test_reference_evidence.py) | [build_reference_corpus.py](../tools/build_reference_corpus.py); [verify_reference_evidence.py](../tools/verify_reference_evidence.py) | 73 authored positives and 20 controls, four sealed corpus stages; lab-only unratified data, not learning. |
@@ -134,3 +135,4 @@ invalidation, readable evidence and bounded local storage receipts. Existing
 [isolated replay](../tools/unprepared_challenge.py), retained exact-byte score
 validation and fresh kernel/original-byte audit provide reproduction paths.
 This is neither human validation nor independently unseen historical accuracy.
+
