@@ -4,8 +4,8 @@ Last reviewed: 2026-11-17.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `27b2a6cf0ad023c14703f8202c3f25ff3627ecf5` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `31f0193f98ac3544077fd41550440885752357c225723fd752a3a9943fc561ea`.
+Base commit: `30f0d89c5954b1f1226d0e30c78dc671011849e1` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `4bbe009bea556f17d4090debb3449dee474d53ff4d2f37e0478b8fd96bfff9af`.
 
 ## Latest user update instructions
 
@@ -46,7 +46,13 @@ Deliver
 
 - Fresh pre-edit baseline:24 sorter tests passed0.490s; baseline runner passed and native validate --strict reported one retired record with zero errors/warnings.
 - Updated focused suite:27 sorter tests passed0.878s. Updated development evaluation runner passed mode equality, native validate/show, gate and ask under all three profiles.
-- First new roundtrip assertion omitted the native writer heading and failed two export tests. Corrected the sorter expectation to the existing native format without changing the writer or reader. Full archive regression pending.
+- First new roundtrip assertion omitted the native writer heading and failed two export tests. Corrected the sorter expectation to the existing native format without changing the writer or reader; failed attempt retained.
+- Frozen30f0d89 archive:1184 Python tests passed353.340s; public evidence52/52 with required capabilities, false supported bridges0 on authored controls; boundary suite51 passed.
+- Actual pre-sorter3df2c6e checkout without sorter: native validate --strict and show exit0; gate/ask exit3 under lab/internal/external, no eligible sources or supported claims. Native reader package bytes identical, per-file hashes retained.
+- Compatibility runner --reader-checkout records native command working directories and code hashes; deliberate native-reader mutation refused before command execution.
+- Both modes retain176 identical nodes,264 raw edges and341 compare edges; fixture sources/nodes/edges byte-equivalent in meaning to baseline, no forced identity or chronology.
+- Actual JS API, browser transport, fixture crawler, pinned WebAssembly and real Chromium published-live/candidate-preview checks passed.
+- New versioned evidence directory preserves all prior historical reports and data. Source byte costs2804 per sort; native export development run0.192s wall/0.191s CPU, cumulative child max RSS24,961,024 bytes; no speedup or large-pile accuracy claim.
 
 ## Limitations and blocked checks
 
@@ -57,9 +63,9 @@ Deliver
 
 ## Next steps
 
-- Freeze a committed source candidate and run full Python/public-evidence controls on its extracted archive.
-- Demonstrate the exported snapshot under an unchanged pre-sorter checkout, preserving exact native CLI acceptance/refusal receipts.
-- Publish new versioned native-export evidence without editing earlier reports.
+- Use python -m mplpb_work.sorter sort on raw UTF-8 text or Markdown and export-retired to a new ledger directory; inspect and validate without activating proposals.
+- Use tools.evaluate_sorter --reader-checkout with a separate unchanged checkout to reproduce native format acceptance versus all-profile answer withholding.
+- Keep relationships provisional; independent historical semantic evaluation remains NOT RUN and the22-question historical supported-answer metric was not rescored.
 
 ## Use this ZIP in your repository
 

@@ -1,0 +1,10 @@
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/workspace/mplpb/tools/evaluate_sorter.py", line 95, in <module>
+    if __name__=='__main__':raise SystemExit(main())
+                                             ^^^^^^
+  File "/workspace/mplpb/tools/evaluate_sorter.py", line 40, in main
+    if left.read_bytes()!=right.read_bytes():raise ValueError('Native reader code differs: '+str(right))
+                                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: Native reader code differs: /tmp/mplpb-sorter-mismatched-reader/mplpb_answers/__init__.py

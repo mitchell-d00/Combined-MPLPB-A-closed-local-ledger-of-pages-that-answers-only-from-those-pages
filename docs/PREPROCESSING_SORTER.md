@@ -110,7 +110,9 @@ python -m mplpb_answers ask /tmp/sorter-example/ledger 'What is Owner for record
 `validate --strict` exits0 with zero errors/warnings: the snapshot is a valid
 native page. `show` exits0 and displays it for inspection, even though it is
 retired. Each `gate` command exits3 with no eligible sources. Storage acceptance
-and inspectability do not confer answer eligibility.
+and inspectability do not confer answer eligibility. Native `show` uses the reader’s
+existing normalized text display; use the graph JSON, stored HTML payload and
+original source spans for exact whitespace/byte inspection.
 
 Before publishing the new directory, export now runs the existing native validator
 against its private staging ledger and independently re-reads the sealed page.
@@ -146,3 +148,22 @@ For a retained graph pair, direct gate exclusions and all three CLI refusal logs
 run `python -m tools.evaluate_sorter --output /tmp/sorter-evidence-new` from the
 frozen checkout. This uses fictional fixtures and reports software checks, not
 semantic accuracy. Its source/reader code is identical to the frozen implementation.
+
+## Check a plain pre-sorter checkout
+
+The existing reader accepts native pages; it does not need to understand the sorter
+JSON schema to withhold a retired page. To reproduce compatibility against the
+unchanged revision before the sorter existed, prepare a separate checkout:
+
+```bash
+git archive --format=zip --output=/tmp/mplpb-reader-base.zip 3df2c6e22f0ef454f3ee67b88d43402a42f63443
+python -m zipfile -e /tmp/mplpb-reader-base.zip /tmp/mplpb-reader-base
+python -m tools.evaluate_sorter --output /tmp/sorter-plain-reader-new --reader-checkout /tmp/mplpb-reader-base
+```
+
+The runner checks that all Python files in `mplpb_answers` and `mplpb_combined`
+are byte-identical between the two checkouts. It sorts and exports using the new
+code, then invokes native `validate`, `show`, `gate` and `ask` from the specified
+plain checkout, with its working directory recorded in each command receipt.
+Neither checkout is modified. This distinguishes storage compatibility from
+answer eligibility without adapting the reader's grammar or policy checks.
