@@ -1,10 +1,11 @@
 {
-  "instruction": "Add a local small-language-model frontend strictly subordinated to the existing MPLPB authority rules. Present these five options, then implement Option 5 in full: Constrained Local Narrator. Configuration via MPLPB_NARRATOR_BACKEND=ollama|llamacpp|openai, MPLPB_NARRATOR_MODEL and MPLPB_NARRATOR_BASE_URL. Every generation runs strict answering first, supplies exact eligible spans and authority rules, validates output deterministically, and falls back on failure. Expose narrate(question, corpus_path, profile) and mplpb-combined narrate; keep models optional with --no-model. Do not change ownership rules, hash checks or finite grammar. Begin by scaffolding Option 5 as described above.",
+  "instruction": "Add a local small-language-model frontend strictly subordinated to the existing MPLPB authority rules. Present these five options, then implement Option 5 in full: Constrained Local Narrator. Configuration via MPLPB_NARRATOR_BACKEND=ollama|llamacpp|openai, MPLPB_NARRATOR_MODEL and MPLPB_NARRATOR_BASE_URL. Every generation runs strict answering first, supplies exact eligible spans and authority rules, validates output deterministically, and falls back on failure. Expose narrate(question, corpus_path, profile) and mplpb-combined narrate; keep models optional with --no-model. Do not change ownership rules, hash checks or finite grammar. Begin by scaffolding Option 5 as described above.\n\nMerge it",
   "reviewed_on": "2026-11-17",
   "scope": [
     "Implement optional local narrator and CLI using existing strict answer coordinator and bounded loopback transport; Ollama, llama.cpp server and generic OpenAI-compatible server protocols.",
     "Accept only complete unchanged ledger text in approved layouts; exact quotes alone and model confidence never establish support. Refusal/conflict/partial bypass inference; fresh strict proof and source/policy recheck after model attempt.",
-    "Add18 narrator tests and backend HTTP fixtures; document configuration, labels, exact citations, failure behavior and limits; preserve historical evidence."
+    "Add18 narrator tests and backend HTTP fixtures; document configuration, labels, exact citations, failure behavior and limits; preserve historical evidence.",
+    "Publish the tested narrator branch through a pull request and merge into main only after all required checks pass on the exact candidate head."
   ],
   "validation": [
     "Baseline17 native tests passed with local sockets enabled; initial sandbox failed7 HTTP setups because sockets were denied. Logs retained.",
@@ -20,6 +21,6 @@
   "next_steps": [
     "Resume from docs/LOCAL_NARRATOR.md, the dated general-reader narrator REPORT.md and checkpoint.json; verify source hashes before changing implementation.",
     "No live neural generation or independent semantic review was performed. Test explicitly installed local models separately; retain exact-rendering rejection and final source/policy recheck.",
-    "Feature branch is committed locally; no new merge or deployment has been performed for the narrator. Preserve tested runtimecc49d6e separately from evidence-only commits."
+    "Merge explicitly authorized. Push branch, open PR, wait for required archive-first/regression checks, then merge without bypassing protection. Inspect deployment separately; retain tested runtimecc49d6e and its evidence."
   ]
 }

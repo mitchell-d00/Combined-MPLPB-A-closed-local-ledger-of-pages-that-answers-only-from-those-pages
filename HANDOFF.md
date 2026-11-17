@@ -4,18 +4,21 @@ Last reviewed: 2026-11-17.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `cc49d6e9a31b3f39a6f92f34e84b797768d8a6d4` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `a3fea197cc96a6c37e8079cd3f64a663b1046ead8839602651ad6bb226ac1eb3`.
+Base commit: `bbadcaa9d629b003997d4f780cb218e661cbd54b` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `1639c08a94d1c2f2e945e82661672e05887b1d52eca46799b71edc154e12f93e`.
 
 ## Latest user update instructions
 
 Add a local small-language-model frontend strictly subordinated to the existing MPLPB authority rules. Present these five options, then implement Option 5 in full: Constrained Local Narrator. Configuration via MPLPB_NARRATOR_BACKEND=ollama|llamacpp|openai, MPLPB_NARRATOR_MODEL and MPLPB_NARRATOR_BASE_URL. Every generation runs strict answering first, supplies exact eligible spans and authority rules, validates output deterministically, and falls back on failure. Expose narrate(question, corpus_path, profile) and mplpb-combined narrate; keep models optional with --no-model. Do not change ownership rules, hash checks or finite grammar. Begin by scaffolding Option 5 as described above.
+
+Merge it
 
 ## Implemented scope
 
 - Implement optional local narrator and CLI using existing strict answer coordinator and bounded loopback transport; Ollama, llama.cpp server and generic OpenAI-compatible server protocols.
 - Accept only complete unchanged ledger text in approved layouts; exact quotes alone and model confidence never establish support. Refusal/conflict/partial bypass inference; fresh strict proof and source/policy recheck after model attempt.
 - Add18 narrator tests and backend HTTP fixtures; document configuration, labels, exact citations, failure behavior and limits; preserve historical evidence.
+- Publish the tested narrator branch through a pull request and merge into main only after all required checks pass on the exact candidate head.
 
 ## Validation recorded
 
@@ -34,7 +37,7 @@ Add a local small-language-model frontend strictly subordinated to the existing 
 
 - Resume from docs/LOCAL_NARRATOR.md, the dated general-reader narrator REPORT.md and checkpoint.json; verify source hashes before changing implementation.
 - No live neural generation or independent semantic review was performed. Test explicitly installed local models separately; retain exact-rendering rejection and final source/policy recheck.
-- Feature branch is committed locally; no new merge or deployment has been performed for the narrator. Preserve tested runtimecc49d6e separately from evidence-only commits.
+- Merge explicitly authorized. Push branch, open PR, wait for required archive-first/regression checks, then merge without bypassing protection. Inspect deployment separately; retain tested runtimecc49d6e and its evidence.
 
 ## Use this ZIP in your repository
 
