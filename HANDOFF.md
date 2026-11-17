@@ -4,8 +4,8 @@ Last reviewed: 2026-11-17.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `82f41343ccafab5227daab83aed3e46a383cf56f` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `eb158d46a960d9f575216034f3e4f059442637baefdd0b47fbcb5d53499764a9`.
+Base commit: `6a92167124e0842a909792d95cec7a0b637de578` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `279c1393aa3cb3205e8e8d243d305a662fe7bea22aaad28206e467964461301e`.
 
 ## Latest user update instructions
 
@@ -30,6 +30,7 @@ Push it to main and make sure all documentation is uptodate as well as past note
 - Final documentation/infrastructure/handoff audits and10 handoff/documentation tests passed0.118s. Raw assessment-source whitespace/CRLF is preserved with narrow -text/-whitespace attributes; source bytes were not cleaned.
 - Publication baseline82f4134 is clean and ten commits ahead of remote main4d0f447 with no divergence; fresh fetch confirmed. Source/candidate checks for the new documentation head remain separate from retained80a4b02 runtime evidence.
 - Documentation inventory and all377 classified documents/33 evaluation families passed;85 current guides are indexed,56 current navigation/operational guides updated, dated November8 status preserved as historical. Handoff/documentation tests passed10/10; infrastructure synchronization passed.
+- GitHub archive run44072489661 on6a92167 exposed one generated SYSTEM_GUIDE/runtime-model mismatch after navigation cleanup (1157 tests, one failure). Updated generator review date/current-status link and regenerated the guide; no answer proof/semantic rule changed. Required CI will rerun on the corrected head.
 
 ## Limitations and blocked checks
 

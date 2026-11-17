@@ -4,7 +4,7 @@ from tools import deterministic_mind as M
 from tools import question_frames as F
 
 VERSION='self-knowledge-v7'
-DOCUMENTATION_REVIEWED_ON='2026-11-16'
+DOCUMENTATION_REVIEWED_ON='2026-11-17'
 CAPABILITIES={
  'definition': ('What is a MPLPB?', 'A MPLPB is a bounded local collection of knowledge pages. Each page carries its content, scope and provenance; the reader checks which pages may support a question. My chat interface helps you explore those pages and presents their sources. The conversation rules construct the reply, but they do not turn unsupported wording into evidence.'),
  'identity': ('What are you?', 'I’m MPLPB’s rule-based little monster. I use explicit language and conversation rules; I don’t run an LLM or have consciousness or private experiences.'),
@@ -113,7 +113,7 @@ def handle(message,session,collections=None):
 
 
 def documentation():
-    text='# Current system and self-knowledge\n\nLast reviewed: '+DOCUMENTATION_REVIEWED_ON+'. See [current status and result-to-test index](CURRENT_STATUS_2026-11-02.md). Review is not a fresh measurement or independent certification.\n\nThis document is generated from `tools/self_knowledge.py`. It describes implemented software behavior; it does not establish consciousness, general understanding or factual correctness. Self-description is labeled separately from MPLPB source evidence.\n'
+    text='# Current system and self-knowledge\n\nLast reviewed: '+DOCUMENTATION_REVIEWED_ON+'. See [current status and result-to-test index](CURRENT_STATUS.md). Review is not a fresh measurement or independent certification.\n\nThis document is generated from `tools/self_knowledge.py`. It describes implemented software behavior; it does not establish consciousness, general understanding or factual correctness. Self-description is labeled separately from MPLPB source evidence.\n'
     for title,body in CAPABILITIES.values():text+='\n## '+title+'\n\n'+body+'\n'
     text+='\n## Current-state questions\n\nAsk “What mode are you in?”, “What do you have loaded?” or “What are we talking about?”. These answers read the current session, preserve its mode and scope, and do not fetch remote sources. Current loaded collections are distinct from collections merely saved locally.\n'
     text+='\n> Update 2026-11-16: The [public 52-case evidence suite](PUBLIC_EVIDENCE_TESTS.md) and [bounded expert relation path](HISTORICAL_EXPERT_PATH.md) document the current update. Prior dated measurements and preserved historical sources retain their original scope; this note does not rerun or revise them.\n'
