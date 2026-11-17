@@ -2,7 +2,7 @@
 from .errors import WorkError
 
 SEAT_METHODS = {'snapshot', 'handoff', 'put', 'transfer', 'end', 'execute', 'historical_review', 'historical_reviews'}
-HOST_METHODS = {'head', 'assign', 'revoke', 'reconcile', 'audit', 'record_external_receipt'}
+HOST_METHODS = {'head', 'assign', 'revoke', 'reconcile', 'audit', 'record_external_receipt', 'verify_storage_receipt'}
 
 
 def request(store, credential, data, host_operations=False):

@@ -781,7 +781,8 @@ class WorkStore:
                          outcome.get('operator_seconds'),outcome.get('operator_seconds_basis','measured'))
             return {'receipt': receipt, 'attempt': attempt['id'], 'action': action['id']}
 
-    def record_external_receipt(self, authority, *, receipt, kind, artifact, expected_head, operator_seconds=None, predecessor=None):
+    def record_external_receipt(self, authority, *, receipt, kind, artifact, expected_head, operator_seconds=None, predecessor=None,
+                                local_artifact=None, expected_artifact_sha256=None):
         """Host observations with optional checked ordering; never external truth.
 
         Legacy unlinked READ/ACK observations cannot license a checked chain.
@@ -804,12 +805,38 @@ class WorkStore:
                     if (not prior or not prior.get('transition_checked')
                             or prior['execution_receipt'] != receipt or prior['kind'] != previous_kind[kind]):
                         raise WorkError('Missing matching checked predecessor receipt')
+            storage = None
+            if local_artifact is not None or expected_artifact_sha256 is not None:
+                if kind != 'STORE':raise WorkError('Local file inspection proves only a STORE observation')
+                from .local_artifacts import inspect
+                storage = inspect(self.directory, local_artifact, expected_artifact_sha256)
+                if not storage['matches_expected']:raise WorkError('Artifact bytes do not match the expected pin')
             observation={'id':uuid.uuid4().hex,'execution_receipt':receipt,'action':execution['action'],
                 'predecessor':predecessor,'transition_checked':not legacy,
                 'kind':kind,'artifact_hash':digest(artifact),'answer_supported':False,
                 'content_truth_verified':False,'external_world_verified':False,'basis':'host_declared'}
+            if storage is not None:
+                observation['local_storage'] = storage
             self._append(db,state,'external_receipt',{'external_receipt':observation},'host',operator_seconds,'measured')
             return copy.deepcopy(observation)
+
+    def verify_storage_receipt(self, authority, *, receipt_id):
+        """Read-only current byte check of a prior local storage observation."""
+        with self._transaction() as (db, state):
+            self._host(state, authority)
+            receipt = next((r for r in state['external_receipts'] if r['id']==receipt_id), None)
+            if not receipt or not receipt.get('local_storage'):
+                raise WorkError('Receipt has no checked local storage observation')
+            original = receipt['local_storage']
+            from .local_artifacts import inspect
+            try:
+                current = inspect(self.directory, original['relative_path'], original['raw_sha256'])
+                status = 'intact' if current['matches_expected'] else 'changed'
+            except WorkError:
+                current, status = None, 'unavailable'
+            return {'receipt_id':receipt_id, 'status':status, 'current':current,
+                    'answer_supported':False, 'external_world_verified':False,
+                    'notice':'Current local byte comparison only; no delivery, human reading or completion proof.'}
 
     def audit(self, authority, checkpoint=None):
         with self._transaction() as (db, state):

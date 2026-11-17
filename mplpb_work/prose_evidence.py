@@ -87,3 +87,49 @@ def reconstruct_report(root,question,profile=None,*,max_passages=12,max_chars=12
             'native_answer':answer,'candidate_analysis':candidates,'model_candidates':assisted,
             'answer_supported':answer['answer_supported'],'historical_truth_independently_verified':False,
             'notice':'Checked source assertions, reversible candidate graphs, model interpretations and historical truth have separate authority.'}
+
+
+def render_reconstruction(report):
+    """Render existing checked/candidate states without deriving new support.
+
+    This is a snapshot for inspection. Rerun reconstruct_report to recheck state.
+    """
+    lines = ['HISTORICAL RESEARCH REPORT', 'Question: '+report['question']]
+    if report['status'] != 'research_report':
+        return '\n'.join(lines + ['Source state changed; no old evidence accepted.'])
+    answer = report['native_answer']
+    lines += ['Result: '+answer['kind'],
+              'Snapshot only; rerun this command to recheck current eligibility.',
+              answer.get('source_assurance', {}).get('notice',
+                  'Source assertions do not independently establish historical truth.')]
+    obligations = answer.get('documentary_support', {}).get('obligations', [])
+    if obligations:
+        lines.append('Question parts:')
+        for goal in obligations:
+            refs = ', '.join(str(i+1) for i in goal.get('evidence_claim_indices', [])) or 'none displayed'
+            lines += ['- '+goal['question']+' ['+goal['status']+']; evidence: '+refs]
+            if goal.get('undisplayed_evidence_count'):
+                lines.append('  Additional evidence exceeds the display budget.')
+    lines.append('Checked documentary evidence:')
+    for i, claim in enumerate(answer['claims'], 1):
+        # Assisted proposals are rendered separately, never under this heading.
+        lines.append(str(i)+'. '+claim['text'])
+        for qualifier in claim.get('qualifiers', []):lines.append('   Qualification: '+qualifier)
+        for cite in claim.get('citations', []):
+            lines.append('   ['+cite['source_id']+'@'+cite['hash']+' '+cite['path']+
+                         ' canonical '+str(cite.get('body_start', cite.get('start')))+':'+
+                         str(cite.get('body_end', cite.get('end')))+']')
+            lines.append('   '+cite['quote'])
+    if not answer['claims']:lines.append('None established.')
+    for cite in answer.get('documentary_support', {}).get('alternative_evidence', []):
+        lines += ['Alternative/qualifying evidence ['+cite['source_id']+'@'+cite['hash']+']:', cite['quote']]
+    if answer.get('missing'):lines += ['Unresolved:']+['- '+m for m in answer['missing']]
+    if answer.get('diagnostic'):lines.append('Diagnostic: '+answer['diagnostic']['code']+' — '+answer['diagnostic']['message'])
+    candidates = report.get('candidate_analysis') or {}
+    graph = (candidates.get('information_map') or {}).get('relationship_graph') or {}
+    lines += ['Candidate historical interpretation: '+str(len(graph.get('edges', [])))+
+              ' graph edges; unverified and never promoted to source support.',
+              'Candidate search complete: '+str(candidates.get('search_complete', False))]
+    if report.get('model_candidates'):
+        lines.append('Model proposals are present in JSON output; they are not checked historical conclusions.')
+    return '\n'.join(lines)

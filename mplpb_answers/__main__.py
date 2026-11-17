@@ -104,7 +104,8 @@ def cmd_reconstruct(args):
         reader=OllamaLocalReader(args.reader_model,endpoint=args.reader_endpoint)
     result=reconstruct_report(args.root,args.question,R.PROFILES[args.profile],
                               max_passages=args.max_passages,max_chars=args.max_context_chars,reader=reader)
-    print(json.dumps(result,indent=2,ensure_ascii=False))
+    from mplpb_work.prose_evidence import render_reconstruction
+    print(render_reconstruction(result) if args.format=='text' else json.dumps(result,indent=2,ensure_ascii=False))
     return 0 if result['status']=='research_report' else 3
 
 
@@ -163,6 +164,7 @@ def build_parser():
     reconstruction=sub.add_parser('reconstruct',help='inspect checked documentary evidence, candidate graph, layers and unresolved obligations')
     reconstruction.add_argument('root');reconstruction.add_argument('question')
     reconstruction.add_argument('--profile',choices=R.PROFILES,default='internal')
+    reconstruction.add_argument('--format',choices=('json','text'),default='json',help='readable source evidence or compatible full JSON')
     reconstruction.add_argument('--max-passages',type=int,default=12)
     reconstruction.add_argument('--max-context-chars',type=int,default=12000)
     reconstruction.add_argument('--reader-model',help='optional explicitly installed local candidate reader; never historical truth authority')

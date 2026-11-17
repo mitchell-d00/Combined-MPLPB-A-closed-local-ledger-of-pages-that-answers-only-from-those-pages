@@ -249,6 +249,7 @@ def compose(index,max_passages,max_chars):
             reason=('Exact requested identity/object and actual arrangement, dispatch and receipt are not established by a reported instruction.' if goal['kind']=='reported_instruction'
                     else 'Exact requested argument, reference, qualification, or complete contrary-evidence search is not established.')
             missing.append(goal['question']+': '+reason)
+        status['evidence_proof_sha256'] = list(dict.fromkeys(pin(p) for p in matches))
         statuses.append(status)
     if not checked['scan_complete'] and not literal_completion:missing.append('Contrary-evidence scan reached its explicit character/unit/assertion budget; absence of contradiction is not established.')
     if context_limits and not literal_completion:missing.append('Some complete source units exceeded the context budget; search/context is incomplete.')
@@ -266,6 +267,10 @@ def compose(index,max_passages,max_chars):
         displayed_alternatives.append(e);used+=len(e['quote']);count+=1
     if len(displayed_alternatives)!=len(alternatives):missing.append('Some unresolved alternative evidence cannot fit the display budget.')
     claims=[_claim(p) for p in shown]
+    for status in statuses:
+        hashes = set(status['evidence_proof_sha256'])
+        status['evidence_claim_indices'] = [i for i, claim in enumerate(claims) if claim['proof_sha256'] in hashes]
+        status['undisplayed_evidence_count'] = len(hashes)-len(status['evidence_claim_indices'])
     all_supported=bool(claims) and not missing and all(g['status']=='supported_source_assertion' for g in statuses)
     kind='conflict' if conflict else 'clarify' if ambiguous else 'supported_answer' if all_supported else 'partial_answer' if claims else 'abstain'
     text='\n'.join(c['text']+' '+ ' '.join(c['qualifiers']) for c in claims)
