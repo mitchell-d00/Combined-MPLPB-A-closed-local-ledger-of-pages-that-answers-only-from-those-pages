@@ -27,3 +27,6 @@ Final extracted implementation `6acf45a9f77213953f8236379236c96662442153` passed
 
 
 Reconstruction update (2026-11-17): [documentary research mode](HISTORICAL_RECONSTRUCTION_ENGINE.md) adds source-unit/layer inspection, literal relationship checks, exact paragraph comparisons and candidate graphs. [Review rules](HISTORICAL_TRUTH_RULES.md) keep synthetic fixture truth, human assessments and real historical truth separate. Final new measurements are retained separately; earlier historical reports remain unchanged.
+
+
+Kernel v3 [source-framed comparison completion](HISTORICAL_RECONSTRUCTION_ENGINE.md#completing-literal-source-comparisons) independently checks body-role witnesses, source/work references, topic boundaries and both word operations. [The final unchanged-question replay](../evaluation/reconstruction-engine/2026-11-17/RESULTS.md) yields one complete source-relative comparison and two partials, not independently verified historical truth.

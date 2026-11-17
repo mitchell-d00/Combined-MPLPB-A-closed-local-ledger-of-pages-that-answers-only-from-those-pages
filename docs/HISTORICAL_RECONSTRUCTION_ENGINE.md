@@ -39,3 +39,6 @@ For plaintext transcriptions, physical blank paragraphs are used only when their
 ## Accumulating a documentary history
 
 The existing WorkStore can persist claims, evidence, challenges and review decisions with immutable prior revisions. Suggested graph links remain separate from checked source statements and human-reviewed interpretations. New or restricted sources must trigger dependency rechecks. The current derived graph is query-scoped; automatic corpus-wide graph maintenance as pages are imported is still an integration gap. Nothing in this implementation automatically turns a suggested or human-accepted relationship into historical truth.
+
+
+[Final measured results](../evaluation/reconstruction-engine/2026-11-17/RESULTS.md): extracted63cea98 passed1124 tests and actual browser/WASM checks. Native complete answers0→1/22 (source-framed comparison H05), checked partials2→2/22. This is not22/22 correctness or independent historical validation.

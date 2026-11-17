@@ -1,0 +1,102 @@
+{
+  "baseline_revision": "4d0f4470adfa88e36b736d78f429ee86d003a925",
+  "updated_revision": "63cea982399280b4fa634893799e6642cbd19436",
+  "independent_human_review": "NOT RUN",
+  "independent_unseen_evaluation": "NOT RUN",
+  "independent_question_count": null,
+  "answerable_question_accuracy": null,
+  "relationship_precision": null,
+  "relationship_recall": null,
+  "candidate_relationship_accuracy": null,
+  "false_positive_relationship_rate": null,
+  "incorrect_event_merges": null,
+  "false_supported_answer_rate": null,
+  "unsupported_causal_conclusion_rate": null,
+  "correct_refusal_accuracy": null,
+  "incorrect_refusal_rate": null,
+  "exhaustive_span_coverage": null,
+  "retrieval_recall_at_k": null,
+  "correction_accuracy": null,
+  "temporal_accuracy": null,
+  "human_review_seconds": null,
+  "human_correction_seconds": null,
+  "families": {
+    "original": {
+      "before": {
+        "cases": 14,
+        "completed": 14,
+        "full_supported_answers": 0,
+        "checked_partial_answers": 1,
+        "draft_spans_retrieved": 18,
+        "draft_spans": 23,
+        "cpu_seconds": 775.7464791040001,
+        "whole_worker_cpu_seconds": 777.365475,
+        "worker_wall_seconds": 795.6102219660006,
+        "peak_process_rss_bytes": 52420608,
+        "logical_source_html_bytes_read": 9458431290,
+        "source_read_calls": 46305,
+        "invalid_citations": 0,
+        "structural_unsupported_conclusions": 0
+      },
+      "after": {
+        "cases": 14,
+        "completed": 14,
+        "full_supported_answers": 1,
+        "checked_partial_answers": 1,
+        "draft_spans_retrieved": 18,
+        "draft_spans": 23,
+        "cpu_seconds": 775.222250123,
+        "whole_worker_cpu_seconds": 776.985214,
+        "worker_wall_seconds": 776.4573954680018,
+        "peak_process_rss_bytes": 54423552,
+        "logical_source_html_bytes_read": 9469870058,
+        "source_read_calls": 46361,
+        "invalid_citations": 0,
+        "structural_unsupported_conclusions": 0
+      },
+      "kernel_rechecked_assertions": 2
+    },
+    "government": {
+      "before": {
+        "cases": 8,
+        "completed": 8,
+        "full_supported_answers": 0,
+        "checked_partial_answers": 1,
+        "draft_spans_retrieved": 9,
+        "draft_spans": 9,
+        "cpu_seconds": 53.008674284,
+        "whole_worker_cpu_seconds": 54.035968000000004,
+        "worker_wall_seconds": 66.23017177999645,
+        "peak_process_rss_bytes": 21417984,
+        "logical_source_html_bytes_read": 188813916,
+        "source_read_calls": 7983,
+        "invalid_citations": 0,
+        "structural_unsupported_conclusions": 0
+      },
+      "after": {
+        "cases": 8,
+        "completed": 8,
+        "full_supported_answers": 0,
+        "checked_partial_answers": 1,
+        "draft_spans_retrieved": 9,
+        "draft_spans": 9,
+        "cpu_seconds": 52.536295253,
+        "whole_worker_cpu_seconds": 53.572923,
+        "worker_wall_seconds": 52.80349821699565,
+        "peak_process_rss_bytes": 22626304,
+        "logical_source_html_bytes_read": 188813916,
+        "source_read_calls": 7983,
+        "invalid_citations": 0,
+        "structural_unsupported_conclusions": 0
+      },
+      "kernel_rechecked_assertions": 1
+    }
+  },
+  "scope": "Fresh baseline versus frozen completion implementation; unchanged sources/questions/seals/harness/budgets. Costs include investigation; shared host, no controlled speedup. Draft coverage is incomplete developer retrieval references. Source support is not independently verified historical truth.",
+  "development_citation_audit": {
+    "accepted_citations": 7,
+    "kernel_rechecked": true,
+    "exact_original_byte_round_trips": true,
+    "independent_semantic_accuracy": null
+  }
+}

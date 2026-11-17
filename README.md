@@ -236,3 +236,6 @@ Documentary assertion update (2026-11-16): [checked source assertions and compou
 
 
 Reconstruction update (2026-11-17): [documentary research mode](docs/HISTORICAL_RECONSTRUCTION_ENGINE.md) adds source-unit/layer inspection, literal relationship checks, exact paragraph comparisons and candidate graphs. [Review rules](docs/HISTORICAL_TRUTH_RULES.md) keep synthetic fixture truth, human assessments and real historical truth separate. Final new measurements are retained separately; earlier historical reports remain unchanged.
+
+
+Measured completion update (2026-11-17): [final reconstruction experiment](evaluation/reconstruction-engine/2026-11-17/RESULTS.md) reports one complete source-supported wording comparison and two checked partials on 22 unchanged questions, versus zero complete and two partials before. The extracted implementation passed 1,124 tests and actual browser/WebAssembly checks. Historical authenticity, independent semantic accuracy and the proposed 9/10 outcome remain unestablished.

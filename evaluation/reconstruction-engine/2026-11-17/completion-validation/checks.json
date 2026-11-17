@@ -1,0 +1,174 @@
+[
+  {
+    "command": [
+      "python",
+      "tools/build_handoff.py",
+      "--check"
+    ],
+    "exit_code": 0,
+    "wall_seconds": 0.8751372750011797,
+    "log": "step-00.log"
+  },
+  {
+    "command": [
+      "python",
+      "-m",
+      "tools.audit_documentation"
+    ],
+    "exit_code": 0,
+    "wall_seconds": 0.17448482500185492,
+    "log": "step-01.log"
+  },
+  {
+    "command": [
+      "python",
+      "tools/check_repository_infrastructure.py"
+    ],
+    "exit_code": 0,
+    "wall_seconds": 0.2659888529997261,
+    "log": "step-02.log"
+  },
+  {
+    "command": [
+      "python",
+      "-m",
+      "tools.evaluate_public_evidence",
+      "--require-capabilities",
+      "--output",
+      "/tmp/mplpb-completion-validation/public.json"
+    ],
+    "exit_code": 0,
+    "wall_seconds": 29.686544244999823,
+    "log": "step-03.log"
+  },
+  {
+    "command": [
+      "python",
+      "-m",
+      "tools.evaluate_historical_experts",
+      "--output",
+      "/tmp/mplpb-completion-validation/experts.json"
+    ],
+    "exit_code": 0,
+    "wall_seconds": 5.854325966000033,
+    "log": "step-04.log"
+  },
+  {
+    "command": [
+      "python",
+      "tools/check_ui_script.py"
+    ],
+    "exit_code": 0,
+    "wall_seconds": 0.5992334279981151,
+    "log": "step-05.log"
+  },
+  {
+    "command": [
+      "node",
+      "tests/documentary-render.cjs"
+    ],
+    "exit_code": 0,
+    "wall_seconds": 0.028726087999530137,
+    "log": "step-06.log"
+  },
+  {
+    "command": [
+      "node",
+      "tools/check_browser_transport.cjs"
+    ],
+    "exit_code": 0,
+    "wall_seconds": 0.04338547799852677,
+    "log": "step-07.log"
+  },
+  {
+    "command": [
+      "node",
+      "tests/javascript-api.cjs"
+    ],
+    "exit_code": 0,
+    "wall_seconds": 0.5810588059975998,
+    "log": "step-08.log"
+  },
+  {
+    "command": [
+      "node",
+      "tests/browser-ai-helper.cjs"
+    ],
+    "exit_code": 0,
+    "wall_seconds": 0.369610339999781,
+    "log": "step-09.log"
+  },
+  {
+    "command": [
+      "node",
+      "tests/browser-model-loader.cjs"
+    ],
+    "exit_code": 0,
+    "wall_seconds": 3.5258258399990154,
+    "log": "step-10.log"
+  },
+  {
+    "command": [
+      "node",
+      "tests/browser-webgpu-limits.cjs"
+    ],
+    "exit_code": 0,
+    "wall_seconds": 0.4239806059995317,
+    "log": "step-11.log"
+  },
+  {
+    "command": [
+      "node",
+      "crawler/test_worker.mjs"
+    ],
+    "exit_code": 0,
+    "wall_seconds": 0.0770776970020961,
+    "log": "step-12.log"
+  },
+  {
+    "command": [
+      "node",
+      "crawler/test_historical.mjs"
+    ],
+    "exit_code": 0,
+    "wall_seconds": 0.06525159200100461,
+    "log": "step-13.log"
+  },
+  {
+    "command": [
+      "python",
+      "tools/build_browser_runtime.py",
+      "--core-archive",
+      "/tmp/mplpb-pyodide-core.tar.bz2",
+      "--output",
+      "dist/index.html"
+    ],
+    "exit_code": 0,
+    "wall_seconds": 3.0136459469977126,
+    "log": "step-14.log"
+  },
+  {
+    "command": [
+      "node",
+      "tools/check_browser_wasm.mjs",
+      "/tmp/mplpb-wasm/pyodide",
+      "dist/index.html"
+    ],
+    "exit_code": 0,
+    "wall_seconds": 94.82585718799965,
+    "log": "step-15.log"
+  },
+  {
+    "command": [
+      "python",
+      "/tmp/mplpb_completion_browser.py",
+      "--dist",
+      "dist",
+      "--output",
+      "/tmp/mplpb-completion-validation/browser.json"
+    ],
+    "exit_code": 0,
+    "wall_seconds": 12.75366933499754,
+    "log": "step-16.log"
+  }
+]

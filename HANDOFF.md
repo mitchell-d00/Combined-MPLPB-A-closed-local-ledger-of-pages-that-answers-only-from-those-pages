@@ -4,8 +4,8 @@ Last reviewed: 2026-11-17.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `5b6632a2bb0e208267980f6f9501581b13775424` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `7b4c0f8d7f9dda6047e11411fa264fa0623c90e7985990e5810f9a0605612306`.
+Base commit: `63cea982399280b4fa634893799e6642cbd19436` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `3c40030622e1bb55472279faa3556f5ebaafc9575a4a82d7a28bff4c7097a861`.
 
 ## Latest user update instructions
 
@@ -45,25 +45,25 @@ Summarize all we are doing and then continue
 
 ## Validation recorded
 
-- Clean merged baseline4d0f4470adfa88e36b736d78f429ee86d003a925:1068 tests passed in376.449 seconds;62 focused tests in14.641 seconds;52 public controls passed.
-- Expanded focused run passed147 tests in18.179 seconds before final freeze; both crawler suites passed. Full final archive checks and unchanged historical replay pending.
-- Preserved first slow source-unit parsing attempt and failed review-schema/crawler-runtime attempts; repaired bounded lexical tail and existing effective_status field usage.
-- Post-freeze crawler adversarial test rejected digest-only identity and detected a forged body; fixed comparator rehashes raw captures. Both affected Node crawler suites passed; the Python runtime remains byte-identical to8364639.
-- Pre-completion frozen source5b6632a passed1106 tests in387.305 seconds and all browser/WASM controls. Fresh22-case comparison remains preserved separately: partials2→3, full0→0.
-- New native H05 probe returns a source-scoped complete comparison with four witnesses. Varied wording, missing/ambiguous/qualified roles, wrong authors/work, budgets, extra motives and mutations are tested. Completion-phase frozen full regression/replay pending.
+- Baseline4d0f447:1068 tests passed376.449s;62 focused tests14.641s; public52/52. Fresh baseline22-case runs preserved with exact original seals/questions/budgets.
+- Intermediate5b6632a passed1106 tests; fresh comparison full0/22 and partial2→3/22. Its complete outputs, costs and failures remain unchanged in phase1 paths.
+- Final extracted63cea982399280b4fa634893799e6642cbd19436 passed1124 tests in394.726s; public52/52; expert stages; JavaScript, both crawler suites, actual WebAssembly, nine actual Chromium UI checks and installed official MCP SDK1.29.0 client45 checks.
+- Final unchanged22-case runs completed: full0→1/22 and checked partial2→2/22. H05 closes literal comparison obligations using four body/wording witnesses; source authenticity/finality and historical truth remain unverified. All7 accepted citations passed fresh kernel/digest and original-byte mapping checks.
+- Actual-source temporary legal revisions of author/work remove completion; original frozen bytes unchanged. All2246 prior historical evaluation files and baseline tests preserved; final runtime/tests/tools match63cea98.
+- Crawler live LOC attempt blocked by robots policy; zero live captures, no bypass. Synthetic truth fixture matches its separately pinned oracle but does not constitute real history or human review.
 
 ## Limitations and blocked checks
 
-- Independent human review and >=200 unseen-question evaluation NOT RUN; no9/10 or80/95/75/95 target claim.
-- Complete comparison is limited to supplied body-declared appearances, exact wording and literal question obligations. Historical authenticity, finality, event identity and historical truth remain unverified.
-- Automatic corpus-wide history maintenance, reliable general pronoun/entity resolution, arbitrary correction composition and damaged OCR quotation interpretation remain incomplete.
-- Final completion-phase full regression and unchanged-question results pending at this freeze.
+- The result is not22/22 correctness, a9/10 rating or independent80/95/75/95 performance. Independent human review, adjudication and >=200 unseen questions NOT RUN; unknown semantic metrics/human times null.
+- Only the supplied source-declared reconstruction/transcription and literal opening-topic differences are complete. Historical authenticity/finality, person/event identity, motives, missing links and independently verified historical truth are not established.
+- General entity/pronoun resolution, arbitrary historical correction/chronology, full-document absence, damaged OCR quotation handling and automatic corpus-wide history maintenance remain incomplete.
+- Repeated authority reads remain costly; no material speedup is established. New engine changes are locally committed, not pushed/merged/deployed in this iteration.
 
 ## Next steps
 
-- Freeze committed source, test extracted archive, replay all22 unchanged questions using original seals/budgets and audit every accepted certificate against original bytes.
-- Retain full successful, failed, partial and unresolved outputs, measure resource costs and report unknown metrics as null.
-- Obtain real independent custodians/authors/reviewers and sealed unseen materials before target/rating claims.
+- Obtain two independent human reviews/adjudication of complete frozen packets before historical accuracy or target claims.
+- Build checked identity/reference, temporal, correction and complete-search obligations for further genuinely answerable questions while preserving warranted refusals.
+- Integrate an incrementally maintained history view with existing evidence/claim/review states and current-source invalidation; keep suggestions and accepted interpretations separate from facts.
 
 ## Use this ZIP in your repository
 

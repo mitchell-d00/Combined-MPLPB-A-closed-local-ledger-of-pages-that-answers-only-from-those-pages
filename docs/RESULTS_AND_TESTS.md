@@ -109,3 +109,6 @@ The [finite source-assertion/composition contract](DOCUMENTARY_ASSERTIONS.md) ad
 
 
 Reconstruction update (2026-11-17): [documentary research mode](HISTORICAL_RECONSTRUCTION_ENGINE.md) adds source-unit/layer inspection, literal relationship checks, exact paragraph comparisons and candidate graphs. [Review rules](HISTORICAL_TRUTH_RULES.md) keep synthetic fixture truth, human assessments and real historical truth separate. Final new measurements are retained separately; earlier historical reports remain unchanged.
+
+
+Terminal reconstruction/completion experiment (2026-11-17): [retained results](../evaluation/reconstruction-engine/2026-11-17/RESULTS.md) show one complete source comparison and two checked partials versus zero complete/two partials on22 unchanged questions;1124 tests passed. Independent historical accuracy and >=200 unseen evaluation remain NOT RUN.
