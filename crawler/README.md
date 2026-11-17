@@ -80,7 +80,7 @@ their SHA-256. A pin mismatch produces a failure, never an accepted replacement.
 Capturing a webpage does not automatically admit it to an authoritative ledger.
 Use the existing capture/import path, retain provenance, and inspect source policy.
 
-`crawlSources` exposes the same set operation to a native Node caller. `sourceIdentity`
+`crawlSources` exposes the same set operation to a native Node caller. Async `sourceIdentity` rehashes both bounded raw captures before accepting digest equality. It
 distinguishes identical captured-byte digests from the same URL with changed bytes;
 URLs, digest strings and server observation times do not authenticate authorship.
 Identical copies are not independent corroboration and never establish event identity

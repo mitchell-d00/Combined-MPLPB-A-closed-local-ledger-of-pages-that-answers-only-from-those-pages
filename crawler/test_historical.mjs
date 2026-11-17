@@ -11,9 +11,14 @@ assert.equal(r.sources[0].historical_truth_independently_verified,false);
 assert.equal(r.provider,'Explicit public source URLs');
 const changed=await crawlSources([{url:'https://archive.example/letter',sha256:'0'.repeat(64)}],{},fetcher);
 assert.equal(changed.sources.length,0);assert.match(changed.failures[0].reason,/hash/i);
-assert.equal(sourceIdentity({url:'https://archive.example/letter',source_sha256:sha},{url:'https://archive.example/letter',source_sha256:'0'.repeat(64)}).status,'same_url_changed_bytes');
-const equal=sourceIdentity({url:'https://archive.example/letter',source_sha256:sha},{url:'https://mirror.example/copy',source_sha256:sha});
+const secondRaw='A different account.';
+const secondSha=Buffer.from(await crypto.subtle.digest('SHA-256',new TextEncoder().encode(secondRaw))).toString('hex');
+assert.equal((await sourceIdentity(r.sources[0],{url:r.sources[0].url,source_sha256:secondSha,raw_base64:Buffer.from(secondRaw).toString('base64')})).status,'same_url_changed_bytes');
+const equal=await sourceIdentity(r.sources[0],{...r.sources[0],url:'https://mirror.example/copy'});
 assert.equal(equal.status,'identical_captured_bytes');assert.equal(equal.independent_corroboration_established,false);assert.equal(equal.event_identity_established,false);
+const fake=await sourceIdentity(r.sources[0],{...r.sources[0],raw_base64:Buffer.from('Forged body').toString('base64')});
+assert.equal(fake.status,'invalid_capture_hash');
+assert.equal((await sourceIdentity({source_sha256:sha},{source_sha256:sha})).status,'unverified_capture_identity');
 for(const url of ['http://archive.example/a','https://127.0.0.1/a','https://localhost/a','https://user:pass@archive.example/a']){
  const invalid=await crawlSources([{url}],{},fetcher);assert.equal(invalid.sources.length,0);
 }

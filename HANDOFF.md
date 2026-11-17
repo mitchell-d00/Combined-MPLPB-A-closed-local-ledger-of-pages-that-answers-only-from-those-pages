@@ -4,8 +4,8 @@ Last reviewed: 2026-11-17.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `4d0f4470adfa88e36b736d78f429ee86d003a925` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `775232e20a040bc8a4837d8cfcdf53e031582a0e5f95eb145adf73c0470b1570`.
+Base commit: `83646398d1a01735b49e3f2afe534e984196623e` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `0e44c314a8e1d9e2357dacbc3ed2bfc485b94091bc8f590ee15ab875459ef9a6`.
 
 ## Latest user update instructions
 
@@ -30,12 +30,14 @@ Summarize what all we are doing and then continue
 - Extend existing crawler with direct public URL seeds, optional source hashes and explicit byte-versus-event identity boundaries. No deployment or paid search requirement for direct seeds.
 - Add capability-gated typed historical-review entries through existing WorkStore; synthetic oracle fixture exercises rules without claiming real historical truth or real independent reviewers.
 - Add target accounting after existing human-review/adjudication validation; 200 unseen-question independent evaluation and performance targets remain unmeasured.
+- Rehash both bounded raw crawler captures before accepting byte identity; reject forged hashes and missing raw payloads.
 
 ## Validation recorded
 
 - Clean merged baseline4d0f4470adfa88e36b736d78f429ee86d003a925:1068 tests passed in376.449 seconds;62 focused tests in14.641 seconds;52 public controls passed.
 - Expanded focused run passed147 tests in18.179 seconds before final freeze; both crawler suites passed. Full final archive checks and unchanged historical replay pending.
 - Preserved first slow source-unit parsing attempt and failed review-schema/crawler-runtime attempts; repaired bounded lexical tail and existing effective_status field usage.
+- Post-freeze crawler adversarial test rejected digest-only identity and detected a forged body; fixed comparator rehashes raw captures. Both affected Node crawler suites passed; the Python runtime remains byte-identical to8364639.
 
 ## Limitations and blocked checks
 

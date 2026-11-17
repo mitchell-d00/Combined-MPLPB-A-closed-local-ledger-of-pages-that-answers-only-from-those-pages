@@ -49,11 +49,19 @@ export async function crawl(query,env,fetcher=fetch){
  if(!Array.isArray(results))throw Error('Invalid search results');
  return crawlQueue(query,provider==='tavily'?'Tavily basic search':'Brave Search',results.slice(0,2).map(r=>({url:r.url,title:r.title,parent:null,depth:0})),fetcher);
 }
-export function sourceIdentity(left,right){
+export async function sourceIdentity(left,right){
  const valid=x=>typeof x==='string'&&/^[a-f0-9]{64}$/.test(x);
- const same=valid(left.source_sha256)&&valid(right.source_sha256)&&left.source_sha256===right.source_sha256;
- return {status:same?'identical_captured_bytes':left.url===right.url?'same_url_changed_bytes':'distinct_or_unresolved_sources',
-  basis:'Caller-supplied capture digests; obtain them from checked raw captures, not titles or search rank.',
+ let status='unverified_capture_identity';
+ if([left,right].every(s=>valid(s.source_sha256)&&typeof s.raw_base64==='string'&&s.raw_base64.length<=Math.ceil(MAX_BYTES/3)*4)){
+  try{
+   const raw=[left,right].map(s=>Uint8Array.from(atob(s.raw_base64),c=>c.charCodeAt(0)));
+   if(raw.some(r=>r.length>MAX_BYTES))throw Error('Identity byte limit');
+   const digests=await Promise.all(raw.map(r=>hash(r)));
+   status=digests.some((h,i)=>h!==[left,right][i].source_sha256)?'invalid_capture_hash':digests[0]===digests[1]?'identical_captured_bytes':left.url===right.url?'same_url_changed_bytes':'distinct_or_unresolved_sources';
+  }catch{status='invalid_capture_bytes';}
+ }
+ return {status,
+  basis:'Both bounded raw captures are independently hashed and matched to their declared digests before byte identity is accepted; publisher authorship remains unverified.',
   event_identity_established:false,authorship_authenticated:false,independent_corroboration_established:false,
   historical_truth_independently_verified:false};
 }
