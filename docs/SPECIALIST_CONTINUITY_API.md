@@ -2,6 +2,8 @@
 
 Last reviewed: 2026-11-17. See [current status and result-to-test index](CURRENT_STATUS.md). Dates and numeric results in historical validation sections retain their original scope; this review is not a rerun or independent certification.
 
+Package role: [how this part fits Combined MPLPB](PACKAGE_GUIDE.md#work-and-receipts). Work continuity and execution receipts preserve observations without creating source authority.
+
 The native `mplpb_work` coordinator preserves task relationships, evolving claims,
 failed routes, specialist identities and permission history. It is part of the
 Combined MPLPB distribution and uses the Python standard library, including SQLite.

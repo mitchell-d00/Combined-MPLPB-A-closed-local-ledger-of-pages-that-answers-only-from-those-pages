@@ -2,6 +2,8 @@
 
 Last reviewed: 2026-11-17. See [current status and result-to-test index](CURRENT_STATUS.md). Dates and numeric results in historical validation sections retain their original scope; this review is not a rerun or independent certification.
 
+Package role: [how this part fits Combined MPLPB](PACKAGE_GUIDE.md#answers-and-inspection). Eligibility and ownership precede strict source-body proof; passing the gate is not historical truth.
+
 Introduced 2026-10-08. `gate` returns all eligible lexical matches as separate
 source records, retaining their provenance; it does not turn multiple pages into
 one answer. The legacy `python -m mplpb_combined ask` inspects lexical ownership.

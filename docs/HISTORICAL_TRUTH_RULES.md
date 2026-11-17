@@ -2,6 +2,8 @@
 
 Last reviewed: 2026-11-17.
 
+Package role: [how this part fits Combined MPLPB](PACKAGE_GUIDE.md#documentary-research). This guide covers documentary inspection; source assertions, candidate relations and historical truth remain distinct.
+
 Historical truth cannot be established by accepting JSON, counting agreeing models, matching quotations or passing tests. This implementation records scoped review decisions and separately tests the entry method in a known synthetic universe. It never sets real `historical_truth_independently_verified` to true.
 
 Entries use the existing WorkStore claim/evidence/review records, capability credentials, append-only history, explicit visibility and pinned revisions. The new closed API methods are `historical_review` with an `entry` and `historical_reviews` with a `claim_id`. They are available through the existing `python -m mplpb_answers work request ... --credential-file ... --input ...` interface. No new source-authority bypass or ledger correction operation is introduced.

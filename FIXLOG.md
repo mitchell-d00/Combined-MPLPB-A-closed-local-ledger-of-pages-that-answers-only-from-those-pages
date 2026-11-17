@@ -2,6 +2,25 @@
 
 Last reviewed: 2026-11-17. See [current status and result-to-test index](docs/CURRENT_STATUS.md). Dates and numeric results in historical validation sections retain their original scope; this review is not a rerun or independent certification.
 
+Package role: [how this part fits Combined MPLPB](docs/PACKAGE_GUIDE.md#evidence-and-limits). This guide covers evidence or operation limits; dated results keep the revision and scope they measured.
+
+## Package documentation and authority map — 2026-11-17
+
+Reorganized the README around the implemented package, with the ownership rule
+and distinct strict/candidate/gated/model-assisted result types near the top.
+The new [package guide](docs/PACKAGE_GUIDE.md) maps native modules, browser/source/
+wheel contents, the offline sorter, original-source admission, documentary tools,
+context/library resources, specialist work, optional acquisition/models and storage.
+The [guide index](docs/README.md) covers all current documentation. Operational
+guides gain component-specific navigation; dated evidence, original papers and
+research protocols retain their original content and measurement scope.
+
+Installation, developer entry points, agent discovery and generated system-guide
+navigation now distinguish separate interfaces rather than imply every component
+is exposed through every adapter. No proof rule, supported-answer state, source
+policy or historical result changes. Documentation checks are recorded in the
+handoff; a presentation update is not a new capability/accuracy experiment.
+
 ## Recorded arrangements, solo inspection and publication upkeep — 2026-11-17
 
 The [solo milestone](evaluation/solo-milestone/2026-11-17/RESULTS.md) adds a finite

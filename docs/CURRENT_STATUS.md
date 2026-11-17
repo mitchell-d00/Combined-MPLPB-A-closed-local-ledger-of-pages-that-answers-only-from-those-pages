@@ -2,78 +2,101 @@
 
 Last reviewed: 2026-11-17.
 
-This is the current entry point. Dated status pages and experimental reports retain
-the revisions and dates they measured; use [past documentation](../PAST_DOCUMENTATION.md)
-and the [result/test index](RESULTS_AND_TESTS.md) to locate those records.
+[Package guide](PACKAGE_GUIDE.md) · [Current documentation](README.md)
+· [Result/test index](RESULTS_AND_TESTS.md) · [Preserved history](../PAST_DOCUMENTATION.md)
 
-## Source-supported historical research
+Combined MPLPB is an attributable engineering contribution and technical case
+study, still being tested. It is not proven world-first. Implemented components,
+source-language coverage, independent semantic accuracy and production readiness
+are separate questions.
 
-The [solo milestone](../evaluation/solo-milestone/2026-11-17/RESULTS.md) compares the
-same22 frozen development questions and unchanged originals. Native complete
-source support increases1→2, with checked partials2→1. Only the Darwin–Wallace
-recorded-arrangement question changes; the existing Declaration wording comparison
-remains complete. Other21 native answer/refusal categories and claim meanings are
-unchanged. No delivery, execution or historical-truth claim was added.
+## Authority remains the organizing rule
 
-A fresh-context blinded **AI assessment** rates complete correct answers1→2,
-correct refusals4→4, and errors/over-refusals17→16. All44 responses are retained;
-108 exact original-byte anchors were checked. This is one model-context assessment
-of previously inspected development material, with procedural blinding and no
-provider/version pin. It is not independent human validation or unseen accuracy.
-The16 remaining shortcomings are documented, including the Apollo OCR quotation
-state that still prevents certification. No9/10 rating or22/22 success is claimed.
+**One owner returns; two stop; none refuses.** Eligible ownership controls page
+selection. It does not waive provenance or body-support checks. A returned page,
+a candidate graph, a source bundle, model-assisted interpretation and a strict
+supported answer retain distinct labels. No document seal proves historical truth.
 
-The arrangement proof checks original printed names, the reported instruction,
-local possessive/recipient references, printed date and complete bounded letter.
-It establishes what the source records, not whether anyone accepted, executed,
-dispatched or delivered anything. Dates retain their evidentiary roles.
-[Documentary rules](DOCUMENTARY_ASSERTIONS.md) explain the finite kernel;
-[solo workflow](SOLO_RESEARCH_WORKFLOW.md) gives runnable commands and limits.
+## Implemented package
 
-## Inspection, authority and performance
+| Part | Available behavior | Remaining boundary |
+|---|---|---|
+| Raw-text sorter | Exact UTF-8 source spans, keys/dates/references, identical nodes across modes, optional review edges | Lexical extraction is incomplete; comparisons do not resolve historical identity |
+| Native sorter snapshot | Sealed, strictly validated, exact graph roundtrip; inspected by the unchanged reader | Retired and withheld under every profile; never a source of accepted historical facts |
+| Ledger/gates | Revisions, ancestry, source hashes, delivery profiles, exclusions and current eligibility | Integrity/authorship/truth remain separate |
+| Strict answering | Finite source-body proofs, explicit diagnostics, conflicts, checked partials and refusals | Many ordinary historical constructions remain unsupported |
+| Documentary inspection | Source units/layer hints, literal comparisons, obligations, bounded relations and original-byte mapping where available | Missing links, OCR/quotation problems and ambiguous identities stop completion |
+| Application | Native/browser collections, deterministic conversation, references, local context and procedures | Saved user context is not ledger evidence; arbitrary conversation/prose understanding is not established |
+| Work and integration | Scoped specialist continuity, host receipts, JavaScript transport and native local MCP | A successful tool/receipt is not historical truth, task execution proof or shared-service readiness |
+| Optional acquisition/models | Explicit source capture/crawler setup and separate local/browser helper paths | Deployment, device behavior and semantic efficacy need their own evidence |
 
-- `reconstruct --format text` shows question parts, checked excerpts, hashes,
-  canonical offsets, alternatives and missing evidence. JSON remains the default.
-- Browser documentary answers show linked question parts and source coordinates.
-- [Refusal categories and source assurance](CLOSED_LEDGER_BOUNDARIES.md) distinguish
-  unsupported grammar, missing eligible evidence, conflicts and resource limits.
-  Outside-world confirmation remains required even for a supported source claim.
-- Host-only local artifact storage checks hash actual bounded regular files;
-  receipt order and byte equality never establish human reading or completed work.
-- Exact-content parsing is cached; source bytes, policy and final eligibility are
-  still reread. The22-case worker CPU was852.674→242.284s in one shared-host replay,
-  with identical logical source bytes read. This is not a general latency guarantee.
+See the [package map](PACKAGE_GUIDE.md#package-map) for implementation and the
+[installation guide](INSTALLATION.md) for what each distribution actually contains.
+The lab-only [reference corpus](../reference_corpus/README.md) is unratified and
+not the default hosted application's authoritative source collection.
 
-## Validation and publication
+## Retained historical question experiment
 
-Runtime `d369346dfcdf4c6cd87866971b352be639506277` produced the final historical
-outputs. Release `80a4b02d0a13ac0f986f83622514c4be5dddd844` has identical runtime and
-passed1157 tests, public52/52, JavaScript, real WebAssembly and11 Chromium checks.
-Evidence commit `82f41343ccafab5227daab83aed3e46a383cf56f` retains all failed/intermediate
-runs and AI judgments. Current documentation revisions do not rerun those historical
-experiments. Exact-head regression/archive checks and deployed-site checks belong
-to their own GitHub Actions runs, not those local results.
+The [solo milestone](../evaluation/solo-milestone/2026-11-17/RESULTS.md) uses the
+same 22 frozen development questions and unchanged originals. Native complete
+source support increases1 to2, and checked partials decrease2 to1. Only the
+Darwin-Wallace recorded-arrangement question changes; the Declaration wording
+comparison remains complete. Other 21 answer/refusal categories and claim meanings
+remain unchanged. No delivery, execution or historical-truth claim was added.
 
-Use the [PR list](https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/pulls)
-and [Actions](https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/actions)
-for publication receipts. [ZIP-first testing](ZIP_FIRST_RELEASE_TESTING.md) requires
-passing checks for the actual candidate head before merge; the Pages workflow then
-builds and checks the public site. Source, candidate and deployment evidence are
-separate. No frozen corpus, question, prior report, license or original paper is
-rewritten by documentation upkeep.
+A fresh-context blinded **AI assessment** rates complete correct answers1 to2,
+correct refusals4 to4, and errors/over-refusals17 to16. All 44 responses and 108
+checked original-byte anchors are retained. It is one model-context assessment
+on inspected development material, without a provider/version pin, not independent
+human review or unseen accuracy. Sixteen assessed shortcomings remain, including
+the Apollo OCR quotation state that blocks certification.
 
-Local MCP, browser saves, closed-ledger answering and specialist continuity remain
-in their existing trusted-operator scope. General historical truth, reliable
-unprepared-event identity, arbitrary causal chains, physical-device model inference
-and shared-service production readiness remain unestablished; see
-[readiness boundaries](PRODUCTION_READINESS.md).
+The arrangement proof checks original printed parties, instruction, local letter
+references and date. It establishes the arrangement the source records, not that
+it was received, accepted, executed or delivered. Dates retain their documentary
+roles. [Documentary rules](DOCUMENTARY_ASSERTIONS.md).
 
-## Raw-text candidate preprocessing
+## Retained sorter and software evidence
 
-The [offline sorter](PREPROCESSING_SORTER.md) preserves original UTF-8 bytes and exposes lexical observations. Both modes have identical nodes; compare adds only review edges. Its optional native snapshot is retired and withheld by the unchanged reader. This does not add historical supported answers.
+The [initial sorter](../evaluation/preprocessing-sorter/2026-11-17/RESULTS.md)
+and [native-export refinement](../evaluation/preprocessing-sorter/2026-11-17-native-export/RESULTS.md)
+retain 176 identical fixture nodes, 264 observation edges and 77 additional review
+edges. No historical answer gain is attributed to those candidates.
 
-The sorter snapshot export also validates the native format and checks an exact embedded-graph round trip before publication. Native `validate` and `show` accept the page for inspection; `gate` and supported answering continue to withhold it. See the sorter guide for the separate exit codes.
+The frozen refined runtime passed 1,184 Python tests and 52 public-evidence controls.
+The later publication candidate passed 1,186 local Python tests, and its protected
+PR workflows passed before merge. These counts describe named past revisions,
+not a fresh validation of this documentation change. Independent semantic review
+is NOT RUN. Use [RESULTS_AND_TESTS.md](RESULTS_AND_TESTS.md) and actual CI receipts
+for the scope of a specific measurement.
 
-## Sorter publication and technical paper
+The [sorter technical report](research/dual-mode-sorter/README.md), by Mitchell D.
+McPhetridge, is available as Markdown, text and PDF. Its v1.1 editorial revision
+retains the measurement and validation limitations. Original papers, source
+corpora, questions, expected results and past failed runs remain preserved.
 
-The [dual-mode sorter paper](research/dual-mode-sorter/README.md), by Mitchell D. McPhetridge, is available in Markdown, text and PDF. It records frozen software evidence (1184-test refined runtime,52 public controls) and explicitly unmeasured historical accuracy. [Native export evidence](../evaluation/preprocessing-sorter/2026-11-17-native-export/RESULTS.md) proves compatibility with the unchanged pre-sorter reader. These are retained measurements, separate from exact-head publication/deployment checks.
+## Performance and inspection
+
+Bounded immutable parsing caches reuse source content, not serving-policy decisions.
+Current source hashes, revisions and restrictions are rechecked before acceptance.
+The solo replay reports worker CPU changes separately from answer coverage and
+identical logical source-byte budgets. Tiny sorter fixture timings are not a
+large-collection scaling result.
+
+Readable question-part reports retain checked portions, missing obligations and
+original citations. Host-only local storage receipts check bounded artifact bytes
+under the trusted native host; they do not prove delivery, human reading or durable
+storage. [Solo workflow](SOLO_RESEARCH_WORKFLOW.md) · [Scoped work API](SPECIALIST_CONTINUITY_API.md).
+
+## What is still unproven
+
+Independent historical relationship precision/recall, broad original-record
+answerability, general event/pronoun identity, arbitrary causal chains, human
+research usability, physical-device model reliability and shared-service readiness
+remain unestablished. No 9/10 rating,22/22 complete-answer claim or proposed
+80%/95%/75%/95% target attainment is warranted by the retained evidence.
+
+A coherent false source can still be coherent inside the ledger. The distinction
+between source assertions and outside-world truth remains visible.
+[Readiness](PRODUCTION_READINESS.md) · [Threat model](PRODUCTION_THREAT_MODEL.md)
+· [Closed-ledger limits](CLOSED_LEDGER_BOUNDARIES.md).

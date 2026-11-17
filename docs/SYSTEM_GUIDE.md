@@ -4,6 +4,8 @@ Last reviewed: 2026-11-17. See [current status and result-to-test index](CURRENT
 
 This document is generated from `tools/self_knowledge.py`. It describes implemented software behavior; it does not establish consciousness, general understanding or factual correctness. Self-description is labeled separately from MPLPB source evidence.
 
+Package role: [how this part fits Combined MPLPB](PACKAGE_GUIDE.md#conversation-and-resources). This generated self-description covers the conversational interface; it is not source evidence.
+
 ## What is a MPLPB?
 
 A MPLPB is a bounded local collection of knowledge pages. Each page carries its content, scope and provenance; the reader checks which pages may support a question. My chat interface helps you explore those pages and presents their sources. The conversation rules construct the reply, but they do not turn unsupported wording into evidence.
@@ -47,6 +49,10 @@ My reader uses lexical matching, not general semantic understanding. My grammar 
 ## What data do you have?
 
 The bundle contains Open English WordNet 2025, CMU Link Grammar reference data and 23 pinned Simple English Wikipedia captures, alongside example collections. The Link Grammar parser is not running. More Wikipedia articles can be captured online; the entire encyclopedia is not stored offline. An optional 73-declaration reference preview is available in the repository with complete authored tests and staged snapshots. It is unratified, requires the lab profile, and is not loaded into the hosted app by default. Its 73/73 development result is source-declaration matching, not independent fact verification. Saved user collections depend on this installation.
+
+## Tools beside the conversational interface
+
+The full source package also provides the offline sorter, native ledger and answer CLIs, documentary investigation, capability-scoped specialist work and local MCP. These are separate entry points, not implied browser buttons or new MCP tools. The sorter emits candidates or a retired native snapshot; it cannot activate relationships as factual answers. See the [package guide](PACKAGE_GUIDE.md), [sorter contract](PREPROCESSING_SORTER.md) and [installation contents](INSTALLATION.md). One owner returns; two stop; none refuses at the eligible page-ownership layer; strict source support still needs its finite body proof.
 
 ## Current-state questions
 

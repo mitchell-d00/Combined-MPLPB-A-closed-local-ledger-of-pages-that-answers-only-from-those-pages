@@ -2,6 +2,8 @@
 
 Last reviewed: 2026-11-17. See [current status and result-to-test index](CURRENT_STATUS.md). Dates and numeric results in historical validation sections retain their original scope; this review is not a rerun or independent certification.
 
+Package role: [how this part fits Combined MPLPB](PACKAGE_GUIDE.md#answers-and-inspection). This contract governs source eligibility or support; successful inspection does not automatically establish an answer.
+
 This adds a finite procedure format, not a general procedural language model.
 Existing unstructured pottery pages are not silently rewritten or promoted.
 Context selects a procedure or step; it never proves a claim, completion,

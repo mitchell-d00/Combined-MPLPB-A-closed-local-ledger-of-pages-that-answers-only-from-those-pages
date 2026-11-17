@@ -1,6 +1,8 @@
 # Documentary scope and original-record experiment
 
-Last reviewed: 2026-11-16.
+Last reviewed: 2026-11-17.
+
+Package role: [how this part fits Combined MPLPB](PACKAGE_GUIDE.md#documentary-research). This guide covers documentary inspection; source assertions, candidate relations and historical truth remain distinct.
 
 The v6 prose interpreter preserves shared conditional/negative scope across coordinated predicates, records literal reporting and request complements, and exposes explicit passive by-phrases as role candidates. A by-phrase does not authenticate or resolve the named person. Calendar deadlines are excluded. Date cues after publication, receipt and revision predicates retain those candidate roles; no date becomes normalized event time. Copulas in earlier clauses no longer automatically erase an active actor.
 

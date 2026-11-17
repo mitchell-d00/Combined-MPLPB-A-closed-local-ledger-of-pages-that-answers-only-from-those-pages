@@ -1,82 +1,91 @@
-> **Dated evaluation:** The [2026-10-21 retest](SYSTEM_AUDIT_2026-10-21.md) records its tested revisions. Current supported-answer, candidate, gated-page, and source-bundle interfaces are compared in [PAGE_RETRIEVAL.md](PAGE_RETRIEVAL.md); the October 27 reader repair is recorded separately in [root FIXLOG](../FIXLOG.md).
+# Developer quickstart
 
-# Architecture and five-minute demonstration
+Last reviewed: 2026-11-17.
 
-Last reviewed: 2026-11-17. See [current status and result-to-test index](CURRENT_STATUS.md). Dates and numeric results in historical validation sections retain their original scope; this review is not a rerun or independent certification.
+[Package map](PACKAGE_GUIDE.md#package-map) · [Installation](INSTALLATION.md)
+· [Current evidence](CURRENT_STATUS.md)
 
-MPLPB is a conversational interface to inspectable local pages. Conversation
-planning and evidence ownership are separate. Ownership remains lexical, not a
-semantic proof that a page answers a question.
+Start with the ownership rule: **one owner returns; two stop; none refuses**.
+That selects eligible page material. Strict source support additionally requires
+body evidence under existing finite proof rules. Keep candidates, gated page
+retrieval, source bundles and model-assisted output separate from supported answers.
 
-```mermaid
-flowchart TD
-  UI["Buttons or typed message"] --> Frame["Shared interpretation"]
-  Frame --> Plan["Route and reply plan"]
-  Plan --> Chat["Selected chat skill"]
-  Plan --> Gate["Source eligibility and ownership"]
-  Chat <--> Memory["User context, separately attributed"]
-  Gate --> Ledger["Sealed local pages"]
-  Ledger --> Support["Statement support or abstention"]
-  Chat --> Reply["Reply with authority and source details"]
-  Support --> Reply
+## Read the implementation in this order
+
+| Area | Source to inspect | Contract to preserve |
+|---|---|---|
+| Native pages/history | `mplpb_combined/record.py`, `ledger.py` | Hashes, revisions, current status, ancestry and source authority |
+| Ownership and eligibility | `reader.py`, `provenance_gate.py`, `retrieval.py` | No replacement owner after policy rejection; ambiguity/exclusions remain visible |
+| Strict answer | `mplpb_answers/pipeline.py`, `support.py`, evidence modules | Complete question, checked source wording, conflicts, source-state recheck and explicit refusal |
+| Documentary support | `documentary.py`, `documentary_verify.py`, `source_units.py` | Independent finite checker; exact comparison/source assertions are not historical truth |
+| Raw-text preprocessing | `mplpb_work/sorter.py` | Identical node arrays across modes; review edges remain non-authoritative; native snapshot stays retired |
+| Research mapping | `mplpb_work/source_mapping.py`, `prose_relations.py`, `investigation.py` | Exact evidence paths, incomplete context and missing intermediates never bridged by similarity |
+| Work continuity | `mplpb_work/store.py`, `api.py` | Capabilities, visibility, revision pins, host dispatch and receipt boundaries |
+| Application | `tools/ledger_ui.py`, conversation/context modules, root `index.html` | Same core decisions; separate conversational/source authority and private saves |
+| Browser/agents | `browser/`, `tools/mplpb_mcp.py`, `tools/mplpb_agent_bridge.mjs` | Fixed host policy and explicit transport/storage boundaries |
+
+The package guide links the complete set of feature contracts. New documentation
+should explain which layer it describes instead of introducing an alternative
+answer engine or claiming a new interface merely because a module exists.
+
+## Start without a model or web acquisition
+
+From a source checkout:
+
+```bash
+python -m mplpb_answers --help
+python -m mplpb_work.sorter --help
+python -m mplpb_answers ask examples/chat-logic \
+  'What is Dungeons and Dragons?' --profile internal
+python3 launch.py
 ```
 
-`conversation_continuity` resolves supported references; `conversation_router`
-selects top-level intentions; `skill_planner` selects internal skills before
-rendering. `chat_environment` plans retrieval. The core reader applies eligibility
-and lexical ownership. Unsuccessful attempts do not commit partial conversation
-state. The diagram omits optional network ingestion: a crawler/Wikipedia capture
-creates local pages before those pages enter the evidence path.
+The example corpus is explicitly synthetic. App startup is optional for native
+commands. Use `python` instead of `python3` where appropriate. The wheel supplies
+the three Python packages and CLIs, not this complete App/examples/tools checkout.
 
-## Preparation (outside the five minutes)
+## Follow the raw-material conversion
 
-Use Python 3.8+ in a fresh checkout and install with `python -m pip install -e .`.
-No API key or network crawler is needed for the terminal demo. Open this document,
-`docs/CONVERSATION_ARCHITECTURE.md`, and the ownership results. The browser demo is
-optional; source downloads can vary, so use the terminal version for reproducibility.
-
-## Timed walkthrough
-
-**0:00–1:00 — Boundaries.** Walk through the diagram. Explain that user-declared
-memory is not ledger evidence and a hash is not a truth certificate.
-
-**1:00–2:00 — Conversation continuity.** Run:
-
-```sh
-python -m tools.demo_architecture
+```bash
+python -m mplpb_work.sorter sort tests/fixtures/sorter \
+  --mode not-compared --output /tmp/mplpb-dev-observations-new.json
+python -m mplpb_work.sorter sort tests/fixtures/sorter \
+  --mode compare --output /tmp/mplpb-dev-comparison-new.json
+python -m mplpb_work.sorter peruse /tmp/mplpb-dev-comparison-new.json \
+  --sources tests/fixtures/sorter
 ```
 
-The script prints an introduction, compound declaration/question, correction,
-recall, and literal repetition after an emotional preference. Point to the reply
-plan, mode and source count. It uses a temporary store, never a developer's saved chat.
+Use fresh output paths outside the inputs. Inspect source hashes, exact byte and
+character offsets, identical nodes, observation edges and proposed review edges.
+Then follow [native snapshot validation and withholding](PREPROCESSING_SORTER.md)
+without reactivating the graph. These fixtures establish software behavior,
+not authentic historical accuracy.
 
-**2:00–3:00 — Inspection.** Open `tools/skill_planner.py`. Show pure candidate
-recognition, selection, then isolated execution. Explain that authored priorities
-are not probabilities and unknown language can still fail.
+## Trace an answer separately from inspection
 
-**3:00–4:00 — Deliberately break ownership.** Run:
+Follow `answer_query` into the initial gate, finite proof path and final source-state
+recheck. Observe how an unsupported or changed source clears accepted claims.
+Compare the contract with `gate`, `candidates` and gated `retrieve()` rather than
+assuming their return kinds are equivalent. Source assertions about instructions,
+causes or dates keep their qualifications; code success is not external execution.
 
-```sh
-python -m tools.evaluate_ownership --out NEW_OWNERSHIP_RESULTS.json
-```
+For the application, inspect conversation planning before source selection.
+Session memory and user corrections remain context. Library selection does not
+merge books; procedure inspection does not establish completed work. The optional
+helper can propose content, but source writes still use review and existing APIs.
 
-Show the missing-attribute or wrong-entity row in the fresh `NEW_OWNERSHIP_RESULTS.json`. Compare it with the preserved historical `evaluation/ownership/results.json`; do not overwrite that report.
-An eligible, intact page can own a query lexically while lacking its answer. Compare the old lexical arm with `supported_reader`: zero wrong returns on this
-set. The historical v2 expanded 600-case report recorded 150/150 answerable cases,
-with no unsupported returns. These cases informed development; this is not a held-out score.
+## Documentation and contribution work
 
-**4:00–5:00 — Contribution contract.** Show `PRODUCTION_THREAT_MODEL.md` and the
-RAG comparison protocol. Ask the newcomer to propose an unfamiliar conversation
-and an unsupported-owner example before reading existing patterns. Add a frozen
-case, review the expected evidence, then change code. Passing tests protect known
-behavior; they do not establish unrestricted natural conversation.
+The [documentation index](README.md) organizes current guides by package role.
+`docs/documentation.json` classifies current versus historical/vendor material.
+Do not rewrite frozen corpora, expected answers, original papers or prior results
+when updating operational guidance. `docs/RESULTS_AND_TESTS.md` indexes measurements
+without certifying them anew.
 
-
-For a direct gated terminal query, use `mplpb-combined ask CORPUS
-"What is the kettle color?"` after installation or `python -m mplpb_answers ask`
-from a source checkout. The legacy `python -m mplpb_combined ask` and explicit
-`mplpb-combined candidates` are **lexical candidate inspection only**, not supported
-answers. Treat `candidate_only` and a successful API invocation as insufficient
-for a source-backed factual claim. See `RELEASE_EVIDENCE.md` for the release gates.
-
-> Update 2026-11-16: The [public 52-case evidence suite](PUBLIC_EVIDENCE_TESTS.md) and [bounded expert relation path](HISTORICAL_EXPERT_PATH.md) document the current update. Prior dated measurements and preserved historical sources retain their original scope; this note does not rerun or revise them.
+`docs/SYSTEM_GUIDE.md` is generated by `tools/self_knowledge.py`; update the generator
+before regenerating it. Keep root/API/installation/discovery guidance consistent.
+Follow [AGENTS.md](../AGENTS.md) for the current handoff and source inventory.
+Documentation/link audits and full software/browser/release checks have different
+purposes. The [ZIP-first procedure](ZIP_FIRST_RELEASE_TESTING.md) and
+[release evidence guide](RELEASE_EVIDENCE.md) govern any subsequent publication.
+A new capability or accuracy claim needs its own retained evidence.

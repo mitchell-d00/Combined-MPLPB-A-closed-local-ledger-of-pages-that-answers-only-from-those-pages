@@ -2,6 +2,8 @@
 
 Last reviewed: 2026-11-17.
 
+Package role: [how this part fits Combined MPLPB](PACKAGE_GUIDE.md#sort-and-import). Raw-text sorting creates reversible candidates or retired snapshots, never automatic answer evidence.
+
 The sorter supplies inspectable textual observations and review proposals. It does
 not complete historical reconstruction, authenticate testimony, determine historical
 truth, or create supported answers. It runs offline with Python's standard library

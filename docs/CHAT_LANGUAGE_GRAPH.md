@@ -2,6 +2,8 @@
 
 Last reviewed: 2026-11-17. See [current status and result-to-test index](CURRENT_STATUS.md). Dates and numeric results in historical validation sections retain their original scope; this review is not a rerun or independent certification.
 
+Package role: [how this part fits Combined MPLPB](PACKAGE_GUIDE.md#conversation-and-resources). This guide covers bounded conversation or reference routing; context and source authority remain distinct.
+
 The offline resource `resources/chat_language_graph.json` connects phrase forms to subject aliases, then to intent nodes and existing read-only handlers. `tools/chat_language_graph.py` traverses these relations in the shared continuity pass before answer routing. Both buttons and typed requests use that pass, including a fresh session with zero collections loaded.
 
 The first graph covers collection inspection, topic listing, system identity, search help, memory help and language help. For example, “Can you tell me about loaded MPLPB?” traverses `loaded mplpb -> loaded_collections -> inspect_loaded -> show loaded MPLPB`. Results come from current application state, not a stored list. Matching is bounded to complete supported phrases after polite-prefix normalization. It does not rewrite a literal repetition, negated command, arbitrary topic or partially recognized compound instruction. An existing identity clarification branch retains priority.

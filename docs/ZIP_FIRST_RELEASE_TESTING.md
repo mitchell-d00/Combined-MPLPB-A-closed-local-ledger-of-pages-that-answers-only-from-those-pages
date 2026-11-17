@@ -2,6 +2,8 @@
 
 Last reviewed: 2026-11-17. See [current status and result-to-test index](CURRENT_STATUS.md). Dates and numeric results in historical validation sections retain their original scope; this review is not a rerun or independent certification.
 
+Package role: [how this part fits Combined MPLPB](PACKAGE_GUIDE.md#evidence-and-limits). This guide covers evidence or operation limits; dated results keep the revision and scope they measured.
+
 This is the release order for Combined MPLPB. **Test the artifact you intend to ship**, not merely the Git checkout that created it. GitHub Actions is the execution environment; the ZIP and report are downloadable artifacts from its completed run.
 
 ## Six gates, in order

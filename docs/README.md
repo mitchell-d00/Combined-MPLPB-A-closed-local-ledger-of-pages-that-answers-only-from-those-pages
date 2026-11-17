@@ -1,131 +1,172 @@
 # Documentation index
 
-Last reviewed: 2026-11-17. See [current status and result-to-test index](CURRENT_STATUS.md). Dates and numeric results in historical validation sections retain their original scope; this review is not a rerun or independent certification.
+Last reviewed: 2026-11-17.
 
-[Repository overview](../README.md) · [Repository map](../CONTENTS) · [Live application](https://mitchell-d00.github.io/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/)
+[Repository overview](../README.md) · [Package guide](PACKAGE_GUIDE.md) · [Install](INSTALLATION.md) · [Current evidence](CURRENT_STATUS.md)
+· [Live application](https://mitchell-d00.github.io/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/)
 
-Current entry points reviewed on 2026-11-17. The November8 baseline remains a dated historical snapshot. See [current capabilities, checks and product gaps](CURRENT_STATUS.md) and the [result-to-test index](RESULTS_AND_TESTS.md). The [October 31 status](CURRENT_STATUS_2026-10-31.md) is historical. The [October 29 review](DOCUMENTATION_AUDIT_2026-10-29.md) remains historical. Dated audits, papers, and experiment reports describe the revisions they measured; their counts and green workflows do not certify another revision.
+**One owner returns; two stop; none refuses.** Eligible ownership selects page
+material. Strict source support still requires body evidence under finite proof
+rules. Candidates, gated retrieval, source bundles and model-assisted output
+retain separate authority labels. Combined MPLPB is a technical case study, still
+being tested, not proven world-first.
 
-The [research status and completion-fix release note](research/mplpb-originality/RELEASE_NOTE.md)
-presents the work as an attributable engineering contribution and technical case
-study, still being tested. For MPLPB, the particular combination may be distinctive,
-but it is unproven as world-first. The [originality reassessment](research/mplpb-originality/README.md)
-separates that open priority question from established logical principles.
+## Choose a starting point
 
-## Start and operate
-
-| Task | Guide |
+| Your task | Start here |
 |---|---|
-| Install source, browser ZIP, or CLI wheel | [Installation](INSTALLATION.md) |
-| Use the interface and understand storage modes | [Browser UI](BROWSER_UI.md) |
-| Build standalone HTML / runtime requirements | [Browser runtime](BROWSER_RUNTIME.md) |
-| Keep Pages UI, JavaScript API, documentation and packaging aligned | [Automated infrastructure synchronization](REPOSITORY_INFRASTRUCTURE.md) |
-| Generate sealed, versioned unratified reference ledgers | [Reference corpus preview](../reference_corpus/README.md) |
-| Publish the generated runtime | [GitHub Pages](GITHUB_PAGES.md) |
-| Preserve captures across compatible updates | [Capture compatibility](BROWSER_CAPTURE_COMPATIBILITY.md) |
-| Recover code without rewriting user saves | [Rollback](ROLLBACK.md) |
-| Understand decision traces and helper settings | [Monster helper](MONSTER_HELPER.md) |
+| Understand the package and each part | [Package guide](PACKAGE_GUIDE.md) / [repository map](../CONTENTS) |
+| Install browser, desktop, native CLI or sorter | [Installation](INSTALLATION.md) |
+| Sort unformatted text without promoting claims | [Offline sorter](PREPROCESSING_SORTER.md) |
+| Distinguish supported answers from returned pages | [Result contracts](PAGE_RETRIEVAL.md) / [pipeline](GENERAL_ANSWER_PIPELINE.md) |
+| Inspect documentary relations or checked question parts | [Reconstruction](HISTORICAL_RECONSTRUCTION_ENGINE.md) / [solo workflow](SOLO_RESEARCH_WORKFLOW.md) |
+| Import and manage original sources | [Collections](EXPLORATION_COLLECTIONS.md) / [source policy](USER_BUILT_COLLECTIONS.md) |
+| Connect a script or local agent | [JavaScript API](../JAVASCRIPT-API.md) / [MCP](MCP_AGENT.md) |
+| Preserve specialist work and host observations | [Work API](SPECIALIST_CONTINUITY_API.md) |
+| Check claims, limitations and experiment status | [Current evidence](CURRENT_STATUS.md) / [result-test index](RESULTS_AND_TESTS.md) |
 
-## Answers, retrieval, and integration
+## All current guides and coordination entry points
 
-| Contract | Guide |
+The following index covers every document classified as current, including
+research protocols and coordination notes. A current navigation entry is not a
+new validation of its dated experiments. Frozen protocols and preserved papers
+are not rewritten to fit current package language.
+
+### Package, installation and operation
+
+| Guide | Scope |
 |---|---|
-| Current source-only completion, bounded caches and local storage checks | [Solo research workflow](SOLO_RESEARCH_WORKFLOW.md) / [authority diagnostics](CLOSED_LEDGER_BOUNDARIES.md) |
-| General answer contract, local reader, diagnostics and release scope | [Pipeline guide](GENERAL_ANSWER_PIPELINE.md) / [2.1 release candidate](RELEASE_2_1_RC1.md) |
-| Supported answers, candidates, gated pages, separate bundles | [Page retrieval and answer authority](PAGE_RETRIEVAL.md) |
-| Deterministic source-evidence graph, synthetic users and historical score | [Evidence graph](DETERMINISTIC_EVIDENCE_GRAPH.md) |
-| Fixed-seed deduplicated cross-domain evidence smoke | [Diverse question benchmark](../evaluation/relation-graph/DIVERSE_SMOKE.md) |
-| Conditional and separation evidence: original proposal, with historical 6/59 measurement | [Operational evidence](OPERATIONAL_EVIDENCE.md) |
-| JavaScript methods, options and error handling | [JavaScript API](../JAVASCRIPT-API.md) |
-| Discovery, public snapshot and verbatim relay | [Agent middleware](AGENT_MIDDLEWARE.md) / [agent notes](../llms.txt) |
-| Specialist tasks, claims, seat capabilities and handoffs | [Continuity model](SPECIALIST_CONTINUITY.md) / [API and operation](SPECIALIST_CONTINUITY_API.md) |
-| Separate lexical source records and provenance checks | [Provenance gate](PROVENANCE_GATE.md) |
-| Delivery profiles and clarification | [Delivery and clarification](DELIVERY_AND_CLARIFICATION.md) |
-| Successors, withdrawal, restoration and stale derivations | [Supersession policy](SUPERSESSION_POLICY.md) |
-| Constrained procedures, draft tags, off-the-record boundaries | [Procedural constraints](PROCEDURAL_CONSTRAINTS.md) |
-| Building collections and bounded policy answers | [User-built collections](USER_BUILT_COLLECTIONS.md) |
-| Independent collections, capture/import and clearing | [Exploration collections](EXPLORATION_COLLECTIONS.md) |
-| Optional hosted general-web crawling | [Crawler setup](../crawler/README.md) |
+| [Repository update and handoff instructions](../AGENTS.md) | Repository maintenance instructions |
+| [CONTENTS](../CONTENTS) | Repository paths and component map |
+| [Repository handoff](../HANDOFF.md) | Development coordination and source inventory |
+| [Combined MPLPB](../README.md) | Package overview and authority boundaries |
+| [Standalone browser runtime](BROWSER_RUNTIME.md) | Browser delivery runs the Python engine locally; native CLI tooling is a separate route. |
+| [MPLPB browser front end](BROWSER_UI.md) | The interface connects the ledger, reader, collections and conversation without merging their authority. |
+| [Developer quickstart](DEVELOPER_QUICKSTART.md) | Source architecture and entry points |
+| [Installation and release packages](INSTALLATION.md) | Distribution contents, setup and optional dependencies |
+| [Monster helper and Reason Mode](MONSTER_HELPER.md) | Delivery and packaging |
+| [Combined MPLPB package guide](PACKAGE_GUIDE.md) | All package components, workflows and boundaries |
 
-## Conversation and references
+### Sorting, documentary research and original records
 
-| Topic | Guide |
+| Guide | Scope |
 |---|---|
-| Generated description of the software's capabilities | [System guide](SYSTEM_GUIDE.md) — generated from `tools/self_knowledge.py`; edit the generator before regenerating |
-| Chat commands, relation rules and saved state | [Chat workflow](CHAT_WORKFLOW.md) |
-| Modes, grounded topics, discourse and construction | [Grounded chat](GROUNDED_CHAT.md) |
-| Tutor, topic offers and clickable links | [Guided chat](GUIDED_CHAT.md) |
-| User declarations, corrections, recall and adaptation | [Context index](CONTEXT_INDEX.md) |
-| Request classes and finite conversation grammar | [Natural conversation](NATURAL_CONVERSATION.md) / [structured requests](STRUCTURED_CHAT.md) |
-| Pre-execution planning, skills and evidence boundaries | [Conversation architecture](CONVERSATION_ARCHITECTURE.md) |
-| Authored phrase graph | [Chat language graph](CHAT_LANGUAGE_GRAPH.md) |
-| Deterministic brainstorming/replay | [Deterministic generation](DETERMINISTIC_GENERATION.md) |
-| Explicit shelves/books and scoped queries | [Library routing](LIBRARY_ROUTING.md) |
-| Creator/self-reference corpus history | [System and creator reference](SYSTEM_SELF.md) |
-| Separate research-note attribution | [General chat references](GENERAL_CHAT_REFERENCES.md) |
-| Offline resources, exact revisions and licenses | [Resources](../resources/README.md) |
+| [Checked documentary assertions and question composition](DOCUMENTARY_ASSERTIONS.md) | Documentary research |
+| [Documentary scope and original-record experiment](DOCUMENTARY_SCOPE.md) | Documentary research |
+| [Historical expert path and bounded relation crawling](HISTORICAL_EXPERT_PATH.md) | Documentary research |
+| [Historical reconstruction engine](HISTORICAL_RECONSTRUCTION_ENGINE.md) | Documentary reports distinguish checked portions, proposed relations and unresolved obligations. |
+| [Historical review and synthetic truth entry rules](HISTORICAL_TRUTH_RULES.md) | Documentary research |
+| [Original-record evaluation and review workflow](ORIGINAL_RECORD_STUDY.md) | Documentary research |
+| [Offline candidate preprocessing sorter](PREPROCESSING_SORTER.md) | Raw-text sorting creates reversible candidates or retired snapshots, never automatic answer evidence. |
+| [Prose reconstruction follow-up](PROSE_RECONSTRUCTION_FOLLOWUP.md) | Documentary research |
+| [Solo research workflow and bounded local checks](SOLO_RESEARCH_WORKFLOW.md) | Documentary research |
+| [Source conversion and reversible prose mapping](SOURCE_MAPPING_REPAIR.md) | Documentary research |
+| [Unprepared original-record reconstruction challenge](UNPREPARED_ORIGINAL_CHALLENGE.md) | Documentary research |
+| [Dual-mode sorter technical paper](research/dual-mode-sorter/README.md) | The sorter paper is a dated technical report; current package usage and authority boundaries are documented separately. |
+| [Historical expert path: source-declared relationship replay](../evaluation/historical-experts/README.md) | Research/evaluation record; use its named revision and protocol scope |
 
-Feature guides can contain dated validation sections. Those sections report their original runs; they are not fresh measurements for the latest code. Historical walkthroughs within them remain identifiable as such.
+### Ledger, answer contracts and restrictions
 
-## Develop, evaluate, and release
-
-- [Developer quickstart](DEVELOPER_QUICKSTART.md): architecture and terminal demonstration.
-- [Browser testing runbook](BROWSER_TESTING_FOR_AGENTS.md): real hosted baseline versus candidate tests.
-- [ZIP-first release testing](ZIP_FIRST_RELEASE_TESTING.md): package/test the exact candidate before merge.
-- [Release evidence and settings](RELEASE_EVIDENCE.md): artifact identity, required checks, and dated ruleset observations.
-- [Production threat model](PRODUCTION_THREAT_MODEL.md): trust boundaries and unresolved production concerns.
-- [Evaluation protocol](../evaluation/README.md), [chat evaluation](CHAT_EVALUATION.md), and [independent conversation trial](INDEPENDENT_CONVERSATION_TRIAL.md): distinguish development fixtures from independent evidence.
-- [Synthetic researcher pilot](../evaluation/researcher-pilot/README.md): six full native research journeys, literal-note recovery repair, candidate Chromium journey, and explicit product-readiness gaps.
-
-## Dated reports and historical documents
-
-| Material | Status and route |
+| Guide | Scope |
 |---|---|
-| Earlier implementation/status review | [October 31 status](CURRENT_STATUS_2026-10-31.md): historical snapshot before the November 2 language and procedure repairs. |
-| Latest fix chronology | [Root FIXLOG](../FIXLOG.md), including the November 2 language, procedure, evidence-publication and documentation updates. |
-| Full-system audit | [2026-10-21 audit](SYSTEM_AUDIT_2026-10-21.md); measured its named revisions before the later retrieval repair. |
-| Answer reliability development review | [2026-10-13 review](ANSWER_RELIABILITY.md), with dated follow-ups. |
-| October 19 repairs | [Integrity](INTEGRITY_AUDIT_FIX_2026-10-19.md), [literal coverage](LITERAL_COVERAGE_FIX_2026-10-19.md), and [new collection chat](NEW_MPLPB_CHAT_FIX_2026-10-19.md). |
-| Earlier feature/recovery reports | [Supersession fix](SUPERSESSION_FIX.md), [wiki capture repair](WIKI_CAPTURE_FIX.md), [deterministic mind delivery](DETERMINISTIC_MIND.md), [publication history](PUBLISH_AND_ROLLBACK.md), and [October 19 recovery checkpoint](RELEASE_MONSTER_ROLLBACK.md). Their commit IDs and counts are historical, not universal rollback targets. |
-| New dual-mode sorter technical report | [Paper and build notes](research/dual-mode-sorter/README.md), [Markdown](research/dual-mode-sorter/dual-mode-sorter.md), [text](research/dual-mode-sorter/dual-mode-sorter.txt), [PDF](research/dual-mode-sorter/dual-mode-sorter.pdf). Mitchell D. McPhetridge; bounded candidate preprocessing, not historical accuracy validation. |
-| Original Combined MPLPB v3 paper | [Markdown](Combined_MPLPB.md), [text](Combined_MPLPB.txt), [PDF](Combined_MPLPB.pdf), and [paper-era FIXLOG](FIXLOG.md). Preserved October 7 specification/results, not current application instructions. |
-| Supplied papers/manuscripts | [Papers and byte manifest](../papers/README.md), [upload review](UPLOAD_REVIEW.md), and [background sources](sources/README.md). Original attribution and claims remain intact. |
-| Earlier docs and code | [Past documentation](past-documentation/README.md), [superseded papers](superseded/), [patch experiment](patch-canned/README.md), and [five retained implementations](../parts/README.md). |
+| [Closed-ledger diagnostics and operational observations](CLOSED_LEDGER_BOUNDARIES.md) | Source integrity, finite statement support and outside-world truth are distinct. |
+| [Sealed delivery and human clarification](DELIVERY_AND_CLARIFICATION.md) | Answers and inspection |
+| [General answer pipeline — 2.1.0rc1](GENERAL_ANSWER_PIPELINE.md) | Strict proof, candidate inspection and model-only interpretation retain separate support states. |
+| [Page retrieval and answer authority](PAGE_RETRIEVAL.md) | One owner returns a page; competing owners stop; no owner refuses. Page retrieval is not an answer proof. |
+| [Procedural constraints and free-chat comparison](PROCEDURAL_CONSTRAINTS.md) | Answers and inspection |
+| [Provenance gate: separate local source bundles](PROVENANCE_GATE.md) | Eligibility and ownership precede strict source-body proof; passing the gate is not historical truth. |
+| [Scoped evidence extensions](SCOPED_EVIDENCE_EXTENSIONS.md) | Exact routing and time-scoped corrections retain competing evidence and explicit serving policy. |
 
-New code or documentation must not silently update frozen results, rewrite source seals/capture pins, or turn historical observations into current certification. Generated standalone HTML is a separate build artifact; check its footer and embedded bytes when verifying deployment.
+### Conversation, context and reference material
 
-Source-language contradiction repair and per-case audit (2026-11-02): [language audit](../evaluation/language-audit/README.md). Finite predicate polarity and storage paraphrases; synthetic validation is not independent human accuracy.
+| Guide | Scope |
+|---|---|
+| [Synthetic conversational evaluation](CHAT_EVALUATION.md) | Conversation and resources |
+| [Base chat language graph](CHAT_LANGUAGE_GRAPH.md) | Conversation and resources |
+| [Topic search and deterministic chat](CHAT_WORKFLOW.md) | Conversation uses its own context rules while source claims retain ledger checks. |
+| [Deterministic conversation context](CONTEXT_INDEX.md) | Session memory and user corrections remain context, not automatically source evidence. |
+| [Conversation interpretation and planning](CONVERSATION_ARCHITECTURE.md) | Conversation and resources |
+| [Deterministic generation within MPLPB boundaries](DETERMINISTIC_GENERATION.md) | Conversation and resources |
+| [General chat research notes](GENERAL_CHAT_REFERENCES.md) | Conversation and resources |
+| [Deterministic conversation and grounded answers](GROUNDED_CHAT.md) | Conversation and resources |
+| [Guided conversational interface](GUIDED_CHAT.md) | Conversation and resources |
+| [Independent conversation trial](INDEPENDENT_CONVERSATION_TRIAL.md) | Conversation and resources |
+| [Explicit library routing](LIBRARY_ROUTING.md) | Conversation and resources |
+| [Natural conversation within deterministic boundaries](NATURAL_CONVERSATION.md) | Conversation and resources |
+| [Structured local chat requests](STRUCTURED_CHAT.md) | Conversation and resources |
+| [Current system and self-knowledge](SYSTEM_GUIDE.md) | Generated self-description; not source evidence |
+| [How the 73/73 result was obtained](../evaluation/reference-corpus-reproduction/README.md) | Research/evaluation record; use its named revision and protocol scope |
+| [MPLPB Reference Corpus — machine-derived research preview](../reference_corpus/README.md) | This lab-only unratified reference preview is separate from the default hosted application. |
 
-Latest procedure recovery and repository-owned handoff: [Procedure clarification, recovery and ZIP handoff](../evaluation/procedure-recovery/README.md).
+### Work, sources, connections and optional components
 
-Permanent reference-test evidence: [73/73 evidence and reproduction](../evaluation/reference-corpus-reproduction/README.md).
+| Guide | Scope |
+|---|---|
+| [MPLPB local JavaScript API · v1.0.0](../JAVASCRIPT-API.md) | The page-local API preserves strict answers, candidates, gated retrieval and assisted interpretations as distinct outcomes. |
+| [Optional browser model assets](../assets/ai/README.md) | These optional model assets are separate from the standard-library core and offline sorter. |
+| [General web crawler setup](../crawler/README.md) | Web acquisition is optional; raw sorting and in-ledger investigation do not deploy or invoke this Worker. |
+| [Combined MPLPB: local MCP and browser agent interfaces](AGENT_MIDDLEWARE.md) | Browser transport and discovery keep source decisions and private stores separate. |
+| [Browser capture compatibility](BROWSER_CAPTURE_COMPATIBILITY.md) | Capture recovery depends on retained source pins and the browser storage mode. |
+| [Browser exploration collections](EXPLORATION_COLLECTIONS.md) | Collection capture/import precedes eligibility and does not authenticate testimony. |
+| [Public builder and chat helper with no AI server bill](FREE_PUBLIC_HELPER.md) | The optional browser model is separate from the deterministic core and cannot grant source support. |
+| [Local MCP connection for AI clients](MCP_AGENT.md) | Native stdio tools expose authorized reader/chat operations, not a source-writing or shared-browser service. |
+| [Specialist continuity: durable work and guarded handoffs](SPECIALIST_CONTINUITY.md) | Connections and acquisition |
+| [Specialist work API and operation](SPECIALIST_CONTINUITY_API.md) | Work continuity and execution receipts preserve observations without creating source authority. |
+| [User-built collections: growth, policy answers and limits](USER_BUILT_COLLECTIONS.md) | Adding or revising sources is distinct from changing the engine or proving historical truth. |
+| [AI chat frame and generation recovery](../evaluation/free-browser-helper/CHAT_FRAME.md) | Research/evaluation record; use its named revision and protocol scope |
+| [Free public browser helper — development evidence](../evaluation/free-browser-helper/README.md) | Research/evaluation record; use its named revision and protocol scope |
+| [Local MCP agent integration evidence](../evaluation/mcp-agent/README.md) | Research/evaluation record; use its named revision and protocol scope |
+| [MIT-only browser model selection](../evaluation/model-selection/README.md) | Research/evaluation record; use its named revision and protocol scope |
+| [MPLPB browser engine: agent entry point](../llms.txt) | Browser/native agent discovery notes |
 
-Local AI integration: [MCP tools and setup](MCP_AGENT.md),
-[feature completeness and production readiness](PRODUCTION_READINESS.md), and
-[authored MCP evidence](../evaluation/mcp-agent/README.md). Earlier guides keep
-their actual review dates; the November 2 status snapshot is historical.
+### Evidence, release, readiness and preserved research
 
-Public website: [free builder/chat helper](FREE_PUBLIC_HELPER.md), [authored browser evidence](../evaluation/free-browser-helper/README.md), and [owner-work preparation](../training/owner-work/README.md).
+| Guide | Scope |
+|---|---|
+| [Fix Log](../FIXLOG.md) | Evidence and limits |
+| [Past documentation](../PAST_DOCUMENTATION.md) | Evidence and limits |
+| [Browser testing runbook for humans and AI agents](BROWSER_TESTING_FOR_AGENTS.md) | Evidence and limits |
+| [Current implementation and evidence status](CURRENT_STATUS.md) | Implemented capabilities versus retained/unmeasured evidence |
+| [Open MPLPB at a web address](GITHUB_PAGES.md) | Evidence and limits |
+| [Intended scope, completeness and production readiness](PRODUCTION_READINESS.md) | Local implemented behavior, shared-service readiness and independent semantic accuracy need separate evidence. |
+| [Production threat model](PRODUCTION_THREAT_MODEL.md) | Evidence and limits |
+| [Public evidence and relation tests](PUBLIC_EVIDENCE_TESTS.md) | Evidence and limits |
+| [Documentation index](README.md) | This guide index |
+| [Candidate release evidence and required repository settings](RELEASE_EVIDENCE.md) | Evidence and limits |
+| [Supporting-infrastructure synchronization gate](REPOSITORY_INFRASTRUCTURE.md) | Evidence and limits |
+| [Results and their tests](RESULTS_AND_TESTS.md) | Evidence and limits |
+| [Rollback and recovery](ROLLBACK.md) | Evidence and limits |
+| [ZIP-first release testing for humans and AI agents](ZIP_FIRST_RELEASE_TESTING.md) | Evidence and limits |
+| [Mechanism-level originality matrix](research/mplpb-originality/MATRIX.md) | Research/evaluation record; use its named revision and protocol scope |
+| [MPLPB originality and priority reassessment](research/mplpb-originality/README.md) | Research/evaluation record; use its named revision and protocol scope |
+| [Research and completion-integrity release note](research/mplpb-originality/RELEASE_NOTE.md) | Research/evaluation record; use its named revision and protocol scope |
+| [Search scope, references and limitations](research/mplpb-originality/SEARCH_AND_REFERENCES.md) | Research/evaluation record; use its named revision and protocol scope |
+| [Intellectual-development timeline](research/mplpb-originality/TIMELINE.md) | Research/evaluation record; use its named revision and protocol scope |
+| [Multi-domain evaluation](../evaluation/README.md) | Research/evaluation record; use its named revision and protocol scope |
+| [Documentation and evidence coverage audit](../evaluation/documentation-audit/README.md) | Research/evaluation record; use its named revision and protocol scope |
+| [Evidence matrix](../evaluation/no-unverified-promotion/MATRIX.md) | Research/evaluation record; use its named revision and protocol scope |
+| [Adversarial evaluation protocol](../evaluation/no-unverified-promotion/PROTOCOL.md) | Research/evaluation record; use its named revision and protocol scope |
+| [No-Unverified-Promotion: source audit and research finding](../evaluation/no-unverified-promotion/README.md) | Research/evaluation record; use its named revision and protocol scope |
+| [Formal candidate: claim-specific promotion obligations](../evaluation/no-unverified-promotion/SPECIFICATION.md) | Research/evaluation record; use its named revision and protocol scope |
+| [Owner-authorized candidate material](../training/owner-work/README.md) | Research/evaluation record; use its named revision and protocol scope |
 
-- [Historical expert path and bounded relation crawling](HISTORICAL_EXPERT_PATH.md).
+## Preserved papers, resources and earlier implementations
 
-> Update 2026-11-16: The [public 52-case evidence suite](PUBLIC_EVIDENCE_TESTS.md) and [bounded expert relation path](HISTORICAL_EXPERT_PATH.md) document the current update. Prior dated measurements and preserved historical sources retain their original scope; this note does not rerun or revise them.
+The sorter paper by Mitchell D. McPhetridge is available in
+[Markdown](research/dual-mode-sorter/dual-mode-sorter.md),
+[text](research/dual-mode-sorter/dual-mode-sorter.txt) and
+[PDF](research/dual-mode-sorter/dual-mode-sorter.pdf). Current commands are in the
+[sorter guide](PREPROCESSING_SORTER.md); the paper retains its dated measurement scope.
 
-The [original-record study workflow](ORIGINAL_RECORD_STUDY.md) prepares pinned public originals, separates sealed questions from gold expectations, captures system outputs and checks external review submissions. Protocol tests do not establish independent human validation.
+[Original Combined MPLPB paper](Combined_MPLPB.md), [supplied papers](../papers/README.md),
+[earlier implementations](../parts/README.md), [pinned resources](../resources/README.md)
+and [past documentation](../PAST_DOCUMENTATION.md) retain their historical bytes.
+The original October7 paper is not a current application manual.
 
-Update 2026-11-16: [Scoped evidence extensions](SCOPED_EVIDENCE_EXTENSIONS.md) add precise field/identity/correction diagnostics, exact source routing, distinct event nodes, declared correction windows, quoted relation inspection and non-authoritative receipt/effort metadata. Public focused tests are linked in the guide; historical reports retain their original scope.
+The [source infrastructure guide](REPOSITORY_INFRASTRUCTURE.md),
+[ZIP-first release procedure](ZIP_FIRST_RELEASE_TESTING.md) and
+[result/test registry](RESULTS_AND_TESTS.md) distinguish source checks, candidate
+packages and actual deployment evidence. No page title, guide review date or green
+workflow grants historical truth or independent semantic validation.
 
-
-## Unprepared-original conversion study — 2026-11-16
-
-See the [frozen original-record evaluation](UNPREPARED_ORIGINAL_CHALLENGE.md) and [source mapping repair](SOURCE_MAPPING_REPAIR.md). Authentic originals and randomized synthetic controls have separate frozen inputs and retained outputs. Reversible candidate mappings preserve native authority boundaries; exact quote fidelity does not verify historical meaning. Independent human historical assessment is NOT RUN. Earlier results retain their original scope.
-
-
-## Source-linked reconstruction follow-up — 2026-11-16
-
-The [prose reconstruction follow-up](PROSE_RECONSTRUCTION_FOLLOWUP.md) measures false candidate relationships, retained useful associations, missing facets and processing costs on real public records. Source-consistent developer judgments remain separate from independent human validation and deterministic answer support. Earlier results are preserved.
-
-
-Targeted recovery update (2026-11-16): the [source-linked recovery study](PROSE_RECONSTRUCTION_FOLLOWUP.md#targeted-recovery-and-false-association-retention) reports retained useful associations, recovered omissions, false date-cue corrections and unresolved transfer failures. It does not establish general historical understanding or independent human validation.
-
-[Offline raw-text candidate sorter](PREPROCESSING_SORTER.md): identical extraction in both modes, optional comparison edges, and a withheld native snapshot.
+[Package documentation review](PACKAGE_AUDIT_2026-11-17.md) records the source inspection, corrected navigation issue, preservation checks and unmeasured claims for this update.

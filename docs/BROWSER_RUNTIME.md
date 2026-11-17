@@ -2,6 +2,8 @@
 
 Last reviewed: 2026-11-17. See [current status and result-to-test index](CURRENT_STATUS.md). Dates and numeric results in historical validation sections retain their original scope; this review is not a rerun or independent certification.
 
+Package role: [how this part fits Combined MPLPB](PACKAGE_GUIDE.md#delivery-and-packaging). Browser delivery runs the Python engine locally; native CLI tooling is a separate route.
+
 `MPLPB_Browser.html` embeds Pyodide 314.0.7 (CPython/WebAssembly), this repository's
 actual Python engine, the RPG-style UI, bundled sealed corpora and stored wiki
 capture data. No Python installation, local Python server or CDN download is needed

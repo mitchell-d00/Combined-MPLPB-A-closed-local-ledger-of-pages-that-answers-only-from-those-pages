@@ -2,6 +2,8 @@
 
 Last reviewed: 2026-11-17.
 
+Package role: [how this part fits Combined MPLPB](../../PACKAGE_GUIDE.md#documentary-research). The sorter paper is a dated technical report; current package usage and authority boundaries are documented separately.
+
 **Mitchell D. McPhetridge** — *A Dual-Mode Sorter for MPLPB: Turning Unformatted
 Material into Inspectable Candidates*, with subtitle *Source-Anchored Candidate
 Extraction for Closed Local Ledgers*. Version1.1, 17 November2026.

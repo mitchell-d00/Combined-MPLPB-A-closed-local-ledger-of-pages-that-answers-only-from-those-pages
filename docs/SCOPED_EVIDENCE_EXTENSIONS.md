@@ -2,6 +2,8 @@
 
 Last reviewed: 2026-11-17.
 
+Package role: [how this part fits Combined MPLPB](PACKAGE_GUIDE.md#answers-and-inspection). Exact routing and time-scoped corrections retain competing evidence and explicit serving policy.
+
 These extensions retain `answer-contract-v1`, the existing eligibility and lineage
 checks, relation families, and work-event chain. An intact unique record, its
 pinned ancestry, explicit origin/depth, delivery profile, not-for exclusions and

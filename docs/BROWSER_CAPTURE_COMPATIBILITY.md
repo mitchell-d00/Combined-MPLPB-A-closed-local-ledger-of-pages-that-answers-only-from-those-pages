@@ -2,6 +2,8 @@
 
 Last reviewed: 2026-11-17. See [current status and result-to-test index](CURRENT_STATUS.md). Dates and numeric results in historical validation sections retain their original scope; this review is not a rerun or independent certification.
 
+Package role: [how this part fits Combined MPLPB](PACKAGE_GUIDE.md#storage-and-recovery). Capture recovery depends on retained source pins and the browser storage mode.
+
 Saved Wikipedia collections from reviewed browser releases can reopen after a chat-adapter update. Previously every change to browser/bridge.py invalidated the capture adapter hash, even when source capture semantics were unchanged.
 
 The browser accepts only its current adapter hash or an explicit reviewed SHA-256 allowlist for browser-pyfetch-v1. Four historical revisions are currently listed in `COMPATIBLE_CAPTURE_ADAPTERS` in `browser/bridge.py`; that code is the authoritative compatibility list. Unknown adapters remain blocked. Future adapter releases need compatibility review before adding their hashes.

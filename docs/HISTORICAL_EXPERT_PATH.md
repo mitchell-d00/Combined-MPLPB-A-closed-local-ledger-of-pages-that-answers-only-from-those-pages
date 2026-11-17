@@ -1,6 +1,8 @@
 # Historical expert path and bounded relation crawling
 
-Last reviewed: 2026-11-16.
+Last reviewed: 2026-11-17.
+
+Package role: [how this part fits Combined MPLPB](PACKAGE_GUIDE.md#documentary-research). This guide covers documentary inspection; source assertions, candidate relations and historical truth remain distinct.
 
 The explicit `investigate` path uses MPLPB's existing specialist work coordinator
 to inspect original source declarations and crawl their relationships. It keeps

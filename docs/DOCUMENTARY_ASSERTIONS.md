@@ -2,6 +2,8 @@
 
 Last reviewed: 2026-11-17.
 
+Package role: [how this part fits Combined MPLPB](PACKAGE_GUIDE.md#documentary-research). This guide covers documentary inspection; source assertions, candidate relations and historical truth remain distinct.
+
 Strict answers now have a bounded documentary path after existing strict grammars fail. `documentary.py` proposes exact source units and decomposes up to four question obligations. `documentary_verify.py` reloads current eligible bytes with the **complete original question and delivery profile**, independently locates full source units and derives typed source assertions. Extractor fields, graph edges, citations alone and model approval cannot issue certificates.
 
 The first contract covers plain named-subject past-tense clauses (appointment, sending/receiving, writing, surveying, publication, revision, cancellation and directives) and first-person requests in ordinary correspondence. Correspondence must have an original writer TO addressee heading and an unquoted opening statement. Told/asked/instructed/requested/ordered and send/deliver/forward/post forms can retain literal objects, delivery methods, conditions and hopes. I/you/my bindings apply only to that documentary appearance. The heading date has unresolved documentary role; it is never silently an instruction, dispatch or receipt date. Conditional delivery, unclear qualification scope and following notes remain visible.

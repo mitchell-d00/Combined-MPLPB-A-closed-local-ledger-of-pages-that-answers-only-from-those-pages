@@ -2,6 +2,8 @@
 
 Last reviewed: 2026-11-17. See [current status and result-to-test index](CURRENT_STATUS.md). Dates and numeric results in historical validation sections retain their original scope; this review is not a rerun or independent certification.
 
+Package role: [how this part fits Combined MPLPB](PACKAGE_GUIDE.md#storage-and-recovery). This guide covers persistence and recovery limits; retained bytes are not a truth or complete-backup guarantee.
+
 For a new incident, identify the actual last verified source revision and its
 release/deployment evidence first. Create a recovery branch from current main,
 inspect the affected change and later dependencies, and propose a tested revert.

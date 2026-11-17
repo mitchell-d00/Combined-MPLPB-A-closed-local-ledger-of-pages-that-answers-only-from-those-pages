@@ -2,6 +2,8 @@
 
 Last reviewed: 2026-11-17. See [current status and result-to-test index](../docs/CURRENT_STATUS.md). Dates and numeric results in historical validation sections retain their original scope; this review is not a rerun or independent certification.
 
+Package role: [how this part fits Combined MPLPB](../docs/PACKAGE_GUIDE.md#conversation-and-resources). This lab-only unratified reference preview is separate from the default hosted application.
+
 **Status:** versioned, offline-generatable release candidate. **Not human-ratified, not certified authoritative, and not available to the default `internal` or `external` delivery profiles.** Its existing `lab` profile (maximum origin depth 2) is required. Original machine-origin source citation records have depth 1, and derived fact records have depth 2. The existing engine, finite grammar, and profiles remain unchanged.
 
 ## Contents, frozen questions, and staged growth

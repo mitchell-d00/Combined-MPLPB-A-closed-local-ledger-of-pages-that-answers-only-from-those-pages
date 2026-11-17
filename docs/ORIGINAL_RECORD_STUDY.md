@@ -1,6 +1,8 @@
 # Original-record evaluation and review workflow
 
-Last reviewed: 2026-11-16.
+Last reviewed: 2026-11-17.
+
+Package role: [how this part fits Combined MPLPB](PACKAGE_GUIDE.md#documentary-research). This guide covers documentary inspection; source assertions, candidate relations and historical truth remain distinct.
 
 The next evaluation uses MPLPB's public original papers. It separates preparation,
 sealed questions, execution and external review. Passing this protocol's software

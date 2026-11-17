@@ -4,6 +4,8 @@
 
 Last reviewed: 2026-11-17. See [current status and result-to-test index](CURRENT_STATUS.md). Dates and numeric results in historical validation sections retain their original scope; this review is not a rerun or independent certification.
 
+Package role: [how this part fits Combined MPLPB](PACKAGE_GUIDE.md#evidence-and-limits). This guide covers evidence or operation limits; dated results keep the revision and scope they measured.
+
 Status: engineering threat model, not a penetration-test report or certification.
 Scope: Python reader and local UI, static WebAssembly site, browser persistence,
 and optional separately deployed crawler. The supported deployment assumption is
