@@ -1,0 +1,34 @@
+{
+  "schema": "historical-target-protocol-v1",
+  "status": "NOT RUN",
+  "targets": {
+    "answerable_question_accuracy": 0.8,
+    "relationship_precision": 0.95,
+    "relationship_recall": 0.75,
+    "unsupported_question_refusal_accuracy": 0.95,
+    "currently_eligible_exact_citation_rate": 1.0,
+    "minimum_questions": 200,
+    "minimum_domains": 3
+  },
+  "independent_questions": null,
+  "independent_human_review": "NOT RUN",
+  "adjudication": "NOT RUN",
+  "requirements": [
+    "Freeze implementation, budgets, source hashes and salt-sealed private expected annotations before runtime.",
+    "Use independently authored unseen questions across at least three domains; existing development questions are ineligible.",
+    "Use existing fail-closed study sandbox and unchanged source importer; expected answers never enter runtime.",
+    "Run baseline, updated, BM25 and keyword under identical source access and budgets; retain every failure and timeout.",
+    "Prepare complete packets using tools.unprepared_challenge; two real reviewers and bound adjudication assess all cases.",
+    "After output freeze, unseal answerability/domain annotations and pass the existing review validator before target accounting."
+  ],
+  "metrics": {
+    "answerable_question_accuracy": null,
+    "relationship_precision": null,
+    "relationship_recall": null,
+    "unsupported_question_refusal_accuracy": null,
+    "currently_eligible_exact_citation_rate": null
+  },
+  "critical_false_support_count": null,
+  "critical_false_support_upper_95": null,
+  "notice": "Targets are proposed, not achieved. Synthetic truth fixtures do not satisfy independent historical evaluation."
+}

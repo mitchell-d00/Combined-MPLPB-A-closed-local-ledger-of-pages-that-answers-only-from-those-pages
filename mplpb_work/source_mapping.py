@@ -152,3 +152,48 @@ def reconstruct(root,question,mapping,profile=None):
     if not index.unchanged() or _state(root,question,profile)!=before:return dict(rejected,reason='source_changed')
     return {'status':'reconstructed','passages':result,'quote_fidelity':True,
             'semantic_relationship_verified':False,'answer_supported':False,'content_truth_verified':False}
+
+
+def relationship_graph(index, rich, passages, *, max_nodes=160, max_edges=160):
+    """Inspection view of existing proposition mappings, never identity merging.
+
+    Documentary appearances and event candidates have separate nodes. Edges
+    retain complete existing reversible mappings and current state dependencies.
+    """
+    nodes=[];edges=[];seen=set();truncated=False
+    def node(identifier,kind,**value):
+        nonlocal truncated
+        if identifier in seen:return identifier
+        if len(nodes)>=max_nodes:truncated=True;return None
+        seen.add(identifier);nodes.append(dict(id=identifier,kind=kind,**value));return identifier
+    def edge(left,right,kind,item):
+        nonlocal truncated
+        if not left or not right:return
+        if len(edges)>=max_edges:truncated=True;return
+        edges.append({'from':left,'to':right,'type':kind,'evidence':item['evidence'],
+            'mapping_id':item['mapping_id'],'source_state':item['source_state'],
+            'interpretation_basis':item.get('operation_basis','finite candidate extraction'),
+            'unresolved_issues':['person/event identity not established','intermediate links not supplied by similarity'],
+            'source_support_established':False,'historical_truth_independently_verified':False})
+    ids={}
+    for item in rich.get('propositions',[]):
+        e=item['evidence'][0];v=item['value'];occurrence=digest({'path':e['path'],'hash':e['hash'],'start':e['body_start']})
+        document=node(occurrence,'document_occurrence',source_id=e['source_id'],hash=e['hash'],evidence=item['evidence'])
+        statement=node(item['mapping_id'],'source_statement_candidate',proposition=v,evidence=item['evidence'])
+        event=node('event:'+item['mapping_id'],'event_candidate',identity=None,independent_occurrence_verified=False)
+        ids[item['mapping_id']]=statement;edge(document,statement,'contains_statement',item);edge(statement,event,'describes_possible_event',item)
+        if v.get('actor'):
+            mention=node('mention:'+item['mapping_id'],'actor_mention',literal_text=v['actor'],identity=None)
+            edge(mention,statement,'candidate_actor_role',item)
+    for item in rich.get('connections',[]):
+        value=item['value'];refs=[ids[x] for x in value.values() if isinstance(x,str) and x in ids]
+        if len(refs)>=2:edge(refs[0],refs[1],item['kind'],item)
+    dates=[]
+    for item in rich.get('propositions',[]):
+        for cue in item['value'].get('date_candidates',[]):
+            dates.append({'expression':cue,'proposition':item['mapping_id'],'evidence':item['evidence'],
+                          'normalized_event_time':None,'chronology_established':False})
+    return {'schema':'derived-documentary-graph-v1','nodes':nodes,'edges':edges,'date_appearances':dates[:64],
+            'budget_truncated':truncated or len(dates)>64,'event_identity_merges':0,
+            'answer_supported':False,'source_support_established':False,'historical_truth_independently_verified':False,
+            'notice':'Reversible candidate graph. Shared wording, subjects and dates never merge historical events.'}

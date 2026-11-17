@@ -1,6 +1,6 @@
 # User-built collections: growth, policy answers and limits
 
-Last reviewed: 2026-11-16. See [current status and result-to-test index](CURRENT_STATUS_2026-11-02.md). Dates and numeric results in historical validation sections retain their original scope; this review is not a rerun or independent certification.
+Last reviewed: 2026-11-17. See [current status and result-to-test index](CURRENT_STATUS.md). Dates and numeric results in historical validation sections retain their original scope; this review is not a rerun or independent certification.
 
 This is a focused local implementation on top of `f425a05`, not a claim that
 MPLPB autonomously improves its own engine. No independent participants were
@@ -147,7 +147,7 @@ permitted acquisition against an HTTP fixture. The original October 31 environme
 launch failed; that is historical. PR #29's policy-specific browser checks passed
 in both normal and extracted-ZIP CI, and main's postdeploy Chromium check passed
 in Actions run 41495283409. These synthetic checks are distinct from independent
-human validation; see the [current status](CURRENT_STATUS_2026-11-02.md).
+human validation; see the [current status](CURRENT_STATUS.md).
 Wikipedia fixture networking is not live Wikipedia verification.
 
 Independent collection builders, their own questions, semantic grading and human

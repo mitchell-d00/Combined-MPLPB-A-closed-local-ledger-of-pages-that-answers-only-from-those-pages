@@ -47,6 +47,8 @@ def cmd_ask(args):
             print('Unanswered: '+'; '.join(c['missing']))
         if c['clarification']:
             print(c['clarification'])
+    if not args.json:
+        print(result.contract['source_assurance']['notice'])
     if args.answer_mode == 'strict':
         return {'return': 0, 'ambiguous': 2, 'not_in_corpus': 3}[data['kind']]
     return {'supported_answer': 0, 'model_assisted_answer': 0, 'partial_answer': 4, 'conflict': 2, 'clarify': 5, 'abstain': 3}[result.contract['kind']]
@@ -92,6 +94,19 @@ def cmd_investigate(args):
         return 3
     print(json.dumps(result,indent=2,ensure_ascii=False))
     return 0 if result['status']=='evidence_report' else 3
+
+
+def cmd_reconstruct(args):
+    from mplpb_work.prose_evidence import reconstruct_report
+    reader=None
+    if args.reader_model:
+        from .local_reader import OllamaLocalReader
+        reader=OllamaLocalReader(args.reader_model,endpoint=args.reader_endpoint)
+    result=reconstruct_report(args.root,args.question,R.PROFILES[args.profile],
+                              max_passages=args.max_passages,max_chars=args.max_context_chars,reader=reader)
+    from mplpb_work.prose_evidence import render_reconstruction
+    print(render_reconstruction(result) if args.format=='text' else json.dumps(result,indent=2,ensure_ascii=False))
+    return 0 if result['status']=='research_report' else 3
 
 
 def cmd_correct_claim(args):
@@ -146,6 +161,15 @@ def build_parser():
     investigation.add_argument('--max-source-chars',type=int,default=200000)
     investigation.add_argument('--work-directory',help='new private directory to retain specialist work and host recovery credential')
     investigation.set_defaults(fn=cmd_investigate)
+    reconstruction=sub.add_parser('reconstruct',help='inspect checked documentary evidence, candidate graph, layers and unresolved obligations')
+    reconstruction.add_argument('root');reconstruction.add_argument('question')
+    reconstruction.add_argument('--profile',choices=R.PROFILES,default='internal')
+    reconstruction.add_argument('--format',choices=('json','text'),default='json',help='readable source evidence or compatible full JSON')
+    reconstruction.add_argument('--max-passages',type=int,default=12)
+    reconstruction.add_argument('--max-context-chars',type=int,default=12000)
+    reconstruction.add_argument('--reader-model',help='optional explicitly installed local candidate reader; never historical truth authority')
+    reconstruction.add_argument('--reader-endpoint',default='http://127.0.0.1:11434')
+    reconstruction.set_defaults(fn=cmd_reconstruct)
     correction=sub.add_parser('correct-claim',help='explicitly revise one unique source span while preserving the predecessor and unaffected text')
     correction.add_argument('root');correction.add_argument('source_id')
     correction.add_argument('--old-quote',required=True);correction.add_argument('--new-quote',required=True)

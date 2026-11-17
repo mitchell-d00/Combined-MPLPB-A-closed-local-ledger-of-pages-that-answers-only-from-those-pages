@@ -103,6 +103,7 @@ jobs:
           node tests/browser-model-loader.cjs
           node tests/browser-webgpu-limits.cjs
           node crawler/test_worker.mjs
+          node crawler/test_historical.mjs
       - name: Report inspected external coverage (development only)
         run: python -m tools.evaluate_literal_coverage
       - name: Download pinned WebAssembly core

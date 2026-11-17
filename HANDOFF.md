@@ -1,65 +1,49 @@
 # Repository handoff
 
-Last reviewed: 2026-11-16.
+Last reviewed: 2026-11-17.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `df9fe5065d572753ac8924a071677d02ff87d58e` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `75db2d5ce174ca3a37540923afdc439a1a0c009affe72a48b823fa8a43d7d754`.
+Base commit: `6a92167124e0842a909792d95cec7a0b637de578` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `279c1393aa3cb3205e8e8d243d305a662fe7bea22aaad28206e467964461301e`.
 
 ## Latest user update instructions
 
-Codex Engineering Assignment: Evidence-Grounded Historical Reconstruction
-
-Your task is to improve the actual repository and produce reproducible evidence of the improvement, not merely write an assessment, proposal, or favorable benchmark report.
-
-Complete as much of the actual engineering work as the available environment permits.
-
-Start by inspecting the repository and establishing the baseline.
-
-Then implement the highest-impact improvements.
-
-Do not stop at a plan. Do not merely add documentation or a benchmark that awards credit for candidate relationships.
-
-Prioritize real, verifiable historical reconstruction and preserve the existing integrity-first design.
-
-The final objective is a system whose capabilities can be established through independently reproducible original-source experiments, not through assertions about what it should be able to do.
-
-How can we fix this The familiar-record replay still has no supported answers, and the broader reconstruction objective remains unproven.
-
-How can we improve  close the supported-answer gap
-
-We can do this The next implementation should target explicit documentary assertions and compound-question composition, then demonstrate gains on unchanged questions. Add it to the tests and build it
-
-Push it Merge them
+Push it to main and make sure all documentation is uptodate as well as past notes etc clean up the repo make sure it has no loose ends etc
 
 ## Implemented scope
 
-- Add a strict finite source-assertion proof checker and atomic obligation/composition path, distinct from candidate extraction and historical truth.
-- Preserve full-question eligibility/profiles, current source rechecks, correction boundaries, complete qualifiers, directive/execution distinction, literal dates, and bounded partial output.
-- Add original-record regressions, varied adversarial tests, citation rendering and real WebAssembly integration tests; prepare certificate-rechecking comparison tooling without changing frozen runners or questions.
-- Reject explicit plan/proposal/draft heading or standalone-label scope; preserve the discovered false acceptance and add negative controls.
-- Publish the tested engineering branch and merge through main's required pull-request checks; preserve exact implementation/evidence revisions and existing frozen artifacts.
+- Publish the authorized source/reconstruction/solo-milestone branch through main after exact-head required checks.
+- Create a current status entry point, update current guide navigation and relevant API/CLI/receipt/answer descriptions, and preserve dated notes, frozen corpora and historical reports byte-for-byte.
+- Reconcile handoff, past-documentation index, root fix log and repository map with the measured2/22 source-only completion milestone and clearly labeled AI assessment.
+- Verify clean Git state, required archive/regression CI and post-merge Pages publication; preserve actual evidence and disclose unresolved research limitations.
 
 ## Validation recorded
 
-- Final extracted 6acf45a9f77213953f8236379236c96662442153 passed all 1068 Python tests in 377.064 seconds; 52/52 prepared public controls with zero observed false bridges; existing historical expert software stages passed.
-- Unchanged frozen original14 and government8 replays completed: kernel-checked partial source answers 0→2/22; full supported answers remain 0/22; incomplete draft span coverage unchanged18/23 and9/9. Every accepted certificate rechecked and all citations mapped to original bytes.
-- Actual WebAssembly, five real Chromium UI checks, rendering/JavaScript/transport/loader/WebGPU/crawler controls, infrastructure and extracted handoff/documentation checks passed. Browser build SHA256 a151987fc14d19a18bc4273986d33fbee4d5f40fe451b2791cbb6c6eb66189f9.
-- Preserved interrupted runs, prototype failures and earlier ba021f4 plan-heading false acceptance; final source fixed that scope error and reran all gates. Full outputs, metrics, source pins, two blank reviewers and adjudication retained in evaluation/documentary-assertions.
-- Fetched origin before publication: remote main remains38e273855e577cff038f704c63fe09b22ac6889a, an ancestor of the tested branch. Required archive-first/regression checks will run on the pushed PR head; remote merge not yet claimed.
+- Baselineec41332:74 focused tests passed6.530s; all22 unchanged historical workers completed under original frozen seals and budgets.
+- Final native runtime d369346: complete source support1→2/22, partial2→1/22; onlyH02 changes. Other21 native kinds, claims, excerpts and qualifications unchanged; zero new delivery/execution/truth claims.
+- Fresh fork_turns=none blinded AI assessment of44 responses: complete correct1→2, correct refusal4→4, errors/over-refusals17→16, unassessed0. All108 original-byte evidence anchors validated; fabricated quote mutation rejected. AI assessment is not human validation or source authority.
+- All3 native claims/8 citations independently rerun through current finite kernel and mapped back to pinned original bytes. Frozen corpus/question/protocol/harness/import/worker limits identical.
+- ZIP-extracted80a4b02d0a13ac0f986f83622514c4be5dddd844:1157 tests passed337.950s, public52/52. JavaScript API, browser transport, crawler fixtures, actual pinned WebAssembly and11 actual Chromium documentary/UI checks passed; generated release HTML byte-identical to tested d369346 candidate.
+- Combined22-case worker CPU852.674→242.284s with identical logical source bytes read. Single shared-host development replay; supporting-only intermediate and all failed full-test attempts retained separately.
+- Intermediate482e498 full1148-test run failed one standard-library allowlist declaration; first arrangement d369346 full1157-test run failed obsolete H02 partial-only expectation. Standard-library declaration and regression expectation updated, preserving no-delivery/source-byte invariants. Final full rerun passed.
+- Final documentation/infrastructure/handoff audits and10 handoff/documentation tests passed0.118s. Raw assessment-source whitespace/CRLF is preserved with narrow -text/-whitespace attributes; source bytes were not cleaned.
+- Publication baseline82f4134 is clean and ten commits ahead of remote main4d0f447 with no divergence; fresh fetch confirmed. Source/candidate checks for the new documentation head remain separate from retained80a4b02 runtime evidence.
+- Documentation inventory and all377 classified documents/33 evaluation families passed;85 current guides are indexed,56 current navigation/operational guides updated, dated November8 status preserved as historical. Handoff/documentation tests passed10/10; infrastructure synchronization passed.
+- GitHub archive run44072489661 on6a92167 exposed one generated SYSTEM_GUIDE/runtime-model mismatch after navigation cleanup (1157 tests, one failure). Updated generator review date/current-status link and regenerated the guide; no answer proof/semantic rule changed. Required CI will rerun on the corrected head.
 
 ## Limitations and blocked checks
 
-- Complete original-record historical answers remain0/22. This update establishes finite checked partial source evidence and controlled compound composition, not general historical reconstruction.
-- Independent human semantic review, adjudication and unseen evaluation NOT RUN; semantic precision/recall, false-support rates and genuine human times null.
-- Finite parsing does not authenticate authorship, resolve person/event identity, infer missing records or establish execution from a request. Unsupported syntax, scope, aliases, pronouns, voices and corrections remain unresolved or potentially fallible.
+- The measured completion gain is one development question, not22/22 success, general historical understanding, a9/10 rating or unseen accuracy validation.
+- AI assessment used one fresh context of the configured model, with unknown provider/version pin and procedural shared-filesystem blinding; it is not human review, model-provider independence or authenticated historical truth.
+- Recorded arrangements do not establish instruction acceptance, execution, dispatch, delivery or event/person identity; printed dates retain heading role.16 AI-assessed errors/over-refusals remain.
+- Local storage checks establish byte equality at inspection time under the trusted native host/OS, not durable storage, human reading, delivery or completion. Human effort and AI inference charges remain null.
+- Apollo evidence is discovered but remains blocked by earlier OCR quotation state; no quotation safeguard was relaxed to award support.
 
 ## Next steps
 
-- Push the working branch, open a pull request against main, wait for required checks and merge without bypassing repository protections.
-- Obtain two independent human reviews and adjudication of full retained evidence packets before semantic accuracy claims.
-- Develop independently checked reference/identity/temporal and correction obligations; preserve original questions and budgets, count errors and missing obligations, and run genuinely unseen custodian-sealed evaluation.
+- Track exact-head release/deployment receipts in GitHub Actions and retain source/AI-assessment boundaries in future updates.
+- Continue the documented16 AI-assessed shortcomings without reclassifying candidate interpretations or requesting unavailable human reviewers.
 
 ## Use this ZIP in your repository
 

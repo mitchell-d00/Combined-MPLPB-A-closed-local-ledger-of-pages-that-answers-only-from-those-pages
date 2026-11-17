@@ -1,0 +1,68 @@
+{
+  "schema": "solo-frozen-comparison-v1",
+  "conditions_identical": true,
+  "families": {
+    "original": {
+      "before": {
+        "native_kinds": {
+          "abstain": 9,
+          "partial_answer": 1,
+          "conflict": 3,
+          "supported_answer": 1
+        },
+        "cpu_seconds": 801.052610537,
+        "wall_seconds": 807.4682140399996,
+        "peak_worker_rss_bytes": 54362112,
+        "source_html_bytes_read": 9469870058,
+        "source_read_calls": 46361
+      },
+      "after": {
+        "native_kinds": {
+          "abstain": 9,
+          "supported_answer": 2,
+          "conflict": 3
+        },
+        "cpu_seconds": 230.349794507,
+        "wall_seconds": 230.67058452400306,
+        "peak_worker_rss_bytes": 47665152,
+        "source_html_bytes_read": 9469870058,
+        "source_read_calls": 46361
+      }
+    },
+    "government": {
+      "before": {
+        "native_kinds": {
+          "partial_answer": 1,
+          "abstain": 7
+        },
+        "cpu_seconds": 51.6210011,
+        "wall_seconds": 52.83840681899983,
+        "peak_worker_rss_bytes": 22568960,
+        "source_html_bytes_read": 188813916,
+        "source_read_calls": 7983
+      },
+      "after": {
+        "native_kinds": {
+          "partial_answer": 1,
+          "abstain": 7
+        },
+        "cpu_seconds": 11.934363272,
+        "wall_seconds": 11.97509548400285,
+        "peak_worker_rss_bytes": 22945792,
+        "source_html_bytes_read": 188813916,
+        "source_read_calls": 7983
+      }
+    }
+  },
+  "native_support_changes": [
+    {
+      "case_id": "H02",
+      "before": "partial_answer",
+      "after": "supported_answer"
+    }
+  ],
+  "new_external_execution_or_delivery_claims": [],
+  "human_semantic_accuracy": null,
+  "human_review": "NOT RUN",
+  "scope": "Native finite-kernel outcomes and measured isolated-worker resources; AI opinions scored separately."
+}

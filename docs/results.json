@@ -1,6 +1,6 @@
 {
   "schema": "result-test-index-v1",
-  "reviewed_on": "2026-11-16",
+  "reviewed_on": "2026-11-17",
   "meaning": "Links establish retained test/reproduction coverage, not a fresh execution or certification of historical metrics. Original source, dates, fixtures and exact revisions remain in the linked reports.",
   "families": [
     {
@@ -445,6 +445,59 @@
       ],
       "scope": "Finite source-attributed assertion certificates, independent question obligations and checked partial composition; no historical truth or independent human accuracy claim.",
       "measurement_status": "Executed on extracted 6acf45a: 1068 Python tests, public 52/52, actual WebAssembly and Chromium. Unchanged original/government questions: checked partial answers 0\u21922/22, full supported answers 0\u21920/22; independent semantic review and unseen evaluation NOT RUN."
+    },
+    {
+      "family": "reconstruction-engine",
+      "artifacts": "evaluation/reconstruction-engine",
+      "tests": [
+        "tests/test_reconstruction_engine.py",
+        "tests/test_historical_review_rules.py",
+        "tests/test_historical_targets.py",
+        "crawler/test_historical.mjs",
+        "tests/test_comparison_completion.py"
+      ],
+      "runners": [
+        "tools/compare_documentary_answers.py",
+        "tools/unprepared_challenge.py",
+        "tools/demo_historical_review.py",
+        "tools/historical_targets.py"
+      ],
+      "scope": "Finite independent documentary checks and unchanged original-record development replay; graph candidates and synthetic truth fixtures never establish real historical truth.",
+      "measurement_status": "Executed: final extracted63cea98 passed1124 tests/public52/52/WASM/nine Chromium checks/MCP45. All22 unchanged cases completed; full0\u21921/22, checked partial2\u21922/22. Seven accepted citations rechecked and reverse-mapped. Independent review and >=200 unseen evaluation NOT RUN."
+    },
+    {
+      "family": "closed-ledger-boundaries",
+      "artifacts": "evaluation/closed-ledger-boundaries",
+      "tests": [
+        "tests/test_answer_boundaries.py",
+        "tests/test_scoped_extensions.py",
+        "tests/test_supersession_policy.py"
+      ],
+      "runners": [
+        "tools/reproduce_boundaries.py",
+        "tools/evaluate_public_evidence.py",
+        "evaluation/closed-ledger-boundaries/2026-11-17/compare_contracts.py"
+      ],
+      "scope": "Author-written unchanged-input source-support boundaries, diagnostic categories, host observation ordering and candidate-only Chromium; no independent historical accuracy or exact legacy887 reproduction.",
+      "measurement_status": "2026-11-17 frozen source archive; complete measured command outcomes recorded in dated report, unknown human effort and semantic accuracy remain null."
+    },
+    {
+      "family": "solo-milestone",
+      "artifacts": "evaluation/solo-milestone",
+      "tests": [
+        "tests/test_arrangement_completion.py",
+        "tests/test_solo_research.py",
+        "tests/test_documentary_originals.py"
+      ],
+      "runners": [
+        "tools/unprepared_challenge.py",
+        "tools/reproduce_boundaries.py",
+        "evaluation/solo-milestone/2026-11-17/compare_runs.py",
+        "evaluation/solo-milestone/2026-11-17/score_ai_assessment.py",
+        "evaluation/solo-milestone/2026-11-17/certificate_audit.py"
+      ],
+      "scope": "22 unchanged original-record development questions, source-only recorded-arrangement completion, fresh-context blinded AI assessment and separately measured cache/inspection/storage improvements; no independent human/unseen validation.",
+      "measurement_status": "2026-11-17 before/after runs completed; AI-assessed complete1\u21922, correct refusal4\u21924, error/over-refusal17\u219216; code and quote-fidelity outcomes retained with failed intermediates."
     }
   ]
 }

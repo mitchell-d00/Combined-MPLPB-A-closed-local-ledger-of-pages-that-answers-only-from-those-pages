@@ -1,0 +1,13 @@
+======================================================================
+FAIL: test_independent_wording_proposals_are_reread (tests.test_reconstruction_engine.ReconstructionEngineTests.test_independent_wording_proposals_are_reread)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/mplpb/tests/test_reconstruction_engine.py", line 123, in test_independent_wording_proposals_are_reread
+    comparisons=[p for p in p if p['kind']=='wording_comparison'];self.assertTrue(comparisons)
+                                                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: [] is not true
+
+----------------------------------------------------------------------
+Ran 17 tests in 0.079s
+
+FAILED (failures=1)

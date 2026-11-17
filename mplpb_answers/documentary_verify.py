@@ -10,7 +10,7 @@ from html.parser import HTMLParser
 from .body_text import body_text, VERSION as BODY_VERSION
 from .passages import PassageIndex
 
-VERSION = 'documentary-assertion-kernel-v1'
+VERSION = 'documentary-assertion-kernel-v4'
 PAST = {'appointed':'appoint','sent':'send','received':'receive','wrote':'write',
         'surveyed':'survey','published':'publish','revised':'revise','canceled':'cancel',
          'ordered':'order','requested':'request','instructed':'instruct'}
@@ -20,7 +20,7 @@ NAME = re.compile(r"[A-Z][A-Za-z’'\-]*(?:\.(?=\s|$))?(?:\s+[A-Z][A-Za-z’'\-]
 DATE = re.compile(r'\b(?:January|February|March|April|May|June|July|August|September|October|November|December)\s+\d{1,2}(?:st|nd|rd|th|d)?[,]?\s+\d{4}\b')
 
 
-def context_ranges(record):
+def context_ranges(record, *, document_draft=False):
     """Conservatively exclude quotation/chrome and qualified heading scopes.
 
     Position through the unchanged canonical projection. A page containing a
@@ -46,7 +46,9 @@ def context_ranges(record):
     if body_text(''.join(parser.parts))!=full:return [(0,len(full)+1)]
     for _,start in parser.stack:parser.ranges.append((start,len(full)+1))
     for i,(start,level,heading) in enumerate(parser.headings):
-        if META.search(heading) or re.search(r'\b(?:if|unless|conditional|plans?|planned|planning|proposals?|proposed|draft|scenario|forecast|prediction|hypothesis|intention|intended)\b',heading,re.I):
+        qualifiers=r'if|unless|conditional|plans?|planned|planning|proposals?|proposed|scenario|forecast|prediction|hypothesis|intention|intended'
+        if not document_draft:qualifiers+='|draft'
+        if META.search(heading) or re.search(r'\b(?:'+qualifiers+r')\b',heading,re.I):
             end=next((a for a,l,_ in parser.headings[i+1:] if l<=level),len(full)+1)
             parser.ranges.append((start,end))
     return parser.ranges
@@ -74,18 +76,9 @@ def quoted_context(prefix):
 
 
 def units(body):
-    """Independent complete-unit boundary check; no extractor sentence IDs."""
-    start=0
-    for m in re.finditer(r'[.!?]["”\)\]]?\s+(?=[A-Z"\[])',body):
-        word=re.search(r'([A-Za-z]+)$',body[:m.start()])
-        if word and (len(word[1])==1 or word[1].lower() in {'mr','mrs','ms','dr','gen','maj','prof','hon','st','jr','sr'}):continue
-        end=m.start()+1
-        if end<len(body) and body[end] in '"”)]':end+=1
-        a=start+len(body[start:end])-len(body[start:end].lstrip())
-        if a<end:yield a,end,body[a:end]
-        start=m.end()
-    if body[start:].strip():
-        a=start+len(body[start:])-len(body[start:].lstrip());yield a,len(body),body[a:]
+    """Re-derive complete boundaries from native canonical source text."""
+    from .source_units import statement_units
+    yield from statement_units(body)
 
 
 def action_assertion(quote):
@@ -189,6 +182,49 @@ def letter_assertion(body,start,end):
             'event_identity':None,'header_end':line_end,'statement_start':greeting}
 
 
+def arrangement_request(question):
+    """Closed question about a recorded request, never actual delivery.
+
+    Retain the raw full question: additional actions, motives and dates do not
+    inherit support. An explicit possessive must bind to the printed writer.
+    """
+    m = re.fullmatch(r"Who arranged for (.{1,100}?) to receive (.{1,100}?)['’]s "
+                     r"([A-Za-z][A-Za-z \-]{0,60}?),? and which dated letter records the arrangement\?", question)
+    if not m or not NAME.fullmatch(m[1]) or not NAME.fullmatch(m[2]):return None
+    if re.search(r'\b(?:actual|completed|delivered|not|never|if|unless|and|or|only)\b', m[3], re.I):return None
+    return {'recipient_reference':m[1], 'writer_reference':m[2], 'object_reference':m[3],
+            'scope':'source-reported instruction and printed letter heading; no actual dispatch or receipt'}
+
+
+def arrangement_completion(question, record, body, start, end, value):
+    request = arrangement_request(question)
+    if not request or not value['heading_date_text'] or not value['object_owner_text']:return None
+    def local_name(reference, name):
+        clean = lambda s: re.sub(r'[^a-z ]', '', normalized(s))
+        ref, full = clean(reference), clean(name)
+        return ref == full or (' ' not in ref and ref == full.split()[-1])
+    if (not local_name(request['writer_reference'], value['writer_text'])
+            or not local_name(request['recipient_reference'], value['addressee_text'])
+            or local_name(request['writer_reference'], value['addressee_text'])
+            or local_name(request['recipient_reference'], value['writer_text'])):return None
+    obj = re.sub(r'^(?:a copy of my|my) ', '', value['object_text'])
+    if normalized(obj) != normalized(request['object_reference']):return None
+    # Examine and cite the complete local letter. A long/missing boundary stops
+    # closure. Other letters are separate appearances, never merged events.
+    maximum = min(len(body), start+4001)
+    next_heading = re.search(r"(?m)^[A-Z][A-Z .’'\-]{1,70} TO ", body[end:maximum])
+    stop = end+next_heading.start() if next_heading else len(body)
+    if stop-start>4000:return None
+    context = body[start:stop]
+    if re.search(r'\b(?:cancell?ed|withdrawn|withdrew|retracted|rescinded|revoked|denied|correction|corrected)\b', context, re.I):return None
+    return {'question_obligations_verified':True, 'verified_question':question,
+            'question_completion_rule':'document_local_arrangement_reference_v1',
+            'reference_bindings':request, 'reference_scope':request['scope'],
+            'complete_letter_start':start, 'complete_letter_end':stop,
+            'source_correction_search_scope':'this complete letter only; no global absence claim',
+            'actual_arrangement_independently_verified':False}
+
+
 def citation(record,body,a,b):
     return {'source_id':record.id,'path':record.path,'hash':record.hash_actual,
             'body_start':a,'body_end':b,'start':a,'end':b,'quote':body[a:b],'body_projection':BODY_VERSION}
@@ -233,6 +269,41 @@ def check(index,proposals,*,max_scan_chars=200000):
             if value:
                 h=value.pop('header_end');s=value.pop('statement_start')
                 citations=[citation(record,body,a,h),citation(record,body,s,b)]
+                closure=arrangement_completion(fresh.question,record,body,a,b,value)
+                if closure:
+                    value.update(closure)
+                    citations.append(citation(record,body,closure['complete_letter_start'],closure['complete_letter_end']))
+        elif kind in {'relationship_statement','wording_comparison','comparison_completion'}:
+            # Re-read complete native units; an exact substring alone cannot
+            # hide a leading negation, attribution or conditional governor.
+            from .source_units import comparison_units
+            native=comparison_units(record) if kind in {'wording_comparison','comparison_completion'} else units(body)
+            unit=next(((lo,hi,q) for lo,hi,q in native if (lo,hi)==(a,b)),None)
+            def safe_unit(record,a,b,body):
+                prior=body[:a]
+                return (not record.fields.get('corrects-field')
+                    and not any(lo<b and hi>a for lo,hi in regions[record.path])
+                    and not quoted_context(prior) and not META.search(prior)
+                    and not re.search(r'\b(?:if|unless)\b',prior[-180:],re.I)
+                    and not re.search(r'\b(?:the|a) (?:plan|proposal|scenario|draft|forecast|prediction|hypothesis) (?:was|is|reads|follows|stated)\b',prior[-240:],re.I)
+                    and not re.search(r'(?:^|\n)\s*(?:plan|proposal|draft|scenario|forecast|prediction|hypothesis)[.:]?\s*$',prior[-240:],re.I))
+            if unit and (kind in {'wording_comparison','comparison_completion'} or safe_unit(record,a,b,body)):
+                if kind=='relationship_statement':
+                    value=relationship_assertion(unit[2])
+                    if value:citations=[citation(record,body,a,b)]
+                else:
+                    other=proposal.get('other',{});r=records.get(other.get('path'));lo=other.get('start');hi=other.get('end')
+                    if (r and r.path!=record.path and r.id==other.get('source_id') and r.hash_actual==other.get('hash')
+                        and type(lo) is int and type(hi) is int and 0<=lo<hi<=len(bodies[r.path]) and hi-lo<=2200
+                        and bodies[r.path][lo:hi]==other.get('quote') and not r.fields.get('corrects-field')
+                        and any((x,y)==(lo,hi) for x,y,_ in comparison_units(r))):
+                        value=wording_difference(unit[2],bodies[r.path][lo:hi])
+                        if value:citations=[citation(record,body,a,b),citation(r,bodies[r.path],lo,hi)]
+                        if value and kind=='comparison_completion':
+                            closure=comparison_completion(fresh,record,a,b,r,lo,hi)
+                            if closure:
+                                value.update(closure['proposition']);citations.extend(closure['citations'])
+                            else:value=None;citations=[]
         elif kind=='action_statement':
             matches=[v for r,lo,hi,v in scanned if r.path==record.path and (lo,hi)==(a,b)]
             if len(matches)==1:
@@ -250,3 +321,163 @@ def check(index,proposals,*,max_scan_chars=200000):
             'observations':observations,'contexts':contexts,'examined_characters':used,
             'examined_units':len(contexts),'limits_reached':sorted(limits_reached),
             'limits':{'max_proposals':12,'max_scan_characters':max_scan_chars,'max_units':1000,'max_assertions':64}}
+
+
+def relationship_assertion(quote):
+    """Finite literal causal/order/resource/passive assertions, not event truth.
+
+    All arguments are retained verbatim, including appositions and time phrases.
+    A cause explicitly attributed by a source is not an independently true cause.
+    """
+    clean=re.sub(r'\s+',' ',quote).strip()
+    if not clean.endswith('.') or len(clean)>1800 or any(c in clean for c in '\"“”!?;'):return None
+    if re.search(r'\b(?:if|unless|would|could|might|allegedly|reportedly|perhaps|supposedly|claimed|denied|hypothetical)\b',clean,re.I):return None
+    value=None
+    causal=re.fullmatch(r'((?:The|A|An) [A-Za-z0-9][A-Za-z0-9 ,’\'()\-]{1,350}?) was (not )?(aborted|cancelled|canceled|delayed|postponed|halted|withdrawn|terminated) because of ([^.;:]{2,1000})\.',clean)
+    if causal:
+        subject,neg,action,cause=causal.groups()
+        # Apposition describes the intended goal; never read planned action as
+        # execution. Other commas/relative clauses are outside this proof rule.
+        if ',' in subject and not re.fullmatch(r'[^,]+, planned as [^,]+,',subject):return None
+        value={'relation':'source_causal_assertion','subject_text':subject,'action_text':action,
+               'cause_text':cause,'negative':bool(neg),'causal_basis':'literal because-of assertion',
+               'date_role':'event_relative_or_elapsed_expression_unresolved'}
+    resource=re.fullmatch(r'((?:The|A|An) [A-Za-z][A-Za-z0-9 ’\'\-]{1,100}?) provided ([^.;:]{2,500}?) (for|to) ([^.;:]{2,500})\.',clean)
+    if resource:
+        subject,obj,prep,purpose=resource.groups()
+        if any(re.search(r'\b(?:and|or|not|never|planned|intended|requested|only|except)\b',s,re.I) for s in (subject,obj)):return None
+        value={'relation':'source_resource_assertion','resource_text':subject,'provided_text':obj,
+               'purpose_preposition':prep,'purpose_text':purpose,'negative':False}
+    temporal=re.fullmatch(r'(.{2,160}?) (occurred|was completed|was published|was revised|was received) (before|after) (.{2,160}?)\.',clean)
+    if temporal and ',' not in clean:
+        left,action,order,right=temporal.groups()
+        if not re.search(r'\b(?:and|or|not|never|planned|intended|requested)\b',left+' '+right,re.I):
+            value={'relation':'source_temporal_assertion','subject_text':left,'action_text':action,'ordering':order,
+                   'reference_text':right,'date_role':'publication' if action=='was published' else 'revision' if action=='was revised' else 'receipt' if action=='was received' else 'reported_event',
+                   'reference_date_role':'unresolved','normalized_event_time':None,'causality_established':False,'negative':False}
+    passive=re.fullmatch(r'(.{2,160}?) was (not )?(appointed|sent|received|surveyed|published|revised|canceled) by (.{2,100})\.',clean)
+    if passive:
+        obj,neg,action,actor=passive.groups()
+        if NAME.fullmatch(actor) and not re.search(r'\b(?:he|she|they|it|if|unless|and|or|not)\b',actor+' '+obj,re.I):
+            value={'relation':'source_passive_action_assertion','actor_text':actor,'action':PAST[action],
+                   'object_text':obj,'negative':bool(neg),'unresolved_reference':bool(re.search(r'\b(?:this|that|him|her|it|them)\b',obj,re.I))}
+    if value is not None:
+        value.update(assertion_modality='source_attributed_assertion',event_identity=None,
+                     historical_truth_independently_verified=False)
+    return value
+
+
+def wording_difference(left,right):
+    """Exact token alignment only; never inferred correction, motive or absence."""
+    import difflib
+    a=list(re.finditer(r'\S+',left));b=list(re.finditer(r'\S+',right))
+    if max(len(a),len(b))>600:return None
+    changes=[]
+    for op,i,j,k,l in difflib.SequenceMatcher(None,[m[0] for m in a],[m[0] for m in b],autojunk=False).get_opcodes():
+        changes.append({'operation':op,'left_text':left[a[i].start():a[j-1].end()] if i<j else '',
+                        'right_text':right[b[k].start():b[l-1].end()] if k<l else '',
+                        'left_relative_start':a[i].start() if i<len(a) else len(left),
+                        'right_relative_start':b[k].start() if k<len(b) else len(right)})
+    return {'relation':'exact_wording_comparison','alignment':changes,'comparison_scope':'two complete cited source units only',
+            'whole_document_absence_established':False,'correction_relationship_established':False,
+            'version_order_established':False,'event_identity':None,
+            'historical_truth_independently_verified':False}
+
+
+def check_source_identity(index,left,right):
+    """Check ledger appearance/content identity; never person/event identity."""
+    fresh=PassageIndex(index.root,index.question,index.profile);records={r.path:r for r in fresh.records};chosen=[]
+    for anchor in (left,right):
+        record=records.get(anchor.get('path'))
+        if not record or record.id!=anchor.get('source_id') or record.hash_actual!=anchor.get('hash'):
+            return {'status':'ineligible_or_changed','source_identity_established':False,'historical_truth_independently_verified':False}
+        chosen.append(record)
+    a,b=chosen
+    if not fresh.unchanged() or not index.unchanged():return {'status':'source_changed','source_identity_established':False,'historical_truth_independently_verified':False}
+    return {'status':'checked_current_source_identity','sources':[{'source_id':r.id,'path':r.path,'hash':r.hash_actual} for r in chosen],
+            'same_ledger_occurrence':a.path==b.path and a.hash_actual==b.hash_actual,
+            'same_sealed_hash':a.hash_actual==b.hash_actual,'same_canonical_body':body_text(a.body_html)==body_text(b.body_html),
+            'source_identity_established':a.path==b.path and a.hash_actual==b.hash_actual,
+            'same_original_bytes':None,'authorship_authenticated':False,'event_identity_established':False,
+            'independent_corroboration_established':False,'historical_truth_independently_verified':False,
+            'notice':'Canonical equality is not original-byte equality. Use pinned raw captures/import round trips for original bytes.'}
+
+
+def comparison_request(question):
+    """Closed literal-comparison questions; extra factual obligations stop closure."""
+    from mplpb_combined.reader import terms
+    if not re.match(r'^(?:Compare\b|How (?:does|do)\b)',question):return None
+    if re.search(r'\b(?:not|never|unless|if|only|except|whether|alleged|possibly|supposed|hypothetical|assume|imagine|denied)\b',question,re.I):return None
+    owner=re.search(r"\b(?:in|between|from)\s+([A-Z][A-Za-z .’'\-]{0,80}?)['’]s\s+rough\s+(?:draft|draught)\b",question)
+    if not owner:return None
+    tail=question[owner.end():]
+    work=re.search(r'\b([A-Z][A-Za-z \-]{1,100}?)\s+transcript\b',tail)
+    if not work:return None
+    middle=tail[:work.start()];suffix=tail[work.end():]
+    if set(re.findall(r'[A-Za-z]+',middle.lower()))-set('and differs differ from the final to versus vs with'.split()):return None
+    if set(re.findall(r'[A-Za-z]+',suffix.lower()))-set('what which wording words changed changes remained remains shared retained is was and describe differs differ'.split()):return None
+    if re.sub(r'[A-Za-z\s?.;,]','',middle+suffix):return None
+    prefix=question[:owner.start()]
+    if not re.search(r'\b(?:opening|initial|first)\b',prefix):return None
+    focus=terms(prefix)-terms('compare how does do the opening initial first wording words claim statement in between differ difference and')
+    if not 1<=len(focus)<=5:return None
+    return {'author_reference':owner[1].strip(),'work_reference':work[1].strip(),'topic_terms':sorted(focus),
+            'operations':['changed_wording','shared_wording'],'scope':'the supplied source-declared reconstruction and transcription; not historical authenticity or finality'}
+
+
+def comparison_completion(index,left,a,b,right,lo,hi):
+    """Independently bind source references and close literal comparison goals.
+
+    Framing is cited body prose, never a filename/title or model label. This
+    proves selection of two supplied documentary appearances and text operations,
+    not manuscript authenticity, event identity or a last-ever historical version.
+    """
+    from .source_units import comparison_units
+    from mplpb_combined.reader import terms
+    request=comparison_request(index.question)
+    if request is None or len(index.records)>32:return None
+    frames=[]
+    for record in index.records:
+        # A document headed Draft may still explicitly identify its own rough
+        # reconstruction for a literal comparison. This exception never applies
+        # to action/execution proofs; plan/conditional/quotation scopes still stop it.
+        body=body_text(record.body_html);regions=context_ranges(record,document_draft=True)
+        for start,end,q in comparison_units(record):
+            if start>=6000:break
+            clean=re.sub(r'\s+',' ',q).strip();prior=body[:start]
+            if (META.search(clean) or re.search(r'\b(?:not|never|if|unless|may|might|perhaps|probably|possibly|supposed|purported|allegedly|reportedly)\b',clean,re.I)
+                or quoted_context(prior) or re.search(r'\b(?:if|unless)\b',prior[-180:],re.I)
+                or any(x<end and y>start for x,y in regions)):continue
+            rough=re.search(r"reconstruction of ([^\n\"“”]{2,120}?)['’]s [\"“](?:original )?Rough (?:draft|draught)[\"”] of (?:the )?(.{2,100}?) before it was revised\b",clean,re.I)
+            trans=re.match(r'(?:Note: )?The following text is a transcription of (.{2,220}?)(?:\.| \()',clean)
+            if rough and re.match(r'\(?This is ',clean):
+                frames.append({'role':'rough_reconstruction','author':rough[1],'work':rough[2],
+                               'record':record,'start':start,'end':end})
+            elif trans:
+                frames.append({'role':'source_declared_transcription','artifact':trans[1],
+                               'record':record,'start':start,'end':end})
+    drafts=[f for f in frames if f['role']=='rough_reconstruction'
+            and (normalized(f['author'])==normalized(request['author_reference'])
+                 or normalized(f['author']).endswith(' '+normalized(request['author_reference'])))
+            and list(terms(request['work_reference']))
+            and normalized(f['work']).startswith(normalized(request['work_reference']))]
+    if len(drafts)!=1:return None
+    draft=drafts[0]
+    transcripts=[f for f in frames if f['role']=='source_declared_transcription'
+                 and normalized(draft['work']) in normalized(f['artifact']) and f['record'].path!=draft['record'].path]
+    if len(transcripts)!=1:return None
+    transcript=transcripts[0];wanted={left.path:(a,b),right.path:(lo,hi)}
+    if set(wanted)!={draft['record'].path,transcript['record'].path}:return None
+    for frame in (draft,transcript):
+        eligible=[(x,y,q) for x,y,q in comparison_units(frame['record'])
+                  if x>=frame['end'] and set(request['topic_terms'])<=terms(q)]
+        if not eligible or eligible[0][:2]!=wanted[frame['record'].path]:return None
+        if '?' in eligible[0][2] or not eligible[0][2].rstrip().endswith('.'):return None
+    roles=[{'role':f['role'],'source_id':f['record'].id,'hash':f['record'].hash_actual,
+            'work_reference':draft['work'],'declaration_only':True} for f in (draft,transcript)]
+    return {'proposition':{'question_obligations_verified':True,'verified_question':index.question,
+            'completion_rule':'source-framed-literal-comparison-v1','document_roles':roles,
+            'document_authenticity_verified':False,'historical_finality_verified':False,
+            'reference_scope':request['scope'],'topic_terms':request['topic_terms'],
+            'completed_operations':request['operations']},
+        'citations':[citation(f['record'],body_text(f['record'].body_html),f['start'],f['end']) for f in (draft,transcript)]}

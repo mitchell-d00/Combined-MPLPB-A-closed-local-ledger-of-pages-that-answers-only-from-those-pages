@@ -1,6 +1,6 @@
 # MPLPB browser front end
 
-Last reviewed: 2026-11-16. See [current status and result-to-test index](CURRENT_STATUS_2026-11-02.md). Dates and numeric results in historical validation sections retain their original scope; this review is not a rerun or independent certification.
+Last reviewed: 2026-11-17. See [current status and result-to-test index](CURRENT_STATUS.md). Dates and numeric results in historical validation sections retain their original scope; this review is not a rerun or independent certification.
 
 [Documentation index](README.md) · [Live application](https://mitchell-d00.github.io/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/)
 
@@ -64,3 +64,13 @@ These checks cover element-stub behavior, transport, and API integration; they a
 The layout adapts Mitchell's [Give It Back: The RPG](https://github.com/mitchell-d00/Give-It-Back-The-RPG), originally inspected at `d4a2c2945f3894a6cdb11456c7744cd5d06b4c41`. Its MIT notice remains in [GIVE_IT_BACK_UI_LICENSE.txt](GIVE_IT_BACK_UI_LICENSE.txt). Its world generator/story rules are not included. [Publication history](PUBLISH_AND_ROLLBACK.md) documents the original UI delivery; [rollback](ROLLBACK.md) explains current recovery practice.
 
 > Update 2026-11-16: The [public 52-case evidence suite](PUBLIC_EVIDENCE_TESTS.md) and [bounded expert relation path](HISTORICAL_EXPERT_PATH.md) document the current update. Prior dated measurements and preserved historical sources retain their original scope; this note does not rerun or revise them.
+
+## Documentary question parts
+
+Documentary answers show each question part, its existing verification status and
+the numbered checked claims supporting it. Citations expose source IDs/hashes
+and canonical offsets, with source-inspection buttons. Unanswered parts and
+qualifications stay visible. Recorded arrangements describe what letters state,
+not actual acceptance, execution or delivery. The outside-world confirmation
+notice also appears on ordinary supported answers. See the [solo workflow](SOLO_RESEARCH_WORKFLOW.md)
+and [current status](CURRENT_STATUS.md) for measured capabilities and limits.

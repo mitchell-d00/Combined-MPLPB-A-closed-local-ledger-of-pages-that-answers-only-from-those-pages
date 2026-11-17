@@ -1,6 +1,6 @@
 # Open MPLPB at a web address
 
-Last reviewed: 2026-11-16. See [current status and result-to-test index](CURRENT_STATUS_2026-11-02.md). Dates and numeric results in historical validation sections retain their original scope; this review is not a rerun or independent certification.
+Last reviewed: 2026-11-17. See [current status and result-to-test index](CURRENT_STATUS.md). Dates and numeric results in historical validation sections retain their original scope; this review is not a rerun or independent certification.
 
 The `Publish MPLPB browser runtime` workflow builds the standalone runtime and
 publishes it as the GitHub Pages site's `index.html`. Visitors need a current

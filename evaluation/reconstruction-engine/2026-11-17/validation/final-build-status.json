@@ -1,0 +1,36 @@
+[
+  {
+    "command": [
+      "python",
+      "tools/build_browser_runtime.py",
+      "--core-archive",
+      "/tmp/mplpb-pyodide-core.tar.bz2",
+      "--output",
+      "dist/index.html"
+    ],
+    "exit_code": 0,
+    "wall_seconds": 3.289589079000507
+  },
+  {
+    "command": [
+      "node",
+      "tools/check_browser_wasm.mjs",
+      "/tmp/mplpb-wasm/pyodide",
+      "dist/index.html"
+    ],
+    "exit_code": 0,
+    "wall_seconds": 91.19189452699902
+  },
+  {
+    "command": [
+      "python",
+      "/tmp/mplpb_reconstruction_browser.py",
+      "--dist",
+      "dist",
+      "--output",
+      "/tmp/mplpb-reconstruction-final-validation/final-browser.json"
+    ],
+    "exit_code": 0,
+    "wall_seconds": 11.931131577999622
+  }
+]

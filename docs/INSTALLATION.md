@@ -1,6 +1,6 @@
 # Installation and release packages
 
-Last reviewed: 2026-11-16. See [current status and result-to-test index](CURRENT_STATUS_2026-11-02.md). Dates and numeric results in historical validation sections retain their original scope; this review is not a rerun or independent certification.
+Last reviewed: 2026-11-17. See [current status and result-to-test index](CURRENT_STATUS.md). Dates and numeric results in historical validation sections retain their original scope; this review is not a rerun or independent certification.
 
 [Open the live application](https://mitchell-d00.github.io/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/) for a hosted start, or choose a package below. See the [documentation index](README.md) for runtime modes and source-interface contracts. Python 3.8+ is the declared desktop/package minimum; CI tests Python 3.12, not every supported Python/platform combination.
 

@@ -1,6 +1,6 @@
 # Base chat language graph
 
-Last reviewed: 2026-11-16. See [current status and result-to-test index](CURRENT_STATUS_2026-11-02.md). Dates and numeric results in historical validation sections retain their original scope; this review is not a rerun or independent certification.
+Last reviewed: 2026-11-17. See [current status and result-to-test index](CURRENT_STATUS.md). Dates and numeric results in historical validation sections retain their original scope; this review is not a rerun or independent certification.
 
 The offline resource `resources/chat_language_graph.json` connects phrase forms to subject aliases, then to intent nodes and existing read-only handlers. `tools/chat_language_graph.py` traverses these relations in the shared continuity pass before answer routing. Both buttons and typed requests use that pass, including a fresh session with zero collections loaded.
 

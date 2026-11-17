@@ -1,6 +1,6 @@
 # Scoped evidence extensions
 
-Last reviewed: 2026-11-16.
+Last reviewed: 2026-11-17.
 
 These extensions retain `answer-contract-v1`, the existing eligibility and lineage
 checks, relation families, and work-event chain. An intact unique record, its
@@ -117,8 +117,11 @@ answering remains available by omitting this optional mode.
 ## Independent receipts and operator effort
 
 Completion receipts retain false answer/truth flags. Host-only
-`WorkStore.record_external_receipt` records READ/ACK observations tied to an
-existing execution receipt in the work-event stream. These are host declarations,
+`WorkStore.record_external_receipt` records separate STORE, DISPATCH, DELIVERY,
+READ, ACK and COMPLETION observations tied to an execution receipt. Linked stages
+require the correct preceding observation; legacy standalone READ/ACK cannot
+bridge a checked chain. Optional bounded local STORE byte checks and host-only
+`verify_storage_receipt` rechecks are described in the [solo workflow](SOLO_RESEARCH_WORKFLOW.md). These are host declarations,
 not independent external-world verification. They cannot become claim evidence,
 change a source pin, or promote a claim. Existing dispatch fencing, reconciliation
 and recheck-on-source-change rules remain in force. Work source checks always use

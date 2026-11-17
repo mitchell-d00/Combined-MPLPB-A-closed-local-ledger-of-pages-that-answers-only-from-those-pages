@@ -1,6 +1,6 @@
 # Combined MPLPB: local MCP and browser agent interfaces
 
-Last reviewed: 2026-11-16. See [current status and result-to-test index](CURRENT_STATUS_2026-11-08.md). Dates and numeric results in historical validation sections retain their original scope; this review is not a rerun or independent certification.
+Last reviewed: 2026-11-17. See [current status and result-to-test index](CURRENT_STATUS.md). Dates and numeric results in historical validation sections retain their original scope; this review is not a rerun or independent certification.
 
 The live page embeds the **entire Python Combined MPLPB engine** (ledger, reader, provenance, chat, source capture, and retained session storage) in WebAssembly. GitHub Pages hosts the downloadable runtime, but Python executes in the visitor's browser. No separate server API, cloud model, or smaller replacement engine is required.
 

@@ -1,6 +1,6 @@
 # MPLPB local JavaScript API · v1.0.0
 
-Last reviewed: 2026-11-16. See [current status and result-to-test index](docs/CURRENT_STATUS_2026-11-02.md). Dates and numeric results in historical validation sections retain their original scope; this review is not a rerun or independent certification.
+Last reviewed: 2026-11-17. See [current status and result-to-test index](docs/CURRENT_STATUS.md). Dates and numeric results in historical validation sections retain their original scope; this review is not a rerun or independent certification.
 
 `window.MPLPB` lets people, scripts and browser-capable AI agents use the same
 MPLPB engine as the interface, without clicking buttons. No API key or account
@@ -301,3 +301,15 @@ paid inference endpoint or API key is configured. It does not change this API's
 source, profile, network, persistence or authority contracts.
 
 > Update 2026-11-16: The [public 52-case evidence suite](docs/PUBLIC_EVIDENCE_TESTS.md) and [bounded expert relation path](docs/HISTORICAL_EXPERT_PATH.md) document the current update. Prior dated measurements and preserved historical sources retain their original scope; this note does not rerun or revise them.
+
+## Documentary result inspection
+
+Existing query calls retain their signatures. Inspect `reader.answer_contract`
+for `diagnostic.category`, `source_assurance`, and optional
+`documentary_support.obligations`. The latter links each question part to displayed
+claims using zero-based `evidence_claim_indices` and reports hidden evidence counts.
+A complete source-recorded arrangement does not establish delivery or execution.
+`source_assurance.outside_world_confirmation_required` stays true even when finite
+source support succeeds. See [current status](docs/CURRENT_STATUS.md) and the
+[solo workflow](docs/SOLO_RESEARCH_WORKFLOW.md); historical truth, candidate
+interpretation and quotation fidelity remain separate.

@@ -41,6 +41,7 @@ jobs:
           node --check tools/mplpb_agent_bridge.mjs
           node tools/mplpb_agent_bridge.mjs --help
           node crawler/test_worker.mjs
+          node crawler/test_historical.mjs
       - name: Download pinned Python WebAssembly core
         run: >-
           curl --fail --location --retry 2

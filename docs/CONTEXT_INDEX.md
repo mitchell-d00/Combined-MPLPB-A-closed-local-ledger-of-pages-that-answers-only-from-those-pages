@@ -1,6 +1,6 @@
 # Deterministic conversation context
 
-Last reviewed: 2026-11-16. See [current status and result-to-test index](CURRENT_STATUS_2026-11-02.md). Dates and numeric results in historical validation sections retain their original scope; this review is not a rerun or independent certification.
+Last reviewed: 2026-11-17. See [current status and result-to-test index](CURRENT_STATUS.md). Dates and numeric results in historical validation sections retain their original scope; this review is not a rerun or independent certification.
 
 The context index is a session-local, role-aware view of the saved transcript. It runs before dialogue and source routing in both Chat and Serious modes. Zero loaded MPLPB collections do not disable conversation memory.
 

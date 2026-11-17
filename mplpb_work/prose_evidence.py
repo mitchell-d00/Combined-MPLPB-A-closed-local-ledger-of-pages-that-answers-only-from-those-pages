@@ -55,9 +55,81 @@ def discover(root,question,profile=None,*,max_passages=12,max_chars=12000):
     from .prose_relations import extract
     from .source_mapping import _state
     mapping['proposed_reconstruction']=extract(index,pack['passages'],_state(root,question,profile))
+    from .source_mapping import relationship_graph
+    mapping['relationship_graph']=relationship_graph(index,mapping['proposed_reconstruction'],pack['passages'])
+    # Keep structure/layers separate from propositions and historical authority.
+    mapping['source_unit_index']=index.documentary_units(max_chars=200000,max_units=1000)
     if not index.unchanged() or verification_snapshot(root,question,profile)!=initial:
         return dict(empty,status='source_changed',source_state_current=False)
     return dict(empty,status='candidate_contexts' if candidates else 'no_matching_contexts',candidates=candidates,
                 source_state_current=True,information_map=mapping,search_complete=pack['search_complete'],
                 budgets={'max_passages':max_passages,'max_characters':max_chars},
                 retrieval_method=pack['ranking'],retrieval_discovery={k:v for k,v in pack.items() if k in {'query_expansion_terms','facets','routing_metadata_is_answer_evidence'}})
+
+
+def reconstruct_report(root,question,profile=None,*,max_passages=12,max_chars=12000,reader=None):
+    """Existing native answers and reversible research views, with final gate."""
+    from mplpb_answers.pipeline import answer_query
+    profile=profile or PROFILES[DEFAULT_PROFILE]
+    before=verification_snapshot(root,question,profile)
+    answer=answer_query(root,question,profile,max_passages=max_passages,max_chars=max_chars).contract
+    candidates=discover(root,question,profile,max_passages=max_passages,max_chars=max_chars)
+    assisted=None
+    if reader is not None:
+        # The existing reader validates schema, exact anchors and model pins.
+        # Its output stays explicitly model-assisted even after favorable review.
+        assisted=answer_query(root,question,profile,mode='assisted',reader=reader,
+                             max_passages=max_passages,max_chars=max_chars).contract
+    if verification_snapshot(root,question,profile)!=before:
+        return {'schema':'historical-reconstruction-report-v1','question':question,'status':'source_changed',
+                'native_answer':None,'candidate_analysis':None,'model_candidates':None,'answer_supported':False}
+    return {'schema':'historical-reconstruction-report-v1','question':question,'status':'research_report',
+            'native_answer':answer,'candidate_analysis':candidates,'model_candidates':assisted,
+            'answer_supported':answer['answer_supported'],'historical_truth_independently_verified':False,
+            'notice':'Checked source assertions, reversible candidate graphs, model interpretations and historical truth have separate authority.'}
+
+
+def render_reconstruction(report):
+    """Render existing checked/candidate states without deriving new support.
+
+    This is a snapshot for inspection. Rerun reconstruct_report to recheck state.
+    """
+    lines = ['HISTORICAL RESEARCH REPORT', 'Question: '+report['question']]
+    if report['status'] != 'research_report':
+        return '\n'.join(lines + ['Source state changed; no old evidence accepted.'])
+    answer = report['native_answer']
+    lines += ['Result: '+answer['kind'],
+              'Snapshot only; rerun this command to recheck current eligibility.',
+              answer.get('source_assurance', {}).get('notice',
+                  'Source assertions do not independently establish historical truth.')]
+    obligations = answer.get('documentary_support', {}).get('obligations', [])
+    if obligations:
+        lines.append('Question parts:')
+        for goal in obligations:
+            refs = ', '.join(str(i+1) for i in goal.get('evidence_claim_indices', [])) or 'none displayed'
+            lines += ['- '+goal['question']+' ['+goal['status']+']; evidence: '+refs]
+            if goal.get('undisplayed_evidence_count'):
+                lines.append('  Additional evidence exceeds the display budget.')
+    lines.append('Checked documentary evidence:')
+    for i, claim in enumerate(answer['claims'], 1):
+        # Assisted proposals are rendered separately, never under this heading.
+        lines.append(str(i)+'. '+claim['text'])
+        for qualifier in claim.get('qualifiers', []):lines.append('   Qualification: '+qualifier)
+        for cite in claim.get('citations', []):
+            lines.append('   ['+cite['source_id']+'@'+cite['hash']+' '+cite['path']+
+                         ' canonical '+str(cite.get('body_start', cite.get('start')))+':'+
+                         str(cite.get('body_end', cite.get('end')))+']')
+            lines.append('   '+cite['quote'])
+    if not answer['claims']:lines.append('None established.')
+    for cite in answer.get('documentary_support', {}).get('alternative_evidence', []):
+        lines += ['Alternative/qualifying evidence ['+cite['source_id']+'@'+cite['hash']+']:', cite['quote']]
+    if answer.get('missing'):lines += ['Unresolved:']+['- '+m for m in answer['missing']]
+    if answer.get('diagnostic'):lines.append('Diagnostic: '+answer['diagnostic']['code']+' — '+answer['diagnostic']['message'])
+    candidates = report.get('candidate_analysis') or {}
+    graph = (candidates.get('information_map') or {}).get('relationship_graph') or {}
+    lines += ['Candidate historical interpretation: '+str(len(graph.get('edges', [])))+
+              ' graph edges; unverified and never promoted to source support.',
+              'Candidate search complete: '+str(candidates.get('search_complete', False))]
+    if report.get('model_candidates'):
+        lines.append('Model proposals are present in JSON output; they are not checked historical conclusions.')
+    return '\n'.join(lines)

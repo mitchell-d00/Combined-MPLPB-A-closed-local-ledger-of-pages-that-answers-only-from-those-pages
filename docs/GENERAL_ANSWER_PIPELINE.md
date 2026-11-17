@@ -1,6 +1,6 @@
 # General answer pipeline — 2.1.0rc1
 
-Last reviewed: 2026-11-16. See [current status and result-to-test index](CURRENT_STATUS_2026-11-02.md). Dates and numeric results in historical validation sections retain their original scope; this review is not a rerun or independent certification.
+Last reviewed: 2026-11-17. See [current status and result-to-test index](CURRENT_STATUS.md). Dates and numeric results in historical validation sections retain their original scope; this review is not a rerun or independent certification.
 
 This release candidate adds domain-independent passage reading without changing
 MPLPB's source eligibility rules or promoting model output into deterministic
@@ -14,7 +14,7 @@ The original strict pottery result was 6/59. The later graph/language retest
 records 12/59 document-identity returns across 106 probes; semantic review finds
 11 complete source statements and one conditional quotation with unresolved
 applicability. These inspected development questions are not a holdout. See the
-[current status](CURRENT_STATUS_2026-11-02.md); model-assisted output is never
+[current status](CURRENT_STATUS.md); model-assisted output is never
 relabeled as deterministic support.
 
 ## One response policy
@@ -201,3 +201,16 @@ Update 2026-11-16: See [scoped evidence extensions](SCOPED_EVIDENCE_EXTENSIONS.m
 ## Checked documentary fallback — 2026-11-16
 
 After existing strict grammars, the [finite documentary verifier](DOCUMENTARY_ASSERTIONS.md) can certify source-attributed assertions and compose checked question obligations under the complete original question/profile. Every part and applicable contrary-evidence check must pass for `supported_answer`; `partial_answer` keeps exact supported claims and missing obligations with overall `answer_supported:false`. Source support does not establish historical truth, authorship authentication or event identity. [Frozen results](../evaluation/documentary-assertions/RESULTS.md) retain 1,068 passing tests, two new checked partial answers and zero complete historical answers across 22 unchanged questions.
+
+## Current additive inspection fields
+
+`diagnostic.category` adds actionable classes while retaining existing detailed
+codes. `source_assurance` explicitly requires outside-world confirmation and
+reports declared root counts without certifying independence or truth; see
+[closed-ledger boundaries](CLOSED_LEDGER_BOUNDARIES.md). Documentary obligations
+link to displayed checked claims through zero-based `evidence_claim_indices` and
+retain undisplayed evidence counts. [Recorded-arrangement completion](SOLO_RESEARCH_WORKFLOW.md#complete-recorded-arrangement-answers)
+checks source content and printed letter dates, never external execution/delivery.
+The [current status](CURRENT_STATUS.md) separates the latest experiment from the
+earlier historical measurements in this guide. No favorable model review awards
+deterministic support.

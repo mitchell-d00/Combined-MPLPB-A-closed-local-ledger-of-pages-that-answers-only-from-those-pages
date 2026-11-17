@@ -1,10 +1,10 @@
 # Documentation and evidence coverage audit
 
-Last reviewed: 2026-11-16.
+Last reviewed: 2026-11-17.
 
 Inspected baseline: `c0eb212b51c41a96e361ae0ceb680a0a5df0d55f`.
 This is a repository/documentation audit, not a new source-language accuracy run.
-See [current status](../../docs/CURRENT_STATUS_2026-11-02.md), the
+See [current status](../../docs/CURRENT_STATUS.md), the
 [result/test index](../../docs/RESULTS_AND_TESTS.md), and the
 [classification inventory](../../docs/documentation.json).
 

@@ -1,6 +1,6 @@
 # Combined MPLPB
 
-Last reviewed: 2026-11-16. See [current status and result-to-test index](docs/CURRENT_STATUS_2026-11-08.md). Dates and numeric results in historical validation sections retain their original scope; this review is not a rerun or independent certification.
+Last reviewed: 2026-11-17. See [current status and result-to-test index](docs/CURRENT_STATUS.md). Dates and numeric results in historical validation sections retain their original scope; this review is not a rerun or independent certification.
 
 A closed local ledger of pages, with supported answers, inspectable provenance, and deterministic conversation. Each page declares its identity, scope, status, sealed hash, origin, and lineage. Source-backed answers require eligible body evidence under a finite grammar; missing support refuses and competing support remains ambiguous.
 
@@ -14,6 +14,17 @@ architecture is claimed. See the [research status and completion-fix release not
 **Infrastructure rule:** Every change must pass the [automated repository synchronization audit](docs/REPOSITORY_INFRASTRUCTURE.md), which checks the live Pages entry point, source `index.html`, JavaScript API, generated standalone runtime, packaging, documentation and corpus release boundaries. The [versioned machine-derived reference corpus](reference_corpus/README.md) is a separate **lab-only, unratified research preview**; it is **not** loaded into the hosted app by default.
 
 The hosted application runs the Python engine locally through WebAssembly. No model, AI account, API key, or Python server is needed to use the standalone runtime. Saved visitor collections and conversations stay in that browser's storage. Explicit or enabled automatic source acquisition uses the network; the optional general-web crawler has separate service requirements.
+
+## Latest source-research milestone
+
+The [unchanged22-question experiment](evaluation/solo-milestone/2026-11-17/RESULTS.md)
+adds one checked complete arrangement answer: source-supported completions1→2,
+without adding a delivery/execution claim. A blinded fresh-context **AI assessment**
+rates complete correct1→2, correct refusal4→4, and errors/over-refusals17→16.
+This is development evidence, not human validation or general historical accuracy.
+[Use the solo research workflow](docs/SOLO_RESEARCH_WORKFLOW.md) to inspect exact
+sources and unresolved question parts. Source-only assurance and outside-world
+confirmation remain visible. Earlier dated results below retain their original scope.
 
 ## Choose how to run it
 
@@ -44,7 +55,7 @@ This source candidate is **2.1.0rc1**, following the 2.0.0 bounded-reader releas
 
 The [general answer pipeline](docs/GENERAL_ANSWER_PIPELINE.md) adds diagnostic abstentions and an opt-in native local reader. Strict mode remains the default and needs no model. Assisted mode is experimental; live-model quality and fresh cross-domain evaluation are still required before a general-quality shipping claim. See the [capability/release matrix](docs/RELEASE_2_1_RC1.md) and [human-scored evaluation](evaluation/general-reader/README.md).
 
-See the [November 8 implementation and verification status](docs/CURRENT_STATUS_2026-11-08.md) for merged changes, actual checks and remaining product gaps, and the [result-to-test index](docs/RESULTS_AND_TESTS.md) for reproduction. The October 31 status remains historical.
+See the [current implementation and verification status](docs/CURRENT_STATUS.md) for capabilities, actual checks and remaining product gaps, and the [result-to-test index](docs/RESULTS_AND_TESTS.md) for reproduction. The October 31 status remains historical.
 
 The [historical expert path](docs/HISTORICAL_EXPERT_PATH.md) runs source-bound documentary, chronology and verification specialists through the existing work coordinator. Use `mplpb-combined investigate` to crawl explicitly declared document relationships with exact citations, current eligibility checks and bounded hops. Its output remains an evidence report, not a certified historical answer.
 
@@ -233,3 +244,9 @@ Targeted recovery update (2026-11-16): the [source-linked recovery study](docs/P
 
 
 Documentary assertion update (2026-11-16): [checked source assertions and compound-question composition](docs/DOCUMENTARY_ASSERTIONS.md) are implemented and built. [Frozen results](evaluation/documentary-assertions/RESULTS.md) show checked partial answers increasing from 0 to 2 across 22 unchanged questions; full supported answers remain 0/22. Independent semantic review and unseen evaluation are NOT RUN.
+
+
+Reconstruction update (2026-11-17): [documentary research mode](docs/HISTORICAL_RECONSTRUCTION_ENGINE.md) adds source-unit/layer inspection, literal relationship checks, exact paragraph comparisons and candidate graphs. [Review rules](docs/HISTORICAL_TRUTH_RULES.md) keep synthetic fixture truth, human assessments and real historical truth separate. Final new measurements are retained separately; earlier historical reports remain unchanged.
+
+
+Measured completion update (2026-11-17): [final reconstruction experiment](evaluation/reconstruction-engine/2026-11-17/RESULTS.md) reports one complete source-supported wording comparison and two checked partials on 22 unchanged questions, versus zero complete and two partials before. The extracted implementation passed 1,124 tests and actual browser/WebAssembly checks. Historical authenticity, independent semantic accuracy and the proposed 9/10 outcome remain unestablished.

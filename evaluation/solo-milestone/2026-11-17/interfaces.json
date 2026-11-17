@@ -1,0 +1,20 @@
+{
+  "release_revision": "80a4b02d0a13ac0f986f83622514c4be5dddd844",
+  "benchmark_and_browser_revision": "d369346dfcdf4c6cd87866971b352be639506277",
+  "python_runtime_byte_equivalent": true,
+  "browser_html_byte_equivalent": true,
+  "browser_html_sha256": "def5e68a9b15d91c8ae640ff0ed9b2414ce5bb574c0fc8dac6d6cd927d7284e6",
+  "browser_html_bytes": 38542194,
+  "pyodide_version": "314.0.7",
+  "pyodide_archive_sha256": "2abdcc2e35208af406e07724cffa85bc582ced97e9028383ecf5462541393f95",
+  "commands_passed": [
+    "python tools/check_ui_script.py",
+    "node tools/check_browser_transport.cjs",
+    "node tests/javascript-api.cjs",
+    "node crawler/test_worker.mjs",
+    "node tools/check_browser_wasm.mjs /tmp/mplpb-wasm/pyodide dist/index.html",
+    "PYTHONPATH=. python browser_check.py --dist dist --output NEW_BROWSER.json"
+  ],
+  "chromium_checks_passed": 11,
+  "browser_scope": "Actual Chromium156 with candidate WebAssembly; no deployed-site or human usability claim."
+}

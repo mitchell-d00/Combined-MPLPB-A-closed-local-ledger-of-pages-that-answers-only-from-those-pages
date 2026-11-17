@@ -18,7 +18,7 @@ PROBES = REPO / "killtest" / "probes.json"
 
 ALLOWED_IMPORTS = {
     "__future__", "argparse", "collections", "contextlib", "contextvars", "dataclasses", "datetime",
-    "hashlib", "html", "json", "math", "os", "pathlib", "re", "sys", "tempfile", "time", "typing",
+    "functools", "hashlib", "html", "json", "math", "os", "pathlib", "re", "sys", "tempfile", "time", "typing",
 }
 
 

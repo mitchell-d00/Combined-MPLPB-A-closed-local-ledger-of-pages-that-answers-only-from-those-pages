@@ -1,6 +1,6 @@
 # Current system and self-knowledge
 
-Last reviewed: 2026-11-16. See [current status and result-to-test index](CURRENT_STATUS_2026-11-02.md). Review is not a fresh measurement or independent certification.
+Last reviewed: 2026-11-17. See [current status and result-to-test index](CURRENT_STATUS.md). Review is not a fresh measurement or independent certification.
 
 This document is generated from `tools/self_knowledge.py`. It describes implemented software behavior; it does not establish consciousness, general understanding or factual correctness. Self-description is labeled separately from MPLPB source evidence.
 

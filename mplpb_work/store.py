@@ -206,6 +206,14 @@ class WorkStore:
             self._host(state, authority)
             return {'seq': state['seq'], 'hash': state['head']}
 
+    def historical_review(self, credential, entry):
+        from .historical_review import enter_review
+        return enter_review(self,credential,entry)
+
+    def historical_reviews(self, credential, claim_id):
+        from .historical_review import inspect_reviews
+        return inspect_reviews(self,credential,claim_id)
+
     @staticmethod
     def _expect(actual, expected):
         if not isinstance(expected, str) or not hmac.compare_digest(actual, expected):
@@ -523,6 +531,11 @@ class WorkStore:
             target = state['records'][next(iter(p['target']))]
             if target['kind'] != 'claim' or set(visibility) != set(target['visibility']):
                 raise Denied('A challenge must have the same visibility as its claim')
+            if p['regime']=='historical-review-v1':
+                from .historical_review import validate_record
+                validate_record(p,record['dependencies'],actor,state)
+                if any(self._effective(state,state['records'][key],actor['profile'],{})!='eligible' for key in record['dependencies']):
+                    raise WorkError('Historical review evidence is no longer eligible')
             rounds = {r['review_round'] for versions in state['history'].values() for r in versions
                       if r['kind'] == 'review' and r['payload']['task'] == scope}
             resolving = old and old['payload']['outcome'] == 'challenge' and p['outcome'] == 'resolved'
@@ -768,19 +781,62 @@ class WorkStore:
                          outcome.get('operator_seconds'),outcome.get('operator_seconds_basis','measured'))
             return {'receipt': receipt, 'attempt': attempt['id'], 'action': action['id']}
 
-    def record_external_receipt(self, authority, *, receipt, kind, artifact, expected_head, operator_seconds=None):
-        """Host-declared READ/ACK observation; never an independent truth check."""
+    def record_external_receipt(self, authority, *, receipt, kind, artifact, expected_head, operator_seconds=None, predecessor=None,
+                                local_artifact=None, expected_artifact_sha256=None):
+        """Host observations with optional checked ordering; never external truth.
+
+        Legacy unlinked READ/ACK observations cannot license a checked chain.
+        Each new transition needs its own artifact and same-execution predecessor.
+        """
         M.words(artifact,16000);M.operator_seconds(operator_seconds)
-        if kind not in {'READ','ACK'}:raise WorkError('External receipt must be READ or ACK')
+        previous_kind = {'STORE': None, 'DISPATCH': 'STORE', 'DELIVERY': 'DISPATCH',
+                         'READ': 'DELIVERY', 'ACK': 'READ', 'COMPLETION': 'ACK'}
+        if kind not in previous_kind:raise WorkError('Unknown external receipt transition')
+        legacy = predecessor is None and kind in {'READ','ACK'}
         with self._transaction() as (db,state):
             self._host(state,authority);self._expect(state['head'],expected_head)
             execution=state['receipts'].get(receipt)
             if not execution:raise WorkError('External receipt requires an existing execution receipt')
+            if not legacy:
+                if kind == 'STORE':
+                    if predecessor is not None:raise WorkError('STORE cannot have a predecessor')
+                else:
+                    prior = next((r for r in state['external_receipts'] if r['id'] == predecessor), None)
+                    if (not prior or not prior.get('transition_checked')
+                            or prior['execution_receipt'] != receipt or prior['kind'] != previous_kind[kind]):
+                        raise WorkError('Missing matching checked predecessor receipt')
+            storage = None
+            if local_artifact is not None or expected_artifact_sha256 is not None:
+                if kind != 'STORE':raise WorkError('Local file inspection proves only a STORE observation')
+                from .local_artifacts import inspect
+                storage = inspect(self.directory, local_artifact, expected_artifact_sha256)
+                if not storage['matches_expected']:raise WorkError('Artifact bytes do not match the expected pin')
             observation={'id':uuid.uuid4().hex,'execution_receipt':receipt,'action':execution['action'],
+                'predecessor':predecessor,'transition_checked':not legacy,
                 'kind':kind,'artifact_hash':digest(artifact),'answer_supported':False,
                 'content_truth_verified':False,'external_world_verified':False,'basis':'host_declared'}
+            if storage is not None:
+                observation['local_storage'] = storage
             self._append(db,state,'external_receipt',{'external_receipt':observation},'host',operator_seconds,'measured')
             return copy.deepcopy(observation)
+
+    def verify_storage_receipt(self, authority, *, receipt_id):
+        """Read-only current byte check of a prior local storage observation."""
+        with self._transaction() as (db, state):
+            self._host(state, authority)
+            receipt = next((r for r in state['external_receipts'] if r['id']==receipt_id), None)
+            if not receipt or not receipt.get('local_storage'):
+                raise WorkError('Receipt has no checked local storage observation')
+            original = receipt['local_storage']
+            from .local_artifacts import inspect
+            try:
+                current = inspect(self.directory, original['relative_path'], original['raw_sha256'])
+                status = 'intact' if current['matches_expected'] else 'changed'
+            except WorkError:
+                current, status = None, 'unavailable'
+            return {'receipt_id':receipt_id, 'status':status, 'current':current,
+                    'answer_supported':False, 'external_world_verified':False,
+                    'notice':'Current local byte comparison only; no delivery, human reading or completion proof.'}
 
     def audit(self, authority, checkpoint=None):
         with self._transaction() as (db, state):

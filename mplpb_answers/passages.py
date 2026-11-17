@@ -218,3 +218,14 @@ class PassageIndex:
                     and current.profile == self.gate.profile)
         except (OSError, ValueError):
             return False
+
+    def documentary_units(self, *, max_chars=200000, max_units=1000):
+        """Derived inspection units; never a cached serving decision."""
+        from .source_units import inspect_source
+        reports=[];used=0;count=0
+        for record in self.records:
+            if max_chars-used<1000 or count>=max_units:break
+            report=inspect_source(record,max_chars=max_chars-used,max_units=max_units-count)
+            reports.append(report);used+=report['examined_characters'];count+=len(report['units'])
+        return {'sources':reports,'complete':len(reports)==len(self.records) and all(r['complete_source_examined'] for r in reports),
+                'examined_characters':used,'examined_units':count,'authoritative':False}

@@ -1,0 +1,38 @@
+======================================================================
+ERROR: test_corruption_invalidates_the_review (tests.test_historical_review_rules.HistoricalReviewRuleTests.test_corruption_invalidates_the_review)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/mplpb/tests/test_historical_review_rules.py", line 55, in test_corruption_invalidates_the_review
+    enter_review(self.store,self.tokens['reviewer-a'],self.entry('reviewer-a'))
+  File "/workspace/mplpb/mplpb_work/historical_review.py", line 29, in enter_review
+    if not record or record['kind']!='evidence' or record['effective']!='eligible':raise WorkError('Review requires currently eligible exact evidence')
+                                                   ~~~~~~^^^^^^^^^^^^^
+KeyError: 'effective'
+
+======================================================================
+ERROR: test_declared_human_is_not_automatically_authenticated (tests.test_historical_review_rules.HistoricalReviewRuleTests.test_declared_human_is_not_automatically_authenticated)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/mplpb/tests/test_historical_review_rules.py", line 61, in test_declared_human_is_not_automatically_authenticated
+    enter_review(self.store,self.tokens['reviewer-a'],self.entry('reviewer-a',reviewer_kind='human_declared'))
+  File "/workspace/mplpb/mplpb_work/historical_review.py", line 29, in enter_review
+    if not record or record['kind']!='evidence' or record['effective']!='eligible':raise WorkError('Review requires currently eligible exact evidence')
+                                                   ~~~~~~^^^^^^^^^^^^^
+KeyError: 'effective'
+
+======================================================================
+ERROR: test_two_synthetic_reviewers_match_a_pinned_fixture_without_real_truth (tests.test_historical_review_rules.HistoricalReviewRuleTests.test_two_synthetic_reviewers_match_a_pinned_fixture_without_real_truth)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/mplpb/tests/test_historical_review_rules.py", line 33, in test_two_synthetic_reviewers_match_a_pinned_fixture_without_real_truth
+    for seat in ['reviewer-a','reviewer-b']:enter_review(self.store,self.tokens[seat],self.entry(seat))
+                                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/mplpb/mplpb_work/historical_review.py", line 29, in enter_review
+    if not record or record['kind']!='evidence' or record['effective']!='eligible':raise WorkError('Review requires currently eligible exact evidence')
+                                                   ~~~~~~^^^^^^^^^^^^^
+KeyError: 'effective'
+
+----------------------------------------------------------------------
+Ran 25 tests in 0.291s
+
+FAILED (errors=3)

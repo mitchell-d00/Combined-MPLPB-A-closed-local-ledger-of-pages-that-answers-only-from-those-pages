@@ -1,10 +1,10 @@
 # Results and their tests
 
-Last reviewed: 2026-11-16.
+Last reviewed: 2026-11-17.
 
 Every retained evaluation family is listed below. The [machine-readable index](results.json)
 is checked in CI for missing test files, reproduction tools and unindexed evaluation
-directories. The [current status](CURRENT_STATUS_2026-11-08.md) separates published
+directories. The [current status](CURRENT_STATUS.md) separates published
 measurements from this update's checks.
 
 Tests protect behavior under their assertions. A file link does not certify a
@@ -106,3 +106,31 @@ The [scope repair protocol](DOCUMENTARY_SCOPE.md) links 24 new adversarial tests
 ## Checked documentary assertions — 2026-11-16
 
 The [finite source-assertion/composition contract](DOCUMENTARY_ASSERTIONS.md) adds native checked partial answers and independently checked question obligations. [New evaluation evidence](../evaluation/documentary-assertions/RESULTS.md) preserves the previous zero-assertion baseline and all intermediate failures. Final frozen measurements show checked partial answers 0→2/22 and full supported answers 0→0/22, with 1,068 Python tests passing. Independent human semantic review remains NOT RUN.
+
+
+Reconstruction update (2026-11-17): [documentary research mode](HISTORICAL_RECONSTRUCTION_ENGINE.md) adds source-unit/layer inspection, literal relationship checks, exact paragraph comparisons and candidate graphs. [Review rules](HISTORICAL_TRUTH_RULES.md) keep synthetic fixture truth, human assessments and real historical truth separate. Final new measurements are retained separately; earlier historical reports remain unchanged.
+
+
+Terminal reconstruction/completion experiment (2026-11-17): [retained results](../evaluation/reconstruction-engine/2026-11-17/RESULTS.md) show one complete source comparison and two checked partials versus zero complete/two partials on22 unchanged questions;1124 tests passed. Independent historical accuracy and >=200 unseen evaluation remain NOT RUN.
+
+## Closed-ledger boundaries
+
+[Versioned evidence](../evaluation/closed-ledger-boundaries/2026-11-17/RESULTS.md)
+records frozen-source software checks, unchanged-input outcomes and costs.
+The [reproduction runner](../tools/reproduce_boundaries.py),
+[boundary tests](../tests/test_answer_boundaries.py) and existing
+[scoped-extension controls](../tests/test_scoped_extensions.py) protect source-only
+assurance, diagnostic distinctions and host-declared observation sequencing.
+No independent historical accuracy or exact legacy887-test reproduction is claimed.
+
+## Solo recorded-arrangement milestone
+
+[Versioned before/after evidence](../evaluation/solo-milestone/2026-11-17/RESULTS.md)
+retains22 unchanged original-record questions and a blinded fresh-context **AI
+assessment**: complete correct1→2, correct refusal4→4, errors/over-refusals17→16.
+[Arrangement tests](../tests/test_arrangement_completion.py) and
+[solo checks](../tests/test_solo_research.py) cover source-only completion, cache
+invalidation, readable evidence and bounded local storage receipts. Existing
+[isolated replay](../tools/unprepared_challenge.py), retained exact-byte score
+validation and fresh kernel/original-byte audit provide reproduction paths.
+This is neither human validation nor independently unseen historical accuracy.

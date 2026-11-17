@@ -8,6 +8,7 @@ the files under a root directory and can be thrown away and rebuilt.
 from __future__ import annotations
 
 import hashlib
+from functools import lru_cache
 import html
 import json
 import re
@@ -250,20 +251,39 @@ class Record:
         return (self.hash_actual or "").replace("sha256:", "")[:12]
 
 
-def parse_page(text: str, relpath: str) -> Record:
+PARSE_CACHE_MAX_CHARS = 2000000
+PARSE_CACHE_MAX_ENTRIES = 8
+
+
+def _parse_content(text):
     head = _Head()
     try:
         head.feed(text)
-    except Exception:  # a page that cannot be parsed is a page with no fields
+    except Exception:  # Preserve the legacy parser's failure behavior.
         pass
     body = body_of(text)
     fields = dict(head.meta)
-    return Record(
-        path=relpath, fields=fields, title=head.title.strip(), body_html=body,
-        hash_actual=compute_hash(fields, head.title, body), text=text_of(body),
-        problems=[("duplicate metadata", "mplpb:" + key)
-                  for key in head.duplicates],
-    )
+    # Cache only immutable values. A caller can safely edit its own Record.
+    return (tuple(fields.items()), head.title.strip(), body,
+            compute_hash(fields, head.title, body), text_of(body),
+            tuple(("duplicate metadata", "mplpb:" + key) for key in head.duplicates))
+
+
+@lru_cache(maxsize=PARSE_CACHE_MAX_ENTRIES)
+def _parsed_content(text):
+    return _parse_content(text)
+
+
+def parse_page(text: str, relpath: str) -> Record:
+    """Reuse exact-content parsing, never file state, permissions or eligibility.
+
+    read_page still reads each file. Full text, including unhashed status and
+    declared hash, forms the cache key. Oversized inputs bypass bounded storage.
+    """
+    fields, title, body, actual, projected, problems = (
+        _parsed_content(text) if len(text) <= PARSE_CACHE_MAX_CHARS else _parse_content(text))
+    return Record(path=relpath, fields=dict(fields), title=title, body_html=body,
+                  hash_actual=actual, text=projected, problems=list(problems))
 
 
 def read_page(root: Path, path: Path) -> Record:

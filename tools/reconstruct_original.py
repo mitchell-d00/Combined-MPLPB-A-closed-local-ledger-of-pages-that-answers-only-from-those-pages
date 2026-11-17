@@ -10,12 +10,8 @@ from tools.unprepared_sources import load,save
 
 
 def inspect(ledger,question):
-    answer=answer_query(ledger,question).contract
-    candidates=discover(ledger,question)
-    return {'schema':'original-reconstruction-inspection-v1','question':question,
-            'native_answer':answer,'candidate_analysis':candidates,
-            'answer_supported':answer['answer_supported'],
-            'notice':'Native source support and candidate interpretation have separate authority. Quote fidelity does not verify historical meaning.'}
+    from mplpb_work.prose_evidence import reconstruct_report
+    return reconstruct_report(ledger,question)
 
 
 def main():

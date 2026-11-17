@@ -1,0 +1,1419 @@
+{
+  "schema": "historical-expert-replay-v1",
+  "revision": "extracted candidate source",
+  "scope": "Authored developer replay on inspected original papers; typed documentary observations only, not general historical answer accuracy.",
+  "source_evidence": [
+    {
+      "key": "local-web",
+      "original_path": "parts/local-mirror/docs/MPLPB_Local_Web_v4.md",
+      "original_sha256": "a12b8cc07c2a88a9396a26452efd0601727f9077dba21dafbd0e03952e3156ef",
+      "historical_ref": "dd8e6d4e8e101c6b19fd7f834e0e76b00064e3fd",
+      "wrapper_id": "ORIGINAL-0001",
+      "wrapper_hash": "sha256:68fc40c9b83cd8f6d69ddaaf98833372986764b47c38f22ffd03e00456e218fa"
+    },
+    {
+      "key": "smart-paper",
+      "original_path": "parts/smart-local/docs/Smart_Local_MPLPB.txt",
+      "original_sha256": "56feed445f02ff80dfc6c748a3c20e51f85d610f34f352aced9317e902d61c83",
+      "historical_ref": "c9a8b9e5aeeb34e48718e739d5dcb359f236f99a",
+      "wrapper_id": "ORIGINAL-0002",
+      "wrapper_hash": "sha256:fe8ce6e3eb647ff033437667ca6cceac9fa436bdeadabcc8102f394c154a24f1"
+    },
+    {
+      "key": "combined-v3",
+      "original_path": "docs/Combined_MPLPB.md",
+      "original_sha256": "c56db5020f273c2f223c13e036e3c34aeec293e7a043f6aab4bbff88a0b820fc",
+      "historical_ref": "66048aa62a9c74ed98185531fa8c8fa6bbdb41a7",
+      "wrapper_id": "ORIGINAL-0003",
+      "wrapper_hash": "sha256:8de90447360f85acf97310a7cdcddb92aaf8d3d3bb6612f76642a774ba41ea6c"
+    },
+    {
+      "key": "combined-v1",
+      "original_path": "docs/superseded/Combined_MPLPB_v1.md",
+      "original_sha256": "9f74f123e390e5fe8341c8cd3a7621755a5ef908f42fd1aa049a02707e084467",
+      "historical_ref": "8287da0c46e001a5ce411da414821de042b54d34",
+      "wrapper_id": "ORIGINAL-0004",
+      "wrapper_hash": "sha256:d8244039426952d519c74a0a64e3418f3047f2a04b5ed2ee7642c9e27f135c70"
+    }
+  ],
+  "summary": {
+    "originals_byte_verified": 4,
+    "sources_reached": 4,
+    "expected_originals_reached": true,
+    "observations_verified": 31,
+    "traversed_declared_relations": 6,
+    "unresolved_relations": 15,
+    "negative_supersession_qualification_preserved": true,
+    "expert_stages_passed": 3,
+    "answer_supported": false,
+    "truth_verified": false
+  },
+  "investigation": {
+    "sources": [
+      {
+        "id": "ORIGINAL-0003",
+        "path": "original-0003.html",
+        "hash": "sha256:8de90447360f85acf97310a7cdcddb92aaf8d3d3bb6612f76642a774ba41ea6c",
+        "depth": 0
+      },
+      {
+        "id": "ORIGINAL-0004",
+        "path": "original-0004.html",
+        "hash": "sha256:d8244039426952d519c74a0a64e3418f3047f2a04b5ed2ee7642c9e27f135c70",
+        "depth": 1
+      },
+      {
+        "id": "ORIGINAL-0001",
+        "path": "original-0001.html",
+        "hash": "sha256:68fc40c9b83cd8f6d69ddaaf98833372986764b47c38f22ffd03e00456e218fa",
+        "depth": 1
+      },
+      {
+        "id": "ORIGINAL-0002",
+        "path": "original-0002.html",
+        "hash": "sha256:fe8ce6e3eb647ff033437667ca6cceac9fa436bdeadabcc8102f394c154a24f1",
+        "depth": 1
+      }
+    ],
+    "observations": [
+      {
+        "kind": "document_identity",
+        "value": "MPLPB-COMBINED-017",
+        "start": 139,
+        "end": 295,
+        "quote": "| Document ID | MPLPB-COMBINED-017 (proposed; the next free number after MPLPB-IMAGE-016 in the supplied material, not yet allocated by the owner's index) |",
+        "target_id": "MPLPB-COMBINED-017",
+        "target_version": "v3",
+        "source_id": "ORIGINAL-0003",
+        "path": "original-0003.html",
+        "hash": "sha256:8de90447360f85acf97310a7cdcddb92aaf8d3d3bb6612f76642a774ba41ea6c"
+      },
+      {
+        "kind": "declared_date",
+        "value": "2026-10-07T18:00Z",
+        "start": 411,
+        "end": 445,
+        "quote": "| Updated | 2026-10-07T18:00Z v3 |",
+        "target_id": "",
+        "target_version": "v3",
+        "source_id": "ORIGINAL-0003",
+        "path": "original-0003.html",
+        "hash": "sha256:8de90447360f85acf97310a7cdcddb92aaf8d3d3bb6612f76642a774ba41ea6c"
+      },
+      {
+        "kind": "not_superseded",
+        "value": "| Supersedes | MPLPB-COMBINED-017 v2 (2026-10-07T12:00Z); MPLPB-COMBINED-017 v1 (2026-10-07T00:00Z). Both retained under `docs/superseded/`. No earlier paper or implementation is superseded; each stays current within its own scope and is carried under `parts/` |",
+        "start": 1024,
+        "end": 1286,
+        "quote": "| Supersedes | MPLPB-COMBINED-017 v2 (2026-10-07T12:00Z); MPLPB-COMBINED-017 v1 (2026-10-07T00:00Z). Both retained under `docs/superseded/`. No earlier paper or implementation is superseded; each stays current within its own scope and is carried under `parts/` |",
+        "target_id": "",
+        "target_version": "",
+        "source_id": "ORIGINAL-0003",
+        "path": "original-0003.html",
+        "hash": "sha256:8de90447360f85acf97310a7cdcddb92aaf8d3d3bb6612f76642a774ba41ea6c"
+      },
+      {
+        "kind": "supersedes",
+        "value": "MPLPB-COMBINED-017",
+        "start": 1024,
+        "end": 1286,
+        "quote": "| Supersedes | MPLPB-COMBINED-017 v2 (2026-10-07T12:00Z); MPLPB-COMBINED-017 v1 (2026-10-07T00:00Z). Both retained under `docs/superseded/`. No earlier paper or implementation is superseded; each stays current within its own scope and is carried under `parts/` |",
+        "target_id": "MPLPB-COMBINED-017",
+        "target_version": "v2",
+        "source_id": "ORIGINAL-0003",
+        "path": "original-0003.html",
+        "hash": "sha256:8de90447360f85acf97310a7cdcddb92aaf8d3d3bb6612f76642a774ba41ea6c"
+      },
+      {
+        "kind": "supersedes",
+        "value": "MPLPB-COMBINED-017",
+        "start": 1024,
+        "end": 1286,
+        "quote": "| Supersedes | MPLPB-COMBINED-017 v2 (2026-10-07T12:00Z); MPLPB-COMBINED-017 v1 (2026-10-07T00:00Z). Both retained under `docs/superseded/`. No earlier paper or implementation is superseded; each stays current within its own scope and is carried under `parts/` |",
+        "target_id": "MPLPB-COMBINED-017",
+        "target_version": "v1",
+        "source_id": "ORIGINAL-0003",
+        "path": "original-0003.html",
+        "hash": "sha256:8de90447360f85acf97310a7cdcddb92aaf8d3d3bb6612f76642a774ba41ea6c"
+      },
+      {
+        "kind": "related",
+        "value": "MPLPB-LOCAL-008",
+        "start": 1287,
+        "end": 1711,
+        "quote": "**Related.** MPLPB as a Local Web (MPLPB-LOCAL-008 v4). Separate, Allowed to Chat, and Overridden by Scope (MPLPB-SEP-007). Smart Local MPLPB (MPLPB-SMART-011 v1). MPLPB and the Cost of Visibility (MPLPB-COST-012 v2). MPLPB at Swarm and Enterprise Scale (MPLPB-SWARM-013 v3). Networked MPLPB. MPLPB Image (MPLPB-IMAGE-016 v2). Multi-Platform Linked Public Building (v3) and the other chapters of *Continuity Without Memory*.",
+        "target_id": "MPLPB-LOCAL-008",
+        "target_version": "v4",
+        "source_id": "ORIGINAL-0003",
+        "path": "original-0003.html",
+        "hash": "sha256:8de90447360f85acf97310a7cdcddb92aaf8d3d3bb6612f76642a774ba41ea6c"
+      },
+      {
+        "kind": "related",
+        "value": "MPLPB-SEP-007",
+        "start": 1287,
+        "end": 1711,
+        "quote": "**Related.** MPLPB as a Local Web (MPLPB-LOCAL-008 v4). Separate, Allowed to Chat, and Overridden by Scope (MPLPB-SEP-007). Smart Local MPLPB (MPLPB-SMART-011 v1). MPLPB and the Cost of Visibility (MPLPB-COST-012 v2). MPLPB at Swarm and Enterprise Scale (MPLPB-SWARM-013 v3). Networked MPLPB. MPLPB Image (MPLPB-IMAGE-016 v2). Multi-Platform Linked Public Building (v3) and the other chapters of *Continuity Without Memory*.",
+        "target_id": "MPLPB-SEP-007",
+        "target_version": "",
+        "source_id": "ORIGINAL-0003",
+        "path": "original-0003.html",
+        "hash": "sha256:8de90447360f85acf97310a7cdcddb92aaf8d3d3bb6612f76642a774ba41ea6c"
+      },
+      {
+        "kind": "related",
+        "value": "MPLPB-SMART-011",
+        "start": 1287,
+        "end": 1711,
+        "quote": "**Related.** MPLPB as a Local Web (MPLPB-LOCAL-008 v4). Separate, Allowed to Chat, and Overridden by Scope (MPLPB-SEP-007). Smart Local MPLPB (MPLPB-SMART-011 v1). MPLPB and the Cost of Visibility (MPLPB-COST-012 v2). MPLPB at Swarm and Enterprise Scale (MPLPB-SWARM-013 v3). Networked MPLPB. MPLPB Image (MPLPB-IMAGE-016 v2). Multi-Platform Linked Public Building (v3) and the other chapters of *Continuity Without Memory*.",
+        "target_id": "MPLPB-SMART-011",
+        "target_version": "v1",
+        "source_id": "ORIGINAL-0003",
+        "path": "original-0003.html",
+        "hash": "sha256:8de90447360f85acf97310a7cdcddb92aaf8d3d3bb6612f76642a774ba41ea6c"
+      },
+      {
+        "kind": "related",
+        "value": "MPLPB-COST-012",
+        "start": 1287,
+        "end": 1711,
+        "quote": "**Related.** MPLPB as a Local Web (MPLPB-LOCAL-008 v4). Separate, Allowed to Chat, and Overridden by Scope (MPLPB-SEP-007). Smart Local MPLPB (MPLPB-SMART-011 v1). MPLPB and the Cost of Visibility (MPLPB-COST-012 v2). MPLPB at Swarm and Enterprise Scale (MPLPB-SWARM-013 v3). Networked MPLPB. MPLPB Image (MPLPB-IMAGE-016 v2). Multi-Platform Linked Public Building (v3) and the other chapters of *Continuity Without Memory*.",
+        "target_id": "MPLPB-COST-012",
+        "target_version": "v2",
+        "source_id": "ORIGINAL-0003",
+        "path": "original-0003.html",
+        "hash": "sha256:8de90447360f85acf97310a7cdcddb92aaf8d3d3bb6612f76642a774ba41ea6c"
+      },
+      {
+        "kind": "related",
+        "value": "MPLPB-SWARM-013",
+        "start": 1287,
+        "end": 1711,
+        "quote": "**Related.** MPLPB as a Local Web (MPLPB-LOCAL-008 v4). Separate, Allowed to Chat, and Overridden by Scope (MPLPB-SEP-007). Smart Local MPLPB (MPLPB-SMART-011 v1). MPLPB and the Cost of Visibility (MPLPB-COST-012 v2). MPLPB at Swarm and Enterprise Scale (MPLPB-SWARM-013 v3). Networked MPLPB. MPLPB Image (MPLPB-IMAGE-016 v2). Multi-Platform Linked Public Building (v3) and the other chapters of *Continuity Without Memory*.",
+        "target_id": "MPLPB-SWARM-013",
+        "target_version": "v3",
+        "source_id": "ORIGINAL-0003",
+        "path": "original-0003.html",
+        "hash": "sha256:8de90447360f85acf97310a7cdcddb92aaf8d3d3bb6612f76642a774ba41ea6c"
+      },
+      {
+        "kind": "related",
+        "value": "MPLPB-IMAGE-016",
+        "start": 1287,
+        "end": 1711,
+        "quote": "**Related.** MPLPB as a Local Web (MPLPB-LOCAL-008 v4). Separate, Allowed to Chat, and Overridden by Scope (MPLPB-SEP-007). Smart Local MPLPB (MPLPB-SMART-011 v1). MPLPB and the Cost of Visibility (MPLPB-COST-012 v2). MPLPB at Swarm and Enterprise Scale (MPLPB-SWARM-013 v3). Networked MPLPB. MPLPB Image (MPLPB-IMAGE-016 v2). Multi-Platform Linked Public Building (v3) and the other chapters of *Continuity Without Memory*.",
+        "target_id": "MPLPB-IMAGE-016",
+        "target_version": "v2",
+        "source_id": "ORIGINAL-0003",
+        "path": "original-0003.html",
+        "hash": "sha256:8de90447360f85acf97310a7cdcddb92aaf8d3d3bb6612f76642a774ba41ea6c"
+      },
+      {
+        "kind": "document_identity",
+        "value": "MPLPB-COMBINED-017",
+        "start": 139,
+        "end": 295,
+        "quote": "| Document ID | MPLPB-COMBINED-017 (proposed; the next free number after MPLPB-IMAGE-016 in the supplied material, not yet allocated by the owner's index) |",
+        "target_id": "MPLPB-COMBINED-017",
+        "target_version": "v1",
+        "source_id": "ORIGINAL-0004",
+        "path": "original-0004.html",
+        "hash": "sha256:d8244039426952d519c74a0a64e3418f3047f2a04b5ed2ee7642c9e27f135c70"
+      },
+      {
+        "kind": "declared_date",
+        "value": "2026-10-07T00:00Z",
+        "start": 411,
+        "end": 445,
+        "quote": "| Updated | 2026-10-07T00:00Z v1 |",
+        "target_id": "",
+        "target_version": "v1",
+        "source_id": "ORIGINAL-0004",
+        "path": "original-0004.html",
+        "hash": "sha256:d8244039426952d519c74a0a64e3418f3047f2a04b5ed2ee7642c9e27f135c70"
+      },
+      {
+        "kind": "not_superseded",
+        "value": "| Supersedes | Nothing. Every earlier paper and implementation stays current within its own scope and is carried under `parts/` |",
+        "start": 1024,
+        "end": 1153,
+        "quote": "| Supersedes | Nothing. Every earlier paper and implementation stays current within its own scope and is carried under `parts/` |",
+        "target_id": "",
+        "target_version": "",
+        "source_id": "ORIGINAL-0004",
+        "path": "original-0004.html",
+        "hash": "sha256:d8244039426952d519c74a0a64e3418f3047f2a04b5ed2ee7642c9e27f135c70"
+      },
+      {
+        "kind": "related",
+        "value": "MPLPB-LOCAL-008",
+        "start": 1154,
+        "end": 1578,
+        "quote": "**Related.** MPLPB as a Local Web (MPLPB-LOCAL-008 v4). Separate, Allowed to Chat, and Overridden by Scope (MPLPB-SEP-007). Smart Local MPLPB (MPLPB-SMART-011 v1). MPLPB and the Cost of Visibility (MPLPB-COST-012 v2). MPLPB at Swarm and Enterprise Scale (MPLPB-SWARM-013 v3). Networked MPLPB. MPLPB Image (MPLPB-IMAGE-016 v2). Multi-Platform Linked Public Building (v3) and the other chapters of *Continuity Without Memory*.",
+        "target_id": "MPLPB-LOCAL-008",
+        "target_version": "v4",
+        "source_id": "ORIGINAL-0004",
+        "path": "original-0004.html",
+        "hash": "sha256:d8244039426952d519c74a0a64e3418f3047f2a04b5ed2ee7642c9e27f135c70"
+      },
+      {
+        "kind": "related",
+        "value": "MPLPB-SEP-007",
+        "start": 1154,
+        "end": 1578,
+        "quote": "**Related.** MPLPB as a Local Web (MPLPB-LOCAL-008 v4). Separate, Allowed to Chat, and Overridden by Scope (MPLPB-SEP-007). Smart Local MPLPB (MPLPB-SMART-011 v1). MPLPB and the Cost of Visibility (MPLPB-COST-012 v2). MPLPB at Swarm and Enterprise Scale (MPLPB-SWARM-013 v3). Networked MPLPB. MPLPB Image (MPLPB-IMAGE-016 v2). Multi-Platform Linked Public Building (v3) and the other chapters of *Continuity Without Memory*.",
+        "target_id": "MPLPB-SEP-007",
+        "target_version": "",
+        "source_id": "ORIGINAL-0004",
+        "path": "original-0004.html",
+        "hash": "sha256:d8244039426952d519c74a0a64e3418f3047f2a04b5ed2ee7642c9e27f135c70"
+      },
+      {
+        "kind": "related",
+        "value": "MPLPB-SMART-011",
+        "start": 1154,
+        "end": 1578,
+        "quote": "**Related.** MPLPB as a Local Web (MPLPB-LOCAL-008 v4). Separate, Allowed to Chat, and Overridden by Scope (MPLPB-SEP-007). Smart Local MPLPB (MPLPB-SMART-011 v1). MPLPB and the Cost of Visibility (MPLPB-COST-012 v2). MPLPB at Swarm and Enterprise Scale (MPLPB-SWARM-013 v3). Networked MPLPB. MPLPB Image (MPLPB-IMAGE-016 v2). Multi-Platform Linked Public Building (v3) and the other chapters of *Continuity Without Memory*.",
+        "target_id": "MPLPB-SMART-011",
+        "target_version": "v1",
+        "source_id": "ORIGINAL-0004",
+        "path": "original-0004.html",
+        "hash": "sha256:d8244039426952d519c74a0a64e3418f3047f2a04b5ed2ee7642c9e27f135c70"
+      },
+      {
+        "kind": "related",
+        "value": "MPLPB-COST-012",
+        "start": 1154,
+        "end": 1578,
+        "quote": "**Related.** MPLPB as a Local Web (MPLPB-LOCAL-008 v4). Separate, Allowed to Chat, and Overridden by Scope (MPLPB-SEP-007). Smart Local MPLPB (MPLPB-SMART-011 v1). MPLPB and the Cost of Visibility (MPLPB-COST-012 v2). MPLPB at Swarm and Enterprise Scale (MPLPB-SWARM-013 v3). Networked MPLPB. MPLPB Image (MPLPB-IMAGE-016 v2). Multi-Platform Linked Public Building (v3) and the other chapters of *Continuity Without Memory*.",
+        "target_id": "MPLPB-COST-012",
+        "target_version": "v2",
+        "source_id": "ORIGINAL-0004",
+        "path": "original-0004.html",
+        "hash": "sha256:d8244039426952d519c74a0a64e3418f3047f2a04b5ed2ee7642c9e27f135c70"
+      },
+      {
+        "kind": "related",
+        "value": "MPLPB-SWARM-013",
+        "start": 1154,
+        "end": 1578,
+        "quote": "**Related.** MPLPB as a Local Web (MPLPB-LOCAL-008 v4). Separate, Allowed to Chat, and Overridden by Scope (MPLPB-SEP-007). Smart Local MPLPB (MPLPB-SMART-011 v1). MPLPB and the Cost of Visibility (MPLPB-COST-012 v2). MPLPB at Swarm and Enterprise Scale (MPLPB-SWARM-013 v3). Networked MPLPB. MPLPB Image (MPLPB-IMAGE-016 v2). Multi-Platform Linked Public Building (v3) and the other chapters of *Continuity Without Memory*.",
+        "target_id": "MPLPB-SWARM-013",
+        "target_version": "v3",
+        "source_id": "ORIGINAL-0004",
+        "path": "original-0004.html",
+        "hash": "sha256:d8244039426952d519c74a0a64e3418f3047f2a04b5ed2ee7642c9e27f135c70"
+      },
+      {
+        "kind": "related",
+        "value": "MPLPB-IMAGE-016",
+        "start": 1154,
+        "end": 1578,
+        "quote": "**Related.** MPLPB as a Local Web (MPLPB-LOCAL-008 v4). Separate, Allowed to Chat, and Overridden by Scope (MPLPB-SEP-007). Smart Local MPLPB (MPLPB-SMART-011 v1). MPLPB and the Cost of Visibility (MPLPB-COST-012 v2). MPLPB at Swarm and Enterprise Scale (MPLPB-SWARM-013 v3). Networked MPLPB. MPLPB Image (MPLPB-IMAGE-016 v2). Multi-Platform Linked Public Building (v3) and the other chapters of *Continuity Without Memory*.",
+        "target_id": "MPLPB-IMAGE-016",
+        "target_version": "v2",
+        "source_id": "ORIGINAL-0004",
+        "path": "original-0004.html",
+        "hash": "sha256:d8244039426952d519c74a0a64e3418f3047f2a04b5ed2ee7642c9e27f135c70"
+      },
+      {
+        "kind": "document_identity",
+        "value": "MPLPB-LOCAL-008",
+        "start": 95,
+        "end": 123,
+        "quote": "Document ID: MPLPB-LOCAL-008",
+        "target_id": "MPLPB-LOCAL-008",
+        "target_version": "v4",
+        "source_id": "ORIGINAL-0001",
+        "path": "original-0001.html",
+        "hash": "sha256:68fc40c9b83cd8f6d69ddaaf98833372986764b47c38f22ffd03e00456e218fa"
+      },
+      {
+        "kind": "declared_date",
+        "value": "2026-08-05T18:40Z",
+        "start": 124,
+        "end": 158,
+        "quote": "Last Updated: 2026-08-05T18:40Z v4",
+        "target_id": "",
+        "target_version": "v4",
+        "source_id": "ORIGINAL-0001",
+        "path": "original-0001.html",
+        "hash": "sha256:68fc40c9b83cd8f6d69ddaaf98833372986764b47c38f22ffd03e00456e218fa"
+      },
+      {
+        "kind": "supersedes",
+        "value": "MPLPB-LOCAL-008",
+        "start": 190,
+        "end": 288,
+        "quote": "Supersedes: MPLPB-LOCAL-008 v3 (2026-08-05T14:00Z), v2 (2026-08-05T11:20Z), v1 (2026-08-05T09:15Z)",
+        "target_id": "MPLPB-LOCAL-008",
+        "target_version": "v3",
+        "source_id": "ORIGINAL-0001",
+        "path": "original-0001.html",
+        "hash": "sha256:68fc40c9b83cd8f6d69ddaaf98833372986764b47c38f22ffd03e00456e218fa"
+      },
+      {
+        "kind": "supersedes",
+        "value": "MPLPB-LOCAL-008",
+        "start": 190,
+        "end": 288,
+        "quote": "Supersedes: MPLPB-LOCAL-008 v3 (2026-08-05T14:00Z), v2 (2026-08-05T11:20Z), v1 (2026-08-05T09:15Z)",
+        "target_id": "MPLPB-LOCAL-008",
+        "target_version": "v2",
+        "source_id": "ORIGINAL-0001",
+        "path": "original-0001.html",
+        "hash": "sha256:68fc40c9b83cd8f6d69ddaaf98833372986764b47c38f22ffd03e00456e218fa"
+      },
+      {
+        "kind": "supersedes",
+        "value": "MPLPB-LOCAL-008",
+        "start": 190,
+        "end": 288,
+        "quote": "Supersedes: MPLPB-LOCAL-008 v3 (2026-08-05T14:00Z), v2 (2026-08-05T11:20Z), v1 (2026-08-05T09:15Z)",
+        "target_id": "MPLPB-LOCAL-008",
+        "target_version": "v1",
+        "source_id": "ORIGINAL-0001",
+        "path": "original-0001.html",
+        "hash": "sha256:68fc40c9b83cd8f6d69ddaaf98833372986764b47c38f22ffd03e00456e218fa"
+      },
+      {
+        "kind": "related",
+        "value": "Related documents:\n- MPLPB v3 \u2014 complete artifacts, Main Index, Sub-Indexes, revision discipline,\nand reconstruction rules\n- Rabbit Hole Internet Indexer Blueprint v2 \u2014 source adapters, indexing,\nchunking, metadata extraction, and hybrid retrieval\n- Externalized Continuity at Scale \u2014 Navigator loop, complete artifacts, and mode\ncontrol\n- Spinning v2 \u2014 use of the retrieved graph as the model's working knowledge\nsource\n- MPLPB Separation & Precedence v1 \u2014 spoke boundaries and routing by declared\nscope\n- The Five-Module Combinator \u2014 interface contract between MPLPB, Rabbit Hole,\nNavigator, Spinning, and the deployed companion",
+        "start": 1926,
+        "end": 2556,
+        "quote": "Related documents:\n- MPLPB v3 \u2014 complete artifacts, Main Index, Sub-Indexes, revision discipline,\nand reconstruction rules\n- Rabbit Hole Internet Indexer Blueprint v2 \u2014 source adapters, indexing,\nchunking, metadata extraction, and hybrid retrieval\n- Externalized Continuity at Scale \u2014 Navigator loop, complete artifacts, and mode\ncontrol\n- Spinning v2 \u2014 use of the retrieved graph as the model's working knowledge\nsource\n- MPLPB Separation & Precedence v1 \u2014 spoke boundaries and routing by declared\nscope\n- The Five-Module Combinator \u2014 interface contract between MPLPB, Rabbit Hole,\nNavigator, Spinning, and the deployed companion",
+        "target_id": "",
+        "target_version": "",
+        "source_id": "ORIGINAL-0001",
+        "path": "original-0001.html",
+        "hash": "sha256:68fc40c9b83cd8f6d69ddaaf98833372986764b47c38f22ffd03e00456e218fa"
+      },
+      {
+        "kind": "document_identity",
+        "value": "MPLPB-SMART-011",
+        "start": 279,
+        "end": 306,
+        "quote": "Document ID MPLPB-SMART-011",
+        "target_id": "MPLPB-SMART-011",
+        "target_version": "v1",
+        "source_id": "ORIGINAL-0002",
+        "path": "original-0002.html",
+        "hash": "sha256:fe8ce6e3eb647ff033437667ca6cceac9fa436bdeadabcc8102f394c154a24f1"
+      },
+      {
+        "kind": "declared_date",
+        "value": "2026-08-12T00:00Z",
+        "start": 357,
+        "end": 385,
+        "quote": "Updated 2026-08-12T00:00Z v1",
+        "target_id": "",
+        "target_version": "v1",
+        "source_id": "ORIGINAL-0002",
+        "path": "original-0002.html",
+        "hash": "sha256:fe8ce6e3eb647ff033437667ca6cceac9fa436bdeadabcc8102f394c154a24f1"
+      },
+      {
+        "kind": "related",
+        "value": "MPLPB-LOCAL-008",
+        "start": 780,
+        "end": 1144,
+        "quote": "Related. MPLPB as a Local Web (MPLPB-LOCAL-008 v4) \u2014 the corpus this\nfront end reads. A Modular Mode-Switching Architecture for a Mythic-Logic\nCompanion (MPLPB-MODE-008) \u2014 the mode controller. Separate, Allowed to Chat,\nand Overridden by Scope (MPLPB-SEP-007) \u2014 the precedence rule. B.A.S.I.C.\nAI: A Walk Down Memory Lane with Code and Curiosity (2025) \u2014 the loop.",
+        "target_id": "MPLPB-LOCAL-008",
+        "target_version": "v4",
+        "source_id": "ORIGINAL-0002",
+        "path": "original-0002.html",
+        "hash": "sha256:fe8ce6e3eb647ff033437667ca6cceac9fa436bdeadabcc8102f394c154a24f1"
+      },
+      {
+        "kind": "related",
+        "value": "MPLPB-MODE-008",
+        "start": 780,
+        "end": 1144,
+        "quote": "Related. MPLPB as a Local Web (MPLPB-LOCAL-008 v4) \u2014 the corpus this\nfront end reads. A Modular Mode-Switching Architecture for a Mythic-Logic\nCompanion (MPLPB-MODE-008) \u2014 the mode controller. Separate, Allowed to Chat,\nand Overridden by Scope (MPLPB-SEP-007) \u2014 the precedence rule. B.A.S.I.C.\nAI: A Walk Down Memory Lane with Code and Curiosity (2025) \u2014 the loop.",
+        "target_id": "MPLPB-MODE-008",
+        "target_version": "",
+        "source_id": "ORIGINAL-0002",
+        "path": "original-0002.html",
+        "hash": "sha256:fe8ce6e3eb647ff033437667ca6cceac9fa436bdeadabcc8102f394c154a24f1"
+      },
+      {
+        "kind": "related",
+        "value": "MPLPB-SEP-007",
+        "start": 780,
+        "end": 1144,
+        "quote": "Related. MPLPB as a Local Web (MPLPB-LOCAL-008 v4) \u2014 the corpus this\nfront end reads. A Modular Mode-Switching Architecture for a Mythic-Logic\nCompanion (MPLPB-MODE-008) \u2014 the mode controller. Separate, Allowed to Chat,\nand Overridden by Scope (MPLPB-SEP-007) \u2014 the precedence rule. B.A.S.I.C.\nAI: A Walk Down Memory Lane with Code and Curiosity (2025) \u2014 the loop.",
+        "target_id": "MPLPB-SEP-007",
+        "target_version": "",
+        "source_id": "ORIGINAL-0002",
+        "path": "original-0002.html",
+        "hash": "sha256:fe8ce6e3eb647ff033437667ca6cceac9fa436bdeadabcc8102f394c154a24f1"
+      }
+    ],
+    "relations": [
+      {
+        "source_id": "ORIGINAL-0003",
+        "relation": "source_declared_supersedes",
+        "target_document_id": "MPLPB-COMBINED-017",
+        "target_version": "v2",
+        "citation": {
+          "kind": "supersedes",
+          "value": "MPLPB-COMBINED-017",
+          "start": 1024,
+          "end": 1286,
+          "quote": "| Supersedes | MPLPB-COMBINED-017 v2 (2026-10-07T12:00Z); MPLPB-COMBINED-017 v1 (2026-10-07T00:00Z). Both retained under `docs/superseded/`. No earlier paper or implementation is superseded; each stays current within its own scope and is carried under `parts/` |",
+          "target_id": "MPLPB-COMBINED-017",
+          "target_version": "v2",
+          "source_id": "ORIGINAL-0003",
+          "path": "original-0003.html",
+          "hash": "sha256:8de90447360f85acf97310a7cdcddb92aaf8d3d3bb6612f76642a774ba41ea6c"
+        },
+        "target_source_id": "",
+        "status": "target_unavailable"
+      },
+      {
+        "source_id": "ORIGINAL-0003",
+        "relation": "source_declared_supersedes",
+        "target_document_id": "MPLPB-COMBINED-017",
+        "target_version": "v1",
+        "citation": {
+          "kind": "supersedes",
+          "value": "MPLPB-COMBINED-017",
+          "start": 1024,
+          "end": 1286,
+          "quote": "| Supersedes | MPLPB-COMBINED-017 v2 (2026-10-07T12:00Z); MPLPB-COMBINED-017 v1 (2026-10-07T00:00Z). Both retained under `docs/superseded/`. No earlier paper or implementation is superseded; each stays current within its own scope and is carried under `parts/` |",
+          "target_id": "MPLPB-COMBINED-017",
+          "target_version": "v1",
+          "source_id": "ORIGINAL-0003",
+          "path": "original-0003.html",
+          "hash": "sha256:8de90447360f85acf97310a7cdcddb92aaf8d3d3bb6612f76642a774ba41ea6c"
+        },
+        "target_source_id": "ORIGINAL-0004",
+        "status": "traversed"
+      },
+      {
+        "source_id": "ORIGINAL-0003",
+        "relation": "source_declared_related",
+        "target_document_id": "MPLPB-LOCAL-008",
+        "target_version": "v4",
+        "citation": {
+          "kind": "related",
+          "value": "MPLPB-LOCAL-008",
+          "start": 1287,
+          "end": 1711,
+          "quote": "**Related.** MPLPB as a Local Web (MPLPB-LOCAL-008 v4). Separate, Allowed to Chat, and Overridden by Scope (MPLPB-SEP-007). Smart Local MPLPB (MPLPB-SMART-011 v1). MPLPB and the Cost of Visibility (MPLPB-COST-012 v2). MPLPB at Swarm and Enterprise Scale (MPLPB-SWARM-013 v3). Networked MPLPB. MPLPB Image (MPLPB-IMAGE-016 v2). Multi-Platform Linked Public Building (v3) and the other chapters of *Continuity Without Memory*.",
+          "target_id": "MPLPB-LOCAL-008",
+          "target_version": "v4",
+          "source_id": "ORIGINAL-0003",
+          "path": "original-0003.html",
+          "hash": "sha256:8de90447360f85acf97310a7cdcddb92aaf8d3d3bb6612f76642a774ba41ea6c"
+        },
+        "target_source_id": "ORIGINAL-0001",
+        "status": "traversed"
+      },
+      {
+        "source_id": "ORIGINAL-0003",
+        "relation": "source_declared_related",
+        "target_document_id": "MPLPB-SEP-007",
+        "target_version": "",
+        "citation": {
+          "kind": "related",
+          "value": "MPLPB-SEP-007",
+          "start": 1287,
+          "end": 1711,
+          "quote": "**Related.** MPLPB as a Local Web (MPLPB-LOCAL-008 v4). Separate, Allowed to Chat, and Overridden by Scope (MPLPB-SEP-007). Smart Local MPLPB (MPLPB-SMART-011 v1). MPLPB and the Cost of Visibility (MPLPB-COST-012 v2). MPLPB at Swarm and Enterprise Scale (MPLPB-SWARM-013 v3). Networked MPLPB. MPLPB Image (MPLPB-IMAGE-016 v2). Multi-Platform Linked Public Building (v3) and the other chapters of *Continuity Without Memory*.",
+          "target_id": "MPLPB-SEP-007",
+          "target_version": "",
+          "source_id": "ORIGINAL-0003",
+          "path": "original-0003.html",
+          "hash": "sha256:8de90447360f85acf97310a7cdcddb92aaf8d3d3bb6612f76642a774ba41ea6c"
+        },
+        "target_source_id": "",
+        "status": "target_unavailable"
+      },
+      {
+        "source_id": "ORIGINAL-0003",
+        "relation": "source_declared_related",
+        "target_document_id": "MPLPB-SMART-011",
+        "target_version": "v1",
+        "citation": {
+          "kind": "related",
+          "value": "MPLPB-SMART-011",
+          "start": 1287,
+          "end": 1711,
+          "quote": "**Related.** MPLPB as a Local Web (MPLPB-LOCAL-008 v4). Separate, Allowed to Chat, and Overridden by Scope (MPLPB-SEP-007). Smart Local MPLPB (MPLPB-SMART-011 v1). MPLPB and the Cost of Visibility (MPLPB-COST-012 v2). MPLPB at Swarm and Enterprise Scale (MPLPB-SWARM-013 v3). Networked MPLPB. MPLPB Image (MPLPB-IMAGE-016 v2). Multi-Platform Linked Public Building (v3) and the other chapters of *Continuity Without Memory*.",
+          "target_id": "MPLPB-SMART-011",
+          "target_version": "v1",
+          "source_id": "ORIGINAL-0003",
+          "path": "original-0003.html",
+          "hash": "sha256:8de90447360f85acf97310a7cdcddb92aaf8d3d3bb6612f76642a774ba41ea6c"
+        },
+        "target_source_id": "ORIGINAL-0002",
+        "status": "traversed"
+      },
+      {
+        "source_id": "ORIGINAL-0003",
+        "relation": "source_declared_related",
+        "target_document_id": "MPLPB-COST-012",
+        "target_version": "v2",
+        "citation": {
+          "kind": "related",
+          "value": "MPLPB-COST-012",
+          "start": 1287,
+          "end": 1711,
+          "quote": "**Related.** MPLPB as a Local Web (MPLPB-LOCAL-008 v4). Separate, Allowed to Chat, and Overridden by Scope (MPLPB-SEP-007). Smart Local MPLPB (MPLPB-SMART-011 v1). MPLPB and the Cost of Visibility (MPLPB-COST-012 v2). MPLPB at Swarm and Enterprise Scale (MPLPB-SWARM-013 v3). Networked MPLPB. MPLPB Image (MPLPB-IMAGE-016 v2). Multi-Platform Linked Public Building (v3) and the other chapters of *Continuity Without Memory*.",
+          "target_id": "MPLPB-COST-012",
+          "target_version": "v2",
+          "source_id": "ORIGINAL-0003",
+          "path": "original-0003.html",
+          "hash": "sha256:8de90447360f85acf97310a7cdcddb92aaf8d3d3bb6612f76642a774ba41ea6c"
+        },
+        "target_source_id": "",
+        "status": "target_unavailable"
+      },
+      {
+        "source_id": "ORIGINAL-0003",
+        "relation": "source_declared_related",
+        "target_document_id": "MPLPB-SWARM-013",
+        "target_version": "v3",
+        "citation": {
+          "kind": "related",
+          "value": "MPLPB-SWARM-013",
+          "start": 1287,
+          "end": 1711,
+          "quote": "**Related.** MPLPB as a Local Web (MPLPB-LOCAL-008 v4). Separate, Allowed to Chat, and Overridden by Scope (MPLPB-SEP-007). Smart Local MPLPB (MPLPB-SMART-011 v1). MPLPB and the Cost of Visibility (MPLPB-COST-012 v2). MPLPB at Swarm and Enterprise Scale (MPLPB-SWARM-013 v3). Networked MPLPB. MPLPB Image (MPLPB-IMAGE-016 v2). Multi-Platform Linked Public Building (v3) and the other chapters of *Continuity Without Memory*.",
+          "target_id": "MPLPB-SWARM-013",
+          "target_version": "v3",
+          "source_id": "ORIGINAL-0003",
+          "path": "original-0003.html",
+          "hash": "sha256:8de90447360f85acf97310a7cdcddb92aaf8d3d3bb6612f76642a774ba41ea6c"
+        },
+        "target_source_id": "",
+        "status": "target_unavailable"
+      },
+      {
+        "source_id": "ORIGINAL-0003",
+        "relation": "source_declared_related",
+        "target_document_id": "MPLPB-IMAGE-016",
+        "target_version": "v2",
+        "citation": {
+          "kind": "related",
+          "value": "MPLPB-IMAGE-016",
+          "start": 1287,
+          "end": 1711,
+          "quote": "**Related.** MPLPB as a Local Web (MPLPB-LOCAL-008 v4). Separate, Allowed to Chat, and Overridden by Scope (MPLPB-SEP-007). Smart Local MPLPB (MPLPB-SMART-011 v1). MPLPB and the Cost of Visibility (MPLPB-COST-012 v2). MPLPB at Swarm and Enterprise Scale (MPLPB-SWARM-013 v3). Networked MPLPB. MPLPB Image (MPLPB-IMAGE-016 v2). Multi-Platform Linked Public Building (v3) and the other chapters of *Continuity Without Memory*.",
+          "target_id": "MPLPB-IMAGE-016",
+          "target_version": "v2",
+          "source_id": "ORIGINAL-0003",
+          "path": "original-0003.html",
+          "hash": "sha256:8de90447360f85acf97310a7cdcddb92aaf8d3d3bb6612f76642a774ba41ea6c"
+        },
+        "target_source_id": "",
+        "status": "target_unavailable"
+      },
+      {
+        "source_id": "ORIGINAL-0004",
+        "relation": "source_declared_related",
+        "target_document_id": "MPLPB-LOCAL-008",
+        "target_version": "v4",
+        "citation": {
+          "kind": "related",
+          "value": "MPLPB-LOCAL-008",
+          "start": 1154,
+          "end": 1578,
+          "quote": "**Related.** MPLPB as a Local Web (MPLPB-LOCAL-008 v4). Separate, Allowed to Chat, and Overridden by Scope (MPLPB-SEP-007). Smart Local MPLPB (MPLPB-SMART-011 v1). MPLPB and the Cost of Visibility (MPLPB-COST-012 v2). MPLPB at Swarm and Enterprise Scale (MPLPB-SWARM-013 v3). Networked MPLPB. MPLPB Image (MPLPB-IMAGE-016 v2). Multi-Platform Linked Public Building (v3) and the other chapters of *Continuity Without Memory*.",
+          "target_id": "MPLPB-LOCAL-008",
+          "target_version": "v4",
+          "source_id": "ORIGINAL-0004",
+          "path": "original-0004.html",
+          "hash": "sha256:d8244039426952d519c74a0a64e3418f3047f2a04b5ed2ee7642c9e27f135c70"
+        },
+        "target_source_id": "ORIGINAL-0001",
+        "status": "traversed"
+      },
+      {
+        "source_id": "ORIGINAL-0004",
+        "relation": "source_declared_related",
+        "target_document_id": "MPLPB-SEP-007",
+        "target_version": "",
+        "citation": {
+          "kind": "related",
+          "value": "MPLPB-SEP-007",
+          "start": 1154,
+          "end": 1578,
+          "quote": "**Related.** MPLPB as a Local Web (MPLPB-LOCAL-008 v4). Separate, Allowed to Chat, and Overridden by Scope (MPLPB-SEP-007). Smart Local MPLPB (MPLPB-SMART-011 v1). MPLPB and the Cost of Visibility (MPLPB-COST-012 v2). MPLPB at Swarm and Enterprise Scale (MPLPB-SWARM-013 v3). Networked MPLPB. MPLPB Image (MPLPB-IMAGE-016 v2). Multi-Platform Linked Public Building (v3) and the other chapters of *Continuity Without Memory*.",
+          "target_id": "MPLPB-SEP-007",
+          "target_version": "",
+          "source_id": "ORIGINAL-0004",
+          "path": "original-0004.html",
+          "hash": "sha256:d8244039426952d519c74a0a64e3418f3047f2a04b5ed2ee7642c9e27f135c70"
+        },
+        "target_source_id": "",
+        "status": "target_unavailable"
+      },
+      {
+        "source_id": "ORIGINAL-0004",
+        "relation": "source_declared_related",
+        "target_document_id": "MPLPB-SMART-011",
+        "target_version": "v1",
+        "citation": {
+          "kind": "related",
+          "value": "MPLPB-SMART-011",
+          "start": 1154,
+          "end": 1578,
+          "quote": "**Related.** MPLPB as a Local Web (MPLPB-LOCAL-008 v4). Separate, Allowed to Chat, and Overridden by Scope (MPLPB-SEP-007). Smart Local MPLPB (MPLPB-SMART-011 v1). MPLPB and the Cost of Visibility (MPLPB-COST-012 v2). MPLPB at Swarm and Enterprise Scale (MPLPB-SWARM-013 v3). Networked MPLPB. MPLPB Image (MPLPB-IMAGE-016 v2). Multi-Platform Linked Public Building (v3) and the other chapters of *Continuity Without Memory*.",
+          "target_id": "MPLPB-SMART-011",
+          "target_version": "v1",
+          "source_id": "ORIGINAL-0004",
+          "path": "original-0004.html",
+          "hash": "sha256:d8244039426952d519c74a0a64e3418f3047f2a04b5ed2ee7642c9e27f135c70"
+        },
+        "target_source_id": "ORIGINAL-0002",
+        "status": "traversed"
+      },
+      {
+        "source_id": "ORIGINAL-0004",
+        "relation": "source_declared_related",
+        "target_document_id": "MPLPB-COST-012",
+        "target_version": "v2",
+        "citation": {
+          "kind": "related",
+          "value": "MPLPB-COST-012",
+          "start": 1154,
+          "end": 1578,
+          "quote": "**Related.** MPLPB as a Local Web (MPLPB-LOCAL-008 v4). Separate, Allowed to Chat, and Overridden by Scope (MPLPB-SEP-007). Smart Local MPLPB (MPLPB-SMART-011 v1). MPLPB and the Cost of Visibility (MPLPB-COST-012 v2). MPLPB at Swarm and Enterprise Scale (MPLPB-SWARM-013 v3). Networked MPLPB. MPLPB Image (MPLPB-IMAGE-016 v2). Multi-Platform Linked Public Building (v3) and the other chapters of *Continuity Without Memory*.",
+          "target_id": "MPLPB-COST-012",
+          "target_version": "v2",
+          "source_id": "ORIGINAL-0004",
+          "path": "original-0004.html",
+          "hash": "sha256:d8244039426952d519c74a0a64e3418f3047f2a04b5ed2ee7642c9e27f135c70"
+        },
+        "target_source_id": "",
+        "status": "target_unavailable"
+      },
+      {
+        "source_id": "ORIGINAL-0004",
+        "relation": "source_declared_related",
+        "target_document_id": "MPLPB-SWARM-013",
+        "target_version": "v3",
+        "citation": {
+          "kind": "related",
+          "value": "MPLPB-SWARM-013",
+          "start": 1154,
+          "end": 1578,
+          "quote": "**Related.** MPLPB as a Local Web (MPLPB-LOCAL-008 v4). Separate, Allowed to Chat, and Overridden by Scope (MPLPB-SEP-007). Smart Local MPLPB (MPLPB-SMART-011 v1). MPLPB and the Cost of Visibility (MPLPB-COST-012 v2). MPLPB at Swarm and Enterprise Scale (MPLPB-SWARM-013 v3). Networked MPLPB. MPLPB Image (MPLPB-IMAGE-016 v2). Multi-Platform Linked Public Building (v3) and the other chapters of *Continuity Without Memory*.",
+          "target_id": "MPLPB-SWARM-013",
+          "target_version": "v3",
+          "source_id": "ORIGINAL-0004",
+          "path": "original-0004.html",
+          "hash": "sha256:d8244039426952d519c74a0a64e3418f3047f2a04b5ed2ee7642c9e27f135c70"
+        },
+        "target_source_id": "",
+        "status": "target_unavailable"
+      },
+      {
+        "source_id": "ORIGINAL-0004",
+        "relation": "source_declared_related",
+        "target_document_id": "MPLPB-IMAGE-016",
+        "target_version": "v2",
+        "citation": {
+          "kind": "related",
+          "value": "MPLPB-IMAGE-016",
+          "start": 1154,
+          "end": 1578,
+          "quote": "**Related.** MPLPB as a Local Web (MPLPB-LOCAL-008 v4). Separate, Allowed to Chat, and Overridden by Scope (MPLPB-SEP-007). Smart Local MPLPB (MPLPB-SMART-011 v1). MPLPB and the Cost of Visibility (MPLPB-COST-012 v2). MPLPB at Swarm and Enterprise Scale (MPLPB-SWARM-013 v3). Networked MPLPB. MPLPB Image (MPLPB-IMAGE-016 v2). Multi-Platform Linked Public Building (v3) and the other chapters of *Continuity Without Memory*.",
+          "target_id": "MPLPB-IMAGE-016",
+          "target_version": "v2",
+          "source_id": "ORIGINAL-0004",
+          "path": "original-0004.html",
+          "hash": "sha256:d8244039426952d519c74a0a64e3418f3047f2a04b5ed2ee7642c9e27f135c70"
+        },
+        "target_source_id": "",
+        "status": "target_unavailable"
+      },
+      {
+        "source_id": "ORIGINAL-0001",
+        "relation": "source_declared_supersedes",
+        "target_document_id": "MPLPB-LOCAL-008",
+        "target_version": "v3",
+        "citation": {
+          "kind": "supersedes",
+          "value": "MPLPB-LOCAL-008",
+          "start": 190,
+          "end": 288,
+          "quote": "Supersedes: MPLPB-LOCAL-008 v3 (2026-08-05T14:00Z), v2 (2026-08-05T11:20Z), v1 (2026-08-05T09:15Z)",
+          "target_id": "MPLPB-LOCAL-008",
+          "target_version": "v3",
+          "source_id": "ORIGINAL-0001",
+          "path": "original-0001.html",
+          "hash": "sha256:68fc40c9b83cd8f6d69ddaaf98833372986764b47c38f22ffd03e00456e218fa"
+        },
+        "target_source_id": "",
+        "status": "target_unavailable"
+      },
+      {
+        "source_id": "ORIGINAL-0001",
+        "relation": "source_declared_supersedes",
+        "target_document_id": "MPLPB-LOCAL-008",
+        "target_version": "v2",
+        "citation": {
+          "kind": "supersedes",
+          "value": "MPLPB-LOCAL-008",
+          "start": 190,
+          "end": 288,
+          "quote": "Supersedes: MPLPB-LOCAL-008 v3 (2026-08-05T14:00Z), v2 (2026-08-05T11:20Z), v1 (2026-08-05T09:15Z)",
+          "target_id": "MPLPB-LOCAL-008",
+          "target_version": "v2",
+          "source_id": "ORIGINAL-0001",
+          "path": "original-0001.html",
+          "hash": "sha256:68fc40c9b83cd8f6d69ddaaf98833372986764b47c38f22ffd03e00456e218fa"
+        },
+        "target_source_id": "",
+        "status": "target_unavailable"
+      },
+      {
+        "source_id": "ORIGINAL-0001",
+        "relation": "source_declared_supersedes",
+        "target_document_id": "MPLPB-LOCAL-008",
+        "target_version": "v1",
+        "citation": {
+          "kind": "supersedes",
+          "value": "MPLPB-LOCAL-008",
+          "start": 190,
+          "end": 288,
+          "quote": "Supersedes: MPLPB-LOCAL-008 v3 (2026-08-05T14:00Z), v2 (2026-08-05T11:20Z), v1 (2026-08-05T09:15Z)",
+          "target_id": "MPLPB-LOCAL-008",
+          "target_version": "v1",
+          "source_id": "ORIGINAL-0001",
+          "path": "original-0001.html",
+          "hash": "sha256:68fc40c9b83cd8f6d69ddaaf98833372986764b47c38f22ffd03e00456e218fa"
+        },
+        "target_source_id": "",
+        "status": "target_unavailable"
+      },
+      {
+        "source_id": "ORIGINAL-0001",
+        "relation": "source_declared_related",
+        "target_document_id": "",
+        "target_version": "",
+        "citation": {
+          "kind": "related",
+          "value": "Related documents:\n- MPLPB v3 \u2014 complete artifacts, Main Index, Sub-Indexes, revision discipline,\nand reconstruction rules\n- Rabbit Hole Internet Indexer Blueprint v2 \u2014 source adapters, indexing,\nchunking, metadata extraction, and hybrid retrieval\n- Externalized Continuity at Scale \u2014 Navigator loop, complete artifacts, and mode\ncontrol\n- Spinning v2 \u2014 use of the retrieved graph as the model's working knowledge\nsource\n- MPLPB Separation & Precedence v1 \u2014 spoke boundaries and routing by declared\nscope\n- The Five-Module Combinator \u2014 interface contract between MPLPB, Rabbit Hole,\nNavigator, Spinning, and the deployed companion",
+          "start": 1926,
+          "end": 2556,
+          "quote": "Related documents:\n- MPLPB v3 \u2014 complete artifacts, Main Index, Sub-Indexes, revision discipline,\nand reconstruction rules\n- Rabbit Hole Internet Indexer Blueprint v2 \u2014 source adapters, indexing,\nchunking, metadata extraction, and hybrid retrieval\n- Externalized Continuity at Scale \u2014 Navigator loop, complete artifacts, and mode\ncontrol\n- Spinning v2 \u2014 use of the retrieved graph as the model's working knowledge\nsource\n- MPLPB Separation & Precedence v1 \u2014 spoke boundaries and routing by declared\nscope\n- The Five-Module Combinator \u2014 interface contract between MPLPB, Rabbit Hole,\nNavigator, Spinning, and the deployed companion",
+          "target_id": "",
+          "target_version": "",
+          "source_id": "ORIGINAL-0001",
+          "path": "original-0001.html",
+          "hash": "sha256:68fc40c9b83cd8f6d69ddaaf98833372986764b47c38f22ffd03e00456e218fa"
+        },
+        "target_source_id": "",
+        "status": "unresolved_target_identifier"
+      },
+      {
+        "source_id": "ORIGINAL-0002",
+        "relation": "source_declared_related",
+        "target_document_id": "MPLPB-LOCAL-008",
+        "target_version": "v4",
+        "citation": {
+          "kind": "related",
+          "value": "MPLPB-LOCAL-008",
+          "start": 780,
+          "end": 1144,
+          "quote": "Related. MPLPB as a Local Web (MPLPB-LOCAL-008 v4) \u2014 the corpus this\nfront end reads. A Modular Mode-Switching Architecture for a Mythic-Logic\nCompanion (MPLPB-MODE-008) \u2014 the mode controller. Separate, Allowed to Chat,\nand Overridden by Scope (MPLPB-SEP-007) \u2014 the precedence rule. B.A.S.I.C.\nAI: A Walk Down Memory Lane with Code and Curiosity (2025) \u2014 the loop.",
+          "target_id": "MPLPB-LOCAL-008",
+          "target_version": "v4",
+          "source_id": "ORIGINAL-0002",
+          "path": "original-0002.html",
+          "hash": "sha256:fe8ce6e3eb647ff033437667ca6cceac9fa436bdeadabcc8102f394c154a24f1"
+        },
+        "target_source_id": "ORIGINAL-0001",
+        "status": "traversed"
+      },
+      {
+        "source_id": "ORIGINAL-0002",
+        "relation": "source_declared_related",
+        "target_document_id": "MPLPB-MODE-008",
+        "target_version": "",
+        "citation": {
+          "kind": "related",
+          "value": "MPLPB-MODE-008",
+          "start": 780,
+          "end": 1144,
+          "quote": "Related. MPLPB as a Local Web (MPLPB-LOCAL-008 v4) \u2014 the corpus this\nfront end reads. A Modular Mode-Switching Architecture for a Mythic-Logic\nCompanion (MPLPB-MODE-008) \u2014 the mode controller. Separate, Allowed to Chat,\nand Overridden by Scope (MPLPB-SEP-007) \u2014 the precedence rule. B.A.S.I.C.\nAI: A Walk Down Memory Lane with Code and Curiosity (2025) \u2014 the loop.",
+          "target_id": "MPLPB-MODE-008",
+          "target_version": "",
+          "source_id": "ORIGINAL-0002",
+          "path": "original-0002.html",
+          "hash": "sha256:fe8ce6e3eb647ff033437667ca6cceac9fa436bdeadabcc8102f394c154a24f1"
+        },
+        "target_source_id": "",
+        "status": "target_unavailable"
+      },
+      {
+        "source_id": "ORIGINAL-0002",
+        "relation": "source_declared_related",
+        "target_document_id": "MPLPB-SEP-007",
+        "target_version": "",
+        "citation": {
+          "kind": "related",
+          "value": "MPLPB-SEP-007",
+          "start": 780,
+          "end": 1144,
+          "quote": "Related. MPLPB as a Local Web (MPLPB-LOCAL-008 v4) \u2014 the corpus this\nfront end reads. A Modular Mode-Switching Architecture for a Mythic-Logic\nCompanion (MPLPB-MODE-008) \u2014 the mode controller. Separate, Allowed to Chat,\nand Overridden by Scope (MPLPB-SEP-007) \u2014 the precedence rule. B.A.S.I.C.\nAI: A Walk Down Memory Lane with Code and Curiosity (2025) \u2014 the loop.",
+          "target_id": "MPLPB-SEP-007",
+          "target_version": "",
+          "source_id": "ORIGINAL-0002",
+          "path": "original-0002.html",
+          "hash": "sha256:fe8ce6e3eb647ff033437667ca6cceac9fa436bdeadabcc8102f394c154a24f1"
+        },
+        "target_source_id": "",
+        "status": "target_unavailable"
+      }
+    ],
+    "verification": {
+      "version": "historical-observation-verifier-v1",
+      "code": "verified",
+      "source_state_current": true,
+      "verified": [
+        {
+          "kind": "document_identity",
+          "value": "MPLPB-COMBINED-017",
+          "start": 139,
+          "end": 295,
+          "quote": "| Document ID | MPLPB-COMBINED-017 (proposed; the next free number after MPLPB-IMAGE-016 in the supplied material, not yet allocated by the owner's index) |",
+          "target_id": "MPLPB-COMBINED-017",
+          "target_version": "v3",
+          "source_id": "ORIGINAL-0003",
+          "path": "original-0003.html",
+          "hash": "sha256:8de90447360f85acf97310a7cdcddb92aaf8d3d3bb6612f76642a774ba41ea6c"
+        },
+        {
+          "kind": "declared_date",
+          "value": "2026-10-07T18:00Z",
+          "start": 411,
+          "end": 445,
+          "quote": "| Updated | 2026-10-07T18:00Z v3 |",
+          "target_id": "",
+          "target_version": "v3",
+          "source_id": "ORIGINAL-0003",
+          "path": "original-0003.html",
+          "hash": "sha256:8de90447360f85acf97310a7cdcddb92aaf8d3d3bb6612f76642a774ba41ea6c"
+        },
+        {
+          "kind": "not_superseded",
+          "value": "| Supersedes | MPLPB-COMBINED-017 v2 (2026-10-07T12:00Z); MPLPB-COMBINED-017 v1 (2026-10-07T00:00Z). Both retained under `docs/superseded/`. No earlier paper or implementation is superseded; each stays current within its own scope and is carried under `parts/` |",
+          "start": 1024,
+          "end": 1286,
+          "quote": "| Supersedes | MPLPB-COMBINED-017 v2 (2026-10-07T12:00Z); MPLPB-COMBINED-017 v1 (2026-10-07T00:00Z). Both retained under `docs/superseded/`. No earlier paper or implementation is superseded; each stays current within its own scope and is carried under `parts/` |",
+          "target_id": "",
+          "target_version": "",
+          "source_id": "ORIGINAL-0003",
+          "path": "original-0003.html",
+          "hash": "sha256:8de90447360f85acf97310a7cdcddb92aaf8d3d3bb6612f76642a774ba41ea6c"
+        },
+        {
+          "kind": "supersedes",
+          "value": "MPLPB-COMBINED-017",
+          "start": 1024,
+          "end": 1286,
+          "quote": "| Supersedes | MPLPB-COMBINED-017 v2 (2026-10-07T12:00Z); MPLPB-COMBINED-017 v1 (2026-10-07T00:00Z). Both retained under `docs/superseded/`. No earlier paper or implementation is superseded; each stays current within its own scope and is carried under `parts/` |",
+          "target_id": "MPLPB-COMBINED-017",
+          "target_version": "v2",
+          "source_id": "ORIGINAL-0003",
+          "path": "original-0003.html",
+          "hash": "sha256:8de90447360f85acf97310a7cdcddb92aaf8d3d3bb6612f76642a774ba41ea6c"
+        },
+        {
+          "kind": "supersedes",
+          "value": "MPLPB-COMBINED-017",
+          "start": 1024,
+          "end": 1286,
+          "quote": "| Supersedes | MPLPB-COMBINED-017 v2 (2026-10-07T12:00Z); MPLPB-COMBINED-017 v1 (2026-10-07T00:00Z). Both retained under `docs/superseded/`. No earlier paper or implementation is superseded; each stays current within its own scope and is carried under `parts/` |",
+          "target_id": "MPLPB-COMBINED-017",
+          "target_version": "v1",
+          "source_id": "ORIGINAL-0003",
+          "path": "original-0003.html",
+          "hash": "sha256:8de90447360f85acf97310a7cdcddb92aaf8d3d3bb6612f76642a774ba41ea6c"
+        },
+        {
+          "kind": "related",
+          "value": "MPLPB-LOCAL-008",
+          "start": 1287,
+          "end": 1711,
+          "quote": "**Related.** MPLPB as a Local Web (MPLPB-LOCAL-008 v4). Separate, Allowed to Chat, and Overridden by Scope (MPLPB-SEP-007). Smart Local MPLPB (MPLPB-SMART-011 v1). MPLPB and the Cost of Visibility (MPLPB-COST-012 v2). MPLPB at Swarm and Enterprise Scale (MPLPB-SWARM-013 v3). Networked MPLPB. MPLPB Image (MPLPB-IMAGE-016 v2). Multi-Platform Linked Public Building (v3) and the other chapters of *Continuity Without Memory*.",
+          "target_id": "MPLPB-LOCAL-008",
+          "target_version": "v4",
+          "source_id": "ORIGINAL-0003",
+          "path": "original-0003.html",
+          "hash": "sha256:8de90447360f85acf97310a7cdcddb92aaf8d3d3bb6612f76642a774ba41ea6c"
+        },
+        {
+          "kind": "related",
+          "value": "MPLPB-SEP-007",
+          "start": 1287,
+          "end": 1711,
+          "quote": "**Related.** MPLPB as a Local Web (MPLPB-LOCAL-008 v4). Separate, Allowed to Chat, and Overridden by Scope (MPLPB-SEP-007). Smart Local MPLPB (MPLPB-SMART-011 v1). MPLPB and the Cost of Visibility (MPLPB-COST-012 v2). MPLPB at Swarm and Enterprise Scale (MPLPB-SWARM-013 v3). Networked MPLPB. MPLPB Image (MPLPB-IMAGE-016 v2). Multi-Platform Linked Public Building (v3) and the other chapters of *Continuity Without Memory*.",
+          "target_id": "MPLPB-SEP-007",
+          "target_version": "",
+          "source_id": "ORIGINAL-0003",
+          "path": "original-0003.html",
+          "hash": "sha256:8de90447360f85acf97310a7cdcddb92aaf8d3d3bb6612f76642a774ba41ea6c"
+        },
+        {
+          "kind": "related",
+          "value": "MPLPB-SMART-011",
+          "start": 1287,
+          "end": 1711,
+          "quote": "**Related.** MPLPB as a Local Web (MPLPB-LOCAL-008 v4). Separate, Allowed to Chat, and Overridden by Scope (MPLPB-SEP-007). Smart Local MPLPB (MPLPB-SMART-011 v1). MPLPB and the Cost of Visibility (MPLPB-COST-012 v2). MPLPB at Swarm and Enterprise Scale (MPLPB-SWARM-013 v3). Networked MPLPB. MPLPB Image (MPLPB-IMAGE-016 v2). Multi-Platform Linked Public Building (v3) and the other chapters of *Continuity Without Memory*.",
+          "target_id": "MPLPB-SMART-011",
+          "target_version": "v1",
+          "source_id": "ORIGINAL-0003",
+          "path": "original-0003.html",
+          "hash": "sha256:8de90447360f85acf97310a7cdcddb92aaf8d3d3bb6612f76642a774ba41ea6c"
+        },
+        {
+          "kind": "related",
+          "value": "MPLPB-COST-012",
+          "start": 1287,
+          "end": 1711,
+          "quote": "**Related.** MPLPB as a Local Web (MPLPB-LOCAL-008 v4). Separate, Allowed to Chat, and Overridden by Scope (MPLPB-SEP-007). Smart Local MPLPB (MPLPB-SMART-011 v1). MPLPB and the Cost of Visibility (MPLPB-COST-012 v2). MPLPB at Swarm and Enterprise Scale (MPLPB-SWARM-013 v3). Networked MPLPB. MPLPB Image (MPLPB-IMAGE-016 v2). Multi-Platform Linked Public Building (v3) and the other chapters of *Continuity Without Memory*.",
+          "target_id": "MPLPB-COST-012",
+          "target_version": "v2",
+          "source_id": "ORIGINAL-0003",
+          "path": "original-0003.html",
+          "hash": "sha256:8de90447360f85acf97310a7cdcddb92aaf8d3d3bb6612f76642a774ba41ea6c"
+        },
+        {
+          "kind": "related",
+          "value": "MPLPB-SWARM-013",
+          "start": 1287,
+          "end": 1711,
+          "quote": "**Related.** MPLPB as a Local Web (MPLPB-LOCAL-008 v4). Separate, Allowed to Chat, and Overridden by Scope (MPLPB-SEP-007). Smart Local MPLPB (MPLPB-SMART-011 v1). MPLPB and the Cost of Visibility (MPLPB-COST-012 v2). MPLPB at Swarm and Enterprise Scale (MPLPB-SWARM-013 v3). Networked MPLPB. MPLPB Image (MPLPB-IMAGE-016 v2). Multi-Platform Linked Public Building (v3) and the other chapters of *Continuity Without Memory*.",
+          "target_id": "MPLPB-SWARM-013",
+          "target_version": "v3",
+          "source_id": "ORIGINAL-0003",
+          "path": "original-0003.html",
+          "hash": "sha256:8de90447360f85acf97310a7cdcddb92aaf8d3d3bb6612f76642a774ba41ea6c"
+        },
+        {
+          "kind": "related",
+          "value": "MPLPB-IMAGE-016",
+          "start": 1287,
+          "end": 1711,
+          "quote": "**Related.** MPLPB as a Local Web (MPLPB-LOCAL-008 v4). Separate, Allowed to Chat, and Overridden by Scope (MPLPB-SEP-007). Smart Local MPLPB (MPLPB-SMART-011 v1). MPLPB and the Cost of Visibility (MPLPB-COST-012 v2). MPLPB at Swarm and Enterprise Scale (MPLPB-SWARM-013 v3). Networked MPLPB. MPLPB Image (MPLPB-IMAGE-016 v2). Multi-Platform Linked Public Building (v3) and the other chapters of *Continuity Without Memory*.",
+          "target_id": "MPLPB-IMAGE-016",
+          "target_version": "v2",
+          "source_id": "ORIGINAL-0003",
+          "path": "original-0003.html",
+          "hash": "sha256:8de90447360f85acf97310a7cdcddb92aaf8d3d3bb6612f76642a774ba41ea6c"
+        },
+        {
+          "kind": "document_identity",
+          "value": "MPLPB-COMBINED-017",
+          "start": 139,
+          "end": 295,
+          "quote": "| Document ID | MPLPB-COMBINED-017 (proposed; the next free number after MPLPB-IMAGE-016 in the supplied material, not yet allocated by the owner's index) |",
+          "target_id": "MPLPB-COMBINED-017",
+          "target_version": "v1",
+          "source_id": "ORIGINAL-0004",
+          "path": "original-0004.html",
+          "hash": "sha256:d8244039426952d519c74a0a64e3418f3047f2a04b5ed2ee7642c9e27f135c70"
+        },
+        {
+          "kind": "declared_date",
+          "value": "2026-10-07T00:00Z",
+          "start": 411,
+          "end": 445,
+          "quote": "| Updated | 2026-10-07T00:00Z v1 |",
+          "target_id": "",
+          "target_version": "v1",
+          "source_id": "ORIGINAL-0004",
+          "path": "original-0004.html",
+          "hash": "sha256:d8244039426952d519c74a0a64e3418f3047f2a04b5ed2ee7642c9e27f135c70"
+        },
+        {
+          "kind": "not_superseded",
+          "value": "| Supersedes | Nothing. Every earlier paper and implementation stays current within its own scope and is carried under `parts/` |",
+          "start": 1024,
+          "end": 1153,
+          "quote": "| Supersedes | Nothing. Every earlier paper and implementation stays current within its own scope and is carried under `parts/` |",
+          "target_id": "",
+          "target_version": "",
+          "source_id": "ORIGINAL-0004",
+          "path": "original-0004.html",
+          "hash": "sha256:d8244039426952d519c74a0a64e3418f3047f2a04b5ed2ee7642c9e27f135c70"
+        },
+        {
+          "kind": "related",
+          "value": "MPLPB-LOCAL-008",
+          "start": 1154,
+          "end": 1578,
+          "quote": "**Related.** MPLPB as a Local Web (MPLPB-LOCAL-008 v4). Separate, Allowed to Chat, and Overridden by Scope (MPLPB-SEP-007). Smart Local MPLPB (MPLPB-SMART-011 v1). MPLPB and the Cost of Visibility (MPLPB-COST-012 v2). MPLPB at Swarm and Enterprise Scale (MPLPB-SWARM-013 v3). Networked MPLPB. MPLPB Image (MPLPB-IMAGE-016 v2). Multi-Platform Linked Public Building (v3) and the other chapters of *Continuity Without Memory*.",
+          "target_id": "MPLPB-LOCAL-008",
+          "target_version": "v4",
+          "source_id": "ORIGINAL-0004",
+          "path": "original-0004.html",
+          "hash": "sha256:d8244039426952d519c74a0a64e3418f3047f2a04b5ed2ee7642c9e27f135c70"
+        },
+        {
+          "kind": "related",
+          "value": "MPLPB-SEP-007",
+          "start": 1154,
+          "end": 1578,
+          "quote": "**Related.** MPLPB as a Local Web (MPLPB-LOCAL-008 v4). Separate, Allowed to Chat, and Overridden by Scope (MPLPB-SEP-007). Smart Local MPLPB (MPLPB-SMART-011 v1). MPLPB and the Cost of Visibility (MPLPB-COST-012 v2). MPLPB at Swarm and Enterprise Scale (MPLPB-SWARM-013 v3). Networked MPLPB. MPLPB Image (MPLPB-IMAGE-016 v2). Multi-Platform Linked Public Building (v3) and the other chapters of *Continuity Without Memory*.",
+          "target_id": "MPLPB-SEP-007",
+          "target_version": "",
+          "source_id": "ORIGINAL-0004",
+          "path": "original-0004.html",
+          "hash": "sha256:d8244039426952d519c74a0a64e3418f3047f2a04b5ed2ee7642c9e27f135c70"
+        },
+        {
+          "kind": "related",
+          "value": "MPLPB-SMART-011",
+          "start": 1154,
+          "end": 1578,
+          "quote": "**Related.** MPLPB as a Local Web (MPLPB-LOCAL-008 v4). Separate, Allowed to Chat, and Overridden by Scope (MPLPB-SEP-007). Smart Local MPLPB (MPLPB-SMART-011 v1). MPLPB and the Cost of Visibility (MPLPB-COST-012 v2). MPLPB at Swarm and Enterprise Scale (MPLPB-SWARM-013 v3). Networked MPLPB. MPLPB Image (MPLPB-IMAGE-016 v2). Multi-Platform Linked Public Building (v3) and the other chapters of *Continuity Without Memory*.",
+          "target_id": "MPLPB-SMART-011",
+          "target_version": "v1",
+          "source_id": "ORIGINAL-0004",
+          "path": "original-0004.html",
+          "hash": "sha256:d8244039426952d519c74a0a64e3418f3047f2a04b5ed2ee7642c9e27f135c70"
+        },
+        {
+          "kind": "related",
+          "value": "MPLPB-COST-012",
+          "start": 1154,
+          "end": 1578,
+          "quote": "**Related.** MPLPB as a Local Web (MPLPB-LOCAL-008 v4). Separate, Allowed to Chat, and Overridden by Scope (MPLPB-SEP-007). Smart Local MPLPB (MPLPB-SMART-011 v1). MPLPB and the Cost of Visibility (MPLPB-COST-012 v2). MPLPB at Swarm and Enterprise Scale (MPLPB-SWARM-013 v3). Networked MPLPB. MPLPB Image (MPLPB-IMAGE-016 v2). Multi-Platform Linked Public Building (v3) and the other chapters of *Continuity Without Memory*.",
+          "target_id": "MPLPB-COST-012",
+          "target_version": "v2",
+          "source_id": "ORIGINAL-0004",
+          "path": "original-0004.html",
+          "hash": "sha256:d8244039426952d519c74a0a64e3418f3047f2a04b5ed2ee7642c9e27f135c70"
+        },
+        {
+          "kind": "related",
+          "value": "MPLPB-SWARM-013",
+          "start": 1154,
+          "end": 1578,
+          "quote": "**Related.** MPLPB as a Local Web (MPLPB-LOCAL-008 v4). Separate, Allowed to Chat, and Overridden by Scope (MPLPB-SEP-007). Smart Local MPLPB (MPLPB-SMART-011 v1). MPLPB and the Cost of Visibility (MPLPB-COST-012 v2). MPLPB at Swarm and Enterprise Scale (MPLPB-SWARM-013 v3). Networked MPLPB. MPLPB Image (MPLPB-IMAGE-016 v2). Multi-Platform Linked Public Building (v3) and the other chapters of *Continuity Without Memory*.",
+          "target_id": "MPLPB-SWARM-013",
+          "target_version": "v3",
+          "source_id": "ORIGINAL-0004",
+          "path": "original-0004.html",
+          "hash": "sha256:d8244039426952d519c74a0a64e3418f3047f2a04b5ed2ee7642c9e27f135c70"
+        },
+        {
+          "kind": "related",
+          "value": "MPLPB-IMAGE-016",
+          "start": 1154,
+          "end": 1578,
+          "quote": "**Related.** MPLPB as a Local Web (MPLPB-LOCAL-008 v4). Separate, Allowed to Chat, and Overridden by Scope (MPLPB-SEP-007). Smart Local MPLPB (MPLPB-SMART-011 v1). MPLPB and the Cost of Visibility (MPLPB-COST-012 v2). MPLPB at Swarm and Enterprise Scale (MPLPB-SWARM-013 v3). Networked MPLPB. MPLPB Image (MPLPB-IMAGE-016 v2). Multi-Platform Linked Public Building (v3) and the other chapters of *Continuity Without Memory*.",
+          "target_id": "MPLPB-IMAGE-016",
+          "target_version": "v2",
+          "source_id": "ORIGINAL-0004",
+          "path": "original-0004.html",
+          "hash": "sha256:d8244039426952d519c74a0a64e3418f3047f2a04b5ed2ee7642c9e27f135c70"
+        },
+        {
+          "kind": "document_identity",
+          "value": "MPLPB-LOCAL-008",
+          "start": 95,
+          "end": 123,
+          "quote": "Document ID: MPLPB-LOCAL-008",
+          "target_id": "MPLPB-LOCAL-008",
+          "target_version": "v4",
+          "source_id": "ORIGINAL-0001",
+          "path": "original-0001.html",
+          "hash": "sha256:68fc40c9b83cd8f6d69ddaaf98833372986764b47c38f22ffd03e00456e218fa"
+        },
+        {
+          "kind": "declared_date",
+          "value": "2026-08-05T18:40Z",
+          "start": 124,
+          "end": 158,
+          "quote": "Last Updated: 2026-08-05T18:40Z v4",
+          "target_id": "",
+          "target_version": "v4",
+          "source_id": "ORIGINAL-0001",
+          "path": "original-0001.html",
+          "hash": "sha256:68fc40c9b83cd8f6d69ddaaf98833372986764b47c38f22ffd03e00456e218fa"
+        },
+        {
+          "kind": "supersedes",
+          "value": "MPLPB-LOCAL-008",
+          "start": 190,
+          "end": 288,
+          "quote": "Supersedes: MPLPB-LOCAL-008 v3 (2026-08-05T14:00Z), v2 (2026-08-05T11:20Z), v1 (2026-08-05T09:15Z)",
+          "target_id": "MPLPB-LOCAL-008",
+          "target_version": "v3",
+          "source_id": "ORIGINAL-0001",
+          "path": "original-0001.html",
+          "hash": "sha256:68fc40c9b83cd8f6d69ddaaf98833372986764b47c38f22ffd03e00456e218fa"
+        },
+        {
+          "kind": "supersedes",
+          "value": "MPLPB-LOCAL-008",
+          "start": 190,
+          "end": 288,
+          "quote": "Supersedes: MPLPB-LOCAL-008 v3 (2026-08-05T14:00Z), v2 (2026-08-05T11:20Z), v1 (2026-08-05T09:15Z)",
+          "target_id": "MPLPB-LOCAL-008",
+          "target_version": "v2",
+          "source_id": "ORIGINAL-0001",
+          "path": "original-0001.html",
+          "hash": "sha256:68fc40c9b83cd8f6d69ddaaf98833372986764b47c38f22ffd03e00456e218fa"
+        },
+        {
+          "kind": "supersedes",
+          "value": "MPLPB-LOCAL-008",
+          "start": 190,
+          "end": 288,
+          "quote": "Supersedes: MPLPB-LOCAL-008 v3 (2026-08-05T14:00Z), v2 (2026-08-05T11:20Z), v1 (2026-08-05T09:15Z)",
+          "target_id": "MPLPB-LOCAL-008",
+          "target_version": "v1",
+          "source_id": "ORIGINAL-0001",
+          "path": "original-0001.html",
+          "hash": "sha256:68fc40c9b83cd8f6d69ddaaf98833372986764b47c38f22ffd03e00456e218fa"
+        },
+        {
+          "kind": "related",
+          "value": "Related documents:\n- MPLPB v3 \u2014 complete artifacts, Main Index, Sub-Indexes, revision discipline,\nand reconstruction rules\n- Rabbit Hole Internet Indexer Blueprint v2 \u2014 source adapters, indexing,\nchunking, metadata extraction, and hybrid retrieval\n- Externalized Continuity at Scale \u2014 Navigator loop, complete artifacts, and mode\ncontrol\n- Spinning v2 \u2014 use of the retrieved graph as the model's working knowledge\nsource\n- MPLPB Separation & Precedence v1 \u2014 spoke boundaries and routing by declared\nscope\n- The Five-Module Combinator \u2014 interface contract between MPLPB, Rabbit Hole,\nNavigator, Spinning, and the deployed companion",
+          "start": 1926,
+          "end": 2556,
+          "quote": "Related documents:\n- MPLPB v3 \u2014 complete artifacts, Main Index, Sub-Indexes, revision discipline,\nand reconstruction rules\n- Rabbit Hole Internet Indexer Blueprint v2 \u2014 source adapters, indexing,\nchunking, metadata extraction, and hybrid retrieval\n- Externalized Continuity at Scale \u2014 Navigator loop, complete artifacts, and mode\ncontrol\n- Spinning v2 \u2014 use of the retrieved graph as the model's working knowledge\nsource\n- MPLPB Separation & Precedence v1 \u2014 spoke boundaries and routing by declared\nscope\n- The Five-Module Combinator \u2014 interface contract between MPLPB, Rabbit Hole,\nNavigator, Spinning, and the deployed companion",
+          "target_id": "",
+          "target_version": "",
+          "source_id": "ORIGINAL-0001",
+          "path": "original-0001.html",
+          "hash": "sha256:68fc40c9b83cd8f6d69ddaaf98833372986764b47c38f22ffd03e00456e218fa"
+        },
+        {
+          "kind": "document_identity",
+          "value": "MPLPB-SMART-011",
+          "start": 279,
+          "end": 306,
+          "quote": "Document ID MPLPB-SMART-011",
+          "target_id": "MPLPB-SMART-011",
+          "target_version": "v1",
+          "source_id": "ORIGINAL-0002",
+          "path": "original-0002.html",
+          "hash": "sha256:fe8ce6e3eb647ff033437667ca6cceac9fa436bdeadabcc8102f394c154a24f1"
+        },
+        {
+          "kind": "declared_date",
+          "value": "2026-08-12T00:00Z",
+          "start": 357,
+          "end": 385,
+          "quote": "Updated 2026-08-12T00:00Z v1",
+          "target_id": "",
+          "target_version": "v1",
+          "source_id": "ORIGINAL-0002",
+          "path": "original-0002.html",
+          "hash": "sha256:fe8ce6e3eb647ff033437667ca6cceac9fa436bdeadabcc8102f394c154a24f1"
+        },
+        {
+          "kind": "related",
+          "value": "MPLPB-LOCAL-008",
+          "start": 780,
+          "end": 1144,
+          "quote": "Related. MPLPB as a Local Web (MPLPB-LOCAL-008 v4) \u2014 the corpus this\nfront end reads. A Modular Mode-Switching Architecture for a Mythic-Logic\nCompanion (MPLPB-MODE-008) \u2014 the mode controller. Separate, Allowed to Chat,\nand Overridden by Scope (MPLPB-SEP-007) \u2014 the precedence rule. B.A.S.I.C.\nAI: A Walk Down Memory Lane with Code and Curiosity (2025) \u2014 the loop.",
+          "target_id": "MPLPB-LOCAL-008",
+          "target_version": "v4",
+          "source_id": "ORIGINAL-0002",
+          "path": "original-0002.html",
+          "hash": "sha256:fe8ce6e3eb647ff033437667ca6cceac9fa436bdeadabcc8102f394c154a24f1"
+        },
+        {
+          "kind": "related",
+          "value": "MPLPB-MODE-008",
+          "start": 780,
+          "end": 1144,
+          "quote": "Related. MPLPB as a Local Web (MPLPB-LOCAL-008 v4) \u2014 the corpus this\nfront end reads. A Modular Mode-Switching Architecture for a Mythic-Logic\nCompanion (MPLPB-MODE-008) \u2014 the mode controller. Separate, Allowed to Chat,\nand Overridden by Scope (MPLPB-SEP-007) \u2014 the precedence rule. B.A.S.I.C.\nAI: A Walk Down Memory Lane with Code and Curiosity (2025) \u2014 the loop.",
+          "target_id": "MPLPB-MODE-008",
+          "target_version": "",
+          "source_id": "ORIGINAL-0002",
+          "path": "original-0002.html",
+          "hash": "sha256:fe8ce6e3eb647ff033437667ca6cceac9fa436bdeadabcc8102f394c154a24f1"
+        },
+        {
+          "kind": "related",
+          "value": "MPLPB-SEP-007",
+          "start": 780,
+          "end": 1144,
+          "quote": "Related. MPLPB as a Local Web (MPLPB-LOCAL-008 v4) \u2014 the corpus this\nfront end reads. A Modular Mode-Switching Architecture for a Mythic-Logic\nCompanion (MPLPB-MODE-008) \u2014 the mode controller. Separate, Allowed to Chat,\nand Overridden by Scope (MPLPB-SEP-007) \u2014 the precedence rule. B.A.S.I.C.\nAI: A Walk Down Memory Lane with Code and Curiosity (2025) \u2014 the loop.",
+          "target_id": "MPLPB-SEP-007",
+          "target_version": "",
+          "source_id": "ORIGINAL-0002",
+          "path": "original-0002.html",
+          "hash": "sha256:fe8ce6e3eb647ff033437667ca6cceac9fa436bdeadabcc8102f394c154a24f1"
+        }
+      ],
+      "rejected": [],
+      "answer_supported": false,
+      "truth_verified": false,
+      "authority": "verified_bounded_documentary_observations",
+      "notice": "Exact source declarations only; no historical truth, causation, priority or unrestricted synthesis is certified."
+    },
+    "seeds": [
+      "ORIGINAL-0003"
+    ],
+    "stops": [],
+    "discovery_complete": true,
+    "discovery_characters_examined": 142583,
+    "discovery_limits": {
+      "sources": 256,
+      "source_html_prefix": 50000,
+      "total_html_characters": 1000000
+    },
+    "source_characters_examined": 136414,
+    "observation_budget_reached": false,
+    "event_candidates": {
+      "version": "documentary-event-candidates-v1",
+      "source_state_current": true,
+      "candidates": [],
+      "unassigned_occurrences": [],
+      "answer_supported": false,
+      "truth_verified": false,
+      "notice": "Explicit source IDs group candidate occurrences; equal subjects do not prove identity and changed bodies require review."
+    },
+    "chronology": {
+      "dates": [
+        {
+          "source_id": "ORIGINAL-0001",
+          "value": "2026-08-05T18:40Z",
+          "precision": "timestamp",
+          "basis": "author_declared_document_date",
+          "citation": {
+            "kind": "declared_date",
+            "value": "2026-08-05T18:40Z",
+            "start": 124,
+            "end": 158,
+            "quote": "Last Updated: 2026-08-05T18:40Z v4",
+            "target_id": "",
+            "target_version": "v4",
+            "source_id": "ORIGINAL-0001",
+            "path": "original-0001.html",
+            "hash": "sha256:68fc40c9b83cd8f6d69ddaaf98833372986764b47c38f22ffd03e00456e218fa"
+          }
+        },
+        {
+          "source_id": "ORIGINAL-0002",
+          "value": "2026-08-12T00:00Z",
+          "precision": "timestamp",
+          "basis": "author_declared_document_date",
+          "citation": {
+            "kind": "declared_date",
+            "value": "2026-08-12T00:00Z",
+            "start": 357,
+            "end": 385,
+            "quote": "Updated 2026-08-12T00:00Z v1",
+            "target_id": "",
+            "target_version": "v1",
+            "source_id": "ORIGINAL-0002",
+            "path": "original-0002.html",
+            "hash": "sha256:fe8ce6e3eb647ff033437667ca6cceac9fa436bdeadabcc8102f394c154a24f1"
+          }
+        },
+        {
+          "source_id": "ORIGINAL-0003",
+          "value": "2026-10-07T18:00Z",
+          "precision": "timestamp",
+          "basis": "author_declared_document_date",
+          "citation": {
+            "kind": "declared_date",
+            "value": "2026-10-07T18:00Z",
+            "start": 411,
+            "end": 445,
+            "quote": "| Updated | 2026-10-07T18:00Z v3 |",
+            "target_id": "",
+            "target_version": "v3",
+            "source_id": "ORIGINAL-0003",
+            "path": "original-0003.html",
+            "hash": "sha256:8de90447360f85acf97310a7cdcddb92aaf8d3d3bb6612f76642a774ba41ea6c"
+          }
+        },
+        {
+          "source_id": "ORIGINAL-0004",
+          "value": "2026-10-07T00:00Z",
+          "precision": "timestamp",
+          "basis": "author_declared_document_date",
+          "citation": {
+            "kind": "declared_date",
+            "value": "2026-10-07T00:00Z",
+            "start": 411,
+            "end": 445,
+            "quote": "| Updated | 2026-10-07T00:00Z v1 |",
+            "target_id": "",
+            "target_version": "v1",
+            "source_id": "ORIGINAL-0004",
+            "path": "original-0004.html",
+            "hash": "sha256:d8244039426952d519c74a0a64e3418f3047f2a04b5ed2ee7642c9e27f135c70"
+          }
+        }
+      ],
+      "historical_event_order_verified": false,
+      "publication_priority_verified": false,
+      "notice": "Declared document dates only. Git timestamps, observation time and event time are separate evidence bases."
+    },
+    "operator_seconds": null,
+    "operator_events": [],
+    "schema": "bounded-relation-investigation-v1",
+    "question": "Trace declared relationships between Combined MPLPB, Smart Local MPLPB, and MPLPB as a Local Web; keep historical claims qualified",
+    "profile": "internal",
+    "authority": "verified_documentary_observations",
+    "status": "evidence_report",
+    "answer_supported": false,
+    "truth_verified": false,
+    "independence_verified": false,
+    "experts": [
+      {
+        "role": "documentary",
+        "operation": "history.documentary.v1",
+        "implementation": "deterministic local software"
+      },
+      {
+        "role": "chronology",
+        "operation": "history.chronology.v1",
+        "implementation": "deterministic local software"
+      },
+      {
+        "role": "verification",
+        "operation": "history.verification.v1",
+        "implementation": "deterministic local software"
+      }
+    ],
+    "receipts": [
+      {
+        "role": "documentary",
+        "receipt": "840b5369db1e49719e9d35c63d18887b",
+        "status": "passed"
+      },
+      {
+        "role": "chronology",
+        "receipt": "e304929c996143d0abf78f93da5ab8c9",
+        "status": "passed"
+      },
+      {
+        "role": "verification",
+        "receipt": "0a77de48befb450fbf42743b7d0a107d",
+        "status": "passed"
+      }
+    ],
+    "work_retained": false,
+    "boundaries": {
+      "max_hops": 2,
+      "max_sources": 12,
+      "max_source_characters": 200000,
+      "corpus_escape_allowed": false,
+      "title_guessing_allowed": false,
+      "causal_inference_allowed": false,
+      "source_pages_written": false
+    },
+    "unresolved": [
+      "Interpretation of the original question beyond the declared fields remains unproved.",
+      "Related and supersedes declarations do not prove causation, endorsement or historical priority.",
+      "Missing, excluded, retired, ambiguous or over-budget targets were not traversed."
+    ]
+  }
+}
