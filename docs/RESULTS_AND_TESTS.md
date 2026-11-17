@@ -112,3 +112,13 @@ Reconstruction update (2026-11-17): [documentary research mode](HISTORICAL_RECON
 
 
 Terminal reconstruction/completion experiment (2026-11-17): [retained results](../evaluation/reconstruction-engine/2026-11-17/RESULTS.md) show one complete source comparison and two checked partials versus zero complete/two partials on22 unchanged questions;1124 tests passed. Independent historical accuracy and >=200 unseen evaluation remain NOT RUN.
+
+## Closed-ledger boundaries
+
+[Versioned evidence](../evaluation/closed-ledger-boundaries/2026-11-17/RESULTS.md)
+records frozen-source software checks, unchanged-input outcomes and costs.
+The [reproduction runner](../tools/reproduce_boundaries.py),
+[boundary tests](../tests/test_answer_boundaries.py) and existing
+[scoped-extension controls](../tests/test_scoped_extensions.py) protect source-only
+assurance, diagnostic distinctions and host-declared observation sequencing.
+No independent historical accuracy or exact legacy887-test reproduction is claimed.

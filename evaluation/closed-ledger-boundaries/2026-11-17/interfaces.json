@@ -1,0 +1,43 @@
+{
+  "tested_revision": "6a4230399b83ed259bc1aec1bc9c0d02fedc0f75",
+  "candidate_only": true,
+  "deployed_site_tested": false,
+  "checks": [
+    {
+      "command": "python tools/check_ui_script.py",
+      "exit_code": 0
+    },
+    {
+      "command": "node tools/check_browser_transport.cjs",
+      "exit_code": 0
+    },
+    {
+      "command": "node tests/javascript-api.cjs",
+      "exit_code": 0
+    },
+    {
+      "command": "node crawler/test_worker.mjs",
+      "exit_code": 0
+    },
+    {
+      "command": "python tools/build_browser_runtime.py --core-archive /tmp/mplpb-pyodide-core.tar.bz2 --output dist/index.html",
+      "exit_code": 0
+    },
+    {
+      "command": "node tools/check_browser_wasm.mjs /tmp/mplpb-wasm/pyodide dist/index.html",
+      "exit_code": 0,
+      "log": "wasm.log"
+    },
+    {
+      "command": "python browser_check.py (with ZIP-extracted source as cwd)",
+      "exit_code": 0,
+      "log": "chromium.log"
+    }
+  ],
+  "browser": "Chromium156.0.8078.79",
+  "pinned_pyodide": "314.0.7",
+  "core_archive_sha256": "2abdcc2e35208af406e07724cffa85bc582ced97e9028383ecf5462541393f95",
+  "built_html_bytes": 38534608,
+  "built_html_sha256": "6d114426303ffd60c50a8563a033d1f54eb29229a256239defea7d946b10f4ab",
+  "independent_human_usability": "NOT RUN"
+}

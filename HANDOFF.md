@@ -4,16 +4,31 @@ Last reviewed: 2026-11-17.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `473048dfa23d07439fef5f636e287b23b50b1e27` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `cdd1168805fc6281678838605b0f284d2fe78a54993ef27ffedd8062a4087d29`.
+Base commit: `6a4230399b83ed259bc1aec1bc9c0d02fedc0f75` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `48caebbcb6026071683ef0e98bd4e07f17c470648ad9bf0e06c1bc7b98769f96`.
 
 ## Latest user update instructions
 
-The improvements should close the residual gaps the comparative experiments and Gelhaus’s critique already identified, without relaxing the closed-ledger guarantees that make it strong.
-Precise refusal diagnostics; distinct event identity and time-scoped correction; evidence-gated candidate relations; independent operational receipts; external verification hooks for high-stakes claims.
-Public, version-pinned reproducibility package; exact-field routing without false pruning; operator-burden metrics; clear non-claims in the runtime.
-Do not add open-ended generation, external retrieval that bypasses ownership rules, or automatic promotion of candidates.
-The residual limit remains: if the ledger itself contains only a coherent false current page, the system will still return it.
+, the improvements should close the residual gaps the comparative experiments and Gelhaus’s critique already identified, without relaxing the closed-ledger guarantees that make it strong.
+Highest-leverage changes
+1.  Precise refusal diagnostics
+Separate the current refusal into labeled cases: unsupported question grammar, absent eligible source, known source conflict, insufficient evidence, index exhaustion. The experiments showed that exact-wording and identifier mismatches produced strict FAILs even when the factual answer was correct. Explicit diagnostic codes would make those failures actionable instead of opaque.
+2.  Distinct event identity and time-scoped correction
+Treat multiple appearances of the same message as distinguishable source occurrences. A later partial correction should update only the specified claim while retaining the original statement, its provenance, and the prior assessment. This directly addresses the coherent-false-original problem: history stays recoverable even when a current page is later shown to be wrong.
+3.  Evidence-gated candidate relations
+Allow exploratory relation proposals, but keep them explicitly marked as candidates. Missing intermediate evidence must stop the proposed relation; candidates must never appear as deterministic supported answers. This matches the acceptance criteria in Beyond Guarded Retrieval and prevents the system from silently promoting unsupported bridges.
+4.  Independent operational receipts
+Store, dispatch, delivery, read, acknowledgment, and completion as distinct, evidence-gated transitions. A stored completion statement currently does not independently establish completed work. Making each transition require its own receipt closes that gap without adding generation outside the ledger.
+5.  External verification hooks for high-stakes claims
+When a current owner is coherent but thin (single root, no contrary page inside the ledger), surface an explicit “outside-world confirmation required” flag rather than a clean return. The paper already states that source integrity, proposition support, and outside-world truth are distinct; making that distinction visible at the interface prevents the “map becomes authority” failure mode you flagged.
+Supporting changes that raise the ceiling
+•  Public, version-pinned reproducibility package. The B-Tests fixtures and scoring already exist. Packaging them so a third party can re-run the exact 887-test suite plus the boundary probes without private setup would move the evidence from author-authored to independently confirmable.
+•  Exact-field routing without false pruning. Improve source location for held-out cases while guaranteeing that contradictory eligible passages are never dropped. Test zero-, one-, and multi-match behavior explicitly.
+•  Operator-burden metrics. Report human labeling time, bytes scanned, source-count coverage, and false-bridge rates alongside the existing pass/fail counts. This makes the cost of the stronger guarantees measurable.
+•  Clear non-claims in the runtime. Document at the point of answer that MPLPB does not detect a coherent false original lacking internal contradiction, does not authenticate arbitrary testimony, and does not reconstruct unprepared historical events. The comparative paper already draws these lines; surfacing them prevents over-trust.
+What not to change
+Do not add open-ended generation, external retrieval that bypasses ownership rules, or automatic promotion of candidates. Those would trade the determinism and refusal properties that currently differentiate MPLPB for capabilities it is not designed to provide. The 9+ path is tighter enforcement, clearer diagnostics, recoverable history, and explicit boundaries—not a broader answerer.
+The residual limit remains: if the ledger itself contains only a coherent false current page, the system will still return it. The improvements above make that case diagnosable, historically recoverable, and harder to act on without an external check.
 
 ## Implemented scope
 
@@ -24,8 +39,12 @@ The residual limit remains: if the ledger itself contains only a coherent false 
 
 ## Validation recorded
 
-- Baseline473048d: 63 focused source/answer/scoped-correction/handoff tests passed in4.050s.
-- Development: 40 focused answer/scoped tests passed3.754s; 37 boundary/scoped tests passed0.517s. UI script check passed. Two initial category failures corrected; full archive validation pending.
+- Baseline473048d:63 focused tests passed4.050s; fresh unchanged public52/52. Existing full1124-test result is retained on byte-equivalent63cea982 runtime, not newly rerun baseline full suite.
+- Tested ZIP-extracted6a4230399b83ed259bc1aec1bc9c0d02fedc0f75:1134 tests passed396.640s (process CPU377.961s/wall397.903s),51 focused passed0.589s, public52/52;0/3 authored supported-bridge probes before/after.
+- Actual pinned WebAssembly, JavaScript API, browser transport, crawler fixture checks and Chromium candidate smoke/researcher workflow/new confirmation notice passed.
+- Six unchanged fictional inputs preserve exact source-byte pins, claims, citations, kinds, support booleans and verification states while adding diagnostics/assurance. Frozen corpora/prior reports unchanged.
+- Costs and failed initial diagnostic checks/timing invocation retained in evaluation/closed-ledger-boundaries/2026-11-17; independent semantic review/human effort NOT RUN/null.
+- Final evidence-only documentation/infrastructure/handoff audits passed;10 handoff/documentation tests passed0.151s. Tested runtime/tests/tools remain byte-identical to6a42303.
 
 ## Limitations and blocked checks
 
@@ -35,9 +54,9 @@ The residual limit remains: if the ledger itself contains only a coherent false 
 
 ## Next steps
 
-- Freeze candidate and test extracted archive; record exact results and failures.
 - Identify original legacy experiment revision/fixtures before claiming exact887-test reproduction.
-- Obtain independently authenticated external observations and independent historical reviews; no auto truth promotion.
+- Obtain independently authenticated operational adapters and independent historical reviews; source integrity/host observations never auto-promote outside-world truth.
+- Review and publish local candidate through exact-head archive/release workflow; live deployment was not tested in this update.
 
 ## Use this ZIP in your repository
 
