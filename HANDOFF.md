@@ -4,8 +4,8 @@ Last reviewed: 2026-11-17.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `ccbb5804eb47f78c2338d57c142ad087b47be710` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `db2373a3222bb3c56a9db51eaaf1b3f75d3ba7cf5ea338afe431151d4ea8f5e8`.
+Base commit: `6289eca8b73923bc73cc1bb4df775258c9bbd52b` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `3dc8a66cab149f02878596af7950dcf0b1b36ea981270d0460ed40c8aa411efb`.
 
 ## Latest user update instructions
 
@@ -20,6 +20,7 @@ One of the main things we preserve the task state and verification rules so any 
 - Gate primary cluster/reference/status/date consumers by structural role; add inspectable embedded-identifier review annotations. No reader/authority changes.
 - Extend positive, adversarial, Unicode, budget, replay and native safety checks; preserve before/after exact evidence-node traces.
 - Retain a resumable checkpoint with source/test/probe hashes, commands, results, verification contracts and remaining ambiguity independent of this conversation.
+- Add a fresh-process checkpoint consumer; retain exact consumed checkpoint, minimal-environment results and frozen-archive evidence. No model identity or private transcript required for deterministic verification.
 
 ## Validation recorded
 
@@ -27,7 +28,8 @@ One of the main things we preserve the task state and verification rules so any 
 - Full native supplied probe reproduced baseline contamination (4 cluster members). After fix the original probe intentionally exits1 because its bug-presence assertion is now false; other invariants remain true.
 - Final sorter42 tests passed1.005s; focused sorter/native99 tests passed1.989s, exit0. All12 requested classes covered with positive and negative controls.
 - Minimal cluster3→2, supplied cluster4→3; source/node observations remain preserved and source bytes unchanged. Concatenated file partitions3→2.
-- Fresh-process verification exists; fresh AI-instance resumption and minimum model context size remain NOT RUN/unknown. Frozen full regression/public-evidence runs pending.
+- Frozen6289eca archive passed51 boundary tests,1201 full Python tests and52 public evidence cases (zero observed false-supported bridges), all exit0. Full suite wall337.562s/CPU322.809s; peak child RSS306565120bytes.
+- Fresh process consumed saved checkpoint, verified pins and passed42 sorter tests with stdin closed/no model credentials; wall1.218s. Fresh AI-instance resume and minimum model context remain NOT RUN/unknown.
 
 ## Limitations and blocked checks
 
@@ -38,9 +40,9 @@ One of the main things we preserve the task state and verification rules so any 
 
 ## Next steps
 
-- Freeze implementation, run full Python/public-evidence suites and retained probe/fixture checks from an extracted committed archive.
-- Record actual failures/successes and resource metrics in a separate evidence update, keeping the tested runtime unchanged.
-- Successor: read checkpoint.json and REPORT.md in the header-scope evidence directory; preserve verification rules, never restore the probe’s defect merely to make its obsolete final assertion pass.
+- Read checkpoint.json and REPORT.md in evaluation/preprocessing-sorter/2026-11-17-header-scope; use resume_verification.py with a new output directory to verify pins and existing tests.
+- Preserve the implementation freeze6289eca and its archived results separately from evidence-only commits; do not restore the defect to satisfy the supplied probe’s obsolete bug-presence assertion.
+- Future research: measure a genuinely fresh AI worker’s resumption using only the public handoff; do not infer model continuity or semantic accuracy from deterministic software replay.
 
 ## Use this ZIP in your repository
 

@@ -1,7 +1,8 @@
 # Scoped header/occurrence correction — 2026-11-17
 
 Baseline: `ccbb5804eb47f78c2338d57c142ad087b47be710`.
-Status: implementation and focused checks complete; frozen-archive checks pending.
+Status: implementation frozen and archive regressions complete; evidence-only handoff update.
+Tested runtime revision: `6289eca8b73923bc73cc1bb4df775258c9bbd52b`.
 This is a developer reproduction of a supplied probe and targeted software fix,
 not an independently validated historical-reconstruction benchmark.
 
@@ -113,3 +114,48 @@ No model identity, private conversation memory or previous model runtime is need
 for that deterministic process. A fresh AI-instance resumption experiment and the
 minimum model context needed are **NOT RUN / unknown**, not inferred from software
 replay. Work-state continuity remains separate from historical truth and source authority.
+
+## Frozen archive and resumable verification
+
+Executed from an extracted committed archive, not the live working tree:
+
+```bash
+python -m tools.reproduce_boundaries --revision 6289eca --output /tmp/mplpb-header-scope-frozen-6289eca --suite full
+```
+
+The runner and each of its three commands exited **0**. The archive SHA-256 is
+`c5f9835ec5b03064694329de51211ec95ccd2943602f33ced01980bb032f2c80`.
+`archive-report.json` records exact arguments, revision, environment and resources:
+
+| Check | Result | Wall seconds | CPU seconds |
+|---|---|---:|---:|
+| Native boundary suites |51 tests passed |0.716 |0.640 |
+| `python -m unittest discover -s tests -q` |1201 tests passed |337.562 |322.809 |
+| `python -m tools.evaluate_public_evidence --require-capabilities --output NEW.json` |52 cases passed; zero observed false-supported bridges |20.339 |19.703 |
+
+Environment: Linux x86_64, Python3.12.14,5 reported CPUs. Maximum child RSS was
+306,565,120 bytes (process-lifetime child maximum, **not** aggregate process-tree
+memory). Source bytes read, human review time and general relationship precision/
+recall remain unknown/null. These are software controls, not independent accuracy
+measurements. Logs and public evidence output are retained as `archive-*`.
+
+To resume verification without this conversation, read `checkpoint.json`, then run:
+
+```bash
+python evaluation/preprocessing-sorter/2026-11-17-header-scope/resume_verification.py --output /tmp/NEW_DIRECTORY
+```
+
+Use a new output directory outside the checkout. The standard-library driver checks
+pinned implementation, fixture and supplied-probe bytes, then invokes the existing
+sorter tests in a fresh Python process with stdin closed and a minimal environment
+that excludes model credentials and saved model state. It writes observed exit code,
+timeout state, wall time and full test output. A mismatch stops verification; it is
+not permission to update hashes until they match an unwanted implementation.
+
+The retained `fresh-process-report.json` and `fresh-process-sorter.log` show exit0,
+42 passing tests,1.218s wall time. Its exact consumed checkpoint is retained as
+`checkpoint-focused.json`; the current checkpoint adds the full archived outcomes.
+This demonstrates deterministic verification from durable task state, **not** a fresh
+AI-instance experiment or a minimum-context measurement. Both remain explicitly
+NOT RUN/unknown. The final handoff records an evidence-only commit after the tested
+runtime freeze; implementation and test hashes must remain equal to the checkpoint.

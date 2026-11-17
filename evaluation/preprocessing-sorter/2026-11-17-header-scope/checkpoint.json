@@ -1,7 +1,7 @@
 {
   "schema": "mplpb-sorter-header-scope-checkpoint-v1",
   "task": "Fix occurrence/header classification before primary identity proposals, without deleting embedded evidence.",
-  "status": "implementation and focused verification complete; frozen-archive regression pending",
+  "status": "verified from frozen implementation archive; evidence-only handoff update",
   "baseline_commit": "ccbb5804eb47f78c2338d57c142ad087b47be710",
   "supplied_probe_sha256": "ef1c0e7064d88a88617ee4a639cd1fa3d8c8fa57990ece22c13f55f543d8f3b1",
   "implementation_and_fixture_sha256": {
@@ -33,6 +33,7 @@
     "All answer_supported/source_support_established/historical_truth_independently_verified flags remain false; native serving gates are unchanged."
   ],
   "resume_commands": [
+    "python evaluation/preprocessing-sorter/2026-11-17-header-scope/resume_verification.py --output /tmp/NEW_DIRECTORY",
     "python -m unittest tests.test_sorter -q",
     "python -m unittest tests.test_sorter tests.test_answer_boundaries tests.test_scoped_extensions tests.test_source_mapping tests.test_supersession_policy -q",
     "python -m unittest discover -s tests -q",
@@ -68,6 +69,33 @@
       "exit_code": 1,
       "expected_reason": "Its final assertion requires the bug-presence boolean quoted_header_in_unverified_cluster=true. False is the desired fix; retain this failed assertion, do not edit the supplied script to hide it.",
       "log": "supplied-after.log"
+    },
+    {
+      "command": "frozen archive native boundary tests",
+      "exit_code": 0,
+      "tests": 51,
+      "log": "archive-check-0.log"
+    },
+    {
+      "command": "frozen archive python -m unittest discover -s tests -q",
+      "exit_code": 0,
+      "tests": 1201,
+      "log": "archive-check-1.log"
+    },
+    {
+      "command": "frozen archive public evidence --require-capabilities",
+      "exit_code": 0,
+      "cases": 52,
+      "observed_false_supported_bridges": 0,
+      "log": "archive-check-2.log"
+    },
+    {
+      "command": "fresh-process checkpoint replay with no transcript or model credentials",
+      "exit_code": 0,
+      "tests": 42,
+      "log": "fresh-process-sorter.log",
+      "report": "fresh-process-report.json",
+      "checkpoint": "checkpoint-focused.json"
     }
   ],
   "remaining_ambiguity": [
@@ -79,5 +107,27 @@
     "fresh_AI_instance_resume": "NOT RUN",
     "minimum_model_context_tokens": null,
     "note": "The checkpoint preserves public task state and verification obligations, not model identity, private context or authenticated historical truth."
-  }
+  },
+  "tested_runtime_commit": "6289eca8b73923bc73cc1bb4df775258c9bbd52b",
+  "tested_archive_sha256": "c5f9835ec5b03064694329de51211ec95ccd2943602f33ced01980bb032f2c80",
+  "prior_checkpoint": {
+    "file": "checkpoint-focused.json",
+    "sha256": "479e7bebb17a458939226af3ad2f03454f32eef5ffaa2d3dd40765e0c5425793",
+    "consumed_by": "fresh-process-report.json"
+  },
+  "supplied_files_sha256": {
+    "supplied-probe/README_probe.txt": "faa0ab2f71b22bef661a92c40d6f7ce7b2495f878ff4a0a208b1bc51de0de71a",
+    "supplied-probe/fresh_source_fixture/01-original.txt": "6448bb92657f09729b03090e78892607e0383a8dcfebede1365c726744939417",
+    "supplied-probe/fresh_source_fixture/02-copy.txt": "86c47d047d3830d10f4e933ee8039d96050c85ba90d6320d5d6cccee10b03dc1",
+    "supplied-probe/fresh_source_fixture/03-changed-copy.txt": "3e901f9eafda430e606f2eea81f9331343c6bc9a68196ecc4f8cee529db9188b",
+    "supplied-probe/fresh_source_fixture/04-unrelated.txt": "2bcf64f1933d9742b1314f9f0bb027032e6baf202ea9be96c38f816866648cfc",
+    "supplied-probe/fresh_source_fixture/05-partial-correction.txt": "67b91b5b63a0acc919a0bfaef0f70b15ff124a26401c6c2ba779cce9df7f6e02",
+    "supplied-probe/fresh_source_fixture/06-missing-target.txt": "ba2ac6a08831cba2f05d8c626d4b05efffff9a0121556ae4d19531dae0ad9ef4",
+    "supplied-probe/fresh_source_fixture/07-quoted-header.md": "41a4b6c0475ee88c047d560dd6e1464ec017a074e4163c37d7e61254bd0b8ab6",
+    "supplied-probe/fresh_source_fixture/08-retired-status.txt": "516c42f736354d5bb85043c4fa2478b76975e562751582e9c71e9223bdcf43ba",
+    "supplied-probe/probe_result.json": "ee67330c398cdb25827da5bd555298055436a6931c6d743b6367614cff3597c4",
+    "supplied-probe/reproduce_upstream.py": "a1c3a67ba4f7004574133432405d7c98899cf146831ffd0c870e6be903d5f5c6"
+  },
+  "resume_driver_sha256": "8f61ffb03fb722b09265db042629d7dbfe0100535b5178f379c896299347b0d2",
+  "resource_report": "archive-report.json"
 }
