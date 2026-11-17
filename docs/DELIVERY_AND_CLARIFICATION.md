@@ -1,6 +1,6 @@
 # Sealed delivery and human clarification
 
-Last reviewed: 2026-11-16. See [current status and result-to-test index](CURRENT_STATUS_2026-11-02.md). Dates and numeric results in historical validation sections retain their original scope; this review is not a rerun or independent certification.
+Last reviewed: 2026-11-17. See [current status and result-to-test index](CURRENT_STATUS.md). Dates and numeric results in historical validation sections retain their original scope; this review is not a rerun or independent certification.
 
 The optional `external`, `source-authorship`, and `clarify-options` fields are included in a page's hash when present. Legacy pages without those fields retain their existing seals. Changing or removing an existing field breaks the seal. A deliberately resealed record is a new declaration, not authenticated authority.
 
@@ -19,7 +19,7 @@ python3 tools/provenance_bench.py --serve --root examples/clarification-dogs
 
 The three dog pages are synthetic demonstration material with unknown authorship, not independently verified animal advice. Internal reads can expose them with that warning; external delivery withholds them. A human's clarification narrows the subject, not its truth or authorship.
 
-The original delivery-fix validation added eleven regression tests exercising both delivery paths, customized external profiles, flag alteration/removal, unknown authorship, importer log consistency, revision preservation, legacy hashes, and clarification without invented evidence. That historical package run passed 176 tests; it is not the current suite count. See the [current status](CURRENT_STATUS_2026-11-02.md) and [test index](RESULTS_AND_TESTS.md). Existing frozen probe/evaluation files remain unchanged. Wiki raw/live mismatch and missing historical API payload pins still prevent scoring the preserved snapshot; neither this fix nor a green unit run establishes independent validation.
+The original delivery-fix validation added eleven regression tests exercising both delivery paths, customized external profiles, flag alteration/removal, unknown authorship, importer log consistency, revision preservation, legacy hashes, and clarification without invented evidence. That historical package run passed 176 tests; it is not the current suite count. See the [current status](CURRENT_STATUS.md) and [test index](RESULTS_AND_TESTS.md). Existing frozen probe/evaluation files remain unchanged. Wiki raw/live mismatch and missing historical API payload pins still prevent scoring the preserved snapshot; neither this fix nor a green unit run establishes independent validation.
 
 The wiki engine/checker hashes are updated for these local bytes. The base commit is recorded separately from a published revision. Historical wiki manifests and uploaded reports retain their historical context. The original report described a fix prepared for publication with separate byte pins; that statement is historical, not current publication status.
 

@@ -1,6 +1,6 @@
 # Intended scope, completeness and production readiness
 
-Last reviewed: 2026-11-16.
+Last reviewed: 2026-11-17.
 
 MPLPB is a local research system with bounded source-language rules. Its local
 MCP adapter now gives compatible AI clients a standard route to the existing
@@ -30,7 +30,7 @@ hosting needs the controls in the [threat model](PRODUCTION_THREAT_MODEL.md), no
 just a passing local test suite. Consequential automated decisions require their
 own source review and evaluation; a seal or test count does not authenticate truth.
 
-See [setup and enforced MCP rules](MCP_AGENT.md), [current status](CURRENT_STATUS_2026-11-08.md)
+See [setup and enforced MCP rules](MCP_AGENT.md), [current status](CURRENT_STATUS.md)
 and [result/test index](RESULTS_AND_TESTS.md). Source tests, an extracted-ZIP test,
 a candidate browser check and a postdeployment check are distinct evidence.
 
@@ -78,3 +78,14 @@ The [prose reconstruction follow-up](PROSE_RECONSTRUCTION_FOLLOWUP.md) measures 
 
 
 Targeted recovery update (2026-11-16): the [source-linked recovery study](PROSE_RECONSTRUCTION_FOLLOWUP.md#targeted-recovery-and-false-association-retention) reports retained useful associations, recovered omissions, false date-cue corrections and unresolved transfer failures. It does not establish general historical understanding or independent human validation.
+
+## Current source-research boundary
+
+The [solo milestone](../evaluation/solo-milestone/2026-11-17/RESULTS.md) demonstrates
+one additional complete recorded-arrangement answer on22 unchanged development
+questions, plus a fresh-context blinded AI assessment. It does not establish
+general accuracy, independently authenticated history, delivery/execution, or a
+production-readiness rating. Source integrity, finite statement support, AI
+assessment and external truth remain separate. The [current status](CURRENT_STATUS.md)
+and [solo workflow](SOLO_RESEARCH_WORKFLOW.md) cover diagnostics, exact evidence,
+local artifact rechecks and the16 remaining AI-assessed shortcomings.

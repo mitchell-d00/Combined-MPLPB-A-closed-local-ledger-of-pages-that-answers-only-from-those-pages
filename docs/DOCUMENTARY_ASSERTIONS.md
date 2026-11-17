@@ -12,7 +12,7 @@ For plain who-action questions, the requested literal argument must match the ch
 
 Composition joins independently checked answers to separate question obligations; it does not invent links between them. `supported_answer` requires every obligation to pass, complete applicable checking and sufficient display budget. `partial_answer` retains checked claims plus exact missing obligations; its overall `answer_supported` stays false. Each checked claim separately records `source_support_established`, the kernel version, evidence/meaning digest, exact citations and `historical_truth_independently_verified:false`. Unparsed alternatives stay unverified. Reported instructions remain partial for questions about actual arrangement/execution and carry an explicit correction/cancellation-review limitation.
 
-The path is read-only, preserves revision/correction/serving gates, and never recursively asks shortened questions that lose original exclusions. Source or policy changes discard claims, quotes and documentary metadata at the existing final gate. Known HTML quotation/chrome ranges and qualified headings constrain support without making ordinary navigation invalidate a whole document. Headings never become answer facts.
+The path is read-only, preserves revision/correction/serving gates, and never recursively asks shortened questions that lose original exclusions. Source or policy changes discard claims, quotes and documentary metadata at the existing final gate. Known HTML quotation/chrome ranges and qualified headings constrain support without making ordinary navigation invalidate a whole document. HTML titles and layout headings alone never supply answer facts. Original letter headings in canonical source text are checked explicitly for printed party/date roles.
 
 Limits: four obligations, 12 proposals, 200,000 scan characters, 1,000 source units, 64 parsed action assertions, and the caller's passage/quote display budget. Exceeding a limit yields explicit partial/abstention output. Existing strict-first, assisted-mode, exact-field and scoped-correction contracts remain in force. The two new modules use the existing answer package and standard library, so the browser runtime can load them without the specialist-work package.
 
@@ -30,3 +30,15 @@ Reconstruction update (2026-11-17): [documentary research mode](HISTORICAL_RECON
 
 
 Kernel v3 [source-framed comparison completion](HISTORICAL_RECONSTRUCTION_ENGINE.md#completing-literal-source-comparisons) independently checks body-role witnesses, source/work references, topic boundaries and both word operations. [The final unchanged-question replay](../evaluation/reconstruction-engine/2026-11-17/RESULTS.md) yields one complete source-relative comparison and two partials, not independently verified historical truth.
+
+## Kernel v4 recorded-arrangement completion
+
+The [solo rule](SOLO_RESEARCH_WORKFLOW.md#complete-recorded-arrangement-answers)
+can complete a finite question about a named writer's recorded request and dated
+letter. The checker independently binds original names, recipient/possessive
+references and item wording, then requires the printed heading, complete instruction
+and complete bounded local-letter witness. Delivery, acceptance, execution and
+external historical truth remain unverified. Earlier partial-only results above
+describe their measured revisions; the [new unchanged-question replay](../evaluation/solo-milestone/2026-11-17/RESULTS.md)
+has2 complete source answers and1 partial. Additional obligations or missing
+witnesses still prevent completion.

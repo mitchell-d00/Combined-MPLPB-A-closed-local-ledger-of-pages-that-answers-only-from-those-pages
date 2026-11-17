@@ -17,7 +17,9 @@ including when source support passes. The count of declared evidence roots is
 computed from fresh eligible output sources and pinned ancestry. An unavailable
 count is null. One root is thin provenance; several roots do not establish
 independent testimony. Neither count detects a lie. CLI and both answer renderers
-show the same notice. No source-support flag, serving policy or proof rule changes.
+show the same notice. The diagnostic and assurance fields do not alter serving policy or award source
+support. The later [arrangement completion rule](SOLO_RESEARCH_WORKFLOW.md#complete-recorded-arrangement-answers)
+is independently checked and retains all external-execution exclusions.
 External reviewers can use the existing question, claims, exact citations and
 source pins as a review packet. No external service is contacted, and no external
 truth verdict is manufactured.

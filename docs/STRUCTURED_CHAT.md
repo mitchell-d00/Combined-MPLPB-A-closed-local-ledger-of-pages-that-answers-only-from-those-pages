@@ -1,6 +1,6 @@
 # Structured local chat requests
 
-Last reviewed: 2026-11-16. See [current status and result-to-test index](CURRENT_STATUS_2026-11-02.md). Dates and numeric results in historical validation sections retain their original scope; this review is not a rerun or independent certification.
+Last reviewed: 2026-11-17. See [current status and result-to-test index](CURRENT_STATUS.md). Dates and numeric results in historical validation sections retain their original scope; this review is not a rerun or independent certification.
 
 The chat router shares finite request slots across vocabulary: action, subject,
 requested attribute, qualifiers, and a context reference. These slots select a

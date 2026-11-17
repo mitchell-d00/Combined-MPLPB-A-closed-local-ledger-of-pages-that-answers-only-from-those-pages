@@ -1,10 +1,10 @@
 # Documentation index
 
-Last reviewed: 2026-11-16. See [current status and result-to-test index](CURRENT_STATUS_2026-11-08.md). Dates and numeric results in historical validation sections retain their original scope; this review is not a rerun or independent certification.
+Last reviewed: 2026-11-17. See [current status and result-to-test index](CURRENT_STATUS.md). Dates and numeric results in historical validation sections retain their original scope; this review is not a rerun or independent certification.
 
 [Repository overview](../README.md) · [Repository map](../CONTENTS) · [Live application](https://mitchell-d00.github.io/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/)
 
-Current entry points reviewed on 2026-11-08 at baseline `acf7800a5f8320ec29ee957d002eaaba8ed4e816`. See [current capabilities, checks and product gaps](CURRENT_STATUS_2026-11-08.md) and the [result-to-test index](RESULTS_AND_TESTS.md). The [October 31 status](CURRENT_STATUS_2026-10-31.md) is historical. The [October 29 review](DOCUMENTATION_AUDIT_2026-10-29.md) remains historical. Dated audits, papers, and experiment reports describe the revisions they measured; their counts and green workflows do not certify another revision.
+Current entry points reviewed on 2026-11-17. The November8 baseline remains a dated historical snapshot. See [current capabilities, checks and product gaps](CURRENT_STATUS.md) and the [result-to-test index](RESULTS_AND_TESTS.md). The [October 31 status](CURRENT_STATUS_2026-10-31.md) is historical. The [October 29 review](DOCUMENTATION_AUDIT_2026-10-29.md) remains historical. Dated audits, papers, and experiment reports describe the revisions they measured; their counts and green workflows do not certify another revision.
 
 The [research status and completion-fix release note](research/mplpb-originality/RELEASE_NOTE.md)
 presents the work as an attributable engineering contribution and technical case
@@ -30,6 +30,7 @@ separates that open priority question from established logical principles.
 
 | Contract | Guide |
 |---|---|
+| Current source-only completion, bounded caches and local storage checks | [Solo research workflow](SOLO_RESEARCH_WORKFLOW.md) / [authority diagnostics](CLOSED_LEDGER_BOUNDARIES.md) |
 | General answer contract, local reader, diagnostics and release scope | [Pipeline guide](GENERAL_ANSWER_PIPELINE.md) / [2.1 release candidate](RELEASE_2_1_RC1.md) |
 | Supported answers, candidates, gated pages, separate bundles | [Page retrieval and answer authority](PAGE_RETRIEVAL.md) |
 | Deterministic source-evidence graph, synthetic users and historical score | [Evidence graph](DETERMINISTIC_EVIDENCE_GRAPH.md) |

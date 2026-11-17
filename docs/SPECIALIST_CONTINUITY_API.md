@@ -1,6 +1,6 @@
 # Specialist work API and operation
 
-Last reviewed: 2026-11-16. See [current status and result-to-test index](CURRENT_STATUS_2026-11-02.md). Dates and numeric results in historical validation sections retain their original scope; this review is not a rerun or independent certification.
+Last reviewed: 2026-11-17. See [current status and result-to-test index](CURRENT_STATUS.md). Dates and numeric results in historical validation sections retain their original scope; this review is not a rerun or independent certification.
 
 The native `mplpb_work` coordinator preserves task relationships, evolving claims,
 failed routes, specialist identities and permission history. It is part of the
@@ -285,3 +285,19 @@ needed to assess real specialist usefulness.
 > Update 2026-11-16: The [public 52-case evidence suite](PUBLIC_EVIDENCE_TESTS.md) and [bounded expert relation path](HISTORICAL_EXPERT_PATH.md) document the current update. Prior dated measurements and preserved historical sources retain their original scope; this note does not rerun or revise them.
 
 Update 2026-11-16: See [scoped evidence extensions](SCOPED_EVIDENCE_EXTENSIONS.md) for exact source-field routing, correction windows, distinct event nodes, bounded quoted exploration, and non-authoritative receipt/operator-effort fields. These extensions preserve source eligibility and candidate/assisted support boundaries.
+
+## Host-only operational observations and local storage
+
+`record_external_receipt(authority, receipt=EXECUTION_ID, kind=KIND, artifact=TEXT,
+expected_head=HEAD, predecessor=ID)` checks STORE→DISPATCH→DELIVERY→READ→ACK→COMPLETION
+predecessors from the same execution. Legacy standalone READ/ACK remain explicitly
+unchained. These are host observations and cannot supply claim support or satisfy
+task acceptance. Optional `local_artifact=RELATIVE_PATH` and
+`expected_artifact_sha256=RAW_HEX` on STORE inspect a bounded real regular file
+beneath the private work directory's artifacts folder.
+
+`verify_storage_receipt(authority, receipt_id=ID)` is a read-only, host-only byte
+recheck, returning intact/changed/unavailable without adding an event. Both methods
+remain outside seat RPC permissions. No delivery, human reading, completion or
+external-world truth follows from byte equality; see the [native workflow and
+filesystem bounds](SOLO_RESEARCH_WORKFLOW.md#check-an-actual-locally-stored-artifact).

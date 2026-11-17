@@ -4,7 +4,7 @@ Last reviewed: 2026-11-17.
 
 Every retained evaluation family is listed below. The [machine-readable index](results.json)
 is checked in CI for missing test files, reproduction tools and unindexed evaluation
-directories. The [current status](CURRENT_STATUS_2026-11-08.md) separates published
+directories. The [current status](CURRENT_STATUS.md) separates published
 measurements from this update's checks.
 
 Tests protect behavior under their assertions. A file link does not certify a

@@ -42,3 +42,13 @@ The existing WorkStore can persist claims, evidence, challenges and review decis
 
 
 [Final measured results](../evaluation/reconstruction-engine/2026-11-17/RESULTS.md): extracted63cea98 passed1124 tests and actual browser/WASM checks. Native complete answers0→1/22 (source-framed comparison H05), checked partials2→2/22. This is not22/22 correctness or independent historical validation.
+
+## Current solo workflow and recorded arrangements
+
+Use `reconstruct LEDGER QUESTION --format text` for readable question parts,
+numbered evidence, canonical source coordinates and missing obligations; JSON
+remains the default. [The solo guide](SOLO_RESEARCH_WORKFLOW.md) covers the bounded
+record-content cache and local storage receipts. [The later frozen experiment](../evaluation/solo-milestone/2026-11-17/RESULTS.md)
+adds a source-only recorded-arrangement completion and retains all21 other native
+categories:2 complete,1 partial across22 questions. AI assessment and performance
+costs are reported separately from source support and historical truth.

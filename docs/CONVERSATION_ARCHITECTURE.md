@@ -1,6 +1,6 @@
 # Conversation interpretation and planning
 
-Last reviewed: 2026-11-16. See [current status and result-to-test index](CURRENT_STATUS_2026-11-02.md). Dates and numeric results in historical validation sections retain their original scope; this review is not a rerun or independent certification.
+Last reviewed: 2026-11-17. See [current status and result-to-test index](CURRENT_STATUS.md). Dates and numeric results in historical validation sections retain their original scope; this review is not a rerun or independent certification.
 
 The conversation router is separate from the MPLPB ledger. It consolidates the
 former top-level first-answer-wins chain in `App.chat`. Both typed requests and

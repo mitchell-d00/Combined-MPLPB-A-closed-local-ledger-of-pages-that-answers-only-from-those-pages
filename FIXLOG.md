@@ -1,6 +1,23 @@
 # Fix Log
 
-Last reviewed: 2026-11-16. See [current status and result-to-test index](docs/CURRENT_STATUS_2026-11-02.md). Dates and numeric results in historical validation sections retain their original scope; this review is not a rerun or independent certification.
+Last reviewed: 2026-11-17. See [current status and result-to-test index](docs/CURRENT_STATUS.md). Dates and numeric results in historical validation sections retain their original scope; this review is not a rerun or independent certification.
+
+## Recorded arrangements, solo inspection and publication upkeep — 2026-11-17
+
+The [solo milestone](evaluation/solo-milestone/2026-11-17/RESULTS.md) adds a finite
+source-content completion proof with printed-party/object bindings, heading date
+and a complete local-letter witness. Instruction acceptance, delivery and execution
+remain unverified. The unchanged22-question native result moves1→2 complete;
+blinded AI assessment rates complete correct1→2, correct refusal4→4 and
+errors/over-refusals17→16. Those are AI judgments, not independent human validation.
+
+Supporting work adds bounded immutable parsing reuse with fresh authority reads,
+readable question-part/citation inspection and native host-only local storage byte
+checks. The tested release passed1157 tests, public52/52 and actual WebAssembly/
+Chromium checks. Failed intermediate dependency/test-expectation runs are retained.
+The current documentation and past-notes indexes now distinguish those phases;
+frozen sources, questions, older reports, historical counts and license bytes stay
+unchanged. Exact publication checks are recorded by GitHub Actions.
 
 ## Conditional and separation-evidence grammar (proposed 2026-11-01)
 
