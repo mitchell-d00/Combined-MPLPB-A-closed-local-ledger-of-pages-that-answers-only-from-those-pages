@@ -75,3 +75,26 @@ Use the existing [original-record protocol](UNPREPARED_ORIGINAL_CHALLENGE.md) an
 Historical semantic precision/recall and human-review times stay null unless
 actually assessed. Solo use does not require recruiting reviewers; the software
 simply makes no claim of independent validation.
+
+## Complete recorded-arrangement answers
+
+The independent documentary kernel can close a finite compound question asking
+who arranged for a named recipient to receive a named writer's item and which
+dated letter records it. It re-derives the instruction from original wording,
+binds possessive `my` to the printed writer and `you` to the printed recipient,
+checks the exact requested item, and retains the heading date's actual role.
+Ambiguous local surnames, missing ownership/date, a different item, extra delivery
+questions, negated/planned/quoted instructions and insufficient budgets cannot
+close the question.
+
+Three source anchors are required: the printed heading, the complete instruction,
+and the complete local letter (at most4,000 canonical characters). Local cancellation/
+withdrawal wording stops completion. This is complete only as a source-reported
+arrangement request and printed date; it does not establish actual arrangement,
+instruction receipt/acceptance, execution, dispatch or delivery. Those flags remain
+false. No event identities are merged and no corpus-wide absence of later
+correction is claimed. The historical source remains eligible only under existing
+gate and final source-state checks.
+
+The record cache uses standard-library `functools`; the core's explicit permitted
+standard-library import list includes it. Network/model imports remain prohibited.

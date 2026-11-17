@@ -10,7 +10,7 @@ from html.parser import HTMLParser
 from .body_text import body_text, VERSION as BODY_VERSION
 from .passages import PassageIndex
 
-VERSION = 'documentary-assertion-kernel-v3'
+VERSION = 'documentary-assertion-kernel-v4'
 PAST = {'appointed':'appoint','sent':'send','received':'receive','wrote':'write',
         'surveyed':'survey','published':'publish','revised':'revise','canceled':'cancel',
          'ordered':'order','requested':'request','instructed':'instruct'}
@@ -182,6 +182,49 @@ def letter_assertion(body,start,end):
             'event_identity':None,'header_end':line_end,'statement_start':greeting}
 
 
+def arrangement_request(question):
+    """Closed question about a recorded request, never actual delivery.
+
+    Retain the raw full question: additional actions, motives and dates do not
+    inherit support. An explicit possessive must bind to the printed writer.
+    """
+    m = re.fullmatch(r"Who arranged for (.{1,100}?) to receive (.{1,100}?)['’]s "
+                     r"([A-Za-z][A-Za-z \-]{0,60}?),? and which dated letter records the arrangement\?", question)
+    if not m or not NAME.fullmatch(m[1]) or not NAME.fullmatch(m[2]):return None
+    if re.search(r'\b(?:actual|completed|delivered|not|never|if|unless|and|or|only)\b', m[3], re.I):return None
+    return {'recipient_reference':m[1], 'writer_reference':m[2], 'object_reference':m[3],
+            'scope':'source-reported instruction and printed letter heading; no actual dispatch or receipt'}
+
+
+def arrangement_completion(question, record, body, start, end, value):
+    request = arrangement_request(question)
+    if not request or not value['heading_date_text'] or not value['object_owner_text']:return None
+    def local_name(reference, name):
+        clean = lambda s: re.sub(r'[^a-z ]', '', normalized(s))
+        ref, full = clean(reference), clean(name)
+        return ref == full or (' ' not in ref and ref == full.split()[-1])
+    if (not local_name(request['writer_reference'], value['writer_text'])
+            or not local_name(request['recipient_reference'], value['addressee_text'])
+            or local_name(request['writer_reference'], value['addressee_text'])
+            or local_name(request['recipient_reference'], value['writer_text'])):return None
+    obj = re.sub(r'^(?:a copy of my|my) ', '', value['object_text'])
+    if normalized(obj) != normalized(request['object_reference']):return None
+    # Examine and cite the complete local letter. A long/missing boundary stops
+    # closure. Other letters are separate appearances, never merged events.
+    maximum = min(len(body), start+4001)
+    next_heading = re.search(r"(?m)^[A-Z][A-Z .’'\-]{1,70} TO ", body[end:maximum])
+    stop = end+next_heading.start() if next_heading else len(body)
+    if stop-start>4000:return None
+    context = body[start:stop]
+    if re.search(r'\b(?:cancell?ed|withdrawn|withdrew|retracted|rescinded|revoked|denied|correction|corrected)\b', context, re.I):return None
+    return {'question_obligations_verified':True, 'verified_question':question,
+            'question_completion_rule':'document_local_arrangement_reference_v1',
+            'reference_bindings':request, 'reference_scope':request['scope'],
+            'complete_letter_start':start, 'complete_letter_end':stop,
+            'source_correction_search_scope':'this complete letter only; no global absence claim',
+            'actual_arrangement_independently_verified':False}
+
+
 def citation(record,body,a,b):
     return {'source_id':record.id,'path':record.path,'hash':record.hash_actual,
             'body_start':a,'body_end':b,'start':a,'end':b,'quote':body[a:b],'body_projection':BODY_VERSION}
@@ -226,6 +269,10 @@ def check(index,proposals,*,max_scan_chars=200000):
             if value:
                 h=value.pop('header_end');s=value.pop('statement_start')
                 citations=[citation(record,body,a,h),citation(record,body,s,b)]
+                closure=arrangement_completion(fresh.question,record,body,a,b,value)
+                if closure:
+                    value.update(closure)
+                    citations.append(citation(record,body,closure['complete_letter_start'],closure['complete_letter_end']))
         elif kind in {'relationship_statement','wording_comparison','comparison_completion'}:
             # Re-read complete native units; an exact substring alone cannot
             # hide a leading negation, attribution or conditional governor.

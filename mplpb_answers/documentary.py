@@ -163,6 +163,8 @@ def _claim(proof):
         if v['delivery_text']:qualifiers.append('Requested delivery method: '+v['delivery_text'])
         if v['hope_text']:qualifiers.append('Additional hope stated by writer: '+v['hope_text'])
         if v['literal_following_note']:qualifiers.append('Following source note retained without a separate historical claim: '+v['literal_following_note'])
+        if v.get('question_obligations_verified'):
+            qualifiers.append('Complete only as the recorded arrangement request and printed letter date; the complete local letter is cited. Actual fulfillment and outside-world truth remain unverified.')
     else:
         if v['relation']=='exact_wording_comparison':
             parts=[]
@@ -202,7 +204,10 @@ def compose(index,max_passages,max_chars):
     proofs=checked['proofs'];selected=[];statuses=[];missing=[];conflict=False;ambiguous=False;alternatives=[]
     closures=[p for p in proofs if p['proposition'].get('question_obligations_verified')
               and p['proposition'].get('verified_question')==index.question]
-    literal_completion=(len(closures)==1 and all(g['kind'] in {'wording_comparison','wording_shared'} for g in goals))
+    comparison_completion=(len(closures)==1 and all(g['kind'] in {'wording_comparison','wording_shared'} for g in goals))
+    arrangement_completion=(len(closures)==1 and all(g['kind'] in {'reported_instruction','letter_context'} for g in goals)
+        and closures[0]['proposition'].get('question_completion_rule')=='document_local_arrangement_reference_v1')
+    literal_completion=comparison_completion or arrangement_completion
     if literal_completion:proofs=closures
     for goal in goals:
         matches=[p for p in proofs if _relevant(goal,p,index.question)]
@@ -238,7 +243,7 @@ def compose(index,max_passages,max_chars):
                 else:status['status']='partial_source_assertion'
             elif matches:status['status']='partial_source_assertion'
         elif matches:
-            status['status']='supported_documentary_context' if goal['kind']=='letter_context' and all(p['proposition']['heading_date_text'] for p in matches) else 'partial_source_assertion'
+            status['status']='supported_source_assertion' if arrangement_completion else 'supported_documentary_context' if goal['kind']=='letter_context' and all(p['proposition']['heading_date_text'] for p in matches) else 'partial_source_assertion'
             for record,a,b,q,value in checked['contexts']:
                 if re.search(r'\b(?:canceled|cancelled|withdrawn|retracted|corrected|denied)\b',q,re.I) and any(terms(q)&terms(p['proposition']['object_text']) for p in matches):
                     e=kernel.citation(record,body_text(record.body_html),a,b)
@@ -254,7 +259,7 @@ def compose(index,max_passages,max_chars):
     if not checked['scan_complete'] and not literal_completion:missing.append('Contrary-evidence scan reached its explicit character/unit/assertion budget; absence of contradiction is not established.')
     if context_limits and not literal_completion:missing.append('Some complete source units exceeded the context budget; search/context is incomplete.')
     request_scope=any(p['proposition']['relation']=='source_reports_instruction' for p in selected)
-    if request_scope:missing.append('Request occurrence, later correction/cancellation and execution are outside this source-attribution certificate.')
+    if request_scope and not arrangement_completion:missing.append('Request occurrence, later correction/cancellation and execution are outside this source-attribution certificate.')
     shown=[];used=0;count=0
     for proof in selected:
         size=sum(len(e['quote']) for e in proof['citations']);n=len(proof['citations'])
@@ -293,6 +298,7 @@ def compose(index,max_passages,max_chars):
                 'examined_characters':checked['examined_characters'],'examined_units':checked['examined_units'],'limits_reached':checked['limits_reached'],
                 'limits':checked['limits'],'rejected_proposals':checked['rejected'],
                 'context_limits':context_limits,
-                'comparison_completion_scope':closures[0]['proposition'].get('reference_scope') if literal_completion else None,
+                'comparison_completion_scope':closures[0]['proposition'].get('reference_scope') if comparison_completion else None,
+                'question_completion_scope':closures[0]['proposition'].get('reference_scope') if literal_completion else None,
                 'alternative_evidence':displayed_alternatives,'unshown_alternative_evidence_count':len(alternatives)-len(displayed_alternatives),
                 'retrieval_limits':{'max_passages':max_passages,'max_characters':max_chars}}}
