@@ -55,9 +55,66 @@ oversized and truncated responses, configuration, and CLI exit codes.
 
 ## Frozen validation
 
-Pending: freeze the implementation and run the full Python and public-evidence
-commands from an extracted committed archive. Subsequent evidence-only edits must
-not change the tested runtime or test bytes.
+Tested implementation: `cc49d6e9a31b3f39a6f92f34e84b797768d8a6d4`.
+Source ZIP SHA-256: `87e5b302ed564add37d912dd4b27fa3c51adc78cbb1a4207abf4a3ea3b28f092`.
+
+```bash
+python -m tools.reproduce_boundaries --revision cc49d6e --output /tmp/mplpb-narrator-frozen-cc49d6e --suite full
+```
+
+The runner and all three extracted-source commands exited0:
+
+| Check | Outcome | Wall seconds | CPU seconds |
+|---|---|---:|---:|
+| Native boundaries |51 tests passed |0.766 |0.694 |
+| `python -m unittest discover -s tests -q` |1219 tests passed |362.109 |345.241 |
+| `python -m tools.evaluate_public_evidence --require-capabilities --output NEW.json` |52 passed; zero observed false-supported bridges |20.609 |19.982 |
+
+Environment: Linux x86_64, Python3.12.14,5 reported CPUs. Peak child RSS:
+299,597,824 bytes, a process-lifetime child maximum rather than aggregate browser/
+process-tree memory. Other compatibility checks ran concurrently; these costs
+are not isolated latency benchmarks. Source bytes read and human review time are
+unknown/null. Full commands, outputs and metrics are retained as `archive-*`.
+
+The following compatibility commands ran from that same extracted revision:
+
+```bash
+python tools/check_ui_script.py
+node tools/check_browser_transport.cjs
+node tests/javascript-api.cjs
+node tests/documentary-render.cjs
+node tests/browser-ai-helper.cjs
+node tests/browser-model-loader.cjs
+node tests/browser-webgpu-limits.cjs
+node crawler/test_worker.mjs
+node crawler/test_historical.mjs
+node --check tools/mplpb_agent_bridge.mjs
+python tools/build_browser_runtime.py --core-archive /tmp/mplpb-pyodide-core.tar.bz2 --output /tmp/mplpb-narrator-browser/index.html
+node tools/check_browser_wasm.mjs /tmp/mplpb-wasm/pyodide /tmp/mplpb-narrator-browser/index.html
+python tools/browser_release_smoke.py --live-url https://mitchell-d00.github.io/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/ --preview-dir /tmp/mplpb-narrator-browser
+```
+
+Final exit codes were0 for each. `frontend-initial-report.json` retains all initial
+commands, durations and results. Two initial Node checks (model-loader and WebGPU)
+exited1 because the sandbox rejected their Python child process with EPERM; both
+passed unchanged with subprocess permission (`frontend-*-retry.log`).
+The initial Chromium command exited1 before any page load because Playwright's
+required headless shell was missing (`browser-launch-failure.log`). After
+`python -m playwright install chromium --only-shell` exited0, the unchanged smoke
+command exited0 and logged PASS for both the public baseline and candidate preview
+(`browser-smoke.log`). This is not deployment of this feature branch.
+
+Actual Pyodide314.0.7 tests completed exit0 (`wasm.log`, `wasm-validation.json`).
+The builder verified core release SHA-256
+`2abdcc2e35208af406e07724cffa85bc582ced97e9028383ecf5462541393f95`.
+The candidate HTML SHA-256 was
+`b71312aa6f0ce60650b307d7a138973cf902cc047c5db7b8edd2ca4199f61041`.
+Build details are in `browser-build.log`; the generated38MB HTML is not committed.
+No neural weights or inference were exercised by these browser checks.
+
+Subsequent changes only retain evidence and update documentation/handoff. Runtime
+and test hashes must remain identical to the tested implementation. `checkpoint.json`
+records the implementation pins, verification rules and unresolved measurements.
 
 ## Limits
 

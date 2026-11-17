@@ -1,0 +1,49 @@
+{
+  "schema": "local-narrator-checkpoint-v1",
+  "baseline_commit": "937b15712714f5155807b2478ef51592a14fc0d7",
+  "tested_runtime_commit": "cc49d6e9a31b3f39a6f92f34e84b797768d8a6d4",
+  "archive_sha256": "87e5b302ed564add37d912dd4b27fa3c51adc78cbb1a4207abf4a3ea3b28f092",
+  "status": "frozen implementation verified; evidence-only documentation update",
+  "implementation_sha256": {
+    "mplpb_answers/local_narrator.py": "ab096ad599391f950e3e6fd026acc3f7572c69ac6c3c3189deec0bd9805cac36",
+    "mplpb_answers/__main__.py": "6b08b036aad956ce62e854e736939c4fb51bce7b3b71ee4a5b69839a07e1d460",
+    "tests/test_local_narrator.py": "ffef99bd00c162c5f4037c92fe89e972837a302c67e33c0c5658b40b2257c94f",
+    "mplpb_answers/pipeline.py": "f5cc0e071322fb5b22f99ed35691b022d42c3b602e10a74b4e0ac100546e005b",
+    "mplpb_answers/support.py": "67821fc2399616dfbc10c52a440b3de5f6220a82aec44be595b60fd19b96f9ff",
+    "mplpb_combined/provenance_gate.py": "4ba1c7ec9b5a824b8e3eb6617e6872f35561a23b4dc4555822f78612f8c7a7b4",
+    "mplpb_combined/ledger.py": "a2c65367cabb1ff1c981ebac06cd3f8f998cd3d5e155aaf951d7a2fed9d02163"
+  },
+  "verification_rules": [
+    "Existing strict coordinator alone supplies kind, answer_supported and checked evidence.",
+    "Refusals, ambiguity, partial evidence and --no-model bypass inference; preserve original question and profile.",
+    "Model formatting must exactly preserve all accepted text and qualified claims; quotes alone never establish semantics.",
+    "Re-run strict answering after an attempt; never retain old rendering if source or policy state changes.",
+    "Only literal loopback HTTP; no redirects, credentials, model downloads, tool calls or unvalidated streaming."
+  ],
+  "results": {
+    "focused_tests": 66,
+    "narrator_tests": 18,
+    "full_python_tests": 1219,
+    "public_evidence_passes": 52,
+    "public_observed_false_supported_bridges": 0,
+    "all_final_exit_codes": 0,
+    "javascript_and_crawlers": "PASS",
+    "actual_pyodide": "PASS",
+    "chromium_public_baseline_and_candidate": "PASS"
+  },
+  "metrics_report": "archive-report.json",
+  "unknown_metrics": {
+    "live_model_latency_seconds": null,
+    "live_model_accuracy": null,
+    "source_bytes_read": null,
+    "human_review_seconds": null
+  },
+  "live_neural_generation": "NOT RUN",
+  "independent_semantic_review": "NOT RUN",
+  "resume_commands": [
+    "python -m unittest tests.test_local_narrator -q",
+    "python -m unittest discover -s tests -q",
+    "python -m tools.evaluate_public_evidence --require-capabilities --output NEW.json"
+  ],
+  "note": "Durable public task state, not authority over ledger contents or proof of AI-instance continuity."
+}

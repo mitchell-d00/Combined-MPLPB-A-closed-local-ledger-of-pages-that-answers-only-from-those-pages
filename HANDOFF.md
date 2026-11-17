@@ -4,8 +4,8 @@ Last reviewed: 2026-11-17.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `937b15712714f5155807b2478ef51592a14fc0d7` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `2bbebf325f08696563def9d01d45f4cdd3401989dc94d7cc9f257b736158957f`.
+Base commit: `cc49d6e9a31b3f39a6f92f34e84b797768d8a6d4` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `a3fea197cc96a6c37e8079cd3f64a663b1046ead8839602651ad6bb226ac1eb3`.
 
 ## Latest user update instructions
 
@@ -21,7 +21,8 @@ Add a local small-language-model frontend strictly subordinated to the existing 
 
 - Baseline17 native tests passed with local sockets enabled; initial sandbox failed7 HTTP setups because sockets were denied. Logs retained.
 - First new tests had2 fixture errors: agreeing exact-field values were not a conflict in the existing coordinator. Corrected fixtures and added a separate multiple-owner statement control; no core rules changed.
-- Focused66 narrator/native/documentary tests passed5.406s exit0. Full archive regressions pending.
+- Focused66 tests passed5.406s. Frozencc49d6e extracted archive passed1219 Python tests and52 public evidence cases, zero observed false-supported bridges, all exit0; full wall362.109s/CPU345.241s, max child RSS299597824bytes.
+- JavaScript, crawler, actual Pyodide314.0.7 and real Chromium public-baseline/candidate-preview compatibility tests passed. Initial two Node EPERM failures and missing-browser executable failure are retained with unchanged successful retries after environment fixes.
 
 ## Limitations and blocked checks
 
@@ -31,8 +32,9 @@ Add a local small-language-model frontend strictly subordinated to the existing 
 
 ## Next steps
 
-- Freeze committed source, archive it and run full Python and public-evidence checks from extracted content. Record actual outcomes and resource costs separately without changing tested runtime.
-- Resume by reading docs/LOCAL_NARRATOR.md and evaluation/general-reader/2026-11-17-local-narrator/REPORT.md; preserve the strict coordinator as sole answer authority.
+- Resume from docs/LOCAL_NARRATOR.md, the dated general-reader narrator REPORT.md and checkpoint.json; verify source hashes before changing implementation.
+- No live neural generation or independent semantic review was performed. Test explicitly installed local models separately; retain exact-rendering rejection and final source/policy recheck.
+- Feature branch is committed locally; no new merge or deployment has been performed for the narrator. Preserve tested runtimecc49d6e separately from evidence-only commits.
 
 ## Use this ZIP in your repository
 
