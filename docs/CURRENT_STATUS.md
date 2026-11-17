@@ -73,3 +73,7 @@ and shared-service production readiness remain unestablished; see
 The [offline sorter](PREPROCESSING_SORTER.md) preserves original UTF-8 bytes and exposes lexical observations. Both modes have identical nodes; compare adds only review edges. Its optional native snapshot is retired and withheld by the unchanged reader. This does not add historical supported answers.
 
 The sorter snapshot export also validates the native format and checks an exact embedded-graph round trip before publication. Native `validate` and `show` accept the page for inspection; `gate` and supported answering continue to withhold it. See the sorter guide for the separate exit codes.
+
+## Sorter publication and technical paper
+
+The [dual-mode sorter paper](research/dual-mode-sorter/README.md), by Mitchell D. McPhetridge, is available in Markdown, text and PDF. It records frozen software evidence (1184-test refined runtime,52 public controls) and explicitly unmeasured historical accuracy. [Native export evidence](../evaluation/preprocessing-sorter/2026-11-17-native-export/RESULTS.md) proves compatibility with the unchanged pre-sorter reader. These are retained measurements, separate from exact-head publication/deployment checks.

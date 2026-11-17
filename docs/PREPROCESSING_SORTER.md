@@ -167,3 +167,7 @@ code, then invokes native `validate`, `show`, `gate` and `ask` from the specifie
 plain checkout, with its working directory recorded in each command receipt.
 Neither checkout is modified. This distinguishes storage compatibility from
 answer eligibility without adapting the reader's grammar or policy checks.
+
+## Technical report and preserved evidence
+
+[A Dual-Mode Sorter for MPLPB](research/dual-mode-sorter/README.md), by Mitchell D. McPhetridge, is available in Markdown, plain text and PDF. It documents the implemented stages, dual-mode contract, native publication checks, measured development costs, failed attempts and remaining limitations. Its frozen software results are not independent historical validation. Shared-subject pair proposals consider at most the first16 occurrences per subject; graph completeness does not mean every possible review pair was enumerated.

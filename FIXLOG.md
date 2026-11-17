@@ -281,3 +281,9 @@ dates remain unchanged. Actual checks are recorded in
 `evaluation/documentation-audit/` and the generated repository handoff.
 
 > Update 2026-11-16: The [public 52-case evidence suite](docs/PUBLIC_EVIDENCE_TESTS.md) and [bounded expert relation path](docs/HISTORICAL_EXPERT_PATH.md) document the current update. Prior dated measurements and preserved historical sources retain their original scope; this note does not rerun or revise them.
+
+## Dual-mode sorter and native compatibility publication — 2026-11-17
+
+The [offline sorter](docs/PREPROCESSING_SORTER.md) preserves raw source spans and identical nodes across modes, with comparison confined to non-authoritative review edges. Its native export validates and round-trips an intact retired snapshot before publication. The unchanged pre-sorter native CLI accepts validation/inspection and withholds gate/answer results under all profiles. The frozen refined runtime passed1184 tests and52 public controls; historical answer coverage was not rescored.
+
+The new [technical paper by Mitchell D. McPhetridge](docs/research/dual-mode-sorter/README.md) is supplied in Markdown, text and PDF. Prior papers and dated results remain unchanged. A configurable documentation renderer preserves default historical metadata and permits separate-source publication; ReportLab is optional documentation tooling only. Exact-head CI and deployment receipts remain separate from retained runtime results.

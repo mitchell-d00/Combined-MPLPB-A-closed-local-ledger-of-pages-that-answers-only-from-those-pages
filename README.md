@@ -252,3 +252,9 @@ Reconstruction update (2026-11-17): [documentary research mode](docs/HISTORICAL_
 Measured completion update (2026-11-17): [final reconstruction experiment](evaluation/reconstruction-engine/2026-11-17/RESULTS.md) reports one complete source-supported wording comparison and two checked partials on 22 unchanged questions, versus zero complete and two partials before. The extracted implementation passed 1,124 tests and actual browser/WebAssembly checks. Historical authenticity, independent semantic accuracy and the proposed 9/10 outcome remain unestablished.
 
 The [offline candidate sorter](docs/PREPROCESSING_SORTER.md) extracts reversible textual observations and optional review edges from raw historical text. It creates no supported answers; its native snapshot remains retired.
+
+## Dual-mode raw-material sorter and paper
+
+The offline sorter converts raw UTF-8 text and Markdown into source-anchored candidate graphs and validated, retired native pages. Both modes preserve identical nodes; compare adds only review edges. The existing native reader can validate and display the snapshot while withholding it under all three profiles. It adds no historical supported answers.
+
+[Sorter usage](docs/PREPROCESSING_SORTER.md) · [New technical paper by Mitchell D. McPhetridge](docs/research/dual-mode-sorter/README.md) · [Markdown](docs/research/dual-mode-sorter/dual-mode-sorter.md) · [Text](docs/research/dual-mode-sorter/dual-mode-sorter.txt) · [PDF](docs/research/dual-mode-sorter/dual-mode-sorter.pdf)

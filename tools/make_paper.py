@@ -1,8 +1,11 @@
 #!/usr/bin/env python3
-"""Render docs/Combined_MPLPB.md as .txt and .pdf.
+"""Render a Markdown paper as .txt and .pdf (default: original Combined paper).
 
     python3 tools/make_paper.py            # both
     python3 tools/make_paper.py --txt      # text only; needs nothing installed
+    python3 tools/make_paper.py --source PATH.md --title TITLE --invariant
+
+Use --source for new papers; do not regenerate protected historical originals.
 
 The Markdown file is the source of record. The text rendering uses only the
 standard library. The PDF rendering needs reportlab, which is a documentation
@@ -12,6 +15,7 @@ The parser handles the subset of Markdown the paper is written in: headings,
 paragraphs, bullet and numbered lists, fenced code, pipe tables, rules, and
 inline bold, italic and code.
 """
+import argparse
 import re
 import sys
 import textwrap
@@ -151,7 +155,9 @@ def rl_inline(s: str) -> str:
     return "".join(out)
 
 
-def to_pdf(blocks, target: Path) -> None:
+def to_pdf(blocks, target: Path, *, title="Combined MPLPB", author="Mitchell D. McPhetridge",
+           subject="MPLPB-COMBINED-017 v3", footer="Combined MPLPB · MPLPB-COMBINED-017 v3",
+           invariant=False) -> None:
     from reportlab.lib import colors
     from reportlab.lib.enums import TA_LEFT
     from reportlab.lib.pagesizes import letter
@@ -187,9 +193,8 @@ def to_pdf(blocks, target: Path) -> None:
     }
     doc = SimpleDocTemplate(str(target), pagesize=letter, leftMargin=1.05 * inch,
                             rightMargin=1.05 * inch, topMargin=0.95 * inch,
-                            bottomMargin=0.95 * inch, title="Combined MPLPB",
-                            author="Mitchell D. McPhetridge",
-                            subject="MPLPB-COMBINED-017 v3")
+                            bottomMargin=0.95 * inch, title=title, author=author,
+                            subject=subject, invariant=invariant)
     avail = letter[0] - 2.1 * inch
     story, seen_h1, first_h3 = [], False, True
 
@@ -239,7 +244,7 @@ def to_pdf(blocks, target: Path) -> None:
         canvas.saveState()
         canvas.setFont("Helvetica", 8)
         canvas.setFillColor(grey)
-        canvas.drawString(1.05 * inch, 0.6 * inch, "Combined MPLPB \u00b7 MPLPB-COMBINED-017 v3")
+        canvas.drawString(1.05 * inch, 0.6 * inch, footer)
         canvas.drawRightString(letter[0] - 1.05 * inch, 0.6 * inch, str(d.page))
         canvas.restoreState()
 
@@ -247,20 +252,31 @@ def to_pdf(blocks, target: Path) -> None:
 
 
 def main(argv) -> int:
-    blocks = parse(SRC.read_text(encoding="utf-8"))
-    txt = SRC.with_suffix(".txt")
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('--source', type=Path, default=SRC)
+    parser.add_argument('--txt', action='store_true', help='Text only; no PDF dependency')
+    parser.add_argument('--title', default='Combined MPLPB')
+    parser.add_argument('--author', default='Mitchell D. McPhetridge')
+    parser.add_argument('--subject', default='MPLPB-COMBINED-017 v3')
+    parser.add_argument('--footer', default='Combined MPLPB · MPLPB-COMBINED-017 v3')
+    parser.add_argument('--invariant', action='store_true', help='Deterministic PDF metadata for reproducible documentation builds')
+    args = parser.parse_args(argv)
+    source = args.source.resolve()
+    blocks = parse(source.read_text(encoding="utf-8"))
+    txt = source.with_suffix(".txt")
     txt.write_text(to_text(blocks), encoding="utf-8")
-    print("wrote", txt.relative_to(HERE))
-    if "--txt" in argv:
+    print("wrote", txt)
+    if args.txt:
         return 0
     try:
         import reportlab  # noqa: F401
     except ImportError:
         print("reportlab is not installed; the PDF was not built (pip install reportlab)")
         return 1
-    pdf = SRC.with_suffix(".pdf")
-    to_pdf(blocks, pdf)
-    print("wrote", pdf.relative_to(HERE))
+    pdf = source.with_suffix(".pdf")
+    to_pdf(blocks, pdf, title=args.title, author=args.author, subject=args.subject,
+           footer=args.footer, invariant=args.invariant)
+    print("wrote", pdf)
     return 0
 
 

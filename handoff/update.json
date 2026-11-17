@@ -1,32 +1,26 @@
 {
-  "instruction": "Build (or refine) a sorter whose goal is to take piles of unformatted information and convert them into MPLPB-compatible format so the existing Combined MPLPB ledger and reader can accept, reject, or gate the result under their current rules.\n\nPrimary goal\nTurn raw piles of text, notes, letters, markdown, or extracted document content into inspectable MPLPB pages or gated candidates. The sorter must produce output that a plain MPLPB checkout can validate, import, or peruse without changing MPLPB’s finite grammar, eligibility checks, or fail-closed refusal behavior.\n\nWhat the sorter must do\n- Accept a directory or collection of unformatted source files.\n- Extract candidate keys, dates, headers, cross-references, and repeated phrases while preserving exact source spans and byte/character offsets.\n- Assign provisional MPLPB statuses (current/retired candidate, source-occurrence vs. event-candidate, possible correction) without forcing identity. Similar headers or subject lines must not automatically become the same node; changed bodies that share headers must be flagged rather than silently merged.\n- Emit two modes from the same extraction:\n  - “not-compared”: textual observations and provisional statuses only, with no forced identity or chronology edges.\n  - “compare”: the same nodes plus review proposals, relation edges, correction windows, and candidate identity clusters. All edges remain non-authoritative.\n- Produce a machine-readable graph or MPLPB-ready pages (with source hashes, spans, and provenance) that the existing reader can seal, withhold, or leave gated.\n- Ensure missing intermediate evidence stops a proposed relation. Every output retains the original statement, source location, and any prior assessment.\n\nConstraints that must be preserved\n- Never promote weak matches or inferred connections into supported answers.\n- Never alter MPLPB’s grammar, gates, or refusal rules. The existing reader must still withhold retired or ineligible material under all delivery profiles.\n- Keep the tool offline and runnable beside a plain MPLPB checkout.\n- Provide fixtures and tests that demonstrate identical nodes across modes, differing only in edges, and that the reader continues to refuse unsupported claims from the sorter’s output.\n\nDeliver\n- Source that implements the conversion from raw piles to MPLPB-compatible format or gated candidates.\n- Clear documentation of the input contract, the two modes, the output schema, and the exact commands that show a plain MPLPB reader accepting or withholding the result without modification.\n- Explicit notes that the sorter supplies inspectable candidates and does not itself complete historical reconstruction or produce authoritative answers.",
+  "instruction": "Push it to main merge and update all documentation write me a new paper by Mitchell d Mcphetridge in txt pdf and md A Dual-Mode Sorter for MPLPB: Turning Unformatted Material into Inspectable Candidates; Source-Anchored Candidate Extraction for Closed Local Ledgers",
   "reviewed_on": "2026-11-17",
   "scope": [
-    "Refine existing offline sorter rather than introducing a second conversion engine. Preserve extraction and identical nodes across modes.",
-    "Harden retired snapshot publication with the existing strict native format findings, intact retired-page re-read and exact embedded-graph round trip.",
-    "Expose native validate/show acceptance separately from native gate/ask refusals in documentation and reproducible runner.",
-    "Add both-mode native CLI acceptance, Unicode/CRLF/HTML roundtrip, native-error/warning and validly sealed wrong-body negative tests."
+    "Publish authorized offline sorter and native export work to main through a PR with exact-head required checks.",
+    "Write a new dated technical paper by Mitchell D. McPhetridge with requested title/subtitle in Markdown, text and PDF; retain source/format hashes and honest measurement boundaries.",
+    "Refresh relevant operational documentation, installation/pipeline guidance, repository map, fix log and past-documentation navigation, preserving frozen originals and earlier reports.",
+    "Extend existing paper renderer with explicit source and metadata parameters, optional invariant PDF metadata; runtime remains standard-library only."
   ],
   "validation": [
-    "Fresh pre-edit baseline:24 sorter tests passed0.490s; baseline runner passed and native validate --strict reported one retired record with zero errors/warnings.",
-    "Updated focused suite:27 sorter tests passed0.878s. Updated development evaluation runner passed mode equality, native validate/show, gate and ask under all three profiles.",
-    "First new roundtrip assertion omitted the native writer heading and failed two export tests. Corrected the sorter expectation to the existing native format without changing the writer or reader; failed attempt retained.",
-    "Frozen30f0d89 archive:1184 Python tests passed353.340s; public evidence52/52 with required capabilities, false supported bridges0 on authored controls; boundary suite51 passed.",
-    "Actual pre-sorter3df2c6e checkout without sorter: native validate --strict and show exit0; gate/ask exit3 under lab/internal/external, no eligible sources or supported claims. Native reader package bytes identical, per-file hashes retained.",
-    "Compatibility runner --reader-checkout records native command working directories and code hashes; deliberate native-reader mutation refused before command execution.",
-    "Both modes retain176 identical nodes,264 raw edges and341 compare edges; fixture sources/nodes/edges byte-equivalent in meaning to baseline, no forced identity or chronology.",
-    "Actual JS API, browser transport, fixture crawler, pinned WebAssembly and real Chromium published-live/candidate-preview checks passed.",
-    "New versioned evidence directory preserves all prior historical reports and data. Source byte costs2804 per sort; native export development run0.192s wall/0.191s CPU, cumulative child max RSS24,961,024 bytes; no speedup or large-pile accuracy claim."
+    "Inherited measured sorter runtime30f0d89:1184 tests and52 public controls; current publication head is separate and not yet checked.",
+    "New nine-page paper renders with requested PDF author/title metadata. Sample pages visually inspected; initial orphan final line removed, rerendered to nine pages.",
+    "New renderer tests2/2 passed0.109s; custom-source text rendering leaves original paper bytes unchanged, invariant PDF builds repeat exactly under ReportLab4.4.9.",
+    "Remote main is3df2c6e and branch is four commits ahead with no divergence at initial fetch. Active Bear ruleset requires PR plus archive-first/regression on exact up-to-date head; no reviewer approval required."
   ],
   "limitations": [
-    "Candidate extraction remains lexical and incomplete; no historical reconstruction, semantic accuracy or supported-answer gain claimed.",
-    "Original UTF-8 source bytes and prior assessments remain unchanged; raw headers do not supply ingestion authority or access policy.",
-    "New implementation fingerprint intentionally invalidates old extraction replay; old graphs and dated reports remain preserved.",
-    "Independent historical semantic validation NOT RUN; unknown historical precision/recall and human review time remain null."
+    "Sorter output remains non-authoritative; no historical reconstruction, truth or supported-answer completion gain claimed.",
+    "All semantic accuracy/human review measurements remain null/NOT RUN. Retained paper results are developer-authored controls, not publication-head or deployment evidence.",
+    "Original historical corpora, questions, reports, original papers and vendor bytes remain untouched."
   ],
   "next_steps": [
-    "Use python -m mplpb_work.sorter sort on raw UTF-8 text or Markdown and export-retired to a new ledger directory; inspect and validate without activating proposals.",
-    "Use tools.evaluate_sorter --reader-checkout with a separate unchanged checkout to reproduce native format acceptance versus all-profile answer withholding.",
-    "Keep relationships provisional; independent historical semantic evaluation remains NOT RUN and the22-question historical supported-answer metric was not rescored."
+    "Freeze and ZIP-test publication candidate, push branch and create PR.",
+    "Wait for exact-head archive-first/regression and other checks, merge to main without bypassing branch rules.",
+    "Verify Pages build/deploy and actual live-browser checks; report exact merge/deployment receipts."
   ]
 }

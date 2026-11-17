@@ -19,3 +19,7 @@ and the later [recorded-arrangement milestone and AI assessment](evaluation/solo
 Old zero/one-completion reports and failed runs remain valid historical records;
 they have not been edited to claim the latest two completions. Documentation
 cleanup updates navigation and operational descriptions, not original evidence.
+
+## New sorter paper, preserved earlier record
+
+The [2026-11-17 dual-mode sorter paper](docs/research/dual-mode-sorter/README.md) is a new attributed technical report in Markdown, text and PDF. It cites the [initial sorter contract](evaluation/preprocessing-sorter/2026-11-17/RESULTS.md) and [native export refinement](evaluation/preprocessing-sorter/2026-11-17-native-export/RESULTS.md). It does not replace the original Combined MPLPB paper or revise any earlier historical experiment, question, source or failed run.

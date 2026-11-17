@@ -1,0 +1,476 @@
+# A Dual-Mode Sorter for MPLPB: Turning Unformatted Material into Inspectable Candidates
+
+### Source-Anchored Candidate Extraction for Closed Local Ledgers
+
+Mitchell D. McPhetridge
+
+Independent Researcher
+
+Technical report, version 1.0, 17 November 2026
+
+Prepared with AI-assisted implementation and writing. The experiments described
+here are developer-authored software controls, not independent semantic review,
+peer review, or verification of historical truth.
+
+## Abstract
+
+Unformatted document collections contain useful identifiers, dates, repeated
+wording and documentary references, but those observations do not establish event
+identity or historical relationships. A preprocessing tool can make this material
+inspectable without giving its interpretations the authority of the original
+records. This report describes an implemented offline sorter for Combined MPLPB,
+a closed local ledger whose reader requires eligible source support under a finite
+answer grammar. The sorter preserves UTF-8 source hashes and exact byte and
+character spans, assigns provisional labels, and emits either textual observations
+alone or the same observations plus non-authoritative comparison proposals.
+The two modes have identical node arrays; comparison adds review edges rather
+than merging source occurrences. A native export stores the graph in a sealed,
+retired MPLPB page after strict format validation and exact graph round-trip
+checks. An unchanged pre-sorter checkout validates and displays that page while
+withholding it under all three delivery profiles. Eight fictional development
+files produce 176 identical nodes in both modes, 264 observation edges and 77
+additional comparison edges. The frozen refined implementation passed 1,184
+Python tests and 52 public-evidence controls. These results establish tested
+software behavior and native format compatibility. They do not measure historical
+relationship accuracy, answer-completion gains, or general historical reasoning.
+
+Keywords: source provenance; closed local ledgers; candidate extraction;
+documentary occurrences; fail-closed retrieval; inspectable preprocessing.
+
+## 1. Problem and contribution
+
+A directory of notes, letters and extracted document text is not yet a reliable
+knowledge graph. A subject line may recur across unrelated correspondence.
+Several copies may describe one message. A repeated identifier can accompany a
+changed body. A sentence containing a correction may be quoted, negated,
+conditional, or limited to one claim. A printed date may identify when a letter
+was written rather than when the described action occurred.
+
+The useful first step is therefore to organize what can be inspected, preserving
+what remains unresolved. Combined MPLPB already supplies native pages, source
+hashes, revisions, serving restrictions, provenance checks and refusals [1, 2].
+The sorter is an adapter beside that system, not a replacement answer engine.
+Its implementation is in `mplpb_work/sorter.py`; its tests and evaluation runner
+are retained with the repository [3, 4].
+
+The contribution is the implemented combination of reversible textual extraction,
+identical observations across two modes, explicitly provisional comparison edges,
+and native retired-page packaging that the existing reader can validate and
+withhold. The report makes no claim of world-first priority. It does not claim to
+solve entity resolution, event co-reference, historical truth or free-form question
+answering. Those problems require evidence and evaluation beyond this adapter.
+
+## 2. Authority boundaries
+
+Six states must not be collapsed into one another:
+
+- Document integrity: the bytes or sealed page match their recorded hash.
+- Quotation fidelity: an excerpt matches an identified source span.
+- Source-attributed statement support: eligible wording satisfies an authorized proof rule.
+- Candidate historical interpretation: a proposed event, identity or relationship needs review.
+- Human-reviewed interpretation: an actual reviewer has assessed the interpretation.
+- Independently established historical truth: evidence outside this extraction process establishes the historical proposition.
+
+The sorter operates at the first two levels and proposes items at the fourth.
+It does not award the third, fifth or sixth. A successful native format check
+establishes valid packaging, not semantic support. A matching identifier establishes
+shared text, not shared event identity. The author and development process are not
+independent reviewers of their own outputs.
+
+Every graph assessment retains `answer_supported: false`,
+`source_support_established: false`, and
+`historical_truth_independently_verified: false`. Serving eligibility is explicitly
+unevaluated. These flags apply to the graph, sources, nodes and edges. The emitter
+rejects attempts to promote those assessments. Original source headers are not
+permission to activate a page or bypass source restrictions.
+
+## 3. Input and source anchoring
+
+The input is a directory containing UTF-8 `.txt`, `.text`, `.md` or `.markdown`
+files. PDF extraction, OCR and network acquisition are outside this tool. Literal
+URLs may be recorded but are never fetched. The runtime uses the standard library
+and the repository's bounded date-cue helper; no model or paid service is required.
+
+Files are decoded strictly without Unicode or newline normalization. Each source
+has a raw SHA-256 hash. Each extracted span records its source identity, source
+hash, relative path, half-open character coordinates and half-open original-byte
+coordinates. Characters here are Python Unicode code points, not display columns
+or grapheme clusters. The byte coordinates refer to the original UTF-8 encoding.
+BOM, CRLF and multibyte-character tests exercise that distinction [4].
+
+A source identity incorporates its relative path and byte hash. Two files with
+identical bytes remain distinct source appearances. Derived source occurrences
+cover complete files or layout candidates separated by repeated explicit
+identifier headers. Those boundaries are inspection aids, not proof that a file
+contains exactly one historical document or event.
+
+Paragraph statements retain their original text. Extracted features link to those
+statements and source occurrences. Full occurrence spans refer back to the file
+rather than duplicating all bytes inside every node. If a paragraph exceeds the
+statement budget, it is skipped with a partial-output diagnostic instead of being
+silently cut into an apparently complete assertion. Originals remain unchanged.
+
+## 4. Staged extraction and provisional labels
+
+The implementation separates extraction, status assignment, comparison and graph
+emission. That separation permits inspection before any comparison occurs [3].
+Extraction identifies recognized identifier headers, sender and recipient headers,
+subject lines, documentary date headers, identifier-like tokens, explicit reference
+wording, literal URLs, correction cues and selected action words. It also extracts
+repeated four-word lexical phrase keys. Their normalization is recorded: casefolding
+and punctuation/whitespace differences are ignored for the key, while the original
+span is retained.
+
+The action-word vocabulary produces possible event candidates, not completed
+events. Seeing "requested" or "reported" does not establish execution. The
+implementation conservatively marks some quoted, conditional and negated wording,
+but this finite recognition is incomplete. All results remain candidates even
+when no qualifier was recognized.
+
+A literal Status header can produce `current_candidate` or `retired_candidate`.
+Conflicting declarations remain ambiguous. An absent declaration remains
+undetermined. These are provisional annotations; they do not write MPLPB status
+metadata into the originals. Source occurrences and action-word event candidates
+remain different node kinds, with no established historical event identity.
+
+Date roles are likewise limited. Recognized headers can distinguish written,
+sent, received, published or revised dates. A generic Date header remains a
+source-stated date with unresolved role, and body dates are not silently converted
+into event dates. There is no automatic chronology from a sorted list of dates.
+
+## 5. The dual-mode contract
+
+Let N be the extracted nodes and E0 the containment and textual-co-occurrence
+edges. With identical inputs, limits and optional prior assessment, the two modes
+satisfy:
+
+```
+not-compared: sources, N, E0
+compare:     sources, N, E0 followed by proposed review edges
+
+nodes(not-compared) == nodes(compare)
+sources(not-compared) == sources(compare)
+```
+
+The equality includes exact source spans and provisional statuses. Compare does
+not rewrite nodes, resolve actors, promote statuses or introduce merged nodes.
+The observation-edge array remains an identical prefix. Mode, comparison flag,
+graph digest and possible comparison-budget diagnostics differ in the envelope;
+the complete envelopes are not claimed to be byte-identical.
+
+Not-compared stops at observations. It can record a reference mention or correction
+cue without resolving a target. Compare can add shared-header reviews, repeated-
+phrase reviews, explicit-reference candidates, possible corrections and candidate
+identity clusters. Cluster membership is a hyperedge annotation over existing
+occurrences, not a new merged event node. Confidence is null rather than an
+uncalibrated probability; evidence anchors and notes state the proposal basis.
+
+Occurrences sharing an explicit identifier may be clustered for review. Changed
+body hashes are flagged. Identical subject wording alone does not create an
+identity cluster, and repeated copies do not establish independent corroboration.
+There is no transitive closure, unsupported chain completion or inferred chronology.
+
+## 6. References, corrections and missing evidence
+
+Reference comparison is bounded and lexical. An explicit reference can produce a
+candidate documentary edge only when the relevant declared identifier has a unique,
+unqualified, non-self target within the inspected material. A missing target stops
+the link. An ambiguous identifier stops it as well. A similar subject or phrase
+cannot substitute for the missing record.
+
+An unresolved-reference review edge points from the mention back to its own
+source occurrence. It is an audit annotation, not a guessed documentary hop.
+The reason distinguishes missing-or-outside-budget, ambiguous identifiers,
+self/local identifiers and qualified or quoted wording. Missing inside a bounded
+inspection is not proof of absence from the historical record.
+
+Possible partial corrections retain their statement quotation, target evidence,
+literal effective-window expressions and `applied: false`. An example fixture says
+that only a requested count changes while the destination remains unchanged.
+The graph preserves both statements. It neither updates the earlier count as fact
+nor retires the original page. Negated, conditional and fenced correction examples
+exercise stopped positive relations. Finite lexical guards are not a complete
+semantic interpretation of every historical construction.
+
+These review edges are intentionally weaker than operational MPLPB corrections.
+An operational ledger write requires the existing explicit workflow and authority.
+Read-only sort, compare, verify and peruse do not rewrite ledger history.
+
+## 7. Machine-readable output and retained assessments
+
+The JSON schema is `offline-candidate-sorter-v1`. Its main arrays are sources,
+nodes and edges. Nodes have stable derived identifiers, typed lexical attributes,
+source spans and assessments. Edges carry endpoints, kind, evidence-node IDs,
+assessment and notes. Compare-only edges are marked `comparison_only: true`.
+Cluster edges additionally retain occurrence members, identifier namespace,
+shared key and a changed-body flag.
+
+The envelope records limits, exclusions, completeness, source bytes read, an
+implementation hash and a canonical graph digest. `complete: true` means that the
+implemented extraction finished within its stated bounds; it does not mean that
+all relevant evidence was found or understood. A graph digest is not a signature
+or an assertion that its interpretations are correct.
+
+The optional prior graph is retained as a literal, hash-pinned JSON snapshot with
+an untrusted-history label. It preserves earlier statements and assessments without
+using them to establish current identity or support. Prior history is bounded; an
+oversized history is refused rather than silently discarded.
+
+Verification reloads current source bytes and deterministically replays the graph.
+It rejects source changes, inventory changes, forged redigested proposals and
+implementation drift. This is source-fidelity replay, not an independent semantic
+verifier. Changes to the implementation fingerprint intentionally require a fresh
+extraction; prior graph artifacts remain inspectable as historical outputs.
+
+## 8. Native MPLPB packaging without reader changes
+
+JSON itself is not an eligible native answer page. The explicit export operation
+writes an escaped graph into a machine-origin, unratified native page, using the
+existing ledger writer. The page is marked external=no and withdrawn in a private
+staging ledger before publication. The requested destination must be new and
+outside the unchanged source tree.
+
+The refined exporter re-reads staging with the native ledger, requires no native
+validation findings, checks a single intact retired page, and checks exact graph
+serialization and JSON recovery. The check includes the writer's normal heading.
+It then verifies that no non-index record is servable before publishing the new
+directory. Tests show that native validation errors, warnings, wrong graph bodies
+and interrupted retirement do not publish the requested candidate destination [6].
+This is not a claim of crash-proof storage or isolation against a hostile host.
+
+The native acceptance and withholding distinction is explicit:
+
+| Existing interface | Meaning of observed result |
+|---|---|
+| validate --strict, exit 0 | Native page format and integrity checks pass |
+| show, exit 0 | Retired page remains available for inspection |
+| gate, exit 3 | No eligible source bundle is available |
+| ask, exit 3 | No supported answer or claim is returned |
+
+The lab and internal gates exclude the snapshot as retired. External applies the
+sealed external=no restriction before its retirement check. All three therefore
+withhold the page. Historical as-of tests also remain unsupported. Native show
+uses the reader's existing normalized display; exact whitespace is inspected in
+the stored graph, original files and byte/character anchors.
+
+A sealed graph snapshot must not be reactivated as historical evidence. Unchanged
+originals can be imported separately through ordinary MPLPB source workflows with
+their actual ownership, provenance and restrictions. The sorter cannot infer or
+authorize those policies from a directory of raw text.
+
+## 9. Bounded operation and partial output
+
+| Resource | Default bound |
+|---|---|
+| Files and bytes | 64 files; 1 MiB per file; 8 MiB per source pass |
+| Tree traversal | 4,096 entries; directory depth 12 |
+| Graph size | 4,096 nodes; 8,192 edges |
+| Statements | 2,000; 8,000 characters per statement |
+| Comparisons | 20,000 proposal attempts |
+| Phrase extraction | 4,096 phrase keys; 32 phrase groups |
+| Prior history and output | 1 MiB prior JSON; 32 MiB serialized graph |
+
+Limits may be lowered, not raised through the override interface. Hidden entries,
+symlinks and nonregular files are excluded. Traversal, source reads and output
+sizes are bounded, with explicit diagnostics for incomplete processing. Two source
+passes verify that included source bytes and inventory remain stable. Outputs
+cannot overwrite inputs or existing outputs and are created privately.
+
+Further finite proposal-selection rules apply: shared-subject pair reviews
+consider at most the first 16 occurrences per subject. Completeness does not mean
+all possible review pairs were enumerated. These are algorithmic and byte-count
+bounds, not a hard operating-system wall clock deadline. Filesystem checks assume a trusted local host. A cap can stop a
+relationship because the needed record was outside budget. The correct result
+is a visible limitation, not an inferred missing link.
+
+## 10. Development evaluation and native compatibility
+
+The fixed development fixture directory contains eight fictional files: repeated
+appearances, a changed body under a shared message identifier, an unrelated document
+with the same subject, an original report, a later partial correction, a missing
+reference and qualified correction wording. No authentic historical accuracy is
+inferred from these authored examples [5, 6].
+
+| Measured development check | Retained result |
+|---|---|
+| Identical sources and nodes across modes | 176 nodes; equality passes |
+| Observation edges | 264 in both modes |
+| Additional comparison edges | 77; all non-authoritative |
+| Initial sorter test suite | 24 tests passed |
+| Refined sorter test suite | 27 tests passed |
+| Frozen initial full suite | 1,181 Python tests passed |
+| Frozen refined full suite | 1,184 Python tests passed |
+| Public-evidence controls | 52/52 passed; zero false supported bridges on those controls |
+| Independent historical semantic review | NOT RUN |
+
+The refined implementation is pinned to commit
+`30f0d89c5954b1f1226d0e30c78dc671011849e1`. Its extracted source archive passed
+1,184 Python tests in 353.340 seconds of reported test time. JavaScript API,
+browser transport, crawler fixtures, actual pinned Pyodide WebAssembly and actual
+Chromium checks also passed at their documented scope [6]. These are software
+regressions, not 1,184 independent historical accuracy observations.
+
+For native compatibility, an unchanged checkout of
+`3df2c6e22f0ef454f3ee67b88d43402a42f63443`, before the sorter existed, was used
+for validate, show, gate and ask. Its native reader packages are byte-identical to
+the refined checkout. It validated and displayed the exported page, and withheld
+it under lab, internal and external. The retained report records per-file hashes
+and commands. A deliberate reader-package mutation is refused by the compatibility
+runner before executing the comparison. This demonstrates compatibility, not an
+independent implementation of the proof kernel.
+
+Tests also cover byte preservation, ambiguous identifiers, stopped intermediate
+links, source corruption, forged graph data, unchanged-key body mutations, prior
+history, resource exhaustion, offline URL handling and prevention of candidate
+promotion. Every negative case keeps unsupported conclusions unsupported.
+
+## 11. Costs and failed attempts
+
+The retained native-export development run used Python 3.12.14 on a shared Linux
+x86_64 environment with five visible CPUs. Hardware allocation was not pinned.
+The source fixtures total only 1,402 bytes; these timings are not a scaling study.
+
+| Operation | Wall seconds | Child CPU seconds |
+|---|---|---|
+| Not-compared sort | 0.142 | 0.142 |
+| Compare sort | 0.149 | 0.148 |
+| Native retired export | 0.192 | 0.191 |
+
+The corresponding cumulative child maximum RSS readings were 19,116,032;
+19,542,016; and 24,961,024 bytes. These are process-lifetime child maxima, not
+isolated incremental memory or aggregate process-tree memory. Each sort reports
+2,804 source bytes read across two passes. That metric excludes implementation
+and ledger reads and subsequent export verification. Python startup and filesystem
+work are included in the timing. No speedup is established by these single runs.
+
+A first round-trip assertion incorrectly omitted the native writer's standard h1
+heading and failed two export tests. The sorter expectation was corrected to the
+existing native format; the writer and reader were not changed. The failed log
+is retained. An earlier external-profile assertion expected retirement to be the
+first exclusion, overlooking the existing external=no precedence; the assertion
+was corrected. An earlier browser check initially lacked its expected executable
+and was successfully retried with installed system Chromium. These records show
+engineering iteration, not hidden successes or independent validation.
+
+The broader retained 22-question historical experiment was not rescored for this
+sorter. No historical supported-answer gain is attributed to preprocessing, more
+candidate edges, or additional passing software tests.
+
+## 12. Reproduction and artifact pins
+
+The implementation and its evidence are retained in the public repository [1].
+The completed native-export engineering record is commit
+`26ca2b5be17281684551ca2649ff62e7c0aa250f`; the frozen sorter runtime is the
+30f0d89 commit above. The original pre-refinement sorter record is d528b65 [5].
+Later publication commits may update documentation without changing those measured
+runtime bytes. Exact-head publication and deployment checks are separate receipts.
+
+From the completed engineering checkout, use fresh output paths:
+
+```bash
+python -m mplpb_work.sorter sort tests/fixtures/sorter \
+  --mode not-compared --output /tmp/sorter-raw-new.json
+python -m mplpb_work.sorter sort tests/fixtures/sorter \
+  --mode compare --output /tmp/sorter-compare-new.json
+python -m mplpb_work.sorter verify /tmp/sorter-compare-new.json \
+  --sources tests/fixtures/sorter
+python -m mplpb_work.sorter export-retired \
+  /tmp/sorter-compare-new.json --sources tests/fixtures/sorter \
+  --ledger /tmp/sorter-ledger-new
+python -m mplpb_answers validate /tmp/sorter-ledger-new --strict
+python -m mplpb_answers show /tmp/sorter-ledger-new SORTER-CANDIDATES
+```
+
+Repeat gate and ask separately with each profile:
+
+```bash
+python -m mplpb_answers gate /tmp/sorter-ledger-new \
+  'sorter candidate inspection' --profile lab --json
+python -m mplpb_answers ask /tmp/sorter-ledger-new \
+  'What is Owner for record MAIL-001?' --profile lab --json
+```
+
+The gate and ask commands return exit 3; replace lab with internal or external
+for the other profiles. Format validation and show return exit 0. The consolidated
+runner retains every command and output:
+
+```bash
+python -m tools.evaluate_sorter --output /tmp/sorter-run-new
+python -m unittest tests.test_sorter -q
+python -m tools.reproduce_boundaries \
+  --revision 30f0d89c5954b1f1226d0e30c78dc671011849e1 \
+  --output /tmp/sorter-archive-new --suite full
+```
+
+The guide supplies the separate-checkout `--reader-checkout` procedure [7].
+Frozen source archives, implementation pins, command logs, package hashes and
+failed attempts allow a third party to rerun the software checks. Expected semantic
+answers are not supplied to the sorter. No blinded historical scoring exercise
+is claimed here.
+
+## 13. Limits and next experiments
+
+The sorter does not resolve arbitrary pronouns or ambiguous historical actors,
+recover missing records, establish event co-reference, infer motives, or prove
+causality. Lexical scope recognition can miss qualifications. A date expression
+can remain unresolved. Matching prose can describe different events, or several
+sources may repeat one unverified account. Candidate display is not corroboration.
+
+The native snapshot is deliberately withheld. That makes the conversion useful
+for inspection and controlled later ingestion; it does not by itself make source
+claims available for supported answering. Activating a candidate graph as evidence
+would violate the intended boundary. Usability with large authentic collections,
+full source-policy workflows and cross-platform behavior needs additional testing.
+
+Independent historical evaluation should freeze authentic sources, unseen questions,
+review criteria and compute budgets before measuring relationship precision, recall,
+false bridges, appropriate refusals and human effort. Unknown quantities must stay
+null. A fresh AI assessment may help inspect development outputs if labeled as AI
+assessment; it is not automatically independent human validation or truth authority.
+The current contribution is narrower: an inspectable adapter with tested source
+fidelity and native withholding, preserving the evidence contract for later work.
+
+## 14. Conclusion
+
+The implemented dual-mode sorter turns raw text into reversible observations and
+optional review proposals while keeping the existing MPLPB reader in control of
+eligibility and support. Its strongest demonstrated property is the separation of
+inspection from assertion: identical nodes across modes, explicit non-authoritative
+edges, stopped missing links, and a validated retired native snapshot that remains
+withheld. The retained tests make those boundaries reproducible. Historical
+reconstruction and historical truth remain separate, unproven objectives.
+
+## References and evidence
+
+[1] Combined MPLPB repository. Mitchell D. McPhetridge. Public source repository:
+https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages
+
+[2] Combined MPLPB. Original October 7 v3 specification and reference implementation.
+Repository `docs/Combined_MPLPB.md`, `.txt` and `.pdf`. Historical document;
+its original claims and measurements remain unchanged.
+
+[3] Offline candidate sorter. Repository `mplpb_work/sorter.py`, frozen runtime
+30f0d89c5954b1f1226d0e30c78dc671011849e1. Source SHA-256:
+20a8625676e998ce282283629709f3b5dc7a8b9281ffff10457e5a0595a28e73.
+
+[4] Sorter regression tests and evaluation runner. Repository
+`tests/test_sorter.py` and `tools/evaluate_sorter.py`. The runner with separate
+native-reader checkout support is retained at 26ca2b5. Developer-authored controls.
+
+[5] Offline sorter contract checks, November 17, 2026. Repository
+`evaluation/preprocessing-sorter/2026-11-17/RESULTS.md`, graphs and reports.
+Frozen initial runtime d528b65d6b00f4777f6224591eaed81b4ee25ad1.
+
+[6] Native sorter export refinement, November 17, 2026. Repository
+`evaluation/preprocessing-sorter/2026-11-17-native-export/RESULTS.md`,
+`report.json`, `plain-reader-report.json`, `archive-report.json` and logs.
+Frozen refined source archive SHA-256:
+33694aceb3bbe525c6ae65edf60affee988e3738d7aa073dcf2e1ce2917aa59b.
+
+[7] Offline candidate preprocessing sorter guide. Repository
+`docs/PREPROCESSING_SORTER.md`. Current operational input/output contract;
+subsequent revisions may differ from the dated runtime measured in this report.
+
+[8] Publication and packaging procedure. Repository `AGENTS.md`,
+`docs/ZIP_FIRST_RELEASE_TESTING.md` and `docs/RELEASE_EVIDENCE.md`.
+Release checks do not establish historical truth.

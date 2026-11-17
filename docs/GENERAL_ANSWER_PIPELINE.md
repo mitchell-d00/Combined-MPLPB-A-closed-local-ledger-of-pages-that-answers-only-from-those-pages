@@ -214,3 +214,7 @@ checks source content and printed letter dates, never external execution/deliver
 The [current status](CURRENT_STATUS.md) separates the latest experiment from the
 earlier historical measurements in this guide. No favorable model review awards
 deterministic support.
+
+## Raw-material preprocessing boundary
+
+The [offline sorter](PREPROCESSING_SORTER.md) emits candidate graphs and optionally a sealed retired snapshot. Native format validation and `show` inspection do not award strict source support. Existing `gate` and `ask` calls withhold the snapshot under lab/internal/external. No sorter relationship bypasses this pipeline or changes the finite grammar. [Technical paper](research/dual-mode-sorter/README.md).
