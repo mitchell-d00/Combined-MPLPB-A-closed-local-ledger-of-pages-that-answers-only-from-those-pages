@@ -71,3 +71,5 @@ and shared-service production readiness remain unestablished; see
 ## Raw-text candidate preprocessing
 
 The [offline sorter](PREPROCESSING_SORTER.md) preserves original UTF-8 bytes and exposes lexical observations. Both modes have identical nodes; compare adds only review edges. Its optional native snapshot is retired and withheld by the unchanged reader. This does not add historical supported answers.
+
+The sorter snapshot export also validates the native format and checks an exact embedded-graph round trip before publication. Native `validate` and `show` accept the page for inspection; `gate` and supported answering continue to withhold it. See the sorter guide for the separate exit codes.

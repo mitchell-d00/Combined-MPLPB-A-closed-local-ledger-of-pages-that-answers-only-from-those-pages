@@ -462,15 +462,30 @@ def export_retired(graph,directory,ledger):
     # requested collection. An interrupted write cannot publish a current page.
     with tempfile.TemporaryDirectory(dir=destination.parent,prefix='.mplpb-sorter-') as tmp:
         stage=Path(tmp)
-        page=write(stage,doc_id='SORTER-CANDIDATES',title='Unverified sorter candidate snapshot',
+        title='Unverified sorter candidate snapshot'
+        page=write(stage,doc_id='SORTER-CANDIDATES',title=title,
                    scope='sorter candidate inspection',origin='machine',external='no',source_authorship='declared-machine',
                    body_html='<pre>'+html.escape(json.dumps(graph,ensure_ascii=False,indent=2))+'</pre>')
         withdraw(stage,page.id,note='Candidate graph snapshot only; never serving evidence')
-        if any(r.kind!='index' for r in Ledger(stage).servable()):raise SortError('Candidate snapshot failed retirement gate')
+        native=Ledger(stage,serving=False)
+        # A sealed page is a storage format, not a supported proposition. Use the
+        # existing native validator and re-read the actual serialized artifact.
+        if native.findings():raise SortError('Native snapshot validation failed; destination not published')
+        records=[r for r in native.records if r.kind!='index']
+        if len(records)!=1 or not records[0].intact or records[0].status!='retired':
+            raise SortError('Candidate snapshot failed integrity/retirement check')
+        snapshot=records[0]
+        prefix='<h1>'+html.escape(title,quote=False)+'</h1>\n<pre>'
+        if snapshot.body_html!=prefix+html.escape(json.dumps(graph,ensure_ascii=False,indent=2))+'</pre>':
+            raise SortError('Native snapshot body differs from the candidate graph')
+        recovered=json.loads(html.unescape(snapshot.body_html[len(prefix):-6]))
+        if recovered!=graph:raise SortError('Native snapshot graph round trip failed')
+        if any(r.kind!='index' for r in native.servable()):raise SortError('Candidate snapshot failed retirement gate')
         destination.mkdir(mode=0o700,exist_ok=False)
         os.replace(stage,destination)
     return {'status':'retired_candidate_snapshot','record_id':page.id,'ledger_page_hash':page.hash_actual,
             'graph_sha256':graph['graph_sha256'],'assessment':assessment(),
+            'native_validation':{'errors':0,'warnings':0,'graph_roundtrip_verified':True},
             'notice':'Retired sealed snapshot, withheld by existing serving gates. Import originals through normal source workflows; never reactivate graph proposals as facts.'}
 
 

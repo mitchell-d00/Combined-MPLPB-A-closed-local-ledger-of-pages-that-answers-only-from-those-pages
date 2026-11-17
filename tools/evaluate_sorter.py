@@ -55,6 +55,8 @@ def main(argv=None):
     if not all(report['mode_audit'][k] for k in ('identical_nodes','identical_sources','identical_raw_edge_prefix','all_added_edges_comparison_only')):raise RuntimeError('Mode invariant failed')
     run([sys.executable,'-m','mplpb_work.sorter','verify',str(out/'compare.json'),'--sources','tests/fixtures/sorter'],'verify')
     run([sys.executable,'-m','mplpb_work.sorter','export-retired',str(out/'compare.json'),'--sources','tests/fixtures/sorter','--ledger',str(out/'ledger')],'export-retired')
+    run([sys.executable,'-m','mplpb_answers','validate',str(out/'ledger'),'--strict'],'native-validate')
+    run([sys.executable,'-m','mplpb_answers','show',str(out/'ledger'),'SORTER-CANDIDATES'],'native-show')
     # Gate directly inspects every non-index record, independently of answer grammar.
     from mplpb_combined.provenance_gate import gather
     from mplpb_combined.reader import PROFILES
@@ -65,6 +67,7 @@ def main(argv=None):
     for profile in ('lab','internal','external'):
         gate=gather(out/'ledger','sorter candidate inspection',PROFILES[profile])
         assert not gate.sources
+        run([sys.executable,'-m','mplpb_answers','gate',str(out/'ledger'),'sorter candidate inspection','--profile',profile,'--json'],'gate-'+profile,3)
         exclusion=next(x for x in gate.excluded if x['id']=='SORTER-CANDIDATES')
         if profile!='external':assert exclusion['reason']=='retired'
         report['gate_audit'][profile]={'eligible_sources':0,'exclusion':exclusion}

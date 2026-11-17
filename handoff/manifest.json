@@ -1,5 +1,5 @@
 {
-  "base_revision": "d528b65d6b00f4777f6224591eaed81b4ee25ad1",
+  "base_revision": "27b2a6cf0ad023c14703f8202c3f25ff3627ecf5",
   "files": {
     ".gitattributes": "a4183c9f49350e0619fb9893817859b489df1dcc84acfe397d3c38e57379b954",
     ".github/workflows/handoff.yml": "88faf739bc6c9da0d3270dcf00953258c0da10179b838858ff84da8667604503",
@@ -103,7 +103,7 @@
     "docs/CLOSED_LEDGER_BOUNDARIES.md": "35a99748a97f86b460042f9617df8304bd2c22fee1f70b62e4701c52718e3c45",
     "docs/CONTEXT_INDEX.md": "f3f730088ea1f9172cf1a3d8dbc1a8042072d00b2690d5a36884ed9ad018f599",
     "docs/CONVERSATION_ARCHITECTURE.md": "9dd2adddc962d0f692935dbd024fdceca459f4ef0d358283117eb43bc537b360",
-    "docs/CURRENT_STATUS.md": "17b3ab4f12357aac3d120616084cefd5b4c3e8d63cec26ca4a10ca6d7a0dbd29",
+    "docs/CURRENT_STATUS.md": "dc88a242552414de05378119e3aa0f214a9d222e8397ed184da7cba51a6166bb",
     "docs/CURRENT_STATUS_2026-10-31.md": "6778a593942706c94deb4d85a58a92409c32e9b0797b6d7a48cc7a75bfd750b3",
     "docs/CURRENT_STATUS_2026-11-02.md": "6bdcd541edf9a6f506472a9dacffd2b8f233be21c8d466fca840a45295597d40",
     "docs/CURRENT_STATUS_2026-11-08.md": "6179f34fa1169866f9ee74f0a9bbf4d9b90c1f6aa7e45ca8f941265cad57d283",
@@ -142,7 +142,7 @@
     "docs/OPERATIONAL_EVIDENCE.md": "09b4000c7e72529282a2a2e1aec566b355d9754eef0eb5b2d7ee498ca494eb04",
     "docs/ORIGINAL_RECORD_STUDY.md": "b6a5be969776e2832622fb16b43980f28c14d2a50f2b9d4e89c479ffd85337dc",
     "docs/PAGE_RETRIEVAL.md": "cce99ea585fd210807a5bf12a243bc60425d20c047f08edce4e10de3bdec8d7d",
-    "docs/PREPROCESSING_SORTER.md": "e8a172d61dc40ecd8aab47e76465b35d3084dcede92bdc693b786a759c4cf433",
+    "docs/PREPROCESSING_SORTER.md": "28ff44a667ebf89061cb9b9fbd11b11553432de932393e78a0702ca5cfe226ef",
     "docs/PROCEDURAL_CONSTRAINTS.md": "7bd9e191bd4d3b175d914411c8d7432d47761fade1f636f25096505757b934aa",
     "docs/PRODUCTION_READINESS.md": "9c4e05f11dd95ddee097a37e0fae07739255c291f344cc68195b354946231564",
     "docs/PRODUCTION_THREAT_MODEL.md": "67ea6477e96165faf9f0ef26a9652794c8b1675ee86975aa508958d63bba7112",
@@ -3882,7 +3882,7 @@
     "examples/topics/rpg-history/rpg-0003.html": "7bd4101036acea47d04b684060786276277074824acf3febc15582879539c0fd",
     "examples/topics/rpg-history/rpg-0004.html": "b38547fb87072444db993df537fd0bba26f29096cd06f3156e9f332c8eb3c409",
     "examples/topics/rpg-history/rpg-0005.html": "2956f78d0b658c157420d18478b6b2e2c14a9ab57a9bf84d3ed2d0068432ce15",
-    "handoff/update.json": "2fd793adb0ef7efa17b0609a73987c2365573c38b3ce44608a7797d5a16c5400",
+    "handoff/update.json": "84a660f05faa364de2ee981dbdf8802e9b35aad665987af9ea0a773dac54fad6",
     "index.html": "329962db8be65a9662523b24b259e89d982af962700f2f833218bc2f8aaab61a",
     "killtest/probes.json": "fd0f8b1d61a206dcbb612fdc7503ab339a09ec02aebf576b27554c1fb4cb9076",
     "killtest/probes.sha256": "1c4556f219981adb7902c593d3c2204a66327bbb3f6f3d578b4f2308aa2c3b3d",
@@ -3954,7 +3954,7 @@
     "mplpb_work/model.py": "951148c7beda70581dbd6c539b496b3be968ef50e634961283015e0808d4eb20",
     "mplpb_work/prose_evidence.py": "1c9468405340778e8d618edb27aaf200a22fc1d72ebb6c61ffa2bf9afd4c6b02",
     "mplpb_work/prose_relations.py": "d2ca7e6aad04adc4cd08dae8683e57af4630a1b9daea2b720e900ddaec722d52",
-    "mplpb_work/sorter.py": "7624c4c690e2975f0e9ec49d1347e0a4b578b722f1580b704cece286227c4e4e",
+    "mplpb_work/sorter.py": "20a8625676e998ce282283629709f3b5dc7a8b9281ffff10457e5a0595a28e73",
     "mplpb_work/source_mapping.py": "5688b65b4cd392c0da298f2eda5d422a95248dadcbf55984e125f8b54a2c5612",
     "mplpb_work/source_support.py": "a3460d71ca56141ac43f387f093854fc41f286369c7a9f5e6832e77fa38493b9",
     "mplpb_work/store.py": "0e5029aff11ba4da51322be108ac6e66fbca148440847a6b4e2f1580316cbca7",
@@ -4545,7 +4545,7 @@
     "tests/test_social_cues.py": "6ad4daa7ba8d230f0c3bbc94387af63b03bf484456bd6675bd5183a335d54ef1",
     "tests/test_social_lead_ins.py": "d22937a967f0c670a4ffa646ee17fdca4700df41093d1923cd429de5ae91c240",
     "tests/test_solo_research.py": "ecac586da81d45043c432b88d9c1974ddc12040f8d18784b07ab548e6d7fe814",
-    "tests/test_sorter.py": "58bb5e15059aec4323de3874facac5b761c641bb57f5eace60002d4c70b1881f",
+    "tests/test_sorter.py": "d73282d40a031b8ea12901ed831ff39baa86a778cb6111d1e92b60488b09f17c",
     "tests/test_source_mapping.py": "53e36d5e3f568ea9af6a34781d42c8abdb2fa34c0a9ecbadb03576dc90d470ed",
     "tests/test_specialist_continuity.py": "e77414388c7f2818c19c611a864119ca595c183d54d7edaa31a06fb95f61f614",
     "tests/test_spelling_suggestions.py": "243c049fc82d0f5dac09f531d195e910ecf5b3ebb5e7ab9b015a14ed07898279",
@@ -4632,7 +4632,7 @@
     "tools/evaluate_relation_graph.py": "d06e52d80be3abefd8daee6338c8bc2ef96763ac381a04e36ce20d4f0399e14d",
     "tools/evaluate_researcher_pilot.py": "6541fb424e96875cb63d25a4e85fbc4d85d65938eaaac98a97b39c1c8c931c14",
     "tools/evaluate_response_1000.py": "e221723417ac196676fb3b5cfa76941fa5f8639f00196d02488ad9be2702e9db",
-    "tools/evaluate_sorter.py": "74535dfc18feefe9a94d029827e0121d170f39071316975f80b29086bccffead",
+    "tools/evaluate_sorter.py": "9633dfdd60a1a2e01472dff9fc03a0db5fa4cb3bd11ef0014d991c5859639897",
     "tools/evaluate_user_collections.py": "668bccb39ea7bf7800daef3e6dce97f74ebd063d677e96aa240737e2088cae64",
     "tools/exploration_store.py": "dc449aa54d0d1d38e0e39bf3736e067f6dfa011412728e37c4c41f0dbd2b7f7e",
     "tools/free_chat.py": "ac68405f61e618444accd418009f69063a0e75a0892117fd99f6372ec8bd7cf2",
@@ -4701,6 +4701,6 @@
     "training/owner-work/inventory.json": "d0c1b326bbf191e4514a747fd09ad6532e9882dde175a4b13b6012997afc82b5",
     "training/owner-work/public-dataset-candidate.json": "42207d153f3e325b7435caa53bc70d75e64eca346b023b4ac733dc92ff9d6091"
   },
-  "inventory_sha256": "1f31f801b31a6a5de15c0ec44271fe71d5070a1c86534a54f757f34537e41df4",
+  "inventory_sha256": "31f0193f98ac3544077fd41550440885752357c225723fd752a3a9943fc561ea",
   "schema": "repository-handoff-v1"
 }

@@ -97,10 +97,30 @@ fresh source bytes then shows candidates. To store it as a native sealed page:
 
 ```bash
 python -m mplpb_work.sorter export-retired /tmp/sorter-example/compare.json --sources tests/fixtures/sorter --ledger /tmp/sorter-example/ledger
+python -m mplpb_answers validate /tmp/sorter-example/ledger --strict
+python -m mplpb_answers show /tmp/sorter-example/ledger SORTER-CANDIDATES
+python -m mplpb_answers gate /tmp/sorter-example/ledger 'sorter candidate inspection' --profile lab --json
+python -m mplpb_answers gate /tmp/sorter-example/ledger 'sorter candidate inspection' --profile internal --json
+python -m mplpb_answers gate /tmp/sorter-example/ledger 'sorter candidate inspection' --profile external --json
 python -m mplpb_answers ask /tmp/sorter-example/ledger 'What is Owner for record MAIL-001?' --profile lab --json
 python -m mplpb_answers ask /tmp/sorter-example/ledger 'What is Owner for record MAIL-001?' --profile internal --json
 python -m mplpb_answers ask /tmp/sorter-example/ledger 'What is Owner for record MAIL-001?' --profile external --json
 ```
+
+`validate --strict` exits0 with zero errors/warnings: the snapshot is a valid
+native page. `show` exits0 and displays it for inspection, even though it is
+retired. Each `gate` command exits3 with no eligible sources. Storage acceptance
+and inspectability do not confer answer eligibility.
+
+Before publishing the new directory, export now runs the existing native validator
+against its private staging ledger and independently re-reads the sealed page.
+Any native error **or warning**, retirement failure, or changed embedded graph
+refuses export and leaves the destination unpublished. The native writer adds its
+normal heading; the graph inside the escaped `pre` block must round-trip exactly,
+including quoted Unicode, HTML delimiters and original CRLF source strings.
+The export receipt includes `native_validation` with errors0, warnings0 and
+`graph_roundtrip_verified: true`. These are storage/fidelity checks, not support
+or truth judgments. A literal original Status header still cannot activate a page.
 
 The last three commands refuse (exit3), with `answer_supported: false` and empty
 `answer_contract.claims`. The native `SORTER-CANDIDATES` page is intact, machine-origin, unratified,

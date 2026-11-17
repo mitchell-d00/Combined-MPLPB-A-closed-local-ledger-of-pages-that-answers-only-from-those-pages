@@ -5,6 +5,8 @@ import hashlib
 import io
 import json
 import os
+import subprocess
+import sys
 from pathlib import Path
 import tempfile
 import unittest
@@ -231,6 +233,48 @@ class SorterTests(unittest.TestCase):
                 answer=answer_query(ledger,'Which record corrects the cargo request?',profile,as_of=as_of).contract
                 self.assertFalse(answer['answer_supported']);self.assertEqual(answer['claims'],[])
         with self.assertRaises(S.SortError):S.export_retired(g,self.root,ledger)
+
+    def test_native_snapshot_validates_and_is_inspectable_in_both_modes(self):
+        # HTML delimiters, CRLF and Unicode must survive inside source quotations.
+        self.put('raw.md','Record-ID: CASE-1\r\nOwner: Alice\r\n\r\nÉmile wrote </pre> & <script>nothing</script>.\r\n')
+        from mplpb_combined.record import body_of
+        import html
+        for mode in ('not-compared','compare'):
+            graph=self.graph(mode);ledger=self.base/mode
+            receipt=S.export_retired(graph,self.root,ledger)
+            self.assertEqual(receipt['native_validation'],{'errors':0,'warnings':0,'graph_roundtrip_verified':True})
+            page=next(r for r in Ledger(ledger).records if r.id=='SORTER-CANDIDATES')
+            self.assertEqual(Ledger(ledger).findings(),[])
+            payload=html.unescape(body_of((ledger/page.path).read_text()).split('<pre>',1)[1][:-6])
+            self.assertEqual(json.loads(payload),graph)
+            for command in (['validate',str(ledger),'--strict'],['show',str(ledger),'SORTER-CANDIDATES']):
+                result=subprocess.run([sys.executable,'-m','mplpb_answers']+command,capture_output=True,text=True,timeout=20)
+                self.assertEqual(result.returncode,0,result.stdout+result.stderr)
+            self.assertIn('Unverified sorter candidate snapshot',result.stdout)
+            for profile in PROFILES.values():
+                result=answer_query(ledger,'What is Owner for record CASE-1?',profile).contract
+                self.assertFalse(result['answer_supported']);self.assertEqual(result['claims'],[])
+
+    def test_native_validation_error_or_warning_does_not_publish_snapshot(self):
+        from mplpb_combined.ledger import Finding
+        self.put('a.txt','A source statement.');graph=self.graph()
+        for level in ('error','warning'):
+            target=self.base/level
+            with patch('mplpb_combined.ledger.Ledger.findings',return_value=[Finding(level,'TEST','snapshot.html','injected native finding')]):
+                with self.assertRaisesRegex(S.SortError,'Native snapshot validation failed'):
+                    S.export_retired(graph,self.root,target)
+            self.assertFalse(target.exists())
+
+    def test_validly_sealed_but_wrong_snapshot_body_is_not_published(self):
+        from mplpb_combined.ledger import write
+        self.put('a.txt','A source statement.');graph=self.graph();target=self.base/'wrong-body'
+        def substituted(root,**kwargs):
+            kwargs['body_html']='<pre>{"altered":true}</pre>'
+            return write(root,**kwargs)
+        with patch('mplpb_combined.ledger.write',side_effect=substituted):
+            with self.assertRaisesRegex(S.SortError,'body differs'):
+                S.export_retired(graph,self.root,target)
+        self.assertFalse(target.exists())
 
     def test_failed_export_does_not_publish_a_current_candidate(self):
         self.put('a.txt','A source statement.');graph=self.graph();target=self.base/'ledger'
