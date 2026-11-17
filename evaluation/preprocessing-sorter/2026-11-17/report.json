@@ -1,0 +1,215 @@
+{
+  "schema": "sorter-development-checks-v1",
+  "revision": "d528b65d6b00f4777f6224591eaed81b4ee25ad1",
+  "environment": {
+    "platform": "Linux-6.18.57-x86_64-with-glibc2.41",
+    "python": "3.12.14 (main, Aug 25 2026, 14:00:49) [Clang 22.1.3 ]",
+    "cpu_count": 5
+  },
+  "harness_sha256": "74535dfc18feefe9a94d029827e0121d170f39071316975f80b29086bccffead",
+  "commands": [
+    {
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+        "-m",
+        "mplpb_work.sorter",
+        "sort",
+        "tests/fixtures/sorter",
+        "--mode",
+        "not-compared",
+        "--output",
+        "/tmp/mplpb-sorter-final-evidence-v2/not-compared.json"
+      ],
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "timed_out": false,
+      "wall_seconds": 0.1664107079996029,
+      "cpu_seconds": 0.165834,
+      "peak_child_rss_bytes": 19111936,
+      "peak_memory_scope": "Process-lifetime maximum child RSS, not isolated incremental or process-tree memory.",
+      "log": "not-compared.log"
+    },
+    {
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+        "-m",
+        "mplpb_work.sorter",
+        "sort",
+        "tests/fixtures/sorter",
+        "--mode",
+        "compare",
+        "--output",
+        "/tmp/mplpb-sorter-final-evidence-v2/compare.json"
+      ],
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "timed_out": false,
+      "wall_seconds": 0.13667486300073506,
+      "cpu_seconds": 0.13623699999999997,
+      "peak_child_rss_bytes": 19537920,
+      "peak_memory_scope": "Process-lifetime maximum child RSS, not isolated incremental or process-tree memory.",
+      "log": "compare.log"
+    },
+    {
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+        "-m",
+        "mplpb_work.sorter",
+        "verify",
+        "/tmp/mplpb-sorter-final-evidence-v2/compare.json",
+        "--sources",
+        "tests/fixtures/sorter"
+      ],
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "timed_out": false,
+      "wall_seconds": 0.10047269200003939,
+      "cpu_seconds": 0.10002000000000004,
+      "peak_child_rss_bytes": 20439040,
+      "peak_memory_scope": "Process-lifetime maximum child RSS, not isolated incremental or process-tree memory.",
+      "log": "verify.log"
+    },
+    {
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+        "-m",
+        "mplpb_work.sorter",
+        "export-retired",
+        "/tmp/mplpb-sorter-final-evidence-v2/compare.json",
+        "--sources",
+        "tests/fixtures/sorter",
+        "--ledger",
+        "/tmp/mplpb-sorter-final-evidence-v2/ledger"
+      ],
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "timed_out": false,
+      "wall_seconds": 0.31499649500074156,
+      "cpu_seconds": 0.3123449999999999,
+      "peak_child_rss_bytes": 24821760,
+      "peak_memory_scope": "Process-lifetime maximum child RSS, not isolated incremental or process-tree memory.",
+      "log": "export-retired.log"
+    },
+    {
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+        "-m",
+        "mplpb_answers",
+        "ask",
+        "/tmp/mplpb-sorter-final-evidence-v2/ledger",
+        "What is Owner for record MAIL-001?",
+        "--profile",
+        "lab",
+        "--json"
+      ],
+      "exit_code": 3,
+      "expected_exit_code": 3,
+      "timed_out": false,
+      "wall_seconds": 0.13292409499990754,
+      "cpu_seconds": 0.13052499999999995,
+      "peak_child_rss_bytes": 24821760,
+      "peak_memory_scope": "Process-lifetime maximum child RSS, not isolated incremental or process-tree memory.",
+      "log": "reader-lab.log"
+    },
+    {
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+        "-m",
+        "mplpb_answers",
+        "ask",
+        "/tmp/mplpb-sorter-final-evidence-v2/ledger",
+        "What is Owner for record MAIL-001?",
+        "--profile",
+        "internal",
+        "--json"
+      ],
+      "exit_code": 3,
+      "expected_exit_code": 3,
+      "timed_out": false,
+      "wall_seconds": 0.15770040600000357,
+      "cpu_seconds": 0.15696699999999994,
+      "peak_child_rss_bytes": 24821760,
+      "peak_memory_scope": "Process-lifetime maximum child RSS, not isolated incremental or process-tree memory.",
+      "log": "reader-internal.log"
+    },
+    {
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+        "-m",
+        "mplpb_answers",
+        "ask",
+        "/tmp/mplpb-sorter-final-evidence-v2/ledger",
+        "What is Owner for record MAIL-001?",
+        "--profile",
+        "external",
+        "--json"
+      ],
+      "exit_code": 3,
+      "expected_exit_code": 3,
+      "timed_out": false,
+      "wall_seconds": 0.12186459599979571,
+      "cpu_seconds": 0.12104200000000004,
+      "peak_child_rss_bytes": 24821760,
+      "peak_memory_scope": "Process-lifetime maximum child RSS, not isolated incremental or process-tree memory.",
+      "log": "reader-external.log"
+    },
+    {
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+        "-m",
+        "unittest",
+        "tests.test_sorter",
+        "-q"
+      ],
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "timed_out": false,
+      "wall_seconds": 0.6546954490004282,
+      "cpu_seconds": 0.6522059999999998,
+      "peak_child_rss_bytes": 29847552,
+      "peak_memory_scope": "Process-lifetime maximum child RSS, not isolated incremental or process-tree memory.",
+      "log": "sorter-tests.log"
+    }
+  ],
+  "independent_review": "NOT RUN",
+  "historical_accuracy": null,
+  "human_review_seconds": null,
+  "mode_audit": {
+    "identical_nodes": true,
+    "identical_sources": true,
+    "identical_raw_edge_prefix": true,
+    "nodes": 176,
+    "raw_edges": 264,
+    "compare_edges": 341,
+    "all_added_edges_comparison_only": true,
+    "source_bytes_read_per_mode": 2804,
+    "implementation_sha256": "sha256:7624c4c690e2975f0e9ec49d1347e0a4b578b722f1580b704cece286227c4e4e"
+  },
+  "gate_audit": {
+    "lab": {
+      "eligible_sources": 0,
+      "exclusion": {
+        "id": "SORTER-CANDIDATES",
+        "path": "sorter-candidates.html",
+        "reason": "retired"
+      }
+    },
+    "internal": {
+      "eligible_sources": 0,
+      "exclusion": {
+        "id": "SORTER-CANDIDATES",
+        "path": "sorter-candidates.html",
+        "reason": "retired"
+      }
+    },
+    "external": {
+      "eligible_sources": 0,
+      "exclusion": {
+        "id": "SORTER-CANDIDATES",
+        "path": "sorter-candidates.html",
+        "reason": "external delivery denied by sealed page policy"
+      }
+    }
+  },
+  "passed": true
+}

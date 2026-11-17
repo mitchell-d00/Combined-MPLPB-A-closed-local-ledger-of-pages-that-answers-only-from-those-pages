@@ -4,46 +4,38 @@ Last reviewed: 2026-11-17.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `6a92167124e0842a909792d95cec7a0b637de578` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `279c1393aa3cb3205e8e8d243d305a662fe7bea22aaad28206e467964461301e`.
+Base commit: `26ca2b5be17281684551ca2649ff62e7c0aa250f` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `50fe15a1b91a2c7da7f06de66374cbbbfe64431d8d8d3b9f0b1f249efbd2fdb7`.
 
 ## Latest user update instructions
 
-Push it to main and make sure all documentation is uptodate as well as past notes etc clean up the repo make sure it has no loose ends etc
+Push it to main merge and update all documentation write me a new paper by Mitchell d Mcphetridge in txt pdf and md A Dual-Mode Sorter for MPLPB: Turning Unformatted Material into Inspectable Candidates; Source-Anchored Candidate Extraction for Closed Local Ledgers
 
 ## Implemented scope
 
-- Publish the authorized source/reconstruction/solo-milestone branch through main after exact-head required checks.
-- Create a current status entry point, update current guide navigation and relevant API/CLI/receipt/answer descriptions, and preserve dated notes, frozen corpora and historical reports byte-for-byte.
-- Reconcile handoff, past-documentation index, root fix log and repository map with the measured2/22 source-only completion milestone and clearly labeled AI assessment.
-- Verify clean Git state, required archive/regression CI and post-merge Pages publication; preserve actual evidence and disclose unresolved research limitations.
+- Publish authorized offline sorter and native export work to main through a PR with exact-head required checks.
+- Write a new dated technical paper by Mitchell D. McPhetridge with requested title/subtitle in Markdown, text and PDF; retain source/format hashes and honest measurement boundaries.
+- Refresh relevant operational documentation, installation/pipeline guidance, repository map, fix log and past-documentation navigation, preserving frozen originals and earlier reports.
+- Extend existing paper renderer with explicit source and metadata parameters, optional invariant PDF metadata; runtime remains standard-library only.
 
 ## Validation recorded
 
-- Baselineec41332:74 focused tests passed6.530s; all22 unchanged historical workers completed under original frozen seals and budgets.
-- Final native runtime d369346: complete source support1→2/22, partial2→1/22; onlyH02 changes. Other21 native kinds, claims, excerpts and qualifications unchanged; zero new delivery/execution/truth claims.
-- Fresh fork_turns=none blinded AI assessment of44 responses: complete correct1→2, correct refusal4→4, errors/over-refusals17→16, unassessed0. All108 original-byte evidence anchors validated; fabricated quote mutation rejected. AI assessment is not human validation or source authority.
-- All3 native claims/8 citations independently rerun through current finite kernel and mapped back to pinned original bytes. Frozen corpus/question/protocol/harness/import/worker limits identical.
-- ZIP-extracted80a4b02d0a13ac0f986f83622514c4be5dddd844:1157 tests passed337.950s, public52/52. JavaScript API, browser transport, crawler fixtures, actual pinned WebAssembly and11 actual Chromium documentary/UI checks passed; generated release HTML byte-identical to tested d369346 candidate.
-- Combined22-case worker CPU852.674→242.284s with identical logical source bytes read. Single shared-host development replay; supporting-only intermediate and all failed full-test attempts retained separately.
-- Intermediate482e498 full1148-test run failed one standard-library allowlist declaration; first arrangement d369346 full1157-test run failed obsolete H02 partial-only expectation. Standard-library declaration and regression expectation updated, preserving no-delivery/source-byte invariants. Final full rerun passed.
-- Final documentation/infrastructure/handoff audits and10 handoff/documentation tests passed0.118s. Raw assessment-source whitespace/CRLF is preserved with narrow -text/-whitespace attributes; source bytes were not cleaned.
-- Publication baseline82f4134 is clean and ten commits ahead of remote main4d0f447 with no divergence; fresh fetch confirmed. Source/candidate checks for the new documentation head remain separate from retained80a4b02 runtime evidence.
-- Documentation inventory and all377 classified documents/33 evaluation families passed;85 current guides are indexed,56 current navigation/operational guides updated, dated November8 status preserved as historical. Handoff/documentation tests passed10/10; infrastructure synchronization passed.
-- GitHub archive run44072489661 on6a92167 exposed one generated SYSTEM_GUIDE/runtime-model mismatch after navigation cleanup (1157 tests, one failure). Updated generator review date/current-status link and regenerated the guide; no answer proof/semantic rule changed. Required CI will rerun on the corrected head.
+- Inherited measured sorter runtime30f0d89:1184 tests and52 public controls; current publication head is separate and not yet checked.
+- New nine-page paper renders with requested PDF author/title metadata. Sample pages visually inspected; initial orphan final line removed, rerendered to nine pages.
+- New renderer tests2/2 passed0.109s; custom-source text rendering leaves original paper bytes unchanged, invariant PDF builds repeat exactly under ReportLab4.4.9.
+- Remote main is3df2c6e and branch is four commits ahead with no divergence at initial fetch. Active Bear ruleset requires PR plus archive-first/regression on exact up-to-date head; no reviewer approval required.
 
 ## Limitations and blocked checks
 
-- The measured completion gain is one development question, not22/22 success, general historical understanding, a9/10 rating or unseen accuracy validation.
-- AI assessment used one fresh context of the configured model, with unknown provider/version pin and procedural shared-filesystem blinding; it is not human review, model-provider independence or authenticated historical truth.
-- Recorded arrangements do not establish instruction acceptance, execution, dispatch, delivery or event/person identity; printed dates retain heading role.16 AI-assessed errors/over-refusals remain.
-- Local storage checks establish byte equality at inspection time under the trusted native host/OS, not durable storage, human reading, delivery or completion. Human effort and AI inference charges remain null.
-- Apollo evidence is discovered but remains blocked by earlier OCR quotation state; no quotation safeguard was relaxed to award support.
+- Sorter output remains non-authoritative; no historical reconstruction, truth or supported-answer completion gain claimed.
+- All semantic accuracy/human review measurements remain null/NOT RUN. Retained paper results are developer-authored controls, not publication-head or deployment evidence.
+- Original historical corpora, questions, reports, original papers and vendor bytes remain untouched.
 
 ## Next steps
 
-- Track exact-head release/deployment receipts in GitHub Actions and retain source/AI-assessment boundaries in future updates.
-- Continue the documented16 AI-assessed shortcomings without reclassifying candidate interpretations or requesting unavailable human reviewers.
+- Freeze and ZIP-test publication candidate, push branch and create PR.
+- Wait for exact-head archive-first/regression and other checks, merge to main without bypassing branch rules.
+- Verify Pages build/deploy and actual live-browser checks; report exact merge/deployment receipts.
 
 ## Use this ZIP in your repository
 

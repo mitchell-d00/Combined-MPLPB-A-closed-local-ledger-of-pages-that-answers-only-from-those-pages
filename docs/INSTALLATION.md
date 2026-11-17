@@ -56,3 +56,7 @@ the standalone browser need no model. See [local-reader setup](GENERAL_ANSWER_PI
 The optional [browser model helper](FREE_PUBLIC_HELPER.md) uses sidecars in the public site/full generated site folder. The one-file browser ZIP does not package those sidecars or model weights; its core MPLPB engine remains available offline.
 
 > Update 2026-11-16: The [public 52-case evidence suite](PUBLIC_EVIDENCE_TESTS.md) and [bounded expert relation path](HISTORICAL_EXPERT_PATH.md) document the current update. Prior dated measurements and preserved historical sources retain their original scope; this note does not rerun or revise them.
+
+## Offline sorter beside the checkout
+
+Run `python -m mplpb_work.sorter --help` from the source checkout, or after installing its CLI package. It needs no model, network or application dependency. [Input/output and native acceptance commands](PREPROCESSING_SORTER.md) distinguish candidate graphs, validated retired snapshots and answer eligibility. [The sorter technical paper](research/dual-mode-sorter/README.md) is supplied as Markdown, text and PDF; ReportLab is needed only to rebuild that PDF, not to run MPLPB or the sorter.

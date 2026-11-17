@@ -1,0 +1,26 @@
+======================================================================
+ERROR: test_native_snapshot_validates_and_is_inspectable_in_both_modes (tests.test_sorter.SorterTests.test_native_snapshot_validates_and_is_inspectable_in_both_modes)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/mplpb/tests/test_sorter.py", line 244, in test_native_snapshot_validates_and_is_inspectable_in_both_modes
+    receipt=S.export_retired(graph,self.root,ledger)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/mplpb/mplpb_work/sorter.py", line 478, in export_retired
+    raise SortError('Native snapshot body differs from the candidate graph')
+mplpb_work.sorter.SortError: Native snapshot body differs from the candidate graph
+
+======================================================================
+ERROR: test_sealed_snapshot_is_retired_and_reader_refuses_every_profile (tests.test_sorter.SorterTests.test_sealed_snapshot_is_retired_and_reader_refuses_every_profile)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/mplpb/tests/test_sorter.py", line 219, in test_sealed_snapshot_is_retired_and_reader_refuses_every_profile
+    result=S.export_retired(g,self.root,ledger)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/mplpb/mplpb_work/sorter.py", line 478, in export_retired
+    raise SortError('Native snapshot body differs from the candidate graph')
+mplpb_work.sorter.SortError: Native snapshot body differs from the candidate graph
+
+----------------------------------------------------------------------
+Ran 27 tests in 0.457s
+
+FAILED (errors=2)
