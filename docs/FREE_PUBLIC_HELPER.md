@@ -11,6 +11,11 @@ so no shared AI server, paid API, account, subscription or local Python setup is
 required by a visitor. This does not promise unlimited free hosting/bandwidth or
 support for every device. The core app continues to work without the model.
 
+For native Python users, the separate [Constrained Local Narrator](LOCAL_NARRATOR.md)
+can format a strict ledger answer through Ollama, llama.cpp's server or another
+local OpenAI-compatible endpoint. It cannot expand source support. Use
+`mplpb-combined narrate "question" --corpus PATH --no-model` for ledger-only output.
+
 ## Use the helper
 
 Open **AI chat and MPLPB builder** near the bottom of the page. Choose the collection

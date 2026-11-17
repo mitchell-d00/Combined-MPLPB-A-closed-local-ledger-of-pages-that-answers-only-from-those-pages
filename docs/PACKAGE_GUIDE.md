@@ -271,7 +271,7 @@ The helper cannot silently ratify, delete or rewrite sources. A successful model
 load is not proof of successful generation, useful reasoning or truth. The single
 HTML browser ZIP does not include model weights and all optional site sidecars.
 A separately hosted inference service is not bundled or implicitly configured.
-[Native reader](GENERAL_ANSWER_PIPELINE.md) · [Browser helper](FREE_PUBLIC_HELPER.md)
+[Native reader](GENERAL_ANSWER_PIPELINE.md) · [Browser helper](FREE_PUBLIC_HELPER.md) · [Constrained local narrator](LOCAL_NARRATOR.md)
 · [Asset notices](../assets/ai/README.md).
 
 ## Storage and recovery
