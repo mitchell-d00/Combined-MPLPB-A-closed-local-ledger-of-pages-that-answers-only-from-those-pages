@@ -34,6 +34,181 @@ class SorterTests(unittest.TestCase):
 
     def graph(self,mode='compare',**kw):return S.sort_directory(self.root,mode,**kw)
 
+    def scope_fixtures(self):
+        for path in (FIXTURES.parent/'sorter_header_scope').iterdir():
+            self.put(path.name,path.read_bytes())
+
+    def test_fenced_example_is_observation_not_primary_identity_member(self):
+        self.scope_fixtures();raw=self.graph('not-compared');compared=self.graph()
+        self.assertEqual(raw['sources'],compared['sources'])
+        self.assertEqual(raw['nodes'],compared['nodes'])
+        self.assertEqual(raw['edges'],compared['edges'][:len(raw['edges'])])
+        by_id={n['id']:n for n in compared['nodes']}
+        cluster=next(e for e in compared['edges'] if e['kind']=='candidate_identity_cluster')
+        paths={by_id[n]['span']['path'] for n in cluster['members']}
+        self.assertEqual(paths,{'01-original.md','02-repeated.md'})
+        example=next(n for n in compared['nodes'] if n['kind']=='header_identifier' and n['span']['path']=='03-example.md')
+        self.assertEqual(example['header_role'],'embedded_text_observation')
+        self.assertFalse(example['primary_identity_eligible'])
+        self.assertEqual(example['span']['text'],'MAIL-001')
+        occurrence=by_id[example['occurrence']]
+        self.assertEqual(occurrence['identity_role'],'textual_appearance_only')
+        self.assertEqual(S.verify_graph(compared,self.root)['status'],'source_fidelity_replayed')
+
+    def test_embedded_header_does_not_partition_real_record_occurrences(self):
+        self.put('records.md','Message-ID: REAL-001\nSubject: First\n\nThe initial account.\n\n```text\nMessage-ID: FAKE-001\nSubject: Example\n```\n\nMessage-ID: REAL-002\nSubject: Second\n\nThe later account.')
+        graph=self.graph();occ=[n for n in graph['nodes'] if n['kind']=='source_occurrence']
+        self.assertEqual(len(occ),2)
+        embedded=next(n for n in graph['nodes'] if n['kind']=='header_identifier' and n['value']=='FAKE-001')
+        self.assertFalse(embedded['primary_identity_eligible'])
+        self.assertEqual(embedded['occurrence'],occ[0]['id'])
+        real=next(n for n in graph['nodes'] if n['kind']=='header_identifier' and n['value']=='REAL-002')
+        self.assertEqual(occ[1]['span']['char_start'],graph['sources'][0]['bytes']-len('Message-ID: REAL-002\nSubject: Second\n\nThe later account.'))
+        self.assertEqual(real['occurrence'],occ[1]['id'])
+
+    def assert_scope_invariants(self):
+        before={p.name:p.read_bytes() for p in self.root.iterdir() if p.is_file()}
+        raw=self.graph('not-compared');graph=self.graph()
+        self.assertEqual(raw['sources'],graph['sources']);self.assertEqual(raw['nodes'],graph['nodes'])
+        self.assertEqual(raw['edges'],graph['edges'][:len(raw['edges'])])
+        self.assertTrue(all(e['comparison_only'] for e in graph['edges'][len(raw['edges']):]))
+        for item in graph['sources']+graph['nodes']+graph['edges']+[graph]:
+            for flag in ('answer_supported','source_support_established','historical_truth_independently_verified'):
+                self.assertIs(item['assessment'][flag],False)
+        for node in graph['nodes']:
+            span=node['span'];source=before[span['path']]
+            if 'text' in span:
+                self.assertEqual(source[span['byte_start']:span['byte_end']].decode('utf-8'),span['text'])
+                self.assertEqual(source.decode('utf-8')[span['char_start']:span['char_end']],span['text'])
+        self.assertEqual(S.verify_graph(graph,self.root)['status'],'source_fidelity_replayed')
+        self.assertEqual(graph,self.graph())
+        self.assertEqual(before,{p.name:p.read_bytes() for p in self.root.iterdir() if p.is_file()})
+        return graph
+
+    def test_structural_header_role_keeps_real_identifiers_despite_quoted_body(self):
+        body='Message-ID: MAIL-001\nSubject: Deployment\nAlice wrote “the notice is ready”.'
+        self.put('a.md',body);self.put('b.md',body)
+        graph=self.assert_scope_invariants()
+        ids=[n for n in graph['nodes'] if n['kind']=='header_identifier']
+        self.assertTrue(all(n['primary_identity_eligible'] for n in ids))
+        self.assertTrue(all(n['scope']!='unqualified_text' for n in ids))
+        cluster=next(e for e in graph['edges'] if e['kind']=='candidate_identity_cluster')
+        self.assertEqual(len(cluster['members']),2)
+
+    def test_backtick_tilde_and_longer_nested_fences_keep_only_real_boundaries(self):
+        for marker in ('```','~~~','````'):
+            with self.subTest(marker=marker):
+                body='Message-ID: REAL-001\n\nFirst body.\n\n'+marker+'text\nMessage-ID: FAKE-001\n'+marker+'not-a-closer\nMessage-ID: FAKE-002\n'+marker+'\n\nMessage-ID: REAL-002\n\nSecond body.'
+                self.put('records.md',body);graph=self.assert_scope_invariants()
+                self.assertEqual(len([n for n in graph['nodes'] if n['kind']=='source_occurrence']),2)
+                headers={n['value']:n for n in graph['nodes'] if n['kind']=='header_identifier'}
+                self.assertTrue(headers['REAL-001']['primary_identity_eligible']);self.assertTrue(headers['REAL-002']['primary_identity_eligible'])
+                self.assertFalse(headers['FAKE-001']['primary_identity_eligible']);self.assertFalse(headers['FAKE-002']['primary_identity_eligible'])
+
+    def test_blockquotes_forwarded_and_delimited_quotes_preserve_header_observations(self):
+        wrappers=[('> Message-ID: MAIL-001\n> Subject: Deployment\n> Copied only.','blockquote_context'),
+                  ('-----Original Message-----\nMessage-ID: MAIL-001\nSubject: Deployment\nCopied only.\n-----End original message-----','forwarded_or_quoted_context'),
+                  ('Begin forwarded message:\nMessage-ID: MAIL-001\nCopied only.\n# Documentation example\nEnd forwarded message','forwarded_or_quoted_context'),
+                  ('On Monday Alice wrote:\nMessage-ID: MAIL-001\nCopied only.\nEnd quote','forwarded_or_quoted_context'),
+                  ('“\nMessage-ID: MAIL-001\nCopied only.\n”','quotation_context')]
+        self.put('a.md','Message-ID: MAIL-001\n\nThe original notice.')
+        self.put('b.md','Message-ID: MAIL-001\n\nThe original notice.')
+        for wrapper,context in wrappers:
+            with self.subTest(context=context,wrapper=wrapper):
+                self.put('quoted.md',wrapper);graph=self.assert_scope_invariants()
+                quoted=next(n for n in graph['nodes'] if n['kind']=='header_identifier' and n['span']['path']=='quoted.md')
+                self.assertEqual(quoted['header_context'],context);self.assertFalse(quoted['primary_identity_eligible'])
+                cluster=next(e for e in graph['edges'] if e['kind']=='candidate_identity_cluster')
+                self.assertEqual(len(cluster['members']),2)
+                review=next(e for e in graph['edges'] if e['kind']=='embedded_identifier_review' and e['from']==quoted['id'])
+                self.assertEqual(set(review['matching_primary_occurrences']),set(cluster['members']))
+
+    def test_example_heading_and_unfenced_example_introduction_are_not_declarations(self):
+        self.put('a.md','Message-ID: MAIL-001\n\nOriginal.');self.put('b.md','Message-ID: MAIL-001\n\nOriginal.')
+        for intro in ('# Documentation example\n','The following sample is not a source communication.\n'):
+            self.put('example.md',intro+'Message-ID: MAIL-001\n\nDemonstration only.')
+            graph=self.assert_scope_invariants();cluster=next(e for e in graph['edges'] if e['kind']=='candidate_identity_cluster')
+            self.assertEqual(len(cluster['members']),2)
+            occurrence=next(n for n in graph['nodes'] if n['kind']=='source_occurrence' and n['span']['path']=='example.md')
+            self.assertEqual(occurrence['identity_role'],'textual_appearance_only')
+
+    def test_unclosed_forward_and_fence_do_not_escape_via_nested_heading(self):
+        for opening in ('-----Original Message-----','~~~text'):
+            self.put('nested.md','Message-ID: REAL-001\n\nOuter.\n\n'+opening+'\nMessage-ID: COPY-001\n\n# Nested content\nMessage-ID: COPY-002\n')
+            graph=self.assert_scope_invariants()
+            self.assertEqual(len([n for n in graph['nodes'] if n['kind']=='source_occurrence']),1)
+            copies=[n for n in graph['nodes'] if n['kind']=='header_identifier' and n['value'].startswith('COPY')]
+            self.assertEqual(len(copies),2);self.assertTrue(all(not n['primary_identity_eligible'] for n in copies))
+
+    def test_embedded_status_and_date_do_not_classify_outer_document(self):
+        self.put('example.md','```text\nMessage-ID: MAIL-001\nStatus: retired\nDate sent: June 3, 1841\n```')
+        graph=self.assert_scope_invariants();occ=next(n for n in graph['nodes'] if n['kind']=='source_occurrence')
+        self.assertEqual(occ['declared_status_candidates'],[])
+        self.assertEqual(occ['provisional_ledger_status'],'undetermined_candidate')
+        self.assertTrue(all(n['date_role']=='unresolved' for n in graph['nodes'] if n['kind']=='date_expression'))
+        self.assertTrue(any(n['kind']=='declared_status' and n['span']['text']=='retired' for n in graph['nodes']))
+
+    def test_real_correction_ignores_embedded_target_and_quoted_correction_stays_review_only(self):
+        self.put('original.md','Document-ID: REC-001\n\nTwelve crates were requested.')
+        self.put('example.md','```text\nDocument-ID: REC-001\n```')
+        self.put('correction.md','Document-ID: NOTE-001\n\nCorrection to REC-001 changes only the requested count to ten crates.')
+        self.put('quoted.md','Document-ID: NOTE-002\n\n-----Original Message-----\nCorrection to REC-001 changes only the destination.\n-----End original message-----')
+        graph=self.assert_scope_invariants();nodes={n['id']:n for n in graph['nodes']}
+        corrections=[e for e in graph['edges'] if e['kind']=='possible_partial_correction']
+        self.assertEqual(len(corrections),1)
+        self.assertEqual(nodes[corrections[0]['from']]['span']['path'],'correction.md')
+        self.assertEqual(nodes[corrections[0]['to']]['span']['path'],'original.md')
+        quoted_ref=next(n for n in graph['nodes'] if n['kind']=='reference_mention' and n['span']['path']=='quoted.md')
+        review=next(e for e in graph['edges'] if e['kind']=='unresolved_reference_review' and e['from']==quoted_ref['id'])
+        self.assertEqual(review['reason'],'qualified_or_quoted_reference')
+
+    def test_embedded_only_target_is_not_resolved_as_a_primary_record(self):
+        self.put('quote.md','~~~\nDocument-ID: REC-001\n~~~')
+        self.put('correction.md','Document-ID: NOTE-001\n\nCorrection to REC-001 changes only the count.')
+        graph=self.assert_scope_invariants()
+        review=next(e for e in graph['edges'] if e['kind']=='unresolved_reference_review')
+        self.assertEqual(review['reason'],'embedded_only_target')
+        self.assertFalse(any(e['kind'].startswith('possible_') for e in graph['edges']))
+
+    def test_different_identifiers_with_identical_subject_and_body_never_merge(self):
+        body='Subject: Same title\n\nThe clerk sent the notice.'
+        self.put('a.md','Message-ID: FIRST-001\n'+body)
+        self.put('b.md','Message-ID: SECOND-001\n'+body)
+        graph=self.assert_scope_invariants()
+        self.assertFalse(any(e['kind']=='candidate_identity_cluster' for e in graph['edges']))
+        self.assertTrue(any(e['kind']=='shared_header_review' for e in graph['edges']))
+
+    def test_scoped_unicode_crlf_headers_keep_exact_original_coordinates(self):
+        self.put('a.md','\ufeffMessage-ID: MAIL-001\r\nSubject: Réception 🌍\r\n\r\nÉmile sent a notice.\r\n')
+        self.put('b.md','Message-ID: MAIL-001\nSubject: Réception 🌍\n\nÉmile sent a changed notice.\n')
+        self.put('example.md','# Documentation example\r\n~~~text\r\nMessage-ID: MAIL-001\r\nSubject: Zoë\r\n~~~\r\n')
+        graph=self.assert_scope_invariants();cluster=next(e for e in graph['edges'] if e['kind']=='candidate_identity_cluster')
+        self.assertEqual(len(cluster['members']),2);self.assertTrue(cluster['changed_bodies'])
+        bad=copy.deepcopy(graph)
+        next(n for n in bad['nodes'] if n['kind']=='header_identifier' and n['span']['path']=='example.md')['primary_identity_eligible']=True
+        bad['graph_sha256']=S.digest({k:v for k,v in bad.items() if k!='graph_sha256'})
+        with self.assertRaises(S.SortError):S.verify_graph(bad,self.root)
+
+    def test_comparison_budget_does_not_change_extracted_header_roles(self):
+        self.scope_fixtures()
+        raw=self.graph('not-compared',limits={'comparisons':1});graph=self.graph(limits={'comparisons':1})
+        self.assertEqual(raw['nodes'],graph['nodes']);self.assertEqual(raw['sources'],graph['sources'])
+        self.assertIn('comparison_budget',graph['limits_or_exclusions'])
+
+    def test_bom_at_example_container_start_does_not_hide_scope(self):
+        self.put('a.md','Message-ID: MAIL-001\n\nOriginal.');self.put('b.md','Message-ID: MAIL-001\n\nOriginal.')
+        for example in ('\ufeff```text\r\nMessage-ID: MAIL-001\r\n```','\ufeff# Documentation example\nMessage-ID: MAIL-001','\ufeff> Message-ID: MAIL-001'):
+            self.put('example.md',example);graph=self.assert_scope_invariants()
+            self.assertEqual(len(next(e for e in graph['edges'] if e['kind']=='candidate_identity_cluster')['members']),2)
+
+    def test_nested_forward_closing_only_inner_message_does_not_expose_outer_quote(self):
+        self.put('nested.md','Message-ID: REAL-001\n\nOuter.\n\nBegin forwarded message:\nMessage-ID: COPY-001\n\nBegin forwarded message:\nMessage-ID: COPY-002\n# Documentation example\nEnd forwarded message\nMessage-ID: COPY-003\nEnd forwarded message\n\nMessage-ID: REAL-002\n\nNew record.')
+        graph=self.assert_scope_invariants()
+        self.assertEqual(len([n for n in graph['nodes'] if n['kind']=='source_occurrence']),2)
+        headers={n['value']:n for n in graph['nodes'] if n['kind']=='header_identifier'}
+        self.assertTrue(headers['REAL-002']['primary_identity_eligible'])
+        self.assertTrue(all(not headers[n]['primary_identity_eligible'] for n in ('COPY-001','COPY-002','COPY-003')))
+
     def test_stages_are_inspectable_without_resolving_identity_or_authority(self):
         self.fixtures();limits=S.limits_for()
         extracted=S.extract(self.root,limits)

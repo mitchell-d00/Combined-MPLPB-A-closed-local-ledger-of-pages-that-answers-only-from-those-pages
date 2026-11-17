@@ -1,0 +1,24 @@
+test_fenced_example_is_observation_not_primary_identity_member (tests.test_sorter.SorterTests.test_fenced_example_is_observation_not_primary_identity_member) ... FAIL
+test_embedded_header_does_not_partition_real_record_occurrences (tests.test_sorter.SorterTests.test_embedded_header_does_not_partition_real_record_occurrences) ... FAIL
+
+======================================================================
+FAIL: test_fenced_example_is_observation_not_primary_identity_member (tests.test_sorter.SorterTests.test_fenced_example_is_observation_not_primary_identity_member)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/mplpb/tests/test_sorter.py", line 49, in test_fenced_example_is_observation_not_primary_identity_member
+    self.assertEqual(paths,{'01-original.md','02-repeated.md'})
+AssertionError: Items in the first set but not the second:
+'03-example.md'
+
+======================================================================
+FAIL: test_embedded_header_does_not_partition_real_record_occurrences (tests.test_sorter.SorterTests.test_embedded_header_does_not_partition_real_record_occurrences)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/mplpb/tests/test_sorter.py", line 61, in test_embedded_header_does_not_partition_real_record_occurrences
+    self.assertEqual(len(occ),2)
+AssertionError: 3 != 2
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.014s
+
+FAILED (failures=2)

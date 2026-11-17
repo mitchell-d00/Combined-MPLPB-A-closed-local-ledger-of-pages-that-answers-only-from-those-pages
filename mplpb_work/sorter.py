@@ -5,6 +5,7 @@ Source text is decoded strictly as UTF-8 without newline/Unicode normalization.
 """
 import argparse
 from array import array
+from bisect import bisect_right
 from collections import defaultdict
 import hashlib
 import html
@@ -26,7 +27,7 @@ DEFAULT_LIMITS = {'files':64, 'file_bytes':1048576, 'total_bytes':8388608,
                   'edges':8192, 'statements':2000, 'statement_chars':8000,
                   'comparisons':20000, 'phrase_keys':4096, 'phrase_groups':32,
                   'prior_bytes':1048576, 'output_bytes':33554432}
-HEADER = re.compile(r'^\ufeff?[ \t]*(?:#{1,6}[ \t]+)?(Message-ID|Document-ID|Record-ID|Event-ID|Occurrence-ID|Subject|From|To|Sender|Recipient|Date|Date written|Date sent|Date received|Published|Revised|Status)[ \t]*:[ \t]*(\S[^\r\n]{0,499})(?=\r?$)', re.I|re.M)
+HEADER = re.compile(r'^\ufeff?[ \t]*(?:>[ \t]*)*(?:#{1,6}[ \t]+)?(Message-ID|Document-ID|Record-ID|Event-ID|Occurrence-ID|Subject|From|To|Sender|Recipient|Date|Date written|Date sent|Date received|Published|Revised|Status)[ \t]*:[ \t]*(\S[^\r\n]{0,499})(?=\r?$)', re.I|re.M)
 IDENTIFIER = re.compile(r'(?<![\w-])[A-Z][A-Z0-9]{1,23}-[A-Za-z0-9][A-Za-z0-9_.:/-]{0,75}(?![\w-])')
 TOKEN = r'<?[A-Za-z0-9][A-Za-z0-9_.:@/+\-]{1,98}>?'
 REFERENCE = re.compile(r'\b(in reply to|reply to|response to|see|reference|ref\.?|corrects|correction to|amends|retracts|supersedes|revises|cancels)[: \t]+('+TOKEN+r')', re.I)
@@ -170,13 +171,65 @@ def assign_status(kind,value=None,scope=None):
 
 def _fence_ranges(text):
     ranges=[];opened=None
-    for match in re.finditer(r'(?m)^[ \t]*(`{3,}|~{3,})[^\r\n]*',text):
+    for match in re.finditer(r'(?m)^\ufeff?[ \t]*(?:>[ \t]*)*(`{3,}|~{3,})([^\r\n]*)',text):
         marker=match[1]
         if opened is None:opened=(match.start(),marker)
-        elif marker[0]==opened[1][0] and len(marker)>=len(opened[1]):
+        elif marker[0]==opened[1][0] and len(marker)>=len(opened[1]) and not match[2].strip():
             ranges.append((opened[0],match.end()));opened=None
     if opened:ranges.append((opened[0],len(text)))
     return ranges
+
+
+def _embedded_ranges(text,fences):
+    """Bounded layout cues, not semantic document/event identity resolution.
+
+    Coalesced, nonoverlapping character ranges distinguish embedded appearances
+    before headers can partition occurrences. Unclosed frames remain uncertain.
+    """
+    ranges=[];fence_index=0;frame=None;forward_depth=0;example_heading=None;quotation=None
+    for line in re.finditer(r'[^\n]*(?:\n|$)',text):
+        if line.start()==line.end():continue
+        layout=line[0].lstrip('\ufeff') if line.start()==0 else line[0]
+        value=layout.strip();context=None
+        while fence_index<len(fences) and fences[fence_index][1]<=line.start():fence_index+=1
+        fenced=fence_index<len(fences) and fences[fence_index][0]<line.end() and fences[fence_index][1]>line.start()
+        if fenced:
+            context='fenced_block'
+            # A following code block supplies an explicit end for an example
+            # introduction; a containing example section/forward remains scoped.
+            if line.end()>=fences[fence_index][1] and frame=='introduced_embedded_context':frame=None
+        elif re.match(r'^\s*>',layout):context='blockquote_context'
+        else:
+            heading=re.match(r'^(#{1,6})\s+(.+?)\s*#*$',value)
+            if heading and not forward_depth and quotation is None:
+                level=len(heading[1])
+                if example_heading is not None and level<=example_heading:
+                    example_heading=None
+                    if frame=='introduced_embedded_context':frame=None
+                if re.match(r'^(?:(?:documentation|fictional|worked|code|quoted)\s+)?(?:example|sample|template)(?:\b|:)',heading[2],re.I):example_heading=level
+            end=re.match(r'^[-= ]*end\s+(?:of\s+)?(forwarded message|original message|quoted message|quotation|quote|example|sample)[-= .:]*$',value,re.I)
+            if quotation is not None:
+                context='quotation_context'
+                if value==quotation:quotation=None
+            elif value in {'"','\u201c'} or re.search(r'\b(?:wrote|said)\s*[:,]?\s*["\u201c]$',value,re.I):
+                quotation='\u201d' if value.endswith('\u201c') else '"';context='quotation_context'
+            elif end:
+                if end[1].lower() not in {'example','sample'}:forward_depth=max(0,forward_depth-1)
+                frame='forwarded_or_quoted_context' if forward_depth else None
+            elif re.match(r'^[-= ]*(?:(?:begin\s+)?forwarded message|original message|quoted message|quotation|quote)\s*[-= :]*$',value,re.I) or re.match(r'^On .{1,200}\bwrote:\s*$',value,re.I):
+                forward_depth+=1;frame='forwarded_or_quoted_context'
+            elif not forward_depth and (re.match(r'^(?:(?:the\s+)?following|below|here (?:is|are))\b.{0,180}\b(?:example|sample|illustration|quotation|quoted (?:message|text|letter))\b',value,re.I) or re.match(r'^(?:example|sample|illustration)\s*:',value,re.I)):frame='introduced_embedded_context'
+            context=context or ('example_section' if example_heading is not None else frame)
+        if context:
+            if ranges and ranges[-1][1]==line.start() and ranges[-1][2]==context:
+                ranges[-1]=(ranges[-1][0],line.end(),context)
+            else:ranges.append((line.start(),line.end(),context))
+    return ranges
+
+
+def _header_context(position,ranges,starts):
+    index=bisect_right(starts,position)-1
+    return ranges[index][2] if index>=0 and position<ranges[index][1] else 'top_level_text'
 
 
 def _scope(text):
@@ -218,11 +271,14 @@ def extract(root,limits):
         except UnicodeDecodeError:
             source['decoding']='rejected_invalid_utf8';issues.add('invalid_utf8');continue
         offsets=_byte_offsets(text);headers=list(HEADER.finditer(text));fences=_fence_ranges(text)
+        embedded=_embedded_ranges(text,fences);embedded_starts=[r[0] for r in embedded];embedded_ends=[r[1] for r in embedded]
+        header_contexts={m.start():_header_context(m.start(),embedded,embedded_starts) for m in headers}
+        primary_headers=[m for m in headers if header_contexts[m.start()]=='top_level_text']
         # Explicit identifier layout may delimit several occurrences in a file.
         # A header/date/title is never proof of the underlying event identity.
         marker=None
         for name in ('message-id','document-id','record-id'):
-            matches=[m for m in headers if m[1].lower()==name]
+            matches=[m for m in primary_headers if m[1].lower()==name]
             if matches:marker=matches;break
         starts=[0]+([m.start() for m in marker[1:]] if marker else [])
         for begin,end in zip(starts,starts[1:]+[len(text)]):
@@ -234,10 +290,11 @@ def extract(root,limits):
             # Do not duplicate a large whole source as quoted node text.
             occurrence['span'].pop('text')
             local_headers=[m for m in headers if begin<=m.start()<end]
+            occurrence['identity_role']=('declared_record_candidate' if any(m[1].lower().endswith('-id') and header_contexts[m.start()]=='top_level_text' for m in local_headers) else 'textual_appearance_only')
             body_start=begin
             for line in text[begin:end].splitlines(keepends=True):
                 if not line.strip():body_start+=len(line);break
-                if HEADER.match(line):body_start+=len(line)
+                if HEADER.match(line) and header_contexts.get(body_start)=='top_level_text':body_start+=len(line)
                 else:break
             occurrence['body_span']=_span(source,text,offsets,body_start,end,False)
             occurrence['body_sha256']=sha(text[body_start:end].encode('utf-8'))
@@ -254,7 +311,8 @@ def extract(root,limits):
                 statements+=1
                 if statements>limits['statements']:issues.add('statement_budget');break
                 if b-a>limits['statement_chars']:issues.add('statement_character_budget');continue
-                unit_scope='quoted_or_format_scope_unresolved' if any(lo<b and hi>a for lo,hi in fences) else _scope(text[a:b])
+                embedded_index=bisect_right(embedded_ends,a)
+                unit_scope='quoted_or_format_scope_unresolved' if embedded_index<len(embedded) and embedded[embedded_index][0]<b else _scope(text[a:b])
                 statement=add('statement',source,text,offsets,a,b,occurrence=occurrence['id'],scope=unit_scope)
                 if not statement:break
                 edge(occurrence,statement,'contains_statement',[statement['id']])
@@ -268,15 +326,18 @@ def extract(root,limits):
                     if not a<=m.start()<b:continue
                     name=m[1].lower();value=m[2].rstrip();lo=m.start(2);hi=lo+len(value)
                     kind='header_identifier' if name.endswith('-id') else 'declared_status' if name=='status' else 'header'
-                    item=feature(kind,lo,hi,value=value,header_name=name)
-                    if name=='status' and item:
+                    context=header_contexts[m.start()];primary=context=='top_level_text'
+                    item=feature(kind,lo,hi,value=value,header_name=name,header_context=context,
+                                 header_role='record_declaration_candidate' if primary else 'embedded_text_observation',
+                                 primary_identity_eligible=primary and kind=='header_identifier')
+                    if name=='status' and item and primary:
                         occurrence['declared_status_candidates'].append({'value':value,'evidence_node':item['id']})
                 for m in IDENTIFIER.finditer(text,a,b):feature('identifier',m.start(),m.end(),value=m[0])
                 for m in URL.finditer(text,a,b):feature('literal_url',m.start(),m.end(),value=m[0],fetched=False)
                 for m in date_cues(text[a:b]):
                     lo=a+m.start();hi=a+m.end();role='unresolved'
                     for h in local_headers:
-                        if h.start(2)<=lo<hi<=h.end(2):role=DATE_ROLES.get(h[1].lower(),'unresolved')
+                        if h.start(2)<=lo<hi<=h.end(2) and header_contexts[h.start()]=='top_level_text':role=DATE_ROLES.get(h[1].lower(),'unresolved')
                     feature('date_expression',lo,hi,value=m[0],date_role=role,normalized_event_time=None)
                 for m in REFERENCE.finditer(text,a,b):
                     feature('reference_mention',m.start(),m.end(),value=m[2],reference_wording=m[1].lower())
@@ -326,9 +387,11 @@ def compare(extracted,limits):
     nodes. Missing/ambiguous links become review annotations, not guessed hops.
     """
     nodes=extracted['nodes'];edges=extracted['edges'];issues=extracted['issues']
-    by_id={n['id']:n for n in nodes};identifiers=defaultdict(list);subjects=defaultdict(list);phrases=defaultdict(list);checks=0
+    by_id={n['id']:n for n in nodes};identifiers=defaultdict(list);observed_identifiers=defaultdict(list);subjects=defaultdict(list);phrases=defaultdict(list);checks=0
     for node in nodes:
-        if node['kind']=='header_identifier':identifiers[node['value']].append(node)
+        if node['kind']=='header_identifier':
+            observed_identifiers[node['value']].append(node)
+            if node.get('primary_identity_eligible') is True:identifiers[node['value']].append(node)
         elif node['kind']=='header' and node['header_name']=='subject':subjects[node['value']].append(node)
         elif node['kind']=='phrase_key':phrases[node['value']].append(node)
     edge_ids={e['id'] for e in edges}
@@ -349,9 +412,17 @@ def compare(extracted,limits):
             if len(occurrences)<2:continue
             bodies={by_id[o]['body_sha256'] for o in occurrences}
             propose(occurrences[0],occurrences[1],'candidate_identity_cluster',[m['id'] for m in members],
-                    'Shared declared identifier only. Occurrences remain separate; repeated appearances do not establish independent events.',
+                    'Shared primary declaration candidates only. Occurrences remain separate; repeated appearances do not establish independent events.',
                     cluster_id='cluster:'+digest([namespace,key,occurrences])[7:],members=occurrences,
                     identity_namespace=namespace,key=key,changed_bodies=len(bodies)>1,
+                    historical_identity_established=False)
+    for items in observed_identifiers.values():
+        for node in items:
+            if node.get('primary_identity_eligible') is True:continue
+            propose(node['id'],node['occurrence'],'embedded_identifier_review',[node['id'],node['statement']],
+                    'Identifier appears in embedded text, not as a primary record declaration. Matches are lexical review notes, not identity links.',
+                    header_context=node.get('header_context'),
+                    matching_primary_occurrences=sorted({n['occurrence'] for n in identifiers.get(node['value'],[])}),
                     historical_identity_established=False)
     for key,members in sorted(subjects.items()):
         values=list({m['occurrence']:m for m in members}.values())[:16]
@@ -378,7 +449,7 @@ def compare(extracted,limits):
         proposal={'correction_window':{'expressions':window,'date_role':'proposed_effective_window_only','applied':False} if correction else None,
                   'claim_scope_quote':quote if correction else None}
         targets={x['occurrence'] for x in identifiers.get(node['value'],[])}
-        reason=('missing_or_outside_budget' if not targets else 'ambiguous_identifier' if len(targets)>1
+        reason=(('embedded_only_target' if observed_identifiers.get(node['value']) else 'missing_or_outside_budget') if not targets else 'ambiguous_identifier' if len(targets)>1
                 else 'self_reference_or_local_identifier' if next(iter(targets))==node['occurrence']
                 else 'qualified_or_quoted_reference' if node['scope']!='unqualified_text' else None)
         if reason:

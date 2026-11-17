@@ -100,3 +100,7 @@ A coherent false source can still be coherent inside the ledger. The distinction
 between source assertions and outside-world truth remains visible.
 [Readiness](PRODUCTION_READINESS.md) · [Threat model](PRODUCTION_THREAT_MODEL.md)
 · [Closed-ledger limits](CLOSED_LEDGER_BOUNDARIES.md).
+
+## Header-scope correction
+
+The [sorter scope correction](../evaluation/preprocessing-sorter/2026-11-17-header-scope/REPORT.md) distinguishes embedded header appearances from primary declaration candidates before occurrence partitioning. Quoted/forwarded/example evidence is retained, with no primary cluster membership or authority promotion. The checkpoint preserves reproducible task state and verification rules for a successor worker; this does not establish general identity accuracy or a minimum AI context requirement.

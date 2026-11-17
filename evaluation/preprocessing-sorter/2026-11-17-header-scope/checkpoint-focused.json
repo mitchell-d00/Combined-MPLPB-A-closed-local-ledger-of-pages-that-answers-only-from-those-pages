@@ -1,0 +1,83 @@
+{
+  "schema": "mplpb-sorter-header-scope-checkpoint-v1",
+  "task": "Fix occurrence/header classification before primary identity proposals, without deleting embedded evidence.",
+  "status": "implementation and focused verification complete; frozen-archive regression pending",
+  "baseline_commit": "ccbb5804eb47f78c2338d57c142ad087b47be710",
+  "supplied_probe_sha256": "ef1c0e7064d88a88617ee4a639cd1fa3d8c8fa57990ece22c13f55f543d8f3b1",
+  "implementation_and_fixture_sha256": {
+    "mplpb_work/sorter.py": "0e8eb56604ba34f3eaf5be85f3c0787c3ce40bb2ecf68809c040ca2fff38834e",
+    "tests/test_sorter.py": "03899071c65ee56ead1e51d291d5567f9a9b014926a97e5218a3d245324e41ce",
+    "tests/fixtures/sorter_header_scope/01-original.md": "4702a113e724721a5c0f821d9084de96e43b3d0dc4d8943cb8989750d9cadd34",
+    "tests/fixtures/sorter_header_scope/02-repeated.md": "4702a113e724721a5c0f821d9084de96e43b3d0dc4d8943cb8989750d9cadd34",
+    "tests/fixtures/sorter_header_scope/03-example.md": "9833c27dfb89c60c8f5993fd2781f8590e2e72fe2560aec6232598a66104563e"
+  },
+  "before_after": {
+    "minimal_cluster_members": [
+      3,
+      2
+    ],
+    "supplied_cluster_members": [
+      4,
+      3
+    ],
+    "concatenated_occurrences": [
+      3,
+      2
+    ],
+    "all_source_bytes_unchanged": true
+  },
+  "verification_rules": [
+    "Only structurally primary declaration candidates can delimit records, supply primary identity clusters or resolve reference targets.",
+    "Embedded identifier/header observations must remain with exact source spans and review annotations, never silently discarded.",
+    "Both modes emit identical sources/nodes/assessments; compare appends only review edges.",
+    "All answer_supported/source_support_established/historical_truth_independently_verified flags remain false; native serving gates are unchanged."
+  ],
+  "resume_commands": [
+    "python -m unittest tests.test_sorter -q",
+    "python -m unittest tests.test_sorter tests.test_answer_boundaries tests.test_scoped_extensions tests.test_source_mapping tests.test_supersession_policy -q",
+    "python -m unittest discover -s tests -q",
+    "python -m tools.evaluate_public_evidence --require-capabilities --output NEW_OUTPUT.json"
+  ],
+  "last_results": [
+    {
+      "command": "two new targeted regressions before implementation change",
+      "exit_code": 1,
+      "tests": 2,
+      "failures": 2,
+      "log": "before-regressions.log"
+    },
+    {
+      "command": "python -m unittest tests.test_sorter -q",
+      "exit_code": 0,
+      "tests": 42,
+      "log": "sorter.log"
+    },
+    {
+      "command": "focused sorter/native suites",
+      "exit_code": 0,
+      "tests": 99,
+      "log": "focused.log"
+    },
+    {
+      "command": "unchanged supplied reproduce_upstream.py before fix",
+      "exit_code": 0,
+      "log": "supplied-before.log"
+    },
+    {
+      "command": "unchanged supplied reproduce_upstream.py after fix",
+      "exit_code": 1,
+      "expected_reason": "Its final assertion requires the bug-presence boolean quoted_header_in_unverified_cluster=true. False is the desired fix; retain this failed assertion, do not edit the supplied script to hide it.",
+      "log": "supplied-after.log"
+    }
+  ],
+  "remaining_ambiguity": [
+    "Unmarked copied headers and damaged/OCR quotation delimiters can still be ambiguous; no general semantic classification claimed.",
+    "Explicit unclosed forwarded/quoted/example frames remain review-scoped until a supported end delimiter; genuine embedded historical records are retained but not primary cluster members."
+  ],
+  "continuity_scope": {
+    "new_process_replays_used": true,
+    "fresh_AI_instance_resume": "NOT RUN",
+    "minimum_model_context_tokens": null,
+    "note": "The checkpoint preserves public task state and verification obligations, not model identity, private context or authenticated historical truth."
+  }
+}
