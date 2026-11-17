@@ -41,6 +41,7 @@ The [package guide](docs/PACKAGE_GUIDE.md) explains the implementation modules,
 optional components, storage boundaries and how these parts connect. It includes
 the [local MCP adapter](docs/MCP_AGENT.md), [crawler](crawler/README.md),
 [optional browser helper](docs/FREE_PUBLIC_HELPER.md),
+[constrained native local narrator](docs/LOCAL_NARRATOR.md),
 [lab-only reference corpus](reference_corpus/README.md),
 [resources](resources/README.md), and preserved [earlier implementations](parts/README.md).
 

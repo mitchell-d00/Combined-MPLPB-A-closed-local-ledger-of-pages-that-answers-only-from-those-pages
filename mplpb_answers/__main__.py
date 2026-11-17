@@ -64,6 +64,29 @@ def cmd_candidates(args):
     return {'return':0,'ambiguous':2,'not_in_corpus':3}[result.kind]
 
 
+def cmd_narrate(args):
+    from .local_narrator import narrate
+    try:
+        result = narrate(args.question, args.corpus, args.profile, no_model=args.no_model)
+    except (ValueError, OSError) as exc:
+        print(json.dumps({'error': str(exc), 'answer_supported': False}), file=sys.stderr)
+        return 1
+    if args.json:
+        print(json.dumps(result.to_dict(), indent=2, ensure_ascii=False))
+    else:
+        print(('VALIDATED FORMATTING' if result.narration['status'] == 'validated_formatting'
+               else 'LEDGER ONLY') + ' — ' + result.kind)
+        print(result.text)
+        if result.narration['reason']:
+            print('Narrator: ' + result.narration['reason'])
+        for claim in result.ledger_result.get('claims', []):
+            for cite in claim.get('citations', []):
+                print('[{source_id} {hash} {path}:{body_start}-{body_end}] {quote}'.format(**cite))
+        print(result.ledger_result['source_assurance']['notice'])
+    return {'supported_answer': 0, 'conflict': 2, 'clarify': 5,
+            'partial_answer': 4}.get(result.kind, 3)
+
+
 def cmd_tags(args):
     from mplpb_combined.ledger import Ledger
     from mplpb_combined.provenance_gate import gather
@@ -144,6 +167,13 @@ def build_parser():
     candidate = sub.add_parser('candidates', help='inspect legacy lexical candidates; not supported answers',
                                parents=[legacy_parser()._subparsers._group_actions[0].choices['ask']], add_help=False)
     candidate.set_defaults(fn=cmd_candidates)
+    narrator = sub.add_parser('narrate', help='optionally format a strict answer with a constrained local model')
+    narrator.add_argument('question')
+    narrator.add_argument('--corpus', required=True)
+    narrator.add_argument('--profile', choices=R.PROFILES, default=R.DEFAULT_PROFILE)
+    narrator.add_argument('--no-model', action='store_true', help='use the pure ledger result without model calls')
+    narrator.add_argument('--json', action='store_true')
+    narrator.set_defaults(fn=cmd_narrate)
     tags=sub.add_parser('tag-procedure',help='draft numbered-step tags without promoting them to evidence')
     tags.add_argument('root');tags.add_argument('path')
     tags.add_argument('--profile',choices=R.PROFILES,default='internal')

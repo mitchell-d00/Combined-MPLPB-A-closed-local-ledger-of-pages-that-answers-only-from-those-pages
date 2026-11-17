@@ -104,3 +104,14 @@ between source assertions and outside-world truth remains visible.
 ## Header-scope correction
 
 The [sorter scope correction](../evaluation/preprocessing-sorter/2026-11-17-header-scope/REPORT.md) distinguishes embedded header appearances from primary declaration candidates before occurrence partitioning. Quoted/forwarded/example evidence is retained, with no primary cluster membership or authority promotion. The checkpoint preserves reproducible task state and verification rules for a successor worker; this does not establish general identity accuracy or a minimum AI context requirement.
+
+## Optional constrained local narrator
+
+The [native narrator](LOCAL_NARRATOR.md) supports Ollama, llama.cpp's server and
+other loopback OpenAI-compatible servers. It formats complete strict answers in
+approved layouts, bypasses inference for refusals/partial evidence, and rechecks
+source and policy state after generation. [Frozen development evidence](../evaluation/general-reader/2026-11-17-local-narrator/REPORT.md)
+records 18 narrator tests, 1,219 passing Python tests, 52 public-evidence controls
+and browser/WebAssembly compatibility checks. Live neural-model quality and
+independent semantic review remain NOT RUN; this does not raise answer coverage
+or establish production readiness.

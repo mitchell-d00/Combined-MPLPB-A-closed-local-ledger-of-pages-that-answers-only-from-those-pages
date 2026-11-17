@@ -1,0 +1,93 @@
+[
+  {
+    "command": [
+      "python",
+      "tools/check_ui_script.py"
+    ],
+    "exit_code": 0,
+    "wall_seconds": 0.7163386850006646,
+    "log": "check-0.log"
+  },
+  {
+    "command": [
+      "node",
+      "tools/check_browser_transport.cjs"
+    ],
+    "exit_code": 0,
+    "wall_seconds": 0.0641662920024828,
+    "log": "check-1.log"
+  },
+  {
+    "command": [
+      "node",
+      "tests/javascript-api.cjs"
+    ],
+    "exit_code": 0,
+    "wall_seconds": 0.6668938119983068,
+    "log": "check-2.log"
+  },
+  {
+    "command": [
+      "node",
+      "tests/documentary-render.cjs"
+    ],
+    "exit_code": 0,
+    "wall_seconds": 0.06414309799583862,
+    "log": "check-3.log"
+  },
+  {
+    "command": [
+      "node",
+      "tests/browser-ai-helper.cjs"
+    ],
+    "exit_code": 0,
+    "wall_seconds": 0.4651817359990673,
+    "log": "check-4.log"
+  },
+  {
+    "command": [
+      "node",
+      "tests/browser-model-loader.cjs"
+    ],
+    "exit_code": 1,
+    "wall_seconds": 3.323210585003835,
+    "log": "check-5.log"
+  },
+  {
+    "command": [
+      "node",
+      "tests/browser-webgpu-limits.cjs"
+    ],
+    "exit_code": 1,
+    "wall_seconds": 0.21490043900121236,
+    "log": "check-6.log"
+  },
+  {
+    "command": [
+      "node",
+      "crawler/test_worker.mjs"
+    ],
+    "exit_code": 0,
+    "wall_seconds": 0.11465470799885225,
+    "log": "check-7.log"
+  },
+  {
+    "command": [
+      "node",
+      "crawler/test_historical.mjs"
+    ],
+    "exit_code": 0,
+    "wall_seconds": 0.06438066800183151,
+    "log": "check-8.log"
+  },
+  {
+    "command": [
+      "node",
+      "--check",
+      "tools/mplpb_agent_bridge.mjs"
+    ],
+    "exit_code": 0,
+    "wall_seconds": 0.03214687600120669,
+    "log": "check-9.log"
+  }
+]

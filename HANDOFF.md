@@ -4,49 +4,40 @@ Last reviewed: 2026-11-17.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `bbd5bd2914fb4565c8561672dae3bd5f9779aad6` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `68659dacee35bf8a8f105c6836c7cfdcfb455fe416ad9b67100dbfad47ca8a1a`.
+Base commit: `bbadcaa9d629b003997d4f780cb218e661cbd54b` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `1639c08a94d1c2f2e945e82661672e05887b1d52eca46799b71edc154e12f93e`.
 
 ## Latest user update instructions
 
-Reproduce, diagnose, and fix false identity clustering in MPLPB’s offline sorter. Most important instruction is to fix occurrence classification, not just remove one cluster edge. A good fix distinguishes “this identifier appears in a document” from “this identifier is declared as the identity of this document.”
-
-One of the main things we preserve the task state and verification rules so any capable AI instance can resume the work. demonstrating that the system doesn’t need its previous AI instance to keep functioning. While investigating how little continuity an individual AI instance actually needs.
+Add a local small-language-model frontend strictly subordinated to the existing MPLPB authority rules. Present these five options, then implement Option 5 in full: Constrained Local Narrator. Configuration via MPLPB_NARRATOR_BACKEND=ollama|llamacpp|openai, MPLPB_NARRATOR_MODEL and MPLPB_NARRATOR_BASE_URL. Every generation runs strict answering first, supplies exact eligible spans and authority rules, validates output deterministically, and falls back on failure. Expose narrate(question, corpus_path, profile) and mplpb-combined narrate; keep models optional with --no-model. Do not change ownership rules, hash checks or finite grammar. Begin by scaffolding Option 5 as described above.
 
 Merge it
 
 ## Implemented scope
 
-- Reproduce the supplied probe on the native package and preserve original archive/source bytes. Add and run failing regression tests before implementation.
-- Classify embedded versus primary headers before source-occurrence partitioning; preserve all observed quotations and forward/copy appearances.
-- Gate primary cluster/reference/status/date consumers by structural role; add inspectable embedded-identifier review annotations. No reader/authority changes.
-- Extend positive, adversarial, Unicode, budget, replay and native safety checks; preserve before/after exact evidence-node traces.
-- Retain a resumable checkpoint with source/test/probe hashes, commands, results, verification contracts and remaining ambiguity independent of this conversation.
-- Add a fresh-process checkpoint consumer; retain exact consumed checkpoint, minimal-environment results and frozen-archive evidence. No model identity or private transcript required for deterministic verification.
-- Publish the verified sorter scope fix through a pull request to main, preserving required archive-first and regression gates; do not bypass protection.
+- Implement optional local narrator and CLI using existing strict answer coordinator and bounded loopback transport; Ollama, llama.cpp server and generic OpenAI-compatible server protocols.
+- Accept only complete unchanged ledger text in approved layouts; exact quotes alone and model confidence never establish support. Refusal/conflict/partial bypass inference; fresh strict proof and source/policy recheck after model attempt.
+- Add18 narrator tests and backend HTTP fixtures; document configuration, labels, exact citations, failure behavior and limits; preserve historical evidence.
+- Publish the tested narrator branch through a pull request and merge into main only after all required checks pass on the exact candidate head.
 
 ## Validation recorded
 
-- Baselineccbb580 sorter suite27 tests passed0.891s. Two new regressions failed before changes:3-member cluster and3 instead of2 occurrence partitions. Exit1/log retained.
-- Full native supplied probe reproduced baseline contamination (4 cluster members). After fix the original probe intentionally exits1 because its bug-presence assertion is now false; other invariants remain true.
-- Final sorter42 tests passed1.005s; focused sorter/native99 tests passed1.989s, exit0. All12 requested classes covered with positive and negative controls.
-- Minimal cluster3→2, supplied cluster4→3; source/node observations remain preserved and source bytes unchanged. Concatenated file partitions3→2.
-- Frozen6289eca archive passed51 boundary tests,1201 full Python tests and52 public evidence cases (zero observed false-supported bridges), all exit0. Full suite wall337.562s/CPU322.809s; peak child RSS306565120bytes.
-- Fresh process consumed saved checkpoint, verified pins and passed42 sorter tests with stdin closed/no model credentials; wall1.218s. Fresh AI-instance resume and minimum model context remain NOT RUN/unknown.
+- Baseline17 native tests passed with local sockets enabled; initial sandbox failed7 HTTP setups because sockets were denied. Logs retained.
+- First new tests had2 fixture errors: agreeing exact-field values were not a conflict in the existing coordinator. Corrected fixtures and added a separate multiple-owner statement control; no core rules changed.
+- Focused66 tests passed5.406s. Frozencc49d6e extracted archive passed1219 Python tests and52 public evidence cases, zero observed false-supported bridges, all exit0; full wall362.109s/CPU345.241s, max child RSS299597824bytes.
+- JavaScript, crawler, actual Pyodide314.0.7 and real Chromium public-baseline/candidate-preview compatibility tests passed. Initial two Node EPERM failures and missing-browser executable failure are retained with unchanged successful retries after environment fixes.
 
 ## Limitations and blocked checks
 
-- Finite layout recognition, not semantic authentication or general event identity resolution. Unmarked/OCR-damaged copied headers may remain ambiguous.
-- Quoted/forwarded records remain inspectable but not primary declaration members; unclosed frames conservatively remain review-scoped.
-- No supported answer or historical truth is granted. Existing reader authorization/serving/retirement gates remain unchanged.
-- A deterministic fresh-process replay is not a measured proof of arbitrary AI-instance continuity or historical accuracy.
+- Live neural generation and independent semantic review NOT RUN; authored protocol fixtures are not model-quality validation.
+- Only complete exact answer formatting is allowed; arbitrary paraphrase, semantic extension, streaming and model-only claims are disabled.
+- Loopback cannot attest that a service never forwards remotely; local operators must disable forwarding. Socket timeouts do not establish total wall-time against malicious trickle responses.
 
 ## Next steps
 
-- Create the sorter-fix pull request, wait for required checks on its exact head, merge when green, then inspect the Pages deployment separately. Merge authorization is explicit; no claim of deployed verification before it passes.
-- Read checkpoint.json and REPORT.md in evaluation/preprocessing-sorter/2026-11-17-header-scope; use resume_verification.py with a new output directory to verify pins and existing tests.
-- Preserve the implementation freeze6289eca and its archived results separately from evidence-only commits; do not restore the defect to satisfy the supplied probe’s obsolete bug-presence assertion.
-- Future research: measure a genuinely fresh AI worker’s resumption using only the public handoff; do not infer model continuity or semantic accuracy from deterministic software replay.
+- Resume from docs/LOCAL_NARRATOR.md, the dated general-reader narrator REPORT.md and checkpoint.json; verify source hashes before changing implementation.
+- No live neural generation or independent semantic review was performed. Test explicitly installed local models separately; retain exact-rendering rejection and final source/policy recheck.
+- Merge explicitly authorized. Push branch, open PR, wait for required archive-first/regression checks, then merge without bypassing protection. Inspect deployment separately; retain tested runtimecc49d6e and its evidence.
 
 ## Use this ZIP in your repository
 
