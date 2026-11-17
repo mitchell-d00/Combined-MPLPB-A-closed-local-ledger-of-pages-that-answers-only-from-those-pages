@@ -4,38 +4,33 @@ Last reviewed: 2026-11-17.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `26ca2b5be17281684551ca2649ff62e7c0aa250f` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `50fe15a1b91a2c7da7f06de66374cbbbfe64431d8d8d3b9f0b1f249efbd2fdb7`.
+Base commit: `49b2360934cc2ebb37688414902d68f7b83d2cb8` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `a5a495cd823d046290224c99342384cc75c14e86bc90cb62faa63271285818f9`.
 
 ## Latest user update instructions
 
-Push it to main merge and update all documentation write me a new paper by Mitchell d Mcphetridge in txt pdf and md A Dual-Mode Sorter for MPLPB: Turning Unformatted Material into Inspectable Candidates; Source-Anchored Candidate Extraction for Closed Local Ledgers
+Rewrite the papers remove that I used Ai to write it “Prepared with AI-assisted implementation and writing.” Folks dismiss ai as sloppy I’m not sloppy did you upload th3 paper to my repo?
 
 ## Implemented scope
 
-- Publish authorized offline sorter and native export work to main through a PR with exact-head required checks.
-- Write a new dated technical paper by Mitchell D. McPhetridge with requested title/subtitle in Markdown, text and PDF; retain source/format hashes and honest measurement boundaries.
-- Refresh relevant operational documentation, installation/pipeline guidance, repository map, fix log and past-documentation navigation, preserving frozen originals and earlier reports.
-- Extend existing paper renderer with explicit source and metadata parameters, optional invariant PDF metadata; runtime remains standard-library only.
+- Revise the published sorter technical paper in Markdown, text and PDF to remove the requested preparation sentence.
+- Update the paper guide, version1.1 metadata, generated-format hashes and documentation catalog; preserve factual evaluation and independent-validation limits.
+- Publish the requested paper-only revision through normal protected-main PR checks; no runtime or historical evidence changes.
 
 ## Validation recorded
 
-- Inherited measured sorter runtime30f0d89:1184 tests and52 public controls; current publication head is separate and not yet checked.
-- New nine-page paper renders with requested PDF author/title metadata. Sample pages visually inspected; initial orphan final line removed, rerendered to nine pages.
-- New renderer tests2/2 passed0.109s; custom-source text rendering leaves original paper bytes unchanged, invariant PDF builds repeat exactly under ReportLab4.4.9.
-- Remote main is3df2c6e and branch is four commits ahead with no divergence at initial fetch. Active Bear ruleset requires PR plus archive-first/regression on exact up-to-date head; no reviewer approval required.
+- Prior paper was uploaded and merged to main by PR47, commit49b2360; publication workflow44093727619 succeeded.
+- All three v1.1 formats regenerated with existing renderer. Exact editorial-only source diff, whitespace-normalized PDF/text sentence removal, retained validation limitations, nine-page count and all format hashes checked. Focused renderer/handoff/documentation tests12/12 passed0.225s.
 
 ## Limitations and blocked checks
 
-- Sorter output remains non-authoritative; no historical reconstruction, truth or supported-answer completion gain claimed.
-- All semantic accuracy/human review measurements remain null/NOT RUN. Retained paper results are developer-authored controls, not publication-head or deployment evidence.
-- Original historical corpora, questions, reports, original papers and vendor bytes remain untouched.
+- Historical semantic review remains NOT RUN; removing the preparation sentence does not alter the report’s measurements or support boundaries.
+- Original historical sources, older papers and evaluation reports remain unchanged.
 
 ## Next steps
 
-- Freeze and ZIP-test publication candidate, push branch and create PR.
-- Wait for exact-head archive-first/regression and other checks, merge to main without bypassing branch rules.
-- Verify Pages build/deploy and actual live-browser checks; report exact merge/deployment receipts.
+- Check rendered PDF/text, hashes and exact requested-sentence removal; run focused documentation/renderer tests from a committed archive.
+- Push and merge the editorial PR only after exact-head required CI succeeds.
 
 ## Use this ZIP in your repository
 
