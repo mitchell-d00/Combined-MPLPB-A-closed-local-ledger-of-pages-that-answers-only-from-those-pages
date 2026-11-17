@@ -4,8 +4,8 @@ Last reviewed: 2026-11-17.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `482e4987fec1d91c835a08198b140892bb0dc661` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `2402362114547fe6aa0e927586365a896eac2f63634512635f1f52710111dadb`.
+Base commit: `d369346dfcdf4c6cd87866971b352be639506277` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `57c84a843b316d72d1348fb59da57f05cc97d077367280d9b406e6befd8687da`.
 
 ## Latest user update instructions
 
@@ -47,6 +47,7 @@ The supporting tools stay separate; they do not count toward this milestone.
 - Final committed source ZIP validation and original-record before/after runs pending.
 - Intermediate482e498:1148 tests ran351.638s, one dependency-allowlist failure because functools was not yet explicitly permitted; public52/52, JavaScript and WebAssembly passed. Explicit standard-library dependency list updated without permitting network/model imports.
 - New arrangement completion plus existing repo/documentary/solo controls:80 tests passed5.404s; development unchangedH02 gains source-only completion with three citations, pending frozen final runs and blinded AI assessment.
+- Frozen d369346 full run:1157 tests ran335.529s with one prior H02 test expecting partial; its expected kind is updated to the explicitly requested source-arrangement completion, strengthening three-witness/no-execution assertions. Frozen corpus/questions/expected-result files remain unchanged. Final rerun pending.
 
 ## Limitations and blocked checks
 
