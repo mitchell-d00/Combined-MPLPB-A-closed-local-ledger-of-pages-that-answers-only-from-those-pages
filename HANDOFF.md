@@ -4,8 +4,8 @@ Last reviewed: 2026-11-18.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `4785b13c25c4cd88c3365d2524c4ff1624d786b4` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `e0bdf2301ec6e3ed2536f6afc1c7777e67ecec6da21af247c1c66bf3215aa287`.
+Base commit: `4b6b1f67c231df756a3b7eefb13b13cc3a9b9436` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `80c050ad5962e7e4f4fbae3ec4a37311da1fae132e6fa6f73db5f3973eba46dd`.
 
 ## Latest user update instructions
 
@@ -35,6 +35,7 @@ I’d make 22/22 correct outcomes the goal. For questions the originals can answ
 - Conservatively separate vocabulary ranking from relationship generation: remove995 neighbor-only pair proposals, retain explicit source-key/reference/literal-wording reviews, and stop automatic traversal of weak wording/subject cues.
 - Preserve completed v2 trial; add generic reader-owned atomic proof-witness admission, question-part allocation, exact-span deduplication, class-gated inspection and final citation limits; leave documentary verifier byte unchanged.
 - Inspect the eight supplied past-work repositories for reusable authority/discovery boundaries; no external code imported.
+- Repair an existing legacy adapter regression through independent native retrieval when an adapter replaces every normal passage with review hints; search-only hints still receive no admission or traversal.
 
 ## Validation recorded
 
@@ -48,6 +49,7 @@ I’d make 22/22 correct outcomes the goal. For questions the originals can answ
 - 65 focused controls passed1.437s after conservative repair. Final v2 three-arm and full regression runs pending.
 - V2 conservative trial completed66 executions:1 complete/22 and26/32 draft spans in every arm; full1242 tests passed408.304s.
 - H05 pilot recovers identical four source spans4070 characters; source verifier SHA unchanged. Generic two-part, duplicate and counterevidence controls executed. Full updated study and regression pending at source freeze.
+- Frozen4b6b1f6 four-arm study completed88 workers, H05 complete in every arm at4 spans4070 characters. Extracted source full1249 tests found1 compatibility failure in existing sorter-first adapter; preserve failure and fix without changing tests or verifier.
 
 ## Limitations and blocked checks
 
@@ -57,7 +59,8 @@ I’d make 22/22 correct outcomes the goal. For questions the originals can answ
 
 ## Next steps
 
-- Freeze this implementation, execute direct plus three sorter arms on identical22 originals/questions/budgets, run full regression and publish complete outcomes including failures.
+- Freeze compatibility repair and rerun full regression and all four22-question arms with identical sources/questions/budgets; publish exact source-linked results.
+- Finish source audit, review packets and exact-head release CI; independent human and unseen evaluation remains NOT RUN.
 
 ## Use this ZIP in your repository
 

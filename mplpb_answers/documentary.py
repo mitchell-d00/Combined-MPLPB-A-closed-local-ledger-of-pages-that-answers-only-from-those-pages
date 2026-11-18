@@ -199,6 +199,13 @@ def compose(index,max_passages,max_chars):
     # Reader-selected rule dependencies survive reranking and final cutoff.
     # Sorter search-only suggestions remain separate locators for review.
     if planned:ordinary=planned['passages']
+    elif not ordinary:
+        # Older retrieval adapters can tag every source passage as a hint.
+        # Recover through this index's own native question search, never through
+        # a synonym score, hinted endpoint or class supplied by the sorter.
+        native=index.retrieve([index.question],max_passages,max_chars)
+        ordinary=native['passages']
+        admission.discovery['native_fallback_passages']=len(ordinary)
     from .source_units import expand
     passages,context_limits=expand(index,ordinary,max_passages,max_chars)
     if any(g['kind']=='wording_comparison' for g in goals):

@@ -21,3 +21,5 @@ Reproduce focused controls with:
 ```sh
 python -m unittest tests.test_witness_admission tests.test_sorter_suggestions -q
 ```
+
+The first frozen admission trial (`4b6b1f6`) completed88 study workers but failed one of1249 full regression tests: an older adapter marked all native search results as hints. The compatibility repair falls back to the index’s independent native query retrieval when no ordinary passages remain. It does not admit synonym hints. The old test and failed trial remain unchanged. A new reader freeze and rerun are required.

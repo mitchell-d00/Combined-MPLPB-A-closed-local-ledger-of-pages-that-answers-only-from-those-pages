@@ -14,6 +14,7 @@ import time
 def main():
     p=argparse.ArgumentParser(description=__doc__);p.add_argument('study',type=Path)
     p.add_argument('--implementation',type=Path,required=True);p.add_argument('--output',type=Path,required=True)
+    p.add_argument('--include-direct',action='store_true',help='Also replay the completed direct arm')
     a=p.parse_args();implementation=a.implementation.resolve();study=a.study.resolve()
     sys.path.insert(0,str(implementation))
     from tools.unprepared_challenge import read,save,code_pins,sha
@@ -33,7 +34,7 @@ def main():
         with tempfile.TemporaryDirectory() as tmp:
             ledger=Path(tmp)/'ledger';imported=import_corpus(corpus,ledger)
             if imported!=read(study/family/'import-receipt.json'):raise ValueError('Import changed')
-            for arm in ['sorter-alone','synonyms','synonyms-relater']:
+            for arm in (['direct'] if a.include_direct else [])+['sorter-alone','synonyms','synonyms-relater']:
                 for case in read(corpus/'questions.json')['cases']:
                     result=read(study/family/arm/(case['id']+'.json'))
                     if result.get('implementation_sha256')!=protocol['runtime_sha256']:raise ValueError('Worker reader differs')
