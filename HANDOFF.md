@@ -4,8 +4,8 @@ Last reviewed: 2026-11-18.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `7f95338dec32bc860a068f89bb3bc3e5e4ed4946` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `83fa9ba82190f4b4a5b9eaf5c07f6085f732128276bc0e03a60e53c8872480af`.
+Base commit: `e0ff22699a08f1878a1df98563ef1d19d40860fe` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `357481fed120f83a7562dc94d5c22045ebb0476a6ae41452baa8253bfe2959ed`.
 
 ## Latest user update instructions
 
@@ -20,6 +20,8 @@ Keep the MPLPB decision visible alongside exploration when the user asks a quest
 Count only eligible owners in that decision. Candidate links and synonym matches must never change ownership or eligibility. Use a separate, bounded exploration budget so candidate review cannot displace passages needed for strict proof. Show when either budget truncates the results.
 
 Test all three ownership outcomes, a processed passage that contradicts an approved original, and a topic found only in processed documents. Verify that exploration still works when the strict answer is withheld, and that H05 stays complete at its original strict-reader budget.
+
+Once it’s finished push to main update Readme add new tools etc update documents then merge
 
 ## Implemented scope
 
@@ -38,6 +40,8 @@ Test all three ownership outcomes, a processed passage that contradicts an appro
 - Retain initial workspace public/native/full results and reproduced disconnected-word false suggestion; replace bag-of-words source links with existing literal four-word phrase evidence. Search neighbors still rank processed hits only.
 - Repair measured unique-phrase positive omission using existing bounded four-word tokenization, and preserve the disconnected-word negative.
 - Move the existing reversible projection into an installed runtime module with the research-tool interface preserved; add actual isolated-wheel integration to the existing ZIP release gate after reproducing a missing-tools failure.
+- Update README, current documentation index, package map and affected operational guides with new tools, exact commands, measured results and authority limits; preserve historical records.
+- Publish final evidence and merge PR52 to main only after exact final-head source ZIP, regression, installed-wheel and browser gates pass; retain merge/deployment receipts.
 
 ## Validation recorded
 
@@ -61,20 +65,20 @@ Test all three ownership outcomes, a processed passage that contradicts an appro
 - New disconnected-words negative control failed under v1 and passes under conservative v2;60 focused controls passed19.715s, preserving exact/reference/correction/contradiction positives.
 - Workspace v2:22 native results unchanged at2 complete/22;1266 extracted-ZIP tests passed386.280s; public fictional contracts52/52. Five same-source workspace runs completed, retaining15 exact matches but exposing no phrase positives.
 - New unique-phrase control reproduced an omission and installed v2 wheel failed with ModuleNotFoundError tools. Both failures retained. Repaired source passes67 focused controls20.119s and an actual isolated installed-wheel exact-match/strict-source/replay check without checkout tools.
+- Final workspace runtimee0ff22699a08f1878a1df98563ef1d19d40860fe:1267 extracted-ZIP tests passed389.724s,52 fictional contract controls passed, installed frozen wheel isolated replay passed.
+- All22 native outputs, exact source citations and missing-information lists unchanged at2 complete/22. Five actual public-source workspace cases freshly replayed.15 exact matches retained;49 literal phrase cues replace164 broad overlaps;39 processed passages displayed versus28 initially.
 
 ## Limitations and blocked checks
 
-- 2/22 complete coverage restored, no new complete answer beyond historical baseline. Correct-outcome judgments, semantic historical recall and global false-link rate remain unassessed.
-- Independent human and unseen-original evaluation NOT RUN; packets prepared.22 questions remain development data.
-- Concurrent local timings are measured, not controlled efficiency comparisons. Model/API use zero; compute price and real human times unknown.
-- Exact final publication-head ZIP/browser release gates remain separate from executed runtime6aa tests.
-- Workspace is an opt-in offline native/CLI surface; no new browser UI or independent semantic accuracy claimed.
-- Legacy ownership finds no H05 owner, while standalone multi-source proof remains complete. Workspace route refusal is not a budget regression.
+- No new strict-answer coverage beyond2/22 complete; correct historical outcomes, relationship precision/recall and appropriate-refusal accuracy remain unassessed.
+- All processed meanings remain candidates outside approved evidence. Human and unseen-original semantic evaluation NOT RUN.
+- Workspace is native/CLI, not a new browser UI. Its single-page ownership policy is distinct from standalone multi-source strict proof.
+- Exact final publication-head CI and postmerge Pages verification remain pending; local/extracted runtime checks are not deployment receipts.
 
 ## Next steps
 
-- Freeze repaired runtime, rerun all22 native questions, full extracted-ZIP regression, five same-source workspace cases and installed-wheel test; publish actual costs, successes, misses and unknown semantic judgments.
-- Publish final focused PR52 evidence and require exact-head ZIP/browser gates; independent human/unseen evaluation NOT RUN.
+- Require exact final-head ZIP/regression/installed-wheel/browser checks, merge PR52 with the user’s authorization, then verify Pages deployment and postmerge live smoke.
+- Retain failures and prepared independent review materials; future semantic improvement requires source-grounded assessment beyond development22.
 
 ## Use this ZIP in your repository
 

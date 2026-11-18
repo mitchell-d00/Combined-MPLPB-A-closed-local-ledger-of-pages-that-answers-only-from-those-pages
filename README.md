@@ -1,6 +1,6 @@
 # Combined MPLPB
 
-Last reviewed: 2026-11-17.
+Last reviewed: 2026-11-18.
 
 Combined MPLPB is a closed local ledger with tools for raw-material sorting,
 bounded source questions, documentary inspection and retained work history.
@@ -28,6 +28,8 @@ shared-service production readiness remain unestablished.
 | Part | What it does | What its output establishes |
 |---|---|---|
 | [Offline sorter](docs/PREPROCESSING_SORTER.md) | Extracts keys, dates, headers, references and repeated phrases from raw UTF-8 text/Markdown, with exact source spans | Textual observations and optional review edges; no supported answers |
+| [Optional sorter review aids](docs/SORTER_REVIEW_OPTIONS.md) | Rank exact/search-neighbor wording and propose source-linked reviews | Inspectable suggestions; no ownership or source support |
+| [Candidate review workspace](docs/CANDIDATE_REVIEW_WORKSPACE.md) | Compare processed passages with eligible originals, explore unmatched topics and inspect disagreements | Processed material stays outside approved evidence; original approval never transfers |
 | [Ledger and provenance gate](docs/PROVENANCE_GATE.md) | Keeps sealed pages, revisions, ancestry, restrictions and current serving eligibility | Which source bytes and pages may be inspected under the selected policy |
 | [Strict answer reader](docs/GENERAL_ANSWER_PIPELINE.md) | Checks eligible body statements against bounded question/proof rules | Source-attributed support where established; ambiguity or refusal otherwise |
 | [Page and source inspection](docs/PAGE_RETRIEVAL.md) | Retrieves an eligible owner page or keeps matching sources separate | Inspectable pages/bundles, not a factual answer merely because retrieval succeeded |
@@ -91,6 +93,62 @@ all three profiles. It must not be reactivated as factual evidence.
 Sorting does not automatically admit originals for supported answering. Use the
 existing source-management/import workflow with the originals' actual permissions,
 provenance and delivery policy. [Input/output contract and commands](docs/PREPROCESSING_SORTER.md).
+
+## New optional review tools
+
+**Sorter suggestions for review. MPLPB has not verified these links or answers.**
+The Synonym Ranker keeps exact and neighbor signals distinct. The Candidate Relater
+retains unresolved references, possible corrections and wording reviews. The review
+workspace compares processed text with eligible originals, shows both evidence
+statuses, and keeps exploration separate from strict proof admission.
+
+Replace `PROCESSED_DIRECTORY` and `NATIVE_LEDGER` with your own source directories;
+use fresh output names outside both input collections:
+
+```bash
+python -m mplpb_work.sorter_suggestions sort PROCESSED_DIRECTORY --mode compare \
+  --query 'Who received the report?' --synonym-ranker --candidate-relater \
+  --output NEW_SUGGESTIONS.json
+python -m mplpb_work.sorter sort PROCESSED_DIRECTORY --mode compare --output NEW_GRAPH.json
+python -m mplpb_work.candidate_workspace build NEW_GRAPH.json \
+  --processed PROCESSED_DIRECTORY --originals NATIVE_LEDGER \
+  --question 'Who received the report?' --output NEW_WORKSPACE.json
+python -m mplpb_work.candidate_workspace peruse NEW_GRAPH.json \
+  --processed PROCESSED_DIRECTORY --originals NATIVE_LEDGER --workspace NEW_WORKSPACE.json
+```
+
+The workspace takes the base sorter graph. Every processed passage/conclusion is
+**candidate for review** and **Exploratory · outside MPLPB-approved evidence.**
+Eligible-original citations show their own status. Matching an original never
+approves a processed copy. One eligible owner returns its page and independently
+checked strict evidence; competing owners require disambiguation; no owner retains
+labeled exploration without returning support through that ownership route.
+
+Review has its own bounded passage/character budget, with explicit truncation;
+it never consumes strict proof slots. Perusal rechecks source bytes, permissions,
+eligibility and decisions. These are native/CLI tools, including the installed
+wheel; this update adds no browser workspace. The standalone multi-source strict
+pipeline remains distinct from the workspace's single-page ownership panel.
+[Full workspace commands and boundaries](docs/CANDIDATE_REVIEW_WORKSPACE.md).
+
+The [frozen workspace report](evaluation/candidate-review-workspace/2026-11-18-runtime/REPORT.md)
+retains all22 native results unchanged at2 complete source-supported answers.
+H05 still uses4 witnesses/4070 characters within12 passages/8000 characters.
+Five public-document workspace executions retain15 exact matches and49 literal
+phrase reviews, with39 processed passages displayed versus28 in the initial trial.
+These are development navigation results, not verified historical relationships.
+The extracted runtime ZIP passes1267 tests; the installed wheel and separate52
+fictional contract controls pass. Independent human/unseen evaluation is NOT RUN.
+The goal remains22 evidence-justified outcomes, counting completeness separately.
+
+Source-checkout evaluation tools are also available:
+
+| Tool | Purpose |
+|---|---|
+| `tools/sorter_first_study.py` / `sorter_options_study.py` | Freeze and replay original questions with fixed reader/source/budget conditions |
+| `tools/evaluate_candidate_workspace.py` | Execute real source-linked workspace development cases and measure actual costs |
+| `tools/report_candidate_workspace.py` | Compare all22 native outputs and inspect separate candidate-budget invariants |
+| `tools/check_candidate_workspace_install.py` | Verify the installed wheel under isolated Python without checkout-only tools |
 
 ## Ask, retrieve or investigate deliberately
 

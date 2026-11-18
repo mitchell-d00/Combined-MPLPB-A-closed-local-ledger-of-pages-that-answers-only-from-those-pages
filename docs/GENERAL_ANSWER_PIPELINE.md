@@ -1,6 +1,6 @@
 # General answer pipeline — 2.1.0rc1
 
-Last reviewed: 2026-11-17. See [current status and result-to-test index](CURRENT_STATUS.md). Dates and numeric results in historical validation sections retain their original scope; this review is not a rerun or independent certification.
+Last reviewed: 2026-11-18. See [current status and result-to-test index](CURRENT_STATUS.md). Dates and numeric results in historical validation sections retain their original scope; this review is not a rerun or independent certification.
 
 Package role: [how this part fits Combined MPLPB](PACKAGE_GUIDE.md#answers-and-inspection). Strict proof, candidate inspection and model-only interpretation retain separate support states.
 
@@ -220,3 +220,5 @@ deterministic support.
 ## Raw-material preprocessing boundary
 
 The [offline sorter](PREPROCESSING_SORTER.md) emits candidate graphs and optionally a sealed retired snapshot. Native format validation and `show` inspection do not award strict source support. Existing `gate` and `ask` calls withhold the snapshot under lab/internal/external. No sorter relationship bypasses this pipeline or changes the finite grammar. [Technical paper](research/dual-mode-sorter/README.md).
+
+The [reader-owned admission layer](PASSAGE_ADMISSION.md) retains atomic question-specific proof witnesses through the original cutoff and charges duplicate spans once. The [optional candidate workspace](CANDIDATE_REVIEW_WORKSPACE.md) uses separate exploration limits and never passes processed hints into strict proof. Its ownership panel applies the one/two/no-owner policy separately from the existing multi-source evidence pipeline; standalone H05 remains complete. The documentary verifier is byte unchanged.
