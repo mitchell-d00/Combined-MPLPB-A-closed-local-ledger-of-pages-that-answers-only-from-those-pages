@@ -376,8 +376,15 @@ def declared_fields(record):
         offset+=len(line)
     return [{'field':field_name(m[1]), 'value':m[2].strip(), 'quote':m[0],
              'source_id':record.id, 'path':record.path, 'hash':record.hash_actual,
-             'body_start':m.start(), 'body_end':m.end(), 'start':m.start(), 'end':m.end()}
+             'body_start':m.start(), 'body_end':m.end(), 'start':m.start(), 'end':m.end(),
+             'stacked_field_suspected':bool(STACKED_LABEL.search(m[2]))}
             for m in FIELD_LINE.finditer(body[:boundary])]
+
+
+# plain_to_html joins the lines of one paragraph with spaces, so a header block
+# "Sender: A\nRecipient: B" is served as "Sender: A Recipient: B". A later
+# "Label: " inside a value means the value boundary is unknown: refuse it.
+STACKED_LABEL = re.compile(r'\s[A-Za-z][A-Za-z0-9_-]{0,40}(?: [A-Za-z0-9_-]{1,40}){0,3}:[ \t]+\S')
 
 
 def field_contexts(record, requested):

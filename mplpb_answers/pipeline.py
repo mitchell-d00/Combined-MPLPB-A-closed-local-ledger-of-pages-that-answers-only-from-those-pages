@@ -18,6 +18,7 @@ DIAGNOSTICS = {
     'contradictory_passages_pruned': 'Increase the evidence budget to display all competing passages; no selected subset licenses an answer.',
     'event_identity_unresolved': 'Supply an explicit source-declared event or occurrence key; similar subjects do not establish identity.',
     'correction_scope_unclear': 'Name the corrected field and, when needed, an ISO as-of time.',
+    'stacked_field_paragraph': 'Revise the page so each "Field: value" line is its own paragraph (blank line between); mplpb_work.classing does this.',
 }
 
 
@@ -243,6 +244,10 @@ def _answer_query(root, question, profile=None, *, mode, reader, min_confidence,
                       for f in relation_graph.declared_fields(r) if f['field']==exact['field']]
                 if not rows:
                     return finish('abstain','exact_field_missing','The exact eligible record has no explicit body evidence for the requested field.','strict')
+                if any(r.get('stacked_field_suspected') for r in rows):
+                    contract['claims']=[{'text':r['quote'],'qualifiers':['Field value boundary unknown; not accepted as support.'],'citations':[r]} for r in rows[:max_passages]]
+                    return finish('abstain','stacked_field_paragraph',
+                                  'The field shares one paragraph with other "Label: value" lines, so its value boundary is unknown. Put each field in its own paragraph.','strict')
                 contexts=[f for r in index.records if r.path in index.exact_paths
                           for f in relation_graph.field_contexts(r,exact['field'])]
                 rows+=contexts
