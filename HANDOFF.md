@@ -1,43 +1,49 @@
 # Repository handoff
 
-Last reviewed: 2026-11-17.
+Last reviewed: 2026-11-18.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `bbadcaa9d629b003997d4f780cb218e661cbd54b` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `1639c08a94d1c2f2e945e82661672e05887b1d52eca46799b71edc154e12f93e`.
+Base commit: `6350988a2f64d8e5fa53bd187d368f4397bf4f4c` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `3247d75a4b661144d4113a6539d1afa40153c9301cef2da9c20515ff796f76f3`.
 
 ## Latest user update instructions
 
-Add a local small-language-model frontend strictly subordinated to the existing MPLPB authority rules. Present these five options, then implement Option 5 in full: Constrained Local Narrator. Configuration via MPLPB_NARRATOR_BACKEND=ollama|llamacpp|openai, MPLPB_NARRATOR_MODEL and MPLPB_NARRATOR_BASE_URL. Every generation runs strict answering first, supplies exact eligible spans and authority rules, validates output deterministically, and falls back on failure. Expose narrate(question, corpus_path, profile) and mplpb-combined narrate; keep models optional with --no-model. Do not change ownership rules, hash checks or finite grammar. Begin by scaffolding Option 5 as described above.
+Add an optional Synonym Ranker and Candidate Relater to the offline sorter package. Start from the existing sorter and reuse its exact source spans, hashes, occurrence IDs, and review annotations. Preserve the current not-compared and compare outputs when the new options are off.
 
-Merge it
+The Synonym Ranker should help users find relevant passages even when the wording differs. Start with a small, inspectable vocabulary and an optional user-supplied glossary. Keep exact matches and synonym matches visible as distinct ranking signals. For each hit, show the original phrase, the term it matched, the exact source span, and why it ranked. Preserve the original wording and keep contradictory passages visible.
+
+The Candidate Relater should propose links such as possible references, possible duplicate appearances, conflicting versions, and possible corrections. Give each end of a link an exact source span and explain what prompted the proposal. Shared wording and synonym matches can suggest what to inspect. Leave identity, chronology, causation, or correction status unresolved when the sources do not establish it. For example, “planned to send,” “sent,” and “received” may be useful search neighbors, but retain their distinct meanings and qualifications.
+
+In the CLI and any user-facing display, label the results “Sorter suggestions for review. MPLPB has not verified these links or answers.” Keep rank scores and candidate links non-authoritative in the machine-readable output as well. Users can follow suggestions back to eligible originals for strict checking. Preserve MPLPB’s current ownership, eligibility, correction, and proof rules.
+
+Let the sorter-first retest already underway finish as configured. Then compare three runs on the same 22 questions, originals, reader revision, and budgets: sorter alone, sorter with the synonym ranker, and sorter with both additions. Report newly located relevant passages, false links, and changes in complete strict answers separately. Retain the exact passages behind each change. Include regression cases for ambiguous synonyms, negation, quoted headers, shared subjects, and missing links. Use the 22-question set for development and reserve unseen originals for independent evaluation.
 
 ## Implemented scope
 
-- Implement optional local narrator and CLI using existing strict answer coordinator and bounded loopback transport; Ollama, llama.cpp server and generic OpenAI-compatible server protocols.
-- Accept only complete unchanged ledger text in approved layouts; exact quotes alone and model confidence never establish support. Refusal/conflict/partial bypass inference; fresh strict proof and source/policy recheck after model attempt.
-- Add18 narrator tests and backend HTTP fixtures; document configuration, labels, exact citations, failure behavior and limits; preserve historical evidence.
-- Publish the tested narrator branch through a pull request and merge into main only after all required checks pass on the exact candidate head.
+- Complete frozen22-question direct versus unreserved sorter-first retest before introducing review additions; preserve measured H05 regression and preparation-only layout pilot.
+- Add opt-in lexical neighbor ranking and candidate relation review beside the byte-unchanged core sorter; retain exact spans, qualifications and non-authority.
+- Add fresh replay/perusal and bounded user glossary, source/pin guards and explicit ambiguous-sense signals.
+- Prepare all22 questions for the subsequent three-arm study using one strict reader pin and a common discovery-reservation guard; do not alter original questions, sources, budgets or proof rules.
 
 ## Validation recorded
 
-- Baseline17 native tests passed with local sockets enabled; initial sandbox failed7 HTTP setups because sockets were denied. Logs retained.
-- First new tests had2 fixture errors: agreeing exact-field values were not a conflict in the existing coordinator. Corrected fixtures and added a separate multiple-owner statement control; no core rules changed.
-- Focused66 tests passed5.406s. Frozencc49d6e extracted archive passed1219 Python tests and52 public evidence cases, zero observed false-supported bridges, all exit0; full wall362.109s/CPU345.241s, max child RSS299597824bytes.
-- JavaScript, crawler, actual Pyodide314.0.7 and real Chromium public-baseline/candidate-preview compatibility tests passed. Initial two Node EPERM failures and missing-browser executable failure are retained with unchanged successful retries after environment fixes.
+- Direct22 reproduced2 supported,1 partial,3 conflict,16 abstain; configured sorter-first completed22 with1 supported,2 partial,3 conflict,16 abstain. Draft span discovery27/32 to25/32.
+- Original retest regression suite1225 tests passed356.255s; log retained.
+- New focused sorter/adapter controls are executed separately; final three-arm/full regression results pending.
+- 63 focused legacy sorter, new review-option and experiment adapter tests passed in1.445s, covering source pins, exact routes, current eligibility, qualification-preserving neighbors, ambiguity, embedded headers, shared subjects, missing targets, source replay and CLI perusal.
 
 ## Limitations and blocked checks
 
-- Live neural generation and independent semantic review NOT RUN; authored protocol fixtures are not model-quality validation.
-- Only complete exact answer formatting is allowed; arbitrary paraphrase, semantic extension, streaming and model-only claims are disabled.
-- Loopback cannot attest that a service never forwards remotely; local operators must disable forwarding. Socket timeouts do not establish total wall-time against malicious trickle responses.
+- Sorter-first retrieval can regress complete answers; H05 is retained as an actual failure.
+- Source-faithful lexical suggestions are not established historical relationships.
+- Default sorter statement/phrase caps leave incomplete extraction.
+- Three-arm results pending; no independent human evaluation or genuinely unseen evaluation claimed.
 
 ## Next steps
 
-- Resume from docs/LOCAL_NARRATOR.md, the dated general-reader narrator REPORT.md and checkpoint.json; verify source hashes before changing implementation.
-- No live neural generation or independent semantic review was performed. Test explicitly installed local models separately; retain exact-rendering rejection and final source/policy recheck.
-- Merge explicitly authorized. Push branch, open PR, wait for required archive-first/regression checks, then merge without bypassing protection. Inspect deployment separately; retain tested runtimecc49d6e and its evidence.
+- Freeze the optional-feature candidate; run all three arms under identical conditions and publish per-case changes, exact source witnesses, false/unresolved link assessment and costs.
+- Run the full regression suite and extracted source checks; publish a focused PR without claiming deployment or independent validation.
 
 ## Use this ZIP in your repository
 

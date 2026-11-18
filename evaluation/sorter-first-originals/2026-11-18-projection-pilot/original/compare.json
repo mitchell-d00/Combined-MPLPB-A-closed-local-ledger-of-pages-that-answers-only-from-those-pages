@@ -1,0 +1,1200 @@
+{
+  "schema": "offline-candidate-sorter-v1",
+  "implementation_sha256": "sha256:0e8eb56604ba34f3eaf5be85f3c0787c3ce40bb2ecf68809c040ca2fff38834e",
+  "mode": "compare",
+  "comparison_performed": true,
+  "sources": [
+    {
+      "id": "source:15cf77c5005d5bc4a7f07b7e3cb16309ffdd08f428dfcc692006d08adac36e95",
+      "path": "ORIGINAL-0001.txt",
+      "raw_sha256": "sha256:999aadd94732bc112c43277100115d618f13ef7f35f01b64330c572c94cb3a00",
+      "bytes": 450000,
+      "encoding": "utf-8",
+      "policy_status": "not_evaluated",
+      "assessment": {
+        "status": "unassessed_candidate",
+        "answer_supported": false,
+        "source_support_established": false,
+        "historical_truth_independently_verified": false,
+        "serving_eligibility": "not_evaluated"
+      }
+    },
+    {
+      "id": "source:fbaa43e940c670c7c14abc4fee411dff4cafb00797bd9e1f836ad133a1fad7fe",
+      "path": "ORIGINAL-0002.txt",
+      "raw_sha256": "sha256:eac723de01fa5bf5723a2da772fcdd42330b6c72e43f0ddcf0bb53e08c7c1e5c",
+      "bytes": 450000,
+      "encoding": "utf-8",
+      "policy_status": "not_evaluated",
+      "assessment": {
+        "status": "unassessed_candidate",
+        "answer_supported": false,
+        "source_support_established": false,
+        "historical_truth_independently_verified": false,
+        "serving_eligibility": "not_evaluated"
+      }
+    },
+    {
+      "id": "source:60d784c99394da50f4d8d4352abc025407266ab4ced921da558c84a1a6f77fd7",
+      "path": "ORIGINAL-0003.txt",
+      "raw_sha256": "sha256:91bc741558941490c9b95eca92aea1e686f30a36c8482abe32c146aaa6e9b1c2",
+      "bytes": 167459,
+      "encoding": "utf-8",
+      "policy_status": "not_evaluated",
+      "assessment": {
+        "status": "unassessed_candidate",
+        "answer_supported": false,
+        "source_support_established": false,
+        "historical_truth_independently_verified": false,
+        "serving_eligibility": "not_evaluated"
+      }
+    },
+    {
+      "id": "source:3b46474ba50cf23226ca652425d83786eb9f1a995b76f080282aa26cbbf2b680",
+      "path": "ORIGINAL-0004.txt",
+      "raw_sha256": "sha256:4264d198083cd09e32078c5ab523a2a8eecab93ca4e3e175ff18a65f69ed4e50",
+      "bytes": 10878,
+      "encoding": "utf-8",
+      "policy_status": "not_evaluated",
+      "assessment": {
+        "status": "unassessed_candidate",
+        "answer_supported": false,
+        "source_support_established": false,
+        "historical_truth_independently_verified": false,
+        "serving_eligibility": "not_evaluated"
+      }
+    },
+    {
+      "id": "source:666424f6ffa3a12a9fa1355655c7635f2b750a986ef5a7b3e6d00ea2eae53ffe",
+      "path": "ORIGINAL-0005.txt",
+      "raw_sha256": "sha256:8072cca8159fd027e318cf1096afe980123a1384629aafe464b0755ecb9a8fea",
+      "bytes": 11572,
+      "encoding": "utf-8",
+      "policy_status": "not_evaluated",
+      "assessment": {
+        "status": "unassessed_candidate",
+        "answer_supported": false,
+        "source_support_established": false,
+        "historical_truth_independently_verified": false,
+        "serving_eligibility": "not_evaluated"
+      }
+    },
+    {
+      "id": "source:1e2382f9cae38574c54aa9ae4ae2dcc3aad5382aa0267b6180190913156c217e",
+      "path": "ORIGINAL-0006.txt",
+      "raw_sha256": "sha256:e67446830eeb99b17c8668d5bfd56eda866094578a6f0b2bd14542dd7390c1a7",
+      "bytes": 4697,
+      "encoding": "utf-8",
+      "policy_status": "not_evaluated",
+      "assessment": {
+        "status": "unassessed_candidate",
+        "answer_supported": false,
+        "source_support_established": false,
+        "historical_truth_independently_verified": false,
+        "serving_eligibility": "not_evaluated"
+      }
+    },
+    {
+      "id": "source:2bc7a3872c643255dbf7d832a27c624058b1397b3858f695300e6c983a6576e7",
+      "path": "ORIGINAL-0007.txt",
+      "raw_sha256": "sha256:1c5e277db38fdb12b506279674db491aa4bbdc82d0772787128b5accfaa90fe3",
+      "bytes": 260680,
+      "encoding": "utf-8",
+      "policy_status": "not_evaluated",
+      "assessment": {
+        "status": "unassessed_candidate",
+        "answer_supported": false,
+        "source_support_established": false,
+        "historical_truth_independently_verified": false,
+        "serving_eligibility": "not_evaluated"
+      }
+    }
+  ],
+  "nodes": [
+    {
+      "id": "node:67b540410c239a588f07f8cbbd79b9271a9a509e06c8e2bb93fe7c436bd2d3e3",
+      "kind": "source_occurrence",
+      "span": {
+        "source_id": "source:15cf77c5005d5bc4a7f07b7e3cb16309ffdd08f428dfcc692006d08adac36e95",
+        "source_sha256": "sha256:999aadd94732bc112c43277100115d618f13ef7f35f01b64330c572c94cb3a00",
+        "path": "ORIGINAL-0001.txt",
+        "char_start": 0,
+        "char_end": 450000,
+        "byte_start": 0,
+        "byte_end": 450000
+      },
+      "assessment": {
+        "status": "source_occurrence_candidate",
+        "answer_supported": false,
+        "source_support_established": false,
+        "historical_truth_independently_verified": false,
+        "serving_eligibility": "not_evaluated"
+      },
+      "boundary_basis": "whole_file_appearance",
+      "event_identity": null,
+      "independent_event_established": false,
+      "identity_role": "textual_appearance_only",
+      "body_span": {
+        "source_id": "source:15cf77c5005d5bc4a7f07b7e3cb16309ffdd08f428dfcc692006d08adac36e95",
+        "source_sha256": "sha256:999aadd94732bc112c43277100115d618f13ef7f35f01b64330c572c94cb3a00",
+        "path": "ORIGINAL-0001.txt",
+        "char_start": 0,
+        "char_end": 450000,
+        "byte_start": 0,
+        "byte_end": 450000
+      },
+      "body_sha256": "sha256:999aadd94732bc112c43277100115d618f13ef7f35f01b64330c572c94cb3a00",
+      "declared_status_candidates": [],
+      "provisional_ledger_status": "undetermined_candidate"
+    },
+    {
+      "id": "node:e2878bb5ad5051e637177d03b7bed77cc15f450b2cc6d457d8524c76e325660c",
+      "kind": "source_occurrence",
+      "span": {
+        "source_id": "source:fbaa43e940c670c7c14abc4fee411dff4cafb00797bd9e1f836ad133a1fad7fe",
+        "source_sha256": "sha256:eac723de01fa5bf5723a2da772fcdd42330b6c72e43f0ddcf0bb53e08c7c1e5c",
+        "path": "ORIGINAL-0002.txt",
+        "char_start": 0,
+        "char_end": 450000,
+        "byte_start": 0,
+        "byte_end": 450000
+      },
+      "assessment": {
+        "status": "source_occurrence_candidate",
+        "answer_supported": false,
+        "source_support_established": false,
+        "historical_truth_independently_verified": false,
+        "serving_eligibility": "not_evaluated"
+      },
+      "boundary_basis": "whole_file_appearance",
+      "event_identity": null,
+      "independent_event_established": false,
+      "identity_role": "textual_appearance_only",
+      "body_span": {
+        "source_id": "source:fbaa43e940c670c7c14abc4fee411dff4cafb00797bd9e1f836ad133a1fad7fe",
+        "source_sha256": "sha256:eac723de01fa5bf5723a2da772fcdd42330b6c72e43f0ddcf0bb53e08c7c1e5c",
+        "path": "ORIGINAL-0002.txt",
+        "char_start": 0,
+        "char_end": 450000,
+        "byte_start": 0,
+        "byte_end": 450000
+      },
+      "body_sha256": "sha256:eac723de01fa5bf5723a2da772fcdd42330b6c72e43f0ddcf0bb53e08c7c1e5c",
+      "declared_status_candidates": [],
+      "provisional_ledger_status": "undetermined_candidate"
+    },
+    {
+      "id": "node:b9abdac65c930913cb4f62254c115e57863e6aad7955e882dc22a6ad978c7b7c",
+      "kind": "source_occurrence",
+      "span": {
+        "source_id": "source:60d784c99394da50f4d8d4352abc025407266ab4ced921da558c84a1a6f77fd7",
+        "source_sha256": "sha256:91bc741558941490c9b95eca92aea1e686f30a36c8482abe32c146aaa6e9b1c2",
+        "path": "ORIGINAL-0003.txt",
+        "char_start": 0,
+        "char_end": 167459,
+        "byte_start": 0,
+        "byte_end": 167459
+      },
+      "assessment": {
+        "status": "source_occurrence_candidate",
+        "answer_supported": false,
+        "source_support_established": false,
+        "historical_truth_independently_verified": false,
+        "serving_eligibility": "not_evaluated"
+      },
+      "boundary_basis": "whole_file_appearance",
+      "event_identity": null,
+      "independent_event_established": false,
+      "identity_role": "textual_appearance_only",
+      "body_span": {
+        "source_id": "source:60d784c99394da50f4d8d4352abc025407266ab4ced921da558c84a1a6f77fd7",
+        "source_sha256": "sha256:91bc741558941490c9b95eca92aea1e686f30a36c8482abe32c146aaa6e9b1c2",
+        "path": "ORIGINAL-0003.txt",
+        "char_start": 0,
+        "char_end": 167459,
+        "byte_start": 0,
+        "byte_end": 167459
+      },
+      "body_sha256": "sha256:91bc741558941490c9b95eca92aea1e686f30a36c8482abe32c146aaa6e9b1c2",
+      "declared_status_candidates": [],
+      "provisional_ledger_status": "undetermined_candidate"
+    },
+    {
+      "id": "node:6b69af831a89bba852368ecd6f5202426281a0dc8edf16981c3a5e7a54a9426b",
+      "kind": "source_occurrence",
+      "span": {
+        "source_id": "source:3b46474ba50cf23226ca652425d83786eb9f1a995b76f080282aa26cbbf2b680",
+        "source_sha256": "sha256:4264d198083cd09e32078c5ab523a2a8eecab93ca4e3e175ff18a65f69ed4e50",
+        "path": "ORIGINAL-0004.txt",
+        "char_start": 0,
+        "char_end": 10878,
+        "byte_start": 0,
+        "byte_end": 10878
+      },
+      "assessment": {
+        "status": "source_occurrence_candidate",
+        "answer_supported": false,
+        "source_support_established": false,
+        "historical_truth_independently_verified": false,
+        "serving_eligibility": "not_evaluated"
+      },
+      "boundary_basis": "whole_file_appearance",
+      "event_identity": null,
+      "independent_event_established": false,
+      "identity_role": "textual_appearance_only",
+      "body_span": {
+        "source_id": "source:3b46474ba50cf23226ca652425d83786eb9f1a995b76f080282aa26cbbf2b680",
+        "source_sha256": "sha256:4264d198083cd09e32078c5ab523a2a8eecab93ca4e3e175ff18a65f69ed4e50",
+        "path": "ORIGINAL-0004.txt",
+        "char_start": 0,
+        "char_end": 10878,
+        "byte_start": 0,
+        "byte_end": 10878
+      },
+      "body_sha256": "sha256:4264d198083cd09e32078c5ab523a2a8eecab93ca4e3e175ff18a65f69ed4e50",
+      "declared_status_candidates": [],
+      "provisional_ledger_status": "undetermined_candidate"
+    },
+    {
+      "id": "node:42e3122252e96ae443509fe8e2636cbaa10a927926473eeb78d564ab1debd2a1",
+      "kind": "source_occurrence",
+      "span": {
+        "source_id": "source:666424f6ffa3a12a9fa1355655c7635f2b750a986ef5a7b3e6d00ea2eae53ffe",
+        "source_sha256": "sha256:8072cca8159fd027e318cf1096afe980123a1384629aafe464b0755ecb9a8fea",
+        "path": "ORIGINAL-0005.txt",
+        "char_start": 0,
+        "char_end": 11561,
+        "byte_start": 0,
+        "byte_end": 11572
+      },
+      "assessment": {
+        "status": "source_occurrence_candidate",
+        "answer_supported": false,
+        "source_support_established": false,
+        "historical_truth_independently_verified": false,
+        "serving_eligibility": "not_evaluated"
+      },
+      "boundary_basis": "whole_file_appearance",
+      "event_identity": null,
+      "independent_event_established": false,
+      "identity_role": "textual_appearance_only",
+      "body_span": {
+        "source_id": "source:666424f6ffa3a12a9fa1355655c7635f2b750a986ef5a7b3e6d00ea2eae53ffe",
+        "source_sha256": "sha256:8072cca8159fd027e318cf1096afe980123a1384629aafe464b0755ecb9a8fea",
+        "path": "ORIGINAL-0005.txt",
+        "char_start": 0,
+        "char_end": 11561,
+        "byte_start": 0,
+        "byte_end": 11572
+      },
+      "body_sha256": "sha256:8072cca8159fd027e318cf1096afe980123a1384629aafe464b0755ecb9a8fea",
+      "declared_status_candidates": [],
+      "provisional_ledger_status": "undetermined_candidate"
+    },
+    {
+      "id": "node:be540729b9b42fba26e77955fa7d177876b170d6ed50fe136b61b219e17a9626",
+      "kind": "source_occurrence",
+      "span": {
+        "source_id": "source:1e2382f9cae38574c54aa9ae4ae2dcc3aad5382aa0267b6180190913156c217e",
+        "source_sha256": "sha256:e67446830eeb99b17c8668d5bfd56eda866094578a6f0b2bd14542dd7390c1a7",
+        "path": "ORIGINAL-0006.txt",
+        "char_start": 0,
+        "char_end": 4676,
+        "byte_start": 0,
+        "byte_end": 4697
+      },
+      "assessment": {
+        "status": "source_occurrence_candidate",
+        "answer_supported": false,
+        "source_support_established": false,
+        "historical_truth_independently_verified": false,
+        "serving_eligibility": "not_evaluated"
+      },
+      "boundary_basis": "whole_file_appearance",
+      "event_identity": null,
+      "independent_event_established": false,
+      "identity_role": "textual_appearance_only",
+      "body_span": {
+        "source_id": "source:1e2382f9cae38574c54aa9ae4ae2dcc3aad5382aa0267b6180190913156c217e",
+        "source_sha256": "sha256:e67446830eeb99b17c8668d5bfd56eda866094578a6f0b2bd14542dd7390c1a7",
+        "path": "ORIGINAL-0006.txt",
+        "char_start": 0,
+        "char_end": 4676,
+        "byte_start": 0,
+        "byte_end": 4697
+      },
+      "body_sha256": "sha256:e67446830eeb99b17c8668d5bfd56eda866094578a6f0b2bd14542dd7390c1a7",
+      "declared_status_candidates": [],
+      "provisional_ledger_status": "undetermined_candidate"
+    },
+    {
+      "id": "node:108af954ebb6ee45b77fd3955fbee5eb3c1a3f2c9227f74974bdc4362670ffa2",
+      "kind": "statement",
+      "span": {
+        "source_id": "source:1e2382f9cae38574c54aa9ae4ae2dcc3aad5382aa0267b6180190913156c217e",
+        "source_sha256": "sha256:e67446830eeb99b17c8668d5bfd56eda866094578a6f0b2bd14542dd7390c1a7",
+        "path": "ORIGINAL-0006.txt",
+        "char_start": 0,
+        "char_end": 4676,
+        "byte_start": 0,
+        "byte_end": 4697,
+        "text": "Top\nSkip to main content\nThe U.S. National Archives Home\nCitizen Archivists ·\nBookmark/Share\n·\nContact Us\nSearch\nSearch\nResearch Our Records\nVeterans' Service Records\nEducator Resources\nVisit Us\nAmerica's Founding Documents\nMilestone Documents\nHome > Telegram Announcing the Surrender of Fort Sumter (1861)\nComplete List of Documents\nEnlargeDownload Link\nCitation: Telegram from Maj. Robert Anderson to Hon. Simon Cameron, Secretary, announcing his withdrawal from Fort Sumter; April 18, 1861; Union Battle Reports, 1874 - 1899; Records of the Adjutant General's Office, Record Group 94; National Archives Building, Washington, DC.\nView All Pages in the National Archives Catalog\nView Transcript\nThe first engagement of the Civil War took place at Fort Sumter on April 12 and 13, 1861. After 34 hours of fighting, the Union surrendered the fort to the Confederates.\nWhen Abraham Lincoln took ofﬁce, the nation was breaking apart. South Carolina, Mississippi, Florida, Alabama, Georgia, Louisiana, and Texas had already seceded. In his inaugural address on March 4, 1861, President Abraham Lincoln asserted that secession was unconstitutional, that the Union of the states was perpetual, and states could not leave it at will.\nAs the ﬁrst states seceded, they seized most forts, arsenals, and federal property inside their borders. On April 10, 1861, Brigadier General Pierre G.T. Beauregard, in command of the provisional Confederate forces at Charleston, South Carolina, demanded the surrender of the U.S. garrison of Fort Sumter in Charleston Harbor. Garrison commander Major Robert Anderson refused.\nOn April 12, the Confederate batteries opened fire on the fort, which was unable to reply effectively. At 2:30 p.m., April 13, Major Anderson surrendered Fort Sumter, evacuating the garrison on the following day. The battle had started at 4:30 a.m. and ended 34 hours later.\nMajor Anderson notiﬁed Secretary of War Simon Cameron of the outcome of the battle by telegram ﬁve days after he surrendered to Confederate Brigadier General Pierre G.T. Beauregard, as seen in this document.\nThe bombardment of Fort Sumter was the opening engagement of the American Civil War. From 1863 to 1865, the Confederates at Fort Sumter withstood a 22-month siege by Union forces. During this time, most of the fort was reduced to brick rubble.\nThis document is available on DocsTeach, the online tool for teaching with documents from the National Archives. Find teaching activities that incorporate this document, or create your own online activity.\nPrevious DocumentNext Document\nS.S. Baltic. off Sandy Hook apr. Eighteenth Ten Thirty A.M. via New York. Hon. S. Cameron. Secy. War Washn. Having defended Fort Sumter for thirty four hours until the quarters were entirely burned the main gates destroyed by fire. The gorge walls seriously injured. The magazine surrounded by flames and its doors closed from the effects of heat. Four barrells and three cartridges of powder only being available and no provisions remaining but pork. I accepted terms of evacuation offered by General Beauregard being on same offered by him on the eleventh inst. Prior to the commencement of hostilities and marched out of the fort Sunday afternoon the fourteenth inst. With colors flying and drums beating. Bringing away company and private property and saluting my flag with fifty guns. Robert Anderson. Major First Artillery. Commanding.\nThis page was last reviewed on May 10, 2022.\nContact us with questions or comments.\nCitizen Archivists\nFederal Employees\nGenealogists\nMembers of Congress\nPreservation\nRecords Managers\nThe Press\nToday's Federal Register\nPrologue Magazine\nSubscribe to Email Newsletters\nBlogs\nAll Publications\nCenter for Legislative Archives\nFederal Records Center\nOffice of the Federal Register\nOffice of the Inspector General\nPresidential Libraries\nStaff Directory\nWhat is the National Archives?\nNational Archives by the Numbers\nDoing Business with Us\nPlans and Reports\nOpen Government\nOur Plain Language Activities\nGet My Military Record\nPlan a Research Visit\nVisit the National Archives\nView Online Exhibits\nApply for a Grant\nResearch Presidential Records\nView Highlights from Our Holdings\nAttend an Event\nDonate to the Archives\nWork at the Archives\nVolunteer at the Archives\nCelebrate Freedom 250\nA-Z Index\nAmerica's Founding Docs\nContact Us\nSocial Media\nEn Español\nFAQs\nForms\nVisit the National Archives Store\nBuy Reproductions and Microfilm\nFacebook\nX\nInstagram\nTumblr\nYouTube\nBlogs\nFlickr\nContact Us · Accessibility · Privacy Policy · Freedom of Information Act · No FEAR Act · USA.gov\nThe U.S. National Archives and Records Administration\n1-86-NARA-NARA or 1-866-272-6272\nTop\n×"
+      },
+      "assessment": {
+        "status": "unassessed_candidate;scope_review_required",
+        "answer_supported": false,
+        "source_support_established": false,
+        "historical_truth_independently_verified": false,
+        "serving_eligibility": "not_evaluated"
+      },
+      "occurrence": "node:be540729b9b42fba26e77955fa7d177876b170d6ed50fe136b61b219e17a9626",
+      "scope": "conditional_or_uncertain"
+    },
+    {
+      "id": "node:459b5943d14b7e21f0e22b47cce5b9debe496e07ae9d52244ce8974e0031c49a",
+      "kind": "date_expression",
+      "span": {
+        "source_id": "source:1e2382f9cae38574c54aa9ae4ae2dcc3aad5382aa0267b6180190913156c217e",
+        "source_sha256": "sha256:e67446830eeb99b17c8668d5bfd56eda866094578a6f0b2bd14542dd7390c1a7",
+        "path": "ORIGINAL-0006.txt",
+        "char_start": 478,
+        "char_end": 492,
+        "byte_start": 480,
+        "byte_end": 494,
+        "text": "April 18, 1861"
+      },
+      "assessment": {
+        "status": "unassessed_candidate;scope_review_required",
+        "answer_supported": false,
+        "source_support_established": false,
+        "historical_truth_independently_verified": false,
+        "serving_eligibility": "not_evaluated"
+      },
+      "statement": "node:108af954ebb6ee45b77fd3955fbee5eb3c1a3f2c9227f74974bdc4362670ffa2",
+      "occurrence": "node:be540729b9b42fba26e77955fa7d177876b170d6ed50fe136b61b219e17a9626",
+      "scope": "conditional_or_uncertain",
+      "value": "April 18, 1861",
+      "date_role": "unresolved",
+      "normalized_event_time": null
+    },
+    {
+      "id": "node:35f79dff209285aa60814ed2c20fa8d0e9b2daa1dbe16878c1a26bc01b83befc",
+      "kind": "date_expression",
+      "span": {
+        "source_id": "source:1e2382f9cae38574c54aa9ae4ae2dcc3aad5382aa0267b6180190913156c217e",
+        "source_sha256": "sha256:e67446830eeb99b17c8668d5bfd56eda866094578a6f0b2bd14542dd7390c1a7",
+        "path": "ORIGINAL-0006.txt",
+        "char_start": 763,
+        "char_end": 771,
+        "byte_start": 765,
+        "byte_end": 773,
+        "text": "April 12"
+      },
+      "assessment": {
+        "status": "unassessed_candidate;scope_review_required",
+        "answer_supported": false,
+        "source_support_established": false,
+        "historical_truth_independently_verified": false,
+        "serving_eligibility": "not_evaluated"
+      },
+      "statement": "node:108af954ebb6ee45b77fd3955fbee5eb3c1a3f2c9227f74974bdc4362670ffa2",
+      "occurrence": "node:be540729b9b42fba26e77955fa7d177876b170d6ed50fe136b61b219e17a9626",
+      "scope": "conditional_or_uncertain",
+      "value": "April 12",
+      "date_role": "unresolved",
+      "normalized_event_time": null
+    },
+    {
+      "id": "node:8a25f979e91db89d4f856f0aa664570bfad7f0b0ab701bed4d0024b30c8191c8",
+      "kind": "date_expression",
+      "span": {
+        "source_id": "source:1e2382f9cae38574c54aa9ae4ae2dcc3aad5382aa0267b6180190913156c217e",
+        "source_sha256": "sha256:e67446830eeb99b17c8668d5bfd56eda866094578a6f0b2bd14542dd7390c1a7",
+        "path": "ORIGINAL-0006.txt",
+        "char_start": 1056,
+        "char_end": 1069,
+        "byte_start": 1060,
+        "byte_end": 1073,
+        "text": "March 4, 1861"
+      },
+      "assessment": {
+        "status": "unassessed_candidate;scope_review_required",
+        "answer_supported": false,
+        "source_support_established": false,
+        "historical_truth_independently_verified": false,
+        "serving_eligibility": "not_evaluated"
+      },
+      "statement": "node:108af954ebb6ee45b77fd3955fbee5eb3c1a3f2c9227f74974bdc4362670ffa2",
+      "occurrence": "node:be540729b9b42fba26e77955fa7d177876b170d6ed50fe136b61b219e17a9626",
+      "scope": "conditional_or_uncertain",
+      "value": "March 4, 1861",
+      "date_role": "unresolved",
+      "normalized_event_time": null
+    },
+    {
+      "id": "node:43a52c595a7ef38eb766d8f4b30a2d04d8336cd5f2c9d740858c467f2704a7b8",
+      "kind": "date_expression",
+      "span": {
+        "source_id": "source:1e2382f9cae38574c54aa9ae4ae2dcc3aad5382aa0267b6180190913156c217e",
+        "source_sha256": "sha256:e67446830eeb99b17c8668d5bfd56eda866094578a6f0b2bd14542dd7390c1a7",
+        "path": "ORIGINAL-0006.txt",
+        "char_start": 1334,
+        "char_end": 1348,
+        "byte_start": 1341,
+        "byte_end": 1355,
+        "text": "April 10, 1861"
+      },
+      "assessment": {
+        "status": "unassessed_candidate;scope_review_required",
+        "answer_supported": false,
+        "source_support_established": false,
+        "historical_truth_independently_verified": false,
+        "serving_eligibility": "not_evaluated"
+      },
+      "statement": "node:108af954ebb6ee45b77fd3955fbee5eb3c1a3f2c9227f74974bdc4362670ffa2",
+      "occurrence": "node:be540729b9b42fba26e77955fa7d177876b170d6ed50fe136b61b219e17a9626",
+      "scope": "conditional_or_uncertain",
+      "value": "April 10, 1861",
+      "date_role": "unresolved",
+      "normalized_event_time": null
+    },
+    {
+      "id": "node:fdc40dfca8ae657143b30c3c11cdbebabde1bdac16eed3a2c0f992185d6bb591",
+      "kind": "date_expression",
+      "span": {
+        "source_id": "source:1e2382f9cae38574c54aa9ae4ae2dcc3aad5382aa0267b6180190913156c217e",
+        "source_sha256": "sha256:e67446830eeb99b17c8668d5bfd56eda866094578a6f0b2bd14542dd7390c1a7",
+        "path": "ORIGINAL-0006.txt",
+        "char_start": 1606,
+        "char_end": 1615,
+        "byte_start": 1613,
+        "byte_end": 1622,
+        "text": "April 12,"
+      },
+      "assessment": {
+        "status": "unassessed_candidate;scope_review_required",
+        "answer_supported": false,
+        "source_support_established": false,
+        "historical_truth_independently_verified": false,
+        "serving_eligibility": "not_evaluated"
+      },
+      "statement": "node:108af954ebb6ee45b77fd3955fbee5eb3c1a3f2c9227f74974bdc4362670ffa2",
+      "occurrence": "node:be540729b9b42fba26e77955fa7d177876b170d6ed50fe136b61b219e17a9626",
+      "scope": "conditional_or_uncertain",
+      "value": "April 12,",
+      "date_role": "unresolved",
+      "normalized_event_time": null
+    },
+    {
+      "id": "node:713e38f2dc68b4b07d4c06b5dae5e64e93679ae8ef5d7a9efddeb4cbb04276ad",
+      "kind": "date_expression",
+      "span": {
+        "source_id": "source:1e2382f9cae38574c54aa9ae4ae2dcc3aad5382aa0267b6180190913156c217e",
+        "source_sha256": "sha256:e67446830eeb99b17c8668d5bfd56eda866094578a6f0b2bd14542dd7390c1a7",
+        "path": "ORIGINAL-0006.txt",
+        "char_start": 1720,
+        "char_end": 1729,
+        "byte_start": 1728,
+        "byte_end": 1737,
+        "text": "April 13,"
+      },
+      "assessment": {
+        "status": "unassessed_candidate;scope_review_required",
+        "answer_supported": false,
+        "source_support_established": false,
+        "historical_truth_independently_verified": false,
+        "serving_eligibility": "not_evaluated"
+      },
+      "statement": "node:108af954ebb6ee45b77fd3955fbee5eb3c1a3f2c9227f74974bdc4362670ffa2",
+      "occurrence": "node:be540729b9b42fba26e77955fa7d177876b170d6ed50fe136b61b219e17a9626",
+      "scope": "conditional_or_uncertain",
+      "value": "April 13,",
+      "date_role": "unresolved",
+      "normalized_event_time": null
+    },
+    {
+      "id": "node:192bf7bdb12b9196693cd8563482755d73eb47c0f0af68bbc5af67c7caba9b59",
+      "kind": "date_expression",
+      "span": {
+        "source_id": "source:1e2382f9cae38574c54aa9ae4ae2dcc3aad5382aa0267b6180190913156c217e",
+        "source_sha256": "sha256:e67446830eeb99b17c8668d5bfd56eda866094578a6f0b2bd14542dd7390c1a7",
+        "path": "ORIGINAL-0006.txt",
+        "char_start": 3440,
+        "char_end": 3452,
+        "byte_start": 3454,
+        "byte_end": 3466,
+        "text": "May 10, 2022"
+      },
+      "assessment": {
+        "status": "unassessed_candidate;scope_review_required",
+        "answer_supported": false,
+        "source_support_established": false,
+        "historical_truth_independently_verified": false,
+        "serving_eligibility": "not_evaluated"
+      },
+      "statement": "node:108af954ebb6ee45b77fd3955fbee5eb3c1a3f2c9227f74974bdc4362670ffa2",
+      "occurrence": "node:be540729b9b42fba26e77955fa7d177876b170d6ed50fe136b61b219e17a9626",
+      "scope": "conditional_or_uncertain",
+      "value": "May 10, 2022",
+      "date_role": "unresolved",
+      "normalized_event_time": null
+    },
+    {
+      "id": "node:1c39ac8b0e2253475ece54c6564b0604150a9f49d44d8e97168f70c38fee460b",
+      "kind": "event_candidate",
+      "span": {
+        "source_id": "source:1e2382f9cae38574c54aa9ae4ae2dcc3aad5382aa0267b6180190913156c217e",
+        "source_sha256": "sha256:e67446830eeb99b17c8668d5bfd56eda866094578a6f0b2bd14542dd7390c1a7",
+        "path": "ORIGINAL-0006.txt",
+        "char_start": 824,
+        "char_end": 835,
+        "byte_start": 826,
+        "byte_end": 837,
+        "text": "surrendered"
+      },
+      "assessment": {
+        "status": "possible_event_candidate;scope_review_required",
+        "answer_supported": false,
+        "source_support_established": false,
+        "historical_truth_independently_verified": false,
+        "serving_eligibility": "not_evaluated"
+      },
+      "statement": "node:108af954ebb6ee45b77fd3955fbee5eb3c1a3f2c9227f74974bdc4362670ffa2",
+      "occurrence": "node:be540729b9b42fba26e77955fa7d177876b170d6ed50fe136b61b219e17a9626",
+      "scope": "conditional_or_uncertain",
+      "value": "surrendered",
+      "event_occurrence_established": false
+    },
+    {
+      "id": "node:a34b8be5d759c444d921f2160a7bf52667dd9ebf93f803fbb35c18617148c2f6",
+      "kind": "event_candidate",
+      "span": {
+        "source_id": "source:1e2382f9cae38574c54aa9ae4ae2dcc3aad5382aa0267b6180190913156c217e",
+        "source_sha256": "sha256:e67446830eeb99b17c8668d5bfd56eda866094578a6f0b2bd14542dd7390c1a7",
+        "path": "ORIGINAL-0006.txt",
+        "char_start": 1745,
+        "char_end": 1756,
+        "byte_start": 1753,
+        "byte_end": 1764,
+        "text": "surrendered"
+      },
+      "assessment": {
+        "status": "possible_event_candidate;scope_review_required",
+        "answer_supported": false,
+        "source_support_established": false,
+        "historical_truth_independently_verified": false,
+        "serving_eligibility": "not_evaluated"
+      },
+      "statement": "node:108af954ebb6ee45b77fd3955fbee5eb3c1a3f2c9227f74974bdc4362670ffa2",
+      "occurrence": "node:be540729b9b42fba26e77955fa7d177876b170d6ed50fe136b61b219e17a9626",
+      "scope": "conditional_or_uncertain",
+      "value": "surrendered",
+      "event_occurrence_established": false
+    },
+    {
+      "id": "node:560f78e062f167ef11e6648cab991aa620e532c42fceb925792569f929d05146",
+      "kind": "event_candidate",
+      "span": {
+        "source_id": "source:1e2382f9cae38574c54aa9ae4ae2dcc3aad5382aa0267b6180190913156c217e",
+        "source_sha256": "sha256:e67446830eeb99b17c8668d5bfd56eda866094578a6f0b2bd14542dd7390c1a7",
+        "path": "ORIGINAL-0006.txt",
+        "char_start": 1991,
+        "char_end": 2002,
+        "byte_start": 2005,
+        "byte_end": 2016,
+        "text": "surrendered"
+      },
+      "assessment": {
+        "status": "possible_event_candidate;scope_review_required",
+        "answer_supported": false,
+        "source_support_established": false,
+        "historical_truth_independently_verified": false,
+        "serving_eligibility": "not_evaluated"
+      },
+      "statement": "node:108af954ebb6ee45b77fd3955fbee5eb3c1a3f2c9227f74974bdc4362670ffa2",
+      "occurrence": "node:be540729b9b42fba26e77955fa7d177876b170d6ed50fe136b61b219e17a9626",
+      "scope": "conditional_or_uncertain",
+      "value": "surrendered",
+      "event_occurrence_established": false
+    },
+    {
+      "id": "node:7fe133cbaf0f125026907f4dc11e386fb15f1e93ff3ab6f0278d6d33b4959d9a",
+      "kind": "source_occurrence",
+      "span": {
+        "source_id": "source:2bc7a3872c643255dbf7d832a27c624058b1397b3858f695300e6c983a6576e7",
+        "source_sha256": "sha256:1c5e277db38fdb12b506279674db491aa4bbdc82d0772787128b5accfaa90fe3",
+        "path": "ORIGINAL-0007.txt",
+        "char_start": 0,
+        "char_end": 260522,
+        "byte_start": 0,
+        "byte_end": 260680
+      },
+      "assessment": {
+        "status": "source_occurrence_candidate",
+        "answer_supported": false,
+        "source_support_established": false,
+        "historical_truth_independently_verified": false,
+        "serving_eligibility": "not_evaluated"
+      },
+      "boundary_basis": "whole_file_appearance",
+      "event_identity": null,
+      "independent_event_established": false,
+      "identity_role": "textual_appearance_only",
+      "body_span": {
+        "source_id": "source:2bc7a3872c643255dbf7d832a27c624058b1397b3858f695300e6c983a6576e7",
+        "source_sha256": "sha256:1c5e277db38fdb12b506279674db491aa4bbdc82d0772787128b5accfaa90fe3",
+        "path": "ORIGINAL-0007.txt",
+        "char_start": 0,
+        "char_end": 260522,
+        "byte_start": 0,
+        "byte_end": 260680
+      },
+      "body_sha256": "sha256:1c5e277db38fdb12b506279674db491aa4bbdc82d0772787128b5accfaa90fe3",
+      "declared_status_candidates": [],
+      "provisional_ledger_status": "undetermined_candidate"
+    }
+  ],
+  "edges": [
+    {
+      "id": "edge:523f034b7ddd03103e2842c8f9858416ed0f9cf022f59538fa8ad7cc12605f75",
+      "from": "node:be540729b9b42fba26e77955fa7d177876b170d6ed50fe136b61b219e17a9626",
+      "to": "node:108af954ebb6ee45b77fd3955fbee5eb3c1a3f2c9227f74974bdc4362670ffa2",
+      "kind": "contains_statement",
+      "evidence_nodes": [
+        "node:108af954ebb6ee45b77fd3955fbee5eb3c1a3f2c9227f74974bdc4362670ffa2"
+      ],
+      "confidence": null,
+      "evidence_note": "Literal source-text observation; no historical relationship established.",
+      "assessment": {
+        "status": "unassessed_candidate",
+        "answer_supported": false,
+        "source_support_established": false,
+        "historical_truth_independently_verified": false,
+        "serving_eligibility": "not_evaluated"
+      }
+    },
+    {
+      "id": "edge:a4a57dd08a0327f5e05e5792a7653f52c8678d25acfee530896a133bbfb98200",
+      "from": "node:108af954ebb6ee45b77fd3955fbee5eb3c1a3f2c9227f74974bdc4362670ffa2",
+      "to": "node:459b5943d14b7e21f0e22b47cce5b9debe496e07ae9d52244ce8974e0031c49a",
+      "kind": "contains_extracted_item",
+      "evidence_nodes": [
+        "node:108af954ebb6ee45b77fd3955fbee5eb3c1a3f2c9227f74974bdc4362670ffa2",
+        "node:459b5943d14b7e21f0e22b47cce5b9debe496e07ae9d52244ce8974e0031c49a"
+      ],
+      "confidence": null,
+      "evidence_note": "Literal source-text observation; no historical relationship established.",
+      "assessment": {
+        "status": "unassessed_candidate",
+        "answer_supported": false,
+        "source_support_established": false,
+        "historical_truth_independently_verified": false,
+        "serving_eligibility": "not_evaluated"
+      }
+    },
+    {
+      "id": "edge:997d3f4c7a8485b020bdf1c184792c8d55a4aa57a1dd030459e2eb86ba42b66e",
+      "from": "node:108af954ebb6ee45b77fd3955fbee5eb3c1a3f2c9227f74974bdc4362670ffa2",
+      "to": "node:35f79dff209285aa60814ed2c20fa8d0e9b2daa1dbe16878c1a26bc01b83befc",
+      "kind": "contains_extracted_item",
+      "evidence_nodes": [
+        "node:108af954ebb6ee45b77fd3955fbee5eb3c1a3f2c9227f74974bdc4362670ffa2",
+        "node:35f79dff209285aa60814ed2c20fa8d0e9b2daa1dbe16878c1a26bc01b83befc"
+      ],
+      "confidence": null,
+      "evidence_note": "Literal source-text observation; no historical relationship established.",
+      "assessment": {
+        "status": "unassessed_candidate",
+        "answer_supported": false,
+        "source_support_established": false,
+        "historical_truth_independently_verified": false,
+        "serving_eligibility": "not_evaluated"
+      }
+    },
+    {
+      "id": "edge:8a8e69401690a7cbf73b2766aa6de479bc9a89853471f687d5be48110f31f6ca",
+      "from": "node:108af954ebb6ee45b77fd3955fbee5eb3c1a3f2c9227f74974bdc4362670ffa2",
+      "to": "node:8a25f979e91db89d4f856f0aa664570bfad7f0b0ab701bed4d0024b30c8191c8",
+      "kind": "contains_extracted_item",
+      "evidence_nodes": [
+        "node:108af954ebb6ee45b77fd3955fbee5eb3c1a3f2c9227f74974bdc4362670ffa2",
+        "node:8a25f979e91db89d4f856f0aa664570bfad7f0b0ab701bed4d0024b30c8191c8"
+      ],
+      "confidence": null,
+      "evidence_note": "Literal source-text observation; no historical relationship established.",
+      "assessment": {
+        "status": "unassessed_candidate",
+        "answer_supported": false,
+        "source_support_established": false,
+        "historical_truth_independently_verified": false,
+        "serving_eligibility": "not_evaluated"
+      }
+    },
+    {
+      "id": "edge:fce4983d79dba271c10841f55ab1e80ac3faf48a1e41525c22dddceb278acead",
+      "from": "node:108af954ebb6ee45b77fd3955fbee5eb3c1a3f2c9227f74974bdc4362670ffa2",
+      "to": "node:43a52c595a7ef38eb766d8f4b30a2d04d8336cd5f2c9d740858c467f2704a7b8",
+      "kind": "contains_extracted_item",
+      "evidence_nodes": [
+        "node:108af954ebb6ee45b77fd3955fbee5eb3c1a3f2c9227f74974bdc4362670ffa2",
+        "node:43a52c595a7ef38eb766d8f4b30a2d04d8336cd5f2c9d740858c467f2704a7b8"
+      ],
+      "confidence": null,
+      "evidence_note": "Literal source-text observation; no historical relationship established.",
+      "assessment": {
+        "status": "unassessed_candidate",
+        "answer_supported": false,
+        "source_support_established": false,
+        "historical_truth_independently_verified": false,
+        "serving_eligibility": "not_evaluated"
+      }
+    },
+    {
+      "id": "edge:44434b32dd165cf502d6859b5629b353af35c10d693b9ea56c5de4f11c6d7206",
+      "from": "node:108af954ebb6ee45b77fd3955fbee5eb3c1a3f2c9227f74974bdc4362670ffa2",
+      "to": "node:fdc40dfca8ae657143b30c3c11cdbebabde1bdac16eed3a2c0f992185d6bb591",
+      "kind": "contains_extracted_item",
+      "evidence_nodes": [
+        "node:108af954ebb6ee45b77fd3955fbee5eb3c1a3f2c9227f74974bdc4362670ffa2",
+        "node:fdc40dfca8ae657143b30c3c11cdbebabde1bdac16eed3a2c0f992185d6bb591"
+      ],
+      "confidence": null,
+      "evidence_note": "Literal source-text observation; no historical relationship established.",
+      "assessment": {
+        "status": "unassessed_candidate",
+        "answer_supported": false,
+        "source_support_established": false,
+        "historical_truth_independently_verified": false,
+        "serving_eligibility": "not_evaluated"
+      }
+    },
+    {
+      "id": "edge:ad10973427c2e411a7c65e3434098cb51a233f70202fc19d6a2b29349c9d90f2",
+      "from": "node:108af954ebb6ee45b77fd3955fbee5eb3c1a3f2c9227f74974bdc4362670ffa2",
+      "to": "node:713e38f2dc68b4b07d4c06b5dae5e64e93679ae8ef5d7a9efddeb4cbb04276ad",
+      "kind": "contains_extracted_item",
+      "evidence_nodes": [
+        "node:108af954ebb6ee45b77fd3955fbee5eb3c1a3f2c9227f74974bdc4362670ffa2",
+        "node:713e38f2dc68b4b07d4c06b5dae5e64e93679ae8ef5d7a9efddeb4cbb04276ad"
+      ],
+      "confidence": null,
+      "evidence_note": "Literal source-text observation; no historical relationship established.",
+      "assessment": {
+        "status": "unassessed_candidate",
+        "answer_supported": false,
+        "source_support_established": false,
+        "historical_truth_independently_verified": false,
+        "serving_eligibility": "not_evaluated"
+      }
+    },
+    {
+      "id": "edge:ba422f72be74c6313fa3d052a9ef3bee749ce9dc4457adc03a0d0a87216a0c12",
+      "from": "node:108af954ebb6ee45b77fd3955fbee5eb3c1a3f2c9227f74974bdc4362670ffa2",
+      "to": "node:192bf7bdb12b9196693cd8563482755d73eb47c0f0af68bbc5af67c7caba9b59",
+      "kind": "contains_extracted_item",
+      "evidence_nodes": [
+        "node:108af954ebb6ee45b77fd3955fbee5eb3c1a3f2c9227f74974bdc4362670ffa2",
+        "node:192bf7bdb12b9196693cd8563482755d73eb47c0f0af68bbc5af67c7caba9b59"
+      ],
+      "confidence": null,
+      "evidence_note": "Literal source-text observation; no historical relationship established.",
+      "assessment": {
+        "status": "unassessed_candidate",
+        "answer_supported": false,
+        "source_support_established": false,
+        "historical_truth_independently_verified": false,
+        "serving_eligibility": "not_evaluated"
+      }
+    },
+    {
+      "id": "edge:88f5744e7914b690b6cbfcd1d8d15daf381234da8e7245fecab62517e6cd151a",
+      "from": "node:108af954ebb6ee45b77fd3955fbee5eb3c1a3f2c9227f74974bdc4362670ffa2",
+      "to": "node:1c39ac8b0e2253475ece54c6564b0604150a9f49d44d8e97168f70c38fee460b",
+      "kind": "contains_extracted_item",
+      "evidence_nodes": [
+        "node:108af954ebb6ee45b77fd3955fbee5eb3c1a3f2c9227f74974bdc4362670ffa2",
+        "node:1c39ac8b0e2253475ece54c6564b0604150a9f49d44d8e97168f70c38fee460b"
+      ],
+      "confidence": null,
+      "evidence_note": "Literal source-text observation; no historical relationship established.",
+      "assessment": {
+        "status": "unassessed_candidate",
+        "answer_supported": false,
+        "source_support_established": false,
+        "historical_truth_independently_verified": false,
+        "serving_eligibility": "not_evaluated"
+      }
+    },
+    {
+      "id": "edge:b1919110b22b105a5c02b57b44e58c7ee9135a033f6241658e6b0e801cc77e12",
+      "from": "node:108af954ebb6ee45b77fd3955fbee5eb3c1a3f2c9227f74974bdc4362670ffa2",
+      "to": "node:a34b8be5d759c444d921f2160a7bf52667dd9ebf93f803fbb35c18617148c2f6",
+      "kind": "contains_extracted_item",
+      "evidence_nodes": [
+        "node:108af954ebb6ee45b77fd3955fbee5eb3c1a3f2c9227f74974bdc4362670ffa2",
+        "node:a34b8be5d759c444d921f2160a7bf52667dd9ebf93f803fbb35c18617148c2f6"
+      ],
+      "confidence": null,
+      "evidence_note": "Literal source-text observation; no historical relationship established.",
+      "assessment": {
+        "status": "unassessed_candidate",
+        "answer_supported": false,
+        "source_support_established": false,
+        "historical_truth_independently_verified": false,
+        "serving_eligibility": "not_evaluated"
+      }
+    },
+    {
+      "id": "edge:9320a925b43f58d2bdc23c521fbf97489902d68251fda474d6a687a58a0f343f",
+      "from": "node:108af954ebb6ee45b77fd3955fbee5eb3c1a3f2c9227f74974bdc4362670ffa2",
+      "to": "node:560f78e062f167ef11e6648cab991aa620e532c42fceb925792569f929d05146",
+      "kind": "contains_extracted_item",
+      "evidence_nodes": [
+        "node:108af954ebb6ee45b77fd3955fbee5eb3c1a3f2c9227f74974bdc4362670ffa2",
+        "node:560f78e062f167ef11e6648cab991aa620e532c42fceb925792569f929d05146"
+      ],
+      "confidence": null,
+      "evidence_note": "Literal source-text observation; no historical relationship established.",
+      "assessment": {
+        "status": "unassessed_candidate",
+        "answer_supported": false,
+        "source_support_established": false,
+        "historical_truth_independently_verified": false,
+        "serving_eligibility": "not_evaluated"
+      }
+    },
+    {
+      "id": "edge:a7dc3423d57db8fcae2b615a8d1d6a2c25eb5659c4df99b1b1b65208602a0c21",
+      "from": "node:459b5943d14b7e21f0e22b47cce5b9debe496e07ae9d52244ce8974e0031c49a",
+      "to": "node:35f79dff209285aa60814ed2c20fa8d0e9b2daa1dbe16878c1a26bc01b83befc",
+      "kind": "textual_cooccurrence",
+      "evidence_nodes": [
+        "node:108af954ebb6ee45b77fd3955fbee5eb3c1a3f2c9227f74974bdc4362670ffa2",
+        "node:459b5943d14b7e21f0e22b47cce5b9debe496e07ae9d52244ce8974e0031c49a",
+        "node:35f79dff209285aa60814ed2c20fa8d0e9b2daa1dbe16878c1a26bc01b83befc"
+      ],
+      "confidence": null,
+      "evidence_note": "Literal source-text observation; no historical relationship established.",
+      "assessment": {
+        "status": "unassessed_candidate",
+        "answer_supported": false,
+        "source_support_established": false,
+        "historical_truth_independently_verified": false,
+        "serving_eligibility": "not_evaluated"
+      }
+    },
+    {
+      "id": "edge:484c9e150452da2b04edd645e4b86c0d469b5830ad3c0c20dac6e49173a32c88",
+      "from": "node:459b5943d14b7e21f0e22b47cce5b9debe496e07ae9d52244ce8974e0031c49a",
+      "to": "node:8a25f979e91db89d4f856f0aa664570bfad7f0b0ab701bed4d0024b30c8191c8",
+      "kind": "textual_cooccurrence",
+      "evidence_nodes": [
+        "node:108af954ebb6ee45b77fd3955fbee5eb3c1a3f2c9227f74974bdc4362670ffa2",
+        "node:459b5943d14b7e21f0e22b47cce5b9debe496e07ae9d52244ce8974e0031c49a",
+        "node:8a25f979e91db89d4f856f0aa664570bfad7f0b0ab701bed4d0024b30c8191c8"
+      ],
+      "confidence": null,
+      "evidence_note": "Literal source-text observation; no historical relationship established.",
+      "assessment": {
+        "status": "unassessed_candidate",
+        "answer_supported": false,
+        "source_support_established": false,
+        "historical_truth_independently_verified": false,
+        "serving_eligibility": "not_evaluated"
+      }
+    },
+    {
+      "id": "edge:74045ffb75623fef7e791a64b9b3f18b62e25aa29e4ccfe5713d82ae3ffff08b",
+      "from": "node:459b5943d14b7e21f0e22b47cce5b9debe496e07ae9d52244ce8974e0031c49a",
+      "to": "node:43a52c595a7ef38eb766d8f4b30a2d04d8336cd5f2c9d740858c467f2704a7b8",
+      "kind": "textual_cooccurrence",
+      "evidence_nodes": [
+        "node:108af954ebb6ee45b77fd3955fbee5eb3c1a3f2c9227f74974bdc4362670ffa2",
+        "node:459b5943d14b7e21f0e22b47cce5b9debe496e07ae9d52244ce8974e0031c49a",
+        "node:43a52c595a7ef38eb766d8f4b30a2d04d8336cd5f2c9d740858c467f2704a7b8"
+      ],
+      "confidence": null,
+      "evidence_note": "Literal source-text observation; no historical relationship established.",
+      "assessment": {
+        "status": "unassessed_candidate",
+        "answer_supported": false,
+        "source_support_established": false,
+        "historical_truth_independently_verified": false,
+        "serving_eligibility": "not_evaluated"
+      }
+    },
+    {
+      "id": "edge:ec752dbb7f58f84afa15758ce448a93a39d55f9f23a46c32114e96d8f74f1314",
+      "from": "node:459b5943d14b7e21f0e22b47cce5b9debe496e07ae9d52244ce8974e0031c49a",
+      "to": "node:fdc40dfca8ae657143b30c3c11cdbebabde1bdac16eed3a2c0f992185d6bb591",
+      "kind": "textual_cooccurrence",
+      "evidence_nodes": [
+        "node:108af954ebb6ee45b77fd3955fbee5eb3c1a3f2c9227f74974bdc4362670ffa2",
+        "node:459b5943d14b7e21f0e22b47cce5b9debe496e07ae9d52244ce8974e0031c49a",
+        "node:fdc40dfca8ae657143b30c3c11cdbebabde1bdac16eed3a2c0f992185d6bb591"
+      ],
+      "confidence": null,
+      "evidence_note": "Literal source-text observation; no historical relationship established.",
+      "assessment": {
+        "status": "unassessed_candidate",
+        "answer_supported": false,
+        "source_support_established": false,
+        "historical_truth_independently_verified": false,
+        "serving_eligibility": "not_evaluated"
+      }
+    },
+    {
+      "id": "edge:4d0671129946237d3b681b83221a76dee22472f100d9375c1dce9cb79cbc4715",
+      "from": "node:459b5943d14b7e21f0e22b47cce5b9debe496e07ae9d52244ce8974e0031c49a",
+      "to": "node:713e38f2dc68b4b07d4c06b5dae5e64e93679ae8ef5d7a9efddeb4cbb04276ad",
+      "kind": "textual_cooccurrence",
+      "evidence_nodes": [
+        "node:108af954ebb6ee45b77fd3955fbee5eb3c1a3f2c9227f74974bdc4362670ffa2",
+        "node:459b5943d14b7e21f0e22b47cce5b9debe496e07ae9d52244ce8974e0031c49a",
+        "node:713e38f2dc68b4b07d4c06b5dae5e64e93679ae8ef5d7a9efddeb4cbb04276ad"
+      ],
+      "confidence": null,
+      "evidence_note": "Literal source-text observation; no historical relationship established.",
+      "assessment": {
+        "status": "unassessed_candidate",
+        "answer_supported": false,
+        "source_support_established": false,
+        "historical_truth_independently_verified": false,
+        "serving_eligibility": "not_evaluated"
+      }
+    },
+    {
+      "id": "edge:be97a7c6640543271e33bc0da729f58eb31a5012f33efb4e120110a4085008ee",
+      "from": "node:35f79dff209285aa60814ed2c20fa8d0e9b2daa1dbe16878c1a26bc01b83befc",
+      "to": "node:8a25f979e91db89d4f856f0aa664570bfad7f0b0ab701bed4d0024b30c8191c8",
+      "kind": "textual_cooccurrence",
+      "evidence_nodes": [
+        "node:108af954ebb6ee45b77fd3955fbee5eb3c1a3f2c9227f74974bdc4362670ffa2",
+        "node:35f79dff209285aa60814ed2c20fa8d0e9b2daa1dbe16878c1a26bc01b83befc",
+        "node:8a25f979e91db89d4f856f0aa664570bfad7f0b0ab701bed4d0024b30c8191c8"
+      ],
+      "confidence": null,
+      "evidence_note": "Literal source-text observation; no historical relationship established.",
+      "assessment": {
+        "status": "unassessed_candidate",
+        "answer_supported": false,
+        "source_support_established": false,
+        "historical_truth_independently_verified": false,
+        "serving_eligibility": "not_evaluated"
+      }
+    },
+    {
+      "id": "edge:1fcf4293577b253fc05f454f2a2e6659657517681d1703476ee2bbfd525312c4",
+      "from": "node:35f79dff209285aa60814ed2c20fa8d0e9b2daa1dbe16878c1a26bc01b83befc",
+      "to": "node:43a52c595a7ef38eb766d8f4b30a2d04d8336cd5f2c9d740858c467f2704a7b8",
+      "kind": "textual_cooccurrence",
+      "evidence_nodes": [
+        "node:108af954ebb6ee45b77fd3955fbee5eb3c1a3f2c9227f74974bdc4362670ffa2",
+        "node:35f79dff209285aa60814ed2c20fa8d0e9b2daa1dbe16878c1a26bc01b83befc",
+        "node:43a52c595a7ef38eb766d8f4b30a2d04d8336cd5f2c9d740858c467f2704a7b8"
+      ],
+      "confidence": null,
+      "evidence_note": "Literal source-text observation; no historical relationship established.",
+      "assessment": {
+        "status": "unassessed_candidate",
+        "answer_supported": false,
+        "source_support_established": false,
+        "historical_truth_independently_verified": false,
+        "serving_eligibility": "not_evaluated"
+      }
+    },
+    {
+      "id": "edge:40486cc575df9586404e036e97058aa6aa89395b1236ac8b7deea198566db612",
+      "from": "node:35f79dff209285aa60814ed2c20fa8d0e9b2daa1dbe16878c1a26bc01b83befc",
+      "to": "node:fdc40dfca8ae657143b30c3c11cdbebabde1bdac16eed3a2c0f992185d6bb591",
+      "kind": "textual_cooccurrence",
+      "evidence_nodes": [
+        "node:108af954ebb6ee45b77fd3955fbee5eb3c1a3f2c9227f74974bdc4362670ffa2",
+        "node:35f79dff209285aa60814ed2c20fa8d0e9b2daa1dbe16878c1a26bc01b83befc",
+        "node:fdc40dfca8ae657143b30c3c11cdbebabde1bdac16eed3a2c0f992185d6bb591"
+      ],
+      "confidence": null,
+      "evidence_note": "Literal source-text observation; no historical relationship established.",
+      "assessment": {
+        "status": "unassessed_candidate",
+        "answer_supported": false,
+        "source_support_established": false,
+        "historical_truth_independently_verified": false,
+        "serving_eligibility": "not_evaluated"
+      }
+    },
+    {
+      "id": "edge:48a8a915a88f50c9a6f7230e3a360a02e90f5110318ed1e2dbfc7afcc01b5333",
+      "from": "node:35f79dff209285aa60814ed2c20fa8d0e9b2daa1dbe16878c1a26bc01b83befc",
+      "to": "node:713e38f2dc68b4b07d4c06b5dae5e64e93679ae8ef5d7a9efddeb4cbb04276ad",
+      "kind": "textual_cooccurrence",
+      "evidence_nodes": [
+        "node:108af954ebb6ee45b77fd3955fbee5eb3c1a3f2c9227f74974bdc4362670ffa2",
+        "node:35f79dff209285aa60814ed2c20fa8d0e9b2daa1dbe16878c1a26bc01b83befc",
+        "node:713e38f2dc68b4b07d4c06b5dae5e64e93679ae8ef5d7a9efddeb4cbb04276ad"
+      ],
+      "confidence": null,
+      "evidence_note": "Literal source-text observation; no historical relationship established.",
+      "assessment": {
+        "status": "unassessed_candidate",
+        "answer_supported": false,
+        "source_support_established": false,
+        "historical_truth_independently_verified": false,
+        "serving_eligibility": "not_evaluated"
+      }
+    },
+    {
+      "id": "edge:cc2660f47f68fc546c60a86fa7900e5e28af8f08c4ccd7d61d7b3fc56165e3dc",
+      "from": "node:8a25f979e91db89d4f856f0aa664570bfad7f0b0ab701bed4d0024b30c8191c8",
+      "to": "node:43a52c595a7ef38eb766d8f4b30a2d04d8336cd5f2c9d740858c467f2704a7b8",
+      "kind": "textual_cooccurrence",
+      "evidence_nodes": [
+        "node:108af954ebb6ee45b77fd3955fbee5eb3c1a3f2c9227f74974bdc4362670ffa2",
+        "node:8a25f979e91db89d4f856f0aa664570bfad7f0b0ab701bed4d0024b30c8191c8",
+        "node:43a52c595a7ef38eb766d8f4b30a2d04d8336cd5f2c9d740858c467f2704a7b8"
+      ],
+      "confidence": null,
+      "evidence_note": "Literal source-text observation; no historical relationship established.",
+      "assessment": {
+        "status": "unassessed_candidate",
+        "answer_supported": false,
+        "source_support_established": false,
+        "historical_truth_independently_verified": false,
+        "serving_eligibility": "not_evaluated"
+      }
+    },
+    {
+      "id": "edge:a000a9311c63f6c0f6ef15855e01292b1f432b2fcd1e43320c29fe36ece90b91",
+      "from": "node:8a25f979e91db89d4f856f0aa664570bfad7f0b0ab701bed4d0024b30c8191c8",
+      "to": "node:fdc40dfca8ae657143b30c3c11cdbebabde1bdac16eed3a2c0f992185d6bb591",
+      "kind": "textual_cooccurrence",
+      "evidence_nodes": [
+        "node:108af954ebb6ee45b77fd3955fbee5eb3c1a3f2c9227f74974bdc4362670ffa2",
+        "node:8a25f979e91db89d4f856f0aa664570bfad7f0b0ab701bed4d0024b30c8191c8",
+        "node:fdc40dfca8ae657143b30c3c11cdbebabde1bdac16eed3a2c0f992185d6bb591"
+      ],
+      "confidence": null,
+      "evidence_note": "Literal source-text observation; no historical relationship established.",
+      "assessment": {
+        "status": "unassessed_candidate",
+        "answer_supported": false,
+        "source_support_established": false,
+        "historical_truth_independently_verified": false,
+        "serving_eligibility": "not_evaluated"
+      }
+    },
+    {
+      "id": "edge:6b5781cb9744db6c550520fc6ef8b4fbd545e0fa965eabfd05f557bef6267937",
+      "from": "node:8a25f979e91db89d4f856f0aa664570bfad7f0b0ab701bed4d0024b30c8191c8",
+      "to": "node:713e38f2dc68b4b07d4c06b5dae5e64e93679ae8ef5d7a9efddeb4cbb04276ad",
+      "kind": "textual_cooccurrence",
+      "evidence_nodes": [
+        "node:108af954ebb6ee45b77fd3955fbee5eb3c1a3f2c9227f74974bdc4362670ffa2",
+        "node:8a25f979e91db89d4f856f0aa664570bfad7f0b0ab701bed4d0024b30c8191c8",
+        "node:713e38f2dc68b4b07d4c06b5dae5e64e93679ae8ef5d7a9efddeb4cbb04276ad"
+      ],
+      "confidence": null,
+      "evidence_note": "Literal source-text observation; no historical relationship established.",
+      "assessment": {
+        "status": "unassessed_candidate",
+        "answer_supported": false,
+        "source_support_established": false,
+        "historical_truth_independently_verified": false,
+        "serving_eligibility": "not_evaluated"
+      }
+    },
+    {
+      "id": "edge:80f69c24de8d40f9c043a8fcadb3085ba7d23487e643611e29938dcd8f0925d1",
+      "from": "node:43a52c595a7ef38eb766d8f4b30a2d04d8336cd5f2c9d740858c467f2704a7b8",
+      "to": "node:fdc40dfca8ae657143b30c3c11cdbebabde1bdac16eed3a2c0f992185d6bb591",
+      "kind": "textual_cooccurrence",
+      "evidence_nodes": [
+        "node:108af954ebb6ee45b77fd3955fbee5eb3c1a3f2c9227f74974bdc4362670ffa2",
+        "node:43a52c595a7ef38eb766d8f4b30a2d04d8336cd5f2c9d740858c467f2704a7b8",
+        "node:fdc40dfca8ae657143b30c3c11cdbebabde1bdac16eed3a2c0f992185d6bb591"
+      ],
+      "confidence": null,
+      "evidence_note": "Literal source-text observation; no historical relationship established.",
+      "assessment": {
+        "status": "unassessed_candidate",
+        "answer_supported": false,
+        "source_support_established": false,
+        "historical_truth_independently_verified": false,
+        "serving_eligibility": "not_evaluated"
+      }
+    },
+    {
+      "id": "edge:7de8992f31b936151c1f14c78b5e13ee4abaeed8408cc09190d0d5f1367d21fc",
+      "from": "node:43a52c595a7ef38eb766d8f4b30a2d04d8336cd5f2c9d740858c467f2704a7b8",
+      "to": "node:713e38f2dc68b4b07d4c06b5dae5e64e93679ae8ef5d7a9efddeb4cbb04276ad",
+      "kind": "textual_cooccurrence",
+      "evidence_nodes": [
+        "node:108af954ebb6ee45b77fd3955fbee5eb3c1a3f2c9227f74974bdc4362670ffa2",
+        "node:43a52c595a7ef38eb766d8f4b30a2d04d8336cd5f2c9d740858c467f2704a7b8",
+        "node:713e38f2dc68b4b07d4c06b5dae5e64e93679ae8ef5d7a9efddeb4cbb04276ad"
+      ],
+      "confidence": null,
+      "evidence_note": "Literal source-text observation; no historical relationship established.",
+      "assessment": {
+        "status": "unassessed_candidate",
+        "answer_supported": false,
+        "source_support_established": false,
+        "historical_truth_independently_verified": false,
+        "serving_eligibility": "not_evaluated"
+      }
+    },
+    {
+      "id": "edge:9f406dc094ae7b73f33d0f558f00eb61ab010e31ae4c16509779f53f2bc68eb3",
+      "from": "node:fdc40dfca8ae657143b30c3c11cdbebabde1bdac16eed3a2c0f992185d6bb591",
+      "to": "node:713e38f2dc68b4b07d4c06b5dae5e64e93679ae8ef5d7a9efddeb4cbb04276ad",
+      "kind": "textual_cooccurrence",
+      "evidence_nodes": [
+        "node:108af954ebb6ee45b77fd3955fbee5eb3c1a3f2c9227f74974bdc4362670ffa2",
+        "node:fdc40dfca8ae657143b30c3c11cdbebabde1bdac16eed3a2c0f992185d6bb591",
+        "node:713e38f2dc68b4b07d4c06b5dae5e64e93679ae8ef5d7a9efddeb4cbb04276ad"
+      ],
+      "confidence": null,
+      "evidence_note": "Literal source-text observation; no historical relationship established.",
+      "assessment": {
+        "status": "unassessed_candidate",
+        "answer_supported": false,
+        "source_support_established": false,
+        "historical_truth_independently_verified": false,
+        "serving_eligibility": "not_evaluated"
+      }
+    }
+  ],
+  "assessment": {
+    "status": "unassessed_candidate",
+    "answer_supported": false,
+    "source_support_established": false,
+    "historical_truth_independently_verified": false,
+    "serving_eligibility": "not_evaluated"
+  },
+  "limits": {
+    "files": 64,
+    "file_bytes": 1048576,
+    "total_bytes": 8388608,
+    "tree_entries": 4096,
+    "directory_depth": 12,
+    "nodes": 4096,
+    "edges": 8192,
+    "statements": 2000,
+    "statement_chars": 8000,
+    "comparisons": 20000,
+    "phrase_keys": 4096,
+    "phrase_groups": 32,
+    "prior_bytes": 1048576,
+    "output_bytes": 33554432
+  },
+  "complete": false,
+  "limits_or_exclusions": [
+    "phrase_token_budget",
+    "statement_character_budget"
+  ],
+  "source_bytes_read": 2710572,
+  "prior_assessment": null,
+  "transitive_paths_generated": false,
+  "notice": "Derived candidate graph only. Source fidelity, source support and historical truth are separate. No ledger state was changed.",
+  "graph_sha256": "sha256:9faee1fd52ba791b756cda376daeeaf0e3df6fee40e9eecf7f85ce9cba4b9302"
+}

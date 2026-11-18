@@ -1,6 +1,6 @@
 # Results and their tests
 
-Last reviewed: 2026-11-17.
+Last reviewed: 2026-11-18.
 
 Package role: [how this part fits Combined MPLPB](PACKAGE_GUIDE.md#evidence-and-limits). This guide covers evidence or operation limits; dated results keep the revision and scope they measured.
 
@@ -138,3 +138,6 @@ invalidation, readable evidence and bounded local storage receipts. Existing
 validation and fresh kernel/original-byte audit provide reproduction paths.
 This is neither human validation nor independently unseen historical accuracy.
 
+
+
+Optional review update (2026-11-18): [Synonym Ranker and Candidate Relater](SORTER_REVIEW_OPTIONS.md) retain exact source spans and non-authoritative suggestions. Legacy sorter outputs remain unchanged. The configured22-question sorter-first retest is retained with its regression; the new three-arm study separates discovery from strict answer completion.
