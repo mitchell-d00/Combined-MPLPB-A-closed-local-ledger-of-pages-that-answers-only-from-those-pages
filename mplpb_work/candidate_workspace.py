@@ -19,7 +19,7 @@ from mplpb_answers import documentary_verify as kernel
 from mplpb_combined import reader
 from mplpb_combined.ledger import serving_view
 
-VERSION = 'candidate-review-workspace-v1'
+VERSION = 'candidate-review-workspace-v2'
 EXPLORATORY = 'Exploratory · outside MPLPB-approved evidence.'
 ELIGIBLE = 'Eligible MPLPB original under the current profile; source truth is not verified.'
 
@@ -87,8 +87,13 @@ def _match(node, passage, features):
             kind=('quoted_or_qualified_reference_review' if f.get('scope')!='unqualified_text' else
                   'possible_correction' if core.CORRECTION.search(f['reference_wording']) else 'possible_reference')
             results.append((kind,'Literal source reference names this original record. The shown target is document context; the referenced claim, correction scope and effective time remain unresolved.'))
-    if not results and len(reader.terms(text)&reader.terms(original))>=3:
-        results.append(('shared_wording_review','At least three shared content terms suggest inspection only; no identity, chronology, causation, correction or disagreement is established.'))
+    if not results:
+        # Reuse the sorter's literal four-word observations. A bag of topic
+        # words or synonym neighbors is not a connection between documents.
+        keys={f['value'] for f in features if f['kind']=='repeated_phrase'}
+        shared=sorted(keys & passage.get('_phrase_keys',set()))
+        if shared:
+            results.append(('shared_wording_review','Existing sorter four-word phrase evidence: '+repr(shared[:4])+'. Lexical tokens only; identity, chronology, causation and correction are unresolved.'))
     return list(dict.fromkeys(results))
 
 
@@ -135,7 +140,11 @@ def build(graph, processed_directory, originals, *, question=None, topic=None, p
         # independent of strict-proof admission and does not affect ownership.
         discovery_chars=min(64000,max(1000,max_chars*4))
         discovered=index.retrieve([topic],min(scan_passages,64),discovery_chars)
-        originals_to_scan=discovered['passages']
+        originals_to_scan=[]
+        for passage in discovered['passages']:
+            words=[m[0].casefold() for m in core.WORD.finditer(passage['text'])]
+            phrases={' '.join(words[i:i+4]) for i in range(max(0,len(words)-3))}
+            originals_to_scan.append(dict(passage,_phrase_keys=phrases))
         proposals=[];checks=0;scan_cut=len(review['ranked_hits'])>len(selected) or len(index.passages)>len(originals_to_scan)
         for hit in selected:
             node=by_id[hit['node_id']]

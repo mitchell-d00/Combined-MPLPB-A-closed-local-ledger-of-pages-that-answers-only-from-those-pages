@@ -147,6 +147,13 @@ class CandidateWorkspaceTests(unittest.TestCase):
         w['workspace_sha256']=sorter.digest({k:v for k,v in w.items() if k!='workspace_sha256'})
         with self.assertRaises(ValueError):verify_workspace(w,g,self.raw,self.ledger)
 
+    def test_three_disconnected_shared_words_do_not_create_a_link(self):
+        self.original(text='The antique mirrors were moved by Mara; the lunar samples contain minerals.')
+        g=self.graph({'unrelated.txt':'Tess observed lunar minerals beside antique mirrors.'})
+        w=build(g,self.raw,self.ledger,topic='lunar minerals mirrors')
+        self.assertFalse(w['candidates'])
+        self.assertTrue(w['processed_passages'])
+
     def test_h05_strict_proof_is_unchanged_by_tiny_review_budget(self):
         from tools.unprepared_sources import import_corpus
         corpus=Path(__file__).resolve().parents[1]/'evaluation/unprepared-originals/2026-11-16'

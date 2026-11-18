@@ -4,8 +4,8 @@ Last reviewed: 2026-11-18.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `87bd22f38686d01c3c39faaf68e2ad8ea788c185` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `f5ba899707b972e4b2bcb49b99f7dd75d754d89b74d65bc436659756093da4b8`.
+Base commit: `e75a6900eb4a9839aed20ed8bf7d552f32f2b542` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `e26b32f91e6371bc88aec8d3529769c17c2c218972e85a0c1db9a5e63dc6945e`.
 
 ## Latest user update instructions
 
@@ -35,6 +35,7 @@ Test all three ownership outcomes, a processed passage that contradicts an appro
 - Publish separate final frozen four-arm results, exact H05 witness traces, original-byte/proof audits, biased prior-sample retention, costs and two-reviewer packets; keep synthetic regression controls separate.
 - Add opt-in native/CLI candidate workspace with dual evidence labels, exact processed/native byte mappings, separate bounded exploration, topic/disagreement/reference review and fresh source/decision replay.
 - Reuse canonical ownership with an optional eligibility intersection; default native reader unchanged. Workspace owner policy and H05 multi-source evidence proof are explicitly distinct.
+- Retain initial workspace public/native/full results and reproduced disconnected-word false suggestion; replace bag-of-words source links with existing literal four-word phrase evidence. Search neighbors still rank processed hits only.
 
 ## Validation recorded
 
@@ -54,6 +55,8 @@ Test all three ownership outcomes, a processed passage that contradicts an appro
 - H05 all four arms: same4 original spans4070 characters within12/8000 limits;14 duplicate charges avoided; verifier byte unchanged. Relevant counterevidence over budget blocks completion; generic two-part proof controls pass.
 - Prior biased developer16-item sample:4 misleading links removed,4 useful textual reviews retained,8 irrelevant wording matches retained; not general historical precision/recall.
 - 59 focused workspace/ownership/gate/admission controls passed19.461s before source freeze. H05 standalone contract unchanged before/after tiny workspace budget. Full new-runtime regression and public-original demonstration pending.
+- Workspace v1 e75a690:22/22 native outcomes, meanings, exact citations and missing-information lists unchanged versus baseline;2 complete/22. Five public-source workspace executions and fresh replays completed;1265 extracted-ZIP regressions passed396.984s.
+- New disconnected-words negative control failed under v1 and passes under conservative v2;60 focused controls passed19.715s, preserving exact/reference/correction/contradiction positives.
 
 ## Limitations and blocked checks
 
@@ -66,8 +69,8 @@ Test all three ownership outcomes, a processed passage that contradicts an appro
 
 ## Next steps
 
-- Freeze workspace revision, run extracted-ZIP full regression, replay all22 native questions and publish bounded public-original workspace demonstrations with actual costs.
-- Update PR52 with executed evidence and require exact final-head release gates; independent human/unseen review remains NOT RUN.
+- Freeze conservative workspace code; rerun full regression, native22 and all five public workspace cases under identical inputs and budgets, preserving first trial.
+- Publish results and costs on PR52; require exact-head release gates. Independent human and unseen-original semantic validation remain NOT RUN.
 
 ## Use this ZIP in your repository
 
