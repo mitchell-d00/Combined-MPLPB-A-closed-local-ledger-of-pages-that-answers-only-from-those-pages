@@ -4,26 +4,22 @@ Last reviewed: 2026-11-18.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `6aa4ecd4d052af2b554abd0da2fd465f11c9fef6` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `f42eac3ae652c251e2d280027a729e10506b03d211ffa5109f8e6ed9512125be`.
+Base commit: `87bd22f38686d01c3c39faaf68e2ad8ea788c185` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `f5ba899707b972e4b2bcb49b99f7dd75d754d89b74d65bc436659756093da4b8`.
 
 ## Latest user update instructions
 
-Add an optional Synonym Ranker and Candidate Relater to the offline sorter package. Start from the existing sorter and reuse its exact source spans, hashes, occurrence IDs, and review annotations. Preserve the current not-compared and compare outputs when the new options are off.
+Add an opt-in workspace that compares sorter output with MPLPB-approved originals eligible under the current profile. Reuse the reader’s existing eligibility checks and the sorter’s source hashes, occurrence IDs, and exact byte spans.
 
-The Synonym Ranker should help users find relevant passages even when the wording differs. Start with a small, inspectable vocabulary and an optional user-supplied glossary. Keep exact matches and synonym matches visible as distinct ranking signals. For each hit, show the original phrase, the term it matched, the exact source span, and why it ranked. Preserve the original wording and keep contradictory passages visible.
+For each useful match, create a candidate that links the processed passage to the original passage and explains the relationship. Show exact matches, possible references, conflicting wording, and possible corrections distinctly. Preserve unresolved or unmatched passages for topic exploration. A match to an approved original never transfers that original’s approval to the processed document.
 
-The Candidate Relater should propose links such as possible references, possible duplicate appearances, conflicting versions, and possible corrections. Give each end of a link an exact source span and explain what prompted the proposal. Shared wording and synonym matches can suggest what to inspect. Leave identity, chronology, causation, or correction status unresolved when the sources do not establish it. For example, “planned to send,” “sent,” and “received” may be useful search neighbors, but retain their distinct meanings and qualifications.
+Let users explore a topic across processed documents. Show what each document says, where it appears, and where documents disagree. Mark every processed passage and every conclusion drawn from it “Exploratory · outside MPLPB-approved evidence.” If an approved original is also shown, display its status alongside its citation so users can see which source supports which statement.
 
-In the CLI and any user-facing display, label the results “Sorter suggestions for review. MPLPB has not verified these links or answers.” Keep rank scores and candidate links non-authoritative in the machine-readable output as well. Users can follow suggestions back to eligible originals for strict checking. Preserve MPLPB’s current ownership, eligibility, correction, and proof rules.
+Keep the MPLPB decision visible alongside exploration when the user asks a question: One eligible owner: Return its page. Give a strict answer only when the original body supports it. Two or more eligible owners: Ask the user to disambiguate. Keep the competing sources visible. No eligible owner: Say there is no MPLPB-supported answer. Offer labeled exploration of the processed documents if relevant material exists.
 
-Let the sorter-first retest already underway finish as configured. Then compare three runs on the same 22 questions, originals, reader revision, and budgets: sorter alone, sorter with the synonym ranker, and sorter with both additions. Report newly located relevant passages, false links, and changes in complete strict answers separately. Retain the exact passages behind each change. Include regression cases for ambiguous synonyms, negation, quoted headers, shared subjects, and missing links. Use the 22-question set for development and reserve unseen originals for independent evaluation.
+Count only eligible owners in that decision. Candidate links and synonym matches must never change ownership or eligibility. Use a separate, bounded exploration budget so candidate review cannot displace passages needed for strict proof. Show when either budget truncates the results.
 
-That puts the fix in the right place. passage_admission.py decides what fits within the budget, and the existing verifier still decides whether the admitted passages prove the answer.
-
-H05 is the regression fixture. The admission rule should work for any question whose proof needs multiple passages. The rerun should show that H05 stays complete at the original limit, that duplicate spans are charged once, and that relevant counterevidence can still block completion when it can’t fit.
-
-I’d make 22/22 correct outcomes the goal. For questions the originals can answer, that means complete cited answers. Where the originals genuinely conflict or leave a gap, a well-supported conflict or abstention counts as correct. Keep the complete-answer count visible so improvements in coverage are easy to see
+Test all three ownership outcomes, a processed passage that contradicts an approved original, and a topic found only in processed documents. Verify that exploration still works when the strict answer is withheld, and that H05 stays complete at its original strict-reader budget.
 
 ## Implemented scope
 
@@ -37,6 +33,8 @@ I’d make 22/22 correct outcomes the goal. For questions the originals can answ
 - Inspect the eight supplied past-work repositories for reusable authority/discovery boundaries; no external code imported.
 - Repair an existing legacy adapter regression through independent native retrieval when an adapter replaces every normal passage with review hints; search-only hints still receive no admission or traversal.
 - Publish separate final frozen four-arm results, exact H05 witness traces, original-byte/proof audits, biased prior-sample retention, costs and two-reviewer packets; keep synthetic regression controls separate.
+- Add opt-in native/CLI candidate workspace with dual evidence labels, exact processed/native byte mappings, separate bounded exploration, topic/disagreement/reference review and fresh source/decision replay.
+- Reuse canonical ownership with an optional eligibility intersection; default native reader unchanged. Workspace owner policy and H05 multi-source evidence proof are explicitly distinct.
 
 ## Validation recorded
 
@@ -55,6 +53,7 @@ I’d make 22/22 correct outcomes the goal. For questions the originals can answ
 - Final extracted-ZIP full suite1249 tests passed479.177s; separate fictional finite-contract52/52 passed. Fresh audit12 native claims32 original-byte citations and44 complete suggestion replays passed.
 - H05 all four arms: same4 original spans4070 characters within12/8000 limits;14 duplicate charges avoided; verifier byte unchanged. Relevant counterevidence over budget blocks completion; generic two-part proof controls pass.
 - Prior biased developer16-item sample:4 misleading links removed,4 useful textual reviews retained,8 irrelevant wording matches retained; not general historical precision/recall.
+- 59 focused workspace/ownership/gate/admission controls passed19.461s before source freeze. H05 standalone contract unchanged before/after tiny workspace budget. Full new-runtime regression and public-original demonstration pending.
 
 ## Limitations and blocked checks
 
@@ -62,11 +61,13 @@ I’d make 22/22 correct outcomes the goal. For questions the originals can answ
 - Independent human and unseen-original evaluation NOT RUN; packets prepared.22 questions remain development data.
 - Concurrent local timings are measured, not controlled efficiency comparisons. Model/API use zero; compute price and real human times unknown.
 - Exact final publication-head ZIP/browser release gates remain separate from executed runtime6aa tests.
+- Workspace is an opt-in offline native/CLI surface; no new browser UI or independent semantic accuracy claimed.
+- Legacy ownership finds no H05 owner, while standalone multi-source proof remains complete. Workspace route refusal is not a budget regression.
 
 ## Next steps
 
-- Publish complete retained evidence to focused PR52 and require exact-head ZIP/regression/browser gates before any merge.
-- Use prepared source-linked packets for genuinely separate human review and unseen-original evaluation. Target22 evidence-justified outcomes, counting completeness separately.
+- Freeze workspace revision, run extracted-ZIP full regression, replay all22 native questions and publish bounded public-original workspace demonstrations with actual costs.
+- Update PR52 with executed evidence and require exact final-head release gates; independent human/unseen review remains NOT RUN.
 
 ## Use this ZIP in your repository
 
