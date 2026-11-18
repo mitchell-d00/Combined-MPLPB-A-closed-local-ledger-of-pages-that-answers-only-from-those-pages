@@ -63,6 +63,10 @@ The root `index.html` is the desktop entry point. GitHub Pages serves the genera
 `dist/index.html` through its deployment workflow, not the unbuilt root file.
 [Package contents and installation](docs/INSTALLATION.md).
 
+## Raw material, review and safe publication
+
+The [strict-first router](docs/ANSWER_ROUTER.md) explains refusals, labels rewritten questions and keeps unofficial inspection separate. [Classing](docs/CLASSING.md) prepares literal reviewed pages; the [v2 sorter](docs/SORTER_V2.md) is a separate engine, with v1 pins unchanged. Optional [semantic triage](docs/SEMANTIC_TRIAGE.md) emits quarantined flags only. [Ledger generations](docs/LEDGER_GENERATIONS.md) publish complete staged ledgers through an atomic pointer. These tools do not establish historical truth or general reconstruction accuracy. The [gap workflow](docs/HISTORICAL_GAP_WORKFLOW.md) separates proof coverage, evidence discovery and semantic assessment.
+
 ## Try the sorter
 
 From a source checkout, this example uses explicitly fictional development files:

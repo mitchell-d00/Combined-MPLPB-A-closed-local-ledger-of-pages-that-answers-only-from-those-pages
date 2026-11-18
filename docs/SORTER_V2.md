@@ -33,3 +33,9 @@ On `tests/fixtures/sorter`, v1 and v2 propose the same 14 review edges.
 - One numbered designation per file header block; multi-record files need `Message-ID`-style headers.
 - Cue lists are English only and lexical; nothing here understands meaning.
 - R8 candidates are lexical; their precision is unmeasured (see the evaluation plan).
+
+## Optional semantic triage integration (design only)
+
+A local flagger could inspect a bounded allowlist of currently eligible passage pairs that deterministic matching left unresolved. Its schema would allow only pair IDs and `AMBIGUOUS_LINK_CANDIDATE` or `POTENTIAL_CONTRADICTION`, plus an abstain outcome. No generated assertion, resolved actor, causal chain or corrected value would be accepted. Validate pair IDs and recheck source hashes/policy after inference; unknown IDs and stale inputs are rejected. Store flags in a separate quarantine sidecar, never native proof slots or default classing choices. All source-support/truth flags remain false. An explicitly reviewed operation still does not establish historical truth.
+
+Suggested starting budgets (not measured performance): at most16 pairs,2000 input characters per pair,256 output tokens, one local request timeout, and no unvalidated streaming. Reuse the optional local transport with remote forwarding disabled. Evaluate useful/false/missed flags and review burden separately from native supported answers. Model output may reduce review search effort or increase false alarms; neither benefit nor cheapness is established here. A separate [optional triage sidecar](SEMANTIC_TRIAGE.md) now implements flag-only inspection without changing v2 graphs or classing decisions. Live-test outcomes are recorded separately; no general semantic accuracy follows from schema tests.

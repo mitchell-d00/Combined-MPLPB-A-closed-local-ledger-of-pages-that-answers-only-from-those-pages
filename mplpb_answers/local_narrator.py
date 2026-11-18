@@ -90,13 +90,16 @@ class LocalBackend:
         self.client = OllamaLocalReader(config.model, endpoint, timeout=config.timeout)
         self.config = config
 
-    def generate(self, messages):
+    def generate(self, messages, *, max_tokens=2048, response_schema=None):
+        if type(max_tokens) is not int or not 1<=max_tokens<=2048:
+            raise ValueError('Local generation token budget must be 1–2048')
         config = self.config
         if config.backend == 'ollama':
             self.client.describe()  # No downloads or remote model aliases.
             payload = {'model': config.model, 'stream': False, 'think': False,
                        'messages': messages, 'options': {'temperature': 0, 'seed': 0,
-                                                        'num_ctx': 16384, 'num_predict': 2048}}
+                                                        'num_ctx': 16384, 'num_predict': max_tokens}}
+            if response_schema is not None:payload['format']=response_schema
             data = self.client._request('POST', '/api/chat', payload)
             if (not isinstance(data, dict) or data.get('done') is not True
                     or data.get('done_reason') not in (None, 'stop')):
@@ -104,7 +107,10 @@ class LocalBackend:
             message = data.get('message')
         else:
             payload = {'model': config.model, 'stream': False, 'temperature': 0,
-                       'max_tokens': 2048, 'messages': messages}
+                       'max_tokens': max_tokens, 'messages': messages}
+            if response_schema is not None:
+                payload['response_format']={'type':'json_schema','json_schema':{
+                    'name':'mplpb_local_flags','strict':True,'schema':response_schema}}
             data = self.client._request('POST', '/v1/chat/completions', payload)
             choices = data.get('choices') if isinstance(data, dict) else None
             if (not isinstance(choices, list) or len(choices) != 1

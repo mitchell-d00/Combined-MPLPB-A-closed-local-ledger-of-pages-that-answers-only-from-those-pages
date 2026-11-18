@@ -337,23 +337,40 @@ def _dump_passages(graph):
     for n in graph['nodes']:
         if n['kind'] != 'statement':
             continue
+        warnings=set(flagged.get(n['id'],set()))|_warnings(n['span']['text'])
         out.append({'origin': 'dump', 'text': n['span']['text'], 'path': n['span']['path'],
                     'source_sha256': n['span']['source_sha256'],
                     'bytes': [n['span']['byte_start'], n['span']['byte_end']],
                     'records': sorted(mentioned.get(n['id'], set()) | declared.get(n['occurrence'], set())),
-                    'warnings': sorted(flagged.get(n['id'], set()))})
+                    'warnings': sorted(warnings)})
+    return out
+
+
+def _warnings(text):
+    scope=sorter_v2._scope(text);out=set()
+    if scope!='unqualified_text':out.add(scope)
+    if sorter_v2.CONDITIONAL.search(text):out.add('conditional_or_uncertain')
+    if sorter_v2.REPORTED.search(text):out.add('reported_speech_scope')
+    if sorter_v2.NEGATOR.search(text):out.add('negation_present_requires_context')
     return out
 
 
 def _ledger_passages(pages):
     """One passage per served paragraph (the ledger serves one per line)."""
-    out = []
+    out = [];size=0
     for page in pages.values():
+        offset=0
         for paragraph in page['text'].split('\n'):
             if paragraph.strip():
+                if len(out)>=2048 or size+len(paragraph)>1000000:
+                    return out,True
                 out.append({'origin': 'ledger', 'text': paragraph.strip(), 'page': page['id'],
-                            'hash': page['hash'], 'records': [page['id']], 'warnings': []})
-    return out
+                            'source_id':page['id'],'answer_supported':False,'source_support_established':False,
+                            'hash': page['hash'],'path':page['path'],'body_start':offset,
+                            'body_end':offset+len(paragraph),'records': [page['id']], 'warnings': sorted(_warnings(paragraph))})
+                size+=len(paragraph)
+            offset+=len(paragraph)+1
+    return out,False
 
 
 def _segments(text):
@@ -363,6 +380,17 @@ def _segments(text):
         return [text[m.start():(labels[i + 1].start() if i + 1 < len(labels) else len(text))].strip()
                 for i, m in enumerate(labels)]
     return [s for s in re.split(r'(?<=[.!?])\s+|\n', text) if s.strip()]
+
+
+def question_parts(question,limit=4):
+    """Discovery obligations only; never substitute these for the gated question."""
+    parts=re.split(r'\?\s+(?=[A-Z])|;|,?\s+and\s+(?=(?:who|which|what|when|how|why|did|does|can)\b)',question,flags=re.I)
+    expanded=[]
+    for part in parts:
+        if re.match(r'^\s*(?:Distinguish|Separate)\b',part,re.I):
+            expanded.extend(re.split(r',\s*|\s+and\s+',part))
+        else:expanded.append(part)
+    return list(dict.fromkeys(p.strip(' ?.\n') for p in expanded if p.strip(' ?.\n')))[:min(limit,5)]
 
 
 def _label_against_ledger(passages, pages, catalog, excluded=None):
@@ -389,7 +417,7 @@ def _label_against_ledger(passages, pages, catalog, excluded=None):
     return out
 
 
-def unofficial(question, pages, dump, reader=None, top=3, catalog=None, excluded=None):
+def unofficial(question, pages, dump, reader=None, top=3, catalog=None, excluded=None,max_chars=16000):
     """Best passages, labelled UNOFFICIAL. Never an MPLPB answer.
 
     If the question names records, only passages tied to them are used.
@@ -398,9 +426,12 @@ def unofficial(question, pages, dump, reader=None, top=3, catalog=None, excluded
     rank last. Correction candidates aimed at the same records are shown.
     """
     catalog = catalog or {}
+    if type(top) is not int or not 1<=top<=12:raise ValueError('Unofficial display budget must be 1–12 passages')
+    if type(max_chars) is not int or not 1000<=max_chars<=64000:raise ValueError('Invalid exploration character budget')
     graph = _dump_graph(dump)
     corrections = _dump_corrections(graph)
-    passages = _label_against_ledger(_ledger_passages(pages) + _dump_passages(graph), pages, catalog, excluded)
+    native,native_truncated=_ledger_passages(pages)
+    passages = _label_against_ledger(native + _dump_passages(graph), pages, catalog, excluded)
     ids = {_canonical(m[0]) for m in RECORD_REF.finditer(question)}
     if ids:
         passages = [p for p in passages if ids & set(p['records'])]
@@ -408,7 +439,12 @@ def unofficial(question, pages, dump, reader=None, top=3, catalog=None, excluded
         return None
     query = re.sub(sorter_v2.ID_ALT, ' ', question)
     index = LexicalIndex({str(i): p['text'] for i, p in enumerate(passages)})
-    scored = [(passages[int(k)], s) for k, s in index.rank(query, 'bm25')]
+    queries=[query]+question_parts(query)
+    rankings=[index.rank(q,'bm25') for q in dict.fromkeys(queries)]
+    scores={}
+    for ranking in rankings:
+        for key,score in ranking:scores[key]=max(scores.get(key,0),score)
+    scored = [(passages[int(k)],s) for k,s in scores.items()]
     if not ids:
         scored = [(p, s) for p, s in scored if s > 0]
     if not scored:
@@ -420,7 +456,31 @@ def unofficial(question, pages, dump, reader=None, top=3, catalog=None, excluded
         p, s = item
         adjusted = s * (0.5 if p['warnings'] else 1.0) * (1.25 if p['origin'] == 'ledger' else 1.0)
         return (-adjusted, p.get('path', p.get('page', '')))
-    ranked = sorted(scored, key=order)[:top]
+    ordered=sorted(scored,key=order);chosen=[];seen=set();used_chars=0;omitted=set()
+    def choose(item):
+        nonlocal used_chars
+        p,score=item;key=(p['origin'],p.get('path'),p.get('body_start'),p['text'])
+        if key in seen:return True
+        if len(chosen)>=top or used_chars+len(p['text'])>max_chars:
+            omitted.add(key);return False
+        chosen.append(item);seen.add(key);used_chars+=len(p['text']);return True
+    # Reserve discovery space for contrary wording; this is a warning candidate,
+    # never an assertion that the passages concern the same event.
+    contrary=[item for item in ordered if 'negation_present_requires_context' in item[0]['warnings'] and item[1]>0]
+    for item in contrary:
+        if choose(item):break
+    for ranking in rankings:
+        for k,s in ranking:
+            if s>0 and choose((passages[int(k)],s)):break
+    for item in ordered:choose(item)
+    ranked=chosen
+    if not ranked:
+        return {'label':UNOFFICIAL_LABEL,'answer_supported':False,'text':'No complete passage fits the exploration display budget.',
+                'method':'context_budget_exhausted','based_on':{'origin':None,'warnings':['context_budget_exhausted']},
+                'passages':[],'possible_corrections':[],'not_in_ledger':[],
+                'search_limits':{'display_max_characters':max_chars,'display_characters':0,
+                                 'matching_passages':len(scored),'unshown_matching_spans':len(omitted),
+                                 'native_inspection_truncated':native_truncated,'question_parts':question_parts(question)}}
     best = ranked[0][0]
     q = set(counts(query))
     words = set(re.findall(r'[a-z]+', query.lower()))
@@ -444,6 +504,14 @@ def unofficial(question, pages, dump, reader=None, top=3, catalog=None, excluded
             'passages': [dict(p, score=round(s, 3)) for p, s in ranked],
             'possible_corrections': related,
             'search_limits':{'sorter_complete':graph['complete'] if graph else None,
+                             'native_inspection_truncated':native_truncated,'native_max_paragraphs':2048,
+                             'native_max_characters':1000000,
+                             'question_parts':question_parts(question),
+                             'question_parts_truncated':len(question_parts(question,5))>4,
+                             'display_max_characters':max_chars,'display_characters':used_chars,
+                             'unshown_matching_spans':len(omitted),
+                             'contrary_wording_candidates':len(contrary),
+                             'unshown_contrary_wording_candidates':max(0,len(contrary)-sum(p in [x[0] for x in contrary] for p,_ in ranked)),
                              'limits_or_exclusions':graph['limits_or_exclusions'] if graph else [],
                              'displayed_passages':len(ranked),'matching_passages':len(scored)},
             'not_in_ledger': sorted({p['path'] for p, _ in ranked if p['origin'] == 'dump' and not p.get('in_ledger_as')} |
@@ -472,6 +540,8 @@ def classing_help(question, explanation, unofficial_answer, ledger, dump):
 
 
 def route(question, ledger=None, dump=None, profile=None, try_rewrites=True, reader=None):
+    if not isinstance(question,str) or not question.strip() or len(question)>4000:
+        raise ValueError('Question must contain 1–4000 characters')
     profile_obj = _profile(profile)
     out = {'schema': SCHEMA, 'question': question, 'profile': profile_obj.name, 'status': 'no_answer',
            'official': None, 'explanation': None, 'rewrites_tried': [], 'unofficial': None, 'classing_help': []}
@@ -520,6 +590,21 @@ def route(question, ledger=None, dump=None, profile=None, try_rewrites=True, rea
     return out
 
 
+def explore(question,ledger,dump=None,profile=None,max_passages=12,max_characters=16000):
+    """Separate bounded discovery; no strict slots, hints, writes or promotion."""
+    if not isinstance(question,str) or not question.strip() or len(question)>4000:raise ValueError('Invalid question')
+    selected=_profile(profile)
+    before=_gate(ledger,question,selected).to_dict()
+    pages=_pages(ledger,selected,question)
+    report=unofficial(question,pages,dump if selected.name!='external' else None,
+                      top=max_passages,catalog=_catalog(ledger),
+                      excluded=_gate_exclusions(ledger,question,selected),max_chars=max_characters)
+    if before!=_gate(ledger,question,selected).to_dict():raise ValueError('Source state changed during exploration')
+    return {'schema':'mplpb-exploration-v1','question':question,'profile':selected.name,
+            'answer_supported':False,'source_support_established':False,
+            'historical_truth_independently_verified':False,'strict_slots_consumed':0,'report':report}
+
+
 def render(result):
     lines = [f"Q: {result['question']}", '']
     if result['official']:
@@ -565,8 +650,15 @@ def main(argv=None):
     ask.add_argument('--profile', choices=sorted(PROFILES), default=DEFAULT_PROFILE)
     ask.add_argument('--no-rewrites', action='store_true')
     ask.add_argument('--json', action='store_true')
+    search=sub.add_parser('explore',help='separate bounded discovery; never a supported answer')
+    search.add_argument('question');search.add_argument('--ledger',required=True);search.add_argument('--dump')
+    search.add_argument('--profile',choices=sorted(PROFILES),default=DEFAULT_PROFILE)
+    search.add_argument('--max-passages',type=int,default=12)
+    search.add_argument('--max-characters',type=int,default=16000)
     args = parser.parse_args(argv)
     try:
+        if args.command=='explore':
+            print(json.dumps(explore(args.question,args.ledger,args.dump,args.profile,args.max_passages,args.max_characters),indent=2,ensure_ascii=False));return 0
         result = route(args.question, args.ledger, args.dump, args.profile, not args.no_rewrites)
     except (ValueError, OSError) as exc:
         print(json.dumps({'status': 'refused', 'error': str(exc)}), file=sys.stderr)

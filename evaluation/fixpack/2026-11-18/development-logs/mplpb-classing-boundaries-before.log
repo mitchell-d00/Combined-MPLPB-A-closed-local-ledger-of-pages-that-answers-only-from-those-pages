@@ -1,0 +1,87 @@
+test_failed_append_does_not_leave_a_partial_ledger (tests.test_classing_boundaries.ClassingBoundaryTests.test_failed_append_does_not_leave_a_partial_ledger) ... ok
+test_literal_internal_whitespace_is_preserved_in_native_html (tests.test_classing_boundaries.ClassingBoundaryTests.test_literal_internal_whitespace_is_preserved_in_native_html) ... FAIL
+test_retired_draft_is_not_auto_accepted_or_silently_served (tests.test_classing_boundaries.ClassingBoundaryTests.test_retired_draft_is_not_auto_accepted_or_silently_served) ... FAIL
+test_serving_decision_needs_an_identified_reviewer (tests.test_classing_boundaries.ClassingBoundaryTests.test_serving_decision_needs_an_identified_reviewer) ... FAIL
+test_source_label_and_body_are_not_editable_extracted_evidence (tests.test_classing_boundaries.ClassingBoundaryTests.test_source_label_and_body_are_not_editable_extracted_evidence) ... 
+  test_source_label_and_body_are_not_editable_extracted_evidence (tests.test_classing_boundaries.ClassingBoundaryTests.test_source_label_and_body_are_not_editable_extracted_evidence) (mutation='label') ... FAIL
+  test_source_label_and_body_are_not_editable_extracted_evidence (tests.test_classing_boundaries.ClassingBoundaryTests.test_source_label_and_body_are_not_editable_extracted_evidence) (mutation='body') ... FAIL
+  test_source_label_and_body_are_not_editable_extracted_evidence (tests.test_classing_boundaries.ClassingBoundaryTests.test_source_label_and_body_are_not_editable_extracted_evidence) (mutation='path') ... ERROR
+test_tampered_choice_options_cannot_authorize_unknown_operation (tests.test_classing_boundaries.ClassingBoundaryTests.test_tampered_choice_options_cannot_authorize_unknown_operation) ... FAIL
+
+======================================================================
+ERROR: test_source_label_and_body_are_not_editable_extracted_evidence (tests.test_classing_boundaries.ClassingBoundaryTests.test_source_label_and_body_are_not_editable_extracted_evidence) (mutation='path')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/mplpb/tests/test_classing_boundaries.py", line 21, in test_source_label_and_body_are_not_editable_extracted_evidence
+    with self.subTest(mutation=mutation),self.assertRaises(classing.ClassingError):classing.plan(r,self.dump)
+                                                                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/mplpb/mplpb_work/classing.py", line 280, in plan
+    text = (Path(dump) / d['source']['path']).read_bytes()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/pathlib.py", line 1019, in read_bytes
+    with self.open(mode='rb') as f:
+         ^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/pathlib.py", line 1013, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/tmp/tmp44e8enlm/dump/../outside.txt'
+
+======================================================================
+FAIL: test_literal_internal_whitespace_is_preserved_in_native_html (tests.test_classing_boundaries.ClassingBoundaryTests.test_literal_internal_whitespace_is_preserved_in_native_html)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/mplpb/tests/test_classing_boundaries.py", line 25, in test_literal_internal_whitespace_is_preserved_in_native_html
+    self.assertIn('A\t\tB',html.unescape(rec.body_html))
+AssertionError: 'A\t\tB' not found in '<h1>Full original statement.</h1>\n<p>Message-ID: DATA-1</p>\n<p>Cargo: A B</p>\n<p>Classing source file: a.txt</p>\n<p>Classing source SHA-256: sha256:85bf1973a080b5cd84ccea3160215beb95bd6c9550a4bc50d588d4e7178ce644</p>\n<p>Classing source bytes: 0-56</p>\n<p>Full original statement.</p>'
+
+======================================================================
+FAIL: test_retired_draft_is_not_auto_accepted_or_silently_served (tests.test_classing_boundaries.ClassingBoundaryTests.test_retired_draft_is_not_auto_accepted_or_silently_served)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/mplpb/tests/test_classing_boundaries.py", line 28, in test_retired_draft_is_not_auto_accepted_or_silently_served
+    self.assertEqual(r['drafts'][0]['decision'],'pending')
+AssertionError: 'accept' != 'pending'
+- accept
++ pending
+
+
+======================================================================
+FAIL: test_serving_decision_needs_an_identified_reviewer (tests.test_classing_boundaries.ClassingBoundaryTests.test_serving_decision_needs_an_identified_reviewer)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/mplpb/tests/test_classing_boundaries.py", line 34, in test_serving_decision_needs_an_identified_reviewer
+    with self.assertRaises(classing.ClassingError):classing.build(r,self.dump,self.root/'ledger')
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ClassingError not raised
+
+======================================================================
+FAIL: test_source_label_and_body_are_not_editable_extracted_evidence (tests.test_classing_boundaries.ClassingBoundaryTests.test_source_label_and_body_are_not_editable_extracted_evidence) (mutation='label')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/mplpb/tests/test_classing_boundaries.py", line 21, in test_source_label_and_body_are_not_editable_extracted_evidence
+    with self.subTest(mutation=mutation),self.assertRaises(classing.ClassingError):classing.plan(r,self.dump)
+                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ClassingError not raised
+
+======================================================================
+FAIL: test_source_label_and_body_are_not_editable_extracted_evidence (tests.test_classing_boundaries.ClassingBoundaryTests.test_source_label_and_body_are_not_editable_extracted_evidence) (mutation='body')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/mplpb/tests/test_classing_boundaries.py", line 21, in test_source_label_and_body_are_not_editable_extracted_evidence
+    with self.subTest(mutation=mutation),self.assertRaises(classing.ClassingError):classing.plan(r,self.dump)
+                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ClassingError not raised
+
+======================================================================
+FAIL: test_tampered_choice_options_cannot_authorize_unknown_operation (tests.test_classing_boundaries.ClassingBoundaryTests.test_tampered_choice_options_cannot_authorize_unknown_operation)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/mplpb/tests/test_classing_boundaries.py", line 38, in test_tampered_choice_options_cannot_authorize_unknown_operation
+    with self.assertRaises(classing.ClassingError):classing.plan(r,self.dump)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ClassingError not raised
+
+----------------------------------------------------------------------
+Ran 6 tests in 0.034s
+
+FAILED (failures=6, errors=1)

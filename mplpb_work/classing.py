@@ -235,7 +235,7 @@ def propose(dump, ledger=None, prefix='DUMP', auto_accept_clean=False):
         d['auto_accept_eligible'] = d['auto_accept_eligible'] and not d['blockers'] and graph['complete']
         if auto_accept_clean and d['auto_accept_eligible']:
             d['decision'] = 'accept'
-    review = {'schema': SCHEMA, 'sorter': {'schema': graph['schema'], 'graph_sha256': graph['graph_sha256'],
+    review = {'schema': SCHEMA,'answer_supported':False, 'sorter': {'schema': graph['schema'], 'graph_sha256': graph['graph_sha256'],
                                            'complete': graph['complete'], 'limits_or_exclusions': graph['limits_or_exclusions']},
               'dump_sources': [{'path': s['path'], 'raw_sha256': s['raw_sha256'], 'decoding': s.get('decoding', 'utf-8')} for s in graph['sources']],
               'target_ledger': str(ledger) if ledger else None,
@@ -282,7 +282,7 @@ def plan(review, dump):
     """Validate a reviewed file against the dump; return the ordered write plan."""
     if not isinstance(review,dict) or len(json.dumps(review,ensure_ascii=False).encode())>sorter_v2.DEFAULT_LIMITS['output_bytes']:
         raise ClassingError('Review exceeds its byte budget or has invalid shape')
-    if review.get('schema') != SCHEMA or review.get('review_sha256') is None:
+    if review.get('schema') != SCHEMA or review.get('review_sha256') is None or review.get('answer_supported') is not False:
         raise ClassingError('Not a classing review file')
     graph = sorter_v2.sort_directory(dump, 'compare')
     if graph['graph_sha256'] != review['sorter']['graph_sha256']:
@@ -297,6 +297,7 @@ def plan(review, dump):
     if len(review['decisions'])!=len(decisions) or {x['decision_id'] for x in review['decisions']}!=set(decisions):
         raise ClassingError('Decision inventory differs from source observations')
     for d in review['drafts']:
+        if type(d.get('ratify')) is not bool:raise ClassingError('Ratify must be explicit true or false')
         for key in ('occurrence','source','fields','body','declared_status'):
             if d[key]!=expected[d['draft_id']][key]:raise ClassingError('Extracted source evidence is immutable: '+key)
         if set(d['page'])!=set(expected[d['draft_id']]['page']) or d['page']['origin']!='machine':
@@ -376,7 +377,7 @@ def plan(review, dump):
         visit(k)
     if errors:
         raise ClassingError('Review is not buildable:\n  ' + '\n  '.join(dict.fromkeys(errors)))
-    return {'order': order, 'drafts': accepted, 'supersedes': supersedes, 'field_of': field_of, 'withdraw': withdraw}
+    return {'order': order, 'drafts': accepted, 'supersedes': supersedes, 'field_of': field_of, 'withdraw': withdraw,'answer_supported':False}
 
 
 def _apply(root, steps, ratify_by):
@@ -506,7 +507,7 @@ def status(review):
     counts = {k: sum(1 for d in drafts if d['decision'] == k) for k in ('accept', 'reject', 'pending')}
     open_blocking = [x['decision_id'] for x in review['decisions'] if x['blocking'] and x['choice'] is None]
     open_other = [x['decision_id'] for x in review['decisions'] if not x['blocking'] and x['choice'] is None]
-    return {'drafts': counts, 'auto_accept_eligible': sum(d['auto_accept_eligible'] for d in drafts),
+    return {'drafts': counts,'answer_supported':False, 'auto_accept_eligible': sum(d['auto_accept_eligible'] for d in drafts),
             'blocking_decisions_open': open_blocking, 'other_decisions_open': open_other,
             'ready_to_build': counts['accept'] > 0 and not open_blocking}
 

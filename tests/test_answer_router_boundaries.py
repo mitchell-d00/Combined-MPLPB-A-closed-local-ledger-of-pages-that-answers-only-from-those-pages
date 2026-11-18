@@ -34,3 +34,14 @@ class RouterBoundaryTests(unittest.TestCase):
             def reader(*args):withdraw(root,'DOC-1');return 'The archive contains an ordinary note.'
             with self.assertRaisesRegex(ValueError,'changed'):
                 router.route('Explain archive',root,try_rewrites=False,reader=reader)
+
+    def test_unofficial_qualifiers_and_exact_body_coordinates_are_preserved(self):
+        from mplpb_answers.body_text import body_text
+        with tempfile.TemporaryDirectory() as root:
+            rec=write(root,doc_id='DOC-1',title='Archive',scope='shipment',
+                      body='According to the porter, the shipment may arrive.')
+            result=router.route('Explain shipment',root,try_rewrites=False)
+            passage=result['unofficial']['passages'][0]
+            self.assertIn('reported_speech_scope',passage['warnings'])
+            self.assertIn('conditional_or_uncertain',passage['warnings'])
+            self.assertEqual(body_text(rec.body_html)[passage['body_start']:passage['body_end']],passage['text'])

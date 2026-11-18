@@ -1,0 +1,16 @@
+======================================================================
+ERROR: test_append_rehearses_then_writes (tests.test_classing.Build.test_append_rehearses_then_writes)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/mplpb/tests/test_classing.py", line 182, in test_append_rehearses_then_writes
+    receipt = classing.build(second, self.dump, self.root / 'ledger', append=True)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/mplpb/mplpb_work/classing.py", line 462, in build
+    if judgment and not reviewer:raise ClassingError('Serving decisions and reviewer fields require --reviewed-by or --ratify-by')
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+mplpb_work.classing.ClassingError: Serving decisions and reviewer fields require --reviewed-by or --ratify-by
+
+----------------------------------------------------------------------
+Ran 22 tests in 0.588s
+
+FAILED (errors=1)

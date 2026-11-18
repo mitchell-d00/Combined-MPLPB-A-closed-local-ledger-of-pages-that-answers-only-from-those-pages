@@ -1,0 +1,13 @@
+======================================================================
+FAIL: test_external_and_not_for_bodies_never_reach_unofficial_reader (tests.test_answer_router_boundaries.RouterBoundaryTests.test_external_and_not_for_bodies_never_reach_unofficial_reader) (profile='internal')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/mplpb/tests/test_answer_router_boundaries.py", line 17, in test_external_and_not_for_bodies_never_reach_unofficial_reader
+    self.assertNotIn('CONFIDENTIAL-NATIVE-BODY',json.dumps(r));self.assertEqual(calls,[])
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'CONFIDENTIAL-NATIVE-BODY' unexpectedly found in '{"schema": "mplpb-answer-router-v1", "question": "Explain archive secret", "profile": "internal", "status": "unofficial", "official": null, "explanation": {"code": "interpretation_unsupported", "category": "unsupported_question_grammar", "reason": "MPLPB only answers a fixed set of question forms, and this question is not one of them.", "details": ["Question forms MPLPB can certify: What is the <field> for record <ID>? | When did <name> open? | Who owns <name>? | What is <name>? | Under what conditions can <thing> be <verb>? | What happens if <condition>? | Show procedure <ID> / Show step <n> of procedure <ID>"], "mplpb_next_steps": ["Inspect the relevant source. Try a supported question form or explicitly select a configured assisted reader; do not treat this refusal as proof that the answer is absent."], "note": "A refusal is not evidence that the answer is absent."}, "rewrites_tried": [], "unofficial": {"label": "UNOFFICIAL \\u2014 not supported by MPLPB. Read the cited passages before relying on it.", "answer_supported": false, "text": "CONFIDENTIAL-NATIVE-BODY archive secret", "method": "extractive_best_sentence", "based_on": {"origin": "ledger", "warnings": []}, "passages": [{"origin": "ledger", "text": "CONFIDENTIAL-NATIVE-BODY archive secret", "page": "SECRET-1", "hash": "sha256:0fb9cb4a3731806a99118db9f43ffe82c307367601ef22fcdd50c039a787ea9c", "records": ["SECRET-1"], "warnings": [], "score": 0.575}], "possible_corrections": [], "search_limits": {"sorter_complete": null, "limits_or_exclusions": [], "displayed_passages": 1, "matching_passages": 1}, "not_in_ledger": []}, "classing_help": [{"why": "The question form is outside the strict grammar.", "do": "Ask one of the supported forms, or record the fact as a field paragraph so the field form applies."}]}'
+
+----------------------------------------------------------------------
+Ran 38 tests in 0.951s
+
+FAILED (failures=1)

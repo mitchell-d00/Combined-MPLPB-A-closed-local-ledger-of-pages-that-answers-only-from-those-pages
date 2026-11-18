@@ -135,7 +135,9 @@ def _relevant(goal,proof,question):
         if v['relation']=='source_reports_instruction' and goal['action'] in {'request','instruct','order'}:
             return bool(terms(goal['object_text']) & terms(v['intermediary_text']+' '+v['object_text']+' '+v['requested_recipient_text']))
         if v['relation'] not in {'source_action_assertion','source_passive_action_assertion'} or v['action']!=goal['action']:return False
-        return bool(terms(goal['object_text']) & terms(v['object_text']))
+        return bool(terms(goal['object_text']) & terms(v['object_text'])) or (
+            v.get('unresolved_reference') is True and v.get('context_identity_resolved') is False
+            and bool(terms(goal['object_text']) & set(v.get('context_topic_terms',[]))))
     if goal['kind'] in {'reported_instruction','letter_context'} and v['relation']=='source_reports_instruction':
         wanted=terms(question)-terms('who arranged asked requested instructed which dated letter records arrangement receive send copy book report')
         observed=terms(' '.join(str(x) for x in v.values() if isinstance(x,str)))
@@ -151,6 +153,7 @@ def _claim(proof):
         qualifiers=['Source-attributed statement; event/person identity and historical truth are not independently verified.']
         if v['action'] in {'order','request','instruct'}:qualifiers.append('A directive or request does not establish its execution.')
         if v['unresolved_reference']:qualifiers.append('An object, role or date reference remains unresolved.')
+        if v.get('context_identity_resolved') is False:qualifiers.append('Shared local topic wording does not resolve the object or establish an event identity.')
     elif v['relation']=='source_reports_instruction':
         text=('The letter headed '+v['writer_text']+' TO '+v['addressee_text']+
               (' ('+v['heading_date_text']+')' if v['heading_date_text'] else '')+

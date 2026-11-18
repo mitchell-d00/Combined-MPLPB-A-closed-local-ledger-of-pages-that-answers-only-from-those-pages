@@ -1,0 +1,25 @@
+test_separate_paragraphs_and_ordinary_colon_remain_supported (tests.test_stacked_field_safety.StackedFieldSafety.test_separate_paragraphs_and_ordinary_colon_remain_supported) ... ok
+test_stacked_headers_are_not_supported (tests.test_stacked_field_safety.StackedFieldSafety.test_stacked_headers_are_not_supported) ... 
+  test_stacked_headers_are_not_supported (tests.test_stacked_field_safety.StackedFieldSafety.test_stacked_headers_are_not_supported) (label='Recipient') ... FAIL
+  test_stacked_headers_are_not_supported (tests.test_stacked_field_safety.StackedFieldSafety.test_stacked_headers_are_not_supported) (label='recipient') ... FAIL
+
+======================================================================
+FAIL: test_stacked_headers_are_not_supported (tests.test_stacked_field_safety.StackedFieldSafety.test_stacked_headers_are_not_supported) (label='Recipient')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/mplpb/tests/test_stacked_field_safety.py", line 17, in test_stacked_headers_are_not_supported
+    self.assertFalse(c['answer_supported'])
+AssertionError: True is not false
+
+======================================================================
+FAIL: test_stacked_headers_are_not_supported (tests.test_stacked_field_safety.StackedFieldSafety.test_stacked_headers_are_not_supported) (label='recipient')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/mplpb/tests/test_stacked_field_safety.py", line 17, in test_stacked_headers_are_not_supported
+    self.assertFalse(c['answer_supported'])
+AssertionError: True is not false
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.034s
+
+FAILED (failures=2)

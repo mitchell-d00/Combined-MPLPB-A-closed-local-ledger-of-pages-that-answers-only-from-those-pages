@@ -1,0 +1,369 @@
+{
+  "schema": "authored-triage-probes-v1",
+  "configuration": {
+    "backend": "llamacpp",
+    "model": "mplpb-triage-qwen05",
+    "base_url": "http://127.0.0.1:18080/v1",
+    "timeout": 60
+  },
+  "cases": [
+    {
+      "id": "T1",
+      "result": {
+        "schema": "mplpb-semantic-triage-v1",
+        "question": "Review archive passages",
+        "profile": "internal",
+        "status": "unavailable_or_rejected",
+        "reason": "schema_unavailable_or_rejected",
+        "flags": [],
+        "pairs": [
+          {
+            "pair_id": "P01",
+            "source_pair_sha256": "sha256:e0b5c42e5062d6b73e66f74d04e7810762ceff3d560edb54fb58e453b989211d",
+            "left": {
+              "source_id": "T1-A",
+              "path": "t1-a.html",
+              "hash": "sha256:f9685f7b351a37aab0745d73b643c444976321dcd0d246bc755ca7bf22823754",
+              "body_start": 0,
+              "body_end": 65,
+              "quote": "Mira\u2019s note says the west gate stayed shut during the inspection."
+            },
+            "right": {
+              "source_id": "T1-B",
+              "path": "t1-b.html",
+              "hash": "sha256:9a9950b5640e1e05b7597ed37096c6e154beab12bca7c7cc9be3dede14b6f3a4",
+              "body_start": 0,
+              "body_end": 69,
+              "quote": "The inspector found the western entrance closed throughout the visit."
+            }
+          }
+        ],
+        "skipped": [],
+        "model_response_received": true,
+        "answer_supported": false,
+        "source_support_established": false,
+        "historical_truth_independently_verified": false,
+        "ledger_writes": 0,
+        "strict_slots_consumed": 0,
+        "configuration": {
+          "backend": "llamacpp",
+          "model": "mplpb-triage-qwen05",
+          "weight_digest": null
+        },
+        "metrics": {
+          "controller_cpu_seconds": 0.015675257999999997,
+          "wall_seconds": 2.8554854709982465,
+          "inference_attempts": 1,
+          "useful_flags": null,
+          "false_flags": null,
+          "missed_links": null,
+          "source_bytes_read": null,
+          "model_tokens": null,
+          "human_review_seconds": null
+        },
+        "notice": "Flag-only review sidecar. No source assertion, event identity, contradiction or historical truth established."
+      }
+    },
+    {
+      "id": "T2",
+      "result": {
+        "schema": "mplpb-semantic-triage-v1",
+        "question": "Review archive passages",
+        "profile": "internal",
+        "status": "unavailable_or_rejected",
+        "reason": "schema_unavailable_or_rejected",
+        "flags": [],
+        "pairs": [
+          {
+            "pair_id": "P01",
+            "source_pair_sha256": "sha256:dac678790a00e77952ab0e52062db69f6f10ebbd35c17a67a2aa6d9862ed76d1",
+            "left": {
+              "source_id": "T2-A",
+              "path": "t2-a.html",
+              "hash": "sha256:3accb2d95c2b67d001063d7b2af0f084f4d37d0746d70eeab3265a791882bc12",
+              "body_start": 0,
+              "body_end": 60,
+              "quote": "In the signed account, Nora states that every crate arrived."
+            },
+            "right": {
+              "source_id": "T2-B",
+              "path": "t2-b.html",
+              "hash": "sha256:42d2fe8c40238ac205a5ba6eeae508b0a52a35fb265c8bf700acb1892f6e2b07",
+              "body_start": 0,
+              "body_end": 52,
+              "quote": "Nora\u2019s account states that two crates never arrived."
+            }
+          }
+        ],
+        "skipped": [],
+        "model_response_received": true,
+        "answer_supported": false,
+        "source_support_established": false,
+        "historical_truth_independently_verified": false,
+        "ledger_writes": 0,
+        "strict_slots_consumed": 0,
+        "configuration": {
+          "backend": "llamacpp",
+          "model": "mplpb-triage-qwen05",
+          "weight_digest": null
+        },
+        "metrics": {
+          "controller_cpu_seconds": 0.014167891000000002,
+          "wall_seconds": 2.048662447003153,
+          "inference_attempts": 1,
+          "useful_flags": null,
+          "false_flags": null,
+          "missed_links": null,
+          "source_bytes_read": null,
+          "model_tokens": null,
+          "human_review_seconds": null
+        },
+        "notice": "Flag-only review sidecar. No source assertion, event identity, contradiction or historical truth established."
+      }
+    },
+    {
+      "id": "T3",
+      "result": {
+        "schema": "mplpb-semantic-triage-v1",
+        "question": "Review archive passages",
+        "profile": "internal",
+        "status": "unavailable_or_rejected",
+        "reason": "schema_unavailable_or_rejected",
+        "flags": [],
+        "pairs": [
+          {
+            "pair_id": "P01",
+            "source_pair_sha256": "sha256:6ca71edb0eb8b29c0fff3dafda2477995d9d7568f3a6fa593c44f074bcbce479",
+            "left": {
+              "source_id": "T3-A",
+              "path": "t3-a.html",
+              "hash": "sha256:9c337d792256cc4c76958d502d44b79383c7c2a29cba8c70aebaa5147bfdcda8",
+              "body_start": 0,
+              "body_end": 53,
+              "quote": "The orchard keeper recorded the yield of apple trees."
+            },
+            "right": {
+              "source_id": "T3-B",
+              "path": "t3-b.html",
+              "hash": "sha256:bb44649814f9e64095537f5ece4cfacc4aa890b682373be3e53f8b1d2e50c560",
+              "body_start": 0,
+              "body_end": 38,
+              "quote": "The engineer upgraded an Apple laptop."
+            }
+          }
+        ],
+        "skipped": [],
+        "model_response_received": true,
+        "answer_supported": false,
+        "source_support_established": false,
+        "historical_truth_independently_verified": false,
+        "ledger_writes": 0,
+        "strict_slots_consumed": 0,
+        "configuration": {
+          "backend": "llamacpp",
+          "model": "mplpb-triage-qwen05",
+          "weight_digest": null
+        },
+        "metrics": {
+          "controller_cpu_seconds": 0.012803267000000007,
+          "wall_seconds": 2.016069945999334,
+          "inference_attempts": 1,
+          "useful_flags": null,
+          "false_flags": null,
+          "missed_links": null,
+          "source_bytes_read": null,
+          "model_tokens": null,
+          "human_review_seconds": null
+        },
+        "notice": "Flag-only review sidecar. No source assertion, event identity, contradiction or historical truth established."
+      }
+    },
+    {
+      "id": "T4",
+      "result": {
+        "schema": "mplpb-semantic-triage-v1",
+        "question": "Review archive passages",
+        "profile": "internal",
+        "status": "unavailable_or_rejected",
+        "reason": "schema_unavailable_or_rejected",
+        "flags": [],
+        "pairs": [
+          {
+            "pair_id": "P01",
+            "source_pair_sha256": "sha256:96d2c6f371e65c83b2487ee223df05578d251eb39089bdd48100c6e7cd0b78c4",
+            "left": {
+              "source_id": "T4-A",
+              "path": "t4-a.html",
+              "hash": "sha256:632e080ac6dbf284dd06b038e59808ea221bee16ac0d4011ef0b58e3acad8b8c",
+              "body_start": 0,
+              "body_end": 65,
+              "quote": "Worked example: the fictional captain orders every boat to leave."
+            },
+            "right": {
+              "source_id": "T4-B",
+              "path": "t4-b.html",
+              "hash": "sha256:16aba334c5c5b8b2eb82f1fbd84871a1c3219b2be81d9780c3732534e7cef0af",
+              "body_start": 0,
+              "body_end": 48,
+              "quote": "The station manager ordered every train to stop."
+            }
+          }
+        ],
+        "skipped": [],
+        "model_response_received": true,
+        "answer_supported": false,
+        "source_support_established": false,
+        "historical_truth_independently_verified": false,
+        "ledger_writes": 0,
+        "strict_slots_consumed": 0,
+        "configuration": {
+          "backend": "llamacpp",
+          "model": "mplpb-triage-qwen05",
+          "weight_digest": null
+        },
+        "metrics": {
+          "controller_cpu_seconds": 0.01832099199999998,
+          "wall_seconds": 2.4251651800004765,
+          "inference_attempts": 1,
+          "useful_flags": null,
+          "false_flags": null,
+          "missed_links": null,
+          "source_bytes_read": null,
+          "model_tokens": null,
+          "human_review_seconds": null
+        },
+        "notice": "Flag-only review sidecar. No source assertion, event identity, contradiction or historical truth established."
+      }
+    },
+    {
+      "id": "T5",
+      "result": {
+        "schema": "mplpb-semantic-triage-v1",
+        "question": "Review archive passages",
+        "profile": "internal",
+        "status": "unavailable_or_rejected",
+        "reason": "schema_unavailable_or_rejected",
+        "flags": [],
+        "pairs": [
+          {
+            "pair_id": "P01",
+            "source_pair_sha256": "sha256:1fdf05d6c15debf40821da29e22f999827158bbd2f33c2cc7f07f118074d020e",
+            "left": {
+              "source_id": "T5-A",
+              "path": "t5-a.html",
+              "hash": "sha256:978ae35c706300435a7005423a9899f74143ca7d04cee5360c303bf363884aab",
+              "body_start": 0,
+              "body_end": 58,
+              "quote": "The witness did not deny that the cart might have arrived."
+            },
+            "right": {
+              "source_id": "T5-B",
+              "path": "t5-b.html",
+              "hash": "sha256:a7c5764f2be14025f44f783431330d561ac9c98b1844b9f09cac7b6c3ec1370c",
+              "body_start": 0,
+              "body_end": 54,
+              "quote": "The register records no verified arrival for the cart."
+            }
+          }
+        ],
+        "skipped": [],
+        "model_response_received": true,
+        "answer_supported": false,
+        "source_support_established": false,
+        "historical_truth_independently_verified": false,
+        "ledger_writes": 0,
+        "strict_slots_consumed": 0,
+        "configuration": {
+          "backend": "llamacpp",
+          "model": "mplpb-triage-qwen05",
+          "weight_digest": null
+        },
+        "metrics": {
+          "controller_cpu_seconds": 0.015520787000000008,
+          "wall_seconds": 2.346015379000164,
+          "inference_attempts": 1,
+          "useful_flags": null,
+          "false_flags": null,
+          "missed_links": null,
+          "source_bytes_read": null,
+          "model_tokens": null,
+          "human_review_seconds": null
+        },
+        "notice": "Flag-only review sidecar. No source assertion, event identity, contradiction or historical truth established."
+      }
+    },
+    {
+      "id": "T6",
+      "result": {
+        "schema": "mplpb-semantic-triage-v1",
+        "question": "Review archive passages",
+        "profile": "internal",
+        "status": "unavailable_or_rejected",
+        "reason": "schema_unavailable_or_rejected",
+        "flags": [],
+        "pairs": [
+          {
+            "pair_id": "P01",
+            "source_pair_sha256": "sha256:fbff1ac4c08bccc9c246fd64d4028410c8c4db061707f4d317ea3daffa442aa7",
+            "left": {
+              "source_id": "T6-A",
+              "path": "t6-a.html",
+              "hash": "sha256:b964fd1411f950fcfe10eba16d19d11441a975d286eccf2e14ee246e3dd89b07",
+              "body_start": 0,
+              "body_end": 39,
+              "quote": "The lamp went out before the bell rang."
+            },
+            "right": {
+              "source_id": "T6-B",
+              "path": "t6-b.html",
+              "hash": "sha256:d73f6933082a349c70bd342c1dcb67f7df0397cf6f48b07aa72fe15f996f647e",
+              "body_start": 0,
+              "body_end": 38,
+              "quote": "The bell rang after the lamp went out."
+            }
+          }
+        ],
+        "skipped": [],
+        "model_response_received": true,
+        "answer_supported": false,
+        "source_support_established": false,
+        "historical_truth_independently_verified": false,
+        "ledger_writes": 0,
+        "strict_slots_consumed": 0,
+        "configuration": {
+          "backend": "llamacpp",
+          "model": "mplpb-triage-qwen05",
+          "weight_digest": null
+        },
+        "metrics": {
+          "controller_cpu_seconds": 0.013346365999999998,
+          "wall_seconds": 1.9936604719987372,
+          "inference_attempts": 1,
+          "useful_flags": null,
+          "false_flags": null,
+          "missed_links": null,
+          "source_bytes_read": null,
+          "model_tokens": null,
+          "human_review_seconds": null
+        },
+        "notice": "Flag-only review sidecar. No source assertion, event identity, contradiction or historical truth established."
+      }
+    }
+  ],
+  "metrics": {
+    "developer_expected_useful_flags": 0,
+    "developer_unexpected_flags": 0,
+    "developer_expected_but_missing_flags": 4,
+    "wall_seconds": 13.688358428997162,
+    "accepted_schema_responses": 0,
+    "historical_relationship_precision": null,
+    "historical_relationship_recall": null,
+    "human_review_seconds": null
+  },
+  "independent_human_review": "NOT RUN",
+  "environment": {
+    "python": "3.12.14",
+    "platform": "Linux-6.18.57-x86_64-with-glibc2.41"
+  },
+  "notice": "Developer utility expectations on six fictional pairs; not ground-truth historical relationships or independent model accuracy."
+}

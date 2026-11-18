@@ -1,0 +1,127 @@
+== 1. Ask with no ledger yet: unofficial answer + classing help
+Q: How many barrels did SHIP-7 carry?
+
+MPLPB could not answer strictly.
+  why: No ledger was given (or it does not exist), so MPLPB cannot answer officially.
+  - Only an unofficial answer from the dump is possible until material is classed into a ledger.
+
+UNOFFICIAL — not supported by MPLPB. Read the cited passages before relying on it.
+  Forty barrels of flour left Boston for the Albany depot on the morning boat.
+  - dump ship-7.txt bytes 151-228, not in ledger: 'Forty barrels of flour left Boston for the Albany depot on the morning boat.\n'
+  - dump ship-8.txt bytes 107-218, not in ledger: 'Correction to SHIP-7: the cargo count changes only to thirty-eight barrels; the destination remains unchanged.\n'
+  - dump ship-7.txt bytes 0-149, not in ledger: 'Message-ID: SHIP-7\nSubject: Flour shipment to Albany\nFrom: Boston flour office\nTo: Albany depot\nDate sent: May 12, 1850\nCargo: forty barrels'
+  ! SHIP-7 may be corrected by ship-8.txt (review only, not applied): 'Correction to SHIP-7: the cargo count changes only to thirty-eight barrels; the destination remains unchanged.'
+A refusal is not evidence that the answer is absent.
+
+To make this answerable: The best evidence is in dump file(s) not in the ledger: ship-7.txt, ship-8.txt.
+  python -m mplpb_work.classing propose /tmp/tmp.nI0k37UwOq/dump --ledger LEDGER --output review.json
+  Review review.json (accept/reject drafts and decisions), then: python -m mplpb_work.classing build review.json --dump /tmp/tmp.nI0k37UwOq/dump --ledger NEW_LEDGER
+
+== 2. Propose drafts and decisions
+{
+  "drafts": {
+    "accept": 2,
+    "reject": 0,
+    "pending": 6
+  },
+  "answer_supported": false,
+  "auto_accept_eligible": 2,
+  "blocking_decisions_open": [
+    "X001"
+  ],
+  "other_decisions_open": [
+    "X002",
+    "X003",
+    "X004",
+    "X005"
+  ],
+  "ready_to_build": false,
+  "output": "/tmp/tmp.nI0k37UwOq/review.json",
+  "sorter_complete": true,
+  "sorter_limits_or_exclusions": []
+}
+
+== 3. A person reviews (scripted stand-in)
+wrote /tmp/tmp.nI0k37UwOq/review-reviewed.json
+{
+  "drafts": {
+    "accept": 7,
+    "reject": 1,
+    "pending": 0
+  },
+  "answer_supported": false,
+  "auto_accept_eligible": 2,
+  "blocking_decisions_open": [],
+  "other_decisions_open": [],
+  "ready_to_build": true
+}
+
+== 4. Build, rehearsed and validated
+7 record(s) under /tmp/tmp.nI0k37UwOq/ledger: 4 current, 3 retired; 0 error(s), 0 warning(s)
+
+== 5. Ask again
+----
+Q: What is the from for record SHIP-7?
+
+OFFICIAL (MPLPB strict):
+  From: Boston flour office
+  sources: SHIP-7@sha256:c52e4b7b5f73
+----
+Q: Who sent SHIP-7?
+
+OFFICIAL for a reformulated question:
+  From: Boston flour office
+  sources: SHIP-7@sha256:c52e4b7b5f73
+  asked as: What is the from for record SHIP-7?
+  MPLPB certified the reformulated question, not your wording. Check that it asks what you meant.
+----
+Q: What is the cargo for record SHIP-7?
+
+OFFICIAL for a reformulated question:
+  Cargo: thirty-eight barrels
+  sources: SHIP-8@sha256:8c06cdd84100
+  asked as: What is the cargo for record SHIP-8?
+  MPLPB certified the reformulated question, not your wording. Check that it asks what you meant.
+----
+Q: How many bales were shipped in Letter No. 41?
+
+MPLPB could not answer strictly.
+  why: The question matches more than one record or needs a field, date or subject named.
+  - LETTER-NO-41 has readable fields: Classing source SHA-256, Classing source bytes, Classing source file, Date, Designation.
+
+UNOFFICIAL — not supported by MPLPB. Read the cited passages before relying on it.
+  Twelve bales shipped to Troy.
+  - ledger page LETTER-NO-41 (eligible, not certified for this question): 'Twelve bales shipped to Troy.'
+  - dump letter-41.txt bytes 0-31, classed into the ledger as LETTER-NO-41 [negation_present_requires_context]: 'Letter No. 41\nDate: 1 June 1851'
+  - ledger page LETTER-NO-41 (eligible, not certified for this question) [negation_present_requires_context]: 'Designation: Letter No. 41'
+  ! LETTER-NO-41 may be corrected by letter-42.txt (review only, not applied): 'Ref. Letter No. 41 is hereby corrected: ten bales, not twelve.'
+A refusal is not evidence that the answer is absent.
+----
+Q: What are the freight rates for flour?
+
+MPLPB could not answer strictly.
+  why: The question matches more than one record or needs a field, date or subject named.
+  - Question forms MPLPB can certify: What is the <field> for record <ID>? | When did <name> open? | Who owns <name>? | What is <name>? | Under what conditions can <thing> be <verb>? | What happens if <condition>? | Show procedure <ID> / Show step <n> of procedure <ID>
+  - The ledger has no eligible pages for this profile (empty, missing, or every page is deeper than allowed).
+
+UNOFFICIAL — not supported by MPLPB. Read the cited passages before relying on it.
+  Subject: Freight rates for 1849
+  caution, the passage it comes from is qualified: withdrawn_in_ledger
+  - dump old-rates.txt bytes 0-70, classed into the ledger as RATES-1849 [withdrawn_in_ledger]: 'Message-ID: RATES-1849\nSubject: Freight rates for 1849\nStatus: retired'
+  - dump ship-7.txt bytes 0-149, classed into the ledger as SHIP-7: 'Message-ID: SHIP-7\nSubject: Flour shipment to Albany\nFrom: Boston flour office\nTo: Albany depot\nDate sent: May 12, 1850\nCargo: forty barrels'
+  - dump ship-7.txt bytes 151-228, classed into the ledger as SHIP-7: 'Forty barrels of flour left Boston for the Albany depot on the morning boat.\n'
+  ! SHIP-7 may be corrected by ship-8.txt (review only, not applied): 'Correction to SHIP-7: the cargo count changes only to thirty-eight barrels; the destination remains unchanged.'
+A refusal is not evidence that the answer is absent.
+----
+Q: What is the from for record SHIP-7?
+
+MPLPB could not answer strictly.
+  why: No page in the ledger is eligible to answer this under the selected profile.
+  - SHIP-7 is withheld for this question under the 'external' profile: source authorship unknown; external delivery withheld.
+  - A reviewer can declare source authorship (classing page.source_authorship) and ratify the page if they stand behind it; MPLPB will not guess authorship.
+  - The ledger has no eligible pages for this profile (empty, missing, or every page is deeper than allowed).
+
+No unofficial passage was surfaced within the inspected material and budgets.
+A refusal is not evidence that the answer is absent.
+
+work folder: /tmp/tmp.nI0k37UwOq

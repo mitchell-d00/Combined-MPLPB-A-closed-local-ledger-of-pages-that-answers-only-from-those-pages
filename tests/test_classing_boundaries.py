@@ -32,6 +32,12 @@ class ClassingBoundaryTests(unittest.TestCase):
         r=self.propose('Message-ID: DATA-1\nStatus: retired\n\nPrior statement.')
         r['drafts'][0]['decision']='accept';r['decisions'][0]['choice']='withdraw_after_write'
         with self.assertRaises(classing.ClassingError):classing.build(r,self.dump,self.root/'ledger')
+    def test_string_ratification_and_forged_support_are_rejected(self):
+        for key,value in (('ratify','false'),('answer_supported',True)):
+            r=self.propose()
+            if key=='ratify':r['drafts'][0][key]=value
+            else:r[key]=value
+            with self.subTest(key=key),self.assertRaises(classing.ClassingError):classing.plan(r,self.dump)
     def test_tampered_choice_options_cannot_authorize_unknown_operation(self):
         r=self.propose('Message-ID: DATA-1\nStatus: retired\n\nPrior statement.')
         r['drafts'][0]['decision']='accept';r['decisions'][0].update(options=['invent'],choice='invent')

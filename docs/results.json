@@ -549,6 +549,26 @@
       ],
       "scope": "Opt-in processed/eligible-original review; ownership policy, byte fidelity and separate budgets, not semantic historical validation.",
       "measurement_status": "Final e0ff226:1267 extracted-ZIP tests and isolated frozen-wheel check pass; all22 native results unchanged at2 complete. Five public cases/replays retain15 exact matches,49 phrase cues,39 processed passages; failures and costs preserved. Semantic human/unseen assessment NOT RUN."
+    },
+    {
+      "family": "fixpack",
+      "artifacts": "evaluation/fixpack",
+      "tests": [
+        "tests/test_stacked_field_safety.py",
+        "tests/test_classing_boundaries.py",
+        "tests/test_exploration_budget.py",
+        "tests/test_documentary_local_context.py",
+        "tests/test_semantic_triage.py",
+        "tests/test_ledger_generations.py"
+      ],
+      "runners": [
+        "tools/reproduce_boundaries.py",
+        "tools/report_fixpack_retest.py",
+        "tools/evaluate_fixpack_exploration.py",
+        "tools/evaluate_semantic_triage.py"
+      ],
+      "scope": "Supplied patch hardening, unchanged22 development replay, separate discovery, fictional process-interruption and optional live-model flag probes. No independent historical accuracy.",
+      "measurement_status": "Baseline retained; final frozen replay pending. Live pilot negative findings retained."
     }
   ]
 }
