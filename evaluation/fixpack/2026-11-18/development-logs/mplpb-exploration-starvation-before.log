@@ -1,0 +1,12 @@
+======================================================================
+FAIL: test_wrapped_source_context_keeps_exact_slice (tests.test_exploration_budget.ExplorationTests.test_wrapped_source_context_keeps_exact_slice)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/mplpb/tests/test_exploration_budget.py", line 53, in test_wrapped_source_context_keeps_exact_slice
+    self.assertTrue(any('beacon\nuses a cobalt lens' in p['text'] for p in passages))
+AssertionError: False is not true
+
+----------------------------------------------------------------------
+Ran 6 tests in 0.119s
+
+FAILED (failures=1)

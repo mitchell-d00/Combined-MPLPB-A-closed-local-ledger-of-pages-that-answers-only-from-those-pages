@@ -127,7 +127,8 @@ def _pages(ledger, profile, question):
         if (record.id,record.path,record.hash_actual) not in allowed:
             continue
         pages[record.id] = {'id': record.id, 'hash': record.hash_actual, 'path': record.path,
-                            'title': record.title, 'text': body_text(record.body_html), 'depth': depth}
+                            'title': record.title, 'text': body_text(record.body_html), 'depth': depth,
+                            '_inspection_html': record.body_html}
     return pages
 
 
@@ -356,20 +357,32 @@ def _warnings(text):
 
 
 def _ledger_passages(pages):
-    """One passage per served paragraph (the ledger serves one per line)."""
-    out = [];size=0
-    for page in pages.values():
-        offset=0
-        for paragraph in page['text'].split('\n'):
-            if paragraph.strip():
-                if len(out)>=2048 or size+len(paragraph)>1000000:
-                    return out,True
-                out.append({'origin': 'ledger', 'text': paragraph.strip(), 'page': page['id'],
-                            'source_id':page['id'],'answer_supported':False,'source_support_established':False,
-                            'hash': page['hash'],'path':page['path'],'body_start':offset,
-                            'body_end':offset+len(paragraph),'records': [page['id']], 'warnings': sorted(_warnings(paragraph))})
-                size+=len(paragraph)
-            offset+=len(paragraph)+1
+    """Fair source traversal with existing exact wrapped-line context units.
+
+    These are inspection contexts, not certified complete statements. Retaining
+    a context never confers proof authority or resolves an event identity.
+    """
+    from mplpb_answers.passages import _passage_units
+    from html import escape
+    out=[];size=0
+    active=[(page,iter(_passage_units(page.get('_inspection_html','<pre>'+escape(page['text'])+'</pre>'),
+                                    page['text'],context_chars=1200))) for page in pages.values()]
+    while active:
+        remaining=[]
+        for page,units in active:
+            try:offset,paragraph,incomplete=next(units)
+            except StopIteration:continue
+            remaining.append((page,units))
+            if len(out)>=2048 or size+len(paragraph)>1000000:return out,True
+            if page['text'][offset:offset+len(paragraph)]!=paragraph:
+                raise ValueError('Exploration context mapping changed')
+            out.append({'origin':'ledger','text':paragraph,'page':page['id'],
+                        'source_id':page['id'],'answer_supported':False,'source_support_established':False,
+                        'hash':page['hash'],'path':page['path'],'body_start':offset,
+                        'body_end':offset+len(paragraph),'records':[page['id']],
+                        'context_incomplete':incomplete,'warnings':sorted(_warnings(paragraph))})
+            size+=len(paragraph)
+        active=remaining
     return out,False
 
 

@@ -34,6 +34,26 @@ class ExplorationTests(unittest.TestCase):
             self.assertEqual(report['report']['method'],'context_budget_exhausted')
             self.assertFalse(report['answer_supported'])
 
+    def test_long_first_source_cannot_starve_later_sources(self):
+        with tempfile.TemporaryDirectory() as root:
+            write(root,doc_id='SRC-1',title='Long archive',scope='archive',
+                  body_html='<pre>'+('Unrelated archive line.\n'*3000)+'</pre>')
+            write(root,doc_id='SRC-2',title='Second archive',scope='archive',
+                  body='The amber beacon uses a cobalt lens.')
+            result=explore('What lens does the amber beacon use?',root,max_passages=3)
+            self.assertTrue(any(p['source_id']=='SRC-2' for p in result['report']['passages']))
+            self.assertFalse(result['answer_supported'])
+
+    def test_wrapped_source_context_keeps_exact_slice(self):
+        with tempfile.TemporaryDirectory() as root:
+            text='The amber beacon\nuses a cobalt lens.\nIts keeper reports the observation.'
+            write(root,doc_id='SRC-1',title='Archive',scope='archive',body_html='<pre>'+text+'</pre>')
+            result=explore('What lens does the amber beacon use?',root,max_passages=3)
+            passages=result['report']['passages']
+            self.assertTrue(any('beacon\nuses a cobalt lens' in p['text'] for p in passages))
+            for passage in passages:
+                self.assertEqual(text[passage['body_start']:passage['body_end']],passage['text'])
+
     def test_listed_date_roles_are_separate_discovery_queries(self):
         self.assertEqual(len(question_parts('Distinguish drafting, distribution and receipt dates.')),3)
 

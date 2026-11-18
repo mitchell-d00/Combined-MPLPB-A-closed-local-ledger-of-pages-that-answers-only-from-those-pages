@@ -4,8 +4,8 @@ Last reviewed: 2026-11-18.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `7c8f3373ee444a3e81a86e36ec79ecc5d370388a` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `6f6aa0bcd41359b81bb2bd0cbd0b22545a14e615cd2a3dd1b9c71578643cf2e8`.
+Base commit: `f030570aefd272a2fc0388d6f80b44232f0c8304` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `424c8796d00f46d7ab4dac63351e28cb1595e0383286efc4d17393e51e832801`.
 
 ## Latest user update instructions
 
@@ -22,6 +22,7 @@ Answer coverage: make a case-by-case table of what each question requires, what 
 - Separate bounded discovery and conservative independently checked local-context partial evidence.
 - Add optional strict-schema flag-only sidecar and process-interruption-tested POSIX generation publication.
 - Freeze code, rerun unchanged22 questions, retain all failures and prepare blinded AI assessment.
+- Repair reproduced exploration starvation by round-robin source traversal and existing wrapped-line context units.
 
 ## Validation recorded
 
@@ -29,6 +30,7 @@ Answer coverage: make a case-by-case table of what each question requires, what 
 - Baseline unchanged22:2 complete,1 partial,3 conflict,16 abstain;27/32 draft anchors.
 - Focused new module tests passed; final archive full regression pending.
 - Live Qwen0.5B pilot:6 rejected schemas; constrained rerun6 valid decisions,all abstentions,4 developer-expected flags missing. No demonstrated utility gain.
+- New long-first-source and wrapped-context regressions failed before repair;32 router/discovery tests passed after repair. First frozen replay retained; final repair replay pending.
 
 ## Limitations and blocked checks
 
