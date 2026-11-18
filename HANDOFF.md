@@ -4,8 +4,8 @@ Last reviewed: 2026-11-18.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `6350988a2f64d8e5fa53bd187d368f4397bf4f4c` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `3247d75a4b661144d4113a6539d1afa40153c9301cef2da9c20515ff796f76f3`.
+Base commit: `baf3bbdcc9708c7ed5ca4a98f40753cf9a43359a` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `0940a7e8203b2f573b809e6b115a1133131b875c9d747415937c31f65c811c87`.
 
 ## Latest user update instructions
 
