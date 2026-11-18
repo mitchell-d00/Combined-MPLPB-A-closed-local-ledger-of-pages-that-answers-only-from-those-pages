@@ -50,7 +50,7 @@ class Locator:
 
 
 def merge(index,base,hints,max_passages,max_chars):
-    """Common guard: retain native source-discovery anchors before review hints."""
+    """Keep suggestions outside ordinary retrieval; the native reader assigns slots."""
     if index.exact_status:return base
     selected=[];seen=set();used=0
     def add(p):
@@ -58,17 +58,12 @@ def merge(index,base,hints,max_passages,max_chars):
         key=(p['path'],p['body_start'],p['text'])
         if key in seen or len(selected)>=max_passages or used+len(p['text'])>max_chars:return
         selected.append(p);seen.add(key);used+=len(p['text'])
-    for p in base['passages']:
-        if p.get('retrieval_reason') in {'source-facet','declared-transcript-section-discovery-only'}:add(p)
-    for i in range(max(len(hints),len(base['passages']))):
-        for items in [hints,base['passages']]:
-            if i<len(items):add(items[i])
+    for p in hints:add(p)
     if not index.unchanged():
         from mplpb_answers.evidence_contract import ReaderError
         raise ReaderError('source_changed','Original changed while locating review hints')
-    paths={p['path'] for p in selected}
-    return dict(base,passages=selected,sources=[s for s in index.sources if s['path'] in paths],
-                ranking='experimental-sorter-options-preserved-source-facets-v1',search_complete=False)
+    return dict(base,sorter_candidates=selected,
+                sorter_routing='reader_owned_class_and_witness_admission',search_complete=False)
 
 
 @contextmanager
@@ -87,16 +82,20 @@ def adapter(graph,bindings,texts,bundle,arm,traces):
             hints=[p for p in pack['passages'] if 'sorter_node_id' in p]
         else:
             ranked=[]
-            def propose(node_id,span,score,basis):
+            def propose(node_id,span,score,basis,suggestion_class=None,class_reason=None):
                 mapped=locator.span(index,span)
                 if mapped is None:invalid.append(node_id);return
                 source_id,a,b=mapped
                 for p in index.passages:
                     if p['source_id']==source_id and p['body_start']<b and p['body_start']+len(p['text'])>a:
-                        ranked.append(dict(p,retrieval_score=score,sorter_node_id=node_id,sorter_basis=basis))
-            for hit in bundle['ranked_hits']:propose(hit['node_id'],hit['span'],hit['rank_score'],'lexical_ranker_original_location')
+                        row=dict(p,retrieval_score=score,sorter_node_id=node_id,sorter_basis=basis)
+                        if suggestion_class:row.update(suggestion_class=suggestion_class,class_reason=class_reason)
+                        ranked.append(row)
+            for hit in bundle['ranked_hits']:
+                propose(hit['node_id'],hit['span'],hit['rank_score'],'ranker_original_location_for_reader_review',hit['suggestion_class'],hit['class_reason'])
             if arm=='synonyms-relater':
-                scores={h['occurrence_id']:h['rank_score'] for h in reversed(bundle['ranked_hits'])}
+                scores={h['occurrence_id']:h['rank_score'] for h in reversed(bundle['ranked_hits'])
+                        if h['suggestion_class'] in {'exact_source_id_match','exact_field_match','exact_quote_match'}}
                 # Only one hop from an existing query hit; no transitive traversal.
                 for link in bundle['candidate_links']:
                     if link['kind'] not in {'possible_reference','possible_correction','possible_partial_correction',
@@ -106,18 +105,24 @@ def adapter(graph,bindings,texts,bundle,arm,traces):
                         a,b=link[left],link[right]
                         if a['occurrence_id'] in scores:
                             propose(b['node_id'],b['context_span'] or b['span'],scores[a['occurrence_id']]*0.75,
-                                    'candidate_link_one_hop:'+link['id'])
+                                    'explicit_target_location_for_reader_review:'+link['id'],link['suggestion_class'],link['class_reason'])
             ranked.sort(key=lambda p:(-p['retrieval_score'],p['path'],p['body_start']))
             seen=set()
             for p in ranked:
                 key=(p['path'],p['body_start'])
                 if key not in seen:hints.append(p);seen.add(key)
+        if bundle is not None:
+            classifications={h['node_id']:h['suggestion_class'] for h in bundle['ranked_hits']}
+            for hint in hints:hint.setdefault('suggestion_class',classifications.get(hint['sorter_node_id'],'synonym_or_shared_wording'))
+        else:
+            for hint in hints:hint['suggestion_class']='synonym_or_shared_wording'
         pack=merge(index,base,hints,max_passages,max_chars)
         traces.append({'selected_hints':[p for p in pack['passages'] if 'sorter_node_id' in p],
             'invalid_hint_nodes':invalid,'passage_count':len(pack['passages']),
             'characters':sum(len(p['text']) for p in pack['passages']),
             'max_passages':max_passages,'max_characters':max_chars,
-            'native_source_facets_preserved_first':True,'answer_supported':False})
+            'offered_hints_for_reader_review':pack.get('sorter_candidates',[]),
+            'sorter_assigns_slots':False,'answer_supported':False})
         return pack
     with patch.object(retrieval,'retrieve',wrapped):yield
 
@@ -125,14 +130,18 @@ def adapter(graph,bindings,texts,bundle,arm,traces):
 def prepare(output):
     output=Path(output);base_prepare(output)
     save(output/'options-protocol.json',{'schema':'sorter-options-study-v1','arms':ARMS,
-        'strict_reader_revision':'6350988a2f64d8e5fa53bd187d368f4397bf4f4c',
+        'strict_reader_revision':read(output/'protocol.json')['reader_revision'],
+        'historical_reader_baseline_revision':'6350988a2f64d8e5fa53bd187d368f4397bf4f4c',
+        'verifier_sha256':sha((ROOT/'mplpb_answers/documentary_verify.py').read_bytes()),
         'strict_reader_files_sha256':{k:v for k,v in code_pins(ROOT).items() if k.startswith(('mplpb_answers/','mplpb_combined/'))},
         'runtime_sha256':code_pins(ROOT),'adapter_sha256':sha(Path(__file__).read_bytes()),
         'base_adapter_sha256':sha((ROOT/'tools/sorter_first_study.py').read_bytes()),
         'base_freeze_sha256':sha((output/'freeze.json').read_bytes()),
-        'common_guard':'Reserve existing source-facet/transcript discovery passages, then interleave optional hints and native ranking. Exact routes unchanged.',
-        'options':'Default inspectable vocabulary; no custom glossary or new answer keys. Ranker uses exact and neighbor signals. Relater adds at most one source-anchored candidate hop.',
+        'common_guard':'Native reader assigns required proof-witness slots, deduplicates source spans before charge, and keeps sorter suggestions outside ordinary passages. Search-only classes do not earn slots or traversal. Exact routes unchanged.',
+        'options':'Default inspectable vocabulary; no custom glossary or new answer keys. Classes explain review reasons; the reader independently checks question-part relevance and eligible source proof.',
         'comparison':'All22 original questions/originals and reader/worker/display budgets unchanged. Configured earlier unreserved retest remains separately frozen.',
+        'correct_outcome_goal':22,'complete_answer_count_reported_separately':True,
+        'outcome_scoring':'Complete cited answers when answerable; evidence-justified conflict/abstention when originals conflict or leave a genuine gap. Generic retrieval, budget or interpretation failures are not automatically correct. Semantic correctness requires source-grounded reference assessment; unassessed remains unassessed.',
         'independent_evaluation':'NOT RUN;22 questions are development only; unseen originals reserved.'})
 
 

@@ -15,7 +15,7 @@ import sys
 from . import sorter as core
 
 NOTICE = 'Sorter suggestions for review. MPLPB has not verified these links or answers.'
-VERSION = 'offline-sorter-suggestions-v2'
+VERSION = 'offline-sorter-suggestions-v3'
 STOP = set('a an the who what which when where why how is are was were be been did does do can could would should have has had and or of to for from in on by with it its this that their they he she his her'.split())
 BUILTIN = {'groups': [
     {'name':'dispatch-receipt-search', 'terms':['send','sent','sending','planned to send','dispatch','dispatched','mail','mailed','post','posted','receive','received'],
@@ -54,6 +54,38 @@ def glossary(value=None):
 
 def _pattern(term):
     return re.compile(r'(?<!\w)'+r'\s+'.join(re.escape(w) for w in term.split())+r'(?!\w)',re.I)
+
+
+def set_suggestion_class(node,query,graph,kind=None):
+    """Reuse provisional status assignment; a class explains a suggestion only.
+
+    An exact query word is not an exact quote, source selector or field proof.
+    The reader independently decides relevance, eligibility and passage slots.
+    """
+    classification='synonym_or_shared_wording';why='Lexical search neighbors or shared wording; search/review only.'
+    if kind in {'possible_reference','possible_correction','possible_partial_correction'}:
+        classification='explicit_reference' if kind=='possible_reference' else 'possible_correction'
+        why='Explicit source-declared reference/correction candidate; target and relevance require reader checking.'
+    elif kind is not None:
+        classification='shared_subject_review' if kind=='shared_subject_review' else 'shared_wording_review'
+    else:
+        text=node['span']['text']
+        quoted=re.findall(r'["“]([^"”]{2,500})["”]',query)
+        if any(q in text for q in quoted):
+            classification='exact_quote_match';why='The question quotes this exact original wording; meaning and eligibility are not established.'
+        for feature in graph['nodes']:
+            if feature.get('statement')!=node['id']:continue
+            if feature['kind']=='header_identifier' and _pattern(feature['value']).search(query):
+                if feature.get('primary_identity_eligible') is True:
+                    classification='exact_source_id_match';why='Literal requested source-declared identifier; the native source router must still resolve it.'
+                else:classification='quoted_identifier_review';why='Identifier is embedded/quoted; it does not identify an eligible owner.'
+            elif feature['kind']=='header' and feature.get('header_context')=='top_level_text':
+                literal=feature.get('header_name','')+': '+feature.get('value','')
+                if literal and literal.casefold() in query.casefold():
+                    classification='exact_field_match';why='Literal source field/value mentioned in the question; field support remains unverified.'
+    return {'suggestion_class':classification,'class_reason':why,'reader_assigns_passage_slot':True,
+        'automatic_passage_slot':False,'automatic_relationship_traversal':False,
+        'assessment':core.assign_status(node['kind'],scope=node.get('scope'))}
 
 
 def _span(node,a,b,text):
@@ -166,11 +198,19 @@ def suggestions(graph,directory,query='',*,synonym_ranker=False,candidate_relate
             'why_ranked':'2 per distinct exact query term;1 per distinct neighbor-only query term. Rank is not confidence or authority.',
             'assessment':core.assessment('ranked_inspection_candidate')})
     hits.sort(key=lambda h:(-h['rank_score'],h['span']['path'],h['span']['char_start'],h['node_id']))
+    nodes_by_id={n['id']:n for n in graph['nodes']}
+    for hit in hits:hit.update(set_suggestion_class(nodes_by_id[hit['node_id']],query,graph))
     comparison=graph
     if candidate_relater and not graph['comparison_performed']:
         comparison=core.sort_directory(directory,mode='compare',limits=graph['limits'])
         if comparison['nodes']!=graph['nodes']:raise core.SortError('Source nodes changed during relation review')
     links,unresolved,limits=_links(comparison,hits,synonym_ranker) if candidate_relater else ([],[],{'partial':False})
+    for link in links:
+        link.update(set_suggestion_class(nodes_by_id[link['left']['node_id']],query,graph,kind=link['kind']))
+    for item in unresolved:
+        item.update(suggestion_class='unresolved_reference_review',automatic_passage_slot=False,
+                    automatic_relationship_traversal=False,reader_assigns_passage_slot=True,
+                    class_reason='An explicit source reference has no resolved target; retain it for review.')
     result={'schema':VERSION,'label':NOTICE,'sorter_graph':copy.deepcopy(graph),'ranked_hits':hits,
         'candidate_links':links,'unresolved_references':unresolved,'assessment':core.assessment('suggestions_for_review'),
         'configuration':{'query':query,'synonym_ranker':synonym_ranker,'candidate_relater':candidate_relater,

@@ -191,14 +191,23 @@ def compose(index,max_passages,max_chars):
     if goals is None:return None
     from .prose_retrieval import retrieve
     pack=retrieve(index,max_passages,max_chars)
+    from .passage_admission import Budget,comparison_plan,candidate_allowed,admit_proposals,pending_suggestions
+    admission=Budget(index,max_passages,max_chars)
+    planned=comparison_plan(index,admission)
+    located=pack['passages']+pack.get('sorter_candidates',[])+pending_suggestions()
+    ordinary=[p for p in located if candidate_allowed(index,p,goals,admission,closed_plan=planned is not None)]
+    # Reader-selected rule dependencies survive reranking and final cutoff.
+    # Sorter search-only suggestions remain separate locators for review.
+    if planned:ordinary=planned['passages']
     from .source_units import expand
-    passages,context_limits=expand(index,pack['passages'],max_passages,max_chars)
+    passages,context_limits=expand(index,ordinary,max_passages,max_chars)
     if any(g['kind']=='wording_comparison' for g in goals):
         # Literal comparisons retain complete native paragraphs, including
         # semicolon-separated originals that are longer than a sentence.
-        passages=pack['passages']
-    if not passages:passages=_contexts(index,pack['passages'],max_chars,max_passages)
+        passages=ordinary
+    if not passages:passages=_contexts(index,ordinary,max_chars,max_passages)
     proposals=propose(index,passages)
+    proposals=admit_proposals(index,proposals,goals,_relevant,admission,planned['proposal'] if planned else None)
     checked=kernel.check(index,proposals)
     if checked['status']=='source_changed':return {'kind':'abstain','code':'source_changed'}
     proofs=checked['proofs'];selected=[];statuses=[];missing=[];conflict=False;ambiguous=False;alternatives=[]
@@ -260,22 +269,28 @@ def compose(index,max_passages,max_chars):
     if context_limits and not literal_completion:missing.append('Some complete source units exceeded the context budget; search/context is incomplete.')
     request_scope=any(p['proposition']['relation']=='source_reports_instruction' for p in selected)
     if request_scope and not arrangement_completion:missing.append('Request occurrence, later correction/cancellation and execution are outside this source-attribution certificate.')
-    shown=[];used=0;count=0
+    shown=[]
     for proof in selected:
-        size=sum(len(e['quote']) for e in proof['citations']);n=len(proof['citations'])
-        if used+size>max_chars or count+n>max_passages:
+        if not admission.offer(proof['citations'],'verified_question_evidence_or_counterevidence'):
+            if conflict:admission.counter_did_not_fit=True
             missing.append('Verified/competing statements exceed the display budget; no pruned subset establishes a complete answer.');continue
-        shown.append(proof);used+=size;count+=n
+        shown.append(proof)
     displayed_alternatives=[]
     for e in alternatives:
-        if used+len(e['quote'])>max_chars or count>=max_passages:continue
-        displayed_alternatives.append(e);used+=len(e['quote']);count+=1
+        if not admission.offer([e],'relevant_unresolved_counterevidence'):
+            admission.counter_did_not_fit=True;continue
+        displayed_alternatives.append(e)
     if len(displayed_alternatives)!=len(alternatives):missing.append('Some unresolved alternative evidence cannot fit the display budget.')
     claims=[_claim(p) for p in shown]
-    for status in statuses:
+    for part,status in enumerate(statuses):
         hashes = set(status['evidence_proof_sha256'])
         status['evidence_claim_indices'] = [i for i, claim in enumerate(claims) if claim['proof_sha256'] in hashes]
-        status['undisplayed_evidence_count'] = len(hashes)-len(status['evidence_claim_indices'])
+        unadmitted=sum(1 for row in admission.blocked
+            if row['role'].startswith('native_rule_candidates_for_question_parts:')
+            and str(part) in row['role'].split(':',1)[1].split(','))
+        status['unadmitted_witness_candidate_count']=unadmitted
+        status['undisplayed_evidence_count'] = len(hashes)-len(status['evidence_claim_indices'])+unadmitted
+        status['unadmitted_candidates_verified']=False
     all_supported=bool(claims) and not missing and all(g['status']=='supported_source_assertion' for g in statuses)
     kind='conflict' if conflict else 'clarify' if ambiguous else 'supported_answer' if all_supported else 'partial_answer' if claims else 'abstain'
     text='\n'.join(c['text']+' '+ ' '.join(c['qualifiers']) for c in claims)
@@ -286,11 +301,12 @@ def compose(index,max_passages,max_chars):
         for e in c['citations']:
             s={'id':e['source_id'],'path':e['path'],'hash':e['hash']}
             if s not in sources:sources.append(s)
-    return {'kind':kind,'code':'documentary_statement_conflict' if conflict else 'documentary_scope_ambiguous' if ambiguous else 'supported_documentary_assertion' if all_supported else 'partial_documentary_evidence' if claims else 'documentary_assertion_not_established',
+    return {'kind':kind,'code':'contradictory_passages_pruned' if admission.counter_did_not_fit and conflict else 'reader_budget_exceeded' if admission.counter_did_not_fit or admission.blocked and not all_supported else 'documentary_statement_conflict' if conflict else 'documentary_scope_ambiguous' if ambiguous else 'supported_documentary_assertion' if all_supported else 'partial_documentary_evidence' if claims else 'documentary_assertion_not_established',
             'text':text,'claims':claims,'sources':sources,'missing':missing,'answer_supported':all_supported,
             'verification':{'structural':bool(claims),'semantic':kernel.VERSION,'truth_verified':False,'independence_verified':False},
             'documentary_support':{'schema':VERSION,'original_question':index.question,'profile':index.profile.name,
                 'obligations':statuses,'source_support_claims':len(claims),'historical_truth_independently_verified':False,
+                'admission':admission.report(),
                 'composition_rule':'Conjunction of independently checked source assertions; no person/event co-reference inferred.',
                 'historical_conflict_verified':False,'event_coreference_established':False,
                 'contrary_evidence_scan_complete':checked['scan_complete'] and not request_scope,

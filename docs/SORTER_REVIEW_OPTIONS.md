@@ -38,3 +38,5 @@ The22 questions are development data. Unseen originals are reserved for independ
 
 
 The [first optional-feature trial](../evaluation/sorter-first-originals/2026-11-18-options/REPORT.md) completed66 executions but produced no new complete answer:1/22 in each arm, with draft discovery26/32,26/32 and24/32. Its995 neighbor-only links were too broad. All results and developer-reviewed misleading examples are preserved. Version2 removes neighbor-only relation edges and the experimental adapter stops traversing weak wording/subject reviews. It retains the ranker and explicit source-key/reference review links. A new frozen three-arm evaluation is required; original baseline2/22 and prior failed trials remain unchanged.
+
+Reader-owned admission now replaces the experimental first-discovery reservation. [Passage admission](PASSAGE_ADMISSION.md) documents classes, atomic proof witnesses, duplicate charging and counterevidence limits. The verifier remains unchanged; prior failed trials remain preserved. The new same-reader four-arm rerun is pending at this freeze.

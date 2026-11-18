@@ -1,0 +1,26 @@
+======================================================================
+FAIL: test_h05_complete_at_original_budget_despite_high_darwin_search_hints (tests.test_witness_admission.WitnessAdmissionTests.test_h05_complete_at_original_budget_despite_high_darwin_search_hints)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/mplpb/tests/test_witness_admission.py", line 31, in test_h05_complete_at_original_budget_despite_high_darwin_search_hints
+    self.assertEqual(answer['kind'],'supported_answer')
+AssertionError: 'partial_answer' != 'supported_answer'
+- partial_answer
++ supported_answer
+
+
+======================================================================
+FAIL: test_relevant_contradiction_cannot_be_hidden_by_one_passage_budget (tests.test_witness_admission.WitnessAdmissionTests.test_relevant_contradiction_cannot_be_hidden_by_one_passage_budget)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/mplpb/tests/test_witness_admission.py", line 47, in test_relevant_contradiction_cannot_be_hidden_by_one_passage_budget
+    self.assertEqual(answer['diagnostic']['code'],'contradictory_passages_pruned')
+AssertionError: 'documentary_statement_conflict' != 'contradictory_passages_pruned'
+- documentary_statement_conflict
++ contradictory_passages_pruned
+
+
+----------------------------------------------------------------------
+Ran 2 tests in 4.439s
+
+FAILED (failures=2)

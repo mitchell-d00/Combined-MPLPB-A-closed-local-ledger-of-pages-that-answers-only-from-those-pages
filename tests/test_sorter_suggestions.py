@@ -124,6 +124,21 @@ class SorterSuggestionsTests(unittest.TestCase):
         result['ranked_hits'][0]['rank_score']=999
         with self.assertRaises(core.SortError):review.verify_suggestions(result,self.raw)
 
+    def test_class_setter_distinguishes_words_quotes_and_primary_identifier(self):
+        self.source('a.txt','Record-ID: ABC-101\n\nMara sent the Cedar report.')
+        words=self.run_review('received report')
+        self.assertTrue(all(h['suggestion_class']=='synonym_or_shared_wording' for h in words['ranked_hits']))
+        exact=self.run_review('ABC-101')
+        self.assertTrue(any(h['suggestion_class']=='exact_source_id_match' for h in exact['ranked_hits']))
+        quoted=self.run_review('Find "Mara sent the Cedar report."')
+        self.assertTrue(any(h['suggestion_class']=='exact_quote_match' for h in quoted['ranked_hits']))
+        self.assertTrue(all(h['automatic_passage_slot'] is False for h in quoted['ranked_hits']))
+
+    def test_embedded_identifier_class_remains_review_only(self):
+        self.source('a.txt','An example:\n\n```\nRecord-ID: ABC-101\n```')
+        result=self.run_review('ABC-101')
+        self.assertFalse(any(h['suggestion_class']=='exact_source_id_match' for h in result['ranked_hits']))
+
     def test_cli_off_exact_delegation_and_on_mandatory_label(self):
         self.source('a.txt','Mara sent a report.')
         off=self.root/'off.json';on=self.root/'on.json'

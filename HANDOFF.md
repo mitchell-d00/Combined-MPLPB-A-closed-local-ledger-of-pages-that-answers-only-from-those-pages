@@ -4,8 +4,8 @@ Last reviewed: 2026-11-18.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `0c488a1ec93a6869df348755c31eb22be81d0d2c` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `79bc165162c27f4e7f55eca5fdd3203842d02dc7d85960bffd78b8325d324f62`.
+Base commit: `4785b13c25c4cd88c3365d2524c4ff1624d786b4` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `e0bdf2301ec6e3ed2536f6afc1c7777e67ecec6da21af247c1c66bf3215aa287`.
 
 ## Latest user update instructions
 
@@ -19,6 +19,12 @@ In the CLI and any user-facing display, label the results “Sorter suggestions 
 
 Let the sorter-first retest already underway finish as configured. Then compare three runs on the same 22 questions, originals, reader revision, and budgets: sorter alone, sorter with the synonym ranker, and sorter with both additions. Report newly located relevant passages, false links, and changes in complete strict answers separately. Retain the exact passages behind each change. Include regression cases for ambiguous synonyms, negation, quoted headers, shared subjects, and missing links. Use the 22-question set for development and reserve unseen originals for independent evaluation.
 
+That puts the fix in the right place. passage_admission.py decides what fits within the budget, and the existing verifier still decides whether the admitted passages prove the answer.
+
+H05 is the regression fixture. The admission rule should work for any question whose proof needs multiple passages. The rerun should show that H05 stays complete at the original limit, that duplicate spans are charged once, and that relevant counterevidence can still block completion when it can’t fit.
+
+I’d make 22/22 correct outcomes the goal. For questions the originals can answer, that means complete cited answers. Where the originals genuinely conflict or leave a gap, a well-supported conflict or abstention counts as correct. Keep the complete-answer count visible so improvements in coverage are easy to see
+
 ## Implemented scope
 
 - Complete frozen22-question direct versus unreserved sorter-first retest before introducing review additions; preserve measured H05 regression and preparation-only layout pilot.
@@ -27,6 +33,8 @@ Let the sorter-first retest already underway finish as configured. Then compare 
 - Prepare all22 questions for the subsequent three-arm study using one strict reader pin and a common discovery-reservation guard; do not alter original questions, sources, budgets or proof rules.
 - Finish all66 v1 option executions before repair; retain1/22 complete in all arms, draft spans26/32,26/32,24/32, and all1033 unique proposed links.
 - Conservatively separate vocabulary ranking from relationship generation: remove995 neighbor-only pair proposals, retain explicit source-key/reference/literal-wording reviews, and stop automatic traversal of weak wording/subject cues.
+- Preserve completed v2 trial; add generic reader-owned atomic proof-witness admission, question-part allocation, exact-span deduplication, class-gated inspection and final citation limits; leave documentary verifier byte unchanged.
+- Inspect the eight supplied past-work repositories for reusable authority/discovery boundaries; no external code imported.
 
 ## Validation recorded
 
@@ -38,18 +46,18 @@ Let the sorter-first retest already underway finish as configured. Then compare 
 - Exploratory developer/AI short-passage sample16:4 useful textual reviews,4 false/misleading candidate links,8 irrelevant; not independent or representative. Remaining1017 unassessed.
 - New unrelated-object neighbor-only control reproduced a failure under v1; v2 retains both search hits without proposing a relation. An unambiguous source-declared partial-correction positive control remains retained.
 - 65 focused controls passed1.437s after conservative repair. Final v2 three-arm and full regression runs pending.
+- V2 conservative trial completed66 executions:1 complete/22 and26/32 draft spans in every arm; full1242 tests passed408.304s.
+- H05 pilot recovers identical four source spans4070 characters; source verifier SHA unchanged. Generic two-part, duplicate and counterevidence controls executed. Full updated study and regression pending at source freeze.
 
 ## Limitations and blocked checks
 
-- Sorter-first retrieval can regress complete answers; H05 is retained as an actual failure.
-- Source-faithful lexical suggestions are not established historical relationships.
-- Default sorter statement/phrase caps leave incomplete extraction.
-- Three-arm results pending; no independent human evaluation or genuinely unseen evaluation claimed.
+- 22 questions are development data; no independent human or unseen evaluation performed.
+- Bounded existing native grammars; lexical replay is not semantic accuracy.
+- Updated full rerun and release checks pending at source freeze.
 
 ## Next steps
 
-- Freeze v2 and execute all three22-question arms with identical strict reader source pins and budgets; retain v1 failures and direct2/22 baseline.
-- Publish source-linked discovery/complete-answer changes, sampled false/unresolved links, source/authority audits and costs; independent unseen/human evaluation remains NOT RUN.
+- Freeze this implementation, execute direct plus three sorter arms on identical22 originals/questions/budgets, run full regression and publish complete outcomes including failures.
 
 ## Use this ZIP in your repository
 
