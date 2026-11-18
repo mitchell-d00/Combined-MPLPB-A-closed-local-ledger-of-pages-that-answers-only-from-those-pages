@@ -4,8 +4,8 @@ Last reviewed: 2026-11-18.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `baf3bbdcc9708c7ed5ca4a98f40753cf9a43359a` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `0940a7e8203b2f573b809e6b115a1133131b875c9d747415937c31f65c811c87`.
+Base commit: `0c488a1ec93a6869df348755c31eb22be81d0d2c` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `79bc165162c27f4e7f55eca5fdd3203842d02dc7d85960bffd78b8325d324f62`.
 
 ## Latest user update instructions
 
@@ -25,6 +25,8 @@ Let the sorter-first retest already underway finish as configured. Then compare 
 - Add opt-in lexical neighbor ranking and candidate relation review beside the byte-unchanged core sorter; retain exact spans, qualifications and non-authority.
 - Add fresh replay/perusal and bounded user glossary, source/pin guards and explicit ambiguous-sense signals.
 - Prepare all22 questions for the subsequent three-arm study using one strict reader pin and a common discovery-reservation guard; do not alter original questions, sources, budgets or proof rules.
+- Finish all66 v1 option executions before repair; retain1/22 complete in all arms, draft spans26/32,26/32,24/32, and all1033 unique proposed links.
+- Conservatively separate vocabulary ranking from relationship generation: remove995 neighbor-only pair proposals, retain explicit source-key/reference/literal-wording reviews, and stop automatic traversal of weak wording/subject cues.
 
 ## Validation recorded
 
@@ -32,6 +34,10 @@ Let the sorter-first retest already underway finish as configured. Then compare 
 - Original retest regression suite1225 tests passed356.255s; log retained.
 - New focused sorter/adapter controls are executed separately; final three-arm/full regression results pending.
 - 63 focused legacy sorter, new review-option and experiment adapter tests passed in1.445s, covering source pins, exact routes, current eligibility, qualification-preserving neighbors, ambiguity, embedded headers, shared subjects, missing targets, source replay and CLI perusal.
+- V1 full suite1240 passed393.549s. All66 option workers completed with native reader files unchanged.
+- Exploratory developer/AI short-passage sample16:4 useful textual reviews,4 false/misleading candidate links,8 irrelevant; not independent or representative. Remaining1017 unassessed.
+- New unrelated-object neighbor-only control reproduced a failure under v1; v2 retains both search hits without proposing a relation. An unambiguous source-declared partial-correction positive control remains retained.
+- 65 focused controls passed1.437s after conservative repair. Final v2 three-arm and full regression runs pending.
 
 ## Limitations and blocked checks
 
@@ -42,8 +48,8 @@ Let the sorter-first retest already underway finish as configured. Then compare 
 
 ## Next steps
 
-- Freeze the optional-feature candidate; run all three arms under identical conditions and publish per-case changes, exact source witnesses, false/unresolved link assessment and costs.
-- Run the full regression suite and extracted source checks; publish a focused PR without claiming deployment or independent validation.
+- Freeze v2 and execute all three22-question arms with identical strict reader source pins and budgets; retain v1 failures and direct2/22 baseline.
+- Publish source-linked discovery/complete-answer changes, sampled false/unresolved links, source/authority audits and costs; independent unseen/human evaluation remains NOT RUN.
 
 ## Use this ZIP in your repository
 

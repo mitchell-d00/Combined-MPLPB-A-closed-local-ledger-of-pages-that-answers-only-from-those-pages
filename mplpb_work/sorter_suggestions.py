@@ -15,7 +15,7 @@ import sys
 from . import sorter as core
 
 NOTICE = 'Sorter suggestions for review. MPLPB has not verified these links or answers.'
-VERSION = 'offline-sorter-suggestions-v1'
+VERSION = 'offline-sorter-suggestions-v2'
 STOP = set('a an the who what which when where why how is are was were be been did does do can could would should have has had and or of to for from in on by with it its this that their they he she his her'.split())
 BUILTIN = {'groups': [
     {'name':'dispatch-receipt-search', 'terms':['send','sent','sending','planned to send','dispatch','dispatched','mail','mailed','post','posted','receive','received'],
@@ -113,20 +113,10 @@ def _links(graph,hits,neighbors):
             left=next((n['id'] for n in evidence if n.get('occurrence')==e['from']),e['from'])
             right=next((n['id'] for n in evidence if n.get('occurrence')==e['to']),e['to'])
             add(mapping[kind],left,right,e['evidence_note'],{'core_edge_id':e['id']})
-    # One bounded textual comparison, with no chaining or identity inference.
-    if neighbors:
-        for i,left in enumerate(hits):
-            for right in hits[i+1:]:
-                checks+=1
-                if checks>20000:limited=True;break
-                if left['occurrence_id']==right['occurrence_id']:continue
-                groups=set(left['neighbor_groups'])&set(right['neighbor_groups'])
-                exact=set(left['exact_query_terms'])&set(right['exact_query_terms'])
-                if len(groups)>=2 or groups and len(exact)>=2:
-                    add('possible_related_passages',left['node_id'],right['node_id'],
-                        'Shared search-neighbor vocabulary and query words only; meanings and qualifications remain distinct.',
-                        {'neighbor_groups':sorted(groups),'shared_exact_query_terms':sorted(exact)})
-            if checks>20000:break
+    # Neighbor overlap locates inspection hits but cannot establish a documentary
+    # relation. The v1 two-group heuristic linked different named objects merely
+    # because both mentioned publication and dispatch. Preserve that failed trial;
+    # only source-key/reference or literal-wording reviews produce edges here.
     return links,unresolved,{'comparisons':checks,'partial':limited,'max_links':256,'max_comparisons':20000}
 
 
@@ -188,6 +178,7 @@ def suggestions(graph,directory,query='',*,synonym_ranker=False,candidate_relate
         'limits':limits,'signal_budget_exhausted':signal_partial,'all_matching_statements_retained':True,
         'search_complete':False,'core_extraction_complete':graph['complete'],
         'source_authority_changed':False,'transitive_paths_generated':False,
+        'neighbor_overlap_creates_relationship':False,
         'implementation_sha256':core.sha(Path(__file__).read_bytes())}
     result['suggestions_sha256']=core.digest(result)
     if len(json.dumps(result,ensure_ascii=False).encode())>33554432:raise core.SortError('Suggestion output exceeds32MiB; no partial claim is returned')

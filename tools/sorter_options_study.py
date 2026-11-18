@@ -99,6 +99,9 @@ def adapter(graph,bindings,texts,bundle,arm,traces):
                 scores={h['occurrence_id']:h['rank_score'] for h in reversed(bundle['ranked_hits'])}
                 # Only one hop from an existing query hit; no transitive traversal.
                 for link in bundle['candidate_links']:
+                    if link['kind'] not in {'possible_reference','possible_correction','possible_partial_correction',
+                                            'possible_duplicate_appearances','possible_conflicting_versions'}:
+                        continue  # Shared wording/subjects stay inspectable, never automatic documentary hops.
                     for left,right in [('left','right'),('right','left')]:
                         a,b=link[left],link[right]
                         if a['occurrence_id'] in scores:

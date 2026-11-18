@@ -141,3 +141,6 @@ This is neither human validation nor independently unseen historical accuracy.
 
 
 Optional review update (2026-11-18): [Synonym Ranker and Candidate Relater](SORTER_REVIEW_OPTIONS.md) retain exact source spans and non-authoritative suggestions. Legacy sorter outputs remain unchanged. The configured22-question sorter-first retest is retained with its regression; the new three-arm study separates discovery from strict answer completion.
+
+
+| [sorter-first-originals](../evaluation/sorter-first-originals) | [adapter controls](../tests/test_sorter_first_study.py), [option controls](../tests/test_sorter_options_study.py) | [paired runner](../tools/sorter_first_study.py), [three-arm runner](../tools/sorter_options_study.py) | Frozen22-question development replay; discovery, source support, false/unresolved suggestions and costs remain separate. |

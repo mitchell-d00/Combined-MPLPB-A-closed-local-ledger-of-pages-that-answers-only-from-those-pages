@@ -99,6 +99,21 @@ class SorterSuggestionsTests(unittest.TestCase):
         self.source('a.txt','Mara did not send a report.')
         with self.assertRaises(core.SortError):review.suggestions(graph,self.raw,'sent',synonym_ranker=True)
 
+    def test_search_neighbors_alone_do_not_propose_documentary_relationship(self):
+        self.source('a.txt','Mara released the Cedar report and mailed a package.')
+        self.source('b.txt','Ivo printed a River notice and dispatched a parcel.')
+        result=self.run_review('published received',relater=True)
+        self.assertEqual(len(result['ranked_hits']),2)
+        self.assertFalse(result['candidate_links'],'Different named objects with generic dispatch/publication vocabulary do not establish a documentary link')
+
+    def test_unambiguous_explicit_partial_correction_is_retained_for_review(self):
+        self.source('a.txt','Record-ID: ABC-101\n\nMara sent the Cedar report.')
+        self.source('b.txt','Record-ID: XYZ-202\n\nThis corrects ABC-101 only.')
+        result=self.run_review('Cedar report',relater=True)
+        links=[l for l in result['candidate_links'] if l['kind']=='possible_partial_correction']
+        self.assertEqual(len(links),1)
+        self.assertFalse(links[0]['applied']);self.assertEqual(links[0]['correction_status'],'unresolved')
+
     def test_literal_glossary_validation(self):
         for value in [{'groups':[{'name':'x','terms':['bank','.*']}]},{'groups':[{'name':'x','terms':['bank','BANK']}]},{'groups':'bank'}]:
             with self.assertRaises(core.SortError):review.glossary(value)
