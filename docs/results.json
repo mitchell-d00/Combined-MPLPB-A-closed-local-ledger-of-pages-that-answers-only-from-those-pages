@@ -544,10 +544,11 @@
       "runners": [
         "mplpb_work/candidate_workspace.py",
         "tools/evaluate_candidate_workspace.py",
-        "tools/report_candidate_workspace.py"
+        "tools/report_candidate_workspace.py",
+        "tools/check_candidate_workspace_install.py"
       ],
       "scope": "Opt-in processed/eligible-original review; ownership policy, byte fidelity and separate budgets, not semantic historical validation.",
-      "measurement_status": "Initial1265 full regressions passed;22 native results unchanged at2 complete, five public workspace executions/replays retained. New disconnected-word negative failed under v1; conservative60 focused controls pass, full rerun pending."
+      "measurement_status": "Preserved v1/v2 native22 unchanged, full1265/1266 passes, five public runs each and new positive/wheel failures. Repaired67 focused controls and installed-wheel smoke pass; final full/native/public rerun pending."
     }
   ]
 }

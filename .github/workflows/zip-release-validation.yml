@@ -61,6 +61,16 @@ jobs:
           python -m venv "$RUNNER_TEMP/mcp-sdk"
           "$RUNNER_TEMP/mcp-sdk/bin/python" -m pip install "mcp==1.26.0"
           "$RUNNER_TEMP/mcp-sdk/bin/python" tools/check_mcp_client.py --output "$RUNNER_TEMP/mplpb-zipped/mcp-client.json"
+      - name: Test installed candidate workspace without checkout tools
+        shell: bash
+        run: |
+          set -euo pipefail
+          cd "$RUNNER_TEMP/mplpb-unpacked"
+          python -m pip wheel . --no-deps --wheel-dir "$RUNNER_TEMP/mplpb-zipped/workspace-wheel"
+          python -m venv "$RUNNER_TEMP/mplpb-workspace-installed"
+          "$RUNNER_TEMP/mplpb-workspace-installed/bin/python" -m pip install --no-index "$RUNNER_TEMP/mplpb-zipped/workspace-wheel/"*.whl
+          "$RUNNER_TEMP/mplpb-workspace-installed/bin/python" -I tools/check_candidate_workspace_install.py --output "$RUNNER_TEMP/mplpb-zipped/workspace-wheel-smoke.json"
+          sha256sum "$RUNNER_TEMP/mplpb-zipped/workspace-wheel/"*.whl > "$RUNNER_TEMP/mplpb-zipped/workspace-wheel.sha256"
       - name: Replay committed reference evidence FROM ZIP
         shell: bash
         run: |
@@ -135,6 +145,7 @@ jobs:
             echo "ZIP SHA-256: $ARCHIVE_SHA256"
             echo "Test source: extracted ZIP, not git working tree"
             echo "Python attack and full regression: PASS"
+            echo "Installed candidate workspace without checkout tools: PASS"
             echo "JavaScript/API/crawler/bridge: PASS"
             echo "Pinned Python WebAssembly engine: PASS"
             echo "Chromium published-live baseline: PASS"

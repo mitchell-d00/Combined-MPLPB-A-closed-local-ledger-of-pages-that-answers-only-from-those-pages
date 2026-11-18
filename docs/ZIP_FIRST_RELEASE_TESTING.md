@@ -1,6 +1,6 @@
 # ZIP-first release testing for humans and AI agents
 
-Last reviewed: 2026-11-17. See [current status and result-to-test index](CURRENT_STATUS.md). Dates and numeric results in historical validation sections retain their original scope; this review is not a rerun or independent certification.
+Last reviewed: 2026-11-18. See [current status and result-to-test index](CURRENT_STATUS.md). Dates and numeric results in historical validation sections retain their original scope; this review is not a rerun or independent certification.
 
 Package role: [how this part fits Combined MPLPB](PACKAGE_GUIDE.md#evidence-and-limits). This guide covers evidence or operation limits; dated results keep the revision and scope they measured.
 
@@ -84,3 +84,5 @@ For the Pyodide, browser, and live URL steps, use the workflow itself and [BROWS
 If internet access is unavailable locally, **do not imply** the local ZIP was built or tested; rely on the actual GitHub Actions ZIP artifacts and the recorded checksums and run status.
 
 > Update 2026-11-16: The [public 52-case evidence suite](PUBLIC_EVIDENCE_TESTS.md) and [bounded expert relation path](HISTORICAL_EXPERT_PATH.md) document the current update. Prior dated measurements and preserved historical sources retain their original scope; this note does not rerun or revise them.
+
+The ZIP gate also builds the declared Python wheel, installs it into a clean virtual environment and runs `tools/check_candidate_workspace_install.py` with isolated Python (`-I`). This catches checkout-only dependencies in the opt-in workspace. The wheel, checksum and smoke receipt are retained with the source ZIP. This additional gate was motivated by an actually reproduced missing-runtime-projection import; it does not replace existing gates or claim PyPI publication.

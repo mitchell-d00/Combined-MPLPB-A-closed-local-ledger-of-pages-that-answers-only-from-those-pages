@@ -4,8 +4,8 @@ Last reviewed: 2026-11-18.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `e75a6900eb4a9839aed20ed8bf7d552f32f2b542` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `e26b32f91e6371bc88aec8d3529769c17c2c218972e85a0c1db9a5e63dc6945e`.
+Base commit: `7f95338dec32bc860a068f89bb3bc3e5e4ed4946` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `83fa9ba82190f4b4a5b9eaf5c07f6085f732128276bc0e03a60e53c8872480af`.
 
 ## Latest user update instructions
 
@@ -36,6 +36,8 @@ Test all three ownership outcomes, a processed passage that contradicts an appro
 - Add opt-in native/CLI candidate workspace with dual evidence labels, exact processed/native byte mappings, separate bounded exploration, topic/disagreement/reference review and fresh source/decision replay.
 - Reuse canonical ownership with an optional eligibility intersection; default native reader unchanged. Workspace owner policy and H05 multi-source evidence proof are explicitly distinct.
 - Retain initial workspace public/native/full results and reproduced disconnected-word false suggestion; replace bag-of-words source links with existing literal four-word phrase evidence. Search neighbors still rank processed hits only.
+- Repair measured unique-phrase positive omission using existing bounded four-word tokenization, and preserve the disconnected-word negative.
+- Move the existing reversible projection into an installed runtime module with the research-tool interface preserved; add actual isolated-wheel integration to the existing ZIP release gate after reproducing a missing-tools failure.
 
 ## Validation recorded
 
@@ -57,6 +59,8 @@ Test all three ownership outcomes, a processed passage that contradicts an appro
 - 59 focused workspace/ownership/gate/admission controls passed19.461s before source freeze. H05 standalone contract unchanged before/after tiny workspace budget. Full new-runtime regression and public-original demonstration pending.
 - Workspace v1 e75a690:22/22 native outcomes, meanings, exact citations and missing-information lists unchanged versus baseline;2 complete/22. Five public-source workspace executions and fresh replays completed;1265 extracted-ZIP regressions passed396.984s.
 - New disconnected-words negative control failed under v1 and passes under conservative v2;60 focused controls passed19.715s, preserving exact/reference/correction/contradiction positives.
+- Workspace v2:22 native results unchanged at2 complete/22;1266 extracted-ZIP tests passed386.280s; public fictional contracts52/52. Five same-source workspace runs completed, retaining15 exact matches but exposing no phrase positives.
+- New unique-phrase control reproduced an omission and installed v2 wheel failed with ModuleNotFoundError tools. Both failures retained. Repaired source passes67 focused controls20.119s and an actual isolated installed-wheel exact-match/strict-source/replay check without checkout tools.
 
 ## Limitations and blocked checks
 
@@ -69,8 +73,8 @@ Test all three ownership outcomes, a processed passage that contradicts an appro
 
 ## Next steps
 
-- Freeze conservative workspace code; rerun full regression, native22 and all five public workspace cases under identical inputs and budgets, preserving first trial.
-- Publish results and costs on PR52; require exact-head release gates. Independent human and unseen-original semantic validation remain NOT RUN.
+- Freeze repaired runtime, rerun all22 native questions, full extracted-ZIP regression, five same-source workspace cases and installed-wheel test; publish actual costs, successes, misses and unknown semantic judgments.
+- Publish final focused PR52 evidence and require exact-head ZIP/browser gates; independent human/unseen evaluation NOT RUN.
 
 ## Use this ZIP in your repository
 

@@ -1,0 +1,13 @@
+======================================================================
+ERROR: test_unique_literal_four_word_match_survives_without_exact_copy (tests.test_candidate_workspace.CandidateWorkspaceTests.test_unique_literal_four_word_match_survives_without_exact_copy)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/mplpb/tests/test_candidate_workspace.py", line 161, in test_unique_literal_four_word_match_survives_without_exact_copy
+    c=next(c for c in w['candidates'] if c['kind']=='shared_wording_review')
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+StopIteration
+
+----------------------------------------------------------------------
+Ran 1 test in 0.018s
+
+FAILED (errors=1)

@@ -19,7 +19,7 @@ from mplpb_answers import documentary_verify as kernel
 from mplpb_combined import reader
 from mplpb_combined.ledger import serving_view
 
-VERSION = 'candidate-review-workspace-v2'
+VERSION = 'candidate-review-workspace-v3'
 EXPLORATORY = 'Exploratory · outside MPLPB-approved evidence.'
 ELIGIBLE = 'Eligible MPLPB original under the current profile; source truth is not verified.'
 
@@ -40,7 +40,7 @@ def _original(index, passage, cache):
     """Reverse a canonical body span to actual native-original UTF-8 bytes."""
     # Reuse the existing reversible projection; do not invent byte coordinates
     # by searching normalized text in raw HTML.
-    from tools.source_roundtrip import projection_offsets
+    from mplpb_answers.source_projection import projection_offsets
     from mplpb_combined.record import _BODY, parse_page
     path=passage['path']
     if path not in cache:
@@ -75,6 +75,13 @@ def _processed(node):
                 span=copy.deepcopy(node['span']),review_annotation=copy.deepcopy(node['assessment']))
 
 
+def _phrase_keys(text):
+    # Same four-word tokenization/window as the sorter, bounded per statement.
+    # A phrase can be unique in processed files and still occur in an original.
+    words=[m[0].casefold() for m in core.WORD.finditer(text)][:256]
+    return {' '.join(words[i:i+4]) for i in range(max(0,len(words)-3))}
+
+
 def _match(node, passage, features):
     text=node['span']['text'];original=passage['text'];results=[]
     if text in original:
@@ -90,7 +97,7 @@ def _match(node, passage, features):
     if not results:
         # Reuse the sorter's literal four-word observations. A bag of topic
         # words or synonym neighbors is not a connection between documents.
-        keys={f['value'] for f in features if f['kind']=='repeated_phrase'}
+        keys={f['value'] for f in features if f['kind']=='phrase_key'} | node.get('_phrase_keys',set())
         shared=sorted(keys & passage.get('_phrase_keys',set()))
         if shared:
             results.append(('shared_wording_review','Existing sorter four-word phrase evidence: '+repr(shared[:4])+'. Lexical tokens only; identity, chronology, causation and correction are unresolved.'))
@@ -132,7 +139,7 @@ def build(graph, processed_directory, originals, *, question=None, topic=None, p
             else:
                 ownership['message']='Disambiguate the eligible owners; strict answer withheld.' if route.kind==reader.AMBIGUOUS else 'No MPLPB-supported answer is returned by this ownership route. Labeled exploration remains available.'
         review=suggestions(graph,processed_directory,topic,synonym_ranker=True,candidate_relater=False)
-        by_id={n['id']:n for n in graph['nodes']};features={}
+        by_id={n['id']:dict(n,_phrase_keys=_phrase_keys(n['span']['text'])) if n['kind']=='statement' else n for n in graph['nodes']};features={}
         for n in graph['nodes']:
             if n.get('statement'):features.setdefault(n['statement'],[]).append(n)
         selected=review['ranked_hits'][:scan_passages]
@@ -142,9 +149,7 @@ def build(graph, processed_directory, originals, *, question=None, topic=None, p
         discovered=index.retrieve([topic],min(scan_passages,64),discovery_chars)
         originals_to_scan=[]
         for passage in discovered['passages']:
-            words=[m[0].casefold() for m in core.WORD.finditer(passage['text'])]
-            phrases={' '.join(words[i:i+4]) for i in range(max(0,len(words)-3))}
-            originals_to_scan.append(dict(passage,_phrase_keys=phrases))
+            originals_to_scan.append(dict(passage,_phrase_keys=_phrase_keys(passage['text'])))
         proposals=[];checks=0;scan_cut=len(review['ranked_hits'])>len(selected) or len(index.passages)>len(originals_to_scan)
         for hit in selected:
             node=by_id[hit['node_id']]
@@ -216,9 +221,10 @@ def build(graph, processed_directory, originals, *, question=None, topic=None, p
                 'omitted_items':omitted,'display_truncated':bool(omitted),'search_truncated':scan_cut or not graph['complete'],
                 'original_discovery_passage_limit':min(scan_passages,64),'original_discovery_character_limit':discovery_chars,
                 'original_passages_considered':len(originals_to_scan),'processed_passages_considered':len(selected),
-                'original_pairs_examined':checks,'processed_pairs_examined':processed_checks,'strict_slots_consumed':0},
+                'original_pairs_examined':checks,'processed_pairs_examined':processed_checks,'strict_slots_consumed':0,'phrase_token_limit_per_statement':256},
             'strict_budget':{'max_passages':strict_passages,'max_characters':strict_chars,
-                'truncated':bool(ownership['strict_answer'] and (ownership['strict_answer'].get('passage_budget',{}).get('blocked_atomic_claims') or any('budget' in x.lower() for x in ownership['strict_answer'].get('missing',[]))))},
+                'evaluated':ownership['strict_answer'] is not None,
+                'truncated':bool(ownership['strict_answer'] and (ownership['strict_answer'].get('passage_budget',{}).get('blocked_atomic_claims') or 'budget' in ownership['strict_answer'].get('diagnostic',{}).get('code','') or any('budget' in x.lower() for x in ownership['strict_answer'].get('missing',[]))))},
             'limits_notice':'Unshown/unmatched items remain in the separately pinned sorter graph. No missing match or silence proves absence.',
             'source_authority_changed':False,'ownership_changed':False}
         output['workspace_sha256']=core.digest(output)
@@ -251,7 +257,9 @@ def main(argv=None):
             result=core._load(a.workspace);verify_workspace(result,graph,a.processed,a.originals)
             print(json.dumps(result,ensure_ascii=False,indent=2));return 0
         if not a.output:p.error('--output required for build')
-        if a.output.resolve().is_relative_to(a.originals.resolve()):raise core.SortError('Workspace output must be outside original ledger')
+        try:a.output.resolve().relative_to(a.originals.resolve())
+        except ValueError:pass
+        else:raise core.SortError('Workspace output must be outside original ledger')
         result=build(graph,a.processed,a.originals,question=a.question,topic=a.topic,profile=reader.PROFILES[a.profile],
             max_passages=a.exploration_passages,max_chars=a.exploration_chars,strict_passages=a.strict_passages,strict_chars=a.strict_chars,
             scan_passages=a.scan_passages,pair_checks=a.pair_checks,as_of=a.as_of)

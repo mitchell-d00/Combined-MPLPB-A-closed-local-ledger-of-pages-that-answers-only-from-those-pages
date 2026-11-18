@@ -1,6 +1,6 @@
 # Combined MPLPB package guide
 
-Last reviewed: 2026-11-17.
+Last reviewed: 2026-11-18.
 
 Combined MPLPB combines a closed local source ledger, a bounded reader, an offline sorter,
 research inspection tools, a conversational application and integration adapters.
@@ -351,3 +351,5 @@ The sorter technical report by Mitchell D. McPhetridge is available in
 [text](research/dual-mode-sorter/dual-mode-sorter.txt) and
 [PDF](research/dual-mode-sorter/dual-mode-sorter.pdf). This package-guide update
 does not revise that paper or its measurement claims.
+
+The optional [candidate review workspace](CANDIDATE_REVIEW_WORKSPACE.md) is a native/CLI module in `mplpb_work/candidate_workspace.py`. Its reversible byte projection lives in the installed `mplpb_answers/source_projection.py`; it does not require checkout-only research tools. Processed exploration retains separate evidence labels and budgets and does not replace the application’s strict reader.

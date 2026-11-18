@@ -154,6 +154,14 @@ class CandidateWorkspaceTests(unittest.TestCase):
         self.assertFalse(w['candidates'])
         self.assertTrue(w['processed_passages'])
 
+    def test_unique_literal_four_word_match_survives_without_exact_copy(self):
+        self.original(text='Ivo quoted the silver lunar memorandum in a later note.')
+        g=self.graph({'partial.txt':'Tess inspected the silver lunar memorandum before writing.'})
+        w=build(g,self.raw,self.ledger,topic='silver lunar memorandum')
+        c=next(c for c in w['candidates'] if c['kind']=='shared_wording_review')
+        self.assertIn('four-word',c['why']);self.assertFalse(c['answer_supported'])
+        self.assertTrue(w['processed_passages'])
+
     def test_h05_strict_proof_is_unchanged_by_tiny_review_budget(self):
         from tools.unprepared_sources import import_corpus
         corpus=Path(__file__).resolve().parents[1]/'evaluation/unprepared-originals/2026-11-16'
