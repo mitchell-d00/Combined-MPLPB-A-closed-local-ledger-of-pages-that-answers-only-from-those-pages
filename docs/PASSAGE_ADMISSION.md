@@ -14,7 +14,7 @@ Relevant contrary evidence remains subject to the existing independent scan. If 
 
 H05 is a development regression fixture, not a production routing exception. Its pilot recovered the same four Declaration source spans (4070 characters) at the original12-passage/8000-character limit despite high Darwin search hints. Generic two-part proofs, duplicate charging and over-budget counterevidence have separate controls in `tests/test_witness_admission.py`.
 
-The frozen historical baseline remains2 complete answers out of22. The goal is22 correct outcomes: complete cited answers when established, or well-supported conflict/refusal where justified by originals. Generic retrieval, grammar and budget failures are not automatically correct. Complete-answer counts remain separate. Full rerun outcomes are pending at this implementation freeze; independent human and unseen-original evaluation are NOT RUN.
+The frozen historical baseline remains2 complete answers out of22. The goal is22 correct outcomes: complete cited answers when established, or well-supported conflict/refusal where justified by originals. Generic retrieval, grammar and budget failures are not automatically correct. Complete-answer counts remain separate. The [final frozen study](../evaluation/sorter-first-originals/2026-11-18-witness-admission-final/REPORT.md) completes88 workers with2/22 complete answers and27/32 draft spans in every arm; no new complete-answer gain. All1249 extracted-ZIP regressions pass. Independent human and unseen-original evaluation are NOT RUN.
 
 Reproduce focused controls with:
 
@@ -23,3 +23,5 @@ python -m unittest tests.test_witness_admission tests.test_sorter_suggestions -q
 ```
 
 The first frozen admission trial (`4b6b1f6`) completed88 study workers but failed one of1249 full regression tests: an older adapter marked all native search results as hints. The compatibility repair falls back to the index’s independent native query retrieval when no ordinary passages remain. It does not admit synonym hints. The old test and failed trial remain unchanged. A new reader freeze and rerun are required.
+
+The compatibility-repaired runtime `6aa4ecd4d052af2b554abd0da2fd465f11c9fef6` passes the existing legacy adapter control and the full suite. [Final per-question evidence and budgets](../evaluation/sorter-first-originals/2026-11-18-witness-admission-final/witness-comparison.json) retain exact before/after source mappings, costs, missing information and unassessed semantic outcomes.

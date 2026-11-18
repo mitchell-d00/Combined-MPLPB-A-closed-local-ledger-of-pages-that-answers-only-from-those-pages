@@ -1,6 +1,6 @@
 # Current implementation and evidence status
 
-Last reviewed: 2026-11-17.
+Last reviewed: 2026-11-18.
 
 [Package guide](PACKAGE_GUIDE.md) · [Current documentation](README.md)
 · [Result/test index](RESULTS_AND_TESTS.md) · [Preserved history](../PAST_DOCUMENTATION.md)
@@ -115,3 +115,7 @@ records 18 narrator tests, 1,219 passing Python tests, 52 public-evidence contro
 and browser/WebAssembly compatibility checks. Live neural-model quality and
 independent semantic review remain NOT RUN; this does not raise answer coverage
 or establish production readiness.
+
+## Reader admission and review options — 2026-11-18
+
+[Optional sorter aids](SORTER_REVIEW_OPTIONS.md) preserve non-authoritative exact-span search and link reviews. [Reader-owned passage admission](PASSAGE_ADMISSION.md) protects atomic native proof witnesses and keeps the existing documentary verifier byte unchanged. The first admission trial recovered H05 and retained H02 (2/22 complete) in all four arms, but failed one existing legacy-adapter regression test. That failure is retained. The [final compatibility-repaired study](../evaluation/sorter-first-originals/2026-11-18-witness-admission-final/REPORT.md) completes all88 workers with2/22 complete answers in every arm and27/32 draft anchors visible; all1249 extracted-ZIP tests pass. H05 uses4 unique passages4070 characters, with duplicate offers charged once and no verifier change. No gain beyond the historical2/22 complete baseline or independent semantic accuracy is established. The goal is22 correct outcomes, with complete answers separate and genuine evidence-backed conflict/refusal eligible for review; generic software refusals are not automatically correct.

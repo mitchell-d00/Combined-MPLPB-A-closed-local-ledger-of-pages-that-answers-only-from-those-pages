@@ -1,0 +1,2437 @@
+{
+  "rows": [
+    {
+      "case_id": "H02",
+      "arm": "direct",
+      "admission": {
+        "schema": "reader-witness-admission-v1",
+        "max_passages": 12,
+        "max_characters": 8000,
+        "passages_admitted": 3,
+        "characters_admitted": 2255,
+        "deduplication": "Exact source ID/path/hash/half-open span; different revisions and distinct nested spans remain distinct.",
+        "duplicate_span_charges_avoided": 3,
+        "admitted": [
+          {
+            "source_id": "ORIGINAL-0001",
+            "path": "original-0001.html",
+            "hash": "sha256:cda3c0719ca4c839dfef3c3165934214c5e995fa3fb840a61b9a0ba77ebb9c32",
+            "body_start": 31135,
+            "body_end": 31195,
+            "start": 31135,
+            "end": 31195,
+            "quote": "CHARLES DARWIN TO A.R. WALLACE. Ilkley, November 13th, 1859.",
+            "body_projection": "body-text-no-headings-v1",
+            "reader_roles": [
+              "native_rule_candidates_for_question_parts:0,1",
+              "verified_question_evidence_or_counterevidence"
+            ]
+          },
+          {
+            "source_id": "ORIGINAL-0001",
+            "path": "original-0001.html",
+            "hash": "sha256:cda3c0719ca4c839dfef3c3165934214c5e995fa3fb840a61b9a0ba77ebb9c32",
+            "body_start": 31209,
+            "body_end": 31422,
+            "start": 31209,
+            "end": 31422,
+            "quote": "I have told Murray to send you by post (if possible) a copy of my book,\nand I hope that you will receive it at nearly the same time with this\nnote. (N.B. I have got a bad finger, which makes me write extra badly.)",
+            "body_projection": "body-text-no-headings-v1",
+            "reader_roles": [
+              "native_rule_candidates_for_question_parts:0,1",
+              "verified_question_evidence_or_counterevidence"
+            ]
+          },
+          {
+            "source_id": "ORIGINAL-0001",
+            "path": "original-0001.html",
+            "hash": "sha256:cda3c0719ca4c839dfef3c3165934214c5e995fa3fb840a61b9a0ba77ebb9c32",
+            "body_start": 31135,
+            "body_end": 33117,
+            "start": 31135,
+            "end": 33117,
+            "quote": "CHARLES DARWIN TO A.R. WALLACE. Ilkley, November 13th, 1859.\nMy dear Sir,\nI have told Murray to send you by post (if possible) a copy of my book,\nand I hope that you will receive it at nearly the same time with this\nnote. (N.B. I have got a bad finger, which makes me write extra badly.)\nIf you are so inclined, I should very much like to hear your general\nimpression of the book, as you have thought so profoundly on the\nsubject, and in so nearly the same channel with myself. I hope there\nwill be some little new to you, but I fear not much. Remember it is only\nan abstract, and very much condensed. God knows what the public will\nthink. No one has read it, except Lyell, with whom I have had much\ncorrespondence. Hooker thinks him a complete convert, but he does not\nseem so in his letters to me; but is evidently deeply interested in the\nsubject. I do not think your share in the theory will be overlooked by\nthe real judges, as Hooker, Lyell, Asa Gray, etc. I have heard from Mr.\nSlater that your paper on the Malay Archipelago has been read at the\nLinnean Society, and that he was EXTREMELY much interested by it.\nI have not seen one naturalist for six or nine months, owing to the\nstate of my health, and therefore I really have no news to tell you. I\nam writing this at Ilkley Wells, where I have been with my family for\nthe last six weeks, and shall stay for some few weeks longer. As yet I\nhave profited very little. God knows when I shall have strength for my\nbigger book.\nI sincerely hope that you keep your health; I suppose that you will be\nthinking of returning (Mr. Wallace was in the Malay Archipelago.) soon\nwith your magnificent collections, and still grander mental materials.\nYou will be puzzled how to publish. The Royal Society fund will be worth\nyour consideration. With every good wish, pray believe me,\nYours very sincerely, CHARLES DARWIN.\nP.S. I think that I told you before that Hooker is a complete convert.\nIf I can convert Huxley I shall be content.\n",
+            "body_projection": "body-text-no-headings-v1",
+            "reader_roles": [
+              "native_rule_candidates_for_question_parts:0,1",
+              "verified_question_evidence_or_counterevidence"
+            ]
+          }
+        ],
+        "blocked": [],
+        "review_only_hints": [],
+        "review_only_hint_count": 0,
+        "search_only_hints_admitted": 0,
+        "relevant_counterevidence_did_not_fit": false,
+        "reader_witness_discovery": {
+          "rule": null,
+          "body_prefix_characters": 0,
+          "pair_attempts": 0,
+          "max_body_prefix_characters": 192000,
+          "max_pair_attempts": 32
+        },
+        "sorter_assigns_slots": false,
+        "historical_truth_verified": false
+      },
+      "budget_invariants_pass": true
+    },
+    {
+      "case_id": "H02",
+      "arm": "sorter-alone",
+      "admission": {
+        "schema": "reader-witness-admission-v1",
+        "max_passages": 12,
+        "max_characters": 8000,
+        "passages_admitted": 3,
+        "characters_admitted": 2255,
+        "deduplication": "Exact source ID/path/hash/half-open span; different revisions and distinct nested spans remain distinct.",
+        "duplicate_span_charges_avoided": 3,
+        "admitted": [
+          {
+            "source_id": "ORIGINAL-0001",
+            "path": "original-0001.html",
+            "hash": "sha256:cda3c0719ca4c839dfef3c3165934214c5e995fa3fb840a61b9a0ba77ebb9c32",
+            "body_start": 31135,
+            "body_end": 31195,
+            "start": 31135,
+            "end": 31195,
+            "quote": "CHARLES DARWIN TO A.R. WALLACE. Ilkley, November 13th, 1859.",
+            "body_projection": "body-text-no-headings-v1",
+            "reader_roles": [
+              "native_rule_candidates_for_question_parts:0,1",
+              "verified_question_evidence_or_counterevidence"
+            ]
+          },
+          {
+            "source_id": "ORIGINAL-0001",
+            "path": "original-0001.html",
+            "hash": "sha256:cda3c0719ca4c839dfef3c3165934214c5e995fa3fb840a61b9a0ba77ebb9c32",
+            "body_start": 31209,
+            "body_end": 31422,
+            "start": 31209,
+            "end": 31422,
+            "quote": "I have told Murray to send you by post (if possible) a copy of my book,\nand I hope that you will receive it at nearly the same time with this\nnote. (N.B. I have got a bad finger, which makes me write extra badly.)",
+            "body_projection": "body-text-no-headings-v1",
+            "reader_roles": [
+              "native_rule_candidates_for_question_parts:0,1",
+              "verified_question_evidence_or_counterevidence"
+            ]
+          },
+          {
+            "source_id": "ORIGINAL-0001",
+            "path": "original-0001.html",
+            "hash": "sha256:cda3c0719ca4c839dfef3c3165934214c5e995fa3fb840a61b9a0ba77ebb9c32",
+            "body_start": 31135,
+            "body_end": 33117,
+            "start": 31135,
+            "end": 33117,
+            "quote": "CHARLES DARWIN TO A.R. WALLACE. Ilkley, November 13th, 1859.\nMy dear Sir,\nI have told Murray to send you by post (if possible) a copy of my book,\nand I hope that you will receive it at nearly the same time with this\nnote. (N.B. I have got a bad finger, which makes me write extra badly.)\nIf you are so inclined, I should very much like to hear your general\nimpression of the book, as you have thought so profoundly on the\nsubject, and in so nearly the same channel with myself. I hope there\nwill be some little new to you, but I fear not much. Remember it is only\nan abstract, and very much condensed. God knows what the public will\nthink. No one has read it, except Lyell, with whom I have had much\ncorrespondence. Hooker thinks him a complete convert, but he does not\nseem so in his letters to me; but is evidently deeply interested in the\nsubject. I do not think your share in the theory will be overlooked by\nthe real judges, as Hooker, Lyell, Asa Gray, etc. I have heard from Mr.\nSlater that your paper on the Malay Archipelago has been read at the\nLinnean Society, and that he was EXTREMELY much interested by it.\nI have not seen one naturalist for six or nine months, owing to the\nstate of my health, and therefore I really have no news to tell you. I\nam writing this at Ilkley Wells, where I have been with my family for\nthe last six weeks, and shall stay for some few weeks longer. As yet I\nhave profited very little. God knows when I shall have strength for my\nbigger book.\nI sincerely hope that you keep your health; I suppose that you will be\nthinking of returning (Mr. Wallace was in the Malay Archipelago.) soon\nwith your magnificent collections, and still grander mental materials.\nYou will be puzzled how to publish. The Royal Society fund will be worth\nyour consideration. With every good wish, pray believe me,\nYours very sincerely, CHARLES DARWIN.\nP.S. I think that I told you before that Hooker is a complete convert.\nIf I can convert Huxley I shall be content.\n",
+            "body_projection": "body-text-no-headings-v1",
+            "reader_roles": [
+              "native_rule_candidates_for_question_parts:0,1",
+              "verified_question_evidence_or_counterevidence"
+            ]
+          }
+        ],
+        "blocked": [],
+        "review_only_hints": [
+          {
+            "source_id": "ORIGINAL-0002",
+            "path": "original-0002.html",
+            "hash": "sha256:954b6ef1585a74113b11936096e15e3ac95406cb9e99b0bf4908d917647adfca",
+            "body_start": 140056,
+            "body_end": 141225,
+            "sorter_node_id": "node:2955d1fec53a8c5da845535ba8221a55ace6a7836bfae5a91f8f650fa10d1069",
+            "suggestion_class": "synonym_or_shared_wording",
+            "reason": "Search/review only, or no unresolved native question part requires this source.",
+            "admitted": false,
+            "answer_supported": false
+          },
+          {
+            "source_id": "ORIGINAL-0001",
+            "path": "original-0001.html",
+            "hash": "sha256:cda3c0719ca4c839dfef3c3165934214c5e995fa3fb840a61b9a0ba77ebb9c32",
+            "body_start": 55307,
+            "body_end": 56486,
+            "sorter_node_id": "node:13bee2fdaa954070ac534d8b10b26cae2519f28d0c84a93c34c8aefb572d5094",
+            "suggestion_class": "synonym_or_shared_wording",
+            "reason": "Search/review only, or no unresolved native question part requires this source.",
+            "admitted": false,
+            "answer_supported": false
+          },
+          {
+            "source_id": "ORIGINAL-0001",
+            "path": "original-0001.html",
+            "hash": "sha256:cda3c0719ca4c839dfef3c3165934214c5e995fa3fb840a61b9a0ba77ebb9c32",
+            "body_start": 348258,
+            "body_end": 349447,
+            "sorter_node_id": "node:806ea24e4c0de5ac73a323de879362224a40865adcf921f6a82c20fd04e9a1bf",
+            "suggestion_class": "synonym_or_shared_wording",
+            "reason": "Search/review only, or no unresolved native question part requires this source.",
+            "admitted": false,
+            "answer_supported": false
+          }
+        ],
+        "review_only_hint_count": 3,
+        "search_only_hints_admitted": 0,
+        "relevant_counterevidence_did_not_fit": false,
+        "reader_witness_discovery": {
+          "rule": null,
+          "body_prefix_characters": 0,
+          "pair_attempts": 0,
+          "max_body_prefix_characters": 192000,
+          "max_pair_attempts": 32
+        },
+        "sorter_assigns_slots": false,
+        "historical_truth_verified": false
+      },
+      "budget_invariants_pass": true
+    },
+    {
+      "case_id": "H02",
+      "arm": "synonyms",
+      "admission": {
+        "schema": "reader-witness-admission-v1",
+        "max_passages": 12,
+        "max_characters": 8000,
+        "passages_admitted": 3,
+        "characters_admitted": 2255,
+        "deduplication": "Exact source ID/path/hash/half-open span; different revisions and distinct nested spans remain distinct.",
+        "duplicate_span_charges_avoided": 3,
+        "admitted": [
+          {
+            "source_id": "ORIGINAL-0001",
+            "path": "original-0001.html",
+            "hash": "sha256:cda3c0719ca4c839dfef3c3165934214c5e995fa3fb840a61b9a0ba77ebb9c32",
+            "body_start": 31135,
+            "body_end": 31195,
+            "start": 31135,
+            "end": 31195,
+            "quote": "CHARLES DARWIN TO A.R. WALLACE. Ilkley, November 13th, 1859.",
+            "body_projection": "body-text-no-headings-v1",
+            "reader_roles": [
+              "native_rule_candidates_for_question_parts:0,1",
+              "verified_question_evidence_or_counterevidence"
+            ]
+          },
+          {
+            "source_id": "ORIGINAL-0001",
+            "path": "original-0001.html",
+            "hash": "sha256:cda3c0719ca4c839dfef3c3165934214c5e995fa3fb840a61b9a0ba77ebb9c32",
+            "body_start": 31209,
+            "body_end": 31422,
+            "start": 31209,
+            "end": 31422,
+            "quote": "I have told Murray to send you by post (if possible) a copy of my book,\nand I hope that you will receive it at nearly the same time with this\nnote. (N.B. I have got a bad finger, which makes me write extra badly.)",
+            "body_projection": "body-text-no-headings-v1",
+            "reader_roles": [
+              "native_rule_candidates_for_question_parts:0,1",
+              "verified_question_evidence_or_counterevidence"
+            ]
+          },
+          {
+            "source_id": "ORIGINAL-0001",
+            "path": "original-0001.html",
+            "hash": "sha256:cda3c0719ca4c839dfef3c3165934214c5e995fa3fb840a61b9a0ba77ebb9c32",
+            "body_start": 31135,
+            "body_end": 33117,
+            "start": 31135,
+            "end": 33117,
+            "quote": "CHARLES DARWIN TO A.R. WALLACE. Ilkley, November 13th, 1859.\nMy dear Sir,\nI have told Murray to send you by post (if possible) a copy of my book,\nand I hope that you will receive it at nearly the same time with this\nnote. (N.B. I have got a bad finger, which makes me write extra badly.)\nIf you are so inclined, I should very much like to hear your general\nimpression of the book, as you have thought so profoundly on the\nsubject, and in so nearly the same channel with myself. I hope there\nwill be some little new to you, but I fear not much. Remember it is only\nan abstract, and very much condensed. God knows what the public will\nthink. No one has read it, except Lyell, with whom I have had much\ncorrespondence. Hooker thinks him a complete convert, but he does not\nseem so in his letters to me; but is evidently deeply interested in the\nsubject. I do not think your share in the theory will be overlooked by\nthe real judges, as Hooker, Lyell, Asa Gray, etc. I have heard from Mr.\nSlater that your paper on the Malay Archipelago has been read at the\nLinnean Society, and that he was EXTREMELY much interested by it.\nI have not seen one naturalist for six or nine months, owing to the\nstate of my health, and therefore I really have no news to tell you. I\nam writing this at Ilkley Wells, where I have been with my family for\nthe last six weeks, and shall stay for some few weeks longer. As yet I\nhave profited very little. God knows when I shall have strength for my\nbigger book.\nI sincerely hope that you keep your health; I suppose that you will be\nthinking of returning (Mr. Wallace was in the Malay Archipelago.) soon\nwith your magnificent collections, and still grander mental materials.\nYou will be puzzled how to publish. The Royal Society fund will be worth\nyour consideration. With every good wish, pray believe me,\nYours very sincerely, CHARLES DARWIN.\nP.S. I think that I told you before that Hooker is a complete convert.\nIf I can convert Huxley I shall be content.\n",
+            "body_projection": "body-text-no-headings-v1",
+            "reader_roles": [
+              "native_rule_candidates_for_question_parts:0,1",
+              "verified_question_evidence_or_counterevidence"
+            ]
+          }
+        ],
+        "blocked": [],
+        "review_only_hints": [
+          {
+            "source_id": "ORIGINAL-0001",
+            "path": "original-0001.html",
+            "hash": "sha256:cda3c0719ca4c839dfef3c3165934214c5e995fa3fb840a61b9a0ba77ebb9c32",
+            "body_start": 177734,
+            "body_end": 178893,
+            "sorter_node_id": "node:cd09e338a236c7f96c9276cd5e35707b3818f735ab51e6a2056045e0767f64e0",
+            "suggestion_class": "synonym_or_shared_wording",
+            "reason": "Search/review only, or no unresolved native question part requires this source.",
+            "admitted": false,
+            "answer_supported": false
+          },
+          {
+            "source_id": "ORIGINAL-0001",
+            "path": "original-0001.html",
+            "hash": "sha256:cda3c0719ca4c839dfef3c3165934214c5e995fa3fb840a61b9a0ba77ebb9c32",
+            "body_start": 178823,
+            "body_end": 179982,
+            "sorter_node_id": "node:cd09e338a236c7f96c9276cd5e35707b3818f735ab51e6a2056045e0767f64e0",
+            "suggestion_class": "synonym_or_shared_wording",
+            "reason": "Search/review only, or no unresolved native question part requires this source.",
+            "admitted": false,
+            "answer_supported": false
+          },
+          {
+            "source_id": "ORIGINAL-0001",
+            "path": "original-0001.html",
+            "hash": "sha256:cda3c0719ca4c839dfef3c3165934214c5e995fa3fb840a61b9a0ba77ebb9c32",
+            "body_start": 179951,
+            "body_end": 181085,
+            "sorter_node_id": "node:cd09e338a236c7f96c9276cd5e35707b3818f735ab51e6a2056045e0767f64e0",
+            "suggestion_class": "synonym_or_shared_wording",
+            "reason": "Search/review only, or no unresolved native question part requires this source.",
+            "admitted": false,
+            "answer_supported": false
+          },
+          {
+            "source_id": "ORIGINAL-0001",
+            "path": "original-0001.html",
+            "hash": "sha256:cda3c0719ca4c839dfef3c3165934214c5e995fa3fb840a61b9a0ba77ebb9c32",
+            "body_start": 423429,
+            "body_end": 424568,
+            "sorter_node_id": "node:d3b74e49ffb0585a8821d0c12f4e4a3d96d4fc7c930e44f06afb41b2a36e95ee",
+            "suggestion_class": "synonym_or_shared_wording",
+            "reason": "Search/review only, or no unresolved native question part requires this source.",
+            "admitted": false,
+            "answer_supported": false
+          },
+          {
+            "source_id": "ORIGINAL-0001",
+            "path": "original-0001.html",
+            "hash": "sha256:cda3c0719ca4c839dfef3c3165934214c5e995fa3fb840a61b9a0ba77ebb9c32",
+            "body_start": 424502,
+            "body_end": 425693,
+            "sorter_node_id": "node:d3b74e49ffb0585a8821d0c12f4e4a3d96d4fc7c930e44f06afb41b2a36e95ee",
+            "suggestion_class": "synonym_or_shared_wording",
+            "reason": "Search/review only, or no unresolved native question part requires this source.",
+            "admitted": false,
+            "answer_supported": false
+          },
+          {
+            "source_id": "ORIGINAL-0001",
+            "path": "original-0001.html",
+            "hash": "sha256:cda3c0719ca4c839dfef3c3165934214c5e995fa3fb840a61b9a0ba77ebb9c32",
+            "body_start": 425624,
+            "body_end": 426815,
+            "sorter_node_id": "node:d3b74e49ffb0585a8821d0c12f4e4a3d96d4fc7c930e44f06afb41b2a36e95ee",
+            "suggestion_class": "synonym_or_shared_wording",
+            "reason": "Search/review only, or no unresolved native question part requires this source.",
+            "admitted": false,
+            "answer_supported": false
+          }
+        ],
+        "review_only_hint_count": 6,
+        "search_only_hints_admitted": 0,
+        "relevant_counterevidence_did_not_fit": false,
+        "reader_witness_discovery": {
+          "rule": null,
+          "body_prefix_characters": 0,
+          "pair_attempts": 0,
+          "max_body_prefix_characters": 192000,
+          "max_pair_attempts": 32
+        },
+        "sorter_assigns_slots": false,
+        "historical_truth_verified": false
+      },
+      "budget_invariants_pass": true
+    },
+    {
+      "case_id": "H02",
+      "arm": "synonyms-relater",
+      "admission": {
+        "schema": "reader-witness-admission-v1",
+        "max_passages": 12,
+        "max_characters": 8000,
+        "passages_admitted": 3,
+        "characters_admitted": 2255,
+        "deduplication": "Exact source ID/path/hash/half-open span; different revisions and distinct nested spans remain distinct.",
+        "duplicate_span_charges_avoided": 3,
+        "admitted": [
+          {
+            "source_id": "ORIGINAL-0001",
+            "path": "original-0001.html",
+            "hash": "sha256:cda3c0719ca4c839dfef3c3165934214c5e995fa3fb840a61b9a0ba77ebb9c32",
+            "body_start": 31135,
+            "body_end": 31195,
+            "start": 31135,
+            "end": 31195,
+            "quote": "CHARLES DARWIN TO A.R. WALLACE. Ilkley, November 13th, 1859.",
+            "body_projection": "body-text-no-headings-v1",
+            "reader_roles": [
+              "native_rule_candidates_for_question_parts:0,1",
+              "verified_question_evidence_or_counterevidence"
+            ]
+          },
+          {
+            "source_id": "ORIGINAL-0001",
+            "path": "original-0001.html",
+            "hash": "sha256:cda3c0719ca4c839dfef3c3165934214c5e995fa3fb840a61b9a0ba77ebb9c32",
+            "body_start": 31209,
+            "body_end": 31422,
+            "start": 31209,
+            "end": 31422,
+            "quote": "I have told Murray to send you by post (if possible) a copy of my book,\nand I hope that you will receive it at nearly the same time with this\nnote. (N.B. I have got a bad finger, which makes me write extra badly.)",
+            "body_projection": "body-text-no-headings-v1",
+            "reader_roles": [
+              "native_rule_candidates_for_question_parts:0,1",
+              "verified_question_evidence_or_counterevidence"
+            ]
+          },
+          {
+            "source_id": "ORIGINAL-0001",
+            "path": "original-0001.html",
+            "hash": "sha256:cda3c0719ca4c839dfef3c3165934214c5e995fa3fb840a61b9a0ba77ebb9c32",
+            "body_start": 31135,
+            "body_end": 33117,
+            "start": 31135,
+            "end": 33117,
+            "quote": "CHARLES DARWIN TO A.R. WALLACE. Ilkley, November 13th, 1859.\nMy dear Sir,\nI have told Murray to send you by post (if possible) a copy of my book,\nand I hope that you will receive it at nearly the same time with this\nnote. (N.B. I have got a bad finger, which makes me write extra badly.)\nIf you are so inclined, I should very much like to hear your general\nimpression of the book, as you have thought so profoundly on the\nsubject, and in so nearly the same channel with myself. I hope there\nwill be some little new to you, but I fear not much. Remember it is only\nan abstract, and very much condensed. God knows what the public will\nthink. No one has read it, except Lyell, with whom I have had much\ncorrespondence. Hooker thinks him a complete convert, but he does not\nseem so in his letters to me; but is evidently deeply interested in the\nsubject. I do not think your share in the theory will be overlooked by\nthe real judges, as Hooker, Lyell, Asa Gray, etc. I have heard from Mr.\nSlater that your paper on the Malay Archipelago has been read at the\nLinnean Society, and that he was EXTREMELY much interested by it.\nI have not seen one naturalist for six or nine months, owing to the\nstate of my health, and therefore I really have no news to tell you. I\nam writing this at Ilkley Wells, where I have been with my family for\nthe last six weeks, and shall stay for some few weeks longer. As yet I\nhave profited very little. God knows when I shall have strength for my\nbigger book.\nI sincerely hope that you keep your health; I suppose that you will be\nthinking of returning (Mr. Wallace was in the Malay Archipelago.) soon\nwith your magnificent collections, and still grander mental materials.\nYou will be puzzled how to publish. The Royal Society fund will be worth\nyour consideration. With every good wish, pray believe me,\nYours very sincerely, CHARLES DARWIN.\nP.S. I think that I told you before that Hooker is a complete convert.\nIf I can convert Huxley I shall be content.\n",
+            "body_projection": "body-text-no-headings-v1",
+            "reader_roles": [
+              "native_rule_candidates_for_question_parts:0,1",
+              "verified_question_evidence_or_counterevidence"
+            ]
+          }
+        ],
+        "blocked": [],
+        "review_only_hints": [
+          {
+            "source_id": "ORIGINAL-0001",
+            "path": "original-0001.html",
+            "hash": "sha256:cda3c0719ca4c839dfef3c3165934214c5e995fa3fb840a61b9a0ba77ebb9c32",
+            "body_start": 177734,
+            "body_end": 178893,
+            "sorter_node_id": "node:cd09e338a236c7f96c9276cd5e35707b3818f735ab51e6a2056045e0767f64e0",
+            "suggestion_class": "synonym_or_shared_wording",
+            "reason": "Search/review only, or no unresolved native question part requires this source.",
+            "admitted": false,
+            "answer_supported": false
+          },
+          {
+            "source_id": "ORIGINAL-0001",
+            "path": "original-0001.html",
+            "hash": "sha256:cda3c0719ca4c839dfef3c3165934214c5e995fa3fb840a61b9a0ba77ebb9c32",
+            "body_start": 178823,
+            "body_end": 179982,
+            "sorter_node_id": "node:cd09e338a236c7f96c9276cd5e35707b3818f735ab51e6a2056045e0767f64e0",
+            "suggestion_class": "synonym_or_shared_wording",
+            "reason": "Search/review only, or no unresolved native question part requires this source.",
+            "admitted": false,
+            "answer_supported": false
+          },
+          {
+            "source_id": "ORIGINAL-0001",
+            "path": "original-0001.html",
+            "hash": "sha256:cda3c0719ca4c839dfef3c3165934214c5e995fa3fb840a61b9a0ba77ebb9c32",
+            "body_start": 179951,
+            "body_end": 181085,
+            "sorter_node_id": "node:cd09e338a236c7f96c9276cd5e35707b3818f735ab51e6a2056045e0767f64e0",
+            "suggestion_class": "synonym_or_shared_wording",
+            "reason": "Search/review only, or no unresolved native question part requires this source.",
+            "admitted": false,
+            "answer_supported": false
+          },
+          {
+            "source_id": "ORIGINAL-0001",
+            "path": "original-0001.html",
+            "hash": "sha256:cda3c0719ca4c839dfef3c3165934214c5e995fa3fb840a61b9a0ba77ebb9c32",
+            "body_start": 423429,
+            "body_end": 424568,
+            "sorter_node_id": "node:d3b74e49ffb0585a8821d0c12f4e4a3d96d4fc7c930e44f06afb41b2a36e95ee",
+            "suggestion_class": "synonym_or_shared_wording",
+            "reason": "Search/review only, or no unresolved native question part requires this source.",
+            "admitted": false,
+            "answer_supported": false
+          },
+          {
+            "source_id": "ORIGINAL-0001",
+            "path": "original-0001.html",
+            "hash": "sha256:cda3c0719ca4c839dfef3c3165934214c5e995fa3fb840a61b9a0ba77ebb9c32",
+            "body_start": 424502,
+            "body_end": 425693,
+            "sorter_node_id": "node:d3b74e49ffb0585a8821d0c12f4e4a3d96d4fc7c930e44f06afb41b2a36e95ee",
+            "suggestion_class": "synonym_or_shared_wording",
+            "reason": "Search/review only, or no unresolved native question part requires this source.",
+            "admitted": false,
+            "answer_supported": false
+          },
+          {
+            "source_id": "ORIGINAL-0001",
+            "path": "original-0001.html",
+            "hash": "sha256:cda3c0719ca4c839dfef3c3165934214c5e995fa3fb840a61b9a0ba77ebb9c32",
+            "body_start": 425624,
+            "body_end": 426815,
+            "sorter_node_id": "node:d3b74e49ffb0585a8821d0c12f4e4a3d96d4fc7c930e44f06afb41b2a36e95ee",
+            "suggestion_class": "synonym_or_shared_wording",
+            "reason": "Search/review only, or no unresolved native question part requires this source.",
+            "admitted": false,
+            "answer_supported": false
+          }
+        ],
+        "review_only_hint_count": 6,
+        "search_only_hints_admitted": 0,
+        "relevant_counterevidence_did_not_fit": false,
+        "reader_witness_discovery": {
+          "rule": null,
+          "body_prefix_characters": 0,
+          "pair_attempts": 0,
+          "max_body_prefix_characters": 192000,
+          "max_pair_attempts": 32
+        },
+        "sorter_assigns_slots": false,
+        "historical_truth_verified": false
+      },
+      "budget_invariants_pass": true
+    },
+    {
+      "case_id": "H05",
+      "arm": "direct",
+      "admission": {
+        "schema": "reader-witness-admission-v1",
+        "max_passages": 12,
+        "max_characters": 8000,
+        "passages_admitted": 4,
+        "characters_admitted": 4070,
+        "deduplication": "Exact source ID/path/hash/half-open span; different revisions and distinct nested spans remain distinct.",
+        "duplicate_span_charges_avoided": 14,
+        "admitted": [
+          {
+            "source_id": "ORIGINAL-0004",
+            "path": "original-0004.html",
+            "hash": "sha256:b87d5883c09e9742bd7912abac58ed15694dadaf9d97f4d2191d3188051a7359",
+            "body_start": 1122,
+            "body_end": 2964,
+            "start": 1122,
+            "end": 2964,
+            "quote": "We hold these truths to be sacred & undeniable; that all men are created equal & independant, that from that equal creation they derive rights inherent & inalienable, among which are the preservation of life, & liberty, & the pursuit of happiness; that to secure these ends, governments are instituted among men, deriving their just powers from the consent of the governed; that whenever any form of government shall become destructive of these ends, it is the right of the people to alter or to abolish it, & to institute new government, laying it's foundation on such principles & organising it's powers in such form, as to them shall seem most likely to effect their safety & happiness. prudence indeed will dictate that governments long established should not be changed for light & transient causes: and accordingly all experience hath shewn that mankind are more disposed to suffer while evils are sufferable, than to right themselves by abolishing the forms to which they are accustomed. but when a long train of abuses & usurpations, begun at a distinguished period, & pursuing invariably the same object, evinces a design to subject them to arbitrary power, it is their right, it is their duty, to throw off such government & to provide new guards for their future security. such has been the patient sufferance of these colonies; & such is now the necessity which constrains them to expunge their former systems of government. the history of his present majesty, is a history of unremitting injuries and usurpations, among which no one fact stands single or solitary to contradict the uniform tenor of the rest, all of which have in direct object the establishment of an absolute tyranny over these states. to prove this, let facts be submitted to a candid world, for the truth of which we pledge a faith yet unsullied by falsehood.",
+            "body_projection": "body-text-no-headings-v1",
+            "reader_roles": [
+              "required_source_framed_comparison_witnesses",
+              "native_rule_candidates_for_question_parts:0,1",
+              "native_rule_candidates_for_question_parts:0,1",
+              "verified_question_evidence_or_counterevidence"
+            ]
+          },
+          {
+            "source_id": "ORIGINAL-0005",
+            "path": "original-0005.html",
+            "hash": "sha256:1f670fe87ed6e4044e60858300adedc09c4d82982fd7201b1288644f6fc5440d",
+            "body_start": 1537,
+            "body_end": 3165,
+            "start": 1537,
+            "end": 3165,
+            "quote": "We hold these truths to be self-evident, that all men are created equal, that they are endowed by their Creator with certain unalienable Rights, that among these are Life, Liberty and the pursuit of Happiness.--That to secure these rights, Governments are instituted among Men, deriving their just powers from the consent of the governed, --That whenever any Form of Government becomes destructive of these ends, it is the Right of the People to alter or to abolish it, and to institute new Government, laying its foundation on such principles and organizing its powers in such form, as to them shall seem most likely to effect their Safety and Happiness. Prudence, indeed, will dictate that Governments long established should not be changed for light and transient causes; and accordingly all experience hath shewn, that mankind are more disposed to suffer, while evils are sufferable, than to right themselves by abolishing the forms to which they are accustomed. But when a long train of abuses and usurpations, pursuing invariably the same Object evinces a design to reduce them under absolute Despotism, it is their right, it is their duty, to throw off such Government, and to provide new Guards for their future security.--Such has been the patient sufferance of these Colonies; and such is now the necessity which constrains them to alter their former Systems of Government. The history of the present King of Great Britain is a history of repeated injuries and usurpations, all having in direct object the establishment of an absolute Tyranny over these States. To prove this, let Facts be submitted to a candid world.",
+            "body_projection": "body-text-no-headings-v1",
+            "reader_roles": [
+              "required_source_framed_comparison_witnesses",
+              "native_rule_candidates_for_question_parts:0,1",
+              "native_rule_candidates_for_question_parts:0,1",
+              "verified_question_evidence_or_counterevidence"
+            ]
+          },
+          {
+            "source_id": "ORIGINAL-0004",
+            "path": "original-0004.html",
+            "hash": "sha256:b87d5883c09e9742bd7912abac58ed15694dadaf9d97f4d2191d3188051a7359",
+            "body_start": 259,
+            "body_end": 623,
+            "start": 259,
+            "end": 623,
+            "quote": "(This is Professor Julian Boyd's reconstruction of Thomas Jefferson's \"original Rough draught\" of the Declaration of Independence before it was revised by the other members of the Committee of Five and by Congress. From: The Papers of Thomas Jefferson. Vol. 1, 1760-1776. Ed. Julian P. Boyd. Princeton: Princeton University Press, 1950, pp 243-247) (Italics ours.)",
+            "body_projection": "body-text-no-headings-v1",
+            "reader_roles": [
+              "required_source_framed_comparison_witnesses",
+              "native_rule_candidates_for_question_parts:0,1",
+              "native_rule_candidates_for_question_parts:0,1",
+              "native_rule_candidates_for_question_parts:0,1",
+              "verified_question_evidence_or_counterevidence"
+            ]
+          },
+          {
+            "source_id": "ORIGINAL-0005",
+            "path": "original-0005.html",
+            "hash": "sha256:1f670fe87ed6e4044e60858300adedc09c4d82982fd7201b1288644f6fc5440d",
+            "body_start": 799,
+            "body_end": 1035,
+            "start": 799,
+            "end": 1035,
+            "quote": "Note: The following text is a transcription of the Stone Engraving of the parchment Declaration of Independence (the document on display in the Rotunda at the National Archives Museum). The spelling and punctuation reflect the original.",
+            "body_projection": "body-text-no-headings-v1",
+            "reader_roles": [
+              "required_source_framed_comparison_witnesses",
+              "native_rule_candidates_for_question_parts:0,1",
+              "native_rule_candidates_for_question_parts:0,1",
+              "native_rule_candidates_for_question_parts:0,1",
+              "verified_question_evidence_or_counterevidence"
+            ]
+          }
+        ],
+        "blocked": [],
+        "review_only_hints": [],
+        "review_only_hint_count": 0,
+        "search_only_hints_admitted": 0,
+        "relevant_counterevidence_did_not_fit": false,
+        "reader_witness_discovery": {
+          "rule": "existing_source_framed_literal_comparison",
+          "body_prefix_characters": 40676,
+          "pair_attempts": 1,
+          "max_body_prefix_characters": 192000,
+          "max_pair_attempts": 32
+        },
+        "sorter_assigns_slots": false,
+        "historical_truth_verified": false
+      },
+      "budget_invariants_pass": true
+    },
+    {
+      "case_id": "H05",
+      "arm": "sorter-alone",
+      "admission": {
+        "schema": "reader-witness-admission-v1",
+        "max_passages": 12,
+        "max_characters": 8000,
+        "passages_admitted": 4,
+        "characters_admitted": 4070,
+        "deduplication": "Exact source ID/path/hash/half-open span; different revisions and distinct nested spans remain distinct.",
+        "duplicate_span_charges_avoided": 14,
+        "admitted": [
+          {
+            "source_id": "ORIGINAL-0004",
+            "path": "original-0004.html",
+            "hash": "sha256:b87d5883c09e9742bd7912abac58ed15694dadaf9d97f4d2191d3188051a7359",
+            "body_start": 1122,
+            "body_end": 2964,
+            "start": 1122,
+            "end": 2964,
+            "quote": "We hold these truths to be sacred & undeniable; that all men are created equal & independant, that from that equal creation they derive rights inherent & inalienable, among which are the preservation of life, & liberty, & the pursuit of happiness; that to secure these ends, governments are instituted among men, deriving their just powers from the consent of the governed; that whenever any form of government shall become destructive of these ends, it is the right of the people to alter or to abolish it, & to institute new government, laying it's foundation on such principles & organising it's powers in such form, as to them shall seem most likely to effect their safety & happiness. prudence indeed will dictate that governments long established should not be changed for light & transient causes: and accordingly all experience hath shewn that mankind are more disposed to suffer while evils are sufferable, than to right themselves by abolishing the forms to which they are accustomed. but when a long train of abuses & usurpations, begun at a distinguished period, & pursuing invariably the same object, evinces a design to subject them to arbitrary power, it is their right, it is their duty, to throw off such government & to provide new guards for their future security. such has been the patient sufferance of these colonies; & such is now the necessity which constrains them to expunge their former systems of government. the history of his present majesty, is a history of unremitting injuries and usurpations, among which no one fact stands single or solitary to contradict the uniform tenor of the rest, all of which have in direct object the establishment of an absolute tyranny over these states. to prove this, let facts be submitted to a candid world, for the truth of which we pledge a faith yet unsullied by falsehood.",
+            "body_projection": "body-text-no-headings-v1",
+            "reader_roles": [
+              "required_source_framed_comparison_witnesses",
+              "native_rule_candidates_for_question_parts:0,1",
+              "native_rule_candidates_for_question_parts:0,1",
+              "verified_question_evidence_or_counterevidence"
+            ]
+          },
+          {
+            "source_id": "ORIGINAL-0005",
+            "path": "original-0005.html",
+            "hash": "sha256:1f670fe87ed6e4044e60858300adedc09c4d82982fd7201b1288644f6fc5440d",
+            "body_start": 1537,
+            "body_end": 3165,
+            "start": 1537,
+            "end": 3165,
+            "quote": "We hold these truths to be self-evident, that all men are created equal, that they are endowed by their Creator with certain unalienable Rights, that among these are Life, Liberty and the pursuit of Happiness.--That to secure these rights, Governments are instituted among Men, deriving their just powers from the consent of the governed, --That whenever any Form of Government becomes destructive of these ends, it is the Right of the People to alter or to abolish it, and to institute new Government, laying its foundation on such principles and organizing its powers in such form, as to them shall seem most likely to effect their Safety and Happiness. Prudence, indeed, will dictate that Governments long established should not be changed for light and transient causes; and accordingly all experience hath shewn, that mankind are more disposed to suffer, while evils are sufferable, than to right themselves by abolishing the forms to which they are accustomed. But when a long train of abuses and usurpations, pursuing invariably the same Object evinces a design to reduce them under absolute Despotism, it is their right, it is their duty, to throw off such Government, and to provide new Guards for their future security.--Such has been the patient sufferance of these Colonies; and such is now the necessity which constrains them to alter their former Systems of Government. The history of the present King of Great Britain is a history of repeated injuries and usurpations, all having in direct object the establishment of an absolute Tyranny over these States. To prove this, let Facts be submitted to a candid world.",
+            "body_projection": "body-text-no-headings-v1",
+            "reader_roles": [
+              "required_source_framed_comparison_witnesses",
+              "native_rule_candidates_for_question_parts:0,1",
+              "native_rule_candidates_for_question_parts:0,1",
+              "verified_question_evidence_or_counterevidence"
+            ]
+          },
+          {
+            "source_id": "ORIGINAL-0004",
+            "path": "original-0004.html",
+            "hash": "sha256:b87d5883c09e9742bd7912abac58ed15694dadaf9d97f4d2191d3188051a7359",
+            "body_start": 259,
+            "body_end": 623,
+            "start": 259,
+            "end": 623,
+            "quote": "(This is Professor Julian Boyd's reconstruction of Thomas Jefferson's \"original Rough draught\" of the Declaration of Independence before it was revised by the other members of the Committee of Five and by Congress. From: The Papers of Thomas Jefferson. Vol. 1, 1760-1776. Ed. Julian P. Boyd. Princeton: Princeton University Press, 1950, pp 243-247) (Italics ours.)",
+            "body_projection": "body-text-no-headings-v1",
+            "reader_roles": [
+              "required_source_framed_comparison_witnesses",
+              "native_rule_candidates_for_question_parts:0,1",
+              "native_rule_candidates_for_question_parts:0,1",
+              "native_rule_candidates_for_question_parts:0,1",
+              "verified_question_evidence_or_counterevidence"
+            ]
+          },
+          {
+            "source_id": "ORIGINAL-0005",
+            "path": "original-0005.html",
+            "hash": "sha256:1f670fe87ed6e4044e60858300adedc09c4d82982fd7201b1288644f6fc5440d",
+            "body_start": 799,
+            "body_end": 1035,
+            "start": 799,
+            "end": 1035,
+            "quote": "Note: The following text is a transcription of the Stone Engraving of the parchment Declaration of Independence (the document on display in the Rotunda at the National Archives Museum). The spelling and punctuation reflect the original.",
+            "body_projection": "body-text-no-headings-v1",
+            "reader_roles": [
+              "required_source_framed_comparison_witnesses",
+              "native_rule_candidates_for_question_parts:0,1",
+              "native_rule_candidates_for_question_parts:0,1",
+              "native_rule_candidates_for_question_parts:0,1",
+              "verified_question_evidence_or_counterevidence"
+            ]
+          }
+        ],
+        "blocked": [],
+        "review_only_hints": [
+          {
+            "source_id": "ORIGINAL-0001",
+            "path": "original-0001.html",
+            "hash": "sha256:cda3c0719ca4c839dfef3c3165934214c5e995fa3fb840a61b9a0ba77ebb9c32",
+            "body_start": 2284,
+            "body_end": 3425,
+            "sorter_node_id": "node:b410b068707a668761a2d6715988e8bc9e6b24690f9b1e6388ad0a081e66299a",
+            "suggestion_class": "synonym_or_shared_wording",
+            "reason": "Search/review only, or no unresolved native question part requires this source.",
+            "admitted": false,
+            "answer_supported": false
+          },
+          {
+            "source_id": "ORIGINAL-0002",
+            "path": "original-0002.html",
+            "hash": "sha256:954b6ef1585a74113b11936096e15e3ac95406cb9e99b0bf4908d917647adfca",
+            "body_start": 208389,
+            "body_end": 209573,
+            "sorter_node_id": "node:43c7b0660872597f317edc0f928627fa533b9b043599542f6cf3fdbde0290db7",
+            "suggestion_class": "synonym_or_shared_wording",
+            "reason": "Search/review only, or no unresolved native question part requires this source.",
+            "admitted": false,
+            "answer_supported": false
+          },
+          {
+            "source_id": "ORIGINAL-0002",
+            "path": "original-0002.html",
+            "hash": "sha256:954b6ef1585a74113b11936096e15e3ac95406cb9e99b0bf4908d917647adfca",
+            "body_start": 118014,
+            "body_end": 119203,
+            "sorter_node_id": "node:c53cf607544e0bccff405cc4203b2b81756bbe0d986ce6e475327f5bd182e7a9",
+            "suggestion_class": "synonym_or_shared_wording",
+            "reason": "Search/review only, or no unresolved native question part requires this source.",
+            "admitted": false,
+            "answer_supported": false
+          },
+          {
+            "source_id": "ORIGINAL-0002",
+            "path": "original-0002.html",
+            "hash": "sha256:954b6ef1585a74113b11936096e15e3ac95406cb9e99b0bf4908d917647adfca",
+            "body_start": 179626,
+            "body_end": 180815,
+            "sorter_node_id": "node:7502c43acb34d4a111ad54d4f5a6ba56855b7a4d245f863f3dd6cf4e6545a8cc",
+            "suggestion_class": "synonym_or_shared_wording",
+            "reason": "Search/review only, or no unresolved native question part requires this source.",
+            "admitted": false,
+            "answer_supported": false
+          }
+        ],
+        "review_only_hint_count": 4,
+        "search_only_hints_admitted": 0,
+        "relevant_counterevidence_did_not_fit": false,
+        "reader_witness_discovery": {
+          "rule": "existing_source_framed_literal_comparison",
+          "body_prefix_characters": 40676,
+          "pair_attempts": 1,
+          "max_body_prefix_characters": 192000,
+          "max_pair_attempts": 32
+        },
+        "sorter_assigns_slots": false,
+        "historical_truth_verified": false
+      },
+      "budget_invariants_pass": true
+    },
+    {
+      "case_id": "H05",
+      "arm": "synonyms",
+      "admission": {
+        "schema": "reader-witness-admission-v1",
+        "max_passages": 12,
+        "max_characters": 8000,
+        "passages_admitted": 4,
+        "characters_admitted": 4070,
+        "deduplication": "Exact source ID/path/hash/half-open span; different revisions and distinct nested spans remain distinct.",
+        "duplicate_span_charges_avoided": 14,
+        "admitted": [
+          {
+            "source_id": "ORIGINAL-0004",
+            "path": "original-0004.html",
+            "hash": "sha256:b87d5883c09e9742bd7912abac58ed15694dadaf9d97f4d2191d3188051a7359",
+            "body_start": 1122,
+            "body_end": 2964,
+            "start": 1122,
+            "end": 2964,
+            "quote": "We hold these truths to be sacred & undeniable; that all men are created equal & independant, that from that equal creation they derive rights inherent & inalienable, among which are the preservation of life, & liberty, & the pursuit of happiness; that to secure these ends, governments are instituted among men, deriving their just powers from the consent of the governed; that whenever any form of government shall become destructive of these ends, it is the right of the people to alter or to abolish it, & to institute new government, laying it's foundation on such principles & organising it's powers in such form, as to them shall seem most likely to effect their safety & happiness. prudence indeed will dictate that governments long established should not be changed for light & transient causes: and accordingly all experience hath shewn that mankind are more disposed to suffer while evils are sufferable, than to right themselves by abolishing the forms to which they are accustomed. but when a long train of abuses & usurpations, begun at a distinguished period, & pursuing invariably the same object, evinces a design to subject them to arbitrary power, it is their right, it is their duty, to throw off such government & to provide new guards for their future security. such has been the patient sufferance of these colonies; & such is now the necessity which constrains them to expunge their former systems of government. the history of his present majesty, is a history of unremitting injuries and usurpations, among which no one fact stands single or solitary to contradict the uniform tenor of the rest, all of which have in direct object the establishment of an absolute tyranny over these states. to prove this, let facts be submitted to a candid world, for the truth of which we pledge a faith yet unsullied by falsehood.",
+            "body_projection": "body-text-no-headings-v1",
+            "reader_roles": [
+              "required_source_framed_comparison_witnesses",
+              "native_rule_candidates_for_question_parts:0,1",
+              "native_rule_candidates_for_question_parts:0,1",
+              "verified_question_evidence_or_counterevidence"
+            ]
+          },
+          {
+            "source_id": "ORIGINAL-0005",
+            "path": "original-0005.html",
+            "hash": "sha256:1f670fe87ed6e4044e60858300adedc09c4d82982fd7201b1288644f6fc5440d",
+            "body_start": 1537,
+            "body_end": 3165,
+            "start": 1537,
+            "end": 3165,
+            "quote": "We hold these truths to be self-evident, that all men are created equal, that they are endowed by their Creator with certain unalienable Rights, that among these are Life, Liberty and the pursuit of Happiness.--That to secure these rights, Governments are instituted among Men, deriving their just powers from the consent of the governed, --That whenever any Form of Government becomes destructive of these ends, it is the Right of the People to alter or to abolish it, and to institute new Government, laying its foundation on such principles and organizing its powers in such form, as to them shall seem most likely to effect their Safety and Happiness. Prudence, indeed, will dictate that Governments long established should not be changed for light and transient causes; and accordingly all experience hath shewn, that mankind are more disposed to suffer, while evils are sufferable, than to right themselves by abolishing the forms to which they are accustomed. But when a long train of abuses and usurpations, pursuing invariably the same Object evinces a design to reduce them under absolute Despotism, it is their right, it is their duty, to throw off such Government, and to provide new Guards for their future security.--Such has been the patient sufferance of these Colonies; and such is now the necessity which constrains them to alter their former Systems of Government. The history of the present King of Great Britain is a history of repeated injuries and usurpations, all having in direct object the establishment of an absolute Tyranny over these States. To prove this, let Facts be submitted to a candid world.",
+            "body_projection": "body-text-no-headings-v1",
+            "reader_roles": [
+              "required_source_framed_comparison_witnesses",
+              "native_rule_candidates_for_question_parts:0,1",
+              "native_rule_candidates_for_question_parts:0,1",
+              "verified_question_evidence_or_counterevidence"
+            ]
+          },
+          {
+            "source_id": "ORIGINAL-0004",
+            "path": "original-0004.html",
+            "hash": "sha256:b87d5883c09e9742bd7912abac58ed15694dadaf9d97f4d2191d3188051a7359",
+            "body_start": 259,
+            "body_end": 623,
+            "start": 259,
+            "end": 623,
+            "quote": "(This is Professor Julian Boyd's reconstruction of Thomas Jefferson's \"original Rough draught\" of the Declaration of Independence before it was revised by the other members of the Committee of Five and by Congress. From: The Papers of Thomas Jefferson. Vol. 1, 1760-1776. Ed. Julian P. Boyd. Princeton: Princeton University Press, 1950, pp 243-247) (Italics ours.)",
+            "body_projection": "body-text-no-headings-v1",
+            "reader_roles": [
+              "required_source_framed_comparison_witnesses",
+              "native_rule_candidates_for_question_parts:0,1",
+              "native_rule_candidates_for_question_parts:0,1",
+              "native_rule_candidates_for_question_parts:0,1",
+              "verified_question_evidence_or_counterevidence"
+            ]
+          },
+          {
+            "source_id": "ORIGINAL-0005",
+            "path": "original-0005.html",
+            "hash": "sha256:1f670fe87ed6e4044e60858300adedc09c4d82982fd7201b1288644f6fc5440d",
+            "body_start": 799,
+            "body_end": 1035,
+            "start": 799,
+            "end": 1035,
+            "quote": "Note: The following text is a transcription of the Stone Engraving of the parchment Declaration of Independence (the document on display in the Rotunda at the National Archives Museum). The spelling and punctuation reflect the original.",
+            "body_projection": "body-text-no-headings-v1",
+            "reader_roles": [
+              "required_source_framed_comparison_witnesses",
+              "native_rule_candidates_for_question_parts:0,1",
+              "native_rule_candidates_for_question_parts:0,1",
+              "native_rule_candidates_for_question_parts:0,1",
+              "verified_question_evidence_or_counterevidence"
+            ]
+          }
+        ],
+        "blocked": [],
+        "review_only_hints": [
+          {
+            "source_id": "ORIGINAL-0001",
+            "path": "original-0001.html",
+            "hash": "sha256:cda3c0719ca4c839dfef3c3165934214c5e995fa3fb840a61b9a0ba77ebb9c32",
+            "body_start": 90692,
+            "body_end": 91844,
+            "sorter_node_id": "node:3de2dbdc1abf038d213758c22a5b96997308e1df9dc1e1ef22de5e9ca1e7a696",
+            "suggestion_class": "synonym_or_shared_wording",
+            "reason": "Search/review only, or no unresolved native question part requires this source.",
+            "admitted": false,
+            "answer_supported": false
+          },
+          {
+            "source_id": "ORIGINAL-0001",
+            "path": "original-0001.html",
+            "hash": "sha256:cda3c0719ca4c839dfef3c3165934214c5e995fa3fb840a61b9a0ba77ebb9c32",
+            "body_start": 91774,
+            "body_end": 92963,
+            "sorter_node_id": "node:3de2dbdc1abf038d213758c22a5b96997308e1df9dc1e1ef22de5e9ca1e7a696",
+            "suggestion_class": "synonym_or_shared_wording",
+            "reason": "Search/review only, or no unresolved native question part requires this source.",
+            "admitted": false,
+            "answer_supported": false
+          },
+          {
+            "source_id": "ORIGINAL-0001",
+            "path": "original-0001.html",
+            "hash": "sha256:cda3c0719ca4c839dfef3c3165934214c5e995fa3fb840a61b9a0ba77ebb9c32",
+            "body_start": 58650,
+            "body_end": 59849,
+            "sorter_node_id": "node:f6c1cde2aacc10ffff638f03cfa6f289fd3c4d3ccd2b913b6762c14e2a0452f8",
+            "suggestion_class": "synonym_or_shared_wording",
+            "reason": "Search/review only, or no unresolved native question part requires this source.",
+            "admitted": false,
+            "answer_supported": false
+          },
+          {
+            "source_id": "ORIGINAL-0001",
+            "path": "original-0001.html",
+            "hash": "sha256:cda3c0719ca4c839dfef3c3165934214c5e995fa3fb840a61b9a0ba77ebb9c32",
+            "body_start": 59779,
+            "body_end": 60977,
+            "sorter_node_id": "node:f6c1cde2aacc10ffff638f03cfa6f289fd3c4d3ccd2b913b6762c14e2a0452f8",
+            "suggestion_class": "synonym_or_shared_wording",
+            "reason": "Search/review only, or no unresolved native question part requires this source.",
+            "admitted": false,
+            "answer_supported": false
+          },
+          {
+            "source_id": "ORIGINAL-0001",
+            "path": "original-0001.html",
+            "hash": "sha256:cda3c0719ca4c839dfef3c3165934214c5e995fa3fb840a61b9a0ba77ebb9c32",
+            "body_start": 60906,
+            "body_end": 62055,
+            "sorter_node_id": "node:f6c1cde2aacc10ffff638f03cfa6f289fd3c4d3ccd2b913b6762c14e2a0452f8",
+            "suggestion_class": "synonym_or_shared_wording",
+            "reason": "Search/review only, or no unresolved native question part requires this source.",
+            "admitted": false,
+            "answer_supported": false
+          },
+          {
+            "source_id": "ORIGINAL-0001",
+            "path": "original-0001.html",
+            "hash": "sha256:cda3c0719ca4c839dfef3c3165934214c5e995fa3fb840a61b9a0ba77ebb9c32",
+            "body_start": 79688,
+            "body_end": 80846,
+            "sorter_node_id": "node:d548faa936b2dc5d59bd89911a82a5ff545a9d4915461bd696d96b42351ae6af",
+            "suggestion_class": "synonym_or_shared_wording",
+            "reason": "Search/review only, or no unresolved native question part requires this source.",
+            "admitted": false,
+            "answer_supported": false
+          }
+        ],
+        "review_only_hint_count": 6,
+        "search_only_hints_admitted": 0,
+        "relevant_counterevidence_did_not_fit": false,
+        "reader_witness_discovery": {
+          "rule": "existing_source_framed_literal_comparison",
+          "body_prefix_characters": 40676,
+          "pair_attempts": 1,
+          "max_body_prefix_characters": 192000,
+          "max_pair_attempts": 32
+        },
+        "sorter_assigns_slots": false,
+        "historical_truth_verified": false
+      },
+      "budget_invariants_pass": true
+    },
+    {
+      "case_id": "H05",
+      "arm": "synonyms-relater",
+      "admission": {
+        "schema": "reader-witness-admission-v1",
+        "max_passages": 12,
+        "max_characters": 8000,
+        "passages_admitted": 4,
+        "characters_admitted": 4070,
+        "deduplication": "Exact source ID/path/hash/half-open span; different revisions and distinct nested spans remain distinct.",
+        "duplicate_span_charges_avoided": 14,
+        "admitted": [
+          {
+            "source_id": "ORIGINAL-0004",
+            "path": "original-0004.html",
+            "hash": "sha256:b87d5883c09e9742bd7912abac58ed15694dadaf9d97f4d2191d3188051a7359",
+            "body_start": 1122,
+            "body_end": 2964,
+            "start": 1122,
+            "end": 2964,
+            "quote": "We hold these truths to be sacred & undeniable; that all men are created equal & independant, that from that equal creation they derive rights inherent & inalienable, among which are the preservation of life, & liberty, & the pursuit of happiness; that to secure these ends, governments are instituted among men, deriving their just powers from the consent of the governed; that whenever any form of government shall become destructive of these ends, it is the right of the people to alter or to abolish it, & to institute new government, laying it's foundation on such principles & organising it's powers in such form, as to them shall seem most likely to effect their safety & happiness. prudence indeed will dictate that governments long established should not be changed for light & transient causes: and accordingly all experience hath shewn that mankind are more disposed to suffer while evils are sufferable, than to right themselves by abolishing the forms to which they are accustomed. but when a long train of abuses & usurpations, begun at a distinguished period, & pursuing invariably the same object, evinces a design to subject them to arbitrary power, it is their right, it is their duty, to throw off such government & to provide new guards for their future security. such has been the patient sufferance of these colonies; & such is now the necessity which constrains them to expunge their former systems of government. the history of his present majesty, is a history of unremitting injuries and usurpations, among which no one fact stands single or solitary to contradict the uniform tenor of the rest, all of which have in direct object the establishment of an absolute tyranny over these states. to prove this, let facts be submitted to a candid world, for the truth of which we pledge a faith yet unsullied by falsehood.",
+            "body_projection": "body-text-no-headings-v1",
+            "reader_roles": [
+              "required_source_framed_comparison_witnesses",
+              "native_rule_candidates_for_question_parts:0,1",
+              "native_rule_candidates_for_question_parts:0,1",
+              "verified_question_evidence_or_counterevidence"
+            ]
+          },
+          {
+            "source_id": "ORIGINAL-0005",
+            "path": "original-0005.html",
+            "hash": "sha256:1f670fe87ed6e4044e60858300adedc09c4d82982fd7201b1288644f6fc5440d",
+            "body_start": 1537,
+            "body_end": 3165,
+            "start": 1537,
+            "end": 3165,
+            "quote": "We hold these truths to be self-evident, that all men are created equal, that they are endowed by their Creator with certain unalienable Rights, that among these are Life, Liberty and the pursuit of Happiness.--That to secure these rights, Governments are instituted among Men, deriving their just powers from the consent of the governed, --That whenever any Form of Government becomes destructive of these ends, it is the Right of the People to alter or to abolish it, and to institute new Government, laying its foundation on such principles and organizing its powers in such form, as to them shall seem most likely to effect their Safety and Happiness. Prudence, indeed, will dictate that Governments long established should not be changed for light and transient causes; and accordingly all experience hath shewn, that mankind are more disposed to suffer, while evils are sufferable, than to right themselves by abolishing the forms to which they are accustomed. But when a long train of abuses and usurpations, pursuing invariably the same Object evinces a design to reduce them under absolute Despotism, it is their right, it is their duty, to throw off such Government, and to provide new Guards for their future security.--Such has been the patient sufferance of these Colonies; and such is now the necessity which constrains them to alter their former Systems of Government. The history of the present King of Great Britain is a history of repeated injuries and usurpations, all having in direct object the establishment of an absolute Tyranny over these States. To prove this, let Facts be submitted to a candid world.",
+            "body_projection": "body-text-no-headings-v1",
+            "reader_roles": [
+              "required_source_framed_comparison_witnesses",
+              "native_rule_candidates_for_question_parts:0,1",
+              "native_rule_candidates_for_question_parts:0,1",
+              "verified_question_evidence_or_counterevidence"
+            ]
+          },
+          {
+            "source_id": "ORIGINAL-0004",
+            "path": "original-0004.html",
+            "hash": "sha256:b87d5883c09e9742bd7912abac58ed15694dadaf9d97f4d2191d3188051a7359",
+            "body_start": 259,
+            "body_end": 623,
+            "start": 259,
+            "end": 623,
+            "quote": "(This is Professor Julian Boyd's reconstruction of Thomas Jefferson's \"original Rough draught\" of the Declaration of Independence before it was revised by the other members of the Committee of Five and by Congress. From: The Papers of Thomas Jefferson. Vol. 1, 1760-1776. Ed. Julian P. Boyd. Princeton: Princeton University Press, 1950, pp 243-247) (Italics ours.)",
+            "body_projection": "body-text-no-headings-v1",
+            "reader_roles": [
+              "required_source_framed_comparison_witnesses",
+              "native_rule_candidates_for_question_parts:0,1",
+              "native_rule_candidates_for_question_parts:0,1",
+              "native_rule_candidates_for_question_parts:0,1",
+              "verified_question_evidence_or_counterevidence"
+            ]
+          },
+          {
+            "source_id": "ORIGINAL-0005",
+            "path": "original-0005.html",
+            "hash": "sha256:1f670fe87ed6e4044e60858300adedc09c4d82982fd7201b1288644f6fc5440d",
+            "body_start": 799,
+            "body_end": 1035,
+            "start": 799,
+            "end": 1035,
+            "quote": "Note: The following text is a transcription of the Stone Engraving of the parchment Declaration of Independence (the document on display in the Rotunda at the National Archives Museum). The spelling and punctuation reflect the original.",
+            "body_projection": "body-text-no-headings-v1",
+            "reader_roles": [
+              "required_source_framed_comparison_witnesses",
+              "native_rule_candidates_for_question_parts:0,1",
+              "native_rule_candidates_for_question_parts:0,1",
+              "native_rule_candidates_for_question_parts:0,1",
+              "verified_question_evidence_or_counterevidence"
+            ]
+          }
+        ],
+        "blocked": [],
+        "review_only_hints": [
+          {
+            "source_id": "ORIGINAL-0001",
+            "path": "original-0001.html",
+            "hash": "sha256:cda3c0719ca4c839dfef3c3165934214c5e995fa3fb840a61b9a0ba77ebb9c32",
+            "body_start": 90692,
+            "body_end": 91844,
+            "sorter_node_id": "node:3de2dbdc1abf038d213758c22a5b96997308e1df9dc1e1ef22de5e9ca1e7a696",
+            "suggestion_class": "synonym_or_shared_wording",
+            "reason": "Search/review only, or no unresolved native question part requires this source.",
+            "admitted": false,
+            "answer_supported": false
+          },
+          {
+            "source_id": "ORIGINAL-0001",
+            "path": "original-0001.html",
+            "hash": "sha256:cda3c0719ca4c839dfef3c3165934214c5e995fa3fb840a61b9a0ba77ebb9c32",
+            "body_start": 91774,
+            "body_end": 92963,
+            "sorter_node_id": "node:3de2dbdc1abf038d213758c22a5b96997308e1df9dc1e1ef22de5e9ca1e7a696",
+            "suggestion_class": "synonym_or_shared_wording",
+            "reason": "Search/review only, or no unresolved native question part requires this source.",
+            "admitted": false,
+            "answer_supported": false
+          },
+          {
+            "source_id": "ORIGINAL-0001",
+            "path": "original-0001.html",
+            "hash": "sha256:cda3c0719ca4c839dfef3c3165934214c5e995fa3fb840a61b9a0ba77ebb9c32",
+            "body_start": 58650,
+            "body_end": 59849,
+            "sorter_node_id": "node:f6c1cde2aacc10ffff638f03cfa6f289fd3c4d3ccd2b913b6762c14e2a0452f8",
+            "suggestion_class": "synonym_or_shared_wording",
+            "reason": "Search/review only, or no unresolved native question part requires this source.",
+            "admitted": false,
+            "answer_supported": false
+          },
+          {
+            "source_id": "ORIGINAL-0001",
+            "path": "original-0001.html",
+            "hash": "sha256:cda3c0719ca4c839dfef3c3165934214c5e995fa3fb840a61b9a0ba77ebb9c32",
+            "body_start": 59779,
+            "body_end": 60977,
+            "sorter_node_id": "node:f6c1cde2aacc10ffff638f03cfa6f289fd3c4d3ccd2b913b6762c14e2a0452f8",
+            "suggestion_class": "synonym_or_shared_wording",
+            "reason": "Search/review only, or no unresolved native question part requires this source.",
+            "admitted": false,
+            "answer_supported": false
+          },
+          {
+            "source_id": "ORIGINAL-0001",
+            "path": "original-0001.html",
+            "hash": "sha256:cda3c0719ca4c839dfef3c3165934214c5e995fa3fb840a61b9a0ba77ebb9c32",
+            "body_start": 60906,
+            "body_end": 62055,
+            "sorter_node_id": "node:f6c1cde2aacc10ffff638f03cfa6f289fd3c4d3ccd2b913b6762c14e2a0452f8",
+            "suggestion_class": "synonym_or_shared_wording",
+            "reason": "Search/review only, or no unresolved native question part requires this source.",
+            "admitted": false,
+            "answer_supported": false
+          },
+          {
+            "source_id": "ORIGINAL-0001",
+            "path": "original-0001.html",
+            "hash": "sha256:cda3c0719ca4c839dfef3c3165934214c5e995fa3fb840a61b9a0ba77ebb9c32",
+            "body_start": 79688,
+            "body_end": 80846,
+            "sorter_node_id": "node:d548faa936b2dc5d59bd89911a82a5ff545a9d4915461bd696d96b42351ae6af",
+            "suggestion_class": "synonym_or_shared_wording",
+            "reason": "Search/review only, or no unresolved native question part requires this source.",
+            "admitted": false,
+            "answer_supported": false
+          }
+        ],
+        "review_only_hint_count": 6,
+        "search_only_hints_admitted": 0,
+        "relevant_counterevidence_did_not_fit": false,
+        "reader_witness_discovery": {
+          "rule": "existing_source_framed_literal_comparison",
+          "body_prefix_characters": 40676,
+          "pair_attempts": 1,
+          "max_body_prefix_characters": 192000,
+          "max_pair_attempts": 32
+        },
+        "sorter_assigns_slots": false,
+        "historical_truth_verified": false
+      },
+      "budget_invariants_pass": true
+    },
+    {
+      "case_id": "H08",
+      "arm": "direct",
+      "admission": {
+        "schema": "reader-witness-admission-v1",
+        "max_passages": 12,
+        "max_characters": 8000,
+        "passages_admitted": 2,
+        "characters_admitted": 337,
+        "deduplication": "Exact source ID/path/hash/half-open span; different revisions and distinct nested spans remain distinct.",
+        "duplicate_span_charges_avoided": 0,
+        "admitted": [
+          {
+            "source_id": "ORIGINAL-0007",
+            "path": "original-0007.html",
+            "hash": "sha256:e3ec7774d22142e5251f1650d4fe1faa1e11c125c274e8a4c982d18b23714c8f",
+            "body_start": 6904,
+            "body_end": 7123,
+            "start": 6904,
+            "end": 7123,
+            "quote": "The Apollo 13 mission, planned as a lunar landing in the Fra Mauro\narea, was aborted because of an abrupt loss of service module cryogenic\noxygen associated with a fire in one of the two tanks at approximately\n56 hours.",
+            "body_projection": "body-text-no-headings-v1",
+            "reader_roles": [
+              "native_rule_candidates_for_question_parts:0"
+            ]
+          },
+          {
+            "source_id": "ORIGINAL-0007",
+            "path": "original-0007.html",
+            "hash": "sha256:e3ec7774d22142e5251f1650d4fe1faa1e11c125c274e8a4c982d18b23714c8f",
+            "body_start": 7124,
+            "body_end": 7242,
+            "start": 7124,
+            "end": 7242,
+            "quote": "The lunar module provided the necessary support to sustain a\nminimum operational\ncondition for a safe return to earth.",
+            "body_projection": "body-text-no-headings-v1",
+            "reader_roles": [
+              "native_rule_candidates_for_question_parts:1"
+            ]
+          }
+        ],
+        "blocked": [],
+        "review_only_hints": [],
+        "review_only_hint_count": 0,
+        "search_only_hints_admitted": 0,
+        "relevant_counterevidence_did_not_fit": false,
+        "reader_witness_discovery": {
+          "rule": null,
+          "body_prefix_characters": 0,
+          "pair_attempts": 0,
+          "max_body_prefix_characters": 192000,
+          "max_pair_attempts": 32
+        },
+        "sorter_assigns_slots": false,
+        "historical_truth_verified": false
+      },
+      "budget_invariants_pass": true
+    },
+    {
+      "case_id": "H08",
+      "arm": "sorter-alone",
+      "admission": {
+        "schema": "reader-witness-admission-v1",
+        "max_passages": 12,
+        "max_characters": 8000,
+        "passages_admitted": 2,
+        "characters_admitted": 337,
+        "deduplication": "Exact source ID/path/hash/half-open span; different revisions and distinct nested spans remain distinct.",
+        "duplicate_span_charges_avoided": 0,
+        "admitted": [
+          {
+            "source_id": "ORIGINAL-0007",
+            "path": "original-0007.html",
+            "hash": "sha256:e3ec7774d22142e5251f1650d4fe1faa1e11c125c274e8a4c982d18b23714c8f",
+            "body_start": 6904,
+            "body_end": 7123,
+            "start": 6904,
+            "end": 7123,
+            "quote": "The Apollo 13 mission, planned as a lunar landing in the Fra Mauro\narea, was aborted because of an abrupt loss of service module cryogenic\noxygen associated with a fire in one of the two tanks at approximately\n56 hours.",
+            "body_projection": "body-text-no-headings-v1",
+            "reader_roles": [
+              "native_rule_candidates_for_question_parts:0"
+            ]
+          },
+          {
+            "source_id": "ORIGINAL-0007",
+            "path": "original-0007.html",
+            "hash": "sha256:e3ec7774d22142e5251f1650d4fe1faa1e11c125c274e8a4c982d18b23714c8f",
+            "body_start": 7124,
+            "body_end": 7242,
+            "start": 7124,
+            "end": 7242,
+            "quote": "The lunar module provided the necessary support to sustain a\nminimum operational\ncondition for a safe return to earth.",
+            "body_projection": "body-text-no-headings-v1",
+            "reader_roles": [
+              "native_rule_candidates_for_question_parts:1"
+            ]
+          }
+        ],
+        "blocked": [],
+        "review_only_hints": [
+          {
+            "source_id": "ORIGINAL-0002",
+            "path": "original-0002.html",
+            "hash": "sha256:954b6ef1585a74113b11936096e15e3ac95406cb9e99b0bf4908d917647adfca",
+            "body_start": 273378,
+            "body_end": 274553,
+            "sorter_node_id": "node:61e7b46711dccba64e6c385c01f9666610599a9fec879f51728069faca7f50ec",
+            "suggestion_class": "synonym_or_shared_wording",
+            "reason": "Search/review only, or no unresolved native question part requires this source.",
+            "admitted": false,
+            "answer_supported": false
+          },
+          {
+            "source_id": "ORIGINAL-0001",
+            "path": "original-0001.html",
+            "hash": "sha256:cda3c0719ca4c839dfef3c3165934214c5e995fa3fb840a61b9a0ba77ebb9c32",
+            "body_start": 93971,
+            "body_end": 95129,
+            "sorter_node_id": "node:a3d2ea0f6129a3a8cfba9afb6176a270190542aa328ba9bf79bbe679467aae12",
+            "suggestion_class": "synonym_or_shared_wording",
+            "reason": "Search/review only, or no unresolved native question part requires this source.",
+            "admitted": false,
+            "answer_supported": false
+          },
+          {
+            "source_id": "ORIGINAL-0001",
+            "path": "original-0001.html",
+            "hash": "sha256:cda3c0719ca4c839dfef3c3165934214c5e995fa3fb840a61b9a0ba77ebb9c32",
+            "body_start": 95078,
+            "body_end": 96220,
+            "sorter_node_id": "node:a3d2ea0f6129a3a8cfba9afb6176a270190542aa328ba9bf79bbe679467aae12",
+            "suggestion_class": "synonym_or_shared_wording",
+            "reason": "Search/review only, or no unresolved native question part requires this source.",
+            "admitted": false,
+            "answer_supported": false
+          }
+        ],
+        "review_only_hint_count": 3,
+        "search_only_hints_admitted": 0,
+        "relevant_counterevidence_did_not_fit": false,
+        "reader_witness_discovery": {
+          "rule": null,
+          "body_prefix_characters": 0,
+          "pair_attempts": 0,
+          "max_body_prefix_characters": 192000,
+          "max_pair_attempts": 32
+        },
+        "sorter_assigns_slots": false,
+        "historical_truth_verified": false
+      },
+      "budget_invariants_pass": true
+    },
+    {
+      "case_id": "H08",
+      "arm": "synonyms",
+      "admission": {
+        "schema": "reader-witness-admission-v1",
+        "max_passages": 12,
+        "max_characters": 8000,
+        "passages_admitted": 2,
+        "characters_admitted": 337,
+        "deduplication": "Exact source ID/path/hash/half-open span; different revisions and distinct nested spans remain distinct.",
+        "duplicate_span_charges_avoided": 0,
+        "admitted": [
+          {
+            "source_id": "ORIGINAL-0007",
+            "path": "original-0007.html",
+            "hash": "sha256:e3ec7774d22142e5251f1650d4fe1faa1e11c125c274e8a4c982d18b23714c8f",
+            "body_start": 6904,
+            "body_end": 7123,
+            "start": 6904,
+            "end": 7123,
+            "quote": "The Apollo 13 mission, planned as a lunar landing in the Fra Mauro\narea, was aborted because of an abrupt loss of service module cryogenic\noxygen associated with a fire in one of the two tanks at approximately\n56 hours.",
+            "body_projection": "body-text-no-headings-v1",
+            "reader_roles": [
+              "native_rule_candidates_for_question_parts:0"
+            ]
+          },
+          {
+            "source_id": "ORIGINAL-0007",
+            "path": "original-0007.html",
+            "hash": "sha256:e3ec7774d22142e5251f1650d4fe1faa1e11c125c274e8a4c982d18b23714c8f",
+            "body_start": 7124,
+            "body_end": 7242,
+            "start": 7124,
+            "end": 7242,
+            "quote": "The lunar module provided the necessary support to sustain a\nminimum operational\ncondition for a safe return to earth.",
+            "body_projection": "body-text-no-headings-v1",
+            "reader_roles": [
+              "native_rule_candidates_for_question_parts:1"
+            ]
+          }
+        ],
+        "blocked": [],
+        "review_only_hints": [
+          {
+            "source_id": "ORIGINAL-0001",
+            "path": "original-0001.html",
+            "hash": "sha256:cda3c0719ca4c839dfef3c3165934214c5e995fa3fb840a61b9a0ba77ebb9c32",
+            "body_start": 79688,
+            "body_end": 80846,
+            "sorter_node_id": "node:d548faa936b2dc5d59bd89911a82a5ff545a9d4915461bd696d96b42351ae6af",
+            "suggestion_class": "synonym_or_shared_wording",
+            "reason": "Search/review only, or no unresolved native question part requires this source.",
+            "admitted": false,
+            "answer_supported": false
+          },
+          {
+            "source_id": "ORIGINAL-0001",
+            "path": "original-0001.html",
+            "hash": "sha256:cda3c0719ca4c839dfef3c3165934214c5e995fa3fb840a61b9a0ba77ebb9c32",
+            "body_start": 80774,
+            "body_end": 81902,
+            "sorter_node_id": "node:d548faa936b2dc5d59bd89911a82a5ff545a9d4915461bd696d96b42351ae6af",
+            "suggestion_class": "synonym_or_shared_wording",
+            "reason": "Search/review only, or no unresolved native question part requires this source.",
+            "admitted": false,
+            "answer_supported": false
+          },
+          {
+            "source_id": "ORIGINAL-0001",
+            "path": "original-0001.html",
+            "hash": "sha256:cda3c0719ca4c839dfef3c3165934214c5e995fa3fb840a61b9a0ba77ebb9c32",
+            "body_start": 81831,
+            "body_end": 83013,
+            "sorter_node_id": "node:d548faa936b2dc5d59bd89911a82a5ff545a9d4915461bd696d96b42351ae6af",
+            "suggestion_class": "synonym_or_shared_wording",
+            "reason": "Search/review only, or no unresolved native question part requires this source.",
+            "admitted": false,
+            "answer_supported": false
+          },
+          {
+            "source_id": "ORIGINAL-0001",
+            "path": "original-0001.html",
+            "hash": "sha256:cda3c0719ca4c839dfef3c3165934214c5e995fa3fb840a61b9a0ba77ebb9c32",
+            "body_start": 82941,
+            "body_end": 84134,
+            "sorter_node_id": "node:d548faa936b2dc5d59bd89911a82a5ff545a9d4915461bd696d96b42351ae6af",
+            "suggestion_class": "synonym_or_shared_wording",
+            "reason": "Search/review only, or no unresolved native question part requires this source.",
+            "admitted": false,
+            "answer_supported": false
+          },
+          {
+            "source_id": "ORIGINAL-0001",
+            "path": "original-0001.html",
+            "hash": "sha256:cda3c0719ca4c839dfef3c3165934214c5e995fa3fb840a61b9a0ba77ebb9c32",
+            "body_start": 84066,
+            "body_end": 85206,
+            "sorter_node_id": "node:d548faa936b2dc5d59bd89911a82a5ff545a9d4915461bd696d96b42351ae6af",
+            "suggestion_class": "synonym_or_shared_wording",
+            "reason": "Search/review only, or no unresolved native question part requires this source.",
+            "admitted": false,
+            "answer_supported": false
+          },
+          {
+            "source_id": "ORIGINAL-0001",
+            "path": "original-0001.html",
+            "hash": "sha256:cda3c0719ca4c839dfef3c3165934214c5e995fa3fb840a61b9a0ba77ebb9c32",
+            "body_start": 85136,
+            "body_end": 86301,
+            "sorter_node_id": "node:d548faa936b2dc5d59bd89911a82a5ff545a9d4915461bd696d96b42351ae6af",
+            "suggestion_class": "synonym_or_shared_wording",
+            "reason": "Search/review only, or no unresolved native question part requires this source.",
+            "admitted": false,
+            "answer_supported": false
+          }
+        ],
+        "review_only_hint_count": 6,
+        "search_only_hints_admitted": 0,
+        "relevant_counterevidence_did_not_fit": false,
+        "reader_witness_discovery": {
+          "rule": null,
+          "body_prefix_characters": 0,
+          "pair_attempts": 0,
+          "max_body_prefix_characters": 192000,
+          "max_pair_attempts": 32
+        },
+        "sorter_assigns_slots": false,
+        "historical_truth_verified": false
+      },
+      "budget_invariants_pass": true
+    },
+    {
+      "case_id": "H08",
+      "arm": "synonyms-relater",
+      "admission": {
+        "schema": "reader-witness-admission-v1",
+        "max_passages": 12,
+        "max_characters": 8000,
+        "passages_admitted": 2,
+        "characters_admitted": 337,
+        "deduplication": "Exact source ID/path/hash/half-open span; different revisions and distinct nested spans remain distinct.",
+        "duplicate_span_charges_avoided": 0,
+        "admitted": [
+          {
+            "source_id": "ORIGINAL-0007",
+            "path": "original-0007.html",
+            "hash": "sha256:e3ec7774d22142e5251f1650d4fe1faa1e11c125c274e8a4c982d18b23714c8f",
+            "body_start": 6904,
+            "body_end": 7123,
+            "start": 6904,
+            "end": 7123,
+            "quote": "The Apollo 13 mission, planned as a lunar landing in the Fra Mauro\narea, was aborted because of an abrupt loss of service module cryogenic\noxygen associated with a fire in one of the two tanks at approximately\n56 hours.",
+            "body_projection": "body-text-no-headings-v1",
+            "reader_roles": [
+              "native_rule_candidates_for_question_parts:0"
+            ]
+          },
+          {
+            "source_id": "ORIGINAL-0007",
+            "path": "original-0007.html",
+            "hash": "sha256:e3ec7774d22142e5251f1650d4fe1faa1e11c125c274e8a4c982d18b23714c8f",
+            "body_start": 7124,
+            "body_end": 7242,
+            "start": 7124,
+            "end": 7242,
+            "quote": "The lunar module provided the necessary support to sustain a\nminimum operational\ncondition for a safe return to earth.",
+            "body_projection": "body-text-no-headings-v1",
+            "reader_roles": [
+              "native_rule_candidates_for_question_parts:1"
+            ]
+          }
+        ],
+        "blocked": [],
+        "review_only_hints": [
+          {
+            "source_id": "ORIGINAL-0001",
+            "path": "original-0001.html",
+            "hash": "sha256:cda3c0719ca4c839dfef3c3165934214c5e995fa3fb840a61b9a0ba77ebb9c32",
+            "body_start": 79688,
+            "body_end": 80846,
+            "sorter_node_id": "node:d548faa936b2dc5d59bd89911a82a5ff545a9d4915461bd696d96b42351ae6af",
+            "suggestion_class": "synonym_or_shared_wording",
+            "reason": "Search/review only, or no unresolved native question part requires this source.",
+            "admitted": false,
+            "answer_supported": false
+          },
+          {
+            "source_id": "ORIGINAL-0001",
+            "path": "original-0001.html",
+            "hash": "sha256:cda3c0719ca4c839dfef3c3165934214c5e995fa3fb840a61b9a0ba77ebb9c32",
+            "body_start": 80774,
+            "body_end": 81902,
+            "sorter_node_id": "node:d548faa936b2dc5d59bd89911a82a5ff545a9d4915461bd696d96b42351ae6af",
+            "suggestion_class": "synonym_or_shared_wording",
+            "reason": "Search/review only, or no unresolved native question part requires this source.",
+            "admitted": false,
+            "answer_supported": false
+          },
+          {
+            "source_id": "ORIGINAL-0001",
+            "path": "original-0001.html",
+            "hash": "sha256:cda3c0719ca4c839dfef3c3165934214c5e995fa3fb840a61b9a0ba77ebb9c32",
+            "body_start": 81831,
+            "body_end": 83013,
+            "sorter_node_id": "node:d548faa936b2dc5d59bd89911a82a5ff545a9d4915461bd696d96b42351ae6af",
+            "suggestion_class": "synonym_or_shared_wording",
+            "reason": "Search/review only, or no unresolved native question part requires this source.",
+            "admitted": false,
+            "answer_supported": false
+          },
+          {
+            "source_id": "ORIGINAL-0001",
+            "path": "original-0001.html",
+            "hash": "sha256:cda3c0719ca4c839dfef3c3165934214c5e995fa3fb840a61b9a0ba77ebb9c32",
+            "body_start": 82941,
+            "body_end": 84134,
+            "sorter_node_id": "node:d548faa936b2dc5d59bd89911a82a5ff545a9d4915461bd696d96b42351ae6af",
+            "suggestion_class": "synonym_or_shared_wording",
+            "reason": "Search/review only, or no unresolved native question part requires this source.",
+            "admitted": false,
+            "answer_supported": false
+          },
+          {
+            "source_id": "ORIGINAL-0001",
+            "path": "original-0001.html",
+            "hash": "sha256:cda3c0719ca4c839dfef3c3165934214c5e995fa3fb840a61b9a0ba77ebb9c32",
+            "body_start": 84066,
+            "body_end": 85206,
+            "sorter_node_id": "node:d548faa936b2dc5d59bd89911a82a5ff545a9d4915461bd696d96b42351ae6af",
+            "suggestion_class": "synonym_or_shared_wording",
+            "reason": "Search/review only, or no unresolved native question part requires this source.",
+            "admitted": false,
+            "answer_supported": false
+          },
+          {
+            "source_id": "ORIGINAL-0001",
+            "path": "original-0001.html",
+            "hash": "sha256:cda3c0719ca4c839dfef3c3165934214c5e995fa3fb840a61b9a0ba77ebb9c32",
+            "body_start": 85136,
+            "body_end": 86301,
+            "sorter_node_id": "node:d548faa936b2dc5d59bd89911a82a5ff545a9d4915461bd696d96b42351ae6af",
+            "suggestion_class": "synonym_or_shared_wording",
+            "reason": "Search/review only, or no unresolved native question part requires this source.",
+            "admitted": false,
+            "answer_supported": false
+          }
+        ],
+        "review_only_hint_count": 6,
+        "search_only_hints_admitted": 0,
+        "relevant_counterevidence_did_not_fit": false,
+        "reader_witness_discovery": {
+          "rule": null,
+          "body_prefix_characters": 0,
+          "pair_attempts": 0,
+          "max_body_prefix_characters": 192000,
+          "max_pair_attempts": 32
+        },
+        "sorter_assigns_slots": false,
+        "historical_truth_verified": false
+      },
+      "budget_invariants_pass": true
+    },
+    {
+      "case_id": "U01",
+      "arm": "direct",
+      "admission": {
+        "schema": "reader-witness-admission-v1",
+        "max_passages": 12,
+        "max_characters": 8000,
+        "passages_admitted": 1,
+        "characters_admitted": 102,
+        "deduplication": "Exact source ID/path/hash/half-open span; different revisions and distinct nested spans remain distinct.",
+        "duplicate_span_charges_avoided": 1,
+        "admitted": [
+          {
+            "source_id": "ORIGINAL-0001",
+            "path": "original-0001.html",
+            "hash": "sha256:93d03d3493443fc88a7926765b45deac1cfc15592e9bf03cc27b5a2c737fe124",
+            "body_start": 1940,
+            "body_end": 2042,
+            "start": 1940,
+            "end": 2042,
+            "quote": "Shortly after the conference ended, Roosevelt appointed Gen. Dwight David Eisenhower to that position.",
+            "body_projection": "body-text-no-headings-v1",
+            "reader_roles": [
+              "native_rule_candidates_for_question_parts:0",
+              "verified_question_evidence_or_counterevidence"
+            ]
+          }
+        ],
+        "blocked": [],
+        "review_only_hints": [],
+        "review_only_hint_count": 0,
+        "search_only_hints_admitted": 0,
+        "relevant_counterevidence_did_not_fit": false,
+        "reader_witness_discovery": {
+          "rule": null,
+          "body_prefix_characters": 0,
+          "pair_attempts": 0,
+          "max_body_prefix_characters": 192000,
+          "max_pair_attempts": 32
+        },
+        "sorter_assigns_slots": false,
+        "historical_truth_verified": false
+      },
+      "budget_invariants_pass": true
+    },
+    {
+      "case_id": "U01",
+      "arm": "sorter-alone",
+      "admission": {
+        "schema": "reader-witness-admission-v1",
+        "max_passages": 12,
+        "max_characters": 8000,
+        "passages_admitted": 1,
+        "characters_admitted": 102,
+        "deduplication": "Exact source ID/path/hash/half-open span; different revisions and distinct nested spans remain distinct.",
+        "duplicate_span_charges_avoided": 1,
+        "admitted": [
+          {
+            "source_id": "ORIGINAL-0001",
+            "path": "original-0001.html",
+            "hash": "sha256:93d03d3493443fc88a7926765b45deac1cfc15592e9bf03cc27b5a2c737fe124",
+            "body_start": 1940,
+            "body_end": 2042,
+            "start": 1940,
+            "end": 2042,
+            "quote": "Shortly after the conference ended, Roosevelt appointed Gen. Dwight David Eisenhower to that position.",
+            "body_projection": "body-text-no-headings-v1",
+            "reader_roles": [
+              "native_rule_candidates_for_question_parts:0",
+              "verified_question_evidence_or_counterevidence"
+            ]
+          }
+        ],
+        "blocked": [],
+        "review_only_hints": [
+          {
+            "source_id": "ORIGINAL-0001",
+            "path": "original-0001.html",
+            "hash": "sha256:93d03d3493443fc88a7926765b45deac1cfc15592e9bf03cc27b5a2c737fe124",
+            "body_start": 2535,
+            "body_end": 2983,
+            "sorter_node_id": "node:4e996480caad39c21312c620e7f7dc5b89adc27f4aeb05f606e81743b29f5510",
+            "suggestion_class": "synonym_or_shared_wording",
+            "reason": "Search/review only, or no unresolved native question part requires this source.",
+            "admitted": false,
+            "answer_supported": false
+          },
+          {
+            "source_id": "ORIGINAL-0001",
+            "path": "original-0001.html",
+            "hash": "sha256:93d03d3493443fc88a7926765b45deac1cfc15592e9bf03cc27b5a2c737fe124",
+            "body_start": 2984,
+            "body_end": 3193,
+            "sorter_node_id": "node:ebbae8e00f5914b3acccef301263fc408914366d09e64016525df57b15863300",
+            "suggestion_class": "synonym_or_shared_wording",
+            "reason": "Search/review only, or no unresolved native question part requires this source.",
+            "admitted": false,
+            "answer_supported": false
+          },
+          {
+            "source_id": "ORIGINAL-0001",
+            "path": "original-0001.html",
+            "hash": "sha256:93d03d3493443fc88a7926765b45deac1cfc15592e9bf03cc27b5a2c737fe124",
+            "body_start": 1522,
+            "body_end": 2042,
+            "sorter_node_id": "node:ee2c973cc87f23bb700fa5d5bd9270ca91d9c4b2a53446d3b708aaa848f8dfd6",
+            "suggestion_class": "synonym_or_shared_wording",
+            "reason": "Search/review only, or no unresolved native question part requires this source.",
+            "admitted": false,
+            "answer_supported": false
+          },
+          {
+            "source_id": "ORIGINAL-0001",
+            "path": "original-0001.html",
+            "hash": "sha256:93d03d3493443fc88a7926765b45deac1cfc15592e9bf03cc27b5a2c737fe124",
+            "body_start": 244,
+            "body_end": 305,
+            "sorter_node_id": "node:b3bfc56b4e729159a9cd671a098476e9ce58e8558bef80ecb6f954fa022cf929",
+            "suggestion_class": "synonym_or_shared_wording",
+            "reason": "Search/review only, or no unresolved native question part requires this source.",
+            "admitted": false,
+            "answer_supported": false
+          },
+          {
+            "source_id": "ORIGINAL-0001",
+            "path": "original-0001.html",
+            "hash": "sha256:93d03d3493443fc88a7926765b45deac1cfc15592e9bf03cc27b5a2c737fe124",
+            "body_start": 674,
+            "body_end": 788,
+            "sorter_node_id": "node:13f09bc25242eba3f427789727d6975960475bf1a08e3c5bdf0f53e01d02ab4c",
+            "suggestion_class": "synonym_or_shared_wording",
+            "reason": "Search/review only, or no unresolved native question part requires this source.",
+            "admitted": false,
+            "answer_supported": false
+          },
+          {
+            "source_id": "ORIGINAL-0002",
+            "path": "original-0002.html",
+            "hash": "sha256:2b2900e5cc6ad6fbcf9027310ff7ea41568a67df84a51a8f72352e1945ef85a4",
+            "body_start": 885,
+            "body_end": 1371,
+            "sorter_node_id": "node:a3c7f291ac33426f07894fd14a83c320d10deb91b24808360d9dd6c215572932",
+            "suggestion_class": "synonym_or_shared_wording",
+            "reason": "Search/review only, or no unresolved native question part requires this source.",
+            "admitted": false,
+            "answer_supported": false
+          },
+          {
+            "source_id": "ORIGINAL-0001",
+            "path": "original-0001.html",
+            "hash": "sha256:93d03d3493443fc88a7926765b45deac1cfc15592e9bf03cc27b5a2c737fe124",
+            "body_start": 354,
+            "body_end": 609,
+            "sorter_node_id": "node:f102671abcab781ac0328f626d4b20e2659b25753b3323fd39da5b20826371c1",
+            "suggestion_class": "synonym_or_shared_wording",
+            "reason": "Search/review only, or no unresolved native question part requires this source.",
+            "admitted": false,
+            "answer_supported": false
+          }
+        ],
+        "review_only_hint_count": 7,
+        "search_only_hints_admitted": 0,
+        "relevant_counterevidence_did_not_fit": false,
+        "reader_witness_discovery": {
+          "rule": null,
+          "body_prefix_characters": 0,
+          "pair_attempts": 0,
+          "max_body_prefix_characters": 192000,
+          "max_pair_attempts": 32
+        },
+        "sorter_assigns_slots": false,
+        "historical_truth_verified": false
+      },
+      "budget_invariants_pass": true
+    },
+    {
+      "case_id": "U01",
+      "arm": "synonyms",
+      "admission": {
+        "schema": "reader-witness-admission-v1",
+        "max_passages": 12,
+        "max_characters": 8000,
+        "passages_admitted": 1,
+        "characters_admitted": 102,
+        "deduplication": "Exact source ID/path/hash/half-open span; different revisions and distinct nested spans remain distinct.",
+        "duplicate_span_charges_avoided": 1,
+        "admitted": [
+          {
+            "source_id": "ORIGINAL-0001",
+            "path": "original-0001.html",
+            "hash": "sha256:93d03d3493443fc88a7926765b45deac1cfc15592e9bf03cc27b5a2c737fe124",
+            "body_start": 1940,
+            "body_end": 2042,
+            "start": 1940,
+            "end": 2042,
+            "quote": "Shortly after the conference ended, Roosevelt appointed Gen. Dwight David Eisenhower to that position.",
+            "body_projection": "body-text-no-headings-v1",
+            "reader_roles": [
+              "native_rule_candidates_for_question_parts:0",
+              "verified_question_evidence_or_counterevidence"
+            ]
+          }
+        ],
+        "blocked": [],
+        "review_only_hints": [
+          {
+            "source_id": "ORIGINAL-0001",
+            "path": "original-0001.html",
+            "hash": "sha256:93d03d3493443fc88a7926765b45deac1cfc15592e9bf03cc27b5a2c737fe124",
+            "body_start": 2535,
+            "body_end": 2983,
+            "sorter_node_id": "node:4e996480caad39c21312c620e7f7dc5b89adc27f4aeb05f606e81743b29f5510",
+            "suggestion_class": "synonym_or_shared_wording",
+            "reason": "Search/review only, or no unresolved native question part requires this source.",
+            "admitted": false,
+            "answer_supported": false
+          },
+          {
+            "source_id": "ORIGINAL-0001",
+            "path": "original-0001.html",
+            "hash": "sha256:93d03d3493443fc88a7926765b45deac1cfc15592e9bf03cc27b5a2c737fe124",
+            "body_start": 1522,
+            "body_end": 2042,
+            "sorter_node_id": "node:ee2c973cc87f23bb700fa5d5bd9270ca91d9c4b2a53446d3b708aaa848f8dfd6",
+            "suggestion_class": "synonym_or_shared_wording",
+            "reason": "Search/review only, or no unresolved native question part requires this source.",
+            "admitted": false,
+            "answer_supported": false
+          },
+          {
+            "source_id": "ORIGINAL-0001",
+            "path": "original-0001.html",
+            "hash": "sha256:93d03d3493443fc88a7926765b45deac1cfc15592e9bf03cc27b5a2c737fe124",
+            "body_start": 2984,
+            "body_end": 3193,
+            "sorter_node_id": "node:ebbae8e00f5914b3acccef301263fc408914366d09e64016525df57b15863300",
+            "suggestion_class": "synonym_or_shared_wording",
+            "reason": "Search/review only, or no unresolved native question part requires this source.",
+            "admitted": false,
+            "answer_supported": false
+          },
+          {
+            "source_id": "ORIGINAL-0001",
+            "path": "original-0001.html",
+            "hash": "sha256:93d03d3493443fc88a7926765b45deac1cfc15592e9bf03cc27b5a2c737fe124",
+            "body_start": 244,
+            "body_end": 305,
+            "sorter_node_id": "node:b3bfc56b4e729159a9cd671a098476e9ce58e8558bef80ecb6f954fa022cf929",
+            "suggestion_class": "synonym_or_shared_wording",
+            "reason": "Search/review only, or no unresolved native question part requires this source.",
+            "admitted": false,
+            "answer_supported": false
+          },
+          {
+            "source_id": "ORIGINAL-0001",
+            "path": "original-0001.html",
+            "hash": "sha256:93d03d3493443fc88a7926765b45deac1cfc15592e9bf03cc27b5a2c737fe124",
+            "body_start": 354,
+            "body_end": 609,
+            "sorter_node_id": "node:f102671abcab781ac0328f626d4b20e2659b25753b3323fd39da5b20826371c1",
+            "suggestion_class": "synonym_or_shared_wording",
+            "reason": "Search/review only, or no unresolved native question part requires this source.",
+            "admitted": false,
+            "answer_supported": false
+          },
+          {
+            "source_id": "ORIGINAL-0001",
+            "path": "original-0001.html",
+            "hash": "sha256:93d03d3493443fc88a7926765b45deac1cfc15592e9bf03cc27b5a2c737fe124",
+            "body_start": 674,
+            "body_end": 788,
+            "sorter_node_id": "node:13f09bc25242eba3f427789727d6975960475bf1a08e3c5bdf0f53e01d02ab4c",
+            "suggestion_class": "synonym_or_shared_wording",
+            "reason": "Search/review only, or no unresolved native question part requires this source.",
+            "admitted": false,
+            "answer_supported": false
+          },
+          {
+            "source_id": "ORIGINAL-0001",
+            "path": "original-0001.html",
+            "hash": "sha256:93d03d3493443fc88a7926765b45deac1cfc15592e9bf03cc27b5a2c737fe124",
+            "body_start": 789,
+            "body_end": 1218,
+            "sorter_node_id": "node:2d20d031463e78b93c69729a0ce0aa48f5d62585d7183459ba8938412f3320ca",
+            "suggestion_class": "synonym_or_shared_wording",
+            "reason": "Search/review only, or no unresolved native question part requires this source.",
+            "admitted": false,
+            "answer_supported": false
+          },
+          {
+            "source_id": "ORIGINAL-0001",
+            "path": "original-0001.html",
+            "hash": "sha256:93d03d3493443fc88a7926765b45deac1cfc15592e9bf03cc27b5a2c737fe124",
+            "body_start": 1219,
+            "body_end": 1521,
+            "sorter_node_id": "node:fa7cfa4640790812b4d31b2b05d1fbc9c82de60628b2a8e9a7027d48267ac2b1",
+            "suggestion_class": "synonym_or_shared_wording",
+            "reason": "Search/review only, or no unresolved native question part requires this source.",
+            "admitted": false,
+            "answer_supported": false
+          }
+        ],
+        "review_only_hint_count": 8,
+        "search_only_hints_admitted": 0,
+        "relevant_counterevidence_did_not_fit": false,
+        "reader_witness_discovery": {
+          "rule": null,
+          "body_prefix_characters": 0,
+          "pair_attempts": 0,
+          "max_body_prefix_characters": 192000,
+          "max_pair_attempts": 32
+        },
+        "sorter_assigns_slots": false,
+        "historical_truth_verified": false
+      },
+      "budget_invariants_pass": true
+    },
+    {
+      "case_id": "U01",
+      "arm": "synonyms-relater",
+      "admission": {
+        "schema": "reader-witness-admission-v1",
+        "max_passages": 12,
+        "max_characters": 8000,
+        "passages_admitted": 1,
+        "characters_admitted": 102,
+        "deduplication": "Exact source ID/path/hash/half-open span; different revisions and distinct nested spans remain distinct.",
+        "duplicate_span_charges_avoided": 1,
+        "admitted": [
+          {
+            "source_id": "ORIGINAL-0001",
+            "path": "original-0001.html",
+            "hash": "sha256:93d03d3493443fc88a7926765b45deac1cfc15592e9bf03cc27b5a2c737fe124",
+            "body_start": 1940,
+            "body_end": 2042,
+            "start": 1940,
+            "end": 2042,
+            "quote": "Shortly after the conference ended, Roosevelt appointed Gen. Dwight David Eisenhower to that position.",
+            "body_projection": "body-text-no-headings-v1",
+            "reader_roles": [
+              "native_rule_candidates_for_question_parts:0",
+              "verified_question_evidence_or_counterevidence"
+            ]
+          }
+        ],
+        "blocked": [],
+        "review_only_hints": [
+          {
+            "source_id": "ORIGINAL-0001",
+            "path": "original-0001.html",
+            "hash": "sha256:93d03d3493443fc88a7926765b45deac1cfc15592e9bf03cc27b5a2c737fe124",
+            "body_start": 2535,
+            "body_end": 2983,
+            "sorter_node_id": "node:4e996480caad39c21312c620e7f7dc5b89adc27f4aeb05f606e81743b29f5510",
+            "suggestion_class": "synonym_or_shared_wording",
+            "reason": "Search/review only, or no unresolved native question part requires this source.",
+            "admitted": false,
+            "answer_supported": false
+          },
+          {
+            "source_id": "ORIGINAL-0001",
+            "path": "original-0001.html",
+            "hash": "sha256:93d03d3493443fc88a7926765b45deac1cfc15592e9bf03cc27b5a2c737fe124",
+            "body_start": 1522,
+            "body_end": 2042,
+            "sorter_node_id": "node:ee2c973cc87f23bb700fa5d5bd9270ca91d9c4b2a53446d3b708aaa848f8dfd6",
+            "suggestion_class": "synonym_or_shared_wording",
+            "reason": "Search/review only, or no unresolved native question part requires this source.",
+            "admitted": false,
+            "answer_supported": false
+          },
+          {
+            "source_id": "ORIGINAL-0001",
+            "path": "original-0001.html",
+            "hash": "sha256:93d03d3493443fc88a7926765b45deac1cfc15592e9bf03cc27b5a2c737fe124",
+            "body_start": 2984,
+            "body_end": 3193,
+            "sorter_node_id": "node:ebbae8e00f5914b3acccef301263fc408914366d09e64016525df57b15863300",
+            "suggestion_class": "synonym_or_shared_wording",
+            "reason": "Search/review only, or no unresolved native question part requires this source.",
+            "admitted": false,
+            "answer_supported": false
+          },
+          {
+            "source_id": "ORIGINAL-0001",
+            "path": "original-0001.html",
+            "hash": "sha256:93d03d3493443fc88a7926765b45deac1cfc15592e9bf03cc27b5a2c737fe124",
+            "body_start": 244,
+            "body_end": 305,
+            "sorter_node_id": "node:b3bfc56b4e729159a9cd671a098476e9ce58e8558bef80ecb6f954fa022cf929",
+            "suggestion_class": "synonym_or_shared_wording",
+            "reason": "Search/review only, or no unresolved native question part requires this source.",
+            "admitted": false,
+            "answer_supported": false
+          },
+          {
+            "source_id": "ORIGINAL-0001",
+            "path": "original-0001.html",
+            "hash": "sha256:93d03d3493443fc88a7926765b45deac1cfc15592e9bf03cc27b5a2c737fe124",
+            "body_start": 354,
+            "body_end": 609,
+            "sorter_node_id": "node:f102671abcab781ac0328f626d4b20e2659b25753b3323fd39da5b20826371c1",
+            "suggestion_class": "synonym_or_shared_wording",
+            "reason": "Search/review only, or no unresolved native question part requires this source.",
+            "admitted": false,
+            "answer_supported": false
+          },
+          {
+            "source_id": "ORIGINAL-0001",
+            "path": "original-0001.html",
+            "hash": "sha256:93d03d3493443fc88a7926765b45deac1cfc15592e9bf03cc27b5a2c737fe124",
+            "body_start": 674,
+            "body_end": 788,
+            "sorter_node_id": "node:13f09bc25242eba3f427789727d6975960475bf1a08e3c5bdf0f53e01d02ab4c",
+            "suggestion_class": "synonym_or_shared_wording",
+            "reason": "Search/review only, or no unresolved native question part requires this source.",
+            "admitted": false,
+            "answer_supported": false
+          },
+          {
+            "source_id": "ORIGINAL-0001",
+            "path": "original-0001.html",
+            "hash": "sha256:93d03d3493443fc88a7926765b45deac1cfc15592e9bf03cc27b5a2c737fe124",
+            "body_start": 789,
+            "body_end": 1218,
+            "sorter_node_id": "node:2d20d031463e78b93c69729a0ce0aa48f5d62585d7183459ba8938412f3320ca",
+            "suggestion_class": "synonym_or_shared_wording",
+            "reason": "Search/review only, or no unresolved native question part requires this source.",
+            "admitted": false,
+            "answer_supported": false
+          },
+          {
+            "source_id": "ORIGINAL-0001",
+            "path": "original-0001.html",
+            "hash": "sha256:93d03d3493443fc88a7926765b45deac1cfc15592e9bf03cc27b5a2c737fe124",
+            "body_start": 1219,
+            "body_end": 1521,
+            "sorter_node_id": "node:fa7cfa4640790812b4d31b2b05d1fbc9c82de60628b2a8e9a7027d48267ac2b1",
+            "suggestion_class": "synonym_or_shared_wording",
+            "reason": "Search/review only, or no unresolved native question part requires this source.",
+            "admitted": false,
+            "answer_supported": false
+          }
+        ],
+        "review_only_hint_count": 8,
+        "search_only_hints_admitted": 0,
+        "relevant_counterevidence_did_not_fit": false,
+        "reader_witness_discovery": {
+          "rule": null,
+          "body_prefix_characters": 0,
+          "pair_attempts": 0,
+          "max_body_prefix_characters": 192000,
+          "max_pair_attempts": 32
+        },
+        "sorter_assigns_slots": false,
+        "historical_truth_verified": false
+      },
+      "budget_invariants_pass": true
+    },
+    {
+      "case_id": "U06",
+      "arm": "direct",
+      "admission": {
+        "schema": "reader-witness-admission-v1",
+        "max_passages": 12,
+        "max_characters": 8000,
+        "passages_admitted": 0,
+        "characters_admitted": 0,
+        "deduplication": "Exact source ID/path/hash/half-open span; different revisions and distinct nested spans remain distinct.",
+        "duplicate_span_charges_avoided": 0,
+        "admitted": [],
+        "blocked": [],
+        "review_only_hints": [],
+        "review_only_hint_count": 0,
+        "search_only_hints_admitted": 0,
+        "relevant_counterevidence_did_not_fit": false,
+        "reader_witness_discovery": {
+          "rule": null,
+          "body_prefix_characters": 0,
+          "pair_attempts": 0,
+          "max_body_prefix_characters": 192000,
+          "max_pair_attempts": 32
+        },
+        "sorter_assigns_slots": false,
+        "historical_truth_verified": false
+      },
+      "budget_invariants_pass": true
+    },
+    {
+      "case_id": "U06",
+      "arm": "sorter-alone",
+      "admission": {
+        "schema": "reader-witness-admission-v1",
+        "max_passages": 12,
+        "max_characters": 8000,
+        "passages_admitted": 0,
+        "characters_admitted": 0,
+        "deduplication": "Exact source ID/path/hash/half-open span; different revisions and distinct nested spans remain distinct.",
+        "duplicate_span_charges_avoided": 0,
+        "admitted": [],
+        "blocked": [],
+        "review_only_hints": [
+          {
+            "source_id": "ORIGINAL-0002",
+            "path": "original-0002.html",
+            "hash": "sha256:2b2900e5cc6ad6fbcf9027310ff7ea41568a67df84a51a8f72352e1945ef85a4",
+            "body_start": 244,
+            "body_end": 300,
+            "sorter_node_id": "node:9384e5a2a93ebd9c5e2370a7c3922a13c8bae5468feb30bbd73cc09ed23a0b66",
+            "suggestion_class": "synonym_or_shared_wording",
+            "reason": "Search/review only, or no unresolved native question part requires this source.",
+            "admitted": false,
+            "answer_supported": false
+          },
+          {
+            "source_id": "ORIGINAL-0002",
+            "path": "original-0002.html",
+            "hash": "sha256:2b2900e5cc6ad6fbcf9027310ff7ea41568a67df84a51a8f72352e1945ef85a4",
+            "body_start": 5849,
+            "body_end": 5961,
+            "sorter_node_id": "node:71fbda09b4567f0ec7a848a312dd205f572ceb5b78c4b18529209ba1ed9803d5",
+            "suggestion_class": "synonym_or_shared_wording",
+            "reason": "Search/review only, or no unresolved native question part requires this source.",
+            "admitted": false,
+            "answer_supported": false
+          },
+          {
+            "source_id": "ORIGINAL-0002",
+            "path": "original-0002.html",
+            "hash": "sha256:2b2900e5cc6ad6fbcf9027310ff7ea41568a67df84a51a8f72352e1945ef85a4",
+            "body_start": 349,
+            "body_end": 700,
+            "sorter_node_id": "node:b21cf5e4f673f3fdce2c3000755879adc8326686ae6b9d8ac3787fac9f5bd8f3",
+            "suggestion_class": "synonym_or_shared_wording",
+            "reason": "Search/review only, or no unresolved native question part requires this source.",
+            "admitted": false,
+            "answer_supported": false
+          },
+          {
+            "source_id": "ORIGINAL-0002",
+            "path": "original-0002.html",
+            "hash": "sha256:2b2900e5cc6ad6fbcf9027310ff7ea41568a67df84a51a8f72352e1945ef85a4",
+            "body_start": 765,
+            "body_end": 884,
+            "sorter_node_id": "node:5ba3ba9c7b081a0f097dd64d9379382a93acb219fcd6504d129cc7a4042bb2a2",
+            "suggestion_class": "synonym_or_shared_wording",
+            "reason": "Search/review only, or no unresolved native question part requires this source.",
+            "admitted": false,
+            "answer_supported": false
+          },
+          {
+            "source_id": "ORIGINAL-0002",
+            "path": "original-0002.html",
+            "hash": "sha256:2b2900e5cc6ad6fbcf9027310ff7ea41568a67df84a51a8f72352e1945ef85a4",
+            "body_start": 5255,
+            "body_end": 5408,
+            "sorter_node_id": "node:93b16f7f8afa17020eae3bfdda525bec70f67184c9e5505b3f2af4f7110cd2b1",
+            "suggestion_class": "synonym_or_shared_wording",
+            "reason": "Search/review only, or no unresolved native question part requires this source.",
+            "admitted": false,
+            "answer_supported": false
+          },
+          {
+            "source_id": "ORIGINAL-0001",
+            "path": "original-0001.html",
+            "hash": "sha256:93d03d3493443fc88a7926765b45deac1cfc15592e9bf03cc27b5a2c737fe124",
+            "body_start": 674,
+            "body_end": 788,
+            "sorter_node_id": "node:13f09bc25242eba3f427789727d6975960475bf1a08e3c5bdf0f53e01d02ab4c",
+            "suggestion_class": "synonym_or_shared_wording",
+            "reason": "Search/review only, or no unresolved native question part requires this source.",
+            "admitted": false,
+            "answer_supported": false
+          }
+        ],
+        "review_only_hint_count": 6,
+        "search_only_hints_admitted": 0,
+        "relevant_counterevidence_did_not_fit": false,
+        "reader_witness_discovery": {
+          "rule": null,
+          "body_prefix_characters": 0,
+          "pair_attempts": 0,
+          "max_body_prefix_characters": 192000,
+          "max_pair_attempts": 32
+        },
+        "sorter_assigns_slots": false,
+        "historical_truth_verified": false
+      },
+      "budget_invariants_pass": true
+    },
+    {
+      "case_id": "U06",
+      "arm": "synonyms",
+      "admission": {
+        "schema": "reader-witness-admission-v1",
+        "max_passages": 12,
+        "max_characters": 8000,
+        "passages_admitted": 0,
+        "characters_admitted": 0,
+        "deduplication": "Exact source ID/path/hash/half-open span; different revisions and distinct nested spans remain distinct.",
+        "duplicate_span_charges_avoided": 0,
+        "admitted": [],
+        "blocked": [],
+        "review_only_hints": [
+          {
+            "source_id": "ORIGINAL-0002",
+            "path": "original-0002.html",
+            "hash": "sha256:2b2900e5cc6ad6fbcf9027310ff7ea41568a67df84a51a8f72352e1945ef85a4",
+            "body_start": 4545,
+            "body_end": 5254,
+            "sorter_node_id": "node:2f222fe2d18154e8792f8267e7f0a2c4cd0edb5c6117c814e95eb2efbf1a72ca",
+            "suggestion_class": "synonym_or_shared_wording",
+            "reason": "Search/review only, or no unresolved native question part requires this source.",
+            "admitted": false,
+            "answer_supported": false
+          },
+          {
+            "source_id": "ORIGINAL-0002",
+            "path": "original-0002.html",
+            "hash": "sha256:2b2900e5cc6ad6fbcf9027310ff7ea41568a67df84a51a8f72352e1945ef85a4",
+            "body_start": 7201,
+            "body_end": 8605,
+            "sorter_node_id": "node:f37f1bd78667d6ed022872f39b0b832f0a6ac4876b9a20cca5e52188be9b337b",
+            "suggestion_class": "synonym_or_shared_wording",
+            "reason": "Search/review only, or no unresolved native question part requires this source.",
+            "admitted": false,
+            "answer_supported": false
+          },
+          {
+            "source_id": "ORIGINAL-0002",
+            "path": "original-0002.html",
+            "hash": "sha256:2b2900e5cc6ad6fbcf9027310ff7ea41568a67df84a51a8f72352e1945ef85a4",
+            "body_start": 244,
+            "body_end": 300,
+            "sorter_node_id": "node:9384e5a2a93ebd9c5e2370a7c3922a13c8bae5468feb30bbd73cc09ed23a0b66",
+            "suggestion_class": "synonym_or_shared_wording",
+            "reason": "Search/review only, or no unresolved native question part requires this source.",
+            "admitted": false,
+            "answer_supported": false
+          },
+          {
+            "source_id": "ORIGINAL-0002",
+            "path": "original-0002.html",
+            "hash": "sha256:2b2900e5cc6ad6fbcf9027310ff7ea41568a67df84a51a8f72352e1945ef85a4",
+            "body_start": 349,
+            "body_end": 700,
+            "sorter_node_id": "node:b21cf5e4f673f3fdce2c3000755879adc8326686ae6b9d8ac3787fac9f5bd8f3",
+            "suggestion_class": "synonym_or_shared_wording",
+            "reason": "Search/review only, or no unresolved native question part requires this source.",
+            "admitted": false,
+            "answer_supported": false
+          },
+          {
+            "source_id": "ORIGINAL-0002",
+            "path": "original-0002.html",
+            "hash": "sha256:2b2900e5cc6ad6fbcf9027310ff7ea41568a67df84a51a8f72352e1945ef85a4",
+            "body_start": 765,
+            "body_end": 884,
+            "sorter_node_id": "node:5ba3ba9c7b081a0f097dd64d9379382a93acb219fcd6504d129cc7a4042bb2a2",
+            "suggestion_class": "synonym_or_shared_wording",
+            "reason": "Search/review only, or no unresolved native question part requires this source.",
+            "admitted": false,
+            "answer_supported": false
+          },
+          {
+            "source_id": "ORIGINAL-0002",
+            "path": "original-0002.html",
+            "hash": "sha256:2b2900e5cc6ad6fbcf9027310ff7ea41568a67df84a51a8f72352e1945ef85a4",
+            "body_start": 5255,
+            "body_end": 5408,
+            "sorter_node_id": "node:93b16f7f8afa17020eae3bfdda525bec70f67184c9e5505b3f2af4f7110cd2b1",
+            "suggestion_class": "synonym_or_shared_wording",
+            "reason": "Search/review only, or no unresolved native question part requires this source.",
+            "admitted": false,
+            "answer_supported": false
+          },
+          {
+            "source_id": "ORIGINAL-0002",
+            "path": "original-0002.html",
+            "hash": "sha256:2b2900e5cc6ad6fbcf9027310ff7ea41568a67df84a51a8f72352e1945ef85a4",
+            "body_start": 5849,
+            "body_end": 5961,
+            "sorter_node_id": "node:71fbda09b4567f0ec7a848a312dd205f572ceb5b78c4b18529209ba1ed9803d5",
+            "suggestion_class": "synonym_or_shared_wording",
+            "reason": "Search/review only, or no unresolved native question part requires this source.",
+            "admitted": false,
+            "answer_supported": false
+          },
+          {
+            "source_id": "ORIGINAL-0001",
+            "path": "original-0001.html",
+            "hash": "sha256:93d03d3493443fc88a7926765b45deac1cfc15592e9bf03cc27b5a2c737fe124",
+            "body_start": 5965,
+            "body_end": 6061,
+            "sorter_node_id": "node:99af52eb2039c56950970e069f353170c8713546cb71c99c36e0d3529c31e8da",
+            "suggestion_class": "synonym_or_shared_wording",
+            "reason": "Search/review only, or no unresolved native question part requires this source.",
+            "admitted": false,
+            "answer_supported": false
+          },
+          {
+            "source_id": "ORIGINAL-0002",
+            "path": "original-0002.html",
+            "hash": "sha256:2b2900e5cc6ad6fbcf9027310ff7ea41568a67df84a51a8f72352e1945ef85a4",
+            "body_start": 2781,
+            "body_end": 3392,
+            "sorter_node_id": "node:c2ebb40a145e1252e165f3b366c6cb56c963d43226976e03334b7d4114a01ac6",
+            "suggestion_class": "synonym_or_shared_wording",
+            "reason": "Search/review only, or no unresolved native question part requires this source.",
+            "admitted": false,
+            "answer_supported": false
+          },
+          {
+            "source_id": "ORIGINAL-0002",
+            "path": "original-0002.html",
+            "hash": "sha256:2b2900e5cc6ad6fbcf9027310ff7ea41568a67df84a51a8f72352e1945ef85a4",
+            "body_start": 4150,
+            "body_end": 4544,
+            "sorter_node_id": "node:c22251d229ffafe154a5bf034ef9bfb8e6c31973af29f5d1cb5124d91ed81597",
+            "suggestion_class": "synonym_or_shared_wording",
+            "reason": "Search/review only, or no unresolved native question part requires this source.",
+            "admitted": false,
+            "answer_supported": false
+          },
+          {
+            "source_id": "ORIGINAL-0002",
+            "path": "original-0002.html",
+            "hash": "sha256:2b2900e5cc6ad6fbcf9027310ff7ea41568a67df84a51a8f72352e1945ef85a4",
+            "body_start": 5962,
+            "body_end": 7200,
+            "sorter_node_id": "node:96832e24a3c903fdd6ccbe5c7d5c183cce5be1989b7f107eab2bb5987be60744",
+            "suggestion_class": "synonym_or_shared_wording",
+            "reason": "Search/review only, or no unresolved native question part requires this source.",
+            "admitted": false,
+            "answer_supported": false
+          },
+          {
+            "source_id": "ORIGINAL-0002",
+            "path": "original-0002.html",
+            "hash": "sha256:2b2900e5cc6ad6fbcf9027310ff7ea41568a67df84a51a8f72352e1945ef85a4",
+            "body_start": 9688,
+            "body_end": 9784,
+            "sorter_node_id": "node:05612ae484815d72e373640b231076b32323c1053f2066032dcd86d9d51049ee",
+            "suggestion_class": "synonym_or_shared_wording",
+            "reason": "Search/review only, or no unresolved native question part requires this source.",
+            "admitted": false,
+            "answer_supported": false
+          }
+        ],
+        "review_only_hint_count": 12,
+        "search_only_hints_admitted": 0,
+        "relevant_counterevidence_did_not_fit": false,
+        "reader_witness_discovery": {
+          "rule": null,
+          "body_prefix_characters": 0,
+          "pair_attempts": 0,
+          "max_body_prefix_characters": 192000,
+          "max_pair_attempts": 32
+        },
+        "sorter_assigns_slots": false,
+        "historical_truth_verified": false
+      },
+      "budget_invariants_pass": true
+    },
+    {
+      "case_id": "U06",
+      "arm": "synonyms-relater",
+      "admission": {
+        "schema": "reader-witness-admission-v1",
+        "max_passages": 12,
+        "max_characters": 8000,
+        "passages_admitted": 0,
+        "characters_admitted": 0,
+        "deduplication": "Exact source ID/path/hash/half-open span; different revisions and distinct nested spans remain distinct.",
+        "duplicate_span_charges_avoided": 0,
+        "admitted": [],
+        "blocked": [],
+        "review_only_hints": [
+          {
+            "source_id": "ORIGINAL-0002",
+            "path": "original-0002.html",
+            "hash": "sha256:2b2900e5cc6ad6fbcf9027310ff7ea41568a67df84a51a8f72352e1945ef85a4",
+            "body_start": 4545,
+            "body_end": 5254,
+            "sorter_node_id": "node:2f222fe2d18154e8792f8267e7f0a2c4cd0edb5c6117c814e95eb2efbf1a72ca",
+            "suggestion_class": "synonym_or_shared_wording",
+            "reason": "Search/review only, or no unresolved native question part requires this source.",
+            "admitted": false,
+            "answer_supported": false
+          },
+          {
+            "source_id": "ORIGINAL-0002",
+            "path": "original-0002.html",
+            "hash": "sha256:2b2900e5cc6ad6fbcf9027310ff7ea41568a67df84a51a8f72352e1945ef85a4",
+            "body_start": 7201,
+            "body_end": 8605,
+            "sorter_node_id": "node:f37f1bd78667d6ed022872f39b0b832f0a6ac4876b9a20cca5e52188be9b337b",
+            "suggestion_class": "synonym_or_shared_wording",
+            "reason": "Search/review only, or no unresolved native question part requires this source.",
+            "admitted": false,
+            "answer_supported": false
+          },
+          {
+            "source_id": "ORIGINAL-0002",
+            "path": "original-0002.html",
+            "hash": "sha256:2b2900e5cc6ad6fbcf9027310ff7ea41568a67df84a51a8f72352e1945ef85a4",
+            "body_start": 244,
+            "body_end": 300,
+            "sorter_node_id": "node:9384e5a2a93ebd9c5e2370a7c3922a13c8bae5468feb30bbd73cc09ed23a0b66",
+            "suggestion_class": "synonym_or_shared_wording",
+            "reason": "Search/review only, or no unresolved native question part requires this source.",
+            "admitted": false,
+            "answer_supported": false
+          },
+          {
+            "source_id": "ORIGINAL-0002",
+            "path": "original-0002.html",
+            "hash": "sha256:2b2900e5cc6ad6fbcf9027310ff7ea41568a67df84a51a8f72352e1945ef85a4",
+            "body_start": 349,
+            "body_end": 700,
+            "sorter_node_id": "node:b21cf5e4f673f3fdce2c3000755879adc8326686ae6b9d8ac3787fac9f5bd8f3",
+            "suggestion_class": "synonym_or_shared_wording",
+            "reason": "Search/review only, or no unresolved native question part requires this source.",
+            "admitted": false,
+            "answer_supported": false
+          },
+          {
+            "source_id": "ORIGINAL-0002",
+            "path": "original-0002.html",
+            "hash": "sha256:2b2900e5cc6ad6fbcf9027310ff7ea41568a67df84a51a8f72352e1945ef85a4",
+            "body_start": 765,
+            "body_end": 884,
+            "sorter_node_id": "node:5ba3ba9c7b081a0f097dd64d9379382a93acb219fcd6504d129cc7a4042bb2a2",
+            "suggestion_class": "synonym_or_shared_wording",
+            "reason": "Search/review only, or no unresolved native question part requires this source.",
+            "admitted": false,
+            "answer_supported": false
+          },
+          {
+            "source_id": "ORIGINAL-0002",
+            "path": "original-0002.html",
+            "hash": "sha256:2b2900e5cc6ad6fbcf9027310ff7ea41568a67df84a51a8f72352e1945ef85a4",
+            "body_start": 5255,
+            "body_end": 5408,
+            "sorter_node_id": "node:93b16f7f8afa17020eae3bfdda525bec70f67184c9e5505b3f2af4f7110cd2b1",
+            "suggestion_class": "synonym_or_shared_wording",
+            "reason": "Search/review only, or no unresolved native question part requires this source.",
+            "admitted": false,
+            "answer_supported": false
+          },
+          {
+            "source_id": "ORIGINAL-0002",
+            "path": "original-0002.html",
+            "hash": "sha256:2b2900e5cc6ad6fbcf9027310ff7ea41568a67df84a51a8f72352e1945ef85a4",
+            "body_start": 5849,
+            "body_end": 5961,
+            "sorter_node_id": "node:71fbda09b4567f0ec7a848a312dd205f572ceb5b78c4b18529209ba1ed9803d5",
+            "suggestion_class": "synonym_or_shared_wording",
+            "reason": "Search/review only, or no unresolved native question part requires this source.",
+            "admitted": false,
+            "answer_supported": false
+          },
+          {
+            "source_id": "ORIGINAL-0001",
+            "path": "original-0001.html",
+            "hash": "sha256:93d03d3493443fc88a7926765b45deac1cfc15592e9bf03cc27b5a2c737fe124",
+            "body_start": 5965,
+            "body_end": 6061,
+            "sorter_node_id": "node:99af52eb2039c56950970e069f353170c8713546cb71c99c36e0d3529c31e8da",
+            "suggestion_class": "synonym_or_shared_wording",
+            "reason": "Search/review only, or no unresolved native question part requires this source.",
+            "admitted": false,
+            "answer_supported": false
+          },
+          {
+            "source_id": "ORIGINAL-0002",
+            "path": "original-0002.html",
+            "hash": "sha256:2b2900e5cc6ad6fbcf9027310ff7ea41568a67df84a51a8f72352e1945ef85a4",
+            "body_start": 2781,
+            "body_end": 3392,
+            "sorter_node_id": "node:c2ebb40a145e1252e165f3b366c6cb56c963d43226976e03334b7d4114a01ac6",
+            "suggestion_class": "synonym_or_shared_wording",
+            "reason": "Search/review only, or no unresolved native question part requires this source.",
+            "admitted": false,
+            "answer_supported": false
+          },
+          {
+            "source_id": "ORIGINAL-0002",
+            "path": "original-0002.html",
+            "hash": "sha256:2b2900e5cc6ad6fbcf9027310ff7ea41568a67df84a51a8f72352e1945ef85a4",
+            "body_start": 4150,
+            "body_end": 4544,
+            "sorter_node_id": "node:c22251d229ffafe154a5bf034ef9bfb8e6c31973af29f5d1cb5124d91ed81597",
+            "suggestion_class": "synonym_or_shared_wording",
+            "reason": "Search/review only, or no unresolved native question part requires this source.",
+            "admitted": false,
+            "answer_supported": false
+          },
+          {
+            "source_id": "ORIGINAL-0002",
+            "path": "original-0002.html",
+            "hash": "sha256:2b2900e5cc6ad6fbcf9027310ff7ea41568a67df84a51a8f72352e1945ef85a4",
+            "body_start": 5962,
+            "body_end": 7200,
+            "sorter_node_id": "node:96832e24a3c903fdd6ccbe5c7d5c183cce5be1989b7f107eab2bb5987be60744",
+            "suggestion_class": "synonym_or_shared_wording",
+            "reason": "Search/review only, or no unresolved native question part requires this source.",
+            "admitted": false,
+            "answer_supported": false
+          },
+          {
+            "source_id": "ORIGINAL-0002",
+            "path": "original-0002.html",
+            "hash": "sha256:2b2900e5cc6ad6fbcf9027310ff7ea41568a67df84a51a8f72352e1945ef85a4",
+            "body_start": 9688,
+            "body_end": 9784,
+            "sorter_node_id": "node:05612ae484815d72e373640b231076b32323c1053f2066032dcd86d9d51049ee",
+            "suggestion_class": "synonym_or_shared_wording",
+            "reason": "Search/review only, or no unresolved native question part requires this source.",
+            "admitted": false,
+            "answer_supported": false
+          }
+        ],
+        "review_only_hint_count": 12,
+        "search_only_hints_admitted": 0,
+        "relevant_counterevidence_did_not_fit": false,
+        "reader_witness_discovery": {
+          "rule": null,
+          "body_prefix_characters": 0,
+          "pair_attempts": 0,
+          "max_body_prefix_characters": 192000,
+          "max_pair_attempts": 32
+        },
+        "sorter_assigns_slots": false,
+        "historical_truth_verified": false
+      },
+      "budget_invariants_pass": true
+    }
+  ],
+  "all_pass": true,
+  "meaning": "Exact span charging and limit invariants; independent source/meaning verification remains separate."
+}
