@@ -238,3 +238,5 @@ not certify later commits.
 
 Code is MIT licensed; documentation is CC BY 4.0. Bundled data, models and preserved
 parts retain their own notices. See [LICENSE](LICENSE) and [resource attribution](resources/README.md).
+
+Measured fixpack/gap update: [final experiment](evaluation/fixpack/2026-11-18/FINAL_REPORT.md) and [22-case source/checker table](evaluation/fixpack/2026-11-18/CASE_ANALYSIS.md). Complete answers remain2/22; checked partials increase1→2. Separate exploration does not recover the5 missing draft anchors; the tested tiny flagger provides no utility gain. Original authority boundaries remain in force.

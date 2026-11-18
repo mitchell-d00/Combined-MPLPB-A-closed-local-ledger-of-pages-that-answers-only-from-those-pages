@@ -18,7 +18,7 @@ Discovery searches up to four question parts separately, preserves a contrary-wo
 
 Kernel v5 can retain an explicit action with a referential object and the complete local paragraph as a checked partial. Topic words in that paragraph do not resolve the referent. “Mira surveyed the area” near “Cedar Valley” cannot become “Mira surveyed Cedar Valley.” The independent checker rereads the eligible body, derives the action and paragraph witness, preserves uncertainty, and keeps the question obligation unresolved. Conditions, quotes, source changes and cross-paragraph bridges do not gain support.
 
-The U06 development pilot retains “Ferdinand Hayden surveyed the area in1871” with the unresolved-area qualification. That is a partial-source improvement, not a complete answer, resolved identity or independent historical truth. Full frozen comparison is required before reporting a corpus-wide gain.
+The U06 development pilot retains “Ferdinand Hayden surveyed the area in 1871” with the unresolved-area qualification. That is a partial-source improvement, not a complete answer, resolved identity or independent historical truth. Full frozen comparison is required before reporting a corpus-wide gain.
 
 ## Assessment and further proof work
 
@@ -27,3 +27,5 @@ Freeze the case table, questions, outputs and original source bytes. Give a fres
 Use the [flag-only triage sidecar](SEMANTIC_TRIAGE.md) for unresolved review pairs and [generation publishing](LEDGER_GENERATIONS.md) for crash-aware writes. Neither adds historical proof. New rules must preserve every necessary connection and retain negation, reported/intended actions and date roles. Similar wording cannot merge events, a document date cannot become an event date, and chronology cannot create causality.
 
 Exploration now traverses eligible sources round-robin and reuses the native1200-character wrapped-line context units, preserving exact canonical slices and incomplete-context labels. This prevents an early long source from consuming the whole discovery index. It changes no strict proof slots or grammar.
+
+Final frozen result:2 complete/22 unchanged; checked partials1→2; draft anchors27/32 unchanged even with separate discovery. See the [full source/checker table](../evaluation/fixpack/2026-11-18/CASE_ANALYSIS.md) and [final report](../evaluation/fixpack/2026-11-18/FINAL_REPORT.md). A fresh blinded AI assessment is retained; independent human validation remains NOT RUN.

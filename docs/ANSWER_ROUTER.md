@@ -1,6 +1,6 @@
 # Answer router
 
-Last reviewed: 2026-11-18. Proposed addition. Strict answering is unchanged; the router wraps it.
+Last reviewed: 2026-11-18. The router wraps native strict answering and never awards support itself.
 
 ```sh
 python -m mplpb_work.answer_router ask "Who sent SHIP-7?" --ledger LEDGER --dump RAW

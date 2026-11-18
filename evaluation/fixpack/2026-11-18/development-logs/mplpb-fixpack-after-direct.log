@@ -1,0 +1,37 @@
+direct original H01 completed
+direct original H02 completed
+direct original H03 completed
+direct original H04 completed
+direct original H05 completed
+direct original H06 completed
+direct original H07 completed
+direct original H08 completed
+direct original H09 completed
+direct original H10 completed
+direct original H11 completed
+direct original H12 completed
+direct original H13 completed
+direct original H14 completed
+direct government U01 completed
+direct government U02 completed
+direct government U03 completed
+direct government U04 completed
+direct government U05 completed
+direct government U06 completed
+direct government U07 completed
+direct government U08 completed
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/workspace/mplpb/tools/sorter_first_study.py", line 315, in <module>
+    if __name__ == '__main__': main()
+                               ^^^^^^
+  File "/workspace/mplpb/tools/sorter_first_study.py", line 312, in main
+    else: run(args.output, args.arm)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/mplpb/tools/sorter_first_study.py", line 300, in run
+    validate(output)
+  File "/workspace/mplpb/tools/sorter_first_study.py", line 227, in validate
+    if protocol['reader_sha256'] != code_pins(ROOT): raise ValueError('Reader changed after freeze')
+                                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: Reader changed after freeze
