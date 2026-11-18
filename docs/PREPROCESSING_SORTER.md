@@ -221,3 +221,5 @@ it does not measure a minimum AI context size or prove general historical accura
 
 
 Optional review update (2026-11-18): [Synonym Ranker and Candidate Relater](SORTER_REVIEW_OPTIONS.md) retain exact source spans and non-authoritative suggestions. Legacy sorter outputs remain unchanged. The configured22-question sorter-first retest is retained with its regression; the new three-arm study separates discovery from strict answer completion.
+
+Rules v2 is a [separate engine](SORTER_V2.md); v1 is frozen. No existing review tool is switched automatically.
