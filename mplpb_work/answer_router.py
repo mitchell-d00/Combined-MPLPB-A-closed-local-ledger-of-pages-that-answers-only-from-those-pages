@@ -197,7 +197,7 @@ def explain(contract, question, pages, catalog=None, excluded=None):
             if 'authorship' in excluded[rid]:
                 details.append('A reviewer can declare source authorship (classing page.source_authorship) and ratify the page '
                                'if they stand behind it; MPLPB will not guess authorship.')
-        if rid in excluded:
+        if rid in excluded and excluded[rid]!='retired':
             continue
         for s in (entry or {}).get('successors', []):
             if s['corrects_field']:

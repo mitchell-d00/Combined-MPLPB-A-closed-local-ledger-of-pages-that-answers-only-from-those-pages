@@ -11,7 +11,7 @@ class RouterBoundaryTests(unittest.TestCase):
         for kwargs,profile,q in (({'external':'no'},'external','Explain archive secret'),
                                  ({'not_for':'secret'},'internal','Explain archive secret')):
             with self.subTest(profile=profile),tempfile.TemporaryDirectory() as root:
-                write(root,doc_id='SECRET-1',title='Archive',scope='archive secret',body='CONFIDENTIAL-NATIVE-BODY',**kwargs)
+                write(root,doc_id='SECRET-1',title='Archive',scope='archive',body='CONFIDENTIAL-NATIVE-BODY archive secret',**kwargs)
                 calls=[]
                 r=router.route(q,root,profile=profile,try_rewrites=False,reader=lambda *a:calls.append(a))
                 self.assertNotIn('CONFIDENTIAL-NATIVE-BODY',json.dumps(r));self.assertEqual(calls,[])
