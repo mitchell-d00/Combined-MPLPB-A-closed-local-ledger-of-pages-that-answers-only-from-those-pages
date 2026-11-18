@@ -1,6 +1,6 @@
 # Results and their tests
 
-Last reviewed: 2026-11-17.
+Last reviewed: 2026-11-18.
 
 Package role: [how this part fits Combined MPLPB](PACKAGE_GUIDE.md#evidence-and-limits). This guide covers evidence or operation limits; dated results keep the revision and scope they measured.
 
@@ -138,3 +138,13 @@ invalidation, readable evidence and bounded local storage receipts. Existing
 validation and fresh kernel/original-byte audit provide reproduction paths.
 This is neither human validation nor independently unseen historical accuracy.
 
+
+
+Optional review update (2026-11-18): [Synonym Ranker and Candidate Relater](SORTER_REVIEW_OPTIONS.md) retain exact source spans and non-authoritative suggestions. Legacy sorter outputs remain unchanged. The configured22-question sorter-first retest is retained with its regression; the new three-arm study separates discovery from strict answer completion.
+
+
+| [sorter-first-originals](../evaluation/sorter-first-originals) | [adapter controls](../tests/test_sorter_first_study.py), [option controls](../tests/test_sorter_options_study.py) | [paired runner](../tools/sorter_first_study.py), [three-arm runner](../tools/sorter_options_study.py) | Frozen22-question development replay; discovery, source support, false/unresolved suggestions and costs remain separate. |
+
+[Passage admission](PASSAGE_ADMISSION.md) adds generic multi-witness, duplicate-charge and over-budget counterevidence controls in [witness tests](../tests/test_witness_admission.py). The [first admission trial](../evaluation/sorter-first-originals/2026-11-18-witness-admission/experiment/REPORT.md) preserves2/22 complete outcomes in all arms and its one full-regression failure. The [separate final reader freeze](../evaluation/sorter-first-originals/2026-11-18-witness-admission-final/REPORT.md) completes88 workers, restores2/22 complete answers in every arm, and passes1249 extracted-ZIP tests. Discovery remains separate from semantic accuracy. Independent human and unseen-original assessment remains NOT RUN.
+
+[Candidate workspace source-linked results](../evaluation/candidate-review-workspace/2026-11-18-runtime/REPORT.md) retain unchanged native22 outcomes, separate processed/original statuses, actual costs, all early failures,1267 extracted-ZIP tests and installed-wheel validation. [Workspace tests](../tests/test_candidate_workspace.py) include both unique-phrase positives and disconnected-word negatives; [execution](../tools/evaluate_candidate_workspace.py), [comparison](../tools/report_candidate_workspace.py) and [wheel check](../tools/check_candidate_workspace_install.py) support reproduction. No independent historical semantic accuracy is claimed.

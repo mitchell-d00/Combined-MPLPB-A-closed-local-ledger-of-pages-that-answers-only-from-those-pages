@@ -1,6 +1,6 @@
 # Documentation index
 
-Last reviewed: 2026-11-17.
+Last reviewed: 2026-11-18.
 
 [Repository overview](../README.md) · [Package guide](PACKAGE_GUIDE.md) · [Install](INSTALLATION.md) · [Current evidence](CURRENT_STATUS.md)
 · [Live application](https://mitchell-d00.github.io/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/)
@@ -51,6 +51,9 @@ are not rewritten to fit current package language.
 
 | Guide | Scope |
 |---|---|
+| [Candidate review workspace](CANDIDATE_REVIEW_WORKSPACE.md) | Processed/original status separation, topic exploration, ownership and independent budgets |
+| [Optional sorter review aids](SORTER_REVIEW_OPTIONS.md) | Inspectable exact/synonym ranking and candidate relation review |
+| [Reader-owned passage admission](PASSAGE_ADMISSION.md) | Atomic proof witnesses, exact-span charging and counterevidence limits |
 | [Checked documentary assertions and question composition](DOCUMENTARY_ASSERTIONS.md) | Documentary research |
 | [Documentary scope and original-record experiment](DOCUMENTARY_SCOPE.md) | Documentary research |
 | [Historical expert path and bounded relation crawling](HISTORICAL_EXPERT_PATH.md) | Documentary research |

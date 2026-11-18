@@ -247,10 +247,15 @@ def situation_owners(content, records):
 
 
 def answer(root, question: str, profile: Optional[Profile] = None,
-           _route: Sequence[str] = (), _visited: Sequence[str] = ()) -> Answer:
+           _route: Sequence[str] = (), _visited: Sequence[str] = (), *,
+           _eligible_paths=None) -> Answer:
     profile = profile or PROFILES[DEFAULT_PROFILE]
     ledger = Ledger(root)
     servable = ledger.servable()
+    # Optional evidence-gate intersection for review-only clients. Keep the
+    # ownership algorithm unchanged; a sorter match never supplies this set.
+    if _eligible_paths is not None:
+        servable = [r for r in servable if r.path in _eligible_paths and r.kind not in {'pointer', 'index'}]
     depth = {r.path: ledger.depth(r) for r in servable}
     within = [r for r in servable
               if profile.max_depth is None or depth[r.path] <= profile.max_depth]

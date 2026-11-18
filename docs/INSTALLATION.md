@@ -1,6 +1,6 @@
 # Installation and release packages
 
-Last reviewed: 2026-11-17.
+Last reviewed: 2026-11-18.
 
 [Package guide](PACKAGE_GUIDE.md#delivery-and-packaging) · [Documentation index](README.md)
 
@@ -132,3 +132,5 @@ Keep the actual source ledgers, capture originals, receipts, work databases and
 private credentials backed up separately. A source release ZIP contains the
 application, not a backup of your user data or Git history. Preserve existing
 workspaces when updating code. [Rollback](ROLLBACK.md) · [Capture compatibility](BROWSER_CAPTURE_COMPATIBILITY.md).
+
+Installed wheels also provide `python -m mplpb_work.candidate_workspace --help` for the opt-in [candidate review workspace](CANDIDATE_REVIEW_WORKSPACE.md). It requires user-supplied sorter JSON, processed UTF-8 files and a directly resolved native ledger; those source collections are not supplied by the wheel. The release gate tests a fresh wheel with isolated Python so checkout tools cannot mask a runtime dependency.

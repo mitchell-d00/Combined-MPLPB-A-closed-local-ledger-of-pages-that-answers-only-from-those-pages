@@ -1,6 +1,6 @@
 # Offline candidate preprocessing sorter
 
-Last reviewed: 2026-11-17.
+Last reviewed: 2026-11-18.
 
 Package role: [how this part fits Combined MPLPB](PACKAGE_GUIDE.md#sort-and-import). Raw-text sorting creates reversible candidates or retired snapshots, never automatic answer evidence.
 
@@ -218,3 +218,6 @@ records the supplied probe, the failing pre-fix tests, before/after cluster memb
 source-byte checks and verification commands. The checkpoint allows a fresh process
 or future worker to recover the task and rules without relying on this session;
 it does not measure a minimum AI context size or prove general historical accuracy.
+
+
+Optional review update (2026-11-18): [Synonym Ranker and Candidate Relater](SORTER_REVIEW_OPTIONS.md) retain exact source spans and non-authoritative suggestions. Legacy sorter outputs remain unchanged. The configured22-question sorter-first retest is retained with its regression; the new three-arm study separates discovery from strict answer completion.

@@ -126,12 +126,15 @@ def _known_grammar(question):
 
 def answer_query(root, question, profile=None, *, mode='strict', reader=None, min_confidence=0.8,
                  max_passages=12, max_chars=8000, record_id=None, field=None, exact_value=None,
-                 as_of=None, relation_hops=None):
+                 as_of=None, relation_hops=None, source_hints=None):
     if not isinstance(question,str) or not question.strip() or len(question)>4000:
         raise ValueError('Question must contain 1–4000 characters')
+    if type(max_passages) is not int or not 1<=max_passages<=64 or type(max_chars) is not int or not 1000<=max_chars<=64000:
+        raise ValueError('Invalid passage admission budget')
     from mplpb_combined.ledger import serving_view
     request = relation_graph.exact_request(question,record_id,field,exact_value)
-    with serving_view(as_of,request['field']):
+    from .passage_admission import source_suggestions
+    with serving_view(as_of,request['field']),source_suggestions(source_hints):
         return _answer_query(root,question,profile,mode=mode,reader=reader,min_confidence=min_confidence,
                              max_passages=max_passages,max_chars=max_chars,exact=request,relation_hops=relation_hops)
 
@@ -179,6 +182,12 @@ def _answer_query(root, question, profile=None, *, mode, reader, min_confidence,
                 contract['documentary_support']={'status':'discarded_due_to_source_change','source_support_claims':0}
         else:
             result.gate = fresh.to_dict()
+            from .passage_admission import output_budget
+            if output_budget(contract,max_passages,max_chars):
+                kind='conflict' if kind=='conflict' else 'partial_answer' if contract['claims'] else 'abstain'
+                code='contradictory_passages_pruned' if kind=='conflict' else 'reader_budget_exceeded'
+                stage='passage_admission'
+                message='Required source witnesses do not fit the unchanged passage budget; completion was withheld.'
         if kind != 'supported_answer':
             contract['answer_supported'] = False
         if (mode=='assisted' and kind=='supported_answer'

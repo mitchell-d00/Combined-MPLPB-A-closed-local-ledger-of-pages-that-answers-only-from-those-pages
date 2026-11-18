@@ -1,0 +1,9 @@
+# Initial candidate review workspace — 2026-11-18
+
+Runtime `e75a6900eb4a9839aed20ed8bf7d552f32f2b542`. All22 native questions completed with unchanged meaning, exact citations and missing-information lists relative to the preserved strict baseline:2 complete/22. The extracted source ZIP passed1265 tests in396.984 seconds. Original questions and records were not modified.
+
+Five actual public-original workspace demonstrations completed and freshly replayed. H02/H05 retained processed exploration with41/23 broad shared-wording candidates; U01/U04 proposed5/10 exact matches plus35/65 broad shared-wording reviews. Tiny H05 exploration returned no passage at its declared budget, without altering the independent native proof. All original/processed statuses and exact quotes remain in the full outputs. Costs are actually measured in per-case receipts; human/model semantic validation is NOT RUN.
+
+The public runs exposed too much broad word-overlap linkage. A new disconnected-words negative control reproduced an unwanted suggestion under this implementation (`wordbag-negative-reproduced.log`). The subsequent conservative repair uses the sorter's existing literal four-word phrase observations, rather than three shared content words. The initial run, metadata setup failure, source maps, candidate outputs and full regression remain unchanged. The previous16 tests are not weakened; the new negative control is additional.
+
+Workspace ownership is separate from standalone multi-source proof: H02 asks for owner disambiguation; H05's lexical owner route has no owner. Those workspace decisions are not scored as loss of the already complete standalone native proofs. Independent human and unseen-original evaluation are NOT RUN. No relationship precision/recall or new complete-answer gain is established.

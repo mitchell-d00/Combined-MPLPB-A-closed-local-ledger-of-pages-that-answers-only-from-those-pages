@@ -1,0 +1,13 @@
+Traceback (most recent call last):
+  File "/workspace/mplpb/tools/check_candidate_workspace_install.py", line 36, in <module>
+    if __name__=='__main__':main()
+                            ^^^^^^
+  File "/workspace/mplpb/tools/check_candidate_workspace_install.py", line 19, in main
+    workspace=build(graph,processed,ledger,question='Who wrote the Redwood memorandum?')
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/mplpb-workspace-wheel-env/lib/python3.12/site-packages/mplpb_work/candidate_workspace.py", line 178, in build
+    processed=_processed(node),original=_original(index,p,cache),why=why,
+                                        ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/mplpb-workspace-wheel-env/lib/python3.12/site-packages/mplpb_work/candidate_workspace.py", line 43, in _original
+    from tools.source_roundtrip import projection_offsets
+ModuleNotFoundError: No module named 'tools'

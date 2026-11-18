@@ -1,0 +1,17 @@
+Traceback (most recent call last):
+  File "/workspace/mplpb/tools/evaluate_candidate_workspace.py", line 83, in <module>
+    if __name__=='__main__':main()
+                            ^^^^^^
+  File "/workspace/mplpb/tools/evaluate_candidate_workspace.py", line 39, in main
+    save(output/(family+'-source-manifest.json'),read(corpus/'manifest.json'))
+                                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/mplpb-workspace-code/tools/unprepared_challenge.py", line 33, in read
+    return json.loads(Path(path).read_text(),object_pairs_hook=pairs,parse_constant=lambda v:(_ for _ in ()).throw(ValueError('Nonfinite JSON')))
+                      ^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/pathlib.py", line 1027, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/pathlib.py", line 1013, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/tmp/mplpb-workspace-code/evaluation/unprepared-originals/2026-11-16/manifest.json'

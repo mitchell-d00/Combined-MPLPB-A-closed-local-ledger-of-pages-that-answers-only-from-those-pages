@@ -1,0 +1,15 @@
+# Configured sorter-first retest — 2026-11-18
+
+The unchanged direct reader reproduced the requested **2 complete source-supported answers out of22**. The configured sorter-first intervention returned **1/22**, with H02 retained and H05 reduced to a partial answer. All44 executions completed. This is a measured regression, not an improvement.
+
+Both arms used native reader6350988a2f64d8e5fa53bd187d368f4397bf4f4c, identical original sources/questions/imports and180-second wall/300-second CPU/2GiB per-question limits. The experiment-only retrieval hook interleaved sorter-located original passages with ordinary retrieval under the same12-passages/8000-answer-character budgets (12000 for candidate discovery). It did not modify eligibility, ownership, grammar, correction or proof code. Sorter proposals were never imported as source facts. All graphs, bindings, exact spans, traces, failures and native answers are retained.
+
+Across the unchanged incomplete draft references, returned-span coverage decreased **27/32 to25/32** (23 original-study spans plus9 government-study spans). This is discovery coverage against developer references, not historical accuracy or new complete answers. See comparison.json for all22 cases and H05-outcome-change.json for exact original passages. The core sorter reached its2000-statement cap in Darwin text; other originals lacked statement hints. The unreserved interleave spent the same fixed display budget on Darwin matches instead of both Declaration sources. The strict checker correctly withheld completeness.
+
+The preparation-only projection pilot is retained separately in2026-11-18-projection-pilot. Canonical blank-line removal caused most paragraphs to exceed the sorter limit. The final input workflow preserves original physical text layout or renders HTML text with block separators, then verifies exact canonical roundtrip into the unchanged native originals. No source words or answer-bearing fields were added.
+
+Baseline kinds:2 supported,1 partial,3 conflict,16 abstain. Sorter-first kinds:1 supported,2 partial,3 conflict,16 abstain. Refusals are not all failures: the earlier AI assessment separately judged four refusals appropriate. This retest does not replace those judgments or claim independent semantic validation. Independent human review NOT RUN.
+
+The complete regression suite passed1225 tests in356.255 seconds before the new review options were added. These tests do not establish historical understanding. Sorting preprocessing and per-question CPU, wall, RSS and repeated-source-byte measurements are retained; compute prices and human time are unknown. No efficiency claim.
+
+Reproduce under an exact6350988 checkout containing the pinned tools/sorter_first_study.py from this experiment. Run `python -m tools.sorter_first_study prepare NEW_DIRECTORY`, then `python -m tools.sorter_first_study run NEW_DIRECTORY --arm direct`, followed by the same command with `--arm sorter-first`. Existing directories refuse overwrite. This frozen adapter refuses native-file drift; later options require a separate experiment.
