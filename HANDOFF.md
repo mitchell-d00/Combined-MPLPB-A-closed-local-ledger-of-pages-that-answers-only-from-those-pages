@@ -4,37 +4,34 @@ Last reviewed: 2026-11-19.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `c7dd333f06b4f0af739d36672b2f98727be5a5b9` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `1d151251b62ae1c594dd3fb573d4c8ad5f5fe7565f5fdd0935828c3260d823e8`.
+Base commit: `6334e1b3a08db10984de637adbd5e5a6021b381c` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `c1199d86a59b9566b908a491c1bb64b2f82a1f0325d1a6a3f868e3bb9499e4b0`.
 
 ## Latest user update instructions
 
-K rn a d100 test on it local and then merge if it passes this repo has the tests im talking about https://github.com/mitchell-d00/B-Tests
+Build original D% randomized prose tests with structural variation, binary answer/refuse expectations, E/F metrics and a frozen generator/key. Run current main before engine fixes. Keep identifying references out of new artifacts. The separate-window requirement is waived.
 
 ## Implemented scope
 
-- Inspect and pin the linked B-Tests d100 protocol;run its unmodified local100-case test against clean MPLPBc7dd333.
-- Check the new exploration view separately on all100 unchanged packets,without passing the scoring key to runtime.
-- Preserve seed,inputs,rolls,receipts and results;push a reviewable branch,require exact-head release CI,then merge to main if passed.
+- Add generator, isolated worker and post-run scorer only; no native engine changes.
+- Freeze generator and private key before a 1,240-case current-main baseline; retain all failures.
 
 ## Validation recorded
 
-- B-Tests64b646ee89ea819f59f39f0eecced71ee7ef24c8 harness:123 unit tests passed.
-- Fresh seed13814892761879707678 native100/100 cases,25/25 users,100 workspace replays passed;exit0.
-- Exploration companion100/100 cases,25/25 users passed;source/node/label identity,native isolation,profile restrictions,budgets and unchanged ledgers/packets verified;exit0.
-- Existing final implementationf856205 full1379 tests and52 public controls retained;d100 executionc7dd333 is evidence/docs-only descendant with identical runtime.
+- 15 generator/scorer software tests passed, exit 0.
+- Native runtime has no diff from main 6334e1b3a08db10984de637adbd5e5a6021b381c.
 
 ## Limitations and blocked checks
 
-- D100 uses fictional source records with real topic metadata;not historical accuracy or model-quality measurement.Model calls0.
-- Native d100 and companion runtime costs differ;upstream native CPU/wall unmeasured,null.
-- Exact final-head CI,main merge and postdeployment validation pending;local success alone is not publication.
+- Baseline execution and extracted-source regression pending.
+- Developer-authored fictional tests; independent semantic review NOT RUN.
+- User instruction is sanitized to honor the requirement to omit identifying references. Private key stays outside the repository.
 
 ## Next steps
 
-- Push tested feature branch and open a main PR with concrete d100 evidence.
-- Wait for successful archived-source,regression and handoff checks on exact final head;investigate failures before merging.
-- Merge with expected head SHA once gates pass,then verify main/deployment and record publication receipt.
+- Freeze committed generator, generate and seal a fresh batch before execution.
+- Run all baseline cases without modifying MPLPB; preserve and report failures and costs.
+- Run extracted-source regressions and documentation audit, retain evidence and prepare a new handoff.
 
 ## Use this ZIP in your repository
 
