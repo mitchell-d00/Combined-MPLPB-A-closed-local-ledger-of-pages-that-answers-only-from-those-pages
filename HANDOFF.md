@@ -4,12 +4,12 @@ Last reviewed: 2026-11-19.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `c9500e53bbd57e892f87c6fc4968dac0f81cb8b7` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `c7e19e3723e09c977a36861e6c63a92153d3616a3e08e830265ee60481cd14ad`.
+Base commit: `0d95b8cacf4e6509a49b2b312f82a84f393ac6bb` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `872a55fcd0b583f827bfd2128f25bd66c8bcc579cb3bd4542b51dd536b46638d`.
 
 ## Latest user update instructions
 
-Agreed
+Merge it clear tree finish up for the day update Readme
 
 ## Implemented scope
 
@@ -18,6 +18,8 @@ Agreed
 - Expose known shared declared ancestry across sections without counting independent witnesses; missing ancestry never proves independence.
 - Add CLI, general positive/negative/source-mutation controls, unchanged-original preservation study and usage documentation.
 - Prior PR #54 was merged to main as 3a79603e1865f1ef0a1cd1dc72bb656ba5542d8c after all seven reported checks passed. This feature branch starts from its identical PR-head source tree c10a81b.
+- End-of-day README update: native article usage, shared ancestry, conflicts, latest exact historical outcome counts, tested source scope and next capability milestone.
+- User explicitly authorizes merging PR55 after exact-head checks and leaving a clean checkout on main. Preserve source corpora, prior experimental evidence, private custody files and user work.
 
 ## Validation recorded
 
@@ -29,6 +31,7 @@ Agreed
 - First restricted full run failed:1434 tests,3 failures,11 errors,2 skips. Permission errors and sandbox-dependent workflow failures retained; complete authorized archived rerun passed1446.
 - Runtime packages and tests identical to2c173b3; core ledger, grammar, checker and all old frozen corpora/evidence unchanged fromc10a81b.
 - PR55 opened at https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/pull/55 . Final evidence/doc-only commit and exact-head CI inspection remain; no merge performed.
+- README/handoff update changes no runtime or test code. Exact-final-head CI must be checked after this documentation commit; do not claim pending checks passed.
 
 ## Limitations and blocked checks
 
@@ -39,8 +42,8 @@ Agreed
 
 ## Next steps
 
-- Push final evidence/docs-only update to PR55 and inspect exact-head CI; do not merge without a new user instruction.
-- Next capability milestone: finite checked cross-document connections with exact evidence per link and copied-account/missing-link/conflict negatives; no historical score claim from assembly.
+- Finish the authorized PR55 merge after exact-head checks; fast-forward the local main branch and verify a clean working tree.
+- Next session: general independently checked cross-document connections with explicit evidence for every link and copied-account/missing-link/conflict controls. Historical answer coverage and independent accuracy remain unresolved.
 
 ## Use this ZIP in your repository
 
