@@ -1,0 +1,127 @@
+[
+  {
+    "command": [
+      "python",
+      "tools/check_ui_script.py"
+    ],
+    "exit_code": 0,
+    "wall_seconds": 1.2222497279999516,
+    "log": "0.log"
+  },
+  {
+    "command": [
+      "node",
+      "tools/check_browser_transport.cjs"
+    ],
+    "exit_code": 0,
+    "wall_seconds": 0.06497070499972324,
+    "log": "1.log"
+  },
+  {
+    "command": [
+      "node",
+      "tests/javascript-api.cjs"
+    ],
+    "exit_code": 0,
+    "wall_seconds": 1.3887034130002576,
+    "log": "2.log"
+  },
+  {
+    "command": [
+      "node",
+      "tests/documentary-render.cjs"
+    ],
+    "exit_code": 0,
+    "wall_seconds": 0.11636485799863294,
+    "log": "3.log"
+  },
+  {
+    "command": [
+      "node",
+      "tests/browser-ai-helper.cjs"
+    ],
+    "exit_code": 0,
+    "wall_seconds": 0.8222754660000646,
+    "log": "4.log"
+  },
+  {
+    "command": [
+      "node",
+      "tests/browser-model-loader.cjs"
+    ],
+    "exit_code": 0,
+    "wall_seconds": 3.8106477559995255,
+    "log": "5.log"
+  },
+  {
+    "command": [
+      "node",
+      "tests/browser-webgpu-limits.cjs"
+    ],
+    "exit_code": 0,
+    "wall_seconds": 1.277465723000205,
+    "log": "6.log"
+  },
+  {
+    "command": [
+      "node",
+      "crawler/test_worker.mjs"
+    ],
+    "exit_code": 0,
+    "wall_seconds": 0.16492415600077948,
+    "log": "7.log"
+  },
+  {
+    "command": [
+      "node",
+      "crawler/test_historical.mjs"
+    ],
+    "exit_code": 0,
+    "wall_seconds": 0.1187568099994678,
+    "log": "8.log"
+  },
+  {
+    "command": [
+      "node",
+      "--check",
+      "tools/mplpb_agent_bridge.mjs"
+    ],
+    "exit_code": 0,
+    "wall_seconds": 0.06462763899980928,
+    "log": "9.log"
+  },
+  {
+    "command": [
+      "node",
+      "tools/mplpb_agent_bridge.mjs",
+      "--help"
+    ],
+    "exit_code": 0,
+    "wall_seconds": 0.06486293400121212,
+    "log": "10.log"
+  },
+  {
+    "command": [
+      "python",
+      "tools/build_browser_runtime.py",
+      "--core-archive",
+      "/tmp/mplpb-pyodide-core.tar.bz2",
+      "--output",
+      "/tmp/dpercent-scope-safe-browser/dist/index.html"
+    ],
+    "exit_code": 0,
+    "wall_seconds": 6.674648784000965,
+    "log": "11.log"
+  },
+  {
+    "command": [
+      "node",
+      "tools/check_browser_wasm.mjs",
+      "/tmp/mplpb-wasm/pyodide",
+      "/tmp/dpercent-scope-safe-browser/dist/index.html"
+    ],
+    "exit_code": 0,
+    "wall_seconds": 180.63470069899995,
+    "log": "12.log"
+  }
+]

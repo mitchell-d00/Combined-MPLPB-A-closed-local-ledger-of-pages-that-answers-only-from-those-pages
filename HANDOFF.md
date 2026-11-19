@@ -4,8 +4,8 @@ Last reviewed: 2026-11-19.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `d729d57ec3e0cdbc40caed289afa5d78a78b5bb4` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `c58557982f4980c726fa66a85ec151d75f382a7913d2e43151d1eda1233d6e6a`.
+Base commit: `6e0de9e6f14f238961845780c2500713a0db096f` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `fbeeee3d14a0136961eef17c2b62ff15deb6da1e98603bac3b66dae74afc782f`.
 
 ## Latest user update instructions
 
@@ -25,28 +25,29 @@ When we finish I wand full d% test and full findings in a pr everything that’s
 
 ## Validation recorded
 
-- Baseline20/600 complete;iteration1 160/600;iteration2 200/600,including40 textual locations.640/640 expected refusals preserved in both complete reruns.
-- Iteration1 full suite failed1/1408;two historical partials lost from doubled offsets.Corrected and retained.
-- Iteration2 full1417 tests and52 public controls passed;all22 historical outcomes restored to2 complete,2 partial,3 conflict,15 abstentions.
-- Adversarial word-boundary tests exposed flaws outside the frozen distribution;corrected before the next candidate.
-- Next candidate deliberately interrupted after a new independent-vocabulary header-scope test exposed plan/draft/report qualification loss.Completed and partial outputs,checkpoints,termination reasons and interrupted suite receipts retained;no success claim.
-- Final scope guard71 focused tests passed,exit0;generator,key,worker and frozen questions remain unchanged.
-- 78 focused tests passed,exit0,including field-label/date roles,header-topic versus event distinctions,Markdown scopes,and causal self-refutations.
-- Final class vocabulary is covered by78 focused tests,exit0;counterpart controls executed against the actual archived a71 native code fail as expected.
+- Final engine6e0de9e archived:1431 full Python tests,52 public evidence controls and native boundary subset passed,all exit0.
+- FinalD%1240/1240 executions complete,exit0;20→200/600 checked complete(160 source assertions,40 textual locations),640/640 expected refusals,F0%;400 answerable cases still incomplete.Score --require-perfect exits1.
+- No previously complete D%answer lost and no new false support;all1240 input/ledger/mode/non-authority guards passed.
+- 78 focused general-class tests passed;pre-fix and archived-source controls retained,including all failed and interrupted candidates.
+- Final unchanged22 original questions:2 complete,2 partial,3 conflicts,15 abstentions;all22 categories preserved;question seals and import receipts identical.
+- AllJS/UI/crawler/bridge checks,actualPyodide and two isolated headlessChromium checks passed from6e0de9e archive. No live neural inference or deployment.
+- Generator0b2c5c8,worker,private key and source packets unchanged;all draws replay identically. Source core mplpb_combined unchanged from6334e1b.
+- Documentation inventory audit passed:559 documents,39 evaluation families;source/core/tools/tests identical to tested6e0de9e;public archives checked for path safety and absence of private key/dice.
 
 ## Limitations and blocked checks
 
-- Final scope-safe candidate requires a new full archived regression,all1240 identical D%cases and unchanged22-source replay.
-- Historical complete-answer count remains2/22;400 answerable fictional cases remain unresolved in the last complete run.
-- No independent semantic accuracy,live-model evaluation or human effort measured.
-- Conservative header scopes can introduce over-refusals outside this developer distribution;do not claim general natural-language accuracy.
-- C3 interrupted run retains543 completed cases and697 unrun cases;primaryE/F null,not a pass.
+- 400 developer-answerable fictional cases remain incomplete;historical completion gain0. No9/10 or general reconstruction claim.
+- Historical truth,event/relationship precision/recall,false candidate-link rates and human costs remain null;independent semantic review NOT RUN.
+- Generic grammar and conservative scope can over-refuse unfamiliar mixed records;unseen performance unmeasured.
+- Every failed/interrupted attempt is retained;frozen D%F0 alone missed defects caught by later negative controls.
+- Private key/dice outsideGit: /tmp/dpercent-frozen-private;custody archive /workspace/dpercent-private-custody-2026-11-19.tar.gz. Never mount in native/model runtime.
 
 ## Next steps
 
-- Commit and archive scope-safe candidate;run all1240 frozen cases,full native suite,52 public controls and unchanged22 historical questions.
-- Update README,current docs,cohort/case tables,resource costs and remaining failures from actual results.
-- Push tested branch and open a comprehensive PR using the connected GitHub service;do not merge without a further instruction.
+- Finish final documentation/handoff and artifact integrity audits,commit evidence-only update with runtime identical to tested6e0de9e.
+- Push test/dpercent-prose-challenge and create the requested full-findings PR;record actual URL and exact head. Do not merge.
+- Inspect exact-head CI and report pending or failed checks honestly.
+- Next research milestone:general rules for remaining400 positives and fresh held-out assessment;do not alter frozen labels or rig individual cases.
 
 ## Use this ZIP in your repository
 

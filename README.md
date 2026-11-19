@@ -226,7 +226,7 @@ The sorter paper by Mitchell D. McPhetridge is available as
 [PDF](docs/research/dual-mode-sorter/dual-mode-sorter.pdf).
 [Earlier papers and notes](PAST_DOCUMENTATION.md) retain their original bytes and scope.
 
-The [D% randomized prose challenge](docs/DPERCENT.md) tests structurally varied fictional records in both directions: missed answerable questions and false support. Its [frozen baseline](evaluation/dpercent/2026-11-19/REPORT.md) preserves current-main failures before engine changes. It is developer-authored testing, not independent historical validation.
+The [D% randomized prose challenge](docs/DPERCENT.md) retains 1,240 frozen fictional cases with answer/refuse expectations and a private key withheld from runtime. [General checked prose rules](docs/PROSE_RULE_CLASSES.md) increased complete checked answers from **20 to 200 of 600**: **160 source assertions and 40 word-location answers**. All **640 expected refusals** were retained, with zero observed false support in that set; **400 answerable cases remain incomplete**. The unchanged historical replay remains **2 complete answers out of 22**. The [full findings](evaluation/dpercent/2026-11-19-class-rules/FINAL_REPORT.md) preserve costs, failed/interrupted attempts and 1,431 archived tests plus 52 public controls. This is developer-authored evaluation; independent semantic accuracy and general reconstruction remain unproven.
 
 ## Development, packaging and licenses
 

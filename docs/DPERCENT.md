@@ -46,3 +46,15 @@ The runtime ownership rule remains: one eligible owner returns; two or more stop
 ## Frozen baseline evidence
 
 See the [2026-11-19 report](../evaluation/dpercent/2026-11-19/REPORT.md) for the frozen generator/main revisions, all outcomes, costs, software checks and preserved failures. Execution records require a Git checkout for revision identification; the worker itself receives no Git metadata. The generator and worker were not edited after the official seal. Private structural review hints are not automatically scored as event/relationship correctness.
+
+## General-class comparison
+
+The [full findings](../evaluation/dpercent/2026-11-19-class-rules/FINAL_REPORT.md) retain the unchanged1,240-case baseline and updated runs. Complete checked answers increased20→200/600;160 are source assertions and40 are textual locations. All640 expected refusals remain;400 answerable cases are still incomplete. Historical complete answers remain2/22. Kernel v9 is tested in frozen6e0de9e;the generator,worker and key are unchanged. Failed and interrupted iterations are retained rather than overwritten.
+
+Use the [rule-class guide](PROSE_RULE_CLASSES.md) and custodian-only feature analyzer to prioritize general failures:
+
+```sh
+python -m tools.dpercent_features --packets /tmp/dpercent-frozen-public --custodian /tmp/dpercent-frozen-private --score /tmp/dpercent-scope-safe-score.json --out /tmp/new-cohorts.json
+```
+
+This verifies every sealed draw and source packet before grouping outcomes. It is diagnostic tooling,never runtime evidence or promotion authority. A high software-test count is not historical semantic validation.
