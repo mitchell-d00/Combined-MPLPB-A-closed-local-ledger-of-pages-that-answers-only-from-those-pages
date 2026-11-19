@@ -10,7 +10,7 @@ from html.parser import HTMLParser
 from .body_text import body_text, VERSION as BODY_VERSION
 from .passages import PassageIndex
 
-VERSION = 'documentary-assertion-kernel-v7'
+VERSION = 'documentary-assertion-kernel-v8'
 PAST = {'appointed':'appoint','sent':'send','received':'receive','wrote':'write',
         'surveyed':'survey','published':'publish','revised':'revise','canceled':'cancel',
          'ordered':'order','requested':'request','instructed':'instruct'}
@@ -86,12 +86,13 @@ def literal_request(question):
     """Whole-request literal location, with no historical/execution obligation."""
     q=source_question(question)
     match=re.fullmatch(r'(?:Which|What) (?:source|record|document) (?:contains|includes|records) (?:the )?exact (?:words|wording|text) ["“]([^"“”]{2,240})["”]\??(?:\s*(?:(?:Locate|Find|Identify) (?:the )?(?:words|wording|text) only|(?:Keep|Leave) (?:unknown|unverified|unresolved) (?:matters|claims|parts|issues) (?:unresolved|unverified))\.){0,2}',q,re.I)
-    return match[1] if match else None
+    anchor=match[1].strip() if match else ''
+    return anchor if len(anchor)>=2 and any(c.isalnum() for c in anchor) else None
 
 
 def literal_pattern(anchor):
     pattern=r'\s+'.join(re.escape(word) for word in anchor.split())
-    return re.compile((r'(?<!\w)' if anchor[0].isalnum() else '')+pattern+(r'(?!\w)' if anchor[-1].isalnum() else ''))
+    return re.compile(r'(?<!\w)'+pattern+r'(?!\w)')
 
 
 def literal_occurrence(question,quote):
@@ -381,6 +382,13 @@ def check(index,proposals,*,max_scan_chars=200000):
                 citations=[citation(record,body,a,b)]+context
         elif kind=='literal_location':
             value=literal_occurrence(fresh.question,body[a:b])
+            if value:
+                # Word boundaries belong to the source, not to a clipped
+                # extractor window. One surrounding character suffices for
+                # the finite word-boundary predicate, without an unbounded read.
+                lo=max(0,a-1);hi=min(len(body),b+1)
+                pattern=literal_pattern(value['requested_words'])
+                if not any(a<=lo+m.start() and lo+m.end()<=b for m in pattern.finditer(body[lo:hi])):value=None
             if value:
                 # Re-search all eligible bodies independently of proposal rank.
                 owners=set();remaining=max_scan_chars;whole=True

@@ -4,8 +4,8 @@ Last reviewed: 2026-11-19.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `3d694aafba1c81c0961c51f542d9cda9ff88de9f` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `26dae512543f9fbb284651b03961962b6eb374e081019ea68e92a03ca1ab4457`.
+Base commit: `35069e83b016ef1ba707ab0ad425d29cbbc54bb4` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `b4665e63ee5a2d36ce6839676ed41533099d83a3f962f4c8e53b78eaaa190eaf`.
 
 ## Latest user update instructions
 
@@ -19,26 +19,29 @@ D% records every dice roll, so you can cluster the failures by which structural 
 - Reconstruct and verify exact sealed roll trace and packets;group failures by family and structural choices,not actor names.
 - Implement correspondence boundaries,source-scoped request grammar,Unicode/passive actions and exact explicit-cause closure in existing independent kernel.
 - Iteration2:repair absolute source offsets,cover irregular passive counterevidence,and add literal-text location as a separate textual-only proof class.
+- Final guard class:reject blank/wordless literal requests and verify word boundaries in original source context,not extractor clipping.
 
 ## Validation recorded
 
-- Iteration1:160/600 checked complete,E26.67%;640/640 expected refusals,F0%;440 incomplete answerable cases. All1240 executions completed.
-- Iteration1 archived full suite:1408 tests,one failure,exit1;52 public controls passed. Two historical partials regressed to abstention. Candidate rejected as final;all outputs retained.
-- New independent-vocabulary tests reveal named-attribution erasure and conflicting passive evidence in old main;written denial/hedge variants also require action-form handling.
-- Iteration2 focused suite64 tests passed,exit0,including original appointment control,long-document coordinates,literal-only proof and forged-proposal refusal.
-- Generator0b2c5c8,worker and official private key unchanged throughout;all original sources/questions/seals remain untouched.
+- Baseline20/600 complete;first class iteration160/600;second200/600 (160 source assertions,40 textual locations). Both full1240 reruns preserve640/640 refusals,zero observed D%false support.
+- First candidate rejected:one full-suite failure and two lost historical partials from a doubled absolute source offset;all evidence retained.
+- Second candidate restored historical2 complete,2 partial,3 conflicts,15 abstentions;all22 source/question seals unchanged.
+- Second archived suite1417 tests passed,exit0;public control receipt pending at this handoff.
+- Additional adversarial tests found blank/padded literal queries and clipped-source-word proof gaps outside D%distribution. Final guard patch66 focused tests passed,exit0.
+- Generator,key,worker and questions unchanged;feature analyzer verifies all rolls and packets for every comparison.
 
 ## Limitations and blocked checks
 
-- No independent semantic review or historical truth established.
-- Literal location proves words only;do not count it as reconstructed historical relationships.
-- Iteration2 full regression,D% and22-source replay pending;no final acceptance or merge claimed.
+- Historical complete-answer count remains2/22;broader reconstruction not solved.
+- D%200 includes40 word-location questions,not40 additional historical relationships.
+- Final guard candidate requires its own full archived regression and1240-case rerun.
+- Independent semantic accuracy,candidate precision/recall and human effort remain unmeasured.
 
 ## Next steps
 
-- Freeze iteration2,rerun same1240 packets and complete native regressions from extracted source.
-- Rerun unchanged22-question direct arm;verify both checked partials are restored and complete answers do not regress.
-- Compare roll cohorts and disclose remaining incomplete classes and any false support.
+- Freeze final guard candidate;run full extracted-source regressions and identical D%packets.
+- Rerun unchanged22 original-record questions and verify no partial/complete losses.
+- Retain all intermediate failures;report remaining400 answerable gaps by general class rather than adding fixture branches.
 
 ## Use this ZIP in your repository
 
