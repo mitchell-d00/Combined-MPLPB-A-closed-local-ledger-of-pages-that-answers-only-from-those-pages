@@ -5,12 +5,14 @@
     "Add a derived, replay-verified sorter view with explicit textual/candidate/identity/event/truth tags;preserve saved sorter formats.",
     "Add a separate free-form question-exploration CLI with optional local-model hypotheses/open questions;no ledger writer or promotion.",
     "Keep native strict results separate;reuse original-question/profile retrieval boundaries and recheck current sources after inference.",
-    "Document labels,full-context citations,budgets,model limitations and exact commands."
+    "Document labels,full-context citations,budgets,model limitations and exact commands.",
+    "Retain partial-sorter budget diagnostics even when discovery returns no passages."
   ],
   "validation": [
     "14 new focused tests passed;baseline and prior historical evaluations retained unchanged.",
     "Broader test invocation encountered2 existing narrator HTTP socket PermissionErrors in sandbox;capability-enabled rerun recorded separately.",
-    "Extracted frozen full regression/public/interface checks pending."
+    "Extracted frozen full regression/public/interface checks pending.",
+    "New empty-result truncation regression failed before repair and passes after it;15 new focused tests passed.Final repaired freeze pending."
   ],
   "limitations": [
     "Model hypotheses are semantically unverified;matching citations do not prove them.",

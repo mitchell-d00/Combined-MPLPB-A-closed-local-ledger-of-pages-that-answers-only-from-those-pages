@@ -212,7 +212,8 @@ def explore_ideas(question, *, dump=None, ledger=None, profile='internal', use_m
             'unresolved': ['Entity identity and event co-reference are not established.',
                            'Model interpretations are not checked source support or historical truth.',
                            'Missing intermediate evidence must be supplied; citations alone do not bridge a chain.'],
-            'retrieval_limits': (report or {}).get('search_limits', {}),
+            'retrieval_limits': (report or {}).get('search_limits', {}), 'search_complete': False,
+            'sorter_limits': {'complete': graph['complete'], 'limits_or_exclusions': graph['limits_or_exclusions']} if graph else None,
             'dump_withheld': bool(dump and selected.name == 'external'), 'strict_slots_consumed_by_exploration': 0}
 
 
@@ -247,6 +248,9 @@ def render(value):
         lines += ['', item['label']+' ['+', '.join(item['citations'])+']', item['text']]
         if item['missing_evidence']: lines.append('Still needed (proposed): '+'; '.join(item['missing_evidence']))
     if not value['segments']: lines.append('No eligible source excerpts surfaced; no answer is established.')
+    if value['sorter_limits'] and not value['sorter_limits']['complete']:
+        lines.append('Partial sorter scan: '+', '.join(value['sorter_limits']['limits_or_exclusions']))
+    lines.append('Search completeness: not established; absence from this output proves no historical absence.')
     lines += ['', 'Entity resolution: unresolved. Event co-reference: unverified. Historical truth: not independently verified.',
               'Model: '+value['model']['status']]
     return '\n'.join(lines)

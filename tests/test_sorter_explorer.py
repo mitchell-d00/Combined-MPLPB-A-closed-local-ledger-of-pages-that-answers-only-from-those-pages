@@ -152,6 +152,17 @@ class SorterExplorerTests(unittest.TestCase):
             cls.return_value.generate.side_effect=change_during
             with self.assertRaises(ValueError):view.explore_ideas('Explain beacon',dump=self.dump,use_model=True)
 
+    def test_empty_discovery_still_reports_exhausted_sorter_budget(self):
+        original=sorter.sort_directory
+        def limited(*args,**kwargs):
+            if len(args)<3 and 'limits' not in kwargs:kwargs['limits']={'files':1}
+            return original(*args,**kwargs)
+        with patch.object(sorter,'sort_directory',side_effect=limited):
+            r=view.explore_ideas('Zyzzyva quux',dump=self.dump)
+        self.assertFalse(r['passages'])
+        self.assertFalse(r['sorter_limits']['complete'])
+        self.assertTrue(r['sorter_limits']['limits_or_exclusions'])
+
     def test_unreachable_backend_falls_back_to_source_inspection(self):
         with patch.object(view,'LocalBackend',side_effect=OSError('Unavailable')):
             r=view.explore_ideas('Explain beacon',dump=self.dump,use_model=True)

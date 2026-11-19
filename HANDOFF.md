@@ -4,8 +4,8 @@ Last reviewed: 2026-11-19.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `6174184edc1b47c7363a6369f7fe40ccb226601a` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `da5348e19ff786619fa43e773dcdbb10d6a3315a772a8506a694c1b6b1789812`.
+Base commit: `367838c57729089b91f5d8ce5306fea657738ed5` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `f9155c565a0e5bc5c9860ad027766c31a71e707c678109c44e8429b3d2d066ac`.
 
 ## Latest user update instructions
 
@@ -17,12 +17,14 @@ Sorter needs to label things in sorting as possible connections , supported etc 
 - Add a separate free-form question-exploration CLI with optional local-model hypotheses/open questions;no ledger writer or promotion.
 - Keep native strict results separate;reuse original-question/profile retrieval boundaries and recheck current sources after inference.
 - Document labels,full-context citations,budgets,model limitations and exact commands.
+- Retain partial-sorter budget diagnostics even when discovery returns no passages.
 
 ## Validation recorded
 
 - 14 new focused tests passed;baseline and prior historical evaluations retained unchanged.
 - Broader test invocation encountered2 existing narrator HTTP socket PermissionErrors in sandbox;capability-enabled rerun recorded separately.
 - Extracted frozen full regression/public/interface checks pending.
+- New empty-result truncation regression failed before repair and passes after it;15 new focused tests passed.Final repaired freeze pending.
 
 ## Limitations and blocked checks
 
