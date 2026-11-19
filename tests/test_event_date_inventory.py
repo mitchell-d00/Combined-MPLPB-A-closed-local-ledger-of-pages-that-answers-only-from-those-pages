@@ -88,6 +88,22 @@ class EventDateInventoryTests(unittest.TestCase):
             result=self.ask()
         self.assertFalse(result['answer_supported']);self.assertEqual(result['claims'],[])
 
+    def test_actor_clause_and_near_miss_are_not_bare_occurrences(self):
+        for replacement in ['the captain suspected the coastal batteries opened fire',
+                            'the coastal batteries almost opened fire',
+                            'the proposal: coastal batteries opened fire']:
+            text=self.body.replace('the coastal batteries opened fire',replacement)
+            with self.subTest(replacement=replacement),tempfile.TemporaryDirectory() as tmp:
+                L.write(tmp,doc_id='SCOPE',title='Archive',scope='archive',body_html='<pre>'+html.escape(text)+'</pre>')
+                self.assertFalse(answer_query(tmp,self.question).contract['answer_supported'])
+
+    def test_negative_and_adverbial_subjects_are_not_named_actors(self):
+        for actor in ['Nobody','No One','Neither','Unfortunately']:
+            text=self.body.replace('Captain Voss surrendered',actor+' surrendered')
+            with self.subTest(actor=actor),tempfile.TemporaryDirectory() as tmp:
+                L.write(tmp,doc_id='SCOPE',title='Archive',scope='archive',body_html='<pre>'+html.escape(text)+'</pre>')
+                self.assertFalse(answer_query(tmp,self.question).contract['answer_supported'])
+
     def test_unknown_leap_year_does_not_guess_relative_date(self):
         self.add(self.body.replace('June 18','February 28'))
         r=self.ask()

@@ -10,7 +10,7 @@ from html.parser import HTMLParser
 from .body_text import body_text, VERSION as BODY_VERSION
 from .passages import PassageIndex
 
-VERSION = 'documentary-assertion-kernel-v10'
+VERSION = 'documentary-assertion-kernel-v11'
 PAST = {'appointed':'appoint','sent':'send','received':'receive','wrote':'write',
         'surveyed':'survey','published':'publish','revised':'revise','canceled':'cancel',
          'ordered':'order','requested':'request','instructed':'instruct'}
@@ -89,22 +89,29 @@ def dated_statements(quote):
     m=re.fullmatch(r'(?:On |At (\d{1,2}:\d{2}\s*[ap]\.m\.),\s*)('+DATE_EXPRESSION+r'),\s*(.{2,500})\.',quote,re.I)
     if not m:return links
     time_text,date_text,predicate=m.groups(); tail=predicate
-    if re.search(r'\b(?:if|unless|would|could|might|may|maybe|perhaps|alleged|allegedly|reported|reportedly|apparently|possibly|supposedly|claimed|said|denied|never|not|planned|intended|requested|only|except)\b',predicate,re.I):return links
-    patterns={'surrender':r'.{2,120}? surrendered .{2,250}',
-              'evacuation':r'.{2,120}? evacuated .{2,250}',
-              'departure':r'.{2,120}? departed .{2,250}',
-              'arrival':r'.{2,120}? arrived .{2,250}',
-              'publication':r'.{2,120}? published .{2,250}',
-              'revision':r'.{2,120}? revised .{2,250}',
-              'sending':r'.{2,120}? sent .{2,250}',
-              'receipt':r'.{2,120}? received .{2,250}',
-              'bombardment':r'(?:.{0,100}\b(?:batteries|artillery|cannons|guns)\b.{0,40}? opened fire on .{2,250}|.{2,120}? bombarded .{2,250})'}
+    if (re.search(r'[:;!?“”"]',predicate) or
+        re.search(r'\b(?:if|unless|would|could|might|may|maybe|perhaps|alleged|allegedly|reported|reportedly|apparently|possibly|supposedly|claimed|said|denied|never|not|planned|intended|requested|only|except|almost|nearly|purportedly|suspected|believed|feared|expected|hoped|thought|imagined|suggested|seemed|uncertain|whether|plan|proposal|scenario|draft|forecast|prediction|hypothesis)\b',predicate,re.I)):return links
+    predicates={'surrender':'surrendered','evacuation':'evacuated','departure':'departed','arrival':'arrived',
+                'publication':'published','revision':'revised','sending':'sent','receipt':'received',
+                'bombardment':'bombarded|opened fire on'}
     relative=re.fullmatch(r'(.{2,300}?), evacuating (.{2,120}) on the following day',tail,re.I)
     if relative:tail=relative[1]
     # Additional coordinated predicates cannot hide behind the object slot.
     if re.search(r'\b(?:and|or|then|before|after|because)\b',tail,re.I):return links
-    for role,pattern in patterns.items():
-        if re.fullmatch(pattern,tail,re.I):
+    for role,verb in predicates.items():
+        parsed=re.fullmatch(r'(.{2,120}?) ('+verb+r') (.{2,250})',tail,re.I)
+        if not parsed:continue
+        actor,action,obj=parsed.groups()
+        # An actor is a literal name or one small declared collective-noun
+        # phrase. Arbitrary words before a verb cannot become an actor: that
+        # previously swallowed reporting clauses and near-miss adverbs.
+        collective=re.fullmatch(r'(?:[Tt]he|[Aa]|[Aa]n) (?:(?:[A-Z][A-Za-z]+|coastal|naval|shore|local|federal|royal|enemy|defending|attacking|northern|southern|eastern|western) ){0,3}'
+                                r'(?:batteries|artillery|cannons|guns|forces|garrison|crew|troops|committee|council|assembly|publisher|press|office|company|depot|vessel|ship|fleet|army)',actor)
+        named=(named_actor(actor) and not normalized(actor).split()[0].endswith('ly') and
+               not set(normalized(actor).split()) & {'i','he','she','it','they','we','you','no','none','nobody','neither','nothing'})
+        if not (collective or named):continue
+        if action.lower()=='opened fire on' and not re.search(r'\b(?:batteries|artillery|cannons|guns)\b',actor,re.I):continue
+        if parsed:
             add(role,date_text,'source_reported_action_date',quote,time_text=time_text or '')
             if relative:
                 anchor=_date_value(date_text); resolved=_following_day(anchor)

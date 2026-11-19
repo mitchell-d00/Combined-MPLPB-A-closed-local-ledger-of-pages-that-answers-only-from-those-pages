@@ -4,8 +4,8 @@ Last reviewed: 2026-11-19.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `bc6f25c053dfc1ceb3b0096cca56550041395105` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `c951d3a1fb91e9b9e6a4e0f138ed2e5fc882bee594909f4ea1e84f26ea951b65`.
+Base commit: `ebe8a3d569e0b478e150f7b04a31dacfd42827a5` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `b326a33f6e8e07672f7eeea227dc43063aa642846a0809b0f205b2046eea9c56`.
 
 ## Latest user update instructions
 
@@ -25,6 +25,9 @@ Yes let’s do that
 - Actual before-fix event-date test suite exited1 with5 failures; logs retained. General independent-vocabulary positive/negative/calendar/source-state controls pass in working tree.
 - Working-tree H07 now has a source-supported date inventory; no complete22-case updated study or full regression pass claimed yet.
 - Full baseline22-original study retained; source seals and original documents unchanged.
+- Rejected ebe8a3d after three independent-vocabulary actor-clause counterexamples falsely returned support. Failing control exit1 and raw partial outputs retained.
+- Stopped only task-owned rejected-candidate D%parent (exit143) and archived suite child (exit-15). Partial D%overall E/F null; no partial software pass claimed.
+- General fix requires a full literal named/declared-collective actor and main predicate; arbitrary prefixes cannot swallow reporting, proposal or near-miss language. All67 focused tests passed after repair; final full-run validation still pending.
 
 ## Limitations and blocked checks
 

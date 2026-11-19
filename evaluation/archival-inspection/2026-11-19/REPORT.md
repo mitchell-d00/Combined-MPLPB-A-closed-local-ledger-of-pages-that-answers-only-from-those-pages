@@ -33,6 +33,24 @@ failures, before/after results and costs will be added after execution. No pendi
 check is claimed as passed. The frozen D% scorer/generator/worker/key remain
 unchanged; new unsupported semantic shapes do not get automatic credit.
 
+## Rejected candidate and class repair
+
+Candidate `ebe8a3d` is rejected. A new independently worded control showed three
+false supports: an embedded reporting clause, “almost opened fire”, and a proposal
+prefix. The actor regex had accepted arbitrary text before the main predicate.
+The [failure](rejected-candidate/actor-before.log), partial D% run/score, complete
+original-record attempt and interrupted software receipts are retained under
+`rejected-candidate/`. D% execution was stopped; overall E/F are null. The full
+suite child exited -15, not a pass. This is not hidden by its other green controls
+or by its apparent H07 completion.
+
+Kernel v11 constrains the entire main actor phrase: a literal capitalized name
+or a small declared collective-noun grammar, with separate modality, reporting,
+proposal and near-miss guards. It does not merely suppress the observed examples
+at output time. The repaired focused suite passed 67 tests; new full-run results
+remain pending at this corrected source freeze. No historical name or benchmark
+case identifier appears in the runtime rule.
+
 Commands:
 
 ```sh

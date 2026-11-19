@@ -1,0 +1,11 @@
+{
+  "candidate_revision": "ebe8a3d",
+  "status": "REJECTED",
+  "reason": "Actor prefix could swallow reporting clauses, near-miss adverbs and proposal text. Three new adversarial subcases falsely returned support.",
+  "control_command": "python -m unittest tests.test_event_date_inventory.EventDateInventoryTests.test_actor_clause_and_near_miss_are_not_bare_occurrences -q",
+  "control_exit_code": 1,
+  "failed_subcases": 3,
+  "interruption": "Only task-owned D% parent and archived full-suite child were stopped with SIGTERM. Partial output/run/score retained; full-suite exit -15 is not a pass.",
+  "primary_Dpercent_rates": null,
+  "fix_class": "Require a complete finite actor phrase and main dated predicate; preserve modality and reporting boundaries. No historical names or case IDs in runtime rule."
+}
