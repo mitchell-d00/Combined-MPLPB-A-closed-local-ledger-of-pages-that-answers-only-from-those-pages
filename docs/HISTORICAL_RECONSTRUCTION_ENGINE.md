@@ -1,6 +1,6 @@
 # Historical reconstruction engine
 
-Last reviewed: 2026-11-17.
+Last reviewed: 2026-11-19.
 
 Package role: [how this part fits Combined MPLPB](PACKAGE_GUIDE.md#documentary-research). Documentary reports distinguish checked portions, proposed relations and unresolved obligations.
 
@@ -54,3 +54,14 @@ record-content cache and local storage receipts. [The later frozen experiment](.
 adds a source-only recorded-arrangement completion and retains all21 other native
 categories:2 complete,1 partial across22 questions. AI assessment and performance
 costs are reported separately from source support and historical truth.
+
+## Explicit source/date inventories
+
+[The archival guide](ARCHIVAL_INSPECTION.md) documents kernel v11’s finite
+source-bounded date relationships, their separate catalogue/review/narrative
+roles, unknown years and same-clause relative-day arithmetic. The
+[dated experiment](../evaluation/archival-inspection/2026-11-19/REPORT.md) records
+a native 2→3/22 completion gain with only H07 changed, 1,468 passing Python tests,
+52 public controls and the rejected actor/clause candidate. These are software
+and source-support measurements, not independently reviewed historical accuracy.
+Earlier dated results above retain their original revision and scope.

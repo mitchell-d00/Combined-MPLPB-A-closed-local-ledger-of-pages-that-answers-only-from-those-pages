@@ -42,13 +42,15 @@ def row(label,revision,path,kind):
 def render(document):
     lines=['# Archival inspection benchmark dashboard','','Last reviewed: 2026-11-19.','',
            'Synthetic development, authentic development and unseen independent evaluation are separate. Percentages below are developer-key measurements; they are not historical accuracy. Citation fidelity concerns exact source anchoring at run time, not historical truth or permanent eligibility.','',
-           '| Version / revision | Dataset | Cases | Supported precision | Complete recall | Correct refusal | Citation fidelity |',
-           '|---|---|---:|---:|---:|---:|---:|']
+           '| Version / revision | Dataset | Cases | Complete count* | Supported precision | Complete recall | Correct refusal | Citation fidelity |',
+           '|---|---|---:|---:|---:|---:|---:|---:|']
     for r in document['rows']:
         show=lambda v:'unmeasured' if v is None else str(round(100*v,2))+'%'
-        lines.append('| '+r['label']+' / `'+r['revision'][:12]+'` | '+r['dataset']+' | '+str(r['counts']['cases'])+' | '+
+        count=r['counts'].get('complete_correct',r['counts'].get('native_outcomes',{}).get('supported_answer'))
+        lines.append('| '+r['label']+' / `'+r['revision'][:12]+'` | '+r['dataset']+' | '+str(r['counts']['cases'])+' | '+str(count)+' | '+
                      ' | '.join(show(r['metrics'][k]) for k in METRICS)+' |')
-    lines+=['| Unseen independent | NOT RUN | 0 | unmeasured | unmeasured | unmeasured | unmeasured |','',
+    lines+=['| Unseen independent | NOT RUN | 0 | unmeasured | unmeasured | unmeasured | unmeasured | unmeasured |','',
+            '*Synthetic counts are key-matched complete answers. Authentic counts are native support flags, not independently judged correctness. These counts do not establish historical recall.','',
             'For counts, denominators, source report hashes and limitations, inspect the adjacent JSON. Unknown is null, never zero. Incomplete executions do not get full-run rates. Unscored supported semantics prevents a precision claim. No independent human score has been supplied.']
     return '\n'.join(lines)+'\n'
 

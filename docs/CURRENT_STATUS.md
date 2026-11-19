@@ -37,6 +37,18 @@ See the [package map](PACKAGE_GUIDE.md#package-map) for implementation and the
 The lab-only [reference corpus](../reference_corpus/README.md) is unratified and
 not the default hosted application's authoritative source collection.
 
+## Latest archival source/date experiment
+
+The [frozen date-rule experiment](../evaluation/archival-inspection/2026-11-19/REPORT.md)
+changes only H07: native complete answers **2→3/22**, with 2 partials, 3 conflicts
+and 14 abstentions. Each date relationship retains exact source evidence; missing
+years, catalogue/review roles and relative-day arithmetic stay explicit. All 21
+other answer meanings are unchanged. The corrected archive passed 1,468 Python
+tests and 52 public controls. Full D% remains 200/600 matched complete and 640/640
+expected refusals. The earlier unsafe candidate and its failures remain retained.
+Independent historical precision/recall and refusal correctness are unmeasured;
+[the dashboard](benchmarks/dashboard.md) keeps those values null.
+
 ## Retained historical question experiment
 
 The [solo milestone](../evaluation/solo-milestone/2026-11-17/RESULTS.md) uses the

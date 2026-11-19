@@ -26,7 +26,7 @@
       "scope": "Developer-key results on frozen fiction. Citation metric is per accepted output at run time, not live serving eligibility or historical semantics."
     },
     {
-      "label": "prose",
+      "label": "checked-prose",
       "revision": "6e0de9e6f14f238961845780c2500713a0db096f",
       "dataset": "synthetic_development",
       "evidence_path": "evaluation/dpercent/2026-11-19-class-rules/final/score.json",
@@ -50,11 +50,11 @@
       "scope": "Developer-key results on frozen fiction. Citation metric is per accepted output at run time, not live serving eligibility or historical semantics."
     },
     {
-      "label": "archival-baseline",
-      "revision": "bc6f25c053dfc1ceb3b0096cca56550041395105",
+      "label": "archival-dates",
+      "revision": "ee85ab3b3fa501fbee71e102e4de6b7d1bbe48f3",
       "dataset": "synthetic_development",
-      "evidence_path": "evaluation/archival-inspection/2026-11-19/baseline/score.json",
-      "evidence_sha256": "65dda8e529faaf92bddffa280bcda9f6d8ba08e65b926e6c4f924deb409ad658",
+      "evidence_path": "evaluation/archival-inspection/2026-11-19/final/score.json",
+      "evidence_sha256": "4464c2b44603505333de65b13e2280c722e9f11e7ff353007ba69bd5717a4ac0",
       "metrics": {
         "supported_answer_precision": 1.0,
         "complete_answer_recall": 0.3333333333333333,
@@ -74,7 +74,7 @@
       "scope": "Developer-key results on frozen fiction. Citation metric is per accepted output at run time, not live serving eligibility or historical semantics."
     },
     {
-      "label": "original-baseline",
+      "label": "archival-before",
       "revision": "bc6f25c053dfc1ceb3b0096cca56550041395105",
       "dataset": "authentic_development",
       "evidence_path": "evaluation/archival-inspection/2026-11-19/baseline-originals/report.json",
@@ -91,6 +91,31 @@
         "native_outcomes": {
           "abstain": 15,
           "supported_answer": 2,
+          "conflict": 3,
+          "partial_answer": 2
+        },
+        "independently_answerable": null
+      },
+      "scope": "Native outcome counts only; neither complete-answer recall nor refusal correctness is independently known."
+    },
+    {
+      "label": "archival-after",
+      "revision": "ee85ab3b3fa501fbee71e102e4de6b7d1bbe48f3",
+      "dataset": "authentic_development",
+      "evidence_path": "evaluation/archival-inspection/2026-11-19/final/originals/report.json",
+      "evidence_sha256": "1eb66973fb65e480c978992ab965d9d7fb5cff9bca4087c0f999ddb96c212146",
+      "metrics": {
+        "supported_answer_precision": null,
+        "complete_answer_recall": null,
+        "correct_refusal_rate": null,
+        "citation_fidelity": null
+      },
+      "independent_semantic_review": "NOT RUN",
+      "counts": {
+        "cases": 22,
+        "native_outcomes": {
+          "abstain": 14,
+          "supported_answer": 3,
           "conflict": 3,
           "partial_answer": 2
         },

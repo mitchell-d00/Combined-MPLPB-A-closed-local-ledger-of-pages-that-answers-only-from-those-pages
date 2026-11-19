@@ -4,8 +4,8 @@ Last reviewed: 2026-11-19.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `ee85ab3b3fa501fbee71e102e4de6b7d1bbe48f3` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `0f5520a9aa7a9d5410b6d81342256de597c1cd9157052a4437934eb29dde364a`.
+Base commit: `eb5e4b93e57e9c91af44b1703388a2d1339dde91` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `d456e46b1769afce2dfd3c915891fc3ea52e5cc9892271c4b3b95575ec29d8c1`.
 
 ## Latest user update instructions
 
@@ -32,6 +32,10 @@ Note failure then fix it
 - Full corrected D%1240/1240 complete:200/600 matched supported,640/640 expected refusals,no false support; require-perfect exits1 for remaining400 positives.
 - Archived22-record run:3 complete,2 partial,3 conflict,14 abstain. OnlyH07 changes meaning; other21 native claims/citations/unresolved content preserved. Independent correctness not reviewed.
 - Tool-only follow-up adds exact original bytes/import mappings to anonymous review exports; native packages/tests unchanged fromee85ab3.
+- Only H07 changes semantic native result; all21 other native claims, citations, diagnostics and unresolved meanings preserved. Five H07 citations round-trip to exact original source bytes.
+- Final anonymous22-case/44-output packet export includes raw originals and mappings, with private custody crosswalk outside Git. Existing human validator rejects blank reviews; no independent review fabricated.
+- Dashboard separates synthetic key rates, authentic native counts and null independent historical metrics.
+- All prior frozen corpora/questions/keys/reports and mplpb_combined core remain unchanged. Internal date-rule scan caps are disclosed separately from unchanged answer admission and D%sandbox limits.
 
 ## Limitations and blocked checks
 
@@ -42,9 +46,8 @@ Note failure then fix it
 
 ## Next steps
 
-- Freeze candidate and test extracted source; run full1240 D%and unchanged22 historical comparison. Preserve errors and unexpected regressions.
-- Generate anonymous review packets with private crosswalk outside public outputs, confirm unfilled human reviews are rejected, retain source hashes and exact citations.
-- Update README, documentation, result registry and dashboard from actual measured outputs; publish a findings PR without assuming merge authorization.
+- Finish final documentation/handoff audit, commit evidence/display updates and publish the full findings PR; do not merge without new authorization.
+- Next capability milestones: independently reviewed H07 semantics, unfamiliar held-out archival questions and general rules for remaining causal/resource/OCR and legal-modality gaps. Do not tune rules to benchmark IDs.
 
 ## Use this ZIP in your repository
 

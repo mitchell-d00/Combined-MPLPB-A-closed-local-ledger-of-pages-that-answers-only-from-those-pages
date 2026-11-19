@@ -217,10 +217,17 @@ These are developer-authored controls, not independent historical accuracy resul
 
 The earlier [unchanged22-question experiment](evaluation/solo-milestone/2026-11-17/RESULTS.md)
 records two complete source-supported answers and one checked partial at that
-revision. The latest [article preservation replay](evaluation/documentary-articles/2026-11-19/REPORT.md)
+revision. The subsequent [article preservation replay](evaluation/documentary-articles/2026-11-19/REPORT.md)
 retains **2 complete, 2 partial, 3 conflict and 15 abstention outcomes** across the
 same 22 questions. These categories are not independent judgments of historical
 correctness. Preprocessing and article assembly did not increase complete answers.
+The latest [explicit source-date experiment](evaluation/archival-inspection/2026-11-19/REPORT.md)
+records **3 complete, 2 partial, 3 conflict and 14 abstention outcomes**: only H07
+changes, through independently checked source/date relationships. All 21 other
+answer meanings remain unchanged. **1,468 archived Python tests and 52 public
+controls passed.** An unsafe intermediate actor rule was rejected and its failing
+controls/partial runs are retained. Independent semantic review is **NOT RUN**.
+
 The [result/test index](docs/RESULTS_AND_TESTS.md) distinguishes original measurements,
 software controls, AI assessments and unrun independent evaluation.
 
@@ -236,7 +243,7 @@ The sorter paper by Mitchell D. McPhetridge is available as
 [PDF](docs/research/dual-mode-sorter/dual-mode-sorter.pdf).
 [Earlier papers and notes](PAST_DOCUMENTATION.md) retain their original bytes and scope.
 
-The [D% randomized prose challenge](docs/DPERCENT.md) retains 1,240 frozen fictional cases with answer/refuse expectations and a private key withheld from runtime. [General checked prose rules](docs/PROSE_RULE_CLASSES.md) increased complete checked answers from **20 to 200 of 600**: **160 source assertions and 40 word-location answers**. All **640 expected refusals** were retained, with zero observed false support in that set; **400 answerable cases remain incomplete**. The unchanged historical replay remains **2 complete answers out of 22**. The [full findings](evaluation/dpercent/2026-11-19-class-rules/FINAL_REPORT.md) preserve costs, failed/interrupted attempts and 1,431 archived tests plus 52 public controls. This is developer-authored evaluation; independent semantic accuracy and general reconstruction remain unproven.
+The [D% randomized prose challenge](docs/DPERCENT.md) retains 1,240 frozen fictional cases with answer/refuse expectations and a private key withheld from runtime. [General checked prose rules](docs/PROSE_RULE_CLASSES.md) increased complete checked answers from **20 to 200 of 600**: **160 source assertions and 40 word-location answers**. All **640 expected refusals** were retained, with zero observed false support in that set; **400 answerable cases remain incomplete**. That measured historical replay retained **2 complete answers out of 22**; the later source-date extension records **3/22 native completions**, without an independent accuracy claim. The [full findings](evaluation/dpercent/2026-11-19-class-rules/FINAL_REPORT.md) preserve costs, failed/interrupted attempts and 1,431 archived tests plus 52 public controls. This is developer-authored evaluation; independent semantic accuracy and general reconstruction remain unproven.
 
 ## Assemble a documentary research dossier
 

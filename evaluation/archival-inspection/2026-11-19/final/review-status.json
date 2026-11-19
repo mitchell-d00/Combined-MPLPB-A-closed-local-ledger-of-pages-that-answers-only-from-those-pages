@@ -1,0 +1,17 @@
+{
+  "status": "NOT RUN",
+  "questions": 22,
+  "review_collections": [
+    "797b398775404c3e",
+    "48bb83e45d305419"
+  ],
+  "original_bytes_included": true,
+  "original_bytes_hash_verified": true,
+  "question_authorship": "familiar developer questions; not independently unseen",
+  "independent_human_review": "NOT RUN",
+  "fresh_ai_assessment": "NOT RUN",
+  "adjudication": "NOT RUN",
+  "metrics": null,
+  "review_instructions": "Inspect full supplied source bodies, not citations alone. Assess each output independently with exact quote/offset reasons. Preserve both wrong answers and unnecessary refusals. Do not count dependent appearances as independent witnesses. Human review requires real people; do not simulate reviewers.",
+  "human_scoring_command": "python -m tools.unprepared_challenge score COLLECTION REVIEWER1.json REVIEWER2.json --output NEW_SCORE.json (add --adjudication FILE for disagreements). The existing validator checks exact citations; participant identity/independence is not authenticated."
+}
