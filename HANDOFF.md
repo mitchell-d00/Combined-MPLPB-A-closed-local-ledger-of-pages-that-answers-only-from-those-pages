@@ -4,8 +4,8 @@ Last reviewed: 2026-11-19.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `6334e1b3a08db10984de637adbd5e5a6021b381c` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `c1199d86a59b9566b908a491c1bb64b2f82a1f0325d1a6a3f868e3bb9499e4b0`.
+Base commit: `0b2c5c834a87262b1cc4853a30f88e3f9252c6a5` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `f8d6228f5681418ed6eef12e43ba68e39176e2594f40b8c0b1e6ca5a1175eada`.
 
 ## Latest user update instructions
 
@@ -20,6 +20,7 @@ Build original D% randomized prose tests with structural variation, binary answe
 
 - 15 generator/scorer software tests passed, exit 0.
 - Native runtime has no diff from main 6334e1b3a08db10984de637adbd5e5a6021b381c.
+- Generator frozen at0b2c5c834a87262b1cc4853a30f88e3f9252c6a5;1,240 packets generated and key/seal hashes recorded before baseline execution.
 
 ## Limitations and blocked checks
 
