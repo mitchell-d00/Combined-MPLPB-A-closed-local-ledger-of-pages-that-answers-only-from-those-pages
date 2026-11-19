@@ -1,0 +1,64 @@
+[
+  {
+    "command": [
+      "python",
+      "-m",
+      "pip",
+      "wheel",
+      ".",
+      "--no-deps",
+      "--no-build-isolation",
+      "--wheel-dir",
+      "/tmp/mplpb-sorter-explorer-final-wheel"
+    ],
+    "exit_code": 0,
+    "wall_seconds": 1.7936905299998216,
+    "stdout": "Processing ./.\n  Preparing metadata (pyproject.toml): started\n  Preparing metadata (pyproject.toml): finished with status 'done'\nBuilding wheels for collected packages: combined-mplpb\n  Building wheel for combined-mplpb (pyproject.toml): started\n  Building wheel for combined-mplpb (pyproject.toml): finished with status 'done'\n  Created wheel for combined-mplpb: filename=combined_mplpb-2.1.0rc1-py3-none-any.whl size=285296 sha256=43cc3acc002208361455afdb644652fd174f9c1a0d14bbaf16b759fdac23f4d7\n  Stored in directory: /tmp/pip-ephem-wheel-cache-jcwzo7t5/wheels/ff/d7/0a/f311650565636b33448fed810f8e28882daecc0c77486c3a9d\nSuccessfully built combined-mplpb\n",
+    "stderr": "\n[notice] A new release of pip is available: 26.2.2 -> 26.3\n[notice] To update, run: pip install --upgrade pip\n"
+  },
+  {
+    "command": [
+      "/tmp/mplpb-sorter-explorer-installed/bin/python",
+      "-m",
+      "pip",
+      "install",
+      "--no-index",
+      "--force-reinstall",
+      "/tmp/mplpb-sorter-explorer-final-wheel/combined_mplpb-2.1.0rc1-py3-none-any.whl"
+    ],
+    "exit_code": 0,
+    "wall_seconds": 1.5642774529999315,
+    "stdout": "Processing /tmp/mplpb-sorter-explorer-final-wheel/combined_mplpb-2.1.0rc1-py3-none-any.whl\nInstalling collected packages: combined-mplpb\n  Attempting uninstall: combined-mplpb\n    Found existing installation: combined-mplpb 2.1.0rc1\n    Uninstalling combined-mplpb-2.1.0rc1:\n      Successfully uninstalled combined-mplpb-2.1.0rc1\nSuccessfully installed combined-mplpb-2.1.0rc1\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "/tmp/mplpb-sorter-explorer-installed/bin/python",
+      "-I",
+      "tools/check_candidate_workspace_install.py",
+      "--output",
+      "/tmp/mplpb-sorter-explorer-final-wheel/workspace-smoke.json"
+    ],
+    "exit_code": 0,
+    "wall_seconds": 0.38508198599993193,
+    "stdout": "{\n  \"status\": \"passed\",\n  \"installed_package\": \"/tmp/mplpb-sorter-explorer-installed/lib/python3.12/site-packages/mplpb_work/sorter.py\",\n  \"isolated_python\": true,\n  \"exact_match_replayed\": true,\n  \"strict_original_support_preserved\": true,\n  \"processed_approval_transferred\": false,\n  \"checkout_tools_imported\": false,\n  \"scope\": \"Authored installed-wheel integration; not human or historical semantic validation.\"\n}\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "/tmp/mplpb-sorter-explorer-installed/bin/python",
+      "-I",
+      "-m",
+      "mplpb_work.sorter_explorer",
+      "ask",
+      "What might connect the shipment accounts?",
+      "--dump",
+      "/tmp/mplpb-sorter-exploration-recovery/source/examples/fixpack_classing/demo_dump",
+      "--json"
+    ],
+    "exit_code": 0,
+    "wall_seconds": 0.293697376999944,
+    "stdout": "{\n  \"schema\": \"sorter-exploration-view-v1\",\n  \"mode\": \"unofficial_question_exploration\",\n  \"question\": \"What might connect the shipment accounts?\",\n  \"label\": \"UNOFFICIAL EXPLORATION \u2014 interpretations and questions, not established facts or MPLPB-supported answers.\",\n  \"profile\": \"internal\",\n  \"answer_supported\": false,\n  \"source_support_established\": false,\n  \"entity_identity_established\": false,\n  \"event_identity_established\": false,\n  \"historical_truth_independently_verified\": false,\n  \"native_mplpb\": {\n    \"label\": \"No complete native MPLPB-supported answer\",\n    \"result\": null\n  },\n  \"passages\": [\n    {\n      \"origin\": \"dump\",\n      \"text\": \"Message-ID: SHIP-9\\nSubject: Wool shipment\\nFrom: Salem wool house\\nDate sent: May 20, 1850\",\n      \"path\": \"ship-9a.txt\",\n      \"source_sha256\": \"sha256:9efe8d1bf9d46510d04aa3af465a2146b1bc4b8958de722036b39236c96db8b6\",\n      \"bytes\": [\n        0,\n        88\n      ],\n      \"records\": [\n        \"SHIP-9\"\n      ],\n      \"warnings\": [],\n      \"in_ledger_as\": [],\n      \"score\": 1.306,\n      \"citation_id\": \"P1\",\n      \"label\": \"Source excerpt \u00b7 interpretation not checked\",\n      \"tags\": [\n        \"text_observation\",\n        \"exact_span\",\n        \"entity_resolution_unverified\",\n        \"event_coreference_unverified\",\n        \"historical_truth_unverified\"\n      ],\n      \"source_state\": \"outside_ledger_authority\",\n      \"answer_supported\": false,\n      \"source_support_established\": false,\n      \"entity_identity_established\": false,\n      \"event_identity_established\": false,\n      \"historical_truth_independently_verified\": false\n    },\n    {\n      \"origin\": \"dump\",\n      \"text\": \"Message-ID: SHIP-9\\nSubject: Wool shipment\\nFrom: Salem wool house\\nDate sent: May 20, 1850\",\n      \"path\": \"ship-9b.txt\",\n      \"source_sha256\": \"sha256:78b75c98b739e7ee765b732db84ec19d2dbff71c5282cd0d008af1cd7fdc0e14\",\n      \"bytes\": [\n        0,\n        88\n      ],\n      \"records\": [\n        \"SHIP-9\"\n      ],\n      \"warnings\": [],\n      \"in_ledger_as\": [],\n      \"score\": 1.306,\n      \"citation_id\": \"P2\",\n      \"label\": \"Source excerpt \u00b7 interpretation not checked\",\n      \"tags\": [\n        \"text_observation\",\n        \"exact_span\",\n        \"entity_resolution_unverified\",\n        \"event_coreference_unverified\",\n        \"historical_truth_unverified\"\n      ],\n      \"source_state\": \"outside_ledger_authority\",\n      \"answer_supported\": false,\n      \"source_support_established\": false,\n      \"entity_identity_established\": false,\n      \"event_identity_established\": false,\n      \"historical_truth_independently_verified\": false\n    },\n    {\n      \"origin\": \"dump\",\n      \"text\": \"Message-ID: SHIP-7\\nSubject: Flour shipment to Albany\\nFrom: Boston flour office\\nTo: Albany depot\\nDate sent: May 12, 1850\\nCargo: forty barrels of flour\",\n      \"path\": \"ship-7.txt\",\n      \"source_sha256\": \"sha256:2f040b06b796c2a01cd7afaed46cd9f0c5c35bdd0ceba20a57d11ec802085f8e\",\n      \"bytes\": [\n        0,\n        149\n      ],\n      \"records\": [\n        \"SHIP-7\"\n      ],\n      \"warnings\": [],\n      \"in_ledger_as\": [],\n      \"score\": 1.048,\n      \"citation_id\": \"P3\",\n      \"label\": \"Source excerpt \u00b7 interpretation not checked\",\n      \"tags\": [\n        \"text_observation\",\n        \"exact_span\",\n        \"entity_resolution_unverified\",\n        \"event_coreference_unverified\",\n        \"historical_truth_unverified\"\n      ],\n      \"source_state\": \"outside_ledger_authority\",\n      \"answer_supported\": false,\n      \"source_support_established\": false,\n      \"entity_identity_established\": false,\n      \"event_identity_established\": false,\n      \"historical_truth_independently_verified\": false\n    }\n  ],\n  \"segments\": [\n    {\n      \"kind\": \"source_quote\",\n      \"label\": \"Source quotation \u00b7 exact words, not verified meaning\",\n      \"text\": \"Message-ID: SHIP-9\\nSubject: Wool shipment\\nFrom: Salem wool house\\nDate sent: May 20, 1850\",\n      \"citations\": [\n        \"P1\"\n      ],\n      \"missing_evidence\": [],\n      \"tags\": [\n        \"source_quote\",\n        \"entity_resolution_unverified\",\n        \"event_coreference_unverified\",\n        \"historical_truth_unverified\"\n      ],\n      \"quotation_fidelity\": \"exact_retrieved_source_span\",\n      \"semantic_correctness\": \"not_verified\",\n      \"answer_supported\": false,\n      \"source_support_established\": false,\n      \"entity_identity_established\": false,\n      \"event_identity_established\": false,\n      \"historical_truth_independently_verified\": false\n    },\n    {\n      \"kind\": \"source_quote\",\n      \"label\": \"Source quotation \u00b7 exact words, not verified meaning\",\n      \"text\": \"Message-ID: SHIP-9\\nSubject: Wool shipment\\nFrom: Salem wool house\\nDate sent: May 20, 1850\",\n      \"citations\": [\n        \"P2\"\n      ],\n      \"missing_evidence\": [],\n      \"tags\": [\n        \"source_quote\",\n        \"entity_resolution_unverified\",\n        \"event_coreference_unverified\",\n        \"historical_truth_unverified\"\n      ],\n      \"quotation_fidelity\": \"exact_retrieved_source_span\",\n      \"semantic_correctness\": \"not_verified\",\n      \"answer_supported\": false,\n      \"source_support_established\": false,\n      \"entity_identity_established\": false,\n      \"event_identity_established\": false,\n      \"historical_truth_independently_verified\": false\n    },\n    {\n      \"kind\": \"source_quote\",\n      \"label\": \"Source quotation \u00b7 exact words, not verified meaning\",\n      \"text\": \"Message-ID: SHIP-7\\nSubject: Flour shipment to Albany\\nFrom: Boston flour office\\nTo: Albany depot\\nDate sent: May 12, 1850\\nCargo: forty barrels of flour\",\n      \"citations\": [\n        \"P3\"\n      ],\n      \"missing_evidence\": [],\n      \"tags\": [\n        \"source_quote\",\n        \"entity_resolution_unverified\",\n        \"event_coreference_unverified\",\n        \"historical_truth_unverified\"\n      ],\n      \"quotation_fidelity\": \"exact_retrieved_source_span\",\n      \"semantic_correctness\": \"not_verified\",\n      \"answer_supported\": false,\n      \"source_support_established\": false,\n      \"entity_identity_established\": false,\n      \"event_identity_established\": false,\n      \"historical_truth_independently_verified\": false\n    }\n  ],\n  \"model\": {\n    \"requested\": false,\n    \"status\": \"disabled\",\n    \"model\": null,\n    \"semantic_correctness_verified\": false\n  },\n  \"unresolved\": [\n    \"Entity identity and event co-reference are not established.\",\n    \"Model interpretations are not checked source support or historical truth.\",\n    \"Missing intermediate evidence must be supplied; citations alone do not bridge a chain.\"\n  ],\n  \"retrieval_limits\": {\n    \"sorter_complete\": true,\n    \"native_inspection_truncated\": false,\n    \"native_max_paragraphs\": 2048,\n    \"native_max_characters\": 1000000,\n    \"question_parts\": [\n      \"What might connect the shipment accounts\"\n    ],\n    \"question_parts_truncated\": false,\n    \"display_max_characters\": 12000,\n    \"display_characters\": 325,\n    \"unshown_matching_spans\": 0,\n    \"contrary_wording_candidates\": 0,\n    \"unshown_contrary_wording_candidates\": 0,\n    \"limits_or_exclusions\": [],\n    \"displayed_passages\": 3,\n    \"matching_passages\": 3\n  },\n  \"search_complete\": false,\n  \"sorter_limits\": {\n    \"complete\": true,\n    \"limits_or_exclusions\": []\n  },\n  \"dump_withheld\": false,\n  \"strict_slots_consumed_by_exploration\": 0\n}\n",
+    "stderr": ""
+  }
+]

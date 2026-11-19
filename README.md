@@ -1,6 +1,6 @@
 # Combined MPLPB
 
-Last reviewed: 2026-11-18.
+Last reviewed: 2026-11-19.
 
 Combined MPLPB is a closed local ledger with tools for raw-material sorting,
 bounded source questions, documentary inspection and retained work history.
@@ -62,6 +62,10 @@ Network acquisition, hosted crawling and optional models have separate requireme
 The root `index.html` is the desktop entry point. GitHub Pages serves the generated
 `dist/index.html` through its deployment workflow, not the unbuilt root file.
 [Package contents and installation](docs/INSTALLATION.md).
+
+## Raw material, review and safe publication
+
+The [strict-first router](docs/ANSWER_ROUTER.md) explains refusals, labels rewritten questions and keeps unofficial inspection separate. [Classing](docs/CLASSING.md) prepares literal reviewed pages; the [v2 sorter](docs/SORTER_V2.md) is a separate engine, with v1 pins unchanged. Optional [semantic triage](docs/SEMANTIC_TRIAGE.md) emits quarantined flags only. [Ledger generations](docs/LEDGER_GENERATIONS.md) publish complete staged ledgers through an atomic pointer. These tools do not establish historical truth or general reconstruction accuracy. The [gap workflow](docs/HISTORICAL_GAP_WORKFLOW.md) separates proof coverage, evidence discovery and semantic assessment.
 
 ## Try the sorter
 
@@ -234,3 +238,12 @@ not certify later commits.
 
 Code is MIT licensed; documentation is CC BY 4.0. Bundled data, models and preserved
 parts retain their own notices. See [LICENSE](LICENSE) and [resource attribution](resources/README.md).
+
+Measured fixpack/gap update: [final experiment](evaluation/fixpack/2026-11-18/FINAL_REPORT.md) and [22-case source/checker table](evaluation/fixpack/2026-11-18/CASE_ANALYSIS.md). Complete answers remain2/22; checked partials increase1→2. Separate exploration does not recover the5 missing draft anchors; the tested tiny flagger provides no utility gain. Original authority boundaries remain in force.
+
+
+The [sorter exploration view](docs/SORTER_EXPLORATION.md) adds visible tags for textual observations, possible connections, changed bodies, unresolved entity identity/event co-reference and unverified historical truth. `python -m mplpb_work.sorter_explorer sort DIRECTORY --mode compare` shows them without changing the underlying sorter format. Its separate `ask` command accepts unofficial free-form research questions; optional local-model hypotheses remain explicitly unverified beside the native MPLPB decision. Neither the labels nor model proposals establish historical truth or change ledger authority.
+
+Sorter exploration validation: [frozen execution record](evaluation/sorter-exploration/2026-11-19/FINAL_REPORT.md) includes15 new boundary tests,unchanged source graphs and native H05 proof,a live small-model smoke with no demonstrated reasoning gain,and retained failed storage runs. These are inspection/authority-boundary results,not historical accuracy scores.
+
+A [fresh local B-Tests d100 run](evaluation/sorter-exploration/2026-11-19/d100/REPORT.md) passed100/100 fictional cases and100/100 companion exploration checks. This checks authority/routing invariants on randomized inputs,not historical truth or model accuracy. Publication requires the exact-head release gates.

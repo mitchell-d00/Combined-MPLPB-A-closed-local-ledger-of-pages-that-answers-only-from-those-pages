@@ -1,0 +1,41 @@
+original H01 completed
+original H02 completed
+original H03 completed
+original H04 completed
+original H05 completed
+original H06 completed
+original H07 completed
+original H08 completed
+original H09 completed
+original H10 completed
+original H11 completed
+original H12 completed
+original H13 completed
+original H14 completed
+government U01 completed
+government U02 completed
+government U03 completed
+government U04 completed
+government U05 completed
+government U06 completed
+government U07 completed
+government U08 completed
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/workspace/mplpb/tools/evaluate_fixpack_exploration.py", line 83, in <module>
+    p.add_argument('--output',required=True,type=Path);a=p.parse_args();print(json.dumps(run(a.native_study,a.output),indent=2))
+                                                                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/mplpb/tools/evaluate_fixpack_exploration.py", line 61, in run
+    base=read(study/family/'direct'/(row['case_id']+'.json'))
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/mplpb/tools/unprepared_challenge.py", line 33, in read
+    return json.loads(Path(path).read_text(),object_pairs_hook=pairs,parse_constant=lambda v:(_ for _ in ()).throw(ValueError('Nonfinite JSON')))
+                      ^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/pathlib.py", line 1027, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/pathlib.py", line 1013, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/tmp/mplpb-fixpack-after-originals/original/direct/H02.json'

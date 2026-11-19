@@ -10,7 +10,7 @@ from html.parser import HTMLParser
 from .body_text import body_text, VERSION as BODY_VERSION
 from .passages import PassageIndex
 
-VERSION = 'documentary-assertion-kernel-v4'
+VERSION = 'documentary-assertion-kernel-v5'
 PAST = {'appointed':'appoint','sent':'send','received':'receive','wrote':'write',
         'surveyed':'survey','published':'publish','revised':'revise','canceled':'cancel',
          'ordered':'order','requested':'request','instructed':'instruct'}
@@ -105,11 +105,28 @@ def action_assertion(quote):
     if not obj or len(obj)>220:return None
     if re.search(r'\b(?:and|or|if|unless|when|because|not|never|may|might|could|would|should|alleged|reported|claimed|allegedly|apparently|perhaps|probably|possibly|reportedly|supposedly|intended|planned|requested|permitted)\b',obj,re.I):return None
     if any(c in obj for c in '():'):return None
-    unresolved=bool(re.search(r'\b(?:that|this|it|him|her|them|those|these|dated|pending|except|only|provided)\b|\bsubject to\b',obj,re.I))
+    unresolved=bool(re.search(r'\b(?:that|this|it|him|her|them|those|these|dated|pending|except|only|provided)\b|\bsubject to\b|\bthe (?:area|region|place|book|letter|report)\b',obj,re.I))
     return {'relation':'source_action_assertion','actor_text':actor,'action':action,
             'object_text':obj,'negative':negative,'temporal_qualification_text':temporal,
             'unresolved_reference':unresolved,'assertion_modality':'qualified_or_referential_unresolved' if unresolved else 'unconditional_source_assertion',
             'event_identity':None}
+
+
+def local_referent_context(record,body,a,b,value):
+    """Retain topic context for a referential assertion without resolving it.
+
+    A paragraph mentioning a question topic is discovery evidence, never an
+    identity binding. The complete paragraph is independently re-located and
+    cited; completion still requires the literal requested argument.
+    """
+    if not value or not value.get('unresolved_reference'):return value,[]
+    from .source_units import comparison_units
+    from mplpb_combined.reader import terms
+    for lo,hi,text in comparison_units(record):
+        if lo<=a<b<=hi and hi-lo<=2200:
+            return dict(value,context_topic_terms=sorted(terms(text)),
+                        context_identity_resolved=False),[citation(record,body,lo,hi)]
+    return value,[]
 
 
 def letter_assertion(body,start,end):
@@ -307,7 +324,8 @@ def check(index,proposals,*,max_scan_chars=200000):
         elif kind=='action_statement':
             matches=[v for r,lo,hi,v in scanned if r.path==record.path and (lo,hi)==(a,b)]
             if len(matches)==1:
-                value=matches[0];citations=[citation(record,body,a,b)]
+                value,context=local_referent_context(record,body,a,b,matches[0])
+                citations=[citation(record,body,a,b)]+context
         if value is None:rejected.append('assertion_grammar_or_context_unresolved');continue
         certified.append({'proposition':value,'citations':citations,'source_support_established':True,
             'support_scope':'source_attributed_assertion','verification':VERSION,

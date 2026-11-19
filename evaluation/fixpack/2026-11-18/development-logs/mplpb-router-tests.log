@@ -1,0 +1,12 @@
+======================================================================
+FAIL: test_field_scoped_successor_is_asked_for_the_corrected_field (tests.test_answer_router.RouterOnDemoLedger.test_field_scoped_successor_is_asked_for_the_corrected_field)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/mplpb/tests/test_answer_router.py", line 47, in test_field_scoped_successor_is_asked_for_the_corrected_field
+    self.assertTrue(any('field-scoped correction' in d for d in r['explanation']['details']))
+AssertionError: False is not true
+
+----------------------------------------------------------------------
+Ran 16 tests in 0.444s
+
+FAILED (failures=1)

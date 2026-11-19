@@ -1,0 +1,13 @@
+======================================================================
+ERROR: test_empty_discovery_still_reports_exhausted_sorter_budget (tests.test_sorter_explorer.SorterExplorerTests.test_empty_discovery_still_reports_exhausted_sorter_budget)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/mplpb/tests/test_sorter_explorer.py", line 163, in test_empty_discovery_still_reports_exhausted_sorter_budget
+    self.assertFalse(r['sorter_limits']['complete'])
+                     ~^^^^^^^^^^^^^^^^^
+KeyError: 'sorter_limits'
+
+----------------------------------------------------------------------
+Ran 15 tests in 0.819s
+
+FAILED (errors=1)

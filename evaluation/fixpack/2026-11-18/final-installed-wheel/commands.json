@@ -1,0 +1,59 @@
+[
+  {
+    "command": [
+      "python",
+      "-m",
+      "pip",
+      "wheel",
+      ".",
+      "--no-deps",
+      "--no-build-isolation",
+      "--wheel-dir",
+      "/tmp/mplpb-fixpack-repaired-wheel"
+    ],
+    "exit_code": 0,
+    "wall_seconds": 0.861196055997425,
+    "stdout": "Processing ./.\n  Preparing metadata (pyproject.toml): started\n  Preparing metadata (pyproject.toml): finished with status 'done'\nBuilding wheels for collected packages: combined-mplpb\n  Building wheel for combined-mplpb (pyproject.toml): started\n  Building wheel for combined-mplpb (pyproject.toml): finished with status 'done'\n  Created wheel for combined-mplpb: filename=combined_mplpb-2.1.0rc1-py3-none-any.whl size=278754 sha256=461a156c14ceed30016ddbea3338f39a1e6eaa09ca2fca3d9e49f97f501851f7\n  Stored in directory: /tmp/pip-ephem-wheel-cache-5z3g99zm/wheels/07/3e/c5/cf74b0360381928577e9180ac66cbbef6a7433ca2d4ebae68d\nSuccessfully built combined-mplpb\n",
+    "stderr": "\n[notice] A new release of pip is available: 26.2.2 -> 26.3\n[notice] To update, run: pip install --upgrade pip\n"
+  },
+  {
+    "command": [
+      "/tmp/mplpb-fixpack-installed/bin/python",
+      "-m",
+      "pip",
+      "install",
+      "--no-index",
+      "--force-reinstall",
+      "/tmp/mplpb-fixpack-repaired-wheel/combined_mplpb-2.1.0rc1-py3-none-any.whl"
+    ],
+    "exit_code": 0,
+    "wall_seconds": 0.5235893880017102,
+    "stdout": "Processing /tmp/mplpb-fixpack-repaired-wheel/combined_mplpb-2.1.0rc1-py3-none-any.whl\nInstalling collected packages: combined-mplpb\n  Attempting uninstall: combined-mplpb\n    Found existing installation: combined-mplpb 2.1.0rc1\n    Uninstalling combined-mplpb-2.1.0rc1:\n      Successfully uninstalled combined-mplpb-2.1.0rc1\nSuccessfully installed combined-mplpb-2.1.0rc1\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "/tmp/mplpb-fixpack-installed/bin/python",
+      "-I",
+      "tools/check_candidate_workspace_install.py",
+      "--output",
+      "/tmp/mplpb-fixpack-repaired-wheel/smoke.json"
+    ],
+    "exit_code": 0,
+    "wall_seconds": 0.12364800800060038,
+    "stdout": "{\n  \"status\": \"passed\",\n  \"installed_package\": \"/tmp/mplpb-fixpack-installed/lib/python3.12/site-packages/mplpb_work/sorter.py\",\n  \"isolated_python\": true,\n  \"exact_match_replayed\": true,\n  \"strict_original_support_preserved\": true,\n  \"processed_approval_transferred\": false,\n  \"checkout_tools_imported\": false,\n  \"scope\": \"Authored installed-wheel integration; not human or historical semantic validation.\"\n}\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "/tmp/mplpb-fixpack-installed/bin/python",
+      "-I",
+      "-c",
+      "from mplpb_work import semantic_triage,ledger_generations,classing,answer_router; print(\"Installed new modules import without checkout tools\")"
+    ],
+    "exit_code": 0,
+    "wall_seconds": 0.0907352180001908,
+    "stdout": "Installed new modules import without checkout tools\n",
+    "stderr": ""
+  }
+]

@@ -209,6 +209,8 @@ def admit_proposals(index,proposals,goals,relevant,budget,reserved=None):
             value=kernel.relationship_assertion(proposal['quote']);spans=[kernel.citation(record,body,a,b)]
         else:
             value=kernel.action_assertion(proposal['quote']);spans=[kernel.citation(record,body,a,b)]
+            value,context=kernel.local_referent_context(record,body,a,b,value)
+            spans+=context
         if value is None or not spans:continue
         parts=[i for i,g in enumerate(goals) if relevant(g,{'proposition':value},index.question)]
         if not parts:continue

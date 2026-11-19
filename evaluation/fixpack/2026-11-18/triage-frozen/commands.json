@@ -1,0 +1,36 @@
+[
+  {
+    "command": [
+      "python",
+      "-m",
+      "tools.evaluate_semantic_triage",
+      "prepare",
+      "/tmp/mplpb-fixpack-frozen-triage"
+    ],
+    "exit_code": 0,
+    "wall_seconds": 0.22632540999984485,
+    "cpu_seconds": 0.224837,
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "python",
+      "-m",
+      "tools.evaluate_semantic_triage",
+      "run",
+      "/tmp/mplpb-fixpack-frozen-triage",
+      "--backend",
+      "llamacpp",
+      "--model",
+      "mplpb-triage-qwen05",
+      "--base-url",
+      "http://127.0.0.1:18080"
+    ],
+    "exit_code": 0,
+    "wall_seconds": 16.07076914999925,
+    "cpu_seconds": 0.24797699999999992,
+    "stdout": "{\n  \"developer_expected_useful_flags\": 0,\n  \"developer_unexpected_flags\": 0,\n  \"developer_expected_but_missing_flags\": 4,\n  \"wall_seconds\": 15.922213916997862,\n  \"accepted_schema_responses\": 6,\n  \"historical_relationship_precision\": null,\n  \"historical_relationship_recall\": null,\n  \"human_review_seconds\": null\n}\n",
+    "stderr": ""
+  }
+]

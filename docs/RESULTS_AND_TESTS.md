@@ -1,6 +1,6 @@
 # Results and their tests
 
-Last reviewed: 2026-11-18.
+Last reviewed: 2026-11-19.
 
 Package role: [how this part fits Combined MPLPB](PACKAGE_GUIDE.md#evidence-and-limits). This guide covers evidence or operation limits; dated results keep the revision and scope they measured.
 
@@ -148,3 +148,12 @@ Optional review update (2026-11-18): [Synonym Ranker and Candidate Relater](SORT
 [Passage admission](PASSAGE_ADMISSION.md) adds generic multi-witness, duplicate-charge and over-budget counterevidence controls in [witness tests](../tests/test_witness_admission.py). The [first admission trial](../evaluation/sorter-first-originals/2026-11-18-witness-admission/experiment/REPORT.md) preserves2/22 complete outcomes in all arms and its one full-regression failure. The [separate final reader freeze](../evaluation/sorter-first-originals/2026-11-18-witness-admission-final/REPORT.md) completes88 workers, restores2/22 complete answers in every arm, and passes1249 extracted-ZIP tests. Discovery remains separate from semantic accuracy. Independent human and unseen-original assessment remains NOT RUN.
 
 [Candidate workspace source-linked results](../evaluation/candidate-review-workspace/2026-11-18-runtime/REPORT.md) retain unchanged native22 outcomes, separate processed/original statuses, actual costs, all early failures,1267 extracted-ZIP tests and installed-wheel validation. [Workspace tests](../tests/test_candidate_workspace.py) include both unique-phrase positives and disconnected-word negatives; [execution](../tools/evaluate_candidate_workspace.py), [comparison](../tools/report_candidate_workspace.py) and [wheel check](../tools/check_candidate_workspace_install.py) support reproduction. No independent historical semantic accuracy is claimed.
+
+
+[Fixpack and historical-gap evidence](../evaluation/fixpack/2026-11-18/FINAL_REPORT.md) links native safeguards, separate exploration, checked local-context partials, optional model flags and generation-publication interruption tests. Baseline and failed pilots are preserved; final replay status is recorded in that report. Independent human accuracy remains unmeasured.
+
+
+[Sorter exploration](SORTER_EXPLORATION.md) adds candidate/identity/truth labels and a separate unofficial question interface. [Versioned evidence](../evaluation/sorter-exploration/2026-11-19/FINAL_REPORT.md) retains actual validation and its limits. [Boundary tests](../tests/test_sorter_explorer.py) exercise exact quotes,non-promotion,profile restrictions,source changes and identical observations across modes;they do not establish semantic accuracy.
+
+
+The [pinned B-Tests d100 retest](../evaluation/sorter-exploration/2026-11-19/d100/REPORT.md) preserves100 native cases and100 separate explorer checks on the same fresh packets. Sources,keys and prior scores are unchanged;these are fictional authority controls,not historical accuracy.
