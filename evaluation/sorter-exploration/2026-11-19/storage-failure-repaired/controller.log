@@ -1,0 +1,13 @@
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/workspace/mplpb/tools/reproduce_boundaries.py", line 81, in <module>
+    raise SystemExit(main())
+                     ^^^^^^
+  File "/workspace/mplpb/tools/reproduce_boundaries.py", line 35, in main
+    z.extractall(extracted)
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/zipfile/__init__.py", line 1771, in extractall
+    self._extract_member(zipinfo, path, pwd)
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/zipfile/__init__.py", line 1834, in _extract_member
+    os.mkdir(targetpath)
+OSError: [Errno 28] No space left on device: '/tmp/mplpb-sorter-exploration-repaired/source/evaluation/candidate-review-workspace/2026-11-18-conservative/native-replay/original/sorter-inputs'

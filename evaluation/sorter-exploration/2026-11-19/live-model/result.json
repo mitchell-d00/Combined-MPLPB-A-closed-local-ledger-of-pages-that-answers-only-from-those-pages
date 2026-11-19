@@ -1,0 +1,213 @@
+{
+  "schema": "sorter-exploration-view-v1",
+  "mode": "unofficial_question_exploration",
+  "question": "What might explain the different shipment cargo accounts, and what evidence would be needed to connect them?",
+  "label": "UNOFFICIAL EXPLORATION — interpretations and questions, not established facts or MPLPB-supported answers.",
+  "profile": "internal",
+  "answer_supported": false,
+  "source_support_established": false,
+  "entity_identity_established": false,
+  "event_identity_established": false,
+  "historical_truth_independently_verified": false,
+  "native_mplpb": {
+    "label": "No complete native MPLPB-supported answer",
+    "result": null
+  },
+  "passages": [
+    {
+      "origin": "dump",
+      "text": "Message-ID: SHIP-7\nSubject: Flour shipment to Albany\nFrom: Boston flour office\nTo: Albany depot\nDate sent: May 12, 1850\nCargo: forty barrels of flour",
+      "path": "ship-7.txt",
+      "source_sha256": "sha256:2f040b06b796c2a01cd7afaed46cd9f0c5c35bdd0ceba20a57d11ec802085f8e",
+      "bytes": [
+        0,
+        149
+      ],
+      "records": [
+        "SHIP-7"
+      ],
+      "warnings": [],
+      "in_ledger_as": [],
+      "score": 2.328,
+      "citation_id": "P1",
+      "label": "Source excerpt · interpretation not checked",
+      "tags": [
+        "text_observation",
+        "exact_span",
+        "entity_resolution_unverified",
+        "event_coreference_unverified",
+        "historical_truth_unverified"
+      ],
+      "source_state": "outside_ledger_authority",
+      "answer_supported": false,
+      "source_support_established": false,
+      "entity_identity_established": false,
+      "event_identity_established": false,
+      "historical_truth_independently_verified": false
+    },
+    {
+      "origin": "dump",
+      "text": "Correction to SHIP-7: the cargo count changes only to thirty-eight barrels; the destination remains unchanged.\n",
+      "path": "ship-8.txt",
+      "source_sha256": "sha256:07fa69563e467c55f6564b6431f08da88356a3997dbaf9c74d19c5b4519cbefc",
+      "bytes": [
+        107,
+        218
+      ],
+      "records": [
+        "SHIP-7",
+        "SHIP-8"
+      ],
+      "warnings": [],
+      "in_ledger_as": [],
+      "score": 1.716,
+      "citation_id": "P2",
+      "label": "Source excerpt · interpretation not checked",
+      "tags": [
+        "text_observation",
+        "exact_span",
+        "entity_resolution_unverified",
+        "event_coreference_unverified",
+        "historical_truth_unverified"
+      ],
+      "source_state": "outside_ledger_authority",
+      "answer_supported": false,
+      "source_support_established": false,
+      "entity_identity_established": false,
+      "event_identity_established": false,
+      "historical_truth_independently_verified": false
+    },
+    {
+      "origin": "dump",
+      "text": "Message-ID: SHIP-9\nSubject: Wool shipment\nFrom: Salem wool house\nDate sent: May 20, 1850",
+      "path": "ship-9a.txt",
+      "source_sha256": "sha256:9efe8d1bf9d46510d04aa3af465a2146b1bc4b8958de722036b39236c96db8b6",
+      "bytes": [
+        0,
+        88
+      ],
+      "records": [
+        "SHIP-9"
+      ],
+      "warnings": [],
+      "in_ledger_as": [],
+      "score": 1.306,
+      "citation_id": "P3",
+      "label": "Source excerpt · interpretation not checked",
+      "tags": [
+        "text_observation",
+        "exact_span",
+        "entity_resolution_unverified",
+        "event_coreference_unverified",
+        "historical_truth_unverified"
+      ],
+      "source_state": "outside_ledger_authority",
+      "answer_supported": false,
+      "source_support_established": false,
+      "entity_identity_established": false,
+      "event_identity_established": false,
+      "historical_truth_independently_verified": false
+    },
+    {
+      "origin": "dump",
+      "text": "Message-ID: SHIP-9\nSubject: Wool shipment\nFrom: Salem wool house\nDate sent: May 20, 1850",
+      "path": "ship-9b.txt",
+      "source_sha256": "sha256:78b75c98b739e7ee765b732db84ec19d2dbff71c5282cd0d008af1cd7fdc0e14",
+      "bytes": [
+        0,
+        88
+      ],
+      "records": [
+        "SHIP-9"
+      ],
+      "warnings": [],
+      "in_ledger_as": [],
+      "score": 1.306,
+      "citation_id": "P4",
+      "label": "Source excerpt · interpretation not checked",
+      "tags": [
+        "text_observation",
+        "exact_span",
+        "entity_resolution_unverified",
+        "event_coreference_unverified",
+        "historical_truth_unverified"
+      ],
+      "source_state": "outside_ledger_authority",
+      "answer_supported": false,
+      "source_support_established": false,
+      "entity_identity_established": false,
+      "event_identity_established": false,
+      "historical_truth_independently_verified": false
+    }
+  ],
+  "segments": [
+    {
+      "kind": "open_question",
+      "label": "Open research question · unanswered",
+      "text": "What might explain the different shipment cargo accounts, and what evidence would be needed to connect them?",
+      "citations": [
+        "P1",
+        "P2",
+        "P3",
+        "P4"
+      ],
+      "missing_evidence": [
+        "The cargo count changes only to thirty-eight barrels; the destination remains unchanged."
+      ],
+      "tags": [
+        "open_question",
+        "entity_resolution_unverified",
+        "event_coreference_unverified",
+        "historical_truth_unverified"
+      ],
+      "quotation_fidelity": "not_a_source_quotation",
+      "semantic_correctness": "not_verified",
+      "answer_supported": false,
+      "source_support_established": false,
+      "entity_identity_established": false,
+      "event_identity_established": false,
+      "historical_truth_independently_verified": false
+    }
+  ],
+  "model": {
+    "requested": true,
+    "status": "unverified_interpretations",
+    "model": {
+      "backend": "llamacpp",
+      "model": "mplpb-exploration-qwen05",
+      "weights_digest": null
+    },
+    "semantic_correctness_verified": false
+  },
+  "unresolved": [
+    "Entity identity and event co-reference are not established.",
+    "Model interpretations are not checked source support or historical truth.",
+    "Missing intermediate evidence must be supplied; citations alone do not bridge a chain."
+  ],
+  "retrieval_limits": {
+    "sorter_complete": true,
+    "native_inspection_truncated": false,
+    "native_max_paragraphs": 2048,
+    "native_max_characters": 1000000,
+    "question_parts": [
+      "What might explain the different shipment cargo accounts",
+      "what evidence would be needed to connect them"
+    ],
+    "question_parts_truncated": false,
+    "display_max_characters": 12000,
+    "display_characters": 436,
+    "unshown_matching_spans": 0,
+    "contrary_wording_candidates": 0,
+    "unshown_contrary_wording_candidates": 0,
+    "limits_or_exclusions": [],
+    "displayed_passages": 4,
+    "matching_passages": 4
+  },
+  "search_complete": false,
+  "sorter_limits": {
+    "complete": true,
+    "limits_or_exclusions": []
+  },
+  "dump_withheld": false,
+  "strict_slots_consumed_by_exploration": 0
+}

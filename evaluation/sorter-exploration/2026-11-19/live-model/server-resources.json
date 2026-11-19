@@ -1,0 +1,27 @@
+{
+  "pid": 2552,
+  "server_cpu_seconds_lifetime": 24.89,
+  "server_peak_rss_bytes": 700129280,
+  "command": [
+    "/tmp/mplpb-local-triage-runtime/llama/llama-b12521/llama-server",
+    "--offline",
+    "--model",
+    "/tmp/mplpb-local-triage-runtime/model.gguf",
+    "--alias",
+    "mplpb-exploration-qwen05",
+    "--host",
+    "127.0.0.1",
+    "--port",
+    "18081",
+    "--ctx-size",
+    "4096",
+    "--parallel",
+    "1",
+    "--threads",
+    "2",
+    "--n-gpu-layers",
+    "0",
+    "--no-webui"
+  ],
+  "scope": "Server lifecycle includes loading,idle and one inference;controller RSS includes subsequent full weights checksum read."
+}

@@ -243,3 +243,5 @@ Measured fixpack/gap update: [final experiment](evaluation/fixpack/2026-11-18/FI
 
 
 The [sorter exploration view](docs/SORTER_EXPLORATION.md) adds visible tags for textual observations, possible connections, changed bodies, unresolved entity identity/event co-reference and unverified historical truth. `python -m mplpb_work.sorter_explorer sort DIRECTORY --mode compare` shows them without changing the underlying sorter format. Its separate `ask` command accepts unofficial free-form research questions; optional local-model hypotheses remain explicitly unverified beside the native MPLPB decision. Neither the labels nor model proposals establish historical truth or change ledger authority.
+
+Sorter exploration validation: [frozen execution record](evaluation/sorter-exploration/2026-11-19/FINAL_REPORT.md) includes15 new boundary tests,unchanged source graphs and native H05 proof,a live small-model smoke with no demonstrated reasoning gain,and retained failed storage runs. These are inspection/authority-boundary results,not historical accuracy scores.

@@ -76,4 +76,6 @@ python -m unittest -q tests.test_sorter_explorer
 python -m unittest -q tests.test_sorter tests.test_sorter_v2 tests.test_answer_router_boundaries tests.test_local_narrator
 ```
 
-These are software boundary tests, including mocked interpretations. They are not a live-model semantic evaluation, a historical truth test, or evidence of increased complete-answer coverage. Earlier frozen measurements remain unchanged. [Versioned execution record](../evaluation/sorter-exploration/2026-11-19/REPORT.md) records the checks actually run for this update.
+These are software boundary tests, including mocked interpretations. They are not a live-model semantic evaluation, a historical truth test, or evidence of increased complete-answer coverage. Earlier frozen measurements remain unchanged. [Versioned execution record](../evaluation/sorter-exploration/2026-11-19/FINAL_REPORT.md) records the checks actually run for this update.
+
+To reuse the original graph with existing tools, take `view["source_graph"]` and re-run `sorter_v2.verify_graph(graph, directory)`. The label envelope and any generated hypothesis are not ledger pages, accepted evidence, or import approval.
