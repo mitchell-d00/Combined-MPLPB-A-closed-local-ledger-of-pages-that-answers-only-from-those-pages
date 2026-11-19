@@ -20,6 +20,7 @@ being tested, not proven world-first.
 | Sort unformatted text without promoting claims | [Offline sorter](PREPROCESSING_SORTER.md) |
 | Distinguish supported answers from returned pages | [Result contracts](PAGE_RETRIEVAL.md) / [pipeline](GENERAL_ANSWER_PIPELINE.md) |
 | Inspect documentary relations or checked question parts | [Reconstruction](HISTORICAL_RECONSTRUCTION_ENGINE.md) / [solo workflow](SOLO_RESEARCH_WORKFLOW.md) |
+| Assemble research sections while preserving conflicts and source dependence | [Documentary article dossiers](DOCUMENTARY_ARTICLES.md) |
 | Import and manage original sources | [Collections](EXPLORATION_COLLECTIONS.md) / [source policy](USER_BUILT_COLLECTIONS.md) |
 | Connect a script or local agent | [JavaScript API](../JAVASCRIPT-API.md) / [MCP](MCP_AGENT.md) |
 | Preserve specialist work and host observations | [Work API](SPECIALIST_CONTINUITY_API.md) |

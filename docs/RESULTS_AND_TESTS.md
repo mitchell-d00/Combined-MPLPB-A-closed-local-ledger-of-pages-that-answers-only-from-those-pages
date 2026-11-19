@@ -2,6 +2,12 @@
 
 Last reviewed: 2026-11-19.
 
+The [documentary article preservation study](../evaluation/documentary-articles/2026-11-19/REPORT.md)
+covers bounded assembly, conflicting accounts and shared declared ancestry.
+[Controls](../tests/test_documentary_article.py) and the
+[original-record runner](../tools/article_study.py) test preservation of native
+decisions; they do not establish additional historical accuracy.
+
 Package role: [how this part fits Combined MPLPB](PACKAGE_GUIDE.md#evidence-and-limits). This guide covers evidence or operation limits; dated results keep the revision and scope they measured.
 
 Every retained evaluation family is listed below. The [machine-readable index](results.json)

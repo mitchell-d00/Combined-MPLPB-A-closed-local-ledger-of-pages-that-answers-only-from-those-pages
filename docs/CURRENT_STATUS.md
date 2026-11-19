@@ -26,6 +26,7 @@ supported answer retain distinct labels. No document seal proves historical trut
 | Ledger/gates | Revisions, ancestry, source hashes, delivery profiles, exclusions and current eligibility | Integrity/authorship/truth remain separate |
 | Strict answering | Finite source-body proofs, explicit diagnostics, conflicts, checked partials and refusals | Many ordinary historical constructions remain unsupported |
 | Documentary inspection | Source units/layer hints, literal comparisons, obligations, bounded relations and original-byte mapping where available | Missing links, OCR/quotation problems and ambiguous identities stop completion |
+| [Documentary article dossiers](DOCUMENTARY_ARTICLES.md) | Read-only assembly of native research sections, competing accounts and shared declared ancestry | No article-level proof, automatic relationship resolution or independent-witness count; native CLI/library only |
 | Application | Native/browser collections, deterministic conversation, references, local context and procedures | Saved user context is not ledger evidence; arbitrary conversation/prose understanding is not established |
 | Work and integration | Scoped specialist continuity, host receipts, JavaScript transport and native local MCP | A successful tool/receipt is not historical truth, task execution proof or shared-service readiness |
 | Optional acquisition/models | Explicit source capture/crawler setup and separate local/browser helper paths | Deployment, device behavior and semantic efficacy need their own evidence |

@@ -1,0 +1,47 @@
+{
+  "schema": "article-development-controls-v1",
+  "scope": "Observed working-tree controls, not an archived-source or semantic accuracy claim.",
+  "baseline": {
+    "command": "python -m unittest tests.test_reconstruction_engine tests.test_documentary_assertions -q",
+    "tests": 52,
+    "exit_code": 0
+  },
+  "before_implementation": {
+    "command": "python -m unittest tests.test_documentary_article -q",
+    "exit_code": 1,
+    "failure": "ImportError: cannot import name article from mplpb_work; module did not exist.",
+    "meaning": "Missing-feature control, not a demonstrated old proof-rule bug."
+  },
+  "working_tree_article_tests": {
+    "command": "python -m unittest tests.test_documentary_article -q",
+    "tests": 15,
+    "exit_code": 0
+  },
+  "working_tree_public_controls": {
+    "command": "python -m tools.evaluate_public_evidence --require-capabilities --output /tmp/mplpb-article-public-evidence.json",
+    "pass": 52,
+    "false_supported_bridges": 0,
+    "exit_code": 0
+  },
+  "coordination_error": {
+    "command": "python tools/build_handoff.py --check",
+    "exit_code": 1,
+    "reason": "Check was invoked before asynchronous handoff builder completed; stale artifact was correctly rejected. Repeated after builder completion: exit0. No source authority rule changed."
+  },
+  "archive_review": {
+    "candidate": "2c173b3",
+    "issue": "Study runner assumed a .git directory. Found during source-archive inspection before running the study. Runtime assembler and tests unchanged.",
+    "fix": "Exported runner records revision:null with full runtime hashes; caller retains the archive revision receipt. No guessed ancestor revision."
+  },
+  "restricted_working_tree_full_suite": {
+    "command": "python -m unittest discover -s tests -q",
+    "exit_code": 1,
+    "tests_run": 1434,
+    "seconds": 650.931,
+    "failures": 3,
+    "errors": 11,
+    "skipped": 2,
+    "observed_errors": "PermissionError: Operation not permitted when creating local-server sockets; three researcher-pilot assertions fail when sandbox journeys cannot execute.",
+    "status": "Retained failed run. Authorized complete archived rerun with local sockets/namespaces is running; do not label this initial run passed."
+  }
+}

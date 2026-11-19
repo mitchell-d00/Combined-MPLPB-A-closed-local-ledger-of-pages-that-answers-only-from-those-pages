@@ -1,0 +1,39 @@
+{
+  "schema": "article-native-interface-checks-v1",
+  "source_revision": "2c173b3ed1533e1f0373756fc02c191dc5da7c3f",
+  "commands": [
+    {
+      "command": "python tools/check_ui_script.py",
+      "exit_code": 0,
+      "scope": "Script workflow/render controls; no real browser rendering."
+    },
+    {
+      "command": "node tests/javascript-api.cjs",
+      "exit_code": 0,
+      "scope": "Real native-engine/API parity and fixtures; not WebAssembly."
+    },
+    {
+      "command": "node tools/check_browser_transport.cjs",
+      "exit_code": 0,
+      "scope": "Transport controls; no browser layout or IndexedDB test."
+    },
+    {
+      "command": "node crawler/test_worker.mjs",
+      "exit_code": 0,
+      "scope": "Fixture-network crawler controls."
+    },
+    {
+      "command": "python -m unittest tests.test_documentary_article -q",
+      "exit_code": 0,
+      "tests": 15
+    },
+    {
+      "command": "PYTHONPATH=/tmp/mplpb-article-archive-checks/source python evaluation/documentary-articles/2026-11-19/build_example.py --output /tmp/mplpb-article-example",
+      "exit_code": 0,
+      "scope": "Fictional shared-root and contrary-account example."
+    }
+  ],
+  "actual_browser_or_wasm_rerun": "NOT RUN",
+  "deployed_site_verification": "NOT RUN",
+  "live_model_quality": "NOT RUN"
+}

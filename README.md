@@ -34,6 +34,7 @@ shared-service production readiness remain unestablished.
 | [Strict answer reader](docs/GENERAL_ANSWER_PIPELINE.md) | Checks eligible body statements against bounded question/proof rules | Source-attributed support where established; ambiguity or refusal otherwise |
 | [Page and source inspection](docs/PAGE_RETRIEVAL.md) | Retrieves an eligible owner page or keeps matching sources separate | Inspectable pages/bundles, not a factual answer merely because retrieval succeeded |
 | [Documentary research](docs/HISTORICAL_RECONSTRUCTION_ENGINE.md) | Separates checked source assertions, exact wording comparisons, question parts and candidate relations | Checked portions and unresolved evidence; no automatic event identity or historical truth |
+| [Documentary article dossiers](docs/DOCUMENTARY_ARTICLES.md) | Assemble several existing research reports with conflicts, open questions and shared declared ancestry | Read-only inspection snapshots; no new historical conclusions or independent-witness count |
 | [Conversation and reference library](docs/CHAT_WORKFLOW.md) | Offers local Chat, Serious and off-the-record modes, bounded follow-ups, dictionary lookup and library routing | Conversation, context and source evidence retain distinct labels |
 | [Collections and acquisition](docs/EXPLORATION_COLLECTIONS.md) | Imports supplied text and permitted captures into local collections | Captured/supplied sources with provenance; acquisition does not authenticate testimony |
 | [Specialist work](docs/SPECIALIST_CONTINUITY_API.md) | Retains tasks, claims, revisions, capabilities, attempts and handoffs | Recoverable work history; a saved claim or completion statement is not proof of execution |
@@ -208,9 +209,12 @@ and [native-export refinement](evaluation/preprocessing-sorter/2026-11-17-native
 cover source fidelity, identical nodes, stopped links and all-profile withholding.
 These are developer-authored controls, not independent historical accuracy results.
 
-The separate [unchanged22-question experiment](evaluation/solo-milestone/2026-11-17/RESULTS.md)
-records two complete source-supported answers and one checked partial. It retains
-correct refusals and remaining limitations; preprocessing did not increase that score.
+The earlier [unchanged22-question experiment](evaluation/solo-milestone/2026-11-17/RESULTS.md)
+records two complete source-supported answers and one checked partial at that
+revision. The latest [article preservation replay](evaluation/documentary-articles/2026-11-19/REPORT.md)
+retains **2 complete, 2 partial, 3 conflict and 15 abstention outcomes** across the
+same 22 questions. These categories are not independent judgments of historical
+correctness. Preprocessing and article assembly did not increase complete answers.
 The [result/test index](docs/RESULTS_AND_TESTS.md) distinguishes original measurements,
 software controls, AI assessments and unrun independent evaluation.
 
@@ -227,6 +231,48 @@ The sorter paper by Mitchell D. McPhetridge is available as
 [Earlier papers and notes](PAST_DOCUMENTATION.md) retain their original bytes and scope.
 
 The [D% randomized prose challenge](docs/DPERCENT.md) retains 1,240 frozen fictional cases with answer/refuse expectations and a private key withheld from runtime. [General checked prose rules](docs/PROSE_RULE_CLASSES.md) increased complete checked answers from **20 to 200 of 600**: **160 source assertions and 40 word-location answers**. All **640 expected refusals** were retained, with zero observed false support in that set; **400 answerable cases remain incomplete**. The unchanged historical replay remains **2 complete answers out of 22**. The [full findings](evaluation/dpercent/2026-11-19-class-rules/FINAL_REPORT.md) preserve costs, failed/interrupted attempts and 1,431 archived tests plus 52 public controls. This is developer-authored evaluation; independent semantic accuracy and general reconstruction remain unproven.
+
+## Assemble a documentary research dossier
+
+The native [article mode](docs/DOCUMENTARY_ARTICLES.md) combines existing research
+reports while keeping checked documentary claims, candidate connections,
+conflicting accounts and unanswered questions separate. It adds no narrative
+bridges or historical proof rules. A shared declared ancestor stays visible;
+three copies are not counted as three independent witnesses. Missing ancestry
+also leaves independence unknown.
+
+Create a UTF-8 `plan.json` with a topic label and 1–8 original questions:
+
+```json
+{
+  "title": "Appointments and correspondence",
+  "questions": [
+    "Who appointed Ellis Marsh?",
+    "Who wrote the harbour report?"
+  ]
+}
+```
+
+These are fictional example questions. Import your original sources through the
+existing collection workflow, then run:
+
+```sh
+python -m mplpb_answers article LEDGER --plan plan.json --format text
+```
+
+JSON is the default output. Each section retains its own source eligibility,
+exact citations, native answer and candidate graph. Changes detected during
+assembly discard the entire dossier. Exports are snapshots: rerun for current
+eligibility. Article-level support and historical truth remain unestablished.
+This mode is available in the native CLI/library; it is not a browser article editor.
+
+The [recorded checks](evaluation/documentary-articles/2026-11-19/REPORT.md) include
+**1,446 archived Python tests and 52 public-evidence controls passed**, a
+source-linked shared-ancestry/conflict example, and exact preservation of all
+22 native historical answer contracts. Initial permission-related failures are
+retained. This demonstrates assembly preservation, not a gain in historical
+answer coverage or independent accuracy. The next research milestone is a
+checked cross-document connection with evidence for every necessary link.
 
 ## Development, packaging and licenses
 

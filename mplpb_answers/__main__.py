@@ -145,6 +145,26 @@ def cmd_correct_claim(args):
     return 0
 
 
+def cmd_article(args):
+    from pathlib import Path
+    from .evidence_contract import loads, ReaderError
+    from mplpb_work.article import assemble, render
+    try:
+        with Path(args.plan).open('rb') as stream:
+            raw = stream.read(65537)
+        if len(raw) > 65536:
+            raise ValueError('Article plan exceeds 64 KiB')
+        plan = loads(raw.decode('utf-8'))
+        result = assemble(args.root, plan, R.PROFILES[args.profile],
+                          max_passages=args.max_passages, max_chars=args.max_context_chars)
+    except (ValueError, OSError, ReaderError) as exc:
+        print(json.dumps({'error': str(exc), 'answer_supported': False}), file=sys.stderr)
+        return 2
+    print(render(result) if args.format == 'text' else json.dumps(result, indent=2, ensure_ascii=False))
+    # Exit 0 means a dossier was assembled, never that history was resolved.
+    return 0 if result['status'] == 'article_snapshot' else 3
+
+
 def build_parser():
     parser = legacy_parser()
     parser.prog = 'mplpb-combined'
@@ -200,6 +220,14 @@ def build_parser():
     reconstruction.add_argument('--reader-model',help='optional explicitly installed local candidate reader; never historical truth authority')
     reconstruction.add_argument('--reader-endpoint',default='http://127.0.0.1:11434')
     reconstruction.set_defaults(fn=cmd_reconstruct)
+    article = sub.add_parser('article', help='assemble checked/candidate research sections; no article-level proof')
+    article.add_argument('root')
+    article.add_argument('--plan', required=True, help='UTF-8 JSON with a title and 1–8 original questions')
+    article.add_argument('--profile', choices=R.PROFILES, default='internal')
+    article.add_argument('--format', choices=('json', 'text'), default='json')
+    article.add_argument('--max-passages', type=int, default=12)
+    article.add_argument('--max-context-chars', type=int, default=12000)
+    article.set_defaults(fn=cmd_article)
     correction=sub.add_parser('correct-claim',help='explicitly revise one unique source span while preserving the predecessor and unaffected text')
     correction.add_argument('root');correction.add_argument('source_id')
     correction.add_argument('--old-quote',required=True);correction.add_argument('--new-quote',required=True)
