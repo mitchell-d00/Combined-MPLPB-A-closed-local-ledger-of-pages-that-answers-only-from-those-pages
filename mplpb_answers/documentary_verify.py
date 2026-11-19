@@ -10,11 +10,13 @@ from html.parser import HTMLParser
 from .body_text import body_text, VERSION as BODY_VERSION
 from .passages import PassageIndex
 
-VERSION = 'documentary-assertion-kernel-v6'
+VERSION = 'documentary-assertion-kernel-v7'
 PAST = {'appointed':'appoint','sent':'send','received':'receive','wrote':'write',
         'surveyed':'survey','published':'publish','revised':'revise','canceled':'cancel',
          'ordered':'order','requested':'request','instructed':'instruct'}
 BASE = {v:k for k,v in PAST.items()}
+PASSIVE = {form:PAST[form] for form in ('appointed','sent','received','surveyed','published','revised','canceled')}
+PASSIVE['written']='write'
 META = re.compile(r'\b(?:fictional|hypothetical|example|suppose|quotation|alleged)\b',re.I)
 NAME = re.compile(r"[^\W\d_](?:[^\W\d_]|[’'\-])*(?:\.(?=\s|$))?(?:\s+[^\W\d_](?:[^\W\d_]|[’'\-])*\.?){0,7}")
 DATE = re.compile(r'\b(?:January|February|March|April|May|June|July|August|September|October|November|December)\s+\d{1,2}(?:st|nd|rd|th|d)?[,]?\s+\d{4}\b')
@@ -73,6 +75,31 @@ def source_question(question):
     q=re.sub(r'^Please (?:assess|answer|evaluate|examine|consider) (?:this|the question) (?:from|using|based on) (?:the )?(?:provided|supplied|eligible|available) (?:records|sources|documents):\s*','',q,flags=re.I)
     q=re.sub(r'(?<=\?)\s+(?:Keep|Leave) (?:unknown|unverified|unresolved) (?:matters|claims|parts|issues) (?:unresolved|unverified)\.?$','',q,flags=re.I)
     return re.sub(r'^According to the (?:record|report|source|letter),\s*','',q,flags=re.I)
+
+
+def action_forms(action):
+    """All finite active/passive spellings, including irregular participles."""
+    return {action}|{word for word,value in {**PAST,**PASSIVE}.items() if value==action}
+
+
+def literal_request(question):
+    """Whole-request literal location, with no historical/execution obligation."""
+    q=source_question(question)
+    match=re.fullmatch(r'(?:Which|What) (?:source|record|document) (?:contains|includes|records) (?:the )?exact (?:words|wording|text) ["“]([^"“”]{2,240})["”]\??(?:\s*(?:(?:Locate|Find|Identify) (?:the )?(?:words|wording|text) only|(?:Keep|Leave) (?:unknown|unverified|unresolved) (?:matters|claims|parts|issues) (?:unresolved|unverified))\.){0,2}',q,re.I)
+    return match[1] if match else None
+
+
+def literal_pattern(anchor):
+    pattern=r'\s+'.join(re.escape(word) for word in anchor.split())
+    return re.compile((r'(?<!\w)' if anchor[0].isalnum() else '')+pattern+(r'(?!\w)' if anchor[-1].isalnum() else ''))
+
+
+def literal_occurrence(question,quote):
+    anchor=literal_request(question)
+    if not anchor or not literal_pattern(anchor).search(quote):return None
+    return {'relation':'source_literal_occurrence','requested_words':anchor,
+            'matching_basis':'Exact code points and word boundaries; source whitespace may wrap.',
+            'text_only':True,'event_identity':None,'historical_truth_independently_verified':False}
 
 
 def quoted_context(prefix):
@@ -352,9 +379,25 @@ def check(index,proposals,*,max_scan_chars=200000):
             if len(matches)==1:
                 value,context=local_referent_context(record,body,a,b,matches[0])
                 citations=[citation(record,body,a,b)]+context
+        elif kind=='literal_location':
+            value=literal_occurrence(fresh.question,body[a:b])
+            if value:
+                # Re-search all eligible bodies independently of proposal rank.
+                owners=set();remaining=max_scan_chars;whole=True
+                pattern=literal_pattern(value['requested_words'])
+                for path,text in bodies.items():
+                    inspected=text[:max(0,remaining)];remaining-=len(inspected)
+                    if len(inspected)<len(text):whole=False
+                    if pattern.search(inspected):owners.add(path)
+                citations=[citation(record,body,a,b)]
+                if whole and complete and owners=={record.path}:
+                    value.update(question_obligations_verified=True,verified_question=fresh.question,
+                        question_completion_rule='eligible_literal_location_v1',
+                        reference_scope='Textual occurrence in one current eligible source; no event or historical assertion.')
+                value['eligible_source_ambiguity']=len(owners)>1
         if value is None:rejected.append('assertion_grammar_or_context_unresolved');continue
         certified.append({'proposition':value,'citations':citations,'source_support_established':True,
-            'support_scope':'source_attributed_assertion','verification':VERSION,
+            'support_scope':'textual_occurrence' if kind=='literal_location' else 'source_attributed_assertion','verification':VERSION,
             'historical_truth_independently_verified':False})
     if not fresh.unchanged() or not index.unchanged():
         return {'proofs':[],'status':'source_changed','scan_complete':False,'rejected':[],'scanned':[],'examined_characters':used}
@@ -399,12 +442,12 @@ def relationship_assertion(quote):
             value={'relation':'source_temporal_assertion','subject_text':left,'action_text':action,'ordering':order,
                    'reference_text':right,'date_role':'publication' if action=='was published' else 'revision' if action=='was revised' else 'receipt' if action=='was received' else 'reported_event',
                    'reference_date_role':'unresolved','normalized_event_time':None,'causality_established':False,'negative':False}
-    passive=re.fullmatch(r'(.{2,160}?) was (not )?(appointed|sent|received|surveyed|published|revised|canceled|written) by (.{2,100})\.',clean)
+    passive=re.fullmatch(r'(.{2,160}?) was (not )?('+'|'.join(PASSIVE)+r') by (.{2,100})\.',clean)
     if passive:
         obj,neg,action,actor=passive.groups()
         if (named_actor(actor) and not re.search(r'\b(?:he|she|they|it|we|i|you|if|unless|and|or|not|never|perhaps|maybe|possibly|apparently|allegedly|reportedly|planned|requested|reported)\b',actor+' '+obj,re.I)
             and not normalized(actor).split()[0].endswith('ly')):
-            value={'relation':'source_passive_action_assertion','actor_text':actor,'action':'write' if action=='written' else PAST[action],
+            value={'relation':'source_passive_action_assertion','actor_text':actor,'action':PASSIVE[action],
                    'object_text':obj,'negative':bool(neg),'unresolved_reference':bool(re.search(r'\b(?:that|this|it|him|her|them|those|these|dated|pending|except|only|provided)\b|\bsubject to\b|\bthe (?:area|region|place|book|letter|report)\b',obj,re.I))}
     if value is not None:
         value.update(assertion_modality='source_attributed_assertion',event_identity=None,

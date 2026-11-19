@@ -207,6 +207,8 @@ def admit_proposals(index,proposals,goals,relevant,budget,reserved=None):
             value={'relation':'exact_wording_comparison'}
         elif kind=='relationship_statement':
             value=kernel.relationship_assertion(proposal['quote']);spans=[kernel.citation(record,body,a,b)]
+        elif kind=='literal_location':
+            value=kernel.literal_occurrence(index.question,proposal['quote']);spans=[kernel.citation(record,body,a,b)]
         else:
             value=kernel.action_assertion(proposal['quote']);spans=[kernel.citation(record,body,a,b)]
             value,context=kernel.local_referent_context(record,body,a,b,value)

@@ -13,6 +13,10 @@ These rules extend existing documentary extraction and independent verification.
 
 Only existing source-attributed support is awarded. Event identity and historical truth remain unverified. No missing dispatch, receipt, cause, correction target or pronoun binding is supplied. Full contrary-evidence scans, provenance, current eligibility and display budgets remain enforced.
 
+* Literal source-location questions now have their own finite rule. A question asking which source contains quoted words can establish **textual occurrence only**, including words inside a denial or quotation. The independent checker searches current eligible bodies, enforces code points and word boundaries with explicit whitespace wrapping, and requires a unique source owner plus a complete bounded search. It cannot answer an execution or causal question. Titles, metadata-only matches, multiple owners and over-budget evidence cannot establish a complete answer.
+* Absolute source coordinates are retained when a retrieved passage begins partway through a document. A sentence position must not receive the passage offset twice. A separate long-document test covers this class without naming a historical benchmark case.
+* Alternative-action detection uses the same finite active/passive form vocabulary, including irregular participles. Unparsed denials, reported wording and unresolved pronouns cannot be hidden because one spelling differs from the affirmative verb.
+
 ## Validation and failure cohorts
 
 [Class tests](../tests/test_prose_rule_classes.py) use separate vocabulary and cover positive forms, named-attribution erasure, unchanged original questions, metadata-only sources, reported/conditional/negated statements, passive conflicts, Unicode actors, explicit causes and missing counterstatement identity. The initial test run and intermediate harness errors are retained in the versioned comparison evidence. The frozen generator/key are not edited to improve performance.
@@ -25,3 +29,5 @@ python -m unittest -q tests.test_prose_rule_classes tests.test_dpercent_features
 ```
 
 Family and rolled layout, wrapping, question structure, scope variants, line endings, extensions and distractor counts have separate denominators, missed-answer rates and false-alarm rates. Actor names and answer strings are excluded from feature labels. Some rolled values are inactive or overridden to retain necessary source context; use these as descriptive cohorts, not causal effects or independent accuracy. Comparison results are written to new directories. No general historical reconstruction success is implied.
+
+The [versioned comparison](../evaluation/dpercent/2026-11-19-class-rules) preserves a rejected first iteration, including its lost historical partials and full-suite failure. A second candidate repairs source coordinates and expands literal-location and qualification checks. Never silently replace the failed iteration.

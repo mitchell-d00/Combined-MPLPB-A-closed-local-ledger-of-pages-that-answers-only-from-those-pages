@@ -4,8 +4,8 @@ Last reviewed: 2026-11-19.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `5c0ce0a3f96396e67147dff383015843b9e9b06a` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `776573c237a7f308f8100971c5d31a8c8730c7b46654ea77010c4cdd95aeb2e6`.
+Base commit: `3d694aafba1c81c0961c51f542d9cda9ff88de9f` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `26dae512543f9fbb284651b03961962b6eb374e081019ea68e92a03ca1ab4457`.
 
 ## Latest user update instructions
 
@@ -18,27 +18,27 @@ D% records every dice roll, so you can cluster the failures by which structural 
 - Persist mandatory general-class/no benchmark-rigging rules in AGENTS.md.
 - Reconstruct and verify exact sealed roll trace and packets;group failures by family and structural choices,not actor names.
 - Implement correspondence boundaries,source-scoped request grammar,Unicode/passive actions and exact explicit-cause closure in existing independent kernel.
+- Iteration2:repair absolute source offsets,cover irregular passive counterevidence,and add literal-text location as a separate textual-only proof class.
 
 ## Validation recorded
 
-- 53 focused class/cohort and native documentary/admission tests passed,exit0.
-- New general class tests fail before implementation;before log and intermediate invalid-budget/mistyped-module errors retained.
-- All1240 baseline rolls and packets replay identically;generator/worker/tests/key remain unchanged.
-- Paired historical baseline is running using archived pre-fix native packages;updated D%/originals and full archived regressions pending.
+- Iteration1:160/600 checked complete,E26.67%;640/640 expected refusals,F0%;440 incomplete answerable cases. All1240 executions completed.
+- Iteration1 archived full suite:1408 tests,one failure,exit1;52 public controls passed. Two historical partials regressed to abstention. Candidate rejected as final;all outputs retained.
+- New independent-vocabulary tests reveal named-attribution erasure and conflicting passive evidence in old main;written denial/hedge variants also require action-form handling.
+- Iteration2 focused suite64 tests passed,exit0,including original appointment control,long-document coordinates,literal-only proof and forged-proposal refusal.
+- Generator0b2c5c8,worker and official private key unchanged throughout;all original sources/questions/seals remain untouched.
 
 ## Limitations and blocked checks
 
-- This is developer-authored development,not independently judged historical accuracy.
-- Scoring key remains outside Git and outside runtime;feature analyzer is custodian-only.
-- No historical identity,quoted-speech execution,missing chain,partial-correction or model interpretation is promoted.
-- Native rule candidate is not yet full-regression certified or merged.
+- No independent semantic review or historical truth established.
+- Literal location proves words only;do not count it as reconstructed historical relationships.
+- Iteration2 full regression,D% and22-source replay pending;no final acceptance or merge claimed.
 
 ## Next steps
 
-- Freeze committed class-rule candidate;run updated1240 cases on identical packets with same unchanged key.
-- Run exact archived full suite and52 public controls;retain all regression failures before repairing.
-- Run paired unchanged22-question original-source direct arm and report losses as well as gains.
-- Use descriptive feature failures to choose any next general fix;never change frozen questions or labels.
+- Freeze iteration2,rerun same1240 packets and complete native regressions from extracted source.
+- Rerun unchanged22-question direct arm;verify both checked partials are restored and complete answers do not regress.
+- Compare roll cohorts and disclose remaining incomplete classes and any false support.
 
 ## Use this ZIP in your repository
 

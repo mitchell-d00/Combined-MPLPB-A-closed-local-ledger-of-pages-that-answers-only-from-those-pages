@@ -1,0 +1,21 @@
+======================================================================
+FAIL: test_location_accepts_only_textual_presence_in_quoted_or_conditional_text (tests.test_documentary_text_location.TextLocationTests.test_location_accepts_only_textual_presence_in_quoted_or_conditional_text)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/mplpb/tests/test_documentary_text_location.py", line 23, in test_location_accepts_only_textual_presence_in_quoted_or_conditional_text
+    self.assertTrue(result['answer_supported'])
+AssertionError: False is not true
+
+======================================================================
+FAIL: test_wrapped_unicode_words_keep_exact_source_citation (tests.test_documentary_text_location.TextLocationTests.test_wrapped_unicode_words_keep_exact_source_citation)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/mplpb/tests/test_documentary_text_location.py", line 31, in test_wrapped_unicode_words_keep_exact_source_citation
+    self.assertTrue(result['answer_supported']);self.assertIn('Élise\nheld',result['claims'][0]['citations'][0]['quote'])
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: False is not true
+
+----------------------------------------------------------------------
+Ran 7 tests in 0.290s
+
+FAILED (failures=2)
