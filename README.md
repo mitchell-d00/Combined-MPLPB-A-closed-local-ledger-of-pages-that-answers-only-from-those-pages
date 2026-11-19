@@ -226,6 +226,8 @@ The sorter paper by Mitchell D. McPhetridge is available as
 [PDF](docs/research/dual-mode-sorter/dual-mode-sorter.pdf).
 [Earlier papers and notes](PAST_DOCUMENTATION.md) retain their original bytes and scope.
 
+The [D% randomized prose challenge](docs/DPERCENT.md) tests structurally varied fictional records in both directions: missed answerable questions and false support. Its [frozen baseline](evaluation/dpercent/2026-11-19/REPORT.md) preserves current-main failures before engine changes. It is developer-authored testing, not independent historical validation.
+
 ## Development, packaging and licenses
 
 The [developer guide](docs/DEVELOPER_QUICKSTART.md) maps the implementation;

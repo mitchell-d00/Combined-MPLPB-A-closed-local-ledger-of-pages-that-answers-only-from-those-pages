@@ -158,4 +158,4 @@ Optional review update (2026-11-18): [Synonym Ranker and Candidate Relater](SORT
 
 The [pinned B-Tests d100 retest](../evaluation/sorter-exploration/2026-11-19/d100/REPORT.md) preserves100 native cases and100 separate explorer checks on the same fresh packets. Sources,keys and prior scores are unchanged;these are fictional authority controls,not historical accuracy.
 
-| [dpercent](../evaluation/dpercent) | [test_dpercent.py](../tests/test_dpercent.py) | [dpercent.py](../tools/dpercent.py); [dpercent_worker.py](../tools/dpercent_worker.py) | Frozen fictional structural challenge with both detection and false-alarm scoring;not real historical accuracy or independent semantic review. |
+The [D% randomized prose challenge](DPERCENT.md) retains a frozen original fictional batch, answer/refuse scoring and a current-main baseline in [versioned evidence](../evaluation/dpercent/2026-11-19). [Generator/scorer tests](../tests/test_dpercent.py) verify replay, hard-case retention, key separation and negative scoring; they do not establish historical accuracy.

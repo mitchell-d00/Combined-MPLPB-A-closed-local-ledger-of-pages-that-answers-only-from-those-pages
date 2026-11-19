@@ -1,6 +1,6 @@
 # Documentation index
 
-Last reviewed: 2026-11-18.
+Last reviewed: 2026-11-19.
 
 [Repository overview](../README.md) · [Package guide](PACKAGE_GUIDE.md) · [Install](INSTALLATION.md) · [Current evidence](CURRENT_STATUS.md)
 · [Live application](https://mitchell-d00.github.io/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/)
@@ -138,6 +138,7 @@ are not rewritten to fit current package language.
 | [Candidate release evidence and required repository settings](RELEASE_EVIDENCE.md) | Evidence and limits |
 | [Supporting-infrastructure synchronization gate](REPOSITORY_INFRASTRUCTURE.md) | Evidence and limits |
 | [Results and their tests](RESULTS_AND_TESTS.md) | Evidence and limits |
+| [D% structural prose challenge](DPERCENT.md) | Frozen synthetic baseline, detection and false-alarm metrics; not historical accuracy. |
 | [Rollback and recovery](ROLLBACK.md) | Evidence and limits |
 | [ZIP-first release testing for humans and AI agents](ZIP_FIRST_RELEASE_TESTING.md) | Evidence and limits |
 | [Mechanism-level originality matrix](research/mplpb-originality/MATRIX.md) | Research/evaluation record; use its named revision and protocol scope |

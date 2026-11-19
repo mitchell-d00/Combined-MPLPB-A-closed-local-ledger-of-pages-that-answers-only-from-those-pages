@@ -1,0 +1,169 @@
+{
+  "answer_cases": 600,
+  "refuse_cases": 640,
+  "correct_complete_answers": 20,
+  "false_alarms": 0,
+  "E": 0.03333333333333333,
+  "F": 0.0,
+  "E_lower_bound": 0.03333333333333333,
+  "E_output": 0.03333333333333333,
+  "false_alarm_observed_on_completed": 0.0,
+  "over_refusals": 580,
+  "appropriate_refusals": 640,
+  "execution_failures": 0,
+  "unscored_supported": 0,
+  "complete_decision_match": false,
+  "historical_accuracy": null,
+  "independent_semantic_review": "NOT RUN",
+  "caution": "E counts independently matched typed source propositions,not merely positive support flags;unsupported matcher shapes remain unscored.",
+  "outcomes": {
+    "over_refusal": 580,
+    "appropriate_refusal": 640,
+    "detected_answer": 20
+  },
+  "by_family": {
+    "absent_anchor": {
+      "appropriate_refusal": 40
+    },
+    "ambiguous_correction": {
+      "appropriate_refusal": 40
+    },
+    "ambiguous_pronoun": {
+      "appropriate_refusal": 40
+    },
+    "chronology_causation": {
+      "appropriate_refusal": 40
+    },
+    "competing_accounts": {
+      "appropriate_refusal": 40
+    },
+    "conditional_execution": {
+      "appropriate_refusal": 40
+    },
+    "corrupted_source": {
+      "appropriate_refusal": 40
+    },
+    "date_roles": {
+      "over_refusal": 40
+    },
+    "direct_action": {
+      "over_refusal": 24,
+      "detected_answer": 16
+    },
+    "earliest_observed": {
+      "over_refusal": 40
+    },
+    "editorial_competition": {
+      "over_refusal": 36,
+      "detected_answer": 4
+    },
+    "embedded_identifier": {
+      "appropriate_refusal": 40
+    },
+    "exact_anchor": {
+      "over_refusal": 40
+    },
+    "explicit_cause": {
+      "over_refusal": 40
+    },
+    "explicit_chain": {
+      "over_refusal": 40
+    },
+    "header_location": {
+      "over_refusal": 40
+    },
+    "historical_priority": {
+      "appropriate_refusal": 40
+    },
+    "identical_wording": {
+      "over_refusal": 40
+    },
+    "instruction_statement": {
+      "over_refusal": 40
+    },
+    "intention_execution": {
+      "appropriate_refusal": 40
+    },
+    "missing_bridge": {
+      "appropriate_refusal": 40
+    },
+    "negated_execution": {
+      "appropriate_refusal": 40
+    },
+    "negated_statement": {
+      "over_refusal": 40
+    },
+    "partial_correction": {
+      "over_refusal": 40
+    },
+    "passive_action": {
+      "over_refusal": 40
+    },
+    "reported_execution": {
+      "appropriate_refusal": 40
+    },
+    "reported_statement": {
+      "over_refusal": 40
+    },
+    "restricted_source": {
+      "appropriate_refusal": 40
+    },
+    "subject_identity": {
+      "appropriate_refusal": 40
+    },
+    "withdrawn_source": {
+      "appropriate_refusal": 40
+    },
+    "wording_change": {
+      "over_refusal": 40
+    }
+  },
+  "retrieval": {
+    "native_facets": {
+      "recall_at_1": {
+        "mean": 0.7648148148148148,
+        "cases": 1080
+      },
+      "recall_at_5": {
+        "mean": 0.895679012345679,
+        "cases": 1080
+      },
+      "recall_at_10": {
+        "mean": 0.8984567901234568,
+        "cases": 1080
+      },
+      "complete_statement_coverage": {
+        "mean": 0.8984567901234568,
+        "cases": 1080
+      }
+    },
+    "simple_bm25": {
+      "recall_at_1": {
+        "mean": 0.7760802469135802,
+        "cases": 1080
+      },
+      "recall_at_5": {
+        "mean": 0.981172839506173,
+        "cases": 1080
+      },
+      "recall_at_10": {
+        "mean": 1.0,
+        "cases": 1080
+      },
+      "complete_statement_coverage": {
+        "mean": 1.0,
+        "cases": 1080
+      }
+    }
+  },
+  "resources": {
+    "cpu_seconds": 147.676474195,
+    "wall_seconds": 153.1360571329842,
+    "explicit_original_read_calls": 6488,
+    "explicit_original_bytes_read": 795751,
+    "peak_worker_rss_bytes": 28516352,
+    "measured_cases": 1240,
+    "total_pipeline_source_bytes_read": null,
+    "human_review_seconds": null
+  }
+}
