@@ -1,0 +1,72 @@
+{
+  "schema": "closed-ledger-reproduction-v1",
+  "revision": "3d694aafba1c81c0961c51f542d9cda9ff88de9f",
+  "archive_sha256": "27dac7116da5806e4eb28be4d40985d49906d01045a03d36354448198e4d33e9",
+  "environment": {
+    "python": "3.12.14 (main, Aug 25 2026, 14:00:49) [Clang 22.1.3 ]",
+    "platform": "Linux-6.18.57-x86_64-with-glibc2.41",
+    "machine": "x86_64",
+    "cpu_count": 5
+  },
+  "commands": [
+    {
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+        "-m",
+        "unittest",
+        "tests.test_answer_boundaries",
+        "tests.test_scoped_extensions",
+        "tests.test_supersession_policy",
+        "-q"
+      ],
+      "exit_code": 0,
+      "timed_out": false,
+      "wall_seconds": 1.5751804419996915,
+      "cpu_seconds": 1.4109930000000048,
+      "log": "check-0.log"
+    },
+    {
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-q"
+      ],
+      "exit_code": 1,
+      "timed_out": false,
+      "wall_seconds": 666.610468799001,
+      "cpu_seconds": 645.866439,
+      "log": "check-1.log"
+    },
+    {
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+        "-m",
+        "tools.evaluate_public_evidence",
+        "--require-capabilities",
+        "--output",
+        "/tmp/dpercent-class-rules-software/public-evidence.json"
+      ],
+      "exit_code": 0,
+      "timed_out": false,
+      "wall_seconds": 32.13867371299966,
+      "cpu_seconds": 31.104928000000086,
+      "log": "check-2.log"
+    }
+  ],
+  "independent_review": "NOT RUN",
+  "legacy_887_suite_reproduced": false,
+  "legacy_887_note": "No exact legacy 887-case suite or revision established by this runner.",
+  "metrics": {
+    "source_bytes_read": null,
+    "source_count_coverage": null,
+    "false_bridge_rate": null,
+    "human_labeling_seconds": null
+  },
+  "scope": "Author-written software regression; no independent semantic accuracy measurement.",
+  "peak_child_rss_bytes": 303968256,
+  "peak_memory_scope": "Process-lifetime maximum child RSS, not aggregate process-tree memory."
+}

@@ -1,0 +1,1939 @@
+[
+  {
+    "id": "DP00001",
+    "family": "direct_action",
+    "expected": "answer",
+    "before": "over_refusal",
+    "after": "detected_answer",
+    "question": "According to the record, who wrote the coastal dispatch?",
+    "sources": [
+      {
+        "path": "sources/record-01.text",
+        "raw_utf8": "NORA WELLS TO MIRA VALE. June 29, 1847\nDear colleague,\n\nNora Wells wrote the coastal dispatch.\n"
+      }
+    ],
+    "source_receipts": [
+      {
+        "source_id": "SOURCE-0001",
+        "source_file": "sources/record-01.text",
+        "path": "source-0001.html",
+        "hash": "sha256:8b0877bca6cb4dd445d116ada7b5163b6999e020d2b883327174d1f23f48a51c",
+        "raw_sha256": "0d719da8e8e1d7fcbc6089de71abfafe5d815c17ddccf9fd90084de0316dade9",
+        "canonical_body": "NORA WELLS TO MIRA VALE. June 29, 1847\nDear colleague,\nNora Wells wrote the coastal dispatch."
+      },
+      {
+        "source_id": "SOURCE-0002",
+        "source_file": "sources/inventory-00.txt",
+        "path": "source-0002.html",
+        "hash": "sha256:2646060b0856ac503a46af5e29d353fac3969d7d4f609338b58654b3da3e59fe",
+        "raw_sha256": "1b5e924962256da6cb56d16e11e08a1f92a130772ff3b661b57bfd0c18e0128d",
+        "canonical_body": "Inventory leaf 1. The archive cupboard held a woolen cover beside an unrelated register. No dispatch is recorded here."
+      }
+    ],
+    "answer": {
+      "schema": "answer-contract-v1",
+      "mode": "strict",
+      "question": "According to the record, who wrote the coastal dispatch?",
+      "kind": "supported_answer",
+      "answer_supported": true,
+      "text": "Source assertion: Nora Wells wrote the coastal dispatch. Source-attributed statement; event/person identity and historical truth are not independently verified.",
+      "claims": [
+        {
+          "text": "Source assertion: Nora Wells wrote the coastal dispatch.",
+          "qualifiers": [
+            "Source-attributed statement; event/person identity and historical truth are not independently verified."
+          ],
+          "citations": [
+            {
+              "source_id": "SOURCE-0001",
+              "path": "source-0001.html",
+              "hash": "sha256:8b0877bca6cb4dd445d116ada7b5163b6999e020d2b883327174d1f23f48a51c",
+              "body_start": 55,
+              "body_end": 93,
+              "start": 55,
+              "end": 93,
+              "quote": "Nora Wells wrote the coastal dispatch.",
+              "body_projection": "body-text-no-headings-v1"
+            }
+          ],
+          "proposition": {
+            "relation": "source_action_assertion",
+            "actor_text": "Nora Wells",
+            "action": "write",
+            "object_text": "the coastal dispatch",
+            "negative": false,
+            "temporal_qualification_text": "",
+            "unresolved_reference": false,
+            "assertion_modality": "unconditional_source_assertion",
+            "event_identity": null
+          },
+          "source_support_established": true,
+          "support_scope": "source_attributed_assertion",
+          "verification": "documentary-assertion-kernel-v9",
+          "historical_truth_independently_verified": false,
+          "proof_sha256": "sha256:34207d92e1b6cb2e605850cc05933ede160bef29ce5ceaf488467bb78adca9de"
+        }
+      ],
+      "missing": [],
+      "clarification": "",
+      "confidence": null,
+      "confidence_calibrated": false,
+      "sources": [
+        {
+          "id": "SOURCE-0001",
+          "path": "source-0001.html",
+          "hash": "sha256:8b0877bca6cb4dd445d116ada7b5163b6999e020d2b883327174d1f23f48a51c"
+        }
+      ],
+      "retrieval": {
+        "eligible_pages": 2,
+        "total_passages": 2,
+        "passages": [],
+        "sources": [],
+        "search_complete": false,
+        "corpus_snapshot": "sha256:1de329320daec6a60d852e0836013578ef68ee289c490e8078769e218e06ca73",
+        "ranking": "not_run"
+      },
+      "verification": {
+        "structural": true,
+        "semantic": "documentary-assertion-kernel-v9",
+        "truth_verified": false,
+        "independence_verified": false
+      },
+      "reader": null,
+      "trace": [],
+      "diagnostic": {
+        "code": "supported_documentary_assertion",
+        "stage": "documentary_verification",
+        "message": "Checked source-attributed assertions only; unresolved question obligations remain explicit and historical truth is unverified.",
+        "category": "source_support_established",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Review the diagnostic and source evidence before retrying."
+        ]
+      },
+      "code_sha256": {
+        "__init__.py": "d57d776eaaea962867814b5af3f0ac836fdd0c70ffbde910a801e6240697a095",
+        "__main__.py": "6b08b036aad956ce62e854e736939c4fb51bce7b3b71ee4a5b69839a07e1d460",
+        "assertions.py": "54a8a56e2e19bd3565098a3b66f28da590341405a454cf154319686ea0a51458",
+        "body_text.py": "f09d330007cd0cf396c1b1cec1d257eef58862247abde9205390b919b13bdbbc",
+        "corrections.py": "4f9cccee9fdc8d0b8c6eb37caf66cac34da8d9aa21a4a66e04b268eb122e0b6a",
+        "documentary.py": "1a4344bf5d4c14e25561b2a26b5e46512b431ea281746a7c681609e8d062681b",
+        "documentary_verify.py": "b76bd5a0f6fd19d9b587cc10d7f91fea0b4cc6eeab68bc4791b34007d553d070",
+        "evaluate.py": "8c6e4444d661f5a2982338a45673ff594ae4cc4a86d3ec6e0bce6b7f77c90969",
+        "evaluation.py": "4d58e13a85f6edb1443bf156baaa48b1cdf72ce38e5e16a0ce53d195ac395715",
+        "evidence_contract.py": "5fb4226e9407d3432cdbaa518b10af9a5d5dc7bef0036e204848fbda3a3ffbe5",
+        "frames.py": "82c23f7382f862d3b95960b017dda278022ccee1f1bc4e9b339bf7c45ba8dede",
+        "library.py": "7d1613c28f01453270c8a53bf0e3f015bf197dff25b43edc764802e1e1306e5b",
+        "literal_evidence.py": "4dff854bea0a7ae453be35ee016be2533d9ed0b08b98b7ee4a28d2f10b5983fa",
+        "local_narrator.py": "198880340d70f29a8818588e30d5bdd2eee86336dba3c032f378d8928b084f3e",
+        "local_reader.py": "6e7a6702f8296b63dd8a2be292ef620c9e67ed6170770e1222cfee58e23ea815",
+        "operational_evidence.py": "ac4ac4c1b9df9f412323674083dbc1bdb83a6570b8576fde9969eddafd791580",
+        "passage_admission.py": "0fdc1dc7b620ed81822c30be8db4113ec05736403f5fc6c7cf583ba29180d13e",
+        "passages.py": "953da46f391003cdb4ea4f8c8f759d117dde38d0bd38e1c26a1ddc6bb0610dcb",
+        "pipeline.py": "385a1b93b5ae4c1ec810201dc6396bea1f1589e9fc38f72c53c77a13836acced",
+        "policy_evidence.py": "90ae363e5b2b92c52ef24a9ff4d820821a76729f012831c51e27f3ad54492c35",
+        "practical_evidence.py": "0ad115570d1a5c1f756f2931e331a083d6f9ca6f7512223b5160278f5cda33af",
+        "procedures.py": "90cc6108617b3e56e578039f793581687bb2862e448421d5e5c7f088d2dfac37",
+        "prose_retrieval.py": "7ae56c9cb4dfb5a59c6df85243bdc2018dfd544b900be615ba973a62256a6096",
+        "relation_graph.py": "eb5e73aedf77e8a441d2e85b044e7eb275e0fc03b56bfff309099ec74893ebcf",
+        "source_projection.py": "bf5d84912616e75c3fe3deb038325348f2f2ccb2ae210315cd8605798cf48c16",
+        "source_units.py": "174920566a1e3cccfb2be38d03fc7bb696f5ffd07a2bde56937be3ffa89dac2b",
+        "support.py": "67821fc2399616dfbc10c52a440b3de5f6220a82aec44be595b60fd19b96f9ff"
+      },
+      "documentary_support": {
+        "schema": "documentary-composition-v1",
+        "original_question": "According to the record, who wrote the coastal dispatch?",
+        "profile": "internal",
+        "obligations": [
+          {
+            "question": "who wrote the coastal dispatch",
+            "kind": "who_action",
+            "status": "supported_source_assertion",
+            "evidence_proof_sha256": [
+              "sha256:34207d92e1b6cb2e605850cc05933ede160bef29ce5ceaf488467bb78adca9de"
+            ],
+            "evidence_claim_indices": [
+              0
+            ],
+            "unadmitted_witness_candidate_count": 0,
+            "undisplayed_evidence_count": 0,
+            "unadmitted_candidates_verified": false
+          }
+        ],
+        "source_support_claims": 1,
+        "historical_truth_independently_verified": false,
+        "admission": {
+          "schema": "reader-witness-admission-v1",
+          "max_passages": 12,
+          "max_characters": 8000,
+          "passages_admitted": 1,
+          "characters_admitted": 38,
+          "deduplication": "Exact source ID/path/hash/half-open span; different revisions and distinct nested spans remain distinct.",
+          "duplicate_span_charges_avoided": 1,
+          "admitted": [
+            {
+              "source_id": "SOURCE-0001",
+              "path": "source-0001.html",
+              "hash": "sha256:8b0877bca6cb4dd445d116ada7b5163b6999e020d2b883327174d1f23f48a51c",
+              "body_start": 55,
+              "body_end": 93,
+              "start": 55,
+              "end": 93,
+              "quote": "Nora Wells wrote the coastal dispatch.",
+              "body_projection": "body-text-no-headings-v1",
+              "reader_roles": [
+                "native_rule_candidates_for_question_parts:0",
+                "verified_question_evidence_or_counterevidence"
+              ]
+            }
+          ],
+          "blocked": [],
+          "review_only_hints": [],
+          "review_only_hint_count": 0,
+          "search_only_hints_admitted": 0,
+          "relevant_counterevidence_did_not_fit": false,
+          "reader_witness_discovery": {
+            "rule": null,
+            "body_prefix_characters": 0,
+            "pair_attempts": 0,
+            "max_body_prefix_characters": 192000,
+            "max_pair_attempts": 32
+          },
+          "sorter_assigns_slots": false,
+          "historical_truth_verified": false
+        },
+        "composition_rule": "Conjunction of independently checked source assertions; no person/event co-reference inferred.",
+        "historical_conflict_verified": false,
+        "event_coreference_established": false,
+        "contrary_evidence_scan_complete": true,
+        "scan_scope": "Finite literal action assertions; request occurrence/correction/execution not certified.",
+        "examined_characters": 211,
+        "examined_units": 7,
+        "limits_reached": [],
+        "limits": {
+          "max_proposals": 12,
+          "max_scan_characters": 200000,
+          "max_units": 1000,
+          "max_assertions": 64
+        },
+        "rejected_proposals": [],
+        "context_limits": [],
+        "comparison_completion_scope": null,
+        "question_completion_scope": null,
+        "alternative_evidence": [],
+        "unshown_alternative_evidence_count": 0,
+        "possible_refutation_count": 0,
+        "refutation_targets_resolved": false,
+        "retrieval_limits": {
+          "max_passages": 12,
+          "max_characters": 8000
+        }
+      },
+      "passage_budget": {
+        "max_passages": 12,
+        "max_characters": 8000,
+        "distinct_citation_spans": 1,
+        "citation_characters": 38,
+        "blocked_atomic_claims": 0,
+        "deduplicated_before_charge": true
+      },
+      "source_assurance": {
+        "basis": "source_attributed_only",
+        "outside_world_confirmation_required": true,
+        "outside_world_truth": "not_established",
+        "authorship_authenticated": false,
+        "independence_verified": false,
+        "declared_evidence_root_count": 1,
+        "single_declared_root": true,
+        "notice": "Source support establishes what eligible ledger pages state. Outside-world confirmation is required before treating those statements as historical truth. MPLPB cannot detect a coherent false original without contrary evidence, authenticate arbitrary testimony, or establish general historical reconstruction from source integrity alone."
+      }
+    }
+  },
+  {
+    "id": "DP00002",
+    "family": "date_roles",
+    "expected": "answer",
+    "before": "over_refusal",
+    "after": "over_refusal",
+    "question": "Distinguish the reported sending date and the writing date for the coastal dispatch.",
+    "sources": [
+      {
+        "path": "sources/record-01.md",
+        "raw_utf8": "From: Arun Moss\nTo: Noel Ash\nDate written: October 01, 1846\nSubject: Archive notice\nMessage-ID: MAIL-10002\n\nOn September 28, 1846, Arun Moss sent the coastal dispatch. This record was\nwritten on October 01, 1846.\n"
+      }
+    ],
+    "source_receipts": [
+      {
+        "source_id": "SOURCE-0001",
+        "source_file": "sources/record-01.md",
+        "path": "source-0001.html",
+        "hash": "sha256:fdff7e2b696d1e9095476be459dfd154aeeca0cc9c09ea48797886c7f58357f5",
+        "raw_sha256": "db0780fb6596b7c9646081e0806c92089387067d7ed2197f21faff0c59e11ede",
+        "canonical_body": "From: Arun Moss\nTo: Noel Ash\nDate written: October 01, 1846\nSubject: Archive notice\nMessage-ID: MAIL-10002\nOn September 28, 1846, Arun Moss sent the coastal dispatch. This record was\nwritten on October 01, 1846."
+      },
+      {
+        "source_id": "SOURCE-0002",
+        "source_file": "sources/inventory-00.txt",
+        "path": "source-0002.html",
+        "hash": "sha256:2646060b0856ac503a46af5e29d353fac3969d7d4f609338b58654b3da3e59fe",
+        "raw_sha256": "1b5e924962256da6cb56d16e11e08a1f92a130772ff3b661b57bfd0c18e0128d",
+        "canonical_body": "Inventory leaf 1. The archive cupboard held a woolen cover beside an unrelated register. No dispatch is recorded here."
+      },
+      {
+        "source_id": "SOURCE-0003",
+        "source_file": "sources/inventory-01.txt",
+        "path": "source-0003.html",
+        "hash": "sha256:b059cf2fe0e68aa63b5e07c0005a9c62befe730dbe08cb81c441f3a42bbafec2",
+        "raw_sha256": "962cce1ade258341bc8f5cecc2fe78456141632b892a4327de3ca612eb2610e6",
+        "canonical_body": "Inventory leaf 2. The archive cupboard held a woolen cover beside an unrelated register. No dispatch is recorded here."
+      },
+      {
+        "source_id": "SOURCE-0004",
+        "source_file": "sources/inventory-02.txt",
+        "path": "source-0004.html",
+        "hash": "sha256:b2106df1624fef4f730c880515c6481e11901581921d400f56794c23e647dd47",
+        "raw_sha256": "f53b29c00b8d08bdd3485e87e276d996cc2d13118aabc782962a0deba57879f7",
+        "canonical_body": "Inventory leaf 3. The archive cupboard held a woolen cover beside an unrelated register. No dispatch is recorded here."
+      }
+    ],
+    "answer": {
+      "schema": "answer-contract-v1",
+      "mode": "strict",
+      "question": "Distinguish the reported sending date and the writing date for the coastal dispatch.",
+      "kind": "abstain",
+      "answer_supported": false,
+      "text": "",
+      "claims": [],
+      "missing": [],
+      "clarification": "",
+      "confidence": null,
+      "confidence_calibrated": false,
+      "sources": [],
+      "retrieval": {
+        "eligible_pages": 4,
+        "total_passages": 4,
+        "passages": [],
+        "sources": [],
+        "search_complete": false,
+        "corpus_snapshot": "sha256:b46f2e2419b3ab940401ccd9e322dadb6e4a296f062b13eda43bc7d7c2e53f8b",
+        "ranking": "not_run"
+      },
+      "verification": {
+        "structural": false,
+        "semantic": "not_run",
+        "truth_verified": false,
+        "independence_verified": false
+      },
+      "reader": null,
+      "trace": [],
+      "diagnostic": {
+        "code": "interpretation_unsupported",
+        "stage": "strict",
+        "message": "Eligible passages exist, but the strict reader cannot establish an answer to this question.",
+        "category": "unsupported_question_grammar",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Inspect the relevant source. Try a supported question form or explicitly select a configured assisted reader; do not treat this refusal as proof that the answer is absent."
+        ]
+      },
+      "code_sha256": {
+        "__init__.py": "d57d776eaaea962867814b5af3f0ac836fdd0c70ffbde910a801e6240697a095",
+        "__main__.py": "6b08b036aad956ce62e854e736939c4fb51bce7b3b71ee4a5b69839a07e1d460",
+        "assertions.py": "54a8a56e2e19bd3565098a3b66f28da590341405a454cf154319686ea0a51458",
+        "body_text.py": "f09d330007cd0cf396c1b1cec1d257eef58862247abde9205390b919b13bdbbc",
+        "corrections.py": "4f9cccee9fdc8d0b8c6eb37caf66cac34da8d9aa21a4a66e04b268eb122e0b6a",
+        "documentary.py": "1a4344bf5d4c14e25561b2a26b5e46512b431ea281746a7c681609e8d062681b",
+        "documentary_verify.py": "b76bd5a0f6fd19d9b587cc10d7f91fea0b4cc6eeab68bc4791b34007d553d070",
+        "evaluate.py": "8c6e4444d661f5a2982338a45673ff594ae4cc4a86d3ec6e0bce6b7f77c90969",
+        "evaluation.py": "4d58e13a85f6edb1443bf156baaa48b1cdf72ce38e5e16a0ce53d195ac395715",
+        "evidence_contract.py": "5fb4226e9407d3432cdbaa518b10af9a5d5dc7bef0036e204848fbda3a3ffbe5",
+        "frames.py": "82c23f7382f862d3b95960b017dda278022ccee1f1bc4e9b339bf7c45ba8dede",
+        "library.py": "7d1613c28f01453270c8a53bf0e3f015bf197dff25b43edc764802e1e1306e5b",
+        "literal_evidence.py": "4dff854bea0a7ae453be35ee016be2533d9ed0b08b98b7ee4a28d2f10b5983fa",
+        "local_narrator.py": "198880340d70f29a8818588e30d5bdd2eee86336dba3c032f378d8928b084f3e",
+        "local_reader.py": "6e7a6702f8296b63dd8a2be292ef620c9e67ed6170770e1222cfee58e23ea815",
+        "operational_evidence.py": "ac4ac4c1b9df9f412323674083dbc1bdb83a6570b8576fde9969eddafd791580",
+        "passage_admission.py": "0fdc1dc7b620ed81822c30be8db4113ec05736403f5fc6c7cf583ba29180d13e",
+        "passages.py": "953da46f391003cdb4ea4f8c8f759d117dde38d0bd38e1c26a1ddc6bb0610dcb",
+        "pipeline.py": "385a1b93b5ae4c1ec810201dc6396bea1f1589e9fc38f72c53c77a13836acced",
+        "policy_evidence.py": "90ae363e5b2b92c52ef24a9ff4d820821a76729f012831c51e27f3ad54492c35",
+        "practical_evidence.py": "0ad115570d1a5c1f756f2931e331a083d6f9ca6f7512223b5160278f5cda33af",
+        "procedures.py": "90cc6108617b3e56e578039f793581687bb2862e448421d5e5c7f088d2dfac37",
+        "prose_retrieval.py": "7ae56c9cb4dfb5a59c6df85243bdc2018dfd544b900be615ba973a62256a6096",
+        "relation_graph.py": "eb5e73aedf77e8a441d2e85b044e7eb275e0fc03b56bfff309099ec74893ebcf",
+        "source_projection.py": "bf5d84912616e75c3fe3deb038325348f2f2ccb2ae210315cd8605798cf48c16",
+        "source_units.py": "174920566a1e3cccfb2be38d03fc7bb696f5ffd07a2bde56937be3ffa89dac2b",
+        "support.py": "67821fc2399616dfbc10c52a440b3de5f6220a82aec44be595b60fd19b96f9ff"
+      },
+      "passage_budget": {
+        "max_passages": 12,
+        "max_characters": 8000,
+        "distinct_citation_spans": 0,
+        "citation_characters": 0,
+        "blocked_atomic_claims": 0,
+        "deduplicated_before_charge": true
+      },
+      "source_assurance": {
+        "basis": "source_attributed_only",
+        "outside_world_confirmation_required": true,
+        "outside_world_truth": "not_established",
+        "authorship_authenticated": false,
+        "independence_verified": false,
+        "declared_evidence_root_count": null,
+        "single_declared_root": null,
+        "notice": "Source support establishes what eligible ledger pages state. Outside-world confirmation is required before treating those statements as historical truth. MPLPB cannot detect a coherent false original without contrary evidence, authenticate arbitrary testimony, or establish general historical reconstruction from source integrity alone."
+      }
+    }
+  },
+  {
+    "id": "DP00005",
+    "family": "editorial_competition",
+    "expected": "answer",
+    "before": "over_refusal",
+    "after": "detected_answer",
+    "question": "Which writer does the record identify for the alder memorandum? Keep unknown matters unresolved.",
+    "sources": [
+      {
+        "path": "sources/record-01.md",
+        "raw_utf8": "Arun Moss wrote the alder memorandum.\r\n"
+      },
+      {
+        "path": "sources/record-02.md",
+        "raw_utf8": "Editorial speculation: Lea Stone might have written the alder memorandum, although this is not established.\r\n"
+      },
+      {
+        "path": "sources/record-03.md",
+        "raw_utf8": "Editorial speculation: Lea Stone might have written the alder memorandum, although this is not established.\r\n"
+      },
+      {
+        "path": "sources/record-04.md",
+        "raw_utf8": "Editorial speculation: Lea Stone might have written the alder memorandum, although this is not established.\r\n"
+      }
+    ],
+    "source_receipts": [
+      {
+        "source_id": "SOURCE-0001",
+        "source_file": "sources/record-01.md",
+        "path": "source-0001.html",
+        "hash": "sha256:6d182b21bb5b08286702fae67b00e2d9dc8d70b17339686fc8255b1d49b5ae67",
+        "raw_sha256": "b9a9ba7a801af7b028169b834a24abb7e7b92355e15268af04f385f6dd87831c",
+        "canonical_body": "Arun Moss wrote the alder memorandum."
+      },
+      {
+        "source_id": "SOURCE-0005",
+        "source_file": "sources/inventory-00.txt",
+        "path": "source-0005.html",
+        "hash": "sha256:a09ef27cd34080f696e7d542f97462d258cfb827adb456017239d00fa5fb2c20",
+        "raw_sha256": "1b5e924962256da6cb56d16e11e08a1f92a130772ff3b661b57bfd0c18e0128d",
+        "canonical_body": "Inventory leaf 1. The archive cupboard held a woolen cover beside an unrelated register. No dispatch is recorded here."
+      },
+      {
+        "source_id": "SOURCE-0006",
+        "source_file": "sources/inventory-01.txt",
+        "path": "source-0006.html",
+        "hash": "sha256:e73fbd632ee489f73d27bcdc4c275882ca57e07e03667340ec79448613fd1565",
+        "raw_sha256": "962cce1ade258341bc8f5cecc2fe78456141632b892a4327de3ca612eb2610e6",
+        "canonical_body": "Inventory leaf 2. The archive cupboard held a woolen cover beside an unrelated register. No dispatch is recorded here."
+      },
+      {
+        "source_id": "SOURCE-0007",
+        "source_file": "sources/inventory-02.txt",
+        "path": "source-0007.html",
+        "hash": "sha256:96e5319eec41a353e7b8304c28a1acf3192db78f788acefe90f35852a6c7b20e",
+        "raw_sha256": "f53b29c00b8d08bdd3485e87e276d996cc2d13118aabc782962a0deba57879f7",
+        "canonical_body": "Inventory leaf 3. The archive cupboard held a woolen cover beside an unrelated register. No dispatch is recorded here."
+      },
+      {
+        "source_id": "SOURCE-0008",
+        "source_file": "sources/inventory-03.txt",
+        "path": "source-0008.html",
+        "hash": "sha256:93d2326efaee86ba700528383dff03e49375c67950633c8b6c73b763efe0ba3e",
+        "raw_sha256": "bc526992b03c047ecb0264333433a5b2500f6f8510aba516c955d068a5a64f48",
+        "canonical_body": "Inventory leaf 4. The archive cupboard held a woolen cover beside an unrelated register. No dispatch is recorded here."
+      },
+      {
+        "source_id": "SOURCE-0009",
+        "source_file": "sources/inventory-04.txt",
+        "path": "source-0009.html",
+        "hash": "sha256:0b3d4559a1671f8070bf8e54024f76bb3421af1ee0ea441f566b8e417825e5d2",
+        "raw_sha256": "20e08cb6d02b27787da206c969c59b0d2b9f1b4871e7625c8994f647fa6ef25b",
+        "canonical_body": "Inventory leaf 5. The archive cupboard held a woolen cover beside an unrelated register. No dispatch is recorded here."
+      },
+      {
+        "source_id": "SOURCE-0010",
+        "source_file": "sources/inventory-05.txt",
+        "path": "source-0010.html",
+        "hash": "sha256:728449a490f3927ec1e079f4dd6572abadb220b5f23b617f43a5a66a170d34ee",
+        "raw_sha256": "105cbe75d59753b0308728f0bc5d92d736b99ad4e4435f286664f89c6654a058",
+        "canonical_body": "Inventory leaf 6. The archive cupboard held a woolen cover beside an unrelated register. No dispatch is recorded here."
+      },
+      {
+        "source_id": "SOURCE-0011",
+        "source_file": "sources/inventory-06.txt",
+        "path": "source-0011.html",
+        "hash": "sha256:89aacc6b523405e0400705d2829abd439366c3aac8f8f7eeb623f9a540e1885d",
+        "raw_sha256": "93374b50349349798dbe509fc6dbbbe3561ea863e7363737a57a0ac70c08eba9",
+        "canonical_body": "Inventory leaf 7. The archive cupboard held a woolen cover beside an unrelated register. No dispatch is recorded here."
+      }
+    ],
+    "answer": {
+      "schema": "answer-contract-v1",
+      "mode": "strict",
+      "question": "Which writer does the record identify for the alder memorandum? Keep unknown matters unresolved.",
+      "kind": "supported_answer",
+      "answer_supported": true,
+      "text": "Source assertion: Arun Moss wrote the alder memorandum. Source-attributed statement; event/person identity and historical truth are not independently verified.",
+      "claims": [
+        {
+          "text": "Source assertion: Arun Moss wrote the alder memorandum.",
+          "qualifiers": [
+            "Source-attributed statement; event/person identity and historical truth are not independently verified."
+          ],
+          "citations": [
+            {
+              "source_id": "SOURCE-0001",
+              "path": "source-0001.html",
+              "hash": "sha256:6d182b21bb5b08286702fae67b00e2d9dc8d70b17339686fc8255b1d49b5ae67",
+              "body_start": 0,
+              "body_end": 37,
+              "start": 0,
+              "end": 37,
+              "quote": "Arun Moss wrote the alder memorandum.",
+              "body_projection": "body-text-no-headings-v1"
+            }
+          ],
+          "proposition": {
+            "relation": "source_action_assertion",
+            "actor_text": "Arun Moss",
+            "action": "write",
+            "object_text": "the alder memorandum",
+            "negative": false,
+            "temporal_qualification_text": "",
+            "unresolved_reference": false,
+            "assertion_modality": "unconditional_source_assertion",
+            "event_identity": null
+          },
+          "source_support_established": true,
+          "support_scope": "source_attributed_assertion",
+          "verification": "documentary-assertion-kernel-v9",
+          "historical_truth_independently_verified": false,
+          "proof_sha256": "sha256:103ec6d72ebc36a733611814c8200589c33308be6a3bd73268c0483aa8ed7544"
+        }
+      ],
+      "missing": [],
+      "clarification": "",
+      "confidence": null,
+      "confidence_calibrated": false,
+      "sources": [
+        {
+          "id": "SOURCE-0001",
+          "path": "source-0001.html",
+          "hash": "sha256:6d182b21bb5b08286702fae67b00e2d9dc8d70b17339686fc8255b1d49b5ae67"
+        }
+      ],
+      "retrieval": {
+        "eligible_pages": 8,
+        "total_passages": 8,
+        "passages": [],
+        "sources": [],
+        "search_complete": false,
+        "corpus_snapshot": "sha256:f38c5bc4a4e85c1369ed0801a5fa4221497ea7c5528ee0c701a1ae7c427f4af2",
+        "ranking": "not_run"
+      },
+      "verification": {
+        "structural": true,
+        "semantic": "documentary-assertion-kernel-v9",
+        "truth_verified": false,
+        "independence_verified": false
+      },
+      "reader": null,
+      "trace": [],
+      "diagnostic": {
+        "code": "supported_documentary_assertion",
+        "stage": "documentary_verification",
+        "message": "Checked source-attributed assertions only; unresolved question obligations remain explicit and historical truth is unverified.",
+        "category": "source_support_established",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Review the diagnostic and source evidence before retrying."
+        ]
+      },
+      "code_sha256": {
+        "__init__.py": "d57d776eaaea962867814b5af3f0ac836fdd0c70ffbde910a801e6240697a095",
+        "__main__.py": "6b08b036aad956ce62e854e736939c4fb51bce7b3b71ee4a5b69839a07e1d460",
+        "assertions.py": "54a8a56e2e19bd3565098a3b66f28da590341405a454cf154319686ea0a51458",
+        "body_text.py": "f09d330007cd0cf396c1b1cec1d257eef58862247abde9205390b919b13bdbbc",
+        "corrections.py": "4f9cccee9fdc8d0b8c6eb37caf66cac34da8d9aa21a4a66e04b268eb122e0b6a",
+        "documentary.py": "1a4344bf5d4c14e25561b2a26b5e46512b431ea281746a7c681609e8d062681b",
+        "documentary_verify.py": "b76bd5a0f6fd19d9b587cc10d7f91fea0b4cc6eeab68bc4791b34007d553d070",
+        "evaluate.py": "8c6e4444d661f5a2982338a45673ff594ae4cc4a86d3ec6e0bce6b7f77c90969",
+        "evaluation.py": "4d58e13a85f6edb1443bf156baaa48b1cdf72ce38e5e16a0ce53d195ac395715",
+        "evidence_contract.py": "5fb4226e9407d3432cdbaa518b10af9a5d5dc7bef0036e204848fbda3a3ffbe5",
+        "frames.py": "82c23f7382f862d3b95960b017dda278022ccee1f1bc4e9b339bf7c45ba8dede",
+        "library.py": "7d1613c28f01453270c8a53bf0e3f015bf197dff25b43edc764802e1e1306e5b",
+        "literal_evidence.py": "4dff854bea0a7ae453be35ee016be2533d9ed0b08b98b7ee4a28d2f10b5983fa",
+        "local_narrator.py": "198880340d70f29a8818588e30d5bdd2eee86336dba3c032f378d8928b084f3e",
+        "local_reader.py": "6e7a6702f8296b63dd8a2be292ef620c9e67ed6170770e1222cfee58e23ea815",
+        "operational_evidence.py": "ac4ac4c1b9df9f412323674083dbc1bdb83a6570b8576fde9969eddafd791580",
+        "passage_admission.py": "0fdc1dc7b620ed81822c30be8db4113ec05736403f5fc6c7cf583ba29180d13e",
+        "passages.py": "953da46f391003cdb4ea4f8c8f759d117dde38d0bd38e1c26a1ddc6bb0610dcb",
+        "pipeline.py": "385a1b93b5ae4c1ec810201dc6396bea1f1589e9fc38f72c53c77a13836acced",
+        "policy_evidence.py": "90ae363e5b2b92c52ef24a9ff4d820821a76729f012831c51e27f3ad54492c35",
+        "practical_evidence.py": "0ad115570d1a5c1f756f2931e331a083d6f9ca6f7512223b5160278f5cda33af",
+        "procedures.py": "90cc6108617b3e56e578039f793581687bb2862e448421d5e5c7f088d2dfac37",
+        "prose_retrieval.py": "7ae56c9cb4dfb5a59c6df85243bdc2018dfd544b900be615ba973a62256a6096",
+        "relation_graph.py": "eb5e73aedf77e8a441d2e85b044e7eb275e0fc03b56bfff309099ec74893ebcf",
+        "source_projection.py": "bf5d84912616e75c3fe3deb038325348f2f2ccb2ae210315cd8605798cf48c16",
+        "source_units.py": "174920566a1e3cccfb2be38d03fc7bb696f5ffd07a2bde56937be3ffa89dac2b",
+        "support.py": "67821fc2399616dfbc10c52a440b3de5f6220a82aec44be595b60fd19b96f9ff"
+      },
+      "documentary_support": {
+        "schema": "documentary-composition-v1",
+        "original_question": "Which writer does the record identify for the alder memorandum? Keep unknown matters unresolved.",
+        "profile": "lab",
+        "obligations": [
+          {
+            "question": "Which writer does the record identify for the alder memorandum",
+            "kind": "who_action",
+            "status": "supported_source_assertion",
+            "evidence_proof_sha256": [
+              "sha256:103ec6d72ebc36a733611814c8200589c33308be6a3bd73268c0483aa8ed7544"
+            ],
+            "evidence_claim_indices": [
+              0
+            ],
+            "unadmitted_witness_candidate_count": 0,
+            "undisplayed_evidence_count": 0,
+            "unadmitted_candidates_verified": false
+          }
+        ],
+        "source_support_claims": 1,
+        "historical_truth_independently_verified": false,
+        "admission": {
+          "schema": "reader-witness-admission-v1",
+          "max_passages": 12,
+          "max_characters": 8000,
+          "passages_admitted": 1,
+          "characters_admitted": 37,
+          "deduplication": "Exact source ID/path/hash/half-open span; different revisions and distinct nested spans remain distinct.",
+          "duplicate_span_charges_avoided": 1,
+          "admitted": [
+            {
+              "source_id": "SOURCE-0001",
+              "path": "source-0001.html",
+              "hash": "sha256:6d182b21bb5b08286702fae67b00e2d9dc8d70b17339686fc8255b1d49b5ae67",
+              "body_start": 0,
+              "body_end": 37,
+              "start": 0,
+              "end": 37,
+              "quote": "Arun Moss wrote the alder memorandum.",
+              "body_projection": "body-text-no-headings-v1",
+              "reader_roles": [
+                "native_rule_candidates_for_question_parts:0",
+                "verified_question_evidence_or_counterevidence"
+              ]
+            }
+          ],
+          "blocked": [],
+          "review_only_hints": [],
+          "review_only_hint_count": 0,
+          "search_only_hints_admitted": 0,
+          "relevant_counterevidence_did_not_fit": false,
+          "reader_witness_discovery": {
+            "rule": null,
+            "body_prefix_characters": 0,
+            "pair_attempts": 0,
+            "max_body_prefix_characters": 192000,
+            "max_pair_attempts": 32
+          },
+          "sorter_assigns_slots": false,
+          "historical_truth_verified": false
+        },
+        "composition_rule": "Conjunction of independently checked source assertions; no person/event co-reference inferred.",
+        "historical_conflict_verified": false,
+        "event_coreference_established": false,
+        "contrary_evidence_scan_complete": true,
+        "scan_scope": "Finite literal action assertions; request occurrence/correction/execution not certified.",
+        "examined_characters": 863,
+        "examined_units": 22,
+        "limits_reached": [],
+        "limits": {
+          "max_proposals": 12,
+          "max_scan_characters": 200000,
+          "max_units": 1000,
+          "max_assertions": 64
+        },
+        "rejected_proposals": [],
+        "context_limits": [],
+        "comparison_completion_scope": null,
+        "question_completion_scope": null,
+        "alternative_evidence": [],
+        "unshown_alternative_evidence_count": 0,
+        "possible_refutation_count": 0,
+        "refutation_targets_resolved": false,
+        "retrieval_limits": {
+          "max_passages": 12,
+          "max_characters": 8000
+        }
+      },
+      "passage_budget": {
+        "max_passages": 12,
+        "max_characters": 8000,
+        "distinct_citation_spans": 1,
+        "citation_characters": 37,
+        "blocked_atomic_claims": 0,
+        "deduplicated_before_charge": true
+      },
+      "source_assurance": {
+        "basis": "source_attributed_only",
+        "outside_world_confirmation_required": true,
+        "outside_world_truth": "not_established",
+        "authorship_authenticated": false,
+        "independence_verified": false,
+        "declared_evidence_root_count": 1,
+        "single_declared_root": true,
+        "notice": "Source support establishes what eligible ledger pages state. Outside-world confirmation is required before treating those statements as historical truth. MPLPB cannot detect a coherent false original without contrary evidence, authenticate arbitrary testimony, or establish general historical reconstruction from source integrity alone."
+      }
+    }
+  },
+  {
+    "id": "DP00007",
+    "family": "passive_action",
+    "expected": "answer",
+    "before": "over_refusal",
+    "after": "detected_answer",
+    "question": "Please assess this from the provided records: According to the record, who wrote the harbor report?",
+    "sources": [
+      {
+        "path": "sources/record-01.md",
+        "raw_utf8": "# Archival transcript\r\n\r\nWritten August 28, 1842.\r\n\r\nThe harbor report was written by Nora Wells.\r\n"
+      }
+    ],
+    "source_receipts": [
+      {
+        "source_id": "SOURCE-0001",
+        "source_file": "sources/record-01.md",
+        "path": "source-0001.html",
+        "hash": "sha256:0276e5ba9576661d763b4c374a468f9eb321e89132100c55c774ce7290f1effb",
+        "raw_sha256": "d1a98fbb94e85773280862dbb3cbfa5cf783a18e96ffa3e63f6fbdaaead4bb59",
+        "canonical_body": "# Archival transcript\nWritten August 28, 1842.\nThe harbor report was written by Nora Wells."
+      },
+      {
+        "source_id": "SOURCE-0002",
+        "source_file": "sources/inventory-00.txt",
+        "path": "source-0002.html",
+        "hash": "sha256:2646060b0856ac503a46af5e29d353fac3969d7d4f609338b58654b3da3e59fe",
+        "raw_sha256": "1b5e924962256da6cb56d16e11e08a1f92a130772ff3b661b57bfd0c18e0128d",
+        "canonical_body": "Inventory leaf 1. The archive cupboard held a woolen cover beside an unrelated register. No dispatch is recorded here."
+      }
+    ],
+    "answer": {
+      "schema": "answer-contract-v1",
+      "mode": "strict",
+      "question": "Please assess this from the provided records: According to the record, who wrote the harbor report?",
+      "kind": "supported_answer",
+      "answer_supported": true,
+      "text": "Source assertion: The harbor report was written by Nora Wells. Only the complete cited wording is checked; historical truth and event/person identity are not independently verified.",
+      "claims": [
+        {
+          "text": "Source assertion: The harbor report was written by Nora Wells.",
+          "qualifiers": [
+            "Only the complete cited wording is checked; historical truth and event/person identity are not independently verified."
+          ],
+          "citations": [
+            {
+              "source_id": "SOURCE-0001",
+              "path": "source-0001.html",
+              "hash": "sha256:0276e5ba9576661d763b4c374a468f9eb321e89132100c55c774ce7290f1effb",
+              "body_start": 47,
+              "body_end": 91,
+              "start": 47,
+              "end": 91,
+              "quote": "The harbor report was written by Nora Wells.",
+              "body_projection": "body-text-no-headings-v1"
+            }
+          ],
+          "proposition": {
+            "relation": "source_passive_action_assertion",
+            "actor_text": "Nora Wells",
+            "action": "write",
+            "object_text": "The harbor report",
+            "negative": false,
+            "unresolved_reference": false,
+            "assertion_modality": "source_attributed_assertion",
+            "event_identity": null,
+            "historical_truth_independently_verified": false,
+            "temporal_qualification_text": ""
+          },
+          "source_support_established": true,
+          "support_scope": "source_attributed_assertion",
+          "verification": "documentary-assertion-kernel-v9",
+          "historical_truth_independently_verified": false,
+          "proof_sha256": "sha256:b253919f958fb429a0d029b8ef4cbbc690a84213f19a6aec28f0baeb30a34338"
+        }
+      ],
+      "missing": [],
+      "clarification": "",
+      "confidence": null,
+      "confidence_calibrated": false,
+      "sources": [
+        {
+          "id": "SOURCE-0001",
+          "path": "source-0001.html",
+          "hash": "sha256:0276e5ba9576661d763b4c374a468f9eb321e89132100c55c774ce7290f1effb"
+        }
+      ],
+      "retrieval": {
+        "eligible_pages": 2,
+        "total_passages": 2,
+        "passages": [],
+        "sources": [],
+        "search_complete": false,
+        "corpus_snapshot": "sha256:4e082ba59e07c77a6989291107be503beac61e70bc4a3e9f38e1a9a74738a0a8",
+        "ranking": "not_run"
+      },
+      "verification": {
+        "structural": true,
+        "semantic": "documentary-assertion-kernel-v9",
+        "truth_verified": false,
+        "independence_verified": false
+      },
+      "reader": null,
+      "trace": [],
+      "diagnostic": {
+        "code": "supported_documentary_assertion",
+        "stage": "documentary_verification",
+        "message": "Checked source-attributed assertions only; unresolved question obligations remain explicit and historical truth is unverified.",
+        "category": "source_support_established",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Review the diagnostic and source evidence before retrying."
+        ]
+      },
+      "code_sha256": {
+        "__init__.py": "d57d776eaaea962867814b5af3f0ac836fdd0c70ffbde910a801e6240697a095",
+        "__main__.py": "6b08b036aad956ce62e854e736939c4fb51bce7b3b71ee4a5b69839a07e1d460",
+        "assertions.py": "54a8a56e2e19bd3565098a3b66f28da590341405a454cf154319686ea0a51458",
+        "body_text.py": "f09d330007cd0cf396c1b1cec1d257eef58862247abde9205390b919b13bdbbc",
+        "corrections.py": "4f9cccee9fdc8d0b8c6eb37caf66cac34da8d9aa21a4a66e04b268eb122e0b6a",
+        "documentary.py": "1a4344bf5d4c14e25561b2a26b5e46512b431ea281746a7c681609e8d062681b",
+        "documentary_verify.py": "b76bd5a0f6fd19d9b587cc10d7f91fea0b4cc6eeab68bc4791b34007d553d070",
+        "evaluate.py": "8c6e4444d661f5a2982338a45673ff594ae4cc4a86d3ec6e0bce6b7f77c90969",
+        "evaluation.py": "4d58e13a85f6edb1443bf156baaa48b1cdf72ce38e5e16a0ce53d195ac395715",
+        "evidence_contract.py": "5fb4226e9407d3432cdbaa518b10af9a5d5dc7bef0036e204848fbda3a3ffbe5",
+        "frames.py": "82c23f7382f862d3b95960b017dda278022ccee1f1bc4e9b339bf7c45ba8dede",
+        "library.py": "7d1613c28f01453270c8a53bf0e3f015bf197dff25b43edc764802e1e1306e5b",
+        "literal_evidence.py": "4dff854bea0a7ae453be35ee016be2533d9ed0b08b98b7ee4a28d2f10b5983fa",
+        "local_narrator.py": "198880340d70f29a8818588e30d5bdd2eee86336dba3c032f378d8928b084f3e",
+        "local_reader.py": "6e7a6702f8296b63dd8a2be292ef620c9e67ed6170770e1222cfee58e23ea815",
+        "operational_evidence.py": "ac4ac4c1b9df9f412323674083dbc1bdb83a6570b8576fde9969eddafd791580",
+        "passage_admission.py": "0fdc1dc7b620ed81822c30be8db4113ec05736403f5fc6c7cf583ba29180d13e",
+        "passages.py": "953da46f391003cdb4ea4f8c8f759d117dde38d0bd38e1c26a1ddc6bb0610dcb",
+        "pipeline.py": "385a1b93b5ae4c1ec810201dc6396bea1f1589e9fc38f72c53c77a13836acced",
+        "policy_evidence.py": "90ae363e5b2b92c52ef24a9ff4d820821a76729f012831c51e27f3ad54492c35",
+        "practical_evidence.py": "0ad115570d1a5c1f756f2931e331a083d6f9ca6f7512223b5160278f5cda33af",
+        "procedures.py": "90cc6108617b3e56e578039f793581687bb2862e448421d5e5c7f088d2dfac37",
+        "prose_retrieval.py": "7ae56c9cb4dfb5a59c6df85243bdc2018dfd544b900be615ba973a62256a6096",
+        "relation_graph.py": "eb5e73aedf77e8a441d2e85b044e7eb275e0fc03b56bfff309099ec74893ebcf",
+        "source_projection.py": "bf5d84912616e75c3fe3deb038325348f2f2ccb2ae210315cd8605798cf48c16",
+        "source_units.py": "174920566a1e3cccfb2be38d03fc7bb696f5ffd07a2bde56937be3ffa89dac2b",
+        "support.py": "67821fc2399616dfbc10c52a440b3de5f6220a82aec44be595b60fd19b96f9ff"
+      },
+      "documentary_support": {
+        "schema": "documentary-composition-v1",
+        "original_question": "Please assess this from the provided records: According to the record, who wrote the harbor report?",
+        "profile": "internal",
+        "obligations": [
+          {
+            "question": "who wrote the harbor report",
+            "kind": "who_action",
+            "status": "supported_source_assertion",
+            "evidence_proof_sha256": [
+              "sha256:b253919f958fb429a0d029b8ef4cbbc690a84213f19a6aec28f0baeb30a34338"
+            ],
+            "evidence_claim_indices": [
+              0
+            ],
+            "unadmitted_witness_candidate_count": 0,
+            "undisplayed_evidence_count": 0,
+            "unadmitted_candidates_verified": false
+          }
+        ],
+        "source_support_claims": 1,
+        "historical_truth_independently_verified": false,
+        "admission": {
+          "schema": "reader-witness-admission-v1",
+          "max_passages": 12,
+          "max_characters": 8000,
+          "passages_admitted": 1,
+          "characters_admitted": 44,
+          "deduplication": "Exact source ID/path/hash/half-open span; different revisions and distinct nested spans remain distinct.",
+          "duplicate_span_charges_avoided": 1,
+          "admitted": [
+            {
+              "source_id": "SOURCE-0001",
+              "path": "source-0001.html",
+              "hash": "sha256:0276e5ba9576661d763b4c374a468f9eb321e89132100c55c774ce7290f1effb",
+              "body_start": 47,
+              "body_end": 91,
+              "start": 47,
+              "end": 91,
+              "quote": "The harbor report was written by Nora Wells.",
+              "body_projection": "body-text-no-headings-v1",
+              "reader_roles": [
+                "native_rule_candidates_for_question_parts:0",
+                "verified_question_evidence_or_counterevidence"
+              ]
+            }
+          ],
+          "blocked": [],
+          "review_only_hints": [],
+          "review_only_hint_count": 0,
+          "search_only_hints_admitted": 0,
+          "relevant_counterevidence_did_not_fit": false,
+          "reader_witness_discovery": {
+            "rule": null,
+            "body_prefix_characters": 0,
+            "pair_attempts": 0,
+            "max_body_prefix_characters": 192000,
+            "max_pair_attempts": 32
+          },
+          "sorter_assigns_slots": false,
+          "historical_truth_verified": false
+        },
+        "composition_rule": "Conjunction of independently checked source assertions; no person/event co-reference inferred.",
+        "historical_conflict_verified": false,
+        "event_coreference_established": false,
+        "contrary_evidence_scan_complete": true,
+        "scan_scope": "Finite literal action assertions; request occurrence/correction/execution not certified.",
+        "examined_characters": 209,
+        "examined_units": 5,
+        "limits_reached": [],
+        "limits": {
+          "max_proposals": 12,
+          "max_scan_characters": 200000,
+          "max_units": 1000,
+          "max_assertions": 64
+        },
+        "rejected_proposals": [],
+        "context_limits": [],
+        "comparison_completion_scope": null,
+        "question_completion_scope": null,
+        "alternative_evidence": [],
+        "unshown_alternative_evidence_count": 0,
+        "possible_refutation_count": 0,
+        "refutation_targets_resolved": false,
+        "retrieval_limits": {
+          "max_passages": 12,
+          "max_characters": 8000
+        }
+      },
+      "passage_budget": {
+        "max_passages": 12,
+        "max_characters": 8000,
+        "distinct_citation_spans": 1,
+        "citation_characters": 44,
+        "blocked_atomic_claims": 0,
+        "deduplicated_before_charge": true
+      },
+      "source_assurance": {
+        "basis": "source_attributed_only",
+        "outside_world_confirmation_required": true,
+        "outside_world_truth": "not_established",
+        "authorship_authenticated": false,
+        "independence_verified": false,
+        "declared_evidence_root_count": 1,
+        "single_declared_root": true,
+        "notice": "Source support establishes what eligible ledger pages state. Outside-world confirmation is required before treating those statements as historical truth. MPLPB cannot detect a coherent false original without contrary evidence, authenticate arbitrary testimony, or establish general historical reconstruction from source integrity alone."
+      }
+    }
+  },
+  {
+    "id": "DP00011",
+    "family": "partial_correction",
+    "expected": "answer",
+    "before": "over_refusal",
+    "after": "over_refusal",
+    "question": "Please assess this from the provided records: What count does the later statement correct, and which destination does it retain?",
+    "sources": [
+      {
+        "path": "sources/record-01.md",
+        "raw_utf8": "IRIS BECK TO ARUN MOSS. February 15, 1845\r\nDear colleague,\r\n\r\nThis letter was written on February 15, 1845. The consignment contains six\r\ncrates for the east depot.\r\n"
+      },
+      {
+        "path": "sources/record-02.md",
+        "raw_utf8": "IRIS BECK TO ARUN MOSS. February 18, 1845\r\nDear colleague,\r\n\r\nIn my letter of February 15, 1845, the count should read nine crates. The\r\ndestination remains the east depot.\r\n"
+      }
+    ],
+    "source_receipts": [
+      {
+        "source_id": "SOURCE-0001",
+        "source_file": "sources/record-01.md",
+        "path": "source-0001.html",
+        "hash": "sha256:738c4ab8927e4ae8d36cce0994480319cfb2608d0db6def6d4e1a3ca7412d1b4",
+        "raw_sha256": "eb4c4109a597b380f0ffd3b08ef891234da46ad42143b92b838092621eb77bd0",
+        "canonical_body": "IRIS BECK TO ARUN MOSS. February 15, 1845\nDear colleague,\nThis letter was written on February 15, 1845. The consignment contains six\ncrates for the east depot."
+      },
+      {
+        "source_id": "SOURCE-0002",
+        "source_file": "sources/record-02.md",
+        "path": "source-0002.html",
+        "hash": "sha256:176253758acf2e58e7b98147a9f78b6f290634a814dd36d8c0e931e014d01b95",
+        "raw_sha256": "080503028ee72315ec23072138b935c7b5d557f44a430a5ca7ebf4d577bdc313",
+        "canonical_body": "IRIS BECK TO ARUN MOSS. February 18, 1845\nDear colleague,\nIn my letter of February 15, 1845, the count should read nine crates. The\ndestination remains the east depot."
+      },
+      {
+        "source_id": "SOURCE-0003",
+        "source_file": "sources/inventory-00.txt",
+        "path": "source-0003.html",
+        "hash": "sha256:1b8c414399347a67e8120b5f9a73528bf7ee4ccfb97cddc28bdbe888dc00d6a2",
+        "raw_sha256": "1b5e924962256da6cb56d16e11e08a1f92a130772ff3b661b57bfd0c18e0128d",
+        "canonical_body": "Inventory leaf 1. The archive cupboard held a woolen cover beside an unrelated register. No dispatch is recorded here."
+      }
+    ],
+    "answer": {
+      "schema": "answer-contract-v1",
+      "mode": "strict",
+      "question": "Please assess this from the provided records: What count does the later statement correct, and which destination does it retain?",
+      "kind": "abstain",
+      "answer_supported": false,
+      "text": "",
+      "claims": [],
+      "missing": [],
+      "clarification": "",
+      "confidence": null,
+      "confidence_calibrated": false,
+      "sources": [],
+      "retrieval": {
+        "eligible_pages": 3,
+        "total_passages": 3,
+        "passages": [],
+        "sources": [],
+        "search_complete": false,
+        "corpus_snapshot": "sha256:2fb4d990ae086dbab0a5f0c632589b531d59cbbda67608e40b390b3c4099d5cb",
+        "ranking": "not_run"
+      },
+      "verification": {
+        "structural": false,
+        "semantic": "not_run",
+        "truth_verified": false,
+        "independence_verified": false
+      },
+      "reader": null,
+      "trace": [],
+      "diagnostic": {
+        "code": "interpretation_unsupported",
+        "stage": "strict",
+        "message": "Eligible passages exist, but the strict reader cannot establish an answer to this question.",
+        "category": "unsupported_question_grammar",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Inspect the relevant source. Try a supported question form or explicitly select a configured assisted reader; do not treat this refusal as proof that the answer is absent."
+        ]
+      },
+      "code_sha256": {
+        "__init__.py": "d57d776eaaea962867814b5af3f0ac836fdd0c70ffbde910a801e6240697a095",
+        "__main__.py": "6b08b036aad956ce62e854e736939c4fb51bce7b3b71ee4a5b69839a07e1d460",
+        "assertions.py": "54a8a56e2e19bd3565098a3b66f28da590341405a454cf154319686ea0a51458",
+        "body_text.py": "f09d330007cd0cf396c1b1cec1d257eef58862247abde9205390b919b13bdbbc",
+        "corrections.py": "4f9cccee9fdc8d0b8c6eb37caf66cac34da8d9aa21a4a66e04b268eb122e0b6a",
+        "documentary.py": "1a4344bf5d4c14e25561b2a26b5e46512b431ea281746a7c681609e8d062681b",
+        "documentary_verify.py": "b76bd5a0f6fd19d9b587cc10d7f91fea0b4cc6eeab68bc4791b34007d553d070",
+        "evaluate.py": "8c6e4444d661f5a2982338a45673ff594ae4cc4a86d3ec6e0bce6b7f77c90969",
+        "evaluation.py": "4d58e13a85f6edb1443bf156baaa48b1cdf72ce38e5e16a0ce53d195ac395715",
+        "evidence_contract.py": "5fb4226e9407d3432cdbaa518b10af9a5d5dc7bef0036e204848fbda3a3ffbe5",
+        "frames.py": "82c23f7382f862d3b95960b017dda278022ccee1f1bc4e9b339bf7c45ba8dede",
+        "library.py": "7d1613c28f01453270c8a53bf0e3f015bf197dff25b43edc764802e1e1306e5b",
+        "literal_evidence.py": "4dff854bea0a7ae453be35ee016be2533d9ed0b08b98b7ee4a28d2f10b5983fa",
+        "local_narrator.py": "198880340d70f29a8818588e30d5bdd2eee86336dba3c032f378d8928b084f3e",
+        "local_reader.py": "6e7a6702f8296b63dd8a2be292ef620c9e67ed6170770e1222cfee58e23ea815",
+        "operational_evidence.py": "ac4ac4c1b9df9f412323674083dbc1bdb83a6570b8576fde9969eddafd791580",
+        "passage_admission.py": "0fdc1dc7b620ed81822c30be8db4113ec05736403f5fc6c7cf583ba29180d13e",
+        "passages.py": "953da46f391003cdb4ea4f8c8f759d117dde38d0bd38e1c26a1ddc6bb0610dcb",
+        "pipeline.py": "385a1b93b5ae4c1ec810201dc6396bea1f1589e9fc38f72c53c77a13836acced",
+        "policy_evidence.py": "90ae363e5b2b92c52ef24a9ff4d820821a76729f012831c51e27f3ad54492c35",
+        "practical_evidence.py": "0ad115570d1a5c1f756f2931e331a083d6f9ca6f7512223b5160278f5cda33af",
+        "procedures.py": "90cc6108617b3e56e578039f793581687bb2862e448421d5e5c7f088d2dfac37",
+        "prose_retrieval.py": "7ae56c9cb4dfb5a59c6df85243bdc2018dfd544b900be615ba973a62256a6096",
+        "relation_graph.py": "eb5e73aedf77e8a441d2e85b044e7eb275e0fc03b56bfff309099ec74893ebcf",
+        "source_projection.py": "bf5d84912616e75c3fe3deb038325348f2f2ccb2ae210315cd8605798cf48c16",
+        "source_units.py": "174920566a1e3cccfb2be38d03fc7bb696f5ffd07a2bde56937be3ffa89dac2b",
+        "support.py": "67821fc2399616dfbc10c52a440b3de5f6220a82aec44be595b60fd19b96f9ff"
+      },
+      "passage_budget": {
+        "max_passages": 12,
+        "max_characters": 8000,
+        "distinct_citation_spans": 0,
+        "citation_characters": 0,
+        "blocked_atomic_claims": 0,
+        "deduplicated_before_charge": true
+      },
+      "source_assurance": {
+        "basis": "source_attributed_only",
+        "outside_world_confirmation_required": true,
+        "outside_world_truth": "not_established",
+        "authorship_authenticated": false,
+        "independence_verified": false,
+        "declared_evidence_root_count": null,
+        "single_declared_root": null,
+        "notice": "Source support establishes what eligible ledger pages state. Outside-world confirmation is required before treating those statements as historical truth. MPLPB cannot detect a coherent false original without contrary evidence, authenticate arbitrary testimony, or establish general historical reconstruction from source integrity alone."
+      }
+    }
+  },
+  {
+    "id": "DP00013",
+    "family": "explicit_cause",
+    "expected": "answer",
+    "before": "over_refusal",
+    "after": "detected_answer",
+    "question": "According to the report, why was the inspection canceled? Keep unknown matters unresolved.",
+    "sources": [
+      {
+        "path": "sources/record-01.md",
+        "raw_utf8": "MAY REED TO TESS ROWAN. September 20, 1841\nDear colleague,\n\nThe inspection was canceled because of damage to the\nbridge.\n"
+      }
+    ],
+    "source_receipts": [
+      {
+        "source_id": "SOURCE-0001",
+        "source_file": "sources/record-01.md",
+        "path": "source-0001.html",
+        "hash": "sha256:425036dc16a74f1989e4c7d9c955e90f9b493bcd22953e50739bdf42dc43d18b",
+        "raw_sha256": "9ec97126025661e666b41c9443aa939dd72cc3c726c429af083d9c43576d7e2e",
+        "canonical_body": "MAY REED TO TESS ROWAN. September 20, 1841\nDear colleague,\nThe inspection was canceled because of damage to the\nbridge."
+      },
+      {
+        "source_id": "SOURCE-0002",
+        "source_file": "sources/inventory-00.txt",
+        "path": "source-0002.html",
+        "hash": "sha256:2646060b0856ac503a46af5e29d353fac3969d7d4f609338b58654b3da3e59fe",
+        "raw_sha256": "1b5e924962256da6cb56d16e11e08a1f92a130772ff3b661b57bfd0c18e0128d",
+        "canonical_body": "Inventory leaf 1. The archive cupboard held a woolen cover beside an unrelated register. No dispatch is recorded here."
+      }
+    ],
+    "answer": {
+      "schema": "answer-contract-v1",
+      "mode": "strict",
+      "question": "According to the report, why was the inspection canceled? Keep unknown matters unresolved.",
+      "kind": "supported_answer",
+      "answer_supported": true,
+      "text": "Source assertion: The inspection was canceled because of damage to the bridge. Only the complete cited wording is checked; historical truth and event/person identity are not independently verified. The source explicitly attributes a cause; this does not independently establish historical causation.",
+      "claims": [
+        {
+          "text": "Source assertion: The inspection was canceled because of damage to the bridge.",
+          "qualifiers": [
+            "Only the complete cited wording is checked; historical truth and event/person identity are not independently verified.",
+            "The source explicitly attributes a cause; this does not independently establish historical causation."
+          ],
+          "citations": [
+            {
+              "source_id": "SOURCE-0001",
+              "path": "source-0001.html",
+              "hash": "sha256:425036dc16a74f1989e4c7d9c955e90f9b493bcd22953e50739bdf42dc43d18b",
+              "body_start": 59,
+              "body_end": 119,
+              "start": 59,
+              "end": 119,
+              "quote": "The inspection was canceled because of damage to the\nbridge.",
+              "body_projection": "body-text-no-headings-v1"
+            }
+          ],
+          "proposition": {
+            "relation": "source_causal_assertion",
+            "subject_text": "The inspection",
+            "action_text": "canceled",
+            "cause_text": "damage to the bridge",
+            "negative": false,
+            "causal_basis": "literal because-of assertion",
+            "date_role": "event_relative_or_elapsed_expression_unresolved",
+            "assertion_modality": "source_attributed_assertion",
+            "event_identity": null,
+            "historical_truth_independently_verified": false,
+            "question_obligations_verified": true,
+            "verified_question": "According to the report, why was the inspection canceled? Keep unknown matters unresolved.",
+            "question_completion_rule": "literal_source_cause_v1",
+            "reference_scope": "One explicit source-attributed cause; event identity and historical causation unverified."
+          },
+          "source_support_established": true,
+          "support_scope": "source_attributed_assertion",
+          "verification": "documentary-assertion-kernel-v9",
+          "historical_truth_independently_verified": false,
+          "proof_sha256": "sha256:cf8d3ceddaf0ec36c0a010eb43b1833120da5d8554488836d13a9837788bb8c0"
+        }
+      ],
+      "missing": [],
+      "clarification": "",
+      "confidence": null,
+      "confidence_calibrated": false,
+      "sources": [
+        {
+          "id": "SOURCE-0001",
+          "path": "source-0001.html",
+          "hash": "sha256:425036dc16a74f1989e4c7d9c955e90f9b493bcd22953e50739bdf42dc43d18b"
+        }
+      ],
+      "retrieval": {
+        "eligible_pages": 2,
+        "total_passages": 2,
+        "passages": [],
+        "sources": [],
+        "search_complete": false,
+        "corpus_snapshot": "sha256:cbd885399fbbb2b994dbd8a9128fca1dbd7f42b659f8f52ef343284910762848",
+        "ranking": "not_run"
+      },
+      "verification": {
+        "structural": true,
+        "semantic": "documentary-assertion-kernel-v9",
+        "truth_verified": false,
+        "independence_verified": false
+      },
+      "reader": null,
+      "trace": [],
+      "diagnostic": {
+        "code": "supported_documentary_assertion",
+        "stage": "documentary_verification",
+        "message": "Checked source-attributed assertions only; unresolved question obligations remain explicit and historical truth is unverified.",
+        "category": "source_support_established",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Review the diagnostic and source evidence before retrying."
+        ]
+      },
+      "code_sha256": {
+        "__init__.py": "d57d776eaaea962867814b5af3f0ac836fdd0c70ffbde910a801e6240697a095",
+        "__main__.py": "6b08b036aad956ce62e854e736939c4fb51bce7b3b71ee4a5b69839a07e1d460",
+        "assertions.py": "54a8a56e2e19bd3565098a3b66f28da590341405a454cf154319686ea0a51458",
+        "body_text.py": "f09d330007cd0cf396c1b1cec1d257eef58862247abde9205390b919b13bdbbc",
+        "corrections.py": "4f9cccee9fdc8d0b8c6eb37caf66cac34da8d9aa21a4a66e04b268eb122e0b6a",
+        "documentary.py": "1a4344bf5d4c14e25561b2a26b5e46512b431ea281746a7c681609e8d062681b",
+        "documentary_verify.py": "b76bd5a0f6fd19d9b587cc10d7f91fea0b4cc6eeab68bc4791b34007d553d070",
+        "evaluate.py": "8c6e4444d661f5a2982338a45673ff594ae4cc4a86d3ec6e0bce6b7f77c90969",
+        "evaluation.py": "4d58e13a85f6edb1443bf156baaa48b1cdf72ce38e5e16a0ce53d195ac395715",
+        "evidence_contract.py": "5fb4226e9407d3432cdbaa518b10af9a5d5dc7bef0036e204848fbda3a3ffbe5",
+        "frames.py": "82c23f7382f862d3b95960b017dda278022ccee1f1bc4e9b339bf7c45ba8dede",
+        "library.py": "7d1613c28f01453270c8a53bf0e3f015bf197dff25b43edc764802e1e1306e5b",
+        "literal_evidence.py": "4dff854bea0a7ae453be35ee016be2533d9ed0b08b98b7ee4a28d2f10b5983fa",
+        "local_narrator.py": "198880340d70f29a8818588e30d5bdd2eee86336dba3c032f378d8928b084f3e",
+        "local_reader.py": "6e7a6702f8296b63dd8a2be292ef620c9e67ed6170770e1222cfee58e23ea815",
+        "operational_evidence.py": "ac4ac4c1b9df9f412323674083dbc1bdb83a6570b8576fde9969eddafd791580",
+        "passage_admission.py": "0fdc1dc7b620ed81822c30be8db4113ec05736403f5fc6c7cf583ba29180d13e",
+        "passages.py": "953da46f391003cdb4ea4f8c8f759d117dde38d0bd38e1c26a1ddc6bb0610dcb",
+        "pipeline.py": "385a1b93b5ae4c1ec810201dc6396bea1f1589e9fc38f72c53c77a13836acced",
+        "policy_evidence.py": "90ae363e5b2b92c52ef24a9ff4d820821a76729f012831c51e27f3ad54492c35",
+        "practical_evidence.py": "0ad115570d1a5c1f756f2931e331a083d6f9ca6f7512223b5160278f5cda33af",
+        "procedures.py": "90cc6108617b3e56e578039f793581687bb2862e448421d5e5c7f088d2dfac37",
+        "prose_retrieval.py": "7ae56c9cb4dfb5a59c6df85243bdc2018dfd544b900be615ba973a62256a6096",
+        "relation_graph.py": "eb5e73aedf77e8a441d2e85b044e7eb275e0fc03b56bfff309099ec74893ebcf",
+        "source_projection.py": "bf5d84912616e75c3fe3deb038325348f2f2ccb2ae210315cd8605798cf48c16",
+        "source_units.py": "174920566a1e3cccfb2be38d03fc7bb696f5ffd07a2bde56937be3ffa89dac2b",
+        "support.py": "67821fc2399616dfbc10c52a440b3de5f6220a82aec44be595b60fd19b96f9ff"
+      },
+      "documentary_support": {
+        "schema": "documentary-composition-v1",
+        "original_question": "According to the report, why was the inspection canceled? Keep unknown matters unresolved.",
+        "profile": "lab",
+        "obligations": [
+          {
+            "question": "why was the inspection canceled",
+            "kind": "explicit_cause",
+            "status": "supported_source_assertion",
+            "evidence_proof_sha256": [
+              "sha256:cf8d3ceddaf0ec36c0a010eb43b1833120da5d8554488836d13a9837788bb8c0"
+            ],
+            "evidence_claim_indices": [
+              0
+            ],
+            "unadmitted_witness_candidate_count": 0,
+            "undisplayed_evidence_count": 0,
+            "unadmitted_candidates_verified": false
+          }
+        ],
+        "source_support_claims": 1,
+        "historical_truth_independently_verified": false,
+        "admission": {
+          "schema": "reader-witness-admission-v1",
+          "max_passages": 12,
+          "max_characters": 8000,
+          "passages_admitted": 1,
+          "characters_admitted": 60,
+          "deduplication": "Exact source ID/path/hash/half-open span; different revisions and distinct nested spans remain distinct.",
+          "duplicate_span_charges_avoided": 1,
+          "admitted": [
+            {
+              "source_id": "SOURCE-0001",
+              "path": "source-0001.html",
+              "hash": "sha256:425036dc16a74f1989e4c7d9c955e90f9b493bcd22953e50739bdf42dc43d18b",
+              "body_start": 59,
+              "body_end": 119,
+              "start": 59,
+              "end": 119,
+              "quote": "The inspection was canceled because of damage to the\nbridge.",
+              "body_projection": "body-text-no-headings-v1",
+              "reader_roles": [
+                "native_rule_candidates_for_question_parts:0",
+                "verified_question_evidence_or_counterevidence"
+              ]
+            }
+          ],
+          "blocked": [],
+          "review_only_hints": [],
+          "review_only_hint_count": 0,
+          "search_only_hints_admitted": 0,
+          "relevant_counterevidence_did_not_fit": false,
+          "reader_witness_discovery": {
+            "rule": null,
+            "body_prefix_characters": 0,
+            "pair_attempts": 0,
+            "max_body_prefix_characters": 192000,
+            "max_pair_attempts": 32
+          },
+          "sorter_assigns_slots": false,
+          "historical_truth_verified": false
+        },
+        "composition_rule": "Conjunction of independently checked source assertions; no person/event co-reference inferred.",
+        "historical_conflict_verified": false,
+        "event_coreference_established": false,
+        "contrary_evidence_scan_complete": true,
+        "scan_scope": "Finite literal action assertions; request occurrence/correction/execution not certified.",
+        "examined_characters": 237,
+        "examined_units": 7,
+        "limits_reached": [],
+        "limits": {
+          "max_proposals": 12,
+          "max_scan_characters": 200000,
+          "max_units": 1000,
+          "max_assertions": 64
+        },
+        "rejected_proposals": [],
+        "context_limits": [],
+        "comparison_completion_scope": null,
+        "question_completion_scope": "One explicit source-attributed cause; event identity and historical causation unverified.",
+        "alternative_evidence": [],
+        "unshown_alternative_evidence_count": 0,
+        "possible_refutation_count": 0,
+        "refutation_targets_resolved": false,
+        "retrieval_limits": {
+          "max_passages": 12,
+          "max_characters": 8000
+        }
+      },
+      "passage_budget": {
+        "max_passages": 12,
+        "max_characters": 8000,
+        "distinct_citation_spans": 1,
+        "citation_characters": 60,
+        "blocked_atomic_claims": 0,
+        "deduplicated_before_charge": true
+      },
+      "source_assurance": {
+        "basis": "source_attributed_only",
+        "outside_world_confirmation_required": true,
+        "outside_world_truth": "not_established",
+        "authorship_authenticated": false,
+        "independence_verified": false,
+        "declared_evidence_root_count": 1,
+        "single_declared_root": true,
+        "notice": "Source support establishes what eligible ledger pages state. Outside-world confirmation is required before treating those statements as historical truth. MPLPB cannot detect a coherent false original without contrary evidence, authenticate arbitrary testimony, or establish general historical reconstruction from source integrity alone."
+      }
+    }
+  },
+  {
+    "id": "DP00017",
+    "family": "reported_statement",
+    "expected": "answer",
+    "before": "over_refusal",
+    "after": "over_refusal",
+    "question": "What does Owen Pike report about the writer of the copper survey report, without independently verifying the event? Keep unknown matters unresolved.",
+    "sources": [
+      {
+        "path": "sources/record-01.txt",
+        "raw_utf8": "According to Owen Pike, May\nReed wrote the copper survey\nreport.\n"
+      }
+    ],
+    "source_receipts": [
+      {
+        "source_id": "SOURCE-0001",
+        "source_file": "sources/record-01.txt",
+        "path": "source-0001.html",
+        "hash": "sha256:88524e4cb000dd153da3623a3b0b6a41d4da62e848cc51fcf91efaf0141c0068",
+        "raw_sha256": "3df8177f5743c82df68de2a40032f90472dbc1b2d22e931f1d481d14a57c7e66",
+        "canonical_body": "According to Owen Pike, May\nReed wrote the copper survey\nreport."
+      },
+      {
+        "source_id": "SOURCE-0002",
+        "source_file": "sources/inventory-00.txt",
+        "path": "source-0002.html",
+        "hash": "sha256:2646060b0856ac503a46af5e29d353fac3969d7d4f609338b58654b3da3e59fe",
+        "raw_sha256": "1b5e924962256da6cb56d16e11e08a1f92a130772ff3b661b57bfd0c18e0128d",
+        "canonical_body": "Inventory leaf 1. The archive cupboard held a woolen cover beside an unrelated register. No dispatch is recorded here."
+      },
+      {
+        "source_id": "SOURCE-0003",
+        "source_file": "sources/inventory-01.txt",
+        "path": "source-0003.html",
+        "hash": "sha256:b059cf2fe0e68aa63b5e07c0005a9c62befe730dbe08cb81c441f3a42bbafec2",
+        "raw_sha256": "962cce1ade258341bc8f5cecc2fe78456141632b892a4327de3ca612eb2610e6",
+        "canonical_body": "Inventory leaf 2. The archive cupboard held a woolen cover beside an unrelated register. No dispatch is recorded here."
+      },
+      {
+        "source_id": "SOURCE-0004",
+        "source_file": "sources/inventory-02.txt",
+        "path": "source-0004.html",
+        "hash": "sha256:b2106df1624fef4f730c880515c6481e11901581921d400f56794c23e647dd47",
+        "raw_sha256": "f53b29c00b8d08bdd3485e87e276d996cc2d13118aabc782962a0deba57879f7",
+        "canonical_body": "Inventory leaf 3. The archive cupboard held a woolen cover beside an unrelated register. No dispatch is recorded here."
+      },
+      {
+        "source_id": "SOURCE-0005",
+        "source_file": "sources/inventory-03.txt",
+        "path": "source-0005.html",
+        "hash": "sha256:808b2dd0139b966b5f1fb07db5d6d316b77f895a87e384dbf81f80e13e7b5ac1",
+        "raw_sha256": "bc526992b03c047ecb0264333433a5b2500f6f8510aba516c955d068a5a64f48",
+        "canonical_body": "Inventory leaf 4. The archive cupboard held a woolen cover beside an unrelated register. No dispatch is recorded here."
+      },
+      {
+        "source_id": "SOURCE-0006",
+        "source_file": "sources/inventory-04.txt",
+        "path": "source-0006.html",
+        "hash": "sha256:7c09ad9baafadda1d8a76d3382a90181d7ea954f75abaf3c5b8761bde95f3526",
+        "raw_sha256": "20e08cb6d02b27787da206c969c59b0d2b9f1b4871e7625c8994f647fa6ef25b",
+        "canonical_body": "Inventory leaf 5. The archive cupboard held a woolen cover beside an unrelated register. No dispatch is recorded here."
+      },
+      {
+        "source_id": "SOURCE-0007",
+        "source_file": "sources/inventory-05.txt",
+        "path": "source-0007.html",
+        "hash": "sha256:e31ea1808bd4cc471610776e6bef6beed00baef29cf0b9e9dc073a2ae0bbcec8",
+        "raw_sha256": "105cbe75d59753b0308728f0bc5d92d736b99ad4e4435f286664f89c6654a058",
+        "canonical_body": "Inventory leaf 6. The archive cupboard held a woolen cover beside an unrelated register. No dispatch is recorded here."
+      },
+      {
+        "source_id": "SOURCE-0008",
+        "source_file": "sources/inventory-06.txt",
+        "path": "source-0008.html",
+        "hash": "sha256:896a70934abf627f8f93d879aab90837f9d9b1cd1de390c90a3702b9a58a9bf7",
+        "raw_sha256": "93374b50349349798dbe509fc6dbbbe3561ea863e7363737a57a0ac70c08eba9",
+        "canonical_body": "Inventory leaf 7. The archive cupboard held a woolen cover beside an unrelated register. No dispatch is recorded here."
+      }
+    ],
+    "answer": {
+      "schema": "answer-contract-v1",
+      "mode": "strict",
+      "question": "What does Owen Pike report about the writer of the copper survey report, without independently verifying the event? Keep unknown matters unresolved.",
+      "kind": "abstain",
+      "answer_supported": false,
+      "text": "",
+      "claims": [],
+      "missing": [],
+      "clarification": "",
+      "confidence": null,
+      "confidence_calibrated": false,
+      "sources": [],
+      "retrieval": {
+        "eligible_pages": 8,
+        "total_passages": 8,
+        "passages": [],
+        "sources": [],
+        "search_complete": false,
+        "corpus_snapshot": "sha256:d34677fd265d038772d1c220f480733a46f052a7e1f632321f6cd8afa0d2ad48",
+        "ranking": "not_run"
+      },
+      "verification": {
+        "structural": false,
+        "semantic": "not_run",
+        "truth_verified": false,
+        "independence_verified": false
+      },
+      "reader": null,
+      "trace": [],
+      "diagnostic": {
+        "code": "interpretation_unsupported",
+        "stage": "strict",
+        "message": "Eligible passages exist, but the strict reader cannot establish an answer to this question.",
+        "category": "unsupported_question_grammar",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Inspect the relevant source. Try a supported question form or explicitly select a configured assisted reader; do not treat this refusal as proof that the answer is absent."
+        ]
+      },
+      "code_sha256": {
+        "__init__.py": "d57d776eaaea962867814b5af3f0ac836fdd0c70ffbde910a801e6240697a095",
+        "__main__.py": "6b08b036aad956ce62e854e736939c4fb51bce7b3b71ee4a5b69839a07e1d460",
+        "assertions.py": "54a8a56e2e19bd3565098a3b66f28da590341405a454cf154319686ea0a51458",
+        "body_text.py": "f09d330007cd0cf396c1b1cec1d257eef58862247abde9205390b919b13bdbbc",
+        "corrections.py": "4f9cccee9fdc8d0b8c6eb37caf66cac34da8d9aa21a4a66e04b268eb122e0b6a",
+        "documentary.py": "1a4344bf5d4c14e25561b2a26b5e46512b431ea281746a7c681609e8d062681b",
+        "documentary_verify.py": "b76bd5a0f6fd19d9b587cc10d7f91fea0b4cc6eeab68bc4791b34007d553d070",
+        "evaluate.py": "8c6e4444d661f5a2982338a45673ff594ae4cc4a86d3ec6e0bce6b7f77c90969",
+        "evaluation.py": "4d58e13a85f6edb1443bf156baaa48b1cdf72ce38e5e16a0ce53d195ac395715",
+        "evidence_contract.py": "5fb4226e9407d3432cdbaa518b10af9a5d5dc7bef0036e204848fbda3a3ffbe5",
+        "frames.py": "82c23f7382f862d3b95960b017dda278022ccee1f1bc4e9b339bf7c45ba8dede",
+        "library.py": "7d1613c28f01453270c8a53bf0e3f015bf197dff25b43edc764802e1e1306e5b",
+        "literal_evidence.py": "4dff854bea0a7ae453be35ee016be2533d9ed0b08b98b7ee4a28d2f10b5983fa",
+        "local_narrator.py": "198880340d70f29a8818588e30d5bdd2eee86336dba3c032f378d8928b084f3e",
+        "local_reader.py": "6e7a6702f8296b63dd8a2be292ef620c9e67ed6170770e1222cfee58e23ea815",
+        "operational_evidence.py": "ac4ac4c1b9df9f412323674083dbc1bdb83a6570b8576fde9969eddafd791580",
+        "passage_admission.py": "0fdc1dc7b620ed81822c30be8db4113ec05736403f5fc6c7cf583ba29180d13e",
+        "passages.py": "953da46f391003cdb4ea4f8c8f759d117dde38d0bd38e1c26a1ddc6bb0610dcb",
+        "pipeline.py": "385a1b93b5ae4c1ec810201dc6396bea1f1589e9fc38f72c53c77a13836acced",
+        "policy_evidence.py": "90ae363e5b2b92c52ef24a9ff4d820821a76729f012831c51e27f3ad54492c35",
+        "practical_evidence.py": "0ad115570d1a5c1f756f2931e331a083d6f9ca6f7512223b5160278f5cda33af",
+        "procedures.py": "90cc6108617b3e56e578039f793581687bb2862e448421d5e5c7f088d2dfac37",
+        "prose_retrieval.py": "7ae56c9cb4dfb5a59c6df85243bdc2018dfd544b900be615ba973a62256a6096",
+        "relation_graph.py": "eb5e73aedf77e8a441d2e85b044e7eb275e0fc03b56bfff309099ec74893ebcf",
+        "source_projection.py": "bf5d84912616e75c3fe3deb038325348f2f2ccb2ae210315cd8605798cf48c16",
+        "source_units.py": "174920566a1e3cccfb2be38d03fc7bb696f5ffd07a2bde56937be3ffa89dac2b",
+        "support.py": "67821fc2399616dfbc10c52a440b3de5f6220a82aec44be595b60fd19b96f9ff"
+      },
+      "passage_budget": {
+        "max_passages": 12,
+        "max_characters": 8000,
+        "distinct_citation_spans": 0,
+        "citation_characters": 0,
+        "blocked_atomic_claims": 0,
+        "deduplicated_before_charge": true
+      },
+      "source_assurance": {
+        "basis": "source_attributed_only",
+        "outside_world_confirmation_required": true,
+        "outside_world_truth": "not_established",
+        "authorship_authenticated": false,
+        "independence_verified": false,
+        "declared_evidence_root_count": null,
+        "single_declared_root": null,
+        "notice": "Source support establishes what eligible ledger pages state. Outside-world confirmation is required before treating those statements as historical truth. MPLPB cannot detect a coherent false original without contrary evidence, authenticate arbitrary testimony, or establish general historical reconstruction from source integrity alone."
+      }
+    }
+  },
+  {
+    "id": "DP00037",
+    "family": "exact_anchor",
+    "expected": "answer",
+    "before": "over_refusal",
+    "after": "detected_answer",
+    "question": "Which source contains the exact words \"The harbor lantern remained lit beneath the northern\"? Locate the words only.",
+    "sources": [
+      {
+        "path": "sources/record-01.md",
+        "raw_utf8": "OWEN PIKE TO EDDA MARÉN. July 29, 1849\r\nDear colleague,\r\n\r\nOwen Pike wrote the canal\r\nregister. The harbor lantern\r\nremained lit beneath the\r\nnorthern awning.\r\n"
+      }
+    ],
+    "source_receipts": [
+      {
+        "source_id": "SOURCE-0001",
+        "source_file": "sources/record-01.md",
+        "path": "source-0001.html",
+        "hash": "sha256:1d8da9908b9531481cc075fcc1db55bb4421e9a1809b10423d0eb0fbd74a5d17",
+        "raw_sha256": "2a25d20c6e3fd4ce947a2e654ef235d211995cfc51d0c558117fb684af6cd0c2",
+        "canonical_body": "OWEN PIKE TO EDDA MARÉN. July 29, 1849\nDear colleague,\nOwen Pike wrote the canal\nregister. The harbor lantern\nremained lit beneath the\nnorthern awning."
+      },
+      {
+        "source_id": "SOURCE-0002",
+        "source_file": "sources/inventory-00.txt",
+        "path": "source-0002.html",
+        "hash": "sha256:2646060b0856ac503a46af5e29d353fac3969d7d4f609338b58654b3da3e59fe",
+        "raw_sha256": "1b5e924962256da6cb56d16e11e08a1f92a130772ff3b661b57bfd0c18e0128d",
+        "canonical_body": "Inventory leaf 1. The archive cupboard held a woolen cover beside an unrelated register. No dispatch is recorded here."
+      },
+      {
+        "source_id": "SOURCE-0003",
+        "source_file": "sources/inventory-01.txt",
+        "path": "source-0003.html",
+        "hash": "sha256:b059cf2fe0e68aa63b5e07c0005a9c62befe730dbe08cb81c441f3a42bbafec2",
+        "raw_sha256": "962cce1ade258341bc8f5cecc2fe78456141632b892a4327de3ca612eb2610e6",
+        "canonical_body": "Inventory leaf 2. The archive cupboard held a woolen cover beside an unrelated register. No dispatch is recorded here."
+      },
+      {
+        "source_id": "SOURCE-0004",
+        "source_file": "sources/inventory-02.txt",
+        "path": "source-0004.html",
+        "hash": "sha256:b2106df1624fef4f730c880515c6481e11901581921d400f56794c23e647dd47",
+        "raw_sha256": "f53b29c00b8d08bdd3485e87e276d996cc2d13118aabc782962a0deba57879f7",
+        "canonical_body": "Inventory leaf 3. The archive cupboard held a woolen cover beside an unrelated register. No dispatch is recorded here."
+      }
+    ],
+    "answer": {
+      "schema": "answer-contract-v1",
+      "mode": "strict",
+      "question": "Which source contains the exact words \"The harbor lantern remained lit beneath the northern\"? Locate the words only.",
+      "kind": "supported_answer",
+      "answer_supported": true,
+      "text": "The cited source contains the requested words: “The harbor lantern remained lit beneath the northern”. Only the complete cited wording is checked; historical truth and event/person identity are not independently verified. Textual occurrence only; quotations, examples, conditions and denials do not establish an event or execution.",
+      "claims": [
+        {
+          "text": "The cited source contains the requested words: “The harbor lantern remained lit beneath the northern”.",
+          "qualifiers": [
+            "Only the complete cited wording is checked; historical truth and event/person identity are not independently verified.",
+            "Textual occurrence only; quotations, examples, conditions and denials do not establish an event or execution."
+          ],
+          "citations": [
+            {
+              "source_id": "SOURCE-0001",
+              "path": "source-0001.html",
+              "hash": "sha256:1d8da9908b9531481cc075fcc1db55bb4421e9a1809b10423d0eb0fbd74a5d17",
+              "body_start": 91,
+              "body_end": 151,
+              "start": 91,
+              "end": 151,
+              "quote": "The harbor lantern\nremained lit beneath the\nnorthern awning.",
+              "body_projection": "body-text-no-headings-v1"
+            }
+          ],
+          "proposition": {
+            "relation": "source_literal_occurrence",
+            "requested_words": "The harbor lantern remained lit beneath the northern",
+            "matching_basis": "Exact code points and word boundaries; source whitespace may wrap.",
+            "text_only": true,
+            "event_identity": null,
+            "historical_truth_independently_verified": false,
+            "question_obligations_verified": true,
+            "verified_question": "Which source contains the exact words \"The harbor lantern remained lit beneath the northern\"? Locate the words only.",
+            "question_completion_rule": "eligible_literal_location_v1",
+            "reference_scope": "Textual occurrence in one current eligible source; no event or historical assertion.",
+            "eligible_source_ambiguity": false
+          },
+          "source_support_established": true,
+          "support_scope": "textual_occurrence",
+          "verification": "documentary-assertion-kernel-v9",
+          "historical_truth_independently_verified": false,
+          "proof_sha256": "sha256:9d41bc52c135c4c7e59fef2647cb848137424dae534df0ecf1cd949a21c36fd1"
+        }
+      ],
+      "missing": [],
+      "clarification": "",
+      "confidence": null,
+      "confidence_calibrated": false,
+      "sources": [
+        {
+          "id": "SOURCE-0001",
+          "path": "source-0001.html",
+          "hash": "sha256:1d8da9908b9531481cc075fcc1db55bb4421e9a1809b10423d0eb0fbd74a5d17"
+        }
+      ],
+      "retrieval": {
+        "eligible_pages": 4,
+        "total_passages": 4,
+        "passages": [],
+        "sources": [],
+        "search_complete": false,
+        "corpus_snapshot": "sha256:282c9ebdd398afcd817442a62a75528115c63901cfc997e81e3629eb13f962cc",
+        "ranking": "not_run"
+      },
+      "verification": {
+        "structural": true,
+        "semantic": "documentary-assertion-kernel-v9",
+        "truth_verified": false,
+        "independence_verified": false
+      },
+      "reader": null,
+      "trace": [],
+      "diagnostic": {
+        "code": "supported_documentary_assertion",
+        "stage": "documentary_verification",
+        "message": "Checked source-attributed assertions only; unresolved question obligations remain explicit and historical truth is unverified.",
+        "category": "source_support_established",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Review the diagnostic and source evidence before retrying."
+        ]
+      },
+      "code_sha256": {
+        "__init__.py": "d57d776eaaea962867814b5af3f0ac836fdd0c70ffbde910a801e6240697a095",
+        "__main__.py": "6b08b036aad956ce62e854e736939c4fb51bce7b3b71ee4a5b69839a07e1d460",
+        "assertions.py": "54a8a56e2e19bd3565098a3b66f28da590341405a454cf154319686ea0a51458",
+        "body_text.py": "f09d330007cd0cf396c1b1cec1d257eef58862247abde9205390b919b13bdbbc",
+        "corrections.py": "4f9cccee9fdc8d0b8c6eb37caf66cac34da8d9aa21a4a66e04b268eb122e0b6a",
+        "documentary.py": "1a4344bf5d4c14e25561b2a26b5e46512b431ea281746a7c681609e8d062681b",
+        "documentary_verify.py": "b76bd5a0f6fd19d9b587cc10d7f91fea0b4cc6eeab68bc4791b34007d553d070",
+        "evaluate.py": "8c6e4444d661f5a2982338a45673ff594ae4cc4a86d3ec6e0bce6b7f77c90969",
+        "evaluation.py": "4d58e13a85f6edb1443bf156baaa48b1cdf72ce38e5e16a0ce53d195ac395715",
+        "evidence_contract.py": "5fb4226e9407d3432cdbaa518b10af9a5d5dc7bef0036e204848fbda3a3ffbe5",
+        "frames.py": "82c23f7382f862d3b95960b017dda278022ccee1f1bc4e9b339bf7c45ba8dede",
+        "library.py": "7d1613c28f01453270c8a53bf0e3f015bf197dff25b43edc764802e1e1306e5b",
+        "literal_evidence.py": "4dff854bea0a7ae453be35ee016be2533d9ed0b08b98b7ee4a28d2f10b5983fa",
+        "local_narrator.py": "198880340d70f29a8818588e30d5bdd2eee86336dba3c032f378d8928b084f3e",
+        "local_reader.py": "6e7a6702f8296b63dd8a2be292ef620c9e67ed6170770e1222cfee58e23ea815",
+        "operational_evidence.py": "ac4ac4c1b9df9f412323674083dbc1bdb83a6570b8576fde9969eddafd791580",
+        "passage_admission.py": "0fdc1dc7b620ed81822c30be8db4113ec05736403f5fc6c7cf583ba29180d13e",
+        "passages.py": "953da46f391003cdb4ea4f8c8f759d117dde38d0bd38e1c26a1ddc6bb0610dcb",
+        "pipeline.py": "385a1b93b5ae4c1ec810201dc6396bea1f1589e9fc38f72c53c77a13836acced",
+        "policy_evidence.py": "90ae363e5b2b92c52ef24a9ff4d820821a76729f012831c51e27f3ad54492c35",
+        "practical_evidence.py": "0ad115570d1a5c1f756f2931e331a083d6f9ca6f7512223b5160278f5cda33af",
+        "procedures.py": "90cc6108617b3e56e578039f793581687bb2862e448421d5e5c7f088d2dfac37",
+        "prose_retrieval.py": "7ae56c9cb4dfb5a59c6df85243bdc2018dfd544b900be615ba973a62256a6096",
+        "relation_graph.py": "eb5e73aedf77e8a441d2e85b044e7eb275e0fc03b56bfff309099ec74893ebcf",
+        "source_projection.py": "bf5d84912616e75c3fe3deb038325348f2f2ccb2ae210315cd8605798cf48c16",
+        "source_units.py": "174920566a1e3cccfb2be38d03fc7bb696f5ffd07a2bde56937be3ffa89dac2b",
+        "support.py": "67821fc2399616dfbc10c52a440b3de5f6220a82aec44be595b60fd19b96f9ff"
+      },
+      "documentary_support": {
+        "schema": "documentary-composition-v1",
+        "original_question": "Which source contains the exact words \"The harbor lantern remained lit beneath the northern\"? Locate the words only.",
+        "profile": "internal",
+        "obligations": [
+          {
+            "question": "Which source contains the exact words \"The harbor lantern remained lit beneath the northern\"? Locate the words only.",
+            "kind": "literal_location",
+            "status": "supported_source_assertion",
+            "evidence_proof_sha256": [
+              "sha256:9d41bc52c135c4c7e59fef2647cb848137424dae534df0ecf1cd949a21c36fd1"
+            ],
+            "evidence_claim_indices": [
+              0
+            ],
+            "unadmitted_witness_candidate_count": 0,
+            "undisplayed_evidence_count": 0,
+            "unadmitted_candidates_verified": false
+          }
+        ],
+        "source_support_claims": 1,
+        "historical_truth_independently_verified": false,
+        "admission": {
+          "schema": "reader-witness-admission-v1",
+          "max_passages": 12,
+          "max_characters": 8000,
+          "passages_admitted": 1,
+          "characters_admitted": 60,
+          "deduplication": "Exact source ID/path/hash/half-open span; different revisions and distinct nested spans remain distinct.",
+          "duplicate_span_charges_avoided": 1,
+          "admitted": [
+            {
+              "source_id": "SOURCE-0001",
+              "path": "source-0001.html",
+              "hash": "sha256:1d8da9908b9531481cc075fcc1db55bb4421e9a1809b10423d0eb0fbd74a5d17",
+              "body_start": 91,
+              "body_end": 151,
+              "start": 91,
+              "end": 151,
+              "quote": "The harbor lantern\nremained lit beneath the\nnorthern awning.",
+              "body_projection": "body-text-no-headings-v1",
+              "reader_roles": [
+                "native_rule_candidates_for_question_parts:0",
+                "verified_question_evidence_or_counterevidence"
+              ]
+            }
+          ],
+          "blocked": [],
+          "review_only_hints": [],
+          "review_only_hint_count": 0,
+          "search_only_hints_admitted": 0,
+          "relevant_counterevidence_did_not_fit": false,
+          "reader_witness_discovery": {
+            "rule": null,
+            "body_prefix_characters": 0,
+            "pair_attempts": 0,
+            "max_body_prefix_characters": 192000,
+            "max_pair_attempts": 32
+          },
+          "sorter_assigns_slots": false,
+          "historical_truth_verified": false
+        },
+        "composition_rule": "Conjunction of independently checked source assertions; no person/event co-reference inferred.",
+        "historical_conflict_verified": false,
+        "event_coreference_established": false,
+        "contrary_evidence_scan_complete": true,
+        "scan_scope": "Finite literal action assertions; request occurrence/correction/execution not certified.",
+        "examined_characters": 505,
+        "examined_units": 13,
+        "limits_reached": [],
+        "limits": {
+          "max_proposals": 12,
+          "max_scan_characters": 200000,
+          "max_units": 1000,
+          "max_assertions": 64
+        },
+        "rejected_proposals": [],
+        "context_limits": [],
+        "comparison_completion_scope": null,
+        "question_completion_scope": "Textual occurrence in one current eligible source; no event or historical assertion.",
+        "alternative_evidence": [],
+        "unshown_alternative_evidence_count": 0,
+        "possible_refutation_count": 0,
+        "refutation_targets_resolved": false,
+        "retrieval_limits": {
+          "max_passages": 12,
+          "max_characters": 8000
+        }
+      },
+      "passage_budget": {
+        "max_passages": 12,
+        "max_characters": 8000,
+        "distinct_citation_spans": 1,
+        "citation_characters": 60,
+        "blocked_atomic_claims": 0,
+        "deduplicated_before_charge": true
+      },
+      "source_assurance": {
+        "basis": "source_attributed_only",
+        "outside_world_confirmation_required": true,
+        "outside_world_truth": "not_established",
+        "authorship_authenticated": false,
+        "independence_verified": false,
+        "declared_evidence_root_count": 1,
+        "single_declared_root": true,
+        "notice": "Source support establishes what eligible ledger pages state. Outside-world confirmation is required before treating those statements as historical truth. MPLPB cannot detect a coherent false original without contrary evidence, authenticate arbitrary testimony, or establish general historical reconstruction from source integrity alone."
+      }
+    }
+  },
+  {
+    "id": "DP00078",
+    "family": "explicit_chain",
+    "expected": "answer",
+    "before": "over_refusal",
+    "after": "over_refusal",
+    "question": "According to these records, trace the explicitly linked request, dispatch and reported receipt. Preserve attribution.",
+    "sources": [
+      {
+        "path": "sources/record-01.md",
+        "raw_utf8": "ARUN MOSS TO MIRA VALE. March 31, 1848\r\nDear colleague,\r\n\r\nOn March 28, 1848, Arun Moss asked Mira Vale to send the harbor report to the\r\neast depot.\r\n"
+      },
+      {
+        "path": "sources/record-02.md",
+        "raw_utf8": "MIRA VALE TO ARUN MOSS. March 31, 1848\r\nDear colleague,\r\n\r\nIn response to that request of March 28, 1848, I, Mira Vale, sent the harbor\r\nreport to the east depot.\r\n"
+      },
+      {
+        "path": "sources/record-03.md",
+        "raw_utf8": "ARUN MOSS TO MIRA VALE. March 31, 1848\r\nDear colleague,\r\n\r\nThe east depot reported receiving the harbor report sent by Mira Vale in\r\nresponse to the request of March 28, 1848.\r\n"
+      }
+    ],
+    "source_receipts": [
+      {
+        "source_id": "SOURCE-0001",
+        "source_file": "sources/record-01.md",
+        "path": "source-0001.html",
+        "hash": "sha256:90534e0bc6514f9578bc9552e605f4d0925721f8b6497a8a1e1674853dc62ef0",
+        "raw_sha256": "1cfd6320633c5adaab5298836debd1b51321b1bd00c417563f36491d6b432068",
+        "canonical_body": "ARUN MOSS TO MIRA VALE. March 31, 1848\nDear colleague,\nOn March 28, 1848, Arun Moss asked Mira Vale to send the harbor report to the\neast depot."
+      },
+      {
+        "source_id": "SOURCE-0002",
+        "source_file": "sources/record-02.md",
+        "path": "source-0002.html",
+        "hash": "sha256:bdbbbbd1b17e35b98b49d3f03d485a22918b1dbf2692a78056920d7ac85a1158",
+        "raw_sha256": "13b0ac5e9a3662b24304c94accd6f111276752962b3ca6da150ce98486dbf0ce",
+        "canonical_body": "MIRA VALE TO ARUN MOSS. March 31, 1848\nDear colleague,\nIn response to that request of March 28, 1848, I, Mira Vale, sent the harbor\nreport to the east depot."
+      },
+      {
+        "source_id": "SOURCE-0003",
+        "source_file": "sources/record-03.md",
+        "path": "source-0003.html",
+        "hash": "sha256:925b731420f60087b3777c15cd9687a2d2988d9b3ca583af1feb006d73f6347a",
+        "raw_sha256": "63eefc757fa7cf3e00a1aaf806dc8403865000bd5ccd166fdefca37037f819a4",
+        "canonical_body": "ARUN MOSS TO MIRA VALE. March 31, 1848\nDear colleague,\nThe east depot reported receiving the harbor report sent by Mira Vale in\nresponse to the request of March 28, 1848."
+      },
+      {
+        "source_id": "SOURCE-0004",
+        "source_file": "sources/inventory-00.txt",
+        "path": "source-0004.html",
+        "hash": "sha256:2d3cb7dbb9c16fc17a37c1526377384eac6ffdc88bdaef91a421ef34d193c265",
+        "raw_sha256": "1b5e924962256da6cb56d16e11e08a1f92a130772ff3b661b57bfd0c18e0128d",
+        "canonical_body": "Inventory leaf 1. The archive cupboard held a woolen cover beside an unrelated register. No dispatch is recorded here."
+      },
+      {
+        "source_id": "SOURCE-0005",
+        "source_file": "sources/inventory-01.txt",
+        "path": "source-0005.html",
+        "hash": "sha256:6616aa477818f98b6b0e6b4d8c7c559c1b720a87557d090ab0957a8a7c529d29",
+        "raw_sha256": "962cce1ade258341bc8f5cecc2fe78456141632b892a4327de3ca612eb2610e6",
+        "canonical_body": "Inventory leaf 2. The archive cupboard held a woolen cover beside an unrelated register. No dispatch is recorded here."
+      },
+      {
+        "source_id": "SOURCE-0006",
+        "source_file": "sources/inventory-02.txt",
+        "path": "source-0006.html",
+        "hash": "sha256:c065210ab24e8db04a00d5553936c4c2741e47a394248931c0e411d15084c24a",
+        "raw_sha256": "f53b29c00b8d08bdd3485e87e276d996cc2d13118aabc782962a0deba57879f7",
+        "canonical_body": "Inventory leaf 3. The archive cupboard held a woolen cover beside an unrelated register. No dispatch is recorded here."
+      }
+    ],
+    "answer": {
+      "schema": "answer-contract-v1",
+      "mode": "strict",
+      "question": "According to these records, trace the explicitly linked request, dispatch and reported receipt. Preserve attribution.",
+      "kind": "abstain",
+      "answer_supported": false,
+      "text": "",
+      "claims": [],
+      "missing": [],
+      "clarification": "",
+      "confidence": null,
+      "confidence_calibrated": false,
+      "sources": [],
+      "retrieval": {
+        "eligible_pages": 6,
+        "total_passages": 6,
+        "passages": [],
+        "sources": [],
+        "search_complete": false,
+        "corpus_snapshot": "sha256:fdaab12e37bc0ff79786ff1d6245b2f2b75b5428a217d9bc9aa0df9e7eea46bf",
+        "ranking": "not_run"
+      },
+      "verification": {
+        "structural": false,
+        "semantic": "not_run",
+        "truth_verified": false,
+        "independence_verified": false
+      },
+      "reader": null,
+      "trace": [],
+      "diagnostic": {
+        "code": "interpretation_unsupported",
+        "stage": "strict",
+        "message": "Eligible passages exist, but the strict reader cannot establish an answer to this question.",
+        "category": "unsupported_question_grammar",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Inspect the relevant source. Try a supported question form or explicitly select a configured assisted reader; do not treat this refusal as proof that the answer is absent."
+        ]
+      },
+      "code_sha256": {
+        "__init__.py": "d57d776eaaea962867814b5af3f0ac836fdd0c70ffbde910a801e6240697a095",
+        "__main__.py": "6b08b036aad956ce62e854e736939c4fb51bce7b3b71ee4a5b69839a07e1d460",
+        "assertions.py": "54a8a56e2e19bd3565098a3b66f28da590341405a454cf154319686ea0a51458",
+        "body_text.py": "f09d330007cd0cf396c1b1cec1d257eef58862247abde9205390b919b13bdbbc",
+        "corrections.py": "4f9cccee9fdc8d0b8c6eb37caf66cac34da8d9aa21a4a66e04b268eb122e0b6a",
+        "documentary.py": "1a4344bf5d4c14e25561b2a26b5e46512b431ea281746a7c681609e8d062681b",
+        "documentary_verify.py": "b76bd5a0f6fd19d9b587cc10d7f91fea0b4cc6eeab68bc4791b34007d553d070",
+        "evaluate.py": "8c6e4444d661f5a2982338a45673ff594ae4cc4a86d3ec6e0bce6b7f77c90969",
+        "evaluation.py": "4d58e13a85f6edb1443bf156baaa48b1cdf72ce38e5e16a0ce53d195ac395715",
+        "evidence_contract.py": "5fb4226e9407d3432cdbaa518b10af9a5d5dc7bef0036e204848fbda3a3ffbe5",
+        "frames.py": "82c23f7382f862d3b95960b017dda278022ccee1f1bc4e9b339bf7c45ba8dede",
+        "library.py": "7d1613c28f01453270c8a53bf0e3f015bf197dff25b43edc764802e1e1306e5b",
+        "literal_evidence.py": "4dff854bea0a7ae453be35ee016be2533d9ed0b08b98b7ee4a28d2f10b5983fa",
+        "local_narrator.py": "198880340d70f29a8818588e30d5bdd2eee86336dba3c032f378d8928b084f3e",
+        "local_reader.py": "6e7a6702f8296b63dd8a2be292ef620c9e67ed6170770e1222cfee58e23ea815",
+        "operational_evidence.py": "ac4ac4c1b9df9f412323674083dbc1bdb83a6570b8576fde9969eddafd791580",
+        "passage_admission.py": "0fdc1dc7b620ed81822c30be8db4113ec05736403f5fc6c7cf583ba29180d13e",
+        "passages.py": "953da46f391003cdb4ea4f8c8f759d117dde38d0bd38e1c26a1ddc6bb0610dcb",
+        "pipeline.py": "385a1b93b5ae4c1ec810201dc6396bea1f1589e9fc38f72c53c77a13836acced",
+        "policy_evidence.py": "90ae363e5b2b92c52ef24a9ff4d820821a76729f012831c51e27f3ad54492c35",
+        "practical_evidence.py": "0ad115570d1a5c1f756f2931e331a083d6f9ca6f7512223b5160278f5cda33af",
+        "procedures.py": "90cc6108617b3e56e578039f793581687bb2862e448421d5e5c7f088d2dfac37",
+        "prose_retrieval.py": "7ae56c9cb4dfb5a59c6df85243bdc2018dfd544b900be615ba973a62256a6096",
+        "relation_graph.py": "eb5e73aedf77e8a441d2e85b044e7eb275e0fc03b56bfff309099ec74893ebcf",
+        "source_projection.py": "bf5d84912616e75c3fe3deb038325348f2f2ccb2ae210315cd8605798cf48c16",
+        "source_units.py": "174920566a1e3cccfb2be38d03fc7bb696f5ffd07a2bde56937be3ffa89dac2b",
+        "support.py": "67821fc2399616dfbc10c52a440b3de5f6220a82aec44be595b60fd19b96f9ff"
+      },
+      "passage_budget": {
+        "max_passages": 12,
+        "max_characters": 8000,
+        "distinct_citation_spans": 0,
+        "citation_characters": 0,
+        "blocked_atomic_claims": 0,
+        "deduplicated_before_charge": true
+      },
+      "source_assurance": {
+        "basis": "source_attributed_only",
+        "outside_world_confirmation_required": true,
+        "outside_world_truth": "not_established",
+        "authorship_authenticated": false,
+        "independence_verified": false,
+        "declared_evidence_root_count": null,
+        "single_declared_root": null,
+        "notice": "Source support establishes what eligible ledger pages state. Outside-world confirmation is required before treating those statements as historical truth. MPLPB cannot detect a coherent false original without contrary evidence, authenticate arbitrary testimony, or establish general historical reconstruction from source integrity alone."
+      }
+    }
+  }
+]

@@ -1,0 +1,12 @@
+======================================================================
+FAIL: test_markdown_fences_and_quote_continuations_are_not_bare_actions (tests.test_documentary_header_scope.DocumentaryHeaderScopeTests.test_markdown_fences_and_quote_continuations_are_not_bare_actions) (body='> A copied statement.\nQuentin Moss sent the basalt chart.')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/mplpb/tests/test_documentary_header_scope.py", line 88, in test_markdown_fences_and_quote_continuations_are_not_bare_actions
+    self.assertFalse(answer_query(root,'Who sent the basalt chart?').contract['answer_supported'])
+AssertionError: True is not false
+
+----------------------------------------------------------------------
+Ran 1 test in 0.082s
+
+FAILED (failures=1)

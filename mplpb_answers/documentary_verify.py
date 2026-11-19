@@ -10,13 +10,15 @@ from html.parser import HTMLParser
 from .body_text import body_text, VERSION as BODY_VERSION
 from .passages import PassageIndex
 
-VERSION = 'documentary-assertion-kernel-v5'
+VERSION = 'documentary-assertion-kernel-v9'
 PAST = {'appointed':'appoint','sent':'send','received':'receive','wrote':'write',
         'surveyed':'survey','published':'publish','revised':'revise','canceled':'cancel',
          'ordered':'order','requested':'request','instructed':'instruct'}
 BASE = {v:k for k,v in PAST.items()}
+PASSIVE = {form:PAST[form] for form in ('appointed','sent','received','surveyed','published','revised','canceled')}
+PASSIVE['written']='write'
 META = re.compile(r'\b(?:fictional|hypothetical|example|suppose|quotation|alleged)\b',re.I)
-NAME = re.compile(r"[A-Z][A-Za-z’'\-]*(?:\.(?=\s|$))?(?:\s+[A-Z][A-Za-z’'\-]*\.?){0,7}")
+NAME = re.compile(r"[^\W\d_](?:[^\W\d_]|[’'\-])*(?:\.(?=\s|$))?(?:\s+[^\W\d_](?:[^\W\d_]|[’'\-])*\.?){0,7}")
 DATE = re.compile(r'\b(?:January|February|March|April|May|June|July|August|September|October|November|December)\s+\d{1,2}(?:st|nd|rd|th|d)?[,]?\s+\d{4}\b')
 
 
@@ -26,12 +28,22 @@ def context_ranges(record, *, document_draft=False):
     Position through the unchanged canonical projection. A page containing a
     navigation menu is not thereby wholly unavailable as documentary evidence.
     """
+    qualifiers=r'if|unless|conditional(?:ly)?|plans?|planned|planning|proposals?|proposed|scenarios?|forecasts?|predictions?|hypothes(?:is|es)|intentions?|intended'
+    if not document_draft:qualifiers+='|draft'
     class Context(HTMLParser):
-        def __init__(self):super().__init__();self.parts=[];self.stack=[];self.ranges=[];self.headings=[];self.heading=None
+        def __init__(self):
+            super().__init__();self.parts=[];self.stack=[];self.ranges=[];self.headings=[];self.heading=None
+            self.pre_depth=0;self.pre_prefix='';self.pre_start=None;self.pre_finished=False
         def position(self):return len(body_text(''.join(self.parts)))
         def handle_starttag(self,tag,attrs):
-            if tag in {'blockquote','q','nav','header','footer','aside','form'}:self.stack.append((tag,self.position()))
-            if re.fullmatch('h[1-6]',tag):self.heading=[self.position(),int(tag[1]),[]]
+            if tag=='pre':
+                if self.pre_start is None:self.pre_start=self.position()
+                self.pre_depth+=1
+            hint=' '.join(value or '' for key,value in attrs if key in {'class','role','aria-label','data-layer'}).replace('_',' ')
+            qualified_hint=bool(META.search(hint) or re.search(r'\b(?:'+qualifiers+r'|reported|quoted|forwarded)\b',hint,re.I))
+            if tag in {'blockquote','q','nav','header','footer','aside','form'} or (tag in {'pre','div','section','article'} and qualified_hint):
+                self.stack.append((tag,self.position()))
+            if re.fullmatch('h[1-6]',tag):self.heading=[self.position(),int(tag[1]),[hint+' '] if qualified_hint else []]
             self.parts.append('<'+tag+'>')
         def handle_endtag(self,tag):
             self.parts.append('</'+tag+'>')
@@ -39,15 +51,68 @@ def context_ranges(record, *, document_draft=False):
                 _,start=self.stack.pop();self.ranges.append((start,self.position()+1))
             if self.heading and tag=='h'+str(self.heading[1]):
                 self.headings.append((self.heading[0],self.heading[1],''.join(self.heading[2])));self.heading=None
+            if tag=='pre':
+                self.pre_depth=max(0,self.pre_depth-1)
+                if not self.pre_depth:self.pre_finished=True
         def handle_data(self,value):
             self.parts.append(html.escape(value,quote=False))
             if self.heading:self.heading[2].append(value)
+            if self.pre_depth and not self.pre_finished:self.pre_prefix+=value[:max(0,2001-len(self.pre_prefix))]
     parser=Context();parser.feed(record.body_html);parser.close();full=body_text(record.body_html)
     if body_text(''.join(parser.parts))!=full:return [(0,len(full)+1)]
+    opened=None
+    for m in re.finditer(r'(?m)^\ufeff?[ \t]*(?:>[ \t]*)*(`{3,}|~{3,})([^\r\n]*)',full):
+        if opened is None:opened=(m.start(),m[1])
+        elif m[1][0]==opened[1][0] and len(m[1])>=len(opened[1]) and not m[2].strip():
+            parser.ranges.append((opened[0],m.end()));opened=None
+        if len(parser.ranges)>1000:return [(0,len(full)+1)]
+    if opened:parser.ranges.append((opened[0],len(full)+1))
+    # The projection removes physical blank lines. A Markdown quote with an
+    # uncertain lazy-continuation end cannot authorize subsequent bare actions.
+    quote=re.search(r'(?m)^\ufeff?[ \t]*>',full)
+    if quote:parser.ranges.append((quote.start(),len(full)+1))
+    # A source explicitly ascribing a hypothetical/documentary layer to itself
+    # leaves attachment unresolved, including retrospective declarations. Keep
+    # the complete record inspectable but do not certify bare action predicates.
+    # Merely mentioning a plan is not such an ascription.
+    if re.search(r'\b(?:this|the following|what follows|these) (?:is|was|are|were) (?:(?:merely|only|just) )?(?:an? |the )?(?:plans?|proposals?|drafts?|scenarios?|forecasts?|predictions?|hypothesis|hypotheses|quotations?|examples?|reported (?:accounts?|statements?|instructions?))\b',full,re.I):
+        parser.ranges.append((0,len(full)+1))
+    # Independently retain modality in leading documentary headers. The layout
+    # extractor's new sentence boundaries must never erase these governors.
+    # This restricts semantic assertions; literal text-location remains allowed.
+    labels=[];lines=full[:2000].lstrip('\ufeff').splitlines()[:16];header_uncertain=False
+    if lines and re.match(r'From: ',lines[0],re.I):
+        fields=[]
+        for line in lines:
+            m=re.fullmatch(r'(From|To|Date(?: written| sent| received)?|Subject|Message-ID|Cc): (.+)',line,re.I)
+            if not m:break
+            fields.append((m[1].casefold(),m[2]))
+        if any(k=='to' for k,_ in fields):labels=[v for k,v in fields if k=='subject']
+        else:header_uncertain=True
+        # Canonical projection strips indentation. Re-read original leading
+        # preformatted layout before treating a folded field as body prose.
+        # Unmapped, folded or over-budget headers stay candidates, not facts.
+        physical=parser.pre_prefix.lstrip('\r\n\ufeff');transition=False
+        if parser.pre_start!=0 or not re.match(r'From: ',physical,re.I):header_uncertain=True
+        else:
+            for raw_line in physical.splitlines(keepends=True)[:17]:
+                if not raw_line.endswith(('\r','\n')) and not (parser.pre_finished and len(parser.pre_prefix)<2001):
+                    header_uncertain=True;break
+                line=raw_line.rstrip('\r\n')
+                if not line.strip():transition=True;break
+                if line[:1].isspace():header_uncertain=True;break
+                if not re.fullmatch(r'(?:From|To|Date(?: written| sent| received)?|Subject|Message-ID|Cc): .+',line,re.I):
+                    if re.match(r'[^:\n]{1,80}:',line):header_uncertain=True
+                    else:transition=True
+                    break
+            if not transition:header_uncertain=True
+    elif lines:
+        h=re.fullmatch(r'([^\n]{2,70}) TO ([^\n]{2,70})\. ([^\n]{4,120})',lines[0])
+        if h and h[1].isupper() and h[2].isupper():labels=[h[3]]
+    if header_uncertain or any(META.search(label) or re.search(r'\b(?:'+qualifiers+r'|reported|quoted|forwarded|alleged|denied|instructions?|orders?)\b',label,re.I) for label in labels):
+        parser.ranges.append((0,len(full)+1))
     for _,start in parser.stack:parser.ranges.append((start,len(full)+1))
     for i,(start,level,heading) in enumerate(parser.headings):
-        qualifiers=r'if|unless|conditional|plans?|planned|planning|proposals?|proposed|scenario|forecast|prediction|hypothesis|intention|intended'
-        if not document_draft:qualifiers+='|draft'
         if META.search(heading) or re.search(r'\b(?:'+qualifiers+r')\b',heading,re.I):
             end=next((a for a,l,_ in parser.headings[i+1:] if l<=level),len(full)+1)
             parser.ranges.append((start,end))
@@ -56,6 +121,69 @@ def context_ranges(record, *, document_draft=False):
 
 def normalized(text):
     return re.sub(r'\s+',' ',text).strip().casefold().rstrip('.')
+
+
+def named_actor(text):
+    """Literal capitalized name spelling, including Unicode; no entity binding."""
+    return bool(NAME.fullmatch(text) and all(word[0].isupper() for word in text.split()))
+
+
+def source_question(question):
+    """A finite inspection view; never replace the original policy question.
+
+    Only non-factual request scaffolding and generic documentary attribution
+    are removed. Named speakers, conditions and additional factual requests stay.
+    """
+    q=question.strip()
+    q=re.sub(r'^Please (?:assess|answer|evaluate|examine|consider) (?:this|the question) (?:from|using|based on) (?:the )?(?:provided|supplied|eligible|available) (?:records|sources|documents):\s*','',q,flags=re.I)
+    q=re.sub(r'(?<=\?)\s+(?:Keep|Leave) (?:unknown|unverified|unresolved) (?:matters|claims|parts|issues) (?:unresolved|unverified)\.?$','',q,flags=re.I)
+    return re.sub(r'^According to the (?:record|report|source|letter),\s*','',q,flags=re.I)
+
+
+def action_forms(action):
+    """All finite active/passive spellings, including irregular participles."""
+    return {action}|{word for word,value in {**PAST,**PASSIVE}.items() if value==action}
+
+
+def possible_refutation(text):
+    """Unresolved self-reference to an error/denial is alternative evidence.
+
+    This does not identify its target or establish an authored correction.
+    """
+    return bool(re.search(r'\b(?:this|that|it|above|earlier|previous|preceding|prior|i|he|she|they)\b[^.!?\n]{0,100}\b(?:false|untrue|incorrect|mistaken|wrong|inaccurate|lied|a mistake|an error|not true|isn[’\']t true|wasn[’\']t true|never happened|never occurred|didn[’\']t happen|didn[’\']t occur)\b',text,re.I))
+
+
+def metadata_values(text):
+    """Recognize layout-only units without treating labels as predicates."""
+    lines=text.splitlines()
+    if not lines or len(lines)>16:return None
+    values=[]
+    for line in lines:
+        m=re.fullmatch(r'(?:From|To|Date(?: written| sent| received)?|Subject|Message-ID|Cc): (.+)',line,re.I)
+        if not m:return None
+        values.append(m[1])
+    return ' '.join(values)
+
+
+def literal_request(question):
+    """Whole-request literal location, with no historical/execution obligation."""
+    q=source_question(question)
+    match=re.fullmatch(r'(?:Which|What) (?:source|record|document) (?:contains|includes|records) (?:the )?exact (?:words|wording|text) ["“]([^"“”]{2,240})["”]\??(?:\s*(?:(?:Locate|Find|Identify) (?:the )?(?:words|wording|text) only|(?:Keep|Leave) (?:unknown|unverified|unresolved) (?:matters|claims|parts|issues) (?:unresolved|unverified))\.){0,2}',q,re.I)
+    anchor=match[1].strip() if match else ''
+    return anchor if len(anchor)>=2 and any(c.isalnum() for c in anchor) else None
+
+
+def literal_pattern(anchor):
+    pattern=r'\s+'.join(re.escape(word) for word in anchor.split())
+    return re.compile(r'(?<!\w)'+pattern+r'(?!\w)')
+
+
+def literal_occurrence(question,quote):
+    anchor=literal_request(question)
+    if not anchor or not literal_pattern(anchor).search(quote):return None
+    return {'relation':'source_literal_occurrence','requested_words':anchor,
+            'matching_basis':'Exact code points and word boundaries; source whitespace may wrap.',
+            'text_only':True,'event_identity':None,'historical_truth_independently_verified':False}
 
 
 def quoted_context(prefix):
@@ -98,7 +226,7 @@ def action_assertion(quote):
         elif word in BASE and i>=2 and tokens[i-2:i]==['did','not']:found.append((i,word,True))
     if len(found)!=1:return None
     i,action,negative=found[0];actor=' '.join(tokens[:i-2 if negative else i]);obj=' '.join(tokens[i+1:])
-    if (not NAME.fullmatch(actor) or normalized(actor) in {'he','she','they','we','i','you','it'}
+    if (not named_actor(actor) or normalized(actor) in {'he','she','they','we','i','you','it'}
         or set(normalized(actor).split()) & {'if','unless','not','no','never','only','neither','maybe','perhaps','allegedly','reportedly','apparently','possibly','hypothetically'}
         or normalized(actor).split()[0] in {'yesterday','today','tomorrow','later','earlier','then','now','also','instead','next','once','still','again','first','second','indeed','thereupon','beforehand','forthwith'}
         or normalized(actor).split()[0].endswith('ly')):return None
@@ -169,7 +297,7 @@ def letter_assertion(body,start,end):
     prefix=re.match(r'I (have )?(told|asked|instructed|requested|ordered) (.+?) to (send|deliver|forward|post) (.+)$',main)
     if not prefix:return None
     intermediary=prefix[3];obj=prefix[5]
-    if not NAME.fullmatch(intermediary):return None
+    if not named_actor(intermediary):return None
     conditions=re.findall(r'\((if possible|if practicable|when possible)\)',obj)
     if len(conditions)>1:return None
     condition=conditions[0] if conditions else ''
@@ -207,7 +335,7 @@ def arrangement_request(question):
     """
     m = re.fullmatch(r"Who arranged for (.{1,100}?) to receive (.{1,100}?)['’]s "
                      r"([A-Za-z][A-Za-z \-]{0,60}?),? and which dated letter records the arrangement\?", question)
-    if not m or not NAME.fullmatch(m[1]) or not NAME.fullmatch(m[2]):return None
+    if not m or not named_actor(m[1]) or not named_actor(m[2]):return None
     if re.search(r'\b(?:actual|completed|delivered|not|never|if|unless|and|or|only)\b', m[3], re.I):return None
     return {'recipient_reference':m[1], 'writer_reference':m[2], 'object_reference':m[3],
             'scope':'source-reported instruction and printed letter heading; no actual dispatch or receipt'}
@@ -264,6 +392,12 @@ def check(index,proposals,*,max_scan_chars=200000):
             if limit<len(body) and b==limit:continue
             if len(contexts)>=1000:complete=False;limits_reached.add('source_units');break
             value=action_assertion(q)
+            if value is None:
+                passive=relationship_assertion(q)
+                # Positive passive actions can be checked as exact assertions.
+                # Passive denials remain conservative alternative evidence.
+                if passive and passive['relation']=='source_passive_action_assertion' and not passive['negative']:
+                    value=dict(passive,temporal_qualification_text='')
             prior=body[:a]
             safe=(not any(lo<b and hi>a for lo,hi in regions[path]) and not quoted_context(prior) and not META.search(prior)
                   and not re.search(r'\b(?:if|unless)\b',prior[-180:],re.I)
@@ -307,7 +441,10 @@ def check(index,proposals,*,max_scan_chars=200000):
             if unit and (kind in {'wording_comparison','comparison_completion'} or safe_unit(record,a,b,body)):
                 if kind=='relationship_statement':
                     value=relationship_assertion(unit[2])
-                    if value:citations=[citation(record,body,a,b)]
+                    if value:
+                        citations=[citation(record,body,a,b)]
+                        closure=causal_completion(fresh.question,value,contexts,record,a,b,complete)
+                        if closure:value.update(closure)
                 else:
                     other=proposal.get('other',{});r=records.get(other.get('path'));lo=other.get('start');hi=other.get('end')
                     if (r and r.path!=record.path and r.id==other.get('source_id') and r.hash_actual==other.get('hash')
@@ -326,9 +463,32 @@ def check(index,proposals,*,max_scan_chars=200000):
             if len(matches)==1:
                 value,context=local_referent_context(record,body,a,b,matches[0])
                 citations=[citation(record,body,a,b)]+context
+        elif kind=='literal_location':
+            value=literal_occurrence(fresh.question,body[a:b])
+            if value:
+                # Word boundaries belong to the source, not to a clipped
+                # extractor window. One surrounding character suffices for
+                # the finite word-boundary predicate, without an unbounded read.
+                lo=max(0,a-1);hi=min(len(body),b+1)
+                pattern=literal_pattern(value['requested_words'])
+                if not any(a<=lo+m.start() and lo+m.end()<=b for m in pattern.finditer(body[lo:hi])):value=None
+            if value:
+                # Re-search all eligible bodies independently of proposal rank.
+                owners=set();remaining=max_scan_chars;whole=True
+                pattern=literal_pattern(value['requested_words'])
+                for path,text in bodies.items():
+                    inspected=text[:max(0,remaining)];remaining-=len(inspected)
+                    if len(inspected)<len(text):whole=False
+                    if pattern.search(inspected):owners.add(path)
+                citations=[citation(record,body,a,b)]
+                if whole and complete and owners=={record.path}:
+                    value.update(question_obligations_verified=True,verified_question=fresh.question,
+                        question_completion_rule='eligible_literal_location_v1',
+                        reference_scope='Textual occurrence in one current eligible source; no event or historical assertion.')
+                value['eligible_source_ambiguity']=len(owners)>1
         if value is None:rejected.append('assertion_grammar_or_context_unresolved');continue
         certified.append({'proposition':value,'citations':citations,'source_support_established':True,
-            'support_scope':'source_attributed_assertion','verification':VERSION,
+            'support_scope':'textual_occurrence' if kind=='literal_location' else 'source_attributed_assertion','verification':VERSION,
             'historical_truth_independently_verified':False})
     if not fresh.unchanged() or not index.unchanged():
         return {'proofs':[],'status':'source_changed','scan_complete':False,'rejected':[],'scanned':[],'examined_characters':used}
@@ -373,16 +533,42 @@ def relationship_assertion(quote):
             value={'relation':'source_temporal_assertion','subject_text':left,'action_text':action,'ordering':order,
                    'reference_text':right,'date_role':'publication' if action=='was published' else 'revision' if action=='was revised' else 'receipt' if action=='was received' else 'reported_event',
                    'reference_date_role':'unresolved','normalized_event_time':None,'causality_established':False,'negative':False}
-    passive=re.fullmatch(r'(.{2,160}?) was (not )?(appointed|sent|received|surveyed|published|revised|canceled) by (.{2,100})\.',clean)
+    passive=re.fullmatch(r'(.{2,160}?) was (not )?('+'|'.join(PASSIVE)+r') by (.{2,100})\.',clean)
     if passive:
         obj,neg,action,actor=passive.groups()
-        if NAME.fullmatch(actor) and not re.search(r'\b(?:he|she|they|it|if|unless|and|or|not)\b',actor+' '+obj,re.I):
-            value={'relation':'source_passive_action_assertion','actor_text':actor,'action':PAST[action],
-                   'object_text':obj,'negative':bool(neg),'unresolved_reference':bool(re.search(r'\b(?:this|that|him|her|it|them)\b',obj,re.I))}
+        if (named_actor(actor) and not re.search(r'\b(?:he|she|they|it|we|i|you|if|unless|and|or|not|never|perhaps|maybe|possibly|apparently|allegedly|reportedly|planned|requested|reported)\b',actor+' '+obj,re.I)
+            and not normalized(actor).split()[0].endswith('ly')):
+            value={'relation':'source_passive_action_assertion','actor_text':actor,'action':PASSIVE[action],
+                   'object_text':obj,'negative':bool(neg),'unresolved_reference':bool(re.search(r'\b(?:that|this|it|him|her|them|those|these|dated|pending|except|only|provided)\b|\bsubject to\b|\bthe (?:area|region|place|book|letter|report)\b',obj,re.I))}
     if value is not None:
         value.update(assertion_modality='source_attributed_assertion',event_identity=None,
                      historical_truth_independently_verified=False)
     return value
+
+
+def causal_completion(question,value,contexts,record,a,b,complete):
+    """Close one exact source-reported because-of question, never event truth.
+
+    Independently derived source arguments must match the entire request.
+    Any other relevant appearance, even with similar wording, stops closure;
+    neither event co-reference nor absence outside this bounded scan is inferred.
+    """
+    if not complete or value['relation']!='source_causal_assertion' or value['negative']:return None
+    q=source_question(question).strip().rstrip('? .')
+    request=re.fullmatch(r'why was (.{2,350}?) (aborted|cancelled|canceled|delayed|postponed|halted|withdrawn|terminated)',q,re.I)
+    if not request or normalized(request[1])!=normalized(value['subject_text']) or request[2].lower()!=value['action_text']:return None
+    subject=re.sub(r'^(?:the|a|an) ','',normalized(value['subject_text']))
+    for other,lo,hi,text,_ in contexts:
+        if other.path==record.path and (lo,hi)==(a,b):continue
+        if possible_refutation(text):return None
+        fields=metadata_values(text)
+        if fields is not None and not re.search(r'\b'+re.escape(value['action_text'])+r'\b',fields,re.I):continue
+        if subject in normalized(text):return None
+        if (re.search(r'\b(?:it|this|that|they|those|these)\b',text,re.I)
+            and re.search(r'\b(?:'+re.escape(value['action_text'])+r'|not|never|denied|cancelled|canceled)\b',text,re.I)):return None
+    return {'question_obligations_verified':True,'verified_question':question,
+            'question_completion_rule':'literal_source_cause_v1',
+            'reference_scope':'One explicit source-attributed cause; event identity and historical causation unverified.'}
 
 
 def wording_difference(left,right):

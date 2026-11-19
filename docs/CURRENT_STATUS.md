@@ -1,6 +1,6 @@
 # Current implementation and evidence status
 
-Last reviewed: 2026-11-18.
+Last reviewed: 2026-11-19.
 
 [Package guide](PACKAGE_GUIDE.md) · [Current documentation](README.md)
 · [Result/test index](RESULTS_AND_TESTS.md) · [Preserved history](../PAST_DOCUMENTATION.md)
@@ -123,3 +123,9 @@ or establish production readiness.
 ## Candidate review workspace — 2026-11-18
 
 The optional [native/CLI workspace](CANDIDATE_REVIEW_WORKSPACE.md) compares processed passages to eligible originals without transferring approval or using strict proof slots. The [final frozen execution](../evaluation/candidate-review-workspace/2026-11-18-runtime/REPORT.md) preserves all22 standalone native answers/refusals and exact evidence at2 complete, passes1267 extracted-ZIP tests, and verifies the installed wheel without checkout tools. Five public cases retain15 exact matches and49 literal phrase reviews, with39 processed passages visible versus28 initially. All proposed meanings remain candidates; human/unseen semantic evaluation is NOT RUN. Ownership-panel refusals are explicitly distinct from H05’s still-complete multi-source proof.
+
+## D% source-class experiment, 2026-11-19
+
+The [full report](../evaluation/dpercent/2026-11-19-class-rules/FINAL_REPORT.md) freezes1,240 original fictional prose cases before engine fixes. Complete checked answers increased20→200/600, including160 source assertions and40 textual locations;all640 expected refusals remained. No false support was observed in that frozen negative set.400 answerable cases remain incomplete. The unchanged22-question historical replay still has2 complete,2 partial,3 conflict and15 abstention outcomes;no historical completion gain is claimed.
+
+General correspondence boundaries,question scope,Unicode/passive actions,explicit source causes,text location and scope/counterevidence handling extend the existing independent checker. [AGENTS.md](../AGENTS.md) prohibits benchmark-specific runtime branches. The final6e0de9e archive passed1,431 Python tests,52 public controls,JavaScript/crawler/bridge checks,actual Pyodide and headless Chromium checks. Initial regressions and interrupted experiments are retained. Independent semantic accuracy,candidate relationship precision/recall,historical truth and human costs remain unmeasured. These results do not justify a9/10 rating or general historical understanding.

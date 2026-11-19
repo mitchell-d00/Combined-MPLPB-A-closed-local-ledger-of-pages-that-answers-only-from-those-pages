@@ -41,13 +41,26 @@ def _contexts(index,passages,max_chars,max_passages):
     return result
 
 
+def _counter_wording(text):
+    """Header labels are layout, not action predicates; retain all values.
+
+    In particular, 'Date written' does not assert who wrote the subject item.
+    Original text and coordinates remain unchanged in alternative citations.
+    """
+    return re.sub(r'(?im)^(?:From|To|Date(?: written| sent| received)?|Subject|Message-ID|Cc):\s*','',text)
+
+
 def plan(question):
-    clauses=re.split(r'\?\s+(?=[A-Z])|,?\s+and\s+(?=(?:who|which|what|when|how|why|did|does|can)\b)',question,flags=re.I)
+    anchor=kernel.literal_request(question)
+    if anchor:return [{'question':question,'kind':'literal_location','anchor_text':anchor}]
+    clauses=re.split(r'\?\s+(?=[A-Z])|,?\s+and\s+(?=(?:who|which|what|when|how|why|did|does|can)\b)',kernel.source_question(question),flags=re.I)
     if len(clauses)>4:return None
     goals=[]
     for clause in clauses:
         clause=clause.strip().rstrip('? .')
-        q=re.sub(r'^According to [^,]{1,120},\s*','',clause,flags=re.I)
+        q=kernel.source_question(clause)
+        writer=re.fullmatch(r'Which writer does the record identify for (.{1,240})',q,re.I)
+        if writer:q='Who wrote '+writer[1]
         who=re.fullmatch(r'Who ('+'|'.join(ACTIONS)+r') (.{1,240})',q,re.I)
         if who:
             goals.append({'question':clause,'kind':'who_action','action':ACTIONS[who[1].lower()],'object_text':who[2]})
@@ -75,6 +88,15 @@ def propose(index,passages):
         if key in seen or len(result)>=12:return
         seen.add(key);result.append({'kind':kind,'source_id':p['source_id'],'path':p['path'],
           'hash':p['hash'],'start':a,'end':b,'quote':bodies[p['path']][a:b]})
+    anchor=kernel.literal_request(index.question)
+    if anchor:
+        pattern=kernel.literal_pattern(anchor)
+        for p in passages:
+            body=bodies[p['path']]
+            for lo,hi,text in kernel.units(body):
+                if lo<p['body_start']+len(p['text']) and hi>p['body_start'] and hi-lo<=2200 and pattern.search(text):
+                    add(p,lo,hi,'literal_location')
+        return result
     for p in passages:
         body=bodies[p['path']];a=p['body_start'];b=a+len(p['text'])
         # Letter openings need both the original heading and complete statement.
@@ -84,9 +106,10 @@ def propose(index,passages):
             if not opening:continue
             start=h+opening.start();first=next(_proposal_units(body[start:b]),None)
             if first:add(p,h,start+first[1],'letter_instruction')
-        for lo,hi,q in _proposal_units(p['text']):
+        for lo,hi,q in kernel.units(body):
+            if lo<a or hi>b:continue
             if hi-lo<=2200 and re.search(r'\b(?:'+'|'.join(ACTIONS)+r'|did\s+not\s+(?:'+'|'.join(ACTIONS.values())+r'))\b',q):
-                add(p,a+lo,a+hi,'action_statement')
+                add(p,lo,hi,'action_statement')
         for lo,hi,q in kernel.units(body):
             if lo>=b or hi<=a or hi-lo>2200:continue
             if kernel.relationship_assertion(q):add(p,lo,hi,'relationship_statement')
@@ -126,10 +149,11 @@ def propose(index,passages):
 def _relevant(goal,proof,question):
     v=proof['proposition']
     relation={'explicit_cause':'source_causal_assertion','resource_support':'source_resource_assertion',
-              'wording_comparison':'exact_wording_comparison','wording_shared':'exact_wording_comparison','temporal_statement':'source_temporal_assertion'}.get(goal['kind'])
+              'wording_comparison':'exact_wording_comparison','wording_shared':'exact_wording_comparison','temporal_statement':'source_temporal_assertion',
+              'literal_location':'source_literal_occurrence'}.get(goal['kind'])
     if relation:
         if v['relation']!=relation:return False
-        if relation=='exact_wording_comparison':return True
+        if relation in {'exact_wording_comparison','source_literal_occurrence'}:return True
         return bool(terms(goal['question']) & terms(' '.join(str(x) for x in v.values() if isinstance(x,str))))
     if goal['kind']=='who_action':
         if v['relation']=='source_reports_instruction' and goal['action'] in {'request','instruct','order'}:
@@ -169,7 +193,9 @@ def _claim(proof):
         if v.get('question_obligations_verified'):
             qualifiers.append('Complete only as the recorded arrangement request and printed letter date; the complete local letter is cited. Actual fulfillment and outside-world truth remain unverified.')
     else:
-        if v['relation']=='exact_wording_comparison':
+        if v['relation']=='source_literal_occurrence':
+            text='The cited source contains the requested words: “'+v['requested_words']+'”.'
+        elif v['relation']=='exact_wording_comparison':
             parts=[]
             for change in v['alignment'][:12]:
                 if change['operation']=='equal':parts.append('Shared wording: “'+change['left_text']+'”.')
@@ -178,13 +204,14 @@ def _claim(proof):
             if len(v['alignment'])>12:text+=' Further differences and shared text are retained in the complete structured alignment.'
         else:text='Source assertion: '+re.sub(r'\s+',' ',proof['citations'][0]['quote'])
         qualifiers=['Only the complete cited wording is checked; historical truth and event/person identity are not independently verified.']
+        if v['relation']=='source_literal_occurrence':qualifiers.append('Textual occurrence only; quotations, examples, conditions and denials do not establish an event or execution.')
         if v['relation']=='source_causal_assertion':qualifiers.append('The source explicitly attributes a cause; this does not independently establish historical causation.')
         if v['relation']=='exact_wording_comparison':
             qualifiers.append('No version order, correction, motive, responsible person or whole-document absence is established by this local comparison.')
             if v.get('question_obligations_verified'):
                 qualifiers.append('Complete only for the supplied source-declared reconstruction/transcription and their cited opening topic. Historical authenticity and finality are not independently verified.')
     return {'text':text,'qualifiers':qualifiers,'citations':proof['citations'],
-            'proposition':v,'source_support_established':True,'support_scope':'source_attributed_assertion',
+            'proposition':v,'source_support_established':True,'support_scope':proof.get('support_scope','source_attributed_assertion'),
             'verification':proof['verification'],'historical_truth_independently_verified':False,
             'proof_sha256':pin(proof)}
 
@@ -221,20 +248,33 @@ def compose(index,max_passages,max_chars):
     checked=kernel.check(index,proposals)
     if checked['status']=='source_changed':return {'kind':'abstain','code':'source_changed'}
     proofs=checked['proofs'];selected=[];statuses=[];missing=[];conflict=False;ambiguous=False;alternatives=[]
+    refutations=[]
+    if any(g['kind'] in {'who_action','explicit_cause'} for g in goals):
+        for record,a,b,q,value in checked['contexts']:
+            if value is None and kernel.possible_refutation(q):
+                e=kernel.citation(record,body_text(record.body_html),a,b)
+                if e not in alternatives:alternatives.append(e);refutations.append(e)
     closures=[p for p in proofs if p['proposition'].get('question_obligations_verified')
               and p['proposition'].get('verified_question')==index.question]
     comparison_completion=(len(closures)==1 and all(g['kind'] in {'wording_comparison','wording_shared'} for g in goals))
     arrangement_completion=(len(closures)==1 and all(g['kind'] in {'reported_instruction','letter_context'} for g in goals)
         and closures[0]['proposition'].get('question_completion_rule')=='document_local_arrangement_reference_v1')
     literal_completion=comparison_completion or arrangement_completion
+    cause_completion=(len(closures)==1 and all(g['kind']=='explicit_cause' for g in goals)
+        and closures[0]['proposition'].get('question_completion_rule')=='literal_source_cause_v1')
+    literal_completion=literal_completion or cause_completion
+    text_completion=(len(closures)==1 and all(g['kind']=='literal_location' for g in goals)
+        and closures[0]['proposition'].get('question_completion_rule')=='eligible_literal_location_v1')
+    literal_completion=literal_completion or text_completion
     if literal_completion:proofs=closures
     for goal in goals:
         matches=[p for p in proofs if _relevant(goal,p,index.question)]
         status={'question':goal['question'],'kind':goal['kind'],'status':'unresolved'}
-        if goal['kind'] in {'explicit_cause','resource_support','wording_comparison','wording_shared','temporal_statement'}:
+        if goal['kind'] in {'explicit_cause','resource_support','wording_comparison','wording_shared','temporal_statement','literal_location'}:
             if matches:status['status']='supported_source_assertion' if literal_completion else 'checked_relationship_scope_partial'
+            if goal['kind']=='literal_location' and any(p['proposition'].get('eligible_source_ambiguity') for p in matches):ambiguous=True
         elif goal['kind']=='who_action':
-            exact=[p for p in matches if p['proposition']['relation']=='source_action_assertion' and not p['proposition']['unresolved_reference']
+            exact=[p for p in matches if p['proposition']['relation'] in {'source_action_assertion','source_passive_action_assertion'} and not p['proposition']['unresolved_reference']
                    and kernel.normalized(p['proposition']['object_text'])==kernel.normalized(goal['object_text'])]
             # Scan all eligible source units, not only retrieval winners. A
             # qualified/unparsed relevant unit prevents complete acceptance.
@@ -247,10 +287,11 @@ def compose(index,max_passages,max_chars):
                 scopes={p['proposition']['temporal_qualification_text'] for p in competing}
                 unknown_contexts=[(r,a,b,q) for r,a,b,q,value in checked['contexts']
                     if (value is None and (terms(goal['object_text'])&terms(q) or re.search(r'\b(?:he|she|it|they|that|this|those|these)\b',q,re.I))
-                    and (re.search(r'\b'+re.escape(goal['action'])+r'\w*\b',q,re.I)
-                         or any(re.search(r'\b'+re.escape(w)+r'\b',q,re.I) for w,act in ACTIONS.items() if act==goal['action'])))
+                    and (re.search(r'\b'+re.escape(goal['action'])+r'\w*\b',_counter_wording(q),re.I)
+                         or any(re.search(r'\b'+re.escape(w)+r'\b',_counter_wording(q),re.I) for w in kernel.action_forms(goal['action']))))
                     or (re.search(r'\b(?:retracted|withdrawn|corrected|superseded|amended|revoked|rescinded|denied|canceled)\b',q,re.I)
-                        and (value is None or value['action']!=goal['action']))]
+                        and (value is None or value['action']!=goal['action']))
+                    or (value is None and kernel.possible_refutation(q))]
                 unknown=bool(unknown_contexts)
                 for r,a,b,q in unknown_contexts:
                     e=kernel.citation(r,body_text(r.body_html),a,b)
@@ -327,4 +368,5 @@ def compose(index,max_passages,max_chars):
                 'comparison_completion_scope':closures[0]['proposition'].get('reference_scope') if comparison_completion else None,
                 'question_completion_scope':closures[0]['proposition'].get('reference_scope') if literal_completion else None,
                 'alternative_evidence':displayed_alternatives,'unshown_alternative_evidence_count':len(alternatives)-len(displayed_alternatives),
+                'possible_refutation_count':len(refutations),'refutation_targets_resolved':False,
                 'retrieval_limits':{'max_passages':max_passages,'max_characters':max_chars}}}

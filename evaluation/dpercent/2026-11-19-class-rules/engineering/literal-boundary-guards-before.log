@@ -1,0 +1,44 @@
+======================================================================
+FAIL: test_clipped_word_is_not_a_witness_even_with_real_match_elsewhere (tests.test_literal_boundary_guards.LiteralBoundaryGuardTests.test_clipped_word_is_not_a_witness_even_with_real_match_elsewhere) (source='The tideline shifted.')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/mplpb/tests/test_literal_boundary_guards.py", line 29, in test_clipped_word_is_not_a_witness_even_with_real_match_elsewhere
+    self.assertFalse(check(index,[proposal])['proofs'])
+AssertionError: [{'proposition': {'relation': 'source_literal_occurrence', 'requested_words': 'tide', 'matching_basis': 'Exact code points and word boundaries; source whitespace may wrap.', 'text_only': True, 'event_identity': None, 'historical_truth_independently_verified': False, 'eligible_source_ambiguity': False}, 'citations': [{'source_id': 'LOG-1', 'path': 'log-1.html', 'hash': 'sha256:d0f879f179e72452991f6b4f83e503dfca760a018c3a81377fc68690c588cc80', 'body_start': 4, 'body_end': 8, 'start': 4, 'end': 8, 'quote': 'tide', 'body_projection': 'body-text-no-headings-v1'}], 'source_support_established': True, 'support_scope': 'textual_occurrence', 'verification': 'documentary-assertion-kernel-v7', 'historical_truth_independently_verified': False}] is not false
+
+======================================================================
+FAIL: test_clipped_word_is_not_a_witness_even_with_real_match_elsewhere (tests.test_literal_boundary_guards.LiteralBoundaryGuardTests.test_clipped_word_is_not_a_witness_even_with_real_match_elsewhere) (source='The tideline shifted before the tide changed.')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/mplpb/tests/test_literal_boundary_guards.py", line 29, in test_clipped_word_is_not_a_witness_even_with_real_match_elsewhere
+    self.assertFalse(check(index,[proposal])['proofs'])
+AssertionError: [{'proposition': {'relation': 'source_literal_occurrence', 'requested_words': 'tide', 'matching_basis': 'Exact code points and word boundaries; source whitespace may wrap.', 'text_only': True, 'event_identity': None, 'historical_truth_independently_verified': False, 'question_obligations_verified': True, 'verified_question': 'Which source contains the exact words "tide"?', 'question_completion_rule': 'eligible_literal_location_v1', 'reference_scope': 'Textual occurrence in one current eligible source; no event or historical assertion.', 'eligible_source_ambiguity': False}, 'citations': [{'source_id': 'LOG-1', 'path': 'log-1.html', 'hash': 'sha256:98cf5c8b410cb9b7f5cdea01355d04eda2f47d6538156e13a4dccca8722a2836', 'body_start': 4, 'body_end': 8, 'start': 4, 'end': 8, 'quote': 'tide', 'body_projection': 'body-text-no-headings-v1'}], 'source_support_established': True, 'support_scope': 'textual_occurrence', 'verification': 'documentary-assertion-kernel-v7', 'historical_truth_independently_verified': False}] is not false
+
+======================================================================
+FAIL: test_empty_or_padding_cannot_turn_partial_words_into_proof (tests.test_literal_boundary_guards.LiteralBoundaryGuardTests.test_empty_or_padding_cannot_turn_partial_words_into_proof) (anchor='   ')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/mplpb/tests/test_literal_boundary_guards.py", line 19, in test_empty_or_padding_cannot_turn_partial_words_into_proof
+    self.assertFalse(result['answer_supported'])
+AssertionError: True is not false
+
+======================================================================
+FAIL: test_empty_or_padding_cannot_turn_partial_words_into_proof (tests.test_literal_boundary_guards.LiteralBoundaryGuardTests.test_empty_or_padding_cannot_turn_partial_words_into_proof) (anchor=' tide ')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/mplpb/tests/test_literal_boundary_guards.py", line 19, in test_empty_or_padding_cannot_turn_partial_words_into_proof
+    self.assertFalse(result['answer_supported'])
+AssertionError: True is not false
+
+======================================================================
+FAIL: test_empty_or_padding_cannot_turn_partial_words_into_proof (tests.test_literal_boundary_guards.LiteralBoundaryGuardTests.test_empty_or_padding_cannot_turn_partial_words_into_proof) (anchor='C++')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/mplpb/tests/test_literal_boundary_guards.py", line 19, in test_empty_or_padding_cannot_turn_partial_words_into_proof
+    self.assertFalse(result['answer_supported'])
+AssertionError: True is not false
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.083s
+
+FAILED (failures=5)

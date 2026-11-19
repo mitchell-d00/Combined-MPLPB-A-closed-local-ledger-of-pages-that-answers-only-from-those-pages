@@ -157,3 +157,7 @@ Optional review update (2026-11-18): [Synonym Ranker and Candidate Relater](SORT
 
 
 The [pinned B-Tests d100 retest](../evaluation/sorter-exploration/2026-11-19/d100/REPORT.md) preserves100 native cases and100 separate explorer checks on the same fresh packets. Sources,keys and prior scores are unchanged;these are fictional authority controls,not historical accuracy.
+
+The [D% randomized prose challenge](DPERCENT.md) retains a frozen original fictional batch, answer/refuse scoring and a current-main baseline in [versioned evidence](../evaluation/dpercent/2026-11-19). [Generator/scorer tests](../tests/test_dpercent.py) verify replay, hard-case retention, key separation and negative scoring; they do not establish historical accuracy.
+
+The [D% class-fix comparison](../evaluation/dpercent/2026-11-19-class-rules/FINAL_REPORT.md) retains20→200/600 complete checked results,640/640 expected refusals,all400 residual gaps,and unchanged2/22 historical completions. [Scope tests](../tests/test_documentary_header_scope.py),[literal-boundary controls](../tests/test_literal_boundary_guards.py) and [qualification mutations](../tests/test_prose_qualification_mutations.py) cover defects the frozen distribution alone would miss.1431 archived tests and52 public controls passed;independent semantic accuracy remains unmeasured.

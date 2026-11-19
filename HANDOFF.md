@@ -4,37 +4,50 @@ Last reviewed: 2026-11-19.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `c7dd333f06b4f0af739d36672b2f98727be5a5b9` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `1d151251b62ae1c594dd3fb573d4c8ad5f5fe7565f5fdd0935828c3260d823e8`.
+Base commit: `52fc493218c5ce21e88ae2808643c8a0b158c70f` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `96d774d2f01369814dbd4adc71058218d877abf607dd8fde393b17fc11287c65`.
 
 ## Latest user update instructions
 
-K rn a d100 test on it local and then merge if it passes this repo has the tests im talking about https://github.com/mitchell-d00/B-Tests
+When we finish I wand full d% test and full findings in a pr everything that’s new and update documents etc and Readme
 
 ## Implemented scope
 
-- Inspect and pin the linked B-Tests d100 protocol;run its unmodified local100-case test against clean MPLPBc7dd333.
-- Check the new exploration view separately on all100 unchanged packets,without passing the scoring key to runtime.
-- Preserve seed,inputs,rolls,receipts and results;push a reviewable branch,require exact-head release CI,then merge to main if passed.
+- Preserve frozen baseline20/600 complete,640/640 refusals;580 incomplete answerable cases,including37 partials.
+- Persist mandatory general-class/no benchmark-rigging rules in AGENTS.md.
+- Reconstruct and verify exact sealed roll trace and packets;group failures by family and structural choices,not actor names.
+- Implement correspondence boundaries,source-scoped request grammar,Unicode/passive actions and exact explicit-cause closure in existing independent kernel.
+- Iteration2:repair absolute source offsets,cover irregular passive counterevidence,and add literal-text location as a separate textual-only proof class.
+- Final guard class:reject blank/wordless literal requests and verify word boundaries in original source context,not extractor clipping.
+- Preserve body-header modality through layout segmentation;independently inspect bounded original physical layout and keep folds/unmapped headers unresolved.
+- User requests complete D%and findings in a PR with updated README/docs. Keep no-benchmark-specific-rule policy and all frozen evidence.
+- Distinguish neutral metadata topics from event appearances and retain unresolved source refutations as alternatives;preserve Markdown and explicit structural quotation scope.
+- Published all implementation, frozen results, failed attempts and updated README/docs in open PR #54: https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/pull/54 . No merge performed.
 
 ## Validation recorded
 
-- B-Tests64b646ee89ea819f59f39f0eecced71ee7ef24c8 harness:123 unit tests passed.
-- Fresh seed13814892761879707678 native100/100 cases,25/25 users,100 workspace replays passed;exit0.
-- Exploration companion100/100 cases,25/25 users passed;source/node/label identity,native isolation,profile restrictions,budgets and unchanged ledgers/packets verified;exit0.
-- Existing final implementationf856205 full1379 tests and52 public controls retained;d100 executionc7dd333 is evidence/docs-only descendant with identical runtime.
+- Final engine6e0de9e archived:1431 full Python tests,52 public evidence controls and native boundary subset passed,all exit0.
+- FinalD%1240/1240 executions complete,exit0;20→200/600 checked complete(160 source assertions,40 textual locations),640/640 expected refusals,F0%;400 answerable cases still incomplete.Score --require-perfect exits1.
+- No previously complete D%answer lost and no new false support;all1240 input/ledger/mode/non-authority guards passed.
+- 78 focused general-class tests passed;pre-fix and archived-source controls retained,including all failed and interrupted candidates.
+- Final unchanged22 original questions:2 complete,2 partial,3 conflicts,15 abstentions;all22 categories preserved;question seals and import receipts identical.
+- AllJS/UI/crawler/bridge checks,actualPyodide and two isolated headlessChromium checks passed from6e0de9e archive. No live neural inference or deployment.
+- Generator0b2c5c8,worker,private key and source packets unchanged;all draws replay identically. Source core mplpb_combined unchanged from6334e1b.
+- Documentation inventory audit passed:559 documents,39 evaluation families;source/core/tools/tests identical to tested6e0de9e;public archives checked for path safety and absence of private key/dice.
+- Initial published head52fc493218c5ce21e88ae2808643c8a0b158c70f: supporting-infrastructure CI succeeded; four other PR workflow runs were still in progress when inspected. This is not an exact-final-head CI pass claim.
 
 ## Limitations and blocked checks
 
-- D100 uses fictional source records with real topic metadata;not historical accuracy or model-quality measurement.Model calls0.
-- Native d100 and companion runtime costs differ;upstream native CPU/wall unmeasured,null.
-- Exact final-head CI,main merge and postdeployment validation pending;local success alone is not publication.
+- 400 developer-answerable fictional cases remain incomplete;historical completion gain0. No9/10 or general reconstruction claim.
+- Historical truth,event/relationship precision/recall,false candidate-link rates and human costs remain null;independent semantic review NOT RUN.
+- Generic grammar and conservative scope can over-refuse unfamiliar mixed records;unseen performance unmeasured.
+- Every failed/interrupted attempt is retained;frozen D%F0 alone missed defects caught by later negative controls.
+- Private key/dice outsideGit: /tmp/dpercent-frozen-private;custody archive /workspace/dpercent-private-custody-2026-11-19.tar.gz. Never mount in native/model runtime.
 
 ## Next steps
 
-- Push tested feature branch and open a main PR with concrete d100 evidence.
-- Wait for successful archived-source,regression and handoff checks on exact final head;investigate failures before merging.
-- Merge with expected head SHA once gates pass,then verify main/deployment and record publication receipt.
+- Inspect CI on the exact final PR head; investigate any genuine regression. Do not merge without a new instruction.
+- Next research milestone: general rules for remaining 400 positives and fresh held-out assessment; do not alter frozen labels or rig individual cases.
 
 ## Use this ZIP in your repository
 

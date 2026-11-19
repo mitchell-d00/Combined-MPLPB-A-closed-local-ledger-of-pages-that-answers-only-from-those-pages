@@ -1,0 +1,36 @@
+======================================================================
+FAIL: test_irregular_passive_denials_and_hedges_are_not_lost (tests.test_prose_qualification_mutations.QualificationMutationTests.test_irregular_passive_denials_and_hedges_are_not_lost) (active='wrote', alternative='The basalt chart was not written by Quentin Moss.')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/mplpb/tests/test_prose_qualification_mutations.py", line 33, in test_irregular_passive_denials_and_hedges_are_not_lost
+    self.assertFalse(result['answer_supported'])
+AssertionError: True is not false
+
+======================================================================
+FAIL: test_irregular_passive_denials_and_hedges_are_not_lost (tests.test_prose_qualification_mutations.QualificationMutationTests.test_irregular_passive_denials_and_hedges_are_not_lost) (active='wrote', alternative='The basalt chart was reportedly written by Quentin Moss.')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/mplpb/tests/test_prose_qualification_mutations.py", line 33, in test_irregular_passive_denials_and_hedges_are_not_lost
+    self.assertFalse(result['answer_supported'])
+AssertionError: True is not false
+
+======================================================================
+FAIL: test_irregular_passive_denials_and_hedges_are_not_lost (tests.test_prose_qualification_mutations.QualificationMutationTests.test_irregular_passive_denials_and_hedges_are_not_lost) (active='wrote', alternative='It was not written by Quentin Moss.')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/mplpb/tests/test_prose_qualification_mutations.py", line 33, in test_irregular_passive_denials_and_hedges_are_not_lost
+    self.assertFalse(result['answer_supported'])
+AssertionError: True is not false
+
+======================================================================
+FAIL: test_retrieved_sentence_keeps_absolute_source_coordinates (tests.test_prose_qualification_mutations.QualificationMutationTests.test_retrieved_sentence_keeps_absolute_source_coordinates)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/mplpb/tests/test_prose_qualification_mutations.py", line 18, in test_retrieved_sentence_keeps_absolute_source_coordinates
+    self.assertTrue(result['answer_supported'])
+AssertionError: False is not true
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.190s
+
+FAILED (failures=4)

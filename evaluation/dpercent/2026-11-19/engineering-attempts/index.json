@@ -1,0 +1,41 @@
+{
+  "attempts": [
+    {
+      "file": "dpercent-generator-first.log.gz",
+      "uncompressed_sha256": "6948f046dc57e9fe4c01d49d5e98cfac414e5d58ddab3bee3c0f88cd220f642d",
+      "scope": "Pre-freeze harness development;not final baseline."
+    },
+    {
+      "file": "dpercent-generator-after.log.gz",
+      "uncompressed_sha256": "dc8fa04dba85b4750e9e5af238d0d224e333e0ef7541386406208e29c1d67098",
+      "scope": "Pre-freeze harness development;not final baseline."
+    },
+    {
+      "file": "dpercent-generator-final.log.gz",
+      "uncompressed_sha256": "de0f8f29923f1d6e6b411f5f9a6aff336409db5f9988aa731e1f293514379c9f",
+      "scope": "Pre-freeze harness development;not final baseline."
+    },
+    {
+      "file": "dpercent-freeze-tests.log.gz",
+      "uncompressed_sha256": "812a306bc64beea45662d15865a9cf4f9f1db534658de6c4e3502fa9e7f6c133",
+      "scope": "Pre-freeze harness development;not final baseline."
+    },
+    {
+      "file": "dpercent-pilot-score.json.gz",
+      "uncompressed_sha256": "94894b18c22d71c5966a3787056aa89eea32151bb123124f63f58071f891a46a",
+      "scope": "Pre-freeze harness development;not final baseline."
+    },
+    {
+      "file": "dpercent-pilot-run.log.gz",
+      "uncompressed_sha256": "13f1f63966ac1b9c984d8d857b1f79bef8bbb651a76733dff0527867ff0931b2",
+      "scope": "Pre-freeze harness development;not final baseline."
+    }
+  ],
+  "notes": [
+    "An initial generator test failed on case-sensitive/wrapped text matching;the test normalized whitespace and case and then passed.",
+    "Pre-freeze review found missing correspondent context and an undated partial-correction target;both fixture labels were repaired before freezing.",
+    "The first 30-case pilot used an earlier generator version and is retained separately;it is not combined with the 1,240-case baseline.",
+    "No native engine fixes were made.",
+    "First final documentation audit stopped on the modified documentation index retaining its prior review marker;only that current guide marker was corrected. Original audit output retained."
+  ]
+}

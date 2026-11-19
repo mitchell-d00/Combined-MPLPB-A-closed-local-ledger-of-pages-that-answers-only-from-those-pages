@@ -1,0 +1,28 @@
+======================================================================
+FAIL: test_self_ascribed_plan_scope_is_not_a_bare_word_filter (tests.test_documentary_header_scope.DocumentaryHeaderScopeTests.test_self_ascribed_plan_scope_is_not_a_bare_word_filter) (body='This is a plan. Quentin Moss sent the basalt chart.')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/mplpb/tests/test_documentary_header_scope.py", line 76, in test_self_ascribed_plan_scope_is_not_a_bare_word_filter
+    self.assertFalse(answer_query(root,'Who sent the basalt chart?').contract['answer_supported'])
+AssertionError: True is not false
+
+======================================================================
+FAIL: test_self_ascribed_plan_scope_is_not_a_bare_word_filter (tests.test_documentary_header_scope.DocumentaryHeaderScopeTests.test_self_ascribed_plan_scope_is_not_a_bare_word_filter) (body='Quentin Moss sent the basalt chart. This is merely a proposal.')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/mplpb/tests/test_documentary_header_scope.py", line 76, in test_self_ascribed_plan_scope_is_not_a_bare_word_filter
+    self.assertFalse(answer_query(root,'Who sent the basalt chart?').contract['answer_supported'])
+AssertionError: True is not false
+
+======================================================================
+FAIL: test_self_ascribed_plan_scope_is_not_a_bare_word_filter (tests.test_documentary_header_scope.DocumentaryHeaderScopeTests.test_self_ascribed_plan_scope_is_not_a_bare_word_filter) (body='What follows is a draft.\n\nQuentin Moss sent the basalt chart.')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/mplpb/tests/test_documentary_header_scope.py", line 76, in test_self_ascribed_plan_scope_is_not_a_bare_word_filter
+    self.assertFalse(answer_query(root,'Who sent the basalt chart?').contract['answer_supported'])
+AssertionError: True is not false
+
+----------------------------------------------------------------------
+Ran 1 test in 0.072s
+
+FAILED (failures=3)

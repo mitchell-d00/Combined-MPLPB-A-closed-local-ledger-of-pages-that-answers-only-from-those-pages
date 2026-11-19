@@ -1,0 +1,31 @@
+<ref *1> Error: spawnSync python3 EPERM
+    at Object.spawnSync (node:internal/child_process:1191:20)
+    at spawnSync (node:child_process:929:24)
+    at execFileSync (node:child_process:972:15)
+    at run (/tmp/dpercent-archived-software/source/tests/browser-webgpu-limits.cjs:11:15)
+    at Object.<anonymous> (/tmp/dpercent-archived-software/source/tests/browser-webgpu-limits.cjs:37:1)
+    at Module._compile (node:internal/modules/cjs/loader:1929:14)
+    at Object..js (node:internal/modules/cjs/loader:2060:10)
+    at Module.load (node:internal/modules/cjs/loader:1651:32)
+    at Module._load (node:internal/modules/cjs/loader:1443:12)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:261:19) {
+  errno: -1,
+  code: 'EPERM',
+  syscall: 'spawnSync python3',
+  path: 'python3',
+  spawnargs: [
+    '-c',
+    'import sys; from tools.build_ai_assets import runtime; sys.stdout.buffer.write(runtime())'
+  ],
+  error: [Circular *1],
+  status: 0,
+  signal: null,
+  output: [
+    null,
+    <Buffer 63 6f 6e 73 74 20 72 65 71 75 69 72 65 24 24 33 20 3d 20 22 4d 4c 43 5f 44 55 4d 4d 59 5f 52 45 51 55 49 52 45 5f 56 41 52 22 0a 63 6f 6e 73 74 20 72 ... 6813018 more bytes>,
+    <Buffer >
+  ],
+  pid: 10167,
+  stdout: <Buffer 63 6f 6e 73 74 20 72 65 71 75 69 72 65 24 24 33 20 3d 20 22 4d 4c 43 5f 44 55 4d 4d 59 5f 52 45 51 55 49 52 45 5f 56 41 52 22 0a 63 6f 6e 73 74 20 72 ... 6813018 more bytes>,
+  stderr: <Buffer >
+}
