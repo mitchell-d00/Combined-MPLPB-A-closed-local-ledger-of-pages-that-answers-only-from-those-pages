@@ -4,8 +4,8 @@ Last reviewed: 2026-11-19.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `2c173b3ed1533e1f0373756fc02c191dc5da7c3f` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `e1744cb8543dfac406d13c7b8ffe0d8a255a4ddd259214114bc941eff90c0a20`.
+Base commit: `c9500e53bbd57e892f87c6fc4968dac0f81cb8b7` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `c7e19e3723e09c977a36861e6c63a92153d3616a3e08e830265ee60481cd14ad`.
 
 ## Latest user update instructions
 
@@ -21,13 +21,14 @@ Agreed
 
 ## Validation recorded
 
-- Baseline focused reconstruction/assertion suites:52 tests passed before implementation.
-- New article suite:15 fictional development tests passed, including native contract equality, conflicts, shared ancestry, missing links, restrictions and source invalidation.
-- Initial absent-module test failed as expected before implementation; this establishes missing functionality, not a newly discovered native proof defect.
-- Full Python suite,52 public controls and unchanged22-original preservation study started; results pending.
-- Working-tree original-record preservation study completed: all22 native contracts identical,2 complete/2 partial/3 conflict/15 abstain; all guards passed.
-- Working-tree52 public evidence controls passed. Full suite and frozen2c173b3 archive checks remain running.
-- Source-archive inspection found study runner assumed .git. Fix records null revision in exported trees with full runtime hashes; source/test runtime is unchanged.
+- Baseline52 focused tests passed before implementation.
+- Full extracted2c173b3 source:1446 Python tests passed with no failures/skips; native boundaries and52 public controls passed, all exit0.
+- 15 focused article controls, CLI example, UI script, JavaScript/native API, transport and fixture-crawler checks passed. No actual browser/WASM rerun.
+- Corrected c9500e5 exported-tree original-record study:22/22 complete native contracts preserved;2 complete,2 partial,3 conflicts,15 abstentions;all provenance/immutability/non-promotion guards passed.
+- Study wall160.004s,CPU159.696s,peakprocessRSS143921152bytes;source bytes and human review time null.
+- First restricted full run failed:1434 tests,3 failures,11 errors,2 skips. Permission errors and sandbox-dependent workflow failures retained; complete authorized archived rerun passed1446.
+- Runtime packages and tests identical to2c173b3; core ledger, grammar, checker and all old frozen corpora/evidence unchanged fromc10a81b.
+- PR55 opened at https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/pull/55 . Final evidence/doc-only commit and exact-head CI inspection remain; no merge performed.
 
 ## Limitations and blocked checks
 
@@ -38,9 +39,8 @@ Agreed
 
 ## Next steps
 
-- Complete and retain all test/study results, freeze a source candidate and test its extracted archive.
-- Record exact outcomes and resource costs; update README/docs/result index and regenerate handoff.
-- Publish findings on a feature PR if available; do not merge without a new instruction.
+- Push final evidence/docs-only update to PR55 and inspect exact-head CI; do not merge without a new user instruction.
+- Next capability milestone: finite checked cross-document connections with exact evidence per link and copied-account/missing-link/conflict negatives; no historical score claim from assembly.
 
 ## Use this ZIP in your repository
 

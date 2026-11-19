@@ -1,6 +1,8 @@
 """Replay unchanged original-record questions through read-only article assembly.
 
-Compares native contracts, not semantic correctness. No answer key is loaded.
+Compares native contracts, not semantic correctness. Frozen seal verification
+hashes recorded files, including references; expected answers are never parsed
+or supplied as checker input. This is not a key-isolated evaluation.
 New output directories only; original corpora and retained reports stay intact.
 """
 import argparse

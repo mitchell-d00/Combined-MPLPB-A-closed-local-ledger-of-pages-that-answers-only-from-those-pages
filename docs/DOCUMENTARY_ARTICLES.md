@@ -37,6 +37,10 @@ The default format is JSON. Exit 0 means a dossier was assembled, including when
 every section abstains. Exit 3 means assembly was withheld, and exit 2 indicates
 an invalid plan/configuration or an input error. No model or network is used.
 
+In a source export without `.git`, the study runner records a null revision and
+retains hashes of every runtime module. Keep the source ZIP's revision/checksum
+receipt alongside it; the runner does not guess a revision from another checkout.
+
 ## What is preserved
 
 `documentary-article-v1` contains the original plan and profile, ordered sections,
@@ -109,8 +113,10 @@ python -m tools.article_study --output /tmp/new-article-study
 The study uses the unchanged 22 original-record questions and frozen source
 seals, compares each assembled native contract with the standalone checker under
 the same 12-passage/8,000-character budget, and preserves raw packets, citations,
-import receipts, costs and failures. It loads no expected-answer file. This is a
-developer preservation experiment, not a blinded semantic evaluation.
+import receipts, costs and failures. Seal verification reads frozen files,
+including reference files, solely to check their hashes. Expected answers are
+not parsed, scored or supplied as checker input. This same-process development
+preservation experiment is neither key-isolated nor a blinded semantic evaluation.
 
 See the [recorded study](../evaluation/documentary-articles/2026-11-19/REPORT.md).
 The next capability milestone is a finite, independently checked cross-document

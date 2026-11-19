@@ -32,5 +32,16 @@
     "candidate": "2c173b3",
     "issue": "Study runner assumed a .git directory. Found during source-archive inspection before running the study. Runtime assembler and tests unchanged.",
     "fix": "Exported runner records revision:null with full runtime hashes; caller retains the archive revision receipt. No guessed ancestor revision."
+  },
+  "restricted_working_tree_full_suite": {
+    "command": "python -m unittest discover -s tests -q",
+    "exit_code": 1,
+    "tests_run": 1434,
+    "seconds": 650.931,
+    "failures": 3,
+    "errors": 11,
+    "skipped": 2,
+    "observed_errors": "PermissionError: Operation not permitted when creating local-server sockets; three researcher-pilot assertions fail when sandbox journeys cannot execute.",
+    "status": "Retained failed run. Authorized complete archived rerun with local sockets/namespaces is running; do not label this initial run passed."
   }
 }
