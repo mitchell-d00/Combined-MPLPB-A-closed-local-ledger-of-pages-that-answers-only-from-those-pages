@@ -1,6 +1,6 @@
 # Results and their tests
 
-Last reviewed: 2026-11-18.
+Last reviewed: 2026-11-19.
 
 Package role: [how this part fits Combined MPLPB](PACKAGE_GUIDE.md#evidence-and-limits). This guide covers evidence or operation limits; dated results keep the revision and scope they measured.
 
@@ -151,3 +151,6 @@ Optional review update (2026-11-18): [Synonym Ranker and Candidate Relater](SORT
 
 
 [Fixpack and historical-gap evidence](../evaluation/fixpack/2026-11-18/FINAL_REPORT.md) links native safeguards, separate exploration, checked local-context partials, optional model flags and generation-publication interruption tests. Baseline and failed pilots are preserved; final replay status is recorded in that report. Independent human accuracy remains unmeasured.
+
+
+[Sorter exploration](SORTER_EXPLORATION.md) adds candidate/identity/truth labels and a separate unofficial question interface. [Versioned evidence](../evaluation/sorter-exploration/2026-11-19/REPORT.md) retains actual validation and its limits. [Boundary tests](../tests/test_sorter_explorer.py) exercise exact quotes,non-promotion,profile restrictions,source changes and identical observations across modes;they do not establish semantic accuracy.

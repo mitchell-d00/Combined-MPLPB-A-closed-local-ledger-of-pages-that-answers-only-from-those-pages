@@ -1,6 +1,6 @@
 # Combined MPLPB
 
-Last reviewed: 2026-11-18.
+Last reviewed: 2026-11-19.
 
 Combined MPLPB is a closed local ledger with tools for raw-material sorting,
 bounded source questions, documentary inspection and retained work history.
@@ -240,3 +240,6 @@ Code is MIT licensed; documentation is CC BY 4.0. Bundled data, models and prese
 parts retain their own notices. See [LICENSE](LICENSE) and [resource attribution](resources/README.md).
 
 Measured fixpack/gap update: [final experiment](evaluation/fixpack/2026-11-18/FINAL_REPORT.md) and [22-case source/checker table](evaluation/fixpack/2026-11-18/CASE_ANALYSIS.md). Complete answers remain2/22; checked partials increase1→2. Separate exploration does not recover the5 missing draft anchors; the tested tiny flagger provides no utility gain. Original authority boundaries remain in force.
+
+
+The [sorter exploration view](docs/SORTER_EXPLORATION.md) adds visible tags for textual observations, possible connections, changed bodies, unresolved entity identity/event co-reference and unverified historical truth. `python -m mplpb_work.sorter_explorer sort DIRECTORY --mode compare` shows them without changing the underlying sorter format. Its separate `ask` command accepts unofficial free-form research questions; optional local-model hypotheses remain explicitly unverified beside the native MPLPB decision. Neither the labels nor model proposals establish historical truth or change ledger authority.

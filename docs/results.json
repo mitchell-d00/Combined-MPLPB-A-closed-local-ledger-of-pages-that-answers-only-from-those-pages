@@ -1,6 +1,6 @@
 {
   "schema": "result-test-index-v1",
-  "reviewed_on": "2026-11-18",
+  "reviewed_on": "2026-11-19",
   "meaning": "Links establish retained test/reproduction coverage, not a fresh execution or certification of historical metrics. Original source, dates, fixtures and exact revisions remain in the linked reports.",
   "families": [
     {
@@ -569,6 +569,22 @@
       ],
       "scope": "Supplied patch hardening, unchanged22 development replay, separate discovery, fictional process-interruption and optional live-model flag probes. No independent historical accuracy.",
       "measurement_status": "Final runtime7c92db5:1364 unittest passed,52 public controls;unchanged22 complete2\u21922,partial1\u21922;draft anchors27/32 unchanged;fresh blinded AI assessment only;live tiny model no utility gain."
+    },
+    {
+      "family": "sorter-exploration",
+      "artifacts": "evaluation/sorter-exploration",
+      "tests": [
+        "tests/test_sorter_explorer.py",
+        "tests/test_sorter_v2.py",
+        "tests/test_answer_router_boundaries.py",
+        "tests/test_local_narrator.py"
+      ],
+      "runners": [
+        "mplpb_work/sorter_explorer.py",
+        "tools/reproduce_boundaries.py"
+      ],
+      "scope": "Read-only labels and unofficial bounded hypotheses beside native authority;mocked model boundaries and fictional examples,not historical semantic accuracy.",
+      "measurement_status": "14 focused tests passed;final extracted validation pending;no new historical accuracy/coverage claim."
     }
   ]
 }
