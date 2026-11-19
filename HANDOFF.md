@@ -4,8 +4,8 @@ Last reviewed: 2026-11-19.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `a71bfb76cbce3b1d857be18fb1cddb15d8e7edc5` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `11d7d3dbfbf385489f81f4e05882f2dbad678d4af7c3417d821c0bfa881df7a0`.
+Base commit: `d729d57ec3e0cdbc40caed289afa5d78a78b5bb4` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `c58557982f4980c726fa66a85ec151d75f382a7913d2e43151d1eda1233d6e6a`.
 
 ## Latest user update instructions
 
@@ -21,6 +21,7 @@ When we finish I wand full d% test and full findings in a pr everything that’s
 - Final guard class:reject blank/wordless literal requests and verify word boundaries in original source context,not extractor clipping.
 - Preserve body-header modality through layout segmentation;independently inspect bounded original physical layout and keep folds/unmapped headers unresolved.
 - User requests complete D%and findings in a PR with updated README/docs. Keep no-benchmark-specific-rule policy and all frozen evidence.
+- Distinguish neutral metadata topics from event appearances and retain unresolved source refutations as alternatives;preserve Markdown and explicit structural quotation scope.
 
 ## Validation recorded
 
@@ -31,6 +32,7 @@ When we finish I wand full d% test and full findings in a pr everything that’s
 - Next candidate deliberately interrupted after a new independent-vocabulary header-scope test exposed plan/draft/report qualification loss.Completed and partial outputs,checkpoints,termination reasons and interrupted suite receipts retained;no success claim.
 - Final scope guard71 focused tests passed,exit0;generator,key,worker and frozen questions remain unchanged.
 - 78 focused tests passed,exit0,including field-label/date roles,header-topic versus event distinctions,Markdown scopes,and causal self-refutations.
+- Final class vocabulary is covered by78 focused tests,exit0;counterpart controls executed against the actual archived a71 native code fail as expected.
 
 ## Limitations and blocked checks
 
