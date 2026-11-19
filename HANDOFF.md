@@ -4,8 +4,8 @@ Last reviewed: 2026-11-19.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `6e0de9e6f14f238961845780c2500713a0db096f` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `fbeeee3d14a0136961eef17c2b62ff15deb6da1e98603bac3b66dae74afc782f`.
+Base commit: `52fc493218c5ce21e88ae2808643c8a0b158c70f` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `96d774d2f01369814dbd4adc71058218d877abf607dd8fde393b17fc11287c65`.
 
 ## Latest user update instructions
 
@@ -22,6 +22,7 @@ When we finish I wand full d% test and full findings in a pr everything that’s
 - Preserve body-header modality through layout segmentation;independently inspect bounded original physical layout and keep folds/unmapped headers unresolved.
 - User requests complete D%and findings in a PR with updated README/docs. Keep no-benchmark-specific-rule policy and all frozen evidence.
 - Distinguish neutral metadata topics from event appearances and retain unresolved source refutations as alternatives;preserve Markdown and explicit structural quotation scope.
+- Published all implementation, frozen results, failed attempts and updated README/docs in open PR #54: https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/pull/54 . No merge performed.
 
 ## Validation recorded
 
@@ -33,6 +34,7 @@ When we finish I wand full d% test and full findings in a pr everything that’s
 - AllJS/UI/crawler/bridge checks,actualPyodide and two isolated headlessChromium checks passed from6e0de9e archive. No live neural inference or deployment.
 - Generator0b2c5c8,worker,private key and source packets unchanged;all draws replay identically. Source core mplpb_combined unchanged from6334e1b.
 - Documentation inventory audit passed:559 documents,39 evaluation families;source/core/tools/tests identical to tested6e0de9e;public archives checked for path safety and absence of private key/dice.
+- Initial published head52fc493218c5ce21e88ae2808643c8a0b158c70f: supporting-infrastructure CI succeeded; four other PR workflow runs were still in progress when inspected. This is not an exact-final-head CI pass claim.
 
 ## Limitations and blocked checks
 
@@ -44,10 +46,8 @@ When we finish I wand full d% test and full findings in a pr everything that’s
 
 ## Next steps
 
-- Finish final documentation/handoff and artifact integrity audits,commit evidence-only update with runtime identical to tested6e0de9e.
-- Push test/dpercent-prose-challenge and create the requested full-findings PR;record actual URL and exact head. Do not merge.
-- Inspect exact-head CI and report pending or failed checks honestly.
-- Next research milestone:general rules for remaining400 positives and fresh held-out assessment;do not alter frozen labels or rig individual cases.
+- Inspect CI on the exact final PR head; investigate any genuine regression. Do not merge without a new instruction.
+- Next research milestone: general rules for remaining 400 positives and fresh held-out assessment; do not alter frozen labels or rig individual cases.
 
 ## Use this ZIP in your repository
 
