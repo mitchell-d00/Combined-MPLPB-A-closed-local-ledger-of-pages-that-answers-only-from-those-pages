@@ -9,6 +9,9 @@ software tests do not establish historical understanding.
 
 ## Five-minute tutorial
 
+Run these commands from a repository checkout; no model or package installation
+is needed. The evaluation/tutorial tools are not installed by the minimal wheel.
+
 ```sh
 python -m tools.archival_tutorial --output /tmp/my-first-archive
 python -m mplpb_answers ask /tmp/my-first-archive/ledger "Who surveyed West Reach?" --json
@@ -90,7 +93,9 @@ is not semantic correctness or a promise of future serving eligibility.
 the actual before/after commands and results, including failed attempts.
 
 `tools.blind_archival_packets` exports anonymous paired answers, complete eligible
-source projections and blank review templates. It withholds implementation pins,
+source projections, unchanged original bytes with source/import mappings, and
+blank review templates. Original files preserve documentary layers for inspection;
+their export is not new ledger authorization. It withholds implementation pins,
 scores, change logs and draft reference answers. The private crosswalk must stay
 outside the public packet directory and outside runtime. Every original case,
 including refusals and partial answers, remains present. Familiar development

@@ -4,12 +4,12 @@ Last reviewed: 2026-11-19.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `ebe8a3d569e0b478e150f7b04a31dacfd42827a5` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `b326a33f6e8e07672f7eeea227dc43063aa642846a0809b0f205b2046eea9c56`.
+Base commit: `ee85ab3b3fa501fbee71e102e4de6b7d1bbe48f3` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `0f5520a9aa7a9d5410b6d81342256de597c1cd9157052a4437934eb29dde364a`.
 
 ## Latest user update instructions
 
-Yes let’s do that
+Note failure then fix it
 
 ## Implemented scope
 
@@ -28,6 +28,10 @@ Yes let’s do that
 - Rejected ebe8a3d after three independent-vocabulary actor-clause counterexamples falsely returned support. Failing control exit1 and raw partial outputs retained.
 - Stopped only task-owned rejected-candidate D%parent (exit143) and archived suite child (exit-15). Partial D%overall E/F null; no partial software pass claimed.
 - General fix requires a full literal named/declared-collective actor and main predicate; arbitrary prefixes cannot swallow reporting, proposal or near-miss language. All67 focused tests passed after repair; final full-run validation still pending.
+- Corrected frozen ee85ab3:1468 full Python tests, native boundaries and52 public controls passed, all exit0.
+- Full corrected D%1240/1240 complete:200/600 matched supported,640/640 expected refusals,no false support; require-perfect exits1 for remaining400 positives.
+- Archived22-record run:3 complete,2 partial,3 conflict,14 abstain. OnlyH07 changes meaning; other21 native claims/citations/unresolved content preserved. Independent correctness not reviewed.
+- Tool-only follow-up adds exact original bytes/import mappings to anonymous review exports; native packages/tests unchanged fromee85ab3.
 
 ## Limitations and blocked checks
 
