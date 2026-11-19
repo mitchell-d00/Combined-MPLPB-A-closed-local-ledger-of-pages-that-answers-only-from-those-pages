@@ -154,3 +154,6 @@ Optional review update (2026-11-18): [Synonym Ranker and Candidate Relater](SORT
 
 
 [Sorter exploration](SORTER_EXPLORATION.md) adds candidate/identity/truth labels and a separate unofficial question interface. [Versioned evidence](../evaluation/sorter-exploration/2026-11-19/FINAL_REPORT.md) retains actual validation and its limits. [Boundary tests](../tests/test_sorter_explorer.py) exercise exact quotes,non-promotion,profile restrictions,source changes and identical observations across modes;they do not establish semantic accuracy.
+
+
+The [pinned B-Tests d100 retest](../evaluation/sorter-exploration/2026-11-19/d100/REPORT.md) preserves100 native cases and100 separate explorer checks on the same fresh packets. Sources,keys and prior scores are unchanged;these are fictional authority controls,not historical accuracy.

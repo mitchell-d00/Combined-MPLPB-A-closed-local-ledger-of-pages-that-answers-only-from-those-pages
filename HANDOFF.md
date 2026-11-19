@@ -4,46 +4,37 @@ Last reviewed: 2026-11-19.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `f85620548874d4daae608144c33c9c1d4286c622` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `aee8d96d8edeaf627afa24af9cda45538a73361a471102df2cbe6ff281a18441`.
+Base commit: `c7dd333f06b4f0af739d36672b2f98727be5a5b9` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `1d151251b62ae1c594dd3fb573d4c8ad5f5fe7565f5fdd0935828c3260d823e8`.
 
 ## Latest user update instructions
 
-Sorter needs to label things in sorting as possible connections , supported etc and tags that make user aware   , entity resolution, event co-reference, historical truth, and an unofficial free-form question answering. That is not mplpb but a way to explore ideas that are not fact or presented as fact .
+K rn a d100 test on it local and then merge if it passes this repo has the tests im talking about https://github.com/mitchell-d00/B-Tests
 
 ## Implemented scope
 
-- Add a derived, replay-verified sorter view with explicit textual/candidate/identity/event/truth tags;preserve saved sorter formats.
-- Add a separate free-form question-exploration CLI with optional local-model hypotheses/open questions;no ledger writer or promotion.
-- Keep native strict results separate;reuse original-question/profile retrieval boundaries and recheck current sources after inference.
-- Document labels,full-context citations,budgets,model limitations and exact commands.
-- Retain partial-sorter budget diagnostics even when discovery returns no passages.
+- Inspect and pin the linked B-Tests d100 protocol;run its unmodified local100-case test against clean MPLPBc7dd333.
+- Check the new exploration view separately on all100 unchanged packets,without passing the scoring key to runtime.
+- Preserve seed,inputs,rolls,receipts and results;push a reviewable branch,require exact-head release CI,then merge to main if passed.
 
 ## Validation recorded
 
-- Final runtimef85620548874d4daae608144c33c9c1d4286c622:1379 extracted unittest tests passed in527.963s;52/52 public controls passed with zero observed false-supported bridges in those fictional controls.
-- 15 new tests cover identical nodes/labels across modes,exact UTF-8/CRLF spans,quoted identifiers,provisional retirement,empty-budget diagnostics,native isolation,false citations/quotes,promotion rejection,restrictions,source withdrawal,backend failure and CLI.
-- Fixture demo:111 identical nodes and node labels;196 observation edges vs218 compare edges;22 extra proposals remain non-authoritative.Source hashes unchanged.
-- One unchanged H05 original-record replay retains identical native contract before/during/after exploration:4 citations4070 characters;zero exploration strict slots.No22-question rerun or historical gain claim.
-- Final installed wheel/new CLI and existing workspace passed with isolated Python.Native JS/crawler/API and actual pinned WebAssembly checks passed.Chromium passed on byte-identical native HTML;new UI is CLI/Python only.
-- One cached local Qwen0.5B smoke returned a schema-valid open question that mostly repeats the original query.No useful semantic gain established;all exploration support/identity/truth flags false.Server stopped.
-- Initial2 loopback fixture errors,empty-budget regression,ENOSPC full-run310 errors and repaired extraction failure preserved.Recovered run passed after cleanup of generated temporary archive copies only.
-- Preservation audit:5875 pre-existing evaluation files and62 existing runtime files unchanged.Original sorters,native reader,kernel,router and narrator unchanged.
+- B-Tests64b646ee89ea819f59f39f0eecced71ee7ef24c8 harness:123 unit tests passed.
+- Fresh seed13814892761879707678 native100/100 cases,25/25 users,100 workspace replays passed;exit0.
+- Exploration companion100/100 cases,25/25 users passed;source/node/label identity,native isolation,profile restrictions,budgets and unchanged ledgers/packets verified;exit0.
+- Existing final implementationf856205 full1379 tests and52 public controls retained;d100 executionc7dd333 is evidence/docs-only descendant with identical runtime.
 
 ## Limitations and blocked checks
 
-- Verified entity resolution,event co-reference and historical truth are not implemented by these labels;they remain explicitly unresolved/unverified.
-- Model-generated hypotheses and missing-evidence notes can be wrong.Semantic correctness is not established by schema/citation checks.
-- The tiny live model mostly echoed a question;no independent quality evaluation or answer-coverage gain is demonstrated.
-- Interface is opt-in CLI/Python;no new browser UI or deployed-site claim.Offline sorting grants no serving profile or import approval.
-- All prior historical limitations and null independent accuracy/human review metrics remain.Nothing pushed or merged.
+- D100 uses fictional source records with real topic metadata;not historical accuracy or model-quality measurement.Model calls0.
+- Native d100 and companion runtime costs differ;upstream native CPU/wall unmeasured,null.
+- Exact final-head CI,main merge and postdeployment validation pending;local success alone is not publication.
 
 ## Next steps
 
-- Read docs/SORTER_EXPLORATION.md and evaluation/sorter-exploration/2026-11-19/FINAL_REPORT.md before extending the interface.
-- Keep labels visible alongside every excerpt/hypothesis;show native source support separately from historical truth.
-- If adding a browser surface,retain original full-question/profile gates,source rechecks,budgets and non-promotion.
-- Evaluate interpretation usefulness on frozen source-linked cases before claiming semantic improvement;human-independent historical accuracy remains unmeasured.
+- Push tested feature branch and open a main PR with concrete d100 evidence.
+- Wait for successful archived-source,regression and handoff checks on exact final head;investigate failures before merging.
+- Merge with expected head SHA once gates pass,then verify main/deployment and record publication receipt.
 
 ## Use this ZIP in your repository
 
