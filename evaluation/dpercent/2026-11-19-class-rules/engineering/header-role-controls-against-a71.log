@@ -1,0 +1,43 @@
+test_document_date_labels_are_not_action_counterstatements (role_regressions.DocumentaryHeaderScopeTests.test_document_date_labels_are_not_action_counterstatements) ... 
+  test_document_date_labels_are_not_action_counterstatements (role_regressions.DocumentaryHeaderScopeTests.test_document_date_labels_are_not_action_counterstatements) (date_role='written') ... FAIL
+  test_document_date_labels_are_not_action_counterstatements (role_regressions.DocumentaryHeaderScopeTests.test_document_date_labels_are_not_action_counterstatements) (date_role='sent') ... FAIL
+test_explicit_structural_example_and_plan_layers_block_action_proof (role_regressions.DocumentaryHeaderScopeTests.test_explicit_structural_example_and_plan_layers_block_action_proof) ... 
+  test_explicit_structural_example_and_plan_layers_block_action_proof (role_regressions.DocumentaryHeaderScopeTests.test_explicit_structural_example_and_plan_layers_block_action_proof) (before='<div class="documentation_example"><pre>') ... FAIL
+  test_explicit_structural_example_and_plan_layers_block_action_proof (role_regressions.DocumentaryHeaderScopeTests.test_explicit_structural_example_and_plan_layers_block_action_proof) (before='<h2 class="proposed">Text</h2><pre>') ... FAIL
+
+======================================================================
+FAIL: test_document_date_labels_are_not_action_counterstatements (role_regressions.DocumentaryHeaderScopeTests.test_document_date_labels_are_not_action_counterstatements) (date_role='written')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/mplpb/tests/test_documentary_header_scope.py", line 58, in test_document_date_labels_are_not_action_counterstatements
+    self.assertTrue(answer_query(root,'Who '+past+' the basalt chart?').contract['answer_supported'])
+AssertionError: False is not true
+
+======================================================================
+FAIL: test_document_date_labels_are_not_action_counterstatements (role_regressions.DocumentaryHeaderScopeTests.test_document_date_labels_are_not_action_counterstatements) (date_role='sent')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/mplpb/tests/test_documentary_header_scope.py", line 58, in test_document_date_labels_are_not_action_counterstatements
+    self.assertTrue(answer_query(root,'Who '+past+' the basalt chart?').contract['answer_supported'])
+AssertionError: False is not true
+
+======================================================================
+FAIL: test_explicit_structural_example_and_plan_layers_block_action_proof (role_regressions.DocumentaryHeaderScopeTests.test_explicit_structural_example_and_plan_layers_block_action_proof) (before='<div class="documentation_example"><pre>')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/mplpb/tests/test_documentary_header_scope.py", line 66, in test_explicit_structural_example_and_plan_layers_block_action_proof
+    self.assertFalse(answer_query(root,'Who sent the basalt chart?').contract['answer_supported'])
+AssertionError: True is not false
+
+======================================================================
+FAIL: test_explicit_structural_example_and_plan_layers_block_action_proof (role_regressions.DocumentaryHeaderScopeTests.test_explicit_structural_example_and_plan_layers_block_action_proof) (before='<h2 class="proposed">Text</h2><pre>')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/mplpb/tests/test_documentary_header_scope.py", line 66, in test_explicit_structural_example_and_plan_layers_block_action_proof
+    self.assertFalse(answer_query(root,'Who sent the basalt chart?').contract['answer_supported'])
+AssertionError: True is not false
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.082s
+
+FAILED (failures=4)

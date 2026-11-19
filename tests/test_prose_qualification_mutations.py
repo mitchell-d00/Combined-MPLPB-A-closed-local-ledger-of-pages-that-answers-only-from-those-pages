@@ -32,3 +32,21 @@ class QualificationMutationTests(unittest.TestCase):
                         result=answer_query(root,f'Who {active} the basalt chart?').contract
                         self.assertFalse(result['answer_supported'])
                         self.assertTrue(result['missing'])
+
+    def test_unresolved_self_refutation_stops_complete_action_answer(self):
+        for denial in ['This statement is false.','That earlier account was mistaken.',
+                       'It never happened.','I was wrong.']:
+            with self.subTest(denial=denial),tempfile.TemporaryDirectory() as tmp:
+                root=Path(tmp);body='Quentin Moss wrote the basalt chart. '+denial
+                write(root,doc_id='ARCHIVE-1',title='Archive',scope='archive',body_html='<pre>'+html.escape(body)+'</pre>')
+                result=answer_query(root,'Who wrote the basalt chart?').contract
+                self.assertFalse(result['answer_supported'])
+                self.assertTrue(result.get('documentary_support',{}).get('alternative_evidence'))
+
+    def test_unresolved_refutation_also_stops_source_cause_closure(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root=Path(tmp);body='The dock inspection was postponed because of ice. This account is false.'
+            write(root,doc_id='ARCHIVE-1',title='Archive',scope='archive',body_html='<pre>'+html.escape(body)+'</pre>')
+            result=answer_query(root,'Why was the dock inspection postponed?').contract
+            self.assertFalse(result['answer_supported'])
+            self.assertTrue(result.get('documentary_support',{}).get('alternative_evidence'))

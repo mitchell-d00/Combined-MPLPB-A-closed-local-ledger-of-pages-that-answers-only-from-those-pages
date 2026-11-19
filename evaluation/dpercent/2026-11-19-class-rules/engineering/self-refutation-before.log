@@ -1,0 +1,36 @@
+======================================================================
+FAIL: test_unresolved_self_refutation_stops_complete_action_answer (tests.test_prose_qualification_mutations.QualificationMutationTests.test_unresolved_self_refutation_stops_complete_action_answer) (denial='This statement is false.')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/mplpb/tests/test_prose_qualification_mutations.py", line 43, in test_unresolved_self_refutation_stops_complete_action_answer
+    self.assertFalse(result['answer_supported'])
+AssertionError: True is not false
+
+======================================================================
+FAIL: test_unresolved_self_refutation_stops_complete_action_answer (tests.test_prose_qualification_mutations.QualificationMutationTests.test_unresolved_self_refutation_stops_complete_action_answer) (denial='That earlier account was mistaken.')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/mplpb/tests/test_prose_qualification_mutations.py", line 43, in test_unresolved_self_refutation_stops_complete_action_answer
+    self.assertFalse(result['answer_supported'])
+AssertionError: True is not false
+
+======================================================================
+FAIL: test_unresolved_self_refutation_stops_complete_action_answer (tests.test_prose_qualification_mutations.QualificationMutationTests.test_unresolved_self_refutation_stops_complete_action_answer) (denial='It never happened.')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/mplpb/tests/test_prose_qualification_mutations.py", line 43, in test_unresolved_self_refutation_stops_complete_action_answer
+    self.assertFalse(result['answer_supported'])
+AssertionError: True is not false
+
+======================================================================
+FAIL: test_unresolved_self_refutation_stops_complete_action_answer (tests.test_prose_qualification_mutations.QualificationMutationTests.test_unresolved_self_refutation_stops_complete_action_answer) (denial='I was wrong.')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/mplpb/tests/test_prose_qualification_mutations.py", line 43, in test_unresolved_self_refutation_stops_complete_action_answer
+    self.assertFalse(result['answer_supported'])
+AssertionError: True is not false
+
+----------------------------------------------------------------------
+Ran 1 test in 0.059s
+
+FAILED (failures=4)

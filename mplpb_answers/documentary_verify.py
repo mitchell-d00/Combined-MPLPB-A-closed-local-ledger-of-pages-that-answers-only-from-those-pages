@@ -10,7 +10,7 @@ from html.parser import HTMLParser
 from .body_text import body_text, VERSION as BODY_VERSION
 from .passages import PassageIndex
 
-VERSION = 'documentary-assertion-kernel-v8'
+VERSION = 'documentary-assertion-kernel-v9'
 PAST = {'appointed':'appoint','sent':'send','received':'receive','wrote':'write',
         'surveyed':'survey','published':'publish','revised':'revise','canceled':'cancel',
          'ordered':'order','requested':'request','instructed':'instruct'}
@@ -28,12 +28,22 @@ def context_ranges(record, *, document_draft=False):
     Position through the unchanged canonical projection. A page containing a
     navigation menu is not thereby wholly unavailable as documentary evidence.
     """
+    qualifiers=r'if|unless|conditional(?:ly)?|plans?|planned|planning|proposals?|proposed|scenarios?|forecasts?|predictions?|hypothes(?:is|es)|intentions?|intended'
+    if not document_draft:qualifiers+='|draft'
     class Context(HTMLParser):
-        def __init__(self):super().__init__();self.parts=[];self.stack=[];self.ranges=[];self.headings=[];self.heading=None
+        def __init__(self):
+            super().__init__();self.parts=[];self.stack=[];self.ranges=[];self.headings=[];self.heading=None
+            self.pre_depth=0;self.pre_prefix='';self.pre_start=None;self.pre_finished=False
         def position(self):return len(body_text(''.join(self.parts)))
         def handle_starttag(self,tag,attrs):
-            if tag in {'blockquote','q','nav','header','footer','aside','form'}:self.stack.append((tag,self.position()))
-            if re.fullmatch('h[1-6]',tag):self.heading=[self.position(),int(tag[1]),[]]
+            if tag=='pre':
+                if self.pre_start is None:self.pre_start=self.position()
+                self.pre_depth+=1
+            hint=' '.join(value or '' for key,value in attrs if key in {'class','role','aria-label','data-layer'}).replace('_',' ')
+            qualified_hint=bool(META.search(hint) or re.search(r'\b(?:'+qualifiers+r'|reported|quoted|forwarded)\b',hint,re.I))
+            if tag in {'blockquote','q','nav','header','footer','aside','form'} or (tag in {'pre','div','section','article'} and qualified_hint):
+                self.stack.append((tag,self.position()))
+            if re.fullmatch('h[1-6]',tag):self.heading=[self.position(),int(tag[1]),[hint+' '] if qualified_hint else []]
             self.parts.append('<'+tag+'>')
         def handle_endtag(self,tag):
             self.parts.append('</'+tag+'>')
@@ -41,15 +51,68 @@ def context_ranges(record, *, document_draft=False):
                 _,start=self.stack.pop();self.ranges.append((start,self.position()+1))
             if self.heading and tag=='h'+str(self.heading[1]):
                 self.headings.append((self.heading[0],self.heading[1],''.join(self.heading[2])));self.heading=None
+            if tag=='pre':
+                self.pre_depth=max(0,self.pre_depth-1)
+                if not self.pre_depth:self.pre_finished=True
         def handle_data(self,value):
             self.parts.append(html.escape(value,quote=False))
             if self.heading:self.heading[2].append(value)
+            if self.pre_depth and not self.pre_finished:self.pre_prefix+=value[:max(0,2001-len(self.pre_prefix))]
     parser=Context();parser.feed(record.body_html);parser.close();full=body_text(record.body_html)
     if body_text(''.join(parser.parts))!=full:return [(0,len(full)+1)]
+    opened=None
+    for m in re.finditer(r'(?m)^\ufeff?[ \t]*(?:>[ \t]*)*(`{3,}|~{3,})([^\r\n]*)',full):
+        if opened is None:opened=(m.start(),m[1])
+        elif m[1][0]==opened[1][0] and len(m[1])>=len(opened[1]) and not m[2].strip():
+            parser.ranges.append((opened[0],m.end()));opened=None
+        if len(parser.ranges)>1000:return [(0,len(full)+1)]
+    if opened:parser.ranges.append((opened[0],len(full)+1))
+    # The projection removes physical blank lines. A Markdown quote with an
+    # uncertain lazy-continuation end cannot authorize subsequent bare actions.
+    quote=re.search(r'(?m)^\ufeff?[ \t]*>',full)
+    if quote:parser.ranges.append((quote.start(),len(full)+1))
+    # A source explicitly ascribing a hypothetical/documentary layer to itself
+    # leaves attachment unresolved, including retrospective declarations. Keep
+    # the complete record inspectable but do not certify bare action predicates.
+    # Merely mentioning a plan is not such an ascription.
+    if re.search(r'\b(?:this|the following|what follows|these) (?:is|was|are|were) (?:(?:merely|only|just) )?(?:an? |the )?(?:plans?|proposals?|drafts?|scenarios?|forecasts?|predictions?|hypothesis|hypotheses|quotations?|examples?|reported (?:accounts?|statements?|instructions?))\b',full,re.I):
+        parser.ranges.append((0,len(full)+1))
+    # Independently retain modality in leading documentary headers. The layout
+    # extractor's new sentence boundaries must never erase these governors.
+    # This restricts semantic assertions; literal text-location remains allowed.
+    labels=[];lines=full[:2000].lstrip('\ufeff').splitlines()[:16];header_uncertain=False
+    if lines and re.match(r'From: ',lines[0],re.I):
+        fields=[]
+        for line in lines:
+            m=re.fullmatch(r'(From|To|Date(?: written| sent| received)?|Subject|Message-ID|Cc): (.+)',line,re.I)
+            if not m:break
+            fields.append((m[1].casefold(),m[2]))
+        if any(k=='to' for k,_ in fields):labels=[v for k,v in fields if k=='subject']
+        else:header_uncertain=True
+        # Canonical projection strips indentation. Re-read original leading
+        # preformatted layout before treating a folded field as body prose.
+        # Unmapped, folded or over-budget headers stay candidates, not facts.
+        physical=parser.pre_prefix.lstrip('\r\n\ufeff');transition=False
+        if parser.pre_start!=0 or not re.match(r'From: ',physical,re.I):header_uncertain=True
+        else:
+            for raw_line in physical.splitlines(keepends=True)[:17]:
+                if not raw_line.endswith(('\r','\n')) and not (parser.pre_finished and len(parser.pre_prefix)<2001):
+                    header_uncertain=True;break
+                line=raw_line.rstrip('\r\n')
+                if not line.strip():transition=True;break
+                if line[:1].isspace():header_uncertain=True;break
+                if not re.fullmatch(r'(?:From|To|Date(?: written| sent| received)?|Subject|Message-ID|Cc): .+',line,re.I):
+                    if re.match(r'[^:\n]{1,80}:',line):header_uncertain=True
+                    else:transition=True
+                    break
+            if not transition:header_uncertain=True
+    elif lines:
+        h=re.fullmatch(r'([^\n]{2,70}) TO ([^\n]{2,70})\. ([^\n]{4,120})',lines[0])
+        if h and h[1].isupper() and h[2].isupper():labels=[h[3]]
+    if header_uncertain or any(META.search(label) or re.search(r'\b(?:'+qualifiers+r'|reported|quoted|forwarded|alleged|denied|instructions?|orders?)\b',label,re.I) for label in labels):
+        parser.ranges.append((0,len(full)+1))
     for _,start in parser.stack:parser.ranges.append((start,len(full)+1))
     for i,(start,level,heading) in enumerate(parser.headings):
-        qualifiers=r'if|unless|conditional|plans?|planned|planning|proposals?|proposed|scenario|forecast|prediction|hypothesis|intention|intended'
-        if not document_draft:qualifiers+='|draft'
         if META.search(heading) or re.search(r'\b(?:'+qualifiers+r')\b',heading,re.I):
             end=next((a for a,l,_ in parser.headings[i+1:] if l<=level),len(full)+1)
             parser.ranges.append((start,end))
@@ -80,6 +143,26 @@ def source_question(question):
 def action_forms(action):
     """All finite active/passive spellings, including irregular participles."""
     return {action}|{word for word,value in {**PAST,**PASSIVE}.items() if value==action}
+
+
+def possible_refutation(text):
+    """Unresolved self-reference to an error/denial is alternative evidence.
+
+    This does not identify its target or establish an authored correction.
+    """
+    return bool(re.search(r'\b(?:this|that|it|above|earlier|previous|preceding|prior|i|he|she|they)\b[^.!?\n]{0,100}\b(?:false|untrue|incorrect|mistaken|wrong|inaccurate|lied|a mistake|an error|not true|isn[’\']t true|wasn[’\']t true|never happened|never occurred|didn[’\']t happen|didn[’\']t occur)\b',text,re.I))
+
+
+def metadata_values(text):
+    """Recognize layout-only units without treating labels as predicates."""
+    lines=text.splitlines()
+    if not lines or len(lines)>16:return None
+    values=[]
+    for line in lines:
+        m=re.fullmatch(r'(?:From|To|Date(?: written| sent| received)?|Subject|Message-ID|Cc): (.+)',line,re.I)
+        if not m:return None
+        values.append(m[1])
+    return ' '.join(values)
 
 
 def literal_request(question):
@@ -477,6 +560,9 @@ def causal_completion(question,value,contexts,record,a,b,complete):
     subject=re.sub(r'^(?:the|a|an) ','',normalized(value['subject_text']))
     for other,lo,hi,text,_ in contexts:
         if other.path==record.path and (lo,hi)==(a,b):continue
+        if possible_refutation(text):return None
+        fields=metadata_values(text)
+        if fields is not None and not re.search(r'\b'+re.escape(value['action_text'])+r'\b',fields,re.I):continue
         if subject in normalized(text):return None
         if (re.search(r'\b(?:it|this|that|they|those|these)\b',text,re.I)
             and re.search(r'\b(?:'+re.escape(value['action_text'])+r'|not|never|denied|cancelled|canceled)\b',text,re.I)):return None

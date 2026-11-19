@@ -41,6 +41,15 @@ def _contexts(index,passages,max_chars,max_passages):
     return result
 
 
+def _counter_wording(text):
+    """Header labels are layout, not action predicates; retain all values.
+
+    In particular, 'Date written' does not assert who wrote the subject item.
+    Original text and coordinates remain unchanged in alternative citations.
+    """
+    return re.sub(r'(?im)^(?:From|To|Date(?: written| sent| received)?|Subject|Message-ID|Cc):\s*','',text)
+
+
 def plan(question):
     anchor=kernel.literal_request(question)
     if anchor:return [{'question':question,'kind':'literal_location','anchor_text':anchor}]
@@ -239,6 +248,12 @@ def compose(index,max_passages,max_chars):
     checked=kernel.check(index,proposals)
     if checked['status']=='source_changed':return {'kind':'abstain','code':'source_changed'}
     proofs=checked['proofs'];selected=[];statuses=[];missing=[];conflict=False;ambiguous=False;alternatives=[]
+    refutations=[]
+    if any(g['kind'] in {'who_action','explicit_cause'} for g in goals):
+        for record,a,b,q,value in checked['contexts']:
+            if value is None and kernel.possible_refutation(q):
+                e=kernel.citation(record,body_text(record.body_html),a,b)
+                if e not in alternatives:alternatives.append(e);refutations.append(e)
     closures=[p for p in proofs if p['proposition'].get('question_obligations_verified')
               and p['proposition'].get('verified_question')==index.question]
     comparison_completion=(len(closures)==1 and all(g['kind'] in {'wording_comparison','wording_shared'} for g in goals))
@@ -272,10 +287,11 @@ def compose(index,max_passages,max_chars):
                 scopes={p['proposition']['temporal_qualification_text'] for p in competing}
                 unknown_contexts=[(r,a,b,q) for r,a,b,q,value in checked['contexts']
                     if (value is None and (terms(goal['object_text'])&terms(q) or re.search(r'\b(?:he|she|it|they|that|this|those|these)\b',q,re.I))
-                    and (re.search(r'\b'+re.escape(goal['action'])+r'\w*\b',q,re.I)
-                         or any(re.search(r'\b'+re.escape(w)+r'\b',q,re.I) for w in kernel.action_forms(goal['action']))))
+                    and (re.search(r'\b'+re.escape(goal['action'])+r'\w*\b',_counter_wording(q),re.I)
+                         or any(re.search(r'\b'+re.escape(w)+r'\b',_counter_wording(q),re.I) for w in kernel.action_forms(goal['action']))))
                     or (re.search(r'\b(?:retracted|withdrawn|corrected|superseded|amended|revoked|rescinded|denied|canceled)\b',q,re.I)
-                        and (value is None or value['action']!=goal['action']))]
+                        and (value is None or value['action']!=goal['action']))
+                    or (value is None and kernel.possible_refutation(q))]
                 unknown=bool(unknown_contexts)
                 for r,a,b,q in unknown_contexts:
                     e=kernel.citation(r,body_text(r.body_html),a,b)
@@ -352,4 +368,5 @@ def compose(index,max_passages,max_chars):
                 'comparison_completion_scope':closures[0]['proposition'].get('reference_scope') if comparison_completion else None,
                 'question_completion_scope':closures[0]['proposition'].get('reference_scope') if literal_completion else None,
                 'alternative_evidence':displayed_alternatives,'unshown_alternative_evidence_count':len(alternatives)-len(displayed_alternatives),
+                'possible_refutation_count':len(refutations),'refutation_targets_resolved':False,
                 'retrieval_limits':{'max_passages':max_passages,'max_characters':max_chars}}}

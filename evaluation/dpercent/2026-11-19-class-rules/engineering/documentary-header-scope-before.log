@@ -1,0 +1,44 @@
+======================================================================
+FAIL: test_header_scope_survives_sentence_segmentation (tests.test_documentary_header_scope.DocumentaryHeaderScopeTests.test_header_scope_survives_sentence_segmentation) (subject='Plan')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/mplpb/tests/test_documentary_header_scope.py", line 21, in test_header_scope_survives_sentence_segmentation
+    self.assertFalse(self.result(subject,'Who sent the basalt chart?')['answer_supported'])
+AssertionError: True is not false
+
+======================================================================
+FAIL: test_header_scope_survives_sentence_segmentation (tests.test_documentary_header_scope.DocumentaryHeaderScopeTests.test_header_scope_survives_sentence_segmentation) (subject='Proposal')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/mplpb/tests/test_documentary_header_scope.py", line 21, in test_header_scope_survives_sentence_segmentation
+    self.assertFalse(self.result(subject,'Who sent the basalt chart?')['answer_supported'])
+AssertionError: True is not false
+
+======================================================================
+FAIL: test_header_scope_survives_sentence_segmentation (tests.test_documentary_header_scope.DocumentaryHeaderScopeTests.test_header_scope_survives_sentence_segmentation) (subject='Draft')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/mplpb/tests/test_documentary_header_scope.py", line 21, in test_header_scope_survives_sentence_segmentation
+    self.assertFalse(self.result(subject,'Who sent the basalt chart?')['answer_supported'])
+AssertionError: True is not false
+
+======================================================================
+FAIL: test_header_scope_survives_sentence_segmentation (tests.test_documentary_header_scope.DocumentaryHeaderScopeTests.test_header_scope_survives_sentence_segmentation) (subject='Conditional scenario')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/mplpb/tests/test_documentary_header_scope.py", line 21, in test_header_scope_survives_sentence_segmentation
+    self.assertFalse(self.result(subject,'Who sent the basalt chart?')['answer_supported'])
+AssertionError: True is not false
+
+======================================================================
+FAIL: test_header_scope_survives_sentence_segmentation (tests.test_documentary_header_scope.DocumentaryHeaderScopeTests.test_header_scope_survives_sentence_segmentation) (subject='Reported instructions')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/mplpb/tests/test_documentary_header_scope.py", line 21, in test_header_scope_survives_sentence_segmentation
+    self.assertFalse(self.result(subject,'Who sent the basalt chart?')['answer_supported'])
+AssertionError: True is not false
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.167s
+
+FAILED (failures=5)
