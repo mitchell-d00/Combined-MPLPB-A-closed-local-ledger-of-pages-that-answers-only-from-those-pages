@@ -6,6 +6,12 @@ Combined MPLPB is a closed local ledger with tools for raw-material sorting,
 bounded source questions, documentary inspection and retained work history.
 Its browser, native CLI and agent adapters preserve the existing authority rules.
 
+The current research focus is **archival document inspection**: establish source
+claims and their explicit relationships before expanding historical narration.
+Start with the [five-minute offline tutorial](docs/ARCHIVAL_INSPECTION.md) or inspect
+the [compact benchmark dashboard](docs/benchmarks/dashboard.md). Synthetic scores,
+authentic development results and unrun independent evaluation stay separate.
+
 **One owner returns; two stop; none refuses.** This is the ownership rule:
 one eligible owner may return its page, competing owners stop for ambiguity,
 and no eligible owner means refusal. A returned page is not automatically a

@@ -10,7 +10,7 @@ from html.parser import HTMLParser
 from .body_text import body_text, VERSION as BODY_VERSION
 from .passages import PassageIndex
 
-VERSION = 'documentary-assertion-kernel-v9'
+VERSION = 'documentary-assertion-kernel-v10'
 PAST = {'appointed':'appoint','sent':'send','received':'receive','wrote':'write',
         'surveyed':'survey','published':'publish','revised':'revise','canceled':'cancel',
          'ordered':'order','requested':'request','instructed':'instruct'}
@@ -20,6 +20,196 @@ PASSIVE['written']='write'
 META = re.compile(r'\b(?:fictional|hypothetical|example|suppose|quotation|alleged)\b',re.I)
 NAME = re.compile(r"[^\W\d_](?:[^\W\d_]|[’'\-])*(?:\.(?=\s|$))?(?:\s+[^\W\d_](?:[^\W\d_]|[’'\-])*\.?){0,7}")
 DATE = re.compile(r'\b(?:January|February|March|April|May|June|July|August|September|October|November|December)\s+\d{1,2}(?:st|nd|rd|th|d)?[,]?\s+\d{4}\b')
+DATE_LOCATOR_CHARS = 2*1024**2
+DATE_DOCUMENT_CHARS = 16000
+MONTHS = ('January February March April May June July August September October November December').split()
+DATE_EXPRESSION = r'(?:'+'|'.join(MONTHS)+r')\s+\d{1,2}(?:st|nd|rd|th)?(?:,?\s+\d{4})?'
+DATE_ROLES = {'bombardment','surrender','evacuation','departure','arrival','publication','revision','sending','receipt',
+              'telegram','letter','report','memorandum','dispatch'}
+
+
+def date_inventory_request(question):
+    """A complete, source-bounded date question; factual additions never vanish."""
+    q=source_question(question).strip().rstrip('? .')
+    m=re.fullmatch(r'Distinguish (?:the )?([a-z, ]{3,160}) dates in (?:the )?(.{2,120}) record'
+                  r'(?:, without treating (?:the )?webpage review date as an event date)?',q,re.I)
+    if not m:return None
+    roles=[x.strip().lower() for x in re.split(r',\s*(?:and\s+)?|\s+and\s+',m[1]) if x.strip()]
+    if not 1<=len(roles)<=6 or len(set(roles))!=len(roles) or not set(roles)<=DATE_ROLES:return None
+    subject=m[2].strip()
+    if re.search(r'\b(?:and|or|if|unless|because|caused|prove|establish|not)\b|[;:?!]',subject,re.I):return None
+    return {'roles':roles,'subject_text':subject,'scope':'explicit statements in one eligible source record'}
+
+
+def _date_value(text):
+    from datetime import date
+    m=re.fullmatch(r'('+'|'.join(MONTHS)+r')\s+(\d{1,2})(?:st|nd|rd|th)?(?:,?\s+(\d{4}))?',text,re.I)
+    if not m:return None
+    month=next(i+1 for i,x in enumerate(MONTHS) if x.lower()==m[1].lower())
+    year=int(m[3]) if m[3] else None
+    try:date(year or 2000,month,int(m[2]))
+    except ValueError:return None
+    return {'month':month,'day':int(m[2]),'year':year}
+
+
+def _following_day(anchor):
+    from datetime import date,timedelta
+    if not anchor:return None
+    try:
+        candidates=[date(y,anchor['month'],anchor['day'])+timedelta(days=1)
+                    for y in ([anchor['year']] if anchor['year'] else [2000,2001])]
+    except (ValueError,OverflowError):return None
+    if len({(v.month,v.day) for v in candidates})!=1:return None
+    d=candidates[0]
+    return {'resolved_month_day':MONTHS[d.month-1]+' '+str(d.day),
+            'year':d.year if anchor['year'] else None}
+
+
+def dated_statements(quote):
+    """Finite literal date/predicate links; never resolve a historical event.
+
+    Catalogue dates are explicitly source-body catalogue statements, not proof
+    of sending. Relative arithmetic is confined to a syntactically governed
+    action in the same sentence. Unknown years are never borrowed from a title,
+    citation, preceding paragraph or page review date.
+    """
+    links=[]
+    def add(role,date_text,kind,statement,**extra):
+        value=_date_value(date_text)
+        if value is None:return
+        links.append(dict(requested_role=role,date_text=date_text,date_role=kind,
+                          statement_text=statement,literal_identity_context=statement,
+                          event_identity=None,normalized_event_time=None,**value,**extra))
+    catalogue=re.search(r'(?im)^Citation:\s*(Telegram|Letter|Report|Memorandum|Dispatch)\b[^\n;]*;\s*('+DATE_EXPRESSION+r')\s*;[^\n]*',quote)
+    if catalogue and not META.search(quote[:catalogue.start()]):
+        add(catalogue[1].lower(),catalogue[2],'source_catalogue_document_date',catalogue[0],
+            dispatch_verified=False,receipt_verified=False,field_span=[catalogue.start(),catalogue.end()])
+    review=re.fullmatch(r'This page was last reviewed on ('+DATE_EXPRESSION+r')\.',quote,re.I)
+    if review:add('webpage_review',review[1],'webpage_review',quote,support_scope='textual_occurrence')
+    m=re.fullmatch(r'(?:On |At (\d{1,2}:\d{2}\s*[ap]\.m\.),\s*)('+DATE_EXPRESSION+r'),\s*(.{2,500})\.',quote,re.I)
+    if not m:return links
+    time_text,date_text,predicate=m.groups(); tail=predicate
+    if re.search(r'\b(?:if|unless|would|could|might|may|maybe|perhaps|alleged|allegedly|reported|reportedly|apparently|possibly|supposedly|claimed|said|denied|never|not|planned|intended|requested|only|except)\b',predicate,re.I):return links
+    patterns={'surrender':r'.{2,120}? surrendered .{2,250}',
+              'evacuation':r'.{2,120}? evacuated .{2,250}',
+              'departure':r'.{2,120}? departed .{2,250}',
+              'arrival':r'.{2,120}? arrived .{2,250}',
+              'publication':r'.{2,120}? published .{2,250}',
+              'revision':r'.{2,120}? revised .{2,250}',
+              'sending':r'.{2,120}? sent .{2,250}',
+              'receipt':r'.{2,120}? received .{2,250}',
+              'bombardment':r'(?:.{0,100}\b(?:batteries|artillery|cannons|guns)\b.{0,40}? opened fire on .{2,250}|.{2,120}? bombarded .{2,250})'}
+    relative=re.fullmatch(r'(.{2,300}?), evacuating (.{2,120}) on the following day',tail,re.I)
+    if relative:tail=relative[1]
+    # Additional coordinated predicates cannot hide behind the object slot.
+    if re.search(r'\b(?:and|or|then|before|after|because)\b',tail,re.I):return links
+    for role,pattern in patterns.items():
+        if re.fullmatch(pattern,tail,re.I):
+            add(role,date_text,'source_reported_action_date',quote,time_text=time_text or '')
+            if relative:
+                anchor=_date_value(date_text); resolved=_following_day(anchor)
+                if anchor:
+                    links.append(dict(requested_role='evacuation',date_text='the following day',
+                        date_role='explicit_same_clause_relative_date',statement_text=quote,literal_identity_context=quote,
+                        anchor_date_text=date_text,calendar_rule='one_day_after_same_clause_anchor',
+                        calendar_assumption='proleptic Gregorian arithmetic only; historical calendar not authenticated',
+                        resolved_month_day=resolved['resolved_month_day'] if resolved else None,
+                        year=resolved['year'] if resolved else None,event_identity=None,normalized_event_time=None,
+                        calendar_resolution_complete=resolved is not None))
+    return links
+
+
+def date_inventory(index,record):
+    """Independently locate a unique source owner and inspect all its units.
+
+    The locator has a separate transparent bound. No eligible match is pruned
+    by rank, filename or source title. Body catalogue statements are date claims
+    of that source, never authenticated event or transmission evidence.
+    """
+    request=date_inventory_request(index.question)
+    if not request or len(index.records)>64:return None
+    subject=normalized(request['subject_text']); owners=[]; used=0
+    subject_pattern=re.compile(r'(?<!\w)'+re.escape(subject)+r'(?!\w)')
+    for r in index.records:
+        body=body_text(r.body_html);used+=len(body)
+        if used>DATE_LOCATOR_CHARS:return None
+        if len(body)>DATE_DOCUMENT_CHARS:
+            # A long source containing the literal target cannot be silently
+            # skipped in favour of a shorter, more convenient owner.
+            if subject_pattern.search(normalized(body)):return None
+            continue
+        rows=[]; regions=context_ranges(r); named_date_context=False
+        for ordinal,(a,b,q) in enumerate(units(body)):
+            if ordinal>=256:return None
+            if subject_pattern.search(normalized(q)) and re.search(DATE_EXPRESSION,q,re.I) and not q.startswith('Source capture:'):
+                named_date_context=True
+            parsed=dated_statements(q)
+            prior=body[:a]
+            safe_values=[]
+            for value in parsed:
+                lo,hi=value.get('field_span',[0,len(q)]);start,end=a+lo,a+hi
+                before=body[:start]
+                # Catalogue fields have their own complete line boundaries;
+                # unrelated navigation in a coarse sentence unit is context,
+                # not the field. Review mentions are textual annotations only
+                # and never supply event dates, including inside a footer.
+                safe=(not r.fields.get('corrects-field') and
+                      (value['requested_role']=='webpage_review' or not any(x<end and y>start for x,y in regions))
+                      and not quoted_context(before) and not META.search(before) and not META.search(q)
+                      and not re.search(r'\b(?:the|a) (?:plan|proposal|scenario|draft|forecast|prediction|hypothesis) (?:was|is|reads|follows|stated)\b',before,re.I)
+                      and not re.search(r'(?:^|\n)\s*(?:plan|proposal|draft|scenario|forecast|prediction|hypothesis)[.:]?\s*$',before[-240:],re.I)
+                      and not re.search(r'\b(?:if|unless)\b',before[-180:],re.I))
+                if safe:safe_values.append(value)
+            if safe_values:rows.append((a,b,q,safe_values))
+        if named_date_context:
+            grounded=any(subject_pattern.search(normalized(v['literal_identity_context'])) for a,b,q,vs in rows for v in vs
+                         if v['requested_role']!='webpage_review')
+            owners.append((r,body,rows,grounded))
+    if len(owners)!=1 or owners[0][0].path!=record.path or not owners[0][3]:return None
+    r,body,rows,_=owners[0];links=[];reviews=[];citations=[];unresolved=[]
+    for a,b,q,values in rows:
+        wanted=[v for v in values if v['requested_role'] in request['roles'] or v['requested_role']=='webpage_review']
+        if wanted:
+            for v in wanted:
+                lo,hi=v.get('field_span',[0,b-a]);cite=citation(r,body,a+lo,a+hi)
+                if cite not in citations:citations.append(cite)
+                v=dict(v,evidence_citation_index=citations.index(cite))
+                (reviews if v['requested_role']=='webpage_review' else links).append(v)
+                if (lo,hi)!=(0,b-a):
+                    context=citation(r,body,a,b)
+                    if context not in citations:citations.append(context)
+    for role in request['roles']:
+        found=[v for v in links if v['requested_role']==role]
+        if len(found)!=1 or any(v.get('calendar_resolution_complete') is False for v in found):unresolved.append(role)
+    # Any unparsed relevant dated predicate, including negation and modality,
+    # prevents a conveniently selected positive subset from completing.
+    accepted={(a,b) for a,b,q,vs in rows}
+    for a,b,q in units(body):
+        correction=bool(re.search(r'\b(?:correction|corrected|erratum|retracted|withdrawn|superseded|amended|rescinded)\b',q,re.I))
+        if (a,b) in accepted and not possible_refutation(q) and not correction:continue
+        if possible_refutation(q) or correction or (re.search(DATE_EXPRESSION,q,re.I) and
+            re.search(r'\b(?:surrender(?:ed)?|evacuat\w*|bombard\w*|open(?:ed)? fire|depart\w*|arriv\w*|publish\w*|revis\w*|sent|send|receiv\w*)\b',q,re.I)):
+            # A demanded surrender is a different source assertion; it does
+            # not certify actual surrender and is not an opposing event date.
+            if re.search(r'\b(?:demanded|requested) the surrender\b',q,re.I):continue
+            if possible_refutation(q) or correction or re.search(r'\b(?:surrender\w*|evacuat\w*|bombard\w*|fire|depart\w*|arriv\w*|publish\w*|revis\w*|sent|send|receiv\w*)\b',q,re.I):
+                for role in request['roles']:
+                    if role not in unresolved:unresolved.append(role)
+                cite=citation(r,body,a,b)
+                if cite not in citations:citations.append(cite)
+    if not links:return None
+    complete=not unresolved
+    value={'relation':'source_event_date_inventory','date_links':links,'review_dates':reviews,
+           'subject_text':request['subject_text'],'unresolved_roles':unresolved,
+           'question_obligations_verified':complete,'verified_question':index.question,
+           'question_completion_rule':'explicit_source_date_relations_v1',
+           'reference_scope':'Explicit source-reported date relationships in one eligible record; partial years stay unknown and catalogue dates do not prove sending.',
+           'event_coreference_established':False,'causation_established':False,
+           'historical_truth_independently_verified':False,
+           'date_scan':{'locator_characters':used,'max_locator_characters':DATE_LOCATOR_CHARS,
+                        'selected_source_characters':len(body),'max_selected_source_characters':DATE_DOCUMENT_CHARS,
+                        'selected_source_fully_examined':True,'max_sources':64}}
+    return {'proposition':value,'citations':citations}
 
 
 def context_ranges(record, *, document_draft=False):
@@ -415,7 +605,11 @@ def check(index,proposals,*,max_scan_chars=200000):
             or bodies[record.path][a:b]!=proposal.get('quote')):
             rejected.append('source_or_scope_changed');continue
         body=bodies[record.path];kind=proposal.get('kind');value=None;citations=[]
-        if kind=='letter_instruction':
+        if kind=='date_inventory':
+            inventory=date_inventory(fresh,record)
+            if inventory:
+                value=inventory['proposition'];citations=inventory['citations']
+        elif kind=='letter_instruction':
             value=letter_assertion(body,a,b) if not any(lo<b and hi>a for lo,hi in regions[record.path]) else None
             if value:
                 h=value.pop('header_end');s=value.pop('statement_start')
