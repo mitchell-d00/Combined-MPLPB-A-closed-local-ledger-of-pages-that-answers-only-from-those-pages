@@ -89,7 +89,12 @@ def run(output):
               'no_independence_awarded': all(p['article']['provenance']['independence_verified'] is False for p in packets)}
     report = {'schema': 'article-preservation-study-v1', 'cases': len(rows), 'articles': len(packets),
               'native_outcomes': dict(counts), 'guards': guards, 'originals': seals,
-              'revision': subprocess.check_output(['git', 'rev-parse', 'HEAD'], cwd=ROOT, text=True).strip(),
+              # Exported source archives intentionally contain no .git. Do not
+              # mistake an ancestor repository (or caller's Git environment)
+              # for the exported implementation's identity. File pins below
+              # remain available; retain the ZIP revision receipt separately.
+              'revision': (subprocess.check_output(['git', 'rev-parse', 'HEAD'], cwd=ROOT, text=True).strip()
+                           if (ROOT/'.git').exists() else None),
               'runtime_sha256': {str(p.relative_to(ROOT)): hashlib.sha256(p.read_bytes()).hexdigest()
                   for package in ('mplpb_answers', 'mplpb_work', 'mplpb_combined')
                   for p in sorted((ROOT/package).glob('*.py'))},

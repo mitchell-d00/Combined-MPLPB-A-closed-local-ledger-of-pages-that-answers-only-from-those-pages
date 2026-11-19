@@ -4,8 +4,8 @@ Last reviewed: 2026-11-19.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `c10a81bcc519a0208ddcc5762edda8e79ea6f9b8` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `31f0c71332d49e021ddce402647c71527c2e2d17c4e6c10957a08d46e2b9a766`.
+Base commit: `2c173b3ed1533e1f0373756fc02c191dc5da7c3f` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `e1744cb8543dfac406d13c7b8ffe0d8a255a4ddd259214114bc941eff90c0a20`.
 
 ## Latest user update instructions
 
@@ -25,6 +25,9 @@ Agreed
 - New article suite:15 fictional development tests passed, including native contract equality, conflicts, shared ancestry, missing links, restrictions and source invalidation.
 - Initial absent-module test failed as expected before implementation; this establishes missing functionality, not a newly discovered native proof defect.
 - Full Python suite,52 public controls and unchanged22-original preservation study started; results pending.
+- Working-tree original-record preservation study completed: all22 native contracts identical,2 complete/2 partial/3 conflict/15 abstain; all guards passed.
+- Working-tree52 public evidence controls passed. Full suite and frozen2c173b3 archive checks remain running.
+- Source-archive inspection found study runner assumed .git. Fix records null revision in exported trees with full runtime hashes; source/test runtime is unchanged.
 
 ## Limitations and blocked checks
 
