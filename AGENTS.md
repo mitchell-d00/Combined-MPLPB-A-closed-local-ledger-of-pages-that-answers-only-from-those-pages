@@ -1,6 +1,6 @@
 # Repository update and handoff instructions
 
-Last reviewed: 2026-11-17. See [current status and result-to-test index](docs/CURRENT_STATUS.md). Dates and numeric results in historical validation sections retain their original scope; this review is not a rerun or independent certification.
+Last reviewed: 2026-11-19. See [current status and result-to-test index](docs/CURRENT_STATUS.md). Dates and numeric results in historical validation sections retain their original scope; this review is not a rerun or independent certification.
 
 Package role: [how this part fits Combined MPLPB](docs/PACKAGE_GUIDE.md#delivery-and-packaging). This operational guide covers one delivery or maintenance surface of the combined package.
 
@@ -32,3 +32,11 @@ on a build clock. Record `reviewed_on` explicitly in `handoff/update.json` for t
 reviewed update. The handoff builder preserves that date when CI rebuilds it.
 
 > Update 2026-11-16: The [public 52-case evidence suite](docs/PUBLIC_EVIDENCE_TESTS.md) and [bounded expert relation path](docs/HISTORICAL_EXPERT_PATH.md) document the current update. Prior dated measurements and preserved historical sources retain their original scope; this note does not rerun or revise them.
+
+## General class fixes; never benchmark-specific passing
+
+Implement fixes for a general source-understanding or verification failure class, not individual benchmark instances. Runtime rules must not branch on evaluation case IDs, fixture names, generated actors, frozen answers, dataset labels or a published answer key. Do not add language filters that remove hard generated cases. A higher score alone does not justify a rule.
+
+Before changing a rule, state the general failure mechanism and retain a failing regression using independently worded examples. Add contrasting negatives, changed actors/negation/conditions, source-state and budget controls. Preserve attribution, uncertainty and missing links. Only the native deterministic checker may establish source support after independently rereading currently eligible bytes; extractor classes and feature labels never authorize it.
+
+Freeze generator, private key and baseline before engine changes. Keep every old corpus, question, seal, output and failure unchanged. Analyze failure rates by structural feature with denominators and both answer/refuse outcomes; correlated feature cohorts are diagnostic, not causal proof. Rerun identical frozen inputs after a class change and retain new false support, missed answers and unscored cases. Never relabel failures to improve the score. New unseen batches and actual independent assessment remain separate milestones. Update the handoff so another AI instance can resume from pinned files and rules without relying on private session memory.

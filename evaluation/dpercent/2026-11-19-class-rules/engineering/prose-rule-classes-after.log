@@ -1,0 +1,29 @@
+======================================================================
+ERROR: test_passive_conflict_and_source_budget_remain_gated (tests.test_prose_rule_classes.ProseRuleClassTests.test_passive_conflict_and_source_budget_remain_gated)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/mplpb/tests/test_prose_rule_classes.py", line 76, in test_passive_conflict_and_source_budget_remain_gated
+    self.assertFalse(self.result(['The glacial map was written by Robin Vega.'],
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/mplpb/tests/test_prose_rule_classes.py", line 16, in result
+    return answer_query(Path(tmp), question, **options).contract
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/mplpb/mplpb_answers/pipeline.py", line 134, in answer_query
+    raise ValueError('Invalid passage admission budget')
+ValueError: Invalid passage admission budget
+
+======================================================================
+ERROR: test_source_units (unittest.loader._FailedTest.test_source_units)
+----------------------------------------------------------------------
+ImportError: Failed to import test module: test_source_units
+Traceback (most recent call last):
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/loader.py", line 137, in loadTestsFromName
+    module = __import__(module_name)
+             ^^^^^^^^^^^^^^^^^^^^^^^
+ModuleNotFoundError: No module named 'tests.test_source_units'
+
+
+----------------------------------------------------------------------
+Ran 41 tests in 0.721s
+
+FAILED (errors=2)

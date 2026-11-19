@@ -42,12 +42,14 @@ def _contexts(index,passages,max_chars,max_passages):
 
 
 def plan(question):
-    clauses=re.split(r'\?\s+(?=[A-Z])|,?\s+and\s+(?=(?:who|which|what|when|how|why|did|does|can)\b)',question,flags=re.I)
+    clauses=re.split(r'\?\s+(?=[A-Z])|,?\s+and\s+(?=(?:who|which|what|when|how|why|did|does|can)\b)',kernel.source_question(question),flags=re.I)
     if len(clauses)>4:return None
     goals=[]
     for clause in clauses:
         clause=clause.strip().rstrip('? .')
-        q=re.sub(r'^According to [^,]{1,120},\s*','',clause,flags=re.I)
+        q=kernel.source_question(clause)
+        writer=re.fullmatch(r'Which writer does the record identify for (.{1,240})',q,re.I)
+        if writer:q='Who wrote '+writer[1]
         who=re.fullmatch(r'Who ('+'|'.join(ACTIONS)+r') (.{1,240})',q,re.I)
         if who:
             goals.append({'question':clause,'kind':'who_action','action':ACTIONS[who[1].lower()],'object_text':who[2]})
@@ -84,7 +86,8 @@ def propose(index,passages):
             if not opening:continue
             start=h+opening.start();first=next(_proposal_units(body[start:b]),None)
             if first:add(p,h,start+first[1],'letter_instruction')
-        for lo,hi,q in _proposal_units(p['text']):
+        for lo,hi,q in kernel.units(body):
+            if lo<a or hi>b:continue
             if hi-lo<=2200 and re.search(r'\b(?:'+'|'.join(ACTIONS)+r'|did\s+not\s+(?:'+'|'.join(ACTIONS.values())+r'))\b',q):
                 add(p,a+lo,a+hi,'action_statement')
         for lo,hi,q in kernel.units(body):
@@ -227,6 +230,9 @@ def compose(index,max_passages,max_chars):
     arrangement_completion=(len(closures)==1 and all(g['kind'] in {'reported_instruction','letter_context'} for g in goals)
         and closures[0]['proposition'].get('question_completion_rule')=='document_local_arrangement_reference_v1')
     literal_completion=comparison_completion or arrangement_completion
+    cause_completion=(len(closures)==1 and all(g['kind']=='explicit_cause' for g in goals)
+        and closures[0]['proposition'].get('question_completion_rule')=='literal_source_cause_v1')
+    literal_completion=literal_completion or cause_completion
     if literal_completion:proofs=closures
     for goal in goals:
         matches=[p for p in proofs if _relevant(goal,p,index.question)]
@@ -234,7 +240,7 @@ def compose(index,max_passages,max_chars):
         if goal['kind'] in {'explicit_cause','resource_support','wording_comparison','wording_shared','temporal_statement'}:
             if matches:status['status']='supported_source_assertion' if literal_completion else 'checked_relationship_scope_partial'
         elif goal['kind']=='who_action':
-            exact=[p for p in matches if p['proposition']['relation']=='source_action_assertion' and not p['proposition']['unresolved_reference']
+            exact=[p for p in matches if p['proposition']['relation'] in {'source_action_assertion','source_passive_action_assertion'} and not p['proposition']['unresolved_reference']
                    and kernel.normalized(p['proposition']['object_text'])==kernel.normalized(goal['object_text'])]
             # Scan all eligible source units, not only retrieval winners. A
             # qualified/unparsed relevant unit prevents complete acceptance.

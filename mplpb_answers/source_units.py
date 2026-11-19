@@ -10,7 +10,7 @@ import re
 from .body_text import body_text, VERSION as BODY_VERSION
 from .evidence_contract import pin
 
-VERSION = 'documentary-source-units-v2'
+VERSION = 'documentary-source-units-v3'
 CHROME = {'nav', 'header', 'footer', 'aside', 'form'}
 
 
@@ -63,6 +63,27 @@ def statement_units(body):
     remain together. A cut scan still needs its caller's completeness check.
     """
     boundaries = {0, len(body)}
+    # A leading correspondence header and salutation are layout units, not
+    # part of the first sentence's actor. Keep every character and the prefix
+    # available to the checker for quotation/conditional scope tests.
+    lines=list(re.finditer(r'[^\n]+(?:\n|$)',body[:2000]))
+    end=None
+    if lines:
+        first=lines[0][0].rstrip('\n')
+        heading=re.fullmatch(r'([^\n]{2,70}) TO ([^\n]{2,70})\. [^\n]{4,120}',first)
+        if heading and heading[1].isupper() and heading[2].isupper():
+            end=lines[0].end()
+        elif first.startswith('From: '):
+            names=[]
+            for line in lines[:16]:
+                match=re.fullmatch(r'(From|To|Date(?: written| sent| received)?|Subject|Message-ID|Cc): [^\n]+\n?',line[0])
+                if not match:break
+                names.append(match[1]);end=line.end()
+            if 'To' not in names:end=None
+    if end is not None:
+        boundaries.add(end)
+        greeting=re.match(r"(?:Dear [A-Za-z ’'\-]{1,70},|My dear [A-Za-z ’'\-]{1,70},)\n",body[end:])
+        if greeting:boundaries.add(end+greeting.end())
     for m in re.finditer(r'(?m)^[A-Z][A-Z0-9 /—–:-]{2,79}\n', body):
         boundaries.update((m.start(), m.end()))
     points = sorted(boundaries)

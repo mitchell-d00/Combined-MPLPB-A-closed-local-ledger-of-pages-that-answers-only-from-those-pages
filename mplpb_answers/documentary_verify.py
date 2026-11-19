@@ -10,13 +10,13 @@ from html.parser import HTMLParser
 from .body_text import body_text, VERSION as BODY_VERSION
 from .passages import PassageIndex
 
-VERSION = 'documentary-assertion-kernel-v5'
+VERSION = 'documentary-assertion-kernel-v6'
 PAST = {'appointed':'appoint','sent':'send','received':'receive','wrote':'write',
         'surveyed':'survey','published':'publish','revised':'revise','canceled':'cancel',
          'ordered':'order','requested':'request','instructed':'instruct'}
 BASE = {v:k for k,v in PAST.items()}
 META = re.compile(r'\b(?:fictional|hypothetical|example|suppose|quotation|alleged)\b',re.I)
-NAME = re.compile(r"[A-Z][A-Za-z’'\-]*(?:\.(?=\s|$))?(?:\s+[A-Z][A-Za-z’'\-]*\.?){0,7}")
+NAME = re.compile(r"[^\W\d_](?:[^\W\d_]|[’'\-])*(?:\.(?=\s|$))?(?:\s+[^\W\d_](?:[^\W\d_]|[’'\-])*\.?){0,7}")
 DATE = re.compile(r'\b(?:January|February|March|April|May|June|July|August|September|October|November|December)\s+\d{1,2}(?:st|nd|rd|th|d)?[,]?\s+\d{4}\b')
 
 
@@ -56,6 +56,23 @@ def context_ranges(record, *, document_draft=False):
 
 def normalized(text):
     return re.sub(r'\s+',' ',text).strip().casefold().rstrip('.')
+
+
+def named_actor(text):
+    """Literal capitalized name spelling, including Unicode; no entity binding."""
+    return bool(NAME.fullmatch(text) and all(word[0].isupper() for word in text.split()))
+
+
+def source_question(question):
+    """A finite inspection view; never replace the original policy question.
+
+    Only non-factual request scaffolding and generic documentary attribution
+    are removed. Named speakers, conditions and additional factual requests stay.
+    """
+    q=question.strip()
+    q=re.sub(r'^Please (?:assess|answer|evaluate|examine|consider) (?:this|the question) (?:from|using|based on) (?:the )?(?:provided|supplied|eligible|available) (?:records|sources|documents):\s*','',q,flags=re.I)
+    q=re.sub(r'(?<=\?)\s+(?:Keep|Leave) (?:unknown|unverified|unresolved) (?:matters|claims|parts|issues) (?:unresolved|unverified)\.?$','',q,flags=re.I)
+    return re.sub(r'^According to the (?:record|report|source|letter),\s*','',q,flags=re.I)
 
 
 def quoted_context(prefix):
@@ -98,7 +115,7 @@ def action_assertion(quote):
         elif word in BASE and i>=2 and tokens[i-2:i]==['did','not']:found.append((i,word,True))
     if len(found)!=1:return None
     i,action,negative=found[0];actor=' '.join(tokens[:i-2 if negative else i]);obj=' '.join(tokens[i+1:])
-    if (not NAME.fullmatch(actor) or normalized(actor) in {'he','she','they','we','i','you','it'}
+    if (not named_actor(actor) or normalized(actor) in {'he','she','they','we','i','you','it'}
         or set(normalized(actor).split()) & {'if','unless','not','no','never','only','neither','maybe','perhaps','allegedly','reportedly','apparently','possibly','hypothetically'}
         or normalized(actor).split()[0] in {'yesterday','today','tomorrow','later','earlier','then','now','also','instead','next','once','still','again','first','second','indeed','thereupon','beforehand','forthwith'}
         or normalized(actor).split()[0].endswith('ly')):return None
@@ -169,7 +186,7 @@ def letter_assertion(body,start,end):
     prefix=re.match(r'I (have )?(told|asked|instructed|requested|ordered) (.+?) to (send|deliver|forward|post) (.+)$',main)
     if not prefix:return None
     intermediary=prefix[3];obj=prefix[5]
-    if not NAME.fullmatch(intermediary):return None
+    if not named_actor(intermediary):return None
     conditions=re.findall(r'\((if possible|if practicable|when possible)\)',obj)
     if len(conditions)>1:return None
     condition=conditions[0] if conditions else ''
@@ -207,7 +224,7 @@ def arrangement_request(question):
     """
     m = re.fullmatch(r"Who arranged for (.{1,100}?) to receive (.{1,100}?)['’]s "
                      r"([A-Za-z][A-Za-z \-]{0,60}?),? and which dated letter records the arrangement\?", question)
-    if not m or not NAME.fullmatch(m[1]) or not NAME.fullmatch(m[2]):return None
+    if not m or not named_actor(m[1]) or not named_actor(m[2]):return None
     if re.search(r'\b(?:actual|completed|delivered|not|never|if|unless|and|or|only)\b', m[3], re.I):return None
     return {'recipient_reference':m[1], 'writer_reference':m[2], 'object_reference':m[3],
             'scope':'source-reported instruction and printed letter heading; no actual dispatch or receipt'}
@@ -264,6 +281,12 @@ def check(index,proposals,*,max_scan_chars=200000):
             if limit<len(body) and b==limit:continue
             if len(contexts)>=1000:complete=False;limits_reached.add('source_units');break
             value=action_assertion(q)
+            if value is None:
+                passive=relationship_assertion(q)
+                # Positive passive actions can be checked as exact assertions.
+                # Passive denials remain conservative alternative evidence.
+                if passive and passive['relation']=='source_passive_action_assertion' and not passive['negative']:
+                    value=dict(passive,temporal_qualification_text='')
             prior=body[:a]
             safe=(not any(lo<b and hi>a for lo,hi in regions[path]) and not quoted_context(prior) and not META.search(prior)
                   and not re.search(r'\b(?:if|unless)\b',prior[-180:],re.I)
@@ -307,7 +330,10 @@ def check(index,proposals,*,max_scan_chars=200000):
             if unit and (kind in {'wording_comparison','comparison_completion'} or safe_unit(record,a,b,body)):
                 if kind=='relationship_statement':
                     value=relationship_assertion(unit[2])
-                    if value:citations=[citation(record,body,a,b)]
+                    if value:
+                        citations=[citation(record,body,a,b)]
+                        closure=causal_completion(fresh.question,value,contexts,record,a,b,complete)
+                        if closure:value.update(closure)
                 else:
                     other=proposal.get('other',{});r=records.get(other.get('path'));lo=other.get('start');hi=other.get('end')
                     if (r and r.path!=record.path and r.id==other.get('source_id') and r.hash_actual==other.get('hash')
@@ -373,16 +399,39 @@ def relationship_assertion(quote):
             value={'relation':'source_temporal_assertion','subject_text':left,'action_text':action,'ordering':order,
                    'reference_text':right,'date_role':'publication' if action=='was published' else 'revision' if action=='was revised' else 'receipt' if action=='was received' else 'reported_event',
                    'reference_date_role':'unresolved','normalized_event_time':None,'causality_established':False,'negative':False}
-    passive=re.fullmatch(r'(.{2,160}?) was (not )?(appointed|sent|received|surveyed|published|revised|canceled) by (.{2,100})\.',clean)
+    passive=re.fullmatch(r'(.{2,160}?) was (not )?(appointed|sent|received|surveyed|published|revised|canceled|written) by (.{2,100})\.',clean)
     if passive:
         obj,neg,action,actor=passive.groups()
-        if NAME.fullmatch(actor) and not re.search(r'\b(?:he|she|they|it|if|unless|and|or|not)\b',actor+' '+obj,re.I):
-            value={'relation':'source_passive_action_assertion','actor_text':actor,'action':PAST[action],
-                   'object_text':obj,'negative':bool(neg),'unresolved_reference':bool(re.search(r'\b(?:this|that|him|her|it|them)\b',obj,re.I))}
+        if (named_actor(actor) and not re.search(r'\b(?:he|she|they|it|we|i|you|if|unless|and|or|not|never|perhaps|maybe|possibly|apparently|allegedly|reportedly|planned|requested|reported)\b',actor+' '+obj,re.I)
+            and not normalized(actor).split()[0].endswith('ly')):
+            value={'relation':'source_passive_action_assertion','actor_text':actor,'action':'write' if action=='written' else PAST[action],
+                   'object_text':obj,'negative':bool(neg),'unresolved_reference':bool(re.search(r'\b(?:that|this|it|him|her|them|those|these|dated|pending|except|only|provided)\b|\bsubject to\b|\bthe (?:area|region|place|book|letter|report)\b',obj,re.I))}
     if value is not None:
         value.update(assertion_modality='source_attributed_assertion',event_identity=None,
                      historical_truth_independently_verified=False)
     return value
+
+
+def causal_completion(question,value,contexts,record,a,b,complete):
+    """Close one exact source-reported because-of question, never event truth.
+
+    Independently derived source arguments must match the entire request.
+    Any other relevant appearance, even with similar wording, stops closure;
+    neither event co-reference nor absence outside this bounded scan is inferred.
+    """
+    if not complete or value['relation']!='source_causal_assertion' or value['negative']:return None
+    q=source_question(question).strip().rstrip('? .')
+    request=re.fullmatch(r'why was (.{2,350}?) (aborted|cancelled|canceled|delayed|postponed|halted|withdrawn|terminated)',q,re.I)
+    if not request or normalized(request[1])!=normalized(value['subject_text']) or request[2].lower()!=value['action_text']:return None
+    subject=re.sub(r'^(?:the|a|an) ','',normalized(value['subject_text']))
+    for other,lo,hi,text,_ in contexts:
+        if other.path==record.path and (lo,hi)==(a,b):continue
+        if subject in normalized(text):return None
+        if (re.search(r'\b(?:it|this|that|they|those|these)\b',text,re.I)
+            and re.search(r'\b(?:'+re.escape(value['action_text'])+r'|not|never|denied|cancelled|canceled)\b',text,re.I)):return None
+    return {'question_obligations_verified':True,'verified_question':question,
+            'question_completion_rule':'literal_source_cause_v1',
+            'reference_scope':'One explicit source-attributed cause; event identity and historical causation unverified.'}
 
 
 def wording_difference(left,right):

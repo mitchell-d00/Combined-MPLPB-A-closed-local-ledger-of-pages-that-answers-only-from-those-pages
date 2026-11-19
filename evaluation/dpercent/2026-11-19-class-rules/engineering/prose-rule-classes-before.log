@@ -1,0 +1,61 @@
+======================================================================
+FAIL: test_explicit_cause_completes_only_source_scoped_question (tests.test_prose_rule_classes.ProseRuleClassTests.test_explicit_cause_completes_only_source_scoped_question)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/mplpb/tests/test_prose_rule_classes.py", line 59, in test_explicit_cause_completes_only_source_scoped_question
+    self.assertTrue(result['answer_supported'])
+AssertionError: False is not true
+
+======================================================================
+FAIL: test_named_attribution_cannot_be_erased (tests.test_prose_rule_classes.ProseRuleClassTests.test_named_attribution_cannot_be_erased)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/mplpb/tests/test_prose_rule_classes.py", line 38, in test_named_attribution_cannot_be_erased
+    self.assertFalse(result['answer_supported'])
+AssertionError: True is not false
+
+======================================================================
+FAIL: test_passive_conflict_and_source_budget_remain_gated (tests.test_prose_rule_classes.ProseRuleClassTests.test_passive_conflict_and_source_budget_remain_gated)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/mplpb/tests/test_prose_rule_classes.py", line 75, in test_passive_conflict_and_source_budget_remain_gated
+    self.assertFalse(self.result(sources,'Who wrote the glacial map?')['answer_supported'])
+AssertionError: True is not false
+
+======================================================================
+FAIL: test_passive_written_with_unicode_actor_is_checked (tests.test_prose_rule_classes.ProseRuleClassTests.test_passive_written_with_unicode_actor_is_checked)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/mplpb/tests/test_prose_rule_classes.py", line 33, in test_passive_written_with_unicode_actor_is_checked
+    self.assertTrue(result['answer_supported'])
+AssertionError: False is not true
+
+======================================================================
+FAIL: test_polite_source_question_and_safety_directive_keep_original (tests.test_prose_rule_classes.ProseRuleClassTests.test_polite_source_question_and_safety_directive_keep_original)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/mplpb/tests/test_prose_rule_classes.py", line 21, in test_polite_source_question_and_safety_directive_keep_original
+    self.assertTrue(result['answer_supported']);self.assertEqual(result['question'],question)
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: False is not true
+
+======================================================================
+FAIL: test_source_header_and_salutation_are_boundaries_not_actor_evidence (tests.test_prose_rule_classes.ProseRuleClassTests.test_source_header_and_salutation_are_boundaries_not_actor_evidence) (prefix='ALMA VALE TO ROBIN VEGA. March 4, 1873\nDear colleague,\n')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/mplpb/tests/test_prose_rule_classes.py", line 28, in test_source_header_and_salutation_are_boundaries_not_actor_evidence
+    self.assertTrue(result['answer_supported'])
+AssertionError: False is not true
+
+======================================================================
+FAIL: test_source_header_and_salutation_are_boundaries_not_actor_evidence (tests.test_prose_rule_classes.ProseRuleClassTests.test_source_header_and_salutation_are_boundaries_not_actor_evidence) (prefix='From: Alma Vale\nTo: Robin Vega\nDate written: March 4, 1873\nSubject: Mapping\nMessage-ID: M-8\n')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/mplpb/tests/test_prose_rule_classes.py", line 28, in test_source_header_and_salutation_are_boundaries_not_actor_evidence
+    self.assertTrue(result['answer_supported'])
+AssertionError: False is not true
+
+----------------------------------------------------------------------
+Ran 9 tests in 0.240s
+
+FAILED (failures=7)
