@@ -4,8 +4,8 @@ Last reviewed: 2026-11-19.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `eb5e4b93e57e9c91af44b1703388a2d1339dde91` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `d456e46b1769afce2dfd3c915891fc3ea52e5cc9892271c4b3b95575ec29d8c1`.
+Base commit: `a90e255ecea5da4fd5d3515b44c8b77952347251` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `cc59e5f1444fa6c972a946cf5c3dc2de0d2556a840c69fedafde3309b1d7ca8f`.
 
 ## Latest user update instructions
 
@@ -18,6 +18,7 @@ Note failure then fix it
 - Extend existing documentary kernel/composer/admission for generic bounded date inventories, separate catalogue/review/narrative dates, and same-clause relative-day arithmetic with explicit calendar convention and unknown years.
 - Add offline fictional tutorial, retained-evidence dashboard and anonymous paired development-review exporter compatible with existing human-review validator.
 - External reference pages were researched for context only; no search material was imported into ledger/runtime or counted as human review.
+- Published implementation, full failed/successful evidence, tutorial, dashboard and raw-source review packets in open PR56: https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/pull/56 . No merge authorized for this new PR.
 
 ## Validation recorded
 
@@ -46,8 +47,9 @@ Note failure then fix it
 
 ## Next steps
 
-- Finish final documentation/handoff audit, commit evidence/display updates and publish the full findings PR; do not merge without new authorization.
-- Next capability milestones: independently reviewed H07 semantics, unfamiliar held-out archival questions and general rules for remaining causal/resource/OCR and legal-modality gaps. Do not tune rules to benchmark IDs.
+- Inspect exact-final-head PR56 CI; do not merge without new user authorization.
+- Independent review remains NOT RUN. For fresh AI assessment supply only anonymous public packets, never private crosswalk, scores or change log; label it AI assessment. Real unseen/human evaluation remains separate.
+- Next general source proof classes: causal/resource composition with OCR/quotation scope and legal discretion/term limits. Preserve all failures, historical originals and frozen labels; no case-specific runtime rules.
 
 ## Use this ZIP in your repository
 
