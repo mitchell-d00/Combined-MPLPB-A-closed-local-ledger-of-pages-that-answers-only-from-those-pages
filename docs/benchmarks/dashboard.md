@@ -36,3 +36,25 @@ matches are not independent historical judgments.
 Full native regression:1482 tests and52 public controls passed at9b5ff0c.
 The original dashboard generator covers the rows above; these supplemental dated
 experiments are linked separately and pinned in dashboard.json.
+
+
+## Bounded source-field aliases: native2427d80
+
+This subsequent iteration preserves every prior table and population above.
+
+| Population | Prior complete | Native2427d80 complete | Expected refusals |
+|---|---:|---:|---:|
+| Expanded unchanged1000 |168/420|189/420|580/580|
+| Original unchanged1240 |200/600|200/600|640/640|
+| Public field positives |900/900|900/900|200/200|
+| Developer240 |16/64|50/64|176/176|
+| Prospective150 after native freeze |10/40|33/40|110/110|
+| Historical22 |3 native complete|3 native complete|Correctness unmeasured|
+
+No incorrect support or execution failures were observed in these synthetic
+replays. The prospective study caused no later native edits but remains
+developer-authored. Independent semantic review is NOT RUN. Resource costs,
+failed candidates, exact pins and a self-contained synthetic replication ZIP:
+[field-alias report](../../evaluation/field-aliases/2026-11-20/REPORT.md).
+The new [known-weakness sampling study](../DPERCENT_KNOWN_WEAKNESSES.md) has its
+own source seals and per-class denominators; it does not replace these rows.

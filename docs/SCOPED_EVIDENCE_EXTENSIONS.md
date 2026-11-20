@@ -1,6 +1,11 @@
 # Scoped evidence extensions
 
-Last reviewed: 2026-11-17.
+Last reviewed: 2026-11-20.
+
+A subsequent [source-field alias layer](SOURCE_FIELD_ALIASES.md) inspects each
+candidate label under its own scoped serving view. Normalization is not evidence;
+all inspected view dependencies are rechecked before support. The finite proof
+and original source authority remain unchanged.
 
 Package role: [how this part fits Combined MPLPB](PACKAGE_GUIDE.md#answers-and-inspection). Exact routing and time-scoped corrections retain competing evidence and explicit serving policy.
 

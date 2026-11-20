@@ -1,0 +1,561 @@
+{
+  "schema": "dpercent-known-weaknesses-v1-audit",
+  "generator_sha256": "718c0ebf0da56e08a3494c06d48528940c73bc0adfaf289d9887564c836889dc",
+  "scorer_sha256": "30f532e8a59cc7a90c6bfc3c37b7cfdf3231507cb6633b9f38bfd37a54db4fc7",
+  "audit_sha256": "9b3e8549344d787f9c4c041f52c30b3fc5f28429ead94c7dd742ff6debacaea1",
+  "revision_labels": [
+    "2427d80e777b9cc76e071b2529e91a14b9bdb991"
+  ],
+  "runtime_pin_digests": [
+    "237c3d55d1210dd5a73203ddea24692acebd560799cbf006b89fc4822142ef1e"
+  ],
+  "planned": 4096,
+  "counts": {
+    "executed": 4096,
+    "completed": 4096,
+    "node_spans_checked": 156894
+  },
+  "outcomes": {
+    "appropriate_refusal": 2834,
+    "over_refusal": 605,
+    "detected_answer": 657
+  },
+  "answerable_executed": 1262,
+  "unsupported_executed": 2834,
+  "E": 0.5206022187004754,
+  "F": 0.0,
+  "graph_obligation_failures": [
+    {
+      "shard": "shard-0001",
+      "id": "DP00022",
+      "family": "earliest_observed",
+      "checks": {
+        "complete_graph": false,
+        "mode_nodes_identical": true,
+        "mode_labels_identical": true,
+        "non_authoritative": true
+      },
+      "limits_or_exclusions": [
+        "repeated_phrase_group_budget"
+      ]
+    },
+    {
+      "shard": "shard-0001",
+      "id": "DP00040",
+      "family": "earliest_observed",
+      "checks": {
+        "complete_graph": false,
+        "mode_nodes_identical": true,
+        "mode_labels_identical": true,
+        "non_authoritative": true
+      },
+      "limits_or_exclusions": [
+        "repeated_phrase_group_budget"
+      ]
+    },
+    {
+      "shard": "shard-0001",
+      "id": "DP00071",
+      "family": "editorial_competition",
+      "checks": {
+        "complete_graph": false,
+        "mode_nodes_identical": true,
+        "mode_labels_identical": true,
+        "non_authoritative": true
+      },
+      "limits_or_exclusions": [
+        "repeated_phrase_group_budget"
+      ]
+    },
+    {
+      "shard": "shard-0001",
+      "id": "DP00102",
+      "family": "editorial_competition",
+      "checks": {
+        "complete_graph": false,
+        "mode_nodes_identical": true,
+        "mode_labels_identical": true,
+        "non_authoritative": true
+      },
+      "limits_or_exclusions": [
+        "repeated_phrase_group_budget"
+      ]
+    },
+    {
+      "shard": "shard-0001",
+      "id": "DP00177",
+      "family": "explicit_chain",
+      "checks": {
+        "complete_graph": false,
+        "mode_nodes_identical": true,
+        "mode_labels_identical": true,
+        "non_authoritative": true
+      },
+      "limits_or_exclusions": [
+        "repeated_phrase_group_budget"
+      ]
+    },
+    {
+      "shard": "shard-0001",
+      "id": "DP00204",
+      "family": "editorial_competition",
+      "checks": {
+        "complete_graph": false,
+        "mode_nodes_identical": true,
+        "mode_labels_identical": true,
+        "non_authoritative": true
+      },
+      "limits_or_exclusions": [
+        "repeated_phrase_group_budget"
+      ]
+    },
+    {
+      "shard": "shard-0002",
+      "id": "DP00291",
+      "family": "ambiguous_correction",
+      "checks": {
+        "complete_graph": false,
+        "mode_nodes_identical": true,
+        "mode_labels_identical": true,
+        "non_authoritative": true
+      },
+      "limits_or_exclusions": [
+        "repeated_phrase_group_budget"
+      ]
+    },
+    {
+      "shard": "shard-0002",
+      "id": "DP00321",
+      "family": "ambiguous_correction",
+      "checks": {
+        "complete_graph": false,
+        "mode_nodes_identical": true,
+        "mode_labels_identical": true,
+        "non_authoritative": true
+      },
+      "limits_or_exclusions": [
+        "repeated_phrase_group_budget"
+      ]
+    },
+    {
+      "shard": "shard-0002",
+      "id": "DP00331",
+      "family": "explicit_chain",
+      "checks": {
+        "complete_graph": false,
+        "mode_nodes_identical": true,
+        "mode_labels_identical": true,
+        "non_authoritative": true
+      },
+      "limits_or_exclusions": [
+        "repeated_phrase_group_budget"
+      ]
+    },
+    {
+      "shard": "shard-0003",
+      "id": "DP00593",
+      "family": "editorial_competition",
+      "checks": {
+        "complete_graph": false,
+        "mode_nodes_identical": true,
+        "mode_labels_identical": true,
+        "non_authoritative": true
+      },
+      "limits_or_exclusions": [
+        "repeated_phrase_group_budget"
+      ]
+    },
+    {
+      "shard": "shard-0003",
+      "id": "DP00701",
+      "family": "explicit_chain",
+      "checks": {
+        "complete_graph": false,
+        "mode_nodes_identical": true,
+        "mode_labels_identical": true,
+        "non_authoritative": true
+      },
+      "limits_or_exclusions": [
+        "repeated_phrase_group_budget"
+      ]
+    },
+    {
+      "shard": "shard-0004",
+      "id": "DP00773",
+      "family": "ambiguous_correction",
+      "checks": {
+        "complete_graph": false,
+        "mode_nodes_identical": true,
+        "mode_labels_identical": true,
+        "non_authoritative": true
+      },
+      "limits_or_exclusions": [
+        "repeated_phrase_group_budget"
+      ]
+    },
+    {
+      "shard": "shard-0004",
+      "id": "DP00865",
+      "family": "ambiguous_correction",
+      "checks": {
+        "complete_graph": false,
+        "mode_nodes_identical": true,
+        "mode_labels_identical": true,
+        "non_authoritative": true
+      },
+      "limits_or_exclusions": [
+        "repeated_phrase_group_budget"
+      ]
+    },
+    {
+      "shard": "shard-0004",
+      "id": "DP00960",
+      "family": "editorial_competition",
+      "checks": {
+        "complete_graph": false,
+        "mode_nodes_identical": true,
+        "mode_labels_identical": true,
+        "non_authoritative": true
+      },
+      "limits_or_exclusions": [
+        "repeated_phrase_group_budget"
+      ]
+    },
+    {
+      "shard": "shard-0004",
+      "id": "DP01004",
+      "family": "explicit_chain",
+      "checks": {
+        "complete_graph": false,
+        "mode_nodes_identical": true,
+        "mode_labels_identical": true,
+        "non_authoritative": true
+      },
+      "limits_or_exclusions": [
+        "repeated_phrase_group_budget"
+      ]
+    },
+    {
+      "shard": "shard-0005",
+      "id": "DP01144",
+      "family": "earliest_observed",
+      "checks": {
+        "complete_graph": false,
+        "mode_nodes_identical": true,
+        "mode_labels_identical": true,
+        "non_authoritative": true
+      },
+      "limits_or_exclusions": [
+        "repeated_phrase_group_budget"
+      ]
+    },
+    {
+      "shard": "shard-0005",
+      "id": "DP01189",
+      "family": "ambiguous_correction",
+      "checks": {
+        "complete_graph": false,
+        "mode_nodes_identical": true,
+        "mode_labels_identical": true,
+        "non_authoritative": true
+      },
+      "limits_or_exclusions": [
+        "repeated_phrase_group_budget"
+      ]
+    },
+    {
+      "shard": "shard-0006",
+      "id": "DP01299",
+      "family": "editorial_competition",
+      "checks": {
+        "complete_graph": false,
+        "mode_nodes_identical": true,
+        "mode_labels_identical": true,
+        "non_authoritative": true
+      },
+      "limits_or_exclusions": [
+        "repeated_phrase_group_budget"
+      ]
+    },
+    {
+      "shard": "shard-0006",
+      "id": "DP01424",
+      "family": "ambiguous_correction",
+      "checks": {
+        "complete_graph": false,
+        "mode_nodes_identical": true,
+        "mode_labels_identical": true,
+        "non_authoritative": true
+      },
+      "limits_or_exclusions": [
+        "repeated_phrase_group_budget"
+      ]
+    },
+    {
+      "shard": "shard-0007",
+      "id": "DP01556",
+      "family": "earliest_observed",
+      "checks": {
+        "complete_graph": false,
+        "mode_nodes_identical": true,
+        "mode_labels_identical": true,
+        "non_authoritative": true
+      },
+      "limits_or_exclusions": [
+        "repeated_phrase_group_budget"
+      ]
+    },
+    {
+      "shard": "shard-0007",
+      "id": "DP01601",
+      "family": "explicit_chain",
+      "checks": {
+        "complete_graph": false,
+        "mode_nodes_identical": true,
+        "mode_labels_identical": true,
+        "non_authoritative": true
+      },
+      "limits_or_exclusions": [
+        "repeated_phrase_group_budget"
+      ]
+    },
+    {
+      "shard": "shard-0008",
+      "id": "DP01929",
+      "family": "explicit_chain",
+      "checks": {
+        "complete_graph": false,
+        "mode_nodes_identical": true,
+        "mode_labels_identical": true,
+        "non_authoritative": true
+      },
+      "limits_or_exclusions": [
+        "repeated_phrase_group_budget"
+      ]
+    },
+    {
+      "shard": "shard-0008",
+      "id": "DP01975",
+      "family": "editorial_competition",
+      "checks": {
+        "complete_graph": false,
+        "mode_nodes_identical": true,
+        "mode_labels_identical": true,
+        "non_authoritative": true
+      },
+      "limits_or_exclusions": [
+        "repeated_phrase_group_budget"
+      ]
+    },
+    {
+      "shard": "shard-0009",
+      "id": "DP02072",
+      "family": "explicit_chain",
+      "checks": {
+        "complete_graph": false,
+        "mode_nodes_identical": true,
+        "mode_labels_identical": true,
+        "non_authoritative": true
+      },
+      "limits_or_exclusions": [
+        "repeated_phrase_group_budget"
+      ]
+    },
+    {
+      "shard": "shard-0009",
+      "id": "DP02175",
+      "family": "earliest_observed",
+      "checks": {
+        "complete_graph": false,
+        "mode_nodes_identical": true,
+        "mode_labels_identical": true,
+        "non_authoritative": true
+      },
+      "limits_or_exclusions": [
+        "repeated_phrase_group_budget"
+      ]
+    },
+    {
+      "shard": "shard-0009",
+      "id": "DP02260",
+      "family": "ambiguous_correction",
+      "checks": {
+        "complete_graph": false,
+        "mode_nodes_identical": true,
+        "mode_labels_identical": true,
+        "non_authoritative": true
+      },
+      "limits_or_exclusions": [
+        "repeated_phrase_group_budget"
+      ]
+    },
+    {
+      "shard": "shard-0010",
+      "id": "DP02372",
+      "family": "earliest_observed",
+      "checks": {
+        "complete_graph": false,
+        "mode_nodes_identical": true,
+        "mode_labels_identical": true,
+        "non_authoritative": true
+      },
+      "limits_or_exclusions": [
+        "repeated_phrase_group_budget"
+      ]
+    },
+    {
+      "shard": "shard-0011",
+      "id": "DP02565",
+      "family": "editorial_competition",
+      "checks": {
+        "complete_graph": false,
+        "mode_nodes_identical": true,
+        "mode_labels_identical": true,
+        "non_authoritative": true
+      },
+      "limits_or_exclusions": [
+        "repeated_phrase_group_budget"
+      ]
+    },
+    {
+      "shard": "shard-0011",
+      "id": "DP02720",
+      "family": "explicit_chain",
+      "checks": {
+        "complete_graph": false,
+        "mode_nodes_identical": true,
+        "mode_labels_identical": true,
+        "non_authoritative": true
+      },
+      "limits_or_exclusions": [
+        "repeated_phrase_group_budget"
+      ]
+    },
+    {
+      "shard": "shard-0011",
+      "id": "DP02758",
+      "family": "editorial_competition",
+      "checks": {
+        "complete_graph": false,
+        "mode_nodes_identical": true,
+        "mode_labels_identical": true,
+        "non_authoritative": true
+      },
+      "limits_or_exclusions": [
+        "repeated_phrase_group_budget"
+      ]
+    },
+    {
+      "shard": "shard-0011",
+      "id": "DP02793",
+      "family": "ambiguous_correction",
+      "checks": {
+        "complete_graph": false,
+        "mode_nodes_identical": true,
+        "mode_labels_identical": true,
+        "non_authoritative": true
+      },
+      "limits_or_exclusions": [
+        "repeated_phrase_group_budget"
+      ]
+    },
+    {
+      "shard": "shard-0012",
+      "id": "DP02995",
+      "family": "editorial_competition",
+      "checks": {
+        "complete_graph": false,
+        "mode_nodes_identical": true,
+        "mode_labels_identical": true,
+        "non_authoritative": true
+      },
+      "limits_or_exclusions": [
+        "repeated_phrase_group_budget"
+      ]
+    },
+    {
+      "shard": "shard-0012",
+      "id": "DP03014",
+      "family": "earliest_observed",
+      "checks": {
+        "complete_graph": false,
+        "mode_nodes_identical": true,
+        "mode_labels_identical": true,
+        "non_authoritative": true
+      },
+      "limits_or_exclusions": [
+        "repeated_phrase_group_budget"
+      ]
+    },
+    {
+      "shard": "shard-0015",
+      "id": "DP03684",
+      "family": "earliest_observed",
+      "checks": {
+        "complete_graph": false,
+        "mode_nodes_identical": true,
+        "mode_labels_identical": true,
+        "non_authoritative": true
+      },
+      "limits_or_exclusions": [
+        "repeated_phrase_group_budget"
+      ]
+    },
+    {
+      "shard": "shard-0016",
+      "id": "DP03917",
+      "family": "editorial_competition",
+      "checks": {
+        "complete_graph": false,
+        "mode_nodes_identical": true,
+        "mode_labels_identical": true,
+        "non_authoritative": true
+      },
+      "limits_or_exclusions": [
+        "repeated_phrase_group_budget"
+      ]
+    },
+    {
+      "shard": "shard-0016",
+      "id": "DP04001",
+      "family": "earliest_observed",
+      "checks": {
+        "complete_graph": false,
+        "mode_nodes_identical": true,
+        "mode_labels_identical": true,
+        "non_authoritative": true
+      },
+      "limits_or_exclusions": [
+        "repeated_phrase_group_budget"
+      ]
+    },
+    {
+      "shard": "shard-0016",
+      "id": "DP04052",
+      "family": "explicit_chain",
+      "checks": {
+        "complete_graph": false,
+        "mode_nodes_identical": true,
+        "mode_labels_identical": true,
+        "non_authoritative": true
+      },
+      "limits_or_exclusions": [
+        "repeated_phrase_group_budget"
+      ]
+    }
+  ],
+  "source_span_errors": [],
+  "resources": {
+    "cpu_seconds": 466.7301677829996,
+    "wall_seconds": 486.99930878584564,
+    "explicit_original_read_calls": 12292,
+    "explicit_original_bytes_read": 1489253,
+    "peak_worker_rss_bytes": 30031872,
+    "total_pipeline_source_bytes_read": null,
+    "human_review_seconds": null
+  },
+  "independent_validation": "NOT RUN",
+  "semantic_relationship_precision": null,
+  "semantic_relationship_recall": null,
+  "limits": "Worker wall is summed across cases, not batch elapsed time; quoted-span fidelity is not semantic truth."
+}

@@ -661,6 +661,35 @@
       ],
       "scope": "Known-error structural stress testing across historical prose and field admission; frozen packets, isolated worker and post-run keys. Not independent/unseen evaluation.",
       "measurement_status": "Two complete1000-case frozen runs:156 to168/420 matched complete,580/580 refusals,252 positives still unresolved; no execution failures. Initial/scorer failures and interruption retained."
+    },
+    {
+      "family": "field-aliases",
+      "artifacts": "evaluation/field-aliases",
+      "tests": [
+        "tests/test_field_aliases.py"
+      ],
+      "runners": [
+        "tools/field_alias_challenge.py",
+        "tools/dpercent.py",
+        "tools/dpercent_expanded.py",
+        "tools/reproduce_boundaries.py"
+      ],
+      "scope": "One bounded source-body field-alias improvement; immutable legacy benchmarks and a sealed240-case developer holdout. Not independent semantic validation.",
+      "measurement_status": "Native2427d80: expanded189/420 with580 refusals;240 development50/64;150 prospective33/40; original200/600 and historical3/22 unchanged; independent review NOT RUN."
+    },
+    {
+      "family": "dpercent-known-weaknesses",
+      "artifacts": "evaluation/dpercent-known-weaknesses",
+      "tests": [
+        "tests/test_dpercent_weaknesses.py"
+      ],
+      "runners": [
+        "tools/dpercent_weaknesses.py",
+        "tools/dpercent_weakness_batch.py",
+        "tools/dpercent_weakness_audit.py"
+      ],
+      "scope": "75 executable authored classes,15 explicit unmeasured gaps; sealed 4096-case study, graph obligations separate from native support and semantic truth.",
+      "measurement_status": "4096/4096 executed;657/1262 complete,605 missed positives in11 classes;2834/2834 expected refusals;37 budget-partial graphs;156894 node spans audited without errors. Developer-authored; independent review NOT RUN."
     }
   ]
 }

@@ -1,0 +1,63 @@
+======================================================================
+FAIL: test_ambiguous_aliases_are_not_ranked_even_when_values_agree (tests.test_field_aliases.FieldAliasTests.test_ambiguous_aliases_are_not_ranked_even_when_values_agree)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/mplpb/tests/test_field_aliases.py", line 52, in test_ambiguous_aliases_are_not_ranked_even_when_values_agree
+    self.assertEqual(r['kind'], 'clarify')
+AssertionError: 'abstain' != 'clarify'
+- abstain
++ clarify
+
+
+======================================================================
+FAIL: test_corrected_field_and_unrelated_field_use_own_serving_views (tests.test_field_aliases.FieldAliasTests.test_corrected_field_and_unrelated_field_use_own_serving_views)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/mplpb/tests/test_field_aliases.py", line 87, in test_corrected_field_and_unrelated_field_use_own_serving_views
+    self.assertTrue(later['answer_supported'])
+AssertionError: False is not true
+
+======================================================================
+FAIL: test_current_state_to_declared_status_preserves_qualifications (tests.test_field_aliases.FieldAliasTests.test_current_state_to_declared_status_preserves_qualifications)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/mplpb/tests/test_field_aliases.py", line 40, in test_current_state_to_declared_status_preserves_qualifications
+    self.assertTrue(r['answer_supported'])
+AssertionError: False is not true
+
+======================================================================
+FAIL: test_source_declared_reordered_and_lexical_fields (tests.test_field_aliases.FieldAliasTests.test_source_declared_reordered_and_lexical_fields) (query='date of inspection')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/mplpb/tests/test_field_aliases.py", line 32, in test_source_declared_reordered_and_lexical_fields
+    self.assertTrue(r['answer_supported'], r['diagnostic'])
+AssertionError: False is not true : {'code': 'exact_field_missing', 'stage': 'strict', 'message': 'The exact eligible record has no explicit body evidence for the requested field.', 'category': 'insufficient_evidence', 'corpus_answerability': 'not_established', 'next_steps': ['Inspect the exact record and supply an explicit source body field; an identifier alone is not field support.']}
+
+======================================================================
+FAIL: test_source_declared_reordered_and_lexical_fields (tests.test_field_aliases.FieldAliasTests.test_source_declared_reordered_and_lexical_fields) (query='time of observation')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/mplpb/tests/test_field_aliases.py", line 32, in test_source_declared_reordered_and_lexical_fields
+    self.assertTrue(r['answer_supported'], r['diagnostic'])
+AssertionError: False is not true : {'code': 'exact_field_missing', 'stage': 'strict', 'message': 'The exact eligible record has no explicit body evidence for the requested field.', 'category': 'insufficient_evidence', 'corpus_answerability': 'not_established', 'next_steps': ['Inspect the exact record and supply an explicit source body field; an identifier alone is not field support.']}
+
+======================================================================
+FAIL: test_source_declared_reordered_and_lexical_fields (tests.test_field_aliases.FieldAliasTests.test_source_declared_reordered_and_lexical_fields) (query='postcode')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/mplpb/tests/test_field_aliases.py", line 32, in test_source_declared_reordered_and_lexical_fields
+    self.assertTrue(r['answer_supported'], r['diagnostic'])
+AssertionError: False is not true : {'code': 'exact_field_missing', 'stage': 'strict', 'message': 'The exact eligible record has no explicit body evidence for the requested field.', 'category': 'insufficient_evidence', 'corpus_answerability': 'not_established', 'next_steps': ['Inspect the exact record and supply an explicit source body field; an identifier alone is not field support.']}
+
+======================================================================
+FAIL: test_source_declared_reordered_and_lexical_fields (tests.test_field_aliases.FieldAliasTests.test_source_declared_reordered_and_lexical_fields) (query='phone number')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/mplpb/tests/test_field_aliases.py", line 32, in test_source_declared_reordered_and_lexical_fields
+    self.assertTrue(r['answer_supported'], r['diagnostic'])
+AssertionError: False is not true : {'code': 'exact_field_missing', 'stage': 'strict', 'message': 'The exact eligible record has no explicit body evidence for the requested field.', 'category': 'insufficient_evidence', 'corpus_answerability': 'not_established', 'next_steps': ['Inspect the exact record and supply an explicit source body field; an identifier alone is not field support.']}
+
+----------------------------------------------------------------------
+Ran 11 tests in 0.180s
+
+FAILED (failures=7)

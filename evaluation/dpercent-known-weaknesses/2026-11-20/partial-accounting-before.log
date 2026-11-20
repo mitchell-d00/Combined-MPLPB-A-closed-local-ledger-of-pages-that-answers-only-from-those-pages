@@ -1,0 +1,12 @@
+======================================================================
+FAIL: test_partial_run_keeps_unexecuted_cases_out_of_executed_total (tests.test_dpercent_weaknesses.WeaknessStudyTests.test_partial_run_keeps_unexecuted_cases_out_of_executed_total)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/mplpb/tests/test_dpercent_weaknesses.py", line 105, in test_partial_run_keeps_unexecuted_cases_out_of_executed_total
+    self.assertEqual(summary['executed'], 0)
+AssertionError: 2 != 0
+
+----------------------------------------------------------------------
+Ran 1 test in 0.018s
+
+FAILED (failures=1)

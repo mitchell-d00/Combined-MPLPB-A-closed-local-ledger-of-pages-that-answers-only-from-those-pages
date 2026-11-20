@@ -1,0 +1,28 @@
+======================================================================
+FAIL: test_nonspecific_adjectives_do_not_resolve_as_entities_or_event_roles (tests.test_field_aliases.FieldAliasTests.test_nonspecific_adjectives_do_not_resolve_as_entities_or_event_roles) (field='location of general')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/mplpb/tests/test_field_aliases.py", line 145, in test_nonspecific_adjectives_do_not_resolve_as_entities_or_event_roles
+    self.assertFalse(self.ask(field)['answer_supported'])
+AssertionError: True is not false
+
+======================================================================
+FAIL: test_nonspecific_adjectives_do_not_resolve_as_entities_or_event_roles (tests.test_field_aliases.FieldAliasTests.test_nonspecific_adjectives_do_not_resolve_as_entities_or_event_roles) (field='date of due')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/mplpb/tests/test_field_aliases.py", line 145, in test_nonspecific_adjectives_do_not_resolve_as_entities_or_event_roles
+    self.assertFalse(self.ask(field)['answer_supported'])
+AssertionError: True is not false
+
+======================================================================
+FAIL: test_nonspecific_adjectives_do_not_resolve_as_entities_or_event_roles (tests.test_field_aliases.FieldAliasTests.test_nonspecific_adjectives_do_not_resolve_as_entities_or_event_roles) (field='time of local')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/mplpb/tests/test_field_aliases.py", line 145, in test_nonspecific_adjectives_do_not_resolve_as_entities_or_event_roles
+    self.assertFalse(self.ask(field)['answer_supported'])
+AssertionError: True is not false
+
+----------------------------------------------------------------------
+Ran 1 test in 0.221s
+
+FAILED (failures=3)

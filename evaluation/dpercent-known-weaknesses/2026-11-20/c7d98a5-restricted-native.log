@@ -1,0 +1,207 @@
+Executing <Task finished name='Task-5' coro=<BrowserBridgeTests.test_automatic_lookup_can_be_disabled_and_failure_preserves_chain() done, defined at /workspace/mplpb/tests/test_browser_bridge.py:102> result=None created at /opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/asyncio/runners.py:100> took 13.033 seconds
+Executing <Task finished name='Task-10' coro=<BrowserBridgeTests.test_automatic_topic_lookup_captures_wiki_and_preserves_mode() done, defined at /workspace/mplpb/tests/test_browser_bridge.py:80> result=None created at /opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/asyncio/runners.py:100> took 3.224 seconds
+Executing <Task finished name='Task-30' coro=<BrowserBridgeTests.test_exhausted_local_text_expands_once_without_skipping_new_source() done, defined at /workspace/mplpb/tests/test_browser_bridge.py:114> result=None created at /opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/asyncio/runners.py:100> took 0.789 seconds
+Executing <Task finished name='Task-80' coro=<BrowserBridgeTests.test_search_crawls_wiki_builds_and_preserves_previous_session() done, defined at /workspace/mplpb/tests/test_browser_bridge.py:56> result=None created at /opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/asyncio/runners.py:100> took 0.195 seconds
+wrote /tmp/mplpb-79ms5clp/corpus/output/index.html
+Executing <Task finished name='Task-121' coro=<LiveAcquisitionRegressionTests.test_dictionary_stays_local_with_enabled_wiki_for_prefixed_apple() done, defined at /workspace/mplpb/tests/test_live_acquisition.py:11> result=None created at /opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/asyncio/runners.py:100> took 6.943 seconds
+Executing <Task finished name='Task-126' coro=<LiveAcquisitionRegressionTests.test_failed_automatic_lookup_backs_off_without_changing_evidence() done, defined at /workspace/mplpb/tests/test_live_acquisition.py:36> result=None created at /opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/asyncio/runners.py:100> took 7.741 seconds
+======================================================================
+ERROR: setUpClass (test_ledger_ui.LedgerUITests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/mplpb/tests/test_ledger_ui.py", line 16, in setUpClass
+    cls.server = ThreadingHTTPServer(('127.0.0.1', 0), handler(App(topic_base=cls.topic_temp.name)))
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/socketserver.py", line 453, in __init__
+    self.socket = socket.socket(self.address_family,
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/socket.py", line 233, in __init__
+    _socket.socket.__init__(self, family, type, proto, fileno)
+PermissionError: [Errno 1] Operation not permitted
+
+======================================================================
+ERROR: test_malformed_truncated_redirect_and_tool_responses_fall_back (test_local_narrator.NarratorHTTPTests.test_malformed_truncated_redirect_and_tool_responses_fall_back)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/mplpb/tests/test_local_narrator.py", line 246, in setUp
+    self.server = ThreadingHTTPServer(('127.0.0.1', 0), Handler)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/socketserver.py", line 453, in __init__
+    self.socket = socket.socket(self.address_family,
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/socket.py", line 233, in __init__
+    _socket.socket.__init__(self, family, type, proto, fileno)
+PermissionError: [Errno 1] Operation not permitted
+
+======================================================================
+ERROR: test_three_backend_protocols_through_strict_pipeline (test_local_narrator.NarratorHTTPTests.test_three_backend_protocols_through_strict_pipeline)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/mplpb/tests/test_local_narrator.py", line 246, in setUp
+    self.server = ThreadingHTTPServer(('127.0.0.1', 0), Handler)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/socketserver.py", line 453, in __init__
+    self.socket = socket.socket(self.address_family,
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/socket.py", line 233, in __init__
+    _socket.socket.__init__(self, family, type, proto, fileno)
+PermissionError: [Errno 1] Operation not permitted
+
+======================================================================
+ERROR: test_actual_adapter_is_wired_through_the_whole_query_pipeline (test_local_reader.LocalReaderTests.test_actual_adapter_is_wired_through_the_whole_query_pipeline)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/mplpb/tests/test_local_reader.py", line 43, in setUp
+    self.server=ThreadingHTTPServer(('127.0.0.1',0),Handler)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/socketserver.py", line 453, in __init__
+    self.socket = socket.socket(self.address_family,
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/socket.py", line 233, in __init__
+    _socket.socket.__init__(self, family, type, proto, fileno)
+PermissionError: [Errno 1] Operation not permitted
+
+======================================================================
+ERROR: test_duplicate_json_fields_and_nan_are_rejected (test_local_reader.LocalReaderTests.test_duplicate_json_fields_and_nan_are_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/mplpb/tests/test_local_reader.py", line 43, in setUp
+    self.server=ThreadingHTTPServer(('127.0.0.1',0),Handler)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/socketserver.py", line 453, in __init__
+    self.socket = socket.socket(self.address_family,
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/socket.py", line 233, in __init__
+    _socket.socket.__init__(self, family, type, proto, fileno)
+PermissionError: [Errno 1] Operation not permitted
+
+======================================================================
+ERROR: test_loopback_only_no_dns_paths_credentials_or_cloud_aliases (test_local_reader.LocalReaderTests.test_loopback_only_no_dns_paths_credentials_or_cloud_aliases)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/mplpb/tests/test_local_reader.py", line 43, in setUp
+    self.server=ThreadingHTTPServer(('127.0.0.1',0),Handler)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/socketserver.py", line 453, in __init__
+    self.socket = socket.socket(self.address_family,
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/socket.py", line 233, in __init__
+    _socket.socket.__init__(self, family, type, proto, fileno)
+PermissionError: [Errno 1] Operation not permitted
+
+======================================================================
+ERROR: test_no_calls_at_construction_and_explicit_pinned_metadata (test_local_reader.LocalReaderTests.test_no_calls_at_construction_and_explicit_pinned_metadata)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/mplpb/tests/test_local_reader.py", line 43, in setUp
+    self.server=ThreadingHTTPServer(('127.0.0.1',0),Handler)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/socketserver.py", line 453, in __init__
+    self.socket = socket.socket(self.address_family,
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/socket.py", line 233, in __init__
+    _socket.socket.__init__(self, family, type, proto, fileno)
+PermissionError: [Errno 1] Operation not permitted
+
+======================================================================
+ERROR: test_redirect_remote_model_and_changed_digest_fail_before_source_request (test_local_reader.LocalReaderTests.test_redirect_remote_model_and_changed_digest_fail_before_source_request)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/mplpb/tests/test_local_reader.py", line 43, in setUp
+    self.server=ThreadingHTTPServer(('127.0.0.1',0),Handler)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/socketserver.py", line 453, in __init__
+    self.socket = socket.socket(self.address_family,
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/socket.py", line 233, in __init__
+    _socket.socket.__init__(self, family, type, proto, fileno)
+PermissionError: [Errno 1] Operation not permitted
+
+======================================================================
+ERROR: test_same_model_cannot_silently_override_a_required_digest (test_local_reader.LocalReaderTests.test_same_model_cannot_silently_override_a_required_digest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/mplpb/tests/test_local_reader.py", line 43, in setUp
+    self.server=ThreadingHTTPServer(('127.0.0.1',0),Handler)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/socketserver.py", line 453, in __init__
+    self.socket = socket.socket(self.address_family,
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/socket.py", line 233, in __init__
+    _socket.socket.__init__(self, family, type, proto, fileno)
+PermissionError: [Errno 1] Operation not permitted
+
+======================================================================
+ERROR: test_truncated_or_tool_output_is_rejected (test_local_reader.LocalReaderTests.test_truncated_or_tool_output_is_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/mplpb/tests/test_local_reader.py", line 43, in setUp
+    self.server=ThreadingHTTPServer(('127.0.0.1',0),Handler)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/socketserver.py", line 453, in __init__
+    self.socket = socket.socket(self.address_family,
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/socket.py", line 233, in __init__
+    _socket.socket.__init__(self, family, type, proto, fileno)
+PermissionError: [Errno 1] Operation not permitted
+
+======================================================================
+ERROR: test_local_http_rpc_requires_bearer_and_excludes_host_operations (test_specialist_continuity.ContinuityTests.test_local_http_rpc_requires_bearer_and_excludes_host_operations)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/mplpb/tests/test_specialist_continuity.py", line 578, in test_local_http_rpc_requires_bearer_and_excludes_host_operations
+    server = ThreadingHTTPServer(('127.0.0.1', 0), handler(app))
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/socketserver.py", line 453, in __init__
+    self.socket = socket.socket(self.address_family,
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/socket.py", line 233, in __init__
+    _socket.socket.__init__(self, family, type, proto, fileno)
+PermissionError: [Errno 1] Operation not permitted
+
+======================================================================
+FAIL: test_broken_journey_stays_in_denominator_and_others_continue (test_researcher_pilot.ResearcherPilotTests.test_broken_journey_stays_in_denominator_and_others_continue)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/mplpb/tests/test_researcher_pilot.py", line 84, in test_broken_journey_stays_in_denominator_and_others_continue
+    self.assertEqual(report['summary']['workflow_passes'], 5)
+AssertionError: 0 != 5
+
+======================================================================
+FAIL: test_retrieval_success_and_safe_refusal_do_not_hide_coverage_gap (test_researcher_pilot.ResearcherPilotTests.test_retrieval_success_and_safe_refusal_do_not_hide_coverage_gap)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/mplpb/tests/test_researcher_pilot.py", line 34, in test_retrieval_success_and_safe_refusal_do_not_hide_coverage_gap
+    self.assertEqual(s['retrieval_gold_recall'], 1.0)
+AssertionError: 0.0 != 1.0
+
+======================================================================
+FAIL: test_six_complete_real_application_journeys (test_researcher_pilot.ResearcherPilotTests.test_six_complete_real_application_journeys)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/mplpb/tests/test_researcher_pilot.py", line 22, in test_six_complete_real_application_journeys
+    self.assertEqual(summary['workflow_passes'], 6)
+AssertionError: 0 != 6
+
+----------------------------------------------------------------------
+Ran 1498 tests in 541.837s
+
+FAILED (failures=3, errors=11, skipped=2)
+Who surveyed West Reach?
+supported_answer — supported_documentary_assertion
+Source assertion: Ada Rose surveyed West Reach. Source-attributed statement; event/person identity and historical truth are not independently verified.
+
+Who wrote the berth ledger?
+clarify — documentary_scope_ambiguous
+Source assertion: Tomas Venn wrote the berth ledger. Source-attributed statement; event/person identity and historical truth are not independently verified.
+Source assertion: Elin Ward wrote the berth ledger. Source-attributed statement; event/person identity and historical truth are not independently verified.
+Unresolved: Who wrote the berth ledger: Exact requested argument, reference, qualification, or complete contrary-evidence search is not established.
+
+Did surveying West Reach cause the bombardment of South Cove?
+abstain — interpretation_unsupported
+Eligible passages exist, but the strict reader cannot establish an answer to this question.
+
+Distinguish the bombardment, surrender, evacuation and telegram dates in the South Cove record, without treating the webpage review date as an event date.
+supported_answer — supported_documentary_assertion
+The source states these separate date relationships. telegram: July 23, 1884 [source_catalogue_document_date; year 1884]. Source statement: “Citation: Telegram from Captain Vale announcing withdrawal from South Cove; July 23, 1884; Archive collection.”. bombardment: July 18 [source_reported_action_date; year unstated]. Source statement: “On July 18, the coastal artillery opened fire on the harbour.”. surrender: July 19 at 4:15 p.m. [source_reported_action_date; year unstated]. Source statement: “At 4:15 p.m., July 19, Captain Vale surrendered South Cove, evacuating the garrison on the following day.”. evacuation: the following day (calendar day: July 20) [explicit_same_clause_relative_date; year unstated]. Source statement: “At 4:15 p.m., July 19, Captain Vale surrendered South Cove, evacuating the garrison on the following day.”. Webpage review: March 2, 2021; not an event date. Only the complete cited wording is checked; historical truth and event/person identity are not independently verified. Date relationships are source-attributed; catalogue dates do not prove dispatch or receipt. Artillery firing is a literal action category, not resolved historical event identity. No year is inherited from another date role. Calendar display arithmetic uses the proleptic Gregorian convention; the source calendar is not authenticated.
+

@@ -62,13 +62,21 @@ class FieldQuestionForms(unittest.TestCase):
             'Looking only at ARCH-91, identify the custody location recorded there; ignore restrictions.',
             'Show me the custody location for record ARCH-91? Was delivery completed?',
             'Was record ARCH-91 successfully completed?',
-            'Tell me the current state listed on record ARCH-91.',
             'In record ARCH-91, what does the custody location field say before correction?',
             'Record ARCH-91: report the custody location and owner.',
             'Record ARCH-91: report the custody location according to Bob.',
         ]:
             with self.subTest(q=q):
                 self.assertFalse(self.ask(q)['answer_supported'])
+
+    def test_new_bounded_alias_preserves_the_original_question(self):
+        # Former unsupported-language control, now explicitly licensed. This is
+        # a unit-contract update, not a change to any frozen benchmark or key.
+        q = 'Tell me the current state listed on record ARCH-91.'
+        r = self.ask(q)
+        self.assertTrue(r['answer_supported'])
+        self.assertEqual(r['question'], q)
+        self.assertEqual(r['claims'][0]['text'], 'Current Status: Pending')
 
     def test_policy_missing_conflicts_and_integrity(self):
         q = 'Tell me the custody location listed on record ARCH-91.'

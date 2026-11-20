@@ -4,57 +4,58 @@ Last reviewed: 2026-11-20.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `624eeb9bbe539bdd6695dae864905db51a91321f` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `6b9f52916845d90e74f87d28ad4bce81c568cd9f419fb80ab9f9ad7a7f911e6f`.
+Base commit: `c7d98a5be7901330f304fa1a853edde428904dfc` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `1bc5b8b0a32aebb9188af15ddbbe8fbc2cea764a6096665a606d81ef071cc2af`.
 
 ## Latest user update instructions
 
-M6 sorry 8 meant it’s not shared or anything be explicit the package don’t include i5
+Note paths to sources if you remove some for dupe# in zip
 
 ## Implemented scope
 
-- General whole-question literal field-request syntax in the existing exact parser; additive inspectable normalization; no core authority changes.
-- Unchanged public reproduction preserved with baseline at published bbf6690 and pre-change 3483b1a; new tests and exact CSV scoring.
-- Separate follow-up branch feature/field-question-normalization based on unmerged PR56; no merge performed.
-- Additional instruction: write a response paper to the 19 November public evaluation after tests complete, citing the original paper/package members and reproducible source tests.
-- Implement optional expanded D% generator/scorer around existing isolated worker;48 semantic families;1000cases frozen; all dice/keys hash-pinned in separate custody.
-- User supplied another parser-only verification account; distinguish that from our completed full engine replay. Do not manufacture independent semantic review.
-- Inspect B-Tests per preceding instruction; record exact software/test/harness attribution, distinguishing unsupported M6/OOCC claims.
-- Address general additional record-context and labelled-imperative question structures exposed by frozen stress batch, not individual fixtures.
-- Harden post-run field scorer against matching text without citations; source packets/keys/dice unchanged, initial/hardened scores identical.
-- Completed B-Tests inspection at7771497 and explicit attribution section in response paper; no undocumented B-Tests/M6/OOCC execution claimed.
-- User attachment is byte-identical to the downloaded public ZIP:60 files; no M6 implementation supplied. Paper explicitly states M6 was not shared in that package or available for inspection/execution.
-- Rendered response paper by Mitchell D. McPhetridge in Markdown, TXT and8-page PDF with hash manifest, citing the publication package, all members via inventory, own code/tests and remaining gaps.
-- Published source and findings in PR57 against main so exact-head archive/browser CI runs; includes the explicitly noted unmergedPR56 dependency. URL:https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/pull/57. No merge performed.
+- Latest engineering assignment: inspect and pin all distinct baselines; classify252 misses; begin one general source-grounded field-synonym improvement, preserve original questions and all frozen inputs.
+- New branch feature/source-field-aliases based on be6a556; small finite label rules, eligible-body discovery in field-scoped serving views, ambiguity refusal and fresh dependency revalidation; native core unchanged.
+- Prepare a new sealed240-case development holdout and a self-contained external replay package with synthetic keys/seals. No independent/human validation fabricated.
+- User authorizes merging PR56,PR57 and this iteration after required native/release checks pass. No merge yet.
+- Latest user direction: add all known weakness classes to a versioned probabilistic D% producer constrained by deterministic rules; keep all old frozen producers/questions/keys/results unchanged.
+- New75-class executable catalogue plus15 unmeasured adapter/review gaps,4096 sealed cases across16 shards; separate native-answer and textual-graph scoring; all raw results and failed reporting attempts retained.
+- Prior explicit merge authorization persists: merge dependent PR56,PR57 andPR58 after final-head native/archive/browser checks pass, then verify deployment.
+- Record every removed duplicate extraction path, retained original ZIP path/hash, source Git revision, restore command and9582 per-member hashes in handoff files included in future tracked-source ZIPs. No ZIP members or original evaluation records removed.
 
 ## Validation recorded
 
-- Completed archive044ac27:1477 Python tests and52 public controls passed. Public unchanged1100 probes:900 supported exact field-value matches,200 refusals.
-- Original frozen1240D%:200/600 matched completes,640/640 expected refusals,no execution failures.
-- Original22historical replay retains3 complete,2 partial,3 conflicts,14 abstentions.
-- Expanded1000baseline:156/420 matched complete,264 over-refusals,580/580 refusals,zero failed executions or unscored supported.
-- Scorer missing-citation mutation failed before hardening; all5 generator/scorer tests pass afterward;1000 real scores unchanged.
-- Two more syntax classes: four independent-vocabulary subcases failed before repair; all47 focused tests passed after repair.
-- Follow-up full2aca624 suite interrupted by environment unavailability; no final exit code, no pass inferred. Retained partial logs and source ZIP.
-- Final frozen9b5ff0c:1482 full Python tests,52 public controls and boundary subset passed, all exit0. Native packages/tools/tests unchanged since final freeze.
-- Final unchanged public replay900/900 supported with exact field values;200/200 negative refusals;900 citations independently reread for exact source anchors and current default-profile eligibility.
-- Final expanded1000 replay:168/420 key-matched complete,252 over-refusals,580/580 refusals,no failed/unscored executions. Twelve gains,no lost complete or new false support; identical packet/key/dice seals.
-- Final22 original contracts identical except code hashes; source/question seals preserved. Outcomes3 complete,2 partial,3 conflict,14 abstain.
-- Final UI script, JS API, transport and crawler checks each exit0; CLI accepted literal form exit0 and refused time-qualified/external variants exit3 as expected.
-- PDF read back successfully:8 pages, correct title/author, M6-not-supplied statement present. Paper-only software tests not added.
+- Before native edits: runtime equal9b5ff0c;46 baseline focused tests passed.
+- All252 expanded misses diagnosed by code/output, not assumed retrieval failures.
+- New holdout baseline16/64 complete,176/176 refusals; sources/questions/key/dice sealed before implementation.
+- New11-test alias suite failed7 subcases before implementation.
+- First exact-spelling-priority collision rule rejected by failing control; reconstructed replay ZIP/log retained honestly.
+- 62 focused tests passed after ambiguity repair; original unit question current state intentionally moves from unsupported-language assertion to licensed-positive assertion; no frozen label changes.
+- PR56 andPR57 exact-head GitHub release checks already successful; do not merge until new iteration evaluation also completes.
+- Candidate100805f passed1501 tests/52 public controls and benchmark replays, but rejected after3 later semantic modifier-inversion counterexamples. Full evidence retained; no benchmark pass treated as semantic certification.
+- Typed-role v2 requires an approved documentary noun head, not arbitrary adjective/name inversion;66 focused controls pass.
+- Native2427d80 all seven exact-head GitHub checks succeeded, including regression and archive-first. Local full-suite was interrupted; checkpoint retained, final local exit null.
+- Final native replays: public900/900 plus200 refusals; original200/600 plus640 refusals; expanded189/420 plus580 refusals;240 development50/64 plus176 refusals; prospective15033/40 plus110 refusals. No wrong support observed; historical22 unchanged3 complete,2 partial,3 conflicts,14 abstentions.
+- 4096/4096 completed against unchanged2427d80 packages;657/1262 matched complete,605 missed positives in11 classes,2834 expected refusals retained;156894 node spans have zero byte/hash/authority-flag errors.37 graphs transparently hit repeated_phrase_group_budget.
+- First sequential attempt deliberately terminated exit143. Original parallel driver exit1 after workers completed due heterogenous feature schema; actual failed logs preserved. Repaired post-run audit exit0 and fresh75-case repaired driver exit0. No case/key/native-rule changes.
+- 120 focused tests passed exit0; exact final collection and release checks follow final evidence commit.
+- Final partial-run accounting control failed before repair (2 unexecuted rows counted executed); fixed with explicit not-run reporting and recomputed per-family/lower-bound field metrics.121 focused tests pass; all4096 frozen native outputs reused unchanged in separate corrected scoring directory.
+- c7d98a5 default-sandbox full native run exit1:1498 tests,3 failures,11 errors,2 skipped. Loopback sockets forbidden (PermissionError); HTTP-dependent researcher workflows also fail. Raw log/CPU/memory receipt retained. Do not claim full pass; verify required loopback permission in a rerun.
 
 ## Limitations and blocked checks
 
-- 252 expanded developer-key answerable cases remain incomplete:12 families of21 each, including aliases/compound requests and historical-prose composition.
-- No independent semantic/human review, unseen evaluation, M6 implementation inspection or live-model run. Historical semantic accuracy remains null.
-- Actual browser/WASM/deployed-site checks not rerun locally. Final native tests apply to9b5ff0c; subsequent edits are evidence/docs and an executed read-only citation audit script.
-- This feature branch depends on unmergedPR56. No new merge or deployment authorized/performed.
+- Native alias discovery adds fresh reads; caps inspected records/text/declarations, not total authority I/O.
+- Finite lexical rules only, no arbitrary synonym inference; temporal roles and geographic state remain distinct.
+- Independent blind/human evaluation NOT RUN. New holdout is developer-authored, not context-blind.
+- 11 authored answerable classes remain unresolved; historical completion is unchanged3/22. Graph/text correctness does not certify semantic identity, causal truth or correct historical refusals.
+- 15 known gaps need operational adapters or independent assessment; all semantic precision/recall and human-review costs remain null. Independent review NOT RUN.
+- Final evidence/generator head has not yet completed its own release checks; do not infer that native2427d80 CI applies to later head.
 
 ## Next steps
 
-- Inspect exact-final-head PR57 CI, including archive-first/browser gates; local native checks do not establish deployment. PR56 remains an unmerged dependency.
-- Do not merge without user authorization. Independent semantic/human review and M6 inspection remain NOT RUN/unavailable.
-- Next general proof classes are the12 remaining positive stress families; preserve frozen inputs and all negative controls, never hard-code case IDs or relabel failures.
+- Rebuild/check updated source-path handoff, commit and push; rerun native HTTP suites/full regression with required loopback permissions and preserve the original restricted-shell failure.
+- Wait for exact final-head required checks; resolve genuine regressions without altering frozen cases or keys.
+- Merge56,57,58 in order using expected head SHAs after required checks; verify main deployment and live smoke. Do not claim merge or deployment before actual completion.
+- Next native capability: independently checked compound fields and exact wording/attributed statements, with class-level negative/mutation controls and unchanged replay. No instance-specific rules.
 
 ## Use this ZIP in your repository
 

@@ -1,0 +1,90 @@
+DP00001 completed
+DP00026 completed
+DP00002 completed
+DP00027 completed
+DP00003 completed
+DP00028 completed
+DP00029 completed
+DP00004 completed
+DP00030 completed
+DP00005 completed
+DP00031 completed
+DP00006 completed
+DP00032 completed
+DP00007 completed
+DP00008 completed
+DP00033 completed
+DP00009 completed
+DP00034 completed
+DP00010 completed
+DP00035 completed
+DP00011 completed
+DP00036 completed
+DP00012 completed
+DP00037 completed
+DP00013 completed
+DP00038 completed
+DP00014 completed
+DP00039 completed
+DP00015 completed
+DP00040 completed
+DP00016 completed
+DP00041 completed
+DP00017 completed
+DP00042 completed
+DP00043 completed
+DP00018 completed
+DP00044 completed
+DP00019 completed
+DP00045 completed
+DP00020 completed
+DP00046 completed
+DP00047 completed
+DP00021 completed
+DP00022 completed
+DP00048 completed
+DP00049 completed
+DP00023 completed
+DP00050 completed
+DP00024 completed
+DP00051 completed
+DP00025 completed
+DP00052 completed
+DP00053 completed
+DP00054 completed
+DP00055 completed
+DP00056 completed
+DP00057 completed
+DP00058 completed
+DP00059 completed
+DP00060 completed
+DP00061 completed
+DP00062 completed
+DP00063 completed
+DP00064 completed
+DP00065 completed
+DP00066 completed
+DP00067 completed
+DP00068 completed
+DP00069 completed
+DP00070 completed
+DP00071 completed
+DP00072 completed
+DP00073 completed
+DP00074 completed
+DP00075 completed
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/workspace/mplpb/tools/dpercent_weakness_batch.py", line 54, in <module>
+    if __name__ == '__main__': main()
+                               ^^^^^^
+  File "/workspace/mplpb/tools/dpercent_weakness_batch.py", line 51, in main
+    a = p.parse_args(); raise SystemExit(run(a.packets, a.custodian, a.output, a.implementation, a.workers))
+                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/mplpb/tools/dpercent_weakness_batch.py", line 39, in run
+    E.score(packets/name, custodian/name, output/name, output/(name+'-score.json'))
+  File "/workspace/mplpb/tools/dpercent_expanded.py", line 149, in score
+    values={str(r['features'][feature]) for r in rows if 'features' in r}
+                ~~~~~~~~~~~~~^^^^^^^^^
+KeyError: 'question_form'

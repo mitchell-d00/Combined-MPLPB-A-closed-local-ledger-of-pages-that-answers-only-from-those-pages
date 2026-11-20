@@ -1,0 +1,54 @@
+{
+  "schema": "dpercent-known-weaknesses-v1-audit",
+  "generator_sha256": "80f9b9f24f737152335d9542a62afb361ef647a4ee827d513e8c1b4c908f58d0",
+  "scorer_sha256": "0d7d26a43b082a1481d2e34f4db431bd66797fb0662707a77bb85a1831ec3dfb",
+  "audit_sha256": "fdfea3cfbc6fefe765436b947662b434130dc8c4d7d457d25a87934e1004e159",
+  "revision_labels": [
+    "2427d80e777b9cc76e071b2529e91a14b9bdb991"
+  ],
+  "runtime_pin_digests": [
+    "237c3d55d1210dd5a73203ddea24692acebd560799cbf006b89fc4822142ef1e"
+  ],
+  "planned": 75,
+  "counts": {
+    "executed": 75,
+    "completed": 75,
+    "node_spans_checked": 3688
+  },
+  "outcomes": {
+    "detected_answer": 12,
+    "appropriate_refusal": 52,
+    "over_refusal": 11
+  },
+  "answerable_executed": 23,
+  "unsupported_executed": 52,
+  "E": 0.5217391304347826,
+  "F": 0.0,
+  "graph_obligation_failures": [
+    {
+      "shard": "shard-0001",
+      "id": "DP00018",
+      "family": "explicit_chain",
+      "checks": {
+        "complete_graph": false,
+        "mode_nodes_identical": true,
+        "mode_labels_identical": true,
+        "non_authoritative": true
+      }
+    }
+  ],
+  "source_span_errors": [],
+  "resources": {
+    "cpu_seconds": 10.937668058000002,
+    "wall_seconds": 15.212968628038652,
+    "explicit_original_read_calls": 275,
+    "explicit_original_bytes_read": 33326,
+    "peak_worker_rss_bytes": 29044736,
+    "total_pipeline_source_bytes_read": null,
+    "human_review_seconds": null
+  },
+  "independent_validation": "NOT RUN",
+  "semantic_relationship_precision": null,
+  "semantic_relationship_recall": null,
+  "limits": "Worker wall is summed across cases, not batch elapsed time; quoted-span fidelity is not semantic truth."
+}

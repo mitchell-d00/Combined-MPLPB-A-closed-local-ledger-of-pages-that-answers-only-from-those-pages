@@ -2,6 +2,16 @@
 
 Last reviewed: 2026-11-20.
 
+[Source-field aliases and final measured evidence](docs/SOURCE_FIELD_ALIASES.md) extend
+bounded source-declared field access: expanded stress complete matches **168→189/420**,
+with580/580 expected refusals retained. OriginalD% stays200/600; historical replay
+stays3 native complete/22 on the development branch. The older paper below retains
+its own revision and252-miss result; the alias iteration leaves231 misses.
+[Known-weakness D% sampling](docs/DPERCENT_KNOWN_WEAKNESSES.md) adds a separately
+sealed4,096-case study:657/1,262 complete matches,2,834/2,834 expected
+refusals retained,75 executable classes and15 explicit unmeasured gaps.
+Independent semantic review remains NOT RUN.
+
 [New response paper: source attribution, reproduction and remaining gaps](docs/research/field-question-normalization/README.md)
 provides Markdown/TXT/PDF, 1,482 passing native tests,900/900 public field matches,
 and a frozen stress improvement from 156 to 168/420, with 580/580 refusals retained.
@@ -319,3 +329,12 @@ The [sorter exploration view](docs/SORTER_EXPLORATION.md) adds visible tags for 
 Sorter exploration validation: [frozen execution record](evaluation/sorter-exploration/2026-11-19/FINAL_REPORT.md) includes15 new boundary tests,unchanged source graphs and native H05 proof,a live small-model smoke with no demonstrated reasoning gain,and retained failed storage runs. These are inspection/authority-boundary results,not historical accuracy scores.
 
 A [fresh local B-Tests d100 run](evaluation/sorter-exploration/2026-11-19/d100/REPORT.md) passed100/100 fictional cases and100/100 companion exploration checks. This checks authority/routing invariants on randomized inputs,not historical truth or model accuracy. Publication requires the exact-head release gates.
+
+
+Temporary duplicate source extractions are recorded in
+[the retained-source path map](handoff/duplicate-source-retention.json) and
+[per-member checksums](handoff/duplicate-source-members.json.gz). Only verified
+recreatable temporary copies were removed; their original ZIPs, logs, pinned Git
+revisions and all evaluation records remain preserved. No entries were removed
+from those ZIPs. Local `/tmp` paths are instance-specific; pinned Git revisions
+provide the portable source reference.
