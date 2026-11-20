@@ -4,8 +4,8 @@ Last reviewed: 2026-11-20.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `9b5ff0c220780875359a74918b3ad4dd50bf4d89` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `9ecc6b0747d9a7f1ba158da51ad170dff52794ee8bb7c456fba3475d79d8028d`.
+Base commit: `624eeb9bbe539bdd6695dae864905db51a91321f` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `6b9f52916845d90e74f87d28ad4bce81c568cd9f419fb80ab9f9ad7a7f911e6f`.
 
 ## Latest user update instructions
 
@@ -25,6 +25,7 @@ M6 sorry 8 meant it’s not shared or anything be explicit the package don’t i
 - Completed B-Tests inspection at7771497 and explicit attribution section in response paper; no undocumented B-Tests/M6/OOCC execution claimed.
 - User attachment is byte-identical to the downloaded public ZIP:60 files; no M6 implementation supplied. Paper explicitly states M6 was not shared in that package or available for inspection/execution.
 - Rendered response paper by Mitchell D. McPhetridge in Markdown, TXT and8-page PDF with hash manifest, citing the publication package, all members via inventory, own code/tests and remaining gaps.
+- Published source and findings in PR57 against main so exact-head archive/browser CI runs; includes the explicitly noted unmergedPR56 dependency. URL:https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/pull/57. No merge performed.
 
 ## Validation recorded
 
@@ -51,9 +52,9 @@ M6 sorry 8 meant it’s not shared or anything be explicit the package don’t i
 
 ## Next steps
 
-- Audit final documentation/handoff and verify native source/test parity with9b5ff0c; commit findings/paper.
-- Publish reviewable follow-up PR against PR56 feature branch with full failures/results and exact source pins. Do not merge.
-- Future proof work should target general remaining families, preserve frozen inputs/negative controls, and report both missed answers and false support. Independent review remains NOT RUN.
+- Inspect exact-final-head PR57 CI, including archive-first/browser gates; local native checks do not establish deployment. PR56 remains an unmerged dependency.
+- Do not merge without user authorization. Independent semantic/human review and M6 inspection remain NOT RUN/unavailable.
+- Next general proof classes are the12 remaining positive stress families; preserve frozen inputs and all negative controls, never hard-code case IDs or relabel failures.
 
 ## Use this ZIP in your repository
 
