@@ -183,7 +183,7 @@ def _answer_query(root, question, profile=None, *, mode, reader, min_confidence,
                             retrieval={'passages': [], 'sources': [], 'discarded': 'source_state_changed'},
                             verification={'structural': False, 'semantic': 'discarded_due_to_source_change', 'truth_verified': False, 'independence_verified': False})
             if exact.get('alias_resolution'):
-                contract['question_normalization'] = {'version':'source-field-alias-v1',
+                contract['question_normalization'] = {'version':'source-field-alias-v2',
                     'status':'discarded_due_to_source_change','normalization_is_evidence':False}
             strict.kind, strict.record, strict.candidates = 'not_in_corpus', None, []
             strict.support = {'status': 'unsupported', 'spans': [], 'reason': message}
@@ -228,7 +228,7 @@ def _answer_query(root, question, profile=None, *, mode, reader, min_confidence,
         code = resolution['code']
         if resolution['status']=='ambiguous':
             contract['clarification'] = 'More than one eligible source field matches this expression. Specify the literal field label.'
-            contract['question_normalization'] = {'version':'source-field-alias-v1',
+            contract['question_normalization'] = {'version':'source-field-alias-v2',
                 'status':'ambiguous','requested_field':resolution['requested_field'],
                 'candidate_fields':resolution.get('candidate_fields',[]),'normalization_is_evidence':False}
         return finish('clarify' if resolution['status']=='ambiguous' else 'abstain',code,

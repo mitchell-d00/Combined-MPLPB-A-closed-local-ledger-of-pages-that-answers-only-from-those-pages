@@ -4,8 +4,8 @@ Last reviewed: 2026-11-20.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `be6a5564073af27bad8317834bca240e9347b8bd` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `6178e5f154cba2b1b2cb3e066a3793ec52f467d175b9f91bef1e43db09cb67f4`.
+Base commit: `100805f0f4e96ac95c52150340cd7cf9da4febf7` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `98fc75cdcdf0574d900fe2ebc365b31c58d047503f9e171fadfe6386a5f19a1c`.
 
 ## Latest user update instructions
 
@@ -27,6 +27,8 @@ Merge it all once it’s fixed
 - First exact-spelling-priority collision rule rejected by failing control; reconstructed replay ZIP/log retained honestly.
 - 62 focused tests passed after ambiguity repair; original unit question current state intentionally moves from unsupported-language assertion to licensed-positive assertion; no frozen label changes.
 - PR56 andPR57 exact-head GitHub release checks already successful; do not merge until new iteration evaluation also completes.
+- Candidate100805f passed1501 tests/52 public controls and benchmark replays, but rejected after3 later semantic modifier-inversion counterexamples. Full evidence retained; no benchmark pass treated as semantic certification.
+- Typed-role v2 requires an approved documentary noun head, not arbitrary adjective/name inversion;66 focused controls pass.
 
 ## Limitations and blocked checks
 
@@ -34,6 +36,7 @@ Merge it all once it’s fixed
 - Finite lexical rules only, no arbitrary synonym inference; temporal roles and geographic state remain distinct.
 - Independent blind/human evaluation NOT RUN. New holdout is developer-authored, not context-blind.
 - Full candidate regressions,900/1240/1000/22 replays and updated240 holdout pending.
+- Final v2 native/evaluation/release checks pending;100805f intermediate gains are not yet accepted final results.
 
 ## Next steps
 

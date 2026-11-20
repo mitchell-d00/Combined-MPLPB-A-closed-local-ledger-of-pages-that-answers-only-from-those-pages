@@ -104,3 +104,26 @@ holdout are pending at this candidate freeze. No pass or completion gain is
 inferred before execution. Independent semantic/human review remains NOT RUN.
 The user authorizes merging dependent PRs once tests and release gates pass;
 no merge has occurred for this iteration yet.
+
+## Rejected100805f and typed-role repair
+
+Candidate100805f passed1501 native software tests and52 public controls, and
+measured189/420 expanded positives,50/64 new-holdout positives,with all580 and176
+refusals preserved. The900 public fields and200 controls also passed; historical
+completion stayed3/22. Those are intermediate results, not the final candidate.
+
+A later developer counterexample exposed untyped modifier inversion: General
+Location was selected for location of general; Due Date and Local Time had similar
+problems. Three subcases failed (exit1). Citation fidelity did not establish that
+the normalized field meant what the question requested. This candidate is rejected
+for that criterion even though its software and frozen benchmark tests passed.
+Actual frozen source100805f and raw execution/test evidence are retained under
+rejected-100805f; no independent semantic judgment is fabricated.
+
+Version2 restricts reordering to an explicit catalogue of documentary-role noun
+heads, preserves every modifier, and declines arbitrary names or nonspecific
+adjectives. Independent Deposit Date vocabulary remains answerable. The66 focused
+controls pass (exit0); new full validation is pending. No frozen input/key/dice
+was changed, and all prior runs remain available. The remaining lexical rules
+and role catalogue are finite engineering assumptions, not general language
+understanding or an independently certified ontology.

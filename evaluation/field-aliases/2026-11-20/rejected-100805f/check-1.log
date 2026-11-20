@@ -1,0 +1,74 @@
+Executing <Task finished name='Task-5' coro=<BrowserBridgeTests.test_automatic_lookup_can_be_disabled_and_failure_preserves_chain() done, defined at /dev/shm/mplpb-alias-native/source/tests/test_browser_bridge.py:102> result=None created at /opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/asyncio/runners.py:100> took 16.075 seconds
+Executing <Task finished name='Task-10' coro=<BrowserBridgeTests.test_automatic_topic_lookup_captures_wiki_and_preserves_mode() done, defined at /dev/shm/mplpb-alias-native/source/tests/test_browser_bridge.py:80> result=None created at /opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/asyncio/runners.py:100> took 4.746 seconds
+Executing <Task finished name='Task-30' coro=<BrowserBridgeTests.test_exhausted_local_text_expands_once_without_skipping_new_source() done, defined at /dev/shm/mplpb-alias-native/source/tests/test_browser_bridge.py:114> result=None created at /opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/asyncio/runners.py:100> took 0.982 seconds
+Executing <Task finished name='Task-45' coro=<BrowserBridgeTests.test_import_retains_revision_pins_and_conflict_stops() done, defined at /dev/shm/mplpb-alias-native/source/tests/test_browser_bridge.py:225> result=None created at /opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/asyncio/runners.py:100> took 0.141 seconds
+Executing <Task finished name='Task-60' coro=<BrowserBridgeTests.test_old_browser_capture_reopens_without_rewriting_and_rejects_damage() done, defined at /dev/shm/mplpb-alias-native/source/tests/test_browser_bridge.py:259> result=None created at /opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/asyncio/runners.py:100> took 0.119 seconds
+Executing <Task finished name='Task-80' coro=<BrowserBridgeTests.test_search_crawls_wiki_builds_and_preserves_previous_session() done, defined at /dev/shm/mplpb-alias-native/source/tests/test_browser_bridge.py:56> result=None created at /opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/asyncio/runners.py:100> took 0.379 seconds
+wrote /tmp/mplpb-lyueb1de/corpus/output/index.html
+127.0.0.1 - - [20/Nov/2026 02:03:34] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [20/Nov/2026 02:03:34] "GET /index.html HTTP/1.1" 200 -
+127.0.0.1 - - [20/Nov/2026 02:03:34] "GET /api/experiment HTTP/1.1" 200 -
+127.0.0.1 - - [20/Nov/2026 02:03:34] "GET /missing HTTP/1.1" 404 -
+127.0.0.1 - - [20/Nov/2026 02:03:34] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [20/Nov/2026 02:03:34] "POST /api/query HTTP/1.1" 200 -
+127.0.0.1 - - [20/Nov/2026 02:03:34] "POST /api/query HTTP/1.1" 200 -
+127.0.0.1 - - [20/Nov/2026 02:03:34] "POST /api/query HTTP/1.1" 200 -
+127.0.0.1 - - [20/Nov/2026 02:03:34] "POST /api/chat HTTP/1.1" 200 -
+127.0.0.1 - - [20/Nov/2026 02:03:34] "POST /api/chat HTTP/1.1" 200 -
+127.0.0.1 - - [20/Nov/2026 02:03:34] "POST /api/chat/export HTTP/1.1" 200 -
+127.0.0.1 - - [20/Nov/2026 02:03:34] "POST /api/chat/resume HTTP/1.1" 200 -
+127.0.0.1 - - [20/Nov/2026 02:03:34] "POST /api/chat/reset HTTP/1.1" 200 -
+127.0.0.1 - - [20/Nov/2026 02:03:34] "POST /api/chat/export HTTP/1.1" 400 -
+127.0.0.1 - - [20/Nov/2026 02:03:34] "POST /api/chat HTTP/1.1" 200 -
+127.0.0.1 - - [20/Nov/2026 02:03:34] "POST /api/chat HTTP/1.1" 200 -
+127.0.0.1 - - [20/Nov/2026 02:03:34] "POST /api/chat HTTP/1.1" 200 -
+127.0.0.1 - - [20/Nov/2026 02:03:34] "POST /api/query HTTP/1.1" 200 -
+127.0.0.1 - - [20/Nov/2026 02:03:34] "GET /api/page?corpus=canned&path=canned-0001.html&profile=external HTTP/1.1" 400 -
+127.0.0.1 - - [20/Nov/2026 02:03:34] "GET /api/page?corpus=canned&path=canned-0001.html&profile=internal HTTP/1.1" 200 -
+127.0.0.1 - - [20/Nov/2026 02:03:34] "GET /api/state HTTP/1.1" 403 -
+127.0.0.1 - - [20/Nov/2026 02:03:34] "POST /api/query HTTP/1.1" 403 -
+127.0.0.1 - - [20/Nov/2026 02:03:34] "GET /api/history HTTP/1.1" 200 -
+127.0.0.1 - - [20/Nov/2026 02:03:34] "POST /api/query HTTP/1.1" 400 -
+127.0.0.1 - - [20/Nov/2026 02:03:34] "POST /api/query HTTP/1.1" 400 -
+127.0.0.1 - - [20/Nov/2026 02:03:34] "POST /api/query HTTP/1.1" 400 -
+127.0.0.1 - - [20/Nov/2026 02:03:34] "POST /api/query HTTP/1.1" 400 -
+127.0.0.1 - - [20/Nov/2026 02:03:34] "POST /api/query HTTP/1.1" 415 -
+127.0.0.1 - - [20/Nov/2026 02:03:34] "GET /api/inventory?corpus=studio&profile=internal HTTP/1.1" 200 -
+127.0.0.1 - - [20/Nov/2026 02:03:34] "GET /api/page?corpus=studio&path=derived%2Fstudio-0024.html HTTP/1.1" 400 -
+127.0.0.1 - - [20/Nov/2026 02:03:34] "GET /api/inventory?corpus=canned&profile=external HTTP/1.1" 200 -
+127.0.0.1 - - [20/Nov/2026 02:03:34] "GET /api/page?corpus=canned&path=..%2F..%2FREADME.md HTTP/1.1" 400 -
+127.0.0.1 - - [20/Nov/2026 02:03:34] "POST /api/query HTTP/1.1" 400 -
+127.0.0.1 - - [20/Nov/2026 02:03:34] "POST /api/query HTTP/1.1" 200 -
+127.0.0.1 - - [20/Nov/2026 02:03:34] "POST /api/query HTTP/1.1" 200 -
+Executing <Task finished name='Task-121' coro=<LiveAcquisitionRegressionTests.test_dictionary_stays_local_with_enabled_wiki_for_prefixed_apple() done, defined at /dev/shm/mplpb-alias-native/source/tests/test_live_acquisition.py:11> result=None created at /opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/asyncio/runners.py:100> took 7.568 seconds
+Executing <Task finished name='Task-126' coro=<LiveAcquisitionRegressionTests.test_failed_automatic_lookup_backs_off_without_changing_evidence() done, defined at /dev/shm/mplpb-alias-native/source/tests/test_live_acquisition.py:36> result=None created at /opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/asyncio/runners.py:100> took 9.589 seconds
+127.0.0.1 - - [20/Nov/2026 02:08:36] "POST /api/work HTTP/1.1" 400 -
+127.0.0.1 - - [20/Nov/2026 02:08:36] "POST /api/work HTTP/1.1" 400 -
+127.0.0.1 - - [20/Nov/2026 02:08:36] "POST /api/work HTTP/1.1" 200 -
+127.0.0.1 - - [20/Nov/2026 02:08:36] "GET /api/query HTTP/1.1" 404 -
+127.0.0.1 - - [20/Nov/2026 02:08:36] "GET /api/page?corpus=studio&path=kiln/studio-0004.html HTTP/1.1" 404 -
+127.0.0.1 - - [20/Nov/2026 02:08:36] "GET /api/state HTTP/1.1" 404 -
+127.0.0.1 - - [20/Nov/2026 02:08:36] "GET / HTTP/1.1" 404 -
+127.0.0.1 - - [20/Nov/2026 02:08:36] "POST /api/query HTTP/1.1" 404 -
+----------------------------------------------------------------------
+Ran 1501 tests in 666.521s
+
+OK
+Who surveyed West Reach?
+supported_answer — supported_documentary_assertion
+Source assertion: Ada Rose surveyed West Reach. Source-attributed statement; event/person identity and historical truth are not independently verified.
+
+Who wrote the berth ledger?
+clarify — documentary_scope_ambiguous
+Source assertion: Tomas Venn wrote the berth ledger. Source-attributed statement; event/person identity and historical truth are not independently verified.
+Source assertion: Elin Ward wrote the berth ledger. Source-attributed statement; event/person identity and historical truth are not independently verified.
+Unresolved: Who wrote the berth ledger: Exact requested argument, reference, qualification, or complete contrary-evidence search is not established.
+
+Did surveying West Reach cause the bombardment of South Cove?
+abstain — interpretation_unsupported
+Eligible passages exist, but the strict reader cannot establish an answer to this question.
+
+Distinguish the bombardment, surrender, evacuation and telegram dates in the South Cove record, without treating the webpage review date as an event date.
+supported_answer — supported_documentary_assertion
+The source states these separate date relationships. telegram: July 23, 1884 [source_catalogue_document_date; year 1884]. Source statement: “Citation: Telegram from Captain Vale announcing withdrawal from South Cove; July 23, 1884; Archive collection.”. bombardment: July 18 [source_reported_action_date; year unstated]. Source statement: “On July 18, the coastal artillery opened fire on the harbour.”. surrender: July 19 at 4:15 p.m. [source_reported_action_date; year unstated]. Source statement: “At 4:15 p.m., July 19, Captain Vale surrendered South Cove, evacuating the garrison on the following day.”. evacuation: the following day (calendar day: July 20) [explicit_same_clause_relative_date; year unstated]. Source statement: “At 4:15 p.m., July 19, Captain Vale surrendered South Cove, evacuating the garrison on the following day.”. Webpage review: March 2, 2021; not an event date. Only the complete cited wording is checked; historical truth and event/person identity are not independently verified. Date relationships are source-attributed; catalogue dates do not prove dispatch or receipt. Artillery firing is a literal action category, not resolved historical event identity. No year is inherited from another date role. Calendar display arithmetic uses the proleptic Gregorian convention; the source calendar is not authenticated.
+

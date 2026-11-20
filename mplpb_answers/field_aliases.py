@@ -6,10 +6,19 @@ can establish source support. No value, title or model suggests a field.
 import copy
 import re
 
-VERSION = 'source-field-alias-v1'
+VERSION = 'source-field-alias-v2'
 MAX_SOURCES = 64
 MAX_BODY_BYTES = 2 * 1024 * 1024
 MAX_DECLARATIONS = 256
+# Reordering an adjective or a person's name can change the requested meaning
+# ("General Location" does not identify a general's location). Restrict the
+# head to declared documentary/event-role nouns; preserve every modifier.
+ROLE_HEADS = frozenset('''accession approval arrival assembly authorization birth
+cancellation collection completion creation custody death delivery departure
+deposit dispatch distribution execution expiration expiry filing inspection
+issue loan observation payment publication receipt reception recording
+registration release renewal request response return revision shipment signing
+storage submission transfer update withdrawal writing'''.split())
 
 
 def candidates(field):
@@ -32,10 +41,10 @@ def candidates(field):
     }
     result = {name: 'bounded_document_field_lexicon' for name in groups.get(field, ())}
     m = re.fullmatch(r'(date|time|location) of ([a-z][a-z0-9]*(?: [a-z0-9]+){0,3})', field)
-    if m:
+    if m and m[2].split()[-1] in ROLE_HEADS:
         result[m[2]+' '+m[1]] = 'role_preserving_of_reordering'
     m = re.fullmatch(r'([a-z][a-z0-9]*(?: [a-z0-9]+){0,3}) (date|time|location)', field)
-    if m:
+    if m and m[1].split()[-1] in ROLE_HEADS:
         result[m[2]+' of '+m[1]] = 'role_preserving_of_reordering'
     return result
 

@@ -8,7 +8,9 @@ may select an actual `Inspection Date:` header. The original question remains
 the policy input. The output quotes the original label and value, with normal
 source IDs, hashes and offsets. `question_normalization` is explicitly not evidence.
 
-Only small finite lexical rules and date/time/location-of reordering are licensed.
+Only small finite lexical rules and date/time/location-of reordering with a
+declared documentary-role noun head are licensed. Arbitrary names and adjective
+inversions (for example General Location into location of general) are declined.
 No model chooses fields, no semantic score awards support, and no dates, actions
 or identities are invented. Two matching labels require clarification even when
 values agree. Use the existing explicit `--field` selector to inspect a particular

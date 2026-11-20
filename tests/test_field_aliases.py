@@ -138,5 +138,12 @@ class FieldAliasTests(unittest.TestCase):
         self.page('Inspection Date: 1884-01-01')
         self.assertFalse(self.ask('date of inspection', mode='assisted')['answer_supported'])
 
+    def test_nonspecific_adjectives_do_not_resolve_as_entities_or_event_roles(self):
+        self.page('General Location: broad coastal region\nDue Date: 1884-01-01\nLocal Time: 09:30\nDeposit Date: 1884-02-02')
+        for field in ['location of general', 'date of due', 'time of local']:
+            with self.subTest(field=field):
+                self.assertFalse(self.ask(field)['answer_supported'])
+        self.assertTrue(self.ask('date of deposit')['answer_supported'])
+
 
 if __name__ == '__main__': unittest.main()
