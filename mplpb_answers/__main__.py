@@ -57,6 +57,9 @@ def cmd_ask(args):
             print(result.contract['text'])
         if result.strict.kind != 'return':
             print('Diagnostic: '+result.contract['diagnostic']['code']+' — '+result.contract['diagnostic']['message'])
+        if result.contract['diagnostic'].get('evidence_gap'):
+            for step in result.contract['diagnostic']['next_steps']:
+                print('Next: ' + step)
     else:
         c = result.contract
         print(c['kind'].upper().replace('_',' '))
