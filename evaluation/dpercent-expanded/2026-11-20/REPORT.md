@@ -61,3 +61,21 @@ The private key/dice archive remains outside Git at the custody receipt's path;
 public source packets and seal are committed. Re-run public answers without the
 key, or score under owner custody. This is repeatable development testing,
 not an independent or genuinely hidden evaluation.
+
+## General-class follow-up on identical packets
+
+Source9b5ff0c adds record-context field questions and labelled imperatives, after
+four independent-vocabulary subcases failed. All47 focused controls pass.
+The complete frozen1000-case replay now matches168/420 answers (E40%);252 remain
+incomplete. All580 refusals are retained (F0/580),with zero execution failures,
+unscored support or lost complete answers. Exactly12 outcomes improve from
+missed to matched complete;988 outcomes are unchanged. See comparison.json,
+followup-score.json and followup-execution.tar.gz. No packet/key/dice changes.
+
+All63 direct field obligations across literal, changed-body and same-subject
+families now match. Synonyms and compound requests still fail21/21 each, as do
+ten historical-prose families. These remaining252 obligations are not removed.
+The entire stress benchmark still fails a perfect-completeness criterion.
+
+The final1482-test Python suite and52 public controls passed from the same
+frozen native source. Human-independent historical accuracy remains unmeasured.

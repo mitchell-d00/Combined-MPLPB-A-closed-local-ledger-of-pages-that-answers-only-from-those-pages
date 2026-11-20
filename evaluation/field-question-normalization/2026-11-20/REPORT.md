@@ -92,3 +92,43 @@ has no final full-suite exit; its logs are retained under interrupted-followup.
 On recovery the workspace and completed evaluations remained intact. A new final
 candidate will rerun all native tests and the same1000-case expanded batch after
 the two additional syntax classes. Results remain pending until executed.
+
+## Final measured candidate
+
+Frozen implementation9b5ff0c220780875359a74918b3ad4dd50bf4d89, archive
+SHA256d11a24e93f1e471dd3b7ce09bed5a39c10b7127cc7b7f5178478473d678edc61:
+1482 complete Python tests passed (exit0),52 public controls passed (exit0),
+zero observed false-supported bridges. Final UI script, JS API, transport and
+crawler checks each exited0. CLI support exited0; past-qualified and external
+requests each exited3 as expected. No actual browser/WASM/deployment pass claimed.
+Final raw receipts are under final-software/, final-interfaces/ and final-cli/.
+
+Final unchanged public1100-probe replay retains150 canonical and750 paraphrase
+supports,200 refusals. Separate final900-question CSV scoring matches all900
+field values, no incorrect supported values or errors. Independent readback
+verified900 exact eligible citations at the recorded check time; script and
+receipt are retained. Run the citation script with PYTHONPATH set to the selected
+source checkout; direct invocation without that path first raised ImportError,
+an invocation setup error rather than an engine result. Exact script command:
+
+```sh
+PYTHONPATH=. python evaluation/field-question-normalization/2026-11-20/verify_citations.py --cases CASES.jsonl --fixtures FIXTURE_ROOT --output NEW_RECEIPT.json
+```
+
+The final22-original replay preserves every answer contract except code hashes,
+not just outcome totals:3 complete,2 partial,3 conflict,14 abstain. This is no
+new historical gain. Full comparison and original packets are retained.
+
+The same expanded1000-case replay improves156 to168/420 key-matched complete
+answers,264 to252 over-refusals,580/580 refusals in both runs,zero lost answers
+or false support. Twelve gains correspond to the two general new syntax classes.
+Sources, questions, key/dice seals and execution/admission budgets are unchanged.
+Independent human/unseen evaluation and historical semantic accuracy remain
+NOT RUN/null. Expanded residual family failures are retained, not relabelled.
+
+The user-supplied ZIP matches the downloaded archive exactly:60 members,59
+manifest-listed files checked. No M6 implementation is included. The response
+paper makes this limitation and code/test/evaluator attribution explicit; it
+cannot establish an undocumented private execution stack.
+
+[Response paper, all three formats](../../../docs/research/field-question-normalization/README.md).

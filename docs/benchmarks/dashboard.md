@@ -1,6 +1,6 @@
 # Archival inspection benchmark dashboard
 
-Last reviewed: 2026-11-19.
+Last reviewed: 2026-11-20.
 
 Synthetic development, authentic development and unseen independent evaluation are separate. Percentages below are developer-key measurements; they are not historical accuracy. Citation fidelity concerns exact source anchoring at run time, not historical truth or permanent eligibility.
 
@@ -16,3 +16,23 @@ Synthetic development, authentic development and unseen independent evaluation a
 *Synthetic counts are key-matched complete answers. Authentic counts are native support flags, not independently judged correctness. These counts do not establish historical recall.
 
 For counts, denominators, source report hashes and limitations, inspect the adjacent JSON. Unknown is null, never zero. Incomplete executions do not get full-run rates. Unscored supported semantics prevents a precision claim. No independent human score has been supplied.
+
+
+## Supplementary field-access and expanded stress measurements
+
+These are separate known synthetic populations; do not combine their percentages
+with the historical rows above. Exact field-key matches and developer-proposition
+matches are not independent historical judgments.
+
+| Population | Before | Updated | Expected refusals retained |
+|---|---:|---:|---:|
+| Public literal-field positives |150/900|900/900|200/200|
+| Expanded frozen stress positives |156/420|168/420|580/580|
+| Unchanged historical originals |3 native complete/22|3 native complete/22|Refusal correctness unmeasured|
+
+[Field-access evidence](../../evaluation/field-question-normalization/2026-11-20/REPORT.md)
+· [Expanded stress failures and costs](../../evaluation/dpercent-expanded/2026-11-20/REPORT.md)
+· [Response paper](../research/field-question-normalization/README.md).
+Full native regression:1482 tests and52 public controls passed at9b5ff0c.
+The original dashboard generator covers the rows above; these supplemental dated
+experiments are linked separately and pinned in dashboard.json.
