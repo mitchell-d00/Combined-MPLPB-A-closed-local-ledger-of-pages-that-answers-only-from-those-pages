@@ -50,5 +50,5 @@ match the baseline. Known legacy answer gaps remain visible in the report.
 
 The [D4 acceptance workflow](../.github/workflows/d4-acceptance.yml) runs the
 mixed gate and retains its per-case report. The
-[D4 study directory](../evaluation/d4/2026-11-20) retains the frozen producer
-and study evidence. These fixtures are developer-authored synthetic data.
+[D4 case study](../evaluation/d4/2026-11-20/CASE_STUDY.md) reports all 95
+classes, the paired baseline, and the frozen producer. These fixtures are developer-authored synthetic data.

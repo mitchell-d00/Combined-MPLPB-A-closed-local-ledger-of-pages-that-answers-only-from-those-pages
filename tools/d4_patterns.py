@@ -9,8 +9,9 @@ from tools import d4
 from tools import dpercent as D
 
 
-def compare(public, before, after, acceptance, destination):
-    public, before, after, acceptance, destination = map(Path, (public, before, after, acceptance, destination))
+def compare(public, before, after, acceptance, native, destination):
+    public, before, after, acceptance, native, destination = map(
+        Path, (public, before, after, acceptance, native, destination))
     old, new, gate = (D.read(report) for report in (before, after, acceptance))
     if (old['study_sha256'] != new['study_sha256']
             or D.sha((public/'study.json').read_bytes()) != old['study_sha256']
@@ -66,16 +67,35 @@ def compare(public, before, after, acceptance, destination):
     }
     D.save(destination/'patterns.json', result)
     D.save(destination/'study.json', study)
+    examples = {}
     with (destination/'cases.jsonl.gz').open('xb') as stream:
         with gzip.GzipFile(fileobj=stream, filename='', mode='wb', mtime=0) as compressed:
             for shard in study['shards']:
                 payloads = sorted((public/shard['name']/'packets').iterdir())
+                run = native/shard['name']
+                receipt = D.read(run/'run.json')
+                if (receipt['checkout_revision'] != new['revision']
+                        or receipt['packet_seal_sha256'] != shard['seal_sha256']):
+                    raise ValueError('Example receipt differs from the scored study')
+                hashes = {entry['case_id']: entry['sha256'] for entry in receipt['cases']}
                 for path in payloads:
                     ident = path.name
                     case = D.read(path/'case.json')
                     data = {'id': ident, 'question': case['question'], 'profile': case['profile'],
                             'budget': case['budget'], 'before': old['rows'][ident], 'after': new['rows'][ident]}
                     compressed.write((json.dumps(data, ensure_ascii=False, separators=(',', ':'))+'\n').encode('utf-8'))
+                    family = data['after']['family']
+                    if family in examples:
+                        continue
+                    artifact = run/ident/'result.json'
+                    if D.sha(artifact.read_bytes()) != hashes[ident]:
+                        raise ValueError('Example output bytes differ from the worker receipt')
+                    answer = D.read(artifact)['answer']
+                    sources = [{'path': source['path'], 'text': (path/source['path']).read_bytes().decode('utf-8')}
+                               for source in case['sources']]
+                    examples[family] = {**data, 'sources': sources,
+                                        'native_claims': answer['claims'], 'result_sha256': hashes[ident]}
+    D.save(destination/'examples.json', {'selection': 'Lowest case ID in each family', 'by_family': examples})
     print(json.dumps({key: result[key] for key in (
         'study_cases', 'family_count', 'focus_before', 'focus_after', 'mixed_before', 'mixed_after',
         'graph_budget_stops', 'gate', 'by_task')}, indent=2))
@@ -84,10 +104,10 @@ def compare(public, before, after, acceptance, destination):
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    for name in ('public', 'before', 'after', 'acceptance', 'destination'):
+    for name in ('public', 'before', 'after', 'acceptance', 'native', 'destination'):
         parser.add_argument('--'+name, type=Path, required=True)
     args = parser.parse_args()
-    compare(args.public, args.before, args.after, args.acceptance, args.destination)
+    compare(args.public, args.before, args.after, args.acceptance, args.native, args.destination)
 
 
 if __name__ == '__main__':

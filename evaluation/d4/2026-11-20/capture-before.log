@@ -1,0 +1,12 @@
+======================================================================
+FAIL: test_imported_speech_uses_verified_capture_text (tests.test_reference_identity.ReferenceIdentityTests.test_imported_speech_uses_verified_capture_text)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/d4/tests/test_reference_identity.py", line 74, in test_imported_speech_uses_verified_capture_text
+    self.assertTrue(result['answer_supported'], result['diagnostic'])
+AssertionError: False is not true : {'code': 'coreference_unresolved', 'stage': 'strict', 'message': 'The selected sources do not establish a unique documentary reference.', 'category': 'insufficient_evidence', 'corpus_answerability': 'not_established', 'next_steps': ['Review the diagnostic and source evidence before retrying.']}
+
+----------------------------------------------------------------------
+Ran 11 tests in 0.204s
+
+FAILED (failures=1)

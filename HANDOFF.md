@@ -4,8 +4,8 @@ Last reviewed: 2026-11-20.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `b9c9e48550f49c1594b5ff8399ca502fabd0c729` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `ad59e0e2760f4530d14037ec724f00bdf48aeff39ee23cbdd480f9d7c414d543`.
+Base commit: `c17c482797946bbd3bcca95186529e9e468ece06` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `fb51c6254ae2a2e7d38acd024768ec637bc7a5279fb0caeb5dd5f50a7b9f036e`.
 
 ## Latest user update instructions
 
@@ -19,12 +19,15 @@ Build a giant case study from it to see the patterns of the question classes
 - Introduce Event identity, co-reference D4, a sealed mixed D% generator with separate focused acceptance and 95-family broad research mixes.
 - Record source witnesses, expected refusals, case outcomes, family and question-pattern cohorts with isolated workers.
 - Apply the established capture-text boundary when checking a pronoun in an imported source. Preserve span offsets in the canonical source projection.
+- Retain the 95-family written case study, cohort tables, all paired decisions and one original-source example per family.
 
 ## Validation recorded
 
-- Frozen 4,096-case baseline at f40caa6 was launched before reader edits. Independently worded pre-change controls exposed four missed proof behaviors.
-- Focused generator, reader and documentary suites were exercised locally. Case study measurements are recorded separately.
-- The initial Chromium test verified event agreement and rejected a cross-registry collision. It reproduced a co-reference miss on an imported speech turn. A native imported-source control reproduced that miss before the verified capture fix.
+- Frozen baseline f40caa6 ran before the new reader rules. Independently worded pre-change controls reproduced missed scoped proof and the initial browser test identified a capture-boundary gap.
+- Candidate c17c482 passed the 380-case mixed acceptance gate. All 40 D4 proof cases, 160 D4 refusals and 180 inherited controls matched.
+- The corrected candidate matched all 430 D4 positives and 1,716 D4 refusals in the full 4,096-case study. All 1,950 inherited observations matched the baseline, including 260 earlier positive misses. Graph obligations had zero failures and 21 disclosed budget stops.
+- Exact candidate archive native suite ran 1542 tests with 2 skips and no failures. JavaScript checks and Chromium/Pyodide source-query checks, including imported speech, passed.
+- The frozen producer recreated the study manifest, draw transcript, and all sixteen packet and custody seals. Both D4 candidate revisions produced the same scored outcomes on the frozen synthetic packets.
 
 ## Limitations and blocked checks
 
@@ -33,7 +36,8 @@ Build a giant case study from it to see the patterns of the question classes
 
 ## Next steps
 
-- Run exact candidate D4 gate, compare identical broad study inputs against the baseline, and retain the observed patterns.
+- Run the checked-in D4 workflow on a future pull request or workflow dispatch. The paired case study is local evidence.
+- Use independently reviewed original archives to measure free-form language and historical identity beyond the D4 grammar.
 
 ## Use this ZIP in your repository
 
