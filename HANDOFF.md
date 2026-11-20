@@ -4,8 +4,8 @@ Last reviewed: 2026-11-20.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `61cc7c04ebdfa84c8d783e005c6e7857c07600b2` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `50f93becb9996b688af14b800f8b0f21a9bbda60f7b5d0d68104ab838558df80`.
+Base commit: `2f173ca9b201a21ff01eb3aef720e9c4ac0deab7` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `3916a97650191127911a9fce1c7773c0538fb3e1efe29d6aa6bc5d63141a50e8`.
 
 ## Latest user update instructions
 
@@ -13,21 +13,28 @@ Do that and write how you did it into the automation of the repos do the rest of
 
 Never harm only enhance
 
+Cool continue the push
+
 ## Implemented scope
 
 - Check two explicit fields independently under the original question and common budget. Retain scoped corrections, exact citations and diagnostics for unresolved question parts.
 - Keep source occurrence citations distinct from repeated Message-ID communication candidates in opt-in investigation.
 - Run the frozen expanded replay and historical development replay through acceptance automation. Preserve existing packets and test evidence.
+- Expose field decisions and citations in the browser and text CLI. Add opt-in reconstruction operations for exact wording, bounded writing-date comparison, and source-ID-linked request, dispatch and reported receipt.
 
 ## Validation recorded
 
 - The pre-change compound suite failed six subcases and the new communication candidate control reproduced the missing output.
 - After implementation, 52 focused field, alias and scoped evidence tests passed.
+- First candidate: all 1,000 frozen isolated workers completed locally. All 189 earlier complete answers and 580 expected refusals held, with 21 newly verified compound answers.
+- First candidate: 52 public evidence controls passed; the historical development replay retained 3 complete, 2 partial, 3 conflicts and 14 abstentions.
+- The first GitHub acceptance attempt could not bind packets beneath the runner home directory. Worker logs retained the permission failure. The revised workflow places worker staging under /tmp.
+- The new pinned inspection controls and compound tests passed locally, as did the JavaScript documentary rendering and UI script checks.
 
 ## Limitations and blocked checks
 
 - The new compound grammar covers two explicit fields on one record and a direct, pinned supersession. It does not license arbitrary composition.
-- Remaining synthetic chronology, wording, attribution and chain obligations need distinct scoped proofs. Event identity, co-reference and historical truth are outside strict scope. Independent semantic review remains unrun.
+- The synthetic unpinned chronology, wording, attribution and chain questions still require separate strict proof coverage. The opt-in operations use selected exact sources only. Event identity, co-reference and historical truth remain outside strict scope. Independent semantic review remains unrun.
 
 ## Next steps
 

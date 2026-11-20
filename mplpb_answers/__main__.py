@@ -27,6 +27,18 @@ def cmd_ask(args):
     data = result.legacy()
     if args.json:
         print(json.dumps(data, indent=2, ensure_ascii=False))
+    elif result.contract.get('question_parts'):
+        contract = result.contract
+        print(contract['kind'].upper().replace('_', ' '))
+        for part in contract['question_parts']:
+            print(part['field'] + ' [' + part['status'] + ']')
+            if part['status'] != 'verified':
+                print(part['diagnostic']['message'])
+                for step in part['diagnostic']['next_steps']:
+                    print(step)
+        for claim in contract['claims']:
+            for cite in claim['citations']:
+                print('[{source_id} {hash}] {quote}'.format(**cite))
     elif args.answer_mode == 'strict':
         label = {'return':'SUPPORTED ANSWER', 'ambiguous':'AMBIGUOUS', 'not_in_corpus':'NO SUPPORTED ANSWER'}[data['kind']]
         print(label+'\n'+(R.render(result.strict, why=args.why) if data['kind'] == result.strict.kind else result.contract['text'] or data['reason']))
@@ -125,8 +137,12 @@ def cmd_reconstruct(args):
     if args.reader_model:
         from .local_reader import OllamaLocalReader
         reader=OllamaLocalReader(args.reader_model,endpoint=args.reader_endpoint)
+    inspection = next(((operation, ids) for operation, ids in (
+        ('wording', args.compare_wording), ('writing_dates', args.earliest_writing_date),
+        ('request_dispatch_receipt', args.trace_sources)) if ids), None)
     result=reconstruct_report(args.root,args.question,R.PROFILES[args.profile],
-                              max_passages=args.max_passages,max_chars=args.max_context_chars,reader=reader)
+                              max_passages=args.max_passages,max_chars=args.max_context_chars,reader=reader,
+                              inspection=inspection)
     from mplpb_work.prose_evidence import render_reconstruction
     print(render_reconstruction(result) if args.format=='text' else json.dumps(result,indent=2,ensure_ascii=False))
     return 0 if result['status']=='research_report' else 3
@@ -219,6 +235,10 @@ def build_parser():
     reconstruction.add_argument('--max-context-chars',type=int,default=12000)
     reconstruction.add_argument('--reader-model',help='optional explicitly installed local candidate reader; never historical truth authority')
     reconstruction.add_argument('--reader-endpoint',default='http://127.0.0.1:11434')
+    selected = reconstruction.add_mutually_exclusive_group()
+    selected.add_argument('--compare-wording', nargs=2, metavar=('SOURCE_A', 'SOURCE_B'))
+    selected.add_argument('--earliest-writing-date', nargs=2, metavar=('SOURCE_A', 'SOURCE_B'))
+    selected.add_argument('--trace-sources', nargs=3, metavar=('REQUEST', 'DISPATCH', 'RECEIPT'))
     reconstruction.set_defaults(fn=cmd_reconstruct)
     article = sub.add_parser('article', help='assemble checked/candidate research sections; no article-level proof')
     article.add_argument('root')

@@ -8,7 +8,8 @@ checker and its own correction view under the original question and delivery
 profile. An API-supplied as-of time applies to both views. The question must fit
 the two-field grammar in full.
 
-The strict response includes a decision for each field under `question_parts`.
+The browser and plain-text CLI display the decision for each field. The strict
+JSON response exposes the same details under `question_parts`.
 A missing field can leave a cited partial. A conflict remains a conflict. Two
 complete field proofs must share a source record or have a direct, pinned
 supersession between their sources. Both proofs share the same total citation
@@ -34,7 +35,29 @@ replays the 22 historical development questions and publishes its run reports.
 These runs measure source support under the declared rules. Independent
 semantic review remains open.
 
-A chronology, wording comparison, attributed statement or explicit chain still
-requires its own bounded proof and acceptance cases. The
-[documentary reconstruction guide](HISTORICAL_RECONSTRUCTION_ENGINE.md)
-describes the existing opt-in investigation and its evidence limits.
+## Selected-source inspections
+
+Use `reconstruct` with one of these options and exact ledger source IDs.
+
+```sh
+python -m mplpb_answers reconstruct LEDGER "Inspect the archival records" --compare-wording LEAF-A LEAF-B --format text
+python -m mplpb_answers reconstruct LEDGER "Inspect the archival records" --earliest-writing-date LEAF-A LEAF-B
+python -m mplpb_answers reconstruct LEDGER "Inspect the archival records" --trace-sources LEAF-A LEAF-B LEAF-C
+```
+
+The wording inspection compares both complete canonical bodies, cites them, and
+reports token changes and literal equality. The date inspection requires one
+valid `Date Written: YYYY-MM-DD` body field on each selected source. It retains
+ties and leaves the earliest date unresolved if either proof is missing.
+
+Tracing requires three complete unqualified source bodies. The dispatch
+statement must explicitly name the request source. The reported receipt must
+explicitly name the dispatch source. The sender, object and destination must
+agree literally. The returned prefix stops at the first unsupported step and
+preserves the identity of the person reporting receipt. The operation reports
+source observations and leaves event identity and historical truth unresolved.
+
+These opt-in forms require explicit source selection. The unchanged strict
+stress questions for chronology, wording and chains have their own grammar
+coverage results. See the [documentary reconstruction guide](HISTORICAL_RECONSTRUCTION_ENGINE.md)
+for the existing research workflows.

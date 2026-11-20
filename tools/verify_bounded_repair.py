@@ -116,7 +116,7 @@ def score(packets, run, output):
               'counts': dict(totals), 'by_family': {k: dict(v) for k, v in counts.items()},
               'findings': findings, 'independent_semantic_review': 'NOT RUN'}
     D.save(output, report)
-    print(json.dumps(report, indent=2))
+    print(json.dumps({**report, "findings": findings[:10], "finding_count": len(findings)}, indent=2))
     return not findings and totals == {
         'retained_complete': 189, 'new_complete': 21, 'retained_unresolved': 210, 'retained_refusal': 580}
 

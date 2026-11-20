@@ -22,7 +22,8 @@ jobs:
           python-version: '3.12'
       - name: Verify field obligations, eligibility, and communication candidates
         run: |
-          python -m unittest tests.test_compound_fields tests.test_field_aliases tests.test_scoped_extensions -v
+          python -m unittest tests.test_compound_fields tests.test_field_aliases tests.test_scoped_extensions tests.test_pinned_documentary_inspection -v
+          node tests/documentary-render.cjs
           python -m tools.evaluate_public_evidence --output "$RUNNER_TEMP/bounded-public-controls.json" --require-capabilities
       - name: Install the isolated D% worker dependency
         run: |
@@ -30,18 +31,34 @@ jobs:
           sudo apt-get install --yes --no-install-recommends bubblewrap
       - name: Replay the unchanged 1,000-case source packets
         run: |
-          sudo "$(command -v python)" -m tools.verify_bounded_repair --output "$RUNNER_TEMP/bounded-repair"
+          # The isolated worker cannot bind the Actions workspace below /home.
+          stage="$(sudo mktemp -d /tmp/mplpb-bounded.XXXXXX)"
+          status=0
+          sudo "$(command -v python)" -m tools.verify_bounded_repair --output "$stage/bounded-repair" || status=$?
+          sudo cp -R "$stage/bounded-repair" "$RUNNER_TEMP/bounded-repair"
+          if ((status)); then
+            find "$RUNNER_TEMP/bounded-repair/run" -name failure.json -print -quit |
+              while IFS= read -r failure; do head -20 "$(dirname "$failure")/worker.log"; done
+          fi
+          exit "$status"
       - name: Replay the 22 historical development questions
         if: success() || failure()
         run: |
           python -m tools.article_study --output "$RUNNER_TEMP/bounded-historical"
           python - "$RUNNER_TEMP/bounded-historical/report.json" <<'PY'
+          import csv
           import json
           from pathlib import Path
           import sys
           report = json.loads(Path(sys.argv[1]).read_text())
           expected = {"supported_answer": 3, "partial_answer": 2, "conflict": 3, "abstain": 14}
-          if report["cases"] != 22 or report["native_outcomes"] != expected or not all(report["guards"].values()):
+          def cases(path):
+              with path.open(newline="") as stream:
+                  return list(csv.DictReader(stream))
+          current = cases(Path(sys.argv[1]).with_name("cases.csv"))
+          baseline = cases(Path("evaluation/field-aliases/2026-11-20/final/historical/cases.csv"))
+          if (report["cases"] != 22 or current != baseline
+                  or report["native_outcomes"] != expected or not all(report["guards"].values())):
               raise SystemExit("Historical development replay changed")
           PY
       - uses: actions/upload-artifact@v4
