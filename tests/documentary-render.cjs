@@ -20,3 +20,15 @@ contract.kind='supported_answer';contract.missing=[];
 vm.runInContext('render(result)',context);
 assert(results.innerHTML.includes('SUPPORTED SOURCE ASSERTIONS'));
 console.log('PASS documentary rendering: checked/partial statements, missing scope, qualifiers, source inspection and escaping');
+
+context.result={reader:{answer_contract:{
+ mode:'strict',kind:'partial_answer',diagnostic:{message:'See the decision for each requested field.'},
+ missing:['shelf code'],claims:[{text:'Date Written: 1841-05-17',citations:[{quote:'Date Written: 1841-05-17',source_id:'FOLIO-1',hash:'sha256:pin',path:'folio-1.html'}]}],
+ question_parts:[{field:'date written',status:'verified'},{field:'shelf code',status:'unresolved',diagnostic:{message:'Missing <field>.',next_steps:['Inspect the exact label.']}}]
+}}};
+vm.runInContext('render(result)',context);
+assert(results.innerHTML.includes('Requested fields'));
+assert(results.innerHTML.includes('Missing &lt;field&gt;.'));
+assert(results.innerHTML.includes('Inspect the exact label.'));
+assert(results.innerHTML.includes('data-page="folio-1.html"'));
+assert(!results.innerHTML.includes('Source procedure inspection'));

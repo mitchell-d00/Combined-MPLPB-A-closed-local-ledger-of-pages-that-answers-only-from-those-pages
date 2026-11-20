@@ -131,6 +131,30 @@ class ScopedEvidenceTests(unittest.TestCase):
         self.assertEqual({o['occurrence_id'] for o in node['occurrences']},{a.id+'@'+a.hash,b.id+'@'+b.hash})
         self.assertNotIn(node['node_id'],{o['occurrence_id'] for o in node['occurrences']})
 
+    def test_communication_candidates_preserve_source_appearances_without_an_event(self):
+        self.page('SRC-1', 'Message-ID: NOTE-8\nBody: First text')
+        self.page('SRC-2', 'Message-ID: NOTE-8\nBody: Revised text')
+        self.page('SRC-3', 'Message-ID: NOTE-9\nBody: First text')
+        result = inspect_events(self.root, 'archive record')
+        self.assertEqual(len(result['communication_candidates']), 1)
+        candidate = result['communication_candidates'][0]
+        self.assertEqual(candidate['message_id'], 'NOTE-8')
+        self.assertTrue(candidate['changed_message_body'])
+        self.assertEqual([o['source_id'] for o in candidate['occurrences']], ['SRC-1', 'SRC-2'])
+        self.assertTrue(all(o['message_id_citation']['quote'] == 'Message-ID: NOTE-8'
+                            for o in candidate['occurrences']))
+        self.assertFalse(candidate['answer_supported'])
+        self.assertFalse(candidate['historical_identity_confirmed'])
+        self.assertEqual(len(result['unassigned_occurrences']), 3)
+        self.assertEqual(result['candidates'], [])
+
+    def test_quoted_message_id_cannot_add_a_communication_candidate(self):
+        self.page('SRC-1', 'Message-ID: NOTE-8\nBody: First text')
+        write(self.root, doc_id='SRC-2', title='Example', scope='archive record',
+                     body_html='<blockquote><pre>Message-ID: NOTE-8\nBody: Quoted text</pre></blockquote>')
+        result = inspect_events(self.root, 'archive record')
+        self.assertEqual(result['communication_candidates'], [])
+
     def test_declared_event_id_cannot_collide_with_generated_shared_key_node(self):
         self.page('SRC-1','Event-ID: source-key:KEY-1\nMessage-ID: MSG-1\nBody: declared')
         self.page('SRC-2','Event-Key: KEY-1\nMessage-ID: MSG-2\nBody: appearance')

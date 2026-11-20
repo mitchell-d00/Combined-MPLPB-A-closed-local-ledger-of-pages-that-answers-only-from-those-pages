@@ -653,9 +653,12 @@
       "family": "dpercent-expanded",
       "artifacts": "evaluation/dpercent-expanded",
       "tests": [
+        "tests/test_compound_fields.py",
+        "tests/test_pinned_documentary_inspection.py",
         "tests/test_dpercent_expanded.py"
       ],
       "runners": [
+        "tools/verify_bounded_repair.py",
         "tools/dpercent_expanded.py",
         "tools/dpercent.py"
       ],

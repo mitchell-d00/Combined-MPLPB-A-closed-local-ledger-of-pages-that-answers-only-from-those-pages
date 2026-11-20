@@ -67,13 +67,18 @@ def discover(root,question,profile=None,*,max_passages=12,max_chars=12000):
                 retrieval_method=pack['ranking'],retrieval_discovery={k:v for k,v in pack.items() if k in {'query_expansion_terms','facets','routing_metadata_is_answer_evidence'}})
 
 
-def reconstruct_report(root,question,profile=None,*,max_passages=12,max_chars=12000,reader=None):
+def reconstruct_report(root,question,profile=None,*,max_passages=12,max_chars=12000,reader=None,inspection=None):
     """Existing native answers and reversible research views, with final gate."""
     from mplpb_answers.pipeline import answer_query
     profile=profile or PROFILES[DEFAULT_PROFILE]
     before=verification_snapshot(root,question,profile)
     answer=answer_query(root,question,profile,max_passages=max_passages,max_chars=max_chars).contract
     candidates=discover(root,question,profile,max_passages=max_passages,max_chars=max_chars)
+    pinned = None
+    if inspection is not None:
+        from .pinned_documentary_inspection import inspect
+        operation, source_ids = inspection
+        pinned = inspect(root, question, profile, operation, source_ids, max_passages, max_chars)
     assisted=None
     if reader is not None:
         # The existing reader validates schema, exact anchors and model pins.
@@ -83,10 +88,13 @@ def reconstruct_report(root,question,profile=None,*,max_passages=12,max_chars=12
     if verification_snapshot(root,question,profile)!=before:
         return {'schema':'historical-reconstruction-report-v1','question':question,'status':'source_changed',
                 'native_answer':None,'candidate_analysis':None,'model_candidates':None,'answer_supported':False}
-    return {'schema':'historical-reconstruction-report-v1','question':question,'status':'research_report',
+    report = {'schema':'historical-reconstruction-report-v1','question':question,'status':'research_report',
             'native_answer':answer,'candidate_analysis':candidates,'model_candidates':assisted,
             'answer_supported':answer['answer_supported'],'historical_truth_independently_verified':False,
             'notice':'Checked source assertions, reversible candidate graphs, model interpretations and historical truth have separate authority.'}
+    if pinned is not None:
+        report['pinned_inspection'] = pinned
+    return report
 
 
 def render_reconstruction(report):
@@ -125,6 +133,20 @@ def render_reconstruction(report):
         lines += ['Alternative/qualifying evidence ['+cite['source_id']+'@'+cite['hash']+']:', cite['quote']]
     if answer.get('missing'):lines += ['Unresolved:']+['- '+m for m in answer['missing']]
     if answer.get('diagnostic'):lines.append('Diagnostic: '+answer['diagnostic']['code']+' — '+answer['diagnostic']['message'])
+    pinned = report.get('pinned_inspection')
+    if pinned:
+        lines += ['Selected-source inspection [' + pinned['status'] + ']', pinned['operation']]
+        for witness in pinned['citations']:
+            lines += ['[' + witness['source_id'] + '@' + witness['hash'] + ']', witness['quote']]
+        if 'identical_canonical_text' in pinned:
+            lines.append('Identical canonical text: ' + str(pinned['identical_canonical_text']))
+            for hunk in pinned['alignment']:
+                if hunk['operation'] != 'equal':
+                    lines += ['Source A: ' + hunk['left_text'], 'Source B: ' + hunk['right_text']]
+        if pinned.get('earliest_sources'):
+            lines.append('Earliest declared writing date among selected sources: ' + ', '.join(pinned['earliest_sources']))
+        if pinned['missing']:
+            lines.append('Unresolved: ' + ', '.join(pinned['missing']))
     candidates = report.get('candidate_analysis') or {}
     graph = (candidates.get('information_map') or {}).get('relationship_graph') or {}
     lines += ['Candidate historical interpretation: '+str(len(graph.get('edges', [])))+
