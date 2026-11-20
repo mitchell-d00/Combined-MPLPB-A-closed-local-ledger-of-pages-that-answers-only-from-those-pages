@@ -1,0 +1,36 @@
+======================================================================
+FAIL: test_general_request_structures (tests.test_field_question_forms.FieldQuestionForms.test_general_request_structures) (q='In record ARCH-91, what does the custody location field say?')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/mplpb/tests/test_field_question_forms.py", line 47, in test_general_request_structures
+    self.assertTrue(r['answer_supported'], r['diagnostic'])
+AssertionError: False is not true : {'code': 'exact_field_missing', 'stage': 'strict', 'message': 'The exact route does not establish the requested field under a bounded grammar.', 'category': 'insufficient_evidence', 'corpus_answerability': 'not_established', 'next_steps': ['Inspect the exact record and supply an explicit source body field; an identifier alone is not field support.']}
+
+======================================================================
+FAIL: test_general_request_structures (tests.test_field_question_forms.FieldQuestionForms.test_general_request_structures) (q='Record ARCH-91: report the custody location.')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/mplpb/tests/test_field_question_forms.py", line 47, in test_general_request_structures
+    self.assertTrue(r['answer_supported'], r['diagnostic'])
+AssertionError: False is not true : {'code': 'interpretation_unsupported', 'stage': 'strict', 'message': 'Eligible passages exist, but the strict reader cannot establish an answer to this question.', 'category': 'unsupported_question_grammar', 'corpus_answerability': 'not_established', 'next_steps': ['Inspect the relevant source. Try a supported question form or explicitly select a configured assisted reader; do not treat this refusal as proof that the answer is absent.']}
+
+======================================================================
+FAIL: test_general_request_structures (tests.test_field_question_forms.FieldQuestionForms.test_general_request_structures) (q='In occurrence ARCH-91, what does the custody location field state?')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/mplpb/tests/test_field_question_forms.py", line 47, in test_general_request_structures
+    self.assertTrue(r['answer_supported'], r['diagnostic'])
+AssertionError: False is not true : {'code': 'exact_field_missing', 'stage': 'strict', 'message': 'The exact route does not establish the requested field under a bounded grammar.', 'category': 'insufficient_evidence', 'corpus_answerability': 'not_established', 'next_steps': ['Inspect the exact record and supply an explicit source body field; an identifier alone is not field support.']}
+
+======================================================================
+FAIL: test_general_request_structures (tests.test_field_question_forms.FieldQuestionForms.test_general_request_structures) (q='Event ARCH-91: show custody location.')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/mplpb/tests/test_field_question_forms.py", line 47, in test_general_request_structures
+    self.assertTrue(r['answer_supported'], r['diagnostic'])
+AssertionError: False is not true : {'code': 'interpretation_unsupported', 'stage': 'strict', 'message': 'Eligible passages exist, but the strict reader cannot establish an answer to this question.', 'category': 'unsupported_question_grammar', 'corpus_answerability': 'not_established', 'next_steps': ['Inspect the relevant source. Try a supported question form or explicitly select a configured assisted reader; do not treat this refusal as proof that the answer is absent.']}
+
+----------------------------------------------------------------------
+Ran 9 tests in 0.209s
+
+FAILED (failures=4)

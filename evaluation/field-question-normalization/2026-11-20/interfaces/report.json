@@ -1,0 +1,30 @@
+[
+  {
+    "command": [
+      "python",
+      "tools/check_ui_script.py"
+    ],
+    "exit_code": 0
+  },
+  {
+    "command": [
+      "node",
+      "tools/check_browser_transport.cjs"
+    ],
+    "exit_code": 0
+  },
+  {
+    "command": [
+      "node",
+      "tests/javascript-api.cjs"
+    ],
+    "exit_code": 0
+  },
+  {
+    "command": [
+      "node",
+      "crawler/test_worker.mjs"
+    ],
+    "exit_code": 0
+  }
+]

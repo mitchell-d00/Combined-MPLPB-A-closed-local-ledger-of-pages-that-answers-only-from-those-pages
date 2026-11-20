@@ -58,15 +58,16 @@ class ExpandedDiceTests(unittest.TestCase):
     def test_scorer_checks_exact_values_and_does_not_award_missing_quotes(self):
         with tempfile.TemporaryDirectory() as tmp:
             root = Path(tmp)
-            for i, (text, fidelity, expected_detection) in enumerate([
-                    ('Owner: Alice', True, 1), ('Owner: Bob', True, 0),
-                    ('Owner: Alice', False, 0)]):
+            for i, (text, fidelity, has_citation, expected_detection) in enumerate([
+                    ('Owner: Alice', True, True, 1), ('Owner: Bob', True, True, 0),
+                    ('Owner: Alice', False, True, 0), ('Owner: Alice', True, False, 0)]):
                 key = {'id': 'DP00001', 'family': 'field_literal', 'expected': 'answer',
                        'automatic_answer_matcher': 'literal_field_set_v1',
                        'required_field_quotes': ['Owner: Alice'],
                        'features': {'question_form': 0, 'field': 'Owner', 'line_ending': 'LF', 'fence': '```', 'source_count': 1}}
                 base.save(root/f'private-{i}/key.json', {'cases': [key]})
-                base.save(root/f'run-{i}/DP00001/result.json', {'answer': {'claims': [{'text': text}]}})
+                claim = {'text': text, 'citations': [{'quote': text}]} if has_citation else {'text': text}
+                base.save(root/f'run-{i}/DP00001/result.json', {'answer': {'claims': [claim]}})
                 result = {'cases': [{'id': 'DP00001', 'family': 'field_literal', 'expected': 'answer',
                            'execution': 'completed', 'answer_supported': True,
                            'quotation_fidelity': fidelity, 'outcome': 'supported_semantics_unscored'}], 'metrics': {}}

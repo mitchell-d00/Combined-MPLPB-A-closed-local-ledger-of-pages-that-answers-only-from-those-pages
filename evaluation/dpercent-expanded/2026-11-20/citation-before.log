@@ -1,0 +1,12 @@
+======================================================================
+FAIL: test_scorer_checks_exact_values_and_does_not_award_missing_quotes (tests.test_dpercent_expanded.ExpandedDiceTests.test_scorer_checks_exact_values_and_does_not_award_missing_quotes)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/mplpb/tests/test_dpercent_expanded.py", line 76, in test_scorer_checks_exact_values_and_does_not_award_missing_quotes
+    self.assertEqual(scored['metrics']['correct_complete_answers'], expected_detection)
+AssertionError: 1 != 0
+
+----------------------------------------------------------------------
+Ran 1 test in 0.021s
+
+FAILED (failures=1)

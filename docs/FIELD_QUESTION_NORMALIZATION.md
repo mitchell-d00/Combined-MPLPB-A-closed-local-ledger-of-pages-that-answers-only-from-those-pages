@@ -5,7 +5,10 @@ Last reviewed: 2026-11-20.
 The strict pipeline accepts additional whole-question structures for literal
 body fields. For example, `Tell me the custody location listed on record ARCH-91.`
 and `Could you give me ARCH-91's custody location?` reach the existing exact-field
-checker. No field aliases or semantic model are used. `Current state` is not
+checker. Record-context questions (`In record ARCH-91, what does the custody
+location field say?`) and record-labelled imperatives (`Record ARCH-91: report
+the custody location.`) are also admitted through whole-question syntax.
+No field aliases or semantic model are used. `Current state` is not
 automatically equated to `Current Status`, and a status does not prove execution.
 
 The original question remains the policy input and output question. An additive

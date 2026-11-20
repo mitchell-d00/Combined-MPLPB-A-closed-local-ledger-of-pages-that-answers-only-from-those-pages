@@ -128,7 +128,10 @@ def score(packets,custodian,run,output):
         if key['automatic_answer_matcher']!='literal_field_set_v1' or row['execution']!='completed':continue
         answer=D.read(Path(run)/row['id']/'result.json')['answer']
         texts={c['text'] for c in answer.get('claims',[])}
-        match=texts==set(key['required_field_quotes']) and row['quotation_fidelity']
+        # The base scorer checks every present anchor. A field claim must also
+        # have an anchor: an empty citation list must not pass by vacuous truth.
+        match=(texts==set(key['required_field_quotes']) and row['quotation_fidelity']
+               and all(c.get('citations') for c in answer.get('claims',[])))
         if row['answer_supported'] and key['expected']=='answer':
             row['outcome']='detected_answer' if match else 'incorrect_supported_answer'
         row['literal_field_set_match']=match;row['features']=key['features']

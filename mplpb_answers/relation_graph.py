@@ -414,6 +414,8 @@ _FIELD_REQUEST_FORMS = (
     rf'(?:give|show|tell) me {_REQUEST_ID}\'s (?:the )?{_REQUEST_FIELD}',
     rf'find {_REQUEST_ID} and (?:report|show|give) its {_REQUEST_FIELD}',
     rf'(?:what|which) {_REQUEST_FIELD} is (?:explicitly )?(?:recorded|stated|listed) for (?:record|event|occurrence) {_REQUEST_ID}',
+    rf'in (?:record|event|occurrence) {_REQUEST_ID}, what does (?:the )?{_REQUEST_FIELD} field (?:say|state|record)',
+    rf'(?:record|event|occurrence) {_REQUEST_ID}: (?:report|show|give) (?:the )?{_REQUEST_FIELD}',
 )
 _FIELD_QUALIFIER = re.compile(
     r'\b(?:and|or|not|never|before|after|during|unless|if|according|'

@@ -64,3 +64,31 @@ Frozen-archive full checks use `python -m tools.reproduce_boundaries --revision 
 
 A premature archive preparation at `29584ff` was stopped before the native suite
 while correcting handoff review metadata. It is not a completed test run.
+
+## Continued gap repair and attribution inspection
+
+The known-error batch exposed two more whole-question classes: record context
+with a metalinguistic field request, and a record-labelled imperative. Four
+independently worded regression subcases failed before the fix (exit 1); 47
+focused tests pass afterward (exit 0). These classes now use the same literal
+field checker, preserving the whole question and all qualification boundaries.
+No aliases, compound completion or source-proof rules were added.
+
+B-Tests was inspected at commit7771497bb2aea6ae5f55fc9255798781bb45af22.
+Its native-suite wrapper invokes the target's own unittest suite and native tools;
+its separate randomized benchmark code invokes MPLPB's validator/sorter/workspace.
+The external public reproduction directly imports MPLPB ledger.write,
+pipeline.answer_query and reader.PROFILES. It does not import B-Tests, M6 or OOCC.
+The inspected code establishes these roles; it does not establish which private
+harness executed the original reported run. Software and pre-existing native
+infrastructure remain McPhetridge's contribution; the external fixture/questions
+and evaluation analysis remain separately attributable. No authorship transfer or
+undocumented use of B-Tests is inferred. Pinned sources and excerpts are retained
+in attribution-evidence.json.
+
+The first complete archive044ac27 passed1477 tests and52 public controls. A
+follow-up2aca624 archive run was interrupted by environment unavailability and
+has no final full-suite exit; its logs are retained under interrupted-followup.
+On recovery the workspace and completed evaluations remained intact. A new final
+candidate will rerun all native tests and the same1000-case expanded batch after
+the two additional syntax classes. Results remain pending until executed.

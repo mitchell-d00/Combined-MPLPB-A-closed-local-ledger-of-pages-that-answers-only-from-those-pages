@@ -36,6 +36,10 @@ class FieldQuestionForms(unittest.TestCase):
             'Which custody location is recorded for record ARCH-91?',
             'Show me the custody location for record ARCH-91.',
             "Please give me ARCH-91’s custody location.",
+            'In record ARCH-91, what does the custody location field say?',
+            'Record ARCH-91: report the custody location.',
+            'In occurrence ARCH-91, what does the custody location field state?',
+            'Event ARCH-91: show custody location.',
         ]
         for q in questions:
             with self.subTest(q=q):
@@ -59,6 +63,9 @@ class FieldQuestionForms(unittest.TestCase):
             'Show me the custody location for record ARCH-91? Was delivery completed?',
             'Was record ARCH-91 successfully completed?',
             'Tell me the current state listed on record ARCH-91.',
+            'In record ARCH-91, what does the custody location field say before correction?',
+            'Record ARCH-91: report the custody location and owner.',
+            'Record ARCH-91: report the custody location according to Bob.',
         ]:
             with self.subTest(q=q):
                 self.assertFalse(self.ask(q)['answer_supported'])
