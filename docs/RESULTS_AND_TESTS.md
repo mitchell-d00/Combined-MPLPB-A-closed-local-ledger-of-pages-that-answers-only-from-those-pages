@@ -2,6 +2,12 @@
 
 Last reviewed: 2026-11-20.
 
+[Adaptive Search](HISTORICAL_EXPERT_PATH.md#adaptive-search) adds an optional
+investigation scheduler. Its paired regression uses the same three-source budget
+to distinguish reaching an authorization record from spending the final visit
+on duplicate wording. Additional controls cover hop order, supersession,
+restricted sources, stale findings and the CLI.
+
 [Event identity, co-reference D4](D4_EVENT_IDENTITY_COREFERENCE.md) adds a sealed
 mixed benchmark, a focused acceptance gate and class-by-class case study.
 

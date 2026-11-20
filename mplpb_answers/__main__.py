@@ -123,7 +123,8 @@ def cmd_investigate(args):
     try:
         result=investigate(args.root,args.question,profile=R.PROFILES[args.profile],
             start_source_ids=args.source,max_hops=args.max_hops,max_sources=args.max_sources,
-            max_chars=args.max_source_chars,work_directory=args.work_directory)
+            max_chars=args.max_source_chars,work_directory=args.work_directory,
+            adaptive_search=args.adaptive_search)
     except (ValueError,OSError) as exc:
         print(json.dumps({'error':str(exc),'answer_supported':False}),file=sys.stderr)
         return 3
@@ -225,6 +226,8 @@ def build_parser():
     investigation.add_argument('--max-hops',type=int,default=2)
     investigation.add_argument('--max-sources',type=int,default=12)
     investigation.add_argument('--max-source-chars',type=int,default=200000)
+    investigation.add_argument('--adaptive-search',action='store_true',
+                               help='prioritize declared supersession and uncovered question terms within each hop')
     investigation.add_argument('--work-directory',help='new private directory to retain specialist work and host recovery credential')
     investigation.set_defaults(fn=cmd_investigate)
     reconstruction=sub.add_parser('reconstruct',help='inspect checked documentary evidence, candidate graph, layers and unresolved obligations')

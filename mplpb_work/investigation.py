@@ -54,7 +54,8 @@ def _chronology(observations):
             'notice': 'Declared document dates only. Git timestamps, observation time and event time are separate evidence bases.'}
 
 
-def _crawl(root, question, profile, start_source_ids, max_hops, max_sources, max_chars):
+def _crawl(root, question, profile, start_source_ids, max_hops, max_sources, max_chars,
+           *, adaptive_search=False):
     state = verification_snapshot(root, question, profile)
     eligible=_eligible(root,question,profile)
     available={identifier:{'id':identifier,'path':r.path,'hash':r.hash_actual}
@@ -72,6 +73,8 @@ def _crawl(root, question, profile, start_source_ids, max_hops, max_sources, max
     discovery_complete = len(eligible) <= 256
     discovery_chars=0
     query_terms=terms(question)
+    uncovered_terms=query_terms.copy()
+    body_hits={}
     for identifier,record in list(eligible.items())[:256]:
         prefix=record.body_html[:50000]
         if discovery_chars+len(prefix)>1000000:
@@ -80,7 +83,10 @@ def _crawl(root, question, profile, start_source_ids, max_hops, max_sources, max
         discovery_chars+=len(prefix)
         header=body_text(prefix)[:20000]
         headers[identifier]=documentary.extract(header)
-        score=len(query_terms & terms(header+' '+record.scope+' '+record.title))
+        header_terms=terms(header)
+        if adaptive_search:
+            body_hits[identifier]=query_terms & header_terms
+        score=len(query_terms & (header_terms | terms(record.scope+' '+record.title)))
         if score:ranked.append((-score,identifier))
         for item in headers[identifier]:
             if item['kind'] == 'document_identity':
@@ -89,11 +95,22 @@ def _crawl(root, question, profile, start_source_ids, max_hops, max_sources, max
         seeds=[identifier for _,identifier in sorted(ranked)[:min(max_sources,12)]]
     queue = [(identifier, 0) for identifier in seeds]
     visited, observations, edges, stops = [], [], [], []
-    queued = set(seeds)
+    queued = dict.fromkeys(seeds, 0)
+    supersession_targets=set()
+    truncated_hops=[]
     used = 0
     observation_budget_reached=False
     while queue:
-        identifier, depth = queue.pop(0)
+        next_index = 0
+        if adaptive_search and queue[0][1] > 0:
+            # Stay in the shallowest layer. Re-rank its frontier as earlier
+            # sources cover terms. These hints only schedule source inspection.
+            def priority(index):
+                target, hop = queue[index]
+                return (hop, target not in supersession_targets,
+                        -len(body_hits[target] & uncovered_terms), index)
+            next_index = min(range(len(queue)), key=priority)
+        identifier, depth = queue.pop(next_index)
         if identifier not in headers:
             stops.append({'source_id':identifier,'reason':'discovery_budget'})
             continue
@@ -112,6 +129,11 @@ def _crawl(root, question, profile, start_source_ids, max_hops, max_sources, max
             stops.append({'source_id':identifier,'reason':'observation_budget'})
             continue
         observation_budget_reached=observation_budget_reached or len(extracted)>=64
+        if adaptive_search:
+            if uncovered_terms:
+                uncovered_terms.difference_update(terms(body))
+            if len(extracted)>=64:
+                truncated_hops.append(depth)
         used += len(body)
         visited.append({'id':identifier,'path':source['path'],'hash':source['hash'],'depth':depth})
         source_observations = []
@@ -140,6 +162,8 @@ def _crawl(root, question, profile, start_source_ids, max_hops, max_sources, max
                 edge['status'] = 'ambiguous_target'
             else:
                 edge['target_source_id'] = matches[0]
+                if adaptive_search and depth < max_hops and observation['kind']=='supersedes':
+                    supersession_targets.add(matches[0])
                 if matches[0] in queued:
                     edge['status'] = 'already_discovered'
                 elif depth >= max_hops:
@@ -147,7 +171,7 @@ def _crawl(root, question, profile, start_source_ids, max_hops, max_sources, max
                 else:
                     edge['status'] = 'queued'
                     queue.append((matches[0], depth+1))
-                    queued.add(matches[0])
+                    queued[matches[0]] = depth+1
             edges.append(edge)
     # All endpoints are independently verified too; a header-index guess cannot
     # become a valid relationship target simply because the crawler selected it.
@@ -173,17 +197,27 @@ def _crawl(root, question, profile, start_source_ids, max_hops, max_sources, max
             elif edge['status'] in {'queued','already_discovered'}:
                 edge['status'] = 'traversed'
         verified_edges.append(edge)
-    return {'sources':visited,'observations':valid,'relations':verified_edges,
+    report = {'sources':visited,'observations':valid,'relations':verified_edges,
             'verification':verification,'snapshot':state,'seeds':seeds,
             'stops':stops,'discovery_complete':discovery_complete,
             'discovery_characters_examined':discovery_chars,
             'discovery_limits':{'sources':256,'source_html_prefix':50000,'total_html_characters':1000000},
             'source_characters_examined':used,
             'observation_budget_reached':observation_budget_reached}
+    if adaptive_search:
+        deepest = max((source['depth'] for source in visited), default=-1)
+        incomplete_hops = truncated_hops + [queued[stop['source_id']] for stop in stops]
+        completed = min([deepest + 1] + incomplete_hops)-1
+        report['adaptive_search'] = {
+            'deepest_visited_hop': deepest if deepest >= 0 else None,
+            'completed_hop': completed if discovery_complete and completed >= 0 else None,
+        }
+    return report
 
 
 def investigate(root, question, *, profile=None, start_source_ids=None, max_hops=2,
-                max_sources=12, max_chars=200000, work_directory=None, prose_candidates=False):
+                max_sources=12, max_chars=200000, work_directory=None, prose_candidates=False,
+                adaptive_search=False):
     """Run a bounded documentary investigation with three capability-gated seats.
 
     Omit work_directory for ephemeral work; an explicit new directory retains the
@@ -200,6 +234,7 @@ def investigate(root, question, *, profile=None, start_source_ids=None, max_hops
     if type(max_chars) is not int or not 1000<=max_chars<=1000000:
         raise ValueError('Character budget must be 1000–1000000')
     if type(prose_candidates) is not bool:raise ValueError('prose_candidates must be a boolean')
+    if type(adaptive_search) is not bool:raise ValueError('adaptive_search must be a boolean')
     profile = profile or PROFILES[DEFAULT_PROFILE]
     if profile.name not in PROFILES or profile != PROFILES[profile.name]:
         raise ValueError('Choose a known delivery profile')
@@ -212,11 +247,14 @@ def investigate(root, question, *, profile=None, start_source_ids=None, max_hops
             raise ValueError('Choose unique, currently eligible source identifiers')
     if work_directory is None:
         with tempfile.TemporaryDirectory(prefix='mplpb-history-') as directory:
-            return _run(root,question,profile,start_source_ids,max_hops,max_sources,max_chars,directory,False,prose_candidates)
-    return _run(root,question,profile,start_source_ids,max_hops,max_sources,max_chars,work_directory,True,prose_candidates)
+            return _run(root,question,profile,start_source_ids,max_hops,max_sources,max_chars,
+                        directory,False,prose_candidates,adaptive_search=adaptive_search)
+    return _run(root,question,profile,start_source_ids,max_hops,max_sources,max_chars,
+                work_directory,True,prose_candidates,adaptive_search=adaptive_search)
 
 
-def _run(root, question, profile, seeds, hops, count, chars, directory, persistent, prose_candidates=False):
+def _run(root, question, profile, seeds, hops, count, chars, directory, persistent,
+         prose_candidates=False, *, adaptive_search=False):
     initial = verification_snapshot(root,question,profile)
     store, authority = WorkStore.create(directory, {'investigation':Path(root).resolve()})
     if persistent:
@@ -242,12 +280,16 @@ def _run(root, question, profile, seeds, hops, count, chars, directory, persiste
     task={'goal':question,'criteria':list(criteria.values()),'review_budget':3,'state':'open','acceptance':{}}
     put('documentary','investigation','task',task)
     report={}
+    arguments={'question':question,'profile':profile.name}
+    if adaptive_search:
+        arguments['adaptive_search']=True
     def adapter(role):
         def run(request):
-            if request['action']['payload']['arguments'] != {'question':question,'profile':profile.name}:
+            if request['action']['payload']['arguments'] != arguments:
                 raise ValueError('Expert arguments changed')
             if role=='documentary':
-                report.update(_crawl(root,question,profile,seeds,hops,count,chars))
+                report.update(_crawl(root,question,profile,seeds,hops,count,chars,
+                                     adaptive_search=adaptive_search))
                 report['event_candidates']=inspect_events(root,question,profile,
                     [s['id'] for s in report.get('sources',[])],initial)
             elif role=='chronology':
@@ -270,7 +312,7 @@ def _run(root, question, profile, seeds, hops, count, chars, directory, persiste
     for role in ROLES:
         store.executors[OPERATIONS[role]]=adapter(role)
         action={'task':'investigation','task_revision':1,'operation':OPERATIONS[role],
-                'arguments':{'question':question,'profile':profile.name},'side_effect':'local',
+                'arguments':arguments,'side_effect':'local',
                 'executor_seat':role,'state':'proposed','retry_of':{},'retry_reason':''}
         identifier='inspect-'+role
         put(role,identifier,'action',action,dependencies)
