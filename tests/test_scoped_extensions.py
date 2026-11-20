@@ -148,6 +148,13 @@ class ScopedEvidenceTests(unittest.TestCase):
         self.assertEqual(len(result['unassigned_occurrences']), 3)
         self.assertEqual(result['candidates'], [])
 
+    def test_quoted_message_id_cannot_add_a_communication_candidate(self):
+        self.page('SRC-1', 'Message-ID: NOTE-8\nBody: First text')
+        write(self.root, doc_id='SRC-2', title='Example', scope='archive record',
+                     body_html='<blockquote><pre>Message-ID: NOTE-8\nBody: Quoted text</pre></blockquote>')
+        result = inspect_events(self.root, 'archive record')
+        self.assertEqual(result['communication_candidates'], [])
+
     def test_declared_event_id_cannot_collide_with_generated_shared_key_node(self):
         self.page('SRC-1','Event-ID: source-key:KEY-1\nMessage-ID: MSG-1\nBody: declared')
         self.page('SRC-2','Event-Key: KEY-1\nMessage-ID: MSG-2\nBody: appearance')

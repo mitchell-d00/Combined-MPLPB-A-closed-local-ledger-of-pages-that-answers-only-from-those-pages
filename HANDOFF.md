@@ -4,8 +4,8 @@ Last reviewed: 2026-11-20.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `2f173ca9b201a21ff01eb3aef720e9c4ac0deab7` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `3916a97650191127911a9fce1c7773c0538fb3e1efe29d6aa6bc5d63141a50e8`.
+Base commit: `2bba39e07abc6dccf6e99591d3df61c03ba8cf38` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `297b8964cbb3cdc100153cf6eb60fd05a415761c47df0f6cc839539cd34ed6e8`.
 
 ## Latest user update instructions
 
@@ -21,6 +21,7 @@ Cool continue the push
 - Keep source occurrence citations distinct from repeated Message-ID communication candidates in opt-in investigation.
 - Run the frozen expanded replay and historical development replay through acceptance automation. Preserve existing packets and test evidence.
 - Expose field decisions and citations in the browser and text CLI. Add opt-in reconstruction operations for exact wording, bounded writing-date comparison, and source-ID-linked request, dispatch and reported receipt.
+- Exclude HTML quotation spans from native field declarations and from new communication groupings.
 
 ## Validation recorded
 
@@ -30,6 +31,8 @@ Cool continue the push
 - First candidate: 52 public evidence controls passed; the historical development replay retained 3 complete, 2 partial, 3 conflicts and 14 abstentions.
 - The first GitHub acceptance attempt could not bind packets beneath the runner home directory. Worker logs retained the permission failure. The revised workflow places worker staging under /tmp.
 - The new pinned inspection controls and compound tests passed locally, as did the JavaScript documentary rendering and UI script checks.
+- The first candidate passed 1,519 local unittest cases with two sandbox-only skips and retained all 22 per-case historical outcomes.
+- Two new HTML quotation controls reproduced false compound support and a spurious communication candidate. Both controls pass after the quote-scope correction. The focused final set passed 61 tests.
 
 ## Limitations and blocked checks
 

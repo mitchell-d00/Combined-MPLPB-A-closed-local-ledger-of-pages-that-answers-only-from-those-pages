@@ -14,11 +14,13 @@ A missing field can leave a cited partial. A conflict remains a conflict. Two
 complete field proofs must share a source record or have a direct, pinned
 supersession between their sources. Both proofs share the same total citation
 budget. Before output, the reader rechecks both serving views and all inspected
-alias views. A source change discards the result.
+alias views. A source change discards the result. Fields inside HTML quotation
+blocks remain contextual mentions.
 
 The opt-in investigation output lists repeated explicit Message-ID declarations
 under `event_candidates.communication_candidates`. Each occurrence keeps its
-source pin, exact declaration and body digest. A body collision flags the
+source pin, exact declaration and body digest. Quoted Message-ID lines are
+excluded from grouping. A body collision flags the
 candidate for review. Matching wording and candidate membership leave event
 identity and co-reference unresolved.
 

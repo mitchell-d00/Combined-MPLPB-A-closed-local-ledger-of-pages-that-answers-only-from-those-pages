@@ -374,11 +374,16 @@ def declared_fields(record):
         if not m or field_name(m[1]) in {'body','example','sample','quoted example'}:
             boundary=offset;break
         offset+=len(line)
+    quoted_ranges = []
+    if boundary and re.search(r'<(?:blockquote|q)\b', record.body_html, re.I):
+        from .documentary_verify import context_ranges
+        quoted_ranges = context_ranges(record)
     return [{'field':field_name(m[1]), 'value':m[2].strip(), 'quote':m[0],
              'source_id':record.id, 'path':record.path, 'hash':record.hash_actual,
              'body_start':m.start(), 'body_end':m.end(), 'start':m.start(), 'end':m.end(),
              'stacked_field_suspected':bool(STACKED_LABEL.search(m[2]))}
-            for m in FIELD_LINE.finditer(body[:boundary])]
+            for m in FIELD_LINE.finditer(body[:boundary])
+            if not any(lo < m.end() and hi > m.start() for lo, hi in quoted_ranges)]
 
 
 # plain_to_html joins the lines of one paragraph with spaces, so a header block

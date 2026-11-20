@@ -98,3 +98,12 @@ class CompoundFieldTests(unittest.TestCase):
         self.assertFalse(answer['answer_supported'])
         self.assertEqual(answer['diagnostic']['code'], 'source_changed')
         self.assertEqual(answer['claims'], [])
+
+    def test_html_quotation_cannot_become_a_field_declaration(self):
+        ledger.write(self.root, doc_id='SHEET-A', title='Source quotation', scope='archive',
+                     body_html='<blockquote><pre>Accession Date: 1859-07-11\nShelf Code: R42</pre></blockquote>')
+        compound = self.ask('What are the accession date and shelf code for record SHEET-A?')
+        date = self.ask('What is the accession date for record SHEET-A?')
+        self.assertFalse(compound['answer_supported'])
+        self.assertFalse(date['answer_supported'])
+        self.assertFalse(compound['claims'])

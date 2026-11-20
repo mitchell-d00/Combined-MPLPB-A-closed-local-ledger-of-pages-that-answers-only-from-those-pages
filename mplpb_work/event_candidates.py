@@ -8,6 +8,7 @@ import hashlib
 import re
 
 from mplpb_answers.body_text import body_text
+from mplpb_answers.relation_graph import declared_fields
 from mplpb_combined.ledger import Ledger
 from mplpb_combined import provenance_gate as G
 from mplpb_combined.reader import PROFILES, DEFAULT_PROFILE
@@ -77,11 +78,15 @@ def inspect_events(root,question,profile=None,source_ids=None,expected_snapshot=
                     'body_sha256':hashlib.sha256(body[body_start:].encode()).hexdigest(),
                     'citations':list(fields.values()),'identity_basis':'explicit_source_identifiers',
                     'answer_supported':False,'content_truth_verified':False}
-        if 'message-id' in fields:
+        message_span = fields.get('message-id')
+        if message_span and any(
+                row['field'] == 'message id' and row['body_start'] == message_span['start']
+                and row['body_end'] == message_span['end'] and not row['stacked_field_suspected']
+                for row in declared_fields(record)):
             messages[message].append({
                 'occurrence_id': occurrence['occurrence_id'], 'source_id': record.id,
                 'path': record.path, 'hash': record.hash_actual,
-                'body_sha256': occurrence['body_sha256'], 'message_id_citation': fields['message-id'],
+                'body_sha256': occurrence['body_sha256'], 'message_id_citation': message_span,
             })
         if event:groups[('declared_event_id',event)].append(occurrence)
         else:unassigned.append(occurrence)
