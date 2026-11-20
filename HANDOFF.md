@@ -1,55 +1,60 @@
 # Repository handoff
 
-Last reviewed: 2026-11-19.
+Last reviewed: 2026-11-20.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `a90e255ecea5da4fd5d3515b44c8b77952347251` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `cc59e5f1444fa6c972a946cf5c3dc2de0d2556a840c69fedafde3309b1d7ca8f`.
+Base commit: `624eeb9bbe539bdd6695dae864905db51a91321f` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `6b9f52916845d90e74f87d28ad4bce81c568cd9f419fb80ab9f9ad7a7f911e6f`.
 
 ## Latest user update instructions
 
-Note failure then fix it
+M6 sorry 8 meant it’s not shared or anything be explicit the package don’t include i5
 
 ## Implemented scope
 
-- User approved archival document inspection as primary research focus, completeness first, five-minute tutorial, compact benchmark dashboard and honest blind-evaluation preparation.
-- Latest steering prioritizes H07: independently checked source event/date links, exact evidence and composition without causality or event-identity invention. No denial-class rule was added.
-- Extend existing documentary kernel/composer/admission for generic bounded date inventories, separate catalogue/review/narrative dates, and same-clause relative-day arithmetic with explicit calendar convention and unknown years.
-- Add offline fictional tutorial, retained-evidence dashboard and anonymous paired development-review exporter compatible with existing human-review validator.
-- External reference pages were researched for context only; no search material was imported into ledger/runtime or counted as human review.
-- Published implementation, full failed/successful evidence, tutorial, dashboard and raw-source review packets in open PR56: https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/pull/56 . No merge authorized for this new PR.
+- General whole-question literal field-request syntax in the existing exact parser; additive inspectable normalization; no core authority changes.
+- Unchanged public reproduction preserved with baseline at published bbf6690 and pre-change 3483b1a; new tests and exact CSV scoring.
+- Separate follow-up branch feature/field-question-normalization based on unmerged PR56; no merge performed.
+- Additional instruction: write a response paper to the 19 November public evaluation after tests complete, citing the original paper/package members and reproducible source tests.
+- Implement optional expanded D% generator/scorer around existing isolated worker;48 semantic families;1000cases frozen; all dice/keys hash-pinned in separate custody.
+- User supplied another parser-only verification account; distinguish that from our completed full engine replay. Do not manufacture independent semantic review.
+- Inspect B-Tests per preceding instruction; record exact software/test/harness attribution, distinguishing unsupported M6/OOCC claims.
+- Address general additional record-context and labelled-imperative question structures exposed by frozen stress batch, not individual fixtures.
+- Harden post-run field scorer against matching text without citations; source packets/keys/dice unchanged, initial/hardened scores identical.
+- Completed B-Tests inspection at7771497 and explicit attribution section in response paper; no undocumented B-Tests/M6/OOCC execution claimed.
+- User attachment is byte-identical to the downloaded public ZIP:60 files; no M6 implementation supplied. Paper explicitly states M6 was not shared in that package or available for inspection/execution.
+- Rendered response paper by Mitchell D. McPhetridge in Markdown, TXT and8-page PDF with hash manifest, citing the publication package, all members via inventory, own code/tests and remaining gaps.
+- Published source and findings in PR57 against main so exact-head archive/browser CI runs; includes the explicitly noted unmergedPR56 dependency. URL:https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/pull/57. No merge performed.
 
 ## Validation recorded
 
-- Exact baseline bc6f25c frozen in a sparse detached worktree before engine edits. Full1240-case D%run completed:200/600 correct complete,640/640 expected refusals,zero observed false support.
-- Actual before-fix event-date test suite exited1 with5 failures; logs retained. General independent-vocabulary positive/negative/calendar/source-state controls pass in working tree.
-- Working-tree H07 now has a source-supported date inventory; no complete22-case updated study or full regression pass claimed yet.
-- Full baseline22-original study retained; source seals and original documents unchanged.
-- Rejected ebe8a3d after three independent-vocabulary actor-clause counterexamples falsely returned support. Failing control exit1 and raw partial outputs retained.
-- Stopped only task-owned rejected-candidate D%parent (exit143) and archived suite child (exit-15). Partial D%overall E/F null; no partial software pass claimed.
-- General fix requires a full literal named/declared-collective actor and main predicate; arbitrary prefixes cannot swallow reporting, proposal or near-miss language. All67 focused tests passed after repair; final full-run validation still pending.
-- Corrected frozen ee85ab3:1468 full Python tests, native boundaries and52 public controls passed, all exit0.
-- Full corrected D%1240/1240 complete:200/600 matched supported,640/640 expected refusals,no false support; require-perfect exits1 for remaining400 positives.
-- Archived22-record run:3 complete,2 partial,3 conflict,14 abstain. OnlyH07 changes meaning; other21 native claims/citations/unresolved content preserved. Independent correctness not reviewed.
-- Tool-only follow-up adds exact original bytes/import mappings to anonymous review exports; native packages/tests unchanged fromee85ab3.
-- Only H07 changes semantic native result; all21 other native claims, citations, diagnostics and unresolved meanings preserved. Five H07 citations round-trip to exact original source bytes.
-- Final anonymous22-case/44-output packet export includes raw originals and mappings, with private custody crosswalk outside Git. Existing human validator rejects blank reviews; no independent review fabricated.
-- Dashboard separates synthetic key rates, authentic native counts and null independent historical metrics.
-- All prior frozen corpora/questions/keys/reports and mplpb_combined core remain unchanged. Internal date-rule scan caps are disclosed separately from unchanged answer admission and D%sandbox limits.
+- Completed archive044ac27:1477 Python tests and52 public controls passed. Public unchanged1100 probes:900 supported exact field-value matches,200 refusals.
+- Original frozen1240D%:200/600 matched completes,640/640 expected refusals,no execution failures.
+- Original22historical replay retains3 complete,2 partial,3 conflicts,14 abstentions.
+- Expanded1000baseline:156/420 matched complete,264 over-refusals,580/580 refusals,zero failed executions or unscored supported.
+- Scorer missing-citation mutation failed before hardening; all5 generator/scorer tests pass afterward;1000 real scores unchanged.
+- Two more syntax classes: four independent-vocabulary subcases failed before repair; all47 focused tests passed after repair.
+- Follow-up full2aca624 suite interrupted by environment unavailability; no final exit code, no pass inferred. Retained partial logs and source ZIP.
+- Final frozen9b5ff0c:1482 full Python tests,52 public controls and boundary subset passed, all exit0. Native packages/tools/tests unchanged since final freeze.
+- Final unchanged public replay900/900 supported with exact field values;200/200 negative refusals;900 citations independently reread for exact source anchors and current default-profile eligibility.
+- Final expanded1000 replay:168/420 key-matched complete,252 over-refusals,580/580 refusals,no failed/unscored executions. Twelve gains,no lost complete or new false support; identical packet/key/dice seals.
+- Final22 original contracts identical except code hashes; source/question seals preserved. Outcomes3 complete,2 partial,3 conflict,14 abstain.
+- Final UI script, JS API, transport and crawler checks each exit0; CLI accepted literal form exit0 and refused time-qualified/external variants exit3 as expected.
+- PDF read back successfully:8 pages, correct title/author, M6-not-supplied statement present. Paper-only software tests not added.
 
 ## Limitations and blocked checks
 
-- Source assertion support is not historical truth; missing year, source calendar, event identity and actual telegram dispatch/receipt remain unverified.
-- Locator examines at most64 sources/2MiB and selected source at most16000 characters/256 units. Source scopes and known corrections can over-refuse unfamiliar records.
-- Independent human review, genuine unseen200-question evaluation and fresh blinded AI assessment are NOT RUN.
-- Dashboard synthetic rates are developer-key metrics; authentic historical semantic precision, recall and refusal correctness remain null.
+- 252 expanded developer-key answerable cases remain incomplete:12 families of21 each, including aliases/compound requests and historical-prose composition.
+- No independent semantic/human review, unseen evaluation, M6 implementation inspection or live-model run. Historical semantic accuracy remains null.
+- Actual browser/WASM/deployed-site checks not rerun locally. Final native tests apply to9b5ff0c; subsequent edits are evidence/docs and an executed read-only citation audit script.
+- This feature branch depends on unmergedPR56. No new merge or deployment authorized/performed.
 
 ## Next steps
 
-- Inspect exact-final-head PR56 CI; do not merge without new user authorization.
-- Independent review remains NOT RUN. For fresh AI assessment supply only anonymous public packets, never private crosswalk, scores or change log; label it AI assessment. Real unseen/human evaluation remains separate.
-- Next general source proof classes: causal/resource composition with OCR/quotation scope and legal discretion/term limits. Preserve all failures, historical originals and frozen labels; no case-specific runtime rules.
+- Inspect exact-final-head PR57 CI, including archive-first/browser gates; local native checks do not establish deployment. PR56 remains an unmerged dependency.
+- Do not merge without user authorization. Independent semantic/human review and M6 inspection remain NOT RUN/unavailable.
+- Next general proof classes are the12 remaining positive stress families; preserve frozen inputs and all negative controls, never hard-code case IDs or relabel failures.
 
 ## Use this ZIP in your repository
 

@@ -161,6 +161,8 @@ def _answer_query(root, question, profile=None, *, mode, reader, min_confidence,
                 'verification': {'structural': False, 'semantic': 'not_run', 'truth_verified': False, 'independence_verified': False},
                 'reader': None, 'trace': [], 'diagnostic': {}, 'code_sha256': code_pins()}
     result = QueryResult(contract, strict, initial_gate.to_dict())
+    if 'question_normalization' in exact:
+        contract['question_normalization'] = copy.deepcopy(exact['question_normalization'])
 
     def finish(kind, code, message, stage):
         try:

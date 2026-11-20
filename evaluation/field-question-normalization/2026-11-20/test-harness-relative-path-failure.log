@@ -1,0 +1,19 @@
+======================================================================
+ERROR: test_corrupt_and_withdrawn_sources (tests.test_field_question_forms.FieldQuestionForms.test_corrupt_and_withdrawn_sources)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/mplpb/tests/test_field_question_forms.py", line 103, in test_corrupt_and_withdrawn_sources
+    path.write_text(path.read_text().replace('East vault', 'Forged vault'))
+                    ^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/pathlib.py", line 1027, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/pathlib.py", line 1013, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'source-3.html'
+
+----------------------------------------------------------------------
+Ran 9 tests in 0.174s
+
+FAILED (errors=1)

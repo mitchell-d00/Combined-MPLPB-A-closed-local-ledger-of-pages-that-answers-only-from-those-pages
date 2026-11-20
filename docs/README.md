@@ -1,6 +1,12 @@
 # Documentation index
 
-Last reviewed: 2026-11-19.
+Last reviewed: 2026-11-20.
+
+[New response paper: source attribution, reproduction and remaining gaps](research/field-question-normalization/README.md)
+provides Markdown/TXT/PDF, 1,482 passing native tests,900/900 public field matches,
+and a frozen stress improvement from 156 to 168/420, with 580/580 refusals retained.
+M6 is not included in the supplied public package. Historical accuracy remains
+unmeasured; 252 generated positive obligations remain unresolved.
 
 [Repository overview](../README.md) · [Package guide](PACKAGE_GUIDE.md) · [Install](INSTALLATION.md) · [Current evidence](CURRENT_STATUS.md)
 · [Live application](https://mitchell-d00.github.io/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/)

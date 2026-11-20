@@ -1,0 +1,13 @@
+======================================================================
+ERROR: test_corrupt_and_withdrawn_sources (tests.test_field_question_forms.FieldQuestionForms.test_corrupt_and_withdrawn_sources)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/mplpb/tests/test_field_question_forms.py", line 102, in test_corrupt_and_withdrawn_sources
+    path = next(p for p in self.root.rglob('*.html') if 'SOURCE-3' in p.name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+StopIteration
+
+----------------------------------------------------------------------
+Ran 9 tests in 0.170s
+
+FAILED (errors=1)

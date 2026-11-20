@@ -1,6 +1,17 @@
 # Current implementation and evidence status
 
-Last reviewed: 2026-11-19.
+Last reviewed: 2026-11-20.
+
+[New response paper: source attribution, reproduction and remaining gaps](research/field-question-normalization/README.md)
+provides Markdown/TXT/PDF, 1,482 passing native tests,900/900 public field matches,
+and a frozen stress improvement from 156 to 168/420, with 580/580 refusals retained.
+M6 is not included in the supplied public package. Historical accuracy remains
+unmeasured; 252 generated positive obligations remain unresolved.
+
+[Bounded field-question normalization](FIELD_QUESTION_NORMALIZATION.md) adds ordinary literal-field
+request structures while retaining strict source verification. Its public synthetic
+reproduction improves paraphrase support from 0/750 to 750/750; broader semantic
+and historical accuracy remain unmeasured.
 
 [Package guide](PACKAGE_GUIDE.md) · [Current documentation](README.md)
 · [Result/test index](RESULTS_AND_TESTS.md) · [Preserved history](../PAST_DOCUMENTATION.md)

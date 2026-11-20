@@ -1,6 +1,17 @@
 # Combined MPLPB
 
-Last reviewed: 2026-11-19.
+Last reviewed: 2026-11-20.
+
+[New response paper: source attribution, reproduction and remaining gaps](docs/research/field-question-normalization/README.md)
+provides Markdown/TXT/PDF, 1,482 passing native tests,900/900 public field matches,
+and a frozen stress improvement from 156 to 168/420, with 580/580 refusals retained.
+M6 is not included in the supplied public package. Historical accuracy remains
+unmeasured; 252 generated positive obligations remain unresolved.
+
+[Bounded field-question normalization](docs/FIELD_QUESTION_NORMALIZATION.md) adds ordinary literal-field
+request structures while retaining strict source verification. Its public synthetic
+reproduction improves paraphrase support from 0/750 to 750/750; broader semantic
+and historical accuracy remain unmeasured.
 
 Combined MPLPB is a closed local ledger with tools for raw-material sorting,
 bounded source questions, documentary inspection and retained work history.

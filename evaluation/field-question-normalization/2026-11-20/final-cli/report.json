@@ -1,0 +1,49 @@
+[
+  {
+    "command": [
+      "python",
+      "-m",
+      "mplpb_answers",
+      "ask",
+      "/tmp/mplpb-paper-reproduction-20261120/final-run/fixtures/REC-0001",
+      "In record REC-0001, what does the current status field say?",
+      "--json"
+    ],
+    "exit_code": 0,
+    "answer_supported": true,
+    "expected_support": true,
+    "matched": true
+  },
+  {
+    "command": [
+      "python",
+      "-m",
+      "mplpb_answers",
+      "ask",
+      "/tmp/mplpb-paper-reproduction-20261120/final-run/fixtures/REC-0001",
+      "In record REC-0001, what does the current status field say before the revision?",
+      "--json"
+    ],
+    "exit_code": 3,
+    "answer_supported": false,
+    "expected_support": false,
+    "matched": true
+  },
+  {
+    "command": [
+      "python",
+      "-m",
+      "mplpb_answers",
+      "ask",
+      "/tmp/mplpb-paper-reproduction-20261120/final-run/fixtures/REC-0001",
+      "In record REC-0001, what does the current status field say?",
+      "--json",
+      "--profile",
+      "external"
+    ],
+    "exit_code": 3,
+    "answer_supported": false,
+    "expected_support": false,
+    "matched": true
+  }
+]
