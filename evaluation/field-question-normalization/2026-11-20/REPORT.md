@@ -61,3 +61,6 @@ speedup. Source fixture imports are excluded from CSV scorer timing.
 See [usage and commands](../../../docs/FIELD_QUESTION_NORMALIZATION.md).
 Frozen-archive full checks use `python -m tools.reproduce_boundaries --revision SHA
 --output NEW_DIRECTORY --suite full`. The final report identifies the tested SHA.
+
+A premature archive preparation at `29584ff` was stopped before the native suite
+while correcting handoff review metadata. It is not a completed test run.
