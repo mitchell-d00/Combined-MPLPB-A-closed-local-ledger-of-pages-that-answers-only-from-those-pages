@@ -27,6 +27,9 @@ def cmd_ask(args):
     data = result.legacy()
     if args.json:
         print(json.dumps(data, indent=2, ensure_ascii=False))
+    elif 'collection_filter' in result.contract:
+        print(result.contract['kind'].upper().replace('_', ' '))
+        print(result.contract['text'] or result.contract['diagnostic']['message'])
     elif result.contract.get('question_parts'):
         contract = result.contract
         print(contract['kind'].upper().replace('_', ' '))

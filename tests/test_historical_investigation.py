@@ -149,6 +149,36 @@ class HistoricalInvestigationTests(unittest.TestCase):
         self.assertEqual([s['id'] for s in report['sources']],['SRC-0001'])
         self.assertLessEqual(report['discovery_characters_examined'],1000000)
 
+    def test_complete_index_resolves_beyond_old_limit_and_detects_ambiguity(self):
+        from mplpb_combined.record import render_page
+        from mplpb_work.investigation import _crawl
+        seed = self.page('SRC-0001', 'DOC-101', 'DOC-202 v1')
+        original = dict(Ledger(self.root).by_id[seed.id][0].fields)
+        for i in range(2, 257):
+            identity = f'SRC-{i:04d}'
+            fields = {**original, 'document-id': identity}
+            body = f'<pre>Document ID: PADDING-{i:04d}</pre>'
+            (self.root/f'{identity.lower()}.html').write_text(render_page(fields, identity, body))
+        self.page('SRC-0257', 'DOC-202')
+        options = (self.root, 'archival records', PROFILES['internal'], ['SRC-0001'],
+                   2, 5, 12000)
+        report = _crawl(*options, adaptive_search=True)
+        self.assertTrue(report['discovery_complete'])
+        self.assertEqual(report['relations'][0]['status'], 'traversed')
+        self.page('SRC-0258', 'DOC-202')
+        report = _crawl(*options, adaptive_search=True)
+        self.assertEqual(report['relations'][0]['status'], 'ambiguous_target')
+
+    def test_classing_provenance_ends_related_field_without_becoming_a_target(self):
+        write(self.root, doc_id='SRC-0001', title='Archive witness', scope='archival records',
+              body_html=('<pre>Document ID: DOC-101</pre><pre>Related: DOC-202</pre>'
+                         '<pre>Classing source SHA-256: sha256:bogus</pre>'))
+        self.page('SRC-0002', 'DOC-202')
+        report = self.crawl(adaptive_search=True)
+        self.assertEqual([(e['target_document_id'], e['status']) for e in report['relations']],
+                         [('DOC-202', 'traversed')])
+        self.assertEqual(report['relations'][0]['citation']['quote'], 'Related: DOC-202')
+
     def test_original_question_exclusions_and_external_profile_hold_at_each_hop(self):
         self.page('SRC-0001','DOC-101','DOC-202 v1')
         self.page('SRC-0002','DOC-202',not_for='sensitive')

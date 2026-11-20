@@ -101,6 +101,20 @@ const documentaryPartial=await call('/api/query',{corpus:documentaryCollection.c
 if(documentaryPartial.reader.answer_contract?.kind!=='partial_answer'||documentaryPartial.reader.answer_supported)
  throw Error('WASM documentary partial answer overclaimed: '+JSON.stringify(documentaryPartial));
 console.log('PASS WASM checked documentary assertions and partial composition');
+const predicateCollection=await call('/api/collections/create',{name:'Collection predicates smoke'});
+for(const [title,method] of [['Cold preparation','No cook'],['Hot preparation','Cook on stovetop']]){
+  await call('/api/source/import',{corpus:predicateCollection.corpus,title,
+    url:'https://example.org/'+title.toLowerCase().replace(' ','-'),
+    text:'Occasion: Picnic\n\nPreparation: '+method});
+}
+const predicate=await call('/api/query',{corpus:predicateCollection.corpus,
+  question:'Which records where Occasion is picnic and Preparation is no cook?'});
+const predicateProof=predicate.reader.answer_contract;
+if(!predicateProof.answer_supported||predicateProof.claims.length!==1||
+  predicateProof.collection_filter.evaluated_records!==2||
+  predicateProof.claims[0].citations.map(c=>c.quote).join('|')!=='Occasion: Picnic|Preparation: No cook')
+  throw Error('WASM collection modifier proof failed: '+JSON.stringify(predicate));
+console.log('PASS WASM collection conjunction distinguishes explicit no-cook');
 const framedCollection=await call('/api/collections/create',{name:'Framed source comparison smoke'});
 await call('/api/source/import',{corpus:framedCollection.corpus,title:'Draft record',url:'https://example.org/draft',
  text:'(This is Professor Clara Reed\'s reconstruction of Iris Vale\'s "original Rough draught" of the Harbor Charter before it was revised by the council.)\n\nWe hold these rules to be fair and binding.'});

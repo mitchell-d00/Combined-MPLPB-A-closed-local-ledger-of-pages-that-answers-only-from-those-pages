@@ -4,36 +4,42 @@ Last reviewed: 2026-11-20.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `27f6fe9ed9be1ed39ddb7721deeb82cf9e2ad4de` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `362a996a3b33152ec1e66dd10658057c9a09e9a87955911193e1b3dd959e170b`.
+Base commit: `fef46d16773aa1fdd5ea5114594ca14d023ffc2e` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `54dd23c6e34d07d2351dd18d109b27c18cbc449c0c7bf96465690d4f3e9d774d`.
 
 ## Latest user update instructions
 
-Do do search update call it adaptive search   Is that aproprate
+That gives us two concrete priorities: add source-verified field predicates for conjunction and explicit absence, and resolve declared links against a complete, verified source index across batches. The three collections supplied separate source-backed observations. The test established cross-batch traversal within a ledger, and the foreign-ledger control preserved the corpus boundary.
+Just an idea A modifying rule that can define no cook vs cook on modifying relationship rules. Then once it’s finished testing push it all to main
 
-Once we are done we will rewrite the paper is A search works
+Update readme on the automation in mplpb systems do
+
+And how it builds it all for user from sloppy data
+
+That aspect makes it more usable for everyone full automation explanations
 
 ## Implemented scope
 
-- Add optional Adaptive Search to the native documentary investigate CLI and Python API.
-- Preserve seed order and breadth-first hop boundaries. Prioritize declared supersession targets and question terms not yet encountered within a hop.
-- Report the deepest visited hop and deepest completed hop. Preserve checked findings under existing evidence and source-state verification.
+- Add strict, bounded collection predicates for literal field equality, item membership, explicit absence and same-record conjunction. Preserve no-cook declarations separately from cooking methods and missing evidence.
+- Index declared identities throughout the eligible ledger under explicit discovery bounds. Independently verify the visited endpoints, refuse ambiguous or incomplete discovery, and keep classing provenance out of Related targets.
+- Explain intake, automated classing, review, append, validation, search and release automation in the README and collection automation guide.
 
 ## Validation recorded
 
-- The authored paired test first failed because the requested mode was unavailable. After implementation, the same three-source budget reached the authorization document while discovery order reached a duplicate.
-- Thirty-nine focused investigation, verifier, reference identity and D4 test cases passed. Documentation and repository infrastructure audits passed.
-- Both the unchanged main baseline and candidate each passed all 52 public-evidence controls on replay. An earlier candidate run returned one intermittent invalid_budget outcome in a completion-receipt control; it did not recur in the isolated probe or paired replay.
+- Two independently worded collection controls failed before implementation. The focused native suite ran 93 passing tests across predicate, documentary, D4, reference and policy behavior; all 52 public evidence controls passed.
+- Saved 1000-card recipe and RPG replays returned exactly one cilantro birthday no-cook result and seven level-3 evocation spells. The saved water replay verified 334 explicit absence records and left 333 missing declarations unresolved; the output budget withheld a complete list.
+- Native crawler-core replays traversed both declared hops in each saved 1004-page linked ledger, with no SHA-256 target and with the foreign target unavailable. A regression detects an eligible duplicate beyond the former 256-page cutoff.
+- The new real Pyodide API smoke distinguished explicit no-cook from stovetop preparation. Documentation and infrastructure audits passed.
 
 ## Limitations and blocked checks
 
-- Adaptive Search is opt-in. The ranking uses lexical coverage and declared links as scheduling signals. It does not grant answer support, discover undeclared links, or establish historical truth.
-- Authored comparisons establish the specific scheduling behavior. Broad retrieval benefit, latency and independently checked historical accuracy have not been measured.
+- The collection grammar is bounded. Arbitrary natural-language questions, field-scoped revisions, and queries under scope-only delivery can still require clarification or refusal. The natural Voyager question requires a separate admitted form.
+- Result display remains subject to the existing evidence budget. Documentary traversal is confined to the selected ledger and its bounded, current source inventory.
 
 ## Next steps
 
-- Validate the frozen candidate ZIP and its release checks before merge.
-- After successful verification, update the research paper with the observed bounded result and remaining research questions.
+- Run the exact PR-head archive, D4 and release checks before merging, then verify Pages postdeployment.
+- Extend the three-collection comparison with additional independently reviewed cases and explicit type and title qualifiers.
 
 ## Use this ZIP in your repository
 

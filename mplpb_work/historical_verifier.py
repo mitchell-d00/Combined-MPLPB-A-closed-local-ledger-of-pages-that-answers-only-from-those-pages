@@ -96,7 +96,7 @@ def _headers(body):
             for nxt_start, nxt_line, nxt_field in lines[i+1:]:
                 clean = nxt_line.replace('**','').strip()
                 if (nxt_field or (value and not nxt_line.strip())
-                        or re.match(r'^(?:Back to|Implementation|What changed)\b',clean,re.I)
+                        or re.match(r'^(?:Back to|Implementation|What changed|Classing source (?:file|SHA-256|bytes))\b',clean,re.I)
                         or re.fullmatch(r'[-=_]{3,}',clean)):
                     break
                 end = nxt_start + len(nxt_line)
@@ -125,6 +125,12 @@ def _declarations(blocks):
                 dates.add(match[1])
             versions.update(re.findall(r'\bv\d+\b', block['value']))
     return identities, dates, versions
+
+
+def declared_identities(body):
+    """Independent index projection. Ambiguous declarations remain visible."""
+    identities, _, versions = _declarations(_headers(body))
+    return identities, versions
 
 
 def _negative(value):

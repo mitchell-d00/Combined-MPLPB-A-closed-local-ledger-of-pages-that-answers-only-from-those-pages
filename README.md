@@ -308,6 +308,22 @@ retained. This demonstrates assembly preservation, not a gain in historical
 answer coverage or independent accuracy. The next research milestone is a
 checked cross-document connection with evidence for every necessary link.
 
+## From a raw dump to a checked collection
+
+The native workflow can organize raw UTF-8 text and Markdown, propose records
+and review links, and automatically accept clean drafts with unique declared IDs.
+Classing rereads the source files, seals and validates the approved records, and
+can append bounded batches into one ledger. Pending drafts retain the source
+evidence for review. The [collection automation guide](docs/COLLECTION_AUTOMATION.md)
+walks through the exact commands and what to do when the input is messy.
+
+Once built, strict collection predicates can combine fields and check explicit
+absence. For example, `Preparation is no cook` reads the declared preparation,
+and a missing water field stays unresolved. Adaptive Search resolves declared
+links through the verified source inventory across ingestion batches. The
+[release automation](docs/ZIP_FIRST_RELEASE_TESTING.md) runs the regression suite
+against the frozen source archive and checks the deployed browser after merge.
+
 ## Development, packaging and licenses
 
 The [developer guide](docs/DEVELOPER_QUICKSTART.md) maps the implementation;

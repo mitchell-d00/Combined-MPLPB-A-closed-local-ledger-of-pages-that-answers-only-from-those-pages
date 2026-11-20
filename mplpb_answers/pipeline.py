@@ -5,7 +5,7 @@ from pathlib import Path
 from .body_text import body_text
 from dataclasses import dataclass, field
 from mplpb_combined.reader import PROFILES, DEFAULT_PROFILE
-from .support import supported_answer, code_pins
+from .support import SupportedAnswer, supported_answer, code_pins
 from .frames import parse
 from . import literal_evidence, practical_evidence, policy_evidence, operational_evidence, relation_graph, procedures
 from .evidence_contract import (VERSION, ReaderError, pin, canonical, shape, text,
@@ -116,7 +116,9 @@ class QueryResult:
         if self.contract['kind'] != 'supported_answer' and (self.contract['mode'] == 'assisted' or self.strict.kind == 'return'):
             data.update(kind=self.contract['kind'] if self.contract['mode'] == 'assisted' else 'not_in_corpus', text=self.contract['text'],
                         reason=self.contract['diagnostic']['message'], citation='', candidates=[])
-        if self.contract['diagnostic'].get('code') in {'partial_procedure_evidence', 'procedure_selection_needed', 'partial_documentary_evidence', 'compound_field_incomplete'}:
+        if ('collection_filter' in self.contract or self.contract['diagnostic'].get('code') in {
+                'partial_procedure_evidence', 'procedure_selection_needed', 'partial_documentary_evidence',
+                'compound_field_incomplete'}):
             data.update(text=self.contract['text'], reason=self.contract['diagnostic']['message'])
         return data
 
@@ -134,7 +136,11 @@ def answer_query(root, question, profile=None, *, mode='strict', reader=None, mi
         raise ValueError('Invalid passage admission budget')
     from mplpb_combined.ledger import serving_view
     from .compound_fields import parse_question
+    from .collection_fields import parse as parse_collection
     from .reference_identity import parse_request
+    filters = parse_collection(question) if mode == 'strict' and relation_hops is None else None
+    if filters and any(value is not None for value in (record_id, field, exact_value, as_of)):
+        raise ValueError('Collection predicates require an unscoped current collection')
     identity = parse_request(question)
     if identity and any(value is not None for value in (record_id, field, exact_value)):
         raise ValueError('Source selectors are already specified by the reference question')
@@ -150,11 +156,11 @@ def answer_query(root, question, profile=None, *, mode='strict', reader=None, mi
     with serving_view(as_of,request['field']),source_suggestions(source_hints):
         return _answer_query(root,question,profile,mode=mode,reader=reader,min_confidence=min_confidence,
                              max_passages=max_passages,max_chars=max_chars,exact=request,relation_hops=relation_hops,
-                             compound=compound,as_of=as_of,identity=identity)
+                             compound=compound,as_of=as_of,identity=identity,filters=filters)
 
 
 def _answer_query(root, question, profile=None, *, mode, reader, min_confidence,
-                  max_passages, max_chars, exact, relation_hops, compound=None, as_of=None, identity=None):
+                  max_passages, max_chars, exact, relation_hops, compound=None, as_of=None, identity=None, filters=None):
     if not isinstance(question, str) or not question.strip() or len(question) > 4000:
         raise ValueError('Question must contain 1–4000 characters')
     if mode not in {'strict', 'assisted'}:
@@ -165,9 +171,15 @@ def _answer_query(root, question, profile=None, *, mode, reader, min_confidence,
             or type(max_chars) is not int or not 1000 <= max_chars <= 64000):
         raise ValueError('Invalid retrieval budget')
     profile = profile or PROFILES[DEFAULT_PROFILE]
-    initial_gate = G.gather(root, question, profile)
+    def gather():
+        if filters:
+            return G.gather(root, question, profile, all_eligible=True)
+        return G.gather(root, question, profile)
+
+    initial_gate = gather()
     initial_state = _state(initial_gate)
-    strict = supported_answer(root, question, profile)
+    strict = (SupportedAnswer('not_in_corpus', question, profile, str(Path(root).resolve()))
+              if filters else supported_answer(root, question, profile))
     contract = {'schema': VERSION, 'mode': mode, 'question': question, 'kind': 'abstain',
                 'answer_supported': False, 'text': '', 'claims': [], 'missing': [], 'clarification': '',
                 'confidence': None, 'confidence_calibrated': False, 'sources': [], 'retrieval': {},
@@ -180,7 +192,7 @@ def _answer_query(root, question, profile=None, *, mode, reader, min_confidence,
     def finish(kind, code, message, stage, compound_views=None):
         assurance_gate = None
         try:
-            fresh = G.gather(root, question, profile)
+            fresh = gather()
             unchanged = _state(fresh) == initial_state and Path(strict.root).resolve() == initial_gate_root
             if unchanged and exact.get('alias_resolution'):
                 from .field_aliases import unchanged as aliases_unchanged
@@ -197,6 +209,7 @@ def _answer_query(root, question, profile=None, *, mode, reader, min_confidence,
                             retrieval={'passages': [], 'sources': [], 'discarded': 'source_state_changed'},
                             verification={'structural': False, 'semantic': 'discarded_due_to_source_change', 'truth_verified': False, 'independence_verified': False})
             contract.pop('question_parts', None)
+            contract.pop('collection_filter', None)
             if exact.get('alias_resolution'):
                 contract['question_normalization'] = {'version':'source-field-alias-v2',
                     'status':'discarded_due_to_source_change','normalization_is_evidence':False}
@@ -219,6 +232,8 @@ def _answer_query(root, question, profile=None, *, mode, reader, min_confidence,
                 message='Required source witnesses do not fit the unchanged passage budget; completion was withheld.'
         if kind != 'supported_answer':
             contract['answer_supported'] = False
+            if 'collection_filter' in contract:
+                contract['collection_filter']['complete'] = False
         if (mode=='assisted' and kind=='supported_answer'
                 and contract['verification']['semantic']=='bounded_deterministic_grammar'):
             # Preserve the existing strict-first path without labelling its
@@ -240,6 +255,20 @@ def _answer_query(root, question, profile=None, *, mode, reader, min_confidence,
         return result
 
     initial_gate_root = Path(root).resolve()
+    if filters:
+        from .collection_fields import verify
+        if not profile.prose:
+            return finish('abstain', 'collection_profile_unavailable',
+                          'This profile does not admit collection-wide body inspection.', 'collection_fields')
+        code, checked = verify(root, initial_gate, filters)
+        contract.update(checked)
+        if checked.get('claims'):
+            contract['verification'].update(structural=True, semantic='bounded_collection_fields')
+        kind = ('supported_answer' if code == 'supported' else
+                'partial_answer' if checked.get('claims') else 'abstain')
+        return finish(kind, code, 'Source-declared fields were checked across the eligible collection.'
+                      if code == 'supported' else 'A complete source-verified list was not established.',
+                      'collection_fields')
     if identity and relation_hops is None:
         from .reference_identity import verify
         code, evidence = verify(root, question, profile, identity, max_passages, max_chars)

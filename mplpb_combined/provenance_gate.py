@@ -136,7 +136,8 @@ def _identity(ledger, rec):
             'ratified_by': rec.ratified_by, 'location': 'local'}
 
 
-def gather(root, question: str, profile: Optional[Profile] = None) -> GateResult:
+def gather(root, question: str, profile: Optional[Profile] = None, *,
+           all_eligible: bool = False) -> GateResult:
     """Gather every eligible page matching at least one distinct content term.
 
     Scope matches are shown separately from prose-only matches. Scope and
@@ -146,6 +147,7 @@ def gather(root, question: str, profile: Optional[Profile] = None) -> GateResult
     if not isinstance(question, str):
         raise ValueError('question must be a string')
     profile = profile or PROFILES[DEFAULT_PROFILE]
+    all_eligible = all_eligible and profile.prose
     path = Path(root).resolve()
     if not path.is_dir():
         raise FileNotFoundError('not a directory: ' + str(path))
@@ -165,6 +167,8 @@ def gather(root, question: str, profile: Optional[Profile] = None) -> GateResult
                 'enforce_sealed_external_policy': True, 'synthesize': False, 'follow_pointers': False, 'require_current_dependencies': True}
     if SERVING_VIEW.get() and any(SERVING_VIEW.get().values()):
         settings['serving_view'] = dict(SERVING_VIEW.get())
+    if all_eligible:
+        settings['mode'] = 'whole_eligible_collection'
     result.policy = dict(settings, settings_hash=_digest(settings))
     result.corpus_snapshot = _digest([
         {'path': r.path, 'id': r.id, 'hash': r.hash_actual, 'status': ledger.effective_status(r)}
@@ -207,7 +211,7 @@ def gather(root, question: str, profile: Optional[Profile] = None) -> GateResult
         scope = content & declared_terms(rec)
         full = page_terms(rec) if profile.prose else declared_terms(rec)
         matched = content & full
-        if not matched:
+        if not matched and not all_eligible:
             continue
         source = _identity(ledger, rec)
         source.update({'scope': rec.scope, 'when_to_use': rec.when_to_use,
