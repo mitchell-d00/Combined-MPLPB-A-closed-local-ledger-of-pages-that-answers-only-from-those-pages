@@ -83,7 +83,7 @@ def _blocks(body):
         elif active_related is not None:
             # Related lists may contain wrapped text, blank separators and bullets.
             # A different bold prose field, back-link or rule terminates the list.
-            if (re.match(r'^\s*(?:\*\*)?(?:Back to|Implementation|What changed)\b', raw, re.I)
+            if (re.match(r'^\s*(?:\*\*)?(?:Back to|Implementation|What changed|Classing source (?:file|SHA-256|bytes))\b', raw, re.I)
                     or re.fullmatch(r'\s*[-=_]{3,}\s*', raw)):
                 break
             if not stripped:

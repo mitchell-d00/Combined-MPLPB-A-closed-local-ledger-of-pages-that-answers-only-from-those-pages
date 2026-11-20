@@ -34,6 +34,13 @@ from sources already read. It breaks ties in discovery order. Each visit can
 change the next choice. These signals schedule inspection and carry no proof
 authority. Existing source, character, hop and observation budgets apply.
 
+The discovery pass indexes declared identities across the eligible ledger, up to
+4,096 sources and 16 million HTML characters. Each source prefix is bounded at
+50,000 HTML characters. When discovery cannot cover the eligible identity
+universe, target uniqueness remains unresolved and no hop is taken. The
+independent verifier rereads both endpoints. Classing provenance ends a
+`Related` continuation and does not supply a target.
+
 The report's `adaptive_search` field gives `deepest_visited_hop` and
 `completed_hop` (seeds are hop zero). A missing depth is JSON `null`. A hop
 counts as completed when its scheduled work fits the limits. Unavailable

@@ -2,6 +2,10 @@
 
 Last reviewed: 2026-11-20.
 
+[Collection automation](COLLECTION_AUTOMATION.md) documents native classing,
+source-verified field predicates, and declaration lookup across ingestion batches.
+The ordinary suite exercises the explicit modifier, absence and traversal checks.
+
 [Adaptive Search](HISTORICAL_EXPERT_PATH.md#adaptive-search) adds an optional
 investigation scheduler. Its paired regression uses the same three-source budget
 to distinguish reaching an authorization record from spending the final visit

@@ -15,13 +15,14 @@ from mplpb_combined import provenance_gate as G
 from mplpb_combined.ledger import Ledger
 from mplpb_combined.reader import PROFILES, DEFAULT_PROFILE, terms
 from . import historical_evidence as documentary
-from .historical_verifier import verification_snapshot, verify_observations
+from .historical_verifier import declared_identities, verification_snapshot, verify_observations
 from .event_candidates import inspect_events
 from .store import WorkStore, digest
 
 VERSION = 'bounded-relation-investigation-v1'
 ROLES = ('documentary', 'chronology', 'verification')
 OPERATIONS = {role: 'history.'+role+'.v1' for role in ROLES}
+DISCOVERY_LIMITS = {'sources': 4096, 'source_html_prefix': 50000, 'total_html_characters': 16000000}
 
 
 def _eligible(root,question,profile):
@@ -67,30 +68,36 @@ def _crawl(root, question, profile, start_source_ids, max_hops, max_sources, max
     else:
         seeds = []
 
-    # Header indexing is discovery, never answer evidence. Only visited sources
-    # enter the report, and every typed finding goes through the verifier below.
-    headers, identities, ranked = {}, {}, []
-    discovery_complete = len(eligible) <= 256
+    # Search the entire eligible identity universe before resolving uniqueness.
+    # The index does not replace verification of the visited source and target.
+    indexed, identities, ambiguous, ranked = set(), {}, set(), []
+    discovery_complete = len(eligible) <= DISCOVERY_LIMITS['sources']
     discovery_chars=0
     query_terms=terms(question)
     uncovered_terms=query_terms.copy()
     body_hits={}
-    for identifier,record in list(eligible.items())[:256]:
-        prefix=record.body_html[:50000]
-        if discovery_chars+len(prefix)>1000000:
+    for identifier,record in list(eligible.items())[:DISCOVERY_LIMITS['sources']]:
+        prefix=record.body_html[:DISCOVERY_LIMITS['source_html_prefix']]
+        if discovery_chars+len(prefix)>DISCOVERY_LIMITS['total_html_characters']:
             discovery_complete=False
             break
+        if len(prefix) != len(record.body_html):
+            discovery_complete=False
         discovery_chars+=len(prefix)
-        header=body_text(prefix)[:20000]
-        headers[identifier]=documentary.extract(header)
-        header_terms=terms(header)
+        body=body_text(prefix)
+        indexed.add(identifier)
+        header_terms=terms(body[:20000])
         if adaptive_search:
             body_hits[identifier]=query_terms & header_terms
         score=len(query_terms & (header_terms | terms(record.scope+' '+record.title)))
         if score:ranked.append((-score,identifier))
-        for item in headers[identifier]:
-            if item['kind'] == 'document_identity':
-                identities.setdefault(item['target_id'], []).append((identifier, item['target_version']))
+        document_ids, versions = declared_identities(body)
+        if len(document_ids) > 1 or len(versions) > 1:
+            ambiguous.update(document_ids)
+        elif document_ids:
+            target, = document_ids
+            version = next(iter(versions), '')
+            identities.setdefault(target, []).append((identifier, version))
     if not start_source_ids:
         seeds=[identifier for _,identifier in sorted(ranked)[:min(max_sources,12)]]
     queue = [(identifier, 0) for identifier in seeds]
@@ -111,7 +118,7 @@ def _crawl(root, question, profile, start_source_ids, max_hops, max_sources, max
                         -len(body_hits[target] & uncovered_terms), index)
             next_index = min(range(len(queue)), key=priority)
         identifier, depth = queue.pop(next_index)
-        if identifier not in headers:
+        if identifier not in indexed:
             stops.append({'source_id':identifier,'reason':'discovery_budget'})
             continue
         record=eligible[identifier]
@@ -155,11 +162,11 @@ def _crawl(root, question, profile, start_source_ids, max_hops, max_sources, max
                 edge['status'] = 'unresolved_target_identifier'
             elif not discovery_complete:
                 edge['status'] = 'discovery_incomplete'
+            elif target in ambiguous or len(matches) > 1:
+                edge['status'] = 'ambiguous_target'
             elif not matches:
                 # Do not reveal whether an excluded/private target exists.
                 edge['status'] = 'target_unavailable'
-            elif len(matches) != 1:
-                edge['status'] = 'ambiguous_target'
             else:
                 edge['target_source_id'] = matches[0]
                 if adaptive_search and depth < max_hops and observation['kind']=='supersedes':
@@ -201,7 +208,7 @@ def _crawl(root, question, profile, start_source_ids, max_hops, max_sources, max
             'verification':verification,'snapshot':state,'seeds':seeds,
             'stops':stops,'discovery_complete':discovery_complete,
             'discovery_characters_examined':discovery_chars,
-            'discovery_limits':{'sources':256,'source_html_prefix':50000,'total_html_characters':1000000},
+            'discovery_limits':dict(DISCOVERY_LIMITS),
             'source_characters_examined':used,
             'observation_budget_reached':observation_budget_reached}
     if adaptive_search:
