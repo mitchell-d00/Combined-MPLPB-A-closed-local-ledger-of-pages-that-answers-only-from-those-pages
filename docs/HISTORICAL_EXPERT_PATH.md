@@ -1,6 +1,6 @@
 # Historical expert path and bounded relation crawling
 
-Last reviewed: 2026-11-17.
+Last reviewed: 2026-11-20.
 
 Package role: [how this part fits Combined MPLPB](PACKAGE_GUIDE.md#documentary-research). This guide covers documentary inspection; source assertions, candidate relations and historical truth remain distinct.
 
@@ -19,6 +19,28 @@ python -m mplpb_answers investigate CORPUS "Trace the declared relationships and
 are actual ledger record IDs; the original document IDs inside their bodies are
 separate identities. Without `--source`, bounded passage retrieval selects source
 material for inspection, not a winning answer. All source pages remain unchanged.
+
+## Adaptive Search
+
+```sh
+mplpb-combined investigate CORPUS "Find receipt, dispatch and authorization" \
+  --source SRC-0001 --max-sources 3 --adaptive-search
+```
+
+Use `adaptive_search=True` from Python. The scheduler keeps the seed order and
+visits shallow hops first. Within a hop, it prioritizes uniquely resolved
+`Supersedes` targets, then source previews that contain question terms absent
+from sources already read. It breaks ties in discovery order. Each visit can
+change the next choice. These signals schedule inspection and carry no proof
+authority. Existing source, character, hop and observation budgets apply.
+
+The report's `adaptive_search` field gives `deepest_visited_hop` and
+`completed_hop` (seeds are hop zero). A missing depth is JSON `null`. A hop
+counts as completed when its scheduled work fits the limits. Unavailable
+targets, conflicts, and relationships outside the search horizon can remain
+unresolved. The independent verifier still checks the reported evidence. A
+source-state change discards the findings and depth diagnostics. Ordinary
+`investigate` uses its original discovery order when the flag is omitted.
 
 ## Existing specialist seats, executable expert work
 

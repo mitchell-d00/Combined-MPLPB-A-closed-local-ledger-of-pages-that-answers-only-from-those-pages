@@ -46,6 +46,58 @@ class HistoricalInvestigationTests(unittest.TestCase):
         self.assertEqual(before,{p:hashlib.sha256(p.read_bytes()).hexdigest() for p in self.root.rglob('*') if p.is_file()})
         self.assertNotIn('credential',json.dumps(report))
 
+    def test_adaptive_search_prioritizes_uncovered_evidence_within_a_hop(self):
+        def source(identifier, lines):
+            write(self.root, doc_id=identifier, title="Station archive", scope="station archive",
+                  body_html="<pre>" + html.escape("\n".join(lines)) + "</pre>")
+
+        source("SRC-0001", ["Document ID: DOC-101", "Related: DOC-202, DOC-303, DOC-404"])
+        source("SRC-0002", ["Document ID: DOC-202", "Receipt and dispatch for the station."])
+        source("SRC-0003", ["Document ID: DOC-303", "Receipt and dispatch duplicates."])
+        source("SRC-0004", ["Document ID: DOC-404", "Authorization for the station."])
+        options = {"start_source_ids": ["SRC-0001"], "max_sources": 3}
+        question = "Find receipt, dispatch and authorization in the station archive"
+        baseline = investigate(self.root, question, **options)
+        report = investigate(self.root, question, adaptive_search=True, **options)
+        self.assertEqual([s["id"] for s in baseline["sources"]], ["SRC-0001", "SRC-0002", "SRC-0003"])
+        self.assertEqual([s["id"] for s in report["sources"]], ["SRC-0001", "SRC-0002", "SRC-0004"])
+        self.assertEqual(report["adaptive_search"], {"deepest_visited_hop": 1, "completed_hop": 0})
+        self.assertTrue(any(r["status"] == "source_or_character_budget" for r in report["relations"]))
+        self.assertFalse(report["answer_supported"])
+        self.assertEqual(report["observations"], report["verification"]["verified"])
+
+    def test_adaptive_search_prioritizes_explicit_supersession_and_keeps_hops(self):
+        write(self.root, doc_id='SRC-0001', title='Archive witness', scope='archival records',
+              body_html='<pre>Document ID: DOC-101\nRelated: DOC-202, DOC-303\nSupersedes: DOC-303</pre>')
+        write(self.root, doc_id='SRC-0002', title='Archive witness', scope='archival records',
+              body_html='<pre>Document ID: DOC-202\nSupersedes: DOC-404</pre>')
+        self.page('SRC-0003', 'DOC-303')
+        self.page('SRC-0004', 'DOC-404')
+        report = self.crawl(adaptive_search=True, max_sources=3)
+        self.assertEqual([s['id'] for s in report['sources']], ['SRC-0001', 'SRC-0003', 'SRC-0002'])
+        self.assertEqual(report['adaptive_search'], {'deepest_visited_hop': 1, 'completed_hop': 1})
+        report = self.crawl(adaptive_search=True)
+        self.assertEqual(report['adaptive_search'], {'deepest_visited_hop': 2, 'completed_hop': 2})
+        self.assertTrue(all(edge['status'] == 'traversed' for edge in report['relations']))
+
+    def test_adaptive_search_preserves_restrictions_and_cli_contract(self):
+        self.page('SRC-0001', 'DOC-101', 'DOC-202, DOC-303')
+        self.page('SRC-0002', 'DOC-202', external='no')
+        self.page('SRC-0003', 'DOC-303')
+        from mplpb_answers.__main__ import main
+        stream = io.StringIO()
+        with contextlib.redirect_stdout(stream):
+            code = main(['investigate', str(self.root), 'archival records',
+                         '--source', 'SRC-0001', '--profile', 'external', '--adaptive-search'])
+        self.assertEqual(code, 0)
+        report = json.loads(stream.getvalue())
+        self.assertEqual([s['id'] for s in report['sources']], ['SRC-0001', 'SRC-0003'])
+        self.assertEqual([edge['status'] for edge in report['relations']], ['target_unavailable', 'traversed'])
+        self.assertNotIn('SRC-0002', stream.getvalue())
+        self.assertFalse(report['answer_supported'])
+        with self.assertRaisesRegex(ValueError, 'adaptive_search must be a boolean'):
+            self.crawl(adaptive_search=1)
+
     def test_hop_source_and_character_budgets_do_not_become_evidence(self):
         self.page('SRC-0001','DOC-101','DOC-202 v1')
         self.page('SRC-0002','DOC-202')
@@ -173,10 +225,11 @@ class HistoricalInvestigationTests(unittest.TestCase):
                 self.page('SRC-0002','DOC-202')
             return result
         with patch.object(WorkStore,'put',new=change_after_completion):
-            report=self.crawl()
+            report=self.crawl(adaptive_search=True)
         self.assertEqual(report['status'],'needs_recheck')
         self.assertEqual(report['observations'],[])
         self.assertEqual(report['relations'],[])
+        self.assertNotIn('adaptive_search',report)
         self.assertNotIn('DOC-202',json.dumps(report))
 
 
