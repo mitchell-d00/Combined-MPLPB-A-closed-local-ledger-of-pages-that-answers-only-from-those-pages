@@ -165,6 +165,8 @@ are not rewritten to fit current package language.
 
 ## Preserved papers, resources and earlier implementations
 
+[The McPhetridge Method for Evidence-Gated Software Engineering](research/mcphetridge-method/README.md) documents the November 20, 2026 cycle from controlled experiments through live browser verification.
+
 The sorter paper by Mitchell D. McPhetridge is available in
 [Markdown](research/dual-mode-sorter/dual-mode-sorter.md),
 [text](research/dual-mode-sorter/dual-mode-sorter.txt) and

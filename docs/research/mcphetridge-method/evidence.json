@@ -1,0 +1,757 @@
+{
+  "scope": "Selected measurements transcribed from retained authored baseline and native replays. These are not new runs or independent validation.",
+  "baseline_revision": "fef46d16773aa1fdd5ea5114594ca14d023ffc2e",
+  "candidate_revision": "141374727a0890b163d3e296c61bef8ab4a5b7dc",
+  "merged_revision": "9c9212e5b9789e3b3e1b28e0426b2bdc7c9ee79c",
+  "baseline": {
+    "domains": [
+      {
+        "domain": "recipes",
+        "queries": {
+          "single": {
+            "keyword": "cilantro",
+            "question": "Which recipes contain cilantro?",
+            "expected": 50,
+            "retrieved": 50,
+            "matches": 50,
+            "extras": 0,
+            "misses": 0,
+            "strict": false,
+            "diagnostic": "interpretation_unsupported"
+          },
+          "compound": {
+            "keyword": "cilantro birthday no cook",
+            "question": "Which cilantro recipes for birthdays need no cooking?",
+            "expected": 1,
+            "retrieved": 487,
+            "matches": 1,
+            "extras": 486,
+            "misses": 0,
+            "strict": false,
+            "diagnostic": "retrieval_ambiguous"
+          }
+        },
+        "named_field": {
+          "record": "RECIPE-0962",
+          "field": "Occasion",
+          "expected": "Birthday",
+          "supported": true,
+          "text": "Occasion: Birthday",
+          "diagnostic": "supported"
+        },
+        "missing_field": {
+          "field": "Performer",
+          "supported": false,
+          "diagnostic": "exact_field_missing"
+        },
+        "relationships": {
+          "small": {
+            "discovery_complete": true,
+            "answer_supported": false,
+            "sources": [
+              "LINK-0001",
+              "LINK-0004",
+              "LINK-0002",
+              "LINK-0003"
+            ],
+            "edges": [
+              {
+                "from": "LINK-0001",
+                "declared_target": "LINK-0002",
+                "status": "traversed"
+              },
+              {
+                "from": "LINK-0001",
+                "declared_target": "SHA-256",
+                "status": "target_unavailable"
+              },
+              {
+                "from": "LINK-0004",
+                "declared_target": "",
+                "status": "unresolved_target_identifier"
+              },
+              {
+                "from": "LINK-0002",
+                "declared_target": "LINK-0003",
+                "status": "traversed"
+              },
+              {
+                "from": "LINK-0002",
+                "declared_target": "SHA-256",
+                "status": "target_unavailable"
+              },
+              {
+                "from": "LINK-0003",
+                "declared_target": "LINK-9001",
+                "status": "target_unavailable"
+              },
+              {
+                "from": "LINK-0003",
+                "declared_target": "SHA-256",
+                "status": "target_unavailable"
+              }
+            ],
+            "adaptive_progress": {
+              "deepest_visited_hop": 2,
+              "completed_hop": 2
+            },
+            "traversed": [
+              [
+                "LINK-0001",
+                "LINK-0002"
+              ],
+              [
+                "LINK-0002",
+                "LINK-0003"
+              ]
+            ]
+          },
+          "full": {
+            "discovery_complete": false,
+            "answer_supported": false,
+            "sources": [
+              "LINK-0001",
+              "LINK-0004"
+            ],
+            "edges": [
+              {
+                "from": "LINK-0001",
+                "declared_target": "LINK-0002",
+                "status": "discovery_incomplete"
+              },
+              {
+                "from": "LINK-0001",
+                "declared_target": "SHA-256",
+                "status": "discovery_incomplete"
+              },
+              {
+                "from": "LINK-0004",
+                "declared_target": "",
+                "status": "unresolved_target_identifier"
+              }
+            ],
+            "adaptive_progress": {
+              "deepest_visited_hop": 0,
+              "completed_hop": null
+            },
+            "traversed": []
+          }
+        }
+      },
+      {
+        "domain": "trek",
+        "queries": {
+          "single": {
+            "keyword": "Voyager",
+            "question": "Which records are associated with Voyager?",
+            "expected": 175,
+            "retrieved": 175,
+            "matches": 175,
+            "extras": 0,
+            "misses": 0,
+            "strict": false,
+            "diagnostic": "interpretation_unsupported"
+          },
+          "compound": {
+            "keyword": "Voyager season 7",
+            "question": "Which Voyager episodes are in season 7?",
+            "expected": 26,
+            "retrieved": 972,
+            "matches": 26,
+            "extras": 946,
+            "misses": 0,
+            "strict": false,
+            "diagnostic": "interpretation_unsupported"
+          }
+        },
+        "named_field": {
+          "record": "TREK-E44529",
+          "field": "Air date",
+          "expected": "1990-06-18",
+          "supported": true,
+          "text": "Air date: 1990-06-18",
+          "diagnostic": "supported"
+        },
+        "missing_field": {
+          "field": "Performer",
+          "supported": false,
+          "diagnostic": "exact_field_missing"
+        },
+        "relationships": {
+          "small": {
+            "discovery_complete": true,
+            "answer_supported": false,
+            "sources": [
+              "LINK-0001",
+              "LINK-0004",
+              "LINK-0002",
+              "LINK-0003"
+            ],
+            "edges": [
+              {
+                "from": "LINK-0001",
+                "declared_target": "LINK-0002",
+                "status": "traversed"
+              },
+              {
+                "from": "LINK-0001",
+                "declared_target": "SHA-256",
+                "status": "target_unavailable"
+              },
+              {
+                "from": "LINK-0004",
+                "declared_target": "",
+                "status": "unresolved_target_identifier"
+              },
+              {
+                "from": "LINK-0002",
+                "declared_target": "LINK-0003",
+                "status": "traversed"
+              },
+              {
+                "from": "LINK-0002",
+                "declared_target": "SHA-256",
+                "status": "target_unavailable"
+              },
+              {
+                "from": "LINK-0003",
+                "declared_target": "LINK-9001",
+                "status": "target_unavailable"
+              },
+              {
+                "from": "LINK-0003",
+                "declared_target": "SHA-256",
+                "status": "target_unavailable"
+              }
+            ],
+            "adaptive_progress": {
+              "deepest_visited_hop": 2,
+              "completed_hop": 2
+            },
+            "traversed": [
+              [
+                "LINK-0001",
+                "LINK-0002"
+              ],
+              [
+                "LINK-0002",
+                "LINK-0003"
+              ]
+            ]
+          },
+          "full": {
+            "discovery_complete": false,
+            "answer_supported": false,
+            "sources": [
+              "LINK-0001",
+              "LINK-0004"
+            ],
+            "edges": [
+              {
+                "from": "LINK-0001",
+                "declared_target": "LINK-0002",
+                "status": "discovery_incomplete"
+              },
+              {
+                "from": "LINK-0001",
+                "declared_target": "SHA-256",
+                "status": "discovery_incomplete"
+              },
+              {
+                "from": "LINK-0004",
+                "declared_target": "",
+                "status": "unresolved_target_identifier"
+              }
+            ],
+            "adaptive_progress": {
+              "deepest_visited_hop": 0,
+              "completed_hop": null
+            },
+            "traversed": []
+          }
+        }
+      },
+      {
+        "domain": "rpg",
+        "queries": {
+          "single": {
+            "keyword": "fireball",
+            "question": "Which spell is named Fireball?",
+            "expected": 1,
+            "retrieved": 2,
+            "matches": 1,
+            "extras": 1,
+            "misses": 0,
+            "strict": false,
+            "diagnostic": "retrieval_ambiguous"
+          },
+          "compound": {
+            "keyword": "evocation level 3",
+            "question": "Which evocation spells are level 3?",
+            "expected": 7,
+            "retrieved": 347,
+            "matches": 7,
+            "extras": 340,
+            "misses": 0,
+            "strict": false,
+            "diagnostic": "interpretation_unsupported"
+          }
+        },
+        "named_field": {
+          "record": "RPG-SPELL-0119",
+          "field": "Spell level",
+          "expected": "3",
+          "supported": true,
+          "text": "Spell level: 3",
+          "diagnostic": "supported"
+        },
+        "missing_field": {
+          "field": "Price",
+          "supported": false,
+          "diagnostic": "exact_field_missing"
+        },
+        "relationships": {
+          "small": {
+            "discovery_complete": true,
+            "answer_supported": false,
+            "sources": [
+              "LINK-0001",
+              "LINK-0004",
+              "LINK-0002",
+              "LINK-0003"
+            ],
+            "edges": [
+              {
+                "from": "LINK-0001",
+                "declared_target": "LINK-0002",
+                "status": "traversed"
+              },
+              {
+                "from": "LINK-0001",
+                "declared_target": "SHA-256",
+                "status": "target_unavailable"
+              },
+              {
+                "from": "LINK-0004",
+                "declared_target": "",
+                "status": "unresolved_target_identifier"
+              },
+              {
+                "from": "LINK-0002",
+                "declared_target": "LINK-0003",
+                "status": "traversed"
+              },
+              {
+                "from": "LINK-0002",
+                "declared_target": "SHA-256",
+                "status": "target_unavailable"
+              },
+              {
+                "from": "LINK-0003",
+                "declared_target": "LINK-9001",
+                "status": "target_unavailable"
+              },
+              {
+                "from": "LINK-0003",
+                "declared_target": "SHA-256",
+                "status": "target_unavailable"
+              }
+            ],
+            "adaptive_progress": {
+              "deepest_visited_hop": 2,
+              "completed_hop": 2
+            },
+            "traversed": [
+              [
+                "LINK-0001",
+                "LINK-0002"
+              ],
+              [
+                "LINK-0002",
+                "LINK-0003"
+              ]
+            ]
+          },
+          "full": {
+            "discovery_complete": false,
+            "answer_supported": false,
+            "sources": [
+              "LINK-0001",
+              "LINK-0004"
+            ],
+            "edges": [
+              {
+                "from": "LINK-0001",
+                "declared_target": "LINK-0002",
+                "status": "discovery_incomplete"
+              },
+              {
+                "from": "LINK-0001",
+                "declared_target": "SHA-256",
+                "status": "discovery_incomplete"
+              },
+              {
+                "from": "LINK-0004",
+                "declared_target": "",
+                "status": "unresolved_target_identifier"
+              }
+            ],
+            "adaptive_progress": {
+              "deepest_visited_hop": 0,
+              "completed_hop": null
+            },
+            "traversed": []
+          }
+        }
+      }
+    ],
+    "discovery_threshold": {
+      "256": {
+        "discovery_complete": true,
+        "visited": 4,
+        "traversed": 2
+      },
+      "257": {
+        "discovery_complete": false,
+        "visited": 2,
+        "traversed": 0
+      }
+    }
+  },
+  "recipe_keyword_sweep": {
+    "compound_count": 1000,
+    "expected_card_returned": 1000,
+    "native_all_terms_is_exact": 800
+  },
+  "plain_prose_control": {
+    "drafts": {
+      "accept": 0,
+      "reject": 0,
+      "pending": 4
+    },
+    "answer_supported": false,
+    "auto_accept_eligible": 0,
+    "blocking_decisions_open": [],
+    "other_decisions_open": [],
+    "ready_to_build": false
+  },
+  "replay_collection_answers": {
+    "recipe-conjunction": {
+      "question": "Which cilantro recipes for birthdays need no cooking?",
+      "kind": "supported_answer",
+      "answer_supported": true,
+      "collection_filter": {
+        "evaluated_records": 1000,
+        "verified_matches": 1,
+        "unresolved_records": 0,
+        "evaluation_complete": true,
+        "complete": true,
+        "predicates": [
+          {
+            "field": "ingredients",
+            "operation": "contains",
+            "value": "cilantro"
+          },
+          {
+            "field": "occasion",
+            "operation": "is",
+            "value": "birthday"
+          },
+          {
+            "field": "preparation",
+            "operation": "is",
+            "value": "no cook"
+          }
+        ]
+      },
+      "displayed_record_ids": [
+        "RECIPE-0962"
+      ]
+    },
+    "rpg-conjunction": {
+      "question": "Which evocation spells are level 3?",
+      "kind": "supported_answer",
+      "answer_supported": true,
+      "collection_filter": {
+        "evaluated_records": 1000,
+        "verified_matches": 7,
+        "unresolved_records": 0,
+        "evaluation_complete": true,
+        "complete": true,
+        "predicates": [
+          {
+            "field": "category",
+            "operation": "is",
+            "value": "spell"
+          },
+          {
+            "field": "school",
+            "operation": "is",
+            "value": "evocation"
+          },
+          {
+            "field": "spell level",
+            "operation": "is",
+            "value": "3"
+          }
+        ]
+      },
+      "displayed_record_ids": [
+        "RPG-SPELL-0074",
+        "RPG-SPELL-0119",
+        "RPG-SPELL-0181",
+        "RPG-SPELL-0197",
+        "RPG-SPELL-0257",
+        "RPG-SPELL-0294",
+        "RPG-SPELL-0316"
+      ]
+    },
+    "recipe-water": {
+      "question": "Which recipes use no water?",
+      "kind": "partial_answer",
+      "answer_supported": false,
+      "collection_filter": {
+        "evaluated_records": 1000,
+        "verified_matches": 334,
+        "unresolved_records": 333,
+        "evaluation_complete": false,
+        "complete": false,
+        "predicates": [
+          {
+            "field": "water",
+            "operation": "is explicitly absent",
+            "value": ""
+          }
+        ]
+      },
+      "displayed_record_ids": [
+        "RECIPE-0002",
+        "RECIPE-0006",
+        "RECIPE-0014",
+        "RECIPE-0017",
+        "RECIPE-0023",
+        "RECIPE-0024",
+        "RECIPE-0025",
+        "RECIPE-0028",
+        "RECIPE-0033",
+        "RECIPE-0034",
+        "RECIPE-0037",
+        "RECIPE-0039",
+        "RECIPE-0040",
+        "RECIPE-0042",
+        "RECIPE-0043",
+        "RECIPE-0047",
+        "RECIPE-0052",
+        "RECIPE-0053",
+        "RECIPE-0057",
+        "RECIPE-0059",
+        "RECIPE-0062",
+        "RECIPE-0081",
+        "RECIPE-0086",
+        "RECIPE-0094",
+        "RECIPE-0097",
+        "RECIPE-0098",
+        "RECIPE-0101",
+        "RECIPE-0103",
+        "RECIPE-0108",
+        "RECIPE-0110",
+        "RECIPE-0115",
+        "RECIPE-0120",
+        "RECIPE-0123",
+        "RECIPE-0125",
+        "RECIPE-0130",
+        "RECIPE-0149",
+        "RECIPE-0156",
+        "RECIPE-0159",
+        "RECIPE-0167",
+        "RECIPE-0169",
+        "RECIPE-0170",
+        "RECIPE-0175",
+        "RECIPE-0178",
+        "RECIPE-0181",
+        "RECIPE-0182",
+        "RECIPE-0183",
+        "RECIPE-0185",
+        "RECIPE-0186",
+        "RECIPE-0187",
+        "RECIPE-0188",
+        "RECIPE-0191",
+        "RECIPE-0192",
+        "RECIPE-0194",
+        "RECIPE-0195",
+        "RECIPE-0196",
+        "RECIPE-0198",
+        "RECIPE-0199",
+        "RECIPE-0200",
+        "RECIPE-0204",
+        "RECIPE-0205",
+        "RECIPE-0206",
+        "RECIPE-0207",
+        "RECIPE-0209",
+        "RECIPE-0212"
+      ]
+    }
+  },
+  "replay_full_native_investigations": {
+    "recipes": {
+      "status": "evidence_report",
+      "discovery_complete": true,
+      "answer_supported": false,
+      "adaptive_search": {
+        "deepest_visited_hop": 2,
+        "completed_hop": 2
+      },
+      "relations": [
+        {
+          "source_id": "LINK-0001",
+          "target_document_id": "LINK-0002",
+          "target_source_id": "LINK-0002",
+          "status": "traversed"
+        },
+        {
+          "source_id": "LINK-0004",
+          "target_document_id": "",
+          "target_source_id": "",
+          "status": "unresolved_target_identifier"
+        },
+        {
+          "source_id": "LINK-0002",
+          "target_document_id": "LINK-0003",
+          "target_source_id": "LINK-0003",
+          "status": "traversed"
+        },
+        {
+          "source_id": "LINK-0003",
+          "target_document_id": "LINK-9001",
+          "target_source_id": "",
+          "status": "target_unavailable"
+        }
+      ],
+      "receipts": [
+        {
+          "role": "documentary",
+          "receipt": "9ca394fed2314e3fb7c2472682bd73ac",
+          "status": "passed"
+        },
+        {
+          "role": "chronology",
+          "receipt": "08024fa6084945008a3f361c882b6f17",
+          "status": "passed"
+        },
+        {
+          "role": "verification",
+          "receipt": "877f676f50b741c78db7bf991cc2ad64",
+          "status": "passed"
+        }
+      ]
+    },
+    "trek": {
+      "status": "evidence_report",
+      "discovery_complete": true,
+      "answer_supported": false,
+      "adaptive_search": {
+        "deepest_visited_hop": 2,
+        "completed_hop": 2
+      },
+      "relations": [
+        {
+          "source_id": "LINK-0001",
+          "target_document_id": "LINK-0002",
+          "target_source_id": "LINK-0002",
+          "status": "traversed"
+        },
+        {
+          "source_id": "LINK-0004",
+          "target_document_id": "",
+          "target_source_id": "",
+          "status": "unresolved_target_identifier"
+        },
+        {
+          "source_id": "LINK-0002",
+          "target_document_id": "LINK-0003",
+          "target_source_id": "LINK-0003",
+          "status": "traversed"
+        },
+        {
+          "source_id": "LINK-0003",
+          "target_document_id": "LINK-9001",
+          "target_source_id": "",
+          "status": "target_unavailable"
+        }
+      ],
+      "receipts": [
+        {
+          "role": "documentary",
+          "receipt": "4679d8cc3d5d4f0fb90634d532b1d91a",
+          "status": "passed"
+        },
+        {
+          "role": "chronology",
+          "receipt": "bb87aae660794dd686674c267c9447ca",
+          "status": "passed"
+        },
+        {
+          "role": "verification",
+          "receipt": "e924312fb3434dacbcaf800d7aafa1d0",
+          "status": "passed"
+        }
+      ]
+    },
+    "rpg": {
+      "status": "evidence_report",
+      "discovery_complete": true,
+      "answer_supported": false,
+      "adaptive_search": {
+        "deepest_visited_hop": 2,
+        "completed_hop": 2
+      },
+      "relations": [
+        {
+          "source_id": "LINK-0001",
+          "target_document_id": "LINK-0002",
+          "target_source_id": "LINK-0002",
+          "status": "traversed"
+        },
+        {
+          "source_id": "LINK-0004",
+          "target_document_id": "",
+          "target_source_id": "",
+          "status": "unresolved_target_identifier"
+        },
+        {
+          "source_id": "LINK-0002",
+          "target_document_id": "LINK-0003",
+          "target_source_id": "LINK-0003",
+          "status": "traversed"
+        },
+        {
+          "source_id": "LINK-0003",
+          "target_document_id": "LINK-9001",
+          "target_source_id": "",
+          "status": "target_unavailable"
+        }
+      ],
+      "receipts": [
+        {
+          "role": "documentary",
+          "receipt": "06805770da50434cb75cb4a775e58272",
+          "status": "passed"
+        },
+        {
+          "role": "chronology",
+          "receipt": "3e2e4a9680a94b42ad2be625174891f4",
+          "status": "passed"
+        },
+        {
+          "role": "verification",
+          "receipt": "124faf63bae442bfa97573ae838ce430",
+          "status": "passed"
+        }
+      ]
+    }
+  },
+  "source_attribution": {
+    "star_trek": "TVmaze episode and cast metadata, CC BY-SA 4.0. https://www.tvmaze.com/api",
+    "rpg": "System Reference Document 5.1 by Wizards of the Coast LLC, CC BY 4.0. https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf"
+  }
+}
