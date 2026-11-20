@@ -24,6 +24,22 @@ The proof covers the printed records and their declared scope. Historical event
 identity, cross-document person identity, free-form pronoun resolution and
 independent source corroboration require further evidence and evaluation.
 
+### Reading an event identity refusal
+
+When the checker can identify a specific evidence gap, the CLI and browser
+show the reason and a next step. The JSON diagnostic includes an optional
+`evidence_gap` field. For example, a comparison can ask for verifiable event
+declarations, explain that two verified declarations use different registries,
+or flag that an occurrence target is ambiguous. A recognized but unsupported
+unnamed comparison gets an example of the named-source question. That guidance
+comes from the question form and expresses no finding about the source bodies.
+
+The existing decision and diagnostic code still govern the result. Delivery
+restrictions, source changes, and budget stops take precedence over these
+explanations. A paired regression can compare both versions on the same inputs
+and check that any new explanation leaves the decision, claims and citations
+intact.
+
 ## Small documentary packets
 
 The strict `ask` command also checks a bounded set of prose forms in a local

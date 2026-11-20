@@ -45,12 +45,57 @@ class ReferenceIdentityTests(unittest.TestCase):
         self.assertTrue(result['answer_supported'], result['diagnostic'])
         self.assertFalse(result['claims'][0]['proposition']['same_event'])
         self.event('RECORD-C', 'D-47', extra='\nOccurrence ID: COPY-RECORD-B')
-        self.assertFalse(self.ask_event()['answer_supported'])
+        ambiguous = self.ask_event()
+        self.assertFalse(ambiguous['answer_supported'])
+        self.assertEqual(ambiguous['diagnostic']['evidence_gap'], 'occurrence_target_ambiguous')
 
     def test_distinct_keys_and_equal_text_under_different_registries_withhold(self):
         self.event('RECORD-A', 'D-42')
         self.event('RECORD-B', 'D-44')
         self.assertFalse(self.ask_event()['answer_supported'])
+
+    def test_missing_verified_event_declaration_is_explained(self):
+        self.event('RECORD-A', 'D-42')
+        self.page('RECORD-B', 'An archive alarm sounded on April 13.')
+        result = self.ask_event()
+        self.assertEqual(result['kind'], 'abstain')
+        self.assertEqual(result['diagnostic']['evidence_gap'], 'event_declaration_unverified')
+        self.assertIn('Event ID', result['diagnostic']['message'])
+        self.assertEqual(result['claims'], [])
+
+    def test_registry_mismatch_has_a_distinct_explanation(self):
+        self.event('RECORD-A', 'D-42', registry='Station Archive')
+        self.event('RECORD-B', 'D-42', registry='Engineering Archive')
+        result = self.ask_event()
+        self.assertFalse(result['answer_supported'])
+        self.assertEqual(result['diagnostic']['evidence_gap'], 'registry_mismatch')
+        self.assertIn('same registry', result['diagnostic']['next_steps'][0])
+
+    def test_distinct_keys_leave_an_explicit_link_obligation(self):
+        self.event('RECORD-A', 'D-42')
+        self.event('RECORD-B', 'D-44')
+        result = self.ask_event()
+        self.assertEqual(result['diagnostic']['evidence_gap'], 'event_relationship_unverified')
+        self.assertIn('Different Event From', result['diagnostic']['next_steps'][0])
+        self.assertEqual(result['claims'], [])
+
+    def test_unnamed_identity_wording_gets_guidance_without_body_inspection(self):
+        self.page('RECORD-A', 'An archive alarm sounded on April 13.')
+        self.page('RECORD-B', 'An alarm sounded on April 13 in the city.')
+        question = 'Do the records establish that they describe the same incident?'
+        result = answer_query(self.root, question).contract
+        self.assertEqual(result['diagnostic']['code'], 'interpretation_unsupported')
+        self.assertEqual(result['diagnostic']['evidence_gap'], 'named_sources_needed')
+        self.assertIn('SOURCE-A and SOURCE-B', result['diagnostic']['next_steps'][0])
+        self.assertEqual(result['claims'], [])
+
+    def test_hidden_records_do_not_supply_diagnostic_details(self):
+        self.event('RECORD-A', 'D-42', external='yes')
+        self.event('RECORD-B', 'D-44', registry='Nonpublic Ledger', external='no')
+        result = self.ask_event(profile=PROFILES['external'])
+        self.assertEqual(result['diagnostic']['code'], 'no_eligible_sources')
+        self.assertNotIn('evidence_gap', result['diagnostic'])
+        self.assertNotIn('Nonpublic Ledger', str(result['diagnostic']))
 
     def test_declared_shared_key_conflicting_with_distinct_reference_withholds(self):
         self.event('RECORD-A', 'D-42', extra='\nDifferent Event From: COPY-RECORD-B')
@@ -92,8 +137,29 @@ class ReferenceIdentityTests(unittest.TestCase):
     def test_complete_proof_requires_full_budget_and_delivery(self):
         self.event('RECORD-A', 'D-42')
         self.event('RECORD-B', 'D-42', external='no')
-        self.assertFalse(self.ask_event(max_passages=3)['answer_supported'])
+        limited = self.ask_event(max_passages=3)
+        self.assertFalse(limited['answer_supported'])
+        self.assertEqual(limited['diagnostic']['code'], 'reader_budget_exceeded')
+        self.assertNotIn('evidence_gap', limited['diagnostic'])
         self.assertFalse(self.ask_event(profile=PROFILES['external'])['answer_supported'])
+
+    def test_source_change_discards_event_gap(self):
+        from mplpb_answers import reference_identity
+        from mplpb_combined.ledger import withdraw
+
+        self.event('RECORD-A', 'D-42')
+        self.event('RECORD-B', 'D-44')
+        original = reference_identity.verify
+
+        def changed(*args, **kwargs):
+            selected = original(*args, **kwargs)
+            withdraw(self.root, 'RECORD-B')
+            return selected
+
+        with patch.object(reference_identity, 'verify', side_effect=changed):
+            answer = self.ask_event()
+        self.assertEqual(answer['diagnostic']['code'], 'source_changed')
+        self.assertNotIn('evidence_gap', answer['diagnostic'])
 
     def test_source_change_discards_verified_binding(self):
         from mplpb_answers import reference_identity

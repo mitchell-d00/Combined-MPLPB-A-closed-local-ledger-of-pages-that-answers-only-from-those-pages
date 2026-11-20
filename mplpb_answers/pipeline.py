@@ -189,7 +189,7 @@ def _answer_query(root, question, profile=None, *, mode, reader, min_confidence,
     if 'question_normalization' in exact:
         contract['question_normalization'] = copy.deepcopy(exact['question_normalization'])
 
-    def finish(kind, code, message, stage, compound_views=None):
+    def finish(kind, code, message, stage, compound_views=None, *, evidence_gap=None):
         assurance_gate = None
         try:
             fresh = gather()
@@ -203,6 +203,7 @@ def _answer_query(root, question, profile=None, *, mode, reader, min_confidence,
         except (OSError, ValueError):
             unchanged = False
         if not unchanged or code == 'source_changed':
+            evidence_gap = None
             kind, code, stage = 'abstain', 'source_changed', 'state_recheck'
             message = 'Source eligibility or serving policy changed during this query; no old evidence was accepted. Ask again against current sources.'
             contract.update(text='', claims=[], sources=[], missing=[], clarification='',
@@ -248,9 +249,13 @@ def _answer_query(root, question, profile=None, *, mode, reader, min_confidence,
         category = refusal_category(code, kind)
         if code == 'exact_field_missing' and contract['retrieval'].get('eligible_pages') == 0:
             category = 'absent_eligible_source'
-        contract.update(kind=kind, diagnostic={'code': code, 'stage': stage, 'message': message,
-                                             'category': category,
-                                             'corpus_answerability': 'not_established', 'next_steps': _next_steps(code)})
+        diagnostic = {'code': code, 'stage': stage, 'message': message, 'category': category,
+                      'corpus_answerability': 'not_established', 'next_steps': _next_steps(code)}
+        if evidence_gap:
+            from .reference_identity import EVENT_GAP_GUIDANCE
+            detail, next_step = EVENT_GAP_GUIDANCE[evidence_gap]
+            diagnostic.update(evidence_gap=evidence_gap, message=detail, next_steps=[next_step])
+        contract.update(kind=kind, diagnostic=diagnostic)
         contract['source_assurance'] = source_assurance(contract, assurance_gate or result.gate)
         return result
 
@@ -271,7 +276,7 @@ def _answer_query(root, question, profile=None, *, mode, reader, min_confidence,
                       'collection_fields')
     if identity and relation_hops is None:
         from .reference_identity import verify
-        code, evidence = verify(root, question, profile, identity, max_passages, max_chars)
+        code, evidence, gap = verify(root, question, profile, identity, max_passages, max_chars)
         if evidence:
             contract.update(evidence, mode='strict',
                             documentary_support={'scope': 'named_source_reference'},
@@ -285,7 +290,8 @@ def _answer_query(root, question, profile=None, *, mode, reader, min_confidence,
             'no_eligible_sources': 'The named sources are unavailable under the current delivery profile.',
         }
         message = messages.get(code, 'The selected sources do not establish a unique documentary reference.')
-        return finish('conflict' if code == 'event_identity_conflict' else 'abstain', code, message, 'strict')
+        return finish('conflict' if code == 'event_identity_conflict' else 'abstain', code, message, 'strict',
+                      evidence_gap=gap)
     if compound and relation_hops is None:
         from .compound_fields import answer_fields
         fields, views = answer_fields(root, question, profile, as_of, compound, max_passages, max_chars)
@@ -443,8 +449,11 @@ def _answer_query(root, question, profile=None, *, mode, reader, min_confidence,
                     return finish('abstain', 'source_changed', '', 'bounded_records')
                 contract.update(evidence)
                 return finish(kind, code, 'See the cited statements and any unresolved parts.', 'bounded_records')
+        from .reference_identity import unnamed_event_question
         if re.search(r'\b(?:same event|event identity|same occurrence)\b',question,re.I):
-            return finish('abstain','event_identity_unresolved','No explicit source key establishes the requested event identity.','interpretation')
+            gap = 'named_sources_needed' if unnamed_event_question(question) else None
+            return finish('abstain','event_identity_unresolved','No explicit source key establishes the requested event identity.',
+                          'interpretation', evidence_gap=gap)
         if mode == 'strict':
             from .documentary import compose
             stage='documentary_verification'
@@ -458,7 +467,9 @@ def _answer_query(root, question, profile=None, *, mode, reader, min_confidence,
             if strict.kind == 'ambiguous':
                 return finish('conflict', 'retrieval_ambiguous', 'Candidate ownership is ambiguous; this does not establish conflicting body evidence.', 'retrieval')
             code = 'unresolved_evidence' if strict.support.get('unresolved') else 'evidence_not_established' if _known_grammar(question) else 'interpretation_unsupported'
-            return finish('abstain', code, 'Eligible passages exist, but the strict reader cannot establish an answer to this question.', 'strict')
+            gap = 'named_sources_needed' if code == 'interpretation_unsupported' and unnamed_event_question(question) else None
+            return finish('abstain', code, 'Eligible passages exist, but the strict reader cannot establish an answer to this question.',
+                          'strict', evidence_gap=gap)
         if reader is None:
             return finish('abstain', 'reader_unavailable', 'Assisted mode needs an explicitly configured local reader. No model request was made.', 'reader')
         stage = 'reader_setup'
