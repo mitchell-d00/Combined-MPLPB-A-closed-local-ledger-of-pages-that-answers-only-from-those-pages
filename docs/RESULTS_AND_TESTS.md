@@ -2,6 +2,11 @@
 
 Last reviewed: 2026-11-19.
 
+[Archival inspection](../evaluation/archival-inspection/2026-11-19/REPORT.md)
+records the explicit event/date rule, unchanged questions, tutorial and anonymous
+review preparation. The [dashboard](benchmarks/dashboard.md) keeps synthetic
+rates separate from unmeasured historical semantic metrics.
+
 The [documentary article preservation study](../evaluation/documentary-articles/2026-11-19/REPORT.md)
 covers bounded assembly, conflicting accounts and shared declared ancestry.
 [Controls](../tests/test_documentary_article.py) and the

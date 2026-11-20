@@ -1,0 +1,28 @@
+======================================================================
+FAIL: test_actor_clause_and_near_miss_are_not_bare_occurrences (tests.test_event_date_inventory.EventDateInventoryTests.test_actor_clause_and_near_miss_are_not_bare_occurrences) (replacement='the captain suspected the coastal batteries opened fire')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/mplpb/tests/test_event_date_inventory.py", line 98, in test_actor_clause_and_near_miss_are_not_bare_occurrences
+    self.assertFalse(answer_query(tmp,self.question).contract['answer_supported'])
+AssertionError: True is not false
+
+======================================================================
+FAIL: test_actor_clause_and_near_miss_are_not_bare_occurrences (tests.test_event_date_inventory.EventDateInventoryTests.test_actor_clause_and_near_miss_are_not_bare_occurrences) (replacement='the coastal batteries almost opened fire')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/mplpb/tests/test_event_date_inventory.py", line 98, in test_actor_clause_and_near_miss_are_not_bare_occurrences
+    self.assertFalse(answer_query(tmp,self.question).contract['answer_supported'])
+AssertionError: True is not false
+
+======================================================================
+FAIL: test_actor_clause_and_near_miss_are_not_bare_occurrences (tests.test_event_date_inventory.EventDateInventoryTests.test_actor_clause_and_near_miss_are_not_bare_occurrences) (replacement='the proposal: coastal batteries opened fire')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/mplpb/tests/test_event_date_inventory.py", line 98, in test_actor_clause_and_near_miss_are_not_bare_occurrences
+    self.assertFalse(answer_query(tmp,self.question).contract['answer_supported'])
+AssertionError: True is not false
+
+----------------------------------------------------------------------
+Ran 1 test in 0.066s
+
+FAILED (failures=3)

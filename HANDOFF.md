@@ -4,46 +4,52 @@ Last reviewed: 2026-11-19.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `0d95b8cacf4e6509a49b2b312f82a84f393ac6bb` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `872a55fcd0b583f827bfd2128f25bd66c8bcc579cb3bd4542b51dd536b46638d`.
+Base commit: `a90e255ecea5da4fd5d3515b44c8b77952347251` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `cc59e5f1444fa6c972a946cf5c3dc2de0d2556a840c69fedafde3309b1d7ca8f`.
 
 ## Latest user update instructions
 
-Merge it clear tree finish up for the day update Readme
+Note failure then fix it
 
 ## Implemented scope
 
-- User agreed to structured article dossiers that display competing accounts while withholding an unsupported resolution.
-- Add bounded read-only article assembly over existing reconstruction reports; retain complete original questions, native checker results and candidate graphs.
-- Expose known shared declared ancestry across sections without counting independent witnesses; missing ancestry never proves independence.
-- Add CLI, general positive/negative/source-mutation controls, unchanged-original preservation study and usage documentation.
-- Prior PR #54 was merged to main as 3a79603e1865f1ef0a1cd1dc72bb656ba5542d8c after all seven reported checks passed. This feature branch starts from its identical PR-head source tree c10a81b.
-- End-of-day README update: native article usage, shared ancestry, conflicts, latest exact historical outcome counts, tested source scope and next capability milestone.
-- User explicitly authorizes merging PR55 after exact-head checks and leaving a clean checkout on main. Preserve source corpora, prior experimental evidence, private custody files and user work.
+- User approved archival document inspection as primary research focus, completeness first, five-minute tutorial, compact benchmark dashboard and honest blind-evaluation preparation.
+- Latest steering prioritizes H07: independently checked source event/date links, exact evidence and composition without causality or event-identity invention. No denial-class rule was added.
+- Extend existing documentary kernel/composer/admission for generic bounded date inventories, separate catalogue/review/narrative dates, and same-clause relative-day arithmetic with explicit calendar convention and unknown years.
+- Add offline fictional tutorial, retained-evidence dashboard and anonymous paired development-review exporter compatible with existing human-review validator.
+- External reference pages were researched for context only; no search material was imported into ledger/runtime or counted as human review.
+- Published implementation, full failed/successful evidence, tutorial, dashboard and raw-source review packets in open PR56: https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/pull/56 . No merge authorized for this new PR.
 
 ## Validation recorded
 
-- Baseline52 focused tests passed before implementation.
-- Full extracted2c173b3 source:1446 Python tests passed with no failures/skips; native boundaries and52 public controls passed, all exit0.
-- 15 focused article controls, CLI example, UI script, JavaScript/native API, transport and fixture-crawler checks passed. No actual browser/WASM rerun.
-- Corrected c9500e5 exported-tree original-record study:22/22 complete native contracts preserved;2 complete,2 partial,3 conflicts,15 abstentions;all provenance/immutability/non-promotion guards passed.
-- Study wall160.004s,CPU159.696s,peakprocessRSS143921152bytes;source bytes and human review time null.
-- First restricted full run failed:1434 tests,3 failures,11 errors,2 skips. Permission errors and sandbox-dependent workflow failures retained; complete authorized archived rerun passed1446.
-- Runtime packages and tests identical to2c173b3; core ledger, grammar, checker and all old frozen corpora/evidence unchanged fromc10a81b.
-- PR55 opened at https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/pull/55 . Final evidence/doc-only commit and exact-head CI inspection remain; no merge performed.
-- README/handoff update changes no runtime or test code. Exact-final-head CI must be checked after this documentation commit; do not claim pending checks passed.
+- Exact baseline bc6f25c frozen in a sparse detached worktree before engine edits. Full1240-case D%run completed:200/600 correct complete,640/640 expected refusals,zero observed false support.
+- Actual before-fix event-date test suite exited1 with5 failures; logs retained. General independent-vocabulary positive/negative/calendar/source-state controls pass in working tree.
+- Working-tree H07 now has a source-supported date inventory; no complete22-case updated study or full regression pass claimed yet.
+- Full baseline22-original study retained; source seals and original documents unchanged.
+- Rejected ebe8a3d after three independent-vocabulary actor-clause counterexamples falsely returned support. Failing control exit1 and raw partial outputs retained.
+- Stopped only task-owned rejected-candidate D%parent (exit143) and archived suite child (exit-15). Partial D%overall E/F null; no partial software pass claimed.
+- General fix requires a full literal named/declared-collective actor and main predicate; arbitrary prefixes cannot swallow reporting, proposal or near-miss language. All67 focused tests passed after repair; final full-run validation still pending.
+- Corrected frozen ee85ab3:1468 full Python tests, native boundaries and52 public controls passed, all exit0.
+- Full corrected D%1240/1240 complete:200/600 matched supported,640/640 expected refusals,no false support; require-perfect exits1 for remaining400 positives.
+- Archived22-record run:3 complete,2 partial,3 conflict,14 abstain. OnlyH07 changes meaning; other21 native claims/citations/unresolved content preserved. Independent correctness not reviewed.
+- Tool-only follow-up adds exact original bytes/import mappings to anonymous review exports; native packages/tests unchanged fromee85ab3.
+- Only H07 changes semantic native result; all21 other native claims, citations, diagnostics and unresolved meanings preserved. Five H07 citations round-trip to exact original source bytes.
+- Final anonymous22-case/44-output packet export includes raw originals and mappings, with private custody crosswalk outside Git. Existing human validator rejects blank reviews; no independent review fabricated.
+- Dashboard separates synthetic key rates, authentic native counts and null independent historical metrics.
+- All prior frozen corpora/questions/keys/reports and mplpb_combined core remain unchanged. Internal date-rule scan caps are disclosed separately from unchanged answer admission and D%sandbox limits.
 
 ## Limitations and blocked checks
 
-- No new historical proof rule, automatic cross-document relationship or historical answer-coverage gain is claimed.
-- Independent historical semantics, witness independence, undeclared copying and historical truth remain unestablished.
-- Article exports are optimistic inspection snapshots, not atomic filesystem snapshots or permanently eligible evidence.
-- This is a native CLI/library addition; browser/deployment integration is not implemented.
+- Source assertion support is not historical truth; missing year, source calendar, event identity and actual telegram dispatch/receipt remain unverified.
+- Locator examines at most64 sources/2MiB and selected source at most16000 characters/256 units. Source scopes and known corrections can over-refuse unfamiliar records.
+- Independent human review, genuine unseen200-question evaluation and fresh blinded AI assessment are NOT RUN.
+- Dashboard synthetic rates are developer-key metrics; authentic historical semantic precision, recall and refusal correctness remain null.
 
 ## Next steps
 
-- Finish the authorized PR55 merge after exact-head checks; fast-forward the local main branch and verify a clean working tree.
-- Next session: general independently checked cross-document connections with explicit evidence for every link and copied-account/missing-link/conflict controls. Historical answer coverage and independent accuracy remain unresolved.
+- Inspect exact-final-head PR56 CI; do not merge without new user authorization.
+- Independent review remains NOT RUN. For fresh AI assessment supply only anonymous public packets, never private crosswalk, scores or change log; label it AI assessment. Real unseen/human evaluation remains separate.
+- Next general source proof classes: causal/resource composition with OCR/quotation scope and legal discretion/term limits. Preserve all failures, historical originals and frozen labels; no case-specific runtime rules.
 
 ## Use this ZIP in your repository
 

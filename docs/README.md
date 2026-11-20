@@ -17,6 +17,8 @@ being tested, not proven world-first.
 |---|---|
 | Understand the package and each part | [Package guide](PACKAGE_GUIDE.md) / [repository map](../CONTENTS) |
 | Install browser, desktop, native CLI or sorter | [Installation](INSTALLATION.md) |
+| Try supported, ambiguous and refused archival questions | [Five-minute archival tutorial](ARCHIVAL_INSPECTION.md) |
+| Compare measured versions and unknown accuracy metrics | [Benchmark dashboard](benchmarks/dashboard.md) |
 | Sort unformatted text without promoting claims | [Offline sorter](PREPROCESSING_SORTER.md) |
 | Distinguish supported answers from returned pages | [Result contracts](PAGE_RETRIEVAL.md) / [pipeline](GENERAL_ANSWER_PIPELINE.md) |
 | Inspect documentary relations or checked question parts | [Reconstruction](HISTORICAL_RECONSTRUCTION_ENGINE.md) / [solo workflow](SOLO_RESEARCH_WORKFLOW.md) |

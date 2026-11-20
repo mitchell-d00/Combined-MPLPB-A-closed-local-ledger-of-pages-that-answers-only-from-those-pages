@@ -189,7 +189,10 @@ def admit_proposals(index,proposals,goals,relevant,budget,reserved=None):
         body=budget.bodies[record.path];a=proposal.get('start');b=proposal.get('end')
         if type(a) is not int or type(b) is not int or not 0<=a<b<=len(body) or body[a:b]!=proposal.get('quote'):continue
         kind=proposal['kind'];spans=[];value=None
-        if kind=='letter_instruction':
+        if kind=='date_inventory':
+            inventory=kernel.date_inventory(index,record)
+            if inventory:value=inventory['proposition'];spans=inventory['citations']
+        elif kind=='letter_instruction':
             value=kernel.letter_assertion(body,a,b)
             if value:
                 spans=[kernel.citation(record,body,a,value['header_end']),kernel.citation(record,body,value['statement_start'],b)]

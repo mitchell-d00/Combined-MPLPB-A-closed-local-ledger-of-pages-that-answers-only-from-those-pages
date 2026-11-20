@@ -1,0 +1,11 @@
+{
+  "export_revision": "eb5e4b9",
+  "packets": 22,
+  "original_bytes_included": true,
+  "blank_human_reviews_rejected": true,
+  "validator_exit_code": 1,
+  "validator_stderr": "Traceback (most recent call last):\n  File \"<frozen runpy>\", line 198, in _run_module_as_main\n  File \"<frozen runpy>\", line 88, in _run_code\n  File \"/workspace/mplpb/tools/unprepared_challenge.py\", line 453, in <module>\n    if __name__=='__main__':main()\n                            ^^^^^^\n  File \"/workspace/mplpb/tools/unprepared_challenge.py\", line 450, in main\n    else:save(args.output,score_reviews(args.packets,args.reviews,args.adjudication))\n                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/workspace/mplpb/tools/unprepared_challenge.py\", line 347, in score_reviews\n    raise ValueError('Distinct declared human reviewers required')\nValueError: Distinct declared human reviewers required\n",
+  "semantic_review": "NOT RUN",
+  "identity_authenticated": false,
+  "original_hashes_checked": true
+}

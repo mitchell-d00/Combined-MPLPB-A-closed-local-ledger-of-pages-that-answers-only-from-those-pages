@@ -1,0 +1,46 @@
+======================================================================
+FAIL: test_budget_and_source_mutation_never_reuse_a_certificate (tests.test_event_date_inventory.EventDateInventoryTests.test_budget_and_source_mutation_never_reuse_a_certificate)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/mplpb/tests/test_event_date_inventory.py", line 94, in test_budget_and_source_mutation_never_reuse_a_certificate
+    self.add(); self.assertTrue(self.ask()['answer_supported'])
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: False is not true
+
+======================================================================
+FAIL: test_each_link_is_checked_without_inheriting_review_or_catalogue_year (tests.test_event_date_inventory.EventDateInventoryTests.test_each_link_is_checked_without_inheriting_review_or_catalogue_year)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/mplpb/tests/test_event_date_inventory.py", line 30, in test_each_link_is_checked_without_inheriting_review_or_catalogue_year
+    self.assertTrue(r['answer_supported'])
+AssertionError: False is not true
+
+======================================================================
+FAIL: test_missing_link_is_not_filled_by_similar_record (tests.test_event_date_inventory.EventDateInventoryTests.test_missing_link_is_not_filled_by_similar_record)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/mplpb/tests/test_event_date_inventory.py", line 69, in test_missing_link_is_not_filled_by_similar_record
+    self.assertTrue(any('evacuation' in m for m in r['missing']))
+AssertionError: False is not true
+
+======================================================================
+FAIL: test_same_clause_calendar_arithmetic_retains_unknown_year (tests.test_event_date_inventory.EventDateInventoryTests.test_same_clause_calendar_arithmetic_retains_unknown_year)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/mplpb/tests/test_event_date_inventory.py", line 44, in test_same_clause_calendar_arithmetic_retains_unknown_year
+    r=self.ask(); self.assertTrue(r['answer_supported'])
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: False is not true
+
+======================================================================
+FAIL: test_unknown_leap_year_does_not_guess_relative_date (tests.test_event_date_inventory.EventDateInventoryTests.test_unknown_leap_year_does_not_guess_relative_date)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/mplpb/tests/test_event_date_inventory.py", line 52, in test_unknown_leap_year_does_not_guess_relative_date
+    self.assertTrue(r['claims'])
+AssertionError: [] is not true
+
+----------------------------------------------------------------------
+Ran 10 tests in 0.122s
+
+FAILED (failures=5)

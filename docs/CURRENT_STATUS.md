@@ -26,6 +26,7 @@ supported answer retain distinct labels. No document seal proves historical trut
 | Ledger/gates | Revisions, ancestry, source hashes, delivery profiles, exclusions and current eligibility | Integrity/authorship/truth remain separate |
 | Strict answering | Finite source-body proofs, explicit diagnostics, conflicts, checked partials and refusals | Many ordinary historical constructions remain unsupported |
 | Documentary inspection | Source units/layer hints, literal comparisons, obligations, bounded relations and original-byte mapping where available | Missing links, OCR/quotation problems and ambiguous identities stop completion |
+| [Explicit source dates](ARCHIVAL_INSPECTION.md) | Independently checked narrative/action date links, source-body catalogue dates and separate review mentions | Unknown years/calendar/event identity remain unverified; no causal inference or authenticated transmission |
 | [Documentary article dossiers](DOCUMENTARY_ARTICLES.md) | Read-only assembly of native research sections, competing accounts and shared declared ancestry | No article-level proof, automatic relationship resolution or independent-witness count; native CLI/library only |
 | Application | Native/browser collections, deterministic conversation, references, local context and procedures | Saved user context is not ledger evidence; arbitrary conversation/prose understanding is not established |
 | Work and integration | Scoped specialist continuity, host receipts, JavaScript transport and native local MCP | A successful tool/receipt is not historical truth, task execution proof or shared-service readiness |
@@ -35,6 +36,18 @@ See the [package map](PACKAGE_GUIDE.md#package-map) for implementation and the
 [installation guide](INSTALLATION.md) for what each distribution actually contains.
 The lab-only [reference corpus](../reference_corpus/README.md) is unratified and
 not the default hosted application's authoritative source collection.
+
+## Latest archival source/date experiment
+
+The [frozen date-rule experiment](../evaluation/archival-inspection/2026-11-19/REPORT.md)
+changes only H07: native complete answers **2→3/22**, with 2 partials, 3 conflicts
+and 14 abstentions. Each date relationship retains exact source evidence; missing
+years, catalogue/review roles and relative-day arithmetic stay explicit. All 21
+other answer meanings are unchanged. The corrected archive passed 1,468 Python
+tests and 52 public controls. Full D% remains 200/600 matched complete and 640/640
+expected refusals. The earlier unsafe candidate and its failures remain retained.
+Independent historical precision/recall and refusal correctness are unmeasured;
+[the dashboard](benchmarks/dashboard.md) keeps those values null.
 
 ## Retained historical question experiment
 

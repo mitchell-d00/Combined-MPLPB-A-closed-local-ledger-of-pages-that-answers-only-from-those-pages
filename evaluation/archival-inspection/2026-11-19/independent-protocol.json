@@ -1,0 +1,20 @@
+{
+  "schema": "archival-independent-protocol-v1",
+  "status": "NOT RUN",
+  "primary_domain": "archival document inspection",
+  "minimum_unseen_questions": 200,
+  "independent_question_authorship": "NOT AVAILABLE",
+  "human_independent_review": "NOT RUN",
+  "fresh_ai_assessment": "NOT RUN",
+  "adjudication": "NOT RUN",
+  "metrics": {
+    "supported_answer_precision": null,
+    "complete_answer_recall": null,
+    "correct_refusal_rate": null,
+    "citation_fidelity": null
+  },
+  "runtime": "Reuse tools.unprepared_challenge freeze/run with isolated baseline,updated,BM25 and keyword arms; sources and budgets identical; expected answers outside runtime.",
+  "packets": "tools.blind_archival_packets exports anonymous paired familiar development outputs without reference drafts or implementation labels. Familiar packets are not an unseen evaluation.",
+  "scoring": "Compatible collection review templates use existing tools.unprepared_challenge score requiring two real human submissions and bound adjudication for disagreements. Participant identities/independence are not authenticated by code. A fresh model review must be labelled AI assessment and cannot satisfy the human validator.",
+  "publication_rule": "Retain all cases including errors, partials, wrong answers and over-refusals. Keep unknown values null. Never count a downloaded article or search result as a review of MPLPB output."
+}

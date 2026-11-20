@@ -51,6 +51,8 @@ def _counter_wording(text):
 
 
 def plan(question):
+    dates=kernel.date_inventory_request(question)
+    if dates:return [{'question':question,'kind':'date_inventory','roles':dates['roles']}]
     anchor=kernel.literal_request(question)
     if anchor:return [{'question':question,'kind':'literal_location','anchor_text':anchor}]
     clauses=re.split(r'\?\s+(?=[A-Z])|,?\s+and\s+(?=(?:who|which|what|when|how|why|did|does|can)\b)',kernel.source_question(question),flags=re.I)
@@ -88,6 +90,20 @@ def propose(index,passages):
         if key in seen or len(result)>=12:return
         seen.add(key);result.append({'kind':kind,'source_id':p['source_id'],'path':p['path'],
           'hash':p['hash'],'start':a,'end':b,'quote':bodies[p['path']][a:b]})
+    date_request=kernel.date_inventory_request(index.question)
+    if date_request:
+        used=0
+        for record in index.records:
+            body=bodies[record.path];used+=len(body)
+            if used>kernel.DATE_LOCATOR_CHARS:break
+            if len(body)>kernel.DATE_DOCUMENT_CHARS:continue
+            for a,b,q in kernel.units(body):
+                values=kernel.dated_statements(q)
+                if (b-a<=2200 and any(kernel.normalized(date_request['subject_text']) in
+                    kernel.normalized(v['literal_identity_context']) for v in values)):
+                    add({'source_id':record.id,'path':record.path,'hash':record.hash_actual},a,b,'date_inventory')
+                    break
+        return result
     anchor=kernel.literal_request(index.question)
     if anchor:
         pattern=kernel.literal_pattern(anchor)
@@ -150,10 +166,10 @@ def _relevant(goal,proof,question):
     v=proof['proposition']
     relation={'explicit_cause':'source_causal_assertion','resource_support':'source_resource_assertion',
               'wording_comparison':'exact_wording_comparison','wording_shared':'exact_wording_comparison','temporal_statement':'source_temporal_assertion',
-              'literal_location':'source_literal_occurrence'}.get(goal['kind'])
+              'literal_location':'source_literal_occurrence','date_inventory':'source_event_date_inventory'}.get(goal['kind'])
     if relation:
         if v['relation']!=relation:return False
-        if relation in {'exact_wording_comparison','source_literal_occurrence'}:return True
+        if relation in {'exact_wording_comparison','source_literal_occurrence','source_event_date_inventory'}:return True
         return bool(terms(goal['question']) & terms(' '.join(str(x) for x in v.values() if isinstance(x,str))))
     if goal['kind']=='who_action':
         if v['relation']=='source_reports_instruction' and goal['action'] in {'request','instruct','order'}:
@@ -193,7 +209,17 @@ def _claim(proof):
         if v.get('question_obligations_verified'):
             qualifiers.append('Complete only as the recorded arrangement request and printed letter date; the complete local letter is cited. Actual fulfillment and outside-world truth remain unverified.')
     else:
-        if v['relation']=='source_literal_occurrence':
+        if v['relation']=='source_event_date_inventory':
+            parts=[]
+            for link in v['date_links']:
+                label=link['requested_role']; date=link['date_text']
+                if link.get('resolved_month_day'):date+=' (calendar day: '+link['resolved_month_day']+')'
+                parts.append(label+': '+date+(' at '+link['time_text'] if link.get('time_text') else '')+
+                    ' ['+link['date_role']+'; '+('year '+str(link['year']) if link['year'] else 'year unstated')+'].')
+                parts.append('Source statement: “'+link['statement_text']+'”.')
+            for link in v['review_dates']:parts.append('Webpage review: '+link['date_text']+'; not an event date.')
+            text='The source states these separate date relationships. '+' '.join(parts)
+        elif v['relation']=='source_literal_occurrence':
             text='The cited source contains the requested words: “'+v['requested_words']+'”.'
         elif v['relation']=='exact_wording_comparison':
             parts=[]
@@ -204,6 +230,8 @@ def _claim(proof):
             if len(v['alignment'])>12:text+=' Further differences and shared text are retained in the complete structured alignment.'
         else:text='Source assertion: '+re.sub(r'\s+',' ',proof['citations'][0]['quote'])
         qualifiers=['Only the complete cited wording is checked; historical truth and event/person identity are not independently verified.']
+        if v['relation']=='source_event_date_inventory':
+            qualifiers.append('Date relationships are source-attributed; catalogue dates do not prove dispatch or receipt. Artillery firing is a literal action category, not resolved historical event identity. No year is inherited from another date role. Calendar display arithmetic uses the proleptic Gregorian convention; the source calendar is not authenticated.')
         if v['relation']=='source_literal_occurrence':qualifiers.append('Textual occurrence only; quotations, examples, conditions and denials do not establish an event or execution.')
         if v['relation']=='source_causal_assertion':qualifiers.append('The source explicitly attributes a cause; this does not independently establish historical causation.')
         if v['relation']=='exact_wording_comparison':
@@ -266,13 +294,19 @@ def compose(index,max_passages,max_chars):
     text_completion=(len(closures)==1 and all(g['kind']=='literal_location' for g in goals)
         and closures[0]['proposition'].get('question_completion_rule')=='eligible_literal_location_v1')
     literal_completion=literal_completion or text_completion
+    date_completion=(len(closures)==1 and all(g['kind']=='date_inventory' for g in goals)
+        and closures[0]['proposition'].get('question_completion_rule')=='explicit_source_date_relations_v1')
+    literal_completion=literal_completion or date_completion
     if literal_completion:proofs=closures
     for goal in goals:
         matches=[p for p in proofs if _relevant(goal,p,index.question)]
         status={'question':goal['question'],'kind':goal['kind'],'status':'unresolved'}
-        if goal['kind'] in {'explicit_cause','resource_support','wording_comparison','wording_shared','temporal_statement','literal_location'}:
+        if goal['kind'] in {'explicit_cause','resource_support','wording_comparison','wording_shared','temporal_statement','literal_location','date_inventory'}:
             if matches:status['status']='supported_source_assertion' if literal_completion else 'checked_relationship_scope_partial'
             if goal['kind']=='literal_location' and any(p['proposition'].get('eligible_source_ambiguity') for p in matches):ambiguous=True
+            if goal['kind']=='date_inventory':
+                for p in matches:
+                    for role in p['proposition']['unresolved_roles']:missing.append(role+': date relationship is missing, competing or calendar-ambiguous in this source.')
         elif goal['kind']=='who_action':
             exact=[p for p in matches if p['proposition']['relation'] in {'source_action_assertion','source_passive_action_assertion'} and not p['proposition']['unresolved_reference']
                    and kernel.normalized(p['proposition']['object_text'])==kernel.normalized(goal['object_text'])]
@@ -367,6 +401,7 @@ def compose(index,max_passages,max_chars):
                 'context_limits':context_limits,
                 'comparison_completion_scope':closures[0]['proposition'].get('reference_scope') if comparison_completion else None,
                 'question_completion_scope':closures[0]['proposition'].get('reference_scope') if literal_completion else None,
+                'date_inventory_scan':closures[0]['proposition'].get('date_scan') if date_completion else None,
                 'alternative_evidence':displayed_alternatives,'unshown_alternative_evidence_count':len(alternatives)-len(displayed_alternatives),
                 'possible_refutation_count':len(refutations),'refutation_targets_resolved':False,
                 'retrieval_limits':{'max_passages':max_passages,'max_characters':max_chars}}}

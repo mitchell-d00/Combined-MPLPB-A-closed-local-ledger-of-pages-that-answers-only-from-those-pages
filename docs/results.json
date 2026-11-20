@@ -618,6 +618,23 @@
       ],
       "scope": "Read-only assembly preservation and shared declared ancestry; not new historical reconstruction accuracy or independent corroboration.",
       "measurement_status": "Development controls and unchanged-original preservation study; see dated report for actual completed checks."
+    },
+    {
+      "family": "archival-inspection",
+      "artifacts": "evaluation/archival-inspection",
+      "tests": [
+        "tests/test_event_date_inventory.py",
+        "tests/test_archival_onboarding.py"
+      ],
+      "runners": [
+        "tools/article_study.py",
+        "tools/dpercent.py",
+        "tools/benchmark_dashboard.py",
+        "tools/blind_archival_packets.py",
+        "tools/archival_tutorial.py"
+      ],
+      "scope": "Finite source event/date relationships and native completion on unchanged development documents; independent semantic correctness unmeasured.",
+      "measurement_status": "See dated retained before/after study, guards, costs and initial failed controls. Unseen200-question and actual independent review NOT RUN."
     }
   ]
 }

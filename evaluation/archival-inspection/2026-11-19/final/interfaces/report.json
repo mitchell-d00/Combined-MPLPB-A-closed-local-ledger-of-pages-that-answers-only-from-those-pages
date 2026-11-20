@@ -1,0 +1,28 @@
+{
+  "tested_native_revision": "ee85ab3b3fa501fbee71e102e4de6b7d1bbe48f3",
+  "commands": [
+    {
+      "command": "python tools/check_ui_script.py",
+      "exit_code": 0
+    },
+    {
+      "command": "node tests/javascript-api.cjs",
+      "exit_code": 0
+    },
+    {
+      "command": "node tools/check_browser_transport.cjs",
+      "exit_code": 0
+    },
+    {
+      "command": "node crawler/test_worker.mjs",
+      "exit_code": 0
+    },
+    {
+      "command": "python -m tools.archival_tutorial --output NEW_DIRECTORY",
+      "exit_code": 0
+    }
+  ],
+  "actual_browser_wasm": "NOT RUN locally",
+  "deployed_site": "NOT RUN",
+  "live_model": "NOT RUN"
+}

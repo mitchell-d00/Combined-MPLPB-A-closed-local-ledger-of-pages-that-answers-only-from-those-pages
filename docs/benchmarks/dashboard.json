@@ -1,0 +1,138 @@
+{
+  "schema": "archival-dashboard-v1",
+  "rows": [
+    {
+      "label": "initial",
+      "revision": "6334e1b3a08db10984de637adbd5e5a6021b381c",
+      "dataset": "synthetic_development",
+      "evidence_path": "evaluation/dpercent/2026-11-19/score.json",
+      "evidence_sha256": "7120bd452c81c8f4cf097f8279a6130d127e193fc5abbf9f10f37c10e261367e",
+      "metrics": {
+        "supported_answer_precision": 1.0,
+        "complete_answer_recall": 0.03333333333333333,
+        "correct_refusal_rate": 1.0,
+        "citation_fidelity": 1.0
+      },
+      "independent_semantic_review": "NOT RUN",
+      "counts": {
+        "cases": 1240,
+        "answerable": 600,
+        "unsupported": 640,
+        "complete_correct": 20,
+        "accepted": 20,
+        "execution_failures": 0,
+        "unscored_supported": 0
+      },
+      "scope": "Developer-key results on frozen fiction. Citation metric is per accepted output at run time, not live serving eligibility or historical semantics."
+    },
+    {
+      "label": "checked-prose",
+      "revision": "6e0de9e6f14f238961845780c2500713a0db096f",
+      "dataset": "synthetic_development",
+      "evidence_path": "evaluation/dpercent/2026-11-19-class-rules/final/score.json",
+      "evidence_sha256": "d52ca04f13a76f13f1b77be815eed095c1679b58a5eab3b790c790af33f6c290",
+      "metrics": {
+        "supported_answer_precision": 1.0,
+        "complete_answer_recall": 0.3333333333333333,
+        "correct_refusal_rate": 1.0,
+        "citation_fidelity": 1.0
+      },
+      "independent_semantic_review": "NOT RUN",
+      "counts": {
+        "cases": 1240,
+        "answerable": 600,
+        "unsupported": 640,
+        "complete_correct": 200,
+        "accepted": 200,
+        "execution_failures": 0,
+        "unscored_supported": 0
+      },
+      "scope": "Developer-key results on frozen fiction. Citation metric is per accepted output at run time, not live serving eligibility or historical semantics."
+    },
+    {
+      "label": "archival-dates",
+      "revision": "ee85ab3b3fa501fbee71e102e4de6b7d1bbe48f3",
+      "dataset": "synthetic_development",
+      "evidence_path": "evaluation/archival-inspection/2026-11-19/final/score.json",
+      "evidence_sha256": "4464c2b44603505333de65b13e2280c722e9f11e7ff353007ba69bd5717a4ac0",
+      "metrics": {
+        "supported_answer_precision": 1.0,
+        "complete_answer_recall": 0.3333333333333333,
+        "correct_refusal_rate": 1.0,
+        "citation_fidelity": 1.0
+      },
+      "independent_semantic_review": "NOT RUN",
+      "counts": {
+        "cases": 1240,
+        "answerable": 600,
+        "unsupported": 640,
+        "complete_correct": 200,
+        "accepted": 200,
+        "execution_failures": 0,
+        "unscored_supported": 0
+      },
+      "scope": "Developer-key results on frozen fiction. Citation metric is per accepted output at run time, not live serving eligibility or historical semantics."
+    },
+    {
+      "label": "archival-before",
+      "revision": "bc6f25c053dfc1ceb3b0096cca56550041395105",
+      "dataset": "authentic_development",
+      "evidence_path": "evaluation/archival-inspection/2026-11-19/baseline-originals/report.json",
+      "evidence_sha256": "b00942999dd9deea280990a3bd7c346498dbafdd1fa66a308c41e58f129d294d",
+      "metrics": {
+        "supported_answer_precision": null,
+        "complete_answer_recall": null,
+        "correct_refusal_rate": null,
+        "citation_fidelity": null
+      },
+      "independent_semantic_review": "NOT RUN",
+      "counts": {
+        "cases": 22,
+        "native_outcomes": {
+          "abstain": 15,
+          "supported_answer": 2,
+          "conflict": 3,
+          "partial_answer": 2
+        },
+        "independently_answerable": null
+      },
+      "scope": "Native outcome counts only; neither complete-answer recall nor refusal correctness is independently known."
+    },
+    {
+      "label": "archival-after",
+      "revision": "ee85ab3b3fa501fbee71e102e4de6b7d1bbe48f3",
+      "dataset": "authentic_development",
+      "evidence_path": "evaluation/archival-inspection/2026-11-19/final/originals/report.json",
+      "evidence_sha256": "1eb66973fb65e480c978992ab965d9d7fb5cff9bca4087c0f999ddb96c212146",
+      "metrics": {
+        "supported_answer_precision": null,
+        "complete_answer_recall": null,
+        "correct_refusal_rate": null,
+        "citation_fidelity": null
+      },
+      "independent_semantic_review": "NOT RUN",
+      "counts": {
+        "cases": 22,
+        "native_outcomes": {
+          "abstain": 14,
+          "supported_answer": 3,
+          "conflict": 3,
+          "partial_answer": 2
+        },
+        "independently_answerable": null
+      },
+      "scope": "Native outcome counts only; neither complete-answer recall nor refusal correctness is independently known."
+    }
+  ],
+  "unseen_independent": {
+    "status": "NOT RUN",
+    "questions": 0,
+    "metrics": {
+      "supported_answer_precision": null,
+      "complete_answer_recall": null,
+      "correct_refusal_rate": null,
+      "citation_fidelity": null
+    },
+    "reviewer_identity_authenticated": false
+  }
+}
