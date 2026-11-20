@@ -648,6 +648,19 @@
       ],
       "scope": "Unchanged public synthetic literal-field question forms, positive/negative support and exact key-value scoring; no historical accuracy or independent semantic review.",
       "measurement_status": "Before/after public reproduction completed; full frozen regression pending candidate freeze."
+    },
+    {
+      "family": "dpercent-expanded",
+      "artifacts": "evaluation/dpercent-expanded",
+      "tests": [
+        "tests/test_dpercent_expanded.py"
+      ],
+      "runners": [
+        "tools/dpercent_expanded.py",
+        "tools/dpercent.py"
+      ],
+      "scope": "Known-error structural stress testing across historical prose and field admission; frozen packets, isolated worker and post-run keys. Not independent/unseen evaluation.",
+      "measurement_status": "1000 cases frozen; execution in progress. Five generator/scorer tests passed."
     }
   ]
 }

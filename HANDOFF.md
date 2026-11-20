@@ -4,24 +4,28 @@ Last reviewed: 2026-11-20.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `29584ff02e7b03494c393c47d95b64c3f7f20745` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `f5d0e92e2028677b73187da33282b68aee74c33e9348c41c5d7e544b58e0e6cc`.
+Base commit: `044ac27e2833341acba9e6ccb4973c304292ea4e` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `57f921afa3eb44f9f53a15c235cc8cd3985b228deff6c0f10908edea042e3eb6`.
 
 ## Latest user update instructions
 
-Do it run it until it’s fixed
+Build a generator based on all the errors we know see etc and generate more in more
 
 ## Implemented scope
 
 - General whole-question literal field-request syntax in the existing exact parser; additive inspectable normalization; no core authority changes.
 - Unchanged public reproduction preserved with baseline at published bbf6690 and pre-change 3483b1a; new tests and exact CSV scoring.
 - Separate follow-up branch feature/field-question-normalization based on unmerged PR56; no merge performed.
+- Additional instruction: write a response paper to the 19 November public evaluation after tests complete, citing the original paper/package members and reproducible source tests.
+- Implement optional expanded D% generator/scorer around existing isolated worker;48 semantic families;1000cases frozen; all dice/keys hash-pinned in separate custody.
+- User supplied another parser-only verification account; distinguish that from our completed full engine replay. Do not manufacture independent semantic review.
 
 ## Validation recorded
 
 - New regression failed before fix; 37 focused tests passed after syntax change; nine expanded controls pass.
 - Public reproduction: baseline 150/150 canonical,0/750 paraphrases; updated150/150 and750/750. All200 negative controls refused. Script runs exit0.
 - Full frozen-archive regression and public evidence pending; never infer pass from prior candidate.
+- Actual frozen 044ac27 public replay:900/900 exact field/value matches,200/200 negative refusals. Full native regression and frozenD%still running; five new generator tests pass separately.
 
 ## Limitations and blocked checks
 
@@ -31,9 +35,9 @@ Do it run it until it’s fixed
 
 ## Next steps
 
-- Freeze commit/archive and run full regression/public controls; retain all logs and actual exit statuses.
-- Record exact key-value CSV scoring and costs; update documentation and handoff after results.
-- Do not merge without exact-head release checks and authorization.
+- Finish full native/public suite, original D% and expanded1000-case run; retain errors and unmet obligations.
+- Freeze a complete follow-up including generator tests and run final full suite before response-paper claims.
+- Write response paper with citations to every external package member via hash inventory; render md/txt/pdf; update docs/evidence/handoff. No merge.
 
 ## Use this ZIP in your repository
 
