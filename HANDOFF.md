@@ -4,8 +4,8 @@ Last reviewed: 2026-11-20.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `2427d80e777b9cc76e071b2529e91a14b9bdb991` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `2b07825d33068a025d45f72ffdcb680dc2387c47f7c2c38ef9f740190b3450c1`.
+Base commit: `9168e1ccd148a2f92f93ca85e30197d24e0e3c2b` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `5a9adbf38345fdc68edeb6677b279dd5c362aa1e617346da8c125d403401e2a4`.
 
 ## Latest user update instructions
 
@@ -37,6 +37,7 @@ All weaknesses we know so we can generate sample large enough to class the pater
 - 4096/4096 completed against unchanged2427d80 packages;657/1262 matched complete,605 missed positives in11 classes,2834 expected refusals retained;156894 node spans have zero byte/hash/authority-flag errors.37 graphs transparently hit repeated_phrase_group_budget.
 - First sequential attempt deliberately terminated exit143. Original parallel driver exit1 after workers completed due heterogenous feature schema; actual failed logs preserved. Repaired post-run audit exit0 and fresh75-case repaired driver exit0. No case/key/native-rule changes.
 - 120 focused tests passed exit0; exact final collection and release checks follow final evidence commit.
+- Final partial-run accounting control failed before repair (2 unexecuted rows counted executed); fixed with explicit not-run reporting and recomputed per-family/lower-bound field metrics.121 focused tests pass; all4096 frozen native outputs reused unchanged in separate corrected scoring directory.
 
 ## Limitations and blocked checks
 

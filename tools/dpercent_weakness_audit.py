@@ -31,6 +31,7 @@ def audit(packets, custodian, output):
         keys = {k['id']: k for k in D.read(custodian/name/'key.json')['cases']}
         for row in score['cases']:
             outcomes[row['outcome']] += 1
+            if row['execution'] == 'not_run': continue
             if row['expected'] == 'answer': positives += 1
             else: negatives += 1
         for entry in record['cases']:

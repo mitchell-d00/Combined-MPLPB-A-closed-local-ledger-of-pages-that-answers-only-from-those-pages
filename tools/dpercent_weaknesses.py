@@ -246,7 +246,10 @@ def score_shard(packets, custodian, run, output):
         E=tp/len(pos) if complete and pos else None, F=fp/len(neg) if complete and neg else None,
         outcomes=dict(Counter(r['outcome'] for r in rows)),
         unscored_supported=sum(r['outcome']=='supported_semantics_unscored' for r in rows),
-        complete_decision_match=complete and tp==len(pos) and fp==0)
+        complete_decision_match=complete and tp==len(pos) and fp==0,
+        E_lower_bound=tp/len(pos) if pos else None,
+        by_family={family: dict(Counter(r['outcome'] for r in rows if r['family']==family))
+                   for family in sorted({r['family'] for r in rows})})
     base.update(schema=VERSION+'-score', scorer_sha256=D.sha(Path(__file__).read_bytes()))
     D.save(output, base)
     return base
@@ -286,7 +289,9 @@ def summarize(packets, custodian, output):
         score = D.read(report); keys = {k['id']: k for k in D.read(custodian/name/'key.json')['cases']}
         run = D.read(output/name/'run.json'); receipts = {r['case_id']: r for r in run['cases']}
         for row in score['cases']:
-            family = families[row['family']]; family['executed'] += 1; finished += 1
+            family = families[row['family']]
+            if row['execution'] != 'not_run':
+                family['executed'] += 1; finished += 1
             outcome = row['outcome']; family['outcomes'][outcome] = family['outcomes'].get(outcome, 0)+1
             for feature, value in keys[row['id']].get('features', {}).items():
                 cohort = features.setdefault(feature, {}).setdefault(str(value), {'cases': 0, 'outcomes': {}})

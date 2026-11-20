@@ -83,14 +83,30 @@ class WeaknessStudyTests(unittest.TestCase):
                 (run/ident).mkdir()
                 D.save(run/ident/'result.json', {'answer': {'claims': [{'text': 'Deposit Date: 1850-01-01', 'citations': [{'source_id': 'original'}]}]}})
             base = {'metrics': {}, 'cases': [
-                {'id': 'A', 'execution': 'completed', 'answer_supported': True, 'expected': 'answer', 'quotation_fidelity': True, 'outcome': 'supported_semantics_unscored'},
-                {'id': 'B', 'execution': 'completed', 'answer_supported': False, 'expected': 'answer', 'quotation_fidelity': True, 'outcome': 'over_refusal'}]}
+                {'id': 'A', 'family': 'alias_test', 'execution': 'completed', 'answer_supported': True, 'expected': 'answer', 'quotation_fidelity': True, 'outcome': 'supported_semantics_unscored'},
+                {'id': 'B', 'family': 'alias_test', 'execution': 'completed', 'answer_supported': False, 'expected': 'answer', 'quotation_fidelity': True, 'outcome': 'over_refusal'}]}
             with patch.object(D, 'score', return_value=deepcopy(base)):
                 report = W.score_shard(root/'public', keys, run, root/'score.json')
             self.assertEqual(report['metrics']['correct_complete_answers'], 1)
             self.assertEqual(report['metrics']['E'], .5)
+            self.assertEqual(report['metrics']['E_lower_bound'], .5)
+            self.assertEqual(report['metrics']['by_family']['alias_test']['detected_answer'], 1)
             self.assertEqual(report['cases'][1]['outcome'], 'over_refusal')
             self.assertNotIn('field', report['cases'][0]['features'])
+
+    def test_partial_run_keeps_unexecuted_cases_out_of_executed_total(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp); public = root/'public'; keys = root/'keys'; run = root/'run'
+            manifest = W.prepare(public, keys, count=2, seed=31, shard_size=2)
+            name = manifest['shards'][0]['name']; (run/name).mkdir(parents=True)
+            D.save(run/name/'run.json', {'partial': True, 'cases': [],
+                'packet_seal_sha256': D.sha((public/name/'seal.json').read_bytes())})
+            score = W.score_shard(public/name, keys/name, run/name, run/(name+'-score.json'))
+            summary = W.summarize(public, keys, run)
+            self.assertIsNone(score['metrics']['E'])
+            self.assertEqual(summary['executed'], 0)
+            self.assertEqual(summary['not_run'], 2)
+            self.assertTrue(summary['partial'])
 
     def test_unknown_legacy_obligation_fails_closed(self):
         graph = {'nodes': [], 'edges': [], 'complete': True, 'nodes_identical_between_modes': True,

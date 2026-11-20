@@ -39,4 +39,5 @@ python -m tools.dpercent_expanded score --packets /tmp/alias-public --custodian 
 
 Use new directories; never overwrite old seals/runs. Synthetic keys remain outside
 engine execution. Developer-authored holdouts do not establish independent semantic
-accuracy. Published expected outcomes will be hash-pinned for third-party replay.
+accuracy. The published synthetic replication package includes hash-pinned expected outcomes
+for third-party replay; no independent semantic review has occurred.

@@ -104,14 +104,24 @@ post-run adapter rescored their original hash-pinned outputs (exit0). It also
 honors partial runs when reporting E/F. The schema error and the earlier legacy
 obligation error are retained, rather than described as engine-answer failures.
 
-`audit.json` retains counts, resources, all37 graph limits and code/scorer pins.
+`audit.json` retains original counts, resources, all37 graph limits and code/scorer pins.
+`corrected-audit.json`, `corrected-summary.json` and `corrected-scoring.tar.gz`
+retain the later accounting-consistent metrics; complete-study findings agree.
 `summary.json` retains every family and feature cohort; raw executions and the
 interrupted attempt are archived separately. `synthetic-packets.zip` includes
 original public packets and separately sealed expected outcomes, plus the exact
 producer and per-file hashes. These synthetic keys are intentionally public for
 reproduction; original private study keys remain untouched.
 
-Focused software checks:120 tests passed (exit0). Full final-head release checks
+A final progress regression also exposed unexecuted rows counted as executed
+in partial summaries. The failing control reports2 instead of0; the repair keeps
+not-run counts explicit and E/F null. Per-family field metrics and lower bounds
+are now recomputed after literal-field matching rather than inherited from the
+base proposition scorer. Both before/after logs and separate corrected-score
+artifacts are retained; none of the4,096 native outputs or expected outcomes
+changed. The aggregate complete/refusal/graph findings above remain identical.
+
+Focused software checks:121 tests passed (exit0). Full final-head release checks
 must run separately; the native freeze's seven CI checks succeeded. Independent
 review: **NOT RUN**.
 
