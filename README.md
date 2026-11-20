@@ -1,6 +1,11 @@
 # Combined MPLPB
 
-Last reviewed: 2026-11-19.
+Last reviewed: 2026-11-20.
+
+[Bounded field-question normalization](docs/FIELD_QUESTION_NORMALIZATION.md) adds ordinary literal-field
+request structures while retaining strict source verification. Its public synthetic
+reproduction improves paraphrase support from 0/750 to 750/750; broader semantic
+and historical accuracy remain unmeasured.
 
 Combined MPLPB is a closed local ledger with tools for raw-material sorting,
 bounded source questions, documentary inspection and retained work history.

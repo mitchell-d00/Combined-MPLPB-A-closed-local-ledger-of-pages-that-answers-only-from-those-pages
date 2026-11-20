@@ -401,6 +401,42 @@ def field_contexts(record, requested):
             if field_name(m[1])==requested and m.start() not in positions]
 
 
+# Question syntax only. These slots never supply source evidence or field aliases.
+# Full matching is essential: an unconsumed qualification/second obligation must
+# not become an unconditional single-field request.
+_REQUEST_FIELD = r'(?P<field>[A-Za-z][A-Za-z0-9 _-]{0,79}?)'
+_REQUEST_ID = r'(?P<record>[A-Za-z0-9][A-Za-z0-9._:@/-]{0,180})'
+_FIELD_REQUEST_FORMS = (
+    rf'(?:tell|show|give) me (?:the )?{_REQUEST_FIELD} (?:listed|recorded|stated) (?:on|in) (?:record|event|occurrence) {_REQUEST_ID}',
+    rf'(?:tell|show|give) me (?:the )?{_REQUEST_FIELD} (?:for|of) (?:record|event|occurrence) {_REQUEST_ID}',
+    rf'for (?:record|event|occurrence) {_REQUEST_ID}, (?:what|which) {_REQUEST_FIELD} is (?:explicitly )?(?:stated|recorded|listed)',
+    rf'looking only at {_REQUEST_ID}, (?:identify|report|show) (?:the )?{_REQUEST_FIELD} recorded there',
+    rf'(?:give|show|tell) me {_REQUEST_ID}\'s (?:the )?{_REQUEST_FIELD}',
+    rf'find {_REQUEST_ID} and (?:report|show|give) its {_REQUEST_FIELD}',
+    rf'(?:what|which) {_REQUEST_FIELD} is (?:explicitly )?(?:recorded|stated|listed) for (?:record|event|occurrence) {_REQUEST_ID}',
+)
+_FIELD_QUALIFIER = re.compile(
+    r'\b(?:and|or|not|never|before|after|during|unless|if|according|'
+    r'allegedly|reportedly|possibly|formerly|previously|currently|now|'
+    r'was|were|is|are|has|had|who|why|whether|without|except)\b', re.I)
+
+
+def field_question(question):
+    """Whole-question finite normalization, preserving literal field semantics."""
+    q = re.sub(r'\s+', ' ', question.replace('’', "'")).strip()
+    if len(q) > 400:
+        return None
+    q = re.sub(r'^(?:please |(?:can|could) you )', '', q, count=1, flags=re.I)
+    # One terminal sentence mark is syntax; embedded punctuation is consumed
+    # only by an explicitly declared form (comma or literal identifier).
+    q = re.sub(r'[?.]$', '', q)
+    for form in _FIELD_REQUEST_FORMS:
+        match = re.fullmatch(form, q, re.I)
+        if match and not _FIELD_QUALIFIER.search(match['field']):
+            return {'field': match['field'].strip(), 'record_id': match['record']}
+    return None
+
+
 def exact_request(question, record_id=None, field=None, exact_value=None):
     from mplpb_combined.ledger import field_name
     match = re.fullmatch(r'(?i)what is (?:the )?([A-Za-z][A-Za-z0-9 _-]{0,79}) (?:for|of) '
@@ -408,6 +444,13 @@ def exact_request(question, record_id=None, field=None, exact_value=None):
     if match:
         field = field or match[1]
         record_id = record_id or match[2]
+    normalized = None if match else field_question(question)
+    if normalized:
+        if ((record_id is not None and record_id != normalized['record_id']) or
+                (field is not None and field_name(field) != field_name(normalized['field']))):
+            raise ValueError('Explicit selector contradicts the parsed question')
+        field = field or normalized['field']
+        record_id = record_id or normalized['record_id']
     if field is not None and (not isinstance(field,str) or not re.fullmatch(r'[A-Za-z][A-Za-z0-9 _-]{0,79}',field)):
         raise ValueError('Expected an explicit field label')
     if record_id is not None and (not isinstance(record_id,str) or not re.fullmatch(r'[A-Za-z0-9][A-Za-z0-9._:@/-]{0,180}',record_id)):
@@ -416,7 +459,14 @@ def exact_request(question, record_id=None, field=None, exact_value=None):
             or not isinstance(exact_value['field'],str) or not isinstance(exact_value['value'],str)
             or not exact_value['value'].strip() or len(exact_value['value'])>200):
         raise ValueError('Exact value needs an explicit field/value pair')
-    return {'record_id':record_id,'field':field_name(field) if field else None,'exact_value':exact_value}
+    result = {'record_id':record_id,'field':field_name(field) if field else None,'exact_value':exact_value}
+    if normalized:
+        result['question_normalization'] = {
+            'version': 'literal-field-question-v1', 'record_id': record_id,
+            'field': result['field'], 'canonical_question': f'What is the {field} for record {record_id}?',
+            'unresolved_obligations': [], 'normalization_is_evidence': False,
+            'basis': 'whole_question_finite_syntax_literal_field_no_aliases'}
+    return result
 
 
 def exact_sources(records, question, request):

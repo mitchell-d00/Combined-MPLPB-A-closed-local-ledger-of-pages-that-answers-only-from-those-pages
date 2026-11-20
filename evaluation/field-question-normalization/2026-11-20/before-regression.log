@@ -1,0 +1,68 @@
+======================================================================
+FAIL: test_general_request_structures (tests.test_field_question_forms.FieldQuestionForms.test_general_request_structures) (q='Tell me the custody location listed on record ARCH-91.')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/mplpb/tests/test_field_question_forms.py", line 42, in test_general_request_structures
+    self.assertTrue(r['answer_supported'], r['diagnostic'])
+AssertionError: False is not true : {'code': 'exact_field_missing', 'stage': 'strict', 'message': 'The exact route does not establish the requested field under a bounded grammar.', 'category': 'insufficient_evidence', 'corpus_answerability': 'not_established', 'next_steps': ['Inspect the exact record and supply an explicit source body field; an identifier alone is not field support.']}
+
+======================================================================
+FAIL: test_general_request_structures (tests.test_field_question_forms.FieldQuestionForms.test_general_request_structures) (q='For record ARCH-91, which custody location is explicitly stated?')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/mplpb/tests/test_field_question_forms.py", line 42, in test_general_request_structures
+    self.assertTrue(r['answer_supported'], r['diagnostic'])
+AssertionError: False is not true : {'code': 'exact_field_missing', 'stage': 'strict', 'message': 'The exact route does not establish the requested field under a bounded grammar.', 'category': 'insufficient_evidence', 'corpus_answerability': 'not_established', 'next_steps': ['Inspect the exact record and supply an explicit source body field; an identifier alone is not field support.']}
+
+======================================================================
+FAIL: test_general_request_structures (tests.test_field_question_forms.FieldQuestionForms.test_general_request_structures) (q='Looking only at ARCH-91, identify the custody location recorded there.')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/mplpb/tests/test_field_question_forms.py", line 42, in test_general_request_structures
+    self.assertTrue(r['answer_supported'], r['diagnostic'])
+AssertionError: False is not true : {'code': 'exact_field_missing', 'stage': 'strict', 'message': 'The exact route does not establish the requested field under a bounded grammar.', 'category': 'insufficient_evidence', 'corpus_answerability': 'not_established', 'next_steps': ['Inspect the exact record and supply an explicit source body field; an identifier alone is not field support.']}
+
+======================================================================
+FAIL: test_general_request_structures (tests.test_field_question_forms.FieldQuestionForms.test_general_request_structures) (q="Could you give me ARCH-91's custody location?")
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/mplpb/tests/test_field_question_forms.py", line 42, in test_general_request_structures
+    self.assertTrue(r['answer_supported'], r['diagnostic'])
+AssertionError: False is not true : {'code': 'exact_field_missing', 'stage': 'strict', 'message': 'The exact route does not establish the requested field under a bounded grammar.', 'category': 'insufficient_evidence', 'corpus_answerability': 'not_established', 'next_steps': ['Inspect the exact record and supply an explicit source body field; an identifier alone is not field support.']}
+
+======================================================================
+FAIL: test_general_request_structures (tests.test_field_question_forms.FieldQuestionForms.test_general_request_structures) (q='Please find ARCH-91 and report its custody location.')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/mplpb/tests/test_field_question_forms.py", line 42, in test_general_request_structures
+    self.assertTrue(r['answer_supported'], r['diagnostic'])
+AssertionError: False is not true : {'code': 'exact_field_missing', 'stage': 'strict', 'message': 'The exact route does not establish the requested field under a bounded grammar.', 'category': 'insufficient_evidence', 'corpus_answerability': 'not_established', 'next_steps': ['Inspect the exact record and supply an explicit source body field; an identifier alone is not field support.']}
+
+======================================================================
+FAIL: test_general_request_structures (tests.test_field_question_forms.FieldQuestionForms.test_general_request_structures) (q='Which custody location is recorded for record ARCH-91?')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/mplpb/tests/test_field_question_forms.py", line 42, in test_general_request_structures
+    self.assertTrue(r['answer_supported'], r['diagnostic'])
+AssertionError: False is not true : {'code': 'exact_field_missing', 'stage': 'strict', 'message': 'The exact route does not establish the requested field under a bounded grammar.', 'category': 'insufficient_evidence', 'corpus_answerability': 'not_established', 'next_steps': ['Inspect the exact record and supply an explicit source body field; an identifier alone is not field support.']}
+
+======================================================================
+FAIL: test_general_request_structures (tests.test_field_question_forms.FieldQuestionForms.test_general_request_structures) (q='Show me the custody location for record ARCH-91.')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/mplpb/tests/test_field_question_forms.py", line 42, in test_general_request_structures
+    self.assertTrue(r['answer_supported'], r['diagnostic'])
+AssertionError: False is not true : {'code': 'exact_field_missing', 'stage': 'strict', 'message': 'The exact route does not establish the requested field under a bounded grammar.', 'category': 'insufficient_evidence', 'corpus_answerability': 'not_established', 'next_steps': ['Inspect the exact record and supply an explicit source body field; an identifier alone is not field support.']}
+
+======================================================================
+FAIL: test_general_request_structures (tests.test_field_question_forms.FieldQuestionForms.test_general_request_structures) (q='Please give me ARCH-91’s custody location.')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/mplpb/tests/test_field_question_forms.py", line 42, in test_general_request_structures
+    self.assertTrue(r['answer_supported'], r['diagnostic'])
+AssertionError: False is not true : {'code': 'exact_field_missing', 'stage': 'strict', 'message': 'The exact route does not establish the requested field under a bounded grammar.', 'category': 'insufficient_evidence', 'corpus_answerability': 'not_established', 'next_steps': ['Inspect the exact record and supply an explicit source body field; an identifier alone is not field support.']}
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.115s
+
+FAILED (failures=8)

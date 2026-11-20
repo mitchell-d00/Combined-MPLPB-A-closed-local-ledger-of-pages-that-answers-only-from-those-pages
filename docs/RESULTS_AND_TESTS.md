@@ -1,6 +1,11 @@
 # Results and their tests
 
-Last reviewed: 2026-11-19.
+Last reviewed: 2026-11-20.
+
+[Bounded field-question normalization](FIELD_QUESTION_NORMALIZATION.md) adds ordinary literal-field
+request structures while retaining strict source verification. Its public synthetic
+reproduction improves paraphrase support from 0/750 to 750/750; broader semantic
+and historical accuracy remain unmeasured.
 
 [Archival inspection](../evaluation/archival-inspection/2026-11-19/REPORT.md)
 records the explicit event/date rule, unchanged questions, tutorial and anonymous
