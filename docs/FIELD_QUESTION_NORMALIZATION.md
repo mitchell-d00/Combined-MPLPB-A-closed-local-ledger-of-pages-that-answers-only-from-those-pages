@@ -8,8 +8,10 @@ and `Could you give me ARCH-91's custody location?` reach the existing exact-fie
 checker. Record-context questions (`In record ARCH-91, what does the custody
 location field say?`) and record-labelled imperatives (`Record ARCH-91: report
 the custody location.`) are also admitted through whole-question syntax.
-No field aliases or semantic model are used. `Current state` is not
-automatically equated to `Current Status`, and a status does not prove execution.
+This syntax layer does not infer field meanings. A subsequent bounded
+[source-field alias layer](SOURCE_FIELD_ALIASES.md) can select eligible declared
+labels such as Current Status for current state, with explicit ambiguity and
+qualification checks. No semantic model is used; a status does not prove execution.
 
 The original question remains the policy input and output question. An additive
 `question_normalization` object records the literal field, record identifier,

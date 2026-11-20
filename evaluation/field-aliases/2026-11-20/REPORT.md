@@ -97,13 +97,49 @@ generator is mounted into the unchanged isolated execution worker. The final
 replication bundle will include synthetic expected outcomes plus their seals so
 another researcher needs no private developer records.
 
-## Candidate status
+## Final native freeze and measured results
 
-Full archive regression, original900/1240/1000/22 replays and updated240-case
-holdout are pending at this candidate freeze. No pass or completion gain is
-inferred before execution. Independent semantic/human review remains NOT RUN.
-The user authorizes merging dependent PRs once tests and release gates pass;
-no merge has occurred for this iteration yet.
+Native implementation: `2427d80e777b9cc76e071b2529e91a14b9bdb991`.
+Baseline: `be6a5564073af27bad8317834bca240e9347b8bd` (runtime equal9b5ff0c).
+Later generator/documentation additions do not change these native packages.
+All original inputs, scoring keys, source access and12-passage/8000-character
+proof budgets are unchanged. Alias inspection adds work under separate bounds.
+
+| Population | Before complete | Updated complete | Expected refusals retained | Remaining positives |
+|---|---:|---:|---:|---:|
+| Public900 field positives |900/900|900/900|200/200|0|
+| Original1240D% |200/600|200/600|640/640|400|
+| Expanded1000 stress |168/420|189/420|580/580|231|
+| New240 development set |16/64|50/64|176/176|14|
+| Prospective150 after engine freeze |10/40|33/40|110/110|7|
+| Historical22 original questions |3 native complete/22|3 native complete/22|Not independently scored|Not independently scored|
+
+No incorrectly supported or execution-failed cases were observed in these synthetic
+replays. Exact field/proposition matching and exact quotation checks are developer
+measurements, not independent semantic validation. Historical outcomes remain
+3 complete,2 partial,3 conflicts,14 abstentions; all22 contracts match the prior
+branch except code pins. Main's older2-complete result remains a separate revision.
+All21 newly resolved expanded cases are the field-synonym class; the other11
+failure families remain unresolved. Native partial counts are retained separately;
+semantic correctness of those partials is null.
+
+The240 set was prepared before implementation, but v2 followed later developer
+counterexamples; it is not an untouched final holdout. The150 prospective set was
+prepared and sealed after the final native freeze, uses new documentary-role
+vocabulary and two new request structures, and caused no further engine edits.
+Its7 misses and the240 set's14 misses retain unadmitted question structures.
+Both are developer-authored, not context-blind or independently validated.
+
+Final66 focused controls passed;52 public evidence controls passed (exit0).
+The local full-suite run was interrupted by environment reconnection: its saved
+checkpoint is not a full pass and its final exit remains null. The exact2427d80
+GitHub regression check subsequently succeeded (job136043002011); collection at
+that native freeze contains1502 tests. Archive-first release gates remain a
+separate check. Four local JavaScript/UI/crawler checks passed (exit0).
+The subsequent generator has its own focused checks and release status.
+
+Independent semantic/human review remains NOT RUN. Merge and deployment status
+are recorded separately in the handoff and GitHub checks, never inferred here.
 
 ## Rejected100805f and typed-role repair
 
@@ -123,7 +159,46 @@ rejected-100805f; no independent semantic judgment is fabricated.
 Version2 restricts reordering to an explicit catalogue of documentary-role noun
 heads, preserves every modifier, and declines arbitrary names or nonspecific
 adjectives. Independent Deposit Date vocabulary remains answerable. The66 focused
-controls pass (exit0); new full validation is pending. No frozen input/key/dice
+controls pass (exit0); final replay outcomes are recorded above. No frozen input/key/dice
 was changed, and all prior runs remain available. The remaining lexical rules
 and role catalogue are finite engineering assumptions, not general language
 understanding or an independently certified ontology.
+
+
+## Reproducible evidence and costs
+
+`final/metrics.json` retains counts, CPU, worker wall time, peak RSS and explicit
+source reads for each population. Expanded1000:120.880s CPU,124.275s summed worker
+wall,29,179,904-byte peak worker RSS;3,727 explicit reads/474,898 original bytes.
+The prior expanded run was100.350s CPU/101.053s wall: no speedup is claimed.
+Original1240:181.881s CPU/186.150s wall.240:15.612s CPU/15.922s wall.
+Prospective150:8.445s CPU/8.488s wall. These timers include fixture ingestion and
+execution after imports, not complete orchestration time. Explicit input bytes
+exclude internal ledger re-reads; total pipeline bytes read remains null.
+Human review/correction time and independent semantic accuracy remain null.
+Environment: Python3.12.14/Linux, Intel Xeon Platinum8573C,5 affinity CPUs,
+4-CPU quota and16GiB memory limit. Concurrent load prevents causal speed claims.
+
+The self-contained `replication-package.zip` includes synthetic sources, separate
+expected keys, seal hashes, full prospective producer and both source revisions.
+Extract it, obtain the pinned checkout and run:
+
+```sh
+python replay.py --implementation /path/to/pinned/checkout --output /tmp/new-alias-replay --study initial --require-perfect
+python replay.py --implementation /path/to/pinned/checkout --output /tmp/new-prospective-replay --study prospective --require-perfect
+```
+
+Linux bubblewrap is required. No paid model/API or private historical material is
+needed. Keys are opened after worker execution; no key or generator is mounted.
+Both actual package replays exited1 under `--require-perfect`, honestly preserving
+14 and7 missed positives respectively; this is not an execution or false-support
+failure. Omit that option only when exit0 should mean valid execution without
+observed incorrect support rather than perfect answer coverage. The package
+manifest pins every included file. Original historical and priorD% keys remain
+unpublished and unchanged.
+
+Raw new execution archives, scores,900 field readbacks,52-control report,
+interfaces and interrupted local-native checkpoint are under `final/`.
+`historical-comparison.json` compares each unchanged question. The rejected
+100805f evidence remains under its own directory. Source integrity and quotation
+fidelity are separate from source-assertion meaning and historical truth.

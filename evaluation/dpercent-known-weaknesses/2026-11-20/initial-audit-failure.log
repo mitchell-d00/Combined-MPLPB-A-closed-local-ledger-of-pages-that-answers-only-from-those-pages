@@ -1,0 +1,16 @@
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/workspace/mplpb/tools/dpercent_weakness_audit.py", line 91, in <module>
+    if __name__ == '__main__': main()
+                               ^^^^^^
+  File "/workspace/mplpb/tools/dpercent_weakness_audit.py", line 88, in main
+    a = p.parse_args(); print(json.dumps(audit(a.packets, a.custodian, a.output), indent=2))
+                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/mplpb/tools/dpercent_weakness_audit.py", line 29, in audit
+    if not score_path.exists(): E.score(packets/name, custodian/name, dest, score_path)
+                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/mplpb/tools/dpercent_expanded.py", line 149, in score
+    values={str(r['features'][feature]) for r in rows if 'features' in r}
+                ~~~~~~~~~~~~~^^^^^^^^^
+KeyError: 'question_form'
