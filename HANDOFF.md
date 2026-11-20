@@ -4,8 +4,8 @@ Last reviewed: 2026-11-20.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `f40caa62253ba54a7ec6dac9b398e2eb1ba91b7d` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `f510eda64be57422efa70d8a30f20940a28a9fc2e232fb5ed04c9838b0fd3436`.
+Base commit: `b9c9e48550f49c1594b5ff8399ca502fabd0c729` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `ad59e0e2760f4530d14037ec724f00bdf48aeff39ee23cbdd480f9d7c414d543`.
 
 ## Latest user update instructions
 
@@ -18,11 +18,13 @@ Build a giant case study from it to see the patterns of the question classes
 - Check scoped documentary event agreement and distinction from named source declarations. Verify explicit document-local pronoun bindings and named direct speech turns.
 - Introduce Event identity, co-reference D4, a sealed mixed D% generator with separate focused acceptance and 95-family broad research mixes.
 - Record source witnesses, expected refusals, case outcomes, family and question-pattern cohorts with isolated workers.
+- Apply the established capture-text boundary when checking a pronoun in an imported source. Preserve span offsets in the canonical source projection.
 
 ## Validation recorded
 
 - Frozen 4,096-case baseline at f40caa6 was launched before reader edits. Independently worded pre-change controls exposed four missed proof behaviors.
 - Focused generator, reader and documentary suites were exercised locally. Case study measurements are recorded separately.
+- The initial Chromium test verified event agreement and rejected a cross-registry collision. It reproduced a co-reference miss on an imported speech turn. A native imported-source control reproduced that miss before the verified capture fix.
 
 ## Limitations and blocked checks
 

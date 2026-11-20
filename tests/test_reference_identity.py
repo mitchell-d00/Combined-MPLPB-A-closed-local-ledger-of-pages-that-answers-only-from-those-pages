@@ -64,6 +64,22 @@ class ReferenceIdentityTests(unittest.TestCase):
         self.assertEqual(result['claims'][0]['proposition']['referent'], 'Amélie Wells')
         self.assertFalse(self.ask_pronoun('she')['answer_supported'])
 
+    def test_imported_speech_uses_verified_capture_text(self):
+        from tools.exploration_store import ExplorationStore
+        store = ExplorationStore(self.root/'collections')
+        corpus = store.create('D4 imported notes')['corpus']
+        speech = '“I checked the freight tags,” said Amélie Wells.'
+        source = store.add(corpus, 'Freight record', 'https://example.org/freight', speech)
+        result = answer_query(store.root(corpus), f'Who does "I" refer to in source {source["id"]}?').contract
+        self.assertTrue(result['answer_supported'], result['diagnostic'])
+        self.assertEqual(result['claims'][0]['proposition']['referent'], 'Amélie Wells')
+        self.assertEqual(result['claims'][0]['citations'][0]['quote'], speech)
+
+    def test_unverified_capture_suffix_cannot_supply_a_proof_boundary(self):
+        self.page('RECORD-A', '“I checked the freight tags,” said Amélie Wells.\nSource capture: {}',
+                  origin='machine')
+        self.assertFalse(self.ask_pronoun()['answer_supported'])
+
     def test_qualified_named_speaker_is_unresolved(self):
         self.page('RECORD-A', 'Perhaps Amélie Wells said, “I checked the freight tags.”')
         self.assertFalse(self.ask_pronoun()['answer_supported'])

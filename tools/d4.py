@@ -270,8 +270,11 @@ def score(public, custody, run_dir, output, baseline=None):
             if row['outcome'] == 'detected_answer' and row['family'] in FOCUS:
                 proof = result['answer']['claims']
                 required = {(sid, quote) for sid, quotes in key['required_witnesses'].items() for quote in quotes}
-                actual = {(c['source_id'], c['quote']) for claim in proof for c in claim['citations']}
+                citations = [c for claim in proof for c in claim['citations']]
+                actual = {(c['source_id'], c['quote']) for c in citations}
+                source_paths = {receipt['source_id']: receipt['path'] for receipt in result['source_receipts']}
                 if (len(proof) != 1 or not required <= actual
+                        or any(c['path'] != source_paths.get(c['source_id']) for c in citations)
                         or {sid for sid, _ in actual} != set(key['required_witnesses'])
                         or result['answer']['verification']['truth_verified']):
                     row['outcome'] = 'incorrect_supported_answer'
@@ -306,7 +309,10 @@ def score(public, custody, run_dir, output, baseline=None):
     summary = {'schema': VERSION+'-results', 'title': TITLE, 'mix': study['mix'],
                'revision': revisions.pop(), 'study_sha256': seal, 'focus': focus, 'mixed': mixed,
                'cohorts': groups, 'mixed_changes_from_baseline': findings, 'rows': rows,
-               'graph_obligation_failures': sum(not all(row.get('graph_checks', {}).values()) for row in rows.values()),
+               'graph_obligation_failures': sum(any(not passed for check, passed in row.get('graph_checks', {}).items()
+                                                    if check != 'complete_graph') for row in rows.values()),
+               'graph_budget_stops': sum(row.get('graph_checks', {}).get('complete_graph') is False
+                                         for row in rows.values()),
                'independent_semantic_review': 'NOT RUN'}
     passing = {'detected_answer', 'appropriate_refusal'}
     summary['strict_gate_passed'] = (not summary['graph_obligation_failures'] and set(focus) <= passing and

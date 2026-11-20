@@ -119,10 +119,12 @@ def _event_resolution(index, records):
 
 
 def _pronoun_resolution(record, pronoun):
-    body = _source_body(record)
-    if not body:
+    if len(record.body_html) > 32000:
         return 'reference_scan_budget', None, []
-    if context_ranges(record):
+    body = relation_graph._capture_evidence_text(record)
+    if len(body) > 4000:
+        return 'reference_scan_budget', None, []
+    if not body or any(lo < len(body) and hi > 0 for lo, hi in context_ranges(record)):
         return 'coreference_unresolved', None, []
     text = body.replace('“', '"').replace('”', '"')
     # A complete source gloss or a single, explicitly named speech turn

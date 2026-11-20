@@ -14,8 +14,9 @@ cite current, eligible source bytes.
   and duplicate text alone leave the relationship unresolved.
 - A selected source can bind a pronoun through a complete explicit gloss or
   bind “I” through one complete direct speech turn with a named speaker.
-  For example, ask “Who does “I” refer to in source LEAF-A?”
-  The checker cites the complete turn.
+  Ask `Who does "I" refer to in source LEAF-A?` to check this form.
+  The checker cites the complete turn. For a captured or imported source, the
+  existing capture-manifest check verifies the captured text boundary.
   Competing names, embedded quotations and unresolved attribution withhold
   support.
 
