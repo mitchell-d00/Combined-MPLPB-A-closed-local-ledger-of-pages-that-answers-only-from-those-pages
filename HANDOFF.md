@@ -4,12 +4,12 @@ Last reviewed: 2026-11-20.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `9168e1ccd148a2f92f93ca85e30197d24e0e3c2b` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `5a9adbf38345fdc68edeb6677b279dd5c362aa1e617346da8c125d403401e2a4`.
+Base commit: `c7d98a5be7901330f304fa1a853edde428904dfc` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `1bc5b8b0a32aebb9188af15ddbbe8fbc2cea764a6096665a606d81ef071cc2af`.
 
 ## Latest user update instructions
 
-All weaknesses we know so we can generate sample large enough to class the paterns
+Note paths to sources if you remove some for dupe# in zip
 
 ## Implemented scope
 
@@ -20,6 +20,7 @@ All weaknesses we know so we can generate sample large enough to class the pater
 - Latest user direction: add all known weakness classes to a versioned probabilistic D% producer constrained by deterministic rules; keep all old frozen producers/questions/keys/results unchanged.
 - New75-class executable catalogue plus15 unmeasured adapter/review gaps,4096 sealed cases across16 shards; separate native-answer and textual-graph scoring; all raw results and failed reporting attempts retained.
 - Prior explicit merge authorization persists: merge dependent PR56,PR57 andPR58 after final-head native/archive/browser checks pass, then verify deployment.
+- Record every removed duplicate extraction path, retained original ZIP path/hash, source Git revision, restore command and9582 per-member hashes in handoff files included in future tracked-source ZIPs. No ZIP members or original evaluation records removed.
 
 ## Validation recorded
 
@@ -38,6 +39,7 @@ All weaknesses we know so we can generate sample large enough to class the pater
 - First sequential attempt deliberately terminated exit143. Original parallel driver exit1 after workers completed due heterogenous feature schema; actual failed logs preserved. Repaired post-run audit exit0 and fresh75-case repaired driver exit0. No case/key/native-rule changes.
 - 120 focused tests passed exit0; exact final collection and release checks follow final evidence commit.
 - Final partial-run accounting control failed before repair (2 unexecuted rows counted executed); fixed with explicit not-run reporting and recomputed per-family/lower-bound field metrics.121 focused tests pass; all4096 frozen native outputs reused unchanged in separate corrected scoring directory.
+- c7d98a5 default-sandbox full native run exit1:1498 tests,3 failures,11 errors,2 skipped. Loopback sockets forbidden (PermissionError); HTTP-dependent researcher workflows also fail. Raw log/CPU/memory receipt retained. Do not claim full pass; verify required loopback permission in a rerun.
 
 ## Limitations and blocked checks
 
@@ -50,7 +52,7 @@ All weaknesses we know so we can generate sample large enough to class the pater
 
 ## Next steps
 
-- Finish staging evidence, rebuild/check handoff and audit docs; commit and push final candidate.
+- Rebuild/check updated source-path handoff, commit and push; rerun native HTTP suites/full regression with required loopback permissions and preserve the original restricted-shell failure.
 - Wait for exact final-head required checks; resolve genuine regressions without altering frozen cases or keys.
 - Merge56,57,58 in order using expected head SHAs after required checks; verify main deployment and live smoke. Do not claim merge or deployment before actual completion.
 - Next native capability: independently checked compound fields and exact wording/attributed statements, with class-level negative/mutation controls and unchanged replay. No instance-specific rules.

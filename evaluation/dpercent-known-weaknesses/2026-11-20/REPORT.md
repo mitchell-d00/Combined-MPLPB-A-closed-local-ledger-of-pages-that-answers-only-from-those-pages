@@ -218,3 +218,14 @@ variations, but repeated templates and54–55 examples per class do not establis
 rare-error reliability or unseen semantic accuracy. The15 adapter/review gaps
 remain unmeasured. This iteration changes test coverage, not the historical3/22
 completion result or the finite proof boundary.
+
+
+## Restricted-shell native attempt
+
+Afterc7d98a5, the default local shell could not create loopback HTTP sockets.
+The full command `python -m unittest discover -s tests -q` exited1:1498 tests,
+3 failures,11 errors,2 skipped,543.174s wall/539.116s child CPU and311,279,616-byte
+peak child RSS. HTTP test errors are `PermissionError: Operation not permitted`;
+HTTP-dependent researcher workflows failed too. This is preserved as a failed
+local run, not called a pass. Required loopback permission and exact-head GitHub
+release checks are separate validation. No source-gate rule is weakened for this.

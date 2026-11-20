@@ -1,0 +1,48 @@
+{
+  "schema": "duplicate-source-retention-v1",
+  "recorded_on": "2026-11-20",
+  "scope": "Only verified duplicate temporary extractions removed. Original ZIPs, logs, repository sources, frozen corpora and evaluation records retained.",
+  "archives": [
+    {
+      "archive_sha256": "f01782bc63004b25dfbd5b5a8c67cf79b944da513172a3eb96b2ee7aa986f7d2",
+      "verified_source_files": 4807,
+      "removed_only_recreatable_extraction": "/tmp/mplpb-narrator-final-archive/source",
+      "archive_preserved": true,
+      "retained_archive_path": "/tmp/mplpb-narrator-final-archive/source.zip",
+      "retained_packaging_receipt_path": "/tmp/mplpb-narrator-final-archive/packaging.json",
+      "retained_logs_directory": "/tmp/mplpb-narrator-final-archive",
+      "restore_command": [
+        "python",
+        "-m",
+        "zipfile",
+        "-e",
+        "/tmp/mplpb-narrator-final-archive/source.zip",
+        "/tmp/mplpb-narrator-final-archive/source"
+      ],
+      "source_git_revision": "bbadcaa9d629b003997d4f780cb218e661cbd54b",
+      "public_source_tree": "https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/tree/bbadcaa9d629b003997d4f780cb218e661cbd54b",
+      "member_mapping": "Retained ZIP entry p corresponds to removed extraction path /tmp/mplpb-narrator-final-archive/source/p"
+    },
+    {
+      "archive_sha256": "4963ac7a225d4f63b8e55a7e43806d4e458f40cdb045dd16e567e7dc076e94ae",
+      "verified_source_files": 4775,
+      "removed_only_recreatable_extraction": "/tmp/mplpb-header-scope-final-archive/source",
+      "archive_preserved": true,
+      "retained_archive_path": "/tmp/mplpb-header-scope-final-archive/source.zip",
+      "retained_packaging_receipt_path": "/tmp/mplpb-header-scope-final-archive/packaging.json",
+      "retained_logs_directory": "/tmp/mplpb-header-scope-final-archive",
+      "restore_command": [
+        "python",
+        "-m",
+        "zipfile",
+        "-e",
+        "/tmp/mplpb-header-scope-final-archive/source.zip",
+        "/tmp/mplpb-header-scope-final-archive/source"
+      ],
+      "source_git_revision": "bbd5bd2914fb4565c8561672dae3bd5f9779aad6",
+      "public_source_tree": "https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/tree/bbd5bd2914fb4565c8561672dae3bd5f9779aad6",
+      "member_mapping": "Retained ZIP entry p corresponds to removed extraction path /tmp/mplpb-header-scope-final-archive/source/p"
+    }
+  ],
+  "mapping": "For each member p, the removed source path was removed_only_recreatable_extraction/p; its retained bytes are retained_archive_path!p. Temporary paths are instance-local, not portable download URLs."
+}
