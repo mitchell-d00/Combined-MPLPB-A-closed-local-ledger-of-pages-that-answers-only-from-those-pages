@@ -4,21 +4,25 @@ Last reviewed: 2026-11-20.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `9c9212e5b9789e3b3e1b28e0426b2bdc7c9ee79c` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `05e984b85f8bac5641062ba07cf539f4406be73f476a8e71faa781b726319ae9`.
+Base commit: `d4f736549c72f99a5416bbbea27deef34c9ecc82` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `98989052bdf6e5254561b9e016c5329651e337f962e3b14fc42a63747984f34e`.
 
 ## Latest user update instructions
 
 Push it to main as documentation I may publish it later
 
+I’d describe it as evidence-gated recursive engineering.
+
 ## Implemented scope
 
 - Add The McPhetridge Method for Evidence-Gated Software Engineering under Mitchell D. McPhetridge's byline as a dated documentation case study.
+- Explain how MPLPB’s evidence rules govern its development and how separately produced checks become evidence for subsequent work.
 - Link the manuscript from the documentation index and retain a compact, attributed record of the cited baseline and replay measurements.
 
 ## Validation recorded
 
 - The manuscript retains the requested design standard verbatim.
+- The manuscript distinguishes author-defined requirements, AI implementation, native replay, and separately recorded GitHub execution.
 - GitHub PR 62, its exact merge tree and its live Chromium deployment run corroborate the historical release facts. The author-supplied timer stays distinct from GitHub's record.
 - The documentation inventory audit and repository infrastructure checker passed on the staged documentation. The evidence record reuses saved runs.
 
