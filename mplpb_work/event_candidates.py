@@ -1,4 +1,4 @@
-"""Source-declared event candidates, distinct from documentary occurrences.
+"""Source-declared event and communication candidates with distinct occurrences.
 
 Only an explicit Event-ID or a repeated explicit Event-Key groups occurrences. Shared subjects never establish
 identity. Candidates and changed-body review flags are not historical truth.
@@ -22,12 +22,12 @@ def inspect_events(root,question,profile=None,source_ids=None,expected_snapshot=
         raise ValueError('Choose a known delivery profile')
     initial=verification_snapshot(root,question,profile)
     empty={'version':VERSION,'source_state_current':False,'candidates':[],
-           'unassigned_occurrences':[],'answer_supported':False,'truth_verified':False}
+           'unassigned_occurrences':[],'communication_candidates':[],'answer_supported':False,'truth_verified':False}
     if expected_snapshot is not None and initial!=expected_snapshot:return empty
     gate=G.gather(root,question,profile)
     excluded={s['path'] for s in gate.excluded};lexical={s['path'] for s in gate.sources}
     requested=set(source_ids) if source_ids is not None else None
-    groups=defaultdict(list);unassigned=[];count=0
+    groups=defaultdict(list);messages=defaultdict(list);unassigned=[];count=0
     for record in Ledger(root).servable():
         if (record.kind in {'pointer','index'} or record.path in excluded
                 or (not profile.prose and record.path not in lexical)
@@ -77,6 +77,12 @@ def inspect_events(root,question,profile=None,source_ids=None,expected_snapshot=
                     'body_sha256':hashlib.sha256(body[body_start:].encode()).hexdigest(),
                     'citations':list(fields.values()),'identity_basis':'explicit_source_identifiers',
                     'answer_supported':False,'content_truth_verified':False}
+        if 'message-id' in fields:
+            messages[message].append({
+                'occurrence_id': occurrence['occurrence_id'], 'source_id': record.id,
+                'path': record.path, 'hash': record.hash_actual,
+                'body_sha256': occurrence['body_sha256'], 'message_id_citation': fields['message-id'],
+            })
         if event:groups[('declared_event_id',event)].append(occurrence)
         else:unassigned.append(occurrence)
     # A new shared-key node requires two distinct source appearances. No title,
@@ -104,6 +110,20 @@ def inspect_events(root,question,profile=None,source_ids=None,expected_snapshot=
                            'status':'needs_review' if review else 'candidate',
                            'changed_message_body':review,'occurrences':occurrences,
                            'historical_identity_confirmed':False})
+    communications = []
+    for message, occurrences in sorted(messages.items()):
+        if len(occurrences) < 2:
+            continue
+        changed = len({row['body_sha256'] for row in occurrences}) > 1
+        communications.append({
+            'kind': 'documentary_communication_candidate',
+            'node_id': 'communication:' + hashlib.sha256(message.encode()).hexdigest(),
+            'message_id': message, 'occurrences': occurrences, 'changed_message_body': changed,
+            'status': 'needs_review' if changed else 'candidate',
+            'answer_supported': False, 'content_truth_verified': False,
+            'historical_identity_confirmed': False,
+        })
     if verification_snapshot(root,question,profile)!=initial:return empty
     return dict(empty,source_state_current=True,candidates=candidates,unassigned_occurrences=unassigned,
+                communication_candidates=communications,
                 notice='Explicit source IDs group candidate occurrences; equal subjects do not prove identity and changed bodies require review.')

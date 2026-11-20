@@ -2,6 +2,10 @@
 
 Last reviewed: 2026-11-20.
 
+[Bounded documentary answers](BOUNDED_DOCUMENTARY_ANSWERS.md) documents the
+compound field and communication candidate controls and the automated frozen
+acceptance replay.
+
 [Source-field aliases and final measured evidence](SOURCE_FIELD_ALIASES.md) extend
 bounded source-declared field access: expanded stress complete matches **168→189/420**,
 with580/580 expected refusals retained. OriginalD% stays200/600; historical replay

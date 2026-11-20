@@ -1,0 +1,59 @@
+name: Bounded documentary acceptance
+
+on:
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  frozen-acceptance:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Verify field obligations, eligibility, and communication candidates
+        run: |
+          python -m unittest tests.test_compound_fields tests.test_field_aliases tests.test_scoped_extensions -v
+          python -m tools.evaluate_public_evidence --output "$RUNNER_TEMP/bounded-public-controls.json" --require-capabilities
+      - name: Install the isolated D% worker dependency
+        run: |
+          sudo apt-get update
+          sudo apt-get install --yes --no-install-recommends bubblewrap
+      - name: Replay the unchanged 1,000-case source packets
+        run: |
+          sudo "$(command -v python)" -m tools.verify_bounded_repair --output "$RUNNER_TEMP/bounded-repair"
+      - name: Replay the 22 historical development questions
+        if: success() || failure()
+        run: |
+          python -m tools.article_study --output "$RUNNER_TEMP/bounded-historical"
+          python - "$RUNNER_TEMP/bounded-historical/report.json" <<'PY'
+          import json
+          from pathlib import Path
+          import sys
+          report = json.loads(Path(sys.argv[1]).read_text())
+          expected = {"supported_answer": 3, "partial_answer": 2, "conflict": 3, "abstain": 14}
+          if report["cases"] != 22 or report["native_outcomes"] != expected or not all(report["guards"].values()):
+              raise SystemExit("Historical development replay changed")
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: bounded-acceptance-${{ github.run_id }}
+          path: |
+            ${{ runner.temp }}/bounded-repair/acceptance.json
+            ${{ runner.temp }}/bounded-repair/run/run.json
+            ${{ runner.temp }}/bounded-repair/run/*/failure.json
+            ${{ runner.temp }}/bounded-repair/run/*/worker.log
+            ${{ runner.temp }}/bounded-historical/report.json
+            ${{ runner.temp }}/bounded-historical/cases.csv
+            ${{ runner.temp }}/bounded-public-controls.json
+          if-no-files-found: warn

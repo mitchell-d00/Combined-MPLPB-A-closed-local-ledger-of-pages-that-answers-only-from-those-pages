@@ -110,13 +110,13 @@ class QueryResult:
         data['answer_contract'] = copy.deepcopy(self.contract)
         data['answer_diagnostics'] = copy.deepcopy(self.contract['diagnostic'])
         data['answer_supported'] = self.contract['answer_supported']
-        if self.contract['kind']=='supported_answer' and self.strict.kind!='return':
+        if self.contract['kind']=='supported_answer' and (self.strict.kind!='return' or 'question_parts' in self.contract):
             data.update(kind='return',text=self.contract['text'],reason=self.contract['diagnostic']['message'],
                         citation='; '.join(s['id']+'@'+s['hash'] for s in self.contract['sources']),candidates=[])
         if self.contract['kind'] != 'supported_answer' and (self.contract['mode'] == 'assisted' or self.strict.kind == 'return'):
             data.update(kind=self.contract['kind'] if self.contract['mode'] == 'assisted' else 'not_in_corpus', text=self.contract['text'],
                         reason=self.contract['diagnostic']['message'], citation='', candidates=[])
-        if self.contract['diagnostic'].get('code') in {'partial_procedure_evidence', 'procedure_selection_needed', 'partial_documentary_evidence'}:
+        if self.contract['diagnostic'].get('code') in {'partial_procedure_evidence', 'procedure_selection_needed', 'partial_documentary_evidence', 'compound_field_incomplete'}:
             data.update(text=self.contract['text'], reason=self.contract['diagnostic']['message'])
         return data
 
@@ -133,6 +133,11 @@ def answer_query(root, question, profile=None, *, mode='strict', reader=None, mi
     if type(max_passages) is not int or not 1<=max_passages<=64 or type(max_chars) is not int or not 1000<=max_chars<=64000:
         raise ValueError('Invalid passage admission budget')
     from mplpb_combined.ledger import serving_view
+    from .compound_fields import parse_question
+    compound = parse_question(question)
+    if compound and (field is not None or exact_value is not None
+                     or (record_id is not None and record_id != compound[0])):
+        raise ValueError('Explicit selector contradicts the compound field question')
     request = relation_graph.exact_request(question,record_id,field,exact_value)
     if field is None and exact_value is None:
         from .field_aliases import resolve
@@ -140,11 +145,12 @@ def answer_query(root, question, profile=None, *, mode='strict', reader=None, mi
     from .passage_admission import source_suggestions
     with serving_view(as_of,request['field']),source_suggestions(source_hints):
         return _answer_query(root,question,profile,mode=mode,reader=reader,min_confidence=min_confidence,
-                             max_passages=max_passages,max_chars=max_chars,exact=request,relation_hops=relation_hops)
+                             max_passages=max_passages,max_chars=max_chars,exact=request,relation_hops=relation_hops,
+                             compound=compound,as_of=as_of)
 
 
 def _answer_query(root, question, profile=None, *, mode, reader, min_confidence,
-                  max_passages, max_chars, exact, relation_hops):
+                  max_passages, max_chars, exact, relation_hops, compound=None, as_of=None):
     if not isinstance(question, str) or not question.strip() or len(question) > 4000:
         raise ValueError('Question must contain 1–4000 characters')
     if mode not in {'strict', 'assisted'}:
@@ -167,13 +173,17 @@ def _answer_query(root, question, profile=None, *, mode, reader, min_confidence,
     if 'question_normalization' in exact:
         contract['question_normalization'] = copy.deepcopy(exact['question_normalization'])
 
-    def finish(kind, code, message, stage):
+    def finish(kind, code, message, stage, compound_views=None):
+        assurance_gate = None
         try:
             fresh = G.gather(root, question, profile)
             unchanged = _state(fresh) == initial_state and Path(strict.root).resolve() == initial_gate_root
             if unchanged and exact.get('alias_resolution'):
                 from .field_aliases import unchanged as aliases_unchanged
                 unchanged = aliases_unchanged(root,question,profile,exact['alias_resolution'])
+            if unchanged and compound_views is not None:
+                from .compound_fields import recheck
+                unchanged, field_sources = recheck(root, question, profile, as_of, compound_views)
         except (OSError, ValueError):
             unchanged = False
         if not unchanged or code == 'source_changed':
@@ -182,6 +192,7 @@ def _answer_query(root, question, profile=None, *, mode, reader, min_confidence,
             contract.update(text='', claims=[], sources=[], missing=[], clarification='',
                             retrieval={'passages': [], 'sources': [], 'discarded': 'source_state_changed'},
                             verification={'structural': False, 'semantic': 'discarded_due_to_source_change', 'truth_verified': False, 'independence_verified': False})
+            contract.pop('question_parts', None)
             if exact.get('alias_resolution'):
                 contract['question_normalization'] = {'version':'source-field-alias-v2',
                     'status':'discarded_due_to_source_change','normalization_is_evidence':False}
@@ -194,6 +205,8 @@ def _answer_query(root, question, profile=None, *, mode, reader, min_confidence,
                 contract['documentary_support']={'status':'discarded_due_to_source_change','source_support_claims':0}
         else:
             result.gate = fresh.to_dict()
+            if compound_views is not None:
+                assurance_gate = {'sources': field_sources}
             from .passage_admission import output_budget
             if output_budget(contract,max_passages,max_chars):
                 kind='conflict' if kind=='conflict' else 'partial_answer' if contract['claims'] else 'abstain'
@@ -219,10 +232,19 @@ def _answer_query(root, question, profile=None, *, mode, reader, min_confidence,
         contract.update(kind=kind, diagnostic={'code': code, 'stage': stage, 'message': message,
                                              'category': category,
                                              'corpus_answerability': 'not_established', 'next_steps': _next_steps(code)})
-        contract['source_assurance'] = source_assurance(contract, result.gate)
+        contract['source_assurance'] = source_assurance(contract, assurance_gate or result.gate)
         return result
 
     initial_gate_root = Path(root).resolve()
+    if compound and relation_hops is None:
+        from .compound_fields import answer_fields
+        fields, views = answer_fields(root, question, profile, as_of, compound, max_passages, max_chars)
+        contract.update(fields)
+        contract['mode'] = 'strict'
+        kind = contract['kind']
+        return finish(kind, 'supported' if kind == 'supported_answer' else 'compound_field_incomplete',
+                      'Both source fields were verified.' if kind == 'supported_answer'
+                      else 'See the decision for each requested field.', 'strict', compound_views=views)
     if exact.get('alias_resolution',{}).get('status') in {'blocked','ambiguous'}:
         resolution = exact['alias_resolution']
         code = resolution['code']

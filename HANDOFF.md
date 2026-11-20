@@ -4,58 +4,35 @@ Last reviewed: 2026-11-20.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `c7d98a5be7901330f304fa1a853edde428904dfc` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `1bc5b8b0a32aebb9188af15ddbbe8fbc2cea764a6096665a606d81ef071cc2af`.
+Base commit: `61cc7c04ebdfa84c8d783e005c6e7857c07600b2` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `50f93becb9996b688af14b800f8b0f21a9bbda60f7b5d0d68104ab838558df80`.
 
 ## Latest user update instructions
 
-Note paths to sources if you remove some for dupe# in zip
+Do that and write how you did it into the automation of the repos do the rest of it test it run it fix it push and merge at finish
+
+Never harm only enhance
 
 ## Implemented scope
 
-- Latest engineering assignment: inspect and pin all distinct baselines; classify252 misses; begin one general source-grounded field-synonym improvement, preserve original questions and all frozen inputs.
-- New branch feature/source-field-aliases based on be6a556; small finite label rules, eligible-body discovery in field-scoped serving views, ambiguity refusal and fresh dependency revalidation; native core unchanged.
-- Prepare a new sealed240-case development holdout and a self-contained external replay package with synthetic keys/seals. No independent/human validation fabricated.
-- User authorizes merging PR56,PR57 and this iteration after required native/release checks pass. No merge yet.
-- Latest user direction: add all known weakness classes to a versioned probabilistic D% producer constrained by deterministic rules; keep all old frozen producers/questions/keys/results unchanged.
-- New75-class executable catalogue plus15 unmeasured adapter/review gaps,4096 sealed cases across16 shards; separate native-answer and textual-graph scoring; all raw results and failed reporting attempts retained.
-- Prior explicit merge authorization persists: merge dependent PR56,PR57 andPR58 after final-head native/archive/browser checks pass, then verify deployment.
-- Record every removed duplicate extraction path, retained original ZIP path/hash, source Git revision, restore command and9582 per-member hashes in handoff files included in future tracked-source ZIPs. No ZIP members or original evaluation records removed.
+- Check two explicit fields independently under the original question and common budget. Retain scoped corrections, exact citations and diagnostics for unresolved question parts.
+- Keep source occurrence citations distinct from repeated Message-ID communication candidates in opt-in investigation.
+- Run the frozen expanded replay and historical development replay through acceptance automation. Preserve existing packets and test evidence.
 
 ## Validation recorded
 
-- Before native edits: runtime equal9b5ff0c;46 baseline focused tests passed.
-- All252 expanded misses diagnosed by code/output, not assumed retrieval failures.
-- New holdout baseline16/64 complete,176/176 refusals; sources/questions/key/dice sealed before implementation.
-- New11-test alias suite failed7 subcases before implementation.
-- First exact-spelling-priority collision rule rejected by failing control; reconstructed replay ZIP/log retained honestly.
-- 62 focused tests passed after ambiguity repair; original unit question current state intentionally moves from unsupported-language assertion to licensed-positive assertion; no frozen label changes.
-- PR56 andPR57 exact-head GitHub release checks already successful; do not merge until new iteration evaluation also completes.
-- Candidate100805f passed1501 tests/52 public controls and benchmark replays, but rejected after3 later semantic modifier-inversion counterexamples. Full evidence retained; no benchmark pass treated as semantic certification.
-- Typed-role v2 requires an approved documentary noun head, not arbitrary adjective/name inversion;66 focused controls pass.
-- Native2427d80 all seven exact-head GitHub checks succeeded, including regression and archive-first. Local full-suite was interrupted; checkpoint retained, final local exit null.
-- Final native replays: public900/900 plus200 refusals; original200/600 plus640 refusals; expanded189/420 plus580 refusals;240 development50/64 plus176 refusals; prospective15033/40 plus110 refusals. No wrong support observed; historical22 unchanged3 complete,2 partial,3 conflicts,14 abstentions.
-- 4096/4096 completed against unchanged2427d80 packages;657/1262 matched complete,605 missed positives in11 classes,2834 expected refusals retained;156894 node spans have zero byte/hash/authority-flag errors.37 graphs transparently hit repeated_phrase_group_budget.
-- First sequential attempt deliberately terminated exit143. Original parallel driver exit1 after workers completed due heterogenous feature schema; actual failed logs preserved. Repaired post-run audit exit0 and fresh75-case repaired driver exit0. No case/key/native-rule changes.
-- 120 focused tests passed exit0; exact final collection and release checks follow final evidence commit.
-- Final partial-run accounting control failed before repair (2 unexecuted rows counted executed); fixed with explicit not-run reporting and recomputed per-family/lower-bound field metrics.121 focused tests pass; all4096 frozen native outputs reused unchanged in separate corrected scoring directory.
-- c7d98a5 default-sandbox full native run exit1:1498 tests,3 failures,11 errors,2 skipped. Loopback sockets forbidden (PermissionError); HTTP-dependent researcher workflows also fail. Raw log/CPU/memory receipt retained. Do not claim full pass; verify required loopback permission in a rerun.
+- The pre-change compound suite failed six subcases and the new communication candidate control reproduced the missing output.
+- After implementation, 52 focused field, alias and scoped evidence tests passed.
 
 ## Limitations and blocked checks
 
-- Native alias discovery adds fresh reads; caps inspected records/text/declarations, not total authority I/O.
-- Finite lexical rules only, no arbitrary synonym inference; temporal roles and geographic state remain distinct.
-- Independent blind/human evaluation NOT RUN. New holdout is developer-authored, not context-blind.
-- 11 authored answerable classes remain unresolved; historical completion is unchanged3/22. Graph/text correctness does not certify semantic identity, causal truth or correct historical refusals.
-- 15 known gaps need operational adapters or independent assessment; all semantic precision/recall and human-review costs remain null. Independent review NOT RUN.
-- Final evidence/generator head has not yet completed its own release checks; do not infer that native2427d80 CI applies to later head.
+- The new compound grammar covers two explicit fields on one record and a direct, pinned supersession. It does not license arbitrary composition.
+- Remaining synthetic chronology, wording, attribution and chain obligations need distinct scoped proofs. Event identity, co-reference and historical truth are outside strict scope. Independent semantic review remains unrun.
 
 ## Next steps
 
-- Rebuild/check updated source-path handoff, commit and push; rerun native HTTP suites/full regression with required loopback permissions and preserve the original restricted-shell failure.
-- Wait for exact final-head required checks; resolve genuine regressions without altering frozen cases or keys.
-- Merge56,57,58 in order using expected head SHAs after required checks; verify main deployment and live smoke. Do not claim merge or deployment before actual completion.
-- Next native capability: independently checked compound fields and exact wording/attributed statements, with class-level negative/mutation controls and unchanged replay. No instance-specific rules.
+- Verify exact-head archive-first, regression and bounded acceptance in GitHub Actions. Use the pinned B-Tests acceptance job and verify release after merge.
+- Extend additional documentary families only with source-scoped positive and negative controls and the same frozen refusal regression.
 
 ## Use this ZIP in your repository
 
