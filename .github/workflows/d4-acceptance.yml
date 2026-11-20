@@ -1,0 +1,47 @@
+name: Event identity, co-reference D4
+
+on:
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  d4-acceptance:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 18
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Test source references and generator custody
+        run: python -m unittest tests.test_reference_identity tests.test_d4 -v
+      - name: Install Bubblewrap
+        run: |
+          sudo apt-get update
+          sudo apt-get install --yes --no-install-recommends bubblewrap
+      - name: Run the sealed mixed D4 and D% gate
+        shell: bash
+        run: |
+          stage="$(sudo mktemp -d /tmp/mplpb-d4.XXXXXX)"
+          py="$(command -v python)"
+          sudo "$py" -m tools.d4 prepare --public "$stage/public" --custody "$stage/custody" --mix gate --cases 380 --shard-size 95
+          sudo "$py" -m tools.d4 run --public "$stage/public" --output "$stage/run"
+          status=0
+          sudo "$py" -m tools.d4 score --public "$stage/public" --custody "$stage/custody" --run "$stage/run" --output "$stage/score" --require-pass || status=$?
+          mkdir -p "$RUNNER_TEMP/d4"
+          sudo cp -R "$stage/score/." "$RUNNER_TEMP/d4/"
+          sudo cp "$stage/public/study.json" "$RUNNER_TEMP/d4/study.json"
+          exit "$status"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: d4-acceptance-${{ github.run_id }}
+          path: ${{ runner.temp }}/d4/
+          if-no-files-found: warn

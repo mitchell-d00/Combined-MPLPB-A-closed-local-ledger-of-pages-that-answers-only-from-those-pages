@@ -4,45 +4,34 @@ Last reviewed: 2026-11-20.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `2bba39e07abc6dccf6e99591d3df61c03ba8cf38` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `297b8964cbb3cdc100153cf6eb60fd05a415761c47df0f6cc839539cd34ed6e8`.
+Base commit: `f40caa62253ba54a7ec6dac9b398e2eb1ba91b7d` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `f510eda64be57422efa70d8a30f20940a28a9fc2e232fb5ed04c9838b0fd3436`.
 
 ## Latest user update instructions
 
-Do that and write how you did it into the automation of the repos do the rest of it test it run it fix it push and merge at finish
+Focus on solving Event identity, co-reference, build synthetics and generators that target both in mixed batches with other D% it should pass call Event identity, co-reference D4
 
-Never harm only enhance
-
-Cool continue the push
+Build a giant case study from it to see the patterns of the question classes
 
 ## Implemented scope
 
-- Check two explicit fields independently under the original question and common budget. Retain scoped corrections, exact citations and diagnostics for unresolved question parts.
-- Keep source occurrence citations distinct from repeated Message-ID communication candidates in opt-in investigation.
-- Run the frozen expanded replay and historical development replay through acceptance automation. Preserve existing packets and test evidence.
-- Expose field decisions and citations in the browser and text CLI. Add opt-in reconstruction operations for exact wording, bounded writing-date comparison, and source-ID-linked request, dispatch and reported receipt.
-- Exclude HTML quotation spans from native field declarations and from new communication groupings.
+- Check scoped documentary event agreement and distinction from named source declarations. Verify explicit document-local pronoun bindings and named direct speech turns.
+- Introduce Event identity, co-reference D4, a sealed mixed D% generator with separate focused acceptance and 95-family broad research mixes.
+- Record source witnesses, expected refusals, case outcomes, family and question-pattern cohorts with isolated workers.
 
 ## Validation recorded
 
-- The pre-change compound suite failed six subcases and the new communication candidate control reproduced the missing output.
-- After implementation, 52 focused field, alias and scoped evidence tests passed.
-- First candidate: all 1,000 frozen isolated workers completed locally. All 189 earlier complete answers and 580 expected refusals held, with 21 newly verified compound answers.
-- First candidate: 52 public evidence controls passed; the historical development replay retained 3 complete, 2 partial, 3 conflicts and 14 abstentions.
-- The first GitHub acceptance attempt could not bind packets beneath the runner home directory. Worker logs retained the permission failure. The revised workflow places worker staging under /tmp.
-- The new pinned inspection controls and compound tests passed locally, as did the JavaScript documentary rendering and UI script checks.
-- The first candidate passed 1,519 local unittest cases with two sandbox-only skips and retained all 22 per-case historical outcomes.
-- Two new HTML quotation controls reproduced false compound support and a spurious communication candidate. Both controls pass after the quote-scope correction. The focused final set passed 61 tests.
+- Frozen 4,096-case baseline at f40caa6 was launched before reader edits. Independently worded pre-change controls exposed four missed proof behaviors.
+- Focused generator, reader and documentary suites were exercised locally. Case study measurements are recorded separately.
 
 ## Limitations and blocked checks
 
-- The new compound grammar covers two explicit fields on one record and a direct, pinned supersession. It does not license arbitrary composition.
-- The synthetic unpinned chronology, wording, attribution and chain questions still require separate strict proof coverage. The opt-in operations use selected exact sources only. Event identity, co-reference and historical truth remain outside strict scope. Independent semantic review remains unrun.
+- Event identity proof is scoped to declared documentary registry keys and explicitly named eligible sources. Co-reference covers complete local source statements, not general narrative or cross-document interpretation.
+- The broad mixture retains previously unanswered D% positives. Independent semantic assessment has not been run.
 
 ## Next steps
 
-- Verify exact-head archive-first, regression and bounded acceptance in GitHub Actions. Use the pinned B-Tests acceptance job and verify release after merge.
-- Extend additional documentary families only with source-scoped positive and negative controls and the same frozen refusal regression.
+- Run exact candidate D4 gate, compare identical broad study inputs against the baseline, and retain the observed patterns.
 
 ## Use this ZIP in your repository
 
