@@ -2,6 +2,9 @@
 
 Last reviewed: 2026-11-20.
 
+[Event identity, co-reference D4](D4_EVENT_IDENTITY_COREFERENCE.md) adds a sealed
+mixed benchmark, a focused acceptance gate and class-by-class case study.
+
 [Bounded documentary answers](BOUNDED_DOCUMENTARY_ANSWERS.md) documents the
 compound field and communication candidate controls and the automated frozen
 acceptance replay.

@@ -1,0 +1,2289 @@
+{
+  "title": "Event identity, co-reference D4",
+  "schema": "d4-class-patterns-v1",
+  "study_sha256": "79c828e0238160760cf8bca0fb58717b7fa6602adec10c6ac7ce58cb41ba97e3",
+  "baseline_revision": "f40caa62253ba54a7ec6dac9b398e2eb1ba91b7d",
+  "candidate_revision": "c17c482797946bbd3bcca95186529e9e468ece06",
+  "score_hashes": {
+    "before": "307021612d3472d9efbc5e9421a4d3238b4c1891e262c8e278b6e7ba7bec4b67",
+    "after": "7f41dfa847a1c43b15cf5979652c98e59f0e1036838fbfb0b1b7e6e9658f0fe3",
+    "gate": "e3a4923c570df7ffcc959c62b419078860c91c125a49e38636cbfb27da46b8dc"
+  },
+  "study_cases": 4096,
+  "family_count": 95,
+  "focus_before": {
+    "appropriate_refusal": 1716,
+    "over_refusal": 430
+  },
+  "focus_after": {
+    "appropriate_refusal": 1716,
+    "detected_answer": 430
+  },
+  "mixed_before": {
+    "appropriate_refusal": 1352,
+    "detected_answer": 338,
+    "over_refusal": 260
+  },
+  "mixed_after": {
+    "appropriate_refusal": 1352,
+    "detected_answer": 338,
+    "over_refusal": 260
+  },
+  "unchanged_mixed_cases": 1950,
+  "mixed_case_changes": [],
+  "graph_obligation_failures": 0,
+  "graph_budget_stops": 21,
+  "gate": {
+    "cases": 380,
+    "focus": {
+      "appropriate_refusal": 160,
+      "detected_answer": 40
+    },
+    "mixed": {
+      "appropriate_refusal": 90,
+      "detected_answer": 90
+    },
+    "strict_gate_passed": true
+  },
+  "by_family": {
+    "absent_anchor": {
+      "planned": 26,
+      "before": {
+        "appropriate_refusal": 26
+      },
+      "after": {
+        "appropriate_refusal": 26
+      },
+      "focus": false
+    },
+    "alias_adjective_date": {
+      "planned": 26,
+      "before": {
+        "appropriate_refusal": 26
+      },
+      "after": {
+        "appropriate_refusal": 26
+      },
+      "focus": false
+    },
+    "alias_adjective_location": {
+      "planned": 26,
+      "before": {
+        "appropriate_refusal": 26
+      },
+      "after": {
+        "appropriate_refusal": 26
+      },
+      "focus": false
+    },
+    "alias_adjective_time": {
+      "planned": 26,
+      "before": {
+        "appropriate_refusal": 26
+      },
+      "after": {
+        "appropriate_refusal": 26
+      },
+      "focus": false
+    },
+    "alias_collision": {
+      "planned": 26,
+      "before": {
+        "appropriate_refusal": 26
+      },
+      "after": {
+        "appropriate_refusal": 26
+      },
+      "focus": false
+    },
+    "alias_geographic_state": {
+      "planned": 26,
+      "before": {
+        "appropriate_refusal": 26
+      },
+      "after": {
+        "appropriate_refusal": 26
+      },
+      "focus": false
+    },
+    "alias_role_date": {
+      "planned": 26,
+      "before": {
+        "detected_answer": 26
+      },
+      "after": {
+        "detected_answer": 26
+      },
+      "focus": false
+    },
+    "alias_role_location": {
+      "planned": 26,
+      "before": {
+        "detected_answer": 26
+      },
+      "after": {
+        "detected_answer": 26
+      },
+      "focus": false
+    },
+    "alias_role_time": {
+      "planned": 26,
+      "before": {
+        "detected_answer": 26
+      },
+      "after": {
+        "detected_answer": 26
+      },
+      "focus": false
+    },
+    "ambiguous_correction": {
+      "planned": 26,
+      "before": {
+        "appropriate_refusal": 26
+      },
+      "after": {
+        "appropriate_refusal": 26
+      },
+      "focus": false
+    },
+    "ambiguous_pronoun": {
+      "planned": 26,
+      "before": {
+        "appropriate_refusal": 26
+      },
+      "after": {
+        "appropriate_refusal": 26
+      },
+      "focus": false
+    },
+    "chronology_causation": {
+      "planned": 26,
+      "before": {
+        "appropriate_refusal": 26
+      },
+      "after": {
+        "appropriate_refusal": 26
+      },
+      "focus": false
+    },
+    "competing_accounts": {
+      "planned": 26,
+      "before": {
+        "appropriate_refusal": 26
+      },
+      "after": {
+        "appropriate_refusal": 26
+      },
+      "focus": false
+    },
+    "conditional_execution": {
+      "planned": 26,
+      "before": {
+        "appropriate_refusal": 26
+      },
+      "after": {
+        "appropriate_refusal": 26
+      },
+      "focus": false
+    },
+    "corrupted_source": {
+      "planned": 26,
+      "before": {
+        "appropriate_refusal": 26
+      },
+      "after": {
+        "appropriate_refusal": 26
+      },
+      "focus": false
+    },
+    "d4_coref_ambiguous": {
+      "planned": 107,
+      "before": {
+        "appropriate_refusal": 107
+      },
+      "after": {
+        "appropriate_refusal": 107
+      },
+      "focus": true
+    },
+    "d4_coref_conditional": {
+      "planned": 107,
+      "before": {
+        "appropriate_refusal": 107
+      },
+      "after": {
+        "appropriate_refusal": 107
+      },
+      "focus": true
+    },
+    "d4_coref_direct_speech": {
+      "planned": 107,
+      "before": {
+        "over_refusal": 107
+      },
+      "after": {
+        "detected_answer": 107
+      },
+      "focus": true
+    },
+    "d4_coref_explicit": {
+      "planned": 107,
+      "before": {
+        "over_refusal": 107
+      },
+      "after": {
+        "detected_answer": 107
+      },
+      "focus": true
+    },
+    "d4_coref_nearby_names": {
+      "planned": 107,
+      "before": {
+        "appropriate_refusal": 107
+      },
+      "after": {
+        "appropriate_refusal": 107
+      },
+      "focus": true
+    },
+    "d4_coref_quoted": {
+      "planned": 107,
+      "before": {
+        "appropriate_refusal": 107
+      },
+      "after": {
+        "appropriate_refusal": 107
+      },
+      "focus": true
+    },
+    "d4_coref_reported": {
+      "planned": 107,
+      "before": {
+        "appropriate_refusal": 107
+      },
+      "after": {
+        "appropriate_refusal": 107
+      },
+      "focus": true
+    },
+    "d4_coref_withdrawn": {
+      "planned": 107,
+      "before": {
+        "appropriate_refusal": 107
+      },
+      "after": {
+        "appropriate_refusal": 107
+      },
+      "focus": true
+    },
+    "d4_coref_wrong_pronoun": {
+      "planned": 107,
+      "before": {
+        "appropriate_refusal": 107
+      },
+      "after": {
+        "appropriate_refusal": 107
+      },
+      "focus": true
+    },
+    "d4_event_ambiguous_occurrence": {
+      "planned": 107,
+      "before": {
+        "appropriate_refusal": 107
+      },
+      "after": {
+        "appropriate_refusal": 107
+      },
+      "focus": true
+    },
+    "d4_event_budget": {
+      "planned": 107,
+      "before": {
+        "appropriate_refusal": 107
+      },
+      "after": {
+        "appropriate_refusal": 107
+      },
+      "focus": true
+    },
+    "d4_event_contradiction": {
+      "planned": 108,
+      "before": {
+        "appropriate_refusal": 108
+      },
+      "after": {
+        "appropriate_refusal": 108
+      },
+      "focus": true
+    },
+    "d4_event_cross_registry": {
+      "planned": 108,
+      "before": {
+        "appropriate_refusal": 108
+      },
+      "after": {
+        "appropriate_refusal": 108
+      },
+      "focus": true
+    },
+    "d4_event_declared_distinct": {
+      "planned": 108,
+      "before": {
+        "over_refusal": 108
+      },
+      "after": {
+        "detected_answer": 108
+      },
+      "focus": true
+    },
+    "d4_event_different_keys": {
+      "planned": 108,
+      "before": {
+        "appropriate_refusal": 108
+      },
+      "after": {
+        "appropriate_refusal": 108
+      },
+      "focus": true
+    },
+    "d4_event_late_conflict": {
+      "planned": 107,
+      "before": {
+        "appropriate_refusal": 107
+      },
+      "after": {
+        "appropriate_refusal": 107
+      },
+      "focus": true
+    },
+    "d4_event_quoted": {
+      "planned": 107,
+      "before": {
+        "appropriate_refusal": 107
+      },
+      "after": {
+        "appropriate_refusal": 107
+      },
+      "focus": true
+    },
+    "d4_event_same_wording": {
+      "planned": 108,
+      "before": {
+        "appropriate_refusal": 108
+      },
+      "after": {
+        "appropriate_refusal": 108
+      },
+      "focus": true
+    },
+    "d4_event_shared_key": {
+      "planned": 108,
+      "before": {
+        "over_refusal": 108
+      },
+      "after": {
+        "detected_answer": 108
+      },
+      "focus": true
+    },
+    "d4_event_withheld": {
+      "planned": 107,
+      "before": {
+        "appropriate_refusal": 107
+      },
+      "after": {
+        "appropriate_refusal": 107
+      },
+      "focus": true
+    },
+    "date_roles": {
+      "planned": 26,
+      "before": {
+        "over_refusal": 26
+      },
+      "after": {
+        "over_refusal": 26
+      },
+      "focus": false
+    },
+    "direct_action": {
+      "planned": 26,
+      "before": {
+        "detected_answer": 26
+      },
+      "after": {
+        "detected_answer": 26
+      },
+      "focus": false
+    },
+    "earliest_observed": {
+      "planned": 26,
+      "before": {
+        "over_refusal": 26
+      },
+      "after": {
+        "over_refusal": 26
+      },
+      "focus": false
+    },
+    "editorial_competition": {
+      "planned": 26,
+      "before": {
+        "detected_answer": 26
+      },
+      "after": {
+        "detected_answer": 26
+      },
+      "focus": false
+    },
+    "embedded_identifier": {
+      "planned": 26,
+      "before": {
+        "appropriate_refusal": 26
+      },
+      "after": {
+        "appropriate_refusal": 26
+      },
+      "focus": false
+    },
+    "exact_anchor": {
+      "planned": 26,
+      "before": {
+        "detected_answer": 26
+      },
+      "after": {
+        "detected_answer": 26
+      },
+      "focus": false
+    },
+    "explicit_cause": {
+      "planned": 26,
+      "before": {
+        "detected_answer": 26
+      },
+      "after": {
+        "detected_answer": 26
+      },
+      "focus": false
+    },
+    "explicit_chain": {
+      "planned": 26,
+      "before": {
+        "over_refusal": 26
+      },
+      "after": {
+        "over_refusal": 26
+      },
+      "focus": false
+    },
+    "field_changed_body": {
+      "planned": 26,
+      "before": {
+        "detected_answer": 26
+      },
+      "after": {
+        "detected_answer": 26
+      },
+      "focus": false
+    },
+    "field_compound": {
+      "planned": 26,
+      "before": {
+        "detected_answer": 26
+      },
+      "after": {
+        "detected_answer": 26
+      },
+      "focus": false
+    },
+    "field_conflict": {
+      "planned": 26,
+      "before": {
+        "appropriate_refusal": 26
+      },
+      "after": {
+        "appropriate_refusal": 26
+      },
+      "focus": false
+    },
+    "field_corrupted": {
+      "planned": 26,
+      "before": {
+        "appropriate_refusal": 26
+      },
+      "after": {
+        "appropriate_refusal": 26
+      },
+      "focus": false
+    },
+    "field_literal": {
+      "planned": 26,
+      "before": {
+        "detected_answer": 26
+      },
+      "after": {
+        "detected_answer": 26
+      },
+      "focus": false
+    },
+    "field_missing_bridge": {
+      "planned": 26,
+      "before": {
+        "appropriate_refusal": 26
+      },
+      "after": {
+        "appropriate_refusal": 26
+      },
+      "focus": false
+    },
+    "field_missing_label": {
+      "planned": 26,
+      "before": {
+        "appropriate_refusal": 26
+      },
+      "after": {
+        "appropriate_refusal": 26
+      },
+      "focus": false
+    },
+    "field_negation": {
+      "planned": 26,
+      "before": {
+        "appropriate_refusal": 26
+      },
+      "after": {
+        "appropriate_refusal": 26
+      },
+      "focus": false
+    },
+    "field_past_scope": {
+      "planned": 26,
+      "before": {
+        "appropriate_refusal": 26
+      },
+      "after": {
+        "appropriate_refusal": 26
+      },
+      "focus": false
+    },
+    "field_quoted_only": {
+      "planned": 26,
+      "before": {
+        "appropriate_refusal": 26
+      },
+      "after": {
+        "appropriate_refusal": 26
+      },
+      "focus": false
+    },
+    "field_reported_only": {
+      "planned": 26,
+      "before": {
+        "appropriate_refusal": 26
+      },
+      "after": {
+        "appropriate_refusal": 26
+      },
+      "focus": false
+    },
+    "field_restricted": {
+      "planned": 26,
+      "before": {
+        "appropriate_refusal": 26
+      },
+      "after": {
+        "appropriate_refusal": 26
+      },
+      "focus": false
+    },
+    "field_same_subject": {
+      "planned": 26,
+      "before": {
+        "detected_answer": 26
+      },
+      "after": {
+        "detected_answer": 26
+      },
+      "focus": false
+    },
+    "field_stacked": {
+      "planned": 26,
+      "before": {
+        "appropriate_refusal": 26
+      },
+      "after": {
+        "appropriate_refusal": 26
+      },
+      "focus": false
+    },
+    "field_synonym": {
+      "planned": 26,
+      "before": {
+        "detected_answer": 26
+      },
+      "after": {
+        "detected_answer": 26
+      },
+      "focus": false
+    },
+    "field_withdrawn": {
+      "planned": 26,
+      "before": {
+        "appropriate_refusal": 26
+      },
+      "after": {
+        "appropriate_refusal": 26
+      },
+      "focus": false
+    },
+    "field_wrong_id": {
+      "planned": 26,
+      "before": {
+        "appropriate_refusal": 26
+      },
+      "after": {
+        "appropriate_refusal": 26
+      },
+      "focus": false
+    },
+    "header_location": {
+      "planned": 26,
+      "before": {
+        "over_refusal": 26
+      },
+      "after": {
+        "over_refusal": 26
+      },
+      "focus": false
+    },
+    "historical_priority": {
+      "planned": 26,
+      "before": {
+        "appropriate_refusal": 26
+      },
+      "after": {
+        "appropriate_refusal": 26
+      },
+      "focus": false
+    },
+    "identical_wording": {
+      "planned": 26,
+      "before": {
+        "over_refusal": 26
+      },
+      "after": {
+        "over_refusal": 26
+      },
+      "focus": false
+    },
+    "instruction_statement": {
+      "planned": 26,
+      "before": {
+        "over_refusal": 26
+      },
+      "after": {
+        "over_refusal": 26
+      },
+      "focus": false
+    },
+    "intention_execution": {
+      "planned": 26,
+      "before": {
+        "appropriate_refusal": 26
+      },
+      "after": {
+        "appropriate_refusal": 26
+      },
+      "focus": false
+    },
+    "missing_bridge": {
+      "planned": 26,
+      "before": {
+        "appropriate_refusal": 26
+      },
+      "after": {
+        "appropriate_refusal": 26
+      },
+      "focus": false
+    },
+    "negated_execution": {
+      "planned": 26,
+      "before": {
+        "appropriate_refusal": 26
+      },
+      "after": {
+        "appropriate_refusal": 26
+      },
+      "focus": false
+    },
+    "negated_statement": {
+      "planned": 26,
+      "before": {
+        "over_refusal": 26
+      },
+      "after": {
+        "over_refusal": 26
+      },
+      "focus": false
+    },
+    "partial_correction": {
+      "planned": 26,
+      "before": {
+        "over_refusal": 26
+      },
+      "after": {
+        "over_refusal": 26
+      },
+      "focus": false
+    },
+    "passive_action": {
+      "planned": 26,
+      "before": {
+        "detected_answer": 26
+      },
+      "after": {
+        "detected_answer": 26
+      },
+      "focus": false
+    },
+    "reported_execution": {
+      "planned": 26,
+      "before": {
+        "appropriate_refusal": 26
+      },
+      "after": {
+        "appropriate_refusal": 26
+      },
+      "focus": false
+    },
+    "reported_statement": {
+      "planned": 26,
+      "before": {
+        "over_refusal": 26
+      },
+      "after": {
+        "over_refusal": 26
+      },
+      "focus": false
+    },
+    "restricted_source": {
+      "planned": 26,
+      "before": {
+        "appropriate_refusal": 26
+      },
+      "after": {
+        "appropriate_refusal": 26
+      },
+      "focus": false
+    },
+    "sorter_ambiguous_target": {
+      "planned": 26,
+      "before": {
+        "appropriate_refusal": 26
+      },
+      "after": {
+        "appropriate_refusal": 26
+      },
+      "focus": false
+    },
+    "sorter_changed_body": {
+      "planned": 26,
+      "before": {
+        "appropriate_refusal": 26
+      },
+      "after": {
+        "appropriate_refusal": 26
+      },
+      "focus": false
+    },
+    "sorter_concatenated_records": {
+      "planned": 26,
+      "before": {
+        "appropriate_refusal": 26
+      },
+      "after": {
+        "appropriate_refusal": 26
+      },
+      "focus": false
+    },
+    "sorter_conditional_correction": {
+      "planned": 26,
+      "before": {
+        "appropriate_refusal": 26
+      },
+      "after": {
+        "appropriate_refusal": 26
+      },
+      "focus": false
+    },
+    "sorter_duplicate_appearance": {
+      "planned": 26,
+      "before": {
+        "appropriate_refusal": 26
+      },
+      "after": {
+        "appropriate_refusal": 26
+      },
+      "focus": false
+    },
+    "sorter_fenced_example": {
+      "planned": 26,
+      "before": {
+        "appropriate_refusal": 26
+      },
+      "after": {
+        "appropriate_refusal": 26
+      },
+      "focus": false
+    },
+    "sorter_forwarded_header": {
+      "planned": 26,
+      "before": {
+        "appropriate_refusal": 26
+      },
+      "after": {
+        "appropriate_refusal": 26
+      },
+      "focus": false
+    },
+    "sorter_missing_target": {
+      "planned": 26,
+      "before": {
+        "appropriate_refusal": 26
+      },
+      "after": {
+        "appropriate_refusal": 26
+      },
+      "focus": false
+    },
+    "sorter_negated_correction": {
+      "planned": 26,
+      "before": {
+        "appropriate_refusal": 26
+      },
+      "after": {
+        "appropriate_refusal": 26
+      },
+      "focus": false
+    },
+    "sorter_numbered_reference": {
+      "planned": 26,
+      "before": {
+        "appropriate_refusal": 26
+      },
+      "after": {
+        "appropriate_refusal": 26
+      },
+      "focus": false
+    },
+    "sorter_partial_correction": {
+      "planned": 26,
+      "before": {
+        "appropriate_refusal": 26
+      },
+      "after": {
+        "appropriate_refusal": 26
+      },
+      "focus": false
+    },
+    "sorter_passive_correction": {
+      "planned": 26,
+      "before": {
+        "appropriate_refusal": 26
+      },
+      "after": {
+        "appropriate_refusal": 26
+      },
+      "focus": false
+    },
+    "sorter_punctuated_reference": {
+      "planned": 26,
+      "before": {
+        "appropriate_refusal": 26
+      },
+      "after": {
+        "appropriate_refusal": 26
+      },
+      "focus": false
+    },
+    "sorter_quoted_correction": {
+      "planned": 26,
+      "before": {
+        "appropriate_refusal": 26
+      },
+      "after": {
+        "appropriate_refusal": 26
+      },
+      "focus": false
+    },
+    "sorter_quoted_header": {
+      "planned": 26,
+      "before": {
+        "appropriate_refusal": 26
+      },
+      "after": {
+        "appropriate_refusal": 26
+      },
+      "focus": false
+    },
+    "sorter_reported_correction": {
+      "planned": 26,
+      "before": {
+        "appropriate_refusal": 26
+      },
+      "after": {
+        "appropriate_refusal": 26
+      },
+      "focus": false
+    },
+    "sorter_same_body_different_ids": {
+      "planned": 26,
+      "before": {
+        "appropriate_refusal": 26
+      },
+      "after": {
+        "appropriate_refusal": 26
+      },
+      "focus": false
+    },
+    "sorter_same_subject": {
+      "planned": 26,
+      "before": {
+        "appropriate_refusal": 26
+      },
+      "after": {
+        "appropriate_refusal": 26
+      },
+      "focus": false
+    },
+    "sorter_unique_correction": {
+      "planned": 26,
+      "before": {
+        "appropriate_refusal": 26
+      },
+      "after": {
+        "appropriate_refusal": 26
+      },
+      "focus": false
+    },
+    "subject_identity": {
+      "planned": 26,
+      "before": {
+        "appropriate_refusal": 26
+      },
+      "after": {
+        "appropriate_refusal": 26
+      },
+      "focus": false
+    },
+    "withdrawn_source": {
+      "planned": 26,
+      "before": {
+        "appropriate_refusal": 26
+      },
+      "after": {
+        "appropriate_refusal": 26
+      },
+      "focus": false
+    },
+    "wording_change": {
+      "planned": 26,
+      "before": {
+        "over_refusal": 26
+      },
+      "after": {
+        "over_refusal": 26
+      },
+      "focus": false
+    }
+  },
+  "by_task": {
+    "event_identity": {
+      "before": {
+        "appropriate_refusal": 967,
+        "over_refusal": 216
+      },
+      "after": {
+        "appropriate_refusal": 967,
+        "detected_answer": 216
+      }
+    },
+    "coreference": {
+      "before": {
+        "appropriate_refusal": 749,
+        "over_refusal": 214
+      },
+      "after": {
+        "appropriate_refusal": 749,
+        "detected_answer": 214
+      }
+    }
+  },
+  "by_task_and_question_form": {
+    "event_identity": {
+      "2": {
+        "before": {
+          "appropriate_refusal": 327,
+          "over_refusal": 69
+        },
+        "after": {
+          "appropriate_refusal": 327,
+          "detected_answer": 69
+        }
+      },
+      "0": {
+        "before": {
+          "appropriate_refusal": 314,
+          "over_refusal": 77
+        },
+        "after": {
+          "appropriate_refusal": 314,
+          "detected_answer": 77
+        }
+      },
+      "1": {
+        "before": {
+          "appropriate_refusal": 326,
+          "over_refusal": 70
+        },
+        "after": {
+          "appropriate_refusal": 326,
+          "detected_answer": 70
+        }
+      }
+    },
+    "coreference": {
+      "1": {
+        "before": {
+          "appropriate_refusal": 245,
+          "over_refusal": 64
+        },
+        "after": {
+          "appropriate_refusal": 245,
+          "detected_answer": 64
+        }
+      },
+      "2": {
+        "before": {
+          "appropriate_refusal": 253,
+          "over_refusal": 82
+        },
+        "after": {
+          "appropriate_refusal": 253,
+          "detected_answer": 82
+        }
+      },
+      "0": {
+        "before": {
+          "appropriate_refusal": 251,
+          "over_refusal": 68
+        },
+        "after": {
+          "appropriate_refusal": 251,
+          "detected_answer": 68
+        }
+      }
+    }
+  },
+  "focus_transitions": {
+    "appropriate_refusal → appropriate_refusal": 1716,
+    "over_refusal → detected_answer": 430
+  },
+  "focus_diagnostics_by_family": {
+    "d4_event_contradiction": {
+      "event_identity_conflict": 108
+    },
+    "d4_coref_ambiguous": {
+      "coreference_unresolved": 107
+    },
+    "d4_coref_quoted": {
+      "coreference_unresolved": 107
+    },
+    "d4_event_late_conflict": {
+      "event_identity_unresolved": 107
+    },
+    "d4_coref_withdrawn": {
+      "no_eligible_sources": 107
+    },
+    "d4_event_same_wording": {
+      "event_identity_unresolved": 108
+    },
+    "d4_coref_nearby_names": {
+      "coreference_unresolved": 107
+    },
+    "d4_event_budget": {
+      "reader_budget_exceeded": 107
+    },
+    "d4_event_declared_distinct": {
+      "supported_documentary_assertion": 108
+    },
+    "d4_coref_wrong_pronoun": {
+      "coreference_unresolved": 107
+    },
+    "d4_event_cross_registry": {
+      "event_identity_unresolved": 108
+    },
+    "d4_coref_reported": {
+      "coreference_unresolved": 107
+    },
+    "d4_event_withheld": {
+      "no_eligible_sources": 107
+    },
+    "d4_event_quoted": {
+      "event_identity_unresolved": 107
+    },
+    "d4_coref_explicit": {
+      "supported_documentary_assertion": 107
+    },
+    "d4_event_different_keys": {
+      "event_identity_unresolved": 108
+    },
+    "d4_event_shared_key": {
+      "supported_documentary_assertion": 108
+    },
+    "d4_event_ambiguous_occurrence": {
+      "event_identity_unresolved": 107
+    },
+    "d4_coref_conditional": {
+      "coreference_unresolved": 107
+    },
+    "d4_coref_direct_speech": {
+      "supported_documentary_assertion": 107
+    }
+  },
+  "cohorts_before": {
+    "family": {
+      "ambiguous_pronoun": {
+        "appropriate_refusal": 26
+      },
+      "field_stacked": {
+        "appropriate_refusal": 26
+      },
+      "historical_priority": {
+        "appropriate_refusal": 26
+      },
+      "sorter_punctuated_reference": {
+        "appropriate_refusal": 26
+      },
+      "sorter_concatenated_records": {
+        "appropriate_refusal": 26
+      },
+      "field_withdrawn": {
+        "appropriate_refusal": 26
+      },
+      "direct_action": {
+        "detected_answer": 26
+      },
+      "d4_event_contradiction": {
+        "appropriate_refusal": 108
+      },
+      "d4_coref_ambiguous": {
+        "appropriate_refusal": 107
+      },
+      "d4_coref_quoted": {
+        "appropriate_refusal": 107
+      },
+      "d4_event_late_conflict": {
+        "appropriate_refusal": 107
+      },
+      "absent_anchor": {
+        "appropriate_refusal": 26
+      },
+      "field_reported_only": {
+        "appropriate_refusal": 26
+      },
+      "field_missing_label": {
+        "appropriate_refusal": 26
+      },
+      "d4_coref_withdrawn": {
+        "appropriate_refusal": 107
+      },
+      "d4_event_same_wording": {
+        "appropriate_refusal": 108
+      },
+      "d4_coref_nearby_names": {
+        "appropriate_refusal": 107
+      },
+      "d4_event_budget": {
+        "appropriate_refusal": 107
+      },
+      "sorter_same_subject": {
+        "appropriate_refusal": 26
+      },
+      "passive_action": {
+        "detected_answer": 26
+      },
+      "d4_event_declared_distinct": {
+        "over_refusal": 108
+      },
+      "d4_coref_wrong_pronoun": {
+        "appropriate_refusal": 107
+      },
+      "d4_event_cross_registry": {
+        "appropriate_refusal": 108
+      },
+      "corrupted_source": {
+        "appropriate_refusal": 26
+      },
+      "embedded_identifier": {
+        "appropriate_refusal": 26
+      },
+      "alias_adjective_date": {
+        "appropriate_refusal": 26
+      },
+      "d4_coref_reported": {
+        "appropriate_refusal": 107
+      },
+      "sorter_forwarded_header": {
+        "appropriate_refusal": 26
+      },
+      "sorter_unique_correction": {
+        "appropriate_refusal": 26
+      },
+      "field_negation": {
+        "appropriate_refusal": 26
+      },
+      "alias_collision": {
+        "appropriate_refusal": 26
+      },
+      "reported_execution": {
+        "appropriate_refusal": 26
+      },
+      "d4_event_withheld": {
+        "appropriate_refusal": 107
+      },
+      "d4_event_quoted": {
+        "appropriate_refusal": 107
+      },
+      "instruction_statement": {
+        "over_refusal": 26
+      },
+      "earliest_observed": {
+        "over_refusal": 26
+      },
+      "d4_coref_explicit": {
+        "over_refusal": 107
+      },
+      "alias_adjective_location": {
+        "appropriate_refusal": 26
+      },
+      "field_missing_bridge": {
+        "appropriate_refusal": 26
+      },
+      "d4_event_different_keys": {
+        "appropriate_refusal": 108
+      },
+      "field_quoted_only": {
+        "appropriate_refusal": 26
+      },
+      "field_restricted": {
+        "appropriate_refusal": 26
+      },
+      "d4_event_shared_key": {
+        "over_refusal": 108
+      },
+      "sorter_missing_target": {
+        "appropriate_refusal": 26
+      },
+      "field_literal": {
+        "detected_answer": 26
+      },
+      "sorter_same_body_different_ids": {
+        "appropriate_refusal": 26
+      },
+      "date_roles": {
+        "over_refusal": 26
+      },
+      "sorter_negated_correction": {
+        "appropriate_refusal": 26
+      },
+      "d4_event_ambiguous_occurrence": {
+        "appropriate_refusal": 107
+      },
+      "alias_role_location": {
+        "detected_answer": 26
+      },
+      "d4_coref_conditional": {
+        "appropriate_refusal": 107
+      },
+      "field_past_scope": {
+        "appropriate_refusal": 26
+      },
+      "alias_role_date": {
+        "detected_answer": 26
+      },
+      "d4_coref_direct_speech": {
+        "over_refusal": 107
+      },
+      "field_same_subject": {
+        "detected_answer": 26
+      },
+      "wording_change": {
+        "over_refusal": 26
+      },
+      "intention_execution": {
+        "appropriate_refusal": 26
+      },
+      "subject_identity": {
+        "appropriate_refusal": 26
+      },
+      "field_conflict": {
+        "appropriate_refusal": 26
+      },
+      "sorter_fenced_example": {
+        "appropriate_refusal": 26
+      },
+      "competing_accounts": {
+        "appropriate_refusal": 26
+      },
+      "field_synonym": {
+        "detected_answer": 26
+      },
+      "explicit_chain": {
+        "over_refusal": 26
+      },
+      "negated_statement": {
+        "over_refusal": 26
+      },
+      "alias_adjective_time": {
+        "appropriate_refusal": 26
+      },
+      "withdrawn_source": {
+        "appropriate_refusal": 26
+      },
+      "sorter_numbered_reference": {
+        "appropriate_refusal": 26
+      },
+      "sorter_ambiguous_target": {
+        "appropriate_refusal": 26
+      },
+      "identical_wording": {
+        "over_refusal": 26
+      },
+      "sorter_duplicate_appearance": {
+        "appropriate_refusal": 26
+      },
+      "sorter_quoted_header": {
+        "appropriate_refusal": 26
+      },
+      "missing_bridge": {
+        "appropriate_refusal": 26
+      },
+      "exact_anchor": {
+        "detected_answer": 26
+      },
+      "field_changed_body": {
+        "detected_answer": 26
+      },
+      "conditional_execution": {
+        "appropriate_refusal": 26
+      },
+      "header_location": {
+        "over_refusal": 26
+      },
+      "field_compound": {
+        "detected_answer": 26
+      },
+      "sorter_partial_correction": {
+        "appropriate_refusal": 26
+      },
+      "field_wrong_id": {
+        "appropriate_refusal": 26
+      },
+      "ambiguous_correction": {
+        "appropriate_refusal": 26
+      },
+      "sorter_passive_correction": {
+        "appropriate_refusal": 26
+      },
+      "alias_geographic_state": {
+        "appropriate_refusal": 26
+      },
+      "sorter_changed_body": {
+        "appropriate_refusal": 26
+      },
+      "sorter_quoted_correction": {
+        "appropriate_refusal": 26
+      },
+      "restricted_source": {
+        "appropriate_refusal": 26
+      },
+      "sorter_conditional_correction": {
+        "appropriate_refusal": 26
+      },
+      "reported_statement": {
+        "over_refusal": 26
+      },
+      "editorial_competition": {
+        "detected_answer": 26
+      },
+      "alias_role_time": {
+        "detected_answer": 26
+      },
+      "chronology_causation": {
+        "appropriate_refusal": 26
+      },
+      "field_corrupted": {
+        "appropriate_refusal": 26
+      },
+      "sorter_reported_correction": {
+        "appropriate_refusal": 26
+      },
+      "partial_correction": {
+        "over_refusal": 26
+      },
+      "explicit_cause": {
+        "detected_answer": 26
+      },
+      "negated_execution": {
+        "appropriate_refusal": 26
+      }
+    },
+    "d4_task": {
+      "event_identity": {
+        "appropriate_refusal": 967,
+        "over_refusal": 216
+      },
+      "coreference": {
+        "appropriate_refusal": 749,
+        "over_refusal": 214
+      }
+    },
+    "d4_question_form": {
+      "2": {
+        "appropriate_refusal": 580,
+        "over_refusal": 151
+      },
+      "1": {
+        "appropriate_refusal": 571,
+        "over_refusal": 134
+      },
+      "0": {
+        "appropriate_refusal": 565,
+        "over_refusal": 145
+      }
+    },
+    "d4_scaffolding": {
+      "prefix": {
+        "appropriate_refusal": 591,
+        "over_refusal": 139
+      },
+      "suffix": {
+        "appropriate_refusal": 556,
+        "over_refusal": 143
+      },
+      "none": {
+        "appropriate_refusal": 569,
+        "over_refusal": 148
+      }
+    },
+    "d4_source_order": {
+      "reverse": {
+        "appropriate_refusal": 859,
+        "over_refusal": 231
+      },
+      "forward": {
+        "appropriate_refusal": 857,
+        "over_refusal": 199
+      }
+    },
+    "d4_line_ending": {
+      "CRLF": {
+        "appropriate_refusal": 865,
+        "over_refusal": 222
+      },
+      "LF": {
+        "appropriate_refusal": 851,
+        "over_refusal": 208
+      }
+    },
+    "d4_profile": {
+      "lab": {
+        "appropriate_refusal": 758,
+        "over_refusal": 223
+      },
+      "internal": {
+        "appropriate_refusal": 851,
+        "over_refusal": 207
+      },
+      "external": {
+        "appropriate_refusal": 107
+      }
+    },
+    "d4_source_count": {
+      "2": {
+        "appropriate_refusal": 1609,
+        "over_refusal": 430
+      },
+      "3": {
+        "appropriate_refusal": 107
+      }
+    },
+    "family_by_question_form": {
+      "d4_event_contradiction/2": {
+        "appropriate_refusal": 38
+      },
+      "d4_coref_ambiguous/1": {
+        "appropriate_refusal": 30
+      },
+      "d4_coref_quoted/2": {
+        "appropriate_refusal": 35
+      },
+      "d4_event_late_conflict/0": {
+        "appropriate_refusal": 32
+      },
+      "d4_coref_withdrawn/0": {
+        "appropriate_refusal": 36
+      },
+      "d4_event_same_wording/1": {
+        "appropriate_refusal": 32
+      },
+      "d4_coref_nearby_names/1": {
+        "appropriate_refusal": 40
+      },
+      "d4_event_budget/1": {
+        "appropriate_refusal": 43
+      },
+      "d4_coref_ambiguous/2": {
+        "appropriate_refusal": 34
+      },
+      "d4_coref_quoted/1": {
+        "appropriate_refusal": 37
+      },
+      "d4_event_declared_distinct/1": {
+        "over_refusal": 29
+      },
+      "d4_coref_wrong_pronoun/2": {
+        "appropriate_refusal": 44
+      },
+      "d4_event_cross_registry/1": {
+        "appropriate_refusal": 33
+      },
+      "d4_coref_reported/1": {
+        "appropriate_refusal": 42
+      },
+      "d4_event_withheld/1": {
+        "appropriate_refusal": 40
+      },
+      "d4_event_quoted/0": {
+        "appropriate_refusal": 43
+      },
+      "d4_event_withheld/2": {
+        "appropriate_refusal": 30
+      },
+      "d4_coref_explicit/1": {
+        "over_refusal": 31
+      },
+      "d4_event_contradiction/0": {
+        "appropriate_refusal": 30
+      },
+      "d4_event_declared_distinct/2": {
+        "over_refusal": 41
+      },
+      "d4_coref_nearby_names/0": {
+        "appropriate_refusal": 34
+      },
+      "d4_coref_wrong_pronoun/0": {
+        "appropriate_refusal": 38
+      },
+      "d4_coref_ambiguous/0": {
+        "appropriate_refusal": 43
+      },
+      "d4_event_different_keys/0": {
+        "appropriate_refusal": 28
+      },
+      "d4_event_declared_distinct/0": {
+        "over_refusal": 38
+      },
+      "d4_event_shared_key/1": {
+        "over_refusal": 41
+      },
+      "d4_event_same_wording/0": {
+        "appropriate_refusal": 40
+      },
+      "d4_event_quoted/1": {
+        "appropriate_refusal": 32
+      },
+      "d4_event_ambiguous_occurrence/0": {
+        "appropriate_refusal": 39
+      },
+      "d4_event_budget/0": {
+        "appropriate_refusal": 26
+      },
+      "d4_coref_conditional/0": {
+        "appropriate_refusal": 34
+      },
+      "d4_event_budget/2": {
+        "appropriate_refusal": 38
+      },
+      "d4_event_ambiguous_occurrence/2": {
+        "appropriate_refusal": 32
+      },
+      "d4_coref_withdrawn/1": {
+        "appropriate_refusal": 36
+      },
+      "d4_event_quoted/2": {
+        "appropriate_refusal": 32
+      },
+      "d4_coref_direct_speech/2": {
+        "over_refusal": 39
+      },
+      "d4_event_late_conflict/2": {
+        "appropriate_refusal": 41
+      },
+      "d4_coref_reported/2": {
+        "appropriate_refusal": 34
+      },
+      "d4_coref_direct_speech/1": {
+        "over_refusal": 33
+      },
+      "d4_event_contradiction/1": {
+        "appropriate_refusal": 40
+      },
+      "d4_coref_explicit/0": {
+        "over_refusal": 33
+      },
+      "d4_event_same_wording/2": {
+        "appropriate_refusal": 36
+      },
+      "d4_coref_direct_speech/0": {
+        "over_refusal": 35
+      },
+      "d4_event_late_conflict/1": {
+        "appropriate_refusal": 34
+      },
+      "d4_event_shared_key/2": {
+        "over_refusal": 28
+      },
+      "d4_event_ambiguous_occurrence/1": {
+        "appropriate_refusal": 36
+      },
+      "d4_coref_reported/0": {
+        "appropriate_refusal": 31
+      },
+      "d4_event_cross_registry/2": {
+        "appropriate_refusal": 36
+      },
+      "d4_event_cross_registry/0": {
+        "appropriate_refusal": 39
+      },
+      "d4_event_shared_key/0": {
+        "over_refusal": 39
+      },
+      "d4_event_withheld/0": {
+        "appropriate_refusal": 37
+      },
+      "d4_event_different_keys/1": {
+        "appropriate_refusal": 36
+      },
+      "d4_coref_wrong_pronoun/1": {
+        "appropriate_refusal": 25
+      },
+      "d4_coref_conditional/1": {
+        "appropriate_refusal": 35
+      },
+      "d4_coref_withdrawn/2": {
+        "appropriate_refusal": 35
+      },
+      "d4_coref_quoted/0": {
+        "appropriate_refusal": 35
+      },
+      "d4_coref_explicit/2": {
+        "over_refusal": 43
+      },
+      "d4_event_different_keys/2": {
+        "appropriate_refusal": 44
+      },
+      "d4_coref_nearby_names/2": {
+        "appropriate_refusal": 33
+      },
+      "d4_coref_conditional/2": {
+        "appropriate_refusal": 38
+      }
+    },
+    "diagnostic": {
+      "exact_field_missing": {
+        "appropriate_refusal": 1502,
+        "over_refusal": 430
+      },
+      "interpretation_unsupported": {
+        "appropriate_refusal": 107
+      },
+      "restricted_or_unavailable": {
+        "appropriate_refusal": 107
+      }
+    }
+  },
+  "cohorts_after": {
+    "family": {
+      "ambiguous_pronoun": {
+        "appropriate_refusal": 26
+      },
+      "field_stacked": {
+        "appropriate_refusal": 26
+      },
+      "historical_priority": {
+        "appropriate_refusal": 26
+      },
+      "sorter_punctuated_reference": {
+        "appropriate_refusal": 26
+      },
+      "sorter_concatenated_records": {
+        "appropriate_refusal": 26
+      },
+      "field_withdrawn": {
+        "appropriate_refusal": 26
+      },
+      "direct_action": {
+        "detected_answer": 26
+      },
+      "d4_event_contradiction": {
+        "appropriate_refusal": 108
+      },
+      "d4_coref_ambiguous": {
+        "appropriate_refusal": 107
+      },
+      "d4_coref_quoted": {
+        "appropriate_refusal": 107
+      },
+      "d4_event_late_conflict": {
+        "appropriate_refusal": 107
+      },
+      "absent_anchor": {
+        "appropriate_refusal": 26
+      },
+      "field_reported_only": {
+        "appropriate_refusal": 26
+      },
+      "field_missing_label": {
+        "appropriate_refusal": 26
+      },
+      "d4_coref_withdrawn": {
+        "appropriate_refusal": 107
+      },
+      "d4_event_same_wording": {
+        "appropriate_refusal": 108
+      },
+      "d4_coref_nearby_names": {
+        "appropriate_refusal": 107
+      },
+      "d4_event_budget": {
+        "appropriate_refusal": 107
+      },
+      "sorter_same_subject": {
+        "appropriate_refusal": 26
+      },
+      "passive_action": {
+        "detected_answer": 26
+      },
+      "d4_event_declared_distinct": {
+        "detected_answer": 108
+      },
+      "d4_coref_wrong_pronoun": {
+        "appropriate_refusal": 107
+      },
+      "d4_event_cross_registry": {
+        "appropriate_refusal": 108
+      },
+      "corrupted_source": {
+        "appropriate_refusal": 26
+      },
+      "embedded_identifier": {
+        "appropriate_refusal": 26
+      },
+      "alias_adjective_date": {
+        "appropriate_refusal": 26
+      },
+      "d4_coref_reported": {
+        "appropriate_refusal": 107
+      },
+      "sorter_forwarded_header": {
+        "appropriate_refusal": 26
+      },
+      "sorter_unique_correction": {
+        "appropriate_refusal": 26
+      },
+      "field_negation": {
+        "appropriate_refusal": 26
+      },
+      "alias_collision": {
+        "appropriate_refusal": 26
+      },
+      "reported_execution": {
+        "appropriate_refusal": 26
+      },
+      "d4_event_withheld": {
+        "appropriate_refusal": 107
+      },
+      "d4_event_quoted": {
+        "appropriate_refusal": 107
+      },
+      "instruction_statement": {
+        "over_refusal": 26
+      },
+      "earliest_observed": {
+        "over_refusal": 26
+      },
+      "d4_coref_explicit": {
+        "detected_answer": 107
+      },
+      "alias_adjective_location": {
+        "appropriate_refusal": 26
+      },
+      "field_missing_bridge": {
+        "appropriate_refusal": 26
+      },
+      "d4_event_different_keys": {
+        "appropriate_refusal": 108
+      },
+      "field_quoted_only": {
+        "appropriate_refusal": 26
+      },
+      "field_restricted": {
+        "appropriate_refusal": 26
+      },
+      "d4_event_shared_key": {
+        "detected_answer": 108
+      },
+      "sorter_missing_target": {
+        "appropriate_refusal": 26
+      },
+      "field_literal": {
+        "detected_answer": 26
+      },
+      "sorter_same_body_different_ids": {
+        "appropriate_refusal": 26
+      },
+      "date_roles": {
+        "over_refusal": 26
+      },
+      "sorter_negated_correction": {
+        "appropriate_refusal": 26
+      },
+      "d4_event_ambiguous_occurrence": {
+        "appropriate_refusal": 107
+      },
+      "alias_role_location": {
+        "detected_answer": 26
+      },
+      "d4_coref_conditional": {
+        "appropriate_refusal": 107
+      },
+      "field_past_scope": {
+        "appropriate_refusal": 26
+      },
+      "alias_role_date": {
+        "detected_answer": 26
+      },
+      "d4_coref_direct_speech": {
+        "detected_answer": 107
+      },
+      "field_same_subject": {
+        "detected_answer": 26
+      },
+      "wording_change": {
+        "over_refusal": 26
+      },
+      "intention_execution": {
+        "appropriate_refusal": 26
+      },
+      "subject_identity": {
+        "appropriate_refusal": 26
+      },
+      "field_conflict": {
+        "appropriate_refusal": 26
+      },
+      "sorter_fenced_example": {
+        "appropriate_refusal": 26
+      },
+      "competing_accounts": {
+        "appropriate_refusal": 26
+      },
+      "field_synonym": {
+        "detected_answer": 26
+      },
+      "explicit_chain": {
+        "over_refusal": 26
+      },
+      "negated_statement": {
+        "over_refusal": 26
+      },
+      "alias_adjective_time": {
+        "appropriate_refusal": 26
+      },
+      "withdrawn_source": {
+        "appropriate_refusal": 26
+      },
+      "sorter_numbered_reference": {
+        "appropriate_refusal": 26
+      },
+      "sorter_ambiguous_target": {
+        "appropriate_refusal": 26
+      },
+      "identical_wording": {
+        "over_refusal": 26
+      },
+      "sorter_duplicate_appearance": {
+        "appropriate_refusal": 26
+      },
+      "sorter_quoted_header": {
+        "appropriate_refusal": 26
+      },
+      "missing_bridge": {
+        "appropriate_refusal": 26
+      },
+      "exact_anchor": {
+        "detected_answer": 26
+      },
+      "field_changed_body": {
+        "detected_answer": 26
+      },
+      "conditional_execution": {
+        "appropriate_refusal": 26
+      },
+      "header_location": {
+        "over_refusal": 26
+      },
+      "field_compound": {
+        "detected_answer": 26
+      },
+      "sorter_partial_correction": {
+        "appropriate_refusal": 26
+      },
+      "field_wrong_id": {
+        "appropriate_refusal": 26
+      },
+      "ambiguous_correction": {
+        "appropriate_refusal": 26
+      },
+      "sorter_passive_correction": {
+        "appropriate_refusal": 26
+      },
+      "alias_geographic_state": {
+        "appropriate_refusal": 26
+      },
+      "sorter_changed_body": {
+        "appropriate_refusal": 26
+      },
+      "sorter_quoted_correction": {
+        "appropriate_refusal": 26
+      },
+      "restricted_source": {
+        "appropriate_refusal": 26
+      },
+      "sorter_conditional_correction": {
+        "appropriate_refusal": 26
+      },
+      "reported_statement": {
+        "over_refusal": 26
+      },
+      "editorial_competition": {
+        "detected_answer": 26
+      },
+      "alias_role_time": {
+        "detected_answer": 26
+      },
+      "chronology_causation": {
+        "appropriate_refusal": 26
+      },
+      "field_corrupted": {
+        "appropriate_refusal": 26
+      },
+      "sorter_reported_correction": {
+        "appropriate_refusal": 26
+      },
+      "partial_correction": {
+        "over_refusal": 26
+      },
+      "explicit_cause": {
+        "detected_answer": 26
+      },
+      "negated_execution": {
+        "appropriate_refusal": 26
+      }
+    },
+    "d4_task": {
+      "event_identity": {
+        "appropriate_refusal": 967,
+        "detected_answer": 216
+      },
+      "coreference": {
+        "appropriate_refusal": 749,
+        "detected_answer": 214
+      }
+    },
+    "d4_question_form": {
+      "2": {
+        "appropriate_refusal": 580,
+        "detected_answer": 151
+      },
+      "1": {
+        "appropriate_refusal": 571,
+        "detected_answer": 134
+      },
+      "0": {
+        "appropriate_refusal": 565,
+        "detected_answer": 145
+      }
+    },
+    "d4_scaffolding": {
+      "prefix": {
+        "appropriate_refusal": 591,
+        "detected_answer": 139
+      },
+      "suffix": {
+        "appropriate_refusal": 556,
+        "detected_answer": 143
+      },
+      "none": {
+        "appropriate_refusal": 569,
+        "detected_answer": 148
+      }
+    },
+    "d4_source_order": {
+      "reverse": {
+        "appropriate_refusal": 859,
+        "detected_answer": 231
+      },
+      "forward": {
+        "appropriate_refusal": 857,
+        "detected_answer": 199
+      }
+    },
+    "d4_line_ending": {
+      "CRLF": {
+        "appropriate_refusal": 865,
+        "detected_answer": 222
+      },
+      "LF": {
+        "appropriate_refusal": 851,
+        "detected_answer": 208
+      }
+    },
+    "d4_profile": {
+      "lab": {
+        "appropriate_refusal": 758,
+        "detected_answer": 223
+      },
+      "internal": {
+        "appropriate_refusal": 851,
+        "detected_answer": 207
+      },
+      "external": {
+        "appropriate_refusal": 107
+      }
+    },
+    "d4_source_count": {
+      "2": {
+        "appropriate_refusal": 1609,
+        "detected_answer": 430
+      },
+      "3": {
+        "appropriate_refusal": 107
+      }
+    },
+    "family_by_question_form": {
+      "d4_event_contradiction/2": {
+        "appropriate_refusal": 38
+      },
+      "d4_coref_ambiguous/1": {
+        "appropriate_refusal": 30
+      },
+      "d4_coref_quoted/2": {
+        "appropriate_refusal": 35
+      },
+      "d4_event_late_conflict/0": {
+        "appropriate_refusal": 32
+      },
+      "d4_coref_withdrawn/0": {
+        "appropriate_refusal": 36
+      },
+      "d4_event_same_wording/1": {
+        "appropriate_refusal": 32
+      },
+      "d4_coref_nearby_names/1": {
+        "appropriate_refusal": 40
+      },
+      "d4_event_budget/1": {
+        "appropriate_refusal": 43
+      },
+      "d4_coref_ambiguous/2": {
+        "appropriate_refusal": 34
+      },
+      "d4_coref_quoted/1": {
+        "appropriate_refusal": 37
+      },
+      "d4_event_declared_distinct/1": {
+        "detected_answer": 29
+      },
+      "d4_coref_wrong_pronoun/2": {
+        "appropriate_refusal": 44
+      },
+      "d4_event_cross_registry/1": {
+        "appropriate_refusal": 33
+      },
+      "d4_coref_reported/1": {
+        "appropriate_refusal": 42
+      },
+      "d4_event_withheld/1": {
+        "appropriate_refusal": 40
+      },
+      "d4_event_quoted/0": {
+        "appropriate_refusal": 43
+      },
+      "d4_event_withheld/2": {
+        "appropriate_refusal": 30
+      },
+      "d4_coref_explicit/1": {
+        "detected_answer": 31
+      },
+      "d4_event_contradiction/0": {
+        "appropriate_refusal": 30
+      },
+      "d4_event_declared_distinct/2": {
+        "detected_answer": 41
+      },
+      "d4_coref_nearby_names/0": {
+        "appropriate_refusal": 34
+      },
+      "d4_coref_wrong_pronoun/0": {
+        "appropriate_refusal": 38
+      },
+      "d4_coref_ambiguous/0": {
+        "appropriate_refusal": 43
+      },
+      "d4_event_different_keys/0": {
+        "appropriate_refusal": 28
+      },
+      "d4_event_declared_distinct/0": {
+        "detected_answer": 38
+      },
+      "d4_event_shared_key/1": {
+        "detected_answer": 41
+      },
+      "d4_event_same_wording/0": {
+        "appropriate_refusal": 40
+      },
+      "d4_event_quoted/1": {
+        "appropriate_refusal": 32
+      },
+      "d4_event_ambiguous_occurrence/0": {
+        "appropriate_refusal": 39
+      },
+      "d4_event_budget/0": {
+        "appropriate_refusal": 26
+      },
+      "d4_coref_conditional/0": {
+        "appropriate_refusal": 34
+      },
+      "d4_event_budget/2": {
+        "appropriate_refusal": 38
+      },
+      "d4_event_ambiguous_occurrence/2": {
+        "appropriate_refusal": 32
+      },
+      "d4_coref_withdrawn/1": {
+        "appropriate_refusal": 36
+      },
+      "d4_event_quoted/2": {
+        "appropriate_refusal": 32
+      },
+      "d4_coref_direct_speech/2": {
+        "detected_answer": 39
+      },
+      "d4_event_late_conflict/2": {
+        "appropriate_refusal": 41
+      },
+      "d4_coref_reported/2": {
+        "appropriate_refusal": 34
+      },
+      "d4_coref_direct_speech/1": {
+        "detected_answer": 33
+      },
+      "d4_event_contradiction/1": {
+        "appropriate_refusal": 40
+      },
+      "d4_coref_explicit/0": {
+        "detected_answer": 33
+      },
+      "d4_event_same_wording/2": {
+        "appropriate_refusal": 36
+      },
+      "d4_coref_direct_speech/0": {
+        "detected_answer": 35
+      },
+      "d4_event_late_conflict/1": {
+        "appropriate_refusal": 34
+      },
+      "d4_event_shared_key/2": {
+        "detected_answer": 28
+      },
+      "d4_event_ambiguous_occurrence/1": {
+        "appropriate_refusal": 36
+      },
+      "d4_coref_reported/0": {
+        "appropriate_refusal": 31
+      },
+      "d4_event_cross_registry/2": {
+        "appropriate_refusal": 36
+      },
+      "d4_event_cross_registry/0": {
+        "appropriate_refusal": 39
+      },
+      "d4_event_shared_key/0": {
+        "detected_answer": 39
+      },
+      "d4_event_withheld/0": {
+        "appropriate_refusal": 37
+      },
+      "d4_event_different_keys/1": {
+        "appropriate_refusal": 36
+      },
+      "d4_coref_wrong_pronoun/1": {
+        "appropriate_refusal": 25
+      },
+      "d4_coref_conditional/1": {
+        "appropriate_refusal": 35
+      },
+      "d4_coref_withdrawn/2": {
+        "appropriate_refusal": 35
+      },
+      "d4_coref_quoted/0": {
+        "appropriate_refusal": 35
+      },
+      "d4_coref_explicit/2": {
+        "detected_answer": 43
+      },
+      "d4_event_different_keys/2": {
+        "appropriate_refusal": 44
+      },
+      "d4_coref_nearby_names/2": {
+        "appropriate_refusal": 33
+      },
+      "d4_coref_conditional/2": {
+        "appropriate_refusal": 38
+      }
+    },
+    "diagnostic": {
+      "event_identity_conflict": {
+        "appropriate_refusal": 108
+      },
+      "coreference_unresolved": {
+        "appropriate_refusal": 642
+      },
+      "event_identity_unresolved": {
+        "appropriate_refusal": 645
+      },
+      "no_eligible_sources": {
+        "appropriate_refusal": 214
+      },
+      "reader_budget_exceeded": {
+        "appropriate_refusal": 107
+      },
+      "supported_documentary_assertion": {
+        "detected_answer": 430
+      }
+    }
+  },
+  "independent_semantic_review": "NOT RUN"
+}

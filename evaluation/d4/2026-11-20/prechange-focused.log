@@ -1,0 +1,47 @@
+======================================================================
+ERROR: test_source_change_discards_verified_binding (tests.test_reference_identity.ReferenceIdentityTests.test_source_change_discards_verified_binding)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/d4/tests/test_reference_identity.py", line 79, in test_source_change_discards_verified_binding
+    from mplpb_answers import reference_identity
+ImportError: cannot import name 'reference_identity' from 'mplpb_answers' (/workspace/d4/mplpb_answers/__init__.py)
+
+======================================================================
+FAIL: test_declared_shared_key_conflicting_with_distinct_reference_withholds (tests.test_reference_identity.ReferenceIdentityTests.test_declared_shared_key_conflicting_with_distinct_reference_withholds)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/d4/tests/test_reference_identity.py", line 58, in test_declared_shared_key_conflicting_with_distinct_reference_withholds
+    self.assertEqual(self.ask_event()['kind'], 'conflict')
+AssertionError: 'abstain' != 'conflict'
+- abstain
++ conflict
+
+
+======================================================================
+FAIL: test_distinct_requires_explicit_reference_under_one_registry (tests.test_reference_identity.ReferenceIdentityTests.test_distinct_requires_explicit_reference_under_one_registry)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/d4/tests/test_reference_identity.py", line 45, in test_distinct_requires_explicit_reference_under_one_registry
+    self.assertTrue(result['answer_supported'], result['diagnostic'])
+AssertionError: False is not true : {'code': 'exact_field_missing', 'stage': 'strict', 'message': 'The exact route does not establish the requested field under a bounded grammar.', 'category': 'insufficient_evidence', 'corpus_answerability': 'not_established', 'next_steps': ['Inspect the exact record and supply an explicit source body field; an identifier alone is not field support.']}
+
+======================================================================
+FAIL: test_explicit_binding_and_speech_attribution_preserve_scope (tests.test_reference_identity.ReferenceIdentityTests.test_explicit_binding_and_speech_attribution_preserve_scope)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/d4/tests/test_reference_identity.py", line 63, in test_explicit_binding_and_speech_attribution_preserve_scope
+    self.assertTrue(result['answer_supported'], result['diagnostic'])
+AssertionError: False is not true : {'code': 'exact_field_missing', 'stage': 'strict', 'message': 'The exact route does not establish the requested field under a bounded grammar.', 'category': 'insufficient_evidence', 'corpus_answerability': 'not_established', 'next_steps': ['Inspect the exact record and supply an explicit source body field; an identifier alone is not field support.']}
+
+======================================================================
+FAIL: test_two_named_sources_can_support_registry_scoped_agreement (tests.test_reference_identity.ReferenceIdentityTests.test_two_named_sources_can_support_registry_scoped_agreement)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/d4/tests/test_reference_identity.py", line 35, in test_two_named_sources_can_support_registry_scoped_agreement
+    self.assertTrue(result['answer_supported'], result['diagnostic'])
+AssertionError: False is not true : {'code': 'exact_field_missing', 'stage': 'strict', 'message': 'The exact route does not establish the requested field under a bounded grammar.', 'category': 'insufficient_evidence', 'corpus_answerability': 'not_established', 'next_steps': ['Inspect the exact record and supply an explicit source body field; an identifier alone is not field support.']}
+
+----------------------------------------------------------------------
+Ran 8 tests in 0.145s
+
+FAILED (failures=4, errors=1)
