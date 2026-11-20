@@ -4,35 +4,33 @@ Last reviewed: 2026-11-20.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `ef66c28fa2c7489f4e6a12ea2bb14f4427555729` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `f6986537e3d07fea9456321244f502605af227fd358f556cb159bd906019f8b8`.
+Base commit: `b2dc1da484072a1fb6ff279b5ce2edd56f9fa14b` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `cc3d621b052c94573dc9ac3fc7d0889f62b1cfc6c509aa747d2e170d1540337d`.
 
 ## Latest user update instructions
 
-explain which link is missing when the evidence falls short.
+What would raise the score: a README that opens with the idea in plain words and a 30-second example, the evaluation data moved out to a release or separate repo, and a trimmed-down core package.
 
 ## Implemented scope
 
-- Expose a diagnostic and next step for specific event identity verification gaps.
-- Offer an admitted named-source question when a narrowly recognized unnamed comparison falls outside the strict grammar.
-- Keep the existing named-source proof rules and eligibility, recheck, and budget boundaries.
+- Lead with a plain-language introduction and short browser and terminal examples.
+- Publish a separate compact native download from the existing wheel on future Pages builds. Install from the extracted public-download artifact in CI and verify retrieval after deployment.
+- Link the research archive, prior implementations and advanced tools from secondary navigation while preserving their version-pinned source paths.
 
 ## Validation recorded
 
-- Four new diagnostic controls failed on the baseline and passed on the candidate.
-- A paired direct native comparison preserved the decisions, claims, citations, and diagnostic codes of 380 public D4/D% inputs. Sixty abstentions gained specific guidance.
-- All 2,400 fictional query-panel outcomes matched expectations.
-- The 43 focused Python tests, documentary rendering, UI script, documentation inventory, and infrastructure audit passed locally.
+- Both browser README questions passed in real Chromium using the existing browser runtime.
+- A clean offline install from the locally built 313,318-byte native ZIP passed both README CLI questions. Wheel inspection found only the three runtime packages and distribution metadata.
+- Documentation inventory, infrastructure checks, and changed workflow YAML and shell syntax checks passed locally.
 
 ## Limitations and blocked checks
 
-- This update covers selected event identity refusals. A formatting or selection explanation establishes no documentary fact.
-- The paired direct replay checks native decision parity and is separate from the isolated CI gate.
+- The evaluation archive still resides in the full repository. The independent downloadable package excludes the archive. Moving version-pinned inputs would require a migration of their workflows and references.
+- The public URL is created by the first deployment of this change.
 
 ## Next steps
 
-- Apply paired tests to other refusal families after defining their distinct evidence obligations.
-- Run the full exact-head release gates when a release candidate is submitted.
+- Validate the frozen archive and the public download in the normal release workflow when the candidate is submitted.
 
 ## Use this ZIP in your repository
 

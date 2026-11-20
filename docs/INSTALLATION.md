@@ -1,6 +1,6 @@
 # Installation and release packages
 
-Last reviewed: 2026-11-18.
+Last reviewed: 2026-11-20.
 
 [Package guide](PACKAGE_GUIDE.md#delivery-and-packaging) · [Documentation index](README.md)
 
@@ -15,7 +15,7 @@ All retain the same distinction between source inspection and strict answer supp
 | [Hosted application](https://mitchell-d00.github.io/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/) | Browser source inspection, collections and bounded conversation | Modern browser, WebAssembly/workers, WebCrypto, IndexedDB and storage permissions |
 | `mplpb-monster-browser.zip` | Downloaded standalone core application | Extract and open `MPLPB_Browser.html`, or serve it over static HTTPS; optional site sidecars/model weights are separate |
 | `mplpb-monster.zip` / source checkout | Desktop App, sorter, native source tools, MCP and full retained repository | Python 3.8+ declared; CI exercises Python 3.12; core runtime uses standard library |
-| `combined_mplpb-*.whl` | Installed ledger/answer/library/work/evaluation CLIs and sorter module | Python and a wheel installer; bring your own ledger/raw files; full App/resources/examples are not installed |
+| [Small native ZIP](https://mitchell-d00.github.io/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/downloads/mplpb-native.zip) | Installed ledger, answer and work commands, library tools, and sorter | Python and pip. The ZIP contains the wheel only. |
 
 The successful main-branch **Publish MPLPB browser runtime** Actions run provides
 an artifact named `mplpb-monster`. It includes the two ZIPs, wheel and
@@ -43,6 +43,11 @@ obtained as the release source ZIP. Installing the wheel is not required to run
 Python modules from this checkout.
 
 ## Wheel and command-line tools
+
+Use the small native ZIP above to download the wheel on its own. Unzip it and
+replace `PATH_TO_WHEEL` with the path to the enclosed `.whl` file. The installer
+can run offline after download. The [README example](../README.md#try-it-from-the-terminal)
+creates its own ledger, so this download is enough to try it.
 
 ```bash
 python -m pip install PATH_TO_WHEEL
@@ -121,6 +126,9 @@ After building the browser from the intended committed source revision:
 python tools/build_release_packages.py
 python -m pip wheel --no-deps --wheel-dir release .
 ```
+
+The Pages workflow puts that wheel in `dist/downloads/mplpb-native.zip` and
+checks installation from the extracted download before publishing it.
 
 Source packaging uses `git archive HEAD` and a current handoff. Local/untracked
 sessions are excluded. `SHA256.json` pins the two ZIPs and source commit; it does
