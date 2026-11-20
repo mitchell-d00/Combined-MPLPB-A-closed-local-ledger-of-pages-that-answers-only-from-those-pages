@@ -4,37 +4,35 @@ Last reviewed: 2026-11-20.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `d4f736549c72f99a5416bbbea27deef34c9ecc82` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `98989052bdf6e5254561b9e016c5329651e337f962e3b14fc42a63747984f34e`.
+Base commit: `ddf16a11395964156ae206b2d2ca298c22c04cae` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `5280862d09c8822936a9af53483f361600d2e7cd418e57318cefacf67a0485ed`.
 
 ## Latest user update instructions
 
-Push it to main as documentation I may publish it later
-
-I’d describe it as evidence-gated recursive engineering.
+Run synthetic people of varying educations and ages
 
 ## Implemented scope
 
-- Add The McPhetridge Method for Evidence-Gated Software Engineering under Mitchell D. McPhetridge's byline as a dated documentation case study.
-- Explain how MPLPB’s evidence rules govern its development and how separately produced checks become evidence for subsequent work.
-- Link the manuscript from the documentation index and retain a compact, attributed record of the cited baseline and replay measurements.
+- Add native whole-statement verification for bounded corrections, rescheduling, continuations, timed handoffs, log conflicts, scoped reference and cancellation cases.
+- Preserve distinct support, partial support, conflict and unresolved outcomes with exact source spans.
+- Cross four fictional adult age bands and four education labels with independent question styles and fresh synthetic cases. Run the same panel in the existing D4 workflow.
 
 ## Validation recorded
 
-- The manuscript retains the requested design standard verbatim.
-- The manuscript distinguishes author-defined requirements, AI implementation, native replay, and separately recorded GitHub execution.
-- GitHub PR 62, its exact merge tree and its live Chromium deployment run corroborate the historical release facts. The author-supplied timer stays distinct from GitHub's record.
-- The documentation inventory audit and repository infrastructure checker passed on the staged documentation. The evidence record reuses saved runs.
+- Native reference, D4 generator, compound-field, historical verifier and new bounded-record tests passed locally.
+- The paired 2,400-case synthetic panel matched 1,152 expected outcomes in the baseline and 2,400 in the candidate. A separate seed also matched 2,400 candidate outcomes.
+- Existing UI, transport, JavaScript API and crawler fixture checks passed locally.
+- The 380 public D4 packets produced identical baseline and candidate native answer decisions, claims and diagnostics in a direct comparison.
+- The isolated 380-case D4 gate could not start its workers locally because this environment blocks Bubblewrap namespace setup.
 
 ## Limitations and blocked checks
 
-- This documents a specific engineering cycle and authored controls. It does not establish independent accuracy or general natural-language coverage.
-- The snapshot retains selected measurements. It does not contain complete corpora or external publication assets.
+- The new proofs cover finite, small packets under current source eligibility.
+- The panel uses fictional reporting labels and authored fixtures. It provides no evidence about actual respondents or independent historical semantic accuracy.
 
 ## Next steps
 
-- Run the exact-head PR release checks and merge the documentation to main when they pass.
-- Keep any later publication decision with the author.
+- Run the exact-head archive-first checks and sealed D4 gate in GitHub Actions when a release candidate is submitted.
 
 ## Use this ZIP in your repository
 

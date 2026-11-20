@@ -21,7 +21,11 @@ jobs:
         with:
           python-version: '3.12'
       - name: Test source references and generator custody
-        run: python -m unittest tests.test_reference_identity tests.test_d4 -v
+        run: python -m unittest tests.test_reference_identity tests.test_d4 tests.test_bounded_records -v
+      - name: Run the balanced fictional query panel
+        run: |
+          mkdir -p "$RUNNER_TEMP/d4"
+          python -m tools.bounded_record_study --repeats 2 --require-pass --output "$RUNNER_TEMP/d4/fictional-panel.json"
       - name: Install Bubblewrap
         run: |
           sudo apt-get update

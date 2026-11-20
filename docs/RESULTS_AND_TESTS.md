@@ -15,6 +15,11 @@ restricted sources, stale findings and the CLI.
 [Event identity, co-reference D4](D4_EVENT_IDENTITY_COREFERENCE.md) adds a sealed
 mixed benchmark, a focused acceptance gate and class-by-class case study.
 
+The [small documentary packet checks](D4_EVENT_IDENTITY_COREFERENCE.md#small-documentary-packets)
+cover cited support, partial answers, explicit conflicts, and unresolved evidence.
+The [fictional query panel](../tools/bounded_record_study.py) crosses the same
+wording and case mix with age and education labels as a synthetic coverage check.
+
 [Bounded documentary answers](BOUNDED_DOCUMENTARY_ANSWERS.md) documents the
 compound field and communication candidate controls and the automated frozen
 acceptance replay.

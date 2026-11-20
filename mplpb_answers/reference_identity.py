@@ -164,21 +164,30 @@ def verify(root, question, profile, request, max_passages, max_chars):
     records = [selected[ident][0] for ident in ids]
     code, proposition, witnesses = (_event_resolution(index, records) if task == 'event'
                                      else _pronoun_resolution(records[0], pronoun))
+    claim = None
+    if task == 'event' and code == 'event_identity_unresolved' and profile.prose:
+        from .bounded_records import rescheduled_event
+        claim = rescheduled_event(records)
+        if claim:
+            code = 'supported_documentary_assertion'
+            proposition, witnesses = claim['proposition'], claim['citations']
+            proposition.update(left_source_id=records[0].id, right_source_id=records[1].id)
     if not index.unchanged():
         return 'source_changed', None
     if proposition is None:
         return code, None
     if len(witnesses) > max_passages or sum(len(c['quote']) for c in witnesses) > max_chars:
         return 'reader_budget_exceeded', None
-    if task == 'event':
-        prefix = ('The named sources declare the same event key under ' + proposition['registry']
-                  if proposition['same_event'] else
-                  'The named sources explicitly distinguish the events under ' + proposition['registry'])
-    else:
-        prefix = 'The selected source binds "' + pronoun + '" to ' + proposition['referent']
-    claim = {'text': prefix + '.', 'proposition': proposition, 'citations': witnesses,
-             'source_support_established': True,
-             'qualifiers': ['This proof covers the cited documentary declarations. Historical identity and independent corroboration remain unverified.']}
+    if claim is None:
+        if task == 'event':
+            prefix = ('The named sources declare the same event key under ' + proposition['registry']
+                      if proposition['same_event'] else
+                      'The named sources explicitly distinguish the events under ' + proposition['registry'])
+        else:
+            prefix = 'The selected source binds "' + pronoun + '" to ' + proposition['referent']
+        claim = {'text': prefix + '.', 'proposition': proposition, 'citations': witnesses,
+                 'source_support_established': True,
+                 'qualifiers': ['This proof covers the cited documentary declarations. Historical identity and independent corroboration remain unverified.']}
     paths = {c['path'] for c in witnesses}
     return code, {'claims': [claim], 'text': claim['text'], 'answer_supported': True,
                   'sources': [source for source in index.sources if source['path'] in paths]}
