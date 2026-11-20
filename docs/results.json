@@ -661,6 +661,21 @@
       ],
       "scope": "Known-error structural stress testing across historical prose and field admission; frozen packets, isolated worker and post-run keys. Not independent/unseen evaluation.",
       "measurement_status": "Two complete1000-case frozen runs:156 to168/420 matched complete,580/580 refusals,252 positives still unresolved; no execution failures. Initial/scorer failures and interruption retained."
+    },
+    {
+      "family": "field-aliases",
+      "artifacts": "evaluation/field-aliases",
+      "tests": [
+        "tests/test_field_aliases.py"
+      ],
+      "runners": [
+        "tools/field_alias_challenge.py",
+        "tools/dpercent.py",
+        "tools/dpercent_expanded.py",
+        "tools/reproduce_boundaries.py"
+      ],
+      "scope": "One bounded source-body field-alias improvement; immutable legacy benchmarks and a sealed240-case developer holdout. Not independent semantic validation.",
+      "measurement_status": "Baseline pinned and diagnosed;62 focused tests pass; final archive/evaluations pending."
     }
   ]
 }

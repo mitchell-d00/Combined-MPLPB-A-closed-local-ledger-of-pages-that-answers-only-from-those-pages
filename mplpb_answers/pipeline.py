@@ -34,7 +34,7 @@ def refusal_category(code, kind):
         return 'absent_eligible_source'
     if code == 'interpretation_unsupported':
         return 'unsupported_question_grammar'
-    if code in {'retrieval_ambiguous', 'event_identity_unresolved', 'needs_clarification', 'correction_scope_unclear', 'documentary_scope_ambiguous'}:
+    if code in {'retrieval_ambiguous', 'event_identity_unresolved', 'needs_clarification', 'correction_scope_unclear', 'documentary_scope_ambiguous', 'field_alias_ambiguous'}:
         return 'clarification_required'
     if kind == 'supported_answer':
         return 'source_support_established'
@@ -134,6 +134,9 @@ def answer_query(root, question, profile=None, *, mode='strict', reader=None, mi
         raise ValueError('Invalid passage admission budget')
     from mplpb_combined.ledger import serving_view
     request = relation_graph.exact_request(question,record_id,field,exact_value)
+    if field is None and exact_value is None:
+        from .field_aliases import resolve
+        request = resolve(root,question,profile,request,as_of)
     from .passage_admission import source_suggestions
     with serving_view(as_of,request['field']),source_suggestions(source_hints):
         return _answer_query(root,question,profile,mode=mode,reader=reader,min_confidence=min_confidence,
@@ -168,6 +171,9 @@ def _answer_query(root, question, profile=None, *, mode, reader, min_confidence,
         try:
             fresh = G.gather(root, question, profile)
             unchanged = _state(fresh) == initial_state and Path(strict.root).resolve() == initial_gate_root
+            if unchanged and exact.get('alias_resolution'):
+                from .field_aliases import unchanged as aliases_unchanged
+                unchanged = aliases_unchanged(root,question,profile,exact['alias_resolution'])
         except (OSError, ValueError):
             unchanged = False
         if not unchanged or code == 'source_changed':
@@ -176,6 +182,9 @@ def _answer_query(root, question, profile=None, *, mode, reader, min_confidence,
             contract.update(text='', claims=[], sources=[], missing=[], clarification='',
                             retrieval={'passages': [], 'sources': [], 'discarded': 'source_state_changed'},
                             verification={'structural': False, 'semantic': 'discarded_due_to_source_change', 'truth_verified': False, 'independence_verified': False})
+            if exact.get('alias_resolution'):
+                contract['question_normalization'] = {'version':'source-field-alias-v1',
+                    'status':'discarded_due_to_source_change','normalization_is_evidence':False}
             strict.kind, strict.record, strict.candidates = 'not_in_corpus', None, []
             strict.support = {'status': 'unsupported', 'spans': [], 'reason': message}
             result.gate = {'sources': [], 'excluded': [], 'corpus_snapshot': '', 'notice': message}
@@ -214,6 +223,16 @@ def _answer_query(root, question, profile=None, *, mode, reader, min_confidence,
         return result
 
     initial_gate_root = Path(root).resolve()
+    if exact.get('alias_resolution',{}).get('status') in {'blocked','ambiguous'}:
+        resolution = exact['alias_resolution']
+        code = resolution['code']
+        if resolution['status']=='ambiguous':
+            contract['clarification'] = 'More than one eligible source field matches this expression. Specify the literal field label.'
+            contract['question_normalization'] = {'version':'source-field-alias-v1',
+                'status':'ambiguous','requested_field':resolution['requested_field'],
+                'candidate_fields':resolution.get('candidate_fields',[]),'normalization_is_evidence':False}
+        return finish('clarify' if resolution['status']=='ambiguous' else 'abstain',code,
+                      'Source-field normalization is unresolved; no alias proposal establishes support.','field_normalization')
 
     if (strict.kind!='return' and not exact['field']
             and any(s['reason']=='correction scope unclear' for s in initial_gate.excluded)):

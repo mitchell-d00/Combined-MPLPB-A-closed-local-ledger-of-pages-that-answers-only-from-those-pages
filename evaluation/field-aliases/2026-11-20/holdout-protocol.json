@@ -1,0 +1,33 @@
+{
+  "schema": "field-alias-holdout-v1",
+  "cases": 240,
+  "source_kind": "New developer-authored synthetic materials, prepared before alias implementation",
+  "independent_review": "NOT RUN",
+  "context_blind": false,
+  "unseen_scope": "New source vocabulary and two new language structures relative to previous frozen benchmarks; not unseen to the developer.",
+  "families": [
+    "alias",
+    "exact",
+    "ambiguous",
+    "conflict",
+    "quoted",
+    "conditional",
+    "restricted",
+    "withdrawn",
+    "corrupt",
+    "missing_id",
+    "qualified_question",
+    "temporal_role",
+    "geographic_state"
+  ],
+  "limits": {
+    "cases": 4096,
+    "packet_bytes": 134217728,
+    "files": 100000,
+    "result_bytes": 8388608,
+    "total_result_bytes": 268435456,
+    "wall_seconds": 45
+  },
+  "no_language_acceptance_filter": true,
+  "negative_keys_do_not_require_a_specific_refusal_diagnostic": true
+}

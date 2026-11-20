@@ -1,0 +1,12 @@
+======================================================================
+FAIL: test_no_dropped_obligations (tests.test_field_question_forms.FieldQuestionForms.test_no_dropped_obligations) (q='Tell me the current state listed on record ARCH-91.')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/mplpb/tests/test_field_question_forms.py", line 71, in test_no_dropped_obligations
+    self.assertFalse(self.ask(q)['answer_supported'])
+AssertionError: True is not false
+
+----------------------------------------------------------------------
+Ran 46 tests in 1.334s
+
+FAILED (failures=1)
