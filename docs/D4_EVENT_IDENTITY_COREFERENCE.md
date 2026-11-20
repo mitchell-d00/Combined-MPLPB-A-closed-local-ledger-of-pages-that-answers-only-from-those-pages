@@ -24,6 +24,52 @@ The proof covers the printed records and their declared scope. Historical event
 identity, cross-document person identity, free-form pronoun resolution and
 independent source corroboration require further evidence and evaluation.
 
+## Small documentary packets
+
+The strict `ask` command also checks a bounded set of prose forms in a local
+packet of up to eight eligible records. The verifier checks complete statements
+and cites the original spans. It distinguishes `supported_answer`,
+`partial_answer`, `conflict`, and `abstain` with an unresolved reason. This path
+uses the same source eligibility and passage budget as other strict proofs.
+
+- A matched room amendment can preserve the chair when the correction explicitly
+  leaves the rest of the notice in force. Competing matching amendments retain
+  both rooms and the unchanged chair.
+- Explicit resumption under the same docket, body and printed dates can identify
+  a continuation. An explicitly rescheduled proceeding can also be tied to its
+  opening when the named proceeding, docket and adjusted date match.
+- Competing logged times for the same numbered subject are displayed together.
+  A bounded handoff chain can identify its immediate recipient while leaving a
+  later returner unresolved. Signing a return log does not establish who returned
+  the item.
+- A local role description must identify a unique person. A case amendment used
+  to bind a receipt signer needs the same case and role and explicit ISO dates for
+  the applicable amendment and receipt.
+- A canceled follow-up stays separate from the original inspection. Date-scoped
+  depot names apply only to entries with the same declared log identifier.
+
+Examples of admitted questions include “Which room and which chair should we
+record?”, “Which September 10 meeting continued the September 3 session?”, and
+“Which logging time do the records support?” The source grammar is finite.
+The proof assumes a self-contained packet of eligible records. A loose match,
+unsupported wording, extra unclassified records or an uncertain time scope can
+leave the question unresolved.
+
+## Run the fictional query panel
+
+```sh
+python -m tools.bounded_record_study --seed 91 --repeats 2 --require-pass
+```
+
+The panel runs 25 proof and boundary families using two seeded variations, three
+wording styles, four fictional adult age bands and four education categories.
+Each demographic group receives the same cases and the same mix of styles.
+The age and education labels are reporting metadata. MPLPB receives the question
+and source text. This design checks the wording variants and proof boundaries
+under balanced labels. It provides no measurements about real people or their
+language by age or education. The D4 acceptance workflow runs the panel alongside
+the existing sealed mixed generator.
+
 ## Run the mixed generator
 
 D4 offers a `gate` mix with the twenty identity and co-reference classes and

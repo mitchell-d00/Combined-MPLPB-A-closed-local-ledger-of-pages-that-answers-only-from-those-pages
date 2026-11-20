@@ -30,6 +30,14 @@ def cmd_ask(args):
     elif 'collection_filter' in result.contract:
         print(result.contract['kind'].upper().replace('_', ' '))
         print(result.contract['text'] or result.contract['diagnostic']['message'])
+    elif (result.contract.get('documentary_support', {}).get('scope') == 'bounded_record_statements'
+          or result.contract['diagnostic'].get('stage') == 'bounded_records'):
+        contract = result.contract
+        print(contract['kind'].upper().replace('_', ' '))
+        print(contract['text'] or contract['diagnostic']['message'])
+        for claim in contract['claims']:
+            for cite in claim['citations']:
+                print('[{source_id} {hash}] {quote}'.format(**cite))
     elif result.contract.get('question_parts'):
         contract = result.contract
         print(contract['kind'].upper().replace('_', ' '))

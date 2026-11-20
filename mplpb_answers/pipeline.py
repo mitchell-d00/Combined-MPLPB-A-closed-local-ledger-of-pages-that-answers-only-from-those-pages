@@ -118,7 +118,7 @@ class QueryResult:
                         reason=self.contract['diagnostic']['message'], citation='', candidates=[])
         if ('collection_filter' in self.contract or self.contract['diagnostic'].get('code') in {
                 'partial_procedure_evidence', 'procedure_selection_needed', 'partial_documentary_evidence',
-                'compound_field_incomplete'}):
+                'compound_field_incomplete'} or self.contract['diagnostic'].get('stage') == 'bounded_records'):
             data.update(text=self.contract['text'], reason=self.contract['diagnostic']['message'])
         return data
 
@@ -433,6 +433,16 @@ def _answer_query(root, question, profile=None, *, mode, reader, min_confidence,
             return finish('abstain', code, 'No eligible body passages are available under this question and profile; corpus absence is not established.', 'eligibility')
         if any(r.fields.get('corrects-field') and r.path in {s['path'] for s in index.gate.sources} for r in index.records) and not exact['field']:
             return finish('abstain','correction_scope_unclear','Name the explicit field before applying a field-scoped correction.','interpretation')
+        if (mode == 'strict' and profile.prose and relation_hops is None and as_of is None
+                and not any(exact[key] for key in ('record_id', 'field', 'exact_value'))):
+            from .bounded_records import verify
+            scoped = verify(index)
+            if scoped is not None:
+                kind, code, evidence = scoped
+                if not index.unchanged():
+                    return finish('abstain', 'source_changed', '', 'bounded_records')
+                contract.update(evidence)
+                return finish(kind, code, 'See the cited statements and any unresolved parts.', 'bounded_records')
         if re.search(r'\b(?:same event|event identity|same occurrence)\b',question,re.I):
             return finish('abstain','event_identity_unresolved','No explicit source key establishes the requested event identity.','interpretation')
         if mode == 'strict':

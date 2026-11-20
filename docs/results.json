@@ -6,10 +6,10 @@
     {
       "family": "d4",
       "artifacts": "evaluation/d4",
-      "tests": ["tests/test_reference_identity.py", "tests/test_d4.py"],
-      "runners": ["tools/d4.py", "tools/d4_patterns.py"],
-      "scope": "Sealed generated documentary identity, local co-reference and mixed D% control cases.",
-      "measurement_status": "D4 synthetic development evaluation with before/after native workers and per-family cohorts."
+      "tests": ["tests/test_reference_identity.py", "tests/test_d4.py", "tests/test_bounded_records.py"],
+      "runners": ["tools/d4.py", "tools/d4_patterns.py", "tools/bounded_record_study.py"],
+      "scope": "Documentary identity, local co-reference, mixed D% controls and small documentary packets with support, partial support, conflict and unresolved controls.",
+      "measurement_status": "Retained D4 synthetic development evaluation and a reproducible fictional query panel. Profile labels provide synthetic coverage, not evidence about human cohorts."
     },
     {
       "family": "language-audit",
