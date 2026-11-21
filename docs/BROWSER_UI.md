@@ -1,6 +1,6 @@
 # MPLPB browser front end
 
-Last reviewed: 2026-11-17. See [current status and result-to-test index](CURRENT_STATUS.md). Dates and numeric results in historical validation sections retain their original scope; this review is not a rerun or independent certification.
+Last reviewed: 2026-11-21. See [current status and result-to-test index](CURRENT_STATUS.md). Dates and numeric results in historical validation sections retain their original scope; this review is not a rerun or independent certification.
 
 Package role: [how this part fits Combined MPLPB](PACKAGE_GUIDE.md#delivery-and-packaging). The interface connects the ledger, reader, collections and conversation without merging their authority.
 
@@ -32,6 +32,10 @@ python3 launch.py --root /path/to/corpus --port 8767
 Choose **Your local corpus**. `python3 tools/ledger_ui.py` starts the desktop server without automatically opening a browser. See [installation](INSTALLATION.md) and [runtime requirements](BROWSER_RUNTIME.md).
 
 ## Controls
+
+Open **How to use** for the in-app path from a sample through importing,
+reviewing, and asking about your own material. The [tool directory](TOOL_DIRECTORY.md)
+links to examples for the browser, native CLI, specialist work, and integrations.
 
 - **Explore:** filter/search local records and inspect eligibility reasons. Retired, altered, or withheld records remain visible with their reasons; their bodies cannot be opened through this inventory UI.
 - **Ask:** request a supported answer. Eligible body statements must satisfy the bounded grammar. Reader decision traces and separate gate-source cards explain the result; gate matches do not turn refusal into support. Help questions can return labeled interface instructions.
