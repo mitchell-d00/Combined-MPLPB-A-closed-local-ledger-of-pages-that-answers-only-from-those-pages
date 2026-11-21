@@ -4,30 +4,35 @@ Last reviewed: 2026-11-21.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `692f72eee2ec743e084a98708737e9ca571be7a3` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `fc19efc44d3a50fb9f3fbba2d96327f99363b9ab8a5839fd926834bfd9365416`.
+Base commit: `6ba371ca07dd9269f28af762ed1971ad484fb6b5` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `b18f47467f6933657ddc8543a6d66751eee8c61d1ca75697f60b505adab0a840`.
 
 ## Latest user update instructions
 
-Make this explicit in read me
+Put this in B Test and MPLPB under comparative tests test it first read it is it good etc then do repo
 
 ## Implemented scope
 
-- Introduce Combined MPLPB as a deterministic, rule-based AI reader and explain how the strict reader decides source support.
-- Describe the test-driven training loop and link to the frozen paraphrase reproduction and the Primary Book Test.
+- Archive the supplied Executable Gates ZIP, Markdown, PDF, original probes and raw results under comparative tests.
+- Add byte checksums, independent local replay receipts, a verifier and a review of the claimed fixture scope.
+- Index the comparison in the MPLPB test and result guides and mirror the package in B-Tests.
 
 ## Validation recorded
 
-- The documentation audit, infrastructure check, and 18 focused tests passed.
-- The unchanged public reproduction confirmed 750 of 750 supported paraphrases and all 200 expected refusals on the current engine.
+- Replayed the seven paired MPLPB probes twice at 6ba371c using Python 3.12.14. All recorded probe fields matched the author's Python 3.13.18 results.
+- Replayed the note-only and pre-receive Git fixtures using Git 2.56.1. Push results, server head changes and file contents matched the paper.
+- Ran the packaged verifier successfully from both checkouts. All 48 focused MPLPB specialist-continuity tests and 130 B-Tests unit tests passed.
+- The MPLPB documentation and infrastructure audits passed.
 
 ## Limitations and blocked checks
 
-- The comparison describes the published frozen synthetic experiment. Independent semantic review on unfamiliar historical prose remains a separate measurement.
+- The published comparison covers one fixture adapter, a single-page corpus, and disposable local Git repositories.
+- P1 through P5 hold the seat grant fixed while computed permission changes. The archived author copy is preserved and the reproduction note records the distinction.
+- Complete mediation, hosted branch rules and native OOCC behavior are outside this replay.
 
 ## Next steps
 
-- Use fresh Primary Book Test batches and independent reviewers to measure transfer to unfamiliar sources.
+- Run the release gates for the MPLPB comparison package when submitting it for merge.
 
 ## Use this ZIP in your repository
 

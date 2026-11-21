@@ -12,6 +12,7 @@ Use these tools to test the engine and reproduce project results. For collecting
 | Repeat a published test at its recorded revision | [Results and tests](RESULTS_AND_TESTS.md) · [Evaluation archive](../evaluation/) · [Benchmark dashboard](benchmarks/dashboard.md) |
 | Verify a release candidate | [ZIP-first release checks](ZIP_FIRST_RELEASE_TESTING.md) · [Browser testing](BROWSER_TESTING_FOR_AGENTS.md) |
 | Inspect cross-system tests | [B-Tests repository](https://github.com/mitchell-d00/B-Tests) |
+| Replay the MPLPB dispatch and Git enforcement comparison | [Executable Gates comparative tests](../evaluation/comparative-tests/executable-gates/REPRODUCTION.md) |
 
 ## Collect a fresh real-world test batch
 
