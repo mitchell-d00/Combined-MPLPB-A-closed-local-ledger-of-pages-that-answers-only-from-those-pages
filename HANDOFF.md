@@ -4,41 +4,30 @@ Last reviewed: 2026-11-21.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `6572b39d31649b051202c488776403919813f304` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `3fa85b3d0c19c286d6b7668cdd0d4340a879712c58034659fa4fbb4eecfcbb46`.
+Base commit: `692f72eee2ec743e084a98708737e9ca571be7a3` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `fc19efc44d3a50fb9f3fbba2d96327f99363b9ab8a5839fd926834bfd9365416`.
 
 ## Latest user update instructions
 
-Primary? Like uploaded books? Just find a few open source books online use them
-
-Are that a test too called the primary book test
-
-And generate new ones too I want ai and users to be able to run unique tests eac( time if they want
-
-Ncludechow to build them the online search gather and book sorry I’m on my phone typos
+Make this explicit in read me
 
 ## Implemented scope
 
-- Add the Primary Book Test under test_tools. Draw passages from pinned Standard Ebooks editions of firsthand works by Darwin, Seacole and Washington.
-- Support new seeds, repeatable offline batches, automated exact-quote controls, externally authored questions and separate custodian keys.
-- Document finding, checking reuse terms, downloading and pinning historical book sources.
+- Introduce Combined MPLPB as a deterministic, rule-based AI reader and explain how the strict reader decides source support.
+- Describe the test-driven training loop and link to the frozen paraphrase reproduction and the Primary Book Test.
 
 ## Validation recorded
 
-- Two real-book batches each returned three correct source citations and withheld the three altered-quote controls.
-- An offline replay with seed 2a reproduced the same excerpts, questions and key byte-for-byte.
-- In a nine-question prose pilot, MPLPB abstained on six answerable questions and three questions with missing evidence.
-- Ten focused tests, the documentation audit and the infrastructure check passed.
+- The documentation audit, infrastructure check, and 18 focused tests passed.
+- The unchanged public reproduction confirmed 750 of 750 supported paraphrases and all 200 expected refusals on the current engine.
 
 ## Limitations and blocked checks
 
-- The default catalog samples the first two chapters of three books. A fresh seed draws another batch and can repeat a passage.
-- The automatic scorer checks exact wording and citations. Prose interpretation requires an independent answer key and reviewer.
-- Pilot results describe these excerpts and questions.
+- The comparison describes the published frozen synthetic experiment. Independent semantic review on unfamiliar historical prose remains a separate measurement.
 
 ## Next steps
 
-- Have a human custodian select a fresh batch and draft source-grounded questions before running MPLPB.
+- Use fresh Primary Book Test batches and independent reviewers to measure transfer to unfamiliar sources.
 
 ## Use this ZIP in your repository
 
