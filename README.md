@@ -1,6 +1,6 @@
 # Combined MPLPB
 
-Combined MPLPB is a local notebook that answers questions from the pages you give it. It keeps earlier versions when you revise a page, cites the text that supports an answer, and tells you when the available pages leave a question open.
+Combined MPLPB is a local notebook with a deterministic, rule-based AI reader. It answers questions from the pages you give it, cites the text that supports an answer, and tells you when the available pages leave a question open. It keeps earlier versions when you revise a page.
 
 [Open the browser app](https://mitchell-d00.github.io/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/) · [Download the small Python package](https://mitchell-d00.github.io/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/downloads/mplpb-native.zip) · [Installation guide](docs/INSTALLATION.md)
 
@@ -29,6 +29,8 @@ The first question returns **09:00**. The second returns **No supported answer**
 
 For page lookup, one eligible owner returns its page, competing owners stop for clarification, and a search with no eligible owner refuses. Answering is a separate check. MPLPB reads the eligible source text and can return a supported answer, cite the parts it can verify, show conflicting evidence, or leave the question open.
 
+With the same engine version, question, source revisions, policy, and evidence limits, the strict reader makes the same support decision. It runs locally without a language model. Optional model assistance has its own result labels, and the deterministic reader decides which claims count as source-supported.
+
 A citation establishes what an eligible record says. Historical accuracy and independent corroboration require their own evidence. The answer rules cover a limited range of questions. [Page lookup and answer results](docs/PAGE_RETRIEVAL.md) · [What has been tested](docs/CURRENT_STATUS.md)
 
 ## Work with your own material
@@ -40,6 +42,17 @@ Use [MPLPB tools](docs/TOOL_DIRECTORY.md) to find an example for your task.
 - **Use the optional tools.** Keep task history, control covered actions, or connect another application. [Package guide](docs/PACKAGE_GUIDE.md) · [Specialist work](docs/SPECIALIST_CONTINUITY_API.md) · [JavaScript API](JAVASCRIPT-API.md) · [Local MCP](docs/MCP_AGENT.md) · [Browser helper](docs/FREE_PUBLIC_HELPER.md)
 
 ## Research and development
+
+### Deterministic training loop
+
+MPLPB’s reader improves through test-driven changes to its code. AI can help generate stress cases and diagnose failures. The strict reader supplies the results that drive each revision.
+
+1. Generate synthetic stress cases for the current question grammar and source eligibility rules. Freeze the inputs and expected outcomes.
+2. Run the deterministic reader and record supported answers, misses, false support, and refusals.
+3. Find the exact rule or question form that produced the failure. Make a bounded change that preserves the existing source and verification checks.
+4. Rerun the same fixtures and retain both the original failure and the new result. Check what changed and whether the refusal controls still hold.
+
+In the public field-question experiment, the same 750 synthetic paraphrases went from **0/750 to 750/750 supported** after a bounded addition to the accepted question forms. All 200 expected refusals held. That result measures the repair on the frozen set. Fresh book excerpts and independent human review can test how well the rules carry over to unfamiliar historical prose. [Paraphrase experiment and reproduction](docs/FIELD_QUESTION_NORMALIZATION.md) · [Primary Book Test](docs/TEST_TOOLS.md#primary-book-test)
 
 Use [Test tools](docs/TEST_TOOLS.md) to run the harness or generate a fresh real-world test plan.
 
