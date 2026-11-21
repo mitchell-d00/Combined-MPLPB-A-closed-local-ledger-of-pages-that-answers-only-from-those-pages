@@ -17,8 +17,8 @@ Use these tools to test the engine and reproduce project results. For collecting
 Run from the full source checkout and give the generated prompt to an AI with web or HTTP access.
 
 ```sh
-python -m tools.test_tools.generate_open_data_seeds --count 6 --prompt
-python -m tools.test_tools.generate_open_data_seeds --seed 2a --count 6 --prompt
+python -m test_tools.generate_open_data_seeds --count 6 --prompt
+python -m test_tools.generate_open_data_seeds --seed 2a --count 6 --prompt
 ```
 
 The first command chooses a fresh seed. The second repeats the draw plan for seed `2a`. Omit `--prompt` for the JSON plan alone. Draws use Wikidata CC0 structured records and openly reusable records from the USGS earthquake catalog. The collector checks reuse terms and saves response bytes, source references, and questions. Keep the answer key separate and score every draw, including missing records and unanswered questions. [Wikidata reuse terms](https://www.wikidata.org/wiki/Wikidata:Licensing) · [USGS reuse terms](https://www.usgs.gov/information-policies-and-instructions/copyrights-and-credits)

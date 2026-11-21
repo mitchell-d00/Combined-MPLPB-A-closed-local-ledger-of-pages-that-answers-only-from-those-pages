@@ -1,5 +1,5 @@
 {
-  "base_revision": "4d45534cbc25a4399c20561c3fbff61c14a71748",
+  "base_revision": "7afa6af987c6973639935ac06e3c16f669e1fc88",
   "files": {
     ".gitattributes": "a4183c9f49350e0619fb9893817859b489df1dcc84acfe397d3c38e57379b954",
     ".github/workflows/bounded-documentary-acceptance.yml": "384134517dba83aee283bf2cff70056bf6a66c43fb87cb391d755a62289f32bd",
@@ -194,7 +194,7 @@
     "docs/SYSTEM_AUDIT_2026-10-21.md": "cb68fb98faa00ba9c2ad29d586439ac868fbfbbcaf45edc418f22be369cfd82f",
     "docs/SYSTEM_GUIDE.md": "f1ec74872c4ad7c5e684bfad46ed370577de676616029bc53ccc371d0bf40404",
     "docs/SYSTEM_SELF.md": "30c20a66ca6a6641b1bff2baad95f206d676c1a74bccbc7ab54a8fd008f34842",
-    "docs/TEST_TOOLS.md": "fecfbe7b1b13623a6dd428d23bed871cc82d24500c2bee2d6644a0e66cde62f6",
+    "docs/TEST_TOOLS.md": "607377f9beb2094f69ccdf94339979d7cd79b89ce44f439c54bea8d1b1457a8b",
     "docs/TOOL_DIRECTORY.md": "c2d428b1f69aec07e4d8f5c85b79965022fd7b2ac46b9af01b2459aea55e642f",
     "docs/UNPREPARED_ORIGINAL_CHALLENGE.md": "0d2e381acb0d30722a193f70e93e7ca6d54f3e9832b855ed7e875282063aa471",
     "docs/UPLOAD_REVIEW.md": "4f73a334b6dd2868afaaf190f987e2566e66cbebb096487fa6c69286a07700e0",
@@ -7366,6 +7366,7 @@
     "resources/language/wordnet-synset-index.json.gz": "e64397d51bc827fc467a1ea6d371909abac2a3ab9ac9c294570c8db6aa033e4b",
     "resources/licenses/CC-BY-SA-4.0.html": "d48546c6161cd2698445d184a859363a2436a6a3bcda655564730e3861e74a9e",
     "resources/manifest.json": "6a04e78dba6e9decc2259c4df40d9140e28998ebdabcf040e384611e88fd1e6f",
+    "test_tools/generate_open_data_seeds.py": "5917d34b8ecd8fd7eb097778ff97c9e112ac51c4cffe13b09ea5b59f2d0d6770",
     "tests/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
     "tests/browser-ai-helper.cjs": "aaeb9189d1e8e630067c0e890a549f3445bf34b5719fbf91552b2ca1d3862001",
     "tests/browser-model-loader.cjs": "46662521de0de6884d9a129ae5c97dc34ecc5612f355edd519e59ef576a17f07",
@@ -7482,7 +7483,7 @@
     "tests/test_name_variations.py": "3286203b9c2840ef102c202d2030cfab4b385acab3d7376bfa5f83f3827741fb",
     "tests/test_natural_content_conversation.py": "f942cb51f5452cdd32069ae8d7bfa2f35a57d0ce9bef9270eb57f9adffe1f007",
     "tests/test_natural_guidance.py": "b6831f711fa51d1a24b5a71b357e62bcff8b3b7ad2d3270d76e08e65bca81790",
-    "tests/test_open_data_seeds.py": "00722757cc20e0f581b1ad6809c8652236e520a75cf9a94ffd1285ae18919b14",
+    "tests/test_open_data_seeds.py": "af0434a0402399171a9b23e1a0a6d0c95b541ac6ef961addedef3b0cbb5f6679",
     "tests/test_operational_evidence.py": "6ead11846c39b69196a21a234ba4743c2c534229e6e7746c83837c1fa9185427",
     "tests/test_owner_corpus.py": "553014cbe90b585322983028eb253d722a18c6b89d9d8adb529460d41c71ee35",
     "tests/test_ownership_adversarial.py": "9ac2319018ed5e55406da50cb1a512bb75aa62b9bb0e58db122e86aeeda43d8d",
@@ -7698,7 +7699,6 @@
     "tools/study_sandbox.py": "b5f3781069fc19ddd4b4f9142948c3984b27e72e5861a9f3f06719b7684568d5",
     "tools/summarize_live_conversation.py": "2849b1878a87df71dcfa29d124531abcf9f746b6bf33ab38e34fa514770cb694",
     "tools/supported_query.py": "eedaad8057fe16ebd87aaa12fed1dac0028f2293b1760f9fb3aa541507057508",
-    "tools/test_tools/generate_open_data_seeds.py": "5917d34b8ecd8fd7eb097778ff97c9e112ac51c4cffe13b09ea5b59f2d0d6770",
     "tools/test_topic_examples.py": "7d4860af5e414bd63bda206c88690eb95fc10da81db9225245c8cce914d24742",
     "tools/topic_chat_sources.py": "4490671961c07bcb53cc54d25bf63532a4396cc1beb251a99b24259db3e7137e",
     "tools/topic_crawl.py": "36a8908a4a4d27f0a2b534075672deb52bbde07d0b871d08d965120c8e104553",
@@ -7716,6 +7716,6 @@
     "training/owner-work/inventory.json": "d0c1b326bbf191e4514a747fd09ad6532e9882dde175a4b13b6012997afc82b5",
     "training/owner-work/public-dataset-candidate.json": "42207d153f3e325b7435caa53bc70d75e64eca346b023b4ac733dc92ff9d6091"
   },
-  "inventory_sha256": "a26646d71f285db901f9e7de6e893c8c4bf101036eaa21eff383f7e2ed2b5283",
+  "inventory_sha256": "6e8f39a1dbc5d7589e80d3dbe14a5b039f062c395c57547e42bfdda04bf54bd2",
   "schema": "repository-handoff-v1"
 }

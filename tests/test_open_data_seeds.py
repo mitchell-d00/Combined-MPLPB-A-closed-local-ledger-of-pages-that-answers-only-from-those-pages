@@ -4,7 +4,7 @@ from contextlib import redirect_stdout
 from io import StringIO
 from urllib.parse import parse_qs, urlsplit
 
-from tools.test_tools.generate_open_data_seeds import main
+from test_tools.generate_open_data_seeds import main
 
 
 class OpenDataSeedsTests(unittest.TestCase):
