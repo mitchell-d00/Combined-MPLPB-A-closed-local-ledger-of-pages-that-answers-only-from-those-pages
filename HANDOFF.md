@@ -4,39 +4,41 @@ Last reviewed: 2026-11-21.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `7afa6af987c6973639935ac06e3c16f669e1fc88` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `6e8f39a1dbc5d7589e80d3dbe14a5b039f062c395c57547e42bfdda04bf54bd2`.
+Base commit: `6572b39d31649b051202c488776403919813f304` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `3fa85b3d0c19c286d6b7668cdd0d4340a879712c58034659fa4fbb4eecfcbb46`.
 
 ## Latest user update instructions
 
-Fix the bugs you founds test for more bugs fix them as a pattern if possible then push to main and merge
+Primary? Like uploaded books? Just find a few open source books online use them
 
-Make a small generator than generates seeds to cause an ai to search and copy random real world Ope source data to test vs each time a new set of random world data
+Are that a test too called the primary book test
 
-Let’s seprate test harness from MPLPB tools in two files test tools and mplpb tools
+And generate new ones too I want ai and users to be able to run unique tests eac( time if they want
+
+Ncludechow to build them the online search gather and book sorry I’m on my phone typos
 
 ## Implemented scope
 
-- Validate selector types and require explicit field and record selectors to agree with canonical and normalized field questions.
-- Reject competing record and exact-value routes and report invalid requests cleanly from the CLI.
-- Provide a seeded open-data collection prompt in the test tools package and two focused guides for testing and MPLPB application workflows.
+- Add the Primary Book Test under test_tools. Draw passages from pinned Standard Ebooks editions of firsthand works by Darwin, Seacole and Washington.
+- Support new seeds, repeatable offline batches, automated exact-quote controls, externally authored questions and separate custodian keys.
+- Document finding, checking reuse terms, downloading and pinning historical book sources.
 
 ## Validation recorded
 
-- Independently worded regressions reproduced selector overrides, silently discarded exact-value selectors and inconsistent input errors.
-- 86 focused tests passed, including selector, source-policy, passage-budget and seed controls.
-- The frozen field-question generator reproduced 900 supported positives and 200 expected refusals with equal before and after counts and sample outcomes. All 52 public evidence cases passed.
-- A live draw retrieved Wikidata entity Q53451 and USGS event us7000dk88 from the generated official catalog URLs.
+- Two real-book batches each returned three correct source citations and withheld the three altered-quote controls.
+- An offline replay with seed 2a reproduced the same excerpts, questions and key byte-for-byte.
+- In a nine-question prose pilot, MPLPB abstained on six answerable questions and three questions with missing evidence.
+- Ten focused tests, the documentation audit and the infrastructure check passed.
 
 ## Limitations and blocked checks
 
-- The generator emits a collection plan and evaluation instructions. It leaves acquisition, license confirmation and answer-key review to the collector and custodian.
-- A seed replays the draw plan. Reproduction of live data also needs retained response bytes and revision information.
-- Arbitrary natural-language requests are still subject to the bounded proof grammar.
+- The default catalog samples the first two chapters of three books. A fresh seed draws another batch and can repeat a passage.
+- The automatic scorer checks exact wording and citations. Prose interpretation requires an independent answer key and reviewer.
+- Pilot results describe these excerpts and questions.
 
 ## Next steps
 
-- Run the archive-first and PR checks for the submitted commit, then verify the deployed browser after merging.
+- Have a human custodian select a fresh batch and draft source-grounded questions before running MPLPB.
 
 ## Use this ZIP in your repository
 

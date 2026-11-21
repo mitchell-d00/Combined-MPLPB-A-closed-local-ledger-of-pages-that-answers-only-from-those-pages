@@ -1,6 +1,6 @@
 # Results and their tests
 
-Last reviewed: 2026-11-20.
+Last reviewed: 2026-11-21.
 
 [Collection automation](COLLECTION_AUTOMATION.md) documents native classing,
 source-verified field predicates, and declaration lookup across ingestion batches.
@@ -107,6 +107,10 @@ logical, architectural, mechanism, implementation and empirical questions raised
 by the no-unverified-promotion audit. It is a static source/prior-art comparison,
 not a new evaluation family or new efficacy score; PR #38’s retained cases and
 results remain unchanged.
+
+## Primary Book Test
+
+The [Primary Book Test](TEST_TOOLS.md#primary-book-test) generates new excerpts and quote controls from pinned firsthand book chapters. It also runs independently authored questions. The automatic scorer checks quote presence and citation, and the prose run requires human review of meaning and evidence.
 
 ## Reproduce the currently claimed reference result
 

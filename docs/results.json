@@ -293,13 +293,15 @@
       "family": "root",
       "artifacts": "evaluation",
       "tests": [
-        "tests/test_evaluation.py"
+        "tests/test_evaluation.py",
+        "tests/test_primary_book_test.py"
       ],
       "runners": [
-        "mplpb_combined/evaluate.py"
+        "mplpb_combined/evaluate.py",
+        "test_tools/primary_book_test.py"
       ],
-      "scope": "Original frozen root benchmark results/probes; retain original labels and reader revision.",
-      "measurement_status": "retained results; original run date/revision/configuration applies"
+      "scope": "Original frozen root benchmarks retain their labels and revision. The Primary Book Test generates separate quote controls and runs user-authored questions over pinned book excerpts.",
+      "measurement_status": "Frozen benchmark results retain their scope. Primary Book Test batches have their own seeds, source receipts and case outcomes."
     },
     {
       "family": "killtest",
