@@ -5,11 +5,11 @@
   "families": [
     {
       "family": "comparative-tests",
-      "artifacts": "evaluation/comparative-tests/executable-gates",
+      "artifacts": "evaluation/comparative-tests",
       "tests": ["tests/test_specialist_continuity.py"],
-      "runners": ["evaluation/comparative-tests/executable-gates/verify.py", "evaluation/comparative-tests/executable-gates/probes/run_probes.py", "evaluation/comparative-tests/executable-gates/probes/git_probe.sh"],
-      "scope": "Seven paired native MPLPB dispatch observations and a two-arm local Git comparison with independent effect and server-state readbacks.",
-      "measurement_status": "Reproduced at MPLPB 6ba371c with one fixture adapter and disposable local Git repositories. The study does not cover hosted branch policies or native OOCC."
+      "runners": ["evaluation/comparative-tests/executable-gates/verify.py", "evaluation/comparative-tests/executable-gates/probes/run_probes.py", "evaluation/comparative-tests/executable-gates/probes/git_probe.sh", "evaluation/comparative-tests/dispatch-enforcement/run_controls.py"],
+      "scope": "Seven paired native MPLPB dispatch observations, a two-arm local Git comparison, and 28 follow-up controls across Python, seat RPC, loopback HTTP, and the stock CLI.",
+      "measurement_status": "Reproduced at MPLPB 6ba371c. Complete mediation, hosted branch policies and native OOCC remain unestablished."
     },
     {
       "family": "d4",

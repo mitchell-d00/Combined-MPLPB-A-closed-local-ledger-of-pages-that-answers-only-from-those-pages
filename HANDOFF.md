@@ -4,35 +4,34 @@ Last reviewed: 2026-11-21.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `6ba371ca07dd9269f28af762ed1971ad484fb6b5` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `b18f47467f6933657ddc8543a6d66751eee8c61d1ca75697f60b505adab0a840`.
+Base commit: `cf2f9cb91eceef7bae7666dc3c615eeafe3967ec` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `5db4b28d89827a0ec8e10a0d642baffaf37736d56201c779bb8c2d73d6463d88`.
 
 ## Latest user update instructions
 
-Put this in B Test and MPLPB under comparative tests test it first read it is it good etc then do repo
+Push it merge to main
 
 ## Implemented scope
 
-- Archive the supplied Executable Gates ZIP, Markdown, PDF, original probes and raw results under comparative tests.
-- Add byte checksums, independent local replay receipts, a verifier and a review of the claimed fixture scope.
-- Index the comparison in the MPLPB test and result guides and mirror the package in B-Tests.
+- Publish the original Executable Gates comparative package and the verified dispatch enforcement follow-up.
+- Retain the follow-up ZIP, checksum, harness, raw and preliminary observations, and regression log in both repositories.
+- Index the follow-up with the original evidence and report its tested operational boundary.
 
 ## Validation recorded
 
-- Replayed the seven paired MPLPB probes twice at 6ba371c using Python 3.12.14. All recorded probe fields matched the author's Python 3.13.18 results.
-- Replayed the note-only and pre-receive Git fixtures using Git 2.56.1. Push results, server head changes and file contents matched the paper.
-- Ran the packaged verifier successfully from both checkouts. All 48 focused MPLPB specialist-continuity tests and 130 B-Tests unit tests passed.
-- The MPLPB documentation and infrastructure audits passed.
+- The original seven paired probes and both disposable local Git fixtures reproduced.
+- All 28 follow-up controls passed from the extracted experiment ZIP and replayed successfully in both publication checkouts. The specialist-continuity suite passed 48 tests.
+- The B-Tests suite passed all 130 tests. The MPLPB handoff, documentation and infrastructure checks apply to the publication candidate.
 
 ## Limitations and blocked checks
 
-- The published comparison covers one fixture adapter, a single-page corpus, and disposable local Git repositories.
-- P1 through P5 hold the seat grant fixed while computed permission changes. The archived author copy is preserved and the reproduction note records the distinction.
-- Complete mediation, hosted branch rules and native OOCC behavior are outside this replay.
+- The follow-up tests supported execution surfaces and a cooperative local fixture adapter at MPLPB 6ba371c.
+- A source change after reservation produced no adapter effect and retained an indeterminate outcome with two events.
+- Complete mediation under adversarial conditions remains unestablished.
 
 ## Next steps
 
-- Run the release gates for the MPLPB comparison package when submitting it for merge.
+- Run both repositories' checks for the submitted revisions before merging.
 
 ## Use this ZIP in your repository
 

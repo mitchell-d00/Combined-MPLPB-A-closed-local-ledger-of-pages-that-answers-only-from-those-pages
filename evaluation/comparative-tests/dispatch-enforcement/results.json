@@ -1,0 +1,411 @@
+{
+  "revision": "6ba371ca07dd9269f28af762ed1971ad484fb6b5",
+  "python": "3.12.14",
+  "cases": [
+    {
+      "boundary": "python",
+      "scenario": "authorized",
+      "responses": [
+        {
+          "receipt": "passed"
+        }
+      ],
+      "effects": 1,
+      "adapter_calls": 1,
+      "events_added": [
+        "start",
+        "finish"
+      ],
+      "passed": true
+    },
+    {
+      "boundary": "python",
+      "scenario": "source_changed",
+      "responses": [
+        {
+          "rejection": "Denied"
+        }
+      ],
+      "effects": 0,
+      "adapter_calls": 0,
+      "events_added": [],
+      "passed": true
+    },
+    {
+      "boundary": "python",
+      "scenario": "revoked",
+      "responses": [
+        {
+          "rejection": "Denied"
+        }
+      ],
+      "effects": 0,
+      "adapter_calls": 0,
+      "events_added": [],
+      "passed": true
+    },
+    {
+      "boundary": "python",
+      "scenario": "tool_not_granted",
+      "responses": [
+        {
+          "rejection": "Denied"
+        }
+      ],
+      "effects": 0,
+      "adapter_calls": 0,
+      "events_added": [],
+      "passed": true
+    },
+    {
+      "boundary": "python",
+      "scenario": "operation_not_granted",
+      "responses": [
+        {
+          "rejection": "Denied"
+        }
+      ],
+      "effects": 0,
+      "adapter_calls": 0,
+      "events_added": [],
+      "passed": true
+    },
+    {
+      "boundary": "python",
+      "scenario": "stale_revision",
+      "responses": [
+        {
+          "rejection": "Conflict"
+        }
+      ],
+      "effects": 0,
+      "adapter_calls": 0,
+      "events_added": [],
+      "passed": true
+    },
+    {
+      "boundary": "python",
+      "scenario": "missing_capability",
+      "responses": [
+        {
+          "rejection": "Denied"
+        }
+      ],
+      "effects": 0,
+      "adapter_calls": 0,
+      "events_added": [],
+      "passed": true
+    },
+    {
+      "boundary": "python",
+      "scenario": "duplicate_requests",
+      "responses": [
+        {
+          "rejection": "Conflict"
+        },
+        {
+          "receipt": "passed"
+        }
+      ],
+      "effects": 1,
+      "adapter_calls": 1,
+      "events_added": [
+        "start",
+        "finish"
+      ],
+      "passed": true
+    },
+    {
+      "boundary": "python",
+      "scenario": "source_changed_after_reservation",
+      "responses": [
+        {
+          "receipt": "indeterminate"
+        }
+      ],
+      "effects": 0,
+      "adapter_calls": 0,
+      "events_added": [
+        "start",
+        "finish"
+      ],
+      "passed": true
+    },
+    {
+      "boundary": "seat_rpc",
+      "scenario": "authorized",
+      "responses": [
+        {
+          "receipt": "passed"
+        }
+      ],
+      "effects": 1,
+      "adapter_calls": 1,
+      "events_added": [
+        "start",
+        "finish"
+      ],
+      "passed": true
+    },
+    {
+      "boundary": "seat_rpc",
+      "scenario": "source_changed",
+      "responses": [
+        {
+          "rejection": "Denied"
+        }
+      ],
+      "effects": 0,
+      "adapter_calls": 0,
+      "events_added": [],
+      "passed": true
+    },
+    {
+      "boundary": "seat_rpc",
+      "scenario": "revoked",
+      "responses": [
+        {
+          "rejection": "Denied"
+        }
+      ],
+      "effects": 0,
+      "adapter_calls": 0,
+      "events_added": [],
+      "passed": true
+    },
+    {
+      "boundary": "seat_rpc",
+      "scenario": "tool_not_granted",
+      "responses": [
+        {
+          "rejection": "Denied"
+        }
+      ],
+      "effects": 0,
+      "adapter_calls": 0,
+      "events_added": [],
+      "passed": true
+    },
+    {
+      "boundary": "seat_rpc",
+      "scenario": "operation_not_granted",
+      "responses": [
+        {
+          "rejection": "Denied"
+        }
+      ],
+      "effects": 0,
+      "adapter_calls": 0,
+      "events_added": [],
+      "passed": true
+    },
+    {
+      "boundary": "seat_rpc",
+      "scenario": "stale_revision",
+      "responses": [
+        {
+          "rejection": "Conflict"
+        }
+      ],
+      "effects": 0,
+      "adapter_calls": 0,
+      "events_added": [],
+      "passed": true
+    },
+    {
+      "boundary": "seat_rpc",
+      "scenario": "missing_capability",
+      "responses": [
+        {
+          "rejection": "Denied"
+        }
+      ],
+      "effects": 0,
+      "adapter_calls": 0,
+      "events_added": [],
+      "passed": true
+    },
+    {
+      "boundary": "seat_rpc",
+      "scenario": "duplicate_requests",
+      "responses": [
+        {
+          "rejection": "Conflict"
+        },
+        {
+          "receipt": "passed"
+        }
+      ],
+      "effects": 1,
+      "adapter_calls": 1,
+      "events_added": [
+        "start",
+        "finish"
+      ],
+      "passed": true
+    },
+    {
+      "boundary": "seat_rpc",
+      "scenario": "source_changed_after_reservation",
+      "responses": [
+        {
+          "receipt": "indeterminate"
+        }
+      ],
+      "effects": 0,
+      "adapter_calls": 0,
+      "events_added": [
+        "start",
+        "finish"
+      ],
+      "passed": true
+    },
+    {
+      "boundary": "loopback_http",
+      "scenario": "authorized",
+      "responses": [
+        {
+          "receipt": "passed",
+          "http_status": 200
+        }
+      ],
+      "effects": 1,
+      "adapter_calls": 1,
+      "events_added": [
+        "start",
+        "finish"
+      ],
+      "passed": true
+    },
+    {
+      "boundary": "loopback_http",
+      "scenario": "source_changed",
+      "responses": [
+        {
+          "rejection": "http",
+          "http_status": 400
+        }
+      ],
+      "effects": 0,
+      "adapter_calls": 0,
+      "events_added": [],
+      "passed": true
+    },
+    {
+      "boundary": "loopback_http",
+      "scenario": "revoked",
+      "responses": [
+        {
+          "rejection": "http",
+          "http_status": 400
+        }
+      ],
+      "effects": 0,
+      "adapter_calls": 0,
+      "events_added": [],
+      "passed": true
+    },
+    {
+      "boundary": "loopback_http",
+      "scenario": "tool_not_granted",
+      "responses": [
+        {
+          "rejection": "http",
+          "http_status": 400
+        }
+      ],
+      "effects": 0,
+      "adapter_calls": 0,
+      "events_added": [],
+      "passed": true
+    },
+    {
+      "boundary": "loopback_http",
+      "scenario": "operation_not_granted",
+      "responses": [
+        {
+          "rejection": "http",
+          "http_status": 400
+        }
+      ],
+      "effects": 0,
+      "adapter_calls": 0,
+      "events_added": [],
+      "passed": true
+    },
+    {
+      "boundary": "loopback_http",
+      "scenario": "stale_revision",
+      "responses": [
+        {
+          "rejection": "http",
+          "http_status": 400
+        }
+      ],
+      "effects": 0,
+      "adapter_calls": 0,
+      "events_added": [],
+      "passed": true
+    },
+    {
+      "boundary": "loopback_http",
+      "scenario": "missing_capability",
+      "responses": [
+        {
+          "rejection": "http",
+          "http_status": 400
+        }
+      ],
+      "effects": 0,
+      "adapter_calls": 0,
+      "events_added": [],
+      "passed": true
+    },
+    {
+      "boundary": "loopback_http",
+      "scenario": "duplicate_requests",
+      "responses": [
+        {
+          "rejection": "http",
+          "http_status": 400
+        },
+        {
+          "receipt": "passed",
+          "http_status": 200
+        }
+      ],
+      "effects": 1,
+      "adapter_calls": 1,
+      "events_added": [
+        "start",
+        "finish"
+      ],
+      "passed": true
+    },
+    {
+      "boundary": "loopback_http",
+      "scenario": "source_changed_after_reservation",
+      "responses": [
+        {
+          "receipt": "indeterminate",
+          "http_status": 200
+        }
+      ],
+      "effects": 0,
+      "adapter_calls": 0,
+      "events_added": [
+        "start",
+        "finish"
+      ],
+      "passed": true
+    },
+    {
+      "boundary": "stock_cli",
+      "scenario": "no_adapter_registered",
+      "exit_code": 2,
+      "permission": "blocked",
+      "events_added": [],
+      "passed": true
+    }
+  ]
+}

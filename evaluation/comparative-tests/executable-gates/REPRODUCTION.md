@@ -21,6 +21,8 @@ The strongest part of the paper is its direct readback. It counts SQLite events 
 
 In Section 5, P1 through P5 hold the seat’s **grant** fixed. The computed **permission** changes from `allowed` to `blocked` as support changes. P7 isolates a missing tool grant while the claim stays supported. The reported zero-event denials concern the observed pre-dispatch cases. The paper assumes complete mediation and uses one adapter, one source fixture and one local Git edit. Hosted branch policies, other tools, human review practices and native OOCC behavior remain outside these measurements.
 
+The [dispatch enforcement follow-up](../dispatch-enforcement/README.md) expands the tested interfaces and records the outcome of a source change after reservation. It keeps the original pre-dispatch denial counts in their measured scope.
+
 ## Replay
 
 The verifier requires a separate, clean MPLPB checkout at the recorded revision. The Git comparison uses disposable local repositories. Run from this package directory and give the verifier a fresh output path.
