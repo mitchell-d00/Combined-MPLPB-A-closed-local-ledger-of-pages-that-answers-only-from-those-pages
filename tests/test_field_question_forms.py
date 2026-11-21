@@ -1,6 +1,9 @@
 """General field-request structures; authored controls, not blind accuracy evidence."""
 import html
+import json
 from pathlib import Path
+import subprocess
+import sys
 import tempfile
 import unittest
 from unittest.mock import patch
@@ -119,9 +122,64 @@ class FieldQuestionForms(unittest.TestCase):
         self.assertFalse(self.ask(q)['answer_supported'])
 
     def test_explicit_selector_cannot_change_parsed_request(self):
-        for kw in [{'record_id': 'ARCH-92'}, {'field': 'Owner'}]:
-            with self.assertRaises(ValueError):
-                self.ask('Tell me the custody location listed on record ARCH-91.', **kw)
+        self.page('SOURCE-2', self.body.replace('ARCH-91', 'ARCH-92').replace('East', 'West'))
+        for question in (
+            'What is the custody location for record ARCH-91?',
+            'What is custody location of event ARCH-91?',
+            'What is the custody location for occurrence ARCH-91?',
+            'Could you tell me the custody location listed on record ARCH-91?',
+            'Please, what is the custody location for record ARCH-91?',
+            'What  is the custody location for record ARCH-91?',
+        ):
+            for selectors in ({'record_id': 'ARCH-92'}, {'field': 'Current Status'}):
+                with self.subTest(question=question, selectors=selectors):
+                    with self.assertRaisesRegex(ValueError, 'Explicit selector contradicts'):
+                        self.ask(question, **selectors)
+            with self.subTest(question=question, selectors='matching'):
+                result = self.ask(question, record_id='ARCH-91', field='CUSTODY-LOCATION')
+                self.assertEqual(result['question'], question)
+                self.assertEqual(result['kind'], 'supported_answer')
+                self.assertEqual(result['claims'][0]['text'], 'Custody Location: East vault')
+
+    def test_record_and_exact_value_routes_cannot_silently_override_each_other(self):
+        self.page('SOURCE-2', 'Record-ID: ARCH-92\nAccession: C-419\nCustody Location: West vault')
+        value = {'field': 'Accession', 'value': 'C-419'}
+        for question, selectors in (
+            ('Inspect custody', {'record_id': 'ARCH-91', 'field': 'Custody Location'}),
+            ('What is the custody location for record ARCH-91?', {}),
+            ('Inspect custody on SOURCE-1', {'field': 'Custody Location'}),
+            ('Inspect custody on ARCH-91', {'field': 'Custody Location'}),
+        ):
+            with self.subTest(question=question):
+                with self.assertRaisesRegex(ValueError, 'Record and exact value selectors'):
+                    self.ask(question, exact_value=value, **selectors)
+        result = self.ask('Inspect custody', field='Custody Location', exact_value=value)
+        self.assertEqual(result['kind'], 'supported_answer')
+        self.assertEqual(result['claims'][0]['text'], 'Custody Location: West vault')
+
+    def test_blank_or_untyped_selectors_are_rejected_consistently(self):
+        for question in ('What is custody location for record ARCH-91?',
+                         'Show me custody location for record ARCH-91.'):
+            for selectors in ({'record_id': ''}, {'field': ''}, {'field': 5}):
+                with self.subTest(question=question, selectors=selectors):
+                    with self.assertRaises(ValueError):
+                        self.ask(question, **selectors)
+        with self.assertRaisesRegex(ValueError, 'explicit field/value pair'):
+            self.ask('Inspect custody', exact_value={'field': '', 'value': 'C-419'})
+
+    def test_cli_reports_selector_mismatch_as_input_error(self):
+        question = 'What is the custody location for record ARCH-91?'
+        result = subprocess.run(
+            [sys.executable, '-m', 'mplpb_answers', 'ask', str(self.root), question,
+             '--field', 'Current Status', '--json'],
+            capture_output=True, text=True, check=False,
+        )
+        self.assertEqual(result.returncode, 2)
+        self.assertEqual(result.stdout, '')
+        self.assertEqual(json.loads(result.stderr), {
+            'error': 'Explicit selector contradicts the parsed question',
+            'answer_supported': False,
+        })
 
     def test_multiple_witnesses_and_budget(self):
         self.page('SOURCE-2', self.body)

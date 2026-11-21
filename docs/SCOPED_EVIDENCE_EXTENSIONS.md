@@ -1,6 +1,6 @@
 # Scoped evidence extensions
 
-Last reviewed: 2026-11-20.
+Last reviewed: 2026-11-21.
 
 A subsequent [source-field alias layer](SOURCE_FIELD_ALIASES.md) inspects each
 candidate label under its own scoped serving view. Normalization is not evidence;
@@ -31,6 +31,8 @@ The bounded question form is `What is <field> for/of record/event/occurrence
 <identifier>?`. Keyword selectors use the same pipeline. Exact record IDs and
 pins, explicit body identity keys, and unique field/value selectors route only
 after eligibility. Matching eligible pages skip ranking and diversity discounts.
+Explicit field and record selectors must agree with the parsed question. Use
+either a record route or a unique field/value route for each request.
 A unique value also retains other appearances sharing its explicit identity key,
 so selecting an accession cannot hide a competing owner statement.
 

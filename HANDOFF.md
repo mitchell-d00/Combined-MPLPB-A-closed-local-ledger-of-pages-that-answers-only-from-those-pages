@@ -4,33 +4,39 @@ Last reviewed: 2026-11-21.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `5d6300f55f0a4996d0cf8ab3b98a8dcfadadeec4` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `4452cd53207178ebde564270696cc6824cf823b471b980b812d8d6250b1e4a83`.
+Base commit: `7afa6af987c6973639935ac06e3c16f669e1fc88` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `6e8f39a1dbc5d7589e80d3dbe14a5b039f062c395c57547e42bfdda04bf54bd2`.
 
 ## Latest user update instructions
 
-Let’s do that clean up the repo organize let’s do house keeping don’t break it
+Fix the bugs you founds test for more bugs fix them as a pattern if possible then push to main and merge
+
+Make a small generator than generates seeds to cause an ai to search and copy random real world Ope source data to test vs each time a new set of random world data
+
+Let’s seprate test harness from MPLPB tools in two files test tools and mplpb tools
 
 ## Implemented scope
 
-- Organize user-facing tools by task in a directory reachable from the README, documentation index, and browser help.
-- Guide users from the sample to creating a collection, importing material, reviewing a source, and asking a question.
-- Clarify browser and desktop storage in the help view. Preserve existing UI controls, behavior, test inputs, and archived evidence paths.
+- Validate selector types and require explicit field and record selectors to agree with canonical and normalized field questions.
+- Reject competing record and exact-value routes and report invalid requests cleanly from the CLI.
+- Provide a seeded open-data collection prompt in the test tools package and two focused guides for testing and MPLPB application workflows.
 
 ## Validation recorded
 
-- All local tool directory paths and section links resolved. The documentation audit checked preserved documents and retained test links.
-- The UI script, serialized browser transport, JavaScript API, and infrastructure synchronization checks passed locally.
-- Real Chromium followed the new help path and performed collection creation, text import, source review, a supported answer, and a refusal.
+- Independently worded regressions reproduced selector overrides, silently discarded exact-value selectors and inconsistent input errors.
+- 86 focused tests passed, including selector, source-policy, passage-budget and seed controls.
+- The frozen field-question generator reproduced 900 supported positives and 200 expected refusals with equal before and after counts and sample outcomes. All 52 public evidence cases passed.
+- A live draw retrieved Wikidata entity Q53451 and USGS event us7000dk88 from the generated official catalog URLs.
 
 ## Limitations and blocked checks
 
-- This pass changes navigation and instructions. Archived evaluation data remains at the paths used by release checks and citations.
-- The tool directory links the main user-facing tools and the repository map for implementation and maintenance scripts.
+- The generator emits a collection plan and evaluation instructions. It leaves acquisition, license confirmation and answer-key review to the collector and custodian.
+- A seed replays the draw plan. Reproduction of live data also needs retained response bytes and revision information.
+- Arbitrary natural-language requests are still subject to the bounded proof grammar.
 
 ## Next steps
 
-- Run the exact-head release gates when the housekeeping candidate is submitted.
+- Run the archive-first and PR checks for the submitted commit, then verify the deployed browser after merging.
 
 ## Use this ZIP in your repository
 

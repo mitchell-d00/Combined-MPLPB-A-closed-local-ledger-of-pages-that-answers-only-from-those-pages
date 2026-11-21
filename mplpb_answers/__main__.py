@@ -19,11 +19,16 @@ def cmd_ask(args):
         except ValueError as exc:
             print(json.dumps({'error': str(exc), 'answer_supported': False}), file=sys.stderr)
             return 2
-    if args.answer_mode == 'strict' and reader is not None:
-        raise ValueError('Use --answer-mode assisted to enable the explicitly configured local reader')
-    result = answer_query(args.root, args.question, _profile(args), mode=args.answer_mode, reader=reader,
-                          min_confidence=args.assisted_threshold, max_passages=args.max_passages, max_chars=args.max_context_chars,
-                          record_id=args.record_id,field=args.field,as_of=args.as_of)
+    try:
+        if args.answer_mode == 'strict' and reader is not None:
+            raise ValueError('Use --answer-mode assisted to enable the explicitly configured local reader')
+        result = answer_query(args.root, args.question, _profile(args), mode=args.answer_mode, reader=reader,
+                              min_confidence=args.assisted_threshold, max_passages=args.max_passages, max_chars=args.max_context_chars,
+                              record_id=args.record_id,field=args.field,as_of=args.as_of)
+    except ValueError as exc:
+        print(json.dumps({'error': str(exc), 'answer_supported': False}) if args.json
+              else f'Invalid request: {exc}', file=sys.stderr)
+        return 2
     data = result.legacy()
     if args.json:
         print(json.dumps(data, indent=2, ensure_ascii=False))

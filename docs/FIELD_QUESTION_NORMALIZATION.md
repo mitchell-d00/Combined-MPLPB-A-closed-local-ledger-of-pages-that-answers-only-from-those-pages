@@ -1,6 +1,6 @@
 # Bounded field-question normalization
 
-Last reviewed: 2026-11-20.
+Last reviewed: 2026-11-21.
 
 The strict pipeline accepts additional whole-question structures for literal
 body fields. For example, `Tell me the custody location listed on record ARCH-91.`
@@ -17,7 +17,8 @@ The original question remains the policy input and output question. An additive
 `question_normalization` object records the literal field, record identifier,
 canonical question, version and `normalization_is_evidence: false`. Whole-question
 matching prevents dropping trailing conditions, time scopes, extra requests or
-attribution. New forms with contradictory explicit selectors raise `ValueError`.
+attribution. Canonical and normalized requests with contradictory explicit
+selectors raise `ValueError`. The CLI reports the mismatch as an input error.
 Unsupported wording remains unresolved under the existing contract.
 
 The reader grammar and ownership, hash, delivery, retirement, conflict, correction,
