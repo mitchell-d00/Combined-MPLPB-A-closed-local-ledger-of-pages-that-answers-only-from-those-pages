@@ -1,10 +1,10 @@
-# MPLPB tool directory
+# MPLPB tools
 
 Last reviewed: 2026-11-21.
 
-Start with the job you want to do. The guides include examples and setup for each tool.
+Start with the job you want to do. The guides include examples and setup for each tool. For evaluation and release checks, see [Test tools](TEST_TOOLS.md).
 
-[Try MPLPB](#try-mplpb) · [Build a collection](#build-a-collection) · [Ask and investigate](#ask-and-investigate) · [Manage work and records](#manage-work-and-records) · [Connect and extend](#connect-and-extend) · [Research and maintenance](#research-and-maintenance)
+[Try MPLPB](#try-mplpb) · [Build a collection](#build-a-collection) · [Ask and investigate](#ask-and-investigate) · [Manage work and records](#manage-work-and-records) · [Connect and extend](#connect-and-extend)
 
 ## Try MPLPB
 
@@ -53,10 +53,3 @@ Start with the job you want to do. The guides include examples and setup for eac
 | Call the browser engine from JavaScript | [`window.MPLPB` API](../JAVASCRIPT-API.md) · [Browser agent bridge](AGENT_MIDDLEWARE.md) | An open MPLPB app page or caller-controlled browser. |
 | Connect an AI client to a local ledger | [Local MCP setup](MCP_AGENT.md) | Native checkout, stdio-capable client and host-selected collections and profile. |
 | Add model-assisted help | [Optional browser helper](FREE_PUBLIC_HELPER.md) · [Local reader](GENERAL_ANSWER_PIPELINE.md) · [Native narrator](LOCAL_NARRATOR.md) | Separate model setup. Look for strict source support independently of generated wording. |
-
-## Research and maintenance
-
-- **Check the evidence.** Find the measured results, exact revisions and reproduction commands in the [results and tests index](RESULTS_AND_TESTS.md) and [benchmark dashboard](benchmarks/dashboard.md). The [B-Tests repository](https://github.com/mitchell-d00/B-Tests) holds cross-system test work and its stated scope.
-- **Find earlier work.** Use [preserved documentation](../PAST_DOCUMENTATION.md), the [evaluation archive](../evaluation/), and the [lab reference corpus](../reference_corpus/README.md).
-- **Work on the implementation.** Use the [package map](PACKAGE_GUIDE.md#package-map), [developer quickstart](DEVELOPER_QUICKSTART.md), [repository map](../CONTENTS), and [release checks](ZIP_FIRST_RELEASE_TESTING.md).
-- **Find a specific guide.** The [documentation index](README.md#all-current-guides-and-coordination-entry-points) lists the full set of guides.

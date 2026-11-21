@@ -411,7 +411,9 @@ def field_contexts(record, requested):
 # not become an unconditional single-field request.
 _REQUEST_FIELD = r'(?P<field>[A-Za-z][A-Za-z0-9 _-]{0,79}?)'
 _REQUEST_ID = r'(?P<record>[A-Za-z0-9][A-Za-z0-9._:@/-]{0,180})'
+_CANONICAL_FIELD_REQUEST = rf'what is (?:the )?{_REQUEST_FIELD} (?:for|of) (?:record|event|occurrence) {_REQUEST_ID}'
 _FIELD_REQUEST_FORMS = (
+    _CANONICAL_FIELD_REQUEST,
     rf'(?:tell|show|give) me (?:the )?{_REQUEST_FIELD} (?:listed|recorded|stated) (?:on|in) (?:record|event|occurrence) {_REQUEST_ID}',
     rf'(?:tell|show|give) me (?:the )?{_REQUEST_FIELD} (?:for|of) (?:record|event|occurrence) {_REQUEST_ID}',
     rf'for (?:record|event|occurrence) {_REQUEST_ID}, (?:what|which) {_REQUEST_FIELD} is (?:explicitly )?(?:stated|recorded|listed)',
@@ -433,7 +435,7 @@ def field_question(question):
     q = re.sub(r'\s+', ' ', question.replace('’', "'")).strip()
     if len(q) > 400:
         return None
-    q = re.sub(r'^(?:please |(?:can|could) you )', '', q, count=1, flags=re.I)
+    q = re.sub(r'^(?:please,? |(?:can|could) you )', '', q, count=1, flags=re.I)
     # One terminal sentence mark is syntax; embedded punctuation is consumed
     # only by an explicitly declared form (comma or literal identifier).
     q = re.sub(r'[?.]$', '', q)
@@ -446,26 +448,26 @@ def field_question(question):
 
 def exact_request(question, record_id=None, field=None, exact_value=None):
     from mplpb_combined.ledger import field_name
-    match = re.fullmatch(r'(?i)what is (?:the )?([A-Za-z][A-Za-z0-9 _-]{0,79}) (?:for|of) '
-                         r'(?:record|event|occurrence) ([A-Za-z0-9][A-Za-z0-9._:@/-]{0,180})\??', question.strip())
-    if match:
-        field = field or match[1]
-        record_id = record_id or match[2]
-    normalized = None if match else field_question(question)
-    if normalized:
-        if ((record_id is not None and record_id != normalized['record_id']) or
-                (field is not None and field_name(field) != field_name(normalized['field']))):
-            raise ValueError('Explicit selector contradicts the parsed question')
-        field = field or normalized['field']
-        record_id = record_id or normalized['record_id']
-    if field is not None and (not isinstance(field,str) or not re.fullmatch(r'[A-Za-z][A-Za-z0-9 _-]{0,79}',field)):
+    if field is not None and (not isinstance(field, str) or not re.fullmatch(_REQUEST_FIELD, field)):
         raise ValueError('Expected an explicit field label')
-    if record_id is not None and (not isinstance(record_id,str) or not re.fullmatch(r'[A-Za-z0-9][A-Za-z0-9._:@/-]{0,180}',record_id)):
+    if record_id is not None and (not isinstance(record_id, str) or not re.fullmatch(_REQUEST_ID, record_id)):
         raise ValueError('Invalid exact record pin')
     if exact_value is not None and (not isinstance(exact_value,dict) or set(exact_value)!={'field','value'}
-            or not isinstance(exact_value['field'],str) or not isinstance(exact_value['value'],str)
+            or not isinstance(exact_value['field'],str) or not re.fullmatch(_REQUEST_FIELD, exact_value['field'])
+            or not isinstance(exact_value['value'],str)
             or not exact_value['value'].strip() or len(exact_value['value'])>200):
         raise ValueError('Exact value needs an explicit field/value pair')
+    match = re.fullmatch(_CANONICAL_FIELD_REQUEST + r'\??', question.strip(), re.I)
+    normalized = None if match else field_question(question)
+    parsed = {'field': match['field'], 'record_id': match['record']} if match else normalized
+    if parsed:
+        if ((record_id is not None and record_id != parsed['record_id']) or
+                (field is not None and field_name(field) != field_name(parsed['field']))):
+            raise ValueError('Explicit selector contradicts the parsed question')
+        field = field or parsed['field']
+        record_id = record_id or parsed['record_id']
+    if record_id is not None and exact_value is not None:
+        raise ValueError('Record and exact value selectors cannot be combined')
     result = {'record_id':record_id,'field':field_name(field) if field else None,'exact_value':exact_value}
     if normalized:
         result['question_normalization'] = {
@@ -496,7 +498,9 @@ def exact_sources(records, question, request):
         if any(k in {record.id, record.hash_actual, record.id+'@'+record.hash_actual} or k in identities for k in keys):
             matches.append(record)
     value=request['exact_value']
-    if not keys and value:
+    if value:
+        if keys:
+            raise ValueError('Record and exact value selectors cannot be combined')
         matches=[r for r in records if any(f['field']==field_name(value['field']) and f['value']==value['value'] for f in declared_fields(r))]
         if len(matches)!=1:
             return [], 'ambiguous_value' if matches else 'missing'

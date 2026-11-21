@@ -33,13 +33,15 @@ A citation establishes what an eligible record says. Historical accuracy and ind
 
 ## Work with your own material
 
-Use the [tool directory](docs/TOOL_DIRECTORY.md) to find the right tool and an example for your task.
+Use [MPLPB tools](docs/TOOL_DIRECTORY.md) to find an example for your task.
 
 - **Organize raw files.** The sorter turns text and Markdown into drafts and suggested links for review. Clear drafts with unique declared identifiers can be accepted automatically. [Build a collection](docs/COLLECTION_AUTOMATION.md)
 - **Follow the evidence.** Inspect source relationships and revisions, find unresolved questions, and group research findings into a dossier. [Offline archival tutorial](docs/ARCHIVAL_INSPECTION.md) · [Documentary reports](docs/DOCUMENTARY_ARTICLES.md)
 - **Use the optional tools.** Keep task history, control covered actions, or connect another application. [Package guide](docs/PACKAGE_GUIDE.md) · [Specialist work](docs/SPECIALIST_CONTINUITY_API.md) · [JavaScript API](JAVASCRIPT-API.md) · [Local MCP](docs/MCP_AGENT.md) · [Browser helper](docs/FREE_PUBLIC_HELPER.md)
 
 ## Research and development
+
+Use [Test tools](docs/TEST_TOOLS.md) to run the harness or generate a fresh real-world test plan.
 
 Benchmark results and their limitations are indexed alongside the original reports and test commands. The full source checkout includes the retained evaluation archive, earlier implementations, and the optional lab reference corpus. [Evidence and tests](docs/RESULTS_AND_TESTS.md) · [Evaluation archive](evaluation/) · [Earlier work](PAST_DOCUMENTATION.md) · [Lab reference corpus](reference_corpus/README.md)
 

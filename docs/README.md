@@ -3,7 +3,8 @@
 Last reviewed: 2026-11-21.
 
 Start with the [browser or terminal example](../README.md#try-it-in-30-seconds).
-Use the [tool directory](TOOL_DIRECTORY.md) to choose a tool by task. This index
+Use [MPLPB tools](TOOL_DIRECTORY.md) for application tasks or [Test tools](TEST_TOOLS.md)
+for evaluation and release checks. This index
 lists the individual guides, research notes, and maintenance instructions.
 
 [Repository overview](../README.md) · [Package guide](PACKAGE_GUIDE.md) · [Install](INSTALLATION.md) · [Current evidence](CURRENT_STATUS.md)
@@ -51,7 +52,8 @@ are not rewritten to fit current package language.
 | [MPLPB browser front end](BROWSER_UI.md) | The interface connects the ledger, reader, collections and conversation without merging their authority. |
 | [Developer quickstart](DEVELOPER_QUICKSTART.md) | Source architecture and entry points |
 | [Installation and release packages](INSTALLATION.md) | Distribution contents, setup and optional dependencies |
-| [Tool directory](TOOL_DIRECTORY.md) | Task-based entry points, examples and tool outputs |
+| [MPLPB tools](TOOL_DIRECTORY.md) | Application workflows, examples and tool outputs |
+| [Test tools](TEST_TOOLS.md) | Test commands, open-data seeds and release checks |
 | [Monster helper and Reason Mode](MONSTER_HELPER.md) | Delivery and packaging |
 | [Combined MPLPB package guide](PACKAGE_GUIDE.md) | All package components, workflows and boundaries |
 
