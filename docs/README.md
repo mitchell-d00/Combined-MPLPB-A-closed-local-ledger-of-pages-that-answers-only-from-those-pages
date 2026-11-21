@@ -2,11 +2,8 @@
 
 Last reviewed: 2026-11-20.
 
-[New response paper: source attribution, reproduction and remaining gaps](research/field-question-normalization/README.md)
-provides Markdown/TXT/PDF, 1,482 passing native tests,900/900 public field matches,
-and a frozen stress improvement from 156 to 168/420, with 580/580 refusals retained.
-M6 is not included in the supplied public package. Historical accuracy remains
-unmeasured; 252 generated positive obligations remain unresolved.
+Start with the [browser or terminal example](../README.md#try-it-in-30-seconds).
+Use this index to find the guide for the part of MPLPB you want to work with.
 
 [Repository overview](../README.md) · [Package guide](PACKAGE_GUIDE.md) · [Install](INSTALLATION.md) · [Current evidence](CURRENT_STATUS.md)
 · [Live application](https://mitchell-d00.github.io/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/)

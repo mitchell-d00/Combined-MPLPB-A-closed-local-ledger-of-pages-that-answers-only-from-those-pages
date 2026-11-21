@@ -61,8 +61,12 @@ jobs:
         run: |
           python tools/build_release_packages.py
           python -m pip wheel --no-deps --wheel-dir release .
+          mkdir -p dist/downloads
+          python -m zipfile -c dist/downloads/mplpb-native.zip release/*.whl
+          python -m zipfile -t dist/downloads/mplpb-native.zip
+          python -m zipfile -e dist/downloads/mplpb-native.zip "$RUNNER_TEMP/mplpb-native"
           python -m venv "$RUNNER_TEMP/mplpb-install"
-          "$RUNNER_TEMP/mplpb-install/bin/pip" install --no-deps release/*.whl
+          "$RUNNER_TEMP/mplpb-install/bin/pip" install --no-index --no-deps "$RUNNER_TEMP/mplpb-native/"*.whl
           "$RUNNER_TEMP/mplpb-install/bin/mplpb-combined" --help
       - name: Run synthetic context matrix
         run: python -m tools.evaluate_context_matrix --output release/context-matrix.json
@@ -100,6 +104,15 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
+      - name: Check the compact download on Pages
+        env:
+          MPLPB_PAGES_URL: ${{ steps.deployment.outputs.page_url }}
+        run: |
+          curl --fail --silent --show-error --location --retry 4 --retry-all-errors \
+            --retry-delay 5 --max-time 20 \
+            "${MPLPB_PAGES_URL%/}/downloads/mplpb-native.zip?revision=$GITHUB_SHA" \
+            --output "$RUNNER_TEMP/mplpb-native.zip"
+          python -m zipfile -t "$RUNNER_TEMP/mplpb-native.zip"
       - name: Install headless Chromium testing harness
         run: python -m pip install "playwright==1.58.0"
       - name: Smoke test newly published site in real Chromium
