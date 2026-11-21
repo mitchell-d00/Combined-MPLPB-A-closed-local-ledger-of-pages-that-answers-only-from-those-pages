@@ -33,6 +33,8 @@ A citation establishes what an eligible record says. Historical accuracy and ind
 
 ## Work with your own material
 
+Use the [tool directory](docs/TOOL_DIRECTORY.md) to find the right tool and an example for your task.
+
 - **Organize raw files.** The sorter turns text and Markdown into drafts and suggested links for review. Clear drafts with unique declared identifiers can be accepted automatically. [Build a collection](docs/COLLECTION_AUTOMATION.md)
 - **Follow the evidence.** Inspect source relationships and revisions, find unresolved questions, and group research findings into a dossier. [Offline archival tutorial](docs/ARCHIVAL_INSPECTION.md) · [Documentary reports](docs/DOCUMENTARY_ARTICLES.md)
 - **Use the optional tools.** Keep task history, control covered actions, or connect another application. [Package guide](docs/PACKAGE_GUIDE.md) · [Specialist work](docs/SPECIALIST_CONTINUITY_API.md) · [JavaScript API](JAVASCRIPT-API.md) · [Local MCP](docs/MCP_AGENT.md) · [Browser helper](docs/FREE_PUBLIC_HELPER.md)
@@ -45,4 +47,4 @@ Benchmark results and their limitations are indexed alongside the original repor
 
 Code is MIT licensed and project documentation is CC BY 4.0. Bundled sources and other materials carry their own notices. [License](LICENSE) · [Resource notices](resources/README.md)
 
-Last reviewed: 2026-11-20.
+Last reviewed: 2026-11-21.

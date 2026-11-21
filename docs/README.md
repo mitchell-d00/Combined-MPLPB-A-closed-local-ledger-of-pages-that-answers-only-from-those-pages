@@ -1,9 +1,10 @@
 # Documentation index
 
-Last reviewed: 2026-11-20.
+Last reviewed: 2026-11-21.
 
 Start with the [browser or terminal example](../README.md#try-it-in-30-seconds).
-Use this index to find the guide for the part of MPLPB you want to work with.
+Use the [tool directory](TOOL_DIRECTORY.md) to choose a tool by task. This index
+lists the individual guides, research notes, and maintenance instructions.
 
 [Repository overview](../README.md) · [Package guide](PACKAGE_GUIDE.md) · [Install](INSTALLATION.md) · [Current evidence](CURRENT_STATUS.md)
 · [Live application](https://mitchell-d00.github.io/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/)
@@ -50,6 +51,7 @@ are not rewritten to fit current package language.
 | [MPLPB browser front end](BROWSER_UI.md) | The interface connects the ledger, reader, collections and conversation without merging their authority. |
 | [Developer quickstart](DEVELOPER_QUICKSTART.md) | Source architecture and entry points |
 | [Installation and release packages](INSTALLATION.md) | Distribution contents, setup and optional dependencies |
+| [Tool directory](TOOL_DIRECTORY.md) | Task-based entry points, examples and tool outputs |
 | [Monster helper and Reason Mode](MONSTER_HELPER.md) | Delivery and packaging |
 | [Combined MPLPB package guide](PACKAGE_GUIDE.md) | All package components, workflows and boundaries |
 

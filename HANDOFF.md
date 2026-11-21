@@ -1,36 +1,36 @@
 # Repository handoff
 
-Last reviewed: 2026-11-20.
+Last reviewed: 2026-11-21.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `b2dc1da484072a1fb6ff279b5ce2edd56f9fa14b` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `cc3d621b052c94573dc9ac3fc7d0889f62b1cfc6c509aa747d2e170d1540337d`.
+Base commit: `5d6300f55f0a4996d0cf8ab3b98a8dcfadadeec4` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `4452cd53207178ebde564270696cc6824cf823b471b980b812d8d6250b1e4a83`.
 
 ## Latest user update instructions
 
-What would raise the score: a README that opens with the idea in plain words and a 30-second example, the evaluation data moved out to a release or separate repo, and a trimmed-down core package.
+Let’s do that clean up the repo organize let’s do house keeping don’t break it
 
 ## Implemented scope
 
-- Lead with a plain-language introduction and short browser and terminal examples.
-- Publish a separate compact native download from the existing wheel on future Pages builds. Install from the extracted public-download artifact in CI and verify retrieval after deployment.
-- Link the research archive, prior implementations and advanced tools from secondary navigation while preserving their version-pinned source paths.
+- Organize user-facing tools by task in a directory reachable from the README, documentation index, and browser help.
+- Guide users from the sample to creating a collection, importing material, reviewing a source, and asking a question.
+- Clarify browser and desktop storage in the help view. Preserve existing UI controls, behavior, test inputs, and archived evidence paths.
 
 ## Validation recorded
 
-- Both browser README questions passed in real Chromium using the existing browser runtime.
-- A clean offline install from the locally built 313,318-byte native ZIP passed both README CLI questions. Wheel inspection found only the three runtime packages and distribution metadata.
-- Documentation inventory, infrastructure checks, and changed workflow YAML and shell syntax checks passed locally.
+- All local tool directory paths and section links resolved. The documentation audit checked preserved documents and retained test links.
+- The UI script, serialized browser transport, JavaScript API, and infrastructure synchronization checks passed locally.
+- Real Chromium followed the new help path and performed collection creation, text import, source review, a supported answer, and a refusal.
 
 ## Limitations and blocked checks
 
-- The evaluation archive still resides in the full repository. The independent downloadable package excludes the archive. Moving version-pinned inputs would require a migration of their workflows and references.
-- The public URL is created by the first deployment of this change.
+- This pass changes navigation and instructions. Archived evaluation data remains at the paths used by release checks and citations.
+- The tool directory links the main user-facing tools and the repository map for implementation and maintenance scripts.
 
 ## Next steps
 
-- Validate the frozen archive and the public download in the normal release workflow when the candidate is submitted.
+- Run the exact-head release gates when the housekeeping candidate is submitted.
 
 ## Use this ZIP in your repository
 
