@@ -4,30 +4,34 @@ Last reviewed: 2026-11-21.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `692f72eee2ec743e084a98708737e9ca571be7a3` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `fc19efc44d3a50fb9f3fbba2d96327f99363b9ab8a5839fd926834bfd9365416`.
+Base commit: `cf2f9cb91eceef7bae7666dc3c615eeafe3967ec` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `5db4b28d89827a0ec8e10a0d642baffaf37736d56201c779bb8c2d73d6463d88`.
 
 ## Latest user update instructions
 
-Make this explicit in read me
+Push it merge to main
 
 ## Implemented scope
 
-- Introduce Combined MPLPB as a deterministic, rule-based AI reader and explain how the strict reader decides source support.
-- Describe the test-driven training loop and link to the frozen paraphrase reproduction and the Primary Book Test.
+- Publish the original Executable Gates comparative package and the verified dispatch enforcement follow-up.
+- Retain the follow-up ZIP, checksum, harness, raw and preliminary observations, and regression log in both repositories.
+- Index the follow-up with the original evidence and report its tested operational boundary.
 
 ## Validation recorded
 
-- The documentation audit, infrastructure check, and 18 focused tests passed.
-- The unchanged public reproduction confirmed 750 of 750 supported paraphrases and all 200 expected refusals on the current engine.
+- The original seven paired probes and both disposable local Git fixtures reproduced.
+- All 28 follow-up controls passed from the extracted experiment ZIP and replayed successfully in both publication checkouts. The specialist-continuity suite passed 48 tests.
+- The B-Tests suite passed all 130 tests. The MPLPB handoff, documentation and infrastructure checks apply to the publication candidate.
 
 ## Limitations and blocked checks
 
-- The comparison describes the published frozen synthetic experiment. Independent semantic review on unfamiliar historical prose remains a separate measurement.
+- The follow-up tests supported execution surfaces and a cooperative local fixture adapter at MPLPB 6ba371c.
+- A source change after reservation produced no adapter effect and retained an indeterminate outcome with two events.
+- Complete mediation under adversarial conditions remains unestablished.
 
 ## Next steps
 
-- Use fresh Primary Book Test batches and independent reviewers to measure transfer to unfamiliar sources.
+- Run both repositories' checks for the submitted revisions before merging.
 
 ## Use this ZIP in your repository
 

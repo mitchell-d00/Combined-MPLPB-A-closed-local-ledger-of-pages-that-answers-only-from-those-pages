@@ -4,6 +4,14 @@
   "meaning": "Links establish retained test/reproduction coverage, not a fresh execution or certification of historical metrics. Original source, dates, fixtures and exact revisions remain in the linked reports.",
   "families": [
     {
+      "family": "comparative-tests",
+      "artifacts": "evaluation/comparative-tests",
+      "tests": ["tests/test_specialist_continuity.py"],
+      "runners": ["evaluation/comparative-tests/executable-gates/verify.py", "evaluation/comparative-tests/executable-gates/probes/run_probes.py", "evaluation/comparative-tests/executable-gates/probes/git_probe.sh", "evaluation/comparative-tests/dispatch-enforcement/run_controls.py"],
+      "scope": "Seven paired native MPLPB dispatch observations, a two-arm local Git comparison, and 28 follow-up controls across Python, seat RPC, loopback HTTP, and the stock CLI.",
+      "measurement_status": "Reproduced at MPLPB 6ba371c. Complete mediation, hosted branch policies and native OOCC remain unestablished."
+    },
+    {
       "family": "d4",
       "artifacts": "evaluation/d4",
       "tests": ["tests/test_reference_identity.py", "tests/test_d4.py", "tests/test_bounded_records.py"],

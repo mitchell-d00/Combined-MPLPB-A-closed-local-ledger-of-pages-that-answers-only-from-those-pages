@@ -1,0 +1,188 @@
+{
+  "repository_revision": "6ba371ca07dd9269f28af762ed1971ad484fb6b5",
+  "python": "3.13.18",
+  "probes": [
+    {
+      "probe": "P1",
+      "name": "Contradicted proposition",
+      "control": {
+        "claim_status": "supported_under_scope",
+        "permission": "allowed",
+        "outcome": "dispatched; receipt passed",
+        "marker_written": true,
+        "adapter_calls": 1,
+        "events_before": 9,
+        "events_after": 11,
+        "events_added": 2,
+        "description": "Claim matches a full quoted source sentence"
+      },
+      "variant": {
+        "claim_status": "contested",
+        "permission": "blocked",
+        "outcome": "Denied: Action is not currently permissible",
+        "marker_written": false,
+        "adapter_calls": 0,
+        "events_before": 9,
+        "events_after": 9,
+        "events_added": 0,
+        "description": "Claim says \"Component X is discontinued\"; cited page says it remains available"
+      }
+    },
+    {
+      "probe": "P2",
+      "name": "Partial quotation",
+      "control": {
+        "claim_status": "supported_under_scope",
+        "permission": "allowed",
+        "outcome": "dispatched; receipt passed",
+        "marker_written": true,
+        "adapter_calls": 1,
+        "events_before": 9,
+        "events_after": 11,
+        "events_added": 2,
+        "description": "Evidence quotes the complete source sentence"
+      },
+      "variant": {
+        "claim_status": "needs_recheck",
+        "permission": "blocked",
+        "outcome": "Denied: Action is not currently permissible",
+        "marker_written": false,
+        "adapter_calls": 0,
+        "events_before": 9,
+        "events_after": 9,
+        "events_added": 0,
+        "description": "Evidence quotes a fragment (\"AX-14 is discontinued.\")"
+      }
+    },
+    {
+      "probe": "P3",
+      "name": "Unstated assumption",
+      "control": {
+        "claim_status": "supported_under_scope",
+        "permission": "allowed",
+        "outcome": "dispatched; receipt passed",
+        "marker_written": true,
+        "adapter_calls": 1,
+        "events_before": 9,
+        "events_after": 11,
+        "events_added": 2,
+        "description": "Claim carries no assumptions"
+      },
+      "variant": {
+        "claim_status": "needs_recheck",
+        "permission": "blocked",
+        "outcome": "Denied: Action is not currently permissible",
+        "marker_written": false,
+        "adapter_calls": 0,
+        "events_before": 9,
+        "events_after": 9,
+        "events_added": 0,
+        "description": "Claim adds \"Assume source applies\""
+      }
+    },
+    {
+      "probe": "P4",
+      "name": "Claim-only chain",
+      "control": {
+        "claim_status": "supported_under_scope",
+        "permission": "allowed",
+        "outcome": "dispatched; receipt passed",
+        "marker_written": true,
+        "adapter_calls": 1,
+        "events_before": 9,
+        "events_after": 11,
+        "events_added": 2,
+        "description": "Action depends on a claim pinned to evidence"
+      },
+      "variant": {
+        "claim_status": "needs_recheck",
+        "permission": "blocked",
+        "outcome": "Denied: Action is not currently permissible",
+        "marker_written": false,
+        "adapter_calls": 0,
+        "events_before": 10,
+        "events_after": 10,
+        "events_added": 0,
+        "description": "Action depends on a claim that cites only another claim"
+      }
+    },
+    {
+      "probe": "P5",
+      "name": "Source changed after planning",
+      "control": {
+        "claim_status": "supported_under_scope",
+        "permission": "allowed",
+        "outcome": "dispatched; receipt passed",
+        "marker_written": true,
+        "adapter_calls": 1,
+        "events_before": 9,
+        "events_after": 11,
+        "events_added": 2,
+        "description": "Source bytes unchanged at dispatch"
+      },
+      "variant": {
+        "claim_status": "needs_recheck",
+        "permission": "blocked",
+        "outcome": "Denied: Action is not currently permissible",
+        "marker_written": false,
+        "adapter_calls": 0,
+        "events_before": 9,
+        "events_after": 9,
+        "events_added": 0,
+        "description": "Cited page edited after the action was proposed"
+      }
+    },
+    {
+      "probe": "P6",
+      "name": "Revoked seat",
+      "control": {
+        "claim_status": "supported_under_scope",
+        "permission": "allowed",
+        "outcome": "dispatched; receipt passed",
+        "marker_written": true,
+        "adapter_calls": 1,
+        "events_before": 9,
+        "events_after": 11,
+        "events_added": 2,
+        "description": "Executor seat holds a live grant"
+      },
+      "variant": {
+        "claim_status": null,
+        "permission": "credential rejected",
+        "outcome": "Denied: Credential rejected, revoked, expired or fenced out",
+        "marker_written": false,
+        "adapter_calls": 0,
+        "events_before": 10,
+        "events_after": 10,
+        "events_added": 0,
+        "description": "Host revokes the executor seat before dispatch"
+      }
+    },
+    {
+      "probe": "P7",
+      "name": "Tool not granted",
+      "control": {
+        "claim_status": "supported_under_scope",
+        "permission": "allowed",
+        "outcome": "dispatched; receipt passed",
+        "marker_written": true,
+        "adapter_calls": 1,
+        "events_before": 9,
+        "events_after": 11,
+        "events_added": 2,
+        "description": "Seat contract lists fixture.run.v1"
+      },
+      "variant": {
+        "claim_status": "supported_under_scope",
+        "permission": "requires_authorization",
+        "outcome": "Denied: Action is not currently permissible",
+        "marker_written": false,
+        "adapter_calls": 0,
+        "events_before": 10,
+        "events_after": 10,
+        "events_added": 0,
+        "description": "Successor seat contract lists no tools"
+      }
+    }
+  ]
+}

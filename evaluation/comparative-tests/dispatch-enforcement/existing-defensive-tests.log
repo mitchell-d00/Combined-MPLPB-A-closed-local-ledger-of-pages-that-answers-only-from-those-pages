@@ -1,0 +1,61 @@
+test_adapter_error_is_indeterminate_not_a_clean_failure (tests.test_specialist_continuity.ContinuityTests.test_adapter_error_is_indeterminate_not_a_clean_failure) ... ok
+test_assumptions_and_partial_quotes_do_not_establish_support (tests.test_specialist_continuity.ContinuityTests.test_assumptions_and_partial_quotes_do_not_establish_support) ... ok
+test_chain_corruption_and_independent_truncation_checkpoint (tests.test_specialist_continuity.ContinuityTests.test_chain_corruption_and_independent_truncation_checkpoint) ... ok
+test_challenge_blocks_transitive_dependents_and_owner_cannot_erase_it (tests.test_specialist_continuity.ContinuityTests.test_challenge_blocks_transitive_dependents_and_owner_cannot_erase_it) ... ok
+test_changed_criteria_do_not_inherit_old_passing_receipt (tests.test_specialist_continuity.ContinuityTests.test_changed_criteria_do_not_inherit_old_passing_receipt) ... ok
+test_checkpoint_detects_history_rewrite_even_if_local_head_replaced (tests.test_specialist_continuity.ContinuityTests.test_checkpoint_detects_history_rewrite_even_if_local_head_replaced) ... ok
+test_cli_is_installed_in_supported_entrypoint (tests.test_specialist_continuity.ContinuityTests.test_cli_is_installed_in_supported_entrypoint) ... ok
+test_completion_accepts_fresh_execution_after_explicit_contract_revision (tests.test_specialist_continuity.ContinuityTests.test_completion_accepts_fresh_execution_after_explicit_contract_revision) ... ok
+test_completion_allows_reordered_identical_criteria (tests.test_specialist_continuity.ContinuityTests.test_completion_allows_reordered_identical_criteria) ... ok
+test_completion_cannot_drop_unmet_criterion_in_same_write (tests.test_specialist_continuity.ContinuityTests.test_completion_cannot_drop_unmet_criterion_in_same_write) ... ok
+test_completion_cannot_replace_goal_using_old_receipt (tests.test_specialist_continuity.ContinuityTests.test_completion_cannot_replace_goal_using_old_receipt) ... ok
+test_completion_cannot_replace_task_inputs_using_old_receipt (tests.test_specialist_continuity.ContinuityTests.test_completion_cannot_replace_task_inputs_using_old_receipt) ... ok
+test_concurrent_processes_use_database_compare_and_swap (tests.test_specialist_continuity.ContinuityTests.test_concurrent_processes_use_database_compare_and_swap) ... ok
+test_concurrent_writers_have_one_winner_and_no_partial_event (tests.test_specialist_continuity.ContinuityTests.test_concurrent_writers_have_one_winner_and_no_partial_event) ... ok
+test_contradictory_inference_blocked_without_a_challenge (tests.test_specialist_continuity.ContinuityTests.test_contradictory_inference_blocked_without_a_challenge) ... ok
+test_copied_review_adds_no_evidence_roots_or_truth (tests.test_specialist_continuity.ContinuityTests.test_copied_review_adds_no_evidence_roots_or_truth) ... ok
+test_crash_reopen_is_indeterminate_and_never_auto_retries (tests.test_specialist_continuity.ContinuityTests.test_crash_reopen_is_indeterminate_and_never_auto_retries) ... ok
+test_different_spans_same_root_are_not_called_independent_sources (tests.test_specialist_continuity.ContinuityTests.test_different_spans_same_root_are_not_called_independent_sources) ... ok
+test_dispatch_idempotency_and_missing_adapter (tests.test_specialist_continuity.ContinuityTests.test_dispatch_idempotency_and_missing_adapter) ... ok
+test_dispatched_action_cannot_be_rewritten_or_transferred (tests.test_specialist_continuity.ContinuityTests.test_dispatched_action_cannot_be_rewritten_or_transferred) ... ok
+test_expiry_revocation_and_fencing_are_checked_at_write (tests.test_specialist_continuity.ContinuityTests.test_expiry_revocation_and_fencing_are_checked_at_write) ... ok
+test_explicit_transfer_includes_history_but_requires_rights (tests.test_specialist_continuity.ContinuityTests.test_explicit_transfer_includes_history_but_requires_rights) ... ok
+test_external_profile_cannot_recover_private_source_via_old_claim_history (tests.test_specialist_continuity.ContinuityTests.test_external_profile_cannot_recover_private_source_via_old_claim_history) ... ok
+test_failed_attempt_is_context_for_decision_not_a_success_prerequisite (tests.test_specialist_continuity.ContinuityTests.test_failed_attempt_is_context_for_decision_not_a_success_prerequisite) ... ok
+test_failed_attempts_immutable_and_failed_route_not_repeated (tests.test_specialist_continuity.ContinuityTests.test_failed_attempts_immutable_and_failed_route_not_repeated) ... ok
+test_five_instances_recover_and_revise_inherited_premise (tests.test_specialist_continuity.ContinuityTests.test_five_instances_recover_and_revise_inherited_premise) ... ok
+test_heading_scope_and_tampered_source_cannot_supply_evidence (tests.test_specialist_continuity.ContinuityTests.test_heading_scope_and_tampered_source_cannot_supply_evidence) ... ok
+test_host_effect_class_cannot_be_downgraded_by_action (tests.test_specialist_continuity.ContinuityTests.test_host_effect_class_cannot_be_downgraded_by_action) ... ok
+test_legacy_supported_claim_is_rechecked_and_review_cannot_override (tests.test_specialist_continuity.ContinuityTests.test_legacy_supported_claim_is_rechecked_and_review_cannot_override) ... ok
+test_local_http_rpc_requires_bearer_and_excludes_host_operations (tests.test_specialist_continuity.ContinuityTests.test_local_http_rpc_requires_bearer_and_excludes_host_operations) ... 127.0.0.1 - - [21/Nov/2026 15:14:36] "POST /api/work HTTP/1.1" 400 -
+127.0.0.1 - - [21/Nov/2026 15:14:36] "POST /api/work HTTP/1.1" 400 -
+127.0.0.1 - - [21/Nov/2026 15:14:36] "POST /api/work HTTP/1.1" 200 -
+127.0.0.1 - - [21/Nov/2026 15:14:36] "GET /api/query HTTP/1.1" 404 -
+127.0.0.1 - - [21/Nov/2026 15:14:36] "GET /api/page?corpus=studio&path=kiln/studio-0004.html HTTP/1.1" 404 -
+127.0.0.1 - - [21/Nov/2026 15:14:36] "GET /api/state HTTP/1.1" 404 -
+127.0.0.1 - - [21/Nov/2026 15:14:36] "GET / HTTP/1.1" 404 -
+127.0.0.1 - - [21/Nov/2026 15:14:36] "POST /api/query HTTP/1.1" 404 -
+ok
+test_new_process_can_recover_without_original_runtime (tests.test_specialist_continuity.ContinuityTests.test_new_process_can_recover_without_original_runtime) ... ok
+test_no_capability_self_promotion_or_ungranted_write (tests.test_specialist_continuity.ContinuityTests.test_no_capability_self_promotion_or_ungranted_write) ... ok
+test_no_terminal_truth_and_no_forged_pass_or_completion (tests.test_specialist_continuity.ContinuityTests.test_no_terminal_truth_and_no_forged_pass_or_completion) ... ok
+test_plaintext_private_content_absent_from_live_and_handoff_views (tests.test_specialist_continuity.ContinuityTests.test_plaintext_private_content_absent_from_live_and_handoff_views) ... ok
+test_private_writer_cannot_create_shared_content (tests.test_specialist_continuity.ContinuityTests.test_private_writer_cannot_create_shared_content) ... ok
+test_public_seat_api_cannot_invoke_administration (tests.test_specialist_continuity.ContinuityTests.test_public_seat_api_cannot_invoke_administration) ... ok
+test_review_revisions_cannot_bypass_declared_budget (tests.test_specialist_continuity.ContinuityTests.test_review_revisions_cannot_bypass_declared_budget) ... ok
+test_scope_and_tool_allowlists_are_enforced_independently (tests.test_specialist_continuity.ContinuityTests.test_scope_and_tool_allowlists_are_enforced_independently) ... ok
+test_seat_cannot_resolve_challenge_without_resolution_right (tests.test_specialist_continuity.ContinuityTests.test_seat_cannot_resolve_challenge_without_resolution_right) ... ok
+test_source_change_invalidates_claim_decision_action_and_completed_task (tests.test_specialist_continuity.ContinuityTests.test_source_change_invalidates_claim_decision_action_and_completed_task) ... ok
+test_source_check_preserves_subject_negation_and_conditions (tests.test_specialist_continuity.ContinuityTests.test_source_check_preserves_subject_negation_and_conditions) ... ok
+test_stale_head_and_target_revision_reject_without_appending (tests.test_specialist_continuity.ContinuityTests.test_stale_head_and_target_revision_reject_without_appending) ... ok
+test_task_dependency_graph_cannot_cycle (tests.test_specialist_continuity.ContinuityTests.test_task_dependency_graph_cannot_cycle) ... ok
+test_task_input_pins_travel_into_execution_attempt (tests.test_specialist_continuity.ContinuityTests.test_task_input_pins_travel_into_execution_attempt) ... ok
+test_task_revision_is_rechecked_at_dispatch_and_acceptance (tests.test_specialist_continuity.ContinuityTests.test_task_revision_is_rechecked_at_dispatch_and_acceptance) ... ok
+test_transfer_does_not_launder_historical_dependencies (tests.test_specialist_continuity.ContinuityTests.test_transfer_does_not_launder_historical_dependencies) ... ok
+test_unknown_inference_and_claim_chain_cannot_enable_work (tests.test_specialist_continuity.ContinuityTests.test_unknown_inference_and_claim_chain_cannot_enable_work) ... ok
+test_visibility_cannot_be_laundered_through_reference (tests.test_specialist_continuity.ContinuityTests.test_visibility_cannot_be_laundered_through_reference) ... ok
+
+----------------------------------------------------------------------
+Ran 48 tests in 4.079s
+
+OK

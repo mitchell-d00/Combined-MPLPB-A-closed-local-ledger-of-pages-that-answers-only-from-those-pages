@@ -112,6 +112,12 @@ results remain unchanged.
 
 The [Primary Book Test](TEST_TOOLS.md#primary-book-test) generates new excerpts and quote controls from pinned firsthand book chapters. It also runs independently authored questions. The automatic scorer checks quote presence and citation, and the prose run requires human review of meaning and evidence.
 
+## Executable Gates comparative tests
+
+Seven native execution pairs reproduced at MPLPB revision `6ba371c`. Each allowed control called the fixture adapter once, wrote a marker, and added two events. Each denied variant added zero events and left the marker absent. The companion Git comparison checked server state after the same local file edit under a README rule and a pre-receive hook. [Paper, replay and scope](../evaluation/comparative-tests/executable-gates/REPRODUCTION.md)
+
+The follow-up passed 28 dispatch controls at the same revision. Concurrent identical requests dispatched once per tested surface. A source change after reservation left two events and an `indeterminate` receipt with no adapter call. Complete mediation under adversarial conditions remains unestablished. [Follow-up, raw results and replay](../evaluation/comparative-tests/dispatch-enforcement/README.md)
+
 ## Reproduce the currently claimed reference result
 
 ```sh
