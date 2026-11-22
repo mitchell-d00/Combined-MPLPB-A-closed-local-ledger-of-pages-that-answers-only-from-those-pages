@@ -4,32 +4,32 @@ Last reviewed: 2026-11-22.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `ddde79f55d3fcb46dd3a9d5a445e81f6ad3103aa` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `ca4189defa28cda7f6ad47d52825c2aac7f7b20d29dc7f632e404e54b91bd4c6`.
+Base commit: `fa2647c85f5d001983d3326e18f8255bd66aff71` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `eaff824e0e320a0501dc71621527267e6f209ca92170aa3d81dda5e6eaec1976`.
 
 ## Latest user update instructions
 
-And others I forgot can you crawl my full repo and put it all into a path like this so I don’t have to describe all the connections of modules projects and mplpb
+Directions for an AI to inspect the full Combined MPLPB package
+
+And make it explicit it is important that an Ai understands full MPLPB on read
 
 ## Implemented scope
 
-- Expand the package guide into the connection map for source intake, candidate review, strict reading, application interfaces, work coordination and guarded dispatch.
-- Link implementation files and workflow paths from the guide, and make it discoverable from the README and documentation index.
-- Map the companion testbench, preserved implementations, credited research projects, data packs, and release tooling to their roles.
+- Add AI inspection directions to the README with the requested reading order, source entry points, supporting material and verification boundaries.
+- Link the directions from the opening of the README and the public AI discovery file.
 
 ## Validation recorded
 
-- Traced native CLI entry points, the shared App used by the browser and MCP, the WorkStore dispatch boundary, and pinned B-Tests workflows.
-- Verified that the two diagram edge lists refer to declared nodes and that the documented source paths resolve.
-- The documentation audit, infrastructure checks, 248 focused Python tests and the JavaScript API test passed.
+- Verified the navigation anchors and requested reading order, and checked the referenced paths.
+- The documentation audit, infrastructure check, and 108 focused tests passed.
 
 ## Limitations and blocked checks
 
-- This is an implementation and navigation guide. Its diagrams document supported paths through the local system.
+- The directions explain how to inspect and reproduce claims at a named commit. The edit records no new historical accuracy measurement.
 
 ## Next steps
 
-- Update the connection map when a supported entry point, storage boundary, or distribution changes.
+- Keep the inspection directions synchronized with package entry points and evidence boundaries.
 
 ## Use this ZIP in your repository
 
