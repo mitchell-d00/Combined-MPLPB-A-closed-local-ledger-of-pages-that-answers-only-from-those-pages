@@ -1,0 +1,414 @@
+{
+  "schema": "mplpb-persona-transfer-v1",
+  "kind": "synthetic_fixture",
+  "collections": [
+    {
+      "id": "sewage",
+      "domain": "municipal sewage treatment",
+      "persona": {
+        "name": "Inez",
+        "role": "shift operator",
+        "goal": "Reason from a shift record without inventing incident causes."
+      },
+      "documents": [
+        {
+          "id": "LEAF-A",
+          "title": "Synthetic primary record",
+          "text": "Record-ID: SHIFT-41\nObservation Time: 06:40\n\nThe 06:40 entry records foam in the west channel."
+        },
+        {
+          "id": "LEAF-B",
+          "title": "Synthetic comparison record",
+          "text": "The reliability log lists a pending inspection but provides no cause of the observed foam."
+        }
+      ],
+      "cases": [
+        {
+          "id": "exact",
+          "family": "bounded_field",
+          "question": "What is the observation time for record SHIFT-41?",
+          "expected": "answer",
+          "source": "LEAF-A",
+          "quote": "Observation Time: 06:40"
+        },
+        {
+          "id": "natural",
+          "family": "record_description_instead_of_id",
+          "question": "When was the foam first noted on the west channel shift card?",
+          "expected": "answer",
+          "source": "LEAF-A",
+          "quote": "Observation Time: 06:40"
+        },
+        {
+          "id": "scope",
+          "family": "scope_overreach",
+          "question": "What caused the foam in the west channel?",
+          "expected": "withhold"
+        },
+        {
+          "id": "missing",
+          "family": "absent_fact",
+          "question": "Did the inspection take place?",
+          "expected": "withhold"
+        }
+      ]
+    },
+    {
+      "id": "cats",
+      "domain": "cat care",
+      "persona": {
+        "name": "Jo",
+        "role": "cat foster volunteer",
+        "goal": "Keep staff observations separate from diagnosis."
+      },
+      "documents": [
+        {
+          "id": "LEAF-A",
+          "title": "Synthetic primary record",
+          "text": "Record-ID: FOSTER-27\nIntake Date: 2026-02-08\n\nThe volunteer recorded that Pebble ate half of the evening meal."
+        },
+        {
+          "id": "LEAF-B",
+          "title": "Synthetic comparison record",
+          "text": "A second note lists litter from a different foster room and leaves Pebble’s examination status open."
+        }
+      ],
+      "cases": [
+        {
+          "id": "exact",
+          "family": "bounded_field",
+          "question": "What is the intake date for record FOSTER-27?",
+          "expected": "answer",
+          "source": "LEAF-A",
+          "quote": "Intake Date: 2026-02-08"
+        },
+        {
+          "id": "natural",
+          "family": "record_description_instead_of_id",
+          "question": "When did Pebble come into foster care, according to the intake card?",
+          "expected": "answer",
+          "source": "LEAF-A",
+          "quote": "Intake Date: 2026-02-08"
+        },
+        {
+          "id": "scope",
+          "family": "scope_overreach",
+          "question": "What medical condition caused Pebble to eat less?",
+          "expected": "withhold"
+        },
+        {
+          "id": "missing",
+          "family": "absent_fact",
+          "question": "Did a veterinarian examine Pebble?",
+          "expected": "withhold"
+        }
+      ]
+    },
+    {
+      "id": "fish",
+      "domain": "aquarium fish care",
+      "persona": {
+        "name": "Min",
+        "role": "aquarium keeper",
+        "goal": "Distinguish an aquarium log reading from a general care target."
+      },
+      "documents": [
+        {
+          "id": "LEAF-A",
+          "title": "Synthetic primary record",
+          "text": "Record-ID: TANK-36\nObservation Time: 07:20\n\nAn observer recorded that the fish remained among the plants during the morning round."
+        },
+        {
+          "id": "LEAF-B",
+          "title": "Synthetic comparison record",
+          "text": "A different tank register describes a lighting change and contains no target for this tank."
+        }
+      ],
+      "cases": [
+        {
+          "id": "exact",
+          "family": "bounded_field",
+          "question": "What is the observation time for record TANK-36?",
+          "expected": "answer",
+          "source": "LEAF-A",
+          "quote": "Observation Time: 07:20"
+        },
+        {
+          "id": "natural",
+          "family": "record_description_instead_of_id",
+          "question": "When did the keeper record the morning tank observation?",
+          "expected": "answer",
+          "source": "LEAF-A",
+          "quote": "Observation Time: 07:20"
+        },
+        {
+          "id": "scope",
+          "family": "scope_overreach",
+          "question": "What lighting schedule is recommended for all aquarium fish?",
+          "expected": "withhold"
+        },
+        {
+          "id": "missing",
+          "family": "absent_fact",
+          "question": "Did the fish receive food afterward?",
+          "expected": "withhold"
+        }
+      ]
+    },
+    {
+      "id": "plants",
+      "domain": "plant care",
+      "persona": {
+        "name": "Rafi",
+        "role": "community greenhouse volunteer",
+        "goal": "Distinguish an observed plant condition from a causal explanation."
+      },
+      "documents": [
+        {
+          "id": "LEAF-A",
+          "title": "Synthetic primary record",
+          "text": "Record-ID: PLOT-23\nInspection Date: 2026-03-04\n\nThe greenhouse log says the tray leaves drooped before the afternoon inspection."
+        },
+        {
+          "id": "LEAF-B",
+          "title": "Synthetic comparison record",
+          "text": "A note for a different tray records a watering trial. Neither note attributes the droop to any treatment."
+        }
+      ],
+      "cases": [
+        {
+          "id": "exact",
+          "family": "bounded_field",
+          "question": "What is the inspection date for record PLOT-23?",
+          "expected": "answer",
+          "source": "LEAF-A",
+          "quote": "Inspection Date: 2026-03-04"
+        },
+        {
+          "id": "natural",
+          "family": "record_description_instead_of_id",
+          "question": "Which day did the greenhouse volunteer check the tray?",
+          "expected": "answer",
+          "source": "LEAF-A",
+          "quote": "Inspection Date: 2026-03-04"
+        },
+        {
+          "id": "scope",
+          "family": "scope_overreach",
+          "question": "Did the watering trial cause the tray leaves to droop?",
+          "expected": "withhold"
+        },
+        {
+          "id": "missing",
+          "family": "absent_fact",
+          "question": "What cultivar was planted in this tray?",
+          "expected": "withhold"
+        }
+      ]
+    },
+    {
+      "id": "folklore",
+      "domain": "mystical creatures and folklore",
+      "persona": {
+        "name": "Dara",
+        "role": "folklore cataloger",
+        "goal": "Attribute a creature description to a particular story tradition."
+      },
+      "documents": [
+        {
+          "id": "LEAF-A",
+          "title": "Synthetic primary record",
+          "text": "Record-ID: TALE-53\nCollection Location: Alder Library\n\nIn the tale, the lantern hare guards the bridge during fog."
+        },
+        {
+          "id": "LEAF-B",
+          "title": "Synthetic comparison record",
+          "text": "A retelling describes a fox guarding a different crossing."
+        }
+      ],
+      "cases": [
+        {
+          "id": "exact",
+          "family": "bounded_field",
+          "question": "What is the collection location for record TALE-53?",
+          "expected": "answer",
+          "source": "LEAF-A",
+          "quote": "Collection Location: Alder Library"
+        },
+        {
+          "id": "natural",
+          "family": "record_description_instead_of_id",
+          "question": "Where is the lantern hare tale held in the collection?",
+          "expected": "answer",
+          "source": "LEAF-A",
+          "quote": "Collection Location: Alder Library"
+        },
+        {
+          "id": "scope",
+          "family": "scope_overreach",
+          "question": "Do the records establish that a lantern hare actually guarded a bridge?",
+          "expected": "withhold"
+        },
+        {
+          "id": "missing",
+          "family": "absent_fact",
+          "question": "Who wrote the earliest known version?",
+          "expected": "withhold"
+        }
+      ]
+    },
+    {
+      "id": "bigfoot",
+      "domain": "Bigfoot witness reports",
+      "persona": {
+        "name": "Ellis",
+        "role": "local archivist",
+        "goal": "Preserve the distinction between a witness account and verification."
+      },
+      "documents": [
+        {
+          "id": "LEAF-A",
+          "title": "Synthetic primary record",
+          "text": "Record-ID: REPORT-72\nInterview Date: 2026-04-07\n\nThe witness described a tall figure beyond the treeline."
+        },
+        {
+          "id": "LEAF-B",
+          "title": "Synthetic comparison record",
+          "text": "A later visitor photographed tracks without linking them to the figure or identifying an animal."
+        }
+      ],
+      "cases": [
+        {
+          "id": "exact",
+          "family": "bounded_field",
+          "question": "What is the interview date for record REPORT-72?",
+          "expected": "answer",
+          "source": "LEAF-A",
+          "quote": "Interview Date: 2026-04-07"
+        },
+        {
+          "id": "natural",
+          "family": "record_description_instead_of_id",
+          "question": "When did the archivist interview the witness who described the figure?",
+          "expected": "answer",
+          "source": "LEAF-A",
+          "quote": "Interview Date: 2026-04-07"
+        },
+        {
+          "id": "scope",
+          "family": "scope_overreach",
+          "question": "Do the records confirm that the figure was Bigfoot?",
+          "expected": "withhold"
+        },
+        {
+          "id": "missing",
+          "family": "absent_fact",
+          "question": "Did the witness collect a biological sample?",
+          "expected": "withhold"
+        }
+      ]
+    },
+    {
+      "id": "exo",
+      "domain": "speculative alien and exocreature records",
+      "persona": {
+        "name": "Sora",
+        "role": "fiction archive editor",
+        "goal": "Keep an in-world observation within its fictional setting."
+      },
+      "documents": [
+        {
+          "id": "LEAF-A",
+          "title": "Synthetic primary record",
+          "text": "Record-ID: SIM-64\nSimulation Name: Cloud Harbor\n\nIn the fictional exercise, the observer reported a silvery glider above the ridge."
+        },
+        {
+          "id": "LEAF-B",
+          "title": "Synthetic comparison record",
+          "text": "The exercise notes call the world and creature invented. They include no real detection report."
+        }
+      ],
+      "cases": [
+        {
+          "id": "exact",
+          "family": "bounded_field",
+          "question": "What is the simulation name for record SIM-64?",
+          "expected": "answer",
+          "source": "LEAF-A",
+          "quote": "Simulation Name: Cloud Harbor"
+        },
+        {
+          "id": "natural",
+          "family": "record_description_instead_of_id",
+          "question": "What did the designers call the exercise about the silvery glider?",
+          "expected": "answer",
+          "source": "LEAF-A",
+          "quote": "Simulation Name: Cloud Harbor"
+        },
+        {
+          "id": "scope",
+          "family": "scope_overreach",
+          "question": "Do the exercise records establish the discovery of extraterrestrial life?",
+          "expected": "withhold"
+        },
+        {
+          "id": "missing",
+          "family": "absent_fact",
+          "question": "When was the simulation first published?",
+          "expected": "withhold"
+        }
+      ]
+    },
+    {
+      "id": "coelacanth",
+      "domain": "coelacanth zoology records",
+      "persona": {
+        "name": "Niko",
+        "role": "museum collections trainee",
+        "goal": "Distinguish catalog identification from population-level inference."
+      },
+      "documents": [
+        {
+          "id": "LEAF-A",
+          "title": "Synthetic primary record",
+          "text": "Record-ID: LOT-88\nCatalog Number: MC-2048\n\nThe mock museum catalog identifies this teaching specimen as a coelacanth."
+        },
+        {
+          "id": "LEAF-B",
+          "title": "Synthetic comparison record",
+          "text": "The mock intake card lists the display shelf only. It supplies no field survey, population count, or capture location."
+        }
+      ],
+      "cases": [
+        {
+          "id": "exact",
+          "family": "bounded_field",
+          "question": "What is the catalog number for record LOT-88?",
+          "expected": "answer",
+          "source": "LEAF-A",
+          "quote": "Catalog Number: MC-2048"
+        },
+        {
+          "id": "natural",
+          "family": "record_description_instead_of_id",
+          "question": "Which number does the museum use to catalog the coelacanth teaching specimen?",
+          "expected": "answer",
+          "source": "LEAF-A",
+          "quote": "Catalog Number: MC-2048"
+        },
+        {
+          "id": "scope",
+          "family": "scope_overreach",
+          "question": "How many coelacanths live in the wild according to this collection?",
+          "expected": "withhold"
+        },
+        {
+          "id": "missing",
+          "family": "absent_fact",
+          "question": "Where was this specimen captured?",
+          "expected": "withhold"
+        }
+      ]
+    }
+  ]
+}

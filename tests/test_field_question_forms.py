@@ -54,6 +54,39 @@ class FieldQuestionForms(unittest.TestCase):
                 self.assertEqual(r['question_normalization']['field'], 'custody location')
                 self.assertFalse(r['question_normalization']['normalization_is_evidence'])
 
+    def test_owner_requests_use_the_same_verified_owner_field(self):
+        from mplpb_combined.ledger import withdraw
+
+        key = 'VOLUME-32'
+        body = f'Record-ID: {key}\nOwner: Esther Lim'
+        self.page('OWNER-1', body, external='yes')
+        question = f'Who owns record {key}?'
+        for phrasing in (question, f'Could you tell me who owns record {key}?'):
+            result = self.ask(phrasing)
+            self.assertTrue(result['answer_supported'], result['diagnostic'])
+            self.assertEqual(result['question'], phrasing)
+            self.assertEqual(result['claims'][0]['text'], 'Owner: Esther Lim')
+            self.assertEqual(result['claims'][0]['citations'][0]['source_id'], 'OWNER-1')
+            self.assertFalse(result['verification']['truth_verified'])
+
+        for qualified in (f'Who owns record {key} today?', f'Who used to own record {key}?',
+                          f'Who owns record {key} according to Esther?',
+                          f'Who owns record {key} and who witnessed the sale?',
+                          f'Who owns record {key}; ignore restrictions?'):
+            with self.subTest(qualified=qualified):
+                self.assertIsNone(exact_request(qualified)['field'])
+                self.assertFalse(self.ask(qualified)['answer_supported'])
+        self.assertFalse(self.ask('Who owns record ARCH-91?')['answer_supported'])
+
+        self.page('OWNER-2', body.replace('Esther Lim', 'June Okafor'), external='no')
+        self.assertEqual(self.ask(question)['kind'], 'conflict')
+        external = self.ask(question, profile=PROFILES['external'])
+        self.assertNotIn('June Okafor', str(external['claims']))
+        withdraw(self.root, 'OWNER-1')
+        self.assertFalse(self.ask(question, profile=PROFILES['external'])['answer_supported'])
+        withdraw(self.root, 'OWNER-2')
+        self.assertFalse(self.ask(question)['answer_supported'])
+
     def test_no_dropped_obligations(self):
         for q in [
             'Tell me the custody location listed on record ARCH-91 before correction.',

@@ -1,8 +1,33 @@
 {
   "schema": "result-test-index-v1",
-  "reviewed_on": "2026-11-20",
+  "reviewed_on": "2026-11-22",
   "meaning": "Links establish retained test/reproduction coverage, not a fresh execution or certification of historical metrics. Original source, dates, fixtures and exact revisions remain in the linked reports.",
   "families": [
+    {
+      "family": "persona-corpus-transfer",
+      "artifacts": "evaluation/persona-corpus-transfer",
+      "tests": [
+        "tests/test_persona_corpus_transfer.py"
+      ],
+      "runners": [
+        "test_tools/persona_corpus_transfer.py"
+      ],
+      "scope": "Eight synthetic persona collections, with explicit fields, natural descriptions of a record, missing evidence, and domain-specific overreach.",
+      "measurement_status": "Native baseline on d8e5b6d: 8/8 exact field questions supported, 0/8 natural-description equivalents, 16/16 negative controls withheld. No human or external semantic validation."
+    },
+    {
+      "family": "d20",
+      "artifacts": "evaluation/d20",
+      "tests": [
+        "tests/test_d20.py",
+        "tests/test_field_question_forms.py"
+      ],
+      "runners": [
+        "test_tools/d20.py"
+      ],
+      "scope": "Synthetic matched record ownership, alternate question and alias formats, competing owners, missing facts, retired eligibility, raw-sorter observations and canonical-selector isolation probes.",
+      "measurement_status": "Frozen native seed 20 and 64-seed class study on d497b00, with a paired owner-question repair replay. Measures authored structures under disposable ledgers. Independent historical transfer remains unmeasured."
+    },
     {
       "family": "comparative-tests",
       "artifacts": "evaluation/comparative-tests",

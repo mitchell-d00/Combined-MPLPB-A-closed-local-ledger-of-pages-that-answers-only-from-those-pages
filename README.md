@@ -82,7 +82,7 @@ For each conclusion, identify the code path and distinguish the checks you ran f
 
 ### Deterministic training loop
 
-MPLPB’s reader improves through test-driven changes to its code. AI can help generate stress cases and diagnose failures. The strict reader supplies the results that drive each revision.
+I train Combined MPLPB’s deterministic reader through versioned changes to its rules. Synthetic tests, frozen regressions, source replays, and human reviews each provide different evidence for those changes. The tests expose what the reader did. The code revision is where the learning persists. AI can help generate stress cases and diagnose failures, and the strict reader supplies the decisions that drive each revision.
 
 1. Generate synthetic stress cases for the current question grammar and source eligibility rules. Freeze the inputs and expected outcomes.
 2. Run the deterministic reader and record supported answers, misses, false support, and refusals.
@@ -91,7 +91,7 @@ MPLPB’s reader improves through test-driven changes to its code. AI can help g
 
 In the public field-question experiment, the same 750 synthetic paraphrases went from **0/750 to 750/750 supported** after a bounded addition to the accepted question forms. All 200 expected refusals held. That result measures the repair on the frozen set. Fresh book excerpts and independent human review can test how well the rules carry over to unfamiliar historical prose. [Paraphrase experiment and reproduction](docs/FIELD_QUESTION_NORMALIZATION.md) · [Primary Book Test](docs/TEST_TOOLS.md#primary-book-test)
 
-Use [Test tools](docs/TEST_TOOLS.md) to run the harness or generate a fresh real-world test plan.
+Use the [Test Index for humans and AI](docs/TEST_INDEX.md) to choose a test, trace how its evidence informs a rule, and see how D20 groups related misses into classes. The [test commands](docs/TEST_TOOLS.md) cover running a harness or drawing a fresh real-world batch.
 
 Benchmark results and their limitations are indexed alongside the original reports and test commands. The full source checkout includes the retained evaluation archive, earlier implementations, and the optional lab reference corpus. [Evidence and tests](docs/RESULTS_AND_TESTS.md) · [Evaluation archive](evaluation/) · [Earlier work](PAST_DOCUMENTATION.md) · [Lab reference corpus](reference_corpus/README.md)
 
