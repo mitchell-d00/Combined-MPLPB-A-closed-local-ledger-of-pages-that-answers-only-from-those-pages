@@ -65,14 +65,16 @@ conditions. [D20 class study](../evaluation/d20/README.md#large-study-and-class-
 
 ## D-series tests named after game dice
 
-The D-series names come from game dice. D4 is the four-sided die, D20 the
-twenty-sided die, and D100 and D% refer to percentile dice. D100 and D% are
-separate test families with different endpoints. Dice Bag draws live records. A die's name alone gives
-no case count for a particular run.
+The D-series names come from game dice. The current names are D4, D6, D20,
+D% and D100. D100 and D% both draw on percentile dice and name separate
+experiments. The unused names in a standard RPG dice set are D8, standalone
+D10 and D12. Dice Bag draws live records. A die's name alone gives no case
+count for a particular run.
 
 | Suite | What it measures | Reproduce or inspect |
 |---|---|---|
 | **D4** | Event identity, local co-reference, documentary proof and controls | [Native runner and reproduction](D4_EVENT_IDENTITY_COREFERENCE.md) · [Retained case study](../evaluation/d4/2026-11-20/CASE_STUDY.md) |
+| **D6** | Six declared-field operations for matches, contrasts, year arithmetic, branching and cited answer compilation | [Runner, worked example and Dice Bag corpus replay](../evaluation/d6/README.md) |
 | **D20** | Matched owner and alias cases, including competition, missing fields and retired evidence | [Seeded replay and rule-class study](../evaluation/d20/README.md) |
 | **Dice Bag** | Randomized live-web catalog records, blind replay, strict evidence and synonym lookup | [Custody, replay and first results](../evaluation/dice-bag/README.md) |
 | **D100** | Randomized sorter/workspace cases across separate ledgers, with source isolation and exact workspace replay | [External B-Tests runner and five-batch replay](https://github.com/mitchell-d00/B-Tests#repeatable-d100-test-with-100-web-sourced-topics) · [Local companion replay](../evaluation/sorter-exploration/2026-11-19/d100/REPORT.md) |

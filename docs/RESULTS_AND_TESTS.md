@@ -3,6 +3,10 @@
 Last reviewed: 2026-11-22.
 
 [Test Index](TEST_INDEX.md) connects the test types to the deterministic training loop.
+[D6](../evaluation/d6/README.md) records 90 synthetic checks of six evidence
+operations and a separate replay on 12 frozen Dice Bag records. The native
+compiler cites declared ledger fields and explains which branches resolved.
+
 [D20](../evaluation/d20/README.md) records the seeded ownership and alias baseline and class-level probes.
 
 [Documentary date wording and report sections](../evaluation/documentary-date-pattern/README.md) retains the Fort Sumter paraphrase repair and the separate Apollo 13 header-based passage probe.
