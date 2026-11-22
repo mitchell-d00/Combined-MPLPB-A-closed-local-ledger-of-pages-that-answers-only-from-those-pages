@@ -4,6 +4,19 @@
   "meaning": "Links establish retained test/reproduction coverage, not a fresh execution or certification of historical metrics. Original source, dates, fixtures and exact revisions remain in the linked reports.",
   "families": [
     {
+      "family": "dice-bag",
+      "artifacts": "evaluation/dice-bag",
+      "tests": [
+        "tests/test_dice_bag.py"
+      ],
+      "runners": [
+        "test_tools/dice_bag.py",
+        "test_tools/synonym_index.py"
+      ],
+      "scope": "Seeded live USGS structured records, separate operator/custodian paths, strict field answers and reviewed synonym lookup.",
+      "measurement_status": "First live batch filled 12 draws and scored 72 questions. All 36 strict negatives withheld. Lookup recovered 12 listed-phrase pairs after confirmation and produced none for 12 unlisted wordings."
+    },
+    {
       "family": "persona-corpus-transfer",
       "artifacts": "evaluation/persona-corpus-transfer",
       "tests": [

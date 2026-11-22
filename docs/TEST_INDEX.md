@@ -67,13 +67,14 @@ conditions. [D20 class study](../evaluation/d20/README.md#large-study-and-class-
 
 The D-series names come from game dice. D4 is the four-sided die, D20 the
 twenty-sided die, and D100 and D% refer to percentile dice. D100 and D% are
-separate test families with different endpoints. A die's name alone gives
+separate test families with different endpoints. Dice Bag draws live records. A die's name alone gives
 no case count for a particular run.
 
 | Suite | What it measures | Reproduce or inspect |
 |---|---|---|
 | **D4** | Event identity, local co-reference, documentary proof and controls | [Native runner and reproduction](D4_EVENT_IDENTITY_COREFERENCE.md) · [Retained case study](../evaluation/d4/2026-11-20/CASE_STUDY.md) |
 | **D20** | Matched owner and alias cases, including competition, missing fields and retired evidence | [Seeded replay and rule-class study](../evaluation/d20/README.md) |
+| **Dice Bag** | Randomized live-web catalog records, blind replay, strict evidence and synonym lookup | [Custody, replay and first results](../evaluation/dice-bag/README.md) |
 | **D100** | Randomized sorter/workspace cases across separate ledgers, with source isolation and exact workspace replay | [External B-Tests runner and five-batch replay](https://github.com/mitchell-d00/B-Tests#repeatable-d100-test-with-100-web-sourced-topics) · [Local companion replay](../evaluation/sorter-exploration/2026-11-19/d100/REPORT.md) |
 | **D%** | Stratified randomized prose and refusal cases, with a separate custodian key | [Original study](DPERCENT.md) · [Expanded generator](DPERCENT_EXPANDED.md) · [Known-weakness sampling](DPERCENT_KNOWN_WEAKNESSES.md) |
 
