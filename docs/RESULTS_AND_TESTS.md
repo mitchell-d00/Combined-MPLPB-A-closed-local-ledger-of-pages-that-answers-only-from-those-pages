@@ -1,6 +1,9 @@
 # Results and their tests
 
-Last reviewed: 2026-11-21.
+Last reviewed: 2026-11-22.
+
+[Test Index](TEST_INDEX.md) connects the test types to the deterministic training loop.
+[D20](../evaluation/d20/README.md) records the seeded ownership and alias baseline and class-level probes.
 
 [Collection automation](COLLECTION_AUTOMATION.md) documents native classing,
 source-verified field predicates, and declaration lookup across ingestion batches.

@@ -1,0 +1,189 @@
+{
+  "cases": [
+    {
+      "condition": "unique",
+      "diagnostic": "supported",
+      "family": "canonical-field",
+      "id": "D20-01-unique",
+      "kind": "supported_answer",
+      "outcome": "supported",
+      "split": "development"
+    },
+    {
+      "condition": "competing",
+      "diagnostic": "conflicting_or_multiple_owners",
+      "family": "canonical-field",
+      "id": "D20-01-competing",
+      "kind": "conflict",
+      "outcome": "withheld",
+      "split": "development"
+    },
+    {
+      "condition": "missing",
+      "diagnostic": "exact_field_missing",
+      "family": "canonical-field",
+      "id": "D20-01-missing",
+      "kind": "abstain",
+      "outcome": "withheld",
+      "split": "development"
+    },
+    {
+      "condition": "retired",
+      "diagnostic": "exact_field_missing",
+      "family": "canonical-field",
+      "id": "D20-01-retired",
+      "kind": "abstain",
+      "outcome": "withheld",
+      "split": "development"
+    },
+    {
+      "condition": "unique",
+      "diagnostic": "exact_field_missing",
+      "family": "canonical-owner-question",
+      "id": "D20-02-unique",
+      "kind": "abstain",
+      "outcome": "missed",
+      "split": "development"
+    },
+    {
+      "condition": "competing",
+      "diagnostic": "exact_field_missing",
+      "family": "canonical-owner-question",
+      "id": "D20-02-competing",
+      "kind": "abstain",
+      "outcome": "withheld",
+      "split": "development"
+    },
+    {
+      "condition": "missing",
+      "diagnostic": "exact_field_missing",
+      "family": "canonical-owner-question",
+      "id": "D20-02-missing",
+      "kind": "abstain",
+      "outcome": "withheld",
+      "split": "development"
+    },
+    {
+      "condition": "retired",
+      "diagnostic": "evidence_not_established",
+      "family": "canonical-owner-question",
+      "id": "D20-02-retired",
+      "kind": "abstain",
+      "outcome": "withheld",
+      "split": "development"
+    },
+    {
+      "condition": "unique",
+      "diagnostic": "exact_field_missing",
+      "family": "inline-alias",
+      "id": "D20-03-unique",
+      "kind": "abstain",
+      "outcome": "missed",
+      "split": "development"
+    },
+    {
+      "condition": "competing",
+      "diagnostic": "exact_field_missing",
+      "family": "inline-alias",
+      "id": "D20-03-competing",
+      "kind": "abstain",
+      "outcome": "withheld",
+      "split": "development"
+    },
+    {
+      "condition": "missing",
+      "diagnostic": "exact_field_missing",
+      "family": "inline-alias",
+      "id": "D20-03-missing",
+      "kind": "abstain",
+      "outcome": "withheld",
+      "split": "development"
+    },
+    {
+      "condition": "retired",
+      "diagnostic": "exact_field_missing",
+      "family": "inline-alias",
+      "id": "D20-03-retired",
+      "kind": "abstain",
+      "outcome": "withheld",
+      "split": "development"
+    },
+    {
+      "condition": "unique",
+      "diagnostic": "exact_field_missing",
+      "family": "prose-alias",
+      "id": "D20-04-unique",
+      "kind": "abstain",
+      "outcome": "missed",
+      "split": "challenge"
+    },
+    {
+      "condition": "competing",
+      "diagnostic": "exact_field_missing",
+      "family": "prose-alias",
+      "id": "D20-04-competing",
+      "kind": "abstain",
+      "outcome": "withheld",
+      "split": "challenge"
+    },
+    {
+      "condition": "missing",
+      "diagnostic": "exact_field_missing",
+      "family": "prose-alias",
+      "id": "D20-04-missing",
+      "kind": "abstain",
+      "outcome": "withheld",
+      "split": "challenge"
+    },
+    {
+      "condition": "retired",
+      "diagnostic": "exact_field_missing",
+      "family": "prose-alias",
+      "id": "D20-04-retired",
+      "kind": "abstain",
+      "outcome": "withheld",
+      "split": "challenge"
+    },
+    {
+      "condition": "unique",
+      "diagnostic": "exact_field_missing",
+      "family": "separate-alias-register",
+      "id": "D20-05-unique",
+      "kind": "abstain",
+      "outcome": "missed",
+      "split": "challenge"
+    },
+    {
+      "condition": "competing",
+      "diagnostic": "exact_field_missing",
+      "family": "separate-alias-register",
+      "id": "D20-05-competing",
+      "kind": "abstain",
+      "outcome": "withheld",
+      "split": "challenge"
+    },
+    {
+      "condition": "missing",
+      "diagnostic": "exact_field_missing",
+      "family": "separate-alias-register",
+      "id": "D20-05-missing",
+      "kind": "abstain",
+      "outcome": "withheld",
+      "split": "challenge"
+    },
+    {
+      "condition": "retired",
+      "diagnostic": "exact_field_missing",
+      "family": "separate-alias-register",
+      "id": "D20-05-retired",
+      "kind": "abstain",
+      "outcome": "withheld",
+      "split": "challenge"
+    }
+  ],
+  "totals": {
+    "missed": 4,
+    "supported": 1,
+    "withheld": 15
+  }
+}

@@ -4,32 +4,42 @@ Last reviewed: 2026-11-22.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `fa2647c85f5d001983d3326e18f8255bd66aff71` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `eaff824e0e320a0501dc71621527267e6f209ca92170aa3d81dda5e6eaec1976`.
+Base commit: `d497b0009eb079b475259ffef04f9d2da4277284` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `2cd3a00ac071e3da4840e58a1ac88d69e888bc9a93667bbfe4652541ff932dd9`.
 
 ## Latest user update instructions
 
-Directions for an AI to inspect the full Combined MPLPB package
+Explain how all my tests etc “train” my system and build that synthetic call it D20
 
-And make it explicit it is important that an Ai understands full MPLPB on read
+Not how I use tests to train in notes too so Ai and human understand how I train a deterministic Ai
+
+Do that for all tests I run all test types call it test index for both ai and humans to use
+
+Run a D20 large enough to find grouping of misses and classes so we don’t wack a mole
+
+And explain that too in test index
+
+My spectrum rules vs wack a mole
 
 ## Implemented scope
 
-- Add AI inspection directions to the README with the requested reading order, source entry points, supporting material and verification boundaries.
-- Link the directions from the opening of the README and the public AI discovery file.
+- Explain deterministic training in the README, and add the human and AI Test Index for choosing suites, reading evidence, and distinguishing bounded rule classes from individual patches.
+- Add D20 generation, native replay, scoring and a grouped study command. Retain a frozen seed, native outputs and large study counts with replay receipts.
 
 ## Validation recorded
 
-- Verified the navigation anchors and requested reading order, and checked the referenced paths.
-- The documentation audit, infrastructure check, and 108 focused tests passed.
+- Native seed 20 produced one supported result in five expected positives and withheld all 15 single-owner controls. Two native executions produced identical JSON.
+- The 64-seed study ran 1,280 primary cases and 320 diagnostic replays. It withheld all 960 single-owner controls and identified three candidate rule classes.
+- Four D20 regression tests, the documentation audit covering 48 evaluation families, and the repository infrastructure check passed.
 
 ## Limitations and blocked checks
 
-- The directions explain how to inspect and reproduce claims at a named commit. The edit records no new historical accuracy measurement.
+- The public generator uses five authored structures. Seeds change identifiers and owners within those structures. Blind and historical transfer still require independently authored evaluations.
+- The raw sorter path measures candidate preprocessing only. The study changes no production rule and is not an application deployment.
 
 ## Next steps
 
-- Keep the inspection directions synchronized with package entry points and evidence boundaries.
+- Trace and test narrow owner-question grammar, explicit record-alias binding and field-boundary rules independently. Keep all original D20 decisions and add independent negative controls before changing runtime behavior.
 
 ## Use this ZIP in your repository
 

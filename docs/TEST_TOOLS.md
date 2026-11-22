@@ -1,13 +1,14 @@
 # Test tools
 
-Last reviewed: 2026-11-21.
+Last reviewed: 2026-11-22.
 
-Use these tools to test the engine and reproduce project results. For collecting sources and asking questions in the app, see [MPLPB tools](TOOL_DIRECTORY.md).
+Use these tools to test the engine and reproduce project results. See the [Test Index](TEST_INDEX.md) to choose a suite and interpret its role in deterministic training. For collecting sources and asking questions in the app, see [MPLPB tools](TOOL_DIRECTORY.md).
 
 | Task | Tool |
 |---|---|
 | Run the Python regression suite | `python -m unittest discover -s tests -q` |
 | Replay the public evidence cases | `python -m tools.evaluate_public_evidence --require-capabilities --output /tmp/mplpb-public-results.json` |
+| Test ownership and group alias misses | [D20](../evaluation/d20/README.md) |
 | Test extracts from firsthand historical books | [Primary Book Test](#primary-book-test) |
 | Repeat a published test at its recorded revision | [Results and tests](RESULTS_AND_TESTS.md) · [Evaluation archive](../evaluation/) · [Benchmark dashboard](benchmarks/dashboard.md) |
 | Verify a release candidate | [ZIP-first release checks](ZIP_FIRST_RELEASE_TESTING.md) · [Browser testing](BROWSER_TESTING_FOR_AGENTS.md) |

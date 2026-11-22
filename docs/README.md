@@ -3,8 +3,8 @@
 Last reviewed: 2026-11-22.
 
 Start with the [browser or terminal example](../README.md#try-it-in-30-seconds).
-Use [MPLPB tools](TOOL_DIRECTORY.md) for application tasks or [Test tools](TEST_TOOLS.md)
-for evaluation and release checks. This index
+Use [MPLPB tools](TOOL_DIRECTORY.md) for application tasks or the [Test Index for humans and AI](TEST_INDEX.md)
+for training, evaluation and release checks. This index
 lists the individual guides, research notes, and maintenance instructions.
 
 [Repository overview](../README.md) · [How the pieces connect](PACKAGE_GUIDE.md) · [Install](INSTALLATION.md) · [Current evidence](CURRENT_STATUS.md)
