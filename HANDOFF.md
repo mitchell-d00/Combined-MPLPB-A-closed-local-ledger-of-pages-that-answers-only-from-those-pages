@@ -4,8 +4,8 @@ Last reviewed: 2026-11-22.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `8951af249a7f33e9ceaa90871955bde9fa68cd74` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `dd66a1da9a1d23d6c29ac3ec5b691dd3f911681f6eb7f570e7ec6226772634d3`.
+Base commit: `68074218962bbb36216e62be1165b945a48149ec` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `d5d7d212431d55c03792ba59f1169a32cec0975d849d34d796ce197892a22679`.
 
 ## Latest user update instructions
 
@@ -37,11 +37,13 @@ Repair enhance never harm
 - The independent owner wording regression failed on the original rule and passed after repair. All 51 focused tests passed.
 - The exact 64-seed input and answer-key digests matched. Supported answers and explicit conflicts each rose from 64 to 128, all 960 expected single-owner withholds held, and no incorrect or unsupported answer was recorded.
 - The existing 52-case public evidence suite, static infrastructure checks, JavaScript API and fixture crawler checks, and the bundled runtime checks on pinned Pyodide passed on the repaired source.
+- The focused source ZIP extracted from implementation commit 6807421 passed 51 tests and reproduced the retained native D20 output byte for byte. Local Chromium smoke passed using the repaired checkout build.
+- Native discovery reported 1,562 tests and two skips under the default sandbox. Its 11 errors and three failed assertions came from five modules that use localhost sockets. All 94 tests in those modules passed on rerun with loopback access. Validation is split across the two runs.
 
 ## Limitations and blocked checks
 
 - The public generator uses five authored structures. Seeds change identifiers and owners within those structures. Blind and historical transfer still require independently authored evaluations.
-- The raw sorter path measures candidate preprocessing only. The complete source ZIP passed CRC checks, but local full extraction exceeded the available disk budget. No application deployment was requested for this update.
+- The raw sorter path measures candidate preprocessing only. The full pre-repair repository ZIP passed CRC checks, but extraction exceeded local disk space. The repaired focused ZIP is verified separately. No deployment was performed.
 
 ## Next steps
 
