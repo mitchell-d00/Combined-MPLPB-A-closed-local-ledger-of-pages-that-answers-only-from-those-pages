@@ -412,6 +412,7 @@ def field_contexts(record, requested):
 _REQUEST_FIELD = r'(?P<field>[A-Za-z][A-Za-z0-9 _-]{0,79}?)'
 _REQUEST_ID = r'(?P<record>[A-Za-z0-9][A-Za-z0-9._:@/-]{0,180})'
 _CANONICAL_FIELD_REQUEST = rf'what is (?:the )?{_REQUEST_FIELD} (?:for|of) (?:record|event|occurrence) {_REQUEST_ID}'
+_OWNER_REQUEST = rf'(?:tell me )?who owns record {_REQUEST_ID}'
 _FIELD_REQUEST_FORMS = (
     _CANONICAL_FIELD_REQUEST,
     rf'(?:tell|show|give) me (?:the )?{_REQUEST_FIELD} (?:listed|recorded|stated) (?:on|in) (?:record|event|occurrence) {_REQUEST_ID}',
@@ -443,6 +444,9 @@ def field_question(question):
         match = re.fullmatch(form, q, re.I)
         if match and not _FIELD_QUALIFIER.search(match['field']):
             return {'field': match['field'].strip(), 'record_id': match['record']}
+    owner = re.fullmatch(_OWNER_REQUEST, q, re.I)
+    if owner:
+        return {'field': 'Owner', 'record_id': owner['record']}
     return None
 
 

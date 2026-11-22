@@ -111,3 +111,32 @@ authored structures. A new seed within those structures measures repeatability.
 New structures and independent real-source review measure transfer. No
 runtime rule was changed in this study.
 [Grouped counts and per-seed receipts](study-seeds-1000-1063.json)
+
+## First rule repair
+
+The owner-question form now supplies the same exact record ID and `Owner`
+field selector as the canonical field question. It preserves the original
+question and verifies the still-eligible source bytes through the existing
+strict route. The new whole-question form supplies no ownership evidence by
+itself. An independent regression covers different names and record IDs, a
+polite phrasing, competing owners, excluded and retired sources, and compound
+or time-qualified questions.
+
+The same 64 seeds and input/key digests reproduced the following results:
+
+| Outcome | Before | After |
+|---|---:|---:|
+| Supported answers across all five families | 64/320 | 128/320 |
+| Single owner withheld on controls | 960/960 | 960/960 |
+| Explicit conflicts on competing-owner controls | 64/320 | 128/320 |
+| Incorrect or unsupported answers | 0 | 0 |
+
+All 64 alternate owner questions now support the same owner as their
+canonical counterparts. All 64 competing-owner controls in that family now
+report the conflict. The retired control diagnostic for that family now
+identifies the missing exact evidence. The three alias/layout families still
+miss their positive cases. They require separate evidence rules and controls.
+[Seed 20 native replay](owner-repair-native.json.gz) ·
+[Seed 20 scores](owner-repair-score.json) ·
+[64-seed repair receipts](owner-repair-study.json) ·
+[Independent regression](../../tests/test_field_question_forms.py)

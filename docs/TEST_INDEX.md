@@ -54,7 +54,14 @@ distinguished alternate question grammar, explicit alias binding, and the
 declared-field boundary. Those are candidate rule classes to test separately.
 All 960 stop controls withheld a single owner, and only 64 of 320 competing
 cases explicitly recognized the conflict. Keep that distinction when grading
-a future repair. [D20 class study](../evaluation/d20/README.md#large-study-and-class-level-probes)
+a future repair.
+
+The first bounded repair recognized alternate owner wording and reused the
+existing exact owner-field proof. On the same fixtures, supported answers
+rose from 64 to 128 and explicit conflicts rose from 64 to 128. All 960
+stop controls still withheld a single owner. Keep the later alias and layout
+rules separate so each can be evaluated against its own evidence and failure
+conditions. [D20 class study](../evaluation/d20/README.md#large-study-and-class-level-probes)
 
 ## Choose the test that answers your question
 
