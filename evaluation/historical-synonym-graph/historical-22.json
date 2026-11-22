@@ -1,0 +1,915 @@
+{
+  "revision": "f9e71b9e124eb1843dc9d412628faf192f0ba6bf",
+  "originals": {
+    "original": {
+      "corpus": "evaluation/unprepared-originals/2026-11-16",
+      "seal": "freeze-v2.json",
+      "seal_sha256": "ce21b9c9afd83cf7418e0c5df1ab1c44b5d40a16cf40eb046f60d26393bed4f6",
+      "questions_sha256": "20f5173aff349ee7a3483734fda0dbbcf790d70face5c074eff8e2cf8028d984"
+    },
+    "government": {
+      "corpus": "evaluation/unprepared-originals/2026-11-16-followup/unfamiliar",
+      "seal": "freeze.json",
+      "seal_sha256": "ecd27cf7b99b2fefc170cf1736776185c49141ef5a693ca371465ce75602da51",
+      "questions_sha256": "50ff6b6e551416f35674a037d923e1d7166dc702cc2fb4c02047bf2af6918a0b"
+    }
+  },
+  "native_replay_sha256": "fa6db995daa647f7201a314ae7dd68eac5861697043c99117e527d55eb12f679",
+  "catalog_sha256": "cafc96a113afb983603eee9e94ab57a30de8f204021f5e7289c567090eaf4f9c",
+  "native_outcomes": {
+    "abstain": 14,
+    "supported_answer": 3,
+    "conflict": 3,
+    "partial_answer": 2
+  },
+  "counts": {
+    "cases": 22,
+    "with_reference_anchors": 21,
+    "with_graph_record_hint": 18,
+    "cases_with_competing_record_hints": 8,
+    "usable_record_field_pairs": 0,
+    "all_reference_records_suggested": 16,
+    "all_anchors_baseline": 4,
+    "all_anchors_graph_probe": 5,
+    "more_anchors": 2,
+    "fewer_anchors": 0
+  },
+  "cases": [
+    {
+      "id": "H01",
+      "question": "How could Lyell have finished Darwin's volume on October 3, 1859 before its public release? Separate the letter, proof copies and publication.",
+      "native_kind": "abstain",
+      "native_diagnostic": "interpretation_unsupported",
+      "anchors": 2,
+      "graph": {
+        "collection": "original",
+        "status": "ambiguous",
+        "records": {
+          "ORIGINAL-0001": [
+            "lyell"
+          ],
+          "ORIGINAL-0002": [
+            "lyell"
+          ],
+          "ORIGINAL-0003": [
+            "lyell"
+          ]
+        },
+        "fields": {},
+        "paths": {
+          "records": {
+            "ORIGINAL-0001": [
+              {
+                "phrases": [
+                  "lyell"
+                ],
+                "selector": "ORIGINAL-0001"
+              }
+            ],
+            "ORIGINAL-0002": [
+              {
+                "phrases": [
+                  "lyell"
+                ],
+                "selector": "ORIGINAL-0002"
+              }
+            ],
+            "ORIGINAL-0003": [
+              {
+                "phrases": [
+                  "lyell"
+                ],
+                "selector": "ORIGINAL-0003"
+              }
+            ]
+          },
+          "fields": {}
+        }
+      },
+      "baseline_anchors": 2,
+      "graph_anchors": 2
+    },
+    {
+      "id": "H02",
+      "question": "Who arranged for Wallace to receive Darwin's book, and which dated letter records the arrangement?",
+      "native_kind": "supported_answer",
+      "native_diagnostic": "supported_documentary_assertion",
+      "anchors": 1,
+      "graph": {
+        "collection": "original",
+        "status": "ambiguous",
+        "records": {
+          "ORIGINAL-0001": [
+            "wallace"
+          ],
+          "ORIGINAL-0002": [
+            "wallace"
+          ],
+          "ORIGINAL-0003": [
+            "wallace"
+          ]
+        },
+        "fields": {},
+        "paths": {
+          "records": {
+            "ORIGINAL-0001": [
+              {
+                "phrases": [
+                  "wallace"
+                ],
+                "selector": "ORIGINAL-0001"
+              }
+            ],
+            "ORIGINAL-0002": [
+              {
+                "phrases": [
+                  "wallace"
+                ],
+                "selector": "ORIGINAL-0002"
+              }
+            ],
+            "ORIGINAL-0003": [
+              {
+                "phrases": [
+                  "wallace"
+                ],
+                "selector": "ORIGINAL-0003"
+              }
+            ]
+          },
+          "fields": {}
+        }
+      },
+      "baseline_anchors": 0,
+      "graph_anchors": 0
+    },
+    {
+      "id": "H03",
+      "question": "Does Huxley's November 23rd letter describe a second publication of the book, or his own reading of an earlier copy?",
+      "native_kind": "conflict",
+      "native_diagnostic": "retrieval_ambiguous",
+      "anchors": 1,
+      "graph": {
+        "collection": "original",
+        "status": "incomplete",
+        "records": {},
+        "fields": {},
+        "paths": {
+          "records": {},
+          "fields": {}
+        }
+      },
+      "baseline_anchors": 1,
+      "graph_anchors": 1
+    },
+    {
+      "id": "H04",
+      "question": "What does the diary say Darwin was correcting at the end of November and beginning of December, and what does that establish about a later edition?",
+      "native_kind": "conflict",
+      "native_diagnostic": "retrieval_ambiguous",
+      "anchors": 1,
+      "graph": {
+        "collection": "original",
+        "status": "ambiguous",
+        "records": {
+          "ORIGINAL-0001": [
+            "darwin",
+            "the diary"
+          ],
+          "ORIGINAL-0002": [
+            "darwin",
+            "the diary"
+          ],
+          "ORIGINAL-0003": [
+            "darwin",
+            "the diary"
+          ]
+        },
+        "fields": {},
+        "paths": {
+          "records": {
+            "ORIGINAL-0001": [
+              {
+                "phrases": [
+                  "darwin"
+                ],
+                "selector": "ORIGINAL-0001"
+              },
+              {
+                "phrases": [
+                  "the diary"
+                ],
+                "selector": "ORIGINAL-0001"
+              }
+            ],
+            "ORIGINAL-0002": [
+              {
+                "phrases": [
+                  "darwin"
+                ],
+                "selector": "ORIGINAL-0002"
+              },
+              {
+                "phrases": [
+                  "the diary"
+                ],
+                "selector": "ORIGINAL-0002"
+              }
+            ],
+            "ORIGINAL-0003": [
+              {
+                "phrases": [
+                  "darwin"
+                ],
+                "selector": "ORIGINAL-0003"
+              },
+              {
+                "phrases": [
+                  "the diary"
+                ],
+                "selector": "ORIGINAL-0003"
+              }
+            ]
+          },
+          "fields": {}
+        }
+      },
+      "baseline_anchors": 1,
+      "graph_anchors": 1
+    },
+    {
+      "id": "H05",
+      "question": "Compare the opening truth claim in Jefferson's rough draft and the final Declaration transcript. What wording changed and what remained?",
+      "native_kind": "supported_answer",
+      "native_diagnostic": "supported_documentary_assertion",
+      "anchors": 2,
+      "graph": {
+        "collection": "original",
+        "status": "ambiguous",
+        "records": {
+          "ORIGINAL-0004": [
+            "declaration",
+            "rough draft"
+          ],
+          "ORIGINAL-0005": [
+            "declaration",
+            "final declaration"
+          ]
+        },
+        "fields": {},
+        "paths": {
+          "records": {
+            "ORIGINAL-0004": [
+              {
+                "phrases": [
+                  "declaration"
+                ],
+                "selector": "ORIGINAL-0004"
+              },
+              {
+                "phrases": [
+                  "rough draft"
+                ],
+                "selector": "ORIGINAL-0004"
+              }
+            ],
+            "ORIGINAL-0005": [
+              {
+                "phrases": [
+                  "declaration"
+                ],
+                "selector": "ORIGINAL-0005"
+              },
+              {
+                "phrases": [
+                  "final declaration"
+                ],
+                "selector": "ORIGINAL-0005"
+              }
+            ]
+          },
+          "fields": {}
+        }
+      },
+      "baseline_anchors": 0,
+      "graph_anchors": 0
+    },
+    {
+      "id": "H06",
+      "question": "Which passage about the slave trade appears in the rough draft but not in this final Declaration transcript? Can these pages alone identify every person responsible for the deletion?",
+      "native_kind": "abstain",
+      "native_diagnostic": "interpretation_unsupported",
+      "anchors": 2,
+      "graph": {
+        "collection": "original",
+        "status": "ambiguous",
+        "records": {
+          "ORIGINAL-0004": [
+            "declaration",
+            "rough draft"
+          ],
+          "ORIGINAL-0005": [
+            "declaration",
+            "final declaration"
+          ]
+        },
+        "fields": {},
+        "paths": {
+          "records": {
+            "ORIGINAL-0004": [
+              {
+                "phrases": [
+                  "declaration"
+                ],
+                "selector": "ORIGINAL-0004"
+              },
+              {
+                "phrases": [
+                  "rough draft"
+                ],
+                "selector": "ORIGINAL-0004"
+              }
+            ],
+            "ORIGINAL-0005": [
+              {
+                "phrases": [
+                  "declaration"
+                ],
+                "selector": "ORIGINAL-0005"
+              },
+              {
+                "phrases": [
+                  "final declaration"
+                ],
+                "selector": "ORIGINAL-0005"
+              }
+            ]
+          },
+          "fields": {}
+        }
+      },
+      "baseline_anchors": 0,
+      "graph_anchors": 0
+    },
+    {
+      "id": "H07",
+      "question": "Distinguish the bombardment, surrender, evacuation and telegram dates in the Fort Sumter record, without treating the webpage review date as an event date.",
+      "native_kind": "supported_answer",
+      "native_diagnostic": "supported_documentary_assertion",
+      "anchors": 3,
+      "graph": {
+        "collection": "original",
+        "status": "incomplete",
+        "records": {
+          "ORIGINAL-0006": [
+            "fort sumter",
+            "sumter"
+          ]
+        },
+        "fields": {},
+        "paths": {
+          "records": {
+            "ORIGINAL-0006": [
+              {
+                "phrases": [
+                  "fort sumter"
+                ],
+                "selector": "ORIGINAL-0006"
+              },
+              {
+                "phrases": [
+                  "sumter"
+                ],
+                "selector": "ORIGINAL-0006"
+              }
+            ]
+          },
+          "fields": {}
+        }
+      },
+      "baseline_anchors": 0,
+      "graph_anchors": 0
+    },
+    {
+      "id": "H08",
+      "question": "According to the Apollo 13 summary, why was the landing aborted and what spacecraft supported return to Earth?",
+      "native_kind": "abstain",
+      "native_diagnostic": "documentary_assertion_not_established",
+      "anchors": 1,
+      "graph": {
+        "collection": "original",
+        "status": "incomplete",
+        "records": {
+          "ORIGINAL-0007": [
+            "apollo 13"
+          ]
+        },
+        "fields": {},
+        "paths": {
+          "records": {
+            "ORIGINAL-0007": [
+              {
+                "phrases": [
+                  "apollo 13"
+                ],
+                "selector": "ORIGINAL-0007"
+              }
+            ]
+          },
+          "fields": {}
+        }
+      },
+      "baseline_anchors": 0,
+      "graph_anchors": 0
+    },
+    {
+      "id": "H09",
+      "question": "The Apollo 13 OCR has a change sheet marked May 1970 and a title page marked September 1970. What can this text alone establish about revision order and mission elapsed time?",
+      "native_kind": "abstain",
+      "native_diagnostic": "interpretation_unsupported",
+      "anchors": 2,
+      "graph": {
+        "collection": "original",
+        "status": "incomplete",
+        "records": {
+          "ORIGINAL-0007": [
+            "apollo 13"
+          ]
+        },
+        "fields": {},
+        "paths": {
+          "records": {
+            "ORIGINAL-0007": [
+              {
+                "phrases": [
+                  "apollo 13"
+                ],
+                "selector": "ORIGINAL-0007"
+              }
+            ]
+          },
+          "fields": {}
+        }
+      },
+      "baseline_anchors": 1,
+      "graph_anchors": 2
+    },
+    {
+      "id": "H10",
+      "question": "Does the shared language of withdrawal and return establish a causal relationship between the Sumter telegram and the Apollo 13 mission?",
+      "native_kind": "abstain",
+      "native_diagnostic": "interpretation_unsupported",
+      "anchors": 2,
+      "graph": {
+        "collection": "original",
+        "status": "ambiguous",
+        "records": {
+          "ORIGINAL-0006": [
+            "sumter",
+            "sumter telegram"
+          ],
+          "ORIGINAL-0007": [
+            "apollo 13"
+          ]
+        },
+        "fields": {},
+        "paths": {
+          "records": {
+            "ORIGINAL-0006": [
+              {
+                "phrases": [
+                  "sumter"
+                ],
+                "selector": "ORIGINAL-0006"
+              },
+              {
+                "phrases": [
+                  "sumter telegram",
+                  "fort sumter"
+                ],
+                "selector": "ORIGINAL-0006"
+              }
+            ],
+            "ORIGINAL-0007": [
+              {
+                "phrases": [
+                  "apollo 13"
+                ],
+                "selector": "ORIGINAL-0007"
+              }
+            ]
+          },
+          "fields": {}
+        }
+      },
+      "baseline_anchors": 0,
+      "graph_anchors": 0
+    },
+    {
+      "id": "H11",
+      "question": "Did Darwin's note arranging Wallace's book delivery cause the Apollo 13 abort? Provide a source-supported link or explicitly state that it is unavailable.",
+      "native_kind": "abstain",
+      "native_diagnostic": "interpretation_unsupported",
+      "anchors": 2,
+      "graph": {
+        "collection": "original",
+        "status": "incomplete",
+        "records": {
+          "ORIGINAL-0007": [
+            "apollo 13"
+          ]
+        },
+        "fields": {},
+        "paths": {
+          "records": {
+            "ORIGINAL-0007": [
+              {
+                "phrases": [
+                  "apollo 13"
+                ],
+                "selector": "ORIGINAL-0007"
+              }
+            ]
+          },
+          "fields": {}
+        }
+      },
+      "baseline_anchors": 0,
+      "graph_anchors": 0
+    },
+    {
+      "id": "H12",
+      "question": "Which named engineer personally authorized an oxygen-tank fire, and which original letter proves that authorization?",
+      "native_kind": "abstain",
+      "native_diagnostic": "interpretation_unsupported",
+      "anchors": 1,
+      "graph": {
+        "collection": "original",
+        "status": "incomplete",
+        "records": {},
+        "fields": {},
+        "paths": {
+          "records": {},
+          "fields": {}
+        }
+      },
+      "baseline_anchors": 0,
+      "graph_anchors": 0
+    },
+    {
+      "id": "H13",
+      "question": "Which distinct documentary layers in the Sumter page refer to the same historical message, and which statements belong to modern archival framing rather than the telegram?",
+      "native_kind": "abstain",
+      "native_diagnostic": "interpretation_unsupported",
+      "anchors": 2,
+      "graph": {
+        "collection": "original",
+        "status": "incomplete",
+        "records": {
+          "ORIGINAL-0006": [
+            "sumter"
+          ]
+        },
+        "fields": {},
+        "paths": {
+          "records": {
+            "ORIGINAL-0006": [
+              {
+                "phrases": [
+                  "sumter"
+                ],
+                "selector": "ORIGINAL-0006"
+              }
+            ]
+          },
+          "fields": {}
+        }
+      },
+      "baseline_anchors": 0,
+      "graph_anchors": 1
+    },
+    {
+      "id": "H14",
+      "question": "Can the selected Darwin correspondence alone establish whether Darwin or Wallace first conceived natural selection, rather than who read or sent a particular book?",
+      "native_kind": "conflict",
+      "native_diagnostic": "retrieval_ambiguous",
+      "anchors": 1,
+      "graph": {
+        "collection": "original",
+        "status": "ambiguous",
+        "records": {
+          "ORIGINAL-0001": [
+            "darwin",
+            "wallace"
+          ],
+          "ORIGINAL-0002": [
+            "darwin",
+            "wallace"
+          ],
+          "ORIGINAL-0003": [
+            "darwin",
+            "wallace"
+          ]
+        },
+        "fields": {},
+        "paths": {
+          "records": {
+            "ORIGINAL-0001": [
+              {
+                "phrases": [
+                  "darwin"
+                ],
+                "selector": "ORIGINAL-0001"
+              },
+              {
+                "phrases": [
+                  "wallace"
+                ],
+                "selector": "ORIGINAL-0001"
+              }
+            ],
+            "ORIGINAL-0002": [
+              {
+                "phrases": [
+                  "darwin"
+                ],
+                "selector": "ORIGINAL-0002"
+              },
+              {
+                "phrases": [
+                  "wallace"
+                ],
+                "selector": "ORIGINAL-0002"
+              }
+            ],
+            "ORIGINAL-0003": [
+              {
+                "phrases": [
+                  "darwin"
+                ],
+                "selector": "ORIGINAL-0003"
+              },
+              {
+                "phrases": [
+                  "wallace"
+                ],
+                "selector": "ORIGINAL-0003"
+              }
+            ]
+          },
+          "fields": {}
+        }
+      },
+      "baseline_anchors": 0,
+      "graph_anchors": 0
+    },
+    {
+      "id": "U01",
+      "question": "Who appointed Eisenhower to command Overlord, and how does that differ from Eisenhower deciding to proceed on June 5?",
+      "native_kind": "partial_answer",
+      "native_diagnostic": "partial_documentary_evidence",
+      "anchors": 2,
+      "graph": {
+        "collection": "government",
+        "status": "incomplete",
+        "records": {
+          "ORIGINAL-0001": [
+            "eisenhower",
+            "overlord"
+          ]
+        },
+        "fields": {},
+        "paths": {
+          "records": {
+            "ORIGINAL-0001": [
+              {
+                "phrases": [
+                  "eisenhower"
+                ],
+                "selector": "ORIGINAL-0001"
+              },
+              {
+                "phrases": [
+                  "overlord"
+                ],
+                "selector": "ORIGINAL-0001"
+              }
+            ]
+          },
+          "fields": {}
+        }
+      },
+      "baseline_anchors": 0,
+      "graph_anchors": 0
+    },
+    {
+      "id": "U02",
+      "question": "Did Eisenhower actually report a failed invasion, or prepare a conditional message accepting responsibility if it failed?",
+      "native_kind": "abstain",
+      "native_diagnostic": "interpretation_unsupported",
+      "anchors": 1,
+      "graph": {
+        "collection": "government",
+        "status": "incomplete",
+        "records": {
+          "ORIGINAL-0001": [
+            "eisenhower"
+          ]
+        },
+        "fields": {},
+        "paths": {
+          "records": {
+            "ORIGINAL-0001": [
+              {
+                "phrases": [
+                  "eisenhower"
+                ],
+                "selector": "ORIGINAL-0001"
+              }
+            ]
+          },
+          "fields": {}
+        }
+      },
+      "baseline_anchors": 0,
+      "graph_anchors": 0
+    },
+    {
+      "id": "U03",
+      "question": "Distinguish drafting, distribution and the date of Eisenhower’s Order of the Day. Does one date identify all three events?",
+      "native_kind": "abstain",
+      "native_diagnostic": "interpretation_unsupported",
+      "anchors": 1,
+      "graph": {
+        "collection": "government",
+        "status": "incomplete",
+        "records": {},
+        "fields": {},
+        "paths": {
+          "records": {},
+          "fields": {}
+        }
+      },
+      "baseline_anchors": 0,
+      "graph_anchors": 0
+    },
+    {
+      "id": "U04",
+      "question": "How does the final Emancipation Proclamation quote the earlier proclamation, and what scope qualification limits its application?",
+      "native_kind": "abstain",
+      "native_diagnostic": "interpretation_unsupported",
+      "anchors": 2,
+      "graph": {
+        "collection": "government",
+        "status": "incomplete",
+        "records": {
+          "ORIGINAL-0003": [
+            "emancipation proclamation"
+          ]
+        },
+        "fields": {},
+        "paths": {
+          "records": {
+            "ORIGINAL-0003": [
+              {
+                "phrases": [
+                  "emancipation proclamation"
+                ],
+                "selector": "ORIGINAL-0003"
+              }
+            ]
+          },
+          "fields": {}
+        }
+      },
+      "baseline_anchors": 0,
+      "graph_anchors": 0
+    },
+    {
+      "id": "U05",
+      "question": "Does the proclamation free every enslaved person in every state without exceptions? Show the limiting language rather than silently removing it.",
+      "native_kind": "abstain",
+      "native_diagnostic": "interpretation_unsupported",
+      "anchors": 1,
+      "graph": {
+        "collection": "government",
+        "status": "incomplete",
+        "records": {},
+        "fields": {},
+        "paths": {
+          "records": {},
+          "fields": {}
+        }
+      },
+      "baseline_anchors": 0,
+      "graph_anchors": 0
+    },
+    {
+      "id": "U06",
+      "question": "Who surveyed Yellowstone, and what documentary actions did he subsequently take to promote protection? Separate archival framing from the act itself.",
+      "native_kind": "partial_answer",
+      "native_diagnostic": "partial_documentary_evidence",
+      "anchors": 1,
+      "graph": {
+        "collection": "government",
+        "status": "incomplete",
+        "records": {
+          "ORIGINAL-0002": [
+            "yellowstone"
+          ]
+        },
+        "fields": {},
+        "paths": {
+          "records": {
+            "ORIGINAL-0002": [
+              {
+                "phrases": [
+                  "yellowstone"
+                ],
+                "selector": "ORIGINAL-0002"
+              }
+            ]
+          },
+          "fields": {}
+        }
+      },
+      "baseline_anchors": 0,
+      "graph_anchors": 0
+    },
+    {
+      "id": "U07",
+      "question": "Does the Yellowstone law make leasing compulsory, or grant discretion subject to a term limit?",
+      "native_kind": "abstain",
+      "native_diagnostic": "interpretation_unsupported",
+      "anchors": 1,
+      "graph": {
+        "collection": "government",
+        "status": "incomplete",
+        "records": {
+          "ORIGINAL-0002": [
+            "yellowstone"
+          ]
+        },
+        "fields": {},
+        "paths": {
+          "records": {
+            "ORIGINAL-0002": [
+              {
+                "phrases": [
+                  "yellowstone"
+                ],
+                "selector": "ORIGINAL-0002"
+              }
+            ]
+          },
+          "fields": {}
+        }
+      },
+      "baseline_anchors": 1,
+      "graph_anchors": 1
+    },
+    {
+      "id": "U08",
+      "question": "Did the Yellowstone legislation cause the Normandy invasion? Is there a documentary causal link between these records?",
+      "native_kind": "abstain",
+      "native_diagnostic": "interpretation_unsupported",
+      "anchors": 0,
+      "graph": {
+        "collection": "government",
+        "status": "ambiguous",
+        "records": {
+          "ORIGINAL-0001": [
+            "normandy"
+          ],
+          "ORIGINAL-0002": [
+            "yellowstone"
+          ]
+        },
+        "fields": {},
+        "paths": {
+          "records": {
+            "ORIGINAL-0001": [
+              {
+                "phrases": [
+                  "normandy"
+                ],
+                "selector": "ORIGINAL-0001"
+              }
+            ],
+            "ORIGINAL-0002": [
+              {
+                "phrases": [
+                  "yellowstone"
+                ],
+                "selector": "ORIGINAL-0002"
+              }
+            ]
+          },
+          "fields": {}
+        }
+      },
+      "baseline_anchors": 0,
+      "graph_anchors": 0
+    }
+  ]
+}

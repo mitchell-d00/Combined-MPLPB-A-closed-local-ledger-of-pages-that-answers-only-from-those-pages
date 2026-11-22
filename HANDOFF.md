@@ -4,33 +4,42 @@ Last reviewed: 2026-11-22.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `f871ed522100d5f8a28758032c758f4e78892987` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `4a3b278fa3fd7ce92ad29c82c04c93dfa598dc394d494b027409a850542dc288`.
+Base commit: `5b0fa559d511b925af3595c52d083cac1cdceb43` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `263e4d2ad70afa1966e1342e09963e4b0f43af41ac1ca39d7c4a3ab6943638f9`.
 
 ## Latest user update instructions
 
-Let’s expand it the test that generated the 22 and see if we can find the patterns
+Test it vs synonym graph.
+
+Add corona history of cv 66 America and mt airy history
+
+Add Corona as a third topic
+
+Mt airy nc
+
+And see if it helps historic
+
+Test historic 22 on graph too
 
 ## Implemented scope
 
-- Add a separate frozen 40-question extension on the exact source bytes from the historical 22, with ten matched quote, direct, paraphrase and boundary groups.
-- Record native outcome, cited reference anchors, and bounded passage visibility for the focused question pairs.
+- Compare baseline and SQLite synonym graph-guided passage discovery on the frozen original historical 22 and the 40 historical follow-up questions.
+- Add attributed starter history records and twelve questions on USS America CV-66, Mount Airy in North Carolina, and Corona in California.
 
 ## Validation recorded
 
-- All 40 cases ran at the f9e71b9 engine state. The independent passage probe replay preserved all 40 native contracts.
-- The native reader fully supported 4/10 exact quote controls, 1/10 direct questions and 0/10 paraphrases. Nine quote controls cited their anchor. All 10 boundary controls withheld full support.
-- The passage probe surfaced all selected anchors for 7/10 direct and 7/10 paraphrased queries. Three focused test harness checks passed.
-- The focused source ZIP passed all 20 pattern and date tests, replayed all 40 cases, and reproduced the retained native answer-and-probe archive byte for byte.
+- On the original 22 the graph suggested eligible records for 18/22 and raised complete reference-anchor visibility from 4/21 to 5/21. H09 and H13 gained anchors and no case lost any.
+- On the 40 follow-ups the graph suggested all reference records for 27/40. One direct or paraphrased question gained an anchor, and fully surfaced cases stayed 14/20. All 12 new starter cases found the intended record.
+- All 13 scope controls across the follow-ups and new topics withheld full support. Ten focused graph and historical tests passed.
 
 ## Limitations and blocked checks
 
-- The extension uses authored follow-up questions and selective source anchors. These results measure retrieval and native proof behavior under frozen conditions. Historical accuracy and independent semantic grading remain unmeasured.
-- The passage probe uses a separate entry point. Visibility there does not establish the strict reader's causal failure mechanism.
+- The graph-guided comparison is a passage inspection probe. Strict proof uses its existing unmodified source path. Curated aliases and prepared source summaries do not establish blind transfer or historical answer accuracy.
+- Corona was interpreted as the California city. The new corpora use attributed short factual summaries rather than complete copied originals.
 
 ## Next steps
 
-- Vary documentary date-role wording around the Fort Sumter case without weakening source attribution and scope checks. Test contingency, attribution and permission-plus-limit classes separately. Inspect Apollo 13 passage discovery before changing a causal proof rule.
+- Measure source-bound proof rules for documentary date roles and attribution separately from graph-guided discovery.
 
 ## Use this ZIP in your repository
 
