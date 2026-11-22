@@ -1,37 +1,35 @@
 # Repository handoff
 
-Last reviewed: 2026-11-21.
+Last reviewed: 2026-11-22.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `cf2f9cb91eceef7bae7666dc3c615eeafe3967ec` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `5db4b28d89827a0ec8e10a0d642baffaf37736d56201c779bb8c2d73d6463d88`.
+Base commit: `ddde79f55d3fcb46dd3a9d5a445e81f6ad3103aa` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `ca4189defa28cda7f6ad47d52825c2aac7f7b20d29dc7f632e404e54b91bd4c6`.
 
 ## Latest user update instructions
 
-Push it merge to main
+And others I forgot can you crawl my full repo and put it all into a path like this so I don’t have to describe all the connections of modules projects and mplpb
 
 ## Implemented scope
 
-- Publish the original Executable Gates comparative package and the verified dispatch enforcement follow-up.
-- Retain the follow-up ZIP, checksum, harness, raw and preliminary observations, and regression log in both repositories.
-- Index the follow-up with the original evidence and report its tested operational boundary.
+- Expand the package guide into the connection map for source intake, candidate review, strict reading, application interfaces, work coordination and guarded dispatch.
+- Link implementation files and workflow paths from the guide, and make it discoverable from the README and documentation index.
+- Map the companion testbench, preserved implementations, credited research projects, data packs, and release tooling to their roles.
 
 ## Validation recorded
 
-- The original seven paired probes and both disposable local Git fixtures reproduced.
-- All 28 follow-up controls passed from the extracted experiment ZIP and replayed successfully in both publication checkouts. The specialist-continuity suite passed 48 tests.
-- The B-Tests suite passed all 130 tests. The MPLPB handoff, documentation and infrastructure checks apply to the publication candidate.
+- Traced native CLI entry points, the shared App used by the browser and MCP, the WorkStore dispatch boundary, and pinned B-Tests workflows.
+- Verified that the two diagram edge lists refer to declared nodes and that the documented source paths resolve.
+- The documentation audit, infrastructure checks, 248 focused Python tests and the JavaScript API test passed.
 
 ## Limitations and blocked checks
 
-- The follow-up tests supported execution surfaces and a cooperative local fixture adapter at MPLPB 6ba371c.
-- A source change after reservation produced no adapter effect and retained an indeterminate outcome with two events.
-- Complete mediation under adversarial conditions remains unestablished.
+- This is an implementation and navigation guide. Its diagrams document supported paths through the local system.
 
 ## Next steps
 
-- Run both repositories' checks for the submitted revisions before merging.
+- Update the connection map when a supported entry point, storage boundary, or distribution changes.
 
 ## Use this ZIP in your repository
 

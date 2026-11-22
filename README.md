@@ -1,8 +1,10 @@
 # Combined MPLPB
 
-Combined MPLPB is a local notebook with a deterministic, rule-based AI reader. It answers questions from the pages you give it, cites the text that supports an answer, and tells you when the available pages leave a question open. It keeps earlier versions when you revise a page.
+Combined MPLPB is a local evidence and work system with a deterministic, rule-based AI reader. It answers questions from the pages you give it, cites the text that supports an answer, and tells you when the available pages leave a question open. It keeps earlier versions when you revise a page.
 
 [Open the browser app](https://mitchell-d00.github.io/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/) · [Download the small Python package](https://mitchell-d00.github.io/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/downloads/mplpb-native.zip) · [Installation guide](docs/INSTALLATION.md)
+
+See [how the pieces connect](docs/PACKAGE_GUIDE.md) for the paths from raw documents to evidence, conversation, work history, and guarded dispatch, plus the companion projects and tests.
 
 ## Try it in 30 seconds
 
@@ -62,4 +64,4 @@ Benchmark results and their limitations are indexed alongside the original repor
 
 Code is MIT licensed and project documentation is CC BY 4.0. Bundled sources and other materials carry their own notices. [License](LICENSE) · [Resource notices](resources/README.md)
 
-Last reviewed: 2026-11-21.
+Last reviewed: 2026-11-22.
