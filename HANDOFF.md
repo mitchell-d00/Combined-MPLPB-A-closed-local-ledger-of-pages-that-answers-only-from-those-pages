@@ -4,8 +4,8 @@ Last reviewed: 2026-11-22.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `f9e71b9e124eb1843dc9d412628faf192f0ba6bf` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `74043445e8d247c2f51f458ecd01d5a319572b8d7e7fad6836bc2303ff631363`.
+Base commit: `f871ed522100d5f8a28758032c758f4e78892987` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `4a3b278fa3fd7ce92ad29c82c04c93dfa598dc394d494b027409a850542dc288`.
 
 ## Latest user update instructions
 
@@ -21,6 +21,7 @@ Let’s expand it the test that generated the 22 and see if we can find the patt
 - All 40 cases ran at the f9e71b9 engine state. The independent passage probe replay preserved all 40 native contracts.
 - The native reader fully supported 4/10 exact quote controls, 1/10 direct questions and 0/10 paraphrases. Nine quote controls cited their anchor. All 10 boundary controls withheld full support.
 - The passage probe surfaced all selected anchors for 7/10 direct and 7/10 paraphrased queries. Three focused test harness checks passed.
+- The focused source ZIP passed all 20 pattern and date tests, replayed all 40 cases, and reproduced the retained native answer-and-probe archive byte for byte.
 
 ## Limitations and blocked checks
 
@@ -29,7 +30,7 @@ Let’s expand it the test that generated the 22 and see if we can find the patt
 
 ## Next steps
 
-- Vary documentary date-role wording around the Fort Sumter case without weakening rupture and scope guards. Test contingency, attribution and permission-plus-limit classes separately. Inspect Apollo 13 passage discovery before changing a causal proof rule.
+- Vary documentary date-role wording around the Fort Sumter case without weakening source attribution and scope checks. Test contingency, attribution and permission-plus-limit classes separately. Inspect Apollo 13 passage discovery before changing a causal proof rule.
 
 ## Use this ZIP in your repository
 
