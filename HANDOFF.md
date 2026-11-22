@@ -4,28 +4,33 @@ Last reviewed: 2026-11-22.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `3931b675acd214f8ff6203cd4928e4c5d43517b4` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `d0b773a63648d7a565de16d9955f0b9691522ca568610e82181e5b249db5a7bf`.
+Base commit: `65fc5eb13c7ff19302502b245f64e52ddaa8c719` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `178604c0125d231b18f6b94ae2d3cfdf8c435444b76f81994240cf1c620f4eed`.
 
 ## Latest user update instructions
 
-Build a graph synonym index like my SQLite
+Push it as such but make it an active rout to fixing other issues it may fix my communication experience-packaging
+
+Do the 72
 
 ## Implemented scope
 
-- Build and query a separate SQLite graph from the existing synonym catalog format, with optional reviewed directed links and selector explanations.
+- Package the opt-in SQLite synonym graph as a native-wheel command, with readable suggestions and a local report that groups communication issues for review.
+- Allow the sealed Dice Bag runner to select a SQLite database and preserve the resulting 72-case replay receipt. Add a release check for the installed command.
 
 ## Validation recorded
 
-- Ten focused graph, flat synonym index, and Dice Bag unit tests passed. The persisted graph reopened read-only with SQLite integrity checks passing and reproduced all 72 frozen Dice Bag lookup results.
+- The frozen 72-case full score was byte-identical to the original and all 36 strict negative controls withheld. The communication report grouped 24 unmatched fields, 12 competing record matches, and 36 unique pairs that require whole-question review.
+- Thirteen focused graph, flat index, Dice Bag and persona transfer tests passed.
 
 ## Limitations and blocked checks
 
-- Lookup gives suggestions for review, and the default reader still checks evidence through the existing path. The Dice Bag parity run kept the original vocabulary and measures no improvement in unfamiliar wording.
+- This route suggests selectors and keeps the original wording. It does not supply selectors automatically to the strict reader or expand the catalog by itself.
+- The replay kept the same vocabulary. It checks parity rather than measuring independent language transfer.
 
 ## Next steps
 
-- Use a separately authored held-out catalog to evaluate added graph edges, ambiguity, and qualifier retention.
+- Use the review groups to design scoped candidate changes and test against a separate held-out collection before promoting expansions.
 
 ## Use this ZIP in your repository
 

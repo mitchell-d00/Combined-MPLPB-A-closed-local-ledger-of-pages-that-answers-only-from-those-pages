@@ -61,7 +61,7 @@ jobs:
           python -m venv "$RUNNER_TEMP/mcp-sdk"
           "$RUNNER_TEMP/mcp-sdk/bin/python" -m pip install "mcp==1.26.0"
           "$RUNNER_TEMP/mcp-sdk/bin/python" tools/check_mcp_client.py --output "$RUNNER_TEMP/mplpb-zipped/mcp-client.json"
-      - name: Test installed candidate workspace without checkout tools
+      - name: Test installed workspace and synonym graph without checkout tools
         shell: bash
         run: |
           set -euo pipefail
@@ -70,6 +70,11 @@ jobs:
           python -m venv "$RUNNER_TEMP/mplpb-workspace-installed"
           "$RUNNER_TEMP/mplpb-workspace-installed/bin/python" -m pip install --no-index "$RUNNER_TEMP/mplpb-zipped/workspace-wheel/"*.whl
           "$RUNNER_TEMP/mplpb-workspace-installed/bin/python" -I tools/check_candidate_workspace_install.py --output "$RUNNER_TEMP/mplpb-zipped/workspace-wheel-smoke.json"
+          mkdir "$RUNNER_TEMP/synonym-graph-smoke"
+          cd "$RUNNER_TEMP/synonym-graph-smoke"
+          "$RUNNER_TEMP/mplpb-workspace-installed/bin/mplpb-synonym-graph" build --catalog "$RUNNER_TEMP/mplpb-unpacked/evaluation/persona-corpus-transfer/synonyms.json" --db synonyms.sqlite
+          "$RUNNER_TEMP/mplpb-workspace-installed/bin/mplpb-synonym-graph" query --db synonyms.sqlite --collection coelacanth 'What catalogue number belongs to the coelacanth display specimen?' > "$RUNNER_TEMP/mplpb-zipped/synonym-wheel-smoke.json"
+          python -c 'import json, sys; hit = json.load(open(sys.argv[1])); assert hit["status"] == "candidate" and set(hit["records"]) == {"LOT-88"} and set(hit["fields"]) == {"Catalog Number"}' "$RUNNER_TEMP/mplpb-zipped/synonym-wheel-smoke.json"
           sha256sum "$RUNNER_TEMP/mplpb-zipped/workspace-wheel/"*.whl > "$RUNNER_TEMP/mplpb-zipped/workspace-wheel.sha256"
       - name: Replay committed reference evidence FROM ZIP
         shell: bash

@@ -2,15 +2,10 @@
 import argparse
 import json
 from pathlib import Path
-import re
-import unicodedata
 
-WORDS = re.compile(r"[\w]+(?:[-'’][\w]+)*")
+from mplpb_answers.synonym_graph import words
+
 CATALOG = Path(__file__).resolve().parents[1] / 'evaluation/persona-corpus-transfer/synonyms.json'
-
-
-def words(text):
-    return tuple(WORDS.findall(unicodedata.normalize('NFC', text).casefold()))
 
 
 class SynonymIndex:

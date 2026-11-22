@@ -1,6 +1,7 @@
 """Dice Bag live USGS acquisition, blind native replay, and separate scoring."""
 import argparse
 from collections import Counter, defaultdict
+from contextlib import ExitStack
 from datetime import datetime, timezone
 from hashlib import sha256
 import json
@@ -201,17 +202,21 @@ def seal_ledger(root, sources):
     return {rec.id: rec for rec in Ledger(root).servable()}
 
 
-def run(inputs):
+def run(inputs, graph_db=None):
     from mplpb_answers.pipeline import answer_query
+    from mplpb_answers.synonym_graph import open_index
     from test_tools.synonym_index import SynonymIndex
 
     packet, seal = packet_with_seal(inputs)
     rows = []
-    index = SynonymIndex({'schema': 'mplpb-synonym-index-v1', 'collections': {'earthquakes': {
+    catalog = {'schema': 'mplpb-synonym-index-v1', 'collections': {'earthquakes': {
         'records': {source['id']: [source['place']] for source in packet['sources']},
         'fields': packet['lexicon'],
-    }}})
-    with TemporaryDirectory(prefix='mplpb-dice-bag-') as root:
+    }}}
+    with ExitStack() as stack:
+        root = stack.enter_context(TemporaryDirectory(prefix='mplpb-dice-bag-'))
+        index = (stack.enter_context(open_index(graph_db)) if graph_db is not None
+                 else SynonymIndex(catalog))
         seal_ledger(root, packet['sources'])
         for case in packet['cases']:
             question = case['question']
@@ -285,6 +290,7 @@ def main():
         mode.add_argument('--inputs', type=Path, required=True)
     for mode in (replay, grading):
         mode.add_argument('--output', type=Path, required=True)
+    replay.add_argument('--graph-db', type=Path, help='Use a reviewed SQLite synonym graph')
     grading.add_argument('--run', type=Path, required=True)
     grading.add_argument('--key', type=Path, required=True)
     args = parser.parse_args()
@@ -294,7 +300,7 @@ def main():
             parser.error('Use a hexadecimal seed and 1–30 draws')
         prepare(args.inputs, args.custody, seed.lower().zfill(32), args.count)
     elif args.mode == 'run':
-        put(args.output, run(args.inputs))
+        put(args.output, run(args.inputs, args.graph_db))
     else:
         result = score(args.inputs, args.run, args.key)
         put(args.output, result)

@@ -6,7 +6,7 @@ import sqlite3
 from tempfile import TemporaryDirectory
 import unittest
 
-from test_tools.graph_synonym_index import GraphSynonymIndex, build, load_catalog
+from mplpb_answers.synonym_graph import GraphSynonymIndex, build, load_catalog, review, suggestion
 from test_tools.synonym_index import CATALOG, SynonymIndex
 
 
@@ -65,6 +65,26 @@ class GraphSynonymIndexTests(unittest.TestCase):
         self.assertEqual(result['status'], 'limited')
         self.assertEqual(result['records'], {})
         self.assertEqual(result['fields'], {})
+
+    def test_review_routes_keep_the_full_question(self):
+        data = catalog({'identifier': ['shelf label', 'catalogue number']}, extra=True)
+        original = 'Catalogue number for the display fish before relocation?'
+        cases = [
+            {'id': 'one', 'question': original},
+            {'id': 'two', 'question': 'Identifier for the display fish?'},
+            {'id': 'three', 'question': 'Who reported the display fish?'},
+        ]
+        with closing(sqlite3.connect(':memory:')) as db:
+            load_catalog(db, data)
+            index = GraphSynonymIndex(db)
+            result = review(index, 'museum', cases)
+            self.assertEqual(result['review_counts'], {'competing_fields': 1, 'review_full_question': 1,
+                                                     'unmatched_fields': 1})
+            suggested = suggestion(original, result['cases'][0]['lookup'])
+            self.assertIn('Did you mean this record and field?', suggested)
+            self.assertIn(original, suggested)
+            with self.assertRaisesRegex(ValueError, 'unique'):
+                review(index, 'museum', cases + cases)
 
     def test_builder_discards_a_failed_new_database(self):
         data = catalog({'wrong alias type': 'catalogue number'})

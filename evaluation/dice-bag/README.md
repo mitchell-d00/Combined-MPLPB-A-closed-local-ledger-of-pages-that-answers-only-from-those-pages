@@ -62,3 +62,8 @@ unlisted wording control. The run measures catalog-field behavior on one
 domain. It does not establish performance on independently authored
 questions or unfamiliar prose. [Run receipt](first-live-receipt.json) ·
 [Frozen lexicon](lexicon.json) · [Test Index](../../docs/TEST_INDEX.md)
+
+For an opt-in graph replay, pass `--graph-db PATH` to `run`. The installed
+[SQLite synonym graph](../../docs/SYNONYM_GRAPH.md) can also group the operator
+questions for review. The published 72-case replay receipt preserves the
+original comparison. [SQLite replay receipt](sqlite-graph-replay.json)
