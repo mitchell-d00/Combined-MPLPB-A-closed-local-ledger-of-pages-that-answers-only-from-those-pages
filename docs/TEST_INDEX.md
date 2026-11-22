@@ -63,6 +63,31 @@ stop controls still withheld a single owner. Keep the later alias and layout
 rules separate so each can be evaluated against its own evidence and failure
 conditions. [D20 class study](../evaluation/d20/README.md#large-study-and-class-level-probes)
 
+## D-series tests named after game dice
+
+The D-series names come from game dice. D4 is the four-sided die, D20 the
+twenty-sided die, and D100 and D% refer to percentile dice. D100 and D% are
+separate test families with different endpoints. A die's name alone gives
+no case count for a particular run.
+
+| Suite | What it measures | Reproduce or inspect |
+|---|---|---|
+| **D4** | Event identity, local co-reference, documentary proof and controls | [Native runner and reproduction](D4_EVENT_IDENTITY_COREFERENCE.md) · [Retained case study](../evaluation/d4/2026-11-20/CASE_STUDY.md) |
+| **D20** | Matched owner and alias cases, including competition, missing fields and retired evidence | [Seeded replay and rule-class study](../evaluation/d20/README.md) |
+| **D100** | Randomized sorter/workspace cases across separate ledgers, with source isolation and exact workspace replay | [External B-Tests runner and five-batch replay](https://github.com/mitchell-d00/B-Tests#repeatable-d100-test-with-100-web-sourced-topics) · [Local companion replay](../evaluation/sorter-exploration/2026-11-19/d100/REPORT.md) |
+| **D%** | Stratified randomized prose and refusal cases, with a separate custodian key | [Original study](DPERCENT.md) · [Expanded generator](DPERCENT_EXPANDED.md) · [Known-weakness sampling](DPERCENT_KNOWN_WEAKNESSES.md) |
+
+### External harness
+
+**B-Tests is an external test harness in its own repository.** It runs pinned
+versions of MPLPB from outside the MPLPB checkout and retains its own source
+packets, scoring keys, commands, and results. Its MPLPB coverage includes
+mixed-dump and D100 sorter/workspace replays, public-paper reader probes,
+native work and dispatch controls, and comparative studies. Cite the B-Tests
+revision and the MPLPB revision when reporting a replay. External execution
+and independent human review describe separate kinds of evidence.
+[B-Tests harness and full experiment catalog](https://github.com/mitchell-d00/B-Tests)
+
 ## Choose the test that answers your question
 
 | Test type | What it contributes to training or verification | Start here |
@@ -74,6 +99,7 @@ conditions. [D20 class study](../evaluation/d20/README.md#large-study-and-class-
 | Public evidence and lab reference sets | Reproduce declared capabilities and negative controls with sealed inputs | [Public evidence](PUBLIC_EVIDENCE_TESTS.md) · [Reference corpus](../reference_corpus/README.md) |
 | Raw originals, sorter, and candidate workspace | Locate extraction, mapping, or review issues before testing answer coverage | [Sorter](PREPROCESSING_SORTER.md) · [Candidate workspace](CANDIDATE_REVIEW_WORKSPACE.md) · [Original-document results](RESULTS_AND_TESTS.md#unprepared-original-conversion-study--2026-11-16) |
 | Primary books and fresh open records | Draw new source material and test citations or authored questions on material outside the synthetic generator | [Primary Book Test](TEST_TOOLS.md#primary-book-test) · [Fresh open-data batch](TEST_TOOLS.md#collect-a-fresh-real-world-test-batch) |
+| Cross-domain persona and corpus transfer | Compare matched field lookups, natural record descriptions, and scope controls across eight domains | [Persona transfer panel](../evaluation/persona-corpus-transfer/README.md) |
 | Historical studies and human review | Check attribution, missing evidence, completeness, and disagreement on unfamiliar originals with an independent key | [Archival inspection](../evaluation/archival-inspection/) · [Historical expert path](HISTORICAL_EXPERT_PATH.md) · [Researcher pilot archive](../evaluation/researcher-pilot/) |
 | Conversation, optional models, MCP, and integrations | Verify interface behavior, session continuity, source policy, and authority boundaries across entry points | [Results and tests](RESULTS_AND_TESTS.md) · [MCP](MCP_AGENT.md) · [Specialist continuity](SPECIALIST_CONTINUITY.md) |
 | Guarded work and comparative tests | Check named work, dispatch, and comparison behaviors through the documented routes | [Comparative tests](../evaluation/comparative-tests/) · [B-Tests](https://github.com/mitchell-d00/B-Tests) |

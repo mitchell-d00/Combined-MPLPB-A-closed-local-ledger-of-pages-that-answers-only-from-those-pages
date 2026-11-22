@@ -9,10 +9,11 @@ Use these tools to test the engine and reproduce project results. See the [Test 
 | Run the Python regression suite | `python -m unittest discover -s tests -q` |
 | Replay the public evidence cases | `python -m tools.evaluate_public_evidence --require-capabilities --output /tmp/mplpb-public-results.json` |
 | Test ownership and group alias misses | [D20](../evaluation/d20/README.md) |
+| Run scripted personas on eight synthetic topic collections | [Persona and corpus transfer panel](../evaluation/persona-corpus-transfer/README.md) |
 | Test extracts from firsthand historical books | [Primary Book Test](#primary-book-test) |
 | Repeat a published test at its recorded revision | [Results and tests](RESULTS_AND_TESTS.md) · [Evaluation archive](../evaluation/) · [Benchmark dashboard](benchmarks/dashboard.md) |
 | Verify a release candidate | [ZIP-first release checks](ZIP_FIRST_RELEASE_TESTING.md) · [Browser testing](BROWSER_TESTING_FOR_AGENTS.md) |
-| Inspect cross-system tests | [B-Tests repository](https://github.com/mitchell-d00/B-Tests) |
+| Run MPLPB tests from a separate harness or inspect cross-system tests | [B-Tests repository](https://github.com/mitchell-d00/B-Tests) |
 | Replay the MPLPB dispatch and Git enforcement comparison | [Executable Gates comparative tests](../evaluation/comparative-tests/executable-gates/REPRODUCTION.md) |
 
 ## Collect a fresh real-world test batch

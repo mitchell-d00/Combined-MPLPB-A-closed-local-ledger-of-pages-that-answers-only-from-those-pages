@@ -4,50 +4,40 @@ Last reviewed: 2026-11-22.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `68074218962bbb36216e62be1165b945a48149ec` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `d5d7d212431d55c03792ba59f1169a32cec0975d849d34d796ce197892a22679`.
+Base commit: `9db6c5386a52eafcc31a4e11ed1040165d9e6def` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `800844081732d540cf0b5c901a51e49fb0a0a64a18d30c628db55ce3e1352c37`.
 
 ## Latest user update instructions
 
-Explain how all my tests etc “train” my system and build that synthetic call it D20
+Push it all to main can we get more out of it by building new people and corpa like sewage treatment, cat care, fish care , plant care and mystical creatures and alien/exocreatures like Bigfoot and selacamph
 
-Not how I use tests to train in notes too so Ai and human understand how I train a deterministic Ai
+My D series of texts are named after game dice
 
-Do that for all tests I run all test types call it test index for both ai and humans to use
+Find D100 D % and D4 find all tests etc
 
-Run a D20 large enough to find grouping of misses and classes so we don’t wack a mole
-
-And explain that too in test index
-
-My spectrum rules vs wack a mole
-
-Repair enhance never harm
+Note mplpb tests from b tests too it’s an external external harness https://github.com/mitchell-d00/B-Tests
 
 ## Implemented scope
 
-- Explain deterministic training in the README, and add the human and AI Test Index for choosing suites, reading evidence, and distinguishing bounded rule classes from individual patches.
-- Add D20 generation, native replay, scoring and a grouped study command. Retain a frozen seed, native outputs and large study counts with replay receipts.
-- Repair the alternate owner-question grammar through the existing strict record and field selector. Preserve the baseline and add paired repair receipts.
+- Index D4, D20, D100 and D% by their game-dice names, executable entry points and recorded measurement scopes.
+- Identify B-Tests as an external harness in a separate repository and link its MPLPB evidence, including the D100 sorter/workspace protocol.
+- Add eight scripted personas and isolated synthetic corpora spanning wastewater, cat care, fish care, plant care, folklore, Bigfoot reports, alien fiction and coelacanth records.
 
 ## Validation recorded
 
-- Native seed 20 produced one supported result in five expected positives and withheld all 15 single-owner controls. Two native executions produced identical JSON.
-- The 64-seed study ran 1,280 primary cases and 320 diagnostic replays. It withheld all 960 single-owner controls and identified three candidate rule classes.
-- Four D20 regression tests, the documentation audit covering 48 evaluation families, and the repository infrastructure check passed.
-- The independent owner wording regression failed on the original rule and passed after repair. All 51 focused tests passed.
-- The exact 64-seed input and answer-key digests matched. Supported answers and explicit conflicts each rose from 64 to 128, all 960 expected single-owner withholds held, and no incorrect or unsupported answer was recorded.
-- The existing 52-case public evidence suite, static infrastructure checks, JavaScript API and fixture crawler checks, and the bundled runtime checks on pinned Pyodide passed on the repaired source.
-- The focused source ZIP extracted from implementation commit 6807421 passed 51 tests and reproduced the retained native D20 output byte for byte. Local Chromium smoke passed using the repaired checkout build.
-- Native discovery reported 1,562 tests and two skips under the default sandbox. Its 11 errors and three failed assertions came from five modules that use localhost sockets. All 94 tests in those modules passed on rerun with loopback access. Validation is split across the two runs.
+- The native transfer panel ran 32 cases across eight corpora. Exact field requests passed 8/8, natural description questions matched 0/8, and negative controls withheld 16/16.
+- Deterministic replay reproduced the retained panel report byte for byte. Six focused persona and D20 tests passed.
+- The 26 focused D4 and D% tests passed. The documentation audit validated 49 native evaluation families, and the repository infrastructure check passed.
 
 ## Limitations and blocked checks
 
-- The public generator uses five authored structures. Seeds change identifiers and owners within those structures. Blind and historical transfer still require independently authored evaluations.
-- The raw sorter path measures candidate preprocessing only. The full pre-repair repository ZIP passed CRC checks, but extraction exceeded local disk space. The repaired focused ZIP is verified separately. No deployment was performed.
+- The transfer sources, actors and questions are authored synthetic material. The run measures finite reader behavior, not human usability or real-source accuracy.
+- The natural-description questions change both phrasing and how the record is identified. The result identifies an investigation area without proving a single failure mechanism.
 
 ## Next steps
 
-- Evaluate narrow explicit alias-binding and field-boundary rules separately with independent negative controls and structural holdout cases.
+- Cross wording and record identity cues in a separately frozen experiment before changing reader rules. For independent domain evaluation, collect traceable openly licensed originals and have a custodian hold out authored questions.
+- Retain the original reports for external D100 and internal D4, D20 and D% runs at their respective pinned revisions.
 
 ## Use this ZIP in your repository
 

@@ -2,7 +2,7 @@
 
 Last reviewed: 2026-11-22.
 
-D20 runs 20 synthetic cases per seed. Five request or alias formats each receive
+D20 is named after the twenty-sided game die and runs 20 synthetic cases per seed. Five request or alias formats each receive
 four matched conditions. The question within each group stays fixed.
 
 | Condition | Expected source decision |
