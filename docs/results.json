@@ -4,6 +4,21 @@
   "meaning": "Links establish retained test/reproduction coverage, not a fresh execution or certification of historical metrics. Original source, dates, fixtures and exact revisions remain in the linked reports.",
   "families": [
     {
+      "family": "documentary-date-pattern",
+      "artifacts": "evaluation/documentary-date-pattern",
+      "tests": [
+        "tests/test_event_date_inventory.py",
+        "tests/test_report_section_probe.py"
+      ],
+      "runners": [
+        "test_tools/historical_patterns.py",
+        "tools/article_study.py",
+        "test_tools/report_section_probe.py"
+      ],
+      "scope": "Bounded role-phrase aliases in documentary date questions and separate named-summary passage discovery.",
+      "measurement_status": "Only the Fort Sumter paraphrase gained full support across 40 follow-ups. The 22 original native outcomes and citations remained the same. The Apollo 13 named-summary probe recovered its reference passage. Independent semantic review remains outstanding."
+    },
+    {
       "family": "historical-synonym-graph",
       "artifacts": "evaluation/historical-synonym-graph",
       "tests": [

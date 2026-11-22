@@ -24,6 +24,7 @@ DATE_LOCATOR_CHARS = 2*1024**2
 DATE_DOCUMENT_CHARS = 16000
 MONTHS = ('January February March April May June July August September October November December').split()
 DATE_EXPRESSION = r'(?:'+'|'.join(MONTHS)+r')\s+\d{1,2}(?:st|nd|rd|th)?(?:,?\s+\d{4})?'
+SITE_KINDS = ('fort', 'harbour', 'harbor', 'city', 'town', 'port')
 DATE_ROLES = {'bombardment','surrender','evacuation','departure','arrival','publication','revision','sending','receipt',
               'telegram','letter','report','memorandum','dispatch'}
 
@@ -33,12 +34,79 @@ def date_inventory_request(question):
     q=source_question(question).strip().rstrip('? .')
     m=re.fullmatch(r'Distinguish (?:the )?([a-z, ]{3,160}) dates in (?:the )?(.{2,120}) record'
                   r'(?:, without treating (?:the )?webpage review date as an event date)?',q,re.I)
-    if not m:return None
-    roles=[x.strip().lower() for x in re.split(r',\s*(?:and\s+)?|\s+and\s+',m[1]) if x.strip()]
-    if not 1<=len(roles)<=6 or len(set(roles))!=len(roles) or not set(roles)<=DATE_ROLES:return None
-    subject=m[2].strip()
-    if re.search(r'\b(?:and|or|if|unless|because|caused|prove|establish|not)\b|[;:?!]',subject,re.I):return None
-    return {'roles':roles,'subject_text':subject,'scope':'explicit statements in one eligible source record'}
+    if m:
+        role_text, subject = m.groups()
+        phrases = split_date_roles(role_text)
+        roles = phrases
+        constraints = {}
+    else:
+        natural = re.fullmatch(
+            r'What separate dates does (?:the )?([^,.!?;:]{2,120}?) (?:page|record) '
+            r'(?:give|list|report) for ([a-z, ]{3,220})', q, re.I)
+        if not natural:
+            return None
+        subject, role_text = natural.groups()
+        if re.search(r'\b(?:only|except|before|after|first|last|according)\b', subject, re.I):
+            return None
+        phrases = split_date_roles(role_text)
+        roles, constraints = natural_date_roles(phrases, subject)
+        if len(roles) < 2:
+            return None
+    if not 1 <= len(roles) <= 6 or len(set(roles)) != len(roles) or not set(roles) <= DATE_ROLES:
+        return None
+    subject = subject.strip()
+    if re.search(r'\b(?:and|or|if|unless|because|caused|prove|establish|not)\b|[;:?!]', subject, re.I):
+        return None
+    request = {'roles':roles,'subject_text':subject,'scope':'explicit statements in one eligible source record'}
+    if constraints:
+        request['constraints'] = constraints
+    return request
+
+
+def split_date_roles(text):
+    return [x.strip().lower() for x in re.split(r',\s*(?:and\s+)?|\s+and\s+', text) if x.strip()]
+
+
+def natural_date_roles(phrases, subject):
+    roles, constraints = [], {}
+    for phrase in phrases:
+        if phrase in DATE_ROLES:
+            role = phrase
+        elif phrase == 'opening fire':
+            role = 'bombardment'
+            constraints[role] = 'opened_fire'
+        elif (site := re.fullmatch(r'giving up the (' + '|'.join(SITE_KINDS) + ')', phrase)) and (
+                re.search(r'\b' + site[1] + r'\b', subject, re.I)):
+            role = 'surrender'
+            constraints[role] = 'surrendered_subject'
+        elif phrase == 'leaving it' and roles[-1:] == ['surrender'] and constraints.get('surrender'):
+            role = 'evacuation'
+            constraints[role] = 'same_clause_evacuation'
+        elif (document := re.fullmatch(
+                r'the (telegram|letter|report|memorandum|dispatch) date listed in the catalog(?:ue)?', phrase)):
+            role = document[1]
+            constraints[role] = 'catalogue_date'
+        else:
+            return [], {}
+        roles.append(role)
+    return roles, constraints
+
+
+def date_link_matches_request(link, constraint, subject):
+    if not constraint:
+        return True
+    statement = normalized(link['statement_text'])
+    if constraint == 'catalogue_date':
+        return link['date_role'] == 'source_catalogue_document_date'
+    if constraint == 'opened_fire':
+        targets = [subject, 'the ' + subject]
+        targets.extend('the ' + kind for kind in SITE_KINDS if kind in subject.split())
+        return bool(re.search(r'\bopened fire on (?:' + '|'.join(map(re.escape, targets))
+                              + r')(?=\s*,|$)', statement))
+    surrender = bool(re.search(r'\bsurrendered (?:the )?' + re.escape(subject) + r'(?=\s*,|$)', statement))
+    if constraint == 'same_clause_evacuation':
+        return surrender and link['date_role'] == 'explicit_same_clause_relative_date'
+    return constraint == 'surrendered_subject' and surrender
 
 
 def _date_value(text):
@@ -187,7 +255,9 @@ def date_inventory(index,record):
                     if context not in citations:citations.append(context)
     for role in request['roles']:
         found=[v for v in links if v['requested_role']==role]
-        if len(found)!=1 or any(v.get('calendar_resolution_complete') is False for v in found):unresolved.append(role)
+        if (len(found) != 1 or found[0].get('calendar_resolution_complete') is False
+                or not date_link_matches_request(found[0], request.get('constraints', {}).get(role), subject)):
+            unresolved.append(role)
     # Any unparsed relevant dated predicate, including negation and modality,
     # prevents a conveniently selected positive subset from completing.
     accepted={(a,b) for a,b,q,vs in rows}

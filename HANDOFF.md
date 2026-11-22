@@ -4,42 +4,32 @@ Last reviewed: 2026-11-22.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `5b0fa559d511b925af3595c52d083cac1cdceb43` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `263e4d2ad70afa1966e1342e09963e4b0f43af41ac1ca39d7c4a3ab6943638f9`.
+Base commit: `f6b1d17c7246abdb7c08ee6214c29f464eae938f` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `2fc4346d8f8a457d8829fa19055fd7840e51e54374721d26b392b29554a6cfd6`.
 
 ## Latest user update instructions
 
-Test it vs synonym graph.
-
-Add corona history of cv 66 America and mt airy history
-
-Add Corona as a third topic
-
-Mt airy nc
-
-And see if it helps historic
-
-Test historic 22 on graph too
+That gives us separate targets for improving passage discovery and proving an answer from prose. Lets walk that path and devise a pattern rule
 
 ## Implemented scope
 
-- Compare baseline and SQLite synonym graph-guided passage discovery on the frozen original historical 22 and the 40 historical follow-up questions.
-- Add attributed starter history records and twelve questions on USS America CV-66, Mount Airy in North Carolina, and Corona in California.
+- Accept a complete natural date inventory form with explicit role and site guardrails. Reuse the existing proof kernel and preserve the full policy question.
+- Add a separate bounded named-summary passage probe and a way to refresh the retained graph evaluation baseline against a new native revision.
 
 ## Validation recorded
 
-- On the original 22 the graph suggested eligible records for 18/22 and raised complete reference-anchor visibility from 4/21 to 5/21. H09 and H13 gained anchors and no case lost any.
-- On the 40 follow-ups the graph suggested all reference records for 27/40. One direct or paraphrased question gained an anchor, and fully surfaced cases stayed 14/20. All 12 new starter cases found the intended record.
-- All 13 scope controls across the follow-ups and new topics withheld full support. Ten focused graph and historical tests passed.
+- An independently worded fictional harbour example failed on the old grammar and passed after the repair. Focused regression tests cover scope additions, mismatched targets, reported events, calendar limits and competing sources.
+- The unchanged original 22 had identical native contracts except code hashes. Exactly one of the 40 follow-up answers changed. The Fort Sumter paraphrase moved from abstention to supported with all reference anchors. The ten boundary questions kept full support withheld.
+- All 52 public evidence controls passed with zero falsely supported bridges. The graph comparison reran on 52 new and follow-up rows. The Apollo 13 explicit-summary probe recovered the reference passage under the ordinary passage and character caps.
 
 ## Limitations and blocked checks
 
-- The graph-guided comparison is a passage inspection probe. Strict proof uses its existing unmodified source path. Curated aliases and prepared source summaries do not establish blind transfer or historical answer accuracy.
-- Corona was interpreted as the California city. The new corpora use attributed short factual summaries rather than complete copied originals.
+- The named-summary lookup is an experimental discovery path with no automatic proof use. Only the explicit section case was recovered in the Apollo pair.
+- Retained results cover frozen development questions and known originals. Independent historical semantic review was not run.
 
 ## Next steps
 
-- Measure source-bound proof rules for documentary date roles and attribution separately from graph-guided discovery.
+- Collect independently written date-role requests and multiple well-formed section fixtures to test transfer. Keep Apollo causal proof separate from section discovery.
 
 ## Use this ZIP in your repository
 
