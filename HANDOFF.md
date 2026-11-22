@@ -4,33 +4,32 @@ Last reviewed: 2026-11-22.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `65fc5eb13c7ff19302502b245f64e52ddaa8c719` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `178604c0125d231b18f6b94ae2d3cfdf8c435444b76f81994240cf1c620f4eed`.
+Base commit: `78535734029de32762adecf5fa55080635f2418f` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `f65f640f9a7854d33fe58d1e9abfacddecd1a669a527bec8939244fc9301ba0e`.
 
 ## Latest user update instructions
 
-Push it as such but make it an active rout to fixing other issues it may fix my communication experience-packaging
+Explain this in Readme too
 
-Do the 72
+The strongest thing you’ve built is a way to improve a deterministic reader without losing track of what it used to get right.
+
+One of the strongest things I built many strong things
 
 ## Implemented scope
 
-- Package the opt-in SQLite synonym graph as a native-wheel command, with readable suggestions and a local report that groups communication issues for review.
-- Allow the sealed Dice Bag runner to select a SQLite database and preserve the resulting 72-case replay receipt. Add a release check for the installed command.
+- Describe preserving existing behavior during rule improvements as one of the project’s strengths, with D20 and Dice Bag as measured examples.
 
 ## Validation recorded
 
-- The frozen 72-case full score was byte-identical to the original and all 36 strict negative controls withheld. The communication report grouped 24 unmatched fields, 12 competing record matches, and 36 unique pairs that require whole-question review.
-- Thirteen focused graph, flat index, Dice Bag and persona transfer tests passed.
+- Checked the quoted counts and their scopes against the frozen D20 and Dice Bag reports and checked README navigation.
 
 ## Limitations and blocked checks
 
-- This route suggests selectors and keeps the original wording. It does not supply selectors automatically to the strict reader or expand the catalog by itself.
-- The replay kept the same vocabulary. It checks parity rather than measuring independent language transfer.
+- This update explains existing evidence. It records no new reader behavior or independent validation.
 
 ## Next steps
 
-- Use the review groups to design scoped candidate changes and test against a separate held-out collection before promoting expansions.
+- Use independently authored questions to measure transfer beyond the frozen cases.
 
 ## Use this ZIP in your repository
 
