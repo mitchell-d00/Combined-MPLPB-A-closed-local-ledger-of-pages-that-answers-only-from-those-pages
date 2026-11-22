@@ -39,6 +39,10 @@ Run only the synthetic pairs by omitting the three historical inputs. To include
 
 D4 supplies examples where identity or co-reference can break a relation. D20 groups repeated owner and alias misses into candidates for a shared rule. D% samples broader prose and refusal behavior. External D100 exercises sorter and workspace behavior. Dice Bag supplies fresh collections for testing transfer. D12 gives a way to isolate one changed obligation on a matched pair. Keep the original fixture, the failing result, the proposed rule and its counterexamples, and the rerun. Compare both missed answers and false support before changing a default rule. [Test Index](../../docs/TEST_INDEX.md)
 
+## Planned live experiment
+
+The proposed human pilot assigns eight frozen historical cases to two independent reviewers and a third adjudicator. A separate fresh Dice Bag draw is planned for testing transfer after review. Both runs are pending. [Pilot protocol](HUMAN_PILOT.md) · [Reviewer worksheet](HUMAN_PILOT_WORKSHEET.md)
+
 ## Review a historical case
 
 1. Read the question and named source before looking at the native answer or reference draft. Write the minimum claims the question requires.
