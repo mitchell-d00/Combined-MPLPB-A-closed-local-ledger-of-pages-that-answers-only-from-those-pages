@@ -3,7 +3,16 @@
 Last reviewed: 2026-11-22.
 
 [Test Index](TEST_INDEX.md) connects the test types to the deterministic training loop.
+[D12](../evaluation/d12/README.md) adds paired error-class probes to D6 and a separate
+trace of the original 22, 40 follow-ups and 12 starter-topic cases.
+
+[D6](../evaluation/d6/README.md) records 90 synthetic checks of six evidence
+operations and a separate replay on 12 frozen Dice Bag records. The native
+compiler cites declared ledger fields and explains which branches resolved.
+
 [D20](../evaluation/d20/README.md) records the seeded ownership and alias baseline and class-level probes.
+
+[Documentary date wording and report sections](../evaluation/documentary-date-pattern/README.md) retains the Fort Sumter paraphrase repair and the separate Apollo 13 header-based passage probe.
 
 [Historical synonym graph comparison](../evaluation/historical-synonym-graph/README.md) records graph-guided discovery on the original 22, the 40 follow-ups, and 12 questions on USS America, Mount Airy, and Corona.
 

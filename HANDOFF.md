@@ -4,42 +4,31 @@ Last reviewed: 2026-11-22.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `5b0fa559d511b925af3595c52d083cac1cdceb43` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `263e4d2ad70afa1966e1342e09963e4b0f43af41ac1ca39d7c4a3ab6943638f9`.
+Base commit: `ef288782109f33b578f188d9d4d4cbca145fda9b` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `5a5fbe7257eec0f368df70827d81872929ece82882504998da28325cca2c0261`.
 
 ## Latest user update instructions
 
-Test it vs synonym graph.
-
-Add corona history of cv 66 America and mt airy history
-
-Add Corona as a third topic
-
-Mt airy nc
-
-And see if it helps historic
-
-Test historic 22 on graph too
+Write the live experiment with D12 folder and note planed run proposed human pilot
 
 ## Implemented scope
 
-- Compare baseline and SQLite synonym graph-guided passage discovery on the frozen original historical 22 and the 40 historical follow-up questions.
-- Add attributed starter history records and twelve questions on USS America CV-66, Mount Airy in North Carolina, and Corona in California.
+- Document the proposed D12 live experiment and human pilot with eight frozen historical cases.
+- Provide a reviewer worksheet that separates initial source judgments, native-output review, and adjudication.
+- Link the plan in the D12 guide and Test Index. Document the pending live Dice Bag transfer run.
 
 ## Validation recorded
 
-- On the original 22 the graph suggested eligible records for 18/22 and raised complete reference-anchor visibility from 4/21 to 5/21. H09 and H13 gained anchors and no case lost any.
-- On the 40 follow-ups the graph suggested all reference records for 27/40. One direct or paraphrased question gained an anchor, and fully surfaced cases stayed 14/20. All 12 new starter cases found the intended record.
-- All 13 scope controls across the follow-ups and new topics withheld full support. Ten focused graph and historical tests passed.
+- Verified the eight proposed IDs and question wording against the frozen historical 22 inputs and confirmed their 3 discovery, 3 proof, 1 conflict and 1 control strata in the retained D12 traces.
 
 ## Limitations and blocked checks
 
-- The graph-guided comparison is a passage inspection probe. Strict proof uses its existing unmodified source path. Curated aliases and prepared source summaries do not establish blind transfer or historical answer accuracy.
-- Corona was interpreted as the California city. The new corpora use attributed short factual summaries rather than complete copied originals.
+- The procedure is a proposal. Reviewers, run dates, independent historical verification, and live transfer results are pending.
 
 ## Next steps
 
-- Measure source-bound proof rules for documentary date roles and attribution separately from graph-guided discovery.
+- Freeze the pilot baseline, distribute the source-only packets to two independent reviewers, and assign a third reviewer to adjudicate.
+- Use the pilot findings to choose a repeated failure mechanism and run held-out historical prose and fresh Dice Bag transfer checks against any candidate repair.
 
 ## Use this ZIP in your repository
 

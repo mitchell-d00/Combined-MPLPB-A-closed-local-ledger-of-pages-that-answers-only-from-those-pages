@@ -65,14 +65,17 @@ conditions. [D20 class study](../evaluation/d20/README.md#large-study-and-class-
 
 ## D-series tests named after game dice
 
-The D-series names come from game dice. D4 is the four-sided die, D20 the
-twenty-sided die, and D100 and D% refer to percentile dice. D100 and D% are
-separate test families with different endpoints. Dice Bag draws live records. A die's name alone gives
-no case count for a particular run.
+The D-series names come from game dice. The current names are D4, D6, D12, D20,
+D% and D100. D100 and D% both draw on percentile dice and name separate
+experiments. The unused names in a standard RPG dice set are D8, standalone
+D10. Dice Bag draws live records. A die's name alone gives no case
+count for a particular run.
 
 | Suite | What it measures | Reproduce or inspect |
 |---|---|---|
 | **D4** | Event identity, local co-reference, documentary proof and controls | [Native runner and reproduction](D4_EVENT_IDENTITY_COREFERENCE.md) · [Retained case study](../evaluation/d4/2026-11-20/CASE_STUDY.md) |
+| **D6** | Six declared-field operations for matches, contrasts, year arithmetic, branching and cited answer compilation | [Runner, worked example and Dice Bag corpus replay](../evaluation/d6/README.md) |
+| **D12** | Matched relation and evidence-path perturbations, frozen historical trace, and citation readback | [Generator and historical replay](../evaluation/d12/README.md) · [Proposed human pilot](../evaluation/d12/HUMAN_PILOT.md) |
 | **D20** | Matched owner and alias cases, including competition, missing fields and retired evidence | [Seeded replay and rule-class study](../evaluation/d20/README.md) |
 | **Dice Bag** | Randomized live-web catalog records, blind replay, strict evidence and synonym lookup | [Custody, replay and first results](../evaluation/dice-bag/README.md) |
 | **D100** | Randomized sorter/workspace cases across separate ledgers, with source isolation and exact workspace replay | [External B-Tests runner and five-batch replay](https://github.com/mitchell-d00/B-Tests#repeatable-d100-test-with-100-web-sourced-topics) · [Local companion replay](../evaluation/sorter-exploration/2026-11-19/d100/REPORT.md) |
@@ -104,6 +107,7 @@ and independent human review describe separate kinds of evidence.
 | Historical studies and human review | Check attribution, missing evidence, completeness, and disagreement on unfamiliar originals with an independent key | [Archival inspection](../evaluation/archival-inspection/) · [Historical expert path](HISTORICAL_EXPERT_PATH.md) · [Researcher pilot archive](../evaluation/researcher-pilot/) |
 | Historical 22 pattern expansion | Compare quote discovery, matched direct/paraphrased questions, and scope controls on the same originals | [Run and results](../evaluation/historical-patterns/README.md) |
 | Historical synonym graph comparison | Compare graph-guided passage discovery on frozen and new history topics | [Study and new source records](../evaluation/historical-synonym-graph/README.md) |
+| Documentary date wording and report sections | Check a bounded date paraphrase rule and separate named-section passage discovery | [Pattern study and replay](../evaluation/documentary-date-pattern/README.md) |
 | Conversation, optional models, MCP, and integrations | Verify interface behavior, session continuity, source policy, and authority boundaries across entry points | [Results and tests](RESULTS_AND_TESTS.md) · [MCP](MCP_AGENT.md) · [Specialist continuity](SPECIALIST_CONTINUITY.md) |
 | Guarded work and comparative tests | Check named work, dispatch, and comparison behaviors through the documented routes | [Comparative tests](../evaluation/comparative-tests/) · [B-Tests](https://github.com/mitchell-d00/B-Tests) |
 | Packaging, browser, crawler, and deployed-site tests | Verify the exact artifact and its runtime paths at the applicable local, candidate, or deployed stage | [ZIP-first release testing](ZIP_FIRST_RELEASE_TESTING.md) · [Browser checks](BROWSER_TESTING_FOR_AGENTS.md) |

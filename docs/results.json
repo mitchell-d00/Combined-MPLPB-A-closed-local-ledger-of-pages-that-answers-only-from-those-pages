@@ -4,6 +4,50 @@
   "meaning": "Links establish retained test/reproduction coverage, not a fresh execution or certification of historical metrics. Original source, dates, fixtures and exact revisions remain in the linked reports.",
   "families": [
     {
+      "family": "d12",
+      "artifacts": "evaluation/d12",
+      "tests": [
+        "tests/test_d12.py",
+        "tests/test_d6.py"
+      ],
+      "runners": [
+        "test_tools/d12.py",
+        "tools/article_study.py",
+        "test_tools/historical_22_graph.py",
+        "test_tools/historical_graph_study.py"
+      ],
+      "scope": "Matched D6 evidence path perturbation and separate source-grounded historical prose trace, with exact citation readback.",
+      "measurement_status": "144/144 generated pairs passed, with zero unexpected completions. The 22 historical originals had 3 full answers, 2 partials, 3 conflicts, 14 abstentions and 16/16 exact citation readbacks. Independent historical truth review was not run."
+    },
+    {
+      "family": "d6",
+      "artifacts": "evaluation/d6",
+      "tests": [
+        "tests/test_d6.py"
+      ],
+      "runners": [
+        "test_tools/d6.py",
+        "mplpb_answers/d6.py"
+      ],
+      "scope": "Opt-in native evidence compilation from explicit record and field selectors, with exact citations, branch and arithmetic controls, and optional sealed Dice Bag corpus replay.",
+      "measurement_status": "90/90 seeded synthetic checks passed. All 12 frozen Dice Bag records compiled their declared fields and withheld completion for the missing-field control. Ordinary historical prose understanding was outside this experiment."
+    },
+    {
+      "family": "documentary-date-pattern",
+      "artifacts": "evaluation/documentary-date-pattern",
+      "tests": [
+        "tests/test_event_date_inventory.py",
+        "tests/test_report_section_probe.py"
+      ],
+      "runners": [
+        "test_tools/historical_patterns.py",
+        "tools/article_study.py",
+        "test_tools/report_section_probe.py"
+      ],
+      "scope": "Bounded role-phrase aliases in documentary date questions and separate named-summary passage discovery.",
+      "measurement_status": "Only the Fort Sumter paraphrase gained full support across 40 follow-ups. The 22 original native outcomes and citations remained the same. The Apollo 13 named-summary probe recovered its reference passage. Independent semantic review remains outstanding."
+    },
+    {
       "family": "historical-synonym-graph",
       "artifacts": "evaluation/historical-synonym-graph",
       "tests": [

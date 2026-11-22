@@ -47,7 +47,7 @@ def discovery(root, question, records):
     return baseline, guided, selected, selected_fields
 
 
-def execute(output):
+def execute(output, historical_replay=PANEL.parent):
     topics = read(DATA / 'topics.json')
     inputs = {'catalog': sha((DATA / 'catalog.json').read_bytes()),
               'new_topics': sha((DATA / 'topics.json').read_bytes()),
@@ -55,7 +55,7 @@ def execute(output):
     if inputs['historical_questions'] != PANEL.with_suffix('.sha256').read_text().split()[0]:
         raise ValueError('Historical questions changed')
     groups = read(PANEL)['groups']
-    prior = PANEL.parent / 'native.json.gz'
+    prior = historical_replay / 'native.json.gz'
     runtime = code_pins(ROOT)
     baseline = read(prior.with_name('report.json'))
     if baseline['panel_sha256'] != inputs['historical_questions'] or baseline['native_sha256'] != runtime:
@@ -141,7 +141,10 @@ def execute(output):
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--output', type=Path, required=True)
-    execute(parser.parse_args().output)
+    parser.add_argument('--historical-replay', type=Path, default=PANEL.parent,
+                        help='Directory from historical_patterns at the same native version')
+    args = parser.parse_args()
+    execute(args.output, args.historical_replay)
 
 
 if __name__ == '__main__':

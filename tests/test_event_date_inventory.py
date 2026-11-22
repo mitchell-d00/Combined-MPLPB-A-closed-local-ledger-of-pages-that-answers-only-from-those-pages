@@ -25,6 +25,47 @@ class EventDateInventoryTests(unittest.TestCase):
 
     def ask(self, **kw):return answer_query(self.root, self.question, **kw).contract
 
+    def test_natural_date_inventory_preserves_the_original_question(self):
+        self.add()
+        question = ('What separate dates does the North Harbour record list for opening fire, '
+                    'giving up the harbour, leaving it, and the telegram date listed in the catalog?')
+        result = answer_query(self.root, question).contract
+        self.assertTrue(result['answer_supported'], result['diagnostic'])
+        claim = result['claims'][0]
+        self.assertEqual(claim['proposition']['verified_question'], question)
+        self.assertEqual([link['requested_role'] for link in claim['proposition']['date_links']],
+                         ['telegram', 'bombardment', 'surrender', 'evacuation'])
+        self.assertFalse(claim['proposition']['date_links'][0]['receipt_verified'])
+        self.assertIsNone(claim['proposition']['date_links'][-1]['year'])
+
+    def test_natural_date_inventory_keeps_extra_obligations(self):
+        from mplpb_answers.documentary_verify import date_inventory_request
+        self.add()
+        head = 'What separate dates does the North Harbour record give for '
+        for tail in (
+            'opening fire, giving up the fort, and leaving it?',
+            'opening fire, leaving it, and the telegram date listed in the catalog?',
+            'opening fire, giving up the harbour, and actual receipt of the telegram?',
+            'opening fire, giving up the harbour, and the telegram date listed in the catalog before revision?',
+            'opening fire and bombardment?',
+        ):
+            with self.subTest(question=head + tail):
+                self.assertIsNone(date_inventory_request(head + tail))
+                self.assertFalse(answer_query(self.root, head + tail).contract['answer_supported'])
+
+    def test_natural_date_inventory_requires_explicit_role_evidence(self):
+        question = ('What separate dates does the North Harbour page give for opening fire, '
+                    'giving up the harbour, leaving it, and the telegram date listed in the catalogue?')
+        for body in (self.body.replace('opened fire on', 'bombarded'),
+                     self.body.replace('fire on the harbour', 'fire on the warehouse'),
+                     self.body.replace('surrendered North Harbour', 'surrendered West Harbour'),
+                     self.body.replace('surrendered North Harbour', 'reportedly surrendered North Harbour'),
+                     self.body.replace(', evacuating the garrison on the following day', '')):
+            with self.subTest(body=body), tempfile.TemporaryDirectory() as tmp:
+                L.write(tmp, doc_id='SCOPE', title='Archive', scope='archive',
+                        body_html='<pre>'+html.escape(body)+'</pre>')
+                self.assertFalse(answer_query(tmp, question).contract['answer_supported'])
+
     def test_each_link_is_checked_without_inheriting_review_or_catalogue_year(self):
         self.add(); r=self.ask()
         self.assertTrue(r['answer_supported'])

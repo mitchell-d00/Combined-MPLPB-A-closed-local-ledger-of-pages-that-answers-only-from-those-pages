@@ -1,0 +1,22 @@
+{
+  "schema": "mplpb-d6-v1",
+  "steps": [
+    {"op": "match", "record_id": "ITEM-11", "field": "Observation Date", "value": "Oct 28 1872"},
+    {
+      "op": "if",
+      "when": {"op": "not_match", "record_id": "ITEM-11", "field": "Prior Autumn Weather", "value": "crisp"},
+      "then": {"op": "read", "record_id": "ITEM-11", "field": "Autumn Weather"},
+      "else": {"op": "read", "record_id": "ITEM-11", "field": "Prior Autumn Weather"}
+    },
+    {
+      "op": "year_difference",
+      "left": {"record_id": "ITEM-11", "field": "Earlier Year"},
+      "right": {"record_id": "ITEM-11", "field": "Observation Date"}
+    },
+    {
+      "op": "year_difference",
+      "left": {"record_id": "ITEM-11", "field": "Prior Autumn Year"},
+      "right": {"record_id": "ITEM-11", "field": "Observation Date"}
+    }
+  ]
+}

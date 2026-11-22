@@ -33,7 +33,9 @@ literal field under the reader's field grammar. The graph selected documents
 while proof still required interpreting prose.
 
 The original strict results come from the retained replay, whose native file
-hashes are checked against the current engine. The runner issued 12 new strict
+hashes are checked against the current engine. To use changed native code,
+first run `test_tools.historical_patterns` and then pass the resulting directory
+as `--historical-replay`. The runner issued 12 new strict
 queries for the prepared topics. It supported all three exact-quote locations
 and withheld full support on all six ordinary questions and all three
 boundary questions. All 13 boundary questions across both sets withheld full

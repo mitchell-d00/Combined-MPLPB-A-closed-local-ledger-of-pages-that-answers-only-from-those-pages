@@ -1,0 +1,12 @@
+======================================================================
+FAIL: test_natural_date_inventory_preserves_the_original_question (tests.test_event_date_inventory.EventDateInventoryTests.test_natural_date_inventory_preserves_the_original_question)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/combined-mplpb/tests/test_event_date_inventory.py", line 33, in test_natural_date_inventory_preserves_the_original_question
+    self.assertTrue(result['answer_supported'], result['diagnostic'])
+AssertionError: False is not true : {'code': 'interpretation_unsupported', 'stage': 'strict', 'message': 'Eligible passages exist, but the strict reader cannot establish an answer to this question.', 'category': 'unsupported_question_grammar', 'corpus_answerability': 'not_established', 'next_steps': ['Inspect the relevant source. Try a supported question form or explicitly select a configured assisted reader; do not treat this refusal as proof that the answer is absent.']}
+
+----------------------------------------------------------------------
+Ran 1 test in 0.026s
+
+FAILED (failures=1)
