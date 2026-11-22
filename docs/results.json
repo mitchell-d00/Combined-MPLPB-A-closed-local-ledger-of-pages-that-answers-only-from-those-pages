@@ -7,13 +7,16 @@
       "family": "persona-corpus-transfer",
       "artifacts": "evaluation/persona-corpus-transfer",
       "tests": [
-        "tests/test_persona_corpus_transfer.py"
+        "tests/test_persona_corpus_transfer.py",
+        "tests/test_synonym_index.py"
       ],
       "runners": [
-        "test_tools/persona_corpus_transfer.py"
+        "test_tools/persona_corpus_transfer.py",
+        "test_tools/synonym_index.py",
+        "test_tools/synonym_index_study.py"
       ],
-      "scope": "Eight synthetic persona collections, with explicit fields, natural descriptions of a record, missing evidence, and domain-specific overreach.",
-      "measurement_status": "Native baseline on d8e5b6d: 8/8 exact field questions supported, 0/8 natural-description equivalents, 16/16 negative controls withheld. No human or external semantic validation."
+      "scope": "Eight synthetic persona collections, with explicit fields, natural descriptions of a record, missing evidence, domain-specific overreach, and reviewed synonym selector lookup.",
+      "measurement_status": "Native baseline on d8e5b6d: 8/8 exact field questions supported, 0/8 natural-description equivalents, 16/16 negative controls withheld. The authored synonym follow-up recovered 16/16 after selector review, while 8 additional qualified prompts remained lookup-only. No human or external semantic validation."
     },
     {
       "family": "d20",
