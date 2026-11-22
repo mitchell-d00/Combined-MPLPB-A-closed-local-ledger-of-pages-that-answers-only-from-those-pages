@@ -4,39 +4,35 @@ Last reviewed: 2026-11-22.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `639066777392d427a4af7e2ffd495718fc45adba` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `1069b319eaa7564fe851d7f437c272e268ffe4f027ab5ea3f2343d452a4ca35f`.
+Base commit: `d39e70675322cd4ab7fd5ddda58f998d83523e8c` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `ff62f92cbe1698e579790cf20517b819aa718df7d01267d2178011f9aa1ca3de`.
 
 ## Latest user update instructions
 
-An if not then this match keys with data in source, ie Oct 28 1872 a crisp fall and not like the 1871 fall classes of steps use standard templates o& styles and matches 1774 was just a 100 years and as it reads it matches if then not this and then this this this is evidence string then it compiles the answers call it D6
+Once it’s all done test it on historic truth the 22 etc then we devise a D12 that can generate classes of errors to trace paths with   the rest of the bag and d set D12 historic truth and relations using D6 findings
 
-And it presents as a full sourced in human readable why for its answers
-
-And we can use that as corpus experiments too with the other D sets and dice bag
-
-What D tests do I have so far and what dice names are missing
+Do my logic paths and steps seem sound? D6 to 12 the bag relations etc
 
 ## Implemented scope
 
-- Add the opt-in D6 native plan compiler with six operations for verified field reads, comparison and contrast, calendar year-number arithmetic, branching and evidence composition.
-- Provide readable reasoning with original body excerpts, source IDs, revision hashes and span offsets, and add a basic CLI and structured output.
-- Run a seeded D6 experiment and a separate replay on frozen Dice Bag operator records. Document companion use across the D series and unused standard dice names.
+- Replay the frozen historical 22, the 40 historical follow-ups, and the 12 USS America, Mount Airy, and Corona starter questions after D6.
+- Add D12 paired path perturbations for 12 named classes, plus historical trace signals, exact citation readback, and an optional D6 Dice Bag transfer check.
+- Retain per-case historical traces and a human review procedure that separates source support from independent truth. Update the dice test index.
 
 ## Validation recorded
 
-- The checkout passed 40 focused D6, D4, D20, D%, known-weakness and Dice Bag regression tests.
-- All 90 seeded checks on seeds 6 through 11 passed. All 12 frozen Dice Bag records compiled their declared fields and withheld completion for the missing-duration control.
-- The worked sample ran in a disposable ledger and rendered the exact October 28, 1872 date, the sourced weather contrast and the 98 and 1 year-number differences.
+- All 144 paired D12 controls passed with zero unexpected completions. All 12 frozen Dice Bag records passed both structured readback and missing-field withholding.
+- The original 22 had 3 supported answers, 2 partials, 3 conflicts and 14 abstentions. All 16 citations matched their sealed source projections. Graph passage visibility rose from 4/21 to 5/21.
+- The 46 focused D-series, Dice Bag and historical tests passed. In the 1,592-test D6 discovery run, 11 HTTP setup errors and 3 researcher-pilot failures occurred with localhost sockets blocked. The 82 tests covering those cases passed in a separate loopback-enabled rerun.
 
 ## Limitations and blocked checks
 
-- D6 requires a supplied plan and explicit ledger field declarations. It does not infer arbitrary historical prose or establish independent historical truth.
-- The Dice Bag packet was replayed from the frozen operator copy, with its own corpus checks. This update does not publish or change the live deployment.
+- The frozen historical imports have no D6 declared-field routes. The replay tests native prose behavior, probe visibility and citation readback. An independent historical truth review has not been conducted.
+- The D12 perturbations are authored matched controls. The Dice Bag connection reuses a frozen operator packet, not a fresh draw on this revision.
 
 ## Next steps
 
-- Use D6 on other frozen corpora that already declare fields, with separately retained labels and controls. Use uncurated prose to evaluate passage discovery and extraction separately.
+- Have independent reviewers label disputed historical cases before seeing the native output. Use fresh corpora and keep each proposed relation rule paired with counterexamples from several source styles.
 
 ## Use this ZIP in your repository
 
