@@ -7,10 +7,12 @@
       "family": "dice-bag",
       "artifacts": "evaluation/dice-bag",
       "tests": [
-        "tests/test_dice_bag.py"
+        "tests/test_dice_bag.py",
+        "tests/test_graph_synonym_index.py"
       ],
       "runners": [
         "test_tools/dice_bag.py",
+        "test_tools/graph_synonym_index.py",
         "test_tools/synonym_index.py"
       ],
       "scope": "Seeded live USGS structured records, separate operator/custodian paths, strict field answers and reviewed synonym lookup.",

@@ -4,33 +4,28 @@ Last reviewed: 2026-11-22.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `0526e026f77a888dd9db88750c477ea64a71d3c7` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `5dc4c9e0ab023285816b96643c644426bc0b422b1adff8804bcdf55fdb2bea50`.
+Base commit: `3931b675acd214f8ff6203cd4928e4c5d43517b4` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `d0b773a63648d7a565de16d9955f0b9691522ca568610e82181e5b249db5a7bf`.
 
 ## Latest user update instructions
 
-Build a blind test that randomly builds blinds from live web and run it vs that call it Dice Bag
+Build a graph synonym index like my SQLite
 
 ## Implemented scope
 
-- Add Dice Bag live USGS acquisition, independently committed operator/custodian inputs, offline native execution, synonym lookup, and separate scoring.
-- Index Dice Bag and retain the first live run's source references, result counts, and content hashes.
+- Build and query a separate SQLite graph from the existing synonym catalog format, with optional reviewed directed links and selector explanations.
 
 ## Validation recorded
 
-- Twelve live draws filled and yielded 72 questions. Independent readback verified the response hashes and all 12 selected records' source pointers.
-- Two offline native outputs were byte-identical. The baseline answered 12 direct questions and withheld all 36 negative controls. The index found all 12 listed-phrase natural pairs and none of the 12 unlisted ones. The strict reader verified all 12 listed natural cases after revealed confirmation.
-- Seven focused Dice Bag, synonym indexing, and persona transfer tests passed.
+- Ten focused graph, flat synonym index, and Dice Bag unit tests passed. The persisted graph reopened read-only with SQLite integrity checks passing and reproduced all 72 frozen Dice Bag lookup results.
 
 ## Limitations and blocked checks
 
-- The first study uses one structured source catalog and authored wording families. Listed phrases and the index share a lexicon, with unlisted forms as controls.
-- The operator and scorer use separate paths and commands, but this local run did not place the custodian on a separate security principal. The confirmed proof arm is a post-reveal diagnostic.
-- The default reader is unchanged. The capture files and scoring key stay in the separate workspace custody directory.
+- Lookup gives suggestions for review, and the default reader still checks evidence through the existing path. The Dice Bag parity run kept the original vocabulary and measures no improvement in unfamiliar wording.
 
 ## Next steps
 
-- Repeat against separately authored question wording and a second open catalog. Keep an independent custodian and report per-arm misses, ambiguity, and scope controls.
+- Use a separately authored held-out catalog to evaluate added graph edges, ambiguity, and qualifier retention.
 
 ## Use this ZIP in your repository
 
