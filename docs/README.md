@@ -1,13 +1,13 @@
 # Documentation index
 
-Last reviewed: 2026-11-21.
+Last reviewed: 2026-11-22.
 
 Start with the [browser or terminal example](../README.md#try-it-in-30-seconds).
 Use [MPLPB tools](TOOL_DIRECTORY.md) for application tasks or [Test tools](TEST_TOOLS.md)
 for evaluation and release checks. This index
 lists the individual guides, research notes, and maintenance instructions.
 
-[Repository overview](../README.md) · [Package guide](PACKAGE_GUIDE.md) · [Install](INSTALLATION.md) · [Current evidence](CURRENT_STATUS.md)
+[Repository overview](../README.md) · [How the pieces connect](PACKAGE_GUIDE.md) · [Install](INSTALLATION.md) · [Current evidence](CURRENT_STATUS.md)
 · [Live application](https://mitchell-d00.github.io/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/)
 
 **One owner returns; two stop; none refuses.** Eligible ownership selects page
@@ -20,7 +20,7 @@ being tested, not proven world-first.
 
 | Your task | Start here |
 |---|---|
-| Understand the package and each part | [Package guide](PACKAGE_GUIDE.md) / [repository map](../CONTENTS) |
+| Trace a module, workflow or companion project | [Architecture and connection map](PACKAGE_GUIDE.md) / [repository inventory](../CONTENTS) |
 | Install browser, desktop, native CLI or sorter | [Installation](INSTALLATION.md) |
 | Try supported, ambiguous and refused archival questions | [Five-minute archival tutorial](ARCHIVAL_INSPECTION.md) |
 | Compare measured versions and unknown accuracy metrics | [Benchmark dashboard](benchmarks/dashboard.md) |
@@ -55,7 +55,7 @@ are not rewritten to fit current package language.
 | [MPLPB tools](TOOL_DIRECTORY.md) | Application workflows, examples and tool outputs |
 | [Test tools](TEST_TOOLS.md) | Test commands, open-data seeds and release checks |
 | [Monster helper and Reason Mode](MONSTER_HELPER.md) | Delivery and packaging |
-| [Combined MPLPB package guide](PACKAGE_GUIDE.md) | All package components, workflows and boundaries |
+| [Combined MPLPB — how the pieces connect](PACKAGE_GUIDE.md) | Module diagrams, workflow paths, companion projects and boundaries |
 
 ### Sorting, documentary research and original records
 

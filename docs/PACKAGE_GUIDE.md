@@ -1,11 +1,10 @@
-# Combined MPLPB package guide
+# Combined MPLPB — how the pieces connect
 
-Last reviewed: 2026-11-18.
+Last reviewed: 2026-11-22.
 
-Combined MPLPB combines a closed local source ledger, a bounded reader, an offline sorter,
-research inspection tools, a conversational application and integration adapters.
-This guide explains the package as implemented. It is a map of responsibilities,
-not a new proof rule or a claim that historical reconstruction is solved.
+Combined MPLPB is a local evidence and work system. Its deterministic core checks what eligible source text supports. Other modules preserve originals, propose relationships for review, keep conversation and work history, and authorize covered actions. Optional acquisition and model assistance have their own dependencies.
+
+The installed native ledger, sorter, strict reader, and local work coordinator can run offline on the standard Python runtime. A downloaded browser build runs its bundled engine on the device. Online source acquisition, the optional web crawler, and model downloads each require their own connection or setup. [Installation and optional dependencies](INSTALLATION.md)
 
 **One owner returns; two stop; none refuses.** At the ownership layer, one eligible
 owner can return its page, competing owners stop for ambiguity, and no eligible
@@ -17,26 +16,102 @@ Research status: attributable engineering contribution and technical case study,
 still being tested. The combination may be distinctive; it is not proven
 world-first. Independent historical semantic accuracy remains unestablished.
 
+## How sources, answers and actions connect
+
+Each arrow shows a handoff available through a specific entry point. A new source can enter a ledger directly or through classing. Sorting and candidate review are optional. Candidate findings stay review material, including when a workspace shows them beside eligible originals.
+
+```mermaid
+flowchart TD
+    Raw[Original documents or supplied text]
+    Sort[Offline sorter and source mapping]
+    Review[Candidate review workspace]
+    Drafts[Reviewed or eligible auto-accepted classing]
+    Ledger[Source ledger and serving policy]
+    Answer[Strict answers and checked documentary evidence]
+    Investigation[Native bounded investigation]
+    Work[WorkStore with its own source and seat checks]
+    Host[Host-registered adapter and recorded receipt]
+
+    Raw -->|Optional preprocessing| Sort
+    Sort -->|Observations and proposed links| Review
+    Raw -->|Write or import| Ledger
+    Raw -->|Review extracted drafts| Drafts
+    Drafts -->|Publish validated sealed pages| Ledger
+    Ledger -->|Eligible originals| Review
+    Ledger -->|Eligible body text| Answer
+    Ledger -->|Declared document relationships| Investigation
+    Ledger -->|Pinned permitted evidence| Work
+    Investigation -->|Bounded expert actions| Work
+    Work -->|Authorized dispatch| Host
+```
+
+The workspace can call the strict reader against eligible originals. WorkStore checks its own pinned evidence, authority and action dependencies before dispatch. A passing receipt records the host's observed result. Independent historical truth and complete mediation under adversarial conditions remain open. [Candidate workspace](CANDIDATE_REVIEW_WORKSPACE.md) · [Work API](SPECIALIST_CONTINUITY_API.md#host-adapters-and-action-execution) · [Dispatch follow-up](../evaluation/comparative-tests/dispatch-enforcement/README.md)
+
+## How people and AI clients connect
+
+```mermaid
+flowchart TD
+    Desktop[Desktop or browser UI]
+    BrowserClient[Client using the page JavaScript API]
+    Agent[AI client with a local MCP server]
+    App[Application source and conversation routes]
+    CLI[Native Ask CLI]
+    Strict[Strict evidence reader]
+    Sessions[Conversation context and saved sessions]
+    WorkClient[Scoped native work API or host application]
+    WorkStore[WorkStore and registered adapters]
+
+    BrowserClient --> Desktop
+    Desktop --> App
+    Agent -->|Authorized collections and sessions| App
+    App --> Strict
+    App --> Sessions
+    CLI --> Strict
+    WorkClient -->|Separate seat and host capabilities| WorkStore
+```
+
+The desktop launcher uses loopback HTTP and the browser build runs the shared application code in WebAssembly. The JavaScript API works inside a running app page. Local MCP uses stdio for status, authorized collection listing, page listing and reading, strict Ask, bounded Chat, and session recovery. Its host selects the collections and delivery profile. An AI client may use its own hosted model or network service. The WorkStore CLI and optional loopback work service are separate entry points for work records and configured dispatch. [Browser runtime](BROWSER_RUNTIME.md) · [JavaScript API](../JAVASCRIPT-API.md) · [MCP tools](MCP_AGENT.md) · [Dedicated work API](SPECIALIST_CONTINUITY_API.md#dedicated-local-http-seat-api)
+
+## Choose a workflow
+
+| Goal | Path | What you get |
+|---|---|---|
+| Ask about known local pages | [Browser or terminal quickstart](../README.md#try-it-in-30-seconds) → [strict Ask](GENERAL_ANSWER_PIPELINE.md) | Source-supported answers, checked partials, conflicts or explicit refusals |
+| Build a collection from a raw dump | [Sorter](PREPROCESSING_SORTER.md) → [classing](CLASSING.md) → [validated ledger generation](LEDGER_GENERATIONS.md) | A review graph if requested, reviewed drafts, sealed pages and an ingestion receipt |
+| Add supplied text or capture a web source | [Collection import](EXPLORATION_COLLECTIONS.md) or configured [web acquisition](../crawler/README.md) → [collection source policy](USER_BUILT_COLLECTIONS.md) | A retained source or capture with its own provenance and serving policy |
+| Update or withdraw an earlier record | [Scoped corrections](SCOPED_EVIDENCE_EXTENSIONS.md) → [supersession policy](SUPERSESSION_POLICY.md) | Pinned revisions and an explicit current or field-scoped serving view |
+| Compare processed material with originals | [Sorter graph](PREPROCESSING_SORTER.md) plus eligible ledger → [candidate review workspace](CANDIDATE_REVIEW_WORKSPACE.md) | Separate processed and original statuses, source anchors and independent review and proof budgets |
+| Follow documents, dates or disputed claims | [Original source inspection](ARCHIVAL_INSPECTION.md) → [investigate](HISTORICAL_EXPERT_PATH.md) or [reconstruct](HISTORICAL_RECONSTRUCTION_ENGINE.md) → optional [article dossier](DOCUMENTARY_ARTICLES.md) | Declared relationships, exact quotations, reported conflicts and open obligations |
+| Continue a conversation | [Chat and Serious mode](CHAT_WORKFLOW.md) → [context](CONTEXT_INDEX.md) and [library routing](LIBRARY_ROUTING.md) | Bounded follow-ups, explicit source selection, saved context and source links |
+| Carry work across instances | [Specialist work](SPECIALIST_CONTINUITY_API.md) → authorized task and claim revisions → host dispatch when configured | Visible history, failed attempts, challenges, permission checks and attempt receipts |
+| Connect an agent to a collection | [MCP](MCP_AGENT.md) for an authorized native collection, or [browser middleware](AGENT_MIDDLEWARE.md) for a caller-controlled page | Tool access to the chosen interface and the engine’s original support labels |
+| Reproduce or extend an experiment | [Test tools](TEST_TOOLS.md) → [frozen results and reproduction](RESULTS_AND_TESTS.md) → [B-Tests](https://github.com/mitchell-d00/B-Tests) for external comparisons | Pinned code, inputs, outcomes and the scope of each measurement |
+
 ## Package map
 
 | Component | Implementation | Main responsibility |
 |---|---|---|
-| Source/page ledger | `mplpb_combined/record.py`, `ledger.py` | Parse/seal native pages; preserve status, revisions, ancestry and source state |
-| Ownership and policy | `mplpb_combined/reader.py`, `provenance_gate.py`, `delivery.py`, `retrieval.py` | Separate lexical selection, current eligibility, restrictions and gated page inspection |
-| Strict answer layer | `mplpb_answers/pipeline.py`, `support.py`, `relation_graph.py`, evidence modules | Apply finite proof rules, retain conflicts and recheck current source state before acceptance |
-| Documentary checker | `mplpb_answers/documentary.py`, `documentary_verify.py`, `source_units.py` | Propose source assertions, independently re-read finite supported forms and inspect documentary units |
-| Raw-material sorter | `mplpb_work/sorter.py` | Extract reversible observations and optional review edges; export a validated retired snapshot |
+| Source/page ledger | [record.py](../mplpb_combined/record.py), [ledger.py](../mplpb_combined/ledger.py) | Parse and seal native pages and preserve status, revisions, ancestry and source state |
+| Ownership and policy | [reader.py](../mplpb_combined/reader.py), [provenance_gate.py](../mplpb_combined/provenance_gate.py), [delivery.py](../mplpb_combined/delivery.py), [retrieval.py](../mplpb_combined/retrieval.py) | Separate lexical selection, current eligibility, restrictions and gated page inspection |
+| Strict answer layer | [pipeline.py](../mplpb_answers/pipeline.py), [support.py](../mplpb_answers/support.py), [relation_graph.py](../mplpb_answers/relation_graph.py) | Apply finite proof rules, retain conflicts and recheck current source state before acceptance |
+| Documentary checker | [documentary.py](../mplpb_answers/documentary.py), [documentary_verify.py](../mplpb_answers/documentary_verify.py), [source_units.py](../mplpb_answers/source_units.py) | Propose source assertions, independently reread finite supported forms and inspect documentary units |
+| Raw-material sorter | [sorter.py](../mplpb_work/sorter.py), [sorter_v2.py](../mplpb_work/sorter_v2.py) | Extract reversible observations and optional review edges, and export a validated retired snapshot |
+| Classing and ledger publication | [classing.py](../mplpb_work/classing.py), [ledger_generations.py](../mplpb_work/ledger_generations.py) | Review or admit eligible clean drafts, reread inputs, stage validated pages and publish a ledger generation |
+| Candidate workspace | [candidate_workspace.py](../mplpb_work/candidate_workspace.py), [sorter_suggestions.py](../mplpb_work/sorter_suggestions.py), [semantic_triage.py](../mplpb_work/semantic_triage.py) | Compare processed text with eligible originals while preserving separate result labels and budgets |
 | Reversible research views | `mplpb_work/source_mapping.py`, `prose_evidence.py`, `prose_relations.py`, `event_candidates.py` | Preserve evidence anchors, candidate occurrences, conditions and unresolved relations |
-| Investigation specialists | `mplpb_work/investigation.py`, `historical_verifier.py` | Follow explicit in-ledger declarations through bounded, verified specialist work |
-| Durable work | `mplpb_work/store.py`, `model.py`, `api.py`, `local_artifacts.py` | Preserve task/claim revisions, capability-scoped handoffs and host execution observations |
-| Conversation/application | `tools/ledger_ui.py`, conversation/context/library modules, root `index.html` | Expose source operations and bounded conversational state through the existing App |
-| Browser runtime | `browser/`, `tools/build_browser_runtime.py` | Run the Python engine in browser WebAssembly, using per-origin storage |
+| Investigation specialists | [investigation.py](../mplpb_work/investigation.py), [historical_verifier.py](../mplpb_work/historical_verifier.py) | Follow explicit in-ledger declarations through bounded, verified specialist work |
+| Documentary dossiers | [article.py](../mplpb_work/article.py), [prose_evidence.py](../mplpb_work/prose_evidence.py) | Assemble read-only checked and candidate sections with source pins, conflicts and open obligations |
+| Durable work and dispatch | [store.py](../mplpb_work/store.py), [source_support.py](../mplpb_work/source_support.py), [api.py](../mplpb_work/api.py), [local_artifacts.py](../mplpb_work/local_artifacts.py) | Preserve task and claim revisions, check source support and capabilities, and record host execution observations |
+| Conversation/application | [ledger_ui.py](../tools/ledger_ui.py), [conversation_router.py](../tools/conversation_router.py), [index.html](../index.html) | Expose source operations and bounded conversational state through the shared App |
+| Collections and session stores | [exploration_store.py](../tools/exploration_store.py), [topic_chat_sources.py](../tools/topic_chat_sources.py), [mind_session.py](../tools/mind_session.py), [context_index.py](../tools/context_index.py) | Keep named collections, capture versions, saved turns and attributed context at their declared storage boundaries |
+| Browser runtime | [bridge.py](../browser/bridge.py), [worker.js](../browser/worker.js), [build_browser_runtime.py](../tools/build_browser_runtime.py) | Run the Python engine in browser WebAssembly using per-origin storage |
 | JavaScript and agent bridge | `JAVASCRIPT-API.md`, `tools/mplpb_agent_bridge.mjs`, `.well-known/mplpb.json` | Describe page-local transport, discovery and public snapshot limits |
-| Native MCP | `tools/mplpb_mcp.py` | Expose authorized collections through local stdio tools with a host-fixed delivery profile |
+| Native MCP | [mplpb_mcp.py](../tools/mplpb_mcp.py) | Expose authorized collections through local stdio tools with a host-fixed delivery profile |
 | Acquisition | collection/capture tools and `crawler/worker.mjs` | Retain supplied/captured source material under explicit acquisition rules |
 | Optional model paths | `mplpb_answers/local_reader.py`, browser helper/assets | Propose or discuss material without replacing deterministic proof or source policy |
 | Bundled reference material | `resources/`, `reference_corpus/` | Keep licensed references and separately gated machine-derived lab data |
 | Evidence and distribution | `evaluation/`, `tests/`, build/reproduction tools, `.github/workflows/` | Retain measurements, failed cases, package pins and release receipts |
+| Fresh evaluation batches | `test_tools/generate_open_data_seeds.py`, `primary_book_test.py` | Generate seeded collection plans and book excerpt tests. Keep the answer key with the custodian. |
 
 Paths above are source responsibilities, not interchangeable public interfaces.
 The wheel contains the three Python packages; the full checkout includes the App,
@@ -338,6 +413,18 @@ separate remaining evidence needs.
 · [Production scope](PRODUCTION_READINESS.md) · [Review rules](HISTORICAL_TRUTH_RULES.md).
 
 ## Documentation and preserved history
+
+### Companion projects and repository material
+
+| Project or area | How it connects | Where to start |
+|---|---|---|
+| B-Tests | Separate comparative testbench. Its native jobs check out pinned MPLPB revisions. Its instruction-level and native experiments keep their own inputs, results and scope. | [B-Tests protocol](https://github.com/mitchell-d00/B-Tests/blob/main/PROTOCOL.md) · [Comparative evidence in MPLPB](RESULTS_AND_TESTS.md#executable-gates-comparative-tests) |
+| Earlier MPLPB implementations | Five separately runnable implementations under `parts/`. Local Mirror and Smart Local cover earlier local reading interfaces. Swarm covers its own leases and fencing, Networked its own node/signature flow, and Image its own image-page evidence and attestation. | [Preserved parts](../parts/README.md) |
+| Give It Back: The RPG | Source of the adapted browser UI layout. The retained notice documents the credited contribution. | [UI attribution](BROWSER_UI.md) |
+| Specialist continuity research | The Instance Is Not the Model informs instance lineage. The Seat Is Not a Costume informs scoped seat contracts. The Watcher Is Not a Thing informs review records and stopping budgets. The continuity guide links the pinned sources and explains their design applications. | [Research connections](SPECIALIST_CONTINUITY.md) |
+| Examples, pinned resources and lab data | `examples/` supplies demonstration ledgers. `resources/` holds licensed local reference data. `reference_corpus/` is a separately gated, machine-derived lab preview. | [Repository inventory](../CONTENTS) · [Resource manifest](../resources/README.md) · [Lab corpus](../reference_corpus/README.md) |
+| Research preparation and historical material | `training/owner-work/` records candidate source preparation. `papers/`, `killtest/` and `evaluation/` preserve source material, earlier probes and measured runs. | [Owner-authorized preparation](../training/owner-work/README.md) · [Papers](../papers/README.md) · [Results and tests](RESULTS_AND_TESTS.md) |
+| Build and release | Python wheel and source ZIP package the native runtime. The browser builder pins the WebAssembly core and selects its bundle. CI tracks handoff freshness and checks the source archive, browser candidate and deployed Pages site. | [Installation and distributions](INSTALLATION.md) · [ZIP-first checks](ZIP_FIRST_RELEASE_TESTING.md) · [Repository workflows](../.github/workflows/) |
 
 Start here for package composition, the [README](../README.md) for an overview,
 and the [documentation index](README.md) for every current guide and specialist
