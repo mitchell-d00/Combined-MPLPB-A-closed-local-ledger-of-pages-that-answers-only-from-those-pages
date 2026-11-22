@@ -1,0 +1,207 @@
+{
+  "schema": "mplpb-historical-patterns-v1",
+  "groups": [
+    {
+      "id": "wallace",
+      "corpus": "original",
+      "pattern": "reported arrangement",
+      "parent": "H02",
+      "anchors": [
+        {
+          "source_id": "ORIGINAL-0001",
+          "quote": "I have told Murray to send you by post (if possible) a copy of my book"
+        }
+      ],
+      "interpretation": "Darwin told Murray to send Wallace a copy if possible.",
+      "boundary_reason": "The instruction and hope of receipt do not establish an actual delivery date.",
+      "questions": {
+        "direct": "Who arranged for Wallace to receive Darwin’s book, and whom did he ask to send it?",
+        "paraphrase": "In Darwin’s letter to Wallace, who set up the book shipment and who was supposed to post it?",
+        "boundary": "On what date did Wallace actually receive the copy arranged in Darwin’s letter?"
+      }
+    },
+    {
+      "id": "huxley",
+      "corpus": "original",
+      "pattern": "reported action versus publication",
+      "parent": "H03",
+      "anchors": [
+        {
+          "source_id": "ORIGINAL-0001",
+          "quote": "I finished your book yesterday"
+        }
+      ],
+      "interpretation": "Huxley reports finishing his reading the previous day.",
+      "boundary_reason": "A report of reading does not date public release.",
+      "questions": {
+        "direct": "What does Huxley say he finished the previous day in his November 23 letter to Darwin?",
+        "paraphrase": "In the November 23 note to Darwin, what had Huxley just finished doing?",
+        "boundary": "From Huxley’s November 23 note alone, on what date was Darwin’s book publicly released?"
+      }
+    },
+    {
+      "id": "corrections",
+      "corpus": "original",
+      "pattern": "edition reference",
+      "parent": "H04",
+      "anchors": [
+        {
+          "source_id": "ORIGINAL-0001",
+          "quote": "employed in correcting for second edition of 3000 copies"
+        }
+      ],
+      "interpretation": "The diary describes corrections for a second edition of 3,000 copies.",
+      "boundary_reason": "The note names the edition and planned number of copies without listing revised sentences.",
+      "questions": {
+        "direct": "According to the diary entry, which edition was Darwin correcting at the end of November and beginning of December?",
+        "paraphrase": "What edition does the diary say Darwin was preparing corrections for around the turn from November to December?",
+        "boundary": "Which exact sentences did Darwin rewrite according to that diary entry?"
+      }
+    },
+    {
+      "id": "declaration",
+      "corpus": "original",
+      "pattern": "wording comparison",
+      "parent": "H05",
+      "anchors": [
+        {
+          "source_id": "ORIGINAL-0004",
+          "quote": "We hold these truths to be sacred & undeniable"
+        },
+        {
+          "source_id": "ORIGINAL-0005",
+          "quote": "We hold these truths to be self-evident"
+        }
+      ],
+      "interpretation": "The opening uses sacred & undeniable in the draft and self-evident in the final version.",
+      "boundary_reason": "The wording comparison does not identify the person responsible.",
+      "questions": {
+        "direct": "Compare the opening truth claim in Jefferson’s rough draft and the final Declaration transcript. How did the description of the truths change?",
+        "paraphrase": "How did the opening description of the truths shift from Jefferson’s draft to the final Declaration?",
+        "boundary": "Which individual personally chose the final wording, as proven solely by the two opening passages?"
+      }
+    },
+    {
+      "id": "sumter",
+      "corpus": "original",
+      "pattern": "event and date roles",
+      "parent": "H07",
+      "anchors": [
+        {
+          "source_id": "ORIGINAL-0006",
+          "quote": "the Confederate batteries opened fire on the fort"
+        },
+        {
+          "source_id": "ORIGINAL-0006",
+          "quote": "Major Anderson surrendered Fort Sumter, evacuating the garrison on the following day"
+        },
+        {
+          "source_id": "ORIGINAL-0006",
+          "quote": "announcing his withdrawal from Fort Sumter; April 18, 1861"
+        }
+      ],
+      "interpretation": "Source narration gives April 12 firing, April 13 surrender, evacuation the following day and an April 18 catalogue date.",
+      "boundary_reason": "Catalogue, relay, narration and event dates do not prove receipt time.",
+      "questions": {
+        "direct": "Distinguish the bombardment, surrender, evacuation and telegram dates in the Fort Sumter record.",
+        "paraphrase": "What separate dates does the Fort Sumter page give for opening fire, giving up the fort, leaving it, and the telegram date listed in the catalogue?",
+        "boundary": "What exact minute did the recipient receive the Fort Sumter telegram according to the cited dates?"
+      }
+    },
+    {
+      "id": "apollo",
+      "corpus": "original",
+      "pattern": "qualified cause",
+      "parent": "H08",
+      "anchors": [
+        {
+          "source_id": "ORIGINAL-0007",
+          "quote": "was aborted because of an abrupt loss of service module cryogenic oxygen"
+        }
+      ],
+      "interpretation": "The report attributes the abort to abrupt cryogenic oxygen loss associated with a tank fire.",
+      "boundary_reason": "The report’s causal description supplies no named authorizer.",
+      "questions": {
+        "direct": "According to the Apollo 13 mission report summary, what loss caused the lunar landing to be aborted?",
+        "paraphrase": "What did the Apollo 13 report say was lost, leading the crew to abandon its planned landing?",
+        "boundary": "Who authorized the fire that the Apollo 13 summary mentions?"
+      }
+    },
+    {
+      "id": "overlord",
+      "corpus": "government",
+      "pattern": "conditional versus actual",
+      "parent": "U02",
+      "anchors": [
+        {
+          "source_id": "ORIGINAL-0001",
+          "quote": "full blame should the effort to create a beachhead on the Normandy coast fail"
+        }
+      ],
+      "interpretation": "Eisenhower prepared a note that would accept blame if the operation failed.",
+      "boundary_reason": "The publication condition is not evidence that the event occurred.",
+      "questions": {
+        "direct": "What condition did Eisenhower put on accepting full blame in the note intended for release?",
+        "paraphrase": "In the archives’ account of his note, under what circumstances would Eisenhower take full blame?",
+        "boundary": "Which actual defeat does the contingent blame note itself establish?"
+      }
+    },
+    {
+      "id": "emancipation",
+      "corpus": "government",
+      "pattern": "scope and exceptions",
+      "parent": "U05",
+      "anchors": [
+        {
+          "source_id": "ORIGINAL-0003",
+          "quote": "and which excepted parts, are for the present, left precisely as if this proclamation were not issued"
+        }
+      ],
+      "interpretation": "Excepted areas were for the present treated as if the proclamation had not been issued.",
+      "boundary_reason": "The clause describes its own scope without naming a later law.",
+      "questions": {
+        "direct": "What does the Emancipation Proclamation say about the status of the excepted parts?",
+        "paraphrase": "How did the proclamation say the areas it carved out would be treated for the time being?",
+        "boundary": "Which later law removed every exception, as established by the exception clause alone?"
+      }
+    },
+    {
+      "id": "hayden",
+      "corpus": "government",
+      "pattern": "archival attribution",
+      "parent": "U06",
+      "anchors": [
+        {
+          "source_id": "ORIGINAL-0002",
+          "quote": "Ferdinand Hayden surveyed the area in 1871"
+        }
+      ],
+      "interpretation": "The archive’s introductory narrative attributes the 1871 survey to Ferdinand Hayden.",
+      "boundary_reason": "The supporting statement is archival framing, not the act.",
+      "questions": {
+        "direct": "According to the archive’s introductory narrative, who surveyed Yellowstone in 1871?",
+        "paraphrase": "Whom does the archival introduction credit with the 1871 Yellowstone survey?",
+        "boundary": "Which provision in the Yellowstone law itself names Hayden as the surveyor?"
+      }
+    },
+    {
+      "id": "leases",
+      "corpus": "government",
+      "pattern": "permission and limit",
+      "parent": "U07",
+      "anchors": [
+        {
+          "source_id": "ORIGINAL-0002",
+          "quote": "The Secretary may in his discretion, grant leases for building purposes for terms not exceeding ten years"
+        }
+      ],
+      "interpretation": "The law gives discretionary authority to grant building leases for at most ten years.",
+      "boundary_reason": "Authorization and duration do not establish that a lease was actually granted.",
+      "questions": {
+        "direct": "What discretion and maximum term does the Yellowstone act give the Secretary for building leases?",
+        "paraphrase": "Under the Yellowstone law, must the Secretary issue building leases, and how long can those leases last?",
+        "boundary": "Which named visitor actually received a ten-year lease under the quoted Yellowstone provision?"
+      }
+    }
+  ]
+}

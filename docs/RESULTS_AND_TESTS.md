@@ -5,6 +5,8 @@ Last reviewed: 2026-11-22.
 [Test Index](TEST_INDEX.md) connects the test types to the deterministic training loop.
 [D20](../evaluation/d20/README.md) records the seeded ownership and alias baseline and class-level probes.
 
+[Historical 22 pattern expansion](../evaluation/historical-patterns/README.md) retains the 40 matched native follow-ups and a separate passage probe.
+
 [Dice Bag](../evaluation/dice-bag/README.md) records blind replay and synonym lookup on a fresh, randomly drawn USGS catalog packet.
 
 [Persona and corpus transfer](../evaluation/persona-corpus-transfer/README.md) measures matched native field requests and scope controls across eight synthetic collections.
