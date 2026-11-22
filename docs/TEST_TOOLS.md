@@ -10,6 +10,8 @@ Use these tools to test the engine and reproduce project results. See the [Test 
 | Replay the public evidence cases | `python -m tools.evaluate_public_evidence --require-capabilities --output /tmp/mplpb-public-results.json` |
 | Test ownership and group alias misses | [D20](../evaluation/d20/README.md) |
 | Run scripted personas on eight synthetic topic collections | [Persona and corpus transfer panel](../evaluation/persona-corpus-transfer/README.md) |
+| Build and run a blind live-web catalog batch | [Dice Bag](../evaluation/dice-bag/README.md) |
+| Use the installed SQLite graph or triage phrases with a local review report | [Synonym graph](SYNONYM_GRAPH.md) |
 | Test extracts from firsthand historical books | [Primary Book Test](#primary-book-test) |
 | Repeat a published test at its recorded revision | [Results and tests](RESULTS_AND_TESTS.md) · [Evaluation archive](../evaluation/) · [Benchmark dashboard](benchmarks/dashboard.md) |
 | Verify a release candidate | [ZIP-first release checks](ZIP_FIRST_RELEASE_TESTING.md) · [Browser testing](BROWSER_TESTING_FOR_AGENTS.md) |

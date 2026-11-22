@@ -39,6 +39,14 @@ def classify(case, answer, sources):
     return 'review_supported'
 
 
+def seal_collection(ledger, collection):
+    for doc in collection['documents']:
+        write(ledger, doc_id=doc['id'], title=doc['title'], scope=collection['domain'],
+              body_html='<pre>' + escape(doc['text']) + '</pre>', origin='machine',
+              source_authorship='declared-machine', when='2026-11-22T00:00:00Z')
+    return {page.id: page for page in Ledger(ledger).servable()}
+
+
 def run(path=FIXTURES):
     raw = Path(path).read_bytes()
     fixture = json.loads(raw)
@@ -47,11 +55,7 @@ def run(path=FIXTURES):
     results = []
     for collection in fixture['collections']:
         with TemporaryDirectory(prefix='mplpb-persona-transfer-') as ledger:
-            for doc in collection['documents']:
-                write(ledger, doc_id=doc['id'], title=doc['title'], scope=collection['domain'],
-                      body_html='<pre>' + escape(doc['text']) + '</pre>', origin='machine',
-                      source_authorship='declared-machine', when='2026-11-22T00:00:00Z')
-            sources = {page.id: page for page in Ledger(ledger).servable()}
+            sources = seal_collection(ledger, collection)
             cases = []
             for case in collection['cases']:
                 answer = answer_query(ledger, case['question'], mode='strict', as_of='2026-11-22').contract

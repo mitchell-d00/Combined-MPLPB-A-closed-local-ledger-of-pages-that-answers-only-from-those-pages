@@ -4,16 +4,34 @@
   "meaning": "Links establish retained test/reproduction coverage, not a fresh execution or certification of historical metrics. Original source, dates, fixtures and exact revisions remain in the linked reports.",
   "families": [
     {
+      "family": "dice-bag",
+      "artifacts": "evaluation/dice-bag",
+      "tests": [
+        "tests/test_dice_bag.py",
+        "tests/test_graph_synonym_index.py"
+      ],
+      "runners": [
+        "test_tools/dice_bag.py",
+        "mplpb_answers/synonym_graph.py",
+        "test_tools/synonym_index.py"
+      ],
+      "scope": "Seeded live USGS structured records, separate operator/custodian paths, strict field answers and reviewed synonym lookup.",
+      "measurement_status": "First live batch filled 12 draws and scored 72 questions. All 36 strict negatives withheld. Lookup recovered 12 listed-phrase pairs after confirmation and produced none for 12 unlisted wordings. The installed graph route preserves the original full score on the frozen 72."
+    },
+    {
       "family": "persona-corpus-transfer",
       "artifacts": "evaluation/persona-corpus-transfer",
       "tests": [
-        "tests/test_persona_corpus_transfer.py"
+        "tests/test_persona_corpus_transfer.py",
+        "tests/test_synonym_index.py"
       ],
       "runners": [
-        "test_tools/persona_corpus_transfer.py"
+        "test_tools/persona_corpus_transfer.py",
+        "test_tools/synonym_index.py",
+        "test_tools/synonym_index_study.py"
       ],
-      "scope": "Eight synthetic persona collections, with explicit fields, natural descriptions of a record, missing evidence, and domain-specific overreach.",
-      "measurement_status": "Native baseline on d8e5b6d: 8/8 exact field questions supported, 0/8 natural-description equivalents, 16/16 negative controls withheld. No human or external semantic validation."
+      "scope": "Eight synthetic persona collections, with explicit fields, natural descriptions of a record, missing evidence, domain-specific overreach, and reviewed synonym selector lookup.",
+      "measurement_status": "Native baseline on d8e5b6d: 8/8 exact field questions supported, 0/8 natural-description equivalents, 16/16 negative controls withheld. The authored synonym follow-up recovered 16/16 after selector review, while 8 additional qualified prompts remained lookup-only. No human or external semantic validation."
     },
     {
       "family": "d20",

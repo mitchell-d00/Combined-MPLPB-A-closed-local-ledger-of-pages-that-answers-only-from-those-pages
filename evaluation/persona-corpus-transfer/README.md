@@ -49,3 +49,34 @@ with an outside custodian during development.
 
 [Frozen panel](panel.json) · [Native baseline](native-baseline.json.gz) ·
 [Test Index for humans and AI](../../docs/TEST_INDEX.md)
+
+## Experimental synonym index
+
+The prototype looks for reviewed whole phrases inside one collection. It
+suggests record IDs and field labels and shows the phrases that matched.
+When a phrase maps to competing IDs or field labels, the index reports
+ambiguity and retains the alternatives. A lookup returns candidate selectors.
+Review the intended record, field, and all conditions in the original question
+before using those selectors with the strict reader.
+
+```sh
+python -m test_tools.synonym_index --collection coelacanth 'What catalogue number belongs to the coelacanth display specimen?'
+python -m test_tools.synonym_index_study --output /tmp/synonym-study.json
+python -m unittest tests.test_synonym_index -q
+```
+
+The unhinted native reader missed **16/16** authored natural questions.
+The index produced one record and field candidate for all 16. After the
+preselected study prompts were checked for what they ask, the native reader
+returned **16/16** exact answers with verified source citations when supplied
+both selectors. The same lookup also found candidate pairs on **8/8**
+questions with an added, unresolved time condition. The study did not submit
+those pairs for proof. This shows why a unique lexical match alone cannot
+authorize a rewrite. A separate regression retains competing record and
+field alternatives.
+
+The catalog and questions were authored for this experiment, so the results
+demonstrate the lookup-to-verification workflow under known vocabulary.
+They do not measure blind language coverage. The default reader uses its
+existing verification and grammar. [Synonym catalog](synonyms.json) ·
+[Additional wording](synonym-probes.json) · [Native study](synonym-study.json.gz)

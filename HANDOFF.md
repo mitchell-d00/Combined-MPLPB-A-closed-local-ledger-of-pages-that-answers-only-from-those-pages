@@ -4,40 +4,32 @@ Last reviewed: 2026-11-22.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `9db6c5386a52eafcc31a4e11ed1040165d9e6def` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `800844081732d540cf0b5c901a51e49fb0a0a64a18d30c628db55ce3e1352c37`.
+Base commit: `78535734029de32762adecf5fa55080635f2418f` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `f65f640f9a7854d33fe58d1e9abfacddecd1a669a527bec8939244fc9301ba0e`.
 
 ## Latest user update instructions
 
-Push it all to main can we get more out of it by building new people and corpa like sewage treatment, cat care, fish care , plant care and mystical creatures and alien/exocreatures like Bigfoot and selacamph
+Explain this in Readme too
 
-My D series of texts are named after game dice
+The strongest thing you’ve built is a way to improve a deterministic reader without losing track of what it used to get right.
 
-Find D100 D % and D4 find all tests etc
-
-Note mplpb tests from b tests too it’s an external external harness https://github.com/mitchell-d00/B-Tests
+One of the strongest things I built many strong things
 
 ## Implemented scope
 
-- Index D4, D20, D100 and D% by their game-dice names, executable entry points and recorded measurement scopes.
-- Identify B-Tests as an external harness in a separate repository and link its MPLPB evidence, including the D100 sorter/workspace protocol.
-- Add eight scripted personas and isolated synthetic corpora spanning wastewater, cat care, fish care, plant care, folklore, Bigfoot reports, alien fiction and coelacanth records.
+- Describe preserving existing behavior during rule improvements as one of the project’s strengths, with D20 and Dice Bag as measured examples.
 
 ## Validation recorded
 
-- The native transfer panel ran 32 cases across eight corpora. Exact field requests passed 8/8, natural description questions matched 0/8, and negative controls withheld 16/16.
-- Deterministic replay reproduced the retained panel report byte for byte. Six focused persona and D20 tests passed.
-- The 26 focused D4 and D% tests passed. The documentation audit validated 49 native evaluation families, and the repository infrastructure check passed.
+- Checked the quoted counts and their scopes against the frozen D20 and Dice Bag reports and checked README navigation.
 
 ## Limitations and blocked checks
 
-- The transfer sources, actors and questions are authored synthetic material. The run measures finite reader behavior, not human usability or real-source accuracy.
-- The natural-description questions change both phrasing and how the record is identified. The result identifies an investigation area without proving a single failure mechanism.
+- This update explains existing evidence. It records no new reader behavior or independent validation.
 
 ## Next steps
 
-- Cross wording and record identity cues in a separately frozen experiment before changing reader rules. For independent domain evaluation, collect traceable openly licensed originals and have a custodian hold out authored questions.
-- Retain the original reports for external D100 and internal D4, D20 and D% runs at their respective pinned revisions.
+- Use independently authored questions to measure transfer beyond the frozen cases.
 
 ## Use this ZIP in your repository
 

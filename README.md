@@ -89,6 +89,10 @@ I train Combined MPLPB’s deterministic reader through versioned changes to its
 3. Find the exact rule or question form that produced the failure. Make a bounded change that preserves the existing source and verification checks.
 4. Rerun the same fixtures and retain both the original failure and the new result. Check what changed and whether the refusal controls still hold.
 
+One of the strongest things I built is a way to improve a deterministic reader without losing track of what it used to get right. Keeping the old outputs alongside the new ones lets anyone see which answers a repair recovered and which source checks, conflicts, and refusals held.
+
+D20 shows that process in practice. On the same frozen cases, a bounded change to owner-question wording raised supported answers from **64/320 to 128/320**. All **960** controls still withheld a single-owner answer. Running Dice Bag with the SQLite synonym graph reproduced the scores for all **72** cases using the same vocabulary. These runs measure repair and regression on fixed inputs. Independent questions on unfamiliar wording and source collections are the next test of how far the gains transfer. [D20 repair and replay](evaluation/d20/README.md) · [Dice Bag replay](evaluation/dice-bag/README.md)
+
 In the public field-question experiment, the same 750 synthetic paraphrases went from **0/750 to 750/750 supported** after a bounded addition to the accepted question forms. All 200 expected refusals held. That result measures the repair on the frozen set. Fresh book excerpts and independent human review can test how well the rules carry over to unfamiliar historical prose. [Paraphrase experiment and reproduction](docs/FIELD_QUESTION_NORMALIZATION.md) · [Primary Book Test](docs/TEST_TOOLS.md#primary-book-test)
 
 Use the [Test Index for humans and AI](docs/TEST_INDEX.md) to choose a test, trace how its evidence informs a rule, and see how D20 groups related misses into classes. The [test commands](docs/TEST_TOOLS.md) cover running a harness or drawing a fresh real-world batch.
