@@ -4,32 +4,42 @@ Last reviewed: 2026-11-22.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `78535734029de32762adecf5fa55080635f2418f` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `f65f640f9a7854d33fe58d1e9abfacddecd1a669a527bec8939244fc9301ba0e`.
+Base commit: `5b0fa559d511b925af3595c52d083cac1cdceb43` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `263e4d2ad70afa1966e1342e09963e4b0f43af41ac1ca39d7c4a3ab6943638f9`.
 
 ## Latest user update instructions
 
-Explain this in Readme too
+Test it vs synonym graph.
 
-The strongest thing you’ve built is a way to improve a deterministic reader without losing track of what it used to get right.
+Add corona history of cv 66 America and mt airy history
 
-One of the strongest things I built many strong things
+Add Corona as a third topic
+
+Mt airy nc
+
+And see if it helps historic
+
+Test historic 22 on graph too
 
 ## Implemented scope
 
-- Describe preserving existing behavior during rule improvements as one of the project’s strengths, with D20 and Dice Bag as measured examples.
+- Compare baseline and SQLite synonym graph-guided passage discovery on the frozen original historical 22 and the 40 historical follow-up questions.
+- Add attributed starter history records and twelve questions on USS America CV-66, Mount Airy in North Carolina, and Corona in California.
 
 ## Validation recorded
 
-- Checked the quoted counts and their scopes against the frozen D20 and Dice Bag reports and checked README navigation.
+- On the original 22 the graph suggested eligible records for 18/22 and raised complete reference-anchor visibility from 4/21 to 5/21. H09 and H13 gained anchors and no case lost any.
+- On the 40 follow-ups the graph suggested all reference records for 27/40. One direct or paraphrased question gained an anchor, and fully surfaced cases stayed 14/20. All 12 new starter cases found the intended record.
+- All 13 scope controls across the follow-ups and new topics withheld full support. Ten focused graph and historical tests passed.
 
 ## Limitations and blocked checks
 
-- This update explains existing evidence. It records no new reader behavior or independent validation.
+- The graph-guided comparison is a passage inspection probe. Strict proof uses its existing unmodified source path. Curated aliases and prepared source summaries do not establish blind transfer or historical answer accuracy.
+- Corona was interpreted as the California city. The new corpora use attributed short factual summaries rather than complete copied originals.
 
 ## Next steps
 
-- Use independently authored questions to measure transfer beyond the frozen cases.
+- Measure source-bound proof rules for documentary date roles and attribution separately from graph-guided discovery.
 
 ## Use this ZIP in your repository
 

@@ -4,6 +4,31 @@
   "meaning": "Links establish retained test/reproduction coverage, not a fresh execution or certification of historical metrics. Original source, dates, fixtures and exact revisions remain in the linked reports.",
   "families": [
     {
+      "family": "historical-synonym-graph",
+      "artifacts": "evaluation/historical-synonym-graph",
+      "tests": [
+        "tests/test_historical_graph_study.py"
+      ],
+      "runners": [
+        "test_tools/historical_graph_study.py",
+        "test_tools/historical_22_graph.py"
+      ],
+      "scope": "Graph-guided passage discovery on the original 22, 40 frozen follow-ups, and 12 authored requests on three prepared history records, with strict output kept separate.",
+      "measurement_status": "On the original 22, complete draft-anchor visibility rose from 4/21 to 5/21. All 12 new topic record hints matched the reference. Independent grading was not run."
+    },
+    {
+      "family": "historical-patterns",
+      "artifacts": "evaluation/historical-patterns",
+      "tests": [
+        "tests/test_historical_patterns.py"
+      ],
+      "runners": [
+        "test_tools/historical_patterns.py"
+      ],
+      "scope": "Forty authored follow-ups across ten groups on the originals from the frozen historical 22. Separate strict answers, reference-anchor visibility, and scope controls.",
+      "measurement_status": "Main f9e71b9 supported one direct case with all anchors and zero paraphrases. All ten scope controls withheld full support. Independent semantic review remains unmeasured."
+    },
+    {
       "family": "dice-bag",
       "artifacts": "evaluation/dice-bag",
       "tests": [

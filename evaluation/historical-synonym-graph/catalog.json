@@ -1,0 +1,36 @@
+{
+  "schema": "mplpb-synonym-index-v1",
+  "collections": {
+    "original": {
+      "records": {
+        "ORIGINAL-0001":["Darwin", "Lyell", "Huxley", "Wallace", "the diary"],
+        "ORIGINAL-0002":["Darwin", "Lyell", "Huxley", "Wallace", "the diary"],
+        "ORIGINAL-0003":["Darwin", "Lyell", "Huxley", "Wallace", "the diary"],
+        "ORIGINAL-0004":["Jefferson", "rough draft", "Declaration"],
+        "ORIGINAL-0005":["final Declaration", "Declaration"],
+        "ORIGINAL-0006":["Fort Sumter", "Sumter"],
+        "ORIGINAL-0007":["Apollo 13", "Apollo 13 mission report"]
+      },
+      "fields": {},
+      "links": {"records":{"Sumter telegram":["Fort Sumter"],"Apollo mission report":["Apollo 13 mission report"]}}
+    },
+    "government": {
+      "records": {
+        "ORIGINAL-0001":["Overlord", "Eisenhower", "Normandy"],
+        "ORIGINAL-0002":["Yellowstone", "Hayden"],
+        "ORIGINAL-0003":["Emancipation Proclamation"]
+      },
+      "fields": {},
+      "links": {"records":{"Overlord order":["Overlord"]}}
+    },
+    "new": {
+      "records": {
+        "AMERICA-66":["USS America", "CV-66"],
+        "MOUNT-AIRY-NC":["Mount Airy", "Mount Airy NC"],
+        "CORONA-CA":["Corona", "Corona California"]
+      },
+      "fields": {},
+      "links": {"records":{"CVA-66":["CV-66"],"CV 66":["CV-66"],"Mt Airy":["Mount Airy"],"South Riverside":["Corona"]}}
+    }
+  }
+}
