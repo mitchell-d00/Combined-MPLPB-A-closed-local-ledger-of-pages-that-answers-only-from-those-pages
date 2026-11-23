@@ -61,3 +61,13 @@ python "$study/score.py" "$study" --raw "$out/study/run.json"
 python -m test_tools.historical_mode_replay --include-advanced \
   --output "$out/historical-modes.json"
 ```
+
+## Native regression checks
+
+The focused source ZIP of the final candidate passed 87 checks. The full
+native run on frozen candidate `970abb919c4490d998d30ea117e610c2976e2f57`
+reported `OK (skipped=2)` across 1,680 tests. The command wrapper returned
+exit 1 despite the successful test footer. The first attempt exposed a
+legacy CLI text regression and loopback restrictions. The loopback retry
+caught a CLI source edit during a code-pin test. That test passed on the
+frozen candidate. [Retained attempts](native-suite-retries.log)

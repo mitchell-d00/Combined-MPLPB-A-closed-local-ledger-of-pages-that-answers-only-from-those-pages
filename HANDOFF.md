@@ -4,8 +4,8 @@ Last reviewed: 2026-11-23.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `7c478caa70b89da46deb3664f8f9c0d7fd7e0365` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `bb269899b27a878d20828d262c58c758597a0000738e14e320f0085e9296880e`.
+Base commit: `970abb919c4490d998d30ea117e610c2976e2f57` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `69c9a3ee27f43dee75316ebaee29e2a844e2409f41963f83f332da8619e63222`.
 
 ## Latest user update instructions
 
@@ -25,6 +25,8 @@ Debug as well as test and fix as you find new breaks and errors
 - Replayed the historical 22 and retained each native strict status, diagnostic and citation count.
 - Replayed the same 24 D12 questions. The final-wording request now cleanly withholds. The answerable score remains 0 of 19.
 - The first full suite exposed a legacy CLI text regression and a loopback sandbox restriction. Repaired the legacy contract and passed the focused release contract tests with visible conflict witnesses in the human-readable CLI.
+- Passed 87 checks from the focused committed source ZIP.
+- The frozen native suite reported OK across 1,680 tests with two skips. The command wrapper returned exit 1 despite the successful unittest footer; the retained retry log records the discrepancy.
 
 ## Limitations and blocked checks
 
@@ -33,7 +35,6 @@ Debug as well as test and fix as you find new breaks and errors
 
 ## Next steps
 
-- Record the full-suite retry with loopback available.
 - Trace the D12 prose interpretation misses separately, using dual-source notes as retrieval locators with independent proof checks.
 
 ## Use this ZIP in your repository
