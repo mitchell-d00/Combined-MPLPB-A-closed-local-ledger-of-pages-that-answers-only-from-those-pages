@@ -40,7 +40,10 @@ def run(packets, custodian, output, implementation=D.ROOT, workers=4):
             W.summarize(packets, custodian, output)
     if errors: D.save(output/'batch-errors.json', errors)
     result = W.summarize(packets, custodian, output)
-    if errors or result['partial']: return 1
+    failures = {'execution_failure', 'invalid_output'}
+    if errors or result['partial'] or any(failures.intersection(row['outcomes'])
+                                         for row in result['by_family'].values()):
+        return 1
     return 0
 
 

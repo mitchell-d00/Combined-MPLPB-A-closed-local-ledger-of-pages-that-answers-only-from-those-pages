@@ -271,17 +271,34 @@ def run(out,output,*,implementation=ROOT,max_cases=None):
         for folder in selected:
             if output_bytes>=LIMITS['total_result_bytes']:break
             dest=output/folder.name;dest.mkdir();start=time.perf_counter()
+            staged = Path(temp) / folder.name
             try:
+                staged_input, staged_output = staged / 'input', staged / 'output'
+                shutil.copytree(folder, staged_input)
+                staged_output.mkdir()
+                prefix = f'packets/{folder.name}/'
+                expected_files = {path[len(prefix):]: digest for path, digest in seal['public_files'].items()
+                                  if path.startswith(prefix)}
+                if files(staged_input) != expected_files:
+                    raise ValueError('Staged packet bytes differ from the frozen case')
                 with (dest/'worker.log').open('xb') as log:
-                    result=subprocess.run(command(shutil.which('bwrap'),code,folder,dest,worker),
+                    result=subprocess.run(command(shutil.which('bwrap'),code,staged_input,staged_output,worker),
                                           stdout=log,stderr=subprocess.STDOUT,timeout=LIMITS['wall_seconds'],preexec_fn=_worker_limits)
                 if result.returncode:raise ValueError('Worker exit '+str(result.returncode))
-                data=(dest/'result.json').read_bytes();output_bytes+=len(data)
+                artifact = staged_output / 'result.json'
+                if artifact.is_symlink() or not artifact.is_file():
+                    raise ValueError('Worker output must be a regular file')
+                data = artifact.read_bytes();output_bytes+=len(data)
                 if len(data)>LIMITS['result_bytes']:raise ValueError('Result budget exceeded')
-                value=read(dest/'result.json');row={'case_id':folder.name,'execution':'completed','sha256':sha(data)}
+                json.loads(data)
+                (dest/'result.json').write_bytes(data)
+                row={'case_id':folder.name,'execution':'completed','sha256':sha(data)}
             except (ValueError,OSError,subprocess.SubprocessError) as error:
                 row={'case_id':folder.name,'execution':'failed','error':str(error)}
                 (dest/'failure.json').write_text(json.dumps(row)+'\n')
+            finally:
+                if staged.exists():
+                    shutil.rmtree(staged)
             row['parent_wall_seconds']=time.perf_counter()-start;rows.append(row)
             save_partial={'schema':VERSION+'-run','packet_seal_sha256':sha((out/'seal.json').read_bytes()),'runtime_sha256':initial,
                           'checkout_revision':revision,'environment':{'python':sys.version,'platform':platform.platform(),'machine':platform.machine()},

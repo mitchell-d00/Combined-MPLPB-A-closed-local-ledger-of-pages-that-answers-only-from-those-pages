@@ -4,6 +4,14 @@
   "meaning": "Links establish retained test/reproduction coverage, not a fresh execution or certification of historical metrics. Original source, dates, fixtures and exact revisions remain in the linked reports.",
   "families": [
     {
+      "family": "d10",
+      "artifacts": "evaluation/d10",
+      "tests": ["tests/test_d10.py", "tests/test_dpercent_weaknesses.py"],
+      "runners": ["test_tools/d10_index.py", "test_tools/d10_capture.py", "test_tools/d10.py"],
+      "scope": "D100 topic planning and D% class indexing. The exact-anchor adapter uses claims and citations from Strict Ask on frozen paired samples.",
+      "measurement_status": "Ten filled synthetic draws passed all 20 questions. Mixed-source smoke passed four questions with eight draws unfilled. Local D% sandbox setup failed before inference and the patched batch driver reported nonzero."
+    },
+    {
       "family": "d12",
       "artifacts": "evaluation/d12",
       "tests": [

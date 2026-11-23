@@ -7,10 +7,52 @@ from copy import deepcopy
 from tools import dpercent as D
 from tools import dpercent_expanded as E
 from tools import dpercent_weaknesses as W
+from tools import dpercent_weakness_batch as B
 from mplpb_work import sorter_v2 as S
 
 
 class WeaknessStudyTests(unittest.TestCase):
+    def test_worker_mounts_verified_executor_owned_staging(self):
+        from types import SimpleNamespace
+        from tools import study_sandbox
+
+        with tempfile.TemporaryDirectory() as temp:
+            root = Path(temp)
+            public, key, results = root/'packets', root/'key', root/'results'
+            manifest = W.prepare(public, key, count=1, seed=31)
+            shard = public / manifest['shards'][0]['name']
+            original, = (shard/'packets').iterdir()
+
+            def command(bwrap, code, inputs, outputs, program):
+                self.assertNotEqual(inputs, original)
+                self.assertEqual(inputs.parent.parent, code.parent)
+                self.assertEqual(outputs.parent, inputs.parent)
+                self.assertEqual(D.files(inputs), D.files(original))
+                D.save(outputs/'result.json', {'case_id': original.name})
+                return ['mock-bwrap']
+
+            run = D.subprocess.run
+            with patch.object(study_sandbox, 'command', side_effect=command), patch.object(
+                D.subprocess, 'run', side_effect=lambda args, *a, **k:
+                SimpleNamespace(returncode=0) if args == ['mock-bwrap'] else run(args, *a, **k)
+            ), patch.object(D.shutil, 'which', return_value='mock-bwrap'), patch.object(
+                D.subprocess, 'check_output', return_value='fixture-revision\n'):
+                result = D.run(shard, results)
+            self.assertEqual(result['cases'][0]['execution'], 'completed')
+            self.assertEqual(D.read(results/original.name/'result.json'), {'case_id': original.name})
+
+    def test_batch_exit_distinguishes_failed_workers_from_scored_misses(self):
+        with tempfile.TemporaryDirectory() as temp:
+            root = Path(temp)
+            public, key, results = root/'packets', root/'key', root/'results'
+            packet = W.prepare(public, key, count=1, seed=31)
+            (results/packet['shards'][0]['name']).mkdir(parents=True)
+            for outcome, code in (('execution_failure', 1), ('invalid_output', 1), ('over_refusal', 0)):
+                with self.subTest(outcome=outcome), patch.object(
+                    W, 'summarize', return_value={'partial': False, 'by_family': {'class': {'outcomes': {outcome: 1}}}}
+                ):
+                    self.assertEqual(B.run(public, key, results), code)
+
     def test_registry_keeps_every_previous_family(self):
         self.assertTrue(set(D.FAMILIES) <= set(W.FAMILIES))
         self.assertTrue(set(E.FIELD_FAMILIES) <= set(W.FAMILIES))
@@ -105,6 +147,8 @@ class WeaknessStudyTests(unittest.TestCase):
             summary = W.summarize(public, keys, run)
             self.assertIsNone(score['metrics']['E'])
             self.assertEqual(summary['executed'], 0)
+            self.assertEqual(summary['completed'], 0)
+            self.assertEqual(summary['execution_failed'], 0)
             self.assertEqual(summary['not_run'], 2)
             self.assertTrue(summary['partial'])
 

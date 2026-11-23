@@ -34,3 +34,44 @@ jobs:
           git archive HEAD | tar -x -C "$RUNNER_TEMP/mplpb-sandbox-source"
           cd "$RUNNER_TEMP/mplpb-sandbox-source"
           sudo env PYTHONPATH="$PWD" MPLPB_REQUIRE_SANDBOX=1 "$STUDY_TEST_PYTHON" -m unittest tests.test_study_sandbox -v
+      - name: Replay one frozen D% case per executable class
+        if: github.event_name == 'pull_request'
+        run: |
+          set -euo pipefail
+          study="$(mktemp -d)"
+          reports="$RUNNER_TEMP/mplpb-dpercent-smoke"
+          mkdir "$reports"
+          python -m tools.dpercent_weaknesses prepare --out "$study/packets" --custodian "$study/keys" --cases 75 --seed 2026112003 --shard-size 25
+          runner_env=(GIT_CONFIG_COUNT=1 GIT_CONFIG_KEY_0=safe.directory GIT_CONFIG_VALUE_0="$GITHUB_WORKSPACE")
+          run_args=(--packets "$study/packets" --custodian "$study/keys" --output "$study/results" --workers 3)
+          if ! sudo env "${runner_env[@]}" "$(command -v python)" -m tools.dpercent_weakness_batch "${run_args[@]}"; then
+            for log in "$study"/results/shard-0001/DP00001/{failure.json,worker.log}; do
+              if test -f "$log"; then head -c 4096 "$log"; fi
+            done
+            if test -f "$study/results/summary.json"; then
+              cp "$study/results/summary.json" "$reports/summary.json"
+            fi
+            exit 1
+          fi
+          cp "$study/results/summary.json" "$reports/summary.json"
+          python - "$study/results/summary.json" <<'PY'
+          from collections import Counter
+          import json
+          from pathlib import Path
+          import sys
+
+          summary = json.loads(Path(sys.argv[1]).read_text())
+          families = summary['by_family']
+          counts = Counter()
+          for row in families.values():
+              counts.update(row['outcomes'])
+          assert len(families) == summary['executed'] == summary['completed'] == 75
+          print(f"75 cases across 75 D% classes: {dict(counts)}")
+          PY
+      - name: Retain D% aggregate results
+        if: always() && github.event_name == 'pull_request'
+        uses: actions/upload-artifact@v4
+        with:
+          name: dpercent-75-class-smoke
+          path: ${{ runner.temp }}/mplpb-dpercent-smoke/summary.json
+          if-no-files-found: ignore

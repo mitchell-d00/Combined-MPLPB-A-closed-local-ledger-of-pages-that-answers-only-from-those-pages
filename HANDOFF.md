@@ -4,32 +4,36 @@ Last reviewed: 2026-11-23.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `4c7cbe911217dbc08bc4e009ca9eeed129865fad` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `e20e1caf8c818ea4908de00d18f086662a9f632bedbf1babbf98eb61f1dc57a2`.
+Base commit: `48a55ea00a7ac0d50c95feaebb71a2f52f3dffaf` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `2dd0598581ee9d048996fcc37869f9054fe419c492377de43d6684cb5b72e66d`.
 
 ## Latest user update instructions
 
-Push it all that’s new and merge to main
+Test D10 and mplpb on % suit then mega push if it works how I’m picturing
+Enhance MPLPB if possible push evolve enhance never harm
+Fix the workers in % and note failure and patch if you have not already
 
 ## Implemented scope
 
-- Publish the Development History Index and link it from the README and results guide.
-- Retain the mode-flag history, historical discovery-combination results, per-case routing suggestions, and reproduction commands.
+- Add the D10 suite index, live/local capture, exact-anchor paired questions, and independently checked citation scoring.
+- Report D% worker setup failures accurately and replay all 75 executable classes on the hosted isolation lane.
 
 ## Validation recorded
 
-- The first discovery experiment compared identical budgets on the historical 22 and 40 follow-ups. The three-way mix lost discovery coverage, and strict status and claim lists remained identical when supplied the tested hints.
-- The follow-up flag checks produced research reports without answer promotion, and 101 sorter, Advanced MPLPB, and investigation checks passed.
-- The checked-in runner reproduced the original case-level discovery and strict-status measurements against 4c7cbe9. All six CLI follow-ups returned reports with answer support withheld.
+- Ten synthetic D10 source pairs and two mixed-capture pairs passed; supported citations were checked and every altered quote withheld.
+- The focused D10 and D% suites passed 32 tests. On this host bubblewrap failed while setting up the UID map for all 75 attempts. The patched driver returned nonzero and reported zero completions.
+- No native answer or sorter implementation changed.
+- The first hosted PR lane rejected stray workflow command arguments before any worker ran. The retry uses Bash arrays for worker arguments and keeps the same isolation.
+- The next hosted attempt reached all 75 launch calls and all failed. The workflow now uses the same temporary-directory location as the isolation probe and reports the first worker failure and stderr if any launch fails.
+- Hosted worker stderr showed permission denied traversing the caller-owned public packet directory. The launcher now stages sealed public bytes and JSON output in executor-owned temporary directories before moving a validated regular result into the retained run.
 
 ## Limitations and blocked checks
 
-- Drafted reference passages are development anchors. This study measures discovery and retained proof outcomes. Live-model historical accuracy and independent historical accuracy remain unmeasured.
+- Other D% classes are indexed for planning. A live, topic-aligned ten-source D10 batch and independent semantic validation are still unmeasured.
 
 ## Next steps
 
-- Run the exact-head archive and regression checks before merging.
-- Validate a separately labeled graph shortlist on unseen historical source packets.
+- Require successful isolated worker completion on the exact PR head before merging.
 
 ## Use this ZIP in your repository
 
