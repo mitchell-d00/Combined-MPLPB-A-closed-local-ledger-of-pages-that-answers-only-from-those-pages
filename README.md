@@ -6,7 +6,7 @@ Combined MPLPB is a local evidence and work system with a deterministic, rule-ba
 
 See [how the pieces connect](docs/PACKAGE_GUIDE.md) for the paths from raw documents to evidence, conversation, work history, and guarded dispatch, plus the companion projects and tests.
 
-**Advanced MPLPB** runs Strict Ask first, then chooses a bounded inspection or explains what input is needed next. A companion workflow freezes and diagnoses training fixtures and can test one candidate rule. [Advanced MPLPB commands and proof boundaries](docs/ADVANCED_MPLPB.md)
+Use [Advanced MPLPB](#advanced-mplpb) for guided questions and deterministic rule-training sprints.
 
 The [governance gate experiment](evaluation/comparative-tests/governance-gate/README.md) shows how a model-shaped proposal becomes a cited local report only after host approval, guarded dispatch, and verified readback.
 
@@ -42,6 +42,28 @@ For page lookup, one eligible owner returns its page, competing owners stop for 
 With the same engine version, question, source revisions, policy, and evidence limits, the strict reader makes the same support decision. It runs locally without a language model. Optional model assistance has its own result labels, and the deterministic reader decides which claims count as source-supported.
 
 A citation establishes what an eligible record says. Historical accuracy and independent corroboration require their own evidence. The answer rules cover a limited range of questions. [Page lookup and answer results](docs/PAGE_RETRIEVAL.md) · [What has been tested](docs/CURRENT_STATUS.md)
+
+## Advanced MPLPB
+
+Advanced MPLPB is the native CLI and Python interface for coordinating the existing modes. It runs Strict Ask first. A full answer returns with citations. A partial answer can trigger a bounded investigation, and an unresolved question can trigger page lookup. Conflicts and unclear scope get a next step for the user. Lookup and investigation results are labeled as inspection. Assisted reading requires an explicit choice and a configured local model. The strict result controls the official answer status.
+
+```sh
+mplpb-combined advanced /path/to/ledger "What does the record establish?"
+```
+
+Use `--follow-up none` for suggestions alone, `--follow-up lookup` or `--follow-up investigate` to choose an inspection, and `--json` to read the complete result. [Commands, routing rules, and local model options](docs/ADVANCED_MPLPB.md)
+
+### Train a deterministic rule
+
+From the source checkout, run the training command as the custodian of the evaluation key. It freezes the fixtures and key, records baseline misses, and checks one candidate against the same inputs, including holdouts and refusal controls. A passing candidate is recorded for review. Installing a rule is a separate code change.
+
+```sh
+set_dir=evaluation/d12/coordinator
+mplpb-combined advanced-train "$set_dir/fixtures.json" "$set_dir/key.json" \
+  "$set_dir/baseline-rule.json" /tmp/mplpb-training.json --objective elapsed_days
+```
+
+The archived historical 22 preserved all strict decisions: four full answers, three cited partials, three conflicts, and twelve abstentions. Advanced ran twelve lookups and three investigations, and stopped after the strict result on seven cases. Assisted Ask without a reader abstained on all 22. The elapsed-days sprint recovered two development cases and one holdout while preserving both refusal controls. Live-model historical accuracy remains unmeasured. [Per-mode benchmark results and training evidence](evaluation/d12/mode-replay/README.md)
 
 ## Work with your own material
 

@@ -4,12 +4,12 @@ Last reviewed: 2026-11-23.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `85f0116cc43d76138e2cc74868906f4ee153650e` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `ea3adea9f1e5e97668cd14521741b3e8674d9591d2e56f29ffd1e330adf4807c`.
+Base commit: `d60c6cd209287059244fd64d0723d280b38bde5e` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `f17feaaf19692ce53932e4d33b528b704647091af4b4adad0005505458bd915e`.
 
 ## Latest user update instructions
 
-This can also be applied to training loops test it all
+Push to main make Readme explicit push all open tree to main merge and we will call it a morning
 
 ## Implemented scope
 
@@ -17,6 +17,7 @@ This can also be applied to training loops test it all
 - Index the graph, historical follow-up, public 52, D20, Primary Book, and Dice Bag replays with separate scoring criteria.
 - Add the Advanced MPLPB guided CLI and strict-first Python entry point.
 - Use one command to freeze training inputs, group baseline misses, and test one authored candidate or registered repair.
+- Make Advanced MPLPB routing, local model opt-in, rule training, and the archived benchmark outcomes explicit in the root README.
 
 ## Validation recorded
 
@@ -35,6 +36,7 @@ This can also be applied to training loops test it all
 
 ## Next steps
 
+- Run the exact-head archive and regression checks before merging the complete branch into main.
 - Run separately adjudicated historical assisted inference when a pinned local model is available.
 
 ## Use this ZIP in your repository
