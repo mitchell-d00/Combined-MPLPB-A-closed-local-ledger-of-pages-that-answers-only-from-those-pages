@@ -4,23 +4,27 @@ Last reviewed: 2026-11-23.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `fa13b0eb038dbb4079e5f630cb91a090cbd00bc6` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `ed24fd299e730398b3249be8ec83275ec2ba00eeea5982801f9b73ff72842259`.
+Base commit: `4cd6ccc34963b134dd2b3ec8d5230dfd7f32e06c` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `0897fc049b8e6ec2d2553d78edbf3e773c7f8d6c4a6159855cdd3e7ab82e7c6e`.
 
 ## Latest user update instructions
 
-Test on historic 22 and other benches so we can document each mode
+This can also be applied to training loops test it all
 
 ## Implemented scope
 
 - Compare Strict Ask, unconfigured Assisted Ask, candidate lookup, investigation, and article assembly on the frozen historical questions.
 - Index the graph, historical follow-up, public 52, D20, Primary Book, and Dice Bag replays with separate scoring criteria.
+- Add the Advanced MPLPB guided CLI and strict-first Python entry point.
+- Use one command to freeze training inputs, group baseline misses, and test one authored candidate or registered repair.
 
 ## Validation recorded
 
 - The standalone historical replay returned four full answers, three partials, three conflicts, and twelve abstentions. Article assembly preserved all 22 contracts.
 - The Wallace-Darwin letter question returned a strict documentary answer and an unconfigured-assisted abstention.
 - Public evidence passed 52 cases. The frozen D20, book, and Dice Bag replays completed, and 56 focused mode and governance controls passed.
+- The archived historical replay reproduced every case. Unconfigured Assisted Ask abstained on all 22. Expert investigation produced 22 reports with zero verified observations or traversed links.
+- Advanced MPLPB and adjacent training, governance, evidence, and investigation suites passed 70 focused checks.
 
 ## Limitations and blocked checks
 
@@ -28,7 +32,8 @@ Test on historic 22 and other benches so we can document each mode
 
 ## Next steps
 
-- Record the complete matched results and confirm the replay from an extracted archive.
+- Confirm Advanced MPLPB on the archived historical 22 and finish the full regression suite.
+- Run separately adjudicated historical assisted inference when a pinned local model is available.
 
 ## Use this ZIP in your repository
 

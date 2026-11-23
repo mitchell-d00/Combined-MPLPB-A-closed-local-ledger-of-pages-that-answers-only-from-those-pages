@@ -23,7 +23,7 @@ def ask_result(answer):
             'citations': sum(len(claim['citations']) for claim in answer['claims'])}
 
 
-def run(output, reader=None):
+def run(output, reader=None, *, include_advanced=False):
     rows, inputs = [], {}
     profile = PROFILES['internal']
     reader_identity = reader.describe() if reader else 'unconfigured'
@@ -56,12 +56,21 @@ def run(output, reader=None):
                                       'declared_links': dict(Counter(link['status'] for link in report['relations'])),
                                       'receipts': [receipt['status'] for receipt in report['receipts']]},
                 })
+                if include_advanced:
+                    from mplpb_answers.advanced import advanced_query
+                    result = advanced_query(ledger, question, profile)
+                    if result['strict'] != strict or result['answer_supported'] != strict['answer_supported']:
+                        raise ValueError(f'Advanced MPLPB changed strict proof for {case["id"]}')
+                    rows[-1]['advanced'] = {'kind': result['status'],
+                                            'inspection': (result['inspection'] or {}).get('path')}
             if initial != file_pins(ledger):
                 raise ValueError(f'Replay changed the imported ledger for {family}')
         frozen(corpus, seal)
     if len(rows) != 22:
         raise ValueError('Expected the unchanged historical 22')
     modes = ('strict', 'assisted', 'candidate_lookup', 'investigation')
+    if include_advanced:
+        modes += ('advanced',)
     revision = subprocess.check_output(['git', 'rev-parse', 'HEAD'], cwd=ROOT, text=True).strip() if (ROOT / '.git').exists() else None
     result = {'revision': revision, 'originals': inputs,
               'assisted_reader': reader_identity,
@@ -79,13 +88,14 @@ def main():
     parser.add_argument('--output', required=True, type=Path)
     parser.add_argument('--reader-model', help='Installed loopback Ollama model')
     parser.add_argument('--reader-digest', help='Expected digest of the installed model')
+    parser.add_argument('--include-advanced', action='store_true')
     args = parser.parse_args()
     if bool(args.reader_model) != bool(args.reader_digest):
         parser.error('--reader-model and --reader-digest must be provided together')
     if args.output.exists():
         parser.error('Choose a new output file')
     reader = OllamaLocalReader(args.reader_model, model_digest=args.reader_digest) if args.reader_model else None
-    return run(args.output, reader)
+    return run(args.output, reader, include_advanced=args.include_advanced)
 
 
 if __name__ == '__main__':
