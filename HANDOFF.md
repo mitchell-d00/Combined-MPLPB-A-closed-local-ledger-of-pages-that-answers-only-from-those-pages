@@ -4,32 +4,40 @@ Last reviewed: 2026-11-23.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `0cedff517fcd96e039729df990268c244b3feade` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `4e26e0153a404394ec855ff91725b9d2c777bfe69424a2c498faa96aa4c6c991`.
+Base commit: `d60c6cd209287059244fd64d0723d280b38bde5e` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `f17feaaf19692ce53932e4d33b528b704647091af4b4adad0005505458bd915e`.
 
 ## Latest user update instructions
 
-Run it note it test it then push it all to main and merge
+Push to main make Readme explicit push all open tree to main merge and we will call it a morning
 
 ## Implemented scope
 
-- Run and document a deterministic proposal, approval, WorkStore dispatch, and report readback experiment.
-- Carry the previously committed documentary-language rule and installed-wheel demo in the same pull request.
+- Compare Strict Ask, unconfigured Assisted Ask, candidate lookup, investigation, and article assembly on the frozen historical questions.
+- Index the graph, historical follow-up, public 52, D20, Primary Book, and Dice Bag replays with separate scoring criteria.
+- Add the Advanced MPLPB guided CLI and strict-first Python entry point.
+- Use one command to freeze training inputs, group baseline misses, and test one authored candidate or registered repair.
+- Make Advanced MPLPB routing, local model opt-in, rule training, and the archived benchmark outcomes explicit in the root README.
 
 ## Validation recorded
 
-- The local governance demo wrote a cited report and returned its matching receipt and artifact hash.
-- The governance controls and related local regressions passed all 64 tests.
-- The earlier two-wheel comparison reproduced both wheel hashes and all 40 case responses per revision.
-- The extracted candidate source subset passed all 10 governance controls and reproduced the cited report and matching receipt.
+- The standalone historical replay returned four full answers, three partials, three conflicts, and twelve abstentions. Article assembly preserved all 22 contracts.
+- The Wallace-Darwin letter question returned a strict documentary answer and an unconfigured-assisted abstention.
+- Public evidence passed 52 cases. The frozen D20, book, and Dice Bag replays completed, and 56 focused mode and governance controls passed.
+- The archived historical replay reproduced every case. Unconfigured Assisted Ask abstained on all 22. Expert investigation produced 22 reports with zero verified observations or traversed links.
+- Advanced MPLPB and adjacent training, governance, evidence, and investigation suites passed 70 focused checks.
+- The archived Advanced MPLPB replay preserved all 22 strict contracts, launched 12 lookups and three investigations, and stopped after Strict Ask on seven cases.
+- The elapsed-days repair recovered two development cases and one holdout with zero regressions. The inclusive-days variant failed a protected holdout and stayed at review_needed. The clean wheel ran both CLI commands.
+- The full Python suite ran 1666 tests with two skips and zero failures. Fifteen focused checks also passed from the extracted source archive.
 
 ## Limitations and blocked checks
 
-- The governance experiment uses scripted proposals, one local adapter, and a trusted host with in-memory approval. It has no external effects or independent isolation validation.
+- The historical questions and drafted source anchors are development fixtures. Live model inference and independent historical accuracy were not assessed.
 
 ## Next steps
 
-- Evaluate another operation with a separately reviewed policy and independently verifiable effect.
+- Run the exact-head archive and regression checks before merging the complete branch into main.
+- Run separately adjudicated historical assisted inference when a pinned local model is available.
 
 ## Use this ZIP in your repository
 

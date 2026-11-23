@@ -234,6 +234,26 @@ def repair(seal, fixtures, key, rule_bytes, objective):
     return result
 
 
+def orchestrate(fixtures, key, rule_bytes, *, candidate_rule=None, objective=None):
+    """Freeze, diagnose, and optionally compare one candidate under custody."""
+    if candidate_rule is not None and objective is not None:
+        raise ValueError('Choose a candidate rule or a registered objective')
+    seal = freeze(fixtures, key)
+    if objective is not None:
+        sprint = repair(seal, fixtures, key, rule_bytes, objective)
+        return {**sprint, 'seal': seal, 'promoted': False}
+    baseline = run(fixtures, rule_bytes)
+    result = {'schema': 'mplpb-advanced-training-v1', 'seal': seal, 'baseline': baseline,
+              'findings': tag(seal, fixtures, key, baseline), 'candidate': None,
+              'comparison': None, 'status': 'baseline_recorded',
+              'answer_supported': False, 'promoted': False}
+    if candidate_rule is not None:
+        candidate = run(fixtures, candidate_rule)
+        comparison = compare(seal, fixtures, key, baseline, candidate)
+        result.update(candidate=candidate, comparison=comparison, status=comparison['verdict'])
+    return result
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     sub = parser.add_subparsers(dest='command', required=True)

@@ -95,6 +95,64 @@ def cmd_candidates(args):
     return {'return':0,'ambiguous':2,'not_in_corpus':3}[result.kind]
 
 
+def cmd_advanced(args):
+    from .advanced import advanced_query
+    from .local_reader import OllamaLocalReader
+
+    try:
+        if bool(args.reader_model) != bool(args.reader_digest):
+            raise ValueError('Provide the local model and its digest together')
+        reader = OllamaLocalReader(args.reader_model, model_digest=args.reader_digest) if args.reader_model else None
+        result = advanced_query(args.root, args.question, R.PROFILES[args.profile],
+                                follow_up=args.follow_up, reader=reader)
+    except (OSError, ValueError) as exc:
+        print(f'Advanced MPLPB stopped: {exc}', file=sys.stderr)
+        return 2
+    if args.json:
+        print(json.dumps(result, ensure_ascii=False, indent=2))
+    else:
+        print(result['status'].replace('_', ' ').upper())
+        strict = result['strict']
+        if strict:
+            print(strict['text'] or strict['diagnostic']['message'])
+            for claim in strict['claims']:
+                for cite in claim['citations']:
+                    print('[{source_id} {hash}] {quote}'.format(**cite))
+        inspection = result['inspection']
+        if inspection:
+            detail = inspection['detail']
+            print(f"Inspection ({inspection['path']}): {detail.get('kind') or detail['status']}")
+            if inspection['path'] == 'assisted':
+                print(detail['text'] or detail['diagnostic']['message'])
+                for claim in detail['claims']:
+                    for cite in claim['citations']:
+                        print('[{source_id} {hash}] {quote}'.format(**cite))
+            else:
+                ids = detail['source_ids'] if inspection['path'] == 'lookup' else [s['id'] for s in detail['sources']]
+                if ids:
+                    print('Records to inspect: ' + ', '.join(ids))
+        if result['next_step']:
+            print(result['next_step'])
+    return {'supported_answer': 0, 'conflict': 2, 'partial_answer': 4, 'clarify': 5}.get(result['status'], 3)
+
+
+def cmd_advanced_train(args):
+    from mplpb_work.training import orchestrate
+
+    try:
+        result = orchestrate(args.fixtures.read_bytes(), args.key.read_bytes(), args.baseline.read_bytes(),
+                             candidate_rule=args.candidate.read_bytes() if args.candidate else None,
+                             objective=args.objective)
+        with args.output.open('x', encoding='utf-8') as stream:
+            json.dump(result, stream, ensure_ascii=False, indent=2)
+            stream.write('\n')
+    except (OSError, ValueError) as exc:
+        print(f'Advanced MPLPB training stopped: {exc}', file=sys.stderr)
+        return 2
+    print(result['status'])
+    return int(result['status'] in {'candidate_blocked', 'review_needed'})
+
+
 def cmd_narrate(args):
     from .local_narrator import narrate
     try:
@@ -223,6 +281,24 @@ def build_parser():
     candidate = sub.add_parser('candidates', help='inspect legacy lexical candidates; not supported answers',
                                parents=[legacy_parser()._subparsers._group_actions[0].choices['ask']], add_help=False)
     candidate.set_defaults(fn=cmd_candidates)
+    advanced = sub.add_parser('advanced', help='choose a source inspection after strict Ask')
+    advanced.add_argument('root')
+    advanced.add_argument('question')
+    advanced.add_argument('--profile', choices=R.PROFILES, default=R.DEFAULT_PROFILE)
+    from .advanced import PATHS
+    advanced.add_argument('--follow-up', choices=PATHS, default='auto')
+    advanced.add_argument('--reader-model')
+    advanced.add_argument('--reader-digest')
+    advanced.add_argument('--json', action='store_true')
+    advanced.set_defaults(fn=cmd_advanced)
+    from pathlib import Path
+    training = sub.add_parser('advanced-train', help='freeze, diagnose, and test one bounded rule')
+    for parameter in ('fixtures', 'key', 'baseline', 'output'):
+        training.add_argument(parameter, type=Path)
+    selection = training.add_mutually_exclusive_group()
+    selection.add_argument('--candidate', type=Path)
+    selection.add_argument('--objective', choices=('elapsed_days', 'inclusive_days'))
+    training.set_defaults(fn=cmd_advanced_train)
     narrator = sub.add_parser('narrate', help='optionally format a strict answer with a constrained local model')
     narrator.add_argument('question')
     narrator.add_argument('--corpus', required=True)
