@@ -4,40 +4,32 @@ Last reviewed: 2026-11-23.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `d60c6cd209287059244fd64d0723d280b38bde5e` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `f17feaaf19692ce53932e4d33b528b704647091af4b4adad0005505458bd915e`.
+Base commit: `4c7cbe911217dbc08bc4e009ca9eeed129865fad` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `e20e1caf8c818ea4908de00d18f086662a9f632bedbf1babbf98eb61f1dc57a2`.
 
 ## Latest user update instructions
 
-Push to main make Readme explicit push all open tree to main merge and we will call it a morning
+Push it all that’s new and merge to main
 
 ## Implemented scope
 
-- Compare Strict Ask, unconfigured Assisted Ask, candidate lookup, investigation, and article assembly on the frozen historical questions.
-- Index the graph, historical follow-up, public 52, D20, Primary Book, and Dice Bag replays with separate scoring criteria.
-- Add the Advanced MPLPB guided CLI and strict-first Python entry point.
-- Use one command to freeze training inputs, group baseline misses, and test one authored candidate or registered repair.
-- Make Advanced MPLPB routing, local model opt-in, rule training, and the archived benchmark outcomes explicit in the root README.
+- Publish the Development History Index and link it from the README and results guide.
+- Retain the mode-flag history, historical discovery-combination results, per-case routing suggestions, and reproduction commands.
 
 ## Validation recorded
 
-- The standalone historical replay returned four full answers, three partials, three conflicts, and twelve abstentions. Article assembly preserved all 22 contracts.
-- The Wallace-Darwin letter question returned a strict documentary answer and an unconfigured-assisted abstention.
-- Public evidence passed 52 cases. The frozen D20, book, and Dice Bag replays completed, and 56 focused mode and governance controls passed.
-- The archived historical replay reproduced every case. Unconfigured Assisted Ask abstained on all 22. Expert investigation produced 22 reports with zero verified observations or traversed links.
-- Advanced MPLPB and adjacent training, governance, evidence, and investigation suites passed 70 focused checks.
-- The archived Advanced MPLPB replay preserved all 22 strict contracts, launched 12 lookups and three investigations, and stopped after Strict Ask on seven cases.
-- The elapsed-days repair recovered two development cases and one holdout with zero regressions. The inclusive-days variant failed a protected holdout and stayed at review_needed. The clean wheel ran both CLI commands.
-- The full Python suite ran 1666 tests with two skips and zero failures. Fifteen focused checks also passed from the extracted source archive.
+- The first discovery experiment compared identical budgets on the historical 22 and 40 follow-ups. The three-way mix lost discovery coverage, and strict status and claim lists remained identical when supplied the tested hints.
+- The follow-up flag checks produced research reports without answer promotion, and 101 sorter, Advanced MPLPB, and investigation checks passed.
+- The checked-in runner reproduced the original case-level discovery and strict-status measurements against 4c7cbe9. All six CLI follow-ups returned reports with answer support withheld.
 
 ## Limitations and blocked checks
 
-- The historical questions and drafted source anchors are development fixtures. Live model inference and independent historical accuracy were not assessed.
+- Drafted reference passages are development anchors. This study measures discovery and retained proof outcomes. Live-model historical accuracy and independent historical accuracy remain unmeasured.
 
 ## Next steps
 
-- Run the exact-head archive and regression checks before merging the complete branch into main.
-- Run separately adjudicated historical assisted inference when a pinned local model is available.
+- Run the exact-head archive and regression checks before merging.
+- Validate a separately labeled graph shortlist on unseen historical source packets.
 
 ## Use this ZIP in your repository
 
