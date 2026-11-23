@@ -4,8 +4,8 @@ Last reviewed: 2026-11-23.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `323492daf7b659c7718948e8b322f76d4c6a9247` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `cfab050bcecf2ab903bcf37b50bcc4dbe8f357f59298cfc782fbeec113dc9886`.
+Base commit: `6df82ed35e603e5d7615438de40b2f014e64b050` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `6ff003deba75cca512cc75f21cb6c56f7ecfa839fa971b1def8b146ddb7ce691`.
 
 ## Latest user update instructions
 
@@ -19,8 +19,10 @@ Produce a reproducible release demonstration: Provide one-command installation, 
 
 ## Validation recorded
 
-- The pre-change focused run had four failures. The changed reader passed all six focused checks including mid-verification retirement and a tight citation budget.
-- The checkout replay matched all 40 labels with 70 exact citation readbacks.
+- The pre-change focused run had four failures. The installed candidate passed six focused checks including mid-verification retirement and a tight citation budget.
+- Two isolated installed-wheel runs reproduced both wheel hashes and all 40 case responses for each revision. Expected outcomes matched 20/40 on the baseline and 40/40 on the candidate, with 70 exact candidate citations and zero false full answers.
+- The public evidence replay passed all 52 checks. The historical 22 native answer contracts were unchanged except for engine fingerprints. The JavaScript API, UI-script, and browser transport smoke checks passed.
+- The full local Python suite ran 1648 tests with zero failures and two skips. The documented archive replay and installed focused controls exercised the wheel separately.
 
 ## Limitations and blocked checks
 
@@ -28,7 +30,6 @@ Produce a reproducible release demonstration: Provide one-command installation, 
 
 ## Next steps
 
-- Replay and retain exact installed-wheel comparison results.
 - Evaluate transfer using independently authored prose packets and graded citation obligations.
 
 ## Use this ZIP in your repository

@@ -12,6 +12,25 @@ The runner compares the pinned baseline with the current commit. Use `--candidat
 
 Read `report.json` for the comparison, revision and wheel hashes, elapsed build and install time, and p50 and p95 query latency. The `baseline/` and `candidate/` folders retain each wheel, source archive, and native case-level responses with citations. Replay time includes temporary ledger setup and citation readback. To install the candidate wheel alone in your active environment, use `python -m pip install --no-index /tmp/mplpb-release-demo/candidate/wheels/*.whl`.
 
+## Installed-wheel comparison
+
+One local run on Python 3.12.14 on x86-64 Linux. The recorded baseline is `323492d` and the candidate is `6df82ed`. [Full measurements and revision hashes](results.json)
+
+| Measurement | Baseline | Candidate |
+|---|---:|---:|
+| Expected outcomes matched | 20/40 | 40/40 |
+| Full answers | 0 | 10 |
+| Cited partial answers | 0 | 10 |
+| Abstentions | 40 | 20 |
+| False full answers | 0 | 0 |
+| Exact citation readbacks | 0 | 70 |
+| Query latency p50 / p95 | 9.277 / 10.624 ms | 6.509 / 8.917 ms |
+| Wheel build and install | 3.291 s | 3.403 s |
+
+The baseline abstained on all cases. The candidate recovered both receipt forms and reported the sender alone when a receipt was missing or retired. It preserved all 20 abstentions involving mismatched dispatch, parcel, or recipient, or wording that only planned receipt.
+
+A second run reproduced both wheel hashes and all case responses and citations. Elapsed times vary between runs.
+
 ## What the rule proves
 
 Given “Parcel BK-18 is listed as the court diary,” a dispatch recording that Ari Long sent the identified parcel to Noel King, and a receipt naming Noel King and the same parcel and dispatch, “They received it” binds to the named recipient and parcel within that receipt. The reader cites the catalog and dispatch for the sender, and all three records for receipt. If the receipt is absent or retired, the reader can report the sender and leave receipt open. Ambiguous or inconsistent packets withhold the combined answer.

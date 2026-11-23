@@ -1,0 +1,113 @@
+{
+  "schema": "mplpb-release-demo-v1",
+  "input_pins": {
+    "baseline_git_commit": "323492daf7b659c7718948e8b322f76d4c6a9247",
+    "fixtures.json": "18d9e1bf42f576310cb4d6224d3d7b1e609b4f511198a786d8388e468a88d601",
+    "labels.json": "e08cb263802081d6afbdb4e2d08a5a2115e8b1452a23745a49ff165dd583d4e4"
+  },
+  "environment": {
+    "python": "3.12.14",
+    "platform": "Linux-6.18.57-x86_64-with-glibc2.41",
+    "processor": "x86_64"
+  },
+  "baseline": {
+    "revision": "323492daf7b659c7718948e8b322f76d4c6a9247",
+    "wheel_sha256": "e55f968d3ab1b2949ba00a8fa64ea4af64f5a1c3a0e52ce8b651d6761babe808",
+    "build_and_install_ms": 3291.397,
+    "cases": 40,
+    "matched": 20,
+    "native_outcomes": {
+      "abstain": 40
+    },
+    "false_full_support": 0,
+    "exact_citations": 0,
+    "families": {
+      "pronouns": {
+        "cases": 5,
+        "matched": 0
+      },
+      "named": {
+        "cases": 5,
+        "matched": 0
+      },
+      "no_receipt": {
+        "cases": 5,
+        "matched": 0
+      },
+      "retired_receipt": {
+        "cases": 5,
+        "matched": 0
+      },
+      "other_dispatch": {
+        "cases": 5,
+        "matched": 5
+      },
+      "other_parcel": {
+        "cases": 5,
+        "matched": 5
+      },
+      "other_recipient": {
+        "cases": 5,
+        "matched": 5
+      },
+      "planned_receipt": {
+        "cases": 5,
+        "matched": 5
+      }
+    },
+    "query_p50_ms": 9.277,
+    "query_p95_ms": 10.624,
+    "replay_wall_ms": 512.376
+  },
+  "candidate": {
+    "revision": "6df82ed35e603e5d7615438de40b2f014e64b050",
+    "wheel_sha256": "bc18db624d9509e306b3032c12e10393e6c97bb4e7e899f5438a1eb7d3466f44",
+    "build_and_install_ms": 3403.146,
+    "cases": 40,
+    "matched": 40,
+    "native_outcomes": {
+      "supported_answer": 10,
+      "partial_answer": 10,
+      "abstain": 20
+    },
+    "false_full_support": 0,
+    "exact_citations": 70,
+    "families": {
+      "pronouns": {
+        "cases": 5,
+        "matched": 5
+      },
+      "named": {
+        "cases": 5,
+        "matched": 5
+      },
+      "no_receipt": {
+        "cases": 5,
+        "matched": 5
+      },
+      "retired_receipt": {
+        "cases": 5,
+        "matched": 5
+      },
+      "other_dispatch": {
+        "cases": 5,
+        "matched": 5
+      },
+      "other_parcel": {
+        "cases": 5,
+        "matched": 5
+      },
+      "other_recipient": {
+        "cases": 5,
+        "matched": 5
+      },
+      "planned_receipt": {
+        "cases": 5,
+        "matched": 5
+      }
+    },
+    "query_p50_ms": 6.509,
+    "query_p95_ms": 8.917,
+    "replay_wall_ms": 444.045
+  }
+}
