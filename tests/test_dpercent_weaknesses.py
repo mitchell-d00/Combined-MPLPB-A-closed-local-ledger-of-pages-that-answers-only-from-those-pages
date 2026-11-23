@@ -7,10 +7,23 @@ from copy import deepcopy
 from tools import dpercent as D
 from tools import dpercent_expanded as E
 from tools import dpercent_weaknesses as W
+from tools import dpercent_weakness_batch as B
 from mplpb_work import sorter_v2 as S
 
 
 class WeaknessStudyTests(unittest.TestCase):
+    def test_batch_exit_distinguishes_failed_workers_from_scored_misses(self):
+        with tempfile.TemporaryDirectory() as temp:
+            root = Path(temp)
+            public, key, results = root/'packets', root/'key', root/'results'
+            packet = W.prepare(public, key, count=1, seed=31)
+            (results/packet['shards'][0]['name']).mkdir(parents=True)
+            for outcome, code in (('execution_failure', 1), ('invalid_output', 1), ('over_refusal', 0)):
+                with self.subTest(outcome=outcome), patch.object(
+                    W, 'summarize', return_value={'partial': False, 'by_family': {'class': {'outcomes': {outcome: 1}}}}
+                ):
+                    self.assertEqual(B.run(public, key, results), code)
+
     def test_registry_keeps_every_previous_family(self):
         self.assertTrue(set(D.FAMILIES) <= set(W.FAMILIES))
         self.assertTrue(set(E.FIELD_FAMILIES) <= set(W.FAMILIES))
@@ -105,6 +118,8 @@ class WeaknessStudyTests(unittest.TestCase):
             summary = W.summarize(public, keys, run)
             self.assertIsNone(score['metrics']['E'])
             self.assertEqual(summary['executed'], 0)
+            self.assertEqual(summary['completed'], 0)
+            self.assertEqual(summary['execution_failed'], 0)
             self.assertEqual(summary['not_run'], 2)
             self.assertTrue(summary['partial'])
 

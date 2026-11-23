@@ -1,6 +1,6 @@
 # D% known-weakness sampling
 
-Last reviewed: 2026-11-20.
+Last reviewed: 2026-11-23.
 
 This is a versioned development stress study, not independent historical validation.
 It preserves the original D% producer, expanded producer, frozen questions, keys,
@@ -85,7 +85,8 @@ Neither the parent driver nor scorer writes to a source ledger.
 
 ## Read the findings
 
-`summary.json` separates planned, executed and not-run cases, per-family outcomes,
+`summary.json` separates planned, attempted (`executed`), completed,
+failed, and not-run cases, per-family outcomes,
 feature cohorts and graph-obligation failures. Shard score files retain detection
 E and false-alarm F, missed positives, incorrect positives, unscored support,
 quotation fidelity and resource costs. Never substitute null with zero or count
@@ -104,9 +105,10 @@ a correct partial answer without separate assessment. Graph observations retain
 source spans, hashes and provisional assessments; comparison adds review proposals
 without promoting them. Unknown obligation schemas fail closed.
 
-A normal driver exit means execution/scoring orchestration finished, not that
-all answer or graph obligations passed. Inspect the report. The original source
-assertion checker remains the only authority for `answer_supported`.
+The batch driver exits nonzero for incomplete execution, worker failures, or
+invalid worker output. An exit of zero records successful execution and scoring.
+Read the report for answer and graph outcomes. The original source assertion
+checker remains the authority for `answer_supported`. [Worker failure and D10 replay](../evaluation/d10/README.md)
 
 Study records and limitations are retained under
 [evaluation/dpercent-known-weaknesses](../evaluation/dpercent-known-weaknesses/2026-11-20).

@@ -278,7 +278,7 @@ def execute_shards(packets, custodian, output, implementation=D.ROOT, max_shards
 
 def summarize(packets, custodian, output):
     packets, custodian, output = map(Path, (packets, custodian, output))
-    manifest = D.read(packets/'study.json'); families = {}; finished = 0; features = {}
+    manifest = D.read(packets/'study.json'); families = {}; finished = 0; completed = 0; features = {}
     if manifest != D.read(custodian/'study-copy.json'): raise ValueError('Study manifest changed')
     for family, count in manifest['family_counts'].items():
         families[family] = {'planned': count, 'executed': 0, 'outcomes': {}, 'graph_failures': 0}
@@ -298,6 +298,7 @@ def summarize(packets, custodian, output):
                 cohort['cases'] += 1
                 cohort['outcomes'][outcome] = cohort['outcomes'].get(outcome, 0)+1
             if row['execution'] != 'completed': continue
+            completed += 1
             path = output/name/row['id']/'result.json'
             if D.sha(path.read_bytes()) != receipts[row['id']]['sha256']: raise ValueError('Execution output changed')
             data = D.read(path); checks = graph_checks(data['sorter'], keys[row['id']]['structural_expectations'])
@@ -314,6 +315,7 @@ def summarize(packets, custodian, output):
             if D.read(target) != diagnostics: raise ValueError('Graph diagnostics changed')
         else: D.save(target, diagnostics)
     result = {'schema': VERSION+'-summary', 'planned': manifest['cases'], 'executed': finished,
+              'completed': completed, 'execution_failed': finished - completed,
               'not_run': manifest['cases']-finished, 'partial': finished != manifest['cases'], 'by_family': families, 'by_feature': features,
               'independent_validation': 'NOT RUN', 'semantic_relationship_precision': None,
               'semantic_relationship_recall': None, 'human_review_seconds': None,

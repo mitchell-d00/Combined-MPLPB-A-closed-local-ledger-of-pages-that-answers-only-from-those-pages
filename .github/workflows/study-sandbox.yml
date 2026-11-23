@@ -34,3 +34,32 @@ jobs:
           git archive HEAD | tar -x -C "$RUNNER_TEMP/mplpb-sandbox-source"
           cd "$RUNNER_TEMP/mplpb-sandbox-source"
           sudo env PYTHONPATH="$PWD" MPLPB_REQUIRE_SANDBOX=1 "$STUDY_TEST_PYTHON" -m unittest tests.test_study_sandbox -v
+      - name: Replay one frozen D% case per executable class
+        if: github.event_name == 'pull_request'
+        run: |
+          set -euo pipefail
+          study="$RUNNER_TEMP/mplpb-dpercent-smoke"
+          mkdir "$study"
+          python -m tools.dpercent_weaknesses prepare --out "$study/packets" --custodian "$study/keys" +            --cases 75 --seed 2026112003 --shard-size 25
+          sudo env PATH="$PATH" GIT_CONFIG_COUNT=1 GIT_CONFIG_KEY_0=safe.directory +            GIT_CONFIG_VALUE_0="$GITHUB_WORKSPACE" "$(command -v python)" +            -m tools.dpercent_weakness_batch --packets "$study/packets" --custodian "$study/keys" +            --output "$study/results" --workers 3
+          python - "$study/results/summary.json" <<'PY'
+          from collections import Counter
+          import json
+          from pathlib import Path
+          import sys
+
+          summary = json.loads(Path(sys.argv[1]).read_text())
+          families = summary['by_family']
+          counts = Counter()
+          for row in families.values():
+              counts.update(row['outcomes'])
+          assert len(families) == summary['executed'] == summary['completed'] == 75
+          print(f"75 cases across 75 D% classes: {dict(counts)}")
+          PY
+      - name: Retain D% aggregate results
+        if: always() && github.event_name == 'pull_request'
+        uses: actions/upload-artifact@v4
+        with:
+          name: dpercent-75-class-smoke
+          path: ${{ runner.temp }}/mplpb-dpercent-smoke/results/summary.json
+          if-no-files-found: ignore

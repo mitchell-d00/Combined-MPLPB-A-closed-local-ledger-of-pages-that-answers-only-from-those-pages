@@ -20,6 +20,8 @@ compiler cites declared ledger fields and explains which branches resolved. The 
 
 [D20](../evaluation/d20/README.md) records the seeded ownership and alias baseline and class-level probes.
 
+[D10](../evaluation/d10/README.md) indexes D% classes as suites and tests the exact-anchor adapter with matched quoted and altered text on frozen samples.
+
 [Documentary date wording and report sections](../evaluation/documentary-date-pattern/README.md) retains the Fort Sumter paraphrase repair and the separate Apollo 13 header-based passage probe.
 
 [Historical synonym graph comparison](../evaluation/historical-synonym-graph/README.md) records graph-guided discovery on the original 22, the 40 follow-ups, and 12 questions on USS America, Mount Airy, and Corona.
