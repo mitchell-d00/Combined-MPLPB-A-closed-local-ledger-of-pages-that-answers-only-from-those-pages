@@ -4,8 +4,8 @@ Last reviewed: 2026-11-23.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `4cd6ccc34963b134dd2b3ec8d5230dfd7f32e06c` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `0897fc049b8e6ec2d2553d78edbf3e773c7f8d6c4a6159855cdd3e7ab82e7c6e`.
+Base commit: `85f0116cc43d76138e2cc74868906f4ee153650e` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `ea3adea9f1e5e97668cd14521741b3e8674d9591d2e56f29ffd1e330adf4807c`.
 
 ## Latest user update instructions
 
@@ -25,6 +25,9 @@ This can also be applied to training loops test it all
 - Public evidence passed 52 cases. The frozen D20, book, and Dice Bag replays completed, and 56 focused mode and governance controls passed.
 - The archived historical replay reproduced every case. Unconfigured Assisted Ask abstained on all 22. Expert investigation produced 22 reports with zero verified observations or traversed links.
 - Advanced MPLPB and adjacent training, governance, evidence, and investigation suites passed 70 focused checks.
+- The archived Advanced MPLPB replay preserved all 22 strict contracts, launched 12 lookups and three investigations, and stopped after Strict Ask on seven cases.
+- The elapsed-days repair recovered two development cases and one holdout with zero regressions. The inclusive-days variant failed a protected holdout and stayed at review_needed. The clean wheel ran both CLI commands.
+- The full Python suite ran 1666 tests with two skips and zero failures. Fifteen focused checks also passed from the extracted source archive.
 
 ## Limitations and blocked checks
 
@@ -32,7 +35,6 @@ This can also be applied to training loops test it all
 
 ## Next steps
 
-- Confirm Advanced MPLPB on the archived historical 22 and finish the full regression suite.
 - Run separately adjudicated historical assisted inference when a pinned local model is available.
 
 ## Use this ZIP in your repository

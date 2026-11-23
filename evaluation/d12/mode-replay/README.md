@@ -36,11 +36,12 @@ independent historical accuracy remain unmeasured.
 | Expert investigation | 22 evidence reports and 66 passed local receipts. This run yielded zero verified documentary observations and zero declared links traversed. |
 | Synonym graph | Suggested records on 18/22. All drafted anchors were visible on 5/21 cases with references, up from 4/21 with ordinary discovery. |
 | Article assembly | Preserved all 22 native section contracts. The assembled dossier carried no answer support of its own. |
+| Advanced MPLPB | Preserved all 22 complete strict contracts. It ran 12 lookups and 3 investigations and stopped after the strict result on 7 cases. |
 
 The strict route and unconfigured-assisted route diverged on all ten cases
 where Strict Ask produced a full answer, partial answer, or conflict.
 The four full answers were H02, H05, H07, and U07.
-[Per-case results and checked source pins](historical-modes.json) · [Other benchmark summaries](benchmark-summary.json)
+[Per-case results and checked source pins](historical-modes.json) · [Other benchmark summaries](benchmark-summary.json) · [Advanced routing and training results](advanced-results.json)
 
 ## Other benchmark replays
 

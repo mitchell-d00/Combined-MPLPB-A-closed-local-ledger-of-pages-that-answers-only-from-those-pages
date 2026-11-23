@@ -1,0 +1,254 @@
+{
+  "archived_revision": "85f0116cc43d76138e2cc74868906f4ee153650e",
+  "source_subset_zip_sha256": "7408ba128223c93cba582d66a19605d0963344499a62f08032dd71a3a8e57cad",
+  "historical_strict_contracts_preserved": 22,
+  "case_count": 22,
+  "inspection_counts": {
+    "lookup": 12,
+    "none": 7,
+    "investigate": 3
+  },
+  "cases": [
+    {
+      "id": "H01",
+      "kind": "abstain",
+      "inspection": "lookup"
+    },
+    {
+      "id": "H02",
+      "kind": "supported_answer",
+      "inspection": null
+    },
+    {
+      "id": "H03",
+      "kind": "conflict",
+      "inspection": null
+    },
+    {
+      "id": "H04",
+      "kind": "conflict",
+      "inspection": null
+    },
+    {
+      "id": "H05",
+      "kind": "supported_answer",
+      "inspection": null
+    },
+    {
+      "id": "H06",
+      "kind": "abstain",
+      "inspection": "lookup"
+    },
+    {
+      "id": "H07",
+      "kind": "supported_answer",
+      "inspection": null
+    },
+    {
+      "id": "H08",
+      "kind": "partial_answer",
+      "inspection": "investigate"
+    },
+    {
+      "id": "H09",
+      "kind": "abstain",
+      "inspection": "lookup"
+    },
+    {
+      "id": "H10",
+      "kind": "abstain",
+      "inspection": "lookup"
+    },
+    {
+      "id": "H11",
+      "kind": "abstain",
+      "inspection": "lookup"
+    },
+    {
+      "id": "H12",
+      "kind": "abstain",
+      "inspection": "lookup"
+    },
+    {
+      "id": "H13",
+      "kind": "abstain",
+      "inspection": "lookup"
+    },
+    {
+      "id": "H14",
+      "kind": "conflict",
+      "inspection": null
+    },
+    {
+      "id": "U01",
+      "kind": "partial_answer",
+      "inspection": "investigate"
+    },
+    {
+      "id": "U02",
+      "kind": "abstain",
+      "inspection": "lookup"
+    },
+    {
+      "id": "U03",
+      "kind": "abstain",
+      "inspection": "lookup"
+    },
+    {
+      "id": "U04",
+      "kind": "abstain",
+      "inspection": "lookup"
+    },
+    {
+      "id": "U05",
+      "kind": "abstain",
+      "inspection": "lookup"
+    },
+    {
+      "id": "U06",
+      "kind": "partial_answer",
+      "inspection": "investigate"
+    },
+    {
+      "id": "U07",
+      "kind": "supported_answer",
+      "inspection": null
+    },
+    {
+      "id": "U08",
+      "kind": "abstain",
+      "inspection": "lookup"
+    }
+  ],
+  "training": {
+    "elapsed": {
+      "objective": "elapsed_days",
+      "seal": {
+        "schema": "mplpb-training-seal-v1",
+        "fixtures_sha256": "c0229f541e508304a9cbc5e589fce0a81a1edbf183e0bafffca2eb4a70f79ecb",
+        "key_sha256": "51433b7a29961058506d374f54711d802cb39b5883c62cd7ee0bd15c4e951d2a"
+      },
+      "status": "repair_selected",
+      "promoted": false,
+      "answer_supported": false,
+      "comparison": {
+        "schema": "mplpb-rule-sprint-v1",
+        "verdict": "candidate_passed",
+        "seal": {
+          "schema": "mplpb-training-seal-v1",
+          "fixtures_sha256": "c0229f541e508304a9cbc5e589fce0a81a1edbf183e0bafffca2eb4a70f79ecb",
+          "key_sha256": "51433b7a29961058506d374f54711d802cb39b5883c62cd7ee0bd15c4e951d2a"
+        },
+        "baseline_sha256": "sha256:97f023ab0b8dea4821a6dff2e429f6d58258df67a1262d8ffa16abe6a98e53e0",
+        "candidate_sha256": "sha256:252c29830c32c7b5c3409584d54484c06374f65ea5ab145dd92948d2e0da6b0a",
+        "candidate_rule_sha256": "dbafd0dac2faad4e98a578e683e8e782fba97423f6f5a5aed7fae4e239602231",
+        "recovered": [
+          "dev-cross-month",
+          "dev-next-day",
+          "holdout-reverse"
+        ],
+        "new_regressions": [],
+        "protected_failures": [],
+        "unexpected_support": [],
+        "cases": [
+          {
+            "id": "dev-cross-month",
+            "partition": "development",
+            "before": "wrong_value",
+            "after": "match"
+          },
+          {
+            "id": "dev-next-day",
+            "partition": "development",
+            "before": "wrong_value",
+            "after": "match"
+          },
+          {
+            "id": "holdout-reverse",
+            "partition": "holdout",
+            "before": "wrong_value",
+            "after": "match"
+          },
+          {
+            "id": "control-partial-date",
+            "partition": "control",
+            "before": "match",
+            "after": "match"
+          },
+          {
+            "id": "control-missing-field",
+            "partition": "control",
+            "before": "match",
+            "after": "match"
+          }
+        ],
+        "answer_supported": false,
+        "promoted": false
+      }
+    },
+    "inclusive": {
+      "objective": "inclusive_days",
+      "seal": {
+        "schema": "mplpb-training-seal-v1",
+        "fixtures_sha256": "c0229f541e508304a9cbc5e589fce0a81a1edbf183e0bafffca2eb4a70f79ecb",
+        "key_sha256": "51433b7a29961058506d374f54711d802cb39b5883c62cd7ee0bd15c4e951d2a"
+      },
+      "status": "review_needed",
+      "promoted": false,
+      "answer_supported": false,
+      "comparison": {
+        "schema": "mplpb-rule-sprint-v1",
+        "verdict": "candidate_blocked",
+        "seal": {
+          "schema": "mplpb-training-seal-v1",
+          "fixtures_sha256": "c0229f541e508304a9cbc5e589fce0a81a1edbf183e0bafffca2eb4a70f79ecb",
+          "key_sha256": "51433b7a29961058506d374f54711d802cb39b5883c62cd7ee0bd15c4e951d2a"
+        },
+        "baseline_sha256": "sha256:97f023ab0b8dea4821a6dff2e429f6d58258df67a1262d8ffa16abe6a98e53e0",
+        "candidate_sha256": "sha256:e1bc2b0187a0b5bf5e7dde34256cca474409594a91b9189176947fecc64b8caa",
+        "candidate_rule_sha256": "318fa6fd387796d15f127ddee235a8b232f1b865452ce858de94532739449641",
+        "recovered": [],
+        "new_regressions": [],
+        "protected_failures": [
+          "holdout-reverse"
+        ],
+        "unexpected_support": [],
+        "cases": [
+          {
+            "id": "dev-cross-month",
+            "partition": "development",
+            "before": "wrong_value",
+            "after": "wrong_value"
+          },
+          {
+            "id": "dev-next-day",
+            "partition": "development",
+            "before": "wrong_value",
+            "after": "wrong_value"
+          },
+          {
+            "id": "holdout-reverse",
+            "partition": "holdout",
+            "before": "wrong_value",
+            "after": "support_withheld"
+          },
+          {
+            "id": "control-partial-date",
+            "partition": "control",
+            "before": "match",
+            "after": "match"
+          },
+          {
+            "id": "control-missing-field",
+            "partition": "control",
+            "before": "match",
+            "after": "match"
+          }
+        ],
+        "answer_supported": false,
+        "promoted": false
+      }
+    }
+  },
+  "archived_focused_tests_passed": 15
+}

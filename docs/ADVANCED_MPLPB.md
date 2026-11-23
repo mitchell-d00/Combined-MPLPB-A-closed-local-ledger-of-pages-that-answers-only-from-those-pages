@@ -47,5 +47,13 @@ controls. A passing candidate remains a training artifact with
 `promoted=false`. The WorkStore capability API remains available for
 separate operator and coordinator seats. [Scoped training workflow](../evaluation/d12/coordinator/README.md)
 
+On the archived historical 22 the automatic path preserved every strict
+contract. It ran 12 lookups and three investigations and stopped after the
+strict result on seven cases. The archived training checks selected the
+elapsed-days repair, which recovered two development cases and one holdout
+while preserving both refusal controls. Inclusive-day counting failed the
+protected holdout and returned `review_needed`.
+[Per-case routing and training evidence](../evaluation/d12/mode-replay/advanced-results.json)
+
 Assisted evaluation still requires live-model and independent human validation.
 [Historical mode results](../evaluation/d12/mode-replay/README.md)
