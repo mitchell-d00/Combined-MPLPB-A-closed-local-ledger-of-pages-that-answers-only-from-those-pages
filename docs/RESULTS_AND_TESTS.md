@@ -5,6 +5,8 @@ Last reviewed: 2026-11-23.
 [Test Index](TEST_INDEX.md) connects the test types to the deterministic training loop.
 The [historical mode replay](../evaluation/d12/mode-replay/README.md) compares the unchanged 22 under Strict Ask, Assisted Ask, page lookup, expert investigation, and article assembly. It records separate results for the other benchmarks.
 
+The [discovery-combination replay](../evaluation/d12/discovery-combos/README.md) compares ordinary, graph-guided, and investigation-guided passage discovery at matched budgets. The [Development History Index](DEVELOPMENT_HISTORY.md) maps the mode flags and other changes to their records.
+
 The [governance gate experiment](../evaluation/comparative-tests/governance-gate/README.md) checks AI-shaped proposals against host approval, WorkStore dispatch, and actual report bytes.
 
 [D12](../evaluation/d12/README.md) adds paired error-class probes to D6 and a separate
