@@ -65,14 +65,15 @@ conditions. [D20 class study](../evaluation/d20/README.md#large-study-and-class-
 
 ## D-series tests named after game dice
 
-The D-series names come from game dice. The current names are D4, D6, D10,
+The D-series names come from game dice. The current names are D4, D6, D8, D10,
 D12, D20, D%, and D100. D100 and D% both draw on percentile dice and name
-separate experiments. D8 remains unused. Dice Bag draws live records.
+separate experiments. Dice Bag draws live records.
 
 | Suite | What it measures | Reproduce or inspect |
 |---|---|---|
 | **D4** | Event identity, local co-reference, documentary proof and controls | [Native runner and reproduction](D4_EVENT_IDENTITY_COREFERENCE.md) · [Retained case study](../evaluation/d4/2026-11-20/CASE_STUDY.md) |
 | **D6** | Six declared-field operations for matches, contrasts, year arithmetic, branching and cited answer compilation | [Runner, worked example and Dice Bag corpus replay](../evaluation/d6/README.md) · [Calendar, notes and lexical discovery](../evaluation/d6/calendar-notes/README.md) |
+| **D8** | Eight controls for the handoff from owner lookup to strict proof and a complete or partial answer | [Ownership handoffs and reproduction](../evaluation/d8/README.md) |
 | **D10** | Ten topic draws for a selected D% class, frozen source sampling, and matched quotation controls for the implemented exact-anchor suite | [Index, captures, and replay](../evaluation/d10/README.md) |
 | **D12** | Matched relation and evidence-path perturbations, frozen historical trace, and citation readback | [Generator and historical replay](../evaluation/d12/README.md) · [Proposed human pilot](../evaluation/d12/HUMAN_PILOT.md) · [Pattern fix sprints](../evaluation/d12/pattern-sprints/README.md) · [Rule-training coordinator and API](../evaluation/d12/coordinator/README.md) |
 | **D20** | Matched owner and alias cases, including competition, missing fields and retired evidence | [Seeded replay and rule-class study](../evaluation/d20/README.md) |

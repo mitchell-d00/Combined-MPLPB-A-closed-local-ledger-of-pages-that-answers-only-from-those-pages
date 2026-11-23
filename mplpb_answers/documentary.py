@@ -76,6 +76,8 @@ def plan(question):
             goals.append({'question':clause,'kind':'letter_context'})
         elif re.match(r'(?:Why (?:was|were|did)|what (?:spacecraft|vehicle|resource|equipment|system)|what .*provide)',q,re.I):
             goals.append({'question':clause,'kind':'explicit_cause' if q.lower().startswith('why') else 'resource_support'})
+        elif re.fullmatch(r'What (?:wording|words|text) .{0,240}\b(?:appeared|(?:was|were) (?:printed|published|used)) in .{1,180}', q, re.I):
+            goals.append({'question':clause,'kind':'unresolved'})
         elif re.match(r'(?:Compare|What (?:wording|words|text)|How .*differ)',q,re.I):
             goals.append({'question':clause,'kind':'wording_comparison'})
         elif re.fullmatch(r'(?:what|which) (?:wording |words )?(?:remained|remains|is shared|was retained)',q,re.I):

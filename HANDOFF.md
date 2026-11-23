@@ -4,35 +4,32 @@ Last reviewed: 2026-11-23.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `c80e546ef6d04296a1c136e9fc4933057d79d071` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `9b359fad6c1ba8155249b95faf642b23f890549f1c2b2d80175f940c720de970`.
+Base commit: `a2abb278032c0d368d78378bf67bcbc6d8865326` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `72a19b5a79868e39835cd7882c4b406e8b7fc2bb5de071d9c28a82d84128a400`.
 
 ## Latest user update instructions
 
-Do it
+Run it until you fix the pass offs it is a break in logic in chain the unit is a whole strict mode is strict but keeping the rule one owner two should not be a skip it should be preventing boundries of both and none is refuse how it seems is refuse unless one owner
+
+Develop D8 to solve it
+
+Debug as well as test and fix as you find new breaks and errors
 
 ## Implemented scope
 
-- Run a D12 solo post-freeze pilot on six randomly drawn linked FRUS source pairs and 24 natural questions.
-- Retain the engine pin, source and key seals, original XML fragments, raw mode outputs, and scripts for replay.
-- Index the run and keep passage discovery, source labels, and strict proof results distinct.
+- Build eight D8 ownership handoff controls and repair missing competing witnesses, independent named record comparisons, and unsupported published-wording routing.
 
 ## Validation recorded
 
-- Verified 12 exact source fragments against the pinned volume downloads and sealed the key before native execution.
-- Replayed the same engine and packet. Scores, strict contracts, passage results, and sorter graphs matched exactly. Only WorkStore receipt IDs differed.
-- Passed the documentation inventory audit, artifact digest checks, and 21 focused D12, Advanced, source-notes, and historical-seam tests.
+- Recorded the failing D8 baseline and passed all eight D8 controls and 85 focused tests on the candidate.
 
 ## Limitations and blocked checks
 
-- This is a post-freeze solo evaluation with one operator and no independent human review.
-- The sample consists of paired English diplomatic records. No WorkStore notes or configured local model were loaded into the evaluation.
-- The full repository ZIP is too large to extract locally with the available disk space.
+- Explicit multi-record field comparisons cover source-declared fields. Prose relationships still require a rule and witnesses that establish the relationship.
 
 ## Next steps
 
-- Keep this first result fixed. Compare notes on and off for passage discovery, then trace matched passages to proof admission.
-- Use another post-freeze draw to measure transfer after any change, and seek cold reviews of one packet at a time.
+- Replay the frozen D12 and historical 22 against the committed candidate and preserve both outcomes.
 
 ## Use this ZIP in your repository
 

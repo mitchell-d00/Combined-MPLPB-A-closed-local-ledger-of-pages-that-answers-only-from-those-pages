@@ -1,0 +1,72 @@
+test_agreeing_owners_stay_separate (tests.test_d8_owner_boundaries.D8OwnerBoundaries.test_agreeing_owners_stay_separate) ... FAIL
+test_competing_owners_keep_attributed_witnesses (tests.test_d8_owner_boundaries.D8OwnerBoundaries.test_competing_owners_keep_attributed_witnesses) ... FAIL
+test_conflict_budget_cannot_leave_a_single_apparent_winner (tests.test_d8_owner_boundaries.D8OwnerBoundaries.test_conflict_budget_cannot_leave_a_single_apparent_winner) ... FAIL
+test_explicit_pair_can_complete_both_independent_obligations (tests.test_d8_owner_boundaries.D8OwnerBoundaries.test_explicit_pair_can_complete_both_independent_obligations) ... FAIL
+test_lexical_owners_are_inspectable_without_claims (tests.test_d8_owner_boundaries.D8OwnerBoundaries.test_lexical_owners_are_inspectable_without_claims) ... ERROR
+test_missing_restricted_or_conditional_side_stays_unresolved (tests.test_d8_owner_boundaries.D8OwnerBoundaries.test_missing_restricted_or_conditional_side_stays_unresolved) ... FAIL
+test_one_complete_owner_returns_its_own_proof (tests.test_d8_owner_boundaries.D8OwnerBoundaries.test_one_complete_owner_returns_its_own_proof) ... ok
+test_zero_owners_withholds (tests.test_d8_owner_boundaries.D8OwnerBoundaries.test_zero_owners_withholds) ... ok
+
+======================================================================
+ERROR: test_lexical_owners_are_inspectable_without_claims (tests.test_d8_owner_boundaries.D8OwnerBoundaries.test_lexical_owners_are_inspectable_without_claims)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/combined-mplpb/tests/test_d8_owner_boundaries.py", line 82, in test_lexical_owners_are_inspectable_without_claims
+    self.assertEqual({item['id'] for item in result['retrieval']['ownership_candidates']},
+                                             ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+KeyError: 'ownership_candidates'
+
+======================================================================
+FAIL: test_agreeing_owners_stay_separate (tests.test_d8_owner_boundaries.D8OwnerBoundaries.test_agreeing_owners_stay_separate)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/combined-mplpb/tests/test_d8_owner_boundaries.py", line 66, in test_agreeing_owners_stay_separate
+    self.assertEqual(self.readback(result), {'ARCH-A', 'ARCH-B'})
+AssertionError: Items in the second set but not the first:
+'ARCH-B'
+'ARCH-A'
+
+======================================================================
+FAIL: test_competing_owners_keep_attributed_witnesses (tests.test_d8_owner_boundaries.D8OwnerBoundaries.test_competing_owners_keep_attributed_witnesses)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/combined-mplpb/tests/test_d8_owner_boundaries.py", line 56, in test_competing_owners_keep_attributed_witnesses
+    self.assertEqual(self.readback(result), {'ARCH-A', 'ARCH-B'})
+AssertionError: Items in the second set but not the first:
+'ARCH-B'
+'ARCH-A'
+
+======================================================================
+FAIL: test_conflict_budget_cannot_leave_a_single_apparent_winner (tests.test_d8_owner_boundaries.D8OwnerBoundaries.test_conflict_budget_cannot_leave_a_single_apparent_winner)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/combined-mplpb/tests/test_d8_owner_boundaries.py", line 72, in test_conflict_budget_cannot_leave_a_single_apparent_winner
+    self.assertEqual(result['diagnostic']['code'], 'contradictory_passages_pruned')
+AssertionError: 'conflicting_or_multiple_owners' != 'contradictory_passages_pruned'
+- conflicting_or_multiple_owners
++ contradictory_passages_pruned
+
+
+======================================================================
+FAIL: test_explicit_pair_can_complete_both_independent_obligations (tests.test_d8_owner_boundaries.D8OwnerBoundaries.test_explicit_pair_can_complete_both_independent_obligations)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/combined-mplpb/tests/test_d8_owner_boundaries.py", line 89, in test_explicit_pair_can_complete_both_independent_obligations
+    self.assertTrue(result['answer_supported'], result['diagnostic'])
+AssertionError: False is not true : {'code': 'exact_field_missing', 'stage': 'strict', 'message': 'The exact route does not establish the requested field under a bounded grammar.', 'category': 'insufficient_evidence', 'corpus_answerability': 'not_established', 'next_steps': ['Inspect the exact record and supply an explicit source body field; an identifier alone is not field support.']}
+
+======================================================================
+FAIL: test_missing_restricted_or_conditional_side_stays_unresolved (tests.test_d8_owner_boundaries.D8OwnerBoundaries.test_missing_restricted_or_conditional_side_stays_unresolved)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/combined-mplpb/tests/test_d8_owner_boundaries.py", line 100, in test_missing_restricted_or_conditional_side_stays_unresolved
+    self.assertEqual(result['kind'], 'partial_answer')
+AssertionError: 'abstain' != 'partial_answer'
+- abstain
++ partial_answer
+
+
+----------------------------------------------------------------------
+Ran 8 tests in 0.069s
+
+FAILED (failures=5, errors=1)

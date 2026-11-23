@@ -118,13 +118,52 @@ class QueryResult:
                         reason=self.contract['diagnostic']['message'], citation='', candidates=[])
         if ('collection_filter' in self.contract or self.contract['diagnostic'].get('code') in {
                 'partial_procedure_evidence', 'procedure_selection_needed', 'partial_documentary_evidence',
-                'compound_field_incomplete'} or self.contract['diagnostic'].get('stage') == 'bounded_records'):
+                'compound_field_incomplete', 'conflicting_or_multiple_owners'} or self.contract['diagnostic'].get('stage') == 'bounded_records'):
             data.update(text=self.contract['text'], reason=self.contract['diagnostic']['message'])
         return data
 
 
 def _known_grammar(question):
     return any((procedures.request(question), literal_evidence.parse(question), practical_evidence.parse(question), policy_evidence.parse(question), operational_evidence.parse(question), relation_graph.parse(question), parse(question)))
+
+
+def _competing_statements(strict, gate):
+    from mplpb_combined.ledger import Ledger
+    from .documentary_verify import citation
+
+    allowed = {(s['path'], s['id'], s['hash']) for s in gate.sources}
+    records = {r.path: r for r in Ledger(strict.root).servable()
+               if (r.path, r.id, r.hash_actual) in allowed}
+    citations, sources, lines, seen = [], [], [], set()
+    for check in strict.support.get('candidate_checks', []):
+        spans = check['spans'] + check['negative_spans'] + check['unresolved_spans']
+        if not spans:
+            continue
+        record = records.get(check['path'])
+        if not record or (record.id, record.hash_actual) != (check['id'], check['hash']):
+            # Do not show a subset that could appear to resolve the conflict.
+            return {}
+        body = body_text(record.body_html)
+        count = len(lines)
+        for span in spans:
+            quote = span['quote']
+            start = body.find(quote)
+            if not quote or start < 0:
+                return {}
+            key = (record.path, start, len(quote))
+            if key not in seen:
+                seen.add(key)
+                citations.append(citation(record, body, start, start + len(quote)))
+                lines.append(f'{record.id}: {quote}')
+        if len(lines) != count:
+            sources.append({'id': record.id, 'path': record.path, 'hash': record.hash_actual})
+    if len(citations) < 2:
+        return {}
+    text = '\n'.join(lines)
+    return {'text': text, 'sources': sources, 'claims': [{
+        'text': text, 'citations': citations,
+        'qualifiers': ['Source-attributed statements. No unique answer was selected.'],
+    }]}
 
 
 def answer_query(root, question, profile=None, *, mode='strict', reader=None, min_confidence=0.8,
@@ -146,7 +185,7 @@ def answer_query(root, question, profile=None, *, mode='strict', reader=None, mi
         raise ValueError('Source selectors are already specified by the reference question')
     compound = parse_question(question)
     if compound and (field is not None or exact_value is not None
-                     or (record_id is not None and record_id != compound[0])):
+                     or (record_id is not None and any(record_id != ident for ident, _ in compound))):
         raise ValueError('Explicit selector contradicts the compound field question')
     request = relation_graph.exact_request(question,record_id,field,exact_value)
     if field is None and exact_value is None:
@@ -424,6 +463,13 @@ def _answer_query(root, question, profile=None, *, mode, reader, min_confidence,
         contract['verification'].update(structural=True, semantic='bounded_deterministic_grammar')
         return finish('supported_answer', 'supported', 'Explicit source statements satisfy the existing bounded grammar.', 'strict')
     if strict.kind == 'ambiguous' and strict.support.get('status') == 'conflict':
+        contract.update(_competing_statements(strict, initial_gate))
+        if contract['claims']:
+            contract['verification'].update(
+                structural=True,
+                semantic=('bounded_competing_source_statements' if strict.support['statement_conflict']
+                          else 'bounded_parallel_source_statements'),
+            )
         return finish('conflict', 'conflicting_or_multiple_owners', strict.reason, 'strict')
     stage = 'eligibility'
     try:
@@ -466,6 +512,12 @@ def _answer_query(root, question, profile=None, *, mode, reader, min_confidence,
                 return finish(kind,code,
                     'Checked source-attributed assertions only; unresolved question obligations remain explicit and historical truth is unverified.',stage)
             if strict.kind == 'ambiguous':
+                eligible = {(source['path'], source['id'], source['hash']) for source in index.sources}
+                contract['retrieval']['ownership_candidates'] = [
+                    {'id': record.id, 'path': record.path, 'hash': record.hash_actual}
+                    for record, _ in strict.candidates
+                    if (record.path, record.id, record.hash_actual) in eligible
+                ]
                 return finish('conflict', 'retrieval_ambiguous', 'Candidate ownership is ambiguous; this does not establish conflicting body evidence.', 'retrieval')
             known_grammar = _known_grammar(question)
             unresolved = strict.support.get('unresolved')
