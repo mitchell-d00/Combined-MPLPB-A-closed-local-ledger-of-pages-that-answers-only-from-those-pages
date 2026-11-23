@@ -1,22 +1,17 @@
 {
-  "instruction": "Test D10 and mplpb on % suit then mega push if it works how I’m picturing\nEnhance MPLPB if possible push evolve enhance never harm\nFix the workers in % and note failure and patch if you have not already",
+  "instruction": "Make a note about this in b tests and mplpb distinctive, independently developed approach to making AI research inspectable and reproducible. The strongest evidence for that description is the record you leave when a test fails.",
   "reviewed_on": "2026-11-23",
   "scope": [
-    "Add the D10 suite index, live/local capture, exact-anchor paired questions, and independently checked citation scoring.",
-    "Report D% worker setup failures accurately and replay all 75 executable classes on the hosted isolation lane."
+    "Add a README research note explaining why retained failures make the work inspectable and reproducible.",
+    "Use the existing D% worker failure and hosted replay as the example."
   ],
   "validation": [
-    "Ten synthetic D10 source pairs and two mixed-capture pairs passed; supported citations were checked and every altered quote withheld.",
-    "The focused D10 and D% suites passed 32 tests. On this host bubblewrap failed while setting up the UID map for all 75 attempts. The patched driver returned nonzero and reported zero completions.",
-    "No native answer or sorter implementation changed.",
-    "The first hosted PR lane rejected stray workflow command arguments before any worker ran. The retry uses Bash arrays for worker arguments and keeps the same isolation.",
-    "The next hosted attempt reached all 75 launch calls and all failed. The workflow now uses the same temporary-directory location as the isolation probe and reports the first worker failure and stderr if any launch fails.",
-    "Hosted worker stderr showed permission denied traversing the caller-owned public packet directory. The launcher now stages sealed public bytes and JSON output in executor-owned temporary directories before moving a validated regular result into the retained run."
+    "Checked the README against the retained D% launch failure record and the hosted 75-case replay."
   ],
   "limitations": [
-    "Other D% classes are indexed for planning. A live, topic-aligned ten-source D10 batch and independent semantic validation are still unmeasured."
+    "The referenced replay measures isolated worker completion and scored case outcomes on its frozen inputs."
   ],
   "next_steps": [
-    "Require successful isolated worker completion on the exact PR head before merging."
+    "Keep the original failure, patch, and replay linked when reporting later evaluations."
   ]
 }

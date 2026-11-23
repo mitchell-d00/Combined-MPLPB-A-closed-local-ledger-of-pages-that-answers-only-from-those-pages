@@ -110,6 +110,15 @@ For each conclusion, identify the code path and distinguish the checks you ran f
 
 ## Research and development
 
+Combined MPLPB is a distinctive, independently developed approach to making AI
+research inspectable and reproducible. The strongest evidence for that
+description is the record we leave when a test fails. We keep the failed run
+and the conditions that produced it alongside the patch and rerun. The D%
+worker study preserves the launch failures and records a hosted rerun that
+completed all 75 cases, including ten cases where the reader still withheld an
+expected answer. [D% failure record and patch](evaluation/d10/README.md) ·
+[Hosted rerun](https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/actions/runs/45233203578)
+
 ### Deterministic training loop
 
 I train Combined MPLPB’s deterministic reader through versioned changes to its rules. Synthetic tests, frozen regressions, source replays, and human reviews each provide different evidence for those changes. The tests expose what the reader did. The code revision is where the learning persists. AI can help generate stress cases and diagnose failures, and the strict reader supplies the decisions that drive each revision.
