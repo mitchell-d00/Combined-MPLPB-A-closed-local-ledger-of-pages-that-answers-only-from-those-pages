@@ -29,6 +29,8 @@ mplpb-combined ask demo-ledger "When does the museum close?" --record-id DOC-000
 
 The first question returns **09:00**. The second returns **No supported answer** because the page has no closing time. The installed package uses the Python standard library. It contains the ledger, answer and work tools, plus the sorter. The desktop launcher, example datasets and research archive are available in the full distribution. [Installation and downloads](docs/INSTALLATION.md)
 
+From a source checkout, run `python tools/release_demo.py --output /tmp/mplpb-release-demo` to install and compare the native candidate and pinned baseline. The 40-case replay checks pronoun binding, parcel and dispatch links across three documents, alternate question wording, and when the reader should withhold. [Reproduction, prerequisites, and limits](evaluation/d12/release-demo/README.md)
+
 ## How it decides
 
 For page lookup, one eligible owner returns its page, competing owners stop for clarification, and a search with no eligible owner refuses. Answering is a separate check. MPLPB reads the eligible source text and can return a supported answer, cite the parts it can verify, show conflicting evidence, or leave the question open.

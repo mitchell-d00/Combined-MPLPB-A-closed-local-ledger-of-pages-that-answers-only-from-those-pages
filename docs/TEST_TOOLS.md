@@ -8,6 +8,7 @@ Use these tools to test the engine and reproduce project results. See the [Test 
 |---|---|
 | Run the Python regression suite | `python -m unittest discover -s tests -q` |
 | Replay the public evidence cases | `python -m tools.evaluate_public_evidence --require-capabilities --output /tmp/mplpb-public-results.json` |
+| Install and compare the pinned native documentary-language demo | [D12 release replay](../evaluation/d12/release-demo/README.md) |
 | Freeze a packet, tag a repeated error and test one rule | [D12 rule-training coordinator and API](../evaluation/d12/coordinator/README.md) |
 | Compare calendar math, source-note discovery and thesaurus retrieval | [D6 calendar and discovery controls](../evaluation/d6/calendar-notes/README.md) |
 | Test ownership and group alias misses | [D20](../evaluation/d20/README.md) |

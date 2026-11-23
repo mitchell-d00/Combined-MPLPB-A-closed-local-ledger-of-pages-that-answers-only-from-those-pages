@@ -36,6 +36,12 @@ _ROLE_INTRO = rf'(?P<title>{_TITLE}) (?P<first>{_PERSON}) introduced (?P<second>
 _ASSIGNMENT = rf'(?P<case>Case [0-9]+) names (?P<old>{_NAME}) as the (?P<role>[a-z]+(?: [a-z]+){{0,3}}) and (?P<other>{_NAME}) as the (?P<other_role>[a-z]+(?: [a-z]+){{0,3}})\.'
 _AMENDMENT = rf'(?P<case>Case [0-9]+) amendment\. Replace (?P<old>{_NAME}) with (?P<new>{_NAME}) in the (?P<role>[a-z]+(?:-[a-z]+){{0,3}}) field, effective (?P<day>{_ISO_DATE})\.'
 _RECEIPT = rf'(?P<case>Case [0-9]+) receipt dated (?P<day>{_ISO_DATE})\. The (?P<role>[a-z]+(?: [a-z]+){{0,3}}) signed at (?P<time>{_CLOCK})(?:(?<=\.)|\.)'
+_PARCEL_INDEX = rf'Parcel (?P<parcel>{_DOCKET}) is listed as the (?P<item>{_SUBJECT})\.'
+_PARCEL_DISPATCH = (rf'Dispatch (?P<dispatch>{_DOCKET}) records that (?P<sender>{_NAME}) '
+                    rf'sent parcel (?P<parcel>{_DOCKET}) to (?P<recipient>{_NAME})\.')
+_PARCEL_RECEIPT = (rf'Receipt for dispatch (?P<dispatch>{_DOCKET}) names (?P<recipient>{_NAME}) '
+                   rf'for parcel (?P<parcel>{_DOCKET})\. '
+                   r'(?:They received it|(?-i:(?P=recipient)) received the parcel)\.')
 
 
 def _full(pattern, value):
@@ -423,6 +429,38 @@ def _causal_boundary(bodies, question):
                     if question.lastgroup == 'delay' else 'The cited statements do not establish a causal link between the two events.']
 
 
+def _parcel_delivery(bodies, question):
+    unresolved = ['No unique, consistent parcel and dispatch records could be linked to the question.']
+    if len(bodies) not in (2, 3):
+        return [], unresolved
+    rows = _collect(bodies, {'index': _PARCEL_INDEX, 'dispatch': _PARCEL_DISPATCH, 'receipt': _PARCEL_RECEIPT})
+    pair = _single(rows, 'index', 'dispatch')
+    if not pair:
+        return [], unresolved
+    (entry, catalog_cite), (dispatch, dispatch_cite) = pair
+    if not _same(question['item'], entry['item']) or entry['parcel'] != dispatch['parcel']:
+        return [], unresolved
+
+    receipt = _single(rows, 'receipt')
+    if receipt:
+        delivery, receipt_cite = receipt[0]
+        # The pronouns bind within the receipt. The explicit dispatch, parcel
+        # and recipient fields must also agree across the citation set.
+        if any(dispatch[field] != delivery[field] for field in ('dispatch', 'parcel', 'recipient')):
+            return [], ['The receipt and dispatch disagree on the dispatch, parcel, or named recipient.']
+    item = entry['item']
+    sender = dispatch['sender']
+    ids = {'parcel_id': entry['parcel'], 'dispatch_id': dispatch['dispatch']}
+    sent = _claim(f'The linked dispatch records that {sender} sent the {item}.',
+                  {**ids, 'sent_by': sender}, catalog_cite, dispatch_cite)
+    if not receipt:
+        return [sent], ['No eligible matching receipt establishes who received the parcel.']
+    recipient = delivery['recipient']
+    received = _claim(f'The linked receipt records that {recipient} received the {item}.',
+                      {**ids, 'received_by': recipient}, catalog_cite, dispatch_cite, receipt_cite)
+    return [sent, received], []
+
+
 _EXCERPT_RULES = (
     (r'(?:(?P<authority>What authority does (?:this|the) (?:record|excerpt) '
      r'establish, and what falls outside (?:its|that) scope'
@@ -471,6 +509,10 @@ _RULES = (
     (r'Do (?:the|both) (?:records|reports) (?:describe|refer to) the same (?P<event>hearing|meeting|session|briefing|inspection)\?', _event),
     (r'Do (?P<left>[A-Za-z0-9.-]+) and (?P<right>[A-Za-z0-9.-]+) (?:describe|refer to) the same (?P<event>hearing|meeting|session|briefing|inspection)\?', _event),
     (r'Do the reports establish that there was one [a-z]+ (?P<event>failure) described by both\?', _event),
+    (rf'Who (?:sent|dispatched) the (?P<item>{_SUBJECT}),? and who '
+     r'(?:received it|took delivery(?: of it)?)\?', _parcel_delivery),
+    (rf'Who was the sender and who received the (?P<item>{_SUBJECT})\?', _parcel_delivery),
+    (rf'For the (?P<item>{_SUBJECT}), who sent it and who received it\?', _parcel_delivery),
 )
 
 
