@@ -40,8 +40,10 @@ jobs:
           set -euo pipefail
           study="$RUNNER_TEMP/mplpb-dpercent-smoke"
           mkdir "$study"
-          python -m tools.dpercent_weaknesses prepare --out "$study/packets" --custodian "$study/keys" +            --cases 75 --seed 2026112003 --shard-size 25
-          sudo env PATH="$PATH" GIT_CONFIG_COUNT=1 GIT_CONFIG_KEY_0=safe.directory +            GIT_CONFIG_VALUE_0="$GITHUB_WORKSPACE" "$(command -v python)" +            -m tools.dpercent_weakness_batch --packets "$study/packets" --custodian "$study/keys" +            --output "$study/results" --workers 3
+          python -m tools.dpercent_weaknesses prepare --out "$study/packets" --custodian "$study/keys" --cases 75 --seed 2026112003 --shard-size 25
+          runner_env=(PATH="$PATH" GIT_CONFIG_COUNT=1 GIT_CONFIG_KEY_0=safe.directory GIT_CONFIG_VALUE_0="$GITHUB_WORKSPACE")
+          run_args=(--packets "$study/packets" --custodian "$study/keys" --output "$study/results" --workers 3)
+          sudo env "${runner_env[@]}" "$(command -v python)" -m tools.dpercent_weakness_batch "${run_args[@]}"
           python - "$study/results/summary.json" <<'PY'
           from collections import Counter
           import json
