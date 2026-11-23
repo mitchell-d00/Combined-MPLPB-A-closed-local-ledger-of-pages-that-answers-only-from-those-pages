@@ -1,17 +1,17 @@
 {
-  "instruction": "Make a note about this in b tests and mplpb distinctive, independently developed approach to making AI research inspectable and reproducible. The strongest evidence for that description is the record you leave when a test fails.",
+  "instruction": "Make this explicit but not the raiting Combined MPLPB as a research methodology demonstrated through working software",
   "reviewed_on": "2026-11-23",
   "scope": [
-    "Add a README research note explaining why retained failures make the work inspectable and reproducible.",
-    "Use the existing D% worker failure and hosted replay as the example."
+    "State the methodology-through-working-software framing near the top of the README.",
+    "Explain how constraints, implemented evidence checks, and retained experiments inform each other."
   ],
   "validation": [
-    "Checked the README against the retained D% launch failure record and the hosted 75-case replay."
+    "Passed the documentation audit and checked the linked package guide, Test Index, and retained D% failure evidence."
   ],
   "limitations": [
-    "The referenced replay measures isolated worker completion and scored case outcomes on its frozen inputs."
+    "This documentation update draws on retained experiments. It includes no new benchmark or live deployment result. Full local ZIP extraction exceeds the available disk space."
   ],
   "next_steps": [
-    "Keep the original failure, patch, and replay linked when reporting later evaluations."
+    "Use the ZIP-first CI workflow on the exact candidate revision before any release."
   ]
 }

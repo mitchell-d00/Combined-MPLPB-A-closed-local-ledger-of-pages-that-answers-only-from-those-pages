@@ -4,29 +4,29 @@ Last reviewed: 2026-11-23.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `262e64bf7769cfb504bed6caf946db40d812f0a4` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `ec9208d7946b09c52e4e3465ee0dd1a8303a07a8080f52ddd3fbc255cc72dc76`.
+Base commit: `2b70ad791e37a08cf29701e2908d7b2cff847ad1` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `9a3031698ea5f81e46189d718bc568900c5cec08e464fca01af3b95549571924`.
 
 ## Latest user update instructions
 
-Make a note about this in b tests and mplpb distinctive, independently developed approach to making AI research inspectable and reproducible. The strongest evidence for that description is the record you leave when a test fails.
+Make this explicit but not the raiting Combined MPLPB as a research methodology demonstrated through working software
 
 ## Implemented scope
 
-- Add a README research note explaining why retained failures make the work inspectable and reproducible.
-- Use the existing D% worker failure and hosted replay as the example.
+- State the methodology-through-working-software framing near the top of the README.
+- Explain how constraints, implemented evidence checks, and retained experiments inform each other.
 
 ## Validation recorded
 
-- Checked the README against the retained D% launch failure record and the hosted 75-case replay.
+- Passed the documentation audit and checked the linked package guide, Test Index, and retained D% failure evidence.
 
 ## Limitations and blocked checks
 
-- The referenced replay measures isolated worker completion and scored case outcomes on its frozen inputs.
+- This documentation update draws on retained experiments. It includes no new benchmark or live deployment result. Full local ZIP extraction exceeds the available disk space.
 
 ## Next steps
 
-- Keep the original failure, patch, and replay linked when reporting later evaluations.
+- Use the ZIP-first CI workflow on the exact candidate revision before any release.
 
 ## Use this ZIP in your repository
 
