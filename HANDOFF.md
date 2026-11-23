@@ -4,8 +4,8 @@ Last reviewed: 2026-11-23.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `6902652ca496070ac1818c1666e59648c8a4593e` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `f9cd95cbe7bfc5b454ada224667f7e5218d56bd44f45ed979c62664b4ce914e6`.
+Base commit: `a57d3b3fc92f96077503682ae73d04e5a3d4ec73` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `b3efd29b707591c44fb8a820b0f9e5cfa8573416494ee8e6fffbf47c6966876d`.
 
 ## Latest user update instructions
 
@@ -16,11 +16,13 @@ Merge it to main I hope we made progress what do you think oh and update tool no
 - Explain the user and AI rule-training coordinator, calendar operations, source notes and thesaurus discovery in the README.
 - Update the app tool directory, test tool commands and WorkStore seat API notes with their relevant entry points.
 - Carry the preceding D12 repairs and coordinator changes through the repository branch checks before merging.
+- Synchronize the historical CI gate with the two recorded case transitions while preserving the baseline rows and checking every citation.
 
 ## Validation recorded
 
 - Retained D12 work recovered five full and four cited partial answers on the frozen nine and moved the historical 22 from three full and two partial to four full and three partial.
 - On the coordinator implementation, the registered repair recovered two development cases and a holdout while preserving two refusals. The full local implementation run completed 1642 tests with two skipped and no failures.
+- The initial PR historical gate reported the recorded four full and three partial answers and passed all source guards. It failed only because its expectation still required three full and two partial answers.
 
 ## Limitations and blocked checks
 
