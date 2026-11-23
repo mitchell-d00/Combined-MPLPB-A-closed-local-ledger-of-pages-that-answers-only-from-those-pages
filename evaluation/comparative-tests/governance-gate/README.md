@@ -29,6 +29,8 @@ The schema governs the proposal. Only the trusted host can record approval. The 
 | Adapter interrupted after writing | Indeterminate, with no automatic retry | One report may already exist |
 | WorkStore reports a pass but the file is gone | Indeterminate | No file available at readback |
 
+The archived candidate produced the cited opening time and passed all **10/10** controls. All six denied inputs produced zero calls, zero execution receipts, and zero report files. [Observed result, report and archive pin](result.json)
+
 ## Limits
 
 The experiment scripts model-shaped inputs and uses a trusted Python host with a private output directory, WorkStore credential, adapter, and in-memory approval state. Restarting the demo requires a new run and fresh approval. The demo covers one local operation and a single explicit source field. It measures promotion into official status and citations. Free-form model accuracy, external effects, isolation from other programs on the host, and complete mediation are outside this experiment. A citation establishes the ledger statement. Historical truth requires independent evidence. [WorkStore dispatch controls](../dispatch-enforcement/README.md)

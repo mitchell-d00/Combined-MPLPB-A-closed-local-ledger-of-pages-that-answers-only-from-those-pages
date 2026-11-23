@@ -4,8 +4,8 @@ Last reviewed: 2026-11-23.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `051d00d7886805d13db59abe21ec2cb820ccac57` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `d07286e6999e059004d42c89e096c6092771785c1c30b2cc8b01ed60265c7131`.
+Base commit: `0cedff517fcd96e039729df990268c244b3feade` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `4e26e0153a404394ec855ff91725b9d2c777bfe69424a2c498faa96aa4c6c991`.
 
 ## Latest user update instructions
 
@@ -21,6 +21,7 @@ Run it note it test it then push it all to main and merge
 - The local governance demo wrote a cited report and returned its matching receipt and artifact hash.
 - The governance controls and related local regressions passed all 64 tests.
 - The earlier two-wheel comparison reproduced both wheel hashes and all 40 case responses per revision.
+- The extracted candidate source subset passed all 10 governance controls and reproduced the cited report and matching receipt.
 
 ## Limitations and blocked checks
 
@@ -28,7 +29,7 @@ Run it note it test it then push it all to main and merge
 
 ## Next steps
 
-- Check the archived proposal gate and the standard pull request gates before merging.
+- Evaluate another operation with a separately reviewed policy and independently verifiable effect.
 
 ## Use this ZIP in your repository
 
