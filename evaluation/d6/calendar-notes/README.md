@@ -93,7 +93,9 @@ The probe requires an explicit sense and one edge type. It shows the ordinary se
 | Lexical discovery at one passage | 0/6 ordinary hits, 2/6 with expanded terms, 6/6 from the separate exact-edge span search |
 | Lexical strict controls | All six strict contracts stayed identical |
 
-These discovery measurements use authored passages and deliberately placed distractors. The lexical datasets are real. Historical transfer remains a separate evaluation.
+These discovery measurements use authored passages and deliberately placed distractors. The lexical datasets are real.
+
+A separate exploratory run used four unchanged questions from the frozen historical 22 with explicitly selected lexical senses. Ordinary and expanded queries each exposed all drafted anchors in 2/4 cases. Exact edge-only search exposed all drafted anchors in 0/4. The lexical pass added no complete anchor on this panel. All 22 native contracts held steady apart from code fingerprints. [Historical lexical probe](historical-lexical-exploratory.json) · [Native 22 regression](historical-22-regression.json)
 
 ```sh
 python -m test_tools.calendar_notes_study --thesaurus /tmp/thesaurus.sqlite --output /tmp/calendar-notes-study.json

@@ -4,8 +4,8 @@ Last reviewed: 2026-11-23.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `0469b004aa579706f71cb251afe03a2e0eb9ad08` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `e1057b66c2439e2795cbfa6f7cb96e9f3c1082186615696a7d76cb9019fbe98c`.
+Base commit: `ee3f039ce4913e832937339101152f55447ffd76` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `8a16bd5561023272e5fdd60393e11f2611f3b78ee82a049b668aada9d83ad772`.
 
 ## Latest user update instructions
 
@@ -26,6 +26,7 @@ If we build a thesaurus graph that goes with synonym graph that may help,as well
 - At a one-passage budget the 12 independently authored notes located all 12 intended excerpts, versus zero in the ordinary probe. The strict contracts for the twelve exploratory cases and one positive exact-field control remained identical.
 - The full WordNet and Moby import succeeded. All six selected lexical edge choices matched, ordinary discovery found zero, expanded-query discovery found two, and exact edge-span discovery found all six without changing any strict contract.
 - Focused regressions cover stale sources, withdrawn notes, wrong offsets, rights and visibility, exact date operands, and distinct lexical senses and edge directions.
+- On four frozen historical questions the lexical variants recovered no additional complete drafted anchor. All original 22 native contracts matched the preceding revision except code fingerprints.
 
 ## Limitations and blocked checks
 
