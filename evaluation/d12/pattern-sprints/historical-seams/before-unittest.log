@@ -1,0 +1,23 @@
+======================================================================
+FAIL: test_discretion_and_term_share_a_source_span (tests.test_historical_seams.HistoricalSeamTests.test_discretion_and_term_share_a_source_span)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/combined-mplpb/tests/test_historical_seams.py", line 24, in test_discretion_and_term_share_a_source_span
+    self.assertEqual(answer['kind'], 'supported_answer', answer['diagnostic'])
+AssertionError: 'abstain' != 'supported_answer'
+- abstain
++ supported_answer
+ : {'code': 'interpretation_unsupported', 'stage': 'strict', 'message': 'Eligible passages exist, but the strict reader cannot establish an answer to this question.', 'category': 'unsupported_question_grammar', 'corpus_answerability': 'not_established', 'next_steps': ['Inspect the relevant source. Try a supported question form or explicitly select a configured assisted reader; do not treat this refusal as proof that the answer is absent.']}
+
+======================================================================
+FAIL: test_report_summary_spans_are_cited_under_bounded_scope (tests.test_historical_seams.HistoricalSeamTests.test_report_summary_spans_are_cited_under_bounded_scope)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/combined-mplpb/tests/test_historical_seams.py", line 49, in test_report_summary_spans_are_cited_under_bounded_scope
+    self.assertIn(answer['kind'], ('partial_answer', 'supported_answer'), answer['diagnostic'])
+AssertionError: 'abstain' not found in ('partial_answer', 'supported_answer') : {'code': 'documentary_assertion_not_established', 'stage': 'documentary_verification', 'message': 'Checked source-attributed assertions only; unresolved question obligations remain explicit and historical truth is unverified.', 'category': 'insufficient_evidence', 'corpus_answerability': 'not_established', 'next_steps': ['Review the diagnostic and source evidence before retrying.']}
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.067s
+
+FAILED (failures=2)

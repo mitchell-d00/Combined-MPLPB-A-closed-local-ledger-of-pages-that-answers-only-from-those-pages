@@ -4,33 +4,36 @@ Last reviewed: 2026-11-23.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `273e5ba693142341eefc7a341b87f107544a7978` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `e141adf877bd71529149597ce62adaeda6fdab4d4375e826fa4e2cd433204153`.
+Base commit: `d87359be8af05d45aaa55d92e13aba3a3d28d85b` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `ca808cce85b1bef43ee1d1d3bc016e7cfb3fabea6ac2864b49a0456ba67c0570`.
 
 ## Latest user update instructions
 
-Run the tests as you patch one pattern and it passes move to next expand the 9 I like your plan and it will work well with a run of error patterns / fix sprints
+Continue testing until we beat it test find spans and patterns patch us the 22 as well to build graph rules and test seams to see why the blocks are happening even with a pull
+
+If you wrote the prompt to hit my goals historical matching truth in corpus but not reality what would it be
 
 ## Implemented scope
 
-- Freeze the original nine coordinator questions, excerpt locators and strict results.
-- Add bounded strict-reader coverage for recorded stage and open outcome, labeled item rows, permission qualifications, and explicit versus unsettled cause.
-- Rerun the unchanged nine between sprints and retain 28 expanded positive and negative controls and their prepatch failures.
+- Preserve the four prior D12 pattern sprints and add a frozen historical 22 graph and native-proof trace.
+- Recognize a named statutory discretionary lease with a source-stated term ceiling and independently verify the current eligible clause.
+- Connect a uniquely named report to its numbered summary window and use independent local proof checks for exact causal and resource statements.
+- Document a prompt for corpus-scoped conclusions, provenance, competing accounts, and correction limits.
 
 ## Validation recorded
 
-- Each sprint passed its new matched controls before the next. The final nine ended at five full answers and four cited partial answers, up from nine abstentions.
-- All 28 matched controls and the two extra source-state and quoted-context checks passed. The focused deterministic regression run passed 102 tests.
-- Three newly acquired National Archives transcript excerpts remained abstentions on both revisions. The separate passage probe located all three excerpts.
+- The nine coordinator questions retained five full and four partial answers. All 109 focused regressions and all 52 public evidence controls passed with zero falsely supported bridges.
+- The frozen historical 22 moved from 3 full and 2 partial to 4 full and 3 partial. The only native contract changes excluding code fingerprints were H08 and U07. The 40 follow-up contracts were unchanged.
+- All 19 citations in the revised historical 22 matched their sealed source projections, with no supported answer missing a citation.
 
 ## Limitations and blocked checks
 
-- New rules operate on small, complete source packets with explicitly supported source forms. The exploratory archival results show their present coverage limit.
-- The direct source comparisons use supplied excerpts and authored controls. Independent historical truth review and the proposed human pilot remain pending.
+- The numbered-summary answer remains partial because the bounded window does not resolve corrections or event co-reference elsewhere.
+- The lease proof is confined to an explicit named clause. The test uses frozen developer references; external historical truth and independent human scores have not been established.
 
 ## Next steps
 
-- Use a sealed reviewer-graded historical corpus to test extraction of qualified clauses out of broader prose while preserving ambiguity and contradiction checks.
+- Use the retained per-case trace to pick the next repeated discovery or proof failure. Preserve disagreements and withheld conclusions until verified on the applicable sources.
 
 ## Use this ZIP in your repository
 

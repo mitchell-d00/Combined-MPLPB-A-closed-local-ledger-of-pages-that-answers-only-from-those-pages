@@ -13,6 +13,10 @@ The nine coordinator questions initially returned nine abstentions even though a
 
 A full result means the new reader supports the requested answer from this packet. A partial result provides a cited statement and identifies the requested relation or outcome that remains open. For example, the draft date and margin question do not establish a finalized deed.
 
+## Historical graph and proof sprints
+
+Two additional fixes on the unchanged historical 22 recovered one full answer and one cited partial. The [historical seam report](historical-seams/README.md) distinguishes graph passage visibility from native proof and includes a corpus-scoped reviewer prompt.
+
 ## Retained replay
 
 - [Original questions, excerpts and source locators](original-questions.json) · [Before any changes](before.json)
