@@ -1,0 +1,155 @@
+======================================================================
+ERROR: test_elapsed_and_inclusive_show_different_counts (tests.test_d6_calendar.CalendarTests.test_elapsed_and_inclusive_show_different_counts)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/combined-mplpb/tests/test_d6_calendar.py", line 38, in test_elapsed_and_inclusive_show_different_counts
+    result = self.check('Opening Date: March 3, 1898\nClosing Date: March 10, 1898',
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/combined-mplpb/tests/test_d6_calendar.py", line 35, in check
+    return compile_plan(root, {'schema': SCHEMA, 'steps': list(steps)})
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/combined-mplpb/mplpb_answers/d6.py", line 196, in compile_plan
+    if validate(expression) > 32:
+       ^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/combined-mplpb/mplpb_answers/d6.py", line 62, in validate
+    return 1 + sum(validate(child, depth + 1) for child in children)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/combined-mplpb/mplpb_answers/d6.py", line 62, in <genexpr>
+    return 1 + sum(validate(child, depth + 1) for child in children)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/combined-mplpb/mplpb_answers/d6.py", line 40, in validate
+    raise ValueError('Unknown D6 operation or unexpected step attributes')
+ValueError: Unknown D6 operation or unexpected step attributes
+
+======================================================================
+ERROR: test_incomplete_or_non_date_field_stays_unresolved (tests.test_d6_calendar.CalendarTests.test_incomplete_or_non_date_field_stays_unresolved)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/combined-mplpb/tests/test_d6_calendar.py", line 56, in test_incomplete_or_non_date_field_stays_unresolved
+    result = self.check(f'Opening Date: {opening}\nClosing Date: 1904-03-01', interval('elapsed'))
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/combined-mplpb/tests/test_d6_calendar.py", line 35, in check
+    return compile_plan(root, {'schema': SCHEMA, 'steps': list(steps)})
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/combined-mplpb/mplpb_answers/d6.py", line 196, in compile_plan
+    if validate(expression) > 32:
+       ^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/combined-mplpb/mplpb_answers/d6.py", line 62, in validate
+    return 1 + sum(validate(child, depth + 1) for child in children)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/combined-mplpb/mplpb_answers/d6.py", line 62, in <genexpr>
+    return 1 + sum(validate(child, depth + 1) for child in children)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/combined-mplpb/mplpb_answers/d6.py", line 40, in validate
+    raise ValueError('Unknown D6 operation or unexpected step attributes')
+ValueError: Unknown D6 operation or unexpected step attributes
+
+======================================================================
+ERROR: test_leap_and_reverse_are_explicit (tests.test_d6_calendar.CalendarTests.test_leap_and_reverse_are_explicit)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/combined-mplpb/tests/test_d6_calendar.py", line 47, in test_leap_and_reverse_are_explicit
+    result = self.check('Opening Date: Feb 28 1904\nClosing Date: 1904-03-01',
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/combined-mplpb/tests/test_d6_calendar.py", line 35, in check
+    return compile_plan(root, {'schema': SCHEMA, 'steps': list(steps)})
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/combined-mplpb/mplpb_answers/d6.py", line 196, in compile_plan
+    if validate(expression) > 32:
+       ^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/combined-mplpb/mplpb_answers/d6.py", line 62, in validate
+    return 1 + sum(validate(child, depth + 1) for child in children)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/combined-mplpb/mplpb_answers/d6.py", line 62, in <genexpr>
+    return 1 + sum(validate(child, depth + 1) for child in children)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/combined-mplpb/mplpb_answers/d6.py", line 40, in validate
+    raise ValueError('Unknown D6 operation or unexpected step attributes')
+ValueError: Unknown D6 operation or unexpected step attributes
+
+======================================================================
+ERROR: test_month_rule_can_clamp_or_reject (tests.test_d6_calendar.CalendarTests.test_month_rule_can_clamp_or_reject)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/combined-mplpb/tests/test_d6_calendar.py", line 63, in test_month_rule_can_clamp_or_reject
+    result = self.check(body, months('Opening Date', 1, 'clamp'), months('Opening Date', -2, 'reject'))
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/combined-mplpb/tests/test_d6_calendar.py", line 35, in check
+    return compile_plan(root, {'schema': SCHEMA, 'steps': list(steps)})
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/combined-mplpb/mplpb_answers/d6.py", line 196, in compile_plan
+    if validate(expression) > 32:
+       ^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/combined-mplpb/mplpb_answers/d6.py", line 62, in validate
+    return 1 + sum(validate(child, depth + 1) for child in children)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/combined-mplpb/mplpb_answers/d6.py", line 62, in <genexpr>
+    return 1 + sum(validate(child, depth + 1) for child in children)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/combined-mplpb/mplpb_answers/d6.py", line 40, in validate
+    raise ValueError('Unknown D6 operation or unexpected step attributes')
+ValueError: Unknown D6 operation or unexpected step attributes
+
+======================================================================
+ERROR: test_overflow_and_unsupported_relative_syntax (tests.test_d6_calendar.CalendarTests.test_overflow_and_unsupported_relative_syntax)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/combined-mplpb/tests/test_d6_calendar.py", line 84, in test_overflow_and_unsupported_relative_syntax
+    self.assertFalse(self.check(body, plan)['answer_supported'])
+                     ^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/combined-mplpb/tests/test_d6_calendar.py", line 35, in check
+    return compile_plan(root, {'schema': SCHEMA, 'steps': list(steps)})
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/combined-mplpb/mplpb_answers/d6.py", line 196, in compile_plan
+    if validate(expression) > 32:
+       ^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/combined-mplpb/mplpb_answers/d6.py", line 62, in validate
+    return 1 + sum(validate(child, depth + 1) for child in children)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/combined-mplpb/mplpb_answers/d6.py", line 62, in <genexpr>
+    return 1 + sum(validate(child, depth + 1) for child in children)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/combined-mplpb/mplpb_answers/d6.py", line 40, in validate
+    raise ValueError('Unknown D6 operation or unexpected step attributes')
+ValueError: Unknown D6 operation or unexpected step attributes
+
+======================================================================
+ERROR: test_relative_anchor_requires_matching_declared_role (tests.test_d6_calendar.CalendarTests.test_relative_anchor_requires_matching_declared_role)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/combined-mplpb/tests/test_d6_calendar.py", line 70, in test_relative_anchor_requires_matching_declared_role
+    result = self.check(body, relative('Opening Date', 'Opening Relative Date'))
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/combined-mplpb/tests/test_d6_calendar.py", line 35, in check
+    return compile_plan(root, {'schema': SCHEMA, 'steps': list(steps)})
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/combined-mplpb/mplpb_answers/d6.py", line 196, in compile_plan
+    if validate(expression) > 32:
+       ^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/combined-mplpb/mplpb_answers/d6.py", line 62, in validate
+    return 1 + sum(validate(child, depth + 1) for child in children)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/combined-mplpb/mplpb_answers/d6.py", line 62, in <genexpr>
+    return 1 + sum(validate(child, depth + 1) for child in children)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/combined-mplpb/mplpb_answers/d6.py", line 40, in validate
+    raise ValueError('Unknown D6 operation or unexpected step attributes')
+ValueError: Unknown D6 operation or unexpected step attributes
+
+======================================================================
+FAIL: test_calendar_policy_is_required (tests.test_d6_calendar.CalendarTests.test_calendar_policy_is_required)
+----------------------------------------------------------------------
+ValueError: Unknown D6 operation or unexpected step attributes
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/workspace/combined-mplpb/tests/test_d6_calendar.py", line 88, in test_calendar_policy_is_required
+    with self.assertRaisesRegex(ValueError, '(?i)calendar|count'):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: "(?i)calendar|count" does not match "Unknown D6 operation or unexpected step attributes"
+
+----------------------------------------------------------------------
+Ran 7 tests in 0.009s
+
+FAILED (failures=1, errors=6)

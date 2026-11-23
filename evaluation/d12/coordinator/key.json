@@ -1,0 +1,10 @@
+{
+  "schema": "mplpb-training-key-v1",
+  "cases": [
+    {"id":"dev-cross-month","partition":"development","family":"day-count precision","supported":true,"value":2},
+    {"id":"dev-next-day","partition":"development","family":"day-count precision","supported":true,"value":1},
+    {"id":"holdout-reverse","partition":"holdout","family":"day-count precision","supported":true,"value":-2},
+    {"id":"control-partial-date","partition":"control","family":"missing date precision","supported":false},
+    {"id":"control-missing-field","partition":"control","family":"missing required field","supported":false}
+  ]
+}

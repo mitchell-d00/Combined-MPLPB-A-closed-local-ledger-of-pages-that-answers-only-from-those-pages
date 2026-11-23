@@ -1,6 +1,6 @@
 # MPLPB tools
 
-Last reviewed: 2026-11-21.
+Last reviewed: 2026-11-23.
 
 Start with the job you want to do. The guides include examples and setup for each tool. For evaluation and release checks, see [Test tools](TEST_TOOLS.md).
 
@@ -34,6 +34,8 @@ Start with the job you want to do. The guides include examples and setup for eac
 | Find or read related pages | **Explore**, **Inspect**, or [`candidates`, `gate`, and gated retrieval](PAGE_RETRIEVAL.md) | Matching pages or an eligible owner page. Read the answer result separately when you need verified support. |
 | Follow a declared relationship across sources | [`investigate` and Adaptive Search](HISTORICAL_EXPERT_PATH.md) | A bounded investigation that checks declared links and retains unresolved hops. |
 | Compare wording, dates or accounts | [`reconstruct` and checked documentary assertions](HISTORICAL_RECONSTRUCTION_ENGINE.md) · [Event identity and co-reference](D4_EVENT_IDENTITY_COREFERENCE.md) | Cited documentary observations and explicit unresolved obligations. |
+| Calculate from complete recorded dates | [D6 calendar plans](../evaluation/d6/calendar-notes/README.md#calendar-arithmetic) | Elapsed and inclusive day counts, month shifts and relative dates with pinned operands. |
+| Explore related vocabulary by sense | [WordNet and Moby thesaurus](../evaluation/d6/calendar-notes/README.md#build-and-inspect-the-thesaurus-graph) | Discovery spans with distinct same-sense and broader or narrower relations. |
 | Inspect a source procedure or its prerequisites | [Procedural constraints](PROCEDURAL_CONSTRAINTS.md) · [Operational evidence](OPERATIONAL_EVIDENCE.md) | Source-supported steps where available, with prerequisites and unresolved parts shown. |
 | Assemble several checked reports | [`article` dossiers](DOCUMENTARY_ARTICLES.md) | A research snapshot with citations, conflicts, proposed links and open questions. |
 | Discuss a topic or use local reference material | [Chat and Serious mode](CHAT_WORKFLOW.md) · [Dictionary, thesaurus and library](LIBRARY_ROUTING.md) · [Guided chat](GUIDED_CHAT.md) | Conversation and reference results carry their own labels. Serious mode uses the collections you load. |
@@ -44,6 +46,8 @@ Start with the job you want to do. The guides include examples and setup for eac
 |---|---|---|
 | Check what can be shown or used | [Source restrictions and provenance](PROVENANCE_GATE.md) · [Delivery profiles](DELIVERY_AND_CLARIFICATION.md) | Eligibility and delivery checks under the selected profile. |
 | Inspect changes or recover my work | [Revision tree and storage](BROWSER_UI.md#network-and-persistence) · [Recovery instructions](ROLLBACK.md) | Revision history and recovery options for the selected store. Keep copies of important source files and work databases. |
+| Record a versioned observation on an exact source span | [WorkStore source notes](../evaluation/d6/calendar-notes/README.md#read-and-write-source-notes) | Notes prioritize inspection and keep the source revision, span, and visibility. |
+| Tag errors and test a rule as a human or AI operator | [Rule-training coordinator](../evaluation/d12/coordinator/README.md) | Replay findings and candidate verdicts linked to one pinned baseline. |
 | Track tasks, claims, attempts and handoffs | [Specialist work CLI and API](SPECIALIST_CONTINUITY_API.md) | Local work history and scoped permissions. A covered executor requires current authorization and supporting evidence. |
 
 ## Connect and extend

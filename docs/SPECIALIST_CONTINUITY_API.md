@@ -1,6 +1,6 @@
 # Specialist work API and operation
 
-Last reviewed: 2026-11-17. See [current status and result-to-test index](CURRENT_STATUS.md). Dates and numeric results in historical validation sections retain their original scope; this review is not a rerun or independent certification.
+Last reviewed: 2026-11-23. See [current status and result-to-test index](CURRENT_STATUS.md). Dates and numeric results in historical validation sections retain their original scope; this review is not a rerun or independent certification.
 
 Package role: [how this part fits Combined MPLPB](PACKAGE_GUIDE.md#work-and-receipts). Work continuity and execution receipts preserve observations without creating source authority.
 
@@ -9,6 +9,12 @@ failed routes, specialist identities and permission history. It is part of the
 Combined MPLPB distribution and uses the Python standard library, including SQLite.
 The strict answer engine continues to answer only from eligible source pages.
 Work records never become supported answers merely because they survived a handoff.
+
+## Source notes and rule training
+
+Use `source_note_search` with a scoped `search:source_note` grant to rank current, visible source notes. It returns pinned passage candidates and a suggested rule order for inspection. [Note schema and request example](../evaluation/d6/calendar-notes/README.md#read-and-write-source-notes)
+
+A training operator uses `training_replay` with a `training:run` grant and the public fixture and rule inputs. Custodian grants separately authorize `training_evaluate` and `training_sprint`. Use `training_record` with the appropriate creation grant to file a finding or candidate verdict under the task. Training records retain the replay and baseline digests and have no source-support or execution authority. [Training operations and capabilities](../evaluation/d12/coordinator/README.md#let-an-ai-seat-drive-the-same-api)
 
 ## Historical relation investigation
 

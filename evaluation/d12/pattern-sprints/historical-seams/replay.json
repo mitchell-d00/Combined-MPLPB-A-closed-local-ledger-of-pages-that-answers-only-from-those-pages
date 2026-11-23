@@ -1,0 +1,1291 @@
+{
+  "schema": "mplpb-historical-seams-v1",
+  "n": 22,
+  "native_replay_sha256": "19d93e2aec153558afd33be7ecc265b508c72c33bea3523afcaca7ca77c97470",
+  "catalog_sha256": "cafc96a113afb983603eee9e94ab57a30de8f204021f5e7289c567090eaf4f9c",
+  "native_outcomes": {
+    "abstain": 12,
+    "supported_answer": 4,
+    "conflict": 3,
+    "partial_answer": 3
+  },
+  "cases": [
+    {
+      "case_id": "H01",
+      "question": "How could Lyell have finished Darwin's volume on October 3, 1859 before its public release? Separate the letter, proof copies and publication.",
+      "draft_anchors": 2,
+      "native_question_plan": null,
+      "summary_request": null,
+      "eligible_graph_records": [
+        "ORIGINAL-0001",
+        "ORIGINAL-0002",
+        "ORIGINAL-0003"
+      ],
+      "ordinary_probe_anchors": 2,
+      "record_graph_probe_anchors": 2,
+      "section_edge": null,
+      "native_admitted_witnesses": null,
+      "native_blocked_witnesses": [],
+      "native_review_only_hints": null,
+      "native_obligations": null,
+      "native_output_budget": {
+        "blocked_atomic_claims": 0,
+        "citation_characters": 0,
+        "deduplicated_before_charge": true,
+        "distinct_citation_spans": 0,
+        "max_characters": 8000,
+        "max_passages": 12
+      },
+      "native_kind": "abstain",
+      "native_diagnostic": "interpretation_unsupported",
+      "native_text": "",
+      "native_citations": [],
+      "native_citation_coverage": [
+        {
+          "source_id": "ORIGINAL-0001",
+          "covered_characters": 0,
+          "anchor_characters": 255
+        },
+        {
+          "source_id": "ORIGINAL-0001",
+          "covered_characters": 0,
+          "anchor_characters": 300
+        }
+      ]
+    },
+    {
+      "case_id": "H02",
+      "question": "Who arranged for Wallace to receive Darwin's book, and which dated letter records the arrangement?",
+      "draft_anchors": 1,
+      "native_question_plan": [
+        {
+          "question": "Who arranged for Wallace to receive Darwin's book",
+          "kind": "reported_instruction"
+        },
+        {
+          "question": "which dated letter records the arrangement",
+          "kind": "letter_context"
+        }
+      ],
+      "summary_request": null,
+      "eligible_graph_records": [
+        "ORIGINAL-0001",
+        "ORIGINAL-0002",
+        "ORIGINAL-0003"
+      ],
+      "ordinary_probe_anchors": 0,
+      "record_graph_probe_anchors": 0,
+      "section_edge": null,
+      "native_admitted_witnesses": 3,
+      "native_blocked_witnesses": [],
+      "native_review_only_hints": 0,
+      "native_obligations": [
+        {
+          "evidence_claim_indices": [
+            0
+          ],
+          "evidence_proof_sha256": [
+            "sha256:481ecd7ad2b4b14550d3be8d913961af1a22a0bff4f5ca748ce15d7a37a0c06e"
+          ],
+          "kind": "reported_instruction",
+          "question": "Who arranged for Wallace to receive Darwin's book",
+          "status": "supported_source_assertion",
+          "unadmitted_candidates_verified": false,
+          "unadmitted_witness_candidate_count": 0,
+          "undisplayed_evidence_count": 0
+        },
+        {
+          "evidence_claim_indices": [
+            0
+          ],
+          "evidence_proof_sha256": [
+            "sha256:481ecd7ad2b4b14550d3be8d913961af1a22a0bff4f5ca748ce15d7a37a0c06e"
+          ],
+          "kind": "letter_context",
+          "question": "which dated letter records the arrangement",
+          "status": "supported_source_assertion",
+          "unadmitted_candidates_verified": false,
+          "unadmitted_witness_candidate_count": 0,
+          "undisplayed_evidence_count": 0
+        }
+      ],
+      "native_output_budget": {
+        "blocked_atomic_claims": 0,
+        "citation_characters": 2255,
+        "deduplicated_before_charge": true,
+        "distinct_citation_spans": 3,
+        "max_characters": 8000,
+        "max_passages": 12
+      },
+      "native_kind": "supported_answer",
+      "native_diagnostic": "supported_documentary_assertion",
+      "native_text": "The letter headed CHARLES DARWIN TO A.R. WALLACE (November 13th, 1859) reports that its writer had told Murray to send its addressee the item described as “a copy of my book”. The I/you/my bindings refer only to this documentary appearance; authorship is source-declared, not authenticated. Reported instruction does not establish actual dispatch or receipt. Heading date does not establish when the instruction, dispatch or receipt occurred. Literal action/delivery qualification (exact scope unresolved): if possible Requested delivery method: by post Additional hope stated by writer: I hope that you will receive it at nearly the same time with this note Following source note retained without a separate historical claim: (N.B. I have got a bad finger, which makes me write extra badly.) Complete only as the recorded arrangement request and printed letter date; the complete local letter is cited. Actual fulfillment and outside-world truth remain unverified.",
+      "native_citations": [
+        {
+          "body_end": 31195,
+          "body_projection": "body-text-no-headings-v1",
+          "body_start": 31135,
+          "end": 31195,
+          "hash": "sha256:cda3c0719ca4c839dfef3c3165934214c5e995fa3fb840a61b9a0ba77ebb9c32",
+          "path": "original-0001.html",
+          "quote": "CHARLES DARWIN TO A.R. WALLACE. Ilkley, November 13th, 1859.",
+          "source_id": "ORIGINAL-0001",
+          "start": 31135
+        },
+        {
+          "body_end": 31422,
+          "body_projection": "body-text-no-headings-v1",
+          "body_start": 31209,
+          "end": 31422,
+          "hash": "sha256:cda3c0719ca4c839dfef3c3165934214c5e995fa3fb840a61b9a0ba77ebb9c32",
+          "path": "original-0001.html",
+          "quote": "I have told Murray to send you by post (if possible) a copy of my book,\nand I hope that you will receive it at nearly the same time with this\nnote. (N.B. I have got a bad finger, which makes me write extra badly.)",
+          "source_id": "ORIGINAL-0001",
+          "start": 31209
+        },
+        {
+          "body_end": 33117,
+          "body_projection": "body-text-no-headings-v1",
+          "body_start": 31135,
+          "end": 33117,
+          "hash": "sha256:cda3c0719ca4c839dfef3c3165934214c5e995fa3fb840a61b9a0ba77ebb9c32",
+          "path": "original-0001.html",
+          "quote": "CHARLES DARWIN TO A.R. WALLACE. Ilkley, November 13th, 1859.\nMy dear Sir,\nI have told Murray to send you by post (if possible) a copy of my book,\nand I hope that you will receive it at nearly the same time with this\nnote. (N.B. I have got a bad finger, which makes me write extra badly.)\nIf you are so inclined, I should very much like to hear your general\nimpression of the book, as you have thought so profoundly on the\nsubject, and in so nearly the same channel with myself. I hope there\nwill be some little new to you, but I fear not much. Remember it is only\nan abstract, and very much condensed. God knows what the public will\nthink. No one has read it, except Lyell, with whom I have had much\ncorrespondence. Hooker thinks him a complete convert, but he does not\nseem so in his letters to me; but is evidently deeply interested in the\nsubject. I do not think your share in the theory will be overlooked by\nthe real judges, as Hooker, Lyell, Asa Gray, etc. I have heard from Mr.\nSlater that your paper on the Malay Archipelago has been read at the\nLinnean Society, and that he was EXTREMELY much interested by it.\nI have not seen one naturalist for six or nine months, owing to the\nstate of my health, and therefore I really have no news to tell you. I\nam writing this at Ilkley Wells, where I have been with my family for\nthe last six weeks, and shall stay for some few weeks longer. As yet I\nhave profited very little. God knows when I shall have strength for my\nbigger book.\nI sincerely hope that you keep your health; I suppose that you will be\nthinking of returning (Mr. Wallace was in the Malay Archipelago.) soon\nwith your magnificent collections, and still grander mental materials.\nYou will be puzzled how to publish. The Royal Society fund will be worth\nyour consideration. With every good wish, pray believe me,\nYours very sincerely, CHARLES DARWIN.\nP.S. I think that I told you before that Hooker is a complete convert.\nIf I can convert Huxley I shall be content.\n",
+          "source_id": "ORIGINAL-0001",
+          "start": 31135
+        }
+      ],
+      "native_citation_coverage": [
+        {
+          "source_id": "ORIGINAL-0001",
+          "covered_characters": 330,
+          "anchor_characters": 330
+        }
+      ]
+    },
+    {
+      "case_id": "H03",
+      "question": "Does Huxley's November 23rd letter describe a second publication of the book, or his own reading of an earlier copy?",
+      "draft_anchors": 1,
+      "native_question_plan": null,
+      "summary_request": null,
+      "eligible_graph_records": [],
+      "ordinary_probe_anchors": 1,
+      "record_graph_probe_anchors": 1,
+      "section_edge": null,
+      "native_admitted_witnesses": null,
+      "native_blocked_witnesses": [],
+      "native_review_only_hints": null,
+      "native_obligations": null,
+      "native_output_budget": {
+        "blocked_atomic_claims": 0,
+        "citation_characters": 0,
+        "deduplicated_before_charge": true,
+        "distinct_citation_spans": 0,
+        "max_characters": 8000,
+        "max_passages": 12
+      },
+      "native_kind": "conflict",
+      "native_diagnostic": "retrieval_ambiguous",
+      "native_text": "",
+      "native_citations": [],
+      "native_citation_coverage": [
+        {
+          "source_id": "ORIGINAL-0001",
+          "covered_characters": 0,
+          "anchor_characters": 290
+        }
+      ]
+    },
+    {
+      "case_id": "H04",
+      "question": "What does the diary say Darwin was correcting at the end of November and beginning of December, and what does that establish about a later edition?",
+      "draft_anchors": 1,
+      "native_question_plan": null,
+      "summary_request": null,
+      "eligible_graph_records": [
+        "ORIGINAL-0001",
+        "ORIGINAL-0002",
+        "ORIGINAL-0003"
+      ],
+      "ordinary_probe_anchors": 1,
+      "record_graph_probe_anchors": 1,
+      "section_edge": null,
+      "native_admitted_witnesses": null,
+      "native_blocked_witnesses": [],
+      "native_review_only_hints": null,
+      "native_obligations": null,
+      "native_output_budget": {
+        "blocked_atomic_claims": 0,
+        "citation_characters": 0,
+        "deduplicated_before_charge": true,
+        "distinct_citation_spans": 0,
+        "max_characters": 8000,
+        "max_passages": 12
+      },
+      "native_kind": "conflict",
+      "native_diagnostic": "retrieval_ambiguous",
+      "native_text": "",
+      "native_citations": [],
+      "native_citation_coverage": [
+        {
+          "source_id": "ORIGINAL-0001",
+          "covered_characters": 0,
+          "anchor_characters": 250
+        }
+      ]
+    },
+    {
+      "case_id": "H05",
+      "question": "Compare the opening truth claim in Jefferson's rough draft and the final Declaration transcript. What wording changed and what remained?",
+      "draft_anchors": 2,
+      "native_question_plan": [
+        {
+          "question": "Compare the opening truth claim in Jefferson's rough draft and the final Declaration transcript. What wording changed",
+          "kind": "wording_comparison"
+        },
+        {
+          "question": "what remained",
+          "kind": "wording_shared"
+        }
+      ],
+      "summary_request": null,
+      "eligible_graph_records": [
+        "ORIGINAL-0004",
+        "ORIGINAL-0005"
+      ],
+      "ordinary_probe_anchors": 0,
+      "record_graph_probe_anchors": 0,
+      "section_edge": null,
+      "native_admitted_witnesses": 4,
+      "native_blocked_witnesses": [],
+      "native_review_only_hints": 0,
+      "native_obligations": [
+        {
+          "evidence_claim_indices": [
+            0
+          ],
+          "evidence_proof_sha256": [
+            "sha256:d76b8fd332b18c6a6f4f941917b972ada9e9419fde47c62f04d440e2dac3dd41"
+          ],
+          "kind": "wording_comparison",
+          "question": "Compare the opening truth claim in Jefferson's rough draft and the final Declaration transcript. What wording changed",
+          "status": "supported_source_assertion",
+          "unadmitted_candidates_verified": false,
+          "unadmitted_witness_candidate_count": 0,
+          "undisplayed_evidence_count": 0
+        },
+        {
+          "evidence_claim_indices": [
+            0
+          ],
+          "evidence_proof_sha256": [
+            "sha256:d76b8fd332b18c6a6f4f941917b972ada9e9419fde47c62f04d440e2dac3dd41"
+          ],
+          "kind": "wording_shared",
+          "question": "what remained",
+          "status": "supported_source_assertion",
+          "unadmitted_candidates_verified": false,
+          "unadmitted_witness_candidate_count": 0,
+          "undisplayed_evidence_count": 0
+        }
+      ],
+      "native_output_budget": {
+        "blocked_atomic_claims": 0,
+        "citation_characters": 4070,
+        "deduplicated_before_charge": true,
+        "distinct_citation_spans": 4,
+        "max_characters": 8000,
+        "max_passages": 12
+      },
+      "native_kind": "supported_answer",
+      "native_diagnostic": "supported_documentary_assertion",
+      "native_text": "Exact comparison of the two cited units. Shared wording: “We hold these truths to be”. Source A: “sacred & undeniable;”; source B: “self-evident,”. Shared wording: “that all men are created”. Source A: “equal & independant,”; source B: “equal,”. Shared wording: “that”. Source A: “from”; source B: “they are endowed by their Creator with certain unalienable Rights,”. Shared wording: “that”. Source A: “equal creation they derive rights inherent & inalienable,”; source B: “”. Shared wording: “among”. Source A: “which”; source B: “these”. Shared wording: “are”. Source A: “the preservation of life, & liberty, &”; source B: “Life, Liberty and”. Further differences and shared text are retained in the complete structured alignment. Only the complete cited wording is checked; historical truth and event/person identity are not independently verified. No version order, correction, motive, responsible person or whole-document absence is established by this local comparison. Complete only for the supplied source-declared reconstruction/transcription and their cited opening topic. Historical authenticity and finality are not independently verified.",
+      "native_citations": [
+        {
+          "body_end": 2964,
+          "body_projection": "body-text-no-headings-v1",
+          "body_start": 1122,
+          "end": 2964,
+          "hash": "sha256:b87d5883c09e9742bd7912abac58ed15694dadaf9d97f4d2191d3188051a7359",
+          "path": "original-0004.html",
+          "quote": "We hold these truths to be sacred & undeniable; that all men are created equal & independant, that from that equal creation they derive rights inherent & inalienable, among which are the preservation of life, & liberty, & the pursuit of happiness; that to secure these ends, governments are instituted among men, deriving their just powers from the consent of the governed; that whenever any form of government shall become destructive of these ends, it is the right of the people to alter or to abolish it, & to institute new government, laying it's foundation on such principles & organising it's powers in such form, as to them shall seem most likely to effect their safety & happiness. prudence indeed will dictate that governments long established should not be changed for light & transient causes: and accordingly all experience hath shewn that mankind are more disposed to suffer while evils are sufferable, than to right themselves by abolishing the forms to which they are accustomed. but when a long train of abuses & usurpations, begun at a distinguished period, & pursuing invariably the same object, evinces a design to subject them to arbitrary power, it is their right, it is their duty, to throw off such government & to provide new guards for their future security. such has been the patient sufferance of these colonies; & such is now the necessity which constrains them to expunge their former systems of government. the history of his present majesty, is a history of unremitting injuries and usurpations, among which no one fact stands single or solitary to contradict the uniform tenor of the rest, all of which have in direct object the establishment of an absolute tyranny over these states. to prove this, let facts be submitted to a candid world, for the truth of which we pledge a faith yet unsullied by falsehood.",
+          "source_id": "ORIGINAL-0004",
+          "start": 1122
+        },
+        {
+          "body_end": 3165,
+          "body_projection": "body-text-no-headings-v1",
+          "body_start": 1537,
+          "end": 3165,
+          "hash": "sha256:1f670fe87ed6e4044e60858300adedc09c4d82982fd7201b1288644f6fc5440d",
+          "path": "original-0005.html",
+          "quote": "We hold these truths to be self-evident, that all men are created equal, that they are endowed by their Creator with certain unalienable Rights, that among these are Life, Liberty and the pursuit of Happiness.--That to secure these rights, Governments are instituted among Men, deriving their just powers from the consent of the governed, --That whenever any Form of Government becomes destructive of these ends, it is the Right of the People to alter or to abolish it, and to institute new Government, laying its foundation on such principles and organizing its powers in such form, as to them shall seem most likely to effect their Safety and Happiness. Prudence, indeed, will dictate that Governments long established should not be changed for light and transient causes; and accordingly all experience hath shewn, that mankind are more disposed to suffer, while evils are sufferable, than to right themselves by abolishing the forms to which they are accustomed. But when a long train of abuses and usurpations, pursuing invariably the same Object evinces a design to reduce them under absolute Despotism, it is their right, it is their duty, to throw off such Government, and to provide new Guards for their future security.--Such has been the patient sufferance of these Colonies; and such is now the necessity which constrains them to alter their former Systems of Government. The history of the present King of Great Britain is a history of repeated injuries and usurpations, all having in direct object the establishment of an absolute Tyranny over these States. To prove this, let Facts be submitted to a candid world.",
+          "source_id": "ORIGINAL-0005",
+          "start": 1537
+        },
+        {
+          "body_end": 623,
+          "body_projection": "body-text-no-headings-v1",
+          "body_start": 259,
+          "end": 623,
+          "hash": "sha256:b87d5883c09e9742bd7912abac58ed15694dadaf9d97f4d2191d3188051a7359",
+          "path": "original-0004.html",
+          "quote": "(This is Professor Julian Boyd's reconstruction of Thomas Jefferson's \"original Rough draught\" of the Declaration of Independence before it was revised by the other members of the Committee of Five and by Congress. From: The Papers of Thomas Jefferson. Vol. 1, 1760-1776. Ed. Julian P. Boyd. Princeton: Princeton University Press, 1950, pp 243-247) (Italics ours.)",
+          "source_id": "ORIGINAL-0004",
+          "start": 259
+        },
+        {
+          "body_end": 1035,
+          "body_projection": "body-text-no-headings-v1",
+          "body_start": 799,
+          "end": 1035,
+          "hash": "sha256:1f670fe87ed6e4044e60858300adedc09c4d82982fd7201b1288644f6fc5440d",
+          "path": "original-0005.html",
+          "quote": "Note: The following text is a transcription of the Stone Engraving of the parchment Declaration of Independence (the document on display in the Rotunda at the National Archives Museum). The spelling and punctuation reflect the original.",
+          "source_id": "ORIGINAL-0005",
+          "start": 799
+        }
+      ],
+      "native_citation_coverage": [
+        {
+          "source_id": "ORIGINAL-0004",
+          "covered_characters": 290,
+          "anchor_characters": 290
+        },
+        {
+          "source_id": "ORIGINAL-0005",
+          "covered_characters": 300,
+          "anchor_characters": 300
+        }
+      ]
+    },
+    {
+      "case_id": "H06",
+      "question": "Which passage about the slave trade appears in the rough draft but not in this final Declaration transcript? Can these pages alone identify every person responsible for the deletion?",
+      "draft_anchors": 2,
+      "native_question_plan": null,
+      "summary_request": null,
+      "eligible_graph_records": [
+        "ORIGINAL-0004",
+        "ORIGINAL-0005"
+      ],
+      "ordinary_probe_anchors": 0,
+      "record_graph_probe_anchors": 0,
+      "section_edge": null,
+      "native_admitted_witnesses": null,
+      "native_blocked_witnesses": [],
+      "native_review_only_hints": null,
+      "native_obligations": null,
+      "native_output_budget": {
+        "blocked_atomic_claims": 0,
+        "citation_characters": 0,
+        "deduplicated_before_charge": true,
+        "distinct_citation_spans": 0,
+        "max_characters": 8000,
+        "max_passages": 12
+      },
+      "native_kind": "abstain",
+      "native_diagnostic": "interpretation_unsupported",
+      "native_text": "",
+      "native_citations": [],
+      "native_citation_coverage": [
+        {
+          "source_id": "ORIGINAL-0004",
+          "covered_characters": 0,
+          "anchor_characters": 420
+        },
+        {
+          "source_id": "ORIGINAL-0005",
+          "covered_characters": 0,
+          "anchor_characters": 300
+        }
+      ]
+    },
+    {
+      "case_id": "H07",
+      "question": "Distinguish the bombardment, surrender, evacuation and telegram dates in the Fort Sumter record, without treating the webpage review date as an event date.",
+      "draft_anchors": 3,
+      "native_question_plan": [
+        {
+          "question": "Distinguish the bombardment, surrender, evacuation and telegram dates in the Fort Sumter record, without treating the webpage review date as an event date.",
+          "kind": "date_inventory",
+          "roles": [
+            "bombardment",
+            "surrender",
+            "evacuation",
+            "telegram"
+          ]
+        }
+      ],
+      "summary_request": null,
+      "eligible_graph_records": [
+        "ORIGINAL-0006"
+      ],
+      "ordinary_probe_anchors": 0,
+      "record_graph_probe_anchors": 0,
+      "section_edge": null,
+      "native_admitted_witnesses": 5,
+      "native_blocked_witnesses": [],
+      "native_review_only_hints": 0,
+      "native_obligations": [
+        {
+          "evidence_claim_indices": [
+            0
+          ],
+          "evidence_proof_sha256": [
+            "sha256:29c8a4bf22708f2478a6992c305716b30d7163884307672f5dee6be40703085d"
+          ],
+          "kind": "date_inventory",
+          "question": "Distinguish the bombardment, surrender, evacuation and telegram dates in the Fort Sumter record, without treating the webpage review date as an event date.",
+          "status": "supported_source_assertion",
+          "unadmitted_candidates_verified": false,
+          "unadmitted_witness_candidate_count": 0,
+          "undisplayed_evidence_count": 0
+        }
+      ],
+      "native_output_budget": {
+        "blocked_atomic_claims": 0,
+        "citation_characters": 1162,
+        "deduplicated_before_charge": true,
+        "distinct_citation_spans": 5,
+        "max_characters": 8000,
+        "max_passages": 12
+      },
+      "native_kind": "supported_answer",
+      "native_diagnostic": "supported_documentary_assertion",
+      "native_text": "The source states these separate date relationships. telegram: April 18, 1861 [source_catalogue_document_date; year 1861]. Source statement: “Citation: Telegram from Maj. Robert Anderson to Hon. Simon Cameron, Secretary, announcing his withdrawal from Fort Sumter; April 18, 1861; Union Battle Reports, 1874 - 1899; Records of the Adjutant General's Office, Record Group 94; National Archives Building, Washington, DC.”. bombardment: April 12 [source_reported_action_date; year unstated]. Source statement: “On April 12, the Confederate batteries opened fire on the fort, which was unable to reply effectively.”. surrender: April 13 at 2:30 p.m. [source_reported_action_date; year unstated]. Source statement: “At 2:30 p.m., April 13, Major Anderson surrendered Fort Sumter, evacuating the garrison on the following day.”. evacuation: the following day (calendar day: April 14) [explicit_same_clause_relative_date; year unstated]. Source statement: “At 2:30 p.m., April 13, Major Anderson surrendered Fort Sumter, evacuating the garrison on the following day.”. Webpage review: May 10, 2022; not an event date. Only the complete cited wording is checked; historical truth and event/person identity are not independently verified. Date relationships are source-attributed; catalogue dates do not prove dispatch or receipt. Artillery firing is a literal action category, not resolved historical event identity. No year is inherited from another date role. Calendar display arithmetic uses the proleptic Gregorian convention; the source calendar is not authenticated.",
+      "native_citations": [
+        {
+          "body_end": 631,
+          "body_projection": "body-text-no-headings-v1",
+          "body_start": 355,
+          "end": 631,
+          "hash": "sha256:4220f999d1cfe2734726fbfc6857334ae548b827d22492a27546f1f7d10abf54",
+          "path": "original-0006.html",
+          "quote": "Citation: Telegram from Maj. Robert Anderson to Hon. Simon Cameron, Secretary, announcing his withdrawal from Fort Sumter; April 18, 1861; Union Battle Reports, 1874 - 1899; Records of the Adjutant General's Office, Record Group 94; National Archives Building, Washington, DC.",
+          "source_id": "ORIGINAL-0006",
+          "start": 355
+        },
+        {
+          "body_end": 631,
+          "body_projection": "body-text-no-headings-v1",
+          "body_start": 0,
+          "end": 631,
+          "hash": "sha256:4220f999d1cfe2734726fbfc6857334ae548b827d22492a27546f1f7d10abf54",
+          "path": "original-0006.html",
+          "quote": "Top\nSkip to main content\nThe U.S. National Archives Home\nCitizen Archivists ·\nBookmark/Share\n·\nContact Us\nSearch\nSearch\nResearch Our Records\nVeterans' Service Records\nEducator Resources\nVisit Us\nAmerica's Founding Documents\nMilestone Documents\nHome > Telegram Announcing the Surrender of Fort Sumter (1861)\nComplete List of Documents\nEnlargeDownload Link\nCitation: Telegram from Maj. Robert Anderson to Hon. Simon Cameron, Secretary, announcing his withdrawal from Fort Sumter; April 18, 1861; Union Battle Reports, 1874 - 1899; Records of the Adjutant General's Office, Record Group 94; National Archives Building, Washington, DC.",
+          "source_id": "ORIGINAL-0006",
+          "start": 0
+        },
+        {
+          "body_end": 1705,
+          "body_projection": "body-text-no-headings-v1",
+          "body_start": 1603,
+          "end": 1705,
+          "hash": "sha256:4220f999d1cfe2734726fbfc6857334ae548b827d22492a27546f1f7d10abf54",
+          "path": "original-0006.html",
+          "quote": "On April 12, the Confederate batteries opened fire on the fort, which was unable to reply effectively.",
+          "source_id": "ORIGINAL-0006",
+          "start": 1603
+        },
+        {
+          "body_end": 1815,
+          "body_projection": "body-text-no-headings-v1",
+          "body_start": 1706,
+          "end": 1815,
+          "hash": "sha256:4220f999d1cfe2734726fbfc6857334ae548b827d22492a27546f1f7d10abf54",
+          "path": "original-0006.html",
+          "quote": "At 2:30 p.m., April 13, Major Anderson surrendered Fort Sumter, evacuating the garrison on the following day.",
+          "source_id": "ORIGINAL-0006",
+          "start": 1706
+        },
+        {
+          "body_end": 3453,
+          "body_projection": "body-text-no-headings-v1",
+          "body_start": 3409,
+          "end": 3453,
+          "hash": "sha256:4220f999d1cfe2734726fbfc6857334ae548b827d22492a27546f1f7d10abf54",
+          "path": "original-0006.html",
+          "quote": "This page was last reviewed on May 10, 2022.",
+          "source_id": "ORIGINAL-0006",
+          "start": 3409
+        }
+      ],
+      "native_citation_coverage": [
+        {
+          "source_id": "ORIGINAL-0006",
+          "covered_characters": 211,
+          "anchor_characters": 320
+        },
+        {
+          "source_id": "ORIGINAL-0006",
+          "covered_characters": 0,
+          "anchor_characters": 270
+        },
+        {
+          "source_id": "ORIGINAL-0006",
+          "covered_characters": 0,
+          "anchor_characters": 230
+        }
+      ]
+    },
+    {
+      "case_id": "H08",
+      "question": "According to the Apollo 13 summary, why was the landing aborted and what spacecraft supported return to Earth?",
+      "draft_anchors": 1,
+      "native_question_plan": [
+        {
+          "question": "According to the Apollo 13 summary, why was the landing aborted",
+          "kind": "unresolved"
+        },
+        {
+          "question": "what spacecraft supported return to Earth",
+          "kind": "resource_support"
+        }
+      ],
+      "summary_request": {
+        "report": "Apollo 13",
+        "event": "the landing",
+        "action": "aborted",
+        "place": "Earth"
+      },
+      "eligible_graph_records": [
+        "ORIGINAL-0007"
+      ],
+      "ordinary_probe_anchors": 0,
+      "record_graph_probe_anchors": 0,
+      "section_edge": {
+        "source_id": "ORIGINAL-0007",
+        "hash": "sha256:e3ec7774d22142e5251f1650d4fe1faa1e11c125c274e8a4c982d18b23714c8f",
+        "retained_by_graph": true,
+        "body_start": 6904,
+        "body_end": 9304,
+        "anchor_visibility": 1,
+        "source_support_established": false
+      },
+      "native_admitted_witnesses": null,
+      "native_blocked_witnesses": [],
+      "native_review_only_hints": null,
+      "native_obligations": null,
+      "native_output_budget": {
+        "blocked_atomic_claims": 0,
+        "citation_characters": 337,
+        "deduplicated_before_charge": true,
+        "distinct_citation_spans": 2,
+        "max_characters": 8000,
+        "max_passages": 12
+      },
+      "native_kind": "partial_answer",
+      "native_diagnostic": "partial_documentary_evidence",
+      "native_text": "The Apollo 13 mission, planned as a lunar landing in the Fra Mauro\narea, was aborted because of an abrupt loss of service module cryogenic\noxygen associated with a fire in one of the two tanks at approximately\n56 hours.\nThe lunar module provided the necessary support to sustain a\nminimum operational\ncondition for a safe return to earth.\nOnly explicit statements within the bounded summary window were checked. Event co-reference, corrections outside this window, and independent causation remain unresolved.",
+      "native_citations": [
+        {
+          "body_end": 7123,
+          "body_projection": "body-text-no-headings-v1",
+          "body_start": 6904,
+          "end": 7123,
+          "hash": "sha256:e3ec7774d22142e5251f1650d4fe1faa1e11c125c274e8a4c982d18b23714c8f",
+          "path": "original-0007.html",
+          "quote": "The Apollo 13 mission, planned as a lunar landing in the Fra Mauro\narea, was aborted because of an abrupt loss of service module cryogenic\noxygen associated with a fire in one of the two tanks at approximately\n56 hours.",
+          "source_id": "ORIGINAL-0007",
+          "start": 6904
+        },
+        {
+          "body_end": 7242,
+          "body_projection": "body-text-no-headings-v1",
+          "body_start": 7124,
+          "end": 7242,
+          "hash": "sha256:e3ec7774d22142e5251f1650d4fe1faa1e11c125c274e8a4c982d18b23714c8f",
+          "path": "original-0007.html",
+          "quote": "The lunar module provided the necessary support to sustain a\nminimum operational\ncondition for a safe return to earth.",
+          "source_id": "ORIGINAL-0007",
+          "start": 7124
+        }
+      ],
+      "native_citation_coverage": [
+        {
+          "source_id": "ORIGINAL-0007",
+          "covered_characters": 337,
+          "anchor_characters": 530
+        }
+      ]
+    },
+    {
+      "case_id": "H09",
+      "question": "The Apollo 13 OCR has a change sheet marked May 1970 and a title page marked September 1970. What can this text alone establish about revision order and mission elapsed time?",
+      "draft_anchors": 2,
+      "native_question_plan": null,
+      "summary_request": null,
+      "eligible_graph_records": [
+        "ORIGINAL-0007"
+      ],
+      "ordinary_probe_anchors": 1,
+      "record_graph_probe_anchors": 2,
+      "section_edge": null,
+      "native_admitted_witnesses": null,
+      "native_blocked_witnesses": [],
+      "native_review_only_hints": null,
+      "native_obligations": null,
+      "native_output_budget": {
+        "blocked_atomic_claims": 0,
+        "citation_characters": 0,
+        "deduplicated_before_charge": true,
+        "distinct_citation_spans": 0,
+        "max_characters": 8000,
+        "max_passages": 12
+      },
+      "native_kind": "abstain",
+      "native_diagnostic": "interpretation_unsupported",
+      "native_text": "",
+      "native_citations": [],
+      "native_citation_coverage": [
+        {
+          "source_id": "ORIGINAL-0007",
+          "covered_characters": 0,
+          "anchor_characters": 530
+        },
+        {
+          "source_id": "ORIGINAL-0007",
+          "covered_characters": 0,
+          "anchor_characters": 140
+        }
+      ]
+    },
+    {
+      "case_id": "H10",
+      "question": "Does the shared language of withdrawal and return establish a causal relationship between the Sumter telegram and the Apollo 13 mission?",
+      "draft_anchors": 2,
+      "native_question_plan": null,
+      "summary_request": null,
+      "eligible_graph_records": [
+        "ORIGINAL-0006",
+        "ORIGINAL-0007"
+      ],
+      "ordinary_probe_anchors": 0,
+      "record_graph_probe_anchors": 0,
+      "section_edge": null,
+      "native_admitted_witnesses": null,
+      "native_blocked_witnesses": [],
+      "native_review_only_hints": null,
+      "native_obligations": null,
+      "native_output_budget": {
+        "blocked_atomic_claims": 0,
+        "citation_characters": 0,
+        "deduplicated_before_charge": true,
+        "distinct_citation_spans": 0,
+        "max_characters": 8000,
+        "max_passages": 12
+      },
+      "native_kind": "abstain",
+      "native_diagnostic": "interpretation_unsupported",
+      "native_text": "",
+      "native_citations": [],
+      "native_citation_coverage": [
+        {
+          "source_id": "ORIGINAL-0006",
+          "covered_characters": 0,
+          "anchor_characters": 150
+        },
+        {
+          "source_id": "ORIGINAL-0007",
+          "covered_characters": 0,
+          "anchor_characters": 240
+        }
+      ]
+    },
+    {
+      "case_id": "H11",
+      "question": "Did Darwin's note arranging Wallace's book delivery cause the Apollo 13 abort? Provide a source-supported link or explicitly state that it is unavailable.",
+      "draft_anchors": 2,
+      "native_question_plan": null,
+      "summary_request": null,
+      "eligible_graph_records": [
+        "ORIGINAL-0007"
+      ],
+      "ordinary_probe_anchors": 0,
+      "record_graph_probe_anchors": 0,
+      "section_edge": null,
+      "native_admitted_witnesses": null,
+      "native_blocked_witnesses": [],
+      "native_review_only_hints": null,
+      "native_obligations": null,
+      "native_output_budget": {
+        "blocked_atomic_claims": 0,
+        "citation_characters": 0,
+        "deduplicated_before_charge": true,
+        "distinct_citation_spans": 0,
+        "max_characters": 8000,
+        "max_passages": 12
+      },
+      "native_kind": "abstain",
+      "native_diagnostic": "interpretation_unsupported",
+      "native_text": "",
+      "native_citations": [],
+      "native_citation_coverage": [
+        {
+          "source_id": "ORIGINAL-0001",
+          "covered_characters": 0,
+          "anchor_characters": 200
+        },
+        {
+          "source_id": "ORIGINAL-0007",
+          "covered_characters": 0,
+          "anchor_characters": 240
+        }
+      ]
+    },
+    {
+      "case_id": "H12",
+      "question": "Which named engineer personally authorized an oxygen-tank fire, and which original letter proves that authorization?",
+      "draft_anchors": 1,
+      "native_question_plan": null,
+      "summary_request": null,
+      "eligible_graph_records": [],
+      "ordinary_probe_anchors": 0,
+      "record_graph_probe_anchors": 0,
+      "section_edge": null,
+      "native_admitted_witnesses": null,
+      "native_blocked_witnesses": [],
+      "native_review_only_hints": null,
+      "native_obligations": null,
+      "native_output_budget": {
+        "blocked_atomic_claims": 0,
+        "citation_characters": 0,
+        "deduplicated_before_charge": true,
+        "distinct_citation_spans": 0,
+        "max_characters": 8000,
+        "max_passages": 12
+      },
+      "native_kind": "abstain",
+      "native_diagnostic": "interpretation_unsupported",
+      "native_text": "",
+      "native_citations": [],
+      "native_citation_coverage": [
+        {
+          "source_id": "ORIGINAL-0007",
+          "covered_characters": 0,
+          "anchor_characters": 270
+        }
+      ]
+    },
+    {
+      "case_id": "H13",
+      "question": "Which distinct documentary layers in the Sumter page refer to the same historical message, and which statements belong to modern archival framing rather than the telegram?",
+      "draft_anchors": 2,
+      "native_question_plan": null,
+      "summary_request": null,
+      "eligible_graph_records": [
+        "ORIGINAL-0006"
+      ],
+      "ordinary_probe_anchors": 0,
+      "record_graph_probe_anchors": 1,
+      "section_edge": null,
+      "native_admitted_witnesses": null,
+      "native_blocked_witnesses": [],
+      "native_review_only_hints": null,
+      "native_obligations": null,
+      "native_output_budget": {
+        "blocked_atomic_claims": 0,
+        "citation_characters": 0,
+        "deduplicated_before_charge": true,
+        "distinct_citation_spans": 0,
+        "max_characters": 8000,
+        "max_passages": 12
+      },
+      "native_kind": "abstain",
+      "native_diagnostic": "interpretation_unsupported",
+      "native_text": "",
+      "native_citations": [],
+      "native_citation_coverage": [
+        {
+          "source_id": "ORIGINAL-0006",
+          "covered_characters": 0,
+          "anchor_characters": 360
+        },
+        {
+          "source_id": "ORIGINAL-0006",
+          "covered_characters": 0,
+          "anchor_characters": 300
+        }
+      ]
+    },
+    {
+      "case_id": "H14",
+      "question": "Can the selected Darwin correspondence alone establish whether Darwin or Wallace first conceived natural selection, rather than who read or sent a particular book?",
+      "draft_anchors": 1,
+      "native_question_plan": null,
+      "summary_request": null,
+      "eligible_graph_records": [
+        "ORIGINAL-0001",
+        "ORIGINAL-0002",
+        "ORIGINAL-0003"
+      ],
+      "ordinary_probe_anchors": 0,
+      "record_graph_probe_anchors": 0,
+      "section_edge": null,
+      "native_admitted_witnesses": null,
+      "native_blocked_witnesses": [],
+      "native_review_only_hints": null,
+      "native_obligations": null,
+      "native_output_budget": {
+        "blocked_atomic_claims": 0,
+        "citation_characters": 0,
+        "deduplicated_before_charge": true,
+        "distinct_citation_spans": 0,
+        "max_characters": 8000,
+        "max_passages": 12
+      },
+      "native_kind": "conflict",
+      "native_diagnostic": "retrieval_ambiguous",
+      "native_text": "",
+      "native_citations": [],
+      "native_citation_coverage": [
+        {
+          "source_id": "ORIGINAL-0001",
+          "covered_characters": 0,
+          "anchor_characters": 340
+        }
+      ]
+    },
+    {
+      "case_id": "U01",
+      "question": "Who appointed Eisenhower to command Overlord, and how does that differ from Eisenhower deciding to proceed on June 5?",
+      "draft_anchors": 2,
+      "native_question_plan": [
+        {
+          "question": "Who appointed Eisenhower to command Overlord",
+          "kind": "who_action",
+          "action": "appoint",
+          "object_text": "Eisenhower to command Overlord"
+        },
+        {
+          "question": "how does that differ from Eisenhower deciding to proceed on June 5",
+          "kind": "wording_comparison"
+        }
+      ],
+      "summary_request": null,
+      "eligible_graph_records": [
+        "ORIGINAL-0001"
+      ],
+      "ordinary_probe_anchors": 0,
+      "record_graph_probe_anchors": 0,
+      "section_edge": null,
+      "native_admitted_witnesses": 2,
+      "native_blocked_witnesses": [],
+      "native_review_only_hints": 0,
+      "native_obligations": [
+        {
+          "evidence_claim_indices": [
+            0
+          ],
+          "evidence_proof_sha256": [
+            "sha256:263b99e260553c1662cf9dcc45d5f48cffd048f92ba1cbf0d646f592557eda10"
+          ],
+          "kind": "who_action",
+          "question": "Who appointed Eisenhower to command Overlord",
+          "status": "partial_source_assertion",
+          "unadmitted_candidates_verified": false,
+          "unadmitted_witness_candidate_count": 0,
+          "undisplayed_evidence_count": 0
+        },
+        {
+          "evidence_claim_indices": [],
+          "evidence_proof_sha256": [],
+          "kind": "wording_comparison",
+          "question": "how does that differ from Eisenhower deciding to proceed on June 5",
+          "status": "unresolved",
+          "unadmitted_candidates_verified": false,
+          "unadmitted_witness_candidate_count": 0,
+          "undisplayed_evidence_count": 0
+        }
+      ],
+      "native_output_budget": {
+        "blocked_atomic_claims": 0,
+        "citation_characters": 622,
+        "deduplicated_before_charge": true,
+        "distinct_citation_spans": 2,
+        "max_characters": 8000,
+        "max_passages": 12
+      },
+      "native_kind": "partial_answer",
+      "native_diagnostic": "partial_documentary_evidence",
+      "native_text": "Source assertion: Shortly after the conference ended, Roosevelt appointed Gen. Dwight David Eisenhower to that position. Source-attributed statement; event/person identity and historical truth are not independently verified. An object, role or date reference remains unresolved. Shared local topic wording does not resolve the object or establish an event identity.\nUnresolved: Who appointed Eisenhower to command Overlord: Exact requested argument, reference, qualification, or complete contrary-evidence search is not established.; how does that differ from Eisenhower deciding to proceed on June 5: Exact requested argument, reference, qualification, or complete contrary-evidence search is not established.",
+      "native_citations": [
+        {
+          "body_end": 2042,
+          "body_projection": "body-text-no-headings-v1",
+          "body_start": 1940,
+          "end": 2042,
+          "hash": "sha256:93d03d3493443fc88a7926765b45deac1cfc15592e9bf03cc27b5a2c737fe124",
+          "path": "original-0001.html",
+          "quote": "Shortly after the conference ended, Roosevelt appointed Gen. Dwight David Eisenhower to that position.",
+          "source_id": "ORIGINAL-0001",
+          "start": 1940
+        },
+        {
+          "body_end": 2042,
+          "body_projection": "body-text-no-headings-v1",
+          "body_start": 1522,
+          "end": 2042,
+          "hash": "sha256:93d03d3493443fc88a7926765b45deac1cfc15592e9bf03cc27b5a2c737fe124",
+          "path": "original-0001.html",
+          "quote": "Churchill and Roosevelt told Stalin that the invasion “would be possible” by August 1, 1944, but that no decision had yet been made to name a supreme commander. To this latter point, Stalin pointedly rejoined, “Then nothing will come of these operations. Who carries the moral and technical responsibility for this operation?” Churchill and Roosevelt acknowledged the need to name the commander without further delay. Shortly after the conference ended, Roosevelt appointed Gen. Dwight David Eisenhower to that position.",
+          "source_id": "ORIGINAL-0001",
+          "start": 1522
+        }
+      ],
+      "native_citation_coverage": [
+        {
+          "source_id": "ORIGINAL-0001",
+          "covered_characters": 66,
+          "anchor_characters": 240
+        },
+        {
+          "source_id": "ORIGINAL-0001",
+          "covered_characters": 0,
+          "anchor_characters": 400
+        }
+      ]
+    },
+    {
+      "case_id": "U02",
+      "question": "Did Eisenhower actually report a failed invasion, or prepare a conditional message accepting responsibility if it failed?",
+      "draft_anchors": 1,
+      "native_question_plan": null,
+      "summary_request": null,
+      "eligible_graph_records": [
+        "ORIGINAL-0001"
+      ],
+      "ordinary_probe_anchors": 0,
+      "record_graph_probe_anchors": 0,
+      "section_edge": null,
+      "native_admitted_witnesses": null,
+      "native_blocked_witnesses": [],
+      "native_review_only_hints": null,
+      "native_obligations": null,
+      "native_output_budget": {
+        "blocked_atomic_claims": 0,
+        "citation_characters": 0,
+        "deduplicated_before_charge": true,
+        "distinct_citation_spans": 0,
+        "max_characters": 8000,
+        "max_passages": 12
+      },
+      "native_kind": "abstain",
+      "native_diagnostic": "interpretation_unsupported",
+      "native_text": "",
+      "native_citations": [],
+      "native_citation_coverage": [
+        {
+          "source_id": "ORIGINAL-0001",
+          "covered_characters": 0,
+          "anchor_characters": 300
+        }
+      ]
+    },
+    {
+      "case_id": "U03",
+      "question": "Distinguish drafting, distribution and the date of Eisenhower’s Order of the Day. Does one date identify all three events?",
+      "draft_anchors": 1,
+      "native_question_plan": null,
+      "summary_request": null,
+      "eligible_graph_records": [],
+      "ordinary_probe_anchors": 0,
+      "record_graph_probe_anchors": 0,
+      "section_edge": null,
+      "native_admitted_witnesses": null,
+      "native_blocked_witnesses": [],
+      "native_review_only_hints": null,
+      "native_obligations": null,
+      "native_output_budget": {
+        "blocked_atomic_claims": 0,
+        "citation_characters": 0,
+        "deduplicated_before_charge": true,
+        "distinct_citation_spans": 0,
+        "max_characters": 8000,
+        "max_passages": 12
+      },
+      "native_kind": "abstain",
+      "native_diagnostic": "interpretation_unsupported",
+      "native_text": "",
+      "native_citations": [],
+      "native_citation_coverage": [
+        {
+          "source_id": "ORIGINAL-0001",
+          "covered_characters": 0,
+          "anchor_characters": 350
+        }
+      ]
+    },
+    {
+      "case_id": "U04",
+      "question": "How does the final Emancipation Proclamation quote the earlier proclamation, and what scope qualification limits its application?",
+      "draft_anchors": 2,
+      "native_question_plan": null,
+      "summary_request": null,
+      "eligible_graph_records": [
+        "ORIGINAL-0003"
+      ],
+      "ordinary_probe_anchors": 0,
+      "record_graph_probe_anchors": 0,
+      "section_edge": null,
+      "native_admitted_witnesses": null,
+      "native_blocked_witnesses": [],
+      "native_review_only_hints": null,
+      "native_obligations": null,
+      "native_output_budget": {
+        "blocked_atomic_claims": 0,
+        "citation_characters": 0,
+        "deduplicated_before_charge": true,
+        "distinct_citation_spans": 0,
+        "max_characters": 8000,
+        "max_passages": 12
+      },
+      "native_kind": "abstain",
+      "native_diagnostic": "interpretation_unsupported",
+      "native_text": "",
+      "native_citations": [],
+      "native_citation_coverage": [
+        {
+          "source_id": "ORIGINAL-0003",
+          "covered_characters": 0,
+          "anchor_characters": 400
+        },
+        {
+          "source_id": "ORIGINAL-0003",
+          "covered_characters": 0,
+          "anchor_characters": 185
+        }
+      ]
+    },
+    {
+      "case_id": "U05",
+      "question": "Does the proclamation free every enslaved person in every state without exceptions? Show the limiting language rather than silently removing it.",
+      "draft_anchors": 1,
+      "native_question_plan": null,
+      "summary_request": null,
+      "eligible_graph_records": [],
+      "ordinary_probe_anchors": 0,
+      "record_graph_probe_anchors": 0,
+      "section_edge": null,
+      "native_admitted_witnesses": null,
+      "native_blocked_witnesses": [],
+      "native_review_only_hints": null,
+      "native_obligations": null,
+      "native_output_budget": {
+        "blocked_atomic_claims": 0,
+        "citation_characters": 0,
+        "deduplicated_before_charge": true,
+        "distinct_citation_spans": 0,
+        "max_characters": 8000,
+        "max_passages": 12
+      },
+      "native_kind": "abstain",
+      "native_diagnostic": "interpretation_unsupported",
+      "native_text": "",
+      "native_citations": [],
+      "native_citation_coverage": [
+        {
+          "source_id": "ORIGINAL-0003",
+          "covered_characters": 0,
+          "anchor_characters": 185
+        }
+      ]
+    },
+    {
+      "case_id": "U06",
+      "question": "Who surveyed Yellowstone, and what documentary actions did he subsequently take to promote protection? Separate archival framing from the act itself.",
+      "draft_anchors": 1,
+      "native_question_plan": [
+        {
+          "question": "Who surveyed Yellowstone",
+          "kind": "who_action",
+          "action": "survey",
+          "object_text": "Yellowstone"
+        },
+        {
+          "question": "what documentary actions did he subsequently take to promote protection",
+          "kind": "unresolved"
+        },
+        {
+          "question": "Separate archival framing from the act itself",
+          "kind": "unresolved"
+        }
+      ],
+      "summary_request": null,
+      "eligible_graph_records": [
+        "ORIGINAL-0002"
+      ],
+      "ordinary_probe_anchors": 0,
+      "record_graph_probe_anchors": 0,
+      "section_edge": null,
+      "native_admitted_witnesses": 2,
+      "native_blocked_witnesses": [],
+      "native_review_only_hints": 0,
+      "native_obligations": [
+        {
+          "evidence_claim_indices": [
+            0
+          ],
+          "evidence_proof_sha256": [
+            "sha256:1118922726948613e68ba5e40f89b652b07bf175e7b691a40f37de0b4d67a45c"
+          ],
+          "kind": "who_action",
+          "question": "Who surveyed Yellowstone",
+          "status": "partial_source_assertion",
+          "unadmitted_candidates_verified": false,
+          "unadmitted_witness_candidate_count": 0,
+          "undisplayed_evidence_count": 0
+        },
+        {
+          "evidence_claim_indices": [],
+          "evidence_proof_sha256": [],
+          "kind": "unresolved",
+          "question": "what documentary actions did he subsequently take to promote protection",
+          "status": "unresolved",
+          "unadmitted_candidates_verified": false,
+          "unadmitted_witness_candidate_count": 0,
+          "undisplayed_evidence_count": 0
+        },
+        {
+          "evidence_claim_indices": [],
+          "evidence_proof_sha256": [],
+          "kind": "unresolved",
+          "question": "Separate archival framing from the act itself",
+          "status": "unresolved",
+          "unadmitted_candidates_verified": false,
+          "unadmitted_witness_candidate_count": 0,
+          "undisplayed_evidence_count": 0
+        }
+      ],
+      "native_output_budget": {
+        "blocked_atomic_claims": 0,
+        "citation_characters": 752,
+        "deduplicated_before_charge": true,
+        "distinct_citation_spans": 2,
+        "max_characters": 8000,
+        "max_passages": 12
+      },
+      "native_kind": "partial_answer",
+      "native_diagnostic": "partial_documentary_evidence",
+      "native_text": "Source assertion: Ferdinand Hayden surveyed the area in 1871. Source-attributed statement; event/person identity and historical truth are not independently verified. An object, role or date reference remains unresolved. Shared local topic wording does not resolve the object or establish an event identity.\nUnresolved: Who surveyed Yellowstone: Exact requested argument, reference, qualification, or complete contrary-evidence search is not established.; what documentary actions did he subsequently take to promote protection: Exact requested argument, reference, qualification, or complete contrary-evidence search is not established.; Separate archival framing from the act itself: Exact requested argument, reference, qualification, or complete contrary-evidence search is not established.",
+      "native_citations": [
+        {
+          "body_end": 4588,
+          "body_projection": "body-text-no-headings-v1",
+          "body_start": 4545,
+          "end": 4588,
+          "hash": "sha256:2b2900e5cc6ad6fbcf9027310ff7ea41568a67df84a51a8f72352e1945ef85a4",
+          "path": "original-0002.html",
+          "quote": "Ferdinand Hayden surveyed the area in 1871.",
+          "source_id": "ORIGINAL-0002",
+          "start": 4545
+        },
+        {
+          "body_end": 5254,
+          "body_projection": "body-text-no-headings-v1",
+          "body_start": 4545,
+          "end": 5254,
+          "hash": "sha256:2b2900e5cc6ad6fbcf9027310ff7ea41568a67df84a51a8f72352e1945ef85a4",
+          "path": "original-0002.html",
+          "quote": "Ferdinand Hayden surveyed the area in 1871. Upon his return to the East, he mounted a campaign to promote, but also to protect, the natural wonders he had seen. He quickly wrote a well-received article for Scribner’s Monthly that included fellow expedition member Thomas Moran’s illustrations. He provided Charles Bierstadt, brother to the artist and a leading manufacturer of stereographic cards, with copies of William Jackson’s expedition photographs. He lobbied members of Congress by presenting them with an album of Jackson’s Yellowstone photographs. He was supported in his effort by Jay Cooke, the railroad magnate who anticipated increased tourist ridership on his lines serving the Yellowstone area.",
+          "source_id": "ORIGINAL-0002",
+          "start": 4545
+        }
+      ],
+      "native_citation_coverage": [
+        {
+          "source_id": "ORIGINAL-0002",
+          "covered_characters": 709,
+          "anchor_characters": 780
+        }
+      ]
+    },
+    {
+      "case_id": "U07",
+      "question": "Does the Yellowstone law make leasing compulsory, or grant discretion subject to a term limit?",
+      "draft_anchors": 1,
+      "native_question_plan": [
+        {
+          "question": "Does the Yellowstone law make leasing compulsory, or grant discretion subject to a term limit?",
+          "kind": "discretionary_lease",
+          "statute": "yellowstone"
+        }
+      ],
+      "summary_request": null,
+      "eligible_graph_records": [
+        "ORIGINAL-0002"
+      ],
+      "ordinary_probe_anchors": 1,
+      "record_graph_probe_anchors": 1,
+      "section_edge": null,
+      "native_admitted_witnesses": null,
+      "native_blocked_witnesses": [],
+      "native_review_only_hints": null,
+      "native_obligations": null,
+      "native_output_budget": {
+        "blocked_atomic_claims": 0,
+        "citation_characters": 483,
+        "deduplicated_before_charge": true,
+        "distinct_citation_spans": 1,
+        "max_characters": 8000,
+        "max_passages": 12
+      },
+      "native_kind": "supported_answer",
+      "native_diagnostic": "supported_documentary_assertion",
+      "native_text": "The cited clause grants discretion to issue the specified leases, with terms not exceeding ten years.",
+      "native_citations": [
+        {
+          "body_end": 8166,
+          "body_projection": "body-text-no-headings-v1",
+          "body_start": 7683,
+          "end": 8166,
+          "hash": "sha256:2b2900e5cc6ad6fbcf9027310ff7ea41568a67df84a51a8f72352e1945ef85a4",
+          "path": "original-0002.html",
+          "quote": "The Secretary may in his discretion, grant leases for building purposes for terms not exceeding ten years, of small parcels of ground, at such places in said park as shall require the erection of buildings for the accommodation of visitors; all of the proceeds of said leases, and all other revenues that may be derived from any source connected with said park, to be expended under his direction in the management of the same, and the construction of roads and bridle-paths therein.",
+          "source_id": "ORIGINAL-0002",
+          "start": 7683
+        }
+      ],
+      "native_citation_coverage": [
+        {
+          "source_id": "ORIGINAL-0002",
+          "covered_characters": 440,
+          "anchor_characters": 440
+        }
+      ]
+    },
+    {
+      "case_id": "U08",
+      "question": "Did the Yellowstone legislation cause the Normandy invasion? Is there a documentary causal link between these records?",
+      "draft_anchors": 0,
+      "native_question_plan": null,
+      "summary_request": null,
+      "eligible_graph_records": [
+        "ORIGINAL-0001",
+        "ORIGINAL-0002"
+      ],
+      "ordinary_probe_anchors": 0,
+      "record_graph_probe_anchors": 0,
+      "section_edge": null,
+      "native_admitted_witnesses": null,
+      "native_blocked_witnesses": [],
+      "native_review_only_hints": null,
+      "native_obligations": null,
+      "native_output_budget": {
+        "blocked_atomic_claims": 0,
+        "citation_characters": 0,
+        "deduplicated_before_charge": true,
+        "distinct_citation_spans": 0,
+        "max_characters": 8000,
+        "max_passages": 12
+      },
+      "native_kind": "abstain",
+      "native_diagnostic": "interpretation_unsupported",
+      "native_text": "",
+      "native_citations": [],
+      "native_citation_coverage": []
+    }
+  ]
+}

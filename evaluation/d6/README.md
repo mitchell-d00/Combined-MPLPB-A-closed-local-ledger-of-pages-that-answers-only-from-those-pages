@@ -1,6 +1,6 @@
 # D6 evidence plans
 
-Last reviewed: 2026-11-22.
+Last reviewed: 2026-11-23.
 
 D6 is an opt-in native experiment for compiling a step-by-step answer from a plan and declared ledger fields. The plan names each record and field. The strict reader checks the currently eligible body spans. The report shows each decision, the branch taken, unresolved steps, and exact source excerpts with their record, revision hash and body offsets.
 
@@ -37,6 +37,10 @@ python -m mplpb_answers.d6 "$ledger" evaluation/d6/example-plan.json
 ```
 
 Add `--json` for the same result as a structured record.
+
+## Calendar operations and discovery notes
+
+D6 accepts elapsed and inclusive day counts, explicit month shifts, and role-pinned relative dates. See the [calendar, notes and thesaurus sprints](calendar-notes/README.md) for the new plan shapes and reproduction.
 
 ## Run corpus experiments
 

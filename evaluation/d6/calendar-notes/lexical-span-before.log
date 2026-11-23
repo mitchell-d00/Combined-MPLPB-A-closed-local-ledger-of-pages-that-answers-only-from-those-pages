@@ -1,0 +1,13 @@
+======================================================================
+ERROR: test_relation_span_search_finds_exact_neighbor_without_admitting_proof (tests.test_thesaurus_graph.ThesaurusTests.test_relation_span_search_finds_exact_neighbor_without_admitting_proof)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/combined-mplpb/tests/test_thesaurus_graph.py", line 85, in test_relation_span_search_finds_exact_neighbor_without_admitting_proof
+    self.assertEqual(result['edge_hits'][0]['source_id'], source.id)
+                     ~~~~~~^^^^^^^^^^^^^
+KeyError: 'edge_hits'
+
+----------------------------------------------------------------------
+Ran 1 test in 0.032s
+
+FAILED (errors=1)

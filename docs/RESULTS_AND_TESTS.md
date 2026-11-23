@@ -1,14 +1,14 @@
 # Results and their tests
 
-Last reviewed: 2026-11-22.
+Last reviewed: 2026-11-23.
 
 [Test Index](TEST_INDEX.md) connects the test types to the deterministic training loop.
 [D12](../evaluation/d12/README.md) adds paired error-class probes to D6 and a separate
-trace of the original 22, 40 follow-ups and 12 starter-topic cases.
+trace of the original 22, 40 follow-ups and 12 starter-topic cases. The [pattern fix sprints](../evaluation/d12/pattern-sprints/README.md) retain the unchanged nine-question replay and 28 matched controls. The [historical seam replay](../evaluation/d12/pattern-sprints/historical-seams/README.md) isolates two graph and proof failures on the original 22. The [training coordinator](../evaluation/d12/coordinator/README.md) replays a matched rule repair and reports fresh historical, D20 and book triage.
 
 [D6](../evaluation/d6/README.md) records 90 synthetic checks of six evidence
 operations and a separate replay on 12 frozen Dice Bag records. The native
-compiler cites declared ledger fields and explains which branches resolved.
+compiler cites declared ledger fields and explains which branches resolved. The [calendar, source note and thesaurus sprints](../evaluation/d6/calendar-notes/README.md) retain arithmetic and independent discovery controls.
 
 [D20](../evaluation/d20/README.md) records the seeded ownership and alias baseline and class-level probes.
 

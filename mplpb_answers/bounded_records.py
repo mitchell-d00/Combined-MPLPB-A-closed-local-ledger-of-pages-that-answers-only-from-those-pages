@@ -270,6 +270,195 @@ def _event(bodies, question):
     return [], ['The records do not establish a shared documentary event identity.']
 
 
+# Packet-local readings over complete eligible units. Preserve the source
+# statement and its qualifiers verbatim. In particular, a recorded procedural
+# step does not supply an outcome and a margin question does not assert status.
+_AUTHORITY = (
+    r'The (?P<actor>[a-z]+(?: [a-z]+){0,4}) (?:was authorized|was permitted|had permission) to [^.;]+; '
+    r'the (?:text|entry|record|source) does not (?:state|say|show) whether the (?P=actor) [^.]+\.'
+)
+_PETITION = (
+    rf'On {_DATE}(?:, [0-9]{{4}},)? (?P<actor>the [a-z]+(?: [a-z]+){{0,4}}) '
+    r'received a petition (?:from [a-z ]{1,80} )?(?:asking for|requesting) [^.;]+'
+)
+_UNSETTLED_PETITION = _PETITION + (
+    r'; no (?:resolution(?: or [a-z ]{1,40}vote)?|vote|decision) appears (?:on|in) the (?:surviving )?(?:page|record)\.'
+)
+_APPROVED_PETITION = _PETITION + r'\. (?P=actor) approved the petition\.'
+_TRANSFER_DRAFT = rf'(?:The )?transfer of [^.;]+ was drafted on {_DATE}(?:, [0-9]{{4}})?\.'
+_TRANSFER_QUESTION = (
+    r'A (?:margin )?note asks whether the (?:deed )?transfer was finalized or (?:was left|left|remains) pending\.'
+)
+
+
+def _recorded_stage(bodies, question):
+    group = question.lastgroup
+    if group == 'authority':
+        match = _single(_collect(bodies, {'authority': _AUTHORITY}), 'authority')
+        if len(bodies) == 1 and match:
+            _, cite = match[0]
+            return [_claim(cite['quote'], {'relation': 'stated_authority_and_limit'}, cite)], []
+    elif group == 'direct':
+        matches = _collect(bodies, {'pending': _UNSETTLED_PETITION, 'approved': _APPROVED_PETITION})
+        if len(bodies) == 1 and matches:
+            status, entries = next(iter(matches.items()))
+            _, cite = entries[0]
+            open_step = 'outcome' if status == 'pending' else 'implementation'
+            return [_claim(cite['quote'], {'relation': 'recorded_petition_step', 'stage': status}, cite)], [
+                f'The cited statement does not establish the petition’s {open_step}.'
+            ]
+    else:
+        pair = _single(_collect(bodies, {'draft': _TRANSFER_DRAFT, 'question': _TRANSFER_QUESTION}), 'draft', 'question')
+        if len(bodies) == 2 and pair:
+            quotes = [cite for _, cite in pair]
+            return [_claim(' '.join(cite['quote'] for cite in quotes),
+                           {'relation': 'transfer_draft_and_open_note'}, *quotes)], [
+                'The source statements do not establish the final status of the transfer.'
+            ]
+    return [], ['These pages do not establish the requested step and its scope or outcome.']
+
+
+_ITEM_ID = r'(?:Item|Entry|Lot|Record) [A-Za-z0-9][A-Za-z0-9-]{0,31}'
+_ITEM_FIELD = r'(?P<label>[a-z][a-z ]{0,39}): (?P<value>[^|\r\n:]{1,120})'
+_ITEM_QUERY_FIELD = r'(?:figure|count|date|named attribute|value|field|quantity|condition|status)'
+
+
+def _inventory_row(bodies, question):
+    if len(bodies) != 1:
+        return [], ['Select a source packet with one unambiguous item row.']
+    record, body = bodies[0]
+    cells = [part.strip() for part in body.split('|')]
+    if ('\n' in body or not 3 <= len(cells) <= 10 or not _full(_ITEM_ID, cells[0])
+            or not _full(r"[a-z0-9][a-z0-9 '\-]{0,79}", cells[1])):
+        return [], ['The complete source unit is not a single labeled item row.']
+    matches = [_full(_ITEM_FIELD, cell) for cell in cells[2:]]
+    if not all(matches):
+        return [], ['Every displayed value needs an explicit label.']
+    labels = [m['label'].casefold() for m in matches]
+    if len(set(labels)) != len(labels):
+        return [], ['More than one value is shown for an item label.']
+    return [_claim(body, {'relation': 'recorded_item_values', 'item': cells[0],
+                          'fields': {m['label']: m['value'] for m in matches}},
+                   citation(record, body, 0, len(body)))], []
+
+
+_LIMITED_PERMISSION = (
+    r'[^.;]+ is permitted (?:solely|only) [^,.;]+, (?:provided|if) (?:that )?[^.;]+\.'
+)
+_PERMISSION_EXCEPTION = (
+    r'[^.;]+ may be [^,.;]+, except that [^.;]+ (?:may not|must not) [^.;]+ without [^.;]+\.'
+)
+_REQUEST_SCHEDULE = (
+    r'(?:(?P<type_before>[a-z ]{1,70}) requests|Requests for (?P<type_after>[a-z ]{1,70})) '
+    r'are processed within (?P<duration>[a-z0-9-]+) (?:business|working|calendar) days\. '
+    r'(?P<exception_type>[a-z ]{1,70}) requests (?:covering|for) [^.]+ '
+    r'are held pending [^,.;]+, regardless of the (?P=duration)-day schedule\.'
+)
+
+
+def _permission_conditions(bodies, question):
+    pattern = {
+        'limit': _LIMITED_PERMISSION,
+        'exception': _PERMISSION_EXCEPTION,
+        'schedule': _REQUEST_SCHEDULE,
+    }[question.lastgroup]
+    match = _single(_collect(bodies, {'rule': pattern}), 'rule')
+    if len(bodies) != 1 or not match:
+        return [], ['A complete statement of the requested rule and qualification was not established.']
+    terms, cite = match[0]
+    if question.lastgroup == 'schedule':
+        base = (terms['type_before'] or terms['type_after']).casefold().split()
+        exception = terms['exception_type'].casefold().split()
+        # Compare the named request type. The text must also repeat exactly the
+        # duration to which the exception refers.
+        if [name.removesuffix('s') for name in base[-len(exception):]] != exception:
+            return [], ['The rule and exception do not identify the same request type.']
+    return [_claim(cite['quote'], {'relation': 'stated_rule_and_qualification'}, cite)], []
+
+
+_DELAY = rf'[A-Za-z][a-z0-9 ,’\'-]{{0,100}} was delayed until {_DATE}(?:, [0-9]{{4}})?'
+_NO_DELAY_CAUSE = (
+    r'No (?:cause|reason) for the delay is recorded in [^.]+\.|'
+    r'The [a-z ]{1,40} records no (?:cause|reason) for the delay\.'
+)
+_EVENT_WORDS = r'[a-z0-9 ,’\'-]{1,120}'
+_EVENT_VERBS = 'closed|opened|moved|met|left|arrived|leaked|failed|stopped|started|voted|reopened|resumed|signed'
+_EVENT_START = rf'[a-z0-9 -]{{1,65}}? (?:{_EVENT_VERBS})'
+_EVENT_STATEMENT = rf'{_EVENT_START}(?: {_EVENT_WORDS})?'
+_TIMELINE = (
+    rf'On {_DATE}(?:,)? (?P<first>{_EVENT_STATEMENT})\. '
+    rf'On {_DATE}(?:,)? (?P<second>{_EVENT_START}(?: {_EVENT_WORDS})??)(?: because (?P<cause>{_EVENT_STATEMENT}))?\.'
+)
+_HEDGE = r'\b(?:perhaps|possibly|probably|allegedly|reportedly|claimed|believed|predicted|told|might|may|could|if|unless|planned|proposed|intended)\b'
+
+
+def _causal_boundary(bodies, question):
+    if len(bodies) != 1:
+        return [], ['Select a single complete record for the requested causal statement.']
+    if question.lastgroup == 'delay':
+        patterns = {'explicit': _DELAY + rf' because (?P<cause>{_EVENT_WORDS})\.',
+                    'unsettled': _DELAY + rf'\. (?:{_NO_DELAY_CAUSE})'}
+        match = _collect(bodies, patterns)
+        if not match:
+            return [], ['The record does not match a supported statement of delay and cause.']
+        status, entries = next(iter(match.items()))
+        terms, cite = entries[0]
+        cause = terms['cause'] if status == 'explicit' else None
+    else:
+        match = _single(_collect(bodies, {'timeline': _TIMELINE}), 'timeline')
+        if not match:
+            return [], ['The record does not establish two explicit dated statements.']
+        terms, cite = match[0]
+        cause = terms['cause']
+        if re.search(r'\bbecause\b', terms['second'], re.I) or (cause and not _same(terms['first'], cause)):
+            return [], ['The stated cause does not explicitly identify the first event.']
+        status = 'explicit' if cause else 'unsettled'
+    assertions = re.sub(rf'\b{_DATE}\b', '', cite['quote'], flags=re.I)
+    if re.search(_HEDGE, assertions, re.I):
+        return [], ['Qualified or hypothetical text does not establish the requested event or cause.']
+    claims = [_claim(cite['quote'], {'relation': 'stated_causal_scope', 'explicit_cause': cause}, cite)]
+    if status == 'explicit':
+        return claims, []
+    return claims, ['The cited statements do not establish the cause of the delay.'
+                    if question.lastgroup == 'delay' else 'The cited statements do not establish a causal link between the two events.']
+
+
+_EXCERPT_RULES = (
+    (r'(?:(?P<authority>What authority does (?:this|the) (?:record|excerpt) '
+     r'establish, and what falls outside (?:its|that) scope'
+     r'|How far does (?:the )?(?:source text|record|excerpt) '
+     r'go in confirming (?:the )?(?:role|scope|outcome)(?:, (?:role|scope|outcome))?(?:,? or (?:role|scope|outcome)'
+     r')?(?: mentioned here)?, and where does it stop)|'
+     r'(?P<direct>What does (?:this|the) (?:excerpt|record|passage) '
+     r'directly establish, and what (?:'
+     r'key fact or link is left open(?: by the text)?|remains open))|'
+     r'(?P<transfer>Do (?:these|the provided) pages settle whether (?:'
+     r'the transfer was completed|this (?:requirement|status|transfer)(?:, (?:requirement|status|transfer))?(?:,? or (?:requirement|status|transfer)'
+     r')? applied(?: in this case)?)))\?', _recorded_stage),
+    (rf'(?:What (?:exact )?{_ITEM_QUERY_FIELD}(?:s|(?:, {_ITEM_QUERY_FIELD}){{0,7}}(?:,? or {_ITEM_QUERY_FIELD}))'
+     rf' (?:is|are) recorded(?: in (?:this|the) (?:excerpt|record|row))? for (?:this|the) (?:item|entry)'
+     rf'|Which (?:values|fields) does (?:the|this) record list for (?:this|the) (?:item|entry))\?', _inventory_row),
+    (r'(?:(?P<limit>What (?:specific )?(?:condition|limitation)(?: or limitation)?'
+     r' (?:is stated for the (?:action|arrangement)(?: or arrangement)?(?: described)? in (?:the|this) (?:excerpt|record)'
+     r'|limits (?:the )?(?:permission|action) in (?:this|the) (?:record|excerpt)))|'
+     r'(?P<exception>What (?:permission|requirement) and (?:exception|qualification) '
+     r'does (?:the|this) (?:source|record) state'
+     r'|Under the combined (?:terms|statements)(?: or statements)? in (?:the|this) (?:excerpt|record)'
+     r', what is (?:required|permitted)(?: or permitted)'
+     r'?, and what (?:exception|qualification)(?: or qualification)? attaches to it)|'
+     r'(?P<schedule>What rule holds after accounting for (?:the|any)'
+     r' (?:later )?(?:exception|qualification) in (?:the|this) (?:record|excerpt)'
+     r'|After accounting for (?:the|any) (?:later )?(?:qualification|exception)(?: or exception)?'
+     r' in (?:the|this) (?:excerpt|record), what (?:actually )?holds))\?', _permission_conditions),
+    (r'(?:(?P<delay>Does (?:this|the) (?:record|excerpt) explain why the delay happened'
+     r'|Does the (?:provided )?(?:excerpt|record) establish why this happened'
+     r'(?: or whether the proposed reason (?:actually )?applied)?)|'
+     r'(?P<timeline>What happened, and do (?:the|these) events establish a causal connection'
+     r'|What does (?:the|this) (?:excerpt|record) state (?:occurred|happened)(?: or was decided)'
+     r'?, and does it establish that one event caused the other))\?', _causal_boundary),
+)
+
+
 _RULES = (
     (r'(?:What|Which) room and (?:which )?chair (?:should (?:someone|we|I) (?:put on (?:their|our|my) calendar|record|use)|are (?:current|confirmed))\?', _correction),
     (rf'Which (?P<next>{_DATE}) (?:session|meeting|hearing) continued the (?P<first>{_DATE}) (?:meeting|session|hearing)\?', _continuation),
@@ -285,10 +474,11 @@ _RULES = (
 )
 
 
-def verify(index):
+def verify(index, *, excerpts=False):
     """Use only current sealed body bytes, with an explicitly bounded scan."""
     question = source_question(index.question)
-    for pattern, rule in _RULES:
+    rules = _EXCERPT_RULES if excerpts else _RULES
+    for pattern, rule in rules:
         if match := _full(pattern, question):
             break
     else:

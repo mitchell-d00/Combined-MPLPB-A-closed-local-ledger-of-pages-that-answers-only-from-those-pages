@@ -51,6 +51,10 @@ def _counter_wording(text):
 
 
 def plan(question):
+    from .documentary_lease import request as lease_request
+    statute = lease_request(question)
+    if statute:
+        return [{'question': question, 'kind': 'discretionary_lease', 'statute': statute}]
     dates=kernel.date_inventory_request(question)
     if dates:return [{'question':question,'kind':'date_inventory','roles':dates['roles']}]
     anchor=kernel.literal_request(question)
@@ -247,6 +251,17 @@ def _claim(proof):
 def compose(index,max_passages,max_chars):
     goals=plan(index.question)
     if goals is None:return None
+    from .report_sections import request as summary_request, verify as verify_summary
+    if summary := summary_request(index.question):
+        answer = verify_summary(index, summary)
+        if answer is not None:
+            return answer if index.unchanged() else {'kind': 'abstain', 'code': 'source_changed'}
+    if goals[0]['kind'] == 'discretionary_lease':
+        from .documentary_lease import verify as verify_lease
+        answer = verify_lease(index, goals[0]['statute'])
+        if answer is not None:
+            return answer if index.unchanged() else {'kind': 'abstain', 'code': 'source_changed'}
+        return {'kind': 'abstain', 'code': 'documentary_assertion_not_established'}
     from .prose_retrieval import retrieve
     pack=retrieve(index,max_passages,max_chars)
     from .passage_admission import Budget,comparison_plan,candidate_allowed,admit_proposals,pending_suggestions

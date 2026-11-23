@@ -1,6 +1,6 @@
 {
   "schema": "result-test-index-v1",
-  "reviewed_on": "2026-11-22",
+  "reviewed_on": "2026-11-23",
   "meaning": "Links establish retained test/reproduction coverage, not a fresh execution or certification of historical metrics. Original source, dates, fixtures and exact revisions remain in the linked reports.",
   "families": [
     {
@@ -8,29 +8,40 @@
       "artifacts": "evaluation/d12",
       "tests": [
         "tests/test_d12.py",
+        "tests/test_training_coordinator.py",
+        "tests/test_d12_pattern_sprints.py",
+        "tests/test_historical_seams.py",
         "tests/test_d6.py"
       ],
       "runners": [
         "test_tools/d12.py",
+        "test_tools/training_benchmarks.py",
+        "mplpb_work/training.py",
+        "test_tools/d12_pattern_sprints.py",
+        "test_tools/historical_seams.py",
         "tools/article_study.py",
         "test_tools/historical_22_graph.py",
         "test_tools/historical_graph_study.py"
       ],
       "scope": "Matched D6 evidence path perturbation and separate source-grounded historical prose trace, with exact citation readback.",
-      "measurement_status": "144/144 generated pairs passed, with zero unexpected completions. The 22 historical originals had 3 full answers, 2 partials, 3 conflicts, 14 abstentions and 16/16 exact citation readbacks. Independent historical truth review was not run."
+      "measurement_status": "144/144 generated pairs passed, with zero unexpected completions. The original 22 baseline had 3 full answers, 2 partials, 3 conflicts and 14 abstentions. The historical seam candidate had 4 full, 3 partial, 3 conflicts and 12 abstentions, with 19/19 exact citation readbacks. The nine supplied coordinator excerpts moved from nine abstentions to five full and four partial; 28 matched sprint controls passed. The training coordinator recovered three authored calendar cases and preserved two refusals. Its benchmark replay retained all 22 native contracts, 15 D20 withholds and six correct Primary Book controls. Independent historical truth review was not run."
     },
     {
       "family": "d6",
       "artifacts": "evaluation/d6",
       "tests": [
-        "tests/test_d6.py"
+        "tests/test_d6.py",
+        "tests/test_d6_calendar.py",
+        "tests/test_source_notes.py",
+        "tests/test_thesaurus_graph.py"
       ],
       "runners": [
         "test_tools/d6.py",
+        "test_tools/calendar_notes_study.py",
         "mplpb_answers/d6.py"
       ],
       "scope": "Opt-in native evidence compilation from explicit record and field selectors, with exact citations, branch and arithmetic controls, and optional sealed Dice Bag corpus replay.",
-      "measurement_status": "90/90 seeded synthetic checks passed. All 12 frozen Dice Bag records compiled their declared fields and withheld completion for the missing-field control. Ordinary historical prose understanding was outside this experiment."
+      "measurement_status": "90/90 seeded synthetic checks passed. All 12 frozen Dice Bag records compiled their declared fields and withheld completion for the missing-field control. The calendar sprint passed 48 matched controls. Authored source notes recovered 12/12 target spans at one passage. Exact thesaurus edge search recovered 6/6 target spans in a separate authored probe. Strict support remained unchanged in both discovery arms."
     },
     {
       "family": "documentary-date-pattern",

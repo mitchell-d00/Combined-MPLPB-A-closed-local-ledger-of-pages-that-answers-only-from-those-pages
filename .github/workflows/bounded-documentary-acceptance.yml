@@ -51,15 +51,38 @@ jobs:
           from pathlib import Path
           import sys
           report = json.loads(Path(sys.argv[1]).read_text())
-          expected = {"supported_answer": 3, "partial_answer": 2, "conflict": 3, "abstain": 14}
+          # Keep the old case-by-case record intact. Apply only the two
+          # reviewed transitions from the historical seam replay.
+          transition = json.loads(Path(
+              "evaluation/d12/pattern-sprints/historical-seams/comparison.json"
+          ).read_text())
           def cases(path):
               with path.open(newline="") as stream:
                   return list(csv.DictReader(stream))
           current = cases(Path(sys.argv[1]).with_name("cases.csv"))
           baseline = cases(Path("evaluation/field-aliases/2026-11-20/final/historical/cases.csv"))
-          if (report["cases"] != 22 or current != baseline
-                  or report["native_outcomes"] != expected or not all(report["guards"].values())):
-              raise SystemExit("Historical development replay changed")
+          changes = transition["changes_excluding_code_fingerprints"]
+          seen = set()
+          for row in baseline:
+              if row["id"] not in changes:
+                  continue
+              delta = changes[row["id"]]
+              if row["native_kind"] != delta["before"] or row["assembled_kind"] != delta["before"]:
+                  raise SystemExit("Historical transition does not match the frozen baseline")
+              row.update(native_kind=delta["after"], assembled_kind=delta["after"],
+                         answer_supported=str(delta["after"] == "supported_answer"))
+              seen.add(row["id"])
+          if (report["cases"] != 22 or seen != set(changes) or current != baseline
+                  or report["native_outcomes"] != transition["new_outcomes"]
+                  or not all(report["guards"].values())):
+              raise SystemExit("Historical development replay changed beyond the recorded transitions")
+          from test_tools.d12 import audit_original
+          from tools.unprepared_challenge import sha
+          replay = Path(sys.argv[1]).parent
+          audit = audit_original(replay, {"native_replay_sha256": sha((replay / "packets.json.gz").read_bytes())})
+          counts = {name: value for name, value in audit.items() if name != "rows"}
+          if counts != transition["citation_audit"]:
+              raise SystemExit("Historical citation readback differs from the recorded transition")
           PY
       - uses: actions/upload-artifact@v4
         if: always()

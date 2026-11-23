@@ -1,0 +1,298 @@
+{
+  "schema": "mplpb-training-benchmarks-v1",
+  "answer_supported": false,
+  "historical_22": {
+    "native_outcomes": {
+      "abstain": 12,
+      "supported_answer": 4,
+      "conflict": 3,
+      "partial_answer": 3
+    },
+    "case_count": 22,
+    "signals": {
+      "conflict_to_preserve_or_review": [
+        {
+          "id": "H03",
+          "diagnostic": "retrieval_ambiguous",
+          "passage_anchors": 1,
+          "graph_anchors": 1,
+          "citations": []
+        },
+        {
+          "id": "H04",
+          "diagnostic": "retrieval_ambiguous",
+          "passage_anchors": 1,
+          "graph_anchors": 1,
+          "citations": []
+        },
+        {
+          "id": "H14",
+          "diagnostic": "retrieval_ambiguous",
+          "passage_anchors": 0,
+          "graph_anchors": 0,
+          "citations": []
+        }
+      ],
+      "question_plan_absent": [
+        {
+          "id": "H01",
+          "diagnostic": "interpretation_unsupported",
+          "passage_anchors": 2,
+          "graph_anchors": 2,
+          "citations": []
+        },
+        {
+          "id": "H06",
+          "diagnostic": "interpretation_unsupported",
+          "passage_anchors": 0,
+          "graph_anchors": 0,
+          "citations": []
+        },
+        {
+          "id": "H09",
+          "diagnostic": "interpretation_unsupported",
+          "passage_anchors": 1,
+          "graph_anchors": 2,
+          "citations": []
+        },
+        {
+          "id": "H10",
+          "diagnostic": "interpretation_unsupported",
+          "passage_anchors": 0,
+          "graph_anchors": 0,
+          "citations": []
+        },
+        {
+          "id": "H11",
+          "diagnostic": "interpretation_unsupported",
+          "passage_anchors": 0,
+          "graph_anchors": 0,
+          "citations": []
+        },
+        {
+          "id": "H12",
+          "diagnostic": "interpretation_unsupported",
+          "passage_anchors": 0,
+          "graph_anchors": 0,
+          "citations": []
+        },
+        {
+          "id": "H13",
+          "diagnostic": "interpretation_unsupported",
+          "passage_anchors": 0,
+          "graph_anchors": 1,
+          "citations": []
+        },
+        {
+          "id": "U02",
+          "diagnostic": "interpretation_unsupported",
+          "passage_anchors": 0,
+          "graph_anchors": 0,
+          "citations": []
+        },
+        {
+          "id": "U03",
+          "diagnostic": "interpretation_unsupported",
+          "passage_anchors": 0,
+          "graph_anchors": 0,
+          "citations": []
+        },
+        {
+          "id": "U04",
+          "diagnostic": "interpretation_unsupported",
+          "passage_anchors": 0,
+          "graph_anchors": 0,
+          "citations": []
+        },
+        {
+          "id": "U05",
+          "diagnostic": "interpretation_unsupported",
+          "passage_anchors": 0,
+          "graph_anchors": 0,
+          "citations": []
+        }
+      ],
+      "reference_needed": [
+        {
+          "id": "U08",
+          "diagnostic": "interpretation_unsupported",
+          "passage_anchors": 0,
+          "graph_anchors": 0,
+          "citations": []
+        }
+      ],
+      "remaining_proof_obligations": [
+        {
+          "id": "H08",
+          "diagnostic": "partial_documentary_evidence",
+          "passage_anchors": 0,
+          "graph_anchors": 0,
+          "citations": [
+            {
+              "body_end": 7123,
+              "body_projection": "body-text-no-headings-v1",
+              "body_start": 6904,
+              "end": 7123,
+              "hash": "sha256:e3ec7774d22142e5251f1650d4fe1faa1e11c125c274e8a4c982d18b23714c8f",
+              "path": "original-0007.html",
+              "quote": "The Apollo 13 mission, planned as a lunar landing in the Fra Mauro\narea, was aborted because of an abrupt loss of service module cryogenic\noxygen associated with a fire in one of the two tanks at approximately\n56 hours.",
+              "source_id": "ORIGINAL-0007",
+              "start": 6904
+            },
+            {
+              "body_end": 7242,
+              "body_projection": "body-text-no-headings-v1",
+              "body_start": 7124,
+              "end": 7242,
+              "hash": "sha256:e3ec7774d22142e5251f1650d4fe1faa1e11c125c274e8a4c982d18b23714c8f",
+              "path": "original-0007.html",
+              "quote": "The lunar module provided the necessary support to sustain a\nminimum operational\ncondition for a safe return to earth.",
+              "source_id": "ORIGINAL-0007",
+              "start": 7124
+            }
+          ]
+        },
+        {
+          "id": "U01",
+          "diagnostic": "partial_documentary_evidence",
+          "passage_anchors": 0,
+          "graph_anchors": 0,
+          "citations": [
+            {
+              "body_end": 2042,
+              "body_projection": "body-text-no-headings-v1",
+              "body_start": 1940,
+              "end": 2042,
+              "hash": "sha256:93d03d3493443fc88a7926765b45deac1cfc15592e9bf03cc27b5a2c737fe124",
+              "path": "original-0001.html",
+              "quote": "Shortly after the conference ended, Roosevelt appointed Gen. Dwight David Eisenhower to that position.",
+              "source_id": "ORIGINAL-0001",
+              "start": 1940
+            },
+            {
+              "body_end": 2042,
+              "body_projection": "body-text-no-headings-v1",
+              "body_start": 1522,
+              "end": 2042,
+              "hash": "sha256:93d03d3493443fc88a7926765b45deac1cfc15592e9bf03cc27b5a2c737fe124",
+              "path": "original-0001.html",
+              "quote": "Churchill and Roosevelt told Stalin that the invasion “would be possible” by August 1, 1944, but that no decision had yet been made to name a supreme commander. To this latter point, Stalin pointedly rejoined, “Then nothing will come of these operations. Who carries the moral and technical responsibility for this operation?” Churchill and Roosevelt acknowledged the need to name the commander without further delay. Shortly after the conference ended, Roosevelt appointed Gen. Dwight David Eisenhower to that position.",
+              "source_id": "ORIGINAL-0001",
+              "start": 1522
+            }
+          ]
+        },
+        {
+          "id": "U06",
+          "diagnostic": "partial_documentary_evidence",
+          "passage_anchors": 0,
+          "graph_anchors": 0,
+          "citations": [
+            {
+              "body_end": 4588,
+              "body_projection": "body-text-no-headings-v1",
+              "body_start": 4545,
+              "end": 4588,
+              "hash": "sha256:2b2900e5cc6ad6fbcf9027310ff7ea41568a67df84a51a8f72352e1945ef85a4",
+              "path": "original-0002.html",
+              "quote": "Ferdinand Hayden surveyed the area in 1871.",
+              "source_id": "ORIGINAL-0002",
+              "start": 4545
+            },
+            {
+              "body_end": 5254,
+              "body_projection": "body-text-no-headings-v1",
+              "body_start": 4545,
+              "end": 5254,
+              "hash": "sha256:2b2900e5cc6ad6fbcf9027310ff7ea41568a67df84a51a8f72352e1945ef85a4",
+              "path": "original-0002.html",
+              "quote": "Ferdinand Hayden surveyed the area in 1871. Upon his return to the East, he mounted a campaign to promote, but also to protect, the natural wonders he had seen. He quickly wrote a well-received article for Scribner’s Monthly that included fellow expedition member Thomas Moran’s illustrations. He provided Charles Bierstadt, brother to the artist and a leading manufacturer of stereographic cards, with copies of William Jackson’s expedition photographs. He lobbied members of Congress by presenting them with an album of Jackson’s Yellowstone photographs. He was supported in his effort by Jay Cooke, the railroad magnate who anticipated increased tourist ridership on his lines serving the Yellowstone area.",
+              "source_id": "ORIGINAL-0002",
+              "start": 4545
+            }
+          ]
+        }
+      ]
+    },
+    "independent_historical_assessment": false
+  },
+  "d20_seed_20": {
+    "counts": {
+      "supported": 2,
+      "withheld": 15,
+      "missed": 3
+    },
+    "review": [
+      {
+        "id": "D20-03-unique",
+        "family": "inline-alias",
+        "split": "development",
+        "condition": "unique",
+        "outcome": "missed",
+        "kind": "abstain",
+        "diagnostic": "exact_field_missing"
+      },
+      {
+        "id": "D20-04-unique",
+        "family": "prose-alias",
+        "split": "challenge",
+        "condition": "unique",
+        "outcome": "missed",
+        "kind": "abstain",
+        "diagnostic": "exact_field_missing"
+      },
+      {
+        "id": "D20-05-unique",
+        "family": "separate-alias-register",
+        "split": "challenge",
+        "condition": "unique",
+        "outcome": "missed",
+        "kind": "abstain",
+        "diagnostic": "exact_field_missing"
+      }
+    ]
+  },
+  "primary_books": {
+    "counts": {
+      "correct_source_and_quote": 3,
+      "withheld": 3
+    },
+    "cases": [
+      {
+        "id": "quote-01",
+        "outcome": "correct_source_and_quote",
+        "diagnostic": "supported_documentary_assertion"
+      },
+      {
+        "id": "quote-02",
+        "outcome": "correct_source_and_quote",
+        "diagnostic": "supported_documentary_assertion"
+      },
+      {
+        "id": "quote-03",
+        "outcome": "correct_source_and_quote",
+        "diagnostic": "supported_documentary_assertion"
+      },
+      {
+        "id": "quote-04",
+        "outcome": "withheld",
+        "diagnostic": "documentary_assertion_not_established"
+      },
+      {
+        "id": "quote-05",
+        "outcome": "withheld",
+        "diagnostic": "documentary_assertion_not_established"
+      },
+      {
+        "id": "quote-06",
+        "outcome": "withheld",
+        "diagnostic": "documentary_assertion_not_established"
+      }
+    ]
+  },
+  "inputs_sha256": {
+    "historical": "d34de9f64fe3c5456c77d0591a025cc9ed6871f71162ae31a9fcf9e476e60cd7",
+    "d20": "40407cd315ed1ac90f4b4253d7605e62cf567a267408844dfafb429035312fba",
+    "book": "d38ec0a35e61b0e07621c6b260ae501e671b93e6fddfbd95f05ca68c3cc13711"
+  }
+}

@@ -1,0 +1,147 @@
+======================================================================
+FAIL: test_causal_boundary (tests.test_d12_pattern_sprints.PatternSprintTests.test_causal_boundary) (case='unrecorded-reason')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/combined-mplpb/tests/test_d12_pattern_sprints.py", line 31, in check_family
+    self.assertEqual(answer['kind'], case['kind'], answer['diagnostic'])
+AssertionError: 'abstain' != 'partial_answer'
+- abstain
++ partial_answer
+ : {'code': 'interpretation_unsupported', 'stage': 'strict', 'message': 'Eligible passages exist, but the strict reader cannot establish an answer to this question.', 'category': 'unsupported_question_grammar', 'corpus_answerability': 'not_established', 'next_steps': ['Inspect the relevant source. Try a supported question form or explicitly select a configured assisted reader; do not treat this refusal as proof that the answer is absent.']}
+
+======================================================================
+FAIL: test_causal_boundary (tests.test_d12_pattern_sprints.PatternSprintTests.test_causal_boundary) (case='explicit-reason')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/combined-mplpb/tests/test_d12_pattern_sprints.py", line 31, in check_family
+    self.assertEqual(answer['kind'], case['kind'], answer['diagnostic'])
+AssertionError: 'abstain' != 'supported_answer'
+- abstain
++ supported_answer
+ : {'code': 'interpretation_unsupported', 'stage': 'strict', 'message': 'Eligible passages exist, but the strict reader cannot establish an answer to this question.', 'category': 'unsupported_question_grammar', 'corpus_answerability': 'not_established', 'next_steps': ['Inspect the relevant source. Try a supported question form or explicitly select a configured assisted reader; do not treat this refusal as proof that the answer is absent.']}
+
+======================================================================
+FAIL: test_causal_boundary (tests.test_d12_pattern_sprints.PatternSprintTests.test_causal_boundary) (case='timeline-only')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/combined-mplpb/tests/test_d12_pattern_sprints.py", line 31, in check_family
+    self.assertEqual(answer['kind'], case['kind'], answer['diagnostic'])
+AssertionError: 'abstain' != 'partial_answer'
+- abstain
++ partial_answer
+ : {'code': 'interpretation_unsupported', 'stage': 'strict', 'message': 'Eligible passages exist, but the strict reader cannot establish an answer to this question.', 'category': 'unsupported_question_grammar', 'corpus_answerability': 'not_established', 'next_steps': ['Inspect the relevant source. Try a supported question form or explicitly select a configured assisted reader; do not treat this refusal as proof that the answer is absent.']}
+
+======================================================================
+FAIL: test_causal_boundary (tests.test_d12_pattern_sprints.PatternSprintTests.test_causal_boundary) (case='explicit-connection')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/combined-mplpb/tests/test_d12_pattern_sprints.py", line 31, in check_family
+    self.assertEqual(answer['kind'], case['kind'], answer['diagnostic'])
+AssertionError: 'abstain' != 'supported_answer'
+- abstain
++ supported_answer
+ : {'code': 'interpretation_unsupported', 'stage': 'strict', 'message': 'Eligible passages exist, but the strict reader cannot establish an answer to this question.', 'category': 'unsupported_question_grammar', 'corpus_answerability': 'not_established', 'next_steps': ['Inspect the relevant source. Try a supported question form or explicitly select a configured assisted reader; do not treat this refusal as proof that the answer is absent.']}
+
+======================================================================
+FAIL: test_conditions (tests.test_d12_pattern_sprints.PatternSprintTests.test_conditions) (case='single-condition')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/combined-mplpb/tests/test_d12_pattern_sprints.py", line 31, in check_family
+    self.assertEqual(answer['kind'], case['kind'], answer['diagnostic'])
+AssertionError: 'abstain' != 'supported_answer'
+- abstain
++ supported_answer
+ : {'code': 'interpretation_unsupported', 'stage': 'strict', 'message': 'Eligible passages exist, but the strict reader cannot establish an answer to this question.', 'category': 'unsupported_question_grammar', 'corpus_answerability': 'not_established', 'next_steps': ['Inspect the relevant source. Try a supported question form or explicitly select a configured assisted reader; do not treat this refusal as proof that the answer is absent.']}
+
+======================================================================
+FAIL: test_conditions (tests.test_d12_pattern_sprints.PatternSprintTests.test_conditions) (case='combined-exception')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/combined-mplpb/tests/test_d12_pattern_sprints.py", line 31, in check_family
+    self.assertEqual(answer['kind'], case['kind'], answer['diagnostic'])
+AssertionError: 'abstain' != 'supported_answer'
+- abstain
++ supported_answer
+ : {'code': 'interpretation_unsupported', 'stage': 'strict', 'message': 'Eligible passages exist, but the strict reader cannot establish an answer to this question.', 'category': 'unsupported_question_grammar', 'corpus_answerability': 'not_established', 'next_steps': ['Inspect the relevant source. Try a supported question form or explicitly select a configured assisted reader; do not treat this refusal as proof that the answer is absent.']}
+
+======================================================================
+FAIL: test_conditions (tests.test_d12_pattern_sprints.PatternSprintTests.test_conditions) (case='exception-to-schedule')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/combined-mplpb/tests/test_d12_pattern_sprints.py", line 31, in check_family
+    self.assertEqual(answer['kind'], case['kind'], answer['diagnostic'])
+AssertionError: 'abstain' != 'supported_answer'
+- abstain
++ supported_answer
+ : {'code': 'interpretation_unsupported', 'stage': 'strict', 'message': 'Eligible passages exist, but the strict reader cannot establish an answer to this question.', 'category': 'unsupported_question_grammar', 'corpus_answerability': 'not_established', 'next_steps': ['Inspect the relevant source. Try a supported question form or explicitly select a configured assisted reader; do not treat this refusal as proof that the answer is absent.']}
+
+======================================================================
+FAIL: test_inventory_row (tests.test_d12_pattern_sprints.PatternSprintTests.test_inventory_row) (case='one-labeled-row')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/combined-mplpb/tests/test_d12_pattern_sprints.py", line 31, in check_family
+    self.assertEqual(answer['kind'], case['kind'], answer['diagnostic'])
+AssertionError: 'abstain' != 'supported_answer'
+- abstain
++ supported_answer
+ : {'code': 'interpretation_unsupported', 'stage': 'strict', 'message': 'Eligible passages exist, but the strict reader cannot establish an answer to this question.', 'category': 'unsupported_question_grammar', 'corpus_answerability': 'not_established', 'next_steps': ['Inspect the relevant source. Try a supported question form or explicitly select a configured assisted reader; do not treat this refusal as proof that the answer is absent.']}
+
+======================================================================
+FAIL: test_inventory_row (tests.test_d12_pattern_sprints.PatternSprintTests.test_inventory_row) (case='alternate-row-wording')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/combined-mplpb/tests/test_d12_pattern_sprints.py", line 31, in check_family
+    self.assertEqual(answer['kind'], case['kind'], answer['diagnostic'])
+AssertionError: 'abstain' != 'supported_answer'
+- abstain
++ supported_answer
+ : {'code': 'interpretation_unsupported', 'stage': 'strict', 'message': 'Eligible passages exist, but the strict reader cannot establish an answer to this question.', 'category': 'unsupported_question_grammar', 'corpus_answerability': 'not_established', 'next_steps': ['Inspect the relevant source. Try a supported question form or explicitly select a configured assisted reader; do not treat this refusal as proof that the answer is absent.']}
+
+======================================================================
+FAIL: test_stage_and_outcome (tests.test_d12_pattern_sprints.PatternSprintTests.test_stage_and_outcome) (case='permission-scope')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/combined-mplpb/tests/test_d12_pattern_sprints.py", line 31, in check_family
+    self.assertEqual(answer['kind'], case['kind'], answer['diagnostic'])
+AssertionError: 'abstain' != 'supported_answer'
+- abstain
++ supported_answer
+ : {'code': 'interpretation_unsupported', 'stage': 'strict', 'message': 'Eligible passages exist, but the strict reader cannot establish an answer to this question.', 'category': 'unsupported_question_grammar', 'corpus_answerability': 'not_established', 'next_steps': ['Inspect the relevant source. Try a supported question form or explicitly select a configured assisted reader; do not treat this refusal as proof that the answer is absent.']}
+
+======================================================================
+FAIL: test_stage_and_outcome (tests.test_d12_pattern_sprints.PatternSprintTests.test_stage_and_outcome) (case='petition-no-resolution')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/combined-mplpb/tests/test_d12_pattern_sprints.py", line 31, in check_family
+    self.assertEqual(answer['kind'], case['kind'], answer['diagnostic'])
+AssertionError: 'abstain' != 'partial_answer'
+- abstain
++ partial_answer
+ : {'code': 'interpretation_unsupported', 'stage': 'strict', 'message': 'Eligible passages exist, but the strict reader cannot establish an answer to this question.', 'category': 'unsupported_question_grammar', 'corpus_answerability': 'not_established', 'next_steps': ['Inspect the relevant source. Try a supported question form or explicitly select a configured assisted reader; do not treat this refusal as proof that the answer is absent.']}
+
+======================================================================
+FAIL: test_stage_and_outcome (tests.test_d12_pattern_sprints.PatternSprintTests.test_stage_and_outcome) (case='petition-approved')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/combined-mplpb/tests/test_d12_pattern_sprints.py", line 31, in check_family
+    self.assertEqual(answer['kind'], case['kind'], answer['diagnostic'])
+AssertionError: 'abstain' != 'partial_answer'
+- abstain
++ partial_answer
+ : {'code': 'interpretation_unsupported', 'stage': 'strict', 'message': 'Eligible passages exist, but the strict reader cannot establish an answer to this question.', 'category': 'unsupported_question_grammar', 'corpus_answerability': 'not_established', 'next_steps': ['Inspect the relevant source. Try a supported question form or explicitly select a configured assisted reader; do not treat this refusal as proof that the answer is absent.']}
+
+======================================================================
+FAIL: test_stage_and_outcome (tests.test_d12_pattern_sprints.PatternSprintTests.test_stage_and_outcome) (case='draft-with-open-note')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/combined-mplpb/tests/test_d12_pattern_sprints.py", line 31, in check_family
+    self.assertEqual(answer['kind'], case['kind'], answer['diagnostic'])
+AssertionError: 'abstain' != 'partial_answer'
+- abstain
++ partial_answer
+ : {'code': 'interpretation_unsupported', 'stage': 'strict', 'message': 'Eligible passages exist, but the strict reader cannot establish an answer to this question.', 'category': 'unsupported_question_grammar', 'corpus_answerability': 'not_established', 'next_steps': ['Inspect the relevant source. Try a supported question form or explicitly select a configured assisted reader; do not treat this refusal as proof that the answer is absent.']}
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.156s
+
+FAILED (failures=13)

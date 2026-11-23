@@ -1,0 +1,88 @@
+======================================================================
+ERROR: test_notes_do_not_change_native_answers_or_citation_budgets (tests.test_source_notes.SourceNoteTests.test_notes_do_not_change_native_answers_or_citation_budgets)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/combined-mplpb/tests/test_source_notes.py", line 23, in setUp
+    self.editor = self.seat('editor', ['create:task', 'create:evidence', 'create:source_note',
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/combined-mplpb/tests/test_source_notes.py", line 35, in seat
+    return self.store.assign(
+           ^^^^^^^^^^^^^^^^^^
+  File "/workspace/source-note-baseline-taf4OX/mplpb_work/store.py", line 240, in assign
+    raise WorkError('Invalid rights, profile or expiry')
+mplpb_work.errors.WorkError: Invalid rights, profile or expiry
+
+======================================================================
+ERROR: test_offset_and_source_revisions_are_checked (tests.test_source_notes.SourceNoteTests.test_offset_and_source_revisions_are_checked)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/combined-mplpb/tests/test_source_notes.py", line 23, in setUp
+    self.editor = self.seat('editor', ['create:task', 'create:evidence', 'create:source_note',
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/combined-mplpb/tests/test_source_notes.py", line 35, in seat
+    return self.store.assign(
+           ^^^^^^^^^^^^^^^^^^
+  File "/workspace/source-note-baseline-taf4OX/mplpb_work/store.py", line 240, in assign
+    raise WorkError('Invalid rights, profile or expiry')
+mplpb_work.errors.WorkError: Invalid rights, profile or expiry
+
+======================================================================
+ERROR: test_revisions_and_withdrawals_change_live_search (tests.test_source_notes.SourceNoteTests.test_revisions_and_withdrawals_change_live_search)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/combined-mplpb/tests/test_source_notes.py", line 23, in setUp
+    self.editor = self.seat('editor', ['create:task', 'create:evidence', 'create:source_note',
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/combined-mplpb/tests/test_source_notes.py", line 35, in seat
+    return self.store.assign(
+           ^^^^^^^^^^^^^^^^^^
+  File "/workspace/source-note-baseline-taf4OX/mplpb_work/store.py", line 240, in assign
+    raise WorkError('Invalid rights, profile or expiry')
+mplpb_work.errors.WorkError: Invalid rights, profile or expiry
+
+======================================================================
+ERROR: test_stale_read_discards_candidates (tests.test_source_notes.SourceNoteTests.test_stale_read_discards_candidates)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/combined-mplpb/tests/test_source_notes.py", line 23, in setUp
+    self.editor = self.seat('editor', ['create:task', 'create:evidence', 'create:source_note',
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/combined-mplpb/tests/test_source_notes.py", line 35, in seat
+    return self.store.assign(
+           ^^^^^^^^^^^^^^^^^^
+  File "/workspace/source-note-baseline-taf4OX/mplpb_work/store.py", line 240, in assign
+    raise WorkError('Invalid rights, profile or expiry')
+mplpb_work.errors.WorkError: Invalid rights, profile or expiry
+
+======================================================================
+ERROR: test_visibility_and_explicit_operation_are_enforced (tests.test_source_notes.SourceNoteTests.test_visibility_and_explicit_operation_are_enforced)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/combined-mplpb/tests/test_source_notes.py", line 23, in setUp
+    self.editor = self.seat('editor', ['create:task', 'create:evidence', 'create:source_note',
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/combined-mplpb/tests/test_source_notes.py", line 35, in seat
+    return self.store.assign(
+           ^^^^^^^^^^^^^^^^^^
+  File "/workspace/source-note-baseline-taf4OX/mplpb_work/store.py", line 240, in assign
+    raise WorkError('Invalid rights, profile or expiry')
+mplpb_work.errors.WorkError: Invalid rights, profile or expiry
+
+======================================================================
+ERROR: test_workflow_rereads_source_and_orders_rules (tests.test_source_notes.SourceNoteTests.test_workflow_rereads_source_and_orders_rules)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/combined-mplpb/tests/test_source_notes.py", line 23, in setUp
+    self.editor = self.seat('editor', ['create:task', 'create:evidence', 'create:source_note',
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/combined-mplpb/tests/test_source_notes.py", line 35, in seat
+    return self.store.assign(
+           ^^^^^^^^^^^^^^^^^^
+  File "/workspace/source-note-baseline-taf4OX/mplpb_work/store.py", line 240, in assign
+    raise WorkError('Invalid rights, profile or expiry')
+mplpb_work.errors.WorkError: Invalid rights, profile or expiry
+
+----------------------------------------------------------------------
+Ran 6 tests in 0.018s
+
+FAILED (errors=6)
