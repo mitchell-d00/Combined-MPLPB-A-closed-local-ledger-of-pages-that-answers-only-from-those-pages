@@ -3,8 +3,12 @@
 Last reviewed: 2026-11-23.
 
 [Test Index](TEST_INDEX.md) connects the test types to the deterministic training loop.
+The [governance gate experiment](../evaluation/comparative-tests/governance-gate/README.md) checks AI-shaped proposals against host approval, WorkStore dispatch, and actual report bytes.
+
 [D12](../evaluation/d12/README.md) adds paired error-class probes to D6 and a separate
 trace of the original 22, 40 follow-ups and 12 starter-topic cases. The [pattern fix sprints](../evaluation/d12/pattern-sprints/README.md) retain the unchanged nine-question replay and 28 matched controls. The [historical seam replay](../evaluation/d12/pattern-sprints/historical-seams/README.md) isolates two graph and proof failures on the original 22. The [training coordinator](../evaluation/d12/coordinator/README.md) replays a matched rule repair and reports fresh historical, D20 and book triage.
+
+The [D12 documentary language release demo](../evaluation/d12/release-demo/README.md) installs two archived native revisions and compares a pinned 40-case parcel, dispatch, and receipt panel. Matched outcomes rose from **20/40 to 40/40**, with 10 full answers, 10 cited partials, and all 20 expected abstentions preserved. [Installed-wheel timings and revision hashes](../evaluation/d12/release-demo/results.json)
 
 [D6](../evaluation/d6/README.md) records 90 synthetic checks of six evidence
 operations and a separate replay on 12 frozen Dice Bag records. The native

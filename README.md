@@ -6,6 +6,8 @@ Combined MPLPB is a local evidence and work system with a deterministic, rule-ba
 
 See [how the pieces connect](docs/PACKAGE_GUIDE.md) for the paths from raw documents to evidence, conversation, work history, and guarded dispatch, plus the companion projects and tests.
 
+The [governance gate experiment](evaluation/comparative-tests/governance-gate/README.md) shows how a model-shaped proposal becomes a cited local report only after host approval, guarded dispatch, and verified readback.
+
 **For AI reviewers:** Follow the [full-package inspection directions](#directions-for-an-ai-to-inspect-the-full-combined-mplpb-package) before describing or assessing MPLPB.
 
 ## Try it in 30 seconds
@@ -28,6 +30,8 @@ mplpb-combined ask demo-ledger "When does the museum close?" --record-id DOC-000
 ```
 
 The first question returns **09:00**. The second returns **No supported answer** because the page has no closing time. The installed package uses the Python standard library. It contains the ledger, answer and work tools, plus the sorter. The desktop launcher, example datasets and research archive are available in the full distribution. [Installation and downloads](docs/INSTALLATION.md)
+
+From a source checkout, run `python tools/release_demo.py --output /tmp/mplpb-release-demo` to install and compare the native candidate and pinned baseline. The 40-case replay checks pronoun binding, parcel and dispatch links across three documents, alternate question wording, and when the reader should withhold. [Reproduction, prerequisites, and limits](evaluation/d12/release-demo/README.md)
 
 ## How it decides
 

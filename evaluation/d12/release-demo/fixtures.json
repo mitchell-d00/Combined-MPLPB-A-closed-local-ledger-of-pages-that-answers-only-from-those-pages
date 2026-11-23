@@ -1,0 +1,740 @@
+{
+  "schema": "release-language-fixtures-v1",
+  "cases": [
+    {
+      "id": "packet-1-pronouns",
+      "question": "Who sent the survey atlas, and who received it?",
+      "sources": [
+        {
+          "id": "INDEX-1",
+          "body": "Parcel AT-121 is listed as the survey atlas."
+        },
+        {
+          "id": "DISPATCH-1",
+          "body": "Dispatch SB-211 records that Mira Holt sent parcel AT-121 to Devon Pike."
+        },
+        {
+          "id": "RECEIPT-1",
+          "body": "Receipt for dispatch SB-211 names Devon Pike for parcel AT-121. They received it.",
+          "retired": false
+        }
+      ]
+    },
+    {
+      "id": "packet-1-named",
+      "question": "Who sent the survey atlas, and who received it?",
+      "sources": [
+        {
+          "id": "INDEX-1",
+          "body": "Parcel AT-121 is listed as the survey atlas."
+        },
+        {
+          "id": "DISPATCH-1",
+          "body": "Dispatch SB-211 records that Mira Holt sent parcel AT-121 to Devon Pike."
+        },
+        {
+          "id": "RECEIPT-1",
+          "body": "Receipt for dispatch SB-211 names Devon Pike for parcel AT-121. Devon Pike received the parcel.",
+          "retired": false
+        }
+      ]
+    },
+    {
+      "id": "packet-1-no_receipt",
+      "question": "Who sent the survey atlas, and who received it?",
+      "sources": [
+        {
+          "id": "INDEX-1",
+          "body": "Parcel AT-121 is listed as the survey atlas."
+        },
+        {
+          "id": "DISPATCH-1",
+          "body": "Dispatch SB-211 records that Mira Holt sent parcel AT-121 to Devon Pike."
+        }
+      ]
+    },
+    {
+      "id": "packet-1-retired_receipt",
+      "question": "Who sent the survey atlas, and who received it?",
+      "sources": [
+        {
+          "id": "INDEX-1",
+          "body": "Parcel AT-121 is listed as the survey atlas."
+        },
+        {
+          "id": "DISPATCH-1",
+          "body": "Dispatch SB-211 records that Mira Holt sent parcel AT-121 to Devon Pike."
+        },
+        {
+          "id": "RECEIPT-1",
+          "body": "Receipt for dispatch SB-211 names Devon Pike for parcel AT-121. They received it.",
+          "retired": true
+        }
+      ]
+    },
+    {
+      "id": "packet-1-other_dispatch",
+      "question": "Who sent the survey atlas, and who received it?",
+      "sources": [
+        {
+          "id": "INDEX-1",
+          "body": "Parcel AT-121 is listed as the survey atlas."
+        },
+        {
+          "id": "DISPATCH-1",
+          "body": "Dispatch SB-211 records that Mira Holt sent parcel AT-121 to Devon Pike."
+        },
+        {
+          "id": "RECEIPT-1",
+          "body": "Receipt for dispatch SB-999 names Devon Pike for parcel AT-121. They received it.",
+          "retired": false
+        }
+      ]
+    },
+    {
+      "id": "packet-1-other_parcel",
+      "question": "Who sent the survey atlas, and who received it?",
+      "sources": [
+        {
+          "id": "INDEX-1",
+          "body": "Parcel AT-121 is listed as the survey atlas."
+        },
+        {
+          "id": "DISPATCH-1",
+          "body": "Dispatch SB-211 records that Mira Holt sent parcel AT-121 to Devon Pike."
+        },
+        {
+          "id": "RECEIPT-1",
+          "body": "Receipt for dispatch SB-211 names Devon Pike for parcel AT-999. They received it.",
+          "retired": false
+        }
+      ]
+    },
+    {
+      "id": "packet-1-other_recipient",
+      "question": "Who sent the survey atlas, and who received it?",
+      "sources": [
+        {
+          "id": "INDEX-1",
+          "body": "Parcel AT-121 is listed as the survey atlas."
+        },
+        {
+          "id": "DISPATCH-1",
+          "body": "Dispatch SB-211 records that Mira Holt sent parcel AT-121 to Devon Pike."
+        },
+        {
+          "id": "RECEIPT-1",
+          "body": "Receipt for dispatch SB-211 names Casey Wells for parcel AT-121. They received it.",
+          "retired": false
+        }
+      ]
+    },
+    {
+      "id": "packet-1-planned_receipt",
+      "question": "Who sent the survey atlas, and who received it?",
+      "sources": [
+        {
+          "id": "INDEX-1",
+          "body": "Parcel AT-121 is listed as the survey atlas."
+        },
+        {
+          "id": "DISPATCH-1",
+          "body": "Dispatch SB-211 records that Mira Holt sent parcel AT-121 to Devon Pike."
+        },
+        {
+          "id": "RECEIPT-1",
+          "body": "Receipt for dispatch SB-211 names Devon Pike for parcel AT-121. They planned to receive it.",
+          "retired": false
+        }
+      ]
+    },
+    {
+      "id": "packet-2-pronouns",
+      "question": "Who dispatched the rail survey and who took delivery?",
+      "sources": [
+        {
+          "id": "INDEX-1",
+          "body": "Parcel RS-122 is listed as the rail survey."
+        },
+        {
+          "id": "DISPATCH-1",
+          "body": "Dispatch ZD-212 records that Tariq Dean sent parcel RS-122 to Leah Park."
+        },
+        {
+          "id": "RECEIPT-1",
+          "body": "Receipt for dispatch ZD-212 names Leah Park for parcel RS-122. They received it.",
+          "retired": false
+        }
+      ]
+    },
+    {
+      "id": "packet-2-named",
+      "question": "Who dispatched the rail survey and who took delivery?",
+      "sources": [
+        {
+          "id": "INDEX-1",
+          "body": "Parcel RS-122 is listed as the rail survey."
+        },
+        {
+          "id": "DISPATCH-1",
+          "body": "Dispatch ZD-212 records that Tariq Dean sent parcel RS-122 to Leah Park."
+        },
+        {
+          "id": "RECEIPT-1",
+          "body": "Receipt for dispatch ZD-212 names Leah Park for parcel RS-122. Leah Park received the parcel.",
+          "retired": false
+        }
+      ]
+    },
+    {
+      "id": "packet-2-no_receipt",
+      "question": "Who dispatched the rail survey and who took delivery?",
+      "sources": [
+        {
+          "id": "INDEX-1",
+          "body": "Parcel RS-122 is listed as the rail survey."
+        },
+        {
+          "id": "DISPATCH-1",
+          "body": "Dispatch ZD-212 records that Tariq Dean sent parcel RS-122 to Leah Park."
+        }
+      ]
+    },
+    {
+      "id": "packet-2-retired_receipt",
+      "question": "Who dispatched the rail survey and who took delivery?",
+      "sources": [
+        {
+          "id": "INDEX-1",
+          "body": "Parcel RS-122 is listed as the rail survey."
+        },
+        {
+          "id": "DISPATCH-1",
+          "body": "Dispatch ZD-212 records that Tariq Dean sent parcel RS-122 to Leah Park."
+        },
+        {
+          "id": "RECEIPT-1",
+          "body": "Receipt for dispatch ZD-212 names Leah Park for parcel RS-122. They received it.",
+          "retired": true
+        }
+      ]
+    },
+    {
+      "id": "packet-2-other_dispatch",
+      "question": "Who dispatched the rail survey and who took delivery?",
+      "sources": [
+        {
+          "id": "INDEX-1",
+          "body": "Parcel RS-122 is listed as the rail survey."
+        },
+        {
+          "id": "DISPATCH-1",
+          "body": "Dispatch ZD-212 records that Tariq Dean sent parcel RS-122 to Leah Park."
+        },
+        {
+          "id": "RECEIPT-1",
+          "body": "Receipt for dispatch ZD-999 names Leah Park for parcel RS-122. They received it.",
+          "retired": false
+        }
+      ]
+    },
+    {
+      "id": "packet-2-other_parcel",
+      "question": "Who dispatched the rail survey and who took delivery?",
+      "sources": [
+        {
+          "id": "INDEX-1",
+          "body": "Parcel RS-122 is listed as the rail survey."
+        },
+        {
+          "id": "DISPATCH-1",
+          "body": "Dispatch ZD-212 records that Tariq Dean sent parcel RS-122 to Leah Park."
+        },
+        {
+          "id": "RECEIPT-1",
+          "body": "Receipt for dispatch ZD-212 names Leah Park for parcel RS-999. They received it.",
+          "retired": false
+        }
+      ]
+    },
+    {
+      "id": "packet-2-other_recipient",
+      "question": "Who dispatched the rail survey and who took delivery?",
+      "sources": [
+        {
+          "id": "INDEX-1",
+          "body": "Parcel RS-122 is listed as the rail survey."
+        },
+        {
+          "id": "DISPATCH-1",
+          "body": "Dispatch ZD-212 records that Tariq Dean sent parcel RS-122 to Leah Park."
+        },
+        {
+          "id": "RECEIPT-1",
+          "body": "Receipt for dispatch ZD-212 names Casey Wells for parcel RS-122. They received it.",
+          "retired": false
+        }
+      ]
+    },
+    {
+      "id": "packet-2-planned_receipt",
+      "question": "Who dispatched the rail survey and who took delivery?",
+      "sources": [
+        {
+          "id": "INDEX-1",
+          "body": "Parcel RS-122 is listed as the rail survey."
+        },
+        {
+          "id": "DISPATCH-1",
+          "body": "Dispatch ZD-212 records that Tariq Dean sent parcel RS-122 to Leah Park."
+        },
+        {
+          "id": "RECEIPT-1",
+          "body": "Receipt for dispatch ZD-212 names Leah Park for parcel RS-122. They planned to receive it.",
+          "retired": false
+        }
+      ]
+    },
+    {
+      "id": "packet-3-pronouns",
+      "question": "Who was the sender and who received the port ledger?",
+      "sources": [
+        {
+          "id": "INDEX-1",
+          "body": "Parcel PL-123 is listed as the port ledger."
+        },
+        {
+          "id": "DISPATCH-1",
+          "body": "Dispatch CP-213 records that Rina Moss sent parcel PL-123 to Avery Lake."
+        },
+        {
+          "id": "RECEIPT-1",
+          "body": "Receipt for dispatch CP-213 names Avery Lake for parcel PL-123. They received it.",
+          "retired": false
+        }
+      ]
+    },
+    {
+      "id": "packet-3-named",
+      "question": "Who was the sender and who received the port ledger?",
+      "sources": [
+        {
+          "id": "INDEX-1",
+          "body": "Parcel PL-123 is listed as the port ledger."
+        },
+        {
+          "id": "DISPATCH-1",
+          "body": "Dispatch CP-213 records that Rina Moss sent parcel PL-123 to Avery Lake."
+        },
+        {
+          "id": "RECEIPT-1",
+          "body": "Receipt for dispatch CP-213 names Avery Lake for parcel PL-123. Avery Lake received the parcel.",
+          "retired": false
+        }
+      ]
+    },
+    {
+      "id": "packet-3-no_receipt",
+      "question": "Who was the sender and who received the port ledger?",
+      "sources": [
+        {
+          "id": "INDEX-1",
+          "body": "Parcel PL-123 is listed as the port ledger."
+        },
+        {
+          "id": "DISPATCH-1",
+          "body": "Dispatch CP-213 records that Rina Moss sent parcel PL-123 to Avery Lake."
+        }
+      ]
+    },
+    {
+      "id": "packet-3-retired_receipt",
+      "question": "Who was the sender and who received the port ledger?",
+      "sources": [
+        {
+          "id": "INDEX-1",
+          "body": "Parcel PL-123 is listed as the port ledger."
+        },
+        {
+          "id": "DISPATCH-1",
+          "body": "Dispatch CP-213 records that Rina Moss sent parcel PL-123 to Avery Lake."
+        },
+        {
+          "id": "RECEIPT-1",
+          "body": "Receipt for dispatch CP-213 names Avery Lake for parcel PL-123. They received it.",
+          "retired": true
+        }
+      ]
+    },
+    {
+      "id": "packet-3-other_dispatch",
+      "question": "Who was the sender and who received the port ledger?",
+      "sources": [
+        {
+          "id": "INDEX-1",
+          "body": "Parcel PL-123 is listed as the port ledger."
+        },
+        {
+          "id": "DISPATCH-1",
+          "body": "Dispatch CP-213 records that Rina Moss sent parcel PL-123 to Avery Lake."
+        },
+        {
+          "id": "RECEIPT-1",
+          "body": "Receipt for dispatch CP-999 names Avery Lake for parcel PL-123. They received it.",
+          "retired": false
+        }
+      ]
+    },
+    {
+      "id": "packet-3-other_parcel",
+      "question": "Who was the sender and who received the port ledger?",
+      "sources": [
+        {
+          "id": "INDEX-1",
+          "body": "Parcel PL-123 is listed as the port ledger."
+        },
+        {
+          "id": "DISPATCH-1",
+          "body": "Dispatch CP-213 records that Rina Moss sent parcel PL-123 to Avery Lake."
+        },
+        {
+          "id": "RECEIPT-1",
+          "body": "Receipt for dispatch CP-213 names Avery Lake for parcel PL-999. They received it.",
+          "retired": false
+        }
+      ]
+    },
+    {
+      "id": "packet-3-other_recipient",
+      "question": "Who was the sender and who received the port ledger?",
+      "sources": [
+        {
+          "id": "INDEX-1",
+          "body": "Parcel PL-123 is listed as the port ledger."
+        },
+        {
+          "id": "DISPATCH-1",
+          "body": "Dispatch CP-213 records that Rina Moss sent parcel PL-123 to Avery Lake."
+        },
+        {
+          "id": "RECEIPT-1",
+          "body": "Receipt for dispatch CP-213 names Casey Wells for parcel PL-123. They received it.",
+          "retired": false
+        }
+      ]
+    },
+    {
+      "id": "packet-3-planned_receipt",
+      "question": "Who was the sender and who received the port ledger?",
+      "sources": [
+        {
+          "id": "INDEX-1",
+          "body": "Parcel PL-123 is listed as the port ledger."
+        },
+        {
+          "id": "DISPATCH-1",
+          "body": "Dispatch CP-213 records that Rina Moss sent parcel PL-123 to Avery Lake."
+        },
+        {
+          "id": "RECEIPT-1",
+          "body": "Receipt for dispatch CP-213 names Avery Lake for parcel PL-123. They planned to receive it.",
+          "retired": false
+        }
+      ]
+    },
+    {
+      "id": "packet-4-pronouns",
+      "question": "For the orchard map, who sent it and who received it?",
+      "sources": [
+        {
+          "id": "INDEX-1",
+          "body": "Parcel OM-124 is listed as the orchard map."
+        },
+        {
+          "id": "DISPATCH-1",
+          "body": "Dispatch LA-214 records that Farah Cole sent parcel OM-124 to Zane Khan."
+        },
+        {
+          "id": "RECEIPT-1",
+          "body": "Receipt for dispatch LA-214 names Zane Khan for parcel OM-124. They received it.",
+          "retired": false
+        }
+      ]
+    },
+    {
+      "id": "packet-4-named",
+      "question": "For the orchard map, who sent it and who received it?",
+      "sources": [
+        {
+          "id": "INDEX-1",
+          "body": "Parcel OM-124 is listed as the orchard map."
+        },
+        {
+          "id": "DISPATCH-1",
+          "body": "Dispatch LA-214 records that Farah Cole sent parcel OM-124 to Zane Khan."
+        },
+        {
+          "id": "RECEIPT-1",
+          "body": "Receipt for dispatch LA-214 names Zane Khan for parcel OM-124. Zane Khan received the parcel.",
+          "retired": false
+        }
+      ]
+    },
+    {
+      "id": "packet-4-no_receipt",
+      "question": "For the orchard map, who sent it and who received it?",
+      "sources": [
+        {
+          "id": "INDEX-1",
+          "body": "Parcel OM-124 is listed as the orchard map."
+        },
+        {
+          "id": "DISPATCH-1",
+          "body": "Dispatch LA-214 records that Farah Cole sent parcel OM-124 to Zane Khan."
+        }
+      ]
+    },
+    {
+      "id": "packet-4-retired_receipt",
+      "question": "For the orchard map, who sent it and who received it?",
+      "sources": [
+        {
+          "id": "INDEX-1",
+          "body": "Parcel OM-124 is listed as the orchard map."
+        },
+        {
+          "id": "DISPATCH-1",
+          "body": "Dispatch LA-214 records that Farah Cole sent parcel OM-124 to Zane Khan."
+        },
+        {
+          "id": "RECEIPT-1",
+          "body": "Receipt for dispatch LA-214 names Zane Khan for parcel OM-124. They received it.",
+          "retired": true
+        }
+      ]
+    },
+    {
+      "id": "packet-4-other_dispatch",
+      "question": "For the orchard map, who sent it and who received it?",
+      "sources": [
+        {
+          "id": "INDEX-1",
+          "body": "Parcel OM-124 is listed as the orchard map."
+        },
+        {
+          "id": "DISPATCH-1",
+          "body": "Dispatch LA-214 records that Farah Cole sent parcel OM-124 to Zane Khan."
+        },
+        {
+          "id": "RECEIPT-1",
+          "body": "Receipt for dispatch LA-999 names Zane Khan for parcel OM-124. They received it.",
+          "retired": false
+        }
+      ]
+    },
+    {
+      "id": "packet-4-other_parcel",
+      "question": "For the orchard map, who sent it and who received it?",
+      "sources": [
+        {
+          "id": "INDEX-1",
+          "body": "Parcel OM-124 is listed as the orchard map."
+        },
+        {
+          "id": "DISPATCH-1",
+          "body": "Dispatch LA-214 records that Farah Cole sent parcel OM-124 to Zane Khan."
+        },
+        {
+          "id": "RECEIPT-1",
+          "body": "Receipt for dispatch LA-214 names Zane Khan for parcel OM-999. They received it.",
+          "retired": false
+        }
+      ]
+    },
+    {
+      "id": "packet-4-other_recipient",
+      "question": "For the orchard map, who sent it and who received it?",
+      "sources": [
+        {
+          "id": "INDEX-1",
+          "body": "Parcel OM-124 is listed as the orchard map."
+        },
+        {
+          "id": "DISPATCH-1",
+          "body": "Dispatch LA-214 records that Farah Cole sent parcel OM-124 to Zane Khan."
+        },
+        {
+          "id": "RECEIPT-1",
+          "body": "Receipt for dispatch LA-214 names Casey Wells for parcel OM-124. They received it.",
+          "retired": false
+        }
+      ]
+    },
+    {
+      "id": "packet-4-planned_receipt",
+      "question": "For the orchard map, who sent it and who received it?",
+      "sources": [
+        {
+          "id": "INDEX-1",
+          "body": "Parcel OM-124 is listed as the orchard map."
+        },
+        {
+          "id": "DISPATCH-1",
+          "body": "Dispatch LA-214 records that Farah Cole sent parcel OM-124 to Zane Khan."
+        },
+        {
+          "id": "RECEIPT-1",
+          "body": "Receipt for dispatch LA-214 names Zane Khan for parcel OM-124. They planned to receive it.",
+          "retired": false
+        }
+      ]
+    },
+    {
+      "id": "packet-5-pronouns",
+      "question": "Who sent the signed register and who took delivery of it?",
+      "sources": [
+        {
+          "id": "INDEX-1",
+          "body": "Parcel SR-125 is listed as the signed register."
+        },
+        {
+          "id": "DISPATCH-1",
+          "body": "Dispatch YM-215 records that Robin Shaw sent parcel SR-125 to Indra Ross."
+        },
+        {
+          "id": "RECEIPT-1",
+          "body": "Receipt for dispatch YM-215 names Indra Ross for parcel SR-125. They received it.",
+          "retired": false
+        }
+      ]
+    },
+    {
+      "id": "packet-5-named",
+      "question": "Who sent the signed register and who took delivery of it?",
+      "sources": [
+        {
+          "id": "INDEX-1",
+          "body": "Parcel SR-125 is listed as the signed register."
+        },
+        {
+          "id": "DISPATCH-1",
+          "body": "Dispatch YM-215 records that Robin Shaw sent parcel SR-125 to Indra Ross."
+        },
+        {
+          "id": "RECEIPT-1",
+          "body": "Receipt for dispatch YM-215 names Indra Ross for parcel SR-125. Indra Ross received the parcel.",
+          "retired": false
+        }
+      ]
+    },
+    {
+      "id": "packet-5-no_receipt",
+      "question": "Who sent the signed register and who took delivery of it?",
+      "sources": [
+        {
+          "id": "INDEX-1",
+          "body": "Parcel SR-125 is listed as the signed register."
+        },
+        {
+          "id": "DISPATCH-1",
+          "body": "Dispatch YM-215 records that Robin Shaw sent parcel SR-125 to Indra Ross."
+        }
+      ]
+    },
+    {
+      "id": "packet-5-retired_receipt",
+      "question": "Who sent the signed register and who took delivery of it?",
+      "sources": [
+        {
+          "id": "INDEX-1",
+          "body": "Parcel SR-125 is listed as the signed register."
+        },
+        {
+          "id": "DISPATCH-1",
+          "body": "Dispatch YM-215 records that Robin Shaw sent parcel SR-125 to Indra Ross."
+        },
+        {
+          "id": "RECEIPT-1",
+          "body": "Receipt for dispatch YM-215 names Indra Ross for parcel SR-125. They received it.",
+          "retired": true
+        }
+      ]
+    },
+    {
+      "id": "packet-5-other_dispatch",
+      "question": "Who sent the signed register and who took delivery of it?",
+      "sources": [
+        {
+          "id": "INDEX-1",
+          "body": "Parcel SR-125 is listed as the signed register."
+        },
+        {
+          "id": "DISPATCH-1",
+          "body": "Dispatch YM-215 records that Robin Shaw sent parcel SR-125 to Indra Ross."
+        },
+        {
+          "id": "RECEIPT-1",
+          "body": "Receipt for dispatch YM-999 names Indra Ross for parcel SR-125. They received it.",
+          "retired": false
+        }
+      ]
+    },
+    {
+      "id": "packet-5-other_parcel",
+      "question": "Who sent the signed register and who took delivery of it?",
+      "sources": [
+        {
+          "id": "INDEX-1",
+          "body": "Parcel SR-125 is listed as the signed register."
+        },
+        {
+          "id": "DISPATCH-1",
+          "body": "Dispatch YM-215 records that Robin Shaw sent parcel SR-125 to Indra Ross."
+        },
+        {
+          "id": "RECEIPT-1",
+          "body": "Receipt for dispatch YM-215 names Indra Ross for parcel SR-999. They received it.",
+          "retired": false
+        }
+      ]
+    },
+    {
+      "id": "packet-5-other_recipient",
+      "question": "Who sent the signed register and who took delivery of it?",
+      "sources": [
+        {
+          "id": "INDEX-1",
+          "body": "Parcel SR-125 is listed as the signed register."
+        },
+        {
+          "id": "DISPATCH-1",
+          "body": "Dispatch YM-215 records that Robin Shaw sent parcel SR-125 to Indra Ross."
+        },
+        {
+          "id": "RECEIPT-1",
+          "body": "Receipt for dispatch YM-215 names Casey Wells for parcel SR-125. They received it.",
+          "retired": false
+        }
+      ]
+    },
+    {
+      "id": "packet-5-planned_receipt",
+      "question": "Who sent the signed register and who took delivery of it?",
+      "sources": [
+        {
+          "id": "INDEX-1",
+          "body": "Parcel SR-125 is listed as the signed register."
+        },
+        {
+          "id": "DISPATCH-1",
+          "body": "Dispatch YM-215 records that Robin Shaw sent parcel SR-125 to Indra Ross."
+        },
+        {
+          "id": "RECEIPT-1",
+          "body": "Receipt for dispatch YM-215 names Indra Ross for parcel SR-125. They planned to receive it.",
+          "retired": false
+        }
+      ]
+    }
+  ]
+}

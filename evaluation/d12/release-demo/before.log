@@ -1,0 +1,48 @@
+======================================================================
+FAIL: test_absent_receipt_preserves_attributed_dispatch (tests.test_release_language_coverage.ReleaseLanguageCoverageTests.test_absent_receipt_preserves_attributed_dispatch)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/combined-mplpb/tests/test_release_language_coverage.py", line 38, in test_absent_receipt_preserves_attributed_dispatch
+    self.assertEqual(result['kind'], 'partial_answer')
+AssertionError: 'abstain' != 'partial_answer'
+- abstain
++ partial_answer
+
+
+======================================================================
+FAIL: test_dispatched_and_took_delivery_wording (tests.test_release_language_coverage.ReleaseLanguageCoverageTests.test_dispatched_and_took_delivery_wording)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/combined-mplpb/tests/test_release_language_coverage.py", line 34, in test_dispatched_and_took_delivery_wording
+    self.assertEqual(result['kind'], 'supported_answer')
+AssertionError: 'abstain' != 'supported_answer'
+- abstain
++ supported_answer
+
+
+======================================================================
+FAIL: test_local_pronouns_and_three_source_join (tests.test_release_language_coverage.ReleaseLanguageCoverageTests.test_local_pronouns_and_three_source_join)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/combined-mplpb/tests/test_release_language_coverage.py", line 25, in test_local_pronouns_and_three_source_join
+    self.assertEqual(result['kind'], 'supported_answer', result['diagnostic'])
+AssertionError: 'abstain' != 'supported_answer'
+- abstain
++ supported_answer
+ : {'code': 'documentary_assertion_not_established', 'stage': 'documentary_verification', 'message': 'Checked source-attributed assertions only; unresolved question obligations remain explicit and historical truth is unverified.', 'category': 'insufficient_evidence', 'corpus_answerability': 'not_established', 'next_steps': ['Review the diagnostic and source evidence before retrying.']}
+
+======================================================================
+FAIL: test_receipt_citation_is_atomic_under_tighter_budget (tests.test_release_language_coverage.ReleaseLanguageCoverageTests.test_receipt_citation_is_atomic_under_tighter_budget)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/combined-mplpb/tests/test_release_language_coverage.py", line 57, in test_receipt_citation_is_atomic_under_tighter_budget
+    self.assertEqual(result['kind'], 'partial_answer')
+AssertionError: 'abstain' != 'partial_answer'
+- abstain
++ partial_answer
+
+
+----------------------------------------------------------------------
+Ran 5 tests in 0.168s
+
+FAILED (failures=4)

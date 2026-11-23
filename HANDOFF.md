@@ -4,33 +4,32 @@ Last reviewed: 2026-11-23.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `a57d3b3fc92f96077503682ae73d04e5a3d4ec73` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `b3efd29b707591c44fb8a820b0f9e5cfa8573416494ee8e6fffbf47c6966876d`.
+Base commit: `0cedff517fcd96e039729df990268c244b3feade` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `4e26e0153a404394ec855ff91725b9d2c777bfe69424a2c498faa96aa4c6c991`.
 
 ## Latest user update instructions
 
-Merge it to main I hope we made progress what do you think oh and update tool notes etc. and Readme
+Run it note it test it then push it all to main and merge
 
 ## Implemented scope
 
-- Explain the user and AI rule-training coordinator, calendar operations, source notes and thesaurus discovery in the README.
-- Update the app tool directory, test tool commands and WorkStore seat API notes with their relevant entry points.
-- Carry the preceding D12 repairs and coordinator changes through the repository branch checks before merging.
-- Synchronize the historical CI gate with the two recorded case transitions while preserving the baseline rows and checking every citation.
+- Run and document a deterministic proposal, approval, WorkStore dispatch, and report readback experiment.
+- Carry the previously committed documentary-language rule and installed-wheel demo in the same pull request.
 
 ## Validation recorded
 
-- Retained D12 work recovered five full and four cited partial answers on the frozen nine and moved the historical 22 from three full and two partial to four full and three partial.
-- On the coordinator implementation, the registered repair recovered two development cases and a holdout while preserving two refusals. The full local implementation run completed 1642 tests with two skipped and no failures.
-- The initial PR historical gate reported the recorded four full and three partial answers and passed all source guards. It failed only because its expectation still required three full and two partial answers.
+- The local governance demo wrote a cited report and returned its matching receipt and artifact hash.
+- The governance controls and related local regressions passed all 64 tests.
+- The earlier two-wheel comparison reproduced both wheel hashes and all 40 case responses per revision.
+- The extracted candidate source subset passed all 10 governance controls and reproduced the cited report and matching receipt.
 
 ## Limitations and blocked checks
 
-- The measured improvements apply to the retained fixtures. Independent historical semantic accuracy and broader lexical transfer remain open.
+- The governance experiment uses scripted proposals, one local adapter, and a trusted host with in-memory approval. It has no external effects or independent isolation validation.
 
 ## Next steps
 
-- Assess further gains with a sealed human-graded historical panel while preserving refusal and conflict controls.
+- Evaluate another operation with a separately reviewed policy and independently verifiable effect.
 
 ## Use this ZIP in your repository
 
