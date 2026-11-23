@@ -8,7 +8,7 @@ trace of the original 22, 40 follow-ups and 12 starter-topic cases. The [pattern
 
 [D6](../evaluation/d6/README.md) records 90 synthetic checks of six evidence
 operations and a separate replay on 12 frozen Dice Bag records. The native
-compiler cites declared ledger fields and explains which branches resolved.
+compiler cites declared ledger fields and explains which branches resolved. The [calendar, source note and thesaurus sprints](../evaluation/d6/calendar-notes/README.md) retain arithmetic and independent discovery controls.
 
 [D20](../evaluation/d20/README.md) records the seeded ownership and alias baseline and class-level probes.
 

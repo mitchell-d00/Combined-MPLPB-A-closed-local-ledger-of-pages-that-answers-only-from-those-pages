@@ -1,7 +1,7 @@
 """Closed RPC surface. Host administration is never exposed on the seat API."""
 from .errors import WorkError
 
-SEAT_METHODS = {'snapshot', 'handoff', 'put', 'transfer', 'end', 'execute', 'historical_review', 'historical_reviews'}
+SEAT_METHODS = {'snapshot', 'handoff', 'put', 'transfer', 'end', 'execute', 'historical_review', 'historical_reviews', 'source_note_search'}
 HOST_METHODS = {'head', 'assign', 'revoke', 'reconcile', 'audit', 'record_external_receipt', 'verify_storage_receipt'}
 
 

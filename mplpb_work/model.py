@@ -4,17 +4,19 @@ import math
 import re
 from .errors import WorkError
 
-KINDS = {'task', 'evidence', 'claim', 'attempt', 'decision', 'action', 'review'}
-OPERATIONS = {verb+':'+kind for verb in ('create', 'revise') for kind in KINDS} | {'execute', 'transfer', 'resolve_review'}
+KINDS = {'task', 'evidence', 'claim', 'attempt', 'decision', 'action', 'review', 'source_note'}
+OPERATIONS = {verb+':'+kind for verb in ('create', 'revise') for kind in KINDS} | {'execute', 'transfer', 'resolve_review', 'search:source_note'}
 
 
 def operator_seconds(value):
     if value is not None and (type(value) not in (int,float) or not math.isfinite(value) or value<0):
         raise WorkError('operator_seconds must be a finite nonnegative number')
+NOTE_RULES = {'date_roles', 'conditions', 'corrections', 'recorded_stage', 'causal_scope', 'literal_values'}
 ASSESSMENTS = {'proposed', 'supported_under_scope', 'contested', 'withdrawn', 'needs_recheck'}
 FIELDS = {
     'task': {'goal', 'criteria', 'review_budget', 'state', 'acceptance'},
     'evidence': {'task', 'corpus', 'source_id', 'source_hash', 'quote', 'query'},
+    'source_note': {'task', 'body_start', 'rule', 'keywords', 'comment', 'state'},
     'claim': {'task', 'proposition', 'basis', 'assessment', 'assumptions', 'alternatives', 'revisit_when'},
     'attempt': {'task', 'method', 'result', 'failure', 'retry_when', 'artifact'},
     'decision': {'task', 'choice', 'alternatives', 'reason', 'assessment', 'recheck_when', 'failed_attempts'},
@@ -71,6 +73,15 @@ def validate(kind, payload):
     elif kind == 'evidence':
         for field in ('corpus', 'source_id', 'source_hash', 'quote', 'query'):
             words(payload[field])
+    elif kind == 'source_note':
+        if type(payload['body_start']) is not int or payload['body_start'] < 0:
+            raise WorkError('Source note requires a nonnegative body offset')
+        if payload['rule'] not in sorted(NOTE_RULES) or payload['state'] not in ('active', 'withdrawn'):
+            raise WorkError('Unknown source note rule or state')
+        strings(payload['keywords'], empty=False)
+        if len(payload['keywords']) > 8 or any(len(word) > 80 for word in payload['keywords']):
+            raise WorkError('Use at most eight short discovery keywords')
+        words(payload['comment'], 1000)
     elif kind == 'claim':
         words(payload['proposition']); words(payload['revisit_when'])
         if payload['basis'] not in {'observation', 'inference'} or payload['assessment'] not in ASSESSMENTS:

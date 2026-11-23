@@ -1,0 +1,13 @@
+{
+  "schema": "mplpb-d6-v1",
+  "steps": [
+    {"op": "day_difference", "left": {"record_id": "TIDE-4", "field": "Opening Date"},
+     "right": {"record_id": "TIDE-4", "field": "Closing Date"}, "calendar": "proleptic_gregorian", "mode": "elapsed"},
+    {"op": "day_difference", "left": {"record_id": "TIDE-4", "field": "Opening Date"},
+     "right": {"record_id": "TIDE-4", "field": "Closing Date"}, "calendar": "proleptic_gregorian", "mode": "inclusive"},
+    {"op": "relative_date", "anchor": {"record_id": "TIDE-4", "field": "Opening Date"},
+     "relative": {"record_id": "TIDE-4", "field": "Opening Relative Date"}, "calendar": "proleptic_gregorian"},
+    {"op": "add_months", "anchor": {"record_id": "TIDE-4", "field": "Month Start Date"},
+     "months": 1, "overflow": "clamp", "calendar": "proleptic_gregorian"}
+  ]
+}

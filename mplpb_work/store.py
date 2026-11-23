@@ -365,6 +365,8 @@ class WorkStore:
         kind, p = record['kind'], record['payload']
         if kind == 'evidence':
             return 'eligible' if self._source(state, p, profile, cache) else 'needs_recheck'
+        if kind == 'source_note' and p['state'] == 'withdrawn':
+            return 'withdrawn'
         refs = dict(record['dependencies'])
         if kind == 'task':
             refs.update(p['acceptance'])
@@ -390,6 +392,8 @@ class WorkStore:
                     evidence.append((source['body'], dep['payload']['quote']))
                 return source_support.check(p, evidence)
             return p['assessment']
+        if kind == 'source_note':
+            return 'search_hint'
         if kind == 'action':
             if any(r['action'] == record['id'] and r['status'] == 'started' for r in state['receipts'].values()):
                 return 'indeterminate'
@@ -474,6 +478,39 @@ class WorkStore:
         # Always reconstructed under the current successor grant, never a raw tail.
         return self.snapshot(credential)
 
+    def source_note_search(self, credential, *, task, corpus, question, max_passages=12, max_chars=8000):
+        """Return only authorized, exact source spans for the current question."""
+        from mplpb_combined.ledger import serving_view
+        from mplpb_combined.reader import PROFILES
+        from .source_notes import rank
+
+        M.identifier(task)
+        M.identifier(corpus)
+        M.words(question)
+        if (type(max_passages) is not int or not 1 <= max_passages <= 64
+                or type(max_chars) is not int or not 1 <= max_chars <= 64000):
+            raise WorkError('Invalid source note passage or character budget')
+        with self._transaction() as (_, state), serving_view():
+            actor = self._actor(state, credential)
+            visible = self._visible(state, actor)
+            if (task not in visible or state['records'][task]['kind'] != 'task'
+                    or not self._allowed(actor, 'search:source_note', task)):
+                raise Denied('Source note search is outside this seat contract')
+            if corpus not in state['corpora']:
+                raise WorkError('Use a registered work corpus')
+            pairs = []
+            cache = {}
+            for ident in sorted(visible):
+                note = state['records'][ident]
+                if note['kind'] != 'source_note' or self._scope(note) != task:
+                    continue
+                evidence = state['records'][next(iter(note['dependencies']))]
+                if (evidence['payload']['corpus'] == corpus
+                        and self._effective(state, note, actor['profile'], cache) == 'search_hint'):
+                    pairs.append((note, evidence))
+            return rank(Path(state['corpora'][corpus]), question, PROFILES[actor['profile']],
+                        pairs, max_passages, max_chars)
+
     def _validate_record(self, state, actor, record, old):
         kind, p = record['kind'], record['payload']
         M.validate(kind, p); M.pins(record['dependencies'])
@@ -525,6 +562,18 @@ class WorkStore:
             if not source:
                 raise WorkError('No eligible exact body span at the pinned source revision')
             record['source'] = source
+        if kind == 'source_note':
+            if len(record['dependencies']) != 1:
+                raise WorkError('A source note needs exactly one pinned evidence record')
+            dependency = state['records'][next(iter(record['dependencies']))]
+            if dependency['kind'] != 'evidence' or self._scope(dependency) != scope:
+                raise WorkError('Source note evidence must belong to the same task')
+            if p['state'] == 'active':
+                from .source_notes import pin
+                evidence = dependency['payload']
+                if (not self._source(state, evidence, actor['profile'], {})
+                        or not pin(state['corpora'][evidence['corpus']], evidence, p['body_start'])):
+                    raise WorkError('Source note offset must identify an eligible exact body span')
         if kind == 'review':
             if old and p['target'] != old['payload']['target']:
                 raise Denied('Review targets are immutable')

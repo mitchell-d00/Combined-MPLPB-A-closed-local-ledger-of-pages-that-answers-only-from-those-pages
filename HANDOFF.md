@@ -4,36 +4,37 @@ Last reviewed: 2026-11-23.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `d87359be8af05d45aaa55d92e13aba3a3d28d85b` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `ca808cce85b1bef43ee1d1d3bc016e7cfb3fabea6ac2864b49a0456ba67c0570`.
+Base commit: `0469b004aa579706f71cb251afe03a2e0eb9ad08` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `e1057b66c2439e2795cbfa6f7cb96e9f3c1082186615696a7d76cb9019fbe98c`.
 
 ## Latest user update instructions
 
-Continue testing until we beat it test find spans and patterns patch us the 22 as well to build graph rules and test seams to see why the blocks are happening even with a pull
+Do it test it run sprints on both features until they are concrete
 
-If you wrote the prompt to hit my goals historical matching truth in corpus but not reality what would it be
+If we build a thesaurus graph that goes with synonym graph that may help,as well we could use open source thesaurus to build it and a open source synonym reference and test relies and relations as we go
 
 ## Implemented scope
 
-- Preserve the four prior D12 pattern sprints and add a frozen historical 22 graph and native-proof trace.
-- Recognize a named statutory discretionary lease with a source-stated term ceiling and independently verify the current eligible clause.
-- Connect a uniquely named report to its numbered summary window and use independent local proof checks for exact causal and resource statements.
-- Document a prompt for corpus-scoped conclusions, provenance, competing accounts, and correction limits.
+- Add explicitly selected Gregorian D6 day-count, month-shift, and same-role relative-date operations with exact source citations.
+- Add revisioned source notes and live WorkStore discovery under the existing capability, task, visibility and source gates.
+- Build a separate sense-aware SQLite graph using Princeton WordNet and Moby as an independent association reference. Keep the reviewed synonym graph and strict reader paths unchanged.
+- Retain the earlier lexical ranking misses, the subsequent exact edge-span search, and a reproducible example.
 
 ## Validation recorded
 
-- The nine coordinator questions retained five full and four partial answers. All 109 focused regressions and all 52 public evidence controls passed with zero falsely supported bridges.
-- The frozen historical 22 moved from 3 full and 2 partial to 4 full and 3 partial. The only native contract changes excluding code fingerprints were H08 and U07. The 40 follow-up contracts were unchanged.
-- All 19 citations in the revised historical 22 matched their sealed source projections, with no supported answer missing a citation.
+- All 48 calendar controls passed. The six-year sprint includes Gregorian century boundaries and wrong-role anchoring.
+- At a one-passage budget the 12 independently authored notes located all 12 intended excerpts, versus zero in the ordinary probe. The strict contracts for the twelve exploratory cases and one positive exact-field control remained identical.
+- The full WordNet and Moby import succeeded. All six selected lexical edge choices matched, ordinary discovery found zero, expanded-query discovery found two, and exact edge-span discovery found all six without changing any strict contract.
+- Focused regressions cover stale sources, withdrawn notes, wrong offsets, rights and visibility, exact date operands, and distinct lexical senses and edge directions.
 
 ## Limitations and blocked checks
 
-- The numbered-summary answer remains partial because the bounded window does not resolve corrections or event co-reference elsewhere.
-- The lease proof is confined to an explicit named clause. The test uses frozen developer references; external historical truth and independent human scores have not been established.
+- Calendar arithmetic assumes the declared proleptic Gregorian convention and verifies supplied date roles. It does not establish historical calendar conventions.
+- The note and lexical discovery runs use authored passages and deliberate distractors. Independently reviewed historical transfer has not been measured.
 
 ## Next steps
 
-- Use the retained per-case trace to pick the next repeated discovery or proof failure. Preserve disagreements and withheld conclusions until verified on the applicable sources.
+- Exercise reviewer notes and lexical discovery on fresh source packets before using either to select a proposed documentary rule change.
 
 ## Use this ZIP in your repository
 

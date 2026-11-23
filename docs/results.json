@@ -27,14 +27,18 @@
       "family": "d6",
       "artifacts": "evaluation/d6",
       "tests": [
-        "tests/test_d6.py"
+        "tests/test_d6.py",
+        "tests/test_d6_calendar.py",
+        "tests/test_source_notes.py",
+        "tests/test_thesaurus_graph.py"
       ],
       "runners": [
         "test_tools/d6.py",
+        "test_tools/calendar_notes_study.py",
         "mplpb_answers/d6.py"
       ],
       "scope": "Opt-in native evidence compilation from explicit record and field selectors, with exact citations, branch and arithmetic controls, and optional sealed Dice Bag corpus replay.",
-      "measurement_status": "90/90 seeded synthetic checks passed. All 12 frozen Dice Bag records compiled their declared fields and withheld completion for the missing-field control. Ordinary historical prose understanding was outside this experiment."
+      "measurement_status": "90/90 seeded synthetic checks passed. All 12 frozen Dice Bag records compiled their declared fields and withheld completion for the missing-field control. The calendar sprint passed 48 matched controls. Authored source notes recovered 12/12 target spans at one passage. Exact thesaurus edge search recovered 6/6 target spans in a separate authored probe. Strict support remained unchanged in both discovery arms."
     },
     {
       "family": "documentary-date-pattern",

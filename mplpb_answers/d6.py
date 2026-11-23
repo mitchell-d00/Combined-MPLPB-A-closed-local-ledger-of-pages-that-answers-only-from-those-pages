@@ -1,6 +1,7 @@
 """Compile typed evidence plans with the strict MPLPB field reader."""
 import argparse
-from datetime import date
+from calendar import monthrange
+from datetime import date, timedelta
 import json
 from pathlib import Path
 import re
@@ -14,11 +15,22 @@ from .relation_graph import exact_request
 
 SCHEMA = 'mplpb-d6-v1'
 _FIELDS = {'record_id', 'field'}
+_CALENDAR = 'proleptic_gregorian'
+_CALENDAR_LABEL = 'proleptic Gregorian'
+_CALENDAR_FIELDS = {
+    'day_difference': ('left', 'right'),
+    'add_months': ('anchor',),
+    'relative_date': ('anchor', 'relative'),
+}
+_RELATIVE_DAYS = {'the following day': 1, 'the next day': 1, 'the previous day': -1}
 _SHAPES = {
     'read': _FIELDS,
     'match': _FIELDS | {'value'},
     'not_match': _FIELDS | {'value'},
     'year_difference': {'left', 'right'},
+    'day_difference': {'left', 'right', 'calendar', 'mode'},
+    'add_months': {'anchor', 'months', 'calendar', 'overflow'},
+    'relative_date': {'anchor', 'relative', 'calendar'},
     'if': {'when', 'then', 'else'},
     'all': {'steps'},
 }
@@ -44,12 +56,23 @@ def validate(expression, depth=0):
                              or len(expression['value']) > 400):
             raise ValueError('A comparison needs a nonblank literal value of at most 400 characters')
         return 1
-    if op == 'year_difference':
-        for selector in (expression['left'], expression['right']):
+    if op == 'year_difference' or op in _CALENDAR_FIELDS:
+        keys = _CALENDAR_FIELDS.get(op, ('left', 'right'))
+        for selector in (expression[key] for key in keys):
             if not isinstance(selector, dict) or set(selector) != _FIELDS:
-                raise ValueError('Year difference needs two explicit field selectors')
+                raise ValueError('Calendar arithmetic needs explicit field selectors')
             field_selector(selector)
-        return 3
+        if op in _CALENDAR_FIELDS:
+            if expression['calendar'] != _CALENDAR:
+                raise ValueError('Select the proleptic_gregorian calendar explicitly')
+            if op == 'day_difference' and expression['mode'] not in ('elapsed', 'inclusive'):
+                raise ValueError('Use elapsed or inclusive calendar counting')
+            if op == 'add_months':
+                amount = expression['months']
+                if (type(amount) is not int or not -120000 <= amount <= 120000
+                        or expression['overflow'] not in ('clamp', 'reject')):
+                    raise ValueError('Use a bounded integer month count and an explicit clamp or reject policy')
+        return 1 + len(keys)
     if op == 'if':
         condition = expression['when']
         if not isinstance(condition, dict) or condition.get('op') not in ('match', 'not_match'):
@@ -95,6 +118,62 @@ def field_year(selector, value):
 
 def node(op, status, why, **detail):
     return {'operation': op, 'status': status, 'why': why, **detail}
+
+
+def calendar_result(expression, children):
+    op = expression['op']
+    labels = [field_name(expression[key]['field']) for key in _CALENDAR_FIELDS[op]]
+    values = [child.get('value', '') for child in children]
+
+    def unresolved(message):
+        return node(op, 'unresolved', message, steps=children, calendar=_CALENDAR)
+
+    dates = [recorded_date(value) if label.split()[-1:] == ['date']
+             and label.split()[-2:] != ['relative', 'date'] else None
+             for label, value in zip(labels, values)]
+    if dates[0] is None or (op == 'day_difference' and dates[1] is None):
+        return unresolved('Calendar arithmetic requires a complete, verified Date field for each date operand.')
+    anchor = dates[0]
+    if op == 'day_difference':
+        end = dates[1]
+        elapsed = (end - anchor).days
+        mode = expression['mode']
+        if mode == 'inclusive' and elapsed < 0:
+            return unresolved('Inclusive counting requires the start date to be on or before the end date.')
+        value = elapsed + (mode == 'inclusive')
+        formula = f'{end.isoformat()} minus {anchor.isoformat()}'
+        if mode == 'inclusive':
+            formula += ' plus one to count both endpoints'
+        return node(op, 'resolved', f'{formula} gives {value} {mode} days in the {_CALENDAR_LABEL} calendar.',
+                    value=value, unit='days', calendar=_CALENDAR, mode=mode, steps=children)
+    if op == 'relative_date':
+        same_record = expression['anchor']['record_id'] == expression['relative']['record_id']
+        relative_label = labels[0].removesuffix('date') + 'relative date'
+        days = _RELATIVE_DAYS.get(values[1].casefold())
+        if not same_record or labels[1] != relative_label or days is None:
+            return unresolved('The relative wording needs a supported literal and a matching declared date role on the same record.')
+        try:
+            result = anchor + timedelta(days=days)
+        except OverflowError:
+            return unresolved('The result falls outside the supported calendar range.')
+        return node(op, 'resolved',
+                    f'{anchor.isoformat()} {"plus" if days > 0 else "minus"} one day gives '
+                    f'{result.isoformat()} in the {_CALENDAR_LABEL} calendar.',
+                    value=result.isoformat(), calendar=_CALENDAR, steps=children)
+    months = expression['months']
+    year, month_index = divmod(anchor.year * 12 + anchor.month - 1 + months, 12)
+    month = month_index + 1
+    if not 1 <= year <= 9999:
+        return unresolved('The result falls outside the supported calendar range.')
+    day = min(anchor.day, monthrange(year, month)[1])
+    overflow = expression['overflow']
+    if anchor.day != day and overflow == 'reject':
+        return unresolved('The original day does not exist in the target month and the plan requires rejection.')
+    value = date(year, month, day).isoformat()
+    handling = f' Day {anchor.day} was clamped to {day}.' if day != anchor.day else ''
+    return node(op, 'resolved',
+                f'{anchor.isoformat()} plus {months} calendar months gives {value} in the {_CALENDAR_LABEL} calendar.'
+                + handling, value=value, calendar=_CALENDAR, overflow=overflow, steps=children)
 
 
 class _Evaluation:
@@ -159,6 +238,8 @@ class _Evaluation:
             value = years[1] - years[0]
             return node(op, 'resolved', f'{years[1]} minus {years[0]} is {value}. This compares year numbers.',
                         value=value, steps=children)
+        if op in _CALENDAR_FIELDS:
+            return calendar_result(expression, [self.read_field(expression[key]) for key in _CALENDAR_FIELDS[op]])
         if op == 'if':
             condition = self.execute(expression['when'])
             if condition['status'] != 'resolved':
