@@ -1,6 +1,6 @@
 # Test tools
 
-Last reviewed: 2026-11-22.
+Last reviewed: 2026-11-23.
 
 Use these tools to test the engine and reproduce project results. See the [Test Index](TEST_INDEX.md) to choose a suite and interpret its role in deterministic training. For collecting sources and asking questions in the app, see [MPLPB tools](TOOL_DIRECTORY.md).
 
@@ -8,6 +8,8 @@ Use these tools to test the engine and reproduce project results. See the [Test 
 |---|---|
 | Run the Python regression suite | `python -m unittest discover -s tests -q` |
 | Replay the public evidence cases | `python -m tools.evaluate_public_evidence --require-capabilities --output /tmp/mplpb-public-results.json` |
+| Freeze a packet, tag a repeated error and test one rule | [D12 rule-training coordinator and API](../evaluation/d12/coordinator/README.md) |
+| Compare calendar math, source-note discovery and thesaurus retrieval | [D6 calendar and discovery controls](../evaluation/d6/calendar-notes/README.md) |
 | Test ownership and group alias misses | [D20](../evaluation/d20/README.md) |
 | Run scripted personas on eight synthetic topic collections | [Persona and corpus transfer panel](../evaluation/persona-corpus-transfer/README.md) |
 | Build and run a blind live-web catalog batch | [Dice Bag](../evaluation/dice-bag/README.md) |
@@ -17,6 +19,10 @@ Use these tools to test the engine and reproduce project results. See the [Test 
 | Verify a release candidate | [ZIP-first release checks](ZIP_FIRST_RELEASE_TESTING.md) · [Browser testing](BROWSER_TESTING_FOR_AGENTS.md) |
 | Run MPLPB tests from a separate harness or inspect cross-system tests | [B-Tests repository](https://github.com/mitchell-d00/B-Tests) |
 | Replay the MPLPB dispatch and Git enforcement comparison | [Executable Gates comparative tests](../evaluation/comparative-tests/executable-gates/REPRODUCTION.md) |
+
+## Run a rule-training sprint
+
+Use `python -m mplpb_work.training` to freeze fixtures and a separate adjudication key, replay a baseline, tag development failures, and compare a candidate. The `repair` command runs all those steps for a registered calendar transformation. For the original historical 22, frozen D20 seed 20, and a Primary Book packet in one invocation, use `python -m test_tools.training_benchmarks replay`. Its output retains each benchmark's own scoring and uses historical tags as review signals. [Commands and retained results](../evaluation/d12/coordinator/README.md)
 
 ## Collect a fresh real-world test batch
 

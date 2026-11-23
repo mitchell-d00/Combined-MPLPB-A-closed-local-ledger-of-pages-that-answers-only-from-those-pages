@@ -95,6 +95,14 @@ D20 shows that process in practice. On the same frozen cases, a bounded change t
 
 In the public field-question experiment, the same 750 synthetic paraphrases went from **0/750 to 750/750 supported** after a bounded addition to the accepted question forms. All 200 expected refusals held. That result measures the repair on the frozen set. Fresh book excerpts and independent human review can test how well the rules carry over to unfamiliar historical prose. [Paraphrase experiment and reproduction](docs/FIELD_QUESTION_NORMALIZATION.md) · [Primary Book Test](docs/TEST_TOOLS.md#primary-book-test)
 
+### Train a rule with the coordinator
+
+WorkStore gives a human or AI operator a repeatable way to run a rule sprint. The sub-coordinator groups development failures and retains their citations. The coordinator checks one user-authored D6 plan against the same frozen cases, including a custodian-held key, holdout cases, and refusal controls. The registered calendar repair can select a passing candidate or return `review_needed` with the failure evidence. Candidate selection is a training result. Installing a rule in the strict reader is a separate change. [Worked sprint and seat API](evaluation/d12/coordinator/README.md)
+
+D6 also calculates elapsed or inclusive days, explicit month shifts, and relative dates tied to their source roles. Source-pinned WorkStore notes and the separate WordNet/Moby thesaurus graph help prioritize passages for inspection. Strict verification independently checks the eligible source before citing it. [Calendar and discovery tools](evaluation/d6/calendar-notes/README.md)
+
+Across the frozen historical 22, the source seam repairs raised full answers from **3 to 4** and cited partial answers from **2 to 3**. The coordinator replay preserved every result. Its calendar demo recovered two development cases and one holdout while preserving two refusals. Those gains are measured on their respective fixtures. Broader transfer and independent historical accuracy remain open. [Historical seam report](evaluation/d12/pattern-sprints/historical-seams/README.md) · [Coordinator benchmark results](evaluation/d12/coordinator/benchmark-observations.json)
+
 Use the [Test Index for humans and AI](docs/TEST_INDEX.md) to choose a test, trace how its evidence informs a rule, and see how D20 groups related misses into classes. The [test commands](docs/TEST_TOOLS.md) cover running a harness or drawing a fresh real-world batch.
 
 Benchmark results and their limitations are indexed alongside the original reports and test commands. The full source checkout includes the retained evaluation archive, earlier implementations, and the optional lab reference corpus. [Evidence and tests](docs/RESULTS_AND_TESTS.md) · [Evaluation archive](evaluation/) · [Earlier work](PAST_DOCUMENTATION.md) · [Lab reference corpus](reference_corpus/README.md)
@@ -103,4 +111,4 @@ Benchmark results and their limitations are indexed alongside the original repor
 
 Code is MIT licensed and project documentation is CC BY 4.0. Bundled sources and other materials carry their own notices. [License](LICENSE) · [Resource notices](resources/README.md)
 
-Last reviewed: 2026-11-22.
+Last reviewed: 2026-11-23.

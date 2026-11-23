@@ -4,39 +4,31 @@ Last reviewed: 2026-11-23.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `06041b83a4b00a7c69230e4c31b7d6254b0627f6` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `0703af0a67cc1a403e46ca1a3369e454098c8bf788245e0efb84bb5f2eb4bf04`.
+Base commit: `6902652ca496070ac1818c1666e59648c8a4593e` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `f9cd95cbe7bfc5b454ada224667f7e5218d56bd44f45ed979c62664b4ce914e6`.
 
 ## Latest user update instructions
 
-It needs a sub coordinator that can tag if we automate the repos processes into mplpb to detect errors and a coordinator to set and test rules a user could train like me
-
-And run sprints on it as well testing vs 22 and any other benches Iv not tested in a while search repo
-
-I’ll build this around WorkStore’s existing roles. The sub-coordinator will tag repeatable failures with evidence. The coordinator will turn those findings into a rule-testing sprint that a user can run and review. Let ai drive this too from the api
-
-Self healing , evolving , fails gracefully then repairs all automated for user
+Merge it to main I hope we made progress what do you think oh and update tool notes etc. and Readme
 
 ## Implemented scope
 
-- Add a sub-coordinator that tags repeated development misses with evidence and a coordinator that tests one named, user-authored D6 rule against frozen inputs.
-- Expose replay, grading, filing and an automatic known-pattern sprint through the existing capability-gated WorkStore seat API.
-- Retain selected, blocked and healthy sprint examples. Replay the original 22, frozen D20 seed 20 and a new Primary Book packet through fixed test tooling.
+- Explain the user and AI rule-training coordinator, calendar operations, source notes and thesaurus discovery in the README.
+- Update the app tool directory, test tool commands and WorkStore seat API notes with their relevant entry points.
+- Carry the preceding D12 repairs and coordinator changes through the repository branch checks before merging.
 
 ## Validation recorded
 
-- The automatic elapsed-day fix recovered two development cases and one holdout while preserving both refusal controls. The wrong objective was blocked and the healthy rerun made no change.
-- The 42 focused tests covered different roles, hidden grading labels, stale or altered artifacts, wrong counting rules, unchanged native evidence contracts, and same-baseline filing.
-- The original 22 retained all native contracts. D20 recorded 2 supported, 15 withheld and 3 alias misses. All six Primary Book controls passed.
+- Retained D12 work recovered five full and four cited partial answers on the frozen nine and moved the historical 22 from three full and two partial to four full and three partial.
+- On the coordinator implementation, the registered repair recovered two development cases and a holdout while preserving two refusals. The full local implementation run completed 1642 tests with two skipped and no failures.
 
 ## Limitations and blocked checks
 
-- Automatic repair covers the explicit year-count to Gregorian elapsed or inclusive day-count transformation. Unknown or failing repairs remain review-needed.
-- WorkStore training receipts convey diagnostic history and carry no source-support or execution authority. The workflow does not install rules into the native engine or publish repository changes.
+- The measured improvements apply to the retained fixtures. Independent historical semantic accuracy and broader lexical transfer remain open.
 
 ## Next steps
 
-- Use fresh custodian-held evidence packets to validate another repeated rule failure before registering a second repair family.
+- Assess further gains with a sealed human-graded historical panel while preserving refusal and conflict controls.
 
 ## Use this ZIP in your repository
 
