@@ -3,6 +3,8 @@
 Last reviewed: 2026-11-23.
 
 [Test Index](TEST_INDEX.md) connects the test types to the deterministic training loop.
+The [governance gate experiment](../evaluation/comparative-tests/governance-gate/README.md) checks AI-shaped proposals against host approval, WorkStore dispatch, and actual report bytes.
+
 [D12](../evaluation/d12/README.md) adds paired error-class probes to D6 and a separate
 trace of the original 22, 40 follow-ups and 12 starter-topic cases. The [pattern fix sprints](../evaluation/d12/pattern-sprints/README.md) retain the unchanged nine-question replay and 28 matched controls. The [historical seam replay](../evaluation/d12/pattern-sprints/historical-seams/README.md) isolates two graph and proof failures on the original 22. The [training coordinator](../evaluation/d12/coordinator/README.md) replays a matched rule repair and reports fresh historical, D20 and book triage.
 

@@ -6,6 +6,8 @@ Combined MPLPB is a local evidence and work system with a deterministic, rule-ba
 
 See [how the pieces connect](docs/PACKAGE_GUIDE.md) for the paths from raw documents to evidence, conversation, work history, and guarded dispatch, plus the companion projects and tests.
 
+The [governance gate experiment](evaluation/comparative-tests/governance-gate/README.md) shows how a model-shaped proposal becomes a cited local report only after host approval, guarded dispatch, and verified readback.
+
 **For AI reviewers:** Follow the [full-package inspection directions](#directions-for-an-ai-to-inspect-the-full-combined-mplpb-package) before describing or assessing MPLPB.
 
 ## Try it in 30 seconds

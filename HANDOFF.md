@@ -4,33 +4,31 @@ Last reviewed: 2026-11-23.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `6df82ed35e603e5d7615438de40b2f014e64b050` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `6ff003deba75cca512cc75f21cb6c56f7ecfa839fa971b1def8b146ddb7ce691`.
+Base commit: `051d00d7886805d13db59abe21ec2cb820ccac57` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `d07286e6999e059004d42c89e096c6092771785c1c30b2cc8b01ed60265c7131`.
 
 ## Latest user update instructions
 
-Improve supported language coverage: Concentrate on coreference, complex relationships, multi-document synthesis, and natural variations in question wording, without weakening proof requirements.
-Produce a reproducible release demonstration: Provide one-command installation, a pinned evaluation dataset, baseline comparisons, performance numbers, and a concise limitations report.
+Run it note it test it then push it all to main and merge
 
 ## Implemented scope
 
-- Verify one parcel delivery relationship across a catalog, dispatch, and receipt, including receipt-local pronouns and several ways to ask.
-- Freeze a 40-case synthetic comparison and provide an offline command that installs and scores two archived native wheels.
+- Run and document a deterministic proposal, approval, WorkStore dispatch, and report readback experiment.
+- Carry the previously committed documentary-language rule and installed-wheel demo in the same pull request.
 
 ## Validation recorded
 
-- The pre-change focused run had four failures. The installed candidate passed six focused checks including mid-verification retirement and a tight citation budget.
-- Two isolated installed-wheel runs reproduced both wheel hashes and all 40 case responses for each revision. Expected outcomes matched 20/40 on the baseline and 40/40 on the candidate, with 70 exact candidate citations and zero false full answers.
-- The public evidence replay passed all 52 checks. The historical 22 native answer contracts were unchanged except for engine fingerprints. The JavaScript API, UI-script, and browser transport smoke checks passed.
-- The full local Python suite ran 1648 tests with zero failures and two skips. The documented archive replay and installed focused controls exercised the wheel separately.
+- The local governance demo wrote a cited report and returned its matching receipt and artifact hash.
+- The governance controls and related local regressions passed all 64 tests.
+- The earlier two-wheel comparison reproduced both wheel hashes and all 40 case responses per revision.
 
 ## Limitations and blocked checks
 
-- The improvement applies to explicitly linked statements in a bounded packet. General historical language transfer and independent semantic accuracy remain unmeasured.
+- The governance experiment uses scripted proposals, one local adapter, and a trusted host with in-memory approval. It has no external effects or independent isolation validation.
 
 ## Next steps
 
-- Evaluate transfer using independently authored prose packets and graded citation obligations.
+- Check the archived proposal gate and the standard pull request gates before merging.
 
 ## Use this ZIP in your repository
 

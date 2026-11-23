@@ -131,8 +131,8 @@
     {
       "family": "comparative-tests",
       "artifacts": "evaluation/comparative-tests",
-      "tests": ["tests/test_specialist_continuity.py"],
-      "runners": ["evaluation/comparative-tests/executable-gates/verify.py", "evaluation/comparative-tests/executable-gates/probes/run_probes.py", "evaluation/comparative-tests/executable-gates/probes/git_probe.sh", "evaluation/comparative-tests/dispatch-enforcement/run_controls.py"],
+      "tests": ["tests/test_governance_demo.py", "tests/test_specialist_continuity.py"],
+      "runners": ["evaluation/comparative-tests/executable-gates/verify.py", "evaluation/comparative-tests/executable-gates/probes/run_probes.py", "evaluation/comparative-tests/executable-gates/probes/git_probe.sh", "evaluation/comparative-tests/dispatch-enforcement/run_controls.py", "tools/governance_demo.py"],
       "scope": "Seven paired native MPLPB dispatch observations, a two-arm local Git comparison, and 28 follow-up controls across Python, seat RPC, loopback HTTP, and the stock CLI.",
       "measurement_status": "Reproduced at MPLPB 6ba371c. Complete mediation, hosted branch policies and native OOCC remain unestablished."
     },
