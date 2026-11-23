@@ -35,6 +35,10 @@ python -m test_tools.d12 --seed 12 --count 12 \
 
 Run only the synthetic pairs by omitting the three historical inputs. To include a [sealed Dice Bag operator packet](../dice-bag/README.md), add `--dice-bag-inputs /path/to/operator`. This repeats the D6 corpus check on declared fields and missing-field controls. It preserves the separate Dice Bag scores and does not require the custodian key.
 
+## User and AI training sprints
+
+The [rule-training coordinator](coordinator/README.md) freezes cases, groups native failures, runs one user-authored D6 rule, and compares it with the baseline. It also provides a scoped automatic repair and repository benchmark triage.
+
 ## Use with the other dice tests
 
 D4 supplies examples where identity or co-reference can break a relation. D20 groups repeated owner and alias misses into candidates for a shared rule. D% samples broader prose and refusal behavior. External D100 exercises sorter and workspace behavior. Dice Bag supplies fresh collections for testing transfer. D12 gives a way to isolate one changed obligation on a matched pair. Keep the original fixture, the failing result, the proposed rule and its counterexamples, and the rerun. Compare both missed answers and false support before changing a default rule. [Test Index](../../docs/TEST_INDEX.md)

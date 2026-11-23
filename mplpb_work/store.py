@@ -365,6 +365,11 @@ class WorkStore:
         kind, p = record['kind'], record['payload']
         if kind == 'evidence':
             return 'eligible' if self._source(state, p, profile, cache) else 'needs_recheck'
+        if kind == 'training_finding':
+            return 'training_record'
+        if kind == 'rule_sprint':
+            ident, revision = next(iter(record['dependencies'].items()))
+            return 'training_record' if state['records'][ident]['revision'] == revision else 'needs_recheck'
         if kind == 'source_note' and p['state'] == 'withdrawn':
             return 'withdrawn'
         refs = dict(record['dependencies'])
@@ -511,6 +516,59 @@ class WorkStore:
             return rank(Path(state['corpora'][corpus]), question, PROFILES[actor['profile']],
                         pairs, max_passages, max_chars)
 
+    def _training_scope(self, credential, task, operation):
+        M.identifier(task)
+        with self._transaction() as (_, state):
+            actor = self._actor(state, credential)
+            root = state['records'].get(task)
+            if (not root or root['kind'] != 'task' or task not in self._visible(state, actor)
+                    or root['payload']['state'] != 'open' or not self._allowed(actor, operation, task)):
+                raise Denied('Training operation is outside this active task and seat contract')
+            return actor['instance'], actor['fence'], root['revision']
+
+    def training_replay(self, credential, *, task, fixtures, rule):
+        """Run one data-only plan against a public frozen packet."""
+        from .training import run
+
+        pin = self._training_scope(credential, task, 'training:run')
+        result = run(M.words(fixtures, 64000).encode(), M.words(rule, 8000).encode())
+        if self._training_scope(credential, task, 'training:run') != pin:
+            raise Conflict('Training authority changed during the replay')
+        return result
+
+    def training_evaluate(self, credential, *, task, mode, seal, fixtures, key, baseline, candidate=None):
+        """Custodian grade. Replay seats do not receive this capability by default."""
+        from .training import compare, tag
+
+        if mode not in ('tag', 'compare') or (candidate is None) != (mode == 'tag'):
+            raise WorkError('Choose a development tag or a baseline/candidate comparison')
+        operation = 'training:' + mode
+        pin = self._training_scope(credential, task, operation)
+        frozen = M.words(fixtures, 64000).encode()
+        private = M.words(key, 64000).encode()
+        result = (tag(seal, frozen, private, baseline) if mode == 'tag'
+                  else compare(seal, frozen, private, baseline, candidate))
+        if self._training_scope(credential, task, operation) != pin:
+            raise Conflict('Training authority changed during evaluation')
+        return result
+
+    def training_sprint(self, credential, *, task, seal, fixtures, key, rule, objective):
+        """Try the closed set of repair transforms using a custodian seat."""
+        from .training import repair
+
+        pin = self._training_scope(credential, task, 'training:repair')
+        result = repair(seal, M.words(fixtures, 64000).encode(), M.words(key, 64000).encode(),
+                        M.words(rule, 8000).encode(), M.words(objective, 100))
+        if self._training_scope(credential, task, 'training:repair') != pin:
+            raise Conflict('Training authority changed during the sprint')
+        return result
+
+    def training_record(self, credential, *, task, id, artifact, finding_id=None, group=0, share_with=()):
+        from .training import record
+
+        return record(self, credential, task, id, artifact, finding_id=finding_id, group=group,
+                      share_with=share_with)
+
     def _validate_record(self, state, actor, record, old):
         kind, p = record['kind'], record['payload']
         M.validate(kind, p); M.pins(record['dependencies'])
@@ -562,6 +620,15 @@ class WorkStore:
             if not source:
                 raise WorkError('No eligible exact body span at the pinned source revision')
             record['source'] = source
+        if kind == 'training_finding' and record['dependencies']:
+            raise WorkError('A training finding uses a pinned replay artifact')
+        if kind == 'rule_sprint':
+            if len(record['dependencies']) != 1:
+                raise WorkError('A rule sprint needs one pinned training finding')
+            finding = state['records'][next(iter(record['dependencies']))]
+            if (finding['kind'] != 'training_finding' or self._scope(finding) != scope
+                    or finding['payload']['baseline_sha256'] != p['baseline_sha256']):
+                raise WorkError('A rule sprint requires a same-task finding on the same baseline')
         if kind == 'source_note':
             if len(record['dependencies']) != 1:
                 raise WorkError('A source note needs exactly one pinned evidence record')

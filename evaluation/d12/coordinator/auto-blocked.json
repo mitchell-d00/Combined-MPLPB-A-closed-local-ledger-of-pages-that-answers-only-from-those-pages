@@ -1,0 +1,909 @@
+{
+  "schema": "mplpb-automatic-sprint-v1",
+  "objective": "inclusive_days",
+  "baseline": {
+    "schema": "mplpb-training-run-v1",
+    "rule_name": "elapsed days",
+    "rule_sha256": "e0088e30e210e7c792c11e8132e3e6c5a40765749affad9e13a46ad9a7d50dea",
+    "fixtures_sha256": "c0229f541e508304a9cbc5e589fce0a81a1edbf183e0bafffca2eb4a70f79ecb",
+    "runtime_sha256": "sha256:9b86d5917e0b8018b2de6c084b04183505f64ee96fdb125b3e046ecb854efbdd",
+    "rows": [
+      {
+        "id": "dev-cross-month",
+        "report": {
+          "schema": "mplpb-d6-v1",
+          "answer_supported": true,
+          "compiled": {
+            "operation": "all",
+            "status": "resolved",
+            "why": "Every required step resolved.",
+            "steps": [
+              {
+                "operation": "year_difference",
+                "status": "resolved",
+                "why": "1904 minus 1904 is 0. This compares year numbers.",
+                "value": 0,
+                "steps": [
+                  {
+                    "operation": "read",
+                    "status": "resolved",
+                    "why": "Opening Date on LOG-1 is declared as '1904-02-28'.",
+                    "value": "1904-02-28",
+                    "evidence": [
+                      1
+                    ]
+                  },
+                  {
+                    "operation": "read",
+                    "status": "resolved",
+                    "why": "Closing Date on LOG-1 is declared as '1904-03-01'.",
+                    "value": "1904-03-01",
+                    "evidence": [
+                      2
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          "evidence": [
+            {
+              "field": "opening date",
+              "value": "1904-02-28",
+              "quote": "Opening Date: 1904-02-28",
+              "source_id": "TRAINING-SOURCE",
+              "path": "training-source.html",
+              "hash": "sha256:7a4c9a9b78272ab6c6dadf229e67c627b626738aa22e1a347d2180e075b399f8",
+              "body_start": 17,
+              "body_end": 41,
+              "start": 17,
+              "end": 41,
+              "stacked_field_suspected": false
+            },
+            {
+              "field": "closing date",
+              "value": "1904-03-01",
+              "quote": "Closing Date: 1904-03-01",
+              "source_id": "TRAINING-SOURCE",
+              "path": "training-source.html",
+              "hash": "sha256:7a4c9a9b78272ab6c6dadf229e67c627b626738aa22e1a347d2180e075b399f8",
+              "body_start": 42,
+              "body_end": 66,
+              "start": 42,
+              "end": 66,
+              "stacked_field_suspected": false
+            }
+          ],
+          "truth_verified": false
+        }
+      },
+      {
+        "id": "dev-next-day",
+        "report": {
+          "schema": "mplpb-d6-v1",
+          "answer_supported": true,
+          "compiled": {
+            "operation": "all",
+            "status": "resolved",
+            "why": "Every required step resolved.",
+            "steps": [
+              {
+                "operation": "year_difference",
+                "status": "resolved",
+                "why": "1910 minus 1910 is 0. This compares year numbers.",
+                "value": 0,
+                "steps": [
+                  {
+                    "operation": "read",
+                    "status": "resolved",
+                    "why": "Opening Date on LOG-2 is declared as '1910-10-02'.",
+                    "value": "1910-10-02",
+                    "evidence": [
+                      1
+                    ]
+                  },
+                  {
+                    "operation": "read",
+                    "status": "resolved",
+                    "why": "Closing Date on LOG-2 is declared as '1910-10-03'.",
+                    "value": "1910-10-03",
+                    "evidence": [
+                      2
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          "evidence": [
+            {
+              "field": "opening date",
+              "value": "1910-10-02",
+              "quote": "Opening Date: 1910-10-02",
+              "source_id": "TRAINING-SOURCE",
+              "path": "training-source.html",
+              "hash": "sha256:07504a33a1e761be0d9007414fda697ece8c2a41f74461cc97b4b45401c255b5",
+              "body_start": 17,
+              "body_end": 41,
+              "start": 17,
+              "end": 41,
+              "stacked_field_suspected": false
+            },
+            {
+              "field": "closing date",
+              "value": "1910-10-03",
+              "quote": "Closing Date: 1910-10-03",
+              "source_id": "TRAINING-SOURCE",
+              "path": "training-source.html",
+              "hash": "sha256:07504a33a1e761be0d9007414fda697ece8c2a41f74461cc97b4b45401c255b5",
+              "body_start": 42,
+              "body_end": 66,
+              "start": 42,
+              "end": 66,
+              "stacked_field_suspected": false
+            }
+          ],
+          "truth_verified": false
+        }
+      },
+      {
+        "id": "holdout-reverse",
+        "report": {
+          "schema": "mplpb-d6-v1",
+          "answer_supported": true,
+          "compiled": {
+            "operation": "all",
+            "status": "resolved",
+            "why": "Every required step resolved.",
+            "steps": [
+              {
+                "operation": "year_difference",
+                "status": "resolved",
+                "why": "1924 minus 1924 is 0. This compares year numbers.",
+                "value": 0,
+                "steps": [
+                  {
+                    "operation": "read",
+                    "status": "resolved",
+                    "why": "Opening Date on LOG-3 is declared as '1924-03-02'.",
+                    "value": "1924-03-02",
+                    "evidence": [
+                      1
+                    ]
+                  },
+                  {
+                    "operation": "read",
+                    "status": "resolved",
+                    "why": "Closing Date on LOG-3 is declared as '1924-02-29'.",
+                    "value": "1924-02-29",
+                    "evidence": [
+                      2
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          "evidence": [
+            {
+              "field": "opening date",
+              "value": "1924-03-02",
+              "quote": "Opening Date: 1924-03-02",
+              "source_id": "TRAINING-SOURCE",
+              "path": "training-source.html",
+              "hash": "sha256:46613376c273e36fcdd3190a576d5e26512f1a6f1a35e65eac93f9150f69cf66",
+              "body_start": 17,
+              "body_end": 41,
+              "start": 17,
+              "end": 41,
+              "stacked_field_suspected": false
+            },
+            {
+              "field": "closing date",
+              "value": "1924-02-29",
+              "quote": "Closing Date: 1924-02-29",
+              "source_id": "TRAINING-SOURCE",
+              "path": "training-source.html",
+              "hash": "sha256:46613376c273e36fcdd3190a576d5e26512f1a6f1a35e65eac93f9150f69cf66",
+              "body_start": 42,
+              "body_end": 66,
+              "start": 42,
+              "end": 66,
+              "stacked_field_suspected": false
+            }
+          ],
+          "truth_verified": false
+        }
+      },
+      {
+        "id": "control-partial-date",
+        "report": {
+          "schema": "mplpb-d6-v1",
+          "answer_supported": false,
+          "compiled": {
+            "operation": "all",
+            "status": "unresolved",
+            "why": "At least one required step remains unresolved.",
+            "steps": [
+              {
+                "operation": "year_difference",
+                "status": "unresolved",
+                "why": "Use two declared Year or Date fields with valid values.",
+                "steps": [
+                  {
+                    "operation": "read",
+                    "status": "resolved",
+                    "why": "Opening Date on LOG-4 is declared as '1904'.",
+                    "value": "1904",
+                    "evidence": [
+                      1
+                    ]
+                  },
+                  {
+                    "operation": "read",
+                    "status": "resolved",
+                    "why": "Closing Date on LOG-4 is declared as '1904-03-01'.",
+                    "value": "1904-03-01",
+                    "evidence": [
+                      2
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          "evidence": [
+            {
+              "field": "opening date",
+              "value": "1904",
+              "quote": "Opening Date: 1904",
+              "source_id": "TRAINING-SOURCE",
+              "path": "training-source.html",
+              "hash": "sha256:2e9f84b947e959e12b1d44c8a88ed11f61a09d84a4715eae17d991f21eefcbdf",
+              "body_start": 17,
+              "body_end": 35,
+              "start": 17,
+              "end": 35,
+              "stacked_field_suspected": false
+            },
+            {
+              "field": "closing date",
+              "value": "1904-03-01",
+              "quote": "Closing Date: 1904-03-01",
+              "source_id": "TRAINING-SOURCE",
+              "path": "training-source.html",
+              "hash": "sha256:2e9f84b947e959e12b1d44c8a88ed11f61a09d84a4715eae17d991f21eefcbdf",
+              "body_start": 36,
+              "body_end": 60,
+              "start": 36,
+              "end": 60,
+              "stacked_field_suspected": false
+            }
+          ],
+          "truth_verified": false
+        }
+      },
+      {
+        "id": "control-missing-field",
+        "report": {
+          "schema": "mplpb-d6-v1",
+          "answer_supported": false,
+          "compiled": {
+            "operation": "all",
+            "status": "unresolved",
+            "why": "At least one required step remains unresolved.",
+            "steps": [
+              {
+                "operation": "year_difference",
+                "status": "unresolved",
+                "why": "Use two declared Year or Date fields with valid values.",
+                "steps": [
+                  {
+                    "operation": "read",
+                    "status": "resolved",
+                    "why": "Opening Date on LOG-5 is declared as '1924-02-29'.",
+                    "value": "1924-02-29",
+                    "evidence": [
+                      1
+                    ]
+                  },
+                  {
+                    "operation": "read",
+                    "status": "unresolved",
+                    "why": "Closing Date on LOG-5 did not resolve to one verified field value. The exact eligible record has no explicit body evidence for the requested field.",
+                    "diagnostic": "exact_field_missing"
+                  }
+                ]
+              }
+            ]
+          },
+          "evidence": [
+            {
+              "field": "opening date",
+              "value": "1924-02-29",
+              "quote": "Opening Date: 1924-02-29",
+              "source_id": "TRAINING-SOURCE",
+              "path": "training-source.html",
+              "hash": "sha256:9f261a6ade1336ed8f5eca1ee1499d6daf417aec63e283c19e5ad76bf99f5967",
+              "body_start": 17,
+              "body_end": 41,
+              "start": 17,
+              "end": 41,
+              "stacked_field_suspected": false
+            }
+          ],
+          "truth_verified": false
+        }
+      }
+    ],
+    "run_sha256": "sha256:37d5f6902bd5557c046c2a15f61c701062a3e18718e9c802c0a6c2a060e269bd"
+  },
+  "findings": {
+    "schema": "mplpb-training-findings-v1",
+    "baseline_sha256": "sha256:37d5f6902bd5557c046c2a15f61c701062a3e18718e9c802c0a6c2a060e269bd",
+    "findings": [
+      {
+        "family": "day-count precision",
+        "tag": "wrong_value",
+        "cases": [
+          "dev-cross-month",
+          "dev-next-day"
+        ],
+        "repeatable": true,
+        "evidence": [
+          {
+            "id": "dev-cross-month",
+            "compiled": {
+              "operation": "all",
+              "status": "resolved",
+              "why": "Every required step resolved.",
+              "steps": [
+                {
+                  "operation": "year_difference",
+                  "status": "resolved",
+                  "why": "1904 minus 1904 is 0. This compares year numbers.",
+                  "value": 0,
+                  "steps": [
+                    {
+                      "operation": "read",
+                      "status": "resolved",
+                      "why": "Opening Date on LOG-1 is declared as '1904-02-28'.",
+                      "value": "1904-02-28",
+                      "evidence": [
+                        1
+                      ]
+                    },
+                    {
+                      "operation": "read",
+                      "status": "resolved",
+                      "why": "Closing Date on LOG-1 is declared as '1904-03-01'.",
+                      "value": "1904-03-01",
+                      "evidence": [
+                        2
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            "citations": [
+              {
+                "field": "opening date",
+                "value": "1904-02-28",
+                "quote": "Opening Date: 1904-02-28",
+                "source_id": "TRAINING-SOURCE",
+                "path": "training-source.html",
+                "hash": "sha256:7a4c9a9b78272ab6c6dadf229e67c627b626738aa22e1a347d2180e075b399f8",
+                "body_start": 17,
+                "body_end": 41,
+                "start": 17,
+                "end": 41,
+                "stacked_field_suspected": false
+              },
+              {
+                "field": "closing date",
+                "value": "1904-03-01",
+                "quote": "Closing Date: 1904-03-01",
+                "source_id": "TRAINING-SOURCE",
+                "path": "training-source.html",
+                "hash": "sha256:7a4c9a9b78272ab6c6dadf229e67c627b626738aa22e1a347d2180e075b399f8",
+                "body_start": 42,
+                "body_end": 66,
+                "start": 42,
+                "end": 66,
+                "stacked_field_suspected": false
+              }
+            ]
+          },
+          {
+            "id": "dev-next-day",
+            "compiled": {
+              "operation": "all",
+              "status": "resolved",
+              "why": "Every required step resolved.",
+              "steps": [
+                {
+                  "operation": "year_difference",
+                  "status": "resolved",
+                  "why": "1910 minus 1910 is 0. This compares year numbers.",
+                  "value": 0,
+                  "steps": [
+                    {
+                      "operation": "read",
+                      "status": "resolved",
+                      "why": "Opening Date on LOG-2 is declared as '1910-10-02'.",
+                      "value": "1910-10-02",
+                      "evidence": [
+                        1
+                      ]
+                    },
+                    {
+                      "operation": "read",
+                      "status": "resolved",
+                      "why": "Closing Date on LOG-2 is declared as '1910-10-03'.",
+                      "value": "1910-10-03",
+                      "evidence": [
+                        2
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            "citations": [
+              {
+                "field": "opening date",
+                "value": "1910-10-02",
+                "quote": "Opening Date: 1910-10-02",
+                "source_id": "TRAINING-SOURCE",
+                "path": "training-source.html",
+                "hash": "sha256:07504a33a1e761be0d9007414fda697ece8c2a41f74461cc97b4b45401c255b5",
+                "body_start": 17,
+                "body_end": 41,
+                "start": 17,
+                "end": 41,
+                "stacked_field_suspected": false
+              },
+              {
+                "field": "closing date",
+                "value": "1910-10-03",
+                "quote": "Closing Date: 1910-10-03",
+                "source_id": "TRAINING-SOURCE",
+                "path": "training-source.html",
+                "hash": "sha256:07504a33a1e761be0d9007414fda697ece8c2a41f74461cc97b4b45401c255b5",
+                "body_start": 42,
+                "body_end": 66,
+                "start": 42,
+                "end": 66,
+                "stacked_field_suspected": false
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "answer_supported": false
+  },
+  "attempts": [
+    {
+      "rule": {
+        "name": "elapsed days",
+        "steps": [
+          {
+            "op": "day_difference",
+            "left": {
+              "record_id": "$record",
+              "field": "Opening Date"
+            },
+            "right": {
+              "record_id": "$record",
+              "field": "Closing Date"
+            },
+            "calendar": "proleptic_gregorian",
+            "mode": "inclusive"
+          }
+        ]
+      },
+      "replay": {
+        "schema": "mplpb-training-run-v1",
+        "rule_name": "elapsed days",
+        "rule_sha256": "318fa6fd387796d15f127ddee235a8b232f1b865452ce858de94532739449641",
+        "fixtures_sha256": "c0229f541e508304a9cbc5e589fce0a81a1edbf183e0bafffca2eb4a70f79ecb",
+        "runtime_sha256": "sha256:9b86d5917e0b8018b2de6c084b04183505f64ee96fdb125b3e046ecb854efbdd",
+        "rows": [
+          {
+            "id": "dev-cross-month",
+            "report": {
+              "schema": "mplpb-d6-v1",
+              "answer_supported": true,
+              "compiled": {
+                "operation": "all",
+                "status": "resolved",
+                "why": "Every required step resolved.",
+                "steps": [
+                  {
+                    "operation": "day_difference",
+                    "status": "resolved",
+                    "why": "1904-03-01 minus 1904-02-28 plus one to count both endpoints gives 3 inclusive days in the proleptic Gregorian calendar.",
+                    "value": 3,
+                    "unit": "days",
+                    "calendar": "proleptic_gregorian",
+                    "mode": "inclusive",
+                    "steps": [
+                      {
+                        "operation": "read",
+                        "status": "resolved",
+                        "why": "Opening Date on LOG-1 is declared as '1904-02-28'.",
+                        "value": "1904-02-28",
+                        "evidence": [
+                          1
+                        ]
+                      },
+                      {
+                        "operation": "read",
+                        "status": "resolved",
+                        "why": "Closing Date on LOG-1 is declared as '1904-03-01'.",
+                        "value": "1904-03-01",
+                        "evidence": [
+                          2
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              "evidence": [
+                {
+                  "field": "opening date",
+                  "value": "1904-02-28",
+                  "quote": "Opening Date: 1904-02-28",
+                  "source_id": "TRAINING-SOURCE",
+                  "path": "training-source.html",
+                  "hash": "sha256:7a4c9a9b78272ab6c6dadf229e67c627b626738aa22e1a347d2180e075b399f8",
+                  "body_start": 17,
+                  "body_end": 41,
+                  "start": 17,
+                  "end": 41,
+                  "stacked_field_suspected": false
+                },
+                {
+                  "field": "closing date",
+                  "value": "1904-03-01",
+                  "quote": "Closing Date: 1904-03-01",
+                  "source_id": "TRAINING-SOURCE",
+                  "path": "training-source.html",
+                  "hash": "sha256:7a4c9a9b78272ab6c6dadf229e67c627b626738aa22e1a347d2180e075b399f8",
+                  "body_start": 42,
+                  "body_end": 66,
+                  "start": 42,
+                  "end": 66,
+                  "stacked_field_suspected": false
+                }
+              ],
+              "truth_verified": false
+            }
+          },
+          {
+            "id": "dev-next-day",
+            "report": {
+              "schema": "mplpb-d6-v1",
+              "answer_supported": true,
+              "compiled": {
+                "operation": "all",
+                "status": "resolved",
+                "why": "Every required step resolved.",
+                "steps": [
+                  {
+                    "operation": "day_difference",
+                    "status": "resolved",
+                    "why": "1910-10-03 minus 1910-10-02 plus one to count both endpoints gives 2 inclusive days in the proleptic Gregorian calendar.",
+                    "value": 2,
+                    "unit": "days",
+                    "calendar": "proleptic_gregorian",
+                    "mode": "inclusive",
+                    "steps": [
+                      {
+                        "operation": "read",
+                        "status": "resolved",
+                        "why": "Opening Date on LOG-2 is declared as '1910-10-02'.",
+                        "value": "1910-10-02",
+                        "evidence": [
+                          1
+                        ]
+                      },
+                      {
+                        "operation": "read",
+                        "status": "resolved",
+                        "why": "Closing Date on LOG-2 is declared as '1910-10-03'.",
+                        "value": "1910-10-03",
+                        "evidence": [
+                          2
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              "evidence": [
+                {
+                  "field": "opening date",
+                  "value": "1910-10-02",
+                  "quote": "Opening Date: 1910-10-02",
+                  "source_id": "TRAINING-SOURCE",
+                  "path": "training-source.html",
+                  "hash": "sha256:07504a33a1e761be0d9007414fda697ece8c2a41f74461cc97b4b45401c255b5",
+                  "body_start": 17,
+                  "body_end": 41,
+                  "start": 17,
+                  "end": 41,
+                  "stacked_field_suspected": false
+                },
+                {
+                  "field": "closing date",
+                  "value": "1910-10-03",
+                  "quote": "Closing Date: 1910-10-03",
+                  "source_id": "TRAINING-SOURCE",
+                  "path": "training-source.html",
+                  "hash": "sha256:07504a33a1e761be0d9007414fda697ece8c2a41f74461cc97b4b45401c255b5",
+                  "body_start": 42,
+                  "body_end": 66,
+                  "start": 42,
+                  "end": 66,
+                  "stacked_field_suspected": false
+                }
+              ],
+              "truth_verified": false
+            }
+          },
+          {
+            "id": "holdout-reverse",
+            "report": {
+              "schema": "mplpb-d6-v1",
+              "answer_supported": false,
+              "compiled": {
+                "operation": "all",
+                "status": "unresolved",
+                "why": "At least one required step remains unresolved.",
+                "steps": [
+                  {
+                    "operation": "day_difference",
+                    "status": "unresolved",
+                    "why": "Inclusive counting requires the start date to be on or before the end date.",
+                    "steps": [
+                      {
+                        "operation": "read",
+                        "status": "resolved",
+                        "why": "Opening Date on LOG-3 is declared as '1924-03-02'.",
+                        "value": "1924-03-02",
+                        "evidence": [
+                          1
+                        ]
+                      },
+                      {
+                        "operation": "read",
+                        "status": "resolved",
+                        "why": "Closing Date on LOG-3 is declared as '1924-02-29'.",
+                        "value": "1924-02-29",
+                        "evidence": [
+                          2
+                        ]
+                      }
+                    ],
+                    "calendar": "proleptic_gregorian"
+                  }
+                ]
+              },
+              "evidence": [
+                {
+                  "field": "opening date",
+                  "value": "1924-03-02",
+                  "quote": "Opening Date: 1924-03-02",
+                  "source_id": "TRAINING-SOURCE",
+                  "path": "training-source.html",
+                  "hash": "sha256:46613376c273e36fcdd3190a576d5e26512f1a6f1a35e65eac93f9150f69cf66",
+                  "body_start": 17,
+                  "body_end": 41,
+                  "start": 17,
+                  "end": 41,
+                  "stacked_field_suspected": false
+                },
+                {
+                  "field": "closing date",
+                  "value": "1924-02-29",
+                  "quote": "Closing Date: 1924-02-29",
+                  "source_id": "TRAINING-SOURCE",
+                  "path": "training-source.html",
+                  "hash": "sha256:46613376c273e36fcdd3190a576d5e26512f1a6f1a35e65eac93f9150f69cf66",
+                  "body_start": 42,
+                  "body_end": 66,
+                  "start": 42,
+                  "end": 66,
+                  "stacked_field_suspected": false
+                }
+              ],
+              "truth_verified": false
+            }
+          },
+          {
+            "id": "control-partial-date",
+            "report": {
+              "schema": "mplpb-d6-v1",
+              "answer_supported": false,
+              "compiled": {
+                "operation": "all",
+                "status": "unresolved",
+                "why": "At least one required step remains unresolved.",
+                "steps": [
+                  {
+                    "operation": "day_difference",
+                    "status": "unresolved",
+                    "why": "Calendar arithmetic requires a complete, verified Date field for each date operand.",
+                    "steps": [
+                      {
+                        "operation": "read",
+                        "status": "resolved",
+                        "why": "Opening Date on LOG-4 is declared as '1904'.",
+                        "value": "1904",
+                        "evidence": [
+                          1
+                        ]
+                      },
+                      {
+                        "operation": "read",
+                        "status": "resolved",
+                        "why": "Closing Date on LOG-4 is declared as '1904-03-01'.",
+                        "value": "1904-03-01",
+                        "evidence": [
+                          2
+                        ]
+                      }
+                    ],
+                    "calendar": "proleptic_gregorian"
+                  }
+                ]
+              },
+              "evidence": [
+                {
+                  "field": "opening date",
+                  "value": "1904",
+                  "quote": "Opening Date: 1904",
+                  "source_id": "TRAINING-SOURCE",
+                  "path": "training-source.html",
+                  "hash": "sha256:2e9f84b947e959e12b1d44c8a88ed11f61a09d84a4715eae17d991f21eefcbdf",
+                  "body_start": 17,
+                  "body_end": 35,
+                  "start": 17,
+                  "end": 35,
+                  "stacked_field_suspected": false
+                },
+                {
+                  "field": "closing date",
+                  "value": "1904-03-01",
+                  "quote": "Closing Date: 1904-03-01",
+                  "source_id": "TRAINING-SOURCE",
+                  "path": "training-source.html",
+                  "hash": "sha256:2e9f84b947e959e12b1d44c8a88ed11f61a09d84a4715eae17d991f21eefcbdf",
+                  "body_start": 36,
+                  "body_end": 60,
+                  "start": 36,
+                  "end": 60,
+                  "stacked_field_suspected": false
+                }
+              ],
+              "truth_verified": false
+            }
+          },
+          {
+            "id": "control-missing-field",
+            "report": {
+              "schema": "mplpb-d6-v1",
+              "answer_supported": false,
+              "compiled": {
+                "operation": "all",
+                "status": "unresolved",
+                "why": "At least one required step remains unresolved.",
+                "steps": [
+                  {
+                    "operation": "day_difference",
+                    "status": "unresolved",
+                    "why": "Calendar arithmetic requires a complete, verified Date field for each date operand.",
+                    "steps": [
+                      {
+                        "operation": "read",
+                        "status": "resolved",
+                        "why": "Opening Date on LOG-5 is declared as '1924-02-29'.",
+                        "value": "1924-02-29",
+                        "evidence": [
+                          1
+                        ]
+                      },
+                      {
+                        "operation": "read",
+                        "status": "unresolved",
+                        "why": "Closing Date on LOG-5 did not resolve to one verified field value. The exact eligible record has no explicit body evidence for the requested field.",
+                        "diagnostic": "exact_field_missing"
+                      }
+                    ],
+                    "calendar": "proleptic_gregorian"
+                  }
+                ]
+              },
+              "evidence": [
+                {
+                  "field": "opening date",
+                  "value": "1924-02-29",
+                  "quote": "Opening Date: 1924-02-29",
+                  "source_id": "TRAINING-SOURCE",
+                  "path": "training-source.html",
+                  "hash": "sha256:9f261a6ade1336ed8f5eca1ee1499d6daf417aec63e283c19e5ad76bf99f5967",
+                  "body_start": 17,
+                  "body_end": 41,
+                  "start": 17,
+                  "end": 41,
+                  "stacked_field_suspected": false
+                }
+              ],
+              "truth_verified": false
+            }
+          }
+        ],
+        "run_sha256": "sha256:46a081efb103efaddb7c2b27a233e5e0b6b0892fd8ce559f1152aa94c0a94eb9"
+      },
+      "verdict": {
+        "schema": "mplpb-rule-sprint-v1",
+        "verdict": "candidate_blocked",
+        "seal": {
+          "schema": "mplpb-training-seal-v1",
+          "fixtures_sha256": "c0229f541e508304a9cbc5e589fce0a81a1edbf183e0bafffca2eb4a70f79ecb",
+          "key_sha256": "51433b7a29961058506d374f54711d802cb39b5883c62cd7ee0bd15c4e951d2a"
+        },
+        "baseline_sha256": "sha256:37d5f6902bd5557c046c2a15f61c701062a3e18718e9c802c0a6c2a060e269bd",
+        "candidate_sha256": "sha256:46a081efb103efaddb7c2b27a233e5e0b6b0892fd8ce559f1152aa94c0a94eb9",
+        "candidate_rule_sha256": "318fa6fd387796d15f127ddee235a8b232f1b865452ce858de94532739449641",
+        "recovered": [],
+        "new_regressions": [],
+        "protected_failures": [
+          "holdout-reverse"
+        ],
+        "unexpected_support": [],
+        "cases": [
+          {
+            "id": "dev-cross-month",
+            "partition": "development",
+            "before": "wrong_value",
+            "after": "wrong_value"
+          },
+          {
+            "id": "dev-next-day",
+            "partition": "development",
+            "before": "wrong_value",
+            "after": "wrong_value"
+          },
+          {
+            "id": "holdout-reverse",
+            "partition": "holdout",
+            "before": "wrong_value",
+            "after": "support_withheld"
+          },
+          {
+            "id": "control-partial-date",
+            "partition": "control",
+            "before": "match",
+            "after": "match"
+          },
+          {
+            "id": "control-missing-field",
+            "partition": "control",
+            "before": "match",
+            "after": "match"
+          }
+        ],
+        "answer_supported": false,
+        "promoted": false
+      }
+    }
+  ],
+  "selected_rule": null,
+  "status": "review_needed",
+  "answer_supported": false
+}

@@ -1,0 +1,10 @@
+{
+  "schema": "mplpb-training-fixtures-v1",
+  "cases": [
+    {"id":"dev-cross-month", "record_id":"LOG-1", "body":"Record-ID: LOG-1\nOpening Date: 1904-02-28\nClosing Date: 1904-03-01"},
+    {"id":"dev-next-day", "record_id":"LOG-2", "body":"Record-ID: LOG-2\nOpening Date: 1910-10-02\nClosing Date: 1910-10-03"},
+    {"id":"holdout-reverse", "record_id":"LOG-3", "body":"Record-ID: LOG-3\nOpening Date: 1924-03-02\nClosing Date: 1924-02-29"},
+    {"id":"control-partial-date", "record_id":"LOG-4", "body":"Record-ID: LOG-4\nOpening Date: 1904\nClosing Date: 1904-03-01"},
+    {"id":"control-missing-field", "record_id":"LOG-5", "body":"Record-ID: LOG-5\nOpening Date: 1924-02-29\nPublication Date: 1924-03-01"}
+  ]
+}

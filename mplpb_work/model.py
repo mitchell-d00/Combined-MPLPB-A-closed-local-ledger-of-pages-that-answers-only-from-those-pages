@@ -4,8 +4,8 @@ import math
 import re
 from .errors import WorkError
 
-KINDS = {'task', 'evidence', 'claim', 'attempt', 'decision', 'action', 'review', 'source_note'}
-OPERATIONS = {verb+':'+kind for verb in ('create', 'revise') for kind in KINDS} | {'execute', 'transfer', 'resolve_review', 'search:source_note'}
+KINDS = {'task', 'evidence', 'claim', 'attempt', 'decision', 'action', 'review', 'source_note', 'training_finding', 'rule_sprint'}
+OPERATIONS = {verb+':'+kind for verb in ('create', 'revise') for kind in KINDS} | {'execute', 'transfer', 'resolve_review', 'search:source_note', 'training:run', 'training:tag', 'training:compare', 'training:repair'}
 
 
 def operator_seconds(value):
@@ -16,6 +16,8 @@ ASSESSMENTS = {'proposed', 'supported_under_scope', 'contested', 'withdrawn', 'n
 FIELDS = {
     'task': {'goal', 'criteria', 'review_budget', 'state', 'acceptance'},
     'evidence': {'task', 'corpus', 'source_id', 'source_hash', 'quote', 'query'},
+    'training_finding': {'task', 'family', 'diagnostic', 'cases', 'artifact_sha256', 'baseline_sha256'},
+    'rule_sprint': {'task', 'rule_sha256', 'artifact_sha256', 'baseline_sha256', 'verdict'},
     'source_note': {'task', 'body_start', 'rule', 'keywords', 'comment', 'state'},
     'claim': {'task', 'proposition', 'basis', 'assessment', 'assumptions', 'alternatives', 'revisit_when'},
     'attempt': {'task', 'method', 'result', 'failure', 'retry_when', 'artifact'},
@@ -73,6 +75,18 @@ def validate(kind, payload):
     elif kind == 'evidence':
         for field in ('corpus', 'source_id', 'source_hash', 'quote', 'query'):
             words(payload[field])
+    elif kind in ('training_finding', 'rule_sprint'):
+        if any(not re.fullmatch(r'sha256:[0-9a-f]{64}', words(payload[field], 71))
+               for field in ('artifact_sha256', 'baseline_sha256')):
+            raise WorkError('Training entries need artifact and baseline SHA-256 pins')
+        if kind == 'training_finding':
+            words(payload['family'], 100)
+            if payload['diagnostic'] not in ('wrong_value', 'support_withheld', 'unexpected_support'):
+                raise WorkError('Unknown training diagnostic')
+            strings(payload['cases'], empty=False)
+        elif (payload['verdict'] not in ('candidate_passed', 'candidate_blocked')
+              or not re.fullmatch(r'[0-9a-f]{64}', words(payload['rule_sha256'], 64))):
+            raise WorkError('Rule sprint needs a candidate SHA-256 and verdict')
     elif kind == 'source_note':
         if type(payload['body_start']) is not int or payload['body_start'] < 0:
             raise WorkError('Source note requires a nonnegative body offset')

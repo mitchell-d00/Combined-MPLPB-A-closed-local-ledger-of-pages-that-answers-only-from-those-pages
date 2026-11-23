@@ -8,12 +8,15 @@
       "artifacts": "evaluation/d12",
       "tests": [
         "tests/test_d12.py",
+        "tests/test_training_coordinator.py",
         "tests/test_d12_pattern_sprints.py",
         "tests/test_historical_seams.py",
         "tests/test_d6.py"
       ],
       "runners": [
         "test_tools/d12.py",
+        "test_tools/training_benchmarks.py",
+        "mplpb_work/training.py",
         "test_tools/d12_pattern_sprints.py",
         "test_tools/historical_seams.py",
         "tools/article_study.py",
@@ -21,7 +24,7 @@
         "test_tools/historical_graph_study.py"
       ],
       "scope": "Matched D6 evidence path perturbation and separate source-grounded historical prose trace, with exact citation readback.",
-      "measurement_status": "144/144 generated pairs passed, with zero unexpected completions. The original 22 baseline had 3 full answers, 2 partials, 3 conflicts and 14 abstentions. The historical seam candidate had 4 full, 3 partial, 3 conflicts and 12 abstentions, with 19/19 exact citation readbacks. The nine supplied coordinator excerpts moved from nine abstentions to five full and four partial; 28 matched sprint controls passed. Independent historical truth review was not run."
+      "measurement_status": "144/144 generated pairs passed, with zero unexpected completions. The original 22 baseline had 3 full answers, 2 partials, 3 conflicts and 14 abstentions. The historical seam candidate had 4 full, 3 partial, 3 conflicts and 12 abstentions, with 19/19 exact citation readbacks. The nine supplied coordinator excerpts moved from nine abstentions to five full and four partial; 28 matched sprint controls passed. The training coordinator recovered three authored calendar cases and preserved two refusals. Its benchmark replay retained all 22 native contracts, 15 D20 withholds and six correct Primary Book controls. Independent historical truth review was not run."
     },
     {
       "family": "d6",
