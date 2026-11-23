@@ -1,6 +1,6 @@
 # General answer pipeline — 2.1.0rc1
 
-Last reviewed: 2026-11-18. See [current status and result-to-test index](CURRENT_STATUS.md). Dates and numeric results in historical validation sections retain their original scope; this review is not a rerun or independent certification.
+Last reviewed: 2026-11-23. See [current status and result-to-test index](CURRENT_STATUS.md). Dates and numeric results in earlier validation sections retain their original scope.
 
 Package role: [how this part fits Combined MPLPB](PACKAGE_GUIDE.md#answers-and-inspection). Strict proof, candidate inspection and model-only interpretation retain separate support states.
 
@@ -119,9 +119,12 @@ python -m mplpb_answers ask /path/to/corpus "How should an operator restart safe
 
 Optional flags include `--reviewer-model`, `--reader-digest`, `--reviewer-digest`,
 `--max-passages` and `--max-context-chars` (defaults: 12 passages and 8,000
-characters). A configured model is contacted only
-for an explicitly assisted query that the strict reader cannot already answer.
-A strict body-evidence conflict is not overridden by a model.
+characters). On an explicitly assisted query, a proof found by the shared
+bounded grammar can return before the local reader is contacted. Strict Ask
+also runs documentary verification branches that Assisted Ask skips. A strict
+documentary answer or conflict can therefore differ from the corresponding
+assisted outcome. Assisted assessments keep `answer_supported=false`.
+[Historical mode replay](../evaluation/d12/mode-replay/README.md)
 
 To enable the local web form:
 

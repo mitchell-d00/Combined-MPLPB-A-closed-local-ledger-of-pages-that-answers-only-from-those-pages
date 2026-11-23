@@ -4,32 +4,31 @@ Last reviewed: 2026-11-23.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `0cedff517fcd96e039729df990268c244b3feade` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `4e26e0153a404394ec855ff91725b9d2c777bfe69424a2c498faa96aa4c6c991`.
+Base commit: `fa13b0eb038dbb4079e5f630cb91a090cbd00bc6` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `ed24fd299e730398b3249be8ec83275ec2ba00eeea5982801f9b73ff72842259`.
 
 ## Latest user update instructions
 
-Run it note it test it then push it all to main and merge
+Test on historic 22 and other benches so we can document each mode
 
 ## Implemented scope
 
-- Run and document a deterministic proposal, approval, WorkStore dispatch, and report readback experiment.
-- Carry the previously committed documentary-language rule and installed-wheel demo in the same pull request.
+- Compare Strict Ask, unconfigured Assisted Ask, candidate lookup, investigation, and article assembly on the frozen historical questions.
+- Index the graph, historical follow-up, public 52, D20, Primary Book, and Dice Bag replays with separate scoring criteria.
 
 ## Validation recorded
 
-- The local governance demo wrote a cited report and returned its matching receipt and artifact hash.
-- The governance controls and related local regressions passed all 64 tests.
-- The earlier two-wheel comparison reproduced both wheel hashes and all 40 case responses per revision.
-- The extracted candidate source subset passed all 10 governance controls and reproduced the cited report and matching receipt.
+- The standalone historical replay returned four full answers, three partials, three conflicts, and twelve abstentions. Article assembly preserved all 22 contracts.
+- The Wallace-Darwin letter question returned a strict documentary answer and an unconfigured-assisted abstention.
+- Public evidence passed 52 cases. The frozen D20, book, and Dice Bag replays completed, and 56 focused mode and governance controls passed.
 
 ## Limitations and blocked checks
 
-- The governance experiment uses scripted proposals, one local adapter, and a trusted host with in-memory approval. It has no external effects or independent isolation validation.
+- The historical questions and drafted source anchors are development fixtures. Live model inference and independent historical accuracy were not assessed.
 
 ## Next steps
 
-- Evaluate another operation with a separately reviewed policy and independently verifiable effect.
+- Record the complete matched results and confirm the replay from an extracted archive.
 
 ## Use this ZIP in your repository
 
