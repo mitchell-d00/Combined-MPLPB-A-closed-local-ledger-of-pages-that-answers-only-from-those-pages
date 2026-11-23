@@ -22,7 +22,8 @@ of eight controls passed. Five failed assertions and the lexical inspection
 case found a missing result field. The changed implementation distinguishes
 competing statements from compatible statements in source verification
 metadata. The legacy lookup result still models the question's page owners.
-A named comparison reports two separately sourced values. It does not infer
+The CLI displays competing citations and keeps its legacy answer text empty
+for an ambiguous result. A named comparison reports two separately sourced values. It does not infer
 that the pages refer to the same event.
 
 The historical pilot also exposed a question interpretation error. A request
@@ -31,3 +32,32 @@ draft-comparison rule. A separate control verifies that comparing two proposed
 passages cannot answer a request for published wording. [Comparison tests](../../tests/test_comparison_completion.py)
 
 [Original frozen historical pilot](../d12/solo-post-freeze/README.md)
+
+## Historical regression replay
+
+The candidate `7c478caa70b89da46deb3664f8f9c0d7fd7e0365` ran on the
+same 24 questions and originals from the D12 solo pilot. All three
+discovery outputs matched the original per-case outputs exactly. The
+request for wording in the final communiqué moved from an irrelevant
+local wording comparison to a clean abstention. All five missing-evidence
+questions now withhold without irrelevant text. Strict Ask still completed
+zero of 19 answerable questions. The remaining gap is outside this ownership
+repair. [Candidate scores](d12-score.json) · [Exact changed case](d12-delta.json)
+
+The separate historical 22 replay retained each case's strict status,
+diagnostic, and citation count. The totals remained four full answers,
+three cited partials, three conflicts, and twelve abstentions. Advanced
+preserved the Strict Ask contract on each case. [Historical 22 replay](historical-modes.json)
+
+Reproduce from a clean checkout of the candidate revision. Use new output
+paths and the unchanged D12 input packet.
+
+```sh
+study=evaluation/d12/solo-post-freeze
+out=$(mktemp -d)
+PYTHONPATH=. python "$study/run.py" "$study/inputs" "$out/study" \
+  --commit "$(git rev-parse HEAD)"
+python "$study/score.py" "$study" --raw "$out/study/run.json"
+python -m test_tools.historical_mode_replay --include-advanced \
+  --output "$out/historical-modes.json"
+```

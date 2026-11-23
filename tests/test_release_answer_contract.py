@@ -47,6 +47,12 @@ class ReleaseAnswerContractTests(unittest.TestCase):
             code, result = self._cli('ask', root)
             self.assertEqual((code, result['kind']), (2, 'ambiguous'))
             self.assertFalse(result.get('text'))
+            self.assertEqual({cite['source_id'] for claim in result['answer_contract']['claims']
+                              for cite in claim['citations']}, {'T-0001', 'T-0002'})
+            with contextlib.redirect_stdout(io.StringIO()) as output:
+                self.assertEqual(main(['ask', root, self.QUESTION]), 2)
+            self.assertIn('] The Aster service port is 8123.', output.getvalue())
+            self.assertIn('] The Aster service port is 9123.', output.getvalue())
 
 
 if __name__ == '__main__':

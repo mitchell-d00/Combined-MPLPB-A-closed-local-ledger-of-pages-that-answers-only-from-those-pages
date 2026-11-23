@@ -118,7 +118,7 @@ class QueryResult:
                         reason=self.contract['diagnostic']['message'], citation='', candidates=[])
         if ('collection_filter' in self.contract or self.contract['diagnostic'].get('code') in {
                 'partial_procedure_evidence', 'procedure_selection_needed', 'partial_documentary_evidence',
-                'compound_field_incomplete', 'conflicting_or_multiple_owners'} or self.contract['diagnostic'].get('stage') == 'bounded_records'):
+                'compound_field_incomplete'} or self.contract['diagnostic'].get('stage') == 'bounded_records'):
             data.update(text=self.contract['text'], reason=self.contract['diagnostic']['message'])
         return data
 

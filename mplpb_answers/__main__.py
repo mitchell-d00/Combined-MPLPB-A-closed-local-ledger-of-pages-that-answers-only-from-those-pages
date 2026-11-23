@@ -47,7 +47,8 @@ def cmd_ask(args):
         contract = result.contract
         print(contract['kind'].upper().replace('_', ' '))
         for part in contract['question_parts']:
-            print(part['field'] + ' [' + part['status'] + ']')
+            label = f"{part['record_id']}: {part['field']}" if 'record_id' in part else part['field']
+            print(label + ' [' + part['status'] + ']')
             if part['status'] != 'verified':
                 print(part['diagnostic']['message'])
                 for step in part['diagnostic']['next_steps']:
@@ -60,6 +61,10 @@ def cmd_ask(args):
         print(label+'\n'+(R.render(result.strict, why=args.why) if data['kind'] == result.strict.kind else result.contract['text'] or data['reason']))
         if result.contract['diagnostic']['code'] == 'partial_procedure_evidence':
             print(result.contract['text'])
+        if result.contract['kind'] == 'conflict' and result.contract['claims']:
+            for claim in result.contract['claims']:
+                for citation in claim['citations']:
+                    print('[{source_id} {hash}] {quote}'.format(**citation))
         if result.strict.kind != 'return':
             print('Diagnostic: '+result.contract['diagnostic']['code']+' — '+result.contract['diagnostic']['message'])
         if result.contract['diagnostic'].get('evidence_gap'):

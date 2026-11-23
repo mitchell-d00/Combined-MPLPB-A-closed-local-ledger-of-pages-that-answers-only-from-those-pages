@@ -4,8 +4,8 @@ Last reviewed: 2026-11-23.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `a2abb278032c0d368d78378bf67bcbc6d8865326` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `72a19b5a79868e39835cd7882c4b406e8b7fc2bb5de071d9c28a82d84128a400`.
+Base commit: `7c478caa70b89da46deb3664f8f9c0d7fd7e0365` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `bb269899b27a878d20828d262c58c758597a0000738e14e320f0085e9296880e`.
 
 ## Latest user update instructions
 
@@ -22,14 +22,19 @@ Debug as well as test and fix as you find new breaks and errors
 ## Validation recorded
 
 - Recorded the failing D8 baseline and passed all eight D8 controls and 85 focused tests on the candidate.
+- Replayed the historical 22 and retained each native strict status, diagnostic and citation count.
+- Replayed the same 24 D12 questions. The final-wording request now cleanly withholds. The answerable score remains 0 of 19.
+- The first full suite exposed a legacy CLI text regression and a loopback sandbox restriction. Repaired the legacy contract and passed the focused release contract tests with visible conflict witnesses in the human-readable CLI.
 
 ## Limitations and blocked checks
 
 - Explicit multi-record field comparisons cover source-declared fields. Prose relationships still require a rule and witnesses that establish the relationship.
+- Full ZIP extraction exceeds the local disk budget. The focused source archive is used for local checks.
 
 ## Next steps
 
-- Replay the frozen D12 and historical 22 against the committed candidate and preserve both outcomes.
+- Record the full-suite retry with loopback available.
+- Trace the D12 prose interpretation misses separately, using dual-source notes as retrieval locators with independent proof checks.
 
 ## Use this ZIP in your repository
 
