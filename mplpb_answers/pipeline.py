@@ -439,8 +439,9 @@ def _answer_query(root, question, profile=None, *, mode, reader, min_confidence,
             return finish('abstain', code, 'No eligible body passages are available under this question and profile; corpus absence is not established.', 'eligibility')
         if any(r.fields.get('corrects-field') and r.path in {s['path'] for s in index.gate.sources} for r in index.records) and not exact['field']:
             return finish('abstain','correction_scope_unclear','Name the explicit field before applying a field-scoped correction.','interpretation')
-        if (mode == 'strict' and profile.prose and relation_hops is None and as_of is None
-                and not any(exact[key] for key in ('record_id', 'field', 'exact_value'))):
+        bounded_scope = (mode == 'strict' and profile.prose and relation_hops is None and as_of is None
+                         and not any(exact[key] for key in ('record_id', 'field', 'exact_value')))
+        if bounded_scope:
             from .bounded_records import verify
             scoped = verify(index)
             if scoped is not None:
@@ -466,7 +467,17 @@ def _answer_query(root, question, profile=None, *, mode, reader, min_confidence,
                     'Checked source-attributed assertions only; unresolved question obligations remain explicit and historical truth is unverified.',stage)
             if strict.kind == 'ambiguous':
                 return finish('conflict', 'retrieval_ambiguous', 'Candidate ownership is ambiguous; this does not establish conflicting body evidence.', 'retrieval')
-            code = 'unresolved_evidence' if strict.support.get('unresolved') else 'evidence_not_established' if _known_grammar(question) else 'interpretation_unsupported'
+            known_grammar = _known_grammar(question)
+            unresolved = strict.support.get('unresolved')
+            if bounded_scope and not known_grammar and not unresolved:
+                scoped = verify(index, excerpts=True)
+                if scoped is not None:
+                    kind, code, evidence = scoped
+                    if not index.unchanged():
+                        return finish('abstain', 'source_changed', '', 'bounded_records')
+                    contract.update(evidence)
+                    return finish(kind, code, 'See the cited statements and any unresolved parts.', 'bounded_records')
+            code = 'unresolved_evidence' if unresolved else 'evidence_not_established' if known_grammar else 'interpretation_unsupported'
             gap = 'named_sources_needed' if code == 'interpretation_unsupported' and unnamed_event_question(question) else None
             return finish('abstain', code, 'Eligible passages exist, but the strict reader cannot establish an answer to this question.',
                           'strict', evidence_gap=gap)

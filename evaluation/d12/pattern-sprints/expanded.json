@@ -1,0 +1,38 @@
+{
+  "stage_and_outcome": [
+    {"id":"permission-scope","question":"What authority does this record establish, and what falls outside that scope?","bodies":["The custodian was authorized to copy ward returns; the entry does not say whether the custodian inspected signatures."],"kind":"supported_answer","quote":["authorized to copy ward returns","does not say whether"]},
+    {"id":"no-explicit-scope","question":"What authority does this record establish, and what falls outside that scope?","bodies":["The custodian copied ward returns."],"kind":"abstain"},
+    {"id":"petition-no-resolution","question":"What does this record directly establish, and what remains open?","bodies":["On May 6, 1902, the council received a petition asking for a footbridge; no resolution appears on the surviving page."],"kind":"partial_answer","quote":["received a petition","no resolution"],"missing":"outcome"},
+    {"id":"petition-approved","question":"What does this record directly establish, and what remains open?","bodies":["On May 6, 1902, the council received a petition asking for a footbridge. The council approved the petition."],"kind":"partial_answer","quote":["received a petition","approved the petition"],"missing":"implementation"},
+    {"id":"different-actor","question":"What does this record directly establish, and what remains open?","bodies":["On May 6, 1902, the council received a petition asking for a footbridge. The clerk approved the petition."],"kind":"abstain"},
+    {"id":"draft-with-open-note","question":"Do these pages settle whether the transfer was completed?","bodies":["Transfer of the mill plot was drafted on July 10.","A note asks whether the transfer was finalized or remains pending."],"kind":"partial_answer","quote":["was drafted","remains pending"],"missing":"final status"},
+    {"id":"competing-record","question":"Do these pages settle whether the transfer was completed?","bodies":["Transfer of the mill plot was drafted on July 10.","A note asks whether the transfer was finalized or remains pending.","Transfer of the mill plot was executed on July 12."],"kind":"abstain"},
+    {"id":"one-witness-budget","question":"Do these pages settle whether the transfer was completed?","bodies":["Transfer of the mill plot was drafted on July 10.","A note asks whether the transfer was finalized or remains pending."],"max_passages":1,"kind":"abstain"}
+  ],
+  "inventory_row": [
+    {"id":"one-labeled-row","question":"What values are recorded for this item?","bodies":["Entry 02 | Switch Lantern | Quantity: 4 | Recorded Date: 1931-11-18 | Status: boxed"],"kind":"supported_answer","quote":["Quantity: 4","Status: boxed"]},
+    {"id":"alternate-row-wording","question":"Which fields does the record list for this entry?","bodies":["Lot A-3 | Brass Rule | Length: 30 cm | Location: West case"],"kind":"supported_answer","quote":["Length: 30 cm","Location: West case"]},
+    {"id":"multiple-item-rows","question":"What values are recorded for this item?","bodies":["Lot A-3 | Brass Rule | Length: 30 cm\nLot A-4 | Steel Rule | Length: 40 cm"],"kind":"abstain"},
+    {"id":"duplicate-value","question":"What values are recorded for this item?","bodies":["Lot A-3 | Brass Rule | Length: 30 cm | Length: 40 cm"],"kind":"abstain"},
+    {"id":"unlabeled-cells","question":"What values are recorded for this item?","bodies":["Lot A-3 | Brass Rule | 30 cm | West case"],"kind":"abstain"},
+    {"id":"ambiguous-documents","question":"What values are recorded for this item?","bodies":["Lot A-3 | Brass Rule | Length: 30 cm","A correction says the prior measurement is withdrawn."],"kind":"abstain"}
+  ],
+  "conditions": [
+    {"id":"single-condition","question":"What condition limits the permission in this record?","bodies":["Use of the map case is permitted only on weekdays, provided the attendant is present."],"kind":"supported_answer","quote":["only on weekdays","provided the attendant is present"]},
+    {"id":"negated-permission","question":"What condition limits the permission in this record?","bodies":["Use of the map case is not permitted on weekdays, even if the attendant is present."],"kind":"abstain"},
+    {"id":"unexpected-qualification","question":"What condition limits the permission in this record?","bodies":["Use of the map case is permitted only on weekdays, provided the attendant is present. All access was later suspended."],"kind":"abstain"},
+    {"id":"combined-exception","question":"What permission and exception does the source state?","bodies":["Copies may be issued on request, except that marked volumes may not be copied without approval."],"kind":"supported_answer","quote":["may be issued on request","may not be copied without approval"]},
+    {"id":"exception-to-schedule","question":"What rule holds after accounting for the exception in the record?","bodies":["Loan requests are processed within five working days. Loan requests for map folios are held pending approval, regardless of the five-day schedule."],"kind":"supported_answer","quote":["within five working days","held pending approval"]},
+    {"id":"different-rule-target","question":"What rule holds after accounting for the exception in the record?","bodies":["Loan requests are processed within five working days. Copy requests for map folios are held pending approval, regardless of the five-day schedule."],"kind":"abstain"},
+    {"id":"no-exception","question":"What permission and exception does the source state?","bodies":["Copies may be issued on request."],"kind":"abstain"}
+  ],
+  "causal_boundary": [
+    {"id":"unrecorded-reason","question":"Does this record explain why the delay happened?","bodies":["Departure of the third ferry was delayed until April 2. The log records no reason for the delay."],"kind":"partial_answer","quote":["delayed until April 2","no reason"],"missing":"cause"},
+    {"id":"explicit-reason","question":"Does this record explain why the delay happened?","bodies":["Departure of the third ferry was delayed until April 2 because the dock was blocked."],"kind":"supported_answer","quote":["because the dock was blocked"]},
+    {"id":"different-relationship","question":"Does this record explain why the delay happened?","bodies":["Departure of the third ferry was delayed until April 2. No cause for the injury is recorded in the incident log."],"kind":"abstain"},
+    {"id":"timeline-only","question":"What happened, and do these events establish a causal connection?","bodies":["On May 3 the council moved the bins. On May 4 a pump failed during testing."],"kind":"partial_answer","quote":["the council moved","a pump failed"],"missing":"causal link"},
+    {"id":"explicit-connection","question":"What happened, and do these events establish a causal connection?","bodies":["On May 3 the council closed the bridge. On May 4 the tram service stopped because the council closed the bridge."],"kind":"supported_answer","quote":["because the council closed the bridge"]},
+    {"id":"hedged-connection","question":"Does this record explain why the delay happened?","bodies":["Departure of the third ferry was delayed until April 2 perhaps because the dock was blocked."],"kind":"abstain"},
+    {"id":"future-not-event","question":"What happened, and do these events establish a causal connection?","bodies":["On May 3 the council planned to move the bins. On May 4 a pump might fail during testing."],"kind":"abstain"}
+  ]
+}

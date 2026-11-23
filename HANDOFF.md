@@ -1,34 +1,36 @@
 # Repository handoff
 
-Last reviewed: 2026-11-22.
+Last reviewed: 2026-11-23.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `ef288782109f33b578f188d9d4d4cbca145fda9b` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `5a5fbe7257eec0f368df70827d81872929ece82882504998da28325cca2c0261`.
+Base commit: `273e5ba693142341eefc7a341b87f107544a7978` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `e141adf877bd71529149597ce62adaeda6fdab4d4375e826fa4e2cd433204153`.
 
 ## Latest user update instructions
 
-Write the live experiment with D12 folder and note planed run proposed human pilot
+Run the tests as you patch one pattern and it passes move to next expand the 9 I like your plan and it will work well with a run of error patterns / fix sprints
 
 ## Implemented scope
 
-- Document the proposed D12 live experiment and human pilot with eight frozen historical cases.
-- Provide a reviewer worksheet that separates initial source judgments, native-output review, and adjudication.
-- Link the plan in the D12 guide and Test Index. Document the pending live Dice Bag transfer run.
+- Freeze the original nine coordinator questions, excerpt locators and strict results.
+- Add bounded strict-reader coverage for recorded stage and open outcome, labeled item rows, permission qualifications, and explicit versus unsettled cause.
+- Rerun the unchanged nine between sprints and retain 28 expanded positive and negative controls and their prepatch failures.
 
 ## Validation recorded
 
-- Verified the eight proposed IDs and question wording against the frozen historical 22 inputs and confirmed their 3 discovery, 3 proof, 1 conflict and 1 control strata in the retained D12 traces.
+- Each sprint passed its new matched controls before the next. The final nine ended at five full answers and four cited partial answers, up from nine abstentions.
+- All 28 matched controls and the two extra source-state and quoted-context checks passed. The focused deterministic regression run passed 102 tests.
+- Three newly acquired National Archives transcript excerpts remained abstentions on both revisions. The separate passage probe located all three excerpts.
 
 ## Limitations and blocked checks
 
-- The procedure is a proposal. Reviewers, run dates, independent historical verification, and live transfer results are pending.
+- New rules operate on small, complete source packets with explicitly supported source forms. The exploratory archival results show their present coverage limit.
+- The direct source comparisons use supplied excerpts and authored controls. Independent historical truth review and the proposed human pilot remain pending.
 
 ## Next steps
 
-- Freeze the pilot baseline, distribute the source-only packets to two independent reviewers, and assign a third reviewer to adjudicate.
-- Use the pilot findings to choose a repeated failure mechanism and run held-out historical prose and fresh Dice Bag transfer checks against any candidate repair.
+- Use a sealed reviewer-graded historical corpus to test extraction of qualified clauses out of broader prose while preserving ambiguity and contradiction checks.
 
 ## Use this ZIP in your repository
 

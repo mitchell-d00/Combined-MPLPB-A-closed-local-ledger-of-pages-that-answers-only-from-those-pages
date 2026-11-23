@@ -1,10 +1,10 @@
 # Results and their tests
 
-Last reviewed: 2026-11-22.
+Last reviewed: 2026-11-23.
 
 [Test Index](TEST_INDEX.md) connects the test types to the deterministic training loop.
 [D12](../evaluation/d12/README.md) adds paired error-class probes to D6 and a separate
-trace of the original 22, 40 follow-ups and 12 starter-topic cases.
+trace of the original 22, 40 follow-ups and 12 starter-topic cases. The [pattern fix sprints](../evaluation/d12/pattern-sprints/README.md) retain the unchanged nine-question replay and 28 matched controls.
 
 [D6](../evaluation/d6/README.md) records 90 synthetic checks of six evidence
 operations and a separate replay on 12 frozen Dice Bag records. The native

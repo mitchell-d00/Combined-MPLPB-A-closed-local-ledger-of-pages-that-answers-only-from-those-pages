@@ -1,6 +1,6 @@
 # D12 historical truth and relations
 
-Last reviewed: 2026-11-22.
+Last reviewed: 2026-11-23.
 
 D12 starts with a complete D6 evidence path and varies one input, selector, source state, required link, or budget. It records each control and variant with the expected and observed outcome, the full citation trail, and the first unresolved operation in execution order. A verified negative comparison and a correctly reversed year difference are successful outcomes. The historical arm replays answers and traces observations on frozen source material for review.
 
@@ -38,6 +38,10 @@ Run only the synthetic pairs by omitting the three historical inputs. To include
 ## Use with the other dice tests
 
 D4 supplies examples where identity or co-reference can break a relation. D20 groups repeated owner and alias misses into candidates for a shared rule. D% samples broader prose and refusal behavior. External D100 exercises sorter and workspace behavior. Dice Bag supplies fresh collections for testing transfer. D12 gives a way to isolate one changed obligation on a matched pair. Keep the original fixture, the failing result, the proposed rule and its counterexamples, and the rerun. Compare both missed answers and false support before changing a default rule. [Test Index](../../docs/TEST_INDEX.md)
+
+## Evidence-pattern fix sprints
+
+Four bounded rules now cover staged outcomes, labeled item rows, conditions, and causal boundaries on the nine supplied coordinator excerpts. [Before/after replays and controls](pattern-sprints/README.md)
 
 ## Planned live experiment
 
