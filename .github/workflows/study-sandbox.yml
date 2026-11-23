@@ -38,12 +38,22 @@ jobs:
         if: github.event_name == 'pull_request'
         run: |
           set -euo pipefail
-          study="$RUNNER_TEMP/mplpb-dpercent-smoke"
-          mkdir "$study"
+          study="$(mktemp -d)"
+          reports="$RUNNER_TEMP/mplpb-dpercent-smoke"
+          mkdir "$reports"
           python -m tools.dpercent_weaknesses prepare --out "$study/packets" --custodian "$study/keys" --cases 75 --seed 2026112003 --shard-size 25
-          runner_env=(PATH="$PATH" GIT_CONFIG_COUNT=1 GIT_CONFIG_KEY_0=safe.directory GIT_CONFIG_VALUE_0="$GITHUB_WORKSPACE")
+          runner_env=(GIT_CONFIG_COUNT=1 GIT_CONFIG_KEY_0=safe.directory GIT_CONFIG_VALUE_0="$GITHUB_WORKSPACE")
           run_args=(--packets "$study/packets" --custodian "$study/keys" --output "$study/results" --workers 3)
-          sudo env "${runner_env[@]}" "$(command -v python)" -m tools.dpercent_weakness_batch "${run_args[@]}"
+          if ! sudo env "${runner_env[@]}" "$(command -v python)" -m tools.dpercent_weakness_batch "${run_args[@]}"; then
+            for log in "$study"/results/shard-0001/DP00001/{failure.json,worker.log}; do
+              if test -f "$log"; then head -c 4096 "$log"; fi
+            done
+            if test -f "$study/results/summary.json"; then
+              cp "$study/results/summary.json" "$reports/summary.json"
+            fi
+            exit 1
+          fi
+          cp "$study/results/summary.json" "$reports/summary.json"
           python - "$study/results/summary.json" <<'PY'
           from collections import Counter
           import json
@@ -63,5 +73,5 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: dpercent-75-class-smoke
-          path: ${{ runner.temp }}/mplpb-dpercent-smoke/results/summary.json
+          path: ${{ runner.temp }}/mplpb-dpercent-smoke/summary.json
           if-no-files-found: ignore

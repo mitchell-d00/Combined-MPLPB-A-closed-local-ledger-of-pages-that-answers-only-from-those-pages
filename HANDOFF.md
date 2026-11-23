@@ -4,8 +4,8 @@ Last reviewed: 2026-11-23.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `5a9f453df9db845351b1cb924e9f1ccf20a0f8bf` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `2dbafab5e501d7caeb5b8b70fcb2834e59450f704be414e20fb365af137a4b22`.
+Base commit: `a609706b90f953d666059fbdd34c3090295e4c86` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `3537664f17d86cb5b03a7b7e92686e173fd7f8ac207cf68c86931b6ee9627854`.
 
 ## Latest user update instructions
 
@@ -24,6 +24,7 @@ Fix the workers in % and note failure and patch if you have not already
 - The focused D10 and D% suites passed 32 tests. On this host bubblewrap failed while setting up the UID map for all 75 attempts. The patched driver returned nonzero and reported zero completions.
 - No native answer or sorter implementation changed.
 - The first hosted PR lane rejected stray workflow command arguments before any worker ran. The retry uses Bash arrays for worker arguments and keeps the same isolation.
+- The next hosted attempt reached all 75 launch calls and all failed. The workflow now uses the same temporary-directory location as the isolation probe and reports the first worker failure and stderr if any launch fails.
 
 ## Limitations and blocked checks
 
