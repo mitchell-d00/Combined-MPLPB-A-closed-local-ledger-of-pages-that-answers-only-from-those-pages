@@ -10,7 +10,8 @@
     "The focused D10 and D% suites passed 32 tests. On this host bubblewrap failed while setting up the UID map for all 75 attempts. The patched driver returned nonzero and reported zero completions.",
     "No native answer or sorter implementation changed.",
     "The first hosted PR lane rejected stray workflow command arguments before any worker ran. The retry uses Bash arrays for worker arguments and keeps the same isolation.",
-    "The next hosted attempt reached all 75 launch calls and all failed. The workflow now uses the same temporary-directory location as the isolation probe and reports the first worker failure and stderr if any launch fails."
+    "The next hosted attempt reached all 75 launch calls and all failed. The workflow now uses the same temporary-directory location as the isolation probe and reports the first worker failure and stderr if any launch fails.",
+    "Hosted worker stderr showed permission denied traversing the caller-owned public packet directory. The launcher now stages sealed public bytes and JSON output in executor-owned temporary directories before moving a validated regular result into the retained run."
   ],
   "limitations": [
     "Other D% classes are indexed for planning. A live, topic-aligned ten-source D10 batch and independent semantic validation are still unmeasured."

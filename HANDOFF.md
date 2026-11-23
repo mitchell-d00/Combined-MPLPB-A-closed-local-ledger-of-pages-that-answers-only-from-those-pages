@@ -4,8 +4,8 @@ Last reviewed: 2026-11-23.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `a609706b90f953d666059fbdd34c3090295e4c86` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `3537664f17d86cb5b03a7b7e92686e173fd7f8ac207cf68c86931b6ee9627854`.
+Base commit: `48a55ea00a7ac0d50c95feaebb71a2f52f3dffaf` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `2dd0598581ee9d048996fcc37869f9054fe419c492377de43d6684cb5b72e66d`.
 
 ## Latest user update instructions
 
@@ -25,6 +25,7 @@ Fix the workers in % and note failure and patch if you have not already
 - No native answer or sorter implementation changed.
 - The first hosted PR lane rejected stray workflow command arguments before any worker ran. The retry uses Bash arrays for worker arguments and keeps the same isolation.
 - The next hosted attempt reached all 75 launch calls and all failed. The workflow now uses the same temporary-directory location as the isolation probe and reports the first worker failure and stderr if any launch fails.
+- Hosted worker stderr showed permission denied traversing the caller-owned public packet directory. The launcher now stages sealed public bytes and JSON output in executor-owned temporary directories before moving a validated regular result into the retained run.
 
 ## Limitations and blocked checks
 

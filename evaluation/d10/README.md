@@ -65,6 +65,7 @@ collection are outside this implementation.
 | Mixed capture smoke | 2 correct source-and-quote decisions, 2 altered quotes withheld, 8 unfilled slots, and byte-identical native reports |
 | Mutation controls | Changed source bytes, key changes, and wrong citation offsets were detected |
 | Local frozen D% pass | 75 attempted, zero completed. Bubblewrap failed to create the UID map before the worker ran. The old batch driver exited zero. The patched driver exits nonzero and keeps all attempted failures visible. |
+| Hosted launch diagnosis | The isolation probes passed, then bubblewrap denied traversal of the caller-owned packet directory. The worker launcher now stages verified public inputs and result output under the executor's private directory. The run still requires bubblewrap. |
 
 The PR's [study sandbox workflow](../../.github/workflows/study-sandbox.yml)
 runs one isolated D% case per executable class and retains its aggregate report.
