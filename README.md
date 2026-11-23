@@ -2,6 +2,8 @@
 
 Combined MPLPB is a local evidence and work system with a deterministic, rule-based AI reader. It answers questions from the pages you give it, cites the text that supports an answer, and tells you when the available pages leave a question open. It keeps earlier versions when you revise a page.
 
+Combined MPLPB is also a [research methodology demonstrated through working software](#research-and-development).
+
 [Open the browser app](https://mitchell-d00.github.io/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/) · [Download the small Python package](https://mitchell-d00.github.io/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/downloads/mplpb-native.zip) · [Installation guide](docs/INSTALLATION.md)
 
 See [how the pieces connect](docs/PACKAGE_GUIDE.md) for the paths from raw documents to evidence, conversation, work history, and guarded dispatch, plus the companion projects and tests.
@@ -110,13 +112,21 @@ For each conclusion, identify the code path and distinguish the checks you ran f
 
 ## Research and development
 
-Combined MPLPB is a distinctive, independently developed approach to making AI
-research inspectable and reproducible. The strongest evidence for that
-description is the record we leave when a test fails. We keep the failed run
-and the conditions that produced it alongside the patch and rerun. The D%
-worker study preserves the launch failures and records a hosted rerun that
-completed all 75 cases, including ten cases where the reader still withheld an
-expected answer. [D% failure record and patch](evaluation/d10/README.md) ·
+The methodology is a distinctive, independently developed approach to making
+AI research inspectable and reproducible. It starts with explicit constraints
+on source eligibility, evidence, and refusal. The working ledger, provenance
+checks, deterministic reader, and browser runtime let reviewers inspect how
+those constraints behave in practice. Frozen inputs, test commands, and
+revision-linked results let reviewers reproduce decisions and challenge the
+explanation for a failure. Those findings guide the next rule change or narrow
+what the project can claim. [Package guide](docs/PACKAGE_GUIDE.md) ·
+[Test Index](docs/TEST_INDEX.md)
+
+The strongest evidence for the methodology is the record we leave when a test
+fails. We keep the failed run and the conditions that produced it alongside the
+patch and rerun. The D% worker study preserves the launch failures and records
+a hosted rerun that completed all 75 cases, including ten cases where the reader
+still withheld an expected answer. [D% failure record and patch](evaluation/d10/README.md) ·
 [Hosted rerun](https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/actions/runs/45233203578)
 
 ### Deterministic training loop
