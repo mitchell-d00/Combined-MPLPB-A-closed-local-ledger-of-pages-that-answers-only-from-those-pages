@@ -4,6 +4,20 @@
   "meaning": "Links establish retained test/reproduction coverage, not a fresh execution or certification of historical metrics. Original source, dates, fixtures and exact revisions remain in the linked reports.",
   "families": [
     {
+      "family": "pole",
+      "artifacts": "evaluation/pole",
+      "tests": [
+        "tests/test_pole.py",
+        "tests/test_field_question_forms.py"
+      ],
+      "runners": [
+        "tools/pole.py",
+        "tools/pole_worker.py"
+      ],
+      "scope": "Seeded difficulty levels, exact case pinning, key-separated replay, and structural documentary regressions.",
+      "measurement_status": "The 48-case focus replay recovered 11 full answers and produced two cited conflicts while retaining all 20 expected withholds. The 120-case inherited catalog replay kept all scored outcomes."
+    },
+    {
       "family": "d8",
       "artifacts": "evaluation/d8",
       "tests": ["tests/test_d8_owner_boundaries.py", "tests/test_comparison_completion.py"],

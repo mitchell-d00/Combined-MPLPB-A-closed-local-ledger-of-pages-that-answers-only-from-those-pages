@@ -1,0 +1,37 @@
+{
+  "candidate_commit": "09444878ae4f14d596c79a83d92c338b26e1871a",
+  "candidate_archive_sha256": "86bb38140465d7641e31cc805972a527d7d7c6365b2c2b698bc328071d5cc1d6",
+  "archive_checks": {
+    "archive_integrity_and_handoff": "passed",
+    "documentation_inventory": "passed",
+    "focused_python_tests": 66,
+    "public_evidence_controls_passed": 52,
+    "false_supported_bridges": 0,
+    "retained_focus_comparison_byte_match": true,
+    "historical_22_strict_rows_matching_archived_mode_replay": 22,
+    "scout_graph_passes_matching_standalone_strict_ask": 48,
+    "targeted_cases_generated_and_sealed": 1024,
+    "javascript_ui_crawler_and_bridge_checks": "passed",
+    "actual_pyodide": "passed",
+    "local_chromium_candidate_smoke": "passed"
+  },
+  "python_discovery_restricted": {
+    "tests_run": 1701,
+    "skipped": 2,
+    "errors": 11,
+    "failures": 3,
+    "observed_blocker": "The sandbox denied local socket creation. The researcher journeys depend on the loopback service."
+  },
+  "same_archive_loopback_retry": {
+    "modules": [
+      "tests.test_ledger_ui",
+      "tests.test_local_narrator",
+      "tests.test_local_reader",
+      "tests.test_researcher_pilot",
+      "tests.test_specialist_continuity"
+    ],
+    "tests_run": 94,
+    "errors": 0,
+    "failures": 0
+  }
+}
