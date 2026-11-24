@@ -93,3 +93,8 @@ candidate runs were made against a local working tree with the parser change
 over `e3990bf`. Their working-tree hashes identify the tested code.
 [Packets](packets.tar.gz) · [Development custody](development-custody.tar.gz) ·
 [Raw replays](raw-replays.tar.gz) · [Checksums](evidence.sha256)
+
+The committed source archive matched the retained comparison byte for byte.
+The validation receipt records the historical replays, public controls,
+Pyodide and Chromium checks, and the loopback retry for the full Python suite.
+[Archive validation](validation.json)

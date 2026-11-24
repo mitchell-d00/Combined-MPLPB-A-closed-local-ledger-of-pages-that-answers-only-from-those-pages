@@ -4,8 +4,8 @@ Last reviewed: 2026-11-24.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `e3990bf98ac6fb2e3b991a2eb251347ca571e873` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `fba5c3031723b0f465248703a6416b9e7fa93ca5349d7072070a03e1734d4677`.
+Base commit: `09444878ae4f14d596c79a83d92c338b26e1871a` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `b10ef99bf11668e127248e1bf12f61402c34b9fba0c9b358a46dfcfd5d714e8d`.
 
 ## Latest user update instructions
 
@@ -23,6 +23,8 @@ I think if we start with easy sets on my weak areas and work up to hard sets we 
 - The 120-case inherited catalog replay kept all scores and graph obligations, including 79 expected withholds.
 - The 25-case transfer draw verified five new target answers and replayed a pinned conflict with both cited values.
 - The independently worded regression failed on the baseline and passed after the rule repair.
+- The committed source archive passed 66 focused Python tests, 52 public evidence controls, actual Pyodide, and local Chromium. The historical replay matched all 22 strict rows and all 48 Scout graph passes.
+- The restricted 1,701-test archive run recorded 11 socket errors, three dependent journey failures and two skips. The 94 tests in the affected modules all passed from the same archive with loopback access.
 
 ## Limitations and blocked checks
 
