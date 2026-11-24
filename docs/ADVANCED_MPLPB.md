@@ -58,6 +58,90 @@ protected holdout and returned `review_needed`.
 Assisted evaluation still requires live-model and independent human validation.
 [Historical mode results](../evaluation/d12/mode-replay/README.md)
 
+## Semantic rules and candidate construction
+
+1. **Understand what was asked.** Strict Ask's question parsers recognize
+   named fields, record relationships and a bounded set of documentary
+   question forms. Each recognized intent determines what has to be shown.
+2. **Find the words.** Retrieval and graph hints locate candidate passages
+   in the eligible corpus. The documentary path keeps exact source spans.
+3. **Check what the words prove in context.** The verifier rereads the
+   original spans and checks the requirements of that intent. Two passages
+   about the same topic can still refer to different decisions.
+4. **Build boundaries.** Presentation shows verified claims and remaining
+   gaps. Where enabled, the live graph additionally checks that the flags
+   on the proof path match the active state.
+
+The rule constructor gives a user or AI two ways to draft a candidate.
+For an existing D6 operation, provide a JSON file with one step. Record
+selectors use `$record` so the same step runs on every frozen case.
+
+```sh
+set_dir=evaluation/d12/coordinator
+python -c 'import json,sys; print(json.dumps(json.load(open(sys.argv[1]))["steps"][0]))' \
+  "$set_dir/elapsed-days-rule.json" > /tmp/mplpb-calendar-step.json
+python -m mplpb_work.training construct 'elapsed days' \
+  /tmp/mplpb-calendar-step.json /tmp/mplpb-candidate.json
+mplpb-combined advanced-train "$set_dir/fixtures.json" "$set_dir/key.json" \
+  "$set_dir/baseline-rule.json" /tmp/mplpb-comparison.json \
+  --candidate /tmp/mplpb-candidate.json
+```
+
+For a prose intent that needs a proof rule, supply a question and the
+actors and decision you propose it is about.
+
+```sh
+python -m mplpb_work.training construct-comparison \
+  "How did Neri's recommendation on retaining the pier differ from Lane's?" \
+  Neri Lane 'retaining the pier' /tmp/mplpb-prose-candidate.json
+```
+
+The prose draft records the documentary parser's current route
+(`wording_comparison` in this example), the proposed intent, evidence
+obligations for both actors and controls for a future proof rule. It
+requires two independently attributable recommendations tied to the same
+decision and preserves each recommendation's stated conditions. The draft
+has status `review_needed`. Giving it a native proof path requires an
+implemented verifier and a replay on frozen positive and refusal cases.
+The Python APIs are `mplpb_work.training.construct_rule` and
+`mplpb_work.training.construct_comparison`. Both produce candidate
+artifacts for review. Strict Ask continues to use its installed rules.
+
+### Spot previews an uploaded corpus
+
+Spot takes a UTF-8 text dump containing blank-line-separated records.
+Each starts with a `Record-ID:` line followed by labelled fields.
+
+```text
+Record-ID: REGISTER-1
+Closing Date: 1936-03-04
+
+Record-ID: REGISTER-2
+Opening Date: 1937-03-04
+```
+
+```sh
+python -m mplpb_work.training spot dump.txt /tmp/mplpb-spot-ledger /tmp/mplpb-spot-report.json
+python -m mplpb_answers ask /tmp/mplpb-spot-ledger 'What is the closing date for record REGISTER-1?' --json
+```
+
+Spot builds a new local ledger, drafts exact-field rules, and ranks them
+by complete answers. The JSON report carries the upload hash, candidate
+rules, strict decisions, and exact citations. Each answer is checked
+against the whole preview ledger, so competing owners stop and missing
+fields remain unresolved. The same field rule can be discovered on the
+next dump and verifies the values against that dump's own pages.
+
+The first pass uses an isolated ledger and has status `unapproved_preview`.
+It can show corpus-supported answers immediately. Persisting an answer
+and its proof path in your main MPLPB collection is a separate decision.
+Spot creates up to 32 preview pages and evaluates up to 12 field
+candidates per upload. It currently accepts labelled text records.
+
+For development replays, `construct-corpus` takes the coordinator's
+`mplpb-training-fixtures-v1` packet and ranks proposed rules on isolated
+individual cases. Use Spot to check competing ownership in one upload.
+
 
 ## Live experience graph and strict flag matching
 
