@@ -4,8 +4,8 @@ Last reviewed: 2026-11-24.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `5ffdca2d9e7c7bc6048b9bfb9f1a0caf36835426` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `158bd8d47e7da2fa05d219b5f0be5432feaa975936e9e665fc3cadd37fd24a07`.
+Base commit: `b1200a4fb533c5fe07130614b3e0bcbacfc284ff` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `265ecb1f545bdad92e96426e78a35ba384f67cec5cf21d5402a47ef30c613cc8`.
 
 ## Latest user update instructions
 
@@ -76,6 +76,7 @@ Immediate next tests
 - Douglass recovered 6/12 authenticated question variants from miss to complete. Original synthetic focus and related controls were unchanged.
 - Babbage retained two distinct occurrences in eight slots and withheld under both eligibility controls and both proof budgets.
 - Verified 22 paired questions, 44 anonymous arms, and one matching concealed crosswalk outside the reviewer archive.
+- The extracted archive matched all retained candidate test decisions, passed 52 public evidence controls, Pyodide and Chromium, and ran 1,720 Python tests with 2 skips.
 
 ## Limitations and blocked checks
 

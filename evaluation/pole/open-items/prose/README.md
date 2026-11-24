@@ -117,3 +117,25 @@ local development evidence. Verify the archives from the repository root
 with `sha256sum -c evaluation/pole/open-items/prose/evidence.sha256`.
 [Operator packets](frozen-operator-packets.tar.gz) ·
 [Raw readbacks](native-receipts.tar.gz) · [Comparison receipt](matched-summary.json)
+
+## Replay
+
+Extract the frozen operator archive to a new directory. `PACKET` is its
+Tacitus or Douglass subdirectory. `CHECKOUT` is a source tree at the desired
+runtime pin. `CUSTODY` contains the separately held key and typed reference
+for the selected packet. Use a fresh output path for each invocation.
+
+```sh
+python -I -B tools/pole_authentic.py run --packet PACKET --implementation CHECKOUT --output NEW_NATIVE.json
+python -m tools.pole_prose_cycle score --packet PACKET --custody CUSTODY --receipt NEW_NATIVE.json --output NEW_SCORE.json
+python -m tools.pole_prose_cycle douglass-sorter --packet DOUGLASS_PACKET --implementation CHECKOUT --output NEW_SORTER.json
+python -m tools.pole_prose_cycle babbage --packet BABBAGE_PACKET --implementation CHECKOUT --output NEW_CAPS.json
+```
+
+The original authored typed references are stored only in separate local
+custody. Regeneration with those references reproduced both authentic packet
+seals byte for byte. Komnene-Outside has no local scoring command in this cycle.
+
+The extracted candidate matched all three retained candidate replays, passed
+52 public evidence controls, Pyodide, and Chromium, and ran 1,720 Python tests
+with 2 skips. [Source pin and archive hash](validation.json)
