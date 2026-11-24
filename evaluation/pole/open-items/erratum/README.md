@@ -8,7 +8,7 @@ Baseline `7b91951ec3aa2bf12f4c3fea34b91f1b2fae4d46`. Freeze the
 packets and budgets. Expected outcomes and the typed reference stayed outside the
 worker. Raw receipts record `os_isolated: false` and no passed custody path.
 The candidate readback identifies the in-progress engine by file hashes; its
-checkout HEAD was still the baseline during the first comparison. All citations
+checkout HEAD was still the baseline during the first comparison and the initial candidate during the revised comparison. All citations
 use exact body-projection offsets and ledger path plus SHA-256. The operator
 packets preserve original bytes and their SHA-256 identities.
 
@@ -45,7 +45,13 @@ declared earlier version and a strictly later correction version. A positive
 proof needs an unambiguous withdrawal, an explicit unchanged-scores sentence,
 and a complete verification-limited sentence containing the exact disputed
 wording. Quoted or qualified scope, duplicate matches, ineligible sources,
-changed bytes, or a budget hit prevent completion. Repository capture
+changed bytes, or a budget hit prevent completion. Two authored Markdown
+scope controls rejected the first candidate after it accepted example text.
+The accepted candidate withholds in hypothetical or sample Markdown sections,
+including Setext headings, and completes again after a published sibling section
+restores scope. [Rejected attempt and controls](receipts/bt-erratum-markdown-scope-controls.json)
+
+Repository capture
 declarations bind the local proof; native support does not independently audit
 the private execution or recompute scores. The prior frozen BT-01 projections
 without capture manifests remain withheld on replay.
@@ -115,8 +121,7 @@ python -m tools.pole_prose_cycle douglass-sorter --packet DOUGLASS --implementat
 ```
 
 [Native readbacks](native-readbacks.tar.gz) · [Matched outcomes](receipts/matched-summary.json) ·
-[Evidence checksums](evidence.sha256). The readbacks also retain the initial
-candidate and a failing baseline regression with independently worded sources.
+[Evidence checksums](evidence.sha256). The readbacks also retain the initial candidate and a failing baseline regression with independently worded sources.
 All previously complete Tacitus, Herodotus-DHS and Douglass cases retained
 their claims and exact witnesses. Independent historical accuracy and native
 OOCC remain **NOT_RUN**.

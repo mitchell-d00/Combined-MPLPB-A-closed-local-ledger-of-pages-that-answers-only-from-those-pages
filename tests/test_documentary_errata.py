@@ -62,3 +62,15 @@ class ErratumTests(unittest.TestCase):
             self.ask(question=QUESTION.removesuffix('?') + ', and who actually ran the tracer?'),
         ):
             self.assertFalse(answer['answer_supported'])
+
+    def test_withholds_in_qualified_markdown_sections(self):
+        notice = ERRATUM.replace('Version 3.7 mistakenly',
+                                 '## Hypothetical example\nIllustrative wording follows.\nVersion 3.7 mistakenly')
+        old = EARLIER.replace('The archive does not',
+                              '## Sample wording\nIllustrative wording follows.\nThe archive does not')
+        self.assertFalse(self.ask(erratum=notice)['answer_supported'])
+        self.assertFalse(self.ask(old=old)['answer_supported'])
+        setext = old.replace('## Sample wording', 'Sample wording\n--------------')
+        self.assertFalse(self.ask(old=setext)['answer_supported'])
+        cleared = notice.replace('Version 3.7 mistakenly', '## Published correction\nThe notice follows.\nVersion 3.7 mistakenly')
+        self.assertTrue(self.ask(erratum=cleared)['answer_supported'])

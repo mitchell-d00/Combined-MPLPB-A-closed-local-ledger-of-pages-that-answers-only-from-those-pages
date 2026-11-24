@@ -13,6 +13,11 @@ _QUESTION = (r"According to the (?P<repo>[A-Za-z0-9][A-Za-z0-9-]{0,99}) erratum,
 _COORDINATE = re.compile(r'/([\w.-]+)/([\w.-]+)/([a-f0-9]{40})/([\w./-]+\.md)', re.ASCII)
 _HASH = re.compile(r'[a-f0-9]{64}')
 _HEADING = re.compile(r'^# (?P<title>[^\n#]{1,180})$')
+_MARKDOWN_HEADING = re.compile(
+    r'^[ \t]{0,3}(?:(?P<level>#{1,6})[ \t]+(?P<atx>[^\n]+)|'
+    r'(?P<setext>[^#>\n][^\n]*)\n[ \t]{0,3}(?P<underline>=+|-+)[ \t]*)$', re.M)
+_QUALIFIED_HEADING = re.compile(
+    r'\b(?:hypothetical|conditional|sample|examples?|scenarios?|proposed|quotations?|quoted|mock)\b', re.I)
 _CORRECTION_HEADING = re.compile(r'(?P<title>.+?) [—–] [^\n]{1,80} attribution correction', re.I)
 _VERSION = r'[0-9]{1,6}(?:\.[0-9]{1,6}){1,3}'
 _RELEASE = re.compile(rf'\bCorrected in version (?P<version>{_VERSION})\.', re.I)
@@ -81,10 +86,23 @@ def _unique(pattern, text):
     return matches[0] if len(matches) == 1 else None
 
 
+def _markdown_scope(body, start):
+    headings = {}
+    for heading in _MARKDOWN_HEADING.finditer(body, 0, start):
+        level = len(heading['level']) if heading['level'] else 1 + heading['underline'].startswith('-')
+        headings = {depth: title for depth, title in headings.items() if depth < level}
+        headings[level] = heading['atx'] or heading['setext']
+    return headings.values()
+
+
 def _unqualified(capture, matches):
     ranges = context_ranges(capture.record, document_draft=True)
-    return all(not any(start < match.end() and match.start() < end for start, end in ranges)
-               for match in matches)
+    for match in matches:
+        if any(start < match.end() and match.start() < end for start, end in ranges):
+            return False
+        if any(_QUALIFIED_HEADING.search(title) for title in _markdown_scope(capture.body, match.start())):
+            return False
+    return not _QUALIFIED_HEADING.search(capture.title['title'])
 
 
 def _version_number(value):

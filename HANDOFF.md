@@ -4,8 +4,8 @@ Last reviewed: 2026-11-24.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `7b91951ec3aa2bf12f4c3fea34b91f1b2fae4d46` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `ca5523ceb757dbed6a27edb276ef8aefd9b45a94036ef8c940737f4315dde912`.
+Base commit: `496b4bed53fef8c5b7b5fbe14230919a62c7f02e` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `ddb8cc800d4e812e839e442746f585d5ebcf07c78c52918489a31fd7f7e7a520`.
 
 ## Latest user update instructions
 
@@ -62,6 +62,7 @@ Return the four result tables, any new rule text, the updated open-item list, th
 ## Validation recorded
 
 - BT-Erratum recovered 1/1 complete without a discovery change. All five controls withheld and no false-supported bridge occurred.
+- The first candidate incorrectly supported two authored Markdown scope controls. The accepted candidate withholds on those controls and the Setext variant and preserves the frozen authentic results.
 - Polybius-Prose preserved 0/10 complete, one partial, nine misses, 7/10 native discovery anchor coverage, and 10/10 expected withholds.
 - Scan-Phrase retained two records at the eight-slot cap and reproduced the character, unit, phrase-token and phrase-group diagnostics.
 - Komnene-Hold matched all 22 packet hashes across 44 anonymous arms. The delivery archive was byte-identical.
