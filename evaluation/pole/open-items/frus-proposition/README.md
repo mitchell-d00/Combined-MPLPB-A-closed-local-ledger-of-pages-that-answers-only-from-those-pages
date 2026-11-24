@@ -67,3 +67,5 @@ The prior artifacts and runtime modules remain byte-identical. Focus-12
 and the existing scan and phrase limits remain open under their previous
 accounting. Outside scoring, independent historical accuracy, independent
 semantic adjudication and native OOCC remain **NOT_RUN**.
+
+[Exact source archive validation](validation.json)

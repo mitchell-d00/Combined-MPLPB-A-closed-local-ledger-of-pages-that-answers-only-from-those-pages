@@ -4,8 +4,8 @@ Last reviewed: 2026-11-24.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `623f3c4abb38499020df193b037d303d3a329a7f` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `4f792a365465beae4afe60ffd6d990bc7c09f544b1a77cb802188f3498d46347`.
+Base commit: `8c5b909389bb61e8a91e56bb7ce692fee24d2439` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `3c7e988f63600afe42e9215ae4b6459461732b885dc54f9abf42448cf9be7262`.
 
 ## Latest user update instructions
 
@@ -47,6 +47,8 @@ Return the result table for FRUS-Proposition, the rule text, the updated open-it
 - All 16 exact-unit proposals were rejected by the current checker. Four source rereads completed without a cap hit. Existing extraction emitted no letter-instruction proposal for PE-02.
 - The initial assessor invocation misspelled the existing propose entry point and failed before scoring. The corrected invocation completed with the same frozen inputs and rule.
 - The native runtime and prior named evidence files match the pin. No false-supported bridge occurred.
+- The exact extracted source reproduced all eight decisions and 16 kernel rejections, ran 1,727 Python tests with 2 skips, and passed the 52 public evidence controls, wheel, JavaScript, Pyodide and Chromium checks.
+- A source-only Strict Ask worker reproduced the original receipt. Its OS isolation flag remained false and it received no custody path.
 
 ## Limitations and blocked checks
 
