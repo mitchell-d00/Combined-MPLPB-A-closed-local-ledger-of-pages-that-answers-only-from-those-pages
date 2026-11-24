@@ -69,6 +69,15 @@ class ComparisonCompletionTests(unittest.TestCase):
         self.pair();q="How does the first rule statement in Iris Vale's rough draft differ from the Harbor Charter transcript? What wording is shared?"
         self.assertTrue(answer_query(self.root,q).contract['answer_supported'])
 
+    def test_request_for_actual_published_wording_does_not_compare_drafts(self):
+        for ident, text in (
+                ('A', 'We discussed possible inclusion of the harbor access condition in the circular. We propose that access require a pass.'),
+                ('B', 'We discussed possible inclusion of the harbor access condition in the circular. We propose that access require advance notice.')):
+            self.record(ident, 'Planning memorandum.', text)
+        result = answer_query(self.root, 'What wording for the harbor access condition actually appeared in the final circular?').contract
+        self.assertFalse(result['answer_supported'])
+        self.assertEqual(result['claims'], [])
+
     def test_qualified_framing_is_not_an_identity_witness(self):
         self.record('DRAFT',"(This is perhaps a reconstruction of Iris Vale's \"original Rough draught\" of the Harbor Charter before it was revised by the council.)",'We hold these rules to be fair and binding.')
         self.record('TRANSCRIPT','Note: The following text is a transcription of the copper engraving of the parchment Harbor Charter.','We hold these rules to be clear and binding.')

@@ -4,35 +4,38 @@ Last reviewed: 2026-11-23.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `c80e546ef6d04296a1c136e9fc4933057d79d071` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `9b359fad6c1ba8155249b95faf642b23f890549f1c2b2d80175f940c720de970`.
+Base commit: `970abb919c4490d998d30ea117e610c2976e2f57` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `69c9a3ee27f43dee75316ebaee29e2a844e2409f41963f83f332da8619e63222`.
 
 ## Latest user update instructions
 
-Do it
+Run it until you fix the pass offs it is a break in logic in chain the unit is a whole strict mode is strict but keeping the rule one owner two should not be a skip it should be preventing boundries of both and none is refuse how it seems is refuse unless one owner
+
+Develop D8 to solve it
+
+Debug as well as test and fix as you find new breaks and errors
 
 ## Implemented scope
 
-- Run a D12 solo post-freeze pilot on six randomly drawn linked FRUS source pairs and 24 natural questions.
-- Retain the engine pin, source and key seals, original XML fragments, raw mode outputs, and scripts for replay.
-- Index the run and keep passage discovery, source labels, and strict proof results distinct.
+- Build eight D8 ownership handoff controls and repair missing competing witnesses, independent named record comparisons, and unsupported published-wording routing.
 
 ## Validation recorded
 
-- Verified 12 exact source fragments against the pinned volume downloads and sealed the key before native execution.
-- Replayed the same engine and packet. Scores, strict contracts, passage results, and sorter graphs matched exactly. Only WorkStore receipt IDs differed.
-- Passed the documentation inventory audit, artifact digest checks, and 21 focused D12, Advanced, source-notes, and historical-seam tests.
+- Recorded the failing D8 baseline and passed all eight D8 controls and 85 focused tests on the candidate.
+- Replayed the historical 22 and retained each native strict status, diagnostic and citation count.
+- Replayed the same 24 D12 questions. The final-wording request now cleanly withholds. The answerable score remains 0 of 19.
+- The first full suite exposed a legacy CLI text regression and a loopback sandbox restriction. Repaired the legacy contract and passed the focused release contract tests with visible conflict witnesses in the human-readable CLI.
+- Passed 87 checks from the focused committed source ZIP.
+- The frozen native suite reported OK across 1,680 tests with two skips. The command wrapper returned exit 1 despite the successful unittest footer; the retained retry log records the discrepancy.
 
 ## Limitations and blocked checks
 
-- This is a post-freeze solo evaluation with one operator and no independent human review.
-- The sample consists of paired English diplomatic records. No WorkStore notes or configured local model were loaded into the evaluation.
-- The full repository ZIP is too large to extract locally with the available disk space.
+- Explicit multi-record field comparisons cover source-declared fields. Prose relationships still require a rule and witnesses that establish the relationship.
+- Full ZIP extraction exceeds the local disk budget. The focused source archive is used for local checks.
 
 ## Next steps
 
-- Keep this first result fixed. Compare notes on and off for passage discovery, then trace matched passages to proof admission.
-- Use another post-freeze draw to measure transfer after any change, and seek cold reviews of one packet at a time.
+- Trace the D12 prose interpretation misses separately, using dual-source notes as retrieval locators with independent proof checks.
 
 ## Use this ZIP in your repository
 

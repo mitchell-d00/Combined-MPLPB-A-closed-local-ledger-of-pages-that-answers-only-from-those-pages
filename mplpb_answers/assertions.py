@@ -46,10 +46,14 @@ def conflicts(checks):
     key = lambda a: (a['subject'], a['relation'], a['value'], a['qualification'])
     positive = {key(a) for a in assertions if a['polarity'] == 'positive'}
     negative = {key(a) for a in assertions if a['polarity'] == 'negative'}
+    scoped_values = {}
+    for subject, relation, value, qualification in positive:
+        scoped_values.setdefault((subject, relation, qualification), set()).add(value)
     supported = [c for _, c in checks if c['status'] == 'supported']
     values = {s['value'] for c in supported for s in c['spans']}
     legacy_negative = {v for _, c in checks for v in c.get('negative_values', [])
                        if not c.get('negative_spans')}
     return (any(c['status'] == 'conflict' for _, c in checks)
+            or any(len(candidates) > 1 for candidates in scoped_values.values())
             or bool(positive & negative) or bool(values & legacy_negative)
             or (bool(supported) and any(c.get('policy_denial') for _, c in checks)))

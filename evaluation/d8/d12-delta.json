@@ -1,0 +1,210 @@
+{
+  "baseline_engine": "c80e546ef6d04296a1c136e9fc4933057d79d071",
+  "candidate_engine": "7c478caa70b89da46deb3664f8f9c0d7fd7e0365",
+  "questions_sha256": "2a0825bab08285379e9c506da8613ae10d9d12fc4705bf10f2a1ab88e17ef897",
+  "source_manifest_sha256": "d5fd59701ffdac604808fc6d594cf6f4fd4a7ce4415862c59c025f6e303ed138",
+  "discovery_matches_exactly": true,
+  "case_changes": [
+    {
+      "case": "P02-4",
+      "question": "What wording for indirect aggression actually appeared in the final communiqué?",
+      "before": {
+        "kind": "partial_answer",
+        "answer_supported": false,
+        "claims": [
+          {
+            "text": "Exact comparison of the two cited units. Source A: “2019.”; source B: “1510.”. Shared wording: “For”. Source A: “Asst Secy Parsons”; source B: “Ambassador”. Shared wording: “from”. Source A: “MacArthur. Communiqué. Deptel 1510. I had a long and good meeting with Fujiyama yesterday and was also in touch with Kishi re”; source B: “Parsons. Embtels 1976, 1979, 1982. Entirely appreciate Kishi’s desire for”. Shared wording: “possible inclusion in communiqué of references to consultation formula, Article III”. Source A: “islands”; source B: “Islands”. Shared wording: “and indirect aggression.”. Source A: “I let them know”; source B: “We seeking agreement here to this step. However, there is”. Shared wording: “very”. Source A: “frankly I thought”; source B: “strong preference here as set forth Deptel 1496 to avoid inclusion in communique of any specific provisions relating to treaty arrangements. Even if above three matters not included in communiqué”. Shared wording: “they”. Further differences and shared text are retained in the complete structured alignment.",
+            "qualifiers": [
+              "Only the complete cited wording is checked; historical truth and event/person identity are not independently verified.",
+              "No version order, correction, motive, responsible person or whole-document absence is established by this local comparison."
+            ],
+            "citations": [
+              {
+                "source_id": "P02-A",
+                "path": "p02-a.html",
+                "hash": "sha256:ee87630849e011d14ef96606c6eafb0fe682ceeaebca81d8a7be06c4b19bdc5b",
+                "body_start": 100,
+                "body_end": 582,
+                "start": 100,
+                "end": 582,
+                "quote": "2019. For Asst Secy Parsons from MacArthur. Communiqué. Deptel 1510. I had a long and good meeting with Fujiyama yesterday and was also in touch with Kishi re possible inclusion in communiqué of references to consultation formula, Article III islands and indirect aggression. I let them know very frankly I thought they would be creating problems which would not be conducive to best atmosphere for their visit to Washington, if they insisted on inclusion these items in communique.",
+                "body_projection": "body-text-no-headings-v1"
+              },
+              {
+                "source_id": "P02-B",
+                "path": "p02-b.html",
+                "hash": "sha256:ecd8afbf8db265a8f1a3f4330f6536d59a77dc8ac8f758fc4b5891aa5d529eae",
+                "body_start": 108,
+                "body_end": 852,
+                "start": 108,
+                "end": 852,
+                "quote": "1510. For Ambassador from Parsons. Embtels 1976, 1979, 1982. Entirely appreciate Kishi’s desire for possible inclusion in communiqué of references to consultation formula, Article III Islands and indirect aggression. We seeking agreement here to this step. However, there is very strong preference here as set forth Deptel 1496 to avoid inclusion in communique of any specific provisions relating to treaty arrangements. Even if above three matters not included in communiqué they will become public at time treaty signing and we foresee that treaty and related arrangements will have equal if not greater publicity than communique. Furthermore agreed minutes will have greater status as formally signed government arrangements than communiqué.",
+                "body_projection": "body-text-no-headings-v1"
+              }
+            ],
+            "proposition": {
+              "relation": "exact_wording_comparison",
+              "alignment": [
+                {
+                  "operation": "replace",
+                  "left_text": "2019.",
+                  "right_text": "1510.",
+                  "left_relative_start": 0,
+                  "right_relative_start": 0
+                },
+                {
+                  "operation": "equal",
+                  "left_text": "For",
+                  "right_text": "For",
+                  "left_relative_start": 6,
+                  "right_relative_start": 6
+                },
+                {
+                  "operation": "replace",
+                  "left_text": "Asst Secy Parsons",
+                  "right_text": "Ambassador",
+                  "left_relative_start": 10,
+                  "right_relative_start": 10
+                },
+                {
+                  "operation": "equal",
+                  "left_text": "from",
+                  "right_text": "from",
+                  "left_relative_start": 28,
+                  "right_relative_start": 21
+                },
+                {
+                  "operation": "replace",
+                  "left_text": "MacArthur. Communiqué. Deptel 1510. I had a long and good meeting with Fujiyama yesterday and was also in touch with Kishi re",
+                  "right_text": "Parsons. Embtels 1976, 1979, 1982. Entirely appreciate Kishi’s desire for",
+                  "left_relative_start": 33,
+                  "right_relative_start": 26
+                },
+                {
+                  "operation": "equal",
+                  "left_text": "possible inclusion in communiqué of references to consultation formula, Article III",
+                  "right_text": "possible inclusion in communiqué of references to consultation formula, Article III",
+                  "left_relative_start": 159,
+                  "right_relative_start": 100
+                },
+                {
+                  "operation": "replace",
+                  "left_text": "islands",
+                  "right_text": "Islands",
+                  "left_relative_start": 243,
+                  "right_relative_start": 184
+                },
+                {
+                  "operation": "equal",
+                  "left_text": "and indirect aggression.",
+                  "right_text": "and indirect aggression.",
+                  "left_relative_start": 251,
+                  "right_relative_start": 192
+                },
+                {
+                  "operation": "replace",
+                  "left_text": "I let them know",
+                  "right_text": "We seeking agreement here to this step. However, there is",
+                  "left_relative_start": 276,
+                  "right_relative_start": 217
+                },
+                {
+                  "operation": "equal",
+                  "left_text": "very",
+                  "right_text": "very",
+                  "left_relative_start": 292,
+                  "right_relative_start": 275
+                },
+                {
+                  "operation": "replace",
+                  "left_text": "frankly I thought",
+                  "right_text": "strong preference here as set forth Deptel 1496 to avoid inclusion in communique of any specific provisions relating to treaty arrangements. Even if above three matters not included in communiqué",
+                  "left_relative_start": 297,
+                  "right_relative_start": 280
+                },
+                {
+                  "operation": "equal",
+                  "left_text": "they",
+                  "right_text": "they",
+                  "left_relative_start": 315,
+                  "right_relative_start": 476
+                },
+                {
+                  "operation": "replace",
+                  "left_text": "would be creating problems which would",
+                  "right_text": "will become public at time treaty signing and we foresee that treaty and related arrangements will have equal if",
+                  "left_relative_start": 320,
+                  "right_relative_start": 481
+                },
+                {
+                  "operation": "equal",
+                  "left_text": "not",
+                  "right_text": "not",
+                  "left_relative_start": 359,
+                  "right_relative_start": 594
+                },
+                {
+                  "operation": "replace",
+                  "left_text": "be conducive to best atmosphere for their visit to Washington, if they insisted on inclusion these items in",
+                  "right_text": "greater publicity than",
+                  "left_relative_start": 363,
+                  "right_relative_start": 598
+                },
+                {
+                  "operation": "equal",
+                  "left_text": "communique.",
+                  "right_text": "communique.",
+                  "left_relative_start": 471,
+                  "right_relative_start": 621
+                },
+                {
+                  "operation": "insert",
+                  "left_text": "",
+                  "right_text": "Furthermore agreed minutes will have greater status as formally signed government arrangements than communiqué.",
+                  "left_relative_start": 482,
+                  "right_relative_start": 633
+                }
+              ],
+              "comparison_scope": "two complete cited source units only",
+              "whole_document_absence_established": false,
+              "correction_relationship_established": false,
+              "version_order_established": false,
+              "event_identity": null,
+              "historical_truth_independently_verified": false
+            },
+            "source_support_established": true,
+            "support_scope": "source_attributed_assertion",
+            "verification": "documentary-assertion-kernel-v11",
+            "historical_truth_independently_verified": false,
+            "proof_sha256": "sha256:b982724d1f8febccc75e1f757791f3d6ff2f308717c5acbcb5e39076d3e00b65"
+          }
+        ],
+        "diagnostic": {
+          "code": "partial_documentary_evidence",
+          "stage": "documentary_verification",
+          "message": "Checked source-attributed assertions only; unresolved question obligations remain explicit and historical truth is unverified.",
+          "category": "insufficient_evidence",
+          "corpus_answerability": "not_established",
+          "next_steps": [
+            "Review the diagnostic and source evidence before retrying."
+          ]
+        }
+      },
+      "after": {
+        "kind": "abstain",
+        "answer_supported": false,
+        "claims": [],
+        "diagnostic": {
+          "code": "interpretation_unsupported",
+          "stage": "strict",
+          "message": "Eligible passages exist, but the strict reader cannot establish an answer to this question.",
+          "category": "unsupported_question_grammar",
+          "corpus_answerability": "not_established",
+          "next_steps": [
+            "Inspect the relevant source. Try a supported question form or explicitly select a configured assisted reader; do not treat this refusal as proof that the answer is absent."
+          ]
+        }
+      }
+    }
+  ]
+}

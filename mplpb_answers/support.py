@@ -159,7 +159,7 @@ def supported_answer(root, question, profile=None):
         # Candidate diagnostics stay in answer_support.candidate_checks.
         # Unrelated pages with zero matched answer spans are not answer owners.
         out.candidates = []
-        out.support['candidate_checks'] = [dict(id=rec.id, hash=rec.hash,
+        out.support['candidate_checks'] = [dict(id=rec.id, path=rec.path, hash=rec.hash,
                                                status=check['status'], spans=check['spans'],
                                                negative_spans=check.get('negative_spans', []),
                                                unresolved_spans=check.get('unresolved_spans', []),
@@ -167,6 +167,7 @@ def supported_answer(root, question, profile=None):
                                            for rec, check in checks]
         supported = [(rec, check) for rec, check in checks if check['status'] == 'supported']
         conflict = conflicts(checks)
+        out.support['statement_conflict'] = conflict
         unresolved = any(check.get('unresolved') for _, check in checks)
         out.support['unresolved'] = unresolved
         if len(supported) == 1 and not conflict and not unresolved:
@@ -219,6 +220,7 @@ def supported_answer(root, question, profile=None):
                                        for rec,check in checks]
     supported = [(rec,check) for rec,check in checks if check['status']=='supported']
     conflict = conflicts(checks)
+    out.support['statement_conflict'] = conflict
     if len(supported)==1 and not conflict:
         rec,check = supported[0]
         out.record, out.depth, out.kind = rec, ledger.depth(rec), RETURN

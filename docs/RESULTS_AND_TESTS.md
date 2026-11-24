@@ -20,6 +20,8 @@ The [D12 documentary language release demo](../evaluation/d12/release-demo/READM
 operations and a separate replay on 12 frozen Dice Bag records. The native
 compiler cites declared ledger fields and explains which branches resolved. The [calendar, source note and thesaurus sprints](../evaluation/d6/calendar-notes/README.md) retain arithmetic and independent discovery controls.
 
+[D8](../evaluation/d8/README.md) follows competing-source and named two-record proofs through the ownership, eligibility, citation budget, and presentation boundaries.
+
 [D20](../evaluation/d20/README.md) records the seeded ownership and alias baseline and class-level probes.
 
 [D10](../evaluation/d10/README.md) indexes D% classes as suites and tests the exact-anchor adapter with matched quoted and altered text on frozen samples.
