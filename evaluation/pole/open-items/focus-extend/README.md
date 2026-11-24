@@ -123,4 +123,5 @@ python -m tools.pole_authentic score --packet PACKETS/prose --custody PROSE_CUST
 python -m tools.pole_remaining lovelace-limit --packet PACKETS/caps --output caps.json
 ```
 
-[Native readbacks](native-readbacks.tar.gz) · [Evidence checksums](evidence.sha256)
+[Native readbacks](native-readbacks.tar.gz) · [Exact source archive validation](validation.json) ·
+[Evidence checksums](evidence.sha256)

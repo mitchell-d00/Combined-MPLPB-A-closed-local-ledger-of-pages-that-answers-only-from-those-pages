@@ -4,8 +4,8 @@ Last reviewed: 2026-11-24.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `78f6a464212214a29a84f400a199be46a25db8bf` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `b3dbf95efaa4533c8cf19fefcc88ddb1340fce56d58ae156f370fe81c4be1f1a`.
+Base commit: `e8e874ce8a8ae1d55c821da27b30d1dfe1bf1e45` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `530cdd61121c3ed19783fe3b0bed5ed4e4e545cb782f58443e46ce4aa2a69814`.
 
 ## Latest user update instructions
 
@@ -65,6 +65,8 @@ Return the four result tables, any new rule text, the updated open-item list, th
 - Character, unit, phrase-token and phrase-group diagnostics reproduced with both eligible records retained.
 - Komnene reproduced all 22 concealed mappings across 44 arms and retained the existing delivery hash.
 - BT-Erratum reproduced one complete proof and five withholds. Native proof modules are byte-identical to the baseline.
+- The extracted source ZIP ran 1,727 Python tests with 2 skips and passed the 52 public evidence controls, installed wheel, JavaScript, Pyodide and Chromium checks.
+- The extracted ZIP reproduced all four named tests and past supported decisions. Source-only workers independently replayed Focus-12 and both Polybius import arms with the same outcomes.
 
 ## Limitations and blocked checks
 
