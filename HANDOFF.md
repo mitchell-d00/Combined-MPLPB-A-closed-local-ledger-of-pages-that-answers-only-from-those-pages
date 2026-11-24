@@ -4,36 +4,33 @@ Last reviewed: 2026-11-24.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `3b1e517b1f48ae62aba4de0885ac0a6ead7f4948` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `30e42ce41a9de2c1736682e31426dd0ab2c3cc656c201c41a10fa341b0aab8bb`.
+Base commit: `9e504a9a3157618a55e25a60754fb25e0b22d20d` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `d826978b1fdd62308b259b80c7d917f647739ce2733e623ebdf1c2b369e74268`.
 
 ## Latest user update instructions
 
-We need a rule constructer that builds as candidate for strict , how is the samantic logics set up ?
-If it can apply strict organizational rules to raw data and sort by supported complete answers it should be able to  build rules for a corpus as it reads the raw data and only approved mplpb though once human approves but applies same rules to new data so it can ansewer as to available data
-No human approves the ansewered and it’s path into MPLPB so if they upload a new data dump it sorts it and builds the database and rules and presents in strict as supported by available data but not approved like a MPLPB single page full artifact
-We can call it spot
+Build the missing parts they seem intuitive
 
 ## Implemented scope
 
-- Add D6 candidate construction, separate documentary recommendation proof drafts, and development-only field rule discovery.
-- Add Spot to build an isolated ledger from labelled UTF-8 records and rank scoped rules by complete native evidence results. Label the report as an unapproved preview.
+- Derive shared live tags from Observer and Judge outcomes, with exact graph checks on Strict Ask and Advanced inspection presentation.
+- Atomically reuse current strict versions, link each new graph version to its predecessor, expose scope history, and verify active route metadata before using candidate locators.
 
 ## Validation recorded
 
-- Passed 78 focused native tests and the documentation audit.
-- An elapsed-days candidate recovered two development cases and one holdout and preserved both refusal controls.
-- Spot verified a closing date with an exact citation and withheld on a missing field and competing owners. A CLI Strict Ask against the new preview ledger also returned the cited closing date.
+- Passed 72 focused native checks covering concurrent graph writes, retired routes, mismatches, history, Spot and existing answers.
+- Matched all 22 historical native contracts and all 48 Scout graph passes against ordinary Strict Ask on the same frozen inputs.
+- Passed the documentation inventory check.
 
 ## Limitations and blocked checks
 
-- Spot accepts explicit fields in labelled text. The prose draft records proof requirements for review, pending a native recommendation verifier.
-- Spot creates a separate preview. Admitting an answer and its path to a main collection is outside the preview workflow.
-- The full source archive requires about 2.1 GB uncompressed, exceeding available local space. The local archive check is scoped to the relevant source and tests.
+- Live synchronization is local to an ask or inspection scope. Ledger and SQLite graph storage have separate transactions.
+- Scout prose coverage remains a separate research result. Graph flags and candidates carry no proof authority.
+- Full local archive extraction exceeds available storage. Use the CI archive gate for the complete release candidate.
 
 ## Next steps
 
-- Develop and replay native recommendation comparison proof on independently worded positive and refusal cases.
+- Use the retained Scout obligations to build and evaluate a bounded native recommendation comparison.
 
 ## Use this ZIP in your repository
 

@@ -168,11 +168,12 @@ def _print_graph_helper(sync):
 
 def cmd_experience_pass(args):
     import sqlite3
-    from .experience_graph import read_pass
+    from .experience_graph import history, read_pass
 
     try:
-        print(json.dumps(read_pass(args.graph, args.pass_id, include_version=True),
-                         ensure_ascii=False, indent=2))
+        result = (history(args.graph, args.pass_id, args.history) if args.history is not None
+                  else read_pass(args.graph, args.pass_id, include_version=True))
+        print(json.dumps(result, ensure_ascii=False, indent=2))
     except (OSError, ValueError, sqlite3.Error) as exc:
         print(f'Experience graph stopped: {exc}', file=sys.stderr)
         return 2
@@ -339,6 +340,8 @@ def build_parser():
     experience = sub.add_parser('experience-pass', help='inspect one recorded experience graph pass')
     experience.add_argument('graph', type=Path)
     experience.add_argument('pass_id', type=int)
+    experience.add_argument('--history', nargs='?', const=25, type=int, metavar='LIMIT',
+                            help='list recent versions of this pass scope')
     experience.set_defaults(fn=cmd_experience_pass)
     advanced.set_defaults(fn=cmd_advanced)
     training = sub.add_parser('advanced-train', help='freeze, diagnose, and test one bounded rule')

@@ -154,31 +154,38 @@ mplpb-combined ask /path/to/ledger "What does the record establish?" \
 mplpb-combined advanced /path/to/ledger "What does the record establish?" \
   --experience-graph ./experience.sqlite --follow-up auto --json
 mplpb-combined experience-pass ./experience.sqlite 1
+mplpb-combined experience-pass ./experience.sqlite 1 --history
 ```
 
 Strict Ask derives its answer from eligible ledger bodies using its existing
 proof rules. It builds the required graph path from that checked result.
 A path contains the question's current seam, warning or unresolved boundary,
 checked relations and claims, and each cited source ID, hash, and offset.
-Nodes and directed edges use one exact flag vocabulary. Advanced uses the
-same `auto`, `none`, `lookup`, `investigate`, and `assisted` flags for its
-inspection pass. The database stores pins and tags, with separate timestamps
-and a link to an earlier pass or version.
+The Observer and Judge derive active system tags from native results.
+Nodes and directed edges use the same controlled vocabulary, including
+the interpretation, discovery and verification seams. Advanced uses
+`auto`, `none`, `lookup`, `investigate`, and `assisted` for the inspection
+pass. The database stores pins and tags, with separate timestamps and a
+link to the preceding version of the same scope.
 
 On the first ask, or when the active sources, policy, or proof decision
 change, MPLPB records a new path from the fresh strict result. For a
 recorded path in the same state, it requires an exact match on every node,
-edge, flag set, eligibility snapshot, and source pin. A mismatch returns
+edge, active system tag, eligibility snapshot, and source pin. A mismatch returns
 `FLAG_MISMATCH` and the diff, with the answer and citations withheld.
 The separate read command exposes the stored pass and its version metadata.
-Historical passes describe their own snapshot.
+Use `--history` on any pass ID to see the current and retired versions for
+that scope. Current strict paths are reused atomically for concurrent asks.
 
 In Advanced, a successful lookup can seed a later `investigate` pass for
 the same question, collection, delivery profile and proof state. The later
-pass rechecks the prior candidates against current eligible sources.
+pass uses only the current graph head and rechecks its candidates against
+current eligible sources.
 Automatic routing can choose a local inspection, and explicit flags retain
-their meaning. The graph path and source state are checked again before
-the combined result is presented.
+their meaning. Advanced rechecks both the strict and inspection paths,
+along with the source state, before returning the combined result. This
+sync is scoped to one local ask or inspection at a time. Ledger and graph
+updates have separate storage transactions.
 
 J/Opass turns native outcomes into presentation warnings alongside the
 strict result. An **Educated guess · what to check next** helper can suggest
@@ -192,6 +199,11 @@ calls without a graph keep their ordinary contract. [J/Opass](../evaluation/d12/
 [Experience graph controls](../tests/test_experience_graph.py)
 
 ### Recorded checks
+
+Run `python -m test_tools.live_flag_replay` to compare current graph-scoped
+results with ordinary Strict Ask on the frozen historical 22 and Scout
+packets. This is a proof-preservation check on the same inputs. It uses
+the current implementation and leaves the frozen reports intact.
 
 On native candidate `da9418a`, the historical 22 matched the ordinary strict
 contract case by case with the graph gate enabled. The totals were four
