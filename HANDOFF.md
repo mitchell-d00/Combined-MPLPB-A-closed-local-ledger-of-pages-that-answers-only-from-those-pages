@@ -4,32 +4,35 @@ Last reviewed: 2026-11-24.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `c8762c3f72528dc4b08f0652d702be8175cdbd28` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `fe2d6311c748ed19242c361c679715bd77a12bdeacba402a73fcdd8dadc43aa8`.
+Base commit: `e093d9326f35a325d69c06e6a24c9bd8085f5fe3` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `329091045a56d9b49d5657b7a9273d574d1d897db156d0444a723b96637c9295`.
 
 ## Latest user update instructions
 
-New test using what we found named J/Opass.     The Observer records what happened. Which parts of the question were understood? Which passages were found? What did Strict Ask verify? What stayed open? The Observer also records where the chain stopped. “The search missed a passage” and “the question had no proof rule” call for different warnings.
-* The Judge decides what the reader needs to see. It applies deterministic presentation rules to the Observer’s record. If a claim is verified but easy to overread, it adds a short boundary beside that claim. If a required link is missing, it tells the presenter to show the verified parts and mark the rest unresolved. The Judge cannot promote a candidate into proof. Then test the model
+It needs to be able to read write graphs in real time and use flag system to direct experience.  Flags in graph match flags in system tags seams and passes so strict can present from graphed boundaries and relations what does strict system present from w/e it is that’s the paths to sync
+
+Design Plan: Live Graph + Flag Sync for Combined MPLPB Strict Presentation
+
+Information by void if it’s presented as to why it can’t verify it to MPLPB but can make a “educated guess” but still presents hard sources and says so if nothing exists
+
+And even in strict mode you can have a “educated guess “ helper to help you sort the tags and logic of passes and fails but both present the information
 
 ## Implemented scope
 
-- Add J/Opass with a read-only Observer, a deterministic presentation Judge, and two local model layout arms.
+- Add opt-in live SQLite read/write graph paths, an exact native flag gate, Advanced follow-up reuse, and a labeled strict next-check helper.
 
 ## Validation recorded
 
-- Replayed six native cases and verified byte-identical native output.
-- Ran 16 local SmolLM2 CPU calls. All preserved the presentation contents and strict proof decision. JSON enum accepted 8/8 layouts and free text accepted 0/8.
-- Passed 53 focused tests with loopback available.
+- Passed focused graph, Advanced, J/Opass and strict answer controls. Matching paths preserve their native proof and flag disagreements withhold the display.
 
 ## Limitations and blocked checks
 
-- This is an evaluation harness. The model selects layout only, and the run uses one small model.
+- The graph governs presentation and bounded routing. Historical question interpretation and relationship rules remain separate work.
 - The full repository ZIP exceeds available local extraction space.
 
 ## Next steps
 
-- Reuse the retained J/Opass inputs when evaluating a production presentation integration.
+- Record the frozen full-suite run and replay historical handoffs on the graph.
 
 ## Use this ZIP in your repository
 

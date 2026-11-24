@@ -103,6 +103,7 @@ class QueryResult:
     contract: dict
     strict: object
     gate: dict = field(default_factory=dict)
+    sync: dict | None = None
 
     def legacy(self):
         """Preserve strict legacy kinds; model-assisted claims never become return."""
@@ -110,6 +111,11 @@ class QueryResult:
         data['answer_contract'] = copy.deepcopy(self.contract)
         data['answer_diagnostics'] = copy.deepcopy(self.contract['diagnostic'])
         data['answer_supported'] = self.contract['answer_supported']
+        if self.sync is not None:
+            data['flag_sync'] = self.sync
+            # Graph-scoped clients get the adjudicated contract and its
+            # citations, rather than raw intermediate ownership checks.
+            data['answer_support'].pop('candidate_checks', None)
         if self.contract['kind']=='supported_answer' and (self.strict.kind!='return' or 'question_parts' in self.contract or self.contract['verification']['semantic']=='bounded_documentary_reference'):
             data.update(kind='return',text=self.contract['text'],reason=self.contract['diagnostic']['message'],
                         citation='; '.join(s['id']+'@'+s['hash'] for s in self.contract['sources']),candidates=[])
@@ -168,11 +174,13 @@ def _competing_statements(strict, gate):
 
 def answer_query(root, question, profile=None, *, mode='strict', reader=None, min_confidence=0.8,
                  max_passages=12, max_chars=8000, record_id=None, field=None, exact_value=None,
-                 as_of=None, relation_hops=None, source_hints=None):
+                 as_of=None, relation_hops=None, source_hints=None, experience_graph=None):
     if not isinstance(question,str) or not question.strip() or len(question)>4000:
         raise ValueError('Question must contain 1–4000 characters')
     if type(max_passages) is not int or not 1<=max_passages<=64 or type(max_chars) is not int or not 1000<=max_chars<=64000:
         raise ValueError('Invalid passage admission budget')
+    if experience_graph is not None and (mode != 'strict' or relation_hops is not None):
+        raise ValueError('Graph sync requires Strict Ask')
     from mplpb_combined.ledger import serving_view
     from .compound_fields import parse_question
     from .collection_fields import parse as parse_collection
@@ -193,9 +201,39 @@ def answer_query(root, question, profile=None, *, mode='strict', reader=None, mi
         request = resolve(root,question,profile,request,as_of)
     from .passage_admission import source_suggestions
     with serving_view(as_of,request['field']),source_suggestions(source_hints):
-        return _answer_query(root,question,profile,mode=mode,reader=reader,min_confidence=min_confidence,
+        result = _answer_query(root,question,profile,mode=mode,reader=reader,min_confidence=min_confidence,
                              max_passages=max_passages,max_chars=max_chars,exact=request,relation_hops=relation_hops,
                              compound=compound,as_of=as_of,identity=identity,filters=filters)
+        if experience_graph is None or result.contract['diagnostic']['code'] == 'source_changed':
+            return result
+        from .experience_graph import sync_path
+        result.sync = sync_path(experience_graph, root, result, [record_id, field, exact_value, as_of])
+        if result.sync['status'] != 'matched':
+            return _graph_withhold(result, 'FLAG_MISMATCH',
+                                   'Strict presentation was withheld because the graph path did not match the active system flags.')
+        fresh = G.gather(root, question, result.strict.profile, all_eligible=bool(filters))
+        if (fresh.corpus_snapshot, fresh.policy) != (result.gate['corpus_snapshot'], result.gate['policy']):
+            result.sync = {'status': 'stale'}
+            return _graph_withhold(result, 'source_changed', 'Source state changed during graph synchronization.')
+        return result
+
+
+def _graph_withhold(result, code, message):
+    current = result.contract
+    strict = SupportedAnswer('not_in_corpus', current['question'],
+                             result.strict.profile, result.strict.root)
+    strict.reason = message
+    sanitized = {key: current[key] for key in ('schema', 'mode', 'question', 'code_sha256')}
+    sanitized.update(kind='abstain', answer_supported=False, text='', claims=[], missing=[],
+                     clarification='', confidence=None, confidence_calibrated=False, sources=[],
+                     retrieval={}, reader=None, trace=[],
+                     verification={'structural': False, 'semantic': 'not_run', 'truth_verified': False,
+                                   'independence_verified': False},
+                     diagnostic={'code': code, 'stage': 'flag_sync', 'message': message,
+                                 'category': 'flag_mismatch' if code == 'FLAG_MISMATCH' else 'source_state_changed',
+                                 'corpus_answerability': 'not_established', 'next_steps': []})
+    sanitized['source_assurance'] = source_assurance(sanitized, {})
+    return QueryResult(sanitized, strict, {}, result.sync)
 
 
 def _answer_query(root, question, profile=None, *, mode, reader, min_confidence,

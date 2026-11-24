@@ -13,6 +13,8 @@ The [D12 solo post-freeze historical pilot](../evaluation/d12/solo-post-freeze/R
 
 The [4score20 diagnostic](../evaluation/d12/4score20/README.md) traces interpretation, discovery, and contextual proof on three of the frozen D12 cases. It isolates one missing duration plan, a four-anchor telegram relation, and an exact quote that spans two statement units.
 
+The [live experience graph controls](../tests/test_experience_graph.py) cover current flag matching, refusal on a mismatch, source revision, and reuse of an eligible lookup for investigation.
+
 The [J/Opass presentation test](../evaluation/d12/j-opass/README.md) applies deterministic warnings to six native cases. A local model made 8/8 valid constrained layout choices and 0/8 valid free-text choices. All 16 calls preserved the displayed evidence and proof decision.
 
 [D12](../evaluation/d12/README.md) adds paired error-class probes to D6 and a separate

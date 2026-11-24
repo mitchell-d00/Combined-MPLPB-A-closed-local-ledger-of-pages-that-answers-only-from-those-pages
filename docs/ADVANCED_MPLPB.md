@@ -1,6 +1,6 @@
 # Advanced MPLPB
 
-Last reviewed: 2026-11-23.
+Last reviewed: 2026-11-24.
 
 Advanced MPLPB coordinates the existing answer and inspection paths through a
 single Python interface and CLI. It starts with Strict Ask and keeps that
@@ -57,3 +57,52 @@ protected holdout and returned `review_needed`.
 
 Assisted evaluation still requires live-model and independent human validation.
 [Historical mode results](../evaluation/d12/mode-replay/README.md)
+
+
+## Live experience graph and strict flag matching
+
+Use an explicit local SQLite path to record passes and require a matching
+graph path before presenting source proof.
+
+```sh
+mplpb-combined ask /path/to/ledger "What does the record establish?" \
+  --experience-graph ./experience.sqlite --json
+mplpb-combined advanced /path/to/ledger "What does the record establish?" \
+  --experience-graph ./experience.sqlite --follow-up auto --json
+mplpb-combined experience-pass ./experience.sqlite 1
+```
+
+Strict Ask derives its answer from eligible ledger bodies using its existing
+proof rules. It builds the required graph path from that checked result.
+A path contains the question's current seam, warning or unresolved boundary,
+checked relations and claims, and each cited source ID, hash, and offset.
+Nodes and directed edges use one exact flag vocabulary. Advanced uses the
+same `auto`, `none`, `lookup`, `investigate`, and `assisted` flags for its
+inspection pass. The database stores pins and tags, with separate timestamps
+and a link to an earlier pass or version.
+
+On the first ask, or when the active sources, policy, or proof decision
+change, MPLPB records a new path from the fresh strict result. For a
+recorded path in the same state, it requires an exact match on every node,
+edge, flag set, eligibility snapshot, and source pin. A mismatch returns
+`FLAG_MISMATCH` and the diff, with the answer and citations withheld.
+The separate read command exposes the stored pass and its version metadata.
+Historical passes describe their own snapshot.
+
+In Advanced, a successful lookup can seed a later `investigate` pass for
+the same question, collection, delivery profile and proof state. The later
+pass rechecks the prior candidates against current eligible sources.
+Automatic routing can choose a local inspection, and explicit flags retain
+their meaning. The graph path and source state are checked again before
+the combined result is presented.
+
+J/Opass turns native outcomes into presentation warnings alongside the
+strict result. An **Educated guess · what to check next** helper can suggest
+a proof step and repeat previously checked citations. Its output has
+`answer_supported: false`. Explicitly selecting assisted mode can show a
+model's cited interpretation as a separate inspection. If there is no
+eligible source, the presentation says so and skips the guess.
+
+The graph and warnings are opt-in through native Ask and Advanced. Existing
+calls without a graph keep their ordinary contract. [J/Opass](../evaluation/d12/j-opass/README.md) ·
+[Experience graph controls](../tests/test_experience_graph.py)
