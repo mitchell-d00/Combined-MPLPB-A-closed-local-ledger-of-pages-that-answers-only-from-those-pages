@@ -130,6 +130,11 @@ def run(packet, output, implementation):
             for ident in case['sources']:
                 source = sources[ident]
                 body = original_body((packet / source['path']).read_bytes(), source)
+                if source.get('retain_capture_manifest'):
+                    projection = digest(body_text(body).encode())
+                    manifest = {'source_url': source['url'], 'source_sha256': source['sha256'],
+                                'text_sha256': projection, 'transport': 'frozen_public_capture'}
+                    body += '<p>' + escape('Source capture: ' + json.dumps(manifest, sort_keys=True)) + '</p>'
                 record = write(ledger, doc_id=ident, title=ident, scope='public documentary originals',
                                origin='machine', body_html=body, external='yes', when='2026-11-24T00:00Z')
                 receipts.append({'id': ident, 'original_path': source['path'],

@@ -117,20 +117,34 @@ Lovelace-Limit traced the large-corpus literal drop to character and unit
 caps. Komnene-Ship verifies 22 paired questions, 44 arms, the separately
 held mapping, and a byte-identical delivery archive. [Four result tables](remaining/README.md)
 
+## BT-Erratum, Polybius-Prose, Scan-Phrase, and Komnene-Hold
+
+BT-Erratum moved from **0/1 to 1/1** complete with unchanged discovery
+coverage and **5/5** expected withholds. Expanded Polybius-Prose stayed at
+**0/10** complete with 7/10 native anchor coverage, one partial, nine
+answerable misses, and 10/10 expected withholds. Both suites observed zero
+false-supported bridges. Scan-Phrase retained two eligible records while
+reproducing the literal and phrase cap diagnostics. Komnene-Hold verified
+22/22 concealed mappings across 44 anonymous arms. Outside scoring remains
+**NOT_RUN**. [Four result tables and rule](erratum/README.md)
+
 ## Open items
 
 - All 12 original focus cases remain open, including date roles, reported
   statements, partial corrections, wording changes, and less explicit chains.
-- General historical reconstruction across unfamiliar originals remains open.
-  The B-Tests attribution report remains unresolved. The publication rule now completes the two tested DHS relations.
-- The repeated-phrase group cap and loss of complete literal lookup at the
-  larger Sima Qian stages remain open. The USDA venue lookup also returned
+- General historical reconstruction and ordinary-prose linking across unfamiliar
+  originals remain open. The expanded Polybius-Prose set has ten incomplete
+  answerable cases. The scoped repository erratum and both tested DHS
+  relations now have complete development proofs.
+- Phrase-token and repeated phrase-group limits and loss of complete literal
+  lookup at the larger Sima Qian stages remain open. The scan caps remain
+  200,000 characters and 1,000 units. The USDA venue lookup also returned
   a partial when two verified spans from the same eligible source answered
   the source-location question.
 - Arbitrary natural wording, more complex compound requests, and larger
   mixed authentic collections require further held-out measurements.
 - Independent historical accuracy, outside-custodian scoring, independent
-  semantic adjudication, and native OOCC remain **NOT RUN**.
+  semantic adjudication, and native OOCC remain **NOT_RUN**.
 
 The extracted candidate completed the full Python suite with two skips,
 passed all 52 public evidence controls, passed the Pyodide and Chromium

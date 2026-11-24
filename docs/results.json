@@ -12,6 +12,7 @@
         "tests/test_documentary_link_proofs.py",
         "tests/test_publication_corrections.py",
         "tests/test_successive_publication_corrections.py",
+        "tests/test_documentary_errata.py",
         "tests/test_sorter_v2.py"
       ],
       "runners": [
@@ -21,10 +22,11 @@
         "tools/pole_named_proofs.py",
         "tools/pole_authentic.py",
         "tools/pole_prose_cycle.py",
-        "tools/pole_remaining.py"
+        "tools/pole_remaining.py",
+        "tools/pole_erratum_cycle.py"
       ],
       "scope": "Seeded difficulty levels, exact case pinning, key-separated replay, and structural documentary regressions.",
-      "measurement_status": "The 48-case focus replay recovered 11 full answers and produced two cited conflicts while retaining all 20 expected withholds. The 120-case inherited catalog replay kept all scored outcomes. The follow-up proved 12/12 explicit named-source corrections and chains with 12/12 withholds. The authentic draw retained 1/10 complete anchored answers and 0/6 relational completions at the preceding pin. The prose cycle recovered 3/6 authentic bridges and 6/12 authentic transfer questions with all controls still withheld."
+      "measurement_status": "The 48-case focus replay recovered 11 full answers and produced two cited conflicts while retaining all 20 expected withholds. The 120-case inherited catalog replay kept all scored outcomes. The follow-up proved 12/12 explicit named-source corrections and chains with 12/12 withholds. The authentic draw retained 1/10 complete anchored answers and 0/6 relational completions at the preceding pin. The prose cycle recovered 3/6 authentic bridges and 6/12 authentic transfer questions with all controls still withheld. BT-Erratum recovered one commit-pinned attribution report; the expanded Polybius-Prose replay remained at 0/10 complete."
     },
     {
       "family": "d8",

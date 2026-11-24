@@ -359,9 +359,9 @@ def _answer_query(root, question, profile=None, *, mode, reader, min_confidence,
         from .reference_identity import verify
         code, evidence, gap = verify(root, question, profile, identity, max_passages, max_chars)
         if evidence:
-            contract.update(evidence, mode='strict',
-                            documentary_support={'scope': ('published_correction_reference'
-                                                           if identity[0] == 'publication_correction' else 'named_source_reference')},
+            scope = {'publication_correction': 'published_correction_reference',
+                     'erratum_report': 'reported_erratum_reference'}.get(identity[0], 'named_source_reference')
+            contract.update(evidence, mode='strict', documentary_support={'scope': scope},
                             verification={'structural': True, 'semantic': 'bounded_documentary_reference',
                                           'truth_verified': False, 'independence_verified': False})
             return finish('supported_answer', code, 'Verified documentary reference.', 'strict')
@@ -370,6 +370,10 @@ def _answer_query(root, question, profile=None, *, mode, reader, min_confidence,
             'reader_budget_exceeded': 'The complete reference proof exceeds the evidence budget.',
             'reference_scan_budget': 'The selected evidence exceeds the bounded reference inspection.',
             'no_eligible_sources': 'The named sources are unavailable under the current delivery profile.',
+            'erratum_repository_unresolved': 'A unique eligible commit-pinned erratum for the named repository was unavailable.',
+            'erratum_earlier_source_unresolved': 'The erratum did not resolve to one eligible earlier document with the same repository revision, title and version.',
+            'erratum_withdrawal_unverified': 'The eligible erratum did not uniquely establish the withdrawal and unchanged scores.',
+            'erratum_prior_statement_unverified': 'The earlier document did not uniquely establish the verification-limited sentence for the withdrawn wording.',
         }
         message = messages.get(code, 'The selected sources do not establish a unique documentary reference.')
         return finish('conflict' if code == 'event_identity_conflict' else 'abstain', code, message, 'strict',

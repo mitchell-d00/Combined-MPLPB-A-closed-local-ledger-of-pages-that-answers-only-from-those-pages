@@ -1,0 +1,79 @@
+{
+  "receipt_sha256": "cc409a41f0b85ca02a55c4929d95e38c871994d035fff12a7d66db7e4cf886ae",
+  "source_packet_seal": "5a36a2005ae8fa2ae069783e07e8e3ca08ec243d629829dc1b942e6ed3a1f6cd",
+  "revision": "7b91951ec3aa2bf12f4c3fea34b91f1b2fae4d46",
+  "counts": {
+    "complete_with_all_anchors": 1,
+    "expected_withhold": 5
+  },
+  "families": {
+    "attribution": {
+      "complete_with_all_anchors": 1,
+      "expected_withhold": 5
+    }
+  },
+  "independent_historical_accuracy": "NOT RUN",
+  "scope": "Local authored anchors on authentic original publications. Semantic accuracy was not independently scored.",
+  "cases": [
+    {
+      "id": "BT-01",
+      "family": "attribution",
+      "outcome": "complete_with_all_anchors",
+      "expected": "answer",
+      "kind": "supported_answer",
+      "diagnostic": "supported_documentary_assertion",
+      "complete_discovery_anchor_coverage": true,
+      "discovery_search_complete": false
+    },
+    {
+      "id": "BT-03",
+      "family": "attribution",
+      "outcome": "expected_withhold",
+      "expected": "withhold",
+      "kind": "abstain",
+      "diagnostic": "interpretation_unsupported",
+      "complete_discovery_anchor_coverage": false,
+      "discovery_search_complete": false
+    },
+    {
+      "id": "BT-C01",
+      "family": "attribution",
+      "outcome": "expected_withhold",
+      "expected": "withhold",
+      "kind": "abstain",
+      "diagnostic": "erratum_earlier_source_unresolved",
+      "complete_discovery_anchor_coverage": false,
+      "discovery_search_complete": true
+    },
+    {
+      "id": "BT-C02",
+      "family": "attribution",
+      "outcome": "expected_withhold",
+      "expected": "withhold",
+      "kind": "abstain",
+      "diagnostic": "erratum_repository_unresolved",
+      "complete_discovery_anchor_coverage": false,
+      "discovery_search_complete": false
+    },
+    {
+      "id": "BT-C03",
+      "family": "attribution",
+      "outcome": "expected_withhold",
+      "expected": "withhold",
+      "kind": "abstain",
+      "diagnostic": "erratum_repository_unresolved",
+      "complete_discovery_anchor_coverage": false,
+      "discovery_search_complete": false
+    },
+    {
+      "id": "BT-C04",
+      "family": "attribution",
+      "outcome": "expected_withhold",
+      "expected": "withhold",
+      "kind": "abstain",
+      "diagnostic": "interpretation_unsupported",
+      "complete_discovery_anchor_coverage": false,
+      "discovery_search_complete": false
+    }
+  ]
+}
