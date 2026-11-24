@@ -1,0 +1,569 @@
+{
+  "test": "4score20",
+  "runtime_sha256": "01ff14e2084ee67d466feb4bf5468996d4b69e87915834ea132d0ffacf0cd2b1",
+  "questions_sha256": "2a0825bab08285379e9c506da8613ae10d9d12fc4705bf10f2a1ab88e17ef897",
+  "cases": [
+    {
+      "case": "P05-1",
+      "question": "How long did Lodge say he spent with Eisenhower?",
+      "understand": {
+        "documentary_plan": null,
+        "reference_expected": "One-half hour."
+      },
+      "find": {
+        "anchors": [
+          {
+            "source": "P05-B",
+            "quote": "Spent one-half hour with General Eisenhower as you requested.",
+            "text_span": [
+              120,
+              181
+            ]
+          }
+        ],
+        "indexed": [
+          [
+            "sha256:8ccd8575852d90a77c23d44b1e3e0df53161036772e5ad37e82454f64f4acca3"
+          ]
+        ],
+        "first_3": [
+          [
+            "sha256:8ccd8575852d90a77c23d44b1e3e0df53161036772e5ad37e82454f64f4acca3"
+          ]
+        ],
+        "first_12": [
+          [
+            "sha256:8ccd8575852d90a77c23d44b1e3e0df53161036772e5ad37e82454f64f4acca3"
+          ]
+        ]
+      },
+      "check": {
+        "strict": {
+          "kind": "abstain",
+          "diagnostic": "interpretation_unsupported",
+          "supported": false,
+          "claims": []
+        },
+        "strict_with_reference_locations": {
+          "kind": "abstain",
+          "diagnostic": "interpretation_unsupported",
+          "supported": false,
+          "claims": []
+        },
+        "locations_supplied": 1,
+        "exact_quote_controls": [
+          {
+            "expected_source": "P05-B",
+            "question": "Which source contains the exact words “Spent one-half hour with General Eisenhower as you requested.”?",
+            "expected_span_cited": true,
+            "answer": {
+              "kind": "supported_answer",
+              "diagnostic": "supported_documentary_assertion",
+              "supported": true,
+              "claims": [
+                {
+                  "text": "The cited source contains the requested words: “Spent one-half hour with General Eisenhower as you requested.”.",
+                  "qualifiers": [
+                    "Only the complete cited wording is checked; historical truth and event/person identity are not independently verified.",
+                    "Textual occurrence only; quotations, examples, conditions and denials do not establish an event or execution."
+                  ],
+                  "citations": [
+                    {
+                      "source_id": "P05-B",
+                      "path": "p05-b.html",
+                      "hash": "sha256:ecef0b77cf88865d357c4994c2165c66fb2a4fa253f3f4eda5854cddf006ed94",
+                      "body_start": 118,
+                      "body_end": 182,
+                      "start": 118,
+                      "end": 182,
+                      "quote": "Spent one-half hour with General Eisenhower as you requested. 2.",
+                      "body_projection": "body-text-no-headings-v1"
+                    }
+                  ],
+                  "proposition": {
+                    "relation": "source_literal_occurrence",
+                    "requested_words": "Spent one-half hour with General Eisenhower as you requested.",
+                    "matching_basis": "Exact code points and word boundaries; source whitespace may wrap.",
+                    "text_only": true,
+                    "event_identity": null,
+                    "historical_truth_independently_verified": false,
+                    "question_obligations_verified": true,
+                    "verified_question": "Which source contains the exact words “Spent one-half hour with General Eisenhower as you requested.”?",
+                    "question_completion_rule": "eligible_literal_location_v1",
+                    "reference_scope": "Textual occurrence in one current eligible source; no event or historical assertion.",
+                    "eligible_source_ambiguity": false
+                  },
+                  "source_support_established": true,
+                  "support_scope": "textual_occurrence",
+                  "verification": "documentary-assertion-kernel-v11",
+                  "historical_truth_independently_verified": false,
+                  "proof_sha256": "sha256:b132b26109f5232cc9d00c86277045c3083a357ca110cbc48059e522d2e980e1"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "case": "P06-2",
+      "question": "How did the May 9 telegram change the position on using aid sanctions from the May 3 draft responding to the same Saigon message?",
+      "understand": {
+        "documentary_plan": null,
+        "reference_expected": "The draft proposed withholding further emergency equipment pending steps toward settling issues with Cambodia. The later telegram authorized the presentation with the aid-sanction portion removed. The draft itself does not establish a cutoff occurred."
+      },
+      "find": {
+        "anchors": [
+          {
+            "source": "P06-A",
+            "quote": "Ref: Saigon’s 3095.",
+            "text_span": [
+              108,
+              127
+            ]
+          },
+          {
+            "source": "P06-A",
+            "quote": "no further emergency equipment will be sent until GVN takes steps you outline",
+            "text_span": [
+              211,
+              288
+            ]
+          },
+          {
+            "source": "P06-B",
+            "quote": "2037. Your 3095.",
+            "text_span": [
+              104,
+              120
+            ]
+          },
+          {
+            "source": "P06-B",
+            "quote": "you are authorized use line set forth your reftel action paragraphs 1, 2 and 3 eliminating that portion para 3 on aid sanctions.",
+            "text_span": [
+              1999,
+              2127
+            ]
+          }
+        ],
+        "indexed": [
+          [
+            "sha256:facf5e878f1270509da3731b21cc42e519c45ed79b8ca8593c4e82ed948f92f4"
+          ],
+          [
+            "sha256:facf5e878f1270509da3731b21cc42e519c45ed79b8ca8593c4e82ed948f92f4"
+          ],
+          [
+            "sha256:a1d2e0e42211258ef67d6d46326127d1566e538589f97a5bced0dab2b5f7a5af"
+          ],
+          [
+            "sha256:16fae14142367ef14cfb6f1ad0a751d70a947446809d4c591a233d46b003139f"
+          ]
+        ],
+        "first_3": [
+          [],
+          [],
+          [],
+          []
+        ],
+        "first_12": [
+          [
+            "sha256:facf5e878f1270509da3731b21cc42e519c45ed79b8ca8593c4e82ed948f92f4"
+          ],
+          [
+            "sha256:facf5e878f1270509da3731b21cc42e519c45ed79b8ca8593c4e82ed948f92f4"
+          ],
+          [
+            "sha256:a1d2e0e42211258ef67d6d46326127d1566e538589f97a5bced0dab2b5f7a5af"
+          ],
+          [
+            "sha256:16fae14142367ef14cfb6f1ad0a751d70a947446809d4c591a233d46b003139f"
+          ]
+        ]
+      },
+      "check": {
+        "strict": {
+          "kind": "abstain",
+          "diagnostic": "interpretation_unsupported",
+          "supported": false,
+          "claims": []
+        },
+        "strict_with_reference_locations": {
+          "kind": "abstain",
+          "diagnostic": "interpretation_unsupported",
+          "supported": false,
+          "claims": []
+        },
+        "locations_supplied": 3,
+        "exact_quote_controls": [
+          {
+            "expected_source": "P06-A",
+            "question": "Which source contains the exact words “Ref: Saigon’s 3095.”?",
+            "expected_span_cited": true,
+            "answer": {
+              "kind": "supported_answer",
+              "diagnostic": "supported_documentary_assertion",
+              "supported": true,
+              "claims": [
+                {
+                  "text": "The cited source contains the requested words: “Ref: Saigon’s 3095.”.",
+                  "qualifiers": [
+                    "Only the complete cited wording is checked; historical truth and event/person identity are not independently verified.",
+                    "Textual occurrence only; quotations, examples, conditions and denials do not establish an event or execution."
+                  ],
+                  "citations": [
+                    {
+                      "source_id": "P06-A",
+                      "path": "p06-a.html",
+                      "hash": "sha256:e867c20a1fb76fdfb5db0d0ea41fea83d4823cf4126e9188e54bc39cc9924182",
+                      "body_start": 106,
+                      "body_end": 125,
+                      "start": 106,
+                      "end": 125,
+                      "quote": "Ref: Saigon’s 3095.",
+                      "body_projection": "body-text-no-headings-v1"
+                    }
+                  ],
+                  "proposition": {
+                    "relation": "source_literal_occurrence",
+                    "requested_words": "Ref: Saigon’s 3095.",
+                    "matching_basis": "Exact code points and word boundaries; source whitespace may wrap.",
+                    "text_only": true,
+                    "event_identity": null,
+                    "historical_truth_independently_verified": false,
+                    "question_obligations_verified": true,
+                    "verified_question": "Which source contains the exact words “Ref: Saigon’s 3095.”?",
+                    "question_completion_rule": "eligible_literal_location_v1",
+                    "reference_scope": "Textual occurrence in one current eligible source; no event or historical assertion.",
+                    "eligible_source_ambiguity": false
+                  },
+                  "source_support_established": true,
+                  "support_scope": "textual_occurrence",
+                  "verification": "documentary-assertion-kernel-v11",
+                  "historical_truth_independently_verified": false,
+                  "proof_sha256": "sha256:25e3da5d710d48d1fe4310bd6fdfd1076e304f10c41d5c196ca3c047bdb3062e"
+                }
+              ]
+            }
+          },
+          {
+            "expected_source": "P06-A",
+            "question": "Which source contains the exact words “no further emergency equipment will be sent until GVN takes steps you outline”?",
+            "expected_span_cited": true,
+            "answer": {
+              "kind": "supported_answer",
+              "diagnostic": "supported_documentary_assertion",
+              "supported": true,
+              "claims": [
+                {
+                  "text": "The cited source contains the requested words: “no further emergency equipment will be sent until GVN takes steps you outline”.",
+                  "qualifiers": [
+                    "Only the complete cited wording is checked; historical truth and event/person identity are not independently verified.",
+                    "Textual occurrence only; quotations, examples, conditions and denials do not establish an event or execution."
+                  ],
+                  "citations": [
+                    {
+                      "source_id": "P06-A",
+                      "path": "p06-a.html",
+                      "hash": "sha256:e867c20a1fb76fdfb5db0d0ea41fea83d4823cf4126e9188e54bc39cc9924182",
+                      "body_start": 126,
+                      "body_end": 406,
+                      "start": 126,
+                      "end": 406,
+                      "quote": "Department concurs your recommendation that on instructions you inform Diem orally no further emergency equipment will be sent until GVN takes steps you outline, viz, that would convince you GVN “is making serious and sincere effort to settle basic outstanding problems with RKG.”",
+                      "body_projection": "body-text-no-headings-v1"
+                    }
+                  ],
+                  "proposition": {
+                    "relation": "source_literal_occurrence",
+                    "requested_words": "no further emergency equipment will be sent until GVN takes steps you outline",
+                    "matching_basis": "Exact code points and word boundaries; source whitespace may wrap.",
+                    "text_only": true,
+                    "event_identity": null,
+                    "historical_truth_independently_verified": false,
+                    "question_obligations_verified": true,
+                    "verified_question": "Which source contains the exact words “no further emergency equipment will be sent until GVN takes steps you outline”?",
+                    "question_completion_rule": "eligible_literal_location_v1",
+                    "reference_scope": "Textual occurrence in one current eligible source; no event or historical assertion.",
+                    "eligible_source_ambiguity": false
+                  },
+                  "source_support_established": true,
+                  "support_scope": "textual_occurrence",
+                  "verification": "documentary-assertion-kernel-v11",
+                  "historical_truth_independently_verified": false,
+                  "proof_sha256": "sha256:2292356d9a50d8d6c840e25828bfdc2b7d147819bc6bf2f1da10a2d72db9e95a"
+                }
+              ]
+            }
+          },
+          {
+            "expected_source": "P06-B",
+            "question": "Which source contains the exact words “2037. Your 3095.”?",
+            "expected_span_cited": false,
+            "answer": {
+              "kind": "abstain",
+              "diagnostic": "documentary_assertion_not_established",
+              "supported": false,
+              "claims": []
+            },
+            "split_unit_controls": [
+              {
+                "expected_source": "P06-B",
+                "question": "Which source contains the exact words “2037.”?",
+                "expected_span_cited": true,
+                "answer": {
+                  "kind": "supported_answer",
+                  "diagnostic": "supported_documentary_assertion",
+                  "supported": true,
+                  "claims": [
+                    {
+                      "text": "The cited source contains the requested words: “2037.”.",
+                      "qualifiers": [
+                        "Only the complete cited wording is checked; historical truth and event/person identity are not independently verified.",
+                        "Textual occurrence only; quotations, examples, conditions and denials do not establish an event or execution."
+                      ],
+                      "citations": [
+                        {
+                          "source_id": "P06-B",
+                          "path": "p06-b.html",
+                          "hash": "sha256:6a2a4cc8484dc88a0251e96cfc3483212a898f1a9605b30ef34ea391215419b8",
+                          "body_start": 5,
+                          "body_end": 107,
+                          "start": 5,
+                          "end": 107,
+                          "quote": "Telegram From the Secretary of State to the Embassy in Vietnam\nWashington, May 9, 1960—8:03 p.m.\n2037.",
+                          "body_projection": "body-text-no-headings-v1"
+                        }
+                      ],
+                      "proposition": {
+                        "relation": "source_literal_occurrence",
+                        "requested_words": "2037.",
+                        "matching_basis": "Exact code points and word boundaries; source whitespace may wrap.",
+                        "text_only": true,
+                        "event_identity": null,
+                        "historical_truth_independently_verified": false,
+                        "question_obligations_verified": true,
+                        "verified_question": "Which source contains the exact words “2037.”?",
+                        "question_completion_rule": "eligible_literal_location_v1",
+                        "reference_scope": "Textual occurrence in one current eligible source; no event or historical assertion.",
+                        "eligible_source_ambiguity": false
+                      },
+                      "source_support_established": true,
+                      "support_scope": "textual_occurrence",
+                      "verification": "documentary-assertion-kernel-v11",
+                      "historical_truth_independently_verified": false,
+                      "proof_sha256": "sha256:7e0d7672e813c73f0276c4122a68290220a77db756b3bd0d67bd0bf27f2c13ef"
+                    }
+                  ]
+                }
+              },
+              {
+                "expected_source": "P06-B",
+                "question": "Which source contains the exact words “Your 3095.”?",
+                "expected_span_cited": true,
+                "answer": {
+                  "kind": "supported_answer",
+                  "diagnostic": "supported_documentary_assertion",
+                  "supported": true,
+                  "claims": [
+                    {
+                      "text": "The cited source contains the requested words: “Your 3095.”.",
+                      "qualifiers": [
+                        "Only the complete cited wording is checked; historical truth and event/person identity are not independently verified.",
+                        "Textual occurrence only; quotations, examples, conditions and denials do not establish an event or execution."
+                      ],
+                      "citations": [
+                        {
+                          "source_id": "P06-B",
+                          "path": "p06-b.html",
+                          "hash": "sha256:6a2a4cc8484dc88a0251e96cfc3483212a898f1a9605b30ef34ea391215419b8",
+                          "body_start": 108,
+                          "body_end": 118,
+                          "start": 108,
+                          "end": 118,
+                          "quote": "Your 3095.",
+                          "body_projection": "body-text-no-headings-v1"
+                        }
+                      ],
+                      "proposition": {
+                        "relation": "source_literal_occurrence",
+                        "requested_words": "Your 3095.",
+                        "matching_basis": "Exact code points and word boundaries; source whitespace may wrap.",
+                        "text_only": true,
+                        "event_identity": null,
+                        "historical_truth_independently_verified": false,
+                        "question_obligations_verified": true,
+                        "verified_question": "Which source contains the exact words “Your 3095.”?",
+                        "question_completion_rule": "eligible_literal_location_v1",
+                        "reference_scope": "Textual occurrence in one current eligible source; no event or historical assertion.",
+                        "eligible_source_ambiguity": false
+                      },
+                      "source_support_established": true,
+                      "support_scope": "textual_occurrence",
+                      "verification": "documentary-assertion-kernel-v11",
+                      "historical_truth_independently_verified": false,
+                      "proof_sha256": "sha256:159ba8f1ce3e07b00b85bc1e8970de77a13d4c98c0a398f15f71c41feec7b3f7"
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "expected_source": "P06-B",
+            "question": "Which source contains the exact words “you are authorized use line set forth your reftel action paragraphs 1, 2 and 3 eliminating that portion para 3 on aid sanctions.”?",
+            "expected_span_cited": true,
+            "answer": {
+              "kind": "supported_answer",
+              "diagnostic": "supported_documentary_assertion",
+              "supported": true,
+              "claims": [
+                {
+                  "text": "The cited source contains the requested words: “you are authorized use line set forth your reftel action paragraphs 1, 2 and 3 eliminating that portion para 3 on aid sanctions.”.",
+                  "qualifiers": [
+                    "Only the complete cited wording is checked; historical truth and event/person identity are not independently verified.",
+                    "Textual occurrence only; quotations, examples, conditions and denials do not establish an event or execution."
+                  ],
+                  "citations": [
+                    {
+                      "source_id": "P06-B",
+                      "path": "p06-b.html",
+                      "hash": "sha256:6a2a4cc8484dc88a0251e96cfc3483212a898f1a9605b30ef34ea391215419b8",
+                      "body_start": 1956,
+                      "body_end": 2124,
+                      "start": 1956,
+                      "end": 2124,
+                      "quote": "In presentation “under instructions” you are authorized use line set forth your reftel action paragraphs 1, 2 and 3 eliminating that portion para 3 on aid sanctions. 3.",
+                      "body_projection": "body-text-no-headings-v1"
+                    }
+                  ],
+                  "proposition": {
+                    "relation": "source_literal_occurrence",
+                    "requested_words": "you are authorized use line set forth your reftel action paragraphs 1, 2 and 3 eliminating that portion para 3 on aid sanctions.",
+                    "matching_basis": "Exact code points and word boundaries; source whitespace may wrap.",
+                    "text_only": true,
+                    "event_identity": null,
+                    "historical_truth_independently_verified": false,
+                    "question_obligations_verified": true,
+                    "verified_question": "Which source contains the exact words “you are authorized use line set forth your reftel action paragraphs 1, 2 and 3 eliminating that portion para 3 on aid sanctions.”?",
+                    "question_completion_rule": "eligible_literal_location_v1",
+                    "reference_scope": "Textual occurrence in one current eligible source; no event or historical assertion.",
+                    "eligible_source_ambiguity": false
+                  },
+                  "source_support_established": true,
+                  "support_scope": "textual_occurrence",
+                  "verification": "documentary-assertion-kernel-v11",
+                  "historical_truth_independently_verified": false,
+                  "proof_sha256": "sha256:7293d0ee85f429c5ce58ddbd861b8658c91a8d3cda03ef1b66dbc9d9e479a542"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "case": "P02-4",
+      "question": "What wording for indirect aggression actually appeared in the final communiqué?",
+      "understand": {
+        "documentary_plan": null,
+        "reference_expected": "Withhold. The telegram reports that Japan would no longer insist on inclusion and Kishi had not decided how to handle it. The final communiqué is absent."
+      },
+      "find": {
+        "anchors": [
+          {
+            "source": "P02-A",
+            "quote": "Kishi now plans to handle this matter either by such an agreed minute, or by a unilateral statement or by simply saying nothing, although he has not yet decided which course to follow.",
+            "text_span": [
+              1088,
+              1272
+            ]
+          }
+        ],
+        "indexed": [
+          [
+            "sha256:eae98518323af5b9b910c8fc9c1062a368eba06cd8e83f715d9444931c9a896c"
+          ]
+        ],
+        "first_3": [
+          [
+            "sha256:eae98518323af5b9b910c8fc9c1062a368eba06cd8e83f715d9444931c9a896c"
+          ]
+        ],
+        "first_12": [
+          [
+            "sha256:eae98518323af5b9b910c8fc9c1062a368eba06cd8e83f715d9444931c9a896c"
+          ]
+        ]
+      },
+      "check": {
+        "strict": {
+          "kind": "abstain",
+          "diagnostic": "interpretation_unsupported",
+          "supported": false,
+          "claims": []
+        },
+        "strict_with_reference_locations": {
+          "kind": "abstain",
+          "diagnostic": "interpretation_unsupported",
+          "supported": false,
+          "claims": []
+        },
+        "locations_supplied": 1,
+        "exact_quote_controls": [
+          {
+            "expected_source": "P02-A",
+            "question": "Which source contains the exact words “Kishi now plans to handle this matter either by such an agreed minute, or by a unilateral statement or by simply saying nothing, although he has not yet decided which course to follow.”?",
+            "expected_span_cited": true,
+            "answer": {
+              "kind": "supported_answer",
+              "diagnostic": "supported_documentary_assertion",
+              "supported": true,
+              "claims": [
+                {
+                  "text": "The cited source contains the requested words: “Kishi now plans to handle this matter either by such an agreed minute, or by a unilateral statement or by simply saying nothing, although he has not yet decided which course to follow.”.",
+                  "qualifiers": [
+                    "Only the complete cited wording is checked; historical truth and event/person identity are not independently verified.",
+                    "Textual occurrence only; quotations, examples, conditions and denials do not establish an event or execution."
+                  ],
+                  "citations": [
+                    {
+                      "source_id": "P02-A",
+                      "path": "p02-a.html",
+                      "hash": "sha256:ee87630849e011d14ef96606c6eafb0fe682ceeaebca81d8a7be06c4b19bdc5b",
+                      "body_start": 990,
+                      "body_end": 1366,
+                      "start": 990,
+                      "end": 1366,
+                      "quote": "Fujiyama inquires whether we will accept formulation in agreed minute set forth in Embtel 1982.Kishi now plans to handle this matter either by such an agreed minute, or by a unilateral statement or by simply saying nothing, although he has not yet decided which course to follow. (3) Re consultation formula, Kishi feels he must insist that this be included in the communiqué.",
+                      "body_projection": "body-text-no-headings-v1"
+                    }
+                  ],
+                  "proposition": {
+                    "relation": "source_literal_occurrence",
+                    "requested_words": "Kishi now plans to handle this matter either by such an agreed minute, or by a unilateral statement or by simply saying nothing, although he has not yet decided which course to follow.",
+                    "matching_basis": "Exact code points and word boundaries; source whitespace may wrap.",
+                    "text_only": true,
+                    "event_identity": null,
+                    "historical_truth_independently_verified": false,
+                    "question_obligations_verified": true,
+                    "verified_question": "Which source contains the exact words “Kishi now plans to handle this matter either by such an agreed minute, or by a unilateral statement or by simply saying nothing, although he has not yet decided which course to follow.”?",
+                    "question_completion_rule": "eligible_literal_location_v1",
+                    "reference_scope": "Textual occurrence in one current eligible source; no event or historical assertion.",
+                    "eligible_source_ambiguity": false
+                  },
+                  "source_support_established": true,
+                  "support_scope": "textual_occurrence",
+                  "verification": "documentary-assertion-kernel-v11",
+                  "historical_truth_independently_verified": false,
+                  "proof_sha256": "sha256:b66d9ccc99037dd3d09dfbbde03e174fd59b5b52fffbc8dcf86f489a21e6b2c4"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -1,41 +1,40 @@
 # Repository handoff
 
-Last reviewed: 2026-11-23.
+Last reviewed: 2026-11-24.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `970abb919c4490d998d30ea117e610c2976e2f57` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `69c9a3ee27f43dee75316ebaee29e2a844e2409f41963f83f332da8619e63222`.
+Base commit: `da9418ae7e60d39845ea65e8f365a8dc84abe2c6` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `a707f421e42805d8053a8d5d38a6ae920d1e95507bd062e1575fa449e40fd6f0`.
 
 ## Latest user update instructions
 
-Run it until you fix the pass offs it is a break in logic in chain the unit is a whole strict mode is strict but keeping the rule one owner two should not be a skip it should be preventing boundries of both and none is refuse how it seems is refuse unless one owner
+It needs to be able to read write graphs in real time and use flag system to direct experience.  Flags in graph match flags in system tags seams and passes so strict can present from graphed boundaries and relations what does strict system present from w/e it is that’s the paths to sync
 
-Develop D8 to solve it
+Design Plan: Live Graph + Flag Sync for Combined MPLPB Strict Presentation
 
-Debug as well as test and fix as you find new breaks and errors
+Information by void if it’s presented as to why it can’t verify it to MPLPB but can make a “educated guess” but still presents hard sources and says so if nothing exists
+
+And even in strict mode you can have a “educated guess “ helper to help you sort the tags and logic of passes and fails but both present the information
 
 ## Implemented scope
 
-- Build eight D8 ownership handoff controls and repair missing competing witnesses, independent named record comparisons, and unsupported published-wording routing.
+- Add opt-in live SQLite read/write graph paths, an exact native flag gate, Advanced follow-up reuse, and a labeled strict next-check helper.
 
 ## Validation recorded
 
-- Recorded the failing D8 baseline and passed all eight D8 controls and 85 focused tests on the candidate.
-- Replayed the historical 22 and retained each native strict status, diagnostic and citation count.
-- Replayed the same 24 D12 questions. The final-wording request now cleanly withholds. The answerable score remains 0 of 19.
-- The first full suite exposed a legacy CLI text regression and a loopback sandbox restriction. Repaired the legacy contract and passed the focused release contract tests with visible conflict witnesses in the human-readable CLI.
-- Passed 87 checks from the focused committed source ZIP.
-- The frozen native suite reported OK across 1,680 tests with two skips. The command wrapper returned exit 1 despite the successful unittest footer; the retained retry log records the discrepancy.
+- Passed focused graph, Advanced, J/Opass and strict answer controls. Matching paths preserve their native proof and flag disagreements withhold the display.
+- Verified 54 focused tests from the committed source ZIP. The frozen native suite ran 1,699 tests with 2 skips and zero failures. The recorded test-process exit was zero, while the execution wrapper returned 1.
+- Matched the entire native strict result for all historical 22 with the graph gate active. Replayed the same 4score20 and J/Opass decisions and verified that the Lodge pass advances to investigate without changing its refusal.
 
 ## Limitations and blocked checks
 
-- Explicit multi-record field comparisons cover source-declared fields. Prose relationships still require a rule and witnesses that establish the relationship.
-- Full ZIP extraction exceeds the local disk budget. The focused source archive is used for local checks.
+- The graph governs presentation and bounded routing. Historical question interpretation and relationship rules remain separate work.
+- The full repository ZIP exceeds available local extraction space.
 
 ## Next steps
 
-- Trace the D12 prose interpretation misses separately, using dual-source notes as retrieval locators with independent proof checks.
+- Use the graph to isolate which verified source paths a new historical interpretation rule would need.
 
 ## Use this ZIP in your repository
 

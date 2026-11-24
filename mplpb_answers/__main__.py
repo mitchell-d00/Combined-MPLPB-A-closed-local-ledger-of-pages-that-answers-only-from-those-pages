@@ -24,7 +24,8 @@ def cmd_ask(args):
             raise ValueError('Use --answer-mode assisted to enable the explicitly configured local reader')
         result = answer_query(args.root, args.question, _profile(args), mode=args.answer_mode, reader=reader,
                               min_confidence=args.assisted_threshold, max_passages=args.max_passages, max_chars=args.max_context_chars,
-                              record_id=args.record_id,field=args.field,as_of=args.as_of)
+                              record_id=args.record_id,field=args.field,as_of=args.as_of,
+                              experience_graph=args.experience_graph)
     except ValueError as exc:
         print(json.dumps({'error': str(exc), 'answer_supported': False}) if args.json
               else f'Invalid request: {exc}', file=sys.stderr)
@@ -84,6 +85,9 @@ def cmd_ask(args):
         if c['clarification']:
             print(c['clarification'])
     if not args.json:
+        if (result.sync or {}).get('status') == 'mismatch':
+            print(json.dumps(result.sync, ensure_ascii=False, sort_keys=True))
+        _print_graph_helper(result.sync)
         print(result.contract['source_assurance']['notice'])
     if args.answer_mode == 'strict':
         return {'return': 0, 'ambiguous': 2, 'not_in_corpus': 3}[data['kind']]
@@ -109,7 +113,8 @@ def cmd_advanced(args):
             raise ValueError('Provide the local model and its digest together')
         reader = OllamaLocalReader(args.reader_model, model_digest=args.reader_digest) if args.reader_model else None
         result = advanced_query(args.root, args.question, R.PROFILES[args.profile],
-                                follow_up=args.follow_up, reader=reader)
+                                follow_up=args.follow_up, reader=reader,
+                                experience_graph=args.experience_graph)
     except (OSError, ValueError) as exc:
         print(f'Advanced MPLPB stopped: {exc}', file=sys.stderr)
         return 2
@@ -118,7 +123,12 @@ def cmd_advanced(args):
     else:
         print(result['status'].replace('_', ' ').upper())
         strict = result['strict']
-        if strict:
+        experience = result.get('experience')
+        if experience:
+            print(experience['presentation']['text'])
+            if experience['pass_id'] is not None:
+                print(f"Experience pass: {experience['pass_id']}")
+        elif strict:
             print(strict['text'] or strict['diagnostic']['message'])
             for claim in strict['claims']:
                 for cite in claim['citations']:
@@ -127,6 +137,8 @@ def cmd_advanced(args):
         if inspection:
             detail = inspection['detail']
             print(f"Inspection ({inspection['path']}): {detail.get('kind') or detail['status']}")
+            if inspection.get('label'):
+                print(inspection['label'])
             if inspection['path'] == 'assisted':
                 print(detail['text'] or detail['diagnostic']['message'])
                 for claim in detail['claims']:
@@ -138,7 +150,33 @@ def cmd_advanced(args):
                     print('Records to inspect: ' + ', '.join(ids))
         if result['next_step']:
             print(result['next_step'])
+        if (result.get('flag_sync') or {}).get('status') == 'mismatch':
+            print(result['strict']['diagnostic']['code'])
+            print(json.dumps(result['flag_sync'], ensure_ascii=False, sort_keys=True))
+        _print_graph_helper(result.get('flag_sync'))
     return {'supported_answer': 0, 'conflict': 2, 'partial_answer': 4, 'clarify': 5}.get(result['status'], 3)
+
+
+def _print_graph_helper(sync):
+    helper = (sync or {}).get('helper')
+    if helper:
+        print(helper['label'])
+        print(helper['text'])
+        for cite in helper['citations']:
+            print('[{source_id} {hash}] {quote}'.format(**cite))
+
+
+def cmd_experience_pass(args):
+    import sqlite3
+    from .experience_graph import read_pass
+
+    try:
+        print(json.dumps(read_pass(args.graph, args.pass_id, include_version=True),
+                         ensure_ascii=False, indent=2))
+    except (OSError, ValueError, sqlite3.Error) as exc:
+        print(f'Experience graph stopped: {exc}', file=sys.stderr)
+        return 2
+    return 0
 
 
 def cmd_advanced_train(args):
@@ -272,7 +310,9 @@ def build_parser():
     sub = next(a for a in parser._actions if hasattr(a, 'choices') and isinstance(a.choices, dict))
     ask = sub.choices['ask']
     ask.set_defaults(fn=cmd_ask)
+    from pathlib import Path
     ask.add_argument('--answer-mode', choices=['strict', 'assisted'], default='strict')
+    ask.add_argument('--experience-graph', type=Path, help='Require a current matching experience graph path')
     ask.add_argument('--reader-model', help='Explicit installed local Ollama model; no automatic downloads')
     ask.add_argument('--reviewer-model', help='Optional separate local review model')
     ask.add_argument('--reader-endpoint', default='http://127.0.0.1:11434')
@@ -292,11 +332,15 @@ def build_parser():
     advanced.add_argument('--profile', choices=R.PROFILES, default=R.DEFAULT_PROFILE)
     from .advanced import PATHS
     advanced.add_argument('--follow-up', choices=PATHS, default='auto')
+    advanced.add_argument('--experience-graph', type=Path, help='Read and record local inspection passes in SQLite')
     advanced.add_argument('--reader-model')
     advanced.add_argument('--reader-digest')
     advanced.add_argument('--json', action='store_true')
+    experience = sub.add_parser('experience-pass', help='inspect one recorded experience graph pass')
+    experience.add_argument('graph', type=Path)
+    experience.add_argument('pass_id', type=int)
+    experience.set_defaults(fn=cmd_experience_pass)
     advanced.set_defaults(fn=cmd_advanced)
-    from pathlib import Path
     training = sub.add_parser('advanced-train', help='freeze, diagnose, and test one bounded rule')
     for parameter in ('fixtures', 'key', 'baseline', 'output'):
         training.add_argument(parameter, type=Path)
