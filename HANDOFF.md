@@ -4,37 +4,33 @@ Last reviewed: 2026-11-24.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `da9418ae7e60d39845ea65e8f365a8dc84abe2c6` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `a707f421e42805d8053a8d5d38a6ae920d1e95507bd062e1575fa449e40fd6f0`.
+Base commit: `b53b7103b5d4491bc1f7db4bae9f6f50d9cee35e` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `b3f0bfa38273315c81646f44e6f859c052bf24879218992d87514939bb9d02f3`.
 
 ## Latest user update instructions
 
-It needs to be able to read write graphs in real time and use flag system to direct experience.  Flags in graph match flags in system tags seams and passes so strict can present from graphed boundaries and relations what does strict system present from w/e it is that’s the paths to sync
-
-Design Plan: Live Graph + Flag Sync for Combined MPLPB Strict Presentation
-
-Information by void if it’s presented as to why it can’t verify it to MPLPB but can make a “educated guess” but still presents hard sources and says so if nothing exists
-
-And even in strict mode you can have a “educated guess “ helper to help you sort the tags and logic of passes and fails but both present the information
+Test it how often the new paths can interpret unfamiliar prose and prove relationships across documents. Call it scout
 
 ## Implemented scope
 
-- Add opt-in live SQLite read/write graph paths, an exact native flag gate, Advanced follow-up reuse, and a labeled strict next-check helper.
+- Draw 12 FRUS historical documents from six new volumes after pinning the engine, and commit 24 questions and their source key before native execution.
+- Compare native proof, matched passage discovery, two live graph passes, expert investigation, and a separate key-assisted quote probe.
 
 ## Validation recorded
 
-- Passed focused graph, Advanced, J/Opass and strict answer controls. Matching paths preserve their native proof and flag disagreements withhold the display.
-- Verified 54 focused tests from the committed source ZIP. The frozen native suite ran 1,699 tests with 2 skips and zero failures. The recorded test-process exit was zero, while the execution wrapper returned 1.
-- Matched the entire native strict result for all historical 22 with the graph gate active. Replayed the same 4score20 and J/Opass decisions and verified that the Lodge pass advances to investigate without changing its refusal.
+- Verified 12 exact source fragments and the pre-run custody bundle. Reproduced outputs apart from regenerated WorkStore receipt IDs.
+- Strict Ask completed 0/18 answerable questions and 0/6 cross-document relationships. All 6 missing-evidence controls withheld. The 48 graph passes preserved the native result.
+- At 12 passages, native discovery found all anchors for 14/18 answerable questions and 3/6 relationship questions. The subsequent quote probe verified 22/24 anchors.
+- Passed 41 focused tests and the documentation audit.
 
 ## Limitations and blocked checks
 
-- The graph governs presentation and bounded routing. Historical question interpretation and relationship rules remain separate work.
-- The full repository ZIP exceeds available local extraction space.
+- The sample covers short English diplomatic records and was scored by one AI-assisted operator. No configured model ran.
+- The full repository ZIP exceeds local extraction space. This pilot checks the current engine without changing it.
 
 ## Next steps
 
-- Use the graph to isolate which verified source paths a new historical interpretation rule would need.
+- Develop independently worded controls for comparing recommendations rather than wording and test verified scope warnings on partial outputs.
 
 ## Use this ZIP in your repository
 

@@ -108,6 +108,7 @@ and independent human review describe separate kinds of evidence.
 | D12 solo post-freeze pilot | Draw and seal fresh historical source packets, then compare passage discovery and proof with a precommitted source key | [24-question FRUS run](../evaluation/d12/solo-post-freeze/README.md) |
 | Live graph flag sync | Check that read/write passes reuse eligible candidates and that a strict presentation withholds on a flag mismatch | [Graph controls](../tests/test_experience_graph.py) · [Advanced graph commands](ADVANCED_MPLPB.md#live-experience-graph-and-strict-flag-matching) |
 | J/Opass | Check the Observer and Judge warnings on historical and authored cases, then test model layout choices | [Presentation and live model results](../evaluation/d12/j-opass/README.md) |
+| Scout | Measure interpretation, discovery, and cross-document proof on newly drawn historical sources after an engine freeze | [Scout protocol, results, and replay](../evaluation/d12/scout/README.md) |
 | 4score20 historical prose | Trace question interpretation, relevant passage discovery, and proof in context on the same frozen cases | [4score20](../evaluation/d12/4score20/README.md) |
 | Historical 22 pattern expansion | Compare quote discovery, matched direct/paraphrased questions, and scope controls on the same originals | [Run and results](../evaluation/historical-patterns/README.md) |
 | Historical synonym graph comparison | Compare graph-guided passage discovery on frozen and new history topics | [Study and new source records](../evaluation/historical-synonym-graph/README.md) |

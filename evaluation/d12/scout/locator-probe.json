@@ -1,0 +1,2896 @@
+{
+  "test": "4score20",
+  "runtime_sha256": "0e5c15e41380698d6347f142c4b35789bdf4c84862a92a6eb6cd7ce2638fbbaf",
+  "questions_sha256": "ab120c1348d33aca4d63b7945d4dd666a641a1002ce9e23083618e824412514e",
+  "cases": [
+    {
+      "case": "P01-1",
+      "question": "On what date did the French Foreign Office extend the invitation to the embassy in Paris?",
+      "understand": {
+        "documentary_plan": null,
+        "reference_expected": "June 6, as stated by Elbrick."
+      },
+      "find": {
+        "anchors": [
+          {
+            "source": "P01-B",
+            "quote": "On June 6 the French Foreign Office extended an invitation to our Embassy in Paris to send a representative to visit the scene of the Melouza massacre.",
+            "text_span": [
+              390,
+              541
+            ]
+          }
+        ],
+        "indexed": [
+          [
+            "sha256:77e698ad9dd2a3fa653e93d31ef56a32e2e18e2608040497219bca944416f85c"
+          ]
+        ],
+        "first_3": [
+          [
+            "sha256:77e698ad9dd2a3fa653e93d31ef56a32e2e18e2608040497219bca944416f85c"
+          ]
+        ],
+        "first_12": [
+          [
+            "sha256:77e698ad9dd2a3fa653e93d31ef56a32e2e18e2608040497219bca944416f85c"
+          ]
+        ]
+      },
+      "check": {
+        "strict": {
+          "kind": "abstain",
+          "diagnostic": "interpretation_unsupported",
+          "supported": false,
+          "claims": []
+        },
+        "strict_with_reference_locations": {
+          "kind": "abstain",
+          "diagnostic": "interpretation_unsupported",
+          "supported": false,
+          "claims": []
+        },
+        "locations_supplied": 1,
+        "exact_quote_controls": [
+          {
+            "expected_source": "P01-B",
+            "question": "Which source contains the exact words “On June 6 the French Foreign Office extended an invitation to our Embassy in Paris to send a representative to visit the scene of the Melouza massacre.”?",
+            "expected_span_cited": true,
+            "answer": {
+              "kind": "supported_answer",
+              "diagnostic": "supported_documentary_assertion",
+              "supported": true,
+              "claims": [
+                {
+                  "text": "The cited source contains the requested words: “On June 6 the French Foreign Office extended an invitation to our Embassy in Paris to send a representative to visit the scene of the Melouza massacre.”.",
+                  "qualifiers": [
+                    "Only the complete cited wording is checked; historical truth and event/person identity are not independently verified.",
+                    "Textual occurrence only; quotations, examples, conditions and denials do not establish an event or execution."
+                  ],
+                  "citations": [
+                    {
+                      "source_id": "P01-B",
+                      "path": "p01-b.html",
+                      "hash": "sha256:42665e639b9d2f34d9b9fd8ffd2b0d2533341d3c1d528b79cf20b889c7ebf4b1",
+                      "body_start": 386,
+                      "body_end": 537,
+                      "start": 386,
+                      "end": 537,
+                      "quote": "On June 6 the French Foreign Office extended an invitation to our Embassy in Paris to send a representative to visit the scene of the Melouza massacre.",
+                      "body_projection": "body-text-no-headings-v1"
+                    }
+                  ],
+                  "proposition": {
+                    "relation": "source_literal_occurrence",
+                    "requested_words": "On June 6 the French Foreign Office extended an invitation to our Embassy in Paris to send a representative to visit the scene of the Melouza massacre.",
+                    "matching_basis": "Exact code points and word boundaries; source whitespace may wrap.",
+                    "text_only": true,
+                    "event_identity": null,
+                    "historical_truth_independently_verified": false,
+                    "question_obligations_verified": true,
+                    "verified_question": "Which source contains the exact words “On June 6 the French Foreign Office extended an invitation to our Embassy in Paris to send a representative to visit the scene of the Melouza massacre.”?",
+                    "question_completion_rule": "eligible_literal_location_v1",
+                    "reference_scope": "Textual occurrence in one current eligible source; no event or historical assertion.",
+                    "eligible_source_ambiguity": false
+                  },
+                  "source_support_established": true,
+                  "support_scope": "textual_occurrence",
+                  "verification": "documentary-assertion-kernel-v11",
+                  "historical_truth_independently_verified": false,
+                  "proof_sha256": "sha256:dd2152254ef9df7edf001be12a8daedceba33a0ba0dafaaa7f82d733452677f4"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "case": "P01-2",
+      "question": "How did Rountree's recommendation on accepting the French visit differ from Elbrick's?",
+      "understand": {
+        "documentary_plan": [
+          {
+            "question": "How did Rountree's recommendation on accepting the French visit differ from Elbrick's",
+            "kind": "wording_comparison"
+          }
+        ],
+        "reference_expected": "Rountree opposed acceptance by representatives of either office. Elbrick supported a Consulate General representative if invited and said the Paris Embassy should decline for itself."
+      },
+      "find": {
+        "anchors": [
+          {
+            "source": "P01-A",
+            "quote": "NEA does not feel that in the framework in which the French invitation to visit the scene of the Melouza massacre has been put, representatives of either the Embassy or the Consulate General at Algiers should accept.",
+            "text_span": [
+              271,
+              487
+            ]
+          },
+          {
+            "source": "P01-B",
+            "quote": "the Consulate General should be authorized to send a representative if an invitation is extended to the Consulate, but that the Paris Embassy should decline for itself.",
+            "text_span": [
+              2206,
+              2374
+            ]
+          }
+        ],
+        "indexed": [
+          [
+            "sha256:9f161d57d54ea1711461ea40441f9b6259e7e5cb228160109a573fe2f99fa318"
+          ],
+          [
+            "sha256:f09e3c58e516b976bede8cfc9dc679775dcd3b58629f174a7a1b86c23b805494"
+          ]
+        ],
+        "first_3": [
+          [
+            "sha256:9f161d57d54ea1711461ea40441f9b6259e7e5cb228160109a573fe2f99fa318"
+          ],
+          []
+        ],
+        "first_12": [
+          [
+            "sha256:9f161d57d54ea1711461ea40441f9b6259e7e5cb228160109a573fe2f99fa318"
+          ],
+          []
+        ]
+      },
+      "check": {
+        "strict": {
+          "kind": "partial_answer",
+          "diagnostic": "partial_documentary_evidence",
+          "supported": false,
+          "claims": [
+            {
+              "text": "Exact comparison of the two cited units. Shared wording: “SUBJECT French Invitation to Visit Melouza”.",
+              "qualifiers": [
+                "Only the complete cited wording is checked; historical truth and event/person identity are not independently verified.",
+                "No version order, correction, motive, responsible person or whole-document absence is established by this local comparison."
+              ],
+              "citations": [
+                {
+                  "source_id": "P01-A",
+                  "path": "p01-a.html",
+                  "hash": "sha256:ef91ac07e94121886151df29c6c92538476a203fa849dd01b923dd265a913198",
+                  "body_start": 212,
+                  "body_end": 254,
+                  "start": 212,
+                  "end": 254,
+                  "quote": "SUBJECT French Invitation to Visit Melouza",
+                  "body_projection": "body-text-no-headings-v1"
+                },
+                {
+                  "source_id": "P01-B",
+                  "path": "p01-b.html",
+                  "hash": "sha256:42665e639b9d2f34d9b9fd8ffd2b0d2533341d3c1d528b79cf20b889c7ebf4b1",
+                  "body_start": 181,
+                  "body_end": 223,
+                  "start": 181,
+                  "end": 223,
+                  "quote": "SUBJECT French Invitation to Visit Melouza",
+                  "body_projection": "body-text-no-headings-v1"
+                }
+              ],
+              "proposition": {
+                "relation": "exact_wording_comparison",
+                "alignment": [
+                  {
+                    "operation": "equal",
+                    "left_text": "SUBJECT French Invitation to Visit Melouza",
+                    "right_text": "SUBJECT French Invitation to Visit Melouza",
+                    "left_relative_start": 0,
+                    "right_relative_start": 0
+                  }
+                ],
+                "comparison_scope": "two complete cited source units only",
+                "whole_document_absence_established": false,
+                "correction_relationship_established": false,
+                "version_order_established": false,
+                "event_identity": null,
+                "historical_truth_independently_verified": false
+              },
+              "source_support_established": true,
+              "support_scope": "source_attributed_assertion",
+              "verification": "documentary-assertion-kernel-v11",
+              "historical_truth_independently_verified": false,
+              "proof_sha256": "sha256:ad87d6b0c8f185fbe5865d1122f1e002e4a8fd006b97dcf5b752dda9e377fe38"
+            },
+            {
+              "text": "Exact comparison of the two cited units. Source A: “NEA does not feel that in”; source B: “There is submitted herewith for your approval a telegram (Tab A) authorizing”. Shared wording: “the”. Source A: “framework in which”; source B: “Consul General at Algiers to send a representative to visit Melouza. On June 6”. Shared wording: “the French”. Source A: “”; source B: “Foreign Office extended an”. Shared wording: “invitation”. Source A: “”; source B: “to our Embassy in Paris to send a representative”. Shared wording: “to visit the scene of the Melouza”. Source A: “massacre has been put, representatives of either”; source B: “massacre. Other Embassies, including”. Shared wording: “the”. Source A: “”; source B: “U.K., Italy, Switzerland, Germany, India, Sweden, Japan, Turkey and Uruguay were given similar invitations. Both our”. Shared wording: “Embassy”. Further differences and shared text are retained in the complete structured alignment.",
+              "qualifiers": [
+                "Only the complete cited wording is checked; historical truth and event/person identity are not independently verified.",
+                "No version order, correction, motive, responsible person or whole-document absence is established by this local comparison."
+              ],
+              "citations": [
+                {
+                  "source_id": "P01-A",
+                  "path": "p01-a.html",
+                  "hash": "sha256:ef91ac07e94121886151df29c6c92538476a203fa849dd01b923dd265a913198",
+                  "body_start": 267,
+                  "body_end": 827,
+                  "start": 267,
+                  "end": 827,
+                  "quote": "NEA does not feel that in the framework in which the French invitation to visit the scene of the Melouza massacre has been put, representatives of either the Embassy or the Consulate General at Algiers should accept. The terms of the French note make clear that the visit is being organized as a French “guided tour” in Algeria. However understandable the French plans may be, I feel that U.S. participation at this time would open us to charges of partiality, particularly since we would have little freedom to criticize or comment on the results of the tour.",
+                  "body_projection": "body-text-no-headings-v1"
+                },
+                {
+                  "source_id": "P01-B",
+                  "path": "p01-b.html",
+                  "hash": "sha256:42665e639b9d2f34d9b9fd8ffd2b0d2533341d3c1d528b79cf20b889c7ebf4b1",
+                  "body_start": 236,
+                  "body_end": 893,
+                  "start": 236,
+                  "end": 893,
+                  "quote": "There is submitted herewith for your approval a telegram (Tab A) authorizing the Consul General at Algiers to send a representative to visit Melouza. On June 6 the French Foreign Office extended an invitation to our Embassy in Paris to send a representative to visit the scene of the Melouza massacre. Other Embassies, including the U.K., Italy, Switzerland, Germany, India, Sweden, Japan, Turkey and Uruguay were given similar invitations. Both our Embassy in Paris and the Consulate General at Algiers thought that a refusal would be a psychological error and that on balance an Embassy officer and a member of the Consulate General should make the visit.",
+                  "body_projection": "body-text-no-headings-v1"
+                }
+              ],
+              "proposition": {
+                "relation": "exact_wording_comparison",
+                "alignment": [
+                  {
+                    "operation": "replace",
+                    "left_text": "NEA does not feel that in",
+                    "right_text": "There is submitted herewith for your approval a telegram (Tab A) authorizing",
+                    "left_relative_start": 0,
+                    "right_relative_start": 0
+                  },
+                  {
+                    "operation": "equal",
+                    "left_text": "the",
+                    "right_text": "the",
+                    "left_relative_start": 26,
+                    "right_relative_start": 77
+                  },
+                  {
+                    "operation": "replace",
+                    "left_text": "framework in which",
+                    "right_text": "Consul General at Algiers to send a representative to visit Melouza. On June 6",
+                    "left_relative_start": 30,
+                    "right_relative_start": 81
+                  },
+                  {
+                    "operation": "equal",
+                    "left_text": "the French",
+                    "right_text": "the French",
+                    "left_relative_start": 49,
+                    "right_relative_start": 160
+                  },
+                  {
+                    "operation": "insert",
+                    "left_text": "",
+                    "right_text": "Foreign Office extended an",
+                    "left_relative_start": 60,
+                    "right_relative_start": 171
+                  },
+                  {
+                    "operation": "equal",
+                    "left_text": "invitation",
+                    "right_text": "invitation",
+                    "left_relative_start": 60,
+                    "right_relative_start": 198
+                  },
+                  {
+                    "operation": "insert",
+                    "left_text": "",
+                    "right_text": "to our Embassy in Paris to send a representative",
+                    "left_relative_start": 71,
+                    "right_relative_start": 209
+                  },
+                  {
+                    "operation": "equal",
+                    "left_text": "to visit the scene of the Melouza",
+                    "right_text": "to visit the scene of the Melouza",
+                    "left_relative_start": 71,
+                    "right_relative_start": 258
+                  },
+                  {
+                    "operation": "replace",
+                    "left_text": "massacre has been put, representatives of either",
+                    "right_text": "massacre. Other Embassies, including",
+                    "left_relative_start": 105,
+                    "right_relative_start": 292
+                  },
+                  {
+                    "operation": "equal",
+                    "left_text": "the",
+                    "right_text": "the",
+                    "left_relative_start": 154,
+                    "right_relative_start": 329
+                  },
+                  {
+                    "operation": "insert",
+                    "left_text": "",
+                    "right_text": "U.K., Italy, Switzerland, Germany, India, Sweden, Japan, Turkey and Uruguay were given similar invitations. Both our",
+                    "left_relative_start": 158,
+                    "right_relative_start": 333
+                  },
+                  {
+                    "operation": "equal",
+                    "left_text": "Embassy",
+                    "right_text": "Embassy",
+                    "left_relative_start": 158,
+                    "right_relative_start": 450
+                  },
+                  {
+                    "operation": "replace",
+                    "left_text": "or",
+                    "right_text": "in Paris and",
+                    "left_relative_start": 166,
+                    "right_relative_start": 458
+                  },
+                  {
+                    "operation": "equal",
+                    "left_text": "the Consulate General at Algiers",
+                    "right_text": "the Consulate General at Algiers",
+                    "left_relative_start": 169,
+                    "right_relative_start": 471
+                  },
+                  {
+                    "operation": "replace",
+                    "left_text": "should accept. The terms",
+                    "right_text": "thought that a refusal would be a psychological error and that on balance an Embassy officer and a member",
+                    "left_relative_start": 202,
+                    "right_relative_start": 504
+                  },
+                  {
+                    "operation": "equal",
+                    "left_text": "of the",
+                    "right_text": "of the",
+                    "left_relative_start": 227,
+                    "right_relative_start": 610
+                  },
+                  {
+                    "operation": "replace",
+                    "left_text": "French note",
+                    "right_text": "Consulate General should",
+                    "left_relative_start": 234,
+                    "right_relative_start": 617
+                  },
+                  {
+                    "operation": "equal",
+                    "left_text": "make",
+                    "right_text": "make",
+                    "left_relative_start": 246,
+                    "right_relative_start": 642
+                  },
+                  {
+                    "operation": "delete",
+                    "left_text": "clear that",
+                    "right_text": "",
+                    "left_relative_start": 251,
+                    "right_relative_start": 647
+                  },
+                  {
+                    "operation": "equal",
+                    "left_text": "the",
+                    "right_text": "the",
+                    "left_relative_start": 262,
+                    "right_relative_start": 647
+                  },
+                  {
+                    "operation": "replace",
+                    "left_text": "visit is being organized as a French “guided tour” in Algeria. However understandable the French plans may be, I feel that U.S. participation at this time would open us to charges of partiality, particularly since we would have little freedom to criticize or comment on the results of the tour.",
+                    "right_text": "visit.",
+                    "left_relative_start": 266,
+                    "right_relative_start": 651
+                  }
+                ],
+                "comparison_scope": "two complete cited source units only",
+                "whole_document_absence_established": false,
+                "correction_relationship_established": false,
+                "version_order_established": false,
+                "event_identity": null,
+                "historical_truth_independently_verified": false
+              },
+              "source_support_established": true,
+              "support_scope": "source_attributed_assertion",
+              "verification": "documentary-assertion-kernel-v11",
+              "historical_truth_independently_verified": false,
+              "proof_sha256": "sha256:f71461fdc89ee45035d8505d715e11ed5e7894bb2bf5a577c33c5a07432b030e"
+            }
+          ]
+        },
+        "strict_with_reference_locations": {
+          "kind": "partial_answer",
+          "diagnostic": "partial_documentary_evidence",
+          "supported": false,
+          "claims": [
+            {
+              "text": "Exact comparison of the two cited units. Shared wording: “SUBJECT French Invitation to Visit Melouza”.",
+              "qualifiers": [
+                "Only the complete cited wording is checked; historical truth and event/person identity are not independently verified.",
+                "No version order, correction, motive, responsible person or whole-document absence is established by this local comparison."
+              ],
+              "citations": [
+                {
+                  "source_id": "P01-A",
+                  "path": "p01-a.html",
+                  "hash": "sha256:ef91ac07e94121886151df29c6c92538476a203fa849dd01b923dd265a913198",
+                  "body_start": 212,
+                  "body_end": 254,
+                  "start": 212,
+                  "end": 254,
+                  "quote": "SUBJECT French Invitation to Visit Melouza",
+                  "body_projection": "body-text-no-headings-v1"
+                },
+                {
+                  "source_id": "P01-B",
+                  "path": "p01-b.html",
+                  "hash": "sha256:42665e639b9d2f34d9b9fd8ffd2b0d2533341d3c1d528b79cf20b889c7ebf4b1",
+                  "body_start": 181,
+                  "body_end": 223,
+                  "start": 181,
+                  "end": 223,
+                  "quote": "SUBJECT French Invitation to Visit Melouza",
+                  "body_projection": "body-text-no-headings-v1"
+                }
+              ],
+              "proposition": {
+                "relation": "exact_wording_comparison",
+                "alignment": [
+                  {
+                    "operation": "equal",
+                    "left_text": "SUBJECT French Invitation to Visit Melouza",
+                    "right_text": "SUBJECT French Invitation to Visit Melouza",
+                    "left_relative_start": 0,
+                    "right_relative_start": 0
+                  }
+                ],
+                "comparison_scope": "two complete cited source units only",
+                "whole_document_absence_established": false,
+                "correction_relationship_established": false,
+                "version_order_established": false,
+                "event_identity": null,
+                "historical_truth_independently_verified": false
+              },
+              "source_support_established": true,
+              "support_scope": "source_attributed_assertion",
+              "verification": "documentary-assertion-kernel-v11",
+              "historical_truth_independently_verified": false,
+              "proof_sha256": "sha256:ad87d6b0c8f185fbe5865d1122f1e002e4a8fd006b97dcf5b752dda9e377fe38"
+            },
+            {
+              "text": "Exact comparison of the two cited units. Source A: “NEA does not feel that in”; source B: “There is submitted herewith for your approval a telegram (Tab A) authorizing”. Shared wording: “the”. Source A: “framework in which”; source B: “Consul General at Algiers to send a representative to visit Melouza. On June 6”. Shared wording: “the French”. Source A: “”; source B: “Foreign Office extended an”. Shared wording: “invitation”. Source A: “”; source B: “to our Embassy in Paris to send a representative”. Shared wording: “to visit the scene of the Melouza”. Source A: “massacre has been put, representatives of either”; source B: “massacre. Other Embassies, including”. Shared wording: “the”. Source A: “”; source B: “U.K., Italy, Switzerland, Germany, India, Sweden, Japan, Turkey and Uruguay were given similar invitations. Both our”. Shared wording: “Embassy”. Further differences and shared text are retained in the complete structured alignment.",
+              "qualifiers": [
+                "Only the complete cited wording is checked; historical truth and event/person identity are not independently verified.",
+                "No version order, correction, motive, responsible person or whole-document absence is established by this local comparison."
+              ],
+              "citations": [
+                {
+                  "source_id": "P01-A",
+                  "path": "p01-a.html",
+                  "hash": "sha256:ef91ac07e94121886151df29c6c92538476a203fa849dd01b923dd265a913198",
+                  "body_start": 267,
+                  "body_end": 827,
+                  "start": 267,
+                  "end": 827,
+                  "quote": "NEA does not feel that in the framework in which the French invitation to visit the scene of the Melouza massacre has been put, representatives of either the Embassy or the Consulate General at Algiers should accept. The terms of the French note make clear that the visit is being organized as a French “guided tour” in Algeria. However understandable the French plans may be, I feel that U.S. participation at this time would open us to charges of partiality, particularly since we would have little freedom to criticize or comment on the results of the tour.",
+                  "body_projection": "body-text-no-headings-v1"
+                },
+                {
+                  "source_id": "P01-B",
+                  "path": "p01-b.html",
+                  "hash": "sha256:42665e639b9d2f34d9b9fd8ffd2b0d2533341d3c1d528b79cf20b889c7ebf4b1",
+                  "body_start": 236,
+                  "body_end": 893,
+                  "start": 236,
+                  "end": 893,
+                  "quote": "There is submitted herewith for your approval a telegram (Tab A) authorizing the Consul General at Algiers to send a representative to visit Melouza. On June 6 the French Foreign Office extended an invitation to our Embassy in Paris to send a representative to visit the scene of the Melouza massacre. Other Embassies, including the U.K., Italy, Switzerland, Germany, India, Sweden, Japan, Turkey and Uruguay were given similar invitations. Both our Embassy in Paris and the Consulate General at Algiers thought that a refusal would be a psychological error and that on balance an Embassy officer and a member of the Consulate General should make the visit.",
+                  "body_projection": "body-text-no-headings-v1"
+                }
+              ],
+              "proposition": {
+                "relation": "exact_wording_comparison",
+                "alignment": [
+                  {
+                    "operation": "replace",
+                    "left_text": "NEA does not feel that in",
+                    "right_text": "There is submitted herewith for your approval a telegram (Tab A) authorizing",
+                    "left_relative_start": 0,
+                    "right_relative_start": 0
+                  },
+                  {
+                    "operation": "equal",
+                    "left_text": "the",
+                    "right_text": "the",
+                    "left_relative_start": 26,
+                    "right_relative_start": 77
+                  },
+                  {
+                    "operation": "replace",
+                    "left_text": "framework in which",
+                    "right_text": "Consul General at Algiers to send a representative to visit Melouza. On June 6",
+                    "left_relative_start": 30,
+                    "right_relative_start": 81
+                  },
+                  {
+                    "operation": "equal",
+                    "left_text": "the French",
+                    "right_text": "the French",
+                    "left_relative_start": 49,
+                    "right_relative_start": 160
+                  },
+                  {
+                    "operation": "insert",
+                    "left_text": "",
+                    "right_text": "Foreign Office extended an",
+                    "left_relative_start": 60,
+                    "right_relative_start": 171
+                  },
+                  {
+                    "operation": "equal",
+                    "left_text": "invitation",
+                    "right_text": "invitation",
+                    "left_relative_start": 60,
+                    "right_relative_start": 198
+                  },
+                  {
+                    "operation": "insert",
+                    "left_text": "",
+                    "right_text": "to our Embassy in Paris to send a representative",
+                    "left_relative_start": 71,
+                    "right_relative_start": 209
+                  },
+                  {
+                    "operation": "equal",
+                    "left_text": "to visit the scene of the Melouza",
+                    "right_text": "to visit the scene of the Melouza",
+                    "left_relative_start": 71,
+                    "right_relative_start": 258
+                  },
+                  {
+                    "operation": "replace",
+                    "left_text": "massacre has been put, representatives of either",
+                    "right_text": "massacre. Other Embassies, including",
+                    "left_relative_start": 105,
+                    "right_relative_start": 292
+                  },
+                  {
+                    "operation": "equal",
+                    "left_text": "the",
+                    "right_text": "the",
+                    "left_relative_start": 154,
+                    "right_relative_start": 329
+                  },
+                  {
+                    "operation": "insert",
+                    "left_text": "",
+                    "right_text": "U.K., Italy, Switzerland, Germany, India, Sweden, Japan, Turkey and Uruguay were given similar invitations. Both our",
+                    "left_relative_start": 158,
+                    "right_relative_start": 333
+                  },
+                  {
+                    "operation": "equal",
+                    "left_text": "Embassy",
+                    "right_text": "Embassy",
+                    "left_relative_start": 158,
+                    "right_relative_start": 450
+                  },
+                  {
+                    "operation": "replace",
+                    "left_text": "or",
+                    "right_text": "in Paris and",
+                    "left_relative_start": 166,
+                    "right_relative_start": 458
+                  },
+                  {
+                    "operation": "equal",
+                    "left_text": "the Consulate General at Algiers",
+                    "right_text": "the Consulate General at Algiers",
+                    "left_relative_start": 169,
+                    "right_relative_start": 471
+                  },
+                  {
+                    "operation": "replace",
+                    "left_text": "should accept. The terms",
+                    "right_text": "thought that a refusal would be a psychological error and that on balance an Embassy officer and a member",
+                    "left_relative_start": 202,
+                    "right_relative_start": 504
+                  },
+                  {
+                    "operation": "equal",
+                    "left_text": "of the",
+                    "right_text": "of the",
+                    "left_relative_start": 227,
+                    "right_relative_start": 610
+                  },
+                  {
+                    "operation": "replace",
+                    "left_text": "French note",
+                    "right_text": "Consulate General should",
+                    "left_relative_start": 234,
+                    "right_relative_start": 617
+                  },
+                  {
+                    "operation": "equal",
+                    "left_text": "make",
+                    "right_text": "make",
+                    "left_relative_start": 246,
+                    "right_relative_start": 642
+                  },
+                  {
+                    "operation": "delete",
+                    "left_text": "clear that",
+                    "right_text": "",
+                    "left_relative_start": 251,
+                    "right_relative_start": 647
+                  },
+                  {
+                    "operation": "equal",
+                    "left_text": "the",
+                    "right_text": "the",
+                    "left_relative_start": 262,
+                    "right_relative_start": 647
+                  },
+                  {
+                    "operation": "replace",
+                    "left_text": "visit is being organized as a French “guided tour” in Algeria. However understandable the French plans may be, I feel that U.S. participation at this time would open us to charges of partiality, particularly since we would have little freedom to criticize or comment on the results of the tour.",
+                    "right_text": "visit.",
+                    "left_relative_start": 266,
+                    "right_relative_start": 651
+                  }
+                ],
+                "comparison_scope": "two complete cited source units only",
+                "whole_document_absence_established": false,
+                "correction_relationship_established": false,
+                "version_order_established": false,
+                "event_identity": null,
+                "historical_truth_independently_verified": false
+              },
+              "source_support_established": true,
+              "support_scope": "source_attributed_assertion",
+              "verification": "documentary-assertion-kernel-v11",
+              "historical_truth_independently_verified": false,
+              "proof_sha256": "sha256:f71461fdc89ee45035d8505d715e11ed5e7894bb2bf5a577c33c5a07432b030e"
+            }
+          ]
+        },
+        "locations_supplied": 2,
+        "exact_quote_controls": [
+          {
+            "expected_source": "P01-A",
+            "question": "Which source contains the exact words “NEA does not feel that in the framework in which the French invitation to visit the scene of the Melouza massacre has been put, representatives of either the Embassy or the Consulate General at Algiers should accept.”?",
+            "expected_span_cited": true,
+            "answer": {
+              "kind": "supported_answer",
+              "diagnostic": "supported_documentary_assertion",
+              "supported": true,
+              "claims": [
+                {
+                  "text": "The cited source contains the requested words: “NEA does not feel that in the framework in which the French invitation to visit the scene of the Melouza massacre has been put, representatives of either the Embassy or the Consulate General at Algiers should accept.”.",
+                  "qualifiers": [
+                    "Only the complete cited wording is checked; historical truth and event/person identity are not independently verified.",
+                    "Textual occurrence only; quotations, examples, conditions and denials do not establish an event or execution."
+                  ],
+                  "citations": [
+                    {
+                      "source_id": "P01-A",
+                      "path": "p01-a.html",
+                      "hash": "sha256:ef91ac07e94121886151df29c6c92538476a203fa849dd01b923dd265a913198",
+                      "body_start": 212,
+                      "body_end": 483,
+                      "start": 212,
+                      "end": 483,
+                      "quote": "SUBJECT French Invitation to Visit Melouza\nDiscussion:\nNEA does not feel that in the framework in which the French invitation to visit the scene of the Melouza massacre has been put, representatives of either the Embassy or the Consulate General at Algiers should accept.",
+                      "body_projection": "body-text-no-headings-v1"
+                    }
+                  ],
+                  "proposition": {
+                    "relation": "source_literal_occurrence",
+                    "requested_words": "NEA does not feel that in the framework in which the French invitation to visit the scene of the Melouza massacre has been put, representatives of either the Embassy or the Consulate General at Algiers should accept.",
+                    "matching_basis": "Exact code points and word boundaries; source whitespace may wrap.",
+                    "text_only": true,
+                    "event_identity": null,
+                    "historical_truth_independently_verified": false,
+                    "question_obligations_verified": true,
+                    "verified_question": "Which source contains the exact words “NEA does not feel that in the framework in which the French invitation to visit the scene of the Melouza massacre has been put, representatives of either the Embassy or the Consulate General at Algiers should accept.”?",
+                    "question_completion_rule": "eligible_literal_location_v1",
+                    "reference_scope": "Textual occurrence in one current eligible source; no event or historical assertion.",
+                    "eligible_source_ambiguity": false
+                  },
+                  "source_support_established": true,
+                  "support_scope": "textual_occurrence",
+                  "verification": "documentary-assertion-kernel-v11",
+                  "historical_truth_independently_verified": false,
+                  "proof_sha256": "sha256:751dda27be741586033bb9a8b4b678b4c7dc0faa10e1f6a76fe4aa8d2bbb1a78"
+                }
+              ]
+            }
+          },
+          {
+            "expected_source": "P01-B",
+            "question": "Which source contains the exact words “the Consulate General should be authorized to send a representative if an invitation is extended to the Consulate, but that the Paris Embassy should decline for itself.”?",
+            "expected_span_cited": true,
+            "answer": {
+              "kind": "supported_answer",
+              "diagnostic": "supported_documentary_assertion",
+              "supported": true,
+              "claims": [
+                {
+                  "text": "The cited source contains the requested words: “the Consulate General should be authorized to send a representative if an invitation is extended to the Consulate, but that the Paris Embassy should decline for itself.”.",
+                  "qualifiers": [
+                    "Only the complete cited wording is checked; historical truth and event/person identity are not independently verified.",
+                    "Textual occurrence only; quotations, examples, conditions and denials do not establish an event or execution."
+                  ],
+                  "citations": [
+                    {
+                      "source_id": "P01-B",
+                      "path": "p01-b.html",
+                      "hash": "sha256:42665e639b9d2f34d9b9fd8ffd2b0d2533341d3c1d528b79cf20b889c7ebf4b1",
+                      "body_start": 2135,
+                      "body_end": 2367,
+                      "start": 2135,
+                      "end": 2367,
+                      "quote": "It is strongly believed that despite the obvious disadvantages, the Consulate General should be authorized to send a representative if an invitation is extended to the Consulate, but that the Paris Embassy should decline for itself.",
+                      "body_projection": "body-text-no-headings-v1"
+                    }
+                  ],
+                  "proposition": {
+                    "relation": "source_literal_occurrence",
+                    "requested_words": "the Consulate General should be authorized to send a representative if an invitation is extended to the Consulate, but that the Paris Embassy should decline for itself.",
+                    "matching_basis": "Exact code points and word boundaries; source whitespace may wrap.",
+                    "text_only": true,
+                    "event_identity": null,
+                    "historical_truth_independently_verified": false,
+                    "question_obligations_verified": true,
+                    "verified_question": "Which source contains the exact words “the Consulate General should be authorized to send a representative if an invitation is extended to the Consulate, but that the Paris Embassy should decline for itself.”?",
+                    "question_completion_rule": "eligible_literal_location_v1",
+                    "reference_scope": "Textual occurrence in one current eligible source; no event or historical assertion.",
+                    "eligible_source_ambiguity": false
+                  },
+                  "source_support_established": true,
+                  "support_scope": "textual_occurrence",
+                  "verification": "documentary-assertion-kernel-v11",
+                  "historical_truth_independently_verified": false,
+                  "proof_sha256": "sha256:88625633516dc103153f868e781c0dc734b69d9fe7371e5669571082a7ec554b"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "case": "P01-3",
+      "question": "What did Rountree say would also need consideration if the French invitation was accepted?",
+      "understand": {
+        "documentary_plan": null,
+        "reference_expected": "He said any invitation from the Arab states to participate in an international investigating commission would need serious consideration."
+      },
+      "find": {
+        "anchors": [
+          {
+            "source": "P01-A",
+            "quote": "If, on the other hand, we decide to accept the French invitation, I believe we shall have to give serious consideration to any invitation of the Arab states to participate likewise in an international investigating commission.",
+            "text_span": [
+              2176,
+              2402
+            ]
+          }
+        ],
+        "indexed": [
+          [
+            "sha256:34bb6372187dedca860e17a999d844d1992675ae8a33439e9da3e12a115c2cfd"
+          ]
+        ],
+        "first_3": [
+          [
+            "sha256:34bb6372187dedca860e17a999d844d1992675ae8a33439e9da3e12a115c2cfd"
+          ]
+        ],
+        "first_12": [
+          [
+            "sha256:34bb6372187dedca860e17a999d844d1992675ae8a33439e9da3e12a115c2cfd"
+          ]
+        ]
+      },
+      "check": {
+        "strict": {
+          "kind": "abstain",
+          "diagnostic": "interpretation_unsupported",
+          "supported": false,
+          "claims": []
+        },
+        "strict_with_reference_locations": {
+          "kind": "abstain",
+          "diagnostic": "interpretation_unsupported",
+          "supported": false,
+          "claims": []
+        },
+        "locations_supplied": 1,
+        "exact_quote_controls": [
+          {
+            "expected_source": "P01-A",
+            "question": "Which source contains the exact words “If, on the other hand, we decide to accept the French invitation, I believe we shall have to give serious consideration to any invitation of the Arab states to participate likewise in an international investigating commission.”?",
+            "expected_span_cited": true,
+            "answer": {
+              "kind": "supported_answer",
+              "diagnostic": "supported_documentary_assertion",
+              "supported": true,
+              "claims": [
+                {
+                  "text": "The cited source contains the requested words: “If, on the other hand, we decide to accept the French invitation, I believe we shall have to give serious consideration to any invitation of the Arab states to participate likewise in an international investigating commission.”.",
+                  "qualifiers": [
+                    "Only the complete cited wording is checked; historical truth and event/person identity are not independently verified.",
+                    "Textual occurrence only; quotations, examples, conditions and denials do not establish an event or execution."
+                  ],
+                  "citations": [
+                    {
+                      "source_id": "P01-A",
+                      "path": "p01-a.html",
+                      "hash": "sha256:ef91ac07e94121886151df29c6c92538476a203fa849dd01b923dd265a913198",
+                      "body_start": 2168,
+                      "body_end": 2394,
+                      "start": 2168,
+                      "end": 2394,
+                      "quote": "If, on the other hand, we decide to accept the French invitation, I believe we shall have to give serious consideration to any invitation of the Arab states to participate likewise in an international investigating commission.",
+                      "body_projection": "body-text-no-headings-v1"
+                    }
+                  ],
+                  "proposition": {
+                    "relation": "source_literal_occurrence",
+                    "requested_words": "If, on the other hand, we decide to accept the French invitation, I believe we shall have to give serious consideration to any invitation of the Arab states to participate likewise in an international investigating commission.",
+                    "matching_basis": "Exact code points and word boundaries; source whitespace may wrap.",
+                    "text_only": true,
+                    "event_identity": null,
+                    "historical_truth_independently_verified": false,
+                    "question_obligations_verified": true,
+                    "verified_question": "Which source contains the exact words “If, on the other hand, we decide to accept the French invitation, I believe we shall have to give serious consideration to any invitation of the Arab states to participate likewise in an international investigating commission.”?",
+                    "question_completion_rule": "eligible_literal_location_v1",
+                    "reference_scope": "Textual occurrence in one current eligible source; no event or historical assertion.",
+                    "eligible_source_ambiguity": false
+                  },
+                  "source_support_established": true,
+                  "support_scope": "textual_occurrence",
+                  "verification": "documentary-assertion-kernel-v11",
+                  "historical_truth_independently_verified": false,
+                  "proof_sha256": "sha256:c62e4676f2930e56a20fc5318548e3c01f2682f6294464d0bbed00d2d6a0fd0a"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "case": "P02-1",
+      "question": "How long was each principal's opening statement allotted in the ANZUS agenda?",
+      "understand": {
+        "documentary_plan": null,
+        "reference_expected": "15–20 minutes for each principal."
+      },
+      "find": {
+        "anchors": [
+          {
+            "source": "P02-A",
+            "quote": "Opening statements of 15–20 minutes by each principal",
+            "text_span": [
+              3451,
+              3504
+            ]
+          }
+        ],
+        "indexed": [
+          [
+            "sha256:940537cd42ead69110f785908243fc82ebdc14ab821d5bad0f30b8be114e1347"
+          ]
+        ],
+        "first_3": [
+          [
+            "sha256:940537cd42ead69110f785908243fc82ebdc14ab821d5bad0f30b8be114e1347"
+          ]
+        ],
+        "first_12": [
+          [
+            "sha256:940537cd42ead69110f785908243fc82ebdc14ab821d5bad0f30b8be114e1347"
+          ]
+        ]
+      },
+      "check": {
+        "strict": {
+          "kind": "abstain",
+          "diagnostic": "interpretation_unsupported",
+          "supported": false,
+          "claims": []
+        },
+        "strict_with_reference_locations": {
+          "kind": "abstain",
+          "diagnostic": "interpretation_unsupported",
+          "supported": false,
+          "claims": []
+        },
+        "locations_supplied": 1,
+        "exact_quote_controls": [
+          {
+            "expected_source": "P02-A",
+            "question": "Which source contains the exact words “Opening statements of 15–20 minutes by each principal”?",
+            "expected_span_cited": true,
+            "answer": {
+              "kind": "supported_answer",
+              "diagnostic": "supported_documentary_assertion",
+              "supported": true,
+              "claims": [
+                {
+                  "text": "The cited source contains the requested words: “Opening statements of 15–20 minutes by each principal”.",
+                  "qualifiers": [
+                    "Only the complete cited wording is checked; historical truth and event/person identity are not independently verified.",
+                    "Textual occurrence only; quotations, examples, conditions and denials do not establish an event or execution."
+                  ],
+                  "citations": [
+                    {
+                      "source_id": "P02-A",
+                      "path": "p02-a.html",
+                      "hash": "sha256:094df47c1b1780744249cdb3e98c55383a00ff70eab429559b9bc20ec966df77",
+                      "body_start": 3430,
+                      "body_end": 3814,
+                      "start": 3430,
+                      "end": 3814,
+                      "quote": "Agenda\n1) Opening statements of 15–20 minutes by each principal (e.g., covering Sino-Soviet relations, Commonwealth Prime Ministersʼ meeting, Second Asian-African Conference, India-Pakistan relations). 2) Security situation in Southeast Asia (with special relation to situation in Indo-China States, Indonesian “confrontation” of Malaysia, Chinese Communist threat to the whole area).",
+                      "body_projection": "body-text-no-headings-v1"
+                    }
+                  ],
+                  "proposition": {
+                    "relation": "source_literal_occurrence",
+                    "requested_words": "Opening statements of 15–20 minutes by each principal",
+                    "matching_basis": "Exact code points and word boundaries; source whitespace may wrap.",
+                    "text_only": true,
+                    "event_identity": null,
+                    "historical_truth_independently_verified": false,
+                    "question_obligations_verified": true,
+                    "verified_question": "Which source contains the exact words “Opening statements of 15–20 minutes by each principal”?",
+                    "question_completion_rule": "eligible_literal_location_v1",
+                    "reference_scope": "Textual occurrence in one current eligible source; no event or historical assertion.",
+                    "eligible_source_ambiguity": false
+                  },
+                  "source_support_established": true,
+                  "support_scope": "textual_occurrence",
+                  "verification": "documentary-assertion-kernel-v11",
+                  "historical_truth_independently_verified": false,
+                  "proof_sha256": "sha256:f5941f02a688cd0411075df0c31411f0deee3f6ce1b93cfa9205895aba518230"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "case": "P02-2",
+      "question": "What coordination did Hasluck seek, and what institutional limit did the later East Asian Affairs paper put on it?",
+      "understand": {
+        "documentary_plan": null,
+        "reference_expected": "Hasluck wanted maximum coordination among the United States, United Kingdom, Australia, and New Zealand. The later paper kept ANZUS consultations separate from ANZAM because they serve different purposes."
+      },
+      "find": {
+        "anchors": [
+          {
+            "source": "P02-A",
+            "quote": "he considers it essential to achieve the maximum coordination possible of the efforts of the U.S., the U.K., Australia, and New Zealand in Southeast Asia.",
+            "text_span": [
+              2246,
+              2400
+            ]
+          },
+          {
+            "source": "P02-B",
+            "quote": "it is essential to keep our consultations under ANZUS separate from U.K., Australian, and New Zealand consultations under the ANZAM arrangement",
+            "text_span": [
+              759,
+              902
+            ]
+          }
+        ],
+        "indexed": [
+          [
+            "sha256:0dc75ffa5ceecc95b623993c7eef5c622681b136038b4f54d7a464b78380f429"
+          ],
+          [
+            "sha256:e2a407855816a4ae879bf2804f9208185374f561cdcde4020e6f869a51c85db9"
+          ]
+        ],
+        "first_3": [
+          [
+            "sha256:0dc75ffa5ceecc95b623993c7eef5c622681b136038b4f54d7a464b78380f429"
+          ],
+          []
+        ],
+        "first_12": [
+          [
+            "sha256:0dc75ffa5ceecc95b623993c7eef5c622681b136038b4f54d7a464b78380f429"
+          ],
+          []
+        ]
+      },
+      "check": {
+        "strict": {
+          "kind": "abstain",
+          "diagnostic": "interpretation_unsupported",
+          "supported": false,
+          "claims": []
+        },
+        "strict_with_reference_locations": {
+          "kind": "abstain",
+          "diagnostic": "interpretation_unsupported",
+          "supported": false,
+          "claims": []
+        },
+        "locations_supplied": 2,
+        "exact_quote_controls": [
+          {
+            "expected_source": "P02-A",
+            "question": "Which source contains the exact words “he considers it essential to achieve the maximum coordination possible of the efforts of the U.S., the U.K., Australia, and New Zealand in Southeast Asia.”?",
+            "expected_span_cited": true,
+            "answer": {
+              "kind": "supported_answer",
+              "diagnostic": "supported_documentary_assertion",
+              "supported": true,
+              "claims": [
+                {
+                  "text": "The cited source contains the requested words: “he considers it essential to achieve the maximum coordination possible of the efforts of the U.S., the U.K., Australia, and New Zealand in Southeast Asia.”.",
+                  "qualifiers": [
+                    "Only the complete cited wording is checked; historical truth and event/person identity are not independently verified.",
+                    "Textual occurrence only; quotations, examples, conditions and denials do not establish an event or execution."
+                  ],
+                  "citations": [
+                    {
+                      "source_id": "P02-A",
+                      "path": "p02-a.html",
+                      "hash": "sha256:094df47c1b1780744249cdb3e98c55383a00ff70eab429559b9bc20ec966df77",
+                      "body_start": 2139,
+                      "body_end": 2393,
+                      "start": 2139,
+                      "end": 2393,
+                      "quote": "Australian Minister for External Affairs Hasluck has recently informed our Embassy in Canberra that he considers it essential to achieve the maximum coordination possible of the efforts of the U.S., the U.K., Australia, and New Zealand in Southeast Asia.",
+                      "body_projection": "body-text-no-headings-v1"
+                    }
+                  ],
+                  "proposition": {
+                    "relation": "source_literal_occurrence",
+                    "requested_words": "he considers it essential to achieve the maximum coordination possible of the efforts of the U.S., the U.K., Australia, and New Zealand in Southeast Asia.",
+                    "matching_basis": "Exact code points and word boundaries; source whitespace may wrap.",
+                    "text_only": true,
+                    "event_identity": null,
+                    "historical_truth_independently_verified": false,
+                    "question_obligations_verified": true,
+                    "verified_question": "Which source contains the exact words “he considers it essential to achieve the maximum coordination possible of the efforts of the U.S., the U.K., Australia, and New Zealand in Southeast Asia.”?",
+                    "question_completion_rule": "eligible_literal_location_v1",
+                    "reference_scope": "Textual occurrence in one current eligible source; no event or historical assertion.",
+                    "eligible_source_ambiguity": false
+                  },
+                  "source_support_established": true,
+                  "support_scope": "textual_occurrence",
+                  "verification": "documentary-assertion-kernel-v11",
+                  "historical_truth_independently_verified": false,
+                  "proof_sha256": "sha256:9a958b7bf1d1dafcd5ae5d7920f360a7d341aae44f5f765126df84ca8f90130b"
+                }
+              ]
+            }
+          },
+          {
+            "expected_source": "P02-B",
+            "question": "Which source contains the exact words “it is essential to keep our consultations under ANZUS separate from U.K., Australian, and New Zealand consultations under the ANZAM arrangement”?",
+            "expected_span_cited": true,
+            "answer": {
+              "kind": "supported_answer",
+              "diagnostic": "supported_documentary_assertion",
+              "supported": true,
+              "claims": [
+                {
+                  "text": "The cited source contains the requested words: “it is essential to keep our consultations under ANZUS separate from U.K., Australian, and New Zealand consultations under the ANZAM arrangement”.",
+                  "qualifiers": [
+                    "Only the complete cited wording is checked; historical truth and event/person identity are not independently verified.",
+                    "Textual occurrence only; quotations, examples, conditions and denials do not establish an event or execution."
+                  ],
+                  "citations": [
+                    {
+                      "source_id": "P02-B",
+                      "path": "p02-b.html",
+                      "hash": "sha256:aac6a44fe926ad8b77843e23c77e023b86696bbc57a7ea3fb2590453a3995cbc",
+                      "body_start": 549,
+                      "body_end": 1023,
+                      "start": 549,
+                      "end": 1023,
+                      "quote": "U.S. Position\nWhile we agree that quadripartite consultations would be of value in obtaining a clear picture of our problems in Southeast Asia and in coordinating our efforts to deal with these problems, it is essential to keep our consultations under ANZUS separate from U.K., Australian, and New Zealand consultations under the ANZAM arrangement (an informal three-power planning body for the external defense of Malaysia), since they were designed for different purposes.",
+                      "body_projection": "body-text-no-headings-v1"
+                    }
+                  ],
+                  "proposition": {
+                    "relation": "source_literal_occurrence",
+                    "requested_words": "it is essential to keep our consultations under ANZUS separate from U.K., Australian, and New Zealand consultations under the ANZAM arrangement",
+                    "matching_basis": "Exact code points and word boundaries; source whitespace may wrap.",
+                    "text_only": true,
+                    "event_identity": null,
+                    "historical_truth_independently_verified": false,
+                    "question_obligations_verified": true,
+                    "verified_question": "Which source contains the exact words “it is essential to keep our consultations under ANZUS separate from U.K., Australian, and New Zealand consultations under the ANZAM arrangement”?",
+                    "question_completion_rule": "eligible_literal_location_v1",
+                    "reference_scope": "Textual occurrence in one current eligible source; no event or historical assertion.",
+                    "eligible_source_ambiguity": false
+                  },
+                  "source_support_established": true,
+                  "support_scope": "textual_occurrence",
+                  "verification": "documentary-assertion-kernel-v11",
+                  "historical_truth_independently_verified": false,
+                  "proof_sha256": "sha256:fbec7af38ce2f91f0310576e6399bbc2ae74e4dbcfa1d5b7293d0999381cfa79"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "case": "P02-3",
+      "question": "How certain was the scope paper that New Zealand would press for a negotiated Vietnam settlement?",
+      "understand": {
+        "documentary_plan": null,
+        "reference_expected": "It forecast that New Zealand would probably emphasize a negotiated settlement, rather than recording an actual statement by New Zealand at the meeting."
+      },
+      "find": {
+        "anchors": [
+          {
+            "source": "P02-A",
+            "quote": "will probably emphasize the desirability of pressing on to a negotiated settlement in Viet-Nam.",
+            "text_span": [
+              3048,
+              3143
+            ]
+          }
+        ],
+        "indexed": [
+          [
+            "sha256:6d1dd8221e74d1452e846de5a7c406b7c7695fe0db862dbab6fa0332ddf071ef"
+          ]
+        ],
+        "first_3": [
+          [
+            "sha256:6d1dd8221e74d1452e846de5a7c406b7c7695fe0db862dbab6fa0332ddf071ef"
+          ]
+        ],
+        "first_12": [
+          [
+            "sha256:6d1dd8221e74d1452e846de5a7c406b7c7695fe0db862dbab6fa0332ddf071ef"
+          ]
+        ]
+      },
+      "check": {
+        "strict": {
+          "kind": "abstain",
+          "diagnostic": "interpretation_unsupported",
+          "supported": false,
+          "claims": []
+        },
+        "strict_with_reference_locations": {
+          "kind": "abstain",
+          "diagnostic": "interpretation_unsupported",
+          "supported": false,
+          "claims": []
+        },
+        "locations_supplied": 1,
+        "exact_quote_controls": [
+          {
+            "expected_source": "P02-A",
+            "question": "Which source contains the exact words “will probably emphasize the desirability of pressing on to a negotiated settlement in Viet-Nam.”?",
+            "expected_span_cited": true,
+            "answer": {
+              "kind": "supported_answer",
+              "diagnostic": "supported_documentary_assertion",
+              "supported": true,
+              "claims": [
+                {
+                  "text": "The cited source contains the requested words: “will probably emphasize the desirability of pressing on to a negotiated settlement in Viet-Nam.”.",
+                  "qualifiers": [
+                    "Only the complete cited wording is checked; historical truth and event/person identity are not independently verified.",
+                    "Textual occurrence only; quotations, examples, conditions and denials do not establish an event or execution."
+                  ],
+                  "citations": [
+                    {
+                      "source_id": "P02-A",
+                      "path": "p02-a.html",
+                      "hash": "sha256:094df47c1b1780744249cdb3e98c55383a00ff70eab429559b9bc20ec966df77",
+                      "body_start": 2865,
+                      "body_end": 3134,
+                      "start": 2865,
+                      "end": 3134,
+                      "quote": "New Zealand Objectives\nThe New Zealand Government, which has encountered relatively greater domestic opposition than Australia to the commitment of troops to South Viet-Nam, will probably emphasize the desirability of pressing on to a negotiated settlement in Viet-Nam.",
+                      "body_projection": "body-text-no-headings-v1"
+                    }
+                  ],
+                  "proposition": {
+                    "relation": "source_literal_occurrence",
+                    "requested_words": "will probably emphasize the desirability of pressing on to a negotiated settlement in Viet-Nam.",
+                    "matching_basis": "Exact code points and word boundaries; source whitespace may wrap.",
+                    "text_only": true,
+                    "event_identity": null,
+                    "historical_truth_independently_verified": false,
+                    "question_obligations_verified": true,
+                    "verified_question": "Which source contains the exact words “will probably emphasize the desirability of pressing on to a negotiated settlement in Viet-Nam.”?",
+                    "question_completion_rule": "eligible_literal_location_v1",
+                    "reference_scope": "Textual occurrence in one current eligible source; no event or historical assertion.",
+                    "eligible_source_ambiguity": false
+                  },
+                  "source_support_established": true,
+                  "support_scope": "textual_occurrence",
+                  "verification": "documentary-assertion-kernel-v11",
+                  "historical_truth_independently_verified": false,
+                  "proof_sha256": "sha256:07c383ef422c2a6e491700406217dd369206e5a66e20c5890d1a2b7127337946"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "case": "P03-1",
+      "question": "Which seven countries tabled the draft resolution that Lodge quoted?",
+      "understand": {
+        "documentary_plan": null,
+        "reference_expected": "Argentina, Brazil, Cuba, Ecuador, El Salvador, Haiti, and Honduras."
+      },
+      "find": {
+        "anchors": [
+          {
+            "source": "P03-B",
+            "quote": "by Argentina, Brazil, Cuba, Ecuador, El Salvador, Haiti and Honduras:",
+            "text_span": [
+              296,
+              365
+            ]
+          }
+        ],
+        "indexed": [
+          [
+            "sha256:b51bd689b54e39958e51953b197cdd800b333bf5520b9de0d46a73bf8b686e6f"
+          ]
+        ],
+        "first_3": [
+          []
+        ],
+        "first_12": [
+          [
+            "sha256:b51bd689b54e39958e51953b197cdd800b333bf5520b9de0d46a73bf8b686e6f"
+          ]
+        ]
+      },
+      "check": {
+        "strict": {
+          "kind": "abstain",
+          "diagnostic": "interpretation_unsupported",
+          "supported": false,
+          "claims": []
+        },
+        "strict_with_reference_locations": {
+          "kind": "abstain",
+          "diagnostic": "interpretation_unsupported",
+          "supported": false,
+          "claims": []
+        },
+        "locations_supplied": 1,
+        "exact_quote_controls": [
+          {
+            "expected_source": "P03-B",
+            "question": "Which source contains the exact words “by Argentina, Brazil, Cuba, Ecuador, El Salvador, Haiti and Honduras:”?",
+            "expected_span_cited": true,
+            "answer": {
+              "kind": "supported_answer",
+              "diagnostic": "supported_documentary_assertion",
+              "supported": true,
+              "claims": [
+                {
+                  "text": "The cited source contains the requested words: “by Argentina, Brazil, Cuba, Ecuador, El Salvador, Haiti and Honduras:”.",
+                  "qualifiers": [
+                    "Only the complete cited wording is checked; historical truth and event/person identity are not independently verified.",
+                    "Textual occurrence only; quotations, examples, conditions and denials do not establish an event or execution."
+                  ],
+                  "citations": [
+                    {
+                      "source_id": "P03-B",
+                      "path": "p03-b.html",
+                      "hash": "sha256:ca666c03467eb94c5c3c79faf835fbebd359689303f2c367e2e521999b801559",
+                      "body_start": 208,
+                      "body_end": 381,
+                      "start": 208,
+                      "end": 381,
+                      "quote": "Following resolution tabled at this afternoon’s ad hoc political committee meeting by Argentina, Brazil, Cuba, Ecuador, El Salvador, Haiti and Honduras: Begin verbatim text.",
+                      "body_projection": "body-text-no-headings-v1"
+                    }
+                  ],
+                  "proposition": {
+                    "relation": "source_literal_occurrence",
+                    "requested_words": "by Argentina, Brazil, Cuba, Ecuador, El Salvador, Haiti and Honduras:",
+                    "matching_basis": "Exact code points and word boundaries; source whitespace may wrap.",
+                    "text_only": true,
+                    "event_identity": null,
+                    "historical_truth_independently_verified": false,
+                    "question_obligations_verified": true,
+                    "verified_question": "Which source contains the exact words “by Argentina, Brazil, Cuba, Ecuador, El Salvador, Haiti and Honduras:”?",
+                    "question_completion_rule": "eligible_literal_location_v1",
+                    "reference_scope": "Textual occurrence in one current eligible source; no event or historical assertion.",
+                    "eligible_source_ambiguity": false
+                  },
+                  "source_support_established": true,
+                  "support_scope": "textual_occurrence",
+                  "verification": "documentary-assertion-kernel-v11",
+                  "historical_truth_independently_verified": false,
+                  "proof_sha256": "sha256:b6056e2fb8630eaf53e54d9fa8bbcccfe7fbcbc701c06d2231d1e2fcd89c1b86"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "case": "P03-2",
+      "question": "What obligations did paragraphs 3 and 4 of the proposal quoted by Lodge introduce, and what did the Department instruct its delegation to do about them?",
+      "understand": {
+        "documentary_plan": null,
+        "reference_expected": "After six months without agreement the Secretary General would appoint a person, and he was requested to report at the next regular session. The Department instructed GADel to oppose both clauses."
+      },
+      "find": {
+        "anchors": [
+          {
+            "source": "P03-B",
+            "quote": "3. Decides that, if within the next six months the parties have not reached agreement on the suggestions made in the foregoing paragraphs, the Secretary General shall appoint a person for the purposes specified above. 4. Requests the Secretary General to report to the General Assembly at its next regular session on the results obtained.",
+            "text_span": [
+              996,
+              1334
+            ]
+          },
+          {
+            "source": "P03-A",
+            "quote": "Consequently GADel should oppose Paragraphs 3 and 4",
+            "text_span": [
+              637,
+              688
+            ]
+          }
+        ],
+        "indexed": [
+          [
+            "sha256:b51bd689b54e39958e51953b197cdd800b333bf5520b9de0d46a73bf8b686e6f"
+          ],
+          [
+            "sha256:3b3864aed92381c430cf48844f76c2dacd8d23169f0e0a5f2e4d16fb6607ffff"
+          ]
+        ],
+        "first_3": [
+          [],
+          [
+            "sha256:3b3864aed92381c430cf48844f76c2dacd8d23169f0e0a5f2e4d16fb6607ffff"
+          ]
+        ],
+        "first_12": [
+          [
+            "sha256:b51bd689b54e39958e51953b197cdd800b333bf5520b9de0d46a73bf8b686e6f"
+          ],
+          [
+            "sha256:3b3864aed92381c430cf48844f76c2dacd8d23169f0e0a5f2e4d16fb6607ffff"
+          ]
+        ]
+      },
+      "check": {
+        "strict": {
+          "kind": "abstain",
+          "diagnostic": "interpretation_unsupported",
+          "supported": false,
+          "claims": []
+        },
+        "strict_with_reference_locations": {
+          "kind": "abstain",
+          "diagnostic": "interpretation_unsupported",
+          "supported": false,
+          "claims": []
+        },
+        "locations_supplied": 2,
+        "exact_quote_controls": [
+          {
+            "expected_source": "P03-B",
+            "question": "Which source contains the exact words “3. Decides that, if within the next six months the parties have not reached agreement on the suggestions made in the foregoing paragraphs, the Secretary General shall appoint a person for the purposes specified above. 4. Requests the Secretary General to report to the General Assembly at its next regular session on the results obtained.”?",
+            "expected_span_cited": false,
+            "answer": {
+              "kind": "abstain",
+              "diagnostic": "interpretation_unsupported",
+              "supported": false,
+              "claims": []
+            },
+            "split_unit_controls": [
+              {
+                "expected_source": "P03-B",
+                "question": "Which source contains the exact words “3.”?",
+                "expected_span_cited": true,
+                "answer": {
+                  "kind": "supported_answer",
+                  "diagnostic": "supported_documentary_assertion",
+                  "supported": true,
+                  "claims": [
+                    {
+                      "text": "The cited source contains the requested words: “3.”.",
+                      "qualifiers": [
+                        "Only the complete cited wording is checked; historical truth and event/person identity are not independently verified.",
+                        "Textual occurrence only; quotations, examples, conditions and denials do not establish an event or execution."
+                      ],
+                      "citations": [
+                        {
+                          "source_id": "P03-B",
+                          "path": "p03-b.html",
+                          "hash": "sha256:ca666c03467eb94c5c3c79faf835fbebd359689303f2c367e2e521999b801559",
+                          "body_start": 813,
+                          "body_end": 993,
+                          "start": 813,
+                          "end": 993,
+                          "quote": "Suggests, moreover, that the parties concerned should select a government, agency or person for the purpose of assisting them to reconcile their views and to settle the dispute; 3.",
+                          "body_projection": "body-text-no-headings-v1"
+                        }
+                      ],
+                      "proposition": {
+                        "relation": "source_literal_occurrence",
+                        "requested_words": "3.",
+                        "matching_basis": "Exact code points and word boundaries; source whitespace may wrap.",
+                        "text_only": true,
+                        "event_identity": null,
+                        "historical_truth_independently_verified": false,
+                        "question_obligations_verified": true,
+                        "verified_question": "Which source contains the exact words “3.”?",
+                        "question_completion_rule": "eligible_literal_location_v1",
+                        "reference_scope": "Textual occurrence in one current eligible source; no event or historical assertion.",
+                        "eligible_source_ambiguity": false
+                      },
+                      "source_support_established": true,
+                      "support_scope": "textual_occurrence",
+                      "verification": "documentary-assertion-kernel-v11",
+                      "historical_truth_independently_verified": false,
+                      "proof_sha256": "sha256:4fe942b8752eb40618114e101a59202cec57b7db6ab0b5482776986f6541dbe6"
+                    }
+                  ]
+                }
+              },
+              {
+                "expected_source": "P03-B",
+                "question": "Which source contains the exact words “Decides that, if within the next six months the parties have not reached agreement on the suggestions made in the foregoing paragraphs, the Secretary General shall appoint a person for the purposes specified above. 4.”?",
+                "expected_span_cited": true,
+                "answer": {
+                  "kind": "supported_answer",
+                  "diagnostic": "supported_documentary_assertion",
+                  "supported": true,
+                  "claims": [
+                    {
+                      "text": "The cited source contains the requested words: “Decides that, if within the next six months the parties have not reached agreement on the suggestions made in the foregoing paragraphs, the Secretary General shall appoint a person for the purposes specified above. 4.”.",
+                      "qualifiers": [
+                        "Only the complete cited wording is checked; historical truth and event/person identity are not independently verified.",
+                        "Textual occurrence only; quotations, examples, conditions and denials do not establish an event or execution."
+                      ],
+                      "citations": [
+                        {
+                          "source_id": "P03-B",
+                          "path": "p03-b.html",
+                          "hash": "sha256:ca666c03467eb94c5c3c79faf835fbebd359689303f2c367e2e521999b801559",
+                          "body_start": 994,
+                          "body_end": 1211,
+                          "start": 994,
+                          "end": 1211,
+                          "quote": "Decides that, if within the next six months the parties have not reached agreement on the suggestions made in the foregoing paragraphs, the Secretary General shall appoint a person for the purposes specified above. 4.",
+                          "body_projection": "body-text-no-headings-v1"
+                        }
+                      ],
+                      "proposition": {
+                        "relation": "source_literal_occurrence",
+                        "requested_words": "Decides that, if within the next six months the parties have not reached agreement on the suggestions made in the foregoing paragraphs, the Secretary General shall appoint a person for the purposes specified above. 4.",
+                        "matching_basis": "Exact code points and word boundaries; source whitespace may wrap.",
+                        "text_only": true,
+                        "event_identity": null,
+                        "historical_truth_independently_verified": false,
+                        "question_obligations_verified": true,
+                        "verified_question": "Which source contains the exact words “Decides that, if within the next six months the parties have not reached agreement on the suggestions made in the foregoing paragraphs, the Secretary General shall appoint a person for the purposes specified above. 4.”?",
+                        "question_completion_rule": "eligible_literal_location_v1",
+                        "reference_scope": "Textual occurrence in one current eligible source; no event or historical assertion.",
+                        "eligible_source_ambiguity": false
+                      },
+                      "source_support_established": true,
+                      "support_scope": "textual_occurrence",
+                      "verification": "documentary-assertion-kernel-v11",
+                      "historical_truth_independently_verified": false,
+                      "proof_sha256": "sha256:f8d11adac98e82122979f730bcbfe49dbdf247d37bd31543d8392308f2fc5a62"
+                    }
+                  ]
+                }
+              },
+              {
+                "expected_source": "P03-B",
+                "question": "Which source contains the exact words “Requests the Secretary General to report to the General Assembly at its next regular session on the results obtained.”?",
+                "expected_span_cited": true,
+                "answer": {
+                  "kind": "supported_answer",
+                  "diagnostic": "supported_documentary_assertion",
+                  "supported": true,
+                  "claims": [
+                    {
+                      "text": "The cited source contains the requested words: “Requests the Secretary General to report to the General Assembly at its next regular session on the results obtained.”.",
+                      "qualifiers": [
+                        "Only the complete cited wording is checked; historical truth and event/person identity are not independently verified.",
+                        "Textual occurrence only; quotations, examples, conditions and denials do not establish an event or execution."
+                      ],
+                      "citations": [
+                        {
+                          "source_id": "P03-B",
+                          "path": "p03-b.html",
+                          "hash": "sha256:ca666c03467eb94c5c3c79faf835fbebd359689303f2c367e2e521999b801559",
+                          "body_start": 1212,
+                          "body_end": 1329,
+                          "start": 1212,
+                          "end": 1329,
+                          "quote": "Requests the Secretary General to report to the General Assembly at its next regular session on the results obtained.",
+                          "body_projection": "body-text-no-headings-v1"
+                        }
+                      ],
+                      "proposition": {
+                        "relation": "source_literal_occurrence",
+                        "requested_words": "Requests the Secretary General to report to the General Assembly at its next regular session on the results obtained.",
+                        "matching_basis": "Exact code points and word boundaries; source whitespace may wrap.",
+                        "text_only": true,
+                        "event_identity": null,
+                        "historical_truth_independently_verified": false,
+                        "question_obligations_verified": true,
+                        "verified_question": "Which source contains the exact words “Requests the Secretary General to report to the General Assembly at its next regular session on the results obtained.”?",
+                        "question_completion_rule": "eligible_literal_location_v1",
+                        "reference_scope": "Textual occurrence in one current eligible source; no event or historical assertion.",
+                        "eligible_source_ambiguity": false
+                      },
+                      "source_support_established": true,
+                      "support_scope": "textual_occurrence",
+                      "verification": "documentary-assertion-kernel-v11",
+                      "historical_truth_independently_verified": false,
+                      "proof_sha256": "sha256:83eb93682d6a2867120ad4972bf0e1623814a4541e208fb0c89d7f909e32b6e3"
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "expected_source": "P03-A",
+            "question": "Which source contains the exact words “Consequently GADel should oppose Paragraphs 3 and 4”?",
+            "expected_span_cited": true,
+            "answer": {
+              "kind": "supported_answer",
+              "diagnostic": "supported_documentary_assertion",
+              "supported": true,
+              "claims": [
+                {
+                  "text": "The cited source contains the requested words: “Consequently GADel should oppose Paragraphs 3 and 4”.",
+                  "qualifiers": [
+                    "Only the complete cited wording is checked; historical truth and event/person identity are not independently verified.",
+                    "Textual occurrence only; quotations, examples, conditions and denials do not establish an event or execution."
+                  ],
+                  "citations": [
+                    {
+                      "source_id": "P03-A",
+                      "path": "p03-a.html",
+                      "hash": "sha256:836e8af405b141f8a7a36e24beceb3d77b74d35973acdb2c604fdabade9c805c",
+                      "body_start": 632,
+                      "body_end": 849,
+                      "start": 632,
+                      "end": 849,
+                      "quote": "Consequently GADel should oppose Paragraphs 3 and 4 as not only unrealistic on basis past experience but also harmful since they diminish still further whatever slight chance of agreement between parties still exists.",
+                      "body_projection": "body-text-no-headings-v1"
+                    }
+                  ],
+                  "proposition": {
+                    "relation": "source_literal_occurrence",
+                    "requested_words": "Consequently GADel should oppose Paragraphs 3 and 4",
+                    "matching_basis": "Exact code points and word boundaries; source whitespace may wrap.",
+                    "text_only": true,
+                    "event_identity": null,
+                    "historical_truth_independently_verified": false,
+                    "question_obligations_verified": true,
+                    "verified_question": "Which source contains the exact words “Consequently GADel should oppose Paragraphs 3 and 4”?",
+                    "question_completion_rule": "eligible_literal_location_v1",
+                    "reference_scope": "Textual occurrence in one current eligible source; no event or historical assertion.",
+                    "eligible_source_ambiguity": false
+                  },
+                  "source_support_established": true,
+                  "support_scope": "textual_occurrence",
+                  "verification": "documentary-assertion-kernel-v11",
+                  "historical_truth_independently_verified": false,
+                  "proof_sha256": "sha256:bcf474ec8c343bf34e06f070747eb1bb5d1d61c4223d642f65d38d43bfbff5cb"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "case": "P03-3",
+      "question": "If a method for appointing a mediator could not be avoided, on what condition would the Department favor the Secretary General assisting?",
+      "understand": {
+        "documentary_plan": null,
+        "reference_expected": "The parties had to consent. This was a contingent fallback if the majority insisted."
+      },
+      "find": {
+        "anchors": [
+          {
+            "source": "P03-A",
+            "quote": "If majority insistent upon providing method for appointment mediator in event parties unable agree, we are inclined to feel this should be authorization to SYG to assist parties with their consent.",
+            "text_span": [
+              2262,
+              2459
+            ]
+          }
+        ],
+        "indexed": [
+          [
+            "sha256:e0eb407663bb325e31a29dc7f59e5ee4278f8dc07321c8d0c83abed7e92e7fd7"
+          ]
+        ],
+        "first_3": [
+          [
+            "sha256:e0eb407663bb325e31a29dc7f59e5ee4278f8dc07321c8d0c83abed7e92e7fd7"
+          ]
+        ],
+        "first_12": [
+          [
+            "sha256:e0eb407663bb325e31a29dc7f59e5ee4278f8dc07321c8d0c83abed7e92e7fd7"
+          ]
+        ]
+      },
+      "check": {
+        "strict": {
+          "kind": "abstain",
+          "diagnostic": "interpretation_unsupported",
+          "supported": false,
+          "claims": []
+        },
+        "strict_with_reference_locations": {
+          "kind": "abstain",
+          "diagnostic": "interpretation_unsupported",
+          "supported": false,
+          "claims": []
+        },
+        "locations_supplied": 1,
+        "exact_quote_controls": [
+          {
+            "expected_source": "P03-A",
+            "question": "Which source contains the exact words “If majority insistent upon providing method for appointment mediator in event parties unable agree, we are inclined to feel this should be authorization to SYG to assist parties with their consent.”?",
+            "expected_span_cited": true,
+            "answer": {
+              "kind": "supported_answer",
+              "diagnostic": "supported_documentary_assertion",
+              "supported": true,
+              "claims": [
+                {
+                  "text": "The cited source contains the requested words: “If majority insistent upon providing method for appointment mediator in event parties unable agree, we are inclined to feel this should be authorization to SYG to assist parties with their consent.”.",
+                  "qualifiers": [
+                    "Only the complete cited wording is checked; historical truth and event/person identity are not independently verified.",
+                    "Textual occurrence only; quotations, examples, conditions and denials do not establish an event or execution."
+                  ],
+                  "citations": [
+                    {
+                      "source_id": "P03-A",
+                      "path": "p03-a.html",
+                      "hash": "sha256:836e8af405b141f8a7a36e24beceb3d77b74d35973acdb2c604fdabade9c805c",
+                      "body_start": 2255,
+                      "body_end": 2452,
+                      "start": 2255,
+                      "end": 2452,
+                      "quote": "If majority insistent upon providing method for appointment mediator in event parties unable agree, we are inclined to feel this should be authorization to SYG to assist parties with their consent.",
+                      "body_projection": "body-text-no-headings-v1"
+                    }
+                  ],
+                  "proposition": {
+                    "relation": "source_literal_occurrence",
+                    "requested_words": "If majority insistent upon providing method for appointment mediator in event parties unable agree, we are inclined to feel this should be authorization to SYG to assist parties with their consent.",
+                    "matching_basis": "Exact code points and word boundaries; source whitespace may wrap.",
+                    "text_only": true,
+                    "event_identity": null,
+                    "historical_truth_independently_verified": false,
+                    "question_obligations_verified": true,
+                    "verified_question": "Which source contains the exact words “If majority insistent upon providing method for appointment mediator in event parties unable agree, we are inclined to feel this should be authorization to SYG to assist parties with their consent.”?",
+                    "question_completion_rule": "eligible_literal_location_v1",
+                    "reference_scope": "Textual occurrence in one current eligible source; no event or historical assertion.",
+                    "eligible_source_ambiguity": false
+                  },
+                  "source_support_established": true,
+                  "support_scope": "textual_occurrence",
+                  "verification": "documentary-assertion-kernel-v11",
+                  "historical_truth_independently_verified": false,
+                  "proof_sha256": "sha256:feaaec72b3b5f0fc92ddfa20a1dece74f52a4da4667062a890962d20cedc9b8c"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "case": "P04-1",
+      "question": "At what time did the June 30 discussion at Birch Grove end?",
+      "understand": {
+        "documentary_plan": null,
+        "reference_expected": "1:15 p.m."
+      },
+      "find": {
+        "anchors": [
+          {
+            "source": "P04-B",
+            "quote": "from 11:45 a.m. until 1:15 p.m., Sunday, June 30, 1963.",
+            "text_span": [
+              280,
+              335
+            ]
+          }
+        ],
+        "indexed": [
+          [
+            "sha256:6b723b14ed7a08b2f2b650bf3d9cba412b216d0dfd7eed445a76c936ecbd0614"
+          ]
+        ],
+        "first_3": [
+          [
+            "sha256:6b723b14ed7a08b2f2b650bf3d9cba412b216d0dfd7eed445a76c936ecbd0614"
+          ]
+        ],
+        "first_12": [
+          [
+            "sha256:6b723b14ed7a08b2f2b650bf3d9cba412b216d0dfd7eed445a76c936ecbd0614"
+          ]
+        ]
+      },
+      "check": {
+        "strict": {
+          "kind": "abstain",
+          "diagnostic": "interpretation_unsupported",
+          "supported": false,
+          "claims": []
+        },
+        "strict_with_reference_locations": {
+          "kind": "abstain",
+          "diagnostic": "interpretation_unsupported",
+          "supported": false,
+          "claims": []
+        },
+        "locations_supplied": 1,
+        "exact_quote_controls": [
+          {
+            "expected_source": "P04-B",
+            "question": "Which source contains the exact words “from 11:45 a.m. until 1:15 p.m., Sunday, June 30, 1963.”?",
+            "expected_span_cited": true,
+            "answer": {
+              "kind": "supported_answer",
+              "diagnostic": "supported_documentary_assertion",
+              "supported": true,
+              "claims": [
+                {
+                  "text": "The cited source contains the requested words: “from 11:45 a.m. until 1:15 p.m., Sunday, June 30, 1963.”.",
+                  "qualifiers": [
+                    "Only the complete cited wording is checked; historical truth and event/person identity are not independently verified.",
+                    "Textual occurrence only; quotations, examples, conditions and denials do not establish an event or execution."
+                  ],
+                  "citations": [
+                    {
+                      "source_id": "P04-B",
+                      "path": "p04-b.html",
+                      "hash": "sha256:51a079e66b27148be6cbdc1db18b4f74b5fd33db65a462a6da0915699069debd",
+                      "body_start": 5,
+                      "body_end": 332,
+                      "start": 5,
+                      "end": 332,
+                      "quote": "Memorandum of Conversation\nBirch Grove, England, June 30, 1963, 11:45 a.m.–1:15 p.m.\nSUBJECT President-Prime Minister Test Ban Conversations, June 30, 1963\nThe President and the Prime Minister with their advisers discussed test ban matters during a meeting at Birch Grove from 11:45 a.m. until 1:15 p.m., Sunday, June 30, 1963.",
+                      "body_projection": "body-text-no-headings-v1"
+                    }
+                  ],
+                  "proposition": {
+                    "relation": "source_literal_occurrence",
+                    "requested_words": "from 11:45 a.m. until 1:15 p.m., Sunday, June 30, 1963.",
+                    "matching_basis": "Exact code points and word boundaries; source whitespace may wrap.",
+                    "text_only": true,
+                    "event_identity": null,
+                    "historical_truth_independently_verified": false,
+                    "question_obligations_verified": true,
+                    "verified_question": "Which source contains the exact words “from 11:45 a.m. until 1:15 p.m., Sunday, June 30, 1963.”?",
+                    "question_completion_rule": "eligible_literal_location_v1",
+                    "reference_scope": "Textual occurrence in one current eligible source; no event or historical assertion.",
+                    "eligible_source_ambiguity": false
+                  },
+                  "source_support_established": true,
+                  "support_scope": "textual_occurrence",
+                  "verification": "documentary-assertion-kernel-v11",
+                  "historical_truth_independently_verified": false,
+                  "proof_sha256": "sha256:bf35b1914eecbf1a4154841cff628ba7a75bccde49a96431205889f851663348"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "case": "P04-2",
+      "question": "How does Macmillan's first preference in the July 4 letter compare with Rusk's priority in the June 30 conversation?",
+      "understand": {
+        "documentary_plan": null,
+        "reference_expected": "Both preferred pursuing a comprehensive or full ban first. Rusk emphasized continuing that effort before falling back to a partial ban."
+      },
+      "find": {
+        "anchors": [
+          {
+            "source": "P04-A",
+            "quote": "press on in the first instance to see whether accommodation can be reached to get the full ban.",
+            "text_span": [
+              974,
+              1069
+            ]
+          },
+          {
+            "source": "P04-B",
+            "quote": "Secretary Rusk emphasized the importance for pressing for a comprehensive ban for quite some time before falling back to a partial ban.",
+            "text_span": [
+              2959,
+              3094
+            ]
+          }
+        ],
+        "indexed": [
+          [
+            "sha256:46cfec4c5d0d13d10965830184d6b3dbe500835d857b4e0da23372828d2a5d62"
+          ],
+          [
+            "sha256:d3109cc4d2e956cb9bae0e12bef801e091187e89988a9c4b6db96ca0bdb425e3"
+          ]
+        ],
+        "first_3": [
+          [],
+          []
+        ],
+        "first_12": [
+          [],
+          [
+            "sha256:d3109cc4d2e956cb9bae0e12bef801e091187e89988a9c4b6db96ca0bdb425e3"
+          ]
+        ]
+      },
+      "check": {
+        "strict": {
+          "kind": "abstain",
+          "diagnostic": "interpretation_unsupported",
+          "supported": false,
+          "claims": []
+        },
+        "strict_with_reference_locations": {
+          "kind": "abstain",
+          "diagnostic": "interpretation_unsupported",
+          "supported": false,
+          "claims": []
+        },
+        "locations_supplied": 2,
+        "exact_quote_controls": [
+          {
+            "expected_source": "P04-A",
+            "question": "Which source contains the exact words “press on in the first instance to see whether accommodation can be reached to get the full ban.”?",
+            "expected_span_cited": true,
+            "answer": {
+              "kind": "supported_answer",
+              "diagnostic": "supported_documentary_assertion",
+              "supported": true,
+              "claims": [
+                {
+                  "text": "The cited source contains the requested words: “press on in the first instance to see whether accommodation can be reached to get the full ban.”.",
+                  "qualifiers": [
+                    "Only the complete cited wording is checked; historical truth and event/person identity are not independently verified.",
+                    "Textual occurrence only; quotations, examples, conditions and denials do not establish an event or execution."
+                  ],
+                  "citations": [
+                    {
+                      "source_id": "P04-A",
+                      "path": "p04-a.html",
+                      "hash": "sha256:088248ce15ffef88dbad56cb002e32904c7819e7aad2a3807676c66b13d446c4",
+                      "body_start": 907,
+                      "body_end": 1062,
+                      "start": 907,
+                      "end": 1062,
+                      "quote": "My inclination is to do what I said in the House of Commons—press on in the first instance to see whether accommodation can be reached to get the full ban.",
+                      "body_projection": "body-text-no-headings-v1"
+                    }
+                  ],
+                  "proposition": {
+                    "relation": "source_literal_occurrence",
+                    "requested_words": "press on in the first instance to see whether accommodation can be reached to get the full ban.",
+                    "matching_basis": "Exact code points and word boundaries; source whitespace may wrap.",
+                    "text_only": true,
+                    "event_identity": null,
+                    "historical_truth_independently_verified": false,
+                    "question_obligations_verified": true,
+                    "verified_question": "Which source contains the exact words “press on in the first instance to see whether accommodation can be reached to get the full ban.”?",
+                    "question_completion_rule": "eligible_literal_location_v1",
+                    "reference_scope": "Textual occurrence in one current eligible source; no event or historical assertion.",
+                    "eligible_source_ambiguity": false
+                  },
+                  "source_support_established": true,
+                  "support_scope": "textual_occurrence",
+                  "verification": "documentary-assertion-kernel-v11",
+                  "historical_truth_independently_verified": false,
+                  "proof_sha256": "sha256:b91822ea7e32a844119451ace6ee3be44c8081297cb3bdeb1c8409e8bb6f9dae"
+                }
+              ]
+            }
+          },
+          {
+            "expected_source": "P04-B",
+            "question": "Which source contains the exact words “Secretary Rusk emphasized the importance for pressing for a comprehensive ban for quite some time before falling back to a partial ban.”?",
+            "expected_span_cited": true,
+            "answer": {
+              "kind": "supported_answer",
+              "diagnostic": "supported_documentary_assertion",
+              "supported": true,
+              "claims": [
+                {
+                  "text": "The cited source contains the requested words: “Secretary Rusk emphasized the importance for pressing for a comprehensive ban for quite some time before falling back to a partial ban.”.",
+                  "qualifiers": [
+                    "Only the complete cited wording is checked; historical truth and event/person identity are not independently verified.",
+                    "Textual occurrence only; quotations, examples, conditions and denials do not establish an event or execution."
+                  ],
+                  "citations": [
+                    {
+                      "source_id": "P04-B",
+                      "path": "p04-b.html",
+                      "hash": "sha256:51a079e66b27148be6cbdc1db18b4f74b5fd33db65a462a6da0915699069debd",
+                      "body_start": 2950,
+                      "body_end": 3085,
+                      "start": 2950,
+                      "end": 3085,
+                      "quote": "Secretary Rusk emphasized the importance for pressing for a comprehensive ban for quite some time before falling back to a partial ban.",
+                      "body_projection": "body-text-no-headings-v1"
+                    }
+                  ],
+                  "proposition": {
+                    "relation": "source_literal_occurrence",
+                    "requested_words": "Secretary Rusk emphasized the importance for pressing for a comprehensive ban for quite some time before falling back to a partial ban.",
+                    "matching_basis": "Exact code points and word boundaries; source whitespace may wrap.",
+                    "text_only": true,
+                    "event_identity": null,
+                    "historical_truth_independently_verified": false,
+                    "question_obligations_verified": true,
+                    "verified_question": "Which source contains the exact words “Secretary Rusk emphasized the importance for pressing for a comprehensive ban for quite some time before falling back to a partial ban.”?",
+                    "question_completion_rule": "eligible_literal_location_v1",
+                    "reference_scope": "Textual occurrence in one current eligible source; no event or historical assertion.",
+                    "eligible_source_ambiguity": false
+                  },
+                  "source_support_established": true,
+                  "support_scope": "textual_occurrence",
+                  "verification": "documentary-assertion-kernel-v11",
+                  "historical_truth_independently_verified": false,
+                  "proof_sha256": "sha256:f005af0282ae47601eb5232c6148d1a7febd29d877ff462eb89d3aa3faa17c59"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "case": "P04-3",
+      "question": "Did Macmillan present his proposals as a settled position in the letter relayed by de Zulueta?",
+      "understand": {
+        "documentary_plan": null,
+        "reference_expected": "No. He explicitly qualifies them as his first thoughts."
+      },
+      "find": {
+        "anchors": [
+          {
+            "source": "P04-A",
+            "quote": "These, however, are only my first thoughts.",
+            "text_span": [
+              1845,
+              1888
+            ]
+          }
+        ],
+        "indexed": [
+          [
+            "sha256:787fde30e6cd4769d2033eca9d32b84cb5f3ce674b277dd85e5a8cf9948d350f"
+          ]
+        ],
+        "first_3": [
+          []
+        ],
+        "first_12": [
+          []
+        ]
+      },
+      "check": {
+        "strict": {
+          "kind": "abstain",
+          "diagnostic": "interpretation_unsupported",
+          "supported": false,
+          "claims": []
+        },
+        "strict_with_reference_locations": {
+          "kind": "abstain",
+          "diagnostic": "interpretation_unsupported",
+          "supported": false,
+          "claims": []
+        },
+        "locations_supplied": 1,
+        "exact_quote_controls": [
+          {
+            "expected_source": "P04-A",
+            "question": "Which source contains the exact words “These, however, are only my first thoughts.”?",
+            "expected_span_cited": true,
+            "answer": {
+              "kind": "supported_answer",
+              "diagnostic": "supported_documentary_assertion",
+              "supported": true,
+              "claims": [
+                {
+                  "text": "The cited source contains the requested words: “These, however, are only my first thoughts.”.",
+                  "qualifiers": [
+                    "Only the complete cited wording is checked; historical truth and event/person identity are not independently verified.",
+                    "Textual occurrence only; quotations, examples, conditions and denials do not establish an event or execution."
+                  ],
+                  "citations": [
+                    {
+                      "source_id": "P04-A",
+                      "path": "p04-a.html",
+                      "hash": "sha256:088248ce15ffef88dbad56cb002e32904c7819e7aad2a3807676c66b13d446c4",
+                      "body_start": 1837,
+                      "body_end": 1880,
+                      "start": 1837,
+                      "end": 1880,
+                      "quote": "These, however, are only my first thoughts.",
+                      "body_projection": "body-text-no-headings-v1"
+                    }
+                  ],
+                  "proposition": {
+                    "relation": "source_literal_occurrence",
+                    "requested_words": "These, however, are only my first thoughts.",
+                    "matching_basis": "Exact code points and word boundaries; source whitespace may wrap.",
+                    "text_only": true,
+                    "event_identity": null,
+                    "historical_truth_independently_verified": false,
+                    "question_obligations_verified": true,
+                    "verified_question": "Which source contains the exact words “These, however, are only my first thoughts.”?",
+                    "question_completion_rule": "eligible_literal_location_v1",
+                    "reference_scope": "Textual occurrence in one current eligible source; no event or historical assertion.",
+                    "eligible_source_ambiguity": false
+                  },
+                  "source_support_established": true,
+                  "support_scope": "textual_occurrence",
+                  "verification": "documentary-assertion-kernel-v11",
+                  "historical_truth_independently_verified": false,
+                  "proof_sha256": "sha256:92b2c746555560a6a0d18cfe82873836ca4189bec1d1b7ba8898ea9c3a9a0e1b"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "case": "P05-1",
+      "question": "What was the amount of the US loan mentioned in the April 15 memorandum?",
+      "understand": {
+        "documentary_plan": null,
+        "reference_expected": "$100 million."
+      },
+      "find": {
+        "anchors": [
+          {
+            "source": "P05-A",
+            "quote": "the U.S. loan of $100 million",
+            "text_span": [
+              1764,
+              1793
+            ]
+          }
+        ],
+        "indexed": [
+          [
+            "sha256:44b38819e3010e8ba65a3505a442ee466e457d6ccc6fb34114ab8865e8321280"
+          ]
+        ],
+        "first_3": [
+          [
+            "sha256:44b38819e3010e8ba65a3505a442ee466e457d6ccc6fb34114ab8865e8321280"
+          ]
+        ],
+        "first_12": [
+          [
+            "sha256:44b38819e3010e8ba65a3505a442ee466e457d6ccc6fb34114ab8865e8321280"
+          ]
+        ]
+      },
+      "check": {
+        "strict": {
+          "kind": "abstain",
+          "diagnostic": "interpretation_unsupported",
+          "supported": false,
+          "claims": []
+        },
+        "strict_with_reference_locations": {
+          "kind": "abstain",
+          "diagnostic": "interpretation_unsupported",
+          "supported": false,
+          "claims": []
+        },
+        "locations_supplied": 1,
+        "exact_quote_controls": [
+          {
+            "expected_source": "P05-A",
+            "question": "Which source contains the exact words “the U.S. loan of $100 million”?",
+            "expected_span_cited": true,
+            "answer": {
+              "kind": "supported_answer",
+              "diagnostic": "supported_documentary_assertion",
+              "supported": true,
+              "claims": [
+                {
+                  "text": "The cited source contains the requested words: “the U.S. loan of $100 million”.",
+                  "qualifiers": [
+                    "Only the complete cited wording is checked; historical truth and event/person identity are not independently verified.",
+                    "Textual occurrence only; quotations, examples, conditions and denials do not establish an event or execution."
+                  ],
+                  "citations": [
+                    {
+                      "source_id": "P05-A",
+                      "path": "p05-a.html",
+                      "hash": "sha256:1cdc933537affc384fbf1ff0cdeeefe6b87ad0b243ff9677fa8dd26575c3e646",
+                      "body_start": 1609,
+                      "body_end": 2902,
+                      "start": 1609,
+                      "end": 2902,
+                      "quote": "In view of the inconclusiveness of present evidence as to whether the High Authority is using the legal authority available to it, or is administering the U.S. loan of $100 million, in such a way as to exercise the maximum influence to prevent the further development or to reduce the existing level of restrictive arrangements, the Department of State is requested: a. To prepare a study including information as to: (1) the nature and extent of business arrangements which have been approved or rejected by the High Authority under the anti-cartel provisions of the Treaty; (2) the nature and extent of restrictive practices of firms which have received loans from the High Authority; (3) cases in which the High Authority’s orders have been disregarded by the firm or firms involved and the High Authority’s action thereon; (4) whether national governments are hampering efforts of the High Authority to develop more competitive markets; (5) actions taken by the High Authority against restrictive and monopolistic practices; and (6) actions taken by the High Authority in other areas designed to develop more competitive markets. b. To submit recommendations based on the above study for further U.S. action in connection with developing a competitive market for coal and steel in Europe.”",
+                      "body_projection": "body-text-no-headings-v1"
+                    }
+                  ],
+                  "proposition": {
+                    "relation": "source_literal_occurrence",
+                    "requested_words": "the U.S. loan of $100 million",
+                    "matching_basis": "Exact code points and word boundaries; source whitespace may wrap.",
+                    "text_only": true,
+                    "event_identity": null,
+                    "historical_truth_independently_verified": false,
+                    "question_obligations_verified": true,
+                    "verified_question": "Which source contains the exact words “the U.S. loan of $100 million”?",
+                    "question_completion_rule": "eligible_literal_location_v1",
+                    "reference_scope": "Textual occurrence in one current eligible source; no event or historical assertion.",
+                    "eligible_source_ambiguity": false
+                  },
+                  "source_support_established": true,
+                  "support_scope": "textual_occurrence",
+                  "verification": "documentary-assertion-kernel-v11",
+                  "historical_truth_independently_verified": false,
+                  "proof_sha256": "sha256:2eb721a020d9001a825c4e8110d5070d820ff5e94f0cb83b8a698416f77d7665"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "case": "P05-2",
+      "question": "Did the March report and April memorandum agree about whether the United States should continue supporting the Coal and Steel Community?",
+      "understand": {
+        "documentary_plan": null,
+        "reference_expected": "Yes. The March report called the policy sound and urged continuation. The April suggested position recommended no change to US support at that time."
+      },
+      "find": {
+        "anchors": [
+          {
+            "source": "P05-B",
+            "quote": "U.S. policy toward the High Authority and the CSC itself is sound and should be continued.",
+            "text_span": [
+              1159,
+              1249
+            ]
+          },
+          {
+            "source": "P05-A",
+            "quote": "No change should be made at this time in the policy of United States support for the Coal and Steel Community",
+            "text_span": [
+              1272,
+              1381
+            ]
+          }
+        ],
+        "indexed": [
+          [
+            "sha256:c17b5fddfdb4e1fc085aca4f6ccd7ea96f0101852a5099dcdbfb7fb5a2729495"
+          ],
+          [
+            "sha256:44b38819e3010e8ba65a3505a442ee466e457d6ccc6fb34114ab8865e8321280"
+          ]
+        ],
+        "first_3": [
+          [],
+          [
+            "sha256:44b38819e3010e8ba65a3505a442ee466e457d6ccc6fb34114ab8865e8321280"
+          ]
+        ],
+        "first_12": [
+          [
+            "sha256:c17b5fddfdb4e1fc085aca4f6ccd7ea96f0101852a5099dcdbfb7fb5a2729495"
+          ],
+          [
+            "sha256:44b38819e3010e8ba65a3505a442ee466e457d6ccc6fb34114ab8865e8321280"
+          ]
+        ]
+      },
+      "check": {
+        "strict": {
+          "kind": "abstain",
+          "diagnostic": "interpretation_unsupported",
+          "supported": false,
+          "claims": []
+        },
+        "strict_with_reference_locations": {
+          "kind": "abstain",
+          "diagnostic": "interpretation_unsupported",
+          "supported": false,
+          "claims": []
+        },
+        "locations_supplied": 2,
+        "exact_quote_controls": [
+          {
+            "expected_source": "P05-B",
+            "question": "Which source contains the exact words “U.S. policy toward the High Authority and the CSC itself is sound and should be continued.”?",
+            "expected_span_cited": true,
+            "answer": {
+              "kind": "supported_answer",
+              "diagnostic": "supported_documentary_assertion",
+              "supported": true,
+              "claims": [
+                {
+                  "text": "The cited source contains the requested words: “U.S. policy toward the High Authority and the CSC itself is sound and should be continued.”.",
+                  "qualifiers": [
+                    "Only the complete cited wording is checked; historical truth and event/person identity are not independently verified.",
+                    "Textual occurrence only; quotations, examples, conditions and denials do not establish an event or execution."
+                  ],
+                  "citations": [
+                    {
+                      "source_id": "P05-B",
+                      "path": "p05-b.html",
+                      "hash": "sha256:3464f8d73928133b9b558538c5e902a386e32f4f07cb2e70602a0e2a1e4150b8",
+                      "body_start": 1137,
+                      "body_end": 1242,
+                      "start": 1137,
+                      "end": 1242,
+                      "quote": "Conclusions\na) U.S. policy toward the High Authority and the CSC itself is sound and should be continued.",
+                      "body_projection": "body-text-no-headings-v1"
+                    }
+                  ],
+                  "proposition": {
+                    "relation": "source_literal_occurrence",
+                    "requested_words": "U.S. policy toward the High Authority and the CSC itself is sound and should be continued.",
+                    "matching_basis": "Exact code points and word boundaries; source whitespace may wrap.",
+                    "text_only": true,
+                    "event_identity": null,
+                    "historical_truth_independently_verified": false,
+                    "question_obligations_verified": true,
+                    "verified_question": "Which source contains the exact words “U.S. policy toward the High Authority and the CSC itself is sound and should be continued.”?",
+                    "question_completion_rule": "eligible_literal_location_v1",
+                    "reference_scope": "Textual occurrence in one current eligible source; no event or historical assertion.",
+                    "eligible_source_ambiguity": false
+                  },
+                  "source_support_established": true,
+                  "support_scope": "textual_occurrence",
+                  "verification": "documentary-assertion-kernel-v11",
+                  "historical_truth_independently_verified": false,
+                  "proof_sha256": "sha256:f9977aa1cebbfe7e3b8d03fc0fcd8740bf1e2dda53ed031edb93a1be37d3cab0"
+                }
+              ]
+            }
+          },
+          {
+            "expected_source": "P05-A",
+            "question": "Which source contains the exact words “No change should be made at this time in the policy of United States support for the Coal and Steel Community”?",
+            "expected_span_cited": true,
+            "answer": {
+              "kind": "supported_answer",
+              "diagnostic": "supported_documentary_assertion",
+              "supported": true,
+              "claims": [
+                {
+                  "text": "The cited source contains the requested words: “No change should be made at this time in the policy of United States support for the Coal and Steel Community”.",
+                  "qualifiers": [
+                    "Only the complete cited wording is checked; historical truth and event/person identity are not independently verified.",
+                    "Textual occurrence only; quotations, examples, conditions and denials do not establish an event or execution."
+                  ],
+                  "citations": [
+                    {
+                      "source_id": "P05-A",
+                      "path": "p05-a.html",
+                      "hash": "sha256:1cdc933537affc384fbf1ff0cdeeefe6b87ad0b243ff9677fa8dd26575c3e646",
+                      "body_start": 1268,
+                      "body_end": 1468,
+                      "start": 1268,
+                      "end": 1468,
+                      "quote": "No change should be made at this time in the policy of United States support for the Coal and Steel Community as a constructive development toward the economic and political integration of Europe. “2.",
+                      "body_projection": "body-text-no-headings-v1"
+                    }
+                  ],
+                  "proposition": {
+                    "relation": "source_literal_occurrence",
+                    "requested_words": "No change should be made at this time in the policy of United States support for the Coal and Steel Community",
+                    "matching_basis": "Exact code points and word boundaries; source whitespace may wrap.",
+                    "text_only": true,
+                    "event_identity": null,
+                    "historical_truth_independently_verified": false,
+                    "question_obligations_verified": true,
+                    "verified_question": "Which source contains the exact words “No change should be made at this time in the policy of United States support for the Coal and Steel Community”?",
+                    "question_completion_rule": "eligible_literal_location_v1",
+                    "reference_scope": "Textual occurrence in one current eligible source; no event or historical assertion.",
+                    "eligible_source_ambiguity": false
+                  },
+                  "source_support_established": true,
+                  "support_scope": "textual_occurrence",
+                  "verification": "documentary-assertion-kernel-v11",
+                  "historical_truth_independently_verified": false,
+                  "proof_sha256": "sha256:32f69cd243ab523540f837ffa0aa0c6edb9cb4c4ee1dc74b34e622f7500755a0"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "case": "P05-3",
+      "question": "Did Dodge claim the existing evidence settled how effectively the High Authority was using its legal powers or the loan?",
+      "understand": {
+        "documentary_plan": null,
+        "reference_expected": "No. The memo expressly describes that evidence as inconclusive and requests a study."
+      },
+      "find": {
+        "anchors": [
+          {
+            "source": "P05-A",
+            "quote": "In view of the inconclusiveness of present evidence as to whether the High Authority is using the legal authority available to it, or is administering the U.S. loan of $100 million",
+            "text_span": [
+              1613,
+              1793
+            ]
+          }
+        ],
+        "indexed": [
+          [
+            "sha256:44b38819e3010e8ba65a3505a442ee466e457d6ccc6fb34114ab8865e8321280"
+          ]
+        ],
+        "first_3": [
+          [
+            "sha256:44b38819e3010e8ba65a3505a442ee466e457d6ccc6fb34114ab8865e8321280"
+          ]
+        ],
+        "first_12": [
+          [
+            "sha256:44b38819e3010e8ba65a3505a442ee466e457d6ccc6fb34114ab8865e8321280"
+          ]
+        ]
+      },
+      "check": {
+        "strict": {
+          "kind": "abstain",
+          "diagnostic": "interpretation_unsupported",
+          "supported": false,
+          "claims": []
+        },
+        "strict_with_reference_locations": {
+          "kind": "abstain",
+          "diagnostic": "interpretation_unsupported",
+          "supported": false,
+          "claims": []
+        },
+        "locations_supplied": 1,
+        "exact_quote_controls": [
+          {
+            "expected_source": "P05-A",
+            "question": "Which source contains the exact words “In view of the inconclusiveness of present evidence as to whether the High Authority is using the legal authority available to it, or is administering the U.S. loan of $100 million”?",
+            "expected_span_cited": true,
+            "answer": {
+              "kind": "supported_answer",
+              "diagnostic": "supported_documentary_assertion",
+              "supported": true,
+              "claims": [
+                {
+                  "text": "The cited source contains the requested words: “In view of the inconclusiveness of present evidence as to whether the High Authority is using the legal authority available to it, or is administering the U.S. loan of $100 million”.",
+                  "qualifiers": [
+                    "Only the complete cited wording is checked; historical truth and event/person identity are not independently verified.",
+                    "Textual occurrence only; quotations, examples, conditions and denials do not establish an event or execution."
+                  ],
+                  "citations": [
+                    {
+                      "source_id": "P05-A",
+                      "path": "p05-a.html",
+                      "hash": "sha256:1cdc933537affc384fbf1ff0cdeeefe6b87ad0b243ff9677fa8dd26575c3e646",
+                      "body_start": 1609,
+                      "body_end": 2902,
+                      "start": 1609,
+                      "end": 2902,
+                      "quote": "In view of the inconclusiveness of present evidence as to whether the High Authority is using the legal authority available to it, or is administering the U.S. loan of $100 million, in such a way as to exercise the maximum influence to prevent the further development or to reduce the existing level of restrictive arrangements, the Department of State is requested: a. To prepare a study including information as to: (1) the nature and extent of business arrangements which have been approved or rejected by the High Authority under the anti-cartel provisions of the Treaty; (2) the nature and extent of restrictive practices of firms which have received loans from the High Authority; (3) cases in which the High Authority’s orders have been disregarded by the firm or firms involved and the High Authority’s action thereon; (4) whether national governments are hampering efforts of the High Authority to develop more competitive markets; (5) actions taken by the High Authority against restrictive and monopolistic practices; and (6) actions taken by the High Authority in other areas designed to develop more competitive markets. b. To submit recommendations based on the above study for further U.S. action in connection with developing a competitive market for coal and steel in Europe.”",
+                      "body_projection": "body-text-no-headings-v1"
+                    }
+                  ],
+                  "proposition": {
+                    "relation": "source_literal_occurrence",
+                    "requested_words": "In view of the inconclusiveness of present evidence as to whether the High Authority is using the legal authority available to it, or is administering the U.S. loan of $100 million",
+                    "matching_basis": "Exact code points and word boundaries; source whitespace may wrap.",
+                    "text_only": true,
+                    "event_identity": null,
+                    "historical_truth_independently_verified": false,
+                    "question_obligations_verified": true,
+                    "verified_question": "Which source contains the exact words “In view of the inconclusiveness of present evidence as to whether the High Authority is using the legal authority available to it, or is administering the U.S. loan of $100 million”?",
+                    "question_completion_rule": "eligible_literal_location_v1",
+                    "reference_scope": "Textual occurrence in one current eligible source; no event or historical assertion.",
+                    "eligible_source_ambiguity": false
+                  },
+                  "source_support_established": true,
+                  "support_scope": "textual_occurrence",
+                  "verification": "documentary-assertion-kernel-v11",
+                  "historical_truth_independently_verified": false,
+                  "proof_sha256": "sha256:faf796025e3c29c2b50a9d715c605723ff642d9a49a30949ad340f50412866a8"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "case": "P06-1",
+      "question": "What date is on the response from Washington to the station in Guatemala?",
+      "understand": {
+        "documentary_plan": null,
+        "reference_expected": "June 22, 1954."
+      },
+      "find": {
+        "anchors": [
+          {
+            "source": "P06-A",
+            "quote": "Washington, June 22, 1954, 0315Z.",
+            "text_span": [
+              84,
+              117
+            ]
+          }
+        ],
+        "indexed": [
+          [
+            "sha256:2b7eaf5cfc720a9611c7dbae5ef9bddb0587c516a2c1f071ba4ca2b68ad9e9d3"
+          ]
+        ],
+        "first_3": [
+          [
+            "sha256:2b7eaf5cfc720a9611c7dbae5ef9bddb0587c516a2c1f071ba4ca2b68ad9e9d3"
+          ]
+        ],
+        "first_12": [
+          [
+            "sha256:2b7eaf5cfc720a9611c7dbae5ef9bddb0587c516a2c1f071ba4ca2b68ad9e9d3"
+          ]
+        ]
+      },
+      "check": {
+        "strict": {
+          "kind": "abstain",
+          "diagnostic": "interpretation_unsupported",
+          "supported": false,
+          "claims": []
+        },
+        "strict_with_reference_locations": {
+          "kind": "abstain",
+          "diagnostic": "interpretation_unsupported",
+          "supported": false,
+          "claims": []
+        },
+        "locations_supplied": 1,
+        "exact_quote_controls": [
+          {
+            "expected_source": "P06-A",
+            "question": "Which source contains the exact words “Washington, June 22, 1954, 0315Z.”?",
+            "expected_span_cited": true,
+            "answer": {
+              "kind": "supported_answer",
+              "diagnostic": "supported_documentary_assertion",
+              "supported": true,
+              "claims": [
+                {
+                  "text": "The cited source contains the requested words: “Washington, June 22, 1954, 0315Z.”.",
+                  "qualifiers": [
+                    "Only the complete cited wording is checked; historical truth and event/person identity are not independently verified.",
+                    "Textual occurrence only; quotations, examples, conditions and denials do not establish an event or execution."
+                  ],
+                  "citations": [
+                    {
+                      "source_id": "P06-A",
+                      "path": "p06-a.html",
+                      "hash": "sha256:89a8755cf5ca5f193599bd4191a48488d6bbf4f45c18cb4a28cadd4de94bab97",
+                      "body_start": 5,
+                      "body_end": 123,
+                      "start": 5,
+                      "end": 123,
+                      "quote": "Telegram From the Central Intelligence Agency to the CIA Station in Guatemala\nWashington, June 22, 1954, 0315Z.\n05857.",
+                      "body_projection": "body-text-no-headings-v1"
+                    }
+                  ],
+                  "proposition": {
+                    "relation": "source_literal_occurrence",
+                    "requested_words": "Washington, June 22, 1954, 0315Z.",
+                    "matching_basis": "Exact code points and word boundaries; source whitespace may wrap.",
+                    "text_only": true,
+                    "event_identity": null,
+                    "historical_truth_independently_verified": false,
+                    "question_obligations_verified": true,
+                    "verified_question": "Which source contains the exact words “Washington, June 22, 1954, 0315Z.”?",
+                    "question_completion_rule": "eligible_literal_location_v1",
+                    "reference_scope": "Textual occurrence in one current eligible source; no event or historical assertion.",
+                    "eligible_source_ambiguity": false
+                  },
+                  "source_support_established": true,
+                  "support_scope": "textual_occurrence",
+                  "verification": "documentary-assertion-kernel-v11",
+                  "historical_truth_independently_verified": false,
+                  "proof_sha256": "sha256:e593fe745008697361c7f683171d6316d1037a33b5937fe0b0316787693bff94"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "case": "P06-2",
+      "question": "Which numbered station telegram in this packet did the June 22 response explicitly acknowledge?",
+      "understand": {
+        "documentary_plan": null,
+        "reference_expected": "It acknowledged GUAT 906, which is the June 19 telegram printed as 906. The response also mentions another telegram which is outside this pair."
+      },
+      "find": {
+        "anchors": [
+          {
+            "source": "P06-A",
+            "quote": "particularly GUAT 906 (IN 19969) and GUAT 919 (IN 20161).",
+            "text_span": [
+              220,
+              277
+            ]
+          },
+          {
+            "source": "P06-B",
+            "quote": "906. From JMBLUG to Ascham.",
+            "text_span": [
+              132,
+              159
+            ]
+          }
+        ],
+        "indexed": [
+          [
+            "sha256:a712ca8aa7da03d17464fe921c6d6a4eac91781712a201c650ab66d37732aee0"
+          ],
+          [
+            "sha256:dfba55c5d1953a17ef3f88b692db5aaa3f890330fa819bb90bb256b4e9740b9b"
+          ]
+        ],
+        "first_3": [
+          [],
+          []
+        ],
+        "first_12": [
+          [
+            "sha256:a712ca8aa7da03d17464fe921c6d6a4eac91781712a201c650ab66d37732aee0"
+          ],
+          [
+            "sha256:dfba55c5d1953a17ef3f88b692db5aaa3f890330fa819bb90bb256b4e9740b9b"
+          ]
+        ]
+      },
+      "check": {
+        "strict": {
+          "kind": "abstain",
+          "diagnostic": "interpretation_unsupported",
+          "supported": false,
+          "claims": []
+        },
+        "strict_with_reference_locations": {
+          "kind": "abstain",
+          "diagnostic": "interpretation_unsupported",
+          "supported": false,
+          "claims": []
+        },
+        "locations_supplied": 2,
+        "exact_quote_controls": [
+          {
+            "expected_source": "P06-A",
+            "question": "Which source contains the exact words “particularly GUAT 906 (IN 19969) and GUAT 919 (IN 20161).”?",
+            "expected_span_cited": true,
+            "answer": {
+              "kind": "supported_answer",
+              "diagnostic": "supported_documentary_assertion",
+              "supported": true,
+              "claims": [
+                {
+                  "text": "The cited source contains the requested words: “particularly GUAT 906 (IN 19969) and GUAT 919 (IN 20161).”.",
+                  "qualifiers": [
+                    "Only the complete cited wording is checked; historical truth and event/person identity are not independently verified.",
+                    "Textual occurrence only; quotations, examples, conditions and denials do not establish an event or execution."
+                  ],
+                  "citations": [
+                    {
+                      "source_id": "P06-A",
+                      "path": "p06-a.html",
+                      "hash": "sha256:89a8755cf5ca5f193599bd4191a48488d6bbf4f45c18cb4a28cadd4de94bab97",
+                      "body_start": 151,
+                      "body_end": 274,
+                      "start": 151,
+                      "end": 274,
+                      "quote": "Whiting and I have given most careful attention to your messages, particularly GUAT 906 (IN 19969) and GUAT 919 (IN 20161).",
+                      "body_projection": "body-text-no-headings-v1"
+                    }
+                  ],
+                  "proposition": {
+                    "relation": "source_literal_occurrence",
+                    "requested_words": "particularly GUAT 906 (IN 19969) and GUAT 919 (IN 20161).",
+                    "matching_basis": "Exact code points and word boundaries; source whitespace may wrap.",
+                    "text_only": true,
+                    "event_identity": null,
+                    "historical_truth_independently_verified": false,
+                    "question_obligations_verified": true,
+                    "verified_question": "Which source contains the exact words “particularly GUAT 906 (IN 19969) and GUAT 919 (IN 20161).”?",
+                    "question_completion_rule": "eligible_literal_location_v1",
+                    "reference_scope": "Textual occurrence in one current eligible source; no event or historical assertion.",
+                    "eligible_source_ambiguity": false
+                  },
+                  "source_support_established": true,
+                  "support_scope": "textual_occurrence",
+                  "verification": "documentary-assertion-kernel-v11",
+                  "historical_truth_independently_verified": false,
+                  "proof_sha256": "sha256:7d8e3be4fae2eadf8899194239457a81150e0d00c9ffc5710041b71eca94da54"
+                }
+              ]
+            }
+          },
+          {
+            "expected_source": "P06-B",
+            "question": "Which source contains the exact words “906. From JMBLUG to Ascham.”?",
+            "expected_span_cited": false,
+            "answer": {
+              "kind": "abstain",
+              "diagnostic": "documentary_assertion_not_established",
+              "supported": false,
+              "claims": []
+            },
+            "split_unit_controls": [
+              {
+                "expected_source": "P06-B",
+                "question": "Which source contains the exact words “906.”?",
+                "expected_span_cited": true,
+                "answer": {
+                  "kind": "supported_answer",
+                  "diagnostic": "supported_documentary_assertion",
+                  "supported": true,
+                  "claims": [
+                    {
+                      "text": "The cited source contains the requested words: “906.”.",
+                      "qualifiers": [
+                        "Only the complete cited wording is checked; historical truth and event/person identity are not independently verified.",
+                        "Textual occurrence only; quotations, examples, conditions and denials do not establish an event or execution."
+                      ],
+                      "citations": [
+                        {
+                          "source_id": "P06-B",
+                          "path": "p06-b.html",
+                          "hash": "sha256:d7059be817cb050add8bfca970cf1d3bd03bfb0a916ae63e0127c6ed28864bad",
+                          "body_start": 5,
+                          "body_end": 134,
+                          "start": 5,
+                          "end": 134,
+                          "quote": "Telegram From the CIA Chief of Station in Guatemala to the Central Intelligence Agency\nGuatemala City, June 19, 1954, 2042Z.\n906.",
+                          "body_projection": "body-text-no-headings-v1"
+                        }
+                      ],
+                      "proposition": {
+                        "relation": "source_literal_occurrence",
+                        "requested_words": "906.",
+                        "matching_basis": "Exact code points and word boundaries; source whitespace may wrap.",
+                        "text_only": true,
+                        "event_identity": null,
+                        "historical_truth_independently_verified": false,
+                        "question_obligations_verified": true,
+                        "verified_question": "Which source contains the exact words “906.”?",
+                        "question_completion_rule": "eligible_literal_location_v1",
+                        "reference_scope": "Textual occurrence in one current eligible source; no event or historical assertion.",
+                        "eligible_source_ambiguity": false
+                      },
+                      "source_support_established": true,
+                      "support_scope": "textual_occurrence",
+                      "verification": "documentary-assertion-kernel-v11",
+                      "historical_truth_independently_verified": false,
+                      "proof_sha256": "sha256:90ef92fe745ba4753e20da4b5864381311c05e1c61abf5e4ad75e2a66d3cc0c7"
+                    }
+                  ]
+                }
+              },
+              {
+                "expected_source": "P06-B",
+                "question": "Which source contains the exact words “From JMBLUG to Ascham.”?",
+                "expected_span_cited": true,
+                "answer": {
+                  "kind": "supported_answer",
+                  "diagnostic": "supported_documentary_assertion",
+                  "supported": true,
+                  "claims": [
+                    {
+                      "text": "The cited source contains the requested words: “From JMBLUG to Ascham.”.",
+                      "qualifiers": [
+                        "Only the complete cited wording is checked; historical truth and event/person identity are not independently verified.",
+                        "Textual occurrence only; quotations, examples, conditions and denials do not establish an event or execution."
+                      ],
+                      "citations": [
+                        {
+                          "source_id": "P06-B",
+                          "path": "p06-b.html",
+                          "hash": "sha256:d7059be817cb050add8bfca970cf1d3bd03bfb0a916ae63e0127c6ed28864bad",
+                          "body_start": 135,
+                          "body_end": 160,
+                          "start": 135,
+                          "end": 160,
+                          "quote": "From JMBLUG to Ascham.\n1.",
+                          "body_projection": "body-text-no-headings-v1"
+                        }
+                      ],
+                      "proposition": {
+                        "relation": "source_literal_occurrence",
+                        "requested_words": "From JMBLUG to Ascham.",
+                        "matching_basis": "Exact code points and word boundaries; source whitespace may wrap.",
+                        "text_only": true,
+                        "event_identity": null,
+                        "historical_truth_independently_verified": false,
+                        "question_obligations_verified": true,
+                        "verified_question": "Which source contains the exact words “From JMBLUG to Ascham.”?",
+                        "question_completion_rule": "eligible_literal_location_v1",
+                        "reference_scope": "Textual occurrence in one current eligible source; no event or historical assertion.",
+                        "eligible_source_ambiguity": false
+                      },
+                      "source_support_established": true,
+                      "support_scope": "textual_occurrence",
+                      "verification": "documentary-assertion-kernel-v11",
+                      "historical_truth_independently_verified": false,
+                      "proof_sha256": "sha256:22bf9270d670cff595eb9b741235ac67b81ecc9be6218a3f062b923433af210f"
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "case": "P06-3",
+      "question": "How certain did the June 22 writer say he was about the judgment discussed in that paragraph?",
+      "understand": {
+        "documentary_plan": null,
+        "reference_expected": "The writer expressly allows that their judgment might have been right or wrong."
+      },
+      "find": {
+        "anchors": [
+          {
+            "source": "P06-A",
+            "quote": "Here our judgment may or may not have been correct",
+            "text_span": [
+              1514,
+              1564
+            ]
+          }
+        ],
+        "indexed": [
+          [
+            "sha256:a712ca8aa7da03d17464fe921c6d6a4eac91781712a201c650ab66d37732aee0"
+          ]
+        ],
+        "first_3": [
+          [
+            "sha256:a712ca8aa7da03d17464fe921c6d6a4eac91781712a201c650ab66d37732aee0"
+          ]
+        ],
+        "first_12": [
+          [
+            "sha256:a712ca8aa7da03d17464fe921c6d6a4eac91781712a201c650ab66d37732aee0"
+          ]
+        ]
+      },
+      "check": {
+        "strict": {
+          "kind": "abstain",
+          "diagnostic": "interpretation_unsupported",
+          "supported": false,
+          "claims": []
+        },
+        "strict_with_reference_locations": {
+          "kind": "abstain",
+          "diagnostic": "interpretation_unsupported",
+          "supported": false,
+          "claims": []
+        },
+        "locations_supplied": 1,
+        "exact_quote_controls": [
+          {
+            "expected_source": "P06-A",
+            "question": "Which source contains the exact words “Here our judgment may or may not have been correct”?",
+            "expected_span_cited": true,
+            "answer": {
+              "kind": "supported_answer",
+              "diagnostic": "supported_documentary_assertion",
+              "supported": true,
+              "claims": [
+                {
+                  "text": "The cited source contains the requested words: “Here our judgment may or may not have been correct”.",
+                  "qualifiers": [
+                    "Only the complete cited wording is checked; historical truth and event/person identity are not independently verified.",
+                    "Textual occurrence only; quotations, examples, conditions and denials do not establish an event or execution."
+                  ],
+                  "citations": [
+                    {
+                      "source_id": "P06-A",
+                      "path": "p06-a.html",
+                      "hash": "sha256:89a8755cf5ca5f193599bd4191a48488d6bbf4f45c18cb4a28cadd4de94bab97",
+                      "body_start": 1511,
+                      "body_end": 1623,
+                      "start": 1511,
+                      "end": 1623,
+                      "quote": "Here our judgment may or may not have been correct but circumstances of situation left us little alternative. 4.",
+                      "body_projection": "body-text-no-headings-v1"
+                    }
+                  ],
+                  "proposition": {
+                    "relation": "source_literal_occurrence",
+                    "requested_words": "Here our judgment may or may not have been correct",
+                    "matching_basis": "Exact code points and word boundaries; source whitespace may wrap.",
+                    "text_only": true,
+                    "event_identity": null,
+                    "historical_truth_independently_verified": false,
+                    "question_obligations_verified": true,
+                    "verified_question": "Which source contains the exact words “Here our judgment may or may not have been correct”?",
+                    "question_completion_rule": "eligible_literal_location_v1",
+                    "reference_scope": "Textual occurrence in one current eligible source; no event or historical assertion.",
+                    "eligible_source_ambiguity": false
+                  },
+                  "source_support_established": true,
+                  "support_scope": "textual_occurrence",
+                  "verification": "documentary-assertion-kernel-v11",
+                  "historical_truth_independently_verified": false,
+                  "proof_sha256": "sha256:94f2cbef20ed85d1b2ad9c9a413c0f53c1bb2a5b2e614aed2f63870dac963d02"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  ]
+}
