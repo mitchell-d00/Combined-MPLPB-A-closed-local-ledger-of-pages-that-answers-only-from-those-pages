@@ -4,8 +4,8 @@ Last reviewed: 2026-11-24.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `b9d581b09aae94aeb76439ac750f85595af12665` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `6e8eb73063f36a81541107b50e023fbf563460b66d364442558bc86bcd93500e`.
+Base commit: `dcad7d96cb8892cd0a0d5d90828df1a57d764136` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `7699110a0bee7d3d2f20d485953289cc01f43eff9c839396d20d1534742bdb76`.
 
 ## Latest user update instructions
 
@@ -62,6 +62,7 @@ Begin with the data gathering and the named tests for partial corrections and mu
 - The sealed synthetic named-source set improved from 0/12 to 12/12 complete assertions with all 12 expected withholds, zero false support and zero execution failures.
 - Replayed the historical 22 with identical strict rows and all 24 Scout questions with identical strict kind, diagnostic and support.
 - Passed 132 focused Python tests and retained independently worded parser and sorter failures from before the patch.
+- The committed source archive ran 1,718 full Python tests with two skips. It also passed 52 public evidence controls, Pyodide and Chromium. The 120-case inherited catalog remained unchanged.
 
 ## Limitations and blocked checks
 

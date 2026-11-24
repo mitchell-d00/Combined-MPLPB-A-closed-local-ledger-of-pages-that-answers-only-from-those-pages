@@ -107,8 +107,15 @@ instructions for the existing scorer. [Operator packets](public-packets.tar.gz) 
 - General historical reconstruction across unfamiliar originals remains open.
   The authentic correction and chain questions remain unanswered.
 - The repeated-phrase group cap and loss of complete literal lookup at the
-  larger Sima Qian stages remain open.
+  larger Sima Qian stages remain open. The USDA venue lookup also returned
+  a partial when two verified spans from the same eligible source answered
+  the source-location question.
 - Arbitrary natural wording, more complex compound requests, and larger
   mixed authentic collections require further held-out measurements.
 - Independent historical accuracy, outside-custodian scoring, independent
   semantic adjudication, and native OOCC remain **NOT RUN**.
+
+The extracted candidate completed the full Python suite with two skips,
+passed all 52 public evidence controls, passed the Pyodide and Chromium
+checks, and preserved all scored outcomes in the inherited catalog.
+[Validation](validation.json) · [Inherited catalog replay](inherited-catalog-comparison.json)
