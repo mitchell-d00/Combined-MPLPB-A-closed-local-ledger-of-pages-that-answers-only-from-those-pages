@@ -4,37 +4,36 @@ Last reviewed: 2026-11-24.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `da9418ae7e60d39845ea65e8f365a8dc84abe2c6` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `a707f421e42805d8053a8d5d38a6ae920d1e95507bd062e1575fa449e40fd6f0`.
+Base commit: `3b1e517b1f48ae62aba4de0885ac0a6ead7f4948` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `30e42ce41a9de2c1736682e31426dd0ab2c3cc656c201c41a10fa341b0aab8bb`.
 
 ## Latest user update instructions
 
-It needs to be able to read write graphs in real time and use flag system to direct experience.  Flags in graph match flags in system tags seams and passes so strict can present from graphed boundaries and relations what does strict system present from w/e it is that’s the paths to sync
-
-Design Plan: Live Graph + Flag Sync for Combined MPLPB Strict Presentation
-
-Information by void if it’s presented as to why it can’t verify it to MPLPB but can make a “educated guess” but still presents hard sources and says so if nothing exists
-
-And even in strict mode you can have a “educated guess “ helper to help you sort the tags and logic of passes and fails but both present the information
+We need a rule constructer that builds as candidate for strict , how is the samantic logics set up ?
+If it can apply strict organizational rules to raw data and sort by supported complete answers it should be able to  build rules for a corpus as it reads the raw data and only approved mplpb though once human approves but applies same rules to new data so it can ansewer as to available data
+No human approves the ansewered and it’s path into MPLPB so if they upload a new data dump it sorts it and builds the database and rules and presents in strict as supported by available data but not approved like a MPLPB single page full artifact
+We can call it spot
 
 ## Implemented scope
 
-- Add opt-in live SQLite read/write graph paths, an exact native flag gate, Advanced follow-up reuse, and a labeled strict next-check helper.
+- Add D6 candidate construction, separate documentary recommendation proof drafts, and development-only field rule discovery.
+- Add Spot to build an isolated ledger from labelled UTF-8 records and rank scoped rules by complete native evidence results. Label the report as an unapproved preview.
 
 ## Validation recorded
 
-- Passed focused graph, Advanced, J/Opass and strict answer controls. Matching paths preserve their native proof and flag disagreements withhold the display.
-- Verified 54 focused tests from the committed source ZIP. The frozen native suite ran 1,699 tests with 2 skips and zero failures. The recorded test-process exit was zero, while the execution wrapper returned 1.
-- Matched the entire native strict result for all historical 22 with the graph gate active. Replayed the same 4score20 and J/Opass decisions and verified that the Lodge pass advances to investigate without changing its refusal.
+- Passed 78 focused native tests and the documentation audit.
+- An elapsed-days candidate recovered two development cases and one holdout and preserved both refusal controls.
+- Spot verified a closing date with an exact citation and withheld on a missing field and competing owners. A CLI Strict Ask against the new preview ledger also returned the cited closing date.
 
 ## Limitations and blocked checks
 
-- The graph governs presentation and bounded routing. Historical question interpretation and relationship rules remain separate work.
-- The full repository ZIP exceeds available local extraction space.
+- Spot accepts explicit fields in labelled text. The prose draft records proof requirements for review, pending a native recommendation verifier.
+- Spot creates a separate preview. Admitting an answer and its path to a main collection is outside the preview workflow.
+- The full source archive requires about 2.1 GB uncompressed, exceeding available local space. The local archive check is scoped to the relevant source and tests.
 
 ## Next steps
 
-- Use the graph to isolate which verified source paths a new historical interpretation rule would need.
+- Develop and replay native recommendation comparison proof on independently worded positive and refusal cases.
 
 ## Use this ZIP in your repository
 

@@ -2,12 +2,79 @@
 import copy
 import json
 from pathlib import Path
+from tempfile import TemporaryDirectory
 import unittest
 
 from mplpb_work import training
 
 
 EXAMPLE = Path(__file__).resolve().parents[1] / 'evaluation/d12/coordinator'
+
+
+class ConstructorTests(unittest.TestCase):
+    def test_corpus_draft_ranks_reusable_fields_without_promotion(self):
+        fixtures = (EXAMPLE / 'fixtures.json').read_bytes()
+        result = training.construct_corpus(fixtures)
+        self.assertEqual(result['status'], 'review_needed')
+        self.assertFalse(result['promoted'])
+        self.assertEqual([item['rule']['name'] for item in result['candidates']],
+                         ['Read opening date', 'Read closing date'])
+
+    def test_spot_previews_original_upload_with_owner_boundaries(self):
+        dump = (b'Record-ID: NEW-1\nClosing Date: 1936-03-04\n\n'
+                b'Record-ID: NEW-2\nOpening Date: 1937-03-04\n\n'
+                b'Record-ID: NEW-3\nClosing Date: 1936-03-05\n\n'
+                b'Record-ID: NEW-3\nClosing Date: 1936-03-06\n')
+        with TemporaryDirectory() as directory:
+            root = Path(directory) / 'preview'
+            with self.assertRaises(ValueError):
+                training.preview_corpus(b'Unstructured text', root)
+            self.assertFalse(root.exists())
+            result = training.preview_corpus(dump, root)
+            self.assertEqual(result['status'], 'unapproved_preview')
+            self.assertFalse(result['promoted'])
+            closing = next(item for item in result['candidates'] if item['rule']['name'] == 'Read closing date')
+            self.assertEqual(closing['complete'], 1)
+            found, missing, competing = [row['report'] for row in closing['answers']]
+            self.assertTrue(found['answer_supported'])
+            self.assertEqual(found['compiled']['steps'][0]['value'], '1936-03-04')
+            self.assertEqual(found['evidence'][0]['source_id'], 'UPLOAD-001')
+            self.assertFalse(missing['answer_supported'])
+            self.assertFalse(competing['answer_supported'])
+            with self.assertRaises(FileExistsError):
+                training.preview_corpus(dump, root)
+
+    def test_constructed_calendar_rule_passes_frozen_replay(self):
+        fixtures, key, baseline, calendar = [(EXAMPLE / name).read_bytes() for name in
+            ('fixtures.json', 'key.json', 'baseline-rule.json', 'elapsed-days-rule.json')]
+        candidate = training.construct_rule('elapsed days', json.loads(calendar)['steps'][0])
+        result = training.orchestrate(fixtures, key, baseline,
+                                      candidate_rule=json.dumps(candidate).encode())
+        self.assertEqual(result['comparison']['verdict'], 'candidate_passed')
+        self.assertEqual(len(result['comparison']['recovered']), 3)
+        self.assertFalse(result['promoted'])
+
+    def test_constructor_rejects_fixed_records_and_unregistered_operations(self):
+        for step in ({'op': 'read', 'record_id': 'LOG-1', 'field': 'Opening Date'},
+                     {'op': 'execute', 'command': 'invalid'}):
+            with self.subTest(step=step), self.assertRaises(ValueError):
+                training.construct_rule('draft', step)
+
+    def test_prose_candidate_records_routing_gap_without_creating_proof(self):
+        candidate = training.construct_comparison(
+            "How did Neri's recommendation on retaining the pier differ from Lane's?",
+            'Neri', 'Lane', 'retaining the pier')
+        self.assertEqual(candidate['documentary_route'], ['wording_comparison'])
+        self.assertEqual(candidate['intent'], 'recommendation_comparison')
+        self.assertEqual([item['actor_candidate'] for item in candidate['proof_obligations']], ['Neri', 'Lane'])
+        self.assertIn('different_decision', candidate['controls'])
+        self.assertEqual(candidate['status'], 'review_needed')
+        self.assertFalse(candidate['answer_supported'])
+        self.assertFalse(candidate['promoted'])
+        with self.assertRaises(ValueError):
+            training.construct_comparison('What did they recommend?', 'Lane', 'lane ', 'the pier')
+        with self.assertRaises(ValueError):
+            training.run((EXAMPLE / 'fixtures.json').read_bytes(), json.dumps(candidate).encode())
 
 
 class TrainingTests(unittest.TestCase):

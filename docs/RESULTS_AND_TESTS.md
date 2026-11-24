@@ -17,8 +17,19 @@ The [live experience graph controls](../tests/test_experience_graph.py) cover cu
 
 The [J/Opass presentation test](../evaluation/d12/j-opass/README.md) applies deterministic warnings to six native cases. A local model made 8/8 valid constrained layout choices and 0/8 valid free-text choices. All 16 calls preserved the displayed evidence and proof decision.
 
+[Scout](../evaluation/d12/scout/README.md) drew six fresh historical pairs after the engine freeze. Strict Ask completed 0/18 answerable questions, including 0/6 two-source relationships, and correctly withheld on 6/6 missing-evidence controls. All 48 graph-scoped passes preserved the native contract.
+
 [D12](../evaluation/d12/README.md) adds paired error-class probes to D6 and a separate
 trace of the original 22, 40 follow-ups and 12 starter-topic cases. The [pattern fix sprints](../evaluation/d12/pattern-sprints/README.md) retain the unchanged nine-question replay and 28 matched controls. The [historical seam replay](../evaluation/d12/pattern-sprints/historical-seams/README.md) isolates two graph and proof failures on the original 22. The [training coordinator](../evaluation/d12/coordinator/README.md) replays a matched rule repair and reports fresh historical, D20 and book triage.
+
+The rule constructor produced an elapsed-days candidate that recovered two
+development cases and one holdout and preserved both refusals on the same
+frozen coordinator fixtures. The recommendation-comparison draft recorded
+the parser's existing route and generated proof obligations for review.
+Corpus discovery ranked two reusable field rules on five development
+records. Spot verified a closing date in a separate upload preview and
+withheld on a missing field and competing owners in the same ledger.
+[Commands and scope](ADVANCED_MPLPB.md#semantic-rules-and-candidate-construction)
 
 The [D12 documentary language release demo](../evaluation/d12/release-demo/README.md) installs two archived native revisions and compares a pinned 40-case parcel, dispatch, and receipt panel. Matched outcomes rose from **20/40 to 40/40**, with 10 full answers, 10 cited partials, and all 20 expected abstentions preserved. [Installed-wheel timings and revision hashes](../evaluation/d12/release-demo/results.json)
 

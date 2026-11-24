@@ -6,9 +6,11 @@ from html import escape
 import json
 import os
 from pathlib import Path
+import re
 from tempfile import TemporaryDirectory
 
 from mplpb_answers.d6 import SCHEMA, compile_plan, field_selector, validate
+from mplpb_answers.relation_graph import FIELD_LINE, IDENTITY_FIELDS
 from mplpb_answers.support import code_pins
 from mplpb_combined import ledger as ledger_module
 from mplpb_combined.ledger import write
@@ -85,6 +87,120 @@ def _rule(raw):
     if validate({'op': 'all', 'steps': _bind(rule['steps'], 'TEST-1')}) > 32:
         raise ValueError('Training rule exceeds the D6 operation budget')
     return rule
+
+
+def construct_rule(name, step):
+    """Build one candidate for a D6 sprint using the existing rule validator."""
+    return _rule(json.dumps({'name': name, 'steps': [step]}, ensure_ascii=False).encode())
+
+
+def construct_comparison(question, first_actor, second_actor, decision):
+    """Describe the evidence a recommendation comparison would need."""
+    from mplpb_answers.documentary import plan
+
+    fields = (question, first_actor, second_actor, decision)
+    if any(not isinstance(value, str) or not 1 <= len(value.strip()) <= limit
+           for value, limit in zip(fields, (500, 100, 100, 240))):
+        raise ValueError('Supply a short question, two named actors, and a shared decision')
+    question, first_actor, second_actor, decision = (value.strip() for value in fields)
+    if first_actor.casefold() == second_actor.casefold():
+        raise ValueError('Supply two distinct candidate actors')
+    return {
+        'schema': 'mplpb-semantic-rule-candidate-v1',
+        'question': question,
+        'intent': 'recommendation_comparison',
+        'documentary_route': [goal['kind'] for goal in (plan(question) or ())],
+        'decision_candidate': decision,
+        'proof_obligations': [
+            {'actor_candidate': actor, 'required': ['exact_source_span', 'actor_attribution',
+                                                   'shared_decision', 'recommendation', 'stated_conditions']}
+            for actor in (first_actor, second_actor)
+        ],
+        'comparison': 'Compare the attributed recommendations on the shared decision and retain stated conditions.',
+        'controls': ['independently_worded_comparison', 'missing_recommendation', 'different_decision',
+                     'negated_or_qualified_recommendation', 'unresolved_actor', 'ineligible_source'],
+        'status': 'review_needed',
+        'answer_supported': False,
+        'promoted': False,
+    }
+
+
+def _candidate_fields(cases, minimum):
+    fields = defaultdict(set)
+    for case in cases:
+        for line in case['body'].splitlines():
+            match = FIELD_LINE.fullmatch(line)
+            if not match:
+                break
+            label = ledger_module.field_name(match[1])
+            if label in {'body', 'example', 'sample', 'quoted example'}:
+                break
+            if label not in IDENTITY_FIELDS:
+                fields[label].add(case['record_id'].casefold())
+    return sorted((label for label in fields if len(fields[label]) >= minimum),
+                  key=lambda label: (-len(fields[label]), label))
+
+
+def construct_corpus(fixtures):
+    """Find reusable exact field reads and rank them by complete sample answers."""
+    cases = _packet(fixtures, FIXTURES)
+    if len(cases) > 32:
+        raise ValueError('Use at most 32 development records for rule discovery')
+    ranked = _candidate_fields(cases, minimum=2)
+    candidates = []
+    record_ids = {case['id']: case['record_id'].casefold() for case in cases}
+    for label in ranked[:12]:
+        rule = construct_rule(f'Read {label}', {'op': 'read', 'record_id': '$record', 'field': label})
+        raw = (json.dumps(rule, indent=2, ensure_ascii=False) + '\n').encode()
+        replay = run(fixtures, raw)
+        complete = [row['id'] for row in replay['rows'] if row['report']['answer_supported']]
+        if len({record_ids[ident] for ident in complete}) >= 2:
+            candidates.append({'rule': rule, 'rule_sha256': replay['rule_sha256'],
+                               'complete_cases': complete, 'replay': replay})
+    candidates.sort(key=lambda item: (-len(item['complete_cases']), item['rule']['name']))
+    return {'schema': 'mplpb-corpus-rule-candidates-v1', 'fixtures_sha256': sha256(fixtures).hexdigest(),
+            'cases': len(cases), 'fields_omitted_by_budget': max(0, len(ranked) - 12),
+            'candidates': candidates, 'status': 'review_needed', 'promoted': False}
+
+
+def preview_corpus(raw, root):
+    """Build a separate ledger and verify candidate field reads on the uploaded pages."""
+    if len(raw) > 384000:
+        raise ValueError('Use a text dump of at most 384,000 bytes')
+    blocks = re.split(r'\r?\n(?:[ \t]*\r?\n)+', raw.decode('utf-8').strip('\r\n'))
+    if not 1 <= len(blocks) <= 32:
+        raise ValueError('Use at most 32 blank-line-separated records')
+    cases = []
+    for number, body in enumerate(blocks, 1):
+        lines = body.splitlines()
+        first = FIELD_LINE.fullmatch(lines[0]) if lines else None
+        if (not first or ledger_module.field_name(first[1]) != 'record id'
+                or len(body) > 12000 or any(not FIELD_LINE.fullmatch(line) for line in lines)):
+            raise ValueError(f'Record {number} must start with Record-ID and contain only labelled fields')
+        record_id = first[2].strip()
+        field_selector({'record_id': record_id, 'field': 'Record ID'})
+        cases.append({'id': f'UPLOAD-{number:03d}', 'record_id': record_id, 'body': body})
+    ranked = _candidate_fields(cases, minimum=1)
+    root = Path(root)
+    root.mkdir()
+    for case in cases:
+        write(root, doc_id=case['id'], title=case['id'], scope='Spot unapproved upload preview',
+              body_html='<pre>' + escape(case['body']) + '</pre>', origin='machine',
+              source_authorship='unknown')
+    targets = sorted({case['record_id'] for case in cases}, key=lambda value: (value.casefold(), value))
+    candidates = []
+    for label in ranked[:12]:
+        rule = construct_rule(f'Read {label}', {'op': 'read', 'record_id': '$record', 'field': label})
+        rows = []
+        for record_id in targets:
+            plan = {'schema': SCHEMA, 'steps': _bind(rule['steps'], record_id)}
+            rows.append({'record_id': record_id, 'report': compile_plan(root, plan)})
+        candidates.append({'rule': rule, 'complete': sum(row['report']['answer_supported'] for row in rows),
+                           'answers': rows})
+    candidates.sort(key=lambda item: (-item['complete'], item['rule']['name']))
+    return {'schema': 'mplpb-spot-v1', 'upload_sha256': sha256(raw).hexdigest(),
+            'status': 'unapproved_preview', 'promoted': False, 'records': len(cases),
+            'fields_omitted_by_budget': max(0, len(ranked) - 12), 'candidates': candidates}
 
 
 def _runtime_pin():
@@ -223,8 +339,8 @@ def repair(seal, fixtures, key, rule_bytes, objective):
         return result
     if known and step['op'] == 'year_difference' and any(
             f['repeatable'] and f['tag'] == 'wrong_value' for f in findings['findings']):
-        proposal = {**original, 'steps': [{**step, 'op': 'day_difference',
-                    'calendar': 'proleptic_gregorian', 'mode': modes[objective]}]}
+        proposal = construct_rule(original['name'], {**step, 'op': 'day_difference',
+                    'calendar': 'proleptic_gregorian', 'mode': modes[objective]})
         candidate = run(fixtures, json.dumps(proposal, sort_keys=True, indent=2).encode() + b'\n')
         sprint = compare(seal, fixtures, key, baseline, candidate)
         result['attempts'].append({'rule': proposal, 'replay': candidate, 'verdict': sprint})
@@ -267,6 +383,23 @@ def main():
             command.add_argument(path, type=Path)
         if name == 'repair':
             command.add_argument('--objective', required=True)
+    constructor = sub.add_parser('construct', help='Build a D6 candidate from one declarative step')
+    constructor.add_argument('name')
+    constructor.add_argument('step', type=Path, help='JSON file containing one D6 expression')
+    constructor.add_argument('output', type=Path)
+    comparison = sub.add_parser('construct-comparison', help='Draft a recommendation comparison for review')
+    comparison.add_argument('question')
+    comparison.add_argument('first_actor')
+    comparison.add_argument('second_actor')
+    comparison.add_argument('decision')
+    comparison.add_argument('output', type=Path)
+    corpus = sub.add_parser('construct-corpus', help='Rank repeated field candidates on development records')
+    corpus.add_argument('fixtures', type=Path)
+    corpus.add_argument('output', type=Path)
+    preview = sub.add_parser('spot', help='Build an isolated strict preview of a text dump')
+    preview.add_argument('dump', type=Path)
+    preview.add_argument('ledger', type=Path, help='New directory for the isolated preview')
+    preview.add_argument('output', type=Path)
     filing = sub.add_parser('record')
     filing.add_argument('workstore', type=Path)
     filing.add_argument('task')
@@ -283,15 +416,24 @@ def main():
                       group=args.group, share_with=args.share_with)
         print(json.dumps({'id': args.id, 'head': view['head'], 'answer_supported': False}))
         return 0
-    data = {name: getattr(args, name).read_bytes() for name in paths[args.command]}
-    for name in ('seal', 'baseline', 'candidate'):
-        if name in data:
-            data[name] = json.loads(data[name])
-    if 'rule' in data:
-        data['rule_bytes'] = data.pop('rule')
-    if args.command == 'repair':
-        data['objective'] = args.objective
-    result = {'freeze': freeze, 'run': run, 'tag': tag, 'compare': compare, 'repair': repair}[args.command](**data)
+    if args.command == 'construct':
+        with args.step.open('rb') as stream:
+            step = stream.read(8001)
+        if len(step) > 8000:
+            raise ValueError('Training rule exceeds the rule size limit')
+        result = construct_rule(args.name, json.loads(step))
+    elif args.command == 'construct-comparison':
+        result = construct_comparison(args.question, args.first_actor, args.second_actor, args.decision)
+    elif args.command == 'construct-corpus':
+        with args.fixtures.open('rb') as stream:
+            result = construct_corpus(stream.read(4 * 1024 * 1024 + 1))
+    elif args.command == 'spot':
+        if args.output.exists():
+            raise ValueError('Choose a new output report path')
+        with args.dump.open('rb') as stream:
+            result = preview_corpus(stream.read(384001), args.ledger)
+    else:
+        result = _training_command(args, paths)
     with args.output.open('x') as output:
         json.dump(result, output, ensure_ascii=False, indent=2)
         output.write('\n')
@@ -302,6 +444,18 @@ def main():
         print(result['status'])
         return int(result['status'] not in ('repair_selected', 'baseline_healthy'))
     return 0
+
+
+def _training_command(args, paths):
+    data = {name: getattr(args, name).read_bytes() for name in paths[args.command]}
+    for name in ('seal', 'baseline', 'candidate'):
+        if name in data:
+            data[name] = json.loads(data[name])
+    if 'rule' in data:
+        data['rule_bytes'] = data.pop('rule')
+    if args.command == 'repair':
+        data['objective'] = args.objective
+    return {'freeze': freeze, 'run': run, 'tag': tag, 'compare': compare, 'repair': repair}[args.command](**data)
 
 
 if __name__ == '__main__':
