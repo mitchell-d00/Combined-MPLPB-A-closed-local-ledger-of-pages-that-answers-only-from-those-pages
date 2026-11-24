@@ -146,6 +146,15 @@ All four existing controls withheld with zero false-supported bridges.
 The native checker admitted no proposition-level proof for the comparisons.
 [Four case decisions and withhold rule](frus-boundary/README.md)
 
+## FRUS-Proposition
+
+On the same four comparisons, discovery stayed at **4/4**, Strict Ask
+stayed at **0/4 complete**, and partials stayed at **0**. The four
+existing controls correctly withheld. The native checker rejected all
+**16** exact-unit action or relationship proposals with no scan cap
+reached and no false-supported bridges.
+[Case decisions and withhold condition](frus-proposition/README.md)
+
 ## Open items
 
 - All 12 original focus cases remain open, including date roles, reported
@@ -153,7 +162,8 @@ The native checker admitted no proposition-level proof for the comparisons.
 - General historical reconstruction and ordinary-prose linking across unfamiliar
   originals remain open. The four fresh FRUS cases have both anchors available
   after projection. FRUS-Boundary traced the remaining blocker to native
-  proposition and attribution admission. The earlier ten cases stay
+  proposition and attribution admission. FRUS-Proposition found that
+  directly supplying the exact source units still produced no certificates. The earlier ten cases stay
   frozen. The scoped repository erratum and both tested DHS
   relations now have complete development proofs.
 - Phrase-token and repeated phrase-group limits and loss of complete literal
