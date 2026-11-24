@@ -360,7 +360,8 @@ def _answer_query(root, question, profile=None, *, mode, reader, min_confidence,
         code, evidence, gap = verify(root, question, profile, identity, max_passages, max_chars)
         if evidence:
             contract.update(evidence, mode='strict',
-                            documentary_support={'scope': 'named_source_reference'},
+                            documentary_support={'scope': ('published_correction_reference'
+                                                           if identity[0] == 'publication_correction' else 'named_source_reference')},
                             verification={'structural': True, 'semantic': 'bounded_documentary_reference',
                                           'truth_verified': False, 'independence_verified': False})
             return finish('supported_answer', code, 'Verified documentary reference.', 'strict')

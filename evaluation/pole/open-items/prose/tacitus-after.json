@@ -1,0 +1,101 @@
+{
+  "pin": "5ffdca2d9e7c7bc6048b9bfb9f1a0caf36835426",
+  "packet_seal": "07f8119e57a53c90680c8b9bcd7383f346d99ab0a06e4db27fa7fa9a99bb5921",
+  "raw_sha256": "2e593902b27c1abce5b5f8bd5a1287f0e81a0176dba712014f13c857f7b2aa81",
+  "counts": {
+    "bridge_formed": 3,
+    "all_discovery_anchors": 4,
+    "control_withheld": 5,
+    "miss": 3
+  },
+  "cases": [
+    {
+      "id": "FR-01",
+      "family": "venue",
+      "result": "bridge_formed",
+      "discovery_anchors": true,
+      "kind": "supported_answer",
+      "diagnostic": "supported_documentary_assertion"
+    },
+    {
+      "id": "FR-03",
+      "family": "venue",
+      "result": "control_withheld",
+      "discovery_anchors": false,
+      "kind": "abstain",
+      "diagnostic": "interpretation_unsupported"
+    },
+    {
+      "id": "FR-04",
+      "family": "deadline",
+      "result": "bridge_formed",
+      "discovery_anchors": false,
+      "kind": "supported_answer",
+      "diagnostic": "supported_documentary_assertion"
+    },
+    {
+      "id": "FR-06",
+      "family": "deadline",
+      "result": "control_withheld",
+      "discovery_anchors": false,
+      "kind": "abstain",
+      "diagnostic": "interpretation_unsupported"
+    },
+    {
+      "id": "FR-07",
+      "family": "instructions",
+      "result": "bridge_formed",
+      "discovery_anchors": true,
+      "kind": "supported_answer",
+      "diagnostic": "supported_documentary_assertion"
+    },
+    {
+      "id": "FR-09",
+      "family": "instructions",
+      "result": "control_withheld",
+      "discovery_anchors": false,
+      "kind": "abstain",
+      "diagnostic": "interpretation_unsupported"
+    },
+    {
+      "id": "FR-10",
+      "family": "correction_of_correction",
+      "result": "miss",
+      "discovery_anchors": true,
+      "kind": "abstain",
+      "diagnostic": "interpretation_unsupported"
+    },
+    {
+      "id": "FR-11",
+      "family": "correction_of_correction",
+      "result": "miss",
+      "discovery_anchors": false,
+      "kind": "abstain",
+      "diagnostic": "interpretation_unsupported"
+    },
+    {
+      "id": "FR-12",
+      "family": "correction_of_correction",
+      "result": "control_withheld",
+      "discovery_anchors": false,
+      "kind": "abstain",
+      "diagnostic": "interpretation_unsupported"
+    },
+    {
+      "id": "BT-01",
+      "family": "attribution",
+      "result": "miss",
+      "discovery_anchors": true,
+      "kind": "abstain",
+      "diagnostic": "interpretation_unsupported"
+    },
+    {
+      "id": "BT-03",
+      "family": "attribution",
+      "result": "control_withheld",
+      "discovery_anchors": false,
+      "kind": "abstain",
+      "diagnostic": "interpretation_unsupported"
+    }
+  ]
+}

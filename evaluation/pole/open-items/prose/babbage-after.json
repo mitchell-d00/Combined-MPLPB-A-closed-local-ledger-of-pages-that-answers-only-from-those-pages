@@ -1,0 +1,61 @@
+{
+  "crowded": {
+    "complete": true,
+    "limits": [],
+    "slots": 8,
+    "occurrences": 2
+  },
+  "frozen-pole-chain": {
+    "complete": false,
+    "limits": [
+      "repeated_phrase_group_budget"
+    ],
+    "slots": 0,
+    "occurrences": 0
+  },
+  "many-owners": {
+    "complete": true,
+    "limits": [],
+    "slots": 8,
+    "occurrences": 8
+  },
+  "single-owner": {
+    "complete": true,
+    "limits": [],
+    "slots": 8,
+    "occurrences": 1
+  },
+  "same_records_as_proof": {
+    "slots": 8,
+    "occurrences": 2,
+    "limits": []
+  },
+  "eligible": {
+    "answer_supported": true,
+    "diagnostic": "supported_documentary_assertion",
+    "sources": [
+      "DOC-NEW",
+      "DOC-OLD"
+    ]
+  },
+  "external_denial": {
+    "answer_supported": false,
+    "diagnostic": "no_eligible_sources",
+    "sources": []
+  },
+  "withdrawn": {
+    "answer_supported": false,
+    "diagnostic": "documentary_link_unverified",
+    "sources": []
+  },
+  "passage_cap": {
+    "answer_supported": false,
+    "diagnostic": "reader_budget_exceeded",
+    "sources": []
+  },
+  "scan_cap": {
+    "answer_supported": false,
+    "diagnostic": "reference_scan_budget",
+    "sources": []
+  }
+}

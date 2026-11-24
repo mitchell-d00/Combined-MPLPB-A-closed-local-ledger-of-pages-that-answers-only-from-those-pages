@@ -2,29 +2,14 @@
 from datetime import date
 import re
 
-from mplpb_answers.body_text import body_text
-from mplpb_answers.documentary_verify import citation, context_ranges, wording_difference
+from mplpb_answers.documentary_links import chain as _chain, whole_source as _whole_source
+from mplpb_answers.documentary_verify import wording_difference
 from mplpb_answers.evidence_contract import ReaderError
 from mplpb_answers.passages import PassageIndex
 from mplpb_answers.pipeline import answer_query
 
 _LENGTHS = {'wording': 2, 'writing_dates': 2, 'request_dispatch_receipt': 3}
 _SOURCE_ID = re.compile(r'[A-Za-z0-9][A-Za-z0-9._-]{0,99}')
-_PERSON = r"[A-Z][a-z]+(?: [A-Z][a-z]+){1,3}"
-_PHRASE = r'[A-Za-z0-9][A-Za-z0-9 -]{1,119}'
-_QUALIFIER = re.compile(r'\b(?:if|unless|except|maybe|perhaps|probably|possibly|not|never|and|or|would|could|without|either|then|from|to|at)\b', re.I)
-_REQUEST = re.compile(rf'(?P<requester>{_PERSON}) requested that (?P<sender>{_PERSON}) send (?P<object>{_PHRASE}) to (?P<destination>{_PHRASE})\.')
-_DISPATCH = re.compile(rf'In response to request source (?P<reference>{_SOURCE_ID.pattern}), (?P<sender>{_PERSON}) sent (?P<object>{_PHRASE}) to (?P<destination>{_PHRASE})\.')
-_RECEIPT = re.compile(rf'Referring to dispatch source (?P<reference>{_SOURCE_ID.pattern}), (?P<reported_by>{_PERSON}) reported receiving (?P<object>{_PHRASE}) at (?P<destination>{_PHRASE}) from (?P<sender>{_PERSON})\.')
-
-
-def _whole_source(record, budget):
-    if record is None or len(record.body_html) > budget * 8 + 10000:
-        return None
-    body = body_text(record.body_html)
-    if not body.strip() or len(body) > budget:
-        return None
-    return citation(record, body, 0, len(body))
 
 
 def _wording(records, source_ids, max_passages, max_chars):
@@ -78,28 +63,6 @@ def _writing_dates(index, records, source_ids, max_passages, max_chars):
         earliest = [row['source_id'] for row in observed if row['date'] == first]
     return {'writing_dates': observed, 'earliest_sources': earliest,
             'citations': witnesses, 'missing': missing}
-
-
-def _chain(records, source_ids, max_passages, max_chars):
-    steps, witnesses = [], []
-    required = ('recorded request', 'dispatch linked to the request', 'reported receipt linked to the dispatch')
-    for position, (ident, form) in enumerate(zip(source_ids, (_REQUEST, _DISPATCH, _RECEIPT))):
-        record = records.get(ident)
-        witness = _whole_source(record, max_chars)
-        if not witness or context_ranges(record):
-            break
-        match = form.fullmatch(' '.join(witness['quote'].split()))
-        if not match or any(_QUALIFIER.search(match[name]) for name in ('object', 'destination')):
-            break
-        values = match.groupdict()
-        if position and (values['reference'] != source_ids[position - 1] or any(
-                values[key] != steps[0][key] for key in ('sender', 'object', 'destination'))):
-            break
-        if len(witnesses) >= max_passages or sum(len(c['quote']) for c in witnesses) + len(witness['quote']) > max_chars:
-            break
-        steps.append(dict(values, source_id=ident, role=('request', 'dispatch', 'reported_receipt')[position]))
-        witnesses.append(witness)
-    return {'steps': steps, 'citations': witnesses, 'missing': list(required[len(steps):])}
 
 
 def inspect(root, question, profile, operation, source_ids, max_passages, max_chars):
