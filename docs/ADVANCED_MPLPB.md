@@ -106,3 +106,17 @@ eligible source, the presentation says so and skips the guess.
 The graph and warnings are opt-in through native Ask and Advanced. Existing
 calls without a graph keep their ordinary contract. [J/Opass](../evaluation/d12/j-opass/README.md) ·
 [Experience graph controls](../tests/test_experience_graph.py)
+
+### Recorded checks
+
+On native candidate `da9418a`, the historical 22 matched the ordinary strict
+contract case by case with the graph gate enabled. The totals were four
+full answers, three partials, three conflicts, and twelve abstentions.
+On the three 4score20 cases, Lodge's second pass moved from lookup to
+investigation. Both telegram and communiqué requests stayed on lookup.
+All three kept their original refusals.
+
+The focused source ZIP passed 54 checks. The full native suite ran 1,699
+tests with two skips and zero failures, and the test command recorded
+exit zero. The execution wrapper reported exit 1 after the test command
+completed.
