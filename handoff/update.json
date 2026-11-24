@@ -1,19 +1,19 @@
 {
-  "instruction": "Go from that and do test name test 4score20",
+  "instruction": "New test using what we found named J/Opass.     The Observer records what happened. Which parts of the question were understood? Which passages were found? What did Strict Ask verify? What stayed open? The Observer also records where the chain stopped. “The search missed a passage” and “the question had no proof rule” call for different warnings.\n* The Judge decides what the reader needs to see. It applies deterministic presentation rules to the Observer’s record. If a claim is verified but easy to overread, it adds a short boundary beside that claim. If a required link is missing, it tells the presenter to show the verified parts and mark the rest unresolved. The Judge cannot promote a candidate into proof. Then test the model",
   "reviewed_on": "2026-11-24",
   "scope": [
-    "Implement 4score20 in the order understand the question, find the relevant words, and check what they prove in context.",
-    "Retain the native plan, passage coverage, strict outputs with and without source-location hints, and exact-quote controls for three frozen D12 cases."
+    "Add J/Opass with a read-only Observer, a deterministic presentation Judge, and two local model layout arms."
   ],
   "validation": [
-    "Ran 4score20 twice with byte-identical output. Wide search found all four telegram anchors, while the original question still lacked a documentary plan. The exact quote crossing a statement boundary withheld while both fragments passed.",
-    "Passed 49 focused tests and the documentation inventory audit."
+    "Replayed six native cases and verified byte-identical native output.",
+    "Ran 16 local SmolLM2 CPU calls. All preserved the presentation contents and strict proof decision. JSON enum accepted 8/8 layouts and free text accepted 0/8.",
+    "Passed 53 focused tests with loopback available."
   ],
   "limitations": [
-    "The replay diagnoses three previously seen cases. It changes no native answer rule and does not exercise verification of a valid telegram relationship plan.",
-    "The full repository ZIP exceeds the available local extraction space."
+    "This is an evaluation harness. The model selects layout only, and the run uses one small model.",
+    "The full repository ZIP exceeds available local extraction space."
   ],
   "next_steps": [
-    "Use the retained trace to measure each proposed repair against the original questions and the final-wording refusal control."
+    "Reuse the retained J/Opass inputs when evaluating a production presentation integration."
   ]
 }
