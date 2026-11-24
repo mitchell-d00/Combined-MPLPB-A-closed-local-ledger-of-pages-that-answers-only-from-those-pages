@@ -4,81 +4,62 @@ Last reviewed: 2026-11-24.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `e8e874ce8a8ae1d55c821da27b30d1dfe1bf1e45` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `530cdd61121c3ed19783fe3b0bed5ed4e4e545cb782f58443e46ce4aa2a69814`.
+Base commit: `16a1f9f883bd5c1d6e366cb139272a997a41765a` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `5b54b37da064bf341eeea927e07514cb42ba41c3129bd07c06449c7a5c371b73`.
 
 ## Latest user update instructions
 
-Continue the public MPLPB Pole training loop on pin 78f6a464212214a29a84f400a199be46a25db8bf.
+Continue the public MPLPB Pole training loop on pin 16a1f9f883bd5c1d6e366cb139272a997a41765a.
 
 Prior results (keep frozen):
-- BT-Erratum: 0/1 → 1/1 complete. 5/5 withholds. Zero false-supported bridges.
-- Polybius-Prose: 0/10 complete. 7/10 native anchors, one partial, nine misses, 10/10 withholds.
-- Scan-Phrase: two eligible records retained. Literal and phrase-cap diagnostics reproduced (200k characters / 1,000 units).
-- Komnene-Hold: 22/22 mappings verified. Outside scoring NOT_RUN.
-- Retained: Tacitus 3/6, Douglass 6/12, Babbage caps, both DHS cases complete, zero false-supported bridges.
+- BT-Erratum: 1/1 complete. Zero false-supported bridges.
+- Both tested DHS relations: complete development proofs.
+- Focus-12: 0/12 complete. Two partials, ten abstentions. 20/20 controls preserved.
+- Polybius-Extend (fresh FRUS): native discovery 4/4 after whitespace projection. Strict Ask 0/4 complete. 4/4 controls withheld. Zero false-supported bridges.
+- Cap diagnostics and Komnene 22/22 mapping checks reproduced. Outside scoring, independent historical accuracy, and native OOCC remain NOT_RUN.
 
-Goal: close or correctly diagnose the remaining ordinary-prose and original-focus gaps without inventing links or producing false-supported bridges. Freeze every new case set before scoring. Preserve the same public accounting (pinned commit, archive hash, before/after counts, explicit NOT_RUN labels). Do not claim independent historical accuracy or native OOCC.
+Goal: force a decision on the four fresh FRUS cases that already have both anchors available. Freeze those four cases (plus their existing negative controls) before scoring. Do not add new cases. Do not raise scan or phrase caps. Preserve all previously closed results. Do not claim independent historical accuracy or native OOCC.
 
-Run these four named tests:
+Run one named test:
 
-1. Focus-12 (original focus misses)
-   - Isolate the 12 original focus cases (date roles, reported statements, partial corrections, wording changes, less explicit chains).
-   - Apply any existing rules and measure whether any move to complete or correct withhold.
-   - Keep negative controls. Report the exact reason for each remaining miss.
-
-2. Polybius-Extend (ordinary-prose linking on unfamiliar originals)
-   - Draw a fresh held-out authentic set where the relation is implied by ordinary prose but lacks an explicit volume/page/document-number citation.
+1. FRUS-Boundary
+   - Isolate the four fresh FRUS cases where native discovery now finds all required anchors after publisher-layout whitespace folding.
+   - Write and freeze one candidate rule that either:
+     (a) forms a supported bridge from the ordinary prose already present in those documents, with exact witnesses, unique resolution, chronological order where applicable, and existing budget checks, or
+     (b) correctly withholds because a necessary link cannot be established under the current witness and budget rules.
    - Score discovery and Strict Ask separately.
-   - Include negative controls that look similar but lack a verifiable chain.
+   - Keep the existing negative controls.
    - Zero false-supported bridges allowed.
+   - Report complete, partial, or correct withhold for each case, and the exact reason for any remaining withhold.
 
-3. Cap-Diagnosis (scan and phrase limits)
-   - Re-run the larger-corpus and multi-record cases under the existing 200k-character / 1,000-unit scan caps and phrase-token / phrase-group limits.
-   - Record the exact budget that produces each partial or withhold.
-   - Confirm the sorter still retains both records when both are eligible.
-   - Do not raise the caps; diagnose only.
+After the test:
+- Write the rule that was added (or the explicit withhold condition).
+- Update the open-items README with before/after counts for these four cases only.
+- Leave the original 12 focus cases, the scan/phrase limits, outside scoring, independent historical accuracy, and native OOCC marked NOT_RUN or open as they currently stand.
+- Commit the frozen cases, results, and rule under a new public pin.
 
-4. Komnene-Status (outside packet)
-   - Confirm the existing 22-question / 44-arm package is still sealed and matches the concealed mapping.
-   - Leave independent scoring marked NOT_RUN.
-   - Confirm the delivery checksum.
-
-After the tests:
-- Write any new or refined rule that was added.
-- Update the open-items README with before/after counts.
-- Leave independent historical accuracy, outside-custodian scoring, independent semantic adjudication, and native OOCC marked NOT_RUN.
-- Commit the frozen cases, results, and rules under a new public pin.
-
-Return the four result tables, any new rule text, the updated open-item list, the new commit hash, and the archive SHA-256.
+Return the result table for FRUS-Boundary, the rule text, the updated open-item list, the new commit hash, and the archive SHA-256.
 
 ## Implemented scope
 
-- Replay the exact 12 original Pole positive misses and 20 original controls.
-- Freeze eight fresh FRUS originals, four comparisons and four controls with a separate reference key.
-- Measure a source-layout projection with stable pins, then replay fixed limits and Komnene custody.
+- Refreeze the four FRUS comparisons and four existing controls against the requested baseline.
+- Use exact source-byte, projected-span and native evidence readbacks to test the explicit withhold condition.
 
 ## Validation recorded
 
-- Focus-12 reproduced every original outcome and diagnostic. Eight positives had complete discovery, two remained partial, ten abstained, and all 20 controls preserved non-support.
-- Polybius-Extend native discovery moved from 0/4 to 4/4. Strict Ask remained at 0/4 with all four controls withheld and zero false-supported bridges.
-- Character, unit, phrase-token and phrase-group diagnostics reproduced with both eligible records retained.
-- Komnene reproduced all 22 concealed mappings across 44 arms and retained the existing delivery hash.
-- BT-Erratum reproduced one complete proof and five withholds. Native proof modules are byte-identical to the baseline.
-- The extracted source ZIP ran 1,727 Python tests with 2 skips and passed the 52 public evidence controls, installed wheel, JavaScript, Pyodide and Chromium checks.
-- The extracted ZIP reproduced all four named tests and past supported decisions. Source-only workers independently replayed Focus-12 and both Polybius import arms with the same outcomes.
+- All four comparisons retained both discovery anchors. All eight anchors had unique projected locations and valid raw source coordinates.
+- Strict Ask stayed at 0/4 complete and zero partials with four answerable abstentions. All four controls correctly withheld. Zero false-supported bridges.
+- The native runtime and case readbacks matched the prior rendered-layout run exactly. Existing source proof and limit code stayed byte-identical.
 
 ## Limitations and blocked checks
 
-- The projection is experiment-only. All 12 original focus gaps and the new ordinary-prose proof gaps remain open.
-- Two permission-reprinted pages have frozen public URLs and hashes. Their full archived bytes stay in the local acquisition.
-- Case scoring is local development. Receipts record os_isolated false and a separate evaluator key.
+- The withhold condition is an evaluation boundary over the current native checker. The four answerable reference labels remain misses.
+- The operator bundle pins two permission-reprinted originals by URL and hash and uses the previously retained local captures for exact replay.
 - Independent historical accuracy, outside-custodian scoring, independent semantic adjudication and native OOCC remain NOT_RUN.
 
 ## Next steps
 
-- Separate proof work on writing-date roles, reporter attribution, date-linked corrections and dispatches, and scoped wording comparisons.
-- Test ordinary-prose composition with strong controls after anchors have been retrieved.
+- The open work is certification of independently attributed assertions and their comparison across eligible originals.
 
 ## Use this ZIP in your repository
 

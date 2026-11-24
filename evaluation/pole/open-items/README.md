@@ -138,13 +138,22 @@ publisher layout whitespace. Strict Ask stayed at **0/4 complete** with
 diagnostics and Komnene's 22/22 concealed mapping checks reproduced.
 [Four result tables, case diagnostics, and projection rule](focus-extend/README.md)
 
+## FRUS-Boundary
+
+For the same four FRUS comparisons, both anchors were found in **4/4 → 4/4**,
+Strict Ask completed **0/4 → 0/4**, and partials stayed at **0 → 0**.
+All four existing controls withheld with zero false-supported bridges.
+The native checker admitted no proposition-level proof for the comparisons.
+[Four case decisions and withhold rule](frus-boundary/README.md)
+
 ## Open items
 
 - All 12 original focus cases remain open, including date roles, reported
   statements, partial corrections, wording changes, and less explicit chains.
 - General historical reconstruction and ordinary-prose linking across unfamiliar
   originals remain open. The four fresh FRUS cases have both anchors available
-  after projection and still lack a complete proof. The earlier ten cases stay
+  after projection. FRUS-Boundary traced the remaining blocker to native
+  proposition and attribution admission. The earlier ten cases stay
   frozen. The scoped repository erratum and both tested DHS
   relations now have complete development proofs.
 - Phrase-token and repeated phrase-group limits and loss of complete literal
