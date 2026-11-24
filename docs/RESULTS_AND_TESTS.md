@@ -3,7 +3,7 @@
 Last reviewed: 2026-11-24.
 
 [Test Index](TEST_INDEX.md) connects the test types to the deterministic training loop.
-[Pole](../evaluation/pole/README.md) retained 11 recovered field answers, two cited conflicts and unchanged scored outcomes across the separate 120-case inherited weakness replay.
+[Pole](../evaluation/pole/README.md) retained 11 recovered field answers, two cited conflicts and unchanged scored outcomes across the separate 120-case inherited weakness replay. The [follow-up](../evaluation/pole/open-items/README.md) checks named multi-source proof, authentic corrections, sorter witness capacity, and outside custody.
 
 The [historical mode replay](../evaluation/d12/mode-replay/README.md) compares the unchanged 22 under Strict Ask, Assisted Ask, page lookup, expert investigation, and article assembly. It records separate results for the other benchmarks.
 

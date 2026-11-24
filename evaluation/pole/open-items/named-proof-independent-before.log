@@ -1,0 +1,20 @@
+======================================================================
+FAIL: test_named_chain_keeps_the_receipt_attributed (tests.test_documentary_link_proofs.DocumentaryLinkProofTests.test_named_chain_keeps_the_receipt_attributed)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/mplpb-pole-open-items/tests/test_documentary_link_proofs.py", line 62, in test_named_chain_keeps_the_receipt_attributed
+    self.assertTrue(answer['answer_supported'], answer['diagnostic'])
+AssertionError: False is not true : {'code': 'exact_field_missing', 'stage': 'strict', 'message': 'The exact route does not establish the requested field under a bounded grammar.', 'category': 'insufficient_evidence', 'corpus_answerability': 'not_established', 'next_steps': ['Inspect the exact record and supply an explicit source body field; an identifier alone is not field support.']}
+
+======================================================================
+FAIL: test_partial_correction_keeps_both_citations_and_the_original_value (tests.test_documentary_link_proofs.DocumentaryLinkProofTests.test_partial_correction_keeps_both_citations_and_the_original_value)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/mplpb-pole-open-items/tests/test_documentary_link_proofs.py", line 31, in test_partial_correction_keeps_both_citations_and_the_original_value
+    self.assertTrue(result['answer_supported'], result['diagnostic'])
+AssertionError: False is not true : {'code': 'exact_field_missing', 'stage': 'strict', 'message': 'The exact route does not establish the requested field under a bounded grammar.', 'category': 'insufficient_evidence', 'corpus_answerability': 'not_established', 'next_steps': ['Inspect the exact record and supply an explicit source body field; an identifier alone is not field support.']}
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.068s
+
+FAILED (failures=2)

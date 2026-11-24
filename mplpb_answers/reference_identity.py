@@ -3,7 +3,7 @@ import re
 
 from mplpb_combined.ledger import field_name
 
-from . import relation_graph
+from . import documentary_links, relation_graph
 from .body_text import body_text
 from .documentary_verify import citation, context_ranges, named_actor, possible_refutation, source_question
 from .evidence_contract import ReaderError
@@ -76,7 +76,7 @@ def parse_request(question):
         match = re.fullmatch(form, question, re.I)
         if match:
             return 'pronoun', (match['source'],), match['pronoun'].casefold()
-    return None
+    return documentary_links.parse(question)
 
 
 def _source_body(record):
@@ -202,11 +202,15 @@ def verify(root, question, profile, request, max_passages, max_chars):
         return 'no_eligible_sources', None, None
     records = [selected[ident][0] for ident in ids]
     gap = None
+    claim = None
     if task == 'event':
         code, proposition, witnesses, gap = _event_resolution(index, records)
-    else:
+    elif task == 'pronoun':
         code, proposition, witnesses = _pronoun_resolution(records[0], pronoun)
-    claim = None
+    else:
+        claim = documentary_links.resolve(task, records, ids, max_chars) if profile.prose else None
+        code = 'supported_documentary_assertion' if claim else 'documentary_link_unverified'
+        proposition, witnesses = (claim['proposition'], claim['citations']) if claim else (None, [])
     if task == 'event' and code == 'event_identity_unresolved' and profile.prose:
         from .bounded_records import rescheduled_event
         claim = rescheduled_event(records)

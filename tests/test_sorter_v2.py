@@ -267,6 +267,22 @@ class AdditionalScopeAndBudgetTests(unittest.TestCase):
         self.assertFalse(reviews(graph,'possible_correction'))
         self.assertTrue(any(e.get('local_scope')=='reported_speech_scope' for e in reviews(graph,'unresolved_reference_review')))
 
+    def test_phrase_witness_cap_keeps_distinct_record_occurrences(self):
+        phrase = 'Patient workers folded clean linen.'
+        source = 'Message-ID: MILL-23\n\n' + '\n\n'.join([phrase] * 8)
+        files = {'a.txt': source, 'z.txt': 'Message-ID: MILL-24\n\n' + phrase}
+        with corpus(files) as root:
+            raw = v2.sort_directory(root)
+            compared = v2.sort_directory(root, 'compare')
+        nodes = [node for node in compared['nodes']
+                 if node['kind'] == 'phrase_key' and node['value'] == 'patient workers folded clean']
+        self.assertEqual(len(nodes), 8)
+        self.assertEqual(len({node['occurrence'] for node in nodes}), 2)
+        self.assertEqual(raw['nodes'], compared['nodes'])
+        node_ids = {node['id'] for node in nodes}
+        self.assertTrue(any(edge['kind'] == 'repeated_phrase_review' and edge['comparison_only']
+                            and set(edge['evidence_nodes']) <= node_ids for edge in compared['edges']))
+
     def test_descriptive_pair_search_obeys_comparison_budget(self):
         with corpus({'a.txt':ORIGINAL,'b.txt':'Message-ID: SHIP-8\n\nThe earlier Boston flour note was wrong.'}) as root:
             raw=v2.sort_directory(root,'not-compared',limits={'comparisons':1})

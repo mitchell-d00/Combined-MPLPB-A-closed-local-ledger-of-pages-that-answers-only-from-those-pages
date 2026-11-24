@@ -1,0 +1,12 @@
+======================================================================
+FAIL: test_phrase_witness_cap_keeps_distinct_record_occurrences (tests.test_sorter_v2.AdditionalScopeAndBudgetTests.test_phrase_witness_cap_keeps_distinct_record_occurrences)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/mplpb-pole-open-items/tests/test_sorter_v2.py", line 280, in test_phrase_witness_cap_keeps_distinct_record_occurrences
+    self.assertEqual(len({node['occurrence'] for node in nodes}), 2)
+AssertionError: 1 != 2
+
+----------------------------------------------------------------------
+Ran 1 test in 0.008s
+
+FAILED (failures=1)

@@ -42,6 +42,7 @@ VERSION = 'offline-candidate-sorter-v2'
 V1_VERSION = 'offline-candidate-sorter-v1'
 RULES = ('R1-terminal-punctuation','R2-numbered-designations','R3-recognized-targets','R4-passive-direction',
          'R5-clause-local-scope','R6-governing-negation','R7-reported-speech','R8-descriptive-reference-review')
+PHRASE_WITNESSES = 8
 EXTENSIONS = {'.txt', '.text', '.md', '.markdown'}
 DEFAULT_LIMITS = {'files':64, 'file_bytes':1048576, 'total_bytes':8388608,
                   'tree_entries':4096, 'directory_depth':12, 'nodes':4096,
@@ -382,6 +383,23 @@ def _reference_target(text,pos,limit):
     return None,None,None
 
 
+def retain_phrase_witness(appearances, witness):
+    if len(appearances) < PHRASE_WITNESSES:
+        appearances.append(witness)
+        return
+    occurrence = witness[-1]
+    owners = [item[-1] for item in appearances]
+    if occurrence in owners:
+        return
+    # A distinct occurrence can displace only a redundant occurrence.
+    # Retain ordering among surviving spans and keep the cap unchanged.
+    for index in range(len(owners) - 1, -1, -1):
+        if owners.count(owners[index]) > 1:
+            del appearances[index]
+            appearances.append(witness)
+            return
+
+
 def extract(root,limits):
     """Raw extraction does not resolve references, identity, or chronology."""
     issues=set();sources=[];nodes=[];edges=[];phrases=defaultdict(list);statements=0;bytes_read=0
@@ -528,8 +546,8 @@ def extract(root,limits):
                     key=' '.join(w[0].casefold() for w in words[j:j+4])
                     if key not in phrases and len(phrases)>=limits['phrase_keys']:
                         issues.add('phrase_key_budget');break
-                    if len(phrases[key])<8:
-                        phrases[key].append((source,text,offsets,lo,hi,statement['id'],occurrence['id']))
+                    retain_phrase_witness(
+                        phrases[key], (source,text,offsets,lo,hi,statement['id'],occurrence['id']))
                 for i,left in enumerate(items[:6]):
                     for right in items[i+1:6]:edge(left,right,'textual_cooccurrence',[statement['id'],left['id'],right['id']])
             if statements>limits['statements']:break
