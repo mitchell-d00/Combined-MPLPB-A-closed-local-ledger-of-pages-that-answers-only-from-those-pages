@@ -57,7 +57,6 @@ def advanced_query(root, question, profile=None, *, follow_up='auto', reader=Non
     suggested, next_step = _route(strict)
     prior = None
     seeds = []
-    graph_status = 'ready'
     if experience_graph is not None:
         import sqlite3
         from . import experience_graph as graph
@@ -65,7 +64,9 @@ def advanced_query(root, question, profile=None, *, follow_up='auto', reader=Non
         try:
             prior = graph.previous(experience_graph, graph_scope, graph_state)
         except (OSError, ValueError, sqlite3.Error):
-            graph_status = 'unavailable'
+            native.sync = {'status': 'mismatch', 'reason': 'graph_unavailable', 'differences': []}
+            return _graph_blocked(_graph_withhold(native, 'FLAG_MISMATCH',
+                'The experience route could not be read.'))
         if follow_up == 'auto' and suggested == 'lookup' and prior and prior['flag'] in {'lookup', 'investigate'}:
             eligible = {source['id'] for source in native.gate['sources']}
             seeds = sorted(eligible.intersection(prior['candidates']))[:4]
@@ -120,13 +121,13 @@ def advanced_query(root, question, profile=None, *, follow_up='auto', reader=Non
         decision = judge(observation)
         pass_graph = graph.graph_nodes(observation, decision, follow_up, selected, prior, candidates,
                                        native.gate['corpus_snapshot'])
-        pass_id = None
-        if graph_status == 'ready':
-            try:
-                pass_id = graph.append(experience_graph, graph_scope, graph_state, selected,
-                                       candidates, prior, pass_graph)
-            except (OSError, ValueError, sqlite3.Error):
-                graph_status = 'unavailable'
+        try:
+            pass_id = graph.append(experience_graph, graph_scope, graph_state, selected,
+                                   candidates, prior, pass_graph)
+        except (OSError, ValueError, sqlite3.Error):
+            native.sync = {'status': 'mismatch', 'reason': 'graph_unavailable', 'differences': []}
+            return _graph_blocked(_graph_withhold(native, 'FLAG_MISMATCH',
+                'The inspection pass could not be recorded.'))
         fresh = provenance_gate.gather(root, question, profile)
         if (fresh.corpus_snapshot, fresh.policy) != (native.gate['corpus_snapshot'], native.gate['policy']):
             return _changed(result)
@@ -134,7 +135,14 @@ def advanced_query(root, question, profile=None, *, follow_up='auto', reader=Non
         if native.sync['status'] != 'matched':
             return _graph_blocked(_graph_withhold(native, 'FLAG_MISMATCH',
                 'Strict presentation was withheld because graph flags changed during inspection.'))
-        result['experience'] = {'status': graph_status, 'pass_id': pass_id,
+        inspected = graph.recheck_path(experience_graph, {'status': 'matched', 'pass_id': pass_id,
+                                                           'path': pass_graph, 'scope': graph_scope,
+                                                           'state': graph_state})
+        if inspected['status'] != 'matched':
+            native.sync = inspected
+            return _graph_blocked(_graph_withhold(native, 'FLAG_MISMATCH',
+                'The inspection pass did not match the active system flags.'))
+        result['experience'] = {'status': 'ready', 'pass_id': pass_id,
                                 'graph': pass_graph, 'presentation': present(decision)}
         result['flag_sync'] = native.sync
     if (experience_graph is not None and selected == 'assisted' and not strict['answer_supported']

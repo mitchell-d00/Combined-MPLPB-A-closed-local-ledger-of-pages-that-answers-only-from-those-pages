@@ -5,6 +5,40 @@ from .evidence_contract import pin
 
 LAYOUTS = ('compact', 'stacked')
 FOLLOW_UP_FLAGS = ('auto', 'none', 'lookup', 'investigate', 'assisted')
+SEAM_FLAGS = frozenset({
+    'current', 'retired', 'eligible', 'conflict', 'seam:handoff',
+    'seam:interpretation', 'seam:discovery', 'seam:verification',
+    'pass:source-body', 'pass:inspection', 'pass:history', 'boundary:scope',
+    'boundary:open', 'boundary:warning', 'relation:checked', 'candidate:locator',
+    *FOLLOW_UP_FLAGS,
+})
+
+
+def system_tags(observation, decision, requested, selected):
+    """Compute active presentation flags from the Observer and Judge records."""
+    seam = {
+        'interpretation': 'seam:interpretation',
+        'passage_admission': 'seam:discovery',
+        'documentary_verification': 'seam:verification',
+    }.get(observation['stopped_at'])
+    tags = {'current', 'seam:handoff', requested}
+    if seam:
+        tags.add(seam)
+    if selected:
+        tags.update(('pass:inspection', selected))
+    if observation['strict_kind'] == 'conflict':
+        tags.add('conflict')
+    if decision['warnings'] or decision['unresolved']:
+        tags.add('boundary:warning')
+    if decision['unresolved']:
+        tags.add('boundary:open')
+    if any(warning['code'] == 'source_scope' for warning in decision['warnings']):
+        tags.add('boundary:scope')
+    if any(claim['citations'] for claim in decision['claims']):
+        tags.update(('eligible', 'pass:source-body'))
+    if any((claim.get('proposition') or {}).get('relation') for claim in decision['claims']):
+        tags.add('relation:checked')
+    return sorted(tags)
 
 
 def investigation_hint(contract):

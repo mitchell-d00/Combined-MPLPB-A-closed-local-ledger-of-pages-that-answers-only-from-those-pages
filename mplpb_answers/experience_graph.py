@@ -5,7 +5,7 @@ from pathlib import Path
 import sqlite3
 
 from .evidence_contract import canonical, pin
-from .presentation import FOLLOW_UP_FLAGS
+from .presentation import SEAM_FLAGS, system_tags
 
 APPLICATION_ID = 0x4D504C58
 VERSION = 1
@@ -57,20 +57,28 @@ def previous(path, scope, state=None):
         if _empty(db):
             return None
         _check(db)
-        restriction, params = (' AND state=?', (scope, state)) if state is not None else ('', (scope,))
-        row = db.execute('SELECT id, route, candidates, state FROM passes WHERE scope=?' + restriction +
-                         ' ORDER BY id DESC LIMIT 1', params).fetchone()
-    if row is None:
+        row = db.execute('SELECT id, route, candidates, state, graph FROM passes WHERE scope=? '
+                         'ORDER BY id DESC LIMIT 1', (scope,)).fetchone()
+    if row is None or (state is not None and row[3] != state):
         return None
     candidates = json.loads(row[2])
     if not isinstance(candidates, list) or any(not isinstance(item, str) for item in candidates):
         raise ValueError('Invalid experience candidate list')
+    try:
+        graph = json.loads(row[4])
+        nodes = graph['nodes']
+        pass_node = next(node for node in nodes if node['id'] == 'pass' and node['type'] == 'pass')
+        tags = set(graph['system_tags'])
+        locators = [node['source_id'] for node in nodes if node['type'] == 'candidate_record'
+                    and 'candidate:locator' in node['flags']]
+        if (not tags <= SEAM_FLAGS or locators != candidates or pass_node['selected_flag'] != row[1]
+                or (row[1] and not {'pass:inspection', row[1]} <= tags & set(pass_node['flags']))):
+            raise ValueError('Experience routing flags do not match the current pass')
+    except (KeyError, TypeError, StopIteration) as exc:
+        raise ValueError('Invalid experience route graph') from exc
     return {'id': row[0], 'flag': row[1], 'candidates': candidates, 'state': row[3]}
 
 
-SEAM_FLAGS = frozenset({'current', 'retired', 'eligible', 'conflict', 'seam:handoff', 'pass:source-body',
-                        'pass:inspection', 'pass:history', 'boundary:scope', 'boundary:open',
-                        'boundary:warning', 'relation:checked', 'candidate:locator', *FOLLOW_UP_FLAGS})
 NODE_FLAGS = {
     'pass': ('seam:handoff',), 'previous_pass': ('pass:history',),
     'seam': ('seam:handoff',), 'candidate_record': ('candidate:locator',),
@@ -137,16 +145,21 @@ def graph_nodes(observation, decision, requested, selected, prior, candidates, s
             if selected:
                 flags.update(('pass:inspection', selected))
         node['flags'] = sorted(flags)
+    active = system_tags(observation, decision, requested, selected)
+    seam = next(node for node in nodes if node['id'] == 'seam')
+    seam['flags'] = sorted(set(seam['flags']) | {flag for flag in active if flag.startswith('seam:')})
     tagged = {node['id']: set(node['flags']) for node in nodes}
     for edge in edges:
         edge['flags'] = sorted(tagged[edge['from']] | tagged[edge['to']])
     return {'authority': 'experience_metadata', 'eligibility_snapshot': snapshot,
-            'nodes': nodes, 'edges': edges}
+            'system_tags': active, 'nodes': nodes, 'edges': edges}
 
 
-def append(path, scope, state, route, candidates, prior, graph):
-    for component in _components(graph).values():
-        flags = component.get('flags')
+def append(path, scope, state, route, candidates, prior, graph, reuse_current=False):
+    flag_sets = [component.get('flags') for component in _components(graph).values()]
+    if 'system_tags' in graph:
+        flag_sets.append(graph['system_tags'])
+    for flags in flag_sets:
         if (not isinstance(flags, list) or not flags or
                 any(not isinstance(flag, str) or flag not in SEAM_FLAGS for flag in flags) or
                 len(set(flags)) != len(flags)):
@@ -164,27 +177,54 @@ def append(path, scope, state, route, candidates, prior, graph):
                 db.execute(f'PRAGMA application_id={APPLICATION_ID}')
                 db.execute(f'PRAGMA user_version={VERSION}')
             _check(db)
+            head = db.execute('SELECT id, state FROM passes WHERE scope=? ORDER BY id DESC LIMIT 1',
+                              (scope,)).fetchone()
+            if reuse_current and head and head[1] == state:
+                return head[0]
+            if prior and (not head or head[0] != prior['id']):
+                raise ValueError('Experience pass superseded during inspection')
             cursor = db.execute('INSERT INTO passes(scope,state,route,candidates,previous,graph) '
                                 'VALUES(?,?,?,?,?,?)',
-                                (scope, state, route, canonical(candidates), prior['id'] if prior else None,
+                                (scope, state, route, canonical(candidates), head[0] if head else None,
                                  canonical(graph)))
             return cursor.lastrowid
 
 
-def read_pass(path, pass_id, *, include_version=False):
+def read_pass(path, pass_id, *, include_version=False, current_only=False):
     """Inspect a stored graph without running Ask or creating a database."""
     uri = Path(path).resolve().as_uri() + '?mode=ro'
     with closing(sqlite3.connect(uri, uri=True, timeout=3)) as db:
         _check(db)
-        row = db.execute('SELECT graph, scope, state, previous, recorded_at FROM passes WHERE id=?',
+        row = db.execute('SELECT graph, scope, state, previous, recorded_at, '
+                         '(SELECT MAX(head.id) FROM passes AS head WHERE head.scope=passes.scope) '
+                         'FROM passes WHERE id=?',
                          (pass_id,)).fetchone()
     if row is None:
         raise ValueError('Experience pass not found')
+    if current_only and row[5] != pass_id:
+        raise ValueError('Experience pass was superseded')
     graph = json.loads(row[0])
     if include_version:
         graph['version'] = {'pass_id': pass_id, 'scope': row[1], 'state': row[2],
-                            'supersedes': row[3], 'recorded_at_utc': row[4]}
+                            'supersedes': row[3], 'recorded_at_utc': row[4], 'current': row[5] == pass_id}
     return graph
+
+
+def history(path, pass_id, limit=25):
+    """Inspect the newest versions of a graph scope using any of its pass IDs."""
+    if type(limit) is not int or not 1 <= limit <= 100:
+        raise ValueError('Choose a history limit from 1 to 100')
+    uri = Path(path).resolve().as_uri() + '?mode=ro'
+    with closing(sqlite3.connect(uri, uri=True, timeout=3)) as db:
+        _check(db)
+        rows = db.execute('SELECT id, state, route, previous, recorded_at FROM passes '
+                          'WHERE scope=(SELECT scope FROM passes WHERE id=?) '
+                          'ORDER BY id DESC LIMIT ?', (pass_id, limit)).fetchall()
+    if not rows:
+        raise ValueError('Experience pass not found')
+    return [{'pass_id': ident, 'state': state, 'route': route, 'supersedes': previous,
+             'recorded_at_utc': recorded, 'status': 'current' if index == 0 else 'retired'}
+            for index, (ident, state, route, previous, recorded) in enumerate(rows)]
 
 
 def _components(graph):
@@ -210,15 +250,24 @@ def _diff(system, stored):
                     {k: v for k, v in required.items() if k != 'flags'} !=
                     {k: v for k, v in recorded.items() if k != 'flags'}),
             })
-    if stored.get('eligibility_snapshot') != system['eligibility_snapshot']:
-        differences.append({'path': ['eligibility_snapshot'], 'missing_from_graph': [],
-                            'extra_in_graph': [], 'path_or_provenance_changed': True})
+    for field in ('authority', 'eligibility_snapshot', 'system_tags'):
+        if stored.get(field) != system[field]:
+            wanted = set(system[field]) if field == 'system_tags' else set()
+            observed = set(stored.get(field, [])) if field == 'system_tags' else set()
+            differences.append({'path': [field], 'missing_from_graph': sorted(wanted - observed),
+                                'extra_in_graph': sorted(observed - wanted),
+                                'path_or_provenance_changed': field != 'system_tags'})
     return differences
 
 
 def recheck_path(path, matched):
     try:
-        differences = _diff(matched['path'], read_pass(path, matched['pass_id']))
+        stored = read_pass(path, matched['pass_id'], include_version=True, current_only=True)
+        differences = _diff(matched['path'], stored)
+        for field in ('scope', 'state'):
+            if stored['version'][field] != matched[field]:
+                differences.append({'path': ['version', field], 'missing_from_graph': [],
+                                    'extra_in_graph': [], 'path_or_provenance_changed': True})
     except (OSError, TypeError, ValueError, KeyError, sqlite3.Error):
         return {'status': 'mismatch', 'reason': 'graph_unavailable', 'differences': []}
     if differences:
@@ -240,14 +289,11 @@ def sync_path(path, root, native, selector):
     expected = graph_nodes(observation, decision, 'none', None, None, [],
                            native.gate['corpus_snapshot'], helper)
     try:
-        prior = previous(path, scope)
-        if prior and prior['state'] == state:
-            pass_id = prior['id']
-        else:
-            pass_id = append(path, scope, state, None, [], prior, expected)
+        pass_id = append(path, scope, state, None, [], None, expected, True)
     except (OSError, TypeError, ValueError, KeyError, sqlite3.Error):
         return {'status': 'mismatch', 'reason': 'graph_unavailable', 'differences': []}
     result = recheck_path(path, {'status': 'matched', 'pass_id': pass_id, 'path': expected,
+                                  'scope': scope, 'state': state,
                                   'flag_vocabulary': sorted(SEAM_FLAGS)})
     if result['status'] == 'matched':
         result['helper'] = helper

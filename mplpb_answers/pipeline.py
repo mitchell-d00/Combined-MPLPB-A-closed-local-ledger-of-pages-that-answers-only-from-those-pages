@@ -206,7 +206,7 @@ def answer_query(root, question, profile=None, *, mode='strict', reader=None, mi
                              compound=compound,as_of=as_of,identity=identity,filters=filters)
         if experience_graph is None or result.contract['diagnostic']['code'] == 'source_changed':
             return result
-        from .experience_graph import sync_path
+        from .experience_graph import recheck_path, sync_path
         result.sync = sync_path(experience_graph, root, result, [record_id, field, exact_value, as_of])
         if result.sync['status'] != 'matched':
             return _graph_withhold(result, 'FLAG_MISMATCH',
@@ -215,6 +215,10 @@ def answer_query(root, question, profile=None, *, mode='strict', reader=None, mi
         if (fresh.corpus_snapshot, fresh.policy) != (result.gate['corpus_snapshot'], result.gate['policy']):
             result.sync = {'status': 'stale'}
             return _graph_withhold(result, 'source_changed', 'Source state changed during graph synchronization.')
+        result.sync = recheck_path(experience_graph, result.sync)
+        if result.sync['status'] != 'matched':
+            return _graph_withhold(result, 'FLAG_MISMATCH',
+                                   'Strict presentation was withheld because the graph changed during verification.')
         return result
 
 

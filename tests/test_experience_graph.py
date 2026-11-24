@@ -11,7 +11,7 @@ from unittest.mock import patch
 
 from mplpb_answers.__main__ import main
 from mplpb_answers.advanced import advanced_query
-from mplpb_answers.experience_graph import append, read_pass
+from mplpb_answers.experience_graph import append, history, previous, read_pass
 from mplpb_answers.pipeline import answer_query
 from mplpb_combined.ledger import withdraw, write
 from tests.test_general_answers import FixtureReader
@@ -184,6 +184,57 @@ class ExperienceGraphTests(unittest.TestCase):
             ids = list(pool.map(record, range(8)))
         self.assertEqual(sorted(ids), list(range(1, 9)))
 
+    def test_concurrent_strict_queries_share_one_current_version(self):
+        self.page('P-A', 'The kettle color is blue.', 'kettle color')
+        question = 'What is the kettle color?'
+        with ThreadPoolExecutor(max_workers=4) as pool:
+            results = list(pool.map(lambda _: answer_query(self.ledger, question, experience_graph=self.graph),
+                                    range(8)))
+        self.assertTrue(all(result.contract['answer_supported'] for result in results))
+        self.assertEqual(len({result.sync['pass_id'] for result in results}), 1)
+        tags = results[0].sync['path']['system_tags']
+        self.assertIn('pass:source-body', tags)
+        self.assertIn('eligible', tags)
+
+    def test_superseded_state_does_not_supply_routing_hints(self):
+        graph = {'nodes': [], 'edges': []}
+        first = append(self.graph, 'scope', 'first-state', 'lookup', ['OLD'], None, graph)
+        second = append(self.graph, 'scope', 'next-state', None, [], None, graph)
+        self.assertIsNone(previous(self.graph, 'scope', 'first-state'))
+        versions = history(self.graph, first)
+        self.assertEqual([(row['pass_id'], row['status']) for row in versions],
+                         [(second, 'current'), (first, 'retired')])
+        self.assertEqual(versions[0]['supersedes'], first)
+        self.assertEqual(read_pass(self.graph, first), graph)
+
+    def test_altered_inspection_flags_withhold_before_display(self):
+        self.page('P-A', 'The kettle color is blue.', 'kettle color')
+
+        def changed(*args):
+            pass_id = append(*args)
+            if len(args) == 7:  # The inspection appends after Strict's path is checked.
+                path = read_pass(self.graph, pass_id)
+                path['system_tags'].remove('eligible')
+                with sqlite3.connect(self.graph) as db:
+                    db.execute('UPDATE passes SET graph=? WHERE id=?', (json.dumps(path), pass_id))
+            return pass_id
+
+        with patch('mplpb_answers.experience_graph.append', side_effect=changed):
+            result = advanced_query(self.ledger, 'What is the kettle color?', experience_graph=self.graph)
+        self.assertEqual(result['strict']['diagnostic']['code'], 'FLAG_MISMATCH')
+        self.assertEqual(result['strict']['claims'], [])
+        self.assertEqual(result['flag_sync']['differences'][0]['missing_from_graph'], ['eligible'])
+
+    def test_altered_route_summary_cannot_direct_another_pass(self):
+        self.page('OPS-A', 'Drain the queue before restarting the worker.')
+        first = self.ask()
+        with sqlite3.connect(self.graph) as db:
+            db.execute('UPDATE passes SET candidates=? WHERE id=?',
+                       (json.dumps(['ALTERED']), first['experience']['pass_id']))
+        result = self.ask()
+        self.assertEqual(result['strict']['diagnostic']['code'], 'FLAG_MISMATCH')
+        self.assertIsNone(result['inspection'])
+
     def test_cli_reads_a_committed_graph_pass(self):
         self.page('OPS-A', 'Drain the queue before restarting the worker.')
         output = io.StringIO()
@@ -196,3 +247,7 @@ class ExperienceGraphTests(unittest.TestCase):
         restored = json.loads(output.getvalue())
         self.assertEqual(restored.pop('version')['pass_id'], saved['pass_id'])
         self.assertEqual(restored, saved['graph'])
+        output = io.StringIO()
+        with redirect_stdout(output):
+            self.assertEqual(main(['experience-pass', str(self.graph), str(saved['pass_id']), '--history']), 0)
+        self.assertEqual(json.loads(output.getvalue())[0]['status'], 'current')
