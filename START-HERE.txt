@@ -1,0 +1,38 @@
+Combined MPLPB and B-Tests offline external testing
+Requested deliverable: Give me zips so I can test it on external
+
+Extract both ZIPs as separate sibling directories. Use Python 3.12. These
+commands need no GitHub access, API keys, or third-party Python packages.
+
+Combined MPLPB, e3990bf98ac6fb2e3b991a2eb251347ca571e873
+  cd Combined-MPLPB-e3990bf
+  python -m unittest tests.test_general_answers tests.test_training_coordinator tests.test_experience_graph tests.test_advanced tests.test_j_opass tests.test_d6_calendar -q
+  python -m test_tools.live_flag_replay
+
+The second command replays the frozen historical 22 and two Advanced passes
+over each of Scout's 24 questions. It compares the graph-scoped output with
+ordinary Strict Ask on the same inputs. It measures preservation of proof
+decisions. For a Spot preview, see docs/ADVANCED_MPLPB.md.
+
+The Combined MPLPB ZIP is a compact source and benchmark package. It includes
+the three complete native implementation packages, selected offline suites,
+and their frozen inputs. The full research repository includes large
+additional historical archives. The upstream handoff is retained and describes
+the full repository inventory. Run the full manifest checker on the full
+repository. The benchmark ZIP retains the published Scout results as well as
+question data. For a blind retest, withhold the adjudication keys and prior
+scores from whoever answers the questions.
+
+B-Tests, e646f82e4758e35e7a883eb492bcf756a8d29c83
+  cd B-Tests-e646f82
+  python -m unittest discover -s tests -q
+
+This is the complete B-Tests source snapshot. Start with docs/TEST_INDEX.md
+for the available runners and their scope. A unit-test run checks the harness.
+Fresh model sessions or other external engines require their own setup.
+
+To rerun a separately supplied publication benchmark, extract its package too.
+Follow its reproduction instructions using the Combined MPLPB directory as
+the import root if its runner needs one. Preserve that package's original
+engine pin when reproducing the published baseline. Record this package's
+commit separately if comparing against the current engine.
