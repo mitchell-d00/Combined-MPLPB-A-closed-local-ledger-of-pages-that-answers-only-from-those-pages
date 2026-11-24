@@ -4,8 +4,8 @@ Last reviewed: 2026-11-24.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `496b4bed53fef8c5b7b5fbe14230919a62c7f02e` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `ddb8cc800d4e812e839e442746f585d5ebcf07c78c52918489a31fd7f7e7a520`.
+Base commit: `1ab0e1158e9d730b2ff27c95fbe1540b6a215c65` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `d3f52c2d9611b7821d6c9df8dffe5287936dc9c9b0811b05cedf095aa120ef3d`.
 
 ## Latest user update instructions
 
@@ -67,6 +67,9 @@ Return the four result tables, any new rule text, the updated open-item list, th
 - Scan-Phrase retained two records at the eight-slot cap and reproduced the character, unit, phrase-token and phrase-group diagnostics.
 - Komnene-Hold matched all 22 packet hashes across 44 anonymous arms. The delivery archive was byte-identical.
 - Frozen Herodotus-DHS, Tacitus, Douglass and Babbage replays preserved all previously complete claims and control support decisions.
+- The exact extracted source ZIP ran 1,725 Python tests with 2 skips and passed all 52 public controls, the installed wheel, the native Pole replay, Pyodide and local Chromium.
+- Six source-only worker replays matched their original scores with separately passed evaluator keys and a Python file-read allowlist. The OS isolation flag remains false.
+- Fresh downloads matched both commit-pinned B-Tests originals. All seven verified witnesses mapped uniquely to exact original byte and character spans.
 
 ## Limitations and blocked checks
 

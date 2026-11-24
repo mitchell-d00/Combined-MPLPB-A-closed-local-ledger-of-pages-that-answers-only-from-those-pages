@@ -5,8 +5,8 @@ Last reviewed: 2026-11-24.
 Baseline `7b91951ec3aa2bf12f4c3fea34b91f1b2fae4d46`. Freeze the
 [operator packets](frozen-operator-packets.tar.gz) and
 [candidate rule](candidate-rule.md) before scoring. The comparison used identical
-packets and budgets. Expected outcomes and the typed reference stayed outside the
-worker. Raw receipts record `os_isolated: false` and no passed custody path.
+packets and budgets. The evaluator held the expected outcomes and typed reference separately.
+Raw receipts record `os_isolated: false` and no passed custody path.
 The candidate readback identifies the in-progress engine by file hashes; its
 checkout HEAD was still the baseline during the first comparison and the initial candidate during the revised comparison. All citations
 use exact body-projection offsets and ledger path plus SHA-256. The operator
@@ -51,9 +51,8 @@ The accepted candidate withholds in hypothetical or sample Markdown sections,
 including Setext headings, and completes again after a published sibling section
 restores scope. [Rejected attempt and controls](receipts/bt-erratum-markdown-scope-controls.json)
 
-Repository capture
-declarations bind the local proof; native support does not independently audit
-the private execution or recompute scores. The prior frozen BT-01 projections
+Repository capture declarations bind the local proof. Private execution and
+independent score recomputation remain unverified. The prior frozen BT-01 projections
 without capture manifests remain withheld on replay.
 
 ## Polybius-Prose
@@ -67,8 +66,8 @@ The four added comparisons ask about a change across telegrams, a recommendation
 reflected in a later message, contrasting descriptions of a leader, and a
 reported omission paired with a separate activity. All four found the
 authored anchors. Strict Ask returned `interpretation_unsupported` on each
-before and after. These four are missed answerable cases. A shared date,
-subject, or correspondent does not prove which proposition carries over.
+before and after. These four are missed answerable cases. A supported bridge still needs
+an exact witness that identifies which proposition carries over.
 The controls withheld final language, an operation, exact White Paper wording,
 and deliveries without witnesses for those outcomes. This cycle added no rule
 for ordinary-prose linking.
@@ -108,7 +107,11 @@ The reproduced archive matched the existing delivery byte for byte.
 Verify `sha256sum -c evaluation/pole/open-items/erratum/evidence.sha256` and
 extract the frozen operator packets to a new directory. Use the worker without
 the separate custody mount. Only the evaluator runs scoring with the sealed
-local development key. The venue sorter replay uses the unchanged Douglass
+local development key. The Polybius development references originate in the
+previously published Scout and Solo datasets. A supplemental replay used
+source-only worker directories and a Python file-read allowlist for both pins.
+All six read-boundary controls blocked an unlisted test file and all six scored
+outcomes matched. [Read-boundary receipt](receipts/custody-read-boundary.json) The venue sorter replay uses the unchanged Douglass
 packet from the [prose cycle](../prose/README.md).
 
 ```sh
@@ -121,7 +124,8 @@ python -m tools.pole_prose_cycle douglass-sorter --packet DOUGLASS --implementat
 ```
 
 [Native readbacks](native-readbacks.tar.gz) · [Matched outcomes](receipts/matched-summary.json) ·
-[Evidence checksums](evidence.sha256). The readbacks also retain the initial candidate and a failing baseline regression with independently worded sources.
+[Exact original witness spans](receipts/bt-erratum-original-spans.json) ·
+[Source archive validation](validation.json) · [Evidence checksums](evidence.sha256). The readbacks also retain the initial candidate and a failing baseline regression with independently worded sources.
 All previously complete Tacitus, Herodotus-DHS and Douglass cases retained
 their claims and exact witnesses. Independent historical accuracy and native
 OOCC remain **NOT_RUN**.

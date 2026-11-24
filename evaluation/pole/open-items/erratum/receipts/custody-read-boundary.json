@@ -1,0 +1,98 @@
+{
+  "kind": "supplemental_supervised_development_replay",
+  "os_isolated": false,
+  "worker_custody_files_present": false,
+  "hook_sha256": "b4dde890997275eb6396a3fa6f35b71cbdbbc678bdd8c9eb3c74cc3e6dd17885",
+  "method": "CPython audit hook allowed normal file reads from the staged source-only worker, sealed inputs, run scratch directory and Python installation. Only the evaluator received the scoring-key path.",
+  "initial_incomplete_attempt": "The initial source-only staging missed the Scout search module. The retry added that code file without adding any data or custody paths.",
+  "runs": [
+    {
+      "worker": "baseline",
+      "source_commit": "7b91951ec3aa2bf12f4c3fea34b91f1b2fae4d46",
+      "test": "bt-erratum",
+      "custody_path_passed": false,
+      "unlisted_read_blocked": true,
+      "matched_original_score": true,
+      "worker_receipt_sha256": "7c6f10986d03ed965e6161860b592728c837ac23925a5ab3b74eeef89ae9b1e0",
+      "counts": {
+        "over_refusal": 1,
+        "expected_withhold": 5
+      }
+    },
+    {
+      "worker": "baseline",
+      "source_commit": "7b91951ec3aa2bf12f4c3fea34b91f1b2fae4d46",
+      "test": "polybius-retained",
+      "custody_path_passed": false,
+      "unlisted_read_blocked": true,
+      "matched_original_score": true,
+      "worker_receipt_sha256": "46788e6ff371a1edc24a6b2aaeeb3d3ea2201c35fa785cee8442a68d733b4942",
+      "counts": {
+        "overlap_all_anchors": 2,
+        "native_all_anchors": 3,
+        "partial": 1,
+        "control_withheld": 6,
+        "withheld": 5
+      }
+    },
+    {
+      "worker": "baseline",
+      "source_commit": "7b91951ec3aa2bf12f4c3fea34b91f1b2fae4d46",
+      "test": "polybius-added",
+      "custody_path_passed": false,
+      "unlisted_read_blocked": true,
+      "matched_original_score": true,
+      "worker_receipt_sha256": "f19812a80e6002adf53565e96face8e0f237cc77610837692e96f02448b28c04",
+      "counts": {
+        "overlap_all_anchors": 2,
+        "native_all_anchors": 4,
+        "withheld": 4,
+        "control_withheld": 4
+      }
+    },
+    {
+      "worker": "candidate",
+      "source_commit": "1ab0e1158e9d730b2ff27c95fbe1540b6a215c65",
+      "test": "bt-erratum",
+      "custody_path_passed": false,
+      "unlisted_read_blocked": true,
+      "matched_original_score": true,
+      "worker_receipt_sha256": "f649ec7a6fe72b1f03595931e4b461d6816aaba4ca898058285b2a1ee12ec804",
+      "counts": {
+        "complete_with_all_anchors": 1,
+        "expected_withhold": 5
+      }
+    },
+    {
+      "worker": "candidate",
+      "source_commit": "1ab0e1158e9d730b2ff27c95fbe1540b6a215c65",
+      "test": "polybius-retained",
+      "custody_path_passed": false,
+      "unlisted_read_blocked": true,
+      "matched_original_score": true,
+      "worker_receipt_sha256": "46788e6ff371a1edc24a6b2aaeeb3d3ea2201c35fa785cee8442a68d733b4942",
+      "counts": {
+        "overlap_all_anchors": 2,
+        "native_all_anchors": 3,
+        "partial": 1,
+        "control_withheld": 6,
+        "withheld": 5
+      }
+    },
+    {
+      "worker": "candidate",
+      "source_commit": "1ab0e1158e9d730b2ff27c95fbe1540b6a215c65",
+      "test": "polybius-added",
+      "custody_path_passed": false,
+      "unlisted_read_blocked": true,
+      "matched_original_score": true,
+      "worker_receipt_sha256": "f19812a80e6002adf53565e96face8e0f237cc77610837692e96f02448b28c04",
+      "counts": {
+        "overlap_all_anchors": 2,
+        "native_all_anchors": 4,
+        "withheld": 4,
+        "control_withheld": 4
+      }
+    }
+  ]
+}
