@@ -64,3 +64,5 @@ python -m tools.pole_frus_boundary --packet PACKETS/prose --custody PROSE_CUSTOD
 The open Focus-12 items and scan and phrase limits keep their previous
 accounting. Outside-custodian scoring, independent historical accuracy,
 independent semantic adjudication, and native OOCC remain **NOT_RUN**.
+
+[Exact source archive validation](validation.json)

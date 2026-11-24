@@ -4,8 +4,8 @@ Last reviewed: 2026-11-24.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `16a1f9f883bd5c1d6e366cb139272a997a41765a` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `5b54b37da064bf341eeea927e07514cb42ba41c3129bd07c06449c7a5c371b73`.
+Base commit: `9754327d7179b0c09a1e027acf44c8d1195de001` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `3ada4f288f25479e6c4606b091cee50e62b4eaea23524e6cd07d50808ce2ee42`.
 
 ## Latest user update instructions
 
@@ -50,6 +50,8 @@ Return the result table for FRUS-Boundary, the rule text, the updated open-item 
 - All four comparisons retained both discovery anchors. All eight anchors had unique projected locations and valid raw source coordinates.
 - Strict Ask stayed at 0/4 complete and zero partials with four answerable abstentions. All four controls correctly withheld. Zero false-supported bridges.
 - The native runtime and case readbacks matched the prior rendered-layout run exactly. Existing source proof and limit code stayed byte-identical.
+- The exact extracted source replayed all eight cases and all exact witness coordinates, ran 1,727 Python tests with 2 skips, and passed the 52 public evidence controls, installed wheel, JavaScript, Pyodide and Chromium checks.
+- The source-only worker reproduced every readback. The evaluator kept custody paths separate and the OS isolation flag remained false.
 
 ## Limitations and blocked checks
 
