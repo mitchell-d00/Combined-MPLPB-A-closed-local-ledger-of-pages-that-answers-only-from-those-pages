@@ -108,7 +108,7 @@ def original_body(raw, source):
     return '<pre>' + escape(text) + '</pre>'
 
 
-def run(packet, output, implementation):
+def run(packet, output, implementation, *, project_source=original_body):
     packet, output, implementation = (p.resolve() for p in (packet, output, implementation))
     seal_for(packet)
     sys.path.insert(0, str(implementation))
@@ -129,7 +129,7 @@ def run(packet, output, implementation):
             receipts = []
             for ident in case['sources']:
                 source = sources[ident]
-                body = original_body((packet / source['path']).read_bytes(), source)
+                body = project_source((packet / source['path']).read_bytes(), source)
                 if source.get('retain_capture_manifest'):
                     projection = digest(body_text(body).encode())
                     manifest = {'source_url': source['url'], 'source_sha256': source['sha256'],
