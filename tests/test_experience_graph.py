@@ -1,6 +1,6 @@
 """Live graph changes can direct inspection and preserve strict proof boundaries."""
 from concurrent.futures import ThreadPoolExecutor
-from contextlib import redirect_stdout
+from contextlib import closing, redirect_stdout
 import io
 import json
 from pathlib import Path
@@ -101,7 +101,7 @@ class ExperienceGraphTests(unittest.TestCase):
     def test_fabricated_graph_text_cannot_become_proof(self):
         self.page('OPS-A', 'Drain the queue before restarting the worker.')
         first = self.ask()
-        with sqlite3.connect(self.graph) as db:
+        with closing(sqlite3.connect(self.graph)) as db, db:
             db.execute('UPDATE passes SET graph=? WHERE id=?',
                        (json.dumps({'proof': 'The operation happened.'}), first['flag_sync']['pass_id']))
         second = self.ask()
@@ -120,7 +120,7 @@ class ExperienceGraphTests(unittest.TestCase):
         source['flags'].append('retired')
         edge = next(edge for edge in path['edges'] if edge['kind'] == 'cites')
         edge['flags'].remove('eligible')
-        with sqlite3.connect(self.graph) as db:
+        with closing(sqlite3.connect(self.graph)) as db, db:
             db.execute('UPDATE passes SET graph=? WHERE id=?', (json.dumps(path), first.sync['pass_id']))
         second = answer_query(self.ledger, question, experience_graph=self.graph)
         self.assertEqual(second.contract['diagnostic']['code'], 'FLAG_MISMATCH')
@@ -215,7 +215,7 @@ class ExperienceGraphTests(unittest.TestCase):
             if len(args) == 7:  # The inspection appends after Strict's path is checked.
                 path = read_pass(self.graph, pass_id)
                 path['system_tags'].remove('eligible')
-                with sqlite3.connect(self.graph) as db:
+                with closing(sqlite3.connect(self.graph)) as db, db:
                     db.execute('UPDATE passes SET graph=? WHERE id=?', (json.dumps(path), pass_id))
             return pass_id
 
@@ -228,7 +228,7 @@ class ExperienceGraphTests(unittest.TestCase):
     def test_altered_route_summary_cannot_direct_another_pass(self):
         self.page('OPS-A', 'Drain the queue before restarting the worker.')
         first = self.ask()
-        with sqlite3.connect(self.graph) as db:
+        with closing(sqlite3.connect(self.graph)) as db, db:
             db.execute('UPDATE passes SET candidates=? WHERE id=?',
                        (json.dumps(['ALTERED']), first['experience']['pass_id']))
         result = self.ask()

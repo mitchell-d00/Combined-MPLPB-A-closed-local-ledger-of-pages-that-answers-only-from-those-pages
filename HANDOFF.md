@@ -4,33 +4,31 @@ Last reviewed: 2026-11-24.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `9e504a9a3157618a55e25a60754fb25e0b22d20d` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `d826978b1fdd62308b259b80c7d917f647739ce2733e623ebdf1c2b369e74268`.
+Base commit: `e3990bf98ac6fb2e3b991a2eb251347ca571e873` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `6a7cfb22d5e817b14fe15cb9dc9f0ee62f4d9a5144cc911c1964b55bfe22c133`.
 
 ## Latest user update instructions
 
-Build the missing parts they seem intuitive
+Check the hiccups like time out and loose SQLite etc
 
 ## Implemented scope
 
-- Derive shared live tags from Observer and Judge outcomes, with exact graph checks on Strict Ask and Advanced inspection presentation.
-- Atomically reuse current strict versions, link each new graph version to its predecessor, expose scope history, and verify active route metadata before using candidate locators.
+- Close SQLite connections opened by four experience graph regression tests while preserving their transaction behavior.
 
 ## Validation recorded
 
-- Passed 72 focused native checks covering concurrent graph writes, retired routes, mismatches, history, Spot and existing answers.
-- Matched all 22 historical native contracts and all 48 Scout graph passes against ordinary Strict Ask on the same frozen inputs.
-- Passed the documentation inventory check.
+- Reproduced all four unclosed database warnings under Python 3.13 and traced them to experience graph test fixtures.
+- All 72 focused offline tests passed under Python 3.13 with ResourceWarning enabled. The log contained zero unclosed database warnings.
+- The companion B-Tests run completed locally with 148 passes under a 45-second deadline.
 
 ## Limitations and blocked checks
 
-- Live synchronization is local to an ask or inspection scope. Ledger and SQLite graph storage have separate transactions.
-- Scout prose coverage remains a separate research result. Graph flags and candidates carry no proof authority.
-- Full local archive extraction exceeds available storage. Use the CI archive gate for the complete release candidate.
+- The external B-Tests transcript ends mid-test and contains neither a timeout report nor an exit status.
+- Local source-archive checks are focused. Full source archive extraction exceeds local storage.
 
 ## Next steps
 
-- Use the retained Scout obligations to build and evaluate a bounded native recommendation comparison.
+- Retain the external test process exit status and full output together on a future rerun.
 
 ## Use this ZIP in your repository
 
