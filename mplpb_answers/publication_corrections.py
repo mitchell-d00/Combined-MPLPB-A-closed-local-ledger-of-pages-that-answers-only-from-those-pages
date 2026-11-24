@@ -39,10 +39,37 @@ _DEADLINE_REPLACEMENT = rf'[`\x27]{{1,3}}(?P<previous>{_DATE})[\x27]{{1,3}} shou
 _DEADLINE_DOCUMENT = (rf'^In rule document (?P<doc>{_ID}) beginning on page (?P<page>\d{{1,6}}) in the issue of\s+'
                       rf'(?:[A-Za-z]+, )?(?P<date>{_DATE}), make the following correction:')
 _DEADLINE_OLD = rf'^DATES: [^\n]*\. Each [^\n]{{1,90}} must file\s+the tariff changes needed to implement the requirements of this final\s+rule by (?P<previous>{_DATE})\.'
+
+_MONTH = '(?:' + '|'.join(_MONTHS) + ')'
+_ISSUER = r'^AGENCY: (?P<agency>(?:[^\n]{1,170}\n){1,3}?)(?=ACTION:)'
+_CORRECTING_AMENDMENT = r'^ACTION: Correcting amendment\.$'
+_PREVIOUS_RULE = (rf'^On (?P<date>{_DATE}), [^\n]{{1,180}}\s+published a final rule in the Federal Register at\s+'
+                  rf'{_CITATION}\s+\(FR Doc\.\s+(?P<doc>{_ID})\)\.')
+_PREVIOUS_CORRECTION = (rf'^On (?P<date>{_DATE}), (?P<issuer>[A-Z]{{2,8}}) published a correction to the final rule\s+'
+                        rf'titled [\s\S]{{1,300}}?\.\s+{_CITATION}\.')
+_SCOPE_REPORT = (
+    r'The\s+correction included amendatory instruction (?P<instruction>\d{1,3}) in the first column of\s+'
+    r'page (?P<page>\d{1,6})\. A typographical error in that instruction caused the Office\s+'
+    r'of the Federal Register to replace the whole of paragraph (?P<paragraph>\([a-z0-9]{1,3}\))\s+'
+    r'with the\s+text on page (?P=page)\. (?P<issuer>[A-Z]{2,8}) did not intend to do that\. Rather, (?P=issuer) intended\s+'
+    r'to correct only the introductory text of paragraph (?P=paragraph)\.')
+_APPLICABILITY = (
+    rf'^This correction is applicable as if (?P<issuer>[A-Z]{{2,8}}) had included this change in\s+'
+    rf'the final rule that published on (?P<original>{_DATE})\. That rule had an\s+'
+    rf'effective date of (?P<described>{_DATE})\. Accordingly, the correction is\s+'
+    rf'applicable as of (?P<applicable>{_DATE})(?=[,.])')
 _UNSAFE = re.compile(r'\b(?:if|unless|allegedly|possibly|reported(?:ly)?|proposed|hypothetical|draft|not|never|except)\b', re.I)
 _MAX_SCAN = 2 * 1024**2
 _MAX_FILES = 64
 _FORMS = {
+    'reported_scope': (
+        rf'What did the (?P<later>{_MONTH}) (?P<issuer>[A-Z]{{2,8}}) document say went wrong in the '
+        rf'(?P<previous>{_MONTH}) correction, and what part of paragraph (?P<paragraph>\([a-z0-9]{{1,3}}\)) had (?P=issuer) intended to change\?',
+    ),
+    'reaffirmed_applicability': (
+        rf'Across the (?P<earlier>{_MONTH}) rule, (?P<previous>{_MONTH}) correction and '
+        rf'(?P<later>{_MONTH}) follow-up, what earlier applicability date is reaffirmed\?',
+    ),
     'venue': (
         rf'What changed about the (?P<city>{_CITY}) meeting (?:venue|location), and what hours did the (?:published )?correction retain\?',
         rf'How did the (?P<city>{_CITY}) meeting venue change, and what meeting hours stayed the same\?',
@@ -239,6 +266,68 @@ def _instructions(publications, request):
                     earlier.cites(a), newer.cites(ref, *lines, b))
 
 
+def _successive(publications, request, kind):
+    """Resolve two publication references before comparing the reported scopes."""
+    selected = _single([(p, ref) for p in publications
+                        if p.match(_CORRECTING_AMENDMENT, 16000)
+                        and _MONTHS[p.date.month - 1].casefold() == request['later'].casefold()
+                        and (ref := p.match(_PREVIOUS_CORRECTION, 16000))
+                        and ('issuer' not in request or request['issuer'].casefold() == ref['issuer'].casefold())])
+    if selected is None:
+        return None
+    later, ref = selected
+    previous = _reference(publications, ref, through=later.date)
+    if (not previous or not previous.match(_ACTION, 16000)
+            or _MONTHS[previous.date.month - 1].casefold() != request['previous'].casefold()):
+        return None
+    prior = previous.match(_PREVIOUS_RULE, 16000)
+    if not prior:
+        return None
+    earlier = _reference(publications, prior, through=previous.date)
+    if not earlier:
+        return None
+    stamps = [p.match(_ISSUER, 16000) for p in (earlier, previous, later)]
+    if not all(stamps):
+        return None
+    issuer = ref['issuer']
+    abbreviation = r' \(' + re.escape(issuer) + r'\)(?=\.$)'
+    agencies = [_text(m['agency']) for m in stamps]
+    if not re.search(abbreviation, agencies[-1], re.I):
+        return None
+    if len({re.sub(abbreviation, '', name, flags=re.I).casefold() for name in agencies}) != 1:
+        return None
+    if kind == 'reported_scope':
+        scope = later.match(_SCOPE_REPORT, 16000)
+        if (not scope or scope.start() < ref.end() or later.body[ref.end():scope.start()].strip()
+                or any(scope[k].casefold() != v.casefold()
+                       for k, v in (('paragraph', request['paragraph']), ('issuer', issuer)))):
+            return None
+        paragraph = scope['paragraph']
+        replaced, intended = f'whole of paragraph {paragraph}', f'introductory text of paragraph {paragraph}'
+        return _combine(kind, f'The agency reported that a typographical error led to replacement of the {replaced}. '
+                              f'It said it intended to correct only the {intended}.',
+                        {'reported_replaced_scope': replaced, 'intended_scope': intended,
+                         'instruction': scope['instruction']},
+                        earlier.cites(stamps[0]), previous.cites(stamps[1], prior), later.cites(stamps[2], ref, scope))
+    if _MONTHS[earlier.date.month - 1].casefold() != request['earlier'].casefold():
+        return None
+    application = later.match(_APPLICABILITY, 16000)
+    values = [p.match(_EFFECTIVE, 16000) for p in (earlier, previous, later)]
+    if not application or not all(values) or application['issuer'].casefold() != issuer.casefold():
+        return None
+    original_date, correction_date, later_date = [_date(m['effective']) for m in values]
+    if (not original_date or not later_date or original_date != correction_date
+            or original_date >= later_date or _date(application['original']) != earlier.date
+            or any(_date(application[k]) != original_date for k in ('described', 'applicable'))):
+        return None
+    applicable, effective = (_date_display(d) for d in (original_date, later_date))
+    return _combine(kind, f'The follow-up reaffirms {applicable} as the stated applicability date. '
+                          f'Its own listed effective date is {effective}.',
+                    {'applicability_date': applicable, 'later_effective_date': effective},
+                    earlier.cites(stamps[0], values[0]), previous.cites(stamps[1], prior, values[1]),
+                    later.cites(stamps[2], ref, application, values[2]))
+
+
 def prove(index, request):
     if len(index.records) > _MAX_FILES or sum(len(r.body_html) for r in index.records) > _MAX_SCAN:
         return 'reference_scan_budget', None
@@ -249,6 +338,6 @@ def prove(index, request):
         if header and _date(header['date']):
             publications.append(Publication(record, body, header))
     kind, arguments = request
-    claim = {'venue': _venue, 'deadline': _deadline, 'instructions': _instructions}[kind](
-        publications, arguments)
+    handler = {'venue': _venue, 'deadline': _deadline, 'instructions': _instructions}.get(kind)
+    claim = handler(publications, arguments) if handler else _successive(publications, arguments, kind)
     return 'supported_documentary_assertion' if claim else 'documentary_link_unverified', claim

@@ -1,0 +1,96 @@
+{
+  "receipt_sha256": "a761afd48f006a0fdee17434f68444390677543589a00b464419c2a1158c0c67",
+  "source_packet_seal": "e7722505b20ddf17068322ce1323fb46493713948228d5f2f36290c33ede5b25",
+  "revision": "53408cdb452cda5aadf10cc42a4d9e50a388c4e2",
+  "counts": {
+    "over_refusal": 3,
+    "expected_withhold": 4
+  },
+  "families": {
+    "correction_of_correction": {
+      "over_refusal": 2,
+      "expected_withhold": 1
+    },
+    "attribution": {
+      "over_refusal": 1,
+      "expected_withhold": 1
+    },
+    "correction_scope_control": {
+      "expected_withhold": 2
+    }
+  },
+  "independent_historical_accuracy": "NOT RUN",
+  "scope": "Local authored anchors on authentic original publications. Semantic accuracy was not independently scored.",
+  "cases": [
+    {
+      "id": "FR-10",
+      "family": "correction_of_correction",
+      "outcome": "over_refusal",
+      "expected": "answer",
+      "kind": "abstain",
+      "diagnostic": "interpretation_unsupported",
+      "complete_discovery_anchor_coverage": true,
+      "discovery_search_complete": false
+    },
+    {
+      "id": "FR-11",
+      "family": "correction_of_correction",
+      "outcome": "over_refusal",
+      "expected": "answer",
+      "kind": "abstain",
+      "diagnostic": "interpretation_unsupported",
+      "complete_discovery_anchor_coverage": false,
+      "discovery_search_complete": false
+    },
+    {
+      "id": "FR-12",
+      "family": "correction_of_correction",
+      "outcome": "expected_withhold",
+      "expected": "withhold",
+      "kind": "abstain",
+      "diagnostic": "interpretation_unsupported",
+      "complete_discovery_anchor_coverage": false,
+      "discovery_search_complete": false
+    },
+    {
+      "id": "BT-01",
+      "family": "attribution",
+      "outcome": "over_refusal",
+      "expected": "answer",
+      "kind": "abstain",
+      "diagnostic": "interpretation_unsupported",
+      "complete_discovery_anchor_coverage": true,
+      "discovery_search_complete": false
+    },
+    {
+      "id": "BT-03",
+      "family": "attribution",
+      "outcome": "expected_withhold",
+      "expected": "withhold",
+      "kind": "abstain",
+      "diagnostic": "interpretation_unsupported",
+      "complete_discovery_anchor_coverage": false,
+      "discovery_search_complete": false
+    },
+    {
+      "id": "DHS-C01",
+      "family": "correction_scope_control",
+      "outcome": "expected_withhold",
+      "expected": "withhold",
+      "kind": "abstain",
+      "diagnostic": "interpretation_unsupported",
+      "complete_discovery_anchor_coverage": false,
+      "discovery_search_complete": false
+    },
+    {
+      "id": "DHS-C02",
+      "family": "correction_scope_control",
+      "outcome": "expected_withhold",
+      "expected": "withhold",
+      "kind": "abstain",
+      "diagnostic": "interpretation_unsupported",
+      "complete_discovery_anchor_coverage": false,
+      "discovery_search_complete": false
+    }
+  ]
+}

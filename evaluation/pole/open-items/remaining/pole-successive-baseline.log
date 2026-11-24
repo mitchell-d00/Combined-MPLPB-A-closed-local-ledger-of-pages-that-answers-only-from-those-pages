@@ -1,0 +1,12 @@
+======================================================================
+FAIL: test_keeps_attributed_scope_and_distinct_effective_date (tests.test_successive_publication_corrections.SuccessiveCorrectionTests.test_keeps_attributed_scope_and_distinct_effective_date)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/mplpb-pole-open-items/tests/test_successive_publication_corrections.py", line 49, in test_keeps_attributed_scope_and_distinct_effective_date
+    self.assertTrue(answer['answer_supported'], answer['diagnostic'])
+AssertionError: False is not true : {'code': 'interpretation_unsupported', 'stage': 'strict', 'message': 'Eligible passages exist, but the strict reader cannot establish an answer to this question.', 'category': 'unsupported_question_grammar', 'corpus_answerability': 'not_established', 'next_steps': ['Inspect the relevant source. Try a supported question form or explicitly select a configured assisted reader; do not treat this refusal as proof that the answer is absent.']}
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.101s
+
+FAILED (failures=1)

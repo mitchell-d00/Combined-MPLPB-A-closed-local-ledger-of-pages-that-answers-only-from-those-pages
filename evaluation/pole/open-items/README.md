@@ -109,12 +109,20 @@ withheld on both eligibility controls. Komnene-Outside has a verified
 transport package for 22 pairs. Independent scoring remains **NOT RUN**.
 [Four result tables and rule](prose/README.md)
 
+## Herodotus-DHS, Polybius, Lovelace-Limit, and Komnene-Ship
+
+Herodotus-DHS moved from **0/3 to 2/3** complete with all four controls
+withheld. Polybius stayed at **0/6** complete with all six controls withheld.
+Lovelace-Limit traced the large-corpus literal drop to character and unit
+caps. Komnene-Ship verifies 22 paired questions, 44 arms, the separately
+held mapping, and a byte-identical delivery archive. [Four result tables](remaining/README.md)
+
 ## Open items
 
 - All 12 original focus cases remain open, including date roles, reported
   statements, partial corrections, wording changes, and less explicit chains.
 - General historical reconstruction across unfamiliar originals remains open.
-  Three tested authentic relations remain unresolved. The prose cycle completed the venue, deadline, and numbered-instruction cases.
+  The B-Tests attribution report remains unresolved. The publication rule now completes the two tested DHS relations.
 - The repeated-phrase group cap and loss of complete literal lookup at the
   larger Sima Qian stages remain open. The USDA venue lookup also returned
   a partial when two verified spans from the same eligible source answered
