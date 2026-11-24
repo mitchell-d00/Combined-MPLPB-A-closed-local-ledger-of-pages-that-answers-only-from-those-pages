@@ -3,6 +3,8 @@
 Last reviewed: 2026-11-24.
 
 [Test Index](TEST_INDEX.md) connects the test types to the deterministic training loop.
+[Pole](../evaluation/pole/README.md) retained 11 recovered field answers, two cited conflicts and unchanged scored outcomes across the separate 120-case inherited weakness replay.
+
 The [historical mode replay](../evaluation/d12/mode-replay/README.md) compares the unchanged 22 under Strict Ask, Assisted Ask, page lookup, expert investigation, and article assembly. It records separate results for the other benchmarks.
 
 The [discovery-combination replay](../evaluation/d12/discovery-combos/README.md) compares ordinary, graph-guided, and investigation-guided passage discovery at matched budgets. The [Development History Index](DEVELOPMENT_HISTORY.md) maps the mode flags and other changes to their records.

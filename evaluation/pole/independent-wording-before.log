@@ -1,0 +1,31 @@
+======================================================================
+FAIL: test_competing_sources_and_withdrawal_are_rechecked (tests.test_pole.RecordedFieldRegression.test_competing_sources_and_withdrawal_are_rechecked)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/mplpb-pole/tests/test_pole.py", line 85, in test_competing_sources_and_withdrawal_are_rechecked
+    self.assertEqual(result['kind'], 'conflict')
+AssertionError: 'abstain' != 'conflict'
+- abstain
++ conflict
+
+
+======================================================================
+FAIL: test_recorded_value_requires_the_named_record_and_field (tests.test_pole.RecordedFieldRegression.test_recorded_value_requires_the_named_record_and_field) (question='What is the value stated for clearance code in occurrence DEPOT-71?')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/mplpb-pole/tests/test_pole.py", line 62, in test_recorded_value_requires_the_named_record_and_field
+    self.assertTrue(result['answer_supported'])
+AssertionError: False is not true
+
+======================================================================
+FAIL: test_recorded_value_requires_the_named_record_and_field (tests.test_pole.RecordedFieldRegression.test_recorded_value_requires_the_named_record_and_field) (question='What value is recorded for clearance code on record DEPOT-71?')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/mplpb-pole/tests/test_pole.py", line 62, in test_recorded_value_requires_the_named_record_and_field
+    self.assertTrue(result['answer_supported'])
+AssertionError: False is not true
+
+----------------------------------------------------------------------
+Ran 5 tests in 0.113s
+
+FAILED (failures=3)

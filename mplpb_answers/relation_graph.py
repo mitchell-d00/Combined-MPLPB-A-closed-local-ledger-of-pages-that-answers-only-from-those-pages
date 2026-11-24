@@ -413,8 +413,14 @@ _REQUEST_FIELD = r'(?P<field>[A-Za-z][A-Za-z0-9 _-]{0,79}?)'
 _REQUEST_ID = r'(?P<record>[A-Za-z0-9][A-Za-z0-9._:@/-]{0,180})'
 _CANONICAL_FIELD_REQUEST = rf'what is (?:the )?{_REQUEST_FIELD} (?:for|of) (?:record|event|occurrence) {_REQUEST_ID}'
 _OWNER_REQUEST = rf'(?:tell me )?who owns record {_REQUEST_ID}'
+_RECORDED_VALUE_VERB = r'(?:listed|recorded|stated)'
+_RECORDED_VALUE_REQUEST = (
+    rf'what (?:is the value|value is) {_RECORDED_VALUE_VERB} for (?:the )?{_REQUEST_FIELD}'
+    rf' (?:in|on) (?:record|event|occurrence) {_REQUEST_ID}'
+)
 _FIELD_REQUEST_FORMS = (
     _CANONICAL_FIELD_REQUEST,
+    _RECORDED_VALUE_REQUEST,
     rf'(?:tell|show|give) me (?:the )?{_REQUEST_FIELD} (?:listed|recorded|stated) (?:on|in) (?:record|event|occurrence) {_REQUEST_ID}',
     rf'(?:tell|show|give) me (?:the )?{_REQUEST_FIELD} (?:for|of) (?:record|event|occurrence) {_REQUEST_ID}',
     rf'for (?:record|event|occurrence) {_REQUEST_ID}, (?:what|which) {_REQUEST_FIELD} is (?:explicitly )?(?:stated|recorded|listed)',

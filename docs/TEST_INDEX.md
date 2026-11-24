@@ -8,6 +8,8 @@ MPLPB tests. Use the [test commands](TEST_TOOLS.md) to run a suite, the
 regression files, runners, and measurement scope for every indexed evaluation
 family, and the [results guide](RESULTS_AND_TESTS.md) to read the reported results.
 
+[Pole](../evaluation/pole/README.md) uses seeded difficulty levels and pinned documentary cases to measure general rule repairs.
+
 ## How I train a deterministic AI
 
 I use tests to train Combined MPLPB by changing the rules that govern its

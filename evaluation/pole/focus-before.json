@@ -1,0 +1,2846 @@
+{
+  "schema": "mplpb-pole-v1",
+  "packet_seal_sha256": "3803a63dd28542a5510b870b8ef0567765bdece7cd9748889d0fc074f00cba63",
+  "run_sha256": "ce16b130949a515ee9f8b9e829a50020054b7d7595576bee6ce899462fab76cf",
+  "checkout_revision": "e3990bf98ac6fb2e3b991a2eb251347ca571e873",
+  "worker_sha256": "f912f87b072fb3e78c0215882d2a10c82dd5df48009bb9a3a5eff8f229617ce8",
+  "metrics": {
+    "answer_cases": 28,
+    "refuse_cases": 20,
+    "correct_complete_answers": 5,
+    "false_alarms": 0,
+    "E": 0.17857142857142858,
+    "F": 0.0,
+    "E_lower_bound": 0.17857142857142858,
+    "E_output": 0.17857142857142858,
+    "false_alarm_observed_on_completed": 0.0,
+    "over_refusals": 23,
+    "appropriate_refusals": 20,
+    "execution_failures": 0,
+    "unscored_supported": 0,
+    "complete_decision_match": false,
+    "historical_accuracy": null,
+    "independent_semantic_review": "NOT RUN",
+    "caution": "E counts independently matched typed source propositions,not merely positive support flags;unsupported matcher shapes remain unscored.",
+    "outcomes": {
+      "appropriate_refusal": 20,
+      "over_refusal": 23,
+      "detected_answer": 5
+    },
+    "by_family": {
+      "chronology_causation": {
+        "appropriate_refusal": 2
+      },
+      "date_roles": {
+        "over_refusal": 3
+      },
+      "explicit_chain": {
+        "over_refusal": 2
+      },
+      "field_compound": {
+        "detected_answer": 2
+      },
+      "field_recorded_value": {
+        "over_refusal": 11
+      },
+      "field_recorded_value_conflict": {
+        "appropriate_refusal": 2
+      },
+      "field_recorded_value_qualified": {
+        "appropriate_refusal": 14
+      },
+      "field_synonym": {
+        "detected_answer": 3
+      },
+      "missing_bridge": {
+        "appropriate_refusal": 2
+      },
+      "partial_correction": {
+        "over_refusal": 2
+      },
+      "reported_statement": {
+        "over_refusal": 3
+      },
+      "wording_change": {
+        "over_refusal": 2
+      }
+    },
+    "retrieval": {
+      "native_facets": {
+        "recall_at_1": {
+          "mean": 0.8645833333333334,
+          "cases": 32
+        },
+        "recall_at_5": {
+          "mean": 0.9479166666666666,
+          "cases": 32
+        },
+        "recall_at_10": {
+          "mean": 0.9479166666666666,
+          "cases": 32
+        },
+        "complete_statement_coverage": {
+          "mean": 0.8958333333333334,
+          "cases": 16
+        }
+      },
+      "simple_bm25": {
+        "recall_at_1": {
+          "mean": 0.8541666666666666,
+          "cases": 32
+        },
+        "recall_at_5": {
+          "mean": 0.9583333333333334,
+          "cases": 32
+        },
+        "recall_at_10": {
+          "mean": 1.0,
+          "cases": 32
+        },
+        "complete_statement_coverage": {
+          "mean": 1.0,
+          "cases": 16
+        }
+      }
+    },
+    "resources": {
+      "cpu_seconds": 3.560669931,
+      "wall_seconds": 3.5567442940003957,
+      "explicit_original_read_calls": 155,
+      "explicit_original_bytes_read": 15948,
+      "peak_worker_rss_bytes": 27684864,
+      "measured_cases": 48,
+      "total_pipeline_source_bytes_read": null,
+      "human_review_seconds": null
+    }
+  },
+  "groups": [
+    {
+      "cohort": "fresh",
+      "level": "easy",
+      "family": "field_recorded_value",
+      "expected": "answer",
+      "cases": 8,
+      "outcomes": {
+        "over_refusal": 8
+      }
+    },
+    {
+      "cohort": "fresh",
+      "level": "easy",
+      "family": "field_recorded_value_qualified",
+      "expected": "refuse",
+      "cases": 8,
+      "outcomes": {
+        "appropriate_refusal": 8
+      }
+    },
+    {
+      "cohort": "fresh",
+      "level": "hard",
+      "family": "chronology_causation",
+      "expected": "refuse",
+      "cases": 2,
+      "outcomes": {
+        "appropriate_refusal": 2
+      }
+    },
+    {
+      "cohort": "fresh",
+      "level": "hard",
+      "family": "explicit_chain",
+      "expected": "answer",
+      "cases": 2,
+      "outcomes": {
+        "over_refusal": 2
+      }
+    },
+    {
+      "cohort": "fresh",
+      "level": "hard",
+      "family": "field_compound",
+      "expected": "answer",
+      "cases": 2,
+      "outcomes": {
+        "detected_answer": 2
+      }
+    },
+    {
+      "cohort": "fresh",
+      "level": "hard",
+      "family": "field_recorded_value_conflict",
+      "expected": "refuse",
+      "cases": 2,
+      "outcomes": {
+        "appropriate_refusal": 2
+      }
+    },
+    {
+      "cohort": "fresh",
+      "level": "hard",
+      "family": "field_recorded_value_qualified",
+      "expected": "refuse",
+      "cases": 2,
+      "outcomes": {
+        "appropriate_refusal": 2
+      }
+    },
+    {
+      "cohort": "fresh",
+      "level": "hard",
+      "family": "missing_bridge",
+      "expected": "refuse",
+      "cases": 2,
+      "outcomes": {
+        "appropriate_refusal": 2
+      }
+    },
+    {
+      "cohort": "fresh",
+      "level": "hard",
+      "family": "partial_correction",
+      "expected": "answer",
+      "cases": 2,
+      "outcomes": {
+        "over_refusal": 2
+      }
+    },
+    {
+      "cohort": "fresh",
+      "level": "hard",
+      "family": "wording_change",
+      "expected": "answer",
+      "cases": 2,
+      "outcomes": {
+        "over_refusal": 2
+      }
+    },
+    {
+      "cohort": "fresh",
+      "level": "medium",
+      "family": "date_roles",
+      "expected": "answer",
+      "cases": 3,
+      "outcomes": {
+        "over_refusal": 3
+      }
+    },
+    {
+      "cohort": "fresh",
+      "level": "medium",
+      "family": "field_recorded_value",
+      "expected": "answer",
+      "cases": 3,
+      "outcomes": {
+        "over_refusal": 3
+      }
+    },
+    {
+      "cohort": "fresh",
+      "level": "medium",
+      "family": "field_recorded_value_qualified",
+      "expected": "refuse",
+      "cases": 4,
+      "outcomes": {
+        "appropriate_refusal": 4
+      }
+    },
+    {
+      "cohort": "fresh",
+      "level": "medium",
+      "family": "field_synonym",
+      "expected": "answer",
+      "cases": 3,
+      "outcomes": {
+        "detected_answer": 3
+      }
+    },
+    {
+      "cohort": "fresh",
+      "level": "medium",
+      "family": "reported_statement",
+      "expected": "answer",
+      "cases": 3,
+      "outcomes": {
+        "over_refusal": 3
+      }
+    }
+  ],
+  "cases": [
+    {
+      "id": "POLE-b81b8e0aa217d2c9-00001",
+      "family": "field_recorded_value_qualified",
+      "expected": "refuse",
+      "execution": "completed",
+      "kind": "abstain",
+      "answer_supported": false,
+      "typed_proposition_match": false,
+      "quotation_fidelity": true,
+      "outcome": "appropriate_refusal",
+      "checked_partial": false,
+      "retrieval": {
+        "native_facets": {
+          "rank_one": null,
+          "complete_statement_coverage": null,
+          "recall_at_1": null,
+          "recall_at_5": null,
+          "recall_at_10": null
+        },
+        "simple_bm25": {
+          "rank_one": null,
+          "complete_statement_coverage": null,
+          "recall_at_1": null,
+          "recall_at_5": null,
+          "recall_at_10": null
+        }
+      },
+      "measurements": {
+        "cpu_seconds": 0.04399797,
+        "wall_seconds": 0.04766988799997307,
+        "peak_rss_bytes": 23924736,
+        "explicit_original_read_calls": 1,
+        "explicit_original_bytes_read": 50
+      },
+      "features": {
+        "source_count": 1,
+        "recording_verb": "listed",
+        "record_noun": "event"
+      },
+      "literal_field_set_match": false,
+      "level": "easy",
+      "cohort": "fresh",
+      "graph_failures": [],
+      "diagnostic": {
+        "code": "exact_field_missing",
+        "stage": "strict",
+        "message": "The exact route does not establish the requested field under a bounded grammar.",
+        "category": "insufficient_evidence",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Inspect the exact record and supply an explicit source body field; an identifier alone is not field support."
+        ]
+      },
+      "discovered_all_required_statements": null
+    },
+    {
+      "id": "POLE-b81b8e0aa217d2c9-00002",
+      "family": "field_recorded_value",
+      "expected": "answer",
+      "execution": "completed",
+      "kind": "abstain",
+      "answer_supported": false,
+      "typed_proposition_match": false,
+      "quotation_fidelity": true,
+      "outcome": "over_refusal",
+      "checked_partial": false,
+      "retrieval": {
+        "native_facets": {
+          "rank_one": true,
+          "complete_statement_coverage": null,
+          "recall_at_1": 1.0,
+          "recall_at_5": 1.0,
+          "recall_at_10": 1.0
+        },
+        "simple_bm25": {
+          "rank_one": true,
+          "complete_statement_coverage": null,
+          "recall_at_1": 1.0,
+          "recall_at_5": 1.0,
+          "recall_at_10": 1.0
+        }
+      },
+      "measurements": {
+        "cpu_seconds": 0.056173817000000015,
+        "wall_seconds": 0.05452275400000417,
+        "peak_rss_bytes": 23928832,
+        "explicit_original_read_calls": 1,
+        "explicit_original_bytes_read": 47
+      },
+      "features": {
+        "source_count": 1,
+        "recording_verb": "listed",
+        "record_noun": "event"
+      },
+      "literal_field_set_match": false,
+      "level": "easy",
+      "cohort": "fresh",
+      "graph_failures": [],
+      "diagnostic": {
+        "code": "exact_field_missing",
+        "stage": "strict",
+        "message": "The exact route does not establish the requested field under a bounded grammar.",
+        "category": "insufficient_evidence",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Inspect the exact record and supply an explicit source body field; an identifier alone is not field support."
+        ]
+      },
+      "discovered_all_required_statements": null
+    },
+    {
+      "id": "POLE-b81b8e0aa217d2c9-00003",
+      "family": "field_recorded_value_qualified",
+      "expected": "refuse",
+      "execution": "completed",
+      "kind": "abstain",
+      "answer_supported": false,
+      "typed_proposition_match": false,
+      "quotation_fidelity": true,
+      "outcome": "appropriate_refusal",
+      "checked_partial": false,
+      "retrieval": {
+        "native_facets": {
+          "rank_one": null,
+          "complete_statement_coverage": null,
+          "recall_at_1": null,
+          "recall_at_5": null,
+          "recall_at_10": null
+        },
+        "simple_bm25": {
+          "rank_one": null,
+          "complete_statement_coverage": null,
+          "recall_at_1": null,
+          "recall_at_5": null,
+          "recall_at_10": null
+        }
+      },
+      "measurements": {
+        "cpu_seconds": 0.047900271999999994,
+        "wall_seconds": 0.047300640000003114,
+        "peak_rss_bytes": 23924736,
+        "explicit_original_read_calls": 1,
+        "explicit_original_bytes_read": 50
+      },
+      "features": {
+        "source_count": 1,
+        "recording_verb": "stated",
+        "record_noun": "occurrence"
+      },
+      "literal_field_set_match": false,
+      "level": "easy",
+      "cohort": "fresh",
+      "graph_failures": [],
+      "diagnostic": {
+        "code": "exact_field_missing",
+        "stage": "strict",
+        "message": "The exact route does not establish the requested field under a bounded grammar.",
+        "category": "insufficient_evidence",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Inspect the exact record and supply an explicit source body field; an identifier alone is not field support."
+        ]
+      },
+      "discovered_all_required_statements": null
+    },
+    {
+      "id": "POLE-b81b8e0aa217d2c9-00004",
+      "family": "field_recorded_value",
+      "expected": "answer",
+      "execution": "completed",
+      "kind": "abstain",
+      "answer_supported": false,
+      "typed_proposition_match": false,
+      "quotation_fidelity": true,
+      "outcome": "over_refusal",
+      "checked_partial": false,
+      "retrieval": {
+        "native_facets": {
+          "rank_one": true,
+          "complete_statement_coverage": null,
+          "recall_at_1": 1.0,
+          "recall_at_5": 1.0,
+          "recall_at_10": 1.0
+        },
+        "simple_bm25": {
+          "rank_one": true,
+          "complete_statement_coverage": null,
+          "recall_at_1": 1.0,
+          "recall_at_5": 1.0,
+          "recall_at_10": 1.0
+        }
+      },
+      "measurements": {
+        "cpu_seconds": 0.05199495300000001,
+        "wall_seconds": 0.05094583400000374,
+        "peak_rss_bytes": 23924736,
+        "explicit_original_read_calls": 1,
+        "explicit_original_bytes_read": 43
+      },
+      "features": {
+        "source_count": 1,
+        "recording_verb": "recorded",
+        "record_noun": "event"
+      },
+      "literal_field_set_match": false,
+      "level": "easy",
+      "cohort": "fresh",
+      "graph_failures": [],
+      "diagnostic": {
+        "code": "exact_field_missing",
+        "stage": "strict",
+        "message": "The exact route does not establish the requested field under a bounded grammar.",
+        "category": "insufficient_evidence",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Inspect the exact record and supply an explicit source body field; an identifier alone is not field support."
+        ]
+      },
+      "discovered_all_required_statements": null
+    },
+    {
+      "id": "POLE-b81b8e0aa217d2c9-00005",
+      "family": "field_recorded_value_qualified",
+      "expected": "refuse",
+      "execution": "completed",
+      "kind": "abstain",
+      "answer_supported": false,
+      "typed_proposition_match": false,
+      "quotation_fidelity": true,
+      "outcome": "appropriate_refusal",
+      "checked_partial": false,
+      "retrieval": {
+        "native_facets": {
+          "rank_one": null,
+          "complete_statement_coverage": null,
+          "recall_at_1": null,
+          "recall_at_5": null,
+          "recall_at_10": null
+        },
+        "simple_bm25": {
+          "rank_one": null,
+          "complete_statement_coverage": null,
+          "recall_at_1": null,
+          "recall_at_5": null,
+          "recall_at_10": null
+        }
+      },
+      "measurements": {
+        "cpu_seconds": 0.04000732499999998,
+        "wall_seconds": 0.04058625300001495,
+        "peak_rss_bytes": 23924736,
+        "explicit_original_read_calls": 1,
+        "explicit_original_bytes_read": 47
+      },
+      "features": {
+        "source_count": 1,
+        "recording_verb": "listed",
+        "record_noun": "event"
+      },
+      "literal_field_set_match": false,
+      "level": "easy",
+      "cohort": "fresh",
+      "graph_failures": [],
+      "diagnostic": {
+        "code": "exact_field_missing",
+        "stage": "strict",
+        "message": "The exact route does not establish the requested field under a bounded grammar.",
+        "category": "insufficient_evidence",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Inspect the exact record and supply an explicit source body field; an identifier alone is not field support."
+        ]
+      },
+      "discovered_all_required_statements": null
+    },
+    {
+      "id": "POLE-b81b8e0aa217d2c9-00006",
+      "family": "field_recorded_value",
+      "expected": "answer",
+      "execution": "completed",
+      "kind": "abstain",
+      "answer_supported": false,
+      "typed_proposition_match": false,
+      "quotation_fidelity": true,
+      "outcome": "over_refusal",
+      "checked_partial": false,
+      "retrieval": {
+        "native_facets": {
+          "rank_one": true,
+          "complete_statement_coverage": null,
+          "recall_at_1": 1.0,
+          "recall_at_5": 1.0,
+          "recall_at_10": 1.0
+        },
+        "simple_bm25": {
+          "rank_one": true,
+          "complete_statement_coverage": null,
+          "recall_at_1": 1.0,
+          "recall_at_5": 1.0,
+          "recall_at_10": 1.0
+        }
+      },
+      "measurements": {
+        "cpu_seconds": 0.043990958999999996,
+        "wall_seconds": 0.04596687200000815,
+        "peak_rss_bytes": 23924736,
+        "explicit_original_read_calls": 1,
+        "explicit_original_bytes_read": 50
+      },
+      "features": {
+        "source_count": 1,
+        "recording_verb": "stated",
+        "record_noun": "event"
+      },
+      "literal_field_set_match": false,
+      "level": "easy",
+      "cohort": "fresh",
+      "graph_failures": [],
+      "diagnostic": {
+        "code": "exact_field_missing",
+        "stage": "strict",
+        "message": "The exact route does not establish the requested field under a bounded grammar.",
+        "category": "insufficient_evidence",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Inspect the exact record and supply an explicit source body field; an identifier alone is not field support."
+        ]
+      },
+      "discovered_all_required_statements": null
+    },
+    {
+      "id": "POLE-b81b8e0aa217d2c9-00007",
+      "family": "field_recorded_value_qualified",
+      "expected": "refuse",
+      "execution": "completed",
+      "kind": "abstain",
+      "answer_supported": false,
+      "typed_proposition_match": false,
+      "quotation_fidelity": true,
+      "outcome": "appropriate_refusal",
+      "checked_partial": false,
+      "retrieval": {
+        "native_facets": {
+          "rank_one": null,
+          "complete_statement_coverage": null,
+          "recall_at_1": null,
+          "recall_at_5": null,
+          "recall_at_10": null
+        },
+        "simple_bm25": {
+          "rank_one": null,
+          "complete_statement_coverage": null,
+          "recall_at_1": null,
+          "recall_at_5": null,
+          "recall_at_10": null
+        }
+      },
+      "measurements": {
+        "cpu_seconds": 0.047980823000000006,
+        "wall_seconds": 0.04766684300000179,
+        "peak_rss_bytes": 23928832,
+        "explicit_original_read_calls": 1,
+        "explicit_original_bytes_read": 42
+      },
+      "features": {
+        "source_count": 1,
+        "recording_verb": "recorded",
+        "record_noun": "occurrence"
+      },
+      "literal_field_set_match": false,
+      "level": "easy",
+      "cohort": "fresh",
+      "graph_failures": [],
+      "diagnostic": {
+        "code": "exact_field_missing",
+        "stage": "strict",
+        "message": "The exact route does not establish the requested field under a bounded grammar.",
+        "category": "insufficient_evidence",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Inspect the exact record and supply an explicit source body field; an identifier alone is not field support."
+        ]
+      },
+      "discovered_all_required_statements": null
+    },
+    {
+      "id": "POLE-b81b8e0aa217d2c9-00008",
+      "family": "field_recorded_value",
+      "expected": "answer",
+      "execution": "completed",
+      "kind": "abstain",
+      "answer_supported": false,
+      "typed_proposition_match": false,
+      "quotation_fidelity": true,
+      "outcome": "over_refusal",
+      "checked_partial": false,
+      "retrieval": {
+        "native_facets": {
+          "rank_one": true,
+          "complete_statement_coverage": null,
+          "recall_at_1": 1.0,
+          "recall_at_5": 1.0,
+          "recall_at_10": 1.0
+        },
+        "simple_bm25": {
+          "rank_one": true,
+          "complete_statement_coverage": null,
+          "recall_at_1": 1.0,
+          "recall_at_5": 1.0,
+          "recall_at_10": 1.0
+        }
+      },
+      "measurements": {
+        "cpu_seconds": 0.044010539000000015,
+        "wall_seconds": 0.04062269700000343,
+        "peak_rss_bytes": 23928832,
+        "explicit_original_read_calls": 1,
+        "explicit_original_bytes_read": 47
+      },
+      "features": {
+        "source_count": 1,
+        "recording_verb": "stated",
+        "record_noun": "occurrence"
+      },
+      "literal_field_set_match": false,
+      "level": "easy",
+      "cohort": "fresh",
+      "graph_failures": [],
+      "diagnostic": {
+        "code": "exact_field_missing",
+        "stage": "strict",
+        "message": "The exact route does not establish the requested field under a bounded grammar.",
+        "category": "insufficient_evidence",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Inspect the exact record and supply an explicit source body field; an identifier alone is not field support."
+        ]
+      },
+      "discovered_all_required_statements": null
+    },
+    {
+      "id": "POLE-b81b8e0aa217d2c9-00009",
+      "family": "field_recorded_value",
+      "expected": "answer",
+      "execution": "completed",
+      "kind": "abstain",
+      "answer_supported": false,
+      "typed_proposition_match": false,
+      "quotation_fidelity": true,
+      "outcome": "over_refusal",
+      "checked_partial": false,
+      "retrieval": {
+        "native_facets": {
+          "rank_one": true,
+          "complete_statement_coverage": null,
+          "recall_at_1": 1.0,
+          "recall_at_5": 1.0,
+          "recall_at_10": 1.0
+        },
+        "simple_bm25": {
+          "rank_one": true,
+          "complete_statement_coverage": null,
+          "recall_at_1": 1.0,
+          "recall_at_5": 1.0,
+          "recall_at_10": 1.0
+        }
+      },
+      "measurements": {
+        "cpu_seconds": 0.044005421,
+        "wall_seconds": 0.04265904800001863,
+        "peak_rss_bytes": 23928832,
+        "explicit_original_read_calls": 1,
+        "explicit_original_bytes_read": 50
+      },
+      "features": {
+        "source_count": 1,
+        "recording_verb": "stated",
+        "record_noun": "record"
+      },
+      "literal_field_set_match": false,
+      "level": "easy",
+      "cohort": "fresh",
+      "graph_failures": [],
+      "diagnostic": {
+        "code": "exact_field_missing",
+        "stage": "strict",
+        "message": "The exact route does not establish the requested field under a bounded grammar.",
+        "category": "insufficient_evidence",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Inspect the exact record and supply an explicit source body field; an identifier alone is not field support."
+        ]
+      },
+      "discovered_all_required_statements": null
+    },
+    {
+      "id": "POLE-b81b8e0aa217d2c9-00010",
+      "family": "field_recorded_value_qualified",
+      "expected": "refuse",
+      "execution": "completed",
+      "kind": "abstain",
+      "answer_supported": false,
+      "typed_proposition_match": false,
+      "quotation_fidelity": true,
+      "outcome": "appropriate_refusal",
+      "checked_partial": false,
+      "retrieval": {
+        "native_facets": {
+          "rank_one": null,
+          "complete_statement_coverage": null,
+          "recall_at_1": null,
+          "recall_at_5": null,
+          "recall_at_10": null
+        },
+        "simple_bm25": {
+          "rank_one": null,
+          "complete_statement_coverage": null,
+          "recall_at_1": null,
+          "recall_at_5": null,
+          "recall_at_10": null
+        }
+      },
+      "measurements": {
+        "cpu_seconds": 0.039964892,
+        "wall_seconds": 0.04243771300002663,
+        "peak_rss_bytes": 23924736,
+        "explicit_original_read_calls": 1,
+        "explicit_original_bytes_read": 42
+      },
+      "features": {
+        "source_count": 1,
+        "recording_verb": "listed",
+        "record_noun": "event"
+      },
+      "literal_field_set_match": false,
+      "level": "easy",
+      "cohort": "fresh",
+      "graph_failures": [],
+      "diagnostic": {
+        "code": "exact_field_missing",
+        "stage": "strict",
+        "message": "The exact route does not establish the requested field under a bounded grammar.",
+        "category": "insufficient_evidence",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Inspect the exact record and supply an explicit source body field; an identifier alone is not field support."
+        ]
+      },
+      "discovered_all_required_statements": null
+    },
+    {
+      "id": "POLE-b81b8e0aa217d2c9-00011",
+      "family": "field_recorded_value_qualified",
+      "expected": "refuse",
+      "execution": "completed",
+      "kind": "abstain",
+      "answer_supported": false,
+      "typed_proposition_match": false,
+      "quotation_fidelity": true,
+      "outcome": "appropriate_refusal",
+      "checked_partial": false,
+      "retrieval": {
+        "native_facets": {
+          "rank_one": null,
+          "complete_statement_coverage": null,
+          "recall_at_1": null,
+          "recall_at_5": null,
+          "recall_at_10": null
+        },
+        "simple_bm25": {
+          "rank_one": null,
+          "complete_statement_coverage": null,
+          "recall_at_1": null,
+          "recall_at_5": null,
+          "recall_at_10": null
+        }
+      },
+      "measurements": {
+        "cpu_seconds": 0.044010487999999987,
+        "wall_seconds": 0.043359495000004245,
+        "peak_rss_bytes": 23924736,
+        "explicit_original_read_calls": 1,
+        "explicit_original_bytes_read": 42
+      },
+      "features": {
+        "source_count": 1,
+        "recording_verb": "stated",
+        "record_noun": "event"
+      },
+      "literal_field_set_match": false,
+      "level": "easy",
+      "cohort": "fresh",
+      "graph_failures": [],
+      "diagnostic": {
+        "code": "exact_field_missing",
+        "stage": "strict",
+        "message": "The exact route does not establish the requested field under a bounded grammar.",
+        "category": "insufficient_evidence",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Inspect the exact record and supply an explicit source body field; an identifier alone is not field support."
+        ]
+      },
+      "discovered_all_required_statements": null
+    },
+    {
+      "id": "POLE-b81b8e0aa217d2c9-00012",
+      "family": "field_recorded_value",
+      "expected": "answer",
+      "execution": "completed",
+      "kind": "abstain",
+      "answer_supported": false,
+      "typed_proposition_match": false,
+      "quotation_fidelity": true,
+      "outcome": "over_refusal",
+      "checked_partial": false,
+      "retrieval": {
+        "native_facets": {
+          "rank_one": true,
+          "complete_statement_coverage": null,
+          "recall_at_1": 1.0,
+          "recall_at_5": 1.0,
+          "recall_at_10": 1.0
+        },
+        "simple_bm25": {
+          "rank_one": true,
+          "complete_statement_coverage": null,
+          "recall_at_1": 1.0,
+          "recall_at_5": 1.0,
+          "recall_at_10": 1.0
+        }
+      },
+      "measurements": {
+        "cpu_seconds": 0.047995125,
+        "wall_seconds": 0.04486089199997423,
+        "peak_rss_bytes": 23928832,
+        "explicit_original_read_calls": 1,
+        "explicit_original_bytes_read": 50
+      },
+      "features": {
+        "source_count": 1,
+        "recording_verb": "recorded",
+        "record_noun": "occurrence"
+      },
+      "literal_field_set_match": false,
+      "level": "easy",
+      "cohort": "fresh",
+      "graph_failures": [],
+      "diagnostic": {
+        "code": "exact_field_missing",
+        "stage": "strict",
+        "message": "The exact route does not establish the requested field under a bounded grammar.",
+        "category": "insufficient_evidence",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Inspect the exact record and supply an explicit source body field; an identifier alone is not field support."
+        ]
+      },
+      "discovered_all_required_statements": null
+    },
+    {
+      "id": "POLE-b81b8e0aa217d2c9-00013",
+      "family": "field_recorded_value",
+      "expected": "answer",
+      "execution": "completed",
+      "kind": "abstain",
+      "answer_supported": false,
+      "typed_proposition_match": false,
+      "quotation_fidelity": true,
+      "outcome": "over_refusal",
+      "checked_partial": false,
+      "retrieval": {
+        "native_facets": {
+          "rank_one": true,
+          "complete_statement_coverage": null,
+          "recall_at_1": 1.0,
+          "recall_at_5": 1.0,
+          "recall_at_10": 1.0
+        },
+        "simple_bm25": {
+          "rank_one": true,
+          "complete_statement_coverage": null,
+          "recall_at_1": 1.0,
+          "recall_at_5": 1.0,
+          "recall_at_10": 1.0
+        }
+      },
+      "measurements": {
+        "cpu_seconds": 0.040005974,
+        "wall_seconds": 0.04139908399997694,
+        "peak_rss_bytes": 23928832,
+        "explicit_original_read_calls": 1,
+        "explicit_original_bytes_read": 43
+      },
+      "features": {
+        "source_count": 1,
+        "recording_verb": "recorded",
+        "record_noun": "record"
+      },
+      "literal_field_set_match": false,
+      "level": "easy",
+      "cohort": "fresh",
+      "graph_failures": [],
+      "diagnostic": {
+        "code": "exact_field_missing",
+        "stage": "strict",
+        "message": "The exact route does not establish the requested field under a bounded grammar.",
+        "category": "insufficient_evidence",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Inspect the exact record and supply an explicit source body field; an identifier alone is not field support."
+        ]
+      },
+      "discovered_all_required_statements": null
+    },
+    {
+      "id": "POLE-b81b8e0aa217d2c9-00014",
+      "family": "field_recorded_value_qualified",
+      "expected": "refuse",
+      "execution": "completed",
+      "kind": "abstain",
+      "answer_supported": false,
+      "typed_proposition_match": false,
+      "quotation_fidelity": true,
+      "outcome": "appropriate_refusal",
+      "checked_partial": false,
+      "retrieval": {
+        "native_facets": {
+          "rank_one": null,
+          "complete_statement_coverage": null,
+          "recall_at_1": null,
+          "recall_at_5": null,
+          "recall_at_10": null
+        },
+        "simple_bm25": {
+          "rank_one": null,
+          "complete_statement_coverage": null,
+          "recall_at_1": null,
+          "recall_at_5": null,
+          "recall_at_10": null
+        }
+      },
+      "measurements": {
+        "cpu_seconds": 0.03600505299999998,
+        "wall_seconds": 0.039066781999963496,
+        "peak_rss_bytes": 23924736,
+        "explicit_original_read_calls": 1,
+        "explicit_original_bytes_read": 43
+      },
+      "features": {
+        "source_count": 1,
+        "recording_verb": "listed",
+        "record_noun": "event"
+      },
+      "literal_field_set_match": false,
+      "level": "easy",
+      "cohort": "fresh",
+      "graph_failures": [],
+      "diagnostic": {
+        "code": "exact_field_missing",
+        "stage": "strict",
+        "message": "The exact route does not establish the requested field under a bounded grammar.",
+        "category": "insufficient_evidence",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Inspect the exact record and supply an explicit source body field; an identifier alone is not field support."
+        ]
+      },
+      "discovered_all_required_statements": null
+    },
+    {
+      "id": "POLE-b81b8e0aa217d2c9-00015",
+      "family": "field_recorded_value_qualified",
+      "expected": "refuse",
+      "execution": "completed",
+      "kind": "abstain",
+      "answer_supported": false,
+      "typed_proposition_match": false,
+      "quotation_fidelity": true,
+      "outcome": "appropriate_refusal",
+      "checked_partial": false,
+      "retrieval": {
+        "native_facets": {
+          "rank_one": null,
+          "complete_statement_coverage": null,
+          "recall_at_1": null,
+          "recall_at_5": null,
+          "recall_at_10": null
+        },
+        "simple_bm25": {
+          "rank_one": null,
+          "complete_statement_coverage": null,
+          "recall_at_1": null,
+          "recall_at_5": null,
+          "recall_at_10": null
+        }
+      },
+      "measurements": {
+        "cpu_seconds": 0.051964646,
+        "wall_seconds": 0.04970547899995381,
+        "peak_rss_bytes": 23924736,
+        "explicit_original_read_calls": 1,
+        "explicit_original_bytes_read": 50
+      },
+      "features": {
+        "source_count": 1,
+        "recording_verb": "stated",
+        "record_noun": "occurrence"
+      },
+      "literal_field_set_match": false,
+      "level": "easy",
+      "cohort": "fresh",
+      "graph_failures": [],
+      "diagnostic": {
+        "code": "exact_field_missing",
+        "stage": "strict",
+        "message": "The exact route does not establish the requested field under a bounded grammar.",
+        "category": "insufficient_evidence",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Inspect the exact record and supply an explicit source body field; an identifier alone is not field support."
+        ]
+      },
+      "discovered_all_required_statements": null
+    },
+    {
+      "id": "POLE-b81b8e0aa217d2c9-00016",
+      "family": "field_recorded_value",
+      "expected": "answer",
+      "execution": "completed",
+      "kind": "abstain",
+      "answer_supported": false,
+      "typed_proposition_match": false,
+      "quotation_fidelity": true,
+      "outcome": "over_refusal",
+      "checked_partial": false,
+      "retrieval": {
+        "native_facets": {
+          "rank_one": true,
+          "complete_statement_coverage": null,
+          "recall_at_1": 1.0,
+          "recall_at_5": 1.0,
+          "recall_at_10": 1.0
+        },
+        "simple_bm25": {
+          "rank_one": true,
+          "complete_statement_coverage": null,
+          "recall_at_1": 1.0,
+          "recall_at_5": 1.0,
+          "recall_at_10": 1.0
+        }
+      },
+      "measurements": {
+        "cpu_seconds": 0.044001074,
+        "wall_seconds": 0.045005801000002066,
+        "peak_rss_bytes": 23924736,
+        "explicit_original_read_calls": 1,
+        "explicit_original_bytes_read": 47
+      },
+      "features": {
+        "source_count": 1,
+        "recording_verb": "stated",
+        "record_noun": "record"
+      },
+      "literal_field_set_match": false,
+      "level": "easy",
+      "cohort": "fresh",
+      "graph_failures": [],
+      "diagnostic": {
+        "code": "exact_field_missing",
+        "stage": "strict",
+        "message": "The exact route does not establish the requested field under a bounded grammar.",
+        "category": "insufficient_evidence",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Inspect the exact record and supply an explicit source body field; an identifier alone is not field support."
+        ]
+      },
+      "discovered_all_required_statements": null
+    },
+    {
+      "id": "POLE-f2d6d27cee88948d-00001",
+      "family": "field_synonym",
+      "expected": "answer",
+      "execution": "completed",
+      "kind": "supported_answer",
+      "answer_supported": true,
+      "typed_proposition_match": false,
+      "quotation_fidelity": true,
+      "outcome": "detected_answer",
+      "checked_partial": false,
+      "retrieval": {
+        "native_facets": {
+          "rank_one": true,
+          "complete_statement_coverage": null,
+          "recall_at_1": 1.0,
+          "recall_at_5": 1.0,
+          "recall_at_10": 1.0
+        },
+        "simple_bm25": {
+          "rank_one": true,
+          "complete_statement_coverage": null,
+          "recall_at_1": 1.0,
+          "recall_at_5": 1.0,
+          "recall_at_10": 1.0
+        }
+      },
+      "measurements": {
+        "cpu_seconds": 0.059725416999999975,
+        "wall_seconds": 0.058898021999993944,
+        "peak_rss_bytes": 23797760,
+        "explicit_original_read_calls": 1,
+        "explicit_original_bytes_read": 142
+      },
+      "features": {
+        "question_form": 0,
+        "field": "Current Status",
+        "line_ending": "LF",
+        "fence": "```",
+        "heading": "Subject: Archive notice\n",
+        "source_count": 1
+      },
+      "literal_field_set_match": true,
+      "level": "medium",
+      "cohort": "fresh",
+      "graph_failures": [],
+      "diagnostic": {
+        "code": "supported",
+        "stage": "strict",
+        "message": "Exact source body field evidence; no inference from record identity.",
+        "category": "source_support_established",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Open the cited source and check its conditions and revision."
+        ]
+      },
+      "discovered_all_required_statements": null
+    },
+    {
+      "id": "POLE-f2d6d27cee88948d-00002",
+      "family": "field_recorded_value_qualified",
+      "expected": "refuse",
+      "execution": "completed",
+      "kind": "abstain",
+      "answer_supported": false,
+      "typed_proposition_match": false,
+      "quotation_fidelity": true,
+      "outcome": "appropriate_refusal",
+      "checked_partial": false,
+      "retrieval": {
+        "native_facets": {
+          "rank_one": null,
+          "complete_statement_coverage": null,
+          "recall_at_1": null,
+          "recall_at_5": null,
+          "recall_at_10": null
+        },
+        "simple_bm25": {
+          "rank_one": null,
+          "complete_statement_coverage": null,
+          "recall_at_1": null,
+          "recall_at_5": null,
+          "recall_at_10": null
+        }
+      },
+      "measurements": {
+        "cpu_seconds": 0.05195174799999999,
+        "wall_seconds": 0.0507610829999976,
+        "peak_rss_bytes": 23932928,
+        "explicit_original_read_calls": 2,
+        "explicit_original_bytes_read": 83
+      },
+      "features": {
+        "source_count": 2,
+        "recording_verb": "listed",
+        "record_noun": "record"
+      },
+      "literal_field_set_match": false,
+      "level": "medium",
+      "cohort": "fresh",
+      "graph_failures": [],
+      "diagnostic": {
+        "code": "exact_field_missing",
+        "stage": "strict",
+        "message": "The exact route does not establish the requested field under a bounded grammar.",
+        "category": "insufficient_evidence",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Inspect the exact record and supply an explicit source body field; an identifier alone is not field support."
+        ]
+      },
+      "discovered_all_required_statements": null
+    },
+    {
+      "id": "POLE-f2d6d27cee88948d-00003",
+      "family": "field_recorded_value",
+      "expected": "answer",
+      "execution": "completed",
+      "kind": "abstain",
+      "answer_supported": false,
+      "typed_proposition_match": false,
+      "quotation_fidelity": true,
+      "outcome": "over_refusal",
+      "checked_partial": false,
+      "retrieval": {
+        "native_facets": {
+          "rank_one": true,
+          "complete_statement_coverage": null,
+          "recall_at_1": 1.0,
+          "recall_at_5": 1.0,
+          "recall_at_10": 1.0
+        },
+        "simple_bm25": {
+          "rank_one": true,
+          "complete_statement_coverage": null,
+          "recall_at_1": 1.0,
+          "recall_at_5": 1.0,
+          "recall_at_10": 1.0
+        }
+      },
+      "measurements": {
+        "cpu_seconds": 0.046788707999999984,
+        "wall_seconds": 0.046828293999965354,
+        "peak_rss_bytes": 23928832,
+        "explicit_original_read_calls": 2,
+        "explicit_original_bytes_read": 86
+      },
+      "features": {
+        "source_count": 2,
+        "recording_verb": "recorded",
+        "record_noun": "event"
+      },
+      "literal_field_set_match": false,
+      "level": "medium",
+      "cohort": "fresh",
+      "graph_failures": [],
+      "diagnostic": {
+        "code": "exact_field_missing",
+        "stage": "strict",
+        "message": "The exact route does not establish the requested field under a bounded grammar.",
+        "category": "insufficient_evidence",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Inspect the exact record and supply an explicit source body field; an identifier alone is not field support."
+        ]
+      },
+      "discovered_all_required_statements": null
+    },
+    {
+      "id": "POLE-f2d6d27cee88948d-00004",
+      "family": "date_roles",
+      "expected": "answer",
+      "execution": "completed",
+      "kind": "abstain",
+      "answer_supported": false,
+      "typed_proposition_match": false,
+      "quotation_fidelity": true,
+      "outcome": "over_refusal",
+      "checked_partial": false,
+      "retrieval": {
+        "native_facets": {
+          "rank_one": true,
+          "complete_statement_coverage": 1.0,
+          "recall_at_1": 1.0,
+          "recall_at_5": 1.0,
+          "recall_at_10": 1.0
+        },
+        "simple_bm25": {
+          "rank_one": true,
+          "complete_statement_coverage": 1.0,
+          "recall_at_1": 1.0,
+          "recall_at_5": 1.0,
+          "recall_at_10": 1.0
+        }
+      },
+      "measurements": {
+        "cpu_seconds": 0.136188198,
+        "wall_seconds": 0.13655495600005452,
+        "peak_rss_bytes": 26030080,
+        "explicit_original_read_calls": 8,
+        "explicit_original_bytes_read": 936
+      },
+      "features": {},
+      "level": "medium",
+      "cohort": "fresh",
+      "graph_failures": [],
+      "diagnostic": {
+        "code": "interpretation_unsupported",
+        "stage": "strict",
+        "message": "Eligible passages exist, but the strict reader cannot establish an answer to this question.",
+        "category": "unsupported_question_grammar",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Inspect the relevant source. Try a supported question form or explicitly select a configured assisted reader; do not treat this refusal as proof that the answer is absent."
+        ]
+      },
+      "discovered_all_required_statements": true
+    },
+    {
+      "id": "POLE-f2d6d27cee88948d-00005",
+      "family": "reported_statement",
+      "expected": "answer",
+      "execution": "completed",
+      "kind": "abstain",
+      "answer_supported": false,
+      "typed_proposition_match": false,
+      "quotation_fidelity": true,
+      "outcome": "over_refusal",
+      "checked_partial": false,
+      "retrieval": {
+        "native_facets": {
+          "rank_one": true,
+          "complete_statement_coverage": 1.0,
+          "recall_at_1": 1.0,
+          "recall_at_5": 1.0,
+          "recall_at_10": 1.0
+        },
+        "simple_bm25": {
+          "rank_one": true,
+          "complete_statement_coverage": 1.0,
+          "recall_at_1": 1.0,
+          "recall_at_5": 1.0,
+          "recall_at_10": 1.0
+        }
+      },
+      "measurements": {
+        "cpu_seconds": 0.13200030999999998,
+        "wall_seconds": 0.1320260559999724,
+        "peak_rss_bytes": 25513984,
+        "explicit_original_read_calls": 8,
+        "explicit_original_bytes_read": 953
+      },
+      "features": {},
+      "level": "medium",
+      "cohort": "fresh",
+      "graph_failures": [],
+      "diagnostic": {
+        "code": "interpretation_unsupported",
+        "stage": "strict",
+        "message": "Eligible passages exist, but the strict reader cannot establish an answer to this question.",
+        "category": "unsupported_question_grammar",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Inspect the relevant source. Try a supported question form or explicitly select a configured assisted reader; do not treat this refusal as proof that the answer is absent."
+        ]
+      },
+      "discovered_all_required_statements": true
+    },
+    {
+      "id": "POLE-f2d6d27cee88948d-00006",
+      "family": "field_synonym",
+      "expected": "answer",
+      "execution": "completed",
+      "kind": "supported_answer",
+      "answer_supported": true,
+      "typed_proposition_match": false,
+      "quotation_fidelity": true,
+      "outcome": "detected_answer",
+      "checked_partial": false,
+      "retrieval": {
+        "native_facets": {
+          "rank_one": true,
+          "complete_statement_coverage": null,
+          "recall_at_1": 1.0,
+          "recall_at_5": 1.0,
+          "recall_at_10": 1.0
+        },
+        "simple_bm25": {
+          "rank_one": true,
+          "complete_statement_coverage": null,
+          "recall_at_1": 1.0,
+          "recall_at_5": 1.0,
+          "recall_at_10": 1.0
+        }
+      },
+      "measurements": {
+        "cpu_seconds": 0.047976927,
+        "wall_seconds": 0.04720976000010069,
+        "peak_rss_bytes": 23924736,
+        "explicit_original_read_calls": 1,
+        "explicit_original_bytes_read": 149
+      },
+      "features": {
+        "question_form": 2,
+        "field": "Dispatch Date",
+        "line_ending": "CRLF",
+        "fence": "```",
+        "heading": "Subject: Archive notice\n",
+        "source_count": 1
+      },
+      "literal_field_set_match": true,
+      "level": "medium",
+      "cohort": "fresh",
+      "graph_failures": [],
+      "diagnostic": {
+        "code": "supported",
+        "stage": "strict",
+        "message": "Exact source body field evidence; no inference from record identity.",
+        "category": "source_support_established",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Open the cited source and check its conditions and revision."
+        ]
+      },
+      "discovered_all_required_statements": null
+    },
+    {
+      "id": "POLE-f2d6d27cee88948d-00007",
+      "family": "reported_statement",
+      "expected": "answer",
+      "execution": "completed",
+      "kind": "abstain",
+      "answer_supported": false,
+      "typed_proposition_match": false,
+      "quotation_fidelity": true,
+      "outcome": "over_refusal",
+      "checked_partial": false,
+      "retrieval": {
+        "native_facets": {
+          "rank_one": true,
+          "complete_statement_coverage": 1.0,
+          "recall_at_1": 1.0,
+          "recall_at_5": 1.0,
+          "recall_at_10": 1.0
+        },
+        "simple_bm25": {
+          "rank_one": true,
+          "complete_statement_coverage": 1.0,
+          "recall_at_1": 1.0,
+          "recall_at_5": 1.0,
+          "recall_at_10": 1.0
+        }
+      },
+      "measurements": {
+        "cpu_seconds": 0.11999308399999997,
+        "wall_seconds": 0.11922160799997528,
+        "peak_rss_bytes": 26509312,
+        "explicit_original_read_calls": 8,
+        "explicit_original_bytes_read": 896
+      },
+      "features": {},
+      "level": "medium",
+      "cohort": "fresh",
+      "graph_failures": [],
+      "diagnostic": {
+        "code": "interpretation_unsupported",
+        "stage": "strict",
+        "message": "Eligible passages exist, but the strict reader cannot establish an answer to this question.",
+        "category": "unsupported_question_grammar",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Inspect the relevant source. Try a supported question form or explicitly select a configured assisted reader; do not treat this refusal as proof that the answer is absent."
+        ]
+      },
+      "discovered_all_required_statements": true
+    },
+    {
+      "id": "POLE-f2d6d27cee88948d-00008",
+      "family": "field_recorded_value_qualified",
+      "expected": "refuse",
+      "execution": "completed",
+      "kind": "abstain",
+      "answer_supported": false,
+      "typed_proposition_match": false,
+      "quotation_fidelity": true,
+      "outcome": "appropriate_refusal",
+      "checked_partial": false,
+      "retrieval": {
+        "native_facets": {
+          "rank_one": null,
+          "complete_statement_coverage": null,
+          "recall_at_1": null,
+          "recall_at_5": null,
+          "recall_at_10": null
+        },
+        "simple_bm25": {
+          "rank_one": null,
+          "complete_statement_coverage": null,
+          "recall_at_1": null,
+          "recall_at_5": null,
+          "recall_at_10": null
+        }
+      },
+      "measurements": {
+        "cpu_seconds": 0.05196345600000002,
+        "wall_seconds": 0.05354556899999352,
+        "peak_rss_bytes": 23928832,
+        "explicit_original_read_calls": 2,
+        "explicit_original_bytes_read": 99
+      },
+      "features": {
+        "source_count": 2,
+        "recording_verb": "stated",
+        "record_noun": "record"
+      },
+      "literal_field_set_match": false,
+      "level": "medium",
+      "cohort": "fresh",
+      "graph_failures": [],
+      "diagnostic": {
+        "code": "exact_field_missing",
+        "stage": "strict",
+        "message": "The exact route does not establish the requested field under a bounded grammar.",
+        "category": "insufficient_evidence",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Inspect the exact record and supply an explicit source body field; an identifier alone is not field support."
+        ]
+      },
+      "discovered_all_required_statements": null
+    },
+    {
+      "id": "POLE-f2d6d27cee88948d-00009",
+      "family": "date_roles",
+      "expected": "answer",
+      "execution": "completed",
+      "kind": "abstain",
+      "answer_supported": false,
+      "typed_proposition_match": false,
+      "quotation_fidelity": true,
+      "outcome": "over_refusal",
+      "checked_partial": false,
+      "retrieval": {
+        "native_facets": {
+          "rank_one": true,
+          "complete_statement_coverage": 1.0,
+          "recall_at_1": 1.0,
+          "recall_at_5": 1.0,
+          "recall_at_10": 1.0
+        },
+        "simple_bm25": {
+          "rank_one": true,
+          "complete_statement_coverage": 1.0,
+          "recall_at_1": 1.0,
+          "recall_at_5": 1.0,
+          "recall_at_10": 1.0
+        }
+      },
+      "measurements": {
+        "cpu_seconds": 0.13999738299999998,
+        "wall_seconds": 0.1377963439999803,
+        "peak_rss_bytes": 26013696,
+        "explicit_original_read_calls": 8,
+        "explicit_original_bytes_read": 992
+      },
+      "features": {},
+      "level": "medium",
+      "cohort": "fresh",
+      "graph_failures": [],
+      "diagnostic": {
+        "code": "interpretation_unsupported",
+        "stage": "strict",
+        "message": "Eligible passages exist, but the strict reader cannot establish an answer to this question.",
+        "category": "unsupported_question_grammar",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Inspect the relevant source. Try a supported question form or explicitly select a configured assisted reader; do not treat this refusal as proof that the answer is absent."
+        ]
+      },
+      "discovered_all_required_statements": true
+    },
+    {
+      "id": "POLE-f2d6d27cee88948d-00010",
+      "family": "field_recorded_value",
+      "expected": "answer",
+      "execution": "completed",
+      "kind": "abstain",
+      "answer_supported": false,
+      "typed_proposition_match": false,
+      "quotation_fidelity": true,
+      "outcome": "over_refusal",
+      "checked_partial": false,
+      "retrieval": {
+        "native_facets": {
+          "rank_one": true,
+          "complete_statement_coverage": null,
+          "recall_at_1": 1.0,
+          "recall_at_5": 1.0,
+          "recall_at_10": 1.0
+        },
+        "simple_bm25": {
+          "rank_one": true,
+          "complete_statement_coverage": null,
+          "recall_at_1": 1.0,
+          "recall_at_5": 1.0,
+          "recall_at_10": 1.0
+        }
+      },
+      "measurements": {
+        "cpu_seconds": 0.059993852000000014,
+        "wall_seconds": 0.06208389400001124,
+        "peak_rss_bytes": 23928832,
+        "explicit_original_read_calls": 2,
+        "explicit_original_bytes_read": 100
+      },
+      "features": {
+        "source_count": 2,
+        "recording_verb": "recorded",
+        "record_noun": "occurrence"
+      },
+      "literal_field_set_match": false,
+      "level": "medium",
+      "cohort": "fresh",
+      "graph_failures": [],
+      "diagnostic": {
+        "code": "exact_field_missing",
+        "stage": "strict",
+        "message": "The exact route does not establish the requested field under a bounded grammar.",
+        "category": "insufficient_evidence",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Inspect the exact record and supply an explicit source body field; an identifier alone is not field support."
+        ]
+      },
+      "discovered_all_required_statements": null
+    },
+    {
+      "id": "POLE-f2d6d27cee88948d-00011",
+      "family": "reported_statement",
+      "expected": "answer",
+      "execution": "completed",
+      "kind": "abstain",
+      "answer_supported": false,
+      "typed_proposition_match": false,
+      "quotation_fidelity": true,
+      "outcome": "over_refusal",
+      "checked_partial": false,
+      "retrieval": {
+        "native_facets": {
+          "rank_one": true,
+          "complete_statement_coverage": 1.0,
+          "recall_at_1": 1.0,
+          "recall_at_5": 1.0,
+          "recall_at_10": 1.0
+        },
+        "simple_bm25": {
+          "rank_one": true,
+          "complete_statement_coverage": 1.0,
+          "recall_at_1": 1.0,
+          "recall_at_5": 1.0,
+          "recall_at_10": 1.0
+        }
+      },
+      "measurements": {
+        "cpu_seconds": 0.09201710900000001,
+        "wall_seconds": 0.08957841099993402,
+        "peak_rss_bytes": 24129536,
+        "explicit_original_read_calls": 4,
+        "explicit_original_bytes_read": 465
+      },
+      "features": {},
+      "level": "medium",
+      "cohort": "fresh",
+      "graph_failures": [],
+      "diagnostic": {
+        "code": "interpretation_unsupported",
+        "stage": "strict",
+        "message": "Eligible passages exist, but the strict reader cannot establish an answer to this question.",
+        "category": "unsupported_question_grammar",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Inspect the relevant source. Try a supported question form or explicitly select a configured assisted reader; do not treat this refusal as proof that the answer is absent."
+        ]
+      },
+      "discovered_all_required_statements": true
+    },
+    {
+      "id": "POLE-f2d6d27cee88948d-00012",
+      "family": "field_recorded_value_qualified",
+      "expected": "refuse",
+      "execution": "completed",
+      "kind": "abstain",
+      "answer_supported": false,
+      "typed_proposition_match": false,
+      "quotation_fidelity": true,
+      "outcome": "appropriate_refusal",
+      "checked_partial": false,
+      "retrieval": {
+        "native_facets": {
+          "rank_one": null,
+          "complete_statement_coverage": null,
+          "recall_at_1": null,
+          "recall_at_5": null,
+          "recall_at_10": null
+        },
+        "simple_bm25": {
+          "rank_one": null,
+          "complete_statement_coverage": null,
+          "recall_at_1": null,
+          "recall_at_5": null,
+          "recall_at_10": null
+        }
+      },
+      "measurements": {
+        "cpu_seconds": 0.047991949000000006,
+        "wall_seconds": 0.04837597200003074,
+        "peak_rss_bytes": 23924736,
+        "explicit_original_read_calls": 2,
+        "explicit_original_bytes_read": 94
+      },
+      "features": {
+        "source_count": 2,
+        "recording_verb": "stated",
+        "record_noun": "occurrence"
+      },
+      "literal_field_set_match": false,
+      "level": "medium",
+      "cohort": "fresh",
+      "graph_failures": [],
+      "diagnostic": {
+        "code": "exact_field_missing",
+        "stage": "strict",
+        "message": "The exact route does not establish the requested field under a bounded grammar.",
+        "category": "insufficient_evidence",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Inspect the exact record and supply an explicit source body field; an identifier alone is not field support."
+        ]
+      },
+      "discovered_all_required_statements": null
+    },
+    {
+      "id": "POLE-f2d6d27cee88948d-00013",
+      "family": "field_synonym",
+      "expected": "answer",
+      "execution": "completed",
+      "kind": "supported_answer",
+      "answer_supported": true,
+      "typed_proposition_match": false,
+      "quotation_fidelity": true,
+      "outcome": "detected_answer",
+      "checked_partial": false,
+      "retrieval": {
+        "native_facets": {
+          "rank_one": true,
+          "complete_statement_coverage": null,
+          "recall_at_1": 1.0,
+          "recall_at_5": 1.0,
+          "recall_at_10": 1.0
+        },
+        "simple_bm25": {
+          "rank_one": true,
+          "complete_statement_coverage": null,
+          "recall_at_1": 1.0,
+          "recall_at_5": 1.0,
+          "recall_at_10": 1.0
+        }
+      },
+      "measurements": {
+        "cpu_seconds": 0.05197237000000002,
+        "wall_seconds": 0.051940966000074695,
+        "peak_rss_bytes": 23928832,
+        "explicit_original_read_calls": 1,
+        "explicit_original_bytes_read": 144
+      },
+      "features": {
+        "question_form": 5,
+        "field": "Custody Location",
+        "line_ending": "LF",
+        "fence": ">",
+        "heading": "# Register\n\n",
+        "source_count": 1
+      },
+      "literal_field_set_match": true,
+      "level": "medium",
+      "cohort": "fresh",
+      "graph_failures": [],
+      "diagnostic": {
+        "code": "supported",
+        "stage": "strict",
+        "message": "Exact source body field evidence; no inference from record identity.",
+        "category": "source_support_established",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Open the cited source and check its conditions and revision."
+        ]
+      },
+      "discovered_all_required_statements": null
+    },
+    {
+      "id": "POLE-f2d6d27cee88948d-00014",
+      "family": "field_recorded_value",
+      "expected": "answer",
+      "execution": "completed",
+      "kind": "abstain",
+      "answer_supported": false,
+      "typed_proposition_match": false,
+      "quotation_fidelity": true,
+      "outcome": "over_refusal",
+      "checked_partial": false,
+      "retrieval": {
+        "native_facets": {
+          "rank_one": true,
+          "complete_statement_coverage": null,
+          "recall_at_1": 1.0,
+          "recall_at_5": 1.0,
+          "recall_at_10": 1.0
+        },
+        "simple_bm25": {
+          "rank_one": true,
+          "complete_statement_coverage": null,
+          "recall_at_1": 1.0,
+          "recall_at_5": 1.0,
+          "recall_at_10": 1.0
+        }
+      },
+      "measurements": {
+        "cpu_seconds": 0.048004709000000007,
+        "wall_seconds": 0.048283723000054124,
+        "peak_rss_bytes": 23932928,
+        "explicit_original_read_calls": 2,
+        "explicit_original_bytes_read": 84
+      },
+      "features": {
+        "source_count": 2,
+        "recording_verb": "recorded",
+        "record_noun": "record"
+      },
+      "literal_field_set_match": false,
+      "level": "medium",
+      "cohort": "fresh",
+      "graph_failures": [],
+      "diagnostic": {
+        "code": "exact_field_missing",
+        "stage": "strict",
+        "message": "The exact route does not establish the requested field under a bounded grammar.",
+        "category": "insufficient_evidence",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Inspect the exact record and supply an explicit source body field; an identifier alone is not field support."
+        ]
+      },
+      "discovered_all_required_statements": null
+    },
+    {
+      "id": "POLE-f2d6d27cee88948d-00015",
+      "family": "date_roles",
+      "expected": "answer",
+      "execution": "completed",
+      "kind": "abstain",
+      "answer_supported": false,
+      "typed_proposition_match": false,
+      "quotation_fidelity": true,
+      "outcome": "over_refusal",
+      "checked_partial": false,
+      "retrieval": {
+        "native_facets": {
+          "rank_one": true,
+          "complete_statement_coverage": 1.0,
+          "recall_at_1": 1.0,
+          "recall_at_5": 1.0,
+          "recall_at_10": 1.0
+        },
+        "simple_bm25": {
+          "rank_one": true,
+          "complete_statement_coverage": 1.0,
+          "recall_at_1": 1.0,
+          "recall_at_5": 1.0,
+          "recall_at_10": 1.0
+        }
+      },
+      "measurements": {
+        "cpu_seconds": 0.087732427,
+        "wall_seconds": 0.08651299399991785,
+        "peak_rss_bytes": 24141824,
+        "explicit_original_read_calls": 4,
+        "explicit_original_bytes_read": 463
+      },
+      "features": {},
+      "level": "medium",
+      "cohort": "fresh",
+      "graph_failures": [],
+      "diagnostic": {
+        "code": "interpretation_unsupported",
+        "stage": "strict",
+        "message": "Eligible passages exist, but the strict reader cannot establish an answer to this question.",
+        "category": "unsupported_question_grammar",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Inspect the relevant source. Try a supported question form or explicitly select a configured assisted reader; do not treat this refusal as proof that the answer is absent."
+        ]
+      },
+      "discovered_all_required_statements": true
+    },
+    {
+      "id": "POLE-f2d6d27cee88948d-00016",
+      "family": "field_recorded_value_qualified",
+      "expected": "refuse",
+      "execution": "completed",
+      "kind": "abstain",
+      "answer_supported": false,
+      "typed_proposition_match": false,
+      "quotation_fidelity": true,
+      "outcome": "appropriate_refusal",
+      "checked_partial": false,
+      "retrieval": {
+        "native_facets": {
+          "rank_one": null,
+          "complete_statement_coverage": null,
+          "recall_at_1": null,
+          "recall_at_5": null,
+          "recall_at_10": null
+        },
+        "simple_bm25": {
+          "rank_one": null,
+          "complete_statement_coverage": null,
+          "recall_at_1": null,
+          "recall_at_5": null,
+          "recall_at_10": null
+        }
+      },
+      "measurements": {
+        "cpu_seconds": 0.048003357000000024,
+        "wall_seconds": 0.048134017000052154,
+        "peak_rss_bytes": 23932928,
+        "explicit_original_read_calls": 2,
+        "explicit_original_bytes_read": 100
+      },
+      "features": {
+        "source_count": 2,
+        "recording_verb": "recorded",
+        "record_noun": "record"
+      },
+      "literal_field_set_match": false,
+      "level": "medium",
+      "cohort": "fresh",
+      "graph_failures": [],
+      "diagnostic": {
+        "code": "exact_field_missing",
+        "stage": "strict",
+        "message": "The exact route does not establish the requested field under a bounded grammar.",
+        "category": "insufficient_evidence",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Inspect the exact record and supply an explicit source body field; an identifier alone is not field support."
+        ]
+      },
+      "discovered_all_required_statements": null
+    },
+    {
+      "id": "POLE-e96eaa9dffad704a-00001",
+      "family": "field_recorded_value_qualified",
+      "expected": "refuse",
+      "execution": "completed",
+      "kind": "abstain",
+      "answer_supported": false,
+      "typed_proposition_match": false,
+      "quotation_fidelity": true,
+      "outcome": "appropriate_refusal",
+      "checked_partial": false,
+      "retrieval": {
+        "native_facets": {
+          "rank_one": null,
+          "complete_statement_coverage": null,
+          "recall_at_1": null,
+          "recall_at_5": null,
+          "recall_at_10": null
+        },
+        "simple_bm25": {
+          "rank_one": null,
+          "complete_statement_coverage": null,
+          "recall_at_1": null,
+          "recall_at_5": null,
+          "recall_at_10": null
+        }
+      },
+      "measurements": {
+        "cpu_seconds": 0.044003809000000005,
+        "wall_seconds": 0.04505471699997088,
+        "peak_rss_bytes": 23924736,
+        "explicit_original_read_calls": 2,
+        "explicit_original_bytes_read": 86
+      },
+      "features": {
+        "source_count": 2,
+        "recording_verb": "recorded",
+        "record_noun": "occurrence"
+      },
+      "literal_field_set_match": false,
+      "level": "hard",
+      "cohort": "fresh",
+      "graph_failures": [],
+      "diagnostic": {
+        "code": "exact_field_missing",
+        "stage": "strict",
+        "message": "The exact route does not establish the requested field under a bounded grammar.",
+        "category": "insufficient_evidence",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Inspect the exact record and supply an explicit source body field; an identifier alone is not field support."
+        ]
+      },
+      "discovered_all_required_statements": null
+    },
+    {
+      "id": "POLE-e96eaa9dffad704a-00002",
+      "family": "chronology_causation",
+      "expected": "refuse",
+      "execution": "completed",
+      "kind": "abstain",
+      "answer_supported": false,
+      "typed_proposition_match": false,
+      "quotation_fidelity": true,
+      "outcome": "appropriate_refusal",
+      "checked_partial": false,
+      "retrieval": {
+        "native_facets": {
+          "rank_one": true,
+          "complete_statement_coverage": 1.0,
+          "recall_at_1": 1.0,
+          "recall_at_5": 1.0,
+          "recall_at_10": 1.0
+        },
+        "simple_bm25": {
+          "rank_one": true,
+          "complete_statement_coverage": 1.0,
+          "recall_at_1": 1.0,
+          "recall_at_5": 1.0,
+          "recall_at_10": 1.0
+        }
+      },
+      "measurements": {
+        "cpu_seconds": 0.087997352,
+        "wall_seconds": 0.08710065400009626,
+        "peak_rss_bytes": 24506368,
+        "explicit_original_read_calls": 4,
+        "explicit_original_bytes_read": 457
+      },
+      "features": {},
+      "level": "hard",
+      "cohort": "fresh",
+      "graph_failures": [],
+      "diagnostic": {
+        "code": "interpretation_unsupported",
+        "stage": "strict",
+        "message": "Eligible passages exist, but the strict reader cannot establish an answer to this question.",
+        "category": "unsupported_question_grammar",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Inspect the relevant source. Try a supported question form or explicitly select a configured assisted reader; do not treat this refusal as proof that the answer is absent."
+        ]
+      },
+      "discovered_all_required_statements": true
+    },
+    {
+      "id": "POLE-e96eaa9dffad704a-00003",
+      "family": "partial_correction",
+      "expected": "answer",
+      "execution": "completed",
+      "kind": "abstain",
+      "answer_supported": false,
+      "typed_proposition_match": false,
+      "quotation_fidelity": true,
+      "outcome": "over_refusal",
+      "checked_partial": false,
+      "retrieval": {
+        "native_facets": {
+          "rank_one": true,
+          "complete_statement_coverage": 0.5,
+          "recall_at_1": 0.5,
+          "recall_at_5": 0.5,
+          "recall_at_10": 0.5
+        },
+        "simple_bm25": {
+          "rank_one": true,
+          "complete_statement_coverage": 1.0,
+          "recall_at_1": 0.5,
+          "recall_at_5": 0.5,
+          "recall_at_10": 1.0
+        }
+      },
+      "measurements": {
+        "cpu_seconds": 0.12799712700000002,
+        "wall_seconds": 0.12973123400001896,
+        "peak_rss_bytes": 26714112,
+        "explicit_original_read_calls": 9,
+        "explicit_original_bytes_read": 1043
+      },
+      "features": {},
+      "level": "hard",
+      "cohort": "fresh",
+      "graph_failures": [],
+      "diagnostic": {
+        "code": "interpretation_unsupported",
+        "stage": "strict",
+        "message": "Eligible passages exist, but the strict reader cannot establish an answer to this question.",
+        "category": "unsupported_question_grammar",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Inspect the relevant source. Try a supported question form or explicitly select a configured assisted reader; do not treat this refusal as proof that the answer is absent."
+        ]
+      },
+      "discovered_all_required_statements": false
+    },
+    {
+      "id": "POLE-e96eaa9dffad704a-00004",
+      "family": "field_recorded_value_conflict",
+      "expected": "refuse",
+      "execution": "completed",
+      "kind": "abstain",
+      "answer_supported": false,
+      "typed_proposition_match": false,
+      "quotation_fidelity": true,
+      "outcome": "appropriate_refusal",
+      "checked_partial": false,
+      "retrieval": {
+        "native_facets": {
+          "rank_one": null,
+          "complete_statement_coverage": null,
+          "recall_at_1": null,
+          "recall_at_5": null,
+          "recall_at_10": null
+        },
+        "simple_bm25": {
+          "rank_one": null,
+          "complete_statement_coverage": null,
+          "recall_at_1": null,
+          "recall_at_5": null,
+          "recall_at_10": null
+        }
+      },
+      "measurements": {
+        "cpu_seconds": 0.059998415,
+        "wall_seconds": 0.05755325500001618,
+        "peak_rss_bytes": 23924736,
+        "explicit_original_read_calls": 3,
+        "explicit_original_bytes_read": 130
+      },
+      "features": {
+        "source_count": 3,
+        "recording_verb": "listed",
+        "record_noun": "occurrence"
+      },
+      "literal_field_set_match": false,
+      "level": "hard",
+      "cohort": "fresh",
+      "graph_failures": [],
+      "diagnostic": {
+        "code": "exact_field_missing",
+        "stage": "strict",
+        "message": "The exact route does not establish the requested field under a bounded grammar.",
+        "category": "insufficient_evidence",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Inspect the exact record and supply an explicit source body field; an identifier alone is not field support."
+        ]
+      },
+      "discovered_all_required_statements": null
+    },
+    {
+      "id": "POLE-e96eaa9dffad704a-00005",
+      "family": "missing_bridge",
+      "expected": "refuse",
+      "execution": "completed",
+      "kind": "abstain",
+      "answer_supported": false,
+      "typed_proposition_match": false,
+      "quotation_fidelity": true,
+      "outcome": "appropriate_refusal",
+      "checked_partial": false,
+      "retrieval": {
+        "native_facets": {
+          "rank_one": true,
+          "complete_statement_coverage": 1.0,
+          "recall_at_1": 0.5,
+          "recall_at_5": 1.0,
+          "recall_at_10": 1.0
+        },
+        "simple_bm25": {
+          "rank_one": true,
+          "complete_statement_coverage": 1.0,
+          "recall_at_1": 0.5,
+          "recall_at_5": 1.0,
+          "recall_at_10": 1.0
+        }
+      },
+      "measurements": {
+        "cpu_seconds": 0.139001929,
+        "wall_seconds": 0.13829292499997337,
+        "peak_rss_bytes": 25559040,
+        "explicit_original_read_calls": 9,
+        "explicit_original_bytes_read": 982
+      },
+      "features": {},
+      "level": "hard",
+      "cohort": "fresh",
+      "graph_failures": [],
+      "diagnostic": {
+        "code": "interpretation_unsupported",
+        "stage": "strict",
+        "message": "Eligible passages exist, but the strict reader cannot establish an answer to this question.",
+        "category": "unsupported_question_grammar",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Inspect the relevant source. Try a supported question form or explicitly select a configured assisted reader; do not treat this refusal as proof that the answer is absent."
+        ]
+      },
+      "discovered_all_required_statements": true
+    },
+    {
+      "id": "POLE-e96eaa9dffad704a-00006",
+      "family": "explicit_chain",
+      "expected": "answer",
+      "execution": "completed",
+      "kind": "abstain",
+      "answer_supported": false,
+      "typed_proposition_match": false,
+      "quotation_fidelity": true,
+      "outcome": "over_refusal",
+      "checked_partial": false,
+      "retrieval": {
+        "native_facets": {
+          "rank_one": true,
+          "complete_statement_coverage": 0.6666666666666666,
+          "recall_at_1": 0.3333333333333333,
+          "recall_at_5": 0.6666666666666666,
+          "recall_at_10": 0.6666666666666666
+        },
+        "simple_bm25": {
+          "rank_one": true,
+          "complete_statement_coverage": 1.0,
+          "recall_at_1": 0.3333333333333333,
+          "recall_at_5": 0.6666666666666666,
+          "recall_at_10": 1.0
+        }
+      },
+      "measurements": {
+        "cpu_seconds": 0.15201756900000002,
+        "wall_seconds": 0.15316889899997932,
+        "peak_rss_bytes": 26820608,
+        "explicit_original_read_calls": 10,
+        "explicit_original_bytes_read": 1312
+      },
+      "features": {},
+      "level": "hard",
+      "cohort": "fresh",
+      "graph_failures": [],
+      "diagnostic": {
+        "code": "interpretation_unsupported",
+        "stage": "strict",
+        "message": "Eligible passages exist, but the strict reader cannot establish an answer to this question.",
+        "category": "unsupported_question_grammar",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Inspect the relevant source. Try a supported question form or explicitly select a configured assisted reader; do not treat this refusal as proof that the answer is absent."
+        ]
+      },
+      "discovered_all_required_statements": false
+    },
+    {
+      "id": "POLE-e96eaa9dffad704a-00007",
+      "family": "wording_change",
+      "expected": "answer",
+      "execution": "completed",
+      "kind": "partial_answer",
+      "answer_supported": false,
+      "typed_proposition_match": false,
+      "quotation_fidelity": true,
+      "outcome": "over_refusal",
+      "checked_partial": true,
+      "retrieval": {
+        "native_facets": {
+          "rank_one": true,
+          "complete_statement_coverage": 1.0,
+          "recall_at_1": 0.5,
+          "recall_at_5": 1.0,
+          "recall_at_10": 1.0
+        },
+        "simple_bm25": {
+          "rank_one": true,
+          "complete_statement_coverage": 1.0,
+          "recall_at_1": 0.5,
+          "recall_at_5": 1.0,
+          "recall_at_10": 1.0
+        }
+      },
+      "measurements": {
+        "cpu_seconds": 0.147995046,
+        "wall_seconds": 0.1491526210000984,
+        "peak_rss_bytes": 25784320,
+        "explicit_original_read_calls": 5,
+        "explicit_original_bytes_read": 706
+      },
+      "features": {},
+      "level": "hard",
+      "cohort": "fresh",
+      "graph_failures": [],
+      "diagnostic": {
+        "code": "partial_documentary_evidence",
+        "stage": "documentary_verification",
+        "message": "Checked source-attributed assertions only; unresolved question obligations remain explicit and historical truth is unverified.",
+        "category": "insufficient_evidence",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Review the diagnostic and source evidence before retrying."
+        ]
+      },
+      "discovered_all_required_statements": true
+    },
+    {
+      "id": "POLE-e96eaa9dffad704a-00008",
+      "family": "field_compound",
+      "expected": "answer",
+      "execution": "completed",
+      "kind": "supported_answer",
+      "answer_supported": true,
+      "typed_proposition_match": false,
+      "quotation_fidelity": true,
+      "outcome": "detected_answer",
+      "checked_partial": false,
+      "retrieval": {
+        "native_facets": {
+          "rank_one": true,
+          "complete_statement_coverage": null,
+          "recall_at_1": 1.0,
+          "recall_at_5": 1.0,
+          "recall_at_10": 1.0
+        },
+        "simple_bm25": {
+          "rank_one": true,
+          "complete_statement_coverage": null,
+          "recall_at_1": 1.0,
+          "recall_at_5": 1.0,
+          "recall_at_10": 1.0
+        }
+      },
+      "measurements": {
+        "cpu_seconds": 0.051988883999999985,
+        "wall_seconds": 0.05057684500002324,
+        "peak_rss_bytes": 23924736,
+        "explicit_original_read_calls": 1,
+        "explicit_original_bytes_read": 147
+      },
+      "features": {
+        "question_form": 5,
+        "field": "Current Status",
+        "line_ending": "LF",
+        "fence": "~~~",
+        "heading": "Subject: Archive notice\n",
+        "source_count": 1
+      },
+      "literal_field_set_match": true,
+      "level": "hard",
+      "cohort": "fresh",
+      "graph_failures": [],
+      "diagnostic": {
+        "code": "supported",
+        "stage": "strict",
+        "message": "Both source fields were verified.",
+        "category": "source_support_established",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Open the cited source and check its conditions and revision."
+        ]
+      },
+      "discovered_all_required_statements": null
+    },
+    {
+      "id": "POLE-e96eaa9dffad704a-00009",
+      "family": "chronology_causation",
+      "expected": "refuse",
+      "execution": "completed",
+      "kind": "abstain",
+      "answer_supported": false,
+      "typed_proposition_match": false,
+      "quotation_fidelity": true,
+      "outcome": "appropriate_refusal",
+      "checked_partial": false,
+      "retrieval": {
+        "native_facets": {
+          "rank_one": true,
+          "complete_statement_coverage": 1.0,
+          "recall_at_1": 1.0,
+          "recall_at_5": 1.0,
+          "recall_at_10": 1.0
+        },
+        "simple_bm25": {
+          "rank_one": true,
+          "complete_statement_coverage": 1.0,
+          "recall_at_1": 1.0,
+          "recall_at_5": 1.0,
+          "recall_at_10": 1.0
+        }
+      },
+      "measurements": {
+        "cpu_seconds": 0.06396937999999999,
+        "wall_seconds": 0.06432007400007933,
+        "peak_rss_bytes": 23924736,
+        "explicit_original_read_calls": 2,
+        "explicit_original_bytes_read": 170
+      },
+      "features": {},
+      "level": "hard",
+      "cohort": "fresh",
+      "graph_failures": [],
+      "diagnostic": {
+        "code": "interpretation_unsupported",
+        "stage": "strict",
+        "message": "Eligible passages exist, but the strict reader cannot establish an answer to this question.",
+        "category": "unsupported_question_grammar",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Inspect the relevant source. Try a supported question form or explicitly select a configured assisted reader; do not treat this refusal as proof that the answer is absent."
+        ]
+      },
+      "discovered_all_required_statements": true
+    },
+    {
+      "id": "POLE-e96eaa9dffad704a-00010",
+      "family": "wording_change",
+      "expected": "answer",
+      "execution": "completed",
+      "kind": "partial_answer",
+      "answer_supported": false,
+      "typed_proposition_match": false,
+      "quotation_fidelity": true,
+      "outcome": "over_refusal",
+      "checked_partial": true,
+      "retrieval": {
+        "native_facets": {
+          "rank_one": true,
+          "complete_statement_coverage": 1.0,
+          "recall_at_1": 0.5,
+          "recall_at_5": 1.0,
+          "recall_at_10": 1.0
+        },
+        "simple_bm25": {
+          "rank_one": true,
+          "complete_statement_coverage": 1.0,
+          "recall_at_1": 0.5,
+          "recall_at_5": 1.0,
+          "recall_at_10": 1.0
+        }
+      },
+      "measurements": {
+        "cpu_seconds": 0.199989598,
+        "wall_seconds": 0.19973055800005568,
+        "peak_rss_bytes": 27684864,
+        "explicit_original_read_calls": 9,
+        "explicit_original_bytes_read": 1158
+      },
+      "features": {},
+      "level": "hard",
+      "cohort": "fresh",
+      "graph_failures": [],
+      "diagnostic": {
+        "code": "partial_documentary_evidence",
+        "stage": "documentary_verification",
+        "message": "Checked source-attributed assertions only; unresolved question obligations remain explicit and historical truth is unverified.",
+        "category": "insufficient_evidence",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Review the diagnostic and source evidence before retrying."
+        ]
+      },
+      "discovered_all_required_statements": true
+    },
+    {
+      "id": "POLE-e96eaa9dffad704a-00011",
+      "family": "explicit_chain",
+      "expected": "answer",
+      "execution": "completed",
+      "kind": "abstain",
+      "answer_supported": false,
+      "typed_proposition_match": false,
+      "quotation_fidelity": true,
+      "outcome": "over_refusal",
+      "checked_partial": false,
+      "retrieval": {
+        "native_facets": {
+          "rank_one": true,
+          "complete_statement_coverage": 0.6666666666666666,
+          "recall_at_1": 0.3333333333333333,
+          "recall_at_5": 0.6666666666666666,
+          "recall_at_10": 0.6666666666666666
+        },
+        "simple_bm25": {
+          "rank_one": false,
+          "complete_statement_coverage": 1.0,
+          "recall_at_1": 0.0,
+          "recall_at_5": 1.0,
+          "recall_at_10": 1.0
+        }
+      },
+      "measurements": {
+        "cpu_seconds": 0.07999731499999999,
+        "wall_seconds": 0.07933578600000146,
+        "peak_rss_bytes": 24150016,
+        "explicit_original_read_calls": 4,
+        "explicit_original_bytes_read": 604
+      },
+      "features": {},
+      "level": "hard",
+      "cohort": "fresh",
+      "graph_failures": [],
+      "diagnostic": {
+        "code": "interpretation_unsupported",
+        "stage": "strict",
+        "message": "Eligible passages exist, but the strict reader cannot establish an answer to this question.",
+        "category": "unsupported_question_grammar",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Inspect the relevant source. Try a supported question form or explicitly select a configured assisted reader; do not treat this refusal as proof that the answer is absent."
+        ]
+      },
+      "discovered_all_required_statements": false
+    },
+    {
+      "id": "POLE-e96eaa9dffad704a-00012",
+      "family": "partial_correction",
+      "expected": "answer",
+      "execution": "completed",
+      "kind": "abstain",
+      "answer_supported": false,
+      "typed_proposition_match": false,
+      "quotation_fidelity": true,
+      "outcome": "over_refusal",
+      "checked_partial": false,
+      "retrieval": {
+        "native_facets": {
+          "rank_one": true,
+          "complete_statement_coverage": 0.5,
+          "recall_at_1": 0.5,
+          "recall_at_5": 0.5,
+          "recall_at_10": 0.5
+        },
+        "simple_bm25": {
+          "rank_one": true,
+          "complete_statement_coverage": 1.0,
+          "recall_at_1": 0.5,
+          "recall_at_5": 0.5,
+          "recall_at_10": 1.0
+        }
+      },
+      "measurements": {
+        "cpu_seconds": 0.139699929,
+        "wall_seconds": 0.13894199899993964,
+        "peak_rss_bytes": 26804224,
+        "explicit_original_read_calls": 9,
+        "explicit_original_bytes_read": 1149
+      },
+      "features": {},
+      "level": "hard",
+      "cohort": "fresh",
+      "graph_failures": [],
+      "diagnostic": {
+        "code": "interpretation_unsupported",
+        "stage": "strict",
+        "message": "Eligible passages exist, but the strict reader cannot establish an answer to this question.",
+        "category": "unsupported_question_grammar",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Inspect the relevant source. Try a supported question form or explicitly select a configured assisted reader; do not treat this refusal as proof that the answer is absent."
+        ]
+      },
+      "discovered_all_required_statements": false
+    },
+    {
+      "id": "POLE-e96eaa9dffad704a-00013",
+      "family": "field_recorded_value_qualified",
+      "expected": "refuse",
+      "execution": "completed",
+      "kind": "abstain",
+      "answer_supported": false,
+      "typed_proposition_match": false,
+      "quotation_fidelity": true,
+      "outcome": "appropriate_refusal",
+      "checked_partial": false,
+      "retrieval": {
+        "native_facets": {
+          "rank_one": null,
+          "complete_statement_coverage": null,
+          "recall_at_1": null,
+          "recall_at_5": null,
+          "recall_at_10": null
+        },
+        "simple_bm25": {
+          "rank_one": null,
+          "complete_statement_coverage": null,
+          "recall_at_1": null,
+          "recall_at_5": null,
+          "recall_at_10": null
+        }
+      },
+      "measurements": {
+        "cpu_seconds": 0.048002324999999985,
+        "wall_seconds": 0.04804261799995402,
+        "peak_rss_bytes": 23924736,
+        "explicit_original_read_calls": 2,
+        "explicit_original_bytes_read": 100
+      },
+      "features": {
+        "source_count": 2,
+        "recording_verb": "recorded",
+        "record_noun": "occurrence"
+      },
+      "literal_field_set_match": false,
+      "level": "hard",
+      "cohort": "fresh",
+      "graph_failures": [],
+      "diagnostic": {
+        "code": "exact_field_missing",
+        "stage": "strict",
+        "message": "The exact route does not establish the requested field under a bounded grammar.",
+        "category": "insufficient_evidence",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Inspect the exact record and supply an explicit source body field; an identifier alone is not field support."
+        ]
+      },
+      "discovered_all_required_statements": null
+    },
+    {
+      "id": "POLE-e96eaa9dffad704a-00014",
+      "family": "field_compound",
+      "expected": "answer",
+      "execution": "completed",
+      "kind": "supported_answer",
+      "answer_supported": true,
+      "typed_proposition_match": false,
+      "quotation_fidelity": true,
+      "outcome": "detected_answer",
+      "checked_partial": false,
+      "retrieval": {
+        "native_facets": {
+          "rank_one": true,
+          "complete_statement_coverage": null,
+          "recall_at_1": 1.0,
+          "recall_at_5": 1.0,
+          "recall_at_10": 1.0
+        },
+        "simple_bm25": {
+          "rank_one": true,
+          "complete_statement_coverage": null,
+          "recall_at_1": 1.0,
+          "recall_at_5": 1.0,
+          "recall_at_10": 1.0
+        }
+      },
+      "measurements": {
+        "cpu_seconds": 0.05980306299999999,
+        "wall_seconds": 0.0599155410000094,
+        "peak_rss_bytes": 23928832,
+        "explicit_original_read_calls": 1,
+        "explicit_original_bytes_read": 157
+      },
+      "features": {
+        "question_form": 1,
+        "field": "Custody Location",
+        "line_ending": "CRLF",
+        "fence": "```",
+        "heading": "Subject: Archive notice\n",
+        "source_count": 1
+      },
+      "literal_field_set_match": true,
+      "level": "hard",
+      "cohort": "fresh",
+      "graph_failures": [],
+      "diagnostic": {
+        "code": "supported",
+        "stage": "strict",
+        "message": "Both source fields were verified.",
+        "category": "source_support_established",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Open the cited source and check its conditions and revision."
+        ]
+      },
+      "discovered_all_required_statements": null
+    },
+    {
+      "id": "POLE-e96eaa9dffad704a-00015",
+      "family": "missing_bridge",
+      "expected": "refuse",
+      "execution": "completed",
+      "kind": "abstain",
+      "answer_supported": false,
+      "typed_proposition_match": false,
+      "quotation_fidelity": true,
+      "outcome": "appropriate_refusal",
+      "checked_partial": false,
+      "retrieval": {
+        "native_facets": {
+          "rank_one": true,
+          "complete_statement_coverage": 1.0,
+          "recall_at_1": 0.5,
+          "recall_at_5": 1.0,
+          "recall_at_10": 1.0
+        },
+        "simple_bm25": {
+          "rank_one": true,
+          "complete_statement_coverage": 1.0,
+          "recall_at_1": 0.5,
+          "recall_at_5": 1.0,
+          "recall_at_10": 1.0
+        }
+      },
+      "measurements": {
+        "cpu_seconds": 0.15996344199999998,
+        "wall_seconds": 0.16026975400006904,
+        "peak_rss_bytes": 27164672,
+        "explicit_original_read_calls": 9,
+        "explicit_original_bytes_read": 1087
+      },
+      "features": {},
+      "level": "hard",
+      "cohort": "fresh",
+      "graph_failures": [],
+      "diagnostic": {
+        "code": "interpretation_unsupported",
+        "stage": "strict",
+        "message": "Eligible passages exist, but the strict reader cannot establish an answer to this question.",
+        "category": "unsupported_question_grammar",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Inspect the relevant source. Try a supported question form or explicitly select a configured assisted reader; do not treat this refusal as proof that the answer is absent."
+        ]
+      },
+      "discovered_all_required_statements": true
+    },
+    {
+      "id": "POLE-e96eaa9dffad704a-00016",
+      "family": "field_recorded_value_conflict",
+      "expected": "refuse",
+      "execution": "completed",
+      "kind": "abstain",
+      "answer_supported": false,
+      "typed_proposition_match": false,
+      "quotation_fidelity": true,
+      "outcome": "appropriate_refusal",
+      "checked_partial": false,
+      "retrieval": {
+        "native_facets": {
+          "rank_one": null,
+          "complete_statement_coverage": null,
+          "recall_at_1": null,
+          "recall_at_5": null,
+          "recall_at_10": null
+        },
+        "simple_bm25": {
+          "rank_one": null,
+          "complete_statement_coverage": null,
+          "recall_at_1": null,
+          "recall_at_5": null,
+          "recall_at_10": null
+        }
+      },
+      "measurements": {
+        "cpu_seconds": 0.051934412999999985,
+        "wall_seconds": 0.05402907000006962,
+        "peak_rss_bytes": 23928832,
+        "explicit_original_read_calls": 3,
+        "explicit_original_bytes_read": 131
+      },
+      "features": {
+        "source_count": 3,
+        "recording_verb": "listed",
+        "record_noun": "record"
+      },
+      "literal_field_set_match": false,
+      "level": "hard",
+      "cohort": "fresh",
+      "graph_failures": [],
+      "diagnostic": {
+        "code": "exact_field_missing",
+        "stage": "strict",
+        "message": "The exact route does not establish the requested field under a bounded grammar.",
+        "category": "insufficient_evidence",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Inspect the exact record and supply an explicit source body field; an identifier alone is not field support."
+        ]
+      },
+      "discovered_all_required_statements": null
+    }
+  ]
+}
