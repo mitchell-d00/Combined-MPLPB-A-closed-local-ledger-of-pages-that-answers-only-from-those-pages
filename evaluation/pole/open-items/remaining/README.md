@@ -34,7 +34,12 @@ earlier document contains the disputed words in a statement that the
 available package did not establish the claim. The Federal Register
 grammar has no report-attributed erratum operation. A bridge that turns
 that earlier statement into a positive attribution was refused. The
-three previously complete Tacitus claims reproduced exactly.
+three previously complete Tacitus claims reproduced exactly. The unchanged
+candidate was challenged with four additional frozen cases that removed
+a prior publication while preserving the follow-up's answer wording.
+All four withheld in both runs. These controls verify that the follow-up
+wording alone cannot complete the bridge. [Dependency baseline](dhs-dependency-before.json) ·
+[Dependency candidate](dhs-dependency-after.json)
 [Baseline](herodotus-before.json) · [Candidate](herodotus-after.json) ·
 [Retained unsuccessful trial](herodotus-trial.json)
 
@@ -80,7 +85,11 @@ The sorter again retained two distinct records in eight slots and the
 separate repeated-phrase-group limit fired on the frozen chain. Both
 records supported the Babbage proof only when eligible and within budget.
 Phrase-token and phrase-group limits concern sorter inspection. The
-literal lookup drop was traced to the independent documentary scan.
+literal lookup drop was traced to the independent documentary scan. The
+retained authentic venue sorter replay showed both records and 30 shared
+groups while both phrase-token and phrase-group diagnostics fired. The
+frozen Douglass reread kept all decisions and its 6/12 complete proofs.
+[Authentic phrase replay](remaining-phrase-after.json) · [Douglass control](remaining-douglass-score.json)
 [Baseline](lovelace-limit-before.json) · [Candidate](lovelace-limit-after.json)
 
 ## Komnene-Ship
@@ -144,3 +153,7 @@ python -m tools.pole_remaining lovelace-limit --packet LOVELACE_PACKET --output 
 
 [Sealed operator cases](frozen-operator-packets.tar.gz) ·
 [Raw readbacks](native-readbacks.tar.gz) · [Matched summary](matched-summary.json)
+
+The extracted source archive ran 1,722 Python tests with 2 skips and
+passed all 52 public evidence controls, Pyodide, and Chromium.
+[Source archive hash and validation](validation.json)

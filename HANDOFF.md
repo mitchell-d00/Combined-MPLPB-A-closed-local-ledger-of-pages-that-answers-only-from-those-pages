@@ -4,8 +4,8 @@ Last reviewed: 2026-11-24.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `53408cdb452cda5aadf10cc42a4d9e50a388c4e2` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `ff3d15b67ec5989500406b0f1f9b59d8f056bdd00e1fbdd461e59a6bc5cf8cb0`.
+Base commit: `6c3b51023bc350cfdf9341694406f0cded191893` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `5e1ac74313ed498b2eecfe463c95414bc907590a1bcbc38adb7b2594a03dde0d`.
 
 ## Latest user update instructions
 
@@ -52,6 +52,48 @@ After the tests:
 Return the four result tables, any new rule text, the updated open-item list, the new commit hash, and the archive SHA-256.
 Send that. The names are Herodotus-DHS, Polybius, Lovelace-Limit, and Komnene-Ship.
 
+Booster for the agent
+You are operating inside a public, pinned, constraint-first loop on MPLPB Pole.
+
+Governing rules (non-negotiable):
+
+1. Generate → Constrain → Kill → Select → Recurse.
+   A proposal is only a candidate. It must be frozen against the current pin before scoring.
+
+2. No ledger → inadmissible.
+   Every change must produce: frozen cases, before/after counts, explicit withhold conditions, and a commit hash. Missing any of these = invalid.
+
+3. Hard kills (immediate rejection):
+   - Narrative immunity (“it failed because it’s deeper”)
+   - Constraint retrofitting after a miss
+   - False-supported bridges
+   - Claiming independent historical accuracy or native OOCC
+   - Authority drift (“the model said so”)
+   - Decorative recursion once host-domain closure is reached
+
+4. Straight-Line Boundary:
+   When the remaining open cases are either complete under an explicit rule or correctly withheld, and no further falsifiable work remains at this resolution, terminate. Mark everything else NOT_RUN.
+
+5. Bridge discipline:
+   Every new rule must cash out into host primitives (exact witnesses, unique publication resolution, chronological order, budget limits). If it only works when the documents already contain the answer in the form the rule expects, or only on synthetic cases, it fails.
+
+6. Public stress is an operator, not governance.
+   Outside judges and negative controls increase pressure. They do not replace the ledger.
+
+Current open items on pin 53408cdb452cda5aadf10cc42a4d9e50a388c4e2:
+- Two DHS cases
+- B-Tests attribution case
+- Original 12 synthetic misses
+- Relations without explicit publication references
+- Phrase-token / phrase-group limits and corpus-size degradation
+- Komnene-Outside independent scoring (NOT_RUN)
+- Independent historical accuracy and native OOCC (NOT_RUN)
+
+Zero false-supported bridges is a hard invariant. Preserve all previously closed cases (Tacitus 3/6, Douglass 6/12, Babbage caps).
+
+Return only: result tables, any new rule text, updated open-item list, new commit hash, and archive SHA-256.
+It is the extract of my past stack applied to the current pin.
+
 ## Implemented scope
 
 - Freeze Herodotus-DHS, Polybius, and Lovelace-Limit with separate development reference custody.
@@ -64,6 +106,8 @@ Send that. The names are Herodotus-DHS, Polybius, Lovelace-Limit, and Komnene-Sh
 - Polybius preserved 0/6 complete, one partial, five misses, and 6/6 expected withholds. Native discovery found all anchors in three cases.
 - Lovelace-Limit identified the 200,000-character and 1,000-unit caps independently at 40 pages. The authentic ladder became partial at 31 pages and remained partial through 42.
 - Komnene-Ship preserved 22 paired questions and 44 arms and matched all 22 packet hashes to the separately held mapping.
+- All four additional frozen dependency controls withheld despite unchanged follow-up wording. The retained Douglass 6/12 decisions and Babbage cap and eligibility outcomes reproduced.
+- The exact extracted source archive passed 52 public evidence controls, Pyodide and Chromium, and ran 1,722 Python tests with two skips.
 
 ## Limitations and blocked checks
 
