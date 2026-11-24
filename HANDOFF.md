@@ -4,77 +4,90 @@ Last reviewed: 2026-11-24.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `dcad7d96cb8892cd0a0d5d90828df1a57d764136` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `7699110a0bee7d3d2f20d485953289cc01f43eff9c839396d20d1534742bdb76`.
+Base commit: `5ffdca2d9e7c7bc6048b9bfb9f1a0caf36835426` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `158bd8d47e7da2fa05d219b5f0be5432feaa975936e9e665fc3cadd37fd24a07`.
 
 ## Latest user update instructions
 
-Here is the consolidated prompt:
+Prompt for the bot
+Continue the public MPLPB Pole training loop on the current pin.
 
-Combined MPLPB next-cycle development prompt
-Continue the determined training loop on Combined MPLPB. Use only public, hashable, span-anchored material. Keep scoring keys outside the worker. Preserve the strict refusal contract. Do not relabel synthetic or development gains as independent historical accuracy.
-Current measured state
-	•	Frozen synthetic field-admission forms repaired (0/750 → 750/750).
-	•	Pole focus draw: 11 targeted “value is recorded” misses recovered; 12 focus positives still open (date roles, reported statements, partial corrections, wording changes, explicit request–dispatch–receipt chains).
-	•	Catalog sweep: no change on the 75 inherited weakness classes.
-	•	Sorter defect (Ada Lovelace baseline): eight repetitions of one record can exhaust witness slots and hide a second record. Reproduce and patch inside the existing cap; leave the original phrase-group limit as a separate test.
-	•	22-question historical replay unchanged. Independent historical accuracy remains NOT RUN.
-	•	Expected withholds and zero new false support held on matched runs.
-Open items to address (priority order)
-	1	Partial corrections and multi-document proof families (the 12 remaining focus positives and related D% classes).
-	2	Sorter witness-slot exhaustion (preserve distinct records within the existing cap).
-	3	Date-role, reported-statement, wording-change, and explicit-chain families.
-	4	Broader unseen natural-language and compound requests (as controls, not primary targets).
-	5	Scale and completeness behavior on larger authentic collections.
-	6	Full outside-custodian historical evaluation protocol (prepare packets and protocol checks only; independent scores require outside participants).
-Data rules
-	•	Sources must have SHA-256 hashes, exact byte/character spans, and stable identities (path + hash).
-	•	Scoring keys, expected outcomes, and custody stay separate from the worker. Packets contain only sources, questions, and budgets.
-	•	Only eligible originals can support a strict answer. Candidate edges, processed material, and exploratory hits remain labeled and cannot authorize support.
-	•	Synthetic development fixtures stay explicitly synthetic. Authentic public-archive material is pinned and used for development replay only. Independent historical scoring is a separate later step.
-	•	Resource limits are explicit. Hitting a budget produces a visible diagnostic, not a silent omission or inferred link.
-	•	Every change uses frozen before/after comparisons on the same sealed cases. Flag any new false support or lost correct outcomes.
-Execution plan
-	1	Gather authentic correction and multi-document records from public archives. Also use public material from mitchell-d00 GitHub repositories where it helps. Pin original bytes and witness spans. Keep the answer key out of the operator packet.
-	2	Build or extend named tests for each open item above (especially partial corrections and multi-document proof). Reuse existing Pole / D% / Dice Bag machinery.
-	3	Run frozen baselines on the current revision.
-	4	Implement the scoped repairs (sorter slot preservation, partial-correction and multi-document proof rules, remaining focus-family gaps) while preserving negative controls and the refusal contract.
-	5	Re-run the same frozen before/after comparisons. Record complete answers, expected withholds, false support, execution failures, and sorter completeness diagnostics.
-	6	Update evaluation notes and the open-items list. Explicitly keep independent historical accuracy and native OOCC labeled NOT RUN.
-	7	Prepare packets and protocol checks for any future outside-custodian historical evaluation. Do not claim independent scores.
-Constraints
-	•	No claim of general historical reconstruction or “historic truth” until an outside-custodian protocol with concealed keys and independent scoring has been run and reported.
-	•	All repairs must be reproducible from pinned source, packet, key, and seed.
-	•	Retain failed attempts and incomplete runs in the record.
-	•	Keep discovery, native proof, reported conflicts, and independent historical accuracy as distinct measures.
-Begin with the data gathering and the named tests for partial corrections and multi-document proof. Report the frozen baseline numbers before any patch.
+Goal: close the remaining authentic relational gap (0/6 Strict Ask complete even when discovery finds the anchors). The two existing proof paths only succeed when documents already contain explicit named links. We need a rule that can form or correctly refuse a supported bridge from ordinary prose without inventing links.
+
+Run these four named tests. Freeze every case set before scoring. Keep the same public accounting: pinned commit, archive hash, before/after counts, explicit NOT_RUN labels, and zero false-supported bridges. Do not claim independent historical accuracy or native OOCC.
+
+1. Tacitus (link-establishment from ordinary prose)
+   - Draw a small authentic subset where the relation is stated in plain language but not as an explicit request–dispatch–receipt or “see also” chain.
+   - Score discovery and Strict Ask separately.
+   - Include the usual negative controls.
+   - Report: anchors found, bridges formed, bridges withheld, any unsupported bridges.
+
+2. Douglass (authentic partial corrections)
+   - Re-run the original 12 Pole miss family using real archive/Federal Register wording instead of the synthetic explicit-reference versions.
+   - Measure movement: complete miss → partial → complete.
+   - Confirm the sorter no longer exhausts slots when multiple supporting records exist.
+   - Keep negative controls.
+
+3. Babbage (multi-document proof under resource caps)
+   - Re-test the multi-record cases (Ada Lovelace style) with the current sorter.
+   - Force both the eight-slot cap and the phrase-group limit to trigger.
+   - Verify that retaining both records does not later produce a false-supported bridge when one record is ineligible.
+
+4. Komnene-Outside (prepared packet)
+   - The 22 anonymous paired cases are already prepared.
+   - Package them for outside semantic review with concealed keys.
+   - Do not score locally; mark independent scoring NOT RUN until the outside judge returns.
+
+After the four tests:
+- Write the exact rule that was added or refused for forming links from prose.
+- Update the open-items README with before/after counts for each named test.
+- Leave independent historical accuracy and native OOCC marked NOT RUN.
+- Commit the frozen cases, results, and rule under the public pin.
+
+Return the four result tables, the new rule text, the updated open-item list, and the new commit hash.
+Copy and send. The names are Tacitus, Douglass, Babbage, and Komnene-Outside.
+
+Next tests (focused on the remaining gap)
+The current pin still fails the authentic relational set (0/6 complete) even though discovery finds the anchors. The two new proof paths only succeed when the documents already explicitly name and link the records. The open work is therefore the step that turns ordinary prose into those links without inventing them.
+Immediate next tests
+1.  Link-establishment from prose (the actual missing rule)
+	•  Freeze a small authentic subset where the relation is stated in plain language but not as an explicit “see also / request–dispatch–receipt” chain.
+	•  Score two things separately: (a) did discovery still find the anchors, (b) did Strict Ask produce a supported bridge or correctly withhold.
+	•  Keep the same negative controls. Goal: isolate whether the failure is “cannot form the bridge” vs “formed an unsupported bridge.”
+2.  Partial-correction families on authentic text
+	•  Re-run the Ida B. Wells style cases but using the real Federal Register / archive wording instead of the synthetic “explicit source reference” versions.
+	•  Measure how many of the original 12 Pole misses move from complete miss → partial or complete once the link rule is applied.
+	•  Record whether the sorter still exhausts slots when multiple supporting records exist.
+3.  Multi-document proof under resource caps
+	•  Re-test the Zora Neale Hurston / Ada Lovelace style cases with the new sorter behavior, but force the eight-slot and phrase-group limits to trigger.
+	•  Confirm that retaining both records does not later produce a false-supported bridge when one of them is ineligible.
+4.  Outside-custodian packet for the Anna Komnene set
+	•  The 22 anonymous paired cases are already prepared. Ship them with concealed keys and score only after the outside judge returns. This is the cleanest way to check whether the link rule generalizes beyond the local custody rehearsal.
 
 ## Implemented scope
 
-- Freeze authentic GovInfo and public B-Tests originals with byte and character spans and disjoint development custody.
-- Add seven named Pole tests and strict named-source proof for explicit partial corrections and attributed request–dispatch–receipt statements.
-- Preserve distinct sorter occurrences under the existing eight-witness cap and retain the first Pole phrase-group budget failure.
-- Prepare an anonymous paired reviewer packet and rehearse the matched discovery-budget protocol on 24 FRUS questions.
+- Freeze and replay Tacitus, Douglass, and Babbage against 5ffdca2 using separate development scoring custody.
+- Resolve bounded publication corrections from eligible original headings, references, and scoped values.
+- Package Komnene-Outside with anonymous arms, exact originals, and a separately verified crosswalk.
 
 ## Validation recorded
 
-- The 15-case authentic development draw retained 1/10 complete anchored answers, 0/6 relational completions, and 5/5 expected withholds. Discovery found all anchors on 8/10 answerable cases.
-- The sealed synthetic named-source set improved from 0/12 to 12/12 complete assertions with all 12 expected withholds, zero false support and zero execution failures.
-- Replayed the historical 22 with identical strict rows and all 24 Scout questions with identical strict kind, diagnostic and support.
-- Passed 132 focused Python tests and retained independently worded parser and sorter failures from before the patch.
-- The committed source archive ran 1,718 full Python tests with two skips. It also passed 52 public evidence controls, Pyodide and Chromium. The 120-case inherited catalog remained unchanged.
+- Tacitus recovered 3/6 authentic bridges with all 5 negative controls withheld and 4/6 discovery anchor coverage.
+- Douglass recovered 6/12 authenticated question variants from miss to complete. Original synthetic focus and related controls were unchanged.
+- Babbage retained two distinct occurrences in eight slots and withheld under both eligibility controls and both proof budgets.
+- Verified 22 paired questions, 44 anonymous arms, and one matching concealed crosswalk outside the reviewer archive.
 
 ## Limitations and blocked checks
 
-- The original 12 focus positives and authentic relational cases remain open. Sima Qian reached 34 eligible pages and exposed loss of complete literal support at larger stages.
-- The development worker receives no custody key path. The local run has no process-level isolation and records that fact.
-- Outside custody, independent historical accuracy and native OOCC remain NOT RUN.
+- Three authentic relations and all 12 original synthetic focus misses remain unresolved.
+- The worker received no custody path and did not run with process isolation.
+- The outside packet is ready for delivery. Independent scoring, historical accuracy, and native OOCC remain NOT RUN.
 
 ## Next steps
 
-- Design a scoped proof matcher for original publication references and explicit retained fields, with a fresh concealed transfer set.
-- Diagnose the remaining date-role, reported-statement, partial-correction and chain cases under matched discovery and proof budgets.
-- Use independent operators and blinded assessors for the separately sealed outside-custodian protocol.
+- Build fresh frozen controls for the DHS applicability and partial-correction cases and the B-Tests attribution scope.
+- Diagnose the separate sorter phrase limits and incomplete literal lookup at larger corpus scales.
+- Collect outside judgments using the anonymous packet and separately held mapping.
 
 ## Use this ZIP in your repository
 

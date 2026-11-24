@@ -100,12 +100,21 @@ instructions for the existing scorer. [Operator packets](public-packets.tar.gz) 
 [Anonymous review packet](anna-komnene-review-packet.tar.gz) ·
 [Native readbacks](native-readbacks.tar.gz)
 
+## Tacitus, Douglass, Babbage, and Komnene-Outside
+
+The prose cycle moved Tacitus from **0/6 to 3/6** complete bridges and Douglass
+from **0/12 to 6/12** on authentic transfer questions. Both preserved all
+five controls. Babbage retained two records at the eight-slot cap and
+withheld on both eligibility controls. Komnene-Outside has a verified
+transport package for 22 pairs. Independent scoring remains **NOT RUN**.
+[Four result tables and rule](prose/README.md)
+
 ## Open items
 
 - All 12 original focus cases remain open, including date roles, reported
   statements, partial corrections, wording changes, and less explicit chains.
 - General historical reconstruction across unfamiliar originals remains open.
-  The authentic correction and chain questions remain unanswered.
+  Three tested authentic relations remain unresolved. The prose cycle completed the venue, deadline, and numbered-instruction cases.
 - The repeated-phrase group cap and loss of complete literal lookup at the
   larger Sima Qian stages remain open. The USDA venue lookup also returned
   a partial when two verified spans from the same eligible source answered

@@ -1,0 +1,161 @@
+{
+  "tacitus": {
+    "seal_sha256": "07f8119e57a53c90680c8b9bcd7383f346d99ab0a06e4db27fa7fa9a99bb5921",
+    "before": {
+      "miss": 6,
+      "all_discovery_anchors": 4,
+      "control_withheld": 5
+    },
+    "after": {
+      "bridge_formed": 3,
+      "all_discovery_anchors": 4,
+      "control_withheld": 5,
+      "miss": 3
+    }
+  },
+  "douglass": {
+    "seal_sha256": "ec57af19429209e1df62b5307c0440a58f4d89801887cdf4238dfd149fbc312d",
+    "before": {
+      "miss": 12,
+      "all_discovery_anchors": 8,
+      "control_withheld": 5
+    },
+    "after": {
+      "bridge_formed": 6,
+      "all_discovery_anchors": 8,
+      "control_withheld": 5,
+      "miss": 6
+    }
+  },
+  "babbage": {
+    "seal_sha256": "cbffb03645aef37c23e024e90cce406fb1e77726ffbbc3ea3b18e2c928d5ba4c",
+    "before": {
+      "crowded": {
+        "complete": true,
+        "limits": [],
+        "slots": 8,
+        "occurrences": 2
+      },
+      "frozen-pole-chain": {
+        "complete": false,
+        "limits": [
+          "repeated_phrase_group_budget"
+        ],
+        "slots": 0,
+        "occurrences": 0
+      },
+      "many-owners": {
+        "complete": true,
+        "limits": [],
+        "slots": 8,
+        "occurrences": 8
+      },
+      "single-owner": {
+        "complete": true,
+        "limits": [],
+        "slots": 8,
+        "occurrences": 1
+      },
+      "same_records_as_proof": {
+        "slots": 8,
+        "occurrences": 2,
+        "limits": []
+      },
+      "eligible": {
+        "answer_supported": false,
+        "diagnostic": "interpretation_unsupported",
+        "sources": []
+      },
+      "external_denial": {
+        "answer_supported": false,
+        "diagnostic": "restricted_or_unavailable",
+        "sources": []
+      },
+      "withdrawn": {
+        "answer_supported": false,
+        "diagnostic": "interpretation_unsupported",
+        "sources": []
+      },
+      "passage_cap": {
+        "answer_supported": false,
+        "diagnostic": "interpretation_unsupported",
+        "sources": []
+      },
+      "scan_cap": {
+        "answer_supported": false,
+        "diagnostic": "interpretation_unsupported",
+        "sources": []
+      }
+    },
+    "after": {
+      "crowded": {
+        "complete": true,
+        "limits": [],
+        "slots": 8,
+        "occurrences": 2
+      },
+      "frozen-pole-chain": {
+        "complete": false,
+        "limits": [
+          "repeated_phrase_group_budget"
+        ],
+        "slots": 0,
+        "occurrences": 0
+      },
+      "many-owners": {
+        "complete": true,
+        "limits": [],
+        "slots": 8,
+        "occurrences": 8
+      },
+      "single-owner": {
+        "complete": true,
+        "limits": [],
+        "slots": 8,
+        "occurrences": 1
+      },
+      "same_records_as_proof": {
+        "slots": 8,
+        "occurrences": 2,
+        "limits": []
+      },
+      "eligible": {
+        "answer_supported": true,
+        "diagnostic": "supported_documentary_assertion",
+        "sources": [
+          "DOC-NEW",
+          "DOC-OLD"
+        ]
+      },
+      "external_denial": {
+        "answer_supported": false,
+        "diagnostic": "no_eligible_sources",
+        "sources": []
+      },
+      "withdrawn": {
+        "answer_supported": false,
+        "diagnostic": "documentary_link_unverified",
+        "sources": []
+      },
+      "passage_cap": {
+        "answer_supported": false,
+        "diagnostic": "reader_budget_exceeded",
+        "sources": []
+      },
+      "scan_cap": {
+        "answer_supported": false,
+        "diagnostic": "reference_scan_budget",
+        "sources": []
+      }
+    }
+  },
+  "komnene_outside": {
+    "package_sha256": "af4f3c37b8f02c4f7a9cbe94db158e6a85b429d7d01202dfbceb90d7476076b1",
+    "paired_questions": 22,
+    "anonymous_arms": 44,
+    "crosswalk_verified_separately": true,
+    "crosswalk_in_packet": false,
+    "independent_scoring": "NOT RUN",
+    "delivered_to_outside_judge": false
+  }
+}
