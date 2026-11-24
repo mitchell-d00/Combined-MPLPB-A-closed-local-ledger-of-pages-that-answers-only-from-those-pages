@@ -1,6 +1,6 @@
 # Results and their tests
 
-Last reviewed: 2026-11-23.
+Last reviewed: 2026-11-24.
 
 [Test Index](TEST_INDEX.md) connects the test types to the deterministic training loop.
 The [historical mode replay](../evaluation/d12/mode-replay/README.md) compares the unchanged 22 under Strict Ask, Assisted Ask, page lookup, expert investigation, and article assembly. It records separate results for the other benchmarks.
@@ -10,6 +10,8 @@ The [discovery-combination replay](../evaluation/d12/discovery-combos/README.md)
 The [governance gate experiment](../evaluation/comparative-tests/governance-gate/README.md) checks AI-shaped proposals against host approval, WorkStore dispatch, and actual report bytes.
 
 The [D12 solo post-freeze historical pilot](../evaluation/d12/solo-post-freeze/README.md) ran 24 questions on six freshly drawn FRUS source pairs. Strict Ask completed **0/19** answerable cases. Native search and word overlap each found all required passages for **12/19**. No full answer was issued on the five missing-evidence cases. The precommitted key comes from a solo review.
+
+The [4score20 diagnostic](../evaluation/d12/4score20/README.md) traces interpretation, discovery, and contextual proof on three of the frozen D12 cases. It isolates one missing duration plan, a four-anchor telegram relation, and an exact quote that spans two statement units.
 
 [D12](../evaluation/d12/README.md) adds paired error-class probes to D6 and a separate
 trace of the original 22, 40 follow-ups and 12 starter-topic cases. The [pattern fix sprints](../evaluation/d12/pattern-sprints/README.md) retain the unchanged nine-question replay and 28 matched controls. The [historical seam replay](../evaluation/d12/pattern-sprints/historical-seams/README.md) isolates two graph and proof failures on the original 22. The [training coordinator](../evaluation/d12/coordinator/README.md) replays a matched rule repair and reports fresh historical, D20 and book triage.

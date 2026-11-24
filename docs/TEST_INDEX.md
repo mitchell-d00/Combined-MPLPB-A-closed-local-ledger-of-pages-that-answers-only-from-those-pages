@@ -1,6 +1,6 @@
 # Test Index for humans and AI
 
-Last reviewed: 2026-11-23.
+Last reviewed: 2026-11-24.
 
 This is the starting point for running, interpreting, and extending Combined
 MPLPB tests. Use the [test commands](TEST_TOOLS.md) to run a suite, the
@@ -106,6 +106,7 @@ and independent human review describe separate kinds of evidence.
 | Cross-domain persona and corpus transfer | Compare matched field lookups, natural record descriptions, and scope controls across eight domains | [Persona transfer panel](../evaluation/persona-corpus-transfer/README.md) · [Synonym index experiment](../evaluation/persona-corpus-transfer/README.md#experimental-synonym-index) |
 | Historical studies and human review | Check attribution, missing evidence, completeness, and disagreement on unfamiliar originals with an independent key | [Archival inspection](../evaluation/archival-inspection/) · [Historical expert path](HISTORICAL_EXPERT_PATH.md) · [Researcher pilot archive](../evaluation/researcher-pilot/) |
 | D12 solo post-freeze pilot | Draw and seal fresh historical source packets, then compare passage discovery and proof with a precommitted source key | [24-question FRUS run](../evaluation/d12/solo-post-freeze/README.md) |
+| 4score20 historical prose | Trace question interpretation, relevant passage discovery, and proof in context on the same frozen cases | [4score20](../evaluation/d12/4score20/README.md) |
 | Historical 22 pattern expansion | Compare quote discovery, matched direct/paraphrased questions, and scope controls on the same originals | [Run and results](../evaluation/historical-patterns/README.md) |
 | Historical synonym graph comparison | Compare graph-guided passage discovery on frozen and new history topics | [Study and new source records](../evaluation/historical-synonym-graph/README.md) |
 | Documentary date wording and report sections | Check a bounded date paraphrase rule and separate named-section passage discovery | [Pattern study and replay](../evaluation/documentary-date-pattern/README.md) |

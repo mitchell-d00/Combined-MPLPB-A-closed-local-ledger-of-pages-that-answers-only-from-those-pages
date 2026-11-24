@@ -1,41 +1,34 @@
 # Repository handoff
 
-Last reviewed: 2026-11-23.
+Last reviewed: 2026-11-24.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `970abb919c4490d998d30ea117e610c2976e2f57` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `69c9a3ee27f43dee75316ebaee29e2a844e2409f41963f83f332da8619e63222`.
+Base commit: `0c33369c70ea58593d8e0620fc46554915414022` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `66eb04614c3b24a3b2bd39ca56e70ead557a463349dfbd973153febfce6b404a`.
 
 ## Latest user update instructions
 
-Run it until you fix the pass offs it is a break in logic in chain the unit is a whole strict mode is strict but keeping the rule one owner two should not be a skip it should be preventing boundries of both and none is refuse how it seems is refuse unless one owner
-
-Develop D8 to solve it
-
-Debug as well as test and fix as you find new breaks and errors
+Go from that and do test name test 4score20
 
 ## Implemented scope
 
-- Build eight D8 ownership handoff controls and repair missing competing witnesses, independent named record comparisons, and unsupported published-wording routing.
+- Implement 4score20 in the order understand the question, find the relevant words, and check what they prove in context.
+- Retain the native plan, passage coverage, strict outputs with and without source-location hints, and exact-quote controls for three frozen D12 cases.
 
 ## Validation recorded
 
-- Recorded the failing D8 baseline and passed all eight D8 controls and 85 focused tests on the candidate.
-- Replayed the historical 22 and retained each native strict status, diagnostic and citation count.
-- Replayed the same 24 D12 questions. The final-wording request now cleanly withholds. The answerable score remains 0 of 19.
-- The first full suite exposed a legacy CLI text regression and a loopback sandbox restriction. Repaired the legacy contract and passed the focused release contract tests with visible conflict witnesses in the human-readable CLI.
-- Passed 87 checks from the focused committed source ZIP.
-- The frozen native suite reported OK across 1,680 tests with two skips. The command wrapper returned exit 1 despite the successful unittest footer; the retained retry log records the discrepancy.
+- Ran 4score20 twice with byte-identical output. Wide search found all four telegram anchors, while the original question still lacked a documentary plan. The exact quote crossing a statement boundary withheld while both fragments passed.
+- Passed 49 focused tests and the documentation inventory audit.
 
 ## Limitations and blocked checks
 
-- Explicit multi-record field comparisons cover source-declared fields. Prose relationships still require a rule and witnesses that establish the relationship.
-- Full ZIP extraction exceeds the local disk budget. The focused source archive is used for local checks.
+- The replay diagnoses three previously seen cases. It changes no native answer rule and does not exercise verification of a valid telegram relationship plan.
+- The full repository ZIP exceeds the available local extraction space.
 
 ## Next steps
 
-- Trace the D12 prose interpretation misses separately, using dual-source notes as retrieval locators with independent proof checks.
+- Use the retained trace to measure each proposed repair against the original questions and the final-wording refusal control.
 
 ## Use this ZIP in your repository
 
