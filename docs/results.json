@@ -9,7 +9,9 @@
       "tests": [
         "tests/test_documentary_date_roles.py",
         "tests/test_event_date_inventory.py",
-        "tests/test_study_sandbox.py"
+        "tests/test_study_sandbox.py",
+        "tests/test_source_claims.py",
+        "tests/test_source_claim_authority.py"
       ],
       "runners": [
         "tools/study_sandbox.py",
@@ -24,10 +26,14 @@
         "tools/cryptid_claim_score_v2.py",
         "tools/cryptid_existing_controls.py",
         "tools/cryptid_contract_preservation.py",
-        "tools/cryptid_archive.py"
+        "tools/cryptid_archive.py",
+        "tools/cryptid_trial_v3.py",
+        "tools/cryptid_claim_score_v3.py",
+        "tools/cryptid_preservation_v2.py",
+        "tools/cryptid_preserve_prior.py"
       ],
       "scope": "Local sequential shared-operation programme; frozen baselines, wrap controls, consumed and fresh transfer, final committed ZIP gates.",
-      "measurement_status": "LOCAL_ONLY. Mothman25/28,3misses; first16transfer8/16FAILthenconsumed16/16,fresh24/24once. Jackalope34→46/54,complete2→8,partial2→8; first24transfer20/24FAIL(4letter misses),0false support,12withholds.39selectors/280release/68Mothman/169native/50focused preserved. Yeti and laterPLANNED. Human and independent evaluationsNOT_RUN.",
+      "measurement_status": "LOCAL_ONLY Mothman25/28with3misses/fresh24pass; Jackalope46/54with8misses/transfer20of24FAIL. Yeti31→45/50scored(52executed+2unscored diagnostics),complete1→13,2conflicts,5layoutmisses,30withholds,0targetfalse; Wrap3→4/4;9safety/59focused/169native/39selectors and146priorcontracts preserved. Release273same+7checked recoveries. Yeti30transferSEALED; later seriesPLANNED; human/independentNOT_RUN.",
       "responsible_department": "testing-evaluation",
       "implementation_departments": [
         "reader",

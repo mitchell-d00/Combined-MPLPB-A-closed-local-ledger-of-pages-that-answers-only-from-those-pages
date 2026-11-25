@@ -135,7 +135,7 @@
       "family": "YETI",
       "id_prefix": "CRYPT-YETI",
       "mechanism": "Reporting and content polarity, conditions and modality become conflated.",
-      "status": "BASELINE_COMPLETED",
+      "status": "CANDIDATE_WITH_5_LAYOUT_MISSES",
       "responsible_department": "testing-evaluation",
       "implementation_departments": [
         "reader",
@@ -153,11 +153,31 @@
       },
       "wrap": {
         "cases": 4,
-        "score": "yeti/scores/wrap-baseline.json"
+        "passed": 4,
+        "score": "yeti/scores/wrap-candidate-2.json"
       },
       "transfer": {
         "cases": 30,
         "status": "SEALED_NOT_RUN"
+      },
+      "candidate": {
+        "cases": 52,
+        "scored": 50,
+        "passed": 45,
+        "complete": 13,
+        "conflicts": 2,
+        "positive_misses": 5,
+        "false_support": 0,
+        "diagnostic_only_unscored": 2,
+        "withholds_retained": 30,
+        "score": "yeti/scores/candidate-2.json",
+        "safety_guards_passed": 9,
+        "focused_passed": 59,
+        "native_passed": 169,
+        "selectors_passed": 39,
+        "prior_cryptid_contracts_unchanged": 146,
+        "release_contracts_unchanged": 273,
+        "release_checked_recoveries_total": 7
       }
     },
     {

@@ -1,0 +1,134 @@
+{
+  "schema": "cryptid-claim-score-v1",
+  "version": "cryptid-claim-scorer-v3",
+  "scorer_sha256": "fa9bf0eb25098e645552a43b56ad1bb67a4f89b6b023456ca4cdf4c1603c5a19",
+  "run_sha256": "3cbc0ecd39dd266a478bed3d9cd2149078b7d34831373e6e44fa32186b540ef3",
+  "key_sha256": "46c1904fb149e415a7ecf5c19775b783131529afb818c9aab65eaf90cea30df9",
+  "counts": {
+    "planned": 4,
+    "attempted": 4,
+    "completed": 4,
+    "scored": 4,
+    "unscored": 0,
+    "passed": 4,
+    "false_support": 0,
+    "positive_misses": 0,
+    "budget_stops": 0,
+    "diagnostic_only": 0
+  },
+  "cases": [
+    {
+      "id": "CRYPT-YETI-0053",
+      "execution_status": "completed",
+      "scored": true,
+      "passed": true,
+      "expected": "complete",
+      "kind": "supported_answer",
+      "claims": 1,
+      "positive_miss": false,
+      "false_support": false,
+      "errors": [],
+      "interpretation_inspection_recognized": false,
+      "required_witness_discovery": true,
+      "miss_stage_diagnostic": null,
+      "budget_stop": false,
+      "measurements": {
+        "query_wall_seconds": 0.08597473999543581,
+        "query_cpu_seconds": 0.088022187,
+        "peak_rss_bytes": 18714624,
+        "source_html_open_calls": {
+          "query": 12,
+          "discovery": 2
+        },
+        "source_read_measurement": "Python audit open events for ledger HTML files during query/discovery; cached in-memory reads are not counted",
+        "admitted_source_count": 1,
+        "admitted_canonical_characters": 105
+      }
+    },
+    {
+      "id": "CRYPT-YETI-0054",
+      "execution_status": "completed",
+      "scored": true,
+      "passed": true,
+      "expected": "complete",
+      "kind": "supported_answer",
+      "claims": 1,
+      "positive_miss": false,
+      "false_support": false,
+      "errors": [],
+      "interpretation_inspection_recognized": false,
+      "required_witness_discovery": true,
+      "miss_stage_diagnostic": null,
+      "budget_stop": false,
+      "measurements": {
+        "query_wall_seconds": 0.08584544699988328,
+        "query_cpu_seconds": 0.083835631,
+        "peak_rss_bytes": 18702336,
+        "source_html_open_calls": {
+          "query": 12,
+          "discovery": 2
+        },
+        "source_read_measurement": "Python audit open events for ledger HTML files during query/discovery; cached in-memory reads are not counted",
+        "admitted_source_count": 1,
+        "admitted_canonical_characters": 93
+      }
+    },
+    {
+      "id": "CRYPT-YETI-0055",
+      "execution_status": "completed",
+      "scored": true,
+      "passed": true,
+      "expected": "complete",
+      "kind": "supported_answer",
+      "claims": 1,
+      "positive_miss": false,
+      "false_support": false,
+      "errors": [],
+      "interpretation_inspection_recognized": false,
+      "required_witness_discovery": true,
+      "miss_stage_diagnostic": null,
+      "budget_stop": false,
+      "measurements": {
+        "query_wall_seconds": 0.09280968499660958,
+        "query_cpu_seconds": 0.092000003,
+        "peak_rss_bytes": 18702336,
+        "source_html_open_calls": {
+          "query": 12,
+          "discovery": 2
+        },
+        "source_read_measurement": "Python audit open events for ledger HTML files during query/discovery; cached in-memory reads are not counted",
+        "admitted_source_count": 1,
+        "admitted_canonical_characters": 133
+      }
+    },
+    {
+      "id": "CRYPT-YETI-0056",
+      "execution_status": "completed",
+      "scored": true,
+      "passed": true,
+      "expected": "withhold",
+      "kind": "abstain",
+      "claims": 0,
+      "positive_miss": false,
+      "false_support": false,
+      "errors": [],
+      "interpretation_inspection_recognized": false,
+      "required_witness_discovery": null,
+      "miss_stage_diagnostic": null,
+      "budget_stop": false,
+      "measurements": {
+        "query_wall_seconds": 0.10608437799965031,
+        "query_cpu_seconds": 0.10397214500000002,
+        "peak_rss_bytes": 18698240,
+        "source_html_open_calls": {
+          "query": 10,
+          "discovery": 2
+        },
+        "source_read_measurement": "Python audit open events for ledger HTML files during query/discovery; cached in-memory reads are not counted",
+        "admitted_source_count": 1,
+        "admitted_canonical_characters": 107
+      }
+    }
+  ],
+  "custody": "Same-operator keys/scoring; no independent historical or semantic adjudication."
+}

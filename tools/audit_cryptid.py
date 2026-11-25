@@ -13,7 +13,7 @@ def digest(v):return hashlib.sha256(json.dumps(v,sort_keys=True,ensure_ascii=Fal
 
 def audit():
     home=ROOT/'evaluation/cryptid';programme=load(home/'programme.json');cases={};overlap=defaultdict(list);cohorts=defaultdict(int)
-    registries=list(home.glob('*/development/registry.json'))+list(home.glob('*/consumed-transfer/registry.json'))+list(home.glob('*/fresh/consumed-transfer/registry.json'))
+    registries=list(home.glob('*/development/registry.json'))+list(home.glob('*/consumed-transfer/registry.json'))+list(home.glob('*/fresh/consumed-transfer/registry.json'))+list(home.glob('*/wrap/registry.json'))
     for registry in sorted(registries):
         frozen=load(registry.parent/'freeze.json');assert sha(registry)==frozen['registry_sha256']
         assert sha(registry.parent/'key.json')==frozen['key_sha256']
@@ -21,7 +21,7 @@ def audit():
         for c in load(registry)['cases']:
             ident=c['id'];assert re.fullmatch(r'CRYPT-[A-Z]+-(?:T)?\d{4}',ident)
             assert ident not in cases, 'duplicate id';cases[ident]=c
-            packet=(registry.parent if c['packet'].startswith('inputs/') else ROOT)/c['packet'];cohorts['consumed_transfer' if 'consumed-transfer' in str(registry) else 'development']+=1;actual={str(p.relative_to(packet)):sha(p) for p in packet.rglob('*') if p.is_file()}
+            packet=(registry.parent if c['packet'].startswith('inputs/') else ROOT)/c['packet'];cohorts['consumed_transfer' if 'consumed-transfer' in str(registry) else 'wrap_development' if '/wrap/' in str(registry) else 'development']+=1;actual={str(p.relative_to(packet)):sha(p) for p in packet.rglob('*') if p.is_file()}
             assert actual==c['files'], 'changed input '+ident
             value=load(packet/'case.json');value.pop('id',None)
             signature=digest({'case':value,'source_files':{k:v for k,v in actual.items() if k!='case.json'}})

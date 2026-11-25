@@ -4,8 +4,8 @@ Last reviewed: 2026-11-25.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `aab38c59fa35a9c8bd35b78517aacdc86aa03f42` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `a310479f6b76d003d2a951245ae5b3b20c6839448b0efaf6238f9d2310297882`.
+Base commit: `c0c3f3bd2405a382a2017568dd2adc2ae50fdd2f` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `e1a0879ca77a032dae1e59d28d49e8396fc7dc33fd094fa2dab20136cc537b9f`.
 
 ## Betty report for Al
 
@@ -22,6 +22,7 @@ Run Betty — local Cryptid test programme. Start from current main. Complete th
 - Mothman shared date-role planning/proof and counterevidence scan; three remaining development misses retained, no caps changed.
 - Mothman local cycle completed with3remaining development misses; no overall development-pass claim. Jackalope next, all previous packets now preservation.
 - Jackalope finite shared action-question goal recognition; original question retained for eligibility/proof, no source-rule or budget relaxation. Eight source-boundary misses remain.
+- Yeti shared claim frame and native source-scoped denial/modality checks; source writer/task actor and reporting/content negation remain separate. No inferred execution; no cap increases.
 
 ### Validation recorded
 
@@ -49,6 +50,9 @@ Run Betty — local Cryptid test programme. Start from current main. Complete th
 - Jackalope committedZIP3dbeb6f1 SHA21fec2ae41da5bad1d55aa6cf850b4846fdd157af3e5e8e27578d7324c5d5203 reproduces46/54,39selectors,50focused. Once-only24transfer20/24:4complete+4checkedpartial,12withholds,4letter proofmisses,0false/0budget/0executionfailure/0unscored. Failed coverage retained; packet now consumed development.
 - Yeti52baseline completed before native changes:50scored,31passed,19positive misses,0false support,30withholds,2historical first-person arrangement diagnostics explicitlyUNSCORED. Four original input hashes unchanged. Separate4case reporting/content polarity Wrap baseline retained; thirty-case transfer sealed. Existing layout/byline-witness failures classified separately for Nessie.
 - Yeti candidate1:45/50semantic targets(19→5misses),0target false-support flags,2diagnostic-only unscored; four polarity Wrap controls4/4. Candidate rejected after two of nine safety controls fail: full-source unit budget bypass and omitted unresolved revocation. Late withdrawal/byte mutation, host policy and derived-counter authority guards pass. Fresh30still sealed.
+- Candidate2:45/50semantic decisions vs31baseline,13complete vs1,two checkedsource conflicts,30withholds,5layoutmisses,0targetfalse. Two historical first-person arrangement leads remain UNSCORED; Wrap4/4 vs3baseline.
+- Nine safety guards pass after retained C1budget/revocation failures.59focused,169native,39selector checks pass.146prior Cryptid contracts exactly unchanged. Release280273same+7source-key-checked recoveries; original audit failures retained.
+- Case overlap inventory:482memberships,473unique reader-input pairs; repeated runs and shared-source variants not independent evidence.
 
 ### Limitations and blocked checks
 
@@ -58,7 +62,7 @@ Run Betty — local Cryptid test programme. Start from current main. Complete th
 
 ### Next steps
 
-- Retain rejected candidate1 and fix full-source unit charging and unresolved revocation before a new committed candidate/transfer. Original inputs, labels, scores and failures remain unchanged.
+- Freeze committed scoped Yeti candidate2 ZIP, verify extracted52+4+59+39checks, then execute sealed30transfer once. Retain misses/unscored diagnostics and continue Sasquatch.
 - Run all series sequentially and finish a local committed-ZIP review package. No remote publication.
 
 ## Use this ZIP in your repository

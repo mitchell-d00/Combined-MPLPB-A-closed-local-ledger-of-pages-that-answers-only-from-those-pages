@@ -137,14 +137,24 @@ def verify(index,max_passages,max_chars):
     if goal is None:return None
     fresh=PassageIndex(index.root,index.question,index.profile)
     if len(fresh.records)>8 or sum(len(r.body_html) for r in fresh.records)>200000:return 'abstain','reference_scan_budget',{}
-    matches=[];used=0;unresolved=False
+    matches=[];used=0;unresolved=False;alternatives=[]
     for record in fresh.records:
-        body=body_text(record.body_html);units,info=_frame_units(record,body);previous=None
-        if kernel.possible_refutation(body):unresolved=True
-        for unit in units:
+        body=body_text(record.body_html)
+        # Layout witnesses consume the same source-unit budget as content.
+        # A verified letter frame cannot hide its salutation/signature cost.
+        for _ in kernel.units(body):
             used+=1
             if used>1000:return 'abstain','reference_scan_budget',{}
+        units,info=_frame_units(record,body);previous=None
+        if kernel.possible_refutation(body):unresolved=True
+        for unit in units:
             a,b,text=unit
+            unresolved_reference=bool(re.search(
+                r'\b(?:this|that|earlier|previous|preceding|above)\b[^.!?]{0,100}'
+                r'\b(?:revoked|rescinded|retracted|withdrawn|superseded|amended|canceled|cancelled)\b',text,re.I))
+            if unresolved_reference:
+                unresolved=True
+                alternatives.append(kernel.citation(record,body,a,b))
             if b-a>2200:
                 if kernel.normalized(goal['object']) in kernel.normalized(text):unresolved=True
                 previous=unit;continue
@@ -161,7 +171,7 @@ def verify(index,max_passages,max_chars):
                     or frame.modality!=('assertion' if goal['kind']=='denial' else goal['kind'])):continue
             matches.append((frame,value,citations))
     if not fresh.unchanged() or not index.unchanged():return 'abstain','source_changed',{}
-    if unresolved or not matches:return None
+    if not matches:return None
     required_negative=goal['kind']=='denial'
     selected=[m for m in matches if m[0].negative==required_negative]
     if not selected:return None
@@ -171,6 +181,7 @@ def verify(index,max_passages,max_chars):
     spans={}
     for _,_,citations in chosen:
         for c in citations:spans[(c['path'],c['hash'],c['body_start'],c['body_end'])]=c
+    for c in alternatives:spans[(c['path'],c['hash'],c['body_start'],c['body_end'])]=c
     if len(spans)>max_passages or sum(len(c['quote']) for c in spans.values())>max_chars:return 'abstain','reader_budget_exceeded',{}
     claims=[]
     for frame,value,citations in chosen:
@@ -189,11 +200,12 @@ def verify(index,max_passages,max_chars):
     unique=[]
     for s in sources:
         if s not in unique:unique.append(s)
-    return ('conflict' if conflict else 'supported_answer'),('source_claim_conflict' if conflict else 'supported_source_claim'),{
-        'answer_supported':not conflict,'claims':claims,'sources':unique,
-        'text':'\n'.join(c['text']+' '+' '.join(c['qualifiers']) for c in claims),
+    missing=['A source qualification or revocation has an unresolved target; the stated claim is retained as a checked partial.'] if unresolved else []
+    return ('conflict' if conflict else 'partial_answer' if unresolved else 'supported_answer'),('source_claim_conflict' if conflict else 'partial_source_claim' if unresolved else 'supported_source_claim'),{
+        'answer_supported':not conflict and not unresolved,'claims':claims,'sources':unique,'missing':missing,
+        'text':'\n'.join(c['text']+' '+' '.join(c['qualifiers']) for c in claims)+ ('\nUnresolved: '+missing[0] if missing else ''),
         'verification':{'structural':True,'semantic':VERSION,'truth_verified':False,'independence_verified':False},
         'documentary_support':{'original_question':index.question,'source_support_claims':len(claims),
             'claim_frame_version':FRAME_VERSION,'historical_truth_independently_verified':False,
-            'scan_complete':True,'examined_units':used,'max_records':8,'max_source_characters':200000,
+            'scan_complete':True,'examined_units':used,'alternative_evidence':alternatives,'max_records':8,'max_source_characters':200000,
             'max_units':1000,'max_passages':max_passages,'max_characters':max_chars}}
