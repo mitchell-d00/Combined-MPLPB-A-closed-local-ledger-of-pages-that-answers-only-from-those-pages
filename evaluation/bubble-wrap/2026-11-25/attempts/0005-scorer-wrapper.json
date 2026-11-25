@@ -1,0 +1,16 @@
+{
+  "id": "BW-SCORE-002",
+  "execution_status": "failed_scorer_wrapper",
+  "reader_cases_reexecuted": 0,
+  "attempts": [
+    {
+      "command": "python tools/bubble_wrap_score_v2.py ...",
+      "result": "pre-score import error; module invocation required"
+    },
+    {
+      "command": "python -m tools.bubble_wrap_score_v2 ...",
+      "result": "all 256 baseline scores written, then missing json console import caused NameError/nonzero wrapper exit"
+    }
+  ],
+  "correction": "v3 supplies standard imports; preserves v2 source, seal and written output. No key or source input/native change; do not mark the failed v2 command as passed."
+}

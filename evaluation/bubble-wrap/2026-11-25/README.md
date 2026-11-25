@@ -12,6 +12,56 @@ The supplied [plan](inputs-received/bubble-wrap-plan.json) and
 inputs. They are not a historical-suite rerun. The inventory excludes #15 because
 it was not a PR in that retrieved history.
 
+## Development result before candidate ZIP/transfer
+
+The amended projection scorer records **230/256 → 256/256** expected decisions.
+All ten primary targets now have source-scoped answers. Wrap has twelve complete
+source-inspection answers, four explicit conflicts and all sixteen independent-
+authorship withholds. All 101 unaffected inventory contracts, all 96 instruction
+contracts and all seventeen PE-02 contracts/discovery arrays remain identical
+apart from code fingerprints. No historical answer-coverage gain is claimed.
+
+| Isolated packet outcome | Baseline | Development candidate |
+|---|---:|---:|
+| Complete source answers | 63 | 85 |
+| Checked partial answers | 6 | 6 |
+| Conflicts | 2 | 6 |
+| Abstentions | 185 | 159 |
+| Claims, including partial/conflict claims | 80 | 110 |
+| False-supported claim cases under amended source-role/witness scoring | 0 | 0 |
+| Failed / not-run / unscored executions after scoring | 0 / 0 / 0 | 0 / 0 / 0 |
+
+This is target/preservation acceptance, not full answer coverage: **28 non-target
+positive questions remain incomplete**, including four partials and 24 misses.
+FRESH-05's broad-summary interpretation miss remains visible. All prior eighty
+claims remain intact; thirty new report claims are checked against exact complete
+governors, scoped roles/polarity and canonical/original HTML byte witnesses.
+All 169 indexed native tests pass on the development candidate: 56 focused,
+92 older authority/integrity, sixteen new report guards and five accounting tests.
+
+**Retained scoring failure and protocol amendment:** the initial frozen scorer
+rejected 26 cases because its original-coordinate reconstruction omitted
+`ledger.write`'s generated H1 title. Its [failed candidate score](candidate-001-score-v1.json)
+remains a failure, including the original false-support flags. No role key,
+expected decision, source input or reader code was changed to repair that audit.
+V2 restored the documented admission projection but its CLI wrapper failed during
+console output; its source, seal and written baseline receipt remain retained.
+[V3 amendment](scorer-amendment-v3.json) adds the missing standard imports and
+binds the corrected scorer before re-scoring the exact unchanged baseline and
+candidate outputs. [Baseline v3](baseline-score-v3.json),
+[candidate v3](candidate-001-score-v3.json), [joined review](development-review.json).
+Do not describe the initial frozen-scorer protocol as an unqualified pass; the
+accepted development result uses this disclosed versioned correction.
+
+Original-witness coordinates refer to UTF-8 bytes of the actual eligible ledger
+record body HTML, including its automatic title wrapper. Canonical body offsets
+retain the existing body projection. Frozen packet hashes separately retain the
+raw imported bytes. The scorer reconstructs the documented unchanged admission
+formatter; it does not use the candidate semantic parser.
+
+The committed ZIP, extracted checks, once-only transfer and publication-head CI
+are **NOT_RUN at this development snapshot**. The transfer packet remains sealed.
+
 ## Frozen inputs and current execution stage
 
 The original twenty inputs, ten primary targets, role obligations and 24-case
@@ -109,7 +159,7 @@ links. See [Test Index](../../../docs/TEST_INDEX.md).
 ```sh
 MPLPB_REQUIRE_SANDBOX=1 python -m unittest tests.test_study_sandbox -v
 python tools/bubble_wrap_trial.py run --implementation BASELINE_OR_EXTRACTED_CANDIDATE --source-commit READER_COMMIT --phase baseline --output NEW_PRIVATE_RUN_DIRECTORY
-python tools/bubble_wrap_trial.py score --run NEW_PRIVATE_RUN_DIRECTORY --output NEW_SCORE_FILE
+python tools/bubble_wrap_score_v3.py --run NEW_PRIVATE_RUN_DIRECTORY --output NEW_SCORE_FILE
 python tools/audit_bubble_wrap_delivery.py
 ```
 
