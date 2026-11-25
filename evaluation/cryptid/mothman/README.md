@@ -30,3 +30,7 @@ python -m unittest tests.test_documentary_date_roles tests.test_event_date_inven
 ```
 
 All original sources and original dates remain frozen. Existing native caps are unchanged. Scoped committed candidate ZIP testing and once-only transfer are pending at this document freeze. The sixteen-case packet remains sealed; templates were visible to the same operator. Independent historical/semantic adjudication, preparation/blinding, outside-custodian scoring and native OOCC remain **NOT_RUN**. Human onboarding **NOT_RUN**. All work local; no remote publication authorized.
+
+## First transfer retained
+
+Committed scoped ZIP `a439ddc2c9e438863383b90c41d995d274785847`, SHA-256 `e00d606d708a3758b8e7775766d01014fa4e5faf7232800aa6a56d08cb20061e`, reproduced25/28development and41/41focused checks from extraction. Once-only transfer **8/16 decisions;0/8positives,8/8withholds;0false support**. Explicit named-document passive date clauses are unrecognized. This is a failed transfer claim, retained as development material. A fresh24case packet is sealed before the next native repair; same-operator/template exposure limits apply.

@@ -4,8 +4,8 @@ Last reviewed: 2026-11-25.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `fe91235e6bf20d17f5a6b4983f4580b130e17d75` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `4a154cb71aabcc55caf96248ef8b2fafee255212add4cb844d31f378d4616aeb`.
+Base commit: `a439ddc2c9e438863383b90c41d995d274785847` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `c551a1c716aeeb2636e7ab3c23bc44c3be47e7f763f0f6b025180146bec79e02`.
 
 ## Betty report for Al
 
@@ -33,6 +33,7 @@ Run Betty — local Cryptid test programme. Start from current main. Complete th
 - 280release comparison:275exact unchanged contracts plus5verified recoveries;102complete,6partials,6conflicts,166abstentions; no lost valid support. Five memberships overlap Mothman. Original scorer failures retained alongside supplementary full-claim audit.
 - 41date/inspection and169inherited native controls PASS. Two rejected candidates and writing-date denial failure retained.
 - Documentation audit first failed on26unclassified copied frozen source texts; failure retained. Added historical hash classifications without altering source bytes.
+- Committed Mothman ZIP a439ddc2 SHAe00d606d708a3758b8e7775766d01014fa4e5faf7232800aa6a56d08cb20061e reproduces25/28 and41focused. First transfer16executed once:8/16,0/8positive,8/8withhold,0false support. Failed transfer retained and consumed as development.
 
 ### Limitations and blocked checks
 
@@ -42,7 +43,7 @@ Run Betty — local Cryptid test programme. Start from current main. Complete th
 
 ### Next steps
 
-- Freeze committed Mothman scoped study ZIP, run extracted28+41, then open and execute sealed16transfer once. Preserve all failures; continue Jackalope afterwards.
+- Fresh24packet sealed before native repair of explicit document passive date roles. Preserve failed first transfer; test new committed ZIP before opening fresh once.
 - Run all series sequentially and finish a local committed-ZIP review package. No remote publication.
 
 ## Use this ZIP in your repository
