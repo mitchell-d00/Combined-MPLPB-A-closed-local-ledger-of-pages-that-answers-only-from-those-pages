@@ -4,8 +4,8 @@ Last reviewed: 2026-11-25.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `e787bded7d2c99ddcc5b91228a76575aa8b90e61` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `144c2753b59b743ef0666fe60ae2adfba6dd852f341a745048fa9c7dabc98407`.
+Base commit: `7ed65a589d8051ff659495972fab922ff802b20e` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `2a59fafd0c3d337e46e8887110d10d7260f71bc1ac4ab4a4e2fff13a0075155d`.
 
 ## Betty report for Al
 
@@ -51,21 +51,24 @@ Mitchell selected: Use a sealed, program-generated packet; label the custody lim
 - First candidate d0f6c67 ZIP completed all 1,779 native tests (two skipped), all 52 public controls, software/WebAssembly/browser/installation/SDK gates. Its first-transfer 24/24 decisions remain retained, but overlap with inspected development controls limits structural novelty.
 - Fresh 24-case generator, new seed, packet/key hashes and rule frozen before any further native edits; baseline privately replayed at original PR #101 pin. Instance bytes/key/output remain unopened.
 - Fresh candidate preserves original 48/48, consumed-first-packet 24/24, all 56 focused controls and all 17 complete PE-02 contracts/discovery arrays.
+- Fresh candidate 7ed65a589d8051ff659495972fab922ff802b20e ZIP SHA-256 93d801d6554575542d50fee557ddbd099c607f1325ef6c8aed917d32768918fb passed its fresh transfer once: 24/24 decisions, 12/12 positives, 12/12 withholds, zero false support/budget failures. Each form has four positive targets passing; separate audit verifies 24 bodies and 28 citations.
+- New ZIP extraction preserves all 48 development decisions, all 24 complete consumed-first-packet contracts and all 17 PE-02 contracts/discovery arrays. All 56 focused controls, 52 public controls, JavaScript/HTTP/report-pin checks, WebAssembly, installed wheel and 45 SDK checks passed.
+- Revised ZIP actual Chromium baseline/candidate contexts passed; all four embedded module hashes match source 7ed65a5. The local acceptance measures pass with zero final false support, all earlier contracts preserved and explicit same-operator/protocol limits.
 
 ### Limitations and blocked checks
 
-- New candidate source ZIP, once-only fresh structural transfer, exact-head archive-first full regression and deployment validation remain pending. The first candidate full 1779-test run is retained with its own source pin and is not a rerun of the new native bytes.
+- Exact-head archive-first/regression CI and postmerge deployment verification remain pending. The complete revised-source suite will run from that exact CI ZIP; the earlier local 1779-test pass is retained at d0f6c67 and is not misreported as a later-byte run.
 - Same operator authored and saw all generator templates, prepared packets and scored outputs. Exact transfer instances/key stayed unopened until the committed ZIP freeze. This is not independent preparation or blinding. The consumed transfer packet now becomes preservation material.
 - Independent historical accuracy, independent semantic adjudication, independent preparation, blinding, outside-custodian scoring and native OOCC remain NOT_RUN.
 - No historical answer-coverage gain: historical completion stays 1/4, historical partials stay 1/4, and all five source propositions across seventeen cases remain unchanged. The new gain is bounded synthetic source-attribution coverage.
 - Protocol correction: supplemental development controls overlap the first transfer sentence structures. Retain its 24/24 result but classify it as consumed development material; it does not establish unfamiliar structural transfer.
+- Both transfer generators/templates were visible to the same operator. Fresh source constructions differ from all inspected examples, but their grammar was not independently prepared or blinded. No broad unfamiliar-language or historical accuracy claim is made.
 
 ### Next steps
 
-- Freeze a fresh 24-case transfer generator, seed, keys and baseline before further native edits; use constructions absent from all inspected development controls and run a new frozen candidate once.
-- Finish full native validation of the frozen ZIP and publish its retained result. Do not change the frozen native candidate after inspecting transfer.
-- Push a new PR for this cycle (PR #101 is already merged), keep current head/checked archive and separate development/transfer results at the top. Complete required exact-head archive-first/regression gates before merging within the maintainer’s standing authorization.
-- Verify deployed reader bytes after merge. Al reviews the general failure mechanism and transfer limits, then proposes one next falsifiable test. No new reasoning cycle is authorized by a proposal alone.
+- Publish both transfer rounds, the correction, frozen source/ZIP, complete preservation evidence and exact current PR head for Al. No native changes after fresh transfer inspection.
+- Wait for archive-first and regression to pass on the exact publication head; merge under the maintainer’s standing authorization, then verify deployed reader fingerprints and update the live report.
+- Al assesses the shared role-checking mechanism, source-language coverage and same-operator limits, then proposes one next falsifiable test.
 
 ## Use this ZIP in your repository
 

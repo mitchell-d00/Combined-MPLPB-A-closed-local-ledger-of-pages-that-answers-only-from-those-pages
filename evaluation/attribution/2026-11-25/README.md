@@ -53,7 +53,7 @@ Historical completion remains **1/4**, historical partials remain **1/4**, and s
 
 Tested source ZIP SHA-256: `0f3148b4a3ef061388a990ef0d0fc306838077ddde18f004285ac404faeee155`. [Candidate freeze](candidate-freeze.json) binds the commit, complete tree and native fingerprints. Its first extraction lost one shell executable bit; permissions were restored from the unchanged ZIP metadata, then the full tracked extraction matched the commit. Source-byte/citation and preservation audits pass; full archive release validation and exact-head CI remain pending.
 
-## Fresh structural transfer (pending)
+## Fresh structural transfer after protocol correction
 
 A separate [fresh rule](fresh-transfer-rule.md), [freeze](fresh-transfer-freeze.json)
 and baseline seal were committed at `e787bde` before the next native change.
@@ -61,10 +61,11 @@ Recipient-fronted nominal and possessive argument-order constructions differ
 from the original 48 and all supplementary controls. Actors, tasks and seed are
 new. Question interfaces are held constant with the consumed first packet,
 so the new structural test focuses on source language. Templates were authored
-and seen by the same operator; exact instances remain unopened until the new
-candidate/source ZIP freeze. No fresh-structure development examples were run.
+and seen by the same operator; exact instances stayed unopened until the new candidate/source ZIP freeze. No fresh-structure development examples were run.
 The candidate preserves the original 48, consumed first 24, all 56 controls and
-17 PE-02 contracts. Fresh transfer and exact-head CI remain pending.
+17 PE-02 contracts. Fresh transfer passed **24/24** decisions on its once-only candidate run: **12/12 positives**, **12/12 withholds**, zero false support and zero budget failures. Each form has four positive and four withholding targets passing. The separate audit verified 24 bodies and 28 citations. [Fresh outputs and scores](fresh-transfer) retain the original first packet separately. No native source changes followed fresh transfer inspection. Exact-head CI remains pending.
+
+Fresh tested source: `7ed65a589d8051ff659495972fab922ff802b20e`. ZIP SHA-256: `93d801d6554575542d50fee557ddbd099c607f1325ef6c8aed917d32768918fb`. The complete tracked extraction matches the committed tree. Its [focused/software/browser checks](fresh-archive-checks) and exact-head CI have distinct receipts; the earlier 1,779-test local pass belongs to source `d0f6c67`, not these later bytes.
 
 ## Mechanism and rejected candidates
 
@@ -121,3 +122,23 @@ Run `python -m unittest tests.test_source_attributed_instructions
 After a committed candidate/source ZIP freeze, run transfer once. Preserve
 failures as failures. A repair informed by them consumes that packet as
 development; a new transfer claim requires a fresh frozen set.
+
+
+## Final local release checks
+
+[Validation receipt](validation.json) separates source `7ed65a5` from the prior
+full-suite archive. The revised ZIP passes 48 original development decisions,
+24 consumed-first-packet complete contract comparisons, the fresh transfer
+once, all 17 PE-02 contracts/discovery arrays, 56 focused controls, 52 public
+controls, fifteen JavaScript/HTTP/report-pin/infrastructure checks, actual
+WebAssembly, both Chromium contexts, installed-wheel and 45 SDK checks. Its
+candidate browser module hashes match the frozen native source. Published
+Chromium here is a premerge baseline, not the new deployment. Exact-head
+archive-first/regression CI performs the complete revised-source suite before
+merge; its result and archive checksum are recorded in the live Betty report.
+
+No native source was edited after fresh transfer inspection. Historical,
+semantic, outside-custodian, independent preparation/blinding and native OOCC
+evaluations remain NOT_RUN. Future cycles preserve the original 48, both
+consumed 24-case packets and all earlier controls, using their consumed
+`development` freeze descriptors. Fresh transfer claims require fresh packets.
