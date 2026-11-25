@@ -1,0 +1,129 @@
+{
+  "status": "local_source_archive_checks_passed",
+  "baseline_commit": "2a0bc642fe21b164fd921758f56bb43f49e5a361",
+  "source_commit": "7b9b49598562f341f5eeca5b686b31e0056de84c",
+  "source_tree": "f1cbd9ce815c9b5e857c58738e8dddc894dfb28a",
+  "source_archive_sha256": "7eca65920642dc6c8276d25a7ba32cf9f2fa50a461dfbe35bc4fcd33699314ae",
+  "archive_generation": "git archive --format=zip -1 HEAD",
+  "compressed_archive_integrity": "PASS",
+  "extracted_handoff_and_evidence_digests": "PASS",
+  "operator_packet_restore_and_seal": "PASS",
+  "python": {
+    "tests_run": 1731,
+    "seconds": 402.603,
+    "skipped": 2
+  },
+  "public_evidence": {
+    "pass": 52,
+    "false_supported_bridges": 0
+  },
+  "official_mcp_client_checks": {
+    "checks_passed": 45,
+    "sdk_version": "1.29.0"
+  },
+  "installed_wheel_workspace": "PASS",
+  "javascript_ui_rendering_transport_model_helper_webgpu_and_crawler": "PASS",
+  "reference_evidence_inventory": "PASS",
+  "synthetic_researcher_workflow": {
+    "journeys": 6,
+    "workflow_passes": 6,
+    "checks": 109,
+    "failed_checks": 0,
+    "questions": 24,
+    "answerable": 18,
+    "returned": 13,
+    "unexecuted_questions": 0,
+    "literal_gold_supported": 13,
+    "wrong_returns_under_literal_oracle": 0,
+    "ungraded_model_returns": 0,
+    "unnecessary_refusals": 5,
+    "complete_answerable_coverage": 0.7222222222222222,
+    "retrieval_gold_recall": 1.0,
+    "valid_citations": 13,
+    "citations": 13,
+    "latency_ms_total": 416.865,
+    "resume_ms_total": 1854.553,
+    "semantic_accuracy_independently_measured": false,
+    "human_usability_measured": false
+  },
+  "pyodide_build": {
+    "output": "dist/index.html",
+    "bytes": 39480913,
+    "sha256": "7907977da58d8db1b8043a321705e2260d582d4b33cfe5cf584fc6654f52bcbc",
+    "bundled_files": 514,
+    "pyodide": "314.0.7",
+    "core_release_sha256": "2abdcc2e35208af406e07724cffa85bc582ced97e9028383ecf5462541393f95"
+  },
+  "pyodide_integration": "PASS",
+  "local_chromium_candidate": "PASS",
+  "deployed_chromium_baseline": "PASS with host-specific public-key pin from TLS-verified curl request",
+  "frozen_replay": {
+    "positive_cases": 4,
+    "controls": 7,
+    "before": {
+      "miss": 3,
+      "expected_withhold": 6,
+      "complete": 1,
+      "expected_presentation_withhold": 1
+    },
+    "after": {
+      "miss": 3,
+      "expected_withhold": 6,
+      "complete": 1,
+      "expected_presentation_withhold": 1
+    },
+    "false_supported_bridges": 0,
+    "execution_failures": 0,
+    "archive_receipt_sha256": "5a0a9e9f71985dd24987ed40b80df5935feafbbfcb78626721585bbd9919dd8c"
+  },
+  "native_runtime_byte_pins_equal_frus_presentation": true,
+  "retained_native_replays": {
+    "tacitus": {
+      "rows": 11,
+      "supported": 5
+    },
+    "douglass": {
+      "rows": 17,
+      "supported": 6
+    },
+    "herodotus": {
+      "rows": 7,
+      "supported": 2
+    },
+    "bt": {
+      "rows": 6,
+      "supported": 1
+    }
+  },
+  "focus_12": {
+    "correct_complete_answers": 0,
+    "appropriate_refusals": 20
+  },
+  "retained_caps_and_babbage_eligibility_decisions": "PASS",
+  "komnene_delivery_archive_sha256": "af4f3c37b8f02c4f7a9cbe94db158e6a85b429d7d01202dfbceb90d7476076b1",
+  "github_release_workflow_and_post_deployment_check": "NOT_RUN",
+  "outside_custodian_scoring": "NOT_RUN",
+  "independent_historical_accuracy": "NOT_RUN",
+  "independent_semantic_adjudication": "NOT_RUN",
+  "native_oocc": "NOT_RUN",
+  "archive_chromium_collection_policies": {
+    "checks_passed": 7
+  },
+  "archive_chromium_free_helper": {
+    "checks_passed": 12
+  },
+  "targeted_python_and_reference_rebuild": {
+    "tests_passed": 85,
+    "build": "PASS"
+  },
+  "canonical_body_literal_name_counts": {
+    "FRUS-D2": {
+      "Nixon": 0,
+      "Hoover": 3
+    },
+    "FRUS-D3": {
+      "Nixon": 0,
+      "Hoover": 0
+    }
+  }
+}

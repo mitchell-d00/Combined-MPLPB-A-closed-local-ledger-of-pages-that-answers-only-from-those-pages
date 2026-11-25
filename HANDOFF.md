@@ -4,8 +4,8 @@ Last reviewed: 2026-11-25.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `2a0bc642fe21b164fd921758f56bb43f49e5a361` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `2b0d705a1d0586955e798254fec2bc7ef8fc29c24212b4fc6243bdba96dd4365`.
+Base commit: `7b9b49598562f341f5eeca5b686b31e0056de84c` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `1c04d54cee4e28742e160743f49f2731236f2a5ff12283a800efdeef95e3227b`.
 
 ## Latest user update instructions
 
@@ -22,6 +22,8 @@ Use the prompt Al wrote on pin 2a0bc642fe21b164fd921758f56bb43f49e5a361. Freeze 
 - Both PE-01 anchors located. Zero canonical body attribution matches under the frozen rule.
 - Discovery stayed 4/4 and complete Strict Ask stayed 1/4. All inherited outcomes matched. The added negative withheld.
 - No scan cap hit. Zero false-supported bridges or execution failures.
+- The extracted ZIP passed the Python suite with 1,731 tests run and 2 skips, all 52 public evidence checks, WebAssembly and Chromium.
+- The extracted archive reproduced all 11 decisions and both attribution probes. Retained Tacitus, Douglass, DHS, BT-Erratum, Babbage and Focus-12 outcomes matched. The Komnene delivery checksum matched.
 
 ## Limitations and blocked checks
 

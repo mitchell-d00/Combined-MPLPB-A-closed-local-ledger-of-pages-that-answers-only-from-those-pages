@@ -62,3 +62,5 @@ python -m tools.pole_frus_pe01 --packet PACKETS/packet --custody CUSTODY --freez
 PE-01 through PE-03, Focus-12, scan and phrase limits and broader held-out
 proof remain open. Outside scoring, independent historical accuracy,
 independent semantic adjudication and native OOCC remain **NOT_RUN**.
+
+[Exact source archive validation](validation.json)
