@@ -183,3 +183,5 @@ output when adding evidence. Keep raw outputs separate from the grading key.
 [Source-linked tag comparison](../evaluation/bubble-wrap/2026-11-25/next-source-tags-proposal.json) is proposed, NOT_RUN: identical raw documents versus source-linked proposals, exact eligible witnesses and tampered-tag rejection.
 
 [ONBOARD-12 protocol proposal](../evaluation/bubble-wrap/2026-11-25/next-onboarding-proposal.json) is NOT_RUN. Mitchell will recruit twelve first-time participants and return uncoached results. Software journeys cannot count as human observations. Freeze engine, collection, both documentation versions, tasks and rubric before human execution.
+
+**BW-BOUNDED-TRANSITION:** [21original positive witness keys and raw readback](../evaluation/bubble-wrap/2026-11-25/bounded-transition/README.md), [versioned host audit](../tools/verify_bounded_reported_content.py), [tampering controls](../tests/test_bounded_report_audit.py). Origin PR103; source-scoped reporting versus independent authorship. Original v1 failure retained; full rerun pending.

@@ -34,7 +34,7 @@ jobs:
           # The isolated worker cannot bind the Actions workspace below /home.
           stage="$(sudo mktemp -d /tmp/mplpb-bounded.XXXXXX)"
           status=0
-          sudo "$(command -v python)" -m tools.verify_bounded_repair --output "$stage/bounded-repair" || status=$?
+          sudo "$(command -v python)" -m tools.verify_bounded_reported_content --output "$stage/bounded-repair" || status=$?
           sudo cp -R "$stage/bounded-repair" "$RUNNER_TEMP/bounded-repair"
           if ((status)); then
             find "$RUNNER_TEMP/bounded-repair/run" -name failure.json -print -quit |
@@ -90,6 +90,7 @@ jobs:
           name: bounded-acceptance-${{ github.run_id }}
           path: |
             ${{ runner.temp }}/bounded-repair/acceptance.json
+            ${{ runner.temp }}/bounded-repair/prior-v1-acceptance.json
             ${{ runner.temp }}/bounded-repair/run/run.json
             ${{ runner.temp }}/bounded-repair/run/*/failure.json
             ${{ runner.temp }}/bounded-repair/run/*/worker.log

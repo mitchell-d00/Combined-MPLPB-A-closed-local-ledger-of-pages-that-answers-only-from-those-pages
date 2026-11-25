@@ -4,8 +4,8 @@ Last reviewed: 2026-11-25.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `7f6641dd979ab3f4df5c3ddfbfc28961c095b016` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `00a419a7784e2abb7e7e4b97c04c7a494123003a50fad5ec69001e4c3e215515`.
+Base commit: `fb25b205d04a9101093c74446590cf0a00c96154` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `45b557cc3fcb7d88b007f9cfc0ad14964effe2806f1ca36a84bca2204468f20b`.
 
 ## Betty report for Al
 
@@ -55,6 +55,9 @@ Run them all in sequence test , fix and then merge it all I’ll let you run unt
 Mitchell will recruit and return results for the twelve-person onboarding trial.
 Source-linked tag comparison: exact source/revision/hash coordinates, proposed tags independently checked natively; imported private cannot set access; preserve attribution, negation, conditions and date roles.
 
+If it lost valid support or gained an unsupported claim, repair the reader. If it recovered a previously missed positive, verify the complete claim, qualifications, and citations before updating acceptance expectations. If execution or scoring failed, retain that separately from reader results.
+Create a department-based navigation structure and map every existing component to its department. Start with documentation and entry points, preserving imports, commands, frozen evidence paths, and historical links. Update the Test Index to identify the responsible department. Move implementation files later in separately tested changes, with an old-path/new-path migration map.
+
 
 ### Implemented scope
 
@@ -94,6 +97,7 @@ Source-linked tag comparison: exact source/revision/hash coordinates, proposed t
 - Combined committed7f6641d ZIP SHA-256f5be70718a1454171005493eba452e8fbd0602f3195e5325f57dd268840f8162 matches20714tracked files/modes and passes280/280 isolated scored decisions.
 - Full extracted native regression completed1810tests exit0;52public controls and15software commands pass, including12/12 report-pin decisions, JavaScript and HTTP. Actual WASM and live-old-baseline/candidate Chromium pass, including integrated local-document browser journey.
 - Fresh composition transfer: prior204a7d16/24 to committed7f6641d24/24;12positive12withhold0false support0budget stops. Candidate cases executed once; no native edits after opening. Host path preparation error before any reader execution retained with original lock and partial output; resumed unchanged driver with absolute paths.
+- Exactfb25CI regression passed. Original bounded1,000gate failed solely on21already-expected reported_statement positives labeled unscored_support;189old completions,21compound completions,580refusals retained. All21isolated full-role/qualification/canonical/original-byte readbacks pass;12tampered certificates rejected. No native edit; original scorer/keys/failure retained, new versioned host audit requires exactly the reviewed positive transitions.
 
 ### Limitations and blocked checks
 
@@ -106,8 +110,9 @@ Source-linked tag comparison: exact source/revision/hash coordinates, proposed t
 
 ### Next steps
 
-- Push evidence-only current head, pass exact-head release gates, merge103 with all oldPR ancestry intact, verify main/live/noopenPRs.
+- Push amended host acceptance/evidence head; require new exact-head full replay and archive gates, merge103 with all old PR ancestry, then verify main/live/noopenPRs.
 - Start next software experiment in the next newPR (expected104); freeze raw-vs-tag inputs, contrasts, keys and separate transfer before implementing. Prepare frozen onboarding materials for Mitchell; keep actual human outcomes NOT_RUN.
+- NextPR includes seven department entry pages and complete existing-component navigation map; no implementation moves or historical path changes.
 
 ## Use this ZIP in your repository
 
