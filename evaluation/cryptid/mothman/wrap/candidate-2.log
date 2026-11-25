@@ -1,0 +1,22 @@
+test_conflicting_writing_dates_do_not_complete (tests.test_documentary_date_roles.DocumentaryDateRoleTests.test_conflicting_writing_dates_do_not_complete) ... ok
+test_explicit_denial_is_counterevidence (tests.test_documentary_date_roles.DocumentaryDateRoleTests.test_explicit_denial_is_counterevidence) ... FAIL
+test_extra_obligations_survive (tests.test_documentary_date_roles.DocumentaryDateRoleTests.test_extra_obligations_survive) ... ok
+test_missing_writing_does_not_turn_review_into_writing (tests.test_documentary_date_roles.DocumentaryDateRoleTests.test_missing_writing_does_not_turn_review_into_writing) ... ok
+test_roles_do_not_become_event_or_transmission_from_writing (tests.test_documentary_date_roles.DocumentaryDateRoleTests.test_roles_do_not_become_event_or_transmission_from_writing) ... ok
+test_withdrawal_changes_current_eligibility (tests.test_documentary_date_roles.DocumentaryDateRoleTests.test_withdrawal_changes_current_eligibility) ... ok
+test_wrapping_preserves_witness_bytes (tests.test_documentary_date_roles.DocumentaryDateRoleTests.test_wrapping_preserves_witness_bytes) ... ok
+test_year_is_not_borrowed (tests.test_documentary_date_roles.DocumentaryDateRoleTests.test_year_is_not_borrowed) ... ok
+
+======================================================================
+FAIL: test_explicit_denial_is_counterevidence (tests.test_documentary_date_roles.DocumentaryDateRoleTests.test_explicit_denial_is_counterevidence)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/cryptid-local/tests/test_documentary_date_roles.py", line 30, in test_explicit_denial_is_counterevidence
+    self.add(self.body+' This record was not written on July 12, 1903.');self.assertFalse(self.ask()['answer_supported'])
+                                                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: True is not false
+
+----------------------------------------------------------------------
+Ran 8 tests in 0.190s
+
+FAILED (failures=1)

@@ -40,6 +40,7 @@ def date_inventory_request(question):
         subject=re.sub(r'^the\s+', '', paired[3], flags=re.I)
         if re.search(r'\b(?:and|or|if|unless|because|prove|establish|not)\b|[;:?!]',subject,re.I):return None
         return {'roles':['sending','writing'],'subject_text':subject,
+                'require_unique_requested_roles':True,
                 'scope':'explicit statements in one eligible source record'}
     m=re.fullmatch(r'Distinguish (?:the )?([a-z, ]{3,160}) dates in (?:the )?(.{2,120}) record'
                   r'(?:, without treating (?:the )?webpage review date as an event date)?',q,re.I)
@@ -292,6 +293,10 @@ def date_inventory(index,record):
                 cite=citation(r,body,a,b)
                 if cite not in citations:citations.append(cite)
     if not links:return None
+    # A paired role-disambiguation question needs both uniquely witnessed
+    # dates. Do not emit a convenient subset as the requested comparison.
+    # Existing inventory forms retain their checked-partial behavior.
+    if unresolved and request.get('require_unique_requested_roles'):return None
     complete=not unresolved
     value={'relation':'source_event_date_inventory','date_links':links,'review_dates':reviews,
            'subject_text':request['subject_text'],'unresolved_roles':unresolved,

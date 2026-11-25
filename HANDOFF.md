@@ -4,8 +4,8 @@ Last reviewed: 2026-11-25.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `3e1f6bb303c17939e5c65da8c7388ca0b3eb7585` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `1ebaab028a78453d2c635af209a50193cfea3c0f4b932985d1417c5759f66d39`.
+Base commit: `373326623d1993c85062b320cd5b118401483426` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `a6c6e285aa5e25ff032222e9cbb79661465e71ba8a97841642f1d3d1b28db1f3`.
 
 ## Betty report for Al
 
@@ -26,6 +26,8 @@ Run Betty — local Cryptid test programme. Start from current main. Complete th
 - Required sandbox command: default nested namespaces BLOCKED two checks; host execution real Bubblewrap PASS4/4. Both transcripts retained.
 - Frozen Mothman28 development executions completed on unchanged c01021c0:17 expected decisions pass,11positive misses,0false-supported claims. All five unchanged old date-role cases reproduced. Baseline/raw outputs, exact source hashes, harness/scorer/generator and sealed16case transfer retained before native edits.
 - Mothman candidate1 retained:28 completed,21/28 v1scores,4claimed false-support flags (two are line-wrapped date representation mismatches),5positive-miss flags. Existing33date/inspection controls pass. Candidate NOT accepted; transfer unopened.
+- Mothman candidate2:25/28 development decisions,0false-support flags,3positive misses under v2 scorer. v1line-wrap mismatch score retained with necessary whitespace-only scorer amendment; no source inputs or decision labels changed.
+- Additional frozen eight date-role controls:7PASS,1FAIL. Explicit denial of the same writing date is ignored by candidate2; real counterevidence bug retained. Candidate2 rejected, transfer still sealed.
 
 ### Limitations and blocked checks
 
@@ -35,7 +37,7 @@ Run Betty — local Cryptid test programme. Start from current main. Complete th
 
 ### Next steps
 
-- Retain candidate1; distinguish line-wrap scoring errors from joint-role incompleteness, repair and rescore with versioned scorer correction; no labels or inputs changed.
+- Repair ignored writing-date counterevidence, rerun identical28+8 and280preservation, archive committed source before transfer.
 - Run all series sequentially and finish a local committed-ZIP review package. No remote publication.
 
 ## Use this ZIP in your repository
