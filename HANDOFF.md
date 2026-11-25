@@ -4,8 +4,8 @@ Last reviewed: 2026-11-25.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `c0c3f3bd2405a382a2017568dd2adc2ae50fdd2f` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `e1a0879ca77a032dae1e59d28d49e8396fc7dc33fd094fa2dab20136cc537b9f`.
+Base commit: `3231231c4e53525bf56197bb573babf5885922ad` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `d346be7136ed127787c98d1f66a536180f75638e7279d389136a729fcf79b815`.
 
 ## Betty report for Al
 
@@ -53,6 +53,7 @@ Run Betty — local Cryptid test programme. Start from current main. Complete th
 - Candidate2:45/50semantic decisions vs31baseline,13complete vs1,two checkedsource conflicts,30withholds,5layoutmisses,0targetfalse. Two historical first-person arrangement leads remain UNSCORED; Wrap4/4 vs3baseline.
 - Nine safety guards pass after retained C1budget/revocation failures.59focused,169native,39selector checks pass.146prior Cryptid contracts exactly unchanged. Release280273same+7source-key-checked recoveries; original audit failures retained.
 - Case overlap inventory:482memberships,473unique reader-input pairs; repeated runs and shared-source variants not independent evidence.
+- Yeti ZIP3231231c SHA249bbfcfd5541b75debf82de4d830acd2ef93ab8e0cba8697aefb2aa3eed0bfb extracted45/50+4/4+59focused+39selectors. Once transfer26/30:6source answers,20withholds,4misses(1past-perfect,3reporting/layout),0false/0budget/0executionfailures/0unscored. Failedcoverage and original key retained; packet consumed.
 
 ### Limitations and blocked checks
 
@@ -62,7 +63,7 @@ Run Betty — local Cryptid test programme. Start from current main. Complete th
 
 ### Next steps
 
-- Freeze committed scoped Yeti candidate2 ZIP, verify extracted52+4+59+39checks, then execute sealed30transfer once. Retain misses/unscored diagnostics and continue Sasquatch.
+- Start Sasquatch identity/reference baseline with unique eligible explicit bindings. Preserve initials-only withholding and source writer/reporter/speaker/actor distinctions. Keep all prior packets as preservation, not fresh transfer.
 - Run all series sequentially and finish a local committed-ZIP review package. No remote publication.
 
 ## Use this ZIP in your repository

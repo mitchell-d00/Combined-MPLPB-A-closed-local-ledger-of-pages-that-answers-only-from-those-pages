@@ -31,6 +31,13 @@ def audit():
         packet=ROOT/c['packet'];value=load(packet/'case.json');value.pop('id',None)
         signature=digest({'case':value,'source_files':{k:v for k,v in c['files'].items() if k!='case.json'}})
         overlap[signature].append(c['id'])
+    previous=None;ledger_paths=set()
+    for ledger in sorted((home/'ledger').glob('*.json')):
+        record=load(ledger);assert record['previous_sha256']==previous
+        for entry in record['records']:
+            assert entry['path'] not in ledger_paths;ledger_paths.add(entry['path'])
+            assert sha(ROOT/entry['path'])==entry['sha256'], 'Changed immutable ledger entry'
+        previous=sha(ledger)
     runs=[]
     for path in sorted(home.glob('*/runs/*/run.json')):
         data=load(path);rows=data['cases'];ids=[c['id'] for c in rows]

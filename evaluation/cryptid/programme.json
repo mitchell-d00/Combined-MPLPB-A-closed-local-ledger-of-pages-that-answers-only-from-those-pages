@@ -135,7 +135,7 @@
       "family": "YETI",
       "id_prefix": "CRYPT-YETI",
       "mechanism": "Reporting and content polarity, conditions and modality become conflated.",
-      "status": "CANDIDATE_WITH_5_LAYOUT_MISSES",
+      "status": "COMPLETED_WITH_DEVELOPMENT_AND_TRANSFER_MISSES",
       "responsible_department": "testing-evaluation",
       "implementation_departments": [
         "reader",
@@ -157,8 +157,18 @@
         "score": "yeti/scores/wrap-candidate-2.json"
       },
       "transfer": {
+        "status": "FAILED_COVERAGE_CONSUMED",
         "cases": 30,
-        "status": "SEALED_NOT_RUN"
+        "passed": 26,
+        "complete": 6,
+        "withholds_retained": 20,
+        "positive_misses": 4,
+        "false_support": 0,
+        "budget_stops": 0,
+        "score": "yeti/scores/transfer-once.json",
+        "candidate_commit": "3231231c4e53525bf56197bb573babf5885922ad",
+        "zip_sha256": "249bbfcfd5541b75debf82de4d830acd2ef93ab8e0cba8697aefb2aa3eed0bfb",
+        "custody": "Same-operator templates visible; not independent preparation/blinding"
       },
       "candidate": {
         "cases": 52,
@@ -260,6 +270,7 @@
   },
   "run_ledger": [
     "ledger/0001.json",
-    "ledger/0002.json"
+    "ledger/0002.json",
+    "ledger/0003.json"
   ]
 }
