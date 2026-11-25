@@ -1,0 +1,472 @@
+{
+  "schema": "cryptid-claim-score-v1",
+  "version": "cryptid-claim-scorer-v3",
+  "scorer_sha256": "fa9bf0eb25098e645552a43b56ad1bb67a4f89b6b023456ca4cdf4c1603c5a19",
+  "run_sha256": "f6eee7cabfa612c0e4d53d53af21bc6c40342fcfcf979eb05bded2a4f46e9c26",
+  "key_sha256": "6f72c86b32ac2848b7db120117222bc4782e2b936645fed72cbe78d5bd44d827",
+  "counts": {
+    "planned": 16,
+    "attempted": 16,
+    "completed": 16,
+    "scored": 16,
+    "unscored": 0,
+    "passed": 9,
+    "false_support": 0,
+    "positive_misses": 7,
+    "budget_stops": 0,
+    "diagnostic_only": 0
+  },
+  "cases": [
+    {
+      "id": "CRYPT-CHUPACABRA-0001",
+      "execution_status": "completed",
+      "scored": true,
+      "passed": false,
+      "expected": "complete",
+      "kind": "abstain",
+      "claims": 0,
+      "positive_miss": true,
+      "false_support": false,
+      "errors": [
+        "positive_completion_miss",
+        "positive_claim_miss"
+      ],
+      "interpretation_inspection_recognized": false,
+      "required_witness_discovery": true,
+      "miss_stage_diagnostic": "interpretation",
+      "budget_stop": false,
+      "measurements": {
+        "query_wall_seconds": 0.1019687360021635,
+        "query_cpu_seconds": 0.10399621900000003,
+        "peak_rss_bytes": 18702336,
+        "source_html_open_calls": {
+          "query": 10,
+          "discovery": 4
+        },
+        "source_read_measurement": "Python audit open events for ledger HTML files during query/discovery; cached in-memory reads are not counted",
+        "admitted_source_count": 2,
+        "admitted_canonical_characters": 198
+      }
+    },
+    {
+      "id": "CRYPT-CHUPACABRA-0002",
+      "execution_status": "completed",
+      "scored": true,
+      "passed": false,
+      "expected": "partial",
+      "kind": "abstain",
+      "claims": 0,
+      "positive_miss": true,
+      "false_support": false,
+      "errors": [
+        "partial_obligation_not_preserved",
+        "missing_obligation_dropped",
+        "positive_claim_miss"
+      ],
+      "interpretation_inspection_recognized": false,
+      "required_witness_discovery": true,
+      "miss_stage_diagnostic": "interpretation",
+      "budget_stop": false,
+      "measurements": {
+        "query_wall_seconds": 0.0941889669993543,
+        "query_cpu_seconds": 0.09193974100000002,
+        "peak_rss_bytes": 18710528,
+        "source_html_open_calls": {
+          "query": 10,
+          "discovery": 4
+        },
+        "source_read_measurement": "Python audit open events for ledger HTML files during query/discovery; cached in-memory reads are not counted",
+        "admitted_source_count": 2,
+        "admitted_canonical_characters": 158
+      }
+    },
+    {
+      "id": "CRYPT-CHUPACABRA-0003",
+      "execution_status": "completed",
+      "scored": true,
+      "passed": true,
+      "expected": "withhold",
+      "kind": "abstain",
+      "claims": 0,
+      "positive_miss": false,
+      "false_support": false,
+      "errors": [],
+      "interpretation_inspection_recognized": false,
+      "required_witness_discovery": null,
+      "miss_stage_diagnostic": null,
+      "budget_stop": false,
+      "measurements": {
+        "query_wall_seconds": 0.10239410599751864,
+        "query_cpu_seconds": 0.10401194799999999,
+        "peak_rss_bytes": 18698240,
+        "source_html_open_calls": {
+          "query": 10,
+          "discovery": 4
+        },
+        "source_read_measurement": "Python audit open events for ledger HTML files during query/discovery; cached in-memory reads are not counted",
+        "admitted_source_count": 2,
+        "admitted_canonical_characters": 201
+      }
+    },
+    {
+      "id": "CRYPT-CHUPACABRA-0004",
+      "execution_status": "completed",
+      "scored": true,
+      "passed": true,
+      "expected": "withhold",
+      "kind": "abstain",
+      "claims": 0,
+      "positive_miss": false,
+      "false_support": false,
+      "errors": [],
+      "interpretation_inspection_recognized": false,
+      "required_witness_discovery": null,
+      "miss_stage_diagnostic": null,
+      "budget_stop": false,
+      "measurements": {
+        "query_wall_seconds": 0.10982378700282425,
+        "query_cpu_seconds": 0.11199931200000002,
+        "peak_rss_bytes": 18702336,
+        "source_html_open_calls": {
+          "query": 10,
+          "discovery": 4
+        },
+        "source_read_measurement": "Python audit open events for ledger HTML files during query/discovery; cached in-memory reads are not counted",
+        "admitted_source_count": 2,
+        "admitted_canonical_characters": 197
+      }
+    },
+    {
+      "id": "CRYPT-CHUPACABRA-0005",
+      "execution_status": "completed",
+      "scored": true,
+      "passed": true,
+      "expected": "withhold",
+      "kind": "abstain",
+      "claims": 0,
+      "positive_miss": false,
+      "false_support": false,
+      "errors": [],
+      "interpretation_inspection_recognized": false,
+      "required_witness_discovery": null,
+      "miss_stage_diagnostic": null,
+      "budget_stop": false,
+      "measurements": {
+        "query_wall_seconds": 0.10635592200560495,
+        "query_cpu_seconds": 0.10796445900000001,
+        "peak_rss_bytes": 18698240,
+        "source_html_open_calls": {
+          "query": 10,
+          "discovery": 4
+        },
+        "source_read_measurement": "Python audit open events for ledger HTML files during query/discovery; cached in-memory reads are not counted",
+        "admitted_source_count": 2,
+        "admitted_canonical_characters": 198
+      }
+    },
+    {
+      "id": "CRYPT-CHUPACABRA-0006",
+      "execution_status": "completed",
+      "scored": true,
+      "passed": true,
+      "expected": "withhold",
+      "kind": "abstain",
+      "claims": 0,
+      "positive_miss": false,
+      "false_support": false,
+      "errors": [],
+      "interpretation_inspection_recognized": false,
+      "required_witness_discovery": null,
+      "miss_stage_diagnostic": null,
+      "budget_stop": false,
+      "measurements": {
+        "query_wall_seconds": 0.09885336199658923,
+        "query_cpu_seconds": 0.099945647,
+        "peak_rss_bytes": 18706432,
+        "source_html_open_calls": {
+          "query": 10,
+          "discovery": 4
+        },
+        "source_read_measurement": "Python audit open events for ledger HTML files during query/discovery; cached in-memory reads are not counted",
+        "admitted_source_count": 2,
+        "admitted_canonical_characters": 225
+      }
+    },
+    {
+      "id": "CRYPT-CHUPACABRA-0007",
+      "execution_status": "completed",
+      "scored": true,
+      "passed": true,
+      "expected": "withhold",
+      "kind": "abstain",
+      "claims": 0,
+      "positive_miss": false,
+      "false_support": false,
+      "errors": [],
+      "interpretation_inspection_recognized": false,
+      "required_witness_discovery": null,
+      "miss_stage_diagnostic": null,
+      "budget_stop": false,
+      "measurements": {
+        "query_wall_seconds": 0.10643534999690019,
+        "query_cpu_seconds": 0.10798348600000002,
+        "peak_rss_bytes": 18706432,
+        "source_html_open_calls": {
+          "query": 10,
+          "discovery": 4
+        },
+        "source_read_measurement": "Python audit open events for ledger HTML files during query/discovery; cached in-memory reads are not counted",
+        "admitted_source_count": 2,
+        "admitted_canonical_characters": 226
+      }
+    },
+    {
+      "id": "CRYPT-CHUPACABRA-0008",
+      "execution_status": "completed",
+      "scored": true,
+      "passed": true,
+      "expected": "withhold",
+      "kind": "abstain",
+      "claims": 0,
+      "positive_miss": false,
+      "false_support": false,
+      "errors": [],
+      "interpretation_inspection_recognized": false,
+      "required_witness_discovery": null,
+      "miss_stage_diagnostic": null,
+      "budget_stop": false,
+      "measurements": {
+        "query_wall_seconds": 0.11016517999814823,
+        "query_cpu_seconds": 0.111994873,
+        "peak_rss_bytes": 18702336,
+        "source_html_open_calls": {
+          "query": 10,
+          "discovery": 4
+        },
+        "source_read_measurement": "Python audit open events for ledger HTML files during query/discovery; cached in-memory reads are not counted",
+        "admitted_source_count": 2,
+        "admitted_canonical_characters": 134
+      }
+    },
+    {
+      "id": "CRYPT-CHUPACABRA-0009",
+      "execution_status": "completed",
+      "scored": true,
+      "passed": true,
+      "expected": "withhold",
+      "kind": "abstain",
+      "claims": 0,
+      "positive_miss": false,
+      "false_support": false,
+      "errors": [],
+      "interpretation_inspection_recognized": false,
+      "required_witness_discovery": null,
+      "miss_stage_diagnostic": null,
+      "budget_stop": false,
+      "measurements": {
+        "query_wall_seconds": 0.051095155999064445,
+        "query_cpu_seconds": 0.052005051999999996,
+        "peak_rss_bytes": 18702336,
+        "source_html_open_calls": {
+          "query": 10,
+          "discovery": 4
+        },
+        "source_read_measurement": "Python audit open events for ledger HTML files during query/discovery; cached in-memory reads are not counted",
+        "admitted_source_count": 2,
+        "admitted_canonical_characters": 198
+      }
+    },
+    {
+      "id": "CRYPT-CHUPACABRA-0010",
+      "execution_status": "completed",
+      "scored": true,
+      "passed": true,
+      "expected": "withhold",
+      "kind": "abstain",
+      "claims": 0,
+      "positive_miss": false,
+      "false_support": false,
+      "errors": [],
+      "interpretation_inspection_recognized": false,
+      "required_witness_discovery": null,
+      "miss_stage_diagnostic": null,
+      "budget_stop": false,
+      "measurements": {
+        "query_wall_seconds": 0.08917297500011045,
+        "query_cpu_seconds": 0.09199083700000002,
+        "peak_rss_bytes": 18702336,
+        "source_html_open_calls": {
+          "query": 15,
+          "discovery": 6
+        },
+        "source_read_measurement": "Python audit open events for ledger HTML files during query/discovery; cached in-memory reads are not counted",
+        "admitted_source_count": 3,
+        "admitted_canonical_characters": 292
+      }
+    },
+    {
+      "id": "CRYPT-CHUPACABRA-0011",
+      "execution_status": "completed",
+      "scored": true,
+      "passed": true,
+      "expected": "withhold",
+      "kind": "abstain",
+      "claims": 0,
+      "positive_miss": false,
+      "false_support": false,
+      "errors": [],
+      "interpretation_inspection_recognized": false,
+      "required_witness_discovery": null,
+      "miss_stage_diagnostic": null,
+      "budget_stop": false,
+      "measurements": {
+        "query_wall_seconds": 0.0877927469991846,
+        "query_cpu_seconds": 0.088001407,
+        "peak_rss_bytes": 18702336,
+        "source_html_open_calls": {
+          "query": 10,
+          "discovery": 4
+        },
+        "source_read_measurement": "Python audit open events for ledger HTML files during query/discovery; cached in-memory reads are not counted",
+        "admitted_source_count": 2,
+        "admitted_canonical_characters": 192
+      }
+    },
+    {
+      "id": "CRYPT-CHUPACABRA-0012",
+      "execution_status": "completed",
+      "scored": true,
+      "passed": false,
+      "expected": "complete",
+      "kind": "abstain",
+      "claims": 0,
+      "positive_miss": true,
+      "false_support": false,
+      "errors": [
+        "positive_completion_miss",
+        "positive_claim_miss"
+      ],
+      "interpretation_inspection_recognized": false,
+      "required_witness_discovery": true,
+      "miss_stage_diagnostic": "interpretation",
+      "budget_stop": false,
+      "measurements": {
+        "query_wall_seconds": 0.08667009400232928,
+        "query_cpu_seconds": 0.08799432400000001,
+        "peak_rss_bytes": 18702336,
+        "source_html_open_calls": {
+          "query": 10,
+          "discovery": 4
+        },
+        "source_read_measurement": "Python audit open events for ledger HTML files during query/discovery; cached in-memory reads are not counted",
+        "admitted_source_count": 2,
+        "admitted_canonical_characters": 197
+      }
+    },
+    {
+      "id": "CRYPT-CHUPACABRA-0013",
+      "execution_status": "completed",
+      "scored": true,
+      "passed": false,
+      "expected": "complete",
+      "kind": "abstain",
+      "claims": 0,
+      "positive_miss": true,
+      "false_support": false,
+      "errors": [
+        "positive_completion_miss",
+        "positive_claim_miss"
+      ],
+      "interpretation_inspection_recognized": false,
+      "required_witness_discovery": true,
+      "miss_stage_diagnostic": "interpretation",
+      "budget_stop": false,
+      "measurements": {
+        "cpu_seconds": 0.11998875800000003,
+        "wall_seconds": 0.12025257400091505,
+        "peak_rss_bytes": 23080960,
+        "explicit_original_read_calls": 3,
+        "explicit_original_bytes_read": 417
+      }
+    },
+    {
+      "id": "CRYPT-CHUPACABRA-0014",
+      "execution_status": "completed",
+      "scored": true,
+      "passed": false,
+      "expected": "complete",
+      "kind": "abstain",
+      "claims": 0,
+      "positive_miss": true,
+      "false_support": false,
+      "errors": [
+        "positive_completion_miss",
+        "positive_claim_miss"
+      ],
+      "interpretation_inspection_recognized": false,
+      "required_witness_discovery": true,
+      "miss_stage_diagnostic": "interpretation",
+      "budget_stop": false,
+      "measurements": {
+        "cpu_seconds": 0.15176415399999998,
+        "wall_seconds": 0.15178329199989093,
+        "peak_rss_bytes": 23793664,
+        "explicit_original_read_calls": 5,
+        "explicit_original_bytes_read": 694
+      }
+    },
+    {
+      "id": "CRYPT-CHUPACABRA-0015",
+      "execution_status": "completed",
+      "scored": true,
+      "passed": false,
+      "expected": "complete",
+      "kind": "abstain",
+      "claims": 0,
+      "positive_miss": true,
+      "false_support": false,
+      "errors": [
+        "positive_completion_miss",
+        "positive_claim_miss"
+      ],
+      "interpretation_inspection_recognized": false,
+      "required_witness_discovery": true,
+      "miss_stage_diagnostic": "interpretation",
+      "budget_stop": false,
+      "measurements": {
+        "cpu_seconds": 0.20797517799999998,
+        "wall_seconds": 0.20714323300489923,
+        "peak_rss_bytes": 26341376,
+        "explicit_original_read_calls": 9,
+        "explicit_original_bytes_read": 1043
+      }
+    },
+    {
+      "id": "CRYPT-CHUPACABRA-0016",
+      "execution_status": "completed",
+      "scored": true,
+      "passed": false,
+      "expected": "complete",
+      "kind": "abstain",
+      "claims": 0,
+      "positive_miss": true,
+      "false_support": false,
+      "errors": [
+        "positive_completion_miss",
+        "positive_claim_miss"
+      ],
+      "interpretation_inspection_recognized": false,
+      "required_witness_discovery": true,
+      "miss_stage_diagnostic": "interpretation",
+      "budget_stop": false,
+      "measurements": {
+        "cpu_seconds": 0.215999199,
+        "wall_seconds": 0.21605828199972166,
+        "peak_rss_bytes": 26419200,
+        "explicit_original_read_calls": 9,
+        "explicit_original_bytes_read": 1149
+      }
+    }
+  ],
+  "custody": "Same-operator keys/scoring; no independent historical or semantic adjudication."
+}
