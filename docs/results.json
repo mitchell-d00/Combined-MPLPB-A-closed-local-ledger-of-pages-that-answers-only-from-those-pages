@@ -4,6 +4,19 @@
   "meaning": "Links establish retained test/reproduction coverage, not a fresh execution or certification of historical metrics. Original source, dates, fixtures and exact revisions remain in the linked reports.",
   "families": [
     {
+      "family": "attribution",
+      "artifacts": "evaluation/attribution",
+      "tests": [
+        "tests/test_signed_instructions.py"
+      ],
+      "runners": [
+        "tools/attribution_trial.py",
+        "tools/attribution_packets.py"
+      ],
+      "scope": "Frozen cross-form source attribution with 48 development and 24 procedurally sealed same-operator transfer cases; complete PE-02 contract preservation.",
+      "measurement_status": "Development baseline 24/48 with 24 positive misses and zero false support. Transfer instances are unopened; candidate results pending. Independent preparation, blinding, historical/semantic adjudication, outside-custodian scoring and native OOCC remain NOT_RUN."
+    },
+    {
       "family": "report-pins",
       "artifacts": "evaluation/report-pins",
       "tests": [

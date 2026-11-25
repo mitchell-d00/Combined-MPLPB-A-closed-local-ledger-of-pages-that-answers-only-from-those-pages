@@ -2,6 +2,8 @@
 
 Last reviewed: 2026-11-25.
 
+[Shared attribution](../evaluation/attribution/2026-11-25/README.md) freezes 48 development and 24 same-operator transfer cases across letters, minutes and quoted reports. The baseline passes 24/48 decisions with 24 positive misses and zero false support. Candidate and transfer results are pending; independent preparation/blinding and adjudication are unmeasured. [Sealed replay](../tools/attribution_trial.py).
+
 [FRUS-PE02](../evaluation/pole/open-items/frus-pe02/README.md) retains historical completion at **1/4**, adds the Smith-letter checked partial (**0/4 → 1/4** historical partials), preserves all six inherited full withholds and the advice-only partial control, and passes the new synthetic positive with **5/5** new withholds. All 17 discovery arrays remain unchanged. [Signed-instruction controls](../tests/test_signed_instructions.py) and [sealed replay](../tools/pole_frus_pe02.py) retain the rejected attempts and local custody limits.
 
 [Report-pin selection](../evaluation/report-pins/2026-11-25/README.md) records a frozen mocked-HTTP replay through both role commands: **8/12 to 12/12** expected decisions and **four to zero false-current matches**. It measures coordination metadata parsing, not historical accuracy. [Replay tool](../tools/replay_report_pins.py) and [JavaScript controls](../tests/javascript-api.cjs).
