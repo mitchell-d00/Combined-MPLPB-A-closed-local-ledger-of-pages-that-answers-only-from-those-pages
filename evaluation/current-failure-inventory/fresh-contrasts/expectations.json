@@ -1,0 +1,296 @@
+[
+  {
+    "suite": "fresh",
+    "id": "FRESH-01",
+    "family": "reported_statement",
+    "expected": "answer",
+    "required_propositions": [],
+    "automatic_answer_matcher": "source_report_roles_unimplemented",
+    "reference_sources": [
+      "SOURCE-0001"
+    ],
+    "source_facts": [
+      {
+        "source_id": "SOURCE-0001",
+        "evidence_text": "Lina Mercer reported that Hugo Sato wrote the tide ledger."
+      }
+    ],
+    "reporter": "Lina Mercer",
+    "attributed_author": "Hugo Sato",
+    "source_header_writer": "Tomas Heron",
+    "meaning": "affirmative reported authorship, not actual authorship",
+    "historical_truth_independently_verified": false
+  },
+  {
+    "suite": "fresh",
+    "id": "FRESH-02",
+    "family": "reported_statement",
+    "expected": "answer",
+    "required_propositions": [],
+    "automatic_answer_matcher": "source_report_roles_unimplemented",
+    "reference_sources": [
+      "SOURCE-0001"
+    ],
+    "source_facts": [
+      {
+        "source_id": "SOURCE-0001",
+        "evidence_text": "Lina Mercer said, “Hugo Sato wrote the tide ledger.”"
+      }
+    ],
+    "reporter": "Lina Mercer",
+    "attributed_author": "Hugo Sato",
+    "source_header_writer": "Tomas Heron",
+    "meaning": "explicit quoted reporter and distinct attributed author",
+    "historical_truth_independently_verified": false
+  },
+  {
+    "suite": "fresh",
+    "id": "FRESH-03",
+    "family": "reported_statement",
+    "expected": "answer",
+    "required_propositions": [],
+    "automatic_answer_matcher": "source_report_roles_unimplemented",
+    "reference_sources": [
+      "SOURCE-0001"
+    ],
+    "source_facts": [
+      {
+        "source_id": "SOURCE-0001",
+        "evidence_text": "Meeting minutes. Recorder: Tomas Heron. Lina Mercer stated that Hugo Sato wrote the tide ledger."
+      }
+    ],
+    "reporter": "Lina Mercer",
+    "attributed_author": "Hugo Sato",
+    "source_header_writer": "Tomas Heron",
+    "meaning": "recorder distinct from reporter and attributed author",
+    "historical_truth_independently_verified": false
+  },
+  {
+    "suite": "fresh",
+    "id": "FRESH-04",
+    "family": "reported_denial",
+    "expected": "answer",
+    "required_propositions": [],
+    "automatic_answer_matcher": "source_report_roles_unimplemented",
+    "reference_sources": [
+      "SOURCE-0001"
+    ],
+    "source_facts": [
+      {
+        "source_id": "SOURCE-0001",
+        "evidence_text": "Lina Mercer reported that Hugo Sato did not write the tide ledger."
+      }
+    ],
+    "reporter": "Lina Mercer",
+    "attributed_author": "Hugo Sato",
+    "source_header_writer": "Tomas Heron",
+    "meaning": "inner authorship denial is attributed content; do not assert actual non-authorship",
+    "historical_truth_independently_verified": false
+  },
+  {
+    "suite": "fresh",
+    "id": "FRESH-05",
+    "family": "direct_action_control",
+    "expected": "answer",
+    "required_propositions": [
+      {
+        "relation": "source_action_assertion",
+        "actor_text": "Hugo Sato",
+        "action": "write",
+        "object_text": "the tide ledger",
+        "negative": false
+      }
+    ],
+    "automatic_answer_matcher": "typed_propositions",
+    "reference_sources": [
+      "SOURCE-0001"
+    ],
+    "source_facts": [
+      {
+        "source_id": "SOURCE-0001",
+        "evidence_text": "Hugo Sato wrote the tide ledger."
+      }
+    ],
+    "reporter": "Lina Mercer",
+    "attributed_author": "Hugo Sato",
+    "source_header_writer": "Tomas Heron",
+    "meaning": "direct affirmative source assertion control",
+    "historical_truth_independently_verified": false
+  },
+  {
+    "suite": "fresh",
+    "id": "FRESH-06",
+    "family": "report_denial",
+    "expected": "answer",
+    "required_propositions": [],
+    "automatic_answer_matcher": "source_report_roles_unimplemented",
+    "reference_sources": [
+      "SOURCE-0001"
+    ],
+    "source_facts": [
+      {
+        "source_id": "SOURCE-0001",
+        "evidence_text": "Lina Mercer did not report that Hugo Sato wrote the tide ledger."
+      }
+    ],
+    "reporter": "Lina Mercer",
+    "attributed_author": "Hugo Sato",
+    "source_header_writer": "Tomas Heron",
+    "meaning": "source-supported outer report denial; inner authorship remains unasserted",
+    "historical_truth_independently_verified": false
+  },
+  {
+    "suite": "fresh",
+    "id": "FRESH-07",
+    "family": "wrong_reporter",
+    "expected": "no_full_support",
+    "required_propositions": [],
+    "automatic_answer_matcher": "source_report_roles_unimplemented",
+    "reference_sources": [
+      "SOURCE-0001"
+    ],
+    "source_facts": [
+      {
+        "source_id": "SOURCE-0001",
+        "evidence_text": "Lina Mercer reported that Hugo Sato wrote the tide ledger."
+      }
+    ],
+    "reporter": "Lina Mercer",
+    "attributed_author": "Hugo Sato",
+    "source_header_writer": "Tomas Heron",
+    "meaning": "no evidence for the requested reporter",
+    "historical_truth_independently_verified": false
+  },
+  {
+    "suite": "fresh",
+    "id": "FRESH-08",
+    "family": "instruction_execution",
+    "expected": "no_full_support",
+    "required_propositions": [],
+    "automatic_answer_matcher": "source_report_roles_unimplemented",
+    "reference_sources": [
+      "SOURCE-0001"
+    ],
+    "source_facts": [
+      {
+        "source_id": "SOURCE-0001",
+        "evidence_text": "Lina Mercer instructed Hugo Sato to write the tide ledger."
+      }
+    ],
+    "reporter": "Lina Mercer",
+    "attributed_author": "Hugo Sato",
+    "source_header_writer": "Tomas Heron",
+    "meaning": "instruction cannot establish execution",
+    "historical_truth_independently_verified": false
+  },
+  {
+    "suite": "fresh",
+    "id": "FRESH-09",
+    "family": "independent_authorship",
+    "expected": "no_full_support",
+    "required_propositions": [],
+    "automatic_answer_matcher": "source_report_roles_unimplemented",
+    "reference_sources": [
+      "SOURCE-0001"
+    ],
+    "source_facts": [
+      {
+        "source_id": "SOURCE-0001",
+        "evidence_text": "Lina Mercer reported that Hugo Sato wrote the tide ledger."
+      }
+    ],
+    "reporter": "Lina Mercer",
+    "attributed_author": "Hugo Sato",
+    "source_header_writer": "Tomas Heron",
+    "meaning": "report is not independent historical corroboration",
+    "historical_truth_independently_verified": false
+  },
+  {
+    "suite": "fresh",
+    "id": "FRESH-10",
+    "family": "initials_only",
+    "expected": "no_full_support",
+    "required_propositions": [],
+    "automatic_answer_matcher": "source_report_roles_unimplemented",
+    "reference_sources": [
+      "SOURCE-0001"
+    ],
+    "source_facts": [
+      {
+        "source_id": "SOURCE-0001",
+        "evidence_text": "L. M. reported that Hugo Sato wrote the tide ledger."
+      }
+    ],
+    "reporter": "Lina Mercer",
+    "attributed_author": "Hugo Sato",
+    "source_header_writer": "Tomas Heron",
+    "meaning": "initials cannot be expanded to a full reporter name",
+    "historical_truth_independently_verified": false
+  },
+  {
+    "suite": "fresh",
+    "id": "FRESH-11",
+    "family": "withdrawal",
+    "expected": "no_full_support",
+    "required_propositions": [],
+    "automatic_answer_matcher": "source_report_roles_unimplemented",
+    "reference_sources": [
+      "SOURCE-0001"
+    ],
+    "source_facts": [
+      {
+        "source_id": "SOURCE-0001",
+        "evidence_text": "Lina Mercer reported that Hugo Sato wrote the tide ledger."
+      }
+    ],
+    "reporter": "Lina Mercer",
+    "attributed_author": "Hugo Sato",
+    "source_header_writer": "Tomas Heron",
+    "meaning": "source is withdrawn",
+    "historical_truth_independently_verified": false
+  },
+  {
+    "suite": "fresh",
+    "id": "FRESH-12",
+    "family": "wrong_attributed_actor",
+    "expected": "no_full_support",
+    "required_propositions": [],
+    "automatic_answer_matcher": "source_report_roles_unimplemented",
+    "reference_sources": [
+      "SOURCE-0001"
+    ],
+    "source_facts": [
+      {
+        "source_id": "SOURCE-0001",
+        "evidence_text": "Lina Mercer reported that Hugo Sato wrote the tide ledger."
+      }
+    ],
+    "reporter": "Lina Mercer",
+    "attributed_author": "Hugo Sato",
+    "source_header_writer": "Tomas Heron",
+    "meaning": "different inner actor is unsupported",
+    "historical_truth_independently_verified": false
+  },
+  {
+    "suite": "fresh",
+    "id": "FRESH-13",
+    "family": "conditional_reporting",
+    "expected": "no_full_support",
+    "required_propositions": [],
+    "automatic_answer_matcher": "source_report_roles_unimplemented",
+    "reference_sources": [
+      "SOURCE-0001"
+    ],
+    "source_facts": [
+      {
+        "source_id": "SOURCE-0001",
+        "evidence_text": "If the journal is accurate, Lina Mercer reported that Hugo Sato wrote the tide ledger."
+      }
+    ],
+    "reporter": "Lina Mercer",
+    "attributed_author": "Hugo Sato",
+    "source_header_writer": "Tomas Heron",
+    "meaning": "qualified content cannot become an unconditional report; a qualified partial must retain its condition",
+    "historical_truth_independently_verified": false
+  }
+]

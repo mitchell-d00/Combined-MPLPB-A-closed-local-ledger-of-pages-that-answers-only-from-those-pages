@@ -1,0 +1,1808 @@
+[
+  {
+    "suite": "known",
+    "id": "DP00001",
+    "family": "competing_accounts",
+    "expected": "refuse",
+    "required_propositions": [],
+    "reference_sources": [
+      "SOURCE-0001",
+      "SOURCE-0002"
+    ],
+    "source_facts": [
+      {
+        "source_id": "SOURCE-0001",
+        "path": "sources/record-01.text",
+        "raw_quote": "EDDA MARÉN TO IRIS BECK. November 28, 1847\r\nDear colleague,\r\n\r\nEdda Marén wrote the coastal dispatch.\r\n",
+        "evidence_text": "Edda Marén wrote the coastal dispatch.",
+        "source_class": "original"
+      },
+      {
+        "source_id": "SOURCE-0002",
+        "path": "sources/record-02.text",
+        "raw_quote": "EDDA MARÉN TO IRIS BECK. November 28, 1847\r\nDear colleague,\r\n\r\nIris Beck wrote the coastal dispatch.\r\n",
+        "evidence_text": "Iris Beck wrote the coastal dispatch.",
+        "source_class": "original"
+      }
+    ],
+    "structural_expectations": {},
+    "answer_scope": "What the eligible fictional records establish,not independently verified historical truth.",
+    "automatic_answer_matcher": "requires_semantic_review",
+    "literal_anchor": null
+  },
+  {
+    "suite": "known",
+    "id": "DP00002",
+    "family": "partial_correction",
+    "expected": "answer",
+    "required_propositions": [],
+    "reference_sources": [
+      "SOURCE-0001",
+      "SOURCE-0002"
+    ],
+    "source_facts": [
+      {
+        "source_id": "SOURCE-0001",
+        "path": "sources/record-01.txt",
+        "raw_quote": "# Archival transcript\n\nWritten June 18, 1848.\n\nThis letter was written on June\n18, 1848. The consignment\ncontains six crates for the\neast depot.\n",
+        "evidence_text": "This letter was written on June\n18, 1848. The consignment\ncontains six crates for the\neast depot.",
+        "source_class": "original"
+      },
+      {
+        "source_id": "SOURCE-0002",
+        "path": "sources/record-02.txt",
+        "raw_quote": "# Archival transcript\n\nWritten June 21, 1848.\n\nIn my letter of June 18, 1848,\nthe count should read nine\ncrates. The destination remains\nthe east depot.\n",
+        "evidence_text": "In my letter of June 18, 1848,\nthe count should read nine\ncrates. The destination remains\nthe east depot.",
+        "source_class": "original"
+      }
+    ],
+    "structural_expectations": {},
+    "answer_scope": "What the eligible fictional records establish,not independently verified historical truth.",
+    "automatic_answer_matcher": "requires_semantic_review",
+    "literal_anchor": null
+  },
+  {
+    "suite": "known",
+    "id": "DP00007",
+    "family": "explicit_cause",
+    "expected": "answer",
+    "required_propositions": [
+      {
+        "relation": "source_causal_assertion",
+        "action_text": "canceled",
+        "cause_text": "damage to the bridge",
+        "negative": false
+      }
+    ],
+    "reference_sources": [
+      "SOURCE-0001"
+    ],
+    "source_facts": [
+      {
+        "source_id": "SOURCE-0001",
+        "path": "sources/record-01.txt",
+        "raw_quote": "The inspection was canceled because of damage to the bridge.\n",
+        "evidence_text": "The inspection was canceled because of damage to the bridge.",
+        "source_class": "original"
+      }
+    ],
+    "structural_expectations": {},
+    "answer_scope": "What the eligible fictional records establish,not independently verified historical truth.",
+    "automatic_answer_matcher": "typed_proposition_v1",
+    "literal_anchor": null
+  },
+  {
+    "suite": "known",
+    "id": "DP00010",
+    "family": "earliest_observed",
+    "expected": "answer",
+    "required_propositions": [],
+    "reference_sources": [
+      "SOURCE-0001",
+      "SOURCE-0002"
+    ],
+    "source_facts": [
+      {
+        "source_id": "SOURCE-0001",
+        "path": "sources/record-01.txt",
+        "raw_quote": "# Archival transcript\r\n\r\nWritten June 21, 1848.\r\n\r\nThis record was written on June 21, 1848. I recorded an idea about the harbor report.\r\n",
+        "evidence_text": "This record was written on June 21, 1848. I recorded an idea about the harbor report.",
+        "source_class": "original"
+      },
+      {
+        "source_id": "SOURCE-0002",
+        "path": "sources/record-02.txt",
+        "raw_quote": "# Archival transcript\r\n\r\nWritten June 24, 1848.\r\n\r\nThis record was written on June 24, 1848. I recorded an idea about the harbor report.\r\n",
+        "evidence_text": "This record was written on June 24, 1848. I recorded an idea about the harbor report.",
+        "source_class": "original"
+      }
+    ],
+    "structural_expectations": {},
+    "answer_scope": "What the eligible fictional records establish,not independently verified historical truth.",
+    "automatic_answer_matcher": "requires_semantic_review",
+    "literal_anchor": null
+  },
+  {
+    "suite": "known",
+    "id": "DP00011",
+    "family": "intention_execution",
+    "expected": "refuse",
+    "required_propositions": [],
+    "reference_sources": [
+      "SOURCE-0001"
+    ],
+    "source_facts": [
+      {
+        "source_id": "SOURCE-0001",
+        "path": "sources/record-01.txt",
+        "raw_quote": "Ivo Hart asked Mina Cole to send the copper survey report.\r\n",
+        "evidence_text": "Ivo Hart asked Mina Cole to send the copper survey report.",
+        "source_class": "original"
+      }
+    ],
+    "structural_expectations": {},
+    "answer_scope": "What the eligible fictional records establish,not independently verified historical truth.",
+    "automatic_answer_matcher": "requires_semantic_review",
+    "literal_anchor": null
+  },
+  {
+    "suite": "known",
+    "id": "DP00013",
+    "family": "competing_accounts",
+    "expected": "refuse",
+    "required_propositions": [],
+    "reference_sources": [
+      "SOURCE-0001",
+      "SOURCE-0002"
+    ],
+    "source_facts": [
+      {
+        "source_id": "SOURCE-0001",
+        "path": "sources/record-01.txt",
+        "raw_quote": "Ivo Hart wrote the copper survey report.\n",
+        "evidence_text": "Ivo Hart wrote the copper survey report.",
+        "source_class": "original"
+      },
+      {
+        "source_id": "SOURCE-0002",
+        "path": "sources/record-02.txt",
+        "raw_quote": "Iris Beck wrote the copper survey report.\n",
+        "evidence_text": "Iris Beck wrote the copper survey report.",
+        "source_class": "original"
+      }
+    ],
+    "structural_expectations": {},
+    "answer_scope": "What the eligible fictional records establish,not independently verified historical truth.",
+    "automatic_answer_matcher": "requires_semantic_review",
+    "literal_anchor": null
+  },
+  {
+    "suite": "known",
+    "id": "DP00016",
+    "family": "subject_identity",
+    "expected": "refuse",
+    "required_propositions": [],
+    "reference_sources": [
+      "SOURCE-0001",
+      "SOURCE-0002"
+    ],
+    "source_facts": [
+      {
+        "source_id": "SOURCE-0001",
+        "path": "sources/record-01.text",
+        "raw_quote": "From: Ivo Hart\r\nTo: Lea Stone\r\nDate written: December 27, 1845\r\nSubject: Archive notice\r\nMessage-ID: MAIL-100161\r\n\r\nIvo Hart described an inspection of the east depot.\r\n",
+        "evidence_text": "Ivo Hart described an inspection of the east depot.",
+        "source_class": "original"
+      },
+      {
+        "source_id": "SOURCE-0002",
+        "path": "sources/record-02.text",
+        "raw_quote": "From: Ivo Hart\r\nTo: Lea Stone\r\nDate written: December 27, 1845\r\nSubject: Archive notice\r\nMessage-ID: MAIL-100162\r\n\r\nLea Stone described an inspection of the west depot.\r\n",
+        "evidence_text": "Lea Stone described an inspection of the west depot.",
+        "source_class": "original"
+      }
+    ],
+    "structural_expectations": {
+      "forbid_event_merge": true
+    },
+    "answer_scope": "What the eligible fictional records establish,not independently verified historical truth.",
+    "automatic_answer_matcher": "requires_semantic_review",
+    "literal_anchor": null
+  },
+  {
+    "suite": "known",
+    "id": "DP00020",
+    "family": "withdrawn_source",
+    "expected": "refuse",
+    "required_propositions": [],
+    "reference_sources": [],
+    "source_facts": [
+      {
+        "source_id": "SOURCE-0001",
+        "path": "sources/record-01.txt",
+        "raw_quote": "IVO HART TO IRIS BECK. April 14, 1840\nDear colleague,\n\nIvo Hart wrote the museum catalogue.\n",
+        "evidence_text": "Ivo Hart wrote the museum catalogue.",
+        "source_class": "original"
+      }
+    ],
+    "structural_expectations": {},
+    "answer_scope": "What the eligible fictional records establish,not independently verified historical truth.",
+    "automatic_answer_matcher": "requires_semantic_review",
+    "literal_anchor": null
+  },
+  {
+    "suite": "known",
+    "id": "DP00022",
+    "family": "earliest_observed",
+    "expected": "answer",
+    "required_propositions": [],
+    "reference_sources": [
+      "SOURCE-0001",
+      "SOURCE-0002"
+    ],
+    "source_facts": [
+      {
+        "source_id": "SOURCE-0001",
+        "path": "sources/record-01.md",
+        "raw_quote": "From: Owen Pike\nTo: May Reed\nDate written: April 10, 1842\nSubject: Archive notice\nMessage-ID: MAIL-10022\n\nThis record was written on April 10, 1842. I recorded an idea about the alder\nmemorandum.\n",
+        "evidence_text": "This record was written on April 10, 1842. I recorded an idea about the alder\nmemorandum.",
+        "source_class": "original"
+      },
+      {
+        "source_id": "SOURCE-0002",
+        "path": "sources/record-02.md",
+        "raw_quote": "From: Owen Pike\nTo: May Reed\nDate written: April 13, 1842\nSubject: Archive notice\nMessage-ID: MAIL-10022\n\nThis record was written on April 13, 1842. I recorded an idea about the alder\nmemorandum.\n",
+        "evidence_text": "This record was written on April 13, 1842. I recorded an idea about the alder\nmemorandum.",
+        "source_class": "original"
+      }
+    ],
+    "structural_expectations": {},
+    "answer_scope": "What the eligible fictional records establish,not independently verified historical truth.",
+    "automatic_answer_matcher": "requires_semantic_review",
+    "literal_anchor": null
+  },
+  {
+    "suite": "known",
+    "id": "DP00024",
+    "family": "partial_correction",
+    "expected": "answer",
+    "required_propositions": [],
+    "reference_sources": [
+      "SOURCE-0001",
+      "SOURCE-0002"
+    ],
+    "source_facts": [
+      {
+        "source_id": "SOURCE-0001",
+        "path": "sources/record-01.text",
+        "raw_quote": "IVO HART TO TESS ROWAN. November 25, 1847\nDear colleague,\n\nThis letter was written on November 25, 1847. The\nconsignment contains twelve crates for the east depot.\n",
+        "evidence_text": "This letter was written on November 25, 1847. The\nconsignment contains twelve crates for the east depot.",
+        "source_class": "original"
+      },
+      {
+        "source_id": "SOURCE-0002",
+        "path": "sources/record-02.text",
+        "raw_quote": "IVO HART TO TESS ROWAN. November 28, 1847\nDear colleague,\n\nIn my letter of November 25, 1847, the count should read\nfourteen crates. The destination remains the east depot.\n",
+        "evidence_text": "In my letter of November 25, 1847, the count should read\nfourteen crates. The destination remains the east depot.",
+        "source_class": "original"
+      }
+    ],
+    "structural_expectations": {},
+    "answer_scope": "What the eligible fictional records establish,not independently verified historical truth.",
+    "automatic_answer_matcher": "requires_semantic_review",
+    "literal_anchor": null
+  },
+  {
+    "suite": "known",
+    "id": "DP00025",
+    "family": "absent_anchor",
+    "expected": "refuse",
+    "required_propositions": [],
+    "reference_sources": [],
+    "source_facts": [
+      {
+        "source_id": "SOURCE-0001",
+        "path": "sources/record-01.md",
+        "raw_quote": "Edda Marén wrote the harbor report.\r\n",
+        "evidence_text": "Edda Marén wrote the harbor report.",
+        "source_class": "original"
+      }
+    ],
+    "structural_expectations": {},
+    "answer_scope": "What the eligible fictional records establish,not independently verified historical truth.",
+    "automatic_answer_matcher": "requires_semantic_review",
+    "literal_anchor": null
+  },
+  {
+    "suite": "known",
+    "id": "DP00028",
+    "family": "negated_statement",
+    "expected": "answer",
+    "required_propositions": [
+      {
+        "relation": "source_action_assertion",
+        "actor_text": "Edda Marén",
+        "action": "write",
+        "object_text": "the orchard inventory",
+        "negative": true
+      }
+    ],
+    "reference_sources": [
+      "SOURCE-0001"
+    ],
+    "source_facts": [
+      {
+        "source_id": "SOURCE-0001",
+        "path": "sources/record-01.md",
+        "raw_quote": "Edda Marén did not write the orchard inventory.\n",
+        "evidence_text": "Edda Marén did not write the orchard inventory.",
+        "source_class": "original"
+      }
+    ],
+    "structural_expectations": {},
+    "answer_scope": "What the eligible fictional records establish,not independently verified historical truth.",
+    "automatic_answer_matcher": "typed_proposition_v1",
+    "literal_anchor": null
+  },
+  {
+    "suite": "known",
+    "id": "DP00030",
+    "family": "restricted_source",
+    "expected": "refuse",
+    "required_propositions": [],
+    "reference_sources": [],
+    "source_facts": [
+      {
+        "source_id": "SOURCE-0001",
+        "path": "sources/record-01.md",
+        "raw_quote": "# Archival transcript\r\n\r\nWritten November 04, 1849.\r\n\r\nMay Reed wrote the northern field notebook.\r\n",
+        "evidence_text": "May Reed wrote the northern field notebook.",
+        "source_class": "original"
+      }
+    ],
+    "structural_expectations": {},
+    "answer_scope": "What the eligible fictional records establish,not independently verified historical truth.",
+    "automatic_answer_matcher": "requires_semantic_review",
+    "literal_anchor": null
+  },
+  {
+    "suite": "known",
+    "id": "DP00036",
+    "family": "intention_execution",
+    "expected": "refuse",
+    "required_propositions": [],
+    "reference_sources": [
+      "SOURCE-0001"
+    ],
+    "source_facts": [
+      {
+        "source_id": "SOURCE-0001",
+        "path": "sources/record-01.txt",
+        "raw_quote": "From: Noel Ash\r\nTo: Mina Cole\r\nDate written: January 17, 1841\r\nSubject: Archive notice\r\nMessage-ID: MAIL-10036\r\n\r\nNoel Ash asked Mina Cole to\r\nsend the orchard inventory.\r\n",
+        "evidence_text": "Noel Ash asked Mina Cole to\nsend the orchard inventory.",
+        "source_class": "original"
+      }
+    ],
+    "structural_expectations": {},
+    "answer_scope": "What the eligible fictional records establish,not independently verified historical truth.",
+    "automatic_answer_matcher": "requires_semantic_review",
+    "literal_anchor": null
+  },
+  {
+    "suite": "known",
+    "id": "DP00039",
+    "family": "ambiguous_pronoun",
+    "expected": "refuse",
+    "required_propositions": [],
+    "reference_sources": [
+      "SOURCE-0001"
+    ],
+    "source_facts": [
+      {
+        "source_id": "SOURCE-0001",
+        "path": "sources/record-01.text",
+        "raw_quote": "From: Nora Wells\nTo: Mira Vale\nDate written: June 15, 1842\nSubject: Archive notice\nMessage-ID: MAIL-10039\n\nNora Wells met Mira Vale. They discussed the alder memorandum. He sent it that evening.\n",
+        "evidence_text": "Nora Wells met Mira Vale. They discussed the alder memorandum. He sent it that evening.",
+        "source_class": "original"
+      }
+    ],
+    "structural_expectations": {},
+    "answer_scope": "What the eligible fictional records establish,not independently verified historical truth.",
+    "automatic_answer_matcher": "requires_semantic_review",
+    "literal_anchor": null
+  },
+  {
+    "suite": "known",
+    "id": "DP00042",
+    "family": "embedded_identifier",
+    "expected": "refuse",
+    "required_propositions": [],
+    "reference_sources": [
+      "SOURCE-0001",
+      "SOURCE-0002"
+    ],
+    "source_facts": [
+      {
+        "source_id": "SOURCE-0001",
+        "path": "sources/record-01.md",
+        "raw_quote": "# Archival transcript\r\n\r\nWritten December 21, 1842.\r\n\r\nTess Rowan wrote the alder memorandum.\r\n",
+        "evidence_text": "Tess Rowan wrote the alder memorandum.",
+        "source_class": "original"
+      },
+      {
+        "source_id": "SOURCE-0002",
+        "path": "sources/record-02.md",
+        "raw_quote": "# Archival transcript\r\n\r\nWritten December 21, 1842.\r\n\r\nTess Rowan wrote the alder memorandum.\r\n",
+        "evidence_text": "Tess Rowan wrote the alder memorandum.",
+        "source_class": "original"
+      },
+      {
+        "source_id": "SOURCE-0003",
+        "path": "sources/record-03.md",
+        "raw_quote": "Documentation example, not another communication.\r\n```text\r\nMessage-ID: MAIL-10042\r\nTess Rowan wrote the alder memorandum.\r\n```\r\n",
+        "evidence_text": "Documentation example, not another communication.\n```text\nMessage-ID: MAIL-10042\nTess Rowan wrote the alder memorandum.\n```",
+        "source_class": "commentary"
+      }
+    ],
+    "structural_expectations": {
+      "embedded_not_primary": 3
+    },
+    "answer_scope": "What the eligible fictional records establish,not independently verified historical truth.",
+    "automatic_answer_matcher": "requires_semantic_review",
+    "literal_anchor": null
+  },
+  {
+    "suite": "known",
+    "id": "DP00046",
+    "family": "chronology_causation",
+    "expected": "refuse",
+    "required_propositions": [],
+    "reference_sources": [
+      "SOURCE-0001"
+    ],
+    "source_facts": [
+      {
+        "source_id": "SOURCE-0001",
+        "path": "sources/record-01.md",
+        "raw_quote": "From: Tess Rowan\nTo: Iris Beck\nDate written: December 06, 1842\nSubject: Archive notice\nMessage-ID: MAIL-10046\n\nThe lamp went out before the departure bell rang.\n",
+        "evidence_text": "The lamp went out before the departure bell rang.",
+        "source_class": "original"
+      }
+    ],
+    "structural_expectations": {},
+    "answer_scope": "What the eligible fictional records establish,not independently verified historical truth.",
+    "automatic_answer_matcher": "requires_semantic_review",
+    "literal_anchor": null
+  },
+  {
+    "suite": "known",
+    "id": "DP00052",
+    "family": "restricted_source",
+    "expected": "refuse",
+    "required_propositions": [],
+    "reference_sources": [],
+    "source_facts": [
+      {
+        "source_id": "SOURCE-0001",
+        "path": "sources/record-01.txt",
+        "raw_quote": "Arun Moss wrote the orchard\r\ninventory.\r\n",
+        "evidence_text": "Arun Moss wrote the orchard\ninventory.",
+        "source_class": "original"
+      }
+    ],
+    "structural_expectations": {},
+    "answer_scope": "What the eligible fictional records establish,not independently verified historical truth.",
+    "automatic_answer_matcher": "requires_semantic_review",
+    "literal_anchor": null
+  },
+  {
+    "suite": "known",
+    "id": "DP00053",
+    "family": "corrupted_source",
+    "expected": "refuse",
+    "required_propositions": [],
+    "reference_sources": [],
+    "source_facts": [
+      {
+        "source_id": "SOURCE-0001",
+        "path": "sources/record-01.md",
+        "raw_quote": "Iris Beck wrote the museum catalogue.\r\n",
+        "evidence_text": "Iris Beck wrote the museum catalogue.",
+        "source_class": "original"
+      }
+    ],
+    "structural_expectations": {},
+    "answer_scope": "What the eligible fictional records establish,not independently verified historical truth.",
+    "automatic_answer_matcher": "requires_semantic_review",
+    "literal_anchor": null
+  },
+  {
+    "suite": "known",
+    "id": "DP00057",
+    "family": "exact_anchor",
+    "expected": "answer",
+    "required_propositions": [],
+    "reference_sources": [
+      "SOURCE-0001"
+    ],
+    "source_facts": [
+      {
+        "source_id": "SOURCE-0001",
+        "path": "sources/record-01.txt",
+        "raw_quote": "MAY REED TO OWEN PIKE. January 08, 1840\nDear colleague,\n\nMay Reed wrote the copper survey report. The harbor lantern remained lit beneath the northern awning.\n",
+        "evidence_text": "May Reed wrote the copper survey report. The harbor lantern remained lit beneath the northern awning.",
+        "source_class": "original"
+      }
+    ],
+    "structural_expectations": {},
+    "answer_scope": "What the eligible fictional records establish,not independently verified historical truth.",
+    "automatic_answer_matcher": "quotation_location",
+    "literal_anchor": "The harbor lantern remained lit beneath the northern"
+  },
+  {
+    "suite": "known",
+    "id": "DP00059",
+    "family": "negated_statement",
+    "expected": "answer",
+    "required_propositions": [
+      {
+        "relation": "source_action_assertion",
+        "actor_text": "Mira Vale",
+        "action": "write",
+        "object_text": "the harbor report",
+        "negative": true
+      }
+    ],
+    "reference_sources": [
+      "SOURCE-0001"
+    ],
+    "source_facts": [
+      {
+        "source_id": "SOURCE-0001",
+        "path": "sources/record-01.md",
+        "raw_quote": "MIRA VALE TO NORA WELLS. September 11, 1845\nDear colleague,\n\nMira Vale did not write the harbor report.\n",
+        "evidence_text": "Mira Vale did not write the harbor report.",
+        "source_class": "original"
+      }
+    ],
+    "structural_expectations": {},
+    "answer_scope": "What the eligible fictional records establish,not independently verified historical truth.",
+    "automatic_answer_matcher": "typed_proposition_v1",
+    "literal_anchor": null
+  },
+  {
+    "suite": "known",
+    "id": "DP00063",
+    "family": "wording_change",
+    "expected": "answer",
+    "required_propositions": [],
+    "reference_sources": [
+      "SOURCE-0001",
+      "SOURCE-0002"
+    ],
+    "source_facts": [
+      {
+        "source_id": "SOURCE-0001",
+        "path": "sources/record-01.txt",
+        "raw_quote": "From: Tess Rowan\nTo: Lea Stone\nDate written: October 03, 1841\nSubject: Archive notice\nMessage-ID: MAIL-10063\n\nThe notice describes twelve crates for the east depot.\n",
+        "evidence_text": "The notice describes twelve crates for the east depot.",
+        "source_class": "original"
+      },
+      {
+        "source_id": "SOURCE-0002",
+        "path": "sources/record-02.txt",
+        "raw_quote": "From: Tess Rowan\nTo: Lea Stone\nDate written: October 03, 1841\nSubject: Archive notice\nMessage-ID: MAIL-10063\n\nThe notice describes fourteen crates for the east depot.\n",
+        "evidence_text": "The notice describes fourteen crates for the east depot.",
+        "source_class": "original"
+      }
+    ],
+    "structural_expectations": {},
+    "answer_scope": "What the eligible fictional records establish,not independently verified historical truth.",
+    "automatic_answer_matcher": "requires_semantic_review",
+    "literal_anchor": null
+  },
+  {
+    "suite": "known",
+    "id": "DP00070",
+    "family": "exact_anchor",
+    "expected": "answer",
+    "required_propositions": [],
+    "reference_sources": [
+      "SOURCE-0001"
+    ],
+    "source_facts": [
+      {
+        "source_id": "SOURCE-0001",
+        "path": "sources/record-01.text",
+        "raw_quote": "LEA STONE TO MIRA VALE. March 14, 1845\r\nDear colleague,\r\n\r\nLea Stone wrote the harbor report. The harbor lantern remained lit beneath the\r\nnorthern awning.\r\n",
+        "evidence_text": "Lea Stone wrote the harbor report. The harbor lantern remained lit beneath the\nnorthern awning.",
+        "source_class": "original"
+      }
+    ],
+    "structural_expectations": {},
+    "answer_scope": "What the eligible fictional records establish,not independently verified historical truth.",
+    "automatic_answer_matcher": "quotation_location",
+    "literal_anchor": "The harbor lantern remained lit beneath the northern"
+  },
+  {
+    "suite": "known",
+    "id": "DP00071",
+    "family": "editorial_competition",
+    "expected": "answer",
+    "required_propositions": [
+      {
+        "relation": "source_action_assertion",
+        "actor_text": "Mira Vale",
+        "action": "write",
+        "object_text": "the museum catalogue",
+        "negative": false
+      }
+    ],
+    "reference_sources": [
+      "SOURCE-0001"
+    ],
+    "source_facts": [
+      {
+        "source_id": "SOURCE-0001",
+        "path": "sources/record-01.text",
+        "raw_quote": "From: Mira Vale\r\nTo: May Reed\r\nDate written: August 01, 1842\r\nSubject: Archive notice\r\nMessage-ID: MAIL-10071\r\n\r\nMira Vale wrote the museum catalogue.\r\n",
+        "evidence_text": "Mira Vale wrote the museum catalogue.",
+        "source_class": "original"
+      },
+      {
+        "source_id": "SOURCE-0002",
+        "path": "sources/record-02.text",
+        "raw_quote": "From: Mira Vale\r\nTo: May Reed\r\nDate written: August 01, 1842\r\nSubject: Archive notice\r\nMessage-ID: MAIL-10071\r\n\r\nEditorial speculation: May Reed might have written the museum catalogue,\r\nalthough this is not established.\r\n",
+        "evidence_text": "Editorial speculation: May Reed might have written the museum catalogue,\nalthough this is not established.",
+        "source_class": "commentary"
+      },
+      {
+        "source_id": "SOURCE-0003",
+        "path": "sources/record-03.text",
+        "raw_quote": "From: Mira Vale\r\nTo: May Reed\r\nDate written: August 01, 1842\r\nSubject: Archive notice\r\nMessage-ID: MAIL-10071\r\n\r\nEditorial speculation: May Reed might have written the museum catalogue,\r\nalthough this is not established.\r\n",
+        "evidence_text": "Editorial speculation: May Reed might have written the museum catalogue,\nalthough this is not established.",
+        "source_class": "commentary"
+      },
+      {
+        "source_id": "SOURCE-0004",
+        "path": "sources/record-04.text",
+        "raw_quote": "From: Mira Vale\r\nTo: May Reed\r\nDate written: August 01, 1842\r\nSubject: Archive notice\r\nMessage-ID: MAIL-10071\r\n\r\nEditorial speculation: May Reed might have written the museum catalogue,\r\nalthough this is not established.\r\n",
+        "evidence_text": "Editorial speculation: May Reed might have written the museum catalogue,\nalthough this is not established.",
+        "source_class": "commentary"
+      }
+    ],
+    "structural_expectations": {},
+    "answer_scope": "What the eligible fictional records establish,not independently verified historical truth.",
+    "automatic_answer_matcher": "typed_proposition_v1",
+    "literal_anchor": null
+  },
+  {
+    "suite": "known",
+    "id": "DP00073",
+    "family": "header_location",
+    "expected": "answer",
+    "required_propositions": [],
+    "reference_sources": [
+      "SOURCE-0001"
+    ],
+    "source_facts": [
+      {
+        "source_id": "SOURCE-0001",
+        "path": "sources/record-01.text",
+        "raw_quote": "From: Tess Rowan\r\nTo: Edda Marén\r\nDate written: April 05, 1843\r\nSubject: Archive notice\r\nMessage-ID: MAIL-10073\r\n\r\nTess Rowan wrote the orchard inventory.\r\n",
+        "evidence_text": "Tess Rowan wrote the orchard inventory.",
+        "source_class": "original"
+      }
+    ],
+    "structural_expectations": {},
+    "answer_scope": "What the eligible fictional records establish,not independently verified historical truth.",
+    "automatic_answer_matcher": "requires_semantic_review",
+    "literal_anchor": null
+  },
+  {
+    "suite": "known",
+    "id": "DP00074",
+    "family": "field_compound",
+    "expected": "answer",
+    "required_propositions": [],
+    "reference_sources": [
+      "SOURCE-0001"
+    ],
+    "source_facts": [],
+    "structural_expectations": {},
+    "automatic_answer_matcher": "literal_field_set_v1",
+    "required_field_quotes": [
+      "Custody Location: East vault",
+      "Other Label: untouched"
+    ],
+    "features": {
+      "question_form": 1,
+      "field": "Custody Location",
+      "line_ending": "CRLF",
+      "fence": ">",
+      "heading": "",
+      "source_count": 1
+    }
+  },
+  {
+    "suite": "known",
+    "id": "DP00088",
+    "family": "date_roles",
+    "expected": "answer",
+    "required_propositions": [],
+    "reference_sources": [
+      "SOURCE-0001"
+    ],
+    "source_facts": [
+      {
+        "source_id": "SOURCE-0001",
+        "path": "sources/record-01.txt",
+        "raw_quote": "EDDA MARÉN TO TESS ROWAN. September 25, 1840\r\nDear colleague,\r\n\r\nOn September 22, 1840, Edda Marén sent the coastal dispatch. This record was written on September 25, 1840.\r\n",
+        "evidence_text": "On September 22, 1840, Edda Marén sent the coastal dispatch. This record was written on September 25, 1840.",
+        "source_class": "original"
+      }
+    ],
+    "structural_expectations": {},
+    "answer_scope": "What the eligible fictional records establish,not independently verified historical truth.",
+    "automatic_answer_matcher": "requires_semantic_review",
+    "literal_anchor": null
+  },
+  {
+    "suite": "known",
+    "id": "DP00091",
+    "family": "instruction_statement",
+    "expected": "answer",
+    "required_propositions": [],
+    "reference_sources": [
+      "SOURCE-0001"
+    ],
+    "source_facts": [
+      {
+        "source_id": "SOURCE-0001",
+        "path": "sources/record-01.txt",
+        "raw_quote": "From: Tess Rowan\r\nTo: May Reed\r\nDate written: August 28, 1842\r\nSubject: Archive notice\r\nMessage-ID: MAIL-10091\r\n\r\nI have told Owen Pike to send you a copy of the museum\r\ncatalogue by post (if possible).\r\n",
+        "evidence_text": "I have told Owen Pike to send you a copy of the museum\ncatalogue by post (if possible).",
+        "source_class": "original"
+      }
+    ],
+    "structural_expectations": {},
+    "answer_scope": "What the eligible fictional records establish,not independently verified historical truth.",
+    "automatic_answer_matcher": "requires_semantic_review",
+    "literal_anchor": null
+  },
+  {
+    "suite": "known",
+    "id": "DP00093",
+    "family": "embedded_identifier",
+    "expected": "refuse",
+    "required_propositions": [],
+    "reference_sources": [
+      "SOURCE-0001",
+      "SOURCE-0002"
+    ],
+    "source_facts": [
+      {
+        "source_id": "SOURCE-0001",
+        "path": "sources/record-01.txt",
+        "raw_quote": "From: Tess Rowan\nTo: Owen Pike\nDate written: April 30, 1844\nSubject: Archive notice\nMessage-ID: MAIL-10093\n\nTess Rowan wrote the coastal dispatch.\n",
+        "evidence_text": "Tess Rowan wrote the coastal dispatch.",
+        "source_class": "original"
+      },
+      {
+        "source_id": "SOURCE-0002",
+        "path": "sources/record-02.txt",
+        "raw_quote": "From: Tess Rowan\nTo: Owen Pike\nDate written: April 30, 1844\nSubject: Archive notice\nMessage-ID: MAIL-10093\n\nTess Rowan wrote the coastal dispatch.\n",
+        "evidence_text": "Tess Rowan wrote the coastal dispatch.",
+        "source_class": "original"
+      },
+      {
+        "source_id": "SOURCE-0003",
+        "path": "sources/record-03.txt",
+        "raw_quote": "Documentation example, not another communication.\n```text\nMessage-ID: MAIL-10093\nTess Rowan wrote the coastal dispatch.\n```\n",
+        "evidence_text": "Documentation example, not another communication.\n```text\nMessage-ID: MAIL-10093\nTess Rowan wrote the coastal dispatch.\n```",
+        "source_class": "commentary"
+      }
+    ],
+    "structural_expectations": {
+      "embedded_not_primary": 3
+    },
+    "answer_scope": "What the eligible fictional records establish,not independently verified historical truth.",
+    "automatic_answer_matcher": "requires_semantic_review",
+    "literal_anchor": null
+  },
+  {
+    "suite": "known",
+    "id": "DP00097",
+    "family": "identical_wording",
+    "expected": "answer",
+    "required_propositions": [],
+    "reference_sources": [
+      "SOURCE-0001",
+      "SOURCE-0002"
+    ],
+    "source_facts": [
+      {
+        "source_id": "SOURCE-0001",
+        "path": "sources/record-01.txt",
+        "raw_quote": "From: Ivo Hart\nTo: Owen Pike\nDate written: September 28, 1840\nSubject: Archive notice\nMessage-ID: MAIL-10097\n\nIvo Hart wrote the orchard inventory.\n",
+        "evidence_text": "Ivo Hart wrote the orchard inventory.",
+        "source_class": "original"
+      },
+      {
+        "source_id": "SOURCE-0002",
+        "path": "sources/record-02.txt",
+        "raw_quote": "From: Ivo Hart\nTo: Owen Pike\nDate written: September 28, 1840\nSubject: Archive notice\nMessage-ID: MAIL-10097\n\nIvo Hart wrote the orchard inventory.\n",
+        "evidence_text": "Ivo Hart wrote the orchard inventory.",
+        "source_class": "original"
+      }
+    ],
+    "structural_expectations": {
+      "same_body": [
+        [
+          1,
+          2
+        ]
+      ]
+    },
+    "answer_scope": "What the eligible fictional records establish,not independently verified historical truth.",
+    "automatic_answer_matcher": "requires_semantic_review",
+    "literal_anchor": null
+  },
+  {
+    "suite": "known",
+    "id": "DP00102",
+    "family": "editorial_competition",
+    "expected": "answer",
+    "required_propositions": [
+      {
+        "relation": "source_action_assertion",
+        "actor_text": "Edda Marén",
+        "action": "write",
+        "object_text": "the copper survey report",
+        "negative": false
+      }
+    ],
+    "reference_sources": [
+      "SOURCE-0001"
+    ],
+    "source_facts": [
+      {
+        "source_id": "SOURCE-0001",
+        "path": "sources/record-01.text",
+        "raw_quote": "From: Edda Marén\nTo: May Reed\nDate written: August 28, 1845\nSubject: Archive notice\nMessage-ID: MAIL-10102\n\nEdda Marén wrote the copper survey report.\n",
+        "evidence_text": "Edda Marén wrote the copper survey report.",
+        "source_class": "original"
+      },
+      {
+        "source_id": "SOURCE-0002",
+        "path": "sources/record-02.text",
+        "raw_quote": "From: Edda Marén\nTo: May Reed\nDate written: August 28, 1845\nSubject: Archive notice\nMessage-ID: MAIL-10102\n\nEditorial speculation: May Reed might have written the\ncopper survey report, although this is not established.\n",
+        "evidence_text": "Editorial speculation: May Reed might have written the\ncopper survey report, although this is not established.",
+        "source_class": "commentary"
+      },
+      {
+        "source_id": "SOURCE-0003",
+        "path": "sources/record-03.text",
+        "raw_quote": "From: Edda Marén\nTo: May Reed\nDate written: August 28, 1845\nSubject: Archive notice\nMessage-ID: MAIL-10102\n\nEditorial speculation: May Reed might have written the\ncopper survey report, although this is not established.\n",
+        "evidence_text": "Editorial speculation: May Reed might have written the\ncopper survey report, although this is not established.",
+        "source_class": "commentary"
+      },
+      {
+        "source_id": "SOURCE-0004",
+        "path": "sources/record-04.text",
+        "raw_quote": "From: Edda Marén\nTo: May Reed\nDate written: August 28, 1845\nSubject: Archive notice\nMessage-ID: MAIL-10102\n\nEditorial speculation: May Reed might have written the\ncopper survey report, although this is not established.\n",
+        "evidence_text": "Editorial speculation: May Reed might have written the\ncopper survey report, although this is not established.",
+        "source_class": "commentary"
+      }
+    ],
+    "structural_expectations": {},
+    "answer_scope": "What the eligible fictional records establish,not independently verified historical truth.",
+    "automatic_answer_matcher": "typed_proposition_v1",
+    "literal_anchor": null
+  },
+  {
+    "suite": "known",
+    "id": "DP00103",
+    "family": "subject_identity",
+    "expected": "refuse",
+    "required_propositions": [],
+    "reference_sources": [
+      "SOURCE-0001",
+      "SOURCE-0002"
+    ],
+    "source_facts": [
+      {
+        "source_id": "SOURCE-0001",
+        "path": "sources/record-01.md",
+        "raw_quote": "From: Edda Marén\r\nTo: May Reed\r\nDate written: May 02, 1845\r\nSubject: Archive notice\r\nMessage-ID: MAIL-101031\r\n\r\nEdda Marén described an inspection of the east depot.\r\n",
+        "evidence_text": "Edda Marén described an inspection of the east depot.",
+        "source_class": "original"
+      },
+      {
+        "source_id": "SOURCE-0002",
+        "path": "sources/record-02.md",
+        "raw_quote": "From: Edda Marén\r\nTo: May Reed\r\nDate written: May 02, 1845\r\nSubject: Archive notice\r\nMessage-ID: MAIL-101032\r\n\r\nMay Reed described an inspection of the west depot.\r\n",
+        "evidence_text": "May Reed described an inspection of the west depot.",
+        "source_class": "original"
+      }
+    ],
+    "structural_expectations": {
+      "forbid_event_merge": true
+    },
+    "answer_scope": "What the eligible fictional records establish,not independently verified historical truth.",
+    "automatic_answer_matcher": "requires_semantic_review",
+    "literal_anchor": null
+  },
+  {
+    "suite": "known",
+    "id": "DP00104",
+    "family": "direct_action",
+    "expected": "answer",
+    "required_propositions": [
+      {
+        "relation": "source_action_assertion",
+        "actor_text": "Mina Cole",
+        "action": "write",
+        "object_text": "the museum catalogue",
+        "negative": false
+      }
+    ],
+    "reference_sources": [
+      "SOURCE-0001"
+    ],
+    "source_facts": [
+      {
+        "source_id": "SOURCE-0001",
+        "path": "sources/record-01.text",
+        "raw_quote": "MINA COLE TO LEA STONE. August 27, 1844\nDear colleague,\n\nMina Cole wrote the museum catalogue.\n",
+        "evidence_text": "Mina Cole wrote the museum catalogue.",
+        "source_class": "original"
+      }
+    ],
+    "structural_expectations": {},
+    "answer_scope": "What the eligible fictional records establish,not independently verified historical truth.",
+    "automatic_answer_matcher": "typed_proposition_v1",
+    "literal_anchor": null
+  },
+  {
+    "suite": "known",
+    "id": "DP00110",
+    "family": "absent_anchor",
+    "expected": "refuse",
+    "required_propositions": [],
+    "reference_sources": [],
+    "source_facts": [
+      {
+        "source_id": "SOURCE-0001",
+        "path": "sources/record-01.txt",
+        "raw_quote": "# Archival transcript\r\n\r\nWritten March 16, 1847.\r\n\r\nMina Cole wrote the museum catalogue.\r\n",
+        "evidence_text": "Mina Cole wrote the museum catalogue.",
+        "source_class": "original"
+      }
+    ],
+    "structural_expectations": {},
+    "answer_scope": "What the eligible fictional records establish,not independently verified historical truth.",
+    "automatic_answer_matcher": "requires_semantic_review",
+    "literal_anchor": null
+  },
+  {
+    "suite": "known",
+    "id": "DP00116",
+    "family": "conditional_execution",
+    "expected": "refuse",
+    "required_propositions": [],
+    "reference_sources": [
+      "SOURCE-0001"
+    ],
+    "source_facts": [
+      {
+        "source_id": "SOURCE-0001",
+        "path": "sources/record-01.text",
+        "raw_quote": "From: Lea Stone\nTo: Owen Pike\nDate written: June 02, 1844\nSubject: Archive notice\nMessage-ID: MAIL-10116\n\nLea Stone would send the northern field notebook only if\nthe permit arrived.\n",
+        "evidence_text": "Lea Stone would send the northern field notebook only if\nthe permit arrived.",
+        "source_class": "original"
+      }
+    ],
+    "structural_expectations": {},
+    "answer_scope": "What the eligible fictional records establish,not independently verified historical truth.",
+    "automatic_answer_matcher": "requires_semantic_review",
+    "literal_anchor": null
+  },
+  {
+    "suite": "known",
+    "id": "DP00119",
+    "family": "historical_priority",
+    "expected": "refuse",
+    "required_propositions": [],
+    "reference_sources": [
+      "SOURCE-0001"
+    ],
+    "source_facts": [
+      {
+        "source_id": "SOURCE-0001",
+        "path": "sources/record-01.text",
+        "raw_quote": "LEA STONE TO IVO HART. March 27, 1840\r\nDear colleague,\r\n\r\nOn March 27, 1840, Lea Stone recorded an idea about the harbor report.\r\n",
+        "evidence_text": "On March 27, 1840, Lea Stone recorded an idea about the harbor report.",
+        "source_class": "original"
+      }
+    ],
+    "structural_expectations": {},
+    "answer_scope": "What the eligible fictional records establish,not independently verified historical truth.",
+    "automatic_answer_matcher": "requires_semantic_review",
+    "literal_anchor": null
+  },
+  {
+    "suite": "known",
+    "id": "DP00122",
+    "family": "historical_priority",
+    "expected": "refuse",
+    "required_propositions": [],
+    "reference_sources": [
+      "SOURCE-0001"
+    ],
+    "source_facts": [
+      {
+        "source_id": "SOURCE-0001",
+        "path": "sources/record-01.text",
+        "raw_quote": "From: Ivo Hart\nTo: Lea Stone\nDate written: September 18, 1844\nSubject: Archive notice\nMessage-ID: MAIL-10122\n\nOn September 18, 1844, Ivo Hart recorded an idea about the coastal dispatch.\n",
+        "evidence_text": "On September 18, 1844, Ivo Hart recorded an idea about the coastal dispatch.",
+        "source_class": "original"
+      }
+    ],
+    "structural_expectations": {},
+    "answer_scope": "What the eligible fictional records establish,not independently verified historical truth.",
+    "automatic_answer_matcher": "requires_semantic_review",
+    "literal_anchor": null
+  },
+  {
+    "suite": "known",
+    "id": "DP00128",
+    "family": "date_roles",
+    "expected": "answer",
+    "required_propositions": [],
+    "reference_sources": [
+      "SOURCE-0001"
+    ],
+    "source_facts": [
+      {
+        "source_id": "SOURCE-0001",
+        "path": "sources/record-01.md",
+        "raw_quote": "ARUN MOSS TO TESS ROWAN. October 02, 1845\nDear colleague,\n\nOn September 29, 1845, Arun Moss sent the northern field notebook. This record was written on October 02, 1845.\n",
+        "evidence_text": "On September 29, 1845, Arun Moss sent the northern field notebook. This record was written on October 02, 1845.",
+        "source_class": "original"
+      }
+    ],
+    "structural_expectations": {},
+    "answer_scope": "What the eligible fictional records establish,not independently verified historical truth.",
+    "automatic_answer_matcher": "requires_semantic_review",
+    "literal_anchor": null
+  },
+  {
+    "suite": "known",
+    "id": "DP00158",
+    "family": "missing_bridge",
+    "expected": "refuse",
+    "required_propositions": [],
+    "reference_sources": [
+      "SOURCE-0001",
+      "SOURCE-0002"
+    ],
+    "source_facts": [
+      {
+        "source_id": "SOURCE-0001",
+        "path": "sources/record-01.md",
+        "raw_quote": "Noel Ash asked Mira Vale to\r\nsend the northern field\r\nnotebook.\r\n",
+        "evidence_text": "Noel Ash asked Mira Vale to\nsend the northern field\nnotebook.",
+        "source_class": "original"
+      },
+      {
+        "source_id": "SOURCE-0002",
+        "path": "sources/record-02.md",
+        "raw_quote": "The depot reported receiving a\r\ncopy of the northern field\r\nnotebook, but the sender was\r\nnot recorded.\r\n",
+        "evidence_text": "The depot reported receiving a\ncopy of the northern field\nnotebook, but the sender was\nnot recorded.",
+        "source_class": "original"
+      }
+    ],
+    "structural_expectations": {},
+    "answer_scope": "What the eligible fictional records establish,not independently verified historical truth.",
+    "automatic_answer_matcher": "requires_semantic_review",
+    "literal_anchor": null
+  },
+  {
+    "suite": "known",
+    "id": "DP00159",
+    "family": "explicit_cause",
+    "expected": "answer",
+    "required_propositions": [
+      {
+        "relation": "source_causal_assertion",
+        "action_text": "canceled",
+        "cause_text": "damage to the bridge",
+        "negative": false
+      }
+    ],
+    "reference_sources": [
+      "SOURCE-0001"
+    ],
+    "source_facts": [
+      {
+        "source_id": "SOURCE-0001",
+        "path": "sources/record-01.text",
+        "raw_quote": "IVO HART TO TESS ROWAN. February 05, 1847\r\nDear colleague,\r\n\r\nThe inspection was canceled\r\nbecause of damage to the\r\nbridge.\r\n",
+        "evidence_text": "The inspection was canceled\nbecause of damage to the\nbridge.",
+        "source_class": "original"
+      }
+    ],
+    "structural_expectations": {},
+    "answer_scope": "What the eligible fictional records establish,not independently verified historical truth.",
+    "automatic_answer_matcher": "typed_proposition_v1",
+    "literal_anchor": null
+  },
+  {
+    "suite": "known",
+    "id": "DP00160",
+    "family": "corrupted_source",
+    "expected": "refuse",
+    "required_propositions": [],
+    "reference_sources": [],
+    "source_facts": [
+      {
+        "source_id": "SOURCE-0001",
+        "path": "sources/record-01.md",
+        "raw_quote": "Iris Beck wrote the coastal dispatch.\n",
+        "evidence_text": "Iris Beck wrote the coastal dispatch.",
+        "source_class": "original"
+      }
+    ],
+    "structural_expectations": {},
+    "answer_scope": "What the eligible fictional records establish,not independently verified historical truth.",
+    "automatic_answer_matcher": "requires_semantic_review",
+    "literal_anchor": null
+  },
+  {
+    "suite": "known",
+    "id": "DP00161",
+    "family": "wording_change",
+    "expected": "answer",
+    "required_propositions": [],
+    "reference_sources": [
+      "SOURCE-0001",
+      "SOURCE-0002"
+    ],
+    "source_facts": [
+      {
+        "source_id": "SOURCE-0001",
+        "path": "sources/record-01.text",
+        "raw_quote": "From: Nora Wells\nTo: Ivo Hart\nDate written: April 18, 1849\nSubject: Archive notice\nMessage-ID: MAIL-10161\n\nThe notice describes six crates\nfor the east depot.\n",
+        "evidence_text": "The notice describes six crates\nfor the east depot.",
+        "source_class": "original"
+      },
+      {
+        "source_id": "SOURCE-0002",
+        "path": "sources/record-02.text",
+        "raw_quote": "From: Nora Wells\nTo: Ivo Hart\nDate written: April 18, 1849\nSubject: Archive notice\nMessage-ID: MAIL-10161\n\nThe notice describes nine\ncrates for the east depot.\n",
+        "evidence_text": "The notice describes nine\ncrates for the east depot.",
+        "source_class": "original"
+      }
+    ],
+    "structural_expectations": {},
+    "answer_scope": "What the eligible fictional records establish,not independently verified historical truth.",
+    "automatic_answer_matcher": "requires_semantic_review",
+    "literal_anchor": null
+  },
+  {
+    "suite": "known",
+    "id": "DP00177",
+    "family": "explicit_chain",
+    "expected": "answer",
+    "required_propositions": [],
+    "reference_sources": [
+      "SOURCE-0001",
+      "SOURCE-0002",
+      "SOURCE-0003"
+    ],
+    "source_facts": [
+      {
+        "source_id": "SOURCE-0001",
+        "path": "sources/record-01.text",
+        "raw_quote": "From: Ivo Hart\r\nTo: Arun Moss\r\nDate written: March 18, 1849\r\nSubject: Archive notice\r\nMessage-ID: MAIL-10177\r\n\r\nOn March 15, 1849, Ivo Hart\r\nasked Arun Moss to send the\r\nmuseum catalogue to the east\r\ndepot.\r\n",
+        "evidence_text": "On March 15, 1849, Ivo Hart\nasked Arun Moss to send the\nmuseum catalogue to the east\ndepot.",
+        "source_class": "original"
+      },
+      {
+        "source_id": "SOURCE-0002",
+        "path": "sources/record-02.text",
+        "raw_quote": "From: Arun Moss\r\nTo: Ivo Hart\r\nDate written: March 18, 1849\r\nSubject: Archive notice\r\nMessage-ID: MAIL-10177\r\n\r\nIn response to that request of\r\nMarch 15, 1849, I, Arun Moss,\r\nsent the museum catalogue to\r\nthe east depot.\r\n",
+        "evidence_text": "In response to that request of\nMarch 15, 1849, I, Arun Moss,\nsent the museum catalogue to\nthe east depot.",
+        "source_class": "original"
+      },
+      {
+        "source_id": "SOURCE-0003",
+        "path": "sources/record-03.text",
+        "raw_quote": "From: Ivo Hart\r\nTo: Arun Moss\r\nDate written: March 18, 1849\r\nSubject: Archive notice\r\nMessage-ID: MAIL-10177\r\n\r\nThe east depot reported\r\nreceiving the museum catalogue\r\nsent by Arun Moss in response\r\nto the request of March 15,\r\n1849.\r\n",
+        "evidence_text": "The east depot reported\nreceiving the museum catalogue\nsent by Arun Moss in response\nto the request of March 15,\n1849.",
+        "source_class": "original"
+      }
+    ],
+    "structural_expectations": {},
+    "answer_scope": "What the eligible fictional records establish,not independently verified historical truth.",
+    "automatic_answer_matcher": "requires_semantic_review",
+    "literal_anchor": null
+  },
+  {
+    "suite": "known",
+    "id": "DP00182",
+    "family": "reported_execution",
+    "expected": "refuse",
+    "required_propositions": [],
+    "reference_sources": [
+      "SOURCE-0001"
+    ],
+    "source_facts": [
+      {
+        "source_id": "SOURCE-0001",
+        "path": "sources/record-01.text",
+        "raw_quote": "Edda Marén claimed that Mina Cole sent the copper survey\nreport; the register contains no independent receipt.\n",
+        "evidence_text": "Edda Marén claimed that Mina Cole sent the copper survey\nreport; the register contains no independent receipt.",
+        "source_class": "original"
+      }
+    ],
+    "structural_expectations": {},
+    "answer_scope": "What the eligible fictional records establish,not independently verified historical truth.",
+    "automatic_answer_matcher": "requires_semantic_review",
+    "literal_anchor": null
+  },
+  {
+    "suite": "known",
+    "id": "DP00185",
+    "family": "ambiguous_pronoun",
+    "expected": "refuse",
+    "required_propositions": [],
+    "reference_sources": [
+      "SOURCE-0001"
+    ],
+    "source_facts": [
+      {
+        "source_id": "SOURCE-0001",
+        "path": "sources/record-01.text",
+        "raw_quote": "EDDA MARÉN TO IRIS BECK. September 11, 1843\r\nDear colleague,\r\n\r\nEdda Marén met Iris Beck. They discussed the copper survey report. He sent it that evening.\r\n",
+        "evidence_text": "Edda Marén met Iris Beck. They discussed the copper survey report. He sent it that evening.",
+        "source_class": "original"
+      }
+    ],
+    "structural_expectations": {},
+    "answer_scope": "What the eligible fictional records establish,not independently verified historical truth.",
+    "automatic_answer_matcher": "requires_semantic_review",
+    "literal_anchor": null
+  },
+  {
+    "suite": "known",
+    "id": "DP00190",
+    "family": "ambiguous_correction",
+    "expected": "refuse",
+    "required_propositions": [],
+    "reference_sources": [
+      "SOURCE-0001",
+      "SOURCE-0002",
+      "SOURCE-0003"
+    ],
+    "source_facts": [
+      {
+        "source_id": "SOURCE-0001",
+        "path": "sources/record-01.md",
+        "raw_quote": "IRIS BECK TO MINA COLE. May 21, 1846\r\nDear colleague,\r\n\r\nMy earlier letter lists twenty\r\ncrates for the east depot.\r\n",
+        "evidence_text": "My earlier letter lists twenty\ncrates for the east depot.",
+        "source_class": "original"
+      },
+      {
+        "source_id": "SOURCE-0002",
+        "path": "sources/record-02.md",
+        "raw_quote": "IRIS BECK TO MINA COLE. May 21, 1846\r\nDear colleague,\r\n\r\nMy earlier letter lists twenty\r\ncrates for the west depot.\r\n",
+        "evidence_text": "My earlier letter lists twenty\ncrates for the west depot.",
+        "source_class": "original"
+      },
+      {
+        "source_id": "SOURCE-0003",
+        "path": "sources/record-03.md",
+        "raw_quote": "IRIS BECK TO MINA COLE. May 21, 1846\r\nDear colleague,\r\n\r\nMy earlier letter is mistaken;\r\nthe count should read\r\nseventeen.\r\n",
+        "evidence_text": "My earlier letter is mistaken;\nthe count should read\nseventeen.",
+        "source_class": "original"
+      }
+    ],
+    "structural_expectations": {},
+    "answer_scope": "What the eligible fictional records establish,not independently verified historical truth.",
+    "automatic_answer_matcher": "requires_semantic_review",
+    "literal_anchor": null
+  },
+  {
+    "suite": "known",
+    "id": "DP00196",
+    "family": "reported_statement",
+    "expected": "answer",
+    "required_propositions": [],
+    "reference_sources": [
+      "SOURCE-0001"
+    ],
+    "source_facts": [
+      {
+        "source_id": "SOURCE-0001",
+        "path": "sources/record-01.txt",
+        "raw_quote": "From: Mira Vale\nTo: Mina Cole\nDate written: April 24, 1842\nSubject: Archive notice\nMessage-ID: MAIL-10196\n\nMina Cole reported that Mira Vale wrote the canal register.\n",
+        "evidence_text": "Mina Cole reported that Mira Vale wrote the canal register.",
+        "source_class": "original"
+      }
+    ],
+    "structural_expectations": {},
+    "answer_scope": "What the eligible fictional records establish,not independently verified historical truth.",
+    "automatic_answer_matcher": "requires_semantic_review",
+    "literal_anchor": null
+  },
+  {
+    "suite": "known",
+    "id": "DP00201",
+    "family": "field_compound",
+    "expected": "answer",
+    "required_propositions": [],
+    "reference_sources": [
+      "SOURCE-0001"
+    ],
+    "source_facts": [],
+    "structural_expectations": {},
+    "automatic_answer_matcher": "literal_field_set_v1",
+    "required_field_quotes": [
+      "Dispatch Date: 1848-03-02",
+      "Other Label: untouched"
+    ],
+    "features": {
+      "question_form": 0,
+      "field": "Dispatch Date",
+      "line_ending": "LF",
+      "fence": "```",
+      "heading": "Subject: Archive notice\n",
+      "source_count": 1
+    }
+  },
+  {
+    "suite": "known",
+    "id": "DP00224",
+    "family": "header_location",
+    "expected": "answer",
+    "required_propositions": [],
+    "reference_sources": [
+      "SOURCE-0001"
+    ],
+    "source_facts": [
+      {
+        "source_id": "SOURCE-0001",
+        "path": "sources/record-01.text",
+        "raw_quote": "From: Edda Marén\r\nTo: Arun Moss\r\nDate written: February 27, 1843\r\nSubject: Archive notice\r\nMessage-ID: MAIL-10224\r\n\r\nEdda Marén wrote the harbor report.\r\n",
+        "evidence_text": "Edda Marén wrote the harbor report.",
+        "source_class": "original"
+      }
+    ],
+    "structural_expectations": {},
+    "answer_scope": "What the eligible fictional records establish,not independently verified historical truth.",
+    "automatic_answer_matcher": "requires_semantic_review",
+    "literal_anchor": null
+  },
+  {
+    "suite": "known",
+    "id": "DP00231",
+    "family": "passive_action",
+    "expected": "answer",
+    "required_propositions": [
+      {
+        "actor_text": "Noel Ash",
+        "action": "write",
+        "object_text": "The harbor report",
+        "negative": false
+      }
+    ],
+    "reference_sources": [
+      "SOURCE-0001"
+    ],
+    "source_facts": [
+      {
+        "source_id": "SOURCE-0001",
+        "path": "sources/record-01.text",
+        "raw_quote": "From: Noel Ash\nTo: Mina Cole\nDate written: May 06, 1847\nSubject: Archive notice\nMessage-ID: MAIL-10231\n\nThe harbor report was written by Noel Ash.\n",
+        "evidence_text": "The harbor report was written by Noel Ash.",
+        "source_class": "original"
+      }
+    ],
+    "structural_expectations": {},
+    "answer_scope": "What the eligible fictional records establish,not independently verified historical truth.",
+    "automatic_answer_matcher": "typed_proposition_v1",
+    "literal_anchor": null
+  },
+  {
+    "suite": "known",
+    "id": "DP00241",
+    "family": "reported_execution",
+    "expected": "refuse",
+    "required_propositions": [],
+    "reference_sources": [
+      "SOURCE-0001"
+    ],
+    "source_facts": [
+      {
+        "source_id": "SOURCE-0001",
+        "path": "sources/record-01.md",
+        "raw_quote": "# Archival transcript\r\n\r\nWritten May 14, 1846.\r\n\r\nArun Moss claimed that Mira Vale sent the canal register; the register contains\r\nno independent receipt.\r\n",
+        "evidence_text": "Arun Moss claimed that Mira Vale sent the canal register; the register contains\nno independent receipt.",
+        "source_class": "original"
+      }
+    ],
+    "structural_expectations": {},
+    "answer_scope": "What the eligible fictional records establish,not independently verified historical truth.",
+    "automatic_answer_matcher": "requires_semantic_review",
+    "literal_anchor": null
+  },
+  {
+    "suite": "known",
+    "id": "DP00250",
+    "family": "passive_action",
+    "expected": "answer",
+    "required_propositions": [
+      {
+        "actor_text": "Owen Pike",
+        "action": "write",
+        "object_text": "The orchard inventory",
+        "negative": false
+      }
+    ],
+    "reference_sources": [
+      "SOURCE-0001"
+    ],
+    "source_facts": [
+      {
+        "source_id": "SOURCE-0001",
+        "path": "sources/record-01.text",
+        "raw_quote": "The orchard inventory was written by Owen Pike.\n",
+        "evidence_text": "The orchard inventory was written by Owen Pike.",
+        "source_class": "original"
+      }
+    ],
+    "structural_expectations": {},
+    "answer_scope": "What the eligible fictional records establish,not independently verified historical truth.",
+    "automatic_answer_matcher": "typed_proposition_v1",
+    "literal_anchor": null
+  },
+  {
+    "suite": "known",
+    "id": "DP00259",
+    "family": "direct_action",
+    "expected": "answer",
+    "required_propositions": [
+      {
+        "relation": "source_action_assertion",
+        "actor_text": "Mina Cole",
+        "action": "write",
+        "object_text": "the alder memorandum",
+        "negative": false
+      }
+    ],
+    "reference_sources": [
+      "SOURCE-0001"
+    ],
+    "source_facts": [
+      {
+        "source_id": "SOURCE-0001",
+        "path": "sources/record-01.txt",
+        "raw_quote": "Mina Cole wrote the alder memorandum.\n",
+        "evidence_text": "Mina Cole wrote the alder memorandum.",
+        "source_class": "original"
+      }
+    ],
+    "structural_expectations": {},
+    "answer_scope": "What the eligible fictional records establish,not independently verified historical truth.",
+    "automatic_answer_matcher": "typed_proposition_v1",
+    "literal_anchor": null
+  },
+  {
+    "suite": "known",
+    "id": "DP00278",
+    "family": "instruction_statement",
+    "expected": "answer",
+    "required_propositions": [],
+    "reference_sources": [
+      "SOURCE-0001"
+    ],
+    "source_facts": [
+      {
+        "source_id": "SOURCE-0001",
+        "path": "sources/record-01.text",
+        "raw_quote": "From: Lea Stone\nTo: Mina Cole\nDate written: August 18, 1844\nSubject: Archive notice\nMessage-ID: MAIL-10278\n\nI have told Edda Marén to send you a copy of the canal\nregister by post (if possible).\n",
+        "evidence_text": "I have told Edda Marén to send you a copy of the canal\nregister by post (if possible).",
+        "source_class": "original"
+      }
+    ],
+    "structural_expectations": {},
+    "answer_scope": "What the eligible fictional records establish,not independently verified historical truth.",
+    "automatic_answer_matcher": "requires_semantic_review",
+    "literal_anchor": null
+  },
+  {
+    "suite": "known",
+    "id": "DP00284",
+    "family": "reported_statement",
+    "expected": "answer",
+    "required_propositions": [],
+    "reference_sources": [
+      "SOURCE-0001"
+    ],
+    "source_facts": [
+      {
+        "source_id": "SOURCE-0001",
+        "path": "sources/record-01.text",
+        "raw_quote": "Ivo Hart reported that Edda Marén wrote the copper survey\nreport.\n",
+        "evidence_text": "Ivo Hart reported that Edda Marén wrote the copper survey\nreport.",
+        "source_class": "original"
+      }
+    ],
+    "structural_expectations": {},
+    "answer_scope": "What the eligible fictional records establish,not independently verified historical truth.",
+    "automatic_answer_matcher": "requires_semantic_review",
+    "literal_anchor": null
+  },
+  {
+    "suite": "known",
+    "id": "DP00287",
+    "family": "conditional_execution",
+    "expected": "refuse",
+    "required_propositions": [],
+    "reference_sources": [
+      "SOURCE-0001"
+    ],
+    "source_facts": [
+      {
+        "source_id": "SOURCE-0001",
+        "path": "sources/record-01.md",
+        "raw_quote": "NOEL ASH TO EDDA MARÉN. April 20, 1845\nDear colleague,\n\nUnless the permit is denied, Noel Ash may send the orchard inventory.\n",
+        "evidence_text": "Unless the permit is denied, Noel Ash may send the orchard inventory.",
+        "source_class": "original"
+      }
+    ],
+    "structural_expectations": {},
+    "answer_scope": "What the eligible fictional records establish,not independently verified historical truth.",
+    "automatic_answer_matcher": "requires_semantic_review",
+    "literal_anchor": null
+  },
+  {
+    "suite": "known",
+    "id": "DP00291",
+    "family": "ambiguous_correction",
+    "expected": "refuse",
+    "required_propositions": [],
+    "reference_sources": [
+      "SOURCE-0001",
+      "SOURCE-0002",
+      "SOURCE-0003"
+    ],
+    "source_facts": [
+      {
+        "source_id": "SOURCE-0001",
+        "path": "sources/record-01.txt",
+        "raw_quote": "From: Edda Marén\r\nTo: Mira Vale\r\nDate written: January 05, 1840\r\nSubject: Archive notice\r\nMessage-ID: MAIL-10291\r\n\r\nMy earlier letter lists twelve crates for the east depot.\r\n",
+        "evidence_text": "My earlier letter lists twelve crates for the east depot.",
+        "source_class": "original"
+      },
+      {
+        "source_id": "SOURCE-0002",
+        "path": "sources/record-02.txt",
+        "raw_quote": "From: Edda Marén\r\nTo: Mira Vale\r\nDate written: January 05, 1840\r\nSubject: Archive notice\r\nMessage-ID: MAIL-10291\r\n\r\nMy earlier letter lists twelve crates for the west depot.\r\n",
+        "evidence_text": "My earlier letter lists twelve crates for the west depot.",
+        "source_class": "original"
+      },
+      {
+        "source_id": "SOURCE-0003",
+        "path": "sources/record-03.txt",
+        "raw_quote": "From: Edda Marén\r\nTo: Mira Vale\r\nDate written: January 05, 1840\r\nSubject: Archive notice\r\nMessage-ID: MAIL-10291\r\n\r\nMy earlier letter is mistaken; the count should read fourteen.\r\n",
+        "evidence_text": "My earlier letter is mistaken; the count should read fourteen.",
+        "source_class": "original"
+      }
+    ],
+    "structural_expectations": {},
+    "answer_scope": "What the eligible fictional records establish,not independently verified historical truth.",
+    "automatic_answer_matcher": "requires_semantic_review",
+    "literal_anchor": null
+  },
+  {
+    "suite": "known",
+    "id": "DP00298",
+    "family": "negated_execution",
+    "expected": "refuse",
+    "required_propositions": [],
+    "reference_sources": [
+      "SOURCE-0001"
+    ],
+    "source_facts": [
+      {
+        "source_id": "SOURCE-0001",
+        "path": "sources/record-01.txt",
+        "raw_quote": "Tess Rowan did not send the\nalder memorandum.\n",
+        "evidence_text": "Tess Rowan did not send the\nalder memorandum.",
+        "source_class": "original"
+      }
+    ],
+    "structural_expectations": {},
+    "answer_scope": "What the eligible fictional records establish,not independently verified historical truth.",
+    "automatic_answer_matcher": "requires_semantic_review",
+    "literal_anchor": null
+  },
+  {
+    "suite": "known",
+    "id": "DP00300",
+    "family": "missing_bridge",
+    "expected": "refuse",
+    "required_propositions": [],
+    "reference_sources": [
+      "SOURCE-0001",
+      "SOURCE-0002"
+    ],
+    "source_facts": [
+      {
+        "source_id": "SOURCE-0001",
+        "path": "sources/record-01.txt",
+        "raw_quote": "Noel Ash asked Iris Beck to send the alder memorandum.\n",
+        "evidence_text": "Noel Ash asked Iris Beck to send the alder memorandum.",
+        "source_class": "original"
+      },
+      {
+        "source_id": "SOURCE-0002",
+        "path": "sources/record-02.txt",
+        "raw_quote": "The depot reported receiving a copy of the alder memorandum, but the sender was not recorded.\n",
+        "evidence_text": "The depot reported receiving a copy of the alder memorandum, but the sender was not recorded.",
+        "source_class": "original"
+      }
+    ],
+    "structural_expectations": {},
+    "answer_scope": "What the eligible fictional records establish,not independently verified historical truth.",
+    "automatic_answer_matcher": "requires_semantic_review",
+    "literal_anchor": null
+  },
+  {
+    "suite": "known",
+    "id": "DP00303",
+    "family": "withdrawn_source",
+    "expected": "refuse",
+    "required_propositions": [],
+    "reference_sources": [],
+    "source_facts": [
+      {
+        "source_id": "SOURCE-0001",
+        "path": "sources/record-01.txt",
+        "raw_quote": "IVO HART TO EDDA MARÉN. January 05, 1840\nDear colleague,\n\nIvo Hart wrote the copper survey report.\n",
+        "evidence_text": "Ivo Hart wrote the copper survey report.",
+        "source_class": "original"
+      }
+    ],
+    "structural_expectations": {},
+    "answer_scope": "What the eligible fictional records establish,not independently verified historical truth.",
+    "automatic_answer_matcher": "requires_semantic_review",
+    "literal_anchor": null
+  },
+  {
+    "suite": "known",
+    "id": "DP00306",
+    "family": "identical_wording",
+    "expected": "answer",
+    "required_propositions": [],
+    "reference_sources": [
+      "SOURCE-0001",
+      "SOURCE-0002"
+    ],
+    "source_facts": [
+      {
+        "source_id": "SOURCE-0001",
+        "path": "sources/record-01.md",
+        "raw_quote": "From: Ivo Hart\r\nTo: Tess Rowan\r\nDate written: August 21, 1848\r\nSubject: Archive notice\r\nMessage-ID: MAIL-10306\r\n\r\nIvo Hart wrote the harbor report.\r\n",
+        "evidence_text": "Ivo Hart wrote the harbor report.",
+        "source_class": "original"
+      },
+      {
+        "source_id": "SOURCE-0002",
+        "path": "sources/record-02.md",
+        "raw_quote": "From: Ivo Hart\r\nTo: Tess Rowan\r\nDate written: August 21, 1848\r\nSubject: Archive notice\r\nMessage-ID: MAIL-10306\r\n\r\nIvo Hart wrote the harbor report.\r\n",
+        "evidence_text": "Ivo Hart wrote the harbor report.",
+        "source_class": "original"
+      }
+    ],
+    "structural_expectations": {
+      "same_body": [
+        [
+          1,
+          2
+        ]
+      ]
+    },
+    "answer_scope": "What the eligible fictional records establish,not independently verified historical truth.",
+    "automatic_answer_matcher": "requires_semantic_review",
+    "literal_anchor": null
+  },
+  {
+    "suite": "known",
+    "id": "DP00315",
+    "family": "explicit_chain",
+    "expected": "answer",
+    "required_propositions": [],
+    "reference_sources": [
+      "SOURCE-0001",
+      "SOURCE-0002",
+      "SOURCE-0003"
+    ],
+    "source_facts": [
+      {
+        "source_id": "SOURCE-0001",
+        "path": "sources/record-01.md",
+        "raw_quote": "On January 10, 1849, Lea Stone asked Edda Marén to send the orchard inventory\nto the east depot.\n",
+        "evidence_text": "On January 10, 1849, Lea Stone asked Edda Marén to send the orchard inventory\nto the east depot.",
+        "source_class": "original"
+      },
+      {
+        "source_id": "SOURCE-0002",
+        "path": "sources/record-02.md",
+        "raw_quote": "In response to that request of January 10, 1849, I, Edda Marén, sent the\norchard inventory to the east depot.\n",
+        "evidence_text": "In response to that request of January 10, 1849, I, Edda Marén, sent the\norchard inventory to the east depot.",
+        "source_class": "original"
+      },
+      {
+        "source_id": "SOURCE-0003",
+        "path": "sources/record-03.md",
+        "raw_quote": "The east depot reported receiving the orchard inventory sent by Edda Marén in\nresponse to the request of January 10, 1849.\n",
+        "evidence_text": "The east depot reported receiving the orchard inventory sent by Edda Marén in\nresponse to the request of January 10, 1849.",
+        "source_class": "original"
+      }
+    ],
+    "structural_expectations": {},
+    "answer_scope": "What the eligible fictional records establish,not independently verified historical truth.",
+    "automatic_answer_matcher": "requires_semantic_review",
+    "literal_anchor": null
+  },
+  {
+    "suite": "known",
+    "id": "DP00352",
+    "family": "chronology_causation",
+    "expected": "refuse",
+    "required_propositions": [],
+    "reference_sources": [
+      "SOURCE-0001"
+    ],
+    "source_facts": [
+      {
+        "source_id": "SOURCE-0001",
+        "path": "sources/record-01.txt",
+        "raw_quote": "From: Edda Marén\nTo: Mira Vale\nDate written: September 07, 1842\nSubject: Archive notice\nMessage-ID: MAIL-10352\n\nThe lamp went out before the departure bell rang.\n",
+        "evidence_text": "The lamp went out before the departure bell rang.",
+        "source_class": "original"
+      }
+    ],
+    "structural_expectations": {},
+    "answer_scope": "What the eligible fictional records establish,not independently verified historical truth.",
+    "automatic_answer_matcher": "requires_semantic_review",
+    "literal_anchor": null
+  },
+  {
+    "suite": "known",
+    "id": "DP00359",
+    "family": "negated_execution",
+    "expected": "refuse",
+    "required_propositions": [],
+    "reference_sources": [
+      "SOURCE-0001"
+    ],
+    "source_facts": [
+      {
+        "source_id": "SOURCE-0001",
+        "path": "sources/record-01.txt",
+        "raw_quote": "MAY REED TO IRIS BECK. May 28, 1844\r\nDear colleague,\r\n\r\nMay Reed did not send the alder\r\nmemorandum.\r\n",
+        "evidence_text": "May Reed did not send the alder\nmemorandum.",
+        "source_class": "original"
+      }
+    ],
+    "structural_expectations": {},
+    "answer_scope": "What the eligible fictional records establish,not independently verified historical truth.",
+    "automatic_answer_matcher": "requires_semantic_review",
+    "literal_anchor": null
+  }
+]

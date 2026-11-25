@@ -1,0 +1,103 @@
+{
+  "baseline_commit": "851de6c093394060ce624eb63ba72400b047a7ce",
+  "selection_sha256": "3c81c04893b5b01ac87fd7f18664c5c3a90c52391eb935c214b384f05dcf25c2",
+  "groups": {
+    "fresh/matched_direct": {
+      "selected": 1,
+      "native_complete": 1,
+      "native_partial": 0,
+      "unsupported_complete": 0,
+      "remaining_misses": 0,
+      "budget_stops": 0
+    },
+    "fresh/reported_not_actual": {
+      "selected": 1,
+      "native_complete": 0,
+      "native_partial": 0,
+      "unsupported_complete": 0,
+      "remaining_misses": 0,
+      "budget_stops": 0
+    }
+  },
+  "cases": [
+    {
+      "suite": "fresh",
+      "id": "FRESH-14",
+      "family": "matched_direct",
+      "expected": "answer",
+      "historical_miss": false,
+      "status": "completed",
+      "question": "Who wrote the tide ledger?",
+      "kind": "supported_answer",
+      "diagnostic": "supported_documentary_assertion",
+      "native_complete": true,
+      "native_partial": false,
+      "propositions": 1,
+      "citations_valid": true,
+      "missing": [],
+      "source_key_match": null,
+      "native_documentary_goals": [
+        "who_action"
+      ],
+      "native_reference_request": false,
+      "sorter_complete": true,
+      "source_key_full_discovery": null,
+      "required_source_statements": 0,
+      "discovered_statements": 0,
+      "observed_failure_stage": "decision_returned",
+      "trace": [],
+      "unsupported_complete": false,
+      "semantic_correctness": "NOT_RUN for unsupported authored matcher shapes; native support is not independent accuracy",
+      "measurements": {
+        "cpu_seconds": 0.13845702199999999,
+        "wall_seconds": 0.13992866299668094,
+        "peak_rss_bytes": 23019520,
+        "explicit_original_read_calls": 1,
+        "explicit_original_bytes_read": 93
+      }
+    },
+    {
+      "suite": "fresh",
+      "id": "FRESH-15",
+      "family": "reported_not_actual",
+      "expected": "no_full_support",
+      "historical_miss": false,
+      "status": "completed",
+      "question": "Who wrote the tide ledger?",
+      "kind": "abstain",
+      "diagnostic": "documentary_assertion_not_established",
+      "native_complete": false,
+      "native_partial": false,
+      "propositions": 0,
+      "citations_valid": true,
+      "missing": [
+        "Who wrote the tide ledger: Exact requested argument, reference, qualification, or complete contrary-evidence search is not established."
+      ],
+      "source_key_match": null,
+      "native_documentary_goals": [
+        "who_action"
+      ],
+      "native_reference_request": false,
+      "sorter_complete": true,
+      "source_key_full_discovery": null,
+      "required_source_statements": 0,
+      "discovered_statements": 0,
+      "observed_failure_stage": "decision_returned",
+      "trace": [],
+      "unsupported_complete": false,
+      "semantic_correctness": "NOT_RUN for unsupported authored matcher shapes; native support is not independent accuracy",
+      "measurements": {
+        "cpu_seconds": 0.12794871600000002,
+        "wall_seconds": 0.1289435090002371,
+        "peak_rss_bytes": 23019520,
+        "explicit_original_read_calls": 1,
+        "explicit_original_bytes_read": 119
+      }
+    }
+  ],
+  "scope": "Selected software baseline; neither a current 605-miss census nor independent semantic adjudication.",
+  "independent_historical_accuracy": "NOT_RUN",
+  "independent_semantic_adjudication": "NOT_RUN",
+  "outside_custodian_scoring": "NOT_RUN",
+  "native_oocc": "NOT_RUN"
+}

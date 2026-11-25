@@ -4,6 +4,21 @@
   "meaning": "Links establish retained test/reproduction coverage, not a fresh execution or certification of historical metrics. Original source, dates, fixtures and exact revisions remain in the linked reports.",
   "families": [
     {
+      "family": "current-failure-inventory",
+      "artifacts": "evaluation/current-failure-inventory",
+      "tests": [
+        "tests/test_source_attributed_instructions.py",
+        "tests/test_signed_instructions.py"
+      ],
+      "runners": [
+        "tools/current_failure_inventory.py",
+        "tools/analyze_failure_inventory.py",
+        "tools/freeze_reported_content_proposal.py"
+      ],
+      "scope": "Read-only replay of 64 Known cases, 32 Focus cases and fifteen fresh synthetic contrasts on merged reader 851de6c; frozen next proposal only.",
+      "measurement_status": "111 completed: thirteen complete, four partial, two conflicts, 92 abstentions. Two sampled old compound-field recoveries; no lost old valid complete answer. All sixty no-full-support controls retained withholding. Five multisuite report-content misses have full discovery but no admitted goals. Historical 605 is not a current census. Twenty development inputs and twenty-four unopened future transfer instances frozen; no native repair. Independent historical/semantic/preparation/blinding/outside-custodian/OOCC remain NOT_RUN."
+    },
+    {
       "family": "attribution",
       "artifacts": "evaluation/attribution",
       "tests": [
@@ -18,7 +33,7 @@
         "tools/attribution_fresh_transfer.py"
       ],
       "scope": "Frozen cross-form source attribution with 48 development and 24 procedurally sealed same-operator transfer cases; complete PE-02 contract preservation.",
-      "measurement_status": "Frozen development 24/48 to 48/48. First transfer 12/24 to 24/24 is retained with control-overlap limits and now consumed development. A fresh generator/seed/keys/baseline were frozen before further edits; fresh once-only transfer improves 12/24 to 24/24, with 12 positives and 12 withholds passing and zero false support or budget failures. New source constructions differ from inspected development examples; templates remain visible to same operator. All 17 PE-02 and all 24 consumed-packet contracts remain identical; 56 focused controls pass. Exact-head full archive/regression CI pending. Independent preparation, blinding, historical/semantic adjudication, outside-custodian scoring and native OOCC remain NOT_RUN."
+      "measurement_status": "Frozen development 24/48 to 48/48. First transfer 12/24 to 24/24 is retained with control-overlap limits and now consumed development. A fresh generator/seed/keys/baseline were frozen before further edits; fresh once-only transfer improves 12/24 to 24/24, with 12 positives and 12 withholds passing and zero false support or budget failures. New source constructions differ from inspected development examples; templates remain visible to same operator. All 17 PE-02 and all 24 consumed-packet contracts remain identical; 56 focused controls pass. Exact publication head 71b2725 passed all nine checks, including full archive/regression CI (1779 tests, two skipped); merged 851de6c and deployed successfully. Detailed release receipt is in current-failure-inventory. Independent preparation, blinding, historical/semantic adjudication, outside-custodian scoring and native OOCC remain NOT_RUN."
     },
     {
       "family": "report-pins",
@@ -717,7 +732,7 @@
         "tools/check_browser_wasm.mjs"
       ],
       "scope": "Finite source-attributed assertion certificates, independent question obligations and checked partial composition; no historical truth or independent human accuracy claim.",
-      "measurement_status": "Executed on extracted 6acf45a: 1068 Python tests, public 52/52, actual WebAssembly and Chromium. Unchanged original/government questions: checked partial answers 0\u21922/22, full supported answers 0\u21920/22; independent semantic review and unseen evaluation NOT RUN."
+      "measurement_status": "Executed on extracted 6acf45a: 1068 Python tests, public 52/52, actual WebAssembly and Chromium. Unchanged original/government questions: checked partial answers 0→2/22, full supported answers 0→0/22; independent semantic review and unseen evaluation NOT RUN."
     },
     {
       "family": "reconstruction-engine",
@@ -736,7 +751,7 @@
         "tools/historical_targets.py"
       ],
       "scope": "Finite independent documentary checks and unchanged original-record development replay; graph candidates and synthetic truth fixtures never establish real historical truth.",
-      "measurement_status": "Executed: final extracted63cea98 passed1124 tests/public52/52/WASM/nine Chromium checks/MCP45. All22 unchanged cases completed; full0\u21921/22, checked partial2\u21922/22. Seven accepted citations rechecked and reverse-mapped. Independent review and >=200 unseen evaluation NOT RUN."
+      "measurement_status": "Executed: final extracted63cea98 passed1124 tests/public52/52/WASM/nine Chromium checks/MCP45. All22 unchanged cases completed; full0→1/22, checked partial2→2/22. Seven accepted citations rechecked and reverse-mapped. Independent review and >=200 unseen evaluation NOT RUN."
     },
     {
       "family": "closed-ledger-boundaries",
@@ -770,7 +785,7 @@
         "evaluation/solo-milestone/2026-11-17/certificate_audit.py"
       ],
       "scope": "22 unchanged original-record development questions, source-only recorded-arrangement completion, fresh-context blinded AI assessment and separately measured cache/inspection/storage improvements; no independent human/unseen validation.",
-      "measurement_status": "2026-11-17 before/after runs completed; AI-assessed complete1\u21922, correct refusal4\u21924, error/over-refusal17\u219216; code and quote-fidelity outcomes retained with failed intermediates."
+      "measurement_status": "2026-11-17 before/after runs completed; AI-assessed complete1→2, correct refusal4→4, error/over-refusal17→16; code and quote-fidelity outcomes retained with failed intermediates."
     },
     {
       "family": "preprocessing-sorter",
@@ -840,7 +855,7 @@
         "tools/evaluate_semantic_triage.py"
       ],
       "scope": "Supplied patch hardening, unchanged22 development replay, separate discovery, fictional process-interruption and optional live-model flag probes. No independent historical accuracy.",
-      "measurement_status": "Final runtime7c92db5:1364 unittest passed,52 public controls;unchanged22 complete2\u21922,partial1\u21922;draft anchors27/32 unchanged;fresh blinded AI assessment only;live tiny model no utility gain."
+      "measurement_status": "Final runtime7c92db5:1364 unittest passed,52 public controls;unchanged22 complete2→2,partial1→2;draft anchors27/32 unchanged;fresh blinded AI assessment only;live tiny model no utility gain."
     },
     {
       "family": "sorter-exploration",
@@ -877,7 +892,7 @@
         "tools/dpercent_features.py"
       ],
       "scope": "Original fictional structurally randomized prose;binary source-assertion answerability and refusal,bounded retrieval comparison;not historical accuracy.",
-      "measurement_status": "Frozen6e0de9e:1240/1240 executed;20\u2192200/600 complete checked(160 source assertions,40 word locations),640/640 expected refusals,F0%,400 incomplete answerable cases.Historical complete2/22 unchanged.1431 archived tests,52 public controls,actualWASM and headlessChromium passed.All failed/interrupted attempts retained.Independent semantic review NOT RUN."
+      "measurement_status": "Frozen6e0de9e:1240/1240 executed;20→200/600 complete checked(160 source assertions,40 word locations),640/640 expected refusals,F0%,400 incomplete answerable cases.Historical complete2/22 unchanged.1431 archived tests,52 public controls,actualWASM and headlessChromium passed.All failed/interrupted attempts retained.Independent semantic review NOT RUN."
     },
     {
       "family": "documentary-articles",

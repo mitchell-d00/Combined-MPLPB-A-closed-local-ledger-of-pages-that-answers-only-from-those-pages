@@ -1,0 +1,20 @@
+{
+  "attempt1": {
+    "stage": "launch",
+    "cases_scheduled": 96,
+    "native_executions": 0,
+    "failed_launches": 96,
+    "reason": "Relative worker path resolved under temporary cwd. Retained separately; not counted as refusals/misses."
+  },
+  "attempt2": {
+    "stage": "native replay",
+    "completed": 96,
+    "failed": 0,
+    "resolution": "Worker path resolved absolutely; unchanged Pole worker and unchanged source packets."
+  },
+  "analysis_attempt1": {
+    "stage": "analysis import",
+    "result": "FAIL: package root absent from script path",
+    "resolution": "Added baseline package path and asserted native hashes against execution receipt; no native rerun or key/source changes."
+  }
+}
