@@ -365,6 +365,15 @@ def context_ranges(record, *, document_draft=False):
             if self.pre_depth and not self.pre_finished:self.pre_prefix+=value[:max(0,2001-len(self.pre_prefix))]
     parser=Context();parser.feed(record.body_html);parser.close();full=body_text(record.body_html)
     if body_text(''.join(parser.parts))!=full:return [(0,len(full)+1)]
+    from .source_structure import definition_header
+    definition=definition_header(record)
+    if definition:
+        if definition['status']!='closed':parser.ranges.append((0,len(full)+1))
+        else:
+            # Metadata remains inspection context, never an action assertion.
+            parser.ranges.append((0,definition['end']))
+            if any(META.search(value) or re.search(r'\b(?:'+qualifiers+r'|reported|quoted|forwarded|alleged|denied|instructions?|orders?)\b',value,re.I) for label,value in definition['fields'] if label=='subject'):
+                parser.ranges.append((0,len(full)+1))
     opened=None
     for m in re.finditer(r'(?m)^\ufeff?[ \t]*(?:>[ \t]*)*(`{3,}|~{3,})([^\r\n]*)',full):
         if opened is None:opened=(m.start(),m[1])
@@ -510,9 +519,17 @@ def quoted_context(prefix):
     return single or double or uncertain
 
 
-def units(body):
+def units(body,record=None):
     """Re-derive complete boundaries from native canonical source text."""
     from .source_units import statement_units
+    if record is not None:
+        from .source_structure import definition_header
+        header=definition_header(record)
+        if header and header['status']=='closed' and header['end']<=len(body):
+            end=header['end']
+            yield from statement_units(body[:end])
+            for a,b,q in statement_units(body[end:]):yield a+end,b+end,q
+            return
     yield from statement_units(body)
 
 
@@ -695,7 +712,7 @@ def check(index,proposals,*,max_scan_chars=200000):
         if limit<len(body):complete=False;limits_reached.add('source_characters')
         prefix=body[:limit]
         # A cut unit is never inspected as a complete contradictory statement.
-        for a,b,q in units(prefix):
+        for a,b,q in units(prefix,record):
             if limit<len(body) and b==limit:continue
             if len(contexts)>=1000:complete=False;limits_reached.add('source_units');break
             value=action_assertion(q)
@@ -739,7 +756,7 @@ def check(index,proposals,*,max_scan_chars=200000):
             # Re-read complete native units; an exact substring alone cannot
             # hide a leading negation, attribution or conditional governor.
             from .source_units import comparison_units
-            native=comparison_units(record) if kind in {'wording_comparison','comparison_completion'} else units(body)
+            native=comparison_units(record) if kind in {'wording_comparison','comparison_completion'} else units(body,record)
             unit=next(((lo,hi,q) for lo,hi,q in native if (lo,hi)==(a,b)),None)
             def safe_unit(record,a,b,body):
                 prior=body[:a]

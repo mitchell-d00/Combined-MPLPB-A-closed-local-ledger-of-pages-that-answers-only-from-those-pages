@@ -4,8 +4,8 @@ Last reviewed: 2026-11-25.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `b7f38c90690ca2771ff4766a1c3dff432a77080e` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `304103ee7a9efa3d7ef030b7e929fb7bebc04f0cd70b112718c6d4ad722df305`.
+Base commit: `98a85de97ea599cc9634ab06d3a7e5c36d6e2b1f` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `d92b7b23ddb168407a0c564bf21f6cba5e5525927453406faaeb39df6fb8f0e2`.
 
 ## Betty report for Al
 
@@ -17,12 +17,12 @@ Run Betty — local Cryptid test programme. Start from current main. Complete th
 
 ### Implemented scope
 
-- Established local Cryptid programme on isolated branch local/cryptid-programme from verified current remote main c01021c0b9983f9a607fbe782dea7ed5872d1f11
-- Ordered scope: programme, documentary date roles, question wording, polarity/conditions/modality, identity/references, comparisons/corrections, multipart/document links, automatic source-linked representation, fixed-cap budgets, Bubblewrap controls, real-human onboarding preparation and final local ZIP review.
-- Mothman shared date-role planning/proof and counterevidence scan; three remaining development misses retained, no caps changed.
-- Mothman local cycle completed with3remaining development misses; no overall development-pass claim. Jackalope next, all previous packets now preservation.
-- Jackalope finite shared action-question goal recognition; original question retained for eligibility/proof, no source-rule or budget relaxation. Eight source-boundary misses remain.
-- Yeti shared claim frame and native source-scoped denial/modality checks; source writer/task actor and reporting/content negation remain separate. No inferred execution; no cap increases.
+- Local Cryptid programme on isolated branch local/cryptid-programme from verified main c01021c0b9983f9a607fbe782dea7ed5872d1f11; no remote mutation authorized.
+- Eight ordered families executed: documentary dates, whole-question wording, polarity/modality, references, corrections, linked obligations, automatic source-linked layout, fixed-cap resources. General native checks; no case-ID or benchmark runtime branches.
+- All frozen inputs/keys, failed candidates, scorer amendments, raw evidence and custody limits retained. Earlier transfer packets are consumed preservation evidence.
+- First full-ZIP candidate98a85de rejected for one wrong actor caused by joined definition-list metadata; original transfer18/24 retained. Source-boundary repair controls5/12→12/12, wrongclaims5→0; consumed final24now19/24,0false,5positive misses.
+- Fresh cross-family16packet sealed before second candidate freeze. Human12participant onboarding materials verified; Mitchell returns real observations, execution NOT_RUN.
+- Complete local review only: no push, PR update, merge, deployment or remote-main mutation.
 
 ### Validation recorded
 
@@ -61,18 +61,22 @@ Run Betty — local Cryptid test programme. Start from current main. Complete th
 - NESSIE: 6/21 -> 21/21 development; transfer 11/12 once, false support 0; candidate 3150e7560a3ce6c775ae058f22baaba48c657022 ZIP SHA256 c15cc279997b789f4c1cdac7626bf70a1913d9817a48c63fc433cdbf02ac1f8e. Primary21decisions6->21; these are13unique reader-input pairs,7unique positive claim inputs, with8duplicates used for forged-tag controls. Additional frozenWrap16/16: governor6, modality2, header-writer4, signed-writer4. Four rejected candidates retained: proposal budget, qualification loss, header-writer and signer class gaps. Final37/37development,0false support. Transfer11/12: email-styleFrom positive remains missed. Proposal validation12/12 is not coverage; two report clause-graphs remain unextracted. Prior370:354exact unchanged+10fully-key-checked completions+6checkedpartials; no lost old valid support. Release280exact unchanged.65focused native checks pass. Same-operator exposure; all independent evaluations NOT_RUN.
 - THUNDERBIRD: 12/12 -> 12/12 development; transfer 8/8 once, false support 0; candidate 2b6561c971aa1cab4ffbca773142c170155a7afd ZIP SHA256 95c2dbb9acf1a3707e3e47ecf43df672fee9d598b12327ab839a0d45b78c6594. Claim decisions12/12 unchanged; no coverage gain and no cap increase. Resource visibility11/12->12/12: exact unparsed relevant-unit spans and phrase-limit reason now exposed with checked partials. Eight source-answerable positives:5complete,3fixed-cap misses. Transfer8/8decisions and resource checks:5source-answerable positives,3complete,2cap misses. Counterevidence at/beyond limits never yields a definitive answer.419prior contracts and280release contracts exactly unchanged;21focused guards pass. Local query wall0.11-0.56s and peakRSSabout20MB are observations, not general performance claims.
 - All eight Cryptid cycles completed locally; failed candidates/transfer misses retained. Final native bytes equal tested Thunderbird2b6561c, scopedZIP95c2dbb9acf1a3707e3e47ecf43df672fee9d598b12327ab839a0d45b78c6594. Fresh final cross-family24 packet sealed before final full-ZIP candidate, unopened. Final full-source gates pending; no remote publication.
+- First full ZIP98a85de SHA90d28ec0d343904e6c6ba1a5409afa1e498f22da8be78160cfd89c2f1cfcd12f:1863native tests completed with1optionalPDF skip,419Cryptid and280release exact preservation,106complete/6partial/6conflict/162abstain on release. JS/HTTP, wheel, MCP, WASM, actual Chromium, handoff/docs/index pass. Fresh24FAIL18/24 with1false actor and6positive misses; packet consumed. Two Thunderbird wrapper output-directory collisions failed before worker launch, retained separately.
+- Native boundary repair from frozen12control baseline:5/12→12/12, falseclaims5→0. Unchanged consumed final24:18→19correct decisions, false1→0,5misses retained. No labels or source bytes changed. Optionalreportlab installed for next full-native run. New16cross-family packet sealed, not opened.
+- Before second candidate freeze:419prior Cryptid contracts exactly unchanged under boundary repair; keys and inputs unchanged. All family source budgets unchanged. Full repaired ZIP gates pending.
 
 ### Limitations and blocked checks
 
 - Same-operator preparation/implementation/scoring; independent historical/semantic/preparation/blinding/outside-custodian/OOCC NOT_RUN.
-- Human first-use execution NOT_RUN; Mitchell recruits12participants and returns actual observations.
-- Current scope LOCAL_ONLY; no push, PR mutation, merge, deploy or remote-main changes.
-- Per-family misses and frozen ineligible expectation remain failures. Default nested namespace gate blocked; host real Bubblewrap4/4. Final integration pending at source freeze.
+- Human execution NOT_RUN; Mitchell recruits12first-time participants and returns uncoached observations.
+- All per-family misses, budget stops,2diagnostic-onlyunscored leads and frozen ineligible positive remain explicit failures.
+- Default nested namespace gate BLOCKED; host real Bubblewrap4/4. Second full-source integration and fresh16pending at freeze.
+- Publication forbidden until Mitchell explicitly authorizes it.
 
 ### Next steps
 
-- Freeze full committed source ZIP and cleanly extract; run all applicable integration gates and unopened final24packet once on exact native files.
-- Prepare local review package with exact tested commit, ZIP SHA256, raw results, failures and proposed PR/release text. STOP: publication requires Mitchell explicit instruction.
+- Freeze the repaired committed full-source ZIP, test its clean extraction on all applicable gates and the sealed16packet once. Retain every failure.
+- Prepare local review evidence, proposed PR description and release summary with exact tested commit and checksum. STOP at publication boundary.
 
 ## Use this ZIP in your repository
 

@@ -1,0 +1,379 @@
+{
+  "schema": "cryptid-claim-score-v1",
+  "version": "cryptid-claim-scorer-v5",
+  "scorer_sha256": "d91f3855437fb55d4ec165edcf48bad6a375437bcdf8acc7c8a2ea4b4e7d6b60",
+  "run_sha256": "b8029cbb5edc8391ae3dc3ca131269632b7fff0bb83810d0c07d5b87739a1eb6",
+  "key_sha256": "b64732f30948b50c1bfd9379a2f8991b1e7001c1bc04a3d486b06db0bddd19af",
+  "counts": {
+    "planned": 12,
+    "attempted": 12,
+    "completed": 12,
+    "scored": 12,
+    "unscored": 0,
+    "passed": 5,
+    "false_support": 5,
+    "positive_misses": 4,
+    "budget_stops": 0,
+    "diagnostic_only": 0
+  },
+  "cases": [
+    {
+      "id": "CRYPT-NESSIE-0070",
+      "execution_status": "completed",
+      "scored": true,
+      "passed": false,
+      "expected": "complete",
+      "kind": "supported_answer",
+      "claims": 1,
+      "positive_miss": true,
+      "false_support": true,
+      "errors": [
+        "unexpected_or_duplicate_claim",
+        "positive_claim_miss"
+      ],
+      "interpretation_inspection_recognized": true,
+      "required_witness_discovery": true,
+      "miss_stage_diagnostic": "proof",
+      "budget_stop": false,
+      "measurements": {
+        "query_wall_seconds": 0.13490356199326925,
+        "query_cpu_seconds": 0.12605137000000002,
+        "peak_rss_bytes": 18972672,
+        "source_html_open_calls": {
+          "query": 9,
+          "discovery": 2
+        },
+        "source_read_measurement": "Python audit open events for ledger HTML files during query/discovery; cached in-memory reads are not counted",
+        "admitted_source_count": 1,
+        "admitted_canonical_characters": 60
+      }
+    },
+    {
+      "id": "CRYPT-NESSIE-0071",
+      "execution_status": "completed",
+      "scored": true,
+      "passed": false,
+      "expected": "complete",
+      "kind": "abstain",
+      "claims": 0,
+      "positive_miss": true,
+      "false_support": false,
+      "errors": [
+        "positive_completion_miss",
+        "positive_claim_miss"
+      ],
+      "interpretation_inspection_recognized": true,
+      "required_witness_discovery": true,
+      "miss_stage_diagnostic": "proof",
+      "budget_stop": false,
+      "measurements": {
+        "query_wall_seconds": 0.15880813599505927,
+        "query_cpu_seconds": 0.15765014700000002,
+        "peak_rss_bytes": 18968576,
+        "source_html_open_calls": {
+          "query": 9,
+          "discovery": 2
+        },
+        "source_read_measurement": "Python audit open events for ledger HTML files during query/discovery; cached in-memory reads are not counted",
+        "admitted_source_count": 1,
+        "admitted_canonical_characters": 77
+      }
+    },
+    {
+      "id": "CRYPT-NESSIE-0072",
+      "execution_status": "completed",
+      "scored": true,
+      "passed": false,
+      "expected": "complete",
+      "kind": "supported_answer",
+      "claims": 1,
+      "positive_miss": true,
+      "false_support": true,
+      "errors": [
+        "unexpected_or_duplicate_claim",
+        "positive_claim_miss"
+      ],
+      "interpretation_inspection_recognized": true,
+      "required_witness_discovery": true,
+      "miss_stage_diagnostic": "proof",
+      "budget_stop": false,
+      "measurements": {
+        "query_wall_seconds": 0.12211750399728771,
+        "query_cpu_seconds": 0.12029332700000003,
+        "peak_rss_bytes": 18845696,
+        "source_html_open_calls": {
+          "query": 9,
+          "discovery": 2
+        },
+        "source_read_measurement": "Python audit open events for ledger HTML files during query/discovery; cached in-memory reads are not counted",
+        "admitted_source_count": 1,
+        "admitted_canonical_characters": 60
+      }
+    },
+    {
+      "id": "CRYPT-NESSIE-0073",
+      "execution_status": "completed",
+      "scored": true,
+      "passed": true,
+      "expected": "withhold",
+      "kind": "abstain",
+      "claims": 0,
+      "positive_miss": false,
+      "false_support": false,
+      "errors": [],
+      "interpretation_inspection_recognized": true,
+      "required_witness_discovery": null,
+      "miss_stage_diagnostic": null,
+      "budget_stop": false,
+      "measurements": {
+        "query_wall_seconds": 0.13644238900451455,
+        "query_cpu_seconds": 0.13164923399999998,
+        "peak_rss_bytes": 18972672,
+        "source_html_open_calls": {
+          "query": 9,
+          "discovery": 2
+        },
+        "source_read_measurement": "Python audit open events for ledger HTML files during query/discovery; cached in-memory reads are not counted",
+        "admitted_source_count": 1,
+        "admitted_canonical_characters": 60
+      }
+    },
+    {
+      "id": "CRYPT-NESSIE-0074",
+      "execution_status": "completed",
+      "scored": true,
+      "passed": true,
+      "expected": "withhold",
+      "kind": "abstain",
+      "claims": 0,
+      "positive_miss": false,
+      "false_support": false,
+      "errors": [],
+      "interpretation_inspection_recognized": true,
+      "required_witness_discovery": null,
+      "miss_stage_diagnostic": null,
+      "budget_stop": false,
+      "measurements": {
+        "query_wall_seconds": 0.1097418160061352,
+        "query_cpu_seconds": 0.10660410199999999,
+        "peak_rss_bytes": 18968576,
+        "source_html_open_calls": {
+          "query": 9,
+          "discovery": 2
+        },
+        "source_read_measurement": "Python audit open events for ledger HTML files during query/discovery; cached in-memory reads are not counted",
+        "admitted_source_count": 1,
+        "admitted_canonical_characters": 60
+      }
+    },
+    {
+      "id": "CRYPT-NESSIE-0075",
+      "execution_status": "completed",
+      "scored": true,
+      "passed": true,
+      "expected": "withhold",
+      "kind": "abstain",
+      "claims": 0,
+      "positive_miss": false,
+      "false_support": false,
+      "errors": [],
+      "interpretation_inspection_recognized": true,
+      "required_witness_discovery": null,
+      "miss_stage_diagnostic": null,
+      "budget_stop": false,
+      "measurements": {
+        "query_wall_seconds": 0.11635825200937688,
+        "query_cpu_seconds": 0.11468961999999999,
+        "peak_rss_bytes": 18976768,
+        "source_html_open_calls": {
+          "query": 9,
+          "discovery": 2
+        },
+        "source_read_measurement": "Python audit open events for ledger HTML files during query/discovery; cached in-memory reads are not counted",
+        "admitted_source_count": 1,
+        "admitted_canonical_characters": 91
+      }
+    },
+    {
+      "id": "CRYPT-NESSIE-0076",
+      "execution_status": "completed",
+      "scored": true,
+      "passed": true,
+      "expected": "withhold",
+      "kind": "abstain",
+      "claims": 0,
+      "positive_miss": false,
+      "false_support": false,
+      "errors": [],
+      "interpretation_inspection_recognized": true,
+      "required_witness_discovery": null,
+      "miss_stage_diagnostic": null,
+      "budget_stop": false,
+      "measurements": {
+        "query_wall_seconds": 0.120897357002832,
+        "query_cpu_seconds": 0.11853526699999997,
+        "peak_rss_bytes": 18964480,
+        "source_html_open_calls": {
+          "query": 9,
+          "discovery": 2
+        },
+        "source_read_measurement": "Python audit open events for ledger HTML files during query/discovery; cached in-memory reads are not counted",
+        "admitted_source_count": 1,
+        "admitted_canonical_characters": 96
+      }
+    },
+    {
+      "id": "CRYPT-NESSIE-0077",
+      "execution_status": "completed",
+      "scored": true,
+      "passed": false,
+      "expected": "withhold",
+      "kind": "supported_answer",
+      "claims": 1,
+      "positive_miss": false,
+      "false_support": true,
+      "errors": [
+        "unsupported_claim_or_completion",
+        "unexpected_or_duplicate_claim"
+      ],
+      "interpretation_inspection_recognized": true,
+      "required_witness_discovery": null,
+      "miss_stage_diagnostic": null,
+      "budget_stop": false,
+      "measurements": {
+        "query_wall_seconds": 0.1377261589950649,
+        "query_cpu_seconds": 0.13331087800000002,
+        "peak_rss_bytes": 18972672,
+        "source_html_open_calls": {
+          "query": 9,
+          "discovery": 2
+        },
+        "source_read_measurement": "Python audit open events for ledger HTML files during query/discovery; cached in-memory reads are not counted",
+        "admitted_source_count": 1,
+        "admitted_canonical_characters": 76
+      }
+    },
+    {
+      "id": "CRYPT-NESSIE-0078",
+      "execution_status": "completed",
+      "scored": true,
+      "passed": true,
+      "expected": "withhold",
+      "kind": "abstain",
+      "claims": 0,
+      "positive_miss": false,
+      "false_support": false,
+      "errors": [],
+      "interpretation_inspection_recognized": true,
+      "required_witness_discovery": null,
+      "miss_stage_diagnostic": null,
+      "budget_stop": false,
+      "measurements": {
+        "query_wall_seconds": 0.11326569100492634,
+        "query_cpu_seconds": 0.109013888,
+        "peak_rss_bytes": 18972672,
+        "source_html_open_calls": {
+          "query": 9,
+          "discovery": 2
+        },
+        "source_read_measurement": "Python audit open events for ledger HTML files during query/discovery; cached in-memory reads are not counted",
+        "admitted_source_count": 1,
+        "admitted_canonical_characters": 82
+      }
+    },
+    {
+      "id": "CRYPT-NESSIE-0079",
+      "execution_status": "completed",
+      "scored": true,
+      "passed": false,
+      "expected": "withhold",
+      "kind": "supported_answer",
+      "claims": 1,
+      "positive_miss": false,
+      "false_support": true,
+      "errors": [
+        "unsupported_claim_or_completion",
+        "unexpected_or_duplicate_claim"
+      ],
+      "interpretation_inspection_recognized": true,
+      "required_witness_discovery": null,
+      "miss_stage_diagnostic": null,
+      "budget_stop": false,
+      "measurements": {
+        "query_wall_seconds": 0.11553669499699026,
+        "query_cpu_seconds": 0.11560147899999998,
+        "peak_rss_bytes": 18968576,
+        "source_html_open_calls": {
+          "query": 9,
+          "discovery": 2
+        },
+        "source_read_measurement": "Python audit open events for ledger HTML files during query/discovery; cached in-memory reads are not counted",
+        "admitted_source_count": 1,
+        "admitted_canonical_characters": 49
+      }
+    },
+    {
+      "id": "CRYPT-NESSIE-0080",
+      "execution_status": "completed",
+      "scored": true,
+      "passed": false,
+      "expected": "withhold",
+      "kind": "supported_answer",
+      "claims": 1,
+      "positive_miss": false,
+      "false_support": true,
+      "errors": [
+        "unsupported_claim_or_completion",
+        "unexpected_or_duplicate_claim"
+      ],
+      "interpretation_inspection_recognized": true,
+      "required_witness_discovery": null,
+      "miss_stage_diagnostic": null,
+      "budget_stop": false,
+      "measurements": {
+        "query_wall_seconds": 0.12172014200768899,
+        "query_cpu_seconds": 0.11687773799999998,
+        "peak_rss_bytes": 18972672,
+        "source_html_open_calls": {
+          "query": 9,
+          "discovery": 2
+        },
+        "source_read_measurement": "Python audit open events for ledger HTML files during query/discovery; cached in-memory reads are not counted",
+        "admitted_source_count": 1,
+        "admitted_canonical_characters": 60
+      }
+    },
+    {
+      "id": "CRYPT-NESSIE-0081",
+      "execution_status": "completed",
+      "scored": true,
+      "passed": false,
+      "expected": "complete",
+      "kind": "abstain",
+      "claims": 0,
+      "positive_miss": true,
+      "false_support": false,
+      "errors": [
+        "positive_completion_miss",
+        "positive_claim_miss"
+      ],
+      "interpretation_inspection_recognized": true,
+      "required_witness_discovery": true,
+      "miss_stage_diagnostic": "proof",
+      "budget_stop": false,
+      "measurements": {
+        "query_wall_seconds": 0.11235363499145024,
+        "query_cpu_seconds": 0.111965279,
+        "peak_rss_bytes": 18976768,
+        "source_html_open_calls": {
+          "query": 9,
+          "discovery": 2
+        },
+        "source_read_measurement": "Python audit open events for ledger HTML files during query/discovery; cached in-memory reads are not counted",
+        "admitted_source_count": 1,
+        "admitted_canonical_characters": 93
+      }
+    }
+  ],
+  "custody": "Same-operator keys/scoring; no independent historical or semantic adjudication."
+}

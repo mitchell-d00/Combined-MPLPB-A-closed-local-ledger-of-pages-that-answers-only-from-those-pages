@@ -1,0 +1,11 @@
+Traceback (most recent call last):
+  File "/dev/shm/cryptid-final-candidate-1/tools/cryptid_replay_packet_v4.py", line 26, in <module>
+    p.add_argument('--source-commit',required=True);main(p.parse_args())
+                                                    ^^^^^^^^^^^^^^^^^^^^
+  File "/dev/shm/cryptid-final-candidate-1/tools/cryptid_replay_packet_v4.py", line 20, in main
+    trial.run(argparse.Namespace(registry=root/'registry.json',implementation=a.implementation,source_commit=a.source_commit,output=a.output))
+  File "/dev/shm/cryptid-final-candidate-1/tools/cryptid_trial_v4.py", line 39, in run
+    a.output.mkdir(parents=True, exist_ok=False)
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/pathlib.py", line 1311, in mkdir
+    os.mkdir(self, mode)
+FileExistsError: [Errno 17] File exists: '/workspace/cryptid-final-gates/candidate-1/thunderbird-consumed'

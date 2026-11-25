@@ -23,3 +23,5 @@ Measured status: Released comparisons are revision-specific. Current local chang
 Open work: Broader wording, modality, identity and multi-obligation coverage remain open.
 
 [Department directory](README.md) · [Test Index](../TEST_INDEX.md) · [Current evidence](../CURRENT_STATUS.md) · [Full package map](../PACKAGE_GUIDE.md)
+
+Local integration: leading definition-list metadata is reread as a layout boundary, with explicit subject/quotation checks. [Frozen contrasting cases](../../evaluation/cryptid/nessie/layout-wrap/registry.json) protect against header text becoming a person name. The first combined transfer failure is retained in the [local review](../../evaluation/cryptid/final/REVIEW.md).

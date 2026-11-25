@@ -1,0 +1,21 @@
+{
+  "schema": "cryptid-integration-gate-v1",
+  "name": "wheel-install",
+  "command": [
+    "/workspace/cryptid-final-wheel-venv/bin/python",
+    "-m",
+    "pip",
+    "install",
+    "--no-index",
+    "/workspace/cryptid-final-gates/candidate-1/wheels/combined_mplpb-2.1.0rc1-py3-none-any.whl"
+  ],
+  "cwd": "/dev/shm/cryptid-final-candidate-1",
+  "timeout_seconds": 300,
+  "started_utc": "2026-11-25T23:44:56.940670+00:00",
+  "source": "Clean committed source ZIP extraction; no checkout tests substituted.",
+  "status": "PASS",
+  "returncode": 0,
+  "error": null,
+  "wall_seconds": 0.8333690290019149,
+  "raw_log_sha256": "04914a01f06413d8b3817cb9a47d937810e4d48475b4d6c20fa841035b0796b6"
+}

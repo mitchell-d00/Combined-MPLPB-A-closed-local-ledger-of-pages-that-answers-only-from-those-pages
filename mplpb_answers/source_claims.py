@@ -95,7 +95,7 @@ def _frame_units(record,body):
         found=source_frame(record,form)
         if found:_,info=found;break
     start,end=(info['start'],info['end']) if info else (0,len(body))
-    return [(a+start,b+start,q) for a,b,q in kernel.units(body[start:end])],info
+    return [(a+start,b+start,q) for a,b,q in kernel.units(body[start:end],record if start==0 and end==len(body) else None)],info
 
 
 def _derive(record,body,unit,previous,info):
@@ -142,7 +142,7 @@ def verify(index,max_passages,max_chars):
         body=body_text(record.body_html)
         # Layout witnesses consume the same source-unit budget as content.
         # A verified letter frame cannot hide its salutation/signature cost.
-        for _ in kernel.units(body):
+        for _ in kernel.units(body,record):
             used+=1
             if used>1000:return 'abstain','reference_scan_budget',{}
         units,info=_frame_units(record,body);previous=None

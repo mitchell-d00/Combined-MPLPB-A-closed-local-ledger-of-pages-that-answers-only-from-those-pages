@@ -12,6 +12,34 @@ VERSION='source-linked-layout-v1'
 _TAGS={'p':'paragraph','pre':'pre','blockquote':'quotation','q':'quotation','article':'section','section':'section'}
 _FIELDS=re.compile(r'(From|To|Date(?: written| sent| received)?|Subject|Message-ID|Cc): (.+)',re.I)
 
+def definition_header(record):
+    """Reread a closed, leading definition list as layout only.
+
+    Exact source projection stays unchanged. Unknown, duplicate, nested or
+    incomplete fields cannot authorize a prose boundary or a source actor.
+    """
+    raw=record.body_html
+    opening=re.search(r'<dl\b[^>]*>',raw,re.I)
+    if not opening or body_text(raw[:opening.start()]):return None
+    invalid={'status':'unresolved','fields':[],'end':0}
+    match=re.match(r'<dl\b[^>]*>([\s\S]{1,2200}?)</dl\s*>',raw[opening.start():],re.I)
+    if not match:return invalid
+    inner=match[1];field=re.compile(r'\s*<dt\s*>([^<>]{1,40})</dt\s*>\s*<dd\s*>([^<>]{1,300})</dd\s*>',re.I)
+    fields=[];cursor=0
+    for item in field.finditer(inner):
+        if item.start()!=cursor:return invalid
+        parsed=_FIELDS.fullmatch(html.unescape(item[1]).strip()+': '+html.unescape(item[2]).strip())
+        if not parsed:return invalid
+        fields.append((parsed[1].casefold(),parsed[2]));cursor=item.end()
+    if inner[cursor:].strip():return invalid
+    labels=[label for label,_ in fields]
+    if not {'from','to'}<=set(labels) or len(labels)!=len(set(labels)):return invalid
+    for label,value in fields:
+        if label in {'from','to'} and (not kernel.named_actor(value) or re.search(r'\b(?:if|unless|not|never|only|conditional|reported|quoted)\b',value,re.I)):return invalid
+    end_raw=opening.start()+match.end();prefix=body_text(raw[:end_raw]);body=body_text(raw)
+    if not prefix or not body.startswith(prefix) or not body[len(prefix):].startswith('\n'):return invalid
+    return {'status':'closed','fields':fields,'end':len(prefix)+1}
+
 def _pin(record):return {'id':record.id,'path':record.path,'hash':record.hash_actual,'body_html_sha256':hashlib.sha256(record.body_html.encode()).hexdigest()}
 def closed_header(record):
     """Check the physical end of a complete leading preformatted header.

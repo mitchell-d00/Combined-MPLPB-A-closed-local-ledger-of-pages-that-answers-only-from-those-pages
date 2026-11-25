@@ -631,9 +631,19 @@
       "failed_checks": 2,
       "evidence": "gates/isolation.json"
     },
-    "final_archive": "NOT_RUN",
-    "preservation_280": "NOT_RUN",
-    "browser": "NOT_RUN"
+    "final_archive": {
+      "first_candidate": "Full-source extraction completed, software gates passed; rejected on semantic transfer",
+      "first_attempt": "final/attempt-1/summary.json",
+      "second_candidate": "PENDING at repaired source freeze"
+    },
+    "preservation_280": {
+      "first_candidate": "280/280 unchanged accepted contracts,106complete6partial6conflict162abstain",
+      "second_candidate": "PENDING clean ZIP rerun"
+    },
+    "browser": {
+      "first_candidate": "PASS real Chromium live baseline, candidate UI/policies/helper/offline/layout",
+      "second_candidate": "PENDING clean ZIP rerun"
+    }
   },
   "run_ledger": [
     "ledger/0001.json",
@@ -643,6 +653,17 @@
     "ledger/0005.json",
     "ledger/0006.json",
     "ledger/0007.json",
-    "ledger/0008.json"
-  ]
+    "ledger/0008.json",
+    "ledger/0009.json"
+  ],
+  "final_integration": {
+    "status": "SECOND_CANDIDATE_PENDING",
+    "first_candidate": "final/attempt-1/summary.json",
+    "repair_controls": "final/layout-wrap-candidate-2-score.json",
+    "consumed_final": "final/consumed-final-candidate-2-score.json",
+    "fresh_packet": "final/fresh2/transfer-seal.json",
+    "fresh_status": "SEALED_UNOPENED",
+    "custody": "Same operator; independent preparation/blinding/adjudication NOT_RUN",
+    "publication": "LOCAL_ONLY"
+  }
 }

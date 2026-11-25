@@ -93,6 +93,7 @@ def plan(question):
 
 def propose(index,passages):
     """Opaque exact-source proposals only; no authoritative actor/event fields."""
+    records={r.path:r for r in index.records}
     bodies={r.path:body_text(r.body_html) for r in index.records};result=[];seen=set()
     def add(p,a,b,kind):
         key=(p['path'],a,b,kind)
@@ -131,11 +132,11 @@ def propose(index,passages):
             if not opening:continue
             start=h+opening.start();first=next(_proposal_units(body[start:b]),None)
             if first:add(p,h,start+first[1],'letter_instruction')
-        for lo,hi,q in kernel.units(body):
+        for lo,hi,q in kernel.units(body,records[p['path']]):
             if lo<a or hi>b:continue
             if hi-lo<=2200 and re.search(r'\b(?:'+'|'.join(ACTIONS)+r'|did\s+not\s+(?:'+'|'.join(ACTIONS.values())+r'))\b',q):
                 add(p,lo,hi,'action_statement')
-        for lo,hi,q in kernel.units(body):
+        for lo,hi,q in kernel.units(body,records[p['path']]):
             if lo>=b or hi<=a or hi-lo>2200:continue
             if kernel.relationship_assertion(q):add(p,lo,hi,'relationship_statement')
     if any(g['kind']=='wording_comparison' for g in plan(index.question) or []):

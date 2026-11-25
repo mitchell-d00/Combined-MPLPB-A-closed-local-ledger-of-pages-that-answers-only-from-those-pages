@@ -2,7 +2,9 @@
 
 Last reviewed: 2026-11-25.
 
-**LOCAL_ONLY.** Started from verified main `c01021c0b9983f9a607fbe782dea7ed5872d1f11`. No push, PR mutation, merge or deployment is authorized. Full-source integration and the fresh final packet are pending at this source freeze; the external review package will record exact candidate commit, ZIP SHA-256, command outcomes and remaining failures.
+**LOCAL_ONLY.** Started from verified main `c01021c0b9983f9a607fbe782dea7ed5872d1f11`. No push, PR mutation, merge or deployment is authorized. The first full-source candidate `98a85de97ea599cc9634ab06d3a7e5c36d6e2b1f` is rejected: its fresh cross-family packet scored **18/24 with one unsupported actor claim**. Native1863 tests completed with one optional-PDF skip; JavaScript/HTTP, installed wheel, real WASM, Chromium, documentation and handoff checks passed at that rejected pin. These are software checks, not semantic acceptance. [Attempt and raw failures](attempt-1/summary.json).
+
+The reader repair checks the original closed definition-list boundary and retains quotation, subject conditions, host state and exact canonical coordinates. Frozen boundary controls improve **5/12 →12/12, wrong claims5→0**. The unchanged consumed final packet improves **18/24→19/24, wrong claims1→0**, with five positive misses retained. A separately sealed **16-case cross-family packet remains unopened** at this second source freeze. Full-ZIP gates and fresh scoring for the repaired candidate are pending; the external review package will record the exact tested commit and ZIP SHA-256.
 
 | Family | Frozen development before → after | Transfer at its frozen candidate | Remaining limits |
 |---|---|---|---|
@@ -17,7 +19,7 @@ Last reviewed: 2026-11-25.
 
 The release comparison recovered nine complete answers across earlier unchanged inputs: five date-role answers, two source denials and two corrections. It retains the old partials and conflicts. Nessie additionally recovered ten complete answers and six checked partials in prior Cryptid inputs, with their complete claims, qualifications and citations checked against unchanged keys. Existing source support was preserved. Final integrated counts must come from the exact full-ZIP runs, not from adding overlapping cohorts.
 
-[Programme](../programme.json), [rule-to-case map](../shared-rules.json), [Test Index](../../../docs/TEST_INDEX.md), [department ownership](../../../docs/departments/testing-evaluation.md), [pre-integration audit](../audit-pre-integration.json), [global isolation](../gates/global-isolation.json), [human materials verification](../onboarding/verification.json), [fresh final protocol](protocol.json).
+[Programme](../programme.json), [rule-to-case map](../shared-rules.json), [Test Index](../../../docs/TEST_INDEX.md), [department ownership](../../../docs/departments/testing-evaluation.md), [pre-integration audit](../audit-pre-integration.json), [global isolation](../gates/global-isolation.json), [human materials verification](../onboarding/verification.json), [original protocol](protocol.json), [second final protocol](protocol-2.json), [boundary controls](../nessie/layout-wrap/registry.json), [repair score](layout-wrap-candidate-2-score.json), [consumed packet score](consumed-final-candidate-2-score.json).
 
 All rejected candidates, original failed scores and corrected harness attempts remain retained. Default nested namespaces are blocked; the host gate uses actual fail-closed Bubblewrap and passes four checks. A worker launch failure never becomes a reader refusal. Native code and public inputs are readonly; keys, generators, scorers, Git metadata, credentials and network stay outside workers.
 
