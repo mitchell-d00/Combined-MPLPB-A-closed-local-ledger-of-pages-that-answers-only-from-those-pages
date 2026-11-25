@@ -18,7 +18,9 @@ she opens or updates. The maintainer starts Betty first and opens a separate
 Al chat after Betty leaves the report. Al first inspects the repository in
 depth, then reads the report and PR. The maintainer pastes Al’s response
 and their direction to Betty, who runs the authorized tests and updates
-the same PR.
+the same PR. Keep the live PR report current with the last applied change,
+checked head, measured outcomes, and next authorized step. Reconcile a stale
+report with `HANDOFF.md` at the actual PR head before continuing.
 
 For every implementation/update, and before providing a source ZIP or other delivery:
 

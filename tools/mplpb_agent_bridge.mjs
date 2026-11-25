@@ -5,7 +5,7 @@ import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 
 function usage() {
- return 'Usage: node tools/mplpb_agent_bridge.mjs <GitHub-repo-or-live-site-URL> (--handshake | --betty | --al | --question TEXT | --chat TEXT | --pages | --read PAGE) [--corpus KEY] [--session ID] [--profile-dir PATH] [--suggest] [--allow-network] [--auto-wiki]';
+ return 'Usage: node tools/mplpb_agent_bridge.mjs <GitHub-repo-or-PR-or-live-site-URL> (--handshake | --betty | --al | --question TEXT | --chat TEXT | --pages | --read PAGE) [--corpus KEY] [--session ID] [--profile-dir PATH] [--suggest] [--allow-network] [--auto-wiki]';
 }
 function siteFrom(url) {
  const u = new URL(url);
@@ -39,6 +39,26 @@ function roleManifest(url, site) {
  const ref = ['tree','blob'].includes(view) && /^[a-f0-9]{40}$/.test(pin) ? pin : 'HEAD';
  return new URL(`https://raw.githubusercontent.com/${encodeURIComponent(owner)}/${encodeURIComponent(name)}/${ref}/.well-known/mplpb.json`);
 }
+async function livePullRequest(url) {
+ const repo = new URL(url);
+ const [owner, name, view, number] = repo.pathname.split('/').filter(Boolean);
+ if (repo.hostname !== 'github.com' || view !== 'pull' || !/^[1-9][0-9]{0,9}$/.test(number)) return null;
+ const path = `${encodeURIComponent(owner)}/${encodeURIComponent(name)}`;
+ const response = await fetch(new URL(`https://api.github.com/repos/${path}/pulls/${number}`),{redirect:'error'});
+ if (!response.ok) throw Error('Pull request HTTP '+response.status);
+ const pr = await response.json();
+ const head = pr.head?.sha;
+ if (!/^[a-f0-9]{40}$/.test(head)) throw Error('Pull request response has no valid head');
+ const body = pr.body || '';
+ const reportedHead = body.match(/^\*\*(?:Current PR head|Public evidence pin)\*\* `([a-f0-9]{40})`[ 	]*$/m)?.[1] || null;
+ return {
+  pull_request: pr.html_url, state: pr.state, draft: pr.draft, merged: pr.merged,
+  updated_at: pr.updated_at, current_head: head, report_head: reportedHead,
+  report_matches_current_head: reportedHead === head,
+  handoff_at_current_head: `https://github.com/${path}/blob/${head}/HANDOFF.md#betty-report-for-al`,
+  report: body,
+ };
+}
 async function run() {
  const o=argsOf(process.argv.slice(2));
  if(o.help){console.log(usage());return;}
@@ -54,7 +74,8 @@ async function run() {
   }
   const {roles,...team}=manifest.team_building||{};
   if (!roles?.[role]) throw Error('Manifest does not advertise the '+role+' role');
-  console.log(JSON.stringify({...team,role:roles[role]},null,2));return;
+  const live = await livePullRequest(o.url);
+  console.log(JSON.stringify({...team,role:roles[role],...(live?{live_pull_request:live}:{})},null,2));return;
  }
  let chromium;
  try{({chromium}=await import('playwright'));}catch{throw Error('Install optional browser support: npm install playwright && npx playwright install chromium');}

@@ -76,7 +76,8 @@
       "pull_request": "https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/pull/97",
       "evidence_pin": "7618be370c334b082cb91c50eaf665f979ce5c1e",
       "open_items": "https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/blob/7618be370c334b082cb91c50eaf665f979ce5c1e/evaluation/pole/open-items/README.md",
-      "scope": "Indexed Pole report. Check the current repository handoff and relevant newer PRs for the latest work."
+      "scope": "Indexed Pole PR. For another track or a newer PR, use the live PR selected for that work.",
+      "pull_request_api": "https://api.github.com/repos/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/pulls/97"
     },
     "roles": {
       "betty": {
@@ -92,11 +93,11 @@
       "al": {
         "name": "Al",
         "starter": "You are Al.",
-        "responsibility": "Outside read-only strategist. Review pinned evidence, challenge conclusions and propose one falsifiable next test.",
+        "responsibility": "Outside read-only strategist. Judge Betty’s reported results against pinned evidence and draft the next falsifiable prompt.",
         "first_steps": [
           "Read the repository deeply first. Follow the full-package inspection directions and inspect the relevant implementation, tests and public evidence.",
-          "Then read the current Betty report in HANDOFF.md and the relevant PR. Verify the public evidence pin and distinguish measured results from proposed work.",
-          "Address your review and one falsifiable next test to Betty. Give the response to the maintainer to relay."
+          "Then read Betty’s latest applied-state report on the live PR. Check the report pin against the PR head and distinguish measured results from proposed work.",
+          "Judge the reported results against the frozen evidence. Address your review and a ready-to-send next test prompt to Betty. Return it to the maintainer to relay."
         ]
       }
     },
@@ -157,13 +158,27 @@
     "repository_review": "https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/blob/main/README.md#directions-for-an-ai-to-inspect-the-full-combined-mplpb-package",
     "relay": {
       "betty_calls_al": "Start Betty first. Betty leaves a current report for Al on every push and in the relevant PR. Then open a separate Al chat with the repository link and role name.",
-      "al_calls_betty": "After reading the repository deeply, Al reads the Betty report and the PR, then returns a review and a proposed next step addressed to Betty.",
+      "al_calls_betty": "Al reads the repository and Betty’s live PR report, judges the results against the evidence, and drafts the next prompt for Betty.",
       "maintainer_relays": "The maintainer copies Al’s response from the separate Al chat and pastes it with their own direction into Betty’s chat.",
-      "betty_updates_pr": "Betty runs the authorized tests and records measured results, shareable advice, maintainer direction and the next step in the same PR and the current handoff."
+      "betty_updates_pr": "Betty runs the authorized tests and updates the same live PR report with the current head, last applied change, measured results, shareable advice, maintainer direction and next step. Commit the current handoff with every push."
     },
     "start_order": [
       "betty",
       "al"
-    ]
+    ],
+    "resume": {
+      "live_pull_requests_api": "https://api.github.com/repos/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/pulls?state=open&sort=updated&direction=desc",
+      "report_contract": "The live PR carries Betty’s latest applied state for that track. Update its current report after each push, test run or maintainer decision.",
+      "fields": [
+        "current PR head",
+        "last change applied",
+        "measured checks and outcomes",
+        "pending or open work",
+        "next authorized step",
+        "archive recovery when applicable"
+      ],
+      "verify": "Read the live PR before resuming. Compare the report’s pin with head.sha. If they differ, use HANDOFF.md at the current head to reconcile the report before relying on it.",
+      "terminal": "Give either role command the live GitHub PR URL to return its current state and a handoff link pinned to its head."
+    }
   }
 }

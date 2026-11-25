@@ -4,8 +4,8 @@ Last reviewed: 2026-11-25.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `568094fdeaca8352d555866c4a468fcda86db3b7` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `dee57c653eae696afd677824ad079b7cba0622fcb08fab920f59e88535e6f6a1`.
+Base commit: `0b3fc31d7c9507a1c80e648495e51734403f7a79` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `2c82fdf0ac9363c8b59ab8d03574ef44df9d729dca0a5b042ed9522725cafa77`.
 
 ## Betty report for Al
 
@@ -23,17 +23,25 @@ And API tells an Al to read repo first deeply then the Betty report and that is 
 
 And Al reads pr then I copy past the Al response and Betty tests and updates it starts by setting a Betty then then in a separate chat an Al
 
+And Betty report is last state she applied live in live Pr so it’s always up to date and starts from that state
+
+Al reads repo then Betty then advises and the loop starts
+
+Betty tests reports results Al reads judges and advises next prompt
+
 ### Implemented scope
 
 - Expose Betty and Al through the agent manifest, browser JavaScript API and terminal bridge.
 - Leave a Betty report for Al in the generated handoff on every push and in the relevant PR.
 - Describe the ordered repository review and the maintainer relay. Catalog the seven tested ZIPs by source commit, SHA-256 and recovery command.
 - Set Betty first, then open Al in a separate chat. Al inspects the repository and reads the PR. After the maintainer relays Al’s response, Betty tests and updates the same PR.
+- Return live PR state and a head-pinned handoff when either terminal role command is given a PR URL. Betty updates the applied-state report in place. Al judges the recorded test results and drafts the next prompt.
 
 ### Validation recorded
 
 - The desktop HTTP role endpoint, JavaScript contract, terminal modes with a manifest fixture, UI script, browser transport and infrastructure checks passed locally.
 - A real Chromium session exercised both role commands from the standalone candidate. Both terminal commands fetched their pinned public GitHub manifest after the first push. The updated JavaScript contract passed with an explicit Betty-first relay order.
+- Live PR endpoint access passed. Terminal fixtures checked both a current report and a stale report whose recovery link points to the actual PR head.
 
 ### Limitations and blocked checks
 

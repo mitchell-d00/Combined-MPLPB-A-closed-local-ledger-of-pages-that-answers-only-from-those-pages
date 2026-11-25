@@ -19,7 +19,7 @@ Betty leaves a [report for Al](HANDOFF.md#betty-report-for-al) on every push
 and on the relevant PR. In a separate chat, send the same link and **“You are
 Al”** (lowercase L). Al reads the repo deeply, then reads the Betty report and
 PR. Paste Al’s response and your direction back to Betty. Betty runs the
-authorized tests and updates that PR. [TeamBuilding role guide](docs/TEAMBUILDING.md)
+authorized tests and updates that PR with her latest applied state and the current head. [TeamBuilding role guide](docs/TEAMBUILDING.md)
 · [API commands and source archives](.well-known/mplpb.json)
 
 **For AI reviewers:** Follow the [full-package inspection directions](#directions-for-an-ai-to-inspect-the-full-combined-mplpb-package) before describing or assessing MPLPB.

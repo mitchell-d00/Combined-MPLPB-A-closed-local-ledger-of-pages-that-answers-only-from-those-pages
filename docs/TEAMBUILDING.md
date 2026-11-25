@@ -56,7 +56,9 @@ node tools/mplpb_agent_bridge.mjs "$REPO_URL" --betty
 node tools/mplpb_agent_bridge.mjs "$REPO_URL" --al
 ```
 
-Both commands return public coordination and archive metadata. They grant no
+Both commands return public coordination and archive metadata. Give a
+command the GitHub PR URL to include the live PR body, current head, and a
+handoff link pinned to that head. They grant no
 permissions and run no corpus queries. The archive catalog gives each tested
 source commit, SHA-256 and GitHub source-snapshot link. For the exact tested
 ZIP, use the rebuild command and compare its digest. The snapshot downloads
@@ -71,8 +73,8 @@ may have different ZIP bytes.
 2. **Al reads the repository, then the report.** Inspect the relevant
    implementation, tests, and evidence before reading the Betty report.
    Verify its pin and distinguish measured results from hypotheses.
-3. **Al calls Betty.** Address a review and one named, falsifiable next test
-   to Betty. Include exact inputs, positive and withhold controls, budgets,
+3. **Al calls Betty.** Judge Betty’s reported results against the pinned
+   evidence and draft a ready-to-send prompt for one falsifiable next test. Include exact inputs, positive and withhold controls, budgets,
    and an acceptance condition. Return the response to the maintainer.
 4. **The maintainer relays.** Copy **Al’s response** from Al’s chat and
    paste it with **My direction for Betty** into Betty’s chat.
@@ -97,9 +99,15 @@ past cycle, send that PR link with the role name.
 
 ## Betty’s PR report to Al
 
-Use a heading such as **TeamBuilding handoff for Al** and include:
+The live PR report is the last state Betty actually applied. Update the
+current report in place after each push, completed check or maintainer
+decision. A fresh Betty or Al reads the repository, opens the live PR, and
+compares the report’s pin with the current head. If the pins differ, use
+`HANDOFF.md` at the current head and reconcile the report before continuing.
 
-- **Pinned work** with the exact baseline and candidate commits, plus the archive checksum when relevant.
+Use a heading such as **Betty report for Al** and include:
+
+- **Current PR head** on its own line, followed by the last applied change, baseline, and archive checksum when relevant.
 - **Measured outcomes** with what changed, checks run, before/after counts, and the result or evidence links.
 - **Still open** with failures, pending checks, and `NOT_RUN` measurements.
 - **Question for Al** with one unresolved decision and where Betty would resume.

@@ -66,13 +66,15 @@ async function tests(){
  assert.equal(al.role.starter,'You are Al.');
  assert.match(betty.role.first_steps.join(' '),/report for Al.*every push/);
  assert.match(al.role.first_steps[0],/Read the repository deeply first/);
- assert.match(al.role.first_steps[1],/Then read the current Betty report/);
+ assert.match(al.role.first_steps[1],/Then read Betty’s latest applied-state report/);
  assert.deepEqual(betty.start_order,['betty','al']);
  assert.match(al.relay.maintainer_relays,/copies Al’s response from the separate Al chat/);
- assert.match(betty.relay.betty_updates_pr,/authorized tests.*same PR/);
+ assert.match(betty.relay.betty_updates_pr,/authorized tests.*same live PR/);
  assert.deepEqual(betty.source_archives,al.source_archives);
  assert.match(betty.repository_handoff, /HANDOFF\.md#betty-report-for-al$/);
  assert.match(al.betty_report.open_items, new RegExp(al.betty_report.evidence_pin));
+ assert.match(al.resume.verify,/head\.sha/);
+ assert.match(al.betty_report.pull_request_api,/^https:\/\/api.github.com\/repos\//);
  assert.equal(betty.source_archives.exact_release_assets,'unavailable');
  for (const archive of betty.source_archives.entries) {
   assert.match(archive.sha256,/^[a-f0-9]{64}$/);

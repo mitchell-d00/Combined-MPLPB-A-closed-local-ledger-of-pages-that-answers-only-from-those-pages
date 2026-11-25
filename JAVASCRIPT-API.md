@@ -241,7 +241,8 @@ exercises the API from the generated HTML. No Node dependency is added to the ap
 `{ok:true, data:...}` with the indexed Betty report, open items, tested source
 pins, SHA-256 digests and the exact ZIP rebuild command. Both use bundled
 public metadata. The terminal bridge can return the same data without
-starting an engine. [TeamBuilding guide](docs/TEAMBUILDING.md#api-commands-and-source-archives)
+starting an engine. Give the bridge a GitHub PR URL to retrieve its latest
+body and exact head link alongside the role metadata. [TeamBuilding guide](docs/TEAMBUILDING.md#api-commands-and-source-archives)
 
 ## URL-only agent discovery and strict middleware relay
 
