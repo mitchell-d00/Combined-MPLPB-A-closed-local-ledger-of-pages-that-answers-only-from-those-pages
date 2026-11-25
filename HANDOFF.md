@@ -4,8 +4,8 @@ Last reviewed: 2026-11-25.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `49d4ac8b26e87434b2457c682ac41872530a43a0` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `11ed424c42649c6554ec65df22acb58e2feb40b38a53914c2ca31c6f5f31b220`.
+Base commit: `204a7d3019d1073c6d4259bd1fa0a35f6f0582f8` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `96612abfe72db78062eda3bbe27784d416eb79eb747582935cd8bd84289a8c54`.
 
 ## Betty report for Al
 
@@ -45,6 +45,11 @@ Separate execution status from semantic outcome. Append immutable run records. A
 
 Acceptance requires the ten primary targets, correct contrasting decisions, zero false-supported claims, preserved valid earlier behavior, and separately reported transfer results. Publish unresolved misses and all `NOT_RUN` labels.
 
+Latest maintainer updates:
+Continue when you finish check tree make sure all pr are live and merged on main
+We have a lot of open pr
+Catch it all up then push everything merge to main
+
 
 ### Implemented scope
 
@@ -64,6 +69,10 @@ Acceptance requires the ten primary targets, correct contrasting decisions, zero
 - All prior80claims preserved;30new source report claims have complete governor, typed roles, canonical and actual written-HTML byte witnesses. Six partials unchanged; all101unaffected inventory,96instruction and17PE02 complete contracts/discovery preserved.
 - All169indexed native controls pass:56focused,92authority/integrity,16report guards,5accounting.
 - Initial scorer26certificate rejections remain failed. A versioned projection auditor restores automatic H1 wrapper; v2 CLI import/logging failures retained; v3 frozen before exact unchanged-output rescoring. Keys,inputs,adapter and reader unchanged by correction.
+- Committed204a7d ZIP SHA-256804161aec3d4286296413007874bd0b60f030589ceb72203dad5a524396e7ea2 has13700 matched extractedfiles; isolated extracted256/256 passes.
+- Once-only first transfer16/24 versusbaseline12/24:4positive12withhold8miss0false support. AcceptanceFAIL; originalcandidateunchanged. All24 consumed, no relabeling.
+- Fresh composition generator/seed/packet/key seals frozen before any continuation native edit. Exact instances/key remain unopened.
+- Four openPRs93,95,97,103. Reconcile diverged histories, retain later reader/evidence and integrate genuinely missing local-document browser work before tested main merge.
 
 ### Limitations and blocked checks
 
@@ -73,12 +82,13 @@ Acceptance requires the ten primary targets, correct contrasting decisions, zero
 - Committed ZIP/extracted checks, once-only transfer, exact-head CI and deployment NOT_RUN at this development snapshot.
 - 28non-target positive questions remain incomplete:4partials24misses, including FRESH05. Preservation pass is not full answer coverage.
 - The initial frozen-scorer protocol did not pass. Accepted development figures use disclosed v3 projection/import correction; retain all earlier failures.
+- First transfer acceptance failed; do not merge that candidate. Full native archive-suite completion unconfirmed after environment/session interruption; partial log retained.
 
 ### Next steps
 
-- Implement smallest source-scoped report-content operation from frozen failures; retain every rejected candidate.
-- Rerun identical development/preservation, commit and ZIP-freeze candidate, then run sealed transfer once without code changes afterward.
-- Publish exact source/ZIP, raw scores and updated handoff/index; complete required release checks before any merge/deployment claim.
+- Reconcile all four open PRs into one tested current tree, preserving later source/evidence.
+- Retain first failed transfer as development. Repair the shared byline boundary after the fresh packet freeze; no caps or source/key changes.
+- Test committed continuation ZIP, run fresh transfer once, finish exact-head CI, merge and verify deployed main and PR states.
 
 ## Use this ZIP in your repository
 

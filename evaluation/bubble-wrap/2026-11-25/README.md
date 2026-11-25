@@ -12,6 +12,36 @@ The supplied [plan](inputs-received/bubble-wrap-plan.json) and
 inputs. They are not a historical-suite rerun. The inventory excludes #15 because
 it was not a PR in that retrieved history.
 
+## First transfer: acceptance failed; continuation frozen
+
+Tested source `204a7d3019d1073c6d4259bd1fa0a35f6f0582f8`, ZIP SHA-256
+`804161aec3d4286296413007874bd0b60f030589ceb72203dad5a524396e7ea2`.
+All 13,700 extracted tracked files match bytes/modes; extracted development and
+preservation remain 256/256. The first once-only transfer is **16/24**, versus
+baseline12/24: four positive answers, twelve correct withholds, eight positive
+misses, zero false-supported claims and zero failed executions. **Acceptance
+failed**. [Transfer score](transfer/candidate-score.json), [completion](transfer/completion.json).
+No reader changes followed opening this packet for that candidate. It is now
+consumed development material, not a fresh transfer claim for any later repair.
+
+All eight misses are minutes/report appearances with an unpunctuated leading
+recorder/writer line joined to the first clause. The isolated complete clause
+parser already handles their reporting roles. A shared documentary unit-boundary
+repair is proposed; it must preserve preceding governors and current eligibility.
+[Continuation development/key seal](continuation/freeze.json) retains the old
+256 plus all24 consumed cases without relabeling. A [fresh composition packet](fresh-transfer-freeze/seal.json)
+was frozen before further native edits. Its according-to constructions and
+wrapped active/passive content remain reserved from supplemental development;
+exact instances/key remain unopened. Same-operator templates remain visible.
+This measures composition/layout transfer, not independently unfamiliar grammar.
+
+The source ZIP passed all fifteen software commands (including report pins,
+JavaScript and HTTP), all52 public controls, actual WASM and both live/candidate
+Chromium contexts. Full local native-suite completion is unconfirmed after an
+environment/session interruption; its partial log is retained and not reported
+as passed. [Archive attempt accounting](attempts/0006-first-archive-completion.json).
+A subsequent committed candidate will receive its own full archive gates.
+
 ## Development result before candidate ZIP/transfer
 
 The amended projection scorer records **230/256 → 256/256** expected decisions.

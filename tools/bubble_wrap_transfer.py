@@ -20,17 +20,17 @@ def execute(a):
         assert sha(ROOT/name)==sha(a.candidate_root/name)==expected
     pins={str(p.relative_to(a.candidate_root)):sha(p) for p in runtime_files(a.candidate_root)}
     assert pins==candidate['runtime_sha256']
-    proposal=ROOT/'evaluation/current-failure-inventory/proposal'
-    seal=trial.read(proposal/'transfer-seal.json')
+    seal_path=a.seal or ROOT/'evaluation/current-failure-inventory/proposal/transfer-seal.json'
+    seal=trial.read(seal_path)
     trial.verify_frozen()
     # Create-only lock precedes reading instance bytes or the scoring key.
     trial.save(a.once,{'candidate_commit':candidate['commit'],'archive_sha256':candidate['archive_sha256'],
-        'transfer_seal_sha256':sha(proposal/'transfer-seal.json'),'candidate_runs_authorized':1,
+        'transfer_seal_sha256':sha(seal_path),'candidate_runs_authorized':1,
         'source_not_to_change_after_packet_open':True,'independent_preparation':'NOT_RUN'})
     key_path=a.custody/'transfer-key.json'
     assert sha(key_path)==seal['key_sha256']
     original_key=trial.read(key_path);by_id={r['id']:r for r in original_key}
-    folder=trial.HOME/'transfer';folder.mkdir(exist_ok=False)
+    folder=a.destination or trial.HOME/'transfer';folder.mkdir(exist_ok=False,parents=True)
     keys,rows={},[]
     for frozen in seal['cases']:
         ident='BW-TRANSFER-'+frozen['id'];source=a.custody/'transfer/inputs'/frozen['id']
@@ -50,7 +50,7 @@ def execute(a):
             'original_key_sha256':seal['key_sha256'],'protected_rule':'Source-scoped report attribution; no independent actual authorship',
             'budgets':candidate['budgets'],'custody':'Same operator, templates visible, instances/key opened after candidate ZIP freeze'})
     manifest=folder/'manifest.json';key=folder/'derived-scoring-key.json'
-    trial.save(manifest,{'cases':rows,'original_seal_sha256':sha(proposal/'transfer-seal.json'),
+    trial.save(manifest,{'cases':rows,'original_seal_sha256':sha(seal_path),
                         'original_key_sha256':seal['key_sha256'],'candidate':candidate})
     trial.save(key,keys)
     # Bind the key projection before either transfer score; original key unchanged.
@@ -59,7 +59,7 @@ def execute(a):
         'native_edits_after_open':False,'independent_preparation':'NOT_RUN','independent_blinding':'NOT_RUN',
         'independent_semantic_adjudication':'NOT_RUN','outside_custodian_scoring':'NOT_RUN','native_oocc':'NOT_RUN'})
     results={}
-    for phase,implementation,commit in [('baseline',a.baseline_root,trial.BASELINE),
+    for phase,implementation,commit in [('baseline',a.baseline_root,a.baseline_commit or trial.BASELINE),
                                         ('candidate',a.candidate_root,candidate['commit'])]:
         output=a.run_output/('transfer-'+phase)
         args=SimpleNamespace(phase='transfer',implementation=implementation,source_commit=commit,
@@ -81,4 +81,6 @@ if __name__=='__main__':
     p=argparse.ArgumentParser(description=__doc__)
     for n in ('candidate-freeze','archive','candidate-root','baseline-root','custody','once','run-output'):
         p.add_argument('--'+n,type=Path,required=True)
+    p.add_argument('--seal',type=Path);p.add_argument('--destination',type=Path)
+    p.add_argument('--baseline-commit')
     raise SystemExit(execute(p.parse_args()))

@@ -1,0 +1,38 @@
+[
+  {
+    "argv": [
+      "python",
+      "-m",
+      "unittest",
+      "tests.test_integrity_hunt",
+      "tests.test_record",
+      "tests.test_ledger",
+      "tests.test_literal_evidence",
+      "tests.test_answer_reliability",
+      "tests.test_answer_support",
+      "-q"
+    ],
+    "cwd": "/workspace/bubble-wrap-extracted",
+    "started_at": "2026-11-25T15:56:36.613734+00:00",
+    "exit_code": 0,
+    "seconds": 5.196,
+    "stdout": "native-1.stdout.log",
+    "stderr": "native-1.stderr.log"
+  },
+  {
+    "argv": [
+      "python",
+      "-m",
+      "tools.evaluate_public_evidence",
+      "--output",
+      "/workspace/bubble-wrap-archive-checks/public-controls.json",
+      "--require-capabilities"
+    ],
+    "cwd": "/workspace/bubble-wrap-extracted",
+    "started_at": "2026-11-25T15:56:41.809690+00:00",
+    "exit_code": 0,
+    "seconds": 30.918,
+    "stdout": "native-2.stdout.log",
+    "stderr": "native-2.stderr.log"
+  }
+]

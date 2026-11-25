@@ -46,6 +46,8 @@ question answered: known non-target misses remain separate.
 
 Development now passes **256/256** under the [versioned projection correction](../evaluation/bubble-wrap/2026-11-25/scorer-amendment-v3.json), with all ten primary targets, correct Wrap decisions, all earlier claims/contracts preserved and zero final false-supported claim cases. The [initial frozen-scorer rejection](../evaluation/bubble-wrap/2026-11-25/candidate-001-score-v1.json) remains failed; no key or reader edit followed that projection correction. See [joined scores and limits](../evaluation/bubble-wrap/2026-11-25/development-review.json). Twenty-eight non-target positive questions remain incomplete; preservation is not answer coverage. All 169 indexed native controls pass. ZIP/transfer/CI remain pending at this development snapshot.
 
+First committed transfer failed **16/24**, with eight positive misses and zero false support; [failed score](../evaluation/bubble-wrap/2026-11-25/transfer/candidate-score.json). It is now consumed development. The [fresh composition seal](../evaluation/bubble-wrap/2026-11-25/fresh-transfer-freeze/seal.json) precedes further native repair; no new transfer result is claimed.
+
 The original [24-case transfer seal](../evaluation/current-failure-inventory/proposal/transfer-seal.json)
 is preserved and unopened at harness freeze. Run only after a committed ZIP
 candidate freeze; publish its result separately. Once it informs a repair it
