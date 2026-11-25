@@ -195,13 +195,57 @@
       "family": "SASQUATCH",
       "id_prefix": "CRYPT-SASQUATCH",
       "mechanism": "References lack unique eligible identity bindings.",
-      "status": "PLANNED",
+      "status": "COMPLETED_FROZEN_TARGETS_PASS",
       "responsible_department": "testing-evaluation",
       "implementation_departments": [
         "reader",
         "ledger"
       ],
-      "runtime_labels_are_rules": false
+      "runtime_labels_are_rules": false,
+      "baseline": {
+        "planned": 32,
+        "attempted": 32,
+        "completed": 32,
+        "scored": 32,
+        "unscored": 0,
+        "passed": 28,
+        "false_support": 0,
+        "positive_misses": 4,
+        "budget_stops": 0,
+        "diagnostic_only": 0,
+        "score": "scores/baseline-v4.json"
+      },
+      "candidate": {
+        "planned": 32,
+        "attempted": 32,
+        "completed": 32,
+        "scored": 32,
+        "unscored": 0,
+        "passed": 32,
+        "false_support": 0,
+        "positive_misses": 0,
+        "budget_stops": 0,
+        "diagnostic_only": 0,
+        "score": "scores/candidate-1-v4.json",
+        "candidate_commit": "16d4e7a825bd0117ab740e9ad624f6f32c05fba1",
+        "zip_sha256": "c47889dcd9e271ee7842da93b386a723a87fbf8a9c9654a1d8df7f19b5151efa"
+      },
+      "transfer": {
+        "planned": 22,
+        "attempted": 22,
+        "completed": 22,
+        "scored": 22,
+        "unscored": 0,
+        "passed": 22,
+        "false_support": 0,
+        "positive_misses": 0,
+        "budget_stops": 0,
+        "diagnostic_only": 0,
+        "score": "scores/transfer-once-v4.json",
+        "status": "PASS_ONCE_CONSUMED",
+        "custody": "same-operator; template-visible, no independent blinding"
+      },
+      "limitations": "Only complete explicit local glossary declarations are newly admitted. Ambiguous, quoted, missing and initials-only evidence withholds. Identity is not substituted into action proofs; broader references remain unresolved. 232 prior Cryptid and 280 release contracts unchanged; 30 corrected native controls pass. Same-operator templates and scoring, not independent blinding."
     },
     {
       "order": 6,
@@ -271,6 +315,7 @@
   "run_ledger": [
     "ledger/0001.json",
     "ledger/0002.json",
-    "ledger/0003.json"
+    "ledger/0003.json",
+    "ledger/0004.json"
   ]
 }
