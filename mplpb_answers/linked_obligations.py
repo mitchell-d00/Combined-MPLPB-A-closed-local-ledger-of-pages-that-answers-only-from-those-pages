@@ -5,6 +5,8 @@ from .body_text import body_text
 from .passages import PassageIndex
 
 def verify_prefix(index,ids,extra,max_passages,max_chars):
+    # A lexical scope match does not grant prose synthesis permission.
+    if not index.profile.prose:return 'documentary_link_unverified',None,None
     fresh=PassageIndex(index.root,index.question,index.profile)
     if len(fresh.records)>8 or sum(len(r.body_html) for r in fresh.records)>200000:return 'reference_scan_budget',None,None
     if sum(sum(1 for _ in kernel.units(body_text(r.body_html))) for r in fresh.records)>1000:return 'reference_scan_budget',None,None

@@ -15,7 +15,8 @@ def main(a):
         with (a.output/(name+'.log')).open('x') as log:r=subprocess.run(command,cwd=ROOT,stdout=log,stderr=subprocess.STDOUT)
         if r.returncode:raise RuntimeError((name,r.returncode))
         cmd=[sys.executable,'tools/cryptid_contract_preservation.py','--before',str(before),'--after',str(a.output/name),'--output',str(a.output/(name+'-score.json'))]
-        scored=subprocess.run(cmd,cwd=ROOT);rows.append({'cohort':name,'run_sha256':sha(a.output/name/'run.json'),'score_sha256':sha(a.output/(name+'-score.json')),'returncode':scored.returncode});print(name,scored.returncode,flush=True)
+        scored=subprocess.run(cmd,cwd=ROOT);rows.append({'cohort':name,'run_sha256':sha(a.output/name/'run.json'),'score_sha256':sha(a.output/(name+'-score.json')),'returncode':scored.returncode,'semantic_failed':read(a.output/(name+'-score.json'))['counts']['failed']});print(name,scored.returncode,flush=True)
     save(a.output/'prior-preservation.json',{'rows':rows,'source_commit':a.source_commit})
+    if any(r['returncode'] or r['semantic_failed'] for r in rows):raise SystemExit(2)
 if __name__=='__main__':
     p=argparse.ArgumentParser();p.add_argument('--implementation',type=Path,required=True);p.add_argument('--source-commit',required=True);p.add_argument('--output',type=Path,required=True);main(p.parse_args())
