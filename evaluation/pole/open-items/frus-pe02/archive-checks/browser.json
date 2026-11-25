@@ -1,0 +1,50 @@
+[
+  {
+    "argv": [
+      "python",
+      "tools/build_browser_runtime.py",
+      "--core-archive",
+      "/workspace/pyodide-core.tar.bz2",
+      "--output",
+      "dist/index.html"
+    ],
+    "cwd": "/workspace/pe02-extracted",
+    "started_at": "2026-11-25T06:04:27.625045+00:00",
+    "exit_code": 0,
+    "seconds": 5.832,
+    "stdout": "browser-1.stdout.log",
+    "stderr": "browser-1.stderr.log"
+  },
+  {
+    "argv": [
+      "node",
+      "tools/check_browser_wasm.mjs",
+      "/workspace/pyodide-runtime/pyodide",
+      "dist/index.html"
+    ],
+    "cwd": "/workspace/pe02-extracted",
+    "started_at": "2026-11-25T06:04:33.459941+00:00",
+    "exit_code": 0,
+    "seconds": 171.651,
+    "stdout": "browser-2.stdout.log",
+    "stderr": "browser-2.stderr.log"
+  },
+  {
+    "argv": [
+      "python",
+      "/workspace/run_verified_browser.py",
+      "--root",
+      ".",
+      "--output",
+      "/workspace/pe02-validation/verified-browser.json",
+      "--preview-dir",
+      "dist"
+    ],
+    "cwd": "/workspace/pe02-extracted",
+    "started_at": "2026-11-25T06:07:25.113140+00:00",
+    "exit_code": 0,
+    "seconds": 98.989,
+    "stdout": "browser-3.stdout.log",
+    "stderr": "browser-3.stderr.log"
+  }
+]

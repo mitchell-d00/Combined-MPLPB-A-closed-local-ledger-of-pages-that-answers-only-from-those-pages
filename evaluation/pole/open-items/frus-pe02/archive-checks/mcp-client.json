@@ -1,0 +1,199 @@
+{
+  "role": "Authored MCP protocol and workflow acceptance; no model/provider or independent human validation",
+  "sdk": {
+    "package": "mcp",
+    "version": "1.26.0"
+  },
+  "implementation": {
+    "python": "3.12.14",
+    "adapter_sha256": "2d374e84c3a8fa050e387eee885d8c0453f0d5ac8b0635859fa2fa553fba1065",
+    "client_sha256": "65f55a0d13550794aef9c26679e9c3e473227f7ba74f7373b7f0cdfa5de089eb"
+  },
+  "checks": [
+    {
+      "check": "protocol negotiated",
+      "passed": true
+    },
+    {
+      "check": "all tools discoverable",
+      "passed": true
+    },
+    {
+      "check": "tool result is successful: mplpb_status",
+      "passed": true
+    },
+    {
+      "check": "legacy text preserves complete structured result: mplpb_status",
+      "passed": true
+    },
+    {
+      "check": "host-fixed profile and offline boundary",
+      "passed": true
+    },
+    {
+      "check": "tool result is successful: mplpb_collections",
+      "passed": true
+    },
+    {
+      "check": "legacy text preserves complete structured result: mplpb_collections",
+      "passed": true
+    },
+    {
+      "check": "only authorized collection visible",
+      "passed": true
+    },
+    {
+      "check": "tool result is successful: mplpb_ask",
+      "passed": true
+    },
+    {
+      "check": "legacy text preserves complete structured result: mplpb_ask",
+      "passed": true
+    },
+    {
+      "check": "strict supported answer with exact source value",
+      "passed": true
+    },
+    {
+      "check": "tool result is successful: mplpb_pages",
+      "passed": true
+    },
+    {
+      "check": "legacy text preserves complete structured result: mplpb_pages",
+      "passed": true
+    },
+    {
+      "check": "tool result is successful: mplpb_read_page",
+      "passed": true
+    },
+    {
+      "check": "legacy text preserves complete structured result: mplpb_read_page",
+      "passed": true
+    },
+    {
+      "check": "citation hash matches inspected source",
+      "passed": true
+    },
+    {
+      "check": "inspection is not answer support",
+      "passed": true
+    },
+    {
+      "check": "tool result is successful: mplpb_chat",
+      "passed": true
+    },
+    {
+      "check": "legacy text preserves complete structured result: mplpb_chat",
+      "passed": true
+    },
+    {
+      "check": "procedure source conditions and exact quotation survive",
+      "passed": true
+    },
+    {
+      "check": "tool result is successful: mplpb_chat",
+      "passed": true
+    },
+    {
+      "check": "legacy text preserves complete structured result: mplpb_chat",
+      "passed": true
+    },
+    {
+      "check": "focused clarification asks for step",
+      "passed": true
+    },
+    {
+      "check": "tool result is successful: mplpb_session",
+      "passed": true
+    },
+    {
+      "check": "legacy text preserves complete structured result: mplpb_session",
+      "passed": true
+    },
+    {
+      "check": "session resumes after a real process restart",
+      "passed": true
+    },
+    {
+      "check": "tool result is successful: mplpb_chat",
+      "passed": true
+    },
+    {
+      "check": "legacy text preserves complete structured result: mplpb_chat",
+      "passed": true
+    },
+    {
+      "check": "pending warning selection recovers",
+      "passed": true
+    },
+    {
+      "check": "tool result is successful: mplpb_chat",
+      "passed": true
+    },
+    {
+      "check": "legacy text preserves complete structured result: mplpb_chat",
+      "passed": true
+    },
+    {
+      "check": "explicit correction recovers intended step",
+      "passed": true
+    },
+    {
+      "check": "tool result is successful: mplpb_chat",
+      "passed": true
+    },
+    {
+      "check": "legacy text preserves complete structured result: mplpb_chat",
+      "passed": true
+    },
+    {
+      "check": "execution is not inferred",
+      "passed": true
+    },
+    {
+      "check": "client cannot replace host profile",
+      "passed": true
+    },
+    {
+      "check": "tool result is successful: mplpb_ask",
+      "passed": true
+    },
+    {
+      "check": "legacy text preserves complete structured result: mplpb_ask",
+      "passed": true
+    },
+    {
+      "check": "changed source value changes answer",
+      "passed": true
+    },
+    {
+      "check": "tool result is successful: mplpb_ask",
+      "passed": true
+    },
+    {
+      "check": "legacy text preserves complete structured result: mplpb_ask",
+      "passed": true
+    },
+    {
+      "check": "contradiction prevents unqualified answer",
+      "passed": true
+    },
+    {
+      "check": "tool result is successful: mplpb_ask",
+      "passed": true
+    },
+    {
+      "check": "legacy text preserves complete structured result: mplpb_ask",
+      "passed": true
+    },
+    {
+      "check": "missing relationship refuses",
+      "passed": true
+    }
+  ],
+  "passed": 45,
+  "limitations": [
+    "Tests the SDK as a protocol client, not a third-party AI application or model obedience.",
+    "Existing finite reader and trusted local operator scope remain in force."
+  ]
+}

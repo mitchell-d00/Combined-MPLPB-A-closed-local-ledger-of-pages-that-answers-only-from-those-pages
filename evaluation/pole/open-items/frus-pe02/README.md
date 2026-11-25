@@ -114,3 +114,16 @@ later evidence-only edits and deployment checks. Independent historical
 accuracy, independent semantic adjudication, outside-custodian scoring and
 native OOCC remain **NOT_RUN**. Broader wording, unfamiliar collections and
 shared cross-document attribution still need separate frozen evaluations.
+
+## Tested source archive
+
+Tested implementation commit: `efda9ef962e1ba4ba6d71a0843e75a45da279210`. ZIP SHA-256:
+`d594ee87ceeb18764b9cec857b24f9163dd4173f4dc975978715d711aa973e66`. The exact extraction passed 1,751 Python tests
+(two skipped), all 52 public controls, all 17 frozen decisions, the 28 targeted
+regressions, WebAssembly, both Chromium contexts, the installed wheel and 45
+official MCP SDK checks. The candidate browser also matched the three native
+instruction/pipeline module hashes. The published browser was a premerge
+baseline, using the verified host-public-key setup retained in the receipt.
+Exact-head CI and postdeployment checks remain pending until the completed
+evidence commit is pushed and merged. The evidence-only follow-up preserves
+all native reader bytes from this tested implementation.
