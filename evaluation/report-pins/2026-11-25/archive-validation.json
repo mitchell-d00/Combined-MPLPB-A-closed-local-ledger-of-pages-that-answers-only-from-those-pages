@@ -1,4 +1,224 @@
 {
-  "status": "NOT_RUN",
-  "reason": "Candidate has not yet been committed and archived."
+  "schema": "report-pin-archive-validation-v1",
+  "tested_commit": "86e7c4ed7459cf684cc53156ab56739b0a8c73d2",
+  "tested_tree": "b717ca2d5490b2c04bd72792e848fb26742381d6",
+  "archive": "MPLPB-report-pin-source.zip",
+  "archive_sha256": "1f0952769f838103af4aa02fd2cef1755b79d28d6b27b19f8e0722aad126586e",
+  "archive_command": "git archive --format=zip -1 --output=MPLPB-report-pin-source.zip 86e7c4ed7459cf684cc53156ab56739b0a8c73d2",
+  "git_version": "git version 2.56.1",
+  "zlib_version": "1.3.2",
+  "zip_integrity": "PASS",
+  "required_hidden_workflows_and_handoff": "PASS",
+  "fixture_seal": "PASS",
+  "source_under_test": "/workspace/pin-extracted (extracted committed ZIP)",
+  "report_pin_acceptance": "PASS",
+  "software_checks": [
+    {
+      "argv": [
+        "python",
+        "tools/build_handoff.py",
+        "--check"
+      ],
+      "cwd": "/workspace/pin-extracted",
+      "started_at": "2026-11-25T05:03:18.065429+00:00",
+      "exit_code": 0,
+      "seconds": 3.184,
+      "stdout": "software-1.stdout.log",
+      "stderr": "software-1.stderr.log"
+    },
+    {
+      "argv": [
+        "python",
+        "-m",
+        "tools.audit_documentation"
+      ],
+      "cwd": "/workspace/pin-extracted",
+      "started_at": "2026-11-25T05:03:21.250315+00:00",
+      "exit_code": 0,
+      "seconds": 0.47,
+      "stdout": "software-2.stdout.log",
+      "stderr": "software-2.stderr.log"
+    },
+    {
+      "argv": [
+        "python",
+        "tools/check_repository_infrastructure.py"
+      ],
+      "cwd": "/workspace/pin-extracted",
+      "started_at": "2026-11-25T05:03:21.720851+00:00",
+      "exit_code": 0,
+      "seconds": 0.165,
+      "stdout": "software-3.stdout.log",
+      "stderr": "software-3.stderr.log"
+    },
+    {
+      "argv": [
+        "python",
+        "tools/replay_report_pins.py",
+        "--runtime",
+        ".",
+        "--fixtures",
+        "evaluation/report-pins/2026-11-25/fixtures.json",
+        "--output",
+        "/workspace/pin-validation/frozen-replay.json"
+      ],
+      "cwd": "/workspace/pin-extracted",
+      "started_at": "2026-11-25T05:03:21.885658+00:00",
+      "exit_code": 0,
+      "seconds": 0.667,
+      "stdout": "software-4.stdout.log",
+      "stderr": "software-4.stderr.log"
+    },
+    {
+      "argv": [
+        "python",
+        "-m",
+        "unittest",
+        "tests.test_ledger_ui",
+        "-q"
+      ],
+      "cwd": "/workspace/pin-extracted",
+      "started_at": "2026-11-25T05:03:22.553502+00:00",
+      "exit_code": 0,
+      "seconds": 1.222,
+      "stdout": "software-5.stdout.log",
+      "stderr": "software-5.stderr.log"
+    },
+    {
+      "argv": [
+        "node",
+        "tests/javascript-api.cjs"
+      ],
+      "cwd": "/workspace/pin-extracted",
+      "started_at": "2026-11-25T05:03:23.775637+00:00",
+      "exit_code": 0,
+      "seconds": 2.474,
+      "stdout": "software-6.stdout.log",
+      "stderr": "software-6.stderr.log"
+    },
+    {
+      "argv": [
+        "python",
+        "tools/check_ui_script.py"
+      ],
+      "cwd": "/workspace/pin-extracted",
+      "started_at": "2026-11-25T05:03:26.249639+00:00",
+      "exit_code": 0,
+      "seconds": 0.925,
+      "stdout": "software-7.stdout.log",
+      "stderr": "software-7.stderr.log"
+    },
+    {
+      "argv": [
+        "node",
+        "tools/check_browser_transport.cjs"
+      ],
+      "cwd": "/workspace/pin-extracted",
+      "started_at": "2026-11-25T05:03:27.176770+00:00",
+      "exit_code": 0,
+      "seconds": 0.066,
+      "stdout": "software-8.stdout.log",
+      "stderr": "software-8.stderr.log"
+    },
+    {
+      "argv": [
+        "node",
+        "--check",
+        "tools/mplpb_agent_bridge.mjs"
+      ],
+      "cwd": "/workspace/pin-extracted",
+      "started_at": "2026-11-25T05:03:27.243641+00:00",
+      "exit_code": 0,
+      "seconds": 0.033,
+      "stdout": "software-9.stdout.log",
+      "stderr": "software-9.stderr.log"
+    },
+    {
+      "argv": [
+        "node",
+        "tests/documentary-render.cjs"
+      ],
+      "cwd": "/workspace/pin-extracted",
+      "started_at": "2026-11-25T05:03:27.277501+00:00",
+      "exit_code": 0,
+      "seconds": 0.066,
+      "stdout": "software-10.stdout.log",
+      "stderr": "software-10.stderr.log"
+    },
+    {
+      "argv": [
+        "node",
+        "tests/browser-ai-helper.cjs"
+      ],
+      "cwd": "/workspace/pin-extracted",
+      "started_at": "2026-11-25T05:03:27.344367+00:00",
+      "exit_code": 0,
+      "seconds": 0.569,
+      "stdout": "software-11.stdout.log",
+      "stderr": "software-11.stderr.log"
+    },
+    {
+      "argv": [
+        "node",
+        "tests/browser-model-loader.cjs"
+      ],
+      "cwd": "/workspace/pin-extracted",
+      "started_at": "2026-11-25T05:03:27.913967+00:00",
+      "exit_code": 0,
+      "seconds": 3.629,
+      "stdout": "software-12.stdout.log",
+      "stderr": "software-12.stderr.log"
+    },
+    {
+      "argv": [
+        "node",
+        "tests/browser-webgpu-limits.cjs"
+      ],
+      "cwd": "/workspace/pin-extracted",
+      "started_at": "2026-11-25T05:03:31.543551+00:00",
+      "exit_code": 0,
+      "seconds": 0.468,
+      "stdout": "software-13.stdout.log",
+      "stderr": "software-13.stderr.log"
+    },
+    {
+      "argv": [
+        "node",
+        "crawler/test_worker.mjs"
+      ],
+      "cwd": "/workspace/pin-extracted",
+      "started_at": "2026-11-25T05:03:32.011966+00:00",
+      "exit_code": 0,
+      "seconds": 0.116,
+      "stdout": "software-14.stdout.log",
+      "stderr": "software-14.stderr.log"
+    },
+    {
+      "argv": [
+        "node",
+        "crawler/test_historical.mjs"
+      ],
+      "cwd": "/workspace/pin-extracted",
+      "started_at": "2026-11-25T05:03:32.129120+00:00",
+      "exit_code": 0,
+      "seconds": 0.116,
+      "stdout": "software-15.stdout.log",
+      "stderr": "software-15.stderr.log"
+    }
+  ],
+  "frozen_replay": {
+    "executions": 12,
+    "passed": 12,
+    "failed": 0,
+    "false_current": 0
+  },
+  "public_controls": {
+    "pass": 52
+  },
+  "full_native_suite": "RUNNING",
+  "wasm_and_chromium": "RUNNING",
+  "deployment": "NOT_RUN",
+  "independent_historical_accuracy": "NOT_RUN",
+  "independent_semantic_adjudication": "NOT_RUN",
+  "native_OOCC": "NOT_RUN"
 }

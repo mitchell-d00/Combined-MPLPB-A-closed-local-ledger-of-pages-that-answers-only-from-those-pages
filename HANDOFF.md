@@ -4,8 +4,8 @@ Last reviewed: 2026-11-25.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `a26ec527e2e3a5bab7883e7892aa00c348ea65dc` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `576dc002f6867f82f7705151d9878df9ef85191dff3815c3075f0d17ecda1c28`.
+Base commit: `86e7c4ed7459cf684cc53156ab56739b0a8c73d2` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `71b7f2a3671c0234ea9037865254c25c438f6c5feb64474cde9f41b3d5837ab2`.
 
 ## Betty report for Al
 
@@ -45,15 +45,16 @@ Start PE-02 proposal after what you are doing keep it all in pr101 then we will 
 - Frozen mocked-HTTP replay: baseline 8/12 decisions, four failures and four false-current matches; repaired parser 12/12 decisions, zero failures and zero false-current matches. Each subprocess has a thirty-second limit.
 - Existing JavaScript contract passed, including the frozen twelve-case replay, fourteen additional fence controls and inherited discovery/override/fork/empty-list checks.
 - The first filtered-checkout HTTP run had two failures out of thirteen from omitted assets/history; after restoring those tracked assets, all thirteen HTTP tests passed. Both logs are retained.
+- Committed report-pin candidate 86e7c4ed7459cf684cc53156ab56739b0a8c73d2 was archived with git archive --format=zip -1; ZIP SHA-256 1f0952769f838103af4aa02fd2cef1755b79d28d6b27b19f8e0722aad126586e. ZIP integrity, required hidden workflows, fixture seal and extracted handoff passed. All fifteen extracted software checks passed, including twelve frozen decisions and thirteen HTTP tests; all 52 public controls passed.
 
 ### Limitations and blocked checks
 
 - Independent historical accuracy, independent semantic adjudication and native OOCC remain NOT_RUN.
-- Archive validation and full release checks are pending at this candidate preparation stage. No deployed-site verification is claimed.
+- Full native regression and WebAssembly/Chromium archive checks are still running against the frozen extraction. No full release or deployment pass is claimed.
 
 ### Next steps
 
-- Freeze a committed candidate, archive and extract it, rerun the replay and HTTP/JavaScript checks, and record the actual tested commit, ZIP checksum and failures.
+- Report-pin acceptance is complete. Finish the broader frozen-archive checks and retain their receipts; begin PE-02 from its separate evidence pin, preserving this tested pin candidate.
 - After completing the report-pin archive, start the authorized PE-02 Smith-letter cycle in PR #101 from its separate pin and frozen limits; prepare Al’s report after both cycles.
 
 ## Use this ZIP in your repository
