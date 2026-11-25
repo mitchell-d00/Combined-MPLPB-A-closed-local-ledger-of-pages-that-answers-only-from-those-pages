@@ -252,13 +252,73 @@
       "family": "CHUPACABRA",
       "id_prefix": "CRYPT-CHUPACABRA",
       "mechanism": "Corrections or comparisons overreach their witnessed field scope.",
-      "status": "PLANNED",
+      "status": "COMPLETED_WITH_RETAINED_MISSES",
       "responsible_department": "testing-evaluation",
       "implementation_departments": [
         "reader",
         "ledger"
       ],
-      "runtime_labels_are_rules": false
+      "runtime_labels_are_rules": false,
+      "baseline": {
+        "planned": 16,
+        "attempted": 16,
+        "completed": 16,
+        "scored": 16,
+        "unscored": 0,
+        "passed": 9,
+        "false_support": 0,
+        "positive_misses": 7,
+        "budget_stops": 0,
+        "diagnostic_only": 0,
+        "score": "scores/baseline.json"
+      },
+      "candidate": {
+        "planned": 16,
+        "attempted": 16,
+        "completed": 16,
+        "scored": 16,
+        "unscored": 0,
+        "passed": 14,
+        "false_support": 0,
+        "positive_misses": 2,
+        "budget_stops": 2,
+        "diagnostic_only": 0,
+        "score": "scores/candidate-2.json",
+        "candidate_commit": "db336faf87abf5ae2e917011bc9c41ffd7350b8b",
+        "zip_sha256": "0c7e93e78097eaa9f666aac00004698dd10bf6a7d57d94d29c797a13ada37684"
+      },
+      "transfer": {
+        "planned": 8,
+        "attempted": 8,
+        "completed": 8,
+        "scored": 8,
+        "unscored": 0,
+        "passed": 4,
+        "false_support": 0,
+        "positive_misses": 4,
+        "budget_stops": 0,
+        "diagnostic_only": 0,
+        "score": "scores/fresh-transfer-once.json",
+        "status": "FAILED_COVERAGE_CONSUMED",
+        "custody": "same-operator; template-visible, no independent blinding"
+      },
+      "limitations": "Development recovers two unchanged historical answers and one checked partial; two historical positive misses remain above the fixed eight-record cap. Limited substitution transfer12/12; separate structural transfer4/8 with four real positive misses, zero false support. No transfer-informed repair. 286 prior Cryptid contracts unchanged; release276 exact unchanged,2 new complete recoveries,2 diagnostic-only budget changes with original failed score retained. All65 applicable controls pass; rejected budget-bypass candidate and one corrected test-harness error retained.",
+      "limited_substitution_transfer": {
+        "counts": {
+          "planned": 12,
+          "attempted": 12,
+          "completed": 12,
+          "scored": 12,
+          "unscored": 0,
+          "passed": 12,
+          "false_support": 0,
+          "positive_misses": 0,
+          "budget_stops": 0,
+          "diagnostic_only": 0
+        },
+        "score": "chupacabra/scores/transfer-once.json",
+        "limitation": "Sentence forms mostly unchanged; not structural transfer."
+      }
     },
     {
       "order": 7,
@@ -316,6 +376,7 @@
     "ledger/0001.json",
     "ledger/0002.json",
     "ledger/0003.json",
-    "ledger/0004.json"
+    "ledger/0004.json",
+    "ledger/0005.json"
   ]
 }

@@ -4,8 +4,8 @@ Last reviewed: 2026-11-25.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `a3c020ad79b3872a622aa23ec8a187089c608b91` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `1d361758a8c65321ace6f7a8a7411b9aeb592f442a07c0c53dd3263698be44ff`.
+Base commit: `db336faf87abf5ae2e917011bc9c41ffd7350b8b` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `0a2311f5e83d3cd718dbd9da5b5632e17edb742d881de442ec20b02b97375ff1`.
 
 ## Betty report for Al
 
@@ -56,6 +56,7 @@ Run Betty — local Cryptid test programme. Start from current main. Complete th
 - Yeti ZIP3231231c SHA249bbfcfd5541b75debf82de4d830acd2ef93ab8e0cba8697aefb2aa3eed0bfb extracted45/50+4/4+59focused+39selectors. Once transfer26/30:6source answers,20withholds,4misses(1past-perfect,3reporting/layout),0false/0budget/0executionfailures/0unscored. Failedcoverage and original key retained; packet consumed.
 - Sasquatch frozen32 baseline28->32 candidate decisions,0false support. Explicit reference gloss only; no action inference or outside RN expansion. All232prior Cryptid contracts unchanged. Mistyped unittest module retained as execution error; corrected30identity/link/source-authority controls pass. Release280 still running; transfer remains sealed.
 - SASQUATCH: 28/32 -> 32/32 development; transfer 22/22 once, false support 0; candidate 16d4e7a825bd0117ab740e9ad624f6f32c05fba1 ZIP SHA256 c47889dcd9e271ee7842da93b386a723a87fbf8a9c9654a1d8df7f19b5151efa. Only complete explicit local glossary declarations are newly admitted. Ambiguous, quoted, missing and initials-only evidence withholds. Identity is not substituted into action proofs; broader references remain unresolved. 232 prior Cryptid and 280 release contracts unchanged; 30 corrected native controls pass. Same-operator templates and scoring, not independent blinding.
+- CHUPACABRA: 9/16 -> 14/16 development; transfer 4/8 once, false support 0; candidate db336faf87abf5ae2e917011bc9c41ffd7350b8b ZIP SHA256 0c7e93e78097eaa9f666aac00004698dd10bf6a7d57d94d29c797a13ada37684. Development recovers two unchanged historical answers and one checked partial; two historical positive misses remain above the fixed eight-record cap. Limited substitution transfer12/12; separate structural transfer4/8 with four real positive misses, zero false support. No transfer-informed repair. 286 prior Cryptid contracts unchanged; release276 exact unchanged,2 new complete recoveries,2 diagnostic-only budget changes with original failed score retained. All65 applicable controls pass; rejected budget-bypass candidate and one corrected test-harness error retained.
 
 ### Limitations and blocked checks
 
@@ -65,7 +66,7 @@ Run Betty — local Cryptid test programme. Start from current main. Complete th
 
 ### Next steps
 
-- Run Chupacabra comparison and partial-correction series from current local reader.
+- Start Kraken multipart and bounded documentary-chain baseline; preserve every earlier packet as consumed evidence.
 - Finish all remaining series and clean final full-ZIP checks. LOCAL_ONLY: no push, PR mutation, merge or deployment.
 
 ## Use this ZIP in your repository
