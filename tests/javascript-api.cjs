@@ -62,8 +62,11 @@ async function tests(){
  assert(api.functions().includes('relay'));
  const betty = success(await api.betty());
  const al = success(await api.al());
- assert.equal(betty.role.starter,'You are Betty.');
- assert.equal(al.role.starter,'You are Al.');
+ assert.equal(betty.role.starter,'Run Betty');
+ assert.equal(al.role.starter,'Run Al');
+ assert.equal(al.role.step,'public_evidence_review');
+ assert.match(al.pipeline.public_manifest_url,/raw\.githubusercontent\.com/);
+ assert.match(al.pipeline.web_only_review,/JavaScript and terminal commands are optional/);
  assert.match(betty.relay.betty_calls_al,/report for Al.*every push/);
  assert.match(al.role.first_steps[0],/Read the repository deeply first/);
  assert.equal(betty.role.first_steps[0],al.role.first_steps[0]);
