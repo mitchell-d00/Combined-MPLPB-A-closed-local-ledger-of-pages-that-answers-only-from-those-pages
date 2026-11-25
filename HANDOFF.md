@@ -4,8 +4,8 @@ Last reviewed: 2026-11-25.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `814e793241f18e3bfe6d15ce742f4b3eac37623a` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `9ffb6942bf5d875ec950a31d1d04a23d90d397edc3c2275a318b5349ab03a62f`.
+Base commit: `aab38c59fa35a9c8bd35b78517aacdc86aa03f42` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `a310479f6b76d003d2a951245ae5b3b20c6839448b0efaf6238f9d2310297882`.
 
 ## Betty report for Al
 
@@ -48,6 +48,7 @@ Run Betty — local Cryptid test programme. Start from current main. Complete th
 - 169inherited native plus50date/byline/inspection tests pass,0skips. Jackalope24transfer remains sealed.
 - Jackalope committedZIP3dbeb6f1 SHA21fec2ae41da5bad1d55aa6cf850b4846fdd157af3e5e8e27578d7324c5d5203 reproduces46/54,39selectors,50focused. Once-only24transfer20/24:4complete+4checkedpartial,12withholds,4letter proofmisses,0false/0budget/0executionfailure/0unscored. Failed coverage retained; packet now consumed development.
 - Yeti52baseline completed before native changes:50scored,31passed,19positive misses,0false support,30withholds,2historical first-person arrangement diagnostics explicitlyUNSCORED. Four original input hashes unchanged. Separate4case reporting/content polarity Wrap baseline retained; thirty-case transfer sealed. Existing layout/byline-witness failures classified separately for Nessie.
+- Yeti candidate1:45/50semantic targets(19→5misses),0target false-support flags,2diagnostic-only unscored; four polarity Wrap controls4/4. Candidate rejected after two of nine safety controls fail: full-source unit budget bypass and omitted unresolved revocation. Late withdrawal/byte mutation, host policy and derived-counter authority guards pass. Fresh30still sealed.
 
 ### Limitations and blocked checks
 
@@ -57,7 +58,7 @@ Run Betty — local Cryptid test programme. Start from current main. Complete th
 
 ### Next steps
 
-- Implement shared source claim frame and native bounded denial/modality verification with original question, full eligible witnesses and final state checks. Preserve unrelated legacy outputs and all limits; test committed ZIP before sealed transfer once.
+- Retain rejected candidate1 and fix full-source unit charging and unresolved revocation before a new committed candidate/transfer. Original inputs, labels, scores and failures remain unchanged.
 - Run all series sequentially and finish a local committed-ZIP review package. No remote publication.
 
 ## Use this ZIP in your repository

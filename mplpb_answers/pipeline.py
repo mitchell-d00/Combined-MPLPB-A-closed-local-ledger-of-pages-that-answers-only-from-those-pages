@@ -549,6 +549,9 @@ def _answer_query(root, question, profile=None, *, mode, reader, min_confidence,
             if scoped is None:
                 from .documentary_instruction import verify as verify_instruction
                 scoped = verify_instruction(index, max_passages, max_chars)
+            if scoped is None:
+                from .source_claims import verify as verify_source_claims
+                scoped = verify_source_claims(index, max_passages, max_chars)
             if scoped is not None:
                 kind, code, evidence = scoped
                 if not index.unchanged():

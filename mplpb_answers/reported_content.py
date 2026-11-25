@@ -9,6 +9,7 @@ import html
 import re
 
 from . import documentary_verify as kernel
+from .claim_frame import ClaimFrame
 from .source_attribution import unqualified_span
 
 _PERSON = r'[^,;:!?“”"\n]{2,120}?'
@@ -49,15 +50,15 @@ def report_roles(statement):
         conditions, clean = [conditional[1]], conditional[2]
     reporter = payload = None
     outer_negative = hypothetical = False
-    active = re.fullmatch(r'(.{2,120}?) (reported|stated|reports|states|said|says|did not report|did not state|did not say|would report) that (.+)', clean)
+    active = re.fullmatch(r'(.{2,120}?) (reported|stated|reports|states|said|says|did not report|did not state|did not say|would report|would not report) that (.+)', clean)
     quote = re.fullmatch(r'(.{2,120}?) (?:reported|stated|said|says|reports|states),? [“"](.+)[”"]', clean)
     according = re.fullmatch(r'According to (.{2,120}?), (.+)', clean)
     postposed = re.fullmatch(r'[“"](.+?)[”"],? (.{2,120}?) (?:reported|stated|said)\.', clean)
-    passive = re.fullmatch(r'The statement that (.+?) was reported by (.{2,120}?)\.', clean)
+    passive = re.fullmatch(r'The statement that (.+?) (was reported|would be reported|would not be reported) by (.{2,120}?)\.', clean)
     if active:
         reporter, verb, payload = active.groups()
-        outer_negative = verb.startswith('did not ')
-        hypothetical = verb == 'would report'
+        outer_negative = verb.startswith(('did not ','would not '))
+        hypothetical = verb.startswith('would ')
     elif quote:
         reporter, payload = quote.groups()
     elif according:
@@ -66,7 +67,9 @@ def report_roles(statement):
         payload, reporter = postposed.groups()
         payload = payload.rstrip(',') + '.'
     elif passive:
-        payload, reporter = passive.groups(); payload += '.'
+        payload, verb, reporter = passive.groups(); payload += '.'
+        outer_negative = verb.startswith('would not ')
+        hypothetical = verb.startswith('would ')
     if not reporter or not payload or not kernel.named_actor(reporter):
         return None
     if hypothetical and not conditions:
@@ -75,13 +78,14 @@ def report_roles(statement):
     if (not action or action.get('action') != 'write' or action.get('unresolved_reference')
             or action.get('temporal_qualification_text')):
         return None
+    content = ClaimFrame.from_action(action)
     asserted = not outer_negative and not conditions and not hypothetical
-    return {'reporter': reporter, 'author': action['actor_text'], 'inner_action': action['action'],
-            'object': action['object_text'], 'inner_negative': action['negative'] if asserted else None,
+    return {'reporter': reporter, 'author': content.actor, 'inner_action': content.action,
+            'object': content.object_text, 'inner_negative': content.negative if asserted else None,
             'outer_negative': outer_negative, 'content_asserted_by_reporter': asserted,
             'outer_polarity': 'conditional_unestablished' if conditions else 'negative' if outer_negative else 'affirmative',
-            'inner_polarity': ('negative' if action['negative'] else 'affirmative') if asserted else 'unasserted',
-            'conditional_content_negative': action['negative'] if conditions else None,
+            'inner_polarity': ('negative' if content.negative else 'affirmative') if asserted else 'unasserted',
+            'conditional_content_negative': content.negative if conditions else None,
             'conditions': conditions, 'actual_authorship_established': False}
 
 
