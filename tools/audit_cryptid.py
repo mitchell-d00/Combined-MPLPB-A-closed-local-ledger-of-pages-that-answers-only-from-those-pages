@@ -12,15 +12,16 @@ def sha(p):return hashlib.sha256(p.read_bytes()).hexdigest()
 def digest(v):return hashlib.sha256(json.dumps(v,sort_keys=True,ensure_ascii=False).encode()).hexdigest()
 
 def audit():
-    home=ROOT/'evaluation/cryptid';programme=load(home/'programme.json');cases={};overlap=defaultdict(list)
-    for registry in sorted(home.glob('*/development/registry.json')):
+    home=ROOT/'evaluation/cryptid';programme=load(home/'programme.json');cases={};overlap=defaultdict(list);cohorts=defaultdict(int)
+    registries=list(home.glob('*/development/registry.json'))+list(home.glob('*/consumed-transfer/registry.json'))+list(home.glob('*/fresh/consumed-transfer/registry.json'))
+    for registry in sorted(registries):
         frozen=load(registry.parent/'freeze.json');assert sha(registry)==frozen['registry_sha256']
         assert sha(registry.parent/'key.json')==frozen['key_sha256']
         for name,expected in frozen['harness'].items():assert sha(ROOT/name)==expected, name
         for c in load(registry)['cases']:
             ident=c['id'];assert re.fullmatch(r'CRYPT-[A-Z]+-(?:T)?\d{4}',ident)
             assert ident not in cases, 'duplicate id';cases[ident]=c
-            packet=ROOT/c['packet'];actual={str(p.relative_to(packet)):sha(p) for p in packet.rglob('*') if p.is_file()}
+            packet=(registry.parent if c['packet'].startswith('inputs/') else ROOT)/c['packet'];cohorts['consumed_transfer' if 'consumed-transfer' in str(registry) else 'development']+=1;actual={str(p.relative_to(packet)):sha(p) for p in packet.rglob('*') if p.is_file()}
             assert actual==c['files'], 'changed input '+ident
             value=load(packet/'case.json');value.pop('id',None)
             signature=digest({'case':value,'source_files':{k:v for k,v in actual.items() if k!='case.json'}})
@@ -46,7 +47,7 @@ def audit():
         if series['status']=='PASS':
             assert series.get('transfer',{}).get('failed')==0
             assert series.get('candidate',{}).get('false_support')==0
-    return {'schema':'cryptid-audit-v1','development_cases':len(cases),'release_comparison_members':280,
+    return {'schema':'cryptid-audit-v2','registered_cases':len(cases),'cohorts':dict(cohorts),'release_comparison_members':280,
             'unique_semantic_inputs':len(overlap),'overlapping_inputs':[{'semantic_hash':h,'members':v} for h,v in overlap.items() if len(v)>1],
             'runs':runs,'meaning':'Input seals, overlap and accounting only; semantic acceptance remains separately scored.',
             'publication':programme['publication']}

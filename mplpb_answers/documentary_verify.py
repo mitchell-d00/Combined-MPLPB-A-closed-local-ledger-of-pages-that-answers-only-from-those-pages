@@ -164,10 +164,24 @@ def dated_statements(quote):
             dispatch_verified=False,receipt_verified=False,field_span=[catalogue.start(),catalogue.end()])
         add('catalogue',catalogue[2],'source_catalogue_document_date',catalogue[0],
             dispatch_verified=False,receipt_verified=False,field_span=[catalogue.start(),catalogue.end()])
-    writing=re.fullmatch(r'This\s+record\s+was\s+written\s+on\s+('+DATE_EXPRESSION+r')\.',quote,re.I)
-    if writing:
-        add('writing',writing[1],'explicit_record_writing_date',quote,
-            sending_established=False,receipt_established=False,event_occurrence_established=False)
+    # The document, rather than a named actor, may be the grammatical subject.
+    # This establishes only the explicitly stated date role, never its writer,
+    # sender, recipient, historical occurrence or any unstated adjacent role.
+    document_subject=r'(?:[Tt]his record|[Tt]he [^.!?;:"“”]{2,120}?)'
+    document=re.fullmatch('('+document_subject+r')\s+was\s+(written|sent|received|published)\s+on\s+('+DATE_EXPRESSION+r')\.',quote,re.I)
+    if document:
+        subject,verb,date_text=document.groups()
+    else:
+        document=re.fullmatch(r'On\s+('+DATE_EXPRESSION+r'),\s*('+document_subject+r')\s+was\s+(written|sent|received|published)\.',quote,re.I)
+        if document:date_text,subject,verb=document.groups()
+    if document:
+        role={'written':'writing','sent':'sending','received':'receipt','published':'publication'}[verb.lower()]
+        if role=='writing' and normalized(subject)=='this record':
+            add(role,date_text,'explicit_record_writing_date',quote,
+                sending_established=False,receipt_established=False,event_occurrence_established=False)
+        else:
+            add(role,date_text,'source_reported_document_date',quote,document_text=subject,
+                unstated_date_roles_established=False,actor_identity_established=False)
     review=re.fullmatch(r'This page was last reviewed on ('+DATE_EXPRESSION+r')\.',quote,re.I)
     if review:
         add('webpage_review',review[1],'webpage_review',quote,support_scope='textual_occurrence')

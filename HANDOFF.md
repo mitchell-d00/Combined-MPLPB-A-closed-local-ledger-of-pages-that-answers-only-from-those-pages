@@ -4,8 +4,8 @@ Last reviewed: 2026-11-25.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `a439ddc2c9e438863383b90c41d995d274785847` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `c551a1c716aeeb2636e7ab3c23bc44c3be47e7f763f0f6b025180146bec79e02`.
+Base commit: `56e2607e7558fbb4e66d3bcefad512a73d8ab81e` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `9b38c716fc4a3952a821f8282ccec818a4baa1fd0babffe2643182bd615cbc3d`.
 
 ## Betty report for Al
 
@@ -34,6 +34,7 @@ Run Betty — local Cryptid test programme. Start from current main. Complete th
 - 41date/inspection and169inherited native controls PASS. Two rejected candidates and writing-date denial failure retained.
 - Documentation audit first failed on26unclassified copied frozen source texts; failure retained. Added historical hash classifications without altering source bytes.
 - Committed Mothman ZIP a439ddc2 SHAe00d606d708a3758b8e7775766d01014fa4e5faf7232800aa6a56d08cb20061e reproduces25/28 and41focused. First transfer16executed once:8/16,0/8positive,8/8withhold,0false support. Failed transfer retained and consumed as development.
+- Candidate4 consumed-transfer development16/16,0false support, but original development regressed25/28→23/28:two wrapped This-record writing witnesses lost. Candidate4 rejected; fresh24still sealed.
 
 ### Limitations and blocked checks
 
@@ -43,7 +44,7 @@ Run Betty — local Cryptid test programme. Start from current main. Complete th
 
 ### Next steps
 
-- Fresh24packet sealed before native repair of explicit document passive date roles. Preserve failed first transfer; test new committed ZIP before opening fresh once.
+- Retain candidate4 then repair source whitespace without changing original questions, inputs, key or date words. Complete preserved controls and committed ZIP before fresh transfer.
 - Run all series sequentially and finish a local committed-ZIP review package. No remote publication.
 
 ## Use this ZIP in your repository
