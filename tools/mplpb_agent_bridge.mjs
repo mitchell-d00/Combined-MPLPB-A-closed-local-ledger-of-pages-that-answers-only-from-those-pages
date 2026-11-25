@@ -5,7 +5,7 @@ import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 
 function usage() {
- return 'Usage: node tools/mplpb_agent_bridge.mjs <GitHub-repo-or-live-site-URL> (--handshake | --question TEXT | --chat TEXT | --pages | --read PAGE) [--corpus KEY] [--session ID] [--profile-dir PATH] [--suggest] [--allow-network] [--auto-wiki]';
+ return 'Usage: node tools/mplpb_agent_bridge.mjs <GitHub-repo-or-live-site-URL> (--handshake | --betty | --al | --question TEXT | --chat TEXT | --pages | --read PAGE) [--corpus KEY] [--session ID] [--profile-dir PATH] [--suggest] [--allow-network] [--auto-wiki]';
 }
 function siteFrom(url) {
  const u = new URL(url);
@@ -20,27 +20,41 @@ function siteFrom(url) {
 function argsOf(argv) {
  if (argv.includes('--help') || argv.length === 0) return {help:true};
  const opts={url:argv[0]};
- const allowed = new Set(['handshake','question','chat','pages','read','corpus','session','profile-dir','suggest','allow-network','auto-wiki']);
+ const allowed = new Set(['handshake','betty','al','question','chat','pages','read','corpus','session','profile-dir','suggest','allow-network','auto-wiki']);
  for (let i=1;i<argv.length;i++) {
   const key=argv[i].replace(/^--/,'');
   if (!argv[i].startsWith('--') || !allowed.has(key)) throw Error('Unknown argument '+argv[i]);
-  if (['handshake','pages','suggest','allow-network','auto-wiki'].includes(key)) opts[key]=true;
+  if (['handshake','betty','al','pages','suggest','allow-network','auto-wiki'].includes(key)) opts[key]=true;
   else {if (i+1>=argv.length || argv[i+1].startsWith('--')) throw Error('Missing value for --'+key);opts[key]=argv[++i];}
  }
- const modes=['handshake','question','chat','pages','read'].filter(k=>opts[k]!==undefined);
+ const modes=['handshake','betty','al','question','chat','pages','read'].filter(k=>opts[k]!==undefined);
  if (modes.length!==1) throw Error('Choose exactly one mode: '+modes.join(', '));
- if (!opts.handshake && !opts.corpus) throw Error('Live calls require --corpus');
+ if (!['handshake','betty','al'].includes(modes[0]) && !opts.corpus) throw Error('Live calls require --corpus');
  return opts;
+}
+function roleManifest(url, site) {
+ const repo = new URL(url);
+ if (repo.hostname !== 'github.com') return new URL('.well-known/mplpb.json', site);
+ const [owner, name, view, pin] = repo.pathname.split('/').filter(Boolean);
+ const ref = ['tree','blob'].includes(view) && /^[a-f0-9]{40}$/.test(pin) ? pin : 'HEAD';
+ return new URL(`https://raw.githubusercontent.com/${encodeURIComponent(owner)}/${encodeURIComponent(name)}/${ref}/.well-known/mplpb.json`);
 }
 async function run() {
  const o=argsOf(process.argv.slice(2));
  if(o.help){console.log(usage());return;}
  const site=siteFrom(o.url);
- if(o.handshake) {
-  const response=await fetch(new URL('.well-known/mplpb.json',site),{redirect:'error'});
-  if (!response.ok) throw Error('Handshake HTTP '+response.status);
+ if(o.handshake || o.betty || o.al) {
+  const role=o.betty?'betty':o.al?'al':null;
+  const url=role?roleManifest(o.url,site):new URL('.well-known/mplpb.json',site);
+  const response=await fetch(url,{redirect:'error'});
+  if (!response.ok) throw Error('Manifest HTTP '+response.status);
   const manifest=await response.json();
-  console.log(JSON.stringify(manifest,null,2));return;
+  if (!role) {
+   console.log(JSON.stringify(manifest,null,2));return;
+  }
+  const {roles,...team}=manifest.team_building||{};
+  if (!roles?.[role]) throw Error('Manifest does not advertise the '+role+' role');
+  console.log(JSON.stringify({...team,role:roles[role]},null,2));return;
  }
  let chromium;
  try{({chromium}=await import('playwright'));}catch{throw Error('Install optional browser support: npm install playwright && npx playwright install chromium');}

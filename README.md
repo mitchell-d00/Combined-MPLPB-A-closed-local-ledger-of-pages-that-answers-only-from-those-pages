@@ -15,9 +15,12 @@ Use [Advanced MPLPB](#advanced-mplpb) for guided questions and deterministic rul
 The [governance gate experiment](evaluation/comparative-tests/governance-gate/README.md) shows how a model-shaped proposal becomes a cited local report only after host approval, guarded dispatch, and verified readback.
 
 **For a fresh AI session:** Send this repository link and either **“You are Al”**
-for the outside strategist or **“You are Betty”** for the inside repository
-and archive editor. Start with the [TeamBuilding role guide](docs/TEAMBUILDING.md),
-then use the latest relevant PR handoff to resume.
+for the outside strategist (Al ends in lowercase L) or **“You are Betty”** for
+the inside repository and archive editor. Use the [TeamBuilding role guide](docs/TEAMBUILDING.md).
+Al reads the repository deeply first, then reads the
+[Betty report for Al](HANDOFF.md#betty-report-for-al) and its PR. Every push
+carries a current Betty report. The [agent API manifest](.well-known/mplpb.json)
+lists both commands and the tested source archives.
 
 **For AI reviewers:** Follow the [full-package inspection directions](#directions-for-an-ai-to-inspect-the-full-combined-mplpb-package) before describing or assessing MPLPB.
 

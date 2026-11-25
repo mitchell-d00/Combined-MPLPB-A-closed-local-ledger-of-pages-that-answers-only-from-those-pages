@@ -32,37 +32,56 @@ proceeds and authorizes repository actions.
 
 | Role | Start here | Owns |
 |---|---|---|
-| **Al**, outside strategist and advisor | Read the relevant public pin, open-items README, and PR handoff or result receipt. Cite the pin you used. | Review evidence, challenge conclusions, name one falsifiable next test, and draft a prompt the maintainer can send to Betty. Keep the review read-only. |
+| **Al**, outside strategist and advisor | Read the repository deeply first, including the relevant implementation and tests. Then read Betty’s handoff and the frozen evidence. Cite the pin you used. | Review evidence, challenge conclusions, name one falsifiable next test, and draft a prompt the maintainer can send to Betty. Keep the review read-only. |
 | **Betty**, inside repository and archive editor | Read `AGENTS.md`, `HANDOFF.md`, and the relevant PR. Verify the local checkout against the public pin before editing. | Carry out the maintainer's authorized changes. Freeze inputs and keys, run and score the comparisons, preserve results and failed attempts, update the archive and handoff, and publish commits or PRs within the authorized scope. |
 
-With just the starter message, use the latest relevant PR's TeamBuilding
-handoff and its pinned evidence to recover the state. Al summarizes that
-state and proposes one focused check. Betty verifies the active pin, then
+With just the starter message, Al first follows the repository’s
+[full-package inspection directions](../README.md#directions-for-an-ai-to-inspect-the-full-combined-mplpb-package).
+Al then reads Betty’s report and the latest relevant PR, checks the pin,
+and proposes one focused check. Betty verifies the active pin, then
 continues the work authorized by the maintainer. If several PRs are active,
 use the track indicated in the current handoff or the PR the maintainer names.
-[Current repository handoff](../HANDOFF.md)
+[Current Betty report for Al](../HANDOFF.md#betty-report-for-al)
+
+## API commands and source archives
+
+The [agent API manifest](../.well-known/mplpb.json) exposes both roles, the
+indexed Betty report and the tested source archive catalog. A plain repo
+link exposes the same entry points in its README. In the app, call
+`await window.MPLPB.betty()` or `await window.MPLPB.al()`. From a checkout
+with Node.js, run either command with the repo or Pages URL.
+
+```sh
+node tools/mplpb_agent_bridge.mjs "$REPO_URL" --betty
+node tools/mplpb_agent_bridge.mjs "$REPO_URL" --al
+```
+
+Both commands return public coordination and archive metadata. They grant no
+permissions and run no corpus queries. The archive catalog gives each tested
+source commit, SHA-256 and GitHub source-snapshot link. For the exact tested
+ZIP, use the rebuild command and compare its digest. The snapshot downloads
+may have different ZIP bytes.
 
 ## One cycle
 
-1. The maintainer sends Al the public pin, the open-items list, and the
-   relevant result or receipt.
-2. Al reports the measured before/after counts and the strongest unresolved
-   claim. Propose one named test with exact inputs, positive and withhold
-   controls, budgets, and an acceptance condition. Use the pinned record as
-   the authority for measured outcomes.
-3. Betty freezes the inputs and evaluator key before scoring, runs the
-   matched comparison, and publishes the rule or withhold condition, results,
-   and new pin. Retain misses, failures, and regressions.
-4. Betty posts a **TeamBuilding handoff** in the PR body or in a comment linked
-   from it. Address the report to Al and keep its references public.
-5. The maintainer gives Al the PR link or pastes Betty’s report. Al reviews it
-   and responds with observations and a proposed next check. The maintainer
-   pastes Al’s response and their own questions or decisions into Betty’s
-   session. Betty uses the maintainer’s direction to continue.
-6. After each cycle, Betty leaves the latest report for Al on the PR, with
-   the shareable part of Al’s reply, the maintainer’s decision, and the next
-   authorized step or stopping point. A fresh Al or Betty can pick up the
-   next cycle from that PR using the same starter message.
+1. **Betty calls Al.** Betty leaves a current report for Al in `HANDOFF.md`
+   on every push. When there is a PR, Betty puts the report in its body or
+   a comment linked from it. The maintainer opens Al with the repository link
+   and role name and can identify the relevant PR.
+2. **Al reads the repository, then the report.** Inspect the relevant
+   implementation, tests, and evidence before reading the Betty report.
+   Verify its pin and distinguish measured results from hypotheses.
+3. **Al calls Betty.** Address a review and one named, falsifiable next test
+   to Betty. Include exact inputs, positive and withhold controls, budgets,
+   and an acceptance condition. Return the response to the maintainer.
+4. **The maintainer relays.** Paste **Al’s response** and **My direction for
+   Betty** into Betty’s session. Betty follows the maintainer’s direction.
+5. **Betty updates the PR.** For an authorized evaluation, freeze the inputs
+   and evaluator key before scoring, run the matched comparison, and record
+   the rule, outcomes, and archive details. Retain misses, failures, and
+   regressions. Leave the shareable part of Al’s reply, the maintainer’s
+   decision, and the next authorized step or stopping point in the PR.
+   A fresh Al or Betty can pick up the next cycle with the same starter.
 
 ## Compare several Al sessions
 

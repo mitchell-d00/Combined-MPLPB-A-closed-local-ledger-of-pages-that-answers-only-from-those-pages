@@ -132,6 +132,7 @@ async def dispatch(url, data=None):
     route = parsed.path
     if data is None:
         if route == '/api/state': return app.state()
+        if route == '/api/team-building': return app.team_building_role(q.get('role', [None])[0])
         if route == '/api/history': return app.history(q.get('corpus', [None])[0])
         if route == '/api/experiment': return app.experiment()
         if route == '/api/inventory': return app.inventory(q['corpus'][0], q.get('profile', ['internal'])[0])

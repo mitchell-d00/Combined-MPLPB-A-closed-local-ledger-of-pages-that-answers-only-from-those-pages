@@ -60,6 +60,24 @@ async function tests(){
  assert.equal(discovered.remoteHttpQuery,false);
  assert(discovered.corpora.some(c=>c.key==='logic'));
  assert(api.functions().includes('relay'));
+ const betty = success(await api.betty());
+ const al = success(await api.al());
+ assert.equal(betty.role.starter,'You are Betty.');
+ assert.equal(al.role.starter,'You are Al.');
+ assert.match(betty.role.first_steps.join(' '),/report for Al.*every push/);
+ assert.match(al.role.first_steps[0],/Read the repository deeply first/);
+ assert.match(al.role.first_steps[1],/Then read the current Betty report/);
+ assert.match(al.relay.maintainer_relays,/pastes Al’s response/);
+ assert.match(betty.relay.betty_updates_pr,/in the PR/);
+ assert.deepEqual(betty.source_archives,al.source_archives);
+ assert.match(betty.repository_handoff, /HANDOFF\.md#betty-report-for-al$/);
+ assert.match(al.betty_report.open_items, new RegExp(al.betty_report.evidence_pin));
+ assert.equal(betty.source_archives.exact_release_assets,'unavailable');
+ for (const archive of betty.source_archives.entries) {
+  assert.match(archive.sha256,/^[a-f0-9]{64}$/);
+  assert.match(archive.tested_source_commit,/^[a-f0-9]{40}$/);
+  assert(archive.source_snapshot_url.endsWith('/'+archive.tested_source_commit+'.zip'));
+ }
 
  const q='What is Dungeons and Dragons?';
  const direct=await transport('/api/query',{body:JSON.stringify({corpus:'logic',question:q,profile:'internal'})});

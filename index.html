@@ -90,6 +90,8 @@ globalThis.MPLPB=(()=>{
  const descriptions={
   ready:'Wait for the engine and return its available corpora and profiles.',
   handshake:'Discover local engine, transport limitations, and available corpora.',
+  betty:'Read the repository editor role, Betty report and source-archive instructions.',
+  al:'Read the outside strategist role, Betty report and source-archive instructions.',
   relay:'Use MPLPB as strict query or session chat middleware. Only MPLPB writes the reply; suggestions require opt-in.',
   getState:'Read available corpora, profiles and engine notices.',
   retrieve:'Explicit one-owner page retrieval with structural provenance; never a supported answer.',
@@ -138,12 +140,14 @@ globalThis.MPLPB=(()=>{
  const methods={
   ready:()=>action(()=>()=>api('/api/state')),
   getState:()=>action(()=>()=>api('/api/state')),
+  betty:()=>action(()=>()=>get('/api/team-building',{role:'betty'})),
+  al:()=>action(()=>()=>get('/api/team-building',{role:'al'})),
   listCorpora:()=>action(()=>async()=>(await api('/api/state')).corpora),
   handshake:()=>action(()=>async()=>{
    const state=await api('/api/state');
    return {protocol:'mplpb-agent-handshake',version:'1.0',engine:'full MPLPB Python reader running in the selected browser runtime',
     transport:'browser-page-local',remoteHttpQuery:false,corpora:state.corpora,profiles:state.profiles,
-    operations:['relay','query','chat','listPages','readPage','getHistory','resumeChat','exportChat'],
+    operations:['betty','al','relay','query','chat','listPages','readPage','getHistory','resumeChat','exportChat'],
     policy:{reply:'verbatim MPLPB output',suggestions:'only when includeSuggestions:true',
      network:'local by default; explicit allowNetwork:true for optional chat acquisition',
      refusals:'preserve kind, authority, and citation; never promote an unsupported reply'}};
