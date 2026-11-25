@@ -1,0 +1,552 @@
+{
+  "cohort": "transfer",
+  "counts": {
+    "targets": 12,
+    "passed": 24,
+    "positive_coverage": 12,
+    "withhold_targets": 12
+  },
+  "by_document_form": {
+    "letter": {
+      "targets": 4,
+      "passed": 8,
+      "positive_coverage": 4,
+      "withhold_targets": 4
+    },
+    "minutes": {
+      "withhold_targets": 4,
+      "passed": 8,
+      "targets": 4,
+      "positive_coverage": 4
+    },
+    "report": {
+      "withhold_targets": 4,
+      "passed": 8,
+      "targets": 4,
+      "positive_coverage": 4
+    }
+  },
+  "acceptance_passed": true,
+  "receipt_sha256": "a07c9faeb38bd2de15101a5ee1dea32f74452d2fd3be453fb4acb20fb7aba854",
+  "rows": [
+    {
+      "id": "T007",
+      "expected": {
+        "id": "T007",
+        "document_form": "letter",
+        "wording": 1,
+        "variant": "different_quoted_speaker",
+        "supported": true,
+        "requested_actor": "Sonia Varela",
+        "source_actor": "Sonia Varela",
+        "writer": "Tessa Rahman",
+        "recipient": "the canal inspection crew",
+        "task": "measure the lower lock and list damaged hinges",
+        "reporting_layer": "letter_attributes_quotation",
+        "source_statement": "“Measure the lower lock and list damaged hinges,” Sonia Varela directed the canal inspection crew.",
+        "completion_established": false
+      },
+      "actual_kind": "supported_answer",
+      "diagnostic": "supported",
+      "errors": []
+    },
+    {
+      "id": "T014",
+      "expected": {
+        "id": "T014",
+        "document_form": "minutes",
+        "wording": 1,
+        "variant": "wrong_actor",
+        "supported": false,
+        "requested_actor": "Owen Serrano",
+        "source_actor": "Keira Danton",
+        "writer": "Owen Serrano",
+        "recipient": "the acoustic survey group",
+        "task": "calibrate the shoreline sensors before dawn",
+        "reporting_layer": "minutes_attributes_instruction",
+        "source_statement": "“Calibrate the shoreline sensors before dawn,” Keira Danton directed the acoustic survey group.",
+        "completion_established": false
+      },
+      "actual_kind": "abstain",
+      "diagnostic": "instruction_attribution_unresolved",
+      "errors": []
+    },
+    {
+      "id": "T024",
+      "expected": {
+        "id": "T024",
+        "document_form": "report",
+        "wording": 1,
+        "variant": "completion",
+        "supported": false,
+        "requested_actor": "Tessa Rahman",
+        "source_actor": "Tessa Rahman",
+        "writer": "Hugo Nakamura",
+        "recipient": "the acoustic survey group",
+        "task": "calibrate the shoreline sensors before dawn",
+        "reporting_layer": "report_attributes_quotation",
+        "source_statement": "“Calibrate the shoreline sensors before dawn,” Tessa Rahman directed the acoustic survey group.",
+        "completion_established": false
+      },
+      "actual_kind": "abstain",
+      "diagnostic": "instruction_does_not_establish_completion",
+      "errors": []
+    },
+    {
+      "id": "T008",
+      "expected": {
+        "id": "T008",
+        "document_form": "letter",
+        "wording": 1,
+        "variant": "completion",
+        "supported": false,
+        "requested_actor": "Tessa Rahman",
+        "source_actor": "Tessa Rahman",
+        "writer": "Tessa Rahman",
+        "recipient": "the canal inspection crew",
+        "task": "measure the lower lock and list damaged hinges",
+        "reporting_layer": "signed_letter_first_person",
+        "source_statement": "“Measure the lower lock and list damaged hinges,” is my instruction to the canal inspection crew.",
+        "completion_established": false
+      },
+      "actual_kind": "abstain",
+      "diagnostic": "instruction_does_not_establish_completion",
+      "errors": []
+    },
+    {
+      "id": "T004",
+      "expected": {
+        "id": "T004",
+        "document_form": "letter",
+        "wording": 0,
+        "variant": "completion",
+        "supported": false,
+        "requested_actor": "Sonia Varela",
+        "source_actor": "Sonia Varela",
+        "writer": "Sonia Varela",
+        "recipient": "the canal inspection crew",
+        "task": "measure the lower lock and list damaged hinges",
+        "reporting_layer": "signed_letter_first_person",
+        "source_statement": "The canal inspection crew is instructed by me to measure the lower lock and list damaged hinges.",
+        "completion_established": false
+      },
+      "actual_kind": "abstain",
+      "diagnostic": "instruction_does_not_establish_completion",
+      "errors": []
+    },
+    {
+      "id": "T023",
+      "expected": {
+        "id": "T023",
+        "document_form": "report",
+        "wording": 1,
+        "variant": "different_quoted_speaker",
+        "supported": true,
+        "requested_actor": "Mira Calder",
+        "source_actor": "Mira Calder",
+        "writer": "Hugo Nakamura",
+        "recipient": "the acoustic survey group",
+        "task": "calibrate the shoreline sensors before dawn",
+        "reporting_layer": "report_attributes_quotation",
+        "source_statement": "“Calibrate the shoreline sensors before dawn,” Mira Calder directed the acoustic survey group.",
+        "completion_established": false
+      },
+      "actual_kind": "supported_answer",
+      "diagnostic": "supported",
+      "errors": []
+    },
+    {
+      "id": "T006",
+      "expected": {
+        "id": "T006",
+        "document_form": "letter",
+        "wording": 1,
+        "variant": "wrong_actor",
+        "supported": false,
+        "requested_actor": "Sonia Varela",
+        "source_actor": "Tessa Rahman",
+        "writer": "Tessa Rahman",
+        "recipient": "the canal inspection crew",
+        "task": "measure the lower lock and list damaged hinges",
+        "reporting_layer": "signed_letter_first_person",
+        "source_statement": "“Measure the lower lock and list damaged hinges,” is my instruction to the canal inspection crew.",
+        "completion_established": false
+      },
+      "actual_kind": "abstain",
+      "diagnostic": "instruction_attribution_unresolved",
+      "errors": []
+    },
+    {
+      "id": "T013",
+      "expected": {
+        "id": "T013",
+        "document_form": "minutes",
+        "wording": 1,
+        "variant": "valid",
+        "supported": true,
+        "requested_actor": "Keira Danton",
+        "source_actor": "Keira Danton",
+        "writer": "Owen Serrano",
+        "recipient": "the acoustic survey group",
+        "task": "calibrate the shoreline sensors before dawn",
+        "reporting_layer": "minutes_attributes_instruction",
+        "source_statement": "“Calibrate the shoreline sensors before dawn,” Keira Danton directed the acoustic survey group.",
+        "completion_established": false
+      },
+      "actual_kind": "supported_answer",
+      "diagnostic": "supported",
+      "errors": []
+    },
+    {
+      "id": "T016",
+      "expected": {
+        "id": "T016",
+        "document_form": "minutes",
+        "wording": 1,
+        "variant": "completion",
+        "supported": false,
+        "requested_actor": "Keira Danton",
+        "source_actor": "Keira Danton",
+        "writer": "Owen Serrano",
+        "recipient": "the acoustic survey group",
+        "task": "calibrate the shoreline sensors before dawn",
+        "reporting_layer": "minutes_attributes_instruction",
+        "source_statement": "“Calibrate the shoreline sensors before dawn,” Keira Danton directed the acoustic survey group.",
+        "completion_established": false
+      },
+      "actual_kind": "abstain",
+      "diagnostic": "instruction_does_not_establish_completion",
+      "errors": []
+    },
+    {
+      "id": "T011",
+      "expected": {
+        "id": "T011",
+        "document_form": "minutes",
+        "wording": 0,
+        "variant": "different_quoted_speaker",
+        "supported": true,
+        "requested_actor": "Mira Calder",
+        "source_actor": "Mira Calder",
+        "writer": "Felix Ortega",
+        "recipient": "the harbor census unit",
+        "task": "reconcile the vessel register before Thursday",
+        "reporting_layer": "minutes_attributes_instruction",
+        "source_statement": "The harbor census unit received this instruction from Mira Calder: “Reconcile the vessel register before Thursday.”",
+        "completion_established": false
+      },
+      "actual_kind": "supported_answer",
+      "diagnostic": "supported",
+      "errors": []
+    },
+    {
+      "id": "T009",
+      "expected": {
+        "id": "T009",
+        "document_form": "minutes",
+        "wording": 0,
+        "variant": "valid",
+        "supported": true,
+        "requested_actor": "Owen Serrano",
+        "source_actor": "Owen Serrano",
+        "writer": "Felix Ortega",
+        "recipient": "the harbor census unit",
+        "task": "reconcile the vessel register before Thursday",
+        "reporting_layer": "minutes_attributes_instruction",
+        "source_statement": "The harbor census unit was instructed by Owen Serrano to reconcile the vessel register before Thursday.",
+        "completion_established": false
+      },
+      "actual_kind": "supported_answer",
+      "diagnostic": "supported",
+      "errors": []
+    },
+    {
+      "id": "T002",
+      "expected": {
+        "id": "T002",
+        "document_form": "letter",
+        "wording": 0,
+        "variant": "wrong_actor",
+        "supported": false,
+        "requested_actor": "Bruno Leclerc",
+        "source_actor": "Sonia Varela",
+        "writer": "Sonia Varela",
+        "recipient": "the canal inspection crew",
+        "task": "measure the lower lock and list damaged hinges",
+        "reporting_layer": "signed_letter_first_person",
+        "source_statement": "The canal inspection crew is instructed by me to measure the lower lock and list damaged hinges.",
+        "completion_established": false
+      },
+      "actual_kind": "abstain",
+      "diagnostic": "instruction_attribution_unresolved",
+      "errors": []
+    },
+    {
+      "id": "T010",
+      "expected": {
+        "id": "T010",
+        "document_form": "minutes",
+        "wording": 0,
+        "variant": "wrong_actor",
+        "supported": false,
+        "requested_actor": "Felix Ortega",
+        "source_actor": "Owen Serrano",
+        "writer": "Felix Ortega",
+        "recipient": "the harbor census unit",
+        "task": "reconcile the vessel register before Thursday",
+        "reporting_layer": "minutes_attributes_instruction",
+        "source_statement": "The harbor census unit was instructed by Owen Serrano to reconcile the vessel register before Thursday.",
+        "completion_established": false
+      },
+      "actual_kind": "abstain",
+      "diagnostic": "instruction_attribution_unresolved",
+      "errors": []
+    },
+    {
+      "id": "T019",
+      "expected": {
+        "id": "T019",
+        "document_form": "report",
+        "wording": 0,
+        "variant": "different_quoted_speaker",
+        "supported": true,
+        "requested_actor": "Keira Danton",
+        "source_actor": "Keira Danton",
+        "writer": "Hugo Nakamura",
+        "recipient": "the canal inspection crew",
+        "task": "measure the lower lock and list damaged hinges",
+        "reporting_layer": "report_attributes_quotation",
+        "source_statement": "The canal inspection crew received this instruction from Keira Danton: “Measure the lower lock and list damaged hinges.”",
+        "completion_established": false
+      },
+      "actual_kind": "supported_answer",
+      "diagnostic": "supported",
+      "errors": []
+    },
+    {
+      "id": "T017",
+      "expected": {
+        "id": "T017",
+        "document_form": "report",
+        "wording": 0,
+        "variant": "valid",
+        "supported": true,
+        "requested_actor": "Mira Calder",
+        "source_actor": "Mira Calder",
+        "writer": "Hugo Nakamura",
+        "recipient": "the canal inspection crew",
+        "task": "measure the lower lock and list damaged hinges",
+        "reporting_layer": "report_attributes_quotation",
+        "source_statement": "The canal inspection crew received this instruction from Mira Calder: “Measure the lower lock and list damaged hinges.”",
+        "completion_established": false
+      },
+      "actual_kind": "supported_answer",
+      "diagnostic": "supported",
+      "errors": []
+    },
+    {
+      "id": "T005",
+      "expected": {
+        "id": "T005",
+        "document_form": "letter",
+        "wording": 1,
+        "variant": "valid",
+        "supported": true,
+        "requested_actor": "Tessa Rahman",
+        "source_actor": "Tessa Rahman",
+        "writer": "Tessa Rahman",
+        "recipient": "the canal inspection crew",
+        "task": "measure the lower lock and list damaged hinges",
+        "reporting_layer": "signed_letter_first_person",
+        "source_statement": "“Measure the lower lock and list damaged hinges,” is my instruction to the canal inspection crew.",
+        "completion_established": false
+      },
+      "actual_kind": "supported_answer",
+      "diagnostic": "supported",
+      "errors": []
+    },
+    {
+      "id": "T021",
+      "expected": {
+        "id": "T021",
+        "document_form": "report",
+        "wording": 1,
+        "variant": "valid",
+        "supported": true,
+        "requested_actor": "Tessa Rahman",
+        "source_actor": "Tessa Rahman",
+        "writer": "Hugo Nakamura",
+        "recipient": "the acoustic survey group",
+        "task": "calibrate the shoreline sensors before dawn",
+        "reporting_layer": "report_attributes_quotation",
+        "source_statement": "“Calibrate the shoreline sensors before dawn,” Tessa Rahman directed the acoustic survey group.",
+        "completion_established": false
+      },
+      "actual_kind": "supported_answer",
+      "diagnostic": "supported",
+      "errors": []
+    },
+    {
+      "id": "T001",
+      "expected": {
+        "id": "T001",
+        "document_form": "letter",
+        "wording": 0,
+        "variant": "valid",
+        "supported": true,
+        "requested_actor": "Sonia Varela",
+        "source_actor": "Sonia Varela",
+        "writer": "Sonia Varela",
+        "recipient": "the canal inspection crew",
+        "task": "measure the lower lock and list damaged hinges",
+        "reporting_layer": "signed_letter_first_person",
+        "source_statement": "The canal inspection crew is instructed by me to measure the lower lock and list damaged hinges.",
+        "completion_established": false
+      },
+      "actual_kind": "supported_answer",
+      "diagnostic": "supported",
+      "errors": []
+    },
+    {
+      "id": "T012",
+      "expected": {
+        "id": "T012",
+        "document_form": "minutes",
+        "wording": 0,
+        "variant": "completion",
+        "supported": false,
+        "requested_actor": "Owen Serrano",
+        "source_actor": "Owen Serrano",
+        "writer": "Felix Ortega",
+        "recipient": "the harbor census unit",
+        "task": "reconcile the vessel register before Thursday",
+        "reporting_layer": "minutes_attributes_instruction",
+        "source_statement": "The harbor census unit was instructed by Owen Serrano to reconcile the vessel register before Thursday.",
+        "completion_established": false
+      },
+      "actual_kind": "abstain",
+      "diagnostic": "instruction_does_not_establish_completion",
+      "errors": []
+    },
+    {
+      "id": "T018",
+      "expected": {
+        "id": "T018",
+        "document_form": "report",
+        "wording": 0,
+        "variant": "wrong_actor",
+        "supported": false,
+        "requested_actor": "Hugo Nakamura",
+        "source_actor": "Mira Calder",
+        "writer": "Hugo Nakamura",
+        "recipient": "the canal inspection crew",
+        "task": "measure the lower lock and list damaged hinges",
+        "reporting_layer": "report_attributes_quotation",
+        "source_statement": "The canal inspection crew received this instruction from Mira Calder: “Measure the lower lock and list damaged hinges.”",
+        "completion_established": false
+      },
+      "actual_kind": "abstain",
+      "diagnostic": "instruction_attribution_unresolved",
+      "errors": []
+    },
+    {
+      "id": "T015",
+      "expected": {
+        "id": "T015",
+        "document_form": "minutes",
+        "wording": 1,
+        "variant": "different_quoted_speaker",
+        "supported": true,
+        "requested_actor": "Hugo Nakamura",
+        "source_actor": "Hugo Nakamura",
+        "writer": "Owen Serrano",
+        "recipient": "the acoustic survey group",
+        "task": "calibrate the shoreline sensors before dawn",
+        "reporting_layer": "minutes_attributes_instruction",
+        "source_statement": "“Calibrate the shoreline sensors before dawn,” Hugo Nakamura directed the acoustic survey group.",
+        "completion_established": false
+      },
+      "actual_kind": "supported_answer",
+      "diagnostic": "supported",
+      "errors": []
+    },
+    {
+      "id": "T003",
+      "expected": {
+        "id": "T003",
+        "document_form": "letter",
+        "wording": 0,
+        "variant": "different_quoted_speaker",
+        "supported": true,
+        "requested_actor": "Bruno Leclerc",
+        "source_actor": "Bruno Leclerc",
+        "writer": "Sonia Varela",
+        "recipient": "the canal inspection crew",
+        "task": "measure the lower lock and list damaged hinges",
+        "reporting_layer": "letter_attributes_quotation",
+        "source_statement": "The canal inspection crew received this instruction from Bruno Leclerc: “Measure the lower lock and list damaged hinges.”",
+        "completion_established": false
+      },
+      "actual_kind": "supported_answer",
+      "diagnostic": "supported",
+      "errors": []
+    },
+    {
+      "id": "T022",
+      "expected": {
+        "id": "T022",
+        "document_form": "report",
+        "wording": 1,
+        "variant": "wrong_actor",
+        "supported": false,
+        "requested_actor": "Hugo Nakamura",
+        "source_actor": "Tessa Rahman",
+        "writer": "Hugo Nakamura",
+        "recipient": "the acoustic survey group",
+        "task": "calibrate the shoreline sensors before dawn",
+        "reporting_layer": "report_attributes_quotation",
+        "source_statement": "“Calibrate the shoreline sensors before dawn,” Tessa Rahman directed the acoustic survey group.",
+        "completion_established": false
+      },
+      "actual_kind": "abstain",
+      "diagnostic": "instruction_attribution_unresolved",
+      "errors": []
+    },
+    {
+      "id": "T020",
+      "expected": {
+        "id": "T020",
+        "document_form": "report",
+        "wording": 0,
+        "variant": "completion",
+        "supported": false,
+        "requested_actor": "Mira Calder",
+        "source_actor": "Mira Calder",
+        "writer": "Hugo Nakamura",
+        "recipient": "the canal inspection crew",
+        "task": "measure the lower lock and list damaged hinges",
+        "reporting_layer": "report_attributes_quotation",
+        "source_statement": "The canal inspection crew received this instruction from Mira Calder: “Measure the lower lock and list damaged hinges.”",
+        "completion_established": false
+      },
+      "actual_kind": "abstain",
+      "diagnostic": "instruction_does_not_establish_completion",
+      "errors": []
+    }
+  ],
+  "custody": {
+    "preparer": "Betty, same operator",
+    "scorer": "Betty, same operator",
+    "generator_templates_seen_by_implementer": true,
+    "transfer_case_bytes_opened_before_candidate_freeze": false,
+    "baseline_worker_reads_transfer_without_showing_implementer": true,
+    "worker_receives_key_path": false,
+    "os_isolation": false,
+    "independent_preparation": "NOT_RUN",
+    "independent_blinding": "NOT_RUN",
+    "independent_semantic_adjudication": "NOT_RUN",
+    "independent_historical_accuracy": "NOT_RUN",
+    "outside_custodian_scoring": "NOT_RUN",
+    "native_oocc": "NOT_RUN"
+  }
+}

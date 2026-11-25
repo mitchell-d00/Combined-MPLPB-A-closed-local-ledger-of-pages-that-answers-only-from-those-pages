@@ -4,8 +4,8 @@ Last reviewed: 2026-11-25.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `3fffe29dc4b43aabb4688072b5c3249f109139cc` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `efc3b2c319b3603ceb8a79685ca3616f044b62176c123d45050297db1683b388`.
+Base commit: `d0f6c67e0684d952afc47c13b83963ca7976d2bb` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `cfa5d7ce8252a690ecb4c4489a0189368502c6686c7cdddc97aba1d0484150ca`.
 
 ## Betty report for Al
 
@@ -33,6 +33,7 @@ Mitchell selected: Use a sealed, program-generated packet; label the custody lim
 - Freeze source-attribution development/transfer generator, seed, packets, separate keys, acceptance and native baseline before code changes.
 - Preserve the reported PE-02 implementation and permanent seventeen-case corpus with all twenty-eight targeted regressions.
 - Add one shared native source-writer/speaker/recipient/instruction representation for bounded letters, minutes and quoted reports. Preserve the old PE-02 path unchanged.
+- Execute the frozen committed candidate on the transfer packet exactly once, preserve reporting layers, publish the consumed inputs and distinguish same-operator testing from independent assessment.
 
 ### Validation recorded
 
@@ -43,18 +44,26 @@ Mitchell selected: Use a sealed, program-generated packet; label the custody lim
 - All 17 PE-02 answer contracts and discovery arrays match baseline exactly, excluding code fingerprints only. All 56 focused controls pass, including the existing 28.
 - Retained rejected first candidate (passive misses and conditional-governor false support) and second candidate (unframed competing-source false support), their source snapshots, outputs and failed control logs.
 - Separate frozen-source projection audit verified 48 input bodies and all 56 development citations.
+- Once-only transfer on committed ZIP d0f6c67e0684d952afc47c13b83963ca7976d2bb: 12/24 to 24/24 expected decisions, 12/12 positive targets and 12/12 withholds, zero false support and zero budget failures. Each form has four positive targets passing.
+- Separate transfer source-byte audit verifies all 24 source bodies and 28 exact citations; no source repair followed transfer inspection.
+- Source ZIP SHA-256 0f3148b4a3ef061388a990ef0d0fc306838077ddde18f004285ac404faeee155 passed integrity and tracked-content comparison after restoring one executable bit from ZIP metadata. Extracted development 48/48, permanent 17 contracts/discovery identical, all 56 focused controls, all 52 public controls, all fifteen software checks including HTTP/JavaScript and report pins, WebAssembly and both Chromium contexts passed. Candidate embedded reader hashes match source. Installed wheel and 45 official MCP SDK checks passed.
+- First candidate d0f6c67 ZIP completed all 1,779 native tests (two skipped), all 52 public controls, software/WebAssembly/browser/installation/SDK gates. Its first-transfer 24/24 decisions remain retained, but overlap with inspected development controls limits structural novelty.
+- Fresh 24-case generator, new seed, packet/key hashes and rule frozen before any further native edits; baseline privately replayed at original PR #101 pin. Instance bytes/key/output remain unopened.
 
 ### Limitations and blocked checks
 
-- Development repair is complete; committed candidate/source ZIP, extracted archive validation and once-only transfer acceptance remain pending.
-- Same operator prepared the generator, saw all templates and will score both sets. Transfer instance bytes remain unopened. No independent preparation, blinding or adjudication is claimed.
-- Independent historical accuracy, independent semantic adjudication, outside-custodian scoring and native OOCC remain NOT_RUN.
+- First candidate archive validation is complete. Fresh structural transfer is sealed and pending a new native candidate/source ZIP freeze; exact-head CI and publication remain pending.
+- Same operator authored and saw all generator templates, prepared packets and scored outputs. Exact transfer instances/key stayed unopened until the committed ZIP freeze. This is not independent preparation or blinding. The consumed transfer packet now becomes preservation material.
+- Independent historical accuracy, independent semantic adjudication, independent preparation, blinding, outside-custodian scoring and native OOCC remain NOT_RUN.
+- No historical answer-coverage gain: historical completion stays 1/4, historical partials stay 1/4, and all five source propositions across seventeen cases remain unchanged. The new gain is bounded synthetic source-attribution coverage.
+- Protocol correction: supplemental development controls overlap the first transfer sentence structures. Retain its 24/24 result but classify it as consumed development material; it does not establish unfamiliar structural transfer.
 
 ### Next steps
 
-- Commit/freeze the complete candidate and source ZIP, validate its extracted content and keep transfer instances unopened until that freeze.
-- Run the frozen candidate on transfer once; retain failures without repairing against the same packet.
-- Publish separate development/transfer measures, exact source pin/checksum and current Betty report for Al.
+- Freeze a fresh 24-case transfer generator, seed, keys and baseline before further native edits; use constructions absent from all inspected development controls and run a new frozen candidate once.
+- Finish full native validation of the frozen ZIP and publish its retained result. Do not change the frozen native candidate after inspecting transfer.
+- Push a new PR for this cycle (PR #101 is already merged), keep current head/checked archive and separate development/transfer results at the top. Complete required exact-head archive-first/regression gates before merging within the maintainer’s standing authorization.
+- Verify deployed reader bytes after merge. Al reviews the general failure mechanism and transfer limits, then proposes one next falsifiable test. No new reasoning cycle is authorized by a proposal alone.
 
 ## Use this ZIP in your repository
 

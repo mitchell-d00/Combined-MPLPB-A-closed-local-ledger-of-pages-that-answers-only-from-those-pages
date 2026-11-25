@@ -2,7 +2,7 @@
 
 Last reviewed: 2026-11-25.
 
-[Shared source attribution](../evaluation/attribution/2026-11-25/README.md) verifies bounded source-attributed instructions across signed letters, minutes and quoted reports. Frozen development improves **24/48 → 48/48**, with **zero final false-supported claims**. All 17 PE-02 contracts and discovery arrays remain identical; 56 focused controls pass. Same-operator transfer is sealed and pending, with known generator templates; independent preparation/blinding and adjudication remain unmeasured.
+[Shared source attribution](../evaluation/attribution/2026-11-25/README.md) verifies bounded source-attributed instructions across signed letters, minutes and quoted reports. Frozen development improves **24/48 → 48/48**, with **zero final false-supported claims**. All 17 PE-02 contracts and discovery arrays remain identical; 56 focused controls pass. The once-only same-operator transfer improves **12/24 → 24/24**, with all 12 positives and 12 withholds passing. Generator templates were known; independent preparation, blinding and adjudication remain unmeasured. Full archive regression and exact-head CI are pending.
 
 [Source-field aliases and final measured evidence](SOURCE_FIELD_ALIASES.md) extend
 bounded source-declared field access: expanded stress complete matches **168→189/420**,

@@ -11,16 +11,13 @@ merge was incorporated as ancestry only with the same source tree.
 
 ## Custody and freeze
 
-[Development inputs](development/inputs.json) contain 48 cases. Twenty-four
-transfer inputs, their baseline output and both keys are held separately. The
+[Development inputs](development/inputs.json) contain 48 cases. Twenty-four transfer inputs, their baseline output and both keys were held separately before the candidate freeze. [Consumed transfer inputs and outputs](transfer) are now public; keys remain separately held. The
 worker receives no key path. The transfer baseline worker read the instances;
-the implementer has not opened their bytes, key or output. [Transfer baseline
+the implementer did not open their bytes, key or output before the candidate freeze. [Transfer baseline
 seal](baseline-transfer-seal.json) binds that output before implementation.
 
 This is **same-operator transfer testing**. Betty authored and saw the generator,
-including all transfer templates, and prepares and scores both sets. Exact
-transfer instances and key stay unopened until a committed candidate and source
-ZIP freeze. This is procedural separation, not independent preparation,
+including all transfer templates, and prepares and scores both sets. Exact transfer instances and key stayed unopened until the committed candidate and source ZIP freeze. This is procedural separation, not independent preparation,
 blinding or adjudication. Transfer uses passive/recipient-first and postposed
 quotation structures, different question forms, disjoint actors and new tasks.
 Known generator templates limit the transfer claim; unopened instances do not
@@ -32,7 +29,7 @@ a correctly named quoted speaker is a positive target. Development contains
 24 positives and 24 withholds; transfer contains 12 of each. Expectations follow
 the actor and reporting layer, not a forced positive/negative ratio.
 
-## Development result before transfer
+## Measured development and transfer
 
 | Frozen measure | Baseline | Candidate |
 |---|---:|---:|
@@ -48,6 +45,13 @@ excluding only code fingerprint fields. Meanings, actors, missing obligations,
 qualifications, citations and prior diagnostics stay identical. The 28 earlier
 targeted regressions and 28 new attribution/state/budget controls pass (56 total).
 [Exact comparison](development-evidence/preservation-candidate-3-score.json).
+
+
+The first transfer packet was executed **once** on committed source `d0f6c67e0684d952afc47c13b83963ca7976d2bb`, from its checked ZIP extraction. Expected decisions improve **12/24 → 24/24**: positives **0/12 → 12/12**, all **12/12 withholds** retained, zero false-supported decisions and zero budget failures. Each form has **4/4** positive and **4/4** withhold decisions. The separate source-byte audit verifies all 24 transfer bodies and 28 citations. [Transfer scores](transfer/candidate-score.json) and [custody timeline](custody-timeline.json) retain the distinction between worker access, generator visibility and implementer inspection. No transfer-informed repair occurred. This packet is consumed. Supplemental development controls had already exercised passive/postposed constructions, so its structural novelty is limited. Its decision passes do not meet a strong unfamiliar-structure claim. A fresh 24-case packet with different constructions is being frozen before any further native repair.
+
+Historical completion remains **1/4**, historical partials remain **1/4**, and source propositions across the permanent 17 remain **five**. This cycle adds synthetic class coverage, without a new historical answer-coverage gain.
+
+Tested source ZIP SHA-256: `0f3148b4a3ef061388a990ef0d0fc306838077ddde18f004285ac404faeee155`. [Candidate freeze](candidate-freeze.json) binds the commit, complete tree and native fingerprints. Its first extraction lost one shell executable bit; permissions were restored from the unchanged ZIP metadata, then the full tracked extraction matched the commit. Source-byte/citation and preservation audits pass; full archive release validation and exact-head CI remain pending.
 
 ## Mechanism and rejected candidates
 
@@ -78,8 +82,7 @@ control-harness record lookup and invalid minimum-budget errors are retained
 alongside corrected controls. The second passed those repairs but an expanded
 control found a falsely supported claim after an unframed competing instruction
 was pruned. The third retains such relevant unresolved competition and passes
-all 56 focused controls. No frozen expectation was edited. Transfer remains
-unopened and candidate archive/transfer acceptance is pending.
+all 56 focused controls. No frozen expectation was edited. No native source was changed after the once-only transfer run.
 
 ## Reproduction and preservation
 
