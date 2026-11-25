@@ -135,13 +135,30 @@
       "family": "YETI",
       "id_prefix": "CRYPT-YETI",
       "mechanism": "Reporting and content polarity, conditions and modality become conflated.",
-      "status": "PLANNED",
+      "status": "BASELINE_COMPLETED",
       "responsible_department": "testing-evaluation",
       "implementation_departments": [
         "reader",
         "ledger"
       ],
-      "runtime_labels_are_rules": false
+      "runtime_labels_are_rules": false,
+      "baseline": {
+        "cases": 52,
+        "scored": 50,
+        "passed": 31,
+        "positive_misses": 19,
+        "false_support": 0,
+        "diagnostic_only_unscored": 2,
+        "score": "yeti/scores/baseline.json"
+      },
+      "wrap": {
+        "cases": 4,
+        "score": "yeti/scores/wrap-baseline.json"
+      },
+      "transfer": {
+        "cases": 30,
+        "status": "SEALED_NOT_RUN"
+      }
     },
     {
       "order": 5,

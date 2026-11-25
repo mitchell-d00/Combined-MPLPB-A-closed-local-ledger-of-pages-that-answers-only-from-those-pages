@@ -4,8 +4,8 @@ Last reviewed: 2026-11-25.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `3dbeb6f1a3ccf946f1ef0bd9aa494e597d5dd32f` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `5830576e9d0bea4d2afcf43563b7e3dd38780ddc577b53045beb5af2dc4494ff`.
+Base commit: `814e793241f18e3bfe6d15ce742f4b3eac37623a` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `9ffb6942bf5d875ec950a31d1d04a23d90d397edc3c2275a318b5349ab03a62f`.
 
 ## Betty report for Al
 
@@ -47,6 +47,7 @@ Run Betty — local Cryptid test programme. Start from current main. Complete th
 - 39unchanged selector/field-wording/compound controls passed baseline and candidate. All280release contracts preserved relative to Mothman current candidate; all68Mothman contracts exactly unchanged. Five case overlaps inventoried.
 - 169inherited native plus50date/byline/inspection tests pass,0skips. Jackalope24transfer remains sealed.
 - Jackalope committedZIP3dbeb6f1 SHA21fec2ae41da5bad1d55aa6cf850b4846fdd157af3e5e8e27578d7324c5d5203 reproduces46/54,39selectors,50focused. Once-only24transfer20/24:4complete+4checkedpartial,12withholds,4letter proofmisses,0false/0budget/0executionfailure/0unscored. Failed coverage retained; packet now consumed development.
+- Yeti52baseline completed before native changes:50scored,31passed,19positive misses,0false support,30withholds,2historical first-person arrangement diagnostics explicitlyUNSCORED. Four original input hashes unchanged. Separate4case reporting/content polarity Wrap baseline retained; thirty-case transfer sealed. Existing layout/byline-witness failures classified separately for Nessie.
 
 ### Limitations and blocked checks
 
@@ -56,7 +57,7 @@ Run Betty — local Cryptid test programme. Start from current main. Complete th
 
 ### Next steps
 
-- Start Yeti polarity/conditions/modality trial: reproduce current old failures, freeze keys/control/baseline and separate transfer before native changes. Keep letter-boundary misses for later source-linked structure series.
+- Implement shared source claim frame and native bounded denial/modality verification with original question, full eligible witnesses and final state checks. Preserve unrelated legacy outputs and all limits; test committed ZIP before sealed transfer once.
 - Run all series sequentially and finish a local committed-ZIP review package. No remote publication.
 
 ## Use this ZIP in your repository
