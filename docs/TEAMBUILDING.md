@@ -64,6 +64,18 @@ use the track indicated in the current handoff or the PR the maintainer names.
    authorized step or stopping point. A fresh Al or Betty can pick up the
    next cycle from that PR using the same starter message.
 
+## Compare several Al sessions
+
+Give each Al the same PR and exact evidence pin so you can compare their
+advice. Keep one Betty as the writer for that PR. You can paste several Al
+responses into Betty’s session and identify which recommendation to follow.
+Betty records material disagreements and the decision you make.
+
+When a session fills its context or you change AI interfaces, start a fresh
+session with the same repo link and role name. Use the latest relevant PR
+report and check its pin before continuing. If you want to resume a specific
+past cycle, send that PR link with the role name.
+
 ## Betty’s PR report to Al
 
 Use a heading such as **TeamBuilding handoff for Al** and include:

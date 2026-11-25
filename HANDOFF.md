@@ -4,8 +4,8 @@ Last reviewed: 2026-11-25.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `20a294715979ecf3111b51dd69ed63396b549672` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `95a2e6a5f46663afe4aac4f77449b6f3d98d0decfc8bb3f29e29e5eb68a7663c`.
+Base commit: `5ab30b2f17e9c824f79c426967e967535bd6c9e2` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `9b335d2735db00dc03ffc3d21cce1eed5b53a2a757ec84bc5e234f642f15eeb9`.
 
 ## Latest user update instructions
 
@@ -21,11 +21,14 @@ And once it is set Betty and Al Betty makes reports to Al in pr and I past Al / 
 
 And it runs again leaving the Al report in last pr and then I just set Betty and Al to any ui just from link and name
 
+That way I can keep a Betty and Al hav3 comparing Als and  a write Betty I can fill a context or of any or jump with link and name after any pr
+
 ## Implemented scope
 
 - Define Al as the outside strategist and Betty as the inside repository and archive editor. Put both starters in the TeamBuilding guide and link them from the root README and AGENTS.md.
 - Have Betty post the report to Al in each PR. Record the maintainer’s relay of Al’s response and their own direction back to Betty.
 - Use the latest relevant PR as the durable resume point for a fresh Al or Betty session in any AI interface with repository access.
+- Document parallel read-only Al reviews of the same pin, one writing Betty per PR, and how to resume a prior cycle.
 
 ## Validation recorded
 
