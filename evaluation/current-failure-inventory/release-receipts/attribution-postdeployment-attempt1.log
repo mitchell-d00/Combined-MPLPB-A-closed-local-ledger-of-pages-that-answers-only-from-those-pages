@@ -1,0 +1,28 @@
+BROWSER LOAD candidate-preview https://mitchell-d00.github.io/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/
+BROWSER STRICT: NO SUPPORTED ANSWER
+BROWSER INSPECT: AMBIGUOUS
+BROWSER SAMPLE: candidate inspection selected
+BROWSER CAPTIONS: supported and inspection notices separated
+NPC_BROWSER {"schema": "mplpb-researcher-browser-pilot-v1", "suite_sha256": "38b29eb6599f4484b5d7e7e654251aee54e6e25d9dd5d388b195c32c70e5d6d5", "persona": "mara", "actual_browser": "Chromium with running application engine", "checks_passed": ["create_collection_through_ui", "paste_import_through_ui", "ask_and_click_cited_source", "known_reader_limit_is_not_an_answer", "conflicting_bulletins_do_not_choose_a_winner", "save_multisentence_investigation_note", "indexeddb_reload_preserves_note_and_exact_transcript", "resume_rechecks_sources"], "status": "synthetic_ui_workflow_passed", "known_answerable_refusals": 1, "human_usability_measured": false, "product_backup_or_upgrade_tested": false, "notice": "One scripted persona, developer-inspected controls; not six browser users or a human pilot."}
+Traceback (most recent call last):
+  File "/workspace/attribution-fresh-extracted/evaluation/attribution/2026-11-25/archive-tools/verified_browser.py", line 68, in <module>
+    page=c.new_page();verify(page,url,args.live_updated)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/attribution-fresh-extracted/tools/browser_release_smoke.py", line 112, in verify
+    page.wait_for_function(
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/playwright/sync_api/_generated.py", line 12761, in wait_for_function
+    self._sync(
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/playwright/_impl/_sync_base.py", line 115, in _sync
+    return task.result()
+           ^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/playwright/_impl/_page.py", line 1151, in wait_for_function
+    return await self._main_frame.wait_for_function(**locals_to_params(locals()))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/playwright/_impl/_frame.py", line 940, in wait_for_function
+    await self._channel.send("waitForFunction", self._timeout, params)
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/playwright/_impl/_connection.py", line 76, in send
+    return await self._connection.wrap_api_call(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/playwright/_impl/_connection.py", line 632, in wrap_api_call
+    raise rewrite_error(error, f"{parsed_st['apiName']}: {error}") from None
+playwright._impl._errors.TimeoutError: Page.wait_for_function: Timeout 150000ms exceeded.

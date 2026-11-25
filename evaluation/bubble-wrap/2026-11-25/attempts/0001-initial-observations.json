@@ -1,0 +1,48 @@
+[
+  {
+    "id": "BW-ENV-001",
+    "command": "MPLPB_REQUIRE_SANDBOX=1 python -m unittest tests.test_study_sandbox -v",
+    "execution_status": "completed",
+    "returncode": 1,
+    "gate_outcome": "FAIL",
+    "tests": 4,
+    "passed": 2,
+    "failed": 2,
+    "reader_cases_executed": 0,
+    "cause": "Restricted outer environment denies uid_map write; required namespace tests fail; no fallback",
+    "raw_evidence": "Initial tool transcript; original stdout was not separately captured to a file"
+  },
+  {
+    "id": "BW-ENV-002",
+    "command": "bwrap --unshare-all --die-with-parent ... /usr/bin/true",
+    "execution_status": "BLOCKED_EXECUTION",
+    "returncode": 1,
+    "stderr": "bwrap: setting up uid map: Read-only file system",
+    "reader_cases_executed": 0
+  },
+  {
+    "id": "BW-ENV-003",
+    "command": "MPLPB_REQUIRE_SANDBOX=1 python -m unittest tests.test_study_sandbox -v",
+    "outer_access": "Host access approved for namespace creation",
+    "execution_status": "completed",
+    "returncode": 0,
+    "gate_outcome": "PASS",
+    "tests": 4,
+    "passed": 4,
+    "reader_cases_executed": 0,
+    "raw_evidence": "Initial tool transcript; a subsequent fully logged gate follows"
+  },
+  {
+    "id": "BW-PREP-001",
+    "execution_status": "failed_preparation",
+    "reader_cases_executed": 0,
+    "cause": "Development reference filename candidate.json did not exist; matrix was already frozen; corrected reference to fresh-candidate-development.json without changing matrix/input/key expectations"
+  },
+  {
+    "id": "BW-CUSTODY-001",
+    "execution_status": "observed",
+    "reader_cases_executed": 0,
+    "transfer_instance_or_key_opened": false,
+    "note": "Same operator previously authored transfer generator; inspected it for schema reconciliation before newly attached plan was available. Reserved constructions are excluded from supplementary development. Templates remain visible; no independent blinding claim."
+  }
+]

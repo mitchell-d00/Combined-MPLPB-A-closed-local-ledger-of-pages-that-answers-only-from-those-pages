@@ -4,6 +4,45 @@
   "meaning": "Links establish retained test/reproduction coverage, not a fresh execution or certification of historical metrics. Original source, dates, fixtures and exact revisions remain in the linked reports.",
   "families": [
     {
+      "family": "bubble-wrap",
+      "artifacts": "evaluation/bubble-wrap",
+      "tests": [
+        "tests/test_study_sandbox.py",
+        "tests/test_reported_content.py",
+        "tests/test_bubble_wrap_accounting.py",
+        "tests/test_status_authority.py",
+        "tests/test_documentary_byline_units.py"
+      ],
+      "runners": [
+        "tools/bubble_wrap_trial.py",
+        "tools/bubble_wrap_adapter.py",
+        "tools/bubble_wrap_packets.py",
+        "tools/audit_bubble_wrap_delivery.py",
+        "tools/bubble_wrap_native_gates.py",
+        "tools/bubble_wrap_score_v3.py",
+        "tools/bubble_wrap_review.py",
+        "tools/bubble_wrap_transfer.py",
+        "tools/bubble_wrap_fresh_packet.py"
+      ],
+      "scope": "Fail-closed isolated reported-content trial, separately frozen 32-case Wrap matrix and explicit preservation/accounting links. Original 20 inputs and 24 sealed transfer cases retained.",
+      "measurement_status": "Original development230/256\u2192256/256 with disclosed v3 scorer amendment; first transferFAIL16/24 retained and consumed. Continuation272/280\u2192280/280; nine guards6/9\u21929/9, one exposed false support removed; rejected wider candidate retained. Committed7f6641d ZIP f5be70718a1454171005493eba452e8fbd0602f3195e5325f57dd268840f8162 passes280/280,1810 native tests,52public controls,15software commands,WASM and Chromium. Fresh same-operator composition transfer16/24\u219224/24,12positives12withholds0false support; host preparation failure with0reader executions retained, same-source resume executed each candidate once.28non-target positive questions remain incomplete. Exact publication CI/merge/deployment pending. Independent evaluations and OOCC NOT_RUN. Source-tag experiment and12human onboarding are next authorized work, human observations NOT_RUN."
+    },
+    {
+      "family": "current-failure-inventory",
+      "artifacts": "evaluation/current-failure-inventory",
+      "tests": [
+        "tests/test_source_attributed_instructions.py",
+        "tests/test_signed_instructions.py"
+      ],
+      "runners": [
+        "tools/current_failure_inventory.py",
+        "tools/analyze_failure_inventory.py",
+        "tools/freeze_reported_content_proposal.py"
+      ],
+      "scope": "Read-only replay of 64 Known cases, 32 Focus cases and fifteen fresh synthetic contrasts on merged reader 851de6c; frozen next proposal only.",
+      "measurement_status": "111 completed: thirteen complete, four partial, two conflicts, 92 abstentions. Two sampled old compound-field recoveries; no lost old valid complete answer. All sixty no-full-support controls retained withholding. Five multisuite report-content misses have full discovery but no admitted goals. Historical 605 is not a current census. Twenty development inputs and twenty-four unopened future transfer instances frozen; no native repair. Independent historical/semantic/preparation/blinding/outside-custodian/OOCC remain NOT_RUN."
+    },
+    {
       "family": "attribution",
       "artifacts": "evaluation/attribution",
       "tests": [
@@ -18,7 +57,7 @@
         "tools/attribution_fresh_transfer.py"
       ],
       "scope": "Frozen cross-form source attribution with 48 development and 24 procedurally sealed same-operator transfer cases; complete PE-02 contract preservation.",
-      "measurement_status": "Frozen development 24/48 to 48/48. First transfer 12/24 to 24/24 is retained with control-overlap limits and now consumed development. A fresh generator/seed/keys/baseline were frozen before further edits; fresh once-only transfer improves 12/24 to 24/24, with 12 positives and 12 withholds passing and zero false support or budget failures. New source constructions differ from inspected development examples; templates remain visible to same operator. All 17 PE-02 and all 24 consumed-packet contracts remain identical; 56 focused controls pass. Exact-head full archive/regression CI pending. Independent preparation, blinding, historical/semantic adjudication, outside-custodian scoring and native OOCC remain NOT_RUN."
+      "measurement_status": "Frozen development 24/48 to 48/48. First transfer 12/24 to 24/24 is retained with control-overlap limits and now consumed development. A fresh generator/seed/keys/baseline were frozen before further edits; fresh once-only transfer improves 12/24 to 24/24, with 12 positives and 12 withholds passing and zero false support or budget failures. New source constructions differ from inspected development examples; templates remain visible to same operator. All 17 PE-02 and all 24 consumed-packet contracts remain identical; 56 focused controls pass. Exact publication head 71b2725 passed all nine checks, including full archive/regression CI (1779 tests, two skipped); merged 851de6c and deployed successfully. Detailed release receipt is in current-failure-inventory. Independent preparation, blinding, historical/semantic adjudication, outside-custodian scoring and native OOCC remain NOT_RUN."
     },
     {
       "family": "report-pins",

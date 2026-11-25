@@ -1,6 +1,6 @@
 # Test Index for humans and AI
 
-Last reviewed: 2026-11-24.
+Last reviewed: 2026-11-25.
 
 This is the starting point for running, interpreting, and extending Combined
 MPLPB tests. Use the [test commands](TEST_TOOLS.md) to run a suite, the
@@ -9,6 +9,59 @@ regression files, runners, and measurement scope for every indexed evaluation
 family, and the [results guide](RESULTS_AND_TESTS.md) to read the reported results.
 
 [Pole](../evaluation/pole/README.md) uses seeded difficulty levels and pinned documentary cases to measure general rule repairs.
+
+[Current continuation](../evaluation/bubble-wrap/2026-11-25/README.md) passes **280/280** development/preservation after retaining the first16/24 transfer failure. **BW-BYLINE** adds [nine frozen metadata/governor controls](../tests/test_documentary_byline_units.py), [source seal](../evaluation/bubble-wrap/2026-11-25/continuation/byline-tests-freeze.json) and [before/after outcomes](../evaluation/bubble-wrap/2026-11-25/continuation/guard-summary.json):6/9→9/9, including one exposed false-supported conditional fragment now withheld. Origin PR103; protected operation is source-scoped metadata boundaries without pruning a governor. Reproduce with `python -m unittest tests.test_documentary_byline_units -v`. The expanded [280-case manifest](../evaluation/bubble-wrap/2026-11-25/continuation/development.json) and [unchanged-key seal](../evaluation/bubble-wrap/2026-11-25/continuation/freeze.json) link exact inputs and preserve the consumed first transfer separately. Fresh composition transfer passes **16/24 → 24/24**, twelve positive answers and twelve withholds, zero false support. [Once-only completion](../evaluation/bubble-wrap/2026-11-25/fresh-transfer/completion.json), [score](../evaluation/bubble-wrap/2026-11-25/fresh-transfer/candidate-score.json), [ZIP validation](../evaluation/bubble-wrap/2026-11-25/continuation/validation.json).
+
+## Bubble and Wrap: failure → rule → protection → result
+
+[Current cycle](../evaluation/bubble-wrap/2026-11-25/README.md) implements the
+maintainer’s [frozen plan](../evaluation/bubble-wrap/2026-11-25/inputs-received/bubble-wrap-plan.json)
+on PR #103. [Case registry](../evaluation/bubble-wrap/2026-11-25/registry.json)
+and [native-test registry](../evaluation/bubble-wrap/2026-11-25/native-test-registry.json)
+provide stable IDs and per-test origin PRs, mechanism, protected rule, frozen
+input hashes, baseline pin, budgets, reproduction command and custody status.
+Join those IDs to [immutable execution records](../evaluation/bubble-wrap/2026-11-25/runs),
+[hash-linked run ledger](../evaluation/bubble-wrap/2026-11-25/run-ledger),
+and separately appended score records for actual candidate pins, raw outputs
+and measured outcomes. A registry entry marked PLANNED is not a passing test.
+
+| Stable family | Protected distinction | Frozen inputs / actual results |
+|---|---|---|
+| BW-REPORT / BW-RPT-001…032 | Reporter/writer/actor; inner/outer denial; conditional report versus independent authorship | [32-case matrix](../evaluation/bubble-wrap/2026-11-25/wrap/matrix.json), [key](../evaluation/bubble-wrap/2026-11-25/wrap/matrix-key.json) |
+| BW-INVENTORY / BW-INV-* | Reproduced old mechanisms and unaffected answer/partial/conflict contracts | [111 retained cases and overlap memberships](../evaluation/bubble-wrap/2026-11-25/registry.json) |
+| BW-ATTRIBUTION / BW-ATTR-* | Signed instructions, speaker/recorder/writer and execution withholds | [96 consumed instruction cases](../evaluation/bubble-wrap/2026-11-25/registry.json) |
+| BW-PE02 / BW-PE02-* | Historical checked partials, complete answers and unresolved attribution | [17 preservation descriptors](../evaluation/bubble-wrap/2026-11-25/registry.json); restricted originals/raw receipts stay in custody, public hashes/comparisons remain |
+| BW-GUARDS / unittest ID | Source eligibility, qualified/quoted contexts, counterevidence, mutation and fixed budgets | [Guard tests](../tests/test_reported_content.py), [baseline failures](../evaluation/bubble-wrap/2026-11-25/baseline-native-guards/output.log) |
+| BW-FOCUSED, BW-INTEGRITY | Permanent 56 controls and applicable older authority/integrity checks | [Native gate registry](../evaluation/bubble-wrap/2026-11-25/native-test-registry.json) |
+| BW-ACCOUNTING, BW-ENV-* | Executed versus scored versus planned; fail-closed isolation | [Accounting tests](../tests/test_bubble_wrap_accounting.py), [required sandbox gate](../evaluation/bubble-wrap/2026-11-25/gates/BW-ENV-004/record.json) |
+
+The twenty proposal cases are memberships within the 111, not extra independent
+samples. Per-input semantic hashes expose overlap. Compare actual claims,
+qualifications, missing obligations and citations; answer totals cannot hide
+false support. Approved intended recoveries are explicitly allowlisted.
+
+Baseline [score](../evaluation/bubble-wrap/2026-11-25/baseline-score.json):
+256 completed/scored; 230 expected decisions pass, 26 target misses, zero
+false-supported claim cases. The ten old primary misses and sixteen new
+source-scope targets are retained. This does not declare every preserved old
+question answered: known non-target misses remain separate.
+
+Development now passes **256/256** under the [versioned projection correction](../evaluation/bubble-wrap/2026-11-25/scorer-amendment-v3.json), with all ten primary targets, correct Wrap decisions, all earlier claims/contracts preserved and zero final false-supported claim cases. The [initial frozen-scorer rejection](../evaluation/bubble-wrap/2026-11-25/candidate-001-score-v1.json) remains failed; no key or reader edit followed that projection correction. See [joined scores and limits](../evaluation/bubble-wrap/2026-11-25/development-review.json). Twenty-eight non-target positive questions remain incomplete; preservation is not answer coverage. All 169 indexed native controls pass. That earlier development snapshot is preserved; the current continuation and ZIP results are linked above. Publication CI remains separate.
+
+First committed transfer failed **16/24**, with eight positive misses and zero false support; [failed score](../evaluation/bubble-wrap/2026-11-25/transfer/candidate-score.json). It is now consumed development. The [fresh composition seal](../evaluation/bubble-wrap/2026-11-25/fresh-transfer-freeze/seal.json) precedes further native repair; the fresh result is separately24/24, with all failures retained and no native edits after opening.
+
+The original [24-case transfer seal](../evaluation/current-failure-inventory/proposal/transfer-seal.json)
+is preserved and unopened at harness freeze. Run only after a committed ZIP
+candidate freeze; publish its result separately. Once it informs a repair it
+becomes development material. Same-operator isolation is not independent
+preparation, blinding or adjudication. Independent history/semantics,
+outside-custodian scoring and native OOCC remain NOT_RUN.
+
+Run `python tools/audit_bubble_wrap_delivery.py` to audit IDs, seals, run accounting,
+links and omitted attempts. Frozen audit v1 remains retained; delivery v2 corrects
+its misclassification of score rows as execution rows without changing worker,
+adapter, scorer or frozen expectations. Every denied launch and publication/audit
+failure stays visible in the ledger.
 
 ## How I train a deterministic AI
 
@@ -124,3 +177,11 @@ For automation, each `families` entry in [results.json](results.json) names
 `python -m tools.audit_documentation` to check archive coverage and paths.
 Record the command, revision, serving policy, fixture digest, and per-case
 output when adding evidence. Keep raw outputs separate from the grading key.
+
+## Next authorized trials
+
+[Source-linked tag comparison](../evaluation/bubble-wrap/2026-11-25/next-source-tags-proposal.json) is proposed, NOT_RUN: identical raw documents versus source-linked proposals, exact eligible witnesses and tampered-tag rejection.
+
+[ONBOARD-12 protocol proposal](../evaluation/bubble-wrap/2026-11-25/next-onboarding-proposal.json) is NOT_RUN. Mitchell will recruit twelve first-time participants and return uncoached results. Software journeys cannot count as human observations. Freeze engine, collection, both documentation versions, tasks and rubric before human execution.
+
+**BW-BOUNDED-TRANSITION:** [21original positive witness keys and raw readback](../evaluation/bubble-wrap/2026-11-25/bounded-transition/README.md), [versioned host audit](../tools/verify_bounded_reported_content.py), [tampering controls](../tests/test_bounded_report_audit.py). Origin PR103; source-scoped reporting versus independent authorship. Original v1 failure retained; full rerun pending.

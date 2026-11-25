@@ -1,0 +1,496 @@
+{
+  "schema": "mplpb-bubble-and-wrap-proposal-v1",
+  "status": "DESIGN_ONLY_NOT_EXECUTED",
+  "name": "Bubble and Wrap",
+  "scope": {
+    "history": "PR metadata from #1 through #103: 102 pull requests; #15 is not a PR in the retrieved history. Representative implementation/tests traced; historical suites were not rerun.",
+    "proposal_pr": 103,
+    "proposal_head": "5bef945e401f96a6422bb8c468932d330b705fc4",
+    "native_baseline": "851de6c093394060ce624eb63ba72400b047a7ce",
+    "note": "Reconcile actual current PR head and report before implementation. Do not restart completed #101 or #102 cycles."
+  },
+  "meaning": {
+    "bubble": "Execute only approved native runtime and sanitized public case inputs within the existing Linux Bubblewrap isolation; no scorer, key, generator, repository metadata, credentials or host network.",
+    "wrap": "Surround each reproduced failure mechanism with contrasting role, polarity, state, budget, interface and preservation controls."
+  },
+  "patterns": [
+    {
+      "id": "authority",
+      "prs": [
+        1,
+        11,
+        38,
+        40,
+        50,
+        53,
+        100,
+        101
+      ],
+      "finding": "A relationship, embedded text, receipt or pin gains authority without validating the prerequisites for that specific use.",
+      "test": "Invalid successors, quoted/embedded role declarations, stale receipts/pins and retired/restricted originals must not gain source authority."
+    },
+    {
+      "id": "question_forms",
+      "prs": [
+        2,
+        4,
+        5,
+        18,
+        57,
+        58,
+        74,
+        102,
+        103
+      ],
+      "finding": "Equivalent question forms stop before the same valid evidence operation; normalization can also discard qualifiers.",
+      "test": "Compare meaning-preserving question variants against one evidence obligation; preserve the full original question for policy and qualification checks."
+    },
+    {
+      "id": "voice_polarity_modality",
+      "prs": [
+        6,
+        17,
+        24,
+        28,
+        45,
+        56,
+        97,
+        101,
+        102,
+        103
+      ],
+      "finding": "Writer, reporter and actor, inner and outer negation, or instruction and execution can be conflated; blanket withholding also loses supported denials/reports.",
+      "test": "Score reporter/content roles and inner/outer polarity separately; reported content must not prove independent event/authorship."
+    },
+    {
+      "id": "obligation_composition",
+      "prs": [
+        43,
+        45,
+        56,
+        59,
+        78,
+        87,
+        92,
+        95,
+        101,
+        103
+      ],
+      "finding": "One supported part can hide missing chronology, unchanged content, identity or connecting witnesses.",
+      "test": "Keep each supported claim, missing obligation and conflict visible; completion requires every requested obligation."
+    },
+    {
+      "id": "discovery_vs_proof_budget",
+      "prs": [
+        21,
+        52,
+        54,
+        58,
+        77,
+        86,
+        89,
+        92,
+        103
+      ],
+      "finding": "Retrieval success can be mistaken for proof; bounded scans can omit required or competing evidence.",
+      "test": "Measure discovery and verification separately, preserve explicit budget stops, and test added counterevidence."
+    },
+    {
+      "id": "execution_accounting",
+      "prs": [
+        12,
+        13,
+        14,
+        17,
+        58,
+        83,
+        103
+      ],
+      "finding": "A launched worker, successful wrapper exit, candidate build or partial log can be reported as completed execution or deployed success.",
+      "test": "Use planned/attempted/completed/failed/not-run/unscored counts; reject isolation failures, missing outputs, mismatched hashes and incomplete gate logs."
+    },
+    {
+      "id": "transfer_custody",
+      "prs": [
+        1,
+        42,
+        54,
+        58,
+        69,
+        78,
+        86,
+        93,
+        94,
+        102,
+        103
+      ],
+      "finding": "Template reuse and visible same-operator generation limit transfer and independence claims.",
+      "test": "Freeze code and inputs, keep keys outside workers, document who saw templates/instances, consume transfer after exposure and retain misses."
+    }
+  ],
+  "first_cycle": {
+    "name": "source-scoped reported content and polarity",
+    "existing_freeze": "evaluation/current-failure-inventory/proposal/freeze.json",
+    "rule": "evaluation/current-failure-inventory/proposal/rule.md",
+    "old_failures": [
+      "DP00196",
+      "DP00284",
+      "POLE-f2d6d27cee88948d-00005",
+      "POLE-f2d6d27cee88948d-00007",
+      "POLE-f2d6d27cee88948d-00011"
+    ],
+    "existing_development": 20,
+    "primary_targets": 10,
+    "sealed_transfer": 24,
+    "instruction": "Use the existing frozen proposal. Do not open its transfer instances/key/generator to design supplementary cases. Candidate repair: common source-scoped report-content goal plus native role and scoped-polarity verification.",
+    "claims": [
+      {
+        "source": "Lina reported that Hugo wrote the register.",
+        "outer_polarity": "affirmative",
+        "inner_polarity": "affirmative",
+        "independent_authorship": false
+      },
+      {
+        "source": "Lina reported that Hugo did not write the register.",
+        "outer_polarity": "affirmative",
+        "inner_polarity": "negative",
+        "independent_authorship": false
+      },
+      {
+        "source": "Lina did not report that Hugo wrote the register.",
+        "outer_polarity": "negative",
+        "inner_polarity": "unasserted",
+        "independent_authorship": false
+      },
+      {
+        "source": "If asked, Lina would report that Hugo wrote the register.",
+        "outer_polarity": "conditional_unestablished",
+        "inner_polarity": "unasserted_as_fact",
+        "independent_authorship": false
+      }
+    ],
+    "additive_development_matrix": {
+      "count": 32,
+      "construction": "4 source mechanisms x 2 question purposes x 4 contexts. Freeze key before native edits; preserve original 20-case freeze separately.",
+      "question_purposes": [
+        "Ask exactly what this source says about the named reporting act/content, retaining denial/condition",
+        "Ask for independent actual authorship or occurrence, which report-only evidence does not establish"
+      ],
+      "contexts": [
+        "Standalone complete original",
+        "Different explicit document writer around the same reporting clause",
+        "Unrelated balanced quotation and innocuous noun 'reports' outside the witness",
+        "Distinct eligible conflicting appearance; keep each source voice and block an unqualified combined answer"
+      ],
+      "expected": "Derive every expected claim, partial, conflict or withhold from source evidence and requested layer. No forced positive/negative counts. Conditional content cannot answer an unconditional event/report occurrence as complete.",
+      "reserved": "Keep the already-reserved transfer constructions out of supplemental development."
+    },
+    "certificate_fields": [
+      "source_writer_or_unknown",
+      "reporter",
+      "attributed_actor",
+      "inner_action",
+      "object",
+      "outer_polarity",
+      "inner_polarity_or_unasserted",
+      "conditions",
+      "source_voice_and_reporting_layer",
+      "canonical_and_original_witness_coordinates",
+      "current_source_hash_and_policy",
+      "unresolved_obligations",
+      "actual_authorship_or_execution_established_false"
+    ],
+    "preservation": {
+      "inventory_cases": 111,
+      "pe02_cases": 17,
+      "consumed_attribution_cases": 96,
+      "focused_controls": 56,
+      "overlap": "Suites overlap; report per-suite and unique case hashes; do not sum these as independent samples.",
+      "allowed_changes": "Explicit pre-frozen target allowlist admits intended source-scoped recoveries. Preserve all earlier valid propositions and all unaffected contracts apart from code fingerprints. Exact old abstentions are not an acceptance invariant for declared repair targets.",
+      "extra": "Run PR #1 status-authority, relevant integrity/admission tests and report-pin replay. Review actual test paths against selected checkout before command invocation."
+    }
+  },
+  "execution": {
+    "preflight": "MPLPB_REQUIRE_SANDBOX=1 python -m unittest tests.test_study_sandbox -v",
+    "existing_code": [
+      "tools/study_sandbox.py",
+      "tools/dpercent.py",
+      "tools/pole_worker.py",
+      ".github/workflows/study-sandbox.yml"
+    ],
+    "adapter_required": true,
+    "adapter_contract": "Add a thin orchestration adapter for the frozen proposal's existing packet/worker semantics. Do not silently feed Pole packets to the different D% schema. Use study_sandbox.command with only runtime packages + allowlisted frozen worker staged as /app; one checked public case as /study; fresh output as /output; writable disposable ledger under /scratch. Preserve Pole worker source import/projection/profile behavior. The adapter and scorer freeze before baseline/candidate comparisons.",
+    "preflight_failure": "Record BLOCKED_EXECUTION and nonzero exit; no direct-execution fallback and no counting as engine abstention. Hosted study-sandbox lane is the documented alternative. Preserve denied and successful attempts.",
+    "mount_checks": [
+      "key and generator unreadable",
+      "/app and /study unwritable",
+      "host network unavailable",
+      "cleared environment",
+      "bounded /scratch and output",
+      "outputs regular files, no symlinks"
+    ],
+    "limits": {
+      "cpu_seconds_per_case": 30,
+      "wall_seconds_per_case": 45,
+      "address_space_bytes": 2147483648,
+      "result_bytes": 8388608,
+      "scratch_bytes": 268435456,
+      "records": 8,
+      "scan_characters": 200000,
+      "units": 1000,
+      "passages": 12,
+      "output_characters": 8000,
+      "phrase_limits": "unchanged"
+    },
+    "isolation_is_not_independence": true,
+    "failed_worker": "Record attempted failure, stderr, return code and timeout; never accept partial output after failed worker. Distinguish result schema/hash/citation validation errors from semantic misses.",
+    "counting": "planned = completed + failed + not_run; attempted = completed + failed. completed = scored + unscored. Retain scored outcomes by family/layer. Never invent zeros for unexecuted semantics."
+  },
+  "patch_loop": [
+    "Verify PR/head, immutable source packet/key/rule/harness seals; stage code from committed clean baseline and candidate.",
+    "Require sandbox preflight and packet-adapter parity on already-consumed cases, then freeze harness before baseline scoring.",
+    "Run the baseline on the existing 20 plus separately frozen 32 new development controls and all preservation sets.",
+    "Group failure traces by first failing operation; implement smallest general source-role/polarity rule; no fixture IDs, generated names, keys or seeds in native branches.",
+    "Rerun identical development and preservation inputs after each candidate; archive every rejected source delta and outcome.",
+    "Commit candidate, regenerate/check handoff per AGENTS, create tracked-source ZIP, verify/extract cleanly, compare file bytes/modes and run relevant required release gates.",
+    "After candidate ZIP freeze, execute existing sealed 24 transfer instances once per frozen candidate with key outside worker. Score outside sandbox; no candidate changes after transfer.",
+    "If transfer prompts further repair, mark it consumed development, retain the failure and arrange a fresh next transfer evaluation. Do not regenerate current transfer to seek a pass.",
+    "Publish results, exact source/ZIP/runtime/harness/scorer hashes, budgets, custody limits, source witnesses and remaining misses in same authorized track."
+  ],
+  "acceptance": [
+    "All 10 frozen primary source-content targets satisfy their additive role and polarity keys.",
+    "Zero falsely supported propositions, including partial claims; no independent actual authorship/execution inferred from report-only evidence.",
+    "Every previous valid answer/partial/citation/qualification and unaffected refusal/conflict is preserved; permitted target changes are explicit.",
+    "Role/polarity/condition controls agree with their pre-frozen keys; broad-summary FRESH-05 remains visible if unresolved.",
+    "No source or runtime mutation; current eligibility and final-state checks hold; no caps raised or counterevidence silently pruned.",
+    "All planned acceptance executions complete and score; zero failed/not-run/unscored rows for an overall PASS. Known non-target semantic misses stay reported separately.",
+    "Fresh 24-case transfer meets its frozen key independently of development counts; same-operator preparation and visible templates remain disclosed.",
+    "Exact committed ZIP checks pass; published deployment only claimed after separate observed deployment verification."
+  ],
+  "not_run_labels": [
+    "independent_historical_accuracy",
+    "independent_semantic_adjudication",
+    "outside_custodian_scoring",
+    "independent_preparation",
+    "independent_blinding",
+    "native_oocc"
+  ],
+  "sources": [
+    {
+      "pr": 1,
+      "url": "https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/pull/1"
+    },
+    {
+      "pr": 2,
+      "url": "https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/pull/2"
+    },
+    {
+      "pr": 4,
+      "url": "https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/pull/4"
+    },
+    {
+      "pr": 5,
+      "url": "https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/pull/5"
+    },
+    {
+      "pr": 6,
+      "url": "https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/pull/6"
+    },
+    {
+      "pr": 11,
+      "url": "https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/pull/11"
+    },
+    {
+      "pr": 12,
+      "url": "https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/pull/12"
+    },
+    {
+      "pr": 13,
+      "url": "https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/pull/13"
+    },
+    {
+      "pr": 14,
+      "url": "https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/pull/14"
+    },
+    {
+      "pr": 17,
+      "url": "https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/pull/17"
+    },
+    {
+      "pr": 18,
+      "url": "https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/pull/18"
+    },
+    {
+      "pr": 21,
+      "url": "https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/pull/21"
+    },
+    {
+      "pr": 24,
+      "url": "https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/pull/24"
+    },
+    {
+      "pr": 28,
+      "url": "https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/pull/28"
+    },
+    {
+      "pr": 38,
+      "url": "https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/pull/38"
+    },
+    {
+      "pr": 40,
+      "url": "https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/pull/40"
+    },
+    {
+      "pr": 42,
+      "url": "https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/pull/42"
+    },
+    {
+      "pr": 43,
+      "url": "https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/pull/43"
+    },
+    {
+      "pr": 45,
+      "url": "https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/pull/45"
+    },
+    {
+      "pr": 50,
+      "url": "https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/pull/50"
+    },
+    {
+      "pr": 52,
+      "url": "https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/pull/52"
+    },
+    {
+      "pr": 53,
+      "url": "https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/pull/53"
+    },
+    {
+      "pr": 54,
+      "url": "https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/pull/54"
+    },
+    {
+      "pr": 56,
+      "url": "https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/pull/56"
+    },
+    {
+      "pr": 57,
+      "url": "https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/pull/57"
+    },
+    {
+      "pr": 58,
+      "url": "https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/pull/58"
+    },
+    {
+      "pr": 59,
+      "url": "https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/pull/59"
+    },
+    {
+      "pr": 69,
+      "url": "https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/pull/69"
+    },
+    {
+      "pr": 74,
+      "url": "https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/pull/74"
+    },
+    {
+      "pr": 77,
+      "url": "https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/pull/77"
+    },
+    {
+      "pr": 78,
+      "url": "https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/pull/78"
+    },
+    {
+      "pr": 83,
+      "url": "https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/pull/83"
+    },
+    {
+      "pr": 86,
+      "url": "https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/pull/86"
+    },
+    {
+      "pr": 87,
+      "url": "https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/pull/87"
+    },
+    {
+      "pr": 89,
+      "url": "https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/pull/89"
+    },
+    {
+      "pr": 92,
+      "url": "https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/pull/92"
+    },
+    {
+      "pr": 93,
+      "url": "https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/pull/93"
+    },
+    {
+      "pr": 94,
+      "url": "https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/pull/94"
+    },
+    {
+      "pr": 95,
+      "url": "https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/pull/95"
+    },
+    {
+      "pr": 97,
+      "url": "https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/pull/97"
+    },
+    {
+      "pr": 100,
+      "url": "https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/pull/100"
+    },
+    {
+      "pr": 101,
+      "url": "https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/pull/101"
+    },
+    {
+      "pr": 102,
+      "url": "https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/pull/102"
+    },
+    {
+      "pr": 103,
+      "url": "https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/pull/103"
+    }
+  ],
+  "test_index": {
+    "instruction": "Extend the existing docs/TEST_INDEX.md and docs/results.json; preserve existing stable identifiers and historical entries. Add Bubble and Wrap as a new evaluation family with links to its frozen subtests, source history and shared rules.",
+    "machine_index": "Reuse or extend the existing machine-readable result inventory; add a dedicated test manifest only where current schema cannot express case/variant/claim/preservation relationships. Link rather than duplicate frozen evidence.",
+    "fields": [
+      "stable_family_id",
+      "stable_case_and_variant_ids",
+      "failure_mechanism",
+      "protected_rule_or_operation",
+      "originating_pr_and_test_path",
+      "source_packet_hash",
+      "baseline_commit",
+      "candidate_commit",
+      "tested_zip_sha256",
+      "harness_and_scorer_hashes",
+      "role_and_polarity_obligations",
+      "expected_claim_partial_conflict_or_withhold",
+      "development_or_consumed_or_fresh_transfer",
+      "custody_and_exposure_status",
+      "budgets",
+      "reproduction_command",
+      "raw_output_and_score_paths",
+      "execution_status",
+      "semantic_outcome",
+      "known_limitations",
+      "preservation_parent_ids",
+      "permitted_target_changes"
+    ],
+    "statuses": "Separate PLANNED, FROZEN, RUNNING, COMPLETED, FAILED_EXECUTION, BLOCKED, NOT_RUN and UNSCORED from semantic support/miss/partial/conflict/withhold outcomes.",
+    "execution_log": "Append a new immutable run record for each pin/attempt; never overwrite an older result or relabel exposed transfer as fresh.",
+    "views": [
+      "by failure class",
+      "by native shared rule",
+      "by source/test family and originating PR",
+      "by current reader pin",
+      "by unresolved misses or false support",
+      "by custody and transfer exposure"
+    ],
+    "acceptance": "Every planned case has an index entry; every claimed result resolves to pinned inputs, raw output and score; dangling paths, changed seals, duplicate IDs, omitted attempts or planned-as-passed entries fail the index audit. Unexecuted independent metrics remain NOT_RUN.",
+    "update_each_cycle": "Update the human index, machine index and handoff together; distinguish historical scores from current-reader reruns. Do not sum overlapping suites."
+  }
+}

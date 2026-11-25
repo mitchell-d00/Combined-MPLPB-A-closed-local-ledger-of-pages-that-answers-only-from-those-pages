@@ -1,0 +1,39 @@
+{
+  "tested_source": "7f6641dd979ab3f4df5c3ddfbfc28961c095b016",
+  "archive_sha256": "f5be70718a1454171005493eba452e8fbd0602f3195e5325f57dd268840f8162",
+  "extracted_files_matched": 20714,
+  "development": {
+    "scored": 280,
+    "passed": 280,
+    "false_supported_claim_cases": 0,
+    "score": "continuation/zip-score.json"
+  },
+  "fresh_transfer": {
+    "baseline_passed": 16,
+    "candidate_passed": 24,
+    "cases": 24,
+    "positives": 12,
+    "withholds": 12,
+    "false_supported_claim_cases": 0,
+    "candidate_executions_per_case": 1,
+    "host_preparation_failure": "attempts/0007-fresh-transfer-host-path.json",
+    "resume": "Same frozen source and key; absolute paths; no reader case executed in failed preparation."
+  },
+  "archive_gates": {
+    "full_native_tests": 1810,
+    "full_native_exit_code": 0,
+    "software_commands": 15,
+    "public_controls": 52,
+    "node_wasm": "PASS",
+    "published_old_baseline_chromium": "PASS",
+    "candidate_chromium_with_local_document_workflow": "PASS"
+  },
+  "publication_head_ci": "PENDING",
+  "merge_and_deployed_main": "PENDING",
+  "independent_historical_accuracy": "NOT_RUN",
+  "independent_semantic_adjudication": "NOT_RUN",
+  "independent_preparation": "NOT_RUN",
+  "independent_blinding": "NOT_RUN",
+  "outside_custodian_scoring": "NOT_RUN",
+  "native_oocc": "NOT_RUN"
+}

@@ -1,0 +1,60 @@
+{
+  "integrity": {
+    "registered_cases": 256,
+    "unique_semantic_input_hashes": 256,
+    "overlap_hashes": {},
+    "original_proposal_cases": 20,
+    "primary_targets": 10,
+    "immutable_run_records": 22,
+    "audited_execution_records": [
+      "evaluation/bubble-wrap/2026-11-25/runs/parity-001/run.json",
+      "evaluation/bubble-wrap/2026-11-25/runs/parity-002/run.json",
+      "evaluation/bubble-wrap/2026-11-25/runs/baseline-001/run.json",
+      "evaluation/bubble-wrap/2026-11-25/runs/candidate-001/run.json"
+    ],
+    "private_originals_or_receipts": 17,
+    "scope": "Integrity/accounting audit; not independent semantic adjudication"
+  },
+  "versioned_scores": [
+    {
+      "record": "evaluation/bubble-wrap/2026-11-25/baseline-score-v3.json",
+      "source_commit": "5bef945e401f96a6422bb8c468932d330b705fc4",
+      "counts": {
+        "scored": 256,
+        "passed": 230,
+        "complete": 63,
+        "partial": 6,
+        "claims": 80,
+        "false_supported_claim_cases": 0,
+        "misses": 26,
+        "budget_stops": 0,
+        "failed": 26
+      },
+      "acceptance_passed": false,
+      "remaining_non_target_incomplete_positives": 28
+    },
+    {
+      "record": "evaluation/bubble-wrap/2026-11-25/candidate-001-score-v3.json",
+      "source_commit": "uncommitted-candidate-001",
+      "counts": {
+        "scored": 256,
+        "passed": 256,
+        "complete": 85,
+        "partial": 6,
+        "claims": 110,
+        "false_supported_claim_cases": 0,
+        "misses": 0,
+        "budget_stops": 0
+      },
+      "acceptance_passed": true,
+      "remaining_non_target_incomplete_positives": 28
+    }
+  ],
+  "scope": "Frozen source-role targets and preservation; not all old questions answered or independently adjudicated",
+  "independent_historical_accuracy": "NOT_RUN",
+  "independent_semantic_adjudication": "NOT_RUN",
+  "independent_preparation": "NOT_RUN",
+  "independent_blinding": "NOT_RUN",
+  "outside_custodian_scoring": "NOT_RUN",
+  "native_oocc": "NOT_RUN"
+}

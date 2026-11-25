@@ -2,3 +2,8 @@
 *.zip binary
 # Byte-pinned originals supplied to the blind AI assessment retain source layout.
 evaluation/solo-milestone/2026-11-17/ai-assessment/documents/* -text -whitespace
+
+# Frozen inventory sources retain original CRLF/layout; hashes are audited.
+evaluation/current-failure-inventory/**/sources/* -text -whitespace
+# Verbatim maintainer relay retains its original Markdown line breaks.
+evaluation/current-failure-inventory/maintainer-direction.md -text -whitespace

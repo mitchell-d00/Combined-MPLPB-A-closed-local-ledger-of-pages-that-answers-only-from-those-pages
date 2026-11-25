@@ -1,0 +1,19 @@
+{
+  "status": "FAILED_HOST_PREPARATION",
+  "execution_status": "NOT_EXECUTED",
+  "reader_executions": 0,
+  "candidate_commit": "7f6641dd979ab3f4df5c3ddfbfc28961c095b016",
+  "exception": "ValueError: relative destination is not in the subpath of absolute repository ROOT; packet.relative_to(ROOT)",
+  "original_once_lock": {
+    "candidate_commit": "7f6641dd979ab3f4df5c3ddfbfc28961c095b016",
+    "archive_sha256": "f5be70718a1454171005493eba452e8fbd0602f3195e5325f57dd268840f8162",
+    "transfer_seal_sha256": "a27367dd1f992acd4fa893a151b5e28fefa1566385b50c4aba916f49b9b60906",
+    "candidate_runs_authorized": 1,
+    "source_not_to_change_after_packet_open": true,
+    "independent_preparation": "NOT_RUN"
+  },
+  "original_lock_sha256": "875bad0659f0f8282380bdd37640ad41e8e44f98ee60d36b187c88aafbb273ff",
+  "exposure": "First input and full key opened after committed candidate freeze; no implementation change follows exposure. Same-operator transfer, no independent blinding.",
+  "recovery": "Retain partial directory and original lock. Invoke unchanged frozen driver with absolute paths and separate create-only execution-resume marker. Run candidate exactly once.",
+  "native_edits_after_open": false
+}
