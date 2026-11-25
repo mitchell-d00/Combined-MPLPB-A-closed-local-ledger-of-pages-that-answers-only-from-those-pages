@@ -1,64 +1,64 @@
 # Repository handoff
 
-Last reviewed: 2026-11-24.
+Last reviewed: 2026-11-25.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `8c5b909389bb61e8a91e56bb7ce692fee24d2439` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `3c7e988f63600afe42e9215ae4b6459461732b885dc54f9abf42448cf9be7262`.
+Base commit: `1b963aea9ce14d207ec2f6b645912c3a7c98cdd9` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `adb4c7ea1c535ac6d35537c8f82f2f85fe0f4e0707ef12e300d1b931699f65dd`.
 
 ## Latest user update instructions
 
-Continue the public MPLPB Pole training loop on pin 623f3c4abb38499020df193b037d303d3a329a7f.
+Continue the public MPLPB Pole training loop on pin 1b963aea9ce14d207ec2f6b645912c3a7c98cdd9.
 
 Prior results (keep frozen):
-- FRUS-Boundary: four fresh FRUS cases. Both anchors 4/4. Strict Ask 0/4 complete. Partials 0. Controls 4/4 withheld. Zero false-supported bridges. Native checker admitted no proposition-level proof. Blocker traced to native proposition and attribution admission.
-- BT-Erratum 1/1 complete. Both tested DHS relations complete. Focus-12 still 0/12. Scan/phrase caps and Komnene mapping checks unchanged. Independent historical accuracy, outside scoring, and native OOCC remain NOT_RUN.
+- FRUS-Proposition: same four FRUS cases. Discovery 4/4. Exact enclosing native units sent to verifier. Verifier rejected all 16 action/relationship proposals. Strict Ask 0/4. Zero partials. 4/4 controls withheld. Zero false-supported bridges.
+- Retained: Tacitus 3/6, Douglass 6/12, both DHS complete, BT-Erratum 1/1, Babbage caps, Komnene packet sealed (scoring NOT_RUN), Focus-12 0/12.
+- Independent historical accuracy, outside-custodian scoring, independent semantic adjudication, and native OOCC remain NOT_RUN.
 
-Goal: force a decision on the proposition/attribution admission gap for the same four frozen FRUS cases. Do not add new cases. Do not raise scan or phrase caps. Preserve all previously closed results. Do not claim independent historical accuracy or native OOCC.
+Goal: test whether one single proposition class can be certified on these four frozen cases while preserving speaker, reporting layers, and modality. Freeze the cases and any new negative control before scoring. Do not raise scan or phrase caps. Preserve all previously closed results. Do not claim independent historical accuracy or native OOCC.
 
 Run one named test:
 
-1. FRUS-Proposition
-   - Use the same four frozen FRUS cases (and their existing negative controls) from FRUS-Boundary.
-   - Write and freeze one candidate rule that either:
-     (a) admits a proposition-level proof by binding the required attributions and relations to exact witnesses already present in the eligible originals, with unique resolution, chronological order where applicable, and existing budget checks, or
-     (b) correctly withholds because proposition or attribution admission cannot be established under the current native rules.
-   - Score discovery and Strict Ask separately.
+1. FRUS-SingleClass
+   - Use the same four frozen FRUS cases (PE-01 through PE-04) and their existing negative controls.
+   - Select exactly one proposition class (choose the one with the clearest existing witnesses: attributed institutional assessment, author's intent/delegation, attributed account with conditional recommendation, or named advice with separately reported first-person presentation).
+   - Write and freeze one candidate rule that admits only that class by binding the required speaker, reporting layer, and modality to exact witnesses already present in the eligible originals. Require unique resolution, chronological order where applicable, and existing budget checks.
+   - Add one new negative control that matches the surface form but lacks the required speaker, reporting layer, or modality witness. Freeze it before scoring.
+   - Score discovery, proposition admission, and complete Strict Ask separately.
    - Zero false-supported bridges allowed.
-   - Report complete, partial, or correct withhold for each case, and the exact reason for any remaining withhold.
+   - Report complete, partial, miss, expected withhold, and the exact witness used (or the exact reason for withhold) for the chosen class.
 
 After the test:
-- Write the rule that was added (or the explicit withhold condition).
+- Write the single-class rule (or the explicit withhold condition).
 - Update the open-items README with before/after counts for these four cases only.
-- Leave the original 12 focus cases, the scan/phrase limits, outside scoring, independent historical accuracy, and native OOCC marked NOT_RUN or open as they currently stand.
+- Leave Focus-12, scan/phrase limits, outside scoring, independent historical accuracy, and native OOCC marked NOT_RUN or open as they currently stand.
 - Commit the frozen cases, results, and rule under a new public pin.
 
-Return the result table for FRUS-Proposition, the rule text, the updated open-item list, the new commit hash, and the archive SHA-256.
+Return the result table for FRUS-SingleClass, the rule text, the updated open-item list, the new commit hash, and the archive SHA-256.
+Browser release validation remains the maintainer’s priority until the deployed smoke on PR #93 is cleared. The reader repair above is the next falsifiable step on the Pole track.
 
 ## Implemented scope
 
-- Refreeze the four FRUS comparisons and original controls on the requested public pin.
-- Run Strict Ask on the unchanged inputs and independently probe native action and relationship admission on their exact full source units.
+- Freeze the original eight FRUS cases and one wrong-speaker control.
+- Implement one bounded native partial for source-reported named advice with an exact upcoming-trip witness.
 
 ## Validation recorded
 
-- Discovery stayed at 4/4 pairs. Strict Ask remained at 0/4 complete with four answerable misses, zero partials, and all four controls correctly withheld.
-- All 16 exact-unit proposals were rejected by the current checker. Four source rereads completed without a cap hit. Existing extraction emitted no letter-instruction proposal for PE-02.
-- The initial assessor invocation misspelled the existing propose entry point and failed before scoring. The corrected invocation completed with the same frozen inputs and rule.
-- The native runtime and prior named evidence files match the pin. No false-supported bridge occurred.
-- The exact extracted source reproduced all eight decisions and 16 kernel rejections, ran 1,727 Python tests with 2 skips, and passed the 52 public evidence controls, wheel, JavaScript, Pyodide and Chromium checks.
-- A source-only Strict Ask worker reproduced the original receipt. Its OS isolation flag remained false and it received no custody path.
+- Independent positive wording failed on the baseline and passed under the same rule. Unit refusal checks held.
+- The first rule trial withheld because it missed the possessive form. Its readback is retained.
+- Discovery stayed 4/4, complete answers stayed at 0/4, and PE-04 moved from miss to one checked partial. All five controls withheld with zero claims.
+- The 52 public evidence checks passed on the candidate runtime.
 
 ## Limitations and blocked checks
 
-- The test supplies evaluator-verified source coordinates to the kernel after the unchanged worker run. This diagnostic is separate from Strict Ask.
-- The four positive comparisons remain answerable misses. The classifier introduces no native proof grammar.
-- Outside scoring, independent historical accuracy, independent semantic adjudication and native OOCC remain NOT_RUN.
+- The separately reported presentation in PE-04 and the other three comparisons remain open.
+- Focus-12 and scan and phrase limits remain open. Outside scoring, independent historical accuracy, independent semantic adjudication and native OOCC remain NOT_RUN.
+- PR #93 is a separate browser release with a separate exact head.
 
 ## Next steps
 
-- Native admission for attributed evaluations, forecasts, intent, advice and nested reports remains open.
+- Review new advice forms and separately reported presentation evidence in a future independently frozen round.
 
 ## Use this ZIP in your repository
 

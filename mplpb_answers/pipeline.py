@@ -537,6 +537,9 @@ def _answer_query(root, question, profile=None, *, mode, reader, min_confidence,
         if bounded_scope:
             from .bounded_records import verify
             scoped = verify(index)
+            if scoped is None:
+                from .documentary_advice import verify as verify_advice
+                scoped = verify_advice(index, max_passages, max_chars)
             if scoped is not None:
                 kind, code, evidence = scoped
                 if not index.unchanged():

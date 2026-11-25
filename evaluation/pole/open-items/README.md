@@ -1,6 +1,6 @@
 # Pole follow-up · named tests for reconstruction gaps
 
-Last reviewed: 2026-11-24.
+Last reviewed: 2026-11-25.
 
 The study preserves the original Pole replay. Its priority is partial corrections
 and multi-document proof. The baseline was the original Pole implementation at
@@ -155,6 +155,14 @@ existing controls correctly withheld. The native checker rejected all
 reached and no false-supported bridges.
 [Case decisions and withhold condition](frus-proposition/README.md)
 
+## FRUS-SingleClass
+
+Native discovery stayed at **4/4** and Strict Ask stayed at **0/4 complete**.
+PE-04 gained one cited partial for named advice. The separately reported
+presentation remains unresolved. The other three comparison misses retained
+their outcomes. All five controls withheld and false-supported bridges were zero.
+[Case decisions and bounded advice rule](frus-singleclass/README.md)
+
 ## Open items
 
 - All 12 original focus cases remain open, including date roles, reported
@@ -163,7 +171,9 @@ reached and no false-supported bridges.
   originals remain open. The four fresh FRUS cases have both anchors available
   after projection. FRUS-Boundary traced the remaining blocker to native
   proposition and attribution admission. FRUS-Proposition found that
-  directly supplying the exact source units still produced no certificates. The earlier ten cases stay
+  directly supplying the exact source units still produced no certificates.
+  FRUS-SingleClass admitted one named-advice proposition. The four complete
+  comparisons remain open. The earlier ten cases stay
   frozen. The scoped repository erratum and both tested DHS
   relations now have complete development proofs.
 - Phrase-token and repeated phrase-group limits and loss of complete literal
