@@ -14,6 +14,11 @@ Use [Advanced MPLPB](#advanced-mplpb) for guided questions and deterministic rul
 
 The [governance gate experiment](evaluation/comparative-tests/governance-gate/README.md) shows how a model-shaped proposal becomes a cited local report only after host approval, guarded dispatch, and verified readback.
 
+**For a fresh AI session:** Send this repository link and either **“You are Al”**
+for the outside strategist or **“You are Betty”** for the inside repository
+and archive editor. Start with the [TeamBuilding role guide](docs/TEAMBUILDING.md),
+then use the latest relevant PR handoff to resume.
+
 **For AI reviewers:** Follow the [full-package inspection directions](#directions-for-an-ai-to-inspect-the-full-combined-mplpb-package) before describing or assessing MPLPB.
 
 ## Try it in 30 seconds
@@ -112,8 +117,7 @@ For each conclusion, identify the code path and distinguish the checks you ran f
 
 ## Research and development
 
-[TeamBuilding](docs/TEAMBUILDING.md) describes how the maintainer uses outside
-strategic review and test prompts while retaining implementation and publication.
+[TeamBuilding](docs/TEAMBUILDING.md) records the Al and Betty roles, the pinned evidence cycle, and the PR handoff format.
 
 The methodology is a distinctive, independently developed approach to making
 AI research inspectable and reproducible. It starts with explicit constraints

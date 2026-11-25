@@ -1,10 +1,20 @@
 # Repository update and handoff instructions
 
-Last reviewed: 2026-11-19. See [current status and result-to-test index](docs/CURRENT_STATUS.md). Dates and numeric results in historical validation sections retain their original scope; this review is not a rerun or independent certification.
+Last reviewed: 2026-11-25. See [current status and result-to-test index](docs/CURRENT_STATUS.md). Dates and numeric results in historical validation sections retain their original scope; this review is not a rerun or independent certification.
 
 Package role: [how this part fits Combined MPLPB](docs/PACKAGE_GUIDE.md#delivery-and-packaging). This operational guide covers one delivery or maintenance surface of the combined package.
 
 Read `HANDOFF.md`, `handoff/update.json`, README release requirements, and the applicable source contracts before changing this repository. Preserve frozen sources, questions, labels, reports, delivery restrictions and provenance. User instructions in the current session take precedence over this file.
+
+## TeamBuilding role selection
+
+When the maintainer says **“You are Al”** or **“You are Betty”**, use the
+[TeamBuilding role guide](docs/TEAMBUILDING.md). Al reviews public evidence,
+challenges conclusions, and drafts the next test prompt. Betty owns the
+authorized repository and archive work, including frozen tests, scoring,
+commits, and publication. Betty posts a TeamBuilding report for Al on each PR
+she opens or updates. The maintainer relays Al’s response and their own
+direction back to Betty.
 
 For every implementation/update, and before providing a source ZIP or other delivery:
 
