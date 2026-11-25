@@ -15,13 +15,22 @@
       "family": "MOTHMAN",
       "id_prefix": "CRYPT-MOTHMAN",
       "mechanism": "Explicit documentary dates fail to bind to their stated roles; writing is not transmission or occurrence.",
-      "status": "PLANNED",
+      "status": "BASELINE_COMPLETED",
       "responsible_department": "testing-evaluation",
       "implementation_departments": [
         "reader",
         "ledger"
       ],
-      "runtime_labels_are_rules": false
+      "runtime_labels_are_rules": false,
+      "baseline": {
+        "cases": 28,
+        "decisions_passed": 17,
+        "positive_misses": 11,
+        "false_support": 0,
+        "reader_commit": "c01021c0b9983f9a607fbe782dea7ed5872d1f11",
+        "raw": "mothman/runs/baseline/run.json",
+        "score": "mothman/scores/baseline.json"
+      }
     },
     {
       "order": 3,
