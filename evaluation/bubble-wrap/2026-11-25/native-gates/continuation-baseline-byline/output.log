@@ -1,0 +1,42 @@
+test_competing_writer_labels_do_not_disappear (tests.test_documentary_byline_units.DocumentaryBylineTests.test_competing_writer_labels_do_not_disappear) ... ok
+test_condition_on_the_byline_cannot_be_pruned (tests.test_documentary_byline_units.DocumentaryBylineTests.test_condition_on_the_byline_cannot_be_pruned) ... ok
+test_leading_conditional_fragment_cannot_be_pruned (tests.test_documentary_byline_units.DocumentaryBylineTests.test_leading_conditional_fragment_cannot_be_pruned) ... ok
+test_punctuated_byline_preserves_existing_support (tests.test_documentary_byline_units.DocumentaryBylineTests.test_punctuated_byline_preserves_existing_support) ... ok
+test_quoted_document_cannot_supply_unqualified_authority (tests.test_documentary_byline_units.DocumentaryBylineTests.test_quoted_document_cannot_supply_unqualified_authority) ... ok
+test_separate_conditional_with_period_remains_a_governor (tests.test_documentary_byline_units.DocumentaryBylineTests.test_separate_conditional_with_period_remains_a_governor) ... FAIL
+test_unpunctuated_recorder_is_not_part_of_the_speaker (tests.test_documentary_byline_units.DocumentaryBylineTests.test_unpunctuated_recorder_is_not_part_of_the_speaker) ... FAIL
+test_unpunctuated_writer_before_an_attributed_quote (tests.test_documentary_byline_units.DocumentaryBylineTests.test_unpunctuated_writer_before_an_attributed_quote) ... FAIL
+test_writer_cannot_acquire_the_reporters_statement (tests.test_documentary_byline_units.DocumentaryBylineTests.test_writer_cannot_acquire_the_reporters_statement) ... ok
+
+======================================================================
+FAIL: test_separate_conditional_with_period_remains_a_governor (tests.test_documentary_byline_units.DocumentaryBylineTests.test_separate_conditional_with_period_remains_a_governor)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/failure-inventory/tests/test_documentary_byline_units.py", line 62, in test_separate_conditional_with_period_remains_a_governor
+    self.withhold()
+  File "/workspace/failure-inventory/tests/test_documentary_byline_units.py", line 24, in withhold
+    a=self.ask();self.assertFalse(a['answer_supported']);self.assertEqual(a['claims'],[])
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: True is not false
+
+======================================================================
+FAIL: test_unpunctuated_recorder_is_not_part_of_the_speaker (tests.test_documentary_byline_units.DocumentaryBylineTests.test_unpunctuated_recorder_is_not_part_of_the_speaker)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/failure-inventory/tests/test_documentary_byline_units.py", line 28, in test_unpunctuated_recorder_is_not_part_of_the_speaker
+    a=self.ask();self.assertTrue(a['answer_supported']);p=a['claims'][0]['proposition']
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: False is not true
+
+======================================================================
+FAIL: test_unpunctuated_writer_before_an_attributed_quote (tests.test_documentary_byline_units.DocumentaryBylineTests.test_unpunctuated_writer_before_an_attributed_quote)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/failure-inventory/tests/test_documentary_byline_units.py", line 33, in test_unpunctuated_writer_before_an_attributed_quote
+    self.assertTrue(self.ask()['answer_supported'])
+AssertionError: False is not true
+
+----------------------------------------------------------------------
+Ran 9 tests in 0.231s
+
+FAILED (failures=3)

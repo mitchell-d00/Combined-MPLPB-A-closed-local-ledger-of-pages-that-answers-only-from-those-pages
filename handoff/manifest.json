@@ -1,5 +1,5 @@
 {
-  "base_revision": "204a7d3019d1073c6d4259bd1fa0a35f6f0582f8",
+  "base_revision": "d0496304d7dd8a7ed0d5ae77d77e12aa6b0272cb",
   "files": {
     ".gitattributes": "2e7eea36014410eae72f6f6a896086381df7dabd52d0893bd411812985a680a3",
     ".github/workflows/bounded-documentary-acceptance.yml": "858a8423ed386e8e79091141499cd326797f64285679e70bcc007367e6dcfffc",
@@ -780,6 +780,8 @@
     "evaluation/bubble-wrap/2026-11-25/candidate-001-source.json": "8c458c8c5bc5af80684b3ebfc2b30ec922ac32385e9a418d5bc628d0517b0303",
     "evaluation/bubble-wrap/2026-11-25/candidate-freeze.json": "d6c9a663ae6e93b8cc16aab668ea31391a2b90f88c209cb2c3b2f1282fb37eba",
     "evaluation/bubble-wrap/2026-11-25/candidate-zip-score-v3.json": "ba723ab9ca03656670874bee23294ea699c44f91e5eaaa1fdaf25a2d9204ec8b",
+    "evaluation/bubble-wrap/2026-11-25/continuation/baseline-score.json": "9d03c4d6169e2b592c3f735e3615b96b95216759aec4db4f45db95ddbea5dc73",
+    "evaluation/bubble-wrap/2026-11-25/continuation/byline-tests-freeze.json": "33c31803556ed98ed9f09742ebd1268663cc742ee694b368776a6419fc9ae949",
     "evaluation/bubble-wrap/2026-11-25/continuation/development.json": "7e510075ee2ddb9bf7ae9888ce8ac20c7277af483e3ee2ef49251a4829d19400",
     "evaluation/bubble-wrap/2026-11-25/continuation/freeze.json": "b27ef8ea3a92c6c4744b4549052b61a4ff29cf563777698ee88a10afecd00ef4",
     "evaluation/bubble-wrap/2026-11-25/continuation/scoring-key.json": "3cf98e64467819429dae62ece21216cacc601c7b7f9c624881b60e5ac8d392c1",
@@ -853,6 +855,8 @@
     "evaluation/bubble-wrap/2026-11-25/native-gates/candidate-001-guards/record.json": "ce70cc619e5fbe364c8c64ae1fa70984dbfb04f9d20ddcd347cd472be26d0911",
     "evaluation/bubble-wrap/2026-11-25/native-gates/candidate-001-integrity/output.log": "51cf000488e712c5cc9a6bc87ee6d772a4bfe0490e77d83c71de1fb6292e5ff7",
     "evaluation/bubble-wrap/2026-11-25/native-gates/candidate-001-integrity/record.json": "f109d4fd8ff156d957f4fa807eca23625bec73449bb9f5b72a6831580c9edeaa",
+    "evaluation/bubble-wrap/2026-11-25/native-gates/continuation-baseline-byline/output.log": "95bd281d8aaf3b2949f1d9ef9324d886c1703cc268728c92578c8cdecbce56d1",
+    "evaluation/bubble-wrap/2026-11-25/native-gates/continuation-baseline-byline/record.json": "25c5f8ef3086ea86c4c1b4b0311cc4aac04d9578975abc81bba806823e68c1b9",
     "evaluation/bubble-wrap/2026-11-25/native-test-registry.json": "d2b9d128310cd4aee7e9f6b95782ae02334e2d461bad98b75de0a47377bc7c9a",
     "evaluation/bubble-wrap/2026-11-25/preservation-references/BW-ATTR-development-D001.json": "046b913e57d8aaeaad00171bd6ea56f4fa54b5bca8bffe34ba75907ed0fe4b81",
     "evaluation/bubble-wrap/2026-11-25/preservation-references/BW-ATTR-development-D002.json": "d5968d0556d01797b6cfc7424455b6796a66eba0e83802cc2c5dd44bf1e6488f",
@@ -14608,7 +14612,7 @@
     "examples/topics/rpg-history/rpg-0005.html": "2956f78d0b658c157420d18478b6b2e2c14a9ab57a9bf84d3ed2d0068432ce15",
     "handoff/duplicate-source-members.json.gz": "8a249d11bd38cc296d05caf825a0b73b7a23f484b8849bf8c6c45f488b4ca899",
     "handoff/duplicate-source-retention.json": "92d95befcc8617be4a19e5135547d7bacae4b968d3b07f55cd69498d24dd6529",
-    "handoff/update.json": "364878b8062d6d820057054c9e1fbe3040530185dc1aac71fae1003a2c0a74a4",
+    "handoff/update.json": "80731e2578381a7d27f62673fc6792386fd204f4e383da2bcbd1d87a0e75bacb",
     "index.html": "640676470abdbc6ae12aa04b7279c9c6283a5168520c94838e1faf9ab06c4b05",
     "killtest/probes.json": "fd0f8b1d61a206dcbb612fdc7503ab339a09ec02aebf576b27554c1fb4cb9076",
     "killtest/probes.sha256": "1c4556f219981adb7902c593d3c2204a66327bbb3f6f3d578b4f2308aa2c3b3d",
@@ -15295,6 +15299,7 @@
     "tests/test_dice_bag.py": "f8624491c2329072b04be738c2bf4af5073777833f6857003c9ac7fc79623bad",
     "tests/test_documentary_article.py": "c3a9d1772a82df7818ba10491a507ee1dccefb71c0adb46604b57b5b275d6819",
     "tests/test_documentary_assertions.py": "bf57cce25db49a7b1379d543366cae1fcff423426e9f7bccd9efc829a83ef302",
+    "tests/test_documentary_byline_units.py": "9332a1d0a156c4072e7451b6948d3f9f025b3930fbc6ad052ac879dddab97410",
     "tests/test_documentary_errata.py": "873cdfdedd4dbf8a493bf4db15a42f1fc6ec43bbfbfa11c5565509d52b600379",
     "tests/test_documentary_header_scope.py": "37756bb63503017927e9057251d5397317edc69d59eb7e2aca5c94e4d270196f",
     "tests/test_documentary_link_proofs.py": "51f424eb86bd62ffb117c94754969f4b124753071af068e617d426936585a6e6",
@@ -15645,6 +15650,6 @@
     "training/owner-work/inventory.json": "d0c1b326bbf191e4514a747fd09ad6532e9882dde175a4b13b6012997afc82b5",
     "training/owner-work/public-dataset-candidate.json": "42207d153f3e325b7435caa53bc70d75e64eca346b023b4ac733dc92ff9d6091"
   },
-  "inventory_sha256": "96612abfe72db78062eda3bbe27784d416eb79eb747582935cd8bd84289a8c54",
+  "inventory_sha256": "691174d9f39d1d1b6904c57604bf8e566de02be5c4c5122b2bbf8672f635ead5",
   "schema": "repository-handoff-v1"
 }

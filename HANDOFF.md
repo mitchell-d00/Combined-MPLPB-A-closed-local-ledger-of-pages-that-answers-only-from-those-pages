@@ -4,8 +4,8 @@ Last reviewed: 2026-11-25.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `204a7d3019d1073c6d4259bd1fa0a35f6f0582f8` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `96612abfe72db78062eda3bbe27784d416eb79eb747582935cd8bd84289a8c54`.
+Base commit: `d0496304d7dd8a7ed0d5ae77d77e12aa6b0272cb` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `691174d9f39d1d1b6904c57604bf8e566de02be5c4c5122b2bbf8672f635ead5`.
 
 ## Betty report for Al
 
@@ -57,6 +57,7 @@ Catch it all up then push everything merge to main
 - Added execution-only Bubble adapter using existing isolation machinery, separately frozen32 Wrap cases, complete-governor source-role scoring and indexed native/source-state/budget controls.
 - No native reader changes at this baseline freeze.
 - Add one native source-scoped report operation reusing existing action/policy checks, with separate writer/reporter/embedded actor, inner/outer negation and conditional status. No instruction or historical claim changes.
+- Freeze nine byline/governor contrasts and expanded280 baseline before further native repair. Fresh24 composition instances/key remain unopened.
 
 ### Validation recorded
 
@@ -73,6 +74,7 @@ Catch it all up then push everything merge to main
 - Once-only first transfer16/24 versusbaseline12/24:4positive12withhold8miss0false support. AcceptanceFAIL; originalcandidateunchanged. All24 consumed, no relabeling.
 - Fresh composition generator/seed/packet/key seals frozen before any continuation native edit. Exact instances/key remain unopened.
 - Four openPRs93,95,97,103. Reconcile diverged histories, retain later reader/evidence and integrate genuinely missing local-document browser work before tested main merge.
+- Continuation baseline280 isolated/scored:272pass8miss,0false-supported claim cases on that frozen packet set. Separately frozen9new byline/governor guards:6pass3fail, including one exposed false-supported conditional-fragment claim. Preserve that control failure; prior zero figures apply only to their stated frozen sets.
 
 ### Limitations and blocked checks
 
