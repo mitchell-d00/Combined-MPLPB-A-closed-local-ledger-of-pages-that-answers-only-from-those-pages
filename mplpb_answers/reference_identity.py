@@ -233,6 +233,9 @@ def verify(root, question, profile, request, max_passages, max_chars):
     except ReaderError as error:
         return error.code, None, None
     selected = {ident: [record for record in index.records if record.id == ident] for ident in ids}
+    if task == 'documentary_partial_chain':
+        from .linked_obligations import verify_prefix
+        return verify_prefix(index, ids, pronoun, max_passages, max_chars)
     if any(len(rows) != 1 for rows in selected.values()):
         return 'no_eligible_sources', None, None
     records = [selected[ident][0] for ident in ids]

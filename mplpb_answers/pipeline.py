@@ -364,7 +364,7 @@ def _answer_query(root, question, profile=None, *, mode, reader, min_confidence,
             contract.update(evidence, mode='strict', documentary_support={'scope': scope},
                             verification={'structural': True, 'semantic': 'bounded_documentary_reference',
                                           'truth_verified': False, 'independence_verified': False})
-            return finish('supported_answer', code, 'Verified documentary reference.', 'strict')
+            return finish('supported_answer' if evidence.get('answer_supported') else 'partial_answer', code, 'Verified documentary reference.' if evidence.get('answer_supported') else 'Only the cited documentary-chain prefix is verified; see unresolved obligations.', 'strict')
         messages = {
             'event_identity_conflict': 'The named sources contain conflicting event declarations.',
             'reader_budget_exceeded': 'The complete reference proof exceeds the evidence budget.',
