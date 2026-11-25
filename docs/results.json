@@ -7,14 +7,17 @@
       "family": "attribution",
       "artifacts": "evaluation/attribution",
       "tests": [
-        "tests/test_signed_instructions.py"
+        "tests/test_signed_instructions.py",
+        "tests/test_source_attributed_instructions.py"
       ],
       "runners": [
         "tools/attribution_trial.py",
-        "tools/attribution_packets.py"
+        "tools/attribution_packets.py",
+        "tools/compare_attribution_preservation.py",
+        "tools/audit_attribution_witnesses.py"
       ],
       "scope": "Frozen cross-form source attribution with 48 development and 24 procedurally sealed same-operator transfer cases; complete PE-02 contract preservation.",
-      "measurement_status": "Development baseline 24/48 with 24 positive misses and zero false support. Transfer instances are unopened; candidate results pending. Independent preparation, blinding, historical/semantic adjudication, outside-custodian scoring and native OOCC remain NOT_RUN."
+      "measurement_status": "Development 24/48 to 48/48, positive instructions 0/24 to 24/24, all 24 withholds retained and zero final false support. All 17 PE-02 contracts/discovery arrays identical and 56 focused controls pass. Transfer and archive results pending. Independent preparation/blinding, semantic/historical evaluation, outside-custodian scoring and native OOCC remain NOT_RUN."
     },
     {
       "family": "report-pins",

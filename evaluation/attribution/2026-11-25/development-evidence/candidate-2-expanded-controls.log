@@ -1,0 +1,15 @@
+======================================================================
+FAIL: test_unframed_competing_instruction_is_not_pruned (tests.test_source_attributed_instructions.SourceAttributionTests.test_unframed_competing_instruction_is_not_pruned)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/attribution-trial/tests/test_source_attributed_instructions.py", line 129, in test_unframed_competing_instruction_is_not_pruned
+    self.withheld(self.ask())
+  File "/workspace/attribution-trial/tests/test_source_attributed_instructions.py", line 38, in withheld
+    self.assertFalse(answer['answer_supported']); self.assertEqual(answer['claims'], [])
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: True is not false
+
+----------------------------------------------------------------------
+Ran 28 tests in 1.558s
+
+FAILED (failures=1)

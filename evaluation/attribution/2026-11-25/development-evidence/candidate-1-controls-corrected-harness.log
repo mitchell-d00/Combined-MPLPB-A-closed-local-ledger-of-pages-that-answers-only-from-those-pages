@@ -1,0 +1,46 @@
+======================================================================
+ERROR: test_output_and_passage_budgets_withhold (tests.test_source_attributed_instructions.SourceAttributionTests.test_output_and_passage_budgets_withhold) (options={'max_chars': 200})
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/attribution-trial/tests/test_source_attributed_instructions.py", line 141, in test_output_and_passage_budgets_withhold
+    with self.subTest(options=options): self.withheld(self.ask(**options))
+                                                      ^^^^^^^^^^^^^^^^^^^
+  File "/workspace/attribution-trial/tests/test_source_attributed_instructions.py", line 35, in ask
+    return answer_query(self.root, question, **kwargs).contract
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/attribution-trial/mplpb_answers/pipeline.py", line 181, in answer_query
+    raise ValueError('Invalid passage admission budget')
+ValueError: Invalid passage admission budget
+
+======================================================================
+FAIL: test_passive_first_person_uses_signed_letter_only (tests.test_source_attributed_instructions.SourceAttributionTests.test_passive_first_person_uses_signed_letter_only)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/attribution-trial/tests/test_source_attributed_instructions.py", line 74, in test_passive_first_person_uses_signed_letter_only
+    self.assertTrue(self.ask(Q.replace('report','letter'))['answer_supported'])
+AssertionError: False is not true
+
+======================================================================
+FAIL: test_passive_keeps_actor_and_recipient_roles (tests.test_source_attributed_instructions.SourceAttributionTests.test_passive_keeps_actor_and_recipient_roles)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/attribution-trial/tests/test_source_attributed_instructions.py", line 70, in test_passive_keeps_actor_and_recipient_roles
+    self.assertTrue(self.ask(Q.replace('report','minutes'))['answer_supported'])
+AssertionError: False is not true
+
+======================================================================
+FAIL: test_separate_conditional_governor_cannot_be_discarded (tests.test_source_attributed_instructions.SourceAttributionTests.test_separate_conditional_governor_cannot_be_discarded)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/attribution-trial/tests/test_source_attributed_instructions.py", line 110, in test_separate_conditional_governor_cannot_be_discarded
+    self.source('<p>If the harbor closes:</p><p>'+STATEMENT); self.withheld(self.ask())
+                                                              ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/attribution-trial/tests/test_source_attributed_instructions.py", line 38, in withheld
+    self.assertFalse(answer['answer_supported']); self.assertEqual(answer['claims'], [])
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: True is not false
+
+----------------------------------------------------------------------
+Ran 25 tests in 1.044s
+
+FAILED (failures=3, errors=1)

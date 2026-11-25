@@ -48,3 +48,84 @@ def signed_letter(record, author, recipient):
         'letter_start': greeting.start(), 'content_start': greeting.end(), 'content_end': signature.start(),
         'witnesses': [citation(record, body, *greeting.span()), citation(record, body, *signature.span())],
     }
+
+
+def source_frame(record, form):
+    """Derive documentary writer and layer from eligible body witnesses.
+
+    Titles and caller labels never supply voice. Quoted speech is subsequently
+    bound by its own complete predicate, not inherited from the writer.
+    """
+    if record.kind != 'page' or record.derived_from or record.fields.get('corrects-field'):
+        return None
+    body = body_text(record.body_html)
+    if form == 'letter':
+        greetings, signatures = list(_SALUTATION.finditer(body)), list(_SIGNATURE.finditer(body))
+        if len(greetings) != 1 or len(signatures) != 1:
+            return None
+        greeting, signature = greetings[0], signatures[0]
+        binding = signed_letter(record, signature['signer'], greeting['recipient'])
+        if not binding or greeting.start() != 0 or signature.end() != len(body):
+            return None
+        _, voice = binding
+        return body, dict(form=form, writer=voice['actor'], start=voice['content_start'],
+                          end=voice['content_end'], witnesses=voice['witnesses'])
+    labels = {'minutes': ('Meeting minutes.', 'Recorded by'), 'report': ('Report.', 'Written by')}
+    if form not in labels:
+        return None
+    label, byline = labels[form]
+    header = re.match(rf'^{re.escape(label)}\n{byline} (?P<writer>{FULL_NAME})\.\n', body)
+    if not header or not unqualified_span(record, body, 0, header.end()):
+        return None
+    return body, dict(form=form, writer=header['writer'], start=header.end(), end=len(body),
+                      witnesses=[citation(record, body, 0, header.end()-1)])
+
+
+_RECIPIENT = r'the [a-z]+(?:[ -][a-z]+){0,7}'
+_TASK_TEXT = r'[^.!?;:“”"\n]{3,600}'
+_ROLE = rf'(?:I|{FULL_NAME})'
+_INSTRUCTION_PATTERNS = [
+    rf'(?P<actor>{_ROLE}) (?P<verb>instruct|order|instructed|ordered) (?P<recipient>{_RECIPIENT}) to (?P<task>{_TASK_TEXT})\.',
+    rf'(?P<actor>{_ROLE}) (?P<verb>instruct|order|instructed|ordered) (?P<recipient>{_RECIPIENT}): “(?P<task>{_TASK_TEXT})\.”',
+    rf'My instruction to (?P<recipient>{_RECIPIENT}) is to (?P<task>{_TASK_TEXT})\.',
+    rf'The instruction from (?P<actor>{FULL_NAME}) to (?P<recipient>{_RECIPIENT}) was to (?P<task>{_TASK_TEXT})\.',
+    rf'The instruction from (?P<actor>{FULL_NAME}) to (?P<recipient>{_RECIPIENT}) was: “(?P<task>{_TASK_TEXT})\.”',
+    rf'To (?P<recipient>{_RECIPIENT}), I give this instruction: “(?P<task>{_TASK_TEXT})\.”',
+    rf'(?P<actor>{FULL_NAME}) gave (?P<recipient>{_RECIPIENT}) this instruction: “(?P<task>{_TASK_TEXT})\.”',
+    rf'(?P<recipient>{_RECIPIENT}) (?P<copula>is|was) instructed by (?P<actor>me|{FULL_NAME}) to (?P<task>{_TASK_TEXT})\.',
+    rf'(?P<recipient>{_RECIPIENT}) received this instruction from (?P<actor>{FULL_NAME}): “(?P<task>{_TASK_TEXT})\.”',
+    rf'“(?P<task>{_TASK_TEXT}),” is my instruction to (?P<recipient>{_RECIPIENT})\.',
+    rf'“(?P<task>{_TASK_TEXT}),” (?P<actor>{FULL_NAME}) directed (?P<recipient>{_RECIPIENT})\.',
+]
+_INSTRUCTION_PATTERNS = [re.compile(p, re.I) for p in _INSTRUCTION_PATTERNS]
+_UNRESOLVED_TASK = re.compile(
+    r'\b(?:not|never|if|unless|provided|assuming|might|may|could|would|should|denied|'
+    r'allegedly|hypothetical|example|supposed|purported|either|neither|instead|only|'
+    r'he|she|they|it|this|that|these|those|them|him|her|their|its|my|your|me|we|I)\b', re.I)
+
+
+def instruction_roles(text):
+    """One complete affirmative instruction; no writer or question inference.
+
+    Active, nominal, passive and explicit quotation constructions reduce to the
+    same roles. First-person roles require a separately checked signed letter.
+    An attribution predicate is retained as reporting, never event/execution.
+    """
+    matches = [m for pattern in _INSTRUCTION_PATTERNS if (m := pattern.fullmatch(text))]
+    if len(matches) != 1:
+        return None
+    values = matches[0].groupdict()
+    actor = values.get('actor') or 'I'
+    if actor.casefold() in {'i', 'me'}:
+        actor = 'I' if actor.casefold() == 'i' else 'me'
+    verb = (values.get('verb') or '').lower()
+    if verb and ((actor == 'I') != (verb in {'instruct', 'order'})):
+        return None
+    task = values['task']
+    if (len(values['recipient']) > 180 or _UNRESOLVED_TASK.search(task)
+            or not re.fullmatch(r'[A-Za-z][A-Za-z ,\-0-9]*', task)
+            or len(task.split()) > 80):
+        return None
+    return {'speaker': actor, 'first_person': actor in {'I', 'me'},
+            'recipient': values['recipient'].lower(), 'task': task[0].lower()+task[1:],
+            'quotation': '“' in text, 'modality': 'instruction_only'}

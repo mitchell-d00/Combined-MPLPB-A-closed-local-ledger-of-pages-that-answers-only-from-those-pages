@@ -541,6 +541,9 @@ def _answer_query(root, question, profile=None, *, mode, reader, min_confidence,
                 from .documentary_advice import verify as verify_advice
                 scoped = verify_advice(index, max_passages, max_chars)
             if scoped is None:
+                from .attributed_instruction import verify as verify_attributed_instruction
+                scoped = verify_attributed_instruction(index, max_passages, max_chars)
+            if scoped is None:
                 from .documentary_instruction import verify as verify_instruction
                 scoped = verify_instruction(index, max_passages, max_chars)
             if scoped is not None:

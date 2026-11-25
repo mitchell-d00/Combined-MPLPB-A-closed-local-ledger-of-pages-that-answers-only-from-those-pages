@@ -2,7 +2,7 @@
 
 Last reviewed: 2026-11-25.
 
-[Shared attribution](../evaluation/attribution/2026-11-25/README.md) freezes 48 development and 24 same-operator transfer cases across letters, minutes and quoted reports. The baseline passes 24/48 decisions with 24 positive misses and zero false support. Candidate and transfer results are pending; independent preparation/blinding and adjudication are unmeasured. [Sealed replay](../tools/attribution_trial.py).
+[Shared attribution](../evaluation/attribution/2026-11-25/README.md) freezes 48 development and 24 same-operator transfer cases across letters, minutes and quoted reports. Development improves **24/48 → 48/48**, with zero final false support, all 17 PE-02 contracts/discovery arrays identical and 56 focused controls passing. Transfer is unopened and archive checks are pending; independent preparation/blinding and adjudication are unmeasured. [Sealed replay](../tools/attribution_trial.py).
 
 [FRUS-PE02](../evaluation/pole/open-items/frus-pe02/README.md) retains historical completion at **1/4**, adds the Smith-letter checked partial (**0/4 → 1/4** historical partials), preserves all six inherited full withholds and the advice-only partial control, and passes the new synthetic positive with **5/5** new withholds. All 17 discovery arrays remain unchanged. [Signed-instruction controls](../tests/test_signed_instructions.py) and [sealed replay](../tools/pole_frus_pe02.py) retain the rejected attempts and local custody limits.
 
