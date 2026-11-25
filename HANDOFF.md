@@ -4,63 +4,63 @@ Last reviewed: 2026-11-25.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `b9051a3eb4d1f70e8fdcc87b24f74b75eb327b64` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `ad4833b64da620ce742cb9fffe4c0efe2e49f4f183ddf726c8b85c0dac401399`.
+Base commit: `941511731b6b5af8d767110930aee7b92a1dcc5a` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `ae3720801bfcf42cdc8d4a73a28acc5a592a0a5883c6d518446106d49eb915a4`.
 
 ## Latest user update instructions
 
-Continue the public MPLPB Pole training loop on pin 1b963aea9ce14d207ec2f6b645912c3a7c98cdd9.
+Continue the public MPLPB Pole training loop on pin 941511731b6b5af8d767110930aee7b92a1dcc5a.
 
 Prior results (keep frozen):
-- FRUS-Proposition: same four FRUS cases. Discovery 4/4. Exact enclosing native units sent to verifier. Verifier rejected all 16 action/relationship proposals. Strict Ask 0/4. Zero partials. 4/4 controls withheld. Zero false-supported bridges.
+- FRUS-SingleClass: same four FRUS cases + four negative controls + one same-form wrong-speaker control. Discovery 4/4. Complete Strict Ask 0/4. One checked partial (PE-04 source-reported proposition). PE-01/02/03 misses. All five controls withheld. Zero false-supported bridges.
+- PE-04 advice witness: “Mr. Samuels suggested that Secretary Stans stress ‘outwardness’ rather than ‘inwardness’ in trade policy.” Adjacent trip witness present. Separately reported first-person presentation remains unresolved.
 - Retained: Tacitus 3/6, Douglass 6/12, both DHS complete, BT-Erratum 1/1, Babbage caps, Komnene packet sealed (scoring NOT_RUN), Focus-12 0/12.
 - Independent historical accuracy, outside-custodian scoring, independent semantic adjudication, and native OOCC remain NOT_RUN.
 
-Goal: test whether one single proposition class can be certified on these four frozen cases while preserving speaker, reporting layers, and modality. Freeze the cases and any new negative control before scoring. Do not raise scan or phrase caps. Preserve all previously closed results. Do not claim independent historical accuracy or native OOCC.
+Goal: test whether an exact witness can bind the separately reported first-person presentation in PE-04 to its speaker, or whether the current rule is limited to the source-reported advice form. Freeze any new control before scoring. Do not raise scan or phrase caps. Preserve all previously closed results. Do not claim independent historical accuracy or native OOCC.
 
 Run one named test:
 
-1. FRUS-SingleClass
-   - Use the same four frozen FRUS cases (PE-01 through PE-04) and their existing negative controls.
-   - Select exactly one proposition class (choose the one with the clearest existing witnesses: attributed institutional assessment, author's intent/delegation, attributed account with conditional recommendation, or named advice with separately reported first-person presentation).
-   - Write and freeze one candidate rule that admits only that class by binding the required speaker, reporting layer, and modality to exact witnesses already present in the eligible originals. Require unique resolution, chronological order where applicable, and existing budget checks.
-   - Add one new negative control that matches the surface form but lacks the required speaker, reporting layer, or modality witness. Freeze it before scoring.
+1. FRUS-Presentation
+   - Use the same four frozen FRUS cases and the existing five controls from FRUS-SingleClass.
+   - Write and freeze one candidate rule that attempts to bind the separately reported first-person presentation to its speaker using only exact witnesses already present in the eligible originals. Require unique resolution, speaker continuity, reporting-layer preservation, and existing budget checks.
+   - Add one new negative control that matches the presentation surface form but lacks the required speaker or reporting-layer witness. Freeze it before scoring.
    - Score discovery, proposition admission, and complete Strict Ask separately.
    - Zero false-supported bridges allowed.
-   - Report complete, partial, miss, expected withhold, and the exact witness used (or the exact reason for withhold) for the chosen class.
+   - Report complete, partial, miss, expected withhold, and the exact witness used (or the exact reason for withhold) for the presentation binding.
 
 After the test:
-- Write the single-class rule (or the explicit withhold condition).
+- Write the rule that was added (or the explicit withhold condition).
 - Update the open-items README with before/after counts for these four cases only.
 - Leave Focus-12, scan/phrase limits, outside scoring, independent historical accuracy, and native OOCC marked NOT_RUN or open as they currently stand.
 - Commit the frozen cases, results, and rule under a new public pin.
 
-Return the result table for FRUS-SingleClass, the rule text, the updated open-item list, the new commit hash, and the archive SHA-256.
+Return the result table for FRUS-Presentation, the rule text, the updated open-item list, the new commit hash, and the archive SHA-256.
 Browser release validation remains the maintainer’s priority until the deployed smoke on PR #93 is cleared. The reader repair above is the next falsifiable step on the Pole track.
+
+Make sure each pr gets the note so handoff because of context is easier
 
 ## Implemented scope
 
-- Freeze the original eight FRUS cases and one wrong-speaker control.
-- Implement one bounded native partial for source-reported named advice with an exact upcoming-trip witness.
+- Freeze the nine inherited cases, one absent-presentation-source control and the candidate rule before scoring.
+- Bind two source statements in PE-04 using the advice record and the dated editorial account quoting the attributed memorandum.
 
 ## Validation recorded
 
-- Independent positive wording failed on the baseline and passed under the same rule. Unit refusal checks held.
-- The first rule trial withheld because it missed the possessive form. Its readback is retained.
-- Discovery stayed 4/4, complete answers stayed at 0/4, and PE-04 moved from miss to one checked partial. All five controls withheld with zero claims.
-- The 52 public evidence checks passed on the candidate runtime.
-- A follow-up unit control checks explicit denial in the “never recommended” form. Both that form and “did not recommend” withhold. The frozen named outcomes stayed identical.
-- The extracted source archive passed 1,729 Python tests with 2 skips, 52 public evidence checks, and the pinned nine-case replay.
+- Discovery stayed 4/4. Complete Strict Ask moved 0/4 to 1/4. Positive partials moved from one to zero.
+- Five inherited controls withheld. The new control preserved only the checked advice. No false-supported bridges or execution failures.
+- An independent wording regression moved from partial to complete. Role, chronology, quote, list, ambiguity and budget controls passed.
+- The first candidate trial withheld on a departmental title. The native readback is retained.
 
 ## Limitations and blocked checks
 
-- The separately reported presentation in PE-04 and the other three comparisons remain open.
-- Focus-12 and scan and phrase limits remain open. Outside scoring, independent historical accuracy, independent semantic adjudication and native OOCC remain NOT_RUN.
-- PR #93 is a separate browser release with a separate exact head.
+- PE-01, PE-02, and PE-03 remain misses. The PE-04 comparison establishes record order and attribution. Event identity, implementation and impact remain unresolved.
+- Focus-12 and scan and phrase limits remain open. Outside-custodian scoring, independent semantic adjudication, independent historical accuracy and native OOCC remain NOT_RUN.
+- PR #93 stays in its separate browser validation lane. Its TeamBuilding handoff is recorded on the PR.
 
 ## Next steps
 
-- Review new advice forms and separately reported presentation evidence in a future independently frozen round.
+- Use the pinned evidence and exact witnesses to review the unresolved proposition classes. Keep release and deployment verification tied to the browser PR.
 
 ## Use this ZIP in your repository
 

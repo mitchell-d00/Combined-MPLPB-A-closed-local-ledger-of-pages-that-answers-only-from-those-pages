@@ -163,6 +163,15 @@ presentation remains unresolved. The other three comparison misses retained
 their outcomes. All five controls withheld and false-supported bridges were zero.
 [Case decisions and bounded advice rule](frus-singleclass/README.md)
 
+## FRUS-Presentation
+
+Native discovery stayed at **4/4**. Strict Ask moved **0/4 → 1/4 complete**
+as PE-04 moved from one checked advice partial to a cited two-part answer.
+Three comparisons remained misses. Five inherited controls withheld all
+claims. The added control preserved checked advice and withheld the
+presentation. False-supported bridges and execution failures were zero.
+[Matched replay and exact attribution rule](frus-presentation/README.md)
+
 ## Open items
 
 - All 12 original focus cases remain open, including date roles, reported
@@ -172,8 +181,9 @@ their outcomes. All five controls withheld and false-supported bridges were zero
   after projection. FRUS-Boundary traced the remaining blocker to native
   proposition and attribution admission. FRUS-Proposition found that
   directly supplying the exact source units still produced no certificates.
-  FRUS-SingleClass admitted one named-advice proposition. The four complete
-  comparisons remain open. The earlier ten cases stay
+  FRUS-SingleClass admitted one named-advice proposition. FRUS-Presentation
+  additionally certifies the quoted self-report in PE-04. PE-01 through PE-03
+  remain open. The earlier ten cases stay
   frozen. The scoped repository erratum and both tested DHS
   relations now have complete development proofs.
 - Phrase-token and repeated phrase-group limits and loss of complete literal

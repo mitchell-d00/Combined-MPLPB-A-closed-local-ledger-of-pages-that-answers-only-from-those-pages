@@ -1,7 +1,8 @@
-"""Partial source proof for named advice in a two-obligation question."""
+"""Source proof for named advice in a two-obligation question."""
 import re
 
 from .body_text import body_text
+from .documentary_presentation import verify as verify_presentation
 from .documentary_verify import (META, citation, context_ranges, possible_refutation,
                                  quoted_context, source_question, units)
 
@@ -11,7 +12,7 @@ _TITLE = r'(?:Mr\. |Ms\. |Mrs\. |Dr\. |Secretary |Director |Minister )?'
 _QUESTION = re.compile(
     rf'What (?P<topic>{_TOPIC}) emphasis did (?P<adviser>{_NAME}) (?:suggest|recommend) to '
     rf'(?P<recipient>{_NAME}) before (?:his|her|their) (?P<trip>{_TOPIC}) trip, '
-    r'and what framework did (?P=recipient) say (?:he|she|they) '
+    r'and what framework did (?P=recipient) say (?P<pronoun>he|she|they) '
     r'presented in (?:his|her|their) meetings\?', re.I)
 _ADVICE = re.compile(
     rf'^{_TITLE}(?P<adviser>{_NAME}) (?:suggested|recommended) that '
@@ -63,7 +64,7 @@ def _same_advice(match, request):
 def _witnesses(index, request):
     if len(index.records) > _MAX_RECORDS or sum(len(r.body_html) for r in index.records) > _MAX_CHARACTERS:
         return 'reference_scan_budget', None
-    matches = []
+    matches, originals = [], []
     competing = False
     remaining = _MAX_UNITS
     for record in index.records:
@@ -75,6 +76,7 @@ def _witnesses(index, request):
                 return 'reference_scan_budget', None
         if record.kind != 'page' or record.derived_from or record.fields.get('corrects-field'):
             continue
+        originals.append((record, body))
         competing |= possible_refutation(body) or any(
             _same_advice(denial, request) for denial in _DENIAL.finditer(body))
         matches.extend((record, body, match) for match in _ADVICE.finditer(body)
@@ -88,7 +90,7 @@ def _witnesses(index, request):
             or META.search(body[:advice.start()])
             or any(lo < advice.end() and hi > trip[0] for lo, hi in context_ranges(record))):
         return 'named_advice_unresolved', None
-    return 'partial_documentary_evidence', (advice.groupdict(), [
+    return 'partial_documentary_evidence', (record, body, originals, advice.groupdict(), [
         citation(record, body, *trip), citation(record, body, advice.start(), advice.end())])
 
 
@@ -99,7 +101,7 @@ def verify(index, max_passages, max_chars):
     code, proof = _witnesses(index, request)
     if not proof:
         return 'abstain', code, {}
-    advice, witnesses = proof
+    record, body, originals, advice, witnesses = proof
     if len(witnesses) > max_passages or sum(len(c['quote']) for c in witnesses) > max_chars:
         return 'abstain', 'reader_budget_exceeded', {}
     text = 'The record reports this advice before the trip described as upcoming. ' + witnesses[1]['quote']
@@ -111,10 +113,27 @@ def verify(index, max_passages, max_chars):
         'chronology': 'trip_upcoming_in_cited_discussion'},
         'citations': witnesses, 'source_support_established': True,
         'qualifiers': ['The document reports advice. Trip occurrence and implementation remain unresolved.']}
+    reason, presentation = verify_presentation(
+        originals, record, body, advice['recipient'], request['pronoun'].lower())
+    if presentation:
+        combined = witnesses + presentation['citations']
+        if len(combined) <= max_passages and sum(len(c['quote']) for c in combined) <= max_chars:
+            paths = {c['path'] for c in combined}
+            return 'supported_answer', reason, {
+                'claims': [claim, presentation], 'answer_supported': True,
+                'text': text + '\n' + presentation['text'],
+                'sources': [s for s in index.sources if s['path'] in paths],
+                'verification': {'structural': True, 'semantic': 'bounded_documentary_reference',
+                                 'truth_verified': False, 'independence_verified': False},
+                'documentary_support': {'scope': 'named_advice_and_quoted_presentation',
+                                        'source_support_claims': 2},
+            }
+        reason = 'presentation_output_budget'
     return 'partial_answer', code, {
         'claims': [claim], 'answer_supported': False, 'text': text + '\n' + missing,
         'missing': [missing], 'sources': [s for s in index.sources if s['path'] == witnesses[0]['path']],
         'verification': {'structural': True, 'semantic': 'bounded_documentary_reference',
                          'truth_verified': False, 'independence_verified': False},
-        'documentary_support': {'scope': 'named_advice_report', 'source_support_claims': 1},
+        'documentary_support': {'scope': 'named_advice_report', 'source_support_claims': 1,
+                                'presentation_withhold': reason},
     }
