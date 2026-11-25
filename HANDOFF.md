@@ -4,18 +4,19 @@ Last reviewed: 2026-11-25.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `f225d142ebad6bb714007374a3f946b3c413202e` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `59eac22b50a63e402f63f48b53c02a30cf070559f28bb6727042ea2b4368bb7e`.
+Base commit: `22c3f9c15e09589c84c8fd3999efaa8dd109835e` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `24a2b9641fe5718183b247d278eea334670a9107395925dad7d7a939b8b92684`.
 
 ## Latest user update instructions
 
-Do that
+Make it explicit and call it Thespian
 
 ## Implemented scope
 
 - Guide users through collection creation, local document import, sealed source review and Strict Ask in the browser.
 - Support text and Markdown files or pasted text without a web URL. Seal the submitted text under a local content identifier with external delivery withheld.
 - Keep Strict decisions visible when inspecting matches, and offer question editing and collection review after incomplete results.
+- Document Thespian, Mitchell D. McPhetridge's multi-agent testing method, in the browser runbook with a configurable role prompt, pinned comparisons and separate custody of the answer key.
 
 ## Validation recorded
 
