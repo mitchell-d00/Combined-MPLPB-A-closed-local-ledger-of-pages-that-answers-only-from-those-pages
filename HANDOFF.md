@@ -4,8 +4,8 @@ Last reviewed: 2026-11-25.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `373326623d1993c85062b320cd5b118401483426` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `a6c6e285aa5e25ff032222e9cbb79661465e71ba8a97841642f1d3d1b28db1f3`.
+Base commit: `297d8cb95d9376f90844726fe05b16e81c6f962e` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `76d02ec14ee5f4164c3d478865ece4a33490526d011e5e4a166888d956546a5c`.
 
 ## Betty report for Al
 
@@ -19,6 +19,7 @@ Run Betty — local Cryptid test programme. Start from current main. Complete th
 
 - Established local Cryptid programme on isolated branch local/cryptid-programme from verified current remote main c01021c0b9983f9a607fbe782dea7ed5872d1f11
 - Ordered scope: programme, documentary date roles, question wording, polarity/conditions/modality, identity/references, comparisons/corrections, multipart/document links, automatic source-linked representation, fixed-cap budgets, Bubblewrap controls, real-human onboarding preparation and final local ZIP review.
+- Mothman shared date-role planning/proof and counterevidence scan; three remaining development misses retained, no caps changed.
 
 ### Validation recorded
 
@@ -28,6 +29,9 @@ Run Betty — local Cryptid test programme. Start from current main. Complete th
 - Mothman candidate1 retained:28 completed,21/28 v1scores,4claimed false-support flags (two are line-wrapped date representation mismatches),5positive-miss flags. Existing33date/inspection controls pass. Candidate NOT accepted; transfer unopened.
 - Mothman candidate2:25/28 development decisions,0false-support flags,3positive misses under v2 scorer. v1line-wrap mismatch score retained with necessary whitespace-only scorer amendment; no source inputs or decision labels changed.
 - Additional frozen eight date-role controls:7PASS,1FAIL. Explicit denial of the same writing date is ignored by candidate2; real counterevidence bug retained. Candidate2 rejected, transfer still sealed.
+- Candidate3:25/28 development,13complete positives versus baseline5,3misses,0false-supported claims. All5old date misses recovered with exact eligible citations and qualifications.
+- 280release comparison:275exact unchanged contracts plus5verified recoveries;102complete,6partials,6conflicts,166abstentions; no lost valid support. Five memberships overlap Mothman. Original scorer failures retained alongside supplementary full-claim audit.
+- 41date/inspection and169inherited native controls PASS. Two rejected candidates and writing-date denial failure retained.
 
 ### Limitations and blocked checks
 
@@ -37,7 +41,7 @@ Run Betty — local Cryptid test programme. Start from current main. Complete th
 
 ### Next steps
 
-- Repair ignored writing-date counterevidence, rerun identical28+8 and280preservation, archive committed source before transfer.
+- Freeze committed Mothman scoped study ZIP, run extracted28+41, then open and execute sealed16transfer once. Preserve all failures; continue Jackalope afterwards.
 - Run all series sequentially and finish a local committed-ZIP review package. No remote publication.
 
 ## Use this ZIP in your repository

@@ -282,12 +282,14 @@ def date_inventory(index,record):
     for a,b,q in units(body):
         correction=bool(re.search(r'\b(?:correction|corrected|erratum|retracted|withdrawn|superseded|amended|rescinded)\b',q,re.I))
         if (a,b) in accepted and not possible_refutation(q) and not correction:continue
-        if possible_refutation(q) or correction or (re.search(DATE_EXPRESSION,q,re.I) and
+        writing_counter=('writing' in request['roles'] and re.search(r'\b(?:written|writing)\b',q,re.I)
+                         and (re.search(DATE_EXPRESSION,q,re.I) or re.search(r'\b(?:not|never|denied)\b',q,re.I)))
+        if possible_refutation(q) or correction or writing_counter or (re.search(DATE_EXPRESSION,q,re.I) and
             re.search(r'\b(?:surrender(?:ed)?|evacuat\w*|bombard\w*|open(?:ed)? fire|depart\w*|arriv\w*|publish\w*|revis\w*|sent|send|receiv\w*)\b',q,re.I)):
             # A demanded surrender is a different source assertion; it does
             # not certify actual surrender and is not an opposing event date.
             if re.search(r'\b(?:demanded|requested) the surrender\b',q,re.I):continue
-            if possible_refutation(q) or correction or re.search(r'\b(?:surrender\w*|evacuat\w*|bombard\w*|fire|depart\w*|arriv\w*|publish\w*|revis\w*|sent|send|receiv\w*)\b',q,re.I):
+            if possible_refutation(q) or correction or writing_counter or re.search(r'\b(?:surrender\w*|evacuat\w*|bombard\w*|fire|depart\w*|arriv\w*|publish\w*|revis\w*|sent|send|receiv\w*)\b',q,re.I):
                 for role in request['roles']:
                     if role not in unresolved:unresolved.append(role)
                 cite=citation(r,body,a,b)

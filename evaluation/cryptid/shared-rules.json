@@ -1,6 +1,61 @@
 {
   "schema": "cryptid-rule-case-map-v1",
-  "rules": [],
+  "rules": [
+    {
+      "id": "DOCUMENTARY-DATE-ROLES",
+      "operation": "Complete question role plan; eligible full-source date predicate scan; exact role witnesses and joint uniqueness; unparsed writing counterevidence blocks completion",
+      "implementation": [
+        "mplpb_answers/documentary_verify.py"
+      ],
+      "development_cases": [
+        "CRYPT-MOTHMAN-0001",
+        "CRYPT-MOTHMAN-0002",
+        "CRYPT-MOTHMAN-0003",
+        "CRYPT-MOTHMAN-0004",
+        "CRYPT-MOTHMAN-0005",
+        "CRYPT-MOTHMAN-0006",
+        "CRYPT-MOTHMAN-0007",
+        "CRYPT-MOTHMAN-0008",
+        "CRYPT-MOTHMAN-0009",
+        "CRYPT-MOTHMAN-0010",
+        "CRYPT-MOTHMAN-0011",
+        "CRYPT-MOTHMAN-0012",
+        "CRYPT-MOTHMAN-0013",
+        "CRYPT-MOTHMAN-0014",
+        "CRYPT-MOTHMAN-0015",
+        "CRYPT-MOTHMAN-0016",
+        "CRYPT-MOTHMAN-0017",
+        "CRYPT-MOTHMAN-0018",
+        "CRYPT-MOTHMAN-0019",
+        "CRYPT-MOTHMAN-0020",
+        "CRYPT-MOTHMAN-0021",
+        "CRYPT-MOTHMAN-0022",
+        "CRYPT-MOTHMAN-0023",
+        "CRYPT-MOTHMAN-0024",
+        "CRYPT-MOTHMAN-0025",
+        "CRYPT-MOTHMAN-0026",
+        "CRYPT-MOTHMAN-0027",
+        "CRYPT-MOTHMAN-0028"
+      ],
+      "wrap_cases": [
+        "CRYPT-MOTHMAN-0029",
+        "CRYPT-MOTHMAN-0030",
+        "CRYPT-MOTHMAN-0031",
+        "CRYPT-MOTHMAN-0032",
+        "CRYPT-MOTHMAN-0033",
+        "CRYPT-MOTHMAN-0034",
+        "CRYPT-MOTHMAN-0035",
+        "CRYPT-MOTHMAN-0036"
+      ],
+      "cross_family_preservation": [
+        "280 release comparison members, five identical inputs overlap Mothman",
+        "tests.test_event_date_inventory",
+        "tests.test_pinned_documentary_inspection",
+        "169 inherited native controls"
+      ],
+      "caps_changed": false
+    }
+  ],
   "planned_families": [
     "MOTHMAN",
     "JACKALOPE",
