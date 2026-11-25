@@ -126,8 +126,10 @@ public sharing. Keep evaluator keys with their custodian.
 For Pole, measure discovery separately from Strict Ask. A bridge requires
 exact witnesses from eligible originals, unique resolution, chronological
 order where applicable, and the declared budget checks. Zero false-supported
-bridges is an acceptance condition for the frozen comparison. Preserve the
-previously closed cases and the original labels. Independent historical
+bridges is an acceptance condition for the frozen comparison. In the active
+PR report, record the before/after counts, the rule or explicit withhold, the
+observed false-support count, the new commit, and the tested ZIP SHA-256.
+Preserve the previously closed cases and the original labels. Independent historical
 accuracy and native OOCC stay `NOT_RUN` until the corresponding evaluations
 actually run.
 

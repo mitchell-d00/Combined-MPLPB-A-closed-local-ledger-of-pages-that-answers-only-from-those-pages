@@ -180,7 +180,19 @@
         "archive recovery when applicable"
       ],
       "verify": "Read the live PR before resuming. Compare the report’s pin with head.sha. If they differ, use HANDOFF.md at the current head to reconcile the report before relying on it.",
-      "terminal": "Give either role command the live GitHub PR URL to return its current state and a handoff link pinned to its head."
+      "terminal": "Give either role command the live GitHub PR URL to return its current state and a handoff link pinned to its head.",
+      "pole_evaluation_report": {
+        "freeze": "Freeze only the authorized named cases and controls before scoring.",
+        "fields": [
+          "before and after counts",
+          "rule or explicit withhold",
+          "observed false-supported bridges",
+          "new public evidence commit",
+          "tested source commit and archive SHA-256",
+          "remaining NOT_RUN labels"
+        ],
+        "acceptance": "Zero false-supported bridges. Preserve prior measured outcomes and all unexecuted evaluation labels."
+      }
     }
   }
 }

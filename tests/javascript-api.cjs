@@ -76,6 +76,8 @@ async function tests(){
  assert.match(betty.repository_handoff, /HANDOFF\.md#betty-report-for-al$/);
  assert.match(al.betty_report.open_items, new RegExp(al.betty_report.evidence_pin));
  assert.match(al.resume.verify,/head\.sha/);
+ assert.match(al.resume.pole_evaluation_report.acceptance,/Zero false-supported bridges/);
+ assert(al.resume.pole_evaluation_report.fields.includes('tested source commit and archive SHA-256'));
  assert.match(al.betty_report.pull_request_api,/^https:\/\/api.github.com\/repos\//);
  assert.equal(betty.source_archives.exact_release_assets,'unavailable');
  for (const archive of betty.source_archives.entries) {
