@@ -17,9 +17,10 @@ The [governance gate experiment](evaluation/comparative-tests/governance-gate/RE
 **TeamBuilding pipeline.** Betty and Al are labels for two work steps.
 Start with **“Run Betty”** and the repo link. In
 a separate chat, send the same link with **“Run Al”**
-(lowercase L). Both read the repo, then the [last Betty report](HANDOFF.md#betty-report-for-al)
-on the relevant PR. Al can complete the read-only review using ordinary web
-links. Mitchell relays Al’s response and his direction to Betty, who runs
+(lowercase L). Both read the repo, read the [agent API manifest](.well-known/mplpb.json), confirm
+the selected step, then read the [last Betty report](HANDOFF.md#betty-report-for-al)
+on the [newest PR by creation time](https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/pulls?q=is%3Apr+sort%3Acreated-desc)
+or the PR link you supply. Al can complete the review using ordinary web links. Mitchell relays Al’s response and his direction to Betty, who runs
 the authorized tests and updates the same PR. [Pipeline guide](docs/TEAMBUILDING.md)
 · [Public API manifest and source archive catalog](.well-known/mplpb.json)
 
