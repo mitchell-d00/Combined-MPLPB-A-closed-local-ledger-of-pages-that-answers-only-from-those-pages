@@ -325,13 +325,100 @@
       "family": "KRAKEN",
       "id_prefix": "CRYPT-KRAKEN",
       "mechanism": "One proved obligation hides a missing documentary bridge.",
-      "status": "PLANNED",
+      "status": "COMPLETED_WITH_RETAINED_MISSES",
       "responsible_department": "testing-evaluation",
       "implementation_departments": [
         "reader",
         "ledger"
       ],
-      "runtime_labels_are_rules": false
+      "runtime_labels_are_rules": false,
+      "baseline": {
+        "planned": 16,
+        "attempted": 16,
+        "completed": 16,
+        "scored": 16,
+        "unscored": 0,
+        "passed": 2,
+        "false_support": 0,
+        "positive_misses": 14,
+        "budget_stops": 0,
+        "diagnostic_only": 0,
+        "score": "scores/baseline.json"
+      },
+      "candidate": {
+        "planned": 16,
+        "attempted": 16,
+        "completed": 16,
+        "scored": 16,
+        "unscored": 0,
+        "passed": 15,
+        "false_support": 0,
+        "positive_misses": 1,
+        "budget_stops": 0,
+        "diagnostic_only": 0,
+        "score": "scores/candidate-2.json",
+        "candidate_commit": "064d953602f296f54b79d4487a0cde6e45c135ed",
+        "zip_sha256": "466a5c7bc0be629ca005dd32faaa03163a5299ceec358ea67990797aaf7d422a"
+      },
+      "transfer": {
+        "planned": 12,
+        "attempted": 12,
+        "completed": 12,
+        "scored": 12,
+        "unscored": 0,
+        "passed": 12,
+        "false_support": 0,
+        "positive_misses": 0,
+        "budget_stops": 0,
+        "diagnostic_only": 0,
+        "score": "scores/fresh-transfer-once.json",
+        "status": "PASS_ONCE_CONSUMED",
+        "custody": "same-operator; template-visible, no independent blinding"
+      },
+      "limitations": "Original16:2->15 decisions,1 complete and12 checked partials; one frozen positive expectation remains incompatible with the external delivery profile and is retained as failure. First transfer15/16 consumed. Stronger policy Wrap4:2->4, forbidden claims2->0; rejected C1 ZIP and strong guard failure retained. Fresh policy/layout12/12,3complete+3partial+6withhold; narrow same-grammar multiline transfer, not general syntax. 322 prior Cryptid,280 release and16 consumed contracts unchanged.56focused checks pass. Human and independent evaluations NOT_RUN.",
+      "policy_wrap": {
+        "baseline": {
+          "planned": 4,
+          "attempted": 4,
+          "completed": 4,
+          "scored": 4,
+          "unscored": 0,
+          "passed": 2,
+          "false_support": 2,
+          "positive_misses": 0,
+          "budget_stops": 0,
+          "diagnostic_only": 0
+        },
+        "candidate": {
+          "planned": 4,
+          "attempted": 4,
+          "completed": 4,
+          "scored": 4,
+          "unscored": 0,
+          "passed": 4,
+          "false_support": 0,
+          "positive_misses": 0,
+          "budget_stops": 0,
+          "diagnostic_only": 0
+        },
+        "reason": "Source scope matches must not authorize no-prose profile synthesis."
+      },
+      "first_transfer": {
+        "counts": {
+          "planned": 16,
+          "attempted": 16,
+          "completed": 16,
+          "scored": 16,
+          "unscored": 0,
+          "passed": 15,
+          "false_support": 0,
+          "positive_misses": 1,
+          "budget_stops": 0,
+          "diagnostic_only": 0
+        },
+        "score": "kraken/scores/transfer-once.json",
+        "status": "FAILED_EXPECTATION_RETAINED_CONSUMED"
+      }
     },
     {
       "order": 8,
@@ -377,6 +464,7 @@
     "ledger/0002.json",
     "ledger/0003.json",
     "ledger/0004.json",
-    "ledger/0005.json"
+    "ledger/0005.json",
+    "ledger/0006.json"
   ]
 }

@@ -1,0 +1,31 @@
+{
+  "id": "CRYPT-KRAKEN-T0111",
+  "adapter_mode": "documentary",
+  "question": "For sources REQUEST, DISPATCH and RECEIPT, trace the checked request, dispatch and reported receipt and identify unresolved links.",
+  "sources": [
+    {
+      "id": "REQUEST",
+      "body_html": "<pre>Vera Moss requested that\nJonas Calder send\nthe tide register to\nthe southern quay.</pre>",
+      "origin": "human",
+      "scope": "For sources REQUEST, DISPATCH and RECEIPT, trace the checked request, dispatch and reported receipt and identify unresolved links."
+    },
+    {
+      "id": "DISPATCH",
+      "body_html": "<pre>In response to request source REQUEST,\nJonas Calder sent\nthe tide register to\nthe southern quay.</pre>",
+      "origin": "human",
+      "scope": "For sources REQUEST, DISPATCH and RECEIPT, trace the checked request, dispatch and reported receipt and identify unresolved links.",
+      "external": "no"
+    },
+    {
+      "id": "RECEIPT",
+      "body_html": "<pre>Referring to dispatch source DISPATCH,\nLina Reyes reported receiving\nthe tide register at\nthe southern quay from Jonas Calder.</pre>",
+      "origin": "human",
+      "scope": "For sources REQUEST, DISPATCH and RECEIPT, trace the checked request, dispatch and reported receipt and identify unresolved links."
+    }
+  ],
+  "profile": "external",
+  "budget": {
+    "passages": 12,
+    "characters": 8000
+  }
+}
