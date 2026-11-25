@@ -91,6 +91,9 @@ def propose(record):
 def verify_proposals(root,question,packet,profile=None):
     from .passages import PassageIndex
     base={'schema':VERSION,'authoritative':False,'source_support_established':False,'changes_host_access':False,'historical_truth_independently_verified':False}
+    import json
+    if type(packet) is not dict or len(json.dumps(packet,ensure_ascii=False).encode())>64000:
+        return dict(base,status='rejected',reason='proposal_byte_budget_or_schema')
     index=PassageIndex(root,question,profile)
     if not index.profile.prose:return dict(base,status='rejected',reason='profile_no_prose')
     if len(index.records)>8 or sum(len(r.body_html) for r in index.records)>200000:return dict(base,status='rejected',reason='scan_budget')
