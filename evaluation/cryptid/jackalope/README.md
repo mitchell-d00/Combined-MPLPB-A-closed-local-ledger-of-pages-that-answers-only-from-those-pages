@@ -13,3 +13,15 @@ The original v1 score incorrectly labels nine claim-free abstentions false suppo
 The policy-aware worker adds interpretation inspection (a proposal, not authority), separate discovery/proof results, CPU/wall/RSS and available ledger-HTML-open measurements. It stages only native packages and frozen execution code. Exact-contract parity passed on two consumed Mothman cases in four isolated executions. No key, scorer, generator, Git, credentials or network enters workers.
 
 Twenty-four same-operator transfer cases are sealed/unopened. Templates are visible; some questions use cleft or polite structures and some sources add an explicit temporal clause. Independent preparation/blinding, historical/semantic adjudication, outside-custodian scoring, native OOCC and real-human onboarding remain **NOT_RUN**. All work remains local.
+
+## Candidate 1 before transfer
+
+Shared `question_intent.action_request` maps active, passive and ordinary request forms to action/object inspection goals. Complete original clauses and the complete original policy/proof question remain available. No object suffix is cut at a condition, negation, date or added obligation. Native source proof is unchanged.
+
+Development **34/54→46/54**, complete targets **2/12→8/12**, useful partials **2/12→8/12**, positive misses **20→8**, thirty withholding controls **30/30→30/30**, false-supported claims **0→0**. All24positive/partial targets now have a recognized documentary goal and discovered witness; eight letter targets remain blocked by the separate preformatted-header scope guard. This is not a complete-development PASS or demonstrated answer coverage in every source form.
+
+The [unchanged existing selector controls](selector-controls/freeze.json) add39stable cases from explicit field/record selectors, field question wording, compound obligations and alias suites. Their exact source files match the earlier committed ZIP. Baseline39/39 and candidate39/39 pass. They are preservation software controls, not39new independently prepared source collections.
+
+The 280release comparison preserves the Mothman candidate's complete contracts (275unchanged from original release plus its five earlier verified recoveries); no additional Jackalope gain is claimed in that cohort. All68prior Mothman input contracts remain exactly unchanged apart from code fingerprints, including its three known misses. Five input pairs overlap those cohorts, so348memberships represent343unique input pairs before Jackalope's new cases. All169inherited native controls and50date/byline/inspection tests pass. No budget cap changed.
+
+Fresh24transfer remains sealed at this candidate-document freeze. It will run only after committed scoped ZIP extraction checks. Letter-boundary failures remain explicit for the later source-linked structure series rather than being hidden by question normalization.

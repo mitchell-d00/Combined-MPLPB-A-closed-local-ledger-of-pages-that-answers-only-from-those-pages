@@ -4,8 +4,8 @@ Last reviewed: 2026-11-25.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `2f14a1495f7817f441ea2fd078c54048afaef86a` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `9cbb4f7703207f1b760d479ca269f33f1b30fabc85f1e80c7425e4c8664a14d3`.
+Base commit: `393b71b5761022eacbf0a411b87207a2f3c23c65` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `2f3fe55602b72a6061c34460d6f9c0bc43819610e0b4500bd4aed5b4292e8cb1`.
 
 ## Betty report for Al
 
@@ -21,6 +21,7 @@ Run Betty — local Cryptid test programme. Start from current main. Complete th
 - Ordered scope: programme, documentary date roles, question wording, polarity/conditions/modality, identity/references, comparisons/corrections, multipart/document links, automatic source-linked representation, fixed-cap budgets, Bubblewrap controls, real-human onboarding preparation and final local ZIP review.
 - Mothman shared date-role planning/proof and counterevidence scan; three remaining development misses retained, no caps changed.
 - Mothman local cycle completed with3remaining development misses; no overall development-pass claim. Jackalope next, all previous packets now preservation.
+- Jackalope finite shared action-question goal recognition; original question retained for eligibility/proof, no source-rule or budget relaxation. Eight source-boundary misses remain.
 
 ### Validation recorded
 
@@ -42,6 +43,9 @@ Run Betty — local Cryptid test programme. Start from current main. Complete th
 - Fresh24executed once after candidate freeze:24/24decisions,8/8positive,16/16withhold,0false support,0reader execution failures. Fourpositive structural transfers andfourlimited substitutions; sameoperator templates visible.
 - Premature extracted focused-test launch failed before process creation; retained separately, retried only after directory existed. Default sandbox launch failures also retained; no unsandboxed worker fallback.
 - Jackalope54baseline completed before native changes:34expected decisions,2complete+2checked partials,20positive misses(18interpretation/2letter-boundary proof),30withholds,0false-supported claims. v1mistook9claim-free abstentions for false support; original score and v2accounting correction retained, no source/key changes. Native discovery finds all required positive witnesses.
+- Jackalope54identical development34→46expected decisions,complete2→8,checked partials2→8,positive misses20→8; all30withholds,0false support. Every positive/partial target now has a documentary goal; eight letter-scope proof misses remain.
+- 39unchanged selector/field-wording/compound controls passed baseline and candidate. All280release contracts preserved relative to Mothman current candidate; all68Mothman contracts exactly unchanged. Five case overlaps inventoried.
+- 169inherited native plus50date/byline/inspection tests pass,0skips. Jackalope24transfer remains sealed.
 
 ### Limitations and blocked checks
 
@@ -51,7 +55,7 @@ Run Betty — local Cryptid test programme. Start from current main. Complete th
 
 ### Next steps
 
-- Repair shared action-question interpretation, retain original full question for policy/proof, measure identical54+preservation. Letter header-boundary misses remain separately classified; transfer unopened until committed candidate ZIP.
+- Commit scoped Jackalope ZIP, verify extracted54+39selector/50focused checks, then run sealed24once. Retain all misses and move to Yeti afterward.
 - Run all series sequentially and finish a local committed-ZIP review package. No remote publication.
 
 ## Use this ZIP in your repository

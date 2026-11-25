@@ -8,6 +8,7 @@ import re
 from .body_text import body_text
 from .evidence_contract import pin
 from . import documentary_verify as kernel
+from .question_intent import action_request
 from mplpb_combined.reader import terms
 
 VERSION='documentary-composition-v1'
@@ -70,6 +71,8 @@ def plan(question):
         who=re.fullmatch(r'Who ('+'|'.join(ACTIONS)+r') (.{1,240})',q,re.I)
         if who:
             goals.append({'question':clause,'kind':'who_action','action':ACTIONS[who[1].lower()],'object_text':who[2]})
+        elif (intent := action_request(q,kernel.PAST,{**kernel.PAST,**kernel.PASSIVE})):
+            goals.append({'question':clause,'kind':'who_action','action':intent['action'],'object_text':intent['object_text']})
         elif re.match(r'Who (?:arranged|asked|requested|instructed)\b',q,re.I):
             goals.append({'question':clause,'kind':'reported_instruction'})
         elif re.match(r'Which (?:dated )?letter\b',q,re.I):
