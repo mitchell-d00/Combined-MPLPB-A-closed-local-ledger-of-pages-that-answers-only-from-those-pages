@@ -2,7 +2,7 @@
 import re
 
 from .body_text import body_text
-from .documentary_verify import META, citation, context_ranges, quoted_context
+from .documentary_verify import META, citation, context_ranges, quoted_context, named_actor
 
 NAME = r'(?-i:[A-Z][a-z]+(?: [A-Z][a-z]+){0,3})'
 FULL_NAME = r'(?-i:[A-Z][a-z]+(?: (?:[A-Z][a-z]+|[A-Z]\.)){0,3} [A-Z][a-z]+)'
@@ -10,6 +10,19 @@ _TITLE = r'(?:(?:Ambassador|Director|Secretary|Minister|Dr\.|Mr\.|Ms\.|Mrs\.) )?
 _SALUTATION = re.compile(rf'^Dear (?P<addressee>{_TITLE}(?P<recipient>{NAME})):[ \t]*$', re.M)
 _SIGNATURE = re.compile(
     rf'^(?:Sincerely|Respectfully|Yours sincerely|Yours truly),\n(?P<signer>{FULL_NAME})[ \t]*(?=\n|$)', re.M)
+
+
+def printed_writer_label(body, *, require_person=False):
+    """A scoped printed label, never authenticated authorship or identity expansion."""
+    patterns = [r'^From: (?P<writer>[^\n]+)(?=\n|$)',
+                r'^(?P<writer>[^\n]{2,100}?) TO [^\n]{2,120}?\. [^\n]+',
+                r'^(?:Report\.\n)?Written by (?P<writer>[^.\n]+)\.?',
+                r'^Meeting minutes\.\s*(?:Recorder:|Recorded by) (?P<writer>[^.\n]+)\.?']
+    for pattern in patterns:
+        match = re.match(pattern, body)
+        if match and (not require_person or named_actor(match['writer'])):
+            return match['writer'], match.span()
+    return None, None
 
 
 def same_name(requested, declared):

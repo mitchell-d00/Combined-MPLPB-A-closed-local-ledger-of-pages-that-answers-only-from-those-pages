@@ -10,7 +10,7 @@ import re
 
 from . import documentary_verify as kernel
 from .claim_frame import ClaimFrame
-from .source_attribution import unqualified_span
+from .source_attribution import unqualified_span, printed_writer_label
 
 _PERSON = r'[^,;:!?“”"\n]{2,120}?'
 _OBJECT = r'the [\w -]{2,180}?'
@@ -91,15 +91,7 @@ def report_roles(statement):
 
 def _writer(body):
     """Printed body label only; never authenticate a writer or resolve initials."""
-    patterns = [r'^From: (?P<writer>[^\n]+)(?=\n|$)',
-                r'^(?P<writer>[^\n]{2,100}?) TO [^\n]{2,120}?\. [^\n]+',
-                r'^(?:Report\.\n)?Written by (?P<writer>[^.\n]+)\.?',
-                r'^Meeting minutes\.\s*(?:Recorder:|Recorded by) (?P<writer>[^.\n]+)\.?']
-    for pattern in patterns:
-        match = re.match(pattern, body)
-        if match and kernel.named_actor(match['writer']):
-            return match['writer'], match.span()
-    return None, None
+    return printed_writer_label(body, require_person=True)
 
 
 def _citation(record, body, start, end):

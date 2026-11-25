@@ -3,7 +3,7 @@ import re
 from . import documentary_verify as kernel
 from .body_text import body_text
 from .passages import PassageIndex
-from .source_attribution import unqualified_span
+from .source_attribution import unqualified_span, printed_writer_label
 
 _DATE=kernel.DATE_EXPRESSION
 _WRITING=re.compile(r'This\s+letter\s+was\s+written\s+on\s+(?P<date>'+_DATE+r')\.',re.I)
@@ -35,6 +35,11 @@ def verify(index,max_passages,max_chars):
     matches=[o for o in originals if kernel._date_value(clean(o[2]['date']))==target]
     if len(matches)!=1:return None
     original,earlier,date,count=matches[0]
+    def declared_writer(record, text):
+        name,span=printed_writer_label(text)
+        return name if span and unqualified_span(record,text,*span) else None
+    left_writer,right_writer=declared_writer(original,earlier),declared_writer(r,body)
+    if left_writer and right_writer and kernel.normalized(left_writer)!=kernel.normalized(right_writer):return None
     if original.id==r.id or clean(count['unit']).casefold()!=clean(change['unit']).casefold():return None
     destination=clean(change['destination']) if change['destination'] else None
     if destination is not None and destination.casefold()!=clean(count['destination']).casefold():return None
