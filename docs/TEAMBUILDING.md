@@ -47,6 +47,10 @@ last applied state and begin there. With just the repository link, open the
 newest PR by creation time across all states, including merged and closed.
 A PR link from the maintainer overrides that selection. If its report is
 missing or stale, read the handoff at the actual PR head.
+The terminal bridge ignores report-pin labels inside Markdown backtick and
+tilde fences. Its first exact unfenced current-head or legacy evidence-pin
+label is compared with the actual PR head.
+[Frozen report-pin replay](../evaluation/report-pins/2026-11-25/README.md)
 [Current Betty report for Al](../HANDOFF.md#betty-report-for-al)
 
 ## How Al and Betty work together
@@ -116,6 +120,18 @@ report is the starting state.
    applied state. When the maintainer pauses, the last report stays in
    place. A fresh Al or Betty resumes by reading the repository and that
    same report.
+
+## Outside
+
+**Outside is Mitchell’s sounding board.** I’m a chat bot that can read the public repo and understand how Al and Betty work together. Mitchell can talk through ideas with me, sanity-check Al’s advice, or sharpen a question while Betty is working.
+
+The handoff stays manual. Outside works in Mitchell’s chat, and Mitchell decides what, if anything, to paste to Al or Betty. Treat an Outside note as discussion input. Take implementation direction from Mitchell.
+
+Al still reviews Betty’s pinned evidence and proposes the next test. Betty still runs the authorized work and updates the PR. Outside gives Mitchell room to think between those steps without interrupting the loop.
+
+For replication, keep Outside in Mitchell’s discussion chat. Follow the same
+Betty → Al → Mitchell relay → Betty cycle above; the sounding-board chat adds
+no automatic handoff or implementation authorization.
 
 ## Compare several Al sessions
 

@@ -1,0 +1,50 @@
+[
+  {
+    "argv": [
+      "python",
+      "tools/build_browser_runtime.py",
+      "--core-archive",
+      "/workspace/pyodide-core.tar.bz2",
+      "--output",
+      "dist/index.html"
+    ],
+    "cwd": "/workspace/pin-extracted",
+    "started_at": "2026-11-25T05:05:12.690976+00:00",
+    "exit_code": 0,
+    "seconds": 4.53,
+    "stdout": "browser-1.stdout.log",
+    "stderr": "browser-1.stderr.log"
+  },
+  {
+    "argv": [
+      "node",
+      "tools/check_browser_wasm.mjs",
+      "/workspace/pyodide-runtime/pyodide",
+      "dist/index.html"
+    ],
+    "cwd": "/workspace/pin-extracted",
+    "started_at": "2026-11-25T05:05:17.221177+00:00",
+    "exit_code": 0,
+    "seconds": 162.468,
+    "stdout": "browser-2.stdout.log",
+    "stderr": "browser-2.stderr.log"
+  },
+  {
+    "argv": [
+      "python",
+      "tools/browser_release_smoke.py",
+      "--live-url",
+      "https://mitchell-d00.github.io/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/",
+      "--preview-dir",
+      "dist",
+      "--browser-executable",
+      "/workspace/pw-browsers/chromium-1234/chrome-linux64/chrome"
+    ],
+    "cwd": "/workspace/pin-extracted",
+    "started_at": "2026-11-25T05:07:59.689991+00:00",
+    "exit_code": 2,
+    "seconds": 0.265,
+    "stdout": "browser-3.stdout.log",
+    "stderr": "browser-3.stderr.log"
+  }
+]

@@ -1,6 +1,6 @@
 # Checked documentary assertions and question composition
 
-Last reviewed: 2026-11-17.
+Last reviewed: 2026-11-25.
 
 Package role: [how this part fits Combined MPLPB](PACKAGE_GUIDE.md#documentary-research). This guide covers documentary inspection; source assertions, candidate relations and historical truth remain distinct.
 
@@ -44,3 +44,20 @@ external historical truth remain unverified. Earlier partial-only results above
 describe their measured revisions; the [new unchanged-question replay](../evaluation/solo-milestone/2026-11-17/RESULTS.md)
 has2 complete source answers and1 partial. Additional obligations or missing
 witnesses still prevent completion.
+
+## Signed-letter delegation instructions
+
+The native checker can bind a full printed signature and explicit salutation
+to a delegation task in an eligible original letter. A separate first-person
+instruction declaration and complete directive are required. Explicit governing
+objectives remain cited. The claim retains actor, action, object, source voice,
+polarity, instruction modality, unresolved event time and literal qualifications.
+Initials, a loose name mention, quoted/denied declarations and ambiguous letters
+do not establish the binding. This finite class does not authenticate authorship.
+
+A recognized transition/task question can return only the instruction as a
+checked partial and preserve the exact other question in missing obligations.
+No agreement or execution follows from an instruction. Source eligibility,
+independent reread, eight-record/200,000-character/1,000-unit scan limits,
+12-passage/8,000-character output defaults and final state checks remain.
+[PE-02 freeze, failures, controls and reproduction](../evaluation/pole/open-items/frus-pe02/README.md).

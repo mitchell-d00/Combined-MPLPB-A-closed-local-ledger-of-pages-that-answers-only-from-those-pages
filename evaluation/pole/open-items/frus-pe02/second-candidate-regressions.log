@@ -1,0 +1,34 @@
+======================================================================
+FAIL: test_denied_first_person_cannot_become_an_instruction (tests.test_signed_instructions.SignedInstructionTests.test_denied_first_person_cannot_become_an_instruction)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/report-pin-repair/tests/test_signed_instructions.py", line 70, in test_denied_first_person_cannot_become_an_instruction
+    self.withheld(self.answer())
+  File "/workspace/report-pin-repair/tests/test_signed_instructions.py", line 35, in withheld
+    self.assertFalse(out['answer_supported']);self.assertEqual(out['claims'],[])
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: True is not false
+
+======================================================================
+FAIL: test_reported_first_person_cannot_become_signer_voice (tests.test_signed_instructions.SignedInstructionTests.test_reported_first_person_cannot_become_signer_voice)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/report-pin-repair/tests/test_signed_instructions.py", line 66, in test_reported_first_person_cannot_become_signer_voice
+    self.withheld(self.answer())
+  File "/workspace/report-pin-repair/tests/test_signed_instructions.py", line 35, in withheld
+    self.assertFalse(out['answer_supported']);self.assertEqual(out['claims'],[])
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: True is not false
+
+======================================================================
+FAIL: test_unrelated_balanced_quotation_does_not_erase_valid_instruction (tests.test_signed_instructions.SignedInstructionTests.test_unrelated_balanced_quotation_does_not_erase_valid_instruction)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/report-pin-repair/tests/test_signed_instructions.py", line 81, in test_unrelated_balanced_quotation_does_not_erase_valid_instruction
+    self.assertTrue(self.answer()['answer_supported'])
+AssertionError: False is not true
+
+----------------------------------------------------------------------
+Ran 16 tests in 1.128s
+
+FAILED (failures=3)

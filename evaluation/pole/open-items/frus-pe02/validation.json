@@ -1,0 +1,555 @@
+{
+  "status": "local_exact_archive_checks_passed_not_deployed",
+  "baseline_commit": "7618be370c334b082cb91c50eaf665f979ce5c1e",
+  "tested_source_commit": "efda9ef962e1ba4ba6d71a0843e75a45da279210",
+  "tested_tree": "5a7c5a97e91f5f4e6ffab56b0cde8745f1fc66cd",
+  "archive": "MPLPB-PE02-source.zip",
+  "archive_sha256": "d594ee87ceeb18764b9cec857b24f9163dd4173f4dc975978715d711aa973e66",
+  "archive_command": "git archive --format=zip -1 --output=MPLPB-PE02-source.zip efda9ef962e1ba4ba6d71a0843e75a45da279210",
+  "git_version": "git version 2.56.1",
+  "zlib_version": "1.3.2",
+  "zip_integrity": "PASS",
+  "required_hidden_workflows_and_handoff": "PASS",
+  "source_context": "ZIP extracted into an otherwise empty metadata-only Git worktree at the candidate commit. Git metadata serves the frozen runner revision check; every source file came from the ZIP. git diff --quiet passed after tests.",
+  "checks": {
+    "software": [
+      {
+        "argv": [
+          "python",
+          "tools/build_handoff.py",
+          "--check"
+        ],
+        "cwd": "/workspace/pe02-extracted",
+        "started_at": "2026-11-25T06:04:27.637571+00:00",
+        "exit_code": 0,
+        "seconds": 8.2,
+        "stdout": "software-1.stdout.log",
+        "stderr": "software-1.stderr.log"
+      },
+      {
+        "argv": [
+          "python",
+          "-m",
+          "tools.audit_documentation"
+        ],
+        "cwd": "/workspace/pe02-extracted",
+        "started_at": "2026-11-25T06:04:35.840186+00:00",
+        "exit_code": 0,
+        "seconds": 0.518,
+        "stdout": "software-2.stdout.log",
+        "stderr": "software-2.stderr.log"
+      },
+      {
+        "argv": [
+          "python",
+          "tools/check_repository_infrastructure.py"
+        ],
+        "cwd": "/workspace/pe02-extracted",
+        "started_at": "2026-11-25T06:04:36.358887+00:00",
+        "exit_code": 0,
+        "seconds": 0.269,
+        "stdout": "software-3.stdout.log",
+        "stderr": "software-3.stderr.log"
+      },
+      {
+        "argv": [
+          "python",
+          "tools/replay_report_pins.py",
+          "--runtime",
+          ".",
+          "--fixtures",
+          "evaluation/report-pins/2026-11-25/fixtures.json",
+          "--output",
+          "/workspace/pe02-validation/frozen-replay.json"
+        ],
+        "cwd": "/workspace/pe02-extracted",
+        "started_at": "2026-11-25T06:04:36.632668+00:00",
+        "exit_code": 0,
+        "seconds": 0.725,
+        "stdout": "software-4.stdout.log",
+        "stderr": "software-4.stderr.log"
+      },
+      {
+        "argv": [
+          "python",
+          "-m",
+          "unittest",
+          "tests.test_ledger_ui",
+          "-q"
+        ],
+        "cwd": "/workspace/pe02-extracted",
+        "started_at": "2026-11-25T06:04:37.358545+00:00",
+        "exit_code": 0,
+        "seconds": 1.226,
+        "stdout": "software-5.stdout.log",
+        "stderr": "software-5.stderr.log"
+      },
+      {
+        "argv": [
+          "node",
+          "tests/javascript-api.cjs"
+        ],
+        "cwd": "/workspace/pe02-extracted",
+        "started_at": "2026-11-25T06:04:38.585415+00:00",
+        "exit_code": 0,
+        "seconds": 2.961,
+        "stdout": "software-6.stdout.log",
+        "stderr": "software-6.stderr.log"
+      },
+      {
+        "argv": [
+          "python",
+          "tools/check_ui_script.py"
+        ],
+        "cwd": "/workspace/pe02-extracted",
+        "started_at": "2026-11-25T06:04:41.548792+00:00",
+        "exit_code": 0,
+        "seconds": 1.12,
+        "stdout": "software-7.stdout.log",
+        "stderr": "software-7.stderr.log"
+      },
+      {
+        "argv": [
+          "node",
+          "tools/check_browser_transport.cjs"
+        ],
+        "cwd": "/workspace/pe02-extracted",
+        "started_at": "2026-11-25T06:04:42.669696+00:00",
+        "exit_code": 0,
+        "seconds": 0.116,
+        "stdout": "software-8.stdout.log",
+        "stderr": "software-8.stderr.log"
+      },
+      {
+        "argv": [
+          "node",
+          "--check",
+          "tools/mplpb_agent_bridge.mjs"
+        ],
+        "cwd": "/workspace/pe02-extracted",
+        "started_at": "2026-11-25T06:04:42.786129+00:00",
+        "exit_code": 0,
+        "seconds": 0.033,
+        "stdout": "software-9.stdout.log",
+        "stderr": "software-9.stderr.log"
+      },
+      {
+        "argv": [
+          "node",
+          "tests/documentary-render.cjs"
+        ],
+        "cwd": "/workspace/pe02-extracted",
+        "started_at": "2026-11-25T06:04:42.819987+00:00",
+        "exit_code": 0,
+        "seconds": 0.065,
+        "stdout": "software-10.stdout.log",
+        "stderr": "software-10.stderr.log"
+      },
+      {
+        "argv": [
+          "node",
+          "tests/browser-ai-helper.cjs"
+        ],
+        "cwd": "/workspace/pe02-extracted",
+        "started_at": "2026-11-25T06:04:42.885982+00:00",
+        "exit_code": 0,
+        "seconds": 0.617,
+        "stdout": "software-11.stdout.log",
+        "stderr": "software-11.stderr.log"
+      },
+      {
+        "argv": [
+          "node",
+          "tests/browser-model-loader.cjs"
+        ],
+        "cwd": "/workspace/pe02-extracted",
+        "started_at": "2026-11-25T06:04:43.503733+00:00",
+        "exit_code": 0,
+        "seconds": 3.785,
+        "stdout": "software-12.stdout.log",
+        "stderr": "software-12.stderr.log"
+      },
+      {
+        "argv": [
+          "node",
+          "tests/browser-webgpu-limits.cjs"
+        ],
+        "cwd": "/workspace/pe02-extracted",
+        "started_at": "2026-11-25T06:04:47.291887+00:00",
+        "exit_code": 0,
+        "seconds": 0.671,
+        "stdout": "software-13.stdout.log",
+        "stderr": "software-13.stderr.log"
+      },
+      {
+        "argv": [
+          "node",
+          "crawler/test_worker.mjs"
+        ],
+        "cwd": "/workspace/pe02-extracted",
+        "started_at": "2026-11-25T06:04:47.963706+00:00",
+        "exit_code": 0,
+        "seconds": 0.167,
+        "stdout": "software-14.stdout.log",
+        "stderr": "software-14.stderr.log"
+      },
+      {
+        "argv": [
+          "node",
+          "crawler/test_historical.mjs"
+        ],
+        "cwd": "/workspace/pe02-extracted",
+        "started_at": "2026-11-25T06:04:48.131492+00:00",
+        "exit_code": 0,
+        "seconds": 0.116,
+        "stdout": "software-15.stdout.log",
+        "stderr": "software-15.stderr.log"
+      }
+    ],
+    "native": [
+      {
+        "argv": [
+          "python",
+          "-m",
+          "unittest",
+          "tests.test_integrity_hunt",
+          "tests.test_record",
+          "tests.test_ledger",
+          "tests.test_literal_evidence",
+          "tests.test_answer_reliability",
+          "tests.test_answer_support",
+          "-q"
+        ],
+        "cwd": "/workspace/pe02-extracted",
+        "started_at": "2026-11-25T06:04:27.715908+00:00",
+        "exit_code": 0,
+        "seconds": 6.241,
+        "stdout": "native-1.stdout.log",
+        "stderr": "native-1.stderr.log"
+      },
+      {
+        "argv": [
+          "python",
+          "-m",
+          "tools.evaluate_public_evidence",
+          "--output",
+          "/workspace/pe02-validation/public-controls.json",
+          "--require-capabilities"
+        ],
+        "cwd": "/workspace/pe02-extracted",
+        "started_at": "2026-11-25T06:04:33.957915+00:00",
+        "exit_code": 0,
+        "seconds": 38.382,
+        "stdout": "native-2.stdout.log",
+        "stderr": "native-2.stderr.log"
+      },
+      {
+        "argv": [
+          "python",
+          "-m",
+          "unittest",
+          "discover",
+          "-s",
+          "tests",
+          "-q"
+        ],
+        "cwd": "/workspace/pe02-extracted",
+        "started_at": "2026-11-25T06:05:12.340897+00:00",
+        "exit_code": 0,
+        "seconds": 649.526,
+        "stdout": "native-3.stdout.log",
+        "stderr": "native-3.stderr.log"
+      }
+    ],
+    "browser": [
+      {
+        "argv": [
+          "python",
+          "tools/build_browser_runtime.py",
+          "--core-archive",
+          "/workspace/pyodide-core.tar.bz2",
+          "--output",
+          "dist/index.html"
+        ],
+        "cwd": "/workspace/pe02-extracted",
+        "started_at": "2026-11-25T06:04:27.625045+00:00",
+        "exit_code": 0,
+        "seconds": 5.832,
+        "stdout": "browser-1.stdout.log",
+        "stderr": "browser-1.stderr.log"
+      },
+      {
+        "argv": [
+          "node",
+          "tools/check_browser_wasm.mjs",
+          "/workspace/pyodide-runtime/pyodide",
+          "dist/index.html"
+        ],
+        "cwd": "/workspace/pe02-extracted",
+        "started_at": "2026-11-25T06:04:33.459941+00:00",
+        "exit_code": 0,
+        "seconds": 171.651,
+        "stdout": "browser-2.stdout.log",
+        "stderr": "browser-2.stderr.log"
+      },
+      {
+        "argv": [
+          "python",
+          "/workspace/run_verified_browser.py",
+          "--root",
+          ".",
+          "--output",
+          "/workspace/pe02-validation/verified-browser.json",
+          "--preview-dir",
+          "dist"
+        ],
+        "cwd": "/workspace/pe02-extracted",
+        "started_at": "2026-11-25T06:07:25.113140+00:00",
+        "exit_code": 0,
+        "seconds": 98.989,
+        "stdout": "browser-3.stdout.log",
+        "stderr": "browser-3.stderr.log"
+      }
+    ]
+  },
+  "native_tests": {
+    "run": 1751,
+    "skipped": 2
+  },
+  "mcp_sdk_checks": 45,
+  "installed_wheel": "PASS",
+  "reference_evidence_inventory": "PASS; historical current-engine match remains false as recorded",
+  "synthetic_researcher_summary": {
+    "journeys": 6,
+    "workflow_passes": 6,
+    "checks": 109,
+    "failed_checks": 0,
+    "questions": 24,
+    "answerable": 18,
+    "returned": 13,
+    "unexecuted_questions": 0,
+    "literal_gold_supported": 13,
+    "wrong_returns_under_literal_oracle": 0,
+    "ungraded_model_returns": 0,
+    "unnecessary_refusals": 5,
+    "complete_answerable_coverage": 0.7222222222222222,
+    "retrieval_gold_recall": 1.0,
+    "valid_citations": 13,
+    "citations": 13,
+    "latency_ms_total": 549.116,
+    "resume_ms_total": 2466.384,
+    "semantic_accuracy_independently_measured": false,
+    "human_usability_measured": false
+  },
+  "frozen_comparison": {
+    "before": {
+      "miss": 4,
+      "expected_withhold": 11,
+      "complete": 1,
+      "partial": 1
+    },
+    "after": {
+      "miss": 2,
+      "expected_withhold": 11,
+      "partial": 2,
+      "complete": 2
+    }
+  },
+  "false_support_decisions": 0,
+  "original_witness_audit": {
+    "status": "PASS",
+    "source_instances_checked": 27,
+    "instruction_witnesses_mapped": 9,
+    "witnesses": [
+      {
+        "case": "PE-02",
+        "source_id": "FRUS-D16",
+        "original_sha256": "48d93a15f57000e87409dddb498230b1f43668c6b3bc31cdd91ad54933ca6af6",
+        "original_byte_span": [
+          15058,
+          15146
+        ],
+        "original_character_span": [
+          15050,
+          15138
+        ],
+        "original_span_sha256": "24410d894666ae123c7d1e7f91052f2a9a8968394d84ab5f7671638bd157b188",
+        "canonical_quote_sha256": "80ffe54f678b23d6d6c97bacab609a4527b2e877081dc30ea03f835fc13f1ec8"
+      },
+      {
+        "case": "PE-02",
+        "source_id": "FRUS-D16",
+        "original_sha256": "48d93a15f57000e87409dddb498230b1f43668c6b3bc31cdd91ad54933ca6af6",
+        "original_byte_span": [
+          15167,
+          15615
+        ],
+        "original_character_span": [
+          15159,
+          15607
+        ],
+        "original_span_sha256": "a4cf06dc6cc7ad81a1e8362a22fa5bca8fe5d39d80680828a9bd1d174407e5d9",
+        "canonical_quote_sha256": "a2d577197f4515f83f3d71c096488e020c4c0e923bbc3d1e2eaf55937faff8e3"
+      },
+      {
+        "case": "PE-02",
+        "source_id": "FRUS-D16",
+        "original_sha256": "48d93a15f57000e87409dddb498230b1f43668c6b3bc31cdd91ad54933ca6af6",
+        "original_byte_span": [
+          15636,
+          16053
+        ],
+        "original_character_span": [
+          15628,
+          16045
+        ],
+        "original_span_sha256": "fab2524b3ee562db0cd3c6f268e50d3479b2df9193036ab77f851fc44d42ee71",
+        "canonical_quote_sha256": "21d759ce8a7216f45861921e8fb80fcc744337b30c7f3ae3d1914d7c3a75fcb5"
+      },
+      {
+        "case": "PE-02",
+        "source_id": "FRUS-D16",
+        "original_sha256": "48d93a15f57000e87409dddb498230b1f43668c6b3bc31cdd91ad54933ca6af6",
+        "original_byte_span": [
+          16074,
+          16398
+        ],
+        "original_character_span": [
+          16066,
+          16390
+        ],
+        "original_span_sha256": "a7f1470a1dcc76a9de7c6b2fa19966c8058e15b26d61f388e68f7bd66d613c13",
+        "canonical_quote_sha256": "b7aff779ec70042e3a49cae19c57f0b0aa3274630c81fa047564d2ee0294d1c0"
+      },
+      {
+        "case": "PE-02",
+        "source_id": "FRUS-D16",
+        "original_sha256": "48d93a15f57000e87409dddb498230b1f43668c6b3bc31cdd91ad54933ca6af6",
+        "original_byte_span": [
+          21675,
+          22007
+        ],
+        "original_character_span": [
+          21659,
+          21991
+        ],
+        "original_span_sha256": "fe5d4bacdb46fd6467de26d093230e58f025098ddb35c344d13f0a28f6f90801",
+        "canonical_quote_sha256": "f780723746a04fdb9f25dd96d70dbfecb5e8b47bc672c53b1c69f7880cf73f76"
+      },
+      {
+        "case": "SIGNED-POSITIVE",
+        "source_id": "SIGNED-POSITIVE",
+        "original_sha256": "7469942671d46be7bc5fb934bdb899216ef82a90615349debdbc73a926f6f343",
+        "original_byte_span": [
+          70,
+          97
+        ],
+        "original_character_span": [
+          70,
+          97
+        ],
+        "original_span_sha256": "1dffc935dbedcb91efb839eaed883a7aa1dba2260360354be1385a29173ea472",
+        "canonical_quote_sha256": "e304207e120ddc812ec9a74345bbdffb9adf285d05daa0c88f063b7770201233"
+      },
+      {
+        "case": "SIGNED-POSITIVE",
+        "source_id": "SIGNED-POSITIVE",
+        "original_sha256": "7469942671d46be7bc5fb934bdb899216ef82a90615349debdbc73a926f6f343",
+        "original_byte_span": [
+          97,
+          162
+        ],
+        "original_character_span": [
+          97,
+          162
+        ],
+        "original_span_sha256": "bf6660e30cc2cfed907c05b3ee84cdd0c5e4778b1177edca0c3b1719392c6464",
+        "canonical_quote_sha256": "dd02fa9d9044d01610b8a18f4e6393f34238527c3ae35c730ef8672ee6eba9d4"
+      },
+      {
+        "case": "SIGNED-POSITIVE",
+        "source_id": "SIGNED-POSITIVE",
+        "original_sha256": "7469942671d46be7bc5fb934bdb899216ef82a90615349debdbc73a926f6f343",
+        "original_byte_span": [
+          162,
+          279
+        ],
+        "original_character_span": [
+          162,
+          279
+        ],
+        "original_span_sha256": "3630b7de471b249ed12383639a227a5b327b454ebfcffff3db4fce73f7ab19db",
+        "canonical_quote_sha256": "26267aa129b68113b007272c53754ba649babaf0890c8e53c9716b8e818ff13a"
+      },
+      {
+        "case": "SIGNED-POSITIVE",
+        "source_id": "SIGNED-POSITIVE",
+        "original_sha256": "7469942671d46be7bc5fb934bdb899216ef82a90615349debdbc73a926f6f343",
+        "original_byte_span": [
+          279,
+          318
+        ],
+        "original_character_span": [
+          279,
+          318
+        ],
+        "original_span_sha256": "b43f57fd20871df7aa169facda7eae72cf38aa69a5934eca181e10b9215db0ca",
+        "canonical_quote_sha256": "94f36c7c8bfd401e0116986d09f8111cb8aa21201aa6108f48af9ff17aea5391"
+      }
+    ],
+    "scope": "Source bytes and projection only; independent historical truth is NOT_RUN."
+  },
+  "native_diff_from_baseline": {
+    "changed": [
+      "mplpb_answers/pipeline.py"
+    ],
+    "added": [
+      "mplpb_answers/documentary_instruction.py",
+      "mplpb_answers/source_attribution.py"
+    ]
+  },
+  "pe02_native_scan": {
+    "scope": "signed_letter_instruction",
+    "source_support_claims": 1,
+    "examined_characters": 9707,
+    "examined_units": 56,
+    "paragraph_units": 26,
+    "limits": {
+      "max_proposals": 12,
+      "max_scan_characters": 200000,
+      "max_units": 1000,
+      "max_assertions": 64
+    },
+    "record_limit": 8
+  },
+  "browser": {
+    "host": "mitchell-d00.github.io",
+    "url": "https://mitchell-d00.github.io/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/",
+    "tls_hostname_and_chain_verified": true,
+    "curl_http_status": "200",
+    "spki_sha256_base64": "QztXhOFVe7kE4SHElz5fUOGft3Pj6LMIvsE/V2wE2qA=",
+    "certificate_sha256": "d6767678629dae7c5af08c85b4fe1cab235f00954f78ecfbef62efa2fd17047b",
+    "issuer": "CN=openai.com,O=OpenAI\\, LLC,L=San Francisco,ST=California,C=US",
+    "approach": "Verified TLS and curl pinned public key, then explicit matching Chromium SPKI; no global TLS bypass.",
+    "live_updated": false,
+    "engine_checks": [
+      {
+        "surface": "candidate-preview",
+        "module_hashes": {
+          "pipeline.py": "45dd1eba82e1914a5ee7a350e850e9dd8580d8b1c6eff230e78787bee6b8f08d",
+          "documentary_instruction.py": "6fb8c13847486f7210eb964017e04b872799eca67b40b342d6a3a877b7a0365c",
+          "source_attribution.py": "85a1a990316c06e99a2112306b3ead0933c75374ba1a0af0f0767c75ec17046c"
+        }
+      }
+    ],
+    "published_live": "PASS",
+    "candidate_preview": "PASS",
+    "seconds": 82.444
+  },
+  "exact_pr_head_ci": "NOT_RUN pending final evidence push",
+  "postdeployment_verification": "NOT_RUN",
+  "outside_custodian_scoring": "NOT_RUN",
+  "independent_historical_accuracy": "NOT_RUN",
+  "independent_semantic_adjudication": "NOT_RUN",
+  "native_oocc": "NOT_RUN"
+}

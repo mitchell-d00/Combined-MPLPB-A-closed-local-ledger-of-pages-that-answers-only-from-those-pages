@@ -1,0 +1,107 @@
+{
+  "status": "local_source_archive_checks_passed",
+  "baseline_commit": "78f6a464212214a29a84f400a199be46a25db8bf",
+  "source_commit": "e8e874ce8a8ae1d55c821da27b30d1dfe1bf1e45",
+  "source_tree": "8bbb0a244b6a6dd3126d480e0f14929fdf1fc4a3",
+  "source_archive_sha256": "c08d6d7729dc0f5d7a2d2463075020182248eff0ee7772d584fa34788bcececd",
+  "archive_generation": "git archive --format=zip -1 HEAD",
+  "compressed_archive_integrity": "PASS",
+  "extracted_handoff_and_evidence_digests": "PASS",
+  "python": {
+    "tests_run": 1727,
+    "seconds": 394.317,
+    "skipped": 2
+  },
+  "public_evidence": {
+    "pass": 52,
+    "false_supported_bridges": 0
+  },
+  "installed_wheel": "PASS",
+  "javascript_ui_rendering_transport_model_helper_and_webgpu": "PASS",
+  "crawler_and_historical_fixtures": "PASS",
+  "reference_evidence_inventory": "PASS",
+  "synthetic_researcher_workflow": {
+    "journeys": 6,
+    "workflow_passes": 6,
+    "checks": 109,
+    "failed_checks": 0,
+    "questions": 24,
+    "answerable": 18,
+    "returned": 13,
+    "unexecuted_questions": 0,
+    "literal_gold_supported": 13,
+    "wrong_returns_under_literal_oracle": 0,
+    "ungraded_model_returns": 0,
+    "unnecessary_refusals": 5,
+    "complete_answerable_coverage": 0.7222222222222222,
+    "retrieval_gold_recall": 1.0,
+    "valid_citations": 13,
+    "citations": 13,
+    "latency_ms_total": 374.678,
+    "resume_ms_total": 1410.876,
+    "semantic_accuracy_independently_measured": false,
+    "human_usability_measured": false
+  },
+  "pyodide": {
+    "output": "dist/index.html",
+    "bytes": 39412723,
+    "sha256": "3b89fdfcf19aa350617c1f2e98e33cf44fd5af176d51e503ba36958699199ddc",
+    "bundled_files": 507,
+    "pyodide": "314.0.7",
+    "core_release_sha256": "2abdcc2e35208af406e07724cffa85bc582ced97e9028383ecf5462541393f95"
+  },
+  "pyodide_integration": "PASS",
+  "local_chromium_candidate": "PASS",
+  "deployed_chromium_baseline": "PASS with a host-specific public-key pin from a TLS-verified curl request",
+  "github_release_workflow_and_post_deployment_check": "NOT_RUN",
+  "matched_replays": {
+    "source_only_replay": {
+      "os_isolated": false,
+      "scoring_paths_passed_to_workers": false,
+      "focus_cases_matching": 32,
+      "polybius": [
+        {
+          "arm": "before",
+          "matched": true,
+          "count": 8,
+          "source_only_worker_receipt_sha256": "6676a97386d26a60ce0ef26ec78937b1ab08a647d62a25244ee3109c94395dc2"
+        },
+        {
+          "arm": "rendered",
+          "matched": true,
+          "count": 8,
+          "source_only_worker_receipt_sha256": "2e9cdc346097bfd8bc25e9bef3d76f07d76a3825f4fa0d8e919a1db1130ebf6c"
+        }
+      ]
+    },
+    "extracted_source_replayed_all_named_tests": true,
+    "verified_previous_support": {
+      "Tacitus_original_three": 3,
+      "Douglass_authentic": 6,
+      "Herodotus_DHS": 2,
+      "BT_Erratum": 1,
+      "Babbage_two_records": 2
+    },
+    "source_archive_retains_native_runtime_sha256": true,
+    "frozen_public_case_bundle_sha256": "a3b48e620ed0758afeddf7f0e02af96b4482acad5722b9930642a86eb9ed630d",
+    "local_permission_reprint_captures_sha256": "09014c6dcdf0fa14da95c35539695f379a9e2c30d3b9682029da172f9b97422f",
+    "source_reacquisition_matches": [
+      "FRUS-D2",
+      "FRUS-D3"
+    ]
+  },
+  "komnene": {
+    "baseline_sha256": "af4f3c37b8f02c4f7a9cbe94db158e6a85b429d7d01202dfbceb90d7476076b1",
+    "delivery_sha256": "af4f3c37b8f02c4f7a9cbe94db158e6a85b429d7d01202dfbceb90d7476076b1",
+    "paired_questions": 22,
+    "anonymous_arms": 44,
+    "packet_hashes_matching_concealed_mapping": 22,
+    "keys_in_delivery": 0,
+    "delivered_to_outside_judge": false,
+    "independent_scoring": "NOT_RUN"
+  },
+  "independent_historical_accuracy": "NOT_RUN",
+  "outside_custodian_scoring": "NOT_RUN",
+  "independent_semantic_adjudication": "NOT_RUN",
+  "native_oocc": "NOT_RUN"
+}

@@ -1,0 +1,62 @@
+{
+  "schema": "mplpb-report-pin-fixtures-v1",
+  "baseline_commit": "a26ec527e2e3a5bab7883e7892aa00c348ea65dc",
+  "head": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+  "stale": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+  "fixtures": [
+    {
+      "id": "current",
+      "body": "## Betty report for Al\n\n**Current PR head** `aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa`\n",
+      "expected": {
+        "status": "match",
+        "report_head": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "match": true
+      }
+    },
+    {
+      "id": "historical",
+      "body": "## TeamBuilding handoff for Al\n\n**Public evidence pin** `aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa`\n",
+      "expected": {
+        "status": "match",
+        "report_head": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "match": true
+      }
+    },
+    {
+      "id": "stale",
+      "body": "## Betty report for Al\n\n**Current PR head** `bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb`\n",
+      "expected": {
+        "status": "stale",
+        "report_head": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+        "match": false
+      }
+    },
+    {
+      "id": "missing",
+      "body": "No report or pin is present.\n",
+      "expected": {
+        "status": "missing",
+        "report_head": null,
+        "match": false
+      }
+    },
+    {
+      "id": "example_only",
+      "body": "```markdown\n## Betty report for Al\n\n**Current PR head** `aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa`\n```\n",
+      "expected": {
+        "status": "missing",
+        "report_head": null,
+        "match": false
+      }
+    },
+    {
+      "id": "example_before_stale",
+      "body": "```markdown\n## Betty report for Al\n\n**Current PR head** `aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa`\n```\n\n## Betty report for Al\n\n**Current PR head** `bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb`\n",
+      "expected": {
+        "status": "stale",
+        "report_head": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+        "match": false
+      }
+    }
+  ]
+}

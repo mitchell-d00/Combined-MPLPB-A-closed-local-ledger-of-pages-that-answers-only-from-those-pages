@@ -1,8 +1,21 @@
 {
   "schema": "result-test-index-v1",
-  "reviewed_on": "2026-11-24",
+  "reviewed_on": "2026-11-25",
   "meaning": "Links establish retained test/reproduction coverage, not a fresh execution or certification of historical metrics. Original source, dates, fixtures and exact revisions remain in the linked reports.",
   "families": [
+    {
+      "family": "report-pins",
+      "artifacts": "evaluation/report-pins",
+      "tests": [
+        "tests/javascript-api.cjs",
+        "tests/test_ledger_ui.py"
+      ],
+      "runners": [
+        "tools/replay_report_pins.py"
+      ],
+      "scope": "Frozen six-body coordination metadata replay through both CLI roles with mocked HTTP only and a thirty-second per-process limit.",
+      "measurement_status": "Baseline 8/12 expected decisions with four false-current matches; repaired parser 12/12 with zero false-current matches. Historical accuracy, semantic adjudication and native OOCC remain NOT_RUN."
+    },
     {
       "family": "pole",
       "artifacts": "evaluation/pole",
@@ -12,7 +25,12 @@
         "tests/test_documentary_link_proofs.py",
         "tests/test_publication_corrections.py",
         "tests/test_successive_publication_corrections.py",
-        "tests/test_sorter_v2.py"
+        "tests/test_sorter_v2.py",
+        "tests/test_documentary_errata.py",
+        "tests/test_pole_focus_extend.py",
+        "tests/test_documentary_named_advice.py",
+        "tests/test_documentary_presentation.py",
+        "tests/test_signed_instructions.py"
       ],
       "runners": [
         "tools/pole.py",
@@ -21,24 +39,45 @@
         "tools/pole_named_proofs.py",
         "tools/pole_authentic.py",
         "tools/pole_prose_cycle.py",
-        "tools/pole_remaining.py"
+        "tools/pole_remaining.py",
+        "tools/pole_erratum_cycle.py",
+        "tools/pole_focus_extend.py",
+        "tools/pole_frus_boundary.py",
+        "tools/pole_frus_proposition.py",
+        "tools/pole_frus_singleclass.py",
+        "tools/pole_frus_presentation.py",
+        "tools/pole_frus_pe01.py",
+        "tools/pole_frus_pe02.py",
+        "tools/verify_frus_witnesses.py"
       ],
       "scope": "Seeded difficulty levels, exact case pinning, key-separated replay, and structural documentary regressions.",
-      "measurement_status": "The 48-case focus replay recovered 11 full answers and produced two cited conflicts while retaining all 20 expected withholds. The 120-case inherited catalog replay kept all scored outcomes. The follow-up proved 12/12 explicit named-source corrections and chains with 12/12 withholds. The authentic draw retained 1/10 complete anchored answers and 0/6 relational completions at the preceding pin. The prose cycle recovered 3/6 authentic bridges and 6/12 authentic transfer questions with all controls still withheld."
+      "measurement_status": "The 48-case focus replay recovered 11 full answers and produced two cited conflicts while retaining all 20 expected withholds. The 120-case inherited catalog replay kept all scored outcomes. The follow-up proved 12/12 explicit named-source corrections and chains with 12/12 withholds. The authentic draw retained 1/10 complete anchored answers and 0/6 relational completions at the preceding pin. The prose cycle recovered 3/6 authentic bridges and 6/12 authentic transfer questions with all controls still withheld. PE-02 preserves 1/4 historical completions, adds one Smith-letter checked partial, retains six inherited full withholds and the presentation partial, and passes one new positive and five new negative controls. All 17 discovery outputs are unchanged; independent semantic/historical review remains NOT_RUN."
     },
     {
       "family": "d8",
       "artifacts": "evaluation/d8",
-      "tests": ["tests/test_d8_owner_boundaries.py", "tests/test_comparison_completion.py"],
-      "runners": ["tests/test_d8_owner_boundaries.py"],
+      "tests": [
+        "tests/test_d8_owner_boundaries.py",
+        "tests/test_comparison_completion.py"
+      ],
+      "runners": [
+        "tests/test_d8_owner_boundaries.py"
+      ],
       "scope": "Source ownership, ambiguity boundaries, strict source-local verification, and complete or partial assembly for a named pair.",
       "measurement_status": "Two of eight initial controls passed. All eight passed on the repaired implementation. The 24-case D12 replay removed one nonresponsive excerpt comparison and preserved the 0/19 complete-answer coverage. The historical 22 retained each strict status, diagnostic, and citation count."
     },
     {
       "family": "d10",
       "artifacts": "evaluation/d10",
-      "tests": ["tests/test_d10.py", "tests/test_dpercent_weaknesses.py"],
-      "runners": ["test_tools/d10_index.py", "test_tools/d10_capture.py", "test_tools/d10.py"],
+      "tests": [
+        "tests/test_d10.py",
+        "tests/test_dpercent_weaknesses.py"
+      ],
+      "runners": [
+        "test_tools/d10_index.py",
+        "test_tools/d10_capture.py",
+        "test_tools/d10.py"
+      ],
       "scope": "D100 topic planning and D% class indexing. The exact-anchor adapter uses claims and citations from Strict Ask on frozen paired samples.",
       "measurement_status": "Ten filled synthetic draws passed all 20 questions. Mixed-source smoke passed four questions with eight draws unfilled. Local D% sandbox setup failed before inference and the patched batch driver reported nonzero."
     },
@@ -186,16 +225,33 @@
     {
       "family": "comparative-tests",
       "artifacts": "evaluation/comparative-tests",
-      "tests": ["tests/test_governance_demo.py", "tests/test_specialist_continuity.py"],
-      "runners": ["evaluation/comparative-tests/executable-gates/verify.py", "evaluation/comparative-tests/executable-gates/probes/run_probes.py", "evaluation/comparative-tests/executable-gates/probes/git_probe.sh", "evaluation/comparative-tests/dispatch-enforcement/run_controls.py", "tools/governance_demo.py"],
+      "tests": [
+        "tests/test_governance_demo.py",
+        "tests/test_specialist_continuity.py"
+      ],
+      "runners": [
+        "evaluation/comparative-tests/executable-gates/verify.py",
+        "evaluation/comparative-tests/executable-gates/probes/run_probes.py",
+        "evaluation/comparative-tests/executable-gates/probes/git_probe.sh",
+        "evaluation/comparative-tests/dispatch-enforcement/run_controls.py",
+        "tools/governance_demo.py"
+      ],
       "scope": "Seven paired native MPLPB dispatch observations, a two-arm local Git comparison, and 28 follow-up controls across Python, seat RPC, loopback HTTP, and the stock CLI.",
       "measurement_status": "Dispatch controls reproduced at MPLPB 6ba371c. The governance archive passed 10/10 local controls with zero calls for the six denied inputs. Complete mediation, hosted branch policies and native OOCC remain unestablished."
     },
     {
       "family": "d4",
       "artifacts": "evaluation/d4",
-      "tests": ["tests/test_reference_identity.py", "tests/test_d4.py", "tests/test_bounded_records.py"],
-      "runners": ["tools/d4.py", "tools/d4_patterns.py", "tools/bounded_record_study.py"],
+      "tests": [
+        "tests/test_reference_identity.py",
+        "tests/test_d4.py",
+        "tests/test_bounded_records.py"
+      ],
+      "runners": [
+        "tools/d4.py",
+        "tools/d4_patterns.py",
+        "tools/bounded_record_study.py"
+      ],
       "scope": "Documentary identity, local co-reference, mixed D% controls and small documentary packets with support, partial support, conflict and unresolved controls.",
       "measurement_status": "Retained D4 synthetic development evaluation and a reproducible fictional query panel. Profile labels provide synthetic coverage, not evidence about human cohorts."
     },

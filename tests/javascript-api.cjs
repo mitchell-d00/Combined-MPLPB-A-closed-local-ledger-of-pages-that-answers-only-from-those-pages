@@ -74,7 +74,7 @@ function checkTeamBuildingDiscovery(){
    assert.equal(url.pathname,'/repos'+path+'/pulls/'+number);
    return {ok:true,json:async()=>({html_url:manifest.repository+'/pull/'+number,
     head:{sha:head,repo:{full_name:'test-owner/test-repo'}},merged:true,
-    body:explicit?'**Current PR head** \`'+head+'\`':'Report needs reconciliation.'})};
+    body:process.env.FIXTURE_BODY ?? (explicit?'**Current PR head** \`'+head+'\`':'Report needs reconciliation.')})};
   };
  `;
  const preloader='data:text/javascript;base64,'+Buffer.from(fixture).toString('base64');
@@ -97,8 +97,36 @@ function checkTeamBuildingDiscovery(){
  assert.equal(pinned.pull_request,repository+'/pull/97');
  assert.equal(pinned.report_matches_current_head,true);
  assert.equal(run(repository,'al',{FIXTURE_EMPTY:'1'}).live_pull_request,null);
+ const tick=String.fromCharCode(96), fence=tick.repeat(3), h='a'.repeat(40), s='c'.repeat(40);
+ const pin=value=>'**Current PR head** '+tick+value+tick;
+ const controls=[
+  ['~~~markdown\n'+pin(h)+'\n~~~\n'+pin(s),s],
+  [fence+tick+'markdown\n'+fence+'\n'+pin(h)+'\n'+fence+tick+'\n'+pin(s),s],
+  ['~~~\n'+fence+'\n'+pin(h)+'\n~~~\n'+pin(s),s],
+  [fence+'markdown\n'+pin(h),null],
+  ['   ~~~markdown\r\n'+pin(s)+'\r\n   ~~~\r\n'+pin(h),h],
+  [fence+'\n'+pin(s)+'\n'+fence+tick+tick+'\n'+pin(h),h],
+  [fence+'\n'+fence+' trailing-info\n'+pin(h),null],
+ ];
+ for(const role of ['al','betty']) for(const [body,expected] of controls){
+  const live=run(repository,role,{FIXTURE_BODY:body}).live_pull_request;
+  assert.equal(live.report_head,expected);
+  assert.equal(live.report_matches_current_head,expected===h);
+ }
+}
+function checkFrozenReportPins(){
+ const folder=fs.mkdtempSync(require('node:path').join(require('node:os').tmpdir(),'mplpb-pin-contract-'));
+ try {
+  const child=spawnSync(process.env.PYTHON||'python3',[
+   'tools/replay_report_pins.py','--runtime','.',
+   '--fixtures','evaluation/report-pins/2026-11-25/fixtures.json',
+   '--output',require('node:path').join(folder,'replay.json')
+  ],{encoding:'utf8',timeout:390000});
+  assert.equal(child.status,0,child.stderr+child.stdout);
+ } finally {fs.rmSync(folder,{recursive:true,force:true});}
 }
 async function tests(){
+ checkFrozenReportPins();
  checkTeamBuildingDiscovery();
  assert.equal(api.version,'1.0.0');assert(Object.isFrozen(api));
  const help=api.help();help.methods.query='changed';assert.notEqual(api.help().methods.query,'changed');

@@ -39,6 +39,25 @@ function roleManifest(url, site) {
  const ref = ['tree','blob'].includes(view) && /^[a-f0-9]{40}$/.test(pin) ? pin : 'HEAD';
  return new URL(`https://raw.githubusercontent.com/${encodeURIComponent(owner)}/${encodeURIComponent(name)}/${ref}/.well-known/mplpb.json`);
 }
+function reportHeadFromMarkdown(body) {
+ // A fenced example is not live report metadata. Track the delimiter and
+ // opening length so shorter or differently marked fences cannot expose it.
+ let fence = null;
+ for (const line of body.split(/\r?\n/)) {
+  const marker = line.match(/^ {0,3}(`{3,}|~{3,})(.*)$/);
+  if (fence) {
+   if (marker && marker[1][0] === fence.mark && marker[1].length >= fence.length && /^[ \t]*$/.test(marker[2])) fence = null;
+   continue;
+  }
+  if (marker && (marker[1][0] === '~' || !marker[2].includes('`'))) {
+   fence = {mark:marker[1][0], length:marker[1].length};
+   continue;
+  }
+  const pin = line.match(/^\*\*(?:Current PR head|Public evidence pin)\*\* `([a-f0-9]{40})`[ \t]*$/);
+  if (pin) return pin[1];
+ }
+ return null;
+}
 async function githubPullRequest(url, repository) {
  const input = new URL(url);
  const repo = input.hostname === 'github.com' ? input : new URL(repository);
@@ -69,7 +88,7 @@ async function githubPullRequest(url, repository) {
  const body = pr.body || '';
  const headRepository = pr.head.repo?.full_name;
  const handoffPath = /^[\w.-]+\/[\w.-]+$/.test(headRepository) ? headRepository : path;
- const reportedHead = body.match(/^\*\*(?:Current PR head|Public evidence pin)\*\* `([a-f0-9]{40})`[ 	]*$/m)?.[1] || null;
+ const reportedHead = reportHeadFromMarkdown(body);
  return {
   pull_request: pr.html_url, state: pr.state, draft: pr.draft, merged: pr.merged,
   updated_at: pr.updated_at, current_head: head, report_head: reportedHead,

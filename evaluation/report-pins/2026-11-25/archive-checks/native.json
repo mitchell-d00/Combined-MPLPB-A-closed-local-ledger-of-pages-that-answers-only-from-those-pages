@@ -1,0 +1,55 @@
+[
+  {
+    "argv": [
+      "python",
+      "-m",
+      "unittest",
+      "tests.test_integrity_hunt",
+      "tests.test_record",
+      "tests.test_ledger",
+      "tests.test_literal_evidence",
+      "tests.test_answer_reliability",
+      "tests.test_answer_support",
+      "-q"
+    ],
+    "cwd": "/workspace/pin-extracted",
+    "started_at": "2026-11-25T05:03:18.091067+00:00",
+    "exit_code": 0,
+    "seconds": 5.799,
+    "stdout": "native-1.stdout.log",
+    "stderr": "native-1.stderr.log"
+  },
+  {
+    "argv": [
+      "python",
+      "-m",
+      "tools.evaluate_public_evidence",
+      "--output",
+      "/workspace/pin-validation/public-controls.json",
+      "--require-capabilities"
+    ],
+    "cwd": "/workspace/pin-extracted",
+    "started_at": "2026-11-25T05:03:23.890542+00:00",
+    "exit_code": 0,
+    "seconds": 33.314,
+    "stdout": "native-2.stdout.log",
+    "stderr": "native-2.stderr.log"
+  },
+  {
+    "argv": [
+      "python",
+      "-m",
+      "unittest",
+      "discover",
+      "-s",
+      "tests",
+      "-q"
+    ],
+    "cwd": "/workspace/pin-extracted",
+    "started_at": "2026-11-25T05:03:57.207353+00:00",
+    "exit_code": 0,
+    "seconds": 619.87,
+    "stdout": "native-3.stdout.log",
+    "stderr": "native-3.stderr.log"
+  }
+]

@@ -246,6 +246,9 @@ metadata. A web-only assistant can follow the
 and ordinary links. From a repo or app URL, the terminal bridge fetches the
 newest PR by creation time. A specific PR URL overrides discovery. The bridge
 returns the selected PR body, current head and pinned handoff link.
+Report-pin comparison uses the first exact `Current PR head` or legacy
+`Public evidence pin` label outside Markdown backtick and tilde fences. A pin
+inside an example cannot establish that the report matches the current head.
 [TeamBuilding guide](docs/TEAMBUILDING.md#api-commands-and-source-archives)
 
 ## URL-only agent discovery and strict middleware relay

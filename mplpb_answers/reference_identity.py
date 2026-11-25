@@ -3,7 +3,7 @@ import re
 
 from mplpb_combined.ledger import field_name
 
-from . import documentary_links, publication_corrections, relation_graph
+from . import documentary_errata, documentary_links, publication_corrections, relation_graph
 from .body_text import body_text
 from .documentary_verify import citation, context_ranges, named_actor, possible_refutation, source_question
 from .evidence_contract import ReaderError
@@ -76,7 +76,8 @@ def parse_request(question):
         match = re.fullmatch(form, question, re.I)
         if match:
             return 'pronoun', (match['source'],), match['pronoun'].casefold()
-    return documentary_links.parse(question) or publication_corrections.parse(question)
+    return (documentary_links.parse(question) or publication_corrections.parse(question)
+            or documentary_errata.parse(question))
 
 
 def _source_body(record):
@@ -207,9 +208,9 @@ def verify(root, question, profile, request, max_passages, max_chars):
         code, proposition, witnesses, gap = _event_resolution(index, records)
     elif task == 'pronoun':
         code, proposition, witnesses = _pronoun_resolution(records[0], pronoun)
-    elif task == 'publication_correction':
-        code, claim = (publication_corrections.prove(index, pronoun) if profile.prose
-                       else ('no_eligible_sources', None))
+    elif task in {'publication_correction', 'erratum_report'}:
+        prover = publication_corrections if task == 'publication_correction' else documentary_errata
+        code, claim = prover.prove(index, pronoun) if profile.prose else ('no_eligible_sources', None)
         proposition, witnesses = (claim['proposition'], claim['citations']) if claim else (None, [])
     else:
         claim = documentary_links.resolve(task, records, ids, max_chars) if profile.prose else None
