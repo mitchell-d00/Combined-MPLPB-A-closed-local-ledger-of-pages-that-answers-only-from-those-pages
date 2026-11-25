@@ -69,3 +69,5 @@ python -m tools.pole_frus_presentation --packet PACKETS/packet --custody CUSTODY
 Focus-12 and scan and phrase limits remain open. Outside-custodian scoring,
 independent historical accuracy, independent semantic adjudication and
 native OOCC remain **NOT_RUN**.
+
+[Exact source archive validation](validation.json)

@@ -4,8 +4,8 @@ Last reviewed: 2026-11-25.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `941511731b6b5af8d767110930aee7b92a1dcc5a` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `ae3720801bfcf42cdc8d4a73a28acc5a592a0a5883c6d518446106d49eb915a4`.
+Base commit: `2b177c7363d9c25d8a55a4043675150f20941806` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `11ec56e572155c3aafe452b244eeef704160288de290ea5d2c699618546d39e5`.
 
 ## Latest user update instructions
 
@@ -51,6 +51,8 @@ Make sure each pr gets the note so handoff because of context is easier
 - Five inherited controls withheld. The new control preserved only the checked advice. No false-supported bridges or execution failures.
 - An independent wording regression moved from partial to complete. Role, chronology, quote, list, ambiguity and budget controls passed.
 - The first candidate trial withheld on a departmental title. The native readback is retained.
+- The extracted source ZIP passed the Python suite with 1,731 tests run and two skips, all 52 public evidence checks, local Chromium and WebAssembly. The bundled engine replayed PE-04 and its new control.
+- The retained Tacitus, Douglass, DHS, BT-Erratum, Babbage, and Focus-12 decisions matched. The Komnene delivery archive checksum matched.
 
 ## Limitations and blocked checks
 
