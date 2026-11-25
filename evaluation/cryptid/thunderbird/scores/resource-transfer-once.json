@@ -1,0 +1,246 @@
+{
+  "schema": "cryptid-resource-score-v1",
+  "scorer_sha256": "8f2762c6c2bed82322740c076907b1831b3ddda6c79710985f89a8d7f6de34de",
+  "run_sha256": "c55022fdff5c1cb81d61cc81bb0ef44d0f65a707f0e1f1381026706dd44e7010",
+  "key_sha256": "90a5475de68fa7e48b4d6cbd04307217618dfe91a403249f2fe9427a93f34e53",
+  "counts": {
+    "planned": 8,
+    "attempted": 8,
+    "completed": 8,
+    "passed": 8,
+    "failed": 0,
+    "unscored": 0,
+    "source_answerable_positives": 5,
+    "fixed_cap_positive_misses": 2,
+    "native_budget_stops": 4
+  },
+  "rows": [
+    {
+      "id": "CRYPT-THUNDERBIRD-T0001",
+      "execution_status": "completed",
+      "scored": true,
+      "passed": true,
+      "errors": [],
+      "kind": "supported_answer",
+      "source_answerable_without_caps": true,
+      "fixed_cap_positive_miss": false,
+      "expected_limiter": null,
+      "native_diagnostic": "supported_source_claim",
+      "native_budget_disclosed": false,
+      "proof_complete": true,
+      "counterevidence_present": false,
+      "measurements": {
+        "query_wall_seconds": 0.1145893939974485,
+        "query_cpu_seconds": 0.115998127,
+        "peak_rss_bytes": 18669568,
+        "source_html_open_calls": {
+          "query": 80,
+          "discovery": 16
+        },
+        "source_read_measurement": "Python audit open events for ledger HTML files during query/discovery; cached in-memory reads are not counted",
+        "admitted_source_count": 8,
+        "admitted_canonical_characters": 240
+      },
+      "available_discovery_passages": 10
+    },
+    {
+      "id": "CRYPT-THUNDERBIRD-T0002",
+      "execution_status": "completed",
+      "scored": true,
+      "passed": true,
+      "errors": [],
+      "kind": "abstain",
+      "source_answerable_without_caps": true,
+      "fixed_cap_positive_miss": true,
+      "expected_limiter": "record_limit",
+      "native_diagnostic": "reference_scan_budget",
+      "native_budget_disclosed": true,
+      "proof_complete": false,
+      "counterevidence_present": false,
+      "measurements": {
+        "query_wall_seconds": 0.11951803899137303,
+        "query_cpu_seconds": 0.116279567,
+        "peak_rss_bytes": 18669568,
+        "source_html_open_calls": {
+          "query": 72,
+          "discovery": 18
+        },
+        "source_read_measurement": "Python audit open events for ledger HTML files during query/discovery; cached in-memory reads are not counted",
+        "admitted_source_count": 9,
+        "admitted_canonical_characters": 262
+      },
+      "available_discovery_passages": 11
+    },
+    {
+      "id": "CRYPT-THUNDERBIRD-T0003",
+      "execution_status": "completed",
+      "scored": true,
+      "passed": true,
+      "errors": [],
+      "kind": "supported_answer",
+      "source_answerable_without_caps": true,
+      "fixed_cap_positive_miss": false,
+      "expected_limiter": null,
+      "native_diagnostic": "supported_source_claim",
+      "native_budget_disclosed": false,
+      "proof_complete": true,
+      "counterevidence_present": false,
+      "measurements": {
+        "query_wall_seconds": 0.4883833080093609,
+        "query_cpu_seconds": 0.487625404,
+        "peak_rss_bytes": 18673664,
+        "source_html_open_calls": {
+          "query": 10,
+          "discovery": 2
+        },
+        "source_read_measurement": "Python audit open events for ledger HTML files during query/discovery; cached in-memory reads are not counted",
+        "admitted_source_count": 1,
+        "admitted_canonical_characters": 6068
+      },
+      "available_discovery_passages": 4
+    },
+    {
+      "id": "CRYPT-THUNDERBIRD-T0004",
+      "execution_status": "completed",
+      "scored": true,
+      "passed": true,
+      "errors": [],
+      "kind": "abstain",
+      "source_answerable_without_caps": true,
+      "fixed_cap_positive_miss": true,
+      "expected_limiter": "unit_limit",
+      "native_diagnostic": "reference_scan_budget",
+      "native_budget_disclosed": true,
+      "proof_complete": false,
+      "counterevidence_present": false,
+      "measurements": {
+        "query_wall_seconds": 0.10442676499951631,
+        "query_cpu_seconds": 0.103827064,
+        "peak_rss_bytes": 18665472,
+        "source_html_open_calls": {
+          "query": 8,
+          "discovery": 2
+        },
+        "source_read_measurement": "Python audit open events for ledger HTML files during query/discovery; cached in-memory reads are not counted",
+        "admitted_source_count": 1,
+        "admitted_canonical_characters": 6074
+      },
+      "available_discovery_passages": 4
+    },
+    {
+      "id": "CRYPT-THUNDERBIRD-T0005",
+      "execution_status": "completed",
+      "scored": true,
+      "passed": true,
+      "errors": [],
+      "kind": "conflict",
+      "source_answerable_without_caps": false,
+      "fixed_cap_positive_miss": false,
+      "expected_limiter": null,
+      "native_diagnostic": "source_claim_conflict",
+      "native_budget_disclosed": false,
+      "proof_complete": true,
+      "counterevidence_present": true,
+      "measurements": {
+        "query_wall_seconds": 0.11616017099004239,
+        "query_cpu_seconds": 0.11584039199999999,
+        "peak_rss_bytes": 18669568,
+        "source_html_open_calls": {
+          "query": 80,
+          "discovery": 16
+        },
+        "source_read_measurement": "Python audit open events for ledger HTML files during query/discovery; cached in-memory reads are not counted",
+        "admitted_source_count": 8,
+        "admitted_canonical_characters": 310
+      },
+      "available_discovery_passages": 12
+    },
+    {
+      "id": "CRYPT-THUNDERBIRD-T0006",
+      "execution_status": "completed",
+      "scored": true,
+      "passed": true,
+      "errors": [],
+      "kind": "abstain",
+      "source_answerable_without_caps": false,
+      "fixed_cap_positive_miss": false,
+      "expected_limiter": "record_limit",
+      "native_diagnostic": "reference_scan_budget",
+      "native_budget_disclosed": true,
+      "proof_complete": false,
+      "counterevidence_present": true,
+      "measurements": {
+        "query_wall_seconds": 0.11983196999062784,
+        "query_cpu_seconds": 0.11981900099999998,
+        "peak_rss_bytes": 18665472,
+        "source_html_open_calls": {
+          "query": 72,
+          "discovery": 18
+        },
+        "source_read_measurement": "Python audit open events for ledger HTML files during query/discovery; cached in-memory reads are not counted",
+        "admitted_source_count": 9,
+        "admitted_canonical_characters": 332
+      },
+      "available_discovery_passages": 12
+    },
+    {
+      "id": "CRYPT-THUNDERBIRD-T0007",
+      "execution_status": "completed",
+      "scored": true,
+      "passed": true,
+      "errors": [],
+      "kind": "partial_answer",
+      "source_answerable_without_caps": false,
+      "fixed_cap_positive_miss": false,
+      "expected_limiter": "phrase_limit",
+      "native_diagnostic": "partial_source_phrase_budget",
+      "native_budget_disclosed": true,
+      "proof_complete": false,
+      "counterevidence_present": true,
+      "measurements": {
+        "query_wall_seconds": 0.10248720500385389,
+        "query_cpu_seconds": 0.09975410100000001,
+        "peak_rss_bytes": 18690048,
+        "source_html_open_calls": {
+          "query": 10,
+          "discovery": 2
+        },
+        "source_read_measurement": "Python audit open events for ledger HTML files during query/discovery; cached in-memory reads are not counted",
+        "admitted_source_count": 1,
+        "admitted_canonical_characters": 3647
+      },
+      "available_discovery_passages": 4
+    },
+    {
+      "id": "CRYPT-THUNDERBIRD-T0008",
+      "execution_status": "completed",
+      "scored": true,
+      "passed": true,
+      "errors": [],
+      "kind": "supported_answer",
+      "source_answerable_without_caps": true,
+      "fixed_cap_positive_miss": false,
+      "expected_limiter": null,
+      "native_diagnostic": "supported_source_claim",
+      "native_budget_disclosed": false,
+      "proof_complete": true,
+      "counterevidence_present": false,
+      "measurements": {
+        "query_wall_seconds": 0.10957514100300614,
+        "query_cpu_seconds": 0.107954089,
+        "peak_rss_bytes": 18665472,
+        "source_html_open_calls": {
+          "query": 10,
+          "discovery": 2
+        },
+        "source_read_measurement": "Python audit open events for ledger HTML files during query/discovery; cached in-memory reads are not counted",
+        "admitted_source_count": 1,
+        "admitted_canonical_characters": 10088
+      },
+      "available_discovery_passages": 4
+    }
+  ],
+  "custody": "Same operator. Expected resource visibility frozen before repair; semantic decisions separately scored.",
+  "limits_changed": false,
+  "source_reads": "Python audit open calls; not all in-memory reads or operating-system byte measurements."
+}
