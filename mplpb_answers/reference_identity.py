@@ -76,6 +76,9 @@ def parse_request(question):
         match = re.fullmatch(form, question, re.I)
         if match:
             return 'pronoun', (match['source'],), match['pronoun'].casefold()
+    reference = re.fullmatch(rf'(?:To whom does|Who does) "(?P<reference>[^"\n]{{1,80}})" (?:refer|identify)(?: to)? in source (?P<source>{_IDENTIFIER})\?', question, re.I)
+    if reference:
+        return 'reference', (reference['source'],), reference['reference']
     return (documentary_links.parse(question) or publication_corrections.parse(question)
             or documentary_errata.parse(question))
 
@@ -189,6 +192,37 @@ def _pronoun_resolution(record, pronoun):
     return 'supported_documentary_assertion', proposition, [citation(record, body, 0, len(body))]
 
 
+def _reference_resolution(record, reference):
+    """A declaration binds a local reference; it does not identify a historical actor."""
+    if len(record.body_html) > 32000:
+        return 'reference_scan_budget', None, []
+    body = relation_graph._capture_evidence_text(record)
+    if not body or len(body) > 4000 or context_ranges(record):
+        return 'coreference_unresolved', None, []
+    # Admit only a complete glossary, so nearby speaker changes, qualifications,
+    # unavailable-record links and undeclared antecedents cannot be overlooked.
+    pattern = re.compile(r'(?:The )?(?:Initials|Surname|Title|Pronoun|Documentary reference) "(?P<ref>[^"\n]{1,80})" (?:refers to|identifies) (?P<name>[^\n".!?;]{3,100}?)(?: in this record)?\.', re.I)
+    declarations = list(pattern.finditer(body))
+    cursor = 0
+    for declaration in declarations:
+        if body[cursor:declaration.start()].strip():
+            return 'coreference_unresolved', None, []
+        cursor = declaration.end()
+    if not declarations or body[cursor:].strip():
+        return 'coreference_unresolved', None, []
+    matches = [m for m in declarations if m['ref'].casefold() == reference.casefold()]
+    names = {m['name'] for m in matches}
+    if len(names) != 1:
+        return 'coreference_unresolved', None, []
+    name = next(iter(names)); words = name.casefold().split()
+    if not 2 <= len(words) <= 4 or not named_actor(name) or set(words) & _UNRESOLVED_NAME:
+        return 'coreference_unresolved', None, []
+    proposition = {'relation': 'documentary_reference_identity', 'reference': reference,
+                   'referent': name, 'source_id': record.id, 'binding': 'explicit_reference_gloss'}
+    witnesses = [citation(record, body, m.start(), m.end()) for m in matches]
+    return 'supported_documentary_assertion', proposition, witnesses
+
+
 def verify(root, question, profile, request, max_passages, max_chars):
     """Independently read currently eligible sources and certify exact spans."""
     task, ids, pronoun = request
@@ -206,6 +240,8 @@ def verify(root, question, profile, request, max_passages, max_chars):
     claim = None
     if task == 'event':
         code, proposition, witnesses, gap = _event_resolution(index, records)
+    elif task == 'reference':
+        code, proposition, witnesses = _reference_resolution(records[0], pronoun)
     elif task == 'pronoun':
         code, proposition, witnesses = _pronoun_resolution(records[0], pronoun)
     elif task in {'publication_correction', 'erratum_report'}:

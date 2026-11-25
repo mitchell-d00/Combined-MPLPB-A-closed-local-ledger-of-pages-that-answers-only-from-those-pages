@@ -14,7 +14,7 @@ def main(a):
     assert not subprocess.check_output(['git','status','--porcelain','--','mplpb_answers','mplpb_combined','mplpb_work'],cwd=ROOT,text=True).strip(),'Native changes must be committed'
     assert not a.output.exists() and not a.extraction.exists()
     names=['mplpb_answers','mplpb_combined','mplpb_work','tests','AGENTS.md','HANDOFF.md','handoff','.github',
-           'evaluation/cryptid/programme.json','evaluation/cryptid/shared-rules.json',
+           'evaluation/cryptid/programme.json','evaluation/cryptid/shared-rules.json','evaluation/cryptid/scorer-v4.json',
            'tools/bubble_wrap_adapter.py','tools/bubble_wrap_worker.py','tools/pole_worker.py','tools/study_sandbox.py']
     names+=subprocess.check_output(['git','ls-files','tools/cryptid*.py','tools/audit_cryptid.py'],cwd=ROOT,text=True).splitlines()
     for suffix in ('development','transfer-sealed.zip','transfer-seal.json','scorer-amendment-v2.json','README.md','selector-controls/freeze.json','wrap','safety-guards/freeze.json'):

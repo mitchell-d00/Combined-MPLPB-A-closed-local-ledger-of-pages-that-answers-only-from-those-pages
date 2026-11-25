@@ -4,8 +4,8 @@ Last reviewed: 2026-11-25.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `7915918ae50e2640807bcb578e402eed8c384dfa` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `a2ccdeffc0b9d365ae160b9ee49a34c280274020b4f0dbe14a8fa2b1ca1d5167`.
+Base commit: `a61052e63188a55af4cefb622e585def4d2a9fd2` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `f9b2436998cdfa559f67afa7f98ad343f94e0cfd26f68f3766a0a35c8cf0f9ea`.
 
 ## Betty report for Al
 
@@ -54,6 +54,7 @@ Run Betty — local Cryptid test programme. Start from current main. Complete th
 - Nine safety guards pass after retained C1budget/revocation failures.59focused,169native,39selector checks pass.146prior Cryptid contracts exactly unchanged. Release280273same+7source-key-checked recoveries; original audit failures retained.
 - Case overlap inventory:482memberships,473unique reader-input pairs; repeated runs and shared-source variants not independent evidence.
 - Yeti ZIP3231231c SHA249bbfcfd5541b75debf82de4d830acd2ef93ab8e0cba8697aefb2aa3eed0bfb extracted45/50+4/4+59focused+39selectors. Once transfer26/30:6source answers,20withholds,4misses(1past-perfect,3reporting/layout),0false/0budget/0executionfailures/0unscored. Failedcoverage and original key retained; packet consumed.
+- Sasquatch frozen32 baseline28->32 candidate decisions,0false support. Explicit reference gloss only; no action inference or outside RN expansion. All232prior Cryptid contracts unchanged. Mistyped unittest module retained as execution error; corrected30identity/link/source-authority controls pass. Release280 still running; transfer remains sealed.
 
 ### Limitations and blocked checks
 
