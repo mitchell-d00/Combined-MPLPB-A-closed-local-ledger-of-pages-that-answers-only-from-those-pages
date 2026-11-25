@@ -18,9 +18,9 @@ def verify(index,max_passages,max_chars):
     if len(fresh.records)>8 or sum(len(r.body_html) for r in fresh.records)>200000:return 'abstain','reference_scan_budget',{}
     originals=[];corrections=[];used=0
     for r in fresh.records:
-        if r.kind!='page' or r.derived_from or r.fields.get('corrects-field'):continue
         body=body_text(r.body_html);used+=sum(1 for _ in kernel.units(body))
         if used>1000:return 'abstain','reference_scan_budget',{}
+        if r.kind!='page' or r.derived_from or r.fields.get('corrects-field'):continue
         dates=list(_WRITING.finditer(body));counts=list(_COUNT.finditer(body));changes=list(_CORRECTION.finditer(body))
         relevant=bool(dates or counts or changes)
         if relevant and (_UNCERTAIN.search(body) or kernel.possible_refutation(body)):

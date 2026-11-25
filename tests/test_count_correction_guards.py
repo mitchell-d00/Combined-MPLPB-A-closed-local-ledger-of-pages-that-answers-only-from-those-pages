@@ -15,7 +15,10 @@ class CountCorrectionGuards(unittest.TestCase):
   self.add('CORRECTION','In my letter of May 2, 1880, the count should read seven crates. The destination remains the west depot.')
  def test_final_withdrawal_discards_correction(self):
   self.pair();original=documentary_correction.PassageIndex.unchanged
-  def changed(index):ledger.withdraw(self.root,'CORRECTION');return original(index)
+  called=[]
+  def changed(index):
+   if not called:ledger.withdraw(self.root,'CORRECTION');called.append(True)
+   return original(index)
   with patch.object(documentary_correction.PassageIndex,'unchanged',changed):r=answer_query(self.root,Q).contract
   self.assertFalse(r['claims']);self.assertFalse(r['answer_supported'])
  def test_full_source_units_count_even_when_derived(self):
