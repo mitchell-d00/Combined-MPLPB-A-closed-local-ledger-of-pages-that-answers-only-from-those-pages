@@ -20,6 +20,7 @@ def main(a):
     for suffix in ('development','transfer-sealed.zip','transfer-seal.json','scorer-amendment-v2.json','README.md','selector-controls/freeze.json','wrap','safety-guards'):
         p=a.study/suffix
         if p.exists():names.append(str(p.relative_to(ROOT)))
+    names += [str(p.relative_to(ROOT)) for p in a.study.glob('*-wrap') if p.is_dir()]
     a.output.parent.mkdir(exist_ok=True,parents=True)
     subprocess.run(['git','archive','--format=zip','-1','-o',str(a.output),commit,*names],cwd=ROOT,check=True)
     run=read(a.runtime_run);pins=run['reader_files']

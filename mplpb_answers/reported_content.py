@@ -123,7 +123,8 @@ def _proof(record, body, start, end, roles, goal):
         return None
     # A separate governing paragraph cannot disappear at a sentence boundary.
     prior = body[:start]
-    if re.search(r'\b(?:If|Unless)\b[^.!?]{0,180}[.:]\s*$', prior):
+    governor = re.search(r'\b(?:If|Unless)\b[^.!?]{0,180}[.:]\s*$', prior, re.I)
+    if governor and unqualified_span(record, body, *governor.span()):
         return None
     if bool(roles['conditions']) != goal['conditional']:
         return None

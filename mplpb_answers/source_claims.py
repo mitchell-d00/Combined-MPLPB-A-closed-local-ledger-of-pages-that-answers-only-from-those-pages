@@ -114,7 +114,7 @@ def _derive(record,body,unit,previous,info):
     if previous:
         lo,hi,q=previous
         if unqualified_span(record,body,lo,hi):
-            m=re.fullmatch(r'((?:If|Unless) [^,.!?;:]{1,160})\.',q)
+            m=re.fullmatch(r'((?:If|Unless) [^,.!?;:]{1,160})\.',q,re.I)
             if m:governor=m[1];extra=extra+[kernel.citation(record,body,lo,hi)]
     if governor:frame=replace(frame,conditions=(governor,)+frame.conditions)
     elif re.search(r'\b(?:if|unless)\b',prefix,re.I):return None
