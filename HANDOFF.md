@@ -4,8 +4,8 @@ Last reviewed: 2026-11-25.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `c1e2100169556070d61be88c9125c59e30179211` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `ecbdeea1a745eba2ed2fbeb23fa8052cf1b2f2560dd3bf54352925009689383f`.
+Base commit: `f225d142ebad6bb714007374a3f946b3c413202e` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `59eac22b50a63e402f63f48b53c02a30cf070559f28bb6727042ea2b4368bb7e`.
 
 ## Latest user update instructions
 
@@ -22,6 +22,7 @@ Do that
 - Focused browser bridge and desktop API tests passed, including the local import hash, question support, external withholding and zero network calls.
 - Chromium passed local file import, sealed source review, a cited Strict answer, partial evidence, separate inspection and a refusal using a developer fixture.
 - The UI script, JavaScript API and browser transport checks passed.
+- The integrity regression now checks the shipped Strict and Inspect choices, while Chromium checks their behavior. The targeted integrity, ledger, proof and browser suite passed 113 tests.
 
 ## Limitations and blocked checks
 
@@ -31,7 +32,7 @@ Do that
 
 ## Next steps
 
-- Use c1e2100 as the evaluator baseline and rerun the same documents, questions and delivery profile on the frozen candidate.
+- Use c1e2100 as the evaluator baseline and rerun the same documents, questions and delivery profile on f225d14. The subsequent regression-test revision has the same browser and engine source.
 
 ## Use this ZIP in your repository
 

@@ -9,7 +9,8 @@
   "validation": [
     "Focused browser bridge and desktop API tests passed, including the local import hash, question support, external withholding and zero network calls.",
     "Chromium passed local file import, sealed source review, a cited Strict answer, partial evidence, separate inspection and a refusal using a developer fixture.",
-    "The UI script, JavaScript API and browser transport checks passed."
+    "The UI script, JavaScript API and browser transport checks passed.",
+    "The integrity regression now checks the shipped Strict and Inspect choices, while Chromium checks their behavior. The targeted integrity, ledger, proof and browser suite passed 113 tests."
   ],
   "limitations": [
     "The file picker accepts UTF-8 text and Markdown. Local imports pin submitted text and retain unknown authorship.",
@@ -17,6 +18,6 @@
     "Independent evaluator baseline and candidate results are pending."
   ],
   "next_steps": [
-    "Use c1e2100 as the evaluator baseline and rerun the same documents, questions and delivery profile on the frozen candidate."
+    "Use c1e2100 as the evaluator baseline and rerun the same documents, questions and delivery profile on f225d14. The subsequent regression-test revision has the same browser and engine source."
   ]
 }
