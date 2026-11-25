@@ -4,8 +4,8 @@ Last reviewed: 2026-11-25.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `2af8ba8442cfcc343cbca5fd7e5daba5e49228a5` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `12f338952e0d0e59c03d102bf37725c4b5311d31b2c680d74628f94779c2a522`.
+Base commit: `065840d9e7109ed26642fb6c755a723a7b044113` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `790a81854272af4219ca02ae2b04d35a175d94b54195b30c8f1b3cc252010a5f`.
 
 ## Betty report for Al
 
@@ -85,19 +85,22 @@ Continue all authorized work in sequence, test/fix/merge; next newPR expected104
 - Onboarding actualtwoZIPs extracted, installed-wheel helpers run under isolatedPython, allfive native contracts and opened citation identical. Frozen package parity plus scoring7arithmetic controls pass; zero human observations.
 - Committed2af8ba8 ZIP17a3d15fe8ca2d7fffc27f949f621445692b6a053025a3939bc47bdaf2bf59ec matches24830files;72/72proposal,280/280preservation,24/24fresh proposal decisions,0wrong tags,0recoveredanswers.
 - Full extracted native suite1834pass;52public controls,15software commands andWASMpass. BrowsercandidateFAIL retained:wrong lexical source card and stale-dialog assertion. FrozenJScontrols failbefore andpassafter correction;35Pythonbrowser/integritycontrolspass. Native packages byte-identical to transferfreeze; no rerun of the fresh packet.
+- Corrected065840d deliveryZIP SHAafe52d43e335f5963b765d00c7ad373a6ec0fd6a5bb560c86a93d7d3a6bffb98matches27155trackedfiles, nativebytesexactlyequalonce-tested2af8ba8.15softwarecommands,58focusedtests,actualWASM,bothChromiumcontextsandactualnewsource-dialogchecksPASS.
+- SourceTagfresh24/24(6valid18tamper),0wrongtags,0newanswers;raw24/24beforeandafter. Native2af8ba8full1834pass;280priorcontracts(including6partials)unchanged. FirstdeliverybrowserfailureandearlyZIPpreparationerrorretained.
 
 ### Limitations and blocked checks
 
-- Source-tag validation adds0demonstrated answer recovery; every raw answer already supported. Same-operator proposal/layout transfer, not broad reading or independent semantic accuracy.
-- First delivery ZIP fails browser acceptance; corrected UI delivery ZIP and exact publicationCI/main/livepending. Native transfer source remains2af8ba8andunchanged.
-- Human12-person onboardingNOT_RUN; Mitchell recruits and returns actual observations. All software checks remain separate.
-- Independent historical accuracy,semantic adjudication,preparation/blinding,outside-custodian scoring,native OOCC remainNOT_RUN.
+- Zero reading-coverage gain from tag inspection; existingnative forms only. Same-operator templates visible, not independent preparation/blinding.
+- Human12-person pilotNOT_RUN; frozen400KBarmZIPsandsoftwareparityarepreparationonly. Mitchell recruits and returns actualobservations.
+- Independenthistoricalaccuracy,semanticadjudication,preparation/blinding,outside-custodianscoring,nativeOOCCremainNOT_RUN.
+- Corrected deliverypassedlocalgates; exactpublication-headfullCI,104mergeanddeployedmainverificationpending.
+- Originalsource-tagdeliveryrejectedforbrowserfailure;nativepackagesunchangedaftertransfer.Noheldpacket rerun.
 
 ### Next steps
 
-- Freeze correctedUI deliveryZIP; verify native bytes equal transferfreeze; test extractedJavaScript/HTTP/Chromium and exact-headfullCI.
-- Publishactual104report,mergeaftergatesandverifydeployedmain/nofurtheropenPRs.
-- Mitchell administers frozenhumanpilot; retainNULLresultsuntil actualreturns.
+- Pushfinal104evidencehead,currentPRreportwithexacttestedpins/checksumsandNOT_RUNlabels;requireall exact-headCIgatesbeforemerge.
+- Mergemain,verifytree/sourcecardworkflow/sevenruntimefingerprintsandnoopenPRs;recordfinalreleaseinPR104/Actions.
+- Mitchell administersfrozenpilotandreturnsrealobservations;do notfillmissingparticipantsorresults.
 
 ## Use this ZIP in your repository
 

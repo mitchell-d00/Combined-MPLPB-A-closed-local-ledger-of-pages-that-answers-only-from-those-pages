@@ -42,3 +42,8 @@ controls are synthetic and never enter the human results.
 
 Independent historical accuracy, semantic adjudication and native OOCC remain
 NOT_RUN; onboarding measures a different question.
+
+The supplied pilot measures this fixed native task path; it does not measure
+full browser onboarding or broad research ability. Use a fresh Python environment
+for identical setup before timing. Record setup failures separately. Administrator
+judgments feed the scoring tool only after actual forms/logs are returned.

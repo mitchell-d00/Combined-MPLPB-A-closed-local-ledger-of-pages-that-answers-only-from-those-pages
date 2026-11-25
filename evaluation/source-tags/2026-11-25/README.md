@@ -1,68 +1,79 @@
-# Source-linked proposal trial
+# Source-linked proposals and cited-source delivery
 
 Last reviewed: 2026-11-25.
 
-The next authorized experiment compares raw native reading with an opt-in
-source-linked proposal tree on identical documents. The frozen72development
-comparisons contain letters, minutes and reports, two reporting constructions,
-and twelve valid/tampered variants. Roles, polarity, conditions, complete
-witnesses, source pins, containment and access-policy attempts have separate
-expected decisions. [Proposal](proposal.json), [inputs](development/manifest.json),
-[key](development/key.json), [initial freeze](harness-freeze.json).
+**Zero answer-coverage gain.** The opt-in inspector accepts checked source-linked
+proposals and rejects tampered roles/witnesses. Ordinary native answers, six
+previous partials, missing obligations, conflicts and citations remain unchanged.
 
-The isolated baseline at2ab4b01 completes72/72 raw source answers. The proposed
-tag API is absent, so tag validation is NOT_RUN, not72withholds or a baseline
-tag pass. [Baseline score](baseline-score.json), [raw receipts](baseline).
-The original pre-implementation worker and key are retained. A scorer-only
-correction records observed raw support rather than copying the expected label;
-[versioned freeze](scorer-freeze-v2.json). Native runtime/worker/input/key bytes
-and baseline output were unchanged by that host reporting correction.
+Tested delivery source **065840d9e7109ed26642fb6c755a723a7b044113**, ZIP SHA-256
+**afe52d43e335f5963b765d00c7ad373a6ec0fd6a5bb560c86a93d7d3a6bffb98**;
+27,155tracked files match bytes/modes. The native transfer engine is
+**2af8ba8442cfcc343cbca5fd7e5daba5e49228a5**, ZIP SHA-256
+17a3d15fe8ca2d7fffc27f949f621445692b6a053025a3939bc47bdaf2bf59ec.
+All native package bytes remain identical in the delivery source. Transfer was
+not rerun after the separate UI correction. [Delivery freeze](delivery-freeze.json),
+[native freeze](candidate-freeze.json), [validation](validation.json).
 
-An uncommitted prototype passes72development decisions:6valid proposals accepted
-and66tampered proposals rejected; all72raw contracts remain identical apart
-from code fingerprints. It recovers **zero answers**. [Prototype source](prototype-source.py),
-[score](prototype-score.json), [raw output](prototype-run). A subsequent original-
-span containment guard is being checked separately. This prototype is not a
-released or fresh-transfer-tested candidate.
+| Measurement | Result |
+|---|---:|
+| Raw development answers before/after |72/72→72/72|
+| Development proposal decisions |72/72:6valid accepted,66tampered rejected|
+| Fresh proposal decisions, once per candidate case |24/24:6valid accepted,18tampered rejected|
+| Wrong accepted proposal assignments |0|
+| Newly recovered answers |0|
+| Earlier full answer contracts preserved |280/280|
 
-The separate24-case packet remains sealed in operator custody. Its according-to
-and passive-report constructions differ from the development wordings; these
-are already understood native forms, so this measures proposal/layout transfer,
-not newly understood grammar. [Seal](fresh-transfer-seal.json). Freeze a committed
-candidate ZIP before opening it, execute the candidate once and retain failures.
-Generator templates are visible to the same operator. No independent preparation,
-blinding or semantic adjudication is claimed.
+The baseline had no tag API; its annotation checks are **NOT_RUN**, not correct
+withholds. [Baseline](baseline-score.json), [committed development](candidate-zip-score.json),
+[fresh baseline](fresh-transfer/baseline-score.json), [fresh candidate](fresh-transfer/candidate-score.json),
+[once-only completion](fresh-transfer/completion.json). Raw transfer questions
+were24/24supported both before and after. Preservation stays97complete,6partial,
+6conflict,171abstain,122claims and zero false-supported claim cases under the
+unchanged prior scorer/key. [280-case score](preservation-280-score.json); restricted
+PE02 originals/raw remain in custody and public receipts remain redacted.
 
-Containment is a proposal tree; person/object links select source roles. Each
-witness carries source/revision identity, canonical coordinates and admitted
-original-HTML UTF-8 coordinates. Imported labels cannot establish host access.
-The complete native query must verify the source-scoped claim independently;
-tags cannot rewrite its question or promote an unsupported answer. This first
-API is bounded to native report-content claims. Date roles, famous labels,
-identity inference, arbitrary relations and general reading remain unimplemented
-in the tag API. Native ordinary answering is unchanged.
+The generator,seed,key,packets,worker and baseline were frozen before native
+implementation. [Initial freeze](harness-freeze.json), [proposal](proposal.json),
+[development inputs](development/manifest.json). Transfer instance/key bytes
+were opened only after the committed native ZIP freeze, then each candidate
+case ran once. Templates were visible to the same operator. The new according-to
+and passive-report constructions were already understood by the underlying
+reader; this measures proposal/layout transfer, not newly understood grammar.
+
+[Schema and limits](SCHEMA.md). The full native query independently rereads
+eligible complete witnesses before any proposal certificate. The tree cannot
+rewrite questions, establish permissions, authenticate a writer, resolve
+identity or establish execution. Date/famous/arbitrary relation tags remain
+unverified. It is an explicit native API, outside ordinary answering.
+
+**Retained delivery failure:** the first candidate passes1,834native tests,
+52public controls,fifteen software commands andWASM, but its browser opened an
+uncited lexical match beneath a verified field answer. Its assertion could
+inspect retained closed-dialog content. [Failure and frozen controls](ui-regression/README.md).
+The UI now derives field source cards from native citation ID/path/hash tuples,
+including owners missing from lexical matches; candidate inspection is preserved.
+The browser waits for the newly opened dialog. No reader or transfer-key edit
+followed opening the packet. The first delivery remains rejected for browser
+acceptance; the corrected ZIP passes all15software commands,58focused checks,
+actualWASM and both realChromium contexts, including the actual PRINT202source.
+[Delivery software](delivery-checks), [browser](delivery-browser),
+[original native gates](first-archive-checks), [focused checks](delivery-focused.log).
+Exact publication-head full CI, merge and deployed verification remain pending.
+
+Other retained preparation details: the first ZIP-open attempt preceded archive
+completion and ran no reader cases [attempt0001](attempts/0001-early-zip-open.json).
+The original generator used the execution clock; its portable successor records
+the original17:31clock and reproduces the frozen development bytes/key/seal
+exactly [amendment](portable-tools-amendment.json). Original tools remain in
+frozen-tools. A scorer-only correction reports observed support rather than
+expected labels; raw outputs, keys and worker remain unchanged [freeze](scorer-freeze-v2.json).
+The earlier uncommitted prototype and all outputs remain retained separately.
+
+[Seven departments](../../../docs/departments/README.md) now map existing paths
+and Test Index ownership without file moves. [Twelve-person onboarding materials](../../onboarding/2026-11-25/README.md)
+are frozen and software-checked; **human execution NOT_RUN**. Mitchell recruits
+and returns actual observations. No population or human-usability result is claimed.
 
 Independent historical accuracy, semantic adjudication, preparation/blinding,
-outside-custodian scoring and native OOCC remain **NOT_RUN**. Human onboarding
-results remain NOT_RUN; Mitchell will recruit participants and return observations.
-
-## Integrated development candidate
-
-The opt-in native checker is now added; ordinary answering does not call it.
-[Schema and coordinate limits](SCHEMA.md), [implementation](../../../mplpb_answers/source_tags.py),
-[15additional guards](../../../tests/test_source_tags.py). Those guards pass,
-including a native conflict, original/canonical containment, withdrawn/corrupt/
-missing sources, external-policy denial, budget exhaustion and final mutation.
-The committed ZIP, full development/preservation replay and unopened transfer
-remain pending. No broad answer-coverage improvement is claimed.
-
-## Native result and delivery correction
-
-Committed native source2af8ba8 passes72/72proposal decisions,280/280earlier
-contracts and24/24once-only same-operator transfer decisions. Valid annotations
-are6/6in each set;66development and18transfer tamper cases are rejected. Raw
-answers are unchanged and **zero answers recovered**. [Native validation](native-validation.json),
-[fresh completion](fresh-transfer/completion.json), [fresh scores](fresh-transfer/candidate-score.json).
-The first ZIP passes1,834native tests,52public controls,fifteen software commands
-andWASM, but its candidate browser failed. [UI failure and correction](ui-regression/README.md).
-The native engine is frozen unchanged; a separate UI-only delivery ZIP is pending.
+outside-custodian scoring and native OOCC remain **NOT_RUN**.
