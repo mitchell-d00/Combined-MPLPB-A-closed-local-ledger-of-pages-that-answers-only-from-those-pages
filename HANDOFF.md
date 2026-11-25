@@ -4,8 +4,8 @@ Last reviewed: 2026-11-25.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `d0496304d7dd8a7ed0d5ae77d77e12aa6b0272cb` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `691174d9f39d1d1b6904c57604bf8e566de02be5c4c5122b2bbf8672f635ead5`.
+Base commit: `ebad9950c9bea88d4d8cfd4fcd7ba4a3e32c6a6a` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `ed68fbdfecc4fd037d85f7e2d304e84105bfff63cfa719d9546b2ebd643a4159`.
 
 ## Betty report for Al
 
@@ -58,6 +58,7 @@ Catch it all up then push everything merge to main
 - No native reader changes at this baseline freeze.
 - Add one native source-scoped report operation reusing existing action/policy checks, with separate writer/reporter/embedded actor, inner/outer negation and conditional status. No instruction or historical claim changes.
 - Freeze nine byline/governor contrasts and expanded280 baseline before further native repair. Fresh24 composition instances/key remain unopened.
+- Merge actual PR97/95 histories while retaining later FRUS reader/evidence and all byte-identical older implementation/evaluation files; retarget both PRs to main for unified tested integration.
 
 ### Validation recorded
 
@@ -75,6 +76,7 @@ Catch it all up then push everything merge to main
 - Fresh composition generator/seed/packet/key seals frozen before any continuation native edit. Exact instances/key remain unopened.
 - Four openPRs93,95,97,103. Reconcile diverged histories, retain later reader/evidence and integrate genuinely missing local-document browser work before tested main merge.
 - Continuation baseline280 isolated/scored:272pass8miss,0false-supported claim cases on that frozen packet set. Separately frozen9new byline/governor guards:6pass3fail, including one exposed false-supported conditional-fragment claim. Preserve that control failure; prior zero figures apply only to their stated frozen sets.
+- FRUS history conflict resolution leaves all three native runtime packages byte-identical to the pre-merge candidate; older implementation/evidence content already matches current. PR93 browser feature remains to integrate.
 
 ### Limitations and blocked checks
 
