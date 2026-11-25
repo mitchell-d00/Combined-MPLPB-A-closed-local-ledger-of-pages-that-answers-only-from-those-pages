@@ -4,8 +4,8 @@ Last reviewed: 2026-11-25.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `ebad9950c9bea88d4d8cfd4fcd7ba4a3e32c6a6a` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `ed68fbdfecc4fd037d85f7e2d304e84105bfff63cfa719d9546b2ebd643a4159`.
+Base commit: `757398c04a955c3d5224a53d3b450cdfd456fa4b` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `da9739f07ea35addb3b29ef91d6a7065be6e68a1e22ccfbb19f6919ec156f57c`.
 
 ## Betty report for Al
 
@@ -59,6 +59,7 @@ Catch it all up then push everything merge to main
 - Add one native source-scoped report operation reusing existing action/policy checks, with separate writer/reporter/embedded actor, inner/outer negation and conditional status. No instruction or historical claim changes.
 - Freeze nine byline/governor contrasts and expanded280 baseline before further native repair. Fresh24 composition instances/key remain unopened.
 - Merge actual PR97/95 histories while retaining later FRUS reader/evidence and all byte-identical older implementation/evaluation files; retarget both PRs to main for unified tested integration.
+- Integrate actual PR93 browser document workflow and local capture path, preserving new role APIs and frozen older integrity tests; final combined ZIP/browser gates remain pending.
 
 ### Validation recorded
 

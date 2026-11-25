@@ -1,6 +1,6 @@
 # MPLPB browser front end
 
-Last reviewed: 2026-11-21. See [current status and result-to-test index](CURRENT_STATUS.md). Dates and numeric results in historical validation sections retain their original scope; this review is not a rerun or independent certification.
+Last reviewed: 2026-11-25. See [current status and result-to-test index](CURRENT_STATUS.md). Dates and numeric results in historical validation sections retain their original scope; this review is not a rerun or independent certification.
 
 Package role: [how this part fits Combined MPLPB](PACKAGE_GUIDE.md#delivery-and-packaging). The interface connects the ledger, reader, collections and conversation without merging their authority.
 
@@ -30,6 +30,15 @@ python3 launch.py --root /path/to/corpus --port 8767
 ```
 
 Choose **Your local corpus**. `python3 tools/ledger_ui.py` starts the desktop server without automatically opening a browser. See [installation](INSTALLATION.md) and [runtime requirements](BROWSER_RUNTIME.md).
+
+## Ask about your own document
+
+1. Choose **Use my documents** and create or select a collection.
+2. Choose a UTF-8 `.txt` or `.md` file, or paste text. Review the title and text before importing. Leave the URL blank for a local document. The hosted browser can also try fetching a public HTTPS source.
+3. Choose **Review imported source** to read the sealed page under the selected delivery profile, then **Continue to Strict Ask** and enter your question.
+4. Open a citation to read its source. For a partial or unresolved result, **Next steps** can show matching pages, bring you back to the question, or open the collection inventory. Matching pages are labeled for inspection and appear below the separate Strict decision.
+
+[Local imports, provenance, and collection storage](EXPLORATION_COLLECTIONS.md)
 
 ## Controls
 

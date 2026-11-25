@@ -1,6 +1,6 @@
 # Browser testing runbook for humans and AI agents
 
-Last reviewed: 2026-11-17. See [current status and result-to-test index](CURRENT_STATUS.md). Dates and numeric results in historical validation sections retain their original scope; this review is not a rerun or independent certification.
+Last reviewed: 2026-11-25. See the [current status and result-to-test index](CURRENT_STATUS.md). Historical results retain the scope of their original runs.
 
 Package role: [how this part fits Combined MPLPB](PACKAGE_GUIDE.md#evidence-and-limits). This guide covers evidence or operation limits; dated results keep the revision and scope they measured.
 
@@ -117,6 +117,27 @@ Include these five facts in a bug report or AI assessment:
 5. Proof: completed workflow URL, exit status, traces/screenshots where available, plus which checks were **not** performed.
 
 Do not say **green** until the *same commit* passes the full Python suite, JavaScript/API checks, WASM integration, and actual Chromium UI checks. Do not call the live deployment verified before the postdeploy run passes. Never edit source hashes, fixed historical benchmark outputs, or logs solely to make a test pass.
+
+## Thespian multi-agent testing method
+
+**Thespian** is Mitchell D. McPhetridge's method for running tests with AI agents in separate roles. One agent asks, one answers, and one evaluates. A fourth agent can write the role instructions and coordinate however many agents the test needs. The human sets the goal and decides how to handle disputes.
+
+The local document workflow in [PR #93](https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/pull/93) provided the example. The product agent reported its starting commit, files, existing fixtures, and launch steps. A separate evaluator was asked to prepare fresh documents, questions, citations, and refusal cases, then run a pinned baseline in a separate checkout. The product agent could keep building while the evaluator prepared the baseline. The paired test plan pinned `c1e2100` and `f225d14` and specified the same pasted source, source label, questions, and delivery profile. Local file upload and import without a URL were defined as candidate-only checks.
+
+For a blind test, use **three agents** as the asker, answerer, and evaluator. Use **four** to give instruction writing and coordination to a separate agent. Add agent slots only for a specific job, such as operating a second browser or independently adjudicating contested cases. Count the product builder separately when implementation is also underway.
+
+| Role | Access and deliverable |
+|---|---|
+| Coordinator | Takes the human's test goal and agent count. Writes a short prompt per role, names who gets each artifact, and asks the product lead for commit, ownership, existing test coverage, and launch instructions. Tracks the pins, handoffs, and run status. |
+| Asker | Creates fresh synthetic documents and questions. Freezes a separate key with expected outcomes, supporting passages, and any missing evidence before running the suite. Gives the answerer only the sources, prompts, and run instructions. |
+| Answerer | Runs MPLPB through the normal interface and records its answer, citations, and refusal or partial result as displayed. If the aim is to test an AI's own answers, specify that in the brief and record that output separately. |
+| Evaluator | Scores the submitted results against the frozen key after the answerer finishes. Checks the original eligible passages and source pins. Records unsupported answers, missed supported answers, correct partials, and correct refusals separately. Flags unclear expectations for human review. |
+
+### Copyable starter prompt
+
+> Set up a **Thespian** test of **[feature or question class]** with **[number of agents]**. My success criteria are **[expected answers, citations, refusals, and any workflow checks]**. Write a prompt for each role and say what it may see, what it must return, and who receives it. With three agents, have the asker draft the instructions and keep the key. With four or more, assign a separate coordinator and give every extra agent a named job. If there is a product lead, ask for the starting commit, owned files and issues, existing tests, and exact launch steps. Freeze fresh synthetic sources, questions, and grading rules before the baseline. Give the answerer the sources and questions. Send the key directly to the evaluator after the answerer submits. Replay the same inputs and settings against each pinned revision in a separate clean context. Exercise candidate-only steps separately. Report the commits, counts per outcome, citations, failures, and steps that did not run. Flag disagreements between the evidence and the key for human review.
+
+Use separate conversations or access-controlled files for the key. If a shared workspace exposes it to the answerer, report that the run was unblinded. Preserve actual baseline and candidate outputs, including failures. Use fresh cases after changing a rule based on the first set. Record role separation as an AI-assisted evaluation and track independent human semantic review separately. Use only fixtures approved for the run in any shared report.
 
 ## Additional 2026-10-21 audit
 
