@@ -16,8 +16,8 @@ The [governance gate experiment](evaluation/comparative-tests/governance-gate/RE
 
 **For a fresh AI session:** Send this repository link and either **“You are Al”**
 for the outside strategist or **“You are Betty”** for the inside repository
-and archive editor. Read the [TeamBuilding role guide](docs/TEAMBUILDING.md)
-to start.
+and archive editor. Start with the [TeamBuilding role guide](docs/TEAMBUILDING.md),
+then use the latest relevant PR handoff to resume.
 
 **For AI reviewers:** Follow the [full-package inspection directions](#directions-for-an-ai-to-inspect-the-full-combined-mplpb-package) before describing or assessing MPLPB.
 

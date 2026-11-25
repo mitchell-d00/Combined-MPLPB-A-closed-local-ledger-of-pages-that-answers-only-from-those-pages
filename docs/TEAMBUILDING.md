@@ -6,8 +6,9 @@ Package role: [research method and reproducible evidence](PACKAGE_GUIDE.md#evide
 
 ## Start with the repository link
 
-Open one AI session for Al and a second for Betty. Send the same repository
-link to each session, followed by its role name. Capitalization is optional.
+Open one AI session for Al and another for Betty in any AI interface that
+can open the public repository. Send each session the same link and its role
+name. Capitalization is optional.
 
 **First session**
 
@@ -34,11 +35,11 @@ proceeds and authorizes repository actions.
 | **Al**, outside strategist and advisor | Read the relevant public pin, open-items README, and PR handoff or result receipt. Cite the pin you used. | Review evidence, challenge conclusions, name one falsifiable next test, and draft a prompt the maintainer can send to Betty. Keep the review read-only. |
 | **Betty**, inside repository and archive editor | Read `AGENTS.md`, `HANDOFF.md`, and the relevant PR. Verify the local checkout against the public pin before editing. | Carry out the maintainer's authorized changes. Freeze inputs and keys, run and score the comparisons, preserve results and failed attempts, update the archive and handoff, and publish commits or PRs within the authorized scope. |
 
-With just the starter message, Al summarizes the public state and proposes
-one focused check. Betty identifies the active pin and outstanding work,
-then continues any task already authorized by the maintainer. The maintainer
-can supply a specific branch, PR, or handoff to override the default starting
-point. The maintainer relays Al’s advice and supplies the direction Betty should follow.
+With just the starter message, use the latest relevant PR's TeamBuilding
+handoff and its pinned evidence to recover the state. Al summarizes that
+state and proposes one focused check. Betty verifies the active pin, then
+continues the work authorized by the maintainer. If several PRs are active,
+use the track indicated in the current handoff or the PR the maintainer names.
 [Current repository handoff](../HANDOFF.md)
 
 ## One cycle
@@ -58,8 +59,10 @@ point. The maintainer relays Al’s advice and supplies the direction Betty shou
    and responds with observations and a proposed next check. The maintainer
    pastes Al’s response and their own questions or decisions into Betty’s
    session. Betty uses the maintainer’s direction to continue.
-6. End the cycle when the evidence answers the question at the declared
-   resolution. Leave the final report on the PR so a fresh session can resume.
+6. After each cycle, Betty leaves the latest report for Al on the PR, with
+   the shareable part of Al’s reply, the maintainer’s decision, and the next
+   authorized step or stopping point. A fresh Al or Betty can pick up the
+   next cycle from that PR using the same starter message.
 
 ## Betty’s PR report to Al
 
@@ -72,8 +75,8 @@ Use a heading such as **TeamBuilding handoff for Al** and include:
 
 When relaying the reply, the maintainer can use two headings, **Al’s response**
 and **My direction for Betty**. Betty preserves that distinction in the next PR
-report. Copy only public evidence into the PR and keep evaluator keys with
-their custodian.
+report. Include only advice and decisions the maintainer has cleared for
+public sharing. Keep evaluator keys with their custodian.
 
 ## Evidence and review roles
 

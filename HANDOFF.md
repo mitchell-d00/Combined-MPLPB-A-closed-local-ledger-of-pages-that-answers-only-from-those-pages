@@ -4,8 +4,8 @@ Last reviewed: 2026-11-25.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `9f7ef1a9212152093ebeebacec68f7872cd3b4bf` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `2d4f8f71977c3fdc023072d7385cc1b033693623dbf9ab40d78d601e0c699417`.
+Base commit: `20a294715979ecf3111b51dd69ed63396b549672` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `95a2e6a5f46663afe4aac4f77449b6f3d98d0decfc8bb3f29e29e5eb68a7663c`.
 
 ## Latest user update instructions
 
@@ -19,10 +19,13 @@ Ie link you are al 2nd agent link you are Betty
 
 And once it is set Betty and Al Betty makes reports to Al in pr and I past Al / my responses
 
+And it runs again leaving the Al report in last pr and then I just set Betty and Al to any ui just from link and name
+
 ## Implemented scope
 
 - Define Al as the outside strategist and Betty as the inside repository and archive editor. Put both starters in the TeamBuilding guide and link them from the root README and AGENTS.md.
 - Have Betty post the report to Al in each PR. Record the maintainer’s relay of Al’s response and their own direction back to Betty.
+- Use the latest relevant PR as the durable resume point for a fresh Al or Betty session in any AI interface with repository access.
 
 ## Validation recorded
 
@@ -38,6 +41,7 @@ And once it is set Betty and Al Betty makes reports to Al in pr and I past Al / 
 - For the Pole track, read the TeamBuilding handoff on PR #95 and the FRUS-Presentation evidence at 2a0bc642fe21b164fd921758f56bb43f49e5a361. The three other FRUS cases remain open.
 - Start a new strategy session with the repository link and “You are Al.” Start a separate repository session with the same link and “You are Betty.”
 - Use the PR report to brief Al. Paste Al’s response and the maintainer’s direction back into Betty’s session.
+- Before changing sessions, leave the current report for Al, shareable reply, maintainer decision, and next action on the PR.
 
 ## Use this ZIP in your repository
 
