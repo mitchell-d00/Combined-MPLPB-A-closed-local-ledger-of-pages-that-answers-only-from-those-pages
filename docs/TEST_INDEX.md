@@ -1,6 +1,6 @@
 # Test Index for humans and AI
 
-Last reviewed: 2026-11-24.
+Last reviewed: 2026-11-25.
 
 This is the starting point for running, interpreting, and extending Combined
 MPLPB tests. Use the [test commands](TEST_TOOLS.md) to run a suite, the
@@ -9,6 +9,53 @@ regression files, runners, and measurement scope for every indexed evaluation
 family, and the [results guide](RESULTS_AND_TESTS.md) to read the reported results.
 
 [Pole](../evaluation/pole/README.md) uses seeded difficulty levels and pinned documentary cases to measure general rule repairs.
+
+## Bubble and Wrap: failure → rule → protection → result
+
+[Current cycle](../evaluation/bubble-wrap/2026-11-25/README.md) implements the
+maintainer’s [frozen plan](../evaluation/bubble-wrap/2026-11-25/inputs-received/bubble-wrap-plan.json)
+on PR #103. [Case registry](../evaluation/bubble-wrap/2026-11-25/registry.json)
+and [native-test registry](../evaluation/bubble-wrap/2026-11-25/native-test-registry.json)
+provide stable IDs and per-test origin PRs, mechanism, protected rule, frozen
+input hashes, baseline pin, budgets, reproduction command and custody status.
+Join those IDs to [immutable execution records](../evaluation/bubble-wrap/2026-11-25/runs),
+[hash-linked run ledger](../evaluation/bubble-wrap/2026-11-25/run-ledger),
+and separately appended score records for actual candidate pins, raw outputs
+and measured outcomes. A registry entry marked PLANNED is not a passing test.
+
+| Stable family | Protected distinction | Frozen inputs / actual results |
+|---|---|---|
+| BW-REPORT / BW-RPT-001…032 | Reporter/writer/actor; inner/outer denial; conditional report versus independent authorship | [32-case matrix](../evaluation/bubble-wrap/2026-11-25/wrap/matrix.json), [key](../evaluation/bubble-wrap/2026-11-25/wrap/matrix-key.json) |
+| BW-INVENTORY / BW-INV-* | Reproduced old mechanisms and unaffected answer/partial/conflict contracts | [111 retained cases and overlap memberships](../evaluation/bubble-wrap/2026-11-25/registry.json) |
+| BW-ATTRIBUTION / BW-ATTR-* | Signed instructions, speaker/recorder/writer and execution withholds | [96 consumed instruction cases](../evaluation/bubble-wrap/2026-11-25/registry.json) |
+| BW-PE02 / BW-PE02-* | Historical checked partials, complete answers and unresolved attribution | [17 preservation descriptors](../evaluation/bubble-wrap/2026-11-25/registry.json); restricted originals/raw receipts stay in custody, public hashes/comparisons remain |
+| BW-GUARDS / unittest ID | Source eligibility, qualified/quoted contexts, counterevidence, mutation and fixed budgets | [Guard tests](../tests/test_reported_content.py), [baseline failures](../evaluation/bubble-wrap/2026-11-25/baseline-native-guards/output.log) |
+| BW-FOCUSED, BW-INTEGRITY | Permanent 56 controls and applicable older authority/integrity checks | [Native gate registry](../evaluation/bubble-wrap/2026-11-25/native-test-registry.json) |
+| BW-ACCOUNTING, BW-ENV-* | Executed versus scored versus planned; fail-closed isolation | [Accounting tests](../tests/test_bubble_wrap_accounting.py), [required sandbox gate](../evaluation/bubble-wrap/2026-11-25/gates/BW-ENV-004/record.json) |
+
+The twenty proposal cases are memberships within the 111, not extra independent
+samples. Per-input semantic hashes expose overlap. Compare actual claims,
+qualifications, missing obligations and citations; answer totals cannot hide
+false support. Approved intended recoveries are explicitly allowlisted.
+
+Baseline [score](../evaluation/bubble-wrap/2026-11-25/baseline-score.json):
+256 completed/scored; 230 expected decisions pass, 26 target misses, zero
+false-supported claim cases. The ten old primary misses and sixteen new
+source-scope targets are retained. This does not declare every preserved old
+question answered: known non-target misses remain separate.
+
+The original [24-case transfer seal](../evaluation/current-failure-inventory/proposal/transfer-seal.json)
+is preserved and unopened at harness freeze. Run only after a committed ZIP
+candidate freeze; publish its result separately. Once it informs a repair it
+becomes development material. Same-operator isolation is not independent
+preparation, blinding or adjudication. Independent history/semantics,
+outside-custodian scoring and native OOCC remain NOT_RUN.
+
+Run `python tools/audit_bubble_wrap_delivery.py` to audit IDs, seals, run accounting,
+links and omitted attempts. Frozen audit v1 remains retained; delivery v2 corrects
+its misclassification of score rows as execution rows without changing worker,
+adapter, scorer or frozen expectations. Every denied launch and publication/audit
+failure stays visible in the ledger.
 
 ## How I train a deterministic AI
 

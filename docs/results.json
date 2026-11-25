@@ -4,6 +4,25 @@
   "meaning": "Links establish retained test/reproduction coverage, not a fresh execution or certification of historical metrics. Original source, dates, fixtures and exact revisions remain in the linked reports.",
   "families": [
     {
+      "family": "bubble-wrap",
+      "artifacts": "evaluation/bubble-wrap",
+      "tests": [
+        "tests/test_study_sandbox.py",
+        "tests/test_reported_content.py",
+        "tests/test_bubble_wrap_accounting.py",
+        "tests/test_status_authority.py"
+      ],
+      "runners": [
+        "tools/bubble_wrap_trial.py",
+        "tools/bubble_wrap_adapter.py",
+        "tools/bubble_wrap_packets.py",
+        "tools/audit_bubble_wrap_delivery.py",
+        "tools/bubble_wrap_native_gates.py"
+      ],
+      "scope": "Fail-closed isolated reported-content trial, separately frozen 32-case Wrap matrix and explicit preservation/accounting links. Original 20 inputs and 24 sealed transfer cases retained.",
+      "measurement_status": "Pre-repair baseline: 256/256 completed/scored; 230 pass and 26 source-content misses; zero false-supported claim cases. Required namespace gate passes with approved host access after restricted uid_map failure. Adapter parity 123 and final original20 pass. Candidate/transfer NOT_RUN at this freeze. Independent historical/semantic/preparation/blinding/outside/OOCC NOT_RUN."
+    },
+    {
       "family": "current-failure-inventory",
       "artifacts": "evaluation/current-failure-inventory",
       "tests": [

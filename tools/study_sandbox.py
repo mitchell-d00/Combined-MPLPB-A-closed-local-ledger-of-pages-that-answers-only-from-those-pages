@@ -36,11 +36,26 @@ def command(bwrap,code,inputs,outputs,program):
     return args
 
 
-def invoke(args):
+def invoke(args, *, transcript=None, wall_seconds=600):
     try:
         with tempfile.TemporaryFile() as out,tempfile.TemporaryFile() as err:
-            result=subprocess.run(args,stdin=subprocess.DEVNULL,stdout=out,stderr=err,
-                                  timeout=600,close_fds=True,preexec_fn=_limits)
+            result=None;timed_out=False
+            try:
+                result=subprocess.run(args,stdin=subprocess.DEVNULL,stdout=out,stderr=err,
+                                      timeout=wall_seconds,close_fds=True,preexec_fn=_limits)
+            except subprocess.TimeoutExpired:
+                timed_out=True
+                raise
+            finally:
+                if transcript is not None:
+                    import json
+                    for name,stream in (('stdout.log',out),('stderr.log',err)):
+                        stream.seek(0)
+                        with (Path(transcript)/name).open('xb') as target:
+                            shutil.copyfileobj(stream,target)
+                    with (Path(transcript)/'process.json').open('x') as target:
+                        json.dump({'returncode':result.returncode if result else None,
+                                   'timed_out':timed_out,'wall_seconds_limit':wall_seconds},target)
     except (OSError,subprocess.SubprocessError) as exc:
         raise ValueError('Execution sandbox unavailable or exceeded its resource budget; no direct fallback') from exc
     if result.returncode:
