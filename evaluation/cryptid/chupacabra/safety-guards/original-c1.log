@@ -1,0 +1,40 @@
+test_final_withdrawal_discards_correction (tests.test_count_correction_guards.CountCorrectionGuards.test_final_withdrawal_discards_correction) ... ERROR
+test_full_source_units_count_even_when_derived (tests.test_count_correction_guards.CountCorrectionGuards.test_full_source_units_count_even_when_derived) ... FAIL
+test_original_question_policy_not_rewritten (tests.test_count_correction_guards.CountCorrectionGuards.test_original_question_policy_not_rewritten) ... ok
+
+======================================================================
+ERROR: test_final_withdrawal_discards_correction (tests.test_count_correction_guards.CountCorrectionGuards.test_final_withdrawal_discards_correction)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/cryptid-local/tests/test_count_correction_guards.py", line 19, in test_final_withdrawal_discards_correction
+    with patch.object(documentary_correction.PassageIndex,'unchanged',changed):r=answer_query(self.root,Q).contract
+                                                                                 ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/cryptid-local/mplpb_answers/pipeline.py", line 204, in answer_query
+    result = _answer_query(root,question,profile,mode=mode,reader=reader,min_confidence=min_confidence,
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/cryptid-local/mplpb_answers/pipeline.py", line 560, in _answer_query
+    if not index.unchanged():
+           ^^^^^^^^^^^^^^^^^
+  File "/workspace/cryptid-local/tests/test_count_correction_guards.py", line 18, in changed
+    def changed(index):ledger.withdraw(self.root,'CORRECTION');return original(index)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/cryptid-local/mplpb_combined/ledger.py", line 775, in withdraw
+    old = _current(Ledger(root, serving=False), doc_id)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/cryptid-local/mplpb_combined/ledger.py", line 709, in _current
+    raise ValueError(f"{doc_id} is retired; its current successor is {', '.join(heads)}")
+ValueError: CORRECTION is retired; its current successor is CORRECTION
+
+======================================================================
+FAIL: test_full_source_units_count_even_when_derived (tests.test_count_correction_guards.CountCorrectionGuards.test_full_source_units_count_even_when_derived)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/cryptid-local/tests/test_count_correction_guards.py", line 24, in test_full_source_units_count_even_when_derived
+    self.assertFalse(result['answer_supported']);self.assertIn('budget',result['diagnostic']['code'])
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: True is not false
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.110s
+
+FAILED (failures=1, errors=1)
