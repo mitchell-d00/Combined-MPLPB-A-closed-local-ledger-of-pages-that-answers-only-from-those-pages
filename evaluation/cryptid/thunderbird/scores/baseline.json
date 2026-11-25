@@ -1,0 +1,358 @@
+{
+  "schema": "cryptid-claim-score-v1",
+  "version": "cryptid-claim-scorer-v5",
+  "scorer_sha256": "d91f3855437fb55d4ec165edcf48bad6a375437bcdf8acc7c8a2ea4b4e7d6b60",
+  "run_sha256": "87a2739f01ad1c94852e09c53be389dc25a8d1053a73ed2c933a18c7afc02040",
+  "key_sha256": "e07c08d171f153ca227301f38e9dec9b613060e263008e454d511ea658371c0f",
+  "counts": {
+    "planned": 12,
+    "attempted": 12,
+    "completed": 12,
+    "scored": 12,
+    "unscored": 0,
+    "passed": 12,
+    "false_support": 0,
+    "positive_misses": 0,
+    "budget_stops": 4,
+    "diagnostic_only": 0
+  },
+  "cases": [
+    {
+      "id": "CRYPT-THUNDERBIRD-0001",
+      "execution_status": "completed",
+      "scored": true,
+      "passed": true,
+      "expected": "complete",
+      "kind": "supported_answer",
+      "claims": 1,
+      "positive_miss": false,
+      "false_support": false,
+      "errors": [],
+      "interpretation_inspection_recognized": false,
+      "required_witness_discovery": true,
+      "miss_stage_diagnostic": null,
+      "budget_stop": false,
+      "measurements": {
+        "query_wall_seconds": 0.10867219200008549,
+        "query_cpu_seconds": 0.10795564300000002,
+        "peak_rss_bytes": 18673664,
+        "source_html_open_calls": {
+          "query": 10,
+          "discovery": 2
+        },
+        "source_read_measurement": "Python audit open events for ledger HTML files during query/discovery; cached in-memory reads are not counted",
+        "admitted_source_count": 1,
+        "admitted_canonical_characters": 74
+      }
+    },
+    {
+      "id": "CRYPT-THUNDERBIRD-0002",
+      "execution_status": "completed",
+      "scored": true,
+      "passed": true,
+      "expected": "complete",
+      "kind": "supported_answer",
+      "claims": 1,
+      "positive_miss": false,
+      "false_support": false,
+      "errors": [],
+      "interpretation_inspection_recognized": false,
+      "required_witness_discovery": true,
+      "miss_stage_diagnostic": null,
+      "budget_stop": false,
+      "measurements": {
+        "query_wall_seconds": 0.11868769100692589,
+        "query_cpu_seconds": 0.11999515,
+        "peak_rss_bytes": 18665472,
+        "source_html_open_calls": {
+          "query": 80,
+          "discovery": 16
+        },
+        "source_read_measurement": "Python audit open events for ledger HTML files during query/discovery; cached in-memory reads are not counted",
+        "admitted_source_count": 8,
+        "admitted_canonical_characters": 228
+      }
+    },
+    {
+      "id": "CRYPT-THUNDERBIRD-0003",
+      "execution_status": "completed",
+      "scored": true,
+      "passed": true,
+      "expected": "withhold",
+      "kind": "abstain",
+      "claims": 0,
+      "positive_miss": false,
+      "false_support": false,
+      "errors": [],
+      "interpretation_inspection_recognized": false,
+      "required_witness_discovery": null,
+      "miss_stage_diagnostic": null,
+      "budget_stop": true,
+      "measurements": {
+        "query_wall_seconds": 0.11717962299007922,
+        "query_cpu_seconds": 0.11598899100000001,
+        "peak_rss_bytes": 18665472,
+        "source_html_open_calls": {
+          "query": 72,
+          "discovery": 18
+        },
+        "source_read_measurement": "Python audit open events for ledger HTML files during query/discovery; cached in-memory reads are not counted",
+        "admitted_source_count": 9,
+        "admitted_canonical_characters": 250
+      }
+    },
+    {
+      "id": "CRYPT-THUNDERBIRD-0004",
+      "execution_status": "completed",
+      "scored": true,
+      "passed": true,
+      "expected": "complete",
+      "kind": "supported_answer",
+      "claims": 1,
+      "positive_miss": false,
+      "false_support": false,
+      "errors": [],
+      "interpretation_inspection_recognized": false,
+      "required_witness_discovery": true,
+      "miss_stage_diagnostic": null,
+      "budget_stop": false,
+      "measurements": {
+        "query_wall_seconds": 0.6034976340015419,
+        "query_cpu_seconds": 0.596145681,
+        "peak_rss_bytes": 18665472,
+        "source_html_open_calls": {
+          "query": 10,
+          "discovery": 2
+        },
+        "source_read_measurement": "Python audit open events for ledger HTML files during query/discovery; cached in-memory reads are not counted",
+        "admitted_source_count": 1,
+        "admitted_canonical_characters": 6056
+      }
+    },
+    {
+      "id": "CRYPT-THUNDERBIRD-0005",
+      "execution_status": "completed",
+      "scored": true,
+      "passed": true,
+      "expected": "withhold",
+      "kind": "abstain",
+      "claims": 0,
+      "positive_miss": false,
+      "false_support": false,
+      "errors": [],
+      "interpretation_inspection_recognized": false,
+      "required_witness_discovery": null,
+      "miss_stage_diagnostic": null,
+      "budget_stop": true,
+      "measurements": {
+        "query_wall_seconds": 0.10661604300548788,
+        "query_cpu_seconds": 0.10800121700000001,
+        "peak_rss_bytes": 18669568,
+        "source_html_open_calls": {
+          "query": 8,
+          "discovery": 2
+        },
+        "source_read_measurement": "Python audit open events for ledger HTML files during query/discovery; cached in-memory reads are not counted",
+        "admitted_source_count": 1,
+        "admitted_canonical_characters": 6062
+      }
+    },
+    {
+      "id": "CRYPT-THUNDERBIRD-0006",
+      "execution_status": "completed",
+      "scored": true,
+      "passed": true,
+      "expected": "complete",
+      "kind": "supported_answer",
+      "claims": 1,
+      "positive_miss": false,
+      "false_support": false,
+      "errors": [],
+      "interpretation_inspection_recognized": false,
+      "required_witness_discovery": true,
+      "miss_stage_diagnostic": null,
+      "budget_stop": false,
+      "measurements": {
+        "query_wall_seconds": 0.2798030170088168,
+        "query_cpu_seconds": 0.27993194,
+        "peak_rss_bytes": 20164608,
+        "source_html_open_calls": {
+          "query": 10,
+          "discovery": 2
+        },
+        "source_read_measurement": "Python audit open events for ledger HTML files during query/discovery; cached in-memory reads are not counted",
+        "admitted_source_count": 1,
+        "admitted_canonical_characters": 185076
+      }
+    },
+    {
+      "id": "CRYPT-THUNDERBIRD-0007",
+      "execution_status": "completed",
+      "scored": true,
+      "passed": true,
+      "expected": "withhold",
+      "kind": "abstain",
+      "claims": 0,
+      "positive_miss": false,
+      "false_support": false,
+      "errors": [],
+      "interpretation_inspection_recognized": false,
+      "required_witness_discovery": null,
+      "miss_stage_diagnostic": null,
+      "budget_stop": true,
+      "measurements": {
+        "query_wall_seconds": 0.2048786150116939,
+        "query_cpu_seconds": 0.20798174,
+        "peak_rss_bytes": 20262912,
+        "source_html_open_calls": {
+          "query": 8,
+          "discovery": 2
+        },
+        "source_read_measurement": "Python audit open events for ledger HTML files during query/discovery; cached in-memory reads are not counted",
+        "admitted_source_count": 1,
+        "admitted_canonical_characters": 201076
+      }
+    },
+    {
+      "id": "CRYPT-THUNDERBIRD-0008",
+      "execution_status": "completed",
+      "scored": true,
+      "passed": true,
+      "expected": "conflict",
+      "kind": "conflict",
+      "claims": 2,
+      "positive_miss": false,
+      "false_support": false,
+      "errors": [],
+      "interpretation_inspection_recognized": false,
+      "required_witness_discovery": true,
+      "miss_stage_diagnostic": null,
+      "budget_stop": false,
+      "measurements": {
+        "query_wall_seconds": 0.11595903499983251,
+        "query_cpu_seconds": 0.115952322,
+        "peak_rss_bytes": 18665472,
+        "source_html_open_calls": {
+          "query": 80,
+          "discovery": 16
+        },
+        "source_read_measurement": "Python audit open events for ledger HTML files during query/discovery; cached in-memory reads are not counted",
+        "admitted_source_count": 8,
+        "admitted_canonical_characters": 286
+      }
+    },
+    {
+      "id": "CRYPT-THUNDERBIRD-0009",
+      "execution_status": "completed",
+      "scored": true,
+      "passed": true,
+      "expected": "withhold",
+      "kind": "abstain",
+      "claims": 0,
+      "positive_miss": false,
+      "false_support": false,
+      "errors": [],
+      "interpretation_inspection_recognized": false,
+      "required_witness_discovery": null,
+      "miss_stage_diagnostic": null,
+      "budget_stop": true,
+      "measurements": {
+        "query_wall_seconds": 0.1252389500004938,
+        "query_cpu_seconds": 0.127998832,
+        "peak_rss_bytes": 18673664,
+        "source_html_open_calls": {
+          "query": 72,
+          "discovery": 18
+        },
+        "source_read_measurement": "Python audit open events for ledger HTML files during query/discovery; cached in-memory reads are not counted",
+        "admitted_source_count": 9,
+        "admitted_canonical_characters": 308
+      }
+    },
+    {
+      "id": "CRYPT-THUNDERBIRD-0010",
+      "execution_status": "completed",
+      "scored": true,
+      "passed": true,
+      "expected": "partial",
+      "kind": "partial_answer",
+      "claims": 1,
+      "positive_miss": false,
+      "false_support": false,
+      "errors": [],
+      "interpretation_inspection_recognized": false,
+      "required_witness_discovery": true,
+      "miss_stage_diagnostic": null,
+      "budget_stop": false,
+      "measurements": {
+        "query_wall_seconds": 0.10483068299072329,
+        "query_cpu_seconds": 0.10395855000000001,
+        "peak_rss_bytes": 18673664,
+        "source_html_open_calls": {
+          "query": 10,
+          "discovery": 2
+        },
+        "source_read_measurement": "Python audit open events for ledger HTML files during query/discovery; cached in-memory reads are not counted",
+        "admitted_source_count": 1,
+        "admitted_canonical_characters": 3623
+      }
+    },
+    {
+      "id": "CRYPT-THUNDERBIRD-0011",
+      "execution_status": "completed",
+      "scored": true,
+      "passed": true,
+      "expected": "complete",
+      "kind": "supported_answer",
+      "claims": 1,
+      "positive_miss": false,
+      "false_support": false,
+      "errors": [],
+      "interpretation_inspection_recognized": false,
+      "required_witness_discovery": true,
+      "miss_stage_diagnostic": null,
+      "budget_stop": false,
+      "measurements": {
+        "query_wall_seconds": 0.10863037299714051,
+        "query_cpu_seconds": 0.10799159,
+        "peak_rss_bytes": 18681856,
+        "source_html_open_calls": {
+          "query": 10,
+          "discovery": 2
+        },
+        "source_read_measurement": "Python audit open events for ledger HTML files during query/discovery; cached in-memory reads are not counted",
+        "admitted_source_count": 1,
+        "admitted_canonical_characters": 10076
+      }
+    },
+    {
+      "id": "CRYPT-THUNDERBIRD-0012",
+      "execution_status": "completed",
+      "scored": true,
+      "passed": true,
+      "expected": "withhold",
+      "kind": "abstain",
+      "claims": 0,
+      "positive_miss": false,
+      "false_support": false,
+      "errors": [],
+      "interpretation_inspection_recognized": false,
+      "required_witness_discovery": null,
+      "miss_stage_diagnostic": null,
+      "budget_stop": false,
+      "measurements": {
+        "query_wall_seconds": 0.115258386998903,
+        "query_cpu_seconds": 0.115982848,
+        "peak_rss_bytes": 18673664,
+        "source_html_open_calls": {
+          "query": 18,
+          "discovery": 4
+        },
+        "source_read_measurement": "Python audit open events for ledger HTML files during query/discovery; cached in-memory reads are not counted",
+        "admitted_source_count": 2,
+        "admitted_canonical_characters": 148
+      }
+    }
+  ],
+  "custody": "Same-operator keys/scoring; no independent historical or semantic adjudication."
+}
