@@ -29,7 +29,7 @@ a correctly named quoted speaker is a positive target. Development contains
 24 positives and 24 withholds; transfer contains 12 of each. Expectations follow
 the actor and reporting layer, not a forced positive/negative ratio.
 
-## Measured development and transfer
+## Original development and limited first transfer
 
 | Frozen measure | Baseline | Candidate |
 |---|---:|---:|
@@ -52,6 +52,19 @@ The first transfer packet was executed **once** on committed source `d0f6c67e068
 Historical completion remains **1/4**, historical partials remain **1/4**, and source propositions across the permanent 17 remain **five**. This cycle adds synthetic class coverage, without a new historical answer-coverage gain.
 
 Tested source ZIP SHA-256: `0f3148b4a3ef061388a990ef0d0fc306838077ddde18f004285ac404faeee155`. [Candidate freeze](candidate-freeze.json) binds the commit, complete tree and native fingerprints. Its first extraction lost one shell executable bit; permissions were restored from the unchanged ZIP metadata, then the full tracked extraction matched the commit. Source-byte/citation and preservation audits pass; full archive release validation and exact-head CI remain pending.
+
+## Fresh structural transfer (pending)
+
+A separate [fresh rule](fresh-transfer-rule.md), [freeze](fresh-transfer-freeze.json)
+and baseline seal were committed at `e787bde` before the next native change.
+Recipient-fronted nominal and possessive argument-order constructions differ
+from the original 48 and all supplementary controls. Actors, tasks and seed are
+new. Question interfaces are held constant with the consumed first packet,
+so the new structural test focuses on source language. Templates were authored
+and seen by the same operator; exact instances remain unopened until the new
+candidate/source ZIP freeze. No fresh-structure development examples were run.
+The candidate preserves the original 48, consumed first 24, all 56 controls and
+17 PE-02 contracts. Fresh transfer and exact-head CI remain pending.
 
 ## Mechanism and rejected candidates
 

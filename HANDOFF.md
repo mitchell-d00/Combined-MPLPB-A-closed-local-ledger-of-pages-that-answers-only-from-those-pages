@@ -4,8 +4,8 @@ Last reviewed: 2026-11-25.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `d0f6c67e0684d952afc47c13b83963ca7976d2bb` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `cfa5d7ce8252a690ecb4c4489a0189368502c6686c7cdddc97aba1d0484150ca`.
+Base commit: `e787bded7d2c99ddcc5b91228a76575aa8b90e61` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `144c2753b59b743ef0666fe60ae2adfba6dd852f341a745048fa9c7dabc98407`.
 
 ## Betty report for Al
 
@@ -34,6 +34,7 @@ Mitchell selected: Use a sealed, program-generated packet; label the custody lim
 - Preserve the reported PE-02 implementation and permanent seventeen-case corpus with all twenty-eight targeted regressions.
 - Add one shared native source-writer/speaker/recipient/instruction representation for bounded letters, minutes and quoted reports. Preserve the old PE-02 path unchanged.
 - Execute the frozen committed candidate on the transfer packet exactly once, preserve reporting layers, publish the consumed inputs and distinguish same-operator testing from independent assessment.
+- Add recipient-fronted nominal and possessive instruction argument-order forms to the same native role parser, after fresh packet freeze and before opening its instances. No new-structure development examples were run.
 
 ### Validation recorded
 
@@ -49,10 +50,11 @@ Mitchell selected: Use a sealed, program-generated packet; label the custody lim
 - Source ZIP SHA-256 0f3148b4a3ef061388a990ef0d0fc306838077ddde18f004285ac404faeee155 passed integrity and tracked-content comparison after restoring one executable bit from ZIP metadata. Extracted development 48/48, permanent 17 contracts/discovery identical, all 56 focused controls, all 52 public controls, all fifteen software checks including HTTP/JavaScript and report pins, WebAssembly and both Chromium contexts passed. Candidate embedded reader hashes match source. Installed wheel and 45 official MCP SDK checks passed.
 - First candidate d0f6c67 ZIP completed all 1,779 native tests (two skipped), all 52 public controls, software/WebAssembly/browser/installation/SDK gates. Its first-transfer 24/24 decisions remain retained, but overlap with inspected development controls limits structural novelty.
 - Fresh 24-case generator, new seed, packet/key hashes and rule frozen before any further native edits; baseline privately replayed at original PR #101 pin. Instance bytes/key/output remain unopened.
+- Fresh candidate preserves original 48/48, consumed-first-packet 24/24, all 56 focused controls and all 17 complete PE-02 contracts/discovery arrays.
 
 ### Limitations and blocked checks
 
-- First candidate archive validation is complete. Fresh structural transfer is sealed and pending a new native candidate/source ZIP freeze; exact-head CI and publication remain pending.
+- New candidate source ZIP, once-only fresh structural transfer, exact-head archive-first full regression and deployment validation remain pending. The first candidate full 1779-test run is retained with its own source pin and is not a rerun of the new native bytes.
 - Same operator authored and saw all generator templates, prepared packets and scored outputs. Exact transfer instances/key stayed unopened until the committed ZIP freeze. This is not independent preparation or blinding. The consumed transfer packet now becomes preservation material.
 - Independent historical accuracy, independent semantic adjudication, independent preparation, blinding, outside-custodian scoring and native OOCC remain NOT_RUN.
 - No historical answer-coverage gain: historical completion stays 1/4, historical partials stay 1/4, and all five source propositions across seventeen cases remain unchanged. The new gain is bounded synthetic source-attribution coverage.

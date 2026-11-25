@@ -96,6 +96,12 @@ _INSTRUCTION_PATTERNS = [
     rf'(?P<recipient>{_RECIPIENT}) received this instruction from (?P<actor>{FULL_NAME}): “(?P<task>{_TASK_TEXT})\.”',
     rf'“(?P<task>{_TASK_TEXT}),” is my instruction to (?P<recipient>{_RECIPIENT})\.',
     rf'“(?P<task>{_TASK_TEXT}),” (?P<actor>{FULL_NAME}) directed (?P<recipient>{_RECIPIENT})\.',
+    rf'For (?P<recipient>{_RECIPIENT}), my instruction is to (?P<task>{_TASK_TEXT})\.',
+    rf'For (?P<recipient>{_RECIPIENT}), the instruction from (?P<actor>{FULL_NAME}) was to (?P<task>{_TASK_TEXT})\.',
+    rf'For (?P<recipient>{_RECIPIENT}), the instruction from (?P<actor>{FULL_NAME}) was: “(?P<task>{_TASK_TEXT})\.”',
+    rf'My instruction is for (?P<recipient>{_RECIPIENT}) to (?P<task>{_TASK_TEXT})\.',
+    rf"(?P<actor>{FULL_NAME})'s instruction was for (?P<recipient>{_RECIPIENT}) to (?P<task>{_TASK_TEXT})\.",
+    rf"(?P<actor>{FULL_NAME})'s instruction for (?P<recipient>{_RECIPIENT}) was “(?P<task>{_TASK_TEXT})\.”",
 ]
 _INSTRUCTION_PATTERNS = [re.compile(p, re.I) for p in _INSTRUCTION_PATTERNS]
 _UNRESOLVED_TASK = re.compile(
