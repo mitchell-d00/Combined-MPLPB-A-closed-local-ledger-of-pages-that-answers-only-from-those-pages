@@ -18,7 +18,9 @@ commits, and publication. Each push carries a current **Betty report for
 Al** in the generated `HANDOFF.md`. Betty also posts the report on each PR
 she opens or updates. The maintainer starts Betty first and opens a separate
 Al chat after Betty leaves the report. Both roles inspect the repository in
-depth first, then open the newest PR by creation time and read its last
+depth first, then read the [agent API manifest](.well-known/mplpb.json).
+Confirm the step named by the Run command. Open the newest PR by creation
+time and read its last
 Betty report to recover the current applied state. Use an explicit PR link
 when the maintainer provides one. Include closed and merged PRs in discovery. The maintainer pastes Al’s response
 and their direction to Betty, who runs the authorized tests and updates

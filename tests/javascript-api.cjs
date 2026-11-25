@@ -122,7 +122,13 @@ async function tests(){
  assert.match(al.role.first_steps[0],/Read the repository deeply first/);
  assert.equal(betty.role.first_steps[0],al.role.first_steps[0]);
  assert.equal(betty.role.first_steps[1],al.role.first_steps[1]);
- assert.match(al.role.first_steps[1],/Then open the newest PR by creation time/);
+ assert.match(al.role.first_steps[1],/Read this public agent API manifest/);
+ assert.match(al.role.first_steps[2],/Al review step active/);
+ assert.match(al.role.first_steps[3],/Then open the newest PR by creation time/);
+ assert.equal(betty.role.confirmation,'Betty implementation step active.');
+ assert.equal(al.role.confirmation,'Al review step active.');
+ assert.match(al.role.relationship,/judges Betty’s reported results/);
+ assert.match(betty.role.relationship,/receives Al’s advice through Mitchell/);
  assert.deepEqual(betty.start_order,['betty','al']);
  assert.match(al.relay.maintainer_relays,/copies Al’s response from the separate Al chat/);
  assert.match(betty.relay.betty_updates_pr,/authorized tests.*same live PR/);

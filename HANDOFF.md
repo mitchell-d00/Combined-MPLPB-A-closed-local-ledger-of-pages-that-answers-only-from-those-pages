@@ -4,27 +4,31 @@ Last reviewed: 2026-11-25.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `deb2197ab32e58466f35e448c30b15e361cabaee` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `84e404030e2128fe7e3e81b8df17baee0b820c98cf4ecb57720d91abb4939e2b`.
+Base commit: `3d7ab9e414a662916d9307c02d94d16d0c515d50` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `835d5874f200307859d3d88d28478ea735c681beab9bdd61322efd08e9d97557`.
 
 ## Betty report for Al
 
-Run the Betty implementation step first, then the Al review step in a separate chat. Both inspect the repository before reading the last Betty report on the newest PR by creation time. A specific PR link selects that PR. The maintainer pastes Al’s response and direction to Betty, who tests and updates that PR. Resume from the last applied state after a pause.
+Run the Betty implementation step first, then the Al review step in a separate chat. Both inspect the repository and the public API manifest, confirm their step, then read the last Betty report on the newest PR by creation time. A specific PR link selects that PR. The maintainer pastes Al’s response and direction to Betty, who tests and updates that PR. Resume from the last applied state after a pause.
 
 ### Latest user update instructions
 
 It needs to read newest pr not always 97
+
+Al is not working Al needs to know it’s Al after it reads repo and api then read Betty report and understand its relation to Betty and Betty Al
 
 ### Implemented scope
 
 - Discover the newest PR by creation time across all states for repo-link and Pages-link role commands. An explicit PR URL selects that PR.
 - Remove the fixed report from the public manifest. Give web-only and browser API clients the live discovery URL.
 - Read the selected PR detail and present its current head, report comparison and head-pinned handoff. Preserve the existing source archive catalog.
+- Make both steps read the repo and API first, confirm the selected step, then read the Betty report. Expose the reciprocal relationship and Mitchell’s relay in both API entries.
 
 ### Validation recorded
 
 - Desktop HTTP and JavaScript contracts passed, including frozen CLI fixtures for newest PR, explicit override, stale report, fork handoff and empty listing.
 - Both terminal paths read the live GitHub API and matched the newest PR and explicit historical override. Infrastructure and generated handoff checks are checked locally.
+- The JavaScript contract checks the repository and API order, both role confirmations, and both directions of the Al and Betty relay.
 
 ### Limitations and blocked checks
 

@@ -39,12 +39,26 @@ work steps. Use the task-based starters above for fresh chats.
 
 With only the starter message, both roles follow the
 [full-package inspection directions](../README.md#directions-for-an-ai-to-inspect-the-full-combined-mplpb-package)
-before reading the last Betty report on the live PR. Verify its head and
+first. Then read the [agent API manifest](../.well-known/mplpb.json) and
+select the entry named in the Run command. Confirm **Al review step active**
+or **Betty implementation step active**. Read the last Betty report on
+the selected live PR. Verify its head and
 last applied state and begin there. With just the repository link, open the
 newest PR by creation time across all states, including merged and closed.
 A PR link from the maintainer overrides that selection. If its report is
 missing or stale, read the handoff at the actual PR head.
 [Current Betty report for Al](../HANDOFF.md#betty-report-for-al)
+
+## How Al and Betty work together
+
+Betty produces test evidence and leaves the latest applied state in the PR.
+Al reads that report as the reviewer, checks it against the pinned evidence,
+and returns judgments and a ready-to-send next test for Betty. Mitchell
+relays Al’s advice and their own decision to Betty. Betty performs the
+authorized work and updates the PR with the next report.
+
+An Al response starts by confirming the review step, cites the PR number
+and checked head, then gives the evidence judgment and proposed test.
 
 ## Read the pipeline over HTTP
 
@@ -78,8 +92,9 @@ may have different ZIP bytes.
 
 ## One cycle
 
-At startup, both Betty and Al inspect the repository, then read the last
-Betty report on the live PR. That report is the starting state.
+At startup, both inspect the repository and API manifest, confirm their
+selected step, and then read the last Betty report on the live PR. That
+report is the starting state.
 
 1. **Betty calls Al.** Betty leaves a current report for Al in `HANDOFF.md`
    on every push. When there is a PR, Betty puts the report in its body or

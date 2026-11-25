@@ -79,6 +79,8 @@
         "responsibility": "Inside repository and archive editor. Verify the public pin and carry out the maintainer’s authorized edits, frozen tests, scoring and publication.",
         "first_steps": [
           "Read the repository deeply first. Follow the full-package inspection directions and inspect the relevant implementation, tests and public evidence.",
+          "Read this public agent API manifest. Select the team_building.roles entry named by the maintainer’s Run command.",
+          "Confirm the selected task with “Betty implementation step active.”",
           "Then open the newest PR by creation time, or the PR the maintainer named. Read its last Betty report, verify its applied state against the current head, and start from that state.",
           "Carry out the maintainer’s authorized tests. Record the new applied state, checked head, results and next step in the same PR, and leave a current HANDOFF.md with every push."
         ],
@@ -87,7 +89,9 @@
           "You are Betty.",
           "Read API Betty.",
           "Run the Betty implementation step for this repository."
-        ]
+        ],
+        "confirmation": "Betty implementation step active.",
+        "relationship": "Betty produces the PR report for Al. Al judges the evidence and drafts the next test prompt. Betty receives Al’s advice through Mitchell and acts on Mitchell’s direction."
       },
       "al": {
         "name": "Al",
@@ -95,6 +99,8 @@
         "responsibility": "Outside read-only strategist. Judge Betty’s reported results against pinned evidence and draft the next falsifiable prompt.",
         "first_steps": [
           "Read the repository deeply first. Follow the full-package inspection directions and inspect the relevant implementation, tests and public evidence.",
+          "Read this public agent API manifest. Select the team_building.roles entry named by the maintainer’s Run command.",
+          "Confirm the selected task with “Al review step active.”",
           "Then open the newest PR by creation time, or the PR the maintainer named. Read its last Betty report, verify its applied state against the current head, and start from that state.",
           "Judge the reported results against the frozen evidence. Address your review and a ready-to-send next test prompt to Betty. Return it to the maintainer to relay."
         ],
@@ -103,7 +109,9 @@
           "You are Al.",
           "Read API Al.",
           "Run the Al review step for this repository."
-        ]
+        ],
+        "confirmation": "Al review step active.",
+        "relationship": "Betty applies authorized repository changes, runs tests, and leaves the evidence in the PR. Al independently judges Betty’s reported results and drafts the next test prompt for Betty. Mitchell relays the advice and supplies direction."
       }
     },
     "source_archives": {
@@ -166,7 +174,7 @@
       "al_calls_betty": "Al reads the repository and Betty’s live PR report, judges the results against the evidence, and drafts the next prompt for Betty.",
       "maintainer_relays": "The maintainer copies Al’s response from the separate Al chat and pastes it with their own direction into Betty’s chat.",
       "betty_updates_pr": "Betty runs the authorized tests and updates the same live PR report with the current head, last applied change, measured results, shareable advice, maintainer direction and next step. Commit the current handoff with every push.",
-      "start_from_last_report": "Both roles first inspect the full repository, then read the last Betty report from the live PR and verify the current applied state.",
+      "start_from_last_report": "Both roles inspect the full repo first, read the public agent API manifest and confirm their selected step, then read the last Betty report on the selected live PR and verify the applied state.",
       "repeat_or_pause": "Repeat from the last applied state. Pausing stops the loop. A fresh chat resumes by reading the repository and the last Betty report."
     },
     "start_order": [
@@ -204,7 +212,7 @@
       "kind": "repository_review_and_implementation",
       "description": "Betty and Al are labels for two pipeline steps. Use your usual assistant capabilities, tools and permissions.",
       "public_manifest_url": "https://raw.githubusercontent.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/HEAD/.well-known/mplpb.json",
-      "web_only_review": "Read the public repository and the newest PR by creation time, or follow an explicit PR link. Judge the Betty report against the pinned evidence and draft the next test. The JavaScript and terminal commands are optional ways to discover this work.",
+      "web_only_review": "Read the public repository and then this manifest. Confirm the Al review step, read the newest PR by creation time or the explicit PR link, judge Betty’s report, and draft the next test for Betty. The JavaScript and terminal commands are optional ways to discover this work.",
       "maintainer_handoff": "The maintainer relays Al’s review and their direction to Betty. Betty applies authorized work and updates the same PR."
     }
   }
