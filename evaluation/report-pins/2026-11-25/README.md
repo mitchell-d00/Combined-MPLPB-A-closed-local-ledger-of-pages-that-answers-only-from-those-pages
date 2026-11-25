@@ -103,3 +103,10 @@ controls, the pinned WebAssembly check and the real Chromium candidate preview.
 The first browser orchestration used an unsupported flag; its corrected live
 run failed `ERR_CERT_AUTHORITY_INVALID` before loading the published app. Both
 attempts are retained. No live-baseline or postdeployment pass is inferred.
+
+The same host-specific public-key setup used in the earlier FRUS browser run
+subsequently passed both published-live and candidate contexts. The peer key
+was obtained through hostname/chain-verified TLS, checked again by curl with
+`--pinnedpubkey`, and used as an explicit Chromium SPKI exception. Default-trust
+failures remain in the record; no global TLS bypass or deployment inference was
+used. See `archive-checks/verified-browser.json`.

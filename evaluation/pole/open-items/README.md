@@ -1,6 +1,13 @@
 # Pole follow-up · named tests for reconstruction gaps
 
-Last reviewed: 2026-11-24.
+Last reviewed: 2026-11-25.
+
+[FRUS-PE02](frus-pe02/README.md) adds one Smith-letter instruction partial
+against the retained FRUS-PE01 reader. Completion stays 1/4, historical partials
+become 1/4, all six inherited full withholds and the presentation partial remain,
+and the six new signed-instruction controls pass. Initials in the Laird letter
+remain unresolved. Discovery outputs are unchanged. See the frozen inputs,
+failed candidates, source witnesses and custody limits in that report.
 
 The study preserves the original Pole replay. Its priority is partial corrections
 and multi-document proof. The baseline was the original Pole implementation at
@@ -117,20 +124,96 @@ Lovelace-Limit traced the large-corpus literal drop to character and unit
 caps. Komnene-Ship verifies 22 paired questions, 44 arms, the separately
 held mapping, and a byte-identical delivery archive. [Four result tables](remaining/README.md)
 
+## BT-Erratum, Polybius-Prose, Scan-Phrase, and Komnene-Hold
+
+BT-Erratum moved from **0/1 to 1/1** complete with unchanged discovery
+coverage and **5/5** expected withholds. Expanded Polybius-Prose stayed at
+**0/10** complete with 7/10 native anchor coverage, one partial, nine
+answerable misses, and 10/10 expected withholds. Both suites observed zero
+false-supported bridges. Scan-Phrase retained two eligible records while
+reproducing the literal and phrase cap diagnostics. Komnene-Hold verified
+22/22 concealed mappings across 44 anonymous arms. Outside scoring remains
+**NOT_RUN**. [Four result tables and rule](erratum/README.md)
+
+## Focus-12, Polybius-Extend, Cap-Diagnosis, and Komnene-Status
+
+Focus-12 stayed at **0/12 complete**, with two partials, ten abstentions
+on positive cases, and **20/20** original controls preserved. Native
+discovery on the fresh FRUS set moved from **0/4 to 4/4** after folding
+publisher layout whitespace. Strict Ask stayed at **0/4 complete** with
+**4/4** controls withheld and zero false-supported bridges. The fixed cap
+diagnostics and Komnene's 22/22 concealed mapping checks reproduced.
+[Four result tables, case diagnostics, and projection rule](focus-extend/README.md)
+
+## FRUS-Boundary
+
+For the same four FRUS comparisons, both anchors were found in **4/4 → 4/4**,
+Strict Ask completed **0/4 → 0/4**, and partials stayed at **0 → 0**.
+All four existing controls withheld with zero false-supported bridges.
+The native checker admitted no proposition-level proof for the comparisons.
+[Four case decisions and withhold rule](frus-boundary/README.md)
+
+## FRUS-Proposition
+
+On the same four comparisons, discovery stayed at **4/4**, Strict Ask
+stayed at **0/4 complete**, and partials stayed at **0**. The four
+existing controls correctly withheld. The native checker rejected all
+**16** exact-unit action or relationship proposals with no scan cap
+reached and no false-supported bridges.
+[Case decisions and withhold condition](frus-proposition/README.md)
+
+## FRUS-SingleClass
+
+Native discovery stayed at **4/4** and Strict Ask stayed at **0/4 complete**.
+PE-04 gained one cited partial for named advice. The separately reported
+presentation remains unresolved. The other three comparison misses retained
+their outcomes. All five controls withheld and false-supported bridges were zero.
+[Case decisions and bounded advice rule](frus-singleclass/README.md)
+
+## FRUS-Presentation
+
+Native discovery stayed at **4/4**. Strict Ask moved **0/4 → 1/4 complete**
+as PE-04 moved from one checked advice partial to a cited two-part answer.
+Three comparisons remained misses. Five inherited controls withheld all
+claims. The added control preserved checked advice and withheld the
+presentation. False-supported bridges and execution failures were zero.
+[Matched replay and exact attribution rule](frus-presentation/README.md)
+
+## FRUS-PE01
+
+The same four comparisons retained **4/4** discovery and **1/4** complete
+Strict Ask. The separate exact-witness probe found both PE-01 statements
+and publisher bylines. The required attribution remained outside the
+canonical body evidence. PE-01 stayed open. The new wrong-attribution
+control withheld, all inherited outcomes held, and false-supported
+bridges and execution failures were zero.
+[Replay and exact attribution boundary](frus-pe01/README.md)
+
 ## Open items
 
 - All 12 original focus cases remain open, including date roles, reported
   statements, partial corrections, wording changes, and less explicit chains.
-- General historical reconstruction across unfamiliar originals remains open.
-  The B-Tests attribution report remains unresolved. The publication rule now completes the two tested DHS relations.
-- The repeated-phrase group cap and loss of complete literal lookup at the
-  larger Sima Qian stages remain open. The USDA venue lookup also returned
+- General historical reconstruction and ordinary-prose linking across unfamiliar
+  originals remain open. The four fresh FRUS cases have both anchors available
+  after projection. FRUS-Boundary traced the remaining blocker to native
+  proposition and attribution admission. FRUS-Proposition found that
+  directly supplying the exact source units still produced no certificates.
+  FRUS-SingleClass admitted one named-advice proposition. FRUS-Presentation
+  additionally certifies the quoted self-report in PE-04. PE-01 through PE-03
+  remain open. FRUS-PE01 located both publisher attributions outside the
+  canonical evidence projection and withheld at that boundary. The earlier
+  ten cases stay
+  frozen. The scoped repository erratum and both tested DHS
+  relations now have complete development proofs.
+- Phrase-token and repeated phrase-group limits and loss of complete literal
+  lookup at the larger Sima Qian stages remain open. The scan caps remain
+  200,000 characters and 1,000 units. The USDA venue lookup also returned
   a partial when two verified spans from the same eligible source answered
   the source-location question.
 - Arbitrary natural wording, more complex compound requests, and larger
   mixed authentic collections require further held-out measurements.
 - Independent historical accuracy, outside-custodian scoring, independent
-  semantic adjudication, and native OOCC remain **NOT RUN**.
+  semantic adjudication, and native OOCC remain **NOT_RUN**.
 
 The extracted candidate completed the full Python suite with two skips,
 passed all 52 public evidence controls, passed the Pyodide and Chromium

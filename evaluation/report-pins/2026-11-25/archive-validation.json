@@ -304,7 +304,7 @@
         "notice": "One scripted persona, developer-inspected controls; not six browser users or a human pilot."
       }
     },
-    "published_live_baseline": "BLOCKED_CERT_AUTHORITY_INVALID",
+    "published_live_baseline": "PASS with host-specific SPKI from a TLS-verified request and pinned curl verification",
     "browser_attempts": [
       {
         "argv": [
@@ -370,11 +370,24 @@
       "stdout": "browser-retry.stdout.log",
       "stderr": "browser-retry.stderr.log",
       "prior_attempt": "browser-3 failed because the orchestration supplied an unsupported --browser-executable flag; no runtime source changed."
+    },
+    "verified_host_retry": {
+      "host": "mitchell-d00.github.io",
+      "url": "https://mitchell-d00.github.io/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/",
+      "tls_hostname_and_chain_verified": true,
+      "curl_http_status": "200",
+      "spki_sha256_base64": "QztXhOFVe7kE4SHElz5fUOGft3Pj6LMIvsE/V2wE2qA=",
+      "certificate_sha256": "d6767678629dae7c5af08c85b4fe1cab235f00954f78ecfbef62efa2fd17047b",
+      "issuer": "CN=openai.com,O=OpenAI\\, LLC,L=San Francisco,ST=California,C=US",
+      "approach": "Host peer key obtained through verified TLS, then verified again using curl --pinnedpubkey; Chromium uses only that explicit SPKI exception. No global certificate-error bypass.",
+      "published_live_baseline": "PASS with TLS-verified host SPKI pin",
+      "candidate_preview": "PASS",
+      "seconds": 64.253
     }
   },
   "deployment": "NOT_RUN",
   "independent_historical_accuracy": "NOT_RUN",
   "independent_semantic_adjudication": "NOT_RUN",
   "native_OOCC": "NOT_RUN",
-  "release_validation": "Live published baseline remains blocked locally; no deployment verification claimed."
+  "release_validation": "Pinned archive native/software/WASM and both browser contexts passed. Default-trust certificate failures remain retained. Postdeployment validation is separate."
 }

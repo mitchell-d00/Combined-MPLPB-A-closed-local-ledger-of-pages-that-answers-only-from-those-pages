@@ -1,0 +1,31 @@
+{
+  "test": "FRUS-PE01",
+  "baseline_commit": "2a0bc642fe21b164fd921758f56bb43f49e5a361",
+  "same_cases": [
+    "PE-01",
+    "PE-01-CONTROL",
+    "PE-02",
+    "PE-02-CONTROL",
+    "PE-03",
+    "PE-03-CONTROL",
+    "PE-04",
+    "PE-04-CONTROL",
+    "PE-04-SPEAKER-CONTROL",
+    "PE-04-PRESENTATION-CONTROL"
+  ],
+  "added_controls": [
+    "PE-01-ATTRIBUTION-CONTROL"
+  ],
+  "packet_seal_sha256": "9bbbcff4a9d47895d622a0d89b998cc5382cf15936788798ddf4c0c5d9846a11",
+  "custody_key_sha256": "4205171888fe6261e0c620b1ad7c4cc372c57731e50a6c22b5819ac06aa96e4e",
+  "candidate_rule_sha256": "e2efe3e2f158ffe700dc03b488299098bc914b074c1dfa8952649c8b34a3c9e2",
+  "budgets": {
+    "scan_characters": 200000,
+    "scan_units": 1000,
+    "scan_records": 8,
+    "passages": 12,
+    "output_characters": 8000
+  },
+  "os_isolated": false,
+  "custody_path_passed_to_worker": false
+}

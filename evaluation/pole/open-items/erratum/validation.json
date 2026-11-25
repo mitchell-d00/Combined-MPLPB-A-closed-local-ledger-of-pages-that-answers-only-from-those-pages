@@ -1,0 +1,127 @@
+{
+  "status": "local_candidate_checks_passed",
+  "baseline_commit": "7b91951ec3aa2bf12f4c3fea34b91f1b2fae4d46",
+  "source_commit": "1ab0e1158e9d730b2ff27c95fbe1540b6a215c65",
+  "source_tree": "7bef890fb580d2a3a12cd285bec14e7d10dfe325",
+  "archive_generation": "git archive --format=zip -1 HEAD",
+  "source_archive_sha256": "102492596ddec257f97032a081a748f4e20e21df1b7b41b2201b66876017e5d2",
+  "compressed_archive_integrity": "PASS",
+  "extracted_handoff_and_evidence_digests": "PASS",
+  "frozen_operator_packets_sha256": "d7f25ec90be63143d2c7536c5ff72e70dfc2a49a83b974079ff5b5e4668df62c",
+  "frozen_candidate_rule_sha256": "2727f6c2e5f762b559e0438093471d291c15623486c1048d74d3c38583c58cdd",
+  "public_commit_pinned_originals_retrieved_again": {
+    "BTESTS-OLD": "748b265d8ef71e6b5ee15176700f927902b6a399f13b28f637ba610a7adba415",
+    "BTESTS-ERR": "71ee994cf17a33b864f09dfdbc16cd3a0415f8f1ad5e74a4b84dfd5b041fa629"
+  },
+  "bt_erratum_exact_original_witness_spans": 7,
+  "candidate_extracted_checks": {
+    "python": {
+      "tests_run": 1725,
+      "skipped": 2,
+      "seconds": 414.979
+    },
+    "public_evidence": {
+      "passes": 52,
+      "false_supported_bridges": 0
+    },
+    "installed_python_wheel_and_erratum_unit_tests": "PASS",
+    "javascript_ui_api_transport_and_rendering": "PASS",
+    "javascript_browser_model_loader_helper_and_webgpu": "PASS",
+    "crawler_and_historical_fixture_checks": "PASS",
+    "reference_evidence_inventory": "PASS",
+    "synthetic_researcher_workflow": {
+      "journeys": 6,
+      "workflow_passes": 6,
+      "checks": 109,
+      "failed_checks": 0,
+      "questions": 24,
+      "answerable": 18,
+      "returned": 13,
+      "unexecuted_questions": 0,
+      "literal_gold_supported": 13,
+      "wrong_returns_under_literal_oracle": 0,
+      "ungraded_model_returns": 0,
+      "unnecessary_refusals": 5,
+      "complete_answerable_coverage": 0.7222222222222222,
+      "retrieval_gold_recall": 1.0,
+      "valid_citations": 13,
+      "citations": 13,
+      "latency_ms_total": 668.285,
+      "resume_ms_total": 3185.949,
+      "semantic_accuracy_independently_measured": false,
+      "human_usability_measured": false
+    },
+    "pyodide": {
+      "output": "dist/index.html",
+      "bytes": 39403667,
+      "sha256": "2de5ea0670a5106fc55b3c2a65db453d232a7778772aad985af046b49c253c11",
+      "bundled_files": 506,
+      "pyodide": "314.0.7",
+      "core_release_sha256": "2abdcc2e35208af406e07724cffa85bc582ced97e9028383ecf5462541393f95"
+    },
+    "pyodide_integration": "PASS",
+    "local_chromium_candidate": "PASS",
+    "frozen_bt_erratum_polybius_scan_phrase": "PASS",
+    "retained_documentary_decisions": {
+      "herodotus": {
+        "cases": 7,
+        "supported": [
+          "FR-10",
+          "FR-11"
+        ]
+      },
+      "tacitus": {
+        "cases": 11,
+        "supported": [
+          "FR-01",
+          "FR-04",
+          "FR-07",
+          "FR-10",
+          "FR-11"
+        ]
+      },
+      "douglass": {
+        "cases": 17,
+        "supported": [
+          "FR-01-1",
+          "FR-01-2",
+          "FR-04-1",
+          "FR-04-2",
+          "FR-07-1",
+          "FR-07-2"
+        ]
+      }
+    },
+    "komnene_hold": {
+      "baseline_sha256": "af4f3c37b8f02c4f7a9cbe94db158e6a85b429d7d01202dfbceb90d7476076b1",
+      "delivery_sha256": "af4f3c37b8f02c4f7a9cbe94db158e6a85b429d7d01202dfbceb90d7476076b1",
+      "paired_questions": 22,
+      "anonymous_arms": 44,
+      "packet_hashes_matching_concealed_mapping": 22,
+      "keys_in_delivery": 0,
+      "delivered_to_outside_judge": false,
+      "independent_scoring": "NOT_RUN"
+    }
+  },
+  "retained_rejected_candidate": {
+    "source_commit": "496b4bed53fef8c5b7b5fbe14230919a62c7f02e",
+    "archive_sha256": "f69e34870f1638e6c80edaa281b05f87745081d76c939d71ffdc4091d38146cc",
+    "python": {
+      "tests_run": 1724,
+      "skipped": 2,
+      "seconds": 429.235
+    },
+    "rejection": "Two authored Markdown scope controls were falsely supported.",
+    "candidate_scope_controls": "receipts/bt-erratum-markdown-scope-controls.json",
+    "blocked_then_passed_checks": [
+      "Local native researcher pilot required permission to bind its loopback socket.",
+      "Browser model-loader subprocess initially encountered EPERM under restricted sandboxing.",
+      "Deployed Chromium baseline initially hit ERR_CERT_AUTHORITY_INVALID."
+    ]
+  },
+  "deployed_chromium_baseline": "PASS, after a host-specific certificate public-key pin derived from a verified curl request",
+  "github_workflow_deployment_and_post_deployment_checks": "NOT_RUN",
+  "outside_custodian_independent_scoring": "NOT_RUN",
+  "independent_historical_accuracy": "NOT_RUN",
+  "native_oocc": "NOT_RUN"
+}

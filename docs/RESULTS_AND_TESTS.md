@@ -2,6 +2,8 @@
 
 Last reviewed: 2026-11-25.
 
+[FRUS-PE02](../evaluation/pole/open-items/frus-pe02/README.md) retains historical completion at **1/4**, adds the Smith-letter checked partial (**0/4 → 1/4** historical partials), preserves all six inherited full withholds and the advice-only partial control, and passes the new synthetic positive with **5/5** new withholds. All 17 discovery arrays remain unchanged. [Signed-instruction controls](../tests/test_signed_instructions.py) and [sealed replay](../tools/pole_frus_pe02.py) retain the rejected attempts and local custody limits.
+
 [Report-pin selection](../evaluation/report-pins/2026-11-25/README.md) records a frozen mocked-HTTP replay through both role commands: **8/12 to 12/12** expected decisions and **four to zero false-current matches**. It measures coordination metadata parsing, not historical accuracy. [Replay tool](../tools/replay_report_pins.py) and [JavaScript controls](../tests/javascript-api.cjs).
 
 [Test Index](TEST_INDEX.md) connects the test types to the deterministic training loop.

@@ -24,6 +24,9 @@ or the PR link you supply. Al can complete the review using ordinary web links. 
 the authorized tests and updates the same PR. [Pipeline guide](docs/TEAMBUILDING.md)
 · [Public API manifest and source archive catalog](.well-known/mplpb.json)
 
+[Outside](docs/TEAMBUILDING.md#outside) is Mitchell’s optional sounding-board
+chat. Mitchell manually chooses which discussion or advice to relay as direction.
+
 **For AI reviewers:** Follow the [full-package inspection directions](#directions-for-an-ai-to-inspect-the-full-combined-mplpb-package) before describing or assessing MPLPB.
 
 ## Try it in 30 seconds

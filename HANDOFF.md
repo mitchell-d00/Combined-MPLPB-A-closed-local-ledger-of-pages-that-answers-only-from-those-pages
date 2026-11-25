@@ -4,8 +4,8 @@ Last reviewed: 2026-11-25.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `d3a6611deb8a41192823d15c5df98f49ccdd98aa` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `72733f58f1fed766aed2b09c0a5d6b4848c7dfb94c2bcc6899b3dccc9e1bf89d`.
+Base commit: `62225e733bc866e34bc3674bf08d005e181c289c` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `019c80982183d25ffb13d0322e618291caa34edd8c253b0575f108f318563be0`.
 
 ## Betty report for Al
 
@@ -34,11 +34,34 @@ Maintainer direction after relaying Al’s PR #97 review and PE-02 proposal: Ret
 
 Start PE-02 proposal after what you are doing keep it all in pr101 then we will do an al report
 
+For each repair, name the general failure mechanism, show which different cases it explains, implement the smallest shared rule that addresses it, preserve valid earlier behavior, and test transfer on fresh material.
+
+The immediate sequence I recommend is PE-02 → general attribution → modality → reference resolution → evidence combination.
+
+Push it once you finish and merge
+
+The most important thing to put at the top of PR #101 is the exact state Al should judge at the current head. Once Betty finishes PE-02, lead with the actual before/after result and control outcomes, then the exact witness or withhold reason, tested source commit, and ZIP SHA-256. Keep pending checks and NOT_RUN labels visible.
+
+Does the Smith letter’s canonical text uniquely bind Nixon’s signature and Smith’s salutation to the delegation instruction? Did Betty preserve the Laird attribution withhold and avoid claiming that an agreement occurred? Cite the evidence and propose one next test.
+
+Method note from Outside to Betty
+
+**Outside is Mitchell’s sounding board.** I’m a chat bot that can read the public repo and understand how Al and Betty work together. Mitchell can talk through ideas with me, sanity-check Al’s advice, or sharpen a question while Betty is working.
+
+The handoff stays manual. Outside works in Mitchell’s chat, and Mitchell decides what, if anything, to paste to Al or Betty. Treat an Outside note as discussion input. Take implementation direction from Mitchell.
+
+Al still reviews Betty’s pinned evidence and proposes the next test. Betty still runs the authorized work and updates the PR. Outside gives Mitchell room to think between those steps without interrupting the loop.
+
+nclude this note in push so it can be referenced for people who which to replicate my pipeline Al Betty and outside
+
 ### Implemented scope
 
 - Freeze six synthetic PR-body fixtures and expected decisions at PR #100 head a26ec527e2e3a5bab7883e7892aa00c348ea65dc; retain exact baseline outputs before repair.
 - Ignore Markdown backtick/tilde fenced examples when selecting the first exact live current-head or historical evidence-pin label. Preserve discovery, explicit override, fork links and empty listings.
 - Retain the relayed Al PR #97 proposal and the initial defer decision. The latest maintainer direction authorizes PE-02 after the report-pin repair, with both cycles in PR #101.
+- Freeze the eleven inherited cases and six independently worded signed-instruction cases at PR #97 pin 7618be370c334b082cb91c50eaf665f979ce5c1e, with unchanged originals, budgets, rule and separately held local key. Import its prerequisite reader/test/evidence files byte-for-byte into PR #101.
+- Add reusable native salutation/full-signature source-voice verification and finite delegation-instruction proof. Preserve the exact unresolved Laird question, instruction modality and all earlier claim meanings. Retain every failed candidate and regression.
+- Include the Outside method note once in docs/TEAMBUILDING.md and link it from README and PR #101. Outside supplies discussion input; Mitchell manually relays advice and authorizes implementation.
 
 ### Validation recorded
 
@@ -47,16 +70,21 @@ Start PE-02 proposal after what you are doing keep it all in pr101 then we will 
 - The first filtered-checkout HTTP run had two failures out of thirteen from omitted assets/history; after restoring those tracked assets, all thirteen HTTP tests passed. Both logs are retained.
 - Committed report-pin candidate 86e7c4ed7459cf684cc53156ab56739b0a8c73d2 was archived with git archive --format=zip -1; ZIP SHA-256 1f0952769f838103af4aa02fd2cef1755b79d28d6b27b19f8e0722aad126586e. ZIP integrity, required hidden workflows, fixture seal and extracted handoff passed. All fifteen extracted software checks passed, including twelve frozen decisions and thirteen HTTP tests; all 52 public controls passed.
 - The exact report-pin ZIP extraction passed 1,723 native tests (two skipped), the pinned WebAssembly check and the real Chromium candidate preview. The first browser invocation used an unsupported option; the corrected live invocation failed ERR_CERT_AUTHORITY_INVALID before app load. Both attempts are retained.
+- The restored originals match the inherited seal. All eleven baseline answer contracts reproduce the prior FRUS-PE01 outputs. The final 17-case development replay has historical completion 1/4 unchanged, historical partials 0/4 to 1/4, six inherited full withholds and the existing advice-only partial retained, new positive 0/1 to 1/1, and new negative withholds 5/5. Propositions across all cases rise 3 to 5; false-support decisions are zero.
+- All 17 discovery passage arrays are unchanged. Twenty-eight targeted native regressions pass. An independent projection audit verifies 27 source instances and maps nine new instruction witnesses to exact original byte spans. First through third candidate failures and the first projection-mapping failure remain retained.
+- The report-pin ZIP also passed both browser contexts after the same TLS-verified host SPKI setup used in the prior FRUS run. Default-trust failures remain retained.
 
 ### Limitations and blocked checks
 
-- Independent historical accuracy, independent semantic adjudication and native OOCC remain NOT_RUN.
-- The published-site browser baseline is blocked locally by certificate trust. Candidate Chromium and WebAssembly passed; no postdeployment check or independent historical/semantic/OOCC result is claimed.
+- Independent historical accuracy, independent semantic adjudication, outside-custodian scoring and native OOCC remain NOT_RUN. The same operator prepared the local key; the worker received no key path and OS isolation was not used.
+- The signed-letter grammar is finite. Cross-document attribution, general modality/conditions, reference resolution, evidence combination and unseen transfer remain separate next cycles.
+- The final PE-02 candidate archive, exact-head CI and postdeployment checks have not yet run at this preparation stage.
 
 ### Next steps
 
-- Report-pin archive validation is recorded. Execute the authorized PE-02 cycle from the isolated PR #97 baseline and preserve this pin candidate and its retained browser failures.
-- After completing the report-pin archive, start the authorized PE-02 Smith-letter cycle in PR #101 from its separate pin and frozen limits; prepare Al’s report after both cycles.
+- Commit and archive the completed PE-02 candidate; validate extracted content, preserve receipts and record its tested source commit and ZIP hash separately from the report-pin archive.
+- Push completed work once ready, keep the current-head report at the top of PR #101, wait for required exact-head checks, merge and verify the deployed site. Then leave the maintainer’s exact question for Al with both evidence pins.
+- Al’s next proposed test should exercise shared attribution across a letter, meeting record and quoted report with different actors/wording; freeze fresh material and separate unseen evaluation before any expansion.
 
 ## Use this ZIP in your repository
 
