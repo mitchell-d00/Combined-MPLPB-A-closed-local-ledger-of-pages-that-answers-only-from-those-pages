@@ -33,14 +33,13 @@ proceeds and authorizes repository actions.
 | Role | Start here | Owns |
 |---|---|---|
 | **Al**, outside strategist and advisor | Read the repository deeply first, including the relevant implementation and tests. Then read Betty’s handoff and the frozen evidence. Cite the pin you used. | Review evidence, challenge conclusions, name one falsifiable next test, and draft a prompt the maintainer can send to Betty. Keep the review read-only. |
-| **Betty**, inside repository and archive editor | Read `AGENTS.md`, `HANDOFF.md`, and the relevant PR. Verify the local checkout against the public pin before editing. | Carry out the maintainer's authorized changes. Freeze inputs and keys, run and score the comparisons, preserve results and failed attempts, update the archive and handoff, and publish commits or PRs within the authorized scope. |
+| **Betty**, inside repository and archive editor | Read the repository deeply first. Then read the last Betty report on the live PR and verify the local checkout against its current head before editing. | Carry out the maintainer's authorized changes. Freeze inputs and keys, run and score the comparisons, preserve results and failed attempts, update the archive and handoff, and publish commits or PRs within the authorized scope. |
 
-With just the starter message, Al first follows the repository’s
-[full-package inspection directions](../README.md#directions-for-an-ai-to-inspect-the-full-combined-mplpb-package).
-Al then reads Betty’s report and the latest relevant PR, checks the pin,
-and proposes one focused check. Betty verifies the active pin, then
-continues the work authorized by the maintainer. If several PRs are active,
-use the track indicated in the current handoff or the PR the maintainer names.
+With only the starter message, both roles follow the
+[full-package inspection directions](../README.md#directions-for-an-ai-to-inspect-the-full-combined-mplpb-package)
+before reading the last Betty report on the live PR. Verify its head and
+last applied state and begin there. If several PRs are active, use the
+track indicated in the current handoff or the PR the maintainer names.
 [Current Betty report for Al](../HANDOFF.md#betty-report-for-al)
 
 ## API commands and source archives
@@ -66,6 +65,9 @@ may have different ZIP bytes.
 
 ## One cycle
 
+At startup, both Betty and Al inspect the repository, then read the last
+Betty report on the live PR. That report is the starting state.
+
 1. **Betty calls Al.** Betty leaves a current report for Al in `HANDOFF.md`
    on every push. When there is a PR, Betty puts the report in its body or
    a comment linked from it. The maintainer starts Betty first, then opens Al
@@ -82,8 +84,10 @@ may have different ZIP bytes.
    and evaluator key before scoring, run the matched comparison, and record
    the rule, outcomes, and archive details. Retain misses, failures, and
    regressions. Leave the shareable part of Al’s reply, the maintainer’s
-   decision, and the next authorized step or stopping point in the PR.
-   A fresh Al or Betty can pick up the next cycle with the same starter.
+   decision, and the next authorized step in the PR. Repeat from that
+   applied state. When the maintainer pauses, the last report stays in
+   place. A fresh Al or Betty resumes by reading the repository and that
+   same report.
 
 ## Compare several Al sessions
 

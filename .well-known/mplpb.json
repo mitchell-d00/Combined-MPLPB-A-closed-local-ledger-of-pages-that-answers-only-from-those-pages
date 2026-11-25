@@ -85,9 +85,9 @@
         "starter": "You are Betty.",
         "responsibility": "Inside repository and archive editor. Verify the public pin and carry out the maintainer’s authorized edits, frozen tests, scoring and publication.",
         "first_steps": [
-          "Read AGENTS.md and HANDOFF.md. Open the relevant PR and verify the evidence pin.",
-          "Leave a current Betty report for Al in HANDOFF.md on every push. Put the handoff in the PR body or a linked comment when the branch has a PR.",
-          "Record the baseline and candidate, measured results, remaining work and source-archive recovery details. Continue after the maintainer relays Al’s advice and their direction."
+          "Read the repository deeply first. Follow the full-package inspection directions and inspect the relevant implementation, tests and public evidence.",
+          "Then read the last Betty report on the live PR. Verify its applied state against the current PR head and start from that verified state.",
+          "Carry out the maintainer’s authorized tests. Record the new applied state, checked head, results and next step in the same PR, and leave a current HANDOFF.md with every push."
         ]
       },
       "al": {
@@ -96,7 +96,7 @@
         "responsibility": "Outside read-only strategist. Judge Betty’s reported results against pinned evidence and draft the next falsifiable prompt.",
         "first_steps": [
           "Read the repository deeply first. Follow the full-package inspection directions and inspect the relevant implementation, tests and public evidence.",
-          "Then read Betty’s latest applied-state report on the live PR. Check the report pin against the PR head and distinguish measured results from proposed work.",
+          "Then read the last Betty report on the live PR. Verify its applied state against the current PR head and start from that verified state.",
           "Judge the reported results against the frozen evidence. Address your review and a ready-to-send next test prompt to Betty. Return it to the maintainer to relay."
         ]
       }
@@ -160,7 +160,9 @@
       "betty_calls_al": "Start Betty first. Betty leaves a current report for Al on every push and in the relevant PR. Then open a separate Al chat with the repository link and role name.",
       "al_calls_betty": "Al reads the repository and Betty’s live PR report, judges the results against the evidence, and drafts the next prompt for Betty.",
       "maintainer_relays": "The maintainer copies Al’s response from the separate Al chat and pastes it with their own direction into Betty’s chat.",
-      "betty_updates_pr": "Betty runs the authorized tests and updates the same live PR report with the current head, last applied change, measured results, shareable advice, maintainer direction and next step. Commit the current handoff with every push."
+      "betty_updates_pr": "Betty runs the authorized tests and updates the same live PR report with the current head, last applied change, measured results, shareable advice, maintainer direction and next step. Commit the current handoff with every push.",
+      "start_from_last_report": "Both roles first inspect the full repository, then read the last Betty report from the live PR and verify the current applied state.",
+      "repeat_or_pause": "Repeat from the last applied state. Pausing stops the loop. A fresh chat resumes by reading the repository and the last Betty report."
     },
     "start_order": [
       "betty",

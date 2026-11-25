@@ -4,12 +4,12 @@ Last reviewed: 2026-11-25.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `0b3fc31d7c9507a1c80e648495e51734403f7a79` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `2c82fdf0ac9363c8b59ab8d03574ef44df9d729dca0a5b042ed9522725cafa77`.
+Base commit: `db11b9bdadf14a7ed944443499ac8b4f1fd06f47` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `5bbda1a6c22681a2bc321787a751ae8dc77fae4e968ba955887671644ffc554f`.
 
 ## Betty report for Al
 
-Start Betty first, then open Al in a separate chat. Al inspects the repository before reading this report and the PR. The maintainer pastes Al’s response and direction to Betty, who tests and updates the same PR.
+Start Betty first, then open Al in a separate chat. Both inspect the repository before reading the last Betty report on the live PR. The maintainer pastes Al’s response and direction to Betty, who tests and updates that PR. Resume from the last applied state after a pause.
 
 ### Latest user update instructions
 
@@ -29,6 +29,8 @@ Al reads repo then Betty then advises and the loop starts
 
 Betty tests reports results Al reads judges and advises next prompt
 
+No both at start need to read full repo then Betty report from last Betty that would be current state at start then loop Betty tests reports Al reads pr  advise and Mitchell pasts that to Betty repeat with no stop stop is just stoping loop starts just from last state Betty report
+
 ### Implemented scope
 
 - Expose Betty and Al through the agent manifest, browser JavaScript API and terminal bridge.
@@ -36,6 +38,7 @@ Betty tests reports results Al reads judges and advises next prompt
 - Describe the ordered repository review and the maintainer relay. Catalog the seven tested ZIPs by source commit, SHA-256 and recovery command.
 - Set Betty first, then open Al in a separate chat. Al inspects the repository and reads the PR. After the maintainer relays Al’s response, Betty tests and updates the same PR.
 - Return live PR state and a head-pinned handoff when either terminal role command is given a PR URL. Betty updates the applied-state report in place. Al judges the recorded test results and drafts the next prompt.
+- Both roles first read the full repository, then the last Betty report on the live PR to recover the applied state. The relay repeats. Pausing leaves the last report as the next starting point.
 
 ### Validation recorded
 

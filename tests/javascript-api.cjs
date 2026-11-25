@@ -64,9 +64,11 @@ async function tests(){
  const al = success(await api.al());
  assert.equal(betty.role.starter,'You are Betty.');
  assert.equal(al.role.starter,'You are Al.');
- assert.match(betty.role.first_steps.join(' '),/report for Al.*every push/);
+ assert.match(betty.relay.betty_calls_al,/report for Al.*every push/);
  assert.match(al.role.first_steps[0],/Read the repository deeply first/);
- assert.match(al.role.first_steps[1],/Then read Betty’s latest applied-state report/);
+ assert.equal(betty.role.first_steps[0],al.role.first_steps[0]);
+ assert.equal(betty.role.first_steps[1],al.role.first_steps[1]);
+ assert.match(al.role.first_steps[1],/Then read the last Betty report.*live PR/);
  assert.deepEqual(betty.start_order,['betty','al']);
  assert.match(al.relay.maintainer_relays,/copies Al’s response from the separate Al chat/);
  assert.match(betty.relay.betty_updates_pr,/authorized tests.*same live PR/);
