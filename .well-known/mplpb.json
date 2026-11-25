@@ -156,10 +156,14 @@
     },
     "repository_review": "https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/blob/main/README.md#directions-for-an-ai-to-inspect-the-full-combined-mplpb-package",
     "relay": {
-      "betty_calls_al": "Betty leaves a current report for Al on every push and in the relevant PR. The maintainer opens Al with the repository link and role name.",
-      "al_calls_betty": "Al returns a review and a proposed next step addressed to Betty.",
-      "maintainer_relays": "The maintainer pastes Al’s response and their own direction into Betty’s session.",
-      "betty_updates_pr": "Betty records the shareable advice, maintainer decision, authorized work, results and next step in the PR and current handoff."
-    }
+      "betty_calls_al": "Start Betty first. Betty leaves a current report for Al on every push and in the relevant PR. Then open a separate Al chat with the repository link and role name.",
+      "al_calls_betty": "After reading the repository deeply, Al reads the Betty report and the PR, then returns a review and a proposed next step addressed to Betty.",
+      "maintainer_relays": "The maintainer copies Al’s response from the separate Al chat and pastes it with their own direction into Betty’s chat.",
+      "betty_updates_pr": "Betty runs the authorized tests and records measured results, shareable advice, maintainer direction and the next step in the same PR and the current handoff."
+    },
+    "start_order": [
+      "betty",
+      "al"
+    ]
   }
 }

@@ -67,8 +67,9 @@ async function tests(){
  assert.match(betty.role.first_steps.join(' '),/report for Al.*every push/);
  assert.match(al.role.first_steps[0],/Read the repository deeply first/);
  assert.match(al.role.first_steps[1],/Then read the current Betty report/);
- assert.match(al.relay.maintainer_relays,/pastes Al’s response/);
- assert.match(betty.relay.betty_updates_pr,/in the PR/);
+ assert.deepEqual(betty.start_order,['betty','al']);
+ assert.match(al.relay.maintainer_relays,/copies Al’s response from the separate Al chat/);
+ assert.match(betty.relay.betty_updates_pr,/authorized tests.*same PR/);
  assert.deepEqual(betty.source_archives,al.source_archives);
  assert.match(betty.repository_handoff, /HANDOFF\.md#betty-report-for-al$/);
  assert.match(al.betty_report.open_items, new RegExp(al.betty_report.evidence_pin));

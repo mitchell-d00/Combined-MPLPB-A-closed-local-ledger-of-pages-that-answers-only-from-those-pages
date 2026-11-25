@@ -1,13 +1,15 @@
 {
-  "instruction": "It needs to be easy to find make it part of api Betty command and al command\n\nPush and merge make sure it is explicit that a Betty report is left to inform Al once Al reads repo\n\nEvery push has a Betty report\n\nAnd API tells an Al to read repo first deeply then the Betty report and that is Betty calling Al and Al calling Betty then user pasts Al report to Betty and she updates the pr",
+  "instruction": "It needs to be easy to find make it part of api Betty command and al command\n\nPush and merge make sure it is explicit that a Betty report is left to inform Al once Al reads repo\n\nEvery push has a Betty report\n\nAnd API tells an Al to read repo first deeply then the Betty report and that is Betty calling Al and Al calling Betty then user pasts Al report to Betty and she updates the pr\n\nAnd Al reads pr then I copy past the Al response and Betty tests and updates it starts by setting a Betty then then in a separate chat an Al",
   "reviewed_on": "2026-11-25",
   "scope": [
     "Expose Betty and Al through the agent manifest, browser JavaScript API and terminal bridge.",
     "Leave a Betty report for Al in the generated handoff on every push and in the relevant PR.",
-    "Describe the ordered repository review and the maintainer relay. Catalog the seven tested ZIPs by source commit, SHA-256 and recovery command."
+    "Describe the ordered repository review and the maintainer relay. Catalog the seven tested ZIPs by source commit, SHA-256 and recovery command.",
+    "Set Betty first, then open Al in a separate chat. Al inspects the repository and reads the PR. After the maintainer relays Al’s response, Betty tests and updates the same PR."
   ],
   "validation": [
-    "The desktop HTTP role endpoint, JavaScript contract, terminal modes with a manifest fixture, UI script, browser transport and infrastructure checks passed locally."
+    "The desktop HTTP role endpoint, JavaScript contract, terminal modes with a manifest fixture, UI script, browser transport and infrastructure checks passed locally.",
+    "A real Chromium session exercised both role commands from the standalone candidate. Both terminal commands fetched their pinned public GitHub manifest after the first push. The updated JavaScript contract passed with an explicit Betty-first relay order."
   ],
   "limitations": [
     "Both role commands return public coordination metadata. The maintainer relays between sessions and supplies direction.",

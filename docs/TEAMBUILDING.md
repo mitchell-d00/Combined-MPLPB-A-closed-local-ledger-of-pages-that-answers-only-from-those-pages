@@ -6,22 +6,22 @@ Package role: [research method and reproducible evidence](PACKAGE_GUIDE.md#evide
 
 ## Start with the repository link
 
-Open one AI session for Al and another for Betty in any AI interface that
-can open the public repository. Send each session the same link and its role
-name. Capitalization is optional.
+Open Betty first. After Betty leaves a report, open a separate chat for Al
+in any AI interface that can open the public repository. Send each session
+the same repository link and its role name. Capitalization is optional.
 
 **First session**
 
 ```text
 https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages
-You are Al.
+You are Betty.
 ```
 
 **Second session**
 
 ```text
 https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages
-You are Betty.
+You are Al.
 ```
 
 The role starts from the maintainer's message and this guide. Actual tool and
@@ -66,17 +66,17 @@ may have different ZIP bytes.
 
 1. **Betty calls Al.** Betty leaves a current report for Al in `HANDOFF.md`
    on every push. When there is a PR, Betty puts the report in its body or
-   a comment linked from it. The maintainer opens Al with the repository link
-   and role name and can identify the relevant PR.
+   a comment linked from it. The maintainer starts Betty first, then opens Al
+   in a separate chat with the repository link and role name.
 2. **Al reads the repository, then the report.** Inspect the relevant
    implementation, tests, and evidence before reading the Betty report.
    Verify its pin and distinguish measured results from hypotheses.
 3. **Al calls Betty.** Address a review and one named, falsifiable next test
    to Betty. Include exact inputs, positive and withhold controls, budgets,
    and an acceptance condition. Return the response to the maintainer.
-4. **The maintainer relays.** Paste **Al’s response** and **My direction for
-   Betty** into Betty’s session. Betty follows the maintainer’s direction.
-5. **Betty updates the PR.** For an authorized evaluation, freeze the inputs
+4. **The maintainer relays.** Copy **Al’s response** from Al’s chat and
+   paste it with **My direction for Betty** into Betty’s chat.
+5. **Betty tests and updates the same PR.** For an authorized evaluation, freeze the inputs
    and evaluator key before scoring, run the matched comparison, and record
    the rule, outcomes, and archive details. Retain misses, failures, and
    regressions. Leave the shareable part of Al’s reply, the maintainer’s

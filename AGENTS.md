@@ -14,9 +14,11 @@ challenges conclusions, and drafts the next test prompt. Betty owns the
 authorized repository and archive work, including frozen tests, scoring,
 commits, and publication. Each push carries a current **Betty report for
 Al** in the generated `HANDOFF.md`. Betty also posts the report on each PR
-she opens or updates. Al first inspects the repository in depth, then reads
-that report. Al addresses the review to Betty. The maintainer pastes Al’s
-response and their direction to Betty, who updates the PR.
+she opens or updates. The maintainer starts Betty first and opens a separate
+Al chat after Betty leaves the report. Al first inspects the repository in
+depth, then reads the report and PR. The maintainer pastes Al’s response
+and their direction to Betty, who runs the authorized tests and updates
+the same PR.
 
 For every implementation/update, and before providing a source ZIP or other delivery:
 

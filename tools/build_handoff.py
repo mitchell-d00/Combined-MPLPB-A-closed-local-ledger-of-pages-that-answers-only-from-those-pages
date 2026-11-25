@@ -69,7 +69,7 @@ def render(record, manifest):
           'Base commit: `'+manifest['base_revision']+'` (ancestry, not the final self-containing commit).',
           'Source inventory SHA-256: `'+manifest['inventory_sha256']+'`.', '',
           '## Betty report for Al', '',
-          'Al first inspects the repository, then reads this report and the relevant PR. The maintainer relays Al’s response and direction to Betty, who updates the PR.', '',
+          'Start Betty first, then open Al in a separate chat. Al inspects the repository before reading this report and the PR. The maintainer pastes Al’s response and direction to Betty, who tests and updates the same PR.', '',
           '### Latest user update instructions', '', record['instruction'], '']
     for field,title in (('scope','Implemented scope'),('validation','Validation recorded'),
                         ('limitations','Limitations and blocked checks'),('next_steps','Next steps')):

@@ -4,12 +4,12 @@ Last reviewed: 2026-11-25.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `d0cbb7438df887a6ff3aa95f3800737fa6af3444` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `ce702913b3712a77f812f4fe554aee4f3e1faf3e83807cb744f0207d67f01c77`.
+Base commit: `568094fdeaca8352d555866c4a468fcda86db3b7` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `dee57c653eae696afd677824ad079b7cba0622fcb08fab920f59e88535e6f6a1`.
 
 ## Betty report for Al
 
-Al first inspects the repository, then reads this report and the relevant PR. The maintainer relays Al’s response and direction to Betty, who updates the PR.
+Start Betty first, then open Al in a separate chat. Al inspects the repository before reading this report and the PR. The maintainer pastes Al’s response and direction to Betty, who tests and updates the same PR.
 
 ### Latest user update instructions
 
@@ -21,15 +21,19 @@ Every push has a Betty report
 
 And API tells an Al to read repo first deeply then the Betty report and that is Betty calling Al and Al calling Betty then user pasts Al report to Betty and she updates the pr
 
+And Al reads pr then I copy past the Al response and Betty tests and updates it starts by setting a Betty then then in a separate chat an Al
+
 ### Implemented scope
 
 - Expose Betty and Al through the agent manifest, browser JavaScript API and terminal bridge.
 - Leave a Betty report for Al in the generated handoff on every push and in the relevant PR.
 - Describe the ordered repository review and the maintainer relay. Catalog the seven tested ZIPs by source commit, SHA-256 and recovery command.
+- Set Betty first, then open Al in a separate chat. Al inspects the repository and reads the PR. After the maintainer relays Al’s response, Betty tests and updates the same PR.
 
 ### Validation recorded
 
 - The desktop HTTP role endpoint, JavaScript contract, terminal modes with a manifest fixture, UI script, browser transport and infrastructure checks passed locally.
+- A real Chromium session exercised both role commands from the standalone candidate. Both terminal commands fetched their pinned public GitHub manifest after the first push. The updated JavaScript contract passed with an explicit Betty-first relay order.
 
 ### Limitations and blocked checks
 
