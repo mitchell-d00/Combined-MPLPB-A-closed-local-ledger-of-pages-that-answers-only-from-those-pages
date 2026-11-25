@@ -4,34 +4,37 @@ Last reviewed: 2026-11-25.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `edb176b47677019f4365642801f27999eb5f50a0` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `25df9d685d46777d095ac219ae0549910407cd9a61aa68e86832f2a5ce15f71e`.
+Base commit: `54f88871bd25ee7ec53a4660d06fbdc205f849f2` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `4b58282f881bb53c3cd89319ed62d9ae4b18bd3119505c1e33098a1ad66b1c09`.
 
 ## Latest user update instructions
 
-Full report for external agent in txt
+Ok push everything and make it so the next Ai understand what outside agent let’s call it Al and inside ie the agent like you and it’s called Betty
 
-No it’s not a handoff you will do the work it helps me strategize as do you but I like outside checkers and controls
+And how to make ai take role ie if I tell a new ai it’s Betty it becomes repo archive editor and Al becomes strategist advisor
 
-Note this pass-off method in the repo call it TeamBuilding
+With just a link to my repo
 
-Once you are done push and merge and I’ll start new prompt
+Ie link you are al 2nd agent link you are Betty
 
 ## Implemented scope
 
-- Document TeamBuilding and link it from the README. Record role ownership, pinned evidence, and the distinction from Thespian.
+- Define Al as the outside strategist and Betty as the inside repository and archive editor. Put both starters in the TeamBuilding guide and link them from the root README and AGENTS.md.
+- Make the PR handoff carry the pinned baseline, candidate, checks, open items, and a clear place for the next AI to resume.
 
 ## Validation recorded
 
-- Documentation inventory and the staged diff are checked locally. Exact-head release checks run on the documentation pull request before merge.
+- The documentation inventory, repository infrastructure, generated handoff, and staged diff are checked locally.
 
 ## Limitations and blocked checks
 
-- The repository change is documentation. The Pole result and browser PR retain their separate source pins. This update makes no new runtime or independent-evaluation claim.
+- The documentation sets role responsibilities. Available tools and permissions come from each session. Browser release and Pole results have separate pins.
 
 ## Next steps
 
-- Use TeamBuilding to have an outside strategist review the public evidence and propose a focused test for the implementing agent.
+- For the browser track, read the TeamBuilding note on PR #93. It remains a draft with conflicts and its deployed smoke is pending.
+- For the Pole track, read the TeamBuilding handoff on PR #95 and the FRUS-Presentation evidence at 2a0bc642fe21b164fd921758f56bb43f49e5a361. The three other FRUS cases remain open.
+- Start a new strategy session with the repository link and “You are Al.” Start a separate repository session with the same link and “You are Betty.”
 
 ## Use this ZIP in your repository
 
