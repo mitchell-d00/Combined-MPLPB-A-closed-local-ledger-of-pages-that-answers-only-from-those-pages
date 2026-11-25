@@ -215,10 +215,166 @@
   "public_controls": {
     "pass": 52
   },
-  "full_native_suite": "RUNNING",
-  "wasm_and_chromium": "RUNNING",
+  "full_native_suite": {
+    "status": "PASS",
+    "tests_run": 1723,
+    "skipped": 2,
+    "checks": [
+      {
+        "argv": [
+          "python",
+          "-m",
+          "unittest",
+          "tests.test_integrity_hunt",
+          "tests.test_record",
+          "tests.test_ledger",
+          "tests.test_literal_evidence",
+          "tests.test_answer_reliability",
+          "tests.test_answer_support",
+          "-q"
+        ],
+        "cwd": "/workspace/pin-extracted",
+        "started_at": "2026-11-25T05:03:18.091067+00:00",
+        "exit_code": 0,
+        "seconds": 5.799,
+        "stdout": "native-1.stdout.log",
+        "stderr": "native-1.stderr.log"
+      },
+      {
+        "argv": [
+          "python",
+          "-m",
+          "tools.evaluate_public_evidence",
+          "--output",
+          "/workspace/pin-validation/public-controls.json",
+          "--require-capabilities"
+        ],
+        "cwd": "/workspace/pin-extracted",
+        "started_at": "2026-11-25T05:03:23.890542+00:00",
+        "exit_code": 0,
+        "seconds": 33.314,
+        "stdout": "native-2.stdout.log",
+        "stderr": "native-2.stderr.log"
+      },
+      {
+        "argv": [
+          "python",
+          "-m",
+          "unittest",
+          "discover",
+          "-s",
+          "tests",
+          "-q"
+        ],
+        "cwd": "/workspace/pin-extracted",
+        "started_at": "2026-11-25T05:03:57.207353+00:00",
+        "exit_code": 0,
+        "seconds": 619.87,
+        "stdout": "native-3.stdout.log",
+        "stderr": "native-3.stderr.log"
+      }
+    ]
+  },
+  "wasm_and_chromium": {
+    "wasm": "PASS",
+    "candidate_chromium": {
+      "candidate_preview": "PASS",
+      "published_live_baseline": "BLOCKED_CERT_AUTHORITY_INVALID",
+      "seconds": 47.834,
+      "browser": "Playwright Chromium 151.0.7922.34",
+      "result": {
+        "schema": "mplpb-researcher-browser-pilot-v1",
+        "suite_sha256": "38b29eb6599f4484b5d7e7e654251aee54e6e25d9dd5d388b195c32c70e5d6d5",
+        "persona": "mara",
+        "actual_browser": "Chromium with running application engine",
+        "checks_passed": [
+          "create_collection_through_ui",
+          "paste_import_through_ui",
+          "ask_and_click_cited_source",
+          "known_reader_limit_is_not_an_answer",
+          "conflicting_bulletins_do_not_choose_a_winner",
+          "save_multisentence_investigation_note",
+          "indexeddb_reload_preserves_note_and_exact_transcript",
+          "resume_rechecks_sources"
+        ],
+        "status": "synthetic_ui_workflow_passed",
+        "known_answerable_refusals": 1,
+        "human_usability_measured": false,
+        "product_backup_or_upgrade_tested": false,
+        "notice": "One scripted persona, developer-inspected controls; not six browser users or a human pilot."
+      }
+    },
+    "published_live_baseline": "BLOCKED_CERT_AUTHORITY_INVALID",
+    "browser_attempts": [
+      {
+        "argv": [
+          "python",
+          "tools/build_browser_runtime.py",
+          "--core-archive",
+          "/workspace/pyodide-core.tar.bz2",
+          "--output",
+          "dist/index.html"
+        ],
+        "cwd": "/workspace/pin-extracted",
+        "started_at": "2026-11-25T05:05:12.690976+00:00",
+        "exit_code": 0,
+        "seconds": 4.53,
+        "stdout": "browser-1.stdout.log",
+        "stderr": "browser-1.stderr.log"
+      },
+      {
+        "argv": [
+          "node",
+          "tools/check_browser_wasm.mjs",
+          "/workspace/pyodide-runtime/pyodide",
+          "dist/index.html"
+        ],
+        "cwd": "/workspace/pin-extracted",
+        "started_at": "2026-11-25T05:05:17.221177+00:00",
+        "exit_code": 0,
+        "seconds": 162.468,
+        "stdout": "browser-2.stdout.log",
+        "stderr": "browser-2.stderr.log"
+      },
+      {
+        "argv": [
+          "python",
+          "tools/browser_release_smoke.py",
+          "--live-url",
+          "https://mitchell-d00.github.io/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/",
+          "--preview-dir",
+          "dist",
+          "--browser-executable",
+          "/workspace/pw-browsers/chromium-1234/chrome-linux64/chrome"
+        ],
+        "cwd": "/workspace/pin-extracted",
+        "started_at": "2026-11-25T05:07:59.689991+00:00",
+        "exit_code": 2,
+        "seconds": 0.265,
+        "stdout": "browser-3.stdout.log",
+        "stderr": "browser-3.stderr.log"
+      }
+    ],
+    "corrected_browser_attempt": {
+      "argv": [
+        "python",
+        "tools/browser_release_smoke.py",
+        "--live-url",
+        "https://mitchell-d00.github.io/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/",
+        "--preview-dir",
+        "dist"
+      ],
+      "cwd": "/workspace/pin-extracted",
+      "exit_code": 1,
+      "seconds": 2.086,
+      "stdout": "browser-retry.stdout.log",
+      "stderr": "browser-retry.stderr.log",
+      "prior_attempt": "browser-3 failed because the orchestration supplied an unsupported --browser-executable flag; no runtime source changed."
+    }
+  },
   "deployment": "NOT_RUN",
   "independent_historical_accuracy": "NOT_RUN",
   "independent_semantic_adjudication": "NOT_RUN",
-  "native_OOCC": "NOT_RUN"
+  "native_OOCC": "NOT_RUN",
+  "release_validation": "Live published baseline remains blocked locally; no deployment verification claimed."
 }

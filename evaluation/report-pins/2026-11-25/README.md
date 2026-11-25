@@ -97,3 +97,9 @@ controls, separately held scoring, and the unchanged 8-record/200,000-character/
 1,000-unit/12-passage/8,000-output-character and phrase limits. PE-02 tests and reader changes belong to the subsequent, separately frozen
 cycle. Al's reported
 8/11 reproduction is relayed advice, not a new result measured by Betty.
+
+The extracted pin archive passed 1,723 Python tests (two skipped), all 52 public
+controls, the pinned WebAssembly check and the real Chromium candidate preview.
+The first browser orchestration used an unsupported flag; its corrected live
+run failed `ERR_CERT_AUTHORITY_INVALID` before loading the published app. Both
+attempts are retained. No live-baseline or postdeployment pass is inferred.
