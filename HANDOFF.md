@@ -4,8 +4,8 @@ Last reviewed: 2026-11-25.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `1b963aea9ce14d207ec2f6b645912c3a7c98cdd9` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `adb4c7ea1c535ac6d35537c8f82f2f85fe0f4e0707ef12e300d1b931699f65dd`.
+Base commit: `1183abaa892c004cb1d62c511ab9b78e2bb6d8a3` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `d4088789d1f89c5c1c67d2bc73ee214866eb98d52f36c8590881971e0d10c36b`.
 
 ## Latest user update instructions
 
@@ -49,6 +49,7 @@ Browser release validation remains the maintainer’s priority until the deploye
 - The first rule trial withheld because it missed the possessive form. Its readback is retained.
 - Discovery stayed 4/4, complete answers stayed at 0/4, and PE-04 moved from miss to one checked partial. All five controls withheld with zero claims.
 - The 52 public evidence checks passed on the candidate runtime.
+- A follow-up unit control checks explicit denial in the “never recommended” form. Both that form and “did not recommend” withhold. The frozen named outcomes stayed identical.
 
 ## Limitations and blocked checks
 

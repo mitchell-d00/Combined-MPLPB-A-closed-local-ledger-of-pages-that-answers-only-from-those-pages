@@ -42,6 +42,7 @@ class NamedAdviceTests(unittest.TestCase):
             {'body': f'<p>{CONTEXT}</p><p>{ADVICE}</p><p>{ADVICE.replace("scheduled service", "on-demand service")}</p>'},
             {'body': f'<p>Fictional example.</p><p>{CONTEXT}</p><p>{ADVICE}</p>'},
             {'body': f'<p>{CONTEXT}</p><p>{ADVICE}</p><p>{ADVICE.replace("recommended that", "did not recommend that")}</p>'},
+            {'body': f'<p>{CONTEXT}</p><p>{ADVICE}</p><p>{ADVICE.replace("recommended that", "never recommended that")}</p>'},
             {'max_passages': 1},
             {'duplicate': True},
         ):

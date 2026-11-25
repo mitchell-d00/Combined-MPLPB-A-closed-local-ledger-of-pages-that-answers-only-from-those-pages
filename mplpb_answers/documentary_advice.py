@@ -18,7 +18,7 @@ _ADVICE = re.compile(
     rf'{_TITLE}(?P<recipient>{_NAME}) (?:stress|emphasize) '
     rf"""(?P<emphasis>[\w “’”'"-]{{3,140}}?) in (?P<topic>{_TOPIC})\.""", re.I | re.M)
 _DENIAL = re.compile(
-    rf'^{_TITLE}(?P<adviser>{_NAME}) (?:did not|never) (?:suggest|recommend) that '
+    rf'^{_TITLE}(?P<adviser>{_NAME}) (?:did not (?:suggest|recommend)|never (?:suggested|recommended)) that '
     rf'{_TITLE}(?P<recipient>{_NAME}) (?:stress|emphasize) [^.\n]{{1,180}} in (?P<topic>{_TOPIC})\.',
     re.I | re.M)
 _TRIP = re.compile(
