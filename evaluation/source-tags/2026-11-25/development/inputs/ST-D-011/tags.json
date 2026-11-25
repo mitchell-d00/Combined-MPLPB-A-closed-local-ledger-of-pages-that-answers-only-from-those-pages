@@ -1,0 +1,85 @@
+{
+  "schema": "source-linked-proposals-v1",
+  "source": {
+    "id": "SOURCE-1",
+    "path": "source-1.html",
+    "hash": "sha256:45f2e9614f27c7219d838279812c59a8fba4a459e8823c36d230eca073a2af91",
+    "body_html_sha256": "9f31b905e314786740d0f62c9a68286b5c5acc2acabb00a0a9e5942531d6f727",
+    "visibility": "public"
+  },
+  "nodes": [
+    {
+      "id": "D1",
+      "kind": "document",
+      "parent": null,
+      "body_start": 0,
+      "body_end": 119
+    },
+    {
+      "id": "C1",
+      "kind": "statement",
+      "parent": "D1",
+      "body_start": 52,
+      "body_end": 119,
+      "quote": "Leila Bhandari reported that Nadia Rhee wrote the copper inventory.",
+      "original_start_byte": 84,
+      "original_end_byte": 151
+    },
+    {
+      "id": "P1",
+      "kind": "person",
+      "parent": "C1",
+      "body_start": 52,
+      "body_end": 66,
+      "quote": "Leila Bhandari",
+      "original_start_byte": 84,
+      "original_end_byte": 98
+    },
+    {
+      "id": "P2",
+      "kind": "person",
+      "parent": "C1",
+      "body_start": 81,
+      "body_end": 91,
+      "quote": "Nadia Rhee",
+      "original_start_byte": 113,
+      "original_end_byte": 123
+    },
+    {
+      "id": "O1",
+      "kind": "object",
+      "parent": "C1",
+      "body_start": 98,
+      "body_end": 118,
+      "quote": "the copper inventory",
+      "original_start_byte": 130,
+      "original_end_byte": 150
+    }
+  ],
+  "relations": [
+    {
+      "witness": "C1",
+      "subject": "P2",
+      "reported_by": "P1",
+      "object": "O1",
+      "proposition": {
+        "reporter": "Leila Bhandari",
+        "author": "Nadia Rhee",
+        "inner_action": "write",
+        "object": "the copper inventory",
+        "inner_negative": false,
+        "outer_negative": false,
+        "conditions": [],
+        "content_asserted_by_reporter": true,
+        "actual_authorship_established": false,
+        "source_writer_or_unknown": "Enzo Vidal",
+        "relation": "source_attributed_report_content",
+        "source_voice": "source_reports_named_speaker",
+        "reporting_layer": "source_scoped_report_content",
+        "completion_established": false,
+        "historical_truth_independently_verified": false
+      }
+    }
+  ],
+  "private": false
+}

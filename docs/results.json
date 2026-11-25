@@ -4,6 +4,49 @@
   "meaning": "Links establish retained test/reproduction coverage, not a fresh execution or certification of historical metrics. Original source, dates, fixtures and exact revisions remain in the linked reports.",
   "families": [
     {
+      "family": "onboarding",
+      "artifacts": "evaluation/onboarding",
+      "tests": [
+        "tests/test_onboarding_scoring.py",
+        "tests/test_department_navigation.py"
+      ],
+      "runners": [
+        "tools/build_onboarding_pilot.py",
+        "tools/score_onboarding_pilot.py",
+        "tools/audit_onboarding_pilot.py",
+        "tools/audit_departments.py"
+      ],
+      "scope": "Frozen twelve-first-time-user six/six documentation pilot. Exact same wheel/collection/tasks/interface, only entry docs differ. Seven-department navigation preserves existing paths.",
+      "measurement_status": "Prepared two400KBparticipant ZIPs and frozen rubric/assignment. Actual ZIP extraction and installed-wheel software checks produce5identical native contracts and opened citation; these are not human observations. Human executionNOT_RUN, observations/acceptance null. Mitchell recruits and returns actual observations. Pilot thresholds5/6and+2 retained; no population inference.",
+      "responsible_department": "testing-evaluation",
+      "implementation_departments": [
+        "applications",
+        "delivery-operations"
+      ]
+    },
+    {
+      "family": "source-tags",
+      "artifacts": "evaluation/source-tags",
+      "tests": [
+        "tests/test_source_tags.py",
+        "tests/test_reported_content.py"
+      ],
+      "runners": [
+        "tools/source_tags_trial.py",
+        "tools/source_tags_packets.py",
+        "tools/source_tags_transfer.py",
+        "tools/audit_source_tags.py"
+      ],
+      "scope": "Frozen raw-vs-source-linked proposal comparison,72development/24sealed same-operator transfer; tree containment and complete native role/witness checks, no new answer coverage preclaimed.",
+      "measurement_status": "Raw72/72→72/72. Native2af8ba8proposal72/72(6valid66tamper),freshonce24/24(6valid18tamper),0wrongassignments,0answer recovery.280prior contracts preserved;1834native tests pass. First browserdeliveryFAILretained. UI-only065840dZIPafe52d43e335f5963b765d00c7ad373a6ec0fd6a5bb560c86a93d7d3a6bffb98hasidenticalnativebytes andpasses15software,58focused,WASM,bothChromiumwithactualsource-dialogwait. No transfer rerun. ExactpublicationCI/merge/livepending. Independent labels andnativeOOCC NOT_RUN.",
+      "responsible_department": "testing-evaluation",
+      "implementation_departments": [
+        "reader",
+        "intake-research",
+        "applications"
+      ]
+    },
+    {
       "family": "bubble-wrap",
       "artifacts": "evaluation/bubble-wrap",
       "tests": [
@@ -25,7 +68,11 @@
         "tools/bubble_wrap_fresh_packet.py"
       ],
       "scope": "Fail-closed isolated reported-content trial, separately frozen 32-case Wrap matrix and explicit preservation/accounting links. Original 20 inputs and 24 sealed transfer cases retained.",
-      "measurement_status": "Original development230/256\u2192256/256 with disclosed v3 scorer amendment; first transferFAIL16/24 retained and consumed. Continuation272/280\u2192280/280; nine guards6/9\u21929/9, one exposed false support removed; rejected wider candidate retained. Committed7f6641d ZIP f5be70718a1454171005493eba452e8fbd0602f3195e5325f57dd268840f8162 passes280/280,1810 native tests,52public controls,15software commands,WASM and Chromium. Fresh same-operator composition transfer16/24\u219224/24,12positives12withholds0false support; host preparation failure with0reader executions retained, same-source resume executed each candidate once.28non-target positive questions remain incomplete. Exact publication CI/merge/deployment pending. Independent evaluations and OOCC NOT_RUN. Source-tag experiment and12human onboarding are next authorized work, human observations NOT_RUN."
+      "measurement_status": "Original development230/256→256/256 with disclosed v3 scorer amendment; first transferFAIL16/24 retained and consumed. Continuation272/280→280/280; nine guards6/9→9/9, one exposed false support removed; rejected wider candidate retained. Committed7f6641d ZIP f5be70718a1454171005493eba452e8fbd0602f3195e5325f57dd268840f8162 passes280/280,1810 native tests,52public controls,15software commands,WASM and Chromium. Fresh same-operator composition transfer16/24→24/24,12positives12withholds0false support; host preparation failure with0reader executions retained, same-source resume executed each candidate once.28non-target positive questions remain incomplete. Exact publication CI/merge/deployment pending. Independent evaluations and OOCC NOT_RUN. Source-tag experiment and12human onboarding are next authorized work, human observations NOT_RUN. Final2ab4b01 exact-headCI all10checks passed;1811native tests. Full bounded1000replay231/420complete580refusals retained189misses; old v1 unscored-support failure retained and21original positive witnesses checked by versioned host audit. Merged16948d5 with93/95/97 ancestry; allfourPRs merged,zeroopenaftercatchup. Pages45670095889 and six-module liveChromium observer passed.",
+      "responsible_department": "testing-evaluation",
+      "implementation_departments": [
+        "reader"
+      ]
     },
     {
       "family": "current-failure-inventory",
@@ -40,7 +87,11 @@
         "tools/freeze_reported_content_proposal.py"
       ],
       "scope": "Read-only replay of 64 Known cases, 32 Focus cases and fifteen fresh synthetic contrasts on merged reader 851de6c; frozen next proposal only.",
-      "measurement_status": "111 completed: thirteen complete, four partial, two conflicts, 92 abstentions. Two sampled old compound-field recoveries; no lost old valid complete answer. All sixty no-full-support controls retained withholding. Five multisuite report-content misses have full discovery but no admitted goals. Historical 605 is not a current census. Twenty development inputs and twenty-four unopened future transfer instances frozen; no native repair. Independent historical/semantic/preparation/blinding/outside-custodian/OOCC remain NOT_RUN."
+      "measurement_status": "111 completed: thirteen complete, four partial, two conflicts, 92 abstentions. Two sampled old compound-field recoveries; no lost old valid complete answer. All sixty no-full-support controls retained withholding. Five multisuite report-content misses have full discovery but no admitted goals. Historical 605 is not a current census. Twenty development inputs and twenty-four unopened future transfer instances frozen; no native repair. Independent historical/semantic/preparation/blinding/outside-custodian/OOCC remain NOT_RUN.",
+      "responsible_department": "testing-evaluation",
+      "implementation_departments": [
+        "reader"
+      ]
     },
     {
       "family": "attribution",
@@ -57,7 +108,11 @@
         "tools/attribution_fresh_transfer.py"
       ],
       "scope": "Frozen cross-form source attribution with 48 development and 24 procedurally sealed same-operator transfer cases; complete PE-02 contract preservation.",
-      "measurement_status": "Frozen development 24/48 to 48/48. First transfer 12/24 to 24/24 is retained with control-overlap limits and now consumed development. A fresh generator/seed/keys/baseline were frozen before further edits; fresh once-only transfer improves 12/24 to 24/24, with 12 positives and 12 withholds passing and zero false support or budget failures. New source constructions differ from inspected development examples; templates remain visible to same operator. All 17 PE-02 and all 24 consumed-packet contracts remain identical; 56 focused controls pass. Exact publication head 71b2725 passed all nine checks, including full archive/regression CI (1779 tests, two skipped); merged 851de6c and deployed successfully. Detailed release receipt is in current-failure-inventory. Independent preparation, blinding, historical/semantic adjudication, outside-custodian scoring and native OOCC remain NOT_RUN."
+      "measurement_status": "Frozen development 24/48 to 48/48. First transfer 12/24 to 24/24 is retained with control-overlap limits and now consumed development. A fresh generator/seed/keys/baseline were frozen before further edits; fresh once-only transfer improves 12/24 to 24/24, with 12 positives and 12 withholds passing and zero false support or budget failures. New source constructions differ from inspected development examples; templates remain visible to same operator. All 17 PE-02 and all 24 consumed-packet contracts remain identical; 56 focused controls pass. Exact publication head 71b2725 passed all nine checks, including full archive/regression CI (1779 tests, two skipped); merged 851de6c and deployed successfully. Detailed release receipt is in current-failure-inventory. Independent preparation, blinding, historical/semantic adjudication, outside-custodian scoring and native OOCC remain NOT_RUN.",
+      "responsible_department": "testing-evaluation",
+      "implementation_departments": [
+        "reader"
+      ]
     },
     {
       "family": "report-pins",
@@ -70,7 +125,11 @@
         "tools/replay_report_pins.py"
       ],
       "scope": "Frozen six-body coordination metadata replay through both CLI roles with mocked HTTP only and a thirty-second per-process limit.",
-      "measurement_status": "Baseline 8/12 expected decisions with four false-current matches; repaired parser 12/12 with zero false-current matches. Historical accuracy, semantic adjudication and native OOCC remain NOT_RUN."
+      "measurement_status": "Baseline 8/12 expected decisions with four false-current matches; repaired parser 12/12 with zero false-current matches. Historical accuracy, semantic adjudication and native OOCC remain NOT_RUN.",
+      "responsible_department": "testing-evaluation",
+      "implementation_departments": [
+        "delivery-operations"
+      ]
     },
     {
       "family": "pole",
@@ -107,7 +166,11 @@
         "tools/verify_frus_witnesses.py"
       ],
       "scope": "Seeded difficulty levels, exact case pinning, key-separated replay, and structural documentary regressions.",
-      "measurement_status": "The 48-case focus replay recovered 11 full answers and produced two cited conflicts while retaining all 20 expected withholds. The 120-case inherited catalog replay kept all scored outcomes. The follow-up proved 12/12 explicit named-source corrections and chains with 12/12 withholds. The authentic draw retained 1/10 complete anchored answers and 0/6 relational completions at the preceding pin. The prose cycle recovered 3/6 authentic bridges and 6/12 authentic transfer questions with all controls still withheld. PE-02 preserves 1/4 historical completions, adds one Smith-letter checked partial, retains six inherited full withholds and the presentation partial, and passes one new positive and five new negative controls. All 17 discovery outputs are unchanged; independent semantic/historical review remains NOT_RUN."
+      "measurement_status": "The 48-case focus replay recovered 11 full answers and produced two cited conflicts while retaining all 20 expected withholds. The 120-case inherited catalog replay kept all scored outcomes. The follow-up proved 12/12 explicit named-source corrections and chains with 12/12 withholds. The authentic draw retained 1/10 complete anchored answers and 0/6 relational completions at the preceding pin. The prose cycle recovered 3/6 authentic bridges and 6/12 authentic transfer questions with all controls still withheld. PE-02 preserves 1/4 historical completions, adds one Smith-letter checked partial, retains six inherited full withholds and the presentation partial, and passes one new positive and five new negative controls. All 17 discovery outputs are unchanged; independent semantic/historical review remains NOT_RUN.",
+      "responsible_department": "testing-evaluation",
+      "implementation_departments": [
+        "reader"
+      ]
     },
     {
       "family": "d8",
@@ -120,7 +183,11 @@
         "tests/test_d8_owner_boundaries.py"
       ],
       "scope": "Source ownership, ambiguity boundaries, strict source-local verification, and complete or partial assembly for a named pair.",
-      "measurement_status": "Two of eight initial controls passed. All eight passed on the repaired implementation. The 24-case D12 replay removed one nonresponsive excerpt comparison and preserved the 0/19 complete-answer coverage. The historical 22 retained each strict status, diagnostic, and citation count."
+      "measurement_status": "Two of eight initial controls passed. All eight passed on the repaired implementation. The 24-case D12 replay removed one nonresponsive excerpt comparison and preserved the 0/19 complete-answer coverage. The historical 22 retained each strict status, diagnostic, and citation count.",
+      "responsible_department": "testing-evaluation",
+      "implementation_departments": [
+        "reader"
+      ]
     },
     {
       "family": "d10",
@@ -135,7 +202,11 @@
         "test_tools/d10.py"
       ],
       "scope": "D100 topic planning and D% class indexing. The exact-anchor adapter uses claims and citations from Strict Ask on frozen paired samples.",
-      "measurement_status": "Ten filled synthetic draws passed all 20 questions. Mixed-source smoke passed four questions with eight draws unfilled. Local D% sandbox setup failed before inference and the patched batch driver reported nonzero."
+      "measurement_status": "Ten filled synthetic draws passed all 20 questions. Mixed-source smoke passed four questions with eight draws unfilled. Local D% sandbox setup failed before inference and the patched batch driver reported nonzero.",
+      "responsible_department": "testing-evaluation",
+      "implementation_departments": [
+        "reader"
+      ]
     },
     {
       "family": "d12",
@@ -176,7 +247,11 @@
         "test_tools/historical_graph_study.py"
       ],
       "scope": "Matched D6 evidence path perturbation and separate source-grounded historical prose trace, with exact citation readback.",
-      "measurement_status": "144/144 generated pairs passed, with zero unexpected completions. The original 22 baseline had 3 full answers, 2 partials, 3 conflicts and 14 abstentions. The historical seam candidate had 4 full, 3 partial, 3 conflicts and 12 abstentions, with 19/19 exact citation readbacks. The nine supplied coordinator excerpts moved from nine abstentions to five full and four partial; 28 matched sprint controls passed. The training coordinator recovered three authored calendar cases and preserved two refusals. A constructor-built calendar candidate reproduced those outcomes. The prose constructor traced wording comparison and drafted review-only recommendation proof obligations. Corpus discovery ranked two exact field rules on five development records. Spot verified an uploaded closing date while withholding on a missing field and competing owners in the isolated preview. Its benchmark replay retained all 22 native contracts, 15 D20 withholds and six correct Primary Book controls. The installed documentary-language demo matched 40/40 synthetic labels versus 20/40 at baseline, with 70 exact citation readbacks and zero false full answers. The mode replay retained the original 22 strict outcomes, recorded 22 unconfigured-assisted abstentions, and reproduced the per-case report from its archived source. Advanced MPLPB preserved every strict contract with 12 followed lookups, three investigations and seven stops. The training command selected the elapsed-days repair and blocked the inclusive-days variant on a protected holdout. Matched discovery budgets yielded full drafted anchor coverage of 4/21 for ordinary retrieval, 5/21 for graph guidance, and 3/21 for three-way interleaving. All strict statuses and claim lists were preserved. A separate post-freeze solo pilot used 24 questions on six source pairs. Strict Ask completed none of the 19 answerable cases and gave no full answers on five missing-evidence cases. Native and word-overlap discovery found every anchor for 12 of 19 answerable cases. The 4score20 replay traced three pilot cases and isolated a literal quote spanning two statement units. J/Opass preserved the deterministic display in 16 local model calls, with 8 of 8 constrained layout choices accepted and 0 of 8 free-text choices accepted. Scout completed 0 of 18 answerable prompts and 0 of 6 cross-document relationships on a fresh post-freeze draw, with all six missing-evidence controls withheld and exact graph-scoped proof preserved. The live flag follow-up matched all 22 historical strict contracts and all 48 Scout graph passes. Independent historical truth review was not run."
+      "measurement_status": "144/144 generated pairs passed, with zero unexpected completions. The original 22 baseline had 3 full answers, 2 partials, 3 conflicts and 14 abstentions. The historical seam candidate had 4 full, 3 partial, 3 conflicts and 12 abstentions, with 19/19 exact citation readbacks. The nine supplied coordinator excerpts moved from nine abstentions to five full and four partial; 28 matched sprint controls passed. The training coordinator recovered three authored calendar cases and preserved two refusals. A constructor-built calendar candidate reproduced those outcomes. The prose constructor traced wording comparison and drafted review-only recommendation proof obligations. Corpus discovery ranked two exact field rules on five development records. Spot verified an uploaded closing date while withholding on a missing field and competing owners in the isolated preview. Its benchmark replay retained all 22 native contracts, 15 D20 withholds and six correct Primary Book controls. The installed documentary-language demo matched 40/40 synthetic labels versus 20/40 at baseline, with 70 exact citation readbacks and zero false full answers. The mode replay retained the original 22 strict outcomes, recorded 22 unconfigured-assisted abstentions, and reproduced the per-case report from its archived source. Advanced MPLPB preserved every strict contract with 12 followed lookups, three investigations and seven stops. The training command selected the elapsed-days repair and blocked the inclusive-days variant on a protected holdout. Matched discovery budgets yielded full drafted anchor coverage of 4/21 for ordinary retrieval, 5/21 for graph guidance, and 3/21 for three-way interleaving. All strict statuses and claim lists were preserved. A separate post-freeze solo pilot used 24 questions on six source pairs. Strict Ask completed none of the 19 answerable cases and gave no full answers on five missing-evidence cases. Native and word-overlap discovery found every anchor for 12 of 19 answerable cases. The 4score20 replay traced three pilot cases and isolated a literal quote spanning two statement units. J/Opass preserved the deterministic display in 16 local model calls, with 8 of 8 constrained layout choices accepted and 0 of 8 free-text choices accepted. Scout completed 0 of 18 answerable prompts and 0 of 6 cross-document relationships on a fresh post-freeze draw, with all six missing-evidence controls withheld and exact graph-scoped proof preserved. The live flag follow-up matched all 22 historical strict contracts and all 48 Scout graph passes. Independent historical truth review was not run.",
+      "responsible_department": "testing-evaluation",
+      "implementation_departments": [
+        "reader"
+      ]
     },
     {
       "family": "d6",
@@ -193,7 +268,11 @@
         "mplpb_answers/d6.py"
       ],
       "scope": "Opt-in native evidence compilation from explicit record and field selectors, with exact citations, branch and arithmetic controls, and optional sealed Dice Bag corpus replay.",
-      "measurement_status": "90/90 seeded synthetic checks passed. All 12 frozen Dice Bag records compiled their declared fields and withheld completion for the missing-field control. The calendar sprint passed 48 matched controls. Authored source notes recovered 12/12 target spans at one passage. Exact thesaurus edge search recovered 6/6 target spans in a separate authored probe. Strict support remained unchanged in both discovery arms."
+      "measurement_status": "90/90 seeded synthetic checks passed. All 12 frozen Dice Bag records compiled their declared fields and withheld completion for the missing-field control. The calendar sprint passed 48 matched controls. Authored source notes recovered 12/12 target spans at one passage. Exact thesaurus edge search recovered 6/6 target spans in a separate authored probe. Strict support remained unchanged in both discovery arms.",
+      "responsible_department": "testing-evaluation",
+      "implementation_departments": [
+        "reader"
+      ]
     },
     {
       "family": "documentary-date-pattern",
@@ -208,7 +287,11 @@
         "test_tools/report_section_probe.py"
       ],
       "scope": "Bounded role-phrase aliases in documentary date questions and separate named-summary passage discovery.",
-      "measurement_status": "Only the Fort Sumter paraphrase gained full support across 40 follow-ups. The 22 original native outcomes and citations remained the same. The Apollo 13 named-summary probe recovered its reference passage. Independent semantic review remains outstanding."
+      "measurement_status": "Only the Fort Sumter paraphrase gained full support across 40 follow-ups. The 22 original native outcomes and citations remained the same. The Apollo 13 named-summary probe recovered its reference passage. Independent semantic review remains outstanding.",
+      "responsible_department": "testing-evaluation",
+      "implementation_departments": [
+        "reader"
+      ]
     },
     {
       "family": "historical-synonym-graph",
@@ -221,7 +304,12 @@
         "test_tools/historical_22_graph.py"
       ],
       "scope": "Graph-guided passage discovery on the original 22, 40 frozen follow-ups, and 12 authored requests on three prepared history records, with strict output kept separate.",
-      "measurement_status": "On the original 22, complete draft-anchor visibility rose from 4/21 to 5/21. All 12 new topic record hints matched the reference. Independent grading was not run."
+      "measurement_status": "On the original 22, complete draft-anchor visibility rose from 4/21 to 5/21. All 12 new topic record hints matched the reference. Independent grading was not run.",
+      "responsible_department": "testing-evaluation",
+      "implementation_departments": [
+        "intake-research",
+        "reader"
+      ]
     },
     {
       "family": "historical-patterns",
@@ -233,7 +321,11 @@
         "test_tools/historical_patterns.py"
       ],
       "scope": "Forty authored follow-ups across ten groups on the originals from the frozen historical 22. Separate strict answers, reference-anchor visibility, and scope controls.",
-      "measurement_status": "Main f9e71b9 supported one direct case with all anchors and zero paraphrases. All ten scope controls withheld full support. Independent semantic review remains unmeasured."
+      "measurement_status": "Main f9e71b9 supported one direct case with all anchors and zero paraphrases. All ten scope controls withheld full support. Independent semantic review remains unmeasured.",
+      "responsible_department": "testing-evaluation",
+      "implementation_departments": [
+        "reader"
+      ]
     },
     {
       "family": "dice-bag",
@@ -248,7 +340,11 @@
         "test_tools/synonym_index.py"
       ],
       "scope": "Seeded live USGS structured records, separate operator/custodian paths, strict field answers and reviewed synonym lookup.",
-      "measurement_status": "First live batch filled 12 draws and scored 72 questions. All 36 strict negatives withheld. Lookup recovered 12 listed-phrase pairs after confirmation and produced none for 12 unlisted wordings. The installed graph route preserves the original full score on the frozen 72."
+      "measurement_status": "First live batch filled 12 draws and scored 72 questions. All 36 strict negatives withheld. Lookup recovered 12 listed-phrase pairs after confirmation and produced none for 12 unlisted wordings. The installed graph route preserves the original full score on the frozen 72.",
+      "responsible_department": "testing-evaluation",
+      "implementation_departments": [
+        "reader"
+      ]
     },
     {
       "family": "persona-corpus-transfer",
@@ -263,7 +359,12 @@
         "test_tools/synonym_index_study.py"
       ],
       "scope": "Eight synthetic persona collections, with explicit fields, natural descriptions of a record, missing evidence, domain-specific overreach, and reviewed synonym selector lookup.",
-      "measurement_status": "Native baseline on d8e5b6d: 8/8 exact field questions supported, 0/8 natural-description equivalents, 16/16 negative controls withheld. The authored synonym follow-up recovered 16/16 after selector review, while 8 additional qualified prompts remained lookup-only. No human or external semantic validation."
+      "measurement_status": "Native baseline on d8e5b6d: 8/8 exact field questions supported, 0/8 natural-description equivalents, 16/16 negative controls withheld. The authored synonym follow-up recovered 16/16 after selector review, while 8 additional qualified prompts remained lookup-only. No human or external semantic validation.",
+      "responsible_department": "testing-evaluation",
+      "implementation_departments": [
+        "intake-research",
+        "reader"
+      ]
     },
     {
       "family": "d20",
@@ -276,7 +377,11 @@
         "test_tools/d20.py"
       ],
       "scope": "Synthetic matched record ownership, alternate question and alias formats, competing owners, missing facts, retired eligibility, raw-sorter observations and canonical-selector isolation probes.",
-      "measurement_status": "Frozen native seed 20 and 64-seed class study on d497b00, with a paired owner-question repair replay. Measures authored structures under disposable ledgers. Independent historical transfer remains unmeasured."
+      "measurement_status": "Frozen native seed 20 and 64-seed class study on d497b00, with a paired owner-question repair replay. Measures authored structures under disposable ledgers. Independent historical transfer remains unmeasured.",
+      "responsible_department": "testing-evaluation",
+      "implementation_departments": [
+        "reader"
+      ]
     },
     {
       "family": "comparative-tests",
@@ -293,7 +398,12 @@
         "tools/governance_demo.py"
       ],
       "scope": "Seven paired native MPLPB dispatch observations, a two-arm local Git comparison, and 28 follow-up controls across Python, seat RPC, loopback HTTP, and the stock CLI.",
-      "measurement_status": "Dispatch controls reproduced at MPLPB 6ba371c. The governance archive passed 10/10 local controls with zero calls for the six denied inputs. Complete mediation, hosted branch policies and native OOCC remain unestablished."
+      "measurement_status": "Dispatch controls reproduced at MPLPB 6ba371c. The governance archive passed 10/10 local controls with zero calls for the six denied inputs. Complete mediation, hosted branch policies and native OOCC remain unestablished.",
+      "responsible_department": "testing-evaluation",
+      "implementation_departments": [
+        "work-coordination",
+        "ledger"
+      ]
     },
     {
       "family": "d4",
@@ -309,7 +419,11 @@
         "tools/bounded_record_study.py"
       ],
       "scope": "Documentary identity, local co-reference, mixed D% controls and small documentary packets with support, partial support, conflict and unresolved controls.",
-      "measurement_status": "Retained D4 synthetic development evaluation and a reproducible fictional query panel. Profile labels provide synthetic coverage, not evidence about human cohorts."
+      "measurement_status": "Retained D4 synthetic development evaluation and a reproducible fictional query panel. Profile labels provide synthetic coverage, not evidence about human cohorts.",
+      "responsible_department": "testing-evaluation",
+      "implementation_departments": [
+        "reader"
+      ]
     },
     {
       "family": "language-audit",
@@ -326,7 +440,11 @@
         "tools/trace_language_audit.py"
       ],
       "scope": "Inspected pottery labels and synthetic development data; document identity is not completeness.",
-      "measurement_status": "retained results; original run date/revision/configuration applies"
+      "measurement_status": "retained results; original run date/revision/configuration applies",
+      "responsible_department": "testing-evaluation",
+      "implementation_departments": [
+        "reader"
+      ]
     },
     {
       "family": "procedure-recovery",
@@ -341,7 +459,11 @@
         "tools/browser_procedure_recovery.py"
       ],
       "scope": "Authored linear procedures and synthetic recovery; not arbitrary prose or human execution validation.",
-      "measurement_status": "retained results; original run date/revision/configuration applies"
+      "measurement_status": "retained results; original run date/revision/configuration applies",
+      "responsible_department": "testing-evaluation",
+      "implementation_departments": [
+        "reader"
+      ]
     },
     {
       "family": "reference-corpus-reproduction",
@@ -355,7 +477,12 @@
         "tools/verify_reference_evidence.py"
       ],
       "scope": "73 authored positives and 20 controls, four sealed corpus stages; lab-only unratified data, not learning.",
-      "measurement_status": "retained results; original run date/revision/configuration applies"
+      "measurement_status": "retained results; original run date/revision/configuration applies",
+      "responsible_department": "testing-evaluation",
+      "implementation_departments": [
+        "intake-research",
+        "reader"
+      ]
     },
     {
       "family": "relation-graph",
@@ -371,7 +498,12 @@
         "tools/evaluate_relation_graph.py"
       ],
       "scope": "Inspected pottery document-identity proxy and scripted synthetic users; original reports preserved.",
-      "measurement_status": "retained results; original run date/revision/configuration applies"
+      "measurement_status": "retained results; original run date/revision/configuration applies",
+      "responsible_department": "testing-evaluation",
+      "implementation_departments": [
+        "intake-research",
+        "reader"
+      ]
     },
     {
       "family": "practical-coverage",
@@ -384,7 +516,11 @@
         "tools/evaluate_practical_coverage.py"
       ],
       "scope": "Historical intermediate reader coverage; use pinned revision for exact historical outcomes.",
-      "measurement_status": "retained results; original run date/revision/configuration applies"
+      "measurement_status": "retained results; original run date/revision/configuration applies",
+      "responsible_department": "testing-evaluation",
+      "implementation_departments": [
+        "reader"
+      ]
     },
     {
       "family": "reliability",
@@ -400,7 +536,12 @@
         "tools/evaluate_chat_modes.py"
       ],
       "scope": "Historical strict-reader and chat-mode comparisons; synthetic free chat is not factual accuracy.",
-      "measurement_status": "retained results; original run date/revision/configuration applies"
+      "measurement_status": "retained results; original run date/revision/configuration applies",
+      "responsible_department": "testing-evaluation",
+      "implementation_departments": [
+        "ledger",
+        "reader"
+      ]
     },
     {
       "family": "ownership",
@@ -413,7 +554,12 @@
         "tools/compare_ownership_predictions.py"
       ],
       "scope": "Historical ownership comparison, bounded adversaries; later tests do not recertify old predictions.",
-      "measurement_status": "retained results; original run date/revision/configuration applies"
+      "measurement_status": "retained results; original run date/revision/configuration applies",
+      "responsible_department": "testing-evaluation",
+      "implementation_departments": [
+        "ledger",
+        "reader"
+      ]
     },
     {
       "family": "researcher-pilot",
@@ -426,7 +572,12 @@
         "tools/browser_researcher_pilot.py"
       ],
       "scope": "Six authored fictional workflows; no independent human usability validation.",
-      "measurement_status": "retained results; original run date/revision/configuration applies"
+      "measurement_status": "retained results; original run date/revision/configuration applies",
+      "responsible_department": "testing-evaluation",
+      "implementation_departments": [
+        "applications",
+        "reader"
+      ]
     },
     {
       "family": "general-reader",
@@ -442,7 +593,11 @@
         "tools/evaluate_general_answers.py"
       ],
       "scope": "Evaluation machinery and protocol; no achieved live-model general-quality release claim. Includes constrained native narrator complete-rendering checks and authored loopback backend protocols; no live neural inference or historical accuracy gain measured.",
-      "measurement_status": "retained results; original run date/revision/configuration applies"
+      "measurement_status": "retained results; original run date/revision/configuration applies",
+      "responsible_department": "testing-evaluation",
+      "implementation_departments": [
+        "reader"
+      ]
     },
     {
       "family": "contextual",
@@ -456,7 +611,11 @@
         "tools/benchmark_grounded_chat.py"
       ],
       "scope": "Synthetic conversational context and historical metrics; contextual state is not source authority.",
-      "measurement_status": "retained results; original run date/revision/configuration applies"
+      "measurement_status": "retained results; original run date/revision/configuration applies",
+      "responsible_department": "testing-evaluation",
+      "implementation_departments": [
+        "reader"
+      ]
     },
     {
       "family": "conversation",
@@ -471,7 +630,12 @@
         "tools/smoke_conversation_architecture.py"
       ],
       "scope": "Scripted finite conversation fixtures; exact old metrics require original revision/configuration.",
-      "measurement_status": "retained results; original run date/revision/configuration applies"
+      "measurement_status": "retained results; original run date/revision/configuration applies",
+      "responsible_department": "testing-evaluation",
+      "implementation_departments": [
+        "applications",
+        "reader"
+      ]
     },
     {
       "family": "conversation-repairs",
@@ -483,7 +647,12 @@
         "tools/evaluate_conversation_repairs.py"
       ],
       "scope": "Developer-authored conversation regression examples, not independent users.",
-      "measurement_status": "retained results; original run date/revision/configuration applies"
+      "measurement_status": "retained results; original run date/revision/configuration applies",
+      "responsible_department": "testing-evaluation",
+      "implementation_departments": [
+        "applications",
+        "reader"
+      ]
     },
     {
       "family": "live-conversation",
@@ -497,7 +666,12 @@
         "tools/summarize_live_conversation.py"
       ],
       "scope": "Retained WebAssembly/live transport experiment; networking and deployed revision are run-specific.",
-      "measurement_status": "retained results; original run date/revision/configuration applies"
+      "measurement_status": "retained results; original run date/revision/configuration applies",
+      "responsible_department": "testing-evaluation",
+      "implementation_departments": [
+        "applications",
+        "reader"
+      ]
     },
     {
       "family": "response-1000",
@@ -509,7 +683,11 @@
         "tools/evaluate_response_1000.py"
       ],
       "scope": "Authored finite response edge smoke; not independent language accuracy.",
-      "measurement_status": "retained results; original run date/revision/configuration applies"
+      "measurement_status": "retained results; original run date/revision/configuration applies",
+      "responsible_department": "testing-evaluation",
+      "implementation_departments": [
+        "reader"
+      ]
     },
     {
       "family": "specialist-continuity",
@@ -521,7 +699,12 @@
         "tools/demo_specialist_continuity.py"
       ],
       "scope": "Five-instance recovery and bounded source-status support regressions including pre-challenge blocking; developer fixtures, not general entailment or independent agent performance.",
-      "measurement_status": "Historical reports preserved; current tests and demo exercise the independent bounded source checker."
+      "measurement_status": "Historical reports preserved; current tests and demo exercise the independent bounded source checker.",
+      "responsible_department": "testing-evaluation",
+      "implementation_departments": [
+        "work-coordination",
+        "ledger"
+      ]
     },
     {
       "family": "user-collections",
@@ -535,7 +718,12 @@
         "tools/browser_collection_policies.py"
       ],
       "scope": "Synthetic unfamiliar collections, revisions and policy checks; independent builders outstanding.",
-      "measurement_status": "retained results; original run date/revision/configuration applies"
+      "measurement_status": "retained results; original run date/revision/configuration applies",
+      "responsible_department": "testing-evaluation",
+      "implementation_departments": [
+        "applications",
+        "reader"
+      ]
     },
     {
       "family": "wiki",
@@ -547,7 +735,12 @@
         "tools/wiki_live_eval.py"
       ],
       "scope": "Historical capture integrity checks; missing payload pins/raw-live mismatch prevent scoring the preserved snapshot.",
-      "measurement_status": "retained results; original run date/revision/configuration applies"
+      "measurement_status": "retained results; original run date/revision/configuration applies",
+      "responsible_department": "testing-evaluation",
+      "implementation_departments": [
+        "applications",
+        "reader"
+      ]
     },
     {
       "family": "topics",
@@ -560,7 +753,11 @@
         "tools/test_topic_examples.py"
       ],
       "scope": "Authored topic-example source fixtures; no unseen-domain language accuracy claim.",
-      "measurement_status": "retained results; original run date/revision/configuration applies"
+      "measurement_status": "retained results; original run date/revision/configuration applies",
+      "responsible_department": "testing-evaluation",
+      "implementation_departments": [
+        "reader"
+      ]
     },
     {
       "family": "audit-2026-10-21",
@@ -573,7 +770,12 @@
         "tools/browser_audit_20261021.py"
       ],
       "scope": "Dated system audit; live endpoint, browser and corpus configuration require original report context.",
-      "measurement_status": "retained results; original run date/revision/configuration applies"
+      "measurement_status": "retained results; original run date/revision/configuration applies",
+      "responsible_department": "testing-evaluation",
+      "implementation_departments": [
+        "applications",
+        "reader"
+      ]
     },
     {
       "family": "documentation-audit",
@@ -581,13 +783,19 @@
       "tests": [
         "tests/test_documentation_audit.py",
         "tests/test_handoff.py",
-        "tests/test_self_knowledge.py"
+        "tests/test_self_knowledge.py",
+        "tests/test_department_navigation.py"
       ],
       "runners": [
-        "tools/audit_documentation.py"
+        "tools/audit_documentation.py",
+        "tools/audit_departments.py"
       ],
       "scope": "Current documentation inventory and evidence-link checks; structural coverage does not prove historical metrics.",
-      "measurement_status": "current structural audit"
+      "measurement_status": "current structural audit",
+      "responsible_department": "testing-evaluation",
+      "implementation_departments": [
+        "delivery-operations"
+      ]
     },
     {
       "family": "root",
@@ -601,7 +809,11 @@
         "test_tools/primary_book_test.py"
       ],
       "scope": "Original frozen root benchmarks retain their labels and revision. The Primary Book Test generates separate quote controls and runs user-authored questions over pinned book excerpts.",
-      "measurement_status": "Frozen benchmark results retain their scope. Primary Book Test batches have their own seeds, source receipts and case outcomes."
+      "measurement_status": "Frozen benchmark results retain their scope. Primary Book Test batches have their own seeds, source receipts and case outcomes.",
+      "responsible_department": "testing-evaluation",
+      "implementation_departments": [
+        "delivery-operations"
+      ]
     },
     {
       "family": "killtest",
@@ -614,7 +826,12 @@
         "mplpb_combined/killtest.py"
       ],
       "scope": "Original adjudication inputs and outputs preserved; run original revision for exact historical reproduction.",
-      "measurement_status": "retained results; original run date/revision/configuration applies"
+      "measurement_status": "retained results; original run date/revision/configuration applies",
+      "responsible_department": "testing-evaluation",
+      "implementation_departments": [
+        "ledger",
+        "reader"
+      ]
     },
     {
       "family": "mcp-agent",
@@ -626,7 +843,12 @@
         "tools/check_mcp_client.py"
       ],
       "scope": "Authored local MCP protocol/authority/session tests and actual official SDK client workflow; no third-party model obedience or independent human validation.",
-      "measurement_status": "Current local adapter execution; exact candidate/CI/deployment identity remains separate."
+      "measurement_status": "Current local adapter execution; exact candidate/CI/deployment identity remains separate.",
+      "responsible_department": "testing-evaluation",
+      "implementation_departments": [
+        "applications",
+        "reader"
+      ]
     },
     {
       "family": "free-browser-helper",
@@ -645,7 +867,12 @@
         "tools/browser_model_selection.py"
       ],
       "scope": "Authored real-engine/browser workflow and pinned assets/candidate-data tests; synthetic plans only, no live Phi-4/iPad or independent human validation. Includes bounded model-load stage/error/export/retry diagnostics, with simulated failure cases and real runtime API construction without weights; no device root-cause or inference claim. Actual pinned upstream/patched limit-negotiation functions are exercised with authored adapter/device capacities; physical model inference remains separate. Plain streamed chat, prompt/Send placement at iPad/narrow widths, reviewed model-proposed collection creation, and generation-time disposal/reload recovery use explicit engine fixtures; no neural or physical iPad generation claim.",
-      "measurement_status": "Local development evidence; exact candidate/CI/deployment outcomes are separate."
+      "measurement_status": "Local development evidence; exact candidate/CI/deployment outcomes are separate.",
+      "responsible_department": "testing-evaluation",
+      "implementation_departments": [
+        "applications",
+        "reader"
+      ]
     },
     {
       "family": "model-selection",
@@ -660,7 +887,12 @@
         "tools/build_ai_assets.py"
       ],
       "scope": "Pinned upstream MIT license/config/library/tensor-metadata downloads and authored loader/real Chromium selection tests; runtime/GPU success uses explicit fixtures, not neural inference or physical iPad validation.",
-      "measurement_status": "Local implementation checks; exact archive, CI and deployed revision outcomes are separate."
+      "measurement_status": "Local implementation checks; exact archive, CI and deployed revision outcomes are separate.",
+      "responsible_department": "testing-evaluation",
+      "implementation_departments": [
+        "applications",
+        "reader"
+      ]
     },
     {
       "family": "no-unverified-promotion",
@@ -678,7 +910,12 @@
         "tools/audit_unverified_promotion.py"
       ],
       "scope": "88 contract tests, authored artifact boundary control and five-case old/patched completion comparison; inspected development evidence, no held-out four-domain efficacy or novelty claim.",
-      "measurement_status": "2026-11-10 local replay retained with exact implementation/test hashes; historical results remain unchanged"
+      "measurement_status": "2026-11-10 local replay retained with exact implementation/test hashes; historical results remain unchanged",
+      "responsible_department": "testing-evaluation",
+      "implementation_departments": [
+        "ledger",
+        "reader"
+      ]
     },
     {
       "family": "historical-experts",
@@ -701,7 +938,11 @@
         "tools/study_sandbox.py"
       ],
       "scope": "52 fully published development requirements across evidence authority, diagnostics, exact routing, event candidates, explicit scoped corrections, candidate inference, receipt separation and measured computation, plus bounded original-paper expert replay. No blind, human-usability or general historical-truth claim. Includes original-source study protocol tests; external questions/reviewer participation and independent validation remain outstanding. Linux worker isolation has dedicated actual namespace probes and fail-closed controls; no human-operator or host-administrator isolation claim. Scoped-extension controls cover explicit source-field routing/conflicts, event nodes, correction windows, bounded quoted exploration and non-authoritative receipt/effort reporting; effort instrumentation is not independent human measurement. Adaptive Search has paired bounded traversal and source-authority regression controls.",
-      "measurement_status": "Developer-authored inspected controls; run current candidate tests/replay and inspect actual exact-head CI before claiming successful validation."
+      "measurement_status": "Developer-authored inspected controls; run current candidate tests/replay and inspect actual exact-head CI before claiming successful validation.",
+      "responsible_department": "testing-evaluation",
+      "implementation_departments": [
+        "reader"
+      ]
     },
     {
       "family": "unprepared-originals",
@@ -725,7 +966,11 @@
         "tools/report_recovery_results.py"
       ],
       "scope": "Frozen authentic original editions and developer questions, separate randomized fictional controls, candidate mapping and raw/canonical round-trip fidelity. Draft span coverage is retrieval only. Independent historical review NOT RUN. Follow-up retains source-linked developer semantic judgments, incorrect and unresolved relationships, missed facets, and a post-code-freeze cold transfer record; no independent human validation. Targeted recovery retains all previous useful reviewed associations; later two-record transfer remains unresolved. Calendar cues are assessed separately. All semantic labels remain developer/AI judgments, not independent human evaluation.",
-      "measurement_status": "Actual dated baseline and updated executions, preserved pilots, incomplete independent semantic assessment"
+      "measurement_status": "Actual dated baseline and updated executions, preserved pilots, incomplete independent semantic assessment",
+      "responsible_department": "testing-evaluation",
+      "implementation_departments": [
+        "reader"
+      ]
     },
     {
       "family": "documentary-scope",
@@ -740,7 +985,11 @@
         "tools/unprepared_challenge.py"
       ],
       "scope": "Finite scope/role interpretation controls and unchanged original-record development comparisons; candidates never earn answer support.",
-      "measurement_status": "Executed: baseline 1011 tests, final archive 1035 tests; public prepared controls 52/52; original/familiar draft spans unchanged at 18/23 and 9/9, native support 0/14 and 0/8. Independent semantic review NOT RUN."
+      "measurement_status": "Executed: baseline 1011 tests, final archive 1035 tests; public prepared controls 52/52; original/familiar draft spans unchanged at 18/23 and 9/9, native support 0/14 and 0/8. Independent semantic review NOT RUN.",
+      "responsible_department": "testing-evaluation",
+      "implementation_departments": [
+        "reader"
+      ]
     },
     {
       "family": "documentary-assertions",
@@ -756,7 +1005,11 @@
         "tools/check_browser_wasm.mjs"
       ],
       "scope": "Finite source-attributed assertion certificates, independent question obligations and checked partial composition; no historical truth or independent human accuracy claim.",
-      "measurement_status": "Executed on extracted 6acf45a: 1068 Python tests, public 52/52, actual WebAssembly and Chromium. Unchanged original/government questions: checked partial answers 0\u21922/22, full supported answers 0\u21920/22; independent semantic review and unseen evaluation NOT RUN."
+      "measurement_status": "Executed on extracted 6acf45a: 1068 Python tests, public 52/52, actual WebAssembly and Chromium. Unchanged original/government questions: checked partial answers 0→2/22, full supported answers 0→0/22; independent semantic review and unseen evaluation NOT RUN.",
+      "responsible_department": "testing-evaluation",
+      "implementation_departments": [
+        "reader"
+      ]
     },
     {
       "family": "reconstruction-engine",
@@ -775,7 +1028,11 @@
         "tools/historical_targets.py"
       ],
       "scope": "Finite independent documentary checks and unchanged original-record development replay; graph candidates and synthetic truth fixtures never establish real historical truth.",
-      "measurement_status": "Executed: final extracted63cea98 passed1124 tests/public52/52/WASM/nine Chromium checks/MCP45. All22 unchanged cases completed; full0\u21921/22, checked partial2\u21922/22. Seven accepted citations rechecked and reverse-mapped. Independent review and >=200 unseen evaluation NOT RUN."
+      "measurement_status": "Executed: final extracted63cea98 passed1124 tests/public52/52/WASM/nine Chromium checks/MCP45. All22 unchanged cases completed; full0→1/22, checked partial2→2/22. Seven accepted citations rechecked and reverse-mapped. Independent review and >=200 unseen evaluation NOT RUN.",
+      "responsible_department": "testing-evaluation",
+      "implementation_departments": [
+        "reader"
+      ]
     },
     {
       "family": "closed-ledger-boundaries",
@@ -791,7 +1048,12 @@
         "evaluation/closed-ledger-boundaries/2026-11-17/compare_contracts.py"
       ],
       "scope": "Author-written unchanged-input source-support boundaries, diagnostic categories, host observation ordering and candidate-only Chromium; no independent historical accuracy or exact legacy887 reproduction.",
-      "measurement_status": "2026-11-17 frozen source archive; complete measured command outcomes recorded in dated report, unknown human effort and semantic accuracy remain null."
+      "measurement_status": "2026-11-17 frozen source archive; complete measured command outcomes recorded in dated report, unknown human effort and semantic accuracy remain null.",
+      "responsible_department": "testing-evaluation",
+      "implementation_departments": [
+        "ledger",
+        "reader"
+      ]
     },
     {
       "family": "solo-milestone",
@@ -809,7 +1071,11 @@
         "evaluation/solo-milestone/2026-11-17/certificate_audit.py"
       ],
       "scope": "22 unchanged original-record development questions, source-only recorded-arrangement completion, fresh-context blinded AI assessment and separately measured cache/inspection/storage improvements; no independent human/unseen validation.",
-      "measurement_status": "2026-11-17 before/after runs completed; AI-assessed complete1\u21922, correct refusal4\u21924, error/over-refusal17\u219216; code and quote-fidelity outcomes retained with failed intermediates."
+      "measurement_status": "2026-11-17 before/after runs completed; AI-assessed complete1→2, correct refusal4→4, error/over-refusal17→16; code and quote-fidelity outcomes retained with failed intermediates.",
+      "responsible_department": "testing-evaluation",
+      "implementation_departments": [
+        "reader"
+      ]
     },
     {
       "family": "preprocessing-sorter",
@@ -826,7 +1092,12 @@
         "tools/sorter_options_study.py"
       ],
       "scope": "Fictional raw-text extraction, identical mode nodes, primary versus embedded header classification before occurrence boundaries, retained review edges and unchanged native retired-page withholding. No historical accuracy or supported-answer gain measured. Optional exact/neighbor ranking and source-anchored candidate links remain non-authoritative. All22 development cases are rerun; source discovery and strict completion are distinct. Configured unreserved retest regressed2 to1 complete answer; new options study pending.",
-      "measurement_status": "Retained frozen implementations and new supplied-probe scope regressions; developer software reproduction, independent historical review NOT RUN."
+      "measurement_status": "Retained frozen implementations and new supplied-probe scope regressions; developer software reproduction, independent historical review NOT RUN.",
+      "responsible_department": "testing-evaluation",
+      "implementation_departments": [
+        "intake-research",
+        "reader"
+      ]
     },
     {
       "family": "sorter-first-originals",
@@ -844,7 +1115,12 @@
         "tools/report_witness_admission.py"
       ],
       "scope": "All22 unchanged original-record development questions: direct versus configured sorter-first retest and separate common-guard optional ranker/relater comparison; exact original passage mapping, unsupported suggestions and measured costs. Draft span discovery is distinct from native complete answers.",
-      "measurement_status": "Preserved direct2/22 and failed sorter1/22 trials; final88 workers restore2/22 complete and27/32 draft spans in each of four arms. Full1249 extracted-ZIP tests pass;12 claims32 original citations and44 suggestion files freshly replayed. Independent human/unseen semantic assessment NOT RUN."
+      "measurement_status": "Preserved direct2/22 and failed sorter1/22 trials; final88 workers restore2/22 complete and27/32 draft spans in each of four arms. Full1249 extracted-ZIP tests pass;12 claims32 original citations and44 suggestion files freshly replayed. Independent human/unseen semantic assessment NOT RUN.",
+      "responsible_department": "testing-evaluation",
+      "implementation_departments": [
+        "intake-research",
+        "reader"
+      ]
     },
     {
       "family": "candidate-review-workspace",
@@ -859,7 +1135,12 @@
         "tools/check_candidate_workspace_install.py"
       ],
       "scope": "Opt-in processed/eligible-original review; ownership policy, byte fidelity and separate budgets, not semantic historical validation.",
-      "measurement_status": "Final e0ff226:1267 extracted-ZIP tests and isolated frozen-wheel check pass; all22 native results unchanged at2 complete. Five public cases/replays retain15 exact matches,49 phrase cues,39 processed passages; failures and costs preserved. Semantic human/unseen assessment NOT RUN."
+      "measurement_status": "Final e0ff226:1267 extracted-ZIP tests and isolated frozen-wheel check pass; all22 native results unchanged at2 complete. Five public cases/replays retain15 exact matches,49 phrase cues,39 processed passages; failures and costs preserved. Semantic human/unseen assessment NOT RUN.",
+      "responsible_department": "testing-evaluation",
+      "implementation_departments": [
+        "intake-research",
+        "reader"
+      ]
     },
     {
       "family": "fixpack",
@@ -879,7 +1160,11 @@
         "tools/evaluate_semantic_triage.py"
       ],
       "scope": "Supplied patch hardening, unchanged22 development replay, separate discovery, fictional process-interruption and optional live-model flag probes. No independent historical accuracy.",
-      "measurement_status": "Final runtime7c92db5:1364 unittest passed,52 public controls;unchanged22 complete2\u21922,partial1\u21922;draft anchors27/32 unchanged;fresh blinded AI assessment only;live tiny model no utility gain."
+      "measurement_status": "Final runtime7c92db5:1364 unittest passed,52 public controls;unchanged22 complete2→2,partial1→2;draft anchors27/32 unchanged;fresh blinded AI assessment only;live tiny model no utility gain.",
+      "responsible_department": "testing-evaluation",
+      "implementation_departments": [
+        "delivery-operations"
+      ]
     },
     {
       "family": "sorter-exploration",
@@ -896,7 +1181,12 @@
         "evaluation/sorter-exploration/2026-11-19/d100/check_exploration.py"
       ],
       "scope": "Read-only labels and unofficial bounded hypotheses beside native authority;mocked model boundaries and fictional examples,not historical semantic accuracy.",
-      "measurement_status": "Final f856205:1379 extracted tests and52 public controls passed;111 identical nodes across modes;22 extra review edges;one live model smoke yielded a repeated open question,no semantic utility claim. Storage/socket failures preserved. Fresh pinned B-Tests d100100/100 and explorer companion100/100 passed;123 external harness controls passed;merge pending exact-head CI."
+      "measurement_status": "Final f856205:1379 extracted tests and52 public controls passed;111 identical nodes across modes;22 extra review edges;one live model smoke yielded a repeated open question,no semantic utility claim. Storage/socket failures preserved. Fresh pinned B-Tests d100100/100 and explorer companion100/100 passed;123 external harness controls passed;merge pending exact-head CI.",
+      "responsible_department": "testing-evaluation",
+      "implementation_departments": [
+        "intake-research",
+        "reader"
+      ]
     },
     {
       "family": "dpercent",
@@ -916,7 +1206,11 @@
         "tools/dpercent_features.py"
       ],
       "scope": "Original fictional structurally randomized prose;binary source-assertion answerability and refusal,bounded retrieval comparison;not historical accuracy.",
-      "measurement_status": "Frozen6e0de9e:1240/1240 executed;20\u2192200/600 complete checked(160 source assertions,40 word locations),640/640 expected refusals,F0%,400 incomplete answerable cases.Historical complete2/22 unchanged.1431 archived tests,52 public controls,actualWASM and headlessChromium passed.All failed/interrupted attempts retained.Independent semantic review NOT RUN."
+      "measurement_status": "Frozen6e0de9e:1240/1240 executed;20→200/600 complete checked(160 source assertions,40 word locations),640/640 expected refusals,F0%,400 incomplete answerable cases.Historical complete2/22 unchanged.1431 archived tests,52 public controls,actualWASM and headlessChromium passed.All failed/interrupted attempts retained.Independent semantic review NOT RUN.",
+      "responsible_department": "testing-evaluation",
+      "implementation_departments": [
+        "reader"
+      ]
     },
     {
       "family": "documentary-articles",
@@ -928,7 +1222,11 @@
         "tools/article_study.py"
       ],
       "scope": "Read-only assembly preservation and shared declared ancestry; not new historical reconstruction accuracy or independent corroboration.",
-      "measurement_status": "Development controls and unchanged-original preservation study; see dated report for actual completed checks."
+      "measurement_status": "Development controls and unchanged-original preservation study; see dated report for actual completed checks.",
+      "responsible_department": "testing-evaluation",
+      "implementation_departments": [
+        "reader"
+      ]
     },
     {
       "family": "archival-inspection",
@@ -945,7 +1243,11 @@
         "tools/archival_tutorial.py"
       ],
       "scope": "Finite source event/date relationships and native completion on unchanged development documents; independent semantic correctness unmeasured.",
-      "measurement_status": "See dated retained before/after study, guards, costs and initial failed controls. Unseen200-question and actual independent review NOT RUN."
+      "measurement_status": "See dated retained before/after study, guards, costs and initial failed controls. Unseen200-question and actual independent review NOT RUN.",
+      "responsible_department": "testing-evaluation",
+      "implementation_departments": [
+        "reader"
+      ]
     },
     {
       "family": "field-question-normalization",
@@ -958,7 +1260,11 @@
         "tools/reproduce_boundaries.py"
       ],
       "scope": "Unchanged public synthetic literal-field question forms, positive/negative support and exact key-value scoring; no historical accuracy or independent semantic review.",
-      "measurement_status": "Final9b5ff0c:1482 native tests,52 public controls,900/900 exact fields,200/200 refusals,900 eligible citation readbacks; original22 contracts preserved. Independent semantic review NOT RUN."
+      "measurement_status": "Final9b5ff0c:1482 native tests,52 public controls,900/900 exact fields,200/200 refusals,900 eligible citation readbacks; original22 contracts preserved. Independent semantic review NOT RUN.",
+      "responsible_department": "testing-evaluation",
+      "implementation_departments": [
+        "reader"
+      ]
     },
     {
       "family": "dpercent-expanded",
@@ -974,7 +1280,11 @@
         "tools/dpercent.py"
       ],
       "scope": "Known-error structural stress testing across historical prose and field admission; frozen packets, isolated worker and post-run keys. Not independent/unseen evaluation.",
-      "measurement_status": "Two complete1000-case frozen runs:156 to168/420 matched complete,580/580 refusals,252 positives still unresolved; no execution failures. Initial/scorer failures and interruption retained."
+      "measurement_status": "Two complete1000-case frozen runs:156 to168/420 matched complete,580/580 refusals,252 positives still unresolved; no execution failures. Initial/scorer failures and interruption retained.",
+      "responsible_department": "testing-evaluation",
+      "implementation_departments": [
+        "reader"
+      ]
     },
     {
       "family": "field-aliases",
@@ -989,7 +1299,11 @@
         "tools/reproduce_boundaries.py"
       ],
       "scope": "One bounded source-body field-alias improvement; immutable legacy benchmarks and a sealed240-case developer holdout. Not independent semantic validation.",
-      "measurement_status": "Native2427d80: expanded189/420 with580 refusals;240 development50/64;150 prospective33/40; original200/600 and historical3/22 unchanged; independent review NOT RUN."
+      "measurement_status": "Native2427d80: expanded189/420 with580 refusals;240 development50/64;150 prospective33/40; original200/600 and historical3/22 unchanged; independent review NOT RUN.",
+      "responsible_department": "testing-evaluation",
+      "implementation_departments": [
+        "reader"
+      ]
     },
     {
       "family": "dpercent-known-weaknesses",
@@ -1003,7 +1317,11 @@
         "tools/dpercent_weakness_audit.py"
       ],
       "scope": "75 executable authored classes,15 explicit unmeasured gaps; sealed 4096-case study, graph obligations separate from native support and semantic truth.",
-      "measurement_status": "4096/4096 executed;657/1262 complete,605 missed positives in11 classes;2834/2834 expected refusals;37 budget-partial graphs;156894 node spans audited without errors. Developer-authored; independent review NOT RUN."
+      "measurement_status": "4096/4096 executed;657/1262 complete,605 missed positives in11 classes;2834/2834 expected refusals;37 budget-partial graphs;156894 node spans audited without errors. Developer-authored; independent review NOT RUN.",
+      "responsible_department": "testing-evaluation",
+      "implementation_departments": [
+        "reader"
+      ]
     }
   ]
 }

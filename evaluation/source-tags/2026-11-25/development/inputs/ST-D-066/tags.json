@@ -1,0 +1,85 @@
+{
+  "schema": "source-linked-proposals-v1",
+  "source": {
+    "id": "SOURCE-1",
+    "path": "source-1.html",
+    "hash": "sha256:023cbfff47e81d11ff071d11c36d71f0ce0ad583684e57719da922279956cfe3",
+    "body_html_sha256": "665042a35f8cd51d6d6d8a1bafca21aac81be172353e073b252a008e7b367b84"
+  },
+  "nodes": [
+    {
+      "id": "D1",
+      "kind": "document",
+      "parent": null,
+      "body_start": 0,
+      "body_end": 100
+    },
+    {
+      "id": "C1",
+      "kind": "statement",
+      "parent": "D1",
+      "body_start": 34,
+      "body_end": 100,
+      "quote": "Enzo Vidal stated, “Hugo Ferrer did not write the tidal register.”",
+      "original_start_byte": 66,
+      "original_end_byte": 136
+    },
+    {
+      "id": "P1",
+      "kind": "person",
+      "parent": "C1",
+      "body_start": 34,
+      "body_end": 44,
+      "quote": "Enzo Vidal",
+      "original_start_byte": 66,
+      "original_end_byte": 76
+    },
+    {
+      "id": "P2",
+      "kind": "person",
+      "parent": "C1",
+      "body_start": 54,
+      "body_end": 65,
+      "quote": "Hugo Ferrer",
+      "original_start_byte": 88,
+      "original_end_byte": 99
+    },
+    {
+      "id": "O1",
+      "kind": "object",
+      "parent": "C1",
+      "body_start": 80,
+      "body_end": 98,
+      "quote": "the tidal register",
+      "original_start_byte": 114,
+      "original_end_byte": 132
+    }
+  ],
+  "relations": [
+    {
+      "witness": "C1",
+      "subject": "P2",
+      "reported_by": "P1",
+      "object": "O1",
+      "proposition": {
+        "reporter": "Enzo Vidal",
+        "author": "Hugo Ferrer",
+        "inner_action": "write",
+        "object": "the tidal register",
+        "inner_negative": true,
+        "outer_negative": false,
+        "conditions": [
+          "If permission is granted"
+        ],
+        "content_asserted_by_reporter": true,
+        "actual_authorship_established": false,
+        "source_writer_or_unknown": "Leila Bhandari",
+        "relation": "source_attributed_report_content",
+        "source_voice": "source_reports_named_speaker",
+        "reporting_layer": "source_scoped_report_content",
+        "completion_established": false,
+        "historical_truth_independently_verified": false
+      }
+    }
+  ]
+}

@@ -6,6 +6,8 @@ Combined MPLPB is also a [research methodology demonstrated through working soft
 
 [Open the browser app](https://mitchell-d00.github.io/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/) · [Download the small Python package](https://mitchell-d00.github.io/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/downloads/mplpb-native.zip) · [Installation guide](docs/INSTALLATION.md)
 
+**Try MPLPB** [in 30 seconds](#try-it-in-30-seconds) → **[Choose a department](docs/departments/README.md)** → **[Inspect the evidence](docs/TEST_INDEX.md)**.
+
 See [how the pieces connect](docs/PACKAGE_GUIDE.md) for the paths from raw documents to evidence, conversation, work history, and guarded dispatch, plus the companion projects and tests.
 
 Use the [Development History Index](docs/DEVELOPMENT_HISTORY.md) to find the design decisions, code revisions, and test evidence for the part you’re working on.
@@ -13,19 +15,6 @@ Use the [Development History Index](docs/DEVELOPMENT_HISTORY.md) to find the des
 Use [Advanced MPLPB](#advanced-mplpb) for guided questions and deterministic rule-training sprints.
 
 The [governance gate experiment](evaluation/comparative-tests/governance-gate/README.md) shows how a model-shaped proposal becomes a cited local report only after host approval, guarded dispatch, and verified readback.
-
-**TeamBuilding pipeline.** Betty and Al are labels for two work steps.
-Start with **“Run Betty”** and the repo link. In
-a separate chat, send the same link with **“Run Al”**
-(lowercase L). Both read the repo, read the [agent API manifest](.well-known/mplpb.json), confirm
-the selected step, then read the [last Betty report](HANDOFF.md#betty-report-for-al)
-on the [newest PR by creation time](https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/pulls?q=is%3Apr+sort%3Acreated-desc)
-or the PR link you supply. Al can complete the review using ordinary web links. Mitchell relays Al’s response and his direction to Betty, who runs
-the authorized tests and updates the same PR. [Pipeline guide](docs/TEAMBUILDING.md)
-· [Public API manifest and source archive catalog](.well-known/mplpb.json)
-
-[Outside](docs/TEAMBUILDING.md#outside) is Mitchell’s optional sounding-board
-chat. Mitchell manually chooses which discussion or advice to relay as direction.
 
 **For AI reviewers:** Follow the [full-package inspection directions](#directions-for-an-ai-to-inspect-the-full-combined-mplpb-package) before describing or assessing MPLPB.
 
@@ -176,3 +165,19 @@ Benchmark results and their limitations are indexed alongside the original repor
 Code is MIT licensed and project documentation is CC BY 4.0. Bundled sources and other materials carry their own notices. [License](LICENSE) · [Resource notices](resources/README.md)
 
 Last reviewed: 2026-11-25.
+
+## Contributor coordination
+
+**TeamBuilding pipeline.** Betty and Al are labels for two work steps.
+Start with **“Run Betty”** and the repo link. In
+a separate chat, send the same link with **“Run Al”**
+(lowercase L). Both read the repo, read the [agent API manifest](.well-known/mplpb.json), confirm
+the selected step, then read the [last Betty report](HANDOFF.md#betty-report-for-al)
+on the [newest PR by creation time](https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/pulls?q=is%3Apr+sort%3Acreated-desc)
+or the PR link you supply. Al can complete the review using ordinary web links. Mitchell relays Al’s response and his direction to Betty, who runs
+the authorized tests and updates the same PR. [Pipeline guide](docs/TEAMBUILDING.md)
+· [Public API manifest and source archive catalog](.well-known/mplpb.json)
+
+[Outside](docs/TEAMBUILDING.md#outside) is Mitchell’s optional sounding-board
+chat. Mitchell manually chooses which discussion or advice to relay as direction.
+

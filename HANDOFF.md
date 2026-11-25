@@ -4,8 +4,8 @@ Last reviewed: 2026-11-25.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `fb25b205d04a9101093c74446590cf0a00c96154` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `45b557cc3fcb7d88b007f9cfc0ad14964effe2806f1ca36a84bca2204468f20b`.
+Base commit: `065840d9e7109ed26642fb6c755a723a7b044113` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `790a81854272af4219ca02ae2b04d35a175d94b54195b30c8f1b3cc252010a5f`.
 
 ## Betty report for Al
 
@@ -58,61 +58,49 @@ Source-linked tag comparison: exact source/revision/hash coordinates, proposed t
 If it lost valid support or gained an unsupported claim, repair the reader. If it recovered a previously missed positive, verify the complete claim, qualifications, and citations before updating acceptance expectations. If execution or scoring failed, retain that separately from reader results.
 Create a department-based navigation structure and map every existing component to its department. Start with documentation and entry points, preserving imports, commands, frozen evidence paths, and historical links. Update the Test Index to identify the responsible department. Move implementation files later in separately tested changes, with an old-path/new-path migration map.
 
+Continue all authorized work in sequence, test/fix/merge; next newPR expected104. Mitchell recruits12first-time participants and returns their actual results.
+
 
 ### Implemented scope
 
-- Reconciled PR103 head5bef945 and preserved its original freeze and transfer seal.
-- Added execution-only Bubble adapter using existing isolation machinery, separately frozen32 Wrap cases, complete-governor source-role scoring and indexed native/source-state/budget controls.
-- No native reader changes at this baseline freeze.
-- Add one native source-scoped report operation reusing existing action/policy checks, with separate writer/reporter/embedded actor, inner/outer negation and conditional status. No instruction or historical claim changes.
-- Freeze nine byline/governor contrasts and expanded280 baseline before further native repair. Fresh24 composition instances/key remain unopened.
-- Merge actual PR97/95 histories while retaining later FRUS reader/evidence and all byte-identical older implementation/evaluation files; retarget both PRs to main for unified tested integration.
-- Integrate actual PR93 browser document workflow and local capture path, preserving new role APIs and frozen older integrity tests; final combined ZIP/browser gates remain pending.
-- Add only the shared unpunctuated metadata boundary and retain a separate conditional fragment ending in a period. Do not change existing punctuated instruction unit counts.
-- All93/95/97 head histories are ancestors of the consolidation branch; preserve later FRUS evidence and original integrity tests, integrate missing93 local-document UI/provenance.
-- Consolidated all actual PR93/95/97 histories with missing browser local-document work; committed combined source7f6641d and retained the exact ZIP.
-- Completed once-only fresh same-operator composition transfer after retained zero-reader-execution host-path preparation failure.
-- Retain source-linked tags as next software trial and prepare human onboarding; Mitchell recruits real participants. No human results invented.
+- Merged PR103 with93/95/97 histories into main16948d5ec5901870c3e884f68e7bc1fffb6fa2b4 after exact2ab4b01head gates passed; allfour PRs report merged and main tree matches tested head. Pages deployment pending.
+- Freeze source-linked proposal trial72development/24sealed transfer and baseline before native implementation. Retain exact uncommitted prototype and host scorer-reporting correction.
+- Prepare seven department navigation pages and explicit component routing, preserving all implementation/import/command/evaluation/history paths. Native tag API not yet added at this preparation commit.
+- Prepare compact onboarding materials with the exact small native wheel and five fixed synthetic tasks; no human observations yet.
+- Add opt-in native source-linked proposal inspection using full ordinary native proof, explicit source pins, canonical/original containment and current eligibility; production answering remains unchanged.
+- Complete seven department entry pages, component routing and Test Index family ownership. Root leads TryMPLPB→Departments→Evidence; contributor protocol preserved below first-use sections.
+- Freeze two400KBnative onboarding ZIPs with identical wheel/collection/tasks/interface; only ENTRY documents differ. Helper verifies exact installed runtime and collection. Human executionNOT_RUN.
+- Repair UI evidence-card selection after retained candidate browser failure; use native citation tuples instead of lexical ordering and await an actually opened source dialog. No native code changes after transfer.
 
 ### Validation recorded
 
-- Required sandbox gate: restricted uid_map failure retained; approved host invocation passes all4 isolation tests with no direct fallback.
-- Adapter parity123 consumed cases and final20 proposal cases pass; frozen before baseline/candidate comparison.
-- Baseline256 isolated executions completed/scored;230 expected decisions pass,26 target misses,zero false-supported claim cases; all raw outcomes retained.
-- Frozen16 native guards:13 pass,2fail,1 missing-new-module error. Preserved as baseline failures.
-- Delivery observer path/classification errors retained separately; worker,adapter,scorer,key and baseline results unchanged.
-- Amended v3 scorer: baseline230/256 to development256/256; ten primary source targets recovered; Wrap12source answers,4conflicts,16independent-authorship withholds. Zero final false-supported claim cases.
-- All prior80claims preserved;30new source report claims have complete governor, typed roles, canonical and actual written-HTML byte witnesses. Six partials unchanged; all101unaffected inventory,96instruction and17PE02 complete contracts/discovery preserved.
-- All169indexed native controls pass:56focused,92authority/integrity,16report guards,5accounting.
-- Initial scorer26certificate rejections remain failed. A versioned projection auditor restores automatic H1 wrapper; v2 CLI import/logging failures retained; v3 frozen before exact unchanged-output rescoring. Keys,inputs,adapter and reader unchanged by correction.
-- Committed204a7d ZIP SHA-256804161aec3d4286296413007874bd0b60f030589ceb72203dad5a524396e7ea2 has13700 matched extractedfiles; isolated extracted256/256 passes.
-- Once-only first transfer16/24 versusbaseline12/24:4positive12withhold8miss0false support. AcceptanceFAIL; originalcandidateunchanged. All24 consumed, no relabeling.
-- Fresh composition generator/seed/packet/key seals frozen before any continuation native edit. Exact instances/key remain unopened.
-- Four openPRs93,95,97,103. Reconcile diverged histories, retain later reader/evidence and integrate genuinely missing local-document browser work before tested main merge.
-- Continuation baseline280 isolated/scored:272pass8miss,0false-supported claim cases on that frozen packet set. Separately frozen9new byline/governor guards:6pass3fail, including one exposed false-supported conditional-fragment claim. Preserve that control failure; prior zero figures apply only to their stated frozen sets.
-- FRUS history conflict resolution leaves all three native runtime packages byte-identical to the pre-merge candidate; older implementation/evidence content already matches current. PR93 browser feature remains to integrate.
-- Expanded280 continuation:272/280 to280/280;97complete6partial6conflict171abstain122claims,0false-supported claim cases,0failed/notrun/unscored. All prior full contracts and counters preserved.
-- Nine frozen byline/governor controls6/9to9/9; one prior false-supported conditional fragment eliminated. Existing16report guards pass. Wider candidate with4examined-unit counter changes retained as rejected; no key relabeling.
-- Original93browser-bridge and integrity checks35pass plus UI script syntax/workflow checks pass. Native package differences from first candidate remain restricted to source_units and reported_content guard.
-- Combined committed7f6641d ZIP SHA-256f5be70718a1454171005493eba452e8fbd0602f3195e5325f57dd268840f8162 matches20714tracked files/modes and passes280/280 isolated scored decisions.
-- Full extracted native regression completed1810tests exit0;52public controls and15software commands pass, including12/12 report-pin decisions, JavaScript and HTTP. Actual WASM and live-old-baseline/candidate Chromium pass, including integrated local-document browser journey.
-- Fresh composition transfer: prior204a7d16/24 to committed7f6641d24/24;12positive12withhold0false support0budget stops. Candidate cases executed once; no native edits after opening. Host path preparation error before any reader execution retained with original lock and partial output; resumed unchanged driver with absolute paths.
-- Exactfb25CI regression passed. Original bounded1,000gate failed solely on21already-expected reported_statement positives labeled unscored_support;189old completions,21compound completions,580refusals retained. All21isolated full-role/qualification/canonical/original-byte readbacks pass;12tampered certificates rejected. No native edit; original scorer/keys/failure retained, new versioned host audit requires exactly the reviewed positive transitions.
+- PR103 checked source7f6641d ZIPf5be70718a1454171005493eba452e8fbd0602f3195e5325f57dd268840f8162:280/280development/preservation and fresh24/24same-operator composition; first16/24failure retained.
+- Exact2ab4b01 publication CI allgreen, including1,000-case readback:231/420complete,580/580refusals preserved,189positive misses; original v1failure and original labels/scorer retained.
+- All PR93,95,97,103 report merged at16948d5; noopenPRs observed aftermerge. Verified main tree equals exact checked head and all old heads are ancestors.
+- Source-tag baseline72isolated executions complete and raw72/72supported; tag API unavailable, semantic tag checksNOT_RUN. Frozen worker excludes keys/generator/scorer/Git/credentials/network.
+- Uncommitted tag prototype72/72decisions,6valid66tamper,0wrongassignments,0recoveredanswers; raw contracts unchanged exceptfingerprints. Prototype source/raw hashes retained; fresh24still unopened.
+- Native wheel70db08aec72861cc17fea8bc08b7eb6bc7986764e4adf47d0e04ead496253303 is400276bytes from checked7fsource. Isolated installed-wheel helper opens actual cited passage; fixed collection repeats byte-for-byte. These are software checks, not human observations.
+- PR103 Pages45670095889completed successfully, public postdeployChromium plus a separate verified-TLS/SPKI observer pass; allsixcore module fingerprints match before/after full live UI,local-document andNPC/reload journeys.
+- Source-tag15additional state/budget/ambiguity/mutation/original-containment guards pass; portable generator with explicit original17:31clock reproduces development manifest/key/seal byte-for-byte. Original generator and runner versions retained unchanged.
+- Onboarding actualtwoZIPs extracted, installed-wheel helpers run under isolatedPython, allfive native contracts and opened citation identical. Frozen package parity plus scoring7arithmetic controls pass; zero human observations.
+- Committed2af8ba8 ZIP17a3d15fe8ca2d7fffc27f949f621445692b6a053025a3939bc47bdaf2bf59ec matches24830files;72/72proposal,280/280preservation,24/24fresh proposal decisions,0wrong tags,0recoveredanswers.
+- Full extracted native suite1834pass;52public controls,15software commands andWASMpass. BrowsercandidateFAIL retained:wrong lexical source card and stale-dialog assertion. FrozenJScontrols failbefore andpassafter correction;35Pythonbrowser/integritycontrolspass. Native packages byte-identical to transferfreeze; no rerun of the fresh packet.
+- Corrected065840d deliveryZIP SHAafe52d43e335f5963b765d00c7ad373a6ec0fd6a5bb560c86a93d7d3a6bffb98matches27155trackedfiles, nativebytesexactlyequalonce-tested2af8ba8.15softwarecommands,58focusedtests,actualWASM,bothChromiumcontextsandactualnewsource-dialogchecksPASS.
+- SourceTagfresh24/24(6valid18tamper),0wrongtags,0newanswers;raw24/24beforeandafter. Native2af8ba8full1834pass;280priorcontracts(including6partials)unchanged. FirstdeliverybrowserfailureandearlyZIPpreparationerrorretained.
 
 ### Limitations and blocked checks
 
-- Private PE02 originals/raw remain under original restrictions; public hashes/comparisons retained.
-- Same operator prepared templates and scored. Independent preparation, blinding, historical accuracy, semantic adjudication, outside-custodian scoring and native OOCC remain NOT_RUN.
-- First transfer remainsFAIL16/24. Wider continuation with4counter changes remains rejected. Initial scorer failures and v3 projection amendment remain disclosed; keys and source inputs never relabeled.
-- Twenty-eight non-target positive questions remain incomplete:4partials24misses includingFRESH05. This is scoped composition/layout transfer, not broad documentary reading or historical coverage.
-- Exact publication-head CI, merge and deployed-main verification pending; final receipts will be posted in PR103 and Actions.
-- Twelve-person onboarding human execution NOT_RUN; Mitchell will recruit and return observations. Source-linked tag trial next, not implemented in this checked source.
+- Zero reading-coverage gain from tag inspection; existingnative forms only. Same-operator templates visible, not independent preparation/blinding.
+- Human12-person pilotNOT_RUN; frozen400KBarmZIPsandsoftwareparityarepreparationonly. Mitchell recruits and returns actualobservations.
+- Independenthistoricalaccuracy,semanticadjudication,preparation/blinding,outside-custodianscoring,nativeOOCCremainNOT_RUN.
+- Corrected deliverypassedlocalgates; exactpublication-headfullCI,104mergeanddeployedmainverificationpending.
+- Originalsource-tagdeliveryrejectedforbrowserfailure;nativepackagesunchangedaftertransfer.Noheldpacket rerun.
 
 ### Next steps
 
-- Push amended host acceptance/evidence head; require new exact-head full replay and archive gates, merge103 with all old PR ancestry, then verify main/live/noopenPRs.
-- Start next software experiment in the next newPR (expected104); freeze raw-vs-tag inputs, contrasts, keys and separate transfer before implementing. Prepare frozen onboarding materials for Mitchell; keep actual human outcomes NOT_RUN.
-- NextPR includes seven department entry pages and complete existing-component navigation map; no implementation moves or historical path changes.
+- Pushfinal104evidencehead,currentPRreportwithexacttestedpins/checksumsandNOT_RUNlabels;requireall exact-headCIgatesbeforemerge.
+- Mergemain,verifytree/sourcecardworkflow/sevenruntimefingerprintsandnoopenPRs;recordfinalreleaseinPR104/Actions.
+- Mitchell administersfrozenpilotandreturnsrealobservations;do notfillmissingparticipantsorresults.
 
 ## Use this ZIP in your repository
 

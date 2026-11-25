@@ -1,0 +1,85 @@
+{
+  "schema": "source-linked-proposals-v1",
+  "source": {
+    "id": "SOURCE-1",
+    "path": "source-1.html",
+    "hash": "sha256:93ea9d4d8fdca598a353b8c90f4a5ed066b229bb66e8ab2785fad180bda3f227",
+    "body_html_sha256": "8b0ba789fdf37532b1c30bd5e14d31536269ea039d291fc3e5c79946746aad84"
+  },
+  "nodes": [
+    {
+      "id": "D1",
+      "kind": "document",
+      "parent": null,
+      "body_start": 0,
+      "body_end": 104
+    },
+    {
+      "id": "C1",
+      "kind": "statement",
+      "parent": "D1",
+      "body_start": 40,
+      "body_end": 104,
+      "quote": "Leila Bhandari reported that Enzo Vidal wrote the winter ledger.",
+      "original_start_byte": 72,
+      "original_end_byte": 136
+    },
+    {
+      "id": "P1",
+      "kind": "person",
+      "parent": "C1",
+      "body_start": 40,
+      "body_end": 54,
+      "quote": "Leila Bhandari",
+      "original_start_byte": 72,
+      "original_end_byte": 86
+    },
+    {
+      "id": "P2",
+      "kind": "person",
+      "parent": "C1",
+      "body_start": 69,
+      "body_end": 79,
+      "quote": "Enzo Vidal",
+      "original_start_byte": 101,
+      "original_end_byte": 111
+    },
+    {
+      "id": "O1",
+      "kind": "object",
+      "parent": "C1",
+      "body_start": 86,
+      "body_end": 103,
+      "quote": "the winter ledger",
+      "original_start_byte": 118,
+      "original_end_byte": 135
+    }
+  ],
+  "relations": [
+    {
+      "witness": "C1",
+      "subject": "P2",
+      "reported_by": "P1",
+      "object": "O1",
+      "proposition": {
+        "reporter": "Leila Bhandari",
+        "author": "Enzo Vidal",
+        "inner_action": "write",
+        "object": "the winter ledger",
+        "inner_negative": false,
+        "outer_negative": false,
+        "conditions": [
+          "If permission is granted"
+        ],
+        "content_asserted_by_reporter": true,
+        "actual_authorship_established": false,
+        "source_writer_or_unknown": "Amara Voss",
+        "relation": "source_attributed_report_content",
+        "source_voice": "source_reports_named_speaker",
+        "reporting_layer": "source_scoped_report_content",
+        "completion_established": false,
+        "historical_truth_independently_verified": false
+      }
+    }
+  ]
+}

@@ -1,0 +1,83 @@
+{
+  "schema": "source-linked-proposals-v1",
+  "source": {
+    "id": "SOURCE-1",
+    "path": "source-1.html",
+    "hash": "sha256:dad5450a25212159864285d8325e3c6b7e80b70b9ffeaa373c368718ed7e9789",
+    "body_html_sha256": "37f6790c189b40e5ff6cf34705b6209b20faeecb103b7c3416bcdb7bf706e482"
+  },
+  "nodes": [
+    {
+      "id": "D1",
+      "kind": "document",
+      "parent": null,
+      "body_start": 0,
+      "body_end": 93
+    },
+    {
+      "id": "C1",
+      "kind": "statement",
+      "parent": "D1",
+      "body_start": 31,
+      "body_end": 93,
+      "quote": "According to Iona Farouk, Nora Mendes wrote the canal survey.",
+      "original_start_byte": 63,
+      "original_end_byte": 125
+    },
+    {
+      "id": "P1",
+      "kind": "person",
+      "parent": "C1",
+      "body_start": 44,
+      "body_end": 55,
+      "quote": "Iona Farouk",
+      "original_start_byte": 76,
+      "original_end_byte": 87
+    },
+    {
+      "id": "P2",
+      "kind": "person",
+      "parent": "C1",
+      "body_start": 57,
+      "body_end": 69,
+      "quote": "Elina Brooks",
+      "original_start_byte": 89,
+      "original_end_byte": 101
+    },
+    {
+      "id": "O1",
+      "kind": "object",
+      "parent": "C1",
+      "body_start": 76,
+      "body_end": 92,
+      "quote": "the canal survey",
+      "original_start_byte": 108,
+      "original_end_byte": 124
+    }
+  ],
+  "relations": [
+    {
+      "witness": "C1",
+      "subject": "P2",
+      "reported_by": "P1",
+      "object": "O1",
+      "proposition": {
+        "reporter": "Iona Farouk",
+        "author": "Elina Brooks",
+        "inner_action": "write",
+        "object": "the canal survey",
+        "inner_negative": false,
+        "outer_negative": false,
+        "conditions": [],
+        "content_asserted_by_reporter": true,
+        "actual_authorship_established": false,
+        "source_writer_or_unknown": "Nora Mendes",
+        "relation": "source_attributed_report_content",
+        "source_voice": "source_reports_named_speaker",
+        "reporting_layer": "source_scoped_report_content",
+        "completion_established": false,
+        "historical_truth_independently_verified": false
+      }
+    }
+  ]
+}

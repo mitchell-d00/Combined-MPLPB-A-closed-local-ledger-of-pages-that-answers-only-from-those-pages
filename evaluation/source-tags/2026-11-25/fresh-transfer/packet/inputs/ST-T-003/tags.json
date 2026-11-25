@@ -1,0 +1,83 @@
+{
+  "schema": "source-linked-proposals-v1",
+  "source": {
+    "id": "SOURCE-1",
+    "path": "source-1.html",
+    "hash": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+    "body_html_sha256": "bf4f9d7c2ea3154861aeb8508c4433b61a272c92535b92796d0230b5b183a9a8"
+  },
+  "nodes": [
+    {
+      "id": "D1",
+      "kind": "document",
+      "parent": null,
+      "body_start": 0,
+      "body_end": 117
+    },
+    {
+      "id": "C1",
+      "kind": "statement",
+      "parent": "D1",
+      "body_start": 53,
+      "body_end": 117,
+      "quote": "According to Ravi Dumas, Elina Brooks wrote the quarry register.",
+      "original_start_byte": 85,
+      "original_end_byte": 149
+    },
+    {
+      "id": "P1",
+      "kind": "person",
+      "parent": "C1",
+      "body_start": 66,
+      "body_end": 76,
+      "quote": "Ravi Dumas",
+      "original_start_byte": 98,
+      "original_end_byte": 108
+    },
+    {
+      "id": "P2",
+      "kind": "person",
+      "parent": "C1",
+      "body_start": 78,
+      "body_end": 90,
+      "quote": "Elina Brooks",
+      "original_start_byte": 110,
+      "original_end_byte": 122
+    },
+    {
+      "id": "O1",
+      "kind": "object",
+      "parent": "C1",
+      "body_start": 97,
+      "body_end": 116,
+      "quote": "the quarry register",
+      "original_start_byte": 129,
+      "original_end_byte": 148
+    }
+  ],
+  "relations": [
+    {
+      "witness": "C1",
+      "subject": "P2",
+      "reported_by": "P1",
+      "object": "O1",
+      "proposition": {
+        "reporter": "Ravi Dumas",
+        "author": "Elina Brooks",
+        "inner_action": "write",
+        "object": "the quarry register",
+        "inner_negative": false,
+        "outer_negative": false,
+        "conditions": [],
+        "content_asserted_by_reporter": true,
+        "actual_authorship_established": false,
+        "source_writer_or_unknown": "Iona Farouk",
+        "relation": "source_attributed_report_content",
+        "source_voice": "source_reports_named_speaker",
+        "reporting_layer": "source_scoped_report_content",
+        "completion_established": false,
+        "historical_truth_independently_verified": false
+      }
+    }
+  ]
+}

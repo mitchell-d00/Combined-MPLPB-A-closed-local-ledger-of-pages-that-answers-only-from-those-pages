@@ -1,0 +1,83 @@
+{
+  "schema": "source-linked-proposals-v1",
+  "source": {
+    "id": "SOURCE-1",
+    "path": "source-1.html",
+    "hash": "sha256:d059a6983fea63c41cfd1f4e892f6c67cd2660f99cbd4e0331f2f4a949998d24",
+    "body_html_sha256": "cf0b0c33121c40f1df8b77f36d3169c668288c3b155b191d5775c388f69abc73"
+  },
+  "nodes": [
+    {
+      "id": "D1",
+      "kind": "document",
+      "parent": null,
+      "body_start": 0,
+      "body_end": 118
+    },
+    {
+      "id": "C1",
+      "kind": "statement",
+      "parent": "D1",
+      "body_start": 56,
+      "body_end": 118,
+      "quote": "Hugo Ferrer reported that Leila Bhandari wrote the tidal register.",
+      "original_start_byte": 88,
+      "original_end_byte": 150
+    },
+    {
+      "id": "P1",
+      "kind": "person",
+      "parent": "C1",
+      "body_start": 56,
+      "body_end": 67,
+      "quote": "Hugo Ferrer",
+      "original_start_byte": 88,
+      "original_end_byte": 99
+    },
+    {
+      "id": "P2",
+      "kind": "person",
+      "parent": "C1",
+      "body_start": 82,
+      "body_end": 92,
+      "quote": "Enzo Vidal",
+      "original_start_byte": 114,
+      "original_end_byte": 124
+    },
+    {
+      "id": "O1",
+      "kind": "object",
+      "parent": "C1",
+      "body_start": 99,
+      "body_end": 117,
+      "quote": "the tidal register",
+      "original_start_byte": 131,
+      "original_end_byte": 149
+    }
+  ],
+  "relations": [
+    {
+      "witness": "C1",
+      "subject": "P2",
+      "reported_by": "P1",
+      "object": "O1",
+      "proposition": {
+        "reporter": "Hugo Ferrer",
+        "author": "Enzo Vidal",
+        "inner_action": "write",
+        "object": "the tidal register",
+        "inner_negative": false,
+        "outer_negative": false,
+        "conditions": [],
+        "content_asserted_by_reporter": true,
+        "actual_authorship_established": false,
+        "source_writer_or_unknown": "Leila Bhandari",
+        "relation": "source_attributed_report_content",
+        "source_voice": "source_reports_named_speaker",
+        "reporting_layer": "source_scoped_report_content",
+        "completion_established": false,
+        "historical_truth_independently_verified": false
+      }
+    }
+  ]
+}

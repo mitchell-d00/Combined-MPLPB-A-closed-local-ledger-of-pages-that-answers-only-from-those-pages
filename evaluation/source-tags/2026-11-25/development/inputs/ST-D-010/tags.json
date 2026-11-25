@@ -1,0 +1,83 @@
+{
+  "schema": "source-linked-proposals-v1",
+  "source": {
+    "id": "SOURCE-1",
+    "path": "source-1.html",
+    "hash": "sha256:75628ddce98cf43a7bc99de45d5ccaaff5a274b2f5ab612dcfe765a3dbb341d0",
+    "body_html_sha256": "9c0f86034a67d4df261b60ea6ece4697f546fd341c73b913fa1d2a19a1589dd6"
+  },
+  "nodes": [
+    {
+      "id": "D1",
+      "kind": "document",
+      "parent": null,
+      "body_start": 0,
+      "body_end": 116
+    },
+    {
+      "id": "C1",
+      "kind": "statement",
+      "parent": "D1",
+      "body_start": 53,
+      "body_end": 116,
+      "quote": "Hugo Ferrer reported that Nadia Rhee wrote the copper inventory.",
+      "original_start_byte": 84,
+      "original_end_byte": 148
+    },
+    {
+      "id": "P1",
+      "kind": "person",
+      "parent": "C1",
+      "body_start": 52,
+      "body_end": 63,
+      "quote": "Hugo Ferrer",
+      "original_start_byte": 84,
+      "original_end_byte": 95
+    },
+    {
+      "id": "P2",
+      "kind": "person",
+      "parent": "C1",
+      "body_start": 78,
+      "body_end": 88,
+      "quote": "Nadia Rhee",
+      "original_start_byte": 110,
+      "original_end_byte": 120
+    },
+    {
+      "id": "O1",
+      "kind": "object",
+      "parent": "C1",
+      "body_start": 95,
+      "body_end": 115,
+      "quote": "the copper inventory",
+      "original_start_byte": 127,
+      "original_end_byte": 147
+    }
+  ],
+  "relations": [
+    {
+      "witness": "C1",
+      "subject": "P2",
+      "reported_by": "P1",
+      "object": "O1",
+      "proposition": {
+        "reporter": "Hugo Ferrer",
+        "author": "Nadia Rhee",
+        "inner_action": "write",
+        "object": "the copper inventory",
+        "inner_negative": false,
+        "outer_negative": false,
+        "conditions": [],
+        "content_asserted_by_reporter": true,
+        "actual_authorship_established": false,
+        "source_writer_or_unknown": "Amara Voss",
+        "relation": "source_attributed_report_content",
+        "source_voice": "source_reports_named_speaker",
+        "reporting_layer": "source_scoped_report_content",
+        "completion_established": false,
+        "historical_truth_independently_verified": false
+      }
+    }
+  ]
+}

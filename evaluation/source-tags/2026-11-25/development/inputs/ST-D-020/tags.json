@@ -1,0 +1,83 @@
+{
+  "schema": "source-linked-proposals-v1",
+  "source": {
+    "id": "SOURCE-1",
+    "path": "source-1.html",
+    "hash": "sha256:62d3bb463a0abf42da4206a4f8b070795d0e1aeffdf14c598c058b34f8c466d9",
+    "body_html_sha256": "66b7f1b6b0c6c5db351c7bd363c8abcd87b850302f91422aeb3d5f0d6654d7c1"
+  },
+  "nodes": [
+    {
+      "id": "D1",
+      "kind": "document",
+      "parent": null,
+      "body_start": 0,
+      "body_end": 117
+    },
+    {
+      "id": "C1",
+      "kind": "statement",
+      "parent": "D1",
+      "body_start": 52,
+      "body_end": 117,
+      "quote": "Amara Voss stated, “Enzo Vidal did not write the winter ledger.”",
+      "original_start_byte": 84,
+      "original_end_byte": 153
+    },
+    {
+      "id": "P1",
+      "kind": "person",
+      "parent": "C1",
+      "body_start": 52,
+      "body_end": 62,
+      "quote": "Amara Voss",
+      "original_start_byte": 84,
+      "original_end_byte": 94
+    },
+    {
+      "id": "P2",
+      "kind": "person",
+      "parent": "C1",
+      "body_start": 72,
+      "body_end": 83,
+      "quote": "Hugo Ferrer",
+      "original_start_byte": 106,
+      "original_end_byte": 117
+    },
+    {
+      "id": "O1",
+      "kind": "object",
+      "parent": "C1",
+      "body_start": 98,
+      "body_end": 115,
+      "quote": "the winter ledger",
+      "original_start_byte": 132,
+      "original_end_byte": 149
+    }
+  ],
+  "relations": [
+    {
+      "witness": "C1",
+      "subject": "P2",
+      "reported_by": "P1",
+      "object": "O1",
+      "proposition": {
+        "reporter": "Amara Voss",
+        "author": "Hugo Ferrer",
+        "inner_action": "write",
+        "object": "the winter ledger",
+        "inner_negative": true,
+        "outer_negative": false,
+        "conditions": [],
+        "content_asserted_by_reporter": true,
+        "actual_authorship_established": false,
+        "source_writer_or_unknown": "Enzo Vidal",
+        "relation": "source_attributed_report_content",
+        "source_voice": "source_reports_named_speaker",
+        "reporting_layer": "source_scoped_report_content",
+        "completion_established": false,
+        "historical_truth_independently_verified": false
+      }
+    }
+  ]
+}

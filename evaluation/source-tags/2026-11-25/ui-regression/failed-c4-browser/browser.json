@@ -1,0 +1,50 @@
+[
+  {
+    "argv": [
+      "python",
+      "tools/build_browser_runtime.py",
+      "--core-archive",
+      "/workspace/pyodide-core.tar.bz2",
+      "--output",
+      "dist/index.html"
+    ],
+    "cwd": "/workspace/source-tags-extracted",
+    "started_at": "2026-11-25T18:21:43.957669+00:00",
+    "exit_code": 0,
+    "seconds": 4.347,
+    "stdout": "browser-1.stdout.log",
+    "stderr": "browser-1.stderr.log"
+  },
+  {
+    "argv": [
+      "node",
+      "tools/check_browser_wasm.mjs",
+      "/workspace/pyodide-runtime/pyodide",
+      "dist/index.html"
+    ],
+    "cwd": "/workspace/source-tags-extracted",
+    "started_at": "2026-11-25T18:21:48.304521+00:00",
+    "exit_code": 0,
+    "seconds": 150.807,
+    "stdout": "browser-2.stdout.log",
+    "stderr": "browser-2.stderr.log"
+  },
+  {
+    "argv": [
+      "python",
+      "evaluation/attribution/2026-11-25/archive-tools/verified_browser.py",
+      "--root",
+      ".",
+      "--output",
+      "/workspace/source-tags-browser-checks/verified-browser.json",
+      "--preview-dir",
+      "dist"
+    ],
+    "cwd": "/workspace/source-tags-extracted",
+    "started_at": "2026-11-25T18:24:19.112949+00:00",
+    "exit_code": 1,
+    "seconds": 73.781,
+    "stdout": "browser-3.stdout.log",
+    "stderr": "browser-3.stderr.log"
+  }
+]

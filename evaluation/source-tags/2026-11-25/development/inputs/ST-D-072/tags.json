@@ -1,0 +1,83 @@
+{
+  "schema": "source-linked-proposals-v1",
+  "source": {
+    "id": "SOURCE-1",
+    "path": "source-1.html",
+    "hash": "sha256:3feb4b3c4e580732da13b8a54b17a9581bed682f4fc5d3f73d70d28e5b457f38",
+    "body_html_sha256": "9bdbd96cef742ff13d2e20e8bf20d65e05ee75fb01b51ec759e4cbf440388cbb"
+  },
+  "nodes": [
+    {
+      "id": "D1",
+      "kind": "document",
+      "parent": null,
+      "body_start": 0,
+      "body_end": 96
+    },
+    {
+      "id": "C1",
+      "kind": "statement",
+      "parent": "P2",
+      "body_start": 31,
+      "body_end": 96,
+      "quote": "Dario Solis stated, “Enzo Vidal did not write the winter ledger.”",
+      "original_start_byte": 63,
+      "original_end_byte": 132
+    },
+    {
+      "id": "P1",
+      "kind": "person",
+      "parent": "C1",
+      "body_start": 31,
+      "body_end": 42,
+      "quote": "Dario Solis",
+      "original_start_byte": 63,
+      "original_end_byte": 74
+    },
+    {
+      "id": "P2",
+      "kind": "person",
+      "parent": "C1",
+      "body_start": 52,
+      "body_end": 62,
+      "quote": "Enzo Vidal",
+      "original_start_byte": 86,
+      "original_end_byte": 96
+    },
+    {
+      "id": "O1",
+      "kind": "object",
+      "parent": "C1",
+      "body_start": 77,
+      "body_end": 94,
+      "quote": "the winter ledger",
+      "original_start_byte": 111,
+      "original_end_byte": 128
+    }
+  ],
+  "relations": [
+    {
+      "witness": "C1",
+      "subject": "P2",
+      "reported_by": "P1",
+      "object": "O1",
+      "proposition": {
+        "reporter": "Dario Solis",
+        "author": "Enzo Vidal",
+        "inner_action": "write",
+        "object": "the winter ledger",
+        "inner_negative": true,
+        "outer_negative": false,
+        "conditions": [],
+        "content_asserted_by_reporter": true,
+        "actual_authorship_established": false,
+        "source_writer_or_unknown": "Hugo Ferrer",
+        "relation": "source_attributed_report_content",
+        "source_voice": "source_reports_named_speaker",
+        "reporting_layer": "source_scoped_report_content",
+        "completion_established": false,
+        "historical_truth_independently_verified": false
+      }
+    }
+  ]
+}

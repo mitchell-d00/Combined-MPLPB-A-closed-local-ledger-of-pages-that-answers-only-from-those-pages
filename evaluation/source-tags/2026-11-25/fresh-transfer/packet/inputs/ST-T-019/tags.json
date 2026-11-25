@@ -1,0 +1,83 @@
+{
+  "schema": "source-linked-proposals-v1",
+  "source": {
+    "id": "SOURCE-1",
+    "path": "source-1.html",
+    "hash": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+    "body_html_sha256": "91d53ddf8249e6c4fc67e8ceda5ec2c96a16e3e4543f194d933d28cc169a7a18"
+  },
+  "nodes": [
+    {
+      "id": "D1",
+      "kind": "document",
+      "parent": null,
+      "body_start": 0,
+      "body_end": 91
+    },
+    {
+      "id": "C1",
+      "kind": "statement",
+      "parent": "D1",
+      "body_start": 31,
+      "body_end": 91,
+      "quote": "According to Mateo Sato, Petra Imani wrote the canal survey.",
+      "original_start_byte": 63,
+      "original_end_byte": 123
+    },
+    {
+      "id": "P1",
+      "kind": "person",
+      "parent": "C1",
+      "body_start": 44,
+      "body_end": 54,
+      "quote": "Mateo Sato",
+      "original_start_byte": 76,
+      "original_end_byte": 86
+    },
+    {
+      "id": "P2",
+      "kind": "person",
+      "parent": "C1",
+      "body_start": 56,
+      "body_end": 67,
+      "quote": "Petra Imani",
+      "original_start_byte": 88,
+      "original_end_byte": 99
+    },
+    {
+      "id": "O1",
+      "kind": "object",
+      "parent": "C1",
+      "body_start": 74,
+      "body_end": 90,
+      "quote": "the canal survey",
+      "original_start_byte": 106,
+      "original_end_byte": 122
+    }
+  ],
+  "relations": [
+    {
+      "witness": "C1",
+      "subject": "P2",
+      "reported_by": "P1",
+      "object": "O1",
+      "proposition": {
+        "reporter": "Mateo Sato",
+        "author": "Petra Imani",
+        "inner_action": "write",
+        "object": "the canal survey",
+        "inner_negative": false,
+        "outer_negative": false,
+        "conditions": [],
+        "content_asserted_by_reporter": true,
+        "actual_authorship_established": false,
+        "source_writer_or_unknown": "Nora Mendes",
+        "relation": "source_attributed_report_content",
+        "source_voice": "source_reports_named_speaker",
+        "reporting_layer": "source_scoped_report_content",
+        "completion_established": false,
+        "historical_truth_independently_verified": false
+      }
+    }
+  ]
+}

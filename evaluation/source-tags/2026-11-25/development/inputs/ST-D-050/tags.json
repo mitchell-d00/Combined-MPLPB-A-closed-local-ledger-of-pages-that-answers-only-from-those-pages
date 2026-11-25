@@ -1,0 +1,83 @@
+{
+  "schema": "source-linked-proposals-v1",
+  "source": {
+    "id": "SOURCE-1",
+    "path": "source-1.html",
+    "hash": "sha256:68df4688dc115fcab435cec3391d514319b13e09fa15b2f729fedeaed3b701d7",
+    "body_html_sha256": "f308472f83540976e60e082a7e760d6451607fc3bd45cfaac83b535f962793e9"
+  },
+  "nodes": [
+    {
+      "id": "D1",
+      "kind": "document",
+      "parent": null,
+      "body_start": 0,
+      "body_end": 98
+    },
+    {
+      "id": "C1",
+      "kind": "statement",
+      "parent": "D1",
+      "body_start": 30,
+      "body_end": 98,
+      "quote": "Dario Solis reported that Leila Bhandari wrote the copper inventory.",
+      "original_start_byte": 62,
+      "original_end_byte": 130
+    },
+    {
+      "id": "P1",
+      "kind": "person",
+      "parent": "C1",
+      "body_start": 30,
+      "body_end": 41,
+      "quote": "Dario Solis",
+      "original_start_byte": 62,
+      "original_end_byte": 73
+    },
+    {
+      "id": "P2",
+      "kind": "person",
+      "parent": "C1",
+      "body_start": 56,
+      "body_end": 70,
+      "quote": "Leila Bhandari",
+      "original_start_byte": 88,
+      "original_end_byte": 102
+    },
+    {
+      "id": "O1",
+      "kind": "object",
+      "parent": "C1",
+      "body_start": 77,
+      "body_end": 97,
+      "quote": "the copper inventory",
+      "original_start_byte": 109,
+      "original_end_byte": 129
+    }
+  ],
+  "relations": [
+    {
+      "witness": "C1",
+      "subject": "P2",
+      "reported_by": "P1",
+      "object": "O1",
+      "proposition": {
+        "reporter": "Enzo Vidal",
+        "author": "Leila Bhandari",
+        "inner_action": "write",
+        "object": "the copper inventory",
+        "inner_negative": false,
+        "outer_negative": false,
+        "conditions": [],
+        "content_asserted_by_reporter": true,
+        "actual_authorship_established": false,
+        "source_writer_or_unknown": "Enzo Vidal",
+        "relation": "source_attributed_report_content",
+        "source_voice": "source_reports_named_speaker",
+        "reporting_layer": "source_scoped_report_content",
+        "completion_established": false,
+        "historical_truth_independently_verified": false
+      }
+    }
+  ]
+}

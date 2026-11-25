@@ -1,0 +1,83 @@
+{
+  "schema": "source-linked-proposals-v1",
+  "source": {
+    "id": "SOURCE-1",
+    "path": "source-1.html",
+    "hash": "sha256:0701ca19c73225aba13abe41e10f685d22e9480a48f2e78bfcefdc15509413d1",
+    "body_html_sha256": "956a372e753c308bf7c291bf0038ae31a481e3bd100b9665015482f2a7751425"
+  },
+  "nodes": [
+    {
+      "id": "D1",
+      "kind": "document",
+      "parent": null,
+      "body_start": 0,
+      "body_end": 108
+    },
+    {
+      "id": "C1",
+      "kind": "statement",
+      "parent": "D1",
+      "body_start": 40,
+      "body_end": 108,
+      "quote": "Amara Voss stated, “Hugo Ferrer did not write the copper inventory.”",
+      "original_start_byte": 72,
+      "original_end_byte": 144
+    },
+    {
+      "id": "P1",
+      "kind": "person",
+      "parent": "C1",
+      "body_start": 40,
+      "body_end": 50,
+      "quote": "Amara Voss",
+      "original_start_byte": 72,
+      "original_end_byte": 82
+    },
+    {
+      "id": "P2",
+      "kind": "person",
+      "parent": "C1",
+      "body_start": 60,
+      "body_end": 71,
+      "quote": "Hugo Ferrer",
+      "original_start_byte": 94,
+      "original_end_byte": 105
+    },
+    {
+      "id": "O1",
+      "kind": "object",
+      "parent": "C1",
+      "body_start": 86,
+      "body_end": 106,
+      "quote": "the copper inventory",
+      "original_start_byte": 120,
+      "original_end_byte": 140
+    }
+  ],
+  "relations": [
+    {
+      "witness": "C1",
+      "subject": "P2",
+      "reported_by": "P1",
+      "object": "O1",
+      "proposition": {
+        "reporter": "Amara Voss",
+        "author": "Hugo Ferrer",
+        "inner_action": "write",
+        "object": "the missing register",
+        "inner_negative": true,
+        "outer_negative": false,
+        "conditions": [],
+        "content_asserted_by_reporter": true,
+        "actual_authorship_established": false,
+        "source_writer_or_unknown": "Enzo Vidal",
+        "relation": "source_attributed_report_content",
+        "source_voice": "source_reports_named_speaker",
+        "reporting_layer": "source_scoped_report_content",
+        "completion_established": false,
+        "historical_truth_independently_verified": false
+      }
+    }
+  ]
+}

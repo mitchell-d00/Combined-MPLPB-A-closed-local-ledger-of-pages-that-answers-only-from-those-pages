@@ -1,0 +1,83 @@
+{
+  "schema": "source-linked-proposals-v1",
+  "source": {
+    "id": "SOURCE-1",
+    "path": "source-1.html",
+    "hash": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+    "body_html_sha256": "301641d2a7440dbd8ed460afe9236b8f400e008a86d3d14cf283225d2ee3325e"
+  },
+  "nodes": [
+    {
+      "id": "D1",
+      "kind": "document",
+      "parent": null,
+      "body_start": 0,
+      "body_end": 103
+    },
+    {
+      "id": "C1",
+      "kind": "statement",
+      "parent": "D1",
+      "body_start": 42,
+      "body_end": 103,
+      "quote": "According to Ravi Dumas, Mateo Sato wrote the orchard census.",
+      "original_start_byte": 74,
+      "original_end_byte": 135
+    },
+    {
+      "id": "P1",
+      "kind": "person",
+      "parent": "C1",
+      "body_start": 55,
+      "body_end": 65,
+      "quote": "Ravi Dumas",
+      "original_start_byte": 87,
+      "original_end_byte": 97
+    },
+    {
+      "id": "P2",
+      "kind": "person",
+      "parent": "C1",
+      "body_start": 67,
+      "body_end": 77,
+      "quote": "Mateo Sato",
+      "original_start_byte": 99,
+      "original_end_byte": 109
+    },
+    {
+      "id": "O1",
+      "kind": "object",
+      "parent": "C1",
+      "body_start": 84,
+      "body_end": 102,
+      "quote": "the orchard census",
+      "original_start_byte": 116,
+      "original_end_byte": 134
+    }
+  ],
+  "relations": [
+    {
+      "witness": "C1",
+      "subject": "P2",
+      "reported_by": "P1",
+      "object": "O1",
+      "proposition": {
+        "reporter": "Ravi Dumas",
+        "author": "Mateo Sato",
+        "inner_action": "write",
+        "object": "the orchard census",
+        "inner_negative": false,
+        "outer_negative": false,
+        "conditions": [],
+        "content_asserted_by_reporter": true,
+        "actual_authorship_established": false,
+        "source_writer_or_unknown": "Elina Brooks",
+        "relation": "source_attributed_report_content",
+        "source_voice": "source_reports_named_speaker",
+        "reporting_layer": "source_scoped_report_content",
+        "completion_established": false,
+        "historical_truth_independently_verified": false
+      }
+    }
+  ]
+}

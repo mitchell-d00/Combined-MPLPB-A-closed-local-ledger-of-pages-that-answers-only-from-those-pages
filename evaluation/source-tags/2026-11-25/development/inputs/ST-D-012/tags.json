@@ -1,0 +1,83 @@
+{
+  "schema": "source-linked-proposals-v1",
+  "source": {
+    "id": "SOURCE-1",
+    "path": "source-1.html",
+    "hash": "sha256:0c2efe33ac42f6500a6c7d399896161e0dd866e5887bbfcddc1c93f09b186272",
+    "body_html_sha256": "45b01d75cb0c0e10121f551e22987eee39b38c7cec8a7f2f4918b41fdb30d0d8"
+  },
+  "nodes": [
+    {
+      "id": "D1",
+      "kind": "document",
+      "parent": null,
+      "body_start": 0,
+      "body_end": 116
+    },
+    {
+      "id": "C1",
+      "kind": "statement",
+      "parent": "P2",
+      "body_start": 52,
+      "body_end": 116,
+      "quote": "Enzo Vidal reported that Amara Voss wrote the harbour catalogue.",
+      "original_start_byte": 84,
+      "original_end_byte": 148
+    },
+    {
+      "id": "P1",
+      "kind": "person",
+      "parent": "C1",
+      "body_start": 52,
+      "body_end": 62,
+      "quote": "Enzo Vidal",
+      "original_start_byte": 84,
+      "original_end_byte": 94
+    },
+    {
+      "id": "P2",
+      "kind": "person",
+      "parent": "C1",
+      "body_start": 77,
+      "body_end": 87,
+      "quote": "Amara Voss",
+      "original_start_byte": 109,
+      "original_end_byte": 119
+    },
+    {
+      "id": "O1",
+      "kind": "object",
+      "parent": "C1",
+      "body_start": 94,
+      "body_end": 115,
+      "quote": "the harbour catalogue",
+      "original_start_byte": 126,
+      "original_end_byte": 147
+    }
+  ],
+  "relations": [
+    {
+      "witness": "C1",
+      "subject": "P2",
+      "reported_by": "P1",
+      "object": "O1",
+      "proposition": {
+        "reporter": "Enzo Vidal",
+        "author": "Amara Voss",
+        "inner_action": "write",
+        "object": "the harbour catalogue",
+        "inner_negative": false,
+        "outer_negative": false,
+        "conditions": [],
+        "content_asserted_by_reporter": true,
+        "actual_authorship_established": false,
+        "source_writer_or_unknown": "Nadia Rhee",
+        "relation": "source_attributed_report_content",
+        "source_voice": "source_reports_named_speaker",
+        "reporting_layer": "source_scoped_report_content",
+        "completion_established": false,
+        "historical_truth_independently_verified": false
+      }
+    }
+  ]
+}

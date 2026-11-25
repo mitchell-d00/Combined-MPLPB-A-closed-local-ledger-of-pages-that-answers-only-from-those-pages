@@ -1,0 +1,85 @@
+{
+  "schema": "source-linked-proposals-v1",
+  "source": {
+    "id": "SOURCE-1",
+    "path": "source-1.html",
+    "hash": "sha256:87ddef54bec896b81647b434b8e0284f3e52f821a057eb4ea34b3cc38b80d6b3",
+    "body_html_sha256": "e2a092554282eba741d16cadce64f9fb32802fb2753db7b901c33165a1b95a52",
+    "visibility": "public"
+  },
+  "nodes": [
+    {
+      "id": "D1",
+      "kind": "document",
+      "parent": null,
+      "body_start": 0,
+      "body_end": 95
+    },
+    {
+      "id": "C1",
+      "kind": "statement",
+      "parent": "D1",
+      "body_start": 34,
+      "body_end": 95,
+      "quote": "Enzo Vidal reported that Amara Voss wrote the tidal register.",
+      "original_start_byte": 66,
+      "original_end_byte": 127
+    },
+    {
+      "id": "P1",
+      "kind": "person",
+      "parent": "C1",
+      "body_start": 34,
+      "body_end": 44,
+      "quote": "Enzo Vidal",
+      "original_start_byte": 66,
+      "original_end_byte": 76
+    },
+    {
+      "id": "P2",
+      "kind": "person",
+      "parent": "C1",
+      "body_start": 59,
+      "body_end": 69,
+      "quote": "Amara Voss",
+      "original_start_byte": 91,
+      "original_end_byte": 101
+    },
+    {
+      "id": "O1",
+      "kind": "object",
+      "parent": "C1",
+      "body_start": 76,
+      "body_end": 94,
+      "quote": "the tidal register",
+      "original_start_byte": 108,
+      "original_end_byte": 126
+    }
+  ],
+  "relations": [
+    {
+      "witness": "C1",
+      "subject": "P2",
+      "reported_by": "P1",
+      "object": "O1",
+      "proposition": {
+        "reporter": "Enzo Vidal",
+        "author": "Amara Voss",
+        "inner_action": "write",
+        "object": "the tidal register",
+        "inner_negative": false,
+        "outer_negative": false,
+        "conditions": [],
+        "content_asserted_by_reporter": true,
+        "actual_authorship_established": false,
+        "source_writer_or_unknown": "Leila Bhandari",
+        "relation": "source_attributed_report_content",
+        "source_voice": "source_reports_named_speaker",
+        "reporting_layer": "source_scoped_report_content",
+        "completion_established": false,
+        "historical_truth_independently_verified": false
+      }
+    }
+  ],
+  "private": false
+}

@@ -1,0 +1,83 @@
+{
+  "schema": "source-linked-proposals-v1",
+  "source": {
+    "id": "SOURCE-1",
+    "path": "source-1.html",
+    "hash": "sha256:f035b40acee7a0ce64159cf55bdeacde67675e45a00c8d91ca54f4d2b937829b",
+    "body_html_sha256": "c80336e51eaf6e0a2a349cc4585918b792e4ad1578955f5d71ed4f72aa3486c8"
+  },
+  "nodes": [
+    {
+      "id": "D1",
+      "kind": "document",
+      "parent": null,
+      "body_start": 0,
+      "body_end": 124
+    },
+    {
+      "id": "C1",
+      "kind": "statement",
+      "parent": "D1",
+      "body_start": 56,
+      "body_end": 124,
+      "quote": "Enzo Vidal stated, “Amara Voss did not write the harbour catalogue.”",
+      "original_start_byte": 88,
+      "original_end_byte": 160
+    },
+    {
+      "id": "P1",
+      "kind": "person",
+      "parent": "C1",
+      "body_start": 56,
+      "body_end": 66,
+      "quote": "Enzo Vidal",
+      "original_start_byte": 88,
+      "original_end_byte": 98
+    },
+    {
+      "id": "P2",
+      "kind": "person",
+      "parent": "C1",
+      "body_start": 76,
+      "body_end": 86,
+      "quote": "Amara Voss",
+      "original_start_byte": 110,
+      "original_end_byte": 120
+    },
+    {
+      "id": "O1",
+      "kind": "object",
+      "parent": "C1",
+      "body_start": 101,
+      "body_end": 122,
+      "quote": "the harbour catalogue",
+      "original_start_byte": 135,
+      "original_end_byte": 156
+    }
+  ],
+  "relations": [
+    {
+      "witness": "C1",
+      "subject": "P2",
+      "reported_by": "P1",
+      "object": "O1",
+      "proposition": {
+        "reporter": "Enzo Vidal",
+        "author": "Amara Voss",
+        "inner_action": "write",
+        "object": "the harbour catalogue",
+        "inner_negative": false,
+        "outer_negative": false,
+        "conditions": [],
+        "content_asserted_by_reporter": true,
+        "actual_authorship_established": false,
+        "source_writer_or_unknown": "Leila Bhandari",
+        "relation": "source_attributed_report_content",
+        "source_voice": "source_reports_named_speaker",
+        "reporting_layer": "source_scoped_report_content",
+        "completion_established": false,
+        "historical_truth_independently_verified": false
+      }
+    }
+  ]
+}

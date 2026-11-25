@@ -1,0 +1,194 @@
+[
+  {
+    "argv": [
+      "python",
+      "tools/build_handoff.py",
+      "--check"
+    ],
+    "cwd": "/workspace/source-tags-extracted",
+    "started_at": "2026-11-25T18:21:43.923293+00:00",
+    "exit_code": 0,
+    "seconds": 6.149,
+    "stdout": "software-1.stdout.log",
+    "stderr": "software-1.stderr.log"
+  },
+  {
+    "argv": [
+      "python",
+      "-m",
+      "tools.audit_documentation"
+    ],
+    "cwd": "/workspace/source-tags-extracted",
+    "started_at": "2026-11-25T18:21:50.072472+00:00",
+    "exit_code": 0,
+    "seconds": 0.934,
+    "stdout": "software-2.stdout.log",
+    "stderr": "software-2.stderr.log"
+  },
+  {
+    "argv": [
+      "python",
+      "tools/check_repository_infrastructure.py"
+    ],
+    "cwd": "/workspace/source-tags-extracted",
+    "started_at": "2026-11-25T18:21:51.011946+00:00",
+    "exit_code": 0,
+    "seconds": 0.244,
+    "stdout": "software-3.stdout.log",
+    "stderr": "software-3.stderr.log"
+  },
+  {
+    "argv": [
+      "python",
+      "tools/replay_report_pins.py",
+      "--runtime",
+      ".",
+      "--fixtures",
+      "evaluation/report-pins/2026-11-25/fixtures.json",
+      "--output",
+      "/workspace/source-tags-archive-checks/frozen-replay.json"
+    ],
+    "cwd": "/workspace/source-tags-extracted",
+    "started_at": "2026-11-25T18:21:51.251978+00:00",
+    "exit_code": 0,
+    "seconds": 0.874,
+    "stdout": "software-4.stdout.log",
+    "stderr": "software-4.stderr.log"
+  },
+  {
+    "argv": [
+      "python",
+      "-m",
+      "unittest",
+      "tests.test_ledger_ui",
+      "-q"
+    ],
+    "cwd": "/workspace/source-tags-extracted",
+    "started_at": "2026-11-25T18:21:52.126651+00:00",
+    "exit_code": 0,
+    "seconds": 1.386,
+    "stdout": "software-5.stdout.log",
+    "stderr": "software-5.stderr.log"
+  },
+  {
+    "argv": [
+      "node",
+      "tests/javascript-api.cjs"
+    ],
+    "cwd": "/workspace/source-tags-extracted",
+    "started_at": "2026-11-25T18:21:53.513480+00:00",
+    "exit_code": 0,
+    "seconds": 3.717,
+    "stdout": "software-6.stdout.log",
+    "stderr": "software-6.stderr.log"
+  },
+  {
+    "argv": [
+      "python",
+      "tools/check_ui_script.py"
+    ],
+    "cwd": "/workspace/source-tags-extracted",
+    "started_at": "2026-11-25T18:21:57.231758+00:00",
+    "exit_code": 0,
+    "seconds": 1.237,
+    "stdout": "software-7.stdout.log",
+    "stderr": "software-7.stderr.log"
+  },
+  {
+    "argv": [
+      "node",
+      "tools/check_browser_transport.cjs"
+    ],
+    "cwd": "/workspace/source-tags-extracted",
+    "started_at": "2026-11-25T18:21:58.485098+00:00",
+    "exit_code": 0,
+    "seconds": 0.126,
+    "stdout": "software-8.stdout.log",
+    "stderr": "software-8.stderr.log"
+  },
+  {
+    "argv": [
+      "node",
+      "--check",
+      "tools/mplpb_agent_bridge.mjs"
+    ],
+    "cwd": "/workspace/source-tags-extracted",
+    "started_at": "2026-11-25T18:21:58.603338+00:00",
+    "exit_code": 0,
+    "seconds": 0.08,
+    "stdout": "software-9.stdout.log",
+    "stderr": "software-9.stderr.log"
+  },
+  {
+    "argv": [
+      "node",
+      "tests/documentary-render.cjs"
+    ],
+    "cwd": "/workspace/source-tags-extracted",
+    "started_at": "2026-11-25T18:21:58.683736+00:00",
+    "exit_code": 0,
+    "seconds": 0.119,
+    "stdout": "software-10.stdout.log",
+    "stderr": "software-10.stderr.log"
+  },
+  {
+    "argv": [
+      "node",
+      "tests/browser-ai-helper.cjs"
+    ],
+    "cwd": "/workspace/source-tags-extracted",
+    "started_at": "2026-11-25T18:21:58.809043+00:00",
+    "exit_code": 0,
+    "seconds": 0.797,
+    "stdout": "software-11.stdout.log",
+    "stderr": "software-11.stderr.log"
+  },
+  {
+    "argv": [
+      "node",
+      "tests/browser-model-loader.cjs"
+    ],
+    "cwd": "/workspace/source-tags-extracted",
+    "started_at": "2026-11-25T18:21:59.606563+00:00",
+    "exit_code": 0,
+    "seconds": 3.618,
+    "stdout": "software-12.stdout.log",
+    "stderr": "software-12.stderr.log"
+  },
+  {
+    "argv": [
+      "node",
+      "tests/browser-webgpu-limits.cjs"
+    ],
+    "cwd": "/workspace/source-tags-extracted",
+    "started_at": "2026-11-25T18:22:03.225691+00:00",
+    "exit_code": 0,
+    "seconds": 0.582,
+    "stdout": "software-13.stdout.log",
+    "stderr": "software-13.stderr.log"
+  },
+  {
+    "argv": [
+      "node",
+      "crawler/test_worker.mjs"
+    ],
+    "cwd": "/workspace/source-tags-extracted",
+    "started_at": "2026-11-25T18:22:03.807554+00:00",
+    "exit_code": 0,
+    "seconds": 0.172,
+    "stdout": "software-14.stdout.log",
+    "stderr": "software-14.stderr.log"
+  },
+  {
+    "argv": [
+      "node",
+      "crawler/test_historical.mjs"
+    ],
+    "cwd": "/workspace/source-tags-extracted",
+    "started_at": "2026-11-25T18:22:03.980141+00:00",
+    "exit_code": 0,
+    "seconds": 0.124,
+    "stdout": "software-15.stdout.log",
+    "stderr": "software-15.stderr.log"
+  }
+]

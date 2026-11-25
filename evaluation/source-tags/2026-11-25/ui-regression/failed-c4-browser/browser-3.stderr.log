@@ -1,0 +1,43 @@
+127.0.0.1 - - [25/Nov/2026 18:25:03] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [25/Nov/2026 18:25:03] "GET /ai/models.json HTTP/1.1" 200 -
+127.0.0.1 - - [25/Nov/2026 18:25:15] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [25/Nov/2026 18:25:16] "GET /ai/models.json HTTP/1.1" 304 -
+Traceback (most recent call last):
+  File "/workspace/source-tags-extracted/evaluation/attribution/2026-11-25/archive-tools/verified_browser.py", line 75, in <module>
+    page=c.new_page();verify(page,preview,True);check_engine(page,'candidate-preview')
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/source-tags-extracted/tools/browser_release_smoke.py", line 180, in verify
+    verify_document_workflow(page)
+  File "/workspace/source-tags-extracted/tools/browser_release_smoke.py", line 104, in verify_document_workflow
+    verify_field_answer('What is the inspection date for record PRINT-202?', 'inspection date',
+  File "/workspace/source-tags-extracted/tools/browser_release_smoke.py", line 74, in verify_field_answer
+    expect(page.locator('#page-dialog .page-text')).to_contain_text(source_line)
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/playwright/sync_api/_generated.py", line 22016, in to_contain_text
+    self._sync(
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/playwright/_impl/_sync_base.py", line 115, in _sync
+    return task.result()
+           ^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/playwright/_impl/_assertions.py", line 303, in to_contain_text
+    await self._expect_impl(
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/playwright/_impl/_assertions.py", line 128, in _expect_impl
+    _record_soft_or_raise(
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/playwright/_impl/_assertions.py", line 60, in _record_soft_or_raise
+    raise error
+AssertionError: Locator expected to contain text 'Inspection Date: 1895-05-02'
+Actual value: Print room inventory
+Record-ID: PRINT-201
+Accession Date: 1895-04-18
+Crawling comes from dust or grease on the bisque, or a coat put on too thick that cracked as it dried.
+Source capture: {"source_url": "urn:mplpb:local:508c18e551e402d32094368adecffe91e0651750b5ac43a4d81e715c3dc09a7b", "title": "Print room inventory", "observed_at": "2026-11-25T18:25:25.438000+00:00", "source_sha256": "508c18e551e402d32094368adecffe91e0651750b5ac43a4d81e715c3dc09a7b", "text_sha256": "508c18e551e402d32094368adecffe91e0651750b5ac43a4d81e715c3dc09a7b", "transport": "user-local-text-v1", "authorship": "unknown", "notice": "Captured bytes, not verified truth or authorship. Pasted text is user-supplied, not a verified download.", "projection_version": "body-text-no-headings-v1", "body_text_sha256": "ac1e62405e5711591cc36da127fa29f2ab74d633d77efd84b923679335eeacc0"} 
+Call log:
+  - Expect "to_contain_text" with timeout 5000ms
+  - waiting for locator("#page-dialog .page-text")
+    14 × locator resolved to <div class="page-text text">Print room inventory↵Record-ID: PRINT-201↵Accessi…</div>
+       - unexpected value "Print room inventory
+Record-ID: PRINT-201
+Accession Date: 1895-04-18
+Crawling comes from dust or grease on the bisque, or a coat put on too thick that cracked as it dried.
+Source capture: {"source_url": "urn:mplpb:local:508c18e551e402d32094368adecffe91e0651750b5ac43a4d81e715c3dc09a7b", "title": "Print room inventory", "observed_at": "2026-11-25T18:25:25.438000+00:00", "source_sha256": "508c18e551e402d32094368adecffe91e0651750b5ac43a4d81e715c3dc09a7b", "text_sha256": "508c18e551e402d32094368adecffe91e0651750b5ac43a4d81e715c3dc09a7b", "transport": "user-local-text-v1", "authorship": "unknown", "notice": "Captured bytes, not verified truth or authorship. Pasted text is user-supplied, not a verified download.", "projection_version": "body-text-no-headings-v1", "body_text_sha256": "ac1e62405e5711591cc36da127fa29f2ab74d633d77efd84b923679335eeacc0"}"
+
+Aria snapshot:
+- text: "Print room inventory Record-ID: PRINT-201 Accession Date: 1895-04-18 Crawling comes from dust or grease on the bisque, or a coat put on too thick that cracked as it dried. Source capture: {\"source_url\": \"urn:mplpb:local:508c18e551e402d32094368adecffe91e0651750b5ac43a4d81e715c3dc09a7b\", \"title\": \"Print room inventory\", \"observed_at\": \"2026-11-25T18:25:25.438000+00:00\", \"source_sha256\": \"508c18e551e402d32094368adecffe91e0651750b5ac43a4d81e715c3dc09a7b\", \"text_sha256\": \"508c18e551e402d32094368adecffe91e0651750b5ac43a4d81e715c3dc09a7b\", \"transport\": \"user-local-text-v1\", \"authorship\": \"unknown\", \"notice\": \"Captured bytes, not verified truth or authorship. Pasted text is user-supplied, not a verified download.\", \"projection_version\": \"body-text-no-headings-v1\", \"body_text_sha256\": \"ac1e62405e5711591cc36da127fa29f2ab74d633d77efd84b923679335eeacc0\"}"

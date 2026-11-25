@@ -1,0 +1,83 @@
+{
+  "schema": "source-linked-proposals-v1",
+  "source": {
+    "id": "SOURCE-1",
+    "path": "source-1.html",
+    "hash": "sha256:e6b696e9f422d297d6842c67c6c35f0a964b691e8c8b4c01fbd005f8e577ad95",
+    "body_html_sha256": "8f649e1c38fc9c6128511667db7c183a11a594a6da75739c97df3d7724c10a20"
+  },
+  "nodes": [
+    {
+      "id": "D1",
+      "kind": "document",
+      "parent": null,
+      "body_start": 0,
+      "body_end": 125
+    },
+    {
+      "id": "C1",
+      "kind": "statement",
+      "parent": "D1",
+      "body_start": 53,
+      "body_end": 125,
+      "quote": "Hugo Ferrer stated, “Leila Bhandari did not write the harbour catalogue.”",
+      "original_start_byte": 84,
+      "original_end_byte": 161
+    },
+    {
+      "id": "P1",
+      "kind": "person",
+      "parent": "C1",
+      "body_start": 52,
+      "body_end": 63,
+      "quote": "Hugo Ferrer",
+      "original_start_byte": 84,
+      "original_end_byte": 95
+    },
+    {
+      "id": "P2",
+      "kind": "person",
+      "parent": "C1",
+      "body_start": 73,
+      "body_end": 87,
+      "quote": "Leila Bhandari",
+      "original_start_byte": 107,
+      "original_end_byte": 121
+    },
+    {
+      "id": "O1",
+      "kind": "object",
+      "parent": "C1",
+      "body_start": 102,
+      "body_end": 123,
+      "quote": "the harbour catalogue",
+      "original_start_byte": 136,
+      "original_end_byte": 157
+    }
+  ],
+  "relations": [
+    {
+      "witness": "C1",
+      "subject": "P2",
+      "reported_by": "P1",
+      "object": "O1",
+      "proposition": {
+        "reporter": "Hugo Ferrer",
+        "author": "Leila Bhandari",
+        "inner_action": "write",
+        "object": "the harbour catalogue",
+        "inner_negative": true,
+        "outer_negative": false,
+        "conditions": [],
+        "content_asserted_by_reporter": true,
+        "actual_authorship_established": false,
+        "source_writer_or_unknown": "Nadia Rhee",
+        "relation": "source_attributed_report_content",
+        "source_voice": "source_reports_named_speaker",
+        "reporting_layer": "source_scoped_report_content",
+        "completion_established": false,
+        "historical_truth_independently_verified": false
+      }
+    }
+  ]
+}
