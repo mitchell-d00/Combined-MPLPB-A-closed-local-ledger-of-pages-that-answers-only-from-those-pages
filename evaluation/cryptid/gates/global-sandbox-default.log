@@ -1,0 +1,47 @@
+test_real_study_runs_without_mounting_gold (tests.test_study_sandbox.LinuxStudySandboxTests.test_real_study_runs_without_mounting_gold) ... FAIL
+test_worker_cannot_read_gold_write_inputs_or_use_host_network (tests.test_study_sandbox.LinuxStudySandboxTests.test_worker_cannot_read_gold_write_inputs_or_use_host_network) ... FAIL
+test_failed_isolation_never_accepts_worker_output (tests.test_study_sandbox.StudySandboxTests.test_failed_isolation_never_accepts_worker_output) ... ok
+test_missing_isolator_never_falls_back_to_direct_execution (tests.test_study_sandbox.StudySandboxTests.test_missing_isolator_never_falls_back_to_direct_execution) ... ok
+
+======================================================================
+FAIL: test_real_study_runs_without_mounting_gold (tests.test_study_sandbox.LinuxStudySandboxTests.test_real_study_runs_without_mounting_gold)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/cryptid-local/tests/test_study_sandbox.py", line 40, in setUp
+    try:sandbox.invoke(probe)
+        ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/cryptid-local/tools/study_sandbox.py", line 62, in invoke
+    raise ValueError('Execution sandbox failed; no direct fallback or accepted output')
+ValueError: Execution sandbox failed; no direct fallback or accepted output
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/workspace/cryptid-local/tests/test_study_sandbox.py", line 42, in setUp
+    if os.environ.get('MPLPB_REQUIRE_SANDBOX')=='1':self.fail('Required Linux namespaces are unavailable')
+                                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Required Linux namespaces are unavailable
+
+======================================================================
+FAIL: test_worker_cannot_read_gold_write_inputs_or_use_host_network (tests.test_study_sandbox.LinuxStudySandboxTests.test_worker_cannot_read_gold_write_inputs_or_use_host_network)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/cryptid-local/tests/test_study_sandbox.py", line 40, in setUp
+    try:sandbox.invoke(probe)
+        ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/cryptid-local/tools/study_sandbox.py", line 62, in invoke
+    raise ValueError('Execution sandbox failed; no direct fallback or accepted output')
+ValueError: Execution sandbox failed; no direct fallback or accepted output
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/workspace/cryptid-local/tests/test_study_sandbox.py", line 42, in setUp
+    if os.environ.get('MPLPB_REQUIRE_SANDBOX')=='1':self.fail('Required Linux namespaces are unavailable')
+                                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Required Linux namespaces are unavailable
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.032s
+
+FAILED (failures=2)

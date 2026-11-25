@@ -4,8 +4,8 @@ Last reviewed: 2026-11-25.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `2b6561c971aa1cab4ffbca773142c170155a7afd` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `8356c8a2a023e6626a6f67ba0d409128c479e95bb572527374777b09cac96aa2`.
+Base commit: `b7f38c90690ca2771ff4766a1c3dff432a77080e` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `304103ee7a9efa3d7ef030b7e929fb7bebc04f0cd70b112718c6d4ad722df305`.
 
 ## Betty report for Al
 
@@ -60,17 +60,19 @@ Run Betty — local Cryptid test programme. Start from current main. Complete th
 - KRAKEN: 2/16 -> 15/16 development; transfer 12/12 once, false support 0; candidate 064d953602f296f54b79d4487a0cde6e45c135ed ZIP SHA256 466a5c7bc0be629ca005dd32faaa03163a5299ceec358ea67990797aaf7d422a. Original16:2->15 decisions,1 complete and12 checked partials; one frozen positive expectation remains incompatible with the external delivery profile and is retained as failure. First transfer15/16 consumed. Stronger policy Wrap4:2->4, forbidden claims2->0; rejected C1 ZIP and strong guard failure retained. Fresh policy/layout12/12,3complete+3partial+6withhold; narrow same-grammar multiline transfer, not general syntax. 322 prior Cryptid,280 release and16 consumed contracts unchanged.56focused checks pass. Human and independent evaluations NOT_RUN.
 - NESSIE: 6/21 -> 21/21 development; transfer 11/12 once, false support 0; candidate 3150e7560a3ce6c775ae058f22baaba48c657022 ZIP SHA256 c15cc279997b789f4c1cdac7626bf70a1913d9817a48c63fc433cdbf02ac1f8e. Primary21decisions6->21; these are13unique reader-input pairs,7unique positive claim inputs, with8duplicates used for forged-tag controls. Additional frozenWrap16/16: governor6, modality2, header-writer4, signed-writer4. Four rejected candidates retained: proposal budget, qualification loss, header-writer and signer class gaps. Final37/37development,0false support. Transfer11/12: email-styleFrom positive remains missed. Proposal validation12/12 is not coverage; two report clause-graphs remain unextracted. Prior370:354exact unchanged+10fully-key-checked completions+6checkedpartials; no lost old valid support. Release280exact unchanged.65focused native checks pass. Same-operator exposure; all independent evaluations NOT_RUN.
 - THUNDERBIRD: 12/12 -> 12/12 development; transfer 8/8 once, false support 0; candidate 2b6561c971aa1cab4ffbca773142c170155a7afd ZIP SHA256 95c2dbb9acf1a3707e3e47ecf43df672fee9d598b12327ab839a0d45b78c6594. Claim decisions12/12 unchanged; no coverage gain and no cap increase. Resource visibility11/12->12/12: exact unparsed relevant-unit spans and phrase-limit reason now exposed with checked partials. Eight source-answerable positives:5complete,3fixed-cap misses. Transfer8/8decisions and resource checks:5source-answerable positives,3complete,2cap misses. Counterevidence at/beyond limits never yields a definitive answer.419prior contracts and280release contracts exactly unchanged;21focused guards pass. Local query wall0.11-0.56s and peakRSSabout20MB are observations, not general performance claims.
+- All eight Cryptid cycles completed locally; failed candidates/transfer misses retained. Final native bytes equal tested Thunderbird2b6561c, scopedZIP95c2dbb9acf1a3707e3e47ecf43df672fee9d598b12327ab839a0d45b78c6594. Fresh final cross-family24 packet sealed before final full-ZIP candidate, unopened. Final full-source gates pending; no remote publication.
 
 ### Limitations and blocked checks
 
-- Reader series and final integration NOT_RUN at establishment.
-- Same-operator preparation/scoring. Independent historical/semantic adjudication, independent preparation/blinding, outside-custodian scoring, native OOCC and human execution NOT_RUN.
-- Prior handoff publication instructions are superseded by current LOCAL_ONLY boundary.
+- Same-operator preparation/implementation/scoring; independent historical/semantic/preparation/blinding/outside-custodian/OOCC NOT_RUN.
+- Human first-use execution NOT_RUN; Mitchell recruits12participants and returns actual observations.
+- Current scope LOCAL_ONLY; no push, PR mutation, merge, deploy or remote-main changes.
+- Per-family misses and frozen ineligible expectation remain failures. Default nested namespace gate blocked; host real Bubblewrap4/4. Final integration pending at source freeze.
 
 ### Next steps
 
-- Complete global Bubble/Wrap accounting and frozen human-trial verification; freeze final fresh cross-family packet and full committed source ZIP, then run clean-extraction integration gates. LOCAL_ONLY.
-- Finish all remaining series and clean final full-ZIP checks. LOCAL_ONLY: no push, PR mutation, merge or deployment.
+- Freeze full committed source ZIP and cleanly extract; run all applicable integration gates and unopened final24packet once on exact native files.
+- Prepare local review package with exact tested commit, ZIP SHA256, raw results, failures and proposed PR/release text. STOP: publication requires Mitchell explicit instruction.
 
 ## Use this ZIP in your repository
 
