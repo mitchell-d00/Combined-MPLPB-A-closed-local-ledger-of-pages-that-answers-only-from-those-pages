@@ -4,8 +4,8 @@ Last reviewed: 2026-11-25.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `851de6c093394060ce624eb63ba72400b047a7ce` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `e2c20820dcb489c15e7f85b3b4d42275154139c1ce0d8a0be4d4efbf91aea966`.
+Base commit: `13c1f02470acdbb713ba7e3670f90f8e58bd1bb4` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `44173b6583dead337c9e3e2d0a7c8a9e967fc56972cae44cf619182a8c814a5f`.
 
 ## Betty report for Al
 
@@ -72,6 +72,7 @@ Independent review should remain a separate milestone: synthetic improvements ca
 - Failure-retention: initial launcher had 96 pre-native path failures, corrected absolute worker run completed all 96; analysis import error corrected without changing keys/native source. All raw receipts and fresh positive misses retained.
 - Read-only audit validates all 111 frozen source/result hashes and recomputes retained old-contract/discovery comparisons without rerunning native answers or opening future transfer.
 - Read-only tools compile; receipt audit, documentation classification/links, frozen-source hashes and current handoff checks passed. Frozen source CRLF/layout is preserved via narrow Git attributes.
+- Committed inventory source 13c1f02470acdbb713ba7e3670f90f8e58bd1bb4 ZIP SHA-256 4795882851c9a52ceacfcfbd004b1418779431482aa3f9b33d0e2a1f9f567c4c: integrity, all 9422 extracted tracked bytes/modes, receipt/seal audit, documentation audit, handoff freshness and tool compilation passed. No next native rule, no transfer execution.
 
 ### Limitations and blocked checks
 
@@ -81,6 +82,7 @@ Independent review should remain a separate milestone: synthetic improvements ca
 - Current Pole replay adapter is not OS-isolated, unlike old bwrap D% runs. No cross-run speed gain or comprehensive counterevidence/resource completeness claim.
 - Independent historical accuracy, independent semantic adjudication, independent preparation, blinding, outside-custodian scoring and native OOCC remain NOT_RUN.
 - Next proposed report-content rule is not implemented or accepted. Preserve all previous valid claims/citations, checked partials and withholds; transfer follows a future committed ZIP freeze only.
+- Read-only proposal publication-head remote CI is pending at publication. No proposal merge/deployment is claimed. Full native suite was not redundantly rerun locally for unchanged reader bytes.
 
 ### Next steps
 

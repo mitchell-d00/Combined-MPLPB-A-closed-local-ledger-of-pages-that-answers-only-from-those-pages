@@ -171,6 +171,17 @@ development/preservation, not a new transfer result. The future transfer generat
 is `tools/freeze_reported_content_proposal.py`; do not consume its private packet
 before candidate freeze.
 
+This inventory itself was tested from committed source
+`13c1f02470acdbb713ba7e3670f90f8e58bd1bb4`. Its full tracked ZIP SHA-256 is
+**`4795882851c9a52ceacfcfbd004b1418779431482aa3f9b33d0e2a1f9f567c4c`**.
+All 9,422 extracted tracked files match committed bytes/modes. The extracted
+receipt/seal audit, documentation audit, handoff check and read-only tool
+compilation passed. See [archive verification](archive-verification.json).
+The later publication receipt/report edits do not change native rules, generators,
+frozen inputs, keys or the audited replay tool. Full native tests were not rerun
+locally for this read-only inventory; unchanged native bytes passed the attribution
+release checks below. Publication-head CI is a separate remote check.
+
 PR #102 publication head is `71b27255f6afc69510561f0e0fa3742ccbd8b8cf`.
 Its final native source is `7ed65a589d8051ff659495972fab922ff802b20e`; the merged
 tree at the inventory baseline is identical to the publication head. Exact-head
