@@ -1,0 +1,131 @@
+{
+  "schema": "cryptid-audit-v2",
+  "registered_cases": 146,
+  "cohorts": {
+    "consumed_transfer": 64,
+    "development": 82
+  },
+  "release_comparison_members": 280,
+  "unique_semantic_inputs": 421,
+  "overlapping_inputs": [
+    {
+      "semantic_hash": "1ddf3df4735dd1a84bd023153d430ae9619186990aa7986c3a892ffb79310f49",
+      "members": [
+        "CRYPT-MOTHMAN-0001",
+        "BW-INV-DP00088"
+      ]
+    },
+    {
+      "semantic_hash": "fddc18def6f0e7cd59e6c70e9f624f2428a322b960c9566df2bf7c49bf542e40",
+      "members": [
+        "CRYPT-MOTHMAN-0002",
+        "BW-INV-DP00128"
+      ]
+    },
+    {
+      "semantic_hash": "3e6520b2eaae749f6ca103f96452919ce72926a3fa50e81c9f79fd56b0bea4a7",
+      "members": [
+        "CRYPT-MOTHMAN-0003",
+        "BW-INV-POLE-f2d6d27cee88948d-00004"
+      ]
+    },
+    {
+      "semantic_hash": "f23a906b72cfd13014ad0ec03a8bac417a36d3ab4c0ee52ded6137bb5693399e",
+      "members": [
+        "CRYPT-MOTHMAN-0004",
+        "BW-INV-POLE-f2d6d27cee88948d-00009"
+      ]
+    },
+    {
+      "semantic_hash": "3284c96470515d2bbf0287d9188b0e5fe3bfe739cf21d842bbdd64ee611d9a0f",
+      "members": [
+        "CRYPT-MOTHMAN-0005",
+        "BW-INV-POLE-f2d6d27cee88948d-00015"
+      ]
+    }
+  ],
+  "runs": [
+    {
+      "run": "evaluation/cryptid/jackalope/runs/baseline/run.json",
+      "completed": 54,
+      "failed": 0
+    },
+    {
+      "run": "evaluation/cryptid/jackalope/runs/candidate-1/run.json",
+      "completed": 54,
+      "failed": 0
+    },
+    {
+      "run": "evaluation/cryptid/jackalope/runs/transfer-once/run.json",
+      "completed": 24,
+      "failed": 0
+    },
+    {
+      "run": "evaluation/cryptid/jackalope/runs/zip-development/run.json",
+      "completed": 54,
+      "failed": 0
+    },
+    {
+      "run": "evaluation/cryptid/mothman/runs/baseline/run.json",
+      "completed": 28,
+      "failed": 0
+    },
+    {
+      "run": "evaluation/cryptid/mothman/runs/candidate-1/run.json",
+      "completed": 28,
+      "failed": 0
+    },
+    {
+      "run": "evaluation/cryptid/mothman/runs/candidate-2/run.json",
+      "completed": 28,
+      "failed": 0
+    },
+    {
+      "run": "evaluation/cryptid/mothman/runs/candidate-3/run.json",
+      "completed": 28,
+      "failed": 0
+    },
+    {
+      "run": "evaluation/cryptid/mothman/runs/candidate-4/run.json",
+      "completed": 28,
+      "failed": 0
+    },
+    {
+      "run": "evaluation/cryptid/mothman/runs/candidate-5/run.json",
+      "completed": 28,
+      "failed": 0
+    },
+    {
+      "run": "evaluation/cryptid/mothman/runs/consumed-development-c4/run.json",
+      "completed": 16,
+      "failed": 0
+    },
+    {
+      "run": "evaluation/cryptid/mothman/runs/consumed-development-c5/run.json",
+      "completed": 16,
+      "failed": 0
+    },
+    {
+      "run": "evaluation/cryptid/mothman/runs/fresh-transfer-once/run.json",
+      "completed": 24,
+      "failed": 0
+    },
+    {
+      "run": "evaluation/cryptid/mothman/runs/transfer-once/run.json",
+      "completed": 16,
+      "failed": 0
+    },
+    {
+      "run": "evaluation/cryptid/mothman/runs/zip-development/run.json",
+      "completed": 28,
+      "failed": 0
+    },
+    {
+      "run": "evaluation/cryptid/mothman/runs/zip-development-c5/run.json",
+      "completed": 28,
+      "failed": 0
+    }
+  ],
+  "meaning": "Input seals, overlap and accounting only; semantic acceptance remains separately scored.",
+  "publication": "LOCAL_ONLY; no push, PR mutation, merge, deployment or remote-main changes authorized"
+}

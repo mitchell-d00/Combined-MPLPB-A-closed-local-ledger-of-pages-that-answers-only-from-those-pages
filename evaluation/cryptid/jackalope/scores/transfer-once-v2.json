@@ -1,0 +1,705 @@
+{
+  "schema": "cryptid-claim-score-v1",
+  "version": "cryptid-claim-scorer-v2",
+  "scorer_sha256": "45827cbaaffe46a0193ace85d46c915085a5bdc87f40f422d3df35cefe302452",
+  "run_sha256": "2fcc8b84016fa1b5642cab72a5fafe45553476ac8003d76cf07a0a14c364df79",
+  "key_sha256": "6928b433e6c798220da0588807e8ecc35559abf7d770503f0f0a56d1babfbd75",
+  "counts": {
+    "planned": 24,
+    "attempted": 24,
+    "completed": 24,
+    "scored": 24,
+    "unscored": 0,
+    "passed": 20,
+    "false_support": 0,
+    "positive_misses": 4,
+    "budget_stops": 0
+  },
+  "cases": [
+    {
+      "id": "CRYPT-JACKALOPE-T0001",
+      "execution_status": "completed",
+      "scored": true,
+      "passed": false,
+      "expected": "complete",
+      "kind": "abstain",
+      "claims": 0,
+      "positive_miss": true,
+      "false_support": false,
+      "errors": [
+        "positive_completion_miss",
+        "positive_claim_miss"
+      ],
+      "interpretation_inspection_recognized": true,
+      "required_witness_discovery": true,
+      "miss_stage_diagnostic": "proof",
+      "budget_stop": false,
+      "measurements": {
+        "query_wall_seconds": 0.10767125799611676,
+        "query_cpu_seconds": 0.10797389600000001,
+        "peak_rss_bytes": 18706432,
+        "source_html_open_calls": {
+          "query": 9,
+          "discovery": 2
+        },
+        "source_read_measurement": "Python audit open events for ledger HTML files during query/discovery; cached in-memory reads are not counted",
+        "admitted_source_count": 1,
+        "admitted_canonical_characters": 71
+      }
+    },
+    {
+      "id": "CRYPT-JACKALOPE-T0002",
+      "execution_status": "completed",
+      "scored": true,
+      "passed": false,
+      "expected": "partial",
+      "kind": "abstain",
+      "claims": 0,
+      "positive_miss": true,
+      "false_support": false,
+      "errors": [
+        "partial_obligation_not_preserved",
+        "positive_claim_miss"
+      ],
+      "interpretation_inspection_recognized": true,
+      "required_witness_discovery": true,
+      "miss_stage_diagnostic": "proof",
+      "budget_stop": false,
+      "measurements": {
+        "query_wall_seconds": 0.10029766200023005,
+        "query_cpu_seconds": 0.09982811799999997,
+        "peak_rss_bytes": 18710528,
+        "source_html_open_calls": {
+          "query": 9,
+          "discovery": 2
+        },
+        "source_read_measurement": "Python audit open events for ledger HTML files during query/discovery; cached in-memory reads are not counted",
+        "admitted_source_count": 1,
+        "admitted_canonical_characters": 71
+      }
+    },
+    {
+      "id": "CRYPT-JACKALOPE-T0003",
+      "execution_status": "completed",
+      "scored": true,
+      "passed": true,
+      "expected": "withhold",
+      "kind": "abstain",
+      "claims": 0,
+      "positive_miss": false,
+      "false_support": false,
+      "errors": [],
+      "interpretation_inspection_recognized": true,
+      "required_witness_discovery": null,
+      "miss_stage_diagnostic": null,
+      "budget_stop": false,
+      "measurements": {
+        "query_wall_seconds": 0.12173102499946253,
+        "query_cpu_seconds": 0.12020438,
+        "peak_rss_bytes": 18829312,
+        "source_html_open_calls": {
+          "query": 9,
+          "discovery": 2
+        },
+        "source_read_measurement": "Python audit open events for ledger HTML files during query/discovery; cached in-memory reads are not counted",
+        "admitted_source_count": 1,
+        "admitted_canonical_characters": 71
+      }
+    },
+    {
+      "id": "CRYPT-JACKALOPE-T0004",
+      "execution_status": "completed",
+      "scored": true,
+      "passed": true,
+      "expected": "withhold",
+      "kind": "abstain",
+      "claims": 0,
+      "positive_miss": false,
+      "false_support": false,
+      "errors": [],
+      "interpretation_inspection_recognized": false,
+      "required_witness_discovery": null,
+      "miss_stage_diagnostic": null,
+      "budget_stop": false,
+      "measurements": {
+        "query_wall_seconds": 0.0908042570008547,
+        "query_cpu_seconds": 0.09195716299999998,
+        "peak_rss_bytes": 18829312,
+        "source_html_open_calls": {
+          "query": 5,
+          "discovery": 2
+        },
+        "source_read_measurement": "Python audit open events for ledger HTML files during query/discovery; cached in-memory reads are not counted",
+        "admitted_source_count": 1,
+        "admitted_canonical_characters": 71
+      }
+    },
+    {
+      "id": "CRYPT-JACKALOPE-T0005",
+      "execution_status": "completed",
+      "scored": true,
+      "passed": false,
+      "expected": "complete",
+      "kind": "abstain",
+      "claims": 0,
+      "positive_miss": true,
+      "false_support": false,
+      "errors": [
+        "positive_completion_miss",
+        "positive_claim_miss"
+      ],
+      "interpretation_inspection_recognized": true,
+      "required_witness_discovery": true,
+      "miss_stage_diagnostic": "proof",
+      "budget_stop": false,
+      "measurements": {
+        "query_wall_seconds": 0.11056888999883085,
+        "query_cpu_seconds": 0.111769863,
+        "peak_rss_bytes": 18706432,
+        "source_html_open_calls": {
+          "query": 9,
+          "discovery": 2
+        },
+        "source_read_measurement": "Python audit open events for ledger HTML files during query/discovery; cached in-memory reads are not counted",
+        "admitted_source_count": 1,
+        "admitted_canonical_characters": 80
+      }
+    },
+    {
+      "id": "CRYPT-JACKALOPE-T0006",
+      "execution_status": "completed",
+      "scored": true,
+      "passed": false,
+      "expected": "partial",
+      "kind": "abstain",
+      "claims": 0,
+      "positive_miss": true,
+      "false_support": false,
+      "errors": [
+        "partial_obligation_not_preserved",
+        "positive_claim_miss"
+      ],
+      "interpretation_inspection_recognized": true,
+      "required_witness_discovery": true,
+      "miss_stage_diagnostic": "proof",
+      "budget_stop": false,
+      "measurements": {
+        "query_wall_seconds": 0.11198242100363132,
+        "query_cpu_seconds": 0.11199118700000002,
+        "peak_rss_bytes": 18837504,
+        "source_html_open_calls": {
+          "query": 9,
+          "discovery": 2
+        },
+        "source_read_measurement": "Python audit open events for ledger HTML files during query/discovery; cached in-memory reads are not counted",
+        "admitted_source_count": 1,
+        "admitted_canonical_characters": 80
+      }
+    },
+    {
+      "id": "CRYPT-JACKALOPE-T0007",
+      "execution_status": "completed",
+      "scored": true,
+      "passed": true,
+      "expected": "withhold",
+      "kind": "abstain",
+      "claims": 0,
+      "positive_miss": false,
+      "false_support": false,
+      "errors": [],
+      "interpretation_inspection_recognized": true,
+      "required_witness_discovery": null,
+      "miss_stage_diagnostic": null,
+      "budget_stop": false,
+      "measurements": {
+        "query_wall_seconds": 0.1097809779967065,
+        "query_cpu_seconds": 0.11172138300000004,
+        "peak_rss_bytes": 18833408,
+        "source_html_open_calls": {
+          "query": 9,
+          "discovery": 2
+        },
+        "source_read_measurement": "Python audit open events for ledger HTML files during query/discovery; cached in-memory reads are not counted",
+        "admitted_source_count": 1,
+        "admitted_canonical_characters": 80
+      }
+    },
+    {
+      "id": "CRYPT-JACKALOPE-T0008",
+      "execution_status": "completed",
+      "scored": true,
+      "passed": true,
+      "expected": "withhold",
+      "kind": "abstain",
+      "claims": 0,
+      "positive_miss": false,
+      "false_support": false,
+      "errors": [],
+      "interpretation_inspection_recognized": false,
+      "required_witness_discovery": null,
+      "miss_stage_diagnostic": null,
+      "budget_stop": false,
+      "measurements": {
+        "query_wall_seconds": 0.09161982200021157,
+        "query_cpu_seconds": 0.09186353900000002,
+        "peak_rss_bytes": 18837504,
+        "source_html_open_calls": {
+          "query": 5,
+          "discovery": 2
+        },
+        "source_read_measurement": "Python audit open events for ledger HTML files during query/discovery; cached in-memory reads are not counted",
+        "admitted_source_count": 1,
+        "admitted_canonical_characters": 80
+      }
+    },
+    {
+      "id": "CRYPT-JACKALOPE-T0009",
+      "execution_status": "completed",
+      "scored": true,
+      "passed": true,
+      "expected": "complete",
+      "kind": "supported_answer",
+      "claims": 1,
+      "positive_miss": false,
+      "false_support": false,
+      "errors": [],
+      "interpretation_inspection_recognized": true,
+      "required_witness_discovery": true,
+      "miss_stage_diagnostic": null,
+      "budget_stop": false,
+      "measurements": {
+        "query_wall_seconds": 0.10983502899762243,
+        "query_cpu_seconds": 0.10798541699999997,
+        "peak_rss_bytes": 18825216,
+        "source_html_open_calls": {
+          "query": 9,
+          "discovery": 2
+        },
+        "source_read_measurement": "Python audit open events for ledger HTML files during query/discovery; cached in-memory reads are not counted",
+        "admitted_source_count": 1,
+        "admitted_canonical_characters": 78
+      }
+    },
+    {
+      "id": "CRYPT-JACKALOPE-T0010",
+      "execution_status": "completed",
+      "scored": true,
+      "passed": true,
+      "expected": "partial",
+      "kind": "partial_answer",
+      "claims": 1,
+      "positive_miss": false,
+      "false_support": false,
+      "errors": [],
+      "interpretation_inspection_recognized": true,
+      "required_witness_discovery": true,
+      "miss_stage_diagnostic": null,
+      "budget_stop": false,
+      "measurements": {
+        "query_wall_seconds": 0.12481796399515588,
+        "query_cpu_seconds": 0.12399161099999997,
+        "peak_rss_bytes": 18710528,
+        "source_html_open_calls": {
+          "query": 9,
+          "discovery": 2
+        },
+        "source_read_measurement": "Python audit open events for ledger HTML files during query/discovery; cached in-memory reads are not counted",
+        "admitted_source_count": 1,
+        "admitted_canonical_characters": 78
+      }
+    },
+    {
+      "id": "CRYPT-JACKALOPE-T0011",
+      "execution_status": "completed",
+      "scored": true,
+      "passed": true,
+      "expected": "withhold",
+      "kind": "abstain",
+      "claims": 0,
+      "positive_miss": false,
+      "false_support": false,
+      "errors": [],
+      "interpretation_inspection_recognized": true,
+      "required_witness_discovery": null,
+      "miss_stage_diagnostic": null,
+      "budget_stop": false,
+      "measurements": {
+        "query_wall_seconds": 0.11159600300015882,
+        "query_cpu_seconds": 0.11178768700000002,
+        "peak_rss_bytes": 18833408,
+        "source_html_open_calls": {
+          "query": 9,
+          "discovery": 2
+        },
+        "source_read_measurement": "Python audit open events for ledger HTML files during query/discovery; cached in-memory reads are not counted",
+        "admitted_source_count": 1,
+        "admitted_canonical_characters": 78
+      }
+    },
+    {
+      "id": "CRYPT-JACKALOPE-T0012",
+      "execution_status": "completed",
+      "scored": true,
+      "passed": true,
+      "expected": "withhold",
+      "kind": "abstain",
+      "claims": 0,
+      "positive_miss": false,
+      "false_support": false,
+      "errors": [],
+      "interpretation_inspection_recognized": false,
+      "required_witness_discovery": null,
+      "miss_stage_diagnostic": null,
+      "budget_stop": false,
+      "measurements": {
+        "query_wall_seconds": 0.09964309800125193,
+        "query_cpu_seconds": 0.099986722,
+        "peak_rss_bytes": 18714624,
+        "source_html_open_calls": {
+          "query": 5,
+          "discovery": 2
+        },
+        "source_read_measurement": "Python audit open events for ledger HTML files during query/discovery; cached in-memory reads are not counted",
+        "admitted_source_count": 1,
+        "admitted_canonical_characters": 78
+      }
+    },
+    {
+      "id": "CRYPT-JACKALOPE-T0013",
+      "execution_status": "completed",
+      "scored": true,
+      "passed": true,
+      "expected": "complete",
+      "kind": "supported_answer",
+      "claims": 1,
+      "positive_miss": false,
+      "false_support": false,
+      "errors": [],
+      "interpretation_inspection_recognized": true,
+      "required_witness_discovery": true,
+      "miss_stage_diagnostic": null,
+      "budget_stop": false,
+      "measurements": {
+        "query_wall_seconds": 0.13647374799620593,
+        "query_cpu_seconds": 0.13599160600000001,
+        "peak_rss_bytes": 18604032,
+        "source_html_open_calls": {
+          "query": 9,
+          "discovery": 2
+        },
+        "source_read_measurement": "Python audit open events for ledger HTML files during query/discovery; cached in-memory reads are not counted",
+        "admitted_source_count": 1,
+        "admitted_canonical_characters": 87
+      }
+    },
+    {
+      "id": "CRYPT-JACKALOPE-T0014",
+      "execution_status": "completed",
+      "scored": true,
+      "passed": true,
+      "expected": "partial",
+      "kind": "partial_answer",
+      "claims": 1,
+      "positive_miss": false,
+      "false_support": false,
+      "errors": [],
+      "interpretation_inspection_recognized": true,
+      "required_witness_discovery": true,
+      "miss_stage_diagnostic": null,
+      "budget_stop": false,
+      "measurements": {
+        "query_wall_seconds": 0.10975196799699916,
+        "query_cpu_seconds": 0.10779366099999999,
+        "peak_rss_bytes": 18710528,
+        "source_html_open_calls": {
+          "query": 9,
+          "discovery": 2
+        },
+        "source_read_measurement": "Python audit open events for ledger HTML files during query/discovery; cached in-memory reads are not counted",
+        "admitted_source_count": 1,
+        "admitted_canonical_characters": 87
+      }
+    },
+    {
+      "id": "CRYPT-JACKALOPE-T0015",
+      "execution_status": "completed",
+      "scored": true,
+      "passed": true,
+      "expected": "withhold",
+      "kind": "abstain",
+      "claims": 0,
+      "positive_miss": false,
+      "false_support": false,
+      "errors": [],
+      "interpretation_inspection_recognized": true,
+      "required_witness_discovery": null,
+      "miss_stage_diagnostic": null,
+      "budget_stop": false,
+      "measurements": {
+        "query_wall_seconds": 0.10422672999993665,
+        "query_cpu_seconds": 0.104003803,
+        "peak_rss_bytes": 18837504,
+        "source_html_open_calls": {
+          "query": 9,
+          "discovery": 2
+        },
+        "source_read_measurement": "Python audit open events for ledger HTML files during query/discovery; cached in-memory reads are not counted",
+        "admitted_source_count": 1,
+        "admitted_canonical_characters": 87
+      }
+    },
+    {
+      "id": "CRYPT-JACKALOPE-T0016",
+      "execution_status": "completed",
+      "scored": true,
+      "passed": true,
+      "expected": "withhold",
+      "kind": "abstain",
+      "claims": 0,
+      "positive_miss": false,
+      "false_support": false,
+      "errors": [],
+      "interpretation_inspection_recognized": false,
+      "required_witness_discovery": null,
+      "miss_stage_diagnostic": null,
+      "budget_stop": false,
+      "measurements": {
+        "query_wall_seconds": 0.09521245699579595,
+        "query_cpu_seconds": 0.09596463499999999,
+        "peak_rss_bytes": 18714624,
+        "source_html_open_calls": {
+          "query": 5,
+          "discovery": 2
+        },
+        "source_read_measurement": "Python audit open events for ledger HTML files during query/discovery; cached in-memory reads are not counted",
+        "admitted_source_count": 1,
+        "admitted_canonical_characters": 87
+      }
+    },
+    {
+      "id": "CRYPT-JACKALOPE-T0017",
+      "execution_status": "completed",
+      "scored": true,
+      "passed": true,
+      "expected": "complete",
+      "kind": "supported_answer",
+      "claims": 1,
+      "positive_miss": false,
+      "false_support": false,
+      "errors": [],
+      "interpretation_inspection_recognized": true,
+      "required_witness_discovery": true,
+      "miss_stage_diagnostic": null,
+      "budget_stop": false,
+      "measurements": {
+        "query_wall_seconds": 0.11378527100168867,
+        "query_cpu_seconds": 0.11609416700000003,
+        "peak_rss_bytes": 18829312,
+        "source_html_open_calls": {
+          "query": 9,
+          "discovery": 2
+        },
+        "source_read_measurement": "Python audit open events for ledger HTML files during query/discovery; cached in-memory reads are not counted",
+        "admitted_source_count": 1,
+        "admitted_canonical_characters": 74
+      }
+    },
+    {
+      "id": "CRYPT-JACKALOPE-T0018",
+      "execution_status": "completed",
+      "scored": true,
+      "passed": true,
+      "expected": "partial",
+      "kind": "partial_answer",
+      "claims": 1,
+      "positive_miss": false,
+      "false_support": false,
+      "errors": [],
+      "interpretation_inspection_recognized": true,
+      "required_witness_discovery": true,
+      "miss_stage_diagnostic": null,
+      "budget_stop": false,
+      "measurements": {
+        "query_wall_seconds": 0.11472035799670266,
+        "query_cpu_seconds": 0.11598929099999997,
+        "peak_rss_bytes": 18829312,
+        "source_html_open_calls": {
+          "query": 9,
+          "discovery": 2
+        },
+        "source_read_measurement": "Python audit open events for ledger HTML files during query/discovery; cached in-memory reads are not counted",
+        "admitted_source_count": 1,
+        "admitted_canonical_characters": 74
+      }
+    },
+    {
+      "id": "CRYPT-JACKALOPE-T0019",
+      "execution_status": "completed",
+      "scored": true,
+      "passed": true,
+      "expected": "withhold",
+      "kind": "abstain",
+      "claims": 0,
+      "positive_miss": false,
+      "false_support": false,
+      "errors": [],
+      "interpretation_inspection_recognized": true,
+      "required_witness_discovery": null,
+      "miss_stage_diagnostic": null,
+      "budget_stop": false,
+      "measurements": {
+        "query_wall_seconds": 0.16933956499997294,
+        "query_cpu_seconds": 0.16045839100000003,
+        "peak_rss_bytes": 18833408,
+        "source_html_open_calls": {
+          "query": 9,
+          "discovery": 2
+        },
+        "source_read_measurement": "Python audit open events for ledger HTML files during query/discovery; cached in-memory reads are not counted",
+        "admitted_source_count": 1,
+        "admitted_canonical_characters": 74
+      }
+    },
+    {
+      "id": "CRYPT-JACKALOPE-T0020",
+      "execution_status": "completed",
+      "scored": true,
+      "passed": true,
+      "expected": "withhold",
+      "kind": "abstain",
+      "claims": 0,
+      "positive_miss": false,
+      "false_support": false,
+      "errors": [],
+      "interpretation_inspection_recognized": false,
+      "required_witness_discovery": null,
+      "miss_stage_diagnostic": null,
+      "budget_stop": false,
+      "measurements": {
+        "query_wall_seconds": 0.09499708100338466,
+        "query_cpu_seconds": 0.095914582,
+        "peak_rss_bytes": 18829312,
+        "source_html_open_calls": {
+          "query": 5,
+          "discovery": 2
+        },
+        "source_read_measurement": "Python audit open events for ledger HTML files during query/discovery; cached in-memory reads are not counted",
+        "admitted_source_count": 1,
+        "admitted_canonical_characters": 74
+      }
+    },
+    {
+      "id": "CRYPT-JACKALOPE-T0021",
+      "execution_status": "completed",
+      "scored": true,
+      "passed": true,
+      "expected": "complete",
+      "kind": "supported_answer",
+      "claims": 1,
+      "positive_miss": false,
+      "false_support": false,
+      "errors": [],
+      "interpretation_inspection_recognized": true,
+      "required_witness_discovery": true,
+      "miss_stage_diagnostic": null,
+      "budget_stop": false,
+      "measurements": {
+        "query_wall_seconds": 0.12460724300035508,
+        "query_cpu_seconds": 0.12398603100000002,
+        "peak_rss_bytes": 18833408,
+        "source_html_open_calls": {
+          "query": 9,
+          "discovery": 2
+        },
+        "source_read_measurement": "Python audit open events for ledger HTML files during query/discovery; cached in-memory reads are not counted",
+        "admitted_source_count": 1,
+        "admitted_canonical_characters": 83
+      }
+    },
+    {
+      "id": "CRYPT-JACKALOPE-T0022",
+      "execution_status": "completed",
+      "scored": true,
+      "passed": true,
+      "expected": "partial",
+      "kind": "partial_answer",
+      "claims": 1,
+      "positive_miss": false,
+      "false_support": false,
+      "errors": [],
+      "interpretation_inspection_recognized": true,
+      "required_witness_discovery": true,
+      "miss_stage_diagnostic": null,
+      "budget_stop": false,
+      "measurements": {
+        "query_wall_seconds": 0.11084420300176134,
+        "query_cpu_seconds": 0.10803015099999996,
+        "peak_rss_bytes": 18829312,
+        "source_html_open_calls": {
+          "query": 9,
+          "discovery": 2
+        },
+        "source_read_measurement": "Python audit open events for ledger HTML files during query/discovery; cached in-memory reads are not counted",
+        "admitted_source_count": 1,
+        "admitted_canonical_characters": 83
+      }
+    },
+    {
+      "id": "CRYPT-JACKALOPE-T0023",
+      "execution_status": "completed",
+      "scored": true,
+      "passed": true,
+      "expected": "withhold",
+      "kind": "abstain",
+      "claims": 0,
+      "positive_miss": false,
+      "false_support": false,
+      "errors": [],
+      "interpretation_inspection_recognized": true,
+      "required_witness_discovery": null,
+      "miss_stage_diagnostic": null,
+      "budget_stop": false,
+      "measurements": {
+        "query_wall_seconds": 0.11375234599836404,
+        "query_cpu_seconds": 0.111983953,
+        "peak_rss_bytes": 18829312,
+        "source_html_open_calls": {
+          "query": 9,
+          "discovery": 2
+        },
+        "source_read_measurement": "Python audit open events for ledger HTML files during query/discovery; cached in-memory reads are not counted",
+        "admitted_source_count": 1,
+        "admitted_canonical_characters": 83
+      }
+    },
+    {
+      "id": "CRYPT-JACKALOPE-T0024",
+      "execution_status": "completed",
+      "scored": true,
+      "passed": true,
+      "expected": "withhold",
+      "kind": "abstain",
+      "claims": 0,
+      "positive_miss": false,
+      "false_support": false,
+      "errors": [],
+      "interpretation_inspection_recognized": false,
+      "required_witness_discovery": null,
+      "miss_stage_diagnostic": null,
+      "budget_stop": false,
+      "measurements": {
+        "query_wall_seconds": 0.10001470299903303,
+        "query_cpu_seconds": 0.099730336,
+        "peak_rss_bytes": 18833408,
+        "source_html_open_calls": {
+          "query": 5,
+          "discovery": 2
+        },
+        "source_read_measurement": "Python audit open events for ledger HTML files during query/discovery; cached in-memory reads are not counted",
+        "admitted_source_count": 1,
+        "admitted_canonical_characters": 83
+      }
+    }
+  ],
+  "custody": "Same-operator keys/scoring; no independent historical or semantic adjudication."
+}

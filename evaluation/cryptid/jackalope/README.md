@@ -25,3 +25,13 @@ The [unchanged existing selector controls](selector-controls/freeze.json) add39s
 The 280release comparison preserves the Mothman candidate's complete contracts (275unchanged from original release plus its five earlier verified recoveries); no additional Jackalope gain is claimed in that cohort. All68prior Mothman input contracts remain exactly unchanged apart from code fingerprints, including its three known misses. Five input pairs overlap those cohorts, so348memberships represent343unique input pairs before Jackalope's new cases. All169inherited native controls and50date/byline/inspection tests pass. No budget cap changed.
 
 Fresh24transfer remains sealed at this candidate-document freeze. It will run only after committed scoped ZIP extraction checks. Letter-boundary failures remain explicit for the later source-linked structure series rather than being hidden by question normalization.
+
+## Once-only transfer and current review state
+
+Committed scoped candidate `3dbeb6f1a3ccf946f1ef0bd9aa494e597d5dd32f`, ZIP SHA-256 `21fec2ae41da5bad1d55aa6cf850b4846fdd157af3e5e8e27578d7324c5d5203`, reproduces46/54development,39selector and50focused checks from extraction. Once-only transfer completed24/24executions and scores: **20/24decisions,4/6complete targets,4/6checked-partial targets,12/12withholds,0false-supported claims,0budget stops,0execution failures,0unscored**. Four letter targets remain source-boundary proof misses. This is **failed transfer coverage**, not general coverage across all three forms.
+
+The packet is consumed and preserved unchanged for later development/preservation. No repair informed by it is being presented as fresh transfer. The later Nessie source-linked representation series may test its independently reproduced explicit-header/paragraph-boundary mechanism, with fresh transfer required for that later candidate.
+
+Original development retains eight misses. The actual gain is six complete answers and six checked partials in54frozen questions; question goals now recognize all24positive/partial targets but source proof still blocks eight letter targets. Thirty new withholds, all prior valid claims/qualifications/citations,39existing selector cases,280release and68Mothman inputs remain protected. The 280release and68Mothman memberships overlap by five exact input pairs. Source collections and templates are shared within this matrix; the question count is not a count of independent collections.
+
+The next local series is Yeti. Historical/semantic adjudication, independent preparation/blinding, outside-custodian scoring, native OOCC and real-human onboarding remain **NOT_RUN**. No publication authorized or performed.

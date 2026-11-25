@@ -4,8 +4,8 @@ Last reviewed: 2026-11-25.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `393b71b5761022eacbf0a411b87207a2f3c23c65` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `2f3fe55602b72a6061c34460d6f9c0bc43819610e0b4500bd4aed5b4292e8cb1`.
+Base commit: `3dbeb6f1a3ccf946f1ef0bd9aa494e597d5dd32f` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `5830576e9d0bea4d2afcf43563b7e3dd38780ddc577b53045beb5af2dc4494ff`.
 
 ## Betty report for Al
 
@@ -46,6 +46,7 @@ Run Betty — local Cryptid test programme. Start from current main. Complete th
 - Jackalope54identical development34→46expected decisions,complete2→8,checked partials2→8,positive misses20→8; all30withholds,0false support. Every positive/partial target now has a documentary goal; eight letter-scope proof misses remain.
 - 39unchanged selector/field-wording/compound controls passed baseline and candidate. All280release contracts preserved relative to Mothman current candidate; all68Mothman contracts exactly unchanged. Five case overlaps inventoried.
 - 169inherited native plus50date/byline/inspection tests pass,0skips. Jackalope24transfer remains sealed.
+- Jackalope committedZIP3dbeb6f1 SHA21fec2ae41da5bad1d55aa6cf850b4846fdd157af3e5e8e27578d7324c5d5203 reproduces46/54,39selectors,50focused. Once-only24transfer20/24:4complete+4checkedpartial,12withholds,4letter proofmisses,0false/0budget/0executionfailure/0unscored. Failed coverage retained; packet now consumed development.
 
 ### Limitations and blocked checks
 
@@ -55,7 +56,7 @@ Run Betty — local Cryptid test programme. Start from current main. Complete th
 
 ### Next steps
 
-- Commit scoped Jackalope ZIP, verify extracted54+39selector/50focused checks, then run sealed24once. Retain all misses and move to Yeti afterward.
+- Start Yeti polarity/conditions/modality trial: reproduce current old failures, freeze keys/control/baseline and separate transfer before native changes. Keep letter-boundary misses for later source-linked structure series.
 - Run all series sequentially and finish a local committed-ZIP review package. No remote publication.
 
 ## Use this ZIP in your repository

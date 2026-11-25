@@ -78,7 +78,7 @@
       "family": "JACKALOPE",
       "id_prefix": "CRYPT-JACKALOPE",
       "mechanism": "Ordinary question forms fail to reach shared evidence operations while keeping all original obligations.",
-      "status": "CANDIDATE_WITH_8_PROOF_MISSES",
+      "status": "COMPLETED_WITH_DEVELOPMENT_AND_TRANSFER_MISSES",
       "responsible_department": "testing-evaluation",
       "implementation_departments": [
         "reader",
@@ -98,8 +98,19 @@
         "score": "jackalope/scores/baseline-v2.json"
       },
       "transfer": {
+        "status": "FAILED_COVERAGE_CONSUMED",
         "cases": 24,
-        "status": "SEALED_NOT_RUN"
+        "passed": 20,
+        "complete": 4,
+        "checked_partials": 4,
+        "withholds_retained": 12,
+        "positive_misses": 4,
+        "false_support": 0,
+        "budget_stops": 0,
+        "score": "jackalope/scores/transfer-once-v2.json",
+        "candidate_commit": "3dbeb6f1a3ccf946f1ef0bd9aa494e597d5dd32f",
+        "zip_sha256": "21fec2ae41da5bad1d55aa6cf850b4846fdd157af3e5e8e27578d7324c5d5203",
+        "custody": "same-operator templates visible; no independent blinding or preparation"
       },
       "candidate": {
         "cases": 54,
@@ -211,6 +222,7 @@
     "browser": "NOT_RUN"
   },
   "run_ledger": [
-    "ledger/0001.json"
+    "ledger/0001.json",
+    "ledger/0002.json"
   ]
 }
