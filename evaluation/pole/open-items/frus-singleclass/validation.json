@@ -1,0 +1,91 @@
+{
+  "status": "local_source_archive_checks_passed",
+  "baseline_commit": "1b963aea9ce14d207ec2f6b645912c3a7c98cdd9",
+  "source_commit": "b9051a3eb4d1f70e8fdcc87b24f74b75eb327b64",
+  "source_tree": "e7bbb9b569f84f8661df8cb25bcf72b58fde7963",
+  "source_archive_sha256": "302788eb692bcd523db0fb0c55d4428f60371bcf8053d7cfb741d409babb876d",
+  "archive_generation": "git archive --format=zip -1 HEAD",
+  "compressed_archive_integrity": "PASS",
+  "extracted_handoff_and_evidence_digests": "PASS",
+  "python": {
+    "tests_run": 1729,
+    "seconds": 384.863,
+    "skipped": 2
+  },
+  "public_evidence": {
+    "pass": 52,
+    "false_supported_bridges": 0
+  },
+  "installed_wheel_and_named_advice_tests": "PASS",
+  "javascript_ui_rendering_transport_model_helper_and_webgpu": "PASS",
+  "crawler_and_historical_fixtures": "PASS",
+  "reference_evidence_inventory": "PASS",
+  "synthetic_researcher_workflow": {
+    "journeys": 6,
+    "workflow_passes": 6,
+    "checks": 109,
+    "failed_checks": 0,
+    "questions": 24,
+    "answerable": 18,
+    "returned": 13,
+    "unexecuted_questions": 0,
+    "literal_gold_supported": 13,
+    "wrong_returns_under_literal_oracle": 0,
+    "ungraded_model_returns": 0,
+    "unnecessary_refusals": 5,
+    "complete_answerable_coverage": 0.7222222222222222,
+    "retrieval_gold_recall": 1.0,
+    "valid_citations": 13,
+    "citations": 13,
+    "latency_ms_total": 297.625,
+    "resume_ms_total": 1060.937,
+    "semantic_accuracy_independently_measured": false,
+    "human_usability_measured": false
+  },
+  "pyodide": {
+    "output": "dist/index.html",
+    "bytes": 39447503,
+    "sha256": "37b02aac6325bd911c64c18baf188b5d7a2c38f8dc60571ef2d9deb6139921a1",
+    "bundled_files": 511,
+    "pyodide": "314.0.7",
+    "core_release_sha256": "2abdcc2e35208af406e07724cffa85bc582ced97e9028383ecf5462541393f95"
+  },
+  "pyodide_integration": "PASS",
+  "local_chromium_candidate": "PASS",
+  "deployed_chromium_baseline": "PASS with a host-specific public-key pin from a TLS-verified curl request",
+  "frozen_replay": {
+    "cases": 9,
+    "expected_withholds": 5,
+    "complete": 0,
+    "checked_partials": 1,
+    "misses": 3,
+    "false_supported_bridges": 0,
+    "packet_seal_sha256": "49eedddf13cc7a36d26f94774afe1d9a54257a2a8704f87d1ad69272d15e2e31",
+    "candidate_rule_sha256": "061935cb40c4472fb6bf8df6b08c29ca33d500c5daa340cb8bd59097f49c6900"
+  },
+  "retained_native_replays": {
+    "tacitus": {
+      "rows": 11,
+      "supported": 5
+    },
+    "douglass": {
+      "rows": 17,
+      "supported": 6
+    },
+    "herodotus": {
+      "rows": 7,
+      "supported": 2
+    },
+    "bt": {
+      "rows": 6,
+      "supported": 1
+    }
+  },
+  "retained_caps_and_babbage_eligibility_decisions": "PASS",
+  "komnene_delivery_archive_sha256": "af4f3c37b8f02c4f7a9cbe94db158e6a85b429d7d01202dfbceb90d7476076b1",
+  "github_release_workflow_and_post_deployment_check": "NOT_RUN",
+  "outside_custodian_scoring": "NOT_RUN",
+  "independent_historical_accuracy": "NOT_RUN",
+  "independent_semantic_adjudication": "NOT_RUN",
+  "native_oocc": "NOT_RUN"
+}

@@ -67,3 +67,5 @@ baseline checkout. [Native readbacks](native-readbacks.tar.gz)
 Focus-12 and scan and phrase limits remain open. Outside-custodian scoring,
 independent historical accuracy, independent semantic adjudication and
 native OOCC remain **NOT_RUN**.
+
+[Exact source archive validation](validation.json)

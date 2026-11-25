@@ -4,8 +4,8 @@ Last reviewed: 2026-11-25.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `1183abaa892c004cb1d62c511ab9b78e2bb6d8a3` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `d4088789d1f89c5c1c67d2bc73ee214866eb98d52f36c8590881971e0d10c36b`.
+Base commit: `b9051a3eb4d1f70e8fdcc87b24f74b75eb327b64` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `ad4833b64da620ce742cb9fffe4c0efe2e49f4f183ddf726c8b85c0dac401399`.
 
 ## Latest user update instructions
 
@@ -50,6 +50,7 @@ Browser release validation remains the maintainer’s priority until the deploye
 - Discovery stayed 4/4, complete answers stayed at 0/4, and PE-04 moved from miss to one checked partial. All five controls withheld with zero claims.
 - The 52 public evidence checks passed on the candidate runtime.
 - A follow-up unit control checks explicit denial in the “never recommended” form. Both that form and “did not recommend” withhold. The frozen named outcomes stayed identical.
+- The extracted source archive passed 1,729 Python tests with 2 skips, 52 public evidence checks, and the pinned nine-case replay.
 
 ## Limitations and blocked checks
 
