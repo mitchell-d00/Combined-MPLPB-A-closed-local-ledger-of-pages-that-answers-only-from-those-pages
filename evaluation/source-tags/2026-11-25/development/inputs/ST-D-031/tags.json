@@ -1,0 +1,83 @@
+{
+  "schema": "source-linked-proposals-v1",
+  "source": {
+    "id": "SOURCE-1",
+    "path": "source-1.html",
+    "hash": "sha256:f2d8457b06ed03b2c1b2432d97ad3ec55f33c05ce286f9267157f44e79b28055",
+    "body_html_sha256": "5b10ac035754568e804e6178a454205eed6cdaf4e9af4298560788796f21eb23"
+  },
+  "nodes": [
+    {
+      "id": "D1",
+      "kind": "document",
+      "parent": null,
+      "body_start": 0,
+      "body_end": 104
+    },
+    {
+      "id": "C1",
+      "kind": "statement",
+      "parent": "D1",
+      "body_start": 40,
+      "body_end": 104,
+      "quote": "Hugo Ferrer reported that Enzo Vidal wrote the copper inventory.",
+      "original_start_byte": 72,
+      "original_end_byte": 136
+    },
+    {
+      "id": "P1",
+      "kind": "person",
+      "parent": "C1",
+      "body_start": 40,
+      "body_end": 51,
+      "quote": "Hugo Ferrer",
+      "original_start_byte": 72,
+      "original_end_byte": 83
+    },
+    {
+      "id": "P2",
+      "kind": "person",
+      "parent": "C1",
+      "body_start": 66,
+      "body_end": 76,
+      "quote": "Enzo Vidal",
+      "original_start_byte": 98,
+      "original_end_byte": 108
+    },
+    {
+      "id": "O1",
+      "kind": "object",
+      "parent": "C1",
+      "body_start": 83,
+      "body_end": 103,
+      "quote": "the copper inventory",
+      "original_start_byte": 115,
+      "original_end_byte": 135
+    }
+  ],
+  "relations": [
+    {
+      "witness": "C1",
+      "subject": "P2",
+      "reported_by": "P1",
+      "object": "O1",
+      "proposition": {
+        "reporter": "Hugo Ferrer",
+        "author": "Enzo Vidal",
+        "inner_action": "write",
+        "object": "the copper inventory",
+        "inner_negative": false,
+        "outer_negative": false,
+        "conditions": [],
+        "content_asserted_by_reporter": true,
+        "actual_authorship_established": false,
+        "source_writer_or_unknown": "Nadia Rhee",
+        "relation": "independently_established_authorship",
+        "source_voice": "source_reports_named_speaker",
+        "reporting_layer": "source_scoped_report_content",
+        "completion_established": false,
+        "historical_truth_independently_verified": false
+      }
+    }
+  ]
+}

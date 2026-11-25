@@ -1,0 +1,83 @@
+{
+  "schema": "source-linked-proposals-v1",
+  "source": {
+    "id": "SOURCE-1",
+    "path": "source-1.html",
+    "hash": "sha256:238901541756f19476d42374011b635b9bc8c2cde6c1c894b9fccc7653bbde6b",
+    "body_html_sha256": "70e68267398f9400026496ef3c6a4ca3b51a3e424ae2d2d35c646a9ec91f1ee4"
+  },
+  "nodes": [
+    {
+      "id": "D1",
+      "kind": "document",
+      "parent": null,
+      "body_start": 0,
+      "body_end": 114
+    },
+    {
+      "id": "C1",
+      "kind": "statement",
+      "parent": "D1",
+      "body_start": 52,
+      "body_end": 114,
+      "quote": "Hugo Ferrer reported that Nadia Rhee wrote the tidal register.",
+      "original_start_byte": 84,
+      "original_end_byte": 146
+    },
+    {
+      "id": "P1",
+      "kind": "person",
+      "parent": "C1",
+      "body_start": 52,
+      "body_end": 63,
+      "quote": "Hugo Ferrer",
+      "original_start_byte": 84,
+      "original_end_byte": 95
+    },
+    {
+      "id": "P2",
+      "kind": "person",
+      "parent": "C1",
+      "body_start": 78,
+      "body_end": 88,
+      "quote": "Nadia Rhee",
+      "original_start_byte": 110,
+      "original_end_byte": 120
+    },
+    {
+      "id": "O1",
+      "kind": "object",
+      "parent": "C1",
+      "body_start": 95,
+      "body_end": 113,
+      "quote": "the tidal register",
+      "original_start_byte": 127,
+      "original_end_byte": 145
+    }
+  ],
+  "relations": [
+    {
+      "witness": "C1",
+      "subject": "P2",
+      "reported_by": "P1",
+      "object": "O1",
+      "proposition": {
+        "reporter": "Hugo Ferrer",
+        "author": "Nadia Rhee",
+        "inner_action": "write",
+        "object": "the tidal register",
+        "inner_negative": false,
+        "outer_negative": false,
+        "conditions": [],
+        "content_asserted_by_reporter": true,
+        "actual_authorship_established": false,
+        "source_writer_or_unknown": "Enzo Vidal",
+        "relation": "source_attributed_report_content",
+        "source_voice": "source_reports_named_speaker",
+        "reporting_layer": "source_scoped_report_content",
+        "completion_established": false,
+        "historical_truth_independently_verified": false
+      }
+    }
+  ]
+}

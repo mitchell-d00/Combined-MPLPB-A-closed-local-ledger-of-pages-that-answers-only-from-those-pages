@@ -1,0 +1,83 @@
+{
+  "schema": "source-linked-proposals-v1",
+  "source": {
+    "id": "SOURCE-1",
+    "path": "source-1.html",
+    "hash": "sha256:a054d612173f57cf4e9a7c3efceaf7ee7e69cd1bfc7bc9a5168853511c605b00",
+    "body_html_sha256": "2be5e177262cbdc8a9fcb64ee3cea39835090e3f53350457f15af0f193a04f20"
+  },
+  "nodes": [
+    {
+      "id": "D1",
+      "kind": "document",
+      "parent": null,
+      "body_start": 0,
+      "body_end": 100
+    },
+    {
+      "id": "C1",
+      "kind": "statement",
+      "parent": "D1",
+      "body_start": 34,
+      "body_end": 100,
+      "quote": "Dario Solis stated, “Amara Voss did not write the tidal register.”",
+      "original_start_byte": 66,
+      "original_end_byte": 136
+    },
+    {
+      "id": "P1",
+      "kind": "person",
+      "parent": "C1",
+      "body_start": 34,
+      "body_end": 45,
+      "quote": "Dario Solis",
+      "original_start_byte": 66,
+      "original_end_byte": 77
+    },
+    {
+      "id": "P2",
+      "kind": "person",
+      "parent": "C1",
+      "body_start": 55,
+      "body_end": 65,
+      "quote": "Amara Voss",
+      "original_start_byte": 89,
+      "original_end_byte": 99
+    },
+    {
+      "id": "O1",
+      "kind": "object",
+      "parent": "C1",
+      "body_start": 80,
+      "body_end": 98,
+      "quote": "the tidal register",
+      "original_start_byte": 114,
+      "original_end_byte": 132
+    }
+  ],
+  "relations": [
+    {
+      "witness": "C1",
+      "subject": "P2",
+      "reported_by": "P1",
+      "object": "O1",
+      "proposition": {
+        "reporter": "Dario Solis",
+        "author": "Amara Voss",
+        "inner_action": "write",
+        "object": "the missing register",
+        "inner_negative": true,
+        "outer_negative": false,
+        "conditions": [],
+        "content_asserted_by_reporter": true,
+        "actual_authorship_established": false,
+        "source_writer_or_unknown": "Leila Bhandari",
+        "relation": "source_attributed_report_content",
+        "source_voice": "source_reports_named_speaker",
+        "reporting_layer": "source_scoped_report_content",
+        "completion_established": false,
+        "historical_truth_independently_verified": false
+      }
+    }
+  ]
+}

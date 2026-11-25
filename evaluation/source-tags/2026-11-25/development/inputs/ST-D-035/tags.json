@@ -1,0 +1,85 @@
+{
+  "schema": "source-linked-proposals-v1",
+  "source": {
+    "id": "SOURCE-1",
+    "path": "source-1.html",
+    "hash": "sha256:c17ed5c75ac8e2ce6ef7fcd37ca282ee6c8209786d1537ecbb77b11009ce6c4d",
+    "body_html_sha256": "a43b670a7f712e81ae993142c7a2868ecaafe883bf1e37dcb290b99cbd2700ee",
+    "visibility": "public"
+  },
+  "nodes": [
+    {
+      "id": "D1",
+      "kind": "document",
+      "parent": null,
+      "body_start": 0,
+      "body_end": 104
+    },
+    {
+      "id": "C1",
+      "kind": "statement",
+      "parent": "D1",
+      "body_start": 40,
+      "body_end": 104,
+      "quote": "Dario Solis reported that Enzo Vidal wrote the copper inventory.",
+      "original_start_byte": 72,
+      "original_end_byte": 136
+    },
+    {
+      "id": "P1",
+      "kind": "person",
+      "parent": "C1",
+      "body_start": 40,
+      "body_end": 51,
+      "quote": "Dario Solis",
+      "original_start_byte": 72,
+      "original_end_byte": 83
+    },
+    {
+      "id": "P2",
+      "kind": "person",
+      "parent": "C1",
+      "body_start": 66,
+      "body_end": 76,
+      "quote": "Enzo Vidal",
+      "original_start_byte": 98,
+      "original_end_byte": 108
+    },
+    {
+      "id": "O1",
+      "kind": "object",
+      "parent": "C1",
+      "body_start": 83,
+      "body_end": 103,
+      "quote": "the copper inventory",
+      "original_start_byte": 115,
+      "original_end_byte": 135
+    }
+  ],
+  "relations": [
+    {
+      "witness": "C1",
+      "subject": "P2",
+      "reported_by": "P1",
+      "object": "O1",
+      "proposition": {
+        "reporter": "Dario Solis",
+        "author": "Enzo Vidal",
+        "inner_action": "write",
+        "object": "the copper inventory",
+        "inner_negative": false,
+        "outer_negative": false,
+        "conditions": [],
+        "content_asserted_by_reporter": true,
+        "actual_authorship_established": false,
+        "source_writer_or_unknown": "Nadia Rhee",
+        "relation": "source_attributed_report_content",
+        "source_voice": "source_reports_named_speaker",
+        "reporting_layer": "source_scoped_report_content",
+        "completion_established": false,
+        "historical_truth_independently_verified": false
+      }
+    }
+  ],
+  "private": false
+}

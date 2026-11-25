@@ -1,0 +1,83 @@
+{
+  "schema": "source-linked-proposals-v1",
+  "source": {
+    "id": "SOURCE-1",
+    "path": "source-1.html",
+    "hash": "sha256:e3ba0b35a3b1b1f30bdbcf82c4b75eae1ebc38f29863565d864998d4ddbf64b8",
+    "body_html_sha256": "b9118f7c132e41f15fa50a6d135e170b898a3d1918756c05171cfaec7f209d0f"
+  },
+  "nodes": [
+    {
+      "id": "D1",
+      "kind": "document",
+      "parent": null,
+      "body_start": 0,
+      "body_end": 118
+    },
+    {
+      "id": "C1",
+      "kind": "statement",
+      "parent": "D1",
+      "body_start": 52,
+      "body_end": 118,
+      "quote": "Hugo Ferrer reported that Dario Solis wrote the harbour catalogue.",
+      "original_start_byte": 84,
+      "original_end_byte": 150
+    },
+    {
+      "id": "P1",
+      "kind": "person",
+      "parent": "C1",
+      "body_start": 52,
+      "body_end": 63,
+      "quote": "Hugo Ferrer",
+      "original_start_byte": 84,
+      "original_end_byte": 95
+    },
+    {
+      "id": "P2",
+      "kind": "person",
+      "parent": "C1",
+      "body_start": 78,
+      "body_end": 89,
+      "quote": "Dario Solis",
+      "original_start_byte": 110,
+      "original_end_byte": 121
+    },
+    {
+      "id": "O1",
+      "kind": "object",
+      "parent": "C1",
+      "body_start": 96,
+      "body_end": 117,
+      "quote": "the harbour catalogue",
+      "original_start_byte": 128,
+      "original_end_byte": 149
+    }
+  ],
+  "relations": [
+    {
+      "witness": "C1",
+      "subject": "P2",
+      "reported_by": "P1",
+      "object": "O1",
+      "proposition": {
+        "reporter": "Amara Voss",
+        "author": "Dario Solis",
+        "inner_action": "write",
+        "object": "the harbour catalogue",
+        "inner_negative": false,
+        "outer_negative": false,
+        "conditions": [],
+        "content_asserted_by_reporter": true,
+        "actual_authorship_established": false,
+        "source_writer_or_unknown": "Amara Voss",
+        "relation": "source_attributed_report_content",
+        "source_voice": "source_reports_named_speaker",
+        "reporting_layer": "source_scoped_report_content",
+        "completion_established": false,
+        "historical_truth_independently_verified": false
+      }
+    }
+  ]
+}

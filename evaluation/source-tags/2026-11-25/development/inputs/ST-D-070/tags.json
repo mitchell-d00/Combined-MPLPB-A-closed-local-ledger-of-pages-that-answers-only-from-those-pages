@@ -1,0 +1,83 @@
+{
+  "schema": "source-linked-proposals-v1",
+  "source": {
+    "id": "SOURCE-1",
+    "path": "source-1.html",
+    "hash": "sha256:eafdc8474cf90eea2fafd3bbe31bb498f79b8cbc91d00163061c2982e80cb208",
+    "body_html_sha256": "17e23c5c98330ceab1396b383930d9828fe431c717248d5da438fe8bfbdc4f24"
+  },
+  "nodes": [
+    {
+      "id": "D1",
+      "kind": "document",
+      "parent": null,
+      "body_start": 0,
+      "body_end": 94
+    },
+    {
+      "id": "C1",
+      "kind": "statement",
+      "parent": "D1",
+      "body_start": 31,
+      "body_end": 94,
+      "quote": "Amara Voss stated, “Nadia Rhee did not write the winter ledger.”",
+      "original_start_byte": 62,
+      "original_end_byte": 130
+    },
+    {
+      "id": "P1",
+      "kind": "person",
+      "parent": "C1",
+      "body_start": 30,
+      "body_end": 40,
+      "quote": "Amara Voss",
+      "original_start_byte": 62,
+      "original_end_byte": 72
+    },
+    {
+      "id": "P2",
+      "kind": "person",
+      "parent": "C1",
+      "body_start": 50,
+      "body_end": 60,
+      "quote": "Nadia Rhee",
+      "original_start_byte": 84,
+      "original_end_byte": 94
+    },
+    {
+      "id": "O1",
+      "kind": "object",
+      "parent": "C1",
+      "body_start": 75,
+      "body_end": 92,
+      "quote": "the winter ledger",
+      "original_start_byte": 109,
+      "original_end_byte": 126
+    }
+  ],
+  "relations": [
+    {
+      "witness": "C1",
+      "subject": "P2",
+      "reported_by": "P1",
+      "object": "O1",
+      "proposition": {
+        "reporter": "Amara Voss",
+        "author": "Nadia Rhee",
+        "inner_action": "write",
+        "object": "the winter ledger",
+        "inner_negative": true,
+        "outer_negative": false,
+        "conditions": [],
+        "content_asserted_by_reporter": true,
+        "actual_authorship_established": false,
+        "source_writer_or_unknown": "Enzo Vidal",
+        "relation": "source_attributed_report_content",
+        "source_voice": "source_reports_named_speaker",
+        "reporting_layer": "source_scoped_report_content",
+        "completion_established": false,
+        "historical_truth_independently_verified": false
+      }
+    }
+  ]
+}

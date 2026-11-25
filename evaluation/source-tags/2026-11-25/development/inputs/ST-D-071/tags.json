@@ -1,0 +1,85 @@
+{
+  "schema": "source-linked-proposals-v1",
+  "source": {
+    "id": "SOURCE-1",
+    "path": "source-1.html",
+    "hash": "sha256:e75608b9a0602be2ed637a004adcae7669dfe7a72d5e58089e3fec8929415cf7",
+    "body_html_sha256": "08bca09bbe2412d633dd9d1d64bf85b74f4121c7880e63b3c79a657c587b01a9",
+    "visibility": "public"
+  },
+  "nodes": [
+    {
+      "id": "D1",
+      "kind": "document",
+      "parent": null,
+      "body_start": 0,
+      "body_end": 99
+    },
+    {
+      "id": "C1",
+      "kind": "statement",
+      "parent": "D1",
+      "body_start": 30,
+      "body_end": 99,
+      "quote": "Hugo Ferrer stated, “Nadia Rhee did not write the harbour catalogue.”",
+      "original_start_byte": 62,
+      "original_end_byte": 135
+    },
+    {
+      "id": "P1",
+      "kind": "person",
+      "parent": "C1",
+      "body_start": 30,
+      "body_end": 41,
+      "quote": "Hugo Ferrer",
+      "original_start_byte": 62,
+      "original_end_byte": 73
+    },
+    {
+      "id": "P2",
+      "kind": "person",
+      "parent": "C1",
+      "body_start": 51,
+      "body_end": 61,
+      "quote": "Nadia Rhee",
+      "original_start_byte": 85,
+      "original_end_byte": 95
+    },
+    {
+      "id": "O1",
+      "kind": "object",
+      "parent": "C1",
+      "body_start": 76,
+      "body_end": 97,
+      "quote": "the harbour catalogue",
+      "original_start_byte": 110,
+      "original_end_byte": 131
+    }
+  ],
+  "relations": [
+    {
+      "witness": "C1",
+      "subject": "P2",
+      "reported_by": "P1",
+      "object": "O1",
+      "proposition": {
+        "reporter": "Hugo Ferrer",
+        "author": "Nadia Rhee",
+        "inner_action": "write",
+        "object": "the harbour catalogue",
+        "inner_negative": true,
+        "outer_negative": false,
+        "conditions": [],
+        "content_asserted_by_reporter": true,
+        "actual_authorship_established": false,
+        "source_writer_or_unknown": "Amara Voss",
+        "relation": "source_attributed_report_content",
+        "source_voice": "source_reports_named_speaker",
+        "reporting_layer": "source_scoped_report_content",
+        "completion_established": false,
+        "historical_truth_independently_verified": false
+      }
+    }
+  ],
+  "private": false
+}

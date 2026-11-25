@@ -1,0 +1,83 @@
+{
+  "schema": "source-linked-proposals-v1",
+  "source": {
+    "id": "SOURCE-1",
+    "path": "source-1.html",
+    "hash": "sha256:6d4c9ce1daece0a6788dc4838f977bcd16c04af7220a36610fb23b0421613e45",
+    "body_html_sha256": "7e86a440afa95705b76a45907ecca591be25135a1400e2a0e88a4c775aa4e8af"
+  },
+  "nodes": [
+    {
+      "id": "D1",
+      "kind": "document",
+      "parent": null,
+      "body_start": 0,
+      "body_end": 96
+    },
+    {
+      "id": "C1",
+      "kind": "statement",
+      "parent": "P2",
+      "body_start": 31,
+      "body_end": 96,
+      "quote": "Dario Solis reported that Nadia Rhee wrote the harbour catalogue.",
+      "original_start_byte": 63,
+      "original_end_byte": 128
+    },
+    {
+      "id": "P1",
+      "kind": "person",
+      "parent": "C1",
+      "body_start": 31,
+      "body_end": 42,
+      "quote": "Dario Solis",
+      "original_start_byte": 63,
+      "original_end_byte": 74
+    },
+    {
+      "id": "P2",
+      "kind": "person",
+      "parent": "C1",
+      "body_start": 57,
+      "body_end": 67,
+      "quote": "Nadia Rhee",
+      "original_start_byte": 89,
+      "original_end_byte": 99
+    },
+    {
+      "id": "O1",
+      "kind": "object",
+      "parent": "C1",
+      "body_start": 74,
+      "body_end": 95,
+      "quote": "the harbour catalogue",
+      "original_start_byte": 106,
+      "original_end_byte": 127
+    }
+  ],
+  "relations": [
+    {
+      "witness": "C1",
+      "subject": "P2",
+      "reported_by": "P1",
+      "object": "O1",
+      "proposition": {
+        "reporter": "Dario Solis",
+        "author": "Nadia Rhee",
+        "inner_action": "write",
+        "object": "the harbour catalogue",
+        "inner_negative": false,
+        "outer_negative": false,
+        "conditions": [],
+        "content_asserted_by_reporter": true,
+        "actual_authorship_established": false,
+        "source_writer_or_unknown": "Hugo Ferrer",
+        "relation": "source_attributed_report_content",
+        "source_voice": "source_reports_named_speaker",
+        "reporting_layer": "source_scoped_report_content",
+        "completion_established": false,
+        "historical_truth_independently_verified": false
+      }
+    }
+  ]
+}

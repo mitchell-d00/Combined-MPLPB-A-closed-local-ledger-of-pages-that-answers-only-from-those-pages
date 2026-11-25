@@ -185,3 +185,7 @@ output when adding evidence. Keep raw outputs separate from the grading key.
 [ONBOARD-12 protocol proposal](../evaluation/bubble-wrap/2026-11-25/next-onboarding-proposal.json) is NOT_RUN. Mitchell will recruit twelve first-time participants and return uncoached results. Software journeys cannot count as human observations. Freeze engine, collection, both documentation versions, tasks and rubric before human execution.
 
 **BW-BOUNDED-TRANSITION:** [21original positive witness keys and raw readback](../evaluation/bubble-wrap/2026-11-25/bounded-transition/README.md), [versioned host audit](../tools/verify_bounded_reported_content.py), [tampering controls](../tests/test_bounded_report_audit.py). Origin PR103; source-scoped reporting versus independent authorship. Original v1 failure retained; full rerun pending.
+
+## Source-linked proposals: ST-D / ST-T
+
+Responsible department: [Testing and Evaluation](departments/testing-evaluation.md), protecting [Reader](departments/reader.md) and [Intake and Research](departments/intake-research.md). [Frozen source-tag trial](../evaluation/source-tags/2026-11-25/README.md) retains72development inputs and baseline plus a sealed24-case future packet. Baseline tag checks are NOT_RUN; prototype validation adds no answer coverage. No committed/fresh candidate acceptance is claimed at this preparation snapshot.
