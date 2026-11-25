@@ -27,7 +27,7 @@ Tested committed candidate `{archive['candidate_commit']}`. Scoped ZIP SHA-256 `
 
 [Development seal](development/freeze.json), [expected claims and withholding](development/key.json), [baseline]({a.baseline}), [candidate]({a.candidate}), [once-only transfer]({a.transfer}), [archive receipt]({a.receipt}). Input records link source hashes, origin, protected operation, budgets and raw run locations. Keys/scorer/generator remain outside the isolated worker. Transfer is now consumed preservation material.
 
-Reproduce development from an extracted candidate with `python tools/cryptid_trial_v3.py --registry evaluation/cryptid/{a.family.lower()}/development/registry.json --implementation EXTRACTED_ROOT --source-commit {archive['candidate_commit']} --output NEW_RUN_DIRECTORY`; use the versioned scorer recorded by the score. Run with functioning host Bubblewrap; never fall back to an unisolated worker.
+Reproduce development from an extracted candidate with `python tools/{a.runner} --registry evaluation/cryptid/{a.family.lower()}/development/registry.json --implementation EXTRACTED_ROOT --source-commit {archive['candidate_commit']} --output NEW_RUN_DIRECTORY`; use the versioned scorer recorded by the score. Run with functioning host Bubblewrap; never fall back to an unisolated worker.
 
 Same-operator templates, implementation and scoring. Independent preparation/blinding, semantic and historical adjudication, outside-custodian scoring and native OOCC remain **NOT_RUN**. Publication remains **LOCAL_ONLY**.
 '''
@@ -42,5 +42,5 @@ Same-operator templates, implementation and scoring. Independent preparation/bli
 if __name__=='__main__':
     p=argparse.ArgumentParser()
     for n in ['family','baseline','candidate','transfer','rule','limitations','next']:p.add_argument('--'+n,required=True)
-    p.add_argument('--receipt',default='candidate-freeze.json');p.add_argument('--transfer-registry',default='consumed-transfer/registry.json')
+    p.add_argument('--runner',default='cryptid_trial_v3.py');p.add_argument('--receipt',default='candidate-freeze.json');p.add_argument('--transfer-registry',default='consumed-transfer/registry.json')
     main(p.parse_args())

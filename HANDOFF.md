@@ -4,8 +4,8 @@ Last reviewed: 2026-11-25.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `59e584dd0b95352307a3a8bdd4257e5b70d3001f` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `469997e9086f2b50afe6ec7ac2dd06b25a57a588531554c696c16a4098622a9b`.
+Base commit: `3150e7560a3ce6c775ae058f22baaba48c657022` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `530d679680689e17b7ef6b121c559664c6b163e0d017663b9e1b62bc8b04a573`.
 
 ## Betty report for Al
 
@@ -58,6 +58,7 @@ Run Betty — local Cryptid test programme. Start from current main. Complete th
 - SASQUATCH: 28/32 -> 32/32 development; transfer 22/22 once, false support 0; candidate 16d4e7a825bd0117ab740e9ad624f6f32c05fba1 ZIP SHA256 c47889dcd9e271ee7842da93b386a723a87fbf8a9c9654a1d8df7f19b5151efa. Only complete explicit local glossary declarations are newly admitted. Ambiguous, quoted, missing and initials-only evidence withholds. Identity is not substituted into action proofs; broader references remain unresolved. 232 prior Cryptid and 280 release contracts unchanged; 30 corrected native controls pass. Same-operator templates and scoring, not independent blinding.
 - CHUPACABRA: 9/16 -> 14/16 development; transfer 4/8 once, false support 0; candidate db336faf87abf5ae2e917011bc9c41ffd7350b8b ZIP SHA256 0c7e93e78097eaa9f666aac00004698dd10bf6a7d57d94d29c797a13ada37684. Development recovers two unchanged historical answers and one checked partial; two historical positive misses remain above the fixed eight-record cap. Limited substitution transfer12/12; separate structural transfer4/8 with four real positive misses, zero false support. No transfer-informed repair. 286 prior Cryptid contracts unchanged; release276 exact unchanged,2 new complete recoveries,2 diagnostic-only budget changes with original failed score retained. All65 applicable controls pass; rejected budget-bypass candidate and one corrected test-harness error retained.
 - KRAKEN: 2/16 -> 15/16 development; transfer 12/12 once, false support 0; candidate 064d953602f296f54b79d4487a0cde6e45c135ed ZIP SHA256 466a5c7bc0be629ca005dd32faaa03163a5299ceec358ea67990797aaf7d422a. Original16:2->15 decisions,1 complete and12 checked partials; one frozen positive expectation remains incompatible with the external delivery profile and is retained as failure. First transfer15/16 consumed. Stronger policy Wrap4:2->4, forbidden claims2->0; rejected C1 ZIP and strong guard failure retained. Fresh policy/layout12/12,3complete+3partial+6withhold; narrow same-grammar multiline transfer, not general syntax. 322 prior Cryptid,280 release and16 consumed contracts unchanged.56focused checks pass. Human and independent evaluations NOT_RUN.
+- NESSIE: 6/21 -> 21/21 development; transfer 11/12 once, false support 0; candidate 3150e7560a3ce6c775ae058f22baaba48c657022 ZIP SHA256 c15cc279997b789f4c1cdac7626bf70a1913d9817a48c63fc433cdbf02ac1f8e. Primary21decisions6->21; these are13unique reader-input pairs,7unique positive claim inputs, with8duplicates used for forged-tag controls. Additional frozenWrap16/16: governor6, modality2, header-writer4, signed-writer4. Four rejected candidates retained: proposal budget, qualification loss, header-writer and signer class gaps. Final37/37development,0false support. Transfer11/12: email-styleFrom positive remains missed. Proposal validation12/12 is not coverage; two report clause-graphs remain unextracted. Prior370:354exact unchanged+10fully-key-checked completions+6checkedpartials; no lost old valid support. Release280exact unchanged.65focused native checks pass. Same-operator exposure; all independent evaluations NOT_RUN.
 
 ### Limitations and blocked checks
 
@@ -67,7 +68,7 @@ Run Betty — local Cryptid test programme. Start from current main. Complete th
 
 ### Next steps
 
-- Start Nessie: freeze identical-byte raw versus automatic source-linked boundary tests before native changes; preserve all earlier source-policy guards.
+- Run Thunderbird fixed-cap scale, phrase-budget and counterevidence baseline; keep capacity and semantic outcomes separate.
 - Finish all remaining series and clean final full-ZIP checks. LOCAL_ONLY: no push, PR mutation, merge or deployment.
 
 ## Use this ZIP in your repository
