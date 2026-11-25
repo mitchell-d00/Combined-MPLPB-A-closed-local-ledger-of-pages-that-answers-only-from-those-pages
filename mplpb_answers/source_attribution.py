@@ -2,7 +2,7 @@
 import re
 
 from .body_text import body_text
-from .documentary_verify import META, citation, context_ranges, quoted_context, named_actor
+from .documentary_verify import META, citation, context_ranges, quoted_context, named_actor, metadata_values
 
 NAME = r'(?-i:[A-Z][a-z]+(?: [A-Z][a-z]+){0,3})'
 FULL_NAME = r'(?-i:[A-Z][a-z]+(?: (?:[A-Z][a-z]+|[A-Z]\.)){0,3} [A-Z][a-z]+)'
@@ -23,6 +23,25 @@ def printed_writer_label(body, *, require_person=False):
         if match and (not require_person or named_actor(match['writer'])):
             return match['writer'], match.span()
     return None, None
+
+
+def writer_declarations(record, body):
+    """Scoped printed labels and whole-letter signature markers, not identity proof.
+
+    Opaque initials stay opaque. These declarations constrain reference links;
+    they do not establish that two historical people are the same individual.
+    """
+    labels=[]
+    name,span=printed_writer_label(body)
+    if span and unqualified_span(record,body,*span):labels.append(name)
+    greetings=list(_SALUTATION.finditer(body))
+    signature=re.search(r'^(?:Sincerely|Respectfully|Yours sincerely|Yours truly),\n(?P<label>[^\n]{1,120})[ \t]*\Z',body,re.M)
+    if len(greetings)==1 and signature:
+        greeting=greetings[0];prefix=body[:greeting.start()]
+        if ((not prefix or metadata_values(prefix) is not None)
+                and all(unqualified_span(record,body,*m.span()) for m in (greeting,signature))):
+            labels.append(signature['label'].strip())
+    return labels
 
 
 def same_name(requested, declared):
