@@ -4,8 +4,8 @@ Last reviewed: 2026-11-25.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `cc94520ec87de5a6a24acd8407e9a94b31badb46` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `39271071d696d7e88ca633e3038c7431f36fb5455f14a02a1854c55287463b8d`.
+Base commit: `42a61f3df4089dd42c126fd1a9c948faf5e6d321` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `a40d32a1e6cf8848cc127139a3f7dbee7afa044a4bb4c8b383e4c860f1155f67`.
 
 ## Betty report for Al
 
@@ -20,6 +20,7 @@ Run Betty — local Cryptid test programme. Start from current main. Complete th
 - Established local Cryptid programme on isolated branch local/cryptid-programme from verified current remote main c01021c0b9983f9a607fbe782dea7ed5872d1f11
 - Ordered scope: programme, documentary date roles, question wording, polarity/conditions/modality, identity/references, comparisons/corrections, multipart/document links, automatic source-linked representation, fixed-cap budgets, Bubblewrap controls, real-human onboarding preparation and final local ZIP review.
 - Mothman shared date-role planning/proof and counterevidence scan; three remaining development misses retained, no caps changed.
+- Mothman local cycle completed with3remaining development misses; no overall development-pass claim. Jackalope next, all previous packets now preservation.
 
 ### Validation recorded
 
@@ -37,6 +38,9 @@ Run Betty — local Cryptid test programme. Start from current main. Complete th
 - Candidate4 consumed-transfer development16/16,0false support, but original development regressed25/28→23/28:two wrapped This-record writing witnesses lost. Candidate4 rejected; fresh24still sealed.
 - Candidate4preservation278/280 exposed2lost wrapped-source recoveries, rejected archive retained. Candidate5restores25/28original,16/16consumed development,0false support and280/280preservation (275exact unchanged+5checked recoveries).
 - Candidate5:41focused date/inspection and169inherited native controls pass,0skips. Original3development misses remain. Fresh24still sealed, not scored.
+- Final Mothman committed scopedZIP42a61f3df4089dd42c126fd1a9c948faf5e6d321 SHA591148ecb3ed8c0dfe643acf608ce9b3e0d60d1f01d200eb92c6b7a30081b68a:extracted25/28development and41/41focused.
+- Fresh24executed once after candidate freeze:24/24decisions,8/8positive,16/16withhold,0false support,0reader execution failures. Fourpositive structural transfers andfourlimited substitutions; sameoperator templates visible.
+- Premature extracted focused-test launch failed before process creation; retained separately, retried only after directory existed. Default sandbox launch failures also retained; no unsandboxed worker fallback.
 
 ### Limitations and blocked checks
 
@@ -46,7 +50,7 @@ Run Betty — local Cryptid test programme. Start from current main. Complete th
 
 ### Next steps
 
-- Commit and archive candidate5, verify/test ZIP extraction, then open fresh24once; finish Mothman report and continue Jackalope.
+- Start Jackalope question-wording baseline/freeze on current local reader. Keep original questions at policy/proof gates; preserve all prior valid claims, citations and source-state controls.
 - Run all series sequentially and finish a local committed-ZIP review package. No remote publication.
 
 ## Use this ZIP in your repository

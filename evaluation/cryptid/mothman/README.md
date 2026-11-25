@@ -38,3 +38,13 @@ Committed scoped ZIP `a439ddc2c9e438863383b90c41d995d274785847`, SHA-256 `e00d60
 ## Consumed transfer repair
 
 Candidate4 recovered16/16 consumed decisions but regressed two original wrapped sources (23/28development;278/280preservation); it is rejected and archived. Candidate5 preserves whitespace in document subjects and restores **25/28 original development,16/16 consumed development,280/280 preservation (275unchanged+5checked recoveries),41focused and169inherited native checks**. Three original standalone-role positives remain unresolved. Consumed results are development, never fresh transfer. The fresh24case packet remains sealed before committed candidate5ZIP testing.
+
+## Current local review state
+
+The final Mothman scoped ZIP is commit `42a61f3df4089dd42c126fd1a9c948faf5e6d321`, SHA-256 `591148ecb3ed8c0dfe643acf608ce9b3e0d60d1f01d200eb92c6b7a30081b68a`. Clean extracted native code reproduces25/28development and41/41focused checks. Fresh once-only transfer is **24/24:8/8positives,16/16withholds,0false support,0execution failures,0unscored**. Four positives use a new date-first passive structure; four retain the consumed sentence structure with different documentary values. Templates were visible; preparation/scoring were same-operator. This is bounded transfer, not independent preparation/blinding or general historical reading accuracy.
+
+All three development misses remain failed targets. No all-development PASS is claimed. The original16transfer failure remains immutable and is now development/preservation. Final recovered complete counts are8in original development and8in consumed development, with5of the first8overlapping release-comparison targets. Do not count repeated tests or overlapping cohort memberships as independent answers.
+
+One focused test command was attempted before its asynchronous extraction directory existed; the process never launched. That execution failure is retained in `../gates/extraction-launch-attempt.json`, separately from reader outcomes. The subsequent extracted41test command passed. Default namespace-blocked launches remain separate too. No unsandboxed fallback occurred.
+
+The next authorized local series is Jackalope question wording. All earlier transfer packets are preservation material. Final combined-reader transfer requires genuinely fresh material frozen before its candidate. Human onboarding and independent historical/semantic adjudication, preparation/blinding, outside-custodian scoring and native OOCC remain **NOT_RUN**. No push, PR update, merge or deployment occurred.

@@ -15,7 +15,7 @@
       "family": "MOTHMAN",
       "id_prefix": "CRYPT-MOTHMAN",
       "mechanism": "Explicit documentary dates fail to bind to their stated roles; writing is not transmission or occurrence.",
-      "status": "FRESH_TRANSFER_PENDING",
+      "status": "COMPLETED_WITH_3_DEVELOPMENT_MISSES",
       "responsible_department": "testing-evaluation",
       "implementation_departments": [
         "reader",
@@ -54,8 +54,17 @@
         "score": "mothman/scores/transfer-once-v2.json"
       },
       "fresh_transfer": {
+        "status": "PASS_ONCE",
         "cases": 24,
-        "status": "SEALED_NOT_RUN"
+        "passed": 24,
+        "positive_targets": 8,
+        "withhold_targets": 16,
+        "positive_misses": 0,
+        "false_support": 0,
+        "score": "mothman/scores/fresh-transfer-once-v2.json",
+        "candidate_commit": "42a61f3df4089dd42c126fd1a9c948faf5e6d321",
+        "zip_sha256": "591148ecb3ed8c0dfe643acf608ce9b3e0d60d1f01d200eb92c6b7a30081b68a",
+        "custody": "same-operator; four date-first structural positives, four limited substitution positives; no independent blinding"
       },
       "consumed_transfer_development": {
         "cases": 16,
@@ -168,5 +177,7 @@
     "preservation_280": "NOT_RUN",
     "browser": "NOT_RUN"
   },
-  "run_ledger": []
+  "run_ledger": [
+    "ledger/0001.json"
+  ]
 }
