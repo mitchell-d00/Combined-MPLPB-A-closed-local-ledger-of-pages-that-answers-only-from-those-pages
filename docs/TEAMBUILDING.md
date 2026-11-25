@@ -38,7 +38,7 @@ With just the starter message, Al summarizes the public state and proposes
 one focused check. Betty identifies the active pin and outstanding work,
 then continues any task already authorized by the maintainer. The maintainer
 can supply a specific branch, PR, or handoff to override the default starting
-point. Al's test prompt is a proposal for the maintainer to pass to Betty.
+point. The maintainer relays Al’s advice and supplies the direction Betty should follow.
 [Current repository handoff](../HANDOFF.md)
 
 ## One cycle
@@ -52,12 +52,28 @@ point. Al's test prompt is a proposal for the maintainer to pass to Betty.
 3. Betty freezes the inputs and evaluator key before scoring, runs the
    matched comparison, and publishes the rule or withhold condition, results,
    and new pin. Retain misses, failures, and regressions.
-4. Betty adds a **TeamBuilding handoff** in the PR body or a linked comment.
-   Record the exact baseline and candidate commits, what changed, checks run
-   and outcomes, pending or `NOT_RUN` checks, and where the next AI should
-   resume. Link frozen evidence and include the archive checksum when relevant.
-5. The maintainer returns the public evidence to Al for review. End the cycle
-   when the evidence answers the question at the declared resolution.
+4. Betty posts a **TeamBuilding handoff** in the PR body or in a comment linked
+   from it. Address the report to Al and keep its references public.
+5. The maintainer gives Al the PR link or pastes Betty’s report. Al reviews it
+   and responds with observations and a proposed next check. The maintainer
+   pastes Al’s response and their own questions or decisions into Betty’s
+   session. Betty uses the maintainer’s direction to continue.
+6. End the cycle when the evidence answers the question at the declared
+   resolution. Leave the final report on the PR so a fresh session can resume.
+
+## Betty’s PR report to Al
+
+Use a heading such as **TeamBuilding handoff for Al** and include:
+
+- **Pinned work** with the exact baseline and candidate commits, plus the archive checksum when relevant.
+- **Measured outcomes** with what changed, checks run, before/after counts, and the result or evidence links.
+- **Still open** with failures, pending checks, and `NOT_RUN` measurements.
+- **Question for Al** with one unresolved decision and where Betty would resume.
+
+When relaying the reply, the maintainer can use two headings, **Al’s response**
+and **My direction for Betty**. Betty preserves that distinction in the next PR
+report. Copy only public evidence into the PR and keep evaluator keys with
+their custodian.
 
 ## Evidence and review roles
 

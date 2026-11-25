@@ -4,8 +4,8 @@ Last reviewed: 2026-11-25.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `54f88871bd25ee7ec53a4660d06fbdc205f849f2` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `4b58282f881bb53c3cd89319ed62d9ae4b18bd3119505c1e33098a1ad66b1c09`.
+Base commit: `9f7ef1a9212152093ebeebacec68f7872cd3b4bf` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `2d4f8f71977c3fdc023072d7385cc1b033693623dbf9ab40d78d601e0c699417`.
 
 ## Latest user update instructions
 
@@ -17,10 +17,12 @@ With just a link to my repo
 
 Ie link you are al 2nd agent link you are Betty
 
+And once it is set Betty and Al Betty makes reports to Al in pr and I past Al / my responses
+
 ## Implemented scope
 
 - Define Al as the outside strategist and Betty as the inside repository and archive editor. Put both starters in the TeamBuilding guide and link them from the root README and AGENTS.md.
-- Make the PR handoff carry the pinned baseline, candidate, checks, open items, and a clear place for the next AI to resume.
+- Have Betty post the report to Al in each PR. Record the maintainer’s relay of Al’s response and their own direction back to Betty.
 
 ## Validation recorded
 
@@ -35,6 +37,7 @@ Ie link you are al 2nd agent link you are Betty
 - For the browser track, read the TeamBuilding note on PR #93. It remains a draft with conflicts and its deployed smoke is pending.
 - For the Pole track, read the TeamBuilding handoff on PR #95 and the FRUS-Presentation evidence at 2a0bc642fe21b164fd921758f56bb43f49e5a361. The three other FRUS cases remain open.
 - Start a new strategy session with the repository link and “You are Al.” Start a separate repository session with the same link and “You are Betty.”
+- Use the PR report to brief Al. Paste Al’s response and the maintainer’s direction back into Betty’s session.
 
 ## Use this ZIP in your repository
 
