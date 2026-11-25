@@ -1,0 +1,50 @@
+[
+  {
+    "argv": [
+      "python",
+      "tools/build_browser_runtime.py",
+      "--core-archive",
+      "/workspace/pyodide-core.tar.bz2",
+      "--output",
+      "dist/index.html"
+    ],
+    "cwd": "/workspace/bubble-wrap-continuation-extracted",
+    "started_at": "2026-11-25T17:11:05.987168+00:00",
+    "exit_code": 0,
+    "seconds": 5.237,
+    "stdout": "browser-1.stdout.log",
+    "stderr": "browser-1.stderr.log"
+  },
+  {
+    "argv": [
+      "node",
+      "tools/check_browser_wasm.mjs",
+      "/workspace/pyodide-runtime/pyodide",
+      "dist/index.html"
+    ],
+    "cwd": "/workspace/bubble-wrap-continuation-extracted",
+    "started_at": "2026-11-25T17:11:11.224563+00:00",
+    "exit_code": 0,
+    "seconds": 144.303,
+    "stdout": "browser-2.stdout.log",
+    "stderr": "browser-2.stderr.log"
+  },
+  {
+    "argv": [
+      "python",
+      "evaluation/attribution/2026-11-25/archive-tools/verified_browser.py",
+      "--root",
+      ".",
+      "--output",
+      "/workspace/bubble-wrap-continuation-browser/verified-browser.json",
+      "--preview-dir",
+      "dist"
+    ],
+    "cwd": "/workspace/bubble-wrap-continuation-extracted",
+    "started_at": "2026-11-25T17:13:35.528389+00:00",
+    "exit_code": 0,
+    "seconds": 85.854,
+    "stdout": "browser-3.stdout.log",
+    "stderr": "browser-3.stderr.log"
+  }
+]

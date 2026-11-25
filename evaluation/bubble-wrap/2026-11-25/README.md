@@ -12,7 +12,7 @@ The supplied [plan](inputs-received/bubble-wrap-plan.json) and
 inputs. They are not a historical-suite rerun. The inventory excludes #15 because
 it was not a PR in that retrieved history.
 
-## Continuation: development and consolidation passed; fresh transfer pending
+## Current result: frozen ZIP and fresh composition transfer pass
 
 The narrowed shared boundary repair passes **272/280 → 280/280** on the frozen
 expanded development/preservation set. It recovers all eight consumed transfer
@@ -43,11 +43,37 @@ frozen integrity assertions remain. The 35 browser-bridge/integrity checks and U
 script checks passed. [Reconciliation](pr-reconciliation.json). Final main merge
 and deployed verification remain pending.
 
-A new committed combined ZIP will be tested before the fresh composition packet
-is opened once. Its exact instance bytes/key remain unopened at this snapshot;
-source templates are visible to the same operator. The first transfer stays
-failed16/24 and consumed. No independent history, semantic, preparation, blinding,
-outside-custodian or OOCC result is claimed.
+Tested source **`7f6641dd979ab3f4df5c3ddfbfc28961c095b016`**; committed ZIP
+SHA-256 **`f5be70718a1454171005493eba452e8fbd0602f3195e5325f57dd268840f8162`**.
+All20,714 tracked files match extracted bytes/modes. Extracted development passes
+280/280. The fresh composition transfer passes **16/24 → 24/24**: all12 source
+answers and12 withholds, zero false-supported claims, zero budget stops or failed
+reader executions. Each candidate case executed once. [Fresh scores](fresh-transfer/candidate-score.json),
+[baseline](fresh-transfer/baseline-score.json), [freeze/completion](fresh-transfer/completion.json).
+
+The launcher first failed during host preparation because a relative destination
+was compared to an absolute repository root. No reader case ran. Its original
+opening lock and partial output remain retained in [attempt0007](attempts/0007-fresh-transfer-host-path.json).
+Execution resumed with absolute paths using the unchanged frozen driver, source,
+packet and key. The packet was opened after candidate freeze; no native edits
+followed opening. This is same-operator composition/layout transfer, with visible
+generator templates, not independent preparation, blinding or semantic review.
+
+The ZIP passes **1,810 native tests**,52 public controls,15 software commands
+(including JavaScript, HTTP and report-pin replay), actual WASM and both Chromium
+contexts. The candidate browser journey includes PR93 local-document import,
+review, Strict answer and source inspection. [Archive receipts](continuation-archive-checks),
+[browser receipts](continuation-browser-checks), [validation](continuation/validation.json).
+Publication-head CI, main merge and deployed-main verification remain pending;
+those final live results will be recorded in PR103 and Actions.
+
+The original transfer remains failed16/24 and consumed. Twenty-eight non-target
+positive questions remain incomplete; this repair does not establish broad
+reading ability or historical coverage. The [twelve-person onboarding trial](next-onboarding-proposal.json)
+and [source-linked tag experiment](next-source-tags-proposal.json) are retained
+next. Mitchell will recruit human participants and return results; no human
+execution is claimed. Independent history, semantic adjudication, preparation,
+blinding, outside-custodian scoring and native OOCC remain `NOT_RUN`.
 
 ## First transfer: acceptance failed; continuation frozen
 
@@ -126,8 +152,8 @@ retain the existing body projection. Frozen packet hashes separately retain the
 raw imported bytes. The scorer reconstructs the documented unchanged admission
 formatter; it does not use the candidate semantic parser.
 
-The committed ZIP, extracted checks, once-only transfer and publication-head CI
-are **NOT_RUN at this development snapshot**. The transfer packet remains sealed.
+The preceding table describes the earlier development snapshot. Actual committed-ZIP
+and transfer results are recorded above; the original freeze remains unchanged.
 
 ## Frozen inputs and current execution stage
 

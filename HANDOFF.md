@@ -4,8 +4,8 @@ Last reviewed: 2026-11-25.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `defb519185880480b07be024048403e1447e01cd` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `aade0c8acd729250b4e10dbe7f3b9dbb1a5d6a4da044bb50cf45f934284e231c`.
+Base commit: `7f6641dd979ab3f4df5c3ddfbfc28961c095b016` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `00a419a7784e2abb7e7e4b97c04c7a494123003a50fad5ec69001e4c3e215515`.
 
 ## Betty report for Al
 
@@ -50,6 +50,11 @@ Continue when you finish check tree make sure all pr are live and merged on main
 We have a lot of open pr
 Catch it all up then push everything merge to main
 
+Latest maintainer instructions:
+Run them all in sequence test , fix and then merge it all I’ll let you run until it’s finished next is pr 104 correct?
+Mitchell will recruit and return results for the twelve-person onboarding trial.
+Source-linked tag comparison: exact source/revision/hash coordinates, proposed tags independently checked natively; imported private cannot set access; preserve attribution, negation, conditions and date roles.
+
 
 ### Implemented scope
 
@@ -62,6 +67,9 @@ Catch it all up then push everything merge to main
 - Integrate actual PR93 browser document workflow and local capture path, preserving new role APIs and frozen older integrity tests; final combined ZIP/browser gates remain pending.
 - Add only the shared unpunctuated metadata boundary and retain a separate conditional fragment ending in a period. Do not change existing punctuated instruction unit counts.
 - All93/95/97 head histories are ancestors of the consolidation branch; preserve later FRUS evidence and original integrity tests, integrate missing93 local-document UI/provenance.
+- Consolidated all actual PR93/95/97 histories with missing browser local-document work; committed combined source7f6641d and retained the exact ZIP.
+- Completed once-only fresh same-operator composition transfer after retained zero-reader-execution host-path preparation failure.
+- Retain source-linked tags as next software trial and prepare human onboarding; Mitchell recruits real participants. No human results invented.
 
 ### Validation recorded
 
@@ -83,23 +91,23 @@ Catch it all up then push everything merge to main
 - Expanded280 continuation:272/280 to280/280;97complete6partial6conflict171abstain122claims,0false-supported claim cases,0failed/notrun/unscored. All prior full contracts and counters preserved.
 - Nine frozen byline/governor controls6/9to9/9; one prior false-supported conditional fragment eliminated. Existing16report guards pass. Wider candidate with4examined-unit counter changes retained as rejected; no key relabeling.
 - Original93browser-bridge and integrity checks35pass plus UI script syntax/workflow checks pass. Native package differences from first candidate remain restricted to source_units and reported_content guard.
+- Combined committed7f6641d ZIP SHA-256f5be70718a1454171005493eba452e8fbd0602f3195e5325f57dd268840f8162 matches20714tracked files/modes and passes280/280 isolated scored decisions.
+- Full extracted native regression completed1810tests exit0;52public controls and15software commands pass, including12/12 report-pin decisions, JavaScript and HTTP. Actual WASM and live-old-baseline/candidate Chromium pass, including integrated local-document browser journey.
+- Fresh composition transfer: prior204a7d16/24 to committed7f6641d24/24;12positive12withhold0false support0budget stops. Candidate cases executed once; no native edits after opening. Host path preparation error before any reader execution retained with original lock and partial output; resumed unchanged driver with absolute paths.
 
 ### Limitations and blocked checks
 
-- Private PE02 originals/raw receipts remain under original restrictions; public hashes and complete contract/discovery comparisons retain custody limits.
-- Same operator prepared/saw templates and scored material. No transfer instances/key opened; isolation does not establish independence.
-- Independent historical accuracy, semantic adjudication, preparation,blinding,outside-custodian scoring,native OOCC remain NOT_RUN.
-- Committed ZIP/extracted checks, once-only transfer, exact-head CI and deployment NOT_RUN at this development snapshot.
-- 28non-target positive questions remain incomplete:4partials24misses, including FRESH05. Preservation pass is not full answer coverage.
-- The initial frozen-scorer protocol did not pass. Accepted development figures use disclosed v3 projection/import correction; retain all earlier failures.
-- First transfer acceptance failed; do not merge that candidate. Full native archive-suite completion unconfirmed after environment/session interruption; partial log retained.
-- Fresh composition transfer remains unopened/unexecuted. Combined committed ZIP, full exact-head CI, merge and live verification pending at source freeze; do not claim initial transfer acceptance.
+- Private PE02 originals/raw remain under original restrictions; public hashes/comparisons retained.
+- Same operator prepared templates and scored. Independent preparation, blinding, historical accuracy, semantic adjudication, outside-custodian scoring and native OOCC remain NOT_RUN.
+- First transfer remainsFAIL16/24. Wider continuation with4counter changes remains rejected. Initial scorer failures and v3 projection amendment remain disclosed; keys and source inputs never relabeled.
+- Twenty-eight non-target positive questions remain incomplete:4partials24misses includingFRESH05. This is scoped composition/layout transfer, not broad documentary reading or historical coverage.
+- Exact publication-head CI, merge and deployed-main verification pending; final receipts will be posted in PR103 and Actions.
+- Twelve-person onboarding human execution NOT_RUN; Mitchell will recruit and return observations. Source-linked tag trial next, not implemented in this checked source.
 
 ### Next steps
 
-- Reconcile all four open PRs into one tested current tree, preserving later source/evidence.
-- Retain first failed transfer as development. Repair the shared byline boundary after the fresh packet freeze; no caps or source/key changes.
-- Test committed continuation ZIP, run fresh transfer once, finish exact-head CI, merge and verify deployed main and PR states.
+- Push evidence-only current head, pass exact-head release gates, merge103 with all oldPR ancestry intact, verify main/live/noopenPRs.
+- Start next software experiment in the next newPR (expected104); freeze raw-vs-tag inputs, contrasts, keys and separate transfer before implementing. Prepare frozen onboarding materials for Mitchell; keep actual human outcomes NOT_RUN.
 
 ## Use this ZIP in your repository
 
