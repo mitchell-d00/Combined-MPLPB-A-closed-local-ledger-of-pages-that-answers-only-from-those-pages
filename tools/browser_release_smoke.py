@@ -62,20 +62,25 @@ def verify_document_workflow(page):
         page.locator('#ask-button').click()
         expect(page.locator('#results .outcome')).to_have_text(outcome, timeout=60000)
 
+    def verify_field_answer(question, field, title, source_line, source_id):
+        ask(question, 'SUPPORTED ANSWER')
+        expect(page.locator('#results .result-head')).to_contain_text(
+            f'Verified source field: {field} · {source_id} · internal')
+        expect(page.locator('#results .result-head')).not_to_contain_text('no eligible owner')
+        expect(page.locator('#results h2').first).to_have_text(title)
+        expect(page.locator('#results .text').first).to_contain_text(source_line)
+        page.locator('#results [data-page]').first.click()
+        expect(page.locator('#page-dialog .tags .tag').first).to_have_text(source_id)
+        expect(page.locator('#page-dialog .page-text')).to_contain_text(source_line)
+        page.locator('#close-dialog').click()
+
     ask('What causes crawling?', 'SUPPORTED ANSWER')
     expect(page.locator('#question-follow-up')).to_be_hidden()
     page.locator('#results [data-page]').first.click()
     expect(page.locator('#page-dialog .page-text')).to_contain_text('Crawling comes from dust or grease on the bisque')
     page.locator('#close-dialog').click()
-    ask('What is the accession date for record PRINT-201?', 'SUPPORTED ANSWER')
-    expect(page.locator('#results .result-head')).to_contain_text(
-        f'Verified source field: accession date · {source_id} · internal')
-    expect(page.locator('#results .result-head')).not_to_contain_text('no eligible owner')
-    expect(page.locator('#results h2').first).to_have_text('Print room inventory')
-    expect(page.locator('#results .text').first).to_contain_text('Accession Date: 1895-04-18')
-    page.locator('#results [data-page]').first.click()
-    expect(page.locator('#page-dialog .page-text')).to_contain_text('Accession Date: 1895-04-18')
-    page.locator('#close-dialog').click()
+    verify_field_answer('What is the accession date for record PRINT-201?', 'accession date',
+                        'Print room inventory', 'Accession Date: 1895-04-18', source_id)
     ask('What are the accession date and shelf code for record PRINT-201?', 'PARTIAL SOURCE EVIDENCE')
     page.get_by_role('button', name='Inspect matching pages').click()
     expect(page.locator('#question-inspection')).to_contain_text('These page matches carry no answer support.', timeout=60000)
@@ -86,8 +91,20 @@ def verify_document_workflow(page):
     ask('What year was the crawling report approved?', 'NO SUPPORTED ANSWER')
     page.get_by_role('button', name='Review collection').click()
     expect(page.locator('#page-map')).to_contain_text('Print room inventory')
+
+    page.get_by_role('button', name='Use my documents').click()
+    page.locator('#source-title').fill('Print room inspection')
+    page.locator('#source-url').fill('https://example.org/print-room-inspection')
+    page.locator('#source-text').fill('Record-ID: PRINT-202\n\nInspection Date: 1895-05-02')
+    page.locator('#source-import').click()
+    page.get_by_role('button', name='Review imported source').click(timeout=60000)
+    expect(page.locator('#page-dialog .page-text')).to_contain_text('Inspection Date: 1895-05-02')
+    source_id = page.locator('#page-dialog .tags .tag').first.inner_text()
+    page.get_by_role('button', name='Continue to Strict Ask').click()
+    verify_field_answer('What is the inspection date for record PRINT-202?', 'inspection date',
+                        'Print room inspection', 'Inspection Date: 1895-05-02', source_id)
     page.locator('#corpus').select_option(original_corpus)
-    print('BROWSER DOCUMENT: local file, source review, cited answer, partial, and inspection passed', flush=True)
+    print('BROWSER DOCUMENT: pasted source and local file, cited answers, partial, and inspection passed', flush=True)
 
 
 def verify(page, url, updated):

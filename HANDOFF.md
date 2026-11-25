@@ -4,12 +4,12 @@ Last reviewed: 2026-11-25.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `101d6103118d4269ec2693d7060267013fb1be5c` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `9bf283eb1c306662d9f50e74f62930c55a1ae9f488d72bcac66cd9f87c6eff96`.
+Base commit: `600b793524bc811d665a5795fdafba9e59c53c85` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `e6747bb99a4927cd56d2a1f8fb0a16c96e216d8912264aaefe9b9349dfea6dd0`.
 
 ## Latest user update instructions
 
-Finding to send to the product agent
+Please use the verified record and field to write the caption for this answer route. The regression check should preserve the supported result and working citation in both the pasted-source and blank-URL local-file paths.
 
 ## Implemented scope
 
@@ -26,7 +26,7 @@ Finding to send to the product agent
 - The UI script, JavaScript API and browser transport checks passed.
 - The integrity regression now checks the shipped Strict and Inspect choices, while Chromium checks their behavior. The targeted integrity, ledger, proof and browser suite passed 113 tests.
 - The separate evaluator reported 3/3 predeclared answer and citation checks in each lane, 7 to 5 scripted navigation clicks for the paired workflow, and a misleading no-eligible-owner caption on supported field answers.
-- The developer Chromium regression reproduced the caption bug on f225d14 and passed after the fix, checking the field label, reviewed source ID, answer text, and citation reopen. The focused integrity and browser tests passed 47 tests, and the JavaScript API and transport checks passed.
+- The developer Chromium regression reproduced the caption bug on f225d14 and passed after the fix. It opens both a pasted source with an HTTPS label and a blank-URL local file, checks the field caption, source ID and answer text for each, then follows each citation to its reviewed source. The focused integrity and browser tests passed 47 tests, and the JavaScript API and transport checks passed.
 
 ## Limitations and blocked checks
 
