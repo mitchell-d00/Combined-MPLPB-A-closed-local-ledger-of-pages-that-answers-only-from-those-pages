@@ -1,0 +1,57 @@
+{
+  "schema": "attribution-final-source-checks-v1",
+  "source_commit": "7ed65a589d8051ff659495972fab922ff802b20e",
+  "zip_sha256": "93d801d6554575542d50fee557ddbd099c607f1325ef6c8aed917d32768918fb",
+  "original_development": {
+    "before": 24,
+    "after": 48,
+    "cases": 48,
+    "false_support": 0
+  },
+  "consumed_first_packet": {
+    "decisions": 24,
+    "complete_contracts_identical": 24,
+    "cases": 24,
+    "structural_novelty_limited": true
+  },
+  "fresh_transfer": {
+    "before": 12,
+    "after": 24,
+    "cases": 24,
+    "positive_targets": 12,
+    "positive_passed": 12,
+    "withhold_targets": 12,
+    "withholds_passed": 12,
+    "false_support": 0,
+    "budget_failures": 0,
+    "candidate_executions": 1
+  },
+  "preservation": {
+    "pe02_contracts_identical": 17,
+    "pe02_discovery_arrays_identical": 17,
+    "existing_targeted_tests": 28,
+    "new_targeted_tests": 28,
+    "historical_completion": "1/4 unchanged",
+    "historical_partials": "1/4 unchanged"
+  },
+  "software_checks_passed": 15,
+  "public_controls_passed": 52,
+  "mcp_sdk_checks_passed": 45,
+  "wheel": "PASS",
+  "webassembly": "PASS",
+  "chromium_published_premerge_baseline": "PASS",
+  "chromium_candidate_preview": "PASS",
+  "candidate_module_hashes_match_source": true,
+  "full_native_validation": {
+    "prior_source_d0f6c67_tests": 1779,
+    "prior_source_skipped": 2,
+    "revised_source": "PENDING exact-head archive-first/regression CI; no local full-suite rerun claimed"
+  },
+  "no_native_changes_after_fresh_transfer": true,
+  "independent_preparation": "NOT_RUN",
+  "blinding": "NOT_RUN",
+  "independent_historical_accuracy": "NOT_RUN",
+  "independent_semantic_adjudication": "NOT_RUN",
+  "outside_custodian_scoring": "NOT_RUN",
+  "native_oocc": "NOT_RUN"
+}

@@ -1,0 +1,578 @@
+{
+  "cohort": "transfer",
+  "counts": {
+    "targets": 12,
+    "failures": 12,
+    "misses": 12,
+    "withhold_targets": 12,
+    "passed": 12
+  },
+  "by_document_form": {
+    "minutes": {
+      "targets": 4,
+      "failures": 4,
+      "misses": 4,
+      "withhold_targets": 4,
+      "passed": 4
+    },
+    "letter": {
+      "targets": 4,
+      "failures": 4,
+      "misses": 4,
+      "withhold_targets": 4,
+      "passed": 4
+    },
+    "report": {
+      "targets": 4,
+      "failures": 4,
+      "misses": 4,
+      "withhold_targets": 4,
+      "passed": 4
+    }
+  },
+  "acceptance_passed": false,
+  "receipt_sha256": "8afcbfbf9f4d94c1bf8617ef6207e57d93aa8f81b26e8e9fc643c2630262ef43",
+  "rows": [
+    {
+      "id": "F013",
+      "expected": {
+        "id": "F013",
+        "document_form": "minutes",
+        "wording": 1,
+        "variant": "valid",
+        "supported": true,
+        "requested_actor": "Julien Costa",
+        "source_actor": "Julien Costa",
+        "writer": "Anton Seifert",
+        "recipient": "the reservoir survey team",
+        "task": "mark the spillway gauges before Wednesday",
+        "reporting_layer": "minutes_attributes_instruction",
+        "source_statement": "Julien Costa's instruction was for the reservoir survey team to mark the spillway gauges before Wednesday.",
+        "completion_established": false
+      },
+      "actual_kind": "abstain",
+      "diagnostic": "interpretation_unsupported",
+      "errors": [
+        "positive target missing"
+      ]
+    },
+    {
+      "id": "F005",
+      "expected": {
+        "id": "F005",
+        "document_form": "letter",
+        "wording": 1,
+        "variant": "valid",
+        "supported": true,
+        "requested_actor": "Anton Seifert",
+        "source_actor": "Anton Seifert",
+        "writer": "Anton Seifert",
+        "recipient": "the grain inspection panel",
+        "task": "weigh the northern silo samples and log moisture readings",
+        "reporting_layer": "signed_letter_first_person",
+        "source_statement": "My instruction is for the grain inspection panel to weigh the northern silo samples and log moisture readings.",
+        "completion_established": false
+      },
+      "actual_kind": "abstain",
+      "diagnostic": "interpretation_unsupported",
+      "errors": [
+        "positive target missing"
+      ]
+    },
+    {
+      "id": "F019",
+      "expected": {
+        "id": "F019",
+        "document_form": "report",
+        "wording": 0,
+        "variant": "different_quoted_speaker",
+        "supported": true,
+        "requested_actor": "Iris Demir",
+        "source_actor": "Iris Demir",
+        "writer": "Mateo Galvez",
+        "recipient": "the wetland mapping group",
+        "task": "trace the reed beds along the southern embankment",
+        "reporting_layer": "report_attributes_quotation",
+        "source_statement": "For the wetland mapping group, the instruction from Iris Demir was: “Trace the reed beds along the southern embankment.”",
+        "completion_established": false
+      },
+      "actual_kind": "abstain",
+      "diagnostic": "interpretation_unsupported",
+      "errors": [
+        "positive target missing"
+      ]
+    },
+    {
+      "id": "F020",
+      "expected": {
+        "id": "F020",
+        "document_form": "report",
+        "wording": 0,
+        "variant": "completion",
+        "supported": false,
+        "requested_actor": "Stefan Petrov",
+        "source_actor": "Stefan Petrov",
+        "writer": "Mateo Galvez",
+        "recipient": "the wetland mapping group",
+        "task": "trace the reed beds along the southern embankment",
+        "reporting_layer": "report_attributes_quotation",
+        "source_statement": "For the wetland mapping group, the instruction from Stefan Petrov was: “Trace the reed beds along the southern embankment.”",
+        "completion_established": false
+      },
+      "actual_kind": "abstain",
+      "diagnostic": "interpretation_unsupported",
+      "errors": []
+    },
+    {
+      "id": "F014",
+      "expected": {
+        "id": "F014",
+        "document_form": "minutes",
+        "wording": 1,
+        "variant": "wrong_actor",
+        "supported": false,
+        "requested_actor": "Anton Seifert",
+        "source_actor": "Julien Costa",
+        "writer": "Anton Seifert",
+        "recipient": "the reservoir survey team",
+        "task": "mark the spillway gauges before Wednesday",
+        "reporting_layer": "minutes_attributes_instruction",
+        "source_statement": "Julien Costa's instruction was for the reservoir survey team to mark the spillway gauges before Wednesday.",
+        "completion_established": false
+      },
+      "actual_kind": "abstain",
+      "diagnostic": "interpretation_unsupported",
+      "errors": []
+    },
+    {
+      "id": "F003",
+      "expected": {
+        "id": "F003",
+        "document_form": "letter",
+        "wording": 0,
+        "variant": "different_quoted_speaker",
+        "supported": true,
+        "requested_actor": "Julien Costa",
+        "source_actor": "Julien Costa",
+        "writer": "Rina Okeke",
+        "recipient": "the railway inventory team",
+        "task": "count the signal lamps before Saturday",
+        "reporting_layer": "letter_attributes_quotation",
+        "source_statement": "For the railway inventory team, the instruction from Julien Costa was: “Count the signal lamps before Saturday.”",
+        "completion_established": false
+      },
+      "actual_kind": "abstain",
+      "diagnostic": "interpretation_unsupported",
+      "errors": [
+        "positive target missing"
+      ]
+    },
+    {
+      "id": "F021",
+      "expected": {
+        "id": "F021",
+        "document_form": "report",
+        "wording": 1,
+        "variant": "valid",
+        "supported": true,
+        "requested_actor": "Julien Costa",
+        "source_actor": "Julien Costa",
+        "writer": "Iris Demir",
+        "recipient": "the railway inventory team",
+        "task": "count the signal lamps before Saturday",
+        "reporting_layer": "report_attributes_quotation",
+        "source_statement": "Julien Costa's instruction for the railway inventory team was “Count the signal lamps before Saturday.”",
+        "completion_established": false
+      },
+      "actual_kind": "abstain",
+      "diagnostic": "interpretation_unsupported",
+      "errors": [
+        "positive target missing"
+      ]
+    },
+    {
+      "id": "F012",
+      "expected": {
+        "id": "F012",
+        "document_form": "minutes",
+        "wording": 0,
+        "variant": "completion",
+        "supported": false,
+        "requested_actor": "Amara Holt",
+        "source_actor": "Amara Holt",
+        "writer": "Julien Costa",
+        "recipient": "the railway inventory team",
+        "task": "count the signal lamps before Saturday",
+        "reporting_layer": "minutes_attributes_instruction",
+        "source_statement": "For the railway inventory team, the instruction from Amara Holt was to count the signal lamps before Saturday.",
+        "completion_established": false
+      },
+      "actual_kind": "abstain",
+      "diagnostic": "interpretation_unsupported",
+      "errors": []
+    },
+    {
+      "id": "F008",
+      "expected": {
+        "id": "F008",
+        "document_form": "letter",
+        "wording": 1,
+        "variant": "completion",
+        "supported": false,
+        "requested_actor": "Anton Seifert",
+        "source_actor": "Anton Seifert",
+        "writer": "Anton Seifert",
+        "recipient": "the grain inspection panel",
+        "task": "weigh the northern silo samples and log moisture readings",
+        "reporting_layer": "signed_letter_first_person",
+        "source_statement": "My instruction is for the grain inspection panel to weigh the northern silo samples and log moisture readings.",
+        "completion_established": false
+      },
+      "actual_kind": "abstain",
+      "diagnostic": "interpretation_unsupported",
+      "errors": []
+    },
+    {
+      "id": "F011",
+      "expected": {
+        "id": "F011",
+        "document_form": "minutes",
+        "wording": 0,
+        "variant": "different_quoted_speaker",
+        "supported": true,
+        "requested_actor": "Rina Okeke",
+        "source_actor": "Rina Okeke",
+        "writer": "Julien Costa",
+        "recipient": "the railway inventory team",
+        "task": "count the signal lamps before Saturday",
+        "reporting_layer": "minutes_attributes_instruction",
+        "source_statement": "For the railway inventory team, the instruction from Rina Okeke was: “Count the signal lamps before Saturday.”",
+        "completion_established": false
+      },
+      "actual_kind": "abstain",
+      "diagnostic": "interpretation_unsupported",
+      "errors": [
+        "positive target missing"
+      ]
+    },
+    {
+      "id": "F015",
+      "expected": {
+        "id": "F015",
+        "document_form": "minutes",
+        "wording": 1,
+        "variant": "different_quoted_speaker",
+        "supported": true,
+        "requested_actor": "Iris Demir",
+        "source_actor": "Iris Demir",
+        "writer": "Anton Seifert",
+        "recipient": "the reservoir survey team",
+        "task": "mark the spillway gauges before Wednesday",
+        "reporting_layer": "minutes_attributes_instruction",
+        "source_statement": "Iris Demir's instruction for the reservoir survey team was “Mark the spillway gauges before Wednesday.”",
+        "completion_established": false
+      },
+      "actual_kind": "abstain",
+      "diagnostic": "interpretation_unsupported",
+      "errors": [
+        "positive target missing"
+      ]
+    },
+    {
+      "id": "F006",
+      "expected": {
+        "id": "F006",
+        "document_form": "letter",
+        "wording": 1,
+        "variant": "wrong_actor",
+        "supported": false,
+        "requested_actor": "Stefan Petrov",
+        "source_actor": "Anton Seifert",
+        "writer": "Anton Seifert",
+        "recipient": "the grain inspection panel",
+        "task": "weigh the northern silo samples and log moisture readings",
+        "reporting_layer": "signed_letter_first_person",
+        "source_statement": "My instruction is for the grain inspection panel to weigh the northern silo samples and log moisture readings.",
+        "completion_established": false
+      },
+      "actual_kind": "abstain",
+      "diagnostic": "interpretation_unsupported",
+      "errors": []
+    },
+    {
+      "id": "F018",
+      "expected": {
+        "id": "F018",
+        "document_form": "report",
+        "wording": 0,
+        "variant": "wrong_actor",
+        "supported": false,
+        "requested_actor": "Mateo Galvez",
+        "source_actor": "Stefan Petrov",
+        "writer": "Mateo Galvez",
+        "recipient": "the wetland mapping group",
+        "task": "trace the reed beds along the southern embankment",
+        "reporting_layer": "report_attributes_quotation",
+        "source_statement": "For the wetland mapping group, the instruction from Stefan Petrov was: “Trace the reed beds along the southern embankment.”",
+        "completion_established": false
+      },
+      "actual_kind": "abstain",
+      "diagnostic": "interpretation_unsupported",
+      "errors": []
+    },
+    {
+      "id": "F002",
+      "expected": {
+        "id": "F002",
+        "document_form": "letter",
+        "wording": 0,
+        "variant": "wrong_actor",
+        "supported": false,
+        "requested_actor": "Julien Costa",
+        "source_actor": "Rina Okeke",
+        "writer": "Rina Okeke",
+        "recipient": "the railway inventory team",
+        "task": "count the signal lamps before Saturday",
+        "reporting_layer": "signed_letter_first_person",
+        "source_statement": "For the railway inventory team, my instruction is to count the signal lamps before Saturday.",
+        "completion_established": false
+      },
+      "actual_kind": "abstain",
+      "diagnostic": "interpretation_unsupported",
+      "errors": []
+    },
+    {
+      "id": "F022",
+      "expected": {
+        "id": "F022",
+        "document_form": "report",
+        "wording": 1,
+        "variant": "wrong_actor",
+        "supported": false,
+        "requested_actor": "Iris Demir",
+        "source_actor": "Julien Costa",
+        "writer": "Iris Demir",
+        "recipient": "the railway inventory team",
+        "task": "count the signal lamps before Saturday",
+        "reporting_layer": "report_attributes_quotation",
+        "source_statement": "Julien Costa's instruction for the railway inventory team was “Count the signal lamps before Saturday.”",
+        "completion_established": false
+      },
+      "actual_kind": "abstain",
+      "diagnostic": "interpretation_unsupported",
+      "errors": []
+    },
+    {
+      "id": "F001",
+      "expected": {
+        "id": "F001",
+        "document_form": "letter",
+        "wording": 0,
+        "variant": "valid",
+        "supported": true,
+        "requested_actor": "Rina Okeke",
+        "source_actor": "Rina Okeke",
+        "writer": "Rina Okeke",
+        "recipient": "the railway inventory team",
+        "task": "count the signal lamps before Saturday",
+        "reporting_layer": "signed_letter_first_person",
+        "source_statement": "For the railway inventory team, my instruction is to count the signal lamps before Saturday.",
+        "completion_established": false
+      },
+      "actual_kind": "abstain",
+      "diagnostic": "interpretation_unsupported",
+      "errors": [
+        "positive target missing"
+      ]
+    },
+    {
+      "id": "F016",
+      "expected": {
+        "id": "F016",
+        "document_form": "minutes",
+        "wording": 1,
+        "variant": "completion",
+        "supported": false,
+        "requested_actor": "Julien Costa",
+        "source_actor": "Julien Costa",
+        "writer": "Anton Seifert",
+        "recipient": "the reservoir survey team",
+        "task": "mark the spillway gauges before Wednesday",
+        "reporting_layer": "minutes_attributes_instruction",
+        "source_statement": "Julien Costa's instruction was for the reservoir survey team to mark the spillway gauges before Wednesday.",
+        "completion_established": false
+      },
+      "actual_kind": "abstain",
+      "diagnostic": "interpretation_unsupported",
+      "errors": []
+    },
+    {
+      "id": "F004",
+      "expected": {
+        "id": "F004",
+        "document_form": "letter",
+        "wording": 0,
+        "variant": "completion",
+        "supported": false,
+        "requested_actor": "Rina Okeke",
+        "source_actor": "Rina Okeke",
+        "writer": "Rina Okeke",
+        "recipient": "the railway inventory team",
+        "task": "count the signal lamps before Saturday",
+        "reporting_layer": "signed_letter_first_person",
+        "source_statement": "For the railway inventory team, my instruction is to count the signal lamps before Saturday.",
+        "completion_established": false
+      },
+      "actual_kind": "abstain",
+      "diagnostic": "interpretation_unsupported",
+      "errors": []
+    },
+    {
+      "id": "F023",
+      "expected": {
+        "id": "F023",
+        "document_form": "report",
+        "wording": 1,
+        "variant": "different_quoted_speaker",
+        "supported": true,
+        "requested_actor": "Amara Holt",
+        "source_actor": "Amara Holt",
+        "writer": "Iris Demir",
+        "recipient": "the railway inventory team",
+        "task": "count the signal lamps before Saturday",
+        "reporting_layer": "report_attributes_quotation",
+        "source_statement": "Amara Holt's instruction for the railway inventory team was “Count the signal lamps before Saturday.”",
+        "completion_established": false
+      },
+      "actual_kind": "abstain",
+      "diagnostic": "interpretation_unsupported",
+      "errors": [
+        "positive target missing"
+      ]
+    },
+    {
+      "id": "F024",
+      "expected": {
+        "id": "F024",
+        "document_form": "report",
+        "wording": 1,
+        "variant": "completion",
+        "supported": false,
+        "requested_actor": "Julien Costa",
+        "source_actor": "Julien Costa",
+        "writer": "Iris Demir",
+        "recipient": "the railway inventory team",
+        "task": "count the signal lamps before Saturday",
+        "reporting_layer": "report_attributes_quotation",
+        "source_statement": "Julien Costa's instruction for the railway inventory team was “Count the signal lamps before Saturday.”",
+        "completion_established": false
+      },
+      "actual_kind": "abstain",
+      "diagnostic": "interpretation_unsupported",
+      "errors": []
+    },
+    {
+      "id": "F010",
+      "expected": {
+        "id": "F010",
+        "document_form": "minutes",
+        "wording": 0,
+        "variant": "wrong_actor",
+        "supported": false,
+        "requested_actor": "Julien Costa",
+        "source_actor": "Amara Holt",
+        "writer": "Julien Costa",
+        "recipient": "the railway inventory team",
+        "task": "count the signal lamps before Saturday",
+        "reporting_layer": "minutes_attributes_instruction",
+        "source_statement": "For the railway inventory team, the instruction from Amara Holt was to count the signal lamps before Saturday.",
+        "completion_established": false
+      },
+      "actual_kind": "abstain",
+      "diagnostic": "interpretation_unsupported",
+      "errors": []
+    },
+    {
+      "id": "F007",
+      "expected": {
+        "id": "F007",
+        "document_form": "letter",
+        "wording": 1,
+        "variant": "different_quoted_speaker",
+        "supported": true,
+        "requested_actor": "Stefan Petrov",
+        "source_actor": "Stefan Petrov",
+        "writer": "Anton Seifert",
+        "recipient": "the grain inspection panel",
+        "task": "weigh the northern silo samples and log moisture readings",
+        "reporting_layer": "letter_attributes_quotation",
+        "source_statement": "Stefan Petrov's instruction for the grain inspection panel was “Weigh the northern silo samples and log moisture readings.”",
+        "completion_established": false
+      },
+      "actual_kind": "abstain",
+      "diagnostic": "interpretation_unsupported",
+      "errors": [
+        "positive target missing"
+      ]
+    },
+    {
+      "id": "F009",
+      "expected": {
+        "id": "F009",
+        "document_form": "minutes",
+        "wording": 0,
+        "variant": "valid",
+        "supported": true,
+        "requested_actor": "Amara Holt",
+        "source_actor": "Amara Holt",
+        "writer": "Julien Costa",
+        "recipient": "the railway inventory team",
+        "task": "count the signal lamps before Saturday",
+        "reporting_layer": "minutes_attributes_instruction",
+        "source_statement": "For the railway inventory team, the instruction from Amara Holt was to count the signal lamps before Saturday.",
+        "completion_established": false
+      },
+      "actual_kind": "abstain",
+      "diagnostic": "interpretation_unsupported",
+      "errors": [
+        "positive target missing"
+      ]
+    },
+    {
+      "id": "F017",
+      "expected": {
+        "id": "F017",
+        "document_form": "report",
+        "wording": 0,
+        "variant": "valid",
+        "supported": true,
+        "requested_actor": "Stefan Petrov",
+        "source_actor": "Stefan Petrov",
+        "writer": "Mateo Galvez",
+        "recipient": "the wetland mapping group",
+        "task": "trace the reed beds along the southern embankment",
+        "reporting_layer": "report_attributes_quotation",
+        "source_statement": "For the wetland mapping group, the instruction from Stefan Petrov was: “Trace the reed beds along the southern embankment.”",
+        "completion_established": false
+      },
+      "actual_kind": "abstain",
+      "diagnostic": "interpretation_unsupported",
+      "errors": [
+        "positive target missing"
+      ]
+    }
+  ],
+  "custody": {
+    "preparer": "Betty, same operator",
+    "scorer": "Betty, same operator",
+    "generator_templates_seen_by_implementer": true,
+    "instance_bytes_opened_before_candidate_freeze": false,
+    "worker_receives_key_path": false,
+    "independent_preparation": "NOT_RUN",
+    "blinding": "NOT_RUN",
+    "independent_semantic_adjudication": "NOT_RUN",
+    "independent_historical_accuracy": "NOT_RUN",
+    "outside_custodian_scoring": "NOT_RUN",
+    "native_oocc": "NOT_RUN"
+  }
+}

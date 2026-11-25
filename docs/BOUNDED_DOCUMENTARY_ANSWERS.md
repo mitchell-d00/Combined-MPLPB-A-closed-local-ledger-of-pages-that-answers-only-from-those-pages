@@ -1,6 +1,10 @@
 # Bounded documentary answers
 
-Last reviewed: 2026-11-20.
+Last reviewed: 2026-11-25.
+
+The first transfer is retained with an explicit development-control overlap limit. A fresh packet was frozen before further edits and passed 24/24 once on source `7ed65a5`; its constructions differ from all inspected development examples, with generator templates still visible to the same operator. Both rounds remain separately reported.
+
+The [shared attribution trial](../evaluation/attribution/2026-11-25/README.md) adds a bounded source-framed instruction path. A printed signature binds first-person letter voice; explicit bylines and instruction predicates keep recorders/reporters distinct from named speakers. Quoted speech supports what the source attributes to its speaker, with historical occurrence and execution unverified. Complete eligible witnesses, conservative competing-source checks and final source-state checks govern the claim. Development is **48/48** and the fresh once-only same-operator transfer is **24/24**, with 17 PE-02 contracts unchanged. Generator templates were visible and no independent preparation/blinding or adjudication is claimed. Full archive regression and exact-head CI are pending. [Permanent controls](../tests/test_source_attributed_instructions.py).
 
 Ask for two explicit fields on one record, for example “What are the accession
 date and shelf code for record FOLIO-71?” Each field uses the ordinary exact

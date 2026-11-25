@@ -1,0 +1,13 @@
+BROWSER LOAD published-live https://mitchell-d00.github.io/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/
+BROWSER STRICT: NO SUPPORTED ANSWER
+BROWSER PASS published-live
+BROWSER LOAD candidate-preview http://127.0.0.1:34525/
+BROWSER STRICT: NO SUPPORTED ANSWER
+BROWSER INSPECT: AMBIGUOUS
+BROWSER SAMPLE: candidate inspection selected
+BROWSER CAPTIONS: supported and inspection notices separated
+NPC_BROWSER {"schema": "mplpb-researcher-browser-pilot-v1", "suite_sha256": "38b29eb6599f4484b5d7e7e654251aee54e6e25d9dd5d388b195c32c70e5d6d5", "persona": "mara", "actual_browser": "Chromium with running application engine", "checks_passed": ["create_collection_through_ui", "paste_import_through_ui", "ask_and_click_cited_source", "known_reader_limit_is_not_an_answer", "conflicting_bulletins_do_not_choose_a_winner", "save_multisentence_investigation_note", "indexeddb_reload_preserves_note_and_exact_transcript", "resume_rechecks_sources"], "status": "synthetic_ui_workflow_passed", "known_answerable_refusals": 1, "human_usability_measured": false, "product_backup_or_upgrade_tested": false, "notice": "One scripted persona, developer-inspected controls; not six browser users or a human pilot."}
+BROWSER PREFERENCES: automatic lookup off/on survives reload
+BROWSER PASS candidate-preview
+PASS candidate module hashes
+PASS verified-host browser checks

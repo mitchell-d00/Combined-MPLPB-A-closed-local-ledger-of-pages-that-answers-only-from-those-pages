@@ -4,8 +4,8 @@ Last reviewed: 2026-11-25.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `efda9ef962e1ba4ba6d71a0843e75a45da279210` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `9f562976c7bb5ff6b4842a4c7df7e99aa46997233c520392a1e02787fdb1c961`.
+Base commit: `7ed65a589d8051ff659495972fab922ff802b20e` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `2a59fafd0c3d337e46e8887110d10d7260f71bc1ac4ab4a4e2fff13a0075155d`.
 
 ## Betty report for Al
 
@@ -13,79 +13,62 @@ Run the Betty implementation step first, then the Al review step in a separate c
 
 ### Latest user update instructions
 
-Run Betty. Test and repair report-pin selection, starting from PR #100’s head a26ec527e2e3a5bab7883e7892aa00c348ea65dc.
+Run a frozen attribution trial from PR #101 head 28b8feb871cd0c2eb29440f2ab46623e410622b6. Preserve all 17 PE-02 cases, the 28 targeted regressions, and earlier applicable evidence controls. Freeze 48 development and 24 separate transfer cases across signed letters, meeting minutes and quoted reports. Keep existing source-state and evidence budgets. Acceptance: all frozen target decisions pass; zero false-supported claims; every document form demonstrates positive coverage; valid earlier behavior remains intact. Publish development and transfer separately, retain failures, test the committed ZIP extraction and update the pinned Betty report.
 
-Freeze six synthetic PR-body fixtures and expected results before changing code. Let H be forty a characters and S forty b characters; actual head.sha is H.
+# Attribution trial — maintainer clarification
 
-1. Betty report with **Current PR head** and backticked H: match.
-2. Historical report with **Public evidence pin** and backticked H: match.
-3. Betty report pinned to S: stale, no match.
-4. No report or pin: missing, no match.
-5. H appears only inside a fenced Markdown example: no match.
-6. Fenced example containing H precedes a real Betty report pinned to S: stale, no match.
+Freeze the generator, seed, packet hashes, and scoring key before implementation. Keep transfer inputs unopened until the candidate is frozen. Describe this as **same-operator transfer testing**; independent preparation, blinding, and adjudication remain unmeasured.
 
-Run all six through both --al and --betty: twelve executions per revision, mocked HTTP only, thirty-second limit per execution. Retain baseline outputs before implementing a general parsing fix.
+Make transfer wording and sentence structure differ from development examples. Changing names and tasks alone tests limited transfer.
 
-Acceptance: all twelve expected decisions pass; zero false-current matches. Preserve newest-PR selection, explicit historical override, fork handoff links, and empty-list behavior. Rerun the existing JavaScript and HTTP checks. Record before/after counts, failures, tested commit, archive checksum, and updated handoff.
+**A quotation with a different speaker is not automatically a withhold case.** If the question names the explicitly attributed speaker, a source-attributed answer may be supported. If it incorrectly assigns that instruction to the writer or reporter, withhold that attribution. Set each expectation from the requested actor and evidence, rather than forcing the planned positive/negative counts.
 
-Keep independent historical accuracy, independent semantic adjudication, and native OOCC marked NOT_RUN.
+Run the frozen candidate on transfer once. Preserve failures. Any repair informed by those failures makes that packet development material; use a fresh packet for the next transfer evaluation.
 
-Maintainer direction after relaying Al’s PR #97 review and PE-02 proposal: Retain as the next proposal.
+Mitchell selected: Use a sealed, program-generated packet; label the custody limits.
 
-Start PE-02 proposal after what you are doing keep it all in pr101 then we will do an al report
-
-For each repair, name the general failure mechanism, show which different cases it explains, implement the smallest shared rule that addresses it, preserve valid earlier behavior, and test transfer on fresh material.
-
-The immediate sequence I recommend is PE-02 → general attribution → modality → reference resolution → evidence combination.
-
-Push it once you finish and merge
-
-The most important thing to put at the top of PR #101 is the exact state Al should judge at the current head. Once Betty finishes PE-02, lead with the actual before/after result and control outcomes, then the exact witness or withhold reason, tested source commit, and ZIP SHA-256. Keep pending checks and NOT_RUN labels visible.
-
-Does the Smith letter’s canonical text uniquely bind Nixon’s signature and Smith’s salutation to the delegation instruction? Did Betty preserve the Laird attribution withhold and avoid claiming that an agreement occurred? Cite the evidence and propose one next test.
-
-Method note from Outside to Betty
-
-**Outside is Mitchell’s sounding board.** I’m a chat bot that can read the public repo and understand how Al and Betty work together. Mitchell can talk through ideas with me, sanity-check Al’s advice, or sharpen a question while Betty is working.
-
-The handoff stays manual. Outside works in Mitchell’s chat, and Mitchell decides what, if anything, to paste to Al or Betty. Treat an Outside note as discussion input. Take implementation direction from Mitchell.
-
-Al still reviews Betty’s pinned evidence and proposes the next test. Betty still runs the authorized work and updates the PR. Outside gives Mitchell room to think between those steps without interrupting the loop.
-
-nclude this note in push so it can be referenced for people who which to replicate my pipeline Al Betty and outside
 
 ### Implemented scope
 
-- Freeze six synthetic PR-body fixtures and expected decisions at PR #100 head a26ec527e2e3a5bab7883e7892aa00c348ea65dc; retain exact baseline outputs before repair.
-- Ignore Markdown backtick/tilde fenced examples when selecting the first exact live current-head or historical evidence-pin label. Preserve discovery, explicit override, fork links and empty listings.
-- Retain the relayed Al PR #97 proposal and the initial defer decision. The latest maintainer direction authorizes PE-02 after the report-pin repair, with both cycles in PR #101.
-- Freeze the eleven inherited cases and six independently worded signed-instruction cases at PR #97 pin 7618be370c334b082cb91c50eaf665f979ce5c1e, with unchanged originals, budgets, rule and separately held local key. Import its prerequisite reader/test/evidence files byte-for-byte into PR #101.
-- Add reusable native salutation/full-signature source-voice verification and finite delegation-instruction proof. Preserve the exact unresolved Laird question, instruction modality and all earlier claim meanings. Retain every failed candidate and regression.
-- Include the Outside method note once in docs/TEAMBUILDING.md and link it from README and PR #101. Outside supplies discussion input; Mitchell manually relays advice and authorizes implementation.
+- Freeze source-attribution development/transfer generator, seed, packets, separate keys, acceptance and native baseline before code changes.
+- Preserve the reported PE-02 implementation and permanent seventeen-case corpus with all twenty-eight targeted regressions.
+- Add one shared native source-writer/speaker/recipient/instruction representation for bounded letters, minutes and quoted reports. Preserve the old PE-02 path unchanged.
+- Execute the frozen committed candidate on the transfer packet exactly once, preserve reporting layers, publish the consumed inputs and distinguish same-operator testing from independent assessment.
+- Add recipient-fronted nominal and possessive instruction argument-order forms to the same native role parser, after fresh packet freeze and before opening its instances. No new-structure development examples were run.
 
 ### Validation recorded
 
-- Frozen mocked-HTTP replay: baseline 8/12 decisions, four failures and four false-current matches; repaired parser 12/12 decisions, zero failures and zero false-current matches. Each subprocess has a thirty-second limit.
-- Existing JavaScript contract passed, including the frozen twelve-case replay, fourteen additional fence controls and inherited discovery/override/fork/empty-list checks.
-- The first filtered-checkout HTTP run had two failures out of thirteen from omitted assets/history; after restoring those tracked assets, all thirteen HTTP tests passed. Both logs are retained.
-- Committed report-pin candidate 86e7c4ed7459cf684cc53156ab56739b0a8c73d2 was archived with git archive --format=zip -1; ZIP SHA-256 1f0952769f838103af4aa02fd2cef1755b79d28d6b27b19f8e0722aad126586e. ZIP integrity, required hidden workflows, fixture seal and extracted handoff passed. All fifteen extracted software checks passed, including twelve frozen decisions and thirteen HTTP tests; all 52 public controls passed.
-- The exact report-pin ZIP extraction passed 1,723 native tests (two skipped), the pinned WebAssembly check and the real Chromium candidate preview. The first browser invocation used an unsupported option; the corrected live invocation failed ERR_CERT_AUTHORITY_INVALID before app load. Both attempts are retained.
-- The restored originals match the inherited seal. All eleven baseline answer contracts reproduce the prior FRUS-PE01 outputs. The final 17-case development replay has historical completion 1/4 unchanged, historical partials 0/4 to 1/4, six inherited full withholds and the existing advice-only partial retained, new positive 0/1 to 1/1, and new negative withholds 5/5. Propositions across all cases rise 3 to 5; false-support decisions are zero.
-- All 17 discovery passage arrays are unchanged. Twenty-eight targeted native regressions pass. An independent projection audit verifies 27 source instances and maps nine new instruction witnesses to exact original byte spans. First through third candidate failures and the first projection-mapping failure remain retained.
-- The report-pin ZIP also passed both browser contexts after the same TLS-verified host SPKI setup used in the prior FRUS run. Default-trust failures remain retained.
-- Exact PE-02 source candidate efda9ef962e1ba4ba6d71a0843e75a45da279210 ZIP SHA-256 d594ee87ceeb18764b9cec857b24f9163dd4173f4dc975978715d711aa973e66 passed extracted-source validation: 1,751 Python tests (two skipped), all 17 frozen decisions, all 52 public controls, 28 targeted regressions, JavaScript/HTTP/transport checks, WebAssembly, both Chromium contexts, installed wheel, 45 official MCP SDK checks and separate original-byte witness audit. The browser candidate module hashes match this source. Native diff from PR #97 is only the pipeline hook and two new reusable verification modules.
+- Development baseline at specified PR #101 pin: 24/48 expected decisions; 24 positive misses; all 24 withholds retained; zero false support.
+- Transfer baseline executed by worker and sealed without implementer inspection; exact inputs, key and output stay separately held until candidate freeze.
+- All 17 preservation cases replayed against baseline; 28 inherited targeted controls passed.
+- Final development candidate: 48/48 expected decisions, 24/24 positives and 24/24 withholds, zero false support and zero budget failures.
+- All 17 PE-02 answer contracts and discovery arrays match baseline exactly, excluding code fingerprints only. All 56 focused controls pass, including the existing 28.
+- Retained rejected first candidate (passive misses and conditional-governor false support) and second candidate (unframed competing-source false support), their source snapshots, outputs and failed control logs.
+- Separate frozen-source projection audit verified 48 input bodies and all 56 development citations.
+- Once-only transfer on committed ZIP d0f6c67e0684d952afc47c13b83963ca7976d2bb: 12/24 to 24/24 expected decisions, 12/12 positive targets and 12/12 withholds, zero false support and zero budget failures. Each form has four positive targets passing.
+- Separate transfer source-byte audit verifies all 24 source bodies and 28 exact citations; no source repair followed transfer inspection.
+- Source ZIP SHA-256 0f3148b4a3ef061388a990ef0d0fc306838077ddde18f004285ac404faeee155 passed integrity and tracked-content comparison after restoring one executable bit from ZIP metadata. Extracted development 48/48, permanent 17 contracts/discovery identical, all 56 focused controls, all 52 public controls, all fifteen software checks including HTTP/JavaScript and report pins, WebAssembly and both Chromium contexts passed. Candidate embedded reader hashes match source. Installed wheel and 45 official MCP SDK checks passed.
+- First candidate d0f6c67 ZIP completed all 1,779 native tests (two skipped), all 52 public controls, software/WebAssembly/browser/installation/SDK gates. Its first-transfer 24/24 decisions remain retained, but overlap with inspected development controls limits structural novelty.
+- Fresh 24-case generator, new seed, packet/key hashes and rule frozen before any further native edits; baseline privately replayed at original PR #101 pin. Instance bytes/key/output remain unopened.
+- Fresh candidate preserves original 48/48, consumed-first-packet 24/24, all 56 focused controls and all 17 complete PE-02 contracts/discovery arrays.
+- Fresh candidate 7ed65a589d8051ff659495972fab922ff802b20e ZIP SHA-256 93d801d6554575542d50fee557ddbd099c607f1325ef6c8aed917d32768918fb passed its fresh transfer once: 24/24 decisions, 12/12 positives, 12/12 withholds, zero false support/budget failures. Each form has four positive targets passing; separate audit verifies 24 bodies and 28 citations.
+- New ZIP extraction preserves all 48 development decisions, all 24 complete consumed-first-packet contracts and all 17 PE-02 contracts/discovery arrays. All 56 focused controls, 52 public controls, JavaScript/HTTP/report-pin checks, WebAssembly, installed wheel and 45 SDK checks passed.
+- Revised ZIP actual Chromium baseline/candidate contexts passed; all four embedded module hashes match source 7ed65a5. The local acceptance measures pass with zero final false support, all earlier contracts preserved and explicit same-operator/protocol limits.
 
 ### Limitations and blocked checks
 
-- Independent historical accuracy, independent semantic adjudication, outside-custodian scoring and native OOCC remain NOT_RUN. The same operator prepared the local key; the worker received no key path and OS isolation was not used.
-- The signed-letter grammar is finite. Cross-document attribution, general modality/conditions, reference resolution, evidence combination and unseen transfer remain separate next cycles.
-- The local PE-02 candidate archive passed. Final exact-head GitHub checks and postdeployment validation are pending the completed push and authorized merge. Published-browser success so far is a premerge baseline, not deployment of the candidate.
+- Exact-head archive-first/regression CI and postmerge deployment verification remain pending. The complete revised-source suite will run from that exact CI ZIP; the earlier local 1779-test pass is retained at d0f6c67 and is not misreported as a later-byte run.
+- Same operator authored and saw all generator templates, prepared packets and scored outputs. Exact transfer instances/key stayed unopened until the committed ZIP freeze. This is not independent preparation or blinding. The consumed transfer packet now becomes preservation material.
+- Independent historical accuracy, independent semantic adjudication, independent preparation, blinding, outside-custodian scoring and native OOCC remain NOT_RUN.
+- No historical answer-coverage gain: historical completion stays 1/4, historical partials stay 1/4, and all five source propositions across seventeen cases remain unchanged. The new gain is bounded synthetic source-attribution coverage.
+- Protocol correction: supplemental development controls overlap the first transfer sentence structures. Retain its 24/24 result but classify it as consumed development material; it does not establish unfamiliar structural transfer.
+- Both transfer generators/templates were visible to the same operator. Fresh source constructions differ from all inspected examples, but their grammar was not independently prepared or blinded. No broad unfamiliar-language or historical accuracy claim is made.
 
 ### Next steps
 
-- Push the completed evidence update to PR #101 and keep the actual current head, measured PE-02 results, controls, witness/withhold reasons and both tested source archive hashes at the top of its report.
-- Wait for required checks at the exact pushed head, merge within the maintainer’s authorization, verify the deployed engine and update the report. Keep independent historical/semantic/OOCC labels NOT_RUN.
-- Al’s next proposed test should exercise shared attribution across a letter, meeting record and quoted report with different actors/wording; freeze fresh material and separate unseen evaluation before any expansion.
+- Publish both transfer rounds, the correction, frozen source/ZIP, complete preservation evidence and exact current PR head for Al. No native changes after fresh transfer inspection.
+- Wait for archive-first and regression to pass on the exact publication head; merge under the maintainer’s standing authorization, then verify deployed reader fingerprints and update the live report.
+- Al assesses the shared role-checking mechanism, source-language coverage and same-operator limits, then proposes one next falsifiable test.
 
 ## Use this ZIP in your repository
 

@@ -1,0 +1,194 @@
+[
+  {
+    "argv": [
+      "python",
+      "tools/build_handoff.py",
+      "--check"
+    ],
+    "cwd": "/workspace/attribution-extracted",
+    "started_at": "2026-11-25T12:42:32.319213+00:00",
+    "exit_code": 0,
+    "seconds": 3.43,
+    "stdout": "software-1.stdout.log",
+    "stderr": "software-1.stderr.log"
+  },
+  {
+    "argv": [
+      "python",
+      "-m",
+      "tools.audit_documentation"
+    ],
+    "cwd": "/workspace/attribution-extracted",
+    "started_at": "2026-11-25T12:42:35.749857+00:00",
+    "exit_code": 0,
+    "seconds": 0.517,
+    "stdout": "software-2.stdout.log",
+    "stderr": "software-2.stderr.log"
+  },
+  {
+    "argv": [
+      "python",
+      "tools/check_repository_infrastructure.py"
+    ],
+    "cwd": "/workspace/attribution-extracted",
+    "started_at": "2026-11-25T12:42:36.267119+00:00",
+    "exit_code": 0,
+    "seconds": 0.216,
+    "stdout": "software-3.stdout.log",
+    "stderr": "software-3.stderr.log"
+  },
+  {
+    "argv": [
+      "python",
+      "tools/replay_report_pins.py",
+      "--runtime",
+      ".",
+      "--fixtures",
+      "evaluation/report-pins/2026-11-25/fixtures.json",
+      "--output",
+      "/workspace/attribution-archive-checks/frozen-replay.json"
+    ],
+    "cwd": "/workspace/attribution-extracted",
+    "started_at": "2026-11-25T12:42:36.483632+00:00",
+    "exit_code": 0,
+    "seconds": 0.929,
+    "stdout": "software-4.stdout.log",
+    "stderr": "software-4.stderr.log"
+  },
+  {
+    "argv": [
+      "python",
+      "-m",
+      "unittest",
+      "tests.test_ledger_ui",
+      "-q"
+    ],
+    "cwd": "/workspace/attribution-extracted",
+    "started_at": "2026-11-25T12:42:37.416580+00:00",
+    "exit_code": 0,
+    "seconds": 1.492,
+    "stdout": "software-5.stdout.log",
+    "stderr": "software-5.stderr.log"
+  },
+  {
+    "argv": [
+      "node",
+      "tests/javascript-api.cjs"
+    ],
+    "cwd": "/workspace/attribution-extracted",
+    "started_at": "2026-11-25T12:42:38.908434+00:00",
+    "exit_code": 0,
+    "seconds": 2.946,
+    "stdout": "software-6.stdout.log",
+    "stderr": "software-6.stderr.log"
+  },
+  {
+    "argv": [
+      "python",
+      "tools/check_ui_script.py"
+    ],
+    "cwd": "/workspace/attribution-extracted",
+    "started_at": "2026-11-25T12:42:41.854576+00:00",
+    "exit_code": 0,
+    "seconds": 1.122,
+    "stdout": "software-7.stdout.log",
+    "stderr": "software-7.stderr.log"
+  },
+  {
+    "argv": [
+      "node",
+      "tools/check_browser_transport.cjs"
+    ],
+    "cwd": "/workspace/attribution-extracted",
+    "started_at": "2026-11-25T12:42:42.977098+00:00",
+    "exit_code": 0,
+    "seconds": 0.119,
+    "stdout": "software-8.stdout.log",
+    "stderr": "software-8.stderr.log"
+  },
+  {
+    "argv": [
+      "node",
+      "--check",
+      "tools/mplpb_agent_bridge.mjs"
+    ],
+    "cwd": "/workspace/attribution-extracted",
+    "started_at": "2026-11-25T12:42:43.096575+00:00",
+    "exit_code": 0,
+    "seconds": 0.067,
+    "stdout": "software-9.stdout.log",
+    "stderr": "software-9.stderr.log"
+  },
+  {
+    "argv": [
+      "node",
+      "tests/documentary-render.cjs"
+    ],
+    "cwd": "/workspace/attribution-extracted",
+    "started_at": "2026-11-25T12:42:43.163979+00:00",
+    "exit_code": 0,
+    "seconds": 0.067,
+    "stdout": "software-10.stdout.log",
+    "stderr": "software-10.stderr.log"
+  },
+  {
+    "argv": [
+      "node",
+      "tests/browser-ai-helper.cjs"
+    ],
+    "cwd": "/workspace/attribution-extracted",
+    "started_at": "2026-11-25T12:42:43.231382+00:00",
+    "exit_code": 0,
+    "seconds": 0.827,
+    "stdout": "software-11.stdout.log",
+    "stderr": "software-11.stderr.log"
+  },
+  {
+    "argv": [
+      "node",
+      "tests/browser-model-loader.cjs"
+    ],
+    "cwd": "/workspace/attribution-extracted",
+    "started_at": "2026-11-25T12:42:44.064097+00:00",
+    "exit_code": 0,
+    "seconds": 3.643,
+    "stdout": "software-12.stdout.log",
+    "stderr": "software-12.stderr.log"
+  },
+  {
+    "argv": [
+      "node",
+      "tests/browser-webgpu-limits.cjs"
+    ],
+    "cwd": "/workspace/attribution-extracted",
+    "started_at": "2026-11-25T12:42:47.708035+00:00",
+    "exit_code": 0,
+    "seconds": 0.568,
+    "stdout": "software-13.stdout.log",
+    "stderr": "software-13.stderr.log"
+  },
+  {
+    "argv": [
+      "node",
+      "crawler/test_worker.mjs"
+    ],
+    "cwd": "/workspace/attribution-extracted",
+    "started_at": "2026-11-25T12:42:48.276834+00:00",
+    "exit_code": 0,
+    "seconds": 0.167,
+    "stdout": "software-14.stdout.log",
+    "stderr": "software-14.stderr.log"
+  },
+  {
+    "argv": [
+      "node",
+      "crawler/test_historical.mjs"
+    ],
+    "cwd": "/workspace/attribution-extracted",
+    "started_at": "2026-11-25T12:42:48.446498+00:00",
+    "exit_code": 0,
+    "seconds": 0.117,
+    "stdout": "software-15.stdout.log",
+    "stderr": "software-15.stderr.log"
+  }
+]

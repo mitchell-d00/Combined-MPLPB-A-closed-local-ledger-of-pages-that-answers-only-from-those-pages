@@ -1,6 +1,10 @@
 # Current implementation and evidence status
 
-Last reviewed: 2026-11-20.
+Last reviewed: 2026-11-25.
+
+The first transfer is retained with an explicit development-control overlap limit. A fresh packet was frozen before further edits and passed 24/24 once on source `7ed65a5`; its constructions differ from all inspected development examples, with generator templates still visible to the same operator. Both rounds remain separately reported.
+
+[Shared source attribution](../evaluation/attribution/2026-11-25/README.md) verifies bounded source-attributed instructions across signed letters, minutes and quoted reports. Frozen development improves **24/48 → 48/48**, with **zero final false-supported claims**. All 17 PE-02 contracts and discovery arrays remain identical; 56 focused controls pass. The fresh once-only same-operator transfer improves **12/24 → 24/24**, with all 12 positives and 12 withholds passing. Generator templates were known; independent preparation, blinding and adjudication remain unmeasured. Full archive regression and exact-head CI are pending.
 
 [Source-field aliases and final measured evidence](SOURCE_FIELD_ALIASES.md) extend
 bounded source-declared field access: expanded stress complete matches **168→189/420**,

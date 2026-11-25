@@ -2,6 +2,10 @@
 
 Last reviewed: 2026-11-25.
 
+The first transfer is retained with an explicit development-control overlap limit. A fresh packet was frozen before further edits and passed 24/24 once on source `7ed65a5`; its constructions differ from all inspected development examples, with generator templates still visible to the same operator. Both rounds remain separately reported.
+
+[Shared attribution](../evaluation/attribution/2026-11-25/README.md) freezes 48 development and 24 same-operator transfer cases across letters, minutes and quoted reports. Development improves **24/48 → 48/48**, with zero final false support, all 17 PE-02 contracts/discovery arrays identical and 56 focused controls passing. The fresh once-only same-operator transfer improves **12/24 → 24/24**, with all 12 positives and 12 withholds passing. Generator templates were visible; independent preparation, blinding and adjudication remain unmeasured. Archive full regression and exact-head CI are pending. [Sealed replay](../tools/attribution_trial.py).
+
 [FRUS-PE02](../evaluation/pole/open-items/frus-pe02/README.md) retains historical completion at **1/4**, adds the Smith-letter checked partial (**0/4 → 1/4** historical partials), preserves all six inherited full withholds and the advice-only partial control, and passes the new synthetic positive with **5/5** new withholds. All 17 discovery arrays remain unchanged. [Signed-instruction controls](../tests/test_signed_instructions.py) and [sealed replay](../tools/pole_frus_pe02.py) retain the rejected attempts and local custody limits.
 
 [Report-pin selection](../evaluation/report-pins/2026-11-25/README.md) records a frozen mocked-HTTP replay through both role commands: **8/12 to 12/12** expected decisions and **four to zero false-current matches**. It measures coordination metadata parsing, not historical accuracy. [Replay tool](../tools/replay_report_pins.py) and [JavaScript controls](../tests/javascript-api.cjs).

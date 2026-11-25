@@ -1,0 +1,254 @@
+{
+  "schema": "mplpb-report-pin-replay-v1",
+  "mocked_http_only": true,
+  "fixture_sha256": "4c296027307327cb54e7cecb6767bf688244fde217c555394b8e7da9175f3b31",
+  "bridge_sha256": "78f341e12f9b7c374247deab71bcc0de81e6f626cf202995184b03a13b8f51f0",
+  "summary": {
+    "executions": 12,
+    "passed": 12,
+    "failed": 0,
+    "false_current": 0
+  },
+  "runs": [
+    {
+      "case": "current",
+      "role": "al",
+      "timeout_seconds": 30,
+      "expected": {
+        "status": "match",
+        "report_head": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "match": true
+      },
+      "passed": true,
+      "false_current": false,
+      "exit_code": 0,
+      "stdout": "{\n  \"role\": {\n    \"name\": \"al\"\n  },\n  \"live_pull_request\": {\n    \"pull_request\": \"https://github.com/synthetic-owner/synthetic-repo/pull/101\",\n    \"state\": \"open\",\n    \"draft\": false,\n    \"merged\": false,\n    \"current_head\": \"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\",\n    \"report_head\": \"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\",\n    \"report_matches_current_head\": true,\n    \"handoff_at_current_head\": \"https://github.com/synthetic-fork/synthetic-repo/blob/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/HANDOFF.md#betty-report-for-al\",\n    \"report\": \"## Betty report for Al\\n\\n**Current PR head** `aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa`\\n\"\n  }\n}\n",
+      "stderr": "",
+      "actual": {
+        "report_head": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "match": true,
+        "status": "match"
+      }
+    },
+    {
+      "case": "current",
+      "role": "betty",
+      "timeout_seconds": 30,
+      "expected": {
+        "status": "match",
+        "report_head": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "match": true
+      },
+      "passed": true,
+      "false_current": false,
+      "exit_code": 0,
+      "stdout": "{\n  \"role\": {\n    \"name\": \"betty\"\n  },\n  \"live_pull_request\": {\n    \"pull_request\": \"https://github.com/synthetic-owner/synthetic-repo/pull/101\",\n    \"state\": \"open\",\n    \"draft\": false,\n    \"merged\": false,\n    \"current_head\": \"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\",\n    \"report_head\": \"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\",\n    \"report_matches_current_head\": true,\n    \"handoff_at_current_head\": \"https://github.com/synthetic-fork/synthetic-repo/blob/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/HANDOFF.md#betty-report-for-al\",\n    \"report\": \"## Betty report for Al\\n\\n**Current PR head** `aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa`\\n\"\n  }\n}\n",
+      "stderr": "",
+      "actual": {
+        "report_head": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "match": true,
+        "status": "match"
+      }
+    },
+    {
+      "case": "historical",
+      "role": "al",
+      "timeout_seconds": 30,
+      "expected": {
+        "status": "match",
+        "report_head": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "match": true
+      },
+      "passed": true,
+      "false_current": false,
+      "exit_code": 0,
+      "stdout": "{\n  \"role\": {\n    \"name\": \"al\"\n  },\n  \"live_pull_request\": {\n    \"pull_request\": \"https://github.com/synthetic-owner/synthetic-repo/pull/101\",\n    \"state\": \"open\",\n    \"draft\": false,\n    \"merged\": false,\n    \"current_head\": \"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\",\n    \"report_head\": \"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\",\n    \"report_matches_current_head\": true,\n    \"handoff_at_current_head\": \"https://github.com/synthetic-fork/synthetic-repo/blob/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/HANDOFF.md#betty-report-for-al\",\n    \"report\": \"## TeamBuilding handoff for Al\\n\\n**Public evidence pin** `aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa`\\n\"\n  }\n}\n",
+      "stderr": "",
+      "actual": {
+        "report_head": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "match": true,
+        "status": "match"
+      }
+    },
+    {
+      "case": "historical",
+      "role": "betty",
+      "timeout_seconds": 30,
+      "expected": {
+        "status": "match",
+        "report_head": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "match": true
+      },
+      "passed": true,
+      "false_current": false,
+      "exit_code": 0,
+      "stdout": "{\n  \"role\": {\n    \"name\": \"betty\"\n  },\n  \"live_pull_request\": {\n    \"pull_request\": \"https://github.com/synthetic-owner/synthetic-repo/pull/101\",\n    \"state\": \"open\",\n    \"draft\": false,\n    \"merged\": false,\n    \"current_head\": \"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\",\n    \"report_head\": \"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\",\n    \"report_matches_current_head\": true,\n    \"handoff_at_current_head\": \"https://github.com/synthetic-fork/synthetic-repo/blob/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/HANDOFF.md#betty-report-for-al\",\n    \"report\": \"## TeamBuilding handoff for Al\\n\\n**Public evidence pin** `aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa`\\n\"\n  }\n}\n",
+      "stderr": "",
+      "actual": {
+        "report_head": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "match": true,
+        "status": "match"
+      }
+    },
+    {
+      "case": "stale",
+      "role": "al",
+      "timeout_seconds": 30,
+      "expected": {
+        "status": "stale",
+        "report_head": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+        "match": false
+      },
+      "passed": true,
+      "false_current": false,
+      "exit_code": 0,
+      "stdout": "{\n  \"role\": {\n    \"name\": \"al\"\n  },\n  \"live_pull_request\": {\n    \"pull_request\": \"https://github.com/synthetic-owner/synthetic-repo/pull/101\",\n    \"state\": \"open\",\n    \"draft\": false,\n    \"merged\": false,\n    \"current_head\": \"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\",\n    \"report_head\": \"bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb\",\n    \"report_matches_current_head\": false,\n    \"handoff_at_current_head\": \"https://github.com/synthetic-fork/synthetic-repo/blob/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/HANDOFF.md#betty-report-for-al\",\n    \"report\": \"## Betty report for Al\\n\\n**Current PR head** `bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb`\\n\"\n  }\n}\n",
+      "stderr": "",
+      "actual": {
+        "report_head": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+        "match": false,
+        "status": "stale"
+      }
+    },
+    {
+      "case": "stale",
+      "role": "betty",
+      "timeout_seconds": 30,
+      "expected": {
+        "status": "stale",
+        "report_head": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+        "match": false
+      },
+      "passed": true,
+      "false_current": false,
+      "exit_code": 0,
+      "stdout": "{\n  \"role\": {\n    \"name\": \"betty\"\n  },\n  \"live_pull_request\": {\n    \"pull_request\": \"https://github.com/synthetic-owner/synthetic-repo/pull/101\",\n    \"state\": \"open\",\n    \"draft\": false,\n    \"merged\": false,\n    \"current_head\": \"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\",\n    \"report_head\": \"bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb\",\n    \"report_matches_current_head\": false,\n    \"handoff_at_current_head\": \"https://github.com/synthetic-fork/synthetic-repo/blob/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/HANDOFF.md#betty-report-for-al\",\n    \"report\": \"## Betty report for Al\\n\\n**Current PR head** `bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb`\\n\"\n  }\n}\n",
+      "stderr": "",
+      "actual": {
+        "report_head": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+        "match": false,
+        "status": "stale"
+      }
+    },
+    {
+      "case": "missing",
+      "role": "al",
+      "timeout_seconds": 30,
+      "expected": {
+        "status": "missing",
+        "report_head": null,
+        "match": false
+      },
+      "passed": true,
+      "false_current": false,
+      "exit_code": 0,
+      "stdout": "{\n  \"role\": {\n    \"name\": \"al\"\n  },\n  \"live_pull_request\": {\n    \"pull_request\": \"https://github.com/synthetic-owner/synthetic-repo/pull/101\",\n    \"state\": \"open\",\n    \"draft\": false,\n    \"merged\": false,\n    \"current_head\": \"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\",\n    \"report_head\": null,\n    \"report_matches_current_head\": false,\n    \"handoff_at_current_head\": \"https://github.com/synthetic-fork/synthetic-repo/blob/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/HANDOFF.md#betty-report-for-al\",\n    \"report\": \"No report or pin is present.\\n\"\n  }\n}\n",
+      "stderr": "",
+      "actual": {
+        "report_head": null,
+        "match": false,
+        "status": "missing"
+      }
+    },
+    {
+      "case": "missing",
+      "role": "betty",
+      "timeout_seconds": 30,
+      "expected": {
+        "status": "missing",
+        "report_head": null,
+        "match": false
+      },
+      "passed": true,
+      "false_current": false,
+      "exit_code": 0,
+      "stdout": "{\n  \"role\": {\n    \"name\": \"betty\"\n  },\n  \"live_pull_request\": {\n    \"pull_request\": \"https://github.com/synthetic-owner/synthetic-repo/pull/101\",\n    \"state\": \"open\",\n    \"draft\": false,\n    \"merged\": false,\n    \"current_head\": \"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\",\n    \"report_head\": null,\n    \"report_matches_current_head\": false,\n    \"handoff_at_current_head\": \"https://github.com/synthetic-fork/synthetic-repo/blob/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/HANDOFF.md#betty-report-for-al\",\n    \"report\": \"No report or pin is present.\\n\"\n  }\n}\n",
+      "stderr": "",
+      "actual": {
+        "report_head": null,
+        "match": false,
+        "status": "missing"
+      }
+    },
+    {
+      "case": "example_only",
+      "role": "al",
+      "timeout_seconds": 30,
+      "expected": {
+        "status": "missing",
+        "report_head": null,
+        "match": false
+      },
+      "passed": true,
+      "false_current": false,
+      "exit_code": 0,
+      "stdout": "{\n  \"role\": {\n    \"name\": \"al\"\n  },\n  \"live_pull_request\": {\n    \"pull_request\": \"https://github.com/synthetic-owner/synthetic-repo/pull/101\",\n    \"state\": \"open\",\n    \"draft\": false,\n    \"merged\": false,\n    \"current_head\": \"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\",\n    \"report_head\": null,\n    \"report_matches_current_head\": false,\n    \"handoff_at_current_head\": \"https://github.com/synthetic-fork/synthetic-repo/blob/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/HANDOFF.md#betty-report-for-al\",\n    \"report\": \"```markdown\\n## Betty report for Al\\n\\n**Current PR head** `aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa`\\n```\\n\"\n  }\n}\n",
+      "stderr": "",
+      "actual": {
+        "report_head": null,
+        "match": false,
+        "status": "missing"
+      }
+    },
+    {
+      "case": "example_only",
+      "role": "betty",
+      "timeout_seconds": 30,
+      "expected": {
+        "status": "missing",
+        "report_head": null,
+        "match": false
+      },
+      "passed": true,
+      "false_current": false,
+      "exit_code": 0,
+      "stdout": "{\n  \"role\": {\n    \"name\": \"betty\"\n  },\n  \"live_pull_request\": {\n    \"pull_request\": \"https://github.com/synthetic-owner/synthetic-repo/pull/101\",\n    \"state\": \"open\",\n    \"draft\": false,\n    \"merged\": false,\n    \"current_head\": \"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\",\n    \"report_head\": null,\n    \"report_matches_current_head\": false,\n    \"handoff_at_current_head\": \"https://github.com/synthetic-fork/synthetic-repo/blob/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/HANDOFF.md#betty-report-for-al\",\n    \"report\": \"```markdown\\n## Betty report for Al\\n\\n**Current PR head** `aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa`\\n```\\n\"\n  }\n}\n",
+      "stderr": "",
+      "actual": {
+        "report_head": null,
+        "match": false,
+        "status": "missing"
+      }
+    },
+    {
+      "case": "example_before_stale",
+      "role": "al",
+      "timeout_seconds": 30,
+      "expected": {
+        "status": "stale",
+        "report_head": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+        "match": false
+      },
+      "passed": true,
+      "false_current": false,
+      "exit_code": 0,
+      "stdout": "{\n  \"role\": {\n    \"name\": \"al\"\n  },\n  \"live_pull_request\": {\n    \"pull_request\": \"https://github.com/synthetic-owner/synthetic-repo/pull/101\",\n    \"state\": \"open\",\n    \"draft\": false,\n    \"merged\": false,\n    \"current_head\": \"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\",\n    \"report_head\": \"bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb\",\n    \"report_matches_current_head\": false,\n    \"handoff_at_current_head\": \"https://github.com/synthetic-fork/synthetic-repo/blob/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/HANDOFF.md#betty-report-for-al\",\n    \"report\": \"```markdown\\n## Betty report for Al\\n\\n**Current PR head** `aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa`\\n```\\n\\n## Betty report for Al\\n\\n**Current PR head** `bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb`\\n\"\n  }\n}\n",
+      "stderr": "",
+      "actual": {
+        "report_head": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+        "match": false,
+        "status": "stale"
+      }
+    },
+    {
+      "case": "example_before_stale",
+      "role": "betty",
+      "timeout_seconds": 30,
+      "expected": {
+        "status": "stale",
+        "report_head": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+        "match": false
+      },
+      "passed": true,
+      "false_current": false,
+      "exit_code": 0,
+      "stdout": "{\n  \"role\": {\n    \"name\": \"betty\"\n  },\n  \"live_pull_request\": {\n    \"pull_request\": \"https://github.com/synthetic-owner/synthetic-repo/pull/101\",\n    \"state\": \"open\",\n    \"draft\": false,\n    \"merged\": false,\n    \"current_head\": \"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\",\n    \"report_head\": \"bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb\",\n    \"report_matches_current_head\": false,\n    \"handoff_at_current_head\": \"https://github.com/synthetic-fork/synthetic-repo/blob/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/HANDOFF.md#betty-report-for-al\",\n    \"report\": \"```markdown\\n## Betty report for Al\\n\\n**Current PR head** `aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa`\\n```\\n\\n## Betty report for Al\\n\\n**Current PR head** `bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb`\\n\"\n  }\n}\n",
+      "stderr": "",
+      "actual": {
+        "report_head": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+        "match": false,
+        "status": "stale"
+      }
+    }
+  ]
+}
