@@ -172,6 +172,16 @@ claims. The added control preserved checked advice and withheld the
 presentation. False-supported bridges and execution failures were zero.
 [Matched replay and exact attribution rule](frus-presentation/README.md)
 
+## FRUS-PE01
+
+The same four comparisons retained **4/4** discovery and **1/4** complete
+Strict Ask. The separate exact-witness probe found both PE-01 statements
+and publisher bylines. The required attribution remained outside the
+canonical body evidence. PE-01 stayed open. The new wrong-attribution
+control withheld, all inherited outcomes held, and false-supported
+bridges and execution failures were zero.
+[Replay and exact attribution boundary](frus-pe01/README.md)
+
 ## Open items
 
 - All 12 original focus cases remain open, including date roles, reported
@@ -183,7 +193,9 @@ presentation. False-supported bridges and execution failures were zero.
   directly supplying the exact source units still produced no certificates.
   FRUS-SingleClass admitted one named-advice proposition. FRUS-Presentation
   additionally certifies the quoted self-report in PE-04. PE-01 through PE-03
-  remain open. The earlier ten cases stay
+  remain open. FRUS-PE01 located both publisher attributions outside the
+  canonical evidence projection and withheld at that boundary. The earlier
+  ten cases stay
   frozen. The scoped repository erratum and both tested DHS
   relations now have complete development proofs.
 - Phrase-token and repeated phrase-group limits and loss of complete literal
