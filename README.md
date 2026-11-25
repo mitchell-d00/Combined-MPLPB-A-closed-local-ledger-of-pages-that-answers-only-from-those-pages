@@ -112,6 +112,9 @@ For each conclusion, identify the code path and distinguish the checks you ran f
 
 ## Research and development
 
+[TeamBuilding](docs/TEAMBUILDING.md) describes how the maintainer uses outside
+strategic review and test prompts while retaining implementation and publication.
+
 The methodology is a distinctive, independently developed approach to making
 AI research inspectable and reproducible. It starts with explicit constraints
 on source eligibility, evidence, and refusal. The working ledger, provenance
@@ -160,4 +163,4 @@ Benchmark results and their limitations are indexed alongside the original repor
 
 Code is MIT licensed and project documentation is CC BY 4.0. Bundled sources and other materials carry their own notices. [License](LICENSE) · [Resource notices](resources/README.md)
 
-Last reviewed: 2026-11-23.
+Last reviewed: 2026-11-25.
