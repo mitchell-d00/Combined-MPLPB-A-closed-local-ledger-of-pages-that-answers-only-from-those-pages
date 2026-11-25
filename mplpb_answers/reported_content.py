@@ -132,7 +132,19 @@ def _proof(record, body, start, end, roles, goal):
     if writer_span:
         if not unqualified_span(record, body, *writer_span):
             return None
-        witnesses.append(_citation(record, body, *writer_span))
+        direct = _citation(record, body, *writer_span)
+        if direct is not None:
+            witnesses.append(direct)
+        else:
+            # Separate printed heading/byline paragraphs need separate exact
+            # original witnesses, rather than an invented cross-tag substring.
+            segment = body[writer_span[0]:writer_span[1]]
+            lines = list(re.finditer(r'[^\n]+', segment))
+            if len(lines) != 2 or lines[0][0] not in {'Report.', 'Meeting minutes.'}:return None
+            for line in lines:
+                lo, hi = writer_span[0]+line.start(), writer_span[0]+line.end()
+                if not unqualified_span(record, body, lo, hi):return None
+                witnesses.append(_citation(record, body, lo, hi))
     if goal['form']:
         label = re.search(r'\bMeeting minutes\.', body)
         if not label or not unqualified_span(record, body, *label.span()):

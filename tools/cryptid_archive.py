@@ -17,7 +17,7 @@ def main(a):
            'evaluation/cryptid/programme.json','evaluation/cryptid/shared-rules.json','evaluation/cryptid/scorer-v4.json',
            'tools/bubble_wrap_adapter.py','tools/bubble_wrap_worker.py','tools/pole_worker.py','tools/study_sandbox.py']
     names+=subprocess.check_output(['git','ls-files','tools/cryptid*.py','tools/audit_cryptid.py'],cwd=ROOT,text=True).splitlines()
-    for suffix in ('development','transfer-sealed.zip','transfer-seal.json','scorer-amendment-v2.json','README.md','selector-controls/freeze.json','wrap','safety-guards/freeze.json'):
+    for suffix in ('development','transfer-sealed.zip','transfer-seal.json','scorer-amendment-v2.json','README.md','selector-controls/freeze.json','wrap','safety-guards'):
         p=a.study/suffix
         if p.exists():names.append(str(p.relative_to(ROOT)))
     a.output.parent.mkdir(exist_ok=True,parents=True)

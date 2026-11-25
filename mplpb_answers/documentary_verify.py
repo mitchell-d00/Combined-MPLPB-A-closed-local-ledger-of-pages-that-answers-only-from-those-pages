@@ -410,7 +410,9 @@ def context_ranges(record, *, document_draft=False):
                     if re.match(r'[^:\n]{1,80}:',line):header_uncertain=True
                     else:transition=True
                     break
-            if not transition:header_uncertain=True
+            if not transition:
+                from .source_structure import closed_header
+                if not closed_header(record):header_uncertain=True
     elif lines:
         h=re.fullmatch(r'([^\n]{2,70}) TO ([^\n]{2,70})\. ([^\n]{4,120})',lines[0])
         if h and h[1].isupper() and h[2].isupper():labels=[h[3]]
