@@ -4,12 +4,12 @@ Last reviewed: 2026-11-25.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `22c3f9c15e09589c84c8fd3999efaa8dd109835e` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `24a2b9641fe5718183b247d278eea334670a9107395925dad7d7a939b8b92684`.
+Base commit: `101d6103118d4269ec2693d7060267013fb1be5c` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `9bf283eb1c306662d9f50e74f62930c55a1ae9f488d72bcac66cd9f87c6eff96`.
 
 ## Latest user update instructions
 
-Make it explicit and call it Thespian
+Finding to send to the product agent
 
 ## Implemented scope
 
@@ -17,6 +17,7 @@ Make it explicit and call it Thespian
 - Support text and Markdown files or pasted text without a web URL. Seal the submitted text under a local content identifier with external delivery withheld.
 - Keep Strict decisions visible when inspecting matches, and offer question editing and collection review after incomplete results.
 - Document Thespian, Mitchell D. McPhetridge's multi-agent testing method, in the browser runbook with a configurable role prompt, pinned comparisons and separate custody of the answer key.
+- Show the verified field and cited record on supported exact-field answers in the browser. The caption uses the existing Strict answer contract.
 
 ## Validation recorded
 
@@ -24,16 +25,18 @@ Make it explicit and call it Thespian
 - Chromium passed local file import, sealed source review, a cited Strict answer, partial evidence, separate inspection and a refusal using a developer fixture.
 - The UI script, JavaScript API and browser transport checks passed.
 - The integrity regression now checks the shipped Strict and Inspect choices, while Chromium checks their behavior. The targeted integrity, ledger, proof and browser suite passed 113 tests.
+- The separate evaluator reported 3/3 predeclared answer and citation checks in each lane, 7 to 5 scripted navigation clicks for the paired workflow, and a misleading no-eligible-owner caption on supported field answers.
+- The developer Chromium regression reproduced the caption bug on f225d14 and passed after the fix, checking the field label, reviewed source ID, answer text, and citation reopen. The focused integrity and browser tests passed 47 tests, and the JavaScript API and transport checks passed.
 
 ## Limitations and blocked checks
 
 - The file picker accepts UTF-8 text and Markdown. Local imports pin submitted text and retain unknown authorship.
 - Matching page inspection does not establish documentary links or answer support. The browser follows the existing strict proof rules.
-- Independent evaluator baseline and candidate results are pending.
+- The separate evaluator tested the original browser candidate on synthetic fixtures. Its report measures scripted path length and bounded answer checks.
 
 ## Next steps
 
-- Use c1e2100 as the evaluator baseline and rerun the same documents, questions and delivery profile on f225d14. The subsequent regression-test revision has the same browser and engine source.
+- Keep c1e2100 and f225d14 as the original evaluation pins. Check the updated caption separately on the revised PR head before treating its browser artifact as evaluated.
 
 ## Use this ZIP in your repository
 
