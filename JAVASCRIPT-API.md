@@ -1,6 +1,6 @@
 # MPLPB local JavaScript API · v1.0.0
 
-Last reviewed: 2026-11-17. See [current status and result-to-test index](docs/CURRENT_STATUS.md). Dates and numeric results in historical validation sections retain their original scope; this review is not a rerun or independent certification.
+Last reviewed: 2026-11-25. See [current status and result-to-test index](docs/CURRENT_STATUS.md). Dates and numeric results in historical validation sections retain their original scope; this review is not a rerun or independent certification.
 
 Package role: [how this part fits Combined MPLPB](docs/PACKAGE_GUIDE.md#connections-and-acquisition). The page-local API preserves strict answers, candidates, gated retrieval and assisted interpretations as distinct outcomes.
 
@@ -95,6 +95,7 @@ bundles have different authority. See [page retrieval contracts](docs/PAGE_RETRI
 | Method | Result in `data` / behavior |
 | --- | --- |
 | `ready()` / `getState()` | Engine state: corpora, profiles, rules and notice |
+| `betty()` / `al()` | Public TeamBuilding role, Betty report links, and tested source archive metadata |
 | `listCorpora()` | Array of available corpus keys, labels and counts |
 | `query(question, {corpus, profile?, mode?})` | Full query result; mode defaults to `supported`, or explicitly `candidates`; `assisted` requires a configured native local host |
 | `retrieve(question, {corpus, profile?})` | One-owner page retrieval after the provenance gate. `data.kind` is `retrieved`, `ambiguous` or `not_in_corpus`; always `answer_supported:false` — a page to inspect, not an answer |
@@ -232,6 +233,16 @@ including supported/ambiguous/refused answers, profile restrictions, sessions,
 local imports, default remote-command rejection and explicitly enabled lookup
 using synthetic Wikipedia responses. The existing WebAssembly check also
 exercises the API from the generated HTML. No Node dependency is added to the app.
+
+## TeamBuilding role commands
+
+`window.MPLPB.betty()` returns the inside repository and archive editor role.
+`window.MPLPB.al()` returns the outside strategist role. Each returns
+`{ok:true, data:...}` with the indexed Betty report, open items, tested source
+pins, SHA-256 digests and the exact ZIP rebuild command. Both use bundled
+public metadata. The terminal bridge can return the same data without
+starting an engine. Give the bridge a GitHub PR URL to retrieve its latest
+body and exact head link alongside the role metadata. [TeamBuilding guide](docs/TEAMBUILDING.md#api-commands-and-source-archives)
 
 ## URL-only agent discovery and strict middleware relay
 

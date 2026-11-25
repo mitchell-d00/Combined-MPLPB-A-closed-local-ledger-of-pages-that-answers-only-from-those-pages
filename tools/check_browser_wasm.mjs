@@ -25,6 +25,15 @@ const publicContext=vm.createContext({URLSearchParams,api:async(url,options)=>{
 vm.runInContext(publicCode,publicContext);
 const publicAPI=publicContext.MPLPB;
 assert.equal((await publicAPI.ready()).ok,true);
+const bettyResult=await publicAPI.betty();
+const alResult=await publicAPI.al();
+assert.equal(bettyResult.ok,true);
+assert.equal(alResult.ok,true);
+assert.equal(bettyResult.data.role.name,'Betty');
+assert.equal(alResult.data.role.name,'Al');
+assert.deepEqual(bettyResult.data.source_archives,alResult.data.source_archives);
+assert(alResult.data.repository_handoff.endsWith('#betty-report-for-al'));
+console.log('PASS Betty and Al public roles in bundled WebAssembly');
 const publicAnswer=await publicAPI.query('What is Dungeons and Dragons?',{corpus:'logic'});
 assert.equal(publicAnswer.ok,true);assert.equal(publicAnswer.data.reader.kind,'return');
 const localRejected=await publicAPI.chat('search Cat',{corpus:'logic'});

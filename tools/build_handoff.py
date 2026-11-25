@@ -68,10 +68,12 @@ def render(record, manifest):
           'Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.', '',
           'Base commit: `'+manifest['base_revision']+'` (ancestry, not the final self-containing commit).',
           'Source inventory SHA-256: `'+manifest['inventory_sha256']+'`.', '',
-          '## Latest user update instructions', '', record['instruction'], '']
+          '## Betty report for Al', '',
+          'Start Betty first, then open Al in a separate chat. Both inspect the repository before reading the last Betty report on the live PR. The maintainer pastes Al’s response and direction to Betty, who tests and updates that PR. Resume from the last applied state after a pause.', '',
+          '### Latest user update instructions', '', record['instruction'], '']
     for field,title in (('scope','Implemented scope'),('validation','Validation recorded'),
                         ('limitations','Limitations and blocked checks'),('next_steps','Next steps')):
-        rows += ['## '+title, '']+[ '- '+s for s in record[field]]+['']
+        rows += ['### '+title, '']+[ '- '+s for s in record[field]]+['']
     rows += ['## Use this ZIP in your repository', '',
              'Extract the full ZIP, including dotfiles, into a clean directory. Review its files and run `python tools/build_handoff.py --check`. '
              'Copy the source into your existing checkout while preserving its `.git` directory and personal saves. '

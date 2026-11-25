@@ -43,6 +43,19 @@ class LedgerUITests(unittest.TestCase):
         self.assertEqual(status, 200)
         return json.loads(body)
 
+    def test_team_building_roles_are_public_coordination_metadata(self):
+        status, body, _ = self.request('/api/team-building?role=betty')
+        self.assertEqual(status, 200)
+        betty = json.loads(body)
+        status, body, _ = self.request('/api/team-building?role=al')
+        self.assertEqual(status, 200)
+        al = json.loads(body)
+        self.assertEqual(betty['role']['name'], 'Betty')
+        self.assertEqual(al['role']['name'], 'Al')
+        self.assertEqual(betty['source_archives'], al['source_archives'])
+        self.assertEqual(betty['betty_report'], al['betty_report'])
+        self.assertEqual(self.request('/api/team-building?role=unknown')[0], 400)
+
     def test_canned_pair_and_single_title(self):
         result = self.ask('canned', 'Phrynomedusa vanzolinii Hyundai Engineering and Construction')
         self.assertEqual(result['reader']['kind'], 'ambiguous')

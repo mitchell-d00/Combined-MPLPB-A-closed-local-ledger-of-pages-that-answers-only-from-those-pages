@@ -34,6 +34,7 @@ def build(core_archive, output):
         paths.update(p for p in (ROOT / folder).rglob('*') if p.is_file()
                      and '__pycache__' not in p.parts and p.suffix not in ('.pyc','.tmp') and p.name != '.lock')
     paths.add(ROOT / 'LICENSE')
+    paths.add(ROOT / '.well-known/mplpb.json')
     # Store one copy of large references; the Python runtime verifies and joins parts.
     paths.difference_update(ROOT/'resources/language'/name for name in
                             ('english-wordnet-2025-json.zip','link-grammar-english.zip'))

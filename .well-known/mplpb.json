@@ -14,7 +14,8 @@
     "browser_helper": "https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/blob/main/docs/FREE_PUBLIC_HELPER.md",
     "package_guide": "https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/blob/main/docs/PACKAGE_GUIDE.md",
     "sorter_guide": "https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/blob/main/docs/PREPROCESSING_SORTER.md",
-    "documentation_index": "https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/blob/main/docs/README.md"
+    "documentation_index": "https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/blob/main/docs/README.md",
+    "team_building_guide": "https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/blob/main/docs/TEAMBUILDING.md"
   },
   "runtime": {
     "engine": "full Python MPLPB via browser WebAssembly",
@@ -29,7 +30,9 @@
     "page_retrieval": "window.MPLPB.retrieve(question,{corpus,profile})",
     "session_chat": "window.MPLPB.relay(message,{corpus,mode:'chat',session})",
     "list_pages": "window.MPLPB.listPages({corpus,profile:'external'})",
-    "read_page": "window.MPLPB.readPage(path,{corpus,profile:'external'})"
+    "read_page": "window.MPLPB.readPage(path,{corpus,profile:'external'})",
+    "betty": "window.MPLPB.betty()",
+    "al": "window.MPLPB.al()"
   },
   "policy": {
     "authority": "MPLPB reader or chat engine",
@@ -63,5 +66,133 @@
     "model_training": false,
     "visitor_storage_shared": false,
     "remote_mcp_endpoint": false
+  },
+  "team_building": {
+    "schema": "mplpb-teambuilding-v1",
+    "guide": "https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/blob/main/docs/TEAMBUILDING.md",
+    "repository_handoff": "https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/blob/main/HANDOFF.md#betty-report-for-al",
+    "pull_requests": "https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/pulls",
+    "betty_report": {
+      "pull_request": "https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/pull/97",
+      "evidence_pin": "7618be370c334b082cb91c50eaf665f979ce5c1e",
+      "open_items": "https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/blob/7618be370c334b082cb91c50eaf665f979ce5c1e/evaluation/pole/open-items/README.md",
+      "scope": "Indexed Pole PR. For another track or a newer PR, use the live PR selected for that work.",
+      "pull_request_api": "https://api.github.com/repos/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/pulls/97"
+    },
+    "roles": {
+      "betty": {
+        "name": "Betty",
+        "starter": "You are Betty.",
+        "responsibility": "Inside repository and archive editor. Verify the public pin and carry out the maintainer’s authorized edits, frozen tests, scoring and publication.",
+        "first_steps": [
+          "Read the repository deeply first. Follow the full-package inspection directions and inspect the relevant implementation, tests and public evidence.",
+          "Then read the last Betty report on the live PR. Verify its applied state against the current PR head and start from that verified state.",
+          "Carry out the maintainer’s authorized tests. Record the new applied state, checked head, results and next step in the same PR, and leave a current HANDOFF.md with every push."
+        ]
+      },
+      "al": {
+        "name": "Al",
+        "starter": "You are Al.",
+        "responsibility": "Outside read-only strategist. Judge Betty’s reported results against pinned evidence and draft the next falsifiable prompt.",
+        "first_steps": [
+          "Read the repository deeply first. Follow the full-package inspection directions and inspect the relevant implementation, tests and public evidence.",
+          "Then read the last Betty report on the live PR. Verify its applied state against the current PR head and start from that verified state.",
+          "Judge the reported results against the frozen evidence. Address your review and a ready-to-send next test prompt to Betty. Return it to the maintainer to relay."
+        ]
+      }
+    },
+    "source_archives": {
+      "exact_release_assets": "unavailable",
+      "snapshot_note": "GitHub snapshot URLs download the source tree. The generated snapshots can have a different ZIP checksum.",
+      "exact_rebuild": {
+        "git_version_verified": "2.56.1",
+        "zlib_version_verified": "1.3.1",
+        "command": "git archive --format=zip -1 -o <filename> <tested_source_commit>",
+        "verification": "Compare sha256sum output with the recorded SHA-256."
+      },
+      "entries": [
+        {
+          "filename": "MPLPB-Pole-Erratum-source.zip",
+          "tested_source_commit": "1ab0e1158e9d730b2ff27c95fbe1540b6a215c65",
+          "sha256": "102492596ddec257f97032a081a748f4e20e21df1b7b41b2201b66876017e5d2",
+          "source_snapshot_url": "https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/archive/1ab0e1158e9d730b2ff27c95fbe1540b6a215c65.zip"
+        },
+        {
+          "filename": "MPLPB-Pole-FRUS-Boundary-source.zip",
+          "tested_source_commit": "9754327d7179b0c09a1e027acf44c8d1195de001",
+          "sha256": "5c4663bb7dfbb804b8f288a3f6a39fb71deb4a202cab1c608e59256a9cda88e2",
+          "source_snapshot_url": "https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/archive/9754327d7179b0c09a1e027acf44c8d1195de001.zip"
+        },
+        {
+          "filename": "MPLPB-Pole-FRUS-PE01-source.zip",
+          "tested_source_commit": "7b9b49598562f341f5eeca5b686b31e0056de84c",
+          "sha256": "7eca65920642dc6c8276d25a7ba32cf9f2fa50a461dfbe35bc4fcd33699314ae",
+          "source_snapshot_url": "https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/archive/7b9b49598562f341f5eeca5b686b31e0056de84c.zip"
+        },
+        {
+          "filename": "MPLPB-Pole-FRUS-Presentation-source.zip",
+          "tested_source_commit": "2b177c7363d9c25d8a55a4043675150f20941806",
+          "sha256": "b80bd3368636f13cff4d379724eda4f35bf4e294aa32e8e544a00b5ab5fdd0c0",
+          "source_snapshot_url": "https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/archive/2b177c7363d9c25d8a55a4043675150f20941806.zip"
+        },
+        {
+          "filename": "MPLPB-Pole-FRUS-Proposition-source.zip",
+          "tested_source_commit": "8c5b909389bb61e8a91e56bb7ce692fee24d2439",
+          "sha256": "4c311d467928447f3941274ef5797366bc5b9def61ec33a4cd882b9c4446f2e8",
+          "source_snapshot_url": "https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/archive/8c5b909389bb61e8a91e56bb7ce692fee24d2439.zip"
+        },
+        {
+          "filename": "MPLPB-Pole-FRUS-SingleClass-source.zip",
+          "tested_source_commit": "b9051a3eb4d1f70e8fdcc87b24f74b75eb327b64",
+          "sha256": "302788eb692bcd523db0fb0c55d4428f60371bcf8053d7cfb741d409babb876d",
+          "source_snapshot_url": "https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/archive/b9051a3eb4d1f70e8fdcc87b24f74b75eb327b64.zip"
+        },
+        {
+          "filename": "MPLPB-Pole-Focus-Extend-source.zip",
+          "tested_source_commit": "e8e874ce8a8ae1d55c821da27b30d1dfe1bf1e45",
+          "sha256": "c08d6d7729dc0f5d7a2d2463075020182248eff0ee7772d584fa34788bcececd",
+          "source_snapshot_url": "https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/archive/e8e874ce8a8ae1d55c821da27b30d1dfe1bf1e45.zip"
+        }
+      ]
+    },
+    "repository_review": "https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/blob/main/README.md#directions-for-an-ai-to-inspect-the-full-combined-mplpb-package",
+    "relay": {
+      "betty_calls_al": "Start Betty first. Betty leaves a current report for Al on every push and in the relevant PR. Then open a separate Al chat with the repository link and role name.",
+      "al_calls_betty": "Al reads the repository and Betty’s live PR report, judges the results against the evidence, and drafts the next prompt for Betty.",
+      "maintainer_relays": "The maintainer copies Al’s response from the separate Al chat and pastes it with their own direction into Betty’s chat.",
+      "betty_updates_pr": "Betty runs the authorized tests and updates the same live PR report with the current head, last applied change, measured results, shareable advice, maintainer direction and next step. Commit the current handoff with every push.",
+      "start_from_last_report": "Both roles first inspect the full repository, then read the last Betty report from the live PR and verify the current applied state.",
+      "repeat_or_pause": "Repeat from the last applied state. Pausing stops the loop. A fresh chat resumes by reading the repository and the last Betty report."
+    },
+    "start_order": [
+      "betty",
+      "al"
+    ],
+    "resume": {
+      "live_pull_requests_api": "https://api.github.com/repos/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/pulls?state=open&sort=updated&direction=desc",
+      "report_contract": "The live PR carries Betty’s latest applied state for that track. Update its current report after each push, test run or maintainer decision.",
+      "fields": [
+        "current PR head",
+        "last change applied",
+        "measured checks and outcomes",
+        "pending or open work",
+        "next authorized step",
+        "archive recovery when applicable"
+      ],
+      "verify": "Read the live PR before resuming. Compare the report’s pin with head.sha. If they differ, use HANDOFF.md at the current head to reconcile the report before relying on it.",
+      "terminal": "Give either role command the live GitHub PR URL to return its current state and a handoff link pinned to its head.",
+      "pole_evaluation_report": {
+        "freeze": "Freeze only the authorized named cases and controls before scoring.",
+        "fields": [
+          "before and after counts",
+          "rule or explicit withhold",
+          "observed false-supported bridges",
+          "new public evidence commit",
+          "tested source commit and archive SHA-256",
+          "remaining NOT_RUN labels"
+        ],
+        "acceptance": "Zero false-supported bridges. Preserve prior measured outcomes and all unexecuted evaluation labels."
+      }
+    }
   }
 }

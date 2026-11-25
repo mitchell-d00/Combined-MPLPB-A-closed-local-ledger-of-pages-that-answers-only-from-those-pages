@@ -4,47 +4,66 @@ Last reviewed: 2026-11-25.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `5ab30b2f17e9c824f79c426967e967535bd6c9e2` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `9b335d2735db00dc03ffc3d21cce1eed5b53a2a757ec84bc5e234f642f15eeb9`.
+Base commit: `b6cca259aeef3f42397ded027b9bf9c28a44e23d` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `f9850fbf9d4f1aa4388130a1cb7d18f57f7045d8746d93a4ccee5a90b9d8c15e`.
 
-## Latest user update instructions
+## Betty report for Al
 
-Ok push everything and make it so the next Ai understand what outside agent let’s call it Al and inside ie the agent like you and it’s called Betty
+Start Betty first, then open Al in a separate chat. Both inspect the repository before reading the last Betty report on the live PR. The maintainer pastes Al’s response and direction to Betty, who tests and updates that PR. Resume from the last applied state after a pause.
 
-And how to make ai take role ie if I tell a new ai it’s Betty it becomes repo archive editor and Al becomes strategist advisor
+### Latest user update instructions
 
-With just a link to my repo
+It needs to be easy to find make it part of api Betty command and al command
 
-Ie link you are al 2nd agent link you are Betty
+Push and merge make sure it is explicit that a Betty report is left to inform Al once Al reads repo
 
-And once it is set Betty and Al Betty makes reports to Al in pr and I past Al / my responses
+Every push has a Betty report
 
-And it runs again leaving the Al report in last pr and then I just set Betty and Al to any ui just from link and name
+And API tells an Al to read repo first deeply then the Betty report and that is Betty calling Al and Al calling Betty then user pasts Al report to Betty and she updates the pr
 
-That way I can keep a Betty and Al hav3 comparing Als and  a write Betty I can fill a context or of any or jump with link and name after any pr
+And Al reads pr then I copy past the Al response and Betty tests and updates it starts by setting a Betty then then in a separate chat an Al
 
-## Implemented scope
+And Betty report is last state she applied live in live Pr so it’s always up to date and starts from that state
 
-- Define Al as the outside strategist and Betty as the inside repository and archive editor. Put both starters in the TeamBuilding guide and link them from the root README and AGENTS.md.
-- Have Betty post the report to Al in each PR. Record the maintainer’s relay of Al’s response and their own direction back to Betty.
-- Use the latest relevant PR as the durable resume point for a fresh Al or Betty session in any AI interface with repository access.
-- Document parallel read-only Al reviews of the same pin, one writing Betty per PR, and how to resume a prior cycle.
+Al reads repo then Betty then advises and the loop starts
 
-## Validation recorded
+Betty tests reports results Al reads judges and advises next prompt
 
-- The documentation inventory, repository infrastructure, generated handoff, and staged diff are checked locally.
+No both at start need to read full repo then Betty report from last Betty that would be current state at start then loop Betty tests reports Al reads pr  advise and Mitchell pasts that to Betty repeat with no stop stop is just stoping loop starts just from last state Betty report
 
-## Limitations and blocked checks
+Advice for Betty
+Start from the last Betty report on the live PR (currently #97, pin 7618be370c334b082cb91c50eaf665f979ce5c1e).
+Read the full repo, then the latest Betty report on that PR. That report is the current applied state.
+When the maintainer pastes Al’s response and the direction, freeze only the named cases and controls, run the authorized test, and update the same PR with before/after counts, the rule or explicit withhold, zero false-supported bridges, new commit hash and archive SHA-256, and all NOT_RUN labels preserved.
+Every push must leave a Betty report in HANDOFF.md so the next session (Al or Betty) can resume from the last applied state without extra context.
+The loop is: Betty reports → Al judges and proposes → Mitchell pastes direction → Betty runs and updates the PR → repeat. Stopping is just stopping. The next start is always the last Betty report on the live PR.
 
-- The documentation sets role responsibilities. Available tools and permissions come from each session. Browser release and Pole results have separate pins.
+### Implemented scope
 
-## Next steps
+- Expose Betty and Al through the agent manifest, browser JavaScript API and terminal bridge.
+- Leave a Betty report for Al in the generated handoff on every push and in the relevant PR.
+- Describe the ordered repository review and the maintainer relay. Catalog the seven tested ZIPs by source commit, SHA-256 and recovery command.
+- Set Betty first, then open Al in a separate chat. Al inspects the repository and reads the PR. After the maintainer relays Al’s response, Betty tests and updates the same PR.
+- Return live PR state and a head-pinned handoff when either terminal role command is given a PR URL. Betty updates the applied-state report in place. Al judges the recorded test results and drafts the next prompt.
+- Both roles first read the full repository, then the last Betty report on the live PR to recover the applied state. The relay repeats. Pausing leaves the last report as the next starting point.
+- Advertise the required Pole before/after, proof/withhold, false-support, archive pin and NOT_RUN fields in both commands.
 
-- For the browser track, read the TeamBuilding note on PR #93. It remains a draft with conflicts and its deployed smoke is pending.
-- For the Pole track, read the TeamBuilding handoff on PR #95 and the FRUS-Presentation evidence at 2a0bc642fe21b164fd921758f56bb43f49e5a361. The three other FRUS cases remain open.
-- Start a new strategy session with the repository link and “You are Al.” Start a separate repository session with the same link and “You are Betty.”
-- Use the PR report to brief Al. Paste Al’s response and the maintainer’s direction back into Betty’s session.
-- Before changing sessions, leave the current report for Al, shareable reply, maintainer decision, and next action on the PR.
+### Validation recorded
+
+- The desktop HTTP role endpoint, JavaScript contract, terminal modes with a manifest fixture, UI script, browser transport and infrastructure checks passed locally.
+- A real Chromium session exercised both role commands from the standalone candidate. Both terminal commands fetched their pinned public GitHub manifest after the first push. The updated JavaScript contract passed with an explicit Betty-first relay order.
+- Live PR endpoint access passed. Terminal fixtures checked both a current report and a stale report whose recovery link points to the actual PR head.
+
+### Limitations and blocked checks
+
+- Both role commands return public coordination metadata. The maintainer relays between sessions and supplies direction.
+- GitHub source snapshots and the exact ZIP rebuild recipe are available. The exact Pole ZIPs have no uploaded release assets.
+
+### Next steps
+
+- After opening the repository, Al follows the inspection directions and then reads this Betty report and the relevant PR.
+- Betty records the shareable response and maintainer direction in the PR. The Pole evidence index currently points to PR #97.
+- Verify the exact source archive gates, then verify the role commands from the default branch and deployed Pages manifest.
 
 ## Use this ZIP in your repository
 

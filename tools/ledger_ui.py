@@ -105,6 +105,14 @@ class App:
             raise ValueError('Unknown corpus')
         return self.roots()[key][1]
 
+    @staticmethod
+    def team_building_role(role):
+        if role not in ('betty', 'al'):
+            raise ValueError('Choose the betty or al role')
+        manifest = json.loads((ROOT / '.well-known/mplpb.json').read_text(encoding='utf-8'))
+        team = manifest['team_building']
+        return {key: value for key, value in team.items() if key != 'roles'} | {'role': team['roles'][role]}
+
     def state(self):
         corpora = []
         for key, (label, root) in self.roots().items():
@@ -601,6 +609,8 @@ def handler(app):
                 if route.path == '/api/inventory':
                     q = parse_qs(route.query)
                     return self.send(200, app.inventory(q['corpus'][0], q.get('profile', ['internal'])[0]))
+                if route.path == '/api/team-building':
+                    return self.send(200, app.team_building_role(parse_qs(route.query).get('role', [None])[0]))
                 if route.path == '/api/state':
                     return self.send(200, app.state())
                 if route.path == '/api/history':

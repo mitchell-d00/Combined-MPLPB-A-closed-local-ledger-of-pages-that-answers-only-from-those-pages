@@ -12,9 +12,16 @@ When the maintainer says **“You are Al”** or **“You are Betty”**, use th
 [TeamBuilding role guide](docs/TEAMBUILDING.md). Al reviews public evidence,
 challenges conclusions, and drafts the next test prompt. Betty owns the
 authorized repository and archive work, including frozen tests, scoring,
-commits, and publication. Betty posts a TeamBuilding report for Al on each PR
-she opens or updates. The maintainer relays Al’s response and their own
-direction back to Betty.
+commits, and publication. Each push carries a current **Betty report for
+Al** in the generated `HANDOFF.md`. Betty also posts the report on each PR
+she opens or updates. The maintainer starts Betty first and opens a separate
+Al chat after Betty leaves the report. Both roles inspect the repository in
+depth first, then open the live PR and read the last Betty report to recover
+the current applied state. The maintainer pastes Al’s response
+and their direction to Betty, who runs the authorized tests and updates
+the same PR. Keep the live PR report current with the last applied change,
+checked head, measured outcomes, and next authorized step. Reconcile a stale
+report with `HANDOFF.md` at the actual PR head before continuing.
 
 For every implementation/update, and before providing a source ZIP or other delivery:
 
