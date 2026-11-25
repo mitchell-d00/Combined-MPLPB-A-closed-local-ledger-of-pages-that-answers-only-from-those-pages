@@ -48,6 +48,28 @@ class BrowserBridgeTests(unittest.IsolatedAsyncioTestCase):
                 await B.dispatch('/api/source/fetch', {'corpus':key,'title':'Fossils','url':'https://example.org/fossils'})
         self.assertEqual(B.app.inventory(key,'internal')['pages'], [])
 
+    async def test_local_text_import_has_sealed_provenance_and_external_withholding(self):
+        key = B.app.create_collection({'name': 'Local notes'})['corpus']
+        text = 'Crawling comes from dust or grease on the bisque.'
+        args = {'corpus': key, 'title': 'Studio note', 'text': text, 'local_document': True}
+        fetch = AsyncMock(side_effect=AssertionError('Local text made a network request'))
+        with patch.dict(sys.modules, {'pyodide.http': types.SimpleNamespace(pyfetch=fetch)}):
+            with self.assertRaisesRegex(ValueError, 'without a web URL'):
+                await B.dispatch('/api/source/import', {**args, 'url': 'https://example.org/note'})
+            source = await B.dispatch('/api/source/import', args)
+        fetch.assert_not_awaited()
+        digest = hashlib.sha256(text.encode()).hexdigest()
+        self.assertEqual(source['capture']['source_url'], 'urn:mplpb:local:' + digest)
+        self.assertEqual(source['capture']['source_sha256'], digest)
+        self.assertEqual(source['capture']['transport'], 'user-local-text-v1')
+        self.assertEqual(source['hash'], B.app.page(key, source['path'], 'internal')['hash'])
+        with self.assertRaisesRegex(ValueError, 'withheld'):
+            B.app.page(key, source['path'], 'external')
+        strict = B.app.query({'corpus': key, 'question': 'What causes crawling?'})
+        self.assertTrue(strict['reader']['answer_supported'])
+        external = B.app.query({'corpus': key, 'question': 'What causes crawling?', 'profile': 'external'})
+        self.assertFalse(external['reader']['answer_supported'])
+
     async def test_transport_error_is_short_and_does_not_expose_traceback(self):
         result = json.loads(await B.call_json('/api/source/import', json.dumps({'corpus':'missing'})))
         self.assertEqual(result['_browser_transport_error'], 'Unknown MPLPB collection')

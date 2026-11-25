@@ -1,6 +1,6 @@
 # Browser exploration collections
 
-Last reviewed: 2026-11-17. See [current status and result-to-test index](CURRENT_STATUS.md). Dates and numeric results in historical validation sections retain their original scope; this review is not a rerun or independent certification.
+Last reviewed: 2026-11-25. See [current status and result-to-test index](CURRENT_STATUS.md). Dates and numeric results in historical validation sections retain their original scope; this review is not a rerun or independent certification.
 
 Package role: [how this part fits Combined MPLPB](PACKAGE_GUIDE.md#connections-and-acquisition). Collection capture/import precedes eligibility and does not authenticate testimony.
 
@@ -8,6 +8,14 @@ Open “Build and search your MPLPB collections” and create a named MPLPB. Sel
 it in the corpus selector. Wikipedia searches run in chat; importing a title adds
 its pinned main revision slot to that collection. The existing shared imported
 topics collection remains available, as do all bundled corpora.
+
+For local material, choose **Use my documents**, create or select a collection,
+then paste text or choose a UTF-8 `.txt` or `.md` file. The chooser reads text in
+the browser and puts it in the reviewable text field. With the URL blank, Import
+seals the supplied text under a local content identifier and makes no web request.
+Local imports withhold external delivery and record unknown authorship, like other
+user-supplied captures. The hash pins the submitted UTF-8 text. Use **Review
+imported source** to read the eligible sealed page before asking a question.
 
 Send `search TOPIC` to build a new independent collection. Wikipedia mode captures
 the first search result's pinned revision and follows literal wiki links breadth-first,
@@ -26,7 +34,7 @@ General-web deployment is not part of GitHub Pages deployment.
 require CORS; pasted text remains labelled supplied. Desktop mode supports pasted
 sources and Wikipedia exploration; hosted web crawling is a browser operation.
 
-Each capture records source URL, UTC observation date, raw SHA-256, derived text
+Each capture records a source URL or local content identifier, UTC observation date, raw SHA-256, derived text
 SHA-256 and transport. HTML scripts/styles/head text are excluded from the derived
 body. Raw captured HTML is never executed. Authorship stays unknown, origin machine,
 external delivery withheld. The pins establish recorded bytes, not truth, identity,

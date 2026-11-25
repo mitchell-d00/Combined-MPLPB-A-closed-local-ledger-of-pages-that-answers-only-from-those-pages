@@ -32,6 +32,54 @@ def preview_server(directory):
         worker.join(timeout=5)
 
 
+def verify_document_workflow(page):
+    from playwright.sync_api import expect
+
+    original_corpus = page.locator('#corpus').input_value()
+    page.locator('#profile').select_option('internal')
+    page.get_by_role('button', name='Use my documents').click()
+    page.locator('#collection-name').fill('Browser document smoke')
+    page.locator('#collection-form button[type="submit"]').click()
+    expect(page.locator('#collection-status')).to_contain_text('Created Browser document smoke', timeout=60000)
+    page.locator('#source-file').set_input_files({
+        'name': 'Print room inventory.md', 'mimeType': 'text/markdown',
+        'buffer': b'Record-ID: PRINT-201\n\nAccession Date: 1895-04-18\n\n'
+                  b'Crawling comes from dust or grease on the bisque, or a coat put on too thick that cracked as it dried.',
+    })
+    expect(page.locator('#source-title')).to_have_value('Print room inventory')
+    expect(page.locator('#source-url')).to_have_value('')
+    page.locator('#source-import').click()
+    page.get_by_role('button', name='Review imported source').click(timeout=60000)
+    expect(page.locator('#page-dialog .page-text')).to_contain_text('Accession Date: 1895-04-18')
+    expect(page.locator('#page-dialog .page-text')).to_contain_text('urn:mplpb:local:')
+    page.get_by_role('button', name='Continue to Strict Ask').click()
+    expect(page.locator('#ask-reader-mode')).to_have_value('supported')
+    expect(page.locator('#question')).to_be_focused()
+
+    def ask(question, outcome):
+        page.locator('#question').fill(question)
+        page.locator('#ask-button').click()
+        expect(page.locator('#results .outcome')).to_have_text(outcome, timeout=60000)
+
+    ask('What causes crawling?', 'SUPPORTED ANSWER')
+    expect(page.locator('#question-follow-up')).to_be_hidden()
+    page.locator('#results [data-page]').first.click()
+    expect(page.locator('#page-dialog .page-text')).to_contain_text('Crawling comes from dust or grease on the bisque')
+    page.locator('#close-dialog').click()
+    ask('What are the accession date and shelf code for record PRINT-201?', 'PARTIAL SOURCE EVIDENCE')
+    page.get_by_role('button', name='Inspect matching pages').click()
+    expect(page.locator('#question-inspection')).to_contain_text('These page matches carry no answer support.', timeout=60000)
+    expect(page.locator('#results .outcome')).to_have_text('PARTIAL SOURCE EVIDENCE')
+    expect(page.locator('#results .question-obligations')).to_contain_text('unresolved')
+    page.get_by_role('button', name='Edit question').click()
+    expect(page.locator('#question')).to_be_focused()
+    ask('What year was the crawling report approved?', 'NO SUPPORTED ANSWER')
+    page.get_by_role('button', name='Review collection').click()
+    expect(page.locator('#page-map')).to_contain_text('Print room inventory')
+    page.locator('#corpus').select_option(original_corpus)
+    print('BROWSER DOCUMENT: local file, source review, cited answer, partial, and inspection passed', flush=True)
+
+
 def verify(page, url, updated):
     errors = []
     npc_report = None
@@ -101,6 +149,8 @@ def verify(page, url, updated):
         from tools.browser_researcher_pilot import verify as researcher_journey
         npc_report = researcher_journey(page)
         print('NPC_BROWSER '+json.dumps(npc_report), flush=True)
+
+        verify_document_workflow(page)
 
         # Persist the toggle immediately, without requiring a chat submission.
         # Exercise both values and a second preference write before reload.

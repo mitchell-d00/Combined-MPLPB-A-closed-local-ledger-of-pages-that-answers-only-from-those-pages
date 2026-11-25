@@ -126,18 +126,26 @@ class ExplorationStore:
 
     def add(self, key, title, url, text, raw=None, transport='user-pasted-text'):
         base = self.path(key)
-        source_url(url)
+        local = transport == 'user-local-text-v1'
+        if local:
+            if url not in (None, '') or raw is not None:
+                raise ValueError('A local text import takes text without a web URL or remote capture')
+        else:
+            source_url(url)
         if not isinstance(title, str) or not 1 <= len(title.strip()) <= 200:
             raise ValueError('Title needs 1–200 characters')
         if not isinstance(text, str) or not 1 <= len(text.strip()) <= 100000:
             raise ValueError('Source text needs 1–100000 characters')
         self.root(key)  # Verify retained captures before accepting another.
         payload = raw if raw is not None else text.encode()
+        source_hash = hashlib.sha256(payload).hexdigest()
+        if local:
+            url = 'urn:mplpb:local:' + source_hash
         capture = base / 'captures' / uuid.uuid4().hex
         capture.mkdir(parents=True)
         (capture / 'source.bin').write_bytes(payload)
         manifest = {'source_url': url, 'title': title.strip(), 'observed_at': now(),
-                    'source_sha256': hashlib.sha256(payload).hexdigest(),
+                    'source_sha256': source_hash,
                     'text_sha256': hashlib.sha256(text.encode()).hexdigest(), 'transport': transport,
                     'authorship': 'unknown', 'notice': 'Captured bytes, not verified truth or authorship. Pasted text is user-supplied, not a verified download.'}
         from mplpb_answers.body_text import body_text, VERSION as projection_version
@@ -146,7 +154,7 @@ class ExplorationStore:
         atomic_json(capture / 'manifest.json', manifest)
         body = text.strip() + '\n\nSource capture: ' + json.dumps(manifest, ensure_ascii=False)
         ledger = L.Ledger(base / 'pages')
-        prefix = 'WEB-' + hashlib.sha256((url + '\0' + title.strip()).encode()).hexdigest()[:16]
+        prefix = ('LOCAL-' if local else 'WEB-') + hashlib.sha256((url + '\0' + title.strip()).encode()).hexdigest()[:16]
         old = next((r for r in ledger.servable() if r.id.startswith(prefix + '-')), None)
         if old:
             rec = L.revise(base / 'pages', old.id, body_html='<pre>'+html.escape(body)+'</pre>', origin='machine', owner='unknown')
@@ -158,7 +166,7 @@ class ExplorationStore:
         entries[key]['records'] = [(r.id, hashlib.sha256((base / 'pages' / r.path).read_bytes()).hexdigest()) for r in L.Ledger(base / 'pages').records]
         self.save(entries)
         self.root(key)
-        return {'corpus': key, 'title': rec.title, 'id': rec.id, 'capture': manifest,
+        return {'corpus': key, 'title': rec.title, 'id': rec.id, 'path': rec.path, 'hash': rec.hash, 'capture': manifest,
                 'collection_build': {'operation': 'captured_sealed_and_collection_rebuilt',
                     'transport': transport, 'source_origin': rec.origin, 'source_authorship': 'unknown',
                     'current_sources': len(L.Ledger(base / 'pages').servable()),

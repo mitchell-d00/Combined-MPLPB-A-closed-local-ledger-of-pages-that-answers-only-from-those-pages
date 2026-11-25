@@ -142,6 +142,9 @@ class App:
 
     def import_source(self, data):
         with self.chat_lock:
+            if data.get('local_document') is True:
+                return self.collections.add(data.get('corpus'), data.get('title'), data.get('url'),
+                                            data.get('text'), transport='user-local-text-v1')
             return self.collections.add(data.get('corpus'), data.get('title'), data.get('url'), data.get('text'))
 
     def reset_collection(self, data):
