@@ -4,38 +4,36 @@ Last reviewed: 2026-11-25.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `3057a667a4421ac5298b9f599e8532bffc50740f` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `d3b5a9b50a2bee165a08352f8b4b7400a3799d09419f5dff94487d5739914e96`.
+Base commit: `deb2197ab32e58466f35e448c30b15e361cabaee` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `84e404030e2128fe7e3e81b8df17baee0b820c98cf4ecb57720d91abb4939e2b`.
 
 ## Betty report for Al
 
-Run the Betty implementation step first, then the Al review step in a separate chat. Both inspect the repository before reading the last Betty report on the live PR. The maintainer pastes Al’s response and direction to Betty, who tests and updates that PR. Resume from the last applied state after a pause.
+Run the Betty implementation step first, then the Al review step in a separate chat. Both inspect the repository before reading the last Betty report on the newest PR by creation time. A specific PR link selects that PR. The maintainer pastes Al’s response and direction to Betty, who tests and updates that PR. Resume from the last applied state after a pause.
 
 ### Latest user update instructions
 
-Make them realize it’s not a persona it’s just a pipeline
-
-Make it run Al or run Betty  with repo Link
+It needs to read newest pr not always 97
 
 ### Implemented scope
 
-- Make Run Betty and Run Al with the repo link the primary TeamBuilding commands. Define both as pipeline steps.
-- Give web-only readers a direct public manifest URL and ordinary repo and PR links for Al’s evidence review.
-- Preserve the per-push Betty report, live PR resume contract, ZIP catalog and existing terminal and browser API methods.
+- Discover the newest PR by creation time across all states for repo-link and Pages-link role commands. An explicit PR URL selects that PR.
+- Remove the fixed report from the public manifest. Give web-only and browser API clients the live discovery URL.
+- Read the selected PR detail and present its current head, report comparison and head-pinned handoff. Preserve the existing source archive catalog.
 
 ### Validation recorded
 
-- The JavaScript bridge contract confirms both starters, Al’s step type and the HTTP-only discovery path. Repository infrastructure and generated handoff are checked locally.
+- Desktop HTTP and JavaScript contracts passed, including frozen CLI fixtures for newest PR, explicit override, stale report, fork handoff and empty listing.
+- Both terminal paths read the live GitHub API and matched the newest PR and explicit historical override. Infrastructure and generated handoff checks are checked locally.
 
 ### Limitations and blocked checks
 
-- The commands select a pipeline task. Each session uses its own tools and permissions. Mitchell relays the review and gives Betty direction.
-- The current indexed Pole report remains PR #97. Release-asset status is recorded separately from the recoverable source commits.
+- The page-local API returns discovery metadata for an optional public GET. Terminal role commands perform the lookup themselves.
+- Discovery uses creation time rather than comment or edit activity. Audit an unmatched report against HANDOFF.md at the actual PR head.
 
 ### Next steps
 
-- Use the short Run Betty and Run Al starters in separate chats. Both read the repository before the last Betty report.
-- Al follows the public links and returns a review and next prompt. Betty updates the live PR after the maintainer’s direction.
+- Use the newest PR returned by the API before reading its Betty report. Supply a specific PR link to continue a different track.
 
 ## Use this ZIP in your repository
 

@@ -72,13 +72,6 @@
     "guide": "https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/blob/main/docs/TEAMBUILDING.md",
     "repository_handoff": "https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/blob/main/HANDOFF.md#betty-report-for-al",
     "pull_requests": "https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/pulls",
-    "betty_report": {
-      "pull_request": "https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/pull/97",
-      "evidence_pin": "7618be370c334b082cb91c50eaf665f979ce5c1e",
-      "open_items": "https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/blob/7618be370c334b082cb91c50eaf665f979ce5c1e/evaluation/pole/open-items/README.md",
-      "scope": "Indexed Pole PR. For another track or a newer PR, use the live PR selected for that work.",
-      "pull_request_api": "https://api.github.com/repos/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/pulls/97"
-    },
     "roles": {
       "betty": {
         "name": "Betty",
@@ -86,7 +79,7 @@
         "responsibility": "Inside repository and archive editor. Verify the public pin and carry out the maintainer’s authorized edits, frozen tests, scoring and publication.",
         "first_steps": [
           "Read the repository deeply first. Follow the full-package inspection directions and inspect the relevant implementation, tests and public evidence.",
-          "Then read the last Betty report on the live PR. Verify its applied state against the current PR head and start from that verified state.",
+          "Then open the newest PR by creation time, or the PR the maintainer named. Read its last Betty report, verify its applied state against the current head, and start from that state.",
           "Carry out the maintainer’s authorized tests. Record the new applied state, checked head, results and next step in the same PR, and leave a current HANDOFF.md with every push."
         ],
         "step": "authorized_repo_and_archive_work",
@@ -102,7 +95,7 @@
         "responsibility": "Outside read-only strategist. Judge Betty’s reported results against pinned evidence and draft the next falsifiable prompt.",
         "first_steps": [
           "Read the repository deeply first. Follow the full-package inspection directions and inspect the relevant implementation, tests and public evidence.",
-          "Then read the last Betty report on the live PR. Verify its applied state against the current PR head and start from that verified state.",
+          "Then open the newest PR by creation time, or the PR the maintainer named. Read its last Betty report, verify its applied state against the current head, and start from that state.",
           "Judge the reported results against the frozen evidence. Address your review and a ready-to-send next test prompt to Betty. Return it to the maintainer to relay."
         ],
         "step": "public_evidence_review",
@@ -181,7 +174,6 @@
       "al"
     ],
     "resume": {
-      "live_pull_requests_api": "https://api.github.com/repos/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/pulls?state=open&sort=updated&direction=desc",
       "report_contract": "The live PR carries Betty’s latest applied state for that track. Update its current report after each push, test run or maintainer decision.",
       "fields": [
         "current PR head",
@@ -192,7 +184,7 @@
         "archive recovery when applicable"
       ],
       "verify": "Read the live PR before resuming. Compare the report’s pin with head.sha. If they differ, use HANDOFF.md at the current head to reconcile the report before relying on it.",
-      "terminal": "Give either role command the live GitHub PR URL to return its current state and a handoff link pinned to its head.",
+      "terminal": "Both terminal commands read the newest PR from a repository or Pages URL. A GitHub PR URL overrides discovery.",
       "pole_evaluation_report": {
         "freeze": "Freeze only the authorized named cases and controls before scoring.",
         "fields": [
@@ -204,13 +196,15 @@
           "remaining NOT_RUN labels"
         ],
         "acceptance": "Zero false-supported bridges. Preserve prior measured outcomes and all unexecuted evaluation labels."
-      }
+      },
+      "latest_pull_request_api": "https://api.github.com/repos/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/pulls?state=all&sort=created&direction=desc&per_page=1",
+      "selection": "Use an explicit PR link if supplied. With only the repo link, fetch the newest PR by creation time across all states. Verify its report against its current head. If the report is missing or stale, inspect HANDOFF.md pinned to that head. If there are no PRs, read the default-branch handoff."
     },
     "pipeline": {
       "kind": "repository_review_and_implementation",
       "description": "Betty and Al are labels for two pipeline steps. Use your usual assistant capabilities, tools and permissions.",
       "public_manifest_url": "https://raw.githubusercontent.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/HEAD/.well-known/mplpb.json",
-      "web_only_review": "Read the public repository, current Betty report and live PR through ordinary links. Use those sources to judge the evidence and draft the next test. JavaScript and terminal commands are optional ways to read the same pipeline instructions.",
+      "web_only_review": "Read the public repository and the newest PR by creation time, or follow an explicit PR link. Judge the Betty report against the pinned evidence and draft the next test. The JavaScript and terminal commands are optional ways to discover this work.",
       "maintainer_handoff": "The maintainer relays Al’s review and their direction to Betty. Betty applies authorized work and updates the same PR."
     }
   }

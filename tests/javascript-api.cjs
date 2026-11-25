@@ -1,7 +1,7 @@
 // Public JavaScript contract exercised against the real Python browser bridge.
 // Standard Node/Python only; isolated save folder and no live source requests.
 const assert=require('node:assert/strict'),fs=require('node:fs'),vm=require('node:vm');
-const {spawn}=require('node:child_process'),{createInterface}=require('node:readline');
+const {spawn,spawnSync}=require('node:child_process'),{createInterface}=require('node:readline');
 const html=fs.readFileSync('index.html','utf8');
 const code=html.match(/\/\/ BEGIN MPLPB PUBLIC API[^\n]*\n([\s\S]*?)\/\/ END MPLPB PUBLIC API/)[1];
 const python=spawn(process.env.PYTHON||'python3',['-u','-c',`
@@ -48,7 +48,58 @@ const context=vm.createContext({URLSearchParams,api:async(url,options)=>{await s
 vm.runInContext(code,context);
 const api=context.MPLPB;
 function success(result){assert.equal(result.ok,true,JSON.stringify(result));return result.data;}
+function checkTeamBuildingDiscovery(){
+ const fixture=`
+  import assert from 'node:assert/strict';
+  import {readFileSync} from 'node:fs';
+  const manifest=JSON.parse(readFileSync('.well-known/mplpb.json','utf8'));
+  const path=new URL(manifest.repository).pathname;
+  const explicit=process.env.FIXTURE_PR;
+  const empty=process.env.FIXTURE_EMPTY;
+  const head='a'.repeat(40);
+  globalThis.fetch=async reference=>{
+   const url=new URL(reference);
+   if(url.hostname==='raw.githubusercontent.com'||url.hostname.endsWith('.github.io'))
+    return {ok:true,json:async()=>manifest};
+   assert.equal(url.hostname,'api.github.com');
+   if(url.pathname==='/repos'+path+'/pulls'){
+    assert(!explicit);
+    assert.equal(url.searchParams.get('state'),'all');
+    assert.equal(url.searchParams.get('sort'),'created');
+    assert.equal(url.searchParams.get('direction'),'desc');
+    assert.equal(url.searchParams.get('per_page'),'1');
+    return {ok:true,json:async()=>empty?[]:[{number:101}]};
+   }
+   const number=explicit||'101';
+   assert.equal(url.pathname,'/repos'+path+'/pulls/'+number);
+   return {ok:true,json:async()=>({html_url:manifest.repository+'/pull/'+number,
+    head:{sha:head,repo:{full_name:'test-owner/test-repo'}},merged:true,
+    body:explicit?'**Current PR head** \`'+head+'\`':'Report needs reconciliation.'})};
+  };
+ `;
+ const preloader='data:text/javascript;base64,'+Buffer.from(fixture).toString('base64');
+ const manifest=JSON.parse(fs.readFileSync('.well-known/mplpb.json','utf8'));
+ const {repository,site}=manifest;
+ function run(url,role,env={}){
+  const child=spawnSync(process.execPath,['--import',preloader,'tools/mplpb_agent_bridge.mjs',url,'--'+role],{
+   encoding:'utf8',env:{...process.env,...env}
+  });
+  assert.equal(child.status,0,child.stderr);
+  return JSON.parse(child.stdout);
+ }
+ for(const [url,role] of [[repository,'al'],[site,'betty']]){
+  const live=run(url,role).live_pull_request;
+  assert.equal(live.pull_request,repository+'/pull/101');
+  assert.equal(live.report_matches_current_head,false);
+  assert(live.handoff_at_current_head.includes('/test-owner/test-repo/blob/'+live.current_head));
+ }
+ const pinned=run(repository+'/pull/97','betty',{FIXTURE_PR:'97'}).live_pull_request;
+ assert.equal(pinned.pull_request,repository+'/pull/97');
+ assert.equal(pinned.report_matches_current_head,true);
+ assert.equal(run(repository,'al',{FIXTURE_EMPTY:'1'}).live_pull_request,null);
+}
 async function tests(){
+ checkTeamBuildingDiscovery();
  assert.equal(api.version,'1.0.0');assert(Object.isFrozen(api));
  const help=api.help();help.methods.query='changed';assert.notEqual(api.help().methods.query,'changed');
  let settled=false;const waiting=api.ready().then(r=>{settled=true;return r;});
@@ -71,17 +122,20 @@ async function tests(){
  assert.match(al.role.first_steps[0],/Read the repository deeply first/);
  assert.equal(betty.role.first_steps[0],al.role.first_steps[0]);
  assert.equal(betty.role.first_steps[1],al.role.first_steps[1]);
- assert.match(al.role.first_steps[1],/Then read the last Betty report.*live PR/);
+ assert.match(al.role.first_steps[1],/Then open the newest PR by creation time/);
  assert.deepEqual(betty.start_order,['betty','al']);
  assert.match(al.relay.maintainer_relays,/copies Al’s response from the separate Al chat/);
  assert.match(betty.relay.betty_updates_pr,/authorized tests.*same live PR/);
  assert.deepEqual(betty.source_archives,al.source_archives);
  assert.match(betty.repository_handoff, /HANDOFF\.md#betty-report-for-al$/);
- assert.match(al.betty_report.open_items, new RegExp(al.betty_report.evidence_pin));
  assert.match(al.resume.verify,/head\.sha/);
  assert.match(al.resume.pole_evaluation_report.acceptance,/Zero false-supported bridges/);
  assert(al.resume.pole_evaluation_report.fields.includes('tested source commit and archive SHA-256'));
- assert.match(al.betty_report.pull_request_api,/^https:\/\/api.github.com\/repos\//);
+ const discovery=new URL(al.resume.latest_pull_request_api);
+ assert.equal(discovery.hostname,'api.github.com');
+ assert.equal(discovery.searchParams.get('state'),'all');
+ assert.equal(discovery.searchParams.get('sort'),'created');
+ assert.deepEqual(betty.resume,al.resume);
  assert.equal(betty.source_archives.exact_release_assets,'unavailable');
  for (const archive of betty.source_archives.entries) {
   assert.match(archive.sha256,/^[a-f0-9]{64}$/);

@@ -95,7 +95,7 @@ bundles have different authority. See [page retrieval contracts](docs/PAGE_RETRI
 | Method | Result in `data` / behavior |
 | --- | --- |
 | `ready()` / `getState()` | Engine state: corpora, profiles, rules and notice |
-| `betty()` / `al()` | Public TeamBuilding role, Betty report links, and tested source archive metadata |
+| `betty()` / `al()` | Public TeamBuilding role, live PR discovery URL, and tested source archive metadata |
 | `listCorpora()` | Array of available corpus keys, labels and counts |
 | `query(question, {corpus, profile?, mode?})` | Full query result; mode defaults to `supported`, or explicitly `candidates`; `assisted` requires a configured native local host |
 | `retrieve(question, {corpus, profile?})` | One-owner page retrieval after the provenance gate. `data.kind` is `retrieved`, `ambiguous` or `not_in_corpus`; always `answer_supported:false` — a page to inspect, not an answer |
@@ -236,15 +236,17 @@ exercises the API from the generated HTML. No Node dependency is added to the ap
 
 ## TeamBuilding pipeline commands
 
-`window.MPLPB.betty()` returns the inside repository and archive editor role.
-`window.MPLPB.al()` returns the outside strategist role. Each returns
-`{ok:true, data:...}` with the indexed Betty report, open items, tested source
-pins, SHA-256 digests and the exact ZIP rebuild command. Both use bundled
-public workflow metadata. An HTTP-only assistant can read the
-[public manifest](https://raw.githubusercontent.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/HEAD/.well-known/mplpb.json) and follow
-ordinary repository and PR links. The terminal bridge offers the same
-metadata. Give the bridge a GitHub PR URL to retrieve its latest
-body and exact head link alongside the role metadata. [TeamBuilding guide](docs/TEAMBUILDING.md#api-commands-and-source-archives)
+`window.MPLPB.betty()` returns the inside repository and archive editor step.
+`window.MPLPB.al()` returns the outside review step. Each returns
+`{ok:true, data:...}` with the live newest-PR lookup URL in
+`data.resume.latest_pull_request_api`, tested source pins, SHA-256 digests,
+and the exact ZIP rebuild command. The browser calls read bundled public
+metadata. A web-only assistant can follow the
+[public manifest](https://raw.githubusercontent.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/HEAD/.well-known/mplpb.json)
+and ordinary links. From a repo or app URL, the terminal bridge fetches the
+newest PR by creation time. A specific PR URL overrides discovery. The bridge
+returns the selected PR body, current head and pinned handoff link.
+[TeamBuilding guide](docs/TEAMBUILDING.md#api-commands-and-source-archives)
 
 ## URL-only agent discovery and strict middleware relay
 

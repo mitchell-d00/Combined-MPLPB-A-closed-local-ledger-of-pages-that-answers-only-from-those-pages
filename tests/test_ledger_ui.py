@@ -53,7 +53,8 @@ class LedgerUITests(unittest.TestCase):
         self.assertEqual(betty['role']['name'], 'Betty')
         self.assertEqual(al['role']['name'], 'Al')
         self.assertEqual(betty['source_archives'], al['source_archives'])
-        self.assertEqual(betty['betty_report'], al['betty_report'])
+        self.assertEqual(betty['resume'], al['resume'])
+        self.assertNotIn('betty_report', al)
         self.assertEqual(self.request('/api/team-building?role=unknown')[0], 400)
 
     def test_canned_pair_and_single_title(self):
