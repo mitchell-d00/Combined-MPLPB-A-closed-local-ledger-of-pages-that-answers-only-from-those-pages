@@ -199,3 +199,21 @@ Responsible department: [Testing and Evaluation](departments/testing-evaluation.
 **ST-GUARD:** [15native source-tag controls](../tests/test_source_tags.py), including stale/withdrawn/corrupt/missing sources, role/original containment, eligible conflict, budget stops, source mutation and host-policy withholds. [Schema and limits](../evaluation/source-tags/2026-11-25/SCHEMA.md).
 
 **ONBOARD-12:** [Frozen protocol/materials](../evaluation/onboarding/2026-11-25/README.md) and [null actual results](../evaluation/onboarding/2026-11-25/results.json). Responsible: Testing and Evaluation; protected Applications/Delivery. Software parity and scoring arithmetic tests are separate from12unrun human observations.
+
+
+## Local Cryptid ownership and frozen inputs
+
+All families are owned by Testing and Evaluation; native verification rules belong to Reader, with Ledger eligibility shared. Names are test-family labels and never runtime predicates. Historical and same-operator results remain separate from independent adjudication.
+
+| Family | Protected operation | Frozen development |
+|---|---|---|
+| Mothman | Explicit documentary date roles and original wording | [Registry](../evaluation/cryptid/mothman/development/registry.json) |
+| Jackalope | Whole-question intent, conditions and extra obligations | [Registry](../evaluation/cryptid/jackalope/development/registry.json) |
+| Yeti | Source voice, polarity, conditions and modality | [Registry](../evaluation/cryptid/yeti/development/registry.json) |
+| Sasquatch | Unique local identity declarations, no initials expansion | [Registry](../evaluation/cryptid/sasquatch/development/registry.json) |
+| Chupacabra | Correction scope and separately checked retained fields | [Registry](../evaluation/cryptid/chupacabra/development/registry.json) |
+| Kraken | Exact documentary bridges and checked partials | [Registry](../evaluation/cryptid/kraken/development/registry.json) |
+| Nessie | Verified source boundaries, proposed structure and scoped declarations | [Registry](../evaluation/cryptid/nessie/development/registry.json) |
+| Thunderbird | Fixed caps, visible proof limits and counterevidence | [Registry](../evaluation/cryptid/thunderbird/development/registry.json) |
+
+The [programme inventory](../evaluation/cryptid/programme.json), [rule map](../evaluation/cryptid/shared-rules.json) and append-only run ledgers under `evaluation/cryptid/ledger/` join IDs to source hashes, original PRs, exact candidate/harness/scorer pins, claims, withholding, raw outputs, budgets and custody. Proposal-fault repetitions share reader input pairs and are not independent answer evidence. Local source ZIPs and final review evidence remain unpublished until Mitchell authorizes publication.

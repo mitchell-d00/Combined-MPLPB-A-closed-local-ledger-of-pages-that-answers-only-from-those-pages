@@ -1,0 +1,1255 @@
+{
+  "schema": "cryptid-run-v1",
+  "reader_commit": "LOCAL-NESSIE-C5",
+  "reader_files": {
+    "mplpb_answers/__init__.py": "d57d776eaaea962867814b5af3f0ac836fdd0c70ffbde910a801e6240697a095",
+    "mplpb_answers/__main__.py": "66e6c37f34cb95168466a82ec37e9384fc846c96db7cadcca51f2283e1e8cbc1",
+    "mplpb_answers/advanced.py": "bc56efcaa8135a6647afd8c5957917979c170c504b9e22913b600aa95096997d",
+    "mplpb_answers/assertions.py": "79de36e6b3e9b47ac58233f6def6ca4b6da3524947a9ecba740b956025e5c075",
+    "mplpb_answers/attributed_instruction.py": "56d016303090799a33f2d554f31655b517c351a27971fd37ef7e4abd278ab477",
+    "mplpb_answers/body_text.py": "f09d330007cd0cf396c1b1cec1d257eef58862247abde9205390b919b13bdbbc",
+    "mplpb_answers/bounded_records.py": "d3f2e150dcf66e6df6f5ad6f6ca71e906ed12621eea6c2ceb6568b1e7f5b38da",
+    "mplpb_answers/claim_frame.py": "e7c1b359daac7623f866d78b892e26d80c88554414c3cdc3de49c8b42dc632e2",
+    "mplpb_answers/collection_fields.py": "db25700f1e67c3b8b057577c2570e8bae916b501564d15626387dd8a3678220c",
+    "mplpb_answers/compound_fields.py": "5bdabcbc85a90e9e9381fa255893194ae62a1b66957fc70776ca75726a627c28",
+    "mplpb_answers/corrections.py": "4f9cccee9fdc8d0b8c6eb37caf66cac34da8d9aa21a4a66e04b268eb122e0b6a",
+    "mplpb_answers/d6.py": "827b3bda13d2cc53d00a6aa25c3ba8e5cb50b2de0fd11d2378258a705319c96b",
+    "mplpb_answers/documentary.py": "67c1293f7df3452d31d7e358396ea1859469dea8144c1b19153cda48cf0321f8",
+    "mplpb_answers/documentary_advice.py": "3e1080d80ca9c6139fc71f908689a682bb912d171ba7d5896b49eb513f55cd52",
+    "mplpb_answers/documentary_correction.py": "ff9b2b3c6679bf867ea28d77b65492bbabe326e7bb1cf318d56441cefff593db",
+    "mplpb_answers/documentary_errata.py": "4c5e92a916af7d53c90890fc5018c497508d40fbe1b67f9cf6a5277d66f1dd96",
+    "mplpb_answers/documentary_instruction.py": "6fb8c13847486f7210eb964017e04b872799eca67b40b342d6a3a877b7a0365c",
+    "mplpb_answers/documentary_lease.py": "e98159e9ad0d0d73df02b9d507160ba4ca8e2dd9d5128466e983c4bdc045dc1c",
+    "mplpb_answers/documentary_links.py": "a10511e64ccddfb93e81bd534ab093121073e8fb3db2b7b75978a5350a63355a",
+    "mplpb_answers/documentary_presentation.py": "35ef2dfb2db6b0e76f67ad80a821175a74296476df7b1ba45c2fc97834420827",
+    "mplpb_answers/documentary_verify.py": "e270b5a68f9dd44a3dfdc17766d39daa6e59cae226d8505496fe5fb1538641dc",
+    "mplpb_answers/evaluate.py": "8c6e4444d661f5a2982338a45673ff594ae4cc4a86d3ec6e0bce6b7f77c90969",
+    "mplpb_answers/evaluation.py": "4d58e13a85f6edb1443bf156baaa48b1cdf72ce38e5e16a0ce53d195ac395715",
+    "mplpb_answers/evidence_contract.py": "5fb4226e9407d3432cdbaa518b10af9a5d5dc7bef0036e204848fbda3a3ffbe5",
+    "mplpb_answers/experience_graph.py": "843ce8df142819e3178fb3630978c4ff18ca7b8a8d835fcc7576cfe306903548",
+    "mplpb_answers/field_aliases.py": "2a2b1e997d02f8fed534e5ec4d555b3cfa40b6c6684d6176d88d8762b94c002a",
+    "mplpb_answers/frames.py": "82c23f7382f862d3b95960b017dda278022ccee1f1bc4e9b339bf7c45ba8dede",
+    "mplpb_answers/library.py": "7d1613c28f01453270c8a53bf0e3f015bf197dff25b43edc764802e1e1306e5b",
+    "mplpb_answers/linked_obligations.py": "3fe5b80c6a15163da31d285126893d0d837a3caa4040b11c95567c918568a19b",
+    "mplpb_answers/literal_evidence.py": "4dff854bea0a7ae453be35ee016be2533d9ed0b08b98b7ee4a28d2f10b5983fa",
+    "mplpb_answers/local_narrator.py": "198880340d70f29a8818588e30d5bdd2eee86336dba3c032f378d8928b084f3e",
+    "mplpb_answers/local_reader.py": "6e7a6702f8296b63dd8a2be292ef620c9e67ed6170770e1222cfee58e23ea815",
+    "mplpb_answers/operational_evidence.py": "ac4ac4c1b9df9f412323674083dbc1bdb83a6570b8576fde9969eddafd791580",
+    "mplpb_answers/passage_admission.py": "8f9decd8addf3b14a6ba9258576226e9efd8cff43f5a51a0132b6298efd809fa",
+    "mplpb_answers/passages.py": "953da46f391003cdb4ea4f8c8f759d117dde38d0bd38e1c26a1ddc6bb0610dcb",
+    "mplpb_answers/pipeline.py": "109b7d2565882dfca23676eb76246362269b5f2a6b99c189f25102559be8caee",
+    "mplpb_answers/policy_evidence.py": "90ae363e5b2b92c52ef24a9ff4d820821a76729f012831c51e27f3ad54492c35",
+    "mplpb_answers/practical_evidence.py": "0ad115570d1a5c1f756f2931e331a083d6f9ca6f7512223b5160278f5cda33af",
+    "mplpb_answers/presentation.py": "c68979748753f48cefaca0ea1eb5ac2ddc20b797ef5d3d8181726667c81cc0aa",
+    "mplpb_answers/procedures.py": "90cc6108617b3e56e578039f793581687bb2862e448421d5e5c7f088d2dfac37",
+    "mplpb_answers/prose_retrieval.py": "7ae56c9cb4dfb5a59c6df85243bdc2018dfd544b900be615ba973a62256a6096",
+    "mplpb_answers/publication_corrections.py": "6c72632858f4562d320cdcd8ed001eded095834e60c627175c8b0265e7f6d2e6",
+    "mplpb_answers/question_intent.py": "9baef407153bc69083ff52567da5cc84e69144920ec36b277b12e0314b67e711",
+    "mplpb_answers/reference_identity.py": "0bdfcade2a91e5f363c9d6ba7b1175c3af9b55027e3d2b236dd33e8f1b3ba5c9",
+    "mplpb_answers/relation_graph.py": "58003ad19f3a1f58a3ee3746cac3cb9017e3162e4146fd5004374bf32c730adc",
+    "mplpb_answers/report_sections.py": "6efaa14124e1a3079f798b07aba9c41fcf8a2fed182d589bcdfdcfb9baf3a5ea",
+    "mplpb_answers/reported_content.py": "5076b3505b4da962aa70c231415a276445250d372664059861fac286e2498ac0",
+    "mplpb_answers/source_attribution.py": "b59ac55a777afef0a2b13a1cf36a9b6701c67c3428d9c1a726e93b7e29f48e6c",
+    "mplpb_answers/source_claims.py": "185add52930ad7a56f6f0a23423ccefab3450259971974928f3896e11f61bd29",
+    "mplpb_answers/source_projection.py": "bf5d84912616e75c3fe3deb038325348f2f2ccb2ae210315cd8605798cf48c16",
+    "mplpb_answers/source_structure.py": "136c09539d557a70bde9ed128c451313331ae5ff1a4a4741bad6103681403595",
+    "mplpb_answers/source_tags.py": "db10acddc57e53e094eb59266e024e9c46ab4ebced3410a1b79535c48ec99cc7",
+    "mplpb_answers/source_units.py": "09c0e6e43f278f07bb5bd0f36beade70c246ae01bf904b420c3c7d060133845c",
+    "mplpb_answers/support.py": "117d0c2040b43b95e8a2aafbe55b24a5ddae0f87cd28ba635ff8f8473b327756",
+    "mplpb_answers/synonym_graph.py": "4d339ae3307ee10d106b3eec49e038c5c9d50cc48417f8e01970d9b0373ceabb",
+    "mplpb_combined/__init__.py": "8ce7a60dc73b0229eb89f7cf3c4a3a47df70f410d0d957dc95b6e41281bb9672",
+    "mplpb_combined/__main__.py": "353ea5ef6cba220377dce05ac3c4eb0b2ecabe5a68188c591b69d9698862e356",
+    "mplpb_combined/baselines.py": "1b2426ccc12397c0525dcff875e1b922bc776c20174ed08aa89cd1f47891e4d3",
+    "mplpb_combined/delivery.py": "27400863c4007413ccd009efe19821a7963a014b47a01905455adb12b7b454ca",
+    "mplpb_combined/evaluate.py": "a537600f26c021040e54cc7badada45443c18af9dd2aa8e52b9f4e43081d79ff",
+    "mplpb_combined/killtest.py": "8b9b7c889626fe1bfe0f1aa87cb80698de2ae67db256e4355a6ce43508f88aa7",
+    "mplpb_combined/ledger.py": "a2c65367cabb1ff1c981ebac06cd3f8f998cd3d5e155aaf951d7a2fed9d02163",
+    "mplpb_combined/provenance_gate.py": "c85250cb1895e820159125a26a7b5cfa9bf5ca51e7cd918a78a99d8bcbdf2e25",
+    "mplpb_combined/reader.py": "e207dac173890540b5af36626e592c56cd293cb86a577c0c2a5d09cda441aea8",
+    "mplpb_combined/record.py": "e09ffb33930e7b705aaf5d93475908af7ac2927f1eb3219c594d637bd92a625c",
+    "mplpb_combined/retrieval.py": "35528e3645af096d957df51fdb39ca66decd1f5a0a98cf61061e4ff51408c1c4",
+    "mplpb_work/__init__.py": "5015f3af15da1efed8d2f32bfb0c42a3d24d7c4fec53865dc96b8361db34a393",
+    "mplpb_work/__main__.py": "afa5fa55c9767520ccde8386c5f7c68a77ee2b10c7bad5d017f19efb2edb93e4",
+    "mplpb_work/answer_router.py": "ba1b1f3fc00710424d5b3118ab08ca560478439cad316b2c9c61d87a05b594e0",
+    "mplpb_work/api.py": "9b4f33cc9fe4f2fb22210e22c5332896d358c1bf1e785f919e12187a00ad6b1f",
+    "mplpb_work/article.py": "141a301a0e3a6b7d076a14cc9639769fb90f25dc33aa01073e692bf5d9b033bb",
+    "mplpb_work/candidate_workspace.py": "74fd28037d4c10cfe1164a7fa04ee53de4c0e6be63401e675762a1a7a9249290",
+    "mplpb_work/classing.py": "18f1c39174ce93d5042755fd347ababeb03410540b100d2054d36cbea18ea283",
+    "mplpb_work/errors.py": "633c7042a803a259e33db177b303dfd1d6ad5bc038f1908a3f70e469a966615a",
+    "mplpb_work/event_candidates.py": "8f112257f0543c91962aaedf08d1eb50dea487c2c8240c9945ad648ee9d809ae",
+    "mplpb_work/historical_evidence.py": "6df11d05a2f147ae465d639b1f4ecd381436b4757f1ff7e0b6e8f56fbc05e39a",
+    "mplpb_work/historical_review.py": "d89c6be6128f252ce26991ab6770392af1e6e72d7212d4e40fb674e3f2dd6636",
+    "mplpb_work/historical_verifier.py": "db8837312f845476a18bc33d9492bdc737d1d8b18d2a5812698dd683d7088c1a",
+    "mplpb_work/investigation.py": "3cc779874ceec15ced80534faaad95b3929c026daffd462da24fa70f20ca8ed2",
+    "mplpb_work/ledger_generations.py": "941a5526eefbac033a4320c0375c01c795708ec45c63b3cb3047edef26b13854",
+    "mplpb_work/local_artifacts.py": "c7814c3fd68b7a80d48128a416c950240aaaf7e6adc363119a08fc471aa4dd16",
+    "mplpb_work/model.py": "5613a66d2b637b26ae900d5966d6680aa86f0eedf02bf80cbb794c42f8e51e74",
+    "mplpb_work/pinned_documentary_inspection.py": "487f8a7fa7712603351a37f553e3976e806f4cd1a840b69bd078217f19e021aa",
+    "mplpb_work/prose_evidence.py": "8a88fdd1586e7ef22d5e91edbe57c220979502d0a7e7f1060f738b431d811b24",
+    "mplpb_work/prose_relations.py": "d2ca7e6aad04adc4cd08dae8683e57af4630a1b9daea2b720e900ddaec722d52",
+    "mplpb_work/semantic_triage.py": "bb75ecd3c99f2e2b9aa3259cc0fe67d5d9831125ef3093e76f63f4598b9ecaee",
+    "mplpb_work/sorter.py": "0e8eb56604ba34f3eaf5be85f3c0787c3ce40bb2ecf68809c040ca2fff38834e",
+    "mplpb_work/sorter_explorer.py": "56269f976ad89860e123640cc38305ef056e39287e77b684015aca180fb74181",
+    "mplpb_work/sorter_suggestions.py": "91d3b618eaba949397caab57263d76b3aa20362e7446cff83c441e6cb0860f61",
+    "mplpb_work/sorter_v2.py": "130281428af23ac2790da9a0030f8e62918974ff65b4395c0de79f9094dbade4",
+    "mplpb_work/source_mapping.py": "5688b65b4cd392c0da298f2eda5d422a95248dadcbf55984e125f8b54a2c5612",
+    "mplpb_work/source_notes.py": "0337b560f4a545eb50570f8781a71dd11c857134a8a66e009a9444d683365ca5",
+    "mplpb_work/source_support.py": "a3460d71ca56141ac43f387f093854fc41f286369c7a9f5e6832e77fa38493b9",
+    "mplpb_work/store.py": "3a1472c3ce7b28e5e821944a9a03c1c2a3fdcbdddcf0cd532ca614d2617aa036",
+    "mplpb_work/thesaurus.py": "25a07a4bfa46c4cc5ef0d868ad3ee5a7e71e2c7daf485ec93ea0fe699afb454e",
+    "mplpb_work/training.py": "bd779f257e13669a3967c16f8c6ad451b55157cd71865f6ae8135f5f3e488085"
+  },
+  "registry_sha256": "5f9d1f58064c25a51cd338cd20f37d4c79cf01a67deaf8d66ff026d8e1b7dc6f",
+  "registry_path": "evaluation/cryptid/jackalope/development/registry.json",
+  "harness": {
+    "tools/cryptid_trial_v2.py": "a82de4c199845851f1c696a1694a9280a243cc48bbd4c49a2290db363744b0fe",
+    "tools/cryptid_adapter_v2.py": "18cf9b5f13a28e71026590cc8292328b32c7ffa32d5c95642b7ccb1f37eca2f7",
+    "tools/cryptid_worker.py": "f082d6e2fda7226ee1ce5df2ae02b0e3db1be844558e0b6374971e8eca8b76a3",
+    "tools/cryptid_claim_score.py": "3eb9b888cda5a1a8b8b117df65b42ac0fd9638bc3fb83895b79e68b031bfad8a",
+    "tools/cryptid_jackalope_packets.py": "316ec1f30eb916a565ee214049fc94fd8f5bbf50d11e5cb6897a80c3700579b1",
+    "tools/pole_worker.py": "f912f87b072fb3e78c0215882d2a10c82dd5df48009bb9a3a5eff8f229617ce8",
+    "tools/study_sandbox.py": "56f9561fc2bae5150a2de5c83bf8a0c68d7a7f002a93018e91d68e043ebe4daa"
+  },
+  "exposure": "development exposed; independently worded relative to retained old suites, not independently prepared",
+  "execution_counts": {
+    "completed": 54
+  },
+  "planned": 54,
+  "attempted": 54,
+  "cases": [
+    {
+      "id": "CRYPT-JACKALOPE-0001",
+      "input_hash": "8826c15823010becc4310c56a70e966889e9a87cea217b6d4c28e56159888f9c",
+      "execution_status": "completed",
+      "score_status": "UNSCORED",
+      "semantic_outcome": "supported_answer",
+      "answer_supported": true,
+      "claims": 1,
+      "raw_sha256": "361f95dda352b734b4434c3f456d282cb6883a8ea4730937f92211f0af8e2d81",
+      "diagnostic": {
+        "code": "supported_documentary_assertion",
+        "stage": "documentary_verification",
+        "message": "Checked source-attributed assertions only; unresolved question obligations remain explicit and historical truth is unverified.",
+        "category": "source_support_established",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Review the diagnostic and source evidence before retrying."
+        ]
+      },
+      "host_wall_seconds": 0.28783418200328015
+    },
+    {
+      "id": "CRYPT-JACKALOPE-0002",
+      "input_hash": "d635177bed5e733f3da606dd77b5f7953ba125815a5de2ec9cbc31bacb9a48c0",
+      "execution_status": "completed",
+      "score_status": "UNSCORED",
+      "semantic_outcome": "partial_answer",
+      "answer_supported": false,
+      "claims": 1,
+      "raw_sha256": "27a83b9fa6ec5dd8acff66011b968c3f873d0700675a1cc42eb16c5545950e4b",
+      "diagnostic": {
+        "code": "partial_documentary_evidence",
+        "stage": "documentary_verification",
+        "message": "Checked source-attributed assertions only; unresolved question obligations remain explicit and historical truth is unverified.",
+        "category": "insufficient_evidence",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Review the diagnostic and source evidence before retrying."
+        ]
+      },
+      "host_wall_seconds": 0.3370079029991757
+    },
+    {
+      "id": "CRYPT-JACKALOPE-0003",
+      "input_hash": "034d967997f1eeaf8600e81031f0fcf42bbedd5b084d5f91d32da25317941f97",
+      "execution_status": "completed",
+      "score_status": "UNSCORED",
+      "semantic_outcome": "supported_answer",
+      "answer_supported": true,
+      "claims": 1,
+      "raw_sha256": "eb4825dae41bde06674f4517906956a4749699175906ae74824db6f27b838c2e",
+      "diagnostic": {
+        "code": "supported_documentary_assertion",
+        "stage": "documentary_verification",
+        "message": "Checked source-attributed assertions only; unresolved question obligations remain explicit and historical truth is unverified.",
+        "category": "source_support_established",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Review the diagnostic and source evidence before retrying."
+        ]
+      },
+      "host_wall_seconds": 0.33960159799607936
+    },
+    {
+      "id": "CRYPT-JACKALOPE-0004",
+      "input_hash": "22b9ecceea3faacbc03b4ec5a083ca33bd8c359671d0736d4e86f78b45d58f96",
+      "execution_status": "completed",
+      "score_status": "UNSCORED",
+      "semantic_outcome": "partial_answer",
+      "answer_supported": false,
+      "claims": 1,
+      "raw_sha256": "25e7831a4fa3d053ce14998d5fcf323f34bfafa6ae57bbdf77457c09bfacb118",
+      "diagnostic": {
+        "code": "partial_documentary_evidence",
+        "stage": "documentary_verification",
+        "message": "Checked source-attributed assertions only; unresolved question obligations remain explicit and historical truth is unverified.",
+        "category": "insufficient_evidence",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Review the diagnostic and source evidence before retrying."
+        ]
+      },
+      "host_wall_seconds": 0.34198592499888036
+    },
+    {
+      "id": "CRYPT-JACKALOPE-0005",
+      "input_hash": "0b03d7511b6198e270a5ec40093f442aaba9ac6b1ed705a29555b82ba2d2f269",
+      "execution_status": "completed",
+      "score_status": "UNSCORED",
+      "semantic_outcome": "supported_answer",
+      "answer_supported": true,
+      "claims": 1,
+      "raw_sha256": "768dd71329631357eb8b7bf41e898ce835a9952f4e312b9b7f8858558018ecac",
+      "diagnostic": {
+        "code": "supported_documentary_assertion",
+        "stage": "documentary_verification",
+        "message": "Checked source-attributed assertions only; unresolved question obligations remain explicit and historical truth is unverified.",
+        "category": "source_support_established",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Review the diagnostic and source evidence before retrying."
+        ]
+      },
+      "host_wall_seconds": 0.3390001350053353
+    },
+    {
+      "id": "CRYPT-JACKALOPE-0006",
+      "input_hash": "29db3bd263e6986b1600324668e3d7772254b910d0dab16832f47b6f3478dcdc",
+      "execution_status": "completed",
+      "score_status": "UNSCORED",
+      "semantic_outcome": "partial_answer",
+      "answer_supported": false,
+      "claims": 1,
+      "raw_sha256": "424fdfd2437adc29b37390cf12a0566f1621712225c1778f96514090b78033bc",
+      "diagnostic": {
+        "code": "partial_documentary_evidence",
+        "stage": "documentary_verification",
+        "message": "Checked source-attributed assertions only; unresolved question obligations remain explicit and historical truth is unverified.",
+        "category": "insufficient_evidence",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Review the diagnostic and source evidence before retrying."
+        ]
+      },
+      "host_wall_seconds": 0.3409098010015441
+    },
+    {
+      "id": "CRYPT-JACKALOPE-0007",
+      "input_hash": "0e5746d12f83a298b0b86a98a620ee165f4e63dc1668e95ff4d4961ec6b1bfb4",
+      "execution_status": "completed",
+      "score_status": "UNSCORED",
+      "semantic_outcome": "supported_answer",
+      "answer_supported": true,
+      "claims": 1,
+      "raw_sha256": "e6d7b12b535ea2c517d6afdf472f5f85a6f3c91e8e9e322512b25d285fe3d06b",
+      "diagnostic": {
+        "code": "supported_documentary_assertion",
+        "stage": "documentary_verification",
+        "message": "Checked source-attributed assertions only; unresolved question obligations remain explicit and historical truth is unverified.",
+        "category": "source_support_established",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Review the diagnostic and source evidence before retrying."
+        ]
+      },
+      "host_wall_seconds": 0.33740171800309326
+    },
+    {
+      "id": "CRYPT-JACKALOPE-0008",
+      "input_hash": "0ccbe4aa0165d322b39c33d21a551e79ffe41d21198b1c4d8e05dd2b96b35e8d",
+      "execution_status": "completed",
+      "score_status": "UNSCORED",
+      "semantic_outcome": "partial_answer",
+      "answer_supported": false,
+      "claims": 1,
+      "raw_sha256": "5598193461abd23347446f884c69df5c0ec681bdbf80d1aebd06631c6dd05064",
+      "diagnostic": {
+        "code": "partial_documentary_evidence",
+        "stage": "documentary_verification",
+        "message": "Checked source-attributed assertions only; unresolved question obligations remain explicit and historical truth is unverified.",
+        "category": "insufficient_evidence",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Review the diagnostic and source evidence before retrying."
+        ]
+      },
+      "host_wall_seconds": 0.33682050499191973
+    },
+    {
+      "id": "CRYPT-JACKALOPE-0009",
+      "input_hash": "d30cfb2752f901e69d0c377bc2c3a46f56f9152453efcc26865ae4743d91cdd0",
+      "execution_status": "completed",
+      "score_status": "UNSCORED",
+      "semantic_outcome": "abstain",
+      "answer_supported": false,
+      "claims": 0,
+      "raw_sha256": "1fd704c6ea245981e3bce19b882e930f0b4d263fd3595ff788371a98950c4cb3",
+      "diagnostic": {
+        "code": "interpretation_unsupported",
+        "stage": "strict",
+        "message": "Eligible passages exist, but the strict reader cannot establish an answer to this question.",
+        "category": "unsupported_question_grammar",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Inspect the relevant source. Try a supported question form or explicitly select a configured assisted reader; do not treat this refusal as proof that the answer is absent."
+        ]
+      },
+      "host_wall_seconds": 0.2858548289950704
+    },
+    {
+      "id": "CRYPT-JACKALOPE-0010",
+      "input_hash": "86b4869d030b1e0108400c07eedf3439096be10ca8984b1aff35333d110e15c2",
+      "execution_status": "completed",
+      "score_status": "UNSCORED",
+      "semantic_outcome": "abstain",
+      "answer_supported": false,
+      "claims": 0,
+      "raw_sha256": "bc17a87870cd2baf33906faec8307ecaa9b6c67d1a78ef26a6cfd3428dcbed49",
+      "diagnostic": {
+        "code": "interpretation_unsupported",
+        "stage": "strict",
+        "message": "Eligible passages exist, but the strict reader cannot establish an answer to this question.",
+        "category": "unsupported_question_grammar",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Inspect the relevant source. Try a supported question form or explicitly select a configured assisted reader; do not treat this refusal as proof that the answer is absent."
+        ]
+      },
+      "host_wall_seconds": 0.3337300779967336
+    },
+    {
+      "id": "CRYPT-JACKALOPE-0011",
+      "input_hash": "31cf47b2d466e0c78ac9977938584ea1aa522ba5a010deca5f67225f7ef73ae3",
+      "execution_status": "completed",
+      "score_status": "UNSCORED",
+      "semantic_outcome": "abstain",
+      "answer_supported": false,
+      "claims": 0,
+      "raw_sha256": "8a02620f6b4369a9462fd933bab72cc3f136c497977bdeee4bb868ae7ebdba3b",
+      "diagnostic": {
+        "code": "interpretation_unsupported",
+        "stage": "strict",
+        "message": "Eligible passages exist, but the strict reader cannot establish an answer to this question.",
+        "category": "unsupported_question_grammar",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Inspect the relevant source. Try a supported question form or explicitly select a configured assisted reader; do not treat this refusal as proof that the answer is absent."
+        ]
+      },
+      "host_wall_seconds": 0.41843466499994975
+    },
+    {
+      "id": "CRYPT-JACKALOPE-0012",
+      "input_hash": "5b2c7a0ad4a6e1007afce013ba997d62f3ff6e112213f86422ae437a32298717",
+      "execution_status": "completed",
+      "score_status": "UNSCORED",
+      "semantic_outcome": "abstain",
+      "answer_supported": false,
+      "claims": 0,
+      "raw_sha256": "a8156607cd48f623c0d2a00b1906e3554e06f6d0f139b2cd4df01ebabdf7e4d1",
+      "diagnostic": {
+        "code": "documentary_assertion_not_established",
+        "stage": "documentary_verification",
+        "message": "Checked source-attributed assertions only; unresolved question obligations remain explicit and historical truth is unverified.",
+        "category": "insufficient_evidence",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Review the diagnostic and source evidence before retrying."
+        ]
+      },
+      "host_wall_seconds": 0.34181586500199046
+    },
+    {
+      "id": "CRYPT-JACKALOPE-0013",
+      "input_hash": "e74630c445b3881c1a33638d1e16871c2cf9a87558d8bd8494a942e24cd6ea83",
+      "execution_status": "completed",
+      "score_status": "UNSCORED",
+      "semantic_outcome": "abstain",
+      "answer_supported": false,
+      "claims": 0,
+      "raw_sha256": "6f621d4cebd0913f1fdbe3e17edb62ee3b8e492607d67a7ac299974eeeea5550",
+      "diagnostic": {
+        "code": "interpretation_unsupported",
+        "stage": "strict",
+        "message": "Eligible passages exist, but the strict reader cannot establish an answer to this question.",
+        "category": "unsupported_question_grammar",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Inspect the relevant source. Try a supported question form or explicitly select a configured assisted reader; do not treat this refusal as proof that the answer is absent."
+        ]
+      },
+      "host_wall_seconds": 0.2866034159960691
+    },
+    {
+      "id": "CRYPT-JACKALOPE-0014",
+      "input_hash": "33ea6bc298a82268431df83eff08b2f35508881380e1ade69862f18e708bea9b",
+      "execution_status": "completed",
+      "score_status": "UNSCORED",
+      "semantic_outcome": "abstain",
+      "answer_supported": false,
+      "claims": 0,
+      "raw_sha256": "710dbe03dd34086677ae486392627a30379cd9eeb9770b9896359713a0e65aea",
+      "diagnostic": {
+        "code": "interpretation_unsupported",
+        "stage": "strict",
+        "message": "Eligible passages exist, but the strict reader cannot establish an answer to this question.",
+        "category": "unsupported_question_grammar",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Inspect the relevant source. Try a supported question form or explicitly select a configured assisted reader; do not treat this refusal as proof that the answer is absent."
+        ]
+      },
+      "host_wall_seconds": 0.28794938599457964
+    },
+    {
+      "id": "CRYPT-JACKALOPE-0015",
+      "input_hash": "2e2391d6261fae8d3f001cb49e60e61ec503711882e552b0c3269e47c1b5c694",
+      "execution_status": "completed",
+      "score_status": "UNSCORED",
+      "semantic_outcome": "abstain",
+      "answer_supported": false,
+      "claims": 0,
+      "raw_sha256": "9e46c07766b4b8695c2c6a682e04e99b0b6dda1e0da6c8db421f288391d50b7a",
+      "diagnostic": {
+        "code": "restricted_or_unavailable",
+        "stage": "eligibility",
+        "message": "No eligible body passages are available under this question and profile; corpus absence is not established.",
+        "category": "absent_eligible_source",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Check source integrity and delivery restrictions; restore or revise the source through the normal workflow, then ask again."
+        ]
+      },
+      "host_wall_seconds": 0.23775994800962508
+    },
+    {
+      "id": "CRYPT-JACKALOPE-0016",
+      "input_hash": "f99a39d2094a141c1613bdfcd09f1632a3f7b97a6e0c96398a18d55b1df72642",
+      "execution_status": "completed",
+      "score_status": "UNSCORED",
+      "semantic_outcome": "abstain",
+      "answer_supported": false,
+      "claims": 0,
+      "raw_sha256": "b4892a7dd7b316d41149dbd3ba8ca21cb1b1c24aeb670b34ef2aee6d1f7c27ac",
+      "diagnostic": {
+        "code": "restricted_or_unavailable",
+        "stage": "eligibility",
+        "message": "No eligible body passages are available under this question and profile; corpus absence is not established.",
+        "category": "absent_eligible_source",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Check source integrity and delivery restrictions; restore or revise the source through the normal workflow, then ask again."
+        ]
+      },
+      "host_wall_seconds": 0.23628008300147485
+    },
+    {
+      "id": "CRYPT-JACKALOPE-0017",
+      "input_hash": "bf41d6b3e07738c2a9cd65ad7f6c97ebd0b47595d2166f7c7a08b29b1d96d8b8",
+      "execution_status": "completed",
+      "score_status": "UNSCORED",
+      "semantic_outcome": "abstain",
+      "answer_supported": false,
+      "claims": 0,
+      "raw_sha256": "5dba81b19137b305d4802a12eca027cd577a7474bf766e75859e392d471f0eb2",
+      "diagnostic": {
+        "code": "restricted_or_unavailable",
+        "stage": "eligibility",
+        "message": "No eligible body passages are available under this question and profile; corpus absence is not established.",
+        "category": "absent_eligible_source",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Check source integrity and delivery restrictions; restore or revise the source through the normal workflow, then ask again."
+        ]
+      },
+      "host_wall_seconds": 0.23823492099472787
+    },
+    {
+      "id": "CRYPT-JACKALOPE-0018",
+      "input_hash": "ab8f5f7be7d9d05b015914d49d9a1214f0a87a3c1cbfbd186599d49ca6acc4ac",
+      "execution_status": "completed",
+      "score_status": "UNSCORED",
+      "semantic_outcome": "abstain",
+      "answer_supported": false,
+      "claims": 0,
+      "raw_sha256": "99ea0b830ef1303d93429521dc2abf35225c657131dc345cb4374ff9d7a1e244",
+      "diagnostic": {
+        "code": "restricted_or_unavailable",
+        "stage": "eligibility",
+        "message": "No eligible body passages are available under this question and profile; corpus absence is not established.",
+        "category": "absent_eligible_source",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Check source integrity and delivery restrictions; restore or revise the source through the normal workflow, then ask again."
+        ]
+      },
+      "host_wall_seconds": 0.23833787499461323
+    },
+    {
+      "id": "CRYPT-JACKALOPE-0019",
+      "input_hash": "6a861cd0c47854536d8006b9fcd9f42732bb7c268678e589c9fa4d90da97ff9e",
+      "execution_status": "completed",
+      "score_status": "UNSCORED",
+      "semantic_outcome": "supported_answer",
+      "answer_supported": true,
+      "claims": 1,
+      "raw_sha256": "bc25bf8a134e21c8d343634b4945bac84ed54198c121ee9d834dc2ae4876fb98",
+      "diagnostic": {
+        "code": "supported_documentary_assertion",
+        "stage": "documentary_verification",
+        "message": "Checked source-attributed assertions only; unresolved question obligations remain explicit and historical truth is unverified.",
+        "category": "source_support_established",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Review the diagnostic and source evidence before retrying."
+        ]
+      },
+      "host_wall_seconds": 0.3372012280015042
+    },
+    {
+      "id": "CRYPT-JACKALOPE-0020",
+      "input_hash": "cb39f9b2fdb76ded43c345be8e829e423b1f8e9e642a8df4f9d51b81565a0bed",
+      "execution_status": "completed",
+      "score_status": "UNSCORED",
+      "semantic_outcome": "partial_answer",
+      "answer_supported": false,
+      "claims": 1,
+      "raw_sha256": "58ea74b3a6c4ec98bca24209088acb2d1281437778bdd66e8c83a9849dd42fc7",
+      "diagnostic": {
+        "code": "partial_documentary_evidence",
+        "stage": "documentary_verification",
+        "message": "Checked source-attributed assertions only; unresolved question obligations remain explicit and historical truth is unverified.",
+        "category": "insufficient_evidence",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Review the diagnostic and source evidence before retrying."
+        ]
+      },
+      "host_wall_seconds": 0.2866665460023796
+    },
+    {
+      "id": "CRYPT-JACKALOPE-0021",
+      "input_hash": "ca95960f83793054384dd043fa58db58215b16caef2f14dd2194aa7be15afc6c",
+      "execution_status": "completed",
+      "score_status": "UNSCORED",
+      "semantic_outcome": "supported_answer",
+      "answer_supported": true,
+      "claims": 1,
+      "raw_sha256": "b7bb6deabb5cb0e511c921f7efc6357b37cf8fa8071d0147111c34682993f392",
+      "diagnostic": {
+        "code": "supported_documentary_assertion",
+        "stage": "documentary_verification",
+        "message": "Checked source-attributed assertions only; unresolved question obligations remain explicit and historical truth is unverified.",
+        "category": "source_support_established",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Review the diagnostic and source evidence before retrying."
+        ]
+      },
+      "host_wall_seconds": 0.2873904779989971
+    },
+    {
+      "id": "CRYPT-JACKALOPE-0022",
+      "input_hash": "723114b6313dd59f941bc958c6ba6711d8ba79385bd6de147c82346195117596",
+      "execution_status": "completed",
+      "score_status": "UNSCORED",
+      "semantic_outcome": "partial_answer",
+      "answer_supported": false,
+      "claims": 1,
+      "raw_sha256": "06a42f546ecef9852bca5905308bd849cfab3b4e68c11291a6e152e5bad2b2c9",
+      "diagnostic": {
+        "code": "partial_documentary_evidence",
+        "stage": "documentary_verification",
+        "message": "Checked source-attributed assertions only; unresolved question obligations remain explicit and historical truth is unverified.",
+        "category": "insufficient_evidence",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Review the diagnostic and source evidence before retrying."
+        ]
+      },
+      "host_wall_seconds": 0.33779699700244237
+    },
+    {
+      "id": "CRYPT-JACKALOPE-0023",
+      "input_hash": "5fc8e1dd623aed3fb770d59d11a388f77535c5071c0fcfb440ce1728908f9c3b",
+      "execution_status": "completed",
+      "score_status": "UNSCORED",
+      "semantic_outcome": "supported_answer",
+      "answer_supported": true,
+      "claims": 1,
+      "raw_sha256": "cb4fc1ff4b9d52a27273d0b4e80139aaacc6ba597543c259bdf64e99f6cb8943",
+      "diagnostic": {
+        "code": "supported_documentary_assertion",
+        "stage": "documentary_verification",
+        "message": "Checked source-attributed assertions only; unresolved question obligations remain explicit and historical truth is unverified.",
+        "category": "source_support_established",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Review the diagnostic and source evidence before retrying."
+        ]
+      },
+      "host_wall_seconds": 0.33628486399538815
+    },
+    {
+      "id": "CRYPT-JACKALOPE-0024",
+      "input_hash": "416b603bccb94a462e19bc336efd3fb16b479c05fff2c3d7019dbf5713dda8fd",
+      "execution_status": "completed",
+      "score_status": "UNSCORED",
+      "semantic_outcome": "partial_answer",
+      "answer_supported": false,
+      "claims": 1,
+      "raw_sha256": "6624f54516e19e6201b0dc4c57bd719f6362ceaf4703ef4a12268f90ff56b2d7",
+      "diagnostic": {
+        "code": "partial_documentary_evidence",
+        "stage": "documentary_verification",
+        "message": "Checked source-attributed assertions only; unresolved question obligations remain explicit and historical truth is unverified.",
+        "category": "insufficient_evidence",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Review the diagnostic and source evidence before retrying."
+        ]
+      },
+      "host_wall_seconds": 0.3379125869978452
+    },
+    {
+      "id": "CRYPT-JACKALOPE-0025",
+      "input_hash": "8655209ec5419e7347f31fec5919b85e248dcea3edc6475c474bb3582dadbdf4",
+      "execution_status": "completed",
+      "score_status": "UNSCORED",
+      "semantic_outcome": "supported_answer",
+      "answer_supported": true,
+      "claims": 1,
+      "raw_sha256": "697f5b9e680e31def2f3690a34eff664e1b212ca4c361fcc9ce454ecf7e11735",
+      "diagnostic": {
+        "code": "supported_documentary_assertion",
+        "stage": "documentary_verification",
+        "message": "Checked source-attributed assertions only; unresolved question obligations remain explicit and historical truth is unverified.",
+        "category": "source_support_established",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Review the diagnostic and source evidence before retrying."
+        ]
+      },
+      "host_wall_seconds": 0.28648817499924917
+    },
+    {
+      "id": "CRYPT-JACKALOPE-0026",
+      "input_hash": "49ea60b3c800e4a274b1314ba4be330c4c0661dfc7e8e41493a8c174b91afa79",
+      "execution_status": "completed",
+      "score_status": "UNSCORED",
+      "semantic_outcome": "partial_answer",
+      "answer_supported": false,
+      "claims": 1,
+      "raw_sha256": "49909db600329a31538946e183f7d94678cce815719e367072cc0540178672e8",
+      "diagnostic": {
+        "code": "partial_documentary_evidence",
+        "stage": "documentary_verification",
+        "message": "Checked source-attributed assertions only; unresolved question obligations remain explicit and historical truth is unverified.",
+        "category": "insufficient_evidence",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Review the diagnostic and source evidence before retrying."
+        ]
+      },
+      "host_wall_seconds": 0.2878120560053503
+    },
+    {
+      "id": "CRYPT-JACKALOPE-0027",
+      "input_hash": "5f3ccf87c52310bae5afa553fcfda334e08f4fc89913ba32c490d6a5d351d72f",
+      "execution_status": "completed",
+      "score_status": "UNSCORED",
+      "semantic_outcome": "abstain",
+      "answer_supported": false,
+      "claims": 0,
+      "raw_sha256": "6cfa9ec547f28aaa5e68266ecd32948aeb94ea379f77cc2323a0cf099274e545",
+      "diagnostic": {
+        "code": "interpretation_unsupported",
+        "stage": "strict",
+        "message": "Eligible passages exist, but the strict reader cannot establish an answer to this question.",
+        "category": "unsupported_question_grammar",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Inspect the relevant source. Try a supported question form or explicitly select a configured assisted reader; do not treat this refusal as proof that the answer is absent."
+        ]
+      },
+      "host_wall_seconds": 0.28694164400803857
+    },
+    {
+      "id": "CRYPT-JACKALOPE-0028",
+      "input_hash": "01593a5918ee7c29843b4b7a1c135f92563d354891cb659021296fc508e63b5e",
+      "execution_status": "completed",
+      "score_status": "UNSCORED",
+      "semantic_outcome": "abstain",
+      "answer_supported": false,
+      "claims": 0,
+      "raw_sha256": "36efb1d72456cc9333eb2bc75e475a44fe96e8805b0dce0ded1f366e8fcb71dc",
+      "diagnostic": {
+        "code": "interpretation_unsupported",
+        "stage": "strict",
+        "message": "Eligible passages exist, but the strict reader cannot establish an answer to this question.",
+        "category": "unsupported_question_grammar",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Inspect the relevant source. Try a supported question form or explicitly select a configured assisted reader; do not treat this refusal as proof that the answer is absent."
+        ]
+      },
+      "host_wall_seconds": 0.3386328839987982
+    },
+    {
+      "id": "CRYPT-JACKALOPE-0029",
+      "input_hash": "9d2e90279ca2ecb8d22431b58dfc40ff49a109951f75d2719c98c2e2c6317b93",
+      "execution_status": "completed",
+      "score_status": "UNSCORED",
+      "semantic_outcome": "abstain",
+      "answer_supported": false,
+      "claims": 0,
+      "raw_sha256": "4b228c8f7385d62db899c303886e24bd55f8aaacf3ec2cebec5207ebe20b3fb6",
+      "diagnostic": {
+        "code": "interpretation_unsupported",
+        "stage": "strict",
+        "message": "Eligible passages exist, but the strict reader cannot establish an answer to this question.",
+        "category": "unsupported_question_grammar",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Inspect the relevant source. Try a supported question form or explicitly select a configured assisted reader; do not treat this refusal as proof that the answer is absent."
+        ]
+      },
+      "host_wall_seconds": 0.2891418220096966
+    },
+    {
+      "id": "CRYPT-JACKALOPE-0030",
+      "input_hash": "779cac4575a9aa0aadb30bce1ff2a0e1af7585667fb82e12ea986b79a3885501",
+      "execution_status": "completed",
+      "score_status": "UNSCORED",
+      "semantic_outcome": "abstain",
+      "answer_supported": false,
+      "claims": 0,
+      "raw_sha256": "15805d3fa67be731f3bcfb8c52e0619028df8c956a6c7da6929d32373db04fe2",
+      "diagnostic": {
+        "code": "documentary_assertion_not_established",
+        "stage": "documentary_verification",
+        "message": "Checked source-attributed assertions only; unresolved question obligations remain explicit and historical truth is unverified.",
+        "category": "insufficient_evidence",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Review the diagnostic and source evidence before retrying."
+        ]
+      },
+      "host_wall_seconds": 0.33896132999507245
+    },
+    {
+      "id": "CRYPT-JACKALOPE-0031",
+      "input_hash": "e4ec6eb7457d377e8d519e73d7283bdcc6399befe549ddcd1b8954e7ee980861",
+      "execution_status": "completed",
+      "score_status": "UNSCORED",
+      "semantic_outcome": "abstain",
+      "answer_supported": false,
+      "claims": 0,
+      "raw_sha256": "caba09ae75d467270961c2bbcf87f0b3b9214f68b91da4cd6f51df8fe97c1081",
+      "diagnostic": {
+        "code": "interpretation_unsupported",
+        "stage": "strict",
+        "message": "Eligible passages exist, but the strict reader cannot establish an answer to this question.",
+        "category": "unsupported_question_grammar",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Inspect the relevant source. Try a supported question form or explicitly select a configured assisted reader; do not treat this refusal as proof that the answer is absent."
+        ]
+      },
+      "host_wall_seconds": 0.28745045099640265
+    },
+    {
+      "id": "CRYPT-JACKALOPE-0032",
+      "input_hash": "d012d82561a048608beff5933b4a044149a6d5f27b0976a4f58343c35e1915f7",
+      "execution_status": "completed",
+      "score_status": "UNSCORED",
+      "semantic_outcome": "abstain",
+      "answer_supported": false,
+      "claims": 0,
+      "raw_sha256": "2909bb3c6a8d189026989d53832adacb181f545f9eef968cb9f9c56d8a973b09",
+      "diagnostic": {
+        "code": "interpretation_unsupported",
+        "stage": "strict",
+        "message": "Eligible passages exist, but the strict reader cannot establish an answer to this question.",
+        "category": "unsupported_question_grammar",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Inspect the relevant source. Try a supported question form or explicitly select a configured assisted reader; do not treat this refusal as proof that the answer is absent."
+        ]
+      },
+      "host_wall_seconds": 0.2874389089993201
+    },
+    {
+      "id": "CRYPT-JACKALOPE-0033",
+      "input_hash": "15ef1819158f5e5ae3e9e6a2c308fc5fe49f2d2c0fb89a5fa8ed691adf36da60",
+      "execution_status": "completed",
+      "score_status": "UNSCORED",
+      "semantic_outcome": "abstain",
+      "answer_supported": false,
+      "claims": 0,
+      "raw_sha256": "56f10585d94ea4b39564f5c9c40781ffb9a8190bf2108f4fec2b5ee41d057863",
+      "diagnostic": {
+        "code": "restricted_or_unavailable",
+        "stage": "eligibility",
+        "message": "No eligible body passages are available under this question and profile; corpus absence is not established.",
+        "category": "absent_eligible_source",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Check source integrity and delivery restrictions; restore or revise the source through the normal workflow, then ask again."
+        ]
+      },
+      "host_wall_seconds": 0.2365217600017786
+    },
+    {
+      "id": "CRYPT-JACKALOPE-0034",
+      "input_hash": "22b9d499b8f3482b312766c76e2dbbfd1e8e9cac8d1f54e6c160918108bcea0b",
+      "execution_status": "completed",
+      "score_status": "UNSCORED",
+      "semantic_outcome": "abstain",
+      "answer_supported": false,
+      "claims": 0,
+      "raw_sha256": "f82f97abd747a9057f46ed5582967bb0ff54a4fd85a410e9857b08d14ee00f49",
+      "diagnostic": {
+        "code": "restricted_or_unavailable",
+        "stage": "eligibility",
+        "message": "No eligible body passages are available under this question and profile; corpus absence is not established.",
+        "category": "absent_eligible_source",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Check source integrity and delivery restrictions; restore or revise the source through the normal workflow, then ask again."
+        ]
+      },
+      "host_wall_seconds": 0.2883780849952018
+    },
+    {
+      "id": "CRYPT-JACKALOPE-0035",
+      "input_hash": "a2137b70b37c2d92b17e200c147df5055218788682200d58eea5a9a268430c84",
+      "execution_status": "completed",
+      "score_status": "UNSCORED",
+      "semantic_outcome": "abstain",
+      "answer_supported": false,
+      "claims": 0,
+      "raw_sha256": "ad88fc036d5f9b63d2b7735bc5ebaca6ab012a3d1edb17bbaf3930c3398879c8",
+      "diagnostic": {
+        "code": "restricted_or_unavailable",
+        "stage": "eligibility",
+        "message": "No eligible body passages are available under this question and profile; corpus absence is not established.",
+        "category": "absent_eligible_source",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Check source integrity and delivery restrictions; restore or revise the source through the normal workflow, then ask again."
+        ]
+      },
+      "host_wall_seconds": 0.2894977510004537
+    },
+    {
+      "id": "CRYPT-JACKALOPE-0036",
+      "input_hash": "91913bd9234157679432c6d4081f589b999590d7bf7167702efcfe5bce2002c0",
+      "execution_status": "completed",
+      "score_status": "UNSCORED",
+      "semantic_outcome": "abstain",
+      "answer_supported": false,
+      "claims": 0,
+      "raw_sha256": "2da29d348d587e80a08c5fac725c640b1f4dc832a8e05edf64b932110b59696b",
+      "diagnostic": {
+        "code": "restricted_or_unavailable",
+        "stage": "eligibility",
+        "message": "No eligible body passages are available under this question and profile; corpus absence is not established.",
+        "category": "absent_eligible_source",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Check source integrity and delivery restrictions; restore or revise the source through the normal workflow, then ask again."
+        ]
+      },
+      "host_wall_seconds": 0.34365872900525574
+    },
+    {
+      "id": "CRYPT-JACKALOPE-0037",
+      "input_hash": "244e70870aeafe2cd0769ffb7784821639a53a90f6a3db682ff6f8c06780d303",
+      "execution_status": "completed",
+      "score_status": "UNSCORED",
+      "semantic_outcome": "supported_answer",
+      "answer_supported": true,
+      "claims": 1,
+      "raw_sha256": "4c76fe6abf57a20aa02d91fc1ff4279216107f482c69fe4956a6bd904886ad21",
+      "diagnostic": {
+        "code": "supported_documentary_assertion",
+        "stage": "documentary_verification",
+        "message": "Checked source-attributed assertions only; unresolved question obligations remain explicit and historical truth is unverified.",
+        "category": "source_support_established",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Review the diagnostic and source evidence before retrying."
+        ]
+      },
+      "host_wall_seconds": 0.35026570499758236
+    },
+    {
+      "id": "CRYPT-JACKALOPE-0038",
+      "input_hash": "8f83fb7b06d2e9db5c22d2858157a951e1837fc3f9afbe4e6104f8479c3888ab",
+      "execution_status": "completed",
+      "score_status": "UNSCORED",
+      "semantic_outcome": "partial_answer",
+      "answer_supported": false,
+      "claims": 1,
+      "raw_sha256": "ffe7c16013ab7c596bd4ab1bbd46d989aecd21d109ecc7c00dc96e113d4d89f0",
+      "diagnostic": {
+        "code": "partial_documentary_evidence",
+        "stage": "documentary_verification",
+        "message": "Checked source-attributed assertions only; unresolved question obligations remain explicit and historical truth is unverified.",
+        "category": "insufficient_evidence",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Review the diagnostic and source evidence before retrying."
+        ]
+      },
+      "host_wall_seconds": 0.34837242899811827
+    },
+    {
+      "id": "CRYPT-JACKALOPE-0039",
+      "input_hash": "34802c95c280b2ea5b9965a748b9ff5e24a4529270952f603a707ec962bcaebf",
+      "execution_status": "completed",
+      "score_status": "UNSCORED",
+      "semantic_outcome": "supported_answer",
+      "answer_supported": true,
+      "claims": 1,
+      "raw_sha256": "94e2469cab84886c8aed974ecae800cac196b72953e3d16e9fd1bc35bcbb0e37",
+      "diagnostic": {
+        "code": "supported_documentary_assertion",
+        "stage": "documentary_verification",
+        "message": "Checked source-attributed assertions only; unresolved question obligations remain explicit and historical truth is unverified.",
+        "category": "source_support_established",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Review the diagnostic and source evidence before retrying."
+        ]
+      },
+      "host_wall_seconds": 0.2916800399980275
+    },
+    {
+      "id": "CRYPT-JACKALOPE-0040",
+      "input_hash": "f151a0e91ea389b2ecddd7f440322b2f64f4d201c46895e1d2c001fd02a72d87",
+      "execution_status": "completed",
+      "score_status": "UNSCORED",
+      "semantic_outcome": "partial_answer",
+      "answer_supported": false,
+      "claims": 1,
+      "raw_sha256": "f96932058ddfb3555db8770eabb19fe5990f35ec894d7cf4d6f571c2b04dfd80",
+      "diagnostic": {
+        "code": "partial_documentary_evidence",
+        "stage": "documentary_verification",
+        "message": "Checked source-attributed assertions only; unresolved question obligations remain explicit and historical truth is unverified.",
+        "category": "insufficient_evidence",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Review the diagnostic and source evidence before retrying."
+        ]
+      },
+      "host_wall_seconds": 0.2916201570042176
+    },
+    {
+      "id": "CRYPT-JACKALOPE-0041",
+      "input_hash": "e434596b90c76e3d5b8a2dae4ad69cc93611521bd1ca7729923321d8c5e589c4",
+      "execution_status": "completed",
+      "score_status": "UNSCORED",
+      "semantic_outcome": "supported_answer",
+      "answer_supported": true,
+      "claims": 1,
+      "raw_sha256": "a62dd1b6ce87a809aa4ddd728986f9a3c226464749526eee9ed555adcc4368aa",
+      "diagnostic": {
+        "code": "supported_documentary_assertion",
+        "stage": "documentary_verification",
+        "message": "Checked source-attributed assertions only; unresolved question obligations remain explicit and historical truth is unverified.",
+        "category": "source_support_established",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Review the diagnostic and source evidence before retrying."
+        ]
+      },
+      "host_wall_seconds": 0.33850309600529727
+    },
+    {
+      "id": "CRYPT-JACKALOPE-0042",
+      "input_hash": "cd70d29a1b84c6ef288ec9516f6e1d8792e2d7f1f462fb07812f9103be47df43",
+      "execution_status": "completed",
+      "score_status": "UNSCORED",
+      "semantic_outcome": "partial_answer",
+      "answer_supported": false,
+      "claims": 1,
+      "raw_sha256": "7aa182b91666fb0082b0af71bb7f3f68b774c8b089e41c5968d1135d5312d593",
+      "diagnostic": {
+        "code": "partial_documentary_evidence",
+        "stage": "documentary_verification",
+        "message": "Checked source-attributed assertions only; unresolved question obligations remain explicit and historical truth is unverified.",
+        "category": "insufficient_evidence",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Review the diagnostic and source evidence before retrying."
+        ]
+      },
+      "host_wall_seconds": 0.2893863929930376
+    },
+    {
+      "id": "CRYPT-JACKALOPE-0043",
+      "input_hash": "b7c9a052a09de04eb1c15b410b1681f61fdbf909f782795b6fd618ea73290709",
+      "execution_status": "completed",
+      "score_status": "UNSCORED",
+      "semantic_outcome": "supported_answer",
+      "answer_supported": true,
+      "claims": 1,
+      "raw_sha256": "afa15242273c142d75ecb9d3a397909cc6f0620364ccf0b2478d7c9bdfcd5085",
+      "diagnostic": {
+        "code": "supported_documentary_assertion",
+        "stage": "documentary_verification",
+        "message": "Checked source-attributed assertions only; unresolved question obligations remain explicit and historical truth is unverified.",
+        "category": "source_support_established",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Review the diagnostic and source evidence before retrying."
+        ]
+      },
+      "host_wall_seconds": 0.2903029689914547
+    },
+    {
+      "id": "CRYPT-JACKALOPE-0044",
+      "input_hash": "8be98a3de20693a0b7e1651f75ea82161d6388a90746cf4985e81bd4a92a769a",
+      "execution_status": "completed",
+      "score_status": "UNSCORED",
+      "semantic_outcome": "partial_answer",
+      "answer_supported": false,
+      "claims": 1,
+      "raw_sha256": "1e29def7dcf1bbc73727a3e0ca3340ad69adf07e0adaa86005b46ffd4047d3dc",
+      "diagnostic": {
+        "code": "partial_documentary_evidence",
+        "stage": "documentary_verification",
+        "message": "Checked source-attributed assertions only; unresolved question obligations remain explicit and historical truth is unverified.",
+        "category": "insufficient_evidence",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Review the diagnostic and source evidence before retrying."
+        ]
+      },
+      "host_wall_seconds": 0.34230360299989115
+    },
+    {
+      "id": "CRYPT-JACKALOPE-0045",
+      "input_hash": "5cb4117f8436aa7c38c9c12056508396fdd7082bee3fe36a6f992e5f88591b2a",
+      "execution_status": "completed",
+      "score_status": "UNSCORED",
+      "semantic_outcome": "abstain",
+      "answer_supported": false,
+      "claims": 0,
+      "raw_sha256": "536f0ad171b7ffbcb251dc153b564c5199ee8f6bb490e789a3070864853f6439",
+      "diagnostic": {
+        "code": "interpretation_unsupported",
+        "stage": "strict",
+        "message": "Eligible passages exist, but the strict reader cannot establish an answer to this question.",
+        "category": "unsupported_question_grammar",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Inspect the relevant source. Try a supported question form or explicitly select a configured assisted reader; do not treat this refusal as proof that the answer is absent."
+        ]
+      },
+      "host_wall_seconds": 0.29137333200196736
+    },
+    {
+      "id": "CRYPT-JACKALOPE-0046",
+      "input_hash": "7f54160c22d123983c9c34584f2c33478b63656ceb2001d8b490ead26a8beed9",
+      "execution_status": "completed",
+      "score_status": "UNSCORED",
+      "semantic_outcome": "abstain",
+      "answer_supported": false,
+      "claims": 0,
+      "raw_sha256": "b44ac902cfdc9085b2f05d7911162f6ca3fdc022a0dee0e5e56dcb9791cc47d6",
+      "diagnostic": {
+        "code": "interpretation_unsupported",
+        "stage": "strict",
+        "message": "Eligible passages exist, but the strict reader cannot establish an answer to this question.",
+        "category": "unsupported_question_grammar",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Inspect the relevant source. Try a supported question form or explicitly select a configured assisted reader; do not treat this refusal as proof that the answer is absent."
+        ]
+      },
+      "host_wall_seconds": 0.29088598299131263
+    },
+    {
+      "id": "CRYPT-JACKALOPE-0047",
+      "input_hash": "68ba45b2877e1c365c94c7382974c20773acbf238224702fb79b7a39ea197e8b",
+      "execution_status": "completed",
+      "score_status": "UNSCORED",
+      "semantic_outcome": "abstain",
+      "answer_supported": false,
+      "claims": 0,
+      "raw_sha256": "a50a5e7ff86d77cbd90b76b54db06b65cbb120e7de23d7c8fa58ec80aaa5bd74",
+      "diagnostic": {
+        "code": "interpretation_unsupported",
+        "stage": "strict",
+        "message": "Eligible passages exist, but the strict reader cannot establish an answer to this question.",
+        "category": "unsupported_question_grammar",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Inspect the relevant source. Try a supported question form or explicitly select a configured assisted reader; do not treat this refusal as proof that the answer is absent."
+        ]
+      },
+      "host_wall_seconds": 0.2901609910040861
+    },
+    {
+      "id": "CRYPT-JACKALOPE-0048",
+      "input_hash": "46b28c58080b6e90072dfc2047ec9c48a98bde98fe0bd8a2c9c132162863abc8",
+      "execution_status": "completed",
+      "score_status": "UNSCORED",
+      "semantic_outcome": "abstain",
+      "answer_supported": false,
+      "claims": 0,
+      "raw_sha256": "2235348d88714c234e391f42b3df183efb5c1bab9536f7109fb400d9721eb753",
+      "diagnostic": {
+        "code": "documentary_assertion_not_established",
+        "stage": "documentary_verification",
+        "message": "Checked source-attributed assertions only; unresolved question obligations remain explicit and historical truth is unverified.",
+        "category": "insufficient_evidence",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Review the diagnostic and source evidence before retrying."
+        ]
+      },
+      "host_wall_seconds": 0.338837641000282
+    },
+    {
+      "id": "CRYPT-JACKALOPE-0049",
+      "input_hash": "d1986625facc9b12e7abe1eb5a5d5eab661c49a1796c4402e4a88d6ff7ca14d9",
+      "execution_status": "completed",
+      "score_status": "UNSCORED",
+      "semantic_outcome": "abstain",
+      "answer_supported": false,
+      "claims": 0,
+      "raw_sha256": "f731672f97d34f9b71c24bf32ec7cecc6d40de71ddad270b572d25200b7c159f",
+      "diagnostic": {
+        "code": "interpretation_unsupported",
+        "stage": "strict",
+        "message": "Eligible passages exist, but the strict reader cannot establish an answer to this question.",
+        "category": "unsupported_question_grammar",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Inspect the relevant source. Try a supported question form or explicitly select a configured assisted reader; do not treat this refusal as proof that the answer is absent."
+        ]
+      },
+      "host_wall_seconds": 0.3410420269938186
+    },
+    {
+      "id": "CRYPT-JACKALOPE-0050",
+      "input_hash": "592eb83cb74b523a9bbcc109748cece3a9625ac900fa0931a3a0bfefbf5ca530",
+      "execution_status": "completed",
+      "score_status": "UNSCORED",
+      "semantic_outcome": "abstain",
+      "answer_supported": false,
+      "claims": 0,
+      "raw_sha256": "891b5280f0d1d9f9bf1c8a37d91f0c73503823af137a2b17304679e63b2a2133",
+      "diagnostic": {
+        "code": "interpretation_unsupported",
+        "stage": "strict",
+        "message": "Eligible passages exist, but the strict reader cannot establish an answer to this question.",
+        "category": "unsupported_question_grammar",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Inspect the relevant source. Try a supported question form or explicitly select a configured assisted reader; do not treat this refusal as proof that the answer is absent."
+        ]
+      },
+      "host_wall_seconds": 0.3018830990040442
+    },
+    {
+      "id": "CRYPT-JACKALOPE-0051",
+      "input_hash": "7704a0df86d75b21d0cac7eedfa620ac56565af33aee17d9e053095d034c509d",
+      "execution_status": "completed",
+      "score_status": "UNSCORED",
+      "semantic_outcome": "abstain",
+      "answer_supported": false,
+      "claims": 0,
+      "raw_sha256": "d691e077a04bbc996f4d953eda1c744429d2878acbc2adc05c3d74ef007f941c",
+      "diagnostic": {
+        "code": "restricted_or_unavailable",
+        "stage": "eligibility",
+        "message": "No eligible body passages are available under this question and profile; corpus absence is not established.",
+        "category": "absent_eligible_source",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Check source integrity and delivery restrictions; restore or revise the source through the normal workflow, then ask again."
+        ]
+      },
+      "host_wall_seconds": 0.29216599398932885
+    },
+    {
+      "id": "CRYPT-JACKALOPE-0052",
+      "input_hash": "ac74427416fd0d5b305c77fec0062bf8cb499b3af6f8fb534ff227d61a9fd233",
+      "execution_status": "completed",
+      "score_status": "UNSCORED",
+      "semantic_outcome": "abstain",
+      "answer_supported": false,
+      "claims": 0,
+      "raw_sha256": "f8edffdac9e9ffc2b99524aa8659b6a4a94c273866e895ba9da6f687d9b17bcb",
+      "diagnostic": {
+        "code": "restricted_or_unavailable",
+        "stage": "eligibility",
+        "message": "No eligible body passages are available under this question and profile; corpus absence is not established.",
+        "category": "absent_eligible_source",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Check source integrity and delivery restrictions; restore or revise the source through the normal workflow, then ask again."
+        ]
+      },
+      "host_wall_seconds": 0.23934631900920067
+    },
+    {
+      "id": "CRYPT-JACKALOPE-0053",
+      "input_hash": "c080c6296b0cad8cc179342a7d1c7d1918407ca6f0d23c9bd6a2764590ec2c15",
+      "execution_status": "completed",
+      "score_status": "UNSCORED",
+      "semantic_outcome": "abstain",
+      "answer_supported": false,
+      "claims": 0,
+      "raw_sha256": "d0a5347211ec0398477b650b7dc067070d2e9296ded1380f67c20a11ceda7ba9",
+      "diagnostic": {
+        "code": "restricted_or_unavailable",
+        "stage": "eligibility",
+        "message": "No eligible body passages are available under this question and profile; corpus absence is not established.",
+        "category": "absent_eligible_source",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Check source integrity and delivery restrictions; restore or revise the source through the normal workflow, then ask again."
+        ]
+      },
+      "host_wall_seconds": 0.23982627400255296
+    },
+    {
+      "id": "CRYPT-JACKALOPE-0054",
+      "input_hash": "d2e217586e05d63d7cb3a9db1e0f6b8252ab755aa21fe71dc420d838eeb2c878",
+      "execution_status": "completed",
+      "score_status": "UNSCORED",
+      "semantic_outcome": "abstain",
+      "answer_supported": false,
+      "claims": 0,
+      "raw_sha256": "75c77fc8bf5c1ca49e56eca8b75fd7bba0a5aba2ef3cade069a7219c8ab3748d",
+      "diagnostic": {
+        "code": "restricted_or_unavailable",
+        "stage": "eligibility",
+        "message": "No eligible body passages are available under this question and profile; corpus absence is not established.",
+        "category": "absent_eligible_source",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Check source integrity and delivery restrictions; restore or revise the source through the normal workflow, then ask again."
+        ]
+      },
+      "host_wall_seconds": 0.2385745810024673
+    }
+  ]
+}

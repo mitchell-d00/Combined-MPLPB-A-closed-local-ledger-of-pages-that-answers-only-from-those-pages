@@ -18,7 +18,7 @@ Protecting checks:
 python -m unittest discover -s tests -q
 ```
 
-Measured status: Checked source7f6641d ran1,810 tests; first transfer16/24 remains failed, fresh composition24/24 is separately scoped.
+Measured status: The earlier release evidence remains pinned to its tested source. The [local Cryptid programme](../../evaluation/cryptid/README.md) now records sequential date, wording, modality, identity, correction, link, structure and fixed-cap studies. Its [machine inventory](../../evaluation/cryptid/programme.json) separates executed, failed, consumed-transfer and unperformed work. This branch is LOCAL_ONLY; these experiments have not been published.
 
 Open work: Keep failed attempts, execution accounting, scoring amendments, source pins and custody limits visible.
 

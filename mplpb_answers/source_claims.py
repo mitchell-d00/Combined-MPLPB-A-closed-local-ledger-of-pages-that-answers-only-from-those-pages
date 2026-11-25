@@ -137,7 +137,7 @@ def verify(index,max_passages,max_chars):
     if goal is None:return None
     fresh=PassageIndex(index.root,index.question,index.profile)
     if len(fresh.records)>8 or sum(len(r.body_html) for r in fresh.records)>200000:return 'abstain','reference_scan_budget',{}
-    matches=[];used=0;unresolved=False;alternatives=[]
+    matches=[];used=0;unresolved=False;alternatives=[];unparsed_units=[]
     for record in fresh.records:
         body=body_text(record.body_html)
         # Layout witnesses consume the same source-unit budget as content.
@@ -156,7 +156,11 @@ def verify(index,max_passages,max_chars):
                 unresolved=True
                 alternatives.append(kernel.citation(record,body,a,b))
             if b-a>2200:
-                if kernel.normalized(goal['object']) in kernel.normalized(text):unresolved=True
+                if kernel.normalized(goal['object']) in kernel.normalized(text):
+                    unresolved=True
+                    unparsed_units.append({'source_id':record.id,'path':record.path,'hash':record.hash_actual,
+                        'body_start':a,'body_end':b,'characters':b-a,'reason':'statement_phrase_budget',
+                        'limit':2200,'claim_verified':False})
                 previous=unit;continue
             derived=_derive(record,body,unit,previous,info);previous=unit
             if derived is None:
@@ -201,7 +205,9 @@ def verify(index,max_passages,max_chars):
     for s in sources:
         if s not in unique:unique.append(s)
     missing=['A source qualification or revocation has an unresolved target; the stated claim is retained as a checked partial.'] if unresolved else []
-    return ('conflict' if conflict else 'partial_answer' if unresolved else 'supported_answer'),('source_claim_conflict' if conflict else 'partial_source_claim' if unresolved else 'supported_source_claim'),{
+    if unparsed_units:
+        missing=['A source qualification or counterevidence unit exceeds the 2,200-character phrase limit; full proof is unresolved and the cited statement remains a checked partial.']
+    result = ('conflict' if conflict else 'partial_answer' if unresolved else 'supported_answer'),('source_claim_conflict' if conflict else 'partial_source_phrase_budget' if unparsed_units else 'partial_source_claim' if unresolved else 'supported_source_claim'),{
         'answer_supported':not conflict and not unresolved,'claims':claims,'sources':unique,'missing':missing,
         'text':'\n'.join(c['text']+' '+' '.join(c['qualifiers']) for c in claims)+ ('\nUnresolved: '+missing[0] if missing else ''),
         'verification':{'structural':True,'semantic':VERSION,'truth_verified':False,'independence_verified':False},
@@ -209,3 +215,10 @@ def verify(index,max_passages,max_chars):
             'claim_frame_version':FRAME_VERSION,'historical_truth_independently_verified':False,
             'scan_complete':True,'examined_units':used,'alternative_evidence':alternatives,'max_records':8,'max_source_characters':200000,
             'max_units':1000,'max_passages':max_passages,'max_characters':max_chars}}
+
+    if unparsed_units:
+        room=max(0,max_passages-len(spans))
+        result[2]['documentary_support'].update(proof_complete=False,
+            unparsed_relevant_units=unparsed_units[:room],omitted_unparsed_unit_locators=max(0,len(unparsed_units)-room),
+            max_statement_characters=2200)
+    return result

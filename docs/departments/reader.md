@@ -18,7 +18,7 @@ Protecting checks:
 python -m unittest tests.test_reported_content tests.test_documentary_byline_units -v
 ```
 
-Measured status: 280/280 targeted/preservation decisions and24/24 fresh same-operator composition transfer on checked source7f6641d. This is not overall answer coverage.
+Measured status: Released comparisons are revision-specific. Current local changes and retained failures are in the [Cryptid programme](../../evaluation/cryptid/README.md) and [shared-rule-to-case map](../../evaluation/cryptid/shared-rules.json). Source support, useful partials, unproved execution and unresolved identity remain separate; these studies do not establish broad reading coverage or independent historical accuracy.
 
 Open work: Broader wording, modality, identity and multi-obligation coverage remain open.
 
