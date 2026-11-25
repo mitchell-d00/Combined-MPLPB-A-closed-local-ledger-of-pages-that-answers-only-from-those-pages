@@ -167,7 +167,7 @@ def dated_statements(quote):
     # The document, rather than a named actor, may be the grammatical subject.
     # This establishes only the explicitly stated date role, never its writer,
     # sender, recipient, historical occurrence or any unstated adjacent role.
-    document_subject=r'(?:[Tt]his record|[Tt]he [^.!?;:"“”]{2,120}?)'
+    document_subject=r'(?:[Tt]his\s+record|[Tt]he\s+[^.!?;:"“”]{2,120}?)'
     document=re.fullmatch('('+document_subject+r')\s+was\s+(written|sent|received|published)\s+on\s+('+DATE_EXPRESSION+r')\.',quote,re.I)
     if document:
         subject,verb,date_text=document.groups()

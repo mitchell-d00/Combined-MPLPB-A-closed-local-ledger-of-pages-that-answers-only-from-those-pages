@@ -4,8 +4,8 @@ Last reviewed: 2026-11-25.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `56e2607e7558fbb4e66d3bcefad512a73d8ab81e` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `9b38c716fc4a3952a821f8282ccec818a4baa1fd0babffe2643182bd615cbc3d`.
+Base commit: `cc94520ec87de5a6a24acd8407e9a94b31badb46` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `39271071d696d7e88ca633e3038c7431f36fb5455f14a02a1854c55287463b8d`.
 
 ## Betty report for Al
 
@@ -35,6 +35,8 @@ Run Betty — local Cryptid test programme. Start from current main. Complete th
 - Documentation audit first failed on26unclassified copied frozen source texts; failure retained. Added historical hash classifications without altering source bytes.
 - Committed Mothman ZIP a439ddc2 SHAe00d606d708a3758b8e7775766d01014fa4e5faf7232800aa6a56d08cb20061e reproduces25/28 and41focused. First transfer16executed once:8/16,0/8positive,8/8withhold,0false support. Failed transfer retained and consumed as development.
 - Candidate4 consumed-transfer development16/16,0false support, but original development regressed25/28→23/28:two wrapped This-record writing witnesses lost. Candidate4 rejected; fresh24still sealed.
+- Candidate4preservation278/280 exposed2lost wrapped-source recoveries, rejected archive retained. Candidate5restores25/28original,16/16consumed development,0false support and280/280preservation (275exact unchanged+5checked recoveries).
+- Candidate5:41focused date/inspection and169inherited native controls pass,0skips. Original3development misses remain. Fresh24still sealed, not scored.
 
 ### Limitations and blocked checks
 
@@ -44,7 +46,7 @@ Run Betty — local Cryptid test programme. Start from current main. Complete th
 
 ### Next steps
 
-- Retain candidate4 then repair source whitespace without changing original questions, inputs, key or date words. Complete preserved controls and committed ZIP before fresh transfer.
+- Commit and archive candidate5, verify/test ZIP extraction, then open fresh24once; finish Mothman report and continue Jackalope.
 - Run all series sequentially and finish a local committed-ZIP review package. No remote publication.
 
 ## Use this ZIP in your repository

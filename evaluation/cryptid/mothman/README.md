@@ -34,3 +34,7 @@ All original sources and original dates remain frozen. Existing native caps are 
 ## First transfer retained
 
 Committed scoped ZIP `a439ddc2c9e438863383b90c41d995d274785847`, SHA-256 `e00d606d708a3758b8e7775766d01014fa4e5faf7232800aa6a56d08cb20061e`, reproduced25/28development and41/41focused checks from extraction. Once-only transfer **8/16 decisions;0/8positives,8/8withholds;0false support**. Explicit named-document passive date clauses are unrecognized. This is a failed transfer claim, retained as development material. A fresh24case packet is sealed before the next native repair; same-operator/template exposure limits apply.
+
+## Consumed transfer repair
+
+Candidate4 recovered16/16 consumed decisions but regressed two original wrapped sources (23/28development;278/280preservation); it is rejected and archived. Candidate5 preserves whitespace in document subjects and restores **25/28 original development,16/16 consumed development,280/280 preservation (275unchanged+5checked recoveries),41focused and169inherited native checks**. Three original standalone-role positives remain unresolved. Consumed results are development, never fresh transfer. The fresh24case packet remains sealed before committed candidate5ZIP testing.

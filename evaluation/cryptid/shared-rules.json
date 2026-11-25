@@ -3,7 +3,7 @@
   "rules": [
     {
       "id": "DOCUMENTARY-DATE-ROLES",
-      "operation": "Complete question role plan; eligible full-source date predicate scan; exact role witnesses and joint uniqueness; unparsed writing counterevidence blocks completion",
+      "operation": "Complete question role plan; eligible full-source date predicate scan; exact role witnesses and joint uniqueness; unparsed writing counterevidence blocks completion; explicit document passive role/date clauses, with source whitespace preserved",
       "implementation": [
         "mplpb_answers/documentary_verify.py"
       ],
@@ -53,7 +53,25 @@
         "tests.test_pinned_documentary_inspection",
         "169 inherited native controls"
       ],
-      "caps_changed": false
+      "caps_changed": false,
+      "consumed_transfer_cases": [
+        "CRYPT-MOTHMAN-T0001",
+        "CRYPT-MOTHMAN-T0002",
+        "CRYPT-MOTHMAN-T0003",
+        "CRYPT-MOTHMAN-T0004",
+        "CRYPT-MOTHMAN-T0005",
+        "CRYPT-MOTHMAN-T0006",
+        "CRYPT-MOTHMAN-T0007",
+        "CRYPT-MOTHMAN-T0008",
+        "CRYPT-MOTHMAN-T0009",
+        "CRYPT-MOTHMAN-T0010",
+        "CRYPT-MOTHMAN-T0011",
+        "CRYPT-MOTHMAN-T0012",
+        "CRYPT-MOTHMAN-T0013",
+        "CRYPT-MOTHMAN-T0014",
+        "CRYPT-MOTHMAN-T0015",
+        "CRYPT-MOTHMAN-T0016"
+      ]
     }
   ],
   "planned_families": [

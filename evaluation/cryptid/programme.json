@@ -15,7 +15,7 @@
       "family": "MOTHMAN",
       "id_prefix": "CRYPT-MOTHMAN",
       "mechanism": "Explicit documentary dates fail to bind to their stated roles; writing is not transmission or occurrence.",
-      "status": "TRANSFER_FAILED_CONSUMED",
+      "status": "FRESH_TRANSFER_PENDING",
       "responsible_department": "testing-evaluation",
       "implementation_departments": [
         "reader",
@@ -38,12 +38,12 @@
         "checked_partials": 0,
         "positive_misses": 3,
         "false_support": 0,
-        "wrap_passed": 8,
-        "inherited_native_passed": 169,
+        "raw": "mothman/runs/candidate-5/run.json",
+        "score": "mothman/scores/candidate-5-v2.json",
         "preservation_unchanged": 275,
         "preservation_recovered_complete": 5,
-        "raw": "mothman/runs/candidate-3/run.json",
-        "score": "mothman/scores/candidate-3-v2.json"
+        "inherited_native_passed": 169,
+        "focused_passed": 41
       },
       "transfer": {
         "cases": 16,
@@ -56,6 +56,12 @@
       "fresh_transfer": {
         "cases": 24,
         "status": "SEALED_NOT_RUN"
+      },
+      "consumed_transfer_development": {
+        "cases": 16,
+        "passed": 16,
+        "false_support": 0,
+        "score": "mothman/scores/consumed-development-c5-v2.json"
       }
     },
     {
