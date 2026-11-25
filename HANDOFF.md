@@ -4,8 +4,8 @@ Last reviewed: 2026-11-25.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `629d08854b6075af2b8a4a7a224bc189a49feffa` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `50faf65734f1991bb7b0136f29ed96d1fdb59720af2069cd9295877d77583a7b`.
+Base commit: `3e1f6bb303c17939e5c65da8c7388ca0b3eb7585` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `1ebaab028a78453d2c635af209a50193cfea3c0f4b932985d1417c5759f66d39`.
 
 ## Betty report for Al
 
@@ -25,6 +25,7 @@ Run Betty — local Cryptid test programme. Start from current main. Complete th
 - Verified clean starting main and actual remote main SHA match c01021c0b9983f9a607fbe782dea7ed5872d1f11
 - Required sandbox command: default nested namespaces BLOCKED two checks; host execution real Bubblewrap PASS4/4. Both transcripts retained.
 - Frozen Mothman28 development executions completed on unchanged c01021c0:17 expected decisions pass,11positive misses,0false-supported claims. All five unchanged old date-role cases reproduced. Baseline/raw outputs, exact source hashes, harness/scorer/generator and sealed16case transfer retained before native edits.
+- Mothman candidate1 retained:28 completed,21/28 v1scores,4claimed false-support flags (two are line-wrapped date representation mismatches),5positive-miss flags. Existing33date/inspection controls pass. Candidate NOT accepted; transfer unopened.
 
 ### Limitations and blocked checks
 
@@ -34,7 +35,7 @@ Run Betty — local Cryptid test programme. Start from current main. Complete th
 
 ### Next steps
 
-- Patch only evidenced shared date-role planning/proof gaps; rerun identical28 and preservation; commit ZIP before opening sealed transfer once.
+- Retain candidate1; distinguish line-wrap scoring errors from joint-role incompleteness, repair and rescore with versioned scorer correction; no labels or inputs changed.
 - Run all series sequentially and finish a local committed-ZIP review package. No remote publication.
 
 ## Use this ZIP in your repository

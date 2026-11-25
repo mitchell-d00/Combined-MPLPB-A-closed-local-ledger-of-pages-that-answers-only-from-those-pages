@@ -25,13 +25,22 @@ DATE_DOCUMENT_CHARS = 16000
 MONTHS = ('January February March April May June July August September October November December').split()
 DATE_EXPRESSION = r'(?:'+'|'.join(MONTHS)+r')\s+\d{1,2}(?:st|nd|rd|th)?(?:,?\s+\d{4})?'
 SITE_KINDS = ('fort', 'harbour', 'harbor', 'city', 'town', 'port')
-DATE_ROLES = {'bombardment','surrender','evacuation','departure','arrival','publication','revision','sending','receipt',
+DATE_ROLES = {'bombardment','surrender','evacuation','departure','arrival','publication','revision','sending','receipt','writing','catalogue','review',
               'telegram','letter','report','memorandum','dispatch'}
 
 
 def date_inventory_request(question):
     """A complete, source-bounded date question; factual additions never vanish."""
     q=source_question(question).strip().rstrip('? .')
+    # Documentary role labels are an inspection plan. Keep the full original
+    # question on the index for policy, proof and final current-state checks.
+    q=re.sub(r'\.\s+Keep unknown matters unresolved$', '', q, flags=re.I)
+    paired=re.fullmatch(r'Distinguish the (reported sending date) and the (writing date) for (.{2,120})',q,re.I)
+    if paired:
+        subject=re.sub(r'^the\s+', '', paired[3], flags=re.I)
+        if re.search(r'\b(?:and|or|if|unless|because|prove|establish|not)\b|[;:?!]',subject,re.I):return None
+        return {'roles':['sending','writing'],'subject_text':subject,
+                'scope':'explicit statements in one eligible source record'}
     m=re.fullmatch(r'Distinguish (?:the )?([a-z, ]{3,160}) dates in (?:the )?(.{2,120}) record'
                   r'(?:, without treating (?:the )?webpage review date as an event date)?',q,re.I)
     if m:
@@ -152,9 +161,17 @@ def dated_statements(quote):
     if catalogue and not META.search(quote[:catalogue.start()]):
         add(catalogue[1].lower(),catalogue[2],'source_catalogue_document_date',catalogue[0],
             dispatch_verified=False,receipt_verified=False,field_span=[catalogue.start(),catalogue.end()])
+        add('catalogue',catalogue[2],'source_catalogue_document_date',catalogue[0],
+            dispatch_verified=False,receipt_verified=False,field_span=[catalogue.start(),catalogue.end()])
+    writing=re.fullmatch(r'This\s+record\s+was\s+written\s+on\s+('+DATE_EXPRESSION+r')\.',quote,re.I)
+    if writing:
+        add('writing',writing[1],'explicit_record_writing_date',quote,
+            sending_established=False,receipt_established=False,event_occurrence_established=False)
     review=re.fullmatch(r'This page was last reviewed on ('+DATE_EXPRESSION+r')\.',quote,re.I)
-    if review:add('webpage_review',review[1],'webpage_review',quote,support_scope='textual_occurrence')
-    m=re.fullmatch(r'(?:On |At (\d{1,2}:\d{2}\s*[ap]\.m\.),\s*)('+DATE_EXPRESSION+r'),\s*(.{2,500})\.',quote,re.I)
+    if review:
+        add('webpage_review',review[1],'webpage_review',quote,support_scope='textual_occurrence')
+        add('review',review[1],'webpage_review',quote,support_scope='textual_occurrence')
+    m=re.fullmatch(r'(?:On |At (\d{1,2}:\d{2}\s*[ap]\.m\.),\s*)('+DATE_EXPRESSION+r'),\s*(.{2,500})\.',quote,re.I|re.S)
     if not m:return links
     time_text,date_text,predicate=m.groups(); tail=predicate
     if (re.search(r'[:;!?“”"]',predicate) or
@@ -167,7 +184,7 @@ def dated_statements(quote):
     # Additional coordinated predicates cannot hide behind the object slot.
     if re.search(r'\b(?:and|or|then|before|after|because)\b',tail,re.I):return links
     for role,verb in predicates.items():
-        parsed=re.fullmatch(r'(.{2,120}?) ('+verb+r') (.{2,250})',tail,re.I)
+        parsed=re.fullmatch(r'(.{2,120}?)\s+('+verb+r')\s+(.{2,250})',tail,re.I|re.S)
         if not parsed:continue
         actor,action,obj=parsed.groups()
         # An actor is a literal name or one small declared collective-noun
