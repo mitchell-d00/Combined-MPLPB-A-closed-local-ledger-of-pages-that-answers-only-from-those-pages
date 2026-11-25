@@ -4,8 +4,8 @@ Last reviewed: 2026-11-25.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `42a61f3df4089dd42c126fd1a9c948faf5e6d321` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `a40d32a1e6cf8848cc127139a3f7dbee7afa044a4bb4c8b383e4c860f1155f67`.
+Base commit: `2f14a1495f7817f441ea2fd078c54048afaef86a` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `9cbb4f7703207f1b760d479ca269f33f1b30fabc85f1e80c7425e4c8664a14d3`.
 
 ## Betty report for Al
 
@@ -41,6 +41,7 @@ Run Betty — local Cryptid test programme. Start from current main. Complete th
 - Final Mothman committed scopedZIP42a61f3df4089dd42c126fd1a9c948faf5e6d321 SHA591148ecb3ed8c0dfe643acf608ce9b3e0d60d1f01d200eb92c6b7a30081b68a:extracted25/28development and41/41focused.
 - Fresh24executed once after candidate freeze:24/24decisions,8/8positive,16/16withhold,0false support,0reader execution failures. Fourpositive structural transfers andfourlimited substitutions; sameoperator templates visible.
 - Premature extracted focused-test launch failed before process creation; retained separately, retried only after directory existed. Default sandbox launch failures also retained; no unsandboxed worker fallback.
+- Jackalope54baseline completed before native changes:34expected decisions,2complete+2checked partials,20positive misses(18interpretation/2letter-boundary proof),30withholds,0false-supported claims. v1mistook9claim-free abstentions for false support; original score and v2accounting correction retained, no source/key changes. Native discovery finds all required positive witnesses.
 
 ### Limitations and blocked checks
 
@@ -50,7 +51,7 @@ Run Betty — local Cryptid test programme. Start from current main. Complete th
 
 ### Next steps
 
-- Start Jackalope question-wording baseline/freeze on current local reader. Keep original questions at policy/proof gates; preserve all prior valid claims, citations and source-state controls.
+- Repair shared action-question interpretation, retain original full question for policy/proof, measure identical54+preservation. Letter header-boundary misses remain separately classified; transfer unopened until committed candidate ZIP.
 - Run all series sequentially and finish a local committed-ZIP review package. No remote publication.
 
 ## Use this ZIP in your repository

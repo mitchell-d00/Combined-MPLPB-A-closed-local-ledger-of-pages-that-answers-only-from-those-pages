@@ -78,13 +78,29 @@
       "family": "JACKALOPE",
       "id_prefix": "CRYPT-JACKALOPE",
       "mechanism": "Ordinary question forms fail to reach shared evidence operations while keeping all original obligations.",
-      "status": "PLANNED",
+      "status": "BASELINE_COMPLETED",
       "responsible_department": "testing-evaluation",
       "implementation_departments": [
         "reader",
         "ledger"
       ],
-      "runtime_labels_are_rules": false
+      "runtime_labels_are_rules": false,
+      "baseline": {
+        "cases": 54,
+        "passed": 34,
+        "complete": 2,
+        "checked_partials": 2,
+        "positive_misses": 20,
+        "false_support": 0,
+        "interpretation_misses": 18,
+        "proof_misses": 2,
+        "raw": "jackalope/runs/baseline/run.json",
+        "score": "jackalope/scores/baseline-v2.json"
+      },
+      "transfer": {
+        "cases": 24,
+        "status": "SEALED_NOT_RUN"
+      }
     },
     {
       "order": 4,
