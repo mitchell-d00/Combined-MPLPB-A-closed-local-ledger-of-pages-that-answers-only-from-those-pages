@@ -4,8 +4,8 @@ Last reviewed: 2026-11-25.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `16948d5ec5901870c3e884f68e7bc1fffb6fa2b4` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `53b83d0080020f63b67362fda613ef19071d6557c820d903a522cb9b2f062328`.
+Base commit: `734f9cfbe30e1ec16b185b4ec902385600864a4d` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `2c9d7a3faa4ccbc121fe08b080d74f766d338238680e36b6f6d1aba827ecc1e1`.
 
 ## Betty report for Al
 
@@ -67,6 +67,9 @@ Continue all authorized work in sequence, test/fix/merge; next newPR expected104
 - Freeze source-linked proposal trial72development/24sealed transfer and baseline before native implementation. Retain exact uncommitted prototype and host scorer-reporting correction.
 - Prepare seven department navigation pages and explicit component routing, preserving all implementation/import/command/evaluation/history paths. Native tag API not yet added at this preparation commit.
 - Prepare compact onboarding materials with the exact small native wheel and five fixed synthetic tasks; no human observations yet.
+- Add opt-in native source-linked proposal inspection using full ordinary native proof, explicit source pins, canonical/original containment and current eligibility; production answering remains unchanged.
+- Complete seven department entry pages, component routing and Test Index family ownership. Root leads TryMPLPB→Departments→Evidence; contributor protocol preserved below first-use sections.
+- Freeze two400KBnative onboarding ZIPs with identical wheel/collection/tasks/interface; only ENTRY documents differ. Helper verifies exact installed runtime and collection. Human executionNOT_RUN.
 
 ### Validation recorded
 
@@ -76,22 +79,25 @@ Continue all authorized work in sequence, test/fix/merge; next newPR expected104
 - Source-tag baseline72isolated executions complete and raw72/72supported; tag API unavailable, semantic tag checksNOT_RUN. Frozen worker excludes keys/generator/scorer/Git/credentials/network.
 - Uncommitted tag prototype72/72decisions,6valid66tamper,0wrongassignments,0recoveredanswers; raw contracts unchanged exceptfingerprints. Prototype source/raw hashes retained; fresh24still unopened.
 - Native wheel70db08aec72861cc17fea8bc08b7eb6bc7986764e4adf47d0e04ead496253303 is400276bytes from checked7fsource. Isolated installed-wheel helper opens actual cited passage; fixed collection repeats byte-for-byte. These are software checks, not human observations.
+- PR103 Pages45670095889completed successfully, public postdeployChromium plus a separate verified-TLS/SPKI observer pass; allsixcore module fingerprints match before/after full live UI,local-document andNPC/reload journeys.
+- Source-tag15additional state/budget/ambiguity/mutation/original-containment guards pass; portable generator with explicit original17:31clock reproduces development manifest/key/seal byte-for-byte. Original generator and runner versions retained unchanged.
+- Onboarding actualtwoZIPs extracted, installed-wheel helpers run under isolatedPython, allfive native contracts and opened citation identical. Frozen package parity plus scoring7arithmetic controls pass; zero human observations.
 
 ### Limitations and blocked checks
 
-- Source-tag trial is proposal validation over already-supported native report forms; no broader reading or answer-coverage gain demonstrated.
-- Independent historical accuracy,semantic adjudication,preparation/blinding,outside-custodian scoring,native OOCC remainNOT_RUN. Same operator designed templates and scored.
-- Human onboarding executionNOT_RUN; Mitchell recruits real participants. Frozen entry versions, rubric and actual observations must remain distinct from software checks.
-- PR103 main deployment/live verification pending; next tag candidate ZIP/fresh transfer and exact-head release gates pending.
-- Department structure is navigation only; file moves require a separately tested old/new migration map.
-- Original first transfer16/24failed, wider unit-counter candidate rejected, original scorer/gate failures retained; none relabeled as passes.
+- Tag inspection validates proposals over already-supported native report-content goals. It addszero demonstrated answer recovery; date/famous/inferred-identity and arbitrary claim tags remain unverified.
+- Native ordinary answering,partials,profiles,budgets,source checks and earlier cases must remain preserved; combined committedZIP/full replay and fresh24still pending.
+- Human onboardingNOT_RUN; Mitchell recruits and returns actual uncoached observations. Exact wheel/documents/collection/tasks/rubric frozen; software journeys are not people.
+- Independent historical accuracy,semantic adjudication,preparation/blinding,outside-custodian scoring and native OOCC remainNOT_RUN.
+- No implementation moved. Navigation/path coverage is separate from runtime or user-experience evidence.
+- PR103 allfouroutstandingPRsmergedandliveverified; retained firsttransferfailure16/24, rejected counter-changing candidate, original scorer/gate failures remain failed.
 
 ### Next steps
 
-- Verify deployed main16948d5 with actual Chromium and core module hashes; update PR103 final report.
-- Add/test opt-in native source-linked proposal checker, preserve all raw reader contracts, freeze committed ZIP and run fresh24once; do not treat zero answer recovery as coverage gain.
-- Finish department navigation/Test Index ownership and freeze two onboarding arms for Mitchell; keep actual human outcomesNOT_RUN until returned.
-- Open next newPR104, pass exact-head archive and regression gates, merge and verify live/main clean with no open PRs.
+- Freeze committed104candidateZIP, verifyextraction,run72development and280preservation plus fullsoftware/native/WASM/Chromium gates.
+- Run reserved24tag packet once aftercandidatefreeze; retainfailures with no transfer-informedrepair claim on that packet.
+- Publishcurrent104report withactualscoped outcomes, testedcommit,ZIPchecksum,pendingchecksandNOT_RUN labels; pass exact-headCI,mergeandverifydeployedmain/nofurtheropenPRs.
+- Mitchell administers12humanpilot andreturnsactualforms/logs;humanresults stayNOT_RUN until then.
 
 ## Use this ZIP in your repository
 

@@ -189,3 +189,11 @@ output when adding evidence. Keep raw outputs separate from the grading key.
 ## Source-linked proposals: ST-D / ST-T
 
 Responsible department: [Testing and Evaluation](departments/testing-evaluation.md), protecting [Reader](departments/reader.md) and [Intake and Research](departments/intake-research.md). [Frozen source-tag trial](../evaluation/source-tags/2026-11-25/README.md) retains72development inputs and baseline plus a sealed24-case future packet. Baseline tag checks are NOT_RUN; prototype validation adds no answer coverage. No committed/fresh candidate acceptance is claimed at this preparation snapshot.
+
+## Department ownership
+
+[Testing and Evaluation](departments/testing-evaluation.md) maintains frozen inputs, keys, custody, run records and scoring. Every family in [results.json](results.json) names its responsible department and protected implementation departments. Reader owns answer/proof behavior; Ledger owns record/eligibility behavior; Intake and Research owns proposals/discovery; Work Coordination owns permissions/dispatch; Applications owns interfaces; Delivery and Project Operations owns release and handoff gates. The [component routing map](departments/components.json) preserves every existing path. `python tools/audit_departments.py` checks path coverage and entry sections; it does not test semantic accuracy.
+
+**ST-GUARD:** [15native source-tag controls](../tests/test_source_tags.py), including stale/withdrawn/corrupt/missing sources, role/original containment, eligible conflict, budget stops, source mutation and host-policy withholds. [Schema and limits](../evaluation/source-tags/2026-11-25/SCHEMA.md).
+
+**ONBOARD-12:** [Frozen protocol/materials](../evaluation/onboarding/2026-11-25/README.md) and [null actual results](../evaluation/onboarding/2026-11-25/results.json). Responsible: Testing and Evaluation; protected Applications/Delivery. Software parity and scoring arithmetic tests are separate from12unrun human observations.

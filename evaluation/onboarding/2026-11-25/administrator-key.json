@@ -1,0 +1,37 @@
+{
+  "classification_rubric": {
+    "1": {
+      "classification": "source_supported_answer",
+      "must_explain": "Opening time09:00 from MUSEUM; exact passage opened with source pin."
+    },
+    "2": {
+      "classification": "missing_evidence",
+      "must_explain": "Closing time absent; no claim that museum never closes."
+    },
+    "3": {
+      "classification": "conflict",
+      "must_explain": "Celia attributes authorship to Bram in one source and Kira in the other; records do not independently resolve authorship."
+    },
+    "4": {
+      "classification": "source_attributed_instruction",
+      "must_explain": "Report attributes to Selma an instruction to chart the western inlet before Monday; Tomas is writer, not instructor; execution unproved."
+    },
+    "5": {
+      "classification": "unproved_completion",
+      "must_explain": "No completed charting established by the instruction; withhold completion."
+    }
+  },
+  "scoring": "Mitchell records human judgments with reasons against retained observations; own wording may satisfy the rubric. Names/counts alone are insufficient. All failures/deviations remain.",
+  "acceptance": {
+    "new_answer_and_citation_at_least": 5,
+    "new_group_size": 6,
+    "new_successes_minus_existing_at_least": 2,
+    "new_classify_four_of_five_at_least": 5
+  },
+  "expected_participants": 12,
+  "actual_observations": null,
+  "human_execution": "NOT_RUN",
+  "independent_historical_accuracy": "NOT_RUN",
+  "independent_semantic_adjudication": "NOT_RUN",
+  "native_oocc": "NOT_RUN"
+}

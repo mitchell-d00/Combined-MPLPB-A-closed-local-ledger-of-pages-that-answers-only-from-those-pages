@@ -45,3 +45,13 @@ in the tag API. Native ordinary answering is unchanged.
 Independent historical accuracy, semantic adjudication, preparation/blinding,
 outside-custodian scoring and native OOCC remain **NOT_RUN**. Human onboarding
 results remain NOT_RUN; Mitchell will recruit participants and return observations.
+
+## Integrated development candidate
+
+The opt-in native checker is now added; ordinary answering does not call it.
+[Schema and coordinate limits](SCHEMA.md), [implementation](../../../mplpb_answers/source_tags.py),
+[15additional guards](../../../tests/test_source_tags.py). Those guards pass,
+including a native conflict, original/canonical containment, withdrawn/corrupt/
+missing sources, external-policy denial, budget exhaustion and final mutation.
+The committed ZIP, full development/preservation replay and unopened transfer
+remain pending. No broad answer-coverage improvement is claimed.

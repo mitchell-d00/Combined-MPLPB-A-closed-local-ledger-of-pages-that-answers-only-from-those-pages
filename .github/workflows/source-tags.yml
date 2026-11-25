@@ -1,0 +1,24 @@
+name: Source proposals and first-use materials
+on:
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  source-tags:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Audit original seals and once-only transfer receipts
+        run: python -m tools.audit_source_tags --require-fresh
+      - name: Verify navigation ownership and frozen pilot packages
+        run: |
+          python -m tools.audit_departments
+          python -m tools.audit_onboarding_pilot
+      - name: Exercise source-state and scoring boundaries
+        run: python -m unittest tests.test_source_tags tests.test_department_navigation tests.test_onboarding_scoring -v
+      # This audits the retained transfer; it does not execute that packet again.
