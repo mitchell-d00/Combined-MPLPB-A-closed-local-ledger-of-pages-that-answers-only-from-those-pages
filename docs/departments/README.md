@@ -13,3 +13,5 @@ Last reviewed: 2026-11-25.
 - [Delivery and Project Operations](delivery-operations.md): Installation, releases, documentation, handoffs and the manual Al/Betty/Outside loop.
 
 Each page covers scope, implementation, commands, protecting tests, measured status and open work. The [machine-readable component map](components.json) routes all tracked top-level paths and explicitly separates intake from work coordination. File moves require a separate tested migration with old/new path mapping.
+
+The [Cryptid programme](../../evaluation/cryptid/README.md) is owned by Testing and Evaluation, with Reader, Ledger, Applications and Delivery responsibilities recorded per series. Publication remains local-only.

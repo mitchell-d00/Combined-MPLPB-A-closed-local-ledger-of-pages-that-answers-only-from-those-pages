@@ -2,6 +2,8 @@
 
 Last reviewed: 2026-11-25.
 
+[Cryptid local programme](../evaluation/cryptid/README.md): sequential frozen shared-operation studies, retained failures and local-only review package. Current execution state is recorded separately from planned tests.
+
 This is the starting point for running, interpreting, and extending Combined
 MPLPB tests. Use the [test commands](TEST_TOOLS.md) to run a suite, the
 [machine-readable inventory](results.json) to find the retained artifacts,

@@ -1,0 +1,21 @@
+{
+  "command": "MPLPB_REQUIRE_SANDBOX=1 python -m unittest tests.test_study_sandbox -v",
+  "attempts": [
+    {
+      "environment": "default command sandbox",
+      "status": "BLOCKED",
+      "passed": 2,
+      "failed": 2,
+      "transcript": "sandbox-default.log"
+    },
+    {
+      "environment": "host command, actual isolated Bubblewrap workers",
+      "status": "PASS",
+      "passed": 4,
+      "failed": 0,
+      "transcript": "sandbox-host.log"
+    }
+  ],
+  "reader_cases_executed": 0,
+  "unsandboxed_worker_fallback": false
+}
