@@ -4,8 +4,8 @@ Last reviewed: 2026-11-25.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `297d8cb95d9376f90844726fe05b16e81c6f962e` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `76d02ec14ee5f4164c3d478865ece4a33490526d011e5e4a166888d956546a5c`.
+Base commit: `fe91235e6bf20d17f5a6b4983f4580b130e17d75` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `4a154cb71aabcc55caf96248ef8b2fafee255212add4cb844d31f378d4616aeb`.
 
 ## Betty report for Al
 
@@ -32,6 +32,7 @@ Run Betty — local Cryptid test programme. Start from current main. Complete th
 - Candidate3:25/28 development,13complete positives versus baseline5,3misses,0false-supported claims. All5old date misses recovered with exact eligible citations and qualifications.
 - 280release comparison:275exact unchanged contracts plus5verified recoveries;102complete,6partials,6conflicts,166abstentions; no lost valid support. Five memberships overlap Mothman. Original scorer failures retained alongside supplementary full-claim audit.
 - 41date/inspection and169inherited native controls PASS. Two rejected candidates and writing-date denial failure retained.
+- Documentation audit first failed on26unclassified copied frozen source texts; failure retained. Added historical hash classifications without altering source bytes.
 
 ### Limitations and blocked checks
 
