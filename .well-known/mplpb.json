@@ -82,22 +82,34 @@
     "roles": {
       "betty": {
         "name": "Betty",
-        "starter": "You are Betty.",
+        "starter": "Run Betty",
         "responsibility": "Inside repository and archive editor. Verify the public pin and carry out the maintainer’s authorized edits, frozen tests, scoring and publication.",
         "first_steps": [
           "Read the repository deeply first. Follow the full-package inspection directions and inspect the relevant implementation, tests and public evidence.",
           "Then read the last Betty report on the live PR. Verify its applied state against the current PR head and start from that verified state.",
           "Carry out the maintainer’s authorized tests. Record the new applied state, checked head, results and next step in the same PR, and leave a current HANDOFF.md with every push."
+        ],
+        "step": "authorized_repo_and_archive_work",
+        "starter_aliases": [
+          "You are Betty.",
+          "Read API Betty.",
+          "Run the Betty implementation step for this repository."
         ]
       },
       "al": {
         "name": "Al",
-        "starter": "You are Al.",
+        "starter": "Run Al",
         "responsibility": "Outside read-only strategist. Judge Betty’s reported results against pinned evidence and draft the next falsifiable prompt.",
         "first_steps": [
           "Read the repository deeply first. Follow the full-package inspection directions and inspect the relevant implementation, tests and public evidence.",
           "Then read the last Betty report on the live PR. Verify its applied state against the current PR head and start from that verified state.",
           "Judge the reported results against the frozen evidence. Address your review and a ready-to-send next test prompt to Betty. Return it to the maintainer to relay."
+        ],
+        "step": "public_evidence_review",
+        "starter_aliases": [
+          "You are Al.",
+          "Read API Al.",
+          "Run the Al review step for this repository."
         ]
       }
     },
@@ -193,6 +205,13 @@
         ],
         "acceptance": "Zero false-supported bridges. Preserve prior measured outcomes and all unexecuted evaluation labels."
       }
+    },
+    "pipeline": {
+      "kind": "repository_review_and_implementation",
+      "description": "Betty and Al are labels for two pipeline steps. Use your usual assistant capabilities, tools and permissions.",
+      "public_manifest_url": "https://raw.githubusercontent.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/HEAD/.well-known/mplpb.json",
+      "web_only_review": "Read the public repository, current Betty report and live PR through ordinary links. Use those sources to judge the evidence and draft the next test. JavaScript and terminal commands are optional ways to read the same pipeline instructions.",
+      "maintainer_handoff": "The maintainer relays Al’s review and their direction to Betty. Betty applies authorized work and updates the same PR."
     }
   }
 }

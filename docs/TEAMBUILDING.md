@@ -4,6 +4,10 @@ Last reviewed: 2026-11-25.
 
 Package role: [research method and reproducible evidence](PACKAGE_GUIDE.md#evidence-and-limits).
 
+Betty and Al name work steps in the TeamBuilding pipeline. Use your normal
+assistant capabilities and follow the maintainer’s direction. Each step
+operates with the tools and permissions available to that session.
+
 ## Start with the repository link
 
 Open Betty first. After Betty leaves a report, open a separate chat for Al
@@ -13,22 +17,20 @@ the same repository link and its role name. Capitalization is optional.
 **First session**
 
 ```text
-https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages
-You are Betty.
+Run Betty https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages
 ```
 
 **Second session**
 
 ```text
-https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages
-You are Al.
+Run Al https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages
 ```
 
-The role starts from the maintainer's message and this guide. Actual tool and
-repository access depends on the session. The maintainer chooses which work
-proceeds and authorizes repository actions.
+The maintainer chooses which work proceeds and authorizes repository
+actions. Older “You are Betty” and “You are Al” starters select the same
+work steps. Use the task-based starters above for fresh chats.
 
-## Al and Betty
+## Al and Betty work steps
 
 | Role | Start here | Owns |
 |---|---|---|
@@ -41,6 +43,15 @@ before reading the last Betty report on the live PR. Verify its head and
 last applied state and begin there. If several PRs are active, use the
 track indicated in the current handoff or the PR the maintainer names.
 [Current Betty report for Al](../HANDOFF.md#betty-report-for-al)
+
+## Read the pipeline over HTTP
+
+An assistant with public web access can complete Al’s review by reading
+the repository, the live PR, and the pinned evidence. The public JSON
+manifest returns the workflow and archive information over an ordinary
+HTTP GET. The JavaScript and terminal commands offer the same metadata
+to clients that have those runtimes.
+[Public manifest](https://raw.githubusercontent.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/HEAD/.well-known/mplpb.json)
 
 ## API commands and source archives
 
@@ -151,7 +162,8 @@ Betty carries out the selected test and publishes the result.
 
 ## Expanded request for Al
 
-> You are Al. Read the public pin, open-items README, and relevant evidence.
+> Run the Al review step for this repository. Read the repository, then the
+> live Betty report, public pin, open-items README, and relevant evidence.
 > Separate measured outcomes from hypotheses. Name one falsifiable next test
 > and draft a prompt for Betty. Specify what to freeze, positive and withhold
 > controls, unchanged limits, before/after measures, acceptance criteria, and

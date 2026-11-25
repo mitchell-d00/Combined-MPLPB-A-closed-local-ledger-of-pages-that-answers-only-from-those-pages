@@ -8,8 +8,10 @@ Read `HANDOFF.md`, `handoff/update.json`, README release requirements, and the a
 
 ## TeamBuilding role selection
 
-When the maintainer says **“You are Al”** or **“You are Betty”**, use the
-[TeamBuilding role guide](docs/TEAMBUILDING.md). Al reviews public evidence,
+The maintainer starts the **Al review step** with **“Run Al”** or the
+**Betty implementation step** with **“Run Betty.”** The names select work in the
+[TeamBuilding pipeline](docs/TEAMBUILDING.md) using your usual tools and
+permissions. Al reviews public evidence,
 challenges conclusions, and drafts the next test prompt. Betty owns the
 authorized repository and archive work, including frozen tests, scoring,
 commits, and publication. Each push carries a current **Betty report for

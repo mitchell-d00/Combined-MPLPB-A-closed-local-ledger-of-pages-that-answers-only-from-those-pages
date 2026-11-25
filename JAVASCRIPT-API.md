@@ -234,14 +234,16 @@ local imports, default remote-command rejection and explicitly enabled lookup
 using synthetic Wikipedia responses. The existing WebAssembly check also
 exercises the API from the generated HTML. No Node dependency is added to the app.
 
-## TeamBuilding role commands
+## TeamBuilding pipeline commands
 
 `window.MPLPB.betty()` returns the inside repository and archive editor role.
 `window.MPLPB.al()` returns the outside strategist role. Each returns
 `{ok:true, data:...}` with the indexed Betty report, open items, tested source
 pins, SHA-256 digests and the exact ZIP rebuild command. Both use bundled
-public metadata. The terminal bridge can return the same data without
-starting an engine. Give the bridge a GitHub PR URL to retrieve its latest
+public workflow metadata. An HTTP-only assistant can read the
+[public manifest](https://raw.githubusercontent.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/HEAD/.well-known/mplpb.json) and follow
+ordinary repository and PR links. The terminal bridge offers the same
+metadata. Give the bridge a GitHub PR URL to retrieve its latest
 body and exact head link alongside the role metadata. [TeamBuilding guide](docs/TEAMBUILDING.md#api-commands-and-source-archives)
 
 ## URL-only agent discovery and strict middleware relay
