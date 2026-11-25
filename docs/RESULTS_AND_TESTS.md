@@ -1,6 +1,8 @@
 # Results and their tests
 
-Last reviewed: 2026-11-24.
+Last reviewed: 2026-11-25.
+
+[Report-pin selection](../evaluation/report-pins/2026-11-25/README.md) records a frozen mocked-HTTP replay through both role commands: **8/12 to 12/12** expected decisions and **four to zero false-current matches**. It measures coordination metadata parsing, not historical accuracy. [Replay tool](../tools/replay_report_pins.py) and [JavaScript controls](../tests/javascript-api.cjs).
 
 [Test Index](TEST_INDEX.md) connects the test types to the deterministic training loop.
 [Pole](../evaluation/pole/README.md) retained 11 recovered field answers, two cited conflicts and unchanged scored outcomes across the separate 120-case inherited weakness replay. The [follow-up](../evaluation/pole/open-items/README.md) checks named multi-source proof, authentic corrections, sorter witness capacity, and outside custody. The [prose cycle](../evaluation/pole/open-items/prose/README.md) records three newly checked authentic bridges, resource controls, and the Komnene-Outside packet. The [remaining-case cycle](../evaluation/pole/open-items/remaining/README.md) completes two DHS cases, isolates literal scan caps, and verifies the outside delivery archive.

@@ -4,8 +4,8 @@ Last reviewed: 2026-11-25.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `3d7ab9e414a662916d9307c02d94d16d0c515d50` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `835d5874f200307859d3d88d28478ea735c681beab9bdd61322efd08e9d97557`.
+Base commit: `a26ec527e2e3a5bab7883e7892aa00c348ea65dc` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `576dc002f6867f82f7705151d9878df9ef85191dff3815c3075f0d17ecda1c28`.
 
 ## Betty report for Al
 
@@ -13,31 +13,48 @@ Run the Betty implementation step first, then the Al review step in a separate c
 
 ### Latest user update instructions
 
-It needs to read newest pr not always 97
+Run Betty. Test and repair report-pin selection, starting from PR #100’s head a26ec527e2e3a5bab7883e7892aa00c348ea65dc.
 
-Al is not working Al needs to know it’s Al after it reads repo and api then read Betty report and understand its relation to Betty and Betty Al
+Freeze six synthetic PR-body fixtures and expected results before changing code. Let H be forty a characters and S forty b characters; actual head.sha is H.
+
+1. Betty report with **Current PR head** and backticked H: match.
+2. Historical report with **Public evidence pin** and backticked H: match.
+3. Betty report pinned to S: stale, no match.
+4. No report or pin: missing, no match.
+5. H appears only inside a fenced Markdown example: no match.
+6. Fenced example containing H precedes a real Betty report pinned to S: stale, no match.
+
+Run all six through both --al and --betty: twelve executions per revision, mocked HTTP only, thirty-second limit per execution. Retain baseline outputs before implementing a general parsing fix.
+
+Acceptance: all twelve expected decisions pass; zero false-current matches. Preserve newest-PR selection, explicit historical override, fork handoff links, and empty-list behavior. Rerun the existing JavaScript and HTTP checks. Record before/after counts, failures, tested commit, archive checksum, and updated handoff.
+
+Keep independent historical accuracy, independent semantic adjudication, and native OOCC marked NOT_RUN.
+
+Maintainer direction after relaying Al’s PR #97 review and PE-02 proposal: Retain as the next proposal.
+
+Start PE-02 proposal after what you are doing keep it all in pr101 then we will do an al report
 
 ### Implemented scope
 
-- Discover the newest PR by creation time across all states for repo-link and Pages-link role commands. An explicit PR URL selects that PR.
-- Remove the fixed report from the public manifest. Give web-only and browser API clients the live discovery URL.
-- Read the selected PR detail and present its current head, report comparison and head-pinned handoff. Preserve the existing source archive catalog.
-- Make both steps read the repo and API first, confirm the selected step, then read the Betty report. Expose the reciprocal relationship and Mitchell’s relay in both API entries.
+- Freeze six synthetic PR-body fixtures and expected decisions at PR #100 head a26ec527e2e3a5bab7883e7892aa00c348ea65dc; retain exact baseline outputs before repair.
+- Ignore Markdown backtick/tilde fenced examples when selecting the first exact live current-head or historical evidence-pin label. Preserve discovery, explicit override, fork links and empty listings.
+- Retain the relayed Al PR #97 proposal and the initial defer decision. The latest maintainer direction authorizes PE-02 after the report-pin repair, with both cycles in PR #101.
 
 ### Validation recorded
 
-- Desktop HTTP and JavaScript contracts passed, including frozen CLI fixtures for newest PR, explicit override, stale report, fork handoff and empty listing.
-- Both terminal paths read the live GitHub API and matched the newest PR and explicit historical override. Infrastructure and generated handoff checks are checked locally.
-- The JavaScript contract checks the repository and API order, both role confirmations, and both directions of the Al and Betty relay.
+- Frozen mocked-HTTP replay: baseline 8/12 decisions, four failures and four false-current matches; repaired parser 12/12 decisions, zero failures and zero false-current matches. Each subprocess has a thirty-second limit.
+- Existing JavaScript contract passed, including the frozen twelve-case replay, fourteen additional fence controls and inherited discovery/override/fork/empty-list checks.
+- The first filtered-checkout HTTP run had two failures out of thirteen from omitted assets/history; after restoring those tracked assets, all thirteen HTTP tests passed. Both logs are retained.
 
 ### Limitations and blocked checks
 
-- The page-local API returns discovery metadata for an optional public GET. Terminal role commands perform the lookup themselves.
-- Discovery uses creation time rather than comment or edit activity. Audit an unmatched report against HANDOFF.md at the actual PR head.
+- Independent historical accuracy, independent semantic adjudication and native OOCC remain NOT_RUN.
+- Archive validation and full release checks are pending at this candidate preparation stage. No deployed-site verification is claimed.
 
 ### Next steps
 
-- Use the newest PR returned by the API before reading its Betty report. Supply a specific PR link to continue a different track.
+- Freeze a committed candidate, archive and extract it, rerun the replay and HTTP/JavaScript checks, and record the actual tested commit, ZIP checksum and failures.
+- After completing the report-pin archive, start the authorized PE-02 Smith-letter cycle in PR #101 from its separate pin and frozen limits; prepare Al’s report after both cycles.
 
 ## Use this ZIP in your repository
 

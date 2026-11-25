@@ -47,6 +47,10 @@ last applied state and begin there. With just the repository link, open the
 newest PR by creation time across all states, including merged and closed.
 A PR link from the maintainer overrides that selection. If its report is
 missing or stale, read the handoff at the actual PR head.
+The terminal bridge ignores report-pin labels inside Markdown backtick and
+tilde fences. Its first exact unfenced current-head or legacy evidence-pin
+label is compared with the actual PR head.
+[Frozen report-pin replay](../evaluation/report-pins/2026-11-25/README.md)
 [Current Betty report for Al](../HANDOFF.md#betty-report-for-al)
 
 ## How Al and Betty work together
