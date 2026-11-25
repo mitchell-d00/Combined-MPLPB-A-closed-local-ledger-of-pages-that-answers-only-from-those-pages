@@ -84,6 +84,19 @@ def statement_units(body):
         boundaries.add(end)
         greeting=re.match(r"(?:Dear [A-Za-z ’'\-]{1,70},|My dear [A-Za-z ’'\-]{1,70},)\n",body[end:])
         if greeting:boundaries.add(end+greeting.end())
+    # A printed byline need not end in sentence punctuation. Keep it as a
+    # separate layout unit rather than making it the actor of the next clause.
+    # This supplies boundaries only: source voice still requires native proof,
+    # and the entire prefix remains available for qualification/quotation checks.
+    byline = re.match(r'^(?:Meeting minutes\.\n(?:Recorder:|Recorded by)|Report\.\nWritten by) '
+                      r'(?P<writer>[^\n]{2,120})\n', body)
+    if byline and not byline['writer'].endswith('.'):
+        name=byline['writer'].removesuffix('.')
+        words=name.split()
+        if (re.fullmatch(r"[^\W\d_](?:[^\W\d_]|[’'\-])*(?: [^\W\d_](?:[^\W\d_]|[’'\-])*){1,7}",name)
+                and all(w[0].isupper() for w in words)
+                and not re.search(r'\b(?:if|unless|not|never|conditional|hypothetical)\b',name,re.I)):
+            boundaries.add(byline.end())
     for m in re.finditer(r'(?m)^[A-Z][A-Z0-9 /—–:-]{2,79}\n', body):
         boundaries.update((m.start(), m.end()))
     points = sorted(boundaries)

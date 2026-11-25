@@ -4,8 +4,8 @@ Last reviewed: 2026-11-25.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `757398c04a955c3d5224a53d3b450cdfd456fa4b` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `da9739f07ea35addb3b29ef91d6a7065be6e68a1e22ccfbb19f6919ec156f57c`.
+Base commit: `defb519185880480b07be024048403e1447e01cd` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `aade0c8acd729250b4e10dbe7f3b9dbb1a5d6a4da044bb50cf45f934284e231c`.
 
 ## Betty report for Al
 
@@ -60,6 +60,8 @@ Catch it all up then push everything merge to main
 - Freeze nine byline/governor contrasts and expanded280 baseline before further native repair. Fresh24 composition instances/key remain unopened.
 - Merge actual PR97/95 histories while retaining later FRUS reader/evidence and all byte-identical older implementation/evaluation files; retarget both PRs to main for unified tested integration.
 - Integrate actual PR93 browser document workflow and local capture path, preserving new role APIs and frozen older integrity tests; final combined ZIP/browser gates remain pending.
+- Add only the shared unpunctuated metadata boundary and retain a separate conditional fragment ending in a period. Do not change existing punctuated instruction unit counts.
+- All93/95/97 head histories are ancestors of the consolidation branch; preserve later FRUS evidence and original integrity tests, integrate missing93 local-document UI/provenance.
 
 ### Validation recorded
 
@@ -78,6 +80,9 @@ Catch it all up then push everything merge to main
 - Four openPRs93,95,97,103. Reconcile diverged histories, retain later reader/evidence and integrate genuinely missing local-document browser work before tested main merge.
 - Continuation baseline280 isolated/scored:272pass8miss,0false-supported claim cases on that frozen packet set. Separately frozen9new byline/governor guards:6pass3fail, including one exposed false-supported conditional-fragment claim. Preserve that control failure; prior zero figures apply only to their stated frozen sets.
 - FRUS history conflict resolution leaves all three native runtime packages byte-identical to the pre-merge candidate; older implementation/evidence content already matches current. PR93 browser feature remains to integrate.
+- Expanded280 continuation:272/280 to280/280;97complete6partial6conflict171abstain122claims,0false-supported claim cases,0failed/notrun/unscored. All prior full contracts and counters preserved.
+- Nine frozen byline/governor controls6/9to9/9; one prior false-supported conditional fragment eliminated. Existing16report guards pass. Wider candidate with4examined-unit counter changes retained as rejected; no key relabeling.
+- Original93browser-bridge and integrity checks35pass plus UI script syntax/workflow checks pass. Native package differences from first candidate remain restricted to source_units and reported_content guard.
 
 ### Limitations and blocked checks
 
@@ -88,6 +93,7 @@ Catch it all up then push everything merge to main
 - 28non-target positive questions remain incomplete:4partials24misses, including FRESH05. Preservation pass is not full answer coverage.
 - The initial frozen-scorer protocol did not pass. Accepted development figures use disclosed v3 projection/import correction; retain all earlier failures.
 - First transfer acceptance failed; do not merge that candidate. Full native archive-suite completion unconfirmed after environment/session interruption; partial log retained.
+- Fresh composition transfer remains unopened/unexecuted. Combined committed ZIP, full exact-head CI, merge and live verification pending at source freeze; do not claim initial transfer acceptance.
 
 ### Next steps
 

@@ -10,6 +10,8 @@ family, and the [results guide](RESULTS_AND_TESTS.md) to read the reported resul
 
 [Pole](../evaluation/pole/README.md) uses seeded difficulty levels and pinned documentary cases to measure general rule repairs.
 
+[Current continuation](../evaluation/bubble-wrap/2026-11-25/README.md) passes **280/280** development/preservation after retaining the first16/24 transfer failure. **BW-BYLINE** adds [nine frozen metadata/governor controls](../tests/test_documentary_byline_units.py), [source seal](../evaluation/bubble-wrap/2026-11-25/continuation/byline-tests-freeze.json) and [before/after outcomes](../evaluation/bubble-wrap/2026-11-25/continuation/guard-summary.json):6/9→9/9, including one exposed false-supported conditional fragment now withheld. Origin PR103; protected operation is source-scoped metadata boundaries without pruning a governor. Reproduce with `python -m unittest tests.test_documentary_byline_units -v`. The expanded [280-case manifest](../evaluation/bubble-wrap/2026-11-25/continuation/development.json) and [unchanged-key seal](../evaluation/bubble-wrap/2026-11-25/continuation/freeze.json) link exact inputs and preserve the consumed first transfer separately. Fresh composition transfer is still pending at this source snapshot.
+
 ## Bubble and Wrap: failure → rule → protection → result
 
 [Current cycle](../evaluation/bubble-wrap/2026-11-25/README.md) implements the

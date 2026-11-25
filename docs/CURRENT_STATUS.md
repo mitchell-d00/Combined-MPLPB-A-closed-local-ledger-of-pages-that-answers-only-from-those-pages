@@ -2,6 +2,8 @@
 
 Last reviewed: 2026-11-25.
 
+[Bubble and Wrap continuation](../evaluation/bubble-wrap/2026-11-25/README.md) passes280/280 development/preservation after retaining a failed16/24 first transfer. Nine new byline/governor controls pass, including an exposed conditional-fragment false support now withheld. Fresh composition transfer, combined ZIP and exact-head release gates remain pending at this source snapshot. Older PR histories and the missing local-document browser workflow are integrated for consolidated testing. Independent evaluations and native OOCC remain NOT_RUN.
+
 [Current-reader inventory](../evaluation/current-failure-inventory/README.md) replays **111 cases** without reader changes: two old compound-field recoveries, no lost old valid completions, and all 60 non-full-support controls retained. Five report-content misses reproduce across two suites despite full discovery. The next rule is a **frozen proposal only** (20 development inputs, 24 unopened future transfer instances). The historical 605 misses are not a current count.
 
 The first transfer is retained with an explicit development-control overlap limit. A fresh packet was frozen before further edits and passed 24/24 once on source `7ed65a5`; its constructions differ from all inspected development examples, with generator templates still visible to the same operator. Both rounds remain separately reported.

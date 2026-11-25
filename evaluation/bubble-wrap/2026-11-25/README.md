@@ -12,6 +12,43 @@ The supplied [plan](inputs-received/bubble-wrap-plan.json) and
 inputs. They are not a historical-suite rerun. The inventory excludes #15 because
 it was not a PR in that retrieved history.
 
+## Continuation: development and consolidation passed; fresh transfer pending
+
+The narrowed shared boundary repair passes **272/280 → 280/280** on the frozen
+expanded development/preservation set. It recovers all eight consumed transfer
+misses. This is development recovery, not a new transfer pass. All earlier valid
+claims, complete contracts (including internal counters), partials, qualifications,
+missing obligations, conflicts and citations remain preserved. Complete answers
+move89→97, partials6→6, conflicts6→6, abstentions179→171, claims114→122, with zero
+final false-supported claim cases under the frozen amended scorer.
+[Corrected development score](continuation/candidate-002-score.json).
+
+Nine separately frozen byline/governor controls move **6/9 → 9/9**. They exposed
+one conditional-fragment false support in the prior reader, now withheld; the two
+other misses were unpunctuated metadata. The existing sixteen report guards also
+pass. Prior zero-false-support figures retain their stated packet denominators,
+not a universal correctness claim. [Guard summary](continuation/guard-summary.json).
+
+The first continuation candidate is retained as **rejected**: it changed four
+older instruction unit counters2→3 while preserving answers/citations. The repair
+was narrowed to unsentenced metadata instead of changing keys or falsifying the
+counters. Its [source overlay and exact differences](continuation/rejected-candidate/rejection.json)
+and failed score remain immutable. No budget was raised.
+
+The actual histories of PRs93,95,97 now join this consolidation branch. PR95/97
+implementation/evidence bytes already matched the later reader and were retained.
+PR93's missing local text/file import, source-review-to-Strict workflow, source
+provenance/external withholding and field captions are integrated. All original
+frozen integrity assertions remain. The 35 browser-bridge/integrity checks and UI
+script checks passed. [Reconciliation](pr-reconciliation.json). Final main merge
+and deployed verification remain pending.
+
+A new committed combined ZIP will be tested before the fresh composition packet
+is opened once. Its exact instance bytes/key remain unopened at this snapshot;
+source templates are visible to the same operator. The first transfer stays
+failed16/24 and consumed. No independent history, semantic, preparation, blinding,
+outside-custodian or OOCC result is claimed.
+
 ## First transfer: acceptance failed; continuation frozen
 
 Tested source `204a7d3019d1073c6d4259bd1fa0a35f6f0582f8`, ZIP SHA-256
