@@ -1,0 +1,83 @@
+{
+  "schema": "source-linked-proposals-v1",
+  "source": {
+    "id": "SOURCE-1",
+    "path": "source-1.html",
+    "hash": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+    "body_html_sha256": "95cf020546d3841c740bb76b2c04838de3f1cea6952754188a4ea7122928f329"
+  },
+  "nodes": [
+    {
+      "id": "D1",
+      "kind": "document",
+      "parent": null,
+      "body_start": 0,
+      "body_end": 122
+    },
+    {
+      "id": "C1",
+      "kind": "statement",
+      "parent": "D1",
+      "body_start": 41,
+      "body_end": 122,
+      "quote": "The statement that Iona Farouk wrote the glacier log was reported by Nora Mendes.",
+      "original_start_byte": 73,
+      "original_end_byte": 154
+    },
+    {
+      "id": "P1",
+      "kind": "person",
+      "parent": "C1",
+      "body_start": 110,
+      "body_end": 121,
+      "quote": "Nora Mendes",
+      "original_start_byte": 142,
+      "original_end_byte": 153
+    },
+    {
+      "id": "P2",
+      "kind": "person",
+      "parent": "C1",
+      "body_start": 60,
+      "body_end": 71,
+      "quote": "Iona Farouk",
+      "original_start_byte": 92,
+      "original_end_byte": 103
+    },
+    {
+      "id": "O1",
+      "kind": "object",
+      "parent": "C1",
+      "body_start": 78,
+      "body_end": 93,
+      "quote": "the glacier log",
+      "original_start_byte": 110,
+      "original_end_byte": 125
+    }
+  ],
+  "relations": [
+    {
+      "witness": "C1",
+      "subject": "P2",
+      "reported_by": "P1",
+      "object": "O1",
+      "proposition": {
+        "reporter": "Nora Mendes",
+        "author": "Iona Farouk",
+        "inner_action": "write",
+        "object": "the glacier log",
+        "inner_negative": false,
+        "outer_negative": false,
+        "conditions": [],
+        "content_asserted_by_reporter": true,
+        "actual_authorship_established": false,
+        "source_writer_or_unknown": "Petra Imani",
+        "relation": "source_attributed_report_content",
+        "source_voice": "source_reports_named_speaker",
+        "reporting_layer": "source_scoped_report_content",
+        "completion_established": false,
+        "historical_truth_independently_verified": false
+      }
+    }
+  ]
+}

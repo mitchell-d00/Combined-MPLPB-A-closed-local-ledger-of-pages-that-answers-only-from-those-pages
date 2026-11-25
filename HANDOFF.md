@@ -4,8 +4,8 @@ Last reviewed: 2026-11-25.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `734f9cfbe30e1ec16b185b4ec902385600864a4d` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `2c9d7a3faa4ccbc121fe08b080d74f766d338238680e36b6f6d1aba827ecc1e1`.
+Base commit: `2af8ba8442cfcc343cbca5fd7e5daba5e49228a5` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `12f338952e0d0e59c03d102bf37725c4b5311d31b2c680d74628f94779c2a522`.
 
 ## Betty report for Al
 
@@ -70,6 +70,7 @@ Continue all authorized work in sequence, test/fix/merge; next newPR expected104
 - Add opt-in native source-linked proposal inspection using full ordinary native proof, explicit source pins, canonical/original containment and current eligibility; production answering remains unchanged.
 - Complete seven department entry pages, component routing and Test Index family ownership. Root leads TryMPLPB→Departments→Evidence; contributor protocol preserved below first-use sections.
 - Freeze two400KBnative onboarding ZIPs with identical wheel/collection/tasks/interface; only ENTRY documents differ. Helper verifies exact installed runtime and collection. Human executionNOT_RUN.
+- Repair UI evidence-card selection after retained candidate browser failure; use native citation tuples instead of lexical ordering and await an actually opened source dialog. No native code changes after transfer.
 
 ### Validation recorded
 
@@ -82,22 +83,21 @@ Continue all authorized work in sequence, test/fix/merge; next newPR expected104
 - PR103 Pages45670095889completed successfully, public postdeployChromium plus a separate verified-TLS/SPKI observer pass; allsixcore module fingerprints match before/after full live UI,local-document andNPC/reload journeys.
 - Source-tag15additional state/budget/ambiguity/mutation/original-containment guards pass; portable generator with explicit original17:31clock reproduces development manifest/key/seal byte-for-byte. Original generator and runner versions retained unchanged.
 - Onboarding actualtwoZIPs extracted, installed-wheel helpers run under isolatedPython, allfive native contracts and opened citation identical. Frozen package parity plus scoring7arithmetic controls pass; zero human observations.
+- Committed2af8ba8 ZIP17a3d15fe8ca2d7fffc27f949f621445692b6a053025a3939bc47bdaf2bf59ec matches24830files;72/72proposal,280/280preservation,24/24fresh proposal decisions,0wrong tags,0recoveredanswers.
+- Full extracted native suite1834pass;52public controls,15software commands andWASMpass. BrowsercandidateFAIL retained:wrong lexical source card and stale-dialog assertion. FrozenJScontrols failbefore andpassafter correction;35Pythonbrowser/integritycontrolspass. Native packages byte-identical to transferfreeze; no rerun of the fresh packet.
 
 ### Limitations and blocked checks
 
-- Tag inspection validates proposals over already-supported native report-content goals. It addszero demonstrated answer recovery; date/famous/inferred-identity and arbitrary claim tags remain unverified.
-- Native ordinary answering,partials,profiles,budgets,source checks and earlier cases must remain preserved; combined committedZIP/full replay and fresh24still pending.
-- Human onboardingNOT_RUN; Mitchell recruits and returns actual uncoached observations. Exact wheel/documents/collection/tasks/rubric frozen; software journeys are not people.
-- Independent historical accuracy,semantic adjudication,preparation/blinding,outside-custodian scoring and native OOCC remainNOT_RUN.
-- No implementation moved. Navigation/path coverage is separate from runtime or user-experience evidence.
-- PR103 allfouroutstandingPRsmergedandliveverified; retained firsttransferfailure16/24, rejected counter-changing candidate, original scorer/gate failures remain failed.
+- Source-tag validation adds0demonstrated answer recovery; every raw answer already supported. Same-operator proposal/layout transfer, not broad reading or independent semantic accuracy.
+- First delivery ZIP fails browser acceptance; corrected UI delivery ZIP and exact publicationCI/main/livepending. Native transfer source remains2af8ba8andunchanged.
+- Human12-person onboardingNOT_RUN; Mitchell recruits and returns actual observations. All software checks remain separate.
+- Independent historical accuracy,semantic adjudication,preparation/blinding,outside-custodian scoring,native OOCC remainNOT_RUN.
 
 ### Next steps
 
-- Freeze committed104candidateZIP, verifyextraction,run72development and280preservation plus fullsoftware/native/WASM/Chromium gates.
-- Run reserved24tag packet once aftercandidatefreeze; retainfailures with no transfer-informedrepair claim on that packet.
-- Publishcurrent104report withactualscoped outcomes, testedcommit,ZIPchecksum,pendingchecksandNOT_RUN labels; pass exact-headCI,mergeandverifydeployedmain/nofurtheropenPRs.
-- Mitchell administers12humanpilot andreturnsactualforms/logs;humanresults stayNOT_RUN until then.
+- Freeze correctedUI deliveryZIP; verify native bytes equal transferfreeze; test extractedJavaScript/HTTP/Chromium and exact-headfullCI.
+- Publishactual104report,mergeaftergatesandverifydeployedmain/nofurtheropenPRs.
+- Mitchell administers frozenhumanpilot; retainNULLresultsuntil actualreturns.
 
 ## Use this ZIP in your repository
 

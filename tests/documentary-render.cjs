@@ -32,3 +32,30 @@ assert(results.innerHTML.includes('Missing &lt;field&gt;.'));
 assert(results.innerHTML.includes('Inspect the exact label.'));
 assert(results.innerHTML.includes('data-page="folio-1.html"'));
 assert(!results.innerHTML.includes('Source procedure inspection'));
+
+// Verified field cards follow citation pins, not lexical retrieval order.
+const controls={results,
+ 'ask-reader-mode':{value:'supported'},'monster-reason':{checked:false}};
+context.$=id=>controls[id];context.linkText=x=>String(x);
+vm.runInContext(html.slice(html.indexOf('function sourceCard('),html.indexOf('function renderAssisted(')),context);
+const a={id:'A',path:'a.html',hash:'sha256:a',title:'Uncited first match',text:'Different date.',origin:'machine',origin_depth:1,matched_terms:['date'],unmatched_terms:[]};
+const b={id:'B',path:'b.html',hash:'sha256:b',title:'Verified second page',origin:'machine',origin_depth:1};
+const exact={mode:'strict',kind:'supported_answer',answer_supported:true,verification:{semantic:'bounded_explicit_field'},
+ claims:[{text:'Inspection Date: 1901-06-07',citations:[{source_id:'B',path:'b.html',hash:'sha256:b',field:'inspection date',quote:'Inspection Date: 1901-06-07'}]}],sources:[b]};
+context.result={reader:{kind:'return',profile:'internal',title:b.title,text:'Inspection Date: 1901-06-07',answer_contract:exact},
+ gate:{sources:[a,{...b,text:'Inspection Date: 1901-06-07',matched_terms:[],unmatched_terms:[]}],unmatched_terms:[],excluded:[],lexical_coverage:1}};
+vm.runInContext('render(result)',context);
+assert(results.innerHTML.includes('data-page="b.html"'));
+assert(!results.innerHTML.includes('data-page="a.html"'));
+assert(results.innerHTML.includes('data-source-hash="sha256:b"'));
+// A verified field owner can fall outside the lexical candidate list.
+context.result.gate.sources=[a];
+vm.runInContext('render(result)',context);
+assert(results.innerHTML.includes('data-page="b.html"'));
+assert(!results.innerHTML.includes('data-page="a.html"'));
+controls['ask-reader-mode'].value='candidates';
+context.result.gate.sources=[a,{...b,text:'Inspection Date: 1901-06-07',matched_terms:[],unmatched_terms:[]}];
+vm.runInContext('render(result)',context);
+assert(results.innerHTML.includes('data-page="a.html"'));
+assert(results.innerHTML.includes('data-page="b.html"'));
+console.log('PASS exact-field source cards: cited owner, omitted lexical owner, pins and unchanged candidate inspection');

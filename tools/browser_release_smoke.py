@@ -70,6 +70,7 @@ def verify_document_workflow(page):
         expect(page.locator('#results h2').first).to_have_text(title)
         expect(page.locator('#results .text').first).to_contain_text(source_line)
         page.locator('#results [data-page]').first.click()
+        expect(page.locator('#page-dialog')).to_be_visible()
         expect(page.locator('#page-dialog .tags .tag').first).to_have_text(source_id)
         expect(page.locator('#page-dialog .page-text')).to_contain_text(source_line)
         page.locator('#close-dialog').click()

@@ -1,0 +1,83 @@
+{
+  "schema": "source-linked-proposals-v1",
+  "source": {
+    "id": "SOURCE-1",
+    "path": "source-1.html",
+    "hash": "sha256:9ffbb74eb2794727e8ed03fa5ec9088f831e502e730565a07385d44b64e5f3ce",
+    "body_html_sha256": "e687ffac1b601965051a9c9ec990a026930ffc08a5c6572d1cafdd7853eb8169"
+  },
+  "nodes": [
+    {
+      "id": "D1",
+      "kind": "document",
+      "parent": null,
+      "body_start": 0,
+      "body_end": 121
+    },
+    {
+      "id": "C1",
+      "kind": "statement",
+      "parent": "D1",
+      "body_start": 40,
+      "body_end": 121,
+      "quote": "The statement that Elina Brooks wrote the glacier log was reported by Mateo Sato.",
+      "original_start_byte": 72,
+      "original_end_byte": 153
+    },
+    {
+      "id": "P1",
+      "kind": "person",
+      "parent": "C1",
+      "body_start": 110,
+      "body_end": 120,
+      "quote": "Mateo Sato",
+      "original_start_byte": 142,
+      "original_end_byte": 152
+    },
+    {
+      "id": "P2",
+      "kind": "person",
+      "parent": "C1",
+      "body_start": 59,
+      "body_end": 71,
+      "quote": "Elina Brooks",
+      "original_start_byte": 91,
+      "original_end_byte": 103
+    },
+    {
+      "id": "O1",
+      "kind": "object",
+      "parent": "C1",
+      "body_start": 78,
+      "body_end": 93,
+      "quote": "the glacier log",
+      "original_start_byte": 110,
+      "original_end_byte": 125
+    }
+  ],
+  "relations": [
+    {
+      "witness": "C1",
+      "subject": "P2",
+      "reported_by": "P1",
+      "object": "O1",
+      "proposition": {
+        "reporter": "Mateo Sato",
+        "author": "Elina Brooks",
+        "inner_action": "write",
+        "object": "the glacier log",
+        "inner_negative": false,
+        "outer_negative": false,
+        "conditions": [],
+        "content_asserted_by_reporter": true,
+        "actual_authorship_established": false,
+        "source_writer_or_unknown": "Ravi Dumas",
+        "relation": "source_attributed_report_content",
+        "source_voice": "source_reports_named_speaker",
+        "reporting_layer": "source_scoped_report_content",
+        "completion_established": false,
+        "historical_truth_independently_verified": false
+      }
+    }
+  ]
+}

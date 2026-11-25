@@ -1,0 +1,83 @@
+{
+  "schema": "source-linked-proposals-v1",
+  "source": {
+    "id": "SOURCE-1",
+    "path": "source-1.html",
+    "hash": "sha256:fe1511d08c7a63076792160a5764f46d755c774e200df1a706d31d7404280983",
+    "body_html_sha256": "502f11b7da0f3c51735e9d3face4ce22b5859bdaeeaaae4f88c9cf34973fca81"
+  },
+  "nodes": [
+    {
+      "id": "D1",
+      "kind": "document",
+      "parent": null,
+      "body_start": 0,
+      "body_end": 137
+    },
+    {
+      "id": "C1",
+      "kind": "statement",
+      "parent": "D1",
+      "body_start": 54,
+      "body_end": 137,
+      "quote": "The statement that Elina Brooks wrote the orchard census was reported by Nora Mendes.",
+      "original_start_byte": 86,
+      "original_end_byte": 169
+    },
+    {
+      "id": "P1",
+      "kind": "person",
+      "parent": "C1",
+      "body_start": 125,
+      "body_end": 136,
+      "quote": "Nora Mendes",
+      "original_start_byte": 157,
+      "original_end_byte": 168
+    },
+    {
+      "id": "P2",
+      "kind": "person",
+      "parent": "C1",
+      "body_start": 73,
+      "body_end": 83,
+      "quote": "Ravi Dumas",
+      "original_start_byte": 105,
+      "original_end_byte": 115
+    },
+    {
+      "id": "O1",
+      "kind": "object",
+      "parent": "C1",
+      "body_start": 90,
+      "body_end": 108,
+      "quote": "the orchard census",
+      "original_start_byte": 122,
+      "original_end_byte": 140
+    }
+  ],
+  "relations": [
+    {
+      "witness": "C1",
+      "subject": "P2",
+      "reported_by": "P1",
+      "object": "O1",
+      "proposition": {
+        "reporter": "Nora Mendes",
+        "author": "Ravi Dumas",
+        "inner_action": "write",
+        "object": "the orchard census",
+        "inner_negative": false,
+        "outer_negative": false,
+        "conditions": [],
+        "content_asserted_by_reporter": true,
+        "actual_authorship_established": false,
+        "source_writer_or_unknown": "Elina Brooks",
+        "relation": "source_attributed_report_content",
+        "source_voice": "source_reports_named_speaker",
+        "reporting_layer": "source_scoped_report_content",
+        "completion_established": false,
+        "historical_truth_independently_verified": false
+      }
+    }
+  ]
+}

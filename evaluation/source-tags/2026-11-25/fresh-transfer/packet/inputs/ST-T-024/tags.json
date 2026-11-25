@@ -1,0 +1,83 @@
+{
+  "schema": "source-linked-proposals-v1",
+  "source": {
+    "id": "SOURCE-1",
+    "path": "source-1.html",
+    "hash": "sha256:7b679dd072f925caccbc985599f2ace6f010405b2f68048521b60e02758ec9b5",
+    "body_html_sha256": "7faa9eda3241df1fed13399ce4bac01a6a2090584cc1d079b0f7154d12dd37af"
+  },
+  "nodes": [
+    {
+      "id": "D1",
+      "kind": "document",
+      "parent": null,
+      "body_start": 0,
+      "body_end": 115
+    },
+    {
+      "id": "C1",
+      "kind": "statement",
+      "parent": "D1",
+      "body_start": 30,
+      "body_end": 115,
+      "quote": "The statement that Ravi Dumas wrote the quarry register was reported by Petra Imani.",
+      "original_start_byte": 62,
+      "original_end_byte": 147
+    },
+    {
+      "id": "P1",
+      "kind": "person",
+      "parent": "C1",
+      "body_start": 103,
+      "body_end": 114,
+      "quote": "Petra Imani",
+      "original_start_byte": 135,
+      "original_end_byte": 146
+    },
+    {
+      "id": "P2",
+      "kind": "person",
+      "parent": "C1",
+      "body_start": 49,
+      "body_end": 60,
+      "quote": "Iona Farouk",
+      "original_start_byte": 81,
+      "original_end_byte": 92
+    },
+    {
+      "id": "O1",
+      "kind": "object",
+      "parent": "C1",
+      "body_start": 67,
+      "body_end": 86,
+      "quote": "the quarry register",
+      "original_start_byte": 99,
+      "original_end_byte": 118
+    }
+  ],
+  "relations": [
+    {
+      "witness": "C1",
+      "subject": "P2",
+      "reported_by": "P1",
+      "object": "O1",
+      "proposition": {
+        "reporter": "Petra Imani",
+        "author": "Iona Farouk",
+        "inner_action": "write",
+        "object": "the quarry register",
+        "inner_negative": false,
+        "outer_negative": false,
+        "conditions": [],
+        "content_asserted_by_reporter": true,
+        "actual_authorship_established": false,
+        "source_writer_or_unknown": "Ravi Dumas",
+        "relation": "source_attributed_report_content",
+        "source_voice": "source_reports_named_speaker",
+        "reporting_layer": "source_scoped_report_content",
+        "completion_established": false,
+        "historical_truth_independently_verified": false
+      }
+    }
+  ]
+}

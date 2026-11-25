@@ -55,3 +55,14 @@ including a native conflict, original/canonical containment, withdrawn/corrupt/
 missing sources, external-policy denial, budget exhaustion and final mutation.
 The committed ZIP, full development/preservation replay and unopened transfer
 remain pending. No broad answer-coverage improvement is claimed.
+
+## Native result and delivery correction
+
+Committed native source2af8ba8 passes72/72proposal decisions,280/280earlier
+contracts and24/24once-only same-operator transfer decisions. Valid annotations
+are6/6in each set;66development and18transfer tamper cases are rejected. Raw
+answers are unchanged and **zero answers recovered**. [Native validation](native-validation.json),
+[fresh completion](fresh-transfer/completion.json), [fresh scores](fresh-transfer/candidate-score.json).
+The first ZIP passes1,834native tests,52public controls,fifteen software commands
+andWASM, but its candidate browser failed. [UI failure and correction](ui-regression/README.md).
+The native engine is frozen unchanged; a separate UI-only delivery ZIP is pending.

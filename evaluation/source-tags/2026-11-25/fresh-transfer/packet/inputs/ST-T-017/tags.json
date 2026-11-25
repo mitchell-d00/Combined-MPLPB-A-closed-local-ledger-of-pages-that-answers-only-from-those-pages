@@ -1,0 +1,83 @@
+{
+  "schema": "source-linked-proposals-v1",
+  "source": {
+    "id": "SOURCE-1",
+    "path": "source-1.html",
+    "hash": "sha256:2a3239b9ed01c7104041b12b037ee0fa3631dafaf7e3f1986af40eddbd8a1171",
+    "body_html_sha256": "cf2f8c3858631591b1b75f0eede0035f5ee4570eeb328cb7cad08c7d7e141934"
+  },
+  "nodes": [
+    {
+      "id": "D1",
+      "kind": "document",
+      "parent": null,
+      "body_start": 0,
+      "body_end": 93
+    },
+    {
+      "id": "C1",
+      "kind": "statement",
+      "parent": "D1",
+      "body_start": 31,
+      "body_end": 93,
+      "quote": "According to Nora Mendes, Mateo Sato wrote the orchard census.",
+      "original_start_byte": 63,
+      "original_end_byte": 125
+    },
+    {
+      "id": "P1",
+      "kind": "person",
+      "parent": "C1",
+      "body_start": 44,
+      "body_end": 55,
+      "quote": "Nora Mendes",
+      "original_start_byte": 76,
+      "original_end_byte": 87
+    },
+    {
+      "id": "P2",
+      "kind": "person",
+      "parent": "C1",
+      "body_start": 57,
+      "body_end": 67,
+      "quote": "Mateo Sato",
+      "original_start_byte": 89,
+      "original_end_byte": 99
+    },
+    {
+      "id": "O1",
+      "kind": "object",
+      "parent": "C1",
+      "body_start": 74,
+      "body_end": 92,
+      "quote": "the orchard census",
+      "original_start_byte": 106,
+      "original_end_byte": 124
+    }
+  ],
+  "relations": [
+    {
+      "witness": "C1",
+      "subject": "P2",
+      "reported_by": "P1",
+      "object": "O1",
+      "proposition": {
+        "reporter": "Nora Mendes",
+        "author": "Mateo Sato",
+        "inner_action": "write",
+        "object": "the orchard census",
+        "inner_negative": false,
+        "outer_negative": false,
+        "conditions": [],
+        "content_asserted_by_reporter": true,
+        "actual_authorship_established": false,
+        "source_writer_or_unknown": "Petra Imani",
+        "relation": "source_attributed_report_content",
+        "source_voice": "source_reports_named_speaker",
+        "reporting_layer": "source_scoped_report_content",
+        "completion_established": false,
+        "historical_truth_independently_verified": false
+      }
+    }
+  ]
+}
