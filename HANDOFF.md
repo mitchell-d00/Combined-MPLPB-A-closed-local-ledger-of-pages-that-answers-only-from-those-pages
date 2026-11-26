@@ -4,8 +4,8 @@ Last reviewed: 2026-11-26.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `612e52eb4b111fa6100f94e38453729242e40d64` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `778a68f222ec3a7ee73ca550ea2ed42bbda553c0c8b1e5c7f8967a67cd7fc017`.
+Base commit: `bfb469e6444c5194e57fb1c18c76af9f17a0e630` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `dd4c3496043dd5a851f6af7a9519bb386b921f0af09a90cdce3a7936a640f072`.
 
 ## Betty report for Al
 
@@ -17,9 +17,10 @@ Betty — prioritize broader ordinary-language understanding. Work locally first
 
 ### Implemented scope
 
-- C3 fixes shared governor scope; Bunyip development138/142 with56/60primary positives and zero false-support flags. Four proof misses remain. Final software/transfer pending before authorized incremental publication.
-- Three entry areas and seven-department map; root README126lines, plain --body text/no metadata header, exact output and citation path; retained unchanged technical README snapshot.
-- Prospective legacy v2 source-checked contract policy; original strict scores/keys/failures unchanged.
+- C4b shared title-scope preservation repair restores public owner conflict/correction lost in rejectedC3; all prior failed candidates and strict keys retained. Native/doc navigation pass remains local until final gates.
+- Bunyip current development154/158; primary56/60positive versus16PR and12main;40additionalprimaryexecutions=20uniquequestions. Fourproofmisses remain. Scope/title guards hold withzero false-support flags.
+- Firstfresh42retained36/42,22/28positive versus0bothbaselines,14withholds; no transfer-informed repair to those misses. Separatelysealed24newcompositions remainunopened beforecommittedZIPfreeze.
+- RootREADME128lines, verifiedexactreleasedwheelquickstart andoutput/citationpath; three entryareas mapsevenexistingdepartments; no implementationmoves/humanarmchanges.
 
 ### Validation recorded
 
@@ -33,11 +34,15 @@ Betty — prioritize broader ordinary-language understanding. Work locally first
 - C3primary98/102, scope24/24, governor14/14, quoted-governor2/2.11focused testsPASS. Twenty unique questionstrings recovered versus PR105 (40layout executions).
 - Exact root quickstart in freshvenv frompublicwheelPASS; all90Pythonfilesmatchreleasedmainc01021c. Citation/partial/owner/ambiguity checksPASS afterretainedhostcheckcorrections.
 - Main145claim-bearingcases audited:137sameclaimcontracts;8invalidheaderfusedactors corrected/withheld. C2vsPR849exactcontracts preserved.
+- C3fullnative1882:one failedtest(two public preservation outcomes); rejected. C4afocused16PASS/public52restored buttitle12/16; rejected incompletefix sourceZIP+hashesretained. C4btitle16/16andidentical142development+42consumedrunscomplete withzerofalseflags.
+- C3posttest76654originalarchivepayloadsbyteidentical. FullWASM/Chromium/JSHTTP/packageMCP/docs/indexPASS; initialwheelbuildbackendfailure retained,retryPASS.
+- Legacyfirstattempt1000tried390complete610diskexecutionfailures; retained separately. RAMretry1000/1000complete/1000exactcontracts; originalstrictFAILunchanged, separatelyfrozen sourcecheckedv2PASS. Hostmoduleinvocationfailure retained and corrected inCI.
 
 ### Limitations and blocked checks
 
-- Final cleanZIP native/JSHTTP/package/WASM/Chromium gates and once-only42transfer pending.
-- Four development proof misses remain; no historical accuracy claim. Same-operator preparation/scoring; human/independent historical-semantic/preparation-blinding/outside-custodian/nativeOOCC NOT_RUN.
+- C4cleancommittedZIPsoftware/preservation/legacy/fresh24andrequiredexactheadremotechecks stillpending; no merge/deployment claimed.
+- Fourprimaryproofmisses andsixconsumed42misses remain. Twoopeninghourskeyobligations are policyambiguities; oldstrictfailureunchanged. Sameoperatorlimitedcompositionaltransfer.
+- Humanonboarding, independenthistorical-semantic/preparation-blinding/outsidecustodian/nativeOOCC NOT_RUN.
 
 ### Next steps
 

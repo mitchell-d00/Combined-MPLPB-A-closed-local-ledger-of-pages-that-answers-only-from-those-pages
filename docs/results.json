@@ -11,7 +11,8 @@
         "tests/test_event_date_inventory.py",
         "tests/test_study_sandbox.py",
         "tests/test_source_claims.py",
-        "tests/test_source_claim_authority.py"
+        "tests/test_source_claim_authority.py",
+        "tests/test_ordinary_questions.py"
       ],
       "runners": [
         "tools/study_sandbox.py",
@@ -51,7 +52,10 @@
         "tools/cryptid_revision3_fresh.py",
         "tools/cryptid_zip_delta.py",
         "tools/cryptid_reporting_compatibility_wrap.py",
-        "tools/cryptid_semantic_preservation_v1.py"
+        "tools/cryptid_semantic_preservation_v1.py",
+        "tools/bunyip_title_wrap.py",
+        "tools/bunyip_score.py",
+        "tools/bunyip_legacy_assessment.py"
       ],
       "scope": "Sequential shared-operation programme with frozen baselines, consumed and fresh transfer; published review candidate, not a released coverage claim.",
       "measurement_status": "Published PR105. Final once-only transfer19/24, five semantic positive misses, zero false-support flags, two budget stops, zero unscored. C2compatibility8/8; original reporting keys31/32 retain conflict-key failure. Prospective policy11/12 on12unchanged native contracts; strict7/12. All771prior source-checked semantic comparisons preserve legacy claims/qualifications/citations, with original exact failures retained. Merge/deployment BLOCKED_ACCEPTANCE_FAILURE; independent/human/OOCC NOT_RUN.",

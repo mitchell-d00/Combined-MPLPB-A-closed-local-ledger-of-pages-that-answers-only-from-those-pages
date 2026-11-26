@@ -228,25 +228,43 @@ Final integration also retains [the rejected first full-ZIP attempt](../evaluati
 
 Testing and Evaluation owns [the final review package](../evaluation/cryptid/revision3/REVIEW_PACKAGE.md) and [case index](../evaluation/cryptid/revision3/final3/case-index.json). Reader owns reporting-layer compatibility and literal embedded polarity; Ledger retains current host eligibility. The source commit and full-ZIP checksum remain separate from the following publication/evidence head, whose CI explicitly verifies the submitted SHA.
 
-The once-only final packet is 19/24: five positive misses, zero false-support flags, two explicit budget stops. Original strict-key failures, original exact-comparison failures, all three final attempts, policy disagreements and rejected candidates remain linked. This is failed semantic acceptance even if remote command checks pass. No merge or deployment is allowed at this state. Human and independent evaluations remain NOT_RUN.
+The once-only final packet is 19/24: five positive misses, zero false-support flags, two explicit budget stops. Original strict-key failures, original exact-comparison failures, all three final attempts, policy disagreements and rejected candidates remain linked. That original all-target semantic acceptance remains failed. Current incremental-release authorization and reader/gate status are recorded in Bunyip below; the earlier score is not relabelled. Human and independent evaluations remain NOT_RUN.
 
-## Bunyip ordinary-language variation
+## Bunyip ordinary-language variation — current candidate
 
-[Current Bunyip protocol and baselines](../evaluation/cryptid/bunyip/README.md): CRYPT-BUNYIP-0001–0102, seven mechanisms, HTML/plain renderings, original keys and raw outputs. Testing and Evaluation owns scoring; Reader owns relation/argument-preserving interpretation. Forty-two transfer executions remain sealed. Incremental release requires audited gains and no regressions; coverage misses alone are not a release prohibition under Mitchell’s latest instruction.
+[Current protocol, matched baselines, failures and source audits](../evaluation/cryptid/bunyip/README.md).
+IDs `CRYPT-BUNYIP-0001`–`0102` cover seven mechanisms in paragraph/plain renderings.
+Scope/governor/quoted variants use BUNYIPW, BUNYIPG and BUNYIPQ prefixes;
+`CRYPT-BUNYIPH-0001`–`0016` protect display-title versus semantic scope.
+[Shared rules](../evaluation/cryptid/shared-rules.json) map every case to its operation.
 
+C4b development: **154/158 decisions**, primary **56/60 positives** versus16/60
+at PR105, all42 primary withholds, zero false-support flags. Forty recovered
+executions represent20unique primary question strings. Four proof misses remain.
+The16title controls pass after retained C3/C4a failures; C3 was rejected for
+public52regressions. Final C4 clean-ZIP software/preservation gates are pending.
 
-## Bunyip current candidate and newcomer navigation
+The first42transfer executions remain **36/42**,22/28positive versus0/28on both
+pinned baselines,14withholds and zero false flags. They are now consumed.
+[Six misses and policy disagreements](../evaluation/cryptid/bunyip/final-review/remaining-misses-and-policy.json)
+retain the original key failure. A new sealed24packet stays unopened until the
+C4 committed ZIP is frozen; same-operator limited composition, not independent
+preparation/blinding. The legacy1000 source-checked v2 policy passes C3 with
+1000complete/exact contracts; its old strict-key failure remains unchanged.
 
-Bunyip C3 development:138/142decisions,56/60primary positive completions,
-zero false-support flags; four original proof misses retained. Forty new complete
-executions versus PR105 represent20unique question strings across two renderings.
-[Inputs, frozen keys, original baselines, rejected candidates and source audits](../evaluation/cryptid/bunyip/README.md).
-Final clean-ZIP preservation and fresh transfer are pending at candidate freeze.
+Testing and Evaluation owns the frozen inputs/scoring; Reader owns the shared
+operation, Ledger eligibility, Delivery source archives. Incremental release
+requires audited gains, no lost valid support/new unsupported claims and required
+protected checks. Existing coverage misses alone do not prohibit release.
+Independent historical/semantic/preparation/blinding/outside-custodian/native
+OOCC and human execution remain NOT_RUN.
+
+## Newcomer documentation verification
 
 **NAV-QUICKSTART-0001**: exact README block, fresh environment and released wheel;
 **NAV-CITATIONS-0001**, **NAV-PARTIAL-0001**, **NAV-OWNER-0001**,
 **NAV-CONFLICT-0001**: extended source/citation and outcome checks.
-[Raw outputs, retained host-verifier failures and reproduction command](../evaluation/newcomer-navigation/README.md).
+[Raw outputs, retained host-verifier failures and reproduction](../evaluation/newcomer-navigation/README.md).
 Owner: Delivery and Project Operations; protected Applications/Reader/Ledger.
 The three-area component map cross-links this authoritative inventory.
 Software verification is separate from the unchanged ONBOARD-12 human NOT_RUN.

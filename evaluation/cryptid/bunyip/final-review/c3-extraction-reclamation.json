@@ -1,0 +1,15 @@
+{
+  "action": "Remove only reproducible C3 clean extraction after all its gates/legacy/transfer completed, source integrity PASS and full source archive verified",
+  "extraction_removed": "/dev/shm/bunyip-candidate-bfb469e6",
+  "full_source_archive_retained": "/dev/shm/bunyip-candidate-bfb469e6-standard.zip",
+  "zip_sha256": "463f34e2ce7867ca1aa07c17118a5b722f580ea54e9bc2c5593a5f3f443f4790",
+  "all_raw_results_and_failed_candidate_retained": true,
+  "source_integrity_receipt": "c3-post-test-source-integrity.json",
+  "redundant_encoding_reclaimed": {
+    "path": "/dev/shm/bunyip-wrong-compression.delta.gz",
+    "sha256": "3f8943ea9698da31d30948b12bd65556238da12ef33454f0974cea604280a141",
+    "original_full_target_zip_retained": "/dev/shm/bunyip-candidate-bfb469e6.zip",
+    "base_retained": "/dev/shm/cryptid-published-ab8.zip",
+    "exact_reproduction": "tools.cryptid_zip_delta.encode(base, original_full_target_zip, output); source codec and hashes retained; no source ZIP removed"
+  }
+}

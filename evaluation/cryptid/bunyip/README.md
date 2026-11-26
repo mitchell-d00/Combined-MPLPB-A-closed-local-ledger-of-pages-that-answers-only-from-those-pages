@@ -1,49 +1,115 @@
-# Bunyip: ordinary questions over the same source proposition
+# Bunyip: ordinary-language questions over source-supported propositions
 
 Last reviewed: 2026-11-26.
 
-Bunyip is a test-family name, never a runtime rule. Testing and Evaluation owns the frozen packets and source audit; Reader owns interpretation/proof, Ledger owns eligibility, Applications and Delivery own release checks. The [protocol](protocol.json) prospectively records Mitchell's incremental-release authorization: verified gains and no regressions can release with remaining coverage misses.
+**Current local reader: C4b; final committed-ZIP gates and fresh24 are pending.**
+Publication is authorized after audited incremental gains, preserved valid support,
+and required protected checks. Coverage misses remain failures but do not alone
+prohibit release. The live PR report records later publication/deployment status.
 
-Before native changes, the [102 development inputs](development/registry.json), [key](development/key.json), generator, harness/scorer hashes and a separate [42-case transfer seal](transfer-seal.json) were frozen. Each rendering has 30 positive and21 withholding targets. The same 51 question/source obligations run as paragraph HTML and newline-preserving plain text. Repeated renderings do not become independent recovered questions.
+## Matched primary results
 
-Released main `c01021c` completes12/60 positive executions; PR105 `ab8f73e` completes16/60. All42 withholding controls hold on both. Original strict scores are50/102 and58/102. Four main flags concern its absent additive literal-polarity field: [separate representation review](baseline-representation-review.json). They are not four established false source facts. Source inputs, original keys, raw outputs and failed scores stay unchanged.
+| Same frozen inputs | Released main c01021c | PR105 ab8f73e | Revised reader |
+|---|---:|---:|---:|
+| Positive completions /60 | 12 | 16 | 56 |
+| Withholding controls /42 | 42 | 42 | 42 |
+| Original strict decisions /102 | 50 | 58 | 98 |
 
-The falsifiable mechanism is relation/argument loss at the finite question-interpreter boundary. Other source/layout/proof misses are separately diagnosed. The full original question remains authoritative for policy, proof, negation, conditions, time, attribution and requested obligations. No identity or execution is inferred; no runtime branches on benchmark IDs, actors, seeds or expected answers are permitted.
+Paragraph HTML and newline-preserving plain text each improve8→28/30positives
+versus PR105 (released main6/30). The40additional completed executions represent
+**20unique primary question strings**, repeated across two renderings. Every
+recovered claim, qualification and exact citation is checked by the frozen
+[source scorer](../../../tools/bunyip_score.py). Four explicit field-of-ID
+questions still miss at proof. Original inputs, keys and failed scores remain
+unchanged. Four main strict flags concern absent additive polarity metadata,
+not four established false facts: [representation review](baseline-representation-review.json).
 
-[Main baseline](runs/baseline-main/run.json), [PR105 baseline](runs/baseline-pr105/run.json), [main score](baseline-main-score.json), [PR105 score](baseline-pr105-score.json). Al's separate8/24 and4/24 diagnostics are reviewer-authored leads; their inputs were not supplied here and those measurements are not represented as this Bunyip rerun.
+[Protocol](protocol.json), [development seal](development/freeze.json),
+[main baseline](runs/baseline-main/run.json), [PR baseline](runs/baseline-pr105/run.json).
+Al's separate8/24paragraph/4/24plain diagnostics were leads; their inputs were
+not supplied, so these are not claimed as that reviewer's diagnostic replay.
 
-Transfer remains sealed until a repaired committed source ZIP is frozen. Preparation, implementation and scoring are same-operator; templates are visible. Independent preparation/blinding, historical/semantic adjudication, outside-custodian scoring and native OOCC remain NOT_RUN. Human onboarding execution remains NOT_RUN until Mitchell supplies actual observations.
+## Rejected attempts and preservation
 
-## Rejected C1
+- C1: primary98/102but four unsupported scope-Wrap completions; rejected.
+- C2: primary98/102and scope24/24but ten unsupported long/governor cases; rejected.
+- C3: development138/142and849prior contracts exactly unchanged from PR105.
+  Full native1882tests found one failed test containing two public preservation
+  regressions: owner conflict and partial correction. C3 is rejected.
+- First title repair C4a: public52and16focused tests pass, but title controls
+  remain12/16because imported headings duplicate the generated display title.
+  Its full native-package ZIP, source hashes and original failures are retained.
+- C4b: development154/158, including all16title controls, zero false-support
+  flags. Four primary proof misses remain. Consumed42 stays36/42unchanged.
 
-Primary development improves16/60 to56/60 completions, with0false flags in that packet. Post-C1 scope Wrap is separately frozen before its diagnostic: C1fails4/24 cases by dropping a standalone “Only if…” governor on an owner or classification assertion. C1 is rejected. The unchanged PR105 Wrap baseline also exposes six pre-existing unsupported report/quotation assertions and misses its two positive executions. Original keys/scores are retained. The initial nested-namespace launch failed102workers before reader execution; these are NOT_RUN reader outcomes, retained separately.
+The shared title repair permits literal source correspondence under leading
+fictional display headings matching the record title, including duplicate
+imported display titles. It retains other qualifiers, body headings, quotations
+and conditional scope. Documentary action verification keeps its conservative
+default; no independent real-world truth is established.
 
-## C2 and the longer-governor diagnostic
+[Raw retained runs](final-review/retained-runs-2.json) and
+[C3 software/legacy/failed title repair](final-review/c3-software-and-legacy.json)
+point to hashed lossless archives. The initial nested worker launch102failures,
+first legacy replay390completed/610disk execution failures, missing wheel build
+backend and two consumed-baseline prelaunch path failures remain distinct from
+reader outcomes. The wheel retry passed; no unsandboxed fallback was used.
 
-C2 keeps56/60primary completions and passes24/24scope controls. A further14-case development set is frozen before C2 testing/C3 repair: C2fails10governor-head/length cases. C2 is retained and rejected. Its849prior contracts exactly matchPR105. Four raw support losses versus main are header text fused into invented authors, not lost valid support; original outputs remain in the comparison.
+All849C3contracts match PR105 exactly after removing only the code fingerprint.
+All145claim-bearing main cases were assessed:137unchanged; eight invalid
+header-fused actors were corrected(four) or withheld(four), not valid support
+losses. [Classification audit](assessments/main-support-classifications.json).
+C4 final clean-ZIP preservation is pending.
 
-The [source-checked legacy assessment](assessments/legacy-source-assessment-v2.json) independently rereads frozen original bytes and exact citations for44previously unscored positives plus21additive-field cases. Same-operator source assessment is distinct from independent semantic adjudication. Two failed host-audit attempts (absent original-witness annotation, then whitespace projection mismatch) remain retained; no source, old key or old score changed.
+## First fresh packet: retained, now consumed
 
-## C3 development, before final archive
+The first once-only42completed36/42decisions:22/28positives,14/14withholds,
+zero false-support flags, six positive misses. Both pinned baselines complete
+0/28on identical inputs. The22executions represent11unique question strings.
+Paragraph and plain renderings each complete11/14. No native repair used those
+six misses. The later title repair was required by the public preservation gate.
+The packet is now preservation/development evidence for the revised candidate.
 
-The shared governor checker now preserves recognized restrictions regardless of
-length and distinguishes an unrelated quoted condition from an outer condition.
-C3 passes138/142 development decisions:98/102primary,24/24scope,14/14governor,
-and2/2quoted-governor. No false-support flags remain. Four explicit field-of-ID
-wordings still miss at proof; they remain failures. Primary positive executions
-improve12→56/60 versus released main and16→56/60 versus PR105. The latter gain
-is40executions but **20unique question strings**, each repeated in two layouts.
+[Unchanged score](final-review/fresh-transfer-once-score.json) and
+[remaining misses/policy disagreements](final-review/remaining-misses-and-policy.json):
+four instruction-paraphrase interpretation misses; two opening-hours questions
+whose key treats an opening time alone as complete. That obligation/policy
+ambiguity is reported separately; the original strict-key failures remain.
+A new prospective partial policy would require fresh fixtures, not relabelling.
 
-[Primary C3 audit](runs/candidate-3-score.json) checks every recovered complete
-claim, qualifications and exact witnesses. Scores retain discovery, interpretation
-and proof separately. [All main claim-bearing cases](assessments/main-all-claims-audit-c2.json)
-and [eight invalid header-actor classifications](assessments/main-support-classifications.json)
-cover partials as well as completions. Source-checked assessment is same-operator.
+A separately [sealed24](fresh2/transfer-seal.json) was prepared before C4 repair
+and remains unopened until a committed full candidate ZIP is frozen. It tests
+limited composition of unseen question prefixes and new document/header layouts;
+visible same-operator templates do not establish independent blinding or broad
+language transfer. The recorded seed is a protocol identifier; generation uses
+deterministic templates rather than random sampling.
 
-The [prospective legacy policy](assessments/prospective-retention-v2-policy.json)
-retains the old strict-key failure, requires the full1000worker executions and
-exact contract retention, and source-checks the65previously unscored/additive
-outputs against unchanged originals. It does not relabel the old failure as a
-pass. Final clean-ZIP software checks and once-only fresh42 remain pending at
-this candidate-freeze stage. [Newcomer documentation verification](../../newcomer-navigation/README.md)
-is separate from human onboarding, which remains NOT_RUN.
+## Acceptance policy versus reader gains
+
+The legacy RAM-staged retry completes1000/1000workers and preserves1000full
+contracts. Its old strict-key result is still FAIL. The separately frozen
+[source-checked v2 policy](assessments/prospective-retention-v2-policy.json)
+validates44formerly unscored outputs plus21additive-field cases against original
+source bytes and qualifications, then requires complete execution and exact
+retention of all1000contracts. It passes on C3; this is a prospective acceptance
+assessment, not additional reader coverage. The host-only script invocation
+failure is retained; CI uses its correct module invocation. C4 exact-head checks
+remain required before merge.
+
+## Reproduce and inspect
+
+```sh
+MPLPB_REQUIRE_SANDBOX=1 python tools/cryptid_trial_v5.py --registry evaluation/cryptid/bunyip/development/registry.json --implementation . --source-commit COMMIT --output /tmp/bunyip-run
+python tools/bunyip_score.py --registry evaluation/cryptid/bunyip/development/registry.json --key evaluation/cryptid/bunyip/development/key.json --run /tmp/bunyip-run --output /tmp/bunyip-score.json
+```
+
+Use `tools/cryptid_replay_packet_v5.py` for consumed packets. Keep scoring keys,
+generators and Git outside readonly, networkless workers. Existing8record,
+200000character,1000unit,12passage,8000output caps remain unchanged; worker
+CPU30seconds/wall45seconds. Execution failure is unscored, never an abstention.
+The [Test Index](../../../docs/TEST_INDEX.md) is authoritative.
+
+[Newcomer command verification](../../newcomer-navigation/README.md) is separate
+from the unchanged human protocol. Human execution, independent historical and
+semantic adjudication, independent preparation/blinding, outside-custodian scoring
+and native OOCC remain **NOT_RUN**. Preparation/scoring are same-operator.

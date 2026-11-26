@@ -32,6 +32,14 @@ class OrdinaryQuestionTests(unittest.TestCase):
     def test_quoted_condition_does_not_govern_outer_fact(self):
         self.source('<blockquote><p>Only if the permit is valid.</p></blockquote><p>Lira Snow owns Cloud Finch Workshop.</p>')
         self.assertTrue(self.answer('Who does Cloud Finch Workshop belong to?')['answer_supported'])
+    def test_fictional_display_title_preserves_literal_conflict(self):
+        write(self.root,doc_id='ONE',title='Public fictional collection',scope='documentary evidence',body='Lira Snow owns Cloud Finch Workshop.')
+        self.assertTrue(self.answer('Who does Cloud Finch Workshop belong to?')['answer_supported'])
+        write(self.root,doc_id='TWO',title='Public fictional collection',scope='documentary evidence',body='Lira Snow does not own Cloud Finch Workshop.')
+        self.assertEqual(self.answer('Who does Cloud Finch Workshop belong to?')['kind'],'conflict')
+    def test_display_title_exception_keeps_hypothetical_and_body_scope(self):
+        write(self.root,doc_id='ONE',title='Hypothetical fictional collection',scope='documentary evidence',body='Lira Snow owns Cloud Finch Workshop.')
+        self.assertFalse(self.answer('Who does Cloud Finch Workshop belong to?')['answer_supported'])
     def test_quotation_is_not_an_unqualified_owner(self):
         self.source('<blockquote><p>Lira Snow owns Cloud Finch Workshop.</p></blockquote>')
         self.assertFalse(self.answer('Who owns Cloud Finch Workshop?')['answer_supported'])

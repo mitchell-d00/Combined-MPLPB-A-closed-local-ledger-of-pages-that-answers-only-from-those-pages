@@ -331,7 +331,7 @@ def date_inventory(index,record):
     return {'proposition':value,'citations':citations}
 
 
-def context_ranges(record, *, document_draft=False):
+def context_ranges(record, *, document_draft=False, literal_source=False):
     """Conservatively exclude quotation/chrome and qualified heading scopes.
 
     Position through the unchanged canonical projection. A page containing a
@@ -433,6 +433,13 @@ def context_ranges(record, *, document_draft=False):
         parser.ranges.append((0,len(full)+1))
     for _,start in parser.stack:parser.ranges.append((start,len(full)+1))
     for i,(start,level,heading) in enumerate(parser.headings):
+        # Literal source correspondence can describe a fictional collection.
+        # A generated display title is not an assertion of real-world truth.
+        # Keep every other qualifier and every body/quotation heading scoped;
+        # documentary action verification retains the conservative default.
+        if (literal_source and level==1 and start==0
+                and heading.strip().casefold()==record.title.strip().casefold()):
+            heading=re.sub(r'\bfictional\b','',heading,flags=re.I)
         if META.search(heading) or re.search(r'\b(?:'+qualifiers+r')\b',heading,re.I):
             end=next((a for a,l,_ in parser.headings[i+1:] if l<=level),len(full)+1)
             parser.ranges.append((start,end))

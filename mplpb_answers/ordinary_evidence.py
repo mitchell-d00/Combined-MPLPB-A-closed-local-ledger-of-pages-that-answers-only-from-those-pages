@@ -12,12 +12,13 @@ def patterns(frame,negative=False):
 
 def unscoped(record,body,start,end):
     from .documentary_verify import context_ranges,quoted_context
-    if any(a<end and b>start for a,b in context_ranges(record)):return False
+    ranges=context_ranges(record,literal_source=True)
+    if any(a<end and b>start for a,b in ranges):return False
     if quoted_context(body[:start]):return False
     # Recognized restriction heads remain restrictions at any source length.
     # A quoted condition is a different reporting layer, not an outer governor.
     condition=re.search(r'(?:^|[.!?]\s+|\n)(?P<condition>(?:(?:Only\s+)?If|Unless|Provided(?:\s+that)?|Subject\s+to)\b[^.!?]+[.!?]?)\s*$',body[:start],re.I)
-    if condition and not any(a<condition.end('condition') and b>condition.start('condition') for a,b in context_ranges(record)):
+    if condition and not any(a<condition.end('condition') and b>condition.start('condition') for a,b in ranges):
         return False
     return True
 

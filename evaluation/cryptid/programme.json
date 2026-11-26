@@ -1,7 +1,7 @@
 {
   "schema": "cryptid-programme-v1",
   "baseline_commit": "c01021c0b9983f9a607fbe782dea7ed5872d1f11",
-  "publication": "BUNYIP_C3_LOCAL; INCREMENTAL_PUBLICATION_AUTHORIZED_AFTER_AUDITED_GAINS_AND_REQUIRED_GATES",
+  "publication": "BUNYIP_C4B_LOCAL; INCREMENTAL_PUBLICATION_AUTHORIZED_AFTER_AUDITED_GAINS_AND_REQUIRED_GATES",
   "operator": "Betty, same operator for preparation/implementation/scoring",
   "independent_historical_accuracy": "NOT_RUN",
   "independent_semantic_adjudication": "NOT_RUN",
@@ -627,7 +627,7 @@
       "family": "BUNYIP",
       "id_prefix": "CRYPT-BUNYIP",
       "mechanism": "Ordinary language loses relation arguments before proof; source shape and governor/reporting layers require distinct checks.",
-      "status": "C3_DEVELOPMENT_VERIFIED_FINAL_GATES_PENDING",
+      "status": "C4B_DEVELOPMENT_VERIFIED_FINAL_ZIP_GATES_PENDING",
       "responsible_department": "testing-evaluation",
       "implementation_departments": [
         "reader",
@@ -638,17 +638,21 @@
       "runtime_labels_are_rules": false,
       "protocol": "bunyip/protocol.json",
       "candidate": {
-        "development_decisions": "138/142",
+        "development_decisions": "154/158",
         "primary_completions": "56/60",
         "withholding": "42/42",
         "false_support_flags": 0,
         "positive_misses": 4,
-        "unique_recovered_question_strings_vs_pr105": 20
+        "unique_recovered_question_strings_vs_pr105": 20,
+        "title_controls": "16/16"
       },
       "transfer": {
-        "status": "SEALED_UNOPENED",
-        "planned": 42,
-        "custody": "same operator; templates visible; no independent preparation/blinding"
+        "first_packet": "bunyip/final-review/fresh-transfer-once-score.json",
+        "first_decisions": "36/42 unchanged;22/28positives;14withholds;zero false-support flags;6positive misses",
+        "first_now_consumed": true,
+        "fresh_packet": "bunyip/fresh2/transfer-seal.json",
+        "fresh_status": "SEALED_UNOPENED",
+        "custody": "same-operator limited composition; independent preparation/blinding NOT_RUN"
       },
       "remaining_misses": "Four explicit field-of-ID wordings fail proof; no relabeling."
     }
@@ -690,7 +694,8 @@
     "ledger/0012.json",
     "ledger/0013.json",
     "ledger/0014.json",
-    "ledger/0015.json"
+    "ledger/0015.json",
+    "ledger/0016.json"
   ],
   "final_integration": {
     "status": "SECOND_CANDIDATE_PENDING",
@@ -703,7 +708,7 @@
     "publication": "LOCAL_ONLY"
   },
   "current_revision_request": {
-    "status": "BUNYIP_C3_FREEZE_PENDING",
+    "status": "BUNYIP_C4B_FINAL_ARCHIVE_PENDING",
     "baseline_main": "c01021c0b9983f9a607fbe782dea7ed5872d1f11",
     "baseline_pr105": "ab8f73e83538d8e33e8d13df14c2f47b88054608",
     "acceptance": "Verified incremental gains/no regressions/required protected gates; remaining coverage misses alone do not prohibit release",

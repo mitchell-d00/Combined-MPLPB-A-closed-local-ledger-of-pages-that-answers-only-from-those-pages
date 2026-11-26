@@ -44,7 +44,7 @@ jobs:
           # V2 separately source-checks every formerly unscored gain and the
           # additive metadata, then requires all 1,000 complete contracts to
           # match that reviewed baseline. Missing/failed worker runs fail here.
-          python tools/bunyip_legacy_assessment.py \
+          python -m tools.bunyip_legacy_assessment \
             --run "$RUNNER_TEMP/bounded-repair/run" \
             --output "$RUNNER_TEMP/bounded-repair/source-checked-v2.json"
       - name: Replay the 22 historical development questions
