@@ -4,8 +4,8 @@ Last reviewed: 2026-11-26.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `5b5ddbe22831d5d5c9d33c4e9bc8297b2ffda0c4` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `b4484ba723b4a42273118b53bfa131600141ff19700c1553e4bca79847287cce`.
+Base commit: `46a0bb09e45f04c3952e76b85d3513208b67a972` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `54f0aa6b57a3b578ac4d8d432a770718f68bc49bf009d8c3c548cff0f5ca0d0a`.
 
 ## Betty report for Al
 
@@ -19,7 +19,29 @@ Recover the original workspace when available. Verify and push C3’s actual sou
 
 If files remain inaccessible, list exactly which files are missing. Do not reconstruct them from summaries and call them recovered. Continue under my existing publication and merge authorization once required checks pass.
 
-Then organize the existing repository around its three entry areas: MPLPB product; Experimental Lab; Testing apparatus and evidence. Extend the existing Test Index as the connecting map, preserving historical paths and frozen archive bytes. At future work boundaries push actual source and available public evidence with the working-state handoff; report publication, verification, merge and deployment separately.
+Then organize the existing repository around its three entry areas:
+
+1. MPLPB product: runnable software, installation, ordinary-user instructions, releases and supported capabilities.
+2. Experimental Lab: proposed changes, development trials, candidate implementations and unresolved questions.
+3. Testing apparatus and evidence: reusable runners, test families, frozen protocols, results and retained failures.
+
+Extend the existing Test Index into the connecting map. Each test family should identify:
+- Stable ID and responsible area.
+- Capability or boundary tested.
+- Baseline and candidate revisions.
+- Input/artifact checksums and retrievable evidence locations.
+- Results, remaining misses and execution status.
+- Development, consumed-transfer or unopened-transfer status.
+- Related fixes and preservation checks.
+
+Use links and manifests first. Preserve historical paths and frozen archive bytes. Store large public evidence in durable, versioned locations with checked links.
+
+Make the path easy to follow:
+product capability → implementation → test → result → retained evidence.
+
+At future work boundaries, push actual source and available public evidence with the working-state handoff. Report separately what is published, verified, merged and deployed.
+
+Clarification: The next milestone is getting those actual code files into a remote commit, then preserving the test evidence. Keep recovery ahead of reorganization and avoid publishing mixed archives blindly. A stalled command does not establish file loss.
 
 ### Implemented scope
 
@@ -29,6 +51,7 @@ Then organize the existing repository around its three entry areas: MPLPB produc
 - Original museum diagnostic-copy implementation, JavaScript tests/fixture and four workflow integrations now included. This UI work is separate from reader-language gains. Public evidence bundle, unchanged baseline archive and exact rejected C1/C2 source archives are included; see evaluation/cryptid/bunyip/round2/public-artifacts-v1.json.
 - Existing optional source-metadata/read-only diagnostic worker adapter and public routing/polarity development packets are published unchanged. Remote workflow reuses D.run, sealed worker hashes, current limits and required Bubblewrap; it executes only public development on baseline/current source. Held keys remain local, so semantic scoring stays separate.
 - Remote raw baseline/candidate ZIPs and unchanged strict/source-score files are durably versioned under round2. Candidate source-key development comparison572/572 passes; this is not unseen transfer, independent semantic adjudication or historical accuracy.
+- Three existing entry areas now lead to product use, experimental development and evidence inspection. Existing Test Index/results.json connects66families/69family+subfamily IDs to responsibility, protected scope, implementation, tests, per-run pins/checksums, results/misses, execution/custody and preservation. Older multi-revision metadata explicitly refers to retained per-run receipts rather than inventing a single pin. Root README131lines. No physical paths moved.
 
 ### Validation recorded
 
@@ -40,6 +63,7 @@ Then organize the existing repository around its three entry areas: MPLPB produc
 - Recovered local C3 primary record:75/444 completed;75 source-key decisions correct, including14 positives;369 execution failures. Guards0/44 completed and44 execution failures. These are not369+44 reader refusals. At exact source commit baa19f5 remote regression passed1904tests with1skip plus JS/API/WASM/Chromium; later-head checks remain required.
 - Matched remote development at483f35a:572 executions per revision, zero execution failures. Candidate128/128 supported positives+444/444 correct withholds;71 recovered positive executions across34 original question strings/71unique inputs.40executions/19strings are the matched-source wording diagnostic;31other source/proof recoveries separate.89question strings,524unique inputs,48repeated memberships per572.
 - Source/citation audit:12 corrected baseline unsupported cases, zero lost valid support, no citation change to preserved support. Original main contract replay is exact for all560 earlier frozen baseline cases. All22 original strict-key output failures retained; all22 satisfy the prospective pre-implementation polarity contract and exact quotations.
+- Navigation stage: stable IDs unique; Outside definition byte-unchanged; original documents preserved in reviewed versioned history snapshots. No frozen input/key/score or historical measurement was modified or rerun by navigation. Native1904(1skip) source test and572case comparison remain distinct from metadata/transport work.
 
 ### Limitations and blocked checks
 
@@ -48,10 +72,11 @@ Then organize the existing repository around its three entry areas: MPLPB produc
 - PID1 diagnostic was denied by automatic approval due supervisor disruption risk and was not executed. No sandbox/protection gate may be bypassed. No new round2 deployment verification has occurred.
 - Core C3 source, original UI/workflow changes and reviewed new public evidence are published; remaining local documentation/index/history updates and complete software validation are pending. Original C3 local test state was uncommitted: source hashes identify those bytes, not a fabricated pre-existing tested commit.
 - New current source-key development pass does not erase C1/C2 rejection, original strict-key failures or local execution failures. Full preservation, committed ZIP freeze, both once-only held packets and latest-head required gates remain necessary before merge. Navigation metadata work is in progress; no paths/frozen bytes moved.
+- Local Git working branch still has baseline ancestry2622813 and original uncommitted files; remote API commits are the current published state. Do not force-push/reset or deliver a local archive as current without reconciling. The key-bearing frozen-development-inputs.tar.xz was removed from the local index without changing its bytes, privately copied/verified, and explicitly ignored for publication. All held transfer/key material remains excluded.
 
 ### Next steps
 
-- Verify public download checksums, recover/publish remaining original documentation and existing metadata-adapter source, inspect C3 execution outputs, and complete the existing Test Index/three-area map. Preserve all original scores and frozen custody.
+- Complete exact-head navigation/handoff/docs checks and the released quickstart software walkthrough; finish849contract preservation and unchanged BB accounting, then freeze the committed source ZIP before opening36+64held transfer once. Keep current PR report/source pins synchronized. Publication authorization persists.
 - Inspect/replay C3 execution failures and preservation including unchanged Bunyip BB; audit source support/polarity/citations/conflicts separately. Update authoritative Test Index/department map with actual outcomes. Freeze committed ZIP before either designated transfer packet is opened once.
 - Run all required exact-head checks and acceptance/protection gates, then merge and verify deployment/live fingerprints under existing authorization. Existing coverage gaps may remain backlog; missing implementation or blocked gates are not passes.
 
