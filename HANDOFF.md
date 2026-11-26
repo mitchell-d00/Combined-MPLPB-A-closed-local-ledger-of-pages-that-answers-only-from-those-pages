@@ -4,8 +4,8 @@ Last reviewed: 2026-11-26.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `43eca170d8bcd903f6c2f92e74fd7950540a7f81` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `022eca016e6b69b26491637e87e4383ece623923b66db8ca527c905e2e829d48`.
+Base commit: `c7de580937f7e3b95144cf8bec114947ee67b16b` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `98a932c4ddf0ae7378474fc498787301588d828ff460216ef4683bbb7ca7e1dd`.
 
 ## Betty report for Al
 
@@ -23,6 +23,7 @@ Devise and run Thoth, a bounded ordinary-question interpretation sprint. Group r
 
 - 28 existing Bunyip/compound tests passed. Matched parser controls cover negation, attribution, conditions and terminal punctuation.
 - BB replay on Thoth retains 900 positive contracts and exact eligible citation checks plus 200 withholds. Start the existing public-only 832 replay.
+- First hosted development execution completed, but incorrect upload path retained only the old public runtime directory. The original artifact and console receipt are retained separately as an unscored infrastructure failure.
 
 ### Limitations and blocked checks
 
@@ -30,7 +31,7 @@ Devise and run Thoth, a bounded ordinary-question interpretation sprint. Group r
 
 ### Next steps
 
-- Pin the candidate runtime and compare the four readers on frozen development. Recheck consumed Wampus and Bunyip.
+- Repeat development with corrected public-output transport on the same pinned readers, then open the original sealed fresh packet.
 
 ## Use this ZIP in your repository
 

@@ -2,7 +2,7 @@ name: Thoth isolated comparison using Cryptid v5
 on:
   push:
     branches: ['local/bunyip-round2']
-    paths: ['evaluation/egyptian-gods/thoth/phase.txt']
+    paths: ['evaluation/egyptian-gods/thoth/phase.txt', '.github/workflows/thoth.yml']
 permissions:
   contents: read
 jobs:
@@ -84,5 +84,6 @@ jobs:
         if: always() && steps.scope.outputs.approved == 'yes'
         with:
           name: thoth-${{ github.sha }}
-          path: ${{ runner.temp }}/wampus/
+          path: ${{ runner.temp }}/thoth/
+          if-no-files-found: error
           retention-days: 90
