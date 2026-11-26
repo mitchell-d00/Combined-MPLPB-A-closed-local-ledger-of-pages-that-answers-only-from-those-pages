@@ -1,5 +1,5 @@
 {
-  "base_revision": "eafd82eb939e749f4d87bd968d83a34f54b0e1f6",
+  "base_revision": "17fae6f00762cfec503caeb6303bc6ae4fa85772",
   "files": {
     ".gitattributes": "2e7eea36014410eae72f6f6a896086381df7dabd52d0893bd411812985a680a3",
     ".github/workflows/bounded-documentary-acceptance.yml": "4b9a33fa2653efa18561f4167221097a14636d05ef23045fe5021c878953c8d9",
@@ -43311,6 +43311,7 @@
     "evaluation/cryptid/revision3/reporting-budget-wrap/inputs/CRYPT-YETI-0141/case.json": "1a0f52a7b87a882ce62bc7c064e01b4eb72cd9c93778ff39983302a7a7d6758a",
     "evaluation/cryptid/revision3/reporting-budget-wrap/key.json": "d61e26601998d2b2c237083f5b0ec45ad9210f9452db2fb150f08245714ddca1",
     "evaluation/cryptid/revision3/reporting-budget-wrap/registry.json": "9c5ff49cf9fc8d46cc61989824ee916626d2298243fcd2ae03a83cacba7f10a1",
+    "evaluation/cryptid/revision3/reporting-compatibility-wrap/audit-seal.json": "c71fab5d4f41ac9d3505cebc79bf2a389e4e11de28a9649d2d18a6418c139d47",
     "evaluation/cryptid/revision3/reporting-compatibility-wrap/baseline-decision-review.json": "ca6147d23dd2c33e7688702469f4c29cd329a489bb7399612737cb56a90a8dc2",
     "evaluation/cryptid/revision3/reporting-compatibility-wrap/freeze.json": "379912c6362aac7426193a818ebf9a1dbbc85ae68d5ff774891f99b18f996794",
     "evaluation/cryptid/revision3/reporting-compatibility-wrap/inputs/CRYPT-YETI-0150/case.json": "a72600d4f01855577d6a073011fbc7230adc450ece3051600c72a20fcf995f69",
@@ -43351,6 +43352,7 @@
     "evaluation/cryptid/revision3/reporting-development/inputs/CRYPT-YETI-0123/case.json": "55bc127a420a26f967cb42e3b4c7728d67343aca04504fbe034ae2f293caa547",
     "evaluation/cryptid/revision3/reporting-development/key.json": "66412cb89ae51f7e130df4f7e2069126a594bafd27c3a32a7b8f7bb90719cefd",
     "evaluation/cryptid/revision3/reporting-development/registry.json": "d40e17f3f3db038c2dceb88e4488028d8a286b46cbf4bf4db931a7bace341da4",
+    "evaluation/cryptid/revision3/reporting-recovery-criterion-v2.json": "c945402611c16f5a37ec41fa9c3cb64c9d712fa89dcb57119961fef56117afbb",
     "evaluation/cryptid/revision3/reporting-shell-wrap/freeze.json": "7db12037b8869a19af4138153899fbf11e56b94f01aec3c6ad6e0b9886c41751",
     "evaluation/cryptid/revision3/reporting-shell-wrap/inputs/CRYPT-YETI-0130/case.json": "88fbb46cfd2c62f711bf0fe2180d5f7d5ccfb22fcd2ee6141bcf2e1fa9d07ff6",
     "evaluation/cryptid/revision3/reporting-shell-wrap/inputs/CRYPT-YETI-0131/case.json": "37d014f4c335a6758401309fc9864e1110eddc4ffe930e659c0d8e097d53a1b0",
@@ -63893,6 +63895,7 @@
     "tests/test_repo.py": "dd4e826205d70b76392701ccdae00a608645907caf18cda2af14b22ea6f73dfa",
     "tests/test_report_section_probe.py": "c35086506ea37402399dda576a8dbf7b16a6e0df23e31b53692cf29752b41db0",
     "tests/test_reported_content.py": "ab9795d5b0fd833a5b66a7aca044251835651f308746223b2167a1da3f11898b",
+    "tests/test_reporting_preservation_audit.py": "8cbe4e21ca53a2c008635652ace7b46190f6762416eca807a6a493a5e56a640f",
     "tests/test_researcher_pilot.py": "86d2681ce9c7a69799dc060e6ded0942f8a6448e7e6b6826e6a4caee6f7a40be",
     "tests/test_response_construction.py": "f59435f2f24984e6ad6e9124173dedef695f2331b0de75529727ef4be35084e8",
     "tests/test_response_edge_smoke.py": "b2f6fc32ffa84c55fd3b8d326a4d868295d8252087f56eb8631da3b906f23a94",
@@ -64077,6 +64080,7 @@
     "tools/cryptid_sasquatch_packets.py": "5b743736e5f0bd548bcbeb316b58f062bf1b7050f19f3e9dd23efc79c3a8464e",
     "tools/cryptid_score.py": "6e6c8ac3bb7629472bc6e97c0beda91bd0d4776eec0fd83587baad49b4b3e949",
     "tools/cryptid_score_v2.py": "010dd598d3b1ba6a5b4e061e05bdfa528aafd6f7d3ac03749ba403f3fef14eb3",
+    "tools/cryptid_semantic_preservation_v1.py": "bfe411d4e865be90a0dc1c581186c815e87670bbdec0c215e51dae222eae2114",
     "tools/cryptid_structure_score.py": "96bf2cd2adeff5e857caed85cfe0d320c115c10810f84d4e636bd8c8cb8d76c7",
     "tools/cryptid_structure_score_v2.py": "afa5f86b62c04683edafd89c8b26c7ca3b5be9ccb8fdc08e193d8fa4a29e93a6",
     "tools/cryptid_thunderbird_packets.py": "1e2629c46e926d1804a75675f23a7ef86b985a979e1cb0867c21b5b1b6252c67",
@@ -64241,6 +64245,6 @@
     "training/owner-work/inventory.json": "d0c1b326bbf191e4514a747fd09ad6532e9882dde175a4b13b6012997afc82b5",
     "training/owner-work/public-dataset-candidate.json": "42207d153f3e325b7435caa53bc70d75e64eca346b023b4ac733dc92ff9d6091"
   },
-  "inventory_sha256": "3d4e741348d6afdfe4cf611491f90eba76e1ddacb52f60aa18bd33518f8a588a",
+  "inventory_sha256": "f895918b1548b53321c74f5ccb214fd0e63204202ff098be9ca5fb190e4a14f3",
   "schema": "repository-handoff-v1"
 }
