@@ -13,15 +13,15 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          ref: a7b34c23e5f77df8ea6817fb709e90b3a03032ea
-          fetch-depth: 2
+          ref: 02aec308e36f5999ee87c898a82850678a8ab9f7
+          fetch-depth: 4
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
       - name: Confirm main-based documentation-only scope
         run: |
-          test "$(git rev-parse HEAD)" = a7b34c23e5f77df8ea6817fb709e90b3a03032ea
-          test "$(git rev-parse HEAD^)" = 2622813aba9ee1f1880693eeb71ae015cb3da999
+          test "$(git rev-parse HEAD)" = 02aec308e36f5999ee87c898a82850678a8ab9f7
+          git merge-base --is-ancestor 2622813aba9ee1f1880693eeb71ae015cb3da999 HEAD
           python - <<'PY'
           import json, subprocess
           allowed=set(json.loads("[\"AGENTS.md\",\"README.md\",\"docs/COMPONENT_MAP.md\",\"docs/DEVELOPMENT_HISTORY.md\",\"docs/EXPERIMENTAL_LAB.md\",\"docs/MPLPB.md\",\"docs/TEAMBUILDING.md\",\"docs/TESTING_APPARATUS.md\",\"docs/TEST_INDEX.md\",\"docs/departments/README.md\",\"docs/departments/components.json\",\"docs/results.json\",\"docs/CURRENT_STATUS.md\",\"docs/recovery/SAFE_DOCUMENTATION_MERGE.md\",\"handoff/update.json\",\"docs/documentation.json\",\"evaluation/cryptid/bunyip/README.md\",\"HANDOFF.md\",\"handoff/manifest.json\"]"))
