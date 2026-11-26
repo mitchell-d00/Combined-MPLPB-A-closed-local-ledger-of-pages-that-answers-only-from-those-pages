@@ -13,14 +13,14 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          ref: 02aec308e36f5999ee87c898a82850678a8ab9f7
-          fetch-depth: 4
+          ref: 9226381268e470a9f11b981edfd2d5fed9580416
+          fetch-depth: 6
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
       - name: Confirm main-based documentation-only scope
         run: |
-          test "$(git rev-parse HEAD)" = 02aec308e36f5999ee87c898a82850678a8ab9f7
+          test "$(git rev-parse HEAD)" = 9226381268e470a9f11b981edfd2d5fed9580416
           git merge-base --is-ancestor 2622813aba9ee1f1880693eeb71ae015cb3da999 HEAD
           python - <<'PY'
           import json, subprocess
