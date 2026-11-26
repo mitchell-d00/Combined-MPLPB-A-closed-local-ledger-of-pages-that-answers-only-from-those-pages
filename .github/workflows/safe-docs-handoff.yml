@@ -1,0 +1,56 @@
+name: Prepare clean documentation handoff
+on:
+  push:
+    branches: ['automation/safe-docs-handoff-v1']
+permissions:
+  contents: read
+jobs:
+  prepare-handoff:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: a7b34c23e5f77df8ea6817fb709e90b3a03032ea
+          fetch-depth: 2
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Confirm main-based documentation-only scope
+        run: |
+          test "$(git rev-parse HEAD)" = a7b34c23e5f77df8ea6817fb709e90b3a03032ea
+          test "$(git rev-parse HEAD^)" = 2622813aba9ee1f1880693eeb71ae015cb3da999
+          python - <<'PY'
+          import json, subprocess
+          allowed=set(json.loads("[\"AGENTS.md\",\"README.md\",\"docs/COMPONENT_MAP.md\",\"docs/DEVELOPMENT_HISTORY.md\",\"docs/EXPERIMENTAL_LAB.md\",\"docs/MPLPB.md\",\"docs/TEAMBUILDING.md\",\"docs/TESTING_APPARATUS.md\",\"docs/TEST_INDEX.md\",\"docs/departments/README.md\",\"docs/departments/components.json\",\"docs/results.json\",\"docs/CURRENT_STATUS.md\",\"docs/recovery/SAFE_DOCUMENTATION_MERGE.md\",\"handoff/update.json\",\"docs/documentation.json\",\"evaluation/cryptid/bunyip/README.md\",\"HANDOFF.md\",\"handoff/manifest.json\"]"))
+          changed=set(subprocess.check_output(['git','diff','--name-only','2622813aba9ee1f1880693eeb71ae015cb3da999','HEAD'],text=True).splitlines())
+          assert changed <= allowed, changed-allowed
+          assert not any(p.startswith(('mplpb_','tests/','tools/','.github/')) or p=='index.html' for p in changed)
+          PY
+      - name: Generate/check using unchanged existing handoff builder and audits
+        run: |
+          python tools/build_handoff.py
+          python tools/build_handoff.py --check
+          python tools/check_repository_infrastructure.py
+          python -m tools.audit_documentation
+          python tools/audit_departments.py
+      - name: Commit only generated handoff to the clean documentation branch
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add HANDOFF.md handoff/manifest.json
+          git commit -m 'Generate main-based documentation handoff from exact selected content'
+          git push origin HEAD:refs/heads/docs/safe-navigation-2026-11-26
+      - name: Retain handoff and audit context
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: clean-documentation-handoff-${{ github.sha }}
+          path: |
+            HANDOFF.md
+            handoff/update.json
+            handoff/manifest.json
+          if-no-files-found: warn
+          retention-days: 30
