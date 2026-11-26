@@ -4,8 +4,8 @@ Last reviewed: 2026-11-26.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `6ec348b31ec79e37def77a7019cd22102df85f93` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `06ff161587a926d44435154098409f1c7592591cda7db9b909d88a7b3436de2e`.
+Base commit: `43eca170d8bcd903f6c2f92e74fd7950540a7f81` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `022eca016e6b69b26491637e87e4383ece623923b66db8ca527c905e2e829d48`.
 
 ## Betty report for Al
 
@@ -22,6 +22,7 @@ Devise and run Thoth, a bounded ordinary-question interpretation sprint. Group r
 ### Validation recorded
 
 - 28 existing Bunyip/compound tests passed. Matched parser controls cover negation, attribution, conditions and terminal punctuation.
+- BB replay on Thoth retains 900 positive contracts and exact eligible citation checks plus 200 withholds. Start the existing public-only 832 replay.
 
 ### Limitations and blocked checks
 
