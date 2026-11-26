@@ -4,8 +4,8 @@ Last reviewed: 2026-11-26.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `b1a31fa987c51fa9902bf46911e6d3da8b792211` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `0385fe28cf96c07b32c78d8423a390a0d907a04d61c58bc7593ecad91c7fb8a3`.
+Base commit: `7e272e5d9742931feef05fc004a84d6846a55f39` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `19c8e6bd168ba88e3a8b3028ea780c9265ae240d07e413a35d28cc9a84523a0c`.
 
 ## Betty report for Al
 
@@ -19,9 +19,11 @@ Make broader language generalization the primary development goal. Preserve exis
 
 Extend Bunyip using the existing D% worker, Dice Bag custody/replay procedure and D20 matched controls. Do not build another parallel harness. Keep the original question as the scored target. Canonical rewrites, synonym lookup and proof after revealed confirmation are separate diagnostics. Name the external arm “Bunyip BB — Ben Gelhaus external adversarial benchmark.” Preserve Ben’s released package, questions and original results unchanged;900answerable150canonical750paraphrases and200negative controls. Classify contract failure, coverage gap and feature request against the exact tested revision. Existing coverage gaps may remain documented backlog under incremental release criteria; investigate lost valid support and newly unsupported claims. Record the tool-approval rejection separately from reader results and continue permitted work.
 
+Record the rejected action and the reviewer’s stated reason. Continue unaffected local work and use a permitted alternative where available. Report any remaining blocker separately from software results.
+
 ### Implemented scope
 
-- Broader ordinary language is primary. D%extension reuses unchanged worker/runner/scorer, Dice Bag custody and D20 matched controls; no parallel execution harness. Original questions are scored; canonical probes/revealed proof are diagnostics.
+- Broader ordinary language remains primary. Fresh C6 recovers3original ordinary question strings/6executions/4unique source-question inputs vsC5; canonical rewrites/synonyms/revealed proof remain diagnostics. Tags/layout/infrastructure are separate.
 - C6 general relation-binding syntax extends ownership, category, opening-time and instruction wording; eligible source proof, full original-question policy, memory/provenance/admission remain required.
 - Bunyip BB separately preserves Ben Gelhaus’s unchanged external benchmark/analysis and credits Mitchell’s implementation; original expectations and measurements unchanged.
 - README131lines with clean-verified plain-text input/commands/output; three entry areas and seven departments mapped; human trial unchanged NOT_RUN.
@@ -50,17 +52,22 @@ Extend Bunyip using the existing D% worker, Dice Bag custody/replay procedure an
 - Bunyip BB unchanged packageSHAf4d1c8263dbb8dcf9f7ddbc9fc85be5d005864db4c74fce1a93cda1bb4865718. Main/C6each150/150canonical,750/750paraphrase,200/200negative;900exact eligible citations reread each. No new coverage claimed from preservation.
 - C5once-only16:14/16,6/8positive,8withholds,zero false flags. C6consumed42/24/16replays40/42,22/24,14/16; original once-only36/42,20/24,14/16unchanged.
 - Auto-review denied broad scratch cleanup; NOT_EXECUTED,zero reader executions. Later explicit duplicate-only alternative verified2452files identical to retained tracked evidence; no frozen/unique output removed.
+- C6committed ZIP7e272e5d9742931feef05fc004a84d6846a55f39 SHA93dc3e10895c2670f1952b74840c9d187f5bcc3c942e0d9a0b6870c03fa15b89 frozen before fresh opening; worker native pins match frozen archive.
+- Fresh108/108completed/scored once:main4/24,C5 8/24,C6 14/24positive;84withholds,zero unsupported additions/lost valid support/citation failures/execution failures/budget stops/unscored. Ten coverage misses retained.
+- Fresh wording-only gains vsC5:3unique question strings/6executions/4unique source-question inputs. Versusmain:1string/2executions wording,8other source/proof-reach executions. No canonical/revealed-proof gain credit.
+- Overlap retained:development140memberships/88uniqueinputs,fresh108/69. One-line layout repeats are not independent evidence. Alloriginalkeys/scores/inputs unchanged.
+- Local commit attempt failed from diskspace;no commit created. Preserved log and exact duplicate-only recovery;retry committed7e272e5. Toolapproval denial remains separate NOT_EXECUTED.
 
 ### Limitations and blocked checks
 
-- C6fresh D%packet sealed; open once only after committed full-source ZIP freeze. Same-operator authoring and visible templates; independent preparation/blinding/semantic/historical/outside-custodian/nativeOOCC and human execution NOT_RUN.
-- Full native/required exact-headremote checks pending; merge only after normal required gates pass. Existing coverage gaps retained, never relabelled or used to claim historical accuracy.
-- Original strict-key/failed packets/candidates and host preparation/invocation errors retained separately. Bunyip BB historical failures classified against old bounded contract, expectations unchanged.
+- Ten fresh positive wording misses remain documented backlog; all-target perfect acceptance is not claimed. Current incremental criteria permit coverage gaps while requiring no lost valid support/new unsupported claims and passing required gates.
+- Full native and exact-head remote checks pending; do not relabel earlier failed candidates or claim deployment before successful protected merge and live fingerprint verification.
+- Same-operator visible templates and scoring; independent history/semantic/preparation/blinding/outside-custodian/nativeOOCC and human onboarding remainNOT_RUN. Bunyip BB is externally authored consumed regression, separate from those fresh-custody limits.
 
 ### Next steps
 
-- Freeze committed C6ZIP, run fresh separately written D%packet once using unchanged worker and retain matched original-question baselines, remaining misses and source audits.
-- Publish evidence-only final report on existingPR105 after local review; run all required exact-head remote checks including full native, normal protected merge only after pass, verifydeployment/sourcefingerprints. No repeated authorization request.
+- Publish evidence-only review update on existingPR105;run required exact-head archive-first/regression and every applicable software gate. Merge only normal protected workflow after pass;verify deployed source fingerprints. Authorization already given.
+- Next development: shared ordinary-question intent/argument binding on exposed remaining syntax gaps; freeze genuinely fresh separately written transfer material before a later candidate. Keep memory/provenance/admission as regression gates.
 
 ## Use this ZIP in your repository
 

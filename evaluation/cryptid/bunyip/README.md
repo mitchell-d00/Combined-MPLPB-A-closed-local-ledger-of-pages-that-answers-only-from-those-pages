@@ -191,3 +191,21 @@ The raw C5final16and post-run diagnostic are retained in final-review.
 Broader wording is the primary goal; tags/layout/infrastructure are separate.
 Existing coverage gaps can remain backlog under incremental release criteria;
 lost valid support and newly unsupported claims require investigation.
+
+
+## Release review: measured wording gains
+
+Latest [fresh D%packet](dpercent/fresh-summary.json):C5 8/24→C6 14/24positive
+executions,84/84withholds,ten remaining misses,zero unsupported additions/lost
+valid support/citation failures. Three original ordinary question strings become
+answerable, repeated across six executions/fourunique source-question inputs.
+No canonical/revealed-proof diagnostic is counted as recovery. Against released
+main, wording-only gain is one new question string/two executions; eight additional
+positive executions require source/proof reach. Report these measures separately.
+
+Frozen reader source7e272e5d9742931feef05fc004a84d6846a55f39;ZIP SHA-256
+93dc3e10895c2670f1952b74840c9d187f5bcc3c942e0d9a0b6870c03fa15b89.
+[Complete source/pin receipt](dpercent/c6-source-freeze.json). Subsequent changes
+are evidence/navigation only; required exact-publication-head checks remain pending.
+Bunyip BB separately preserves900positives/200negatives and900exact citations
+on each matched revision. No pooled accuracy or independent historical claim.

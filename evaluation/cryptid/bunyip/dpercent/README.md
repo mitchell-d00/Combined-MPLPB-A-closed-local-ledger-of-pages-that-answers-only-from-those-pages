@@ -63,3 +63,46 @@ No frozen repository evidence or unique run was removed.
 
 [Bunyip BB](../bb/README.md) is a separate consumed external benchmark.
 [Test Index](../../../../docs/TEST_INDEX.md) remains authoritative.
+
+
+## Once-only fresh result and remaining coverage
+
+Candidate `7e272e5d9742931feef05fc004a84d6846a55f39` was frozen before opening.
+Full source ZIP SHA-256:
+`93dc3e10895c2670f1952b74840c9d187f5bcc3c942e0d9a0b6870c03fa15b89`.
+Native bytes in the worker were extracted from that ZIP and match development.
+
+| Fresh family | Main positives | C5 positives | C6 positives | Controls withheld |
+|---|---:|---:|---:|---:|
+| Ownership | 2/6 | 2/6 | 4/6 | 21/21 |
+| Classification | 2/6 | 2/6 | 2/6 | 21/21 |
+| Opening time | 0/6 | 2/6 | 4/6 | 21/21 |
+| Instruction | 0/6 | 2/6 | 4/6 | 21/21 |
+
+The candidate answers **three newly answerable original ordinary question strings**
+versus C5, repeated across six executions, with zero lost support or unsupported
+additions. Against released main, one ordinary question string/two executions is
+a wording-only gain on an already-supported canonical proposition; eight other
+new positive executions require source/proof reach and are reported separately.
+No canonical rewrite or proof after revealed confirmation is credited to an
+original question. [Original scores, per-case audit and wording list](fresh-summary.json).
+
+All108executions completed and scored once on the frozen candidate:14/24positives,
+84/84withholds,10positive misses,zero execution failures/budget stops/unscored
+cases/citation errors. All-target perfect acceptance is **not** claimed. The ten
+misses cover medial attribution wording, new category syntax, “at which time”,
+and instructions lacking an explicit requested object. They remain backlog; no
+repair followed opening. [Raw results and matched baselines](fresh-once-and-baselines.tar.xz).
+
+Overlap is explicit: development140memberships represent88unique public inputs;
+fresh108represent69. One-line sources are identical under lines/paragraphs labels
+for ownership, classification and instruction. Actual field-line spacing varies
+for opening-time sources. Thus the six new wording executions versus C5 represent
+three question strings and four unique source–question inputs, not six independent
+examples. Original inputs and labels remain unchanged; no tag/layout gain claimed.
+[Development overlap](development-overlap.json) · [fresh overlap](fresh-overlap.json).
+
+Independent preparation/blinding/history/semantics, outside-custodian scoring,
+native OOCC and human onboarding remain NOT_RUN. Existing coverage gaps may remain
+backlog for an incremental release; lost valid support/new unsupported claims
+require investigation. Required exact-head software gates must pass before merge.

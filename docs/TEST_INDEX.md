@@ -315,3 +315,11 @@ citations and200withholds. Ben authored benchmark/analysis; Mitchell authored
 MPLPB. Published consumed regression, not unseen transfer; never pooled with
 generated Bunyip results. Contract failure, coverage gap and feature request
 are classified against the exact tested revision without changing expectations.
+
+
+Bunyip D%fresh completion: [108 retained once-only executions](../evaluation/cryptid/bunyip/dpercent/fresh-summary.json),
+14/24positives versus8/24C5,84withholds,ten misses. Three newly answerable
+original ordinary question strings/six repeated executions/fourunique source-question
+inputs;69unique public inputs in108memberships. Zero unsupported additions,
+lost valid support or citation failures. Canonical/revealed diagnostics are separate.
+Full-head protected software verification is required before merge.

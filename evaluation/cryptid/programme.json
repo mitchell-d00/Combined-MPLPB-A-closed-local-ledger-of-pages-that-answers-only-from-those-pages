@@ -1,7 +1,7 @@
 {
   "schema": "cryptid-programme-v1",
   "baseline_commit": "c01021c0b9983f9a607fbe782dea7ed5872d1f11",
-  "publication": "BUNYIP_C6_LOCAL; NORMAL_PROTECTED_PUBLICATION_AUTHORIZED_AFTER_VERIFIED_GAINS_AND_REQUIRED_GATES",
+  "publication": "LOCAL_REVIEW_COMPLETE; EXACT_HEAD_REMOTE_SOFTWARE_GATES_PENDING; NORMAL_PROTECTED_RELEASE_AUTHORIZED",
   "operator": "Betty, same operator for preparation/implementation/scoring",
   "independent_historical_accuracy": "NOT_RUN",
   "independent_semantic_adjudication": "NOT_RUN",
@@ -627,7 +627,7 @@
       "family": "BUNYIP",
       "id_prefix": "CRYPT-BUNYIP",
       "mechanism": "Ordinary language loses relation arguments before proof; source shape and governor/reporting layers require distinct checks.",
-      "status": "C6_DEVELOPMENT_VERIFIED_FRESH_DP_SEALED",
+      "status": "VERIFIED_INCREMENTAL_C6_GAINS_WITH_RETAINED_COVERAGE_GAPS",
       "responsible_department": "testing-evaluation",
       "implementation_departments": [
         "reader",
@@ -652,7 +652,7 @@
         "first_decisions": "36/42 unchanged;22/28positives;14withholds;zero false-support flags;6positive misses",
         "first_now_consumed": true,
         "fresh_packet": "bunyip/dpercent/fresh-seal.json",
-        "fresh_status": "C5packet consumed; new D%packet SEALED_NOT_RUN",
+        "fresh_status": "D%fresh once completed; now consumed. No transfer-informed repair.",
         "custody": "same-operator limited composition; independent preparation/blinding NOT_RUN",
         "second_decisions": "20/24;8/12positive;12withholds;zero false flags;4misses",
         "second_now_consumed": true,
@@ -665,8 +665,13 @@
         "unsupported_additions": 0,
         "lost_valid_support": 0,
         "prior_contracts_exact": 849,
-        "fresh_status": "SEALED_NOT_RUN",
-        "benchmark_arm": "bunyip/bb/README.md"
+        "fresh_status": "ONCE_COMPLETED14/24positive,84withholds,10misses,0false",
+        "benchmark_arm": "bunyip/bb/README.md",
+        "fresh_original_wording_gains_vs_c5": {
+          "question_strings": 3,
+          "repeated_executions": 6,
+          "unique_source_question_inputs": 4
+        }
       }
     }
   ],
