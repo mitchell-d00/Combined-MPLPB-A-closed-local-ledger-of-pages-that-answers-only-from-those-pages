@@ -4,8 +4,8 @@ Last reviewed: 2026-11-26.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `bfd41a5a1392ccd5579b0e789be98690cffb6a1b` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `2829dc8202192a16f562249f3c0ec71e8cf4459211a3f4ad6f6479e64697a744`.
+Base commit: `3bf9657c7b956623f07ed4b94765e0edd5cd3f02` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `dadfb8ada2dc47aeb1ee5d3885ba4b421f1ca59cd6ccbfbb3955638c67a8922b`.
 
 ## Betty report for Al
 
@@ -62,6 +62,7 @@ Clarification: The next milestone is getting those actual code files into a remo
 - Source/citation audit:12 corrected baseline unsupported cases, zero lost valid support, no citation change to preserved support. Original main contract replay is exact for all560 earlier frozen baseline cases. All22 original strict-key output failures retained; all22 satisfy the prospective pre-implementation polarity contract and exact quotations.
 - Navigation stage: stable IDs unique; Outside definition byte-unchanged; original documents preserved in reviewed versioned history snapshots. No frozen input/key/score or historical measurement was modified or rerun by navigation. Native1904(1skip) source test and572case comparison remain distinct from metadata/transport work.
 - All849 retained released-reader contract outputs recovered directly; all recorded reader-code maps match the released main baseline. Reference archive SHA25671bd781c5a10041652a6b83d7d4b29ff30042f79006c00c7f5301b75fc1ae7a2; this validates reference identity, not C3 preservation. Interrupted C3 preservation retained separately.
+- Remote preservation attempt45870399223:321completed exact,528execution failures; artifact retention failedEACCES. Not a full preservation pass. Private local probe failed isolation closed; remaining16private cases NOT_RUN.
 
 ### Limitations and blocked checks
 
@@ -69,9 +70,11 @@ Clarification: The next milestone is getting those actual code files into a remo
 - PID1 diagnostic was denied by automatic approval due supervisor disruption risk and was not executed. No sandbox/protection gate may be bypassed. No new round2 deployment verification has occurred.
 - Local Git working branch still has baseline ancestry2622813 and original uncommitted files; remote API commits are the current published state. Do not force-push/reset or deliver a local archive as current without reconciling. The key-bearing frozen-development-inputs.tar.xz was removed from the local index without changing its bytes, privately copied/verified, and explicitly ignored for publication. All held transfer/key material remains excluded.
 - Local process exhaustion persists; actual source/evidence/navigation are published. Remote recovery workflow generated and checked the handoff; current exact-head gates and849C3 preservation are pending. Development passes do not erase22strict-key failures or rejected candidates. Both held packets remain unopened.
+- Publication custody incident:17descriptor-marked-private PE02 outputs were mistakenly included in9b4bdf9 preservation-reference archive; removed from current tree atbfd41a5. Earlier Git objects may remain retrievable. Original local files/held keys/transfer untouched; release paused. See custody-incident-v1.json. Public replacement filters original descriptor flags, not filename assumptions.
 
 ### Next steps
 
+- Finish832public preservation using existing frozen adapters; keep17private preservation cases BLOCKED until original custody execution works. Resolve/report prior-Git-object exposure; no merge or transfer opening while required gates remain pending.
 - Complete exact-head navigation/handoff/docs checks and the released quickstart software walkthrough; finish849contract preservation and unchanged BB accounting, then freeze the committed source ZIP before opening36+64held transfer once. Keep current PR report/source pins synchronized. Publication authorization persists.
 - Inspect/replay C3 execution failures and preservation including unchanged Bunyip BB; audit source support/polarity/citations/conflicts separately. Update authoritative Test Index/department map with actual outcomes. Freeze committed ZIP before either designated transfer packet is opened once.
 - Run all required exact-head checks and acceptance/protection gates, then merge and verify deployment/live fingerprints under existing authorization. Existing coverage gaps may remain backlog; missing implementation or blocked gates are not passes.
