@@ -4,8 +4,8 @@ Last reviewed: 2026-11-26.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `7480936cd9f7b4c3dcc1854fc0cf5fa767ea0ec7` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `ae15c618af7f5c69b3df2fb68526e896dfb23383468f29a8dc7974e0a099bdec`.
+Base commit: `ebb8bce5e4353bc55366d401c5f207437f99161f` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `400986008050e20e372d719f8d21b8a3462cda0526fd0d69f9fb9292b1b99999`.
 
 ## Betty report for Al
 
@@ -13,11 +13,11 @@ Run the Betty implementation step first, then the Al review step in a separate c
 
 ### Latest user update instructions
 
-Preserve both packets, keys, outputs, and original failure classifications. Add the “did not say” case to development and repair the general reporting-negation mechanism with contrasting controls. For the temporal partial, identify whether the defect is in reader behavior or the acceptance policy. If useful partials should be allowed, version that policy prospectively and test it with new fixtures; retain the original strict-key failure unchanged. Rerun all preservation checks, freeze the revised candidate, then use a fresh final packet. Record remaining misses and policy disagreements in the local review package. Keep publication pending Mitchell’s explicit authorization.
+Publish the reviewed Cryptid candidate. Push its branch, open the PR, and run all required exact-head remote checks. Merge into main only after acceptance and branch-protection checks pass. Then verify deployment and live source fingerprints. Retain and report any failure; do not bypass a required gate.
 
 ### Implemented scope
 
-- Local C2 reporting-negation and compatibility repair, with all earlier failed packets, keys, outputs and rejected candidates retained. Publication remains unauthorized.
+- C2 Cryptid reader candidate prepared for authorized branch push and PR publication. Merge and deployment remain conditional on acceptance and required branch-protection checks.
 - The reader separately represents literal embedded polarity and assertion status. It compares reporting/content negation under explicit conditions and retains named-role, eligibility, witness, budget and final-state checks.
 - The prospective partial acceptance policy changes evaluation criteria on new fixtures; all 12 corresponding native contracts are unchanged. Original temporal and reporting-field strict-key failures remain unchanged.
 - Freeze a committed full source ZIP, retain it losslessly as unchanged base plus verified delta, run clean-extraction checks and the unopened fresh packet once.
@@ -76,13 +76,13 @@ Preserve both packets, keys, outputs, and original failure classifications. Add 
 - One new passive-question wording miss remains under prospective partial policy; earlier family and consumed-transfer misses remain recorded.
 - Representation addition changes exact dictionaries. Only the new field is source-checked and removed for legacy semantic comparison; old exact failures remain visible.
 - Preparation, implementation and scoring are same-operator. Independent historical/semantic adjudication, preparation/blinding, outside-custodian scoring, native OOCC and human execution remain NOT_RUN.
-- No push, remote PR update, merge, deployment or remote-main change without Mitchell explicit authorization.
+- Publication is authorized; merge is conditional. Do not bypass acceptance, branch protection or any required gate. Verify deployment and live source fingerprints only after a permitted merge.
 
 ### Next steps
 
 - FreezecommittedfullsourceZIP and losslessstorageencoding; validate reconstruction and cleanextraction.
 - Run all applicable native/JSHTTP/package/WASM/Chromium/handoff/docs/index/preservation gates andfresh24once. Retainallresults, remainingmisses andpolicydisagreements.
-- Preparelocalreviewpackage with proposedPR/release summary and exacttestedcommit/ZIPchecksum; STOPatpublicationboundary.
+- Publish the exact checked candidate branch and PR with all failures visible; run exact-head remote checks. Merge only after acceptance and branch protection pass, then verify deployment and live source fingerprints.
 
 ## Use this ZIP in your repository
 
