@@ -1,0 +1,107 @@
+name: Bunyip round-two isolated development execution
+on:
+  push:
+    branches: ['local/bunyip-round2']
+    paths:
+      - 'mplpb_answers/**'
+      - 'tests/test_bunyip_round2.py'
+      - 'evaluation/cryptid/bunyip/round2/public-*.tar.xz'
+      - 'evaluation/cryptid/bunyip/round2/metadata-adapter/**'
+      - '.github/workflows/bunyip-round2-execution.yml'
+permissions:
+  contents: read
+jobs:
+  frozen-development:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 35
+    strategy:
+      fail-fast: false
+      matrix:
+        implementation: [baseline, candidate]
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.sha }}
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install the existing OS isolator
+        run: |
+          sudo apt-get update
+          sudo apt-get install --yes --no-install-recommends bubblewrap
+          bwrap --version
+      - name: Stage unchanged public packets and baseline source
+        env:
+          RUN_KIND: ${{ matrix.implementation }}
+        run: |
+          test "$(git rev-parse HEAD)" = "${{ github.sha }}"
+          git fetch --no-tags --depth=1 origin 2622813aba9ee1f1880693eeb71ae015cb3da999
+          mkdir -p "$RUNNER_TEMP/bunyip-native-baseline"
+          git archive 2622813aba9ee1f1880693eeb71ae015cb3da999 mplpb_answers mplpb_combined mplpb_work | tar -x -C "$RUNNER_TEMP/bunyip-native-baseline"
+          git init "$RUNNER_TEMP/bunyip-native-baseline"
+          printf '%s\n' "$(git rev-parse --absolute-git-dir)/objects" > "$RUNNER_TEMP/bunyip-native-baseline/.git/objects/info/alternates"
+          printf '%s\n' 2622813aba9ee1f1880693eeb71ae015cb3da999 > "$RUNNER_TEMP/bunyip-native-baseline/.git/HEAD"
+          python - <<'PY'
+          import hashlib, os, tarfile
+          from pathlib import Path
+          root=Path.cwd(); output=Path(os.environ['RUNNER_TEMP'])/'bunyip-public-inputs'
+          output.mkdir()
+          checks={
+            'public-evidence-v1.tar.xz':'ea89f9259ccab0a2490789625f1f58df720dbbfa891e2c7c8c06ed62470371cf',
+            'public-routing-inputs-v1.tar.xz':'9e800a115b0289823a5415185b591f526ea783d0ba6733e2a197636547e33bae'}
+          for name, expected in checks.items():
+              path=root/'evaluation/cryptid/bunyip/round2'/name
+              assert hashlib.sha256(path.read_bytes()).hexdigest()==expected
+              with tarfile.open(path) as archive:
+                  for member in archive:
+                      if not member.isfile() or not member.name.startswith('inputs/'):
+                          continue
+                      relative=Path(member.name)
+                      assert not relative.is_absolute() and '..' not in relative.parts
+                      assert member.name.endswith('/key.json') is False
+                      destination=output/relative
+                      destination.parent.mkdir(parents=True,exist_ok=True)
+                      assert not destination.exists()
+                      destination.write_bytes(archive.extractfile(member).read())
+          PY
+      - name: Require isolation and run the unchanged D percent worker
+        env:
+          RUN_KIND: ${{ matrix.implementation }}
+        run: |
+          STUDY_TEST_PYTHON="$(command -v python)"
+          mkdir -p "$RUNNER_TEMP/bunyip-sandbox-source"
+          git archive HEAD | tar -x -C "$RUNNER_TEMP/bunyip-sandbox-source"
+          cd "$RUNNER_TEMP/bunyip-sandbox-source"
+          sudo env PYTHONPATH="$PWD" MPLPB_REQUIRE_SANDBOX=1 "$STUDY_TEST_PYTHON" -m unittest tests.test_study_sandbox -v
+          cd "$GITHUB_WORKSPACE"
+          sudo env PYTHONPATH="$PWD" MPLPB_REQUIRE_SANDBOX=1 RUN_KIND="$RUN_KIND" RUNNER_TEMP="$RUNNER_TEMP" GITHUB_WORKSPACE="$GITHUB_WORKSPACE" GIT_CONFIG_COUNT=2 GIT_CONFIG_KEY_0=safe.directory GIT_CONFIG_VALUE_0="$GITHUB_WORKSPACE" GIT_CONFIG_KEY_1=safe.directory GIT_CONFIG_VALUE_1="$RUNNER_TEMP/bunyip-native-baseline" "$STUDY_TEST_PYTHON" - <<'PY'
+          import hashlib, json, os
+          from pathlib import Path
+          from tools import dpercent as D
+          root=Path(os.environ['GITHUB_WORKSPACE'])
+          implementation=root if os.environ['RUN_KIND']=='candidate' else Path(os.environ['RUNNER_TEMP'])/'bunyip-native-baseline'
+          inputs=Path(os.environ['RUNNER_TEMP'])/'bunyip-public-inputs/inputs'
+          output=Path(os.environ['RUNNER_TEMP'])/'bunyip-round2-raw'/os.environ['RUN_KIND']
+          adapter=root/'evaluation/cryptid/bunyip/round2/metadata-adapter'
+          workers={hashlib.sha256((p/'tools/dpercent_worker.py').read_bytes()).hexdigest():p for p in [root,adapter]}
+          results=[]
+          for name in ['primary','routing','polarity','guards','mixed-binding','irrelevance']:
+              packet=inputs/name
+              seal=json.loads((packet/'seal.json').read_text())
+              assert seal['worker_sha256'] in workers, 'Unknown frozen worker'
+              D.ROOT=workers[seal['worker_sha256']]
+              run=D.run(packet,output/name,implementation=implementation)
+              completed=sum(row['execution']=='completed' for row in run['cases'])
+              results.append({'packet':name,'planned':run['total_planned_cases'],'attempted':len(run['cases']),'completed':completed,'execution_failures':len(run['cases'])-completed,'checkout_revision':run['checkout_revision']})
+              (output/'execution-summary.json').write_text(json.dumps({'scope':'Execution only; no held keys or semantic scorer in this job','runs':results},indent=2)+'\n')
+          assert all(r['planned']==r['attempted']==r['completed'] for r in results), 'Execution failure is not reader abstention'
+          PY
+      - name: Retain original raw outputs, including partial and failed runs
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: bunyip-round2-raw-${{ github.sha }}-${{ matrix.implementation }}
+          path: ${{ runner.temp }}/bunyip-round2-raw/
+          if-no-files-found: warn
+          retention-days: 90

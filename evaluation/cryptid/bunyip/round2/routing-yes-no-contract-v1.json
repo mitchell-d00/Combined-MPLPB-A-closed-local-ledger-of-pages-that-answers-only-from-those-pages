@@ -1,0 +1,29 @@
+{
+  "schema": "bunyip-routing-yes-no-contract-v1",
+  "applies": "Prospective routing development/transfer only; original round2 and prior strict keys unchanged",
+  "yes": {
+    "required": "Explicit eligible positive body witness for exact subject and classification",
+    "structured": {
+      "claim.proposition.relation": "literal_classification",
+      "claim.proposition.polarity": "positive"
+    },
+    "readable": "Answer begins Yes. followed by the unchanged witness quote",
+    "citations": "Every literal witness has eligible source id/hash, exact canonical body offsets and exact quote"
+  },
+  "no": {
+    "required": "Explicit eligible negative body witness for exact subject and classification",
+    "structured": {
+      "claim.proposition.relation": "literal_classification",
+      "claim.proposition.polarity": "negative"
+    },
+    "readable": "Answer begins No. followed by the unchanged witness quote",
+    "citations": "Negative witness including negation is quoted exactly; do not score presence of a claim as yes"
+  },
+  "unresolved": "Missing, conflicting or ownership-ambiguous evidence must not return yes or no; conflict descriptions may cite opposing assertions without choosing truth",
+  "quoted_negation": "Reported or quoted negative text is not an eligible outer-layer negative witness; source-scoped quote question would require a distinct key",
+  "agreeing_sources": "Do not collapse existing ownership ambiguity or cite multiple witnesses unless existing policy admits that behavior; policy change requires separately versioned acceptance",
+  "cross_page": "No subclass/type transitivity introduced; two separate statements do not prove their implication",
+  "truth_scope": "Source support only; independently verified truth remains false",
+  "routing_vs_proof": "Record lexical routing separately from body support and final native admission; no original-question recovery credit from canonical probes",
+  "ui_copy": "Separate from decision/polarity; diagnostic state must distinguish no displayed support from no eligible passages"
+}
