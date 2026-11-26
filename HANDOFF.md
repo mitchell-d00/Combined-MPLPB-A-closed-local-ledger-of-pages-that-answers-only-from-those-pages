@@ -4,8 +4,8 @@ Last reviewed: 2026-11-26.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `8e5402a2ecf3fff73586e0d7f64a74f3ca0f6238` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `5f9890d2f75770b3a80c2f3ea6109d5fe25aea9e8a64160cf170b73b9b7bd31f`.
+Base commit: `575ce6b7b62b7ee5240654b23c638c6653eea4f7` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `e5693bbea83c63fe940195891ac5c7a9484de581abc6d85c18b64b04c64f9123`.
 
 ## Betty report for Al
 
@@ -13,16 +13,15 @@ Run the Betty implementation step first, then the Al review step in a separate c
 
 ### Latest user update instructions
 
-Close and preserve Bunyip C3, then complete the bounded Wampus Cat sprint in the existing Cryptid series.
+Devise and run Thoth, a bounded ordinary-question interpretation sprint. Group retained misses by stage, freeze before implementation, compare released/C3/Wampus/Thoth, preserve earlier gains and close with a pushed checkpoint.
 
 ### Implemented scope
 
-- Closed Bunyip Round 2 as a narrow measured result and completed the bounded Wampus Cat sprint. Implemented a shared literal named-field check and one bounded compound composition path. No consolidation claim.
+- Register Egyptian-gods / Thoth, freeze 12 development and 12 fresh cases, and preserve separate custody. Wampus and Bunyip evidence remain retained.
 
 ### Validation recorded
 
-- Scope and both case sets froze at d5848641b. Wampus code 1ca8a1a0be648de660c928da879c8c86788c10a0, scoped runtime ZIP SHA-256 9ff59768cacfcdfe1498c210b93f7de74c4918b60a25bda7e5e239e56aed308f. Fresh opened at 8e5402a2e after candidate pin. Three-way development: 4/6 versus both earlier 0/6. Three-way fresh: 3/5 versus both earlier 0/5; one useful contrast partial, no unsupported claims or execution failures.
-- All three C3 routing gains retained. Consumed Bunyip 50 completes: released 1, C3 4, Wampus 7 plus 3 checked partials. Wampus retained the 832 public contracts, BB 900 exact positives and eligible citations with 200 withholds, and 28 focused tests. Artifacts and exact hashes in the Wampus result.
+- Scope, registries and both key hashes precede implementation. Fresh inputs remain held.
 
 ### Limitations and blocked checks
 
@@ -30,7 +29,7 @@ Close and preserve Bunyip C3, then complete the bounded Wampus Cat sprint in the
 
 ### Next steps
 
-- Bounded sprint closed. Next executable diagnostic is the terminal-period whole-question contrast under the existing guards. If the first fresh outcomes inform a repair, classify that packet as consumed development and freeze fresh transfer again. Keep custody/history remediation separate from the language evidence.
+- Implement only the named request interpretation and run the four pinned readers on the frozen development packet.
 
 ## Use this ZIP in your repository
 
