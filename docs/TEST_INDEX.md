@@ -41,6 +41,11 @@ recovery closure](../evaluation/cryptid/bunyip/round2/recovery-checkpoint.md)
 keep the incident separate and identify the next frozen preservation pairs.
 C3 is unmerged.
 
+[Bunyip Round 2 replacement comparison](../evaluation/cryptid/bunyip/round2/replacement/RESULTS.md)
+registers the frozen C3-REPL-P, R and X packets and receipts. Both readers
+completed all 50 cases. C3 gained three fresh routing targets; cross-family
+targets stayed 0/10. Original private and held statuses are unchanged.
+
 ### Stable family lookup
 
 - **TEST-FAMILY-CRYPTID** — [cryptid](../evaluation/cryptid); testing-evaluation; exact run pins, checksums, execution and phase in its machine row.

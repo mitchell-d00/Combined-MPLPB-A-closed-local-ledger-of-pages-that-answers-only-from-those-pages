@@ -15,6 +15,12 @@ unavailable and NOT_RUN. The [recovery closure](recovery-checkpoint.md) gives th
 replacement verification plan and tracks the separate Git-history incident.
 Prior results and their dated continuation remain below. The public inventory now verifies and replays the 832 consumed contracts and 1,100 BB cases. [Per-case inventory](public-replay-inventory.csv) · [Rerun receipt](public-replay-rerun-receipt.json).
 
+**Bounded replacement comparison:** 50 frozen cases ran once per reader.
+C3 recovered three distinct fresh routing questions; both readers missed
+all ten cross-family targets and four expected checked partials. The
+[Round 2 results](replacement/RESULTS.md) register both freezes and archives.
+The evidence supports a narrow routing claim. C3 remains held.
+
 ## Measured software results
 
 | Set | Released main | C3 | Scope |
