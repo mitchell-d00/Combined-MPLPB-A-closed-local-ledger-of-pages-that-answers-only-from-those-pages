@@ -20,6 +20,23 @@ members). These checks did not read the restricted outputs or verify private
 originals. The cancelled source-ZIP run 45870407049 lists zero artifacts.
 The original incident report and prior failures remain unchanged.
 
+## Interruption and data loss
+
+- **PR #105** is the last released reader and preserves its earlier storage and
+  CI failures separately from reader decisions.
+- **PR #106** retains C3's published source and public evidence. The interrupted
+  first remote preservation run (45870399223) recorded 321 matching completions
+  and 528 execution failures. Its raw artifact upload failed with EACCES, so
+  those first-attempt raw outputs are unavailable from Actions. The full job
+  log is retained. The later 832 public matches are a separate replay.
+- **PR #107** is the completed documentation release. Its verified deployment
+  keeps #105's reader. The original #106 workspace was unavailable at handoff.
+  This interruption left the private files and custody receipt unavailable
+  to this session. Their deletion or permanent loss is unverified.
+
+No missing raw output is reconstructed. No original private result or held
+packet is treated as executed based on a summary.
+
 ## Proposed history and artifact cleanup
 
 No destructive step below has been executed. A private source-span inventory
@@ -32,7 +49,10 @@ and original source spans. Keep the source text and inventory private.
    [the containment receipt](custody-containment-v2.json) are present at
    `9b4bdf9` and inherited by `1c34dc80`. The paths are absent at the
    current PR head after `bfd41a5`. Main does not descend from the introducing
-   commit. The PR branch and GitHub PR #106 head and test-merge history do.
+   commit. Of 122 advertised repository heads/tags and PR #106 refs fetched
+   for ancestry inspection, only `refs/heads/local/bunyip-round2`,
+   `refs/pull/106/head` and `refs/pull/106/merge` descend from it. This
+   identifies known introducing ancestry; it does not clear other copies.
 2. Prepare and verify a replacement branch tip based on clean main, carrying
    the reviewed current C3 tree and only permitted evidence. Before replacing
    `refs/heads/local/bunyip-round2`, scan all advertised heads/tags and
