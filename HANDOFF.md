@@ -1,11 +1,11 @@
 # Repository handoff
 
-Last reviewed: 2026-11-25.
+Last reviewed: 2026-11-26.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `98a85de97ea599cc9634ab06d3a7e5c36d6e2b1f` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `d92b7b23ddb168407a0c564bf21f6cba5e5525927453406faaeb39df6fb8f0e2`.
+Base commit: `84ff6bdd0060fc3432ea0a6e734a23526a908d1f` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `a3c99c75a75131877a125fa0f7c3775209827c22f36fd7f40bb727785d31ed4b`.
 
 ## Betty report for Al
 
@@ -13,16 +13,14 @@ Run the Betty implementation step first, then the Al review step in a separate c
 
 ### Latest user update instructions
 
-Run Betty — local Cryptid test programme. Start from current main. Complete the following prompts in order, one series at a time. Continue through ordinary implementation choices without asking me to reconfirm this scope. Work in an isolated local branch/worktree. Local commits and source archives are authorized. Do not push, open or update remote PRs, merge, deploy, or modify remote main until Mitchell explicitly authorizes publication. Do not overwrite unrelated work or frozen evidence. STOP AT THIS PUBLICATION BOUNDARY. Tell Mitchell exactly what is ready and what remains blocked. Wait for his explicit instruction before pushing or merging.
+Preserve both packets, keys, outputs, and original failure classifications. Add the “did not say” case to development and repair the general reporting-negation mechanism with contrasting controls. For the temporal partial, identify whether the defect is in reader behavior or the acceptance policy. If useful partials should be allowed, version that policy prospectively and test it with new fixtures; retain the original strict-key failure unchanged. Rerun all preservation checks, freeze the revised candidate, then use a fresh final packet. Record remaining misses and policy disagreements in the local review package. Keep publication pending Mitchell’s explicit authorization.
 
 ### Implemented scope
 
-- Local Cryptid programme on isolated branch local/cryptid-programme from verified main c01021c0b9983f9a607fbe782dea7ed5872d1f11; no remote mutation authorized.
-- Eight ordered families executed: documentary dates, whole-question wording, polarity/modality, references, corrections, linked obligations, automatic source-linked layout, fixed-cap resources. General native checks; no case-ID or benchmark runtime branches.
-- All frozen inputs/keys, failed candidates, scorer amendments, raw evidence and custody limits retained. Earlier transfer packets are consumed preservation evidence.
-- First full-ZIP candidate98a85de rejected for one wrong actor caused by joined definition-list metadata; original transfer18/24 retained. Source-boundary repair controls5/12→12/12, wrongclaims5→0; consumed final24now19/24,0false,5positive misses.
-- Fresh cross-family16packet sealed before second candidate freeze. Human12participant onboarding materials verified; Mitchell returns real observations, execution NOT_RUN.
-- Complete local review only: no push, PR update, merge, deployment or remote-main mutation.
+- Retain the exact tested local1251cc471a24ba4be91949ffc0c4752d0c3bf202 source, ZIP7d0fe327956a1d66b33659613a80dade8c00ac51d61a32c166d4aa35c540f749, both final packets and all original keys/classifications/outputs.
+- Source1251completed57softwarecommands,1863native tests with0skips,771caseexecutions,599exactcitations checked with0errors; no publication.
+- Acceptance remains pending: original fresh16score14/16,1report-negation interpretation miss,1strict-withholding policy failure on a checked temporal partial; original initial24packet remainsconsumed19/24with5misses afterDLrepair.
+- Next authorized local revision: freeze reporting-negation controls and new temporal-policy fixtures on1251before native changes; smallest shared quotation-shell fix; prospective partial acceptance policy; all preservation, revised committed ZIP, fresh once-only final packet.
 
 ### Validation recorded
 
@@ -64,6 +62,7 @@ Run Betty — local Cryptid test programme. Start from current main. Complete th
 - First full ZIP98a85de SHA90d28ec0d343904e6c6ba1a5409afa1e498f22da8be78160cfd89c2f1cfcd12f:1863native tests completed with1optionalPDF skip,419Cryptid and280release exact preservation,106complete/6partial/6conflict/162abstain on release. JS/HTTP, wheel, MCP, WASM, actual Chromium, handoff/docs/index pass. Fresh24FAIL18/24 with1false actor and6positive misses; packet consumed. Two Thunderbird wrapper output-directory collisions failed before worker launch, retained separately.
 - Native boundary repair from frozen12control baseline:5/12→12/12, falseclaims5→0. Unchanged consumed final24:18→19correct decisions, false1→0,5misses retained. No labels or source bytes changed. Optionalreportlab installed for next full-native run. New16cross-family packet sealed, not opened.
 - Before second candidate freeze:419prior Cryptid contracts exactly unchanged under boundary repair; keys and inputs unchanged. All family source budgets unchanged. Full repaired ZIP gates pending.
+- Retained final1251evidence:57commandcheckscompleted,1863native tests0failures0errors0skips;280release+439earlierCryptid+12boundary+24consumed+16fresh=771executionscomplete;491CryptidcaseIDs+280release memberships=747uniqueinputpairs;346claims599citations0citationissues. Fresh16original14/16FAIL retained. Supplemental same-operator claim review is not a relabel or independent adjudication.
 
 ### Limitations and blocked checks
 
@@ -75,8 +74,9 @@ Run Betty — local Cryptid test programme. Start from current main. Complete th
 
 ### Next steps
 
-- Freeze the repaired committed full-source ZIP, test its clean extraction on all applicable gates and the sealed16packet once. Retain every failure.
-- Prepare local review evidence, proposed PR description and release summary with exact tested commit and checksum. STOP at publication boundary.
+- Freeze revised development expectations and1251baselines before reporting-negation native edits. Preserve old keys and original failed scores exactly.
+- Version useful-partial acceptance prospectively on new fixtures, separating evaluation policy changes from native behavior. Record embedded-polarity representation disagreement.
+- Rerun all preservation, freeze another committed full source ZIP, run genuinely fresh final packet once, prepare local review package. STOP: no remote publication.
 
 ## Use this ZIP in your repository
 
