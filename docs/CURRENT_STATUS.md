@@ -35,7 +35,7 @@ state.
 
 # Current implementation and evidence status
 
-Last reviewed: 2026-11-25.
+Original entry review date: 2026-11-25.
 
 [Source-linked proposals and delivery](../evaluation/source-tags/2026-11-25/README.md) pass72/72development and24/24once-only same-operator proposal decisions, with0wrong assignments and **0recovered answers**. All280earlier contracts remain unchanged. A wrong-source browser failure is retained and corrected in the delivery ZIP;15software commands,58focused checks,WASM and actualChromium source-dialog checks pass. Native engine source2af8ba8ran1,834tests; delivery source065840d has identical native bytes. Exact publicationCI/merge/live verification pending. [Seven departments](departments/README.md) preserve existing paths. [Human onboarding](../evaluation/onboarding/2026-11-25/README.md) is prepared, **NOT_RUN**.
 

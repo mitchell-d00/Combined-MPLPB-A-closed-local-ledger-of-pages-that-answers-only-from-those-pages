@@ -39,6 +39,11 @@ are preservation evidence. Ownership policy and native caps are unchanged.
 [Public preservation receipt](public-preservation-remote-v2.json) ·
 [BB matched-source receipt](bb-c3-receipt-v2.json).
 
+The [exact README software walkthrough](quickstart-software-v1.json) passed all
+11 checks from an empty setup using the released wheel. Its actual commands and
+stdout are retained; the twelve-person human trial remains NOT_RUN. Four new
+public artifact downloads were independently checksum-checked after publication.
+
 ## Original failures and qualifications
 
 The original strict key still fails **22/572** candidate outputs. A separate
@@ -89,6 +94,12 @@ Independent preparation/blinding, semantic/historical adjudication,
 outside-custodian scoring and native OOCC remain NOT_RUN.
 Human onboarding remains NOT_RUN until Mitchell supplies observations.
 
+The superseded source-ZIP run 45870407049 was force-cancelled before artifact
+publication to avoid redistributing the withdrawn archive; the observed artifact
+list is empty. It remains a cancelled gate, not a pass. Current-head checks run
+separately. A duplicate documentation review marker also caused a retained CI
+failure; its prospective label fix preserves the original date.
+
 The private probe failed closed with
 `bwrap: Can't fork for pid 1: Resource temporarily unavailable`.
 No unsandboxed fallback was used. The denied PID1 diagnostic was not executed.
@@ -120,7 +131,7 @@ language without changing its measurements.
 
 # Bunyip round 2: whole-question relation and argument binding
 
-Last reviewed: 2026-11-26.
+Original round report review date: 2026-11-26.
 
 **Current state: actual C3 source and reviewed evidence are published. All572 exposed development source-key decisions pass after remote execution; preservation/fresh transfer/latest-head gates remain unfinished. No merge or deployment.**
 The unchanged baseline completed21/78 positives and360/366 withholds, with57
