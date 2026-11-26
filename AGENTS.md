@@ -1,6 +1,6 @@
 # Repository update and handoff instructions
 
-Last reviewed: 2026-11-25. See [current status and result-to-test index](docs/CURRENT_STATUS.md). Dates and numeric results in historical validation sections retain their original scope; this review is not a rerun or independent certification.
+Last reviewed: 2026-11-26. See [current status and result-to-test index](docs/CURRENT_STATUS.md). Dates and numeric results in historical validation sections retain their original scope; this review is not a rerun or independent certification.
 
 Package role: [how this part fits Combined MPLPB](docs/PACKAGE_GUIDE.md#delivery-and-packaging). This operational guide covers one delivery or maintenance surface of the combined package.
 
@@ -11,10 +11,11 @@ Read `HANDOFF.md`, `handoff/update.json`, README release requirements, and the a
 The maintainer starts the **Al review step** with **“Run Al”** or the
 **Betty implementation step** with **“Run Betty.”** The names select work in the
 [TeamBuilding pipeline](docs/TEAMBUILDING.md) using your usual tools and
-permissions. Al reviews public evidence,
-challenges conclusions, and drafts the next test prompt. Betty owns the
-authorized repository and archive work, including frozen tests, scoring,
-commits, and publication. Each push carries a current **Betty report for
+permissions. Use the canonical [Al](docs/TEAMBUILDING.md#al--review-evidence-and-propose-the-next-test),
+[Betty](docs/TEAMBUILDING.md#betty--implement-test-and-retain-the-result) and unchanged
+[Outside](docs/TEAMBUILDING.md#outside) definitions. Recover both
+[artifact and working state](docs/TEAMBUILDING.md#recover-artifact-state-and-working-state)
+before continuing. Each push carries a current **Betty report for
 Al** in the generated `HANDOFF.md`. Betty also posts the report on each PR
 she opens or updates. The maintainer starts Betty first and opens a separate
 Al chat after Betty leaves the report. Both roles inspect the repository in

@@ -1,0 +1,44 @@
+name: Recover checkpoint handoff
+on:
+  push:
+    branches: ['local/bunyip-round2']
+permissions:
+  contents: read
+jobs:
+  rebuild-handoff:
+    if: github.ref == 'refs/heads/local/bunyip-round2'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.sha }}
+          fetch-depth: 1
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Record exact checkpoint and rebuild only if stale
+        run: |
+          test "$(git rev-parse HEAD)" = "${{ github.sha }}"
+          if python tools/build_handoff.py --check; then
+            echo 'Committed handoff already current; no recovery commit required.'
+            exit 0
+          fi
+          python tools/build_handoff.py
+          python tools/build_handoff.py --check
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add HANDOFF.md handoff/manifest.json
+          git commit -m 'Rebuild recovery-checkpoint handoff from exact source inventory'
+          git push origin HEAD:refs/heads/local/bunyip-round2
+      - name: Retain rebuilt handoff
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: recovery-checkpoint-handoff-${{ github.sha }}
+          path: |
+            HANDOFF.md
+            handoff/update.json
+            handoff/manifest.json

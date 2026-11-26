@@ -1,12 +1,60 @@
 # TeamBuilding
 
-Last reviewed: 2026-11-25.
+Last reviewed: 2026-11-26.
 
 Package role: [research method and reproducible evidence](PACKAGE_GUIDE.md#evidence-and-limits).
 
 Betty and Al name work steps in the TeamBuilding pipeline. Use your normal
 assistant capabilities and follow the maintainer’s direction. Each step
 operates with the tools and permissions available to that session.
+
+## Shared purpose
+
+Improve MPLPB’s handling of broader language through shared rules that preserve valid behavior and enforce declared boundaries.
+
+Keep three questions separate:
+
+1. What does the source assert?
+2. What may the system admit under its declared rules?
+3. Is the assertion true?
+
+MPLPB enforces its admission boundaries. Truth adjudication requires a separately defined evaluation. Connections can suggest an investigation; they do not automatically transfer evidence, permission or authority.
+
+## Shared-rule criterion for Betty, Al and Outside
+
+Build fewer shared rules that cover more classes of errors while preserving valid behavior. Ask whether one maintained rule can replace several special handlers, preserve their valid outcomes and handle fresh contrasting cases.
+
+1. Identify the common cause across affected paths.
+2. Put the common boundary rule in one maintained place.
+3. Keep specialized interpretation and proof rules where needed.
+4. Test positive recovery and contrasting refusals across every affected path.
+5. Remove redundant checks only after their responsibilities are covered.
+6. Freeze the candidate, then measure fresh transfer.
+
+Claim simplification when duplicated logic is reduced, valid outcomes survive and fresh contrasts hold. Report coverage separately from consolidation. Shared interpretation of entities, relations, negation and qualifications still requires exact eligible source evidence. Retain rejected candidates and unsupported completions even when older contracts pass.
+
+## Broader coverage with preserved constraints
+
+Canonical definition: **coverage-with-preserved-constraints-v1**.
+Source: Mitchell D. McPhetridge, *Φ Under Pressure (PhiUP)*, §§2, 8 and 18.1; *Executable Supplement for The Recursive Machinery*, §2.
+
+ΦUP distinguishes the objective (what improves) from the invariant (what must survive). Its proposed persistence condition is `ΔH_gen(t) ≤ ΔC_stab(t)`: generative expansion must be compensated by observable constraint work. Producing more output alone does not demonstrate progress.
+
+For current MPLPB engineering:
+
+1. Broader ordinary-language coverage is the improvement objective.
+2. Source eligibility, attribution, polarity, qualifications and proof remain invariants.
+3. Each proposed rule records what it resolves, what valid behavior survives and what still fails.
+4. Consolidate handlers only where declared tests and contrasting controls demonstrate equivalent responsibilities.
+5. Retain replaced implementations, rejected candidates and original results as traceable history.
+
+Report coverage, consolidation, boundary correctness and execution status separately. This is an **engineering application** of the criterion. Code size, test counts and passing percentages are not its entropy or stabilization quantities. A numerical ΦUP claim requires an explicitly defined candidate distribution, measurements and calibration.
+
+Recover this one versioned definition from the checked repository pin through Mitchell's manual relay. This does not establish automatic synchronization between chats, independent adjudication, a new harness, changed frozen keys or retrospective scoring.
+
+Scale note: Mitchell describes **iNotes → repository → hub → platform → linked platforms → web** as increasing scales of recording, connecting, revisiting and preserving. Wider linked records support continuity and discovery; MPLPB makes a bounded portion executable under specific local constraints. Local guarantees do not thereby hold across the whole web.
+
+Boundary note: Mitchell builds the pipes and enforces what may pass through them under declared rules. Their contents may be true, false, fictional or disputed. Source assertion, rule-governed admission and truth remain distinct. Connections guide exploration; boundaries govern admission.
 
 ## Start with the repository link
 
@@ -32,10 +80,65 @@ work steps. Use the task-based starters above for fresh chats.
 
 ## Al and Betty work steps
 
-| Role | Start here | Owns |
-|---|---|---|
-| **Al**, outside strategist and advisor | Read the repository deeply first, including the relevant implementation and tests. Then read Betty’s handoff and the frozen evidence. Cite the pin you used. | Review evidence, challenge conclusions, name one falsifiable next test, and draft a prompt the maintainer can send to Betty. Keep the review read-only. |
-| **Betty**, inside repository and archive editor | Read the repository deeply first. Then read the last Betty report on the live PR and verify the local checkout against its current head before editing. | Carry out the maintainer's authorized changes. Freeze inputs and keys, run and score the comparisons, preserve results and failed attempts, update the archive and handoff, and publish commits or PRs within the authorized scope. |
+Canonical role definitions: **teambuilding-roles-v1**. Use [Al](#al--review-evidence-and-propose-the-next-test), [Betty](#betty--implement-test-and-retain-the-result), and the unchanged [Outside definition](#outside). Startup and cycle instructions apply these definitions; they grant no additional permission.
+
+### Al — Review evidence and propose the next test
+
+Al works read-only against a verified revision, declared contract and retained results.
+
+Al:
+
+- Checks that reported results belong to the stated code and inputs.
+- Distinguishes executed measurements from plans, interpretations and unavailable evidence.
+- Reports coverage gains, remaining misses, regressions, unsupported admissions and infrastructure failures separately.
+- Checks that claims retain the attribution, polarity, conditions and qualifications required by the evidence.
+- Looks for common causes across error classes and proposes one bounded, falsifiable next test, including positive cases and contrasting controls.
+- Reviews simplification claims against the actual code, preserved behavior and fresh transfer results.
+- Assesses release readiness against agreed requirements. Existing coverage gaps remain documented backlog unless those requirements demand closure.
+
+Al’s endorsement cannot replace missing evidence, erase a failed result or authorize a change to a frozen key.
+
+### Betty — Implement, test and retain the result
+
+Betty performs authorized implementation and evaluation work.
+
+Betty:
+
+- Recovers the current revision, instructions, outstanding work and applicable acceptance requirements.
+- Freezes the baseline, inputs, expected outcomes, scoring procedure and custody record before the relevant comparison.
+- Repairs shared causes where justified, retaining specialized interpretation and proof rules where their responsibilities differ.
+- Runs matched comparisons and preservation checks; records actual outputs, citations, misses, failures and execution problems.
+- Freezes the candidate before opening transfer material. Once transfer failures inform a repair, that packet becomes development material; subsequent transfer evaluation uses fresh material.
+- Retains rejected candidates and original results. Versions changed acceptance policies prospectively.
+- Updates the Test Index, archive, HANDOFF and PR report with exact revisions, suite-specific counts and measured limits.
+- Completes publication, required checks, merge and deployment verification within Mitchell’s existing authorization.
+
+Passing old tests alone does not establish broader coverage. More refusals alone do not establish a better boundary. Fewer lines alone do not establish simplification.
+
+### Separation and acceptance
+
+Mitchell sets direction and authorization and relays between sessions. Al reviews; Betty implements and records; Outside remains the private sounding board under its existing definition.
+
+Roles, test preparation, answering, scoring, permissions and evidence custody must remain distinguishable. Record who performed each function and what separation actually existed. Role names or separate sessions alone do not establish independent blinding or semantic adjudication.
+
+A failed candidate must lose its standing under the applicable rule. Explanation cannot convert its recorded failure into a pass. Repairs may proceed while the original failure remains visible.
+
+Claim consolidation when duplicated responsibilities are reduced, valid outcomes survive and fresh contrasting cases hold. Report consolidation separately from answer-coverage gains. Keep the main README focused on using MPLPB; workflow details belong here.
+
+### Recover artifact state and working state
+
+**The archive preserves the work; Al’s and Betty’s recorded state preserves how to continue it.**
+
+HANDOFF must recover both states with references the next session can verify:
+
+- Current revision, branch, source inventory and archive checksum.
+- Active task, applicable criteria and acceptance requirements.
+- Decisions and reasons, unresolved objections and rejected candidates.
+- Test custody and exposure: packet/key versions, who prepared, saw and scored them, and which transfer material remains unopened or has become development.
+- Actual execution status, retained outputs, blockers and unperformed evaluations.
+- Authorized next action, publication boundaries and evidence needed to proceed.
+
+File recovery alone is insufficient. Verify working assumptions against the checked revision, update record and retained receipts. Preserve dated prior states. Manual recovery does not synchronize chats or transfer authority.
 
 With only the starter message, both roles follow the
 [full-package inspection directions](../README.md#directions-for-an-ai-to-inspect-the-full-combined-mplpb-package)
