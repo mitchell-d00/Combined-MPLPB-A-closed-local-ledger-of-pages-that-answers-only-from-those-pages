@@ -1,0 +1,32 @@
+{
+  "schema": "bunyip-public-preservation-v2",
+  "files": [
+    {
+      "path": "evaluation/cryptid/bunyip/round2/released-public-832-reference-v2.tar.xz",
+      "blob_sha": "7ff9ff6a3aef66f7c9a25499e7762d1837f60d1a",
+      "sha256": "8de647c06d3c4954538b14363786bf130177096fa0472d8e24896db216b6e312",
+      "bytes": 662020,
+      "verified_public_members": 867,
+      "excluded_descriptor_marked_private_members": 17
+    },
+    {
+      "path": "evaluation/cryptid/bunyip/round2/interrupted-public-preservation-v2.tar.xz",
+      "blob_sha": "17e3381b87228bbde854249aaf779ea635d0065c",
+      "sha256": "332fe90c336b194e1abd2a071f1f12a0ec547a8d1811ad2373faf406d3a2a90a",
+      "bytes": 381640,
+      "verified_public_members": 1363,
+      "excluded_descriptor_marked_private_members": 34
+    }
+  ],
+  "public_reference_contracts": 832,
+  "private_reference_contracts": 17,
+  "publication_filter": "Exclude every case whose original continuation descriptor says public_raw_output=false, including all its logs/results. No case labels or source bytes changed.",
+  "prior_publication_incident": {
+    "introduced_commit": "9b4bdf98453b017187256904af8f7bec9a54c80c",
+    "removed_from_current_tree_commit": "bfd41a5a1392ccd5579b0e789be98690cffb6a1b",
+    "exposed_private_output_cases": 17,
+    "held_packet_or_key_exposure": false,
+    "history_erasure": "NOT_DONE; prior Git objects may remain retrievable"
+  },
+  "original_local_archives_unchanged": true
+}

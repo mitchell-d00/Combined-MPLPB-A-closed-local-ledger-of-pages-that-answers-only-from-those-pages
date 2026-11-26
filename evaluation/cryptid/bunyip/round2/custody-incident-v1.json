@@ -1,0 +1,63 @@
+{
+  "schema": "bunyip-custody-incident-v1",
+  "status": "CURRENT_TREE_CONTAINED_PRIOR_GIT_OBJECTS_MAY_REMAIN",
+  "introduced_commit": "9b4bdf98453b017187256904af8f7bec9a54c80c",
+  "current_tree_removal_commit": "bfd41a5a1392ccd5579b0e789be98690cffb6a1b",
+  "error": "Preservation reference selection used output file type without consulting public_raw_output.17 PE-02 result.json outputs marked private were included. The interrupted companion included34 log members from those cases; it was removed as well.",
+  "keys_and_held_transfer": "Not included;36+64 remain unopened",
+  "original_bytes": "Original local evidence, source, keys and classifications retained unchanged.",
+  "affected_artifacts": [
+    {
+      "path": "evaluation/cryptid/bunyip/round2/released-849-reference-v1.tar.xz",
+      "sha256": "71bd781c5a10041652a6b83d7d4b29ff30042f79006c00c7f5301b75fc1ae7a2"
+    },
+    {
+      "path": "evaluation/cryptid/bunyip/round2/interrupted-preservation-v1.tar.xz",
+      "sha256": "5135cac5d08d9b3b79677f59f6411455e66086172a926327e871a0952f3ce9ae"
+    }
+  ],
+  "public_replacement": {
+    "schema": "bunyip-public-preservation-v2",
+    "files": [
+      {
+        "path": "evaluation/cryptid/bunyip/round2/released-public-832-reference-v2.tar.xz",
+        "blob_sha": "7ff9ff6a3aef66f7c9a25499e7762d1837f60d1a",
+        "sha256": "8de647c06d3c4954538b14363786bf130177096fa0472d8e24896db216b6e312",
+        "bytes": 662020,
+        "verified_public_members": 867,
+        "excluded_descriptor_marked_private_members": 17
+      },
+      {
+        "path": "evaluation/cryptid/bunyip/round2/interrupted-public-preservation-v2.tar.xz",
+        "blob_sha": "17e3381b87228bbde854249aaf779ea635d0065c",
+        "sha256": "332fe90c336b194e1abd2a071f1f12a0ec547a8d1811ad2373faf406d3a2a90a",
+        "bytes": 381640,
+        "verified_public_members": 1363,
+        "excluded_descriptor_marked_private_members": 34
+      }
+    ],
+    "public_reference_contracts": 832,
+    "private_reference_contracts": 17,
+    "publication_filter": "Exclude every case whose original continuation descriptor says public_raw_output=false, including all its logs/results. No case labels or source bytes changed.",
+    "prior_publication_incident": {
+      "introduced_commit": "9b4bdf98453b017187256904af8f7bec9a54c80c",
+      "removed_from_current_tree_commit": "bfd41a5a1392ccd5579b0e789be98690cffb6a1b",
+      "exposed_private_output_cases": 17,
+      "held_packet_or_key_exposure": false,
+      "history_erasure": "NOT_DONE; prior Git objects may remain retrievable"
+    },
+    "original_local_archives_unchanged": true
+  },
+  "limits": "Removing current paths does not erase Git history or caches. No credential exposure identified; source witness outputs nevertheless violated the declared custody boundary. Do not merge until the remaining publication incident is accounted for.",
+  "remote_execution_failure": {
+    "run": 45870399223,
+    "job": 140083999904,
+    "completed": 321,
+    "strict_equal": 321,
+    "failed_execution": 528,
+    "raw_artifact_upload": "FAILED_EACCES; first-attempt raw outputs unavailable from Actions; full job log retained",
+    "next_attempt": "Create the existing hard-coded consumed replay scratch directory, retain file permissions correctly, execute263public release cases via unchanged frozen adapter.17private cases stay blocked separately."
+  },
+  "bb_retention_failure": "First archival assertion found900source-hash differences between two generated-ledger runs. Counts remain correct; identical-source preservation is not established by that comparison. Original assertion and results retained; matched re-evaluation pending.",
+  "host_probe": "Private PE02 probe failed closed under required isolation; no accepted output or unsandboxed fallback.16other private cases NOT_RUN."
+}

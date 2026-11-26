@@ -1,0 +1,439 @@
+﻿2026-11-26T17:45:27.7677965Z Current runner version: '2.338.2'
+2026-11-26T17:45:27.7702625Z ##[group]Runner Image Provisioner
+2026-11-26T17:45:27.7703623Z Hosted Compute Agent
+2026-11-26T17:45:27.7704308Z Version: 20261111.635
+2026-11-26T17:45:27.7704932Z Commit: b8a594ea514ff44cadb5342986c68b1eac6e22ed
+2026-11-26T17:45:27.7706133Z Build Date: 2026-11-11T01:49:01Z
+2026-11-26T17:45:27.7706868Z Worker ID: {726aa45a-b8ca-4c8d-8e76-d0bf6cacd59c}
+2026-11-26T17:45:27.7707639Z Region: eastus2
+2026-11-26T17:45:27.7708248Z Cloud: Azure
+2026-11-26T17:45:27.7708767Z ##[endgroup]
+2026-11-26T17:45:27.7710309Z ##[group]Operating System
+2026-11-26T17:45:27.7710967Z Ubuntu
+2026-11-26T17:45:27.7711604Z 24.04.5
+2026-11-26T17:45:27.7712159Z LTS
+2026-11-26T17:45:27.7712627Z ##[endgroup]
+2026-11-26T17:45:27.7713626Z ##[group]Runner Image
+2026-11-26T17:45:27.7714242Z Image: ubuntu-24.04
+2026-11-26T17:45:27.7714850Z Version: 20261122.23.1
+2026-11-26T17:45:27.7716623Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20261122.23/images/ubuntu/Ubuntu2404-Readme.md
+2026-11-26T17:45:27.7718320Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20261122.23
+2026-11-26T17:45:27.7719343Z ##[endgroup]
+2026-11-26T17:45:27.7720574Z ##[group]GITHUB_TOKEN Permissions
+2026-11-26T17:45:27.7722699Z Contents: read
+2026-11-26T17:45:27.7723410Z Metadata: read
+2026-11-26T17:45:27.7723978Z ##[endgroup]
+2026-11-26T17:45:27.7726455Z Secret source: Actions
+2026-11-26T17:45:27.7727608Z Cache mode: write
+2026-11-26T17:45:27.7728297Z Prepare workflow directory
+2026-11-26T17:45:27.8062436Z Prepare all required actions
+2026-11-26T17:45:27.8110473Z Getting action download info
+2026-11-26T17:45:28.0223682Z Download action repository 'actions/checkout@v4' (SHA:11d5960a326750d5838078e36cf38b85af677262)
+2026-11-26T17:45:28.2029110Z Download action repository 'actions/setup-python@v5' (SHA:a26af69be951a213d495a4c3e4e4022e16d87065)
+2026-11-26T17:45:28.3216320Z Download action repository 'actions/upload-artifact@v4' (SHA:ea165f8d65b6e75b540449e92b4886f43607fa02)
+2026-11-26T17:45:28.5885800Z Complete job name: consumed-preservation
+2026-11-26T17:45:28.6860409Z ##[group]Run actions/checkout@v4
+2026-11-26T17:45:28.6861282Z with:
+2026-11-26T17:45:28.6861746Z   ref: 9b4bdf98453b017187256904af8f7bec9a54c80c
+2026-11-26T17:45:28.6862356Z   persist-credentials: false
+2026-11-26T17:45:28.6863309Z   repository: mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages
+2026-11-26T17:45:28.6867904Z   token: ***
+2026-11-26T17:45:28.6868336Z   ssh-strict: true
+2026-11-26T17:45:28.6868767Z   ssh-user: git
+2026-11-26T17:45:28.6869174Z   clean: true
+2026-11-26T17:45:28.6869608Z   sparse-checkout-cone-mode: true
+2026-11-26T17:45:28.6870115Z   fetch-depth: 1
+2026-11-26T17:45:28.6870536Z   fetch-tags: false
+2026-11-26T17:45:28.6870974Z   show-progress: true
+2026-11-26T17:45:28.6871402Z   lfs: false
+2026-11-26T17:45:28.6871801Z   submodules: false
+2026-11-26T17:45:28.6872243Z   set-safe-directory: true
+2026-11-26T17:45:28.6872739Z   allow-unsafe-pr-checkout: false
+2026-11-26T17:45:28.6873507Z ##[endgroup]
+2026-11-26T17:45:29.0031634Z Syncing repository: mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages
+2026-11-26T17:45:29.0034697Z ##[group]Getting Git version info
+2026-11-26T17:45:29.0036892Z Working directory is '/home/runner/work/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages'
+2026-11-26T17:45:29.0039016Z [command]/usr/bin/git version
+2026-11-26T17:45:29.0154540Z git version 2.56.1
+2026-11-26T17:45:29.0177546Z ##[endgroup]
+2026-11-26T17:45:29.0192583Z Temporarily overriding HOME='/home/runner/work/_temp/a5b48560-fe37-4c25-8a60-573b21345e27' before making global git config changes
+2026-11-26T17:45:29.0194985Z Adding repository directory to the temporary git global config as a safe directory
+2026-11-26T17:45:29.0200010Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages
+2026-11-26T17:45:29.0256987Z Deleting the contents of '/home/runner/work/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages'
+2026-11-26T17:45:29.0260913Z ##[group]Initializing the repository
+2026-11-26T17:45:29.0266475Z [command]/usr/bin/git init /home/runner/work/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages
+2026-11-26T17:45:29.0435451Z hint: Using 'master' as the name for the initial branch. This default branch name
+2026-11-26T17:45:29.0437208Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+2026-11-26T17:45:29.0438184Z hint: to use in all of your new repositories, which will suppress this warning,
+2026-11-26T17:45:29.0438988Z hint: call:
+2026-11-26T17:45:29.0439394Z hint:
+2026-11-26T17:45:29.0439915Z hint: 	git config --global init.defaultBranch <name>
+2026-11-26T17:45:29.0440525Z hint:
+2026-11-26T17:45:29.0441100Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2026-11-26T17:45:29.0442015Z hint: 'development'. The just-created branch can be renamed via this command:
+2026-11-26T17:45:29.0442738Z hint:
+2026-11-26T17:45:29.0443148Z hint: 	git branch -m <name>
+2026-11-26T17:45:29.0443632Z hint:
+2026-11-26T17:45:29.0444257Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2026-11-26T17:45:29.0457827Z Initialized empty Git repository in /home/runner/work/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/.git/
+2026-11-26T17:45:29.0491224Z [command]/usr/bin/git remote add origin https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages
+2026-11-26T17:45:29.0546936Z ##[endgroup]
+2026-11-26T17:45:29.0548320Z ##[group]Disabling automatic garbage collection
+2026-11-26T17:45:29.0549409Z [command]/usr/bin/git config --local gc.auto 0
+2026-11-26T17:45:29.0595546Z ##[endgroup]
+2026-11-26T17:45:29.0596935Z ##[group]Setting up auth
+2026-11-26T17:45:29.0604119Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-11-26T17:45:29.0648802Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-11-26T17:45:29.1107033Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-11-26T17:45:29.1156281Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-11-26T17:45:29.1402494Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-11-26T17:45:29.1446785Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-11-26T17:45:29.1689811Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2026-11-26T17:45:29.1739894Z ##[endgroup]
+2026-11-26T17:45:29.1741907Z ##[group]Fetching the repository
+2026-11-26T17:45:29.1753560Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin 9b4bdf98453b017187256904af8f7bec9a54c80c
+2026-11-26T17:45:40.4923296Z From https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages
+2026-11-26T17:45:40.4924479Z  * branch              9b4bdf98453b017187256904af8f7bec9a54c80c -> FETCH_HEAD
+2026-11-26T17:45:40.4929161Z ##[endgroup]
+2026-11-26T17:45:40.4930250Z ##[group]Determining the checkout info
+2026-11-26T17:45:40.4932614Z ##[endgroup]
+2026-11-26T17:45:40.4957206Z [command]/usr/bin/git sparse-checkout disable
+2026-11-26T17:45:40.5033467Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2026-11-26T17:45:40.5074901Z ##[group]Checking out the ref
+2026-11-26T17:45:40.5079457Z [command]/usr/bin/git checkout --progress --force 9b4bdf98453b017187256904af8f7bec9a54c80c
+2026-11-26T17:45:41.5834062Z Updating files:  16% (13000/76923)
+2026-11-26T17:45:41.6145167Z Updating files:  17% (13077/76923)
+2026-11-26T17:45:41.6441808Z Updating files:  18% (13847/76923)
+2026-11-26T17:45:41.6811416Z Updating files:  19% (14616/76923)
+2026-11-26T17:45:41.7230925Z Updating files:  20% (15385/76923)
+2026-11-26T17:45:41.8292376Z Updating files:  21% (16154/76923)
+2026-11-26T17:45:42.0245175Z Updating files:  22% (16924/76923)
+2026-11-26T17:45:42.0554936Z Updating files:  23% (17693/76923)
+2026-11-26T17:45:42.0850580Z Updating files:  24% (18462/76923)
+2026-11-26T17:45:42.1148736Z Updating files:  25% (19231/76923)
+2026-11-26T17:45:42.1476472Z Updating files:  26% (20000/76923)
+2026-11-26T17:45:42.1775581Z Updating files:  27% (20770/76923)
+2026-11-26T17:45:42.2151860Z Updating files:  28% (21539/76923)
+2026-11-26T17:45:42.2628250Z Updating files:  29% (22308/76923)
+2026-11-26T17:45:42.3017179Z Updating files:  30% (23077/76923)
+2026-11-26T17:45:42.3441215Z Updating files:  31% (23847/76923)
+2026-11-26T17:45:42.3807547Z Updating files:  32% (24616/76923)
+2026-11-26T17:45:42.4131862Z Updating files:  33% (25385/76923)
+2026-11-26T17:45:42.4432435Z Updating files:  34% (26154/76923)
+2026-11-26T17:45:42.4742937Z Updating files:  35% (26924/76923)
+2026-11-26T17:45:42.5157152Z Updating files:  36% (27693/76923)
+2026-11-26T17:45:42.5523897Z Updating files:  37% (28462/76923)
+2026-11-26T17:45:42.5786158Z Updating files:  38% (29231/76923)
+2026-11-26T17:45:42.5889833Z Updating files:  38% (29772/76923)
+2026-11-26T17:45:42.6226921Z Updating files:  39% (30000/76923)
+2026-11-26T17:45:42.6678827Z Updating files:  40% (30770/76923)
+2026-11-26T17:45:42.7002669Z Updating files:  41% (31539/76923)
+2026-11-26T17:45:42.7313858Z Updating files:  42% (32308/76923)
+2026-11-26T17:45:42.7642709Z Updating files:  43% (33077/76923)
+2026-11-26T17:45:42.7994040Z Updating files:  44% (33847/76923)
+2026-11-26T17:45:42.8313142Z Updating files:  45% (34616/76923)
+2026-11-26T17:45:42.8685917Z Updating files:  46% (35385/76923)
+2026-11-26T17:45:42.9151243Z Updating files:  47% (36154/76923)
+2026-11-26T17:45:42.9539799Z Updating files:  48% (36924/76923)
+2026-11-26T17:45:42.9937015Z Updating files:  49% (37693/76923)
+2026-11-26T17:45:43.0238089Z Updating files:  50% (38462/76923)
+2026-11-26T17:45:43.0601426Z Updating files:  51% (39231/76923)
+2026-11-26T17:45:43.0922479Z Updating files:  52% (40000/76923)
+2026-11-26T17:45:43.1271782Z Updating files:  53% (40770/76923)
+2026-11-26T17:45:43.1601596Z Updating files:  54% (41539/76923)
+2026-11-26T17:45:43.1911742Z Updating files:  55% (42308/76923)
+2026-11-26T17:45:43.2206472Z Updating files:  56% (43077/76923)
+2026-11-26T17:45:43.2550090Z Updating files:  57% (43847/76923)
+2026-11-26T17:45:43.3000343Z Updating files:  58% (44616/76923)
+2026-11-26T17:45:43.3319950Z Updating files:  59% (45385/76923)
+2026-11-26T17:45:43.3632178Z Updating files:  60% (46154/76923)
+2026-11-26T17:45:43.3929110Z Updating files:  61% (46924/76923)
+2026-11-26T17:45:43.4668337Z Updating files:  62% (47693/76923)
+2026-11-26T17:45:43.5569478Z Updating files:  63% (48462/76923)
+2026-11-26T17:45:43.5787154Z Updating files:  64% (49231/76923)
+2026-11-26T17:45:43.6454077Z Updating files:  64% (49411/76923)
+2026-11-26T17:45:43.6924202Z Updating files:  65% (50000/76923)
+2026-11-26T17:45:43.7228945Z Updating files:  66% (50770/76923)
+2026-11-26T17:45:43.7548188Z Updating files:  67% (51539/76923)
+2026-11-26T17:45:43.7862931Z Updating files:  68% (52308/76923)
+2026-11-26T17:45:43.8183864Z Updating files:  69% (53077/76923)
+2026-11-26T17:45:43.8657412Z Updating files:  70% (53847/76923)
+2026-11-26T17:45:43.9032885Z Updating files:  71% (54616/76923)
+2026-11-26T17:45:43.9769347Z Updating files:  72% (55385/76923)
+2026-11-26T17:45:44.0287141Z Updating files:  73% (56154/76923)
+2026-11-26T17:45:44.0740651Z Updating files:  74% (56924/76923)
+2026-11-26T17:45:44.1134024Z Updating files:  75% (57693/76923)
+2026-11-26T17:45:44.1467522Z Updating files:  76% (58462/76923)
+2026-11-26T17:45:44.1920097Z Updating files:  77% (59231/76923)
+2026-11-26T17:45:44.2276274Z Updating files:  78% (60000/76923)
+2026-11-26T17:45:44.2638840Z Updating files:  79% (60770/76923)
+2026-11-26T17:45:44.3100891Z Updating files:  80% (61539/76923)
+2026-11-26T17:45:44.3414521Z Updating files:  81% (62308/76923)
+2026-11-26T17:45:44.3810826Z Updating files:  82% (63077/76923)
+2026-11-26T17:45:44.4118249Z Updating files:  83% (63847/76923)
+2026-11-26T17:45:44.4432485Z Updating files:  84% (64616/76923)
+2026-11-26T17:45:44.4732065Z Updating files:  85% (65385/76923)
+2026-11-26T17:45:44.5117298Z Updating files:  86% (66154/76923)
+2026-11-26T17:45:44.5612682Z Updating files:  87% (66924/76923)
+2026-11-26T17:45:44.5799590Z Updating files:  88% (67693/76923)
+2026-11-26T17:45:44.6851683Z Updating files:  88% (67856/76923)
+2026-11-26T17:45:45.5992623Z Updating files:  89% (68462/76923)
+2026-11-26T17:45:46.2442962Z Updating files:  89% (68808/76923)
+2026-11-26T17:45:46.3931487Z Updating files:  90% (69231/76923)
+2026-11-26T17:45:46.5820947Z Updating files:  91% (70000/76923)
+2026-11-26T17:45:46.6161565Z Updating files:  91% (70677/76923)
+2026-11-26T17:45:47.3148460Z Updating files:  92% (70770/76923)
+2026-11-26T17:45:47.5802071Z Updating files:  93% (71539/76923)
+2026-11-26T17:45:47.7211985Z Updating files:  93% (71962/76923)
+2026-11-26T17:45:47.8168052Z Updating files:  94% (72308/76923)
+2026-11-26T17:45:47.8638670Z Updating files:  95% (73077/76923)
+2026-11-26T17:45:47.9838007Z Updating files:  96% (73847/76923)
+2026-11-26T17:45:48.0661851Z Updating files:  97% (74616/76923)
+2026-11-26T17:45:48.1575540Z Updating files:  98% (75385/76923)
+2026-11-26T17:45:48.2231425Z Updating files:  99% (76154/76923)
+2026-11-26T17:45:48.2232599Z Updating files: 100% (76923/76923)
+2026-11-26T17:45:48.2238264Z Updating files: 100% (76923/76923), done.
+2026-11-26T17:45:48.3412889Z Note: switching to '9b4bdf98453b017187256904af8f7bec9a54c80c'.
+2026-11-26T17:45:48.3413512Z 
+2026-11-26T17:45:48.3414137Z You are in 'detached HEAD' state. You can look around, make experimental
+2026-11-26T17:45:48.3415429Z changes and commit them, and you can discard any commits you make in this
+2026-11-26T17:45:48.3416269Z state without impacting any branches by switching back to a branch.
+2026-11-26T17:45:48.3416750Z 
+2026-11-26T17:45:48.3417121Z If you want to create a new branch to retain commits you create, you may
+2026-11-26T17:45:48.3417893Z do so (now or later) by using -c with the switch command. Example:
+2026-11-26T17:45:48.3418323Z 
+2026-11-26T17:45:48.3418501Z   git switch -c <new-branch-name>
+2026-11-26T17:45:48.3418786Z 
+2026-11-26T17:45:48.3418960Z Or undo this operation with:
+2026-11-26T17:45:48.3419274Z 
+2026-11-26T17:45:48.3419424Z   git switch -
+2026-11-26T17:45:48.3419627Z 
+2026-11-26T17:45:48.3419976Z Turn off this advice by setting config variable advice.detachedHead to false
+2026-11-26T17:45:48.3420494Z 
+2026-11-26T17:45:48.3420958Z HEAD is now at 9b4bdf98 Retain actual released 849 contracts and execute C3 consumed preservation
+2026-11-26T17:45:48.3687112Z ##[endgroup]
+2026-11-26T17:45:48.3742860Z [command]/usr/bin/git log -1 --format=%H
+2026-11-26T17:45:48.3780321Z 9b4bdf98453b017187256904af8f7bec9a54c80c
+2026-11-26T17:45:48.3790111Z ##[group]Removing auth
+2026-11-26T17:45:48.3794061Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-11-26T17:45:48.3838186Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-11-26T17:45:48.4239923Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-11-26T17:45:48.4276193Z http.https://github.com/.extraheader
+2026-11-26T17:45:48.4284108Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+2026-11-26T17:45:48.4371037Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-11-26T17:45:48.4777156Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-11-26T17:45:48.4835953Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-11-26T17:45:48.5235775Z ##[endgroup]
+2026-11-26T17:45:48.6478412Z ##[group]Run actions/setup-python@v5
+2026-11-26T17:45:48.6478740Z with:
+2026-11-26T17:45:48.6478983Z   python-version: 3.12
+2026-11-26T17:45:48.6479235Z   check-latest: false
+2026-11-26T17:45:48.6481962Z   token: ***
+2026-11-26T17:45:48.6482222Z   update-environment: true
+2026-11-26T17:45:48.6482485Z   allow-prereleases: false
+2026-11-26T17:45:48.6482734Z   freethreaded: false
+2026-11-26T17:45:48.6482962Z ##[endgroup]
+2026-11-26T17:45:49.0524824Z ##[group]Installed versions
+2026-11-26T17:45:49.3501871Z (node:2708) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-11-26T17:45:49.3502770Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-11-26T17:45:49.3503505Z Successfully set up CPython (3.12.16)
+2026-11-26T17:45:49.3504240Z ##[endgroup]
+2026-11-26T17:45:49.4893091Z ##[group]Run sudo apt-get update
+2026-11-26T17:45:49.4893502Z [36;1msudo apt-get update[0m
+2026-11-26T17:45:49.4893901Z [36;1msudo apt-get install --yes --no-install-recommends bubblewrap[0m
+2026-11-26T17:45:49.6063926Z shell: /usr/bin/bash -e {0}
+2026-11-26T17:45:49.6064221Z env:
+2026-11-26T17:45:49.6064508Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-26T17:45:49.6064985Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.16/x64/lib/pkgconfig
+2026-11-26T17:45:49.6065596Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-26T17:45:49.6065986Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-26T17:45:49.6066367Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-26T17:45:49.6066748Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.16/x64/lib
+2026-11-26T17:45:49.6067075Z ##[endgroup]
+2026-11-26T17:45:49.6946589Z Get:1 file:/etc/apt/apt-mirrors.txt Mirrorlist [144 B]
+2026-11-26T17:45:49.7277922Z Hit:2 http://azure.archive.ubuntu.com/ubuntu noble InRelease
+2026-11-26T17:45:49.7279493Z Get:6 https://packages.microsoft.com/ubuntu/24.04/prod noble InRelease [3600 B]
+2026-11-26T17:45:49.7288671Z Get:3 http://azure.archive.ubuntu.com/ubuntu noble-updates InRelease [126 kB]
+2026-11-26T17:45:49.7328840Z Get:4 http://azure.archive.ubuntu.com/ubuntu noble-backports InRelease [126 kB]
+2026-11-26T17:45:49.7354227Z Get:5 http://azure.archive.ubuntu.com/ubuntu noble-security InRelease [126 kB]
+2026-11-26T17:45:49.8933964Z Get:7 https://packages.microsoft.com/ubuntu/24.04/prod noble/main amd64 Packages [880 kB]
+2026-11-26T17:45:49.9216658Z Get:8 https://packages.microsoft.com/ubuntu/24.04/prod noble/main arm64 Packages [804 kB]
+2026-11-26T17:45:49.9391020Z Get:9 http://azure.archive.ubuntu.com/ubuntu noble-updates/main amd64 Packages [1492 kB]
+2026-11-26T17:45:49.9481077Z Get:10 http://azure.archive.ubuntu.com/ubuntu noble-updates/main Translation-en [321 kB]
+2026-11-26T17:45:49.9527431Z Get:11 http://azure.archive.ubuntu.com/ubuntu noble-updates/universe amd64 Packages [1716 kB]
+2026-11-26T17:45:49.9582882Z Get:12 http://azure.archive.ubuntu.com/ubuntu noble-updates/restricted amd64 Packages [1949 kB]
+2026-11-26T17:45:49.9677115Z Get:13 http://azure.archive.ubuntu.com/ubuntu noble-updates/restricted Translation-en [448 kB]
+2026-11-26T17:45:50.0645980Z Get:14 http://azure.archive.ubuntu.com/ubuntu noble-security/main amd64 Packages [1231 kB]
+2026-11-26T17:45:50.0708760Z Get:15 http://azure.archive.ubuntu.com/ubuntu noble-security/main Translation-en [243 kB]
+2026-11-26T17:45:50.0724442Z Get:16 http://azure.archive.ubuntu.com/ubuntu noble-security/universe amd64 Packages [1233 kB]
+2026-11-26T17:45:50.0786978Z Get:17 http://azure.archive.ubuntu.com/ubuntu noble-security/universe Translation-en [249 kB]
+2026-11-26T17:45:50.0803958Z Get:18 http://azure.archive.ubuntu.com/ubuntu noble-security/restricted amd64 Packages [1842 kB]
+2026-11-26T17:45:50.1327130Z Get:19 http://azure.archive.ubuntu.com/ubuntu noble-security/restricted Translation-en [429 kB]
+2026-11-26T17:45:55.7983944Z Fetched 13.2 MB in 1s (9825 kB/s)
+2026-11-26T17:45:57.1744837Z Reading package lists...
+2026-11-26T17:45:57.2134232Z Reading package lists...
+2026-11-26T17:45:57.4572800Z Building dependency tree...
+2026-11-26T17:45:57.4580446Z Reading state information...
+2026-11-26T17:45:57.6098139Z The following NEW packages will be installed:
+2026-11-26T17:45:57.6104015Z   bubblewrap
+2026-11-26T17:45:57.6295924Z 0 upgraded, 1 newly installed, 0 to remove and 33 not upgraded.
+2026-11-26T17:45:57.6296495Z Need to get 50.4 kB of archives.
+2026-11-26T17:45:57.6296919Z After this operation, 133 kB of additional disk space will be used.
+2026-11-26T17:45:57.6297543Z Get:1 file:/etc/apt/apt-mirrors.txt Mirrorlist [144 B]
+2026-11-26T17:45:57.6469082Z Get:2 http://azure.archive.ubuntu.com/ubuntu noble-updates/main amd64 bubblewrap amd64 0.9.0-1ubuntu0.3 [50.4 kB]
+2026-11-26T17:45:57.9001869Z Fetched 50.4 kB in 0s (1683 kB/s)
+2026-11-26T17:45:57.9294903Z Selecting previously unselected package bubblewrap.
+2026-11-26T17:45:57.9609069Z (Reading database ... 
+2026-11-26T17:45:57.9609502Z (Reading database ... 5%
+2026-11-26T17:45:57.9609782Z (Reading database ... 10%
+2026-11-26T17:45:57.9610227Z (Reading database ... 15%
+2026-11-26T17:45:57.9610615Z (Reading database ... 20%
+2026-11-26T17:45:57.9611041Z (Reading database ... 25%
+2026-11-26T17:45:57.9611462Z (Reading database ... 30%
+2026-11-26T17:45:57.9611889Z (Reading database ... 35%
+2026-11-26T17:45:57.9612267Z (Reading database ... 40%
+2026-11-26T17:45:57.9612517Z (Reading database ... 45%
+2026-11-26T17:45:57.9612764Z (Reading database ... 50%
+2026-11-26T17:45:57.9666033Z (Reading database ... 55%
+2026-11-26T17:45:58.1446611Z (Reading database ... 60%
+2026-11-26T17:45:58.2453554Z (Reading database ... 65%
+2026-11-26T17:45:58.4102059Z (Reading database ... 70%
+2026-11-26T17:45:58.5952904Z (Reading database ... 75%
+2026-11-26T17:45:58.7940739Z (Reading database ... 80%
+2026-11-26T17:45:59.0035462Z (Reading database ... 85%
+2026-11-26T17:45:59.1936603Z (Reading database ... 90%
+2026-11-26T17:45:59.4079433Z (Reading database ... 95%
+2026-11-26T17:45:59.4079885Z (Reading database ... 100%
+2026-11-26T17:45:59.4080332Z (Reading database ... 217196 files and directories currently installed.)
+2026-11-26T17:45:59.4121912Z Preparing to unpack .../bubblewrap_0.9.0-1ubuntu0.3_amd64.deb ...
+2026-11-26T17:45:59.4144949Z Unpacking bubblewrap (0.9.0-1ubuntu0.3) ...
+2026-11-26T17:45:59.4612687Z Setting up bubblewrap (0.9.0-1ubuntu0.3) ...
+2026-11-26T17:45:59.4658074Z Processing triggers for man-db (2.12.0-4build2) ...
+2026-11-26T17:45:59.4679937Z Not building database; man-db/auto-update is not 'true'.
+2026-11-26T17:46:00.1465960Z 
+2026-11-26T17:46:00.1466500Z Running kernel seems to be up-to-date.
+2026-11-26T17:46:00.1466876Z 
+2026-11-26T17:46:00.1467049Z No services need to be restarted.
+2026-11-26T17:46:00.1467340Z 
+2026-11-26T17:46:00.1467511Z No containers need to be restarted.
+2026-11-26T17:46:00.1467801Z 
+2026-11-26T17:46:00.1468035Z No user sessions are running outdated binaries.
+2026-11-26T17:46:00.1468393Z 
+2026-11-26T17:46:00.1468719Z No VM guests are running outdated hypervisor (qemu) binaries on this host.
+2026-11-26T17:46:01.1513515Z ##[group]Run STUDY_TEST_PYTHON="$(command -v python)"
+2026-11-26T17:46:01.1513944Z [36;1mSTUDY_TEST_PYTHON="$(command -v python)"[0m
+2026-11-26T17:46:01.1514310Z [36;1mmkdir -p "$RUNNER_TEMP/bunyip-sandbox-source"[0m
+2026-11-26T17:46:01.1514932Z [36;1mgit archive HEAD | tar -x -C "$RUNNER_TEMP/bunyip-sandbox-source"[0m
+2026-11-26T17:46:01.1515627Z [36;1mcd "$RUNNER_TEMP/bunyip-sandbox-source"[0m
+2026-11-26T17:46:01.1516208Z [36;1msudo env PYTHONPATH="$PWD" MPLPB_REQUIRE_SANDBOX=1 "$STUDY_TEST_PYTHON" -m unittest tests.test_study_sandbox -v[0m
+2026-11-26T17:46:01.1516760Z [36;1mcd "$GITHUB_WORKSPACE"[0m
+2026-11-26T17:46:01.1517941Z [36;1msudo env PYTHONPATH="$PWD" MPLPB_REQUIRE_SANDBOX=1 GIT_CONFIG_COUNT=1 GIT_CONFIG_KEY_0=safe.directory GIT_CONFIG_VALUE_0="$GITHUB_WORKSPACE" "$STUDY_TEST_PYTHON" tools/bunyip_round2_preservation.py --source-commit "9b4bdf98453b017187256904af8f7bec9a54c80c" --output "$RUNNER_TEMP/bunyip-round2-preservation"[0m
+2026-11-26T17:46:01.1562498Z shell: /usr/bin/bash -e {0}
+2026-11-26T17:46:01.1562757Z env:
+2026-11-26T17:46:01.1563033Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-26T17:46:01.1563499Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.16/x64/lib/pkgconfig
+2026-11-26T17:46:01.1563953Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-26T17:46:01.1564347Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-26T17:46:01.1564753Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-26T17:46:01.1565152Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.16/x64/lib
+2026-11-26T17:46:01.1565707Z ##[endgroup]
+2026-11-26T17:46:14.7121762Z test_real_study_runs_without_mounting_gold (tests.test_study_sandbox.LinuxStudySandboxTests.test_real_study_runs_without_mounting_gold) ... ok
+2026-11-26T17:46:14.7865789Z test_worker_cannot_read_gold_write_inputs_or_use_host_network (tests.test_study_sandbox.LinuxStudySandboxTests.test_worker_cannot_read_gold_write_inputs_or_use_host_network) ... ok
+2026-11-26T17:46:14.7872809Z test_failed_isolation_never_accepts_worker_output (tests.test_study_sandbox.StudySandboxTests.test_failed_isolation_never_accepts_worker_output) ... ok
+2026-11-26T17:46:14.7877039Z test_missing_isolator_never_falls_back_to_direct_execution (tests.test_study_sandbox.StudySandboxTests.test_missing_isolator_never_falls_back_to_direct_execution) ... ok
+2026-11-26T17:46:14.7878159Z 
+2026-11-26T17:46:14.7878374Z ----------------------------------------------------------------------
+2026-11-26T17:46:14.7878745Z Ran 4 tests in 3.157s
+2026-11-26T17:46:14.7878892Z 
+2026-11-26T17:46:14.7878972Z OK
+2026-11-26T17:46:15.3257115Z prior419/mothman-fresh 1
+2026-11-26T17:46:15.3259182Z prior419/mothman-first 1
+2026-11-26T17:46:15.3990508Z prior419/jackalope-transfer 1
+2026-11-26T17:46:17.7656302Z prior419/yeti-wrap 0
+2026-11-26T17:46:17.8396117Z prior419/yeti-transfer 1
+2026-11-26T17:46:31.7528136Z prior419/sasquatch-development 0
+2026-11-26T17:46:31.8238867Z prior419/sasquatch-transfer 1
+2026-11-26T17:46:32.9206286Z prior419/mothman-development 0
+2026-11-26T17:46:32.9846147Z prior419/chupacabra-transfer 1
+2026-11-26T17:46:33.0370016Z prior419/chupacabra-structural 1
+2026-11-26T17:46:40.5936352Z prior419/kraken-development 0
+2026-11-26T17:46:40.6580813Z prior419/kraken-first 1
+2026-11-26T17:46:42.0196168Z prior419/chupacabra-development 0
+2026-11-26T17:46:42.0946405Z prior419/kraken-fresh 1
+2026-11-26T17:46:42.6336424Z prior419/kraken-policy 0
+2026-11-26T17:46:44.0677871Z prior419/jackalope-development 0
+2026-11-26T17:46:45.3026316Z prior419/nessie-conditions 0
+2026-11-26T17:46:45.5357622Z prior419/yeti-development 0
+2026-11-26T17:46:45.9412860Z prior419/nessie-governors 0
+2026-11-26T17:46:46.0126163Z prior419/nessie-transfer 1
+2026-11-26T17:46:46.2580380Z release280 1
+2026-11-26T17:46:47.7286219Z prior419/nessie-roles 0
+2026-11-26T17:46:47.7946443Z thunderbird-consumed 1
+2026-11-26T17:46:48.0376139Z prior419/nessie-signers 0
+2026-11-26T17:46:48.1086146Z initial-final24 1
+2026-11-26T17:46:48.1626160Z second-final16 1
+2026-11-26T17:46:53.9478549Z prior419/nessie-development 0
+2026-11-26T17:46:54.6716279Z boundary-wrap 0
+2026-11-26T17:46:55.3936183Z thunderbird-development 0
+2026-11-26T17:46:58.2266057Z rev3-shell 0
+2026-11-26T17:46:59.9725421Z rev3-compatibility 0
+2026-11-26T17:47:00.0403539Z third-final24 1
+2026-11-26T17:47:01.0077379Z rev3-reporting 0
+2026-11-26T17:47:03.5133026Z rev3-policy 0
+2026-11-26T17:47:12.9760055Z rev3-budget 0
+2026-11-26T17:47:13.2236683Z {"planned": 849, "completed": 321, "execution_failures": 528, "strict_contract_equal": 321, "changed_contracts": 0}
+2026-11-26T17:47:13.2378796Z ##[error]Process completed with exit code 2.
+2026-11-26T17:47:13.2462724Z ##[group]Run actions/upload-artifact@v4
+2026-11-26T17:47:13.2463045Z with:
+2026-11-26T17:47:13.2463359Z   name: bunyip-preservation-9b4bdf98453b017187256904af8f7bec9a54c80c
+2026-11-26T17:47:13.2463832Z   path: /home/runner/work/_temp/bunyip-round2-preservation/
+2026-11-26T17:47:13.2464183Z   if-no-files-found: warn
+2026-11-26T17:47:13.2464423Z   retention-days: 90
+2026-11-26T17:47:13.2464639Z   compression-level: 6
+2026-11-26T17:47:13.2464853Z   overwrite: false
+2026-11-26T17:47:13.2465070Z   include-hidden-files: false
+2026-11-26T17:47:13.2465660Z env:
+2026-11-26T17:47:13.2465948Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-26T17:47:13.2466402Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.16/x64/lib/pkgconfig
+2026-11-26T17:47:13.2466847Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-26T17:47:13.2467238Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-26T17:47:13.2467664Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-26T17:47:13.2468062Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.16/x64/lib
+2026-11-26T17:47:13.2468387Z ##[endgroup]
+2026-11-26T17:47:13.4171866Z (node:4194) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-11-26T17:47:13.4172725Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-11-26T17:47:14.0197245Z With the provided path, there will be 2866 files uploaded
+2026-11-26T17:47:14.0203332Z Artifact name is valid!
+2026-11-26T17:47:14.0203828Z Root directory input is valid!
+2026-11-26T17:47:14.2944146Z Beginning upload of artifact content to blob storage
+2026-11-26T17:47:15.2623232Z ##[error]An error has occurred while creating the zip file for upload
+2026-11-26T17:47:15.2624833Z Error: EACCES: permission denied, open '/home/runner/work/_temp/bunyip-round2-preservation/released-reference/boundary-wrap/CRYPT-NESSIE-0070/result.json'
+2026-11-26T17:47:15.2686194Z /home/runner/work/_actions/actions/upload-artifact/v4/dist/upload/index.js:3811
+2026-11-26T17:47:15.2687234Z     throw new Error('An error has occurred during zip creation for the artifact');
+2026-11-26T17:47:15.2687707Z     ^
+2026-11-26T17:47:15.2687827Z 
+2026-11-26T17:47:15.2688015Z Error: An error has occurred during zip creation for the artifact
+2026-11-26T17:47:15.2688666Z     at Archiver.zipErrorCallback (/home/runner/work/_actions/actions/upload-artifact/v4/dist/upload/index.js:3811:11)
+2026-11-26T17:47:15.2689250Z     at Archiver.emit (node:events:526:24)
+2026-11-26T17:47:15.2689834Z     at Archiver.<anonymous> (/home/runner/work/_actions/actions/upload-artifact/v4/dist/upload/index.js:57606:12)
+2026-11-26T17:47:15.2690723Z     at __webpack_modules__.86454.module.exports.handleStuff (/home/runner/work/_actions/actions/upload-artifact/v4/dist/upload/index.js:69663:5)
+2026-11-26T17:47:15.2691412Z     at DeflateCRC32Stream.wrapper (node:events:639:12)
+2026-11-26T17:47:15.2691776Z     at DeflateCRC32Stream.emit (node:events:526:24)
+2026-11-26T17:47:15.2692154Z     at endReadableNT (node:internal/streams/readable:1783:12)
+2026-11-26T17:47:15.2692689Z     at process.processTicksAndRejections (node:internal/process/task_queues:90:21)
+2026-11-26T17:47:15.2693034Z 
+2026-11-26T17:47:15.2693123Z Node.js v24.22.1
+2026-11-26T17:47:15.2962616Z Post job cleanup.
+2026-11-26T17:47:15.3817711Z [command]/usr/bin/git version
+2026-11-26T17:47:15.3860695Z git version 2.56.1
+2026-11-26T17:47:15.3903178Z Temporarily overriding HOME='/home/runner/work/_temp/5710b0b6-7a55-4df1-997d-c32e61930ccc' before making global git config changes
+2026-11-26T17:47:15.3904748Z Adding repository directory to the temporary git global config as a safe directory
+2026-11-26T17:47:15.3909510Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages
+2026-11-26T17:47:15.3952653Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-11-26T17:47:15.3990623Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-11-26T17:47:15.4419701Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-11-26T17:47:15.4465878Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-11-26T17:47:15.4956778Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-11-26T17:47:15.5027328Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-11-26T17:47:15.5560462Z Cleaning up orphan processes
+2026-11-26T17:47:15.6008089Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4, actions/setup-python@v5, actions/upload-artifact@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/

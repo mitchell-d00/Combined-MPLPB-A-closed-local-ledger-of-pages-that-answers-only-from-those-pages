@@ -23,6 +23,8 @@ jobs:
         run: |
           sudo apt-get update
           sudo apt-get install --yes --no-install-recommends bubblewrap
+      - name: Prepare existing consumed replay scratch path
+        run: sudo mkdir -p /workspace/cryptid-custody
       - name: Require isolation and execute unchanged consumed runners
         run: |
           STUDY_TEST_PYTHON="$(command -v python)"
@@ -32,6 +34,12 @@ jobs:
           sudo env PYTHONPATH="$PWD" MPLPB_REQUIRE_SANDBOX=1 "$STUDY_TEST_PYTHON" -m unittest tests.test_study_sandbox -v
           cd "$GITHUB_WORKSPACE"
           sudo env PYTHONPATH="$PWD" MPLPB_REQUIRE_SANDBOX=1 GIT_CONFIG_COUNT=1 GIT_CONFIG_KEY_0=safe.directory GIT_CONFIG_VALUE_0="$GITHUB_WORKSPACE" "$STUDY_TEST_PYTHON" tools/bunyip_round2_preservation.py --source-commit "${{ github.sha }}" --output "$RUNNER_TEMP/bunyip-round2-preservation"
+      - name: Make public outputs readable for retention
+        if: always()
+        run: |
+          if test -d "$RUNNER_TEMP/bunyip-round2-preservation"; then
+            sudo chown -R "$(id -u):$(id -g)" "$RUNNER_TEMP/bunyip-round2-preservation"
+          fi
       - name: Retain every output and failed attempt
         if: always()
         uses: actions/upload-artifact@v4

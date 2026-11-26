@@ -8,8 +8,8 @@ from tools.bubble_wrap_trial import normal
 def main(a):
     a.output.mkdir(parents=True,exist_ok=False)
     reference=a.output/'released-reference'
-    archive=ROOT/'evaluation/cryptid/bunyip/round2/released-849-reference-v1.tar.xz'
-    assert hashlib.sha256(archive.read_bytes()).hexdigest()=='71bd781c5a10041652a6b83d7d4b29ff30042f79006c00c7f5301b75fc1ae7a2'
+    archive=ROOT/'evaluation/cryptid/bunyip/round2/released-public-832-reference-v2.tar.xz'
+    assert hashlib.sha256(archive.read_bytes()).hexdigest()=='8de647c06d3c4954538b14363786bf130177096fa0472d8e24896db216b6e312'
     with tarfile.open(archive) as t:t.extractall(reference,filter='data')
     specs=[]
     for name,tool,packet,_ in COHORTS:
@@ -29,9 +29,30 @@ def main(a):
         ('rev3-policy','cryptid_trial_v5.py','--registry','evaluation/cryptid/revision3/partial-policy-development/registry.json'),
         ('third-final24','cryptid_replay_packet_v5.py','--packet','evaluation/cryptid/revision3/fresh/consumed-transfer')]:
         specs.append((name,tool,flag,packet))
+    def release_public(output):
+        from tools import bubble_wrap_trial as B
+        freeze=B.read(B.HOME/'harness-freeze.json')
+        for name,expected in freeze['files'].items():assert B.sha(ROOT/name)==expected
+        original=B.read(B.HOME/'registry.json')
+        for name,expected in original['original_proposal_seals'].items():assert B.sha(ROOT/name)==expected
+        registry=B.read(ROOT/'evaluation/bubble-wrap/2026-11-25/continuation/development.json')
+        output.mkdir(parents=True,exist_ok=False);rows=[]
+        for case in registry['cases']:
+            if not case['public_raw_output']:
+                rows.append({'id':case['id'],'execution_status':'BLOCKED_CUSTODY','semantic_outcome':'NOT_RUN','reason':'Original manifest marks raw input/output private; execute only in original designated local custody.'})
+                continue
+            assert B.snapshot(ROOT/case['packet'])==case['files']
+            try:
+                raw=B.execute(ROOT,ROOT/case['packet'],output/case['id'])
+                rows.append({'id':case['id'],'execution_status':'completed','raw_sha256':B.sha(output/case['id']/'result.json')})
+            except Exception as error:
+                rows.append({'id':case['id'],'execution_status':'failed','error':str(error)})
+        B.save(output/'run.json',{'schema':'bunyip-public-release-subset-v2','source_commit':a.source_commit,'original_manifest_sha256':B.sha(ROOT/'evaluation/bubble-wrap/2026-11-25/continuation/development.json'),'rows':rows,'scope':'Original frozen adapter/workers/budgets;263public cases only.17private cases remain BLOCKED, not passes.'})
+        return int(any(r['execution_status']=='failed' for r in rows))
     def execute(spec):
         name,tool,flag,packet=spec
         output=a.output/'candidate'/name
+        if name=='release280':return {'cohort':name,'adapter':'existing tools.bubble_wrap_trial.execute','returncode':release_public(output),'private_blocked':17}
         command=[sys.executable,'tools/'+tool]
         if packet:command += [flag,packet]
         else:command += ['run','--phase','candidate','--transfer-manifest','evaluation/bubble-wrap/2026-11-25/continuation/development.json']
@@ -40,11 +61,12 @@ def main(a):
         with log.open('x') as stream:
             p=subprocess.run(command,cwd=ROOT,stdout=stream,stderr=subprocess.STDOUT)
         print(name,p.returncode,flush=True)
+        if p.returncode:print(log.read_text()[-5000:],flush=True)
         return {'cohort':name,'command':command,'returncode':p.returncode}
     with concurrent.futures.ThreadPoolExecutor(max_workers=4) as pool:
         attempts=list(pool.map(execute,specs))
     expected=sorted(reference.rglob('result.json'))
-    assert len(expected)==849
+    assert len(expected)==832
     rows=[]
     for before in expected:
         relative=before.relative_to(reference)
@@ -60,11 +82,11 @@ def main(a):
                     before_sha256=hashlib.sha256(before.read_bytes()).hexdigest(),
                     after_sha256=hashlib.sha256(after.read_bytes()).hexdigest())
         rows.append(row)
-    result={'schema':'bunyip-preservation-execution-v1','candidate_commit':a.source_commit,
+    result={'schema':'bunyip-public-preservation-execution-v2','candidate_commit':a.source_commit,
         'reference_reader_revision':'2622813aba9ee1f1880693eeb71ae015cb3da999',
         'scope':'Consumed preservation; exact whole-contract comparison except existing code_sha256 exclusion. Changed contracts require separate source audit.',
         'attempts':attempts,'cases':rows,
-        'counts':{'planned':len(rows),'completed':sum(r['execution_status']=='completed' for r in rows),
+        'private_cases_blocked':17,'whole_849_gate':'BLOCKED_UNTIL_PRIVATE_CUSTODY_EXECUTION','counts':{'planned':len(rows),'completed':sum(r['execution_status']=='completed' for r in rows),
                   'execution_failures':sum(r['execution_status']!='completed' for r in rows),
                   'strict_contract_equal':sum(r['strict_contract_equal'] for r in rows),
                   'changed_contracts':sum(r['execution_status']=='completed' and not r['strict_contract_equal'] for r in rows)}}
