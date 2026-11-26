@@ -32,6 +32,8 @@ tag/layout check or artifact transport is credited as an original-question gain.
 All22strict-key failures and rejected candidates remain visible.36+64held transfer
 is unopened. Human/independent evaluation stays NOT_RUN.
 
+[C3 recovery checkpoint](../evaluation/cryptid/bunyip/round2/recovery-checkpoint.md) verifies the public replacement receipts and records the original custody mount and isolated runner blockers. All 17 private comparisons remain incomplete. The 36 routing and 64 cross-family cases remain unopened. C3 is still unmerged.
+
 ### Stable family lookup
 
 - **TEST-FAMILY-CRYPTID** — [cryptid](../evaluation/cryptid); testing-evaluation; exact run pins, checksums, execution and phase in its machine row.

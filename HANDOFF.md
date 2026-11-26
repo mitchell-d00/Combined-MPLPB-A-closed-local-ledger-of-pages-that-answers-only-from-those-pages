@@ -4,8 +4,8 @@ Last reviewed: 2026-11-26.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `82282b21932ad531e7b94083d29cb58f4f546aea` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `b786eb79a839609b49a0086833b0ce08381293beda7b5292c435d410d6b5a1e4`.
+Base commit: `cc54c4276bb4895c33df46cc782e758f4c8e5a0b` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `56cf23dc092d03fd767ff5359f28cb3c8b1d9c6f6503a1aa28b0a655ce317e48`.
 
 ## Betty report for Al
 
@@ -13,77 +13,45 @@ Run the Betty implementation step first, then the Al review step in a separate c
 
 ### Latest user update instructions
 
-Betty: First priority is getting the actual local work safely published—not only its description.
+Betty: Continue the existing Bunyip reader work on PR #106. Main’s #107 documentation release is complete. Verify the current pins before proceeding.
 
-Recover the original workspace when available. Verify and push C3’s actual source changes and reviewed public test outputs to the branch, clearly marking unfinished verification. Preserve rejected candidates and original failures. Keep sealed inputs, held keys and private material in their designated custody.
+Your first task is recovery and completion, not a new experiment.
 
-If files remain inaccessible, list exactly which files are missing. Do not reconstruct them from summaries and call them recovered. Continue under my existing publication and merge authorization once required checks pass.
+1. Recover access to the original workspace. Verify the private preservation files, retained evidence and custody receipts. Preserve the old workspace until recovery is confirmed. Keep both held transfer packets unopened.
 
-Then organize the existing repository around its three entry areas:
+2. Establish a healthy, authorized isolated runner. Leave PID1 and the supervisor untouched. Run the 17 unchanged private preservation cases sequentially, retaining their actual outputs privately and publishing only permitted comparisons and receipts. Distinguish execution failures from reader decisions.
 
-1. MPLPB product: runnable software, installation, ordinary-user instructions, releases and supported capabilities.
-2. Experimental Lab: proposed changes, development trials, candidate implementations and unresolved questions.
-3. Testing apparatus and evidence: reusable runners, test families, frozen protocols, results and retained failures.
+3. Privately inventory the restricted source text in the mistakenly published outputs. Prepare the exact history/artifact cleanup needed, preserving original evidence privately. Do not claim current-tree deletion erased history. Present any destructive history changes concretely before executing them.
 
-Extend the existing Test Index into the connecting map. Each test family should identify:
-- Stable ID and responsible area.
-- Capability or boundary tested.
-- Baseline and candidate revisions.
-- Input/artifact checksums and retrievable evidence locations.
-- Results, remaining misses and execution status.
-- Development, consumed-transfer or unopened-transfer status.
-- Related fixes and preservation checks.
+4. When preservation and custody requirements are satisfied, freeze the designated committed candidate ZIP. Run the existing 36-case routing and 64-case cross-family packets once. Retain every result; any packet used to inform repairs becomes development material.
 
-Use links and manifests first. Preserve historical paths and frozen archive bytes. Store large public evidence in durable, versioned locations with checked links.
+Keep coverage gains, consolidation, boundary correctness and infrastructure status separate. Preserve frozen keys, original failures and acceptance requirements.
 
-Make the path easy to follow:
-product capability → implementation → test → result → retained evidence.
+Push recoverable source and permitted evidence at meaningful work boundaries. Update #106, HANDOFF and the Test Index so another session can continue.
 
-At future work boundaries, push actual source and available public evidence with the working-state handoff. Report separately what is published, verified, merged and deployed.
-
-Clarification: The next milestone is getting those actual code files into a remote commit, then preserving the test evidence. Keep recovery ahead of reorganization and avoid publishing mixed archives blindly. A stalled command does not establish file loss.
+My publication, merge and deployment authorization remains in force. Complete required checks, merge when applicable requirements pass, and verify deployment. No further confirmation is needed for already authorized work. If blocked, publish the precise checkpoint and continue unaffected work without weakening gates.
 
 ### Implemented scope
 
-- Actual C3 core recovered and included: seven changed mplpb_answers modules, new tests/test_bunyip_round2.py, existing-workflow assessor and development generator. Exact file hashes and archived byte comparison are in evaluation/cryptid/bunyip/round2/recovered-source-v1.json. This is an unfinished source checkpoint; no candidate ZIP freeze or transfer execution is implied.
-- Canonical [Al](docs/TEAMBUILDING.md#al--review-evidence-and-propose-the-next-test), [Betty](docs/TEAMBUILDING.md#betty--implement-test-and-retain-the-result) and unchanged [Outside](docs/TEAMBUILDING.md#outside) definitions; [artifact and working-state recovery](docs/TEAMBUILDING.md#recover-artifact-state-and-working-state). Shared-rule and broader-coverage criteria remain in force.
-- Complete recovery record: [Bunyip round2 checkpoint](docs/recovery/BUNYIP_ROUND2_CHECKPOINT.md). It records revision, task, criteria, decisions/reasons, rejected candidates, unresolved objections, custody, local archive hashes, infrastructure failures and authorized next actions. Prior released handoff/update retained under handoff/history/.
-- Original museum diagnostic-copy implementation, JavaScript tests/fixture and four workflow integrations now included. This UI work is separate from reader-language gains. Public evidence bundle, unchanged baseline archive and exact rejected C1/C2 source archives are included; see evaluation/cryptid/bunyip/round2/public-artifacts-v1.json.
-- Existing optional source-metadata/read-only diagnostic worker adapter and public routing/polarity development packets are published unchanged. Remote workflow reuses D.run, sealed worker hashes, current limits and required Bubblewrap; it executes only public development on baseline/current source. Held keys remain local, so semantic scoring stays separate.
-- Remote raw baseline/candidate ZIPs and unchanged strict/source-score files are durably versioned under round2. Candidate source-key development comparison572/572 passes; this is not unseen transfer, independent semantic adjudication or historical accuracy.
-- Three existing entry areas now lead to product use, experimental development and evidence inspection. Existing Test Index/results.json connects66families/69family+subfamily IDs to responsibility, protected scope, implementation, tests, per-run pins/checksums, results/misses, execution/custody and preservation. Older multi-revision metadata explicitly refers to retained per-run receipts rather than inventing a single pin. Root README131lines. No physical paths moved.
-- Current Bunyip report, Test Index and status distinguish832public preservation from17private blocked cases, and record the custody incident. Main is unchanged; both held packets remain unopened.
+- Recovery checkpoint only. Verify live pins, public custody receipts, affected Git ancestry and Actions artifact metadata. Record the proposed cleanup in evaluation/cryptid/bunyip/round2/recovery-checkpoint.md and link it from the Test Index.
 
 ### Validation recorded
 
-- Current recovered source and public evidence are committed through46a0bb0 and generated handoff8a53b5f; main remains2622813. Actual source hashes and retained raw receipts supersede earlier outage-only status. Historical checkpoint statements remain in dated records.
-- Public evidence selection includes4597 original files/27800118 uncompressed bytes; every bundled payload byte hash reverified. Keys, held transfer inputs and private material excluded. Rejected source snapshots retained byte-identically. Packaging first attempt failed a narrow allowlist before upload; inspected the public regression-test member and retained that attempt without changing reader or scoring.
-- Recovered local C3 primary record:75/444 completed;75 source-key decisions correct, including14 positives;369 execution failures. Guards0/44 completed and44 execution failures. These are not369+44 reader refusals. At exact source commit baa19f5 remote regression passed1904tests with1skip plus JS/API/WASM/Chromium; later-head checks remain required.
-- Matched remote development at483f35a:572 executions per revision, zero execution failures. Candidate128/128 supported positives+444/444 correct withholds;71 recovered positive executions across34 original question strings/71unique inputs.40executions/19strings are the matched-source wording diagnostic;31other source/proof recoveries separate.89question strings,524unique inputs,48repeated memberships per572.
-- Source/citation audit:12 corrected baseline unsupported cases, zero lost valid support, no citation change to preserved support. Original main contract replay is exact for all560 earlier frozen baseline cases. All22 original strict-key output failures retained; all22 satisfy the prospective pre-implementation polarity contract and exact quotations.
-- Navigation stage: stable IDs unique; Outside definition byte-unchanged; original documents preserved in reviewed versioned history snapshots. No frozen input/key/score or historical measurement was modified or rerun by navigation. Native1904(1skip) source test and572case comparison remain distinct from metadata/transport work.
-- All849 retained released-reader contract outputs recovered directly; all recorded reader-code maps match the released main baseline. Reference archive SHA25671bd781c5a10041652a6b83d7d4b29ff30042f79006c00c7f5301b75fc1ae7a2; this validates reference identity, not C3 preservation. Interrupted C3 preservation retained separately.
-- Remote preservation attempt45870399223:321completed exact,528execution failures; artifact retention failedEACCES. Not a full preservation pass. Private local probe failed isolation closed; remaining16private cases NOT_RUN.
-- Consumed public preservation at3bf9657 completed832/832 with exact contracts and no execution failures; artifact15143422219 checksum43f479483f65578e097c8e8916fe9d9322b5c9fb137e0eaa0d4d5d5eab39fc73 verified before retention.17private cases remain blocked separately.
-- Bunyip BB matched-source audit:900positive contracts exact and200negative controls withheld on baseline and C3; original package checksumunchanged,900eligible citations checked. Failed different-generated-hash archival comparison retained; no new language gain credited.
-- Exact README quick-start run from empty setup against released downloaded wheel passed all11software checks at e36d571; expected supported/refusal outputs, partial/conflict/ownership and exact citation verified. Retained actual commands/stdout; human trial NOT_RUN.
-- Four new durable public artifact URLs fetched at e36d571 and SHA256-verified. Superseded source-ZIP run45870407049 force-cancelled for custody containment before artifact publication; observed artifact list empty. Cancellation is not a passed gate.
+- Verified main 515a919df40996e9d1d521dd50474b832a1a599c and starting PR #106 head cc54c4276bb4895c33df46cc782e758f4c8e5a0b. Release follows the existing #107 deployment receipt. C3 reader, keys, acceptance and previous evidence remain unchanged.
+- Both permitted replacement archives match their SHA-256 digests, lengths and recorded file-member counts. The cancelled source-ZIP run lists zero artifacts. Ancestry and Actions metadata checks are recorded separately from private payload review.
+- Synthetic no-input Bubblewrap probes failed at namespace startup, before any reader invocation. No private or held case ran. PID 1, the supervisor and the original workspace were untouched.
 
 ### Limitations and blocked checks
 
-- 36 routing and64 cross-family transfer cases remain unopened/unrun under same-operator custody. Human onboarding, independent historical/semantic adjudication/preparation/blinding/outside-custodian scoring and native OOCC remain NOT_RUN.
-- PID1 diagnostic was denied by automatic approval due supervisor disruption risk and was not executed. No sandbox/protection gate may be bypassed. No new round2 deployment verification has occurred.
-- Local Git working branch still has baseline ancestry2622813 and original uncommitted files; remote API commits are the current published state. Do not force-push/reset or deliver a local archive as current without reconciling. The key-bearing frozen-development-inputs.tar.xz was removed from the local index without changing its bytes, privately copied/verified, and explicitly ignored for publication. All held transfer/key material remains excluded.
-- Local process exhaustion persists; actual source/evidence/navigation are published. Remote recovery workflow generated and checked the handoff; current exact-head gates and849C3 preservation are pending. Development passes do not erase22strict-key failures or rejected candidates. Both held packets remain unopened.
-- Publication custody incident:17descriptor-marked-private PE02 outputs were mistakenly included in9b4bdf9 preservation-reference archive; removed from current tree atbfd41a5. Earlier Git objects may remain retrievable. Original local files/held keys/transfer untouched; release paused. See custody-incident-v1.json. Public replacement filters original descriptor flags, not filename assumptions.
-- Private probe error: bwrap Can't fork for pid1:Resource temporarily unavailable. Whole849gate remains BLOCKED, despite832public exact. Publication incident current-tree containment does not erase earlier Git objects; no merge/deployment while unresolved.
-- New current-status documentation initially had duplicate review markers; infrastructure-sync failed at e36d571. The historical marker is prospectively labelled Original entry review date without changing its date; original failed CI log retained.
+- The attached workspace does not contain the original Bunyip custody files or local publication-session receipt. Their availability elsewhere and integrity are unverified. Access and isolation are blocked; file loss is unverified.
+- 832 public comparisons remain exact, one previous private probe failed execution and sixteen private cases remain NOT_RUN. Both held transfer packets remain unopened. No candidate transfer ZIP was frozen and no C3 release occurred.
+- The incident archive paths are absent from the current tree and the prior history remains reachable. Private source-span inventory, artifact payload clearance and destructive history changes are pending. All independent and human NOT_RUN labels remain.
 
 ### Next steps
 
-- Resolve remaining prior-Git-object custody exposure; execute17private preservation cases with working required isolation in original custody. Do not publish private originals or raw outputs.
-- Complete current-head required software/docs/quickstart checks; archive receipt and continuation must name exact tested commit. Only after preservation and designated ZIP freeze, open36+64held cases once; retain failures.
-- After acceptance/protection gates pass, use existing authorization to merge and verify live fingerprints. No new publication confirmation needed; blocked gates are not passes.
+- Recover the original custody mount and confirm the original receipts and hashes in a healthy authorized isolated runner. Run the seventeen unchanged cases sequentially; keep raw outputs private.
+- Privately preserve and inventory the affected material. Present the exact ref and artifact mutations from the recovery plan before executing destructive cleanup.
+- After preservation and custody gates, freeze the committed source ZIP, execute the 36 and 64 held cases once, retain results, complete applicable protected checks, then merge and verify deployment.
 
 ## Use this ZIP in your repository
 
