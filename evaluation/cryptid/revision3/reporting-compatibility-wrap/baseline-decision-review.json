@@ -1,0 +1,76 @@
+{
+  "schema": "reporting-compatibility-baseline-v1",
+  "structured_v2_score": {
+    "planned": 8,
+    "attempted": 8,
+    "completed": 8,
+    "scored": 8,
+    "unscored": 0,
+    "passed": 0,
+    "false_support": 7,
+    "positive_misses": 8,
+    "budget_stops": 0,
+    "diagnostic_only": 0
+  },
+  "decision_passed": 4,
+  "total": 8,
+  "rows": [
+    {
+      "id": "CRYPT-YETI-0150",
+      "expected": "conflict",
+      "actual": "conflict",
+      "decision_passed": true,
+      "embedded_representation_present": false
+    },
+    {
+      "id": "CRYPT-YETI-0151",
+      "expected": "conflict",
+      "actual": "conflict",
+      "decision_passed": true,
+      "embedded_representation_present": false
+    },
+    {
+      "id": "CRYPT-YETI-0152",
+      "expected": "complete",
+      "actual": "conflict",
+      "decision_passed": false,
+      "embedded_representation_present": false
+    },
+    {
+      "id": "CRYPT-YETI-0153",
+      "expected": "complete",
+      "actual": "conflict",
+      "decision_passed": false,
+      "embedded_representation_present": false
+    },
+    {
+      "id": "CRYPT-YETI-0154",
+      "expected": "complete",
+      "actual": "withhold",
+      "decision_passed": false,
+      "embedded_representation_present": false
+    },
+    {
+      "id": "CRYPT-YETI-0155",
+      "expected": "conflict",
+      "actual": "conflict",
+      "decision_passed": true,
+      "embedded_representation_present": false
+    },
+    {
+      "id": "CRYPT-YETI-0156",
+      "expected": "complete",
+      "actual": "conflict",
+      "decision_passed": false,
+      "embedded_representation_present": false
+    },
+    {
+      "id": "CRYPT-YETI-0157",
+      "expected": "conflict",
+      "actual": "conflict",
+      "decision_passed": true,
+      "embedded_representation_present": false
+    }
+  ],
+  "meaning": "Missing prospective embedded-content fields are representation failures, not automatically false source facts. Four decision errors isolate the compatibility mechanism."
+}

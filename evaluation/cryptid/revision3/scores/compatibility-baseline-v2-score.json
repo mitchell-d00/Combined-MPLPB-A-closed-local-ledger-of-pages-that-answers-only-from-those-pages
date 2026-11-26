@@ -1,0 +1,280 @@
+{
+  "schema": "cryptid-claim-score-v1",
+  "version": "cryptid-claim-scorer-v5",
+  "scorer_sha256": "d91f3855437fb55d4ec165edcf48bad6a375437bcdf8acc7c8a2ea4b4e7d6b60",
+  "run_sha256": "404497ea04e06dabd832f6523553b077c479f3be5cb65d0aa818aa791a6a6d6d",
+  "key_sha256": "c9cbbe68014e2c104125c8ce6478caa4bc453877c728196146890fc91853d5c5",
+  "counts": {
+    "planned": 8,
+    "attempted": 8,
+    "completed": 8,
+    "scored": 8,
+    "unscored": 0,
+    "passed": 0,
+    "false_support": 7,
+    "positive_misses": 8,
+    "budget_stops": 0,
+    "diagnostic_only": 0
+  },
+  "cases": [
+    {
+      "id": "CRYPT-YETI-0150",
+      "execution_status": "completed",
+      "scored": true,
+      "passed": false,
+      "expected": "conflict",
+      "kind": "conflict",
+      "claims": 2,
+      "positive_miss": true,
+      "false_support": true,
+      "errors": [
+        "unexpected_or_duplicate_claim",
+        "unexpected_or_duplicate_claim",
+        "positive_claim_miss"
+      ],
+      "interpretation_inspection_recognized": false,
+      "required_witness_discovery": true,
+      "miss_stage_diagnostic": "interpretation",
+      "budget_stop": false,
+      "measurements": {
+        "query_wall_seconds": 0.09800655700382777,
+        "query_cpu_seconds": 0.09989525300000002,
+        "peak_rss_bytes": 18841600,
+        "source_html_open_calls": {
+          "query": 24,
+          "discovery": 4
+        },
+        "source_read_measurement": "Python audit open events for ledger HTML files during query/discovery; cached in-memory reads are not counted",
+        "admitted_source_count": 2,
+        "admitted_canonical_characters": 181
+      }
+    },
+    {
+      "id": "CRYPT-YETI-0151",
+      "execution_status": "completed",
+      "scored": true,
+      "passed": false,
+      "expected": "conflict",
+      "kind": "conflict",
+      "claims": 2,
+      "positive_miss": true,
+      "false_support": true,
+      "errors": [
+        "unexpected_or_duplicate_claim",
+        "unexpected_or_duplicate_claim",
+        "positive_claim_miss"
+      ],
+      "interpretation_inspection_recognized": false,
+      "required_witness_discovery": true,
+      "miss_stage_diagnostic": "interpretation",
+      "budget_stop": false,
+      "measurements": {
+        "query_wall_seconds": 0.09491466799227055,
+        "query_cpu_seconds": 0.095970946,
+        "peak_rss_bytes": 18841600,
+        "source_html_open_calls": {
+          "query": 24,
+          "discovery": 4
+        },
+        "source_read_measurement": "Python audit open events for ledger HTML files during query/discovery; cached in-memory reads are not counted",
+        "admitted_source_count": 2,
+        "admitted_canonical_characters": 197
+      }
+    },
+    {
+      "id": "CRYPT-YETI-0152",
+      "execution_status": "completed",
+      "scored": true,
+      "passed": false,
+      "expected": "complete",
+      "kind": "conflict",
+      "claims": 2,
+      "positive_miss": true,
+      "false_support": true,
+      "errors": [
+        "positive_completion_miss",
+        "unexpected_or_duplicate_claim",
+        "unexpected_or_duplicate_claim",
+        "positive_claim_miss"
+      ],
+      "interpretation_inspection_recognized": false,
+      "required_witness_discovery": true,
+      "miss_stage_diagnostic": "interpretation",
+      "budget_stop": false,
+      "measurements": {
+        "query_wall_seconds": 0.09950100000423845,
+        "query_cpu_seconds": 0.09986465700000002,
+        "peak_rss_bytes": 18837504,
+        "source_html_open_calls": {
+          "query": 24,
+          "discovery": 4
+        },
+        "source_read_measurement": "Python audit open events for ledger HTML files during query/discovery; cached in-memory reads are not counted",
+        "admitted_source_count": 2,
+        "admitted_canonical_characters": 189
+      }
+    },
+    {
+      "id": "CRYPT-YETI-0153",
+      "execution_status": "completed",
+      "scored": true,
+      "passed": false,
+      "expected": "complete",
+      "kind": "conflict",
+      "claims": 2,
+      "positive_miss": true,
+      "false_support": true,
+      "errors": [
+        "positive_completion_miss",
+        "unexpected_or_duplicate_claim",
+        "unexpected_or_duplicate_claim",
+        "positive_claim_miss"
+      ],
+      "interpretation_inspection_recognized": false,
+      "required_witness_discovery": true,
+      "miss_stage_diagnostic": "interpretation",
+      "budget_stop": false,
+      "measurements": {
+        "query_wall_seconds": 0.09994451400416438,
+        "query_cpu_seconds": 0.09997147499999998,
+        "peak_rss_bytes": 18837504,
+        "source_html_open_calls": {
+          "query": 24,
+          "discovery": 4
+        },
+        "source_read_measurement": "Python audit open events for ledger HTML files during query/discovery; cached in-memory reads are not counted",
+        "admitted_source_count": 2,
+        "admitted_canonical_characters": 189
+      }
+    },
+    {
+      "id": "CRYPT-YETI-0154",
+      "execution_status": "completed",
+      "scored": true,
+      "passed": false,
+      "expected": "complete",
+      "kind": "abstain",
+      "claims": 0,
+      "positive_miss": true,
+      "false_support": false,
+      "errors": [
+        "positive_completion_miss",
+        "positive_claim_miss"
+      ],
+      "interpretation_inspection_recognized": false,
+      "required_witness_discovery": true,
+      "miss_stage_diagnostic": "interpretation",
+      "budget_stop": false,
+      "measurements": {
+        "query_wall_seconds": 0.11078804000862874,
+        "query_cpu_seconds": 0.11164035,
+        "peak_rss_bytes": 18841600,
+        "source_html_open_calls": {
+          "query": 20,
+          "discovery": 4
+        },
+        "source_read_measurement": "Python audit open events for ledger HTML files during query/discovery; cached in-memory reads are not counted",
+        "admitted_source_count": 2,
+        "admitted_canonical_characters": 196
+      }
+    },
+    {
+      "id": "CRYPT-YETI-0155",
+      "execution_status": "completed",
+      "scored": true,
+      "passed": false,
+      "expected": "conflict",
+      "kind": "conflict",
+      "claims": 2,
+      "positive_miss": true,
+      "false_support": true,
+      "errors": [
+        "unexpected_or_duplicate_claim",
+        "unexpected_or_duplicate_claim",
+        "positive_claim_miss"
+      ],
+      "interpretation_inspection_recognized": false,
+      "required_witness_discovery": true,
+      "miss_stage_diagnostic": "interpretation",
+      "budget_stop": false,
+      "measurements": {
+        "query_wall_seconds": 0.10239524899225216,
+        "query_cpu_seconds": 0.103960763,
+        "peak_rss_bytes": 18841600,
+        "source_html_open_calls": {
+          "query": 24,
+          "discovery": 4
+        },
+        "source_read_measurement": "Python audit open events for ledger HTML files during query/discovery; cached in-memory reads are not counted",
+        "admitted_source_count": 2,
+        "admitted_canonical_characters": 244
+      }
+    },
+    {
+      "id": "CRYPT-YETI-0156",
+      "execution_status": "completed",
+      "scored": true,
+      "passed": false,
+      "expected": "complete",
+      "kind": "conflict",
+      "claims": 2,
+      "positive_miss": true,
+      "false_support": true,
+      "errors": [
+        "positive_completion_miss",
+        "unexpected_or_duplicate_claim",
+        "unexpected_or_duplicate_claim",
+        "positive_claim_miss"
+      ],
+      "interpretation_inspection_recognized": false,
+      "required_witness_discovery": true,
+      "miss_stage_diagnostic": "interpretation",
+      "budget_stop": false,
+      "measurements": {
+        "query_wall_seconds": 0.09372943200287409,
+        "query_cpu_seconds": 0.09199623600000001,
+        "peak_rss_bytes": 18845696,
+        "source_html_open_calls": {
+          "query": 24,
+          "discovery": 4
+        },
+        "source_read_measurement": "Python audit open events for ledger HTML files during query/discovery; cached in-memory reads are not counted",
+        "admitted_source_count": 2,
+        "admitted_canonical_characters": 244
+      }
+    },
+    {
+      "id": "CRYPT-YETI-0157",
+      "execution_status": "completed",
+      "scored": true,
+      "passed": false,
+      "expected": "conflict",
+      "kind": "conflict",
+      "claims": 2,
+      "positive_miss": true,
+      "false_support": true,
+      "errors": [
+        "unexpected_or_duplicate_claim",
+        "unexpected_or_duplicate_claim",
+        "positive_claim_miss"
+      ],
+      "interpretation_inspection_recognized": false,
+      "required_witness_discovery": true,
+      "miss_stage_diagnostic": "interpretation",
+      "budget_stop": false,
+      "measurements": {
+        "query_wall_seconds": 0.10178809700300917,
+        "query_cpu_seconds": 0.10003332999999998,
+        "peak_rss_bytes": 18841600,
+        "source_html_open_calls": {
+          "query": 24,
+          "discovery": 4
+        },
+        "source_read_measurement": "Python audit open events for ledger HTML files during query/discovery; cached in-memory reads are not counted",
+        "admitted_source_count": 2,
+        "admitted_canonical_characters": 182
+      }
+    }
+  ],
+  "custody": "Same-operator keys/scoring; no independent historical or semantic adjudication."
+}

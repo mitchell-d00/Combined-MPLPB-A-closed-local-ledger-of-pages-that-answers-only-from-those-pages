@@ -4,8 +4,8 @@ Last reviewed: 2026-11-26.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `427de81f47f2623158aad521e15ff3993e25c8a1` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `1293001e050b43b7e5d4cc249b6adb0e128814b9b916a629a6e171cc8866669d`.
+Base commit: `eafd82eb939e749f4d87bd968d83a34f54b0e1f6` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `3d4e741348d6afdfe4cf611491f90eba76e1ddacb52f60aa18bd33518f8a588a`.
 
 ## Betty report for Al
 
@@ -68,6 +68,7 @@ Preserve both packets, keys, outputs, and original failure classifications. Add 
 - Revision3development32reporting controls18/32→32/32, unsupportedcompletionflags2→0;65focused native checks pass. Newpolicy12native contracts exactlyunchanged:strict7/12 vschecked-partial11/12,5validpartials and1passive-question miss. Additionalpost-analysis1000/1001unit controls2/2, no capincrease.
 - Preservationbeforefreeze:419prior+20Thund+12boundary+24initialfinal exact. Second16:15exact+1verified source-scoped negated-report recovery, old keyfielddisagreementretained. Releaseexact276/280FAIL retained;4differences are examined_units2→3only, withallclaims/qualifications/citationsidentical. No lostvalidsupport. Fresh24sealedunopened.
 - C1 semantic review rejects its false conflict on compatible reporting appearances. The original32/32frozen-key score and conflict key remain unchanged; this exposes a key error, not independent semantic certification. New compatibility controls must be frozen before the next native repair; fresh24remainsunopened.
+- Compatibility controls frozen before C2:4/8C1decisions correct;0/8fullv2structured comparisons because C1 lacks embedded_content_negative. Preserve this distinction and originalkey/scores. C1sourceeafd82eb archivedasrejected5d7651fb4a52d2719b01aa9bb2f587ee18c0435e0de7bdaa70ccbc4945b7cc8b. Newliteral-content field will retain legacy assertion status, while compatibility compares both layers and conditions.
 
 ### Limitations and blocked checks
 
