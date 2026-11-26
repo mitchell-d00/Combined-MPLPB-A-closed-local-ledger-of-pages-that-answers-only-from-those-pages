@@ -10,7 +10,7 @@ into this main-based documentation branch. [Current status](../../../docs/CURREN
 and [HANDOFF](../../../HANDOFF.md) govern continuation. Earlier pending-status
 statements below retain their original measured revision and are historical.
 
-**Released reader: main `2622813` (PR105). Required exact-head checks, protected
+**Released native reader baseline: `2622813` (PR105), unchanged by this documentation integration. Required exact-head checks, protected
 merge and deployed verification passed.** See the [release receipt](https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/blob/cc54c4276bb4895c33df46cc782e758f4c8e5a0b/evaluation/cryptid/bunyip/round2/released-state.json).
 [Round2](https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/blob/cc54c4276bb4895c33df46cc782e758f4c8e5a0b/evaluation/cryptid/bunyip/round2/README.md) has published actual C3 source and reviewed public evidence;572 exposed development source-key decisions pass. Public preservation is832/832exact;17private cases and fresh transfer remain pending. All listed current-head remoteCIruns passed. No round-two reader release or historical-accuracy claim.
 Earlier candidate snapshots below retain their original measurement scope.
