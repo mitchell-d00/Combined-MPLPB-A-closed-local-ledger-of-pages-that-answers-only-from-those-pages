@@ -44,9 +44,12 @@ jobs:
           # V2 separately source-checks every formerly unscored gain and the
           # additive metadata, then requires all 1,000 complete contracts to
           # match that reviewed baseline. Missing/failed worker runs fail here.
+          # The copied worker directory remains root-owned. Write this new
+          # host score beside it, where the runner can create a file, without
+          # changing permissions or bytes of the retained raw worker results.
           python -m tools.bunyip_legacy_assessment \
             --run "$RUNNER_TEMP/bounded-repair/run" \
-            --output "$RUNNER_TEMP/bounded-repair/source-checked-v2.json"
+            --output "$RUNNER_TEMP/bounded-source-checked-v2.json"
       - name: Replay the 22 historical development questions
         if: success() || failure()
         run: |
@@ -97,7 +100,7 @@ jobs:
           path: |
             ${{ runner.temp }}/bounded-repair/acceptance.json
             ${{ runner.temp }}/bounded-repair/prior-v1-acceptance.json
-            ${{ runner.temp }}/bounded-repair/source-checked-v2.json
+            ${{ runner.temp }}/bounded-source-checked-v2.json
             ${{ runner.temp }}/bounded-repair/run/run.json
             ${{ runner.temp }}/bounded-repair/run/*/result.json
             ${{ runner.temp }}/bounded-repair/run/*/failure.json

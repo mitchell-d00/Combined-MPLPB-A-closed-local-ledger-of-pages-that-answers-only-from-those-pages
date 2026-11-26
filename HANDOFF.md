@@ -4,8 +4,8 @@ Last reviewed: 2026-11-26.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `7e272e5d9742931feef05fc004a84d6846a55f39` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `19c8e6bd168ba88e3a8b3028ea780c9265ae240d07e413a35d28cc9a84523a0c`.
+Base commit: `cbb4e310d54db5c625ddc1a929f8b9d784fc0085` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `840fbb8025bce5de8f3b270a67bc1b2a433b356ca009b9d3859583db01f29dbd`.
 
 ## Betty report for Al
 
@@ -27,6 +27,7 @@ Record the rejected action and the reviewer’s stated reason. Continue unaffect
 - C6 general relation-binding syntax extends ownership, category, opening-time and instruction wording; eligible source proof, full original-question policy, memory/provenance/admission remain required.
 - Bunyip BB separately preserves Ben Gelhaus’s unchanged external benchmark/analysis and credits Mitchell’s implementation; original expectations and measurements unchanged.
 - README131lines with clean-verified plain-text input/commands/output; three entry areas and seven departments mapped; human trial unchanged NOT_RUN.
+- CI-only output-path repair: prospective score writes to runner-owned RUNNER_TEMP, preserving root-owned raw outputs. Zero reader/coverage change since frozen native7e272e5.
 
 ### Validation recorded
 
@@ -57,16 +58,19 @@ Record the rejected action and the reviewer’s stated reason. Continue unaffect
 - Fresh wording-only gains vsC5:3unique question strings/6executions/4unique source-question inputs. Versusmain:1string/2executions wording,8other source/proof-reach executions. No canonical/revealed-proof gain credit.
 - Overlap retained:development140memberships/88uniqueinputs,fresh108/69. One-line layout repeats are not independent evidence. Alloriginalkeys/scores/inputs unchanged.
 - Local commit attempt failed from diskspace;no commit created. Preserved log and exact duplicate-only recovery;retry committed7e272e5. Toolapproval denial remains separate NOT_EXECUTED.
+- Publicationheadcbb4e310requiredarchive-first/regression passed1885tests(each one skip), realWASM/Chromium/JSHTTP/package/MCP. Source ZIP SHA f66663a29c293dfb6a4110ebf1b49787b8c0a471c1bc5c69274c0fdd0c4a0827 matches local independently verified archive.
+- Frozenacceptance attempt1 timed out installingBubblewrap:1000reader+22historical NOT_RUN. Attempt2 completed1000workers and22historical, then PermissionError writing v2scoreinto root-owned copieddirectory. Retained logs/artifactallrawoutputs.
+- Unchanged prospective v2on originalattempt2raw outputs locally:PASS,1000contracts preserved,65source-assessed cases. Original strictv1FAIL retained. Outputcollectionrepair changes neither native/codekeys nor policy.
 
 ### Limitations and blocked checks
 
 - Ten fresh positive wording misses remain documented backlog; all-target perfect acceptance is not claimed. Current incremental criteria permit coverage gaps while requiring no lost valid support/new unsupported claims and passing required gates.
-- Full native and exact-head remote checks pending; do not relabel earlier failed candidates or claim deployment before successful protected merge and live fingerprint verification.
+- All required exact-head remote gates must rerun on this CI-only repair. Passing prior-head archive/regression is retained, not reused as the new-head result. Deployment remainsNOT_RUN until successful protected merge.
 - Same-operator visible templates and scoring; independent history/semantic/preparation/blinding/outside-custodian/nativeOOCC and human onboarding remainNOT_RUN. Bunyip BB is externally authored consumed regression, separate from those fresh-custody limits.
 
 ### Next steps
 
-- Publish evidence-only review update on existingPR105;run required exact-head archive-first/regression and every applicable software gate. Merge only normal protected workflow after pass;verify deployed source fingerprints. Authorization already given.
+- Commit/push CI-only output-path fix to existingPR105;rerunallrequiredexact-headchecks. Merge only after latest acceptance and branch-protection gates pass;verifyPagesdeploymentandlivefingerprints. Authorization already given.
 - Next development: shared ordinary-question intent/argument binding on exposed remaining syntax gaps; freeze genuinely fresh separately written transfer material before a later candidate. Keep memory/provenance/admission as regression gates.
 
 ## Use this ZIP in your repository

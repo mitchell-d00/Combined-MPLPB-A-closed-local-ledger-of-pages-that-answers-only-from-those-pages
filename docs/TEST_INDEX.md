@@ -323,3 +323,12 @@ original ordinary question strings/six repeated executions/fourunique source-que
 inputs;69unique public inputs in108memberships. Zero unsupported additions,
 lost valid support or citation failures. Canonical/revealed diagnostics are separate.
 Full-head protected software verification is required before merge.
+
+
+**CRYPT-CI-OUTPUT-0001** ([retained execution evidence](../evaluation/cryptid/bunyip/ci-output-repair.json))
+protects prospective scoring output collection. First CIattempt timed out before
+1000workers;second completed all1000but could not write its score into a root-owned
+copy. Unchanged v2on those exact outputs passes1000contracts/65source checks.
+Workflow repair writes only the new score to runner-owned temp; raw files remain
+unchanged. Owner Delivery and Project Operations;zero answer-coverage gain.
+Required exact-head gates rerun before merge; original strict-key failure retained.

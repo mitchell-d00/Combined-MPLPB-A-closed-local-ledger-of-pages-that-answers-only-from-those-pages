@@ -1,0 +1,37 @@
+{
+  "source_head": "cbb4e310d54db5c625ddc1a929f8b9d784fc0085",
+  "native_source": "7e272e5d9742931feef05fc004a84d6846a55f39",
+  "native_changed": false,
+  "failure_classification": "CI host output-file permissions, not reader behavior or policy failure",
+  "attempt1": {
+    "run": 45778035904,
+    "job": 139766400258,
+    "status": "cancelled after apt-get update timeout",
+    "reader_cases_NOT_RUN": 1000,
+    "historical_cases_NOT_RUN": 22,
+    "log": "/workspace/cryptid-artifacts/frozen-acceptance-attempt1.log"
+  },
+  "attempt2": {
+    "run": 45778035904,
+    "job": 139775478688,
+    "reader_cases_completed": 1000,
+    "historical_replay": "completed successfully",
+    "failed_write": "/home/runner/work/_temp/bounded-repair/source-checked-v2.json",
+    "error": "PermissionError: [Errno 13] Permission denied",
+    "original_strict_v1": "FAIL retained unchanged",
+    "unchanged_v2_applied_to_original_outputs_locally": true,
+    "contract_preserved": 1000,
+    "source_checked_cases": 65,
+    "acceptance_passed": true,
+    "artifact_id": 15099260193,
+    "artifact_url": "https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/actions/runs/45778035904/artifacts/15099260193",
+    "artifact_zip_sha256": "0795501466d49f4ea5ed5a8544d56cd4b12e55c650864872aa73c25f8c47afba",
+    "lossless_raw_archive": "/workspace/cryptid-artifacts/frozen-acceptance-attempt2-retained.tar.xz",
+    "lossless_raw_archive_sha256": "461aed394d83935837aa28355b19faf00ef06f4455ede1f378ccf00e807b9c18",
+    "local_v2_score_sha256": "666daf2199af2e914b9d7c9d8ce5ba1b2144076e89411db07fef28a63f1da763"
+  },
+  "repair": "Write only the newly generated prospective score in runner-owned RUNNER_TEMP and upload that file. Leave copied raw outputs root-owned and byte-identical. No worker, scorer, policy, fixture, key, native rule, budget or acceptance change.",
+  "new_head_checks": "PENDING: all required exact-head checks must rerun; earlier passing checks do not authorize merging a different head.",
+  "answer_coverage_gain": 0,
+  "custody": "Same operator; independent historical/semantic/preparation/blinding/outside-custodian/nativeOOCC and human onboarding remainNOT_RUN."
+}
