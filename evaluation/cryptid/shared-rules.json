@@ -629,6 +629,27 @@
       "runtime_change": false,
       "policy": "revision3/partial-policy-development/policy-v2.json",
       "original_strict_failure_preserved": "CRYPT-FINAL2-T0004"
+    },
+    {
+      "rule": "Source reporting/content compatibility v2",
+      "responsible_department": "reader",
+      "implementation": [
+        "mplpb_answers/reported_content.py"
+      ],
+      "development_cases": [
+        "CRYPT-YETI-0150",
+        "CRYPT-YETI-0151",
+        "CRYPT-YETI-0152",
+        "CRYPT-YETI-0153",
+        "CRYPT-YETI-0154",
+        "CRYPT-YETI-0155",
+        "CRYPT-YETI-0156",
+        "CRYPT-YETI-0157"
+      ],
+      "literal_field": "embedded_content_negative",
+      "legacy_assertion_fields": "Remain unasserted/null under denial or condition",
+      "protected_operation": "Same-content opposed report signs conflict; denying an opposite payload is compatible; distinct conditions are not unified; no independent historical truth",
+      "original_key_error_retained": "CRYPT-YETI-0121"
     }
   ],
   "planned_families": [

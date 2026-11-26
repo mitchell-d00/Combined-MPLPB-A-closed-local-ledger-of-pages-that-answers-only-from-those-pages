@@ -1,0 +1,476 @@
+{
+  "schema": "cryptid-claim-score-v1",
+  "version": "cryptid-claim-scorer-v5",
+  "scorer_sha256": "d91f3855437fb55d4ec165edcf48bad6a375437bcdf8acc7c8a2ea4b4e7d6b60",
+  "run_sha256": "f0ad08f9bed90ceb71887a59b24123413eb630c2d8c8913978782ea4ef92e9db",
+  "key_sha256": "cc93b9da5e882166b48f16df14483e5c68931d18c028cec8c4d3f4531499c945",
+  "counts": {
+    "planned": 16,
+    "attempted": 16,
+    "completed": 16,
+    "scored": 16,
+    "unscored": 0,
+    "passed": 14,
+    "false_support": 2,
+    "positive_misses": 1,
+    "budget_stops": 1,
+    "diagnostic_only": 0
+  },
+  "cases": [
+    {
+      "id": "CRYPT-FINAL2-T0001",
+      "execution_status": "completed",
+      "scored": true,
+      "passed": true,
+      "expected": "complete",
+      "kind": "supported_answer",
+      "claims": 1,
+      "positive_miss": false,
+      "false_support": false,
+      "errors": [],
+      "interpretation_inspection_recognized": true,
+      "required_witness_discovery": true,
+      "miss_stage_diagnostic": null,
+      "budget_stop": false,
+      "measurements": {
+        "query_wall_seconds": 0.11208168099983595,
+        "query_cpu_seconds": 0.11200732599999999,
+        "peak_rss_bytes": 18841600,
+        "source_html_open_calls": {
+          "query": 9,
+          "discovery": 2
+        },
+        "source_read_measurement": "Python audit open events for ledger HTML files during query/discovery; cached in-memory reads are not counted",
+        "admitted_source_count": 1,
+        "admitted_canonical_characters": 81
+      }
+    },
+    {
+      "id": "CRYPT-FINAL2-T0002",
+      "execution_status": "completed",
+      "scored": true,
+      "passed": true,
+      "expected": "withhold",
+      "kind": "abstain",
+      "claims": 0,
+      "positive_miss": false,
+      "false_support": false,
+      "errors": [],
+      "interpretation_inspection_recognized": true,
+      "required_witness_discovery": null,
+      "miss_stage_diagnostic": null,
+      "budget_stop": false,
+      "measurements": {
+        "query_wall_seconds": 0.13053995299560484,
+        "query_cpu_seconds": 0.13136026000000003,
+        "peak_rss_bytes": 18841600,
+        "source_html_open_calls": {
+          "query": 9,
+          "discovery": 2
+        },
+        "source_read_measurement": "Python audit open events for ledger HTML files during query/discovery; cached in-memory reads are not counted",
+        "admitted_source_count": 1,
+        "admitted_canonical_characters": 48
+      }
+    },
+    {
+      "id": "CRYPT-FINAL2-T0003",
+      "execution_status": "completed",
+      "scored": true,
+      "passed": true,
+      "expected": "complete",
+      "kind": "supported_answer",
+      "claims": 1,
+      "positive_miss": false,
+      "false_support": false,
+      "errors": [],
+      "interpretation_inspection_recognized": true,
+      "required_witness_discovery": true,
+      "miss_stage_diagnostic": null,
+      "budget_stop": false,
+      "measurements": {
+        "query_wall_seconds": 0.1152261209936114,
+        "query_cpu_seconds": 0.11583886899999998,
+        "peak_rss_bytes": 18841600,
+        "source_html_open_calls": {
+          "query": 9,
+          "discovery": 2
+        },
+        "source_read_measurement": "Python audit open events for ledger HTML files during query/discovery; cached in-memory reads are not counted",
+        "admitted_source_count": 1,
+        "admitted_canonical_characters": 42
+      }
+    },
+    {
+      "id": "CRYPT-FINAL2-T0004",
+      "execution_status": "completed",
+      "scored": true,
+      "passed": false,
+      "expected": "withhold",
+      "kind": "partial_answer",
+      "claims": 1,
+      "positive_miss": false,
+      "false_support": true,
+      "errors": [
+        "unsupported_claim_or_completion",
+        "unexpected_or_duplicate_claim"
+      ],
+      "interpretation_inspection_recognized": true,
+      "required_witness_discovery": null,
+      "miss_stage_diagnostic": null,
+      "budget_stop": false,
+      "measurements": {
+        "query_wall_seconds": 0.16979231500590686,
+        "query_cpu_seconds": 0.171995664,
+        "peak_rss_bytes": 18837504,
+        "source_html_open_calls": {
+          "query": 9,
+          "discovery": 2
+        },
+        "source_read_measurement": "Python audit open events for ledger HTML files during query/discovery; cached in-memory reads are not counted",
+        "admitted_source_count": 1,
+        "admitted_canonical_characters": 42
+      }
+    },
+    {
+      "id": "CRYPT-FINAL2-T0005",
+      "execution_status": "completed",
+      "scored": true,
+      "passed": false,
+      "expected": "complete",
+      "kind": "supported_answer",
+      "claims": 1,
+      "positive_miss": true,
+      "false_support": true,
+      "errors": [
+        "unexpected_or_duplicate_claim",
+        "positive_claim_miss"
+      ],
+      "interpretation_inspection_recognized": false,
+      "required_witness_discovery": true,
+      "miss_stage_diagnostic": "interpretation",
+      "budget_stop": false,
+      "measurements": {
+        "query_wall_seconds": 0.08989482099423185,
+        "query_cpu_seconds": 0.08794851000000001,
+        "peak_rss_bytes": 18837504,
+        "source_html_open_calls": {
+          "query": 12,
+          "discovery": 2
+        },
+        "source_read_measurement": "Python audit open events for ledger HTML files during query/discovery; cached in-memory reads are not counted",
+        "admitted_source_count": 1,
+        "admitted_canonical_characters": 102
+      }
+    },
+    {
+      "id": "CRYPT-FINAL2-T0006",
+      "execution_status": "completed",
+      "scored": true,
+      "passed": true,
+      "expected": "withhold",
+      "kind": "abstain",
+      "claims": 0,
+      "positive_miss": false,
+      "false_support": false,
+      "errors": [],
+      "interpretation_inspection_recognized": false,
+      "required_witness_discovery": null,
+      "miss_stage_diagnostic": null,
+      "budget_stop": false,
+      "measurements": {
+        "query_wall_seconds": 0.09498886100482196,
+        "query_cpu_seconds": 0.095867463,
+        "peak_rss_bytes": 18837504,
+        "source_html_open_calls": {
+          "query": 5,
+          "discovery": 2
+        },
+        "source_read_measurement": "Python audit open events for ledger HTML files during query/discovery; cached in-memory reads are not counted",
+        "admitted_source_count": 1,
+        "admitted_canonical_characters": 70
+      }
+    },
+    {
+      "id": "CRYPT-FINAL2-T0007",
+      "execution_status": "completed",
+      "scored": true,
+      "passed": true,
+      "expected": "complete",
+      "kind": "supported_answer",
+      "claims": 1,
+      "positive_miss": false,
+      "false_support": false,
+      "errors": [],
+      "interpretation_inspection_recognized": false,
+      "required_witness_discovery": true,
+      "miss_stage_diagnostic": null,
+      "budget_stop": false,
+      "measurements": {
+        "query_wall_seconds": 0.05410567601211369,
+        "query_cpu_seconds": 0.05594732299999999,
+        "peak_rss_bytes": 18845696,
+        "source_html_open_calls": {
+          "query": 6,
+          "discovery": 2
+        },
+        "source_read_measurement": "Python audit open events for ledger HTML files during query/discovery; cached in-memory reads are not counted",
+        "admitted_source_count": 1,
+        "admitted_canonical_characters": 56
+      }
+    },
+    {
+      "id": "CRYPT-FINAL2-T0008",
+      "execution_status": "completed",
+      "scored": true,
+      "passed": true,
+      "expected": "withhold",
+      "kind": "abstain",
+      "claims": 0,
+      "positive_miss": false,
+      "false_support": false,
+      "errors": [],
+      "interpretation_inspection_recognized": false,
+      "required_witness_discovery": null,
+      "miss_stage_diagnostic": null,
+      "budget_stop": false,
+      "measurements": {
+        "query_wall_seconds": 0.06623306999972556,
+        "query_cpu_seconds": 0.06562943200000002,
+        "peak_rss_bytes": 18837504,
+        "source_html_open_calls": {
+          "query": 6,
+          "discovery": 2
+        },
+        "source_read_measurement": "Python audit open events for ledger HTML files during query/discovery; cached in-memory reads are not counted",
+        "admitted_source_count": 1,
+        "admitted_canonical_characters": 110
+      }
+    },
+    {
+      "id": "CRYPT-FINAL2-T0009",
+      "execution_status": "completed",
+      "scored": true,
+      "passed": true,
+      "expected": "complete",
+      "kind": "supported_answer",
+      "claims": 1,
+      "positive_miss": false,
+      "false_support": false,
+      "errors": [],
+      "interpretation_inspection_recognized": false,
+      "required_witness_discovery": true,
+      "miss_stage_diagnostic": null,
+      "budget_stop": false,
+      "measurements": {
+        "query_wall_seconds": 0.11735384799249005,
+        "query_cpu_seconds": 0.107793632,
+        "peak_rss_bytes": 18837504,
+        "source_html_open_calls": {
+          "query": 20,
+          "discovery": 4
+        },
+        "source_read_measurement": "Python audit open events for ledger HTML files during query/discovery; cached in-memory reads are not counted",
+        "admitted_source_count": 2,
+        "admitted_canonical_characters": 305
+      }
+    },
+    {
+      "id": "CRYPT-FINAL2-T0010",
+      "execution_status": "completed",
+      "scored": true,
+      "passed": true,
+      "expected": "withhold",
+      "kind": "abstain",
+      "claims": 0,
+      "positive_miss": false,
+      "false_support": false,
+      "errors": [],
+      "interpretation_inspection_recognized": false,
+      "required_witness_discovery": null,
+      "miss_stage_diagnostic": null,
+      "budget_stop": false,
+      "measurements": {
+        "query_wall_seconds": 0.11607156100217253,
+        "query_cpu_seconds": 0.111699563,
+        "peak_rss_bytes": 18845696,
+        "source_html_open_calls": {
+          "query": 14,
+          "discovery": 4
+        },
+        "source_read_measurement": "Python audit open events for ledger HTML files during query/discovery; cached in-memory reads are not counted",
+        "admitted_source_count": 2,
+        "admitted_canonical_characters": 293
+      }
+    },
+    {
+      "id": "CRYPT-FINAL2-T0011",
+      "execution_status": "completed",
+      "scored": true,
+      "passed": true,
+      "expected": "complete",
+      "kind": "supported_answer",
+      "claims": 1,
+      "positive_miss": false,
+      "false_support": false,
+      "errors": [],
+      "interpretation_inspection_recognized": false,
+      "required_witness_discovery": true,
+      "miss_stage_diagnostic": null,
+      "budget_stop": false,
+      "measurements": {
+        "query_wall_seconds": 0.0612212739943061,
+        "query_cpu_seconds": 0.05983027199999999,
+        "peak_rss_bytes": 18837504,
+        "source_html_open_calls": {
+          "query": 18,
+          "discovery": 6
+        },
+        "source_read_measurement": "Python audit open events for ledger HTML files during query/discovery; cached in-memory reads are not counted",
+        "admitted_source_count": 3,
+        "admitted_canonical_characters": 287
+      }
+    },
+    {
+      "id": "CRYPT-FINAL2-T0012",
+      "execution_status": "completed",
+      "scored": true,
+      "passed": true,
+      "expected": "withhold",
+      "kind": "abstain",
+      "claims": 0,
+      "positive_miss": false,
+      "false_support": false,
+      "errors": [],
+      "interpretation_inspection_recognized": false,
+      "required_witness_discovery": null,
+      "miss_stage_diagnostic": null,
+      "budget_stop": false,
+      "measurements": {
+        "query_wall_seconds": 0.0463177519995952,
+        "query_cpu_seconds": 0.043968488,
+        "peak_rss_bytes": 18604032,
+        "source_html_open_calls": {
+          "query": 15,
+          "discovery": 6
+        },
+        "source_read_measurement": "Python audit open events for ledger HTML files during query/discovery; cached in-memory reads are not counted",
+        "admitted_source_count": 3,
+        "admitted_canonical_characters": 287
+      }
+    },
+    {
+      "id": "CRYPT-FINAL2-T0013",
+      "execution_status": "completed",
+      "scored": true,
+      "passed": true,
+      "expected": "complete",
+      "kind": "supported_answer",
+      "claims": 1,
+      "positive_miss": false,
+      "false_support": false,
+      "errors": [],
+      "interpretation_inspection_recognized": true,
+      "required_witness_discovery": true,
+      "miss_stage_diagnostic": null,
+      "budget_stop": false,
+      "measurements": {
+        "query_wall_seconds": 0.11287689900200348,
+        "query_cpu_seconds": 0.11180475799999998,
+        "peak_rss_bytes": 18837504,
+        "source_html_open_calls": {
+          "query": 9,
+          "discovery": 2
+        },
+        "source_read_measurement": "Python audit open events for ledger HTML files during query/discovery; cached in-memory reads are not counted",
+        "admitted_source_count": 1,
+        "admitted_canonical_characters": 89
+      }
+    },
+    {
+      "id": "CRYPT-FINAL2-T0014",
+      "execution_status": "completed",
+      "scored": true,
+      "passed": true,
+      "expected": "withhold",
+      "kind": "abstain",
+      "claims": 0,
+      "positive_miss": false,
+      "false_support": false,
+      "errors": [],
+      "interpretation_inspection_recognized": true,
+      "required_witness_discovery": null,
+      "miss_stage_diagnostic": null,
+      "budget_stop": false,
+      "measurements": {
+        "query_wall_seconds": 0.13601883599767461,
+        "query_cpu_seconds": 0.135690406,
+        "peak_rss_bytes": 18710528,
+        "source_html_open_calls": {
+          "query": 9,
+          "discovery": 2
+        },
+        "source_read_measurement": "Python audit open events for ledger HTML files during query/discovery; cached in-memory reads are not counted",
+        "admitted_source_count": 1,
+        "admitted_canonical_characters": 117
+      }
+    },
+    {
+      "id": "CRYPT-FINAL2-T0015",
+      "execution_status": "completed",
+      "scored": true,
+      "passed": true,
+      "expected": "complete",
+      "kind": "supported_answer",
+      "claims": 1,
+      "positive_miss": false,
+      "false_support": false,
+      "errors": [],
+      "interpretation_inspection_recognized": false,
+      "required_witness_discovery": true,
+      "miss_stage_diagnostic": null,
+      "budget_stop": false,
+      "measurements": {
+        "query_wall_seconds": 0.11881876000552438,
+        "query_cpu_seconds": 0.119802932,
+        "peak_rss_bytes": 18841600,
+        "source_html_open_calls": {
+          "query": 70,
+          "discovery": 14
+        },
+        "source_read_measurement": "Python audit open events for ledger HTML files during query/discovery; cached in-memory reads are not counted",
+        "admitted_source_count": 7,
+        "admitted_canonical_characters": 242
+      }
+    },
+    {
+      "id": "CRYPT-FINAL2-T0016",
+      "execution_status": "completed",
+      "scored": true,
+      "passed": true,
+      "expected": "withhold",
+      "kind": "abstain",
+      "claims": 0,
+      "positive_miss": false,
+      "false_support": false,
+      "errors": [],
+      "interpretation_inspection_recognized": false,
+      "required_witness_discovery": null,
+      "miss_stage_diagnostic": null,
+      "budget_stop": true,
+      "measurements": {
+        "query_wall_seconds": 0.19540900099673308,
+        "query_cpu_seconds": 0.19599311400000002,
+        "peak_rss_bytes": 18833408,
+        "source_html_open_calls": {
+          "query": 72,
+          "discovery": 18
+        },
+        "source_read_measurement": "Python audit open events for ledger HTML files during query/discovery; cached in-memory reads are not counted",
+        "admitted_source_count": 9,
+        "admitted_canonical_characters": 360
+      }
+    }
+  ],
+  "custody": "Same-operator keys/scoring; no independent historical or semantic adjudication."
+}

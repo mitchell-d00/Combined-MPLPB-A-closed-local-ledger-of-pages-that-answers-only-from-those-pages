@@ -23,3 +23,13 @@ Independent historical accuracy, semantic adjudication, preparation/blinding, ou
 ## C1 semantic review
 
 C1 is rejected despite passing its frozen 32 decisions. Same-operator review found that CRYPT-YETI-0121 wrongly expects a conflict between reporting C and denying that not-C was reported. Those statements can coexist. The original key and score remain unchanged. [Compatibility review](compatibility-review.json) explains the reader defect and the next frozen contrasts. Fresh transfer remains unopened; no final semantic acceptance is claimed.
+
+## C2 state before the final archive
+
+The representation now records **literal embedded-content polarity** separately from whether that content was asserted. Outer denial keeps the legacy `inner_negative=null` and `inner_polarity=unasserted` fields. Compatibility compares the literal payload, outer reporting sign and explicit conditions; it does not infer actual authorship or reporting occurrence.
+
+All eight new compatibility controls pass, compared with four correct comparison decisions and no v2 fields in C1. The original 32 reporting keys score **31/32**: their incorrect conflict target remains a failed strict-key result. C1's earlier 32/32 score and rejected source archive are retained. This is a reader repair plus an explicit representation addition, not retroactive relabeling.
+
+All 771 earlier executions pass the frozen semantic-preservation audit: every legacy claim, qualification and citation remains intact, except the predeclared recovery of the old “did not say” abstention. The additive literal fields are checked against exact source witnesses before legacy comparison. Four examined-unit measurements increase, and original exact-comparison failures remain available. The prospective partial-policy fixture still has one passive-question miss; its 12 native contracts remain unchanged.
+
+The fresh 24-case packet remains sealed. C2 was informed by development compatibility controls, not transfer instances. Full committed-ZIP checks and final transfer remain pending at source freeze. [C2 machine state](c2-before-archive.json), [new frozen compatibility controls](reporting-compatibility-wrap/registry.json), [representation and migration policy](reporting-compatibility-wrap/representation-v2.json), [source-checked preservation audit](preservation-semantic-c2/summary.json).

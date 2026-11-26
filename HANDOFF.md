@@ -4,8 +4,8 @@ Last reviewed: 2026-11-26.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `17fae6f00762cfec503caeb6303bc6ae4fa85772` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `f895918b1548b53321c74f5ccb214fd0e63204202ff098be9ca5fb190e4a14f3`.
+Base commit: `7480936cd9f7b4c3dcc1854fc0cf5fa767ea0ec7` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `ae15c618af7f5c69b3df2fb68526e896dfb23383468f29a8dc7974e0a099bdec`.
 
 ## Betty report for Al
 
@@ -17,11 +17,10 @@ Preserve both packets, keys, outputs, and original failure classifications. Add 
 
 ### Implemented scope
 
-- Local revision3 from retained1251source and both failed final packets; no publication authorized.
-- Shared native reporting-negation repair: quoted/postposed/present/passive shells, relevant say/state competitor scan and curly quotation source-unit boundary. Existing embedded assertion remains unasserted under outer denial.
-- Prospective checked-partial acceptance policy on12newfixtures; no native temporal-partial behavior change. Both original final packet keys, outputs and failure classifications remain unchanged.
-- Full source ZIP will be frozen and tested cleanly; lossless base+delta storage preserves both existing full ZIPs intact and reconstructs the next exact archive hash.
-- Current C1 is retained as rejected after semantic compatibility review. Next repair compares reporting-layer negation and embedded literal polarity separately; no original keys will be rewritten.
+- Local C2 reporting-negation and compatibility repair, with all earlier failed packets, keys, outputs and rejected candidates retained. Publication remains unauthorized.
+- The reader separately represents literal embedded polarity and assertion status. It compares reporting/content negation under explicit conditions and retains named-role, eligibility, witness, budget and final-state checks.
+- The prospective partial acceptance policy changes evaluation criteria on new fixtures; all 12 corresponding native contracts are unchanged. Original temporal and reporting-field strict-key failures remain unchanged.
+- Freeze a committed full source ZIP, retain it losslessly as unchanged base plus verified delta, run clean-extraction checks and the unopened fresh packet once.
 
 ### Validation recorded
 
@@ -69,14 +68,15 @@ Preserve both packets, keys, outputs, and original failure classifications. Add 
 - Preservationbeforefreeze:419prior+20Thund+12boundary+24initialfinal exact. Second16:15exact+1verified source-scoped negated-report recovery, old keyfielddisagreementretained. Releaseexact276/280FAIL retained;4differences are examined_units2→3only, withallclaims/qualifications/citationsidentical. No lostvalidsupport. Fresh24sealedunopened.
 - C1 semantic review rejects its false conflict on compatible reporting appearances. The original32/32frozen-key score and conflict key remain unchanged; this exposes a key error, not independent semantic certification. New compatibility controls must be frozen before the next native repair; fresh24remainsunopened.
 - Compatibility controls frozen before C2:4/8C1decisions correct;0/8fullv2structured comparisons because C1 lacks embedded_content_negative. Preserve this distinction and originalkey/scores. C1sourceeafd82eb archivedasrejected5d7651fb4a52d2719b01aa9bb2f587ee18c0435e0de7bdaa70ccbc4945b7cc8b. Newliteral-content field will retain legacy assertion status, while compatibility compares both layers and conditions.
+- C2: all8newcompatibility controls pass; original reporting keys31/32 retain one incorrectly required conflict as a failure. Two1000/1001unit controls pass;70focused tests pass. All771earlier executions pass the frozen semantic audit with legacy assertions/qualifications/citations unchanged; source-checked representation additions,4unit measurements and1predeclared recovery are reported separately from retained exact-score failures.
 
 ### Limitations and blocked checks
 
-- Original firstpacketfailed18/24with1actualwrongactor; consumed19/24retains5misses. Originalsecondpacket14/16FAIL unchanged; temporalpartialstrict-keyandembedded-polarity disagreements remainseparate fromreader gains.
-- New12policyfixtures stillhave1passivewordingmiss. Fourunit-measurementdifferences are retainedexact-comparisonfailures, notsemanticgains.
-- Same-operator preparation/implementation/scoring; independenthistorical/semantic/preparation/blinding/outsidecustodian/OOCC NOT_RUN. Humanexecution NOT_RUN.
-- DefaultnestednamespacesBLOCKED;hostrealBubblewrap4/4. RequiredfinalfullZIPgatesandfresh24pendingatfreeze.
-- Localonly; no push, PR mutation, merge, deploy orremote-mainchange until Mitchell explicitlyauthorizes.
+- Acceptance remains pending until final ZIP checks and fresh transfer. Original final-packet failures and incorrect conflict key are preserved, not relabelled.
+- One new passive-question wording miss remains under prospective partial policy; earlier family and consumed-transfer misses remain recorded.
+- Representation addition changes exact dictionaries. Only the new field is source-checked and removed for legacy semantic comparison; old exact failures remain visible.
+- Preparation, implementation and scoring are same-operator. Independent historical/semantic adjudication, preparation/blinding, outside-custodian scoring, native OOCC and human execution remain NOT_RUN.
+- No push, remote PR update, merge, deployment or remote-main change without Mitchell explicit authorization.
 
 ### Next steps
 

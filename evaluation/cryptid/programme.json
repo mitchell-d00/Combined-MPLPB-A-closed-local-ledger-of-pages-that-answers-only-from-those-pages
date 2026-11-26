@@ -657,7 +657,8 @@
     "ledger/0009.json",
     "ledger/0010.json",
     "ledger/0011.json",
-    "ledger/0012.json"
+    "ledger/0012.json",
+    "ledger/0013.json"
   ],
   "final_integration": {
     "status": "SECOND_CANDIDATE_PENDING",
@@ -670,13 +671,14 @@
     "publication": "LOCAL_ONLY"
   },
   "current_revision_request": {
-    "status": "DEVELOPMENT_REPAIR_VERIFIED_FINAL_ARCHIVE_PENDING",
+    "status": "C2_DEVELOPMENT_VERIFIED_FINAL_ARCHIVE_PENDING",
     "prior_tested_source": "1251cc471a24ba4be91949ffc0c4752d0c3bf202",
     "prior_report": "final/summary.json",
     "strict_fresh16_acceptance": "FAIL14/16unchanged",
     "publication": "LOCAL_ONLY",
-    "evidence": "revision3/pre-freeze-summary.json",
+    "evidence": "revision3/c2-before-archive.json",
     "fresh_packet": "revision3/fresh/transfer-seal.json",
-    "original_failure_classifications": "Retained unchanged"
+    "original_failure_classifications": "Retained unchanged",
+    "rejected_candidate": "revision3/rejected-c1-archive.json"
   }
 }

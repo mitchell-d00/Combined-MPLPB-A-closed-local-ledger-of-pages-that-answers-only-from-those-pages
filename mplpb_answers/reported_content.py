@@ -90,11 +90,29 @@ def report_roles(statement):
     asserted = not outer_negative and not conditions and not hypothetical
     return {'reporter': reporter, 'author': content.actor, 'inner_action': content.action,
             'object': content.object_text, 'inner_negative': content.negative if asserted else None,
+            'embedded_content_negative': content.negative,
             'outer_negative': outer_negative, 'content_asserted_by_reporter': asserted,
             'outer_polarity': 'conditional_unestablished' if conditions else 'negative' if outer_negative else 'affirmative',
             'inner_polarity': ('negative' if content.negative else 'affirmative') if asserted else 'unasserted',
             'conditional_content_negative': content.negative if conditions else None,
             'conditions': conditions, 'actual_authorship_established': False}
+
+
+def _reporting_appearances_conflict(left, right):
+    """Compare reporting and embedded polarity without asserting the payload.
+
+    Different named candidates retain the existing ambiguity outcome. Distinct
+    explicit conditions are not unified. Denying a report of not-C is compatible
+    with reporting C; denying a report of C opposes reporting that same C.
+    """
+    if any(left[k] != right[k] for k in ('reporter','author','object')):
+        return True
+    if left['conditions'] != right['conditions']:
+        return False
+    same_content = left['embedded_content_negative'] == right['embedded_content_negative']
+    if left['outer_negative'] != right['outer_negative']:
+        return same_content
+    return not left['outer_negative'] and not same_content
 
 
 def _writer(body):
@@ -206,10 +224,11 @@ def verify(index, max_passages, max_chars):
         return None
     if len(proofs) == 2:
         identity = lambda p: tuple(str(p['proposition'][k]) for k in
-                                   ('reporter','author','object','inner_negative','outer_negative','conditions','conditional_content_negative'))
+                                   ('reporter','author','object','inner_negative','outer_negative','conditions','conditional_content_negative','embedded_content_negative'))
         if identity(proofs[0]) == identity(proofs[1]):
             return None
-        kind, code = 'conflict', 'conflicting_reported_content'
+        conflicting = _reporting_appearances_conflict(proofs[0]['proposition'], proofs[1]['proposition'])
+        kind, code = ('conflict', 'conflicting_reported_content') if conflicting else ('supported_answer', 'supported')
     else:
         kind, code = 'supported_answer', 'supported'
     witnesses = [c for p in proofs for c in p['citations']]
