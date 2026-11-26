@@ -1,0 +1,8 @@
+{
+  "status": "EXECUTION_FAILED_BEFORE_LAUNCH",
+  "returncode": 1,
+  "command": "python /workspace/cryptid-final-gates/run_candidate2.py metadata javascript browser > candidate-2/groups.log",
+  "error": "Shell output redirect raced creation of the task-owned candidate-2 directory. No gate or reader was executed by this command.",
+  "correction": "Create the output directory first, retain this attempt, rerun independent software gate groups.",
+  "semantic_outcome": "NOT_RUN"
+}

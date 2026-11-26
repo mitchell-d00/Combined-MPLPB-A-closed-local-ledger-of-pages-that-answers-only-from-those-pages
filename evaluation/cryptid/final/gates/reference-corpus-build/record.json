@@ -1,0 +1,20 @@
+{
+  "schema": "cryptid-integration-gate-v1",
+  "name": "reference-corpus-build",
+  "command": [
+    "/workspace/cryptid-gates-venv/bin/python",
+    "-m",
+    "tools.build_reference_corpus",
+    "--output",
+    "/workspace/cryptid-final-gates/candidate-2/reference-corpus/release"
+  ],
+  "cwd": "/dev/shm/cryptid-final-candidate-2",
+  "timeout_seconds": 450,
+  "started_utc": "2026-11-26T00:00:33.178168+00:00",
+  "source": "Clean committed source ZIP extraction; no checkout tests substituted.",
+  "status": "PASS",
+  "returncode": 0,
+  "error": null,
+  "wall_seconds": 43.2382816580066,
+  "raw_log_sha256": "b5b1554c9876a49c7ade6c1ad278d2c1578ceb0732741a9a84e3d59ec5c88b13"
+}

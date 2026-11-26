@@ -1,0 +1,25 @@
+{
+  "schema": "cryptid-integration-gate-v1",
+  "name": "thunderbird-consumed",
+  "command": [
+    "/workspace/cryptid-gates-venv/bin/python",
+    "tools/cryptid_replay_packet_v4.py",
+    "--packet",
+    "evaluation/cryptid/thunderbird/consumed-transfer",
+    "--implementation",
+    "/dev/shm/cryptid-final-candidate-2",
+    "--source-commit",
+    "1251cc471a24ba4be91949ffc0c4752d0c3bf202",
+    "--output",
+    "/workspace/cryptid-final-gates/candidate-2/thunderbird-consumed-run"
+  ],
+  "cwd": "/dev/shm/cryptid-final-candidate-2",
+  "timeout_seconds": 450,
+  "started_utc": "2026-11-26T00:02:56.392402+00:00",
+  "source": "Clean committed source ZIP extraction; no checkout tests substituted.",
+  "status": "PASS",
+  "returncode": 0,
+  "error": null,
+  "wall_seconds": 3.58188837999478,
+  "raw_log_sha256": "352d9c4011d504a5f4db88571ae8b703c7cee5e1b502f18fbdeb9e98710cc799"
+}

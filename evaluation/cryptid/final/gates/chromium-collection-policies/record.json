@@ -1,0 +1,24 @@
+{
+  "schema": "cryptid-integration-gate-v1",
+  "name": "chromium-collection-policies",
+  "command": [
+    "/workspace/cryptid-gates-venv/bin/python",
+    "-m",
+    "tools.browser_collection_policies",
+    "--preview-dir",
+    "dist",
+    "--browser-executable",
+    "/usr/bin/chromium",
+    "--output",
+    "/workspace/cryptid-final-gates/candidate-2/collection-policies.json"
+  ],
+  "cwd": "/dev/shm/cryptid-final-candidate-2",
+  "timeout_seconds": 600,
+  "started_utc": "2026-11-26T00:04:01.143330+00:00",
+  "source": "Clean committed source ZIP extraction; no checkout tests substituted.",
+  "status": "PASS",
+  "returncode": 0,
+  "error": null,
+  "wall_seconds": 33.29794299999776,
+  "raw_log_sha256": "781e60f377bc97d06157723c80f05757cdfc28e46717d17bc70964bbafa5710a"
+}

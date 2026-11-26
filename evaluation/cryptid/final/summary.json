@@ -1,0 +1,270 @@
+{
+  "schema": "cryptid-local-integration-review-v1",
+  "status": "LOCAL_REVIEW_READY_WITH_RETAINED_SEMANTIC_FAILURES",
+  "source_commit": "1251cc471a24ba4be91949ffc0c4752d0c3bf202",
+  "source_tree": "98ce2041ab203b48c42c08551fa14e8339b7f17c",
+  "source_zip_sha256": "7d0fe327956a1d66b33659613a80dade8c00ac51d61a32c166d4aa35c540f749",
+  "source_zip": "/workspace/cryptid-artifacts/cryptid-final-candidate-2.zip",
+  "source_scope": "Full tracked repository,58627regular files; clean RAM extraction from ZIP only, source payloads rechecked after tests",
+  "software_commands": {
+    "planned": 57,
+    "attempted": 57,
+    "completed": 57,
+    "returncode_zero": 57,
+    "failed": 0,
+    "not_run": 0,
+    "record_paths": [
+      "evaluation/cryptid/final/gates/actual-wasm/record.json",
+      "evaluation/cryptid/final/gates/boundary-wrap-assert-preserved/record.json",
+      "evaluation/cryptid/final/gates/boundary-wrap-execution/record.json",
+      "evaluation/cryptid/final/gates/boundary-wrap-preservation/record.json",
+      "evaluation/cryptid/final/gates/boundary-wrap-score/record.json",
+      "evaluation/cryptid/final/gates/bridge-help/record.json",
+      "evaluation/cryptid/final/gates/bridge-syntax/record.json",
+      "evaluation/cryptid/final/gates/browser-ai-helper/record.json",
+      "evaluation/cryptid/final/gates/browser-model-loader/record.json",
+      "evaluation/cryptid/final/gates/browser-transport/record.json",
+      "evaluation/cryptid/final/gates/browser-webgpu-limits/record.json",
+      "evaluation/cryptid/final/gates/chromium-collection-policies/record.json",
+      "evaluation/cryptid/final/gates/chromium-free-helper/record.json",
+      "evaluation/cryptid/final/gates/chromium-live-and-candidate/record.json",
+      "evaluation/cryptid/final/gates/chromium-offline-layout/record.json",
+      "evaluation/cryptid/final/gates/crawler-historical/record.json",
+      "evaluation/cryptid/final/gates/crawler-worker/record.json",
+      "evaluation/cryptid/final/gates/cryptid-index/record.json",
+      "evaluation/cryptid/final/gates/cryptid-prior-419/record.json",
+      "evaluation/cryptid/final/gates/departments/record.json",
+      "evaluation/cryptid/final/gates/documentary-render/record.json",
+      "evaluation/cryptid/final/gates/documentation/record.json",
+      "evaluation/cryptid/final/gates/final-consumed-assert-preserved/record.json",
+      "evaluation/cryptid/final/gates/final-consumed-execution/record.json",
+      "evaluation/cryptid/final/gates/final-consumed-preservation/record.json",
+      "evaluation/cryptid/final/gates/final-consumed-score/record.json",
+      "evaluation/cryptid/final/gates/fresh-transfer-once/record.json",
+      "evaluation/cryptid/final/gates/fresh-transfer-score/record.json",
+      "evaluation/cryptid/final/gates/handoff/record.json",
+      "evaluation/cryptid/final/gates/human-materials-audit/record.json",
+      "evaluation/cryptid/final/gates/human-score-software/record.json",
+      "evaluation/cryptid/final/gates/infrastructure/record.json",
+      "evaluation/cryptid/final/gates/integrity-attack-controls/record.json",
+      "evaluation/cryptid/final/gates/javascript-api/record.json",
+      "evaluation/cryptid/final/gates/native-full/record.json",
+      "evaluation/cryptid/final/gates/official-mcp/record.json",
+      "evaluation/cryptid/final/gates/reference-corpus-build/record.json",
+      "evaluation/cryptid/final/gates/reference-evidence/record.json",
+      "evaluation/cryptid/final/gates/release-280-preservation/record.json",
+      "evaluation/cryptid/final/gates/release-280-run/record.json",
+      "evaluation/cryptid/final/gates/required-isolation/record.json",
+      "evaluation/cryptid/final/gates/source-bytes-after-gates/record.json",
+      "evaluation/cryptid/final/gates/synthetic-researcher-native/record.json",
+      "evaluation/cryptid/final/gates/thunderbird-consumed/record.json",
+      "evaluation/cryptid/final/gates/thunderbird-consumed-preservation/record.json",
+      "evaluation/cryptid/final/gates/thunderbird-development/record.json",
+      "evaluation/cryptid/final/gates/thunderbird-development-preservation/record.json",
+      "evaluation/cryptid/final/gates/ui-script/record.json",
+      "evaluation/cryptid/final/gates/wasm-build/record.json",
+      "evaluation/cryptid/final/gates/wasm-core-extract/record.json",
+      "evaluation/cryptid/final/gates/wheel-build/record.json",
+      "evaluation/cryptid/final/gates/wheel-clean-environment/record.json",
+      "evaluation/cryptid/final/gates/wheel-install/record.json",
+      "evaluation/cryptid/final/gates/wheel-isolated-smoke/record.json",
+      "evaluation/cryptid/final/gates/wheel-synonyms-assert/record.json",
+      "evaluation/cryptid/final/gates/wheel-synonyms-build/record.json",
+      "evaluation/cryptid/final/gates/wheel-synonyms-query/record.json"
+    ],
+    "meaning": "Command execution success; fresh scoring command returning0 does not make its14/16semantic result pass."
+  },
+  "native_unittest": {
+    "ran": 1863,
+    "passed": 1863,
+    "failed": 0,
+    "errors": 0,
+    "skips": 0,
+    "log": "gates/native-full/output.log"
+  },
+  "final_reader_case_executions": {
+    "schema": "cryptid-final-reader-accounting-v1",
+    "planned": 491,
+    "attempted": 491,
+    "completed": 491,
+    "failed_executions": 0,
+    "not_run_cases": 0,
+    "semantic_diagnostic_only_unscored": [
+      [
+        "CRYPT-YETI-0003",
+        "diagnostic"
+      ],
+      [
+        "CRYPT-YETI-0004",
+        "diagnostic"
+      ]
+    ],
+    "outcomes": {
+      "supported_answer": 154,
+      "partial_answer": 53,
+      "abstain": 280,
+      "conflict": 4
+    },
+    "native_budget_diagnostic_count": 14,
+    "budget_diagnostics": [
+      {
+        "id": "CRYPT-CHUPACABRA-0015",
+        "diagnostic": "reference_scan_budget",
+        "raw": "evaluation/cryptid/final/preservation/prior-419/chupacabra-development/CRYPT-CHUPACABRA-0015/result.json"
+      },
+      {
+        "id": "CRYPT-CHUPACABRA-0016",
+        "diagnostic": "reference_scan_budget",
+        "raw": "evaluation/cryptid/final/preservation/prior-419/chupacabra-development/CRYPT-CHUPACABRA-0016/result.json"
+      },
+      {
+        "id": "CRYPT-FINAL-T0023",
+        "diagnostic": "reference_scan_budget",
+        "raw": "evaluation/cryptid/final/runs/consumed-final/CRYPT-FINAL-T0023/result.json"
+      },
+      {
+        "id": "CRYPT-FINAL-T0024",
+        "diagnostic": "reference_scan_budget",
+        "raw": "evaluation/cryptid/final/runs/consumed-final/CRYPT-FINAL-T0024/result.json"
+      },
+      {
+        "id": "CRYPT-FINAL2-T0016",
+        "diagnostic": "reference_scan_budget",
+        "raw": "evaluation/cryptid/final/runs/fresh2-once/CRYPT-FINAL2-T0016/result.json"
+      },
+      {
+        "id": "CRYPT-THUNDERBIRD-T0002",
+        "diagnostic": "reference_scan_budget",
+        "raw": "evaluation/cryptid/final/preservation/thunderbird-consumed/CRYPT-THUNDERBIRD-T0002/result.json"
+      },
+      {
+        "id": "CRYPT-THUNDERBIRD-T0004",
+        "diagnostic": "reference_scan_budget",
+        "raw": "evaluation/cryptid/final/preservation/thunderbird-consumed/CRYPT-THUNDERBIRD-T0004/result.json"
+      },
+      {
+        "id": "CRYPT-THUNDERBIRD-T0006",
+        "diagnostic": "reference_scan_budget",
+        "raw": "evaluation/cryptid/final/preservation/thunderbird-consumed/CRYPT-THUNDERBIRD-T0006/result.json"
+      },
+      {
+        "id": "CRYPT-THUNDERBIRD-T0007",
+        "diagnostic": "partial_source_phrase_budget",
+        "raw": "evaluation/cryptid/final/preservation/thunderbird-consumed/CRYPT-THUNDERBIRD-T0007/result.json"
+      },
+      {
+        "id": "CRYPT-THUNDERBIRD-0003",
+        "diagnostic": "reference_scan_budget",
+        "raw": "evaluation/cryptid/final/preservation/thunderbird-development/CRYPT-THUNDERBIRD-0003/result.json"
+      },
+      {
+        "id": "CRYPT-THUNDERBIRD-0005",
+        "diagnostic": "reference_scan_budget",
+        "raw": "evaluation/cryptid/final/preservation/thunderbird-development/CRYPT-THUNDERBIRD-0005/result.json"
+      },
+      {
+        "id": "CRYPT-THUNDERBIRD-0007",
+        "diagnostic": "reference_scan_budget",
+        "raw": "evaluation/cryptid/final/preservation/thunderbird-development/CRYPT-THUNDERBIRD-0007/result.json"
+      },
+      {
+        "id": "CRYPT-THUNDERBIRD-0009",
+        "diagnostic": "reference_scan_budget",
+        "raw": "evaluation/cryptid/final/preservation/thunderbird-development/CRYPT-THUNDERBIRD-0009/result.json"
+      },
+      {
+        "id": "CRYPT-THUNDERBIRD-0010",
+        "diagnostic": "partial_source_phrase_budget",
+        "raw": "evaluation/cryptid/final/preservation/thunderbird-development/CRYPT-THUNDERBIRD-0010/result.json"
+      }
+    ],
+    "release_comparison": "Separate280executions with106complete6partial6conflict162abstain; preservation is not280completeanswers.",
+    "count_scope": "Case memberships, not independent evidence;771memberships including release,747uniqueinputpairs; native1863tests separate.",
+    "release_budget_diagnostics": [
+      {
+        "id": "BW-INV-POLE-e96eaa9dffad704a-00003",
+        "diagnostic": "reference_scan_budget"
+      },
+      {
+        "id": "BW-INV-POLE-e96eaa9dffad704a-00012",
+        "diagnostic": "reference_scan_budget"
+      }
+    ],
+    "release_budget_diagnostic_count": 2,
+    "final_execution_total": 771,
+    "interpretation": "Count native budget diagnostics, not resource-failure events; same-input overlaps remain inventoried."
+  },
+  "citation_audit": {
+    "schema": "cryptid-final-citation-audit-v1",
+    "reader_commit": "1251cc471a24ba4be91949ffc0c4752d0c3bf202",
+    "cases_examined": 771,
+    "claims_examined": 346,
+    "citations_examined": 599,
+    "issues": [],
+    "scope": "Exact current worker source-receipt hash and half-open canonical coordinates/quotes for every claim; eligibility/final state are separately protected by native controls. Not independent historical or semantic adjudication.",
+    "restricted_raw": "17 original outputs inspected only in existing local custody; no text redistributed."
+  },
+  "preservation": {
+    "release280": {
+      "planned": 280,
+      "passed": 280,
+      "unchanged": 280,
+      "recovered_complete": 0,
+      "budget_diagnostic_only": 0,
+      "failed": 0
+    },
+    "earlier_cryptid": 439,
+    "new_boundary_controls": 12,
+    "consumed_initial_final": 24,
+    "lost_valid_support": 0,
+    "changed_qualifications_or_valid_citations": 0,
+    "scope": "Exact contracts except runtime code fingerprints, compared to each latest fully checked accepted state."
+  },
+  "fresh_final_once": {
+    "candidate": "1251cc471a24ba4be91949ffc0c4752d0c3bf202",
+    "original_score": {
+      "planned": 16,
+      "attempted": 16,
+      "completed": 16,
+      "scored": 16,
+      "unscored": 0,
+      "passed": 14,
+      "false_support": 1,
+      "positive_misses": 1,
+      "budget_stops": 1,
+      "diagnostic_only": 0
+    },
+    "acceptance": "FAIL remains14/16; source/labels/key/score unchanged",
+    "source_answerable_targets": 8,
+    "complete_positive_answers": 7,
+    "positive_misses": 1,
+    "withhold_targets": 8,
+    "full_withholds": 7,
+    "checked_temporal_partial": 1,
+    "claim_scope_review": "scores/claim-scope-review-v1.json",
+    "same_operator_audited_wrong_source_claims": 0,
+    "original_false_support_flags": 1,
+    "independent_review": "NOT_RUN"
+  },
+  "initial_final_transfer": {
+    "rejected_candidate": "98a85de97ea599cc9634ab06d3a7e5c36d6e2b1f",
+    "original_score": "18/24,1actualwrongactorclaim,6positive misses",
+    "after_repair_consumed": "19/24,0wrongclaims,5positive misses",
+    "raw": "attempt-1/fresh-transfer/run.json",
+    "all_failed_source_archives_retained": "archive-index.json"
+  },
+  "budgets": "Unchanged8records,200000scancharacters,1000units,12passages,8000outputcharacters,andexistingphrasecaps. Fourteen Cryptid plus2overlappingrelease budget diagnostics, no cap increases.",
+  "blocked_and_not_run": {
+    "default_nested_namespaces": "BLOCKED2/4; same required host gatePASS4/4, no unisolated fallback",
+    "human_onboarding": "NOT_RUN; Mitchell recruits12realfirsttimeparticipants",
+    "independent_historical_accuracy": "NOT_RUN",
+    "independent_semantic_adjudication": "NOT_RUN",
+    "independent_preparation_blinding": "NOT_RUN",
+    "outside_custodian_scoring": "NOT_RUN",
+    "native_OOCC": "NOT_RUN",
+    "optional_hand_authored_structure_diagnostic": "NOT_RUN",
+    "publication_and_deployment": "NOT_RUN_BY_INSTRUCTION"
+  },
+  "execution_failures_and_skips": "execution-notes.json; previous failed attempts retained, final57checks succeeded; firstcandidatehad1optionalPDFskip; finalcandidate0skips",
+  "custody": "Same-operator development and transfer; visible templates, no independent blinding. Private17originalsandrawremainexistingcustody;263publicreleaseoutputsand17hashreceipts retained."
+}

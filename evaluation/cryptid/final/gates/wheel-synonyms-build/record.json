@@ -1,0 +1,21 @@
+{
+  "schema": "cryptid-integration-gate-v1",
+  "name": "wheel-synonyms-build",
+  "command": [
+    "/workspace/cryptid-final-wheel-venv2/bin/mplpb-synonym-graph",
+    "build",
+    "--catalog",
+    "/dev/shm/cryptid-final-candidate-2/evaluation/persona-corpus-transfer/synonyms.json",
+    "--db",
+    "/workspace/cryptid-final-gates/candidate-2/synonyms.sqlite"
+  ],
+  "cwd": "/dev/shm/cryptid-final-candidate-2",
+  "timeout_seconds": 300,
+  "started_utc": "2026-11-25T23:59:44.106202+00:00",
+  "source": "Clean committed source ZIP extraction; no checkout tests substituted.",
+  "status": "PASS",
+  "returncode": 0,
+  "error": null,
+  "wall_seconds": 0.1688730449968716,
+  "raw_log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+}

@@ -1,0 +1,25 @@
+{
+  "schema": "cryptid-integration-gate-v1",
+  "name": "integrity-attack-controls",
+  "command": [
+    "/workspace/cryptid-gates-venv/bin/python",
+    "-m",
+    "unittest",
+    "tests.test_integrity_hunt",
+    "tests.test_record",
+    "tests.test_ledger",
+    "tests.test_literal_evidence",
+    "tests.test_answer_reliability",
+    "tests.test_answer_support",
+    "-q"
+  ],
+  "cwd": "/dev/shm/cryptid-final-candidate-2",
+  "timeout_seconds": 300,
+  "started_utc": "2026-11-26T00:00:32.481166+00:00",
+  "source": "Clean committed source ZIP extraction; no checkout tests substituted.",
+  "status": "PASS",
+  "returncode": 0,
+  "error": null,
+  "wall_seconds": 10.54541376400448,
+  "raw_log_sha256": "754bf630f1ac8a6fe84c7de94e4cda4f3d12e3b59cb7ee1a2afc24ea70811728"
+}

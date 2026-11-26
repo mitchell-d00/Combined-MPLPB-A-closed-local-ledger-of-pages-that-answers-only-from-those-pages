@@ -1,0 +1,45 @@
+{
+  "schema": "cryptid-execution-notes-v1",
+  "notes": [
+    {
+      "attempt": "First final handoff provisional CLI",
+      "command": "python tools/build_handoff.py --root EXTRACTED_ROOT --check",
+      "status": "INVOCATION_FAILED",
+      "reason": "--root is not accepted; corrected command ran from extracted cwd and passed.",
+      "raw": "Prior tool transcript; no file capture claimed",
+      "reader_outcome": "NOT_RUN"
+    },
+    {
+      "attempt": "First final Thunderbird development and consumed",
+      "status": "INVOCATION_FAILED",
+      "reason": "Gate directory collided with run output path before any worker.",
+      "raw": "attempt-1/gates/thunderbird-development/output.log and attempt-1/gates/thunderbird-consumed/output.log",
+      "correction": "Different run/gate paths, second candidate completed12and8cases."
+    },
+    {
+      "attempt": "Audit v4 first compile and invocation",
+      "status": "INVOCATION_FAILED",
+      "reason": "SyntaxError: '(' was never closed in initial generated line16; corrected before candidate1251freeze.",
+      "raw": "Tool transcript; no file capture claimed",
+      "reader_outcome": "NOT_RUN"
+    },
+    {
+      "attempt": "Second candidate group startup",
+      "status": "INVOCATION_FAILED_BEFORE_LAUNCH",
+      "raw": "gates/group-start-attempt-1.json",
+      "correction": "Created log parent before launching independent group."
+    },
+    {
+      "attempt": "Review retention first copy",
+      "status": "METADATA_OPERATION_FAILED",
+      "reason": "Incorrect assumption that aggregate prior419directory contains run.json; it contains prior-preservation.json and per-cohort run.json. Assert failed before copying, corrected without changing any run.",
+      "raw": "Tool transcript; no reader or scoring execution failed."
+    },
+    {
+      "attempt": "First full native suite",
+      "status": "COMPLETED_WITH_ONE_SKIP",
+      "reason": "Optional reportlab unavailable; installed for final candidate checks. Skip not presented as a pass."
+    }
+  ],
+  "semantics": "Execution/metadata failures are not reader abstentions. Existing family-specific failed launches, guard failures and scorer amendments remain separately retained."
+}
