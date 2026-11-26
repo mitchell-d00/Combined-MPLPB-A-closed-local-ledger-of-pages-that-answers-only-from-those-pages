@@ -25,3 +25,5 @@ Open work: Keep failed attempts, execution accounting, scoring amendments, sourc
 [Department directory](README.md) · [Test Index](../TEST_INDEX.md) · [Current evidence](../CURRENT_STATUS.md) · [Full package map](../PACKAGE_GUIDE.md)
 
 Current local work: [reporting negation and prospective partial policy](../../evaluation/cryptid/revision3/REPORT.md). Keep reader gains, evaluation-policy decisions, unit-accounting changes and original strict-key failures separate. [The publication review package](../../evaluation/cryptid/revision3/REVIEW_PACKAGE.md) separates the tested source ZIP, evidence-only publication head, original strict-key failures and required remote gates.
+
+[Bunyip](../../evaluation/cryptid/bunyip/README.md) preserves development, consumed and fresh transfer separately. Byte-identical raw-result storage recipes retain failed native/API attempts; protected exact-head CI determines final software readiness.

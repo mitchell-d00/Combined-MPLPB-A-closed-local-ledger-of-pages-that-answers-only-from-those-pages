@@ -1,0 +1,25 @@
+{
+  "schema": "lossless-raw-evidence-reference-encoding-v1",
+  "encoding": "c4-raw-results.tar.zst",
+  "encoding_sha256": "4a55d1b2cb49a594e7900052a272e87ebd7ad3a1c3f4e414b0e6dc44f26ed5c1",
+  "encoding_bytes": 623992,
+  "base_archives_in_order": [
+    {
+      "path": "retained-runs-2.tar.xz",
+      "sha256": "9b40d7734a3878b13646144e62617cde0217251e629af9fdb46898fa8e7e7a59"
+    },
+    {
+      "path": "c3-software-and-legacy.tar.xz",
+      "sha256": "6c760b78484cf0255d416b9e187b95baaa426b80303d182c4fc2e5ae7e3ac166"
+    }
+  ],
+  "base_uncompressed_concat_sha256": "af985354ba584bebf745b9382faa01bb0ee705aa243d0478b330e10ebb04d695",
+  "decoded_exact_tar_sha256": "777ca5eebabc4a01dcabfbc31dd4c8d9c5c6deec58fd1a15452de36127a9eaec",
+  "decoded_bytes": 203386880,
+  "round_trip_exact_bytes_verified": true,
+  "original_xz_retained_locally": "/dev/shm/bunyip-c4-completed-gates-and-transfer.tar.xz",
+  "original_xz_sha256": "1af939cef3d2c1b93430dc72bbea5f3a276a1053eaddd88830c1090ca2371cad",
+  "original_receipt": "c4-completed-gates-and-transfer.json",
+  "command": "xz -dc retained-runs-2.tar.xz c3-software-and-legacy.tar.xz > /tmp/base.tar; zstd -d -M1024MB --patch-from=/tmp/base.tar c4-raw-results.tar.zst -o /tmp/c4-results.tar; verify SHA-256 before extraction",
+  "meaning": "Every original raw output, score, source and failure remains byte-identical. This is storage deduplication, not changed evidence or an omitted run. Original compressed container retained locally; exact raw TAR roundtrip verified. C4 extraction alone reclaimed after post-test source integrity PASS."
+}

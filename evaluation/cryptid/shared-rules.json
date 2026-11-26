@@ -838,6 +838,21 @@
       "originating_regression": "Public52 owner conflict and claim-scoped correction; C3 sourcebfb469e6 rejected",
       "first_repair_failure_retained": "C4a title12/16; C4b16/16",
       "truth_status": "No independent truth established"
+    },
+    {
+      "rule": "Optional record metadata preserves the body-only helper protocol",
+      "responsible_department": "reader",
+      "implementation": [
+        "mplpb_answers/documentary_verify.py"
+      ],
+      "protected_operation": "Missing/non-string title cannot grant a display-title exception; ordinary unqualified body-only records remain readable; normal Record claims unchanged.",
+      "unit_controls": [
+        "tests.test_answer_support.AnswerSupportTests.test_imported_heading_does_not_merge_with_answer",
+        "tests.test_ordinary_questions.OrdinaryQuestionTests.test_missing_title_metadata_cannot_exempt_a_fictional_body_heading"
+      ],
+      "baseline": "C4full1884oneAPIerror;2frozencontrols2errors",
+      "candidate": "22affectedtestsPASS;849contracts exact; no answer-coverage gain",
+      "final_gate": "Protected full1885native exact-head CI pending"
     }
   ],
   "planned_families": [

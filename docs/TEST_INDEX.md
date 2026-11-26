@@ -2,7 +2,7 @@
 
 Last reviewed: 2026-11-26.
 
-[Cryptid local programme](../evaluation/cryptid/README.md): sequential frozen shared-operation studies and retained failures; [PR105 review package](../evaluation/cryptid/revision3/REVIEW_PACKAGE.md) records failed final acceptance. Current execution state is recorded separately from planned tests.
+[Cryptid local programme](../evaluation/cryptid/README.md): sequential frozen shared-operation studies and retained failures; [current Bunyip report](../evaluation/cryptid/bunyip/README.md) records the current candidate; [earlier review](../evaluation/cryptid/revision3/REVIEW_PACKAGE.md) retains failed all-target acceptance. Current execution state is recorded separately from planned tests.
 
 This is the starting point for running, interpreting, and extending Combined
 MPLPB tests. Use the [test commands](TEST_TOOLS.md) to run a suite, the
@@ -238,17 +238,16 @@ Scope/governor/quoted variants use BUNYIPW, BUNYIPG and BUNYIPQ prefixes;
 `CRYPT-BUNYIPH-0001`–`0016` protect display-title versus semantic scope.
 [Shared rules](../evaluation/cryptid/shared-rules.json) map every case to its operation.
 
-C4b development: **154/158 decisions**, primary **56/60 positives** versus16/60
+C5 development: **154/158 decisions**, primary **56/60 positives** versus16/60
 at PR105, all42 primary withholds, zero false-support flags. Forty recovered
 executions represent20unique primary question strings. Four proof misses remain.
 The16title controls pass after retained C3/C4a failures; C3 was rejected for
-public52regressions. Final C4 clean-ZIP software/preservation gates are pending.
+public52regressions. C5 preserves all849contracts exactly; final full1885native and required exact-head CI remain pending.
 
 The first42transfer executions remain **36/42**,22/28positive versus0/28on both
 pinned baselines,14withholds and zero false flags. They are now consumed.
 [Six misses and policy disagreements](../evaluation/cryptid/bunyip/final-review/remaining-misses-and-policy.json)
-retain the original key failure. A new sealed24packet stays unopened until the
-C4 committed ZIP is frozen; same-operator limited composition, not independent
+retain the original key failure. The24packet now remains20/24with eight positives and twelve withholds; it is consumed. A fresh16packet is sealed before C5 repair and remains unopened until its committed ZIP; same-operator limited composition, not independent
 preparation/blinding. The legacy1000 source-checked v2 policy passes C3 with
 1000complete/exact contracts; its old strict-key failure remains unchanged.
 
@@ -268,3 +267,27 @@ OOCC and human execution remain NOT_RUN.
 Owner: Delivery and Project Operations; protected Applications/Reader/Ledger.
 The three-area component map cross-links this authoritative inventory.
 Software verification is separate from the unchanged ONBOARD-12 human NOT_RUN.
+
+
+### Optional metadata compatibility controls
+
+`CRYPT-BUNYIPAPI-0001` protects the existing body-only imported-heading API test;
+`CRYPT-BUNYIPAPI-0002` protects conservative fictional-heading handling without
+metadata. [Frozen expectations/source hashes](../evaluation/cryptid/bunyip/final-review/optional-metadata-control-freeze.json).
+C4 full1884had one API error; original two-control baseline errored twice. C5's
+22affected tests pass. These are helper API controls, **zero answer-coverage gain**.
+Reader owns implementation; Testing owns preserved failures. Final full native
+verification is required on the submitted exact head before normal protected merge.
+
+
+### Primary language-generalization measure
+
+Broader ordinary language is the development goal; memory, provenance and admission
+are regression gates. The first two once-only fresh packets recover **11 distinct
+question strings /22paired executions** versus released main where the baseline
+already supports a source-matched canonical question. Versus PR105:14strings/28executions.
+Eight other successful executions versus main require source/proof operation reach
+and are counted separately. Tag, layout, API and infrastructure checks add zero
+to wording gains. [Raw canonical diagnostic and versioned tag assessment](../evaluation/cryptid/bunyip/final-review/wording-diagnostic-first-two.json).
+The78canonical executions are post-run mechanism diagnostics, not extra recovered
+questions or independent transfer. All original scores/misses remain unchanged.

@@ -25,3 +25,5 @@ Open work: Broader wording, modality, identity and multi-obligation coverage rem
 [Department directory](README.md) · [Test Index](../TEST_INDEX.md) · [Current evidence](../CURRENT_STATUS.md) · [Full package map](../PACKAGE_GUIDE.md)
 
 Local integration: leading definition-list metadata is reread as a layout boundary, with explicit subject/quotation checks. [Frozen contrasting cases](../../evaluation/cryptid/nessie/layout-wrap/registry.json) protect against header text becoming a person name. The first combined transfer failure is retained in the [local review](../../evaluation/cryptid/final/REVIEW.md).
+
+Current ordinary-language and optional-metadata work: [Bunyip source/evidence](../../evaluation/cryptid/bunyip/README.md). The shared helpers are `mplpb_answers/ordinary_questions.py` and `ordinary_evidence.py`; required proof remains in the existing native pipeline.

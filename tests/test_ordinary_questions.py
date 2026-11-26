@@ -40,6 +40,11 @@ class OrdinaryQuestionTests(unittest.TestCase):
     def test_display_title_exception_keeps_hypothetical_and_body_scope(self):
         write(self.root,doc_id='ONE',title='Hypothetical fictional collection',scope='documentary evidence',body='Lira Snow owns Cloud Finch Workshop.')
         self.assertFalse(self.answer('Who does Cloud Finch Workshop belong to?')['answer_supported'])
+    def test_missing_title_metadata_cannot_exempt_a_fictional_body_heading(self):
+        from types import SimpleNamespace
+        from mplpb_answers.support import statement_support
+        record=SimpleNamespace(body_html='<h1>Fictional claims</h1><p>Elm Reach is a public garden.</p>')
+        self.assertEqual(statement_support('What is Elm Reach?',record)['status'],'unsupported')
     def test_quotation_is_not_an_unqualified_owner(self):
         self.source('<blockquote><p>Lira Snow owns Cloud Finch Workshop.</p></blockquote>')
         self.assertFalse(self.answer('Who owns Cloud Finch Workshop?')['answer_supported'])

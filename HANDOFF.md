@@ -4,8 +4,8 @@ Last reviewed: 2026-11-26.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `bfb469e6444c5194e57fb1c18c76af9f17a0e630` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `dd4c3496043dd5a851f6af7a9519bb386b921f0af09a90cdce3a7936a640f072`.
+Base commit: `d0a790b0e331515f55cad8ea70d4c0a8e5e499c7` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `0b123d775f346c08c187b6443b8e57b30d43b0ceab73c88672fe388bd8c7de85`.
 
 ## Betty report for Al
 
@@ -15,12 +15,14 @@ Run the Betty implementation step first, then the Al review step in a separate c
 
 Betty — prioritize broader ordinary-language understanding. Work locally first. Create the next Cryptid series, “Bunyip,” if that name is unused. Before changing the reader, freeze development sources, questions, expected claims, qualifications, controls and baseline outputs. Preserve question arguments, negation, modality, attribution and requested relations through interpretation. Do not use entity-specific patches or infer missing facts. Audit every recovered answer against its source. Keep original failures and frozen scores. Mitchell has authorized incremental releases with verified gains and no regressions. Existing coverage misses alone do not require perfect scores before release. Once the gains are audited and required checks pass, publish the evidence, update the PR, merge through the normal protected workflow and verify deployment. Do not bypass required checks or request the same authorization again. Keep human onboarding execution NOT_RUN until Mitchell returns actual participant results. Add a documentation/navigation pass with MPLPB, Experimental Lab and Testing and Training Apparatus entry areas; preserve implementation paths and evidence. Keep root README under180lines; specify input format. Verify the exact quick-start command in a clean setup and show its expected output.
 
+Make broader language generalization the primary development goal. Preserve existing memory, provenance and admission behavior as regression requirements. Measure newly answerable wording on fresh cases, alongside lost support and unsupported claims. Report those gains separately from improvements to tags, layout or test infrastructure.
+
 ### Implemented scope
 
-- C4b shared title-scope preservation repair restores public owner conflict/correction lost in rejectedC3; all prior failed candidates and strict keys retained. Native/doc navigation pass remains local until final gates.
-- Bunyip current development154/158; primary56/60positive versus16PR and12main;40additionalprimaryexecutions=20uniquequestions. Fourproofmisses remain. Scope/title guards hold withzero false-support flags.
-- Firstfresh42retained36/42,22/28positive versus0bothbaselines,14withholds; no transfer-informed repair to those misses. Separatelysealed24newcompositions remainunopened beforecommittedZIPfreeze.
-- RootREADME128lines, verifiedexactreleasedwheelquickstart andoutput/citationpath; three entryareas mapsevenexistingdepartments; no implementationmoves/humanarmchanges.
+- Primary development goal: broader ordinary-language generalization. Fresh wording gains must be separated from source/proof-operation reach, tag/layout changes and test infrastructure; memory/provenance/admission remain regression gates. Canonical-source diagnostic attribution is post-run, source-matched and not fresh/independent evidence.
+- C5 compatibility repair makes optional title metadata safe for existing body-only imports; no answer-coverage gain from this fix. Broader ordinary-language gains remain primary16→56/60 versusPR105 (20unique recoveredquestions).
+- C5local development154/158andall849priorcontracts exactly preserved. Bothconsumedpacketsretain original36/42and20/24scores. New16sealedbeforeC5codepatch; openonlyaftercommittedZIPfreeze.
+- RootREADME131lines, exact verifiedplain-text --body quickstart+expectedoutput/citationpath. Threeentryareas/sevendepartments mapped; legacyanchors restored; input/source paths andhumanfrozenarms unchanged.
 
 ### Validation recorded
 
@@ -37,17 +39,22 @@ Betty — prioritize broader ordinary-language understanding. Work locally first
 - C3fullnative1882:one failedtest(two public preservation outcomes); rejected. C4afocused16PASS/public52restored buttitle12/16; rejected incompletefix sourceZIP+hashesretained. C4btitle16/16andidentical142development+42consumedrunscomplete withzerofalseflags.
 - C3posttest76654originalarchivepayloadsbyteidentical. FullWASM/Chromium/JSHTTP/packageMCP/docs/indexPASS; initialwheelbuildbackendfailure retained,retryPASS.
 - Legacyfirstattempt1000tried390complete610diskexecutionfailures; retained separately. RAMretry1000/1000complete/1000exactcontracts; originalstrictFAILunchanged, separatelyfrozen sourcecheckedv2PASS. Hostmoduleinvocationfailure retained and corrected inCI.
+- C4full1884hadonebody-onlyAPIerror. Allother36gatesandpublic52PASS; all849contracts exact; legacy1000/1000completeandexact v2PASS, originalstrictFAILretained. C4sourceposttest76753payloads unchanged.
+- C5frozen2APIcontrolsoriginal2errors; affected22testsPASS. C5development158andconsumed66executionscomplete, originalkeys unchanged; zerofalseflags, remainingmissespreserved. C5prior849exactcontractmatches.
+- AllC4rawoutputs losslesslyretained:Zstandardreferenceencoding reconstructsexactoriginalTARSHA777ca5eebabc4a01dcabfbc31dd4c8d9c5c6deec58fd1a15452de36127a9eaec. Originalcontainerandreceiptretained.
+- Primaryfresh-languageattribution(firsttwoonce-onlypackets):11uniquequestionstrings/22pairedexecutions newlysource-supportedversusreleasedmain onbaselinecanonical-supported sources;PR10514strings/28executions. Eightothersource/proof-operationreach successesversusmainreportedseparately.78canonicaldiagnosticexecutionspost-runnotadditionalgains. Originaldiagnosticv1missing-tagrequirementretained;sourcecheckedv2separate,originalreaderscoresunchanged.
 
 ### Limitations and blocked checks
 
-- C4cleancommittedZIPsoftware/preservation/legacy/fresh24andrequiredexactheadremotechecks stillpending; no merge/deployment claimed.
-- Fourprimaryproofmisses andsixconsumed42misses remain. Twoopeninghourskeyobligations are policyambiguities; oldstrictfailureunchanged. Sameoperatorlimitedcompositionaltransfer.
-- Humanonboarding, independenthistorical-semantic/preparation-blinding/outsidecustodian/nativeOOCC NOT_RUN.
+- Final C5full1885native andrequiredexact-headremotechecksarepending; do not calltheearlierfailedC4fullrun alocalC5pass. PublishreviewedsourcefornormalCIthenmergeonlyafterallrequiredgatespass.
+- Fourdevelopmentmisses; first42sixmisses;second24fourmisses. Originalautomatedstagesandscoresunchanged, separatemechanism/policyassessmentsretained. Fresh16notopenedbeforeZIPfreeze.
+- Human/independenthistorical-semantic/preparation-blinding/outside-custodian/nativeOOCC remainNOT_RUN.
 
 ### Next steps
 
-- Freeze committed fullsource ZIP; run final applicable checks and preservation fromcleanextraction; openfresh42once.
-- Publish source-checked verified incremental gains toexistingPR105 and merge onlyafterrequiredexactheadprotectedchecks; verify deployment/livefingerprints.
+- Freeze final C5 committed ZIP, execute sealed16once, measure actual fresh wording/source-language gains and remaining misses without changing old inputs/keys.
+- Use matched canonical-source probes to separate newly answered wording from newly admitted proof/source operations; these diagnostic repetitions are not extra recovered questions.
+- Preserve memory, provenance, admission, qualifications/citations and all prior valid claims. Publish verified incremental gains and evidence toexistingPR105, run fullrequiredexactheadCI including1885native, mergeonlynormalprotectedworkflowaftergatespass, verifydeployedfingerprints.
 
 ## Use this ZIP in your repository
 

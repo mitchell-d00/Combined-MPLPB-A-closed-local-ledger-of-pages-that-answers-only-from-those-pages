@@ -437,8 +437,9 @@ def context_ranges(record, *, document_draft=False, literal_source=False):
         # A generated display title is not an assertion of real-world truth.
         # Keep every other qualifier and every body/quotation heading scoped;
         # documentary action verification retains the conservative default.
-        if (literal_source and level==1 and start==0
-                and heading.strip().casefold()==record.title.strip().casefold()):
+        record_title=getattr(record,'title',None)
+        if (literal_source and level==1 and start==0 and isinstance(record_title,str)
+                and heading.strip().casefold()==record_title.strip().casefold()):
             heading=re.sub(r'\bfictional\b','',heading,flags=re.I)
         if META.search(heading) or re.search(r'\b(?:'+qualifiers+r')\b',heading,re.I):
             end=next((a for a,l,_ in parser.headings[i+1:] if l<=level),len(full)+1)

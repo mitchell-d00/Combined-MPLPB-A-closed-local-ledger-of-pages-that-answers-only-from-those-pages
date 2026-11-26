@@ -114,6 +114,9 @@ For integration and review: [MCP](docs/MCP_AGENT.md),
 [architecture](docs/PACKAGE_GUIDE.md), and [full technical reading guide](README-TECHNICAL.md).
 Implementation files, commands and retained evidence remain at their existing paths.
 
+<a id="combined-mplpb"></a>
+<a id="deterministic-training-loop"></a>
+<a id="train-a-rule-with-the-coordinator"></a>
 <a id="how-it-decides"></a>
 <a id="advanced-mplpb"></a>
 <a id="train-a-deterministic-rule"></a>

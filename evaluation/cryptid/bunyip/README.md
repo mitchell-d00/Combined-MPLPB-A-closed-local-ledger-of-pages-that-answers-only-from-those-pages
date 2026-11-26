@@ -2,12 +2,30 @@
 
 Last reviewed: 2026-11-26.
 
-**Current local reader: C4b; final committed-ZIP gates and fresh24 are pending.**
+**Current local reader: C5; final exact-head protected CI is pending.**
 Publication is authorized after audited incremental gains, preserved valid support,
 and required protected checks. Coverage misses remain failures but do not alone
 prohibit release. The live PR report records later publication/deployment status.
 
-## Matched primary results
+## Primary goal and separate measures
+
+Broader ordinary-language generalization is the primary development goal. Memory,
+provenance and source admission are preservation requirements. Count newly
+answerable fresh wording, lost valid support and unsupported claims separately.
+Tag validation, layout repair and test infrastructure are never wording gains.
+Matched canonical-source probes distinguish wording recovery from newly admitted
+source/proof operations; these post-run diagnostics are not additional fresh or
+independent evaluations. Original fresh outcomes remain unchanged.
+
+First two fresh packets: **11 newly answerable question strings /22paired
+executions versus released main** on sources whose canonical question was already
+supported; versus PR105,14strings/28executions. Eight other successful executions
+versus main require source/proof-operation reach and are separate. No tag/layout/
+API/infrastructure success counts as a language gain.
+[Canonical-source diagnostic and retained v1/v2 assessment](final-review/wording-diagnostic-first-two.json)
+are same-operator post-run attribution, not extra fresh cases or independent scoring.
+
+## Matched development results
 
 | Same frozen inputs | Released main c01021c | PR105 ab8f73e | Revised reader |
 |---|---:|---:|---:|
@@ -59,7 +77,7 @@ All849C3contracts match PR105 exactly after removing only the code fingerprint.
 All145claim-bearing main cases were assessed:137unchanged; eight invalid
 header-fused actors were corrected(four) or withheld(four), not valid support
 losses. [Classification audit](assessments/main-support-classifications.json).
-C4 final clean-ZIP preservation is pending.
+C5 local preservation matches all849PR contracts exactly; full final native CI remains required.
 
 ## First fresh packet: retained, now consumed
 
@@ -77,8 +95,8 @@ whose key treats an opening time alone as complete. That obligation/policy
 ambiguity is reported separately; the original strict-key failures remain.
 A new prospective partial policy would require fresh fixtures, not relabelling.
 
-A separately [sealed24](fresh2/transfer-seal.json) was prepared before C4 repair
-and remains unopened until a committed full candidate ZIP is frozen. It tests
+The [24-case composition packet](fresh2/transfer-seal.json) was prepared before C4 repair,
+opened once on committed C4 and is now consumed. It tests
 limited composition of unseen question prefixes and new document/header layouts;
 visible same-operator templates do not establish independent blinding or broad
 language transfer. The recorded seed is a protocol identifier; generation uses
@@ -113,3 +131,39 @@ The [Test Index](../../../docs/TEST_INDEX.md) is authoritative.
 from the unchanged human protocol. Human execution, independent historical and
 semantic adjudication, independent preparation/blinding, outside-custodian scoring
 and native OOCC remain **NOT_RUN**. Preparation/scoring are same-operator.
+
+## Final compatibility repair and fresh material
+
+C4 full native1884 completed with one API error: a body-only imported record
+lacked optional title metadata. All other36software gate records passed, public52
+passed, all849contracts matched PR105, and legacy1000completed with1000exact
+contracts under prospective v2. The original strict score remains FAIL.
+[Raw C4 retention and failed-gate record](final-review/c4-completed-gates-and-transfer.json)
+uses [verified lossless reference storage](final-review/c4-raw-storage.json); the
+original receipt/container and every raw outcome are retained.
+
+C5 treats missing/non-string title metadata conservatively. It preserves ordinary
+body-only records while granting no fictional-heading exemption without matching
+metadata. Two frozen API controls originally errored;22affected API/ordinary/public
+tests now pass. This compatibility repair creates no answer-coverage gain.
+[Control freeze](final-review/optional-metadata-control-freeze.json) and
+[local preservation](final-review/c5-local-preservation.json) retain the evidence.
+
+C5 development remains154/158with zero false flags; consumed42remains36/42and
+consumed24remains20/24. The latter completed8/12positives versus0/12on both
+baselines and retained12withholds. Its four misses are two opening-time cases
+and two instruction questions. [Mechanism diagnoses](final-review/remaining-miss-diagnostics.json)
+preserve original automated stages and distinguish recognized frames from correct
+interpretation: explicit field/ID binding is incomplete; a catalogue preamble
+closes the leading declared-field block. No reader repair used these transfer misses.
+
+A new [sealed16](fresh3/transfer-seal.json), prepared before the C5 compatibility
+patch, remains unopened until the C5 committed ZIP is frozen. It uses a new
+source belongs-to form, new composed questions, reversed date-role order and nested
+source layout. Same-operator templates are visible; no independent transfer claim.
+
+The final source ZIP receives focused native and preservation checks locally.
+The complete1885-test native suite and all required exact-head software gates
+must pass in protected CI before merge; the failed C4 full run is never relabelled
+as a local C5 pass. Final live publication/deployment state belongs in PR105's
+head-pinned Betty report. All unperformed independent/human/OOCC labels remain NOT_RUN.

@@ -25,3 +25,5 @@ Open work: Freeze/test extracted artifacts, verify deployed bytes, and retain ev
 [Department directory](README.md) · [Test Index](../TEST_INDEX.md) · [Current evidence](../CURRENT_STATUS.md) · [Full package map](../PACKAGE_GUIDE.md)
 
 Current local source archives use [lossless ZIP storage](../../tools/cryptid_zip_delta.py) when space requires it: the unchanged base plus delta must reconstruct the exact tested full-ZIP SHA-256. This changes archive storage, not source content or publication permission.
+
+[Three entry areas](../COMPONENT_MAP.md) lead to usable MPLPB, the Experimental Lab and the Testing and Training Apparatus. [Verified clean-install instructions](../../evaluation/newcomer-navigation/README.md) retain exact output and failures separately from human onboarding NOT_RUN.

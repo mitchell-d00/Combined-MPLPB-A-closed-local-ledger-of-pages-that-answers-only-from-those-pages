@@ -2,7 +2,7 @@
 
 Last reviewed: 2026-11-26.
 
-Programme started from verified remote main `c01021c0b9983f9a607fbe782dea7ed5872d1f11`. Family names identify tests, never runtime facts or rules. Mitchell authorized branch/PR publication; PR #105 is open. The final transfer fails 19/24, so merge and deployment remain blocked. See [current review package](revision3/REVIEW_PACKAGE.md).
+Programme started from verified remote main `c01021c0b9983f9a607fbe782dea7ed5872d1f11`. Family names identify tests, never runtime facts or rules. The [Bunyip report](bunyip/README.md) records current ordinary-language work and retained compatibility failures. Mitchell subsequently authorized incremental releases with audited gains, no lost valid support/new unsupported claims, and required protected checks. The earlier [19/24 all-target failure](revision3/REVIEW_PACKAGE.md) remains unchanged; it is not relabelled by that later authorization. PR105’s live head-pinned report records publication and deployment status.
 
 The ordered series are Mothman (date roles), Jackalope (question wording), Yeti (polarity/conditions/modality), Sasquatch (identity), Chupacabra (comparisons/corrections), Kraken (multipart/document links), Nessie (automatic source-linked representation), and Thunderbird (fixed-cap scale/counterevidence). [Programme state](programme.json) distinguishes planned work from executions.
 
