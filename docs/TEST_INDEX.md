@@ -48,7 +48,7 @@ targets stayed 0/10. Original private and held statuses are unchanged.
 
 [Wampus Cat](../evaluation/cryptid/wampus-cat/RESULTS.md) closes its bounded Cryptid sprint. Fresh gains are three complete answers and one checked partial, with original [Bunyip](../evaluation/cryptid/bunyip/round2/CLOSURE.md) evidence and gates retained.
 
-[Thoth](../evaluation/egyptian-gods/thoth/SCOPE.md) starts the Egyptian-gods interpretation series. Its frozen scope links the retained failure stages and Cryptid evidence.
+[Thoth](../evaluation/egyptian-gods/thoth/RESULTS.md) closes the first Egyptian-gods interpretation sprint. Its frozen results separate complete answers, checked partials, retained controls and the first unscored upload failure.
 
 ### Stable family lookup
 

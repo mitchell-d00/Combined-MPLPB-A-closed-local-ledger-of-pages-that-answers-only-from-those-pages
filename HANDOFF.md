@@ -4,8 +4,8 @@ Last reviewed: 2026-11-26.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `d1363642cdf40b8b02ce2687886c2a8e54a9bf3c` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `f21c0db43d7d31fe48f66424c25d79e37f80c46f7922c2b8aa28bfa05e709bd1`.
+Base commit: `dd50ee13b3e93296269a797a1d965eba57f09991` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `033d166157a14125a74e65b90946036991870407b6b23dfd329ea806a6c2768e`.
 
 ## Betty report for Al
 
@@ -17,22 +17,20 @@ Devise and run Thoth, a bounded ordinary-question interpretation sprint. Group r
 
 ### Implemented scope
 
-- Bind one terminal mark and ordinary direct/indirect location forms to the existing named-field admission, preserving the original question for eligibility. Existing compound proof and cited partial composition are reused.
+- Close Thoth at the frozen ordinary location and terminal punctuation boundary. Reuse existing named field admission. Preserve all prior Cryptid checkpoints.
 
 ### Validation recorded
 
-- 28 existing Bunyip/compound tests passed. Matched parser controls cover negation, attribution, conditions and terminal punctuation.
-- BB replay on Thoth retains 900 positive contracts and exact eligible citation checks plus 200 withholds. Start the existing public-only 832 replay.
-- First hosted development execution completed, but incorrect upload path retained only the old public runtime directory. The original artifact and console receipt are retained separately as an unscored infrastructure failure.
-- Fresh inputs opened after the pinned candidate ZIP; their bytes match the pre-implementation registry and seal. The development transport retry and fresh once-only comparison use unchanged reader code. The two keys stay in separate custody.
+- 12 cases per draw per reader. Development and fresh each reach six complete and three partial answers on Thoth; Wampus retains one partial per draw; C3 and released have zero. All three controls withheld on every reader/draw. Zero unsupported claims or scored execution failures. First development upload failure retained unscored.
+- 19 protected prior answers and partials match after code fingerprints. 832 exact public matches, BB 900 positives/citations and 200 withholds, 28 focused checks. Source 6ec348b31ec79e37def77a7019cd22102df85f93 and ZIP SHA-256 4ccdf9b9099192395e41b57cbdf2c2ad61a7e79e5b566ba0bccbd306326a5fe5.
 
 ### Limitations and blocked checks
 
-- Terminal-period imperative questions still miss. Same-operator keys remain separate; no independent blinding. Original 17 private and 100 held cases unchanged. Retired recovery closed, Git-history incident open, no release, merge or deployment. All independent and human NOT_RUN labels retained.
+- Finite direct and indirect location grammar. Raw archives and receipts are durable; keys separate. Original 17 private cases incomplete, 100 original held cases NOT_RUN, incident open, recovery closed. No merge or deployment. All independent and human states NOT_RUN.
 
 ### Next steps
 
-- Verify hosted development retry, fresh first results, and public preservation. Close the bounded sprint without repairing from the fresh results.
+- Stop at the frozen Thoth scope. Resume independently authorized product, project and evidence organization from clean main; do not import PR106 ancestry.
 
 ## Use this ZIP in your repository
 
