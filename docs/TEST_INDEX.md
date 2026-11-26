@@ -2,7 +2,7 @@
 
 Last reviewed: 2026-11-26.
 
-[Cryptid local programme](../evaluation/cryptid/README.md): sequential frozen shared-operation studies, retained failures and local-only review package. Current execution state is recorded separately from planned tests.
+[Cryptid local programme](../evaluation/cryptid/README.md): sequential frozen shared-operation studies and retained failures; [PR105 review package](../evaluation/cryptid/revision3/REVIEW_PACKAGE.md) records failed final acceptance. Current execution state is recorded separately from planned tests.
 
 This is the starting point for running, interpreting, and extending Combined
 MPLPB tests. Use the [test commands](TEST_TOOLS.md) to run a suite, the
@@ -216,10 +216,16 @@ All families are owned by Testing and Evaluation; native verification rules belo
 | Nessie | Verified source boundaries, proposed structure and scoped declarations | [Registry](../evaluation/cryptid/nessie/development/registry.json) |
 | Thunderbird | Fixed caps, visible proof limits and counterevidence | [Registry](../evaluation/cryptid/thunderbird/development/registry.json) |
 
-The [programme inventory](../evaluation/cryptid/programme.json), [rule map](../evaluation/cryptid/shared-rules.json) and append-only run ledgers under `evaluation/cryptid/ledger/` join IDs to source hashes, original PRs, exact candidate/harness/scorer pins, claims, withholding, raw outputs, budgets and custody. Proposal-fault repetitions share reader input pairs and are not independent answer evidence. Local source ZIPs and final review evidence remain unpublished until Mitchell authorizes publication.
+The [programme inventory](../evaluation/cryptid/programme.json), [rule map](../evaluation/cryptid/shared-rules.json) and append-only run ledgers under `evaluation/cryptid/ledger/` join IDs to source hashes, original PRs, exact candidate/harness/scorer pins, claims, withholding, raw outputs, budgets and custody. Proposal-fault repetitions share reader input pairs and are not independent answer evidence. Mitchell authorized publication in PR #105. Merge remains blocked by the final acceptance failure; source ZIPs and immutable outputs identify each tested revision.
 
 Final integration also retains [the rejected first full-ZIP attempt](../evaluation/cryptid/final/attempt-1/summary.json), [definition-list boundary controls CRYPT-NESSIE-0070–0081](../evaluation/cryptid/nessie/layout-wrap/registry.json), and [the second sealed cross-family protocol](../evaluation/cryptid/final/protocol-2.json). Initial final-transfer failures remain consumed development; they are never reported as fresh after a repair.
 
 ## Reporting negation and prospective partial acceptance
 
 [Revision 3](../evaluation/cryptid/revision3/REPORT.md) preserves both failed final packets and their original keys. New reporting controls are CRYPT-YETI-0100–0123 and 0130–0137; cap controls are 0140–0141. CRYPT-JACKALOPE-0100–0111 compare two prospectively frozen acceptance policies on identical reader outputs. The original temporal strict-key failure and embedded-polarity disagreement remain explicit. Reader owns the shared parser; Testing and Evaluation owns the policy comparison.
+
+## Cryptid publication candidate — PR #105
+
+Testing and Evaluation owns [the final review package](../evaluation/cryptid/revision3/REVIEW_PACKAGE.md) and [case index](../evaluation/cryptid/revision3/final3/case-index.json). Reader owns reporting-layer compatibility and literal embedded polarity; Ledger retains current host eligibility. The source commit and full-ZIP checksum remain separate from the following publication/evidence head, whose CI explicitly verifies the submitted SHA.
+
+The once-only final packet is 19/24: five positive misses, zero false-support flags, two explicit budget stops. Original strict-key failures, original exact-comparison failures, all three final attempts, policy disagreements and rejected candidates remain linked. This is failed semantic acceptance even if remote command checks pass. No merge or deployment is allowed at this state. Human and independent evaluations remain NOT_RUN.

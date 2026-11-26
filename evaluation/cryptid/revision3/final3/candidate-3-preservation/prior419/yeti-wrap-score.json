@@ -1,0 +1,43 @@
+{
+  "schema": "cryptid-contract-preservation-v1",
+  "before_run_sha256": "3cbc0ecd39dd266a478bed3d9cd2149078b7d34831373e6e44fa32186b540ef3",
+  "after_run_sha256": "9de38991936dfdc088092eab34d9064fbd35efb1aeb7237235e4419b999ff242",
+  "counts": {
+    "planned": 4,
+    "passed": 1,
+    "failed": 3
+  },
+  "rows": [
+    {
+      "id": "CRYPT-YETI-0053",
+      "passed": false,
+      "errors": [
+        "claim_qualification_citation_or_outcome_changed"
+      ],
+      "input_hash": "911bd4db000b25af25f98b795afcb22435031daefac1e7acacc479513137637c"
+    },
+    {
+      "id": "CRYPT-YETI-0054",
+      "passed": false,
+      "errors": [
+        "claim_qualification_citation_or_outcome_changed"
+      ],
+      "input_hash": "76887fc69dc93d0cb04585f6530cb786e28ceab77bfeb8323331caef506c0339"
+    },
+    {
+      "id": "CRYPT-YETI-0055",
+      "passed": false,
+      "errors": [
+        "claim_qualification_citation_or_outcome_changed"
+      ],
+      "input_hash": "b3f5289e8064179239b538f5e7c633a6d619abe753989f71493cffabcf43541e"
+    },
+    {
+      "id": "CRYPT-YETI-0056",
+      "passed": true,
+      "errors": [],
+      "input_hash": "6dd7982695ed2969eb1d01454f03adc4d4b8d811dff7d6603fed8b0bda03f98f"
+    }
+  ],
+  "meaning": "Exact contracts except recursive code_sha256 maps; no semantic target transitions are silently accepted."
+}

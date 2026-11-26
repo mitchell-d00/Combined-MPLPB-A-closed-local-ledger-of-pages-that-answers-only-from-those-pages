@@ -1,0 +1,24 @@
+{
+  "schema": "cryptid-integration-gate-v1",
+  "name": "chromium-free-helper",
+  "command": [
+    "/workspace/cryptid-gates-venv/bin/python",
+    "-m",
+    "tools.browser_free_helper",
+    "--preview-dir",
+    "dist",
+    "--browser-executable",
+    "/usr/bin/chromium",
+    "--output",
+    "/workspace/cryptid-final-gates/candidate-3/free-helper.json"
+  ],
+  "cwd": "/dev/shm/cryptid-final-candidate-3",
+  "timeout_seconds": 600,
+  "started_utc": "2026-11-26T01:33:51.930365+00:00",
+  "source": "Clean committed source ZIP extraction; no checkout tests substituted.",
+  "status": "PASS",
+  "returncode": 0,
+  "error": null,
+  "wall_seconds": 68.00999257399235,
+  "raw_log_sha256": "308311e49789c48a53b24e5f8e7cf60698527341ce7a546e0f00ba99267cfce2"
+}

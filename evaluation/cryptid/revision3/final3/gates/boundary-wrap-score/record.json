@@ -1,0 +1,25 @@
+{
+  "schema": "cryptid-integration-gate-v1",
+  "name": "boundary-wrap-score",
+  "command": [
+    "/workspace/cryptid-gates-venv/bin/python",
+    "tools/cryptid_claim_score_v5.py",
+    "--registry",
+    "evaluation/cryptid/nessie/layout-wrap/registry.json",
+    "--key",
+    "evaluation/cryptid/nessie/layout-wrap/key.json",
+    "--run",
+    "/workspace/cryptid-final-gates/candidate-3/boundary-wrap-run",
+    "--output",
+    "/workspace/cryptid-final-gates/candidate-3/boundary-wrap-score.json"
+  ],
+  "cwd": "/dev/shm/cryptid-final-candidate-3",
+  "timeout_seconds": 300,
+  "started_utc": "2026-11-26T01:30:09.420413+00:00",
+  "source": "Clean committed source ZIP extraction; no checkout tests substituted.",
+  "status": "PASS",
+  "returncode": 0,
+  "error": null,
+  "wall_seconds": 0.08745685699977912,
+  "raw_log_sha256": "a46cccf82134dd521fe5b7be43e753013c8bcf5e899a92670a081a51f624d472"
+}

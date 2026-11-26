@@ -4,8 +4,8 @@ Last reviewed: 2026-11-26.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `ebb8bce5e4353bc55366d401c5f207437f99161f` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `400986008050e20e372d719f8d21b8a3462cda0526fd0d69f9fb9292b1b99999`.
+Base commit: `d265881fec092afffdda56cd8781438e40ef1cf7` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `5c98ded6e1a3450ba7612c6a25369ec8bcc1943248c0bd3a891dd13ce2e2ade4`.
 
 ## Betty report for Al
 
@@ -17,10 +17,9 @@ Publish the reviewed Cryptid candidate. Push its branch, open the PR, and run al
 
 ### Implemented scope
 
-- C2 Cryptid reader candidate prepared for authorized branch push and PR publication. Merge and deployment remain conditional on acceptance and required branch-protection checks.
-- The reader separately represents literal embedded polarity and assertion status. It compares reporting/content negation under explicit conditions and retains named-role, eligibility, witness, budget and final-state checks.
-- The prospective partial acceptance policy changes evaluation criteria on new fixtures; all 12 corresponding native contracts are unchanged. Original temporal and reporting-field strict-key failures remain unchanged.
-- Freeze a committed full source ZIP, retain it losslessly as unchanged base plus verified delta, run clean-extraction checks and the unopened fresh packet once.
+- Published authorized Cryptid branch in PR105; final fresh acceptance fails19/24. Merge, deployment and new-candidate live verification are blocked. No required gate is bypassed.
+- Tested native source d265881fec092afffdda56cd8781438e40ef1cf7, fullZIPc3ea1c2db6dfa13462c5a300fe060a1e3908cf2f0cc374850fdae9705e9dd282. Following evidence-only publication commit preserves these exact native bytes.
+- All eight family histories, rejected candidates, original packets/keys/scores and strict-key failure classifications remain unchanged. Prospective partial policy remains separate from reader gains.
 
 ### Validation recorded
 
@@ -69,20 +68,26 @@ Publish the reviewed Cryptid candidate. Push its branch, open the PR, and run al
 - C1 semantic review rejects its false conflict on compatible reporting appearances. The original32/32frozen-key score and conflict key remain unchanged; this exposes a key error, not independent semantic certification. New compatibility controls must be frozen before the next native repair; fresh24remainsunopened.
 - Compatibility controls frozen before C2:4/8C1decisions correct;0/8fullv2structured comparisons because C1 lacks embedded_content_negative. Preserve this distinction and originalkey/scores. C1sourceeafd82eb archivedasrejected5d7651fb4a52d2719b01aa9bb2f587ee18c0435e0de7bdaa70ccbc4945b7cc8b. Newliteral-content field will retain legacy assertion status, while compatibility compares both layers and conditions.
 - C2: all8newcompatibility controls pass; original reporting keys31/32 retain one incorrectly required conflict as a failure. Two1000/1001unit controls pass;70focused tests pass. All771earlier executions pass the frozen semantic audit with legacy assertions/qualifications/citations unchanged; source-checked representation additions,4unit measurements and1predeclared recovery are reported separately from retained exact-score failures.
+- Final clean restored ZIP: 51 command checks completed, 49 passed; full native1871 tests, see retained transcript for errors/skips. ActualWASM/Chromium/JSHTTP/wheel/MCP/isolation/handoff/docs/index results retained; all original source members rehashed after tests.
+- Clean-ZIP771preservation semantic comparisons PASS: no lost legacy support or changed legacy qualifications/citations;56source-checked additive reporting fields,4unit-counter changes and1predeclared recovery reported separately. Original exact-score failures retained, releaseexact238/280FAIL versus legacysemantics280/280.
+- Freshfinal24once after committedZIP:19/24FAIL,7complete4checkedpartial1conflict12abstain,5positive misses(3interpretation2proof) despite full required discovery,0false-support flags,2budgetstops,0executionfailures,0unscored. No transfer-informed repair included; packet now consumed.
+- Existing CI1000gateFAIL retained:21reported exact-dictionary mismatches,65unscored outputs versus21expected (44additional outputs unaccepted),580refusal targets retained. Localrawreproduction and failed host-only prelaunch attempt retained. Original gate/keys/workflow unchanged.
+- PRvalidation workflow now explicitly checks out and asserts actualPRheadSHA; initial default-merge regression status is not exact-checkout proof. No testednativebyteschanged.
+- Original strict keys unchanged: reporting/shell31/32 with conflict-key disagreement; compatibility8/8; cap2/2; prospective partial11/12 on12unchangednativeoutputs versusstrict7/12. Original final attempts18/24 and14/16 remain failed.
 
 ### Limitations and blocked checks
 
-- Acceptance remains pending until final ZIP checks and fresh transfer. Original final-packet failures and incorrect conflict key are preserved, not relabelled.
-- One new passive-question wording miss remains under prospective partial policy; earlier family and consumed-transfer misses remain recorded.
-- Representation addition changes exact dictionaries. Only the new field is source-checked and removed for legacy semantic comparison; old exact failures remain visible.
-- Preparation, implementation and scoring are same-operator. Independent historical/semantic adjudication, preparation/blinding, outside-custodian scoring, native OOCC and human execution remain NOT_RUN.
-- Publication is authorized; merge is conditional. Do not bypass acceptance, branch protection or any required gate. Verify deployment and live source fingerprints only after a permitted merge.
+- Acceptance FAILED: five fresh positive semantic misses and remaining historical/development misses; do not merge even if command checks pass.
+- One passive-question miss remains in prospective partial fixtures. Incorrect original conflict key, original reporting-field disagreement and temporal strict-key failure stay visible. Policy changes are not native coverage gains.
+- Exact-head remote checks must validate the actual PR head; detailed current states and raw links are posted on PR105. Required archive-first/regression and strict up-to-date policy have no bypass. Branch-protection API403 retained; effective rules/full ruleset readable.
+- Deployment and live-new-candidate fingerprints NOT_RUN because no merge is permitted. Successful local live-browser baseline does not establish deployed Cryptid bytes.
+- Preparation/implementation/scoring are same-operator. Independent historical accuracy, semantic adjudication, preparation/blinding, outside-custodian scoring, native OOCC and human execution remain NOT_RUN.
 
 ### Next steps
 
-- FreezecommittedfullsourceZIP and losslessstorageencoding; validate reconstruction and cleanextraction.
-- Run all applicable native/JSHTTP/package/WASM/Chromium/handoff/docs/index/preservation gates andfresh24once. Retainallresults, remainingmisses andpolicydisagreements.
-- Publish the exact checked candidate branch and PR with all failures visible; run exact-head remote checks. Merge only after acceptance and branch protection pass, then verify deployment and live source fingerprints.
+- Complete and retain all exact-head remote CI checks on the publication/evidence head; update PR105 report with exact SHA and outcomes.
+- Leave PR105 draft, unmerged and undeployed while semantic acceptance fails. Preserve every original failure and scorer/policy disagreement in the published review package.
+- A future repair must consume the inspected final packet as development, freeze contrasting controls and use genuinely fresh transfer after a new committed candidate. Mitchell supplies actual human onboarding observations separately.
 
 ## Use this ZIP in your repository
 

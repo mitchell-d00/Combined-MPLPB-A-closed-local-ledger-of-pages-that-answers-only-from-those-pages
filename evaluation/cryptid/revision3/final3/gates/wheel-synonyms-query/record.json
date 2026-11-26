@@ -1,0 +1,22 @@
+{
+  "schema": "cryptid-integration-gate-v1",
+  "name": "wheel-synonyms-query",
+  "command": [
+    "/workspace/cryptid-final-wheel-venv3/bin/mplpb-synonym-graph",
+    "query",
+    "--db",
+    "/workspace/cryptid-final-gates/candidate-3/synonyms.sqlite",
+    "--collection",
+    "coelacanth",
+    "What catalogue number belongs to the coelacanth display specimen?"
+  ],
+  "cwd": "/dev/shm/cryptid-final-candidate-3",
+  "timeout_seconds": 300,
+  "started_utc": "2026-11-26T01:30:24.524032+00:00",
+  "source": "Clean committed source ZIP extraction; no checkout tests substituted.",
+  "status": "PASS",
+  "returncode": 0,
+  "error": null,
+  "wall_seconds": 0.14356408099411055,
+  "raw_log_sha256": "2578442c65d7e5970522a610b9f9e6de7973c8c9d194ce2b7996c75436becb7e"
+}

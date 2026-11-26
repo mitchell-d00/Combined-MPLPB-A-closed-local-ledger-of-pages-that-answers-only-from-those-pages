@@ -2,7 +2,7 @@
 
 Last reviewed: 2026-11-26.
 
-**Acceptance is pending. Publication is not authorized.** The exact source/ZIP and clean-extraction results for the next candidate will be added after it is committed and tested. Both earlier final packets, keys, outputs and original failure classifications remain unchanged.
+**Published for review in PR #105. Acceptance FAILED; merge and deployment are blocked.** The tested full-source commit is `d265881fec092afffdda56cd8781438e40ef1cf7`, ZIP SHA-256 `c3ea1c2db6dfa13462c5a300fe060a1e3908cf2f0cc374850fdae9705e9dd282`. The fresh once-only packet completed **19/24 decisions**, with **five semantic positive misses, zero false-support flags, two budget stops and zero unscored cases**. All earlier packets, keys, outputs and original failure classifications remain unchanged. The sections below retain their before-archive scope; the [final review package](REVIEW_PACKAGE.md) gives the current state.
 
 The reporting repair improves the frozen 32-case development comparison from **18/32 to 32/32**, removing two unsupported completion decisions caused by missed competing reporting evidence. Shared verb polarity now reaches that-clause, quoted, postposed and passive reporting forms. A curly-quotation boundary separates a printed byline from its following report. The native checker retains writer/reporter/actor distinctions, the complete reporting witness, unasserted embedded content under an outer denial, conditions, eligibility and final state checks. It establishes no independent authorship or execution.
 

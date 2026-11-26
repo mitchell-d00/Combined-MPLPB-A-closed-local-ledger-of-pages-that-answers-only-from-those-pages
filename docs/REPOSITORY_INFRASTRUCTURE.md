@@ -1,6 +1,6 @@
 # Supporting-infrastructure synchronization gate
 
-Last reviewed: 2026-11-17. See [current status and result-to-test index](CURRENT_STATUS.md). Dates and numeric results in historical validation sections retain their original scope; this review is not a rerun or independent certification.
+Last reviewed: 2026-11-26. See [current status and result-to-test index](CURRENT_STATUS.md). Dates and numeric results in historical validation sections retain their original scope; this review is not a rerun or independent certification.
 
 Package role: [how this part fits Combined MPLPB](PACKAGE_GUIDE.md#evidence-and-limits). This guide covers evidence or operation limits; dated results keep the revision and scope they measured.
 
@@ -17,6 +17,8 @@ The API is the existing `window.MPLPB` in `index.html` (also in the built standa
 `python tools/check_repository_infrastructure.py` rejects missing/misaligned infrastructure: live URL references, root HTML/API anchors and research disclosure, docs index links, browser builder, packaging source list, unratified-corpus privacy boundary, release scripts and their workflow wiring. The separate `.github/workflows/infrastructure-audit.yml` runs this check on every PR and push to main, and **weekly on Monday**, plus a manual dispatch. Its weekly run checks the current deployed Pages application through actual Chromium using the existing `tools/browser_release_smoke.py`; a mere HTTP 200 is not counted as an application test.
 
 Additionally, both `.github/workflows/pr-validation.yml` and the exact-head, extracted-ZIP `.github/workflows/zip-release-validation.yml` must run the same static check **before** the expensive tests. A successful checkout-only audit does not replace required Python, JavaScript, real Pyodide, browser, offline-persistence, archive checksum or postdeploy checks. `.github/workflows/pages.yml` already builds from `index.html` and uses postdeployment Chromium verification; retain that gate.
+
+PR validation now explicitly checks out `github.event.pull_request.head.sha` in both regression and researcher-browser jobs, then asserts and logs the actual checked-out commit. A check-run associated with a PR SHA does not itself prove which revision the job checked out. Retain the checkout evidence alongside its status.
 
 The required workflow check names should be enabled in the GitHub repository's branch protection/ruleset. Merely committing the automation does not enforce it against an administrator who bypasses branch protection.
 

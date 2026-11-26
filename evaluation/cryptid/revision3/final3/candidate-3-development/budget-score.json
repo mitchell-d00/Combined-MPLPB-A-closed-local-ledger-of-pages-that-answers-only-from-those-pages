@@ -1,0 +1,78 @@
+{
+  "schema": "cryptid-claim-score-v1",
+  "version": "cryptid-claim-scorer-v5",
+  "scorer_sha256": "d91f3855437fb55d4ec165edcf48bad6a375437bcdf8acc7c8a2ea4b4e7d6b60",
+  "run_sha256": "3417f8fe1301ab6a3629c1ba199122360ae66db61180e52d9433b30ac6b19af6",
+  "key_sha256": "d61e26601998d2b2c237083f5b0ec45ad9210f9452db2fb150f08245714ddca1",
+  "counts": {
+    "planned": 2,
+    "attempted": 2,
+    "completed": 2,
+    "scored": 2,
+    "unscored": 0,
+    "passed": 2,
+    "false_support": 0,
+    "positive_misses": 0,
+    "budget_stops": 1,
+    "diagnostic_only": 0
+  },
+  "cases": [
+    {
+      "id": "CRYPT-YETI-0140",
+      "execution_status": "completed",
+      "scored": true,
+      "passed": true,
+      "expected": "complete",
+      "kind": "supported_answer",
+      "claims": 1,
+      "positive_miss": false,
+      "false_support": false,
+      "errors": [],
+      "interpretation_inspection_recognized": false,
+      "required_witness_discovery": true,
+      "miss_stage_diagnostic": null,
+      "budget_stop": false,
+      "measurements": {
+        "query_wall_seconds": 1.548042536000139,
+        "query_cpu_seconds": 0.574244362,
+        "peak_rss_bytes": 18911232,
+        "source_html_open_calls": {
+          "query": 12,
+          "discovery": 2
+        },
+        "source_read_measurement": "Python audit open events for ledger HTML files during query/discovery; cached in-memory reads are not counted",
+        "admitted_source_count": 1,
+        "admitted_canonical_characters": 14063
+      }
+    },
+    {
+      "id": "CRYPT-YETI-0141",
+      "execution_status": "completed",
+      "scored": true,
+      "passed": true,
+      "expected": "withhold",
+      "kind": "abstain",
+      "claims": 0,
+      "positive_miss": false,
+      "false_support": false,
+      "errors": [],
+      "interpretation_inspection_recognized": false,
+      "required_witness_discovery": null,
+      "miss_stage_diagnostic": null,
+      "budget_stop": true,
+      "measurements": {
+        "query_wall_seconds": 1.02206427299825,
+        "query_cpu_seconds": 0.414752809,
+        "peak_rss_bytes": 18915328,
+        "source_html_open_calls": {
+          "query": 11,
+          "discovery": 2
+        },
+        "source_read_measurement": "Python audit open events for ledger HTML files during query/discovery; cached in-memory reads are not counted",
+        "admitted_source_count": 1,
+        "admitted_canonical_characters": 14077
+      }
+    }
+  ],
+  "custody": "Same-operator keys/scoring; no independent historical or semantic adjudication."
+}

@@ -13,6 +13,15 @@ jobs:
     timeout-minutes: 15
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+      - name: Record and verify the exact candidate revision
+        env:
+          EXPECTED_SOURCE_SHA: ${{ github.event.pull_request.head.sha || github.sha }}
+        run: |
+          actual_source_sha="$(git rev-parse HEAD)"
+          echo "Tested candidate: $actual_source_sha"
+          test "$actual_source_sha" = "$EXPECTED_SOURCE_SHA"
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
@@ -43,6 +52,15 @@ jobs:
     timeout-minutes: 35
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+      - name: Record and verify the exact candidate revision
+        env:
+          EXPECTED_SOURCE_SHA: ${{ github.event.pull_request.head.sha || github.sha }}
+        run: |
+          actual_source_sha="$(git rev-parse HEAD)"
+          echo "Tested candidate: $actual_source_sha"
+          test "$actual_source_sha" = "$EXPECTED_SOURCE_SHA"
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'

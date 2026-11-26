@@ -18,10 +18,10 @@ Protecting checks:
 python -m unittest discover -s tests -q
 ```
 
-Measured status: The earlier release evidence remains pinned to its tested source. The [local Cryptid programme](../../evaluation/cryptid/README.md) now records sequential date, wording, modality, identity, correction, link, structure and fixed-cap studies. Its [machine inventory](../../evaluation/cryptid/programme.json) separates executed, failed, consumed-transfer and unperformed work. This branch is LOCAL_ONLY; these experiments have not been published.
+Measured status: The earlier release evidence remains pinned to its tested source. The [local Cryptid programme](../../evaluation/cryptid/README.md) now records sequential date, wording, modality, identity, correction, link, structure and fixed-cap studies. Its [machine inventory](../../evaluation/cryptid/programme.json) separates executed, failed, consumed-transfer and unperformed work. Mitchell authorized publication in PR #105; final acceptance is failed (19/24), so merge and deployment are blocked.
 
 Open work: Keep failed attempts, execution accounting, scoring amendments, source pins and custody limits visible.
 
 [Department directory](README.md) · [Test Index](../TEST_INDEX.md) · [Current evidence](../CURRENT_STATUS.md) · [Full package map](../PACKAGE_GUIDE.md)
 
-Current local work: [reporting negation and prospective partial policy](../../evaluation/cryptid/revision3/REPORT.md). Keep reader gains, evaluation-policy decisions, unit-accounting changes and original strict-key failures separate. Publication is pending explicit authorization.
+Current local work: [reporting negation and prospective partial policy](../../evaluation/cryptid/revision3/REPORT.md). Keep reader gains, evaluation-policy decisions, unit-accounting changes and original strict-key failures separate. [The publication review package](../../evaluation/cryptid/revision3/REVIEW_PACKAGE.md) separates the tested source ZIP, evidence-only publication head, original strict-key failures and required remote gates.

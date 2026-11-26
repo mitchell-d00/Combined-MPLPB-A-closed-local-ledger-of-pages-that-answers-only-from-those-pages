@@ -1,7 +1,7 @@
 {
   "schema": "cryptid-programme-v1",
   "baseline_commit": "c01021c0b9983f9a607fbe782dea7ed5872d1f11",
-  "publication": "LOCAL_ONLY; no push, PR mutation, merge, deployment or remote-main changes authorized",
+  "publication": "AUTHORIZED_PUBLISHED_PR105; MERGE_BLOCKED_ACCEPTANCE_FAILURE; NO_DEPLOYMENT",
   "operator": "Betty, same operator for preparation/implementation/scoring",
   "independent_historical_accuracy": "NOT_RUN",
   "independent_semantic_adjudication": "NOT_RUN",
@@ -658,7 +658,8 @@
     "ledger/0010.json",
     "ledger/0011.json",
     "ledger/0012.json",
-    "ledger/0013.json"
+    "ledger/0013.json",
+    "ledger/0014.json"
   ],
   "final_integration": {
     "status": "SECOND_CANDIDATE_PENDING",
@@ -680,5 +681,7 @@
     "fresh_packet": "revision3/fresh/transfer-seal.json",
     "original_failure_classifications": "Retained unchanged",
     "rejected_candidate": "revision3/rejected-c1-archive.json"
-  }
+  },
+  "current_review": "revision3/REVIEW_PACKAGE.md",
+  "final_candidate_review": "revision3/final3/summary.json"
 }

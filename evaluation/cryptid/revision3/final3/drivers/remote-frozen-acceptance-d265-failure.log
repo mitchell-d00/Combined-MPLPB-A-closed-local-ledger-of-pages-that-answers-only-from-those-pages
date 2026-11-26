@@ -1,0 +1,1439 @@
+frozen-acceptance	Replay the unchanged 1,000-case source packets	﻿2026-11-26T01:30:53.4409146Z ##[group]Run # The isolated worker cannot bind the Actions workspace below /home.
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:30:53.4409758Z [36;1m# The isolated worker cannot bind the Actions workspace below /home.[0m
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:30:53.4410149Z [36;1mstage="$(sudo mktemp -d /tmp/mplpb-bounded.XXXXXX)"[0m
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:30:53.4410477Z [36;1mstatus=0[0m
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:30:53.4410879Z [36;1msudo "$(command -v python)" -m tools.verify_bounded_reported_content --output "$stage/bounded-repair" || status=$?[0m
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:30:53.4411364Z [36;1msudo cp -R "$stage/bounded-repair" "$RUNNER_TEMP/bounded-repair"[0m
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:30:53.4411737Z [36;1mif ((status)); then[0m
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:30:53.4412079Z [36;1m  find "$RUNNER_TEMP/bounded-repair/run" -name failure.json -print -quit |[0m
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:30:53.4412548Z [36;1m    while IFS= read -r failure; do head -20 "$(dirname "$failure")/worker.log"; done[0m
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:30:53.4412951Z [36;1mfi[0m
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:30:53.4413148Z [36;1mexit "$status"[0m
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:30:53.4439531Z shell: /usr/bin/bash -e {0}
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:30:53.4439958Z env:
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:30:53.4440241Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.16/x64
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:30:53.4440636Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.16/x64/lib/pkgconfig
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:30:53.4441050Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:30:53.4441393Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:30:53.4441733Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:30:53.4442067Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.16/x64/lib
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:30:53.4442375Z ##[endgroup]
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:30:54.8121051Z DP00001 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:30:55.1345196Z DP00002 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:30:55.4573861Z DP00003 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:30:55.7801501Z DP00004 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:30:56.1028090Z DP00005 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:30:56.3748302Z DP00006 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:30:56.7488916Z DP00007 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:30:57.1741633Z DP00008 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:30:57.5480665Z DP00009 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:30:57.9223489Z DP00010 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:30:58.2962861Z DP00011 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:30:58.5683866Z DP00012 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:30:58.8919728Z DP00013 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:30:59.1639791Z DP00014 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:30:59.4363033Z DP00015 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:30:59.7632048Z DP00016 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:31:00.0858829Z DP00017 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:31:00.3580102Z DP00018 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:31:00.6810676Z DP00019 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:31:01.1062646Z DP00020 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:31:01.4285808Z DP00021 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:31:01.7515996Z DP00022 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:31:02.0738841Z DP00023 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:31:02.3462494Z DP00024 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:31:02.6183138Z DP00025 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:31:02.9921795Z DP00026 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:31:03.2643733Z DP00027 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:31:03.6378893Z DP00028 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:31:04.0118871Z DP00029 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:31:04.3343414Z DP00030 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:31:04.6065764Z DP00031 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:31:04.9859560Z DP00032 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:31:05.3083052Z DP00033 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:31:05.6310406Z DP00034 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:31:05.9547020Z DP00035 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:31:06.2775616Z DP00036 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:31:06.6518779Z DP00037 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:31:06.9747637Z DP00038 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:31:07.2469568Z DP00039 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:31:07.6212750Z DP00040 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:31:07.8932979Z DP00041 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:31:08.2675538Z DP00042 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:31:08.5397425Z DP00043 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:31:08.8122301Z DP00044 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:31:09.1353243Z DP00045 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:31:09.4582810Z DP00046 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:31:09.7301572Z DP00047 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:31:10.0524905Z DP00048 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:31:10.4310716Z DP00049 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:31:10.8052897Z DP00050 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:31:11.1278400Z DP00051 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:31:11.4511584Z DP00052 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:31:11.7235616Z DP00053 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:31:11.9956745Z DP00054 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:31:12.3179654Z DP00055 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:31:12.5899150Z DP00056 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:31:12.8620397Z DP00057 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:31:13.2867667Z DP00058 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:31:13.6091565Z DP00059 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:31:13.9325559Z DP00060 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:31:14.2048200Z DP00061 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:31:14.5275683Z DP00062 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:31:14.9017659Z DP00063 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:31:15.2758395Z DP00064 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:31:15.6544075Z DP00065 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:31:15.9263766Z DP00066 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:31:16.3006916Z DP00067 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:31:16.5728255Z DP00068 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:31:16.8454218Z DP00069 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:31:17.1687819Z DP00070 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:31:17.4916183Z DP00071 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:31:17.8143711Z DP00072 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:31:18.1372822Z DP00073 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:31:18.5116200Z DP00074 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:31:18.8348054Z DP00075 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:31:19.1583827Z DP00076 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:31:19.5328098Z DP00077 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:31:19.8552990Z DP00078 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:31:20.1787723Z DP00079 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:31:20.4508738Z DP00080 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:31:20.7780094Z DP00081 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:31:21.1011526Z DP00082 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:31:21.4242303Z DP00083 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:31:21.7483980Z DP00084 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:31:22.0714876Z DP00085 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:31:22.3439065Z DP00086 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:31:22.6667149Z DP00087 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:31:23.0408676Z DP00088 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:31:23.3637505Z DP00089 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:31:23.7382213Z DP00090 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:31:24.1125128Z DP00091 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:31:24.4359445Z DP00092 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:31:24.7596522Z DP00093 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:31:25.0826979Z DP00094 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:31:25.3555119Z DP00095 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:31:25.6278763Z DP00096 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:31:25.9558482Z DP00097 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:31:26.2786217Z DP00098 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:31:26.5514576Z DP00099 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:31:26.8236642Z DP00100 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:31:27.1981382Z DP00101 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:31:27.4704524Z DP00102 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:31:27.7432063Z DP00103 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:31:28.0153235Z DP00104 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:31:28.3385225Z DP00105 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:31:28.6612070Z DP00106 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:31:28.9337084Z DP00107 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:31:29.3077814Z DP00108 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:31:29.6309405Z DP00109 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:31:29.9035253Z DP00110 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:31:30.2264273Z DP00111 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:31:30.5493937Z DP00112 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:31:30.8718662Z DP00113 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:31:31.1489988Z DP00114 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:31:31.4217091Z DP00115 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:31:31.7961545Z DP00116 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:31:32.0691021Z DP00117 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:31:32.3924948Z DP00118 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:31:32.6659234Z DP00119 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:31:32.9385111Z DP00120 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:31:33.2117660Z DP00121 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:31:33.5346250Z DP00122 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:31:33.8580403Z DP00123 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:31:34.1308516Z DP00124 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:31:34.4542617Z DP00125 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:31:34.7769427Z DP00126 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:31:35.0998883Z DP00127 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:31:35.4231126Z DP00128 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:31:35.7464069Z DP00129 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:31:36.0236807Z DP00130 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:31:36.3976049Z DP00131 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:31:36.7203017Z DP00132 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:31:37.0944135Z DP00133 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:31:37.4690382Z DP00134 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:31:37.7415150Z DP00135 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:31:38.0138853Z DP00136 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:31:38.3902123Z DP00137 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:31:38.6627782Z DP00138 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:31:39.0370040Z DP00139 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:31:39.3603008Z DP00140 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:31:39.7349857Z DP00141 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:31:40.0586955Z DP00142 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:31:40.3821981Z DP00143 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:31:40.6549277Z DP00144 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:31:40.9778511Z DP00145 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:31:41.3051011Z DP00146 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:31:41.5776520Z DP00147 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:31:41.8500566Z DP00148 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:31:42.1734177Z DP00149 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:31:42.5986643Z DP00150 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:31:42.8716078Z DP00151 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:31:43.1944720Z DP00152 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:31:43.5176642Z DP00153 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:31:43.8919540Z DP00154 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:31:44.2670995Z DP00155 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:31:44.6414541Z DP00156 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:31:44.9144911Z DP00157 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:31:45.1876938Z DP00158 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:31:45.5625213Z DP00159 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:31:45.9885069Z DP00160 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:31:46.3633867Z DP00161 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:31:46.6407012Z DP00162 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:31:46.9639835Z DP00163 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:31:47.3382390Z DP00164 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:31:47.6113062Z DP00165 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:31:47.9859265Z DP00166 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:31:48.2587071Z DP00167 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:31:48.5820704Z DP00168 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:31:48.9054536Z DP00169 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:31:49.2805685Z DP00170 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:31:49.6042706Z DP00171 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:31:49.9276363Z DP00172 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:31:50.2505147Z DP00173 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:31:50.5232409Z DP00174 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:31:50.7963458Z DP00175 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:31:51.1712955Z DP00176 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:31:51.4943358Z DP00177 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:31:51.8213602Z DP00178 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:31:52.1958591Z DP00179 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:31:52.5194371Z DP00180 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:31:52.8423656Z DP00181 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:31:53.1153718Z DP00182 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:31:53.4391384Z DP00183 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:31:53.7115741Z DP00184 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:31:53.9842401Z DP00185 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:31:54.3071379Z DP00186 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:31:54.6299653Z DP00187 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:31:55.0051912Z DP00188 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:31:55.3287751Z DP00189 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:31:55.6521864Z DP00190 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:31:55.9757996Z DP00191 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:31:56.2485277Z DP00192 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:31:56.5219939Z DP00193 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:31:56.8449357Z DP00194 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:31:57.1747662Z DP00195 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:31:57.4988850Z DP00196 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:31:57.8731641Z DP00197 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:31:58.1466667Z DP00198 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:31:58.5212597Z DP00199 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:31:58.7940863Z DP00200 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:31:59.0667996Z DP00201 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:31:59.3905397Z DP00202 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:31:59.7137804Z DP00203 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:32:00.0367571Z DP00204 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:32:00.4111022Z DP00205 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:32:00.6839065Z DP00206 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:32:01.0590108Z DP00207 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:32:01.3317727Z DP00208 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:32:01.6046628Z DP00209 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:32:01.9276469Z DP00210 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:32:02.2552175Z DP00211 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:32:02.5284270Z DP00212 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:32:02.9032234Z DP00213 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:32:03.2269549Z DP00214 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:32:03.5507092Z DP00215 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:32:03.8737675Z DP00216 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:32:04.2482598Z DP00217 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:32:04.6230796Z DP00218 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:32:04.9468200Z DP00219 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:32:05.2697600Z DP00220 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:32:05.6448430Z DP00221 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:32:06.0191963Z DP00222 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:32:06.3420979Z DP00223 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:32:06.6150080Z DP00224 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:32:06.8879383Z DP00225 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:32:07.1608856Z DP00226 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:32:07.5403859Z DP00227 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:32:07.9158434Z DP00228 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:32:08.2904962Z DP00229 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:32:08.6143724Z DP00230 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:32:08.8877601Z DP00231 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:32:09.2106060Z DP00232 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:32:09.5339640Z DP00233 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:32:09.9089846Z DP00234 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:32:10.1823705Z DP00235 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:32:10.4558916Z DP00236 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:32:10.8309456Z DP00237 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:32:11.2066422Z DP00238 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:32:11.5814688Z DP00239 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:32:11.8545959Z DP00240 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:32:12.1777057Z DP00241 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:32:12.5012047Z DP00242 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:32:12.7783997Z DP00243 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:32:13.0512054Z DP00244 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:32:13.3241055Z DP00245 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:32:13.6476292Z DP00246 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:32:13.9213113Z DP00247 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:32:14.2961453Z DP00248 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:32:14.6702516Z DP00249 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:32:14.9438973Z DP00250 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:32:15.2675571Z DP00251 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:32:15.5408546Z DP00252 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:32:15.8141294Z DP00253 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:32:16.1897196Z DP00254 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:32:16.4630728Z DP00255 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:32:16.7362521Z DP00256 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:32:17.1115901Z DP00257 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:32:17.4350745Z DP00258 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:32:17.7128038Z DP00259 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:32:18.0877619Z DP00260 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:32:18.3606712Z DP00261 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:32:18.6339181Z DP00262 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:32:18.9575446Z DP00263 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:32:19.2305369Z DP00264 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:32:19.5545632Z DP00265 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:32:19.8282629Z DP00266 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:32:20.1522863Z DP00267 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:32:20.4260460Z DP00268 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:32:20.7499612Z DP00269 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:32:21.0230637Z DP00270 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:32:21.4490109Z DP00271 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:32:21.7224395Z DP00272 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:32:22.0456068Z DP00273 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:32:22.3694690Z DP00274 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:32:22.7494888Z DP00275 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:32:23.0729126Z DP00276 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:32:23.3462758Z DP00277 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:32:23.6697473Z DP00278 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:32:24.0451427Z DP00279 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:32:24.3181986Z DP00280 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:32:24.5916844Z DP00281 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:32:24.9161561Z DP00282 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:32:25.2913840Z DP00283 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:32:25.5648153Z DP00284 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:32:25.8882852Z DP00285 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:32:26.2636482Z DP00286 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:32:26.6391777Z DP00287 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:32:27.0142262Z DP00288 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:32:27.2877714Z DP00289 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:32:27.6628681Z DP00290 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:32:27.9404112Z DP00291 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:32:28.2635754Z DP00292 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:32:28.6391629Z DP00293 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:32:28.9125224Z DP00294 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:32:29.2361971Z DP00295 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:32:29.5606539Z DP00296 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:32:29.8845954Z DP00297 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:32:30.2599833Z DP00298 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:32:30.5329308Z DP00299 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:32:30.8063823Z DP00300 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:32:31.1302973Z DP00301 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:32:31.4035173Z DP00302 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:32:31.7277682Z DP00303 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:32:32.0516770Z DP00304 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:32:32.4777413Z DP00305 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:32:32.7514832Z DP00306 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:32:33.1318526Z DP00307 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:32:33.4049995Z DP00308 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:32:33.7286510Z DP00309 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:32:34.0018442Z DP00310 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:32:34.3252039Z DP00311 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:32:34.5988208Z DP00312 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:32:34.9228575Z DP00313 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:32:35.1968004Z DP00314 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:32:35.5210978Z DP00315 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:32:35.7944758Z DP00316 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:32:36.0681935Z DP00317 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:32:36.3414137Z DP00318 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:32:36.6650253Z DP00319 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:32:36.9892374Z DP00320 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:32:37.3133950Z DP00321 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:32:37.6371757Z DP00322 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:32:37.9607081Z DP00323 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:32:38.2895823Z DP00324 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:32:38.6648935Z DP00325 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:32:39.0402804Z DP00326 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:32:39.3134729Z DP00327 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:32:39.5871190Z DP00328 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:32:39.9620481Z DP00329 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:32:40.3369319Z DP00330 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:32:40.6605042Z DP00331 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:32:40.9835784Z DP00332 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:32:41.3081415Z DP00333 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:32:41.6837956Z DP00334 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:32:41.9573038Z DP00335 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:32:42.3335859Z DP00336 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:32:42.7085887Z DP00337 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:32:42.9819106Z DP00338 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:32:43.2555498Z DP00339 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:32:43.5843181Z DP00340 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:32:43.9592539Z DP00341 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:32:44.2830752Z DP00342 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:32:44.6571862Z DP00343 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:32:44.9315324Z DP00344 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:32:45.3069467Z DP00345 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:32:45.5808188Z DP00346 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:32:45.9052126Z DP00347 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:32:46.2802654Z DP00348 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:32:46.5539213Z DP00349 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:32:46.8272841Z DP00350 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:32:47.1006635Z DP00351 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:32:47.4258171Z DP00352 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:32:47.6990009Z DP00353 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:32:48.0742630Z DP00354 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:32:48.3475846Z DP00355 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:32:48.7276965Z DP00356 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:32:49.0516057Z DP00357 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:32:49.3750729Z DP00358 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:32:49.7503611Z DP00359 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:32:50.0238532Z DP00360 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:32:50.3994095Z DP00361 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:32:50.6727776Z DP00362 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:32:50.9460547Z DP00363 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:32:51.2192316Z DP00364 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:32:51.5425954Z DP00365 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:32:51.9179065Z DP00366 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:32:52.2423473Z DP00367 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:32:52.5159397Z DP00368 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:32:52.8910427Z DP00369 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:32:53.1644748Z DP00370 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:32:53.4379490Z DP00371 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:32:53.7672003Z DP00372 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:32:54.0913016Z DP00373 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:32:54.3646470Z DP00374 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:32:54.6888381Z DP00375 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:32:55.0641766Z DP00376 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:32:55.3376964Z DP00377 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:32:55.6618108Z DP00378 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:32:55.9355123Z DP00379 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:32:56.2599015Z DP00380 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:32:56.6349281Z DP00381 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:32:56.9593103Z DP00382 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:32:57.2835084Z DP00383 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:32:57.6589693Z DP00384 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:32:58.0343606Z DP00385 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:32:58.3585791Z DP00386 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:32:58.6319914Z DP00387 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:32:58.9094944Z DP00388 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:32:59.2329859Z DP00389 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:32:59.5569139Z DP00390 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:32:59.8302672Z DP00391 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:33:00.1540163Z DP00392 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:33:00.5294690Z DP00393 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:33:00.8032566Z DP00394 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:33:01.1786426Z DP00395 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:33:01.5031665Z DP00396 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:33:01.7765976Z DP00397 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:33:02.1010371Z DP00398 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:33:02.4762711Z DP00399 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:33:02.8512311Z DP00400 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:33:03.1246317Z DP00401 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:33:03.4480598Z DP00402 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:33:03.7717103Z DP00403 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:33:04.0499648Z DP00404 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:33:04.4254119Z DP00405 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:33:04.7491398Z DP00406 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:33:05.1758563Z DP00407 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:33:05.5512777Z DP00408 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:33:05.8747495Z DP00409 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:33:06.2503027Z DP00410 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:33:06.5239155Z DP00411 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:33:06.7975550Z DP00412 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:33:07.1226093Z DP00413 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:33:07.3964204Z DP00414 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:33:07.7721713Z DP00415 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:33:08.0458010Z DP00416 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:33:08.3696455Z DP00417 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:33:08.7452875Z DP00418 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:33:09.1207970Z DP00419 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:33:09.3992850Z DP00420 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:33:09.7233665Z DP00421 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:33:10.0993688Z DP00422 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:33:10.4238846Z DP00423 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:33:10.7486042Z DP00424 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:33:11.1241432Z DP00425 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:33:11.4483223Z DP00426 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:33:11.7215805Z DP00427 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:33:12.0455512Z DP00428 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:33:12.3196785Z DP00429 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:33:12.6436363Z DP00430 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:33:12.9171218Z DP00431 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:33:13.1904377Z DP00432 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:33:13.5148986Z DP00433 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:33:13.8387191Z DP00434 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:33:14.2142130Z DP00435 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:33:14.5431161Z DP00436 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:33:14.8669299Z DP00437 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:33:15.1402795Z DP00438 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:33:15.4648589Z DP00439 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:33:15.7386820Z DP00440 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:33:16.0630261Z DP00441 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:33:16.3370012Z DP00442 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:33:16.6608831Z DP00443 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:33:16.9344710Z DP00444 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:33:17.2589051Z DP00445 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:33:17.5328098Z DP00446 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:33:17.9090500Z DP00447 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:33:18.2334683Z DP00448 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:33:18.5067152Z DP00449 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:33:18.8818017Z DP00450 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:33:19.2056849Z DP00451 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:33:19.5336655Z DP00452 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:33:19.8068170Z DP00453 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:33:20.0803346Z DP00454 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:33:20.3536484Z DP00455 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:33:20.6772254Z DP00456 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:33:21.0008987Z DP00457 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:33:21.2749701Z DP00458 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:33:21.5993446Z DP00459 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:33:21.9745560Z DP00460 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:33:22.3493418Z DP00461 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:33:22.6228598Z DP00462 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:33:22.9465429Z DP00463 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:33:23.2702970Z DP00464 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:33:23.5946278Z DP00465 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:33:23.9186706Z DP00466 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:33:24.2423839Z DP00467 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:33:24.6174338Z DP00468 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:33:24.9459374Z DP00469 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:33:25.3213304Z DP00470 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:33:25.7481735Z DP00471 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:33:26.0216661Z DP00472 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:33:26.2952049Z DP00473 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:33:26.5691050Z DP00474 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:33:26.8423523Z DP00475 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:33:27.1160546Z DP00476 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:33:27.4918428Z DP00477 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:33:27.8153734Z DP00478 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:33:28.1395451Z DP00479 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:33:28.4641377Z DP00480 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:33:28.7381917Z DP00481 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:33:29.1131980Z DP00482 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:33:29.3864047Z DP00483 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:33:29.7100825Z DP00484 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:33:29.9881748Z DP00485 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:33:30.2615749Z DP00486 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:33:30.5858007Z DP00487 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:33:30.9610529Z DP00488 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:33:31.2846224Z DP00489 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:33:31.6085694Z DP00490 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:33:31.8823801Z DP00491 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:33:32.2580334Z DP00492 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:33:32.6345304Z DP00493 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:33:32.9084926Z DP00494 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:33:33.2324789Z DP00495 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:33:33.5568466Z DP00496 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:33:33.8812585Z DP00497 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:33:34.1548941Z DP00498 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:33:34.4788219Z DP00499 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:33:34.7523731Z DP00500 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:33:35.0811742Z DP00501 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:33:35.4052249Z DP00502 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:33:35.7804941Z DP00503 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:33:36.1050142Z DP00504 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:33:36.3791618Z DP00505 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:33:36.6526666Z DP00506 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:33:36.9265274Z DP00507 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:33:37.3019926Z DP00508 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:33:37.6773382Z DP00509 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:33:38.0018299Z DP00510 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:33:38.2753067Z DP00511 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:33:38.5992624Z DP00512 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:33:38.9231600Z DP00513 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:33:39.2479910Z DP00514 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:33:39.5715401Z DP00515 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:33:39.8958671Z DP00516 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:33:40.1737993Z DP00517 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:33:40.3968450Z DP00518 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:33:40.6704616Z DP00519 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:33:40.9949766Z DP00520 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:33:41.3709766Z DP00521 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:33:41.7461748Z DP00522 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:33:42.0701377Z DP00523 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:33:42.4462505Z DP00524 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:33:42.7199274Z DP00525 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:33:43.0960458Z DP00526 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:33:43.4197823Z DP00527 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:33:43.6934049Z DP00528 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:33:44.0179750Z DP00529 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:33:44.3423440Z DP00530 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:33:44.6658767Z DP00531 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:33:44.9903044Z DP00532 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:33:45.2681592Z DP00533 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:33:45.5925594Z DP00534 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:33:45.9164606Z DP00535 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:33:46.2929486Z DP00536 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:33:46.6174139Z DP00537 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:33:46.9928901Z DP00538 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:33:47.3173253Z DP00539 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:33:47.6408422Z DP00540 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:33:47.9652029Z DP00541 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:33:48.2893292Z DP00542 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:33:48.6140013Z DP00543 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:33:48.8879057Z DP00544 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:33:49.1617200Z DP00545 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:33:49.4857127Z DP00546 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:33:49.7592825Z DP00547 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:33:50.0331328Z DP00548 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:33:50.3067685Z DP00549 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:33:50.6356073Z DP00550 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:33:50.9596842Z DP00551 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:33:51.2837666Z DP00552 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:33:51.5574756Z DP00553 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:33:51.8813629Z DP00554 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:33:52.2567606Z DP00555 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:33:52.5806412Z DP00556 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:33:52.9046683Z DP00557 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:33:53.2288175Z DP00558 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:33:53.5028523Z DP00559 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:33:53.8273308Z DP00560 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:33:54.1011645Z DP00561 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:33:54.3750066Z DP00562 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:33:54.7507538Z DP00563 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:33:55.0750706Z DP00564 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:33:55.3488856Z DP00565 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:33:55.6275768Z DP00566 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:33:56.0035233Z DP00567 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:33:56.2775684Z DP00568 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:33:56.6534585Z DP00569 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:33:56.9271882Z DP00570 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:33:57.3030441Z DP00571 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:33:57.5772200Z DP00572 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:33:57.9018825Z DP00573 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:33:58.2778721Z DP00574 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:33:58.5520593Z DP00575 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:33:58.8774292Z DP00576 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:33:59.2014205Z DP00577 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:33:59.5268635Z DP00578 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:33:59.8512996Z DP00579 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:34:00.1251919Z DP00580 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:34:00.3994585Z DP00581 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:34:00.7796112Z DP00582 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:34:01.1039939Z DP00583 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:34:01.4287377Z DP00584 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:34:01.8046022Z DP00585 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:34:02.1803873Z DP00586 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:34:02.4551014Z DP00587 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:34:02.7796643Z DP00588 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:34:03.1048318Z DP00589 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:34:03.3795431Z DP00590 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:34:03.7551822Z DP00591 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:34:04.1309407Z DP00592 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:34:04.4547741Z DP00593 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:34:04.7289422Z DP00594 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:34:05.0538142Z DP00595 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:34:05.3280147Z DP00596 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:34:05.7041212Z DP00597 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:34:05.9829403Z DP00598 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:34:06.2569408Z DP00599 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:34:06.5811859Z DP00600 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:34:06.9570288Z DP00601 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:34:07.2312633Z DP00602 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:34:07.6071152Z DP00603 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:34:07.9318343Z DP00604 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:34:08.2059226Z DP00605 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:34:08.5310612Z DP00606 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:34:08.8055701Z DP00607 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:34:09.1303547Z DP00608 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:34:09.4044350Z DP00609 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:34:09.7804801Z DP00610 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:34:10.0545891Z DP00611 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:34:10.3796901Z DP00612 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:34:10.6537034Z DP00613 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:34:10.9831896Z DP00614 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:34:11.3080292Z DP00615 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:34:11.6842527Z DP00616 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:34:11.9586361Z DP00617 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:34:12.2829533Z DP00618 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:34:12.5567113Z DP00619 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:34:12.8308739Z DP00620 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:34:13.2068452Z DP00621 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:34:13.5824577Z DP00622 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:34:13.9066516Z DP00623 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:34:14.2827144Z DP00624 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:34:14.5569015Z DP00625 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:34:14.9327543Z DP00626 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:34:15.2070770Z DP00627 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:34:15.4816748Z DP00628 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:34:15.8578832Z DP00629 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:34:16.1370646Z DP00630 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:34:16.4113718Z DP00631 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:34:16.7875526Z DP00632 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:34:17.0617109Z DP00633 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:34:17.3862452Z DP00634 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:34:17.6604340Z DP00635 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:34:17.9348579Z DP00636 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:34:18.2092126Z DP00637 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:34:18.4833324Z DP00638 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:34:18.8595373Z DP00639 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:34:19.1338609Z DP00640 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:34:19.4585681Z DP00641 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:34:19.7329438Z DP00642 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:34:20.1092583Z DP00643 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:34:20.3836274Z DP00644 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:34:20.7077186Z DP00645 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:34:21.0323864Z DP00646 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:34:21.3615210Z DP00647 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:34:21.6868023Z DP00648 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:34:22.0627464Z DP00649 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:34:22.3370893Z DP00650 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:34:22.6114956Z DP00651 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:34:22.8857122Z DP00652 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:34:23.2100378Z DP00653 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:34:23.4843687Z DP00654 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:34:23.7585816Z DP00655 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:34:24.1346911Z DP00656 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:34:24.4595665Z DP00657 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:34:24.7341723Z DP00658 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:34:25.0086105Z DP00659 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:34:25.3333481Z DP00660 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:34:25.7092739Z DP00661 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:34:26.0853296Z DP00662 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:34:26.4149393Z DP00663 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:34:26.6890994Z DP00664 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:34:27.0145481Z DP00665 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:34:27.2886568Z DP00666 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:34:27.6651114Z DP00667 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:34:27.9894798Z DP00668 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:34:28.2641637Z DP00669 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:34:28.5384055Z DP00670 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:34:28.8127213Z DP00671 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:34:29.1373923Z DP00672 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:34:29.4615112Z DP00673 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:34:29.7358008Z DP00674 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:34:30.1119723Z DP00675 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:34:30.4378193Z DP00676 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:34:30.7121683Z DP00677 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:34:31.0880582Z DP00678 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:34:31.3667787Z DP00679 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:34:31.6409590Z DP00680 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:34:31.9157905Z DP00681 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:34:32.1905174Z DP00682 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:34:32.4649794Z DP00683 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:34:32.7393228Z DP00684 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:34:33.0645060Z DP00685 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:34:33.3898501Z DP00686 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:34:33.7150710Z DP00687 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:34:34.0395724Z DP00688 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:34:34.3648470Z DP00689 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:34:34.6391138Z DP00690 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:34:35.0165936Z DP00691 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:34:35.3411867Z DP00692 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:34:35.6670218Z DP00693 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:34:35.9414214Z DP00694 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:34:36.2199954Z DP00695 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:34:36.5443082Z DP00696 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:34:36.9210081Z DP00697 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:34:37.2973338Z DP00698 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:34:37.5723184Z DP00699 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:34:37.8469620Z DP00700 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:34:38.1216663Z DP00701 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:34:38.4460665Z DP00702 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:34:38.7202821Z DP00703 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:34:39.0448097Z DP00704 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:34:39.3192423Z DP00705 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:34:39.6438010Z DP00706 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:34:39.9688490Z DP00707 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:34:40.2931494Z DP00708 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:34:40.5680480Z DP00709 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:34:40.9444429Z DP00710 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:34:41.2697035Z DP00711 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:34:41.6507588Z DP00712 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:34:41.9770939Z DP00713 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:34:42.2515247Z DP00714 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:34:42.5770527Z DP00715 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:34:42.9023578Z DP00716 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:34:43.2790502Z DP00717 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:34:43.5532512Z DP00718 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:34:43.8787516Z DP00719 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:34:44.1534565Z DP00720 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:34:44.4278417Z DP00721 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:34:44.8037139Z DP00722 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:34:45.0780953Z DP00723 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:34:45.3528587Z DP00724 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:34:45.6776213Z DP00725 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:34:46.0023993Z DP00726 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:34:46.3788624Z DP00727 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:34:46.7593921Z DP00728 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:34:47.0844453Z DP00729 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:34:47.3590077Z DP00730 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:34:47.7351145Z DP00731 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:34:48.1116755Z DP00732 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:34:48.4381053Z DP00733 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:34:48.7126034Z DP00734 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:34:49.0371031Z DP00735 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:34:49.3121649Z DP00736 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:34:49.6380017Z DP00737 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:34:49.9633625Z DP00738 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:34:50.3909935Z DP00739 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:34:50.7168700Z DP00740 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:34:51.0417025Z DP00741 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:34:51.3668281Z DP00742 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:34:51.6966443Z DP00743 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:34:51.9713601Z DP00744 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:34:52.2460540Z DP00745 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:34:52.5205596Z DP00746 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:34:52.7951242Z DP00747 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:34:53.0698874Z DP00748 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:34:53.3443214Z DP00749 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:34:53.6195833Z DP00750 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:34:53.8943917Z DP00751 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:34:54.2710516Z DP00752 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:34:54.5457744Z DP00753 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:34:54.8206049Z DP00754 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:34:55.0951772Z DP00755 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:34:55.4207818Z DP00756 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:34:55.7977703Z DP00757 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:34:56.1743165Z DP00758 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:34:56.4990828Z DP00759 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:34:56.7783567Z DP00760 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:34:57.1027682Z DP00761 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:34:57.3774262Z DP00762 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:34:57.7539808Z DP00763 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:34:58.1306681Z DP00764 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:34:58.4056743Z DP00765 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:34:58.7827531Z DP00766 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:34:59.0576837Z DP00767 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:34:59.3830261Z DP00768 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:34:59.6578467Z DP00769 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:34:59.9834539Z DP00770 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:35:00.3598830Z DP00771 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:35:00.6854232Z DP00772 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:35:00.9600895Z DP00773 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:35:01.2855985Z DP00774 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:35:01.6110428Z DP00775 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:35:01.9409069Z DP00776 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:35:02.2152114Z DP00777 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:35:02.5917418Z DP00778 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:35:02.9683053Z DP00779 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:35:03.2437639Z DP00780 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:35:03.6206515Z DP00781 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:35:03.8955013Z DP00782 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:35:04.2210430Z DP00783 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:35:04.5976013Z DP00784 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:35:04.8728843Z DP00785 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:35:05.1983977Z DP00786 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:35:05.5754517Z DP00787 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:35:05.9521332Z DP00788 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:35:06.2266448Z DP00789 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:35:06.6043555Z DP00790 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:35:06.8838789Z DP00791 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:35:07.2091978Z DP00792 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:35:07.5857570Z DP00793 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:35:07.9625139Z DP00794 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:35:08.3390201Z DP00795 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:35:08.7157881Z DP00796 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:35:09.0533253Z DP00797 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:35:09.3176238Z DP00798 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:35:09.5932794Z DP00799 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:35:09.9187773Z DP00800 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:35:10.2950918Z DP00801 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:35:10.5699365Z DP00802 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:35:10.8946190Z DP00803 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:35:11.2206059Z DP00804 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:35:11.5459284Z DP00805 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:35:11.8717072Z DP00806 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:35:12.2020086Z DP00807 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:35:12.5264807Z DP00808 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:35:12.8520074Z DP00809 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:35:13.1266996Z DP00810 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:35:13.5028717Z DP00811 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:35:13.7780422Z DP00812 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:35:14.0527713Z DP00813 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:35:14.4804242Z DP00814 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:35:14.8573845Z DP00815 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:35:15.1822286Z DP00816 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:35:15.4568205Z DP00817 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:35:15.7819402Z DP00818 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:35:16.1074631Z DP00819 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:35:16.5354985Z DP00820 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:35:16.8101365Z DP00821 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:35:17.0849275Z DP00822 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:35:17.3601695Z DP00823 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:35:17.7414740Z DP00824 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:35:18.0161856Z DP00825 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:35:18.3412668Z DP00826 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:35:18.6669504Z DP00827 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:35:18.9419066Z DP00828 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:35:19.3191714Z DP00829 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:35:19.6956173Z DP00830 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:35:20.0721983Z DP00831 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:35:20.4487755Z DP00832 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:35:20.8255296Z DP00833 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:35:21.2024066Z DP00834 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:35:21.5276350Z DP00835 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:35:21.8530315Z DP00836 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:35:22.1276689Z DP00837 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:35:22.5047630Z DP00838 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:35:22.8343454Z DP00839 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:35:23.1602760Z DP00840 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:35:23.4352355Z DP00841 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:35:23.7102580Z DP00842 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:35:23.9344783Z DP00843 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:35:24.2598842Z DP00844 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:35:24.5345650Z DP00845 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:35:24.9114907Z DP00846 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:35:25.3391589Z DP00847 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:35:25.6140511Z DP00848 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:35:25.9908555Z DP00849 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:35:26.2658681Z DP00850 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:35:26.5406963Z DP00851 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:35:26.9186621Z DP00852 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:35:27.2444312Z DP00853 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:35:27.5191692Z DP00854 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:35:27.8496132Z DP00855 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:35:28.2264099Z DP00856 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:35:28.5513281Z DP00857 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:35:28.8762774Z DP00858 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:35:29.1510666Z DP00859 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:35:29.4257918Z DP00860 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:35:29.7005412Z DP00861 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:35:30.0254446Z DP00862 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:35:30.3509898Z DP00863 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:35:30.6767924Z DP00864 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:35:31.0023291Z DP00865 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:35:31.3282163Z DP00866 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:35:31.6030847Z DP00867 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:35:31.9795617Z DP00868 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:35:32.3053720Z DP00869 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:35:32.5803067Z DP00870 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:35:32.8553640Z DP00871 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:35:33.2365871Z DP00872 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:35:33.5618206Z DP00873 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:35:33.8371616Z DP00874 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:35:34.1118785Z DP00875 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:35:34.4888721Z DP00876 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:35:34.8145154Z DP00877 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:35:35.1397699Z DP00878 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:35:35.4651200Z DP00879 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:35:35.8419034Z DP00880 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:35:36.1169665Z DP00881 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:35:36.4426128Z DP00882 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:35:36.8196144Z DP00883 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:35:37.1963842Z DP00884 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:35:37.5221298Z DP00885 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:35:37.8479082Z DP00886 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:35:38.2293082Z DP00887 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:35:38.5040485Z DP00888 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:35:38.7793891Z DP00889 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:35:39.1051473Z DP00890 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:35:39.4303219Z DP00891 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:35:39.7556709Z DP00892 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:35:40.1329423Z DP00893 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:35:40.4586639Z DP00894 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:35:40.8357392Z DP00895 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:35:41.2632971Z DP00896 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:35:41.5883338Z DP00897 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:35:41.8638396Z DP00898 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:35:42.1393286Z DP00899 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:35:42.5165791Z DP00900 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:35:42.8420472Z DP00901 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:35:43.1681720Z DP00902 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:35:43.4435229Z DP00903 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:35:43.7231411Z DP00904 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:35:44.1006391Z DP00905 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:35:44.3757488Z DP00906 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:35:44.7011962Z DP00907 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:35:45.0268380Z DP00908 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:35:45.3020498Z DP00909 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:35:45.5770102Z DP00910 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:35:45.8521369Z DP00911 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:35:46.1776283Z DP00912 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:35:46.4524428Z DP00913 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:35:46.7783601Z DP00914 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:35:47.1555630Z DP00915 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:35:47.4822664Z DP00916 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:35:47.7575320Z DP00917 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:35:48.0322839Z DP00918 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:35:48.4095196Z DP00919 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:35:48.6888939Z DP00920 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:35:48.9636048Z DP00921 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:35:49.2388298Z DP00922 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:35:49.5653009Z DP00923 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:35:49.8906022Z DP00924 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:35:50.2160886Z DP00925 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:35:50.4915280Z DP00926 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:35:50.8169734Z DP00927 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:35:51.0919707Z DP00928 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:35:51.4690258Z DP00929 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:35:51.7439719Z DP00930 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:35:52.0189581Z DP00931 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:35:52.3958436Z DP00932 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:35:52.6710228Z DP00933 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:35:53.0478292Z DP00934 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:35:53.4258021Z DP00935 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:35:53.7054865Z DP00936 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:35:54.0823939Z DP00937 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:35:54.4080386Z DP00938 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:35:54.6830984Z DP00939 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:35:55.0603258Z DP00940 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:35:55.3355236Z DP00941 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:35:55.6107649Z DP00942 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:35:55.8859549Z DP00943 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:35:56.1612852Z DP00944 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:35:56.5383285Z DP00945 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:35:56.8647356Z DP00946 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:35:57.1401703Z DP00947 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:35:57.5170766Z DP00948 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:35:57.8432946Z DP00949 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:35:58.1693360Z DP00950 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:35:58.4949125Z DP00951 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:35:58.7748546Z DP00952 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:35:59.1005191Z DP00953 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:35:59.4261399Z DP00954 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:35:59.8034317Z DP00955 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:00.0790234Z DP00956 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:00.4047817Z DP00957 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:00.7825919Z DP00958 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:01.1085727Z DP00959 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:01.4866194Z DP00960 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:01.8123308Z DP00961 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:02.2405117Z DP00962 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:02.5156846Z DP00963 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:02.8419277Z DP00964 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:03.1170806Z DP00965 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:03.4430365Z DP00966 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:03.7697758Z DP00967 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:04.1001318Z DP00968 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:04.3752169Z DP00969 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:04.6510561Z DP00970 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:04.9768860Z DP00971 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:05.2522493Z DP00972 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:05.6293782Z DP00973 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:05.9557913Z DP00974 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:06.2814982Z DP00975 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:06.6076505Z DP00976 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:06.9338079Z DP00977 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:07.2608444Z DP00978 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:07.5360889Z DP00979 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:07.8619512Z DP00980 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:08.1376734Z DP00981 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:08.5150932Z DP00982 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:08.7911732Z DP00983 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:09.2235329Z DP00984 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:09.5491824Z DP00985 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:09.9268464Z DP00986 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:10.2025758Z DP00987 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:10.5285529Z DP00988 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:10.8043064Z DP00989 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:11.0797520Z DP00990 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:11.4059692Z DP00991 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:11.6815533Z DP00992 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:11.9575064Z DP00993 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:12.2334181Z DP00994 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:12.5599681Z DP00995 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:12.9378326Z DP00996 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:13.2642345Z DP00997 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:13.5399130Z DP00998 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:13.9171631Z DP00999 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:14.2987562Z DP01000 completed
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3681980Z {
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3682510Z   "revision": "d265881fec092afffdda56cd8781438e40ef1cf7",
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3682873Z   "isolated_run": true,
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3683115Z   "counts": {
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3683324Z     "retained_refusal": 580,
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3683539Z     "retained_unresolved": 145,
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3683759Z     "retained_complete": 189,
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3684009Z     "unscored_support": 65,
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3684230Z     "new_complete": 21
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3684725Z   },
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3684867Z   "by_family": {
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3685027Z     "field_missing_label": {
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3685208Z       "retained_refusal": 20
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3685374Z     },
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3685518Z     "chronology_causation": {
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3685726Z       "retained_refusal": 21
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3685886Z     },
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3686027Z     "ambiguous_pronoun": {
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3686197Z       "retained_refusal": 21
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3686355Z     },
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3686501Z     "conditional_execution": {
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3686678Z       "retained_refusal": 21
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3686845Z     },
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3686990Z     "field_missing_bridge": {
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3687166Z       "retained_refusal": 20
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3687578Z     },
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3687748Z     "subject_identity": {
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3687922Z       "retained_refusal": 21
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3688087Z     },
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3688227Z     "wording_change": {
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3688477Z       "retained_unresolved": 21
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3688640Z     },
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3688777Z     "corrupted_source": {
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3688941Z       "retained_refusal": 21
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3689107Z     },
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3689245Z     "missing_bridge": {
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3689407Z       "retained_refusal": 21
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3689564Z     },
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3689703Z     "reported_execution": {
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3689872Z       "retained_refusal": 21
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3690032Z     },
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3690169Z     "field_literal": {
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3690337Z       "retained_complete": 21
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3690498Z     },
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3690638Z     "identical_wording": {
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3690810Z       "retained_unresolved": 21
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3690987Z     },
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3691125Z     "field_stacked": {
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3691286Z       "retained_refusal": 20
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3691447Z     },
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3691591Z     "field_past_scope": {
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3691758Z       "retained_refusal": 21
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3691914Z     },
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3692048Z     "date_roles": {
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3692200Z       "unscored_support": 9,
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3692371Z       "retained_unresolved": 12
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3692534Z     },
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3692680Z     "competing_accounts": {
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3692850Z       "retained_refusal": 21
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3693011Z     },
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3693151Z     "embedded_identifier": {
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3693324Z       "retained_refusal": 21
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3693632Z     },
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3693775Z     "earliest_observed": {
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3693946Z       "retained_unresolved": 21
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3694209Z     },
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3694391Z     "reported_statement": {
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3694567Z       "unscored_support": 21
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3694726Z     },
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3694869Z     "field_withdrawn": {
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3695037Z       "retained_refusal": 20
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3695193Z     },
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3695328Z     "direct_action": {
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3695489Z       "retained_complete": 21
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3695645Z     },
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3695781Z     "field_negation": {
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3695943Z       "retained_refusal": 21
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3696104Z     },
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3696244Z     "historical_priority": {
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3696409Z       "retained_refusal": 21
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3696683Z     },
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3696851Z     "field_restricted": {
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3697063Z       "retained_refusal": 20
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3697418Z     },
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3697614Z     "restricted_source": {
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3697835Z       "retained_refusal": 21
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3698043Z     },
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3698245Z     "partial_correction": {
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3698498Z       "retained_unresolved": 7,
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3698740Z       "unscored_support": 14
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3699100Z     },
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3699275Z     "negated_statement": {
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3699503Z       "unscored_support": 21
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3699670Z     },
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3699818Z     "ambiguous_correction": {
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3699992Z       "retained_refusal": 21
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3700146Z     },
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3700285Z     "field_same_subject": {
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3700461Z       "retained_complete": 21
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3700621Z     },
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3700768Z     "field_compound": {
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3700931Z       "new_complete": 21
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3701088Z     },
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3701227Z     "absent_anchor": {
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3701388Z       "retained_refusal": 21
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3701543Z     },
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3701689Z     "instruction_statement": {
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3701865Z       "retained_unresolved": 21
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3702025Z     },
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3702160Z     "explicit_chain": {
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3702330Z       "retained_unresolved": 21
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3702501Z     },
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3702642Z     "field_corrupted": {
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3702807Z       "retained_refusal": 20
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3702960Z     },
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3703095Z     "header_location": {
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3703263Z       "retained_unresolved": 21
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3703426Z     },
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3703559Z     "field_reported_only": {
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3703725Z       "retained_refusal": 21
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3703882Z     },
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3704016Z     "field_wrong_id": {
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3704184Z       "retained_refusal": 20
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3704341Z     },
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3704482Z     "field_quoted_only": {
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3704648Z       "retained_refusal": 21
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3704806Z     },
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3704946Z     "intention_execution": {
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3705118Z       "retained_refusal": 21
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3705274Z     },
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3705414Z     "negated_execution": {
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3705586Z       "retained_refusal": 21
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3705746Z     },
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3705888Z     "editorial_competition": {
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3706069Z       "retained_complete": 21
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3706231Z     },
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3706367Z     "field_synonym": {
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3706525Z       "retained_complete": 21
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3706686Z     },
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3706827Z     "passive_action": {
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3706994Z       "retained_complete": 21
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3707156Z     },
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3707478Z     "field_conflict": {
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3707651Z       "retained_refusal": 20
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3707918Z     },
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3708065Z     "explicit_cause": {
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3708234Z       "retained_complete": 21
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3708396Z     },
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3708536Z     "field_changed_body": {
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3708707Z       "retained_complete": 21
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3708868Z     },
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3709005Z     "withdrawn_source": {
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3709169Z       "retained_refusal": 21
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3709327Z     },
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3709461Z     "exact_anchor": {
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3709621Z       "retained_complete": 21
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3709850Z     }
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3710016Z   },
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3710156Z   "findings": [
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3710305Z     {
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3710450Z       "case": "DP00016",
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3710620Z       "family": "date_roles",
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3710803Z       "outcome": "unscored_support"
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3710984Z     },
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3711116Z     {
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3711253Z       "case": "DP00023",
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3711445Z       "family": "reported_statement",
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3711644Z       "outcome": "unscored_support"
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3711822Z     },
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3711949Z     {
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3712086Z       "case": "DP00038",
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3712260Z       "family": "negated_statement",
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3712456Z       "outcome": "unscored_support"
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3712693Z     },
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3712817Z     {
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3712951Z       "case": "DP00045",
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3713123Z       "family": "partial_correction",
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3713316Z       "outcome": "unscored_support"
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3713489Z     },
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3713616Z     {
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3713771Z       "case": "DP00071",
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3713937Z       "family": "date_roles",
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3714116Z       "outcome": "unscored_support"
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3714288Z     },
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3714416Z     {
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3714554Z       "case": "DP00079",
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3714727Z       "family": "negated_statement",
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3714918Z       "outcome": "unscored_support"
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3715087Z     },
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3715212Z     {
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3715344Z       "case": "DP00106",
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3715515Z       "family": "negated_statement",
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3715701Z       "outcome": "unscored_support"
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3715915Z     },
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3716041Z     {
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3716172Z       "case": "DP00163",
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3716346Z       "family": "partial_correction",
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3716536Z       "outcome": "unscored_support"
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3716705Z     },
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3716831Z     {
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3716966Z       "case": "DP00166",
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3717134Z       "family": "reported_statement",
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3717461Z       "outcome": "unscored_support"
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3717637Z     },
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3717771Z     {
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3717909Z       "case": "DP00213",
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3718081Z       "family": "reported_statement",
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3718278Z       "outcome": "unscored_support"
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3718450Z     }
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3718577Z   ],
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3718737Z   "independent_semantic_review": "NOT RUN",
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3718940Z   "finding_count": 65
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3719096Z }
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3719224Z {
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3719393Z   "revision": "d265881fec092afffdda56cd8781438e40ef1cf7",
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3719627Z   "acceptance_passed": false,
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3719857Z   "prior_v1_result_preserved": "prior-v1-acceptance.json",
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3720085Z   "target_rows": [
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3720240Z     {
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3720371Z       "id": "DP00023",
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3720533Z       "original_expected": "answer",
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3720708Z       "errors": [
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3720925Z         "full source-scoped claim, qualification or citation mismatch"
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3721169Z       ],
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3721386Z       "score": "FAIL",
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3721652Z       "raw_sha256": "c1a3bdaa23a2bb22486de7816e2b8dc7e77b3028ea7e7e017e55586ef44b24bf"
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3721940Z     },
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3722067Z     {
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3722205Z       "id": "DP00166",
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3722381Z       "original_expected": "answer",
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3722565Z       "errors": [
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3722774Z         "full source-scoped claim, qualification or citation mismatch"
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3723009Z       ],
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3723146Z       "score": "FAIL",
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3723395Z       "raw_sha256": "7128af4dd3da263230a7b04b6ba3f26247ac0075d87fe39e7098f9cdeb012691"
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3723674Z     },
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3723797Z     {
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3723926Z       "id": "DP00213",
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3724089Z       "original_expected": "answer",
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3724267Z       "errors": [
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3724483Z         "full source-scoped claim, qualification or citation mismatch"
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3724720Z       ],
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3724857Z       "score": "FAIL",
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3725105Z       "raw_sha256": "21941877d9a896bb64108d0a2774c07984ba08a1de07bbc0bf480ed6b9205ef8"
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3725374Z     },
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3725504Z     {
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3725634Z       "id": "DP00227",
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3725800Z       "original_expected": "answer",
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3726038Z       "errors": [
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3726248Z         "full source-scoped claim, qualification or citation mismatch"
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3726489Z       ],
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3726627Z       "score": "FAIL",
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3726889Z       "raw_sha256": "b0dfc3cff9aaefef8f1232c674a2ccb37fcfeeff2879dff8ff4491db786ec4b6"
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3727178Z     },
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3727462Z     {
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3727616Z       "id": "DP00307",
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3727790Z       "original_expected": "answer",
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3727974Z       "errors": [
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3728191Z         "full source-scoped claim, qualification or citation mismatch"
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3728428Z       ],
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3728574Z       "score": "FAIL",
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3728824Z       "raw_sha256": "542fa9bd5009abfed3897d61934f1bda91382c824c1cdfb5c58e4926642f4004"
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3729098Z     },
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3729226Z     {
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3729362Z       "id": "DP00389",
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3729524Z       "original_expected": "answer",
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3729703Z       "errors": [
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3729907Z         "full source-scoped claim, qualification or citation mismatch"
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3730139Z       ],
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3730278Z       "score": "FAIL",
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3730526Z       "raw_sha256": "8759033aeb56353a86fdfe16fd8c0833e41a8dd7424bd126be801d566d335b30"
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3730804Z     },
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3730931Z     {
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3731062Z       "id": "DP00443",
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3731223Z       "original_expected": "answer",
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3731408Z       "errors": [
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3731612Z         "full source-scoped claim, qualification or citation mismatch"
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3731844Z       ],
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3731982Z       "score": "FAIL",
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3732227Z       "raw_sha256": "c2dd027e29adbfcbb95e0683a4d9994806067a15accfd800c5894185a2913635"
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3732501Z     },
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3732637Z     {
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3732766Z       "id": "DP00465",
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3732928Z       "original_expected": "answer",
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3733103Z       "errors": [
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3733308Z         "full source-scoped claim, qualification or citation mismatch"
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3733543Z       ],
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3733681Z       "score": "FAIL",
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3733920Z       "raw_sha256": "70c423e1d568c68a87e85df985b080443105ea1ca82372648a9235304a00bcba"
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3734188Z     },
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3734317Z     {
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3734451Z       "id": "DP00483",
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3734701Z       "original_expected": "answer",
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3734875Z       "errors": [
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3735078Z         "full source-scoped claim, qualification or citation mismatch"
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3735314Z       ],
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3735457Z       "score": "FAIL",
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3735697Z       "raw_sha256": "e778289329e540c324866693871e27109f9c5493996c5bdb4f57efda5d786efd"
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3735966Z     },
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3736097Z     {
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3736227Z       "id": "DP00510",
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3736386Z       "original_expected": "answer",
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3736568Z       "errors": [
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3736768Z         "full source-scoped claim, qualification or citation mismatch"
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3736992Z       ],
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3737127Z       "score": "FAIL",
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3737539Z       "raw_sha256": "8ae77c179ad59e4eef7e4966e571988ad6061a89a5fd670413b905a828e8e92f"
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3737821Z     },
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3737952Z     {
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3738093Z       "id": "DP00538",
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3738255Z       "original_expected": "answer",
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3738432Z       "errors": [
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3738635Z         "full source-scoped claim, qualification or citation mismatch"
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3738872Z       ],
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3739009Z       "score": "FAIL",
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3739243Z       "raw_sha256": "d4a1cf5b377635f9080c913b02f357ab4252661c1885d9044c4d7970452ed173"
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3739567Z     },
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3739695Z     {
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3739825Z       "id": "DP00569",
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3739986Z       "original_expected": "answer",
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3740162Z       "errors": [
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3740362Z         "full source-scoped claim, qualification or citation mismatch"
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3740596Z       ],
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3740737Z       "score": "FAIL",
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3740984Z       "raw_sha256": "dd4e92d101be8b21e04b465d343c3bb744dcfaf543aab595daab9e2e03b705b2"
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3741262Z     },
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3741392Z     {
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3741521Z       "id": "DP00592",
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3741681Z       "original_expected": "answer",
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3741856Z       "errors": [
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3742057Z         "full source-scoped claim, qualification or citation mismatch"
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3742290Z       ],
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3742430Z       "score": "FAIL",
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3742675Z       "raw_sha256": "89b73ab6f970aa49617866653daff8a28782e504e467b11fa73f452e29dfd1e7"
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3742953Z     },
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3743085Z     {
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3743219Z       "id": "DP00629",
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3743378Z       "original_expected": "answer",
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3743559Z       "errors": [
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3743762Z         "full source-scoped claim, qualification or citation mismatch"
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3743997Z       ],
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3744133Z       "score": "FAIL",
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3744380Z       "raw_sha256": "4c5bf9c78e28afac8a77ddd6fce82c44b4038aded9e817c8ea40b04025ccfdbd"
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3744655Z     },
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3744790Z     {
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3744931Z       "id": "DP00695",
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3745096Z       "original_expected": "answer",
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3745273Z       "errors": [
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3745476Z         "full source-scoped claim, qualification or citation mismatch"
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3745712Z       ],
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3745849Z       "score": "FAIL",
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3746090Z       "raw_sha256": "01eacf077ff611edeb84184854779baf9eb3710d0032146aa1a91c71006cb119"
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3746361Z     },
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3746487Z     {
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3746620Z       "id": "DP00716",
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3746785Z       "original_expected": "answer",
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3746954Z       "errors": [
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3747151Z         "full source-scoped claim, qualification or citation mismatch"
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3747521Z       ],
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3747663Z       "score": "FAIL",
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3748067Z       "raw_sha256": "9d838845ca6f2b8e619033a91beda8f6b73cf2835f97cb3e5baeaa31b18f5a10"
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3748337Z     },
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3748467Z     {
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3748603Z       "id": "DP00849",
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3748764Z       "original_expected": "answer",
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3748949Z       "errors": [
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3749153Z         "full source-scoped claim, qualification or citation mismatch"
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3749387Z       ],
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3749523Z       "score": "FAIL",
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3749815Z       "raw_sha256": "5854995cf3250727ba77edf9da35e6c7a5d95565435cfd65cb86c0ddc6e5dae5"
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3750115Z     },
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3750248Z     {
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3750383Z       "id": "DP00883",
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3750551Z       "original_expected": "answer",
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3750734Z       "errors": [
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3750945Z         "full source-scoped claim, qualification or citation mismatch"
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3751195Z       ],
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3751341Z       "score": "FAIL",
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3751597Z       "raw_sha256": "17224c5588395e365f84796e4fb3b573bb60fe016010be6f32a112d7c83566d8"
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3751861Z     },
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3751991Z     {
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3752124Z       "id": "DP00884",
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3752286Z       "original_expected": "answer",
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3752463Z       "errors": [
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3752730Z         "full source-scoped claim, qualification or citation mismatch"
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3752959Z       ],
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3753103Z       "score": "FAIL",
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3753336Z       "raw_sha256": "18133153292866552d98dc62d969cc51005f8be6ac76399a332116359b08d10a"
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3753597Z     },
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3753726Z     {
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3753860Z       "id": "DP00976",
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3754023Z       "original_expected": "answer",
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3754199Z       "errors": [
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3754401Z         "full source-scoped claim, qualification or citation mismatch"
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3754639Z       ],
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3754777Z       "score": "FAIL",
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3755022Z       "raw_sha256": "749ada912b479b03cb61b076c45b430cedbba4d7067f4fea7be00abc8aa0eeee"
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3755435Z     },
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3755571Z     {
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3755707Z       "id": "DP00988",
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3755870Z       "original_expected": "answer",
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3756051Z       "errors": [
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3756258Z         "full source-scoped claim, qualification or citation mismatch"
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3756495Z       ],
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3756633Z       "score": "FAIL",
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3756876Z       "raw_sha256": "fa63f90cb0603b8bcd16457792f97777f058e41bec32fd8b5cf00df25b531b87"
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3757142Z     }
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3757393Z   ],
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3757549Z   "complete_current_before": 210,
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3757738Z   "complete_candidate": 231,
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3757927Z   "positive_denominator": 420,
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3758114Z   "retained_refusals": 580,
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3758296Z   "remaining_positive_misses": 189,
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3758487Z   "original_labels_unchanged": true,
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3758885Z   "interpretation": "21 already-expected positives independently checked by host witness audit; not a blinded semantic evaluation",
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3759299Z   "independent_semantic_adjudication": "NOT_RUN",
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3759517Z   "native_oocc": "NOT_RUN"
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.3759689Z }
+frozen-acceptance	Replay the unchanged 1,000-case source packets	2026-11-26T01:36:16.5549350Z ##[error]Process completed with exit code 1.

@@ -1,0 +1,299 @@
+{
+  "schema": "cryptid-final3-publication-review-v1",
+  "tested_source_commit": "d265881fec092afffdda56cd8781438e40ef1cf7",
+  "full_source_zip_sha256": "c3ea1c2db6dfa13462c5a300fe060a1e3908cf2f0cc374850fdae9705e9dd282",
+  "full_zip_storage": {
+    "base": "/workspace/cryptid-artifacts/cryptid-final-candidate-2.zip",
+    "base_sha256": "7d0fe327956a1d66b33659613a80dade8c00ac51d61a32c166d4aa35c540f749",
+    "delta": "/workspace/cryptid-artifacts/cryptid-final-candidate-3.delta.gz",
+    "delta_sha256": "5e06050fcaa99229cc0147fdbf152f0d0a187f946fa9799fbc098ba472619af8",
+    "decoder": "/workspace/cryptid-artifacts/restore-source-zip.py",
+    "decoder_sha256": "42d497c99c5ba3d1ecabd1dc6b638e742641f26a153c10feb497d3800c83d402",
+    "full_zip_restored_and_sha_verified": true
+  },
+  "publication": "Branch published and PR105 opened with authorization; merge/deployment blocked by failed acceptance",
+  "pr": 105,
+  "acceptance": "FAIL",
+  "fresh_transfer": {
+    "counts": {
+      "planned": 24,
+      "attempted": 24,
+      "completed": 24,
+      "scored": 24,
+      "unscored": 0,
+      "passed": 19,
+      "false_support": 0,
+      "positive_misses": 5,
+      "budget_stops": 2,
+      "diagnostic_only": 0
+    },
+    "by_family": {
+      "MOTHMAN": {
+        "cases": 3,
+        "passed": 2,
+        "positive_misses": 1,
+        "false_support_flags": 0,
+        "budget_stops": 0,
+        "supported_answer": 1,
+        "abstain": 2
+      },
+      "JACKALOPE": {
+        "cases": 3,
+        "passed": 3,
+        "positive_misses": 0,
+        "false_support_flags": 0,
+        "budget_stops": 0,
+        "supported_answer": 1,
+        "partial_answer": 1,
+        "abstain": 1
+      },
+      "YETI": {
+        "cases": 3,
+        "passed": 3,
+        "positive_misses": 0,
+        "false_support_flags": 0,
+        "budget_stops": 0,
+        "supported_answer": 2,
+        "abstain": 1
+      },
+      "SASQUATCH": {
+        "cases": 3,
+        "passed": 2,
+        "positive_misses": 1,
+        "false_support_flags": 0,
+        "budget_stops": 0,
+        "supported_answer": 1,
+        "abstain": 2
+      },
+      "CHUPACABRA": {
+        "cases": 3,
+        "passed": 2,
+        "positive_misses": 1,
+        "false_support_flags": 0,
+        "budget_stops": 0,
+        "abstain": 2,
+        "supported_answer": 1
+      },
+      "KRAKEN": {
+        "cases": 3,
+        "passed": 2,
+        "positive_misses": 1,
+        "false_support_flags": 0,
+        "budget_stops": 0,
+        "abstain": 1,
+        "partial_answer": 2
+      },
+      "NESSIE": {
+        "cases": 3,
+        "passed": 2,
+        "positive_misses": 1,
+        "false_support_flags": 0,
+        "budget_stops": 0,
+        "supported_answer": 1,
+        "abstain": 2
+      },
+      "THUNDERBIRD": {
+        "cases": 3,
+        "passed": 3,
+        "positive_misses": 0,
+        "false_support_flags": 0,
+        "budget_stops": 2,
+        "conflict": 1,
+        "partial_answer": 1,
+        "abstain": 1
+      }
+    },
+    "misses": [
+      {
+        "id": "CRYPT-FINALNEXT-T0002",
+        "family": "MOTHMAN",
+        "question": "Distinguish the writing dates in the altitude memorandum record.",
+        "classification": "proof",
+        "required_witness_discovery": true,
+        "errors": [
+          "positive_completion_miss",
+          "positive_claim_miss"
+        ],
+        "raw": "fresh-transfer/CRYPT-FINALNEXT-T0002/result.json"
+      },
+      {
+        "id": "CRYPT-FINALNEXT-T0011",
+        "family": "SASQUATCH",
+        "question": "To whom does \"OK\" refer in source REF-3?",
+        "classification": "interpretation",
+        "required_witness_discovery": true,
+        "errors": [
+          "positive_completion_miss",
+          "positive_claim_miss"
+        ],
+        "raw": "fresh-transfer/CRYPT-FINALNEXT-T0011/result.json"
+      },
+      {
+        "id": "CRYPT-FINALNEXT-T0013",
+        "family": "CHUPACABRA",
+        "question": "What count does the later statement correct, and which destination does it retain?",
+        "classification": "interpretation",
+        "required_witness_discovery": true,
+        "errors": [
+          "positive_completion_miss",
+          "positive_claim_miss"
+        ],
+        "raw": "fresh-transfer/CRYPT-FINALNEXT-T0013/result.json"
+      },
+      {
+        "id": "CRYPT-FINALNEXT-T0016",
+        "family": "KRAKEN",
+        "question": "What request, dispatch and reported receipt do sources ASK-3, SEND-3 and RECV-3 explicitly link?",
+        "classification": "interpretation",
+        "required_witness_discovery": true,
+        "errors": [
+          "positive_completion_miss",
+          "positive_claim_miss"
+        ],
+        "raw": "fresh-transfer/CRYPT-FINALNEXT-T0016/result.json"
+      },
+      {
+        "id": "CRYPT-FINALNEXT-T0020",
+        "family": "NESSIE",
+        "question": "Who wrote the violet register?",
+        "classification": "proof",
+        "required_witness_discovery": true,
+        "errors": [
+          "positive_completion_miss",
+          "positive_claim_miss"
+        ],
+        "raw": "fresh-transfer/CRYPT-FINALNEXT-T0020/result.json"
+      }
+    ],
+    "kinds": {
+      "supported_answer": 7,
+      "abstain": 12,
+      "partial_answer": 4,
+      "conflict": 1
+    },
+    "custody": "Same-operator generated packet, sealed before candidate, opened once after committed ZIP; now consumed. No independent preparation, blinding or scoring."
+  },
+  "preservation": {
+    "executions": 771,
+    "semantic_passed": true,
+    "lost_legacy_support": 0,
+    "original_exact_failures_retained": true,
+    "release_280_audit": {
+      "planned": 280,
+      "passed": 280,
+      "failed": 0,
+      "exact_contracts": 238,
+      "source_checked_additive_fields": 42,
+      "unit_measurement_only": 4,
+      "checked_recoveries": 0
+    },
+    "source_checked_additive_fields": 56,
+    "unit_measurement_only": 4,
+    "checked_recoveries": 1
+  },
+  "local_command_checks": {
+    "completed": 51,
+    "passed": 49,
+    "failed_or_blocked": [
+      {
+        "schema": "cryptid-integration-gate-v1",
+        "name": "bounded-frozen1000",
+        "command": [
+          "/workspace/cryptid-gates-venv/bin/python",
+          "-m",
+          "tools.verify_bounded_reported_content",
+          "--output",
+          "/workspace/cryptid-final-gates/candidate-3/bounded1000-replay"
+        ],
+        "cwd": "/dev/shm/cryptid-final-candidate-3",
+        "timeout_seconds": 900,
+        "started_utc": "2026-11-26T01:41:03.161607+00:00",
+        "source": "Clean committed source ZIP extraction; no checkout tests substituted.",
+        "status": "FAIL",
+        "returncode": 1,
+        "error": null,
+        "wall_seconds": 2.371542701002909,
+        "raw_log_sha256": "70bdd114e811c3628c3815c819f148b3960e722a059e626b808faa92bce38570"
+      },
+      {
+        "schema": "cryptid-integration-gate-v1",
+        "name": "bounded-frozen1000-host-pin",
+        "command": [
+          "/workspace/cryptid-gates-venv/bin/python",
+          "-m",
+          "tools.verify_bounded_reported_content",
+          "--output",
+          "/workspace/cryptid-final-gates/candidate-3/bounded1000-host-pin-replay"
+        ],
+        "cwd": "/dev/shm/cryptid-final-candidate-3",
+        "timeout_seconds": 900,
+        "started_utc": "2026-11-26T01:42:15.883224+00:00",
+        "source": "Clean committed source ZIP extraction; no checkout tests substituted.",
+        "status": "FAIL",
+        "returncode": 1,
+        "error": null,
+        "wall_seconds": 457.12999679800123,
+        "raw_log_sha256": "fc9c358789f01e35a7432f90c854ef4eea79696e2196224c9165b3752941e69e"
+      }
+    ],
+    "native_tests": 1871,
+    "native_gate_status": "PASS",
+    "original_source_post_gates": "PASS"
+  },
+  "original_final_attempts": [
+    {
+      "commit": "98a85de97ea599cc9634ab06d3a7e5c36d6e2b1f",
+      "score": "18/24",
+      "false_actor_claims": 1,
+      "retained": "evaluation/cryptid/final/attempt-1"
+    },
+    {
+      "commit": "1251cc471a24ba4be91949ffc0c4752d0c3bf202",
+      "score": "14/16",
+      "classification": "Original strict temporal-partial and reporting-negation failures unchanged",
+      "retained": "evaluation/cryptid/final/summary.json"
+    },
+    {
+      "commit": "d265881fec092afffdda56cd8781438e40ef1cf7",
+      "score": "19/24",
+      "false_support_flags": 0,
+      "positive_misses": 5,
+      "retained": "evaluation/cryptid/revision3/final3/fresh-transfer-score.json"
+    }
+  ],
+  "policy_and_key_disagreements": {
+    "reporting_original_keys": "31/32; original incorrect conflict target remains failed",
+    "compatibility_v2": "8/8",
+    "cap_controls": "2/2",
+    "prospective_partial": "11/12, one passive-wording miss; twelve native contracts unchanged",
+    "strict_policy": "7/12, five partial-claim rejection flags, not five independently established false facts",
+    "second_final_original_key": "14/16, unchanged original failure classifications; recovered negated reporting claim now has source-verified literal payload field"
+  },
+  "execution_failures_retained": {
+    "branch_protection_endpoint": "403; effective rules and full active ruleset read successfully",
+    "initial_checks_cli": "gh pr checks --json unsupported by installed gh2.46; used exact-SHA check-runs REST endpoint",
+    "prior_attempts": "All earlier rejected archives, launch failures, wrapper errors, original scores and scorer amendments remain in their dated evidence"
+  },
+  "remote_frozen_acceptance": {
+    "status": "FAIL",
+    "reported_content_exact_mismatches": 21,
+    "unscored_support": 65,
+    "frozen_expected_unscored_support": 21,
+    "additional_outputs_unaccepted": 44,
+    "retained_refusal_targets": 580,
+    "gate_unchanged": true,
+    "local_reproduction": "bounded1000-host-pin-replay/run/run.json",
+    "reporting_field_diagnostic": "bounded-reporting-field-diagnostic-v1.json",
+    "diagnostic_not_gate_amendment": true,
+    "remote_artifact_sha256": "5d57b9365d395bd77888852d95f58dcf572fcd8a69dcfff465b0c365edd74625"
+  },
+  "merge": "BLOCKED_ACCEPTANCE_FAILURE",
+  "deployment": "NOT_RUN_BLOCKED_BY_NO_MERGE",
+  "live_new_candidate_fingerprints": "NOT_RUN_BLOCKED_BY_NO_DEPLOYMENT",
+  "independent_historical_accuracy": "NOT_RUN",
+  "independent_semantic_adjudication": "NOT_RUN",
+  "independent_preparation_blinding": "NOT_RUN",
+  "outside_custodian_scoring": "NOT_RUN",
+  "native_OOCC": "NOT_RUN",
+  "human_execution": "NOT_RUN"
+}

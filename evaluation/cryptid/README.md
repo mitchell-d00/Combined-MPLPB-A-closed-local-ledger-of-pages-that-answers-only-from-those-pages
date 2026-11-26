@@ -1,8 +1,8 @@
 # Cryptid local test programme
 
-Last reviewed: 2026-11-25.
+Last reviewed: 2026-11-26.
 
-Local-only work from verified remote main `c01021c0b9983f9a607fbe782dea7ed5872d1f11`. Family names identify tests, never runtime facts or rules. No publication is authorized.
+Programme started from verified remote main `c01021c0b9983f9a607fbe782dea7ed5872d1f11`. Family names identify tests, never runtime facts or rules. Mitchell authorized branch/PR publication; PR #105 is open. The final transfer fails 19/24, so merge and deployment remain blocked. See [current review package](revision3/REVIEW_PACKAGE.md).
 
 The ordered series are Mothman (date roles), Jackalope (question wording), Yeti (polarity/conditions/modality), Sasquatch (identity), Chupacabra (comparisons/corrections), Kraken (multipart/document links), Nessie (automatic source-linked representation), and Thunderbird (fixed-cap scale/counterevidence). [Programme state](programme.json) distinguishes planned work from executions.
 
