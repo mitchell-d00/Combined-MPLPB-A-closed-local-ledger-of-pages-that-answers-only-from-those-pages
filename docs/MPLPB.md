@@ -1,4 +1,4 @@
-# MPLPB — the usable artifact
+# MPLPB product — the usable artifact
 
 Last reviewed: 2026-11-26.
 
@@ -9,6 +9,10 @@ MPLPB helps you keep documents, ask bounded questions, and inspect the passages
 behind supported answers. Use it for a local collection whose sources you can
 check. Its finite reader can miss ordinary wording; manually inspect important
 omissions. It does not independently authenticate what a document claims.
+
+Scope: released user operations. Check [current status](CURRENT_STATUS.md) and
+[the handoff](../HANDOFF.md) for release/version and continuation cues;
+[development history](DEVELOPMENT_HISTORY.md) keeps earlier contracts separate.
 
 ## Start
 

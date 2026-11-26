@@ -2,10 +2,18 @@
 
 Last reviewed: 2026-11-26.
 
-**Current local reader: C5; final exact-head protected CI is pending.**
-Publication is authorized after audited incremental gains, preserved valid support,
-and required protected checks. Coverage misses remain failures but do not alone
-prohibit release. The live PR report records later publication/deployment status.
+This documentation-only integration keeps reader bytes from `2622813aba9ee1f1880693eeb71ae015cb3da999`.
+C3 is still unmerged in [PR #106](https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/pull/106).
+Its remote CI is green, but17private preservation cases are incomplete and100held
+transfer cases remain unopened. The incident's older Git history is not imported
+into this main-based documentation branch. [Current status](../../../docs/CURRENT_STATUS.md)
+and [HANDOFF](../../../HANDOFF.md) govern continuation. Earlier pending-status
+statements below retain their original measured revision and are historical.
+
+**Released native reader baseline: `2622813` (PR105), unchanged by this documentation integration. Required exact-head checks, protected
+merge and deployed verification passed.** See the [release receipt](https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/blob/cc54c4276bb4895c33df46cc782e758f4c8e5a0b/evaluation/cryptid/bunyip/round2/released-state.json).
+[Round2](https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/blob/cc54c4276bb4895c33df46cc782e758f4c8e5a0b/evaluation/cryptid/bunyip/round2/README.md) has published actual C3 source and reviewed public evidence;572 exposed development source-key decisions pass. Public preservation is832/832exact;17private cases and fresh transfer remain pending. All listed current-head remoteCIruns passed. No round-two reader release or historical-accuracy claim.
+Earlier candidate snapshots below retain their original measurement scope.
 
 ## Primary goal and separate measures
 

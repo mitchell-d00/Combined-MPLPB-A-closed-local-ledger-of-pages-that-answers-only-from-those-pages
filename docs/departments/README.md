@@ -2,10 +2,10 @@
 
 Last reviewed: 2026-11-26.
 
-[Try MPLPB](../../README.md#try-it-in-30-seconds) → choose a department below → [inspect the evidence](../TEST_INDEX.md). This is a navigation map; imports, commands, source/evaluation paths and historical links stay in place.
+[Try MPLPB](../../README.md#try-it-from-the-terminal) → choose a department below → [inspect the evidence](../TEST_INDEX.md). This is a navigation map; imports, commands, source/evaluation paths and historical links stay in place.
 
 **Three entry areas:** [MPLPB](../MPLPB.md), [Experimental Lab](../EXPERIMENTAL_LAB.md),
-and [Testing and Training Apparatus](../TESTING_APPARATUS.md).
+and [Testing apparatus and evidence](../TESTING_APPARATUS.md).
 The [component map](../COMPONENT_MAP.md) explains primary homes and cross-links.
 
 - [Reader](reader.md): Questions, source verification, answers and partials.

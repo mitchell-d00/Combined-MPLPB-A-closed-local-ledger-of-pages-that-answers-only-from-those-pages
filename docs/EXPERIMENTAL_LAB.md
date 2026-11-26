@@ -2,13 +2,17 @@
 
 Last reviewed: 2026-11-26.
 
-[MPLPB](MPLPB.md) · [Testing and Training Apparatus](TESTING_APPARATUS.md)
+[MPLPB](MPLPB.md) · [Testing apparatus and evidence](TESTING_APPARATUS.md)
 · [Component map](COMPONENT_MAP.md) · [Test Index](TEST_INDEX.md)
 
 This area holds proposed capabilities, reader experiments, candidate repairs
 and research. Use the [MPLPB guide](MPLPB.md) for the released user path.
 An experiment's success establishes its measured cases, not general reading
 ability. A branch candidate is not released merely because its report exists.
+
+Scope: proposed or tested experimental capabilities. Use each pinned report's
+revision and [the current handoff](../HANDOFF.md) to continue work; the
+[history index](DEVELOPMENT_HISTORY.md) distinguishes earlier contracts.
 
 ## Find a proposal or experiment
 
