@@ -1,6 +1,6 @@
 {
   "schema": "department-navigation-v1",
-  "reviewed_on": "2026-11-25",
+  "reviewed_on": "2026-11-26",
   "purpose": "Navigation ownership; no physical moves, import changes, command changes or frozen evidence migration. Primary home does not exclude cross-department responsibility.",
   "root_components": {
     "mplpb_answers": "reader",
@@ -39,7 +39,8 @@
     "README.md": "delivery-operations",
     "handoff": "delivery-operations",
     "llms.txt": "delivery-operations",
-    "pyproject.toml": "delivery-operations"
+    "pyproject.toml": "delivery-operations",
+    "README-TECHNICAL.md": "delivery-operations"
   },
   "exact_overrides": {
     "mplpb_answers/__main__.py": "applications",
@@ -105,5 +106,37 @@
     "parts/image": "Applications and ledger: image pages and attestation with original tests."
   },
   "historical_links": "Existing component paths and historical pins remain unchanged. Any later move needs an old-path/new-path migration map and its own tests.",
-  "evidence": "TEST_INDEX ownership identifies the responsible department, not a claim of passing or independently adjudicated accuracy."
+  "evidence": "TEST_INDEX ownership identifies the responsible department, not a claim of passing or independently adjudicated accuracy.",
+  "entry_areas": {
+    "mplpb": "docs/MPLPB.md",
+    "experimental-lab": "docs/EXPERIMENTAL_LAB.md",
+    "testing-training": "docs/TESTING_APPARATUS.md"
+  },
+  "department_areas": {
+    "reader": [
+      "mplpb",
+      "experimental-lab"
+    ],
+    "ledger": [
+      "mplpb"
+    ],
+    "intake-research": [
+      "experimental-lab",
+      "mplpb"
+    ],
+    "work-coordination": [
+      "mplpb"
+    ],
+    "applications": [
+      "mplpb",
+      "experimental-lab"
+    ],
+    "testing-evaluation": [
+      "testing-training"
+    ],
+    "delivery-operations": [
+      "mplpb",
+      "testing-training"
+    ]
+  }
 }

@@ -29,7 +29,7 @@ jobs:
         run: |
           sudo apt-get update
           sudo apt-get install --yes --no-install-recommends bubblewrap
-      - name: Replay the unchanged 1,000-case source packets
+      - name: Replay unchanged packets; retain strict v1 and assess prospective v2
         run: |
           # The isolated worker cannot bind the Actions workspace below /home.
           stage="$(sudo mktemp -d /tmp/mplpb-bounded.XXXXXX)"
@@ -40,7 +40,13 @@ jobs:
             find "$RUNNER_TEMP/bounded-repair/run" -name failure.json -print -quit |
               while IFS= read -r failure; do head -20 "$(dirname "$failure")/worker.log"; done
           fi
-          exit "$status"
+          # Preserve the original strict-key failure; do not call it a pass.
+          # V2 separately source-checks every formerly unscored gain and the
+          # additive metadata, then requires all 1,000 complete contracts to
+          # match that reviewed baseline. Missing/failed worker runs fail here.
+          python tools/bunyip_legacy_assessment.py \
+            --run "$RUNNER_TEMP/bounded-repair/run" \
+            --output "$RUNNER_TEMP/bounded-repair/source-checked-v2.json"
       - name: Replay the 22 historical development questions
         if: success() || failure()
         run: |
@@ -91,6 +97,7 @@ jobs:
           path: |
             ${{ runner.temp }}/bounded-repair/acceptance.json
             ${{ runner.temp }}/bounded-repair/prior-v1-acceptance.json
+            ${{ runner.temp }}/bounded-repair/source-checked-v2.json
             ${{ runner.temp }}/bounded-repair/run/run.json
             ${{ runner.temp }}/bounded-repair/run/*/result.json
             ${{ runner.temp }}/bounded-repair/run/*/failure.json

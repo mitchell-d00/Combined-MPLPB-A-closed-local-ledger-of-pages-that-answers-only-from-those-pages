@@ -23,6 +23,15 @@ class OrdinaryQuestionTests(unittest.TestCase):
     def test_standalone_only_if_is_not_erased(self):
         self.source('<p>Only if the permit is approved.</p><p>Lira Snow owns Cloud Finch Workshop.</p>')
         a=self.answer('Who does Cloud Finch Workshop belong to?');self.assertFalse(a['answer_supported']);self.assertEqual(a['claims'],[])
+    def test_long_restriction_heads_remain_scoped(self):
+        for number,head in enumerate(['Only if','Provided that','Subject to']):
+            entity='Cloud Finch Workshop '+str(number)
+            condition=head+' the permit is valid'+(' and the gate is clear'*50)+'.'
+            self.source('<p>'+condition+'</p><p>Lira Snow owns '+entity+'.</p>',ident='GUARD-'+str(number))
+            self.assertFalse(self.answer('Who does '+entity+' belong to?')['answer_supported'])
+    def test_quoted_condition_does_not_govern_outer_fact(self):
+        self.source('<blockquote><p>Only if the permit is valid.</p></blockquote><p>Lira Snow owns Cloud Finch Workshop.</p>')
+        self.assertTrue(self.answer('Who does Cloud Finch Workshop belong to?')['answer_supported'])
     def test_quotation_is_not_an_unqualified_owner(self):
         self.source('<blockquote><p>Lira Snow owns Cloud Finch Workshop.</p></blockquote>')
         self.assertFalse(self.answer('Who owns Cloud Finch Workshop?')['answer_supported'])

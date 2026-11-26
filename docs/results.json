@@ -1382,6 +1382,21 @@
       "implementation_departments": [
         "reader"
       ]
+    },
+    {
+      "family": "newcomer-navigation",
+      "artifacts": "evaluation/newcomer-navigation",
+      "tests": [
+        "tests/test_department_navigation.py"
+      ],
+      "runners": [
+        "tools/verify_readme_quickstart.py",
+        "tools/audit_departments.py"
+      ],
+      "responsible_department": "delivery-operations",
+      "meaning": "Exact released-wheel quick start and citation/outcome verification; human usability NOT_RUN; original host-check failures retained.",
+      "scope": "Released-wheel quick-start, exact citations, documentation examples and component navigation; no human results.",
+      "measurement_status": "Software PASS; two corrected host-verifier failures retained; human onboarding NOT_RUN"
     }
   ]
 }

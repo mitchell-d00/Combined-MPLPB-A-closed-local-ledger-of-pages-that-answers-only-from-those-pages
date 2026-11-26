@@ -14,7 +14,13 @@ def unscoped(record,body,start,end):
     from .documentary_verify import context_ranges,quoted_context
     if any(a<end and b>start for a,b in context_ranges(record)):return False
     if quoted_context(body[:start]):return False
-    return not re.search(r'(?:^|[.!?]\s+|\n)(?:(?:Only\s+)?If|Unless)\b[^.!?]{1,200}[.!?]?\s*$',body[:start],re.I)
+    # Recognized restriction heads remain restrictions at any source length.
+    # A quoted condition is a different reporting layer, not an outer governor.
+    condition=re.search(r'(?:^|[.!?]\s+|\n)(?P<condition>(?:(?:Only\s+)?If|Unless|Provided(?:\s+that)?|Subject\s+to)\b[^.!?]+[.!?]?)\s*$',body[:start],re.I)
+    if condition and not any(a<condition.end('condition') and b>condition.start('condition') for a,b in context_ranges(record)):
+        return False
+    return True
+
 
 def opening_fields(frame,record):
     from .relation_graph import declared_fields,field_contexts

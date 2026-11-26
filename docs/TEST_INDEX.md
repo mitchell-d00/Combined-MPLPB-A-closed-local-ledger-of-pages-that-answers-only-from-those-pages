@@ -233,3 +233,20 @@ The once-only final packet is 19/24: five positive misses, zero false-support fl
 ## Bunyip ordinary-language variation
 
 [Current Bunyip protocol and baselines](../evaluation/cryptid/bunyip/README.md): CRYPT-BUNYIP-0001–0102, seven mechanisms, HTML/plain renderings, original keys and raw outputs. Testing and Evaluation owns scoring; Reader owns relation/argument-preserving interpretation. Forty-two transfer executions remain sealed. Incremental release requires audited gains and no regressions; coverage misses alone are not a release prohibition under Mitchell’s latest instruction.
+
+
+## Bunyip current candidate and newcomer navigation
+
+Bunyip C3 development:138/142decisions,56/60primary positive completions,
+zero false-support flags; four original proof misses retained. Forty new complete
+executions versus PR105 represent20unique question strings across two renderings.
+[Inputs, frozen keys, original baselines, rejected candidates and source audits](../evaluation/cryptid/bunyip/README.md).
+Final clean-ZIP preservation and fresh transfer are pending at candidate freeze.
+
+**NAV-QUICKSTART-0001**: exact README block, fresh environment and released wheel;
+**NAV-CITATIONS-0001**, **NAV-PARTIAL-0001**, **NAV-OWNER-0001**,
+**NAV-CONFLICT-0001**: extended source/citation and outcome checks.
+[Raw outputs, retained host-verifier failures and reproduction command](../evaluation/newcomer-navigation/README.md).
+Owner: Delivery and Project Operations; protected Applications/Reader/Ledger.
+The three-area component map cross-links this authoritative inventory.
+Software verification is separate from the unchanged ONBOARD-12 human NOT_RUN.

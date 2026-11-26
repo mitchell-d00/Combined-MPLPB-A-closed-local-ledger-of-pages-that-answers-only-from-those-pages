@@ -1,8 +1,12 @@
 # Choose a department
 
-Last reviewed: 2026-11-25.
+Last reviewed: 2026-11-26.
 
 [Try MPLPB](../../README.md#try-it-in-30-seconds) → choose a department below → [inspect the evidence](../TEST_INDEX.md). This is a navigation map; imports, commands, source/evaluation paths and historical links stay in place.
+
+**Three entry areas:** [MPLPB](../MPLPB.md), [Experimental Lab](../EXPERIMENTAL_LAB.md),
+and [Testing and Training Apparatus](../TESTING_APPARATUS.md).
+The [component map](../COMPONENT_MAP.md) explains primary homes and cross-links.
 
 - [Reader](reader.md): Questions, source verification, answers and partials.
 - [Ledger](ledger.md): Records, revisions, provenance and eligibility.
@@ -14,4 +18,4 @@ Last reviewed: 2026-11-25.
 
 Each page covers scope, implementation, commands, protecting tests, measured status and open work. The [machine-readable component map](components.json) routes all tracked top-level paths and explicitly separates intake from work coordination. File moves require a separate tested migration with old/new path mapping.
 
-The [Cryptid programme](../../evaluation/cryptid/README.md) is owned by Testing and Evaluation, with Reader, Ledger, Applications and Delivery responsibilities recorded per series. Publication remains local-only.
+The [Cryptid programme](../../evaluation/cryptid/README.md) is owned by Testing and Evaluation, with Reader, Ledger, Applications and Delivery responsibilities recorded per series. Publication follows Mitchell’s authorized incremental-release criteria and required protected checks.

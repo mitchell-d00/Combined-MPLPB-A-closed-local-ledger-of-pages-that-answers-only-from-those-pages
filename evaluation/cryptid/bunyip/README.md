@@ -23,3 +23,27 @@ Primary development improves16/60 to56/60 completions, with0false flags in that 
 C2 keeps56/60primary completions and passes24/24scope controls. A further14-case development set is frozen before C2 testing/C3 repair: C2fails10governor-head/length cases. C2 is retained and rejected. Its849prior contracts exactly matchPR105. Four raw support losses versus main are header text fused into invented authors, not lost valid support; original outputs remain in the comparison.
 
 The [source-checked legacy assessment](assessments/legacy-source-assessment-v2.json) independently rereads frozen original bytes and exact citations for44previously unscored positives plus21additive-field cases. Same-operator source assessment is distinct from independent semantic adjudication. Two failed host-audit attempts (absent original-witness annotation, then whitespace projection mismatch) remain retained; no source, old key or old score changed.
+
+## C3 development, before final archive
+
+The shared governor checker now preserves recognized restrictions regardless of
+length and distinguishes an unrelated quoted condition from an outer condition.
+C3 passes138/142 development decisions:98/102primary,24/24scope,14/14governor,
+and2/2quoted-governor. No false-support flags remain. Four explicit field-of-ID
+wordings still miss at proof; they remain failures. Primary positive executions
+improve12→56/60 versus released main and16→56/60 versus PR105. The latter gain
+is40executions but **20unique question strings**, each repeated in two layouts.
+
+[Primary C3 audit](runs/candidate-3-score.json) checks every recovered complete
+claim, qualifications and exact witnesses. Scores retain discovery, interpretation
+and proof separately. [All main claim-bearing cases](assessments/main-all-claims-audit-c2.json)
+and [eight invalid header-actor classifications](assessments/main-support-classifications.json)
+cover partials as well as completions. Source-checked assessment is same-operator.
+
+The [prospective legacy policy](assessments/prospective-retention-v2-policy.json)
+retains the old strict-key failure, requires the full1000worker executions and
+exact contract retention, and source-checks the65previously unscored/additive
+outputs against unchanged originals. It does not relabel the old failure as a
+pass. Final clean-ZIP software checks and once-only fresh42 remain pending at
+this candidate-freeze stage. [Newcomer documentation verification](../../newcomer-navigation/README.md)
+is separate from human onboarding, which remains NOT_RUN.

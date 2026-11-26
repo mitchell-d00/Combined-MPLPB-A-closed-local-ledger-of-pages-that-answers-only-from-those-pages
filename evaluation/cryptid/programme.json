@@ -1,7 +1,7 @@
 {
   "schema": "cryptid-programme-v1",
   "baseline_commit": "c01021c0b9983f9a607fbe782dea7ed5872d1f11",
-  "publication": "AUTHORIZED_PUBLISHED_PR105; MERGE_BLOCKED_ACCEPTANCE_FAILURE; NO_DEPLOYMENT",
+  "publication": "BUNYIP_C3_LOCAL; INCREMENTAL_PUBLICATION_AUTHORIZED_AFTER_AUDITED_GAINS_AND_REQUIRED_GATES",
   "operator": "Betty, same operator for preparation/implementation/scoring",
   "independent_historical_accuracy": "NOT_RUN",
   "independent_semantic_adjudication": "NOT_RUN",
@@ -621,6 +621,36 @@
           "native_budget_stops": 4
         }
       }
+    },
+    {
+      "order": 10,
+      "family": "BUNYIP",
+      "id_prefix": "CRYPT-BUNYIP",
+      "mechanism": "Ordinary language loses relation arguments before proof; source shape and governor/reporting layers require distinct checks.",
+      "status": "C3_DEVELOPMENT_VERIFIED_FINAL_GATES_PENDING",
+      "responsible_department": "testing-evaluation",
+      "implementation_departments": [
+        "reader",
+        "ledger",
+        "applications",
+        "delivery-operations"
+      ],
+      "runtime_labels_are_rules": false,
+      "protocol": "bunyip/protocol.json",
+      "candidate": {
+        "development_decisions": "138/142",
+        "primary_completions": "56/60",
+        "withholding": "42/42",
+        "false_support_flags": 0,
+        "positive_misses": 4,
+        "unique_recovered_question_strings_vs_pr105": 20
+      },
+      "transfer": {
+        "status": "SEALED_UNOPENED",
+        "planned": 42,
+        "custody": "same operator; templates visible; no independent preparation/blinding"
+      },
+      "remaining_misses": "Four explicit field-of-ID wordings fail proof; no relabeling."
     }
   ],
   "gates": {
@@ -659,7 +689,8 @@
     "ledger/0011.json",
     "ledger/0012.json",
     "ledger/0013.json",
-    "ledger/0014.json"
+    "ledger/0014.json",
+    "ledger/0015.json"
   ],
   "final_integration": {
     "status": "SECOND_CANDIDATE_PENDING",
@@ -672,16 +703,12 @@
     "publication": "LOCAL_ONLY"
   },
   "current_revision_request": {
-    "status": "C2_DEVELOPMENT_VERIFIED_FINAL_ARCHIVE_PENDING",
-    "prior_tested_source": "1251cc471a24ba4be91949ffc0c4752d0c3bf202",
-    "prior_report": "final/summary.json",
-    "strict_fresh16_acceptance": "FAIL14/16unchanged",
-    "publication": "LOCAL_ONLY",
-    "evidence": "revision3/c2-before-archive.json",
-    "fresh_packet": "revision3/fresh/transfer-seal.json",
-    "original_failure_classifications": "Retained unchanged",
-    "rejected_candidate": "revision3/rejected-c1-archive.json"
+    "status": "BUNYIP_C3_FREEZE_PENDING",
+    "baseline_main": "c01021c0b9983f9a607fbe782dea7ed5872d1f11",
+    "baseline_pr105": "ab8f73e83538d8e33e8d13df14c2f47b88054608",
+    "acceptance": "Verified incremental gains/no regressions/required protected gates; remaining coverage misses alone do not prohibit release",
+    "publication": "AUTHORIZED_AFTER_GATES"
   },
-  "current_review": "revision3/REVIEW_PACKAGE.md",
+  "current_review": "bunyip/README.md",
   "final_candidate_review": "revision3/final3/summary.json"
 }
