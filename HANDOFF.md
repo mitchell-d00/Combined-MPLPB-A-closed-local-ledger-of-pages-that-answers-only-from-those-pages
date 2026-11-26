@@ -4,8 +4,8 @@ Last reviewed: 2026-11-26.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `a7b34c23e5f77df8ea6817fb709e90b3a03032ea` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `c5fcdda6d31b839f18e2e8d69c15822c811afa9500c0e1ce73bf705d0fc66fe0`.
+Base commit: `9226381268e470a9f11b981edfd2d5fed9580416` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `b554ae95a0aa71368ef007bfd36abcafb1a7333a2dfe395a7c0bb42dddc07d3d`.
 
 ## Betty report for Al
 
@@ -28,17 +28,18 @@ A clean documentation change can be considered separately from C3, provided it s
 - Reviewed main protection: up-to-date PR plus required archive-first/regression, no bypass actors. New exact-head checks must pass before merge.
 - Outside section matches main byte-for-byte;69stable family IDs are unique. README command block and expected output are unchanged from released-wheel software verification; no human observations added.
 - Maintainer relayed Al's read-only review:156focused main Python checks and175onPR106, JS/rendering/handoff/docs checks,12greenCIinstances and no new regression. These are reviewer-reported, not rerun by this documentation change. Al's certificate-trust browser failure is not a pass.
+- Handoff helper attempt45894029135failed the existing update-record schema because an extra publication-state field was unsupported. The field was removed; receipt recovery remains in the standard limitations/next_steps fields. Original failed run retained; no native/scorer change.
 
 ### Limitations and blocked checks
 
 - C3 stays unmerged onPR106cc54c4276bb4895c33df46cc782e758f4c8e5a0b.17private preservation cases remain incomplete,100held transfer cases unopened.22original strict-key failures and rejected candidates retained.
 - PR106incident history remains reachable; this new branch excludes that ancestry and payloads but does not erase their exposure. Source eligibility/admission and native capabilities unchanged.
-- New documentation exact-head ZIP/checks/deployment pending. Human onboarding, independent historical/semantic/preparation/blinding/outside-custodian/native OOCC remainNOT_RUN.
+- Merge/deployment status is recorded in the live documentation PR report for branch docs/safe-navigation-2026-11-26 and its exact-head/deployment receipts; it is not inferred from this source snapshot. Human onboarding, independent historical/semantic/preparation/blinding/outside-custodian/native OOCC remainNOT_RUN.
 
 ### Next steps
 
 - Use the unchanged existing handoff builder to generate/check exact documentation inventory; audit documentation/department paths and confirm changed paths are documentation only.
-- Merge this clean documentation PR only after required exact-head checks pass, then verify deployment/live fingerprints under existing authorization.
+- Recover the live documentation PR report and receipts. Complete any missing required exact-head checks; merge only this clean documentation scope when they pass, then verify deployment/live fingerprints. If those receipts already exist, use them and continue explicitPR106reader work.
 - Resume explicitPR106reader work with proper private custody/isolation and incident remediation. Keep36+64held cases unopened until the designated candidate freeze after preservation.
 
 ## Use this ZIP in your repository
