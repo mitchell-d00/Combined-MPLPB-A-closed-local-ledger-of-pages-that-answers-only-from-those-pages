@@ -490,7 +490,7 @@ def _answer_query(root, question, profile=None, *, mode, reader, min_confidence,
         return finish('abstain','correction_scope_unclear','Name the explicit field before applying a field-scoped correction.','interpretation')
     if strict.kind == 'return':
         body = body_text(strict.record.body_html)
-        quotes = [span['quote'] for span in strict.support.get('spans', [])]
+        quotes = [span['quote'] for span in strict.support.get('answer_spans',strict.support.get('spans', []))]
         if not quotes and strict.support.get('procedure', {}).get('steps'):
             quotes = list(dict.fromkeys(step['source']['quote'] for step in strict.support['procedure']['steps']))
         citations = []
@@ -506,6 +506,11 @@ def _answer_query(root, question, profile=None, *, mode, reader, min_confidence,
             return finish('abstain', 'missing_evidence', 'The bounded reader did not provide a source evidence span.', 'strict')
         contract.update(answer_supported=True, text=strict.text,
                         claims=[{'text': strict.text, 'qualifiers': [], 'citations': citations}])
+        if strict.support.get('literal_polarity'):
+            frame=strict.support['frame']
+            contract['claims'][0]['proposition']={'relation':'literal_classification','entity':frame['entity'],
+                'value':frame['requested_value'],'polarity':strict.support['literal_polarity'],
+                'historical_truth_independently_verified':False,'contract':'literal-classification-yes-no-v1'}
         contract['sources'] = [{'id': strict.record.id, 'path': strict.record.path, 'hash': strict.record.hash_actual}]
         contract['verification'].update(structural=True, semantic='bounded_deterministic_grammar')
         return finish('supported_answer', 'supported', 'Explicit source statements satisfy the existing bounded grammar.', 'strict')

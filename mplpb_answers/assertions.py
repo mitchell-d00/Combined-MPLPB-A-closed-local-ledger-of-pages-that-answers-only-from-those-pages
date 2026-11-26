@@ -57,3 +57,13 @@ def conflicts(checks):
             or any(len(candidates) > 1 for candidates in scoped_values.values())
             or bool(positive & negative) or bool(values & legacy_negative)
             or (bool(supported) and any(c.get('policy_denial') for _, c in checks)))
+
+
+def admission_state(checks):
+    """One boundary for checked support, conflict and unresolved relevance.
+
+    Specialized verifiers decide whether an unresolved unit is relevant. A
+    failed relevant proof is never converted into absence of counterevidence.
+    """
+    return ([(record,check) for record,check in checks if check['status']=='supported'],
+            conflicts(checks),any(check.get('unresolved') for _,check in checks))

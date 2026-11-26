@@ -1,0 +1,115 @@
+{
+  "schema": "bunyip-recovered-source-v1",
+  "recovered_on": "2026-11-26",
+  "baseline": "2622813aba9ee1f1880693eeb71ae015cb3da999",
+  "parent_checkpoint": "4d388f9a1e6cbb431df9ba6e79ace2a5c79e5cd5",
+  "source_origin": "Exact original /workspace/cryptid-local bytes, not reconstruction",
+  "archive": "bunyip-r02-resource-attempt-v1.tar.xz",
+  "archive_sha256": "efc4bb889a4dc53e536b404b3726262e3eb35d16ad9b3fc5c663c588d036208d",
+  "files": [
+    {
+      "path": "mplpb_answers/ordinary_questions.py",
+      "sha256": "2137edab7acb1620d47b8fb74422a77204dc42c63543a22fc4bec07dcba123a6",
+      "archive_matches": [
+        {
+          "member": "native/mplpb_answers/ordinary_questions.py",
+          "same": true
+        }
+      ]
+    },
+    {
+      "path": "mplpb_answers/assertions.py",
+      "sha256": "3cbea03f599b079c4acd3e13e3bc008fca2839a218e452e08d9e25e04fdac393",
+      "archive_matches": [
+        {
+          "member": "native/mplpb_answers/assertions.py",
+          "same": true
+        }
+      ]
+    },
+    {
+      "path": "mplpb_answers/ordinary_evidence.py",
+      "sha256": "7b462f549ddbf91ce8cb62f61038da69f8296ea38a73bf3c958191e2e9d1d025",
+      "archive_matches": [
+        {
+          "member": "native/mplpb_answers/ordinary_evidence.py",
+          "same": true
+        }
+      ]
+    },
+    {
+      "path": "mplpb_answers/frames.py",
+      "sha256": "9e7ddd5f647de81ef2c5859fe0741fcb7b747c8d965543c8ac17521b2f89efda",
+      "archive_matches": [
+        {
+          "member": "native/mplpb_answers/frames.py",
+          "same": true
+        }
+      ]
+    },
+    {
+      "path": "mplpb_answers/source_claims.py",
+      "sha256": "e581815c5a0ed56fdacc8750fd7e95a2369bdf7762ec2262d86d73f55a69cead",
+      "archive_matches": [
+        {
+          "member": "native/mplpb_answers/source_claims.py",
+          "same": true
+        }
+      ]
+    },
+    {
+      "path": "tests/test_bunyip_round2.py",
+      "sha256": "736efc56322155a1cfae714ce6bd5650e520b4233c5807d4187f6b3c766bed24",
+      "archive_matches": [
+        {
+          "member": "native/tests/test_bunyip_round2.py",
+          "same": true
+        }
+      ]
+    },
+    {
+      "path": "mplpb_answers/pipeline.py",
+      "sha256": "f148d6a509e2801189757cbb7a628f5ea0b0b92754152de499fd461deda0a57a",
+      "archive_matches": [
+        {
+          "member": "native/mplpb_answers/pipeline.py",
+          "same": true
+        }
+      ]
+    },
+    {
+      "path": "mplpb_answers/support.py",
+      "sha256": "782e5fe09a71c7790417e3bd58369f020584ec8cfe19084df138f5a9eab4e94c",
+      "archive_matches": [
+        {
+          "member": "native/mplpb_answers/support.py",
+          "same": true
+        }
+      ]
+    },
+    {
+      "path": "tools/bunyip_round2_assess.py",
+      "sha256": "17f0d1be1fc4bfc4bb0b990940b1a7a78e3f2bd59b7da17d3869c9a9c1e44c5a",
+      "archive_matches": [
+        {
+          "member": "native/tools/bunyip_round2_assess.py",
+          "same": true
+        }
+      ]
+    },
+    {
+      "path": "tools/bunyip_round2_packets.py",
+      "sha256": "0af669ea8a054116a3368327ab916bc40ac3d52d73c8853a29c9a299a34b9faa",
+      "archive_matches": []
+    }
+  ],
+  "verification": "Native seven modules, new regression test and assessor byte-match archived C3; development generator retrieved directly with hash but was not in native archive.",
+  "test_status": "C3 focused37 previously passed; broad local attempts interrupted/failed, remote exact-head checks pending. This is a source checkpoint, not candidate ZIP freeze or release acceptance.",
+  "custody": "36 routing and64 cross-family cases/key remain unopened and excluded. No mixed archive uploaded.",
+  "remaining_publication": [
+    "Local UI copy/test/workflow changes",
+    "Local documentation/history/navigation/index changes",
+    "Reviewed public raw outputs and rejected candidate source archives"
+  ],
+  "release": "Do not merge until agreed acceptance and required checks pass."
+}
