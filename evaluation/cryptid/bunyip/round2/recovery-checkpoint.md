@@ -1,4 +1,6 @@
-# Bunyip C3 recovery checkpoint
+# Bunyip C3 recovery closure
+
+**Recovery attempt: INTERRUPTED / UNRECOVERED.** The retired session is no longer a dependency. Further recovery polling is closed.
 
 2026-11-26. Checked PR #106 head `cc54c4276bb4895c33df46cc782e758f4c8e5a0b`
 and released main `515a919df40996e9d1d521dd50474b832a1a599c`. PR #107's
@@ -32,7 +34,7 @@ The original incident report and prior failures remain unchanged.
 - **PR #107** is the completed documentation release. Its verified deployment
   keeps #105's reader. The original #106 workspace was unavailable at handoff.
   This interruption left the private files and custody receipt unavailable
-  to this session. Their deletion or permanent loss is unverified.
+  to this session. Their deletion or permanent loss is unverified. This is a workflow and data-availability failure. Context compaction may have contributed; its involvement is unconfirmed.
 
 No missing raw output is reconstructed. No original private result or held
 packet is treated as executed based on a summary.
@@ -72,9 +74,40 @@ and original source spans. Keep the source text and inventory private.
    and unreferenced Git objects. Recheck reachability after cleanup. Report
    separately any forks, clones or caches outside repository control.
 
-Once original custody and isolated execution are available, run the 17 unchanged
-private cases sequentially. Publish permitted comparisons only. Complete custody
-and preservation before freezing the committed candidate and running either
-held packet. Human onboarding, independent historical accuracy, independent
-preparation and blinding, independent semantic adjudication, outside-custodian
-scoring, and native OOCC remain NOT_RUN.
+## Replacement verification plan
+
+The 17 original private checks stay incomplete: one recorded startup failure
+and 16 NOT_RUN. The 36 original routing and 64 original cross-family cases
+remain unavailable and NOT_RUN. Missing data supplies no reader outcome.
+The separate publication incident remains open.
+
+| Track | Admissible inputs | What the result can establish |
+|---|---|---|
+| Exact public replay | Permitted public 832 reference bundle, original authorized inputs, frozen harness and pinned reader. Require original source bytes, questions, keys or complete expected contracts, and budgets to match retained pins. | Same-case preservation for the verified subset. Retained outputs alone support receipt verification. |
+| Replacement preservation | Newly authored, explicitly synthetic examples covering signed instructions, reported speech, quotation and polarity, conditions, partials, citations, and competing or ineligible sources. Pair positives with nearby withholds. | A separate comparison between released reader `2622813` and the published C3 native source. The original 17 checks remain incomplete. |
+| Replacement transfer | New routing and cross-family packets, with proposed sizes 36 and 64. Vary wording, layout and obligations. Include attribution, modality, references and multi-record evidence plus wrong-owner, missing-witness, withdrawn-source and fixed-budget controls. | Once-only transfer on new cases. The original 100-case packet and its NOT_RUN status remain intact. |
+
+1. Inventory each authorized public case as byte-exact replayable, receipt-only
+   or unavailable. Record source IDs and original byte hashes, question hash,
+   expected contract or key hash, harness and budget pins. Refetched sources
+   qualify only if permitted and byte-identical. Keep exposed incident
+   material out of the replacement inputs.
+2. Prove required isolation using synthetic controls. Freeze new case IDs,
+   source bytes, witness spans, questions, budgets, rule, expectations,
+   scorer and separate custody before the first reader run. Give the worker
+   only the authorized operator packet. Record who prepared, saw and scored it.
+3. Score statuses, claim meanings, qualifications, eligible exact citations and
+   preservation of prior valid support. Keep coverage gains, consolidation,
+   boundary correctness, and runner outcomes separate. Record execution
+   failures without reader labels. Require zero false support and no lost
+   valid support under the frozen checks.
+4. Freeze the committed candidate ZIP and its SHA-256 before opening either
+   new transfer packet. Run each once and retain every outcome. If a packet
+   informs a repair, retain it as development material. Replacement results
+   cannot satisfy the original missing checks or revise the release gate.
+
+**Next achievable step:** inventory authorized public inputs against the retained
+contracts, then freeze independently identified replacement preservation cases
+and expectations before a reader run. Human onboarding, independent historical
+accuracy, independent preparation and blinding, independent semantic
+adjudication, outside-custodian scoring and native OOCC remain NOT_RUN.

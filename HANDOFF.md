@@ -4,8 +4,8 @@ Last reviewed: 2026-11-26.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `d4d5c192f6ff75c93a3f305c6b335378886c2a70` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `bb3eab996f06775a75838b38b9ed5d726df7aaeb57309d41ab8dffeb6f56edd9`.
+Base commit: `a1021cc3403bd395049359e6d311993ebc25c16a` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `3a94233da22378f4d9e7a7271dbc6966f8d591d661b1b758896f06d5850bcdd0`.
 
 ## Betty report for Al
 
@@ -13,29 +13,22 @@ Run the Betty implementation step first, then the Al review step in a separate c
 
 ### Latest user update instructions
 
-Betty: Continue the existing Bunyip reader work on PR #106. Main’s #107 documentation release is complete. Verify the current pins before proceeding.
+Close the recovery attempt as INTERRUPTED / UNRECOVERED. Stop waiting for the retired session.
 
-Your first task is recovery and completion, not a new experiment.
+Preserve all published code, evidence, hashes and failure records. Mark the 17 private preservation checks incomplete and the 100 unavailable transfer cases NOT_RUN. Do not infer reader passes or failures from missing data.
 
-1. Recover access to the original workspace. Verify the private preservation files, retained evidence and custody receipts. Preserve the old workspace until recovery is confirmed. Keep both held transfer packets unopened.
+Prepare a replacement verification plan using available, authorized sources. Distinguish exact reconstructions supported by retained bytes from newly authored replacement cases. Freeze new inputs and expectations before testing, and preserve the original missing checks as missing.
 
-2. Establish a healthy, authorized isolated runner. Leave PID1 and the supervisor untouched. Run the 17 unchanged private preservation cases sequentially, retaining their actual outputs privately and publishing only permitted comparisons and receipts. Distinguish execution failures from reader decisions.
+Record the interruption as a workflow/data-availability failure, with context-compaction involvement suspected but unconfirmed.
 
-3. Privately inventory the restricted source text in the mistakenly published outputs. Prepare the exact history/artifact cleanup needed, preserving original evidence privately. Do not claim current-tree deletion erased history. Present any destructive history changes concretely before executing them.
+Continue public cleanup and organization. Keep the archive-publication incident separate; retiring the old session does not resolve its Git-history exposure.
 
-4. When preservation and custody requirements are satisfied, freeze the designated committed candidate ZIP. Run the existing 36-case routing and 64-case cross-family packets once. Retain every result; any packet used to inform repairs becomes development material.
-
-Keep coverage gains, consolidation, boundary correctness and infrastructure status separate. Preserve frozen keys, original failures and acceptance requirements.
-
-Push recoverable source and permitted evidence at meaningful work boundaries. Update #106, HANDOFF and the Test Index so another session can continue.
-
-My publication, merge and deployment authorization remains in force. Complete required checks, merge when applicable requirements pass, and verify deployment. No further confirmation is needed for already authorized work. If blocked, publish the precise checkpoint and continue unaffected work without weakening gates.
-
-Follow-up: Note it as a inturptuion lost data and clean up check all the last few Betty notes to catch up
+Update HANDOFF with the next achievable step. Do not convert unavailable verification into a pass.
 
 ### Implemented scope
 
 - Recovery checkpoint only. Verify live pins, public custody receipts, affected Git ancestry and Actions artifact metadata. Record the proposed cleanup in evaluation/cryptid/bunyip/round2/recovery-checkpoint.md and link it from the Test Index.
+- Close the original recovery attempt as INTERRUPTED / UNRECOVERED. Document exact replay and new-case replacement criteria in the Round 2 recovery closure and link from the Test Index.
 
 ### Validation recorded
 
@@ -43,6 +36,7 @@ Follow-up: Note it as a inturptuion lost data and clean up check all the last fe
 - Both permitted replacement archives match their SHA-256 digests, lengths and recorded file-member counts. The cancelled source-ZIP run lists zero artifacts. Ancestry and Actions metadata checks are recorded separately from private payload review.
 - Synthetic no-input Bubblewrap probes failed at namespace startup, before any reader invocation. No private or held case ran. PID 1, the supervisor and the original workspace were untouched.
 - Reviewed the last three Betty reports (#105–#107) and recorded the interruption. Of 122 inspected heads, tags and #106 refs, only the Bunyip branch and #106 head and test-merge refs descend from the introducing commit.
+- The a1021cc recovery and repository handoff workflows passed. This closure changes public coordination text only. No replacement, private or held reader case was run.
 
 ### Limitations and blocked checks
 
@@ -50,12 +44,13 @@ Follow-up: Note it as a inturptuion lost data and clean up check all the last fe
 - 832 public comparisons remain exact, one previous private probe failed execution and sixteen private cases remain NOT_RUN. Both held transfer packets remain unopened. No candidate transfer ZIP was frozen and no C3 release occurred.
 - The incident archive paths are absent from the current tree and the prior history remains reachable. Private source-span inventory, artifact payload clearance and destructive history changes are pending. All independent and human NOT_RUN labels remain.
 - First remote preservation run 45870399223 did not retain its raw outputs in Actions after EACCES. The full job log exists. Original private custody is unavailable to this session; permanent loss is unverified.
+- Workflow and data-availability failure. Context-compaction involvement is suspected but unconfirmed. Permanent loss of original custody is unverified; no reader outcome is inferred.
 
 ### Next steps
 
-- Recover the original custody mount and confirm the original receipts and hashes in a healthy authorized isolated runner. Run the seventeen unchanged cases sequentially; keep raw outputs private.
-- Privately preserve and inventory the affected material. Present the exact ref and artifact mutations from the recovery plan before executing destructive cleanup.
-- After preservation and custody gates, freeze the committed source ZIP, execute the 36 and 64 held cases once, retain results, complete applicable protected checks, then merge and verify deployment.
+- Inventory authorized public replay material against retained original source, question, expected contract or key, harness and budget pins. Mark receipt-only and unavailable cases explicitly.
+- Prove required isolation on synthetic controls. Freeze newly authored replacement inputs and expectations separately. Keep the original 17 checks incomplete and original 100 transfer cases NOT_RUN. Freeze a committed candidate before opening newly authored transfer.
+- Track the publication incident independently. Preserve evidence, present destructive changes concretely before executing them, and keep history exposure open until verified cleanup.
 
 ## Use this ZIP in your repository
 

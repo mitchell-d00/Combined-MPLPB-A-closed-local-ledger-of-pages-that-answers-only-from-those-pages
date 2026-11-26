@@ -9,6 +9,12 @@ preservation cases cannot currently execute under required local isolation.
 A publication custody incident also remains unresolved in earlier Git history.
 Neither held transfer packet has been opened. No merge or deployment occurred.
 
+**Latest recovery disposition: INTERRUPTED / UNRECOVERED.** The original 17
+private checks are incomplete and the 100 original held transfer cases remain
+unavailable and NOT_RUN. The [recovery closure](recovery-checkpoint.md) gives the
+replacement verification plan and tracks the separate Git-history incident.
+Prior results and their dated continuation remain below.
+
 ## Measured software results
 
 | Set | Released main | C3 | Scope |
