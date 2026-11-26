@@ -4,8 +4,8 @@ Last reviewed: 2026-11-26.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `d265881fec092afffdda56cd8781438e40ef1cf7` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `5c98ded6e1a3450ba7612c6a25369ec8bcc1943248c0bd3a891dd13ce2e2ade4`.
+Base commit: `f5e2a62b049111168e27be242fed76d8ea3791c3` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `6f06729541a8c0e7060d95715669c0ad0d47d60226d4bd51233874769b368a0d`.
 
 ## Betty report for Al
 
@@ -20,6 +20,7 @@ Publish the reviewed Cryptid candidate. Push its branch, open the PR, and run al
 - Published authorized Cryptid branch in PR105; final fresh acceptance fails19/24. Merge, deployment and new-candidate live verification are blocked. No required gate is bypassed.
 - Tested native source d265881fec092afffdda56cd8781438e40ef1cf7, fullZIPc3ea1c2db6dfa13462c5a300fe060a1e3908cf2f0cc374850fdae9705e9dd282. Following evidence-only publication commit preserves these exact native bytes.
 - All eight family histories, rejected candidates, original packets/keys/scores and strict-key failure classifications remain unchanged. Prospective partial policy remains separate from reader gains.
+- The existing bounded acceptance CI artifact now also retains every worker result.json, including failed strict-key cases, alongside unchanged scores/logs. This is output retention, not a scoring or reader change.
 
 ### Validation recorded
 
@@ -74,6 +75,7 @@ Publish the reviewed Cryptid candidate. Push its branch, open the PR, and run al
 - Existing CI1000gateFAIL retained:21reported exact-dictionary mismatches,65unscored outputs versus21expected (44additional outputs unaccepted),580refusal targets retained. Localrawreproduction and failed host-only prelaunch attempt retained. Original gate/keys/workflow unchanged.
 - PRvalidation workflow now explicitly checks out and asserts actualPRheadSHA; initial default-merge regression status is not exact-checkout proof. No testednativebyteschanged.
 - Original strict keys unchanged: reporting/shell31/32 with conflict-key disagreement; compatibility8/8; cap2/2; prospective partial11/12 on12unchangednativeoutputs versusstrict7/12. Original final attempts18/24 and14/16 remain failed.
+- Preceding publication headf5e2a62b is superseded only for CI raw-output retention. Required checks must run on the updated head; cancelled superseded jobs are not passes. Native source hashes remain those of testedZIPd265881f.
 
 ### Limitations and blocked checks
 

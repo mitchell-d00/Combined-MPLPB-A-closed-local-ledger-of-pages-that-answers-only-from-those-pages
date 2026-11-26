@@ -64,3 +64,5 @@ reconstructs runtime sidecars locally without fetching model weights. Required
 normal/extracted-ZIP checks do not incur model-provider calls or training jobs.
 
 > Update 2026-11-16: The [public 52-case evidence suite](PUBLIC_EVIDENCE_TESTS.md) and [bounded expert relation path](HISTORICAL_EXPERT_PATH.md) document the current update. Prior dated measurements and preserved historical sources retain their original scope; this note does not rerun or revise them.
+
+The bounded documentary acceptance artifact retains raw worker `result.json` files alongside scores, run receipts, failure records and worker logs, even when strict acceptance fails. Retention changes do not amend scoring expectations.

@@ -4,7 +4,8 @@
   "scope": [
     "Published authorized Cryptid branch in PR105; final fresh acceptance fails19/24. Merge, deployment and new-candidate live verification are blocked. No required gate is bypassed.",
     "Tested native source d265881fec092afffdda56cd8781438e40ef1cf7, fullZIPc3ea1c2db6dfa13462c5a300fe060a1e3908cf2f0cc374850fdae9705e9dd282. Following evidence-only publication commit preserves these exact native bytes.",
-    "All eight family histories, rejected candidates, original packets/keys/scores and strict-key failure classifications remain unchanged. Prospective partial policy remains separate from reader gains."
+    "All eight family histories, rejected candidates, original packets/keys/scores and strict-key failure classifications remain unchanged. Prospective partial policy remains separate from reader gains.",
+    "The existing bounded acceptance CI artifact now also retains every worker result.json, including failed strict-key cases, alongside unchanged scores/logs. This is output retention, not a scoring or reader change."
   ],
   "validation": [
     "Verified clean starting main and actual remote main SHA match c01021c0b9983f9a607fbe782dea7ed5872d1f11",
@@ -57,7 +58,8 @@
     "Freshfinal24once after committedZIP:19/24FAIL,7complete4checkedpartial1conflict12abstain,5positive misses(3interpretation2proof) despite full required discovery,0false-support flags,2budgetstops,0executionfailures,0unscored. No transfer-informed repair included; packet now consumed.",
     "Existing CI1000gateFAIL retained:21reported exact-dictionary mismatches,65unscored outputs versus21expected (44additional outputs unaccepted),580refusal targets retained. Localrawreproduction and failed host-only prelaunch attempt retained. Original gate/keys/workflow unchanged.",
     "PRvalidation workflow now explicitly checks out and asserts actualPRheadSHA; initial default-merge regression status is not exact-checkout proof. No testednativebyteschanged.",
-    "Original strict keys unchanged: reporting/shell31/32 with conflict-key disagreement; compatibility8/8; cap2/2; prospective partial11/12 on12unchangednativeoutputs versusstrict7/12. Original final attempts18/24 and14/16 remain failed."
+    "Original strict keys unchanged: reporting/shell31/32 with conflict-key disagreement; compatibility8/8; cap2/2; prospective partial11/12 on12unchangednativeoutputs versusstrict7/12. Original final attempts18/24 and14/16 remain failed.",
+    "Preceding publication headf5e2a62b is superseded only for CI raw-output retention. Required checks must run on the updated head; cancelled superseded jobs are not passes. Native source hashes remain those of testedZIPd265881f."
   ],
   "limitations": [
     "Acceptance FAILED: five fresh positive semantic misses and remaining historical/development misses; do not merge even if command checks pass.",
