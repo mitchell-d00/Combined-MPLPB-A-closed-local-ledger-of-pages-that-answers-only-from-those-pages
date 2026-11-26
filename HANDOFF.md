@@ -4,8 +4,8 @@ Last reviewed: 2026-11-26.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `aa68d5a76d10552c7c4cf9e470f60e45e0657ba4` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `f9c5669dd278e1e3c61fc0e2b06838b19d31f182bcbdc6aacbca464ebaa5db54`.
+Base commit: `91dd6d0e02c56f60ecf47122bd0e9bf9e0ac8acb` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `b6ce7167ebeb532d1ff13b6ad1037b541fc1e5087d46b5063aa3bfe316916e72`.
 
 ## Betty report for Al
 
@@ -17,8 +17,9 @@ Betty — prioritize broader ordinary-language understanding. Work locally first
 
 ### Implemented scope
 
-- BunyipC1 source and results retained locally; C1REJECTED after separately frozen scopeWrap found4new unsupported completions. No publication yet.
-- Original102development now56/60positivecompletions versus16PRbaseline with42withholds, but scopeWrap acceptancefails20/24. Sharedconditional-scope repair is next; remaining4explicitfield-wording misses stay visible.
+- BunyipC2 source/results retained locally; C2rejected after14newgovernor controls expose10unsupportedcompletions. Existingprimarygain56/60 versus16PRbaseline andscope24/24remain documented. No publication yet.
+- C2matchesall849oldPRcontracts. Four support differences against main are false compound authors formed from headers, not valid support losses.
+- Sourcechecked assessment validates44oldadditionaloutputs and21metadata cases fromfrozen originals; oldstrict failuresunchanged. ProspectiveCIpolicy mayonlyacceptafter contract-preservation and execution-integrity checks.
 
 ### Validation recorded
 
@@ -26,10 +27,13 @@ Betty — prioritize broader ordinary-language understanding. Work locally first
 - Four main strict-key flags reflect an absent additive literal-polarity field. Separate source-scoped representation review retained; no old key/score changed.
 - C1realhost102completed:98/102strict,56completions,0flags onprimarypacket. PostC1developmentWrap24:20/24,4unsupportedcompletecases caused by standaloneOnlyifscope. OriginalPRWrap16/24 has6unsupportedclaims and2positive misses. AlloriginalrawscoresandfailedC1retained.
 - DefaultnamespaceC1launch102executionfailures,0readerexecutions; separatehostretrycompleted102. No unsandboxed fallback.
+- C2core98/102,56/60completions,42withholds0falseflags;scope24/24. Governordevelopment14score4/14,10falseflags; retainandrejectC2.
+- 849currentPRcontracts exactlyunchanged inC2; releasedmainreplaycomplete and4apparentsupportlosseschecked againstexactclaims: inventedauthorsfusedwithheaders. No lostvalidsupport identified.
+- 57focused nativechecksPASS. Legacy65case sourceassessmentPASS afterretainedhost-audit correction; historical/independentsemantic NOT_RUN.
 
 ### Limitations and blocked checks
 
-- C1rejected; C2repair/preservation/fullZIP/freshtransfer NOT_RUN at this snapshot.
+- C2rejected; C3governor repair, final cleanZIPsoftware checks and42freshtransfer remain NOT_RUN.
 - Same-operator preparation/scoring; independent historical/semantic/preparation/blinding/outside-custodian/nativeOOCC andhuman executionNOT_RUN.
 
 ### Next steps

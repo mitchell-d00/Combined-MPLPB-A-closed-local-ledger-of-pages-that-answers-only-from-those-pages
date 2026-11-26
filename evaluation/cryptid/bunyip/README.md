@@ -17,3 +17,9 @@ Transfer remains sealed until a repaired committed source ZIP is frozen. Prepara
 ## Rejected C1
 
 Primary development improves16/60 to56/60 completions, with0false flags in that packet. Post-C1 scope Wrap is separately frozen before its diagnostic: C1fails4/24 cases by dropping a standalone “Only if…” governor on an owner or classification assertion. C1 is rejected. The unchanged PR105 Wrap baseline also exposes six pre-existing unsupported report/quotation assertions and misses its two positive executions. Original keys/scores are retained. The initial nested-namespace launch failed102workers before reader execution; these are NOT_RUN reader outcomes, retained separately.
+
+## C2 and the longer-governor diagnostic
+
+C2 keeps56/60primary completions and passes24/24scope controls. A further14-case development set is frozen before C2 testing/C3 repair: C2fails10governor-head/length cases. C2 is retained and rejected. Its849prior contracts exactly matchPR105. Four raw support losses versus main are header text fused into invented authors, not lost valid support; original outputs remain in the comparison.
+
+The [source-checked legacy assessment](assessments/legacy-source-assessment-v2.json) independently rereads frozen original bytes and exact citations for44previously unscored positives plus21additive-field cases. Same-operator source assessment is distinct from independent semantic adjudication. Two failed host-audit attempts (absent original-witness annotation, then whitespace projection mismatch) remain retained; no source, old key or old score changed.

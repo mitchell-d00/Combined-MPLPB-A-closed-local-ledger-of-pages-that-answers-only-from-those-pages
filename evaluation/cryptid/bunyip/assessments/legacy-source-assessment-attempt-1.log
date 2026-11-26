@@ -1,0 +1,13 @@
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/workspace/cryptid-local/tools/bunyip_legacy_assessment.py", line 80, in <module>
+    p=argparse.ArgumentParser();p.add_argument('--run',type=Path);p.add_argument('--output',type=Path,required=True);raise SystemExit(main(p.parse_args()))
+                                                                                                                                      ^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/cryptid-local/tools/bunyip_legacy_assessment.py", line 71, in main
+    assessment=source_assessment();result={'policy':'bunyip-source-checked-retention-v2','original_gate_unchanged':True,'source_checked_prior_additional_outputs':44,'source_checked_reported_metadata_cases':21,'source_assessment':assessment,'independent_historical_semantic_adjudication':'NOT_RUN'}
+               ^^^^^^^^^^^^^^^^^^^
+  File "/workspace/cryptid-local/tools/bunyip_legacy_assessment.py", line 32, in source_assessment
+    r=sources[citation['source_id']];number=next(i for i,s in enumerate(case['sources'],1) if s['path']==r['source_file']);original=(packets/'packets'/ident/r['source_file']).read_text();admitted=('<h1>Synthetic source '+str(number)+'</h1>\n<pre>'+html.escape(original)+'</pre>').replace('\r\n','\n').strip().encode();w=citation['original_witness'];lo,hi=w['start_byte'],w['end_byte']
+                                                                                                                                                                                                                                                                                                                                ~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+KeyError: 'original_witness'

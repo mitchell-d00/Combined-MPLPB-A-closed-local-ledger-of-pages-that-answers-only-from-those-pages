@@ -14,7 +14,7 @@ def unscoped(record,body,start,end):
     from .documentary_verify import context_ranges,quoted_context
     if any(a<end and b>start for a,b in context_ranges(record)):return False
     if quoted_context(body[:start]):return False
-    return not re.search(r'(?:^|[.!?]\s+)(?:If|Unless)\b[^.!?]{1,200}[.!?]?\s*$',body[:start],re.I)
+    return not re.search(r'(?:^|[.!?]\s+|\n)(?:(?:Only\s+)?If|Unless)\b[^.!?]{1,200}[.!?]?\s*$',body[:start],re.I)
 
 def opening_fields(frame,record):
     from .relation_graph import declared_fields,field_contexts
