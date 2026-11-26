@@ -1,0 +1,88 @@
+name: Verify documentation deployment fingerprints
+on:
+  push:
+    branches: ['automation/verify-docs-live-v1']
+permissions:
+  contents: read
+  actions: read
+jobs:
+  verify-live:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: 515a919df40996e9d1d521dd50474b832a1a599c
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Wait for the authorized Pages run, then verify live bytes and native hashes
+        env:
+          GH_TOKEN: ${{ github.token }}
+          RECEIPT_PATH: ${{ runner.temp }}/documentation-live-fingerprints.json
+        run: |
+          test "$(git rev-parse HEAD)" = 515a919df40996e9d1d521dd50474b832a1a599c
+          python - <<'PY'
+          import base64, datetime, hashlib, json, os, re, subprocess, time, urllib.request
+          from pathlib import Path
+          repo="mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages"
+          expected_commit="515a919df40996e9d1d521dd50474b832a1a599c"
+          run_id=45896184447
+          def api(path):
+              return subprocess.check_output(['gh','api','repos/'+repo+'/'+path],text=True)
+          for attempt in range(80):
+              run=json.loads(api('actions/runs/'+str(run_id)))
+              assert run['head_sha']==expected_commit
+              print('Pages run:',run['status'],run.get('conclusion'),flush=True)
+              if run['status']=='completed':
+                  assert run['conclusion']=='success', 'Pages deployment failed'
+                  break
+              time.sleep(20)
+          else:
+              raise RuntimeError('Pages deployment not complete; no live pass claimed')
+          log=api('actions/jobs/140170543566/logs')
+          clean=re.sub(r'^\d{4}-\d\d-\d\dT[^ ]+ ', '', log, flags=re.M)
+          candidates=[]
+          for match in re.finditer(r'\{\s*"output"\s*:\s*"dist/index\.html"\s*,.*?\}',clean,re.S):
+              candidates.append(json.loads(match.group()))
+          assert len(candidates)==1, 'Exact build receipt missing or ambiguous'
+          expected=candidates[0]
+          url='https://mitchell-d00.github.io/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/?verify='+expected_commit
+          with urllib.request.urlopen(url,timeout=60) as response:
+              html=response.read(expected['bytes']+1)
+          html_sha=hashlib.sha256(html).hexdigest()
+          assert len(html)==expected['bytes'] and html_sha==expected['sha256'], 'Live HTML differs from Pages build'
+          match=re.search(rb'<script id="mplpb-runtime-bundle" type="application/json">(.*?)</script>',html,re.S)
+          assert match, 'Runtime bundle absent'
+          bundle=json.loads(match.group(1))
+          native={}
+          for package in ('mplpb_answers','mplpb_combined'):
+              for path in sorted(Path(package).rglob('*.py')):
+                  if '__pycache__' not in path.parts:
+                      name=path.as_posix()
+                      digest=hashlib.sha256(path.read_bytes()).hexdigest()
+                      assert bundle['manifest'][name]==digest
+                      assert hashlib.sha256(base64.b64decode(bundle['files'][name])).hexdigest()==digest
+                      native[name]=digest
+          build_id=hashlib.sha256(json.dumps(bundle['manifest'],sort_keys=True).encode()).hexdigest()[:12]
+          assert ('id="runtime-build">Build '+build_id).encode() in html
+          receipt={'schema':'documentation-deployed-fingerprints-v1','deployed_commit':expected_commit,
+              'pages_run':run_id,'pages_conclusion':run['conclusion'],'live_url':url,
+              'live_html_sha256':html_sha,'live_html_bytes':len(html),'expected_build':expected,
+              'runtime_build_id':build_id,'native_files_checked':len(native),'native_sha256':native,
+              'all_live_native_files_match_merged_source':True,
+              'observed_at':datetime.datetime.now(datetime.timezone.utc).isoformat(),
+              'scope':'Publication byte/source identity only; documentation merge adds no reader coverage or human validation.',
+              'human_onboarding':'NOT_RUN','independent_semantic_adjudication':'NOT_RUN','native_oocc':'NOT_RUN'}
+          Path(os.environ['RECEIPT_PATH']).write_text(json.dumps(receipt,indent=2)+'\n')
+          print(json.dumps({k:v for k,v in receipt.items() if k!='native_sha256'},indent=2),flush=True)
+          PY
+      - name: Retain public fingerprint receipt only
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: documentation-live-fingerprints-${{ github.run_id }}
+          path: ${{ runner.temp }}/documentation-live-fingerprints.json
+          if-no-files-found: warn
+          retention-days: 90
