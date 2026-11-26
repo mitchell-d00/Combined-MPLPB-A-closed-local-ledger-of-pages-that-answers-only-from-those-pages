@@ -30,7 +30,10 @@ jobs:
           expected_commit="515a919df40996e9d1d521dd50474b832a1a599c"
           run_id=45896184447
           def api(path):
-              return subprocess.check_output(['gh','api','repos/'+repo+'/'+path],text=True)
+              command=['gh','api','repos/'+repo+'/'+path]
+              if path.endswith('/logs'):
+                  command.append('--allow-escape-sequences')
+              return subprocess.check_output(command,text=True)
           for attempt in range(80):
               run=json.loads(api('actions/runs/'+str(run_id)))
               assert run['head_sha']==expected_commit
