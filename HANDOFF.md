@@ -4,8 +4,8 @@ Last reviewed: 2026-11-26.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `73e07a85fca5cbcd6edb8b54afb7f623a5bbb111` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `1286f18dd43c42852ec4dafac2d339ed5a6407ac5ac68d1b1928c6d0a837974b`.
+Base commit: `483f35a97a32be4cadb4eb224e976e045124901d` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `5b305dabac81bafabb623260c7a30e472b6e7367b3aa7276d88e60b8fc346d91`.
 
 ## Betty report for Al
 
@@ -27,6 +27,7 @@ Then organize the existing repository around its three entry areas: MPLPB produc
 - Canonical [Al](docs/TEAMBUILDING.md#al--review-evidence-and-propose-the-next-test), [Betty](docs/TEAMBUILDING.md#betty--implement-test-and-retain-the-result) and unchanged [Outside](docs/TEAMBUILDING.md#outside) definitions; [artifact and working-state recovery](docs/TEAMBUILDING.md#recover-artifact-state-and-working-state). Shared-rule and broader-coverage criteria remain in force.
 - Complete recovery record: [Bunyip round2 checkpoint](docs/recovery/BUNYIP_ROUND2_CHECKPOINT.md). It records revision, task, criteria, decisions/reasons, rejected candidates, unresolved objections, custody, local archive hashes, infrastructure failures and authorized next actions. Prior released handoff/update retained under handoff/history/.
 - Original museum diagnostic-copy implementation, JavaScript tests/fixture and four workflow integrations now included. This UI work is separate from reader-language gains. Public evidence bundle, unchanged baseline archive and exact rejected C1/C2 source archives are included; see evaluation/cryptid/bunyip/round2/public-artifacts-v1.json.
+- Existing optional source-metadata/read-only diagnostic worker adapter and public routing/polarity development packets are published unchanged. Remote workflow reuses D.run, sealed worker hashes, current limits and required Bubblewrap; it executes only public development on baseline/current source. Held keys remain local, so semantic scoring stays separate.
 
 ### Validation recorded
 
@@ -35,6 +36,7 @@ Then organize the existing repository around its three entry areas: MPLPB produc
 - Unique completed/resource-attempt evidence was byte-verified into persistent local archives before the outage. Archive locations/hashes are recorded; their payloads are not uploaded in this checkpoint. Held inputs/keys and private correspondence are excluded.
 - Original workspace became reachable through a surviving shell despite process exhaustion. Actual source bytes were exported directly; nine files match the retained C3 archive exactly, and the development generator was retrieved directly with hash. No source reconstructed from summaries. Public evidence filtering/upload remains next.
 - Public evidence selection includes4597 original files/27800118 uncompressed bytes; every bundled payload byte hash reverified. Keys, held transfer inputs and private material excluded. Rejected source snapshots retained byte-identically. Packaging first attempt failed a narrow allowlist before upload; inspected the public regression-test member and retained that attempt without changing reader or scoring.
+- Recovered local C3 primary record:75/444 completed;75 source-key decisions correct, including14 positives;369 execution failures. Guards0/44 completed and44 execution failures. These are not369+44 reader refusals. At exact source commit baa19f5 remote regression passed1904tests with1skip plus JS/API/WASM/Chromium; later-head checks remain required.
 
 ### Limitations and blocked checks
 
