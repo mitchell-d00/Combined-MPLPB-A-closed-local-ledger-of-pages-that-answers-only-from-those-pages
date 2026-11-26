@@ -31,6 +31,10 @@ DATE_ROLES = {'bombardment','surrender','evacuation','departure','arrival','publ
 
 def date_inventory_request(question):
     """A complete, source-bounded date question; factual additions never vanish."""
+    from .ordinary_questions import request as ordinary_request
+    ordinary=ordinary_request(question)
+    if ordinary and ordinary['kind']=='writing_date':
+        return {'roles':['writing'],'subject_text':ordinary['entity'], 'scope':'explicit statements in one eligible source record'}
     q=source_question(question).strip().rstrip('? .')
     # Documentary role labels are an inspection plan. Keep the full original
     # question on the index for policy, proof and final current-state checks.

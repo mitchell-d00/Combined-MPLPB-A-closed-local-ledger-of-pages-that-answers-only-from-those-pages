@@ -4,8 +4,8 @@ Last reviewed: 2026-11-26.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `ab8f73e83538d8e33e8d13df14c2f47b88054608` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `4552e65b0ee8270b66429be231e9ace77ef0019f5590b5549e9b716faed94121`.
+Base commit: `aa68d5a76d10552c7c4cf9e470f60e45e0657ba4` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `f9c5669dd278e1e3c61fc0e2b06838b19d31f182bcbdc6aacbca464ebaa5db54`.
 
 ## Betty report for Al
 
@@ -17,18 +17,19 @@ Betty — prioritize broader ordinary-language understanding. Work locally first
 
 ### Implemented scope
 
-- Local Bunyip branch from verified PR105headab8f73e; main remainsc01021c and no newer PR work exists. No native code changed at this baseline freeze.
-- Frozen102development executions (51question/source obligations in two renderings) and42sealed transfer executions. Whole original question and source evidence remain authoritative.
-- Incremental release criteria prospectively supersede the old requirement for perfect coverage; verified source-supported gains/no regressions/required software checks are mandatory. Original failures and scores remain unchanged.
+- BunyipC1 source and results retained locally; C1REJECTED after separately frozen scopeWrap found4new unsupported completions. No publication yet.
+- Original102development now56/60positivecompletions versus16PRbaseline with42withholds, but scopeWrap acceptancefails20/24. Sharedconditional-scope repair is next; remaining4explicitfield-wording misses stay visible.
 
 ### Validation recorded
 
 - Both102case baselines completed in real fail-closed Bubblewrap before any native change. Main12/60positive completions; PR10516/60;42/42withhold controls on each. Originalscores50/102 and58/102 retained.
 - Four main strict-key flags reflect an absent additive literal-polarity field. Separate source-scoped representation review retained; no old key/score changed.
+- C1realhost102completed:98/102strict,56completions,0flags onprimarypacket. PostC1developmentWrap24:20/24,4unsupportedcompletecases caused by standaloneOnlyifscope. OriginalPRWrap16/24 has6unsupportedclaims and2positive misses. AlloriginalrawscoresandfailedC1retained.
+- DefaultnamespaceC1launch102executionfailures,0readerexecutions; separatehostretrycompleted102. No unsandboxed fallback.
 
 ### Limitations and blocked checks
 
-- Native repair, candidate preservation, ZIP checks and fresh transfer NOT_RUN at this freeze.
+- C1rejected; C2repair/preservation/fullZIP/freshtransfer NOT_RUN at this snapshot.
 - Same-operator preparation/scoring; independent historical/semantic/preparation/blinding/outside-custodian/nativeOOCC andhuman executionNOT_RUN.
 
 ### Next steps

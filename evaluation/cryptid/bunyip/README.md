@@ -13,3 +13,7 @@ The falsifiable mechanism is relation/argument loss at the finite question-inter
 [Main baseline](runs/baseline-main/run.json), [PR105 baseline](runs/baseline-pr105/run.json), [main score](baseline-main-score.json), [PR105 score](baseline-pr105-score.json). Al's separate8/24 and4/24 diagnostics are reviewer-authored leads; their inputs were not supplied here and those measurements are not represented as this Bunyip rerun.
 
 Transfer remains sealed until a repaired committed source ZIP is frozen. Preparation, implementation and scoring are same-operator; templates are visible. Independent preparation/blinding, historical/semantic adjudication, outside-custodian scoring and native OOCC remain NOT_RUN. Human onboarding execution remains NOT_RUN until Mitchell supplies actual observations.
+
+## Rejected C1
+
+Primary development improves16/60 to56/60 completions, with0false flags in that packet. Post-C1 scope Wrap is separately frozen before its diagnostic: C1fails4/24 cases by dropping a standalone “Only if…” governor on an owner or classification assertion. C1 is rejected. The unchanged PR105 Wrap baseline also exposes six pre-existing unsupported report/quotation assertions and misses its two positive executions. Original keys/scores are retained. The initial nested-namespace launch failed102workers before reader execution; these are NOT_RUN reader outcomes, retained separately.

@@ -25,6 +25,10 @@ _PASSIVE_FORMS = {'was reported':(False,False),'was not reported':(True,False),
 
 
 def request(question):
+    from .ordinary_questions import request as ordinary_request
+    ordinary=ordinary_request(question)
+    if ordinary and ordinary['kind']=='reported':
+        return {k:ordinary[k] for k in ('reporter','author','object','required_outer_negative')} | {'conditional':False,'form':None}
     q = kernel.source_question(question)
     patterns = [
         (rf'What does (?P<reporter>{_PERSON}) report about the writer of (?P<object>{_OBJECT}), without independently verifying the event\?', False),
@@ -138,6 +142,8 @@ def _citation(record, body, start, end):
 def _proof(record, body, start, end, roles, goal):
     if (record.kind != 'page' or record.derived_from or record.fields.get('corrects-field')
             or not unqualified_span(record, body, start, end)):
+        return None
+    if goal.get('required_outer_negative') is not None and roles['outer_negative']!=goal['required_outer_negative']:
         return None
     # A separate governing paragraph cannot disappear at a sentence boundary.
     prior = body[:start]

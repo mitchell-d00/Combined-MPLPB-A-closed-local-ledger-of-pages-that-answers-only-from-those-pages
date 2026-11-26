@@ -16,8 +16,12 @@ def statement_support(question, record):
     frame = parse(question)
     if frame is None:
         return {'status':'unsupported','reason':'Question is outside the supported statement grammar.','spans':[]}
+    from .ordinary_evidence import patterns as source_patterns, opening_fields, unscoped
+    from .body_text import body_text
+    fields=opening_fields(frame,record)
+    if fields is not None:return fields
     subject = frame.entity if frame.relation == 'description' else ''
-    patterns = [frame.statement]
+    patterns = source_patterns(frame)
     negative = False
     negative_spans = []
     spans=[]
@@ -28,13 +32,18 @@ def statement_support(question, record):
                  text_of(body), re.I):
         return {'status': 'unsupported', 'spans': [],
                 'reason': 'Instructional or hypothetical source context is not factual evidence.'}
-    for sentence in re.split(r'(?<=[.!?])\s+|\n+',text_of(body)):
+    canonical_body=body_text(record.body_html);cursor=0
+    for sentence in re.split(r'(?<=[.!?])\s+|\n+',canonical_body):
         raw=sentence.strip();line=normalize(raw)
+        if not raw:continue
+        start=canonical_body.find(raw,cursor);cursor=start+len(raw)
+        if start<0 or not unscoped(record,canonical_body,start,cursor):continue
         if re.match(r'^(?:say|write|claim|imagine|suppose|assume|pretend|if|perhaps|possibly|maybe)\b', line):
             continue
-        if frame.negative_statement and re.fullmatch(frame.negative_statement,line):
+        negative_match=next((m for p in source_patterns(frame,True) if (m:=re.fullmatch(p,line))),None)
+        if negative_match:
             negative = True
-            match = re.fullmatch(frame.negative_statement, line)
+            match = negative_match
             negative_spans.append({'quote': raw, 'value': match['value']})
             continue
         fact=re.fullmatch(r'fact: (.+?) \| (instance_of|subclass_of) \| (.+)',line)
@@ -46,6 +55,7 @@ def statement_support(question, record):
             value=m['value']
             if frame.relation in {'owner','chosen_colour'} and (re.search(r'[,;\d]|\b(?:says|said|believes|claims|formerly|currently|previously|now|then)\b', value) or len(value.split())>6):
                 continue
+            if frame.relation=='owner' and re.search(r'\b(?:reported|reports|stated|states) that\b',value):continue
             if re.search(r'\bnot\b',value):negative=True
             if frame.relation == 'socket' or re.search(r'\b(?:port|socket)$',subject):
                 if not re.fullmatch(r'\d{1,5}',value) or not 0<int(value)<65536:continue
@@ -55,6 +65,8 @@ def statement_support(question, record):
             spans.append({'quote':raw,'value':value})
     values={s['value'] for s in spans}
     if len(values)>1 or (values & {s['value'] for s in negative_spans}):return {'status':'conflict','reason':'Conflicting matching statements in the candidate page.','spans':spans,'negative_spans':negative_spans,'frame':frame.to_dict()}
+    if frame.requested_value and {normalize(p['value']) for p in spans}!={frame.requested_value}:
+        return {'status':'unsupported','spans':spans,'negative_spans':negative_spans,'reason':'The requested literal description was not uniquely established.'}
     if not spans:return {'status':'unsupported','reason':'No affirmative statement answers the complete requested subject.','spans':[],'negative_match':negative, 'negative_spans':negative_spans}
     return {'status':'supported','reason':'Exact affirmative statement under a finite grammar; source truth is not verified.','spans':spans,'negative_spans':negative_spans,'frame':frame.to_dict()}
 
@@ -205,7 +217,7 @@ def supported_answer(root, question, profile=None):
         out.record = None
         out.reason = 'A unique local evidence corpus was not resolved; pointers are not answers.'
         return out
-    gate = gather(out.root, canonical, out.profile)
+    gate = gather(out.root, question, out.profile)
     by_path = {r.path:r for r in ledger.servable()}
     checks = [(by_path[s['path']], statement_support(question, by_path[s['path']]))
               for s in gate.sources if s['path'] in by_path]

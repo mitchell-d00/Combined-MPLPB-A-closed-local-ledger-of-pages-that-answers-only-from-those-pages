@@ -28,6 +28,10 @@ def _name(value):
 
 
 def request(question):
+    from .ordinary_questions import request as ordinary_request
+    ordinary=ordinary_request(question)
+    if ordinary and ordinary['kind']=='instruction':
+        return {k:ordinary[k] for k in ('kind','actor','object','recipient')}
     q=kernel.source_question(question).strip().rstrip('? .')
     denied=re.fullmatch(r'What does the record deny about (.{2,120}?) and (.{2,220})',q,re.I)
     if denied and _name(denied[1]):return {'kind':'denial','actor':denied[1],'object':denied[2]}
@@ -173,6 +177,7 @@ def verify(index,max_passages,max_chars):
             if (kernel.normalized(frame.actor)!=kernel.normalized(goal['actor'])
                     or kernel.normalized(frame.object_text)!=kernel.normalized(goal['object'])
                     or frame.modality!=('assertion' if goal['kind']=='denial' else goal['kind'])):continue
+            if goal.get('recipient') and kernel.normalized(frame.task_actor)!=kernel.normalized(goal['recipient']):continue
             matches.append((frame,value,citations))
     if not fresh.unchanged() or not index.unchanged():return 'abstain','source_changed',{}
     if not matches:return None
