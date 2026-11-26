@@ -1,0 +1,468 @@
+{
+  "name": "Bunyip BB \u2014 Ben Gelhaus external adversarial benchmark",
+  "credits": {
+    "benchmark_and_analysis": "Ben Gelhaus",
+    "MPLPB_implementation": "Mitchell"
+  },
+  "hostile": "Deliberately challenge the reader and seek failures; no implication of bad faith by the author.",
+  "package_path": "evaluation/field-question-normalization/2026-11-20/public-reproduction.zip",
+  "package_sha256": "f4d1c8263dbb8dcf9f7ddbc9fc85be5d005864db4c74fce1a93cda1bb4865718",
+  "questions_sha256": "77e21fc704062dbbbe67d37154db813f6c6aec8f3cc8652eb91ec74317c0d335",
+  "fixtures_sha256": "a46831a1581bcf7fa4528f67029d96e2cb21aed4198a2716d0914c54c848510b",
+  "source_contracts_at_original_tested_pin": {
+    "README.md": {
+      "sha256": "88609559b523ce0e04932d8c888a3d4b2662bb6a3179ec91c80d202aafbf6428",
+      "revision": "bbf6690d69b32d16969cc10e5ce9d380427ead40"
+    },
+    "docs/GENERAL_ANSWER_PIPELINE.md": {
+      "sha256": "78458954a331fa19d0cd0ec233bff68b4aa988040c370e35eacedabe16b90fe5",
+      "revision": "bbf6690d69b32d16969cc10e5ce9d380427ead40"
+    },
+    "mplpb_answers/relation_graph.py": {
+      "sha256": "2166e4a1f3e16726dce78613feb2aeb4b664b56c4c070b7c9b6ebb2f348b9e20",
+      "revision": "bbf6690d69b32d16969cc10e5ce9d380427ead40"
+    }
+  },
+  "original_results": "Preserved unchanged in the released package and prior pinned reproduction report. At bbf6690:150/150 canonical,0/750 paraphrases,200/200 negative controls withheld.",
+  "current_results": {
+    "released_main": {
+      "counts": {
+        "form0_tested": 150,
+        "form0_supported": 150,
+        "form0_errors": 0,
+        "form1_tested": 150,
+        "form1_supported": 150,
+        "form1_errors": 0,
+        "form2_tested": 150,
+        "form2_supported": 150,
+        "form2_errors": 0,
+        "form3_tested": 150,
+        "form3_supported": 150,
+        "form3_errors": 0,
+        "form4_tested": 150,
+        "form4_supported": 150,
+        "form4_errors": 0,
+        "form5_tested": 150,
+        "form5_supported": 150,
+        "form5_errors": 0,
+        "nonexistent_tested": 50,
+        "nonexistent_rejected": 50,
+        "missing_field_tested": 50,
+        "missing_field_rejected": 50,
+        "external_tested": 50,
+        "external_rejected": 50,
+        "identity_tested": 50,
+        "identity_rejected": 50
+      },
+      "examples": [
+        {
+          "question": "What is the current status for record REC-0001?",
+          "supported": true,
+          "kind": "supported_answer",
+          "diagnostic": "supported"
+        },
+        {
+          "question": "Tell me the current status listed on record REC-0001.",
+          "supported": true,
+          "kind": "supported_answer",
+          "diagnostic": "supported"
+        },
+        {
+          "question": "For record REC-0001, which current status is explicitly stated?",
+          "supported": true,
+          "kind": "supported_answer",
+          "diagnostic": "supported"
+        },
+        {
+          "question": "Looking only at REC-0001, identify the current status recorded there.",
+          "supported": true,
+          "kind": "supported_answer",
+          "diagnostic": "supported"
+        },
+        {
+          "question": "Could you give me REC-0001's current status?",
+          "supported": true,
+          "kind": "supported_answer",
+          "diagnostic": "supported"
+        },
+        {
+          "question": "Please find REC-0001 and report its current status.",
+          "supported": true,
+          "kind": "supported_answer",
+          "diagnostic": "supported"
+        },
+        {
+          "question": "What is the relation type for record REC-0001?",
+          "supported": true,
+          "kind": "supported_answer",
+          "diagnostic": "supported"
+        },
+        {
+          "question": "Tell me the relation type listed on record REC-0001.",
+          "supported": true,
+          "kind": "supported_answer",
+          "diagnostic": "supported"
+        },
+        {
+          "question": "For record REC-0001, which relation type is explicitly stated?",
+          "supported": true,
+          "kind": "supported_answer",
+          "diagnostic": "supported"
+        },
+        {
+          "question": "Looking only at REC-0001, identify the relation type recorded there.",
+          "supported": true,
+          "kind": "supported_answer",
+          "diagnostic": "supported"
+        },
+        {
+          "question": "Could you give me REC-0001's relation type?",
+          "supported": true,
+          "kind": "supported_answer",
+          "diagnostic": "supported"
+        },
+        {
+          "question": "Please find REC-0001 and report its relation type.",
+          "supported": true,
+          "kind": "supported_answer",
+          "diagnostic": "supported"
+        },
+        {
+          "question": "What is the to object for record REC-0001?",
+          "supported": true,
+          "kind": "supported_answer",
+          "diagnostic": "supported"
+        },
+        {
+          "question": "Tell me the to object listed on record REC-0001.",
+          "supported": true,
+          "kind": "supported_answer",
+          "diagnostic": "supported"
+        },
+        {
+          "question": "For record REC-0001, which to object is explicitly stated?",
+          "supported": true,
+          "kind": "supported_answer",
+          "diagnostic": "supported"
+        },
+        {
+          "question": "Looking only at REC-0001, identify the to object recorded there.",
+          "supported": true,
+          "kind": "supported_answer",
+          "diagnostic": "supported"
+        },
+        {
+          "question": "Could you give me REC-0001's to object?",
+          "supported": true,
+          "kind": "supported_answer",
+          "diagnostic": "supported"
+        },
+        {
+          "question": "Please find REC-0001 and report its to object.",
+          "supported": true,
+          "kind": "supported_answer",
+          "diagnostic": "supported"
+        }
+      ],
+      "exact_supported": 150,
+      "exact_tested": 150,
+      "paraphrase_supported": 750,
+      "paraphrase_tested": 750
+    },
+    "candidate_before_extension": {
+      "counts": {
+        "form0_tested": 150,
+        "form0_supported": 150,
+        "form0_errors": 0,
+        "form1_tested": 150,
+        "form1_supported": 150,
+        "form1_errors": 0,
+        "form2_tested": 150,
+        "form2_supported": 150,
+        "form2_errors": 0,
+        "form3_tested": 150,
+        "form3_supported": 150,
+        "form3_errors": 0,
+        "form4_tested": 150,
+        "form4_supported": 150,
+        "form4_errors": 0,
+        "form5_tested": 150,
+        "form5_supported": 150,
+        "form5_errors": 0,
+        "nonexistent_tested": 50,
+        "nonexistent_rejected": 50,
+        "missing_field_tested": 50,
+        "missing_field_rejected": 50,
+        "external_tested": 50,
+        "external_rejected": 50,
+        "identity_tested": 50,
+        "identity_rejected": 50
+      },
+      "examples": [
+        {
+          "question": "What is the current status for record REC-0001?",
+          "supported": true,
+          "kind": "supported_answer",
+          "diagnostic": "supported"
+        },
+        {
+          "question": "Tell me the current status listed on record REC-0001.",
+          "supported": true,
+          "kind": "supported_answer",
+          "diagnostic": "supported"
+        },
+        {
+          "question": "For record REC-0001, which current status is explicitly stated?",
+          "supported": true,
+          "kind": "supported_answer",
+          "diagnostic": "supported"
+        },
+        {
+          "question": "Looking only at REC-0001, identify the current status recorded there.",
+          "supported": true,
+          "kind": "supported_answer",
+          "diagnostic": "supported"
+        },
+        {
+          "question": "Could you give me REC-0001's current status?",
+          "supported": true,
+          "kind": "supported_answer",
+          "diagnostic": "supported"
+        },
+        {
+          "question": "Please find REC-0001 and report its current status.",
+          "supported": true,
+          "kind": "supported_answer",
+          "diagnostic": "supported"
+        },
+        {
+          "question": "What is the relation type for record REC-0001?",
+          "supported": true,
+          "kind": "supported_answer",
+          "diagnostic": "supported"
+        },
+        {
+          "question": "Tell me the relation type listed on record REC-0001.",
+          "supported": true,
+          "kind": "supported_answer",
+          "diagnostic": "supported"
+        },
+        {
+          "question": "For record REC-0001, which relation type is explicitly stated?",
+          "supported": true,
+          "kind": "supported_answer",
+          "diagnostic": "supported"
+        },
+        {
+          "question": "Looking only at REC-0001, identify the relation type recorded there.",
+          "supported": true,
+          "kind": "supported_answer",
+          "diagnostic": "supported"
+        },
+        {
+          "question": "Could you give me REC-0001's relation type?",
+          "supported": true,
+          "kind": "supported_answer",
+          "diagnostic": "supported"
+        },
+        {
+          "question": "Please find REC-0001 and report its relation type.",
+          "supported": true,
+          "kind": "supported_answer",
+          "diagnostic": "supported"
+        },
+        {
+          "question": "What is the to object for record REC-0001?",
+          "supported": true,
+          "kind": "supported_answer",
+          "diagnostic": "supported"
+        },
+        {
+          "question": "Tell me the to object listed on record REC-0001.",
+          "supported": true,
+          "kind": "supported_answer",
+          "diagnostic": "supported"
+        },
+        {
+          "question": "For record REC-0001, which to object is explicitly stated?",
+          "supported": true,
+          "kind": "supported_answer",
+          "diagnostic": "supported"
+        },
+        {
+          "question": "Looking only at REC-0001, identify the to object recorded there.",
+          "supported": true,
+          "kind": "supported_answer",
+          "diagnostic": "supported"
+        },
+        {
+          "question": "Could you give me REC-0001's to object?",
+          "supported": true,
+          "kind": "supported_answer",
+          "diagnostic": "supported"
+        },
+        {
+          "question": "Please find REC-0001 and report its to object.",
+          "supported": true,
+          "kind": "supported_answer",
+          "diagnostic": "supported"
+        }
+      ],
+      "exact_supported": 150,
+      "exact_tested": 150,
+      "paraphrase_supported": 750,
+      "paraphrase_tested": 750
+    },
+    "candidate_after_extension": {
+      "counts": {
+        "form0_tested": 150,
+        "form0_supported": 150,
+        "form0_errors": 0,
+        "form1_tested": 150,
+        "form1_supported": 150,
+        "form1_errors": 0,
+        "form2_tested": 150,
+        "form2_supported": 150,
+        "form2_errors": 0,
+        "form3_tested": 150,
+        "form3_supported": 150,
+        "form3_errors": 0,
+        "form4_tested": 150,
+        "form4_supported": 150,
+        "form4_errors": 0,
+        "form5_tested": 150,
+        "form5_supported": 150,
+        "form5_errors": 0,
+        "nonexistent_tested": 50,
+        "nonexistent_rejected": 50,
+        "missing_field_tested": 50,
+        "missing_field_rejected": 50,
+        "external_tested": 50,
+        "external_rejected": 50,
+        "identity_tested": 50,
+        "identity_rejected": 50
+      },
+      "examples": [
+        {
+          "question": "What is the current status for record REC-0001?",
+          "supported": true,
+          "kind": "supported_answer",
+          "diagnostic": "supported"
+        },
+        {
+          "question": "Tell me the current status listed on record REC-0001.",
+          "supported": true,
+          "kind": "supported_answer",
+          "diagnostic": "supported"
+        },
+        {
+          "question": "For record REC-0001, which current status is explicitly stated?",
+          "supported": true,
+          "kind": "supported_answer",
+          "diagnostic": "supported"
+        },
+        {
+          "question": "Looking only at REC-0001, identify the current status recorded there.",
+          "supported": true,
+          "kind": "supported_answer",
+          "diagnostic": "supported"
+        },
+        {
+          "question": "Could you give me REC-0001's current status?",
+          "supported": true,
+          "kind": "supported_answer",
+          "diagnostic": "supported"
+        },
+        {
+          "question": "Please find REC-0001 and report its current status.",
+          "supported": true,
+          "kind": "supported_answer",
+          "diagnostic": "supported"
+        },
+        {
+          "question": "What is the relation type for record REC-0001?",
+          "supported": true,
+          "kind": "supported_answer",
+          "diagnostic": "supported"
+        },
+        {
+          "question": "Tell me the relation type listed on record REC-0001.",
+          "supported": true,
+          "kind": "supported_answer",
+          "diagnostic": "supported"
+        },
+        {
+          "question": "For record REC-0001, which relation type is explicitly stated?",
+          "supported": true,
+          "kind": "supported_answer",
+          "diagnostic": "supported"
+        },
+        {
+          "question": "Looking only at REC-0001, identify the relation type recorded there.",
+          "supported": true,
+          "kind": "supported_answer",
+          "diagnostic": "supported"
+        },
+        {
+          "question": "Could you give me REC-0001's relation type?",
+          "supported": true,
+          "kind": "supported_answer",
+          "diagnostic": "supported"
+        },
+        {
+          "question": "Please find REC-0001 and report its relation type.",
+          "supported": true,
+          "kind": "supported_answer",
+          "diagnostic": "supported"
+        },
+        {
+          "question": "What is the to object for record REC-0001?",
+          "supported": true,
+          "kind": "supported_answer",
+          "diagnostic": "supported"
+        },
+        {
+          "question": "Tell me the to object listed on record REC-0001.",
+          "supported": true,
+          "kind": "supported_answer",
+          "diagnostic": "supported"
+        },
+        {
+          "question": "For record REC-0001, which to object is explicitly stated?",
+          "supported": true,
+          "kind": "supported_answer",
+          "diagnostic": "supported"
+        },
+        {
+          "question": "Looking only at REC-0001, identify the to object recorded there.",
+          "supported": true,
+          "kind": "supported_answer",
+          "diagnostic": "supported"
+        },
+        {
+          "question": "Could you give me REC-0001's to object?",
+          "supported": true,
+          "kind": "supported_answer",
+          "diagnostic": "supported"
+        },
+        {
+          "question": "Please find REC-0001 and report its to object.",
+          "supported": true,
+          "kind": "supported_answer",
+          "diagnostic": "supported"
+        }
+      ],
+      "exact_supported": 150,
+      "exact_tested": 150,
+      "paraphrase_supported": 750,
+      "paraphrase_tested": 750
+    }
+  },
+  "exact_eligible_citations_per_revision": 900,
+  "incorrect_supported": 0,
+  "lost_valid_support": 0,
+  "archive_sha256": "8369fe4250b4461a5fa8bd428ab4e80ae2dec30586ddc33d2b34459fd0828674",
+  "scope": "Published already-consumed external benchmark; regression evidence, not unseen transfer, independent historical accuracy or pooled accuracy.",
+  "host_invocation_error": "First extra evaluator labeled main imported C5 from its working directory. Retained as host-mislabeled-c5-evaluation; no main result credited. Corrected pinned invocation separately retained.",
+  "classification": "The old README and pipeline promise bounded finite proof behavior, not arbitrary paraphrase coverage. The 750 old paraphrase misses are coverage gaps against that documented scope; expanding those forms is a feature request. Canonical/negative behavior is a regression contract. These classifications do not alter any expected answer or old failed measurement."
+}

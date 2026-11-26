@@ -1,0 +1,439 @@
+{
+  "baseline_commit": "b1a31fa987c51fa9902bf46911e6d3da8b792211",
+  "released_main": "c01021c0b9983f9a607fbe782dea7ed5872d1f11",
+  "falsifiable_mechanism": "Whole-question relation and argument binding rejects structurally different ownership, classification, opening-time and instruction requests even when the source-matched canonical request is answerable. Extending syntax must not change provenance, eligibility, memory, evidence admission or original-question obligations.",
+  "baseline_counts": {
+    "main": {
+      "answer_cases": 32,
+      "refuse_cases": 108,
+      "correct_complete_answers": 4,
+      "false_alarms": 0,
+      "E": 0.125,
+      "F": 0.0,
+      "E_lower_bound": 0.125,
+      "E_output": 0.125,
+      "false_alarm_observed_on_completed": 0.0,
+      "over_refusals": 28,
+      "appropriate_refusals": 108,
+      "execution_failures": 0,
+      "unscored_supported": 0,
+      "complete_decision_match": false,
+      "historical_accuracy": null,
+      "independent_semantic_review": "NOT RUN",
+      "caution": "Typed source propositions or exact field sets with independently rechecked quotation anchors; unknown semantic shapes remain unscored. Known-error authored development templates, not independent review.",
+      "outcomes": {
+        "detected_answer": 4,
+        "appropriate_refusal": 108,
+        "over_refusal": 28
+      },
+      "by_family": {
+        "classification": {
+          "cases": 35,
+          "outcomes": {
+            "detected_answer": 2,
+            "appropriate_refusal": 27,
+            "over_refusal": 6
+          }
+        },
+        "instruction": {
+          "cases": 35,
+          "outcomes": {
+            "over_refusal": 8,
+            "appropriate_refusal": 27
+          }
+        },
+        "opening": {
+          "cases": 35,
+          "outcomes": {
+            "over_refusal": 8,
+            "appropriate_refusal": 27
+          }
+        },
+        "ownership": {
+          "cases": 35,
+          "outcomes": {
+            "detected_answer": 2,
+            "appropriate_refusal": 27,
+            "over_refusal": 6
+          }
+        }
+      },
+      "retrieval": {
+        "native_facets": {
+          "recall_at_1": {
+            "mean": 1.0,
+            "cases": 32
+          },
+          "recall_at_5": {
+            "mean": 1.0,
+            "cases": 32
+          },
+          "recall_at_10": {
+            "mean": 1.0,
+            "cases": 32
+          },
+          "complete_statement_coverage": {
+            "mean": 1.0,
+            "cases": 32
+          }
+        },
+        "simple_bm25": {
+          "recall_at_1": {
+            "mean": 1.0,
+            "cases": 32
+          },
+          "recall_at_5": {
+            "mean": 1.0,
+            "cases": 32
+          },
+          "recall_at_10": {
+            "mean": 1.0,
+            "cases": 32
+          },
+          "complete_statement_coverage": {
+            "mean": 1.0,
+            "cases": 32
+          }
+        }
+      },
+      "resources": {
+        "cpu_seconds": 23.672147701,
+        "wall_seconds": 23.765672973037,
+        "explicit_original_read_calls": 172,
+        "explicit_original_bytes_read": 7482,
+        "peak_worker_rss_bytes": 24162304,
+        "measured_cases": 140,
+        "total_pipeline_source_bytes_read": null,
+        "human_review_seconds": null
+      },
+      "by_feature": {
+        "question_form": {
+          "canonical": {
+            "cases": 24,
+            "outcomes": {
+              "detected_answer": 4,
+              "appropriate_refusal": 18,
+              "over_refusal": 2
+            }
+          },
+          "ordinary-1": {
+            "cases": 24,
+            "outcomes": {
+              "over_refusal": 6,
+              "appropriate_refusal": 18
+            }
+          },
+          "ordinary-2": {
+            "cases": 24,
+            "outcomes": {
+              "over_refusal": 6,
+              "appropriate_refusal": 18
+            }
+          },
+          "ordinary-3": {
+            "cases": 24,
+            "outcomes": {
+              "over_refusal": 6,
+              "appropriate_refusal": 18
+            }
+          },
+          "unsupported-extra": {
+            "cases": 9,
+            "outcomes": {
+              "appropriate_refusal": 9
+            }
+          }
+        },
+        "field": {
+          "classification": {
+            "cases": 35,
+            "outcomes": {
+              "detected_answer": 2,
+              "appropriate_refusal": 27,
+              "over_refusal": 6
+            }
+          },
+          "opening": {
+            "cases": 35,
+            "outcomes": {
+              "over_refusal": 8,
+              "appropriate_refusal": 27
+            }
+          },
+          "ownership": {
+            "cases": 35,
+            "outcomes": {
+              "detected_answer": 2,
+              "appropriate_refusal": 27,
+              "over_refusal": 6
+            }
+          }
+        },
+        "line_ending": {
+          "LF": {
+            "cases": 105,
+            "outcomes": {
+              "detected_answer": 4,
+              "appropriate_refusal": 81,
+              "over_refusal": 20
+            }
+          }
+        },
+        "fence": {
+          "lines": {
+            "cases": 57,
+            "outcomes": {
+              "detected_answer": 2,
+              "appropriate_refusal": 45,
+              "over_refusal": 10
+            }
+          },
+          "paragraphs": {
+            "cases": 48,
+            "outcomes": {
+              "detected_answer": 2,
+              "appropriate_refusal": 36,
+              "over_refusal": 10
+            }
+          }
+        },
+        "source_count": {
+          "1": {
+            "cases": 81,
+            "outcomes": {
+              "detected_answer": 4,
+              "appropriate_refusal": 57,
+              "over_refusal": 20
+            }
+          },
+          "2": {
+            "cases": 24,
+            "outcomes": {
+              "appropriate_refusal": 24
+            }
+          }
+        }
+      }
+    },
+    "c5": {
+      "answer_cases": 32,
+      "refuse_cases": 108,
+      "correct_complete_answers": 12,
+      "false_alarms": 0,
+      "E": 0.375,
+      "F": 0.0,
+      "E_lower_bound": 0.375,
+      "E_output": 0.375,
+      "false_alarm_observed_on_completed": 0.0,
+      "over_refusals": 20,
+      "appropriate_refusals": 108,
+      "execution_failures": 0,
+      "unscored_supported": 0,
+      "complete_decision_match": false,
+      "historical_accuracy": null,
+      "independent_semantic_review": "NOT RUN",
+      "caution": "Typed source propositions or exact field sets with independently rechecked quotation anchors; unknown semantic shapes remain unscored. Known-error authored development templates, not independent review.",
+      "outcomes": {
+        "detected_answer": 12,
+        "appropriate_refusal": 108,
+        "over_refusal": 20
+      },
+      "by_family": {
+        "classification": {
+          "cases": 35,
+          "outcomes": {
+            "detected_answer": 4,
+            "appropriate_refusal": 27,
+            "over_refusal": 4
+          }
+        },
+        "instruction": {
+          "cases": 35,
+          "outcomes": {
+            "detected_answer": 4,
+            "appropriate_refusal": 27,
+            "over_refusal": 4
+          }
+        },
+        "opening": {
+          "cases": 35,
+          "outcomes": {
+            "detected_answer": 2,
+            "appropriate_refusal": 27,
+            "over_refusal": 6
+          }
+        },
+        "ownership": {
+          "cases": 35,
+          "outcomes": {
+            "detected_answer": 2,
+            "appropriate_refusal": 27,
+            "over_refusal": 6
+          }
+        }
+      },
+      "retrieval": {
+        "native_facets": {
+          "recall_at_1": {
+            "mean": 1.0,
+            "cases": 32
+          },
+          "recall_at_5": {
+            "mean": 1.0,
+            "cases": 32
+          },
+          "recall_at_10": {
+            "mean": 1.0,
+            "cases": 32
+          },
+          "complete_statement_coverage": {
+            "mean": 1.0,
+            "cases": 32
+          }
+        },
+        "simple_bm25": {
+          "recall_at_1": {
+            "mean": 1.0,
+            "cases": 32
+          },
+          "recall_at_5": {
+            "mean": 1.0,
+            "cases": 32
+          },
+          "recall_at_10": {
+            "mean": 1.0,
+            "cases": 32
+          },
+          "complete_statement_coverage": {
+            "mean": 1.0,
+            "cases": 32
+          }
+        }
+      },
+      "resources": {
+        "cpu_seconds": 27.029970019,
+        "wall_seconds": 27.12336092289479,
+        "explicit_original_read_calls": 172,
+        "explicit_original_bytes_read": 7482,
+        "peak_worker_rss_bytes": 24354816,
+        "measured_cases": 140,
+        "total_pipeline_source_bytes_read": null,
+        "human_review_seconds": null
+      },
+      "by_feature": {
+        "question_form": {
+          "canonical": {
+            "cases": 24,
+            "outcomes": {
+              "detected_answer": 6,
+              "appropriate_refusal": 18
+            }
+          },
+          "ordinary-1": {
+            "cases": 24,
+            "outcomes": {
+              "over_refusal": 6,
+              "appropriate_refusal": 18
+            }
+          },
+          "ordinary-2": {
+            "cases": 24,
+            "outcomes": {
+              "over_refusal": 6,
+              "appropriate_refusal": 18
+            }
+          },
+          "ordinary-3": {
+            "cases": 24,
+            "outcomes": {
+              "over_refusal": 4,
+              "appropriate_refusal": 18,
+              "detected_answer": 2
+            }
+          },
+          "unsupported-extra": {
+            "cases": 9,
+            "outcomes": {
+              "appropriate_refusal": 9
+            }
+          }
+        },
+        "field": {
+          "classification": {
+            "cases": 35,
+            "outcomes": {
+              "detected_answer": 4,
+              "appropriate_refusal": 27,
+              "over_refusal": 4
+            }
+          },
+          "opening": {
+            "cases": 35,
+            "outcomes": {
+              "detected_answer": 2,
+              "appropriate_refusal": 27,
+              "over_refusal": 6
+            }
+          },
+          "ownership": {
+            "cases": 35,
+            "outcomes": {
+              "detected_answer": 2,
+              "appropriate_refusal": 27,
+              "over_refusal": 6
+            }
+          }
+        },
+        "line_ending": {
+          "LF": {
+            "cases": 105,
+            "outcomes": {
+              "detected_answer": 8,
+              "appropriate_refusal": 81,
+              "over_refusal": 16
+            }
+          }
+        },
+        "fence": {
+          "lines": {
+            "cases": 57,
+            "outcomes": {
+              "detected_answer": 4,
+              "appropriate_refusal": 45,
+              "over_refusal": 8
+            }
+          },
+          "paragraphs": {
+            "cases": 48,
+            "outcomes": {
+              "detected_answer": 4,
+              "appropriate_refusal": 36,
+              "over_refusal": 8
+            }
+          }
+        },
+        "source_count": {
+          "1": {
+            "cases": 81,
+            "outcomes": {
+              "detected_answer": 8,
+              "appropriate_refusal": 57,
+              "over_refusal": 16
+            }
+          },
+          "2": {
+            "cases": 24,
+            "outcomes": {
+              "appropriate_refusal": 24
+            }
+          }
+        }
+      }
+    }
+  },
+  "archive_sha256": "5de9f7b83334f00f1954339a6104fbe44a48bd1f791d2779f958b95103f2a925",
+  "worker_sha256": "72de8f12be85663e863db3914c083cd9040b6d3750d38b6d27bf2734b502c294",
+  "runner_sha256": "c00a306599583aef07de9fbdfb904e1f882b938a3f1ba2b2eba758d3938aaed6",
+  "scorer_sha256": "dfd664a039d0878a6e11d0ff5314be0e95b865610b07f44b11f3118f74f433ed",
+  "fresh_opened": false
+}

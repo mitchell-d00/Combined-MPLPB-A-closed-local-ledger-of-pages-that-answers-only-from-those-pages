@@ -26,6 +26,14 @@ def normalize(text):
 
 
 def parse(question):
+    from .ordinary_questions import request
+    proposal=request(question)
+    # A complete opening-time request is more specific than generic "what is".
+    # Retain the original question on the index; this only proposes a relation.
+    if proposal and proposal['kind']=='opening_time':
+        entity=normalize(proposal['entity']);e=re.escape(entity)
+        return QuestionFrame('opening_time',entity,'when does '+entity+' open',
+                             rf'(?:the )?{e} opens at (?P<value>.+)',rf'(?:the )?{e} does not open at (?P<value>.+)')
     q = normalize(question)
     q = re.sub(r'^(?:please |can you |could you )', '', q)
     # These modifiers are not licensed by this finite grammar. Do not remove them.
@@ -58,8 +66,6 @@ def parse(question):
         if re.search(r'[;?!."“”]', entity): return None
         return QuestionFrame(relation, entity, canonical.format(e=entity),
                              statement.format(e=re.escape(entity)), negative.format(e=re.escape(entity)))
-    from .ordinary_questions import request
-    proposal=request(question)
     if proposal and proposal['kind'] in {'owner','description','opening_time'}:
         relation=proposal['kind'];entity=normalize(proposal['entity']);e=re.escape(entity)
         if relation=='owner':

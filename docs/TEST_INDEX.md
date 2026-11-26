@@ -291,3 +291,27 @@ and are counted separately. Tag, layout, API and infrastructure checks add zero
 to wording gains. [Raw canonical diagnostic and versioned tag assessment](../evaluation/cryptid/bunyip/final-review/wording-diagnostic-first-two.json).
 The78canonical executions are post-run mechanism diagnostics, not extra recovered
 questions or independent transfer. All original scores/misses remain unchanged.
+
+
+### Bunyip D% / Dice Bag / D20 extension
+
+[Current paired-question study](../evaluation/cryptid/bunyip/dpercent/README.md)
+uses the unchanged D% worker/runner, Dice Bag custody/replay, and D20 matched
+unique/competing/missing/retired conditions. Stable IDs CRYPT-BUNYIP-DP-D0001…
+are mapped to source hashes, original questions, keys and raw outputs in the
+sealed development packet and candidate source audit. Development positives
+4/32(main)→12/32(C5)→32/32(C6);108/108 controls withheld throughout. C6 adds
+10 unique original question strings/20 executions over C5; no lost support,
+unsupported additions or bad citations. Fresh packet is sealed until candidate
+freeze; custody is same-operator, separately written structures, not independence.
+Primary owner Testing and Evaluation; protected Reader and Ledger.
+
+### Bunyip BB — Ben Gelhaus external adversarial benchmark
+
+[Unchanged external package and matched regression](../evaluation/cryptid/bunyip/bb/README.md):
+150 canonical +750 paraphrase positives,200 negative controls. Released main
+and current candidate each preserve900 correct answers/900 checked eligible
+citations and200withholds. Ben authored benchmark/analysis; Mitchell authored
+MPLPB. Published consumed regression, not unseen transfer; never pooled with
+generated Bunyip results. Contract failure, coverage gap and feature request
+are classified against the exact tested revision without changing expectations.

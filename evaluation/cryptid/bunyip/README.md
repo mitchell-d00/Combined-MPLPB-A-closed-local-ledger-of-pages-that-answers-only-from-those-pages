@@ -167,3 +167,27 @@ The complete1885-test native suite and all required exact-head software gates
 must pass in protected CI before merge; the failed C4 full run is never relabelled
 as a local C5 pass. Final live publication/deployment state belongs in PR105's
 head-pinned Betty report. All unperformed independent/human/OOCC labels remain NOT_RUN.
+
+
+## Current extension: ordinary questions remain the target
+
+The [D% extension](dpercent/README.md) reuses the existing isolated worker, Dice
+Bag custody and D20 matched controls. Current development32/32positives versus
+12/32before this extension,108withholds,zero unsupported additions/lost valid
+support/citation errors. This is10new original question strings/20executions.
+All849old contracts are exact. Fresh separately written packet is pending the
+committed ZIP freeze. Canonical rewrites and revealed-confirmation proof are
+separate diagnostics, never recovered original questions.
+
+The C5 sealed16has now completed14/16decisions:6/8positive,8withholds,zero false
+flags. Original once-only42/24/16packet outcomes remain36/42,20/24,14/16. C6's
+consumed replays are40/42,22/24,14/16; those improvements are development, not
+new transfer. Two opening-hours policy disagreements, two catalogue-preamble
+field misses and two object-free instruction questions remain unresolved.
+The raw C5final16and post-run diagnostic are retained in final-review.
+
+[Bunyip BB](bb/README.md) separately preserves Ben Gelhaus's unchanged external
+900positive/200negative benchmark. No historical accuracy claim or pooled score.
+Broader wording is the primary goal; tags/layout/infrastructure are separate.
+Existing coverage gaps can remain backlog under incremental release criteria;
+lost valid support and newly unsupported claims require investigation.

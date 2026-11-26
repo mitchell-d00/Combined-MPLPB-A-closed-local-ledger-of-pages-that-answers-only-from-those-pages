@@ -1,0 +1,21 @@
+{
+  "positive_executions": 32,
+  "baseline_c5_positive_successes": 12,
+  "candidate_positive_successes": 32,
+  "unique_new_original_question_strings_vs_c5": 10,
+  "new_original_question_executions_vs_c5": 20,
+  "contrasting_requests": 108,
+  "withheld": 108,
+  "unsupported_additions": 0,
+  "lost_valid_support": 0,
+  "source_audit": "candidate-source-audit.json",
+  "memory_provenance_admission_preservation": "849/849 exact answer contracts vs current PR;825unique earlier input pairs. Main\u2019s four old invented header-fused author completions are not valid support and remain separately classified.",
+  "fresh_status": "Sealed, NOT_RUN until committed candidate freeze",
+  "native_files_changed": [
+    "mplpb_answers/ordinary_questions.py",
+    "mplpb_answers/frames.py"
+  ],
+  "runner": "Unchanged tools/dpercent.py + tools/dpercent_worker.py",
+  "scorer": "Unchanged tools/dpercent_expanded.py; original base scores retained",
+  "candidate_commit": "Assigned by following committed freeze; runtime pins in raw run.json bind tested code."
+}

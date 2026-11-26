@@ -4,8 +4,8 @@ Last reviewed: 2026-11-26.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `d0a790b0e331515f55cad8ea70d4c0a8e5e499c7` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `0b123d775f346c08c187b6443b8e57b30d43b0ceab73c88672fe388bd8c7de85`.
+Base commit: `b1a31fa987c51fa9902bf46911e6d3da8b792211` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `0385fe28cf96c07b32c78d8423a390a0d907a04d61c58bc7593ecad91c7fb8a3`.
 
 ## Betty report for Al
 
@@ -17,12 +17,14 @@ Betty — prioritize broader ordinary-language understanding. Work locally first
 
 Make broader language generalization the primary development goal. Preserve existing memory, provenance and admission behavior as regression requirements. Measure newly answerable wording on fresh cases, alongside lost support and unsupported claims. Report those gains separately from improvements to tags, layout or test infrastructure.
 
+Extend Bunyip using the existing D% worker, Dice Bag custody/replay procedure and D20 matched controls. Do not build another parallel harness. Keep the original question as the scored target. Canonical rewrites, synonym lookup and proof after revealed confirmation are separate diagnostics. Name the external arm “Bunyip BB — Ben Gelhaus external adversarial benchmark.” Preserve Ben’s released package, questions and original results unchanged;900answerable150canonical750paraphrases and200negative controls. Classify contract failure, coverage gap and feature request against the exact tested revision. Existing coverage gaps may remain documented backlog under incremental release criteria; investigate lost valid support and newly unsupported claims. Record the tool-approval rejection separately from reader results and continue permitted work.
+
 ### Implemented scope
 
-- Primary development goal: broader ordinary-language generalization. Fresh wording gains must be separated from source/proof-operation reach, tag/layout changes and test infrastructure; memory/provenance/admission remain regression gates. Canonical-source diagnostic attribution is post-run, source-matched and not fresh/independent evidence.
-- C5 compatibility repair makes optional title metadata safe for existing body-only imports; no answer-coverage gain from this fix. Broader ordinary-language gains remain primary16→56/60 versusPR105 (20unique recoveredquestions).
-- C5local development154/158andall849priorcontracts exactly preserved. Bothconsumedpacketsretain original36/42and20/24scores. New16sealedbeforeC5codepatch; openonlyaftercommittedZIPfreeze.
-- RootREADME131lines, exact verifiedplain-text --body quickstart+expectedoutput/citationpath. Threeentryareas/sevendepartments mapped; legacyanchors restored; input/source paths andhumanfrozenarms unchanged.
+- Broader ordinary language is primary. D%extension reuses unchanged worker/runner/scorer, Dice Bag custody and D20 matched controls; no parallel execution harness. Original questions are scored; canonical probes/revealed proof are diagnostics.
+- C6 general relation-binding syntax extends ownership, category, opening-time and instruction wording; eligible source proof, full original-question policy, memory/provenance/admission remain required.
+- Bunyip BB separately preserves Ben Gelhaus’s unchanged external benchmark/analysis and credits Mitchell’s implementation; original expectations and measurements unchanged.
+- README131lines with clean-verified plain-text input/commands/output; three entry areas and seven departments mapped; human trial unchanged NOT_RUN.
 
 ### Validation recorded
 
@@ -43,18 +45,22 @@ Make broader language generalization the primary development goal. Preserve exis
 - C5frozen2APIcontrolsoriginal2errors; affected22testsPASS. C5development158andconsumed66executionscomplete, originalkeys unchanged; zerofalseflags, remainingmissespreserved. C5prior849exactcontractmatches.
 - AllC4rawoutputs losslesslyretained:Zstandardreferenceencoding reconstructsexactoriginalTARSHA777ca5eebabc4a01dcabfbc31dd4c8d9c5c6deec58fd1a15452de36127a9eaec. Originalcontainerandreceiptretained.
 - Primaryfresh-languageattribution(firsttwoonce-onlypackets):11uniquequestionstrings/22pairedexecutions newlysource-supportedversusreleasedmain onbaselinecanonical-supported sources;PR10514strings/28executions. Eightothersource/proof-operationreach successesversusmainreportedseparately.78canonicaldiagnosticexecutionspost-runnotadditionalgains. Originaldiagnosticv1missing-tagrequirementretained;sourcecheckedv2separate,originalreaderscoresunchanged.
+- D%development main4/32,C5 12/32,C6 32/32positive;108withholds throughout.20new original-question executions/10distinct strings vsC5. Every claim/citation/source scope audited;zero unsupported additions,zero lost valid support.
+- C6 849/849prior answer contracts exactly match PR105; full native exact-headCI still required.56focused parser/policy/reporting/isolation tests pass.
+- Bunyip BB unchanged packageSHAf4d1c8263dbb8dcf9f7ddbc9fc85be5d005864db4c74fce1a93cda1bb4865718. Main/C6each150/150canonical,750/750paraphrase,200/200negative;900exact eligible citations reread each. No new coverage claimed from preservation.
+- C5once-only16:14/16,6/8positive,8withholds,zero false flags. C6consumed42/24/16replays40/42,22/24,14/16; original once-only36/42,20/24,14/16unchanged.
+- Auto-review denied broad scratch cleanup; NOT_EXECUTED,zero reader executions. Later explicit duplicate-only alternative verified2452files identical to retained tracked evidence; no frozen/unique output removed.
 
 ### Limitations and blocked checks
 
-- Final C5full1885native andrequiredexact-headremotechecksarepending; do not calltheearlierfailedC4fullrun alocalC5pass. PublishreviewedsourcefornormalCIthenmergeonlyafterallrequiredgatespass.
-- Fourdevelopmentmisses; first42sixmisses;second24fourmisses. Originalautomatedstagesandscoresunchanged, separatemechanism/policyassessmentsretained. Fresh16notopenedbeforeZIPfreeze.
-- Human/independenthistorical-semantic/preparation-blinding/outside-custodian/nativeOOCC remainNOT_RUN.
+- C6fresh D%packet sealed; open once only after committed full-source ZIP freeze. Same-operator authoring and visible templates; independent preparation/blinding/semantic/historical/outside-custodian/nativeOOCC and human execution NOT_RUN.
+- Full native/required exact-headremote checks pending; merge only after normal required gates pass. Existing coverage gaps retained, never relabelled or used to claim historical accuracy.
+- Original strict-key/failed packets/candidates and host preparation/invocation errors retained separately. Bunyip BB historical failures classified against old bounded contract, expectations unchanged.
 
 ### Next steps
 
-- Freeze final C5 committed ZIP, execute sealed16once, measure actual fresh wording/source-language gains and remaining misses without changing old inputs/keys.
-- Use matched canonical-source probes to separate newly answered wording from newly admitted proof/source operations; these diagnostic repetitions are not extra recovered questions.
-- Preserve memory, provenance, admission, qualifications/citations and all prior valid claims. Publish verified incremental gains and evidence toexistingPR105, run fullrequiredexactheadCI including1885native, mergeonlynormalprotectedworkflowaftergatespass, verifydeployedfingerprints.
+- Freeze committed C6ZIP, run fresh separately written D%packet once using unchanged worker and retain matched original-question baselines, remaining misses and source audits.
+- Publish evidence-only final report on existingPR105 after local review; run all required exact-head remote checks including full native, normal protected merge only after pass, verifydeployment/sourcefingerprints. No repeated authorization request.
 
 ## Use this ZIP in your repository
 

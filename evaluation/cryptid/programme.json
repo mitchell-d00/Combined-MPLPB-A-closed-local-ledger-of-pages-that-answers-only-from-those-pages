@@ -1,7 +1,7 @@
 {
   "schema": "cryptid-programme-v1",
   "baseline_commit": "c01021c0b9983f9a607fbe782dea7ed5872d1f11",
-  "publication": "BUNYIP_C5_LOCAL; PUBLICATION_AND_NORMAL_PROTECTED_MERGE_AUTHORIZED_AFTER_VERIFIED_GAINS_AND_GATES",
+  "publication": "BUNYIP_C6_LOCAL; NORMAL_PROTECTED_PUBLICATION_AUTHORIZED_AFTER_VERIFIED_GAINS_AND_REQUIRED_GATES",
   "operator": "Betty, same operator for preparation/implementation/scoring",
   "independent_historical_accuracy": "NOT_RUN",
   "independent_semantic_adjudication": "NOT_RUN",
@@ -627,7 +627,7 @@
       "family": "BUNYIP",
       "id_prefix": "CRYPT-BUNYIP",
       "mechanism": "Ordinary language loses relation arguments before proof; source shape and governor/reporting layers require distinct checks.",
-      "status": "C5_LOCAL_VERIFIED_FRESH16_SEALED",
+      "status": "C6_DEVELOPMENT_VERIFIED_FRESH_DP_SEALED",
       "responsible_department": "testing-evaluation",
       "implementation_departments": [
         "reader",
@@ -651,13 +651,23 @@
         "first_packet": "bunyip/final-review/fresh-transfer-once-score.json",
         "first_decisions": "36/42 unchanged;22/28positives;14withholds;zero false-support flags;6positive misses",
         "first_now_consumed": true,
-        "fresh_packet": "bunyip/fresh3/transfer-seal.json",
-        "fresh_status": "SEALED_UNOPENED",
+        "fresh_packet": "bunyip/dpercent/fresh-seal.json",
+        "fresh_status": "C5packet consumed; new D%packet SEALED_NOT_RUN",
         "custody": "same-operator limited composition; independent preparation/blinding NOT_RUN",
         "second_decisions": "20/24;8/12positive;12withholds;zero false flags;4misses",
-        "second_now_consumed": true
+        "second_now_consumed": true,
+        "third_decisions": "14/16;6/8positive,8withholds,0false flags; original once-only score retained"
       },
-      "remaining_misses": "Four explicit field-of-ID wordings fail proof; no relabeling."
+      "remaining_misses": "Four explicit field-of-ID wordings fail proof; no relabeling.",
+      "dpercent_extension": {
+        "report": "bunyip/dpercent/README.md",
+        "development": "12/32\u219232/32positive,108withholds",
+        "unsupported_additions": 0,
+        "lost_valid_support": 0,
+        "prior_contracts_exact": 849,
+        "fresh_status": "SEALED_NOT_RUN",
+        "benchmark_arm": "bunyip/bb/README.md"
+      }
     }
   ],
   "gates": {

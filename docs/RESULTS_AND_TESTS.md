@@ -302,3 +302,10 @@ The first publication CI [bounded replay](../evaluation/bubble-wrap/2026-11-25/b
 [Source-linked proposals](../evaluation/source-tags/2026-11-25/README.md) are the next opt-in experiment:72already-supported raw development questions,zero answer recovery,15additional source-state/budget guards. Committed ZIP and fresh24transfer remain pending at this source snapshot. [Onboarding materials](../evaluation/onboarding/2026-11-25/README.md) are frozen and software-checked; twelve real users have NOT_RUN. [Seven departments](departments/README.md) organize existing paths without implementation moves.
 
 [Newcomer navigation](../evaluation/newcomer-navigation/README.md) retains the exact released-wheel quick start, citation/partial/ownership/ambiguity checks and two host-verifier failures. Human onboarding remains NOT_RUN. The [component map](COMPONENT_MAP.md) links the three entry areas and seven departments to the authoritative Test Index.
+
+
+[Bunyip original-question extension](../evaluation/cryptid/bunyip/dpercent/README.md)
+reuses D%, Dice Bag and D20; [Bunyip BB](../evaluation/cryptid/bunyip/bb/README.md)
+retains Ben Gelhaus’s separate external900positive/200negative benchmark.
+Source-checked wording gains, misses and preservation remain separate from tags,
+layout, infrastructure and exact-version contract classifications.

@@ -68,6 +68,48 @@
         "ledger",
         "applications",
         "delivery-operations"
+      ],
+      "subfamilies": [
+        {
+          "family": "cryptid-bunyip-dpercent",
+          "artifacts": "evaluation/cryptid/bunyip/dpercent",
+          "tests": [
+            "tests/test_ordinary_questions.py",
+            "tests/test_dpercent.py",
+            "tests/test_study_sandbox.py"
+          ],
+          "runners": [
+            "tools/dpercent.py",
+            "tools/dpercent_worker.py",
+            "tools/dpercent_expanded.py",
+            "tools/bunyip_dpercent_packets.py"
+          ],
+          "scope": "Original paired questions; same source and matched budgets. D% worker, Dice Bag custody, D20 matched conditions. No parallel harness.",
+          "measurement_status": "Development12/32\u219232/32positive,108withholds;20new executions/10unique strings vsC5.849prior contracts exact. Fresh NOT_RUN until committed ZIP freeze. Same-operator, not independent.",
+          "responsible_department": "testing-evaluation",
+          "implementation_departments": [
+            "reader",
+            "ledger"
+          ]
+        },
+        {
+          "family": "bunyip-bb",
+          "artifacts": "evaluation/cryptid/bunyip/bb",
+          "tests": [
+            "tests/test_field_question_forms.py"
+          ],
+          "runners": [
+            "tools/evaluate_field_questions.py",
+            "evaluation/field-question-normalization/2026-11-20/verify_citations.py"
+          ],
+          "scope": "Ben Gelhaus external adversarial benchmark, Mitchell implementation. Unchanged released package900answerable150canonical750paraphrase+200negative. Already consumed regression, not unseen transfer.",
+          "measurement_status": "Main and candidate900/900correct,200/200withholds,900/900exact eligible citations each. Original historical results unchanged. No new language gain or pooled accuracy.",
+          "responsible_department": "testing-evaluation",
+          "implementation_departments": [
+            "reader",
+            "ledger"
+          ]
+        }
       ]
     },
     {
