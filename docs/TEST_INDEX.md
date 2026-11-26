@@ -229,3 +229,7 @@ Final integration also retains [the rejected first full-ZIP attempt](../evaluati
 Testing and Evaluation owns [the final review package](../evaluation/cryptid/revision3/REVIEW_PACKAGE.md) and [case index](../evaluation/cryptid/revision3/final3/case-index.json). Reader owns reporting-layer compatibility and literal embedded polarity; Ledger retains current host eligibility. The source commit and full-ZIP checksum remain separate from the following publication/evidence head, whose CI explicitly verifies the submitted SHA.
 
 The once-only final packet is 19/24: five positive misses, zero false-support flags, two explicit budget stops. Original strict-key failures, original exact-comparison failures, all three final attempts, policy disagreements and rejected candidates remain linked. This is failed semantic acceptance even if remote command checks pass. No merge or deployment is allowed at this state. Human and independent evaluations remain NOT_RUN.
+
+## Bunyip ordinary-language variation
+
+[Current Bunyip protocol and baselines](../evaluation/cryptid/bunyip/README.md): CRYPT-BUNYIP-0001–0102, seven mechanisms, HTML/plain renderings, original keys and raw outputs. Testing and Evaluation owns scoring; Reader owns relation/argument-preserving interpretation. Forty-two transfer executions remain sealed. Incremental release requires audited gains and no regressions; coverage misses alone are not a release prohibition under Mitchell’s latest instruction.
